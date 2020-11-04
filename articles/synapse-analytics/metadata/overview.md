@@ -1,6 +1,6 @@
 ---
 title: Modell för delad metadata
-description: Med Azure Synapse Analytics kan olika beräknings motorer för arbets ytan dela databaser och tabeller mellan dess Spark-pooler (för hands version), SQL på begäran-motor (för hands version) och SQL-pooler.
+description: Med Azure Synapse Analytics kan olika beräknings motorer för arbets ytan dela databaser och tabeller mellan server lös Apache Spark pooler (för hands version), Server lös SQL-pool (för hands version) och dedikerade SQL-pooler.
 services: synapse-analytics
 author: MikeRys
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: c11a0ccb08f03775a07716e6c547d849cda347dd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 64c19f3331be8ffda433207da88ebf22c546ee4e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87387344"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324667"
 ---
 # <a name="azure-synapse-analytics-shared-metadata"></a>Delade Azure Synapse Analytics-metadata
 
-Med Azure Synapse Analytics kan olika beräknings motorer för arbets ytan dela databaser och tabeller mellan dess Spark-pooler (för hands version) och SQL på begäran-motor (för hands version).
+Med Azure Synapse Analytics kan olika beräknings motorer för arbets ytan dela databaser och tabeller mellan server lös Apache Spark pooler (för hands version) och Server lös SQL-pool (för hands version).
 
 [!INCLUDE [preview](../includes/note-preview.md)]
 
@@ -32,7 +32,7 @@ Den delade metadata-modellen stöder det moderna informations lagrets mönster p
 
 2. Spark skapade databaser och alla deras tabeller blir synliga i någon av instanserna i Azure Synapse-arbets ytan Spark-pool och kan användas från alla Spark-jobb. Den här funktionen omfattas av [behörigheterna](#security-model-at-a-glance) eftersom alla Spark-pooler i en arbets yta delar samma underliggande katalog-meta-arkiv.
 
-3. Spark-skapade databaser och deras Parquet tabeller blir synliga i arbets ytans SQL-motor på begäran. [Databaser](database.md) skapas automatiskt i SQL-metadata på begäran, och både de [externa och hanterade tabellerna](table.md) som skapas av ett Spark-jobb blir tillgängliga som externa tabeller i SQL on-demand-metadata i `dbo` schemat för motsvarande databas. 
+3. Spark-skapade databaser och deras Parquet tabeller blir synliga i SQL-poolen för arbets ytans Server. [Databaser](database.md) skapas automatiskt i SQL-poolens metadata för SQL-poolen och både de [externa och hanterade tabeller](table.md) som skapas av ett Spark-jobb blir tillgängliga som externa tabeller i SQL-poolens schema-metadata i `dbo` schemat för motsvarande databas. 
 
 <!--[INSERT PICTURE]-->
 
@@ -52,7 +52,7 @@ Mer information finns i den [delade Azure Synapse Analytics-databasen](database.
 
 ## <a name="change-maintenance"></a>Ändra underhåll
 
-Om ett metadataobjekt tas bort eller ändras med Spark, hämtas ändringarna och sprids till SQL-motorn på begäran. Synkroniseringen är asynkron och ändringar visas i SQL-motorn efter en kort fördröjning.
+Om ett metadataobjekt tas bort eller ändras med Spark, hämtas ändringarna och sprids sedan till den serverbaserade SQL-poolen. Synkroniseringen är asynkron och ändringar visas i SQL-motorn efter en kort fördröjning.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -12,12 +12,12 @@ ms.date: 09/14/2020
 ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: Translator, Translator-tjänst, översätta text, translittererad text, språk identifiering
-ms.openlocfilehash: 874b3379208f7f716dc421f9825ef6b4d823ff14
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 8250141c2baa92478c5929a300ec7b17b8ed7131
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287076"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322512"
 ---
 # <a name="quickstart-get-started-with-translator"></a>Snabb start: kom igång med Translator
 
@@ -29,7 +29,7 @@ I den här snabb starten lär du dig att använda Translator-tjänsten via REST.
 * [Beräkna menings längd](#get-sentence-length)
 * [Hämta alternativa översättningar](#dictionary-lookup-alternate-translations) och [exempel på användning av ord i en mening](#dictionary-examples-translations-in-context)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
 * När du har en Azure-prenumeration kan du [skapa en översättare-resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats väljer **du gå till resurs**.
@@ -105,7 +105,7 @@ När du anropar Translator-tjänsten via REST måste du se till att följande ru
   <th>Beskrivning</th>
   <tr>
     <td>Authentication-huvud (er)</td>
-    <td><em>Begär ande huvud för begäran</em>.<br/>Se <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">tillgängliga alternativ för autentisering</a>.</td>
+    <td><em>Begär ande huvud för begäran</em>.<br/><code>Ocp-Apim-Subscription-Key</code><br/><br/><em>Nödvändigt begär ande huvud om du använder en Cognitive Services-resurs. Valfritt om du använder en översättare-resurs.</em>.<br/><code>Ocp-Apim-Subscription-Region</code><br/><br/>Se <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">tillgängliga alternativ för autentisering</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>

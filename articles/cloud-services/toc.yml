@@ -12,6 +12,12 @@
       href: cloud-services-dotnet-get-started.md
     - name: Exempel på Python för Visual Studio-molntjänst
       href: cloud-services-python-ptvs.md
+- name: Begrepp
+  items:
+    - name: Säkerhet
+      items:
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
 - name: Gör så här för att
   items:
     - name: Planera

@@ -9,12 +9,12 @@ ms.custom: devx-track-python
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: d356bd43e5e09dfce96a801732e79d2efe8c08bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9da757e47308fe0fe1a96958e464b440d99f0984
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440345"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324726"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Referens: Ubuntu (Linux) Data Science Virtual Machine
 
@@ -97,7 +97,7 @@ Det finns också ett R-skript som du kan använda för att installera de [högst
 
 ## <a name="python"></a>Python
 
-Anaconda python installeras med python 2,7 och 3,5-miljöer. 2,7-miljön kallas _rot_och 3,5-miljön kallas _py35_. Den här distributionen innehåller bas python tillsammans med cirka 300 av de mest populära matematik-, teknik-och data analys paketen.
+Anaconda python installeras med python 2,7 och 3,5-miljöer. 2,7-miljön kallas _rot_ och 3,5-miljön kallas _py35_. Den här distributionen innehåller bas python tillsammans med cirka 300 av de mest populära matematik-, teknik-och data analys paketen.
 
 Py35-miljön är standard. Använd följande kommando för att aktivera rot miljön (2,7):
 
@@ -148,7 +148,7 @@ Du kan komma åt Jupyter Notebook-servern från vilken värd som helst. Ange **h
 > [!NOTE]
 > Port 8000 öppnas i brand väggen som standard när den virtuella datorn är etablerad. 
 
-Vi har paketerade exempel antecknings böcker – en i python och en i R. Du kan se länken till exemplen på hem sidan för antecknings boken när du har autentiserat dig för Jupyter Notebook genom att använda ditt lokala Linux-användarnamn och lösen ord. Du kan skapa en ny antecknings bok genom att välja **ny**och sedan välja den aktuella språk kärnan. Om du inte ser knappen **nytt** väljer du ikonen **Jupyter** längst upp till vänster för att gå till hem sidan för notebook-servern.
+Vi har paketerade exempel antecknings böcker – en i python och en i R. Du kan se länken till exemplen på hem sidan för antecknings boken när du har autentiserat dig för Jupyter Notebook genom att använda ditt lokala Linux-användarnamn och lösen ord. Du kan skapa en ny antecknings bok genom att välja **ny** och sedan välja den aktuella språk kärnan. Om du inte ser knappen **nytt** väljer du ikonen **Jupyter** längst upp till vänster för att gå till hem sidan för notebook-servern.
 
 ## <a name="apache-spark-standalone"></a>Fristående Apache Spark
 
@@ -206,13 +206,13 @@ Mer information finns i [SQUIRREL SQL](http://squirrel-sql.sourceforge.net/index
 
 ODBC driv rutins paketet för SQL Server levereras också med två kommando rads verktyg:
 
-- **BCP**: BCP-verktyget kopierar data mellan en instans av Microsoft SQL Server och en datafil i ett användardefinierat format. Du kan använda BCP-verktyget för att importera ett stort antal nya rader till SQL Server tabeller eller för att exportera data från tabeller till datafiler. Om du vill importera data till en tabell måste du använda en format fil som skapats för tabellen. Eller så måste du förstå tabell strukturen och vilka typer av data som är giltiga för kolumnerna.
+- **BCP** : BCP-verktyget kopierar data mellan en instans av Microsoft SQL Server och en datafil i ett användardefinierat format. Du kan använda BCP-verktyget för att importera ett stort antal nya rader till SQL Server tabeller eller för att exportera data från tabeller till datafiler. Om du vill importera data till en tabell måste du använda en format fil som skapats för tabellen. Eller så måste du förstå tabell strukturen och vilka typer av data som är giltiga för kolumnerna.
 
-  Mer information finns i [ansluta med BCP](https://msdn.microsoft.com/library/hh568446.aspx).
+  Mer information finns i [ansluta med BCP](/sql/connect/odbc/linux-mac/connecting-with-bcp).
 
-- **SQLCMD**: du kan ange Transact-SQL-uttryck med hjälp av SQLCMD-verktyget. Du kan också ange system procedurer och skriptfiler i kommando tolken. Verktyget använder ODBC för att köra Transact-SQL-batchar.
+- **SQLCMD** : du kan ange Transact-SQL-uttryck med hjälp av SQLCMD-verktyget. Du kan också ange system procedurer och skriptfiler i kommando tolken. Verktyget använder ODBC för att köra Transact-SQL-batchar.
 
-  Mer information finns i [ansluta till SQLCMD](https://msdn.microsoft.com/library/hh568447.aspx).
+  Mer information finns i [ansluta till SQLCMD](/sql/connect/odbc/linux-mac/connecting-with-sqlcmd).
 
   > [!NOTE]
   > Det finns vissa skillnader i det här verktyget mellan Linux-och Windows-plattformar. Mer information finns i dokumentationen.
@@ -228,13 +228,13 @@ Bibliotek är tillgängliga i R och python för databas åtkomst:
 
 Följande Azure-verktyg är installerade på den virtuella datorn:
 
-* **Azure CLI**: du kan använda kommando rads gränssnittet i Azure för att skapa och hantera Azure-resurser via Shell-kommandon. Öppna Azure-verktygen genom att ange **Azure-hjälpen**. Mer information finns på sidan med [Azure CLI-dokumentation](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
-* **Azure Storage Explorer**: Azure Storage Explorer är ett grafiskt verktyg som du kan använda för att bläddra bland de objekt som du har lagrat på ditt Azure Storage-konto och för att ladda upp och ladda ned data till och från Azure-blobbar. Du kan komma åt Storage Explorer från Skriv bords gen vägs ikonen. Du kan också öppna den från en Shell-prompt genom att ange **StorageExplorer**. Du måste vara inloggad från en X2Go-klient eller konfigurera begäran om x11-vidarebefordring.
-* **Azure-bibliotek**: följande är några av de förinstallerade biblioteken.
+* **Azure CLI** : du kan använda kommando rads gränssnittet i Azure för att skapa och hantera Azure-resurser via Shell-kommandon. Öppna Azure-verktygen genom att ange **Azure-hjälpen**. Mer information finns på sidan med [Azure CLI-dokumentation](/cli/azure/get-started-with-az-cli2).
+* **Azure Storage Explorer** : Azure Storage Explorer är ett grafiskt verktyg som du kan använda för att bläddra bland de objekt som du har lagrat på ditt Azure Storage-konto och för att ladda upp och ladda ned data till och från Azure-blobbar. Du kan komma åt Storage Explorer från Skriv bords gen vägs ikonen. Du kan också öppna den från en Shell-prompt genom att ange **StorageExplorer**. Du måste vara inloggad från en X2Go-klient eller konfigurera begäran om x11-vidarebefordring.
+* **Azure-bibliotek** : följande är några av de förinstallerade biblioteken.
   
-  * **Python**: Azure-relaterade bibliotek i python är *Azure*, *azureml*, *pydocumentdb*och *pyodbc*. Med de tre första biblioteken kan du komma åt Azure Storage-tjänster, Azure Machine Learning och Azure Cosmos DB (en NoSQL-databas på Azure). Det fjärde biblioteket, pyodbc (tillsammans med Microsoft ODBC-drivrutinen för SQL Server), ger åtkomst till SQL Server, Azure SQL Database och Azure Synapse-analys från python med hjälp av ett ODBC-gränssnitt. Ange **pip-listan** för att visa alla bibliotek i listan. Se till att köra det här kommandot i både python 2,7-och 3,5-miljöerna.
-  * **R**: Azure-relaterade bibliotek i R är AZUREML och RODBC.
-  * **Java**: listan med Azure Java-bibliotek finns i katalogen/dsvm/SDK/AzureSDKJava på den virtuella datorn. Nyckel biblioteken är API: er för Azure Storage och hantering, Azure Cosmos DB och JDBC driv rutiner för SQL Server.  
+  * **Python** : Azure-relaterade bibliotek i python är *Azure* , *azureml* , *pydocumentdb* och *pyodbc*. Med de tre första biblioteken kan du komma åt Azure Storage-tjänster, Azure Machine Learning och Azure Cosmos DB (en NoSQL-databas på Azure). Det fjärde biblioteket, pyodbc (tillsammans med Microsoft ODBC-drivrutinen för SQL Server), ger åtkomst till SQL Server, Azure SQL Database och Azure Synapse-analys från python med hjälp av ett ODBC-gränssnitt. Ange **pip-listan** för att visa alla bibliotek i listan. Se till att köra det här kommandot i både python 2,7-och 3,5-miljöerna.
+  * **R** : Azure-relaterade bibliotek i R är AZUREML och RODBC.
+  * **Java** : listan med Azure Java-bibliotek finns i katalogen/dsvm/SDK/AzureSDKJava på den virtuella datorn. Nyckel biblioteken är API: er för Azure Storage och hantering, Azure Cosmos DB och JDBC driv rutiner för SQL Server.  
 
 Du kan komma åt [Azure Portal](https://portal.azure.com) från den förinstallerade Firefox-webbläsaren. På Azure Portal kan du skapa, hantera och övervaka Azure-resurser.
 
@@ -246,21 +246,21 @@ När du har loggat in på Azure Machine Learning Studio kan du använda en exper
 
 Operationalisera de maskin inlärnings modeller som du har skapat genom att figursätta dem i ett webb tjänst gränssnitt. Genom att använda Machine Learning-modeller kan klienter skrivna på valfritt språk för att anropa förutsägelser från dessa modeller. Mer information finns i Machine Learning- [dokumentationen](https://azure.microsoft.com/documentation/services/machine-learning/).
 
-Du kan också bygga dina modeller i R eller python på den virtuella datorn och sedan distribuera dem i produktion på Azure Machine Learning. Vi har installerat bibliotek i R (**azureml**) och python (**azureml**) för att aktivera den här funktionen.
+Du kan också bygga dina modeller i R eller python på den virtuella datorn och sedan distribuera dem i produktion på Azure Machine Learning. Vi har installerat bibliotek i R ( **azureml** ) och python ( **azureml** ) för att aktivera den här funktionen.
 
 > [!NOTE]
 > Dessa instruktioner skrevs för Windows-versionen av Data Science Virtual Machine. Men informationen som ges vid distribution av modeller till Azure Machine Learning är tillämplig på den virtuella Linux-datorn.
 
 ## <a name="machine-learning-tools"></a>Machine Learning-verktyg
 
-Den virtuella datorn levereras med Machine Learning-verktyg och algoritmer som har förkompilerats och redan installerats lokalt. Exempel:
+Den virtuella datorn levereras med Machine Learning-verktyg och algoritmer som har förkompilerats och redan installerats lokalt. Dessa omfattar:
 
-* **Vowpal Wabbit**: en snabb onlineutbildning för inlärning.
-* **xgboost**: ett verktyg som tillhandahåller optimerade, förstärkta träd algoritmer.
-* **Rattle**: ett R-baserat grafiskt verktyg för enkel utforskning och modellering av data.
-* **Python**: Anaconda python kommer att paketeras med Machine Learning-algoritmer med bibliotek som Scikit-lär. Du kan installera andra bibliotek med hjälp av `pip install` kommandot.
-* **LightGBM**: ett snabb, distribuerat, högpresterande tonings ramverk som bygger på algoritmer för besluts träd.
-* **R**: ett omfattande bibliotek med Machine Learning-funktioner är tillgängligt för R. förinstallerade bibliotek är lm, GLM, randomForest och rpart. Du kan installera andra bibliotek genom att köra det här kommandot:
+* **Vowpal Wabbit** : en snabb onlineutbildning för inlärning.
+* **xgboost** : ett verktyg som tillhandahåller optimerade, förstärkta träd algoritmer.
+* **Rattle** : ett R-baserat grafiskt verktyg för enkel utforskning och modellering av data.
+* **Python** : Anaconda python kommer att paketeras med Machine Learning-algoritmer med bibliotek som Scikit-lär. Du kan installera andra bibliotek med hjälp av `pip install` kommandot.
+* **LightGBM** : ett snabb, distribuerat, högpresterande tonings ramverk som bygger på algoritmer för besluts träd.
+* **R** : ett omfattande bibliotek med Machine Learning-funktioner är tillgängligt för R. förinstallerade bibliotek är lm, GLM, randomForest och rpart. Du kan installera andra bibliotek genom att köra det här kommandot:
 
     ```r
     install.packages(<lib name>)
@@ -316,7 +316,7 @@ Mer information om xgboost finns på [dokumentations sidan för xgboost](https:/
 
 ### <a name="rattle"></a>Rattle
 
-Rattle ( **R** **A**nalysdatamängd **t**OOL **t**o **L**s **E**asily) använder GUI-baserad data utforskning och modellering. Den visar statistiska och visuella sammanfattningar av data, transformerar data som kan modelleras, skapar både oövervakade och övervakade modeller från data, visar prestanda för modeller grafiskt och ger nya data uppsättningar. Den genererar också R-kod och replikerar åtgärderna i användar gränssnittet som kan köras direkt i R eller används som en start punkt för ytterligare analys.
+Rattle ( **R** **A** nalysdatamängd **t** OOL **t** o **L** s **E** asily) använder GUI-baserad data utforskning och modellering. Den visar statistiska och visuella sammanfattningar av data, transformerar data som kan modelleras, skapar både oövervakade och övervakade modeller från data, visar prestanda för modeller grafiskt och ger nya data uppsättningar. Den genererar också R-kod och replikerar åtgärderna i användar gränssnittet som kan köras direkt i R eller används som en start punkt för ytterligare analys.
 
 Om du vill köra Rattle måste du vara i en grafisk Skriv bords inloggnings session. Öppna R-miljön genom att ange **r** i terminalen. Ange följande kommandon vid R-prompten:
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 09/30/2020
-ms.openlocfilehash: 374cc79b42d2dcaed0312c0ec205073906ce1fc5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e042fd62d99c9fdf88a144c93739bf1f3f08a78c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530682"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325587"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Interaktiv fel sökning med Visual Studio Code
 
@@ -38,7 +38,7 @@ Använd Azure Machine Learning-tillägget för att verifiera, köra och felsöka
 > I Windows, se till att [Konfigurera Docker att använda Linux-behållare](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
 
 > [!TIP]
-> För Windows, även om det inte krävs, rekommenderar vi starkt att du [använder Docker med Windows-undersystem för Linux (Wsl) 2](https://docs.microsoft.com/windows/wsl/tutorials/wsl-containers#install-docker-desktop).
+> För Windows, även om det inte krävs, rekommenderar vi starkt att du [använder Docker med Windows-undersystem för Linux (Wsl) 2](/windows/wsl/tutorials/wsl-containers#install-docker-desktop).
 
 > [!IMPORTANT]
 > Innan du kör ditt experiment lokalt ska du kontrol lera att Docker körs.
@@ -58,7 +58,7 @@ Använd Azure Machine Learning-tillägget för att verifiera, köra och felsöka
     1. Ange namnet på skriptet som du vill köra. Sökvägen är relativ i förhållande till den katalog som öppnats i VS Code.
     1. Välj om du vill använda en Azure Machine Learning data uppsättning eller inte. Du kan skapa [Azure Machine Learning data uppsättningar](how-to-manage-resources-vscode.md#create-dataset) med hjälp av tillägget.
     1. Debugpy krävs för att du ska kunna koppla fel sökaren till behållaren och köra experimentet. Om du vill lägga till debugpy som ett beroende väljer du **Lägg till debugpy**. Annars väljer du **hoppa över**. Om du inte lägger till debugpy som ett beroende körs experimentet utan att kopplas till fel söknings programmet.
-    1. En konfigurations fil som innehåller dina konfigurations inställningar för körning öppnas i redigeraren. Om du är nöjd med inställningarna väljer du **Skicka experiment**. Du kan också öppna kommando paletten (**visa > kommando paletten**) från meny raden och ange `Azure ML: Submit experiment` kommandot i text rutan.
+    1. En konfigurations fil som innehåller dina konfigurations inställningar för körning öppnas i redigeraren. Om du är nöjd med inställningarna väljer du **Skicka experiment**. Du kan också öppna kommando paletten ( **visa > kommando paletten** ) från meny raden och ange `Azure ML: Submit experiment` kommandot i text rutan.
 1. När experimentet har skickats skapas en Docker-avbildning som innehåller ditt skript och de konfigurationer som anges i körnings konfigurationen.
 
     När Bygg processen för Docker-avbildningen börjar börjar innehållet i `60_control_log.txt` fil data strömmen till konsolen utdata i vs Code.
@@ -339,7 +339,7 @@ Spara `ip_address` värdet. Den används i nästa avsnitt.
 I vissa fall kan du behöva interaktivt felsöka python-koden som finns i modell distributionen. Om Entry-skriptet till exempel inte fungerar och orsaken inte kan fastställas av ytterligare loggning. Genom att använda VS Code och debugpy kan du koppla till koden som körs i Docker-behållaren.
 
 > [!IMPORTANT]
-> Den här fel söknings metoden fungerar inte när du använder `Model.deploy()` och `LocalWebservice.deploy_configuration` för att distribuera en modell lokalt. I stället måste du skapa en avbildning med metoden [Model. Package ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-) .
+> Den här fel söknings metoden fungerar inte när du använder `Model.deploy()` och `LocalWebservice.deploy_configuration` för att distribuera en modell lokalt. I stället måste du skapa en avbildning med metoden [Model. Package ()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-) .
 
 Lokal distribution av webb tjänster kräver en fungerande Docker-installation på det lokala systemet. Mer information om hur du använder Docker finns i [Docker-dokumentationen](https://docs.docker.com/). Observera att när du arbetar med beräknings instanser är Docker redan installerat.
 

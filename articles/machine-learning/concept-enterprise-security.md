@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: b45c5cd1a750ee4b3f182920c4ee2f2e47756867
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: f9d6f58256ccc21e5121a16a429e0f4c3ff1e485
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899319"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323092"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Företags säkerhet och styrning för Azure Machine Learning
 
@@ -44,7 +44,7 @@ Azure Machine Learning stöder två typer av autentisering för webb tjänster: 
 
 |Autentiseringsmetod|Beskrivning|Azure Container Instances|AKS|
 |---|---|---|---|
-|Nyckel|Nycklar är statiska och behöver inte uppdateras. Nycklar kan återskapas manuellt.|Inaktiverat som standard| Aktiverat som standard|
+|Tangent|Nycklar är statiska och behöver inte uppdateras. Nycklar kan återskapas manuellt.|Inaktiverat som standard| Aktiverat som standard|
 |Token|Token upphör att gälla efter en viss tids period och behöver uppdateras.| Inte tillgängligt| Inaktiverat som standard |
 
 Kod exempel finns i [avsnittet Web-Service Authentication](how-to-setup-authentication.md#web-service-authentication).
@@ -85,7 +85,7 @@ Om de inbyggda rollerna inte uppfyller dina behov kan du skapa anpassade roller.
 
 Varje arbets yta har också en associerad systemtilldelad hanterad identitet som har samma namn som arbets ytan. Den hanterade identiteten har följande behörigheter för anslutna resurser som används i arbets ytan.
 
-Mer information om hanterade identiteter finns i [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Mer information om hanterade identiteter finns i [hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md).
 
 | Resurs | Behörigheter |
 | ----- | ----- |
@@ -111,14 +111,14 @@ Du kan också aktivera Azures privata länk för din arbets yta. Med privat län
 ## <a name="data-encryption"></a>Datakryptering
 
 > [!IMPORTANT]
-> För produktions klass kryptering under __utbildningen__ rekommenderar Microsoft att du använder Azure Machine Learning beräknings kluster. Microsoft rekommenderar att du använder Azure Kubernetes-tjänsten för kryptering av produktions klass under __härledningen__ .
+> För produktions klass kryptering under __utbildningen__ rekommenderar Microsoft att du använder Azure Machine Learning beräknings kluster. Microsoft rekommenderar att du använder Azure Kubernetes-tjänsten för kryptering av produktions klass under __härledningen__.
 >
 > Azure Machine Learning beräknings instans är en utvecklings-/test miljö. När du använder den rekommenderar vi att du lagrar dina filer, till exempel antecknings böcker och skript, i en fil resurs. Dina data ska lagras i ett data lager.
 
 ### <a name="encryption-at-rest"></a>Kryptering i vila
 
 > [!IMPORTANT]
-> Om din arbets yta innehåller känsliga data rekommenderar vi att du ställer in [hbi_workspace flagga](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) när du skapar din arbets yta. Det `hbi_workspace` går bara att ange flaggan när en arbets yta skapas. Den kan inte ändras för en befintlig arbets yta.
+> Om din arbets yta innehåller känsliga data rekommenderar vi att du ställer in [hbi_workspace flagga](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) när du skapar din arbets yta. Det `hbi_workspace` går bara att ange flaggan när en arbets yta skapas. Den kan inte ändras för en befintlig arbets yta.
 
 `hbi_workspace`Flaggan styr mängden [data som Microsoft samlar in i diagnostiska syfte](#microsoft-collected-data) och möjliggör [ytterligare kryptering i Microsoft-hanterade miljöer](../security/fundamentals/encryption-atrest.md). Dessutom kan du använda följande åtgärder:
 
@@ -131,7 +131,7 @@ Du kan också aktivera Azures privata länk för din arbets yta. Med privat län
 
 Azure Machine Learning lagrar ögonblicks bilder, utdata och loggar i Azure Blob Storage-kontot som är knutet till Azure Machine Learning arbets ytan och din prenumeration. Alla data som lagras i Azure Blob Storage krypteras i vila med Microsoft-hanterade nycklar.
 
-Information om hur du använder dina egna nycklar för data som lagras i Azure Blob Storage finns i [Azure Storage kryptering med Kundhanterade nycklar i Azure Key Vault](../storage/common/storage-encryption-keys-portal.md).
+Information om hur du använder dina egna nycklar för data som lagras i Azure Blob Storage finns i [Azure Storage kryptering med Kundhanterade nycklar i Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md).
 
 Tränings data lagras vanligt vis i Azure Blob Storage så att det är tillgängligt för att träna beräknings mål. Den här lagringen hanteras inte av Azure Machine Learning men monteras för att beräkna mål som ett fjärrfilsystem.
 
@@ -151,12 +151,12 @@ Om du vill aktivera etablering av en Cosmos DB instans i din prenumeration med K
 
 * Använd följande parametrar när du skapar arbets ytan Azure Machine Learning. Båda parametrarna är obligatoriska och stöds i SDK, CLI, REST API: er och Resource Manager-mallar.
 
-    * `resource_cmk_uri`: Den här parametern är den fullständiga resurs-URI: n för kundens hanterade nyckel i ditt nyckel valv, inklusive [versions informationen för nyckeln](../key-vault/about-keys-secrets-and-certificates.md#objects-identifiers-and-versioning). 
+    * `resource_cmk_uri`: Den här parametern är den fullständiga resurs-URI: n för kundens hanterade nyckel i ditt nyckel valv, inklusive [versions informationen för nyckeln](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning). 
 
     * `cmk_keyvault`: Den här parametern är resurs-ID för nyckel valvet i din prenumeration. Det här nyckel valvet måste finnas i samma region och prenumeration som du ska använda för Azure Machine Learning-arbetsytan. 
     
         > [!NOTE]
-        > Den här Key Vault-instansen kan vara annorlunda än nyckel valvet som skapas av Azure Machine Learning när du etablerar arbets ytan. Om du vill använda samma Key Vault-instans för arbets ytan skickar du samma nyckel valv medan du konfigurerar arbets ytan med hjälp av [parametern key_vault](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
+        > Den här Key Vault-instansen kan vara annorlunda än nyckel valvet som skapas av Azure Machine Learning när du etablerar arbets ytan. Om du vill använda samma Key Vault-instans för arbets ytan skickar du samma nyckel valv medan du konfigurerar arbets ytan med hjälp av [parametern key_vault](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
 
 [!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
@@ -171,7 +171,7 @@ Alla behållar avbildningar i registret (Azure Container Registry) är krypterad
 Om du vill använda dina egna (Kundhanterade) nycklar för att kryptera din Azure Container Registry måste du skapa en egen ACR och koppla den medan du konfigurerar arbets ytan eller kryptera standard instansen som skapas vid tidpunkten för etablering av arbets ytor.
 
 > [!IMPORTANT]
-> Azure Machine Learning kräver att administratörs kontot är aktiverat på din Azure Container Registry. Som standard är den här inställningen inaktive rad när du skapar ett behållar register. Information om hur du aktiverar administratörs kontot finns i [administratörs konto](/azure/container-registry/container-registry-authentication#admin-account).
+> Azure Machine Learning kräver att administratörs kontot är aktiverat på din Azure Container Registry. Som standard är den här inställningen inaktive rad när du skapar ett behållar register. Information om hur du aktiverar administratörs kontot finns i [administratörs konto](../container-registry/container-registry-authentication.md#admin-account).
 >
 > När en Azure Container Registry har skapats för en arbets yta ska du inte ta bort den. Om du gör det bryts Azure Machine Learning arbets ytan.
 
@@ -193,7 +193,7 @@ Om du vill använda nyckeln när du distribuerar en modell till Azure Container 
 
 Mer information om hur du skapar och använder en distributions konfiguration finns i följande artiklar:
 
-* [AciWebservice.deploy_configuration ()-](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-) referens
+* [AciWebservice.deploy_configuration ()-](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-) referens
 * [Var och hur du distribuerar](how-to-deploy-and-where.md)
 * [Distribuera en modell till Azure Container Instances](how-to-deploy-azure-container-instance.md)
 
@@ -222,7 +222,7 @@ Azure Databricks kan användas i Azure Machine Learning pipeliner. Som standard 
 
 Azure Machine Learning använder TLS för att skydda intern kommunikation mellan olika Azure Machine Learning mikrotjänster. Alla Azure Storage åtkomst sker också över en säker kanal.
 
-Azure Machine Learning använder TLS för att skydda externa anrop till poäng slut punkten. Mer information finns i [använda TLS för att skydda en webb tjänst via Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service).
+Azure Machine Learning använder TLS för att skydda externa anrop till poäng slut punkten. Mer information finns i [använda TLS för att skydda en webb tjänst via Azure Machine Learning](./how-to-secure-web-service.md).
 
 ### <a name="using-azure-key-vault"></a>Använda Azure Key Vault
 
@@ -242,7 +242,7 @@ Varje arbets yta har en associerad systemtilldelad hanterad identitet som har sa
 
 Microsoft kan samla in information om icke-användare, t. ex. resurs namn (till exempel data uppsättningens namn eller namnet på Machine Learning-experimentet) eller jobbets miljövariabler för diagnostisk användning. Alla sådana data lagras med Microsoft-hanterade nycklar i lagring som finns i Microsofts ägda prenumerationer och följer [Microsofts standard sekretess policy och data hanterings standarder](https://privacy.microsoft.com/privacystatement).
 
-Microsoft rekommenderar även att inte lagra känslig information (till exempel konto nyckel hemligheter) i miljövariabler. Miljövariabler loggas, krypteras och lagras av oss. Undvik att använda känslig information som användar namn eller namn på hemliga projekt på samma sätt som när du namnger [run_id](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true). Den här informationen kan visas i telemetri loggar som är tillgängliga för Microsoft Support tekniker.
+Microsoft rekommenderar även att inte lagra känslig information (till exempel konto nyckel hemligheter) i miljövariabler. Miljövariabler loggas, krypteras och lagras av oss. Undvik att använda känslig information som användar namn eller namn på hemliga projekt på samma sätt som när du namnger [run_id](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py). Den här informationen kan visas i telemetri loggar som är tillgängliga för Microsoft Support tekniker.
 
 Du kan välja att inte använda diagnostikdata som samlas in genom `hbi_workspace` att ange parametern till `TRUE` medan du konfigurerar arbets ytan. Den här funktionen stöds när du använder AzureML python SDK, CLI, REST API: er eller Azure Resource Manager mallar.
 
@@ -262,7 +262,7 @@ Du kan använda Azure Monitor mått för att visa och övervaka mått för arbet
 
 Måtten innehåller information om körningar, distributioner och registreringar.
 
-Mer information finns i [mått i Azure Monitor](/azure/azure-monitor/platform/data-platform-metrics).
+Mer information finns i [mått i Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).
 
 ### <a name="activity-log"></a>Aktivitetslogg
 
@@ -289,7 +289,7 @@ Information om bedömnings förfrågningar lagras i Application Insights. Applic
 
 ### <a name="vulnerability-scanning"></a>Sårbarhetsgenomsökning
 
-Azure Security Center erbjuder enhetlig säkerhetshantering och avancerat skydd mot hot i olika hybridmolnarbetsbelastningar. För Azure Machine Learning bör du Aktivera genomsökning av Azure Container Registry resurs-och Azure Kubernetes-tjänsteresurser. Se [Azure Container Registry avbildnings genomsökning av Security Center](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration) och [integrering med Azure Kubernetes Services med Security Center](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration).
+Azure Security Center erbjuder enhetlig säkerhetshantering och avancerat skydd mot hot i olika hybridmolnarbetsbelastningar. För Azure Machine Learning bör du Aktivera genomsökning av Azure Container Registry resurs-och Azure Kubernetes-tjänsteresurser. Se [Azure Container Registry avbildnings genomsökning av Security Center](../security-center/defender-for-container-registries-introduction.md) och [integrering med Azure Kubernetes Services med Security Center](../security-center/defender-for-kubernetes-introduction.md).
 
 ## <a name="data-flow-diagrams"></a>Data flödes diagram
 
@@ -364,12 +364,12 @@ Här är information:
 
 ## <a name="audit-and-manage-compliance"></a>Granska och hantera efterlevnad
 
-[Azure policy](/azure/governance/policy) är ett styrnings verktyg som gör att du kan se till att Azure-resurserna är kompatibla med dina principer. Med Azure Machine Learning kan du tilldela följande principer:
+[Azure policy](../governance/policy/index.yml) är ett styrnings verktyg som gör att du kan se till att Azure-resurserna är kompatibla med dina principer. Med Azure Machine Learning kan du tilldela följande principer:
 
 * **Kundhanterad nyckel** : granska eller Använd om arbets ytor måste använda en kundhanterad nyckel.
 * **Privat länk** : granska om arbets ytor använder en privat slut punkt för att kommunicera med ett virtuellt nätverk.
 
-Mer information om Azure Policy finns i Azure Policy- [dokumentationen](/azure/governance/policy/overview).
+Mer information om Azure Policy finns i Azure Policy- [dokumentationen](../governance/policy/overview.md).
 
 Mer information om principerna som är speciella för Azure Machine Learning finns i [Granska och hantera efterlevnad med Azure policy](how-to-integrate-azure-policy.md).
 
@@ -384,4 +384,4 @@ Mer information om principerna som är speciella för Azure Machine Learning fin
 * [Använda Azure Machine Learning med Azure-brandvägg](how-to-access-azureml-behind-firewall.md)
 * [Använda Azure Machine Learning med Azure Virtual Network](how-to-network-security-overview.md)
 * [Metod tips för att skapa rekommendations system](https://github.com/Microsoft/Recommenders)
-* [Bygg en API för rekommendationer i real tid i Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)
+* [Bygg en API för rekommendationer i real tid i Azure](/azure/architecture/reference-architectures/ai/real-time-recommendation)

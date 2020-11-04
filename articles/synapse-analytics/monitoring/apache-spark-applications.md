@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 4d6c50436ddf68e2610aeb10ddfaaab0a5d060f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f55d65b215c03769caa7c812dcda138f8e83595
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87387361"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322465"
 ---
 # <a name="use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Använd Synapse Studio för att övervaka dina Apache Spark-program
 
@@ -35,15 +35,15 @@ Innan du börjar med den här självstudien måste du uppfylla följande krav:
 
 - En Synapse Studio-arbetsyta. Instruktioner finns i [skapa en Synapse Studio-arbetsyta](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace).
 
-- En Apache Spark pool.
+- En server lös Apache Spark pool.
 
 ## <a name="monitor-running-apache-spark-application"></a>Övervakare som kör Apache Spark program
 
-Öppna **övervakaren**och välj **Apache Spark program**. Om du vill visa information om de Apache Spark-program som körs väljer du sändnings Apache Spark programmet och visar informationen. Om Apache Spark programmet fortfarande körs kan du övervaka förloppet.
+Öppna **övervakaren** och välj **Apache Spark program**. Om du vill visa information om de Apache Spark-program som körs väljer du sändnings Apache Spark programmet och visar informationen. Om Apache Spark programmet fortfarande körs kan du övervaka förloppet.
 
   ![Välj pågående jobb](./media/how-to-monitor-spark-applications/select-running-job.png)
 
-1. Kontrol lera **slutförda aktiviteter**, **status**och **total varaktighet**.
+1. Kontrol lera **slutförda aktiviteter** , **status** och **total varaktighet**.
 
 2. Avbryt Apache Spark programmet.
 
@@ -59,11 +59,11 @@ Innan du börjar med den här självstudien måste du uppfylla följande krav:
 
 ## <a name="view-completed-apache-spark-application"></a>Visa slutförda Apache Spark program
 
-Öppna **övervakaren**och välj **Apache Spark program**. Om du vill visa information om de slutförda Apache Spark-programmen väljer du Apache Spark programmet och visar informationen.
+Öppna **övervakaren** och välj **Apache Spark program**. Om du vill visa information om de slutförda Apache Spark-programmen väljer du Apache Spark programmet och visar informationen.
 
   ![Välj slutfört jobb](./media/how-to-monitor-spark-applications/select-completed-job.png)
 
-1. Kontrol lera **slutförda aktiviteter**, **status**och **total varaktighet**.
+1. Kontrol lera **slutförda aktiviteter** , **status** och **total varaktighet**.
 
 2. Uppdatera logg fråga.
 
@@ -107,11 +107,11 @@ Innan du börjar med den här självstudien måste du uppfylla följande krav:
 
 ## <a name="view-canceled-apache-spark-application"></a>Visa avbrutna Apache Spark program
 
-Öppna **övervakaren**och välj **Apache Spark program**. Om du vill visa information om de avbrutna Apache Spark-programmen väljer du Apache Spark programmet och visar informationen.
+Öppna **övervakaren** och välj **Apache Spark program**. Om du vill visa information om de avbrutna Apache Spark-programmen väljer du Apache Spark programmet och visar informationen.
 
  ![Välj avbrutet jobb](./media/how-to-monitor-spark-applications/select-cancelled-job.png) 
 
-1. Kontrol lera **slutförda aktiviteter**, **status**och **total varaktighet**.
+1. Kontrol lera **slutförda aktiviteter** , **status** och **total varaktighet**.
 
 2. Uppdatera logg frågan.
 
@@ -127,11 +127,11 @@ Innan du börjar med den här självstudien måste du uppfylla följande krav:
 
 ## <a name="debug-failed-apache-spark-application"></a>Det gick inte att felsöka Apache Spark programmet
 
-Öppna **övervakaren**och välj **Apache Spark program**. Om du vill visa information om misslyckade Apache Spark-program väljer du Apache Spark programmet och visar informationen.
+Öppna **övervakaren** och välj **Apache Spark program**. Om du vill visa information om misslyckade Apache Spark-program väljer du Apache Spark programmet och visar informationen.
 
 ![Välj misslyckat jobb](./media/how-to-monitor-spark-applications/select-failed-job.png)
 
-1. Kontrol lera **slutförda aktiviteter**, **status**och **total varaktighet**.
+1. Kontrol lera **slutförda aktiviteter** , **status** och **total varaktighet**.
 
 2. Uppdatera logg fråga.
 

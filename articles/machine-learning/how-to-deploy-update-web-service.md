@@ -1,7 +1,7 @@
 ---
 title: Uppdatera webb tjänster
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du uppdaterar en webb tjänst som redan har distribuerats i Azure Machine Learning
+description: Lär dig hur du uppdaterar en webb tjänst som redan har distribuerats i Azure Machine Learning. Du kan uppdatera inställningar som modell, miljö och inmatning-skript.
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.author: gopalv
 author: gvashishtha
 ms.date: 07/31/2020
 ms.custom: deploy
-ms.openlocfilehash: 3d468048030cad009171622bed175531834b947d
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 703f5e360261c47c443320459d601d65a5503f5a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998784"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322432"
 ---
 # <a name="update-a-deployed-web-service"></a>Uppdatera en distribuerad webb tjänst
 
@@ -27,11 +27,11 @@ Den här självstudien förutsätter att du redan har distribuerat en webb tjän
 
 ## <a name="update-web-service"></a>Uppdatera webbtjänst
 
-Använd-metoden för att uppdatera en webb tjänst `update` . Du kan uppdatera webb tjänsten så att den använder en ny modell, ett nytt registrerings skript eller nya beroenden som kan anges i en konfiguration för en konfiguration. Mer information finns i dokumentationen för [WebService. Update](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py&preserve-view=true#&preserve-view=trueupdate--args-).
+Använd-metoden för att uppdatera en webb tjänst `update` . Du kan uppdatera webb tjänsten så att den använder en ny modell, ett nytt registrerings skript eller nya beroenden som kan anges i en konfiguration för en konfiguration. Mer information finns i dokumentationen för [WebService. Update](/python/api/azureml-core/azureml.core.webservice.webservice.webservice?preserve-view=true&view=azure-ml-py#&preserve-view=trueupdate--args-).
 
-Se [AKS-tjänstens uppdaterings metod.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py&preserve-view=true#&preserve-view=trueupdate-image-none--autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--tags-none--properties-none--description-none--models-none--inference-config-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none-)
+Se [AKS-tjänstens uppdaterings metod.](/python/api/azureml-core/azureml.core.webservice.akswebservice?preserve-view=true&view=azure-ml-py#&preserve-view=trueupdate-image-none--autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--tags-none--properties-none--description-none--models-none--inference-config-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none-)
 
-Se [ACI-tjänstens uppdaterings metod.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py&preserve-view=true#&preserve-view=trueupdate-image-none--tags-none--properties-none--description-none--auth-enabled-none--ssl-enabled-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--enable-app-insights-none--models-none--inference-config-none-)
+Se [ACI-tjänstens uppdaterings metod.](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?preserve-view=true&view=azure-ml-py#&preserve-view=trueupdate-image-none--tags-none--properties-none--description-none--auth-enabled-none--ssl-enabled-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--enable-app-insights-none--models-none--inference-config-none-)
 
 > [!IMPORTANT]
 > När du skapar en ny version av en modell måste du manuellt uppdatera varje tjänst som du vill använda.
@@ -84,9 +84,9 @@ az ml service update -n myservice --model-metadata-file modelinfo.json
 > [!TIP]
 > I det här exemplet används ett JSON-dokument för att skicka modell informationen från registrerings kommandot till kommandot Update.
 >
-> Om du vill uppdatera tjänsten för att använda ett nytt start skript eller en ny miljö skapar du en [konfigurations fil för en konfigurations fil](/azure/machine-learning/reference-azure-machine-learning-cli#inference-configuration-schema) och anger den med `ic` parametern.
+> Om du vill uppdatera tjänsten för att använda ett nytt start skript eller en ny miljö skapar du en [konfigurations fil för en konfigurations fil](./reference-azure-machine-learning-cli.md#inference-configuration-schema) och anger den med `ic` parametern.
 
-Mer information finns i dokumentationen om [AZ ml-tjänst uppdatering](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-service-update) .
+Mer information finns i dokumentationen om [AZ ml-tjänst uppdatering](/cli/azure/ext/azure-cli-ml/ml/service?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-update) .
 
 ## <a name="next-steps"></a>Nästa steg
 

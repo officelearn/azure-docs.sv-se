@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 9b2d003ef4938681229317b625aae4526787ac15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c014f14149b903713ae2f03b98956cd4ecaf8a1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898714"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323061"
 ---
 # <a name="convert-to-dataset"></a>Konvertera till datamängd
 
@@ -25,7 +25,7 @@ Konvertering krävs inte i de flesta fall. Azure Machine Learning implicit konve
 Vi rekommenderar att du sparar data till data uppsättnings formatet om du har utfört någon typ av normalisering eller rensning på en uppsättning data, och du vill se till att ändringarna används i andra pipeliner.  
   
 > [!NOTE]
-> Konvertera till data uppsättning ändrar endast data formatet. En ny kopia av data sparas inte i arbets ytan. Om du vill spara data uppsättningen dubbelklickar du på utdataporten, väljer **Spara som data uppsättning**och anger ett nytt namn.  
+> Konvertera till data uppsättning ändrar endast data formatet. En ny kopia av data sparas inte i arbets ytan. Om du vill spara data uppsättningen dubbelklickar du på utdataporten, väljer **Spara som data uppsättning** och anger ett nytt namn.  
   
 ## <a name="how-to-use-convert-to-dataset"></a>Använda konvertera till data uppsättning  
 
@@ -35,18 +35,18 @@ Vi rekommenderar att du använder modulen [Redigera metadata](edit-metadata.md) 
 
 2. Anslut den till en modul som matar ut en data uppsättning.   
 
-    Så länge data är [tabell](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true), kan du konvertera dem till en data uppsättning. Detta inkluderar data som läses in genom att [Importera data](import-data.md), data som skapats genom att [ange data manuellt](enter-data-manually.md)eller data uppsättningar omvandlas via [tillämpa omvandling](apply-transformation.md).
+    Så länge data är [tabell](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py), kan du konvertera dem till en data uppsättning. Detta inkluderar data som läses in genom att [Importera data](import-data.md), data som skapats genom att [ange data manuellt](enter-data-manually.md)eller data uppsättningar omvandlas via [tillämpa omvandling](apply-transformation.md).
 
 3.  I list rutan **åtgärd** anger du om du vill göra några rensningar av data innan du sparar data uppsättningen:  
   
-    - **Ingen**: Använd datan som de är.  
+    - **Ingen** : Använd datan som de är.  
   
-    - **SetMissingValue**: Ange ett värde för ett värde som saknas i data uppsättningen. Standard plats hållaren är frågetecknet (?), men du kan använda alternativet  **anpassat värde som saknas** för att ange ett annat värde. Om du till exempel anger **taxi** för **anpassat saknat värde**, kommer alla instanser av **taxin** i data uppsättningen att ändras till det saknade värdet.
+    - **SetMissingValue** : Ange ett värde för ett värde som saknas i data uppsättningen. Standard plats hållaren är frågetecknet (?), men du kan använda alternativet  **anpassat värde som saknas** för att ange ett annat värde. Om du till exempel anger **taxi** för **anpassat saknat värde** , kommer alla instanser av **taxin** i data uppsättningen att ändras till det saknade värdet.
   
-    - **ReplaceValues**: Använd det här alternativet för att ange ett enda exakt värde som ska ersättas med andra exakta värden. Du kan ersätta saknade värden eller anpassade värden genom att ange **ersättnings** metoden:
+    - **ReplaceValues** : Använd det här alternativet för att ange ett enda exakt värde som ska ersättas med andra exakta värden. Du kan ersätta saknade värden eller anpassade värden genom att ange **ersättnings** metoden:
 
-      - **Saknas**: Välj det här alternativet om du vill ersätta saknade värden i indata-datauppsättningen. För **nytt värde**anger du det värde som du vill ersätta de saknade värdena med.
-      - **Anpassad**: Välj det här alternativet om du vill ersätta anpassade värden i indata-datauppsättningen. För **anpassat värde**anger du det värde som du vill söka efter. Om dina data t. ex. innehåller den sträng `obs` som används som plats hållare för värden som saknas, anger du `obs` . För **nytt värde**anger du det nya värdet som ersätter den ursprungliga strängen med.
+      - **Saknas** : Välj det här alternativet om du vill ersätta saknade värden i indata-datauppsättningen. För **nytt värde** anger du det värde som du vill ersätta de saknade värdena med.
+      - **Anpassad** : Välj det här alternativet om du vill ersätta anpassade värden i indata-datauppsättningen. För **anpassat värde** anger du det värde som du vill söka efter. Om dina data t. ex. innehåller den sträng `obs` som används som plats hållare för värden som saknas, anger du `obs` . För **nytt värde** anger du det nya värdet som ersätter den ursprungliga strängen med.
   
     Observera att **ReplaceValues** -åtgärden endast gäller för exakta matchningar. Dessa strängar påverkas till exempel inte: `obs.` , `obsolete` .  
  
@@ -70,4 +70,4 @@ Vi rekommenderar att du använder modulen [Redigera metadata](edit-metadata.md) 
   
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning.

@@ -10,12 +10,12 @@ ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: c0a55780687b4c03d6809d1d740bf0b0afcd63fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05926f7ce25714fb76415802876db0640eb30aae
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90908093"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323769"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer"></a>Undantag och fel koder för designern
 
@@ -187,7 +187,7 @@ Kontrol lera också om kontot, behållaren eller blobben har tagits bort. Använ
 
 Vissa nyare konto typer stöds inte av Azure Machine Learning. Till exempel kan de nya lagrings typerna "frekvent" eller "kall" inte användas för Machine Learning. Både klassiska lagrings konton och lagrings konton som skapats som "allmänna ändamål" fungerar bra.
 
-Om den fullständiga sökvägen till en BLOB har angetts kontrollerar du att sökvägen har angetts som **container/blobname**och att både behållaren och bloben finns i kontot.  
+Om den fullständiga sökvägen till en BLOB har angetts kontrollerar du att sökvägen har angetts som **container/blobname** och att både behållaren och bloben finns i kontot.  
 
  Sökvägen får inte innehålla något inledande snedstreck. Till exempel är fel **/container/BLOB** och ska anges som **container/BLOB**.  
 
@@ -713,7 +713,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 **Lösning:** Det här felet orsakas av många villkor och det finns ingen speciell påföljd.  
  Följande tabell innehåller allmänna meddelanden för det här felet, som följs av en speciell Beskrivning av villkoret. 
 
- Om det inte finns någon information kan du [Skicka feedback från Microsoft Q&en fråge sida](https://docs.microsoft.com/answers/topics/azure-machine-learning-studio-classic.html) och ange information om de moduler som genererade felet och relaterade villkor.
+ Om det inte finns någon information kan du [Skicka feedback från Microsoft Q&en fråge sida](/answers/topics/azure-machine-learning-studio-classic.html) och ange information om de moduler som genererade felet och relaterade villkor.
 
 |Undantags meddelanden|
 |------------------------|
@@ -862,7 +862,7 @@ Ett annat skäl till att du kan få det här felet om du försöker använda en 
 
  Det här felet uppstår i Azure Machine Learning om nyckeln som används för att komma åt Azure Storage-kontot är felaktig. Du kan till exempel se det här felet om Azure Storage-nyckeln trunkerades när den kopierades och klistrades in, eller om fel nyckel användes.  
 
- Mer information om hur du hämtar nyckeln för ett Azure Storage-konto finns i [Visa, kopiera och återskapa lagrings åtkomst nycklar](https://azure.microsoft.com/documentation/articles/storage-create-storage-account-classic-portal/).  
+ Mer information om hur du hämtar nyckeln för ett Azure Storage-konto finns i [Visa, kopiera och återskapa lagrings åtkomst nycklar](../../storage/common/storage-account-create.md).  
 
 **Lösning:** Gå tillbaka modulen och kontrol lera att Azure Storage-nyckeln är korrekt för kontot. Kopiera nyckeln igen från den klassiska Azure-portalen om det behövs.  
 
@@ -1083,9 +1083,9 @@ Fel meddelandet från Hive rapporteras normalt tillbaka i fel loggen så att du 
 
 Se följande artiklar för hjälp med Hive-frågor för Machine Learning:
 
-+ [Skapa Hive-tabeller och läsa in data från Azure Blob Storage](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-move-hive-tables)
-+ [Utforska data i tabeller med Hive-frågor](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-explore-data-hive-tables)
-+ [Skapa funktioner för data i ett Hadoop-kluster med hjälp av Hive-frågor](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-create-features-hive)
++ [Skapa Hive-tabeller och läsa in data från Azure Blob Storage](../team-data-science-process/move-hive-tables.md)
++ [Utforska data i tabeller med Hive-frågor](../team-data-science-process/explore-data-hive-tables.md)
++ [Skapa funktioner för data i ett Hadoop-kluster med hjälp av Hive-frågor](../team-data-science-process/create-features-hive.md)
 + [Hive för SQL-användare lathund Sheet (PDF)](http://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf)
 
   
@@ -1106,8 +1106,8 @@ Se följande artiklar för hjälp med Hive-frågor för Machine Learning:
  Kontrol lera att frågan fungerar korrekt utanför Azure ML genom att logga in på databas servern direkt och köra frågan.  
 
  Om det finns ett SQL-genererat meddelande som rapporter ATS av ett modul undantag, vidta åtgärder baserat på det rapporterade felet. Fel meddelandena innehåller till exempel ibland speciell vägledning om det troliga felet:
-+ *Ingen sådan kolumn eller saknad databas*, vilket indikerar att du har angett ett kolumn namn som fel. Om du är säker på att kolumn namnet är korrekt kan du prova att använda hakparenteser eller citat tecken för att omsluta kolumn-ID: n.
-+ *SQL Logic-fel \<SQL keyword\> nära *, vilket indikerar att du kan ha ett syntaxfel före det angivna nyckelordet
++ *Ingen sådan kolumn eller saknad databas* , vilket indikerar att du har angett ett kolumn namn som fel. Om du är säker på att kolumn namnet är korrekt kan du prova att använda hakparenteser eller citat tecken för att omsluta kolumn-ID: n.
++ *SQL Logic-fel \<SQL keyword\> nära* , vilket indikerar att du kan ha ett syntaxfel före det angivna nyckelordet
 
   
 |Undantags meddelanden|
@@ -1164,7 +1164,7 @@ Det här felet uppstår i Azure Machine Learning när du försöker att använda
 
 Fel hantering för den här händelsen introducerades i en tidigare version av Azure Machine Learning som tillåter mer anpassning av diskretisering-metoder. För närvarande är alla diskretisering-metoder baserade på ett val från en nedrullningsbar listruta, så tekniskt sett bör det inte längre vara möjligt att få det här felet.
 
- <!--If you get this error when using the [Group Data into Bins](group-data-into-bins.md) module, consider reporting the issue in the [Microsoft Q&A question page for Azure Machine Learning](https://docs.microsoft.com/answers/topics/azure-machine-learning-studio-classic.html), providing the data types, parameter settings, and the exact error message.  -->
+ <!--If you get this error when using the [Group Data into Bins](group-data-into-bins.md) module, consider reporting the issue in the [Microsoft Q&A question page for Azure Machine Learning](/answers/topics/azure-machine-learning-studio-classic.html), providing the data types, parameter settings, and the exact error message.  -->
 
 |Undantags meddelanden|
 |------------------------|
@@ -1516,11 +1516,10 @@ Internt biblioteks undantag.
 
 Det här felet tillhandahålls för att samla in andra fel som inte hanteras av en intern motor. Därför kan orsaken till det här felet vara olika beroende på vilken modul som orsakade felet.  
 
-För att få mer hjälp rekommenderar vi att du skickar det detaljerade meddelandet som medföljer felet till [Azure Machine Learning-forumet](https://docs.microsoft.com/answers/topics/azure-machine-learning.html), tillsammans med en beskrivning av scenariot, inklusive data som används som indata. Den här feedbacken hjälper oss att prioritera fel och identifiera de viktigaste problemen för ytterligare arbete.  
+För att få mer hjälp rekommenderar vi att du skickar det detaljerade meddelandet som medföljer felet till [Azure Machine Learning-forumet](/answers/topics/azure-machine-learning.html), tillsammans med en beskrivning av scenariot, inklusive data som används som indata. Den här feedbacken hjälper oss att prioritera fel och identifiera de viktigaste problemen för ytterligare arbete.  
 
 |Undantags meddelanden|
 |------------------------|
 |Biblioteks undantag.|
 |Biblioteks undantag: {exception}.|
 |Okänt biblioteks undantag: {exception}. {customer_support_guidance}.|
-

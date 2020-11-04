@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: 18f9af0198c7a89b607630c686fbf8dafdd01a50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72cdfe2ebe79abb9649ac497a6ecddda8918b951
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841973"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322299"
 ---
-# <a name="what-are-compute-targets-in-azure-machine-learning"></a>Vad är beräknings mål i Azure Machine Learning?
+# <a name="what-are-compute-targets-in-azure-machine-learning"></a>Vad är beräkningsmål i Azure Machine Learning?
 
 Ett *beräknings mål* är en viss beräknings resurs eller miljö där du kör ditt utbildnings skript eller är värd för tjänst distributionen. Den här platsen kan vara din lokala dator eller en molnbaserad beräknings resurs. Med hjälp av beräknings mål kan du enkelt ändra beräknings miljön utan att behöva ändra koden.
 
@@ -54,7 +54,7 @@ När du utför en härledning skapar Azure Machine Learning en Docker-behållare
 
 * Som en slut punkt för _batch-härledning_ som används för att regelbundet bearbeta batchar med data. Batch-inferences använder [Azure Machine Learning beräknings kluster](how-to-create-attach-compute-cluster.md).
 
-* Till en _IoT-enhet_ (för hands version). Distribution till en IoT-enhet förlitar sig bara på Azure Machine Learning för att bygga Docker-behållaren. Därifrån distribueras den med hjälp av Azure IoT Edge. Mer information finns i [distribuera som en IoT Edge modul (för hands version)](/azure/iot-edge/tutorial-deploy-machine-learning).
+* Till en _IoT-enhet_ (för hands version). Distribution till en IoT-enhet förlitar sig bara på Azure Machine Learning för att bygga Docker-behållaren. Därifrån distribueras den med hjälp av Azure IoT Edge. Mer information finns i [distribuera som en IoT Edge modul (för hands version)](../iot-edge/tutorial-deploy-machine-learning.md).
 
 Lär dig [hur och hur du distribuerar din modell till ett beräknings mål](how-to-deploy-and-where.md).
 
@@ -76,7 +76,7 @@ Du kan skapa Azure Machine Learning beräknings instanser eller beräknings klus
 När du skapar den här typen av beräknings resurser ingår dessa automatiskt i din arbets yta, till skillnad från andra typer av beräknings mål.
 
 
-|Funktion  |Beräkningskluster  |Beräkninsinstans  |
+|Kapacitet  |Beräkningskluster  |Beräkninsinstans  |
 |---------|---------|---------|
 |Kluster med en eller flera noder     |    **&check;**       |         |
 |Autoskalar varje gången du skickar en körning     |     **&check;**      |         |
@@ -89,7 +89,7 @@ När du skapar den här typen av beräknings resurser ingår dessa automatiskt i
 
 ### <a name="supported-vm-series-and-sizes"></a>VM-serien och storlekar som stöds
 
-När du väljer en Node-storlek för en hanterad beräknings resurs i Azure Machine Learning kan du välja mellan Välj VM-storlekar som är tillgängliga i Azure. Azure erbjuder ett antal storlekar för Linux och Windows för olika arbets belastningar. Läs mer i VM- [typer och storlekar](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+När du väljer en Node-storlek för en hanterad beräknings resurs i Azure Machine Learning kan du välja mellan Välj VM-storlekar som är tillgängliga i Azure. Azure erbjuder ett antal storlekar för Linux och Windows för olika arbets belastningar. Läs mer i VM- [typer och storlekar](../virtual-machines/sizes.md).
 
 Det finns några undantag och begränsningar för att välja en VM-storlek:
 
@@ -133,7 +133,7 @@ De aktuella isolerade VM-erbjudandena inkluderar:
 
 *RDMA-stöd
 
-Mer information om isolering finns [i isolering i det offentliga Azure-molnet](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices).
+Mer information om isolering finns [i isolering i det offentliga Azure-molnet](../security/fundamentals/isolation-choices.md).
 
 ## <a name="unmanaged-compute"></a>Ohanterad beräkning
 

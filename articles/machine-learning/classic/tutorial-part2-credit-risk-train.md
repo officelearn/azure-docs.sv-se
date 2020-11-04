@@ -9,16 +9,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: c2782d15d8be82d07f14f7ada5732b1dbef699c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59567cf2dc03952a78852f3288e78ba06aa769ee
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91348801"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325685"
 ---
 # <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio-classic"></a>Självstudie 2: träna kredit risk modeller – Azure Machine Learning Studio (klassisk)
 
-**gäller för:** ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ inga](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**gäller för:** ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ inga ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 I den här självstudien tittar vi närmare på hur du utvecklar en lösning för förutsägelseanalys. Du utvecklar en enkel modell i Machine Learning Studio (klassisk).  Därefter distribuerar du modellen som en Azure Machine Learning-webbtjänst.  Den här distribuerade modellen kan göra förutsägelser med nya data. Självstudien är **del två i en självstudieserie i tre delar**.
@@ -40,7 +40,7 @@ I den här delen av självstudien ska du:
 
 I [del tre av självstudien](tutorial-part3-credit-risk-deploy.md) ska du distribuera modellen som en webbtjänst.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför [del ett av självstudien](tutorial-part1-credit-risk.md).
 
@@ -84,7 +84,7 @@ Nu måste du meddela [träningsmodellmodulen][train-model] att du vill att model
 
 1. Välj [träningsmodellmodulen][train-model]. Klicka på **Starta kolumnväljaren** i fönstret **Egenskaper**.
 
-1. I dialogrutan **Select a single column** (Välj en enskild kolumn) skriver du ”credit risk” (kreditrisk) i sökfältet under **Tillgängliga kolumner**, väljer ”Credit risk” nedan och klickar sedan på högerpilen (**>**) för att flytta ”Credit risk” till **Valda kolumner**. 
+1. I dialogrutan **Select a single column** (Välj en enskild kolumn) skriver du ”credit risk” (kreditrisk) i sökfältet under **Tillgängliga kolumner** , väljer ”Credit risk” nedan och klickar sedan på högerpilen ( **>** ) för att flytta ”Credit risk” till **Valda kolumner**. 
 
     ![Välj kolumnen Credit Risk för träningsmodellmodulen](./media/tutorial-part2-credit-risk-train/train-model-select-column.png)
 
@@ -118,7 +118,7 @@ Konfigurera nu modulen [Normalize Data][normalize-data] (Normalisera data):
 
 1. Klicka för att välja modulen [Normalize Data][normalize-data] (Normalisera data). I fönstret **Egenskaper** väljer du **Tanh** för parametern **Transformation method** (Transformeringsmetod).
 
-1. Klicka på **Starta kolumnväljaren**, välj ”Inga kolumner” för **Börja med**, välj **Inkludera** i den första listrutan, välj **kolumntyp** i den andra listrutan och välj **Numerisk** i den tredje listrutan. Detta anger att alla numeriska kolumner (endast numeriska) transformeras.
+1. Klicka på **Starta kolumnväljaren** , välj ”Inga kolumner” för **Börja med** , välj **Inkludera** i den första listrutan, välj **kolumntyp** i den andra listrutan och välj **Numerisk** i den tredje listrutan. Detta anger att alla numeriska kolumner (endast numeriska) transformeras.
 
 1. Klicka på plustecknet (+) till höger om den här raden – när du gör det skapas en rad med listrutor. Välj **Exkludera** i den första listrutan, välj **kolumnnamn** i den andra listrutan och ange ”Credit Risk” (Kreditrisk) i textfältet. Detta anger att kolumnen Credit Risk (Kreditrisk) bör ignoreras (du måste göra detta eftersom den här kolumnen är numerisk och därför skulle transformeras om du inte uteslöt den).
 
@@ -224,14 +224,14 @@ Nu är du redo att distribuera modeller för dessa data.
 
 
 <!-- Module References -->
-[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[normalize-data]: https://msdn.microsoft.com/library/azure/986df333-6748-4b85-923d-871df70d6aaf/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-[two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
-[two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
+[execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script
+[edit-metadata]: /azure/machine-learning/studio-module-reference/edit-metadata
+[split]: /azure/machine-learning/studio-module-reference/split-data
+[evaluate-model]: /azure/machine-learning/studio-module-reference/evaluate-model
+[execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script
+[normalize-data]: /azure/machine-learning/studio-module-reference/normalize-data
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[train-model]: /azure/machine-learning/studio-module-reference/train-model
+[two-class-boosted-decision-tree]: /azure/machine-learning/studio-module-reference/two-class-boosted-decision-tree
+[two-class-support-vector-machine]: /azure/machine-learning/studio-module-reference/two-class-support-vector-machine
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/

@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: efea5d6548814dc0f165bab9281e5234f3eae925
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 4539709dbac992979af6a56e3dae81725a35739d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791332"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325000"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Använd tjänst slut punkter och regler för virtuella nätverk för servrar i Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -83,7 +83,7 @@ För Azure SQL Database har funktionen regler för virtuellt nätverk följande 
 
 - I brand väggen gäller IP-adressintervall för följande nätverks objekt, men regler för virtuella nätverk gör inte följande:
   - [Virtuellt privat nätverk (VPN) för plats-till-plats (S2S)][vpn-gateway-indexmd-608y]
-  - Lokalt via [ExpressRoute][expressroute-indexmd-744v]
+  - Lokalt via [ExpressRoute](../../expressroute/index.yml)
 
 ### <a name="considerations-when-using-service-endpoints"></a>Att tänka på när du använder tjänstens slut punkter
 
@@ -136,7 +136,7 @@ PolyBase och COPY-instruktionen används ofta för att läsa in data i Azure Syn
    > - Om du har ett allmänt v1-eller Blob Storage-konto måste du **först uppgradera till v2** med hjälp av den här [guiden](../../storage/common/storage-account-upgrade.md).
    > - Information om kända problem med Azure Data Lake Storage Gen2 finns i den här [hand boken](../../storage/blobs/data-lake-storage-known-issues.md).
 
-1. Under ditt lagrings konto navigerar du till **Access Control (IAM)** och väljer **Lägg till roll tilldelning** . Tilldela Azure-rollen **Storage BLOB data Contributor** till den server som är värd för din Azure Synapse-analys som du har registrerat med Azure Active Directory (AAD) som i steg #1.
+1. Under ditt lagrings konto navigerar du till **Access Control (IAM)** och väljer **Lägg till roll tilldelning**. Tilldela Azure-rollen **Storage BLOB data Contributor** till den server som är värd för din Azure Synapse-analys som du har registrerat med Azure Active Directory (AAD) som i steg #1.
 
    > [!NOTE]
    > Endast medlemmar med ägar behörighet för lagrings kontot kan utföra det här steget. Information om olika inbyggda Azure-roller finns i den här [guiden](../../role-based-access-control/built-in-roles.md).
@@ -210,7 +210,7 @@ Anslutnings fel 40914 relaterar till *virtuella nätverks regler* , enligt vad s
 
 ## <a name="portal-can-create-a-virtual-network-rule"></a>Portalen kan skapa en regel för virtuellt nätverk
 
-I det här avsnittet beskrivs hur du kan använda [Azure Portal][http-azure-portal-link-ref-477t] för att skapa en *regel för virtuella nätverk* i din databas i Azure SQL Database. Regeln instruerar din databas att acceptera kommunikation från ett visst undernät som har taggats som en *Virtual Network tjänst slut punkt* .
+I det här avsnittet beskrivs hur du kan använda [Azure Portal][http-azure-portal-link-ref-477t] för att skapa en *regel för virtuella nätverk* i din databas i Azure SQL Database. Regeln instruerar din databas att acceptera kommunikation från ett visst undernät som har taggats som en *Virtual Network tjänst slut punkt*.
 
 > [!NOTE]
 > Om du vill lägga till en tjänst slut punkt i brand Väggs reglerna för VNet för din server måste du först se till att tjänstens slut punkter är aktiverade för under nätet.
@@ -231,16 +231,16 @@ Internt anropar PowerShell-cmdletar för SQL VNet-åtgärder REST-API: er. Du ka
 
 Du måste redan ha ett undernät som är taggat med det specifika Virtual Network tjänst slut punkts *typ namn* som är relevant för Azure SQL Database.
 
-- Det relevanta namnet på slut punkts typen är **Microsoft. SQL** .
+- Det relevanta namnet på slut punkts typen är **Microsoft. SQL**.
 - Om ditt undernät kanske inte är taggat med typ namnet, se [Verifiera att ditt undernät är en slut punkt][sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100].
 
 <a name="a-portal-steps-for-vnet-rule-200"></a>
 
 ## <a name="azure-portal-steps"></a>Azure Portal steg
 
-1. Logga in på [Azure-portalen][http-azure-portal-link-ref-477t].
+1. Logga in på [Azure Portal][http-azure-portal-link-ref-477t].
 
-2. Sök efter och välj **SQL-servrar** och välj sedan din server. Under **säkerhet** väljer du **brand väggar och virtuella nätverk** .
+2. Sök efter och välj **SQL-servrar** och välj sedan din server. Under **säkerhet** väljer du **brand väggar och virtuella nätverk**.
 
 3. Ange alternativet **Tillåt åtkomst till Azure-tjänster** till av.
 
@@ -255,7 +255,7 @@ Du måste redan ha ett undernät som är taggat med det specifika Virtual Networ
 
     > [!TIP]
     > Du måste inkludera rätt **adressprefix** för ditt undernät. Du kan hitta värdet i portalen.
-    > Navigera **alla resurser** &gt; **alla typer** av &gt; **virtuella nätverk** . Filtret visar dina virtuella nätverk. Klicka på det virtuella nätverket och klicka sedan på **undernät** . I kolumnen **adress intervall** finns det adressprefix du behöver.
+    > Navigera **alla resurser** &gt; **alla typer** av &gt; **virtuella nätverk**. Filtret visar dina virtuella nätverk. Klicka på det virtuella nätverket och klicka sedan på **undernät**. I kolumnen **adress intervall** finns det adressprefix du behöver.
 
     ![Fyll i fält för ny regel.][image-portal-firewall-create-update-vnet-rule-20-png]
 

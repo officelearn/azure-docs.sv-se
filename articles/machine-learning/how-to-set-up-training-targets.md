@@ -11,14 +11,14 @@ ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 53d821809820b11a9a126a826db79726dd43e382
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8280af20d63da969504cda8ffe875405d4bf0218
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708245"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324722"
 ---
-# <a name="configure-and-submit-training-runs"></a>Konfigurera och skicka utbildnings körningar
+# <a name="configure-and-submit-training-runs"></a>Konfigurera och skicka träningskörningar
 
 I den här artikeln får du lära dig hur du konfigurerar och skickar Azure Machine Learning körs för att träna dina modeller.
 
@@ -29,20 +29,20 @@ Allt du behöver göra är att definiera miljön för varje beräknings mål i e
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag
-* [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) (>= 1.13.0)
+* [Azure Machine Learning SDK för python](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.13.0)
 * En [Azure Machine Learning arbets yta](how-to-manage-workspace.md), `ws`
 * Ett beräknings mål, `my_compute_target` .  [Skapa ett beräknings mål](how-to-create-attach-compute-studio.md) 
 
 ## <a name="whats-a-script-run-configuration"></a><a name="whats-a-run-configuration"></a>Vad är en skript körnings konfiguration?
-En [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) används för att konfigurera den information som krävs för att skicka in en utbildning som en del av ett experiment.
+En [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) används för att konfigurera den information som krävs för att skicka in en utbildning som en del av ett experiment.
 
 Du skickar in ditt utbildnings experiment med ett ScriptRunConfig-objekt.  Det här objektet innehåller:
 
-* **source_directory**: käll katalogen som innehåller ditt utbildnings skript
-* **skript**: det utbildnings skript som ska köras
-* **compute_target**: det beräknings mål som ska köras
-* **miljö**: miljön som ska användas när skriptet körs
-* och vissa ytterligare konfigurerbara alternativ (se [referens dokumentationen](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) för mer information)
+* **source_directory** : käll katalogen som innehåller ditt utbildnings skript
+* **skript** : det utbildnings skript som ska köras
+* **compute_target** : det beräknings mål som ska köras
+* **miljö** : miljön som ska användas när skriptet körs
+* och vissa ytterligare konfigurerbara alternativ (se [referens dokumentationen](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) för mer information)
 
 ## <a name="train-your-model"></a><a id="submit"></a>Träna modellen
 
@@ -79,7 +79,7 @@ I exempel koden i den här artikeln förutsätter vi att du redan har skapat ett
 ## <a name="create-an-environment"></a>Skapa en miljö
 Azure Machine Learning [miljöer](concept-environments.md) är en inkapsling av miljön där din Machine Learning-utbildning sker. De specificerar python-paketen, Docker-avbildningen, miljövariablerna och program varu inställningarna kring dina utbildnings-och Poäng skript. De anger också körningar (python, Spark eller Docker).
 
-Du kan antingen definiera en egen miljö eller använda en Azure ML-granskad miljö. [Granskade miljöer](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments#use-a-curated-environment) är fördefinierade miljöer som är tillgängliga i arbets ytan som standard. De här miljöerna backas upp av cachelagrade Docker-avbildningar som minskar kostnaden för att köra förberedelser. Se [Azure Machine Learning granskade miljöer](https://docs.microsoft.com/azure/machine-learning/resource-curated-environments) för en fullständig lista över tillgängliga granskade miljöer.
+Du kan antingen definiera en egen miljö eller använda en Azure ML-granskad miljö. [Granskade miljöer](./how-to-use-environments.md#use-a-curated-environment) är fördefinierade miljöer som är tillgängliga i arbets ytan som standard. De här miljöerna backas upp av cachelagrade Docker-avbildningar som minskar kostnaden för att köra förberedelser. Se [Azure Machine Learning granskade miljöer](./resource-curated-environments.md) för en fullständig lista över tillgängliga granskade miljöer.
 
 För ett fjärrberäknings mål kan du använda någon av dessa populära granskade miljöer för att börja med:
 
@@ -94,7 +94,7 @@ Mer information och information om miljöer finns [i skapa & använda program va
   
 ### <a name="local-compute-target"></a><a name="local"></a>Lokalt beräknings mål
 
-Om ditt beräknings mål är din **lokala dator**ansvarar du för att se till att alla nödvändiga paket är tillgängliga i python-miljön där skriptet körs.  Använd `python.user_managed_dependencies` för att använda din aktuella python-miljö (eller python på den sökväg som du anger).
+Om ditt beräknings mål är din **lokala dator** ansvarar du för att se till att alla nödvändiga paket är tillgängliga i python-miljön där skriptet körs.  Använd `python.user_managed_dependencies` för att använda din aktuella python-miljö (eller python på den sökväg som du anger).
 
 ```python
 from azureml.core import Environment
@@ -130,12 +130,12 @@ Om du har kommando rads argument som du vill skicka till ditt utbildnings skript
 Om du vill åsidosätta den maximala standard tiden som tillåts för körningen kan du göra det via **`max_run_duration_seconds`** parametern. Systemet kommer att försöka att automatiskt avbryta körningen om det tar längre tid än det här värdet.
 
 ### <a name="specify-a-distributed-job-configuration"></a>Ange en konfiguration för distribuerat jobb
-Om du vill köra ett distribuerat utbildnings jobb anger du den distribuerade jobbbaserade konfigurationen till **`distributed_job_config`** parametern. Konfigurations typerna som stöds är [MpiConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py&preserve-view=true), [TensorflowConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?view=azure-ml-py&preserve-view=true)och [PyTorchConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?view=azure-ml-py&preserve-view=true). 
+Om du vill köra ett distribuerat utbildnings jobb anger du den distribuerade jobbbaserade konfigurationen till **`distributed_job_config`** parametern. Konfigurations typerna som stöds är [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?preserve-view=true&view=azure-ml-py), [TensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?preserve-view=true&view=azure-ml-py)och [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py). 
 
 Mer information och exempel på hur du kör distribuerade Horovod-, TensorFlow-och PyTorch-jobb finns i:
 
-* [Utbilda TensorFlow-modeller](https://docs.microsoft.com/azure/machine-learning/how-to-train-tensorflow#distributed-training)
-* [Utbilda PyTorch-modeller](https://docs.microsoft.com/azure/machine-learning/how-to-train-pytorch#distributed-training)
+* [Utbilda TensorFlow-modeller](./how-to-train-tensorflow.md#distributed-training)
+* [Utbilda PyTorch-modeller](./how-to-train-pytorch.md#distributed-training)
 
 ## <a name="submit-the-experiment"></a>Skicka experimentet
 
@@ -152,7 +152,7 @@ run.wait_for_completion(show_output=True)
 > Mer information om ögonblicks bilder finns i [ögonblicks bilder](concept-azure-machine-learning-architecture.md#snapshots).
 
 > [!IMPORTANT]
-> **Särskilda mappar** Två mappar, *utdata* och *loggar*, tar emot särskild behandling av Azure Machine Learning. När du skriver filer till mappar med namnet *utdata* och *loggar* som är relativa till rot katalogen ( `./outputs` och `./logs` respektive) överförs filerna automatiskt till din körnings historik så att du har åtkomst till dem när körningen är färdig.
+> **Särskilda mappar** Två mappar, *utdata* och *loggar* , tar emot särskild behandling av Azure Machine Learning. När du skriver filer till mappar med namnet *utdata* och *loggar* som är relativa till rot katalogen ( `./outputs` och `./logs` respektive) överförs filerna automatiskt till din körnings historik så att du har åtkomst till dem när körningen är färdig.
 >
 > Om du vill skapa artefakter under träning (till exempel modell filer, kontroll punkter, datafiler eller ritade bilder) skriver du dessa till `./outputs` mappen.
 >
@@ -179,5 +179,5 @@ I de här antecknings böckerna finns exempel på hur du konfigurerar körningar
 * Se hur du tränar modeller med speciella ML-ramverk, till exempel [Scikit – lära](how-to-train-scikit-learn.md), [TensorFlow](how-to-train-tensorflow.md)och [PyTorch](how-to-train-pytorch.md).
 * Lär dig hur du [effektivt justerar disponeringsparametrarna](how-to-tune-hyperparameters.md) för att bygga bättre modeller.
 * När du har en tränad modell lär du dig [hur och var modeller ska distribueras](how-to-deploy-and-where.md).
-* Visa SDK-referens för [ScriptRunConfig-klass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) .
-* [Använda Azure Machine Learning med virtuella Azure-nätverk](how-to-enable-virtual-network.md)
+* Visa SDK-referens för [ScriptRunConfig-klass](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) .
+* [Använda Azure Machine Learning med virtuella Azure-nätverk](./how-to-network-security-overview.md)

@@ -1,6 +1,6 @@
 ---
 title: Självstudie – Azure Toolkit for IntelliJ (Spark-program)
-description: Självstudie – Använd Azure Toolkit for IntelliJ för att utveckla Spark-program som är skrivna i Scala och skicka dem till en Apache Spark pool (för hands version).
+description: Självstudie – Använd Azure Toolkit for IntelliJ för att utveckla Spark-program som är skrivna i Scala och skicka dem till en server lös Apache Spark pool (för hands version).
 services: synapse-analytics
 author: hrasheed-msft
 ms.author: jejiang
@@ -9,16 +9,16 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
-ms.openlocfilehash: be127d4214577e017522aec6a1b61b8f62638ed9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5a9fcf3e13c2f86a11e9626be486a585ec659044
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368748"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325227"
 ---
 # <a name="tutorial-create-an-apache-spark-application-with-intellij-using-a-synapse-workspace"></a>Självstudie: skapa ett Apache Spark program med IntelliJ med hjälp av en Synapse-arbetsyta
 
-Den här självstudien visar hur du använder Azure Toolkit for IntelliJ plugin-programmet för att utveckla Apache Spark-program som är skrivna i [Scala](https://www.scala-lang.org/)och sedan skicka dem till en spark-pool (för hands version) direkt från IntelliJ-Integrated Development Environment (IDE). Du kan använda plugin-programmet på några sätt:
+Den här självstudien visar hur du använder Azure Toolkit for IntelliJ plugin-programmet för att utveckla Apache Spark program som är skrivna i [Scala](https://www.scala-lang.org/)och sedan skicka dem till en server lös Apache Spark-pool (för hands version) direkt från IntelliJ Integrated Development Environment (IDE). Du kan använda plugin-programmet på några sätt:
 
 - Utveckla och skicka in ett Scala Spark-program på en spark-pool.
 - Få åtkomst till dina Spark-pooler resurser.
@@ -31,7 +31,7 @@ I den här guiden får du lära dig att:
 > - Utveckla Apache Spark program
 > - Skicka program till Spark-pooler
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [INTELLIJ idé community-version](https://www.jetbrains.com/idea/download/download-thanks.html?platform=windows&code=IIC).
 - Azure toolkit-plugin-3.27.0 – 2019.2 – Installera från [IntelliJ plugin-lagringsplatsen](/java/azure/intellij/azure-toolkit-for-intellij-installation?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
@@ -40,7 +40,7 @@ I den här guiden får du lära dig att:
 - Följande förutsättningar gäller endast för Windows-användare:
 
   När du kör det lokala Spark Scala-programmet på en Windows-dator kan du få ett undantag, enligt beskrivningen i [Spark-2356](https://issues.apache.org/jira/browse/SPARK-2356). Undantaget beror på att WinUtils.exe saknas i Windows.
-  Lös problemet genom att ladda ned [WinUtils-körbara filen](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) till en plats, till exempel **C:\WinUtils\bin**. Lägg sedan till miljövariabeln **HADOOP_HOME**och ange värdet för variabeln till **C:\WinUtils**.
+  Lös problemet genom att ladda ned [WinUtils-körbara filen](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) till en plats, till exempel **C:\WinUtils\bin**. Lägg sedan till miljövariabeln **HADOOP_HOME** och ange värdet för variabeln till **C:\WinUtils**.
 
 ## <a name="create-a-spark-scala-application-for-a-spark-pool"></a>Skapa ett Spark Scala-program för en spark-pool
 
@@ -61,7 +61,7 @@ I den här guiden får du lära dig att:
     | ----- | ----- |
     |Projektnamn| Ange ett namn. I den här självstudien används `myApp`.|
     |Projektplats| Ange önskad plats för att spara projektet.|
-    |Projekt-SDK| Det kan vara tomt vid din första användning av idén. Välj **Nytt... ** och navigera till din JDK.|
+    |Projekt-SDK| Det kan vara tomt vid din första användning av idén. Välj **Nytt...** och navigera till din JDK.|
     |Spark-version|Skapandeguiden integrerar rätt version för Spark SDK och Scala SDK. Synapse stöder endast **Spark-2.4.0**.|
     |||
 
@@ -88,15 +88,15 @@ Logga in på Azure-prenumerationen för att ansluta till dina Spark-pooler.
 
 ### <a name="sign-in-to-your-azure-subscription"></a>Logga in på din Azure-prenumeration
 
-1. Gå till **Visa**-  >  **verktyget Windows**  >  **Azure Explorer**från meny raden.
+1. Gå till **Visa** -  >  **verktyget Windows**  >  **Azure Explorer** från meny raden.
 
    ![IntelliJ idé visar Azure Explorer](./media/intellij-tool-synapse/show-azure-explorer1.png)
 
-2. I Azure Explorer högerklickar du på **Azure** -noden och väljer sedan **Logga**in.
+2. I Azure Explorer högerklickar du på **Azure** -noden och väljer sedan **Logga** in.
 
    ![IntelliJ idé Explorer högerklickar du på Azure](./media/intellij-tool-synapse/explorer-rightclick-azure.png)
 
-3. I dialog rutan **Azure-inloggning** väljer du **enhets inloggning**och väljer sedan **Logga**in.
+3. I dialog rutan **Azure-inloggning** väljer du **enhets inloggning** och väljer sedan **Logga** in.
 
     ![IntelliJ idé Azure-inloggning](./media/intellij-tool-synapse/intellij-view-explorer2.png)
 
@@ -116,7 +116,7 @@ Logga in på Azure-prenumerationen för att ansluta till dina Spark-pooler.
 
     ![Dialogrutan Select Subscriptions (Välj prenumerationer)](./media/intellij-tool-synapse/Select-Subscriptions.png)
 
-8. I **Azure Explorer**expanderar du **Apache Spark på Synapse** för att visa de arbets ytor som finns i dina prenumerationer.
+8. I **Azure Explorer** expanderar du **Apache Spark på Synapse** för att visa de arbets ytor som finns i dina prenumerationer.
 
     ![IntelliJ idé Azure Explorer Main View](./media/intellij-tool-synapse/azure-explorer-workspace.png)
 
@@ -136,13 +136,13 @@ När du har skapat ett Scala-program kan du köra det på distans.
 
     ![Skicka Spark-programmet till HDInsight-kommando 2](./media/intellij-tool-synapse/create-synapse-configuration02.png)
 
-3. I fönstret **Kör/Felsök konfigurationer** anger du följande värden och väljer sedan **OK**:
+3. I fönstret **Kör/Felsök konfigurationer** anger du följande värden och väljer sedan **OK** :
 
     |Egenskap |Värde |
     |----|----|
     |Spark-pooler|Välj de Spark-pooler som du vill köra programmet på.|
     |Välj en artefakt som ska skickas|Lämna standardvärdet.|
-    |Huvud klass namn|Standardvärdet är huvud klassen från den valda filen. Du kan ändra klassen genom att välja ellipsen (**...**) och välja en annan klass.|
+    |Huvud klass namn|Standardvärdet är huvud klassen från den valda filen. Du kan ändra klassen genom att välja ellipsen ( **...** ) och välja en annan klass.|
     |Jobb konfiguration|Du kan ändra standard nyckel och standardvärden. Mer information finns i [Apache Livy REST API](http://livy.incubator.apache.org./docs/latest/rest-api.html).|
     |Kommando rads argument|Du kan ange argument avgränsade med blank steg för huvud klassen om det behövs.|
     |Refererade jar v7 och refererade filer|Du kan ange sökvägar för refererade jar v7 och filer om det finns några. Du kan också bläddra i filer i det virtuella Azure-filsystemet, som för närvarande endast stöder ADLS Gen2 kluster. Mer information: [Apache Spark Configuration] https://spark.apache.org/docs/2.4.5/configuration.html#runtime-environment) och [hur du överför resurser till kluster](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).|
@@ -166,7 +166,7 @@ Du kan följa anvisningarna nedan för att konfigurera din lokala körnings-och 
 
 ### <a name="scenario-1-do-local-run"></a>Scenario 1: utför lokal körning
 
-1. Öppna dialog rutan **Kör/Felsök konfigurationer** och välj plus tecknet ( **+** ). Välj sedan alternativet **Apache Spark på Synapse** . Ange information om **namn**, **huvud klass namn** som ska sparas.
+1. Öppna dialog rutan **Kör/Felsök konfigurationer** och välj plus tecknet ( **+** ). Välj sedan alternativet **Apache Spark på Synapse** . Ange information om **namn** , **huvud klass namn** som ska sparas.
 
     ![IntelliJ kör felsöka konfigurationer lokal körning 1](./media/intellij-tool-synapse/local-run-synapse.png)
 
@@ -178,7 +178,7 @@ Du kan följa anvisningarna nedan för att konfigurera din lokala körnings-och 
 
     ![IntelliJ kör felsöka konfigurationer lokal körning 2](./media/intellij-tool-synapse/local-run-synapse01.png)
 
-3. När den lokala körningen är klar kan du kontrol lera utdatafilen från **data**standard om skriptet innehåller utdata  >  **__default__**.
+3. När den lokala körningen är klar kan du kontrol lera utdatafilen från **data** standard om skriptet innehåller utdata  >  **__default__**.
 
     ![IntelliJ-projektets lokala körnings resultat 1](./media/intellij-tool-synapse/spark-local-run-result.png)
 
@@ -191,15 +191,15 @@ Du kan följa anvisningarna nedan för att konfigurera din lokala körnings-och 
 
 ## <a name="access-and-manage-synapse-workspace"></a>Komma åt och hantera Synapse-arbetsyta
 
-Du kan utföra olika åtgärder i Azure Explorer i Azure Toolkit for IntelliJ. Gå till **Visa**-  >  **verktyget Windows**  >  **Azure Explorer**från meny raden.
+Du kan utföra olika åtgärder i Azure Explorer i Azure Toolkit for IntelliJ. Gå till **Visa** -  >  **verktyget Windows**  >  **Azure Explorer** från meny raden.
 
 ### <a name="launch-workspace"></a>Starta arbets yta
 
-1. Från Azure Explorer navigerar du till **Apache Spark på Synapse**och expanderar den sedan.
+1. Från Azure Explorer navigerar du till **Apache Spark på Synapse** och expanderar den sedan.
 
     ![IntelliJ idé Azure Explorer Main View](./media/intellij-tool-synapse/azure-explorer-workspace.png)
 
-2. Högerklicka på en arbets yta och välj sedan **Starta arbets yta**, så öppnas webbplatsen.
+2. Högerklicka på en arbets yta och välj sedan **Starta arbets yta** , så öppnas webbplatsen.
 
     ![Spark-jobb Visa program information 1](./media/intellij-tool-synapse/launch-workspace-synapse.png)
 
@@ -216,7 +216,7 @@ Se till att du har uppfyllt kraven för WINUTILS.EXE.
 1. Gå till meny raden och navigera till **Kör**  >  **Redigera konfigurationer...**.
 2. I fönstret **Kör/Felsök-konfigurationer** går du till vänster-fönstret och navigerar till **Apache Spark på Synapse**  >  **[Spark på Synapse] MyApp**.
 3. Välj fliken **lokalt körning** i huvud fönstret.
-4. Ange följande värden och välj sedan **OK**:
+4. Ange följande värden och välj sedan **OK** :
 
     |Egenskap |Värde |
     |----|----|
@@ -247,7 +247,7 @@ Det stöds endast på IntelliJ 2018,2 och 2018,3.
 
 3. Välj fliken **fjärrkörning på kluster** i huvud fönstret.
 
-4. Ange följande värden och välj sedan **OK**:
+4. Ange följande värden och välj sedan **OK** :
 
     |Egenskap |Värde |
     |----|----|

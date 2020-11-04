@@ -11,16 +11,16 @@ ms.date: 03/27/2019
 ms.author: procha
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: aa58ad09a6db212633e51b89c390ff0330943131
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: be625d99d1b57ff3c66528b8af6fa0273d013ebe
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279850"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325471"
 ---
 # <a name="azure-synapse-analytics-data-integration-partners"></a>Azure Synapse Analytics-data integrerings partner
 
-Om du vill skapa en informations lager lösning med hjälp av Synapse för SQL-pooler i Azure Synapse kan du välja bland en mängd olika branschledande verktyg. I den här artikeln beskrivs Microsofts partner företag med officiella lösningar för data integrering som stöder Azure-Synapse.
+Om du vill skapa en informations lager lösning med hjälp av den dedikerade SQL-poolen i Azure Synapse Analytics kan du välja bland en mängd olika branschledande verktyg. I den här artikeln beskrivs Microsofts partner företag med officiella lösningar för data integrering som stöder Azure-Synapse.
 
 ## <a name="data-integration-partners"></a>Data integrerings partner
 

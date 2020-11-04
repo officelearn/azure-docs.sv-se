@@ -1,6 +1,6 @@
 ---
 title: Anslut med SSMS
-description: Använd SQL Server Management Studio (SSMS) för att ansluta till och fråga Azure Synapse Analytics.
+description: Använd SQL Server Management Studio (SSMS) för att ansluta till och fråga en dedikerad SQL-pool i Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 772e4253244f5e13a60f155549d5f5513695e5fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2fab8f02f31897a2e3d38094b9bd365f8e921e9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85200757"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325330"
 ---
-# <a name="connect-to-azure-synapse-analytics-with-sql-server-management-studio-ssms"></a>Ansluta till Azure Synapse Analytics med SQL Server Management Studio (SSMS)
+# <a name="connect-to-a-dedicated-sql-pool-in-azure-synapse-analytics-with-sql-server-management-studio-ssms"></a>Ansluta till en dedikerad SQL-pool i Azure Synapse Analytics med SQL Server Management Studio (SSMS)
 
 > [!div class="op_single_selector"]
 >
@@ -30,15 +30,15 @@ ms.locfileid: "85200757"
 
 Använd SQL Server Management Studio (SSMS) för att ansluta till och fråga ett informations lager i Azure Synapse.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att använda de här självstudierna:
 
-* En befintlig SQL-pool. Information om hur du skapar en SQL-pool finns i [skapa en SQL-pool](create-data-warehouse-portal.md).
+* En befintlig dedikerad SQL-pool. Om du vill skapa en, se [skapa en dedikerad SQL-pool](create-data-warehouse-portal.md).
 * SQL Server Management Studio (SSMS) har installerats. [Hämta SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) kostnads fritt om du inte redan har det.
-* Det fullständigt kvalificerade servernamnet. Information om hur du hittar den här informationen finns i [Anslut till SQL-pool](sql-data-warehouse-connect-overview.md).
+* Det fullständigt kvalificerade servernamnet. Information om hur du hittar den här informationen finns i [Anslut till en dedikerad SQL-pool](sql-data-warehouse-connect-overview.md).
 
-## <a name="1-connect-to-your-sql-pool"></a>1. Anslut till din SQL-pool
+## <a name="1-connect-to-your-dedicated-sql-pool"></a>1. Anslut till din dedikerade SQL-pool
 
 1. Öppna SSMS.
 2. Öppna Object Explorer genom att välja **fil**  >  **Connect Object Explorer**.
@@ -79,4 +79,4 @@ När du nu etablerat en anslutning till din databas, är det dags att skriva en 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du kan ansluta och fråga kan du prova [att visualisera data med Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md). Information om hur du konfigurerar din miljö för Azure Active Directory autentisering finns i [autentisera till SQL-pool](sql-data-warehouse-authentication.md).
+Nu när du kan ansluta och fråga kan du prova [att visualisera data med Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md). Information om hur du konfigurerar din miljö för Azure Active Directory autentisering finns i [autentisera till dedikerad SQL-pool](sql-data-warehouse-authentication.md).

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 654c1beb0f8f544219ed802cab92f06055d70960
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: d253699199617489947dd95a44d9bcd1eff17334
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628685"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325411"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Köra Jupyter Notebooks på arbetsytan
 
@@ -42,7 +42,7 @@ I arbets ytan Azure Machine Learning skapar du en ny Jupyter-anteckningsbok och 
 Så här skapar du en ny antecknings bok: 
 
 1. Öppna din arbets yta i [Azure Machine Learning Studio](https://ml.azure.com).
-1. På den vänstra sidan väljer du **antecknings böcker** . 
+1. På den vänstra sidan väljer du **antecknings böcker**. 
 1. Välj ikonen  **Skapa ny fil** ovanför listan **användarfiler** i avsnittet **Mina filer** .
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/create-new-file.png" alt-text="Skapa en ny fil":::
@@ -50,7 +50,7 @@ Så här skapar du en ny antecknings bok:
 1. Ge filen ett namn. 
 1. För Jupyter Notebook filer väljer du **Notebook** som filtyp.
 1. Välj en fil katalog.
-1. Välj **Skapa** .
+1. Välj **Skapa**.
 
 Du kan också skapa textfiler.  Välj **text** som filtyp och Lägg till tillägget i namnet (till exempel myfile.py eller myfile.txt)  
 
@@ -75,16 +75,16 @@ Du kan komma åt alla git-åtgärder med hjälp av ett terminalfönster. Alla gi
 För att få åtkomst till terminalen:
 
 1. Öppna din arbets yta i [Azure Machine Learning Studio](https://ml.azure.com).
-1. På den vänstra sidan väljer du **antecknings böcker** .
+1. På den vänstra sidan väljer du **antecknings böcker**.
 1. Välj en antecknings bok som finns i avsnittet **användarfiler** på den vänstra sidan.  Om du inte har några antecknings böcker där måste du först [skapa en antecknings bok](#create)
 1. Välj ett **beräknings** mål eller skapa ett nytt och vänta tills det körs.
 1. Välj ikonen **Öppna Terminal** .
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Skapa en ny fil":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Öppna Terminal":::
 
-1. Om du inte ser ikonen väljer du **...** till höger om beräknings målet och väljer sedan **Öppna Terminal** .
+1. Om du inte ser ikonen väljer du **...** till höger om beräknings målet och väljer sedan **Öppna Terminal**.
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Skapa en ny fil":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Öppna Terminal från...":::
 
 
 Lär dig mer om [att klona git-databaser till fil systemet för arbets ytan](concept-train-model-git-integration.md#clone-git-repositories-into-your-workspace-file-system).
@@ -114,9 +114,9 @@ Du kan också starta Jupyter eller JupyterLab från antecknings bokens verktygsf
 Använd fokus läge för att expandera den aktuella vyn så att du kan fokusera på dina aktiva flikar. Fokus läge döljer fil Utforskaren i antecknings boken.
 
 1. I verktygsfältet i terminalfönstret väljer du **fokus läge** för att aktivera fokus läge. Beroende på fönstrets bredd kan detta finnas under meny alternativet **...** i verktygsfältet.
-1. I fokus läge går du tillbaka till standardvyn genom att välja **standardvy** .
+1. I fokus läge går du tillbaka till standardvyn genom att välja **standardvy**.
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Skapa en ny fil":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Växla fokus läge/standardvy":::
 
 
 ### <a name="use-intellisense"></a>Använd IntelliSense
@@ -136,7 +136,8 @@ I samband med att du skapar en antecknings bok slutar du normalt med celler som 
 1. Kör alla dina Notebook-celler.
 1. Välj den cell som innehåller den kod som du vill att den nya bärbara datorn ska köra. Till exempel den kod som skickar ett experiment eller kanske koden som registrerar en modell.
 1. Välj den **insamlings** ikon som visas i cell verktygsfältet.
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="Skapa en ny fil" notebook-anteckningsboken.  
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="Skärm bild: Välj ikonen samla in":::
+1. Ange namnet på den nya "insamlade" notebook-anteckningsboken.  
 
 Den nya antecknings boken innehåller bara kod celler, med alla celler som krävs för att skapa samma resultat som den cell som du har valt för att samla in.
 
@@ -146,7 +147,7 @@ Azure Machine Learning skapar en kontroll punkts fil när du skapar en *ipynb* -
 
 I verktygsfältet Notebook väljer du menyn och sedan **&gt; Spara och kontrol kontroll punkt** för att manuellt spara antecknings boken och lägger till en kontroll punkts fil som är associerad med antecknings boken.
 
-:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Skapa en ny fil":::
+:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Skärm bild av verktyget Spara i anteckningsbok-verktygsfältet":::
 
 Alla antecknings böcker sparas automatiskt var 30: e sekund. Spara automatiskt uppdateringar endast den ursprungliga *ipynb* -filen, inte kontroll punkts filen.
  
@@ -155,7 +156,7 @@ Välj **kontroll punkter** i Notebook-menyn för att skapa en namngiven kontroll
 
 ### <a name="useful-keyboard-shortcuts"></a>Användbara kortkommandon
 
-|Tangentbord  |Åtgärd  |
+|Tangentbord  |Action  |
 |---------|---------|
 |SKIFT + RETUR     |  Köra en cell       |
 |CTRL + blank steg | Aktivera IntelliSense |
@@ -179,15 +180,15 @@ Du *kan* ta bort antecknings böcker för **användar filer** på något av föl
 Om du vill köra ett experiment från en antecknings bok ansluter du först till en [beräknings instans](concept-compute-instance.md)som körs. Om du inte har en beräknings instans använder du följande steg för att skapa ett: 
 
 1. Välj **+** i antecknings bokens verktygsfält. 
-2. Namnge beräkningen och välj en storlek för den **virtuella datorn** . 
-3. Välj **Skapa** .
+2. Namnge beräkningen och välj en storlek för den **virtuella datorn**. 
+3. Välj **Skapa**.
 4. Beräknings instansen är ansluten till antecknings boken automatiskt och du kan nu köra cellerna.
 
 Endast du kan se och använda de beräknings instanser som du skapar.  Dina **användarfiler** lagras separat från den virtuella datorn och delas mellan alla beräknings instanser i arbets ytan.
 
 ### <a name="view-logs-and-output"></a>Visa loggar och utdata
 
-Använd [Notebook-widgetar](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true) för att visa förloppet för körningen och loggarna. En widget är asynkron och innehåller uppdateringar tills inlärningen är klar. Azure Machine Learning-widgetar stöds också i Jupyter och JupterLab.
+Använd [Notebook-widgetar](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py) för att visa förloppet för körningen och loggarna. En widget är asynkron och innehåller uppdateringar tills inlärningen är klar. Azure Machine Learning-widgetar stöds också i Jupyter och JupterLab.
 
 ## <a name="change-the-notebook-environment"></a>Ändra Notebook-miljön
 
@@ -195,14 +196,14 @@ I verktygsfältet Notebook kan du ändra den miljö som antecknings boken körs 
 
 Dessa åtgärder ändrar inte antecknings läget eller värdena för några variabler i antecknings boken:
 
-|Åtgärd  |Resultat  |
+|Action  |Resultat  |
 |---------|---------| --------|
 |Stoppa kärnan     |  Stoppar eventuell cell som körs. Om du kör en cell startas kerneln om automatiskt. |
 |Navigera till en annan arbets yta-sektion     |     Celler som körs stoppas. |
 
 Dessa åtgärder återställer antecknings bokens tillstånd och återställer alla variabler i antecknings boken.
 
-|Åtgärd  |Resultat  |
+|Action  |Resultat  |
 |---------|---------| --------|
 | Ändra kernel | Notebook använder ny kernel |
 | Ändra beräkning    |     Antecknings boken använder automatiskt den nya beräkningen. |

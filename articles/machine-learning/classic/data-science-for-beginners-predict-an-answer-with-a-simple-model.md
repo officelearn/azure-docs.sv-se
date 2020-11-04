@@ -9,12 +9,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: 1cfe617ab424fbb29e2866cd98d4b8c390f306c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c02abf095beefdd131a5835d015175d56a63de47
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91346269"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322821"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Förutsäga ett svar med en enkel modell
 
@@ -98,7 +98,7 @@ För att besvara vår fråga ögonglobsikonen vi 1,35 Carats och rita en lodrät
 ![Hitta svaret på modellen](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/find-the-answer.png)
 
 ## <a name="create-a-confidence-interval"></a>Skapa ett konfidens intervall
-Det är naturligt att undrar hur exakt denna förutsägelse är. Det är användbart att veta om 1,35-cirkumflex romben kommer att vara mycket nära $10 000 eller mycket högre eller lägre. Vi ritar ett kuvert runt Regressions linjen som innehåller de flesta punkterna. Det här kuvertet kallas vårt *konfidens intervall*: vi är ganska säkra på att priserna faller inom det här kuvertet, eftersom de flesta har de senaste. Vi kan rita två fler horisontella linjer från där 1,35 cirkumflex-linjen korsar den övre kanten och längst ned på kuvertet.
+Det är naturligt att undrar hur exakt denna förutsägelse är. Det är användbart att veta om 1,35-cirkumflex romben kommer att vara mycket nära $10 000 eller mycket högre eller lägre. Vi ritar ett kuvert runt Regressions linjen som innehåller de flesta punkterna. Det här kuvertet kallas vårt *konfidens intervall* : vi är ganska säkra på att priserna faller inom det här kuvertet, eftersom de flesta har de senaste. Vi kan rita två fler horisontella linjer från där 1,35 cirkumflex-linjen korsar den övre kanten och längst ned på kuvertet.
 
 ![Konfidensintervall](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
 
@@ -109,7 +109,7 @@ Vi gjorde vad data experter betalar för att göra och vi gjorde det bara genom 
 
 * Vi har begärt en fråga som vi kunde besvara med data
 * Vi har byggt en *modell* med *linjär regression*
-* Vi har gjort en *förutsägelse*, komplett med ett *konfidens intervall*
+* Vi har gjort en *förutsägelse* , komplett med ett *konfidens intervall*
 
 Och vi använde inte matematik eller datorer för att göra det.
 
@@ -129,4 +129,4 @@ Se till att ta en titt på de andra videorna i "data vetenskap för nybörjare" 
 
 ## <a name="next-steps"></a>Nästa steg
 * [Testa ett första data vetenskaps experiment med Machine Learning Studio (klassisk)](create-experiment.md)
-* [Få en introduktion till Machine Learning på Microsoft Azure](/azure/machine-learning/overview-what-is-azure-ml)
+* [Få en introduktion till Machine Learning på Microsoft Azure](../overview-what-is-azure-ml.md)

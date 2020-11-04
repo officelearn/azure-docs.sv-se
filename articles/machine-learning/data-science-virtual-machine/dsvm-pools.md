@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: 0745957620aab7ed4d08cb016c706b56e6da1c5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 789c6c36def21bfe1c2acc8797c1847455a5c86c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708976"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324398"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Skapa en delad pool av data vetenskaps Virtual Machines
 
@@ -27,7 +27,7 @@ Du kan använda många metoder och tekniker för att skapa en pool med Dsvm. Den
 
 En pool med interaktiva virtuella datorer som delas av hela AI/data vetenskaps gruppen gör att användarna kan logga in på en tillgänglig instans av DSVM i stället för att ha en dedikerad instans för varje uppsättning användare. Den här installationen ger bättre tillgänglighet och effektivare användning av resurser.
 
-Du använder teknik för [skalnings uppsättningar för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machine-scale-sets/) för att skapa en interaktiv VM-pool. Du kan använda skalnings uppsättningar för att skapa och hantera en grupp med identiska, belastningsutjämnade och automatisk skalning av virtuella datorer.
+Du använder teknik för [skalnings uppsättningar för virtuella Azure-datorer](../../virtual-machine-scale-sets/index.yml) för att skapa en interaktiv VM-pool. Du kan använda skalnings uppsättningar för att skapa och hantera en grupp med identiska, belastningsutjämnade och automatisk skalning av virtuella datorer.
 
 Användaren loggar in på huvud-poolens IP-eller DNS-adress. Skalnings uppsättningen dirigerar automatiskt sessionen till en tillgänglig DSVM i skalnings uppsättningen. Eftersom användarna vill ha en konsekvent och välbekant miljö oavsett vilken virtuell dator de loggar in på, kan alla instanser av den virtuella datorn i skalnings uppsättningen montera en delad nätverks enhet, till exempel en Azure Files resurs eller en NFS-resurs (Network File System). Användarens delade arbets yta behålls vanligt vis på det delade fil lager som är monterat på var och en av instanserna.
 
@@ -53,7 +53,7 @@ Med föregående mall kan SSH-och JupyterHub-porten från front-end-Ubuntu stäl
 
 [Skriptet som monterar Azure Files resursen](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Extensions/General/mountazurefiles.sh) är också tillgängligt i Azure DataScienceVM-lagringsplatsen i GitHub. Skriptet monterar Azure Files resursen på den angivna monterings punkten i parameter filen. Skriptet skapar också mjuka länkar till den monterade enheten i den första användarens Hem Katalog. En användarspecifik Notebook-katalog i Azure Files resursen är mjuk länkad till `$HOME/notebooks/remote` katalogen så att användarna kan komma åt, köra och spara sina Jupyter-anteckningsböcker. Du kan använda samma konvention när du skapar ytterligare användare på den virtuella datorn för att peka varje användares Jupyter-arbetsyta till Azure Files resursen.
 
-Skalnings uppsättningar för virtuella datorer stöder autoskalning. Du kan ange regler för när du vill skapa ytterligare instanser och när du ska skala ned instanser. Du kan till exempel skala ned till noll instanser för att spara kostnader för maskin varu användning i molnet när de virtuella datorerna inte används alls. Dokumentations sidorna för skalnings uppsättningar för virtuella datorer ger detaljerade anvisningar för automatisk [skalning](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview).
+Skalnings uppsättningar för virtuella datorer stöder autoskalning. Du kan ange regler för när du vill skapa ytterligare instanser och när du ska skala ned instanser. Du kan till exempel skala ned till noll instanser för att spara kostnader för maskin varu användning i molnet när de virtuella datorerna inte används alls. Dokumentations sidorna för skalnings uppsättningar för virtuella datorer ger detaljerade anvisningar för automatisk [skalning](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

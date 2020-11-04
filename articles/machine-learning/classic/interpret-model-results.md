@@ -8,16 +8,16 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 11/29/2017
-ms.openlocfilehash: e422c1a7b333254ed49b53bcdf2d10e65f2846e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cfdeaee863c8e11a76ac5842ae6c35d370e2ae2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91345322"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322554"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Tolka modell resultat i Azure Machine Learning Studio (klassisk)
 
-**gäller för:** ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ inga](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**gäller för:** ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ inga ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 I det här avsnittet beskrivs hur du visualiserar och tolkar förutsägelse resultat i Azure Machine Learning Studio (klassisk). När du har tränat en modell och gjort förutsägelser ovanpå den ("score modellen"), måste du förstå och tolka resultatet av förutsägelsen.
@@ -80,7 +80,7 @@ När förutsägelse resultaten har förstått och bedömt ljud kan experimentet 
 
 Bild 3. Bedömning av Iriss problem med klassificerings problem i två klass
 
-Nu måste du ange indata och utdata för webb tjänsten. Indatamängden är den högra Indataporten i [Poäng modellen][score-model], vilket är den inmatade Iris-funktionen. Valet av utdata beror på om du är intresse rad av den förväntade klassen (resultat etikett), den resulterande sannolikheten eller både och. I det här exemplet förutsätts att du är intresse rad av båda. Om du vill välja önskade utdatakolumner använder du en [Välj kolumner i modulen data uppsättning][select-columns] . Klicka på [Välj kolumner i data uppsättning][select-columns], klicka på **Starta kolumn väljaren**och välj **resultat etiketter** och **betyg betygs**ätt. När du har angett utdataporten för [Välj kolumner i data uppsättningen][select-columns] och kör den igen, bör du vara redo att publicera bedömnings experimentet som en webb tjänst genom att klicka på **publicera webb tjänst**. Det slutliga experimentet ser ut som figur 4.
+Nu måste du ange indata och utdata för webb tjänsten. Indatamängden är den högra Indataporten i [Poäng modellen][score-model], vilket är den inmatade Iris-funktionen. Valet av utdata beror på om du är intresse rad av den förväntade klassen (resultat etikett), den resulterande sannolikheten eller både och. I det här exemplet förutsätts att du är intresse rad av båda. Om du vill välja önskade utdatakolumner använder du en [Välj kolumner i modulen data uppsättning][select-columns] . Klicka på [Välj kolumner i data uppsättning][select-columns], klicka på **Starta kolumn väljaren** och välj **resultat etiketter** och **betyg betygs** ätt. När du har angett utdataporten för [Välj kolumner i data uppsättningen][select-columns] och kör den igen, bör du vara redo att publicera bedömnings experimentet som en webb tjänst genom att klicka på **publicera webb tjänst**. Det slutliga experimentet ser ut som figur 4.
 
 ![Iris i två Klasss experiment](./media/interpret-model-results/4.png)
 
@@ -247,7 +247,7 @@ Bild 20. Rekommenderat system experiment
 
 **Förutsäg betyg för en specifik användare och objekt**
 
-Genom att välja **betygs** förutsägelse under **rekommendations förutsägelse typ**ber du det rekommenderade systemet att förutsäga omdömet för en viss användare och objekt. Visualiseringen av [poängen matchbox rekommenderar][score-matchbox-recommender] att utdata ser ut som figur 21.
+Genom att välja **betygs** förutsägelse under **rekommendations förutsägelse typ** ber du det rekommenderade systemet att förutsäga omdömet för en viss användare och objekt. Visualiseringen av [poängen matchbox rekommenderar][score-matchbox-recommender] att utdata ser ut som figur 21.
 
 ![Resultat resultat för rekommendations systemet – betygs förutsägelse](./media/interpret-model-results/21.png)
 
@@ -257,7 +257,7 @@ De första två kolumnerna är de användar objekts par som tillhandahålls av i
 
 **Rekommendera objekt till en specifik användare**
 
-Genom att välja **artikel rekommendation** under **rekommenderat förutsägelse typ**ber du det rekommenderade systemet att rekommendera objekt till en viss användare. Den sista parametern som du väljer i det här scenariot *rekommenderas val av objekt*. Alternativet **från betygsatta objekt (för modell utvärdering)** är i första hand för modell utvärdering under inlärnings processen. För det här förutsägelse skedet väljer vi **från alla objekt**. Visualiseringen av [poängen matchbox rekommenderar][score-matchbox-recommender] att utdata ser ut som figur 22.
+Genom att välja **artikel rekommendation** under **rekommenderat förutsägelse typ** ber du det rekommenderade systemet att rekommendera objekt till en viss användare. Den sista parametern som du väljer i det här scenariot *rekommenderas val av objekt*. Alternativet **från betygsatta objekt (för modell utvärdering)** är i första hand för modell utvärdering under inlärnings processen. För det här förutsägelse skedet väljer vi **från alla objekt**. Visualiseringen av [poängen matchbox rekommenderar][score-matchbox-recommender] att utdata ser ut som figur 22.
 
 ![Resultat från rekommendations system – artikel rekommendation](./media/interpret-model-results/22.png)
 
@@ -267,7 +267,7 @@ Den första av de sex kolumnerna representerar de angivna användar-ID: na för 
 
 **Hitta användare som är relaterade till en specifik användare**
 
-Genom att välja **relaterade användare** under **rekommendations förutsägelse typ**ber du det rekommenderade systemet att hitta relaterade användare till en viss användare. Relaterade användare är de användare som har liknande inställningar. Den sista parametern som du väljer i det här scenariot är *relaterad användar val*. Alternativet **från användare som betygsattade objekt (för modell utvärdering)** är i första hand för modell utvärdering under inlärnings processen. Välj **bland alla användare** för den här förutsägelse fasen. Visualiseringen av [poängen matchbox rekommenderar][score-matchbox-recommender] att utdata ser ut som Figur 23.
+Genom att välja **relaterade användare** under **rekommendations förutsägelse typ** ber du det rekommenderade systemet att hitta relaterade användare till en viss användare. Relaterade användare är de användare som har liknande inställningar. Den sista parametern som du väljer i det här scenariot är *relaterad användar val*. Alternativet **från användare som betygsattade objekt (för modell utvärdering)** är i första hand för modell utvärdering under inlärnings processen. Välj **bland alla användare** för den här förutsägelse fasen. Visualiseringen av [poängen matchbox rekommenderar][score-matchbox-recommender] att utdata ser ut som Figur 23.
 
 ![Resultat från rekommenderade system-relaterade användare](./media/interpret-model-results/23.png)
 
@@ -277,7 +277,7 @@ Den första av de sex kolumnerna visar de angivna användar-ID: n som krävs fö
 
 **Hitta objekt som rör ett angivet objekt**
 
-Genom att välja **relaterade objekt** under **rekommendations förutsägelse typ**ber du det rekommenderade systemet att hitta relaterade objekt till ett givet objekt. Relaterade objekt är de objekt som troligt vis kommer att Gillas av samma användare. Den sista parametern som du väljer i det här scenariot är *relaterat objekt val*. Alternativet **från betygsatta objekt (för modell utvärdering)** är i första hand för modell utvärdering under inlärnings processen. Vi väljer **bland alla objekt** för den här förutsägelse fasen. Visualiseringen av [poängen matchbox rekommenderar][score-matchbox-recommender] att utdata ser ut som figur 24.
+Genom att välja **relaterade objekt** under **rekommendations förutsägelse typ** ber du det rekommenderade systemet att hitta relaterade objekt till ett givet objekt. Relaterade objekt är de objekt som troligt vis kommer att Gillas av samma användare. Den sista parametern som du väljer i det här scenariot är *relaterat objekt val*. Alternativet **från betygsatta objekt (för modell utvärdering)** är i första hand för modell utvärdering under inlärnings processen. Vi väljer **bland alla objekt** för den här förutsägelse fasen. Visualiseringen av [poängen matchbox rekommenderar][score-matchbox-recommender] att utdata ser ut som figur 24.
 
 ![Resultat från rekommenderade system-relaterade objekt](./media/interpret-model-results/24.png)
 
@@ -304,10 +304,10 @@ När webb tjänsten körs ser det returnerade resultatet ut som bild 26. De fem 
 Bild 26. Webb tjänst resultat av problem med restaurang rekommendationer
 
 <!-- Module References -->
-[assign-to-clusters]: https://msdn.microsoft.com/library/azure/eed3ee76-e8aa-46e6-907c-9ca767f5c114/
-[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[score-matchbox-recommender]: https://msdn.microsoft.com/library/azure/55544522-9a10-44bd-884f-9a91a9cec2cd/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[train-clustering-model]: https://msdn.microsoft.com/library/azure/bb43c744-f7fa-41d0-ae67-74ae75da3ffd/
-[train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
+[assign-to-clusters]: /azure/machine-learning/studio-module-reference/assign-data-to-clusters
+[execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[score-matchbox-recommender]: /azure/machine-learning/studio-module-reference/score-matchbox-recommender
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[train-clustering-model]: /azure/machine-learning/studio-module-reference/train-clustering-model
+[train-matchbox-recommender]: /azure/machine-learning/studio-module-reference/train-matchbox-recommender

@@ -11,12 +11,12 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 06/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: acaab8aaa12a107f4d0f8a8aac0baf7d5ebb8e4c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7b818de12a968869d655a80917572ddf5f2c210
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87012766"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323012"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX och Azure Machine Learning: skapa och påskynda ML-modeller
 
@@ -29,9 +29,9 @@ Microsoft och en community för partners skapade ONNX som en öppen standard fö
 [ONNX runtime](https://onnxruntime.ai) är en härlednings motor med hög prestanda för att distribuera ONNX-modeller till produktion. Den är optimerad för både molnet och Edge och fungerar på Linux, Windows och Mac. Den har skrivits i C++ och har även API: er för C, python, C#, Java och Java Script (Node.js) för användning i en mängd olika miljöer. ONNX runtime stöder både DNN och traditionella ML-modeller och integreras med acceleratorer på olika maskin vara, till exempel TensorRT på NVidia GPU: er, Open på Intel-processorer, DirectML på Windows och mycket annat. Genom att använda ONNX runtime kan du dra nytta av de omfattande optimeringar av produktions klass, testning och pågående förbättringar.
 
 ONNX runtime används i storskaliga Microsoft-tjänster som Bing, Office och Azure Cognitive Services. Prestanda vinster är beroende av ett antal faktorer, men dessa Microsoft-tjänster har sett en __genomsnittlig dubbel prestanda vinst på CPU__. Förutom Azure Machine Learning Services körs även ONNX-körning i andra produkter som stöder Machine Learning arbets belastningar, inklusive:
-+ Windows: körningen är inbyggd i Windows som en del av [windows Machine Learning](https://docs.microsoft.com/windows/ai/windows-ml/) och körs på hundratals miljoner enheter. 
-+ Azure SQL-produkt familj: kör intern bedömning av data i [Azure SQL Edge](https://docs.microsoft.com/azure/azure-sql-edge/onnx-overview) och [Azure SQL-hanterad instans](https://docs.microsoft.com/azure/azure-sql/managed-instance/machine-learning-services-overview).
-+ ML.NET: [Kör ONNX-modeller i ml.net](https://docs.microsoft.com/dotnet/machine-learning/tutorials/object-detection-onnx).
++ Windows: körningen är inbyggd i Windows som en del av [windows Machine Learning](/windows/ai/windows-ml/) och körs på hundratals miljoner enheter. 
++ Azure SQL-produkt familj: kör intern bedömning av data i [Azure SQL Edge](../azure-sql-edge/onnx-overview.md) och [Azure SQL-hanterad instans](../azure-sql/managed-instance/machine-learning-services-overview.md).
++ ML.NET: [Kör ONNX-modeller i ml.net](/dotnet/machine-learning/tutorials/object-detection-onnx).
 
 
 [![Flödes diagram för ONNX som visar utbildning, konverterare och distribution](./media/concept-onnx/onnx.png)](././media/concept-onnx/onnx.png#lightbox)
@@ -42,7 +42,7 @@ Du kan hämta ONNX-modeller på flera olika sätt:
 + Träna en ny ONNX-modell i Azure Machine Learning (se exempel längst ned i den här artikeln) eller med hjälp av [automatiska Machine Learning-funktioner](concept-automated-ml.md#automl--onnx)
 + Konvertera en befintlig modell från ett annat format till ONNX (se [självstudierna](https://github.com/onnx/tutorials)) 
 + Hämta en förtränad ONNX-modell från [ONNX-modellen Zoo](https://github.com/onnx/models)
-+ Skapa en anpassad ONNX-modell från [Azure Custom vision-tjänsten](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/) 
++ Skapa en anpassad ONNX-modell från [Azure Custom vision-tjänsten](../cognitive-services/custom-vision-service/index.yml) 
 
 Många modeller, inklusive bild klassificering, objekt identifiering och text bearbetning kan representeras som ONNX-modeller. Om du stöter på ett problem med en modell som inte kan konverteras, kan du ange ett problem i GitHub för respektive konverterare som du har använt. Du kan fortsätta att använda din befintliga format modell tills problemet har åtgärd ATS.
 
@@ -98,5 +98,3 @@ Läs mer om **ONNX** eller bidra till projektet:
 Läs mer om **ONNX runtime** eller bidra till projektet:
 + [ONNX runtime Project-webbplats](https://onnxruntime.ai)
 + [ONNX runtime GitHub lagrings platsen](https://github.com/Microsoft/onnxruntime)
-
-

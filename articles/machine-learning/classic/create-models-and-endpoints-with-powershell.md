@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: ab14547ef5d9791728ce96fdf2c414945a46aab9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef9ea055f437b53313dc9ee11b0b91f095664f5e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362494"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322861"
 ---
 # <a name="create-multiple-web-service-endpoints-from-one-experiment-with-ml-studio-classic-and-powershell"></a>Skapa flera webb tjänst slut punkter från ett experiment med ML Studio (klassisk) och PowerShell
 
-**gäller för:** ![ Gäller för. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ gäller inte för.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**gäller för:** ![ Gäller för. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ gäller inte för. ](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 Här är ett vanligt problem med Machine Learning: du vill skapa många modeller som har samma utbildnings arbets flöde och använda samma algoritm. Men du vill att de ska ha olika data uppsättningar för utbildning som indata. Den här artikeln visar hur du gör detta i skala i Azure Machine Learning Studio (klassisk) med bara ett enda experiment.
 
@@ -28,7 +28,7 @@ Du kan träna din modell en gång med en sammanfogad version av alla data uppsä
 
 Det kan vara den bästa metoden, men du vill inte skapa 1 000-tränings experiment i Azure Machine Learning Studio (klassisk) med var och en representerar en unik plats. Förutom att vara en överbelastad aktivitet verkar den också ineffektiv eftersom varje experiment skulle ha samma komponenter, förutom inlärnings data uppsättningen.
 
-Lyckligt vis kan du göra detta med hjälp av [API: et för Azure Machine Learning Studio (klassisk)](/azure/machine-learning/studio/retrain-machine-learning-model) och automatisera uppgiften med [Azure Machine Learning Studio (klassisk) PowerShell](powershell-module.md).
+Lyckligt vis kan du göra detta med hjälp av [API: et för Azure Machine Learning Studio (klassisk)](./retrain-machine-learning-model.md) och automatisera uppgiften med [Azure Machine Learning Studio (klassisk) PowerShell](powershell-module.md).
 
 > [!NOTE]
 > Om du vill att exemplet ska köras snabbare minskar du antalet platser från 1 000 till 10. Men samma principer och procedurer gäller för 1 000 platser. Men om du vill träna från 1 000 data uppsättningar kanske du vill köra följande PowerShell-skript parallellt. Gör så här utöver den här artikelns omfattning, men du hittar exempel på PowerShell multi-threading på Internet.  
@@ -55,7 +55,7 @@ Det finns andra sätt som du kan ha gjort. Du kan använda en SQL-fråga med en 
 
 ![En utbildad modell modul ger utdata till en webb tjänst utmatnings modul](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
 
-Nu ska vi köra det här övnings experimentet med hjälp av standardvärdet *rental001.csv* som inlärnings data uppsättningen. Om du visar utdata från **evaluate** -modulen (klicka på utdata och väljer **visualisera**) kan du se att du får en vettigt prestanda på *AUC* = 0,91. Nu är du redo att distribuera en webb tjänst från det här övnings experimentet.
+Nu ska vi köra det här övnings experimentet med hjälp av standardvärdet *rental001.csv* som inlärnings data uppsättningen. Om du visar utdata från **evaluate** -modulen (klicka på utdata och väljer **visualisera** ) kan du se att du får en vettigt prestanda på *AUC* = 0,91. Nu är du redo att distribuera en webb tjänst från det här övnings experimentet.
 
 ## <a name="deploy-the-training-and-scoring-web-services"></a>Distribuera utbildnings-och poängsättnings webb tjänster
 Du distribuerar utbildnings webb tjänsten genom att klicka på knappen **Konfigurera webb tjänst** under experimentets arbets yta och välja **distribuera webb tjänst**. Anropa den här webb tjänsten "cykel uthyrnings utbildning".
@@ -99,7 +99,7 @@ Nu har du skapat 10 slut punkter och alla innehåller samma utbildade modell som
 ## <a name="update-the-endpoints-to-use-separate-training-datasets-using-powershell"></a>Uppdatera slut punkterna för att använda separata inlärnings data uppsättningar med PowerShell
 Nästa steg är att uppdatera slut punkterna med modeller som är unikt utbildade för varje kunds individuella data. Men först måste du skapa dessa modeller från utbildnings webb tjänsten för **cykel uthyrning** . Nu ska vi gå tillbaka till webb tjänsten för **cykel uthyrnings utbildning** . Du måste anropa dess BES-slutpunkt 10 gånger med 10 olika data uppsättningar för utbildning för att kunna producera 10 olika modeller. Använd **InovkeAmlWebServiceBESEndpoint** PowerShell-cmdleten för att göra detta.
 
-Du måste också ange autentiseringsuppgifter för ditt Blob Storage-konto i `$configContent` . Dvs, i fälten `AccountName` , `AccountKey` och `RelativeLocation` . `AccountName`Kan vara ett av dina konto namn, som visas på fliken **Azure Portal** (fliken*lagring* ). När du klickar på ett lagrings konto `AccountKey` kan du hitta det genom att trycka på knappen **Hantera åtkomst nycklar** längst ned och kopiera den *primära åtkomst nyckeln*. `RelativeLocation`Är sökvägen i förhållande till lagrings utrymmet där en ny modell kommer att lagras. Till exempel `hai/retrain/bike_rental/` pekar sökvägen i följande skript till en behållare med namnet `hai` och `/retrain/bike_rental/` är undermappar. För närvarande kan du inte skapa undermappar via portalens användar gränssnitt, men det finns [flera Azure Storage Explorer](../../storage/common/storage-explorers.md) som gör det möjligt att göra det. Vi rekommenderar att du skapar en ny behållare i lagringen för att lagra nya utbildade modeller (. iLearner-filer) enligt följande: på sidan lagring klickar du på knappen **Lägg till** längst ned och namnger den `retrain` . I sammanfattning är de nödvändiga ändringarna i följande skript kopplade till `AccountName` , `AccountKey` och `RelativeLocation` (: `"retrain/model' + $seq + '.ilearner"` ).
+Du måste också ange autentiseringsuppgifter för ditt Blob Storage-konto i `$configContent` . Dvs, i fälten `AccountName` , `AccountKey` och `RelativeLocation` . `AccountName`Kan vara ett av dina konto namn, som visas på fliken **Azure Portal** (fliken *lagring* ). När du klickar på ett lagrings konto `AccountKey` kan du hitta det genom att trycka på knappen **Hantera åtkomst nycklar** längst ned och kopiera den *primära åtkomst nyckeln*. `RelativeLocation`Är sökvägen i förhållande till lagrings utrymmet där en ny modell kommer att lagras. Till exempel `hai/retrain/bike_rental/` pekar sökvägen i följande skript till en behållare med namnet `hai` och `/retrain/bike_rental/` är undermappar. För närvarande kan du inte skapa undermappar via portalens användar gränssnitt, men det finns [flera Azure Storage Explorer](../../storage/common/storage-explorers.md) som gör det möjligt att göra det. Vi rekommenderar att du skapar en ny behållare i lagringen för att lagra nya utbildade modeller (. iLearner-filer) enligt följande: på sidan lagring klickar du på knappen **Lägg till** längst ned och namnger den `retrain` . I sammanfattning är de nödvändiga ändringarna i följande skript kopplade till `AccountName` , `AccountKey` och `RelativeLocation` (: `"retrain/model' + $seq + '.ilearner"` ).
 
 ```powershell
 # Invoke the retraining API 10 times
@@ -123,7 +123,7 @@ For ($i = 1; $i -le 10; $i++){
 
 Som du ser ovan, i stället för att skapa 10 olika JSON-filer för BES-jobb, skapar du en dynamisk konfigurations sträng dynamiskt i stället. Mata sedan in den till parametern *jobConfigString* för **InvokeAmlWebServceBESEndpoint** -cmdleten. Det finns faktiskt inget behov av att spara en kopia på disk.
 
-Om allt går bra, efter ett tag kan du se 10. iLearner-filer, från *model001. iLearner* till *model010. iLearner*, i ditt Azure Storage-konto. Nu är du redo att uppdatera webb tjänst slut punkterna för 10 Poäng med dessa modeller med hjälp av PowerShell-cmdleten **patch-AmlWebServiceEndpoint** . Kom ihåg att du bara kan korrigera de slut punkter som inte är standard som du har skapat tidigare.
+Om allt går bra, efter ett tag kan du se 10. iLearner-filer, från *model001. iLearner* till *model010. iLearner* , i ditt Azure Storage-konto. Nu är du redo att uppdatera webb tjänst slut punkterna för 10 Poäng med dessa modeller med hjälp av PowerShell-cmdleten **patch-AmlWebServiceEndpoint** . Kom ihåg att du bara kan korrigera de slut punkter som inte är standard som du har skapat tidigare.
 
 ```powershell
 # Patch the 10 endpoints with respective .ilearner models

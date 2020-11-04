@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: c9cfe05b6547cbdc61a1c8cc6223f08900cf09d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a588195f2095b2d0cb261e1573eeb9ec881f2fd
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91345052"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322836"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Distribuera en Azure Machine Learning Studio (klassisk)-webb tjänst
 
-**gäller för:** ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ inga](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**gäller för:** ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ inga ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Azure Machine Learning Studio (klassisk) gör det möjligt att bygga och testa en förutsägelse analys lösning. Sedan kan du distribuera lösningen som en webb tjänst.
@@ -89,11 +89,11 @@ När du konverterar det här inlärnings experimentet till ett förutsägelse ex
   
     I det här exemplet kan exempel data uppsättningen ha saknade värden, så en [rensad][clean-missing-data] datamodul som saknas inkluderades för att hantera dem. Dessutom innehåller exempel data uppsättningen kolumner som inte behövs för att träna modellen. Därför inkluderades en [Välj kolumner i data uppsättnings][select-columns] modulen för att utesluta de extra kolumnerna från data flödet. Om du vet att de data som ska skickas för poängsättning via webb tjänsten saknar värden som saknas kan du ta bort modulen [Rensa data som saknas][clean-missing-data] . Eftersom modulen [Välj kolumner i data uppsättning][select-columns] hjälper till att definiera kolumner med data som den tränade modellen förväntar sig, måste modulen vara kvar.
 
-* **Träna** – dessa moduler används för att träna modellen. När du klickar på **Konfigurera webb tjänsten**ersätts dessa moduler med en enda modul som innehåller den modell som du har tränat. Den här nya modulen sparas i avsnittet **tränade modeller** i modulen modul.
+* **Träna** – dessa moduler används för att träna modellen. När du klickar på **Konfigurera webb tjänsten** ersätts dessa moduler med en enda modul som innehåller den modell som du har tränat. Den här nya modulen sparas i avsnittet **tränade modeller** i modulen modul.
 
 * **Score** – i det här exemplet används modulen [dela data][split] för att dela upp data strömmen i test data och tränings data. I det förutsägande experimentet har vi inte längre utbildning, så [delade data][split] kan tas bort. På samma sätt används den andra [Poäng modell][score-model] modulen och modulen [utvärdera modell][evaluate-model] för att jämföra resultat från test data, så dessa moduler behövs inte i förutsägelse experimentet. Den återstående [poängen modell][score-model] -modulen behövs dock för att returnera ett resultat resultat via webb tjänsten.
 
-Så här ser vårt exempel ut efter att du har klickat på **Konfigurera webb tjänsten**:
+Så här ser vårt exempel ut efter att du har klickat på **Konfigurera webb tjänsten** :
 
 ![Konverterat förutsägelse experiment](./media/convert-training-experiment-to-scoring-experiment/figure3.png)
 
@@ -149,7 +149,7 @@ På sidan distribuera experiment anger du ett namn för webb tjänsten.
 Välj en pris sättnings plan. Om du har en befintlig pris plan kan du välja den, annars måste du skapa en ny pris plan för tjänsten.
 
 1. Välj en befintlig plan i list rutan **pris plan** eller Välj alternativet **Välj ny plan** .
-2. I **planerat namn**skriver du ett namn som identifierar planen på din faktura.
+2. I **planerat namn** skriver du ett namn som identifierar planen på din faktura.
 3. Välj en av de **månatliga plan nivåerna**. Planen får som standard nivåerna för planer i din standardregion och din webbtjänst distribueras till den regionen.
 
 Klicka på **distribuera** och **snabb starts** sidan för din webb tjänst öppnas.
@@ -211,7 +211,7 @@ Priser är landsspecifika, så du måste definiera en fakturerings plan för var
 5. I list rutan **region** väljer du en region för den nya planen. Plan alternativen för den valda regionen visas i avsnittet **plan alternativ** på sidan.
 6. I list rutan **resurs grupp** väljer du en resurs grupp för planen. Mer information om resurs grupper finns i [Azure Resource Manager översikt](../../azure-resource-manager/management/overview.md).
 7. I **planerat namn** skriver du namnet på planen.
-8. Under **plan alternativ**klickar du på fakturerings nivå för den nya planen.
+8. Under **plan alternativ** klickar du på fakturerings nivå för den nya planen.
 9. Klicka på **Skapa**.
 
 #### <a name="deploy-the-web-service-to-another-region"></a>Distribuera webb tjänsten till en annan region
@@ -219,8 +219,8 @@ Priser är landsspecifika, så du måste definiera en fakturerings plan för var
 1. På sidan Microsoft Azure Machine Learning webb tjänster klickar du på meny alternativet **webb tjänster** .
 2. Välj den webb tjänst som du distribuerar till en ny region.
 3. Klicka på **Kopiera**.
-4. I **webb tjänstens namn**skriver du ett nytt namn för webb tjänsten.
-5. I **Beskrivning av webb tjänst**anger du en beskrivning av webb tjänsten.
+4. I **webb tjänstens namn** skriver du ett nytt namn för webb tjänsten.
+5. I **Beskrivning av webb tjänst** anger du en beskrivning av webb tjänsten.
 6. I list rutan **prenumeration** väljer du den prenumeration som den nya webb tjänsten kommer att finnas i.
 7. I list rutan **resurs grupp** väljer du en resurs grupp för webb tjänsten. Mer information om resurs grupper finns i [Azure Resource Manager översikt](../../azure-resource-manager/management/overview.md).
 8. I list rutan **region** väljer du den region där du vill distribuera webb tjänsten.
@@ -250,7 +250,7 @@ Om du vill testa batch-körningen klickar du på **testa** för hands versions l
 
 På sidan **konfiguration** kan du ändra visnings namnet för tjänsten och ge den en beskrivning. Namnet och beskrivningen visas i [Azure Portal](https://portal.azure.com/) där du hanterar dina webb tjänster.
 
-Du kan ange en beskrivning av dina indata, utdata och webb tjänst parametrar genom att ange en sträng för varje kolumn under **inmatnings schema**, **utdata schema**och **webb tjänst parameter**. Dessa beskrivningar används i den exempel kod dokumentation som tillhandahålls för webb tjänsten.
+Du kan ange en beskrivning av dina indata, utdata och webb tjänst parametrar genom att ange en sträng för varje kolumn under **inmatnings schema** , **utdata schema** och **webb tjänst parameter**. Dessa beskrivningar används i den exempel kod dokumentation som tillhandahålls för webb tjänsten.
 
 Du kan aktivera loggning för att diagnostisera eventuella fel som du ser när din webb tjänst nås. Mer information finns i [Aktivera loggning för Machine Learning Studio (klassiska) webb tjänster](web-services-logging.md).
 
@@ -282,7 +282,7 @@ Eftersom du har distribuerat det här experimentet tidigare tillfrågas du om du
 > [!NOTE]
 > Om du har gjort konfigurations ändringar i den ursprungliga webb tjänsten, t. ex. genom att ange ett nytt visnings namn eller en beskrivning, måste du ange dessa värden igen.
 
-Ett alternativ för att uppdatera din webb tjänst är att träna modellen program mässigt. Mer information finns i [omträna Machine Learning Studio (klassiska) modeller program mässigt](/azure/machine-learning/studio/retrain-machine-learning-model).
+Ett alternativ för att uppdatera din webb tjänst är att träna modellen program mässigt. Mer information finns i [omträna Machine Learning Studio (klassiska) modeller program mässigt](./retrain-machine-learning-model.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -305,11 +305,11 @@ Ett alternativ för att uppdatera din webb tjänst är att träna modellen progr
 
 [webserviceparameters]: web-service-parameters.md
 [deploy]: deploy-a-machine-learning-web-service.md
-[clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/
-[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-[export-data]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
+[clean-missing-data]: /azure/machine-learning/studio-module-reference/clean-missing-data
+[evaluate-model]: /azure/machine-learning/studio-module-reference/evaluate-model
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[import-data]: /azure/machine-learning/studio-module-reference/import-data
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[split]: /azure/machine-learning/studio-module-reference/split-data
+[train-model]: /azure/machine-learning/studio-module-reference/train-model
+[export-data]: /azure/machine-learning/studio-module-reference/export-data

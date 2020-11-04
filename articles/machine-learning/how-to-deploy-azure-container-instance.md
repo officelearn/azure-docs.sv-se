@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/12/2020
-ms.openlocfilehash: ff071373706759576f80426d61a27851bfc4e1b6
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 580459f3a5da8485bd92395f9b0b9745e28c023c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082172"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325254"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Distribuera en modell till Azure Container Instances
 
@@ -26,10 +26,10 @@ Lär dig hur du använder Azure Machine Learning för att distribuera en modell 
 - Du måste snabbt distribuera och validera din modell. Du behöver inte skapa ACI-behållare i förväg. De skapas som en del av distributions processen.
 - Du testar en modell som är under utveckling. 
 
-Information om kvot-och regions tillgänglighet för ACI finns i [kvoter och regions tillgänglighet för Azure Container instances](https://docs.microsoft.com/azure/container-instances/container-instances-quotas) artikel.
+Information om kvot-och regions tillgänglighet för ACI finns i [kvoter och regions tillgänglighet för Azure Container instances](../container-instances/container-instances-quotas.md) artikel.
 
 > [!IMPORTANT]
-> Vi rekommenderar starkt att felsöka lokalt innan du distribuerar till webb tjänsten. mer information finns i [Felsöka lokalt](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally)
+> Vi rekommenderar starkt att felsöka lokalt innan du distribuerar till webb tjänsten. mer information finns i [Felsöka lokalt](./how-to-troubleshoot-deployment.md#debug-locally)
 >
 > Du kan också läsa Azure Machine Learning – [Distribuera till lokal notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
@@ -39,7 +39,7 @@ Information om kvot-och regions tillgänglighet för ACI finns i [kvoter och reg
 
 - En Machine Learning-modell som registrerats i din arbets yta. Om du inte har en registrerad modell, se [hur och var modeller ska distribueras](how-to-deploy-and-where.md).
 
-- [Azure CLI-tillägget för Machine Learning-tjänst](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)eller [Azure Machine Learning Visual Studio Code-tillägget](tutorial-setup-vscode-extension.md).
+- [Azure CLI-tillägget för Machine Learning-tjänst](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)eller [Azure Machine Learning Visual Studio Code-tillägget](tutorial-setup-vscode-extension.md).
 
 - I __python__ -kodfragmenten i den här artikeln förutsätter vi att följande variabler har angetts:
 
@@ -81,9 +81,9 @@ print(service.state)
 
 Mer information om klasser, metoder och parametrar som används i det här exemplet finns i följande referens dokument:
 
-* [AciWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-)
-* [Modell. Deploy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
-* [Webservice.wait_for_deployment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truewait-for-deployment-show-output-false-)
+* [AciWebservice.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.aciwebservice?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-)
+* [Modell. Deploy](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
+* [Webservice.wait_for_deployment](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truewait-for-deployment-show-output-false-)
 
 ### <a name="using-the-cli"></a>Använda CLI
 
@@ -95,7 +95,7 @@ az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploy
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aci-deploy-config.md)]
 
-Mer information finns i [distributions referens för AZ ml-modellen](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-model-deploy) . 
+Mer information finns i [distributions referens för AZ ml-modellen](/cli/azure/ext/azure-cli-ml/ml/model?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) . 
 
 ## <a name="using-vs-code"></a>Använda VS Code
 

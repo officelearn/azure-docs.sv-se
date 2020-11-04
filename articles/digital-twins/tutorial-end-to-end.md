@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 66216cc21101f133281f9adbda96d395661dcbfe
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: d5467537e105225541ffc501d345fd2fa57e0803
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280488"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324559"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Självstudie: Bygg ut en lösning från slut punkt till slut punkt
 
@@ -329,7 +329,7 @@ Om du vill göra detta använder du Azure-funktionen *ProcessDTRoutedData* för 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario-c.png" alt-text="Ett utdrag från det fullständiga scenariot för att skapa scenario bild markering C, elementen efter Azure Digitals dubbla: Event Grid och andra Azure Function":::
 
 Här är de åtgärder som du ska utföra för att konfigurera det här data flödet:
-1. Skapa en Azure digital-slutpunkt som ansluter instansen till Event Grid
+1. Skapa en Event Grid slut punkt i Azure Digitals dubbla, som ansluter instansen till Event Grid
 2. Konfigurera en väg i Azure Digitals flätas för att skicka dubbla egenskaps ändrings händelser till slut punkten
 3. Distribuera en Azure Functions-app som lyssnar (via [Event Grid](../event-grid/overview.md)) på slut punkten och uppdaterar andra dubbla på motsvarande sätt
 4. Kör den simulerade enheten och fråga Azure Digital-dubblare för att se live-resultaten
@@ -354,7 +354,7 @@ az eventgrid topic create -g <your-resource-group> --name <name-for-your-event-g
 
 Utdata från det här kommandot är information om det händelse rutnäts avsnitt som du har skapat.
 
-Skapa sedan en Azure Digitals-slutpunkt som pekar på ditt event Grid-ämne. Använd kommandot nedan och fyll i plats hållarnas fält efter behov:
+Skapa sedan en Event Grid slut punkt i Azure Digitals, som ansluter din instans till ditt event Grid-ämne. Använd kommandot nedan och fyll i plats hållarnas fält efter behov:
 
 ```azurecli-interactive
 az dt endpoint create eventgrid --dt-name <your-Azure-Digital-Twins-instance> --eventgrid-resource-group <your-resource-group> --eventgrid-topic <your-event-grid-topic> --endpoint-name <name-for-your-Azure-Digital-Twins-endpoint>
@@ -372,11 +372,11 @@ Leta efter `provisioningState` fältet i utdata och kontrol lera att värdet är
 
 :::image type="content" source="media/tutorial-end-to-end/output-endpoints.png" alt-text="Resultat av slut punkts frågan, som visar slut punkten med en provisioningState slutförd":::
 
-Spara de namn som du gav ditt event Grid-ämne och din Azure digital-slutpunkt. Du kommer att använda dem senare.
+Spara de namn som du gav ditt event Grid-ämne och din Event Grid slut punkt i Azure Digitals, dubbla. Du kommer att använda dem senare.
 
 ### <a name="set-up-route"></a>Konfigurera väg
 
-Skapa sedan en Azure Digital-väg som skickar händelser till den Azure digital-slutpunkt som du nyss skapade.
+Skapa sedan en Azure Digital-väg som skickar händelser till Event Grid slut punkten som du nyss skapade.
 
 ```azurecli-interactive
 az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> --route-name <name-for-your-Azure-Digital-Twins-route>

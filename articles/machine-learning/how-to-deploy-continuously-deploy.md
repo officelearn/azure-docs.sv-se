@@ -1,7 +1,7 @@
 ---
 title: Distribuera Azure Machine Learning modeller kontinuerligt
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du distribuerar modeller kontinuerligt med Azure Machine Learning DevOps-tillägget.
+description: Lär dig hur du distribuerar modeller kontinuerligt med Azure Machine Learning DevOps-tillägget. Sök automatiskt efter och distribuera nya modell versioner.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.date: 08/03/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: how-to, tracking-python, deploy
-ms.openlocfilehash: ab4551f64919dad711967b33f85962a5c607d1c5
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 6043ea4e1366890033571c2ba78ecdb2e59f64e1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999143"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325208"
 ---
 # <a name="continuously-deploy-models"></a>Distribuera modeller kontinuerligt
 
@@ -30,21 +30,21 @@ Den här artikeln förutsätter att du redan har registrerat en modell i din Azu
 
 Du kan distribuera modeller kontinuerligt med Machine Learning-tillägget för [Azure-DevOps](https://azure.microsoft.com/services/devops/). Du kan använda Machine Learning-tillägget för Azure-DevOps för att utlösa en distributions pipeline när en ny maskin inlärnings modell registreras i en Azure Machine Learning arbets yta.
 
-1. Registrera dig för [Azure-pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops), som möjliggör kontinuerlig integrering och leverans av ditt program till vilken plattform eller moln som möjligt. (Observera att Azure-pipeliner inte är samma som [Machine Learning pipelines](concept-ml-pipelines.md#compare).)
+1. Registrera dig för [Azure-pipelines](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops), som möjliggör kontinuerlig integrering och leverans av ditt program till vilken plattform eller moln som möjligt. (Observera att Azure-pipeliner inte är samma som [Machine Learning pipelines](concept-ml-pipelines.md#compare).)
 
-1. [Skapa ett Azure DevOps-projekt.](https://docs.microsoft.com/azure/devops/organizations/projects/create-project?view=azure-devops)
+1. [Skapa ett Azure DevOps-projekt.](/azure/devops/organizations/projects/create-project?view=azure-devops)
 
 1. Installera [Machine Learning-tillägget för Azure-pipeliner](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml&targetId=6756afbe-7032-4a36-9cb6-2771710cadc2&utm_source=vstsproduct&utm_medium=ExtHubManageList).
 
-1. Använd tjänst anslutningar för att konfigurera en tjänstens huvud namns anslutning till din Azure Machine Learning-arbetsyta så att du kan komma åt dina artefakter. Gå till projekt inställningar, Välj **tjänst anslutningar**och välj sedan **Azure Resource Manager**:
+1. Använd tjänst anslutningar för att konfigurera en tjänstens huvud namns anslutning till din Azure Machine Learning-arbetsyta så att du kan komma åt dina artefakter. Gå till projekt inställningar, Välj **tjänst anslutningar** och välj sedan **Azure Resource Manager** :
 
     [![Välj Azure Resource Manager](media/how-to-deploy-and-where/view-service-connection.png)](media/how-to-deploy-and-where/view-service-connection-expanded.png)
 
-1. I listan **omfattnings nivå** väljer du **AzureMLWorkspace**och anger sedan resten av värdena:
+1. I listan **omfattnings nivå** väljer du **AzureMLWorkspace** och anger sedan resten av värdena:
 
     ![Välj AzureMLWorkspace](media/how-to-deploy-and-where/resource-manager-connection.png)
 
-1. Om du vill distribuera din Machine Learning-modell kontinuerligt med hjälp av Azure-pipelines väljer du **version**under pipelines. Lägg till en ny artefakt och välj sedan den **azureml modell** artefakt och den tjänst anslutning som du skapade tidigare. Välj modell och version för att utlösa en distribution:
+1. Om du vill distribuera din Machine Learning-modell kontinuerligt med hjälp av Azure-pipelines väljer du **version** under pipelines. Lägg till en ny artefakt och välj sedan den **azureml modell** artefakt och den tjänst anslutning som du skapade tidigare. Välj modell och version för att utlösa en distribution:
 
     [![Välj AzureML-modell](media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)](media/how-to-deploy-and-where/enable-modeltrigger-artifact-expanded.png)
 

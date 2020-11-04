@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8f2e41779e72d565e24b67fd8b18afd87a112e62
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e029de19e6bdb635dfc4797367de29dfb87e32ce
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542111"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325399"
 ---
 # <a name="azure-synapse-analytics-data-management-partners"></a>Azure Synapse Analytics-partner för data hantering
 
@@ -27,7 +27,7 @@ I den här artikeln beskrivs Microsofts partner företag med data hanterings ver
 | ------- | ----------- | -------------------- |
 | ![Aginity](./media/sql-data-warehouse-partner-data-management/aginity-logo.png) |**Aginity**<br>Aginity är ett analys verktyg för analys, som ger hela kraften hos Microsofts Synapse-plattform med praktiska analytiker och tekniker. Med den snygga och intuitiva utvecklings miljön i SQL kan grupp medlemmar ansluta till över en dussin ledande analys plattform, mata in data i en rad olika format och snabbt bygga komplexa affärs beräkningar för att hantera resultaten i Business Intelligence och Machine Learning användnings fall. Hela programmet är byggt runt en central katalog som gör samarbetet över Analytics-teamet till en verklighet och de avancerade hanterings funktionerna och en detaljerad säkerhet gör styrningen till en enkelt. |[Produkt sida](https://www.aginity.com/databases/microsoft/)<br> |
 | ![Alation](./media/sql-data-warehouse-partner-data-management/alation-logo.png) |**Alation**<br>Alation-datakatalogen förbättrar produktiviteten, ökar noggrannheten och driver säker data drivna besluts fattande för analytiker. Alation Data Catalog ger alla i organisationen möjlighet att hitta, förstå och styra data. |[Produkt sida](https://www.alation.com/product/data-catalog/)<br> |
-| ![Coffing data lager hantering](./media/sql-data-warehouse-partner-data-management/coffing-data-warehousing-logo.png) |**Coffing data lager hantering**<br>Coffing data lager hantering ger Nexus Chameleon, ett verktyg med 10 års design dedikerat för att fråga system. Nexus är tillgängligt som ett frågefönster för en Azure Synapse SQL-pool. Använd Nexus för att fråga interna och molnbaserade datorer och koppla data mellan olika plattformar. Peka på rapport! |[Produkt sida](https://www.coffingdw.com/software/nexus/)<br> |
+| ![Coffing data lager hantering](./media/sql-data-warehouse-partner-data-management/coffing-data-warehousing-logo.png) |**Coffing data lager hantering**<br>Coffing data lager hantering ger Nexus Chameleon, ett verktyg med 10 års design dedikerat för att fråga system. Nexus är tillgängligt som ett frågefönster för dedikerad SQL-pool i Azure Synapse Analytics. Använd Nexus för att fråga interna och molnbaserade datorer och koppla data mellan olika plattformar. Peka på rapport! |[Produkt sida](https://www.coffingdw.com/software/nexus/)<br> |
 | ![Inbrein](./media/sql-data-warehouse-partner-data-management/inbrein-logo.png) |**Inbrein MicroERD**<br>Inbrein MicroERD innehåller de verktyg som du behöver för att skapa en exakt data modell, minska dataredundans, förbättra produktiviteten och iaktta standarder. Genom att använda dess användar gränssnitt, som utvecklades baserat på omfattande användar upplevelser, kan en modellerare arbeta med databas modeller enkelt och bekvämt. Du kan ständigt ta del av nya och förbättrade funktioner i MicroERD genom att meddela funktionella förbättringar och uppdateringar. |[Produkt sida](http://microerd.com/)<br> |
 | ![Infolibrarian](./media/sql-data-warehouse-partner-data-management/infolibrarian-logo.png) |**Infolibrarian (hanterings Server för metadata)**<br>InfoLibrarian-kataloger, butiker och hanterar metadata för att hjälpa dig att lösa viktiga färg punkter för data hantering. Infolibrarian tillhandahåller hanterings lösningar för metadata, data styrning och till gångs hantering för att hantera och publicera metadata från en mängd olika verktyg och tekniker. |[Produkt sida](http://www.infolibcorp.com/metadata-management/software-tools)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/infolibrarian.infolibrarian-metadata-management-server)<br> |
 | ![Kyligence](./media/sql-data-warehouse-partner-data-management/kyligence-logo.png) |**Kyligence**<br>Kyligence har byggts av skapare av Apache Kylin och är på ett uppdrag att påskynda produktiviteten hos sina kunder genom att automatisera data hantering, identifiering, interaktion och inblick i generation – allt utan hinder. Kyligence Cloud möjliggör kluster distribution, förbättrar data åtkomsten och påskyndar data analysen dramatiskt. Kyligences AI-förstärkta hanterings plattform för data analys gör det ofta svårt att skapa företags skalnings data sjöar snabbt och enkelt.|[Produkt sida](https://kyligence.io/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/kyligence.kyligence)<br> |

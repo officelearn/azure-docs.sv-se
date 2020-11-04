@@ -8,12 +8,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: quickstart
 ms.date: 03/10/2020
-ms.openlocfilehash: a14f7ac212d9957e5258f75a386b8730ad5de700
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: 631717252abe956357cf8b588fa653890037bbc9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233854"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322172"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Snabb start: Konfigurera Data Science Virtual Machine för Linux (Ubuntu)
 
@@ -46,7 +46,7 @@ Här följer stegen för att skapa en instans av Data Science Virtual Machine Ub
        * **Namn på virtuell dator** : Ange namnet på den virtuella datorn. Det här namnet kommer att användas i Azure Portal.
        * **Region** : Välj det data Center som är lämpligast. För snabbast nätverks åtkomst är det data Center som har de flesta data eller som är närmast din fysiska plats. Lär dig mer om [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions/).
        * **Bild** : låt standardvärdet vara kvar.
-       * **Storlek** : det här alternativet ska fyllas i automatiskt med en storlek som passar för allmänna arbets belastningar. Läs mer om [storlekar för virtuella Linux-datorer i Azure](../../virtual-machines/linux/sizes.md).
+       * **Storlek** : det här alternativet ska fyllas i automatiskt med en storlek som passar för allmänna arbets belastningar. Läs mer om [storlekar för virtuella Linux-datorer i Azure](../../virtual-machines/sizes.md).
        * **Autentiseringstyp** : Välj "lösen ord" för snabbare installation. 
          
          > [!NOTE]
@@ -144,6 +144,6 @@ Så här kan du fortsätta din utbildning och utforskning:
 
 * [Data vetenskap i data science Virtual Machine för Linux](linux-dsvm-walkthrough.md) -genom gången visar hur du utför flera vanliga data vetenskaps uppgifter med Linux-DSVM som tillhandahålls här. 
 * Utforska de olika data vetenskaps verktygen på DSVM genom att prova de verktyg som beskrivs i den här artikeln. Du kan också köra `dsvm-more-info` på gränssnittet i den virtuella datorn för grundläggande introduktion och pekare till mer information om de verktyg som är installerade på den virtuella datorn.  
-* Lär dig hur du systematiskt skapar analytiska lösningar med hjälp av [team data science-processen](https://aka.ms/tdsp).
+* Lär dig hur du systematiskt skapar analytiska lösningar med hjälp av [team data science-processen](../team-data-science-process/index.yml).
 * Besök [Azure AI Gallery](https://gallery.azure.ai/) för Machine Learning-och data analys-exempel som använder Azure AI-tjänsterna.
 * Se lämplig [referens dokumentation](./reference-ubuntu-vm.md) för den här virtuella datorn.

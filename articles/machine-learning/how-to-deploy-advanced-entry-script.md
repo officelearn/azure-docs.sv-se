@@ -11,12 +11,12 @@ ms.date: 09/17/2020
 ms.author: gopalv
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 3bd4953812ec88f28ac16956a85c95afc5bb8a38
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 2225ef42d8862935e5cd682a3c11a7ce687babab
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999213"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325564"
 ---
 # <a name="advanced-entry-script-authoring"></a>Avancerad startskriptredigering
 
@@ -89,7 +89,7 @@ def run(data):
 
 ## <a name="power-bi-compatible-endpoint"></a>Power BI kompatibel slut punkt 
 
-I följande exempel visas hur du definierar API-form enligt instruktionen ovan. Den här metoden stöds för att konsumera den distribuerade webb tjänsten från Power BI. ([Läs mer om hur du använder webb tjänsten från Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).)
+I följande exempel visas hur du definierar API-form enligt instruktionen ovan. Den här metoden stöds för att konsumera den distribuerade webb tjänsten från Power BI. ([Läs mer om hur du använder webb tjänsten från Power BI](/power-bi/service-machine-learning-integration).)
 
 ```python
 import json
@@ -197,7 +197,7 @@ res = requests.post(url='<scoring-uri>', data=data, headers={'Content-Type': 'ap
 
 <a id="cors"></a>
 
-## <a name="cross-origin-resource-sharing-cors"></a>Resurs delning mellan ursprung (CORS)
+## <a name="cross-origin-resource-sharing-cors"></a>Resursdelning för korsande ursprung (CORS)
 
 Resurs delning mellan ursprung är ett sätt att tillåta att resurser på en webb sida begärs från en annan domän. CORS fungerar via HTTP-huvuden som skickas med klientbegäran och som returneras med tjänstens svar. Mer information om CORS och giltiga huvuden finns i [resurs delning mellan ursprung](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) i wikipedia.
 
@@ -312,7 +312,7 @@ second_model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), second_model_na
 
 ### <a name="get_model_path"></a>get_model_path
 
-När du registrerar en modell anger du ett modell namn som används för att hantera modellen i registret. Du kan använda det här namnet med metoden [Model.get_model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) för att hämta sökvägen till modell filen eller filerna i det lokala fil systemet. Om du registrerar en mapp eller en samling filer, returnerar detta API sökvägen till katalogen som innehåller filerna.
+När du registrerar en modell anger du ett modell namn som används för att hantera modellen i registret. Du kan använda det här namnet med metoden [Model.get_model_path ()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) för att hämta sökvägen till modell filen eller filerna i det lokala fil systemet. Om du registrerar en mapp eller en samling filer, returnerar detta API sökvägen till katalogen som innehåller filerna.
 
 När du registrerar en modell ger du den ett namn. Namnet motsvarar var modellen placeras, antingen lokalt eller under tjänst distributionen.
 

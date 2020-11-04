@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: e58e9271ad3b6161a1b2c72509ecc4045b75e1db
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 63089e853be825f9399081f2d39845e22b18ed2a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741993"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325174"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Distribuera en modell med en anpassad Docker-bas avbildning
 
@@ -42,10 +42,10 @@ Det här dokumentet är uppdelat i två delar:
 ## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure Machine Learning-arbetsyta. Mer information finns i artikeln [skapa en arbets yta](how-to-manage-workspace.md) .
-* [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true). 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+* [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py). 
+* [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 * [CLI-tillägget för Azure Machine Learning](reference-azure-machine-learning-cli.md).
-* En [Azure Container Registry](/azure/container-registry) eller ett annat Docker-register som är tillgängligt på Internet.
+* En [Azure Container Registry](../container-registry/index.yml) eller ett annat Docker-register som är tillgängligt på Internet.
 * Stegen i det här dokumentet förutsätter att du är van vid att skapa och använda ett __konfigurations objekt för konfigurations__ objekt som en del av modell distributionen. Mer information finns i [var du distribuerar och hur](how-to-deploy-and-where.md).
 
 ## <a name="create-a-custom-base-image"></a>Skapa en anpassad bas avbildning
@@ -61,9 +61,9 @@ Informationen i det här avsnittet förutsätter att du använder en Azure Conta
 
     När du använder avbildningar som lagras i ett __fristående behållar register__ måste du konfigurera ett huvud namn för tjänsten som har minst Läs behörighet. Du anger sedan tjänstens huvud namns-ID (username) och lösen ord för alla som använder avbildningar från registret. Undantaget är om du gör att behållar registret är offentligt tillgängligt.
 
-    Information om hur du skapar en privat Azure Container Registry finns i [skapa ett privat container Registry](/azure/container-registry/container-registry-get-started-azure-cli).
+    Information om hur du skapar en privat Azure Container Registry finns i [skapa ett privat container Registry](../container-registry/container-registry-get-started-azure-cli.md).
 
-    Information om hur du använder tjänstens huvud namn med Azure Container Registry finns [Azure Container Registry autentisering med tjänstens huvud namn](/azure/container-registry/container-registry-auth-service-principal).
+    Information om hur du använder tjänstens huvud namn med Azure Container Registry finns [Azure Container Registry autentisering med tjänstens huvud namn](../container-registry/container-registry-auth-service-principal.md).
 
 * Azure Container Registry-och avbildnings information: Ange avbildnings namnet för alla som behöver använda det. En bild `myimage` som heter, lagrad i ett register med namnet `myregistry` , refereras till som `myregistry.azurecr.io/myimage` när du använder avbildningen för modell distribution
 
@@ -91,6 +91,9 @@ För GPU-avbildningar erbjuder Azure ML för närvarande både cuda9 och cuda10 
 
 CPU-avbildningarna skapas från Ubuntu 16.04. GPU-avbildningarna för cuda9 är byggda från NVIDIA/CUDA: 9.0-cudnn7-devel-Ubuntu 16.04. GPU-avbildningarna för cuda10 är byggda från NVIDIA/CUDA: 10.0-cudnn7-devel-Ubuntu 16.04.
 <a id="getname"></a>
+
+> [!IMPORTANT]
+> När du använder anpassade Docker-avbildningar, rekommenderar vi att du fäster paket versioner för att bättre garantera reproducerbarhet.
 
 ### <a name="get-container-registry-information"></a>Hämta information om container registret
 
@@ -189,22 +192,22 @@ Stegen i det här avsnittet beskriver hur du skapar en anpassad Docker-avbildnin
     Run ID: cda was successful after 2m56s
     ```
 
-Mer information om hur du skapar avbildningar med en Azure Container Registry finns i [skapa och köra en behållar avbildning med hjälp av Azure Container Registry uppgifter](https://docs.microsoft.com/azure/container-registry/container-registry-quickstart-task-cli)
+Mer information om hur du skapar avbildningar med en Azure Container Registry finns i [skapa och köra en behållar avbildning med hjälp av Azure Container Registry uppgifter](../container-registry/container-registry-quickstart-task-cli.md)
 
-Mer information om hur du överför befintliga avbildningar till en Azure Container Registry finns i [skicka din första avbildning till ett privat Docker-behållarobjekt](/azure/container-registry/container-registry-get-started-docker-cli).
+Mer information om hur du överför befintliga avbildningar till en Azure Container Registry finns i [skicka din första avbildning till ett privat Docker-behållarobjekt](../container-registry/container-registry-get-started-docker-cli.md).
 
 ## <a name="use-a-custom-base-image"></a>Använd en anpassad bas avbildning
 
 Om du vill använda en anpassad avbildning behöver du följande information:
 
-* __Avbildningens namn__ . Till exempel `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest` är sökvägen till en enkel Docker-avbildning från Microsoft.
+* __Avbildningens namn__. Till exempel `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest` är sökvägen till en enkel Docker-avbildning från Microsoft.
 
     > [!IMPORTANT]
     > För anpassade avbildningar som du har skapat, se till att ta med alla Taggar som användes med avbildningen. Om din bild till exempel skapades med en speciell tagg, till exempel `:v1` . Om du inte använde en speciell tagg när du skapade avbildningen användes en-tagg `:latest` .
 
 * Om avbildningen finns i ett __privat lager__ behöver du följande information:
 
-    * Register __adressen__ . Till exempel `myregistry.azureecr.io`.
+    * Register __adressen__. Exempelvis `myregistry.azureecr.io`.
     * Ett __användar namn__ och __lösen ord__ för tjänstens huvud namn som har Läs behörighet till registret.
 
     Om du inte har den här informationen kan du prata med administratören för den Azure Container Registry som innehåller din avbildning.
@@ -231,7 +234,7 @@ Mer information finns i [Azure Machine Learning containers](https://github.com/A
 
 ### <a name="use-an-image-with-the-azure-machine-learning-sdk"></a>Använd en avbildning med Azure Machine Learning SDK
 
-Om du vill använda en avbildning som lagras i **Azure Container Registry för din arbets yta** , eller ett **behållar register som är offentligt tillgängligt** , anger [du följande](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) miljöattribut:
+Om du vill använda en avbildning som lagras i **Azure Container Registry för din arbets yta** , eller ett **behållar register som är offentligt tillgängligt** , anger [du följande](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) miljöattribut:
 
 + `docker.enabled=True`
 + `docker.base_image`: Ange till registret och sökvägen till avbildningen.
@@ -265,7 +268,7 @@ myenv.python.conda_dependencies=conda_dep
 
 Du måste lägga till azureml-default med version >= 1.0.45 som ett pip-beroende. Det här paketet innehåller de funktioner som krävs för att vara värd för modellen som en webb tjänst. Du måste också ange inferencing_stack_version egenskapen för miljön till "senaste", så installeras vissa apt-paket som krävs av webb tjänsten. 
 
-När du har definierat miljön använder du den med ett [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py&preserve-view=true) -objekt för att definiera den miljö för miljön och webb tjänsten som ska köras.
+När du har definierat miljön använder du den med ett [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig?preserve-view=true&view=azure-ml-py) -objekt för att definiera den miljö för miljön och webb tjänsten som ska köras.
 
 ```python
 from azureml.core.model import InferenceConfig
@@ -294,7 +297,7 @@ Mer information om hur du anpassar din python-miljö finns i [skapa och hantera 
 > [!IMPORTANT]
 > För närvarande kan Machine Learning CLI använda bilder från Azure Container Registry för din arbets yta eller offentligt tillgängliga databaser. Det går inte att använda bilder från fristående privata register.
 
-Innan du distribuerar en modell med hjälp av Machine Learning CLI skapar du en [miljö](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) som använder den anpassade avbildningen. Skapa sedan en konfigurations fil för härledning som hänvisar till miljön. Du kan också definiera miljön direkt i konfigurations filen för konfigurations filen. Följande JSON-dokument visar hur du refererar till en avbildning i ett offentligt behållar register. I det här exemplet definieras miljön som infogad:
+Innan du distribuerar en modell med hjälp av Machine Learning CLI skapar du en [miljö](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) som använder den anpassade avbildningen. Skapa sedan en konfigurations fil för härledning som hänvisar till miljön. Du kan också definiera miljön direkt i konfigurations filen för konfigurations filen. Följande JSON-dokument visar hur du refererar till en avbildning i ett offentligt behållar register. I det här exemplet definieras miljön som infogad:
 
 ```json
 {

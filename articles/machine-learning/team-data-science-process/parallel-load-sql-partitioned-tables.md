@@ -11,21 +11,21 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 30c4838dd5a6f4e8b08d3619588ee3ae746349ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 456e881d84697f4542f972ac0798cc95a3455b3c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86042143"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322411"
 ---
 # <a name="build-and-optimize-tables-for-fast-parallel-import-of-data-into-a-sql-server-on-an-azure-vm"></a>Bygg och optimera tabeller för snabb parallell import av data till en SQL Server på en virtuell Azure-dator
 
 Den här artikeln beskriver hur du skapar partitionerade tabeller för snabb parallell Mass import av data till en SQL Server databas. För stor data inläsning/överföring till en SQL-databas kan du importera data till SQL-databasen och efterföljande frågor kan förbättras med hjälp av *partitionerade tabeller och vyer*. 
 
 ## <a name="create-a-new-database-and-a-set-of-filegroups"></a>Skapa en ny databas och en uppsättning fil grupper
-* [Skapa en ny databas](https://technet.microsoft.com/library/ms176061.aspx), om den inte redan finns.
+* [Skapa en ny databas](/sql/t-sql/statements/create-database-transact-sql), om den inte redan finns.
 * Lägg till databas fil grupper i databasen, som innehåller de partitionerade fysiska filerna. 
-* Detta kan göras med [skapa databas](https://technet.microsoft.com/library/ms176061.aspx) om det redan finns en ny databas eller [Alter Database](https://msdn.microsoft.com/library/bb522682.aspx) .
+* Detta kan göras med [skapa databas](/sql/t-sql/statements/create-database-transact-sql) om det redan finns en ny databas eller [Alter Database](/sql/t-sql/statements/alter-database-transact-sql-set-options) .
 * Lägg till en eller flera filer (efter behov) i varje databas fil grupp.
   
   > [!NOTE]
@@ -33,7 +33,7 @@ Den här artikeln beskriver hur du skapar partitionerade tabeller för snabb par
   > 
   > 
 
-I följande exempel skapas en ny databas med tre fil grupper förutom den primära databasen och logg grupper som innehåller en fysisk fil i varje. Databasfilerna skapas i standardSQL Server-datamappen som kon figurer ATS i SQL Server-instansen. Mer information om standard Sök vägarna finns i [fil platser för standard-och namngivna instanser av SQL Server](https://msdn.microsoft.com/library/ms143547.aspx).
+I följande exempel skapas en ny databas med tre fil grupper förutom den primära databasen och logg grupper som innehåller en fysisk fil i varje. Databasfilerna skapas i standardSQL Server-datamappen som kon figurer ATS i SQL Server-instansen. Mer information om standard Sök vägarna finns i [fil platser för standard-och namngivna instanser av SQL Server](/sql/sql-server/install/file-locations-for-default-and-named-instances-of-sql-server).
 
 ```sql
    DECLARE @data_path nvarchar(256);
@@ -60,7 +60,7 @@ I följande exempel skapas en ny databas med tre fil grupper förutom den primä
 Om du vill skapa partitionerade tabeller enligt data schemat, som mappas till databas fil grupper som skapats i föregående steg, måste du först skapa en partitions funktion och ett schema. När data Mass importer ATS till partitionerade tabeller, distribueras posterna bland fil grupperna enligt ett partitionsschema, enligt beskrivningen nedan.
 
 ### <a name="1-create-a-partition-function"></a>1. skapa en partitions funktion
-[Skapa en partitions funktion](https://msdn.microsoft.com/library/ms187802.aspx) Den här funktionen definierar det värde/gränser som ska inkluderas i varje enskild partitionstabell, till exempel för att begränsa partitioner efter månad (vissa \_ datetime \_ -fält) under året 2013:
+[Skapa en partitions funktion](/sql/t-sql/statements/create-partition-function-transact-sql) Den här funktionen definierar det värde/gränser som ska inkluderas i varje enskild partitionstabell, till exempel för att begränsa partitioner efter månad (vissa \_ datetime \_ -fält) under året 2013:
   
 ```sql
    CREATE PARTITION FUNCTION <DatetimeFieldPFN>(<datetime_field>)  
@@ -71,7 +71,7 @@ Om du vill skapa partitionerade tabeller enligt data schemat, som mappas till da
 ```
 
 ### <a name="2-create-a-partition-scheme"></a>2. skapa ett partitionsschema
-[Skapa ett partitionsschema](https://msdn.microsoft.com/library/ms179854.aspx). Det här schemat mappar varje partitions intervall i partitionsfunktionen till en fysisk filgrupp, till exempel:
+[Skapa ett partitionsschema](/sql/t-sql/statements/create-partition-scheme-transact-sql). Det här schemat mappar varje partitions intervall i partitionsfunktionen till en fysisk filgrupp, till exempel:
   
 ```sql
       CREATE PARTITION SCHEME <DatetimeFieldPScheme> AS  
@@ -94,24 +94,24 @@ Kör följande fråga för att kontrol lera de intervall som används i varje pa
 ```
 
 ### <a name="3-create-a-partition-table"></a>3. skapa en partitionstabell
-[Skapa partitionerade tabeller](https://msdn.microsoft.com/library/ms174979.aspx)enligt ditt data schema och ange det partitionsschema och det begränsnings fält som används för att partitionera tabellen, till exempel:
+[Skapa partitionerade tabeller](/sql/t-sql/statements/create-table-transact-sql)enligt ditt data schema och ange det partitionsschema och det begränsnings fält som används för att partitionera tabellen, till exempel:
   
 ```sql
    CREATE TABLE <table_name> ( [include schema definition here] )
         ON <TablePScheme>(<partition_field>)
 ```
 
-Mer information finns i [skapa partitionerade tabeller och index](https://msdn.microsoft.com/library/ms188730.aspx).
+Mer information finns i [skapa partitionerade tabeller och index](/sql/relational-databases/partitions/create-partitioned-tables-and-indexes).
 
 ## <a name="bulk-import-the-data-for-each-individual-partition-table"></a>Mass import av data för varje enskild partitionstabell
 
 * Du kan använda BCP, BULK INSERT eller andra metoder som [SQL Server migreringsguiden](https://sqlazuremw.codeplex.com/). Det tillhandahållna exemplet använder BCP-metoden.
-* Ändra [databasen](https://msdn.microsoft.com/library/bb522682.aspx) för att ändra transaktions loggnings schema till BULK_LOGGED för att minimera kostnaderna för loggning, till exempel:
+* Ändra [databasen](/sql/t-sql/statements/alter-database-transact-sql-set-options) för att ändra transaktions loggnings schema till BULK_LOGGED för att minimera kostnaderna för loggning, till exempel:
   
    ```sql
       ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
    ```
-* Starta Mass import åtgärderna parallellt för att påskynda inläsningen av data. Tips om hur du påskyndar Mass import av Big data i SQL Server-databaser finns [i load 1 TB på mindre än 1 timme](https://docs.microsoft.com/archive/blogs/sqlcat/load-1tb-in-less-than-1-hour).
+* Starta Mass import åtgärderna parallellt för att påskynda inläsningen av data. Tips om hur du påskyndar Mass import av Big data i SQL Server-databaser finns [i load 1 TB på mindre än 1 timme](/archive/blogs/sqlcat/load-1tb-in-less-than-1-hour).
 
 Följande PowerShell-skript är ett exempel på en parallell data inläsning med BCP.
 
@@ -180,7 +180,7 @@ Följande PowerShell-skript är ett exempel på en parallell data inläsning med
 
 ## <a name="create-indexes-to-optimize-joins-and-query-performance"></a>Skapa index för att optimera kopplingar och fråga prestanda
 * Om du extraherar data för modellering från flera tabeller skapar du index på anslutnings nycklarna för att förbättra kopplingens prestanda.
-* [Skapa index](https://technet.microsoft.com/library/ms188783.aspx) (klustrade eller icke-klustrade) för att rikta in samma filgrupp för varje partition, till exempel:
+* [Skapa index](/sql/t-sql/statements/create-index-transact-sql) (klustrade eller icke-klustrade) för att rikta in samma filgrupp för varje partition, till exempel:
   
 ```sql
    CREATE CLUSTERED INDEX <table_idx> ON <table_name>( [include index columns here] )
@@ -198,4 +198,3 @@ Följande PowerShell-skript är ett exempel på en parallell data inläsning med
 
 ## <a name="advanced-analytics-process-and-technology-in-action-example"></a>Avancerad analys process och teknik i åtgärds exempel
 För en fullständig genom gång av exempel som använder team data science-processen med en offentlig data uppsättning, se [team data science process i praktiken: använda SQL Server](sql-walkthrough.md).
-

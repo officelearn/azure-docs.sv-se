@@ -11,16 +11,16 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 266eebc8322b5fc648180c0524abc973a4b60373
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b66b8a9fb3b5eb7dc78c00ba084e8609877dec7
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85212385"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323882"
 ---
 # <a name="azure-synapse-analytics-workload-classification"></a>Azure Synapse Analytics-arbetsbelastnings klassificering
 
-Den här artikeln beskriver processen för arbets belastnings klassificering för att tilldela en arbets belastnings grupp och prioritet för inkommande begär Anden med Synapse SQL-pooler i Azure Synapse.
+Den här artikeln beskriver processen för arbets belastnings klassificering för att tilldela en arbets belastnings grupp och prioritet för inkommande begär Anden med dedikerade SQL-pooler i Azure Synapse.
 
 ## <a name="classification"></a>Klassificering
 
@@ -36,7 +36,7 @@ Alla instruktioner klassificeras inte eftersom de inte kräver resurser eller ä
 
 ## <a name="classification-process"></a>Klassificerings process
 
-Klassificering för Synapse SQL-pool i Azure Synapse uppnås idag genom att tilldela användare till en roll som har en motsvarande resurs klass som är tilldelad till den med hjälp av [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Möjligheten att karakterisera begär Anden utöver en inloggning till en resurs klass är begränsad till den här funktionen. En bättre metod för klassificering är nu tillgänglig med [klassificerings metoden skapa arbets belastning](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .  Med den här syntaxen kan Synapse användare i SQL-pool tilldela prioritet och hur mycket system resurser som tilldelas en begäran via `workload_group` parametern.
+Klassificering för dedikerad SQL-pool i Azure Synapse uppnås idag genom att tilldela användare till en roll som har en motsvarande resurs klass som är tilldelad till den med hjälp av [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Möjligheten att karakterisera begär Anden utöver en inloggning till en resurs klass är begränsad till den här funktionen. En bättre metod för klassificering är nu tillgänglig med [klassificerings metoden skapa arbets belastning](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .  Med den här syntaxen kan dedikerade SQL-pool användare tilldela prioritet och hur mycket system resurser som tilldelas en begäran via `workload_group` parametern.
 
 > [!NOTE]
 > Klassificeringen utvärderas per begäran. Flera begär anden i en enda session kan klassificeras på olika sätt.

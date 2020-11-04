@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 09/16/2020
-ms.openlocfilehash: 64665c0b1e32970f29233f5abdd6b2d2d020a6b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a1a63893e6e2988fc5f21e84f21c74315d856b4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90897515"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325482"
 ---
 # <a name="increase-azure-machine-learning-resiliency"></a>Öka Azure Machine Learning återhämtning
 
@@ -32,19 +32,19 @@ Azure Machine Learning är beroende av flera olika Azure-tjänster och har flera
 
 Azure-tjänster inkluderar:
 
-* **Azure Machine Learning infrastruktur**: en Microsoft-hanterad miljö för arbets ytan Azure Machine Learning.
+* **Azure Machine Learning infrastruktur** : en Microsoft-hanterad miljö för arbets ytan Azure Machine Learning.
 
-* **Associerade resurser**: resurser etablerade i prenumerationen under Azure Machine Learning skapa arbets yta. Dessa resurser omfattar Azure Storage, Azure Key Vault, Azure Container Registry och Application Insights. Du är ansvarig för att konfigurera inställningar för hög tillgänglighet för dessa resurser.
+* **Associerade resurser** : resurser etablerade i prenumerationen under Azure Machine Learning skapa arbets yta. Dessa resurser omfattar Azure Storage, Azure Key Vault, Azure Container Registry och Application Insights. Du är ansvarig för att konfigurera inställningar för hög tillgänglighet för dessa resurser.
   * Standard lagringen har data, till exempel modell, tränings loggar och data uppsättningar.
   * Key Vault har autentiseringsuppgifter för Azure Storage, Container Registry och data lager.
   * Container Registry har en Docker-avbildning för utbildnings-och inferencing miljöer.
   * Application Insights är för övervakning Azure Machine Learning.
 
-* **Beräknings resurser**: resurser som du skapar efter distribution av arbets ytan. Du kan till exempel skapa en beräknings instans eller ett beräknings kluster för att träna en Machine Learning modell.
+* **Beräknings resurser** : resurser som du skapar efter distribution av arbets ytan. Du kan till exempel skapa en beräknings instans eller ett beräknings kluster för att träna en Machine Learning modell.
   * Beräknings instans och beräknings kluster: Microsoft-hanterade modell utvecklings miljöer.
   * Andra resurser: resurser för Microsoft-datorer som du kan ansluta till Azure Machine Learning, till exempel Azure Kubernetes service (AKS), Azure Databricks, Azure Container Instances och Azure HDInsight. Du är ansvarig för att konfigurera inställningar för hög tillgänglighet för dessa resurser.
 
-* **Ytterligare data lager**: Azure Machine Learning kan montera ytterligare data lager, till exempel Azure Storage, Azure Data Lake Storage och Azure SQL Database för tränings data.  Dessa data lager tillhandahålls i din prenumeration. Du är ansvarig för att konfigurera inställningar för hög tillgänglighet.
+* **Ytterligare data lager** : Azure Machine Learning kan montera ytterligare data lager, till exempel Azure Storage, Azure Data Lake Storage och Azure SQL Database för tränings data.  Dessa data lager tillhandahålls i din prenumeration. Du är ansvarig för att konfigurera inställningar för hög tillgänglighet.
 
 I följande tabell visas vilka Azure-tjänster som hanteras av Microsoft, som hanteras av dig och som är hög tillgängliga som standard.
 
@@ -55,7 +55,7 @@ I följande tabell visas vilka Azure-tjänster som hanteras av Microsoft, som ha
 | Azure Storage | Du | |
 | Key Vault | Du | ✓ |
 | Container Registry | Du | |
-| Application Insights | Du | Ej tillämpligt |
+| Application Insights | Du | NA |
 | **Beräknings resurser** |
 | Beräkninsinstans | Microsoft |  |
 | Beräkningskluster | Microsoft |  |
@@ -71,34 +71,34 @@ Resten av den här artikeln beskriver de åtgärder som du behöver vidta för a
 
 Se till att konfigurera inställningar för hög tillgänglighet för varje resurs genom att referera till följande dokumentation:
 
-* **Azure Storage**: om du vill konfigurera inställningar för hög tillgänglighet, se [Azure Storage redundans](https://docs.microsoft.com/azure/storage/common/storage-redundancy).
-* **Key Vault**: Key Vault ger hög tillgänglighet som standard och kräver ingen användar åtgärd.  Se [Azure Key Vault tillgänglighet och redundans](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance).
-* **Container Registry**: Välj alternativet Premium Registry för geo-replikering. Se [geo-replikering i Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-geo-replication).
-* **Application Insights**: Application Insights ger inte inställningar för hög tillgänglighet. Information om hur du justerar data kvarhållning och information finns i [data insamling, kvarhållning och lagring i Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/data-retention-privacy#how-long-is-the-data-kept).
+* **Azure Storage** : om du vill konfigurera inställningar för hög tillgänglighet, se [Azure Storage redundans](../storage/common/storage-redundancy.md).
+* **Key Vault** : Key Vault ger hög tillgänglighet som standard och kräver ingen användar åtgärd.  Se [Azure Key Vault tillgänglighet och redundans](../key-vault/general/disaster-recovery-guidance.md).
+* **Container Registry** : Välj alternativet Premium Registry för geo-replikering. Se [geo-replikering i Azure Container Registry](../container-registry/container-registry-geo-replication.md).
+* **Application Insights** : Application Insights ger inte inställningar för hög tillgänglighet. Information om hur du justerar data kvarhållning och information finns i [data insamling, kvarhållning och lagring i Application Insights](../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept).
 
 ## <a name="compute-resources"></a>Beräknings resurser
 
 Se till att konfigurera inställningar för hög tillgänglighet för varje resurs genom att referera till följande dokumentation:
 
-* **Azure Kubernetes-tjänst**: se [metod tips för verksamhets kontinuitet och haveri beredskap i Azure KUBERNETES service (AKS)](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region) och [skapa ett Azure KUBERNETES service-kluster (AKS) som använder tillgänglighets zoner](https://docs.microsoft.com/azure/aks/availability-zones). Om AKS-klustret har skapats med hjälp av Azure Machine Learning Studio, SDK eller CLI stöds inte hög tillgänglighet mellan regioner.
-* **Azure Databricks**: se [regional haveri beredskap för Azure Databricks-kluster](https://docs.microsoft.com/azure/azure-databricks/howto-regional-disaster-recovery).
-* **Container instances**: en Orchestrator är ansvarig för redundans. Se [Azure Container instances-och behållar dirigeringar](https://docs.microsoft.com/azure/container-instances/container-instances-orchestrator-relationship).
-* **HDInsight**: se [tjänster med hög tillgänglighet som stöds av Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-high-availability-components).
+* **Azure Kubernetes-tjänst** : se [metod tips för verksamhets kontinuitet och haveri beredskap i Azure KUBERNETES service (AKS)](../aks/operator-best-practices-multi-region.md) och [skapa ett Azure KUBERNETES service-kluster (AKS) som använder tillgänglighets zoner](../aks/availability-zones.md). Om AKS-klustret har skapats med hjälp av Azure Machine Learning Studio, SDK eller CLI stöds inte hög tillgänglighet mellan regioner.
+* **Azure Databricks** : se [regional haveri beredskap för Azure Databricks-kluster](/azure/databricks/scenarios/howto-regional-disaster-recovery).
+* **Container instances** : en Orchestrator är ansvarig för redundans. Se [Azure Container instances-och behållar dirigeringar](../container-instances/container-instances-orchestrator-relationship.md).
+* **HDInsight** : se [tjänster med hög tillgänglighet som stöds av Azure HDInsight](../hdinsight/hdinsight-high-availability-components.md).
 
 ## <a name="additional-data-stores"></a>Ytterligare data lager
 
 Se till att konfigurera inställningar för hög tillgänglighet för varje resurs genom att referera till följande dokumentation:
 
-* **Azure Blob container/Azure Files/data Lake Storage Gen2**: samma som standard lagring.
-* **Data Lake Storage gen1**: se [rikt linjer för hög tillgänglighet och katastrof återställning för data Lake Storage gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-disaster-recovery-guidance).
-* **SQL Database**: se [hög tillgänglighet för Azure SQL Database och SQL-hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-high-availability).
-* **Azure Database for PostgreSQL**: se [koncept med hög tillgänglighet i Azure Database for PostgreSQL-enskild server](https://docs.microsoft.com/azure/postgresql/concepts-high-availability).
-* **Azure Database for MySQL**: se [förstå affärs kontinuitet i Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/concepts-business-continuity).
-* **Azure Databricks fil system**: se [regional haveri beredskap för Azure Databricks kluster](https://docs.microsoft.com/azure/azure-databricks/howto-regional-disaster-recovery).
+* **Azure Blob container/Azure Files/data Lake Storage Gen2** : samma som standard lagring.
+* **Data Lake Storage gen1** : se [rikt linjer för hög tillgänglighet och katastrof återställning för data Lake Storage gen1](../data-lake-store/data-lake-store-disaster-recovery-guidance.md).
+* **SQL Database** : se [hög tillgänglighet för Azure SQL Database och SQL-hanterad instans](../azure-sql/database/high-availability-sla.md).
+* **Azure Database for PostgreSQL** : se [koncept med hög tillgänglighet i Azure Database for PostgreSQL-enskild server](../postgresql/concepts-high-availability.md).
+* **Azure Database for MySQL** : se [förstå affärs kontinuitet i Azure Database for MySQL](../mysql/concepts-business-continuity.md).
+* **Azure Databricks fil system** : se [regional haveri beredskap för Azure Databricks kluster](/azure/databricks/scenarios/howto-regional-disaster-recovery).
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-Om du anger en egen kundhanterad nyckel för att distribuera en Azure Machine Learning arbets yta, tillhandahålls Azure Cosmos DB också i din prenumeration. I så fall är du ansvarig för att konfigurera inställningarna för hög tillgänglighet. Se [hög tillgänglighet med Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/high-availability).
+Om du anger en egen kundhanterad nyckel för att distribuera en Azure Machine Learning arbets yta, tillhandahålls Azure Cosmos DB också i din prenumeration. I så fall är du ansvarig för att konfigurera inställningarna för hög tillgänglighet. Se [hög tillgänglighet med Azure Cosmos DB](../cosmos-db/high-availability.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

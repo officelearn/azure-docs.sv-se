@@ -1,6 +1,6 @@
 ---
 title: Designa tabeller
-description: Introduktion till att utforma tabeller i Synapse SQL-pool.
+description: Introduktion till utformning av tabeller med dedikerad SQL-pool i Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,22 +11,22 @@ ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 7973c85c7ca8051cae2ab7155dda94bec43ebd59
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 3bdf234156c55e3c30df74c672866a118fd2f4f1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486947"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323493"
 ---
-# <a name="design-tables-in-synapse-sql-pool"></a>Design tabeller i Synapse SQL-pool
+# <a name="design-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Design tabeller med dedikerad SQL-pool i Azure Synapse Analytics
 
-Den här artikeln innehåller grundläggande introduktions begrepp för att utforma tabeller i SQL-pooler.
+Den här artikeln innehåller grundläggande introduktions begrepp för att utforma tabeller i dedikerad SQL-pool.
 
 ## <a name="determine-table-category"></a>Bestäm tabell kategori
 
 Ett [stjärn schema](https://en.wikipedia.org/wiki/Star_schema) ordnar data i fakta-och dimensions tabeller. Vissa tabeller används för integrering eller mellanlagring av data innan de flyttas till en fakta-eller dimensions tabell. När du skapar en tabell bestämmer du om tabell data tillhör en fakta-, dimensions-eller integrations tabell. Det här beslutet informerar lämplig tabell struktur och distribution.
 
-- **Fakta tabeller** innehåller kvantitativa data som vanligt vis genereras i ett transaktions system och sedan läses in i SQL-poolen. En detalj handel genererar till exempel försäljnings transaktioner varje dag och läser sedan in data i en fakta tabell för SQL-pool för analys.
+- **Fakta tabeller** innehåller kvantitativa data som vanligt vis genereras i ett transaktions system och sedan läses in i den DEDIKERADe SQL-poolen. En detalj handel genererar till exempel försäljnings transaktioner varje dag och läser sedan in data i en särskild fakta tabell för SQL-pool för analys.
 
 - **Dimensions tabeller** innehåller attribut data som kan ändras, men som ofta ändras sällan. Till exempel lagras en kunds namn och adress i en dimensions tabell och uppdateras bara när kundens profil ändras. För att minimera storleken på en stor fakta tabell behöver kundens namn och adress inte finnas i varje rad i en fakta tabell. I stället kan fakta tabellen och dimensions tabellen dela ett kund-ID. En fråga kan ansluta till de två tabellerna för att associera en kunds profil och transaktioner.
 
@@ -34,28 +34,28 @@ Ett [stjärn schema](https://en.wikipedia.org/wiki/Star_schema) ordnar data i fa
 
 ## <a name="schema-and-table-names"></a>Schema-och tabell namn
 
-Scheman är ett bra sätt att gruppera tabeller, som används på liknande sätt tillsammans.  Om du migrerar flera databaser från en lokal-lösning till SQL-poolen fungerar det bäst att migrera alla fakta-, dimensions-och integrations tabeller till ett schema i SQL-poolen.
+Scheman är ett bra sätt att gruppera tabeller, som används på liknande sätt tillsammans.  Om du migrerar flera databaser från en lokal-lösning till en dedikerad SQL-pool, fungerar det bäst att migrera alla fakta-, dimensions-och integrations tabeller till ett schema i en dedikerad SQL-pool.
 
-Du kan till exempel lagra alla tabeller i SQL- [informations lagret wideworldimportersdw](/sql/sample/world-wide-importers/database-catalog-wwi-olap?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) exempel i ett schema med namnet WWI. Följande kod skapar ett [användardefinierat schema](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) med namnet WWI.
+Du kan till exempel lagra alla tabeller i den dedikerade SQL-poolen [informations lagret wideworldimportersdw](/sql/sample/world-wide-importers/database-catalog-wwi-olap?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) -exempel i ett schema med namnet WWI. Följande kod skapar ett [användardefinierat schema](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) med namnet WWI.
 
 ```sql
 CREATE SCHEMA wwi;
 ```
 
-Om du vill visa en tabells struktur i SQL-poolen kan du använda fakta, dim och int som prefix till tabell namnen. I följande tabell visas några av schema-och tabell namnen för informations lagret wideworldimportersdw.  
+Om du vill visa en tabells struktur i en dedikerad SQL-pool kan du använda fakta, dim och int som prefix till tabell namnen. I följande tabell visas några av schema-och tabell namnen för informations lagret wideworldimportersdw.  
 
-| Informations lagret wideworldimportersdw-tabell  | Tabell typ | SQL-pool |
+| Informations lagret wideworldimportersdw-tabell  | Tabell typ | Dedikerad SQL-pool |
 |:-----|:-----|:------|:-----|
 | City | Dimension | WWI. DimCity |
 | Beställa | Fakta | WWI. FactOrder |
 
 ## <a name="table-persistence"></a>Tabell persistence
 
-Tabeller lagrar data antingen permanent i Azure Storage, temporärt i Azure Storage eller i ett data lager utanför SQL-poolen.
+Tabeller lagrar data antingen permanent i Azure Storage, temporärt i Azure Storage eller i ett externt data lager till en dedikerad SQL-pool.
 
 ### <a name="regular-table"></a>Vanlig tabell
 
-En vanlig tabell lagrar data i Azure Storage som en del av SQL-poolen. Tabellen och data behålls oavsett om en session är öppen.  I följande exempel skapas en vanlig tabell med två kolumner.
+En vanlig tabell lagrar data i Azure Storage som en del av en dedikerad SQL-pool. Tabellen och data behålls oavsett om en session är öppen.  I följande exempel skapas en vanlig tabell med två kolumner.
 
 ```sql
 CREATE TABLE MyTable (col1 int, col2 int );  
@@ -69,17 +69,17 @@ Temporära tabeller använder lokal lagring för att erbjuda snabba prestanda.  
 
 ### <a name="external-table"></a>Extern tabell
 
-En extern tabell pekar på data som finns i Azure Storage BLOB eller Azure Data Lake Store. När det används tillsammans med CREATE TABLE som SELECT-instruktion, importerar data till SQL-poolen genom att välja från en extern tabell.
+En extern tabell pekar på data som finns i Azure Storage BLOB eller Azure Data Lake Store. När det används tillsammans med CREATE TABLE som SELECT-instruktion, importerar data till en dedikerad SQL-pool genom att välja från en extern tabell.
 
 Därför är externa tabeller användbara för att läsa in data. En inläsnings kurs finns i [använda PolyBase för att läsa in data från Azure Blob Storage](load-data-from-azure-blob-storage-using-polybase.md).
 
 ## <a name="data-types"></a>Datatyper
 
-SQL-poolen stöder de vanligaste data typerna. En lista över data typer som stöds finns i [data typer i CREATE TABLE referens](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#DataTypes) i CREATE TABLE-instruktionen. Vägledning om hur du använder data typer finns i [data typer](sql-data-warehouse-tables-data-types.md).
+Dedikerad SQL-pool stöder de vanligaste data typerna. En lista över data typer som stöds finns i [data typer i CREATE TABLE referens](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#DataTypes) i CREATE TABLE-instruktionen. Vägledning om hur du använder data typer finns i [data typer](sql-data-warehouse-tables-data-types.md).
 
 ## <a name="distributed-tables"></a>Distribuerade tabeller
 
-En grundläggande funktion i Synapse SQL är hur den kan lagra och använda tabeller över [distributioner](massively-parallel-processing-mpp-architecture.md#distributions). Synapse SQL stöder tre metoder för att distribuera data: Round-Robin (standard), hash och replikeras.
+En grundläggande funktion i en dedikerad SQL-pool är hur den kan lagra och arbeta i tabeller över [distributioner](massively-parallel-processing-mpp-architecture.md#distributions).  Dedikerad SQL-pool stöder tre metoder för att distribuera data: Round-Robin (standard), hash och replikeras.
 
 ### <a name="hash-distributed-tables"></a>Hash-distribuerade tabeller
 
@@ -119,7 +119,7 @@ ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION
 
 ## <a name="columnstore-indexes"></a>Columnstore-index
 
-Som standard lagrar SQL-poolen en tabell som ett grupperat columnstore-index. Den här typen av data lagring uppnår hög data komprimering och frågans prestanda i stora tabeller.  
+Dedicerad SQL-pool lagrar som standard en tabell som ett grupperat columnstore-index. Den här typen av data lagring uppnår hög data komprimering och frågans prestanda i stora tabeller.  
 
 Det grupperade columnstore-indexet är vanligt vis det bästa valet, men i vissa fall är ett grupperat index eller en heap lämplig lagrings struktur.  
 
@@ -138,7 +138,7 @@ Uppdaterings statistik sker inte automatiskt. Uppdatera statistik när ett stort
 
 ## <a name="primary-key-and-unique-key"></a>Primär nyckel och unik nyckel
 
-PRIMÄR nyckel stöds bara om både icke-KLUSTRad och inte framtvingad används.  En unik begränsning stöds endast med inte TVINGAd användning.  Kontrol lera [tabell begränsningar för SQL-pooler](sql-data-warehouse-table-constraints.md).
+PRIMÄR nyckel stöds bara om både icke-KLUSTRad och inte framtvingad används.  En unik begränsning stöds endast med inte TVINGAd användning.  Kontrol lera [tabell begränsningar för dedikerad SQL-pool](sql-data-warehouse-table-constraints.md).
 
 ## <a name="commands-for-creating-tables"></a>Kommandon för att skapa tabeller
 
@@ -147,19 +147,19 @@ Du kan skapa en tabell som en ny tom tabell. Du kan också skapa och fylla i en 
 | T-SQL-uttryck | Beskrivning |
 |:----------------|:------------|
 | [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Skapar en tom tabell genom att definiera alla tabell kolumner och alternativ. |
-| [SKAPA EXTERN TABELL](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Skapar en extern tabell. Definitionen av tabellen lagras i SQL-poolen. Tabell data lagras i Azure Blob Storage eller Azure Data Lake Store. |
+| [SKAPA EXTERN TABELL](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Skapar en extern tabell. Definitionen av tabellen lagras i en dedikerad SQL-pool. Tabell data lagras i Azure Blob Storage eller Azure Data Lake Store. |
 | [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Fyller i en ny tabell med resultatet av en SELECT-instruktion. Tabell kolumnerna och data typerna baseras på Select Statement-resultatet. För att importera data, kan den här instruktionen välja från en extern tabell. |
 | [SKAPA EXTERN TABELL SOM VÄLJ](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Skapar en ny extern tabell genom att exportera resultatet av en SELECT-instruktion till en extern plats.  Platsen är antingen Azure Blob Storage eller Azure Data Lake Store. |
 
-## <a name="aligning-source-data-with-the-sql-pool"></a>Justera källdata med SQL-poolen
+## <a name="aligning-source-data-with-dedicated-sql-pool"></a>Justera källdata med dedikerad SQL-pool
 
-SQL-poolens tabeller fylls genom inläsning av data från en annan data källa. Om du vill utföra en lyckad inläsning måste antalet och data typerna för kolumnerna i käll data justeras mot tabell definitionen i SQL-poolen. Att hämta data så att de justeras kan vara den svåraste delen av att utforma dina tabeller.
+Dedikerade tabeller för SQL-pooler fylls genom att läsa in data från en annan data källa. Om du vill utföra en lyckad inläsning måste antalet och data typerna för kolumnerna i käll data justeras mot tabell definitionen i den dedikerade SQL-poolen. Att hämta data så att de justeras kan vara den svåraste delen av att utforma dina tabeller.
 
-Om data kommer från flera data lager läser du in data i SQL-poolen och lagrar dem i en integrations tabell. När data finns i integrations tabellen kan du använda kraften i SQL-poolen för att utföra omvandlings åtgärder. När data har för berett kan du infoga dem i produktions tabeller.
+Om data kommer från flera data lager läser du in data i den dedikerade SQL-poolen och lagrar dem i en integrations tabell. När data finns i integrations tabellen kan du använda kraften i en dedikerad SQL-pool för att utföra omvandlings åtgärder. När data har för berett kan du infoga dem i produktions tabeller.
 
 ## <a name="unsupported-table-features"></a>Tabell funktioner som inte stöds
 
-SQL-poolen har stöd för många, men inte alla, av tabell funktionerna som erbjuds av andra databaser.  I följande lista visas några av tabell funktionerna som inte stöds i SQL-poolen:
+Dedikerad SQL-pool har stöd för många, men inte alla, av tabell funktionerna som erbjuds av andra databaser.  I följande lista visas några av tabell funktionerna som inte stöds i dedikerad SQL-pool:
 
 - Sekundär nyckel, kontrol lera [tabell begränsningar](/sql/t-sql/statements/alter-table-table-constraint-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [Beräknade kolumner](/sql/t-sql/statements/alter-table-computed-column-definition-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -375,4 +375,4 @@ ORDER BY    distribution_id
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har skapat tabellerna för SQL-poolen är nästa steg att läsa in data i tabellen.  En inläsnings kurs finns i [läsa in data till SQL-poolen](load-data-wideworldimportersdw.md).
+När du har skapat tabellerna för din dedikerade SQL-pool är nästa steg att läsa in data i tabellen.  En inläsnings kurs finns i [inläsning av data till dedikerad SQL-pool](load-data-wideworldimportersdw.md).

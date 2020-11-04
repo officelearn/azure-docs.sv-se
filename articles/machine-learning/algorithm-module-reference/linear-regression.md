@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 51a9b0ec0fc19b6b6efa0453d698a5a978dacabc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 809b1be4f9f12e1963ff5caeaacd109c84db154f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907840"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323662"
 ---
 # <a name="linear-regression-module"></a>Linjär Regressions modul
 I den här artikeln beskrivs en modul i Azure Machine Learning designer.
@@ -41,7 +41,7 @@ Azure Machine Learning stöder en mängd Regressions modeller, förutom linjär 
 
 I år har statistiker utvecklat avancerade metoder för regression. Detta gäller även för linjär regression. Den här modulen stöder två metoder för att mäta fel och passar Regressions linjen: vanliga minsta kvadratmetoden och tonings brantaste.
 
-- **Tonings brantaste** är en metod som minimerar mängden fel i varje steg i modell inlärnings processen. Det finns många variationer i gradient-brantaste och dess optimering för olika inlärnings problem har för stor ATS. Om du väljer det här alternativet för **lösnings metoden**kan du ange en rad olika parametrar för att kontrol lera steg storleken, inlärnings hastigheten och så vidare. Det här alternativet stöder även användning av en integrerad parameter svepning.
+- **Tonings brantaste** är en metod som minimerar mängden fel i varje steg i modell inlärnings processen. Det finns många variationer i gradient-brantaste och dess optimering för olika inlärnings problem har för stor ATS. Om du väljer det här alternativet för **lösnings metoden** kan du ange en rad olika parametrar för att kontrol lera steg storleken, inlärnings hastigheten och så vidare. Det här alternativet stöder även användning av en integrerad parameter svepning.
 
 - **Vanliga minsta kvadratmetoden** är en av de oftast använda teknikerna i linjär regression. Till exempel är minsta kvadratmetoden den metod som används i Analysis ToolPak för Microsoft Excel.
 
@@ -63,15 +63,15 @@ Den här modulen stöder två metoder för att anpassa en Regressions modell med
 
 1. Lägg till modulen **linjär Regressions modell** i din pipeline i designern.
 
-    Du hittar den här modulen i kategorin **Machine Learning** . Expandera **initiera modell**, expandera **regression**och dra sedan modulen **linjär Regressions modell** till din pipeline.
+    Du hittar den här modulen i kategorin **Machine Learning** . Expandera **initiera modell** , expandera **regression** och dra sedan modulen **linjär Regressions modell** till din pipeline.
 
 2. I rutan **Egenskaper** går du till List rutan **lösnings metod** och väljer **vanliga minsta kvadratmetoden**. Det här alternativet anger den beräknings metod som används för att hitta Regressions linjen.
 
-3. I **L2-regulariseringshastigheten vikt**anger du det värde som ska användas som vikt för L2-regulariseringshastigheten. Vi rekommenderar att du använder ett värde som inte är noll för att undvika överanpassning.
+3. I **L2-regulariseringshastigheten vikt** anger du det värde som ska användas som vikt för L2-regulariseringshastigheten. Vi rekommenderar att du använder ett värde som inte är noll för att undvika överanpassning.
 
-     Mer information om hur regulariseringshastigheten påverkar modell anpassning finns i den här artikeln: [L1-och L2-regulariseringshastigheten för Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)
+     Mer information om hur regulariseringshastigheten påverkar modell anpassning finns i den här artikeln: [L1-och L2-regulariseringshastigheten för Machine Learning](/archive/msdn-magazine/2015/february/test-run-l1-and-l2-regularization-for-machine-learning)
 
-4. Välj alternativet, **Inkludera spärr villkor**, om du vill visa villkoret för skärningen.
+4. Välj alternativet, **Inkludera spärr villkor** , om du vill visa villkoret för skärningen.
 
     Avmarkera det här alternativet om du inte behöver granska Regressions formeln.
 
@@ -96,42 +96,42 @@ När utbildningen är klar:
 
 1. Lägg till modulen **linjär Regressions modell** i din pipeline i designern.
 
-    Du hittar den här modulen i kategorin **Machine Learning** . Expandera **initiera modell**, expandera **regression**och dra modulen **linjär Regressions modell** till din pipeline
+    Du hittar den här modulen i kategorin **Machine Learning** . Expandera **initiera modell** , expandera **regression** och dra modulen **linjär Regressions modell** till din pipeline
 
 2. I rutan **Egenskaper** i list rutan **lösnings metod** väljer du brantaste för **online-toning** som den beräknings metod som används för att hitta Regressions linjen.
 
-3. För **skapa utbildare-läge**anger du om du vill träna modellen med en fördefinierad uppsättning parametrar, eller om du vill optimera modellen med hjälp av en parameter rensning.
+3. För **skapa utbildare-läge** anger du om du vill träna modellen med en fördefinierad uppsättning parametrar, eller om du vill optimera modellen med hjälp av en parameter rensning.
 
-    + **Enskild parameter**: om du vet hur du vill konfigurera ett linjärt Regressions nätverk kan du ange en viss uppsättning värden som argument.
+    + **Enskild parameter** : om du vet hur du vill konfigurera ett linjärt Regressions nätverk kan du ange en viss uppsättning värden som argument.
     
-    + **Parameter intervall**: Välj det här alternativet om du inte är säker på de bästa parametrarna och vill köra en parameter rensning. Välj ett värde intervall som du vill iterera över, och de [finjusterande modellens egenskaper](tune-model-hyperparameters.md) upprepas över alla möjliga kombinationer av de inställningar som du angav för att fastställa de egenskaper som ger optimala resultat.  
+    + **Parameter intervall** : Välj det här alternativet om du inte är säker på de bästa parametrarna och vill köra en parameter rensning. Välj ett värde intervall som du vill iterera över, och de [finjusterande modellens egenskaper](tune-model-hyperparameters.md) upprepas över alla möjliga kombinationer av de inställningar som du angav för att fastställa de egenskaper som ger optimala resultat.  
 
    
-4. För **inlärnings frekvens**anger du den inledande inlärnings takten för Stochastic gradient brantaste optimering.
+4. För **inlärnings frekvens** anger du den inledande inlärnings takten för Stochastic gradient brantaste optimering.
 
 5. Ange ett värde som anger hur många gånger algoritmen ska iterera genom exempel i **antal utbildnings epoker**. För data uppsättningar med ett litet antal exempel bör det här talet vara stort för att uppnå konvergens.
 
-6. **Normaliserings funktioner**: om du redan har normaliserat numeriska data som används för att träna modellen kan du avmarkera det här alternativet. Som standard normaliserar modulen alla numeriska indata till ett intervall mellan 0 och 1.
+6. **Normaliserings funktioner** : om du redan har normaliserat numeriska data som används för att träna modellen kan du avmarkera det här alternativet. Som standard normaliserar modulen alla numeriska indata till ett intervall mellan 0 och 1.
 
     > [!NOTE]
     > 
     > Kom ihåg att använda samma normaliserings metod för nya data som används för poängsättning.
 
-7. I **L2-regulariseringshastigheten vikt**anger du det värde som ska användas som vikt för L2-regulariseringshastigheten. Vi rekommenderar att du använder ett värde som inte är noll för att undvika överanpassning.
+7. I **L2-regulariseringshastigheten vikt** anger du det värde som ska användas som vikt för L2-regulariseringshastigheten. Vi rekommenderar att du använder ett värde som inte är noll för att undvika överanpassning.
 
-    Mer information om hur regulariseringshastigheten påverkar modell anpassning finns i den här artikeln: [L1-och L2-regulariseringshastigheten för Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)
+    Mer information om hur regulariseringshastigheten påverkar modell anpassning finns i den här artikeln: [L1-och L2-regulariseringshastigheten för Machine Learning](/archive/msdn-magazine/2015/february/test-run-l1-and-l2-regularization-for-machine-learning)
 
 
-9. Välj alternativet för att **minska inlärnings**takten om du vill att inlärnings takten ska minska allteftersom iterationer fortskrider.  
+9. Välj alternativet för att **minska inlärnings** takten om du vill att inlärnings takten ska minska allteftersom iterationer fortskrider.  
 
 10. Du kan ange ett värde för att dirigera den slumpmässiga nummer generatorn som används av modellen om du vill använda **slumpmässig numrering**. Att använda ett Seed-värde är användbart om du vill behålla samma resultat för olika körningar av samma pipeline.
 
 
 12. Träna modellen:
 
-    + Om du ställer in **skapa utbildare** för en **parameter**ansluter du en taggad data uppsättning och modulen [träna modell](train-model.md) .  
+    + Om du ställer in **skapa utbildare** för en **parameter** ansluter du en taggad data uppsättning och modulen [träna modell](train-model.md) .  
   
-    + Om du ställer in **skapa utbildare** för **parameter intervall**ansluter du en taggad data uppsättning och tränar modellen med hjälp av [finjustera modellens egenskaper](tune-model-hyperparameters.md).  
+    + Om du ställer in **skapa utbildare** för **parameter intervall** ansluter du en taggad data uppsättning och tränar modellen med hjälp av [finjustera modellens egenskaper](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 
@@ -152,4 +152,4 @@ När utbildningen är klar:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning.

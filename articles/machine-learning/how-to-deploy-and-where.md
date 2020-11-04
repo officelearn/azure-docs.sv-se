@@ -1,22 +1,22 @@
 ---
 title: Hur och var modeller ska distribueras
 titleSuffix: Azure Machine Learning
-description: Lär dig hur och var du kan distribuera Azure Machine Learning-modeller, inklusive Azure Container Instances, Azure Kubernetes service, Azure IoT Edge och fält-programmerbara grind mat ris.
+description: Lär dig hur och var du distribuerar Azure Machine Learning-modeller, inklusive Azure Container Instances, Azure Kubernetes service, Azure IoT Edge och FPGA.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: gopalv
 author: gvashishtha
 ms.reviewer: larryfr
-ms.date: 09/17/2020
+ms.date: 11/02/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: 2642af3490cd69a3e793f020c193d83d2966e1ab
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: fa8d40e4817b6adb42da6daa3035bd1c4a67c5d8
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744624"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325290"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuera modeller med Azure Machine Learning
 
@@ -45,7 +45,7 @@ Mer information om de begrepp som ingår i distributions arbets flödet finns i 
 
 - En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 - En modell. Om du inte har en tränad modell kan du använda den modell och de beroende filer som finns i [den här självstudien](https://aka.ms/azml-deploy-cloud).
-- [Azure Machine Learning Software Development Kit (SDK) för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
+- [Azure Machine Learning Software Development Kit (SDK) för python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
 
 ---
 
@@ -70,7 +70,7 @@ from azureml.core import Workspace
 ws = Workspace.from_config(path=".file-path/ws_config.json")
 ```
 
-Mer information om hur du använder SDK för att ansluta till en arbets yta finns i dokumentationen [för Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true#&preserve-view=trueworkspace) .
+Mer information om hur du använder SDK för att ansluta till en arbets yta finns i dokumentationen [för Azure Machine Learning SDK för python](/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true#workspace) .
 
 
 ---
@@ -81,10 +81,13 @@ Mer information om hur du använder SDK för att ansluta till en arbets yta finn
 En registrerad modell är en logisk behållare för en eller flera filer som utgör din modell. Om du till exempel har en modell som lagras i flera filer kan du registrera dem som en enskild modell i arbets ytan. När du har registrerat filerna kan du ladda ned eller distribuera den registrerade modellen och ta emot alla filer som du har registrerat.
 
 > [!TIP] 
-> Att registrera en modell för versions spårning rekommenderas, men krävs inte. Om du hellre vill fortsätta utan att registrera en modell måste du ange en käll katalog i [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py&preserve-view=true) eller [inferenceconfig.jspå](./reference-azure-machine-learning-cli.md#inference-configuration-schema) och se till att din modell finns i käll katalogen.
+> Att registrera en modell för versions spårning rekommenderas, men krävs inte. Om du hellre vill fortsätta utan att registrera en modell måste du ange en käll katalog i [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig?preserve-view=true&view=azure-ml-py) eller [inferenceconfig.jspå](./reference-azure-machine-learning-cli.md#inference-configuration-schema) och se till att din modell finns i käll katalogen.
 
 > [!TIP]
 > När du registrerar en modell anger du sökvägen till antingen en moln plats (från en utbildnings körning) eller en lokal katalog. Den här sökvägen är bara till för att hitta filerna som ska laddas upp som en del av registrerings processen. Den behöver inte matcha den sökväg som används i Entry-skriptet. Mer information finns i [hitta modell filer i ditt Entry-skript](./how-to-deploy-advanced-entry-script.md#load-registered-models).
+
+> [!IMPORTANT]
+> När du använder alternativet filtrera efter `Tags` på sidan modeller i Azure Machine Learning Studio, i stället för att använda `TagName : TagValue` kunder ska använda `TagName=TagValue` (utan blank steg)
 
 Följande exempel visar hur du registrerar en modell.
 
@@ -114,7 +117,7 @@ Mer information finns i `az ml model register` [referens dokumentationen](/cli/a
 
 ### <a name="register-a-model-from-an-azure-ml-training-run"></a>Registrera en modell från en Azure ML-utbildning
 
-  När du använder SDK för att träna en modell kan du ta emot antingen ett [körnings](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&preserve-view=true) objekt eller ett [AutoMLRun](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun) -objekt, beroende på hur du tränade modellen. Varje-objekt kan användas för att registrera en modell som skapats av en experiment körning.
+  När du använder SDK för att träna en modell kan du ta emot antingen ett [körnings](/python/api/azureml-core/azureml.core.run.run?preserve-view=true&view=azure-ml-py) objekt eller ett [AutoMLRun](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun) -objekt, beroende på hur du tränade modellen. Varje-objekt kan användas för att registrera en modell som skapats av en experiment körning.
 
   + Registrera en modell från ett `azureml.core.Run` objekt:
  
@@ -125,7 +128,7 @@ Mer information finns i `az ml model register` [referens dokumentationen](/cli/a
     print(model.name, model.id, model.version, sep='\t')
     ```
 
-    `model_path`Parametern refererar till modellens moln plats. I det här exemplet används sökvägen till en enskild fil. Om du vill inkludera flera filer i modell registreringen anger `model_path` du sökvägen till en mapp som innehåller filerna. Mer information finns i [Run.register_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&preserve-view=true#&preserve-view=trueregister-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-) -dokumentationen.
+    `model_path`Parametern refererar till modellens moln plats. I det här exemplet används sökvägen till en enskild fil. Om du vill inkludera flera filer i modell registreringen anger `model_path` du sökvägen till en mapp som innehåller filerna. Mer information finns i [Run.register_model](/python/api/azureml-core/azureml.core.run.run?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-) -dokumentationen.
 
   + Registrera en modell från ett `azureml.train.automl.run.AutoMLRun` objekt:
 
@@ -167,7 +170,7 @@ Du kan registrera en modell genom att ange den lokala sökvägen till modellen. 
 
   Om du vill inkludera flera filer i modell registreringen anger `model_path` du sökvägen till en mapp som innehåller filerna.
 
-Mer information finns i dokumentationen för [modell klassen](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true).
+Mer information finns i dokumentationen för [modell klassen](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py).
 
 Mer information om hur du arbetar med modeller som har tränats utanför Azure Machine Learning finns i [distribuera en befintlig modell](how-to-deploy-existing-model.md).
 
@@ -223,7 +226,7 @@ inference_config = InferenceConfig(entry_script='path-to-score.py',
 
 Mer information om miljöer finns i [skapa och hantera miljöer för utbildning och distribution](how-to-use-environments.md).
 
-Mer information om konfiguration av konfiguration finns i [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py&preserve-view=true) -klassens dokumentation.
+Mer information om konfiguration av konfiguration finns i [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig?preserve-view=true&view=azure-ml-py) -klassens dokumentation.
 
 ---
 
@@ -301,7 +304,7 @@ service.wait_for_deployment(show_output = True)
 print(service.state)
 ```
 
-Mer information finns i dokumentationen för [LocalWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py&preserve-view=true), [Model. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)och [WebService](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py&preserve-view=true).
+Mer information finns i dokumentationen för [LocalWebservice](/python/api/azureml-core/azureml.core.webservice.local.localwebservice?preserve-view=true&view=azure-ml-py), [Model. Deploy ()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)och [WebService](/python/api/azureml-core/azureml.core.webservice.webservice?preserve-view=true&view=azure-ml-py).
 
 ---
 
@@ -316,7 +319,7 @@ I följande tabell beskrivs de olika tjänst tillstånden:
 | Övergår | Tjänsten håller på att distribueras. | Nej |
 | Ohälsosamt | Tjänsten har distribuerats men är för närvarande inte tillgänglig.  | Nej |
 | Unschedulable | Det går inte att distribuera tjänsten för tillfället på grund av bristande resurser. | Nej |
-| Misslyckades | Det gick inte att distribuera tjänsten på grund av ett fel eller en krasch. | Ja |
+| Misslyckad | Det gick inte att distribuera tjänsten på grund av ett fel eller en krasch. | Ja |
 | Felfri | Tjänsten är felfri och slut punkten är tillgänglig. | Ja |
 
 
@@ -326,7 +329,7 @@ Azure Machine Learning beräknings mål skapas och hanteras av Azure Machine Lea
 En genom gång av batch-härledning med Azure Machine Learning Compute finns i [så här kör du batch-förutsägelser](tutorial-pipeline-batch-scoring-classification.md).
 
 ### <a name="iot-edge-inference"></a><a id="iotedge"></a> IoT Edge-härledning
-Stöd för att distribuera till Edge är i för hands version. Mer information finns i [distribuera Azure Machine Learning som en IoT Edge modul](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning).
+Stöd för att distribuera till Edge är i för hands version. Mer information finns i [distribuera Azure Machine Learning som en IoT Edge modul](../iot-edge/tutorial-deploy-machine-learning.md).
 
 ## <a name="delete-resources"></a>Ta bort resurser
 
@@ -343,7 +346,7 @@ Läs mer om att [ta bort en WebService](/cli/azure/ext/azure-cli-ml/ml/service#e
 Använd om du vill ta bort en distribuerad webb tjänst `service.delete()` .
 Använd om du vill ta bort en registrerad modell `model.delete()` .
 
-Mer information finns i dokumentationen för [WebService. Delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truedelete--) och [Model. Delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=truedelete--).
+Mer information finns i dokumentationen för [WebService. Delete ()](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--) och [Model. Delete ()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--).
 
 ---
 
@@ -359,4 +362,3 @@ Mer information finns i dokumentationen för [WebService. Delete ()](https://doc
 * [Övervaka dina Azure Machine Learning modeller med Application Insights](how-to-enable-app-insights.md)
 * [Samla in data för modeller i produktion](how-to-enable-data-collection.md)
 * [Skapa händelse aviseringar och utlösare för modell distributioner](how-to-use-event-grid.md)
-

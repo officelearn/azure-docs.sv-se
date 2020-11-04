@@ -1,6 +1,6 @@
 ---
 title: Design rikt linjer för distribuerade tabeller
-description: Rekommendationer för att utforma hash-distribuerade och resursallokering-tabeller med resursallokering i Synapse SQL-pool.
+description: Rekommendationer för att utforma hash-distribuerade och resursallokering-tabeller med resursallokering med dedikerad SQL-pool i Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,18 +11,18 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 10d37dd5fd9703246913959b9eeec3e1fbc2e913
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a3715abdebce319979d867d12764a22b4ed16c35
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487015"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323627"
 ---
-# <a name="guidance-for-designing-distributed-tables-in-synapse-sql-pool"></a>Vägledning för att utforma distribuerade tabeller i en Synapse SQL-pool
+# <a name="guidance-for-designing-distributed-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Vägledning för att utforma distribuerade tabeller med dedikerad SQL-pool i Azure Synapse Analytics
 
-Rekommendationer för att utforma hash-distribuerade och resursallokering-tabeller med resursallokering i Synapse SQL-pooler.
+Rekommendationer för att designa distribuerade hash-och resursallokering-tabeller i dedikerade SQL-pooler.
 
-Den här artikeln förutsätter att du är bekant med koncepten för data distribution och data förflyttning i Synapse SQL.  Mer information finns i [Azure Synapse Analytics-arkitekturen](massively-parallel-processing-mpp-architecture.md).
+Den här artikeln förutsätter att du är bekant med koncepten för data distribution och data förflyttning i dedikerad SQL-pool.  Mer information finns i [Azure Synapse Analytics-arkitekturen](massively-parallel-processing-mpp-architecture.md).
 
 ## <a name="what-is-a-distributed-table"></a>Vad är en distribuerad tabell?
 
@@ -36,7 +36,7 @@ Som en del av tabell designen förstår du så mycket som möjligt av dina data 
 
 - Hur stor är tabellen?
 - Hur ofta uppdateras tabellen?
-- Har jag fakta-och dimensions tabeller i en Synapse SQL-pool?
+- Har jag fakta-och dimensions tabeller i en dedikerad SQL-pool?
 
 ### <a name="hash-distributed"></a>Hash distribuerad
 
@@ -44,7 +44,7 @@ En hash-distribuerad tabell distribuerar tabell rader över datornoderna genom a
 
 ![Distribuerad tabell](./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png "Distribuerad tabell")  
 
-Eftersom identiska värden alltid hash-kodas till samma distribution, har informations lagret inbyggd kunskap om rad platserna. I Synapse SQL-pool används den här kunskapen för att minimera data flyttningen under frågor, vilket förbättrar frågans prestanda.
+Eftersom identiska värden alltid hash-kodas till samma distribution, har informations lagret inbyggd kunskap om rad platserna. I dedikerad SQL-pool används den här kunskapen för att minimera data flyttningen under frågor, vilket förbättrar frågans prestanda.
 
 Hash-distribuerade tabeller fungerar bra för stora fakta tabeller i ett stjärn schema. De kan ha ett stort antal rader och har fortfarande höga prestanda. Det finns naturligtvis några design överväganden som hjälper dig att få den prestanda som det distribuerade systemet har utformats för att tillhandahålla. Att välja en lämplig distributions kolumn är en sådan som beskrivs i den här artikeln.
 
@@ -113,7 +113,7 @@ För att balansera parallell bearbetningen väljer du en distributions kolumn so
 
 ### <a name="choose-a-distribution-column-that-minimizes-data-movement"></a>Välj en distributions kolumn som minimerar data flyttningen
 
-För att få rätt frågor om frågeresultat kan du flytta data från en Compute-nod till en annan. Data flyttning sker ofta när frågor har kopplingar och agg regeringar i distribuerade tabeller. Att välja en distributions kolumn som hjälper till att minimera data flytt är en av de viktigaste strategierna för att optimera prestanda för din Synapse SQL-pool.
+För att få rätt frågor om frågeresultat kan du flytta data från en Compute-nod till en annan. Data flyttning sker ofta när frågor har kopplingar och agg regeringar i distribuerade tabeller. Att välja en distributions kolumn som hjälper till att minimera data flytt är en av de viktigaste strategierna för att optimera prestanda för din dedikerade SQL-pool.
 
 Om du vill minimera data flytten väljer du en distributions kolumn som:
 
@@ -225,5 +225,5 @@ RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 
 Använd någon av följande instruktioner om du vill skapa en distribuerad tabell:
 
-- [CREATE TABLE (Synapse SQL-pool)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [CREATE TABLE AS SELECT (Synapse SQL pool)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE (dedikerad SQL-pool)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE som SELECT (dedikerad SQL-pool)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)

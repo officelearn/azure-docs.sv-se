@@ -11,16 +11,16 @@ author: jpe316
 ms.date: 09/24/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq2, devx-track-python, deploy
-ms.openlocfilehash: 18b1c155c0bb85e346ec28d5c145e6578ca3ec48
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 6ac28e430681f35d9935cf0f484529074403bf54
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999074"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324976"
 ---
 # <a name="deploy-ml-models-to-field-programmable-gate-arrays-fpgas-with-azure-machine-learning"></a>Distribuera ML-modeller till Field-programmerbara grind mat ris (FPGAs) med Azure Machine Learning 
 
-I den här artikeln får du lära dig mer om FPGAs och hur du distribuerar dina ML-modeller till en Azure-FPGA med hjälp av [python-paketet för maskin accelererade modeller](https://docs.microsoft.com/python/api/azureml-accel-models/azureml.accel?view=azure-ml-py&preserve-view=true) från [Azure Machine Learning](overview-what-is-azure-ml.md).
+I den här artikeln får du lära dig mer om FPGAs och hur du distribuerar dina ML-modeller till en Azure-FPGA med hjälp av [python-paketet för maskin accelererade modeller](/python/api/azureml-accel-models/azureml.accel?preserve-view=true&view=azure-ml-py) från [Azure Machine Learning](overview-what-is-azure-ml.md).
 
 ## <a name="what-are-fpgas"></a>Vad är FPGAs?
 En FPGA innehåller en matris med programmerbara logiska block och en hierarki med omkonfigurerbara anslutningar. Med samkopplingarna kan dessa block konfigureras på olika sätt efter tillverkningen. Jämfört med andra kretsar ger FPGAs en kombination av programmering och prestanda. 
@@ -56,7 +56,7 @@ För att optimera svars tid och data flöde bör klienten som skickar data till 
 
 ## <a name="deploy-models-on-fpgas"></a>Distribuera modeller på FPGAs
 
-Du kan distribuera en modell som en webb tjänst på FPGAs med [Azure Machine Learning maskinvaruaccelererade modeller](https://docs.microsoft.com/python/api/azureml-accel-models/azureml.accel?view=azure-ml-py&preserve-view=true). Om du använder FPGAs får du en utgångs punkt för extremt låg latens, även med en enda batchstorlek. 
+Du kan distribuera en modell som en webb tjänst på FPGAs med [Azure Machine Learning maskinvaruaccelererade modeller](/python/api/azureml-accel-models/azureml.accel?preserve-view=true&view=azure-ml-py). Om du använder FPGAs får du en utgångs punkt för extremt låg latens, även med en enda batchstorlek. 
 
 I det här exemplet skapar du en TensorFlow-graf för att Förbearbeta indatabilden, gör den till en upplärda med ResNet 50 på en FPGA och kör sedan funktionerna via en klassificerare som har tränats på ImageNet data uppsättningen. Sedan distribueras modellen till ett AKS-kluster.
 
@@ -68,7 +68,7 @@ I det här exemplet skapar du en TensorFlow-graf för att Förbearbeta indatabil
  
 - Paketet med maskin varu accelererade modeller:  `pip install --upgrade azureml-accel-models[cpu]`    
     
-- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
+- [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)
 
 - FPGA-kvot. Skicka en [begäran om kvot](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2nac9-PZhBDnNSV2ITz0LNUN0U5S0hXRkNITk85QURTWk9ZUUFUWkkyTC4u)eller kör detta CLI-kommando för att kontrol lera kvoten: 
 
@@ -80,7 +80,7 @@ I det här exemplet skapar du en TensorFlow-graf för att Förbearbeta indatabil
 
 ### <a name="define-the-tensorflow-model"></a>Definiera TensorFlow-modellen
 
-Börja med att använda [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) för att skapa en tjänst definition. En tjänst definition är en fil som beskriver en pipeline med grafer (indata, upplärda och klassificerare) baserat på TensorFlow. Kommandot Deployment komprimerar definitionen och graferna till en ZIP-fil och överför ZIP till Azure Blob Storage. DNN har redan distribuerats för att köras på FPGA.
+Börja med att använda [Azure Machine Learning SDK för python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) för att skapa en tjänst definition. En tjänst definition är en fil som beskriver en pipeline med grafer (indata, upplärda och klassificerare) baserat på TensorFlow. Kommandot Deployment komprimerar definitionen och graferna till en ZIP-fil och överför ZIP till Azure Blob Storage. DNN har redan distribuerats för att köras på FPGA.
 
 1. Läs in Azure Machine Learning arbets yta
 
@@ -223,7 +223,7 @@ Innan du kan distribuera till FPGAs konverterar du modellen till [ONNX](https://
 
 ### <a name="containerize-and-deploy-the-model"></a>Använd och distribuera modellen
 
-Skapa sedan en Docker-avbildning från den konverterade modellen och alla beroenden.  Docker-avbildningen kan sedan distribueras och instansieras.  Distributions mål som stöds är Azure Kubernetes service (AKS) i molnet eller en gräns enhet som [Azure Data Box Edge](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview).  Du kan också lägga till taggar och beskrivningar för din registrerade Docker-avbildning.
+Skapa sedan en Docker-avbildning från den konverterade modellen och alla beroenden.  Docker-avbildningen kan sedan distribueras och instansieras.  Distributions mål som stöds är Azure Kubernetes service (AKS) i molnet eller en gräns enhet som [Azure Data Box Edge](../databox-online/azure-stack-edge-overview.md).  Du kan också lägga till taggar och beskrivningar för din registrerade Docker-avbildning.
 
    ```python
    from azureml.core.image import Image
@@ -297,7 +297,7 @@ Skapa sedan en Docker-avbildning från den konverterade modellen och alla beroen
 
 #### <a name="deploy-to-a-local-edge-server"></a>Distribuera till en lokal Edge-Server
 
-Alla [Azure Data Box Edge enheter](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview
+Alla [Azure Data Box Edge enheter](../databox-online/azure-stack-edge-overview.md
 ) innehåller en FPGA för att köra modellen.  Endast en modell kan köras på FPGA i taget.  Om du vill köra en annan modell distribuerar du bara en ny behållare. Du hittar anvisningar och exempel kod i [det här Azure-exemplet](https://github.com/Azure-Samples/aml-hardware-accelerated-models).
 
 ### <a name="consume-the-deployed-model"></a>Använda den distribuerade modellen
@@ -349,7 +349,7 @@ for top in sorted_results[:5]:
 
 ### <a name="clean-up-resources"></a>Rensa resurser
 
-Du undviker onödiga kostnader genom att rensa dina resurser **i följande ordning**: webb tjänsten och sedan bild och sedan modellen.
+Du undviker onödiga kostnader genom att rensa dina resurser **i följande ordning** : webb tjänsten och sedan bild och sedan modellen.
 
 ```python
 aks_service.delete()

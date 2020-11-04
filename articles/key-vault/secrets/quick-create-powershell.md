@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurepowershell
 ms.date: 09/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 1b70a8330f6350ef66244ae03e89f685162df5c7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d8375b4a47df8454ceb4aba4cb2e695255161409
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786334"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324742"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>Snabbstart: Ställ in och hämta en hemlighet från Azure Key Vault med hjälp av PowerShell
 
@@ -55,7 +55,7 @@ New-AzKeyVault -Name 'Contoso-Vault2' -ResourceGroupName 'ContosoResourceGroup' 
 
 Utdata från denna cmdlet visar egenskaper för nyckelvalvet du precis skapade. Anteckna de två egenskaperna som visas nedan:
 
-* **Valvnamn** : I det här exemplet är namnet **Contoso-vault2** . Du ska använda det här namnet för andra Key Vault-cmdlets.
+* **Valvnamn** : I det här exemplet är namnet **Contoso-vault2**. Du ska använda det här namnet för andra Key Vault-cmdlets.
 * **Valvets URI** : I det här exemplet är det https://Contoso-Vault2.vault.azure.net/. Program som använder ditt valv via dess REST-API måste använda denna URI.
 
 När du har skapat valvet så är ditt Azure-konto det enda kontot med behörighet att göra någonting i valvet.
@@ -69,7 +69,7 @@ Set-AzKeyVaultAccessPolicy -VaultName 'Contoso-Vault2' -UserPrincipalName 'user@
 
 ## <a name="adding-a-secret-to-key-vault"></a>Lägga till en hemlighet i nyckelvalvet
 
-När du ska lägga till en hemlighet i valvet behöver du bara utföra ett fåtal steg. I det här fallet lägger du till ett lösenord som kan användas av ett program. Lösenordet kallas **ExamplePassword** och lagrar värdet **hVFkk965BuUv** .
+När du ska lägga till en hemlighet i valvet behöver du bara utföra ett fåtal steg. I det här fallet lägger du till ett lösenord som kan användas av ett program. Lösenordet kallas **ExamplePassword** och lagrar värdet **hVFkk965BuUv**.
 
 Konvertera först värdet **hVFkk965BuUv** till en säker sträng genom att skriva följande:
 
@@ -86,7 +86,14 @@ $secret = Set-AzKeyVaultSecret -VaultName 'Contoso-Vault2' -Name 'ExamplePasswor
 Så här visar du värdet som finns i hemligheten som oformaterad text:
 
 ```azurepowershell-interactive
-(Get-AzKeyVaultSecret -VaultName "Contoso-Vault2" -Name "ExamplePassword").SecretValue | ConvertFrom-SecureString -AsPlainText
+$secret = Get-AzKeyVaultSecret -VaultName 'Contoso-Vault2' -Name 'ExamplePassword'
+$ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secret.SecretValue)
+try {
+   $secretValueText = [System.Runtime.InteropServices.Marshal]::PtrToStringBSTR($ssPtr)
+} finally {
+   [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ssPtr)
+}
+Write-Output $secretValueText
 ```
 
 Nu har du skapat ett nyckelvalv, lagrat en hemlighet och hämtat den.

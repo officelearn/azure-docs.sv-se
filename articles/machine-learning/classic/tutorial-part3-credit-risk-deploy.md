@@ -9,16 +9,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 148a3deb23219036f2fd9d8fe4dad93e9fb96b9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d723a18bfe764b4e1459f72b00fa81db716dcdb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91348771"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325646"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>Självstudie 3: Distribuera kredit risk modell – Azure Machine Learning Studio (klassisk)
 
-**gäller för:** ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ inga](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**gäller för:** ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ inga ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 I den här självstudien tittar vi närmare på hur du utvecklar en lösning för förutsägelseanalys. Du utvecklar en enkel modell i Machine Learning Studio (klassisk).  Därefter distribuerar du modellen som en Azure Machine Learning-webbtjänst.  Den här distribuerade modellen kan göra förutsägelser med nya data. Den här självstudien är **del tre i en själv studie serie i tre delar**.
@@ -42,19 +42,19 @@ I den här delen av självstudien ska du:
 > * Hantera webbtjänsten
 > * Få åtkomst till webbtjänsten
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför [del två av självstudien](tutorial-part2-credit-risk-train.md).
 
 ## <a name="prepare-for-deployment"></a>Förbereda för distribution
 För att ge andra chansen att använda den förutsägande modell som du utvecklade i självstudien, måste du distribuera den som en webbtjänst i Azure.
 
-Hittills har du experimenterat med att träna vår modell. Men den distribuerade tjänsten kommer inte längre att tränas – den kommer att generera nya förutsägelser genom bedömning av användarindata baserat på vår modell. Vi kommer att göra vissa förberedelser för att konvertera det här experimentet från ett ***tränings***experiment till ett ***förutsägelse***experiment. 
+Hittills har du experimenterat med att träna vår modell. Men den distribuerade tjänsten kommer inte längre att tränas – den kommer att generera nya förutsägelser genom bedömning av användarindata baserat på vår modell. Vi planerar att göra några förberedelser för att konvertera det här experimentet från en *- **utbildning** , men experimenterar med ett _*_förutsägelse_*_ experiment. 
 
 Att förbereda distributionen är en process i tre steg:  
 
 1. Ta bort en av modellerna
-1. Konvertera det *träningsexperiment* som du skapade till ett *förutsägelseexperiment*
+1. Konvertera _training experiment * du har skapat ett *förutsägelset experiment*
 1. Distribuera förutsägelseexperimentet som en webbtjänst
 
 ### <a name="remove-one-of-the-models"></a>Ta bort en av modellerna
@@ -130,7 +130,7 @@ Kör experimentet en sista gången (klicka på **Kör**.) Om du vill kontrol ler
 Du kan distribuera experimentet som antingen en klassisk webbtjänst eller som en ny webbtjänst som baseras på Azure Resource Manager.
 
 ### <a name="deploy-as-a-classic-web-service"></a>Distribuera som en klassisk webbtjänst
-Om du vill distribuera en klassisk webbtjänst som härletts från vårt experiment, klickar du på **Distribuera webbtjänst** under arbetsytan och väljer **Distribuera webbtjänst [klassisk]**. Machine Learning Studio (klassisk) distribuerar experimentet som en webb tjänst och tar dig till instrument panelen för webb tjänsten. Från den här sidan kan du återgå till experimentet (**Visa ögonblicksbild** eller **Visa senaste**) och köra ett enkelt test av webbtjänsten (finns i **Testa webbtjänsten** nedan). Det finns även information här för att skapa program som har åtkomst till webbtjänsten (mer information finns i nästa steg i den här självstudien).
+Om du vill distribuera en klassisk webbtjänst som härletts från vårt experiment, klickar du på **Distribuera webbtjänst** under arbetsytan och väljer **Distribuera webbtjänst [klassisk]**. Machine Learning Studio (klassisk) distribuerar experimentet som en webb tjänst och tar dig till instrument panelen för webb tjänsten. Från den här sidan kan du återgå till experimentet ( **Visa ögonblicksbild** eller **Visa senaste** ) och köra ett enkelt test av webbtjänsten (finns i **Testa webbtjänsten** nedan). Det finns även information här för att skapa program som har åtkomst till webbtjänsten (mer information finns i nästa steg i den här självstudien).
 
 ![Instrumentpanel för webbtjänsten](./media/tutorial-part3-credit-risk-deploy/publish6.png)
 
@@ -162,7 +162,7 @@ Du kan konfigurera tjänsten genom att klicka på fliken **Konfigurera** . Här 
 Om du vill testa webbtjänsten klickar du på fliken **Testa** (se **Testa webbtjänsten** nedan). Om du vill ha mer information om hur du skapar program med åtkomst till webbtjänsten, klickar du på fliken **Förbruka** (nästa steg i den här självstudien beskriver detta mer detaljerat).
 
 > [!TIP]
-> Du kan uppdatera webbtjänsten efter att du har distribuerat den. Om du till exempel vill ändra modell kan du redigera träningsexperimentet, justera modellparametrarna och klicka på **Distribuera webbtjänst**, välja **Distribuera webbtjänst [klassisk]** eller **Distribuera webbtjänst [nytt]**. När du distribuerar experimentet igen ersätts webbtjänsten med den uppdaterade modellen.  
+> Du kan uppdatera webbtjänsten efter att du har distribuerat den. Om du till exempel vill ändra modell kan du redigera träningsexperimentet, justera modellparametrarna och klicka på **Distribuera webbtjänst** , välja **Distribuera webbtjänst [klassisk]** eller **Distribuera webbtjänst [nytt]**. När du distribuerar experimentet igen ersätts webbtjänsten med den uppdaterade modellen.  
 > 
 > 
 
@@ -180,7 +180,7 @@ Du kan testa en klassisk webb tjänst antingen i **Machine Learning Studio (klas
 Du kan bara testa en ny webb tjänst i **Machine Learning Web Services-** portalen.
 
 > [!TIP]
-> När du testar i Azure Machine Learning-portalen för webbtjänster kan du låta portalen skapa exempeldata som du kan använda för att testa tjänsten med begäran–svar. På sidan **Konfigurera** väljer du ”Ja” i **Sample Data Enabled** (Aktivera exempeldata?). När du öppnar fliken Begäran–svar på sidan **Test**, fyller portalen i exempeldata som hämtas från den ursprungliga kreditriskdatamängden.
+> När du testar i Azure Machine Learning-portalen för webbtjänster kan du låta portalen skapa exempeldata som du kan använda för att testa tjänsten med begäran–svar. På sidan **Konfigurera** väljer du ”Ja” i **Sample Data Enabled** (Aktivera exempeldata?). När du öppnar fliken Begäran–svar på sidan **Test** , fyller portalen i exempeldata som hämtas från den ursprungliga kreditriskdatamängden.
 
 ### <a name="test-a-classic-web-service"></a>Testa en klassisk webbtjänst
 
@@ -232,7 +232,7 @@ Webbtjänsten är en Azure-webbtjänst som kan ta emot och returnera data med hj
 > [!NOTE]
 > Funktions kolumn namn i Studio (klassisk) är **SKIFT läges känsliga**. Kontrol lera att indata för att anropa webb tjänsten har samma kolumn namn som i träning-datauppsättningen.
 
-Mer information om hur du kommer åt och använder webb tjänsten finns i [använda en Azure Machine Learning-webbtjänst med en mall för webbappar](/azure/machine-learning/studio/consume-web-services).
+Mer information om hur du kommer åt och använder webb tjänsten finns i [använda en Azure Machine Learning-webbtjänst med en mall för webbappar](./consume-web-services.md).
 
 
 
@@ -257,13 +257,13 @@ Du kan också skapa ett anpassat program som får åtkomst till webbtjänsten me
 > [Använda en Azure Machine Learning-webbtjänst](consume-web-services.md)
 
 <!-- Module References -->
-[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[normalize-data]: https://msdn.microsoft.com/library/azure/986df333-6748-4b85-923d-871df70d6aaf/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-[two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
-[two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[evaluate-model]: /azure/machine-learning/studio-module-reference/evaluate-model
+[execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script
+[metadata-editor]: /azure/machine-learning/studio-module-reference/edit-metadata
+[normalize-data]: /azure/machine-learning/studio-module-reference/normalize-data
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[split]: /azure/machine-learning/studio-module-reference/split-data
+[train-model]: /azure/machine-learning/studio-module-reference/train-model
+[two-class-boosted-decision-tree]: /azure/machine-learning/studio-module-reference/two-class-boosted-decision-tree
+[two-class-support-vector-machine]: /azure/machine-learning/studio-module-reference/two-class-support-vector-machine
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset

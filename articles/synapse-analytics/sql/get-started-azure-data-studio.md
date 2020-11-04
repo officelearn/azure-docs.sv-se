@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: c3c1b61cb4f799b79ca00fc92ffadc2374a61c03
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: fb4c7f8ba49cf701ef13cb57ab2b323a94c928cc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132473"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323833"
 ---
 # <a name="connect-to-synapse-sql-with-azure-data-studio-preview"></a>Ansluta till Synapse SQL med Azure Data Studio (för hands version)
 
@@ -42,15 +42,15 @@ Anslutningen kräver följande parametrar:
 * **Databas:** Databas namn
 
 > [!NOTE]
-> Om du vill använda **SQL på begäran (för hands version)** bör URL: en se ut så här:
+> Om du vill använda en **Server lös SQL-pool (förhands granskning)** bör URL: en se ut så här:
 >
 > - `<Azure Synapse workspace name>`-ondemand.sql.azuresynapse.net.
 >
-> Om du vill använda SQL- **poolen** bör URL: en se ut så här:
+> Om du vill använda en **särskild SQL-pool** bör URL: en se ut så här:
 >
 > - `<Azure Synapse workspace name>`. sql.azuresynapse.net
 
-Välj **Windows-autentisering**, **Azure Active Directory**eller **SQL-inloggning** som **Autentiseringstyp**.
+Välj **Windows-autentisering** , **Azure Active Directory** eller **SQL-inloggning** som **Autentiseringstyp**.
 
 Om du vill använda **SQL-inloggning** som autentiseringstyp lägger du till användar namn/lösen ord-parametrar:
 
@@ -61,11 +61,11 @@ Om du vill använda Azure Active Directory måste du välja autentiseringstypen 
 
 ![AAD-autentisering](./media/get-started-azure-data-studio/3-aad-auth.png)
 
-Följande skärm bild visar **anslutnings information** för **Windows-autentisering**:
+Följande skärm bild visar **anslutnings information** för **Windows-autentisering** :
 
 ![Windows-autentisering](./media/get-started-azure-data-studio/3-windows-auth.png)
 
-Följande skärm bild visar **anslutnings information** med **SQL-inloggning**:
+Följande skärm bild visar **anslutnings information** med **SQL-inloggning** :
 
 ![SQL-inloggning](./media/get-started-azure-data-studio/2-database-details.png)
 
@@ -77,7 +77,7 @@ När du har anslutit kan du fråga Synapse SQL med stöd för [Transact-SQL-uttr
 
 ![Ny fråga](./media/get-started-azure-data-studio/5-new-query.png)
 
-Du kan till exempel använda följande Transact-SQL-uttryck för att [fråga Parquet-filer](query-parquet-files.md) med SQL på begäran:
+Du kan till exempel använda följande Transact-SQL-uttryck för att [fråga Parquet-filer](query-parquet-files.md) med en server lös SQL-pool:
 
 ```sql
 SELECT COUNT(*)

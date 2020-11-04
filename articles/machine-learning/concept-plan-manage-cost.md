@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: f73643baa92956280d67d0d931459af3a80925ee
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: e8554bf4385c7ddad540b8ba807988618fe80b53
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233756"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322997"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planera och hantera kostnader för Azure Machine Learning
 
@@ -53,11 +53,11 @@ Mer information finns i [Azure Machine Learning prissättning](https://azure.mic
 
 ## <a name="get-cost-alerts"></a>Hämta kostnads aviseringar
 
-Skapa [budgetar](../cost-management/tutorial-acm-create-budgets.md) för att hantera kostnader och skapa [aviseringar](../cost-management/cost-mgt-alerts-monitor-usage-spending.md) som automatiskt meddelar intressenter om utgifts avvikelser och överförbrukning av risker. Aviseringar baseras på utgifter jämfört med budget- och kostnadströsklar. Budgetar och aviseringar skapas för Azure-prenumerationer och resurs grupper, så de är användbara som en del av en övergripande kostnads övervaknings strategi. Budgetar och aviseringar kan dock ha begränsade funktioner för att hantera enskilda kostnader för Azure-tjänster eftersom de är utformade för att spåra kostnader på en högre nivå.
+Skapa [budgetar](../cost-management-billing/costs/tutorial-acm-create-budgets.md) för att hantera kostnader och skapa [aviseringar](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md) som automatiskt meddelar intressenter om utgifts avvikelser och överförbrukning av risker. Aviseringar baseras på utgifter jämfört med budget- och kostnadströsklar. Budgetar och aviseringar skapas för Azure-prenumerationer och resurs grupper, så de är användbara som en del av en övergripande kostnads övervaknings strategi. Budgetar och aviseringar kan dock ha begränsade funktioner för att hantera enskilda kostnader för Azure-tjänster eftersom de är utformade för att spåra kostnader på en högre nivå.
 
 ## <a name="monitor-costs"></a>Övervaka kostnader
 
-När du använder resurser med Azure Machine Learning debiteras du kostnader. Kostnaderna för Azure Resource Usage varierar beroende på tidsintervaller (sekunder, minuter, timmar och dagar) eller med användning av begär ande enhets användning. Så snart som användningen av Azure Machine Learning startar debiteras kostnaderna. Visa dessa kostnader i fönstret [kostnads analys](../cost-management/quick-acm-cost-analysis.md) i Azure Portal.
+När du använder resurser med Azure Machine Learning debiteras du kostnader. Kostnaderna för Azure Resource Usage varierar beroende på tidsintervaller (sekunder, minuter, timmar och dagar) eller med användning av begär ande enhets användning. Så snart som användningen av Azure Machine Learning startar debiteras kostnaderna. Visa dessa kostnader i fönstret [kostnads analys](../cost-management-billing/costs/quick-acm-cost-analysis.md) i Azure Portal.
 
 Du kan visa kostnader i grafer och tabeller i olika tidsintervall. Du kan också Visa kostnader för budgetar och prognostiserade kostnader. Genom att växla till längre vyer över tid kan du identifiera utgifts trender och se var överförbrukningen kan ha inträffat. Om du har skapat budgetar, se var de överskreds.  
 
@@ -86,7 +86,7 @@ Du kan också konfigurera hur lång tid noden är inaktiv innan den skalas ned. 
 + Om du utför mindre iterativ experimentering bör du minska den här tiden för att spara kostnaderna.
 + Om du utför en mycket iterativ utveckling/testning experimentering kan du behöva öka tiden så att du inte betalar för kontinuerlig skalning upp och ned efter varje ändring i ditt utbildnings skript eller miljö.
 
-AmlCompute-kluster kan konfigureras för att ändra arbets belastnings kraven i Azure Portal med hjälp av [AMLCOMPUTE SDK-klassen](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py&preserve-view=true), [AmlCompute CLI](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute)med [REST-API: er](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
+AmlCompute-kluster kan konfigureras för att ändra arbets belastnings kraven i Azure Portal med hjälp av [AMLCOMPUTE SDK-klassen](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?preserve-view=true&view=azure-ml-py), [AmlCompute CLI](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute)med [REST-API: er](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
 
 ```azurecli
 az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 --min-nodes 0 --max-nodes 5 --idle-seconds-before-scaledown 300

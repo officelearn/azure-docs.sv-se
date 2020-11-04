@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: d4ae18b335453f3e1d3512951675afe10c804c8d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7c1bfa618ea0ddddd7666698bc4fffa3ced5079d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094429"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323082"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Vad är en Azure Machine Learning-beräkningsinstans?
 
@@ -35,7 +35,7 @@ En beräknings instans är en fullständigt hanterad molnbaserad arbets station 
 |Viktiga fördelar|Beskrivning|
 |----|----|
 |Produktivitet|Du kan bygga och distribuera modeller med integrerade antecknings böcker och följande verktyg i Azure Machine Learning Studio:<br/>– Jupyter<br/>- JupyterLab<br/>-RStudio (för hands version)<br/>Compute-instansen är helt integrerad med Azure Machine Learning-arbetsyta och Studio. Du kan dela antecknings böcker och data med andra data forskare på arbets ytan.<br/> Du kan också använda [vs Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) med beräknings instanser.
-|Hanterad & säker|Minska din säkerhets storlek och Lägg till efterlevnad med företagets säkerhets krav. Beräknings instanser ger robusta hanterings principer och säkra nätverkskonfigurationer som:<br/><br/>– Autoetablering från Resource Manager-mallar eller Azure Machine Learning SDK<br/>- [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](/azure/role-based-access-control/overview)<br/>- [Stöd för virtuella nätverk](how-to-enable-virtual-network.md#compute-instance)<br/>– SSH-princip för att aktivera/inaktivera SSH-åtkomst<br/>TLS 1,2 aktiverat |
+|Hanterad & säker|Minska din säkerhets storlek och Lägg till efterlevnad med företagets säkerhets krav. Beräknings instanser ger robusta hanterings principer och säkra nätverkskonfigurationer som:<br/><br/>– Autoetablering från Resource Manager-mallar eller Azure Machine Learning SDK<br/>- [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md)<br/>- [Stöd för virtuella nätverk](./how-to-secure-training-vnet.md#compute-instance)<br/>– SSH-princip för att aktivera/inaktivera SSH-åtkomst<br/>TLS 1,2 aktiverat |
 |Förkonfigurerat &nbsp; för &nbsp; ml|Spara tid på installations aktiviteter med förkonfigurerade och uppdaterade ML-paket, ramverk för djup inlärning, GPU-drivrutiner.|
 |Helt anpassningsbar|Brett stöd för virtuella Azure-datorer, inklusive GPU: er och beständiga anpassningar på låg nivå, till exempel installation av paket och driv rutiner gör avancerade scenarier till en enkelt. |
 
@@ -77,7 +77,7 @@ Följande verktyg och miljöer är redan installerade på beräknings instansen:
 |Anaconda Python||
 |Jupyter och tillägg||
 |Jupyterlab och tillägg||
-[Azure Machine Learning-SDK för Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)</br>från PyPI|Innehåller de flesta av de azureml extra paketen.  Om du vill se hela listan [öppnar du ett terminalfönster på beräknings instansen](how-to-run-jupyter-notebooks.md#terminal) och kör <br/> `conda list -n azureml_py36 azureml*` |
+[Azure Machine Learning-SDK för Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)</br>från PyPI|Innehåller de flesta av de azureml extra paketen.  Om du vill se hela listan [öppnar du ett terminalfönster på beräknings instansen](how-to-run-jupyter-notebooks.md#terminal) och kör <br/> `conda list -n azureml_py36 azureml*` |
 |Andra PyPI-paket|`jupytext`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Conda-paket|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |Djup inlärnings paket|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
@@ -120,7 +120,7 @@ För varje beräknings instans i arbets ytan som du kan använda kan du:
 * SSH till beräknings instans. SSH-åtkomst är inaktive rad som standard men kan aktive ras vid skapande av beräknings instanser. SSH-åtkomst sker via en funktion för offentlig/privat nyckel. På fliken får du information om SSH-anslutning, till exempel IP-adress, användar namn och port nummer.
 * Hämta information om en angiven beräknings instans, till exempel IP-adress och region.
 
-Med [Azure RBAC](/azure/role-based-access-control/overview) kan du styra vilka användare i arbets ytan som kan skapa, ta bort, starta, stoppa och starta om en beräknings instans. Alla användare i arbets ytans deltagare och ägar roll kan skapa, ta bort, starta, stoppa och starta om beräknings instanser i arbets ytan. Men endast skaparen av en angiven beräknings instans, eller användaren som tilldelats om den skapades för deras räkning, tillåts komma åt Jupyter, JupyterLab och RStudio på den beräknings instansen. En beräknings instans är dedikerad till en enda användare som har rot åtkomst och kan terminalen i genom Jupyter/JupyterLab/RStudio. Compute-instansen kommer att ha enkel inloggning och alla åtgärder kommer att använda användarens identitet för Azure RBAC och för att köra experiment körningar. SSH-åtkomsten styrs via mekanismen för offentlig/privat nyckel.
+Med [Azure RBAC](../role-based-access-control/overview.md) kan du styra vilka användare i arbets ytan som kan skapa, ta bort, starta, stoppa och starta om en beräknings instans. Alla användare i arbets ytans deltagare och ägar roll kan skapa, ta bort, starta, stoppa och starta om beräknings instanser i arbets ytan. Men endast skaparen av en angiven beräknings instans, eller användaren som tilldelats om den skapades för deras räkning, tillåts komma åt Jupyter, JupyterLab och RStudio på den beräknings instansen. En beräknings instans är dedikerad till en enda användare som har rot åtkomst och kan terminalen i genom Jupyter/JupyterLab/RStudio. Compute-instansen kommer att ha enkel inloggning och alla åtgärder kommer att använda användarens identitet för Azure RBAC och för att köra experiment körningar. SSH-åtkomsten styrs via mekanismen för offentlig/privat nyckel.
 
 De här åtgärderna kan styras av Azure RBAC:
 * *Microsoft. MachineLearningServices/arbets ytor/beräkningar/läsning*

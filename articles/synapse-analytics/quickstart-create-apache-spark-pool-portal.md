@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: skapa en Apache Spark pool med hjälp av Azure Portal'
-description: Skapa en ny Apache Spark pool med hjälp av Azure Portal genom att följa stegen i den här hand boken.
+title: 'Snabb start: skapa en server lös Apache Spark pool med hjälp av Azure Portal'
+description: Skapa en server lös Apache Spark-pool med hjälp av Azure Portal genom att följa stegen i den här hand boken.
 services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7578ca12c46ec6de626eeb1340ce680eda6bbb92
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: e84afc949a84da90a4799d7db3b3e7ad3e0057a3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041314"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323528"
 ---
-# <a name="quickstart-create-a-new-apache-spark-pool-using-the-azure-portal"></a>Snabb start: skapa en ny Apache Spark pool med hjälp av Azure Portal
+# <a name="quickstart-create-a-new-serverless-apache-spark-pool-using-the-azure-portal"></a>Snabb start: skapa en ny server lös Apache Spark-pool med hjälp av Azure Portal
 
 Azure Synapse Analytics erbjuder olika analys verktyg som hjälper dig att mata in, transformera, modellera, analysera och distribuera dina data. En Apache Spark pool tillhandahåller funktioner för Big data Compute med öppen källkod. När du har skapat en Apache Spark-pool på din Synapse-arbetsyta, kan data läsas in, modelleras, bearbetas och distribueras för snabbare analytiska insikter.
 
@@ -39,13 +39,13 @@ Logga in på [Azure-portalen](https://portal.azure.com/)
 ## <a name="navigate-to-the-synapse-workspace"></a>Navigera till arbets ytan Synapse 
 1. Gå till arbets ytan Synapse där Apache Spark-poolen skapas genom att skriva tjänst namnet (eller resurs namnet direkt) i Sök fältet.
 ![Azure Portal Sök fältet med Synapse-arbetsytor som anges i.](media/quickstart-create-sql-pool/create-sql-pool-00a.png)
-1. I listan över arbets ytor skriver du namnet (eller en del av namnet) på arbets ytan som ska öppnas. I det här exemplet använder vi en arbets yta med namnet **contosoanalytics** .
+1. I listan över arbets ytor skriver du namnet (eller en del av namnet) på arbets ytan som ska öppnas. I det här exemplet använder vi en arbets yta med namnet **contosoanalytics**.
 ![Lista över Synapse-arbetsytor filtrerade för att visa de som innehåller namnet contoso.](media/quickstart-create-sql-pool/create-sql-pool-00b.png)
 
 
 ## <a name="create-new-apache-spark-pool"></a>Skapa ny Apache Spark pool
 
-1. I arbets ytan Synapse där du vill skapa Apache Spark-poolen väljer du **ny Apache Spark pool** .
+1. I arbets ytan Synapse där du vill skapa Apache Spark-poolen väljer du **ny Apache Spark pool**.
     ![Översikt över Synapse-arbetsytan med en röd ruta runt kommandot för att skapa en ny Apache Spark pool](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-01.png)
 2. Ange följande information på fliken **grundläggande** :
 
@@ -64,12 +64,12 @@ Logga in på [Azure-portalen](https://portal.azure.com/)
 3. Välj **Nästa: ytterligare inställningar** och granska standardinställningarna. Ändra inte några standardinställningar.
     ![Skärm bild som visar sidan "skapa Apache Spark pool" med fliken "ytterligare inställningar" vald.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-03.png)
 
-4. Välj **Nästa: Taggar** . Lägg inte till några taggar.
+4. Välj **Nästa: Taggar**. Lägg inte till några taggar.
     ![Apache Spark fliken Skapa flöde-ytterligare inställningar.](media/quickstart-create-apache-spark-pool/create-spark-pool-03-tags.png)
 
-5. Välj **Granska + skapa** .
+5. Välj **Granska + skapa**.
 
-6. Se till att informationen ser korrekt ut baserat på vad som tidigare har angetts och välj **skapa** .
+6. Se till att informationen ser korrekt ut baserat på vad som tidigare har angetts och välj **skapa**.
     ![Apache Spark fliken Skapa flöde-granska inställningar.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-05.png)
 
 7. I det här läget startar resurs etablerings flödet och anger när det är klart.
@@ -90,7 +90,7 @@ Gör så här om du vill ta bort Apache Spark poolen:
 
 1. Gå till bladet Apache Spark pooler på arbets ytan.
 2. Välj den Apache Spark pool som ska tas bort (i det här fallet **contosospark** ).
-3. Tryck på **ta bort** .
+3. Tryck på **ta bort**.
  ![Lista över Apache Spark pooler med den nyligen skapade poolen vald.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-08.png)
 4. Bekräfta borttagningen och tryck på knappen **ta bort** .
  ![Bekräftelse dialog ruta för att ta bort den valda Apache Spark poolen.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-10.png)
@@ -99,4 +99,4 @@ Gör så här om du vill ta bort Apache Spark poolen:
 ## <a name="next-steps"></a>Nästa steg
 
 - Se [snabb start: skapa en Apache Spark Notebook](quickstart-apache-spark-notebook.md).
-- Se [snabb start: skapa en SYNAPSE SQL-pool med hjälp av Azure Portal](quickstart-create-sql-pool-portal.md).
+- Se [snabb start: skapa en Synapse dedikerad SQL-pool med hjälp av Azure Portal](quickstart-create-sql-pool-portal.md).

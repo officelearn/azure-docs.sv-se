@@ -1,6 +1,6 @@
 ---
 title: Använda transaktioner
-description: Tips för att implementera transaktioner i SQL-poolen (informations lager) för att utveckla lösningar.
+description: Tips för att implementera transaktioner med dedikerad SQL-pool i Azure Synapse Analytics för utveckling av lösningar.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,20 +10,20 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: de36d1eda21903480eee986df72c5274e1aa6dff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2597a4bc6c5ed44f0e0050be3f69d7e840665e5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288621"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323842"
 ---
-# <a name="use-transactions-in-sql-pool"></a>Använda transaktioner i SQL-pool
+# <a name="use-transactions-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Använda transaktioner med dedikerad SQL-pool i Azure Synapse Analytics
 
-Tips för att implementera transaktioner i SQL-poolen (informations lager) för att utveckla lösningar.
+Tips för att implementera transaktioner med dedikerad SQL-pool i Azure Synapse Analytics för utveckling av lösningar.
 
 ## <a name="what-to-expect"></a>Vad du kan förvänta dig
 
-Som förväntat stöder SQL-poolen transaktioner som en del av arbets belastningen för data lagret. Men för att säkerställa att SQL-poolens prestanda upprätthålls i skala är vissa funktioner begränsade jämfört med SQL Server. I den här artikeln beskrivs skillnaderna och en lista över de andra.
+Som förväntat stöder dedikerad SQL-pool transaktioner som en del av arbets belastningen för data lager. Men för att säkerställa att prestandan för dedikerad SQL-pool upprätthålls vid skalning är vissa funktioner begränsade jämfört med SQL Server. I den här artikeln beskrivs skillnaderna och en lista över de andra.
 
 ## <a name="transaction-isolation-levels"></a>Transaktions isolerings nivåer
 
@@ -92,7 +92,7 @@ Information om hur du optimerar och minimerar mängden data som skrivs till logg
 SQL-poolen använder funktionen XACT_STATE () för att rapportera en misslyckad transaktion med värdet-2. Det här värdet innebär att transaktionen har misslyckats och bara har marker ATS för återställning.
 
 > [!NOTE]
-> Användningen av-2 i XACT_STATE-funktionen för att beteckna en misslyckad transaktion representerar olika beteenden för SQL Server. SQL Server använder värdet-1 för att representera en allokerad-transaktion. SQL Server kan tolerera fel i en transaktion utan att den måste markeras som allokerad. Till exempel `SELECT 1/0` skulle orsaka ett fel, men inte framtvinga en transaktion i ett allokerad-tillstånd. SQL Server tillåter också läsningar i allokerad-transaktionen. SQL-poolen tillåter dock inte detta. Om ett fel uppstår i en transaktion i SQL-poolen, anges-2-tillstånd automatiskt och du kan inte göra några fler SELECT-instruktioner förrän instruktionen har återställts. Det är därför viktigt att kontrol lera att program koden för att se om den använder XACT_STATE () som du kan behöva göra kod ändringar.
+> Användningen av-2 i XACT_STATE-funktionen för att beteckna en misslyckad transaktion representerar olika beteenden för SQL Server. SQL Server använder värdet-1 för att representera en allokerad-transaktion. SQL Server kan tolerera fel i en transaktion utan att den måste markeras som allokerad. Till exempel `SELECT 1/0` skulle orsaka ett fel, men inte framtvinga en transaktion i ett allokerad-tillstånd. SQL Server tillåter också läsningar i allokerad-transaktionen. Dedikerad SQL-pool tillåter dock inte detta. Om ett fel uppstår i en dedikerad transaktion i en SQL-pool, anges-2-tillstånd automatiskt och du kommer inte att kunna göra några fler SELECT-instruktioner förrän instruktionen har återställts. Det är därför viktigt att kontrol lera att program koden för att se om den använder XACT_STATE () som du kan behöva göra kod ändringar.
 
 I SQL Server kan du till exempel se en transaktion som ser ut ungefär så här:
 
@@ -138,7 +138,7 @@ MSG 111233, nivå 16, tillstånd 1, rad 1 111233; Den aktuella transaktionen har
 
 Du får inte utdata från ERROR_ * functions.
 
-I SQL-poolen måste koden ändras till något av följande:
+I dedikerad SQL-pool måste koden ändras till något av följande:
 
 ```sql
 SET NOCOUNT ON;
@@ -181,11 +181,11 @@ Allt som har ändrats är att återställningen av transaktionen måste ske inna
 
 ## <a name="error_line-function"></a>Error_Line ()-funktionen
 
-Det är också värt att notera att SQL-poolen inte implementerar eller stöder funktionen ERROR_LINE (). Om du har den här funktionen i din kod måste du ta bort den för att vara kompatibel med SQL-poolen. Använd fråge etiketter i koden i stället för att implementera motsvarande funktioner. Mer information finns i artikeln om [Etiketter](develop-label.md) .
+Det är också värt att notera att dedikerad SQL-pool inte implementerar eller stöder funktionen ERROR_LINE (). Om du har den här funktionen i din kod måste du ta bort den för att vara kompatibel med en dedikerad SQL-pool. Använd fråge etiketter i koden i stället för att implementera motsvarande funktioner. Mer information finns i artikeln om [Etiketter](develop-label.md) .
 
 ## <a name="use-of-throw-and-raiserror"></a>Använda THROW-och RAISERROR
 
-THROW är den mer moderna implementeringen för att generera undantag i SQL-poolen, men RAISERROR stöds också. Det finns några skillnader som är intressanta att betala.
+THROW är den mer moderna implementeringen för att generera undantag i dedikerad SQL-pool, men RAISERROR stöds också. Det finns några skillnader som är intressanta att betala.
 
 * Användardefinierade fel meddelande nummer får inte ligga i intervallet 100 000-150 000 för THROW
 * RAISERROR fel meddelanden åtgärdas med 50 000
@@ -204,4 +204,4 @@ SQL-poolen har några andra begränsningar som relaterar till transaktioner. Det
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du optimerar transaktioner finns i [metod tips för transaktioner](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Ytterligare metod tips finns också för SQL- [poolen](best-practices-sql-pool.md) och [SQL på begäran (för hands version)](best-practices-sql-on-demand.md).
+Mer information om hur du optimerar transaktioner finns i [metod tips för transaktioner](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Ytterligare metod tips finns också för SQL- [poolen](best-practices-sql-pool.md) och [SQL-poolen utan server (för hands version)](best-practices-sql-on-demand.md).

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/09/2020
-ms.openlocfilehash: 2e597299c9b157d79a5317c97550fc30820636d6
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 8abcbc74506599e7896ad6d41b9444e946172283
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940382"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324904"
 ---
 # <a name="convert-to-image-directory"></a>Konvertera till bildkatalog
 
@@ -49,7 +49,7 @@ Den här artikeln beskriver hur du använder modulen konvertera till avbildnings
 
     För poängsättning behöver bild data uppsättnings mappen bara innehålla oklassificerade avbildningar.
 
-1. [Registrera avbildnings data uppsättningen som en fil data uppsättning](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) i din arbets yta, eftersom indata från Convert to image Directory-modulen måste vara en **fil data uppsättning**.
+1. [Registrera avbildnings data uppsättningen som en fil data uppsättning](../how-to-create-register-datasets.md) i din arbets yta, eftersom indata från Convert to image Directory-modulen måste vara en **fil data uppsättning**.
 
 1. Lägg till den registrerade avbildnings data uppsättningen på arbets ytan. Du kan hitta din registrerade data uppsättning i kategorin **data uppsättningar** i listan modul i rutan till vänster om arbets ytan. För närvarande har designern inte stöd för visualisering av bild data uppsättning.
 
@@ -82,4 +82,4 @@ Utdata från **Convert to image Directory** -modulen är i **bild katalog** form
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning.

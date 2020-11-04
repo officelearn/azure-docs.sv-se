@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 08/26/2020
 ms.author: martinle
 ms.reviewer: euang
-ms.openlocfilehash: 90e7297236994650e0820e883c94a98b29c49fb7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1cdb010e34674d52ebe2135ad1591a163a078708
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91249424"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324953"
 ---
 # <a name="securing-your-credentials-through-linked-services-with-the-tokenlibrary"></a>Skydda dina autentiseringsuppgifter genom länkade tjänster med TokenLibrary
 Att komma åt data från externa källor är ett vanligt mönster. Om inte den externa data källan tillåter anonym åtkomst måste du skydda anslutningen med en autentiseringsuppgift, hemlig eller anslutnings sträng.  
@@ -122,5 +122,5 @@ print(accountKey)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skriv till SQL-pool](./synapse-spark-sql-pool-import-export.md)
+- [Skriv till dedikerad SQL-pool](./synapse-spark-sql-pool-import-export.md)
 

@@ -11,12 +11,12 @@ ms.author: nilsp
 author: NilsPohlmann
 ms.date: 07/31/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 0f7ee0e18187b0a5d8ad1eb83dbda9734a9ff7de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bfeab990c841f6b65e665b4a8aabdfd8b251da60
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89650186"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323906"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>Definiera pipeliner för Machine Learning i YAML
 
@@ -32,15 +32,15 @@ I följande tabell visas vad som inte stöds för närvarande när du definierar
 | AzureBatchStep | Ja |
 | DatabricksStep | Ja |
 | DataTransferStep | Ja |
-| AutoMLStep | Inga |
-| HyperDriveStep | Inga |
+| AutoMLStep | Nej |
+| HyperDriveStep | Nej |
 | ModuleStep | Ja |
-| MPIStep | Inga |
-| EstimatorStep | Inga |
+| MPIStep | Nej |
+| EstimatorStep | Nej |
 
 ## <a name="pipeline-definition"></a>Pipeline-definition
 
-En pipeline-definition använder följande nycklar som motsvarar [pipelines](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline.pipeline?view=azure-ml-py&preserve-view=true) -klassen:
+En pipeline-definition använder följande nycklar som motsvarar [pipelines](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline.pipeline?preserve-view=true&view=azure-ml-py) -klassen:
 
 | YAML-nyckel | Beskrivning |
 | ----- | ----- |
@@ -52,7 +52,7 @@ En pipeline-definition använder följande nycklar som motsvarar [pipelines](htt
 
 ## <a name="parameters"></a>Parametrar
 
-I `parameters` avsnittet används följande nycklar som motsvarar klassen [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?view=azure-ml-py&preserve-view=true) :
+I `parameters` avsnittet används följande nycklar som motsvarar klassen [PipelineParameter](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?preserve-view=true&view=azure-ml-py) :
 
 | YAML-nyckel | Beskrivning |
 | ---- | ---- |
@@ -80,7 +80,7 @@ pipeline:
 
 ## <a name="data-reference"></a>Datareferens
 
-I `data_references` avsnittet används följande nycklar, som motsvarar [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py&preserve-view=true):
+I `data_references` avsnittet används följande nycklar, som motsvarar [DataReference](/python/api/azureml-core/azureml.data.data_reference.datareference?preserve-view=true&view=azure-ml-py):
 
 | YAML-nyckel | Beskrivning |
 | ----- | ----- |
@@ -108,12 +108,12 @@ Stegen definierar en beräknings miljö, tillsammans med de filer som ska köras
 
 | Steg typ | Beskrivning |
 | ----- | ----- |
-| `AdlaStep` | Kör ett U-SQL-skript med Azure Data Lake Analytics. Motsvarar klassen [AdlaStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.adlastep?view=azure-ml-py&preserve-view=true) . |
-| `AzureBatchStep` | Kör jobb med Azure Batch. Motsvarar klassen [AzureBatchStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.azurebatchstep?view=azure-ml-py&preserve-view=true) . |
-| `DatabricsStep` | Lägger till en Databricks Notebook, Python-skript eller JAR. Motsvarar klassen [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricksstep?view=azure-ml-py&preserve-view=true) . |
-| `DataTransferStep` | Överför data mellan lagrings alternativ. Motsvarar klassen [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py&preserve-view=true) . |
-| `PythonScriptStep` | Kör ett Python-skript. Motsvarar klassen [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py&preserve-view=true) . |
-| `ParallelRunStep` | Kör ett Python-skript för att bearbeta stora mängder data asynkront och parallellt. Motsvarar klassen [ParallelRunStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?view=azure-ml-py&preserve-view=true) . |
+| `AdlaStep` | Kör ett U-SQL-skript med Azure Data Lake Analytics. Motsvarar klassen [AdlaStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.adlastep?preserve-view=true&view=azure-ml-py) . |
+| `AzureBatchStep` | Kör jobb med Azure Batch. Motsvarar klassen [AzureBatchStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.azurebatchstep?preserve-view=true&view=azure-ml-py) . |
+| `DatabricsStep` | Lägger till en Databricks Notebook, Python-skript eller JAR. Motsvarar klassen [DatabricksStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricksstep?preserve-view=true&view=azure-ml-py) . |
+| `DataTransferStep` | Överför data mellan lagrings alternativ. Motsvarar klassen [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?preserve-view=true&view=azure-ml-py) . |
+| `PythonScriptStep` | Kör ett Python-skript. Motsvarar klassen [PythonScriptStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?preserve-view=true&view=azure-ml-py) . |
+| `ParallelRunStep` | Kör ett Python-skript för att bearbeta stora mängder data asynkront och parallellt. Motsvarar klassen [ParallelRunStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?preserve-view=true&view=azure-ml-py) . |
 
 ### <a name="adla-step"></a>ADLA-steg
 
@@ -122,8 +122,8 @@ Stegen definierar en beräknings miljö, tillsammans med de filer som ska köras
 | `script_name` | Namnet på U-SQL-skriptet (relativt till `source_directory` ). |
 | `compute_target` | Det Azure Data Lake beräknings mål som ska användas för det här steget. |
 | `parameters` | [Parametrar](#parameters) för pipelinen. |
-| `inputs` | Indata kan vara [InputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py&preserve-view=true), [DataReference](#data-reference), [PortDataReference](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py&preserve-view=true), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true), [data uppsättning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py&preserve-view=true), [DatasetDefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py&preserve-view=true)och [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py&preserve-view=true). |
-| `outputs` | Utdata kan vara antingen [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true) eller [OutputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?view=azure-ml-py&preserve-view=true). |
+| `inputs` | Indata kan vara [InputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?preserve-view=true&view=azure-ml-py), [DataReference](#data-reference), [PortDataReference](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?preserve-view=true&view=azure-ml-py), [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py), [data uppsättning](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py), [DatasetDefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?preserve-view=true&view=azure-ml-py)och [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?preserve-view=true&view=azure-ml-py). |
+| `outputs` | Utdata kan vara antingen [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py) eller [OutputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?preserve-view=true&view=azure-ml-py). |
 | `source_directory` | Katalog som innehåller skriptet, sammansättningar osv. |
 | `priority` | Prioritet svärdet som ska användas för det aktuella jobbet. |
 | `params` | Ord lista för namn/värde-par. |
@@ -171,8 +171,8 @@ pipeline:
 | YAML-nyckel | Beskrivning |
 | ----- | ----- |
 | `compute_target` | Det Azure Batch beräknings mål som ska användas för det här steget. |
-| `inputs` | Indata kan vara [InputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py&preserve-view=true), [DataReference](#data-reference), [PortDataReference](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py&preserve-view=true), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true), [data uppsättning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py&preserve-view=true), [DatasetDefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py&preserve-view=true)och [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py&preserve-view=true). |
-| `outputs` | Utdata kan vara antingen [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true) eller [OutputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?view=azure-ml-py&preserve-view=true). |
+| `inputs` | Indata kan vara [InputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?preserve-view=true&view=azure-ml-py), [DataReference](#data-reference), [PortDataReference](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?preserve-view=true&view=azure-ml-py), [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py), [data uppsättning](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py), [DatasetDefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?preserve-view=true&view=azure-ml-py)och [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?preserve-view=true&view=azure-ml-py). |
+| `outputs` | Utdata kan vara antingen [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py) eller [OutputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?preserve-view=true&view=azure-ml-py). |
 | `source_directory` | Katalog som innehåller modulens binärfiler, körbara filer, sammansättningar osv. |
 | `executable` | Namnet på kommandot/filen som kommer att köras som en del av det här jobbet. |
 | `create_pool` | Boolesk flagga för att ange om poolen ska skapas innan jobbet körs. |
@@ -225,12 +225,12 @@ pipeline:
 | YAML-nyckel | Beskrivning |
 | ----- | ----- |
 | `compute_target` | Det Azure Databricks beräknings mål som ska användas för det här steget. |
-| `inputs` | Indata kan vara [InputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py&preserve-view=true), [DataReference](#data-reference), [PortDataReference](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py&preserve-view=true), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true), [data uppsättning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py&preserve-view=true), [DatasetDefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py&preserve-view=true)och [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py&preserve-view=true). |
-| `outputs` | Utdata kan vara antingen [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true) eller [OutputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?view=azure-ml-py&preserve-view=true). |
+| `inputs` | Indata kan vara [InputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?preserve-view=true&view=azure-ml-py), [DataReference](#data-reference), [PortDataReference](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?preserve-view=true&view=azure-ml-py), [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py), [data uppsättning](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py), [DatasetDefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?preserve-view=true&view=azure-ml-py)och [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?preserve-view=true&view=azure-ml-py). |
+| `outputs` | Utdata kan vara antingen [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py) eller [OutputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?preserve-view=true&view=azure-ml-py). |
 | `run_name` | Namnet i Databricks för den här körningen. |
 | `source_directory` | Katalog som innehåller skriptet och andra filer. |
 | `num_workers` | Det statiska antalet arbetare för Databricks-kör kluster. |
-| `runconfig` | Sökvägen till en `.runconfig` fil. Den här filen är en YAML representation av [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py&preserve-view=true) -klassen. Mer information om strukturen för den här filen finns i [runconfigschema.jspå](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). |
+| `runconfig` | Sökvägen till en `.runconfig` fil. Den här filen är en YAML representation av [RunConfiguration](/python/api/azureml-core/azureml.core.runconfiguration?preserve-view=true&view=azure-ml-py) -klassen. Mer information om strukturen för den här filen finns i [runconfigschema.jspå](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). |
 | `allow_reuse` | Bestämmer om steget ska återanvända tidigare resultat när de körs igen med samma inställningar. |
 
 Följande exempel innehåller ett Databricks-steg:
@@ -279,8 +279,8 @@ pipeline:
 | YAML-nyckel | Beskrivning |
 | ----- | ----- |
 | `compute_target` | Det Azure Data Factory beräknings mål som ska användas för det här steget. |
-| `source_data_reference` | Inmatnings anslutning som fungerar som källa för data överförings åtgärder. De värden som stöds är [InputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py&preserve-view=true), [DataReference](#data-reference), [PortDataReference](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py&preserve-view=true), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true), [data uppsättning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py&preserve-view=true), [DatasetDefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py&preserve-view=true)och [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py&preserve-view=true). |
-| `destination_data_reference` | Ingående anslutning som fungerar som mål för data överförings åtgärder. De värden som stöds är [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true) och [OutputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?view=azure-ml-py&preserve-view=true). |
+| `source_data_reference` | Inmatnings anslutning som fungerar som källa för data överförings åtgärder. De värden som stöds är [InputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?preserve-view=true&view=azure-ml-py), [DataReference](#data-reference), [PortDataReference](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?preserve-view=true&view=azure-ml-py), [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py), [data uppsättning](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py), [DatasetDefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?preserve-view=true&view=azure-ml-py)och [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?preserve-view=true&view=azure-ml-py). |
+| `destination_data_reference` | Ingående anslutning som fungerar som mål för data överförings åtgärder. De värden som stöds är [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py) och [OutputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?preserve-view=true&view=azure-ml-py). |
 | `allow_reuse` | Bestämmer om steget ska återanvända tidigare resultat när de körs igen med samma inställningar. |
 
 Följande exempel innehåller ett data överförings steg:
@@ -322,11 +322,11 @@ pipeline:
 
 | YAML-nyckel | Beskrivning |
 | ----- | ----- |
-| `inputs` | Indata kan vara [InputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py&preserve-view=true), [DataReference](#data-reference), [PortDataReference](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py&preserve-view=true), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true), [data uppsättning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py&preserve-view=true), [DatasetDefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py&preserve-view=true)och [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py&preserve-view=true). |
-| `outputs` | Utdata kan vara antingen [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true) eller [OutputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?view=azure-ml-py&preserve-view=true). |
+| `inputs` | Indata kan vara [InputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?preserve-view=true&view=azure-ml-py), [DataReference](#data-reference), [PortDataReference](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?preserve-view=true&view=azure-ml-py), [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py), [data uppsättning](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py), [DatasetDefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?preserve-view=true&view=azure-ml-py)och [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?preserve-view=true&view=azure-ml-py). |
+| `outputs` | Utdata kan vara antingen [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py) eller [OutputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?preserve-view=true&view=azure-ml-py). |
 | `script_name` | Namnet på python-skriptet (relativt till `source_directory` ). |
 | `source_directory` | Katalog som innehåller skriptet, Conda-miljön osv. |
-| `runconfig` | Sökvägen till en `.runconfig` fil. Den här filen är en YAML representation av [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py&preserve-view=true) -klassen. Mer information om strukturen för den här filen finns i [runconfig.jspå](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). |
+| `runconfig` | Sökvägen till en `.runconfig` fil. Den här filen är en YAML representation av [RunConfiguration](/python/api/azureml-core/azureml.core.runconfiguration?preserve-view=true&view=azure-ml-py) -klassen. Mer information om strukturen för den här filen finns i [runconfig.jspå](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). |
 | `allow_reuse` | Bestämmer om steget ska återanvända tidigare resultat när de körs igen med samma inställningar. |
 
 Följande exempel innehåller ett skript steg för python:
@@ -369,11 +369,11 @@ pipeline:
 
 | YAML-nyckel | Beskrivning |
 | ----- | ----- |
-| `inputs` | Indata kan vara [dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py&preserve-view=true), [DatasetDefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py&preserve-view=true)eller [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py&preserve-view=true). |
-| `outputs` | Utdata kan vara antingen [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true) eller [OutputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?view=azure-ml-py&preserve-view=true). |
+| `inputs` | Indata kan vara [dataset](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py), [DatasetDefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?preserve-view=true&view=azure-ml-py)eller [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?preserve-view=true&view=azure-ml-py). |
+| `outputs` | Utdata kan vara antingen [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py) eller [OutputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?preserve-view=true&view=azure-ml-py). |
 | `script_name` | Namnet på python-skriptet (relativt till `source_directory` ). |
 | `source_directory` | Katalog som innehåller skriptet, Conda-miljön osv. |
-| `parallel_run_config` | Sökvägen till en `parallel_run_config.yml` fil. Den här filen är en YAML representation av [ParallelRunConfig](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig?view=azure-ml-py&preserve-view=true) -klassen. |
+| `parallel_run_config` | Sökvägen till en `parallel_run_config.yml` fil. Den här filen är en YAML representation av [ParallelRunConfig](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig?preserve-view=true&view=azure-ml-py) -klassen. |
 | `allow_reuse` | Bestämmer om steget ska återanvända tidigare resultat när de körs igen med samma inställningar. |
 
 Följande exempel innehåller ett parallellt körnings steg:
@@ -509,7 +509,7 @@ Schedule:
       path_on_datastore: "file/path" 
 ```
 
-När du definierar ett **återkommande schema**, använder du följande nycklar under `recurrence` :
+När du definierar ett **återkommande schema** , använder du följande nycklar under `recurrence` :
 
 | YAML-nyckel | Beskrivning |
 | ----- | ----- |

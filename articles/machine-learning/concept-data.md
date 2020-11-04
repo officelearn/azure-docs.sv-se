@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: a36c7076de0c4db64b67f4eba38de4daf4213bca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f46222740ad668b8bb6ec9eb85e78efb0f673528
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91446700"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322249"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Skydda data åtkomst i Azure Machine Learning
 
@@ -29,7 +29,7 @@ Azure Machine Learning gör det enkelt att ansluta till dina data i molnet.  Det
     
 ## <a name="data-workflow"></a>Data arbets flöde
 
-När du är redo att använda data i din molnbaserade lagrings lösning rekommenderar vi följande data leverans arbets flöde. Det här arbets flödet förutsätter att du har ett [Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) och data i en molnbaserad lagrings tjänst i Azure. 
+När du är redo att använda data i din molnbaserade lagrings lösning rekommenderar vi följande data leverans arbets flöde. Det här arbets flödet förutsätter att du har ett [Azure Storage-konto](../storage/common/storage-account-create.md?tabs=azure-portal) och data i en molnbaserad lagrings tjänst i Azure. 
 
 1. Skapa ett [Azure Machine Learning data lager](#datastores) för att lagra anslutnings information i Azure Storage.
 
@@ -81,9 +81,9 @@ Data uppsättningar kan skapas från lokala filer, offentliga URL: er, [öppna d
 
 Det finns två typer av data uppsättningar: 
 
-+ En [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py&preserve-view=true) refererar till en eller flera filer i dina data lager eller offentliga URL: er. Om dina data redan har rensats och är redo att användas i övnings experiment, kan du [Hämta eller montera filer](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) som FileDatasets till ditt beräknings mål.
++ En [FileDataset](/python/api/azureml-core/azureml.data.file_dataset.filedataset?preserve-view=true&view=azure-ml-py) refererar till en eller flera filer i dina data lager eller offentliga URL: er. Om dina data redan har rensats och är redo att användas i övnings experiment, kan du [Hämta eller montera filer](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) som FileDatasets till ditt beräknings mål.
 
-+ En [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) representerar data i tabell format genom att parsa den angivna filen eller listan med filer. Du kan läsa in en TabularDataset i en Pandas eller Spark-DataFrame för ytterligare manipulering och rengöring. En fullständig lista över data format som du kan skapa TabularDatasets från finns i [TabularDatasetFactory-klassen](https://aka.ms/tabulardataset-api-reference).
++ En [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) representerar data i tabell format genom att parsa den angivna filen eller listan med filer. Du kan läsa in en TabularDataset i en Pandas eller Spark-DataFrame för ytterligare manipulering och rengöring. En fullständig lista över data format som du kan skapa TabularDatasets från finns i [TabularDatasetFactory-klassen](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory).
 
 Ytterligare data uppsättnings funktioner finns i följande dokumentation:
 
@@ -100,7 +100,7 @@ Med data uppsättningar kan du utföra ett antal Machine Learning-uppgifter geno
      + [designern](tutorial-designer-automobile-price-train-score.md#import-data)
      + [antecknings böcker](how-to-train-with-datasets.md)
      + [Azure Machine Learning pipelines](how-to-create-your-first-pipeline.md)
-+ Få åtkomst till data uppsättningar för poängsättning med [batch-härledning](how-to-use-parallel-run-step.md) i [Machine Learning-pipeliner](how-to-create-your-first-pipeline.md).
++ Få åtkomst till data uppsättningar för poängsättning med [batch-härledning](./tutorial-pipeline-batch-scoring-classification.md) i [Machine Learning-pipeliner](how-to-create-your-first-pipeline.md).
 + Konfigurera en data uppsättnings Övervakare för [data](#drift) avkänning.
 
 <a name="label"></a>

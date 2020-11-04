@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: marhamil
 ms.custom: devx-track-python
-ms.openlocfilehash: 4f6fa73130e3e78b573a866dbb6524acbc88c50c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa650fe9cb7df64a6a7a948224be225ecfad9057
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88691470"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324619"
 ---
 # <a name="recipe-predictive-maintenance-with-the-cognitive-services-for-big-data"></a>Recept: förutsägande underhåll med Cognitive Services för Big data
 
-Det här receptet visar hur du kan använda Azure Synapse Analytics och Cognitive Services i Spark för förutsägelse underhåll av IoT-enheter. Vi följer tillsammans med exemplet på [CosmosDB och Synapse-länken](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples) . För att det ska vara enkelt bör vi i det här receptet läsa data direkt från en CSV-fil i stället för att hämta strömmade data via CosmosDB och Synapse-länken. Vi rekommenderar starkt att du tittar på exemplet på Synapse-länken.
+Det här receptet visar hur du kan använda Azure Synapse Analytics och Cognitive Services på Apache Spark för förutsägande underhåll av IoT-enheter. Vi följer tillsammans med exemplet på [CosmosDB och Synapse-länken](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples) . För att det ska vara enkelt bör vi i det här receptet läsa data direkt från en CSV-fil i stället för att hämta strömmade data via CosmosDB och Synapse-länken. Vi rekommenderar starkt att du tittar på exemplet på Synapse-länken.
 
 ## <a name="hypothetical-scenario"></a>Hypotetiskt scenario
 
@@ -31,7 +31,7 @@ Det kan finnas extrem värden i data med slumpmässig frekvens. I dessa situatio
 ## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services)
-* [Azure Synapse-arbetsyta](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace) konfigurerad med en [Spark-pool](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool)
+* [Azure Synapse-arbetsyta](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace) konfigurerad med en [Server lös Apache Spark pool](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool)
 
 ## <a name="setup"></a>Installation
 

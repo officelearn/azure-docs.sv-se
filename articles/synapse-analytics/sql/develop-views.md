@@ -1,6 +1,6 @@
 ---
-title: T-SQL-vyer med Synapse SQL
-description: Tips för att använda T-SQL-vyer och utveckla lösningar med Synapse SQL.
+title: T-SQL-vyer med hjälp av SQL-pooler
+description: Tips för att använda T-SQL-vyer och utveckla lösningar med dedikerad SQL-pool och Server lös SQL-pool (för hands version) i Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,15 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: fafa0c2e1b02cc49bfb852ed7770b0927b0e9334
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e416974d1326415e9a459e39d7bdea8e3fd8a84c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90032732"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323805"
 ---
-# <a name="t-sql-views-using-synapse-sql"></a>T-SQL-vyer med Synapse SQL
-I den här artikeln hittar du tips för att använda T-SQL-vyer och utveckla lösningar med Synapse SQL. 
+# <a name="t-sql-views-with-dedicated-sql-pool-and-serverless-sql-pool-preview--in-azure-synapse-analytics"></a>T-SQL-vyer med dedikerad SQL-pool och SQL-pool utan server (för hands version) i Azure Synapse Analytics
+
+I den här artikeln hittar du tips för att använda T-SQL-vyer och utveckla lösningar med dedikerad SQL-pool och SQL-pool utan server (för hands version) i Azure Synapse Analytics.
 
 ## <a name="why-use-views"></a>Varför ska jag använda vyer
 
@@ -26,12 +27,7 @@ Vyer kan användas på ett antal olika sätt för att förbättra kvaliteten på
 ### <a name="sql-pool---create-view"></a>SQL-pool – skapa vy
 
 > [!NOTE]
-> **SQL-pool**: syntaxen för Create View beskrivs inte i den här artikeln. Mer information finns i dokumentationen för att [Skapa vy](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) .
-
-### <a name="sql-on-demand-preview---create-view"></a>SQL på begäran (för hands version) – skapa vy
-
-> [!NOTE]
-> **SQL på begäran**: syntaxen för Create View beskrivs inte i den här artikeln. Mer information finns i dokumentationen för att [Skapa vy](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) .
+> Syntaxen för CREATE VIEW beskrivs inte i den här artikeln. Mer information finns i dokumentationen för att [Skapa vy](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) .
 
 ## <a name="architectural-abstraction"></a>Arkitektur abstraktion
 
@@ -54,7 +50,6 @@ FROM   dbo.DimDate_stg AS stg
 
 RENAME OBJECT DimDate TO DimDate_Old;
 RENAME OBJECT DimDate_New TO DimDate;
-
 ```
 
 Tänk på att den här metoden kan resultera i att tabeller visas och visas i en användares vy, och meddelande om att tabellen inte finns i fel meddelanden. Vyer kan användas för att ge användare ett konsekvent presentations lager medan de underliggande objekten byter namn.

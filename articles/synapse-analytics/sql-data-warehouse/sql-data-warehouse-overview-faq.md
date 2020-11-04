@@ -1,6 +1,6 @@
 ---
 title: Azure Synapse Analytics (tidigare SQL DW) vanliga frågor och svar
-description: Den här artikeln innehåller vanliga frågor och svar om Azure Synapse Analytics (tidigare SQL DW) från kunder och utvecklare
+description: Den här artikeln innehåller vanliga frågor och svar om Azure Synapse Analytics (tidigare SQL DW) från kunder och utvecklare.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 228fa18fef0f681437fd2c0c87e3114d14977a49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1e2f82ecd80579d19f3a8793db64f6b8a17a440
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462657"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323600"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Azure Synapse Analytics (tidigare SQL DW) vanliga frågor och svar
 
@@ -29,9 +29,9 @@ F. Vad hände med att Azure SQL Data Warehouse?
 
 A. Azure dataSynapses är Azure SQL Data Warehouse Evolved. Vi har tagit samma branschledande informations lager till en helt ny nivå av prestanda och kapacitet. Du kan fortsätta att köra dina befintliga arbets belastningar för data lager i produktion med Azure Synapse. Mer information finns i [Vad är Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
-F. Vad är Synapse SQL-pool?
+F. Vad är en dedikerad SQL-pool?
 
-A. Synapse SQL-pool syftar på de företags data lager funktioner som är allmänt tillgängliga med Azure Synapse. Mer information finns i, [Vad är Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+A. Dedikerad SQL-pool syftar på de företags data lager funktioner som är allmänt tillgängliga med Azure Synapse. Mer information finns i, [Vad är Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
 F. Hur gör jag för att kom igång med Azure Synapse?
 
@@ -49,7 +49,7 @@ F. Kan jag ansluta Power BI?
 
 A. Ja! Även om Power BI stöder direkt frågor med Azure Synapse är det inte avsett för ett stort antal användare eller real tids data. Om du vill optimera Power BI prestanda ytterligare bör du överväga att använda Power BI ovanpå Azure Analysis Services-eller Analysis Service-IaaS.
 
-F. Vad är kapacitets gränser för Synapse i SQL-pool?
+F. Vad är en dedikerad kapacitets gräns för SQL-pooler?
 
 A. Se vår aktuella [kapacitets begränsning](sql-data-warehouse-service-capacity-limits.md) .
 
@@ -83,15 +83,15 @@ A. Många funktioner stöds. Funktioner som inte stöds finns i [tabell funktion
 
 ## <a name="tooling-and-administration"></a>Verktyg och administration
 
-F. Stöder SQL-Synapse REST API: er?
+F. Stöder dedikerade SQL-pooler REST-API: er?
 
-A. Ja. De flesta REST-funktioner som kan användas med SQL Database är också tillgängliga med Synapse SQL-pool. Du kan hitta API-information i REST-dokumentationens sidor eller [databaser](/rest/api/sql/databases?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+A. Ja. De flesta REST-funktioner som kan användas med SQL Database är också tillgängliga med dedikerad SQL-pool. Du kan hitta API-information i REST-dokumentationens sidor eller [databaser](/rest/api/sql/databases?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-## <a name="loading"></a>Vid
+## <a name="loading"></a>Läser in
 
 F. Vilka klient driv rutiner stöder du?
 
-A. Driv rutins stöd för Synapse-SQL-pool finns på sidan [anslutnings strängar](../sql/connection-strings.md)
+A. Driv rutins stöd för dedikerad SQL-pool finns på sidan [anslutnings strängar](../sql/connection-strings.md)
 
 F: vilka fil format stöds av PolyBase?
 
@@ -107,7 +107,7 @@ A: Nej, PolyBase samverkar bara med lagrings komponenterna.
 
 F: kan jag ansluta till HDI?
 
-A: HDI kan använda antingen ADLS eller WASB som HDFS-skiktet. Om du har antingen ditt HDFS-lager kan du läsa in dessa data i en Synapse SQL-pool. Du kan dock inte generera mottagnings-beräkning till HDI-instansen.
+A: HDI kan använda antingen ADLS eller WASB som HDFS-skiktet. Om du har antingen ditt HDFS-lager kan du läsa in dessa data i en dedikerad SQL-pool. Du kan dock inte generera mottagnings-beräkning till HDI-instansen.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: 71032c49ac5164f13189baf64668f8998fdc186a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c96263b5d40d4f6a4904a6da3d40ad98ac81f030
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91276092"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322308"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Hur Azure Machine Learning fungerar: arkitektur och koncept
 
@@ -36,7 +36,7 @@ Arbets ytan är den centrala platsen för att:
   * [Pipelines](#ml-pipelines)
   * [Datauppsättningar](#datasets-and-datastores)
   * [Modeller](#models)
-  * [Slutpunkter](#endpoints)
+  * [Slut punkter](#endpoints)
 
 En arbets yta innehåller andra Azure-resurser som används av arbets ytan:
 
@@ -53,9 +53,9 @@ Du kan dela en arbets yta med andra.
 
 Azure Machine Learning introducerar två fullständigt hanterade molnbaserade virtuella datorer (VM) som har kon figurer ATS för Machine Learning-aktiviteter:
 
-* <a name="compute-instance"></a>**Beräknings instans**: en beräknings instans är en virtuell dator som innehåller flera verktyg och miljöer installerade för Machine Learning. Den primära användningen av en beräknings instans är för din utvecklings arbets Station.  Du kan börja köra exempel antecknings böcker utan att behöva konfigurera några inställningar. En beräknings instans kan också användas som beräknings mål för utbildnings-och inferencing-jobb.
+* <a name="compute-instance"></a>**Beräknings instans** : en beräknings instans är en virtuell dator som innehåller flera verktyg och miljöer installerade för Machine Learning. Den primära användningen av en beräknings instans är för din utvecklings arbets Station.  Du kan börja köra exempel antecknings böcker utan att behöva konfigurera några inställningar. En beräknings instans kan också användas som beräknings mål för utbildnings-och inferencing-jobb.
 
-* **Beräknings kluster**: beräknings kluster är ett kluster med virtuella datorer med skalnings funktioner för flera noder. Compute-kluster passar bättre för beräknings mål för stora jobb och produktion.  Klustret skalas upp automatiskt när ett jobb skickas.  Använd som inlärnings mål eller för utveckling och testning av distribution.
+* **Beräknings kluster** : beräknings kluster är ett kluster med virtuella datorer med skalnings funktioner för flera noder. Compute-kluster passar bättre för beräknings mål för stora jobb och produktion.  Klustret skalas upp automatiskt när ett jobb skickas.  Använd som inlärnings mål eller för utveckling och testning av distribution.
 
 Mer information om inlärnings mål finns i [träna beräknings mål](concept-compute-target.md#train).  Mer information om beräknings mål för distribution finns i [distributions mål](concept-compute-target.md#deploy).
 
@@ -102,7 +102,7 @@ Du skapar en körning när du skickar ett skript för att träna en modell. En k
 
 [Arbets yta](#workspace)  >  [Experiment](#experiments)  >  [Kör](#runs)  >  **Kör konfiguration**
 
-En körnings konfiguration definierar hur ett skript ska köras i ett angivet beräknings mål. Du kan använda konfigurationen för att ange skript, beräknings mål och Azure ML-miljö som ska köras på, alla distribuerade projektspecifika konfigurationer och vissa ytterligare egenskaper. Mer information om en fullständig uppsättning konfigurerbara alternativ för körningar finns i [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true).
+En körnings konfiguration definierar hur ett skript ska köras i ett angivet beräknings mål. Du kan använda konfigurationen för att ange skript, beräknings mål och Azure ML-miljö som ska köras på, alla distribuerade projektspecifika konfigurationer och vissa ytterligare egenskaper. Mer information om en fullständig uppsättning konfigurerbara alternativ för körningar finns i [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py).
 
 En körnings konfiguration kan sparas i en fil i den katalog som innehåller ditt utbildnings skript.   Eller så kan det skapas som ett minnes intern objekt och användas för att skicka in en körning.
 
@@ -233,10 +233,10 @@ Studio är också den plats där du kommer åt de interaktiva verktyg som ingår
 > Verktyg som marker ATS (för hands version) nedan finns för närvarande i offentlig för hands version.
 > För hands versionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-+  Interagera med tjänsten i valfri python-miljö med [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
++  Interagera med tjänsten i valfri python-miljö med [Azure Machine Learning SDK för python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
 + Interagera med tjänsten i valfri R-miljö med [Azure Machine Learning SDK för R (för](https://azure.github.io/azureml-sdk-for-r/reference/index.html) hands version).
 + Använd [Azure Machine Learning designer](concept-designer.md) för att utföra arbets flödes stegen utan att skriva kod. 
-+ Använd [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) för Automation.
++ Använd [Azure Machine Learning CLI](./reference-azure-machine-learning-cli.md) för Automation.
 + [Många modeller Solution Accelerator](https://aka.ms/many-models) (för hands version) bygger på Azure Machine Learning och gör det möjligt att träna, hantera och hantera hundratals eller till och med tusentals maskin inlärnings modeller.
 
 ## <a name="next-steps"></a>Nästa steg

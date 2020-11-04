@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.openlocfilehash: 5256db4547f8c19960a6f470ce3c84b2eef25e24
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 444b76a594e768face892462da12a1cbb35a5106
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776620"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324677"
 ---
 # <a name="getting-started"></a>Komma igång
 
@@ -35,15 +35,15 @@ Molnbaserad Cognitive Services är intelligenta algoritmer som finns i Azure. De
 
 ### <a name="containerized-services-optional"></a>Behållar tjänster (valfritt)
 
-Om ditt program eller din arbets belastning använder mycket stora data uppsättningar, kräver privat nätverk eller inte kan kontakta molnet kan det vara omöjligt att kommunicera med moln tjänster. I den här situationen har container Cognitive Services följande fördelar:
+Om ditt program eller din arbets belastning använder stora data uppsättningar, kräver privat nätverk eller inte kan kontakta molnet kan det vara omöjligt att kommunicera med moln tjänster. I den här situationen har container Cognitive Services följande fördelar:
 
-* **Låg anslutning**: du kan distribuera behållare Cognitive Services i valfri dator miljö, både på molnet och av. Om programmet inte kan kontakta molnet kan du överväga att distribuera container Cognitive Services i ditt program.
+* **Låg anslutning** : du kan distribuera behållare Cognitive Services i valfri dator miljö, både på molnet och av. Om programmet inte kan kontakta molnet kan du överväga att distribuera container Cognitive Services i ditt program.
 
-* **Låg latens**: eftersom behållar tjänster inte kräver kommunikation med tur och retur till/från molnet, returneras svar med mycket lägre fördröjning.
+* **Låg latens** : eftersom behållar tjänster inte kräver kommunikation med tur och retur till/från molnet, returneras svar med mycket lägre fördröjning.
 
-* **Sekretess-och data säkerhet**: du kan distribuera behållar tjänster i privata nätverk så att känsliga data inte lämnar nätverket.
+* **Sekretess-och data säkerhet** : du kan distribuera behållar tjänster i privata nätverk så att känsliga data inte lämnar nätverket.
 
-* **Hög skalbarhet**: behållarens tjänster har inte "hastighets begränsningar" och körs på användar hanterade datorer. Det innebär att du kan skala Cognitive Services utan slut för att hantera stora arbets belastningar.
+* **Hög skalbarhet** : behållarens tjänster har inte "hastighets begränsningar" och körs på användar hanterade datorer. Det innebär att du kan skala Cognitive Services utan slut för att hantera stora arbets belastningar.
 
 Följ [den här guiden](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support?tabs=luis) för att skapa en behållar kognitiv tjänst.
 
@@ -70,7 +70,7 @@ Azure Databricks är en Apache Spark-baserad analys plattform med en enkel klick
 Du kan också använda Synapse Analytics för att skapa ett Spark-kluster. Azure Synapse Analytics samlar ihop företags data lager hantering och stor data analys. Det ger dig friheten att fråga efter data på dina villkor, med hjälp av antingen server utan på begäran eller etablerade resurser i stor skala. Följ dessa steg för att komma igång med Synapse Analytics:
 
 1. [Skapa en Synapse-arbetsyta (för hands version)](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace).
-1. [Skapa en ny Apache Spark pool (förhands granskning) med hjälp av Azure Portal](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool-portal).
+1. [Skapa en ny server lös Apache Spark pool (för hands version) med hjälp av Azure Portal](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool-portal).
 
 I Synapse Analytics installeras Big data för Cognitive Services som standard.
 
@@ -100,7 +100,7 @@ Först kan vi skapa en antecknings bok i Azure Databricks. För andra Spark-klus
 
     Välj **Skapa**.
 
-1. Klistra in det här kodfragmentet nedan i din nya antecknings bok.
+1. Klistra in det här kodfragmentet i din nya antecknings bok.
 
 ```python
 from mmlspark.cognitive import *

@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 133c7e95e620bfea51d1d6c9f6fd1d2946eeca33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7c442aaf6484e8e47bd6d00c91023fba43af75d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91347265"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325029"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Kom igång med Azure Machine Learning Studio (klassisk) i R
 
-**gäller för:** ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ inga](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**gäller för:** ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ inga ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 <!-- Stephen F Elston, Ph.D. -->
@@ -144,7 +144,7 @@ Vi börjar med att läsa in **csdairydata.csv** -filen i Machine Learning Studio
 
 1. Starta din Machine Learning Studio (klassiska) miljö.
 1. Välj **+ ny** längst ned till vänster på skärmen och välj **data uppsättning**.
-1. Välj **från lokal fil**och välj sedan **Bläddra** för att välja filen.
+1. Välj **från lokal fil** och välj sedan **Bläddra** för att välja filen.
 1. Se till att du **har valt en allmän CSV-fil med sidhuvud (. csv)** som typ för data uppsättningen.
 1. Markera kryss rutan.
 1. När data uppsättningen har överförts bör du se den nya data uppsättningen när du väljer fliken **data uppsättningar** .
@@ -159,7 +159,7 @@ Nu när vi har några data i Machine Learning Studio (klassisk) måste vi skapa 
 1. Dra **csdairydata.csv data uppsättning** till experimentet.
 1. I rutan **Sök efter experiment objekt** längst upp i det vänstra fönstret anger du [Kör R-skript][execute-r-script]. Modulen visas i Sök listan.
 1. Dra modulen [Kör R-skript][execute-r-script] till din lastpall.
-1. Anslut utdata från **csdairydata.csv data uppsättning** till den vänstra inmatningen (**Dataset1**) för [execute R-skriptet][execute-r-script].
+1. Anslut utdata från **csdairydata.csv data uppsättning** till den vänstra inmatningen ( **Dataset1** ) för [execute R-skriptet][execute-r-script].
 1. Välj **Spara**.
 
 I det här läget bör experimentet se ut ungefär som det här exemplet.
@@ -169,7 +169,7 @@ I det här läget bör experimentet se ut ungefär som det här exemplet.
 
 #### <a name="check-on-the-data"></a>Kontrol lera data
 
-Nu ska vi titta på de data som vi har läst in i vårt experiment. I experimentet väljer du utdata från den **cadairydata.csv data uppsättningen**och väljer **visualisera**. Du bör se något som liknar denna sammanfattning.
+Nu ska vi titta på de data som vi har läst in i vårt experiment. I experimentet väljer du utdata från den **cadairydata.csv data uppsättningen** och väljer **visualisera**. Du bör se något som liknar denna sammanfattning.
 
 ![Skärm bild som visar en sammanfattning av cadairydata.csv data uppsättningen.](./media/r-quickstart/fig4.png)
 
@@ -1029,10 +1029,10 @@ Den här funktionen genererar följande utdata.
 ##
 ## Coefficients:
 ##                   Estimate Std. Error t value Pr(>|t|)
-## (Intercept)       6.33e+00   1.45e-01   43.60   <2e-16 ***
-## Time              1.63e-09   1.72e-10    9.47   <2e-16 ***
+## (Intercept)       6.33e+00   1.45e-01   43.60   <2e-16 **_
+## Time              1.63e-09   1.72e-10    9.47   <2e-16 _*_
 ## I(Month.Count^2) -1.71e-06   4.89e-06   -0.35    0.726
-## I(Month.Count^3) -3.24e-08   1.49e-08   -2.17    0.031 *  
+## I(Month.Count^3) -3.24e-08   1.49e-08   -2.17    0.031 _  
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ##
@@ -1062,10 +1062,10 @@ Den här funktionen genererar följande utdata.
 ## Coefficients:
 ##                   Estimate Std. Error t value Pr(>|t|)
 ## (Intercept)       6.38e+00   4.07e-02   156.6   <2e-16 ***
-## Time              1.57e-09   4.32e-11    36.3   <2e-16 ***
-## I(Month.Count^3) -3.76e-08   2.50e-09   -15.1   <2e-16 ***
+## Time              1.57e-09   4.32e-11    36.3   <2e-16 **_
+## I(Month.Count^3) -3.76e-08   2.50e-09   -15.1   <2e-16 _*_
 ## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## Signif. codes:  0 '_*_' 0.001 '_*' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ##
 ## Residual standard error: 0.0417 on 213 degrees of freedom
 ## Multiple R-squared:  0.941,  Adjusted R-squared:  0.94
@@ -1113,21 +1113,21 @@ Den här funktionen genererar följande utdata.
 ## Coefficients:
 ##                   Estimate Std. Error t value Pr(>|t|)
 ## Time              1.57e-09   2.72e-11    57.7   <2e-16 ***
-## I(Month.Count^3) -3.74e-08   1.57e-09   -23.8   <2e-16 ***
-## MonthApr          6.40e+00   2.63e-02   243.3   <2e-16 ***
-## MonthAug          6.38e+00   2.63e-02   242.2   <2e-16 ***
-## MonthDec          6.38e+00   2.64e-02   241.9   <2e-16 ***
-## MonthFeb          6.31e+00   2.63e-02   240.1   <2e-16 ***
-## MonthJan          6.39e+00   2.63e-02   243.1   <2e-16 ***
-## MonthJul          6.39e+00   2.63e-02   242.6   <2e-16 ***
-## MonthJun          6.38e+00   2.63e-02   242.4   <2e-16 ***
-## MonthMar          6.42e+00   2.63e-02   244.2   <2e-16 ***
-## MonthMay          6.43e+00   2.63e-02   244.3   <2e-16 ***
-## MonthNov          6.34e+00   2.63e-02   240.6   <2e-16 ***
-## MonthOct          6.37e+00   2.63e-02   241.8   <2e-16 ***
-## MonthSep          6.34e+00   2.63e-02   240.6   <2e-16 ***
+## I(Month.Count^3) -3.74e-08   1.57e-09   -23.8   <2e-16 **_
+## MonthApr          6.40e+00   2.63e-02   243.3   <2e-16 _*_
+## MonthAug          6.38e+00   2.63e-02   242.2   <2e-16 _*_
+## MonthDec          6.38e+00   2.64e-02   241.9   <2e-16 _*_
+## MonthFeb          6.31e+00   2.63e-02   240.1   <2e-16 _*_
+## MonthJan          6.39e+00   2.63e-02   243.1   <2e-16 _*_
+## MonthJul          6.39e+00   2.63e-02   242.6   <2e-16 _*_
+## MonthJun          6.38e+00   2.63e-02   242.4   <2e-16 _*_
+## MonthMar          6.42e+00   2.63e-02   244.2   <2e-16 _*_
+## MonthMay          6.43e+00   2.63e-02   244.3   <2e-16 _*_
+## MonthNov          6.34e+00   2.63e-02   240.6   <2e-16 _*_
+## MonthOct          6.37e+00   2.63e-02   241.8   <2e-16 _*_
+## MonthSep          6.34e+00   2.63e-02   240.6   <2e-16 _*_
 ## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## Signif. codes:  0 '_*_' 0.001 '_*' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ##
 ## Residual standard error: 0.0263 on 202 degrees of freedom
 ## Multiple R-squared:     1,    Adjusted R-squared:     1
@@ -1276,9 +1276,9 @@ Från dessa resultat ser vi att det minskar RMS-felet avsevärt om du lägger ti
 
 RStudio är väl dokumenterad. Här följer några länkar till de viktigaste avsnitten i RStudio-dokumentationen för att komma igång.
 
-* **Skapa projekt**: du kan organisera och hantera din R-kod i projekt med hjälp av RStudio. Mer information finns i [using Projects](https://support.rstudio.com/hc/articles/200526207-Using-Projects). Följ dessa anvisningar och skapa ett projekt för R-kod exemplen i den här artikeln.
-* **Redigera och kör r-kod**: RStudio tillhandahåller en integrerad miljö för att redigera och köra r-kod. Mer information finns i [Redigera och köra kod](https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code).
-* **Felsök**: RStudio innehåller kraftfulla fel söknings funktioner. Mer information om dessa funktioner finns i [fel sökning med RStudio](https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio). Information om fel söknings funktioner för Bryt punkter finns i [fel sökning av Bryt punkter](https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting).
+* **Skapa projekt** : du kan organisera och hantera din R-kod i projekt med hjälp av RStudio. Mer information finns i [using Projects](https://support.rstudio.com/hc/articles/200526207-Using-Projects). Följ dessa anvisningar och skapa ett projekt för R-kod exemplen i den här artikeln.
+* **Redigera och kör r-kod** : RStudio tillhandahåller en integrerad miljö för att redigera och köra r-kod. Mer information finns i [Redigera och köra kod](https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code).
+* **Felsök** : RStudio innehåller kraftfulla fel söknings funktioner. Mer information om dessa funktioner finns i [fel sökning med RStudio](https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio). Information om fel söknings funktioner för Bryt punkter finns i [fel sökning av Bryt punkter](https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting).
 
 ## <a name="further-reading"></a><a id="appendixb"></a>Mer information
 

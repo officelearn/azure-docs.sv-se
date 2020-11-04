@@ -10,13 +10,13 @@ manager: anandsub
 ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/08/2020
-ms.openlocfilehash: 43e3916e47aa0305209b8e6e32803426ac1ebe3d
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 11/02/2020
+ms.openlocfilehash: 78e230453e256e90803b3607fa02904f90774881
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637572"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325099"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Käll kontroll i Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -26,10 +26,14 @@ Som standard redigerar Azure Data Factory användar gränssnitts upplevelsen (UX
 - Tjänsten Data Factory innehåller inte en lagrings plats för att lagra JSON-entiteterna för dina ändringar. Det enda sättet att spara ändringar är via knappen **publicera alla** och alla ändringar publiceras direkt till Data Factory-tjänsten.
 - Tjänsten Data Factory är inte optimerad för samarbete och versions kontroll.
 
-För att ge en bättre redigerings upplevelse kan Azure Data Factory konfigurera en git-lagringsplats med antingen Azure-databaser eller GitHub. Git är ett versions kontroll system som möjliggör enklare ändrings spårning och samarbete. I den här självstudien får du en översikt över hur du konfigurerar och arbetar i en git-lagringsplats tillsammans med de bästa metoderna och en fel söknings guide.
+För att ge en bättre redigerings upplevelse kan Azure Data Factory konfigurera en git-lagringsplats med antingen Azure-databaser eller GitHub. Git är ett versions kontroll system som möjliggör enklare ändrings spårning och samarbete. Den här artikeln beskriver hur du konfigurerar och arbetar i en git-lagringsplats tillsammans med att markera bästa praxis och en fel söknings guide.
 
 > [!NOTE]
 > Git-integrering i Azure Data Factory är inte tillgänglig i Azure Government molnet.
+
+Om du vill veta mer om hur Azure Data Factory integreras med git kan du läsa 15-minuters självstudie video nedan:
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4GNKv]
 
 ## <a name="advantages-of-git-integration"></a>Fördelar med Git-integrering
 
@@ -38,7 +42,7 @@ Nedan visas en lista över några av fördelarna git-integrering som ger upphov 
 -   **Käll kontroll:** När dina data Factory-arbetsbelastningar blir viktiga, vill du integrera din fabrik med Git för att utnyttja flera fördelar med käll kontroll som följande:
     -   Möjlighet att spåra/granska ändringar.
     -   Möjlighet att återställa ändringar som introducerade buggar.
--   **Delvis sparade:** När du redigerar mot Data Factory-tjänsten kan du inte spara ändringarna som ett utkast och alla publiceringar måste klara data fabriks verifieringen. Oavsett om pipelinen inte är klara eller om du bara vill förlora ändringar i händelse av en dator krasch, kan git-integrering användas för att öka förändringar i Data Factory-resurser oavsett vilket tillstånd de är i. Genom att konfigurera en git-lagringsplats kan du spara ändringar, vilket gör att du bara kan publicera när du har testat dina ändringar.
+-   **Delvis sparade:** När du redigerar mot Data Factory-tjänsten kan du inte spara ändringarna som ett utkast och alla publiceringar måste klara data fabriks verifieringen. Oavsett om dina pipelines inte är klara eller om du bara vill förlora ändringar om datorn kraschar kan git-integrering användas för att öka förändringar i Data Factory-resurser oavsett vilket tillstånd de är i. Genom att konfigurera en git-lagringsplats kan du spara ändringar, vilket gör att du bara kan publicera när du har testat dina ändringar.
 -   **Samarbete och kontroll:** Om flera team medlemmar bidrar till samma fabrik kanske du vill låta dina medarbetare samar beta med varandra via en kod gransknings process. Du kan också konfigurera din fabrik så att alla deltagare inte har samma behörigheter. Vissa team medlemmar kan bara tillåtas att göra ändringar via git och endast vissa personer i teamet får publicera ändringarna i fabriken.
 -   **Bättre CI/CD:**  Om du distribuerar till flera miljöer med en [kontinuerlig leverans process](continuous-integration-deployment.md)gör git-integreringen att vissa åtgärder blir enklare. Några av dessa åtgärder är:
     -   Konfigurera din versions pipeline så att den utlöses automatiskt så snart det finns några ändringar som gjorts i din dev-fabrik.
@@ -48,35 +52,51 @@ Nedan visas en lista över några av fördelarna git-integrering som ger upphov 
 > [!NOTE]
 > Redigering direkt med Data Factory tjänsten inaktive ras i Azure Data Factory UX när en git-lagringsplats har kon figurer ATS. Ändringar som görs via PowerShell eller ett SDK publiceras direkt till Data Factory tjänsten och anges inte i git.
 
+## <a name="connect-to-a-git-repository"></a>Anslut till en git-lagringsplats
+
+Det finns fyra olika sätt att ansluta en git-lagringsplats till din data fabrik för både Azure databaser och GitHub. När du har anslutit till en git-lagringsplats kan du Visa och hantera din konfiguration i [hanterings navet](author-management-hub.md) under **git-konfiguration** i avsnittet **käll kontroll**
+
+### <a name="configuration-method-1-home-page"></a>Konfigurations metod 1: Start sida
+
+På sidan Azure Data Factory start väljer du **Konfigurera kod lagrings plats**.
+
+![Konfigurera en kod lagrings plats från start sidan](media/author-visually/configure-repo.png)
+
+### <a name="configuration-method-2-authoring-canvas"></a>Konfigurations metod 2: redigera arbets yta
+
+I Azure Data Factory UX-redigerings arbets ytan väljer du den **Data Factory** list rutan och väljer sedan **Konfigurera kod lagrings plats**.
+
+![Konfigurera kod lagrings inställningarna från redigering](media/author-visually/configure-repo-2.png)
+
+### <a name="configuration-method-3-management-hub"></a>Konfigurations metod 3: hanterings hubb
+
+Gå till hanterings hubben i ADF-UX. Välj **git-konfiguration** i avsnittet **käll kontroll** . Om du inte har någon databas ansluten klickar du på **Konfigurera kod lagrings plats**.
+
+![Konfigurera kod lagrings inställningarna från hanterings hubben](media/author-visually/configure-repo-3.png)
+
+### <a name="configuration-method-4-during-factory-creation"></a>Konfigurations metod 4: när fabrik skapas
+
+När du skapar en ny data fabrik i Azure Portal kan du konfigurera git-lagringsplatsen på fliken **git-konfiguration** .
+
+> [!NOTE]
+> När du konfigurerar git i Azure-portalen måste inställningar som projekt namn och lagrings platsen namn anges manuellt i stället för att ingå i en listruta.
+
+![Konfigurera kod lagrings inställningarna från Azure Portal](media/author-visually/configure-repo-4.png)
+
 ## <a name="author-with-azure-repos-git-integration"></a>Skapa med Git-integrering för Azure-lagringsplatser
 
 Visuell redigering med Azure databaser git-integrering stöder käll kontroll och samarbete för arbete på dina data Factory-pipeliner. Du kan associera en data fabrik med en Azure databaser git-organisations databas för käll kontroll, samarbete, versions hantering och så vidare. En enda Azure databaser git-organisation kan ha flera databaser, men en Azure databaser git-lagringsplats kan bara associeras med en data fabrik. Om du inte har någon Azure databaser-organisation eller-databas, följer du [dessa anvisningar](/azure/devops/organizations/accounts/create-organization-msa-or-work-student) för att skapa dina resurser.
 
 > [!NOTE]
-> Du kan lagra skript-och datafiler i en git-lagringsplats för Azure databaser. Du måste dock ladda upp filerna manuellt till Azure Storage. En Data Factory pipeline överför inte automatiskt skript eller datafiler som lagras i en git-lagringsplats i Azure databaser till Azure Storage.
+> Du kan lagra skript-och datafiler i en git-lagringsplats för Azure databaser. Du måste dock ladda upp filerna manuellt till Azure Storage. En Data Factory-pipeline överför inte automatiskt skript eller datafiler som lagras i en git-lagringsplats i Azure databaser till Azure Storage.
 
-### <a name="configure-an-azure-repos-git-repository-with-azure-data-factory"></a>Konfigurera en Azure databaser git-lagringsplats med Azure Data Factory
-
-Du kan konfigurera en Azure databaser git-lagringsplats med en data fabrik på två sätt.
-
-#### <a name="configuration-method-1-azure-data-factory-home-page"></a>Konfigurations metod 1: Azure Data Factory start sida
-
-På Azure Data Factory start sida väljer du **Konfigurera kod lagrings plats** .
-
-![Konfigurera en Azure databaser Code-lagringsplats](media/author-visually/configure-repo.png)
-
-#### <a name="configuration-method-2-ux-authoring-canvas"></a>Konfigurations metod 2: redigera arbets yta för UX
-I Azure Data Factory UX-redigerings arbets ytan väljer du den **Data Factory** list rutan och väljer sedan **Konfigurera kod lagrings plats** .
-
-![Konfigurera kod lagrings inställningarna för UX-redigering](media/author-visually/configure-repo-2.png)
-
-Båda metoderna öppnar konfigurations fönstret för lagrings inställningar.
+### <a name="azure-repos-settings"></a>Inställningar för Azure-databaser
 
 ![Konfigurera kod lagrings inställningarna](media/author-visually/repo-settings.png)
 
 I konfigurations fönstret visas följande inställningar för Azure databaser Code-lagringsplatsen:
 
-| Inställning | Beskrivning | Värde |
+| Inställningen | Beskrivning | Värde |
 |:--- |:--- |:--- |
 | **Typ av databas** | Typen av Azure databaser Code-lagringsplatsen.<br/> | Azure DevOps git eller GitHub |
 | **Azure Active Directory** | Ditt Azure AD-klient namn. | `<your tenant name>` |
@@ -94,6 +114,9 @@ I konfigurations fönstret visas följande inställningar för Azure databaser C
 ### <a name="use-a-different-azure-active-directory-tenant"></a>Använd en annan Azure Active Directory klient
 
 Azure databaser git-lagrings platsen kan finnas i en annan Azure Active Directory klient. För att kunna ange en annan Azure AD-klientorganisation måste du ha administratörsbehörighet för den prenumeration som du använder. Mer information finns i [ändra prenumerations administratör](../cost-management-billing/manage/add-change-subscription-administrator.md#to-assign-a-user-as-an-administrator)
+
+> [!IMPORTANT]
+> För att ansluta till en annan Azure Active Directory måste användaren som är inloggad vara en del av Active Directory. 
 
 ### <a name="use-your-personal-microsoft-account"></a>Använd din personliga Microsoft-konto
 
@@ -117,27 +140,7 @@ GitHub-integreringen med Data Factory stöder både offentlig GitHub (det vill s
 
 Om du vill konfigurera en GitHub-lagrings platsen måste du ha administratörs behörighet för den Azure-prenumeration som du använder.
 
-För en nio minuters introduktion och demonstration av den här funktionen, se följande videoklipp:
-
-> [!VIDEO https://channel9.msdn.com/shows/azure-friday/Azure-Data-Factory-visual-tools-now-integrated-with-GitHub/player]
-
-### <a name="configure-a-github-repository-with-azure-data-factory"></a>Konfigurera en GitHub-lagringsplats med Azure Data Factory
-
-Du kan konfigurera en GitHub-lagringsplats med en data fabrik på två sätt.
-
-#### <a name="configuration-method-1-azure-data-factory-home-page"></a>Konfigurations metod 1: Azure Data Factory start sida
-
-På Azure Data Factory start sida väljer du **Konfigurera kod lagrings plats** .
-
-![Konfigurera en Azure databaser Code-lagringsplats](media/author-visually/configure-repo.png)
-
-#### <a name="configuration-method-2-ux-authoring-canvas"></a>Konfigurations metod 2: redigera arbets yta för UX
-
-I Azure Data Factory UX-redigerings arbets ytan väljer du den **Data Factory** list rutan och väljer sedan **Konfigurera kod lagrings plats** .
-
-![Konfigurera kod lagrings inställningarna för UX-redigering](media/author-visually/configure-repo-2.png)
-
-Båda metoderna öppnar konfigurations fönstret för lagrings inställningar.
+### <a name="github-settings"></a>GitHub-inställningar
 
 ![Inställningar för GitHub-lagringsplats](media/author-visually/github-integration-image2.png)
 
@@ -147,13 +150,45 @@ I konfigurations fönstret visas följande inställningar för GitHub-lagringspl
 |:--- |:--- |:--- |
 | **Typ av databas** | Typen av Azure databaser Code-lagringsplatsen. | GitHub |
 | **Använda GitHub Enterprise** | Kryss ruta för att välja GitHub Enterprise | omarkerat (standard) |
-| **GitHub Enterprise-URL** | GitHub Enterprise-rot-URL (måste vara HTTPS för den lokala GitHub Enterprise Server). Till exempel `https://github.mydomain.com`. Krävs endast om **Använd GitHub Enterprise** är valt | `<your GitHub enterprise url>` |                                                           
+| **GitHub Enterprise-URL** | GitHub Enterprise-rot-URL (måste vara HTTPS för den lokala GitHub Enterprise Server). Exempel: `https://github.mydomain.com`. Krävs endast om **Använd GitHub Enterprise** är valt | `<your GitHub enterprise url>` |                                                           
 | **GitHub-konto** | Namnet på GitHub-kontot. Det här namnet kan hittas från https: \/ /GitHub.com/{account Name}/{repository Name}. Om du navigerar till den här sidan uppmanas du att ange GitHub OAuth-autentiseringsuppgifter för ditt GitHub-konto. | `<your GitHub account name>` |
 | **Namn på databas**  | Ditt GitHub kod lagrings namn. GitHub-konton innehåller git-databaser för att hantera din käll kod. Du kan skapa en ny databas eller använda en befintlig databas som redan finns i ditt konto. | `<your repository name>` |
 | **Samarbets gren** | Din GitHub Collaboration-gren som används för publicering. Som standard är originalet. Ändra den här inställningen om du vill publicera resurser från en annan gren. | `<your collaboration branch>` |
 | **Rotmapp** | Rotmappen i din GitHub-samarbets gren. |`<your root folder name>` |
 | **Importera befintliga Data Factory resurser till lagrings platsen** | Anger om befintliga data Factory-resurser ska importeras från UX redigerings arbets ytan till en GitHub-lagringsplats. Markera rutan om du vill importera data Factory-resurser till den tillhör ande git-lagringsplatsen i JSON-format. Den här åtgärden exporterar varje resurs individuellt (det vill säga länkade tjänster och data uppsättningar exporteras till separata JSON-data). När den här rutan inte är markerad importeras inte de befintliga resurserna. | Vald (standard) |
 | **Gren att importera resurs till** | Anger i vilken gren Data Factory-resurserna (pipelines, data uppsättningar, länkade tjänster osv.) importeras. Du kan importera resurser till någon av följande grenar: a. Samarbete b. Skapa nytt c. Använd befintlig |  |
+
+### <a name="github-organizations"></a>GitHub-organisationer
+
+Att ansluta till en GitHub organisation kräver att organisationen beviljar behörighet att Azure Data Factory. En användare med ADMINISTRATÖRs behörighet för organisationen måste utföra stegen nedan för att Data Factory ska kunna ansluta.
+
+#### <a name="connecting-to-github-for-the-first-time-in-azure-data-factory"></a>Ansluter till GitHub för första gången i Azure Data Factory
+
+Om du ansluter till GitHub från Azure Data Factory för första gången ska du följa de här stegen för att ansluta till en GitHub-organisation.
+
+1. I fönstret git-konfiguration anger du organisations namnet i fältet *GitHub-konto* . En uppvarning om att logga in på GitHub visas. 
+1. Logga in med dina användarautentiseringsuppgifter.
+1. Du uppmanas att auktorisera Azure Data Factory som ett program med namnet *AzureDataFactory*. På den här skärmen kan du se ett alternativ för att ge ADF behörighet att få åtkomst till organisationen. Om du inte ser alternativet för att bevilja behörighet ber du en administratör att bevilja behörighet manuellt via GitHub.
+
+När du följer de här stegen kan fabriken ansluta till både offentliga och privata lagrings platser i din organisation. Om du inte kan ansluta kan du försöka rensa webbläsarens cacheminne och försöka igen.
+
+#### <a name="already-connected-to-github-using-a-personal-account"></a>Redan ansluten till GitHub med ett personligt konto
+
+Om du redan har anslutit till GitHub och bara har beviljats behörighet att komma åt ett personligt konto följer du stegen nedan för att ge behörighet till en organisation. 
+
+1. Gå till GitHub och öppna **Inställningar**.
+
+    ![Öppna GitHub-inställningar](media/author-visually/github-settings.png)
+
+1. Välj **program**. På fliken **auktoriserade OAuth-appar** bör du se *AzureDataFactory*.
+
+    ![Välj OAuth-appar](media/author-visually/github-organization-select-application.png)
+
+1. Välj programmet och ge programmet åtkomst till din organisation.
+
+    ![Bevilja åtkomst](media/author-visually/github-organization-grant.png)
+
+När du följer de här stegen kan fabriken ansluta till både offentliga och privata lagrings platser i din organisation. 
 
 ### <a name="known-github-limitations"></a>Kända GitHub-begränsningar
 
@@ -163,7 +198,6 @@ I konfigurations fönstret visas följande inställningar för GitHub-lagringspl
 
 - GitHub-integrering med Data Factory visuella redigerings verktyg fungerar bara i den allmänt tillgängliga versionen av Data Factory.
 
-- Azure Data Factory stöder inte organisations konton för GitHub
 
 - Högst 1 000 entiteter per resurs typ (till exempel pipelines och data uppsättningar) kan hämtas från en enda GitHub-gren. Om den här gränsen uppnås rekommenderar vi att du delar upp resurserna i separata fabriker. Azure DevOps git har inte den här begränsningen.
 
@@ -177,7 +211,7 @@ Varje Azure databaser git-lagringsplats som är associerad med en data fabrik ha
 
 ![Skapa en ny gren](media/author-visually/new-branch.png)
 
-När du är redo att sammanfoga ändringarna från din funktions gren till samarbets grenen klickar du på grenen gren och väljer **skapa pull-begäran** . Den här åtgärden tar dig till Azure databaser git där du kan generera pull-förfrågningar, göra kod granskningar och slå samman ändringar i samarbets grenen. ( `master` är standard). Du får bara publicera till tjänsten Data Factory från samarbets grenen. 
+När du är redo att sammanfoga ändringarna från din funktions gren till samarbets grenen klickar du på grenen gren och väljer **skapa pull-begäran**. Den här åtgärden tar dig till Azure databaser git där du kan generera pull-förfrågningar, göra kod granskningar och slå samman ändringar i samarbets grenen. ( `master` är standard). Du får bara publicera till tjänsten Data Factory från samarbets grenen. 
 
 ![Skapa en ny pull-begäran](media/author-visually/create-pull-request.png)
 
@@ -216,7 +250,7 @@ En sida i fönstret öppnas där du bekräftar att publicerings grenen och de v�
 Normalt vill du inte att alla grupp medlemmar ska ha behörighet att uppdatera Data Factory. Följande behörighets inställningar rekommenderas:
 
 *   Alla grupp medlemmar måste ha Läs behörighet till Data Factory.
-*   Endast en urvals uppsättning av personer ska kunna publiceras till Data Factory. För att göra detta måste de ha rollen **Data Factory Contributor** i **resurs gruppen** som innehåller data Factory. Mer information om behörigheter finns i [roller och behörigheter för Azure Data Factory](concepts-roles-permissions.md).
+*   Endast en urvals uppsättning av personer ska kunna publiceras till Data Factory. För att göra det måste de ha rollen **Data Factory Contributor** i **resurs gruppen** som innehåller data Factory. Mer information om behörigheter finns i [roller och behörigheter för Azure Data Factory](concepts-roles-permissions.md).
 
 Vi rekommenderar att du inte tillåter direkta incheckningar till samarbets grenen. Den här begränsningen kan hjälpa till att förhindra buggar som varje incheckning går igenom en gransknings process för pull-begäran som beskrivs i [skapa funktions grenar](source-control.md#creating-feature-branches).
 
@@ -244,7 +278,7 @@ Nedan visas några exempel på situationer som kan orsaka en inaktuell publiceri
 
 ## <a name="switch-to-a-different-git-repository"></a>Växla till en annan git-lagringsplats
 
-Om du vill växla till en annan git-lagringsplats går du till konfigurations sidan för git i hanterings navet under **käll kontroll** . Välj **Koppla från** . 
+Om du vill växla till en annan git-lagringsplats går du till konfigurations sidan för git i hanterings navet under **käll kontroll**. Välj **Koppla från**. 
 
 ![Git-ikon](media/author-visually/remove-repository.png)
 

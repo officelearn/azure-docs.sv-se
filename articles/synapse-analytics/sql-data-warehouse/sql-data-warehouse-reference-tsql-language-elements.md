@@ -1,6 +1,6 @@
 ---
-title: Språkelement för T-SQL
-description: Länkar till dokumentationen för språk element för T-SQL som stöds i Synapse SQL-poolen.
+title: Språk element för T-SQL för dedikerad SQL-pool
+description: Länkar till dokumentationen för språk element för T-SQL som stöds för dedikerad SQL-pool i Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 06/13/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: bccbe67c1ea4b93a7a1938fbab6b6f3d06cb5da3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 966df3be13eda4450608d42890fcfe2240ac61a9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289505"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324644"
 ---
-# <a name="t-sql-language-elements-supported-in-synapse-sql-pool"></a>Språk element för T-SQL som stöds i Synapse SQL-pool
+# <a name="t-sql-language-elements-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Språk element för T-SQL för dedikerad SQL-pool i Azure Synapse Analytics 
 
-Länkar till dokumentationen för språk element för T-SQL som stöds i Synapse SQL-poolen.
+Länkar till dokumentation för språk element i T-SQL som stöds i dedikerad SQL-pool.
 
 ## <a name="core-elements"></a>Kärn element
 
@@ -290,4 +290,4 @@ Länkar till dokumentationen för språk element för T-SQL som stöds i Synapse
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer referensinformation finns i [T-SQL-uttryck i SYNAPSE SQL-pool](sql-data-warehouse-reference-tsql-statements.md)och [systemvyer i Synapse SQL-pool](../sql/reference-tsql-system-views.md).
+Mer referensinformation finns i [T-SQL-uttryck i dedikerad SQL-pool](sql-data-warehouse-reference-tsql-statements.md)och [systemvyer i dedikerad SQL-pool](../sql/reference-tsql-system-views.md).

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: larryfr
 author: BlackMist
 ms.date: 07/08/2020
-ms.openlocfilehash: e1b92563acd6983b1680cacc06a8f2d0789dddf1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c554abc8aef89ca353e06c14b04fab2622d2827
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302510"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322187"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>Vad är Azure Machine Learning miljöer?
 
@@ -35,7 +35,7 @@ Skripten miljö, Compute Target och Training bildar körnings konfigurationen: d
 
 ## <a name="types-of-environments"></a>Typer av miljöer
 
-Miljöer kan i stort sett delas in i tre kategorier: *granskade*, *hanterade*och *systemhanterade*.
+Miljöer kan i stort sett delas in i tre kategorier: *granskade* , *hanterade* och *systemhanterade*.
 
 Granskade miljöer tillhandahålls av Azure Machine Learning och är tillgängliga i arbets ytan som standard. De innehåller samlingar med python-paket och inställningar som är avsedda att användas i befintligt skick för att komma igång med olika ramverk för maskin inlärning. De här i förväg skapade miljöerna tillåter också snabbare distributions tid. En fullständig lista finns i [artikeln granskade miljöer](resource-curated-environments.md).
 
@@ -68,7 +68,7 @@ Azure Machine Learnings tjänsten bygger miljö definitioner i Docker-avbildning
 
 ### <a name="submitting-a-run-using-an-environment"></a>Skicka in en körning med en miljö
 
-Första gången du skickar en fjärrkörning med hjälp av en miljö anropar tjänsten Azure Machine Learning en [ACR build-aktivitet](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-overview) på den Azure Container Registry (ACR) som är kopplad till arbets ytan. Den inbyggda Docker-avbildningen cachelagras sedan på arbets ytans ACR. Granskade miljöer backas upp av Docker-avbildningar som cachelagras i globala ACR. I början av körnings körningen hämtas avbildningen av beräknings målet från relevanta ACR.
+Första gången du skickar en fjärrkörning med hjälp av en miljö anropar tjänsten Azure Machine Learning en [ACR build-aktivitet](../container-registry/container-registry-tasks-overview.md) på den Azure Container Registry (ACR) som är kopplad till arbets ytan. Den inbyggda Docker-avbildningen cachelagras sedan på arbets ytans ACR. Granskade miljöer backas upp av Docker-avbildningar som cachelagras i globala ACR. I början av körnings körningen hämtas avbildningen av beräknings målet från relevanta ACR.
 
 För lokala körningar skapas en Docker-eller Conda-miljö baserat på miljö definitionen. Skripten körs sedan på mål beräkningen – en lokal körnings miljö eller en lokal Docker-motor.
 
@@ -79,13 +79,13 @@ Om miljö definitionen inte redan finns i arbets ytan ACR skapas en ny avbildnin
  1. Hämta en bas avbildning och köra eventuella Docker-steg
  2. Skapa en Conda-miljö enligt Conda-beroenden som anges i miljö definitionen.
 
-Det andra steget utelämnas om du anger [användar hanterade beroenden](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.pythonsection?view=azure-ml-py&preserve-view=true). I det här fallet är du ansvarig för att installera python-paket, genom att inkludera dem i bas avbildningen eller ange anpassade Docker-steg i det första steget. Du är också ansvarig för att ange rätt plats för den körbara python-filen. Det är också möjligt att använda en [anpassad Docker-bas avbildning](how-to-deploy-custom-docker-image.md).
+Det andra steget utelämnas om du anger [användar hanterade beroenden](/python/api/azureml-core/azureml.core.environment.pythonsection?preserve-view=true&view=azure-ml-py). I det här fallet är du ansvarig för att installera python-paket, genom att inkludera dem i bas avbildningen eller ange anpassade Docker-steg i det första steget. Du är också ansvarig för att ange rätt plats för den körbara python-filen. Det är också möjligt att använda en [anpassad Docker-bas avbildning](how-to-deploy-custom-docker-image.md).
 
 ### <a name="image-caching-and-reuse"></a>Cachelagring av bilder och åter användning
 
 Om du använder samma miljö definition för en annan körning återanvänder Azure Machine Learnings tjänsten den cachelagrade avbildningen från arbets ytans ACR. 
 
-Om du vill visa information om en cachelagrad avbildning använder [Environment.get_image_details](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-image-details-workspace-) metoden.
+Om du vill visa information om en cachelagrad avbildning använder [Environment.get_image_details](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-image-details-workspace-) metoden.
 
 För att avgöra om du ska återanvända en cachelagrad avbildning eller skapa en ny, beräknar tjänsten [ett hash-värde](https://en.wikipedia.org/wiki/Hash_table) från miljö definitionen och jämför den med hasharna i befintliga miljöer. Hashen baseras på:
  
@@ -108,10 +108,10 @@ Följande diagram visar tre miljö definitioner. Två av dem har olika namn och 
 Om du vill uppdatera paketet anger du ett versions nummer som tvingar avbildnings återskapning, till exempel ```numpy==1.18.1``` . Nya beroenden, inklusive kapslade, kommer att installeras som kan bryta ett tidigare arbets scenario. 
 
 > [!WARNING]
->  [Miljön. Build](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#&preserve-view=truebuild-workspace--image-build-compute-none-) -metoden kommer att återskapa den cachelagrade avbildningen med möjlig sido effekt på att uppdatera icke-fästa paket och bryta reproducerbarhet för alla miljö definitioner som motsvarar den cachelagrade avbildningen.
+>  [Miljön. Build](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#&preserve-view=truebuild-workspace--image-build-compute-none-) -metoden kommer att återskapa den cachelagrade avbildningen med möjlig sido effekt på att uppdatera icke-fästa paket och bryta reproducerbarhet för alla miljö definitioner som motsvarar den cachelagrade avbildningen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig hur du [skapar och använder miljöer](how-to-use-environments.md) i Azure Machine Learning.
-* Se referens dokumentation för python SDK för [miljö klassen](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true).
+* Se referens dokumentation för python SDK för [miljö klassen](/python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py).
 * Se referens dokumentationen för R SDK för [miljöer](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-environments).

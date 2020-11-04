@@ -1,6 +1,6 @@
 ---
 title: Indexerings tabeller
-description: Rekommendationer och exempel för indexering av tabeller i Synapse SQL-pool.
+description: Rekommendationer och exempel för indexering av tabeller i dedikerad SQL-pool.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,26 +11,26 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 605c3320b0fcc7ac9663acc1578740e2cb3f3174
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05551f39203f2c070dd2ede0740135d6963aedcf
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797606"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323578"
 ---
-# <a name="indexing-tables-in-synapse-sql-pool"></a>Indexera tabeller i Synapse SQL-pool
+# <a name="indexing-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Indexera tabeller med dedikerad SQL-pool i Azure Synapse Analytics
 
-Rekommendationer och exempel för indexering av tabeller i Synapse SQL-pool.
+Rekommendationer och exempel för indexering av tabeller i dedikerad SQL-pool.
 
 ## <a name="index-types"></a>Indextyper
 
-Synapse SQL-pool erbjuder flera indexerings alternativ, inklusive [grupperade columnstore-index](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [grupperade index och icke-grupperade index](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), och ett icke-index-alternativ kallas även [heap](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
+Dedikerad SQL-pool erbjuder flera indexerings alternativ, inklusive [grupperade columnstore-index](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [grupperade index och icke-grupperade index](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)och ett icke-index-alternativ som också kallas [heap](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
 
-Information om hur du skapar en tabell med ett index finns i dokumentationen för [CREATE TABLE (SYNAPSE SQL-pool)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .
+Information om hur du skapar en tabell med ett index finns i dokumentationen för [CREATE TABLE (dedikerad SQL-pool)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .
 
 ## <a name="clustered-columnstore-indexes"></a>Grupperade columnstore-index
 
-Som standard skapar Synapse SQL-poolen ett grupperat columnstore-index när inga index alternativ anges för en tabell. Grupperade columnstore-tabeller ger både den högsta nivån av data komprimering och bästa övergripande prestanda för frågor.  Grupperade columnstore-tabeller avsevärt vanligt vis grupperade index eller heap-tabeller och är vanligt vis det bästa valet för stora tabeller.  Därför är grupperat columnstore det bästa sättet att starta när du är osäker på hur du kan indexera tabellen.  
+Dedicerad SQL-pool skapar som standard ett grupperat columnstore-index när inga index alternativ anges för en tabell. Grupperade columnstore-tabeller ger både den högsta nivån av data komprimering och bästa övergripande prestanda för frågor.  Grupperade columnstore-tabeller avsevärt vanligt vis grupperade index eller heap-tabeller och är vanligt vis det bästa valet för stora tabeller.  Därför är grupperat columnstore det bästa sättet att starta när du är osäker på hur du kan indexera tabellen.  
 
 Om du vill skapa en grupperad columnstore-tabell ska du helt enkelt ange ett GRUPPERat COLUMNSTORE-INDEX i WITH-satsen eller lämna WITH-satsen avstängd:
 
@@ -52,7 +52,7 @@ Det finns några scenarier där grupperat columnstore inte kan vara ett lämplig
 
 ## <a name="heap-tables"></a>Heap-tabeller
 
-När du tillfälligt ställer in data i Synapse SQL-pool kan du se att det går att använda en heap-tabell för att göra den övergripande processen snabbare. Detta beror på att belastningar till heaps är snabbare än att indexera tabeller och i vissa fall kan den efterföljande läsningen göras från cachen.  Om du bara läser in data för att mellanlagra dem innan du kör fler transformationer går det mycket snabbare att läsa in tabellen till heap-tabellen än att läsa in data till en grupperad columnstore-tabell. Dessutom går det snabbare att läsa in data till en [temporär tabell](sql-data-warehouse-tables-temporary.md) än att läsa in en tabell till permanent lagring.  När data har lästs in kan du skapa index i tabellen för snabbare frågans prestanda.  
+När du tillfälligt ställer in data i en dedikerad SQL-pool, kan det hända att du använder en heap-tabell för att göra den övergripande processen snabbare. Detta beror på att belastningar till heaps är snabbare än att indexera tabeller och i vissa fall kan den efterföljande läsningen göras från cachen.  Om du bara läser in data för att mellanlagra dem innan du kör fler transformationer går det mycket snabbare att läsa in tabellen till heap-tabellen än att läsa in data till en grupperad columnstore-tabell. Dessutom går det snabbare att läsa in data till en [temporär tabell](sql-data-warehouse-tables-temporary.md) än att läsa in en tabell till permanent lagring.  När data har lästs in kan du skapa index i tabellen för snabbare frågans prestanda.  
 
 Kluster columnstore-tabeller börjar uppnå optimal komprimering när det finns fler än 60 000 000 rader.  För små uppslags tabeller, mindre än 60 000 000 rader, Överväg att använda HEAP eller grupperat index för snabbare frågeresultat. 
 
@@ -204,13 +204,13 @@ Batch-uppdatering och infognings åtgärder som överskrider Mass tröskelvärde
 
 ### <a name="small-or-trickle-load-operations"></a>Små eller trickle inläsnings åtgärder
 
-Små belastningar som flödar till Synapse SQL-poolen kallas ibland även trickle-belastningar. De representerar vanligt vis en nära konstant data ström som matas in av systemet. Men eftersom den här data strömmen är nära kontinuerlig, är volymen av rader inte särskilt stor. Oftare än att data är betydligt under tröskelvärdet som krävs för direkt inläsning till columnstore-format.
+Små belastningar som flödar till en dedikerad SQL-pool kallas ibland även trickle-belastningar. De representerar vanligt vis en nära konstant data ström som matas in av systemet. Men eftersom den här data strömmen är nära kontinuerlig, är volymen av rader inte särskilt stor. Oftare än att data är betydligt under tröskelvärdet som krävs för direkt inläsning till columnstore-format.
 
 I dessa fall är det ofta bättre att fylla i data först i Azure Blob Storage och låta dem ackumuleras innan de läses in. Den här tekniken kallas ofta för *Micro batching*.
 
 ### <a name="too-many-partitions"></a>För många partitioner
 
-En annan sak att överväga är effekten av partitionering i dina grupperade columnstore-tabeller.  Före partitionering delar Synapse SQL-poolen redan dina data i 60-databaser.  Om du partitionerar ytterligare delas dina data upp.  Om du partitionerar dina data måste du ta hänsyn till att **varje** partition behöver minst 1 000 000 rader för att dra nytta av ett grupperat columnstore-index.  Om du partitionerar din tabell i 100 partitioner behöver din tabell minst 6 000 000 000 rader för att dra nytta av ett grupperat columnstore-index (60-distributioner *100 partitioner* 1 000 000 rader). Om din 100-partitionstabell inte har 6 000 000 000-rader kan du antingen minska antalet partitioner eller överväga att använda en heap-tabell i stället.
+En annan sak att överväga är effekten av partitionering i dina grupperade columnstore-tabeller.  Före partitionering delar den dedikerade SQL-poolen redan dina data i 60-databaser.  Om du partitionerar ytterligare delas dina data upp.  Om du partitionerar dina data måste du ta hänsyn till att **varje** partition behöver minst 1 000 000 rader för att dra nytta av ett grupperat columnstore-index.  Om du partitionerar din tabell i 100 partitioner behöver din tabell minst 6 000 000 000 rader för att dra nytta av ett grupperat columnstore-index (60-distributioner *100 partitioner* 1 000 000 rader). Om din 100-partitionstabell inte har 6 000 000 000-rader kan du antingen minska antalet partitioner eller överväga att använda en heap-tabell i stället.
 
 När dina tabeller har lästs in med vissa data följer du stegen nedan för att identifiera och återskapa tabeller med under optimalt grupperade columnstore-index.
 
@@ -252,7 +252,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-Att återskapa ett index i Synapse SQL-poolen är en offline-åtgärd.  Mer information om hur du återskapar index finns i avsnittet ALTER INDEX Rebuild i [columnstore-index defragmentering](/sql/relational-databases/indexes/columnstore-indexes-defragmentation?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)och [ändra index](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Återskapande av ett index i en dedikerad SQL-pool är en offline-åtgärd.  Mer information om hur du återskapar index finns i avsnittet ALTER INDEX Rebuild i [columnstore-index defragmentering](/sql/relational-databases/indexes/columnstore-indexes-defragmentation?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)och [ändra index](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Steg 3: kontrol lera att den klustrade columnstore-segmentets kvalitet har förbättrats
 
@@ -283,7 +283,7 @@ AND     [OrderDateKey] <  20010101
 ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2 WITH (TRUNCATE_TARGET = ON);
 ```
 
-Mer information om hur du återskapar partitioner med hjälp av CTAS finns i [använda partitioner i SYNAPSE SQL-poolen](sql-data-warehouse-tables-partition.md).
+Mer information om att skapa partitioner på nytt med hjälp av CTAS finns i [använda partitioner i dedikerad SQL-pool](sql-data-warehouse-tables-partition.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

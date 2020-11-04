@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
-ms.openlocfilehash: 71ac7793fe5226215c5d4eab98f84dba356b114c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f13773a8e3e78451dfb587e55c40a20d1b4b385c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275973"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324764"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Git-integrering för Azure Machine Learning
 
@@ -39,7 +39,7 @@ Mer information om kloning finns i guiden om [hur du använder git CLI](https://
 
 ## <a name="authenticate-your-git-account-with-ssh"></a>Autentisera ditt git-konto med SSH
 ### <a name="generate-a-new-ssh-key"></a>Generera en ny SSH-nyckel
-1) [Öppna terminalfönstret](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#terminal) på fliken Azure Machine Learning antecknings bok.
+1) [Öppna terminalfönstret](./how-to-run-jupyter-notebooks.md#terminal) på fliken Azure Machine Learning antecknings bok.
 
 2) Klistra in texten nedan och ersätt den med din e-postadress.
 
@@ -89,7 +89,7 @@ cat ~/.ssh/id_rsa.pub
 
 + [GitLab](https://docs.gitlab.com/ee/ssh/#adding-an-ssh-key-to-your-gitlab-account)
 
-+ [Azure-DevOps](https://docs.microsoft.com/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops#step-2--add-the-public-key-to-azure-devops-servicestfs)  Starta i **steg 2**.
++ [Azure-DevOps](/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops#step-2--add-the-public-key-to-azure-devops-servicestfs)  Starta i **steg 2**.
 
 + [BitBucket](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/#SetupanSSHkey-ssh2). Starta i **steg 4**.
 
@@ -115,7 +115,7 @@ Warning: Permanently added 'github.com,192.30.255.112' (RSA) to the list of know
 
 SSH kan visa serverns SSH-finger avtryck och be dig verifiera den. Kontrol lera att finger avtrycket som visas matchar ett av finger avtryck på sidan offentliga SSH-nycklar.
 
-SSH visar det här finger avtrycket när det ansluter till en okänd värd för att skydda dig från [man-in-the-middle-attacker](https://technet.microsoft.com/library/cc959354.aspx). När du godkänner värdens finger avtryck kommer SSH inte att fråga dig igen om inte finger avtrycket ändras.
+SSH visar det här finger avtrycket när det ansluter till en okänd värd för att skydda dig från [man-in-the-middle-attacker](/previous-versions/windows/it-pro/windows-2000-server/cc959354(v=technet.10)). När du godkänner värdens finger avtryck kommer SSH inte att fråga dig igen om inte finger avtrycket ändras.
 
 3) När du tillfrågas om du vill fortsätta ansluta skriver du `yes` . Git kommer att klona lagrings platsen och konfigurera den ursprungliga fjärrdatorn för att ansluta med SSH för framtida git-kommandon.
 
@@ -153,9 +153,9 @@ Git-informationen lagras i egenskaperna för en utbildnings körning. Du kan vis
 ### <a name="azure-portal"></a>Azure Portal
 
 1. Från [Studio-portalen](https://ml.azure.com)väljer du din arbets yta.
-1. Välj __experiment__och välj sedan ett av experimenten.
+1. Välj __experiment__ och välj sedan ett av experimenten.
 1. Välj en av körningarna från kolumnen __Kör nummer__ .
-1. Välj __utdata + loggar__och expandera sedan __loggarna__ och __azureml__ -posterna. Välj den länk som börjar med __ ### \_ Azure__.
+1. Välj __utdata + loggar__ och expandera sedan __loggarna__ och __azureml__ -posterna. Välj den länk som börjar med __### \_ Azure__.
 
 Den loggade informationen innehåller text som liknar följande JSON:
 
@@ -178,7 +178,7 @@ Den loggade informationen innehåller text som liknar följande JSON:
 
 ### <a name="python-sdk"></a>Python SDK
 
-När du har skickat in en utbildnings körning returneras ett [körnings](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true) objekt. `properties`Attribut för det här objektet innehåller den loggade git-informationen. Följande kod hämtar exempelvis commit hash:
+När du har skickat in en utbildnings körning returneras ett [körnings](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) objekt. `properties`Attribut för det här objektet innehåller den loggade git-informationen. Följande kod hämtar exempelvis commit hash:
 
 ```python
 run.properties['azureml.git.commit']
@@ -192,7 +192,7 @@ run.properties['azureml.git.commit']
 az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup --query '[].properties'
 ```
 
-Mer information finns i referens dokumentationen för [AZ ml-körning](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true) .
+Mer information finns i referens dokumentationen för [AZ ml-körning](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest) .
 
 ## <a name="next-steps"></a>Nästa steg
 

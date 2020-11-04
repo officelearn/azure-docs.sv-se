@@ -1,7 +1,7 @@
 ---
 title: Ingen kod distribution (för hands version)
 titleSuffix: Azure Machine Learning
-description: Lär dig att distribuera en modell utan ett Entry-skript.
+description: Med ingen kod distribution kan du distribuera en modell som en webb tjänst utan att behöva skapa ett Entry-skript manuellt.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: deploy
 ms.reviewer: larryfr
-ms.openlocfilehash: 32b2afe036b443846199b5e9d74e690859fb581d
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: a17126695aa5138d1df7fd17cfaa2f5f75ad1004
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998864"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324912"
 ---
 # <a name="preview-no-code-model-deployment"></a>Förhandsgranskningsvyn Distribution utan kod modell
 
@@ -63,7 +63,7 @@ service_name = 'onnx-mnist-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
-Om du vill visa en modell läser du [använda en Azure Machine Learning modell som distribueras som en webb tjänst](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service). Många ONNX-projekt använder protobuf-filer för att komprimera inlärnings-och verifierings data i stor form, vilket kan göra det svårt att veta vilket data format tjänsten förväntar sig. Som modell utvecklare bör du dokumentera för dina utvecklare:
+Om du vill visa en modell läser du [använda en Azure Machine Learning modell som distribueras som en webb tjänst](./how-to-consume-web-service.md). Många ONNX-projekt använder protobuf-filer för att komprimera inlärnings-och verifierings data i stor form, vilket kan göra det svårt att veta vilket data format tjänsten förväntar sig. Som modell utvecklare bör du dokumentera för dina utvecklare:
 
 * Indataformat (JSON eller Binary)
 * Inmatnings data form och-typ (till exempel en matris med flytt ALS form [100100, 3])

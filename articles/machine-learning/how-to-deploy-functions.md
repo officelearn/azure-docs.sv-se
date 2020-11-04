@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
 ms.custom: how-to, racking-python, devx-track-azurecli
-ms.openlocfilehash: e93db23b09e933b58d6338646e7fff6fa30bc68e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 5e5ab4e3c9332d0daa1acf32edeeba2423c97ac3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736562"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324599"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Distribuera en maskin inlärnings modell till Azure Functions (för hands version)
 
@@ -26,12 +26,12 @@ Lär dig hur du distribuerar en modell från Azure Machine Learning som en Funct
 > [!IMPORTANT]
 > Både Azure Machine Learning och Azure Functions är allmänt tillgängliga, men möjligheten att paketera en modell från Machine Learnings tjänsten för functions är i för hands version.
 
-Med Azure Machine Learning kan du skapa Docker-avbildningar från tränade maskin inlärnings modeller. Azure Machine Learning har nu förhands gransknings funktioner för att bygga dessa maskin inlärnings modeller i Function-appar som kan [distribueras till Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-deployment-technologies#docker-container).
+Med Azure Machine Learning kan du skapa Docker-avbildningar från tränade maskin inlärnings modeller. Azure Machine Learning har nu förhands gransknings funktioner för att bygga dessa maskin inlärnings modeller i Function-appar som kan [distribueras till Azure Functions](../azure-functions/functions-deployment-technologies.md#docker-container).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure Machine Learning-arbetsyta. Mer information finns i artikeln [skapa en arbets yta](how-to-manage-workspace.md) .
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+* [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 * En utbildad Machine Learning-modell som registrerats i din arbets yta. Om du inte har någon modell använder du [själv studie kursen om bild klassificering: träna modell](tutorial-train-models-with-aml.md) att träna och registrera en.
 
     > [!IMPORTANT]
@@ -47,23 +47,23 @@ Med Azure Machine Learning kan du skapa Docker-avbildningar från tränade maski
 
 Innan du distribuerar måste du definiera vad som behövs för att köra modellen som en webb tjänst. I följande lista beskrivs de kärn objekt som behövs för en-distribution:
 
-* Ett __Entry-skript__ . Det här skriptet accepterar begär Anden, visar begäran med hjälp av modellen och returnerar resultatet.
+* Ett __Entry-skript__. Det här skriptet accepterar begär Anden, visar begäran med hjälp av modellen och returnerar resultatet.
 
     > [!IMPORTANT]
     > Start skriptet är bara för din modell. den måste förstå formatet på inkommande begär ande data, formatet på de data som förväntas av din modell och formatet på de data som returneras till klienter.
     >
     > Om begär ande data har ett format som inte kan användas av din modell kan skriptet omvandla det till ett acceptabelt format. Det kan också omvandla svaret innan det returneras till klienten.
     >
-    > Som standard behandlas indatatypen som text när de paketeras för funktioner. Om du är intresse rad av att använda rå byte för indata (till exempel för BLOB-utlösare) bör du använda [AMLRequest för att acceptera rå data](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#binary-data).
+    > Som standard behandlas indatatypen som text när de paketeras för funktioner. Om du är intresse rad av att använda rå byte för indata (till exempel för BLOB-utlösare) bör du använda [AMLRequest för att acceptera rå data](./how-to-deploy-advanced-entry-script.md#binary-data).
 
-Mer information om Entry-skript finns i [definiera bedömnings kod](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#script)
+Mer information om Entry-skript finns i [definiera bedömnings kod](./how-to-deploy-and-where.md#define-an-entry-script)
 
 * **Beroenden** , till exempel hjälp skript eller python/Conda-paket som krävs för att köra registrerings skriptet eller modellen
 
-Dessa entiteter kapslas in i en konfiguration för en __härledning__ . Inferenskonfigurationen refererar till startskriptet och andra beroenden.
+Dessa entiteter kapslas in i en konfiguration för en __härledning__. Inferenskonfigurationen refererar till startskriptet och andra beroenden.
 
 > [!IMPORTANT]
-> När du skapar en konfigurations konfiguration för användning med Azure Functions måste du använda ett [miljö](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true) objekt. Observera att om du definierar en anpassad miljö måste du lägga till azureml-defaults med version >= 1.0.45 som ett pip-beroende. Det här paketet innehåller de funktioner som krävs för att vara värd för modellen som en webb tjänst. I följande exempel visas hur du skapar ett miljö objekt och använder det med en konfigurations konfiguration:
+> När du skapar en konfigurations konfiguration för användning med Azure Functions måste du använda ett [miljö](/python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py) objekt. Observera att om du definierar en anpassad miljö måste du lägga till azureml-defaults med version >= 1.0.45 som ett pip-beroende. Det här paketet innehåller de funktioner som krävs för att vara värd för modellen som en webb tjänst. I följande exempel visas hur du skapar ett miljö objekt och använder det med en konfigurations konfiguration:
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -84,7 +84,7 @@ Mer information om miljöer finns i [skapa och hantera miljöer för utbildning 
 Mer information om konfiguration av konfiguration finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
 > [!IMPORTANT]
-> När du distribuerar till Functions behöver du inte skapa en __distributions konfiguration__ .
+> När du distribuerar till Functions behöver du inte skapa en __distributions konfiguration__.
 
 ## <a name="install-the-sdk-preview-package-for-functions-support"></a>Installera SDK Preview-paketet för functions-stöd
 
@@ -96,7 +96,7 @@ pip install azureml-contrib-functions
 
 ## <a name="create-the-image"></a>Skapa avbildningen
 
-Om du vill skapa Docker-avbildningen som distribueras till Azure Functions använder du [azureml. contrib. functions. Package](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true) eller funktionen Package för den utlösare som du är intresse rad av. Följande kodfragment visar hur du skapar ett nytt paket med en BLOB-utlösare från modellen och konfigurationen för konfigurations härledning:
+Om du vill skapa Docker-avbildningen som distribueras till Azure Functions använder du [azureml. contrib. functions. Package](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py) eller funktionen Package för den utlösare som du är intresse rad av. Följande kodfragment visar hur du skapar ett nytt paket med en BLOB-utlösare från modellen och konfigurationen för konfigurations härledning:
 
 > [!NOTE]
 > Kodfragmentet förutsätter att `model` innehåller en registrerad modell och att den `inference_config` innehåller konfigurationen för härlednings miljön. Mer information finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
@@ -113,7 +113,7 @@ print(blob.location)
 När `show_output=True` visas utdata från Docker-build-processen. När processen har slutförts har avbildningen skapats i Azure Container Registry för din arbets yta. När avbildningen har skapats visas platsen i Azure Container Registry. Den plats som returnerades är i formatet `<acrinstance>.azurecr.io/package@sha256:<imagename>` .
 
 > [!NOTE]
-> Paketering för functions stöder HTTP-utlösare, BLOB-utlösare och Service Bus-utlösare Mer information om utlösare finns i [Azure Functions-bindningar](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob-trigger#blob-name-patterns).
+> Paketering för functions stöder HTTP-utlösare, BLOB-utlösare och Service Bus-utlösare Mer information om utlösare finns i [Azure Functions-bindningar](../azure-functions/functions-bindings-storage-blob-trigger.md#blob-name-patterns).
 
 > [!IMPORTANT]
 > Spara plats informationen som används när avbildningen distribueras.
@@ -144,7 +144,7 @@ När `show_output=True` visas utdata från Docker-build-processen. När processe
     }
     ```
 
-    Spara värdet för __användar namn__ och ett av __lösen orden__ .
+    Spara värdet för __användar namn__ och ett av __lösen orden__.
 
 1. Om du inte redan har en resurs grupp eller App Service-plan för att distribuera tjänsten visar följande kommandon hur du skapar båda:
 
@@ -293,12 +293,12 @@ När avbildningen har lästs in och appen är tillgänglig använder du följand
 
     När kommandot har slutförts öppnar du filen. Den innehåller de data som returneras av modellen.
 
-Mer information om hur du använder BLOB-utlösare finns i artikeln [skapa en funktion som utlöses av Azure Blob Storage](/azure/azure-functions/functions-create-storage-blob-triggered-function) .
+Mer information om hur du använder BLOB-utlösare finns i artikeln [skapa en funktion som utlöses av Azure Blob Storage](../azure-functions/functions-create-storage-blob-triggered-function.md) .
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig att konfigurera Functions-appen i [Functions](/azure/azure-functions/functions-create-function-linux-custom-image) -dokumentationen.
-* Läs mer om Blob Storage-utlösare av [Azure Blob Storage-bindningar](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob).
+* Lär dig att konfigurera Functions-appen i [Functions](../azure-functions/functions-create-function-linux-custom-image.md) -dokumentationen.
+* Läs mer om Blob Storage-utlösare av [Azure Blob Storage-bindningar](../azure-functions/functions-bindings-storage-blob.md).
 * [Distribuera din modell till Azure App Service](how-to-deploy-app-service.md).
 * [Använda en ML-modell som distribueras som en webb tjänst](how-to-consume-web-service.md)
-* [API-referens](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true)
+* [API-referens](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py)

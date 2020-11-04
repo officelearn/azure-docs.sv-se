@@ -1,6 +1,6 @@
 ---
-title: Använda OpenRowSet i SQL på begäran (för hands version)
-description: I den här artikeln beskrivs syntaxen för OpenRowSet i SQL på begäran (för hands version) och information om hur du använder argument.
+title: Använda OpenRowSet i SQL-poolen utan server (för hands version)
+description: Den här artikeln beskriver syntaxen för OpenRowSet i SQL-poolen utan server (för hands version) och förklarar hur du använder argument.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2ef09fd81aaeca92e87be2a0fddbc9be16ebac1d
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 5059b051b16107ac7508e509d319159651de11e3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242049"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324407"
 ---
-# <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Använda OpenRowSet med SQL på begäran (för hands version)
+# <a name="how-to-use-openrowset-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Använda OpenRowSet med Server lös SQL-pool (för hands version) i Azure Synapse Analytics
 
-`OPENROWSET(BULK...)`Funktionen gör att du kan komma åt filer i Azure Storage. `OPENROWSET` funktionen läser innehåll i en fjärrdatakälla (till exempel fil) och returnerar innehållet som en uppsättning rader. I SQL on-demand-resursen (för hands version) kan du komma åt OpenRowSet-providern för OpenRowSet genom att anropa funktionen OpenRowSet och ange alternativet för Mass rad uppsättning.  
+`OPENROWSET(BULK...)`Funktionen gör att du kan komma åt filer i Azure Storage. `OPENROWSET` funktionen läser innehåll i en fjärrdatakälla (till exempel fil) och returnerar innehållet som en uppsättning rader. I den serverbaserade SQL-poolen (förhands granskning) kan du komma åt OpenRowSet-providern genom att anropa funktionen OpenRowSet och ange alternativet för Mass rad uppsättning.  
 
 `OPENROWSET`Funktionen kan refereras i- `FROM` satsen i en fråga som om den vore ett tabell namn `OPENROWSET` . Det stöder Mass åtgärder via en inbyggd Mass leverantör som gör det möjligt att läsa och returnera data från en fil som en rad uppsättning.
 
@@ -131,12 +131,12 @@ Unstructured_data_path som upprättar en sökväg till data kan vara en absolut 
 Nedan visas ett exempel som läser alla *CSV* -filer som börjar med *ifyllning* från alla mappar som börjar med */CSV/population* :  
 `https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv`
 
-Om du anger att unstructured_data_path ska vara en mapp, kommer en fråga om SQL på begäran att hämta filer från den mappen. 
+Om du anger att unstructured_data_path ska vara en mapp, kommer en server lös SQL-pool fråga att hämta filer från den mappen. 
 
 > [!NOTE]
-> Till skillnad från Hadoop och PolyBase returnerar SQL on-demand inte undermappar. Till skillnad från Hadoop och PolyBase returnerar till exempel SQL på begäran filer för vilka fil namnet börjar med en understrykning (_) eller en punkt (.).
+> Till skillnad från Hadoop och PolyBase returnerar inte Server lös SQL-poolen undermappar. Till skillnad från Hadoop och PolyBase returnerar även Server fri SQL-pool de filer som fil namnet börjar med en understrykning (_) eller en punkt (.).
 
-I exemplet nedan, om unstructured_data_path = `https://mystorageaccount.dfs.core.windows.net/webdata/` , kommer en SQL-fråga på begäran returnera rader från mydata.txt och _hidden.txt. Den returnerar inte mydata2.txt och mydata3.txt eftersom de finns i en undermapp.
+I exemplet nedan, om unstructured_data_path = `https://mystorageaccount.dfs.core.windows.net/webdata/` , kommer en server lös SQL-pool fråga returnera rader från mydata.txt och _hidden.txt. Den returnerar inte mydata2.txt och mydata3.txt eftersom de finns i en undermapp.
 
 ![Rekursiva data för externa tabeller](./media/develop-openrowset/folder-traversal.png)
 

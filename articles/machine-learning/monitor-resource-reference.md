@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2020
-ms.openlocfilehash: edd2b3e02c1a768b1f18a62faaf9b59539b92774
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: be8d6ca79a43ddd2bd709390dd476cb9dcfa7b29
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92739139"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323939"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Övervaka data referens för Azure Machine Learning
 
@@ -22,7 +22,7 @@ Lär dig mer om de data och resurser som samlats in av Azure Monitor från arbet
 
 ## <a name="metrics"></a>Mått
 
-I det här avsnittet visas alla automatiskt insamlade plattforms mått som samlas in för Azure Machine Learning. Resurs leverantören för dessa mått är [Microsoft. MachineLearningServices/arbets ytor](/azure/azure-monitor/platform/metrics-supported#microsoftmachinelearningservicesworkspaces).
+I det här avsnittet visas alla automatiskt insamlade plattforms mått som samlas in för Azure Machine Learning. Resurs leverantören för dessa mått är [Microsoft. MachineLearningServices/arbets ytor](../azure-monitor/platform/metrics-supported.md#microsoftmachinelearningservicesworkspaces).
 
 **Modell**
 
@@ -61,7 +61,7 @@ Kvot information gäller endast för Azure Machine Learning beräkning.
 | CpuUtilization | Procent | Hur mycket processor användnings procent som används för en viss nod under en körning/ett jobb. Det här måttet publiceras bara när ett jobb körs på en nod. Ett jobb kan använda en eller flera noder. Det här måttet publiceras per nod. |
 | GpuUtilization | Procent | Hur mycket GPU-minne som utnyttjades för en viss nod under en körning/ett jobb. En nod kan ha en eller flera GPU: er. Det här måttet publiceras per GPU per nod. |
 
-**Kör**
+**Fungerar**
 
 Information om utbildning körs.
 
@@ -73,7 +73,7 @@ Information om utbildning körs.
 
 ## <a name="metric-dimensions"></a>Mått dimensioner
 
-Mer information om vilka mått dimensioner som finns i [flerdimensionella mått](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
+Mer information om vilka mått dimensioner som finns i [flerdimensionella mått](../azure-monitor/platform/data-platform-metrics.md#multi-dimensional-metrics).
 
 Azure Machine Learning har följande dimensioner kopplade till sina mått.
 
@@ -87,7 +87,7 @@ Azure Machine Learning har följande dimensioner kopplade till sina mått.
 | NodeId | ID för noden som skapades där jobbet körs. Endast tillgängligt för CpuUtilization och GpuUtilization. |
 | RunId | ID för körning/jobb. Endast tillgängligt för CpuUtilization och GpuUtilization. |
 | ComputeType | Den beräknings typ som används för körningen. Endast tillgängligt för slutförda körningar, misslyckade körningar och startade körningar. |
-| PipelineStepType | Den typ av [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py&preserve-view=true) som används i körningen. Endast tillgängligt för slutförda körningar, misslyckade körningar och startade körningar. |
+| PipelineStepType | Den typ av [PipelineStep](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?preserve-view=true&view=azure-ml-py) som används i körningen. Endast tillgängligt för slutförda körningar, misslyckade körningar och startade körningar. |
 | PublishedPipelineId | ID för den publicerade pipelinen som används i körningen. Endast tillgängligt för slutförda körningar, misslyckade körningar och startade körningar. |
 | RunType | Typ av körning. Endast tillgängligt för slutförda körningar, misslyckade körningar och startade körningar. |
 
@@ -116,7 +116,7 @@ I följande tabell visas de åtgärder som är relaterade till Azure Machine Lea
 
 I det här avsnittet visas de typer av resurs loggar som du kan samla in för Azure Machine Learning arbets ytan.
 
-Resource Provider och typ: [Microsoft. MachineLearningServices/Workspace](/azure/azure-monitor/platform/resource-logs-categories#microsoftmachinelearningservicesworkspaces).
+Resource Provider och typ: [Microsoft. MachineLearningServices/Workspace](../azure-monitor/platform/resource-logs-categories.md#microsoftmachinelearningservicesworkspaces).
 
 | Kategori | Visningsnamn |
 | ----- | ----- |
@@ -231,4 +231,4 @@ Följande scheman används i Azure Machine Learning
 ## <a name="see-also"></a>Se även
 
 - En beskrivning av övervaknings Azure Machine Learning finns i [övervaknings Azure Machine Learning](monitor-azure-machine-learning.md) .
-- Mer information om övervakning av Azure-resurser finns i [övervaka Azure-resurser med Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource) .
+- Mer information om övervakning av Azure-resurser finns i [övervaka Azure-resurser med Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md) .

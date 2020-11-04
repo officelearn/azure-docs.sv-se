@@ -10,18 +10,18 @@ ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 09/22/2020
 ms.custom: contperfq1
-ms.openlocfilehash: d462ed4627254275703d88cadbaf5d55a106da55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a6708214eadb2f5d0d66d72f5db5cb4a195d206
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330136"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324863"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Djup inlärning jämfört med Machine Learning i Azure Machine Learning
 
 Den här artikeln beskriver djup inlärning och maskin inlärning och hur de passar in i den bredare kategorin av artificiell intelligens. Lär dig mer om djup inlärnings lösningar som du kan bygga på Azure Machine Learning, till exempel bedrägeri identifiering, röst-och ansikts igenkänning, sentiment analys och tids serie prognoser.
 
-Vägledning om hur du väljer algoritmer för dina lösningar finns i [lathund-bladet Machine Learning algorithm](algorithm-cheat-sheet.md).
+Vägledning om hur du väljer algoritmer för dina lösningar finns i [lathund-bladet Machine Learning algorithm](https://docs.microsoft.com/azure/machine-learning/algorithm-cheat-sheet?WT.mc_id=docs-article-lazzeri).
 
 ## <a name="deep-learning-machine-learning-and-ai"></a>Djup inlärning, maskin inlärning och AI
 
@@ -73,7 +73,7 @@ Djup inlärning har tillämpats i många olika användnings fall för objekt ide
 
 Objekt identifiering används redan i branscher som spel, detalj handel, turism och självdrivande bilar.
 
-Lär dig hur du använder en bild klassificerings modell från ett ramverk med öppen källkod i Azure Machine Learning: [klassificera bilder med hjälp av en Pytorch modell](https://docs.microsoft.com/azure/machine-learning/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
+Lär dig hur du använder en bild klassificerings modell från ett ramverk med öppen källkod i Azure Machine Learning: [klassificera bilder med hjälp av en Pytorch modell](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri)
 
 ### <a name="image-caption-generation"></a>Generering av bild text
 
@@ -93,7 +93,7 @@ Text analys som bygger på djup inlärnings metoder innebär analys av stora mä
 
 Företag använder djup inlärning för att utföra text analyser för att identifiera insider handel och efterlevnad med myndighets bestämmelser. Ett annat vanligt exempel är försäkrings bedrägerier: text analys har ofta använts för att analysera stora mängder dokument för att identifiera sannolikheten för ett försäkrings anspråk som bedrägerier. 
 
-Lär dig hur du använder en TensorFlow-modell i Azure Machine Learning: [klassificera handskrivna siffror med hjälp av en TensorFlow-modell](https://docs.microsoft.com/azure/machine-learning/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
+Lär dig hur du använder en TensorFlow-modell i Azure Machine Learning: [klassificera handskrivna siffror med hjälp av en TensorFlow-modell](./how-to-train-tensorflow.md?WT.mc_id=docs-article-lazzeri)
 
 ## <a name="artificial-neural-networks"></a>Artificiell neurala-nätverk
 
@@ -117,8 +117,8 @@ Ett (convolutional neurala-nätverk är ett särskilt effektivt artificiellt neu
 
 ## <a name="next-steps"></a>Nästa steg
 
-I följande artiklar visas fler alternativ för att använda djup inlärnings modeller med öppen källkod i [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/?WT.mc_id=docs-article-lazzeri):
+I följande artiklar visas fler alternativ för att använda djup inlärnings modeller med öppen källkod i [Azure Machine Learning](./index.yml?WT.mc_id=docs-article-lazzeri):
 
-- [Klassificera handskrivna siffror med en TensorFlow-uppskattning och keras](https://docs.microsoft.com/azure/machine-learning/how-to-train-keras?WT.mc_id=docs-article-lazzeri)
+- [Klassificera handskrivna siffror med en TensorFlow-uppskattning och keras](./how-to-train-keras.md?WT.mc_id=docs-article-lazzeri)
 
-- [Klassificera handskrivna siffror med hjälp av en kedje modell](https://docs.microsoft.com/azure/machine-learning/how-to-train-ml-models)
+- [Klassificera handskrivna siffror med hjälp av en kedje modell](./how-to-set-up-training-targets.md)

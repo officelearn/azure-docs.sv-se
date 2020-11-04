@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 08/05/2020
-ms.openlocfilehash: 689b90fc1f45faad72640f47e5eebe936d2dc8b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2ece76ef3594cadfa1fcda89259ee18eb1f9084
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87829398"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324855"
 ---
 # <a name="what-is-responsible-machine-learning-preview"></a>Vad är ansvaret för maskin inlärning? (förhandsversion)
 
@@ -73,7 +73,7 @@ I traditionella moln lagrings-och beräknings lösningar måste molnet ha okrypt
 
 Homomorphic-kryptering gör det möjligt att utföra beräkningar på krypterade data utan att behöva åtkomst till en hemlig nyckel (dekryptering). Resultatet av beräkningarna krypteras och kan bara visas av ägaren av den hemliga nyckeln. Med homomorphic-kryptering kommer moln operatörer aldrig att ha okrypterad åtkomst till de data som de lagrar och använder. Beräkningar utförs direkt på krypterade data. Data sekretess är beroende av den senaste krypteringen och data ägaren styr alla informations utgåvor. Mer information om homomorphic-kryptering på Microsoft finns i [Microsoft Research](https://www.microsoft.com/research/project/homomorphic-encryption/).
 
-Kom igång med homomorphic-kryptering i Azure Machine Learning genom att använda python-bindningar med [krypterad härledning](https://pypi.org/project/encrypted-inference/) för [Microsoft Seal](https://github.com/microsoft/SEAL). Microsoft SEAL är ett homomorphic krypterings bibliotek med öppen källkod som gör att tillägg och multiplicitet kan utföras på krypterade heltal eller reella tal. Mer information om Microsoft SEAL finns på sidan [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/homomorphic-encryption-seal) eller [Microsoft Research Project](https://www.microsoft.com/research/project/microsoft-seal/).
+Kom igång med homomorphic-kryptering i Azure Machine Learning genom att använda python-bindningar med [krypterad härledning](https://pypi.org/project/encrypted-inference/) för [Microsoft Seal](https://github.com/microsoft/SEAL). Microsoft SEAL är ett homomorphic krypterings bibliotek med öppen källkod som gör att tillägg och multiplicitet kan utföras på krypterade heltal eller reella tal. Mer information om Microsoft SEAL finns på sidan [Azure Architecture Center](/azure/architecture/solution-ideas/articles/homomorphic-encryption-seal) eller [Microsoft Research Project](https://www.microsoft.com/research/project/microsoft-seal/).
 
 Se följande exempel för att lära dig [hur du distribuerar en krypterad inferencing-webb tjänst i Azure Machine Learning](how-to-homomorphic-encryption-seal.md).
 
@@ -96,5 +96,5 @@ I följande exempel kan du lära dig hur du använder Azure Machine Learning SDK
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- Mer information finns i [ansvariga Innovations verktyg](https://docs.microsoft.com/azure/architecture/guide/responsible-innovation/) för att lära dig mer om bästa praxis.
+- Mer information finns i [ansvariga Innovations verktyg](/azure/architecture/guide/responsible-innovation/) för att lära dig mer om bästa praxis.
 - Lär dig [mer om de här rikt](https://www.partnershiponai.org/about-ml/) linjerna för Machine Learning-system.

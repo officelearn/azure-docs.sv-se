@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: d34748a2b9f46bde187b4f003e210ffdaecd93e2
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 8888393cdbc738525b89ace1cf6f5864b7aa3b6e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675690"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324819"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Träna modeller med Azure Machine Learning
 
@@ -26,14 +26,14 @@ Azure Machine Learning tillhandahåller flera olika sätt att träna modeller, f
     | Utbildnings metod | Beskrivning |
     | ----- | ----- |
     | [Kör konfiguration](#run-configuration) | Ett **typiskt sätt att träna modeller** är att använda ett utbildnings skript och köra konfiguration. Kör konfigurationen tillhandahåller den information som behövs för att konfigurera den utbildnings miljö som används för att träna din modell. Du kan ange ditt utbildnings skript, Compute Target och Azure ML-miljö i din körnings konfiguration och köra ett utbildnings jobb. |
-    | [Automatiserad maskininlärning](#automated-machine-learning) | Med automatisk maskin inlärning kan du **träna modeller utan omfattande data vetenskap eller programmerings kunskap** . För personer med data vetenskap och programmerings bakgrund är det ett sätt att spara tid och resurser genom att automatisera val av algoritmer och justering av den valda parametern. Du behöver inte bekymra dig om att definiera en körnings konfiguration när du använder automatisk maskin inlärning. |
-    | [Maskin inlärnings pipeline](#machine-learning-pipeline) | Pipelines är inte en annan utbildnings metod, men ett **sätt att definiera ett arbets flöde med modulära, återanvändbara steg** som kan innefatta utbildning som en del av arbets flödet. Maskin inlärnings pipeliner har stöd för automatisk maskin inlärning och körning av konfiguration för att träna modeller. Eftersom pipelines inte fokuserar på utbildning, är orsakerna till att använda en pipeline mer varierade än andra utbildnings metoder. I allmänhet kan du använda en pipeline när:<br>* Du vill **Schemalägga obevakade processer** , t. ex. tids krävande utbildnings jobb eller förberedelse av data.<br>* Använd **flera steg** som är koordinerade över heterogena beräknings resurser och lagrings platser.<br>* Använd pipelinen som en **återanvändbar mall** för vissa scenarier, till exempel omskolning eller batch-poäng.<br>* **Spåra och version data källor, indata och utdata** för ditt arbets flöde.<br>* Ditt arbets flöde **implementeras av olika team som arbetar på vissa steg oberoende av varandra** . Steg kan sedan kopplas ihop i en pipeline för att implementera arbets flödet. |
+    | [Automatiserad maskininlärning](#automated-machine-learning) | Med automatisk maskin inlärning kan du **träna modeller utan omfattande data vetenskap eller programmerings kunskap**. För personer med data vetenskap och programmerings bakgrund är det ett sätt att spara tid och resurser genom att automatisera val av algoritmer och justering av den valda parametern. Du behöver inte bekymra dig om att definiera en körnings konfiguration när du använder automatisk maskin inlärning. |
+    | [Maskin inlärnings pipeline](#machine-learning-pipeline) | Pipelines är inte en annan utbildnings metod, men ett **sätt att definiera ett arbets flöde med modulära, återanvändbara steg** som kan innefatta utbildning som en del av arbets flödet. Maskin inlärnings pipeliner har stöd för automatisk maskin inlärning och körning av konfiguration för att träna modeller. Eftersom pipelines inte fokuserar på utbildning, är orsakerna till att använda en pipeline mer varierade än andra utbildnings metoder. I allmänhet kan du använda en pipeline när:<br>* Du vill **Schemalägga obevakade processer** , t. ex. tids krävande utbildnings jobb eller förberedelse av data.<br>* Använd **flera steg** som är koordinerade över heterogena beräknings resurser och lagrings platser.<br>* Använd pipelinen som en **återanvändbar mall** för vissa scenarier, till exempel omskolning eller batch-poäng.<br>* **Spåra och version data källor, indata och utdata** för ditt arbets flöde.<br>* Ditt arbets flöde **implementeras av olika team som arbetar på vissa steg oberoende av varandra**. Steg kan sedan kopplas ihop i en pipeline för att implementera arbets flödet. |
 
 + [Azure Machine Learning SDK för r (för hands version)](#r-sdk-preview): SDK för r använder Reticulate-paketet för att binda till Azure Machine learnings python SDK. På så sätt kan du komma åt kärn objekt och metoder som implementeras i python SDK från valfri R-miljö.
 
 + **Designer** : Azure Machine Learning designer är en lätt ingångs punkt i maskin inlärning för att skapa bevis på begrepp eller för användare med lite kodnings upplevelse. Det gör att du kan träna modeller med ett webbaserat användar gränssnitt med dra och släpp. Du kan använda python-kod som en del av designen eller träna modeller utan att skriva någon kod.
 
-+ **CLI** : Machine Learning CLI innehåller kommandon för vanliga aktiviteter med Azure Machine Learning och används ofta för **skript och automatiserade uppgifter** . När du till exempel har skapat ett utbildnings skript eller en pipeline kan du använda CLI för att starta en utbildning i ett schema eller när datafilerna som används för träningen uppdateras. För utbildnings modeller tillhandahåller den kommandon som skickar utbildnings jobb. Den kan skicka jobb med kör konfigurationer eller pipeliner.
++ **CLI** : Machine Learning CLI innehåller kommandon för vanliga aktiviteter med Azure Machine Learning och används ofta för **skript och automatiserade uppgifter**. När du till exempel har skapat ett utbildnings skript eller en pipeline kan du använda CLI för att starta en utbildning i ett schema eller när datafilerna som används för träningen uppdateras. För utbildnings modeller tillhandahåller den kommandon som skickar utbildnings jobb. Den kan skicka jobb med kör konfigurationer eller pipeliner.
 
 Var och en av dessa utbildnings metoder kan använda olika typer av beräknings resurser för utbildning. De här resurserna kallas gemensamt för [__beräknings mål__](concept-azure-machine-learning-architecture.md#compute-targets). Ett beräknings mål kan vara en lokal dator eller en moln resurs, t. ex. en Azure Machine Learning Compute, Azure HDInsight eller en virtuell dator.
 
@@ -41,13 +41,13 @@ Var och en av dessa utbildnings metoder kan använda olika typer av beräknings 
 
 Med Azure Machine Learning SDK för python kan du skapa och köra Machine Learning-arbetsflöden med Azure Machine Learning. Du kan interagera med tjänsten från en interaktiv python-session, Jupyter-anteckningsböcker, Visual Studio Code eller annan IDE.
 
-* [Vad är Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)
-* [Installera/uppdatera SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
+* [Vad är Azure Machine Learning SDK för python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
+* [Installera/uppdatera SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)
 * [Konfigurera en utvecklings miljö för Azure Machine Learning](how-to-configure-environment.md)
 
 ### <a name="run-configuration"></a>Kör konfiguration
 
-Ett allmänt utbildnings jobb med Azure Machine Learning kan definieras med hjälp av [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true). Skript körnings konfigurationen används sedan tillsammans med dina utbildnings skript för att träna en modell på ett beräknings mål.
+Ett allmänt utbildnings jobb med Azure Machine Learning kan definieras med hjälp av [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py). Skript körnings konfigurationen används sedan tillsammans med dina utbildnings skript för att träna en modell på ett beräknings mål.
 
 Du kan börja med en körnings konfiguration för den lokala datorn och sedan växla till en för ett moln baserat beräknings mål vid behov. När du ändrar Compute-målet ändrar du bara den körnings konfiguration som du använder. En körning loggar också information om utbildnings jobbet, till exempel indata, utdata och loggar.
 
@@ -90,8 +90,8 @@ Azures utbildnings livs cykel består av:
 1. Skapa eller ladda ned Dockerfile till Compute-noden 
     1. Systemet beräknar en hash av: 
         - Bas avbildningen 
-        - Anpassade Docker-steg (se [distribuera en modell med en anpassad Docker-bas avbildning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image))
-        - Conda definition YAML (se [skapa & använda program varu miljöer i Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments))
+        - Anpassade Docker-steg (se [distribuera en modell med en anpassad Docker-bas avbildning](./how-to-deploy-custom-docker-image.md))
+        - Conda definition YAML (se [skapa & använda program varu miljöer i Azure Machine Learning](./how-to-use-environments.md))
     1. Systemet använder denna hash som nyckel i en sökning i arbets ytans Azure Container Registry (ACR)
     1. Om den inte hittas söker den efter en matchning i den globala ACR
     1. Om den inte hittas skapar systemet en ny avbildning (som kommer att cachelagras och registreras med arbets ytans ACR)
@@ -101,7 +101,7 @@ Azures utbildnings livs cykel består av:
 1. Spara loggar, modellvariabler och andra filer som skrivs till `./outputs` det lagrings konto som är kopplat till arbets ytan
 1. Skala ned beräkning, inklusive borttagning av tillfällig lagring 
 
-Om du väljer att träna på den lokala datorn ("Konfigurera som lokal körning") behöver du inte använda Docker. Du kan använda Docker lokalt om du väljer (se avsnittet [Konfigurera ml pipeline](https://docs.microsoft.com/azure/machine-learning/how-to-debug-pipelines#configure-ml-pipeline ) för ett exempel).
+Om du väljer att träna på den lokala datorn ("Konfigurera som lokal körning") behöver du inte använda Docker. Du kan använda Docker lokalt om du väljer (se avsnittet [Konfigurera ml pipeline](./how-to-debug-pipelines.md) för ett exempel).
 
 ## <a name="r-sdk-preview"></a>R SDK (för hands version)
 

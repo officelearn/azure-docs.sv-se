@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: a5206ed55dfe2632c7f6604c4f3d8e3199e23b99
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 781b37405bebc5ddc3d33cbbc089049b0c0f8ca4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792029"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325530"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Använda Azure Machine Learning Studio i ett virtuellt Azure-nätverk
 
@@ -36,7 +36,7 @@ Se de andra artiklarna i den här serien:
 
 
 > [!IMPORTANT]
-> Om din arbets yta är i ett __suveränt moln__ , till exempel Azure Government eller Azure Kina 21Vianet, stöder integrerade notebook-datorer _inte_ användningen av lagring i ett virtuellt nätverk. I stället kan du använda Jupyter-anteckningsböcker från en beräknings instans. Mer information finns i avsnittet [åtkomst data i en Compute instance-anteckningsbok](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) .
+> Om din arbets yta är i ett __suveränt moln__ , till exempel Azure Government eller Azure Kina 21Vianet, stöder integrerade notebook-datorer _inte_ användningen av lagring i ett virtuellt nätverk. Då kan du i stället använda Jupyter-notebook-filer från en beräkningsinstans. Mer information finns i avsnittet [åtkomst data i en Compute instance-anteckningsbok](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) .
 
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -53,7 +53,7 @@ Se de andra artiklarna i den här serien:
 
 Om du ansluter till Studio från en resurs i ett virtuellt nätverk (till exempel en beräknings instans eller virtuell dator) måste du tillåta utgående trafik från det virtuella nätverket till Studio. 
 
-Om du till exempel använder nätverks säkerhets grupper (NSG) för att begränsa utgående trafik, lägger du till en regel till ett __service tag-__ mål för __AzureFrontDoor. frontend__ .
+Om du till exempel använder nätverks säkerhets grupper (NSG) för att begränsa utgående trafik, lägger du till en regel till ett __service tag-__ mål för __AzureFrontDoor. frontend__.
 
 ## <a name="access-data-using-the-studio"></a>Få åtkomst till data med Studio
 
@@ -81,13 +81,13 @@ Det här steget krävs endast om du har lagt till Azure Storage-kontot i det vir
 
 Azure Machine Learning använder [data lager](concept-data.md#datastores) för att ansluta till lagrings konton. Använd följande steg för att konfigurera dina data lager för att använda hanterad identitet. 
 
-1. I Studio väljer du __data lager__ .
+1. I Studio väljer du __data lager__.
 
-1. Om du vill skapa ett nytt data lager väljer du __+ nytt data lager__ .
+1. Om du vill skapa ett nytt data lager väljer du __+ nytt data lager__.
 
-    Om du vill uppdatera ett befintligt data lager väljer du data lagret och väljer __uppdatera autentiseringsuppgifter__ .
+    Om du vill uppdatera ett befintligt data lager väljer du data lagret och väljer __uppdatera autentiseringsuppgifter__.
 
-1. I data lager inställningarna väljer du __Ja__ för  __Tillåt Azure Machine Learning-tjänst för att komma åt lagringen med hjälp av arbets ytans hanterad identitet__ .
+1. I data lager inställningarna väljer du __Ja__ för  __Tillåt Azure Machine Learning-tjänst för att komma åt lagringen med hjälp av arbets ytans hanterad identitet__.
 
 
 De här stegen lägger till den arbets ytans hanterade identiteten som en __läsare__ till lagrings tjänsten med hjälp av Azure Resource-baserad åtkomst kontroll (Azure RBAC). Med __läsar__ åtkomst kan arbets ytan Hämta brand Väggs inställningar och se till att data inte lämnar det virtuella nätverket.
@@ -119,7 +119,7 @@ Azure Data Lake Storage Gen1 stöder endast åtkomst kontrol listor med POSIX-ty
 
 Om du vill komma åt data som lagras i en Azure SQL Database med hjälp av hanterad identitet måste du skapa en SQL-innesluten användare som mappar till den hanterade identiteten Mer information om hur du skapar en användare från en extern provider finns i [skapa inneslutna användare som är mappade till Azure AD-identiteter](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities).
 
-När du har skapat en SQL-innesluten användare beviljar du behörigheter till den med hjälp av [kommandot bevilja T-SQL](https://docs.microsoft.com/sql/t-sql/statements/grant-object-permissions-transact-sql).
+När du har skapat en SQL-innesluten användare beviljar du behörigheter till den med hjälp av [kommandot bevilja T-SQL](/sql/t-sql/statements/grant-object-permissions-transact-sql).
 
 ### <a name="azure-machine-learning-designer-default-datastore"></a>Standard data lager för Azure Machine Learning designer
 
@@ -128,15 +128,15 @@ Designern använder det lagrings konto som är kopplat till din arbets yta för 
 Ange ett nytt standard lagrings utrymme för en pipeline:
 
 1. I ett pipeline-utkast väljer du **kugg hjuls ikonen Inställningar** nära rubriken för din pipeline.
-1. Välj alternativet **Välj standard data lager** .
+1. Välj alternativet **Välj standard data lager**.
 1. Ange ett nytt data lager.
 
 Du kan även åsidosätta standard data lagret per modul. Detta ger dig kontroll över lagrings platsen för varje enskild modul.
 
 1. Välj den modul vars utdata du vill ange.
 1. Expandera avsnittet **utdata-inställningar** .
-1. Välj **Åsidosätt standardinställningar för utdata** .
-1. Välj **Ange inställningar för utdata** .
+1. Välj **Åsidosätt standardinställningar för utdata**.
+1. Välj **Ange inställningar för utdata**.
 1. Ange ett nytt data lager.
 
 ## <a name="next-steps"></a>Nästa steg

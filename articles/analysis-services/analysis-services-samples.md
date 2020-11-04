@@ -1,5 +1,5 @@
 ---
-title: Azure Analysis Services kod, projekt och databas exempel | Microsoft Docs
+title: Azure Analysis Services kod, projekt och databas exempel
 description: I den här artikeln beskrivs resurser för att lära dig om kod-, projekt-och databas exempel för Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b63581b5192c93a8377a642c21eacbd291579b22
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 920cc5142d14308fce412ad44543ddc46dc1663e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013686"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324372"
 ---
 # <a name="azure-analysis-services-samples"></a>Azure Analysis Services exempel
 
@@ -28,7 +28,7 @@ Använd följande exempel resurser för att få hjälp att lära dig om och test
 
 ## <a name="sample-database-on-azure"></a>Exempel databas på Azure
 
-Azure Synapse Analytics (SQL Data Warehouse) innehåller ett exempel på en AdventureWorksDW-databas som kan ingå i en etablerad resurs. Mer information finns i [snabb start: skapa och fråga en Azure Synapse Analytics SQL-pool](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
+Azure Synapse Analytics (tidigare SQL Data Warehouse) innehåller ett exempel på en AdventureWorksDW-databas som kan ingå i en etablerad resurs. Mer information finns i [snabb start: skapa och fråga en dedikerad SQL-pool i Azure Synapse Analytics ](/azure/sql-data-warehouse/create-data-warehouse-portal).
 
 ## <a name="sample-databases-on-github"></a>Exempel databaser på GitHub
 
@@ -40,7 +40,7 @@ Dessa exempel databaser på GitHub kan användas för att skapa och testa dina e
 
 ## <a name="adventure-works-internet-sales-sample-model-in-azure-portal"></a>Exempel modell för Adventure Works Internet Sales i Azure Portal
 
-Om du har en Analysis Services-server i Azure Portal kan du snabbt och enkelt skapa en exempel modell. På sidan Översikt för servern i Azure Portal klickar du på **ny modell**, och i **Välj en data källa**väljer du **exempel data**.
+Om du har en Analysis Services-server i Azure Portal kan du snabbt och enkelt skapa en exempel modell. På sidan Översikt för servern i Azure Portal klickar du på **ny modell** , och i **Välj en data källa** väljer du **exempel data**.
 
 
 

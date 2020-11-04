@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: 9405eb01dbe2d7ea9d4a9e64bf7dd79ca356e9f5
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 9abf5a17330566aee2414b8499f228d297880cbf
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926996"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323789"
 ---
 # <a name="evaluate-model-module"></a>Utvärdera modell modul
 
@@ -30,11 +30,11 @@ Använd den här modulen för att mäta noggrannheten för en utbildad modell. D
 
 
 > [!TIP]
-> Om du inte har använt modell utvärderingen rekommenderar vi video serien av Dr. Stephen Elston som en del av [Machine Learning-kursen](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) från EDX. 
+> Om du inte har använt modell utvärderingen rekommenderar vi video serien av Dr. Stephen Elston som en del av [Machine Learning-kursen](/archive/blogs/machinelearning/new-edx-course-data-science-machine-learning-essentials) från EDX. 
 
 
 ## <a name="how-to-use-evaluate-model"></a>Använda utvärdera modell
-1. Anslut den returnerade **data uppsättningens** utdata från [Poäng modellen](./score-model.md) eller resultat data uppsättningens utdata från [tilldela data till kluster](./assign-data-to-clusters.md) till den vänstra Indataporten för **utvärdera modell** . 
+1. Anslut den returnerade **data uppsättningens** utdata från [Poäng modellen](./score-model.md) eller resultat data uppsättningens utdata från [tilldela data till kluster](./assign-data-to-clusters.md) till den vänstra Indataporten för **utvärdera modell**. 
     > [!NOTE] 
     > Om du använder moduler som "Välj kolumner i data uppsättning" för att välja en del av data uppsättningen för indata, se till att kolumnen verklig etikett (används i träning), kolumnen "beräknade sannolikheter" och "score etiketter" finns för att beräkna mått som AUC, precision för binära klassificering/avvikelse identifiering.
     > Den faktiska etikett kolumnen, kolumnen scored etiketter finns för att beräkna mått för klassificering/regression i flera klasser.
@@ -48,7 +48,7 @@ Använd den här modulen för att mäta noggrannheten för en utbildad modell. D
     > + För att flera klassificerings uppgifter ska kunna utvärderas måste den data uppsättning som ska utvärderas ha en kolumn med namnet `Multi Class Scored Labels` , som representerar Poäng etiketter.
     > Om utdata från den överordnade modulen inte har dessa kolumner måste du ändra enligt kraven ovan.
 
-2. Valfritt Anslut den returnerade **data uppsättningens** utdata från [Poäng modellen](./score-model.md) eller resultat data uppsättningens utdata från tilldela data till kluster för den andra modellen till den **högra** Indataporten för **utvärdera modell** . Du kan enkelt jämföra resultat från två olika modeller på samma data. De två indatavärdena ska vara av samma typ av algoritm. Eller så kan du jämföra resultat från två olika körningar över samma data med olika parametrar.
+2. Valfritt Anslut den returnerade **data uppsättningens** utdata från [Poäng modellen](./score-model.md) eller resultat data uppsättningens utdata från tilldela data till kluster för den andra modellen till den **högra** Indataporten för **utvärdera modell**. Du kan enkelt jämföra resultat från två olika modeller på samma data. De två indatavärdena ska vara av samma typ av algoritm. Eller så kan du jämföra resultat från två olika körningar över samma data med olika parametrar.
 
     > [!NOTE]
     > Algoritmen refererar till klassificeringen "dubbelriktad", "klassad klassificering", "regression", "Clustering" under Machine Learning algoritmer. 
@@ -142,4 +142,4 @@ Följande mått rapporteras för utvärdering av kluster modeller.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning.

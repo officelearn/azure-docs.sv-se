@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: 50f8768aec12b8bda8d9d489462a8f61e8d83c18
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: b98d3ea69286fe7c23b6c2978b71699ba7eb0e00
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999188"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325198"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuera en modell till ett Azure Kubernetes service-kluster
 
@@ -34,7 +34,7 @@ Lär dig hur du använder Azure Machine Learning för att distribuera en modell 
 När du distribuerar till Azure Kubernetes-tjänsten distribuerar du till ett AKS-kluster som är __anslutet till din arbets yta__. Information om hur du ansluter ett AKS-kluster till din arbets yta finns i [skapa och ansluta ett Azure Kubernetes service-kluster](how-to-create-attach-kubernetes.md).
 
 > [!IMPORTANT]
-> Vi rekommenderar att du felsökr lokalt innan du distribuerar till webb tjänsten. Mer information finns i [Felsöka lokalt](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally)
+> Vi rekommenderar att du felsökr lokalt innan du distribuerar till webb tjänsten. Mer information finns i [Felsöka lokalt](./how-to-troubleshoot-deployment.md#debug-locally)
 >
 > Du kan också läsa Azure Machine Learning – [Distribuera till lokal notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
@@ -44,7 +44,7 @@ När du distribuerar till Azure Kubernetes-tjänsten distribuerar du till ett AK
 
 - En Machine Learning-modell som registrerats i din arbets yta. Om du inte har en registrerad modell, se [hur och var modeller ska distribueras](how-to-deploy-and-where.md).
 
-- [Azure CLI-tillägget för Machine Learning-tjänst](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)eller [Azure Machine Learning Visual Studio Code-tillägget](tutorial-setup-vscode-extension.md).
+- [Azure CLI-tillägget för Machine Learning-tjänst](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)eller [Azure Machine Learning Visual Studio Code-tillägget](tutorial-setup-vscode-extension.md).
 
 - I __python__ -kodfragmenten i den här artikeln förutsätter vi att följande variabler har angetts:
 
@@ -71,8 +71,8 @@ I Azure Machine Learning används "distribution" i den allmänna uppfattningen f
 1. Skapa eller ladda ned Dockerfile till Compute-noden (relaterar till Kubernetes)
     1. Systemet beräknar en hash av: 
         - Bas avbildningen 
-        - Anpassade Docker-steg (se [distribuera en modell med en anpassad Docker-bas avbildning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image))
-        - Conda definition YAML (se [skapa & använda program varu miljöer i Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments))
+        - Anpassade Docker-steg (se [distribuera en modell med en anpassad Docker-bas avbildning](./how-to-deploy-custom-docker-image.md))
+        - Conda definition YAML (se [skapa & använda program varu miljöer i Azure Machine Learning](./how-to-use-environments.md))
     1. Systemet använder denna hash som nyckel i en sökning i arbets ytans Azure Container Registry (ACR)
     1. Om den inte hittas söker den efter en matchning i den globala ACR
     1. Om den inte hittas skapar systemet en ny avbildning (som cachelagras och skickas till arbets ytan ACR)
@@ -87,7 +87,7 @@ I Azure Machine Learning används "distribution" i den allmänna uppfattningen f
 Klient dels komponenten (azureml-FE) som dirigerar inkommande härlednings förfrågningar till distribuerade tjänster skalas automatiskt efter behov. Skalning av azureml-FE baseras på AKS-klustrets syfte och storlek (antal noder). Klustrets syfte och noder konfigureras när du [skapar eller ansluter ett AKS-kluster](how-to-create-attach-kubernetes.md). Det finns en azureml-FE-tjänst per kluster, som kan köras på flera poddar.
 
 > [!IMPORTANT]
-> När du använder ett kluster som kon figurer ATS som __dev-test__ **inaktive ras**själv skalnings funktionen.
+> När du använder ett kluster som kon figurer ATS som __dev-test__ **inaktive ras** själv skalnings funktionen.
 
 Azureml – FE skalar upp (lodrätt) för att använda fler kärnor och ut (vågrätt) för att använda fler poddar. När du fattar beslutet att skala upp används den tid det tar att dirigera inkommande begär Anden om att dirigera inkommande begär Anden. Om den här tiden överskrider tröskelvärdet sker en skalning. Om tiden för att dirigera inkommande begär Anden fortsätter att överskrida tröskelvärdet sker en skalbarhet.
 
@@ -95,7 +95,7 @@ Vid skalning och i används CPU-användning. Om tröskelvärdet för processor a
 
 ## <a name="deploy-to-aks"></a>Distribuera till AKS
 
-Om du vill distribuera en modell till Azure Kubernetes-tjänsten skapar du en __distributions konfiguration__ som beskriver de beräknings resurser som behövs. Till exempel antal kärnor och minne. Du behöver också en __konfiguration__med en konfiguration som beskriver den miljö som krävs för att vara värd för modellen och webb tjänsten. Mer information om hur du skapar en konfigurations konfiguration finns i [hur och var modeller ska distribueras](how-to-deploy-and-where.md).
+Om du vill distribuera en modell till Azure Kubernetes-tjänsten skapar du en __distributions konfiguration__ som beskriver de beräknings resurser som behövs. Till exempel antal kärnor och minne. Du behöver också en __konfiguration__ med en konfiguration som beskriver den miljö som krävs för att vara värd för modellen och webb tjänsten. Mer information om hur du skapar en konfigurations konfiguration finns i [hur och var modeller ska distribueras](how-to-deploy-and-where.md).
 
 > [!NOTE]
 > Antalet modeller som ska distribueras är begränsat till 1 000 modeller per distribution (per behållare).
@@ -121,10 +121,10 @@ print(service.get_logs())
 
 Mer information om klasser, metoder och parametrar som används i det här exemplet finns i följande referens dokument:
 
-* [AksCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute?view=azure-ml-py&preserve-view=true)
-* [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py&preserve-view=true)
-* [Modell. Deploy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
-* [Webservice.wait_for_deployment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truewait-for-deployment-show-output-false-)
+* [AksCompute](/python/api/azureml-core/azureml.core.compute.aks.akscompute?preserve-view=true&view=azure-ml-py)
+* [AksWebservice.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?preserve-view=true&view=azure-ml-py)
+* [Modell. Deploy](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
+* [Webservice.wait_for_deployment](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truewait-for-deployment-show-output-false-)
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -136,7 +136,7 @@ az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json 
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aks-deploy-config.md)]
 
-Mer information finns i [distributions referens för AZ ml-modellen](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-model-deploy) .
+Mer information finns i [distributions referens för AZ ml-modellen](/cli/azure/ext/azure-cli-ml/ml/model?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) .
 
 # <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -154,7 +154,7 @@ Komponenten som hanterar autoskalning för distributioner av Azure ML-modeller �
 > [!IMPORTANT]
 > * **Aktivera inte Kubernetes horisontell Pod autoskalning (hPa) för modell distributioner**. Detta skulle leda till att de två komponenterna för automatisk skalning konkurrerar med varandra. Azureml-FE är utformat för att skala modeller som distribueras av Azure ML, där HPA skulle behöva gissa eller uppskatta modell användning från ett allmänt mått som CPU-användning eller en anpassad mått konfiguration.
 > 
-> * **Azureml-FE skalar inte antalet noder i ett AKS-kluster**eftersom det kan leda till oväntade kostnads ökningar. I stället **skalas antalet repliker för modellen** i de fysiska klustrets gränser. Om du behöver skala antalet noder i klustret kan du skala klustret manuellt eller [Konfigurera AKS-klustrets autoskalning](/azure/aks/cluster-autoscaler).
+> * **Azureml-FE skalar inte antalet noder i ett AKS-kluster** eftersom det kan leda till oväntade kostnads ökningar. I stället **skalas antalet repliker för modellen** i de fysiska klustrets gränser. Om du behöver skala antalet noder i klustret kan du skala klustret manuellt eller [Konfigurera AKS-klustrets autoskalning](../aks/cluster-autoscaler.md).
 
 Automatisk skalning kan styras genom att ställa in `autoscale_target_utilization` , `autoscale_min_replicas` och `autoscale_max_replicas` för AKS-webbtjänsten. Följande exempel visar hur du aktiverar automatisk skalning:
 
@@ -188,7 +188,7 @@ concurrentRequests = targetRps * reqTime / targetUtilization
 replicas = ceil(concurrentRequests / maxReqPerContainer)
 ```
 
-Mer information om hur du ställer in `autoscale_target_utilization` , `autoscale_max_replicas` och finns `autoscale_min_replicas` i referens för [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py&preserve-view=true) -modulen.
+Mer information om hur du ställer in `autoscale_target_utilization` , `autoscale_max_replicas` och finns `autoscale_min_replicas` i referens för [AksWebservice](/python/api/azureml-core/azureml.core.webservice.akswebservice?preserve-view=true&view=azure-ml-py) -modulen.
 
 ## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>Distribuera modeller till AKS med hjälp av kontrollerad distribution (för hands version)
 
@@ -302,7 +302,7 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> Om du behöver återskapa en nyckel använder du [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true)
+> Om du behöver återskapa en nyckel använder du [`service.regen_key`](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py)
 
 ### <a name="authentication-with-tokens"></a>Autentisering med token
 
@@ -324,12 +324,12 @@ print(token)
 >
 > Microsoft rekommenderar starkt att du skapar din Azure Machine Learning arbets yta i samma region som ditt Azure Kubernetes service-kluster. För att autentisera med en token kommer webb tjänsten att ringa till den region där din Azure Machine Learning arbets yta skapas. Om arbets ytans region inte är tillgänglig kan du inte hämta en token för din webb tjänst även om klustret finns i en annan region än din arbets yta. Detta leder till att tokenbaserad autentisering inte är tillgängligt förrän arbets ytans region är tillgänglig igen. Dessutom ökar avståndet mellan klustrets region och arbets ytans region, desto längre tid tar det att hämta en token.
 >
-> Om du vill hämta en token måste du använda kommandot Azure Machine Learning SDK eller [AZ ml-tjänsten get-Access-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-service-get-access-token) .
+> Om du vill hämta en token måste du använda kommandot Azure Machine Learning SDK eller [AZ ml-tjänsten get-Access-token](/cli/azure/ext/azure-cli-ml/ml/service?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-get-access-token) .
 
 
-### <a name="vulnerability-scanning"></a>Sårbarhets sökning
+### <a name="vulnerability-scanning"></a>Sårbarhetsgenomsökning
 
-Azure Security Center erbjuder enhetlig säkerhetshantering och avancerat skydd mot hot i olika hybridmolnarbetsbelastningar. Du bör tillåta Azure Security Center att söka igenom dina resurser och följa rekommendationerna. Mer information finns i [integrering med Azure Kubernetes Services med Security Center](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration).
+Azure Security Center erbjuder enhetlig säkerhetshantering och avancerat skydd mot hot i olika hybridmolnarbetsbelastningar. Du bör tillåta Azure Security Center att söka igenom dina resurser och följa rekommendationerna. Mer information finns i [integrering med Azure Kubernetes Services med Security Center](../security-center/defender-for-kubernetes-introduction.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

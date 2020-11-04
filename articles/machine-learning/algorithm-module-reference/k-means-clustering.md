@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/04/2020
-ms.openlocfilehash: 97cadfb8f5004cfd2701335172d4416c64f05259
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e0b61c1ca6ae30044e4c9d4705bdce01eac1942
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907868"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323697"
 ---
 # <a name="module-k-means-clustering"></a>Modul: K-innebär klustring
 
@@ -22,7 +22,7 @@ Den här artikeln beskriver hur du använder modulen *k-: kluster* modul i Azure
  
 K-betyder en av de enklaste och bästa kända, ej *övervakade* inlärnings algoritmerna. Du kan använda algoritmen för en mängd olika Machine Learning-uppgifter, till exempel: 
 
-* [Identifiera onormala data](https://msdn.microsoft.com/magazine/jj891054.aspx).
+* [Identifiera onormala data](/archive/msdn-magazine/2013/february/data-clustering-detecting-abnormal-data-using-k-means-clustering).
 * Klustring av text dokument.
 * Analysera data uppsättningar innan du använder andra klassificerings-eller Regressions metoder. 
 
@@ -58,46 +58,46 @@ När den bearbetar tränings data börjar algoritmen för K-medelvärdet med en 
   
 2.  Om du vill ange hur modellen ska tränas väljer du alternativet **skapa utbildare läge** .  
   
-    -   **Enskild parameter**: om du känner till de exakta parametrar som du vill använda i kluster modellen, kan du ange en viss uppsättning värden som argument.  
+    -   **Enskild parameter** : om du känner till de exakta parametrar som du vill använda i kluster modellen, kan du ange en viss uppsättning värden som argument.  
   
-3.  För **antal centroids**anger du det antal kluster som du vill att algoritmen ska börja med.  
+3.  För **antal centroids** anger du det antal kluster som du vill att algoritmen ska börja med.  
   
      Modellen är inte garanterat att producera exakt det här antalet kluster. Algoritmen börjar med det här antalet data punkter och upprepas för att hitta den optimala konfigurationen. Du kan referera till [käll koden för sklearn](https://github.com/scikit-learn/scikit-learn/blob/fd237278e/sklearn/cluster/_kmeans.py#L1069).
   
 4.  Egenskaps **initieringen** används för att ange algoritmen som används för att definiera den inledande kluster konfigurationen.  
   
-    -   **Första N**: vissa inledande antal data punkter väljs från data uppsättningen och används som första metod. 
+    -   **Första N** : vissa inledande antal data punkter väljs från data uppsättningen och används som första metod. 
     
          Den här metoden kallas även för *förfalsknings metoden*.  
   
-    -   **Slumpmässig**: algoritmen placerar en data punkt slumpmässigt i ett kluster och sedan beräknar det inledande medelvärdet som centroid för klustrets slumpvis tilldelade punkter. 
+    -   **Slumpmässig** : algoritmen placerar en data punkt slumpmässigt i ett kluster och sedan beräknar det inledande medelvärdet som centroid för klustrets slumpvis tilldelade punkter. 
 
          Den här metoden kallas även för den *slumpmässiga partitionsfunktionen* .  
   
-    -   **K-betyder + +**: det här är standard metoden för att initiera kluster.  
+    -   **K-betyder + +** : det här är standard metoden för att initiera kluster.  
   
          **K-betyder + +** -algoritmen föreslogs i 2007 av David Arthur och Sergei Vassilvitskii för att undvika dåligt klustring av standardalgoritmen för K-=. **K-betyder + +** förbättrar standard K-metoden genom att använda en annan metod för att välja de första kluster centret.  
   
     
-5.  För **slumpmässigt antal frön**kan du ange ett värde som ska användas som start för kluster initieringen. Det här värdet kan ha en betydande inverkan på kluster valet.  
+5.  För **slumpmässigt antal frön** kan du ange ett värde som ska användas som start för kluster initieringen. Det här värdet kan ha en betydande inverkan på kluster valet.  
   
-6.  För **mått**väljer du den funktion som ska användas för att mäta avståndet mellan kluster vektorer eller mellan nya data punkter och den slumpmässigt valda centroid. Azure Machine Learning stöder följande kluster avstånds mått:  
+6.  För **mått** väljer du den funktion som ska användas för att mäta avståndet mellan kluster vektorer eller mellan nya data punkter och den slumpmässigt valda centroid. Azure Machine Learning stöder följande kluster avstånds mått:  
   
-    -   **Euclidean**: Euclidean-avståndet används ofta som ett mått på kluster spridning för K-innebär klustring. Detta mått är att föredra eftersom det minimerar avståndet mellan punkter och centroids.
+    -   **Euclidean** : Euclidean-avståndet används ofta som ett mått på kluster spridning för K-innebär klustring. Detta mått är att föredra eftersom det minimerar avståndet mellan punkter och centroids.
   
-7.  För **iterationer**anger du hur många gånger algoritmen ska iterera över tränings data innan den slutför valet av centroids.  
+7.  För **iterationer** anger du hur många gånger algoritmen ska iterera över tränings data innan den slutför valet av centroids.  
   
      Du kan justera den här parametern om du vill utjämna precisionen mot inlärnings tiden.  
   
-8.  För **tilldela etikett läge**väljer du ett alternativ som anger hur en etikett kolumn, om den finns i data uppsättningen, ska hanteras.  
+8.  För **tilldela etikett läge** väljer du ett alternativ som anger hur en etikett kolumn, om den finns i data uppsättningen, ska hanteras.  
   
      Eftersom K-betyder klustring är en oövervakad Machine Learning-metod, är etiketter valfria. Men om din data uppsättning redan har en etikett kolumn kan du använda dessa värden för att vägleda valet av kluster, eller så kan du ange att värdena ska ignoreras.  
   
-    -   **Ignorera etikett kolumn**: värdena i kolumnen Label ignoreras och används inte för att skapa modellen.
+    -   **Ignorera etikett kolumn** : värdena i kolumnen Label ignoreras och används inte för att skapa modellen.
   
-    -   **Fyll i saknade värden**: etikett kolumn värden används som funktioner för att bygga klustren. Om en etikett saknas i några rader tilldelas värdet med hjälp av andra funktioner.  
+    -   **Fyll i saknade värden** : etikett kolumn värden används som funktioner för att bygga klustren. Om en etikett saknas i några rader tilldelas värdet med hjälp av andra funktioner.  
   
-    -   **Skriv över från närmaste till Center**: etikett kolumnens värden ersätts med förväntade etikett värden med hjälp av etiketten för den punkt som är närmast den aktuella centroid.  
+    -   **Skriv över från närmaste till Center** : etikett kolumnens värden ersätts med förväntade etikett värden med hjälp av etiketten för den punkt som är närmast den aktuella centroid.  
 
 8.  Välj alternativet **normaliserings funktioner** om du vill normalisera funktioner innan du tränar.
   
@@ -105,7 +105,7 @@ När den bearbetar tränings data börjar algoritmen för K-medelvärdet med en 
 
 10. Träna modellen.  
   
-    -   Om du ställer in **skapa utbildare** för en **parameter**lägger du till en taggad data uppsättning och tränar modellen med hjälp av modulen [träna kluster modell](train-clustering-model.md) .  
+    -   Om du ställer in **skapa utbildare** för en **parameter** lägger du till en taggad data uppsättning och tränar modellen med hjälp av modulen [träna kluster modell](train-clustering-model.md) .  
   
 ## <a name="results"></a>Resultat
 
@@ -145,4 +145,4 @@ I allmänhet, med kluster modeller, är det möjligt att alla angivna konfigurat
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning.

@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: f8b4256f33a143c711a23a3564c2a46c69e0783b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 16859a6eeb152949387ac7eec8a50341e69b9691
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675763"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323701"
 ---
 # <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Utforska Azure Machine Learning med Jupyter-anteckningsböcker
 
@@ -47,7 +47,7 @@ Följ dessa steg om du vill ta med din egen Notebook-Server för lokal utvecklin
 
 [!INCLUDE [aml-your-server](../../includes/aml-your-server.md)]
 
-De här anvisningarna installerar de grundläggande SDK-paket som krävs för de bärbara datorerna för snabb start och självstudier. Andra exempel på antecknings böcker kan kräva att du installerar extra komponenter. Mer information finns i [installera Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/install).
+De här anvisningarna installerar de grundläggande SDK-paket som krävs för de bärbara datorerna för snabb start och självstudier. Andra exempel på antecknings böcker kan kräva att du installerar extra komponenter. Mer information finns i [installera Azure Machine Learning SDK för python](/python/api/overview/azure/ml/install).
 
 <a name="dsvm"></a>
 ## <a name="get-samples-on-dsvm"></a>Hämta exempel på DSVM

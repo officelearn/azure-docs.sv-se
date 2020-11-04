@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: 21c57257f9ce5a33585f151d38c16736f94a166c
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 3509530994b07a16fb1f2780fffc6fd27cf8aa7c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998708"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325520"
 ---
 # <a name="how-to-deploy-an-encrypted-inferencing-web-service-preview"></a>Så här distribuerar du en krypterad inferencing-webb tjänst (för hands version)
 
-Lär dig hur du distribuerar en bild klassificerings modell som en krypterad inferencing-webbtjänst i [Azure Container instances](https://docs.microsoft.com/azure/container-instances/) (ACI). Webb tjänsten är en Docker-behållar avbildning som innehåller modellen och bedömnings logiken.
+Lär dig hur du distribuerar en bild klassificerings modell som en krypterad inferencing-webbtjänst i [Azure Container instances](../container-instances/index.yml) (ACI). Webb tjänsten är en Docker-behållar avbildning som innehåller modellen och bedömnings logiken.
 
 I den här hand boken använder du Azure Machine Learning-tjänsten för att:
 
@@ -30,7 +30,7 @@ I den här hand boken använder du Azure Machine Learning-tjänsten för att:
 > * Gör krypterade förutsägelser
 > * Rensa resurser
 
-ACI är en bra lösning för att testa och förstå arbets flödet för modell distribution. För skalbara produktionsdistributioner kan du använda Azure Kubernetes Service. Mer information finns i [Hur och var man distribuerar](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).
+ACI är en bra lösning för att testa och förstå arbets flödet för modell distribution. För skalbara produktionsdistributioner kan du använda Azure Kubernetes Service. Mer information finns i [Hur och var man distribuerar](./how-to-deploy-and-where.md).
 
 Krypterings metoden som används i det här exemplet är [homomorphic-kryptering](https://github.com/Microsoft/SEAL#homomorphic-encryption). Homomorphic-kryptering gör det möjligt att utföra beräkningar på krypterade data utan att behöva åtkomst till en hemlig nyckel (dekryptering). Resultatet av beräkningarna krypteras och kan bara visas av ägaren av den hemliga nyckeln. 
 

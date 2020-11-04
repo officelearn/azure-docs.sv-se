@@ -8,23 +8,23 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: e34fa4af08be898785acbc6f00aa735c1412ec47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff8ade938433e09c6b9ff9deffe64d8294d96b8c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90897566"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325548"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Tagga bilder i ett etikett projekt 
 
-När projekt administratören har [skapat ett etikett projekt](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) i Azure Machine Learning kan du använda etikett verktyget (offentlig för hands version) för att snabbt förbereda data för ett Machine Learning-projekt. I den här artikeln beskrivs:
+När projekt administratören har [skapat ett etikett projekt](./how-to-create-labeling-projects.md#create-a-labeling-project) i Azure Machine Learning kan du använda etikett verktyget (offentlig för hands version) för att snabbt förbereda data för ett Machine Learning-projekt. I den här artikeln beskrivs:
 
 > [!div class="checklist"]
 > * Få åtkomst till dina etikett projekt
 > * Etikett verktygen
 > * Så här använder du verktygen för vissa etikett uppgifter
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett [Microsoft-konto](https://account.microsoft.com/account) eller ett Azure Active Directory konto för organisationen och projektet
 * Deltagar nivå åtkomst till arbets ytan som innehåller ett etikett projekt.
@@ -82,7 +82,7 @@ I synnerhet i ett etikett projekt kan Machine Learning-modellen bara vara tillr�
 
 Om ditt projekt är av typen "bild klassificering med flera klasser", tilldelar du en enskild tagg till hela bilden. Om du vill granska riktningarna när som helst går du till sidan **instruktioner** och väljer **Visa detaljerade instruktioner**.
 
-Om du upptäcker att du har gjort ett misstag efter att du har tilldelat en tagg till en avbildning kan du åtgärda det. Välj "**X**" på etiketten som visas under bilden för att ta bort taggen. Eller Välj avbildningen och välj en annan klass. Det nyligen markerade värdet ersätter den tidigare tillämpade taggen.
+Om du upptäcker att du har gjort ett misstag efter att du har tilldelat en tagg till en avbildning kan du åtgärda det. Välj " **X** " på etiketten som visas under bilden för att ta bort taggen. Eller Välj avbildningen och välj en annan klass. Det nyligen markerade värdet ersätter den tidigare tillämpade taggen.
 
 ## <a name="tag-images-for-multi-label-classification"></a>Tagga bilder för klassificering med flera etiketter
 
@@ -96,7 +96,7 @@ Välj den bild som du vill etikettera och välj sedan taggen. Taggen tillämpas 
 
 ![Animering visar flöde för multilabel](./media/how-to-label-images/multilabel.gif)
 
-Du korrigerar ett misstag genom att klicka på "**X**" för att ta bort en enskild tagg eller välja bilderna och sedan välja taggen, vilket raderar taggen från alla valda bilder. Det här scenariot visas här. Om du klickar på "land" tas taggen bort från de två valda bilderna.
+Du korrigerar ett misstag genom att klicka på " **X** " för att ta bort en enskild tagg eller välja bilderna och sedan välja taggen, vilket raderar taggen från alla valda bilder. Det här scenariot visas här. Om du klickar på "land" tas taggen bort från de två valda bilderna.
 
 ![En skärm bild visar flera avmarkeringar](./media/how-to-label-images/multiple-deselection.png)
 
@@ -135,5 +135,4 @@ När du är klar med etiketter väljer du ditt namn i det övre högra hörnet i
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig att [träna avbildnings klassificerings modeller i Azure](https://docs.microsoft.com/azure/machine-learning/tutorial-train-models-with-aml)
-
+* Lär dig att [träna avbildnings klassificerings modeller i Azure](./tutorial-train-models-with-aml.md)

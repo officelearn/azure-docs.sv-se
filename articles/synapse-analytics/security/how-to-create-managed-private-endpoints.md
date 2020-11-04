@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: fae958542f1bc391f285104d80d1e19131470abe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 919b8fb89e9189df7cb1964cbe0149dc6945ad2d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87065472"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323156"
 ---
 # <a name="create-a-managed-private-endpoint-to-your-data-source-preview"></a>Skapa en hanterad privat slut punkt för din data källa (förhands granskning)
 
@@ -21,12 +21,11 @@ I den här artikeln får du lära dig hur du skapar en hanterad privat slut punk
 
 ## <a name="step-1-open-your-azure-synapse-workspace-in-azure-portal"></a>Steg 1: öppna din Azure Synapse-arbetsyta i Azure Portal
 
-Du kan skapa en hanterad privat slut punkt för din data Källa från Azure Synapse Studio. Välj fliken **Översikt** i Azure Portal och välj **Starta Synapse Studio**.
-![Starta Azure Synapse Studio](./media/how-to-create-managed-private-endpoints/managed-private-endpoint-1.png)
+Du kan skapa en hanterad privat slut punkt för din data Källa från Azure Synapse Studio. Välj fliken **Översikt** i Azure Portal och välj **Öppna** på kortet Open Synapse Studio i avsnittet komma igång.
 
 ## <a name="step-2-navigate-to-the-managed-virtual-networks-tab-in-synapse-studio"></a>Steg 2: gå till fliken hanterade virtuella nätverk i Synapse Studio
 
-I Azure Synapse Studio väljer du fliken **Hantera** i det vänstra navigerings fältet. Välj **hanterade virtuella nätverk** och välj sedan **+ ny**.
+I Azure Synapse Studio väljer du fliken **Hantera** i det vänstra navigerings fältet. Välj **hanterade privata slut punkter** och välj sedan **+ ny**.
 ![Skapa en ny hanterad privat slut punkt](./media/how-to-create-managed-private-endpoints/managed-private-endpoint-2.png)
 
 ## <a name="step-3-select-the-data-source-type"></a>Steg 3: Välj typ av data Källa

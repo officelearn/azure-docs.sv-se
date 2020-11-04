@@ -11,19 +11,19 @@ ms.date: 07/21/2020
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: ef56274e0bda3f1a9d494852520a77ecdfc25799
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8caf6cd5072b4c098adff57194784491c92bb0a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89048014"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325379"
 ---
 # <a name="score-machine-learning-models-with-predict"></a>Score Machine Learning-modeller med PREDICT
 
 Synapse SQL ger dig möjlighet att Poäng modeller för maskin inlärning med det välkända T-SQL-språket. Med T-SQL [predict](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)kan du se till att dina befintliga Machine Learning-modeller tränas med historiska data och att de hamnar inom data lagrets säkra gränser. Funktionen PREDICT tar en [ONNX-modell (Open neurala Network Exchange)](https://onnx.ai/) och data som indata. Den här funktionen eliminerar steget för att flytta värdefull data utanför data lagret för poängsättning. Det syftar till att göra det möjligt för data experter att enkelt distribuera maskin inlärnings modeller med det välkända T-SQL-gränssnittet och samar beta smidigt med data experter som arbetar med rätt ramverk för deras uppgift.
 
 > [!NOTE]
-> Den här funktionen stöds för närvarande inte i SQL på begäran.
+> Den här funktionen stöds för närvarande inte i SQL-poolen utan server.
 
 Funktionen kräver att modellen tränas utanför Synapse-SQL. När du har skapat modellen kan du läsa in den i data lagret och visa den med T-SQL predict-syntaxen för att få insikter från data.
 

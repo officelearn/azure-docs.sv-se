@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 09/03/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: d06d1b0553161523708f4bb142f1c715a77eb2dd
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: fa7faf64e1889ef2d1abe644f23f0be363709a6b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461115"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322721"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>Snabb start: skapa en Synapse-arbetsyta
 I den här snabb starten beskrivs stegen för att skapa en Azure dataSynapses-arbetsyta med hjälp av Azure Portal.
@@ -22,13 +22,13 @@ I den här snabb starten beskrivs stegen för att skapa en Azure dataSynapses-ar
 ## <a name="create-a-synapse-workspace"></a>Skapa en Synapse-arbetsyta
 
 1. Öppna [Azure Portal](https://portal.azure.com)och högst upp i Sök efter **Synapse**.
-1. I Sök resultaten under **tjänster**väljer du **Azure Synapse Analytics (för hands versioner av arbets ytor)**.
+1. I Sök resultaten under **tjänster** väljer du **Azure Synapse Analytics (för hands versioner av arbets ytor)**.
 1. Välj **Lägg till** för att skapa en arbets yta.
 1. På fliken **grundläggande** ger du arbets ytan ett unikt namn. Vi använder **mysworkspace** i det här dokumentet
 1. Du behöver ett ADLSGEN2-konto för att skapa en arbets yta. Det enklaste valet är att skapa ett nytt. Om du vill använda en befintlig konfiguration igen måste du utföra en del ytterligare konfiguration. 
 1. ALTERNATIV 1 Skapa ett nytt ADLSGEN2-konto 
-    1. Under **välj Data Lake Storage gen 2**, klickar du på **Skapa nytt** och ge den namnet **contosolake**.
-    1. Under **välj Data Lake Storage gen 2**, klickar du på **fil system** och namnger IT- **användare**.
+    1. Under **välj Data Lake Storage gen 2** , klickar du på **Skapa nytt** och ge den namnet **contosolake**.
+    1. Under **välj Data Lake Storage gen 2** , klickar du på **fil system** och namnger IT- **användare**.
 1. ALTERNATIV 2 Se anvisningarna för att **förbereda ett lagrings konto** längst ned i det här dokumentet.
 1. Din Azure Synapse-arbetsyta kommer att använda det här lagrings kontot som det primära lagrings kontot och behållaren för att lagra data i arbets ytan. Arbets ytan lagrar data i Apache Spark tabeller. Programmet lagrar Spark-programloggarna under en mapp med namnet **/Synapse/workspacename**.
 1. Välj **Granska + skapa** > **Skapa**. Din arbets yta är klar på några minuter.
@@ -49,7 +49,7 @@ När din Azure Synapse-arbetsyta har skapats kan du öppna Synapse Studio på tv
     * Tilldela rollen som **ägare av Storage BLOB-data** .
 1. I den vänstra rutan väljer du **behållare** och skapar en behållare.
 1. Du kan ge behållaren ett valfritt namn. I det här dokumentet namnger vi behållar **användare**.
-1. Godkänn standardinställningen **offentlig åtkomst nivå**och välj sedan **skapa**.
+1. Godkänn standardinställningen **offentlig åtkomst nivå** och välj sedan **skapa**.
 
 ### <a name="configure-access-to-the-storage-account-from-your-workspace"></a>Konfigurera åtkomst till lagrings kontot från din arbets yta
 
@@ -65,6 +65,6 @@ Hanterade identiteter för din Azure Synapse-arbetsyta kanske redan har åtkomst
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa en SQL-pool](quickstart-create-sql-pool-studio.md) 
-* [Skapa en Apache Spark pool](quickstart-create-apache-spark-pool-portal.md)
-* [Använda SQL på begäran](quickstart-sql-on-demand.md)
+* [Skapa en dedikerad SQL-pool](quickstart-create-sql-pool-studio.md) 
+* [Skapa en server lös Apache Spark-pool](quickstart-create-apache-spark-pool-portal.md)
+* [Använd Server lös SQL-pool](quickstart-sql-on-demand.md)

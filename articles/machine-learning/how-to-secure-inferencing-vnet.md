@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperfq4, tracking-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: a6b453b11c892b5d81c41cac9451b07be69aa4d3
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 3f1e2e12b7ba0a47c20614065510ffd1ae8bf195
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285927"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325344"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Skydda en Azure Machine Learning-miljö för slutsatsdragning med virtuella nätverk
 
@@ -36,7 +36,7 @@ I den här artikeln får du lära dig att skydda följande inferencing-resurser 
 > - Azure Container Instances (ACI)
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + Läs artikeln [Översikt över nätverks säkerhet](how-to-network-security-overview.md) för att förstå vanliga scenarier för virtuella nätverk och övergripande arkitektur för virtuella nätverk.
 
@@ -47,7 +47,7 @@ I den här artikeln får du lära dig att skydda följande inferencing-resurser 
     - "Microsoft. Network/virtualNetworks/Join/Action" på den virtuella nätverks resursen.
     - "Microsoft. Network/virtualNetworks/Subnet/Join/Action" på under näts resursen.
 
-    Mer information om Azure RBAC med nätverk finns i [inbyggda nätverks roller](/azure/role-based-access-control/built-in-roles#networking)
+    Mer information om Azure RBAC med nätverk finns i [inbyggda nätverks roller](../role-based-access-control/built-in-roles.md#networking)
 
 <a id="aksvnet"></a>
 
@@ -86,7 +86,7 @@ Använd följande steg för att lägga till AKS i ett virtuellt nätverk till di
     Du hittar IP-adressen för bedömnings slut punkten genom att titta på bedömnings-URI: n för den distribuerade tjänsten. Information om hur du visar bedömnings-URI: n finns i [använda en modell som distribueras som en webb tjänst](how-to-consume-web-service.md#connection-information).
 
    > [!IMPORTANT]
-   > Behåll de utgående standard reglerna för NSG. Mer information finns i standard säkerhets regler i [säkerhets grupper](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
+   > Behåll de utgående standard reglerna för NSG. Mer information finns i standard säkerhets regler i [säkerhets grupper](../virtual-network/network-security-groups-overview.md#default-security-rules).
 
    [![En inkommande säkerhets regel](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png#lightbox)
 
@@ -170,7 +170,7 @@ En privat belastningsutjämnare är aktive rad genom att konfigurera AKS för at
     ```azurecli-interactive
     az role assignment create --assignee <SP-or-managed-identity> --role 'Network Contributor' --scope <resource-group-id>
     ```
-Mer information om hur du använder den interna belastningsutjämnaren med AKS finns i [använda intern belastningsutjämnare med Azure Kubernetes service](/azure/aks/internal-lb).
+Mer information om hur du använder den interna belastningsutjämnaren med AKS finns i [använda intern belastningsutjämnare med Azure Kubernetes service](../aks/internal-lb.md).
 
 #### <a name="enable-private-load-balancer"></a>Aktivera privat belastningsutjämnare
 
@@ -220,7 +220,7 @@ az ml computetarget create aks -n myaks --load-balancer-type InternalLoadBalance
 > [!IMPORTANT]
 > Med CLI kan du bara skapa ett AKS-kluster med en intern belastningsutjämnare. Det finns inget AZ ml-kommando för att uppgradera ett befintligt kluster så att det använder en intern belastningsutjämnare.
 
-Mer information finns i [AZ ml computetarget Create AKS](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-aks) reference.
+Mer information finns i [AZ ml computetarget Create AKS](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-aks) reference.
 
 ---
 
@@ -261,7 +261,7 @@ Använd följande steg för att använda ACI i ett virtuellt nätverk på din ar
     > [!IMPORTANT]
     > När du aktiverar delegering ska `Microsoft.ContainerInstance/containerGroups` du använda som värde för __tjänsten delegera till tjänst__ .
 
-2. Distribuera modellen med hjälp av [AciWebservice.deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py&preserve-view=true#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true), Använd `vnet_name` `subnet_name` parametrarna och. Ange de här parametrarna som namn på det virtuella nätverket och under nätet där du aktiverade delegering.
+2. Distribuera modellen med hjälp av [AciWebservice.deploy_configuration ()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?preserve-view=true&view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true), Använd `vnet_name` `subnet_name` parametrarna och. Ange de här parametrarna som namn på det virtuella nätverket och under nätet där du aktiverade delegering.
 
 ## <a name="limit-outbound-connectivity-from-the-virtual-network"></a>Begränsa utgående anslutning från det virtuella nätverket
 

@@ -9,12 +9,12 @@ ms.author: nibaccam
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 62edee6a882191551ce2409646ea8b617576c059
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c479a64b2100cfc1a6fdf17f5e6f5636d3a689d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651150"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322222"
 ---
 # <a name="distributed-training-with-azure-machine-learning"></a>Distribuerad utbildning med Azure Machine Learning
 
@@ -24,9 +24,9 @@ I distribuerad utbildning är arbets belastningen för att träna en modell att 
 
 ## <a name="deep-learning-and-distributed-training"></a>Djup inlärning och distribuerad utbildning 
 
-Det finns två huvudsakliga typer av distribuerade utbildningar: [data parallellitet](#data-parallelism) och [modell parallellitet](#model-parallelism). För distribuerad utbildning på djup inlärnings modeller stöder [Azure Machine Learning SDK i python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) integreringar med populära ramverk, PyTorch och TensorFlow. Båda ramverken använder data parallellitet för distribuerad utbildning och kan utnyttja [horovod](https://horovod.readthedocs.io/en/latest/summary_include.html) för att optimera beräknings hastigheter. 
+Det finns två huvudsakliga typer av distribuerade utbildningar: [data parallellitet](#data-parallelism) och [modell parallellitet](#model-parallelism). För distribuerad utbildning på djup inlärnings modeller stöder [Azure Machine Learning SDK i python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) integreringar med populära ramverk, PyTorch och TensorFlow. Båda ramverken använder data parallellitet för distribuerad utbildning och kan utnyttja [horovod](https://horovod.readthedocs.io/en/latest/summary_include.html) för att optimera beräknings hastigheter. 
 
-* [Distribuerad utbildning med PyTorch](how-to-train-pytorch.md#distributed-training)
+* [Distribuerad träning med PyTorch](how-to-train-pytorch.md#distributed-training)
 
 * [Distribuerad utbildning med TensorFlow](how-to-train-tensorflow.md#distributed-training)
 
@@ -51,6 +51,6 @@ I modell parallellt behöver arbetsnoder bara synkronisera de delade parametrarn
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig hur du [använder beräknings mål för modell utbildning](how-to-set-up-training-targets.md) med python SDK.
-* Ett tekniskt exempel finns i [referens arkitektur scenariot](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/training-deep-learning).
+* Ett tekniskt exempel finns i [referens arkitektur scenariot](/azure/architecture/reference-architectures/ai/training-deep-learning).
 * [Träna ml-modeller med TensorFlow](how-to-train-tensorflow.md).
-* [Träna ml-modeller med PyTorch](how-to-train-pytorch.md). 
+* [Träna ml-modeller med PyTorch](how-to-train-pytorch.md).

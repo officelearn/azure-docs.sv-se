@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: d7f1f1f004fb8c9c4d67f409072ce061c6047569
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: fa05f8a8b05a0acddae906a93c90c42424466969
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127019"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322606"
 ---
 # <a name="azure-synapse-link-preview-for-azure-cosmos-db-supported-features"></a>Azure Synapse-länk (för hands version) för Azure Cosmos DB funktioner som stöds
 
@@ -40,7 +40,7 @@ Du kan ansluta till en Azure Cosmos DB-behållare utan att aktivera Synapse-län
 | **Skriva**   | Kan Azure Synapse-körningsmiljön användas för att skriva data till en Azure Cosmos DB behållare | Ja | Nej |
 
 * Om du skriver data till en Azure Cosmos DB behållare från Spark sker den här processen genom transaktions arkivet för Azure Cosmos DB. Den påverkar transaktions prestandan för Azure Cosmos DB genom att förbruka enheter för programbegäran.
-* SQL-pool-integrering via externa tabeller stöds inte för närvarande.
+* Dedikerad integrering av SQL-pooler via externa tabeller stöds inte för närvarande.
  
 ## <a name="supported-code-generated-actions-for-spark"></a>Kod genererade åtgärder som stöds för Spark
 
@@ -64,4 +64,4 @@ Du kan ansluta till en Azure Cosmos DB-behållare utan att aktivera Synapse-län
 ## <a name="next-steps"></a>Nästa steg
 
 * Se hur du [ansluter till Synapse-länken för Azure Cosmos DB](../quickstart-connect-synapse-link-cosmos-db.md)
-* [Lär dig hur du frågar analys lagret med Spark](how-to-query-analytical-store-spark.md)
+* [Lär dig hur du frågar Cosmos DB Analytical Store med Spark](how-to-query-analytical-store-spark.md)

@@ -10,12 +10,12 @@ ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
 ms.date: 10/21/2020
-ms.openlocfilehash: e07e12e82d96b591db324673f4c24b9074128065
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e6a7eabec76cf27044b5d0e13acfc2431cb19b77
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93093001"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323753"
 ---
 # <a name="execute-python-script-module"></a>Köra Python-skript modul
 
@@ -61,7 +61,7 @@ if spec is None:
 > Excute Python-skript module stöder inte installation av paket som är beroende av extra interna bibliotek med kommando som "apt-get", till exempel Java, PyODBC och så vidare. Detta beror på att den här modulen körs i en enkel miljö med python förinstallerat endast och med icke-administratörs behörighet.  
 
 ## <a name="upload-files"></a>Ladda upp filer
-EXECUTE Python-skript module stöder överföring av filer med hjälp av [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#upload-file-name--path-or-stream-).
+EXECUTE Python-skript module stöder överföring av filer med hjälp av [Azure Machine Learning python SDK](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#upload-file-name--path-or-stream-).
 
 I följande exempel visas hur du laddar upp en avbildnings fil i modulen kör Python-skript:
 
@@ -110,17 +110,17 @@ EXECUTE Python-skript module innehåller exempel på python-kod som du kan anvä
 
 1. Lägg till modulen **Kör Python-skript** i din pipeline.
 
-2. Lägg till och Anslut på **Dataset1** alla data uppsättningar från designern som du vill använda för indata. Referera till den här data uppsättningen i python-skriptet som **DataFrame1** .
+2. Lägg till och Anslut på **Dataset1** alla data uppsättningar från designern som du vill använda för indata. Referera till den här data uppsättningen i python-skriptet som **DataFrame1**.
 
     Användningen av en data uppsättning är valfri. Använd den om du vill generera data med hjälp av python eller använda python-kod för att importera data direkt till modulen.
 
-    Den här modulen stöder tillägg av en andra data uppsättning på **Dataset2** . Referera till den andra data mängden i python-skriptet som **DataFrame2** .
+    Den här modulen stöder tillägg av en andra data uppsättning på **Dataset2**. Referera till den andra data mängden i python-skriptet som **DataFrame2**.
 
     Data uppsättningar som lagras i Azure Machine Learning konverteras automatiskt till Pandas data ramar när de läses in med den här modulen.
 
     ![Köra python-indatamängds karta](media/module/python-module.png)
 
-4. Om du vill inkludera nya python-paket eller-kod ansluter du den zippade filen som innehåller dessa anpassade resurser till **skript paketets** port. Eller om ditt skript är större än 16 KB använder du **Skriptets paket** port för att undvika fel som *kommando raden överskrider gränsen på 16597 tecken* . 
+4. Om du vill inkludera nya python-paket eller-kod ansluter du den zippade filen som innehåller dessa anpassade resurser till **skript paketets** port. Eller om ditt skript är större än 16 KB använder du **Skriptets paket** port för att undvika fel som *kommando raden överskrider gränsen på 16597 tecken*. 
 
     
     1. Paketera skriptet och andra anpassade resurser i en zip-fil.
@@ -185,7 +185,7 @@ EXECUTE Python-skript module innehåller exempel på python-kod som du kan anvä
     Två data uppsättningar kan returneras till designern, som måste vara en sekvens av typen `pandas.DataFrame` . Du kan skapa andra utdata i python-koden och skriva dem direkt till Azure Storage.
 
     > [!WARNING]
-    > Vi rekommenderar **inte** att du ansluter till en databas eller andra externa lagrings enheter i **köra python-skriptfil** . Du kan använda modulen [Importera data](./import-data.md) och [Exportera data](./export-data.md)     
+    > Vi rekommenderar **inte** att du ansluter till en databas eller andra externa lagrings enheter i **köra python-skriptfil**. Du kan använda modulen [Importera data](./import-data.md) och [Exportera data](./export-data.md)     
 
 6. Skicka pipelinen.
 
@@ -315,4 +315,4 @@ De förinstallerade paketen är:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning.

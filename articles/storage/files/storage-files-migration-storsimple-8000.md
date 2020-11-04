@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 4aec299e15964d45ad949034ba02729ff43934de
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 128e4d0a421fc9ad4251f24f2cb37a217eeb1e31
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043196"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322206"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 och 8600-migrering till Azure File Sync
 
@@ -76,7 +76,7 @@ Om du inte hittar nycklarna i dina poster kan du hämta nyckeln från enheten. V
 >
 > * Att ansluta via en HTTPS-session är det säkraste och rekommenderade alternativet.
 > * Anslutning direkt till enhetens serie konsol är säker, men det går inte att ansluta till serie konsolen över nätverks växlar.
-> * HTTP-sessions anslutningar är ett alternativ som *inte är krypterade* . De rekommenderas inte om de inte används i ett stängt, betrott nätverk.
+> * HTTP-sessions anslutningar är ett alternativ som *inte är krypterade*. De rekommenderas inte om de inte används i ett stängt, betrott nätverk.
 
 ### <a name="storsimple-volume-backups"></a>StorSimple Volume-säkerhetskopieringar
 
@@ -119,7 +119,7 @@ I slutet av fas 1:
 * Du har en plan för vilken volymer måste migreras och hur du mappar dina volymer till lämpligt antal Azure-filresurser och lagrings konton.
 
 > [!CAUTION]
-> Om du måste migrera säkerhets kopior från StorSimple-volymer ska du **stoppa här** .
+> Om du måste migrera säkerhets kopior från StorSimple-volymer ska du **stoppa här**.
 >
 > Den här metoden är beroende av nya funktioner för datatransformations tjänsten som för närvarande inte kan migrera säkerhets kopior. Stöd för migrering av säkerhets kopia kommer att tas i slutet av 2020. Du kan för närvarande bara migrera dina real tids data. Om du startar nu kan du inte "bult" dina säkerhets kopior senare. Säkerhets kopieringar måste "spelas upp" på Azure-filresurser från äldsta till nyaste till real tids data, med Azure-filresurs ögonblicks bilder mellan.
 
@@ -165,7 +165,7 @@ Du har möjlighet att välja Premium Storage (SSD) för Azure-filresurser eller 
 
 #### <a name="account-kind"></a>Typ av konto
 
-* För standard lagring väljer du *StorageV2 (generell användning v2)* .
+* För standard lagring väljer du *StorageV2 (generell användning v2)*.
 * Välj *FileStorage* för Premium File-resurser.
 
 #### <a name="replication"></a>Replikering
@@ -174,13 +174,13 @@ Det finns flera tillgängliga replikeringsinställningar. Läs mer om de olika t
 
 Välj endast från något av följande två alternativ:
 
-* *Lokalt Redundant lagring (LRS)* .
+* *Lokalt Redundant lagring (LRS)*.
 * *Zon redundant lagring (ZRS)* , som inte är tillgänglig i alla Azure-regioner.
 
 > [!NOTE]
 > Endast LRS-och ZRS-redundans typer är kompatibla med de stora Azure-filresurserna i 100-TiB-kapacitet.
 
-Globalt redundant lagring (GRS) i alla variationer stöds inte för närvarande. Du kan byta typ av redundans senare och växla till GRS när supporten för den kommer i Azure.
+Geo redundant Storage (GRS) i alla variationer stöds inte för närvarande. Du kan byta typ av redundans senare och växla till GRS när supporten för den kommer i Azure.
 
 #### <a name="enable-100-tib-capacity-file-shares"></a>Aktivera 100-TiB – kapacitets fil resurser
 
@@ -206,7 +206,7 @@ När dina lagrings konton har skapats går du till avsnittet **fil resurs** på 
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-share.png" alt-text="En bild som visar fliken Avancerat i Azure Portal för att skapa ett lagrings konto.":::
+        :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-share.png" alt-text="En Azure Portal skärm bild som visar det nya fil resurs gränssnittet.":::
     :::column-end:::
     :::column:::
         </br>**Namn**</br>Små bokstäver, siffror och bindestreck stöds.</br></br>**Kvot**</br>Kvoten är jämförbar med en SMB-hårddisk på en Windows Server-instans. Det bästa sättet är att inte ange en kvot här eftersom migreringen och andra tjänster inte fungerar när kvoten nås.</br></br>**Nivåer**</br>Välj **transaktion optimerad** för den nya fil resursen. Under migreringen utförs många transaktioner. Det är mer kostnads effektivt att ändra nivån senare till den nivå som passar din arbets belastning bäst.
@@ -215,7 +215,7 @@ När dina lagrings konton har skapats går du till avsnittet **fil resurs** på 
 
 ### <a name="storsimple-data-manager"></a>StorSimple Data Manager
 
-Den Azure-resurs som ska innehålla dina migreringsjobb kallas för ett **StorSimple Data Manager** . Välj **Ny resurs** och Sök efter den. Välj sedan **Skapa** .
+Den Azure-resurs som ska innehålla dina migreringsjobb kallas för ett **StorSimple Data Manager**. Välj **Ny resurs** och Sök efter den. Välj sedan **Skapa**.
 
 Den här tillfälliga resursen används för dirigering. Du avetablerar den när migreringen är klar. Den bör distribueras i samma prenumeration, resurs grupp och region som ditt StorSimple-lagrings konto.
 
@@ -232,7 +232,7 @@ I slutet av fas 2 har du distribuerat dina lagrings konton och alla Azure-filres
 
 ## <a name="phase-3-create-and-run-a-migration-job"></a>Fas 3: skapa och kör ett migreringsjobb
 
-I det här avsnittet beskrivs hur du konfigurerar ett migreringsjobb och noga mappar katalogerna på en StorSimple-volym som ska kopieras till den Azure-filresurs du väljer. Kom igång genom att gå till StorSimple Data Manager, hitta **jobb definitioner** på menyn och välja **+ jobb definition** . Mål lagrings typen är standard **Azure-filresursen** .
+I det här avsnittet beskrivs hur du konfigurerar ett migreringsjobb och noga mappar katalogerna på en StorSimple-volym som ska kopieras till den Azure-filresurs du väljer. Kom igång genom att gå till StorSimple Data Manager, hitta **jobb definitioner** på menyn och välja **+ jobb definition**. Mål lagrings typen är standard **Azure-filresursen**.
 
 ![StorSimple 8000-seriens migreringsjobb.](media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-job-type.png "En skärm bild av dialog rutan jobb definitioner Azure Portal med en ny dialog ruta för jobb definitioner öppnas som frågar efter typen av jobb: kopiera till en fil resurs eller en BLOB-behållare.")
 
@@ -270,21 +270,21 @@ En mappning uttrycks från vänster till höger: [\Source sökväg] \> [\target 
 |Semantiskt Character          | Innebörd  |
 |:---------------------------|:---------|
 | **\\**                     | Indikator för rotnivå.       |
-| **\>**                     | [Källa] och [mål mappnings operator.     |
+| **\>**                     | [Källa] och [Target-mappning]-operator.     |
 |**\|** eller RETUR (ny rad) | Avgränsare för två instruktioner för mappning av mappar. </br>Alternativt kan du utelämna det här alternativet och välja **RETUR** för att hämta nästa mappnings uttryck på en egen rad.        |
 
 ### <a name="examples"></a>Exempel
 Flyttar innehållet i mappens *användar data* till roten för mål fil resursen:
 ``` console
-\User data > \\
+\User data > \
 ```
 Flyttar hela volym innehållet till en ny sökväg på mål fil resursen:
 ``` console
-\ \> \Apps\HR tracker
+\ > \Apps\HR tracker
 ```
 Flyttar innehållet i källmappen till en ny sökväg på mål fil resursen:
 ``` console
-\HR resumes-Backup \> \Backups\HR\resumes
+\HR resumes-Backup > \Backups\HR\resumes
 ```
 Sorterar flera käll platser i en ny katalog struktur:
 ``` console
@@ -296,7 +296,7 @@ Sorterar flera käll platser i en ny katalog struktur:
 ### <a name="semantic-rules"></a>Semantiska regler
 
 * Ange alltid mappsökvägar i förhållande till rot nivån.
-* Påbörja varje mappsökväg med en indikator för rotnivå " \" .
+* Börja varje mappsökväg med en indikator för rotnivå " \\ ".
 * Ta inte med enhets beteckningar.
 * När du anger flera sökvägar kan inte käll-eller mål Sök vägar överlappa varandra:</br>
    Ogiltigt överlappande käll Sök vägs exempel:</br>
@@ -425,12 +425,12 @@ När du har ändrat vad som helst men den **inledande synkroniseringen** fylls d
 
 Du kan också använda Loggboken på Windows Server-instansen för att se när namn rummet har anlänt fullständigt.
 
-1. Öppna **Loggboken** och gå till **program och tjänster** .
-1. Gå till och öppna **Microsoft\FileSync\Agent\Telemetry** .
+1. Öppna **Loggboken** och gå till **program och tjänster**.
+1. Gå till och öppna **Microsoft\FileSync\Agent\Telemetry**.
 1. Leta efter den senaste **händelse 9102** som motsvarar en slutförd Sync-session.
-1. Välj **information** och bekräfta att du tittar på en händelse där **SyncDirection** -värdet **hämtas** .
-1. Under tiden där ditt namn område har laddats ned till servern, kommer det att finnas en enskild händelse med **scenario** , värdet **FullGhostedSync** och **HResult**  =  **0** .
-1. Om du saknar den händelsen kan du också söka efter andra **9102-händelser** med **SyncDirection**  =  **nedladdning** och **scenario**  =  **"RegularSync"** . Att hitta någon av dessa händelser indikerar också att namn området har laddat ned och synkroniseringen har slutförts till vanliga synkroniseringar, oavsett om det finns något att synkronisera eller inte för tillfället.
+1. Välj **information** och bekräfta att du tittar på en händelse där **SyncDirection** -värdet **hämtas**.
+1. Under tiden där ditt namn område har laddats ned till servern, kommer det att finnas en enskild händelse med **scenario** , värdet **FullGhostedSync** och **HResult**  =  **0**.
+1. Om du saknar den händelsen kan du också söka efter andra **9102-händelser** med **SyncDirection**  =  **nedladdning** och **scenario**  =  **"RegularSync"**. Att hitta någon av dessa händelser indikerar också att namn området har laddat ned och synkroniseringen har slutförts till vanliga synkroniseringar, oavsett om det finns något att synkronisera eller inte för tillfället.
 
 ### <a name="a-final-robocopy"></a>En slutgiltig RoboCopy
 
@@ -518,7 +518,7 @@ Lägg
    :::column-end:::
 :::row-end:::
 
-När du konfigurerar käll-och mål platserna för RoboCopy-kommandot, se till att du granskar strukturen för källan och målet för att se till att de matchar. Om du använde funktionen katalog mappning i migreringsjobbet kan rot Katalog strukturen skilja sig från strukturen på din StorSimple-volym. I så fall kan du behöva flera RoboCopy-jobb, ett för varje under katalog.
+När du konfigurerar käll-och mål platserna för RoboCopy-kommandot, se till att du granskar strukturen för källan och målet för att se till att de matchar. Om du använde funktionen katalog mappning i migreringsjobbet kan rot Katalog strukturen skilja sig från strukturen på din StorSimple-volym. I så fall kan du behöva flera RoboCopy-jobb, ett för varje under katalog. Om du är osäker på om kommandot ska fungera som förväntat, kan du använda parametern */l* , som simulerar kommandot utan att faktiskt göra några ändringar.
 
 Detta RoboCopy-kommando använder/MIR, så det går inte att flytta filer som är desamma (skiktade filer, till exempel). Men om du får fel källa och mål Sök väg, rensar/MIR även katalog strukturer på din Windows Server-instans eller Azure-filresurs som inte finns på käll Sök vägen för StorSimple. De måste matcha exakt för RoboCopy-jobbet för att uppnå det avsedda målet att uppdatera det migrerade innehållet med de senaste ändringarna som gjorts när migreringen pågår.
 
@@ -547,7 +547,7 @@ När du avetablerar en resurs förlorar du åtkomsten till konfigurationen för 
 Innan du börjar är det bäst att studera din nya Azure File Sync distribution i produktion en stund. Den tiden ger dig möjlighet att åtgärda eventuella problem som kan uppstå. När du har observerat din Azure File Sync-distribution under minst några få dagar kan du börja avetablera resurser i den här ordningen:
 
 1. Avetablera din StorSimple Data Manager-resurs via Azure Portal. Alla DTS-jobb tas bort med det. Du kan inte enkelt hämta kopierings loggarna. Om de är viktiga för dina poster kan du hämta dem innan du avetablerar.
-1. Kontrol lera att dina StorSimple fysiska enheter har migrerats och avregistrera dem sedan. Fortsätt inte om du inte är helt säker på att de har migrerats. Om du avetablerar dessa resurser när de fortfarande är nödvändiga kan du inte återställa data eller deras konfiguration.
+1. Kontrol lera att dina StorSimple fysiska enheter har migrerats och avregistrera dem sedan. Fortsätt inte om du inte är helt säker på att de har migrerats. Om du avetablerar dessa resurser när de fortfarande är nödvändiga kan du inte återställa data eller deras konfiguration.<br>Om du vill kan du först avetablera StorSimple Volume-resursen, som kommer att rensa data på enheten. Detta kan ta flera dagar och **kommer inte att** forensically data på enheten. Om detta är viktigt för dig kan du hantera disk avskilt från resurs avetableringen och enligt dina principer.
 1. Om det inte finns några fler registrerade enheter kvar i ett StorSimple-Enhetshanteraren kan du fortsätta att ta bort den Enhetshanteraren resursen.
 1. Nu är det dags att ta bort StorSimple Storage-kontot i Azure. Stoppa och bekräfta att migreringen är klar och att ingenting och ingen är beroende av dessa data innan du fortsätter.
 1. Dra ut den fysiska StorSimple från ditt data Center.

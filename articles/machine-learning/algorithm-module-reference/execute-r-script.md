@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/21/2020
-ms.openlocfilehash: a86c0b115ef866453e457ad528dd694ed7b49b48
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 0a3dbb42e69978a8a4895f44b57cc3ca5353e799
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330401"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323745"
 ---
 # <a name="execute-r-script-module"></a>Kör R-skript-modul
 
@@ -121,7 +121,7 @@ När pipeline-körningen är färdig kan du förhandsgranska bilden i den högra
 
 ## <a name="access-to-registered-dataset"></a>Åtkomst till registrerad data uppsättning
 
-Du kan referera till följande exempel kod för att [få åtkomst till registrerade data uppsättningar](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets#access-datasets-in-your-script) på din arbets yta:
+Du kan referera till följande exempel kod för att [få åtkomst till registrerade data uppsättningar](../how-to-create-register-datasets.md) på din arbets yta:
 
 ```R
         azureml_main <- function(dataframe1, dataframe2){
@@ -147,11 +147,11 @@ Data uppsättningar som lagras i designern konverteras automatiskt till en R dat
 
 1. Anslut alla indata som skriptet behöver. Indata är valfria och kan innehålla data och ytterligare R-kod.
 
-    * **Dataset1**: referera till första inmataren som `dataframe1` . Data uppsättningen för indata måste formateras som en CSV-, TSV-eller ARFF-fil. Eller så kan du ansluta en Azure Machine Learning data uppsättning.
+    * **Dataset1** : referera till första inmataren som `dataframe1` . Data uppsättningen för indata måste formateras som en CSV-, TSV-eller ARFF-fil. Eller så kan du ansluta en Azure Machine Learning data uppsättning.
 
-    * **Dataset2**: referera till den andra indatamängden som `dataframe2` . Den här data uppsättningen måste också formateras som en CSV-, TSV-eller ARFF-fil eller som en Azure Machine Learning data uppsättning.
+    * **Dataset2** : referera till den andra indatamängden som `dataframe2` . Den här data uppsättningen måste också formateras som en CSV-, TSV-eller ARFF-fil eller som en Azure Machine Learning data uppsättning.
 
-    * **Skript paket**: den tredje indatamängden accepterar. zip-filer. En zippad fil kan innehålla flera filer och flera filtyper.
+    * **Skript paket** : den tredje indatamängden accepterar. zip-filer. En zippad fil kan innehålla flera filer och flera filtyper.
 
 1. I text rutan **R-skript** skriver eller klistrar du in giltigt R-skript.
 
@@ -216,7 +216,7 @@ Data uppsättningar som lagras i designern konverteras automatiskt till en R dat
     }
     ```
 
-1.  För **slumpmässigt utsäde**anger du ett värde som ska användas i R-miljön som det slumpmässiga startvärdet. Den här parametern motsvarar anrop `set.seed(value)` i R-kod.  
+1.  För **slumpmässigt utsäde** anger du ett värde som ska användas i R-miljön som det slumpmässiga startvärdet. Den här parametern motsvarar anrop `set.seed(value)` i R-kod.  
 
 1. Skicka pipelinen.  
 
@@ -237,7 +237,7 @@ Det finns många sätt att utöka din pipeline med anpassade R-skript. Det här 
 
 Modulen kör R-skript stöder godtyckliga R-skriptfiler som indata. Om du vill använda dem måste du överföra dem till din arbets yta som en del av. zip-filen.
 
-1. Om du vill ladda upp en zip-fil som innehåller R-koden till din arbets yta går du till till gångs sidan för **data uppsättningar** . Välj **skapa data uppsättning**och välj sedan alternativet **från lokal fil** och **fil** data uppsättnings typ.  
+1. Om du vill ladda upp en zip-fil som innehåller R-koden till din arbets yta går du till till gångs sidan för **data uppsättningar** . Välj **skapa data uppsättning** och välj sedan alternativet **från lokal fil** och **fil** data uppsättnings typ.  
 
 1. Kontrol lera att den zippade filen visas i **mina data uppsättningar** under kategorin **data uppsättningar** i det vänstra modul trädet.
 
@@ -505,4 +505,4 @@ Följande förinstallerade R-paket är tillgängliga för närvarande:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning.

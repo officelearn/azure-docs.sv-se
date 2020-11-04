@@ -2,16 +2,16 @@
 title: Felsöka Azure Automation Runbook-problem
 description: Den här artikeln beskriver hur du felsöker och löser problem med Azure Automation runbooks.
 services: automation
-ms.date: 07/28/2020
+ms.date: 11/03/2020
 ms.topic: conceptual
 ms.service: automation
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1cbb5be8c1a4045b218c0e6bf5ac7ed0b901aa80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e173e76b80717d6685e9a6b383ee98eddf910f5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87904810"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323476"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Felsöka runbook-problem
 
@@ -42,7 +42,7 @@ När du får fel meddelanden under Runbook-körningen i Azure Automation kan du 
     * [Förnya certifikatet](../manage-runas-account.md#cert-renewal) om kör som-kontot har upphört att gälla.
     * [Förnya webhooken](../automation-webhooks.md#renew-a-webhook) om du försöker använda en upphört webhook för att starta runbooken.
     * [Kontrol lera jobb status](../automation-runbook-execution.md#job-statuses) för att fastställa aktuella Runbook-statusar och vissa möjliga orsaker till problemet.
-    * [Lägg till ytterligare utdata](../automation-runbook-output-and-messages.md#monitor-message-streams) till runbooken för att identifiera vad som händer innan runbooken pausas.
+    * [Lägg till ytterligare utdata](../automation-runbook-output-and-messages.md#working-with-message-streams) till runbooken för att identifiera vad som händer innan runbooken pausas.
     * [Hantera eventuella undantag](../automation-runbook-execution.md#exceptions) som genereras av ditt jobb.
 
 1. Gör det här steget om Runbook-jobbet eller miljön på Hybrid Runbook Worker inte svarar.
@@ -201,7 +201,7 @@ Det här felet kan inträffa om:
 Följ dessa steg för att avgöra om du har autentiserat till Azure och har åtkomst till den prenumeration som du försöker välja:
 
 1. Kontrol lera att skriptet fungerar fristående genom att testa det utanför Azure Automation.
-1. Kontrol lera att skriptet kör cmdleten [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount?view=azps-3.7.0) innan du kör `Select-*` cmdleten.
+1. Kontrol lera att skriptet kör cmdleten [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) innan du kör `Select-*` cmdleten.
 1. Lägg till `Disable-AzContextAutosave –Scope Process` i början av din Runbook. Den här cmdleten säkerställer att alla autentiseringsuppgifter endast gäller för körningen av den aktuella runbooken.
 1. Om fel meddelandet fortfarande visas ändrar du koden genom att lägga till `AzContext` parametern för `Connect-AzAccount` och sedan köra koden.
 
@@ -291,7 +291,7 @@ Det här felet kan orsakas av att inaktuella Azure-moduler används.
 
 Du kan lösa det här felet genom att uppdatera Azure-moduler till den senaste versionen:
 
-1. Välj **moduler**i ditt Automation-konto och välj sedan **Uppdatera Azure-moduler**.
+1. Välj **moduler** i ditt Automation-konto och välj sedan **Uppdatera Azure-moduler**.
 1. Uppdateringen tar ungefär 15 minuter. Kör den Runbook som misslyckades när den är klar.
 
 Mer information om hur du uppdaterar dina moduler finns [i Uppdatera Azure-moduler i Azure Automation](../automation-update-azure-modules.md).
@@ -398,7 +398,7 @@ Om data strömmen innehåller objekt, `Start-AzAutomationRunbook` hanterar inte 
 
 ### <a name="resolution"></a>Lösning
 
-Implementera en avsöknings logik och Använd cmdleten [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.7.0) för att hämta utdata. Ett exempel på den här logiken definieras här:
+Implementera en avsöknings logik och Använd cmdleten [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput) för att hämta utdata. Ett exempel på den här logiken definieras här:
 
 ```powershell
 $automationAccountName = "ContosoAutomationAccount"
@@ -476,14 +476,14 @@ Du får följande fel meddelande när du kör `Get-AzAutomationJobOutput` cmdlet
 
 ### <a name="cause"></a>Orsak
 
-Felet kan uppstå när jobbets utdata hämtas från en Runbook som har många [utförliga data strömmar](../automation-runbook-output-and-messages.md#monitor-verbose-stream).
+Felet kan uppstå när jobbets utdata hämtas från en Runbook som har många [utförliga data strömmar](../automation-runbook-output-and-messages.md#write-output-to-verbose-stream).
 
 ### <a name="resolution"></a>Lösning
 
 Gör något av följande för att lösa det här felet:
 
 * Redigera runbooken och minska antalet jobb strömmar som den avger.
-* Minska antalet strömmar som ska hämtas när cmdleten körs. Om du vill göra detta kan du ange värdet för `Stream` parametern för [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.7.0) -cmdlet: en så att endast utgående strömmar hämtas. 
+* Minska antalet strömmar som ska hämtas när cmdleten körs. Om du vill göra detta kan du ange värdet för `Stream` parametern för [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput) -cmdlet: en så att endast utgående strömmar hämtas. 
 
 ## <a name="scenario-runbook-job-fails-because-allocated-quota-was-exceeded"></a><a name="quota-exceeded"></a>Scenario: ett Runbook-jobb Miss lyckas eftersom den tilldelade kvoten överskreds
 
@@ -505,7 +505,7 @@ Om du vill använda mer än 500 minuters bearbetning per månad ändrar du din p
 
 1. Logga in på din Azure-prenumeration.
 1. Välj det Automation-konto som ska uppgraderas.
-1. Välj **Inställningar**och välj sedan **prissättning**.
+1. Välj **Inställningar** och välj sedan **prissättning**.
 1. Välj **Aktivera** på sidan längst ned för att uppgradera ditt konto till Basic-nivån.
 
 ## <a name="scenario-runbook-output-stream-greater-than-1-mb"></a><a name="output-stream-greater-1mb"></a>Scenario: Runbook-utdataström som är större än 1 MB
@@ -576,7 +576,7 @@ Det här felet kan betyda att Runbooks som körs i ett Azure-sandbox inte kan k�
 
 Det finns två sätt att lösa det här felet:
 
-* I stället för att använda [Start-Job](/powershell/module/microsoft.powershell.core/start-job?view=powershell-7)använder du [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) för att starta runbooken.
+* I stället för att använda [Start-Job](/powershell/module/microsoft.powershell.core/start-job)använder du [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook) för att starta runbooken.
 * Försök att köra runbooken på en Hybrid Runbook Worker.
 
 Mer information om det här beteendet och andra beteenden för Azure Automation runbooks finns [i Runbook-körning i Azure Automation](../automation-runbook-execution.md).
@@ -605,8 +605,8 @@ En annan lösning är att optimera runbooken genom att skapa [underordnade Runbo
 
 PowerShell-cmdletar som aktiverar det underordnade Runbook-scenariot är:
 
-* [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0). Med den här cmdleten kan du starta en runbook och skicka parametrar till runbooken.
-* [Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0). Om det finns åtgärder som måste utföras efter att den underordnade Runbook-flödet har slutförts kan du kontrol lera jobb status för varje underordnad i den här cmdleten.
+* [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook). Med den här cmdleten kan du starta en runbook och skicka parametrar till runbooken.
+* [Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob). Om det finns åtgärder som måste utföras efter att den underordnade Runbook-flödet har slutförts kan du kontrol lera jobb status för varje underordnad i den här cmdleten.
 
 ## <a name="scenario-error-in-job-streams-about-the-get_serializationsettings-method"></a><a name="get-serializationsettings"></a>Scenario: fel i jobb strömmar om get_SerializationSettings metoden
 
@@ -642,7 +642,7 @@ När din Runbook eller ditt program försöker köras i ett Azure-sandbox nekar-
 
 ### <a name="cause"></a>Orsak
 
-Det här problemet kan uppstå eftersom Azure-sand lådor förhindrar åtkomst till alla out-of-process COM-servrar. Ett begränsat program eller en Runbook kan till exempel inte anropa till Windows Management Instrumentation (WMI) eller till Windows Installer-tjänsten (msiserver.exe). 
+Det här problemet kan uppstå eftersom Azure-sand lådor förhindrar åtkomst till alla out-of-process COM-servrar. Ett begränsat program eller en Runbook kan till exempel inte anropa till Windows Management Instrumentation (WMI) eller till Windows Installer-tjänsten (msiserver.exe).
 
 ### <a name="resolution"></a>Lösning
 

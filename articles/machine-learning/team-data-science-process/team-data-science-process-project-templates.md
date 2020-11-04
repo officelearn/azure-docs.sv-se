@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c003145acd423fd96dd0ac6c054884024c2ce4a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac6055029b8fc7bbba11a8e3b789df3b6b1622e2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75864238"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322753"
 ---
 # <a name="team-data-science-process-project-planning"></a>Projekt planering för grup data vetenskap
 
@@ -30,7 +30,7 @@ Livs cykeln beskriver de viktigaste faserna som projekt vanligt vis körs, ofta 
 - Distribution
 - Kund godkännande
 
-Beskrivningar av var och en av dessa steg finns i [livs cykeln för team data science process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/lifecycle).
+Beskrivningar av var och en av dessa steg finns i [livs cykeln för team data science process](./lifecycle.md).
 
  
 ## <a name="microsoft-project-template"></a>Microsoft Project-mall
@@ -60,5 +60,4 @@ Använd den här [Project Template-lagringsplatsen](https://github.com/Azure/Azu
 
 [Smidig utveckling av data vetenskaps projekt](agile-development.md) Det här dokumentet beskriver ett data vetenskaps projekt i en systematisk, versions kontroll och samar beta med hjälp av processen för team data vetenskap.
 
-Genom gångar som demonstrerar alla steg i processen för **vissa scenarier** tillhandahålls också. De visas och länkas med miniatyr beskrivningar i [exempel](walkthroughs.md) artikeln. De illustrerar hur du kombinerar moln, lokala verktyg och tjänster till ett arbets flöde eller en pipeline för att skapa ett intelligent program. 
-
+Genom gångar som demonstrerar alla steg i processen för **vissa scenarier** tillhandahålls också. De visas och länkas med miniatyr beskrivningar i [exempel](walkthroughs.md) artikeln. De illustrerar hur du kombinerar moln, lokala verktyg och tjänster till ett arbets flöde eller en pipeline för att skapa ett intelligent program.

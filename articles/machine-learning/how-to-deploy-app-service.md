@@ -1,7 +1,7 @@
 ---
 title: Distribuera ml-modeller till Azure App Service (för hands version)
 titleSuffix: Azure Machine Learning
-description: Lär dig att använda Azure Machine Learning för att distribuera en modell till en webbapp i Azure App Service.
+description: Lär dig hur du använder Azure Machine Learning för att distribuera en utbildad ML-modell till en webbapp med hjälp av Azure App Service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 06/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: 31c9f203a8602b6c078fe2e9c672c539140f9990
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: bea3270821888334ed876bb827dab56b4c206b6a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744439"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325249"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Distribuera en maskin inlärnings modell till Azure App Service (för hands version)
 
@@ -28,11 +28,11 @@ Lär dig hur du distribuerar en modell från Azure Machine Learning som en webba
 
 Med Azure Machine Learning kan du skapa Docker-avbildningar från tränade maskin inlärnings modeller. Den här avbildningen innehåller en webb tjänst som tar emot data, skickar den till modellen och returnerar svaret. Azure App Service kan användas för att distribuera avbildningen och innehåller följande funktioner:
 
-* Avancerad [autentisering](/azure/app-service/configure-authentication-provider-aad) för förbättrad säkerhet. Autentiseringsmetoder omfattar både Azure Active Directory och Multi-factor auth.
-* [Skala](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json) utan att behöva distribuera igen.
-* [TLS-stöd](/azure/app-service/configure-ssl-certificate-in-code) för säker kommunikation mellan klienter och tjänsten.
+* Avancerad [autentisering](../app-service/configure-authentication-provider-aad.md) för förbättrad säkerhet. Autentiseringsmetoder omfattar både Azure Active Directory och Multi-factor auth.
+* [Skala](../azure-monitor/platform/autoscale-get-started.md?toc=%252fazure%252fapp-service%252ftoc.json) utan att behöva distribuera igen.
+* [TLS-stöd](../app-service/configure-ssl-certificate-in-code.md) för säker kommunikation mellan klienter och tjänsten.
 
-Mer information om funktioner som tillhandahålls av Azure App Service finns i [Översikt över App Service](/azure/app-service/overview).
+Mer information om funktioner som tillhandahålls av Azure App Service finns i [Översikt över App Service](../app-service/overview.md).
 
 > [!IMPORTANT]
 > Om du behöver kunna logga de bedömnings data som används med din distribuerade modell, eller resultatet av en bedömning, bör du istället distribuera till Azure Kubernetes-tjänsten. Mer information finns i [samla in data på dina produktions modeller](how-to-enable-data-collection.md).
@@ -40,7 +40,7 @@ Mer information om funktioner som tillhandahålls av Azure App Service finns i [
 ## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure Machine Learning-arbetsyta. Mer information finns i artikeln [skapa en arbets yta](how-to-manage-workspace.md) .
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+* [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 * En utbildad Machine Learning-modell som registrerats i din arbets yta. Om du inte har någon modell använder du [själv studie kursen om bild klassificering: träna modell](tutorial-train-models-with-aml.md) att träna och registrera en.
 
     > [!IMPORTANT]
@@ -56,7 +56,7 @@ Mer information om funktioner som tillhandahålls av Azure App Service finns i [
 
 Innan du distribuerar måste du definiera vad som behövs för att köra modellen som en webb tjänst. I följande lista beskrivs de huvud objekt som behövs för en-distribution:
 
-* Ett __Entry-skript__ . Det här skriptet accepterar begär Anden, visar begäran med hjälp av modellen och returnerar resultatet.
+* Ett __Entry-skript__. Det här skriptet accepterar begär Anden, visar begäran med hjälp av modellen och returnerar resultatet.
 
     > [!IMPORTANT]
     > Start skriptet är bara för din modell. den måste förstå formatet på inkommande begär ande data, formatet på de data som förväntas av din modell och formatet på de data som returneras till klienter.
@@ -66,16 +66,16 @@ Innan du distribuerar måste du definiera vad som behövs för att köra modelle
     > [!IMPORTANT]
     > Azure Machine Learning SDK tillhandahåller inte något sätt för webb tjänsten att komma åt dina data lager eller data uppsättningar. Om du behöver distribuerad modell för att komma åt data som lagras utanför distributionen, t. ex. i ett Azure Storage konto, måste du utveckla en anpassad kod med hjälp av relevant SDK. Till exempel [Azure Storage SDK för python](https://github.com/Azure/azure-storage-python).
     >
-    > Ett annat alternativ som kan fungera för ditt scenario är [batch-förutsägelser](how-to-use-parallel-run-step.md), vilket ger åtkomst till data lager när poäng.
+    > Ett annat alternativ som kan fungera för ditt scenario är [batch-förutsägelser](./tutorial-pipeline-batch-scoring-classification.md), vilket ger åtkomst till data lager när poäng.
 
     Mer information om Entry-skript finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
 * **Beroenden** , till exempel hjälp skript eller python/Conda-paket som krävs för att köra registrerings skriptet eller modellen
 
-Dessa entiteter kapslas in i en konfiguration för en __härledning__ . Inferenskonfigurationen refererar till startskriptet och andra beroenden.
+Dessa entiteter kapslas in i en konfiguration för en __härledning__. Inferenskonfigurationen refererar till startskriptet och andra beroenden.
 
 > [!IMPORTANT]
-> När du skapar en konfigurations konfiguration för användning med Azure App Service måste du använda ett [miljö](https://docs.microsoft.com//python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true) objekt. Observera att om du definierar en anpassad miljö måste du lägga till azureml-defaults med version >= 1.0.45 som ett pip-beroende. Det här paketet innehåller de funktioner som krävs för att vara värd för modellen som en webb tjänst. I följande exempel visas hur du skapar ett miljö objekt och använder det med en konfigurations konfiguration:
+> När du skapar en konfigurations konfiguration för användning med Azure App Service måste du använda ett [miljö](//python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py) objekt. Observera att om du definierar en anpassad miljö måste du lägga till azureml-defaults med version >= 1.0.45 som ett pip-beroende. Det här paketet innehåller de funktioner som krävs för att vara värd för modellen som en webb tjänst. I följande exempel visas hur du skapar ett miljö objekt och använder det med en konfigurations konfiguration:
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -97,11 +97,11 @@ Mer information om miljöer finns i [skapa och hantera miljöer för utbildning 
 Mer information om konfiguration av konfiguration finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
 > [!IMPORTANT]
-> När du distribuerar till Azure App Service behöver du inte skapa en __distributions konfiguration__ .
+> När du distribuerar till Azure App Service behöver du inte skapa en __distributions konfiguration__.
 
 ## <a name="create-the-image"></a>Skapa avbildningen
 
-Om du vill skapa Docker-avbildningen som distribueras till Azure App Service använder du [modell. Package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-). Följande kodfragment visar hur du skapar en ny avbildning från modellen och konfigurationen för konfigurations härledning:
+Om du vill skapa Docker-avbildningen som distribueras till Azure App Service använder du [modell. Package](//python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-). Följande kodfragment visar hur du skapar en ny avbildning från modellen och konfigurationen för konfigurations härledning:
 
 > [!NOTE]
 > Kodfragmentet förutsätter att `model` innehåller en registrerad modell och att den `inference_config` innehåller konfigurationen för härlednings miljön. Mer information finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
@@ -115,7 +115,7 @@ package.wait_for_creation(show_output=True)
 print(package.location)
 ```
 
-När `show_output=True` visas utdata från Docker-build-processen. När processen har slutförts har avbildningen skapats i Azure Container Registry för din arbets yta. När avbildningen har skapats visas platsen i Azure Container Registry. Den plats som returnerades är i formatet `<acrinstance>.azurecr.io/package@sha256:<imagename>` . Till exempel `myml08024f78fd10.azurecr.io/package@sha256:20190827151241`.
+När `show_output=True` visas utdata från Docker-build-processen. När processen har slutförts har avbildningen skapats i Azure Container Registry för din arbets yta. När avbildningen har skapats visas platsen i Azure Container Registry. Den plats som returnerades är i formatet `<acrinstance>.azurecr.io/package@sha256:<imagename>` . Exempelvis `myml08024f78fd10.azurecr.io/package@sha256:20190827151241`.
 
 > [!IMPORTANT]
 > Spara plats informationen som används när avbildningen distribueras.
@@ -146,7 +146,7 @@ När `show_output=True` visas utdata från Docker-build-processen. När processe
     }
     ```
 
-    Spara värdet för __användar namn__ och ett av __lösen orden__ .
+    Spara värdet för __användar namn__ och ett av __lösen orden__.
 
 1. Om du inte redan har en resurs grupp eller App Service-plan för att distribuera tjänsten visar följande kommandon hur du skapar båda:
 
@@ -247,7 +247,7 @@ Det här kommandot returnerar information som liknar följande hostname- `<app-n
 
 ## <a name="use-the-web-app"></a>Använda webbapp
 
-Webb tjänsten som skickar begär anden till modellen finns på `{baseurl}/score` . Till exempel `https://<app-name>.azurewebsites.net/score`. Följande python-kod visar hur du skickar data till URL: en och visar svaret:
+Webb tjänsten som skickar begär anden till modellen finns på `{baseurl}/score` . Exempelvis `https://<app-name>.azurewebsites.net/score`. Följande python-kod visar hur du skickar data till URL: en och visar svaret:
 
 ```python
 import requests
@@ -271,7 +271,7 @@ print(response.json())
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig hur du konfigurerar din webbapp i [App Service i Linux](/azure/app-service/containers/) -dokumentationen.
-* Lär dig mer om skalning i [Kom igång med automatisk skalning i Azure](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json).
-* [Använd ett TLS/SSL-certifikat i din Azure App Service](/azure/app-service/configure-ssl-certificate-in-code).
-* [Konfigurera App Service-appen så att den använder Azure Active Directory inloggning](/azure/app-service/configure-authentication-provider-aad).
+* Lär dig mer om skalning i [Kom igång med automatisk skalning i Azure](../azure-monitor/platform/autoscale-get-started.md?toc=%252fazure%252fapp-service%252ftoc.json).
+* [Använd ett TLS/SSL-certifikat i din Azure App Service](../app-service/configure-ssl-certificate-in-code.md).
+* [Konfigurera App Service-appen så att den använder Azure Active Directory inloggning](../app-service/configure-authentication-provider-aad.md).
 * [Använda en ML-modell som distribueras som en webb tjänst](how-to-consume-web-service.md)

@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 7b5881651312e69ed840eb50388d497258ddeb27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec6a3304ffe035e7ac206e96f7666e3ba1877d9e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362460"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322787"
 ---
 # <a name="define-custom-r-modules-for-machine-learning-studio-classic"></a>Definiera anpassade R-moduler för Machine Learning Studio (klassisk)
 
-**gäller för:** ![ Gäller för. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ gäller inte för.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**gäller för:** ![ Gäller för. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ gäller inte för. ](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 I det här avsnittet beskrivs hur du skapar och distribuerar en anpassad R Studio (klassisk). Det förklarar vilka anpassade R-moduler som är och vilka filer som används för att definiera dem. Den illustrerar hur du skapar filerna som definierar en modul och hur du registrerar modulen för distribution i en Machine Learning-arbetsyta. De element och attribut som används i definitionen av den anpassade modulen beskrivs sedan i detalj. Information om hur du använder extra funktioner och filer och flera utdata beskrivs också. 
 
@@ -38,7 +38,7 @@ Ytterligare tilläggsfiler kan också ingå i. zip-filen som innehåller funktio
 Det här exemplet illustrerar hur du skapar de filer som krävs av en anpassad R-modul, paketerar dem i en zip-fil och sedan registrerar modulen i din Machine Learning-arbetsyta. Zip-paketet och exempelfilerna kan laddas ned från [Ladda ned CustomAddRows.zip-filen](https://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409).
 
 ## <a name="the-source-file"></a>Käll filen
-Överväg exemplet på en anpassad modul för att **lägga till rader** som ändrar standard implementeringen av modulen **Lägg till rader** som används för att sammanfoga rader (observationer) från två data uppsättningar (data ramar). I modulen standard **Lägg till rader** läggs raderna i den andra data uppsättningen till i slutet av den första data uppsättningen med `rbind` algoritmen. Den anpassade `CustomAddRows` funktionen godkänner två data uppsättningar, men accepterar även en boolesk växlings parameter som ytterligare indata. Om växlings parametern har angetts till **false**returneras samma data uppsättning som standard implementeringen. Men om växlings parametern är **True**lägger funktionen till rader i första data uppsättningen i slutet av den andra data uppsättningen i stället. Den CustomAddRows. R-fil som innehåller implementeringen av R- `CustomAddRows` funktionen som exponeras av modulen för **anpassade Lägg till rader** har följande R-kod.
+Överväg exemplet på en anpassad modul för att **lägga till rader** som ändrar standard implementeringen av modulen **Lägg till rader** som används för att sammanfoga rader (observationer) från två data uppsättningar (data ramar). I modulen standard **Lägg till rader** läggs raderna i den andra data uppsättningen till i slutet av den första data uppsättningen med `rbind` algoritmen. Den anpassade `CustomAddRows` funktionen godkänner två data uppsättningar, men accepterar även en boolesk växlings parameter som ytterligare indata. Om växlings parametern har angetts till **false** returneras samma data uppsättning som standard implementeringen. Men om växlings parametern är **True** lägger funktionen till rader i första data uppsättningen i slutet av den andra data uppsättningen i stället. Den CustomAddRows. R-fil som innehåller implementeringen av R- `CustomAddRows` funktionen som exponeras av modulen för **anpassade Lägg till rader** har följande R-kod.
 
 ```r
 CustomAddRows <- function(dataset1, dataset2, swap=FALSE) 
@@ -91,7 +91,7 @@ Om du vill visa den här `CustomAddRows` funktionen som den Azure Machine Learni
 </Module>
 ```
 
-Det är viktigt att Observera att värdet för **ID-** attributen för **indata** -och **arg** -element i XML-filen måste matcha R-kodens funktions parameter namn i CustomAddRows. R-filen exakt: (*DataSet1*, *DataSet2*och *swap* i exemplet). På samma sätt måste värdet för attributet **entryPoint** i **språk** elementet matcha namnet på funktionen i R-skriptet exakt: (*CustomAddRows* i exemplet). 
+Det är viktigt att Observera att värdet för **ID-** attributen för **indata** -och **arg** -element i XML-filen måste matcha R-kodens funktions parameter namn i CustomAddRows. R-filen exakt: ( *DataSet1* , *DataSet2* och *swap* i exemplet). På samma sätt måste värdet för attributet **entryPoint** i **språk** elementet matcha namnet på funktionen i R-skriptet exakt: ( *CustomAddRows* i exemplet). 
 
 Däremot motsvarar **ID-** attributet för **output** -elementet inte några variabler i R-skriptet. Om fler än en utmatning krävs behöver du bara returnera en lista från R-funktionen med resultat som har placerats *i samma ordning* som **utmatnings** elementen deklareras i XML-filen.
 
@@ -140,7 +140,7 @@ Det finns funktioner som är icke-deterministiska, t. ex. RAND eller en funktion
 Portarna för indata och utdata för en anpassad modul anges i underordnade element i avsnittet **ports** i XML-definitions filen. Ordningen på dessa element bestämmer layouten som erfarna (UX) av användare. De första underordnade **indata** eller **utdata** som anges i elementet **ports** i XML-filen blir den vänstra-mest angivna porten i Machine Learning UX.
 Varje indata-och utdataport kan ha ett valfritt underordnat **beskrivnings** element som anger den text som visas när du hovrar mus markören över porten i Machine Learning gränssnittet.
 
-**Port regler**:
+**Port regler** :
 
 * Maximalt antal **indata-och utgående portar** är 8 för var och en.
 
@@ -188,7 +188,7 @@ För anpassade R-moduler behöver inte ID: t för en zip-port matcha några para
 
 För utdata i anpassade R-moduler behöver inte värdet för **ID-** attributet motsvara vad som finns i R-skriptet, men det måste vara unikt. För utdata i en enda modul måste returvärdet från R-funktionen vara en *data. Frame*. För att kunna skriva ut fler än ett objekt av en datatyp som stöds måste rätt utgående portar anges i XML-definitions filen och objekten måste returneras som en lista. Utgående objekt tilldelas till utgående portar från vänster till höger, vilket återspeglar i vilken ordning objekten placeras i den returnerade listan.
 
-Om du till exempel vill ändra den anpassade modulen **Lägg till rader** för att mata ut de ursprungliga två data uppsättningarna, *DataSet1* och *DataSet2*, förutom den nya sammanfogade data uppsättningen, *data uppsättningen*, (i en ordning, från vänster till höger, som: *data uppsättning*, *DataSet1*, *DataSet2*) definierar du Utdataportarna i CustomAddRows.xml-filen på följande sätt:
+Om du till exempel vill ändra den anpassade modulen **Lägg till rader** för att mata ut de ursprungliga två data uppsättningarna, *DataSet1* och *DataSet2* , förutom den nya sammanfogade data uppsättningen, *data uppsättningen* , (i en ordning, från vänster till höger, som: *data uppsättning* , *DataSet1* , *DataSet2* ) definierar du Utdataportarna i CustomAddRows.xml-filen på följande sätt:
 
 ```xml
 <Ports> 
@@ -221,7 +221,7 @@ CustomAddRows <- function(dataset1, dataset2, swap=FALSE) {
 } 
 ```
 
-**Visualisering av utdata:** Du kan också ange en utdataport av typen *visualisering*, som visar utdata från R Graphics-enheten och konsolens utdata. Den här porten är inte en del av utdata för R-funktionen och påverkar inte ordningen för andra typer av utgående portar. Om du vill lägga till en visualiserings port i de anpassade modulerna lägger du till ett **utdata** -element med värdet *visualisering* för dess **typ** -attribut:
+**Visualisering av utdata:** Du kan också ange en utdataport av typen *visualisering* , som visar utdata från R Graphics-enheten och konsolens utdata. Den här porten är inte en del av utdata för R-funktionen och påverkar inte ordningen för andra typer av utgående portar. Om du vill lägga till en visualiserings port i de anpassade modulerna lägger du till ett **utdata** -element med värdet *visualisering* för dess **typ** -attribut:
 
 ```xml
 <Output id="deviceOutput" name="View Port" type="Visualization">
@@ -253,7 +253,7 @@ En modul-parameter definieras med det underordnade elementet **arg** i **argumen
 </Arg>
 ```
 
-* *Valfria egenskaper*: **min**, **Max**, **standard** och **isOptional**
+* *Valfria egenskaper* : **min** , **Max** , **standard** och **isOptional**
 
 **Double** – en dubbel typ parameter.
 
@@ -264,7 +264,7 @@ En modul-parameter definieras med det underordnade elementet **arg** i **argumen
 </Arg>
 ```
 
-* *Valfria egenskaper*: **min**, **Max**, **standard** och **isOptional**
+* *Valfria egenskaper* : **min** , **Max** , **standard** och **isOptional**
 
 **bool** – en boolesk parameter som representeras av en kryss ruta i UX.
 
@@ -275,9 +275,9 @@ En modul-parameter definieras med det underordnade elementet **arg** i **argumen
 </Arg>
 ```
 
-* *Valfria egenskaper*: **standard** -falskt om inget anges
+* *Valfria egenskaper* : **standard** -falskt om inget anges
 
-**sträng**: en standard sträng
+**sträng** : en standard sträng
 
 ```xml
 <Arg id="stringValue1" name="My string Param" type="string">
@@ -286,9 +286,9 @@ En modul-parameter definieras med det underordnade elementet **arg** i **argumen
 </Arg>    
 ```
 
-* *Valfria egenskaper*: **standard** och **isOptional**
+* *Valfria egenskaper* : **standard** och **isOptional**
 
-**ColumnPicker**: en kolumn vals parameter. Den här typen återges i UX som en kolumn väljare. **Egenskaps** elementet används här för att ange ID: t för den port från vilken kolumner väljs, där mål Port typen måste vara *DataTable*. Resultatet av kolumn urvalet skickas till R-funktionen som en lista med strängar som innehåller de valda kolumn namnen. 
+**ColumnPicker** : en kolumn vals parameter. Den här typen återges i UX som en kolumn väljare. **Egenskaps** elementet används här för att ange ID: t för den port från vilken kolumner väljs, där mål Port typen måste vara *DataTable*. Resultatet av kolumn urvalet skickas till R-funktionen som en lista med strängar som innehåller de valda kolumn namnen. 
 
 ```xml
 <Arg id="colset" name="Column set" type="ColumnPicker">      
@@ -297,8 +297,8 @@ En modul-parameter definieras med det underordnade elementet **arg** i **argumen
 </Arg>
 ```
 
-* *Obligatoriska egenskaper*: **PORTID** – matchar ID för ett inmatat element med typen *DataTable*.
-* *Valfria egenskaper*:
+* *Obligatoriska egenskaper* : **PORTID** – matchar ID för ett inmatat element med typen *DataTable*.
+* *Valfria egenskaper* :
   
   * **allowedTypes** – filtrerar kolumn typerna som du kan välja mellan. Giltiga värden är: 
     
@@ -334,7 +334,7 @@ En modul-parameter definieras med det underordnade elementet **arg** i **argumen
     * AllScore
     * Alla
 
-**Listruta**: en användardefinierad lista med uppräknade användare. List Rute elementen anges i elementet **Properties** med ett **objekt** element. **ID:** t för varje **objekt** måste vara unikt och en giltig R-variabel. Värdet för **namnet** på ett **objekt** fungerar som både den text som visas och värdet som skickas till R-funktionen.
+**Listruta** : en användardefinierad lista med uppräknade användare. List Rute elementen anges i elementet **Properties** med ett **objekt** element. **ID:** t för varje **objekt** måste vara unikt och en giltig R-variabel. Värdet för **namnet** på ett **objekt** fungerar som både den text som visas och värdet som skickas till R-funktionen.
 
 ```xml
 <Arg id="color" name="Color" type="DropDown">
@@ -347,7 +347,7 @@ En modul-parameter definieras med det underordnade elementet **arg** i **argumen
 </Arg>    
 ```
 
-* *Valfria egenskaper*:
+* *Valfria egenskaper* :
   * **standard** -värdet för standard egenskapen måste motsvara ett ID-värde från ett av **objekt** elementen.
 
 ### <a name="auxiliary-files"></a>Tilläggsfiler
@@ -394,4 +394,3 @@ Körnings miljön för R-skriptet använder samma version av R som modulen **kö
 
 * Icke-beständigt fil system: filer som skrivs när den anpassade modulen körs behålls inte över flera körningar av samma modul.
 * Ingen nätverks åtkomst
-

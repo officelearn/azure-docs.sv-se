@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: skapa en Apache Spark pool (förhands granskning) med Synapse Studio'
-description: Skapa en ny Apache Spark pool med Synapse Studio genom att följa stegen i den här hand boken.
+title: 'Snabb start: skapa en server lös Apache Spark pool (för hands version) med Synapse Studio'
+description: Skapa en server lös Apache Spark-pool med Synapse Studio genom att följa stegen i den här hand boken.
 services: synapse-analytics
 author: saveenr
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: spark
 ms.date: 10/16/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: c497b9974ad2d6fdd9482ae673de5807669d8ff5
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 313ad0c620fe06158e96c208ae265702134b58d1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748279"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324204"
 ---
-# <a name="quickstart-create-an-apache-spark-pool-preview-using-synapse-studio"></a>Snabb start: skapa en Apache Spark pool (förhands granskning) med Synapse Studio
+# <a name="quickstart-create-a-serverless-apache-spark-pool-preview-using-synapse-studio"></a>Snabb start: skapa en server lös Apache Spark pool (för hands version) med Synapse Studio
 
 Azure Synapse Analytics erbjuder olika analys verktyg som hjälper dig att mata in, transformera, modellera, analysera och hantera dina data. Apache Spark pool erbjuder Big data Compute-funktioner med öppen källkod. När du har skapat en Apache Spark-pool på din Synapse-arbetsyta kan data läsas in, modelleras, bearbetas och hanteras för att få insikter.  
 
@@ -41,13 +41,13 @@ Logga in på [Azure-portalen](https://portal.azure.com/)
 1. Gå till arbets ytan Synapse där Apache Spark-poolen skapas genom att skriva tjänst namnet (eller resurs namnet direkt) i Sök fältet.
 
     ![Azure Portal Sök fältet med Synapse-arbetsytor som anges i.](media/quickstart-create-sql-pool/create-sql-pool-00a.png)
-1. I listan över arbets ytor skriver du namnet (eller en del av namnet) på arbets ytan som ska öppnas. I det här exemplet använder vi en arbets yta med namnet **contosoanalytics** .
+1. I listan över arbets ytor skriver du namnet (eller en del av namnet) på arbets ytan som ska öppnas. I det här exemplet använder vi en arbets yta med namnet **contosoanalytics**.
 
     ![Lista över Synapse-arbetsytor filtrerade för att visa de som innehåller namnet contoso.](media/quickstart-create-sql-pool/create-sql-pool-00b.png)
 
 ## <a name="launch-synapse-studio"></a>Starta Synapse Studio 
 
-I översikten för arbets ytan väljer du **Starta Synapse Studio** för att öppna den plats där Apache Spark-poolen ska skapas. Skriv namnet på tjänsten eller resurs namnet direkt i Sök fältet.
+I översikten för arbets ytan väljer du **webb adressen för arbets ytan** för att öppna Synapse Studio.
 
 ![Översikt över Azure Portal Synapse-arbetsyta med starta Synapse Studio markerat.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-20.png)
 
@@ -79,9 +79,9 @@ I översikten för arbets ytan väljer du **Starta Synapse Studio** för att öp
 
 1. På nästa flik (ytterligare inställningar) lämnar du alla inställningar som standard.
 
-1. Vi lägger inte till några taggar nu, så välj **Granska + skapa** .
+1. Vi lägger inte till några taggar nu, så välj **Granska + skapa**.
 
-1. På fliken **Granska + skapa** ser du till att informationen ser korrekt ut baserat på vad som angavs tidigare och tryck på **skapa** . 
+1. På fliken **Granska + skapa** ser du till att informationen ser korrekt ut baserat på vad som angavs tidigare och tryck på **skapa**. 
 
     ![Skapa Synapse Studio New Apache Spark pool](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-26.png)
 
@@ -104,7 +104,7 @@ Gör så här om du vill ta bort Apache Spark poolen:
 
     ![Lista över Apache Spark pooler med den nyligen skapade poolen vald.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-29.png)
 
-1. Tryck på **ta bort** .
+1. Tryck på **ta bort**.
 1. Bekräfta borttagningen och tryck på knappen **ta bort** .
 1. När processen har slutförts visas inte längre den Apache Spark poolen i arbets ytans resurser. 
 

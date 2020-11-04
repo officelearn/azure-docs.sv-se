@@ -10,12 +10,12 @@ author: likebupt
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 21dad66670da7a538039ae795d6be87cc4dbce96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f070cfc1fd9b4326c5a80ce31f6263aadbe8e8bc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883087"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325444"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Köra batch-förutsägelser med Azure Machine Learning designer
 
@@ -29,7 +29,7 @@ I den här instruktionen får du lära dig att utföra följande uppgifter:
 > * Använda en pipeline-slutpunkt
 > * Hantera slut punkts versioner
 
-Information om hur du konfigurerar batch-Bedömningstjänster med hjälp av SDK finns i den medföljande [instruktionen](how-to-run-batch-predictions.md).
+Information om hur du konfigurerar batch-Bedömningstjänster med hjälp av SDK finns i den medföljande [instruktionen](./tutorial-pipeline-batch-scoring-classification.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -51,7 +51,7 @@ Din utbildnings pipeline måste köras minst en gång för att kunna skapa en in
 
 Nu när utbildnings pipelinen har körts kan du skapa en pipeline för batch-härledning.
 
-1. Bredvid **Skicka**väljer du den nya List rutan **skapa härlednings pipeline**.
+1. Bredvid **Skicka** väljer du den nya List rutan **skapa härlednings pipeline**.
 
 1. Välj **pipeline för batch-härledning**.
 
@@ -80,7 +80,7 @@ Nu är du redo att distribuera härlednings pipelinen. Detta kommer att distribu
 
 1. Välj sedan knappen **Publicera**.
 
-1. I dialog rutan som visas expanderar du List rutan för **PipelineEndpoint**och väljer **ny PipelineEndpoint**.
+1. I dialog rutan som visas expanderar du List rutan för **PipelineEndpoint** och väljer **ny PipelineEndpoint**.
 
 1. Ange ett slut punkts namn och en valfri beskrivning.
 

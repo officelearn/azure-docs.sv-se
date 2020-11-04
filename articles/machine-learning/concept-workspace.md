@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/22/2020
-ms.openlocfilehash: 5b40ce0951e2d9c8933d4f0ea9d24b1673e254d6
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 1076b49a101d5657397ef12b8fac672d37e477b0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495714"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324797"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Vad är en Azure Machine Learning-arbetsyta?
 
@@ -52,9 +52,9 @@ Du kan interagera med din arbets yta på följande sätt:
 + På webben:
     + [Azure Machine Learning Studio ](https://ml.azure.com) 
     + [Azure Machine Learning Designer](concept-designer.md) 
-+ I valfri python-miljö med [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
++ I valfri python-miljö med [Azure Machine Learning SDK för python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
 + I valfri R-miljö med [Azure Machine Learning SDK för R (för hands version)](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
-+ På kommando raden med hjälp av Azure Machine Learning [CLI-tillägget](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli)
++ På kommando raden med hjälp av Azure Machine Learning [CLI-tillägget](./reference-azure-machine-learning-cli.md)
 + [Azure Machine Learning VS Code-tillägg](how-to-manage-resources-vscode.md#workspaces)
 
 
@@ -103,7 +103,7 @@ När du skapar en ny arbets yta skapar den automatiskt flera Azure-resurser som 
 + [Azure Storage konto](https://azure.microsoft.com/services/storage/): används som standard data lager för arbets ytan.  Jupyter-anteckningsböcker som används med dina Azure Machine Learning beräknings instanser lagras också här. 
   
   > [!IMPORTANT]
-  > Som standard är lagrings kontot ett allmänt v1-konto. Du kan [uppgradera detta till General-Purpose v2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) när arbets ytan har skapats. Aktivera inte hierarkiskt namn område på lagrings kontot efter uppgraderingen till General-Purpose v2.
+  > Som standard är lagrings kontot ett allmänt v1-konto. Du kan [uppgradera detta till General-Purpose v2](../storage/common/storage-account-upgrade.md) när arbets ytan har skapats. Aktivera inte hierarkiskt namn område på lagrings kontot efter uppgraderingen till General-Purpose v2.
 
   Om du vill använda ett befintligt Azure Storage konto kan det inte vara ett Premium konto (Premium_LRS och Premium_GRS). Det får inte heller ha ett hierarkiskt namn område (används med Azure Data Lake Storage Gen2). Varken Premium Storage eller hierarkiska namn områden stöds med arbets ytans _standard_ lagrings konto. Du kan använda Premium Storage eller hierarkiskt namnrymd med lagrings konton som _inte är standard_ .
   

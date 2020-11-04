@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 07342cb31f1c44273f98a97b018620538f86c17f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2e06f0918ce23beded7475f644e7cc6019facacc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91287737"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322578"
 ---
 # <a name="interact-with-azure-cosmos-db-using-apache-spark-in-azure-synapse-link-preview"></a>Interagera med Azure Cosmos DB att använda Apache Spark i Azure Synapse-länken (för hands version)
 
@@ -209,7 +209,7 @@ I det här exemplet lär du dig att referera till externa bibliotek från JAR-fi
     ]
 }
 ```
-Om du vill skicka definitioner av fjärran sluten Spark-jobb till en Synapse Spark-pool kan du lära dig hur du refererar till externa bibliotek genom att följa den här [självstudien](../spark/apache-spark-job-definitions.md).
+Om du vill skicka fjärran sluten Spark-jobb till en server lös Apache Spark pool, kan du lära dig hur du refererar till externa bibliotek genom att följa den här [självstudien](../spark/apache-spark-job-definitions.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

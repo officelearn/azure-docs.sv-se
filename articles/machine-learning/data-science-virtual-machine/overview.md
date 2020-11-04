@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 04/02/2020
-ms.openlocfilehash: 2bfcdfcb01e7908c199054e793d82cdfa1b726c7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7bcee0f571fe42e4c00499f188e35d0e0ff2ebe7
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88816345"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322504"
 ---
 # <a name="what-is-the-azure-data-science-virtual-machine-for-linux-and-windows"></a>Vad är Azure-Data Science Virtual Machine för Linux och Windows?
 
@@ -28,7 +28,7 @@ DSVM finns på:
 
 ## <a name="comparison-with-azure-machine-learning"></a>Jämförelse med Azure Machine Learning
 
-DSVM är en anpassad VM-avbildning för data vetenskap, men [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml) (azureml) är en slutpunkt-till-slutpunkt-plattform som omfattar:
+DSVM är en anpassad VM-avbildning för data vetenskap, men [Azure Machine Learning](../overview-what-is-azure-ml.md) (azureml) är en slutpunkt-till-slutpunkt-plattform som omfattar:
 
 + Fullständigt hanterad beräkning
   + Beräkningsinstanser
@@ -44,12 +44,12 @@ DSVM är en anpassad VM-avbildning för data vetenskap, men [Azure Machine Learn
 
 ### <a name="comparison-with-azureml-compute-instances"></a>Jämförelse med AzureML Compute instances
 
-[Azure Machine Learning beräknings instanser](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance) är en fullständigt konfigurerad och __hanterad__ VM-avbildning medan DSVM är en __ohanterad__ virtuell dator.
+[Azure Machine Learning beräknings instanser](../concept-compute-instance.md) är en fullständigt konfigurerad och __hanterad__ VM-avbildning medan DSVM är en __ohanterad__ virtuell dator.
 
 De viktigaste skillnaderna mellan dessa två produkt erbjudanden beskrivs nedan:
 
 
-|Funktion |Datavetenskap<br>Virtuell dator |AzureML<br>Compute Instance (Beräkningsinstans)  | 
+|Funktion |Dataforskning<br>Virtuell dator |AzureML<br>Compute Instance (Beräkningsinstans)  | 
 |---------|---------|---------|
 | Fullständigt hanterad | Nej        | Ja        |
 |Stöd för språk     |  Python, R, Julia, SQL, C#,<br> Java, Node.js, F #       | Python och R        |

@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6f03a1e44fdb62570b693753f5e01c7ab0f53e78
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64784d747e9f33961c2f5d2df95e0d5a83e01548
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302425"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324836"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: modell hantering, distribution och övervakning med Azure Machine Learning
 
@@ -71,6 +71,9 @@ Registrerade modeller identifieras med namn och version. Varje gång du registre
 Du kan inte ta bort en registrerad modell som används i en aktiv distribution.
 Mer information finns i avsnittet registrera modell i [Distribuera modeller](how-to-deploy-and-where.md#registermodel).
 
+> [!IMPORTANT]
+> När du använder alternativet filtrera efter `Tags` på sidan modeller i Azure Machine Learning Studio, i stället för att använda `TagName : TagValue` kunder ska använda `TagName=TagValue` (utan blank steg)
+
 ### <a name="profile-models"></a>Profilmodeller
 
 Azure Machine Learning kan hjälpa dig att förstå processor-och minnes kraven för tjänsten som skapas när du distribuerar din modell. Profilering testar tjänsten som kör din modell och returnerar information som processor användning, minnes användning och svars fördröjning. Det ger också en processor-och minnes rekommendation baserat på resursanvändningen.
@@ -106,7 +109,7 @@ Du anger också konfigurationen för måldistributionsplattformen. Till exempel 
 När avbildningen skapas läggs även de komponenter som krävs av Azure Machine Learning till. Det gäller till exempel tillgångar som behövs för att köra webbtjänsten och interagera med IoT Edge.
 
 #### <a name="batch-scoring"></a>Batchbedömning
-Batch-Poäng stöds via ML-pipeliner. Mer information finns i [batch-förutsägelser för Big data](how-to-use-parallel-run-step.md).
+Batch-Poäng stöds via ML-pipeliner. Mer information finns i [batch-förutsägelser för Big data](./tutorial-pipeline-batch-scoring-classification.md).
 
 #### <a name="real-time-web-services"></a>Real tids webb tjänster
 
@@ -140,9 +143,9 @@ Du kan använda modeller med IoT-enheter via **Azure IoT Edge moduler**. IoT Edg
 
 Mer information finns i [Distribuera modeller](how-to-deploy-and-where.md).
 
-### <a name="analytics"></a>Analytics
+### <a name="analytics"></a>Analys
 
-Microsoft Power BI stöder användning av Machine Learning-modeller för data analys. Mer information finns i [Azure Machine Learning integration i Power BI (för hands version)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
+Microsoft Power BI stöder användning av Machine Learning-modeller för data analys. Mer information finns i [Azure Machine Learning integration i Power BI (för hands version)](/power-bi/service-machine-learning-integration).
 
 ## <a name="capture-the-governance-data-required-for-capturing-the-end-to-end-ml-lifecycle"></a>Avbilda de styrnings data som krävs för att samla in den slutliga ML-livs cykeln
 
@@ -158,7 +161,7 @@ Azure ML ger dig möjlighet att spåra gransknings historiken från slut punkt t
 > [!TIP]
 > Även om information om modeller och data uppsättningar samlas in automatiskt, kan du lägga till ytterligare information med hjälp av __taggar__. När du letar efter registrerade modeller och data uppsättningar i din arbets yta kan du använda taggar som ett filter.
 >
-> Ett valfritt steg är att associera en data uppsättning med en registrerad modell. Information om hur du refererar till en data uppsättning när du registrerar en modell finns i referens för [modell](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py&preserve-view=true) klass.
+> Ett valfritt steg är att associera en data uppsättning med en registrerad modell. Information om hur du refererar till en data uppsättning när du registrerar en modell finns i referens för [modell](/python/api/azureml-core/azureml.core.model%28class%29?preserve-view=true&view=azure-ml-py) klass.
 
 
 ## <a name="notify-automate-and-alert-on-events-in-the-ml-lifecycle"></a>Meddela, automatisera och Avisera händelser i ML-livscykel

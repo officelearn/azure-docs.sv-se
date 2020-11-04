@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 444cb6a7819fa72f5987a21807fc707e0ba8b396
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9ef6ff81a2c9f3697f7c3ccf1cd8e91ad2fb683
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907928"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323731"
 ---
 # <a name="feature-hashing-module-reference"></a>Modulreferens för funktion för hashing
 
@@ -22,7 +22,7 @@ I den här artikeln beskrivs en modul som ingår i Azure Machine Learning design
 
 Använd modulen funktion-hash för att transformera en strömmande engelsk text till en uppsättning med heltals funktioner. Du kan sedan skicka den här hash-funktionen till en Machine Learning-algoritm för att träna en text analys modell.
 
-Funktionerna i funktionen hashing som tillhandahålls i den här modulen baseras på nimbusml-ramverket. Mer information finns i [NgramHash-klass](https://docs.microsoft.com/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest).
+Funktionerna i funktionen hashing som tillhandahålls i den här modulen baseras på nimbusml-ramverket. Mer information finns i [NgramHash-klass](/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest).
 
 ## <a name="what-is-feature-hashing"></a>Vad är funktionen hashing?
 
@@ -39,7 +39,7 @@ Ta till exempel en uppsättning enkla meningar som dessa, följt av en sentiment
 
 Internt skapar modulen för funktions-hash en ord lista med n-gram. Listan över för den här data uppsättningen skulle till exempel vara ungefär så här:
 
-|Term (bigram)|Frequency|
+|Term (bigram)|Frekvens|
 |------------|---------------|
 |Den här boken|3|
 |Jag gillat|1|
@@ -48,7 +48,7 @@ Internt skapar modulen för funktions-hash en ord lista med n-gram. Listan över
 
 Du kan kontrol lera storleken på n-gram med hjälp av egenskapen **n-g** . Om du väljer unigrams beräknas även. Ord listan innehåller även enkla termer som dessa:
 
-|Term (unigrams)|Frequency|
+|Term (unigrams)|Frekvens|
 |------------|---------------|
 |bok|3|
 |I|3|
@@ -90,7 +90,7 @@ Numeriska utdata gör det också möjligt att använda vanliga metoder för mask
     
     Standard bit storleken är 10. För många problem är detta värde tillräckligt. Du kan behöva mer utrymme för att undvika kollisioner, beroende på storleken på den n-grams listan i övnings texten.
     
-1. För **n-gram**anger du ett tal som definierar den maximala längden på N-gram som ska läggas till i ord listan. En n-gram är en sekvens av *n* ord som behandlas som en unik enhet.
+1. För **n-gram** anger du ett tal som definierar den maximala längden på N-gram som ska läggas till i ord listan. En n-gram är en sekvens av *n* ord som behandlas som en unik enhet.
 
     Om du till exempel anger 3, unigrams, 2 g och trigrams kommer att skapas.
 
@@ -131,4 +131,4 @@ Den optimala uppsättningen för bearbetnings metoder som ska användas i vilken
 
 ## <a name="next-steps"></a>Nästa steg
             
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning

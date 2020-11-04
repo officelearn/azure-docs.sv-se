@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 10/30/2020
 ms.author: normesta
-ms.openlocfilehash: dc0b620629b5dce651e02e5fe95b0619c1d42a78
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: be440407fb6f4d9715ba80c584af023a5f662394
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131164"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324228"
 ---
 # <a name="premium-tier-for-azure-data-lake-storage"></a>Premium-nivå för Azure Data Lake Storage
 
@@ -57,7 +57,7 @@ Vissa Blob Storage-funktioner kanske inte är tillgängliga eller har kanske bar
 
 ## <a name="enabling-the-premium-performance-tier"></a>Aktivera prestanda nivån Premium 
 
-Du kan använda Premium nivån för Azure Data Lake Storage genom att skapa ett BlockBlobStorage-konto med inställningen **hierarkiskt namn område** **aktive rad** . Fullständig vägledning finns i [skapa ett](storage-blob-create-account-block-blob.md) konto för BlockBlobStorage-kontot.
+Du kan använda Premium nivån för Azure Data Lake Storage genom att skapa ett BlockBlobStorage-konto med inställningen **hierarkiskt namn område** **aktive rad**. Fullständig vägledning finns i [skapa ett](storage-blob-create-account-block-blob.md) konto för BlockBlobStorage-kontot.
 
 När du skapar kontot, se till att välja alternativet för **Premium** -prestanda och **BlockBlobStorage** -kontots typ.
 
@@ -79,14 +79,14 @@ Premium-nivån för Azure Data Lake Storage är tillgänglig i följande regione
 |--|--|
 |East US|LRS, ZRS|
 |USA, östra 2|LRS, ZRS|
-|USA, centrala|LRS|
+|Central US|LRS|
 |USA, västra|LRS|
 |USA, västra 2|LRS, ZRS|
 |USA, västra centrala|LRS|
 |USA, södra centrala|LRS|
 |Kanada, centrala|LRS|
 |Kanada, östra|LRS|
-|Europa, norra|LRS, ZRS|
+|Norra Europa|LRS, ZRS|
 |Europa, västra|LRS, ZRS|
 |Storbritannien, södra|LRS|
 |Storbritannien, västra|LRS|
@@ -103,3 +103,12 @@ Premium-nivån för Azure Data Lake Storage är tillgänglig i följande regione
 |Australien, östra|LRS, ZRS|
 |Sydöstra Australien|LRS|
 |Brasilien, södra|LRS|
+
+## <a name="next-steps"></a>Nästa steg
+
+Använd Premium-nivån för Azure Data Lake Storage med din favorit analys tjänst som Azure Databricks, Azure HDInsight och Azure Synapse Analytics. 
+
+- [Självstudie: Azure Data Lake Storage Gen2, Azure Databricks & Spark](data-lake-storage-use-databricks-spark.md) 
+- [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) HDInsight stöder för närvarande ett konto som använder Premium Performance-nivån tillsammans med ett HBase-kluster som har accelererade skrivningar aktiverade.
+- [Snabb start: skapa en Synapse-arbetsyta](../../synapse-analytics/quickstart-create-workspace.md)
+

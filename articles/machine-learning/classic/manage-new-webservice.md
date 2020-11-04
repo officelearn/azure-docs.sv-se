@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: fc9da659e7e55e8b15071f957d6a51e3b4673244
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 37f10cc8eb3d606d99eb5b3f821a486e9e4ea2fe
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427557"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322351"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Hantera en webb tjänst med hjälp av webb tjänst portalen Azure Machine Learning Studio (klassisk)
 
-**gäller för:** ![ Gäller för. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ gäller inte för.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**gäller för:** ![ Gäller för. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ gäller inte för. ](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Du kan hantera dina Machine Learning nya och klassiska webb tjänster med hjälp av Microsoft Azure Machine Learning Web Services-portalen. Eftersom de klassiska webb tjänsterna och de nya webb tjänsterna baseras på olika underliggande tekniker, har du något annat hanterings möjligheter för var och en av dem.
@@ -120,7 +120,7 @@ Så här hanterar du dina klassiska webb tjänster:
 1. Logga in på [Microsoft Azure Machine Learning Web Services-](https://services.azureml.net/quickstart) portalen med ditt Microsoft Azure-konto – Använd det konto som är associerat med Azure-prenumerationen.
 2. På menyn klickar du på **klassiska webb tjänster**.
 
-Klicka på **klassiska webb tjänster**om du vill hantera en klassisk webb tjänst. På sidan klassiska webb tjänster kan du:
+Klicka på **klassiska webb tjänster** om du vill hantera en klassisk webb tjänst. På sidan klassiska webb tjänster kan du:
 
 * Klicka på webb tjänsten för att visa de associerade slut punkterna.
 * Ta bort en webb tjänst.
@@ -155,5 +155,3 @@ Du kan uppdatera följande egenskaper:
 * Med **Beskrivning** kan du ange en beskrivning av webb tjänsten. Beskrivning är ett obligatoriskt fält.
 * Med **loggning** kan du aktivera eller inaktivera fel loggning på slut punkten. Mer information om loggning finns i Aktivera [loggning för Machine Learning-webbtjänster](web-services-logging.md).
 * **Aktivera exempel data** gör att du kan tillhandahålla exempel data som du kan använda för att testa Request-Response tjänsten. Om du har skapat webb tjänsten i Machine Learning Studio (klassisk) hämtas exempel data från de data som används för att träna din modell. Om du skapade tjänsten program mässigt hämtas data från de exempel data som du angav som en del av JSON-paketet.
-
-

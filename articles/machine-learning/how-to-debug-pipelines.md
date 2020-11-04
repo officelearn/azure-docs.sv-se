@@ -10,16 +10,16 @@ ms.author: laobri
 ms.date: 10/22/2020
 ms.topic: conceptual
 ms.custom: troubleshooting, devx-track-python, contperfq2
-ms.openlocfilehash: ce32871620cc0a471e56a5b65191834d7c23b88d
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 80bc5034e6e192c1b493a65e61b94ae1b785a430
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735706"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325606"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Felsöka pipelines för maskininlärning
 
-I den här artikeln får du lära dig att felsöka och felsöka [maskin inlärnings pipeliner](concept-ml-pipelines.md) i [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) och [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer). 
+I den här artikeln får du lära dig att felsöka och felsöka [maskin inlärnings pipeliner](concept-ml-pipelines.md) i [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) och [Azure Machine Learning designer](./concept-designer.md). 
 
 ## <a name="troubleshooting-tips"></a>Felsökningstips
 
@@ -28,7 +28,7 @@ Följande tabell innehåller vanliga problem under utveckling av pipeline, med m
 | Problem | Möjlig lösning |
 |--|--|
 | Det gick inte att skicka data till `PipelineData` katalogen | Se till att du har skapat en katalog i skriptet som motsvarar var din pipeline förväntar dig utdata från steget. I de flesta fall definierar ett indataargument utdata-katalogen och du skapar katalogen explicit. Använd `os.makedirs(args.output_dir, exist_ok=True)` för att skapa utdatakatalogen. Se [självstudien](tutorial-pipeline-batch-scoring-classification.md#write-a-scoring-script) för ett bedömnings skript exempel som visar det här design mönstret. |
-| Beroende buggar | Om du ser beroende fel i din fjärrpipeline som inte uppnåddes vid en lokal testning, bekräftar du beroenden för fjärrmiljön och versioner som matchar dem i din test miljö. (Se [miljö utveckling, cachelagring och åter användning](https://docs.microsoft.com/azure/machine-learning/concept-environments#environment-building-caching-and-reuse)|
+| Beroende buggar | Om du ser beroende fel i din fjärrpipeline som inte uppnåddes vid en lokal testning, bekräftar du beroenden för fjärrmiljön och versioner som matchar dem i din test miljö. (Se [miljö utveckling, cachelagring och åter användning](./concept-environments.md#environment-building-caching-and-reuse)|
 | Tvetydiga fel med beräknings mål | Försök att ta bort och återskapa Compute-mål. Det går snabbt och kan lösa vissa tillfälliga problem genom att återskapa beräknings mål. |
 | Pipeline återanvändar inte steg | Steg åter användning är aktiverat som standard, men se till att du inte har inaktiverat det i ett steg i pipeline. Om åter användning är inaktive rad `allow_reuse` kommer parametern i steget att ställas in på `False` . |
 | Pipelinen körs inte nödvändigt vis | Om du vill se till att stegen bara körs igen när deras underliggande data eller skript ändras, kan du koppla från dina käll kods kataloger för varje steg. Om du använder samma käll katalog för flera steg kan du få onödig omkörning. Använd `source_directory` parametern i ett pipeline-steg-objekt för att peka på den isolerade katalogen för det steget och se till att du inte använder samma `source_directory` sökväg för flera steg. |
@@ -178,9 +178,9 @@ Tabellen nedan innehåller information om olika fel söknings alternativ för pi
 
 | Bibliotek                    | Typ   | Exempel                                                          | Mål                                  | Resurser                                                                                                                                                                                                                                                                                                                    |
 |----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Azure Machine Learning SDK | Mått | `run.log(name, val)`                                             | Azure Machine Learning portalens användar gränssnitt             | [Spåra experiment](how-to-track-experiments.md)<br>[azureml. Core. Run-klass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true)                                                                                                                                                 |
+| Azure Machine Learning SDK | Mått | `run.log(name, val)`                                             | Azure Machine Learning portalens användar gränssnitt             | [Spåra experiment](how-to-track-experiments.md)<br>[azureml. Core. Run-klass](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py)                                                                                                                                                 |
 | Python-utskrift/-loggning    | Loggas    | `print(val)`<br>`logging.info(message)`                          | Driv rutins loggar, Azure Machine Learning designer | [Spåra experiment](how-to-track-experiments.md)<br><br>[Python-loggning](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
-| OpenCensus Python          | Loggas    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Application Insights-spår                | [Felsöka pipelines i Application Insights.](how-to-debug-pipelines-application-insights.md)<br><br>[OpenCensus Azure Monitor-exportörer](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)<br>[Cookbook för python-loggning](https://docs.python.org/3/howto/logging-cookbook.html) |
+| OpenCensus Python          | Loggas    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Application Insights-spår                | [Felsöka pipelines i Application Insights.](./how-to-log-pipelines-application-insights.md)<br><br>[OpenCensus Azure Monitor-exportörer](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)<br>[Cookbook för python-loggning](https://docs.python.org/3/howto/logging-cookbook.html) |
 
 #### <a name="logging-options-example"></a>Exempel på loggnings alternativ
 
@@ -220,7 +220,7 @@ För pipeliner som skapats i designern kan du hitta **70_driver_log** -filen på
 
 ### <a name="enable-logging-for-real-time-endpoints"></a>Aktivera loggning för slut punkter i real tid
 
-För att felsöka och felsöka real tids slut punkter i designern måste du aktivera program insikts loggning med hjälp av SDK. Med loggning kan du felsöka och felsöka problem med distribution och användning av modeller. Mer information finns i [Logga in för distribuerade modeller](how-to-enable-logging.md#logging-for-deployed-models). 
+För att felsöka och felsöka real tids slut punkter i designern måste du aktivera program insikts loggning med hjälp av SDK. Med loggning kan du felsöka och felsöka problem med distribution och användning av modeller. Mer information finns i [Logga in för distribuerade modeller](./how-to-enable-app-insights.md). 
 
 ### <a name="get-logs-from-the-authoring-page"></a>Hämta loggar från sidan redigering
 
@@ -248,7 +248,7 @@ Du kan också hitta loggfilerna för vissa körningar på sidan körnings inform
 > Om du vill uppdatera en pipeline från sidan körnings information för pipelinen måste du **klona** pipeline-körningen till ett nytt pipeline-utkast. En pipeline-körning är en ögonblicks bild av pipelinen. Det liknar en loggfil och kan inte ändras. 
 
 ## <a name="application-insights"></a>Application Insights
-Mer information om hur du använder python-biblioteket för openräkning på det här sättet finns i den här guiden: [Felsöka och Felsök maskin inlärnings pipeliner i Application Insights](how-to-debug-pipelines-application-insights.md)
+Mer information om hur du använder python-biblioteket för openräkning på det här sättet finns i den här guiden: [Felsöka och Felsök maskin inlärnings pipeliner i Application Insights](./how-to-log-pipelines-application-insights.md)
 
 ## <a name="interactive-debugging-with-visual-studio-code"></a>Interaktiv fel sökning med Visual Studio Code
 
@@ -260,6 +260,6 @@ I vissa fall kan du behöva interaktivt felsöka python-koden som används i ML-
 
 * Ett fullständigt exempel som visar Automatisk maskin inlärning i ML pipelines finns i [använda automatisk ml i en Azure Machine Learning pipeline i python](how-to-use-automlstep-in-pipelines.md).
 
-* Se SDK-referensen för hjälp med [azureml-pipeline – Core-](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py&preserve-view=true) paketet och [azureml-pipeline-steg-](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py&preserve-view=true) paketet.
+* Se SDK-referensen för hjälp med [azureml-pipeline – Core-](/python/api/azureml-pipeline-core/?preserve-view=true&view=azure-ml-py) paketet och [azureml-pipeline-steg-](/python/api/azureml-pipeline-steps/?preserve-view=true&view=azure-ml-py) paketet.
 
 * Se listan över [designers undantag och felkoder](algorithm-module-reference/designer-error-codes.md).

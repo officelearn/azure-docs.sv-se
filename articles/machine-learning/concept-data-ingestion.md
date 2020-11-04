@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 18bbecbe811a9f0bc6a56194830c7e92d8770979
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 401398da4d71f32973f720dd0ca5cc9b550892e8
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890166"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323040"
 ---
 # <a name="data-ingestion-options-for-azure-machine-learning-workflows"></a>Alternativ för data inmatning för Azure Machine Learning arbets flöden
 
@@ -33,7 +33,7 @@ Data inmatning är den process i vilken ostrukturerade data extraheras från en 
 
 ## <a name="azure-data-factory"></a>Azure Data Factory
 
-[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) erbjuder inbyggt stöd för övervakning av data källor och utlösare för data inmatnings pipeliner.  
+[Azure Data Factory](../data-factory/introduction.md) erbjuder inbyggt stöd för övervakning av data källor och utlösare för data inmatnings pipeliner.  
 
 I följande tabell sammanfattas de tekniker och nack delar som används för att använda Azure Data Factory för arbets flöden för data inmatning.
 
@@ -41,11 +41,11 @@ I följande tabell sammanfattas de tekniker och nack delar som används för att
 ---|---
 Konstruerad för att extrahera, läsa in och transformera data.|Erbjuder för närvarande en begränsad uppsättning Azure Data Factory pipeline-uppgifter 
 Gör att du kan skapa data drivna arbets flöden för att dirigera data förflyttning och omvandlingar i skala.|Dyrt att konstruera och underhålla. Mer information finns på [sidan med pris](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/) information för Azure Data Factory.
-Integrerat med olika Azure-verktyg som [Azure Databricks](https://docs.microsoft.com/azure/data-factory/transform-data-using-databricks-notebook) och [Azure Functions](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity) | Skript körs inte internt i stället beroende på separat beräkning för skript körningar 
+Integrerat med olika Azure-verktyg som [Azure Databricks](../data-factory/transform-data-using-databricks-notebook.md) och [Azure Functions](../data-factory/control-flow-azure-function-activity.md) | Skript körs inte internt i stället beroende på separat beräkning för skript körningar 
 Har inbyggt stöd för data inmatning som utlöses av data Källa| 
 Processerna för data förberedelse och modell inlärning är separata.|
 Härkomst-kapacitet för inbäddad data för Azure Data Factory data flöden|
-Innehåller ett [användar gränssnitt](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal) med låg kod upplevelse för metoder som inte är skriptbaserade |
+Innehåller ett [användar gränssnitt](../data-factory/quickstart-create-data-factory-portal.md) med låg kod upplevelse för metoder som inte är skriptbaserade |
 
 De här stegen och följande diagram illustrerar Azure Data Factory data inmatnings flödet.
 
@@ -60,7 +60,7 @@ Lär dig hur du skapar en pipeline för data inmatning för Machine Learning med
 
 ## <a name="azure-machine-learning-python-sdk"></a>Azure Machine Learning python SDK 
 
-Med [python SDK](https://docs.microsoft.com/python/api/overview/azure/ml)kan du inkludera data inmatnings uppgifter i ett [Azure Machine Learning pipeline](how-to-create-your-first-pipeline.md) -steg.
+Med [python SDK](/python/api/overview/azure/ml)kan du inkludera data inmatnings uppgifter i ett [Azure Machine Learning pipeline](how-to-create-your-first-pipeline.md) -steg.
 
 I följande tabell sammanfattas de tekniker och con för att använda SDK: n och ett ML-pipeline-steg för data inmatnings uppgifter.
 

@@ -10,17 +10,17 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bbd82f856213bb36e71625eabc8bce9999ccd53f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 532ada430e7ff2ae76eb0cfbc389792bb0d98209
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91289403"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322660"
 ---
 # <a name="connect-to-synapse-sql"></a>Anslut till Synapse SQL
 Anslut till SQL-funktionen Synapse i Azure Synapse Analytics.
 
-## <a name="supported-tools-for-sql-on-demand-preview"></a>Verktyg som stöds för SQL på begäran (för hands version)
+## <a name="supported-tools-for-serverless-sql-pool-preview"></a>Verktyg som stöds för Server lös SQL-pool (för hands version)
 
 [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) stöds fullt ut från version 1.18.0. SSMS stöds delvis från och med version 18,5. du kan bara använda den för att ansluta och fråga.
 
@@ -31,8 +31,8 @@ Anslut till SQL-funktionen Synapse i Azure Synapse Analytics.
 
 ## <a name="find-your-server-name"></a>Hitta servernamnet
 
-Server namnet för SQL-poolen i följande exempel är: showdemoweu.sql.azuresynapse.net.
-Server namnet för SQL på begäran i följande exempel är: showdemoweu-ondemand.sql.azuresynapse.net.
+Server namnet för den dedikerade SQL-poolen i följande exempel är: showdemoweu.sql.azuresynapse.net.
+Server namnet för den serverbaserade SQL-poolen i följande exempel är: showdemoweu-ondemand.sql.azuresynapse.net.
 
 För att hitta det fullständigt kvalificerade servernamnet:
 
@@ -46,9 +46,9 @@ För att hitta det fullständigt kvalificerade servernamnet:
 
 ![Fullständigt servernamn](./media/connect-overview/server-connect-example.png)
 
-## <a name="sql-on-demand"></a>**SQL på begäran**
+## <a name="serverless-sql-pool"></a>**SQL-pool utan Server**
 
-![Fullständigt Server namn SQL på begäran](./media/connect-overview/server-connect-example-sqlod.png)
+![Fullständigt Server namn utan server utan SQL-pool](./media/connect-overview/server-connect-example-sqlod.png)
 
 ## <a name="supported-drivers-and-connection-strings"></a>Drivrutiner och anslutningssträngar som stöds
 Synapse SQL stöder [ADO.net](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx), [ODBC](https://msdn.microsoft.com/library/jj730314.aspx), [php](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396)och [JDBC](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx). Välj en av de föregående driv rutinerna för att hitta den senaste versionen och dokumentationen. Om du automatiskt vill generera anslutnings strängen för den driv rutin som du använder från Azure Portal väljer du **Visa databas anslutnings strängar** från föregående exempel. Nedan visas några exempel på hur en anslutningssträng kan se ut för respektive drivrutin.
@@ -92,7 +92,7 @@ Synapse SQL standardiserar vissa inställningar under anslutning och objekt skap
 
 ## <a name="recommendations"></a>Rekommendationer
 
-Rekommenderade verktyg är [Azure Data Studio](get-started-azure-data-studio.md) och Azure Synapse Studio för att köra **SQL-frågor på begäran** .
+Rekommenderade verktyg är [Azure Data Studio](get-started-azure-data-studio.md) och Azure Synapse Studio för att köra frågor utan **Server utan SQL-pool** .
 
 ## <a name="next-steps"></a>Nästa steg
 Information om hur du ansluter och ställer frågor med Visual Studio finns i [Fråga med Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Mer information om autentiseringsalternativ finns i [autentisering till SYNAPSE SQL](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).

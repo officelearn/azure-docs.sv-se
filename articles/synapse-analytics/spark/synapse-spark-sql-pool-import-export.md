@@ -1,6 +1,6 @@
 ---
-title: Importera och exportera data mellan Spark-pooler (för hands version) och SQL-pooler
-description: Den här artikeln innehåller information om hur du använder det anpassade anslutnings programmet för att flytta data fram och tillbaka mellan SQL-pooler och Spark-pooler (för hands version).
+title: Importera och exportera data mellan server lös Apache Spark pooler (för hands version) och SQL-pooler
+description: Den här artikeln innehåller information om hur du använder det anpassade anslutnings programmet för att flytta data mellan dedikerade SQL-pooler och Server lös Apache Spark pooler (för hands version).
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
@@ -9,22 +9,22 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: 11f73d2becb40b800c49afe0cd58f56953f8d42d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ee82fbaa9687e064747908600c7e5c9017f8f1a9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91259926"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323898"
 ---
 # <a name="introduction"></a>Introduktion
 
-Azure Synapse-Apache Spark till Synapse SQL Connector är utformad för att effektivt överföra data mellan Spark-pooler (för hands version) och SQL-pooler i Azure Synapse. Azure-Synapse Apache Spark till Synapse SQL Connector fungerar bara på SQL-pooler, utan fungerar med SQL på begäran.
+Azure-Synapse Apache Spark till Synapse SQL Connector är utformad för att effektivt överföra data mellan server lös Apache Spark pooler (för hands version) och SQL-pooler i Azure Synapse. Azure Synapse-Apache Spark till Synapse SQL Connector fungerar bara på dedikerade SQL-pooler, den fungerar inte med SQL-poolen utan server.
 
 ## <a name="design"></a>Design
 
 Överföring av data mellan Spark-pooler och SQL-pooler kan göras med JDBC. Men med tanke på två distribuerade system som Spark-och SQL-pooler, är JDBC att vara en Flask hals med seriell data överföring.
 
-Azure Synapse Apache Spark-poolen till Synapse SQL Connector är en implementering av data källa för Apache Spark. Den använder Azure Data Lake Storage Gen2 och PolyBase i SQL-pooler för att effektivt överföra data mellan Spark-klustret och Synapse SQL-instansen.
+Azure Synapse Apache Spark-poolen till Synapse SQL Connector är en implementering av data källa för Apache Spark. Den använder Azure Data Lake Storage Gen2 och PolyBase i dedikerade SQL-pooler för att effektivt överföra data mellan Spark-klustret och Synapse SQL-instansen.
 
 ![Kopplings arkitektur](./media/synapse-spark-sqlpool-import-export/arch1.png)
 
@@ -32,7 +32,7 @@ Azure Synapse Apache Spark-poolen till Synapse SQL Connector är en implementeri
 
 Autentisering mellan system sker sömlöst i Azure Synapse Analytics. Token-tjänsten ansluter med Azure Active Directory för att få säkerhetstoken som ska användas vid åtkomst till lagrings kontot eller data lager servern.
 
-Därför behöver du inte skapa autentiseringsuppgifter eller ange dem i anslutnings-API: et så länge AAD-auth är konfigurerat på lagrings kontot och på data lager servern. Annars kan SQL-autentisering anges. Mer information finns i [användnings](#usage) avsnittet.
+Därför behöver du inte skapa autentiseringsuppgifter eller ange dem i anslutnings-API: n så länge som Azure AD-Auth har kon figurer ATS på lagrings kontot och data lager servern. Annars kan SQL-autentisering anges. Mer information finns i [användnings](#usage) avsnittet.
 
 ## <a name="constraints"></a>Villkor
 
@@ -67,7 +67,7 @@ EXEC sp_addrolemember 'db_exporter',[mike@contoso.com]
 
 Import instruktionerna är inte obligatoriska, de är redan importerade för den bärbara datorn.
 
-### <a name="transfer-data-to-or-from-a-sql-pool-attached-with-the-workspace"></a>Överföra data till eller från en SQL-pool som är kopplad till arbets ytan
+### <a name="transfer-data-to-or-from-a-dedicated-sql-pool-attached-within-the-workspace"></a>Överföra data till eller från en dedikerad SQL-pool som är kopplad i arbets ytan
 
 > [!NOTE]
 > **Importer som inte behövs i Notebook-upplevelsen**
@@ -91,12 +91,12 @@ Ovanstående API fungerar både för interna (hanterade) och externa tabeller i 
 df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-Skriv-API: et skapar tabellen i SQL-poolen och sedan anropar PolyBase för att läsa in data.  Tabellen får inte finnas i SQL-poolen eller så returneras ett fel som anger att det redan finns ett objekt med namnet...
+Skriv-API: et skapar tabellen i den dedikerade SQL-poolen och anropar sedan PolyBase för att läsa in data.  Tabellen får inte finnas i den dedikerade SQL-poolen eller så returneras ett fel som anger att det redan finns ett objekt med namnet...
 
 TableType-värden
 
-- Konstanter. intern hanterad tabell i SQL-pool
-- Konstanter. extern extern tabell i SQL-pool
+- Konstanter. intern hanterad tabell i dedikerad SQL-pool
+- Konstanter. extern extern tabell i dedikerad SQL-pool
 
 SQL-pool-hanterad tabell
 
@@ -106,10 +106,10 @@ df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", Constants.INTERNAL)
 
 Extern SQL-pool
 
-Om du vill skriva till en extern SQL-pool måste en extern DATA källa och ett externt fil FORMAT finnas i SQL-poolen.  Mer information finns i [skapa en extern data källa](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) och [externa fil format](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) i SQL-poolen.  Nedan visas exempel på hur du skapar en extern data källa och externa fil format i SQL-poolen.
+Om du vill skriva till en dedikerad extern SQL-pool måste det finnas en extern DATA källa och ett externt fil FORMAT på den dedikerade SQL-poolen.  Mer information finns i [skapa en extern data källa](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) och [externa fil format](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) i en dedikerad SQL-pool.  Nedan visas exempel på hur du skapar en extern data källa och externa fil format i en dedikerad SQL-pool.
 
 ```sql
---For an external table, you need to pre-create the data source and file format in SQL pool using SQL queries:
+--For an external table, you need to pre-create the data source and file format in dedicated SQL pool using SQL queries:
 CREATE EXTERNAL DATA SOURCE <DataSourceName>
 WITH
   ( LOCATION = 'abfss://...' ,
@@ -134,7 +134,7 @@ df.write.
 
 ```
 
-### <a name="if-you-transfer-data-to-or-from-a-sql-pool-or-database-outside-the-workspace"></a>Om du överför data till eller från en SQL-pool eller databas utanför arbets ytan
+### <a name="transfer-data-to-or-from-a-dedicated-sql-pool-or-database-outside-the-workspace"></a>Överföra data till eller från en dedikerad SQL-pool eller databas utanför arbets ytan
 
 > [!NOTE]
 > Importer som inte behövs i Notebook-upplevelsen
@@ -160,11 +160,11 @@ option(Constants.SERVER, "samplews.database.windows.net").
 sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-### <a name="use-sql-auth-instead-of-aad"></a>Använd SQL-autentisering i stället för AAD
+### <a name="use-sql-auth-instead-of-azure-ad"></a>Använd SQL-autentisering i stället för Azure AD
 
 #### <a name="read-api"></a>Läs-API
 
-För närvarande har kopplingen inte stöd för tokenbaserad autentisering till en SQL-pool utanför arbets ytan. Du måste använda SQL-autentisering.
+För närvarande har kopplingen inte stöd för tokenbaserad autentisering till en dedikerad SQL-pool utanför arbets ytan. Du måste använda SQL-autentisering.
 
 ```scala
 val df = spark.read.
@@ -227,7 +227,7 @@ Du måste vara ägare av Storage BLOB-data på ADLS Gen2 lagrings konto som är 
 
 - Du bör kunna ACL: er alla mappar från "Synapse" och nedåt från Azure Portal. Om du vill ACL-rotmappen, följer du anvisningarna nedan.
 
-- Ansluta till lagrings kontot som är anslutet till arbets ytan från Storage Explorer med AAD
+- Ansluta till lagrings kontot som är anslutet till arbets ytan från Storage Explorer med Azure AD
 - Välj ditt konto och ange ADLS Gen2-URL och standard fil system för arbets ytan
 - När du kan se det lagrings konto som visas i listan högerklickar du på arbets ytan lista och väljer Hantera åtkomst
 - Lägg till användaren i mappen/-mappen med åtkomst behörigheten "kör". Välj OK
@@ -237,5 +237,5 @@ Du måste vara ägare av Storage BLOB-data på ADLS Gen2 lagrings konto som är 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skapa en SQL-pool med hjälp av Azure Portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
+- [Skapa en dedikerad SQL-pool med hjälp av Azure Portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
 - [Skapa en ny Apache Spark pool med hjälp av Azure Portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md) 

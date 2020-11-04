@@ -5,12 +5,14 @@
   items:
     - name: Vad är Metrics Advisor?
       href: overview.md
+    - name: Nyheter
+      href: whats-new.md
 - name: Snabbstarter
   items:
     - name: Använda webbportalen
       href: quickstarts/web-portal.md
-    - name: Använd REST API
-      href: quickstarts/rest-api.md
+    - name: Använda REST-API eller klientbibliotek
+      href: quickstarts/rest-api-and-client-library.md
 - name: Instruktioner
   items:
     - name: Registrera dina data

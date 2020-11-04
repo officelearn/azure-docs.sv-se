@@ -11,14 +11,14 @@ author: blackmist
 ms.date: 09/15/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a36f69c9956dd05c5fbd85d7e37b90c0b1e4c21e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09eeafa99c14984f74f8807014f646379c7507f0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90897655"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314223"
 ---
-# <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Övervaka och samla in data från ML webb tjänst slut punkter
+# <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Se Övervaka och samla in data från webbtjänstslutpunkter i ML
 
 
 I den här artikeln får du lära dig hur du samlar in data från modeller som distribuerats till webb tjänst slut punkter i Azure Kubernetes service (AKS) eller Azure Container Instances (ACI). Använd [Azure Application insikter](../azure-monitor/app/app-insights-overview.md) för att samla in följande data från en slut punkt:
@@ -204,9 +204,9 @@ Om du vill logga information om webb tjänst begär Anden lägger `print` du til
 ## <a name="export-data-for-retention-and-processing"></a>Exportera data för kvarhållning och bearbetning
 
 >[!Important]
-> Azure Application Insights stöder endast export till Blob Storage. Mer information om gränserna för den här implementeringen finns i [Exportera telemetri från App Insights](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry#continuous-export-advanced-storage-configuration).
+> Azure Application Insights stöder endast export till Blob Storage. Mer information om gränserna för den här implementeringen finns i [Exportera telemetri från App Insights](../azure-monitor/app/export-telemetry.md#continuous-export-advanced-storage-configuration).
 
-Använd Application Insights " [löpande export](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) för att exportera data till ett Blob Storage-konto där du kan definiera inställningar för kvarhållning. Application Insights exporterar data i JSON-format. 
+Använd Application Insights " [löpande export](../azure-monitor/app/export-telemetry.md) för att exportera data till ett Blob Storage-konto där du kan definiera inställningar för kvarhållning. Application Insights exporterar data i JSON-format. 
 
 :::image type="content" source="media/how-to-enable-app-insights/continuous-export-setup.png" alt-text="Löpande export":::
 
@@ -215,8 +215,8 @@ Använd Application Insights " [löpande export](https://docs.microsoft.com/azur
 I den här artikeln har du lärt dig hur du aktiverar loggnings-och visnings loggar för webb tjänst slut punkter. Prova de här artiklarna för nästa steg:
 
 
-* [Så här distribuerar du en modell till ett AKS-kluster](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-kubernetes-service)
+* [Så här distribuerar du en modell till ett AKS-kluster](./how-to-deploy-azure-kubernetes-service.md)
 
-* [Så här distribuerar du en modell till Azure Container Instances](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-container-instance)
+* [Så här distribuerar du en modell till Azure Container Instances](./how-to-deploy-azure-container-instance.md)
 
-* [MLOps: hantera, distribuera och övervaka modeller med Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-model-management-and-deployment) för att lära dig mer om att använda data som samlas in från modeller i produktionen. Sådana data kan hjälpa till att kontinuerligt förbättra din Machine Learning-process.
+* [MLOps: hantera, distribuera och övervaka modeller med Azure Machine Learning](./concept-model-management-and-deployment.md) för att lära dig mer om att använda data som samlas in från modeller i produktionen. Sådana data kan hjälpa till att kontinuerligt förbättra din Machine Learning-process.

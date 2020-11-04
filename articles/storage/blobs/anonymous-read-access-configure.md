@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/22/2020
+ms.date: 11/03/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 7ea0cbfb8ddfa2991e2a362bcb321418428cb16b
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: a808a6bb0d4dc75f02147bbfdd74d17b34e96f6e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288137"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313973"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Konfigurera anonym offentlig Läs behörighet för behållare och blobbar
 
@@ -51,7 +51,7 @@ Att neka offentlig åtkomst för lagrings kontot förhindrar anonym åtkomst til
 > [!IMPORTANT]
 > Om den offentliga åtkomsten för ett lagrings konto nekas åsidosätts de offentliga åtkomst inställningarna för alla behållare i lagrings kontot. När offentlig åtkomst inte tillåts för lagrings kontot kommer alla framtida anonyma begär anden till det kontot att Miss förväntas. Innan du ändrar den här inställningen bör du förstå hur klient program som kan komma åt data i ditt lagrings konto är anonymt. Mer information finns i [förhindra anonym offentlig Läs behörighet till behållare och blobbar](anonymous-read-access-prevent.md).
 
-Om du vill tillåta eller neka offentlig åtkomst till ett lagrings konto konfigurerar du kontots **AllowBlobPublicAccess** -egenskap. Den här egenskapen är tillgänglig för alla lagrings konton som skapas med Azure Resource Manager distributions modell i det offentliga Azure-molnet eller i Azure Government moln. Mer information finns i [Översikt över lagrings konto](../common/storage-account-overview.md).
+Om du vill tillåta eller neka offentlig åtkomst till ett lagrings konto konfigurerar du kontots **AllowBlobPublicAccess** -egenskap. Den här egenskapen är tillgänglig för alla lagrings konton som skapas med Azure Resource Manager distributions modell. Mer information finns i [Översikt över lagrings konto](../common/storage-account-overview.md).
 
 Egenskapen **AllowBlobPublicAccess** har inte angetts som standard och returnerar inte något värde förrän du uttryckligen anger det. Lagrings kontot tillåter offentlig åtkomst när egenskap svärdet är antingen **Null** eller **Sant**.
 

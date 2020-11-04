@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: sngun
-ms.custom: devx-track-dotnet
-ms.openlocfilehash: 824c48646ab32e02c627fb623dbab60c3050ad96
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: devx-track-dotnet, contperfq2
+ms.openlocfilehash: a1c986663c42b87e7e5d4530b26200d48fe612cb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93080727"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314261"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Prestandatips för Azure Cosmos DB och .NET SDK v2
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -52,7 +52,7 @@ Vi rekommenderar Windows 64-bitars värd bearbetning för bättre prestanda. SQL
 - För ASP.NET-webbprogram som distribueras i Azure kan du ändra värd bearbetningen genom att välja **64-bitars** plattform i **program inställningar** i Azure Portal.
 
 > [!NOTE] 
-> Som standard har nya Visual Studio-projekt angetts till **valfri processor** . Vi rekommenderar att du ställer in projektet på **x64** så att det inte växlar till **x86** . Ett projekt som är inställt på **valfri processor** kan enkelt växla till **x86** om ett x86-endast beroende läggs till.<br/>
+> Som standard har nya Visual Studio-projekt angetts till **valfri processor**. Vi rekommenderar att du ställer in projektet på **x64** så att det inte växlar till **x86**. Ett projekt som är inställt på **valfri processor** kan enkelt växla till **x86** om ett x86-endast beroende läggs till.<br/>
 > ServiceInterop.dll måste finnas i mappen som SDK-DLL-filen körs från. Detta bör endast vara en risk om du manuellt kopierar dll: er eller har anpassade Bygg-/distributions system.
     
 **Aktivera skräp insamling på Server sidan (GC)**

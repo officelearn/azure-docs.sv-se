@@ -1,6 +1,6 @@
 ---
-title: Återställa en borttagen SQL-pool
-description: Guide för att återställa en borttagen SQL-pool.
+title: Återställa en borttagen dedikerad SQL-pool
+description: Guide för att återställa en borttagen SQL-pool i Azure Synapse Analytics.
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -11,34 +11,34 @@ ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 879844efdc5c2b40f69ee5f79305d4dfa596fd27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29edf6ebd451bf05fe24249eeacb416a70001d56
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460736"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313564"
 ---
-# <a name="restore-a-deleted-sql-pool-using-azure-synapse-analytics"></a>Återställa en borttagen SQL-pool med Azure Synapse Analytics
+# <a name="restore-a-deleted-dedicated-sql-pool-in-azure-synapse-analytics"></a>Återställa en borttagen dedikerad SQL-pool i Azure Synapse Analytics
 
-I den här artikeln får du lära dig att återställa en SQL med antingen Azure Portal eller PowerShell.
+I den här artikeln får du lära dig att återställa en dedikerad SQL-pool med hjälp av antingen Azure Portal eller PowerShell.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-**Verifiera din DTU-kapacitet.** Varje SQL-pool finns på en [logisk SQL-Server](../../azure-sql/database/logical-servers.md) (till exempel myserver.Database.Windows.net) som har en standard-DTU-kvot.  Kontrol lera att servern har tillräckligt med den återstående DTU-kvoten för databasen som återställs. Information om hur du beräknar DTU krävs eller begär mer DTU finns i [begär en ändring av DTU-kvot](sql-data-warehouse-get-started-create-support-ticket.md).
+**Verifiera din DTU-kapacitet.** Varje dedikerad SQL-pool finns på en [logisk SQL-Server](../../azure-sql/database/logical-servers.md) (till exempel myserver.Database.Windows.net) som har en standard-DTU-kvot.  Kontrol lera att servern har tillräckligt med den återstående DTU-kvoten för databasen som återställs. Information om hur du beräknar DTU krävs eller begär mer DTU finns i [begär en ändring av DTU-kvot](sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## <a name="restore-a-deleted-data-warehouse-through-powershell"></a>Återställa ett borttaget informations lager via PowerShell
 
-Om du vill återställa en borttagen SQL-pool använder du cmdleten [restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) . Om motsvarande server också har tagits bort kan du inte återställa det data lagret.
+Om du vill återställa en borttagen dedikerad SQL-pool använder du cmdleten [restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) . Om motsvarande server också har tagits bort kan du inte återställa det data lagret.
 
 1. Innan du börjar ska du se till att [installera Azure PowerShell](/powershell/azure/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Öppna PowerShell.
 3. Anslut till ditt Azure-konto och lista alla prenumerationer som är kopplade till ditt konto.
-4. Välj den prenumeration som innehåller den borttagna SQL-pool som ska återställas.
+4. Välj den prenumeration som innehåller den borttagna dedikerade SQL-pool som ska återställas.
 5. Hämta det angivna borttagna informations lagret.
-6. Återställa den borttagna SQL-poolen
-    1. Om du vill återställa den borttagna SQL-poolen till en annan server, se till att ange det andra Server namnet.  Den här servern kan också finnas i en annan resurs grupp och region.
+6. Återställa den borttagna dedikerade SQL-poolen
+    1. Om du vill återställa den borttagna dedikerade SQL-poolen till en annan server, se till att ange det andra Server namnet.  Den här servern kan också finnas i en annan resurs grupp och region.
     1. Om du vill återställa till en annan prenumeration använder du knappen [Flytta](../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#use-the-portal) för att flytta servern till en annan prenumeration.
 7. Kontrol lera att det återställda informations lagret är online.
 8. När återställningen har slutförts kan du konfigurera det återställda data lagret genom att följa [konfiguration av databasen efter återställningen](../../azure-sql/database/disaster-recovery-guidance.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
@@ -71,7 +71,7 @@ $RestoredDatabase.status
 
 ## <a name="restore-a-deleted-database-using-the-azure-portal"></a>Återställa en borttagen databas med hjälp av Azure Portal
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Navigera till servern som det borttagna data lagret finns på.
 3. Välj ikonen **borttagna databaser** i innehålls förteckningen.
 
@@ -87,5 +87,5 @@ $RestoredDatabase.status
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Återställa en befintlig SQL-pool](sql-data-warehouse-restore-active-paused-dw.md)
-- [Återställa från en geo-backup SQL-pool](sql-data-warehouse-restore-from-geo-backup.md)
+- [Återställa en befintlig dedikerad SQL-pool](sql-data-warehouse-restore-active-paused-dw.md)
+- [Återställa från en dedikerad geo-säkerhetskopia SQL-pool](sql-data-warehouse-restore-from-geo-backup.md)

@@ -9,12 +9,12 @@ ms.subservice: machine-learning
 ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: jrasnick,
-ms.openlocfilehash: da4cef50610b219689e2271e9f70fd1adb1a235f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 979e360bb920fc3b34a201b1287b50b141bffa9b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540514"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313624"
 ---
 # <a name="tutorial-run-experiments-using-azure-automated-ml-and-apache-spark"></a>Självstudie: köra experiment med Azures automatiserade ML och Apache Spark
 
@@ -29,13 +29,16 @@ I den här självstudien får du lära dig följande uppgifter:
 - Beräkna modell precision
 
 ### <a name="before-you-begin"></a>Innan du börjar
-- Skapa en Apache Spark pool genom att följa [själv studie kursen skapa en Apache Spark pool](../quickstart-create-apache-spark-pool-studio.md).
+
+- Skapa en server lös Apache Spark pool genom att följa snabb starten för att [skapa en server lös Apache Spark pool](../quickstart-create-apache-spark-pool-studio.md).
 - Slutför [installations guiden för Azure Machine Learning arbets yta](https://docs.microsoft.com/azure/machine-learning/tutorial-1st-experiment-sdk-setup) om du inte har en befintlig Azure Machine Learning arbets yta. 
 
 ### <a name="understand-regression-models"></a>Förstå Regressions modeller
+
 *Regressions modeller* förutsäger numeriska utmatnings värden baserat på oberoende förförutsägelser. Syftet med regressionen är att hjälpa till att upprätta relationen mellan de oberoende förutsägande variablerna genom att uppskatta hur en variabel påverkar de andra.  
 
 ### <a name="regression-analysis-example-on-the-nyc-taxi-data"></a>Regressions analys exempel på NYC taxi-data
+
 I det här exemplet ska du använda Spark för att utföra vissa analyser av information om taxi resor från New York. Data är tillgängliga via [Azure Open data uppsättningar](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/). Denna del av data uppsättningen innehåller information om gula taxi resor, inklusive information om varje resa, start-och slut tid samt platser, kostnad och andra intressanta attribut.
 
 > [!IMPORTANT]
@@ -143,7 +146,7 @@ ws = Workspace(workspace_name = workspace_name,
 ```
 
 ## <a name="convert-a-dataframe-to-an-azure-machine-learning-dataset"></a>Konvertera en dataframe till en Azure Machine Learning data uppsättning
-För att kunna skicka ett fjärrexperiment måste vi konvertera vår data uppsättning till en Azure Machine Learning ```TabularDatset``` . En [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) representerar data i tabell format genom att parsa de angivna filerna.
+För att kunna skicka ett fjärrexperiment måste vi konvertera vår data uppsättning till en Azure Machine Learning ```TabularDatset``` . En [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) representerar data i tabell format genom att parsa de angivna filerna.
 
 Följande kod hämtar den befintliga arbets ytan och förvalda Azure Machine Learning standard data lager. Den skickar sedan data lagret och fil Sök vägarna till parametern Path för att skapa en ny ```TabularDataset``` . 
 
@@ -165,7 +168,7 @@ dataset_training = Dataset.Tabular.from_delimited_files(path = [(datastore, 'tra
 
 ![Bild av överförd data uppsättning.](./media/apache-spark-machine-learning-aml-notebook/upload-dataset.png)
 
-## <a name="submit-an-auto-ml-experiment"></a>Skicka ett automatiskt ML-experiment
+## <a name="submit-an-automl-experiment"></a>Skicka ett AutoML-experiment
 
 #### <a name="define-training-settings"></a>Definiera utbildnings inställningar
 

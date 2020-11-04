@@ -1,6 +1,6 @@
 ---
 title: Delade metadata-tabeller
-description: Azure Synapse Analytics tillhandahåller en delad metadata modell där en tabell skapas i Apache Spark, vilket gör den tillgänglig från SQL on-demand (för hands version) och SQL-pooler utan att duplicera data.
+description: Azure Synapse Analytics tillhandahåller en delad metadata modell där du skapar en tabell i en server lös Apache Spark pool kommer att vara tillgänglig från Server lös SQL-pool (för hands version) och dedikerad SQL-pool utan att duplicera data.
 services: sql-data-warehouse
 author: MikeRys
 ms.service: synapse-analytics
@@ -10,30 +10,30 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d19376d21081d899d8ff7226c6d7c5b76267fabf
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: f269217908bea4b5e8ef3c0004a9cec9d5d682c7
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280459"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314540"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Tabeller för delade metadata i Azure Synapse Analytics
 
 [!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
-Med Azure Synapse Analytics kan olika beräknings motorer för arbets ytan dela databaser och Parquet tabeller mellan Apache Spark pooler (för hands versionen) och SQL on-demand (för hands version)-motorn.
+Med Azure Synapse Analytics kan olika beräknings motorer för arbets ytan dela databaser och Parquet tabeller mellan Apache Spark pooler (för hands version) och SQL-pool utan server (för hands version).
 
 När en databas har skapats av ett Spark-jobb kan du skapa tabeller i den med Spark som använder Parquet som lagrings format. Tabellerna blir omedelbart tillgängliga för frågor från någon av Azure Synapse-arbetsytans Spark-pooler. De kan också användas från alla Spark-jobb som omfattas av behörigheter.
 
-Spark skapade, hanterade och externa tabeller görs också tillgängliga som externa tabeller med samma namn i motsvarande synkroniserade databas i SQL på begäran. Att [exponera en spark-tabell i SQL](#expose-a-spark-table-in-sql) innehåller mer information om Table-synkroniseringen.
+Spark created-, Managed-och external-tabellerna görs också tillgängliga som externa tabeller med samma namn i motsvarande synkroniserade databas i SQL-poolen utan server. Att [exponera en spark-tabell i SQL](#expose-a-spark-table-in-sql) innehåller mer information om Table-synkroniseringen.
 
-Eftersom tabellerna synkroniseras till SQL på begäran asynkront kommer det att finnas en fördröjning tills de visas.
+Eftersom tabellerna är synkroniserade med en server lös SQL-pool asynkront kommer det att finnas en fördröjning tills de visas.
 
 ## <a name="manage-a-spark-created-table"></a>Hantera en spark-skapad tabell
 
-Använd Spark för att hantera Spark-skapade databaser. Du kan t. ex. ta bort den via ett Spark-jobb och skapa tabeller i det från Spark.
+Använd Spark för att hantera Spark-skapade databaser. Du kan t. ex. ta bort den via ett jobb utan server Apache Spark pool och skapa tabeller i det från Spark.
 
-Om du skapar objekt i en sådan databas från SQL på begäran eller försöker släppa databasen kommer åtgärden att lyckas, men den ursprungliga Spark-databasen kommer inte att ändras.
+Om du skapar objekt i en sådan databas från SQL-poolen utan server eller försöker släppa databasen, lyckas åtgärden, men den ursprungliga Spark-databasen ändras inte.
 
 ## <a name="expose-a-spark-table-in-sql"></a>Exponera en spark-tabell i SQL
 
@@ -95,9 +95,9 @@ Mer information om hur du anger behörigheter för mappar och filer finns i [Azu
 
 ## <a name="examples"></a>Exempel
 
-### <a name="create-a-managed-table-backed-by-parquet-in-spark-and-query-from-sql-on-demand"></a>Skapa en hanterad tabell som backas upp av Parquet i Spark och fråga från SQL på begäran
+### <a name="create-a-managed-table-backed-by-parquet-in-spark-and-query-from-serverless-sql-pool"></a>Skapa en hanterad tabell som backas upp av Parquet i Spark och fråga från Server lös SQL-pool
 
-I det här scenariot har du en spark-databas med namnet `mytestdb` . Se [skapa och ansluta till en spark-databas med SQL på begäran](database.md#create-and-connect-to-spark-database-with-sql-on-demand).
+I det här scenariot har du en spark-databas med namnet `mytestdb` . Se [skapa och ansluta till en spark-databas med en server lös SQL-pool](database.md#create-and-connect-to-spark-database-with-serverless-sql-pool).
 
 Skapa en hanterad Spark-tabell med SparkSQL genom att köra följande kommando:
 
@@ -105,7 +105,7 @@ Skapa en hanterad Spark-tabell med SparkSQL genom att köra följande kommando:
     CREATE TABLE mytestdb.myParquetTable(id int, name string, birthdate date) USING Parquet
 ```
 
-Det här kommandot skapar tabellen `myParquetTable` i-databasen `mytestdb` . Efter en kort fördröjning kan du se tabellen i SQL på begäran. Kör till exempel följande uttryck från SQL på begäran.
+Det här kommandot skapar tabellen `myParquetTable` i-databasen `mytestdb` . Efter en kort fördröjning kan du se tabellen i din server lös SQL-pool. Kör till exempel följande-sats från din server lös SQL-pool.
 
 ```sql
     USE mytestdb;
@@ -140,7 +140,7 @@ var df = spark.CreateDataFrame(data, schema);
 df.Write().Mode(SaveMode.Append).InsertInto("mytestdb.myParquetTable");
 ```
 
-Nu kan du läsa data från SQL på begäran på följande sätt:
+Nu kan du läsa data från SQL-poolen utan server på följande sätt:
 
 ```sql
 SELECT * FROM mytestdb.dbo.myParquetTable WHERE name = 'Alice';
@@ -154,7 +154,7 @@ id | name | birthdate
 1 | Alice | 2010-01-01
 ```
 
-### <a name="create-an-external-table-backed-by-parquet-in-spark-and-query-from-sql-on-demand"></a>Skapa en extern tabell som backas upp av Parquet i Spark och fråga från SQL på begäran
+### <a name="create-an-external-table-backed-by-parquet-in-spark-and-query-from-serverless-sql-pool"></a>Skapa en extern tabell som backas upp av Parquet i Spark och fråga från Server lös SQL-pool
 
 I det här exemplet skapar du en extern Spark-tabell över de Parquet-datafiler som skapades i föregående exempel för den hanterade tabellen.
 
@@ -168,7 +168,7 @@ CREATE TABLE mytestdb.myExternalParquetTable
 
 Ersätt plats hållaren `<fs>` med fil system namnet som är standard fil systemet för arbets ytan och plats hållaren `<synapse_ws>` med namnet på Synapse-arbetsytan som du använder för att köra det här exemplet.
 
-I föregående exempel skapas tabellen `myExtneralParquetTable` i-databasen `mytestdb` . Efter en kort fördröjning kan du se tabellen i SQL på begäran. Kör till exempel följande uttryck från SQL på begäran.
+I föregående exempel skapas tabellen `myExtneralParquetTable` i-databasen `mytestdb` . Efter en kort fördröjning kan du se tabellen i din server lös SQL-pool. Kör till exempel följande-sats från din server lös SQL-pool.
 
 ```sql
 USE mytestdb;
@@ -177,7 +177,7 @@ SELECT * FROM sys.tables;
 
 Kontrol lera att `myExternalParquetTable` ingår i resultaten.
 
-Nu kan du läsa data från SQL på begäran på följande sätt:
+Nu kan du läsa data från SQL-poolen utan server på följande sätt:
 
 ```sql
 SELECT * FROM mytestdb.dbo.myExternalParquetTable WHERE name = 'Alice';

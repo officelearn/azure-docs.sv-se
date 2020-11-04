@@ -10,19 +10,19 @@ ms.author: peterlu
 ms.date: 06/28/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 9124bbfc7300f3a5116c572d569b41e15356ab8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f08d0f1be166630d9cf4b0b9236d78228fd78aae
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983835"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312811"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer"></a>Transformera data i Azure Machine Learning designer
 
 
 I den här artikeln får du lära dig hur du omformar och sparar data uppsättningar i Azure Machine Learning designer så att du kan förbereda dina egna data för Machine Learning.
 
-Du kommer att använda den [binära klassificerings data uppsättningen för vuxen räknings inkomst](sample-designer-datasets.md) för att förbereda två data uppsättningar: en data uppsättning som innehåller information om vuxen räkning från endast USA och en annan data uppsättning som innehåller information om inventering från icke-USA vuxna.
+Du kommer att använda den [binära klassificerings data uppsättningen för vuxen räknings inkomst](./samples-designer.md) för att förbereda två data uppsättningar: en data uppsättning som innehåller information om vuxen räkning från endast USA och en annan data uppsättning som innehåller information om inventering från icke-USA vuxna.
 
 I den här artikeln kan du se hur du:
 
@@ -74,7 +74,7 @@ I det här avsnittet använder du [modulen dela data](algorithm-module-reference
 
 1. I informations fönstret för moduler till höger om arbets ytan anger du **delnings läge** till **reguljärt uttryck**.
 
-1. Ange det **reguljära uttrycket**: `\"native-country" United-States` .
+1. Ange det **reguljära uttrycket** : `\"native-country" United-States` .
 
     Det **reguljära uttrycks** läget testar en enskild kolumn för ett värde. Mer information om modulen dela data finns på [referens sidan relaterad algoritm](algorithm-module-reference/split-data.md).
 
@@ -97,36 +97,36 @@ Nu när din pipeline har kon figurer ATS för att dela data måste du ange var d
 
     ![Skärm bild som visar hur du ansluter modulen exportera data](media/how-to-designer-transform-data/export-data-pipeline.png).
 
-1. Välj modulen **Exportera data** som är ansluten till den *vänstra*porten av modulen **dela data** .
+1. Välj modulen **Exportera data** som är ansluten till den *vänstra* porten av modulen **dela data** .
 
     Ordningen för de utgående portarna som är viktiga för modulen **dela data** . Den första utgående porten innehåller raderna där det reguljära uttrycket är sant. I det här fallet innehåller den första porten rader för USA-baserad inkomst och den andra porten innehåller rader för icke-USA-baserad inkomst.
 
 1. I informations fönstret för moduler till höger om arbets ytan anger du följande alternativ:
     
-    **Data lager typ**: Azure Blob Storage
+    **Data lager typ** : Azure Blob Storage
 
-    **Data lager**: Välj ett befintligt data lager eller välj "nytt data lager" för att skapa ett nu.
+    **Data lager** : Välj ett befintligt data lager eller välj "nytt data lager" för att skapa ett nu.
 
-    **Sökväg**: `/data/us-income`
+    **Sökväg** : `/data/us-income`
 
-    **Fil format**: CSV
+    **Fil format** : CSV
 
     > [!NOTE]
     > Den här artikeln förutsätter att du har åtkomst till ett data lager som är registrerat på den aktuella Azure Machine Learning-arbetsytan. Instruktioner för hur du konfigurerar ett data lager finns i [Anslut till Azure Storage Services](how-to-connect-data-ui.md#create-datastores).
 
     Om du inte har ett data lager kan du skapa ett nu. I den här artikeln sparas data uppsättningarna till det standard-Blob Storage-konto som är kopplat till arbets ytan. Den sparar data uppsättningarna i `azureml` behållaren i en ny mapp med namnet `data` .
 
-1.  Välj modulen **Exportera data** som är ansluten till den *högra*porten i modulen **dela data** .
+1.  Välj modulen **Exportera data** som är ansluten till den *högra* porten i modulen **dela data** .
 
 1. I informations fönstret för moduler till höger om arbets ytan anger du följande alternativ:
     
-    **Data lager typ**: Azure Blob Storage
+    **Data lager typ** : Azure Blob Storage
 
-    **Data lager**: Välj samma data lager som ovan
+    **Data lager** : Välj samma data lager som ovan
 
-    **Sökväg**: `/data/non-us-income`
+    **Sökväg** : `/data/non-us-income`
 
-    **Fil format**: CSV
+    **Fil format** : CSV
 
 1. Bekräfta att **export data** -modulen är ansluten till den vänstra porten för **delnings data** har **sökvägen** `/data/us-income` .
 
@@ -140,7 +140,7 @@ Nu när din pipeline har kon figurer ATS för att dela data måste du ange var d
 
 Nu när din pipeline har kon figurer ATS för att dela och exportera data skickar du en pipeline-körning.
 
-1. Välj **Skicka**på arbets ytans överkant.
+1. Välj **Skicka** på arbets ytans överkant.
 
 1. I dialog rutan **Konfigurera pipeline-körning** väljer du **Skapa nytt** för att skapa ett experiment.
 

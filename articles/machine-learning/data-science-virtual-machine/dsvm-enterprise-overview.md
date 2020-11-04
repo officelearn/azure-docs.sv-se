@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 05/08/2018
-ms.openlocfilehash: b1357c9bb125cb881ac4aa6dd31c9dcaf53954f0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 538802cc2129a8e8f379c8b569bd1f8696097dab
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87919947"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314187"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Data Science Virtual Machine-baserad team Analytics och AI-miljö 
 [Data science Virtual Machine](overview.md) (DSVM) innehåller en omfattande miljö på Azure-plattformen, med fördefinierad program vara för artificiell intelligens (AI) och data analys.
@@ -37,13 +37,13 @@ Viktiga Bygg stenar i en Enterprise team Analytics-miljö är:
 
 Den här serien ger vägledning och pekare för vart och ett av föregående avsnitt. Det beskriver inte alla överväganden och krav för att distribuera Dsvm i stora företags konfigurationer. Här följer några andra Azure-resurser som du kan använda när du implementerar DSVM-instanser i företaget:
 
-* [Nätverkssäkerhet](https://docs.microsoft.com/azure/security/fundamentals/network-security)
-* [Övervakning](https://docs.microsoft.com/azure/virtual-machines/windows/monitor) och [hantering](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates)
-* [Loggning och granskning](https://docs.microsoft.com/azure/security/fundamentals/log-audit)
-* [Azure RBAC (rollbaserad åtkomstkontroll)](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Nätverkssäkerhet](../../security/fundamentals/network-overview.md)
+* [Övervakning](../../azure-monitor/insights/monitor-vm-azure.md) och [hantering](../../virtual-machines/maintenance-and-updates.md?bc=%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json%252c%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json%253ftoc%253d%252fazure%252fvirtual-machines%252fwindows%252ftoc.json)
+* [Loggning och granskning](../../security/fundamentals/log-audit.md)
+* [Azure RBAC (rollbaserad åtkomstkontroll)](../../role-based-access-control/overview.md)
 * [Princip inställning och tillämpning](../../governance/policy/overview.md)
-* [Skadlig kod](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
-* [Kryptering](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption-overview)
-* [Identifiering och styrning av data](https://docs.microsoft.com/azure/data-catalog/)
+* [Skadlig kod](../../security/fundamentals/antimalware.md)
+* [Kryptering](../../virtual-machines/windows/disk-encryption-overview.md)
+* [Identifiering och styrning av data](../../data-catalog/index.yml)
 
-Slutligen tillhandahåller [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/) en detaljerad arkitektur och modeller från slut punkt till slut punkt för att skapa och hantera en molnbaserad analys infrastruktur.
+Slutligen tillhandahåller [Azure Architecture Center](/azure/architecture/) en detaljerad arkitektur och modeller från slut punkt till slut punkt för att skapa och hantera en molnbaserad analys infrastruktur.

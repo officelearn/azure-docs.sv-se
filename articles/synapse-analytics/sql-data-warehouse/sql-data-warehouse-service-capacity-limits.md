@@ -1,6 +1,6 @@
 ---
-title: Kapacitets gränser – Azure Synapse Analytics (tidigare SQL DW)
-description: Högsta tillåtna värden för olika komponenter i Synapse SQL-poolen i Azure Synapse.
+title: Kapacitets begränsningar för dedikerad SQL-pool
+description: Högsta tillåtna värden för olika komponenter i dedikerad SQL-pool i Azure Synapse Analytics.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -11,22 +11,22 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 4e06dbee5b1edbb4fd1a3379ee2d9aa06f9949ab
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: dac2a60b6b9db082a10d2473eb22b86d8097eee0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742464"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313151"
 ---
-# <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Kapacitets gränser för Azure Synapse Analytics (tidigare SQL DW)
+# <a name="capacity-limits-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Kapacitets begränsningar för dedikerad SQL-pool i Azure Synapse Analytics
 
-Högsta tillåtna värden för olika komponenter i Azure-Synapse.
+Högsta tillåtna värden för olika komponenter i dedikerad SQL-pool i Azure Synapse Analytics.
 
 ## <a name="workload-management"></a>Arbetsbelastningshantering
 
 | Kategori | Beskrivning | Maximal |
 |:--- |:--- |:--- |
-| [Informations lager enheter (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Max DWU för en enskild SQL-pool (data lager) enhet | Gen1: DW6000<br></br>Gen2: DW30000c |
+| [Informations lager enheter (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Max DWU för en enskild dedikerad SQL-pool (data lager) enhet | Gen1: DW6000<br></br>Gen2: DW30000c |
 | [Informations lager enheter (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Standard-DTU per server |54 000<br></br>Varje SQL Server (t. ex. myserver.database.windows.net) har som standard en DTU-kvot på 54 000, vilket ger upp till DW5000c. Kvoten är helt enkelt en säkerhetsgräns. Du kan öka kvoten genom att [skapa ett support ärende](sql-data-warehouse-get-started-create-support-ticket.md) och välja *kvot* som typ av begäran.  För att beräkna dina DTU-behov multiplicerar du 7,5 med den totala DWU som krävs, eller multiplicerar 9,5 med den totala cDWU som behövs. Exempel:<br></br>DW6000 x 7,5 = 45 000 DTU: er<br></br>DW5000c x 9,5 = 47 500 DTU: er.<br></br>Du kan visa den aktuella DTU-förbrukningen från SQL Server-alternativet i portalen. Både pausade och inte pausade databaser räknas i förhållande till DTU-kvoten. |
 | Databas anslutning |Maximalt antal samtidiga öppna sessioner |1024<br/><br/>Antalet samtidiga öppna sessioner varierar beroende på den valda DWU. DWU600c och högre stöder högst 1024 öppna sessioner. DWU500c och nedan stöder maximalt antal samtidiga sessioner av öppen session på 512. Obs! det finns gränser för hur många frågor som kan köras samtidigt. Om samtidigheten överskrids hamnar begäran i en intern kö där den väntar på att bearbetas. |
 | Databas anslutning |Maximalt minne för för beredda uttryck |20 MB |
@@ -62,7 +62,7 @@ Högsta tillåtna värden för olika komponenter i Azure-Synapse.
 | Kategori | Beskrivning | Maximal |
 |:--- |:--- |:--- |
 | PolyBase-belastningar |MB per rad |1<br/><br/>PolyBase läser in rader som är mindre än 1 MB. Det går inte att läsa in LOB-datatyper i tabeller med ett grupperat columnstore-index (CCI).<br/> |
-|PolyBase-belastningar|Totalt antal filer|1,000,000<br/><br/>PolyBase-inläsningar får inte överstiga 1 miljon filer. Följande fel kan uppstå: **åtgärden misslyckades eftersom delat antal överskrider den övre gränsen på 1000000** .|
+|PolyBase-belastningar|Totalt antal filer|1,000,000<br/><br/>PolyBase-inläsningar får inte överstiga 1 miljon filer. Följande fel kan uppstå: **åtgärden misslyckades eftersom delat antal överskrider den övre gränsen på 1000000**.|
 
 ## <a name="queries"></a>Frågor
 

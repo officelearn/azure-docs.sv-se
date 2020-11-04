@@ -9,12 +9,12 @@ ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
 ms.custom: devx-track-python
-ms.openlocfilehash: b5f1d0712098e4fe331607860f6e0ed488d29c1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 394e735be5da65ffa75e10200589a4adb4e7cad2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87848800"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313924"
 ---
 # <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>Självstudie: Azure Data Lake Storage Gen2, Azure Databricks & Spark
 
@@ -29,11 +29,11 @@ I de här självstudierna får du:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Skapa ett Azure Data Lake Storage Gen2-konto.
 
-  Se [skapa ett Azure Data Lake Storage Gen2-konto](data-lake-storage-quickstart-create-account.md).
+  Se [skapa ett lagrings konto som ska användas med Azure Data Lake Storage Gen2](create-data-lake-storage-account.md).
 
 * Se till att ditt användarkonto har tilldelats rollen [Storage Blob Data-deltagare](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac).
 
@@ -110,7 +110,7 @@ I det här avsnittet skapar du en Azure Databricks-tjänst i Azure Portal.
 
 ### <a name="copy-source-data-into-the-storage-account"></a>Kopiera källdata till lagringskontot
 
-Använd AzCopy till att kopiera data från *.csv*-filen till Data Lake Storage Gen2-kontot.
+Använd AzCopy till att kopiera data från *.csv* -filen till Data Lake Storage Gen2-kontot.
 
 1. Öppna en kommandotolk och ange följande kommandon för att logga in på lagringskontot.
 
@@ -120,7 +120,7 @@ Använd AzCopy till att kopiera data från *.csv*-filen till Data Lake Storage G
 
    Följ anvisningarna som visas i kommando tolkens fönster för att autentisera ditt användar konto.
 
-2. Kopiera data från *.csv*-filen med följande kommando.
+2. Kopiera data från *.csv* -filen med följande kommando.
 
    ```bash
    azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<container-name>/folder1/On_Time.csv
@@ -195,7 +195,7 @@ from pyspark.sql import SQLContext
 display(dbutils.fs.ls("/mnt/flightdata"))
 ```
 
-Kör det här skriptet om du vill skapa en ny fil och visa en lista med filerna i mappen *parquet/flights*:
+Kör det här skriptet om du vill skapa en ny fil och visa en lista med filerna i mappen *parquet/flights* :
 
 ```python
 dbutils.fs.put("/mnt/flightdata/1.txt", "Hello, World!", True)

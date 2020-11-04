@@ -1,6 +1,6 @@
 ---
-title: Kontrol lera åtkomsten till lagrings kontot för SQL på begäran (för hands version)
-description: Beskriver hur SQL på begäran (för hands version) får åtkomst Azure Storage och hur du kan kontrol lera lagrings åtkomst för SQL på begäran i Azure Synapse Analytics.
+title: Kontrol lera åtkomsten till lagrings kontot för SQL-poolen utan server (för hands version)
+description: Beskriver hur Server lös SQL-pool (för hands version) får åtkomst Azure Storage och hur du kan kontrol lera lagrings åtkomst för SQL-poolen utan server i Azure Synapse Analytics.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 182ab55f8e86d972293222f8a3bcf32dada89328
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 958f371a0018d20331e73d0eabba9354614d121c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91449459"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315728"
 ---
-# <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Kontrol lera åtkomsten till lagrings kontot för SQL på begäran (för hands version)
+# <a name="control-storage-account-access-for-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Kontrol lera åtkomsten till lagrings kontot för SQL-poolen utan server (för hands version) i Azure Synapse Analytics
 
-En SQL-fråga på begäran läser filer direkt från Azure Storage. Behörigheter för att komma åt filerna i Azure Storage styrs på två nivåer:
+En server utan SQL-pool läser filer direkt från Azure Storage. Behörigheter för att komma åt filerna i Azure Storage styrs på två nivåer:
 - **Lagrings nivå** – användaren bör ha behörighet att komma åt underliggande lagringsfiler. Lagrings administratören ska tillåta att Azure AD-huvudobjektet läser/skriver filer, eller genererar SAS-nyckel som används för åtkomst till lagring.
 - **SQL Service Level** -användaren ska ha `SELECT` behörighet att läsa data från den [externa tabellen](develop-tables-external-tables.md) eller `ADMINISTER BULK ADMIN` behörighet att köra `OPENROWSET` och även behörighet att använda autentiseringsuppgifter som ska användas för åtkomst till lagring.
 
@@ -26,14 +26,14 @@ Den här artikeln beskriver de typer av autentiseringsuppgifter som du kan anvä
 
 ## <a name="supported-storage-authorization-types"></a>Typer av lagringspooler som stöds
 
-En användare som har loggat in på en SQL-resurs på begäran måste ha behörighet att komma åt och fråga filerna i Azure Storage om filerna inte är offentligt tillgängliga. Du kan använda tre typer av autentisering för att komma åt icke-offentlig lagring – [användar identitet](?tabs=user-identity), [delad åtkomst-signatur](?tabs=shared-access-signature)och [hanterad identitet](?tabs=managed-identity).
+En användare som har loggat in på en server lös SQL-pool måste ha behörighet att komma åt och fråga filerna i Azure Storage om filerna inte är offentligt tillgängliga. Du kan använda tre typer av autentisering för att komma åt icke-offentlig lagring – [användar identitet](?tabs=user-identity), [delad åtkomst-signatur](?tabs=shared-access-signature)och [hanterad identitet](?tabs=managed-identity).
 
 > [!NOTE]
 > **Azure AD-vidarekoppling** är standard beteendet när du skapar en arbets yta.
 
 ### <a name="user-identity"></a>[Användar identitet](#tab/user-identity)
 
-**Användar identitet**, som även kallas "Azure AD-vidarekoppling", är en typ av auktorisering där identiteten för den Azure AD-användare som loggade in på begäran används för att ge åtkomst till data. Innan du får åtkomst till data måste Azure Storages administratören bevilja behörighet till Azure AD-användaren. Som anges i tabellen nedan, stöds den inte för SQL-användargruppen.
+**Användar identitet** , som även kallas "Azure AD-vidarekoppling", är en typ av auktorisering där identiteten för den Azure AD-användare som har loggat in på en server utan SQL-pool används för att ge åtkomst till data. Innan du får åtkomst till data måste Azure Storages administratören bevilja behörighet till Azure AD-användaren. Som anges i tabellen nedan, stöds den inte för SQL-användargruppen.
 
 > [!IMPORTANT]
 > Du måste ha rollen som ägare/deltagare/läsare för Storage BLOB-rollen för att kunna använda din identitet för att komma åt data.
@@ -49,7 +49,7 @@ En användare som har loggat in på en SQL-resurs på begäran måste ha behöri
 Du kan få en SAS-token genom att gå till **Azure Portal-> lagrings konto-> signatur för delad åtkomst-> konfigurera behörigheter – > generera SAS och anslutnings sträng.**
 
 > [!IMPORTANT]
-> När en SAS-token skapas, innehåller den ett frågetecken ("?") i början av token. Om du vill använda token i SQL på begäran måste du ta bort frågetecknet (?) när du skapar en autentiseringsuppgift. Till exempel:
+> När en SAS-token skapas, innehåller den ett frågetecken ("?") i början av token. Om du vill använda token i SQL-poolen utan server måste du ta bort frågetecknet (?) när du skapar en autentiseringsuppgift. Exempel:
 >
 > SAS-token:? sa = 2018-03-28&SS = bfqt&SRT = SCO&SP = rwdlacup&se = 2019-04-18T20:42:12Z&St = 2019-04-18T12:42:12Z&spr = https&sig = lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78% 3D
 
@@ -57,7 +57,7 @@ Om du vill aktivera åtkomst med hjälp av en SAS-token måste du skapa en datab
 
 ### <a name="managed-identity"></a>[Hanterad identitet](#tab/managed-identity)
 
-**Hanterad identitet** kallas även MSI. Det är en funktion i Azure Active Directory (Azure AD) som tillhandahåller Azure-tjänster för SQL på begäran. Dessutom distribueras en automatiskt hanterad identitet i Azure AD. Den här identiteten kan användas för att auktorisera begäran om data åtkomst i Azure Storage.
+**Hanterad identitet** kallas även MSI. Det är en funktion i Azure Active Directory (Azure AD) som tillhandahåller Azure-tjänster för Server lös SQL-pool. Dessutom distribueras en automatiskt hanterad identitet i Azure AD. Den här identiteten kan användas för att auktorisera begäran om data åtkomst i Azure Storage.
 
 Innan du får åtkomst till data måste Azure Storages administratören bevilja behörighet till hanterad identitet för att komma åt data. Att bevilja behörigheter till hanterad identitet görs på samma sätt som när du beviljar behörighet till andra Azure AD-användare.
 
@@ -74,7 +74,7 @@ I tabellen nedan hittar du tillgängliga typer av autentisering:
 | Auktoriseringstyp                    | *SQL-användare*    | *Azure AD-användare*     |
 | ------------------------------------- | ------------- | -----------    |
 | [Användar identitet](?tabs=user-identity#supported-storage-authorization-types)       | Stöds inte | Stöds      |
-| [SÄKERHETS](?tabs=shared-access-signature#supported-storage-authorization-types)       | Stöds     | Stöds      |
+| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)       | Stöds     | Stöds      |
 | [Hanterad identitet](?tabs=managed-identity#supported-storage-authorization-types) | Stöds inte | Stöds      |
 
 ### <a name="supported-storages-and-authorization-types"></a>Lagrings enheter och verifierings typer som stöds
@@ -83,7 +83,7 @@ Du kan använda följande kombinationer av auktoriserings-och Azure Storage type
 
 | Auktoriseringstyp  | Blob Storage   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
-| [SÄKERHETS](?tabs=shared-access-signature#supported-storage-authorization-types)    | Stöds\*      | Stöds inte   | Stöds\*     |
+| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)    | Stöds\*      | Stöds inte   | Stöds\*     |
 | [Hanterad identitet](?tabs=managed-identity#supported-storage-authorization-types) | Stöds      | Stöds        | Stöds     |
 | [Användar identitet](?tabs=user-identity#supported-storage-authorization-types)    | Stöds\*      | Stöds\*        | Stöds\*     |
 
@@ -95,7 +95,7 @@ Du kan använda följande kombinationer av auktoriserings-och Azure Storage type
 
 ## <a name="credentials"></a>Autentiseringsuppgifter
 
-Om du vill fråga en fil som finns i Azure Storage måste din SQL-slutpunkt på begäran ha en autentiseringsuppgift som innehåller autentiseringsinformationen. Två typer av autentiseringsuppgifter används:
+Om du vill skicka en fråga till en fil som finns i Azure Storage behöver den serverbaserade SQL-poolens slut punkt en autentiseringsuppgift som innehåller autentiseringsinformationen. Två typer av autentiseringsuppgifter används:
 - AUTENTISERINGSUPPGIFTER på server nivå används för ad hoc-frågor som körs med hjälp av `OPENROWSET` funktion. Namnet på autentiseringsuppgiften måste matcha lagrings-URL: en.
 - DATABASens begränsade AUTENTISERINGSUPPGIFTER används för externa tabeller. En extern tabell refererar till `DATA SOURCE` den autentiseringsuppgift som ska användas för åtkomst till lagring.
 
@@ -144,7 +144,7 @@ SQL-användare kan inte använda Azure AD-autentisering för åtkomst till lagri
 
 Följande skript skapar en autentiseringsuppgift på server nivå som kan användas av `OPENROWSET` funktion för att få åtkomst till alla filer i Azure Storage med SAS-token. Skapa den här autentiseringsuppgiften för att aktivera SQL-huvudobjektet som kör `OPENROWSET` funktionen för att läsa filer som skyddas med SAS-nyckel på Azure Storage som matchar URL: en i autentiseringsuppgiften.
 
-Exchange <*mystorageaccountname*> med ditt faktiska lagrings konto namn och <*mystorageaccountcontainername*> med det faktiska behållar namnet:
+Exchange < *mystorageaccountname* > med ditt faktiska lagrings konto namn och < *mystorageaccountcontainername* > med det faktiska behållar namnet:
 
 ```sql
 CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]

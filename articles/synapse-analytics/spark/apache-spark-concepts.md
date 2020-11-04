@@ -1,6 +1,6 @@
 ---
 title: Apache Spark Core-begrepp
-description: Introduktion till Apache Spark i Azure Synapse Analytics och de olika begreppen.
+description: Introduktion till grundläggande begrepp för Apache Spark i Azure Synapse Analytics.
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: bb5c7e082dc4a35183190f5d2d6a4b305b907f4f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d29fa6454839b0c34830374282b8abb5fa6e4c51
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480487"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313407"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics-core-concepts"></a>Apache Spark i Azure Synapse Analytics core-koncept
 
@@ -24,7 +24,7 @@ Med Azure Synapse kan du enkelt skapa och konfigurera Spark-funktioner i Azure. 
 
 ## <a name="spark-pools-preview"></a>Spark-pooler (för hands version)
 
-En spark-pool (för hands version) skapas i Azure Portal. Det är definitionen av en spark-pool som, när den instansieras, används för att skapa en spark-instans som bearbetar data. När en spark-pool skapas, finns den bara som metadata och inga resurser förbrukas, körs eller debiteras för. En spark-pool har en serie egenskaper som styr egenskaperna för en spark-instans. Dessa egenskaper omfattar men är inte begränsade till namn, storlek, skalnings beteende, Time to Live.
+En server lös Apache Spark pool (för hands version) skapas i Azure Portal. Det är definitionen av en spark-pool som, när den instansieras, används för att skapa en spark-instans som bearbetar data. När en spark-pool skapas, finns den bara som metadata och inga resurser förbrukas, körs eller debiteras för. En spark-pool har en serie egenskaper som styr egenskaperna för en spark-instans. Dessa egenskaper omfattar men är inte begränsade till namn, storlek, skalnings beteende, Time to Live.
 
 Eftersom det inte finns några dollar-eller resurs kostnader kopplade till att skapa Spark-pooler, kan alla siffror skapas med valfritt antal olika konfigurationer. Behörigheter kan också tillämpas på Spark-pooler som gör det möjligt för användare endast att ha åtkomst till vissa och inte andra.
 

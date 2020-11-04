@@ -7,13 +7,13 @@ ms.devlang: java
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: anfeldma
-ms.custom: devx-track-java
-ms.openlocfilehash: 49827b7387edc1e914bbd58c63df2db74f4ed17b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: devx-track-java, contperfq2
+ms.openlocfilehash: c65cd4012d29146061183ea13749a0f42c03b1eb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091284"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314342"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Prestandatips för Azure Cosmos DB Java SDK v4
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -39,7 +39,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
 * **Anslutnings läge: Använd direkt läge**
 <a id="direct-connection"></a>
     
-    Standard anslutnings läget för Java SDK är direkt. Du kan konfigurera anslutnings läget i klient verktyget med hjälp av metoderna *directMode ()* eller *gatewayMode ()* , som du ser nedan. Om du vill konfigurera något av de båda alternativen med standardinställningar anropar du någon av metoderna utan argument. Annars skickar du en klass instans för konfigurations inställningar som argument ( *DirectConnectionConfig* för *directMode ()* ,  *GatewayConnectionConfig* för *gatewayMode ()* .). Mer information om olika anslutnings alternativ finns i artikeln [anslutnings lägen](sql-sdk-connection-modes.md) .
+    Standard anslutnings läget för Java SDK är direkt. Du kan konfigurera anslutnings läget i klient verktyget med hjälp av metoderna *directMode ()* eller *gatewayMode ()* , som du ser nedan. Om du vill konfigurera något av de båda alternativen med standardinställningar anropar du någon av metoderna utan argument. Annars skickar du en klass instans för konfigurations inställningar som argument ( *DirectConnectionConfig* för *directMode ()* ,  *GatewayConnectionConfig* för *gatewayMode ()*.). Mer information om olika anslutnings alternativ finns i artikeln [anslutnings lägen](sql-sdk-connection-modes.md) .
     
     ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Java v4 SDK
 
@@ -107,7 +107,7 @@ Mer information finns i [Windows](../virtual-network/create-vm-accelerated-netwo
 
 * **Använd den lägsta konsekvens nivå som krävs för ditt program**
 
-    När du skapar en *CosmosClient* används standard konsekvensen om den inte uttryckligen anges är *session* . Om konsekvensen av *sessionen* inte krävs av din program logik ställer du in *konsekvensen* på *eventuell* . Obs! Vi rekommenderar att du använder minst konsekvens för *sessioner* i program som använder Azure Cosmos DB ändra feed-processorn.
+    När du skapar en *CosmosClient* används standard konsekvensen om den inte uttryckligen anges är *session*. Om konsekvensen av *sessionen* inte krävs av din program logik ställer du in *konsekvensen* på *eventuell*. Obs! Vi rekommenderar att du använder minst konsekvens för *sessioner* i program som använder Azure Cosmos DB ändra feed-processorn.
 
 * **Använd asynkront API till maximalt allokerat data flöde**
 
@@ -151,9 +151,9 @@ Mer information finns i [Windows](../virtual-network/create-vm-accelerated-netwo
 
     * ***Översikt över direkt läge** _
 
-        :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Bild av Azure Cosmos DB anslutnings princip" border="false":::
+        :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Bild av arkitekturen för direkt läge" border="false":::
 
-        Arkitekturen på klient sidan som används i direkt läge möjliggör förutsägbar nätverks användning och multiplex-åtkomst till Azure Cosmos DB repliker. Diagrammet ovan visar hur Direct-läge dirigerar klient begär anden till repliker i Cosmos DB-backend-servern. Arkitekturen för direkt läge allokerar upp till 10 _ *kanaler* * på klient sidan per DB-replik. En kanal är en TCP-anslutning som föregås av en buffert för begäran, som är en djup på 30 begär Anden. Kanaler som tillhör en replik allokeras dynamiskt efter behov av replikens **tjänst slut punkt** . När användaren utfärdar en begäran i direkt läge dirigerar **TransportClient** begäran till rätt tjänst slut punkt utifrån partitionsnyckel. **Begär ande kön** buffrar begär Anden före tjänst slut punkten.
+        Arkitekturen på klient sidan som används i direkt läge möjliggör förutsägbar nätverks användning och multiplex-åtkomst till Azure Cosmos DB repliker. Diagrammet ovan visar hur Direct-läge dirigerar klient begär anden till repliker i Cosmos DB-backend-servern. Arkitekturen för direkt läge allokerar upp till 10 _ *kanaler* * på klient sidan per DB-replik. En kanal är en TCP-anslutning som föregås av en buffert för begäran, som är en djup på 30 begär Anden. Kanaler som tillhör en replik allokeras dynamiskt efter behov av replikens **tjänst slut punkt**. När användaren utfärdar en begäran i direkt läge dirigerar **TransportClient** begäran till rätt tjänst slut punkt utifrån partitionsnyckel. **Begär ande kön** buffrar begär Anden före tjänst slut punkten.
 
     * ***Konfigurations alternativ för direkt läge** _
 
@@ -163,7 +163,7 @@ Mer information finns i [Windows](../virtual-network/create-vm-accelerated-netwo
 
         I det första steget använder du följande rekommenderade konfigurations inställningar nedan. Dessa *DirectConnectionConfig* -alternativ är avancerade konfigurations inställningar som kan påverka SDK-prestanda på oväntade sätt. Vi rekommenderar att användarna undviker att ändra dem om de inte känner sig för att förstå kompromisserna och det är absolut nödvändigt. Kontakta Azure Cosmos DB- [teamet](mailto:CosmosDBPerformanceSupport@service.microsoft.com) om du stöter på problem på det här specifika ämnet.
 
-        | Konfigurations alternativ       | Default   |
+        | Konfigurations alternativ       | Standardvärde   |
         | :------------------:       | :-----:   |
         | idleConnectionTimeout      | "PT0"     |
         | maxConnectionsPerEndpoint  | "130"     |

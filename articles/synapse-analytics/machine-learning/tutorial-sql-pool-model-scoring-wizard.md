@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: guiden bedömnings modell för maskin inlärning för SQL-pooler'
-description: Själv studie kurs om hur du använder guiden för att använda Machine Learning-modellen för att utöka data i Synapse SQL-pooler
+title: 'Självstudie: bedömnings guide för Machine Learning-modell för dedikerade SQL-pooler'
+description: Själv studie kurs om hur du använder bedömnings guiden för Machine Learning-modeller för att utöka data i dedikerade SQL-pooler.
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: machine-learning
@@ -9,29 +9,29 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 8e92ff75bb6a9757c06de3561a385cbcbb7f75ba
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: f5c5edc067b3f7b525fd129462c48ca50fdafc8f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019978"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314044"
 ---
-# <a name="tutorial-machine-learning-model-scoring-wizard-for-synapse-sql-pools"></a>Självstudie: guiden bedömnings modell för maskin inlärning för Synapse SQL-pooler
+# <a name="tutorial-machine-learning-model-scoring-wizard-for-dedicated-sql-pools"></a>Självstudie: bedömnings guide för Machine Learning-modell för dedikerade SQL-pooler
 
-Lär dig hur du enkelt kan utöka dina data i SQL-pooler med förutsägande Machine Learning-modeller.  De modeller som dina data experter skapar är nu lättillgängliga för data experter för förutsägelse analys. En data Professional i Synapse kan helt enkelt välja en modell i Azure Machine Learning Model-registret för distribution i Synapse SQL-pooler och starta förutsägelser för att utöka data.
+Lär dig hur du enkelt kan utöka dina data i dedikerade SQL-pooler med förutsägande Machine Learning-modeller.  De modeller som dina data experter skapar är nu lättillgängliga för data experter för förutsägelse analys. En data Professional i Synapse kan helt enkelt välja en modell i Azure Machine Learning Model-registret för distribution i Synapse SQL-pooler och starta förutsägelser för att utöka data.
 
 I den här självstudien får du lära dig att:
 
 > [!div class="checklist"]
 > - Träna en förutsägelse maskin inlärnings modell och registrera modellen i Azure Machine Learning Model-registret
-> - Använd guiden SQL-poängsättning för att starta förutsägelser i Synapse SQL-pool
+> - Använd guiden SQL-poängsättning för att starta förutsägelser i dedikerad SQL-pool
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto innan du börjar](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 - [Synapse Analytics-arbetsyta](../get-started-create-workspace.md) med ett ADLS Gen2 lagrings konto konfigurerat som standard lagring. Du måste vara **data deltagare i Storage BLOB** för det ADLS Gen2-filsystem som du arbetar med.
-- Synapse SQL-pool i din Synapse Analytics-arbetsyta. Mer information finns i [skapa en SYNAPSE SQL-pool](../quickstart-create-sql-pool-studio.md).
+- Dedikerad SQL-pool i din Synapse Analytics-arbetsyta. Mer information finns i [skapa en dedikerad SQL-pool](../quickstart-create-sql-pool-studio.md).
 - Azure Machine Learning länkad tjänst i din Synapse Analytics-arbetsyta. Mer information finns i [skapa en Azure Machine Learning länkad tjänst i Synapse](quickstart-integrate-azure-machine-learning.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
@@ -52,7 +52,7 @@ Innan du kör alla celler i antecknings boken kontrollerar du om beräknings ins
 
 1. Starta arbets ytan Azure Machine Learning i [Azure Machine Learning Studio](https://ml.azure.com).
 
-1. Gå till **antecknings böcker** och klicka på **överför filer**, välj "predict NYC taxi-tips. ipynb" som du laddade ned och överför filen.
+1. Gå till **antecknings böcker** och klicka på **överför filer** , välj "predict NYC taxi-tips. ipynb" som du laddade ned och överför filen.
    ![Ladda upp filen](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-train-00a.png)
 
 1. När antecknings boken har laddats upp och öppnats klickar du på **Kör alla celler**.
@@ -62,7 +62,7 @@ Innan du kör alla celler i antecknings boken kontrollerar du om beräknings ins
 1. Den bärbara datorn kommer att träna en ONNX-modell och registrera den med MLFlow. Gå till **modeller** för att kontrol lera om den nya modellen är korrekt registrerad.
    ![Modell i registret](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-train-00c.png)
 
-1. Genom att köra antecknings boken exporteras även test data till en CSV-fil. Ladda ned CSV-filen till det lokala systemet. Senare kommer du att importera CSV-filen till SQL-poolen och använda data för att testa modellen.
+1. Genom att köra antecknings boken exporteras även test data till en CSV-fil. Ladda ned CSV-filen till det lokala systemet. Senare kommer du att importera CSV-filen till en dedikerad SQL-pool och använda data för att testa modellen.
 
    CSV-filen skapas i samma mapp som din Notebook-fil. Klicka på Uppdatera i Utforskaren om du inte vill se det direkt.
 
@@ -76,7 +76,7 @@ Innan du kör alla celler i antecknings boken kontrollerar du om beräknings ins
 
    ![Ladda upp data](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00a.png)
 
-1. Gå till **utveckla**  ->  **SQL-skript**. Skapa ett nytt SQL-skript som ska läsas in `test_data.csv` i SQL-poolen.
+1. Gå till **utveckla**  ->  **SQL-skript**. Skapa ett nytt SQL-skript som ska läsas in `test_data.csv` i den dedikerade SQL-poolen.
 
    > [!NOTE]
    > Uppdatera fil-URL: en i det här skriptet innan du kör den.
@@ -117,9 +117,9 @@ Innan du kör alla celler i antecknings boken kontrollerar du om beräknings ins
    GO
    ```
 
-   ![Läs in data till SQL-pool](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00b.png)
+   ![Läs in data till dedikerad SQL-pool](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00b.png)
 
-1. Gå till **data**  ->  **arbets ytan**. Öppna SQL-bedömnings guiden genom att högerklicka på tabellen SQL-pool. Välj **Machine Learning**  ->  **utöka med befintlig modell**.
+1. Gå till **data**  ->  **arbets ytan**. Öppna guiden SQL-poängsättning genom att högerklicka på den dedikerade tabellen för SQL-pool. Välj **Machine Learning**  ->  **utöka med befintlig modell**.
 
    > [!NOTE]
    > Alternativet Machine Learning visas inte om du inte har skapat en länkad tjänst för Azure Machine Learning (se **förutsättningarna** i början av den här självstudien).
@@ -138,7 +138,7 @@ Innan du kör alla celler i antecknings boken kontrollerar du om beräknings ins
 
    ![Tabell till modell mappning](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00e.png)
 
-1. Den genererade T-SQL-koden omsluts i en lagrad procedur. Därför måste du ange ett namn på en lagrad procedur. Den binära modellen, inklusive metadata (version, beskrivning osv.), kopieras fysiskt från Azure Machine Learning till en SQL-adresspool. Du måste ange vilken tabell som modellen ska sparas i. Du kan välja att antingen använda en befintlig tabell eller för att skapa en ny tabell. När du är färdig klickar du på **distribuera modell + öppna redigerare** för att distribuera modellen och generera ett T-SQL förutsägelse skript.
+1. Den genererade T-SQL-koden omsluts i en lagrad procedur. Därför måste du ange ett namn på en lagrad procedur. Den binära modellen, inklusive metadata (version, beskrivning osv.), kopieras fysiskt från Azure Machine Learning till en dedikerad SQL-adresspool. Du måste ange vilken tabell som modellen ska sparas i. Du kan välja att antingen använda en befintlig tabell eller för att skapa en ny tabell. När du är färdig klickar du på **distribuera modell + öppna redigerare** för att distribuera modellen och generera ett T-SQL förutsägelse skript.
 
    ![Skapa procedur](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00f.png)
 

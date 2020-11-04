@@ -1,6 +1,6 @@
 ---
-title: Systemvyer
-description: Länkar till dokumentationen för systemvyer som stöds i Synapse SQL-pool.
+title: Systemvyer för dedikerad SQL-pool
+description: Länkar till dokumentationen för systemvyer för dedikerad SQL-pool i Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,18 +11,18 @@ ms.date: 01/06/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 03c772287078c48a36a907c877e03836ed8ef4c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81ce875b5ee9baa96fe9aaa9fa4ea99a730d307e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88796195"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313368"
 ---
-# <a name="system-views-supported-in-synapse-sql-pool"></a>Systemvyer som stöds i Synapse SQL-pool
+# <a name="system-views-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Systemvyer för dedikerad SQL-pool i Azure Synapse Analytics
 
-Länkar till dokumentationen för T-SQL-uttryck som stöds i Synapse SQL-pool.
+Länkar till dokumentationen för T-SQL-uttryck som stöds i dedikerad SQL-pool.
 
-## <a name="synapse-sql-pool-catalog-views"></a>Synapse för SQL-pool
+## <a name="dedicated-sql-pool-catalog-views"></a>Dedikerade katalogvy för SQL pool
 
 * [sys.pdw_column_distribution_properties](/sql/relational-databases/system-catalog-views/sys-pdw-column-distribution-properties-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.pdw_distributions](/sql/relational-databases/system-catalog-views/sys-pdw-distributions-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -48,7 +48,7 @@ Länkar till dokumentationen för T-SQL-uttryck som stöds i Synapse SQL-pool.
 * [sys.workload_management_workload_classifiers](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.workload_management_workload_groups](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-groups-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-## <a name="synapse-sql-pool-dynamic-management-views-dmvs"></a>Synapse för dynamisk hantering i SQL-pool (DMV: er)
+## <a name="dedicated-sql-pool-dynamic-management-views-dmvs"></a>Dedikerade vyer för dynamisk hantering i SQL-pool (DMV: er)
 
 * [sys.dm_pdw_dms_cores](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-cores-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.dm_pdw_dms_external_work](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-external-work-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -70,9 +70,9 @@ Länkar till dokumentationen för T-SQL-uttryck som stöds i Synapse SQL-pool.
 * [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-## <a name="sql-server-dmvs-applicable-to-synapse-sql-pool"></a>SQL Server DMV: er som gäller för Synapse SQL-pool
+## <a name="sql-server-dmvs-applicable-to-dedicated-sql-pool"></a>SQL Server DMV: er som gäller för dedikerad SQL-pool
 
-Följande DMV: er gäller för Synapse SQL-poolen, men måste köras genom att ansluta till **huvud** databasen.
+Följande DMV: er gäller för dedikerad SQL-pool, men måste köras genom att ansluta till **huvud** databasen.
 
 * [sys.database_service_objectives](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -152,16 +152,16 @@ Följande DMV: er gäller för Synapse SQL-poolen, men måste köras genom att a
 * [sys. types](/sql/relational-databases/system-catalog-views/sys-types-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys. views](/sql/relational-databases/system-catalog-views/sys-views-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-## <a name="sql-server-dmvs-available-in-sql-pool"></a>SQL Server DMV: er tillgängligt i SQL-poolen
+## <a name="sql-server-dmvs-available-in-dedicated-sql-pool"></a>SQL Server DMV: er tillgänglig i dedikerad SQL-pool
 
-SQL-poolen visar många SQL Server DMV: er (Dynamic Management views). Dessa vyer, när de efter frågas i SQL-poolen, rapporterar status för SQL-databaser som körs på distributionerna.
+Dedikerad SQL-pool visar flera SQL Server dynamiska Management views (DMV: er). Dessa vyer, när de efter frågas i en dedikerad SQL-pool, rapporterar status för SQL-databaser som körs på distributionerna.
 
-Synapse SQL-pool och Parallel Data Warehouse (PDW) använder samma systemvyer. Varje DMV har en kolumn med namnet pdw_node_id, som är identifieraren för Compute-noden.
+Dedikerad SQL-pool och Parallel Data Warehouse (PDW) använder samma systemvyer. Varje DMV har en kolumn med namnet pdw_node_id, som är identifieraren för Compute-noden.
 
 > [!NOTE]
 > Om du vill använda dessa vyer infogar du "pdw_nodes_" i namnet, som du ser i följande tabell:
 
-| DMV-namn i SQL-pool | SQL Server Transact-SQL-artikel|
+| DMV-namn i dedikerad SQL-pool | SQL Server Transact-SQL-artikel|
 |:--- |:--- |
 | sys.dm_pdw_nodes_db_column_store_row_group_physical_stats | [sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)|
 | sys.dm_pdw_nodes_db_column_store_row_group_operational_stats | [sys.dm_db_column_store_row_group_operational_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-operational-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)|
@@ -223,9 +223,9 @@ Synapse SQL-pool och Parallel Data Warehouse (PDW) använder samma systemvyer. V
 | sys.dm_pdw_nodes_tran_session_transactions |[sys.dm_tran_session_transactions](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-session-transactions-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |
 | sys.dm_pdw_nodes_tran_top_version_generators |[sys.dm_tran_top_version_generators](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-top-version-generators-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |
 
-## <a name="sql-server-2016-polybase-dmvs-available-in-sql-pool"></a>SQL Server 2016 PolyBase DMV: er finns i SQL-poolen
+## <a name="sql-server-2016-polybase-dmvs-available-in-dedicated-sql-pool"></a>SQL Server 2016 PolyBase-DMV: er finns i dedicerad SQL-pool
 
-Följande DMV: er gäller SQL-poolen, men måste köras genom att ansluta till **huvud** databasen.
+Följande DMV: er gäller för dedikerad SQL-pool, men måste köras genom att ansluta till **huvud** databasen.
 
 * [sys.dm_exec_compute_node_errors](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-compute-node-errors-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.dm_exec_compute_node_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-compute-node-status-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -252,4 +252,4 @@ Följande DMV: er gäller SQL-poolen, men måste köras genom att ansluta till *
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer referensinformation finns i [t-SQL-uttryck i SYNAPSE SQL-pool](sql-data-warehouse-reference-tsql-statements.md)och [T-SQL-språkelement i Synapse SQL-pool](sql-data-warehouse-reference-tsql-language-elements.md).
+Mer referensinformation finns i [t-SQL-uttryck i dedikerad SQL-pool](sql-data-warehouse-reference-tsql-statements.md)och [T-SQL-språkelement i dedikerad SQL-pool](sql-data-warehouse-reference-tsql-language-elements.md).

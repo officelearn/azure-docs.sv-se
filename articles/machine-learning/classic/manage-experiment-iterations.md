@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: 374320c0becfecc6691af91b36a1d80b087300e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c958de5e49fbb7519ae71b13e9deba9af0c698de
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361951"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312866"
 ---
 # <a name="manage-experiment-runs-in-azure-machine-learning-studio-classic"></a>Hantera experiment körningar i Azure Machine Learning Studio (klassisk)
 
-**gäller för:** ![ Gäller för. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ gäller inte för.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**gäller för:** ![ Gäller för. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ gäller inte för. ](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Att utveckla en förutsägelse analys modell är en iterativ process – när du ändrar de olika funktionerna och parametrarna i experimentet konvergerar resultatet tills du är nöjd med att du har en tränad, effektiv modell. Nyckeln till den här processen spårar olika iterationer av dina experiment parametrar och konfigurationer.
@@ -33,7 +33,7 @@ Du kan granska tidigare körningar av dina experiment när som helst för att ku
 ## <a name="view-the-prior-run"></a>Visa föregående körning
 När du har ett experiment öppet som du har kört minst en gång kan du Visa föregående körning av experimentet genom att klicka på **föregående körning** i rutan Egenskaper.
 
-Anta till exempel att du skapar ett experiment och kör versioner av det på 11:23, 11:42 och 11:55. Om du öppnar den senaste körningen av experimentet (11:55) och klickar på **föregående körning**öppnas den version du körde vid 11:42.
+Anta till exempel att du skapar ett experiment och kör versioner av det på 11:23, 11:42 och 11:55. Om du öppnar den senaste körningen av experimentet (11:55) och klickar på **föregående körning** öppnas den version du körde vid 11:42.
 
 ## <a name="view-the-run-history"></a>Visa körnings historiken
 Du kan visa alla tidigare körningar av ett experiment genom att klicka på **Visa körnings historik** i ett öppet experiment.
@@ -47,7 +47,7 @@ Anta till exempel att du skapar ett experiment med modulen [linjär regression][
 | 0,4 |9/11/2014 4:28:36 PM |
 | 0,5 |9/11/2014 4:33:31 PM |
 
-Om du klickar på **Visa körnings historik**visas en lista över alla dessa körningar:
+Om du klickar på **Visa körnings historik** visas en lista över alla dessa körningar:
 
 ![Exempel på körnings historik](./media/manage-experiment-iterations/viewrunhistory.jpg)
 
@@ -58,7 +58,7 @@ Klicka på någon av dessa körningar för att visa en ögonblicks bild av exper
 > 
 > 
 
-I listan över experiment på fliken **experiment** i Machine Learning Studio (klassisk) visas alltid den senaste versionen av ett experiment. Om du öppnar en tidigare körning av experimentet (med tidigare **Kör** eller **Visa körnings historik**) kan du gå tillbaka till utkastet genom att klicka på **Visa körnings historik** och välja den iteration som har **statusen** **redigerbar**.
+I listan över experiment på fliken **experiment** i Machine Learning Studio (klassisk) visas alltid den senaste versionen av ett experiment. Om du öppnar en tidigare körning av experimentet (med tidigare **Kör** eller **Visa körnings historik** ) kan du gå tillbaka till utkastet genom att klicka på **Visa körnings historik** och välja den iteration som har **statusen** **redigerbar**.
 
 ## <a name="run-a-previous-experiment"></a>Kör ett tidigare experiment
 När du klickar på **föregående körning** eller **Visa körnings historik** och öppnar en tidigare körning kan du visa ett klart experiment i skrivskyddat läge.
@@ -76,4 +76,4 @@ Anta till exempel att du har historiken för experiment körning som visas i fö
 Nu kan du fortsätta att ändra och köra den här versionen av experimentet och skapa en ny körnings historik för att registrera ditt arbete.
 
 <!-- Module References -->
-[linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
+[linear-regression]: /azure/machine-learning/studio-module-reference/linear-regression

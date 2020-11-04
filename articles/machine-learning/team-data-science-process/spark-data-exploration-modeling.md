@@ -11,20 +11,20 @@ ms.topic: sample
 ms.date: 06/03/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
-ms.openlocfilehash: 406092466b7ab5ca729a08f7c703bcb30812901d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7a361319c3fc6c80c6dac80c48fb10155a3ff5b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86027519"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314841"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Datagranskning och modellering med Spark
 
 Lär dig hur du använder HDInsight Spark för att träna maskin inlärnings modeller för taxi pris förutsägelse med Spark MLlib.
 
-Det här exemplet demonstrerar de olika stegen i [team data science-processen](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). En delmängd av NYC taxi-resan och biljett 2013-datauppsättningen används för att läsa in, utforska och förbereda data. Sedan kan du använda Spark-MLlib, binära klassificerings-och Regressions modeller för att förutsäga om ett tips kommer att betalas för resan och uppskatta Tip-mängden.
+Det här exemplet demonstrerar de olika stegen i [team data science-processen](./index.yml). En delmängd av NYC taxi-resan och biljett 2013-datauppsättningen används för att läsa in, utforska och förbereda data. Sedan kan du använda Spark-MLlib, binära klassificerings-och Regressions modeller för att förutsäga om ett tips kommer att betalas för resan och uppskatta Tip-mängden.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver ett Azure-konto och ett Spark 1,6-kluster (eller Spark 2,0) för att slutföra den här genom gången. Mer information om hur du uppfyller dessa krav finns i [Översikt över data vetenskap med Spark på Azure HDInsight](spark-overview.md) . Avsnittet innehåller också en beskrivning av NYC 2013 taxi-data som används här och instruktioner om hur man kör kod från en Jupyter-anteckningsbok i Spark-klustret. 
 
@@ -92,7 +92,7 @@ PySpark-kernelerna som medföljer Jupyter notebook-datorer har en förinställd 
 PySpark-kärnan innehåller fördefinierade "MAGICS", som är särskilda kommandon som du kan anropa med%%. Det finns två sådana kommandon som används i dessa kod exempel.
 
 * **%% lokal** Anger att koden i efterföljande rader ska köras lokalt. Koden måste vara en giltig python-kod.
-* **%% SQL-o \<variable name> ** Kör en Hive-fråga mot sqlContext. Om-o-parametern skickas sparas resultatet av frågan i den lokala python-kontexten%% som en Pandas-DataFrame.
+* **%% SQL-o \<variable name>** Kör en Hive-fråga mot sqlContext. Om-o-parametern skickas sparas resultatet av frågan i den lokala python-kontexten%% som en Pandas-DataFrame.
 
 Mer information om Jupyter Notebook-kärnor och de fördefinierade "MAGICS" finns i [kernels som är tillgängliga för Jupyter-anteckningsböcker med HDInsight Spark Linux-kluster i HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
@@ -181,7 +181,7 @@ När data har förts in i Spark, är nästa steg i data vetenskaps processen att
 Den här koden och efterföljande kodfragment använder SQL Magic för att fråga exemplet och det lokala Magic för att rita data.
 
 * **SQL Magic ( `%%sql` )** HDInsight PySpark-kärnan stöder enkla infogade HiveQL-frågor mot sqlContext. Argumentet (-o VARIABLE_NAME) behåller SQL-frågans utdata som en Pandas-DataFrame på Jupyter-servern. Den här inställningen gör utdata tillgängligt i lokalt läge.
-* ** `%%local` Magic** används för att köra kod lokalt på Jupyter-servern, som är huvudnoden för HDInsight-klustret. Normalt använder du `%%local` Magic tillsammans med `%%sql` parametern Magic with-o. Parametern-o behåller utdata från SQL-frågan lokalt och sedan%% Local Magic utlöser nästa uppsättning kodfragment för att köras lokalt mot utdata från SQL-frågorna som är bestående lokalt
+* **`%%local` Magic** används för att köra kod lokalt på Jupyter-servern, som är huvudnoden för HDInsight-klustret. Normalt använder du `%%local` Magic tillsammans med `%%sql` parametern Magic with-o. Parametern-o behåller utdata från SQL-frågan lokalt och sedan%% Local Magic utlöser nästa uppsättning kodfragment för att köras lokalt mot utdata från SQL-frågorna som är bestående lokalt
 
 Utdata visualiseras automatiskt när du har kört koden.
 
@@ -697,7 +697,7 @@ Tids åtgång för att köra ovanför cell: 57,61 sekunder
 
 **Rita upp ROC-kurvan.**
 
-*PredictionAndLabelsDF* är registrerad som en tabell *tmp_results*i föregående cell. *tmp_results* kan användas för att utföra frågor och utmatnings resultat i sqlResults data-ram för att rita. Här är koden.
+*PredictionAndLabelsDF* är registrerad som en tabell *tmp_results* i föregående cell. *tmp_results* kan användas för att utföra frågor och utmatnings resultat i sqlResults data-ram för att rita. Här är koden.
 
 ```python
 # QUERY RESULTS                              
@@ -1119,4 +1119,4 @@ Nu när du har skapat Regressions-och klassificerings modeller med Spark-MlLib �
 
 **Modell förbrukning:** Information om hur du utvärderar och utvärderar klassificerings-och Regressions modeller som skapats i det här avsnittet finns i [Poäng och utvärdera Spark-skapade maskin inlärnings modeller](spark-model-consumption.md).
 
-**Rensning av kors validering och Cross-parameter**: se [Avancerad data granskning och modellering med Spark](spark-advanced-data-exploration-modeling.md) om hur modeller kan tränas med kors validering och rensning av Hyper-parameter
+**Rensning av kors validering och Cross-parameter** : se [Avancerad data granskning och modellering med Spark](spark-advanced-data-exploration-modeling.md) om hur modeller kan tränas med kors validering och rensning av Hyper-parameter

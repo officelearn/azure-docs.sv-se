@@ -5,12 +5,12 @@ author: dlepow
 ms.topic: article
 ms.author: danlep
 ms.date: 10/29/2020
-ms.openlocfilehash: e5fd70cdde6be431f7bb1950a42ca43e81b34e36
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: bb185e7d5803219135fddf421b7d6a89edd296b0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130858"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315816"
 ---
 # <a name="manage-public-content-with-azure-container-registry"></a>Hantera offentligt innehåll med Azure Container Registry
 
@@ -25,16 +25,14 @@ Utan rätt kontroller kan du med beroenden av offentligt register innehåll läg
 
 ## <a name="authenticate-with-docker-hub"></a>Autentisera med Docker Hub
 
-Som ett första steg, om du för närvarande hämtar offentliga avbildningar från Docker Hub som en del av ett arbets flöde för bygge eller distribution, rekommenderar vi att du autentiserar med ett Docker Hub-konto i stället för att göra en anonym pull-begäran.
+Som ett första steg, om du för närvarande hämtar offentliga avbildningar från Docker Hub som en del av ett arbets flöde för bygge eller distribution, rekommenderar vi att du [autentiserar med ett Docker Hub-konto](https://docs.docker.com/docker-hub/download-rate-limit/#how-do-i-authenticate-pull-requests) i stället för att göra en anonym pull-begäran.
 
 > [!NOTE]
-> Från och med den 2 november 2020 gäller nedladdnings hastighets gränserna för anonyma och autentiserade begär anden till Docker Hub från Docker-fri Plans konton och tillämpas med IP-adress. 
+> Från och med den 2 november 2020 gäller [nedladdnings hastighets gränserna](https://docs.docker.com/docker-hub/download-rate-limit) för anonyma och autentiserade begär anden till Docker Hub från Docker-fri Plans konton och tillämpas av IP-adress och Docker-ID, respecitively. 
 >
-> När du uppskattar antalet pull-begäranden bör du ta hänsyn till att när du använder moln leverantörs tjänster eller arbetar bakom en företags-NAT, visas flera användare för Docker-hubben i mängd som en del av IP-adresserna.  Om du lägger till Docker-inbetald konto autentisering till förfrågningar som görs i Docker Hub kan du undvika avbrott i tjänsten på grund av hastighets begränsning.
+> När du uppskattar antalet pull-begäranden bör du ta hänsyn till att när du använder moln leverantörs tjänster eller arbetar bakom en företags-NAT, visas flera användare för Docker-hubben i mängd som en del av IP-adresserna. Om du lägger till Docker-inbetald konto autentisering till förfrågningar som görs i Docker Hub kan du undvika avbrott i tjänsten på grund av hastighets begränsning.
 >
 > Mer information finns i [Docker-priser och prenumerationer](https://www.docker.com/pricing) och [Docker-villkoren](https://www.docker.com/legal/docker-terms-service).
-
-För autentiserings exempel och scenarier, se [nedladdnings frekvensen](https://docs.docker.com/docker-hub/download-rate-limit/).
 
 ### <a name="docker-hub-access-token"></a>Åtkomst-token för Docker Hub
 

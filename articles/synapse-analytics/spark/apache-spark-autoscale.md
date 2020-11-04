@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 03/31/2020
-ms.openlocfilehash: c043941543088d9bdbfd535f372e2335e1ba55a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f34bcfa8b743fbee6ee3b78fc1a042d1df0abfde
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500359"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313634"
 ---
 # <a name="automatically-scale-azure-synapse-analytics-apache-spark-pools"></a>Skala automatiskt Apache Spark pooler i Azure Synapse Analytics
 
@@ -49,7 +49,7 @@ För nedskalning, baserat på antalet körningar, program hanterare per nod och 
 
 ## <a name="get-started"></a>Kom igång
 
-### <a name="create-a-spark-pool-with-autoscaling"></a>Skapa en spark-pool med automatisk skalning
+### <a name="create-a-serverless-apache-spark-pool-with-autoscaling"></a>Skapa en server lös Apache Spark-pool med automatisk skalning
 
 Aktivera funktionen för autoskalning genom att utföra följande steg som en del av processen för att skapa en normal pool:
 

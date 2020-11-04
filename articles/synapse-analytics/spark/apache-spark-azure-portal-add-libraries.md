@@ -9,16 +9,16 @@ ms.date: 10/16/2020
 ms.author: euang
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 31201bb7168910915ee33d4361bf944e7669db66
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: fbcc7ffbde49acfd9afc180418d618060eb923c1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737993"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313543"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Hantera bibliotek för Apache Spark i Azure Synapse Analytics
 
-Bibliotek ger återanvändbar kod som du kanske vill inkludera i dina program eller projekt. Om du vill göra tredje part eller lokalt skapad kod tillgänglig för dina program kan du installera ett bibliotek på någon av Spark-poolerna (för hands version). När ett bibliotek har installerats för en spark-pool är det tillgängligt för alla sessioner som använder samma pool. 
+Bibliotek ger återanvändbar kod som du kanske vill inkludera i dina program eller projekt. Om du vill göra tredje part eller lokalt skapad kod tillgänglig för dina program kan du installera ett bibliotek på någon av dina Server lös Apache Spark pooler (för hands version). När ett bibliotek har installerats för en spark-pool är det tillgängligt för alla sessioner som använder samma pool. 
 
 ## <a name="default-installation"></a>Standard installation
 Apache Spark i Azure Synapse Analytics har en fullständig Anacondas-installation plus ytterligare bibliotek. Du hittar den fullständiga biblioteks listan på [Apache Spark versions stöd](apache-spark-version-support.md). 
@@ -68,7 +68,7 @@ Uppdatera eller lägga till ytterligare bibliotek i en spark-pool (för hands ve
    
 2.  Starta din Azure Synapse Analytics-arbetsyta från Azure Portal.
 
-3.  Välj **Hantera** från huvud navigerings panelen och välj sedan **Apache Spark pooler** .
+3.  Välj **Hantera** från huvud navigerings panelen och välj sedan **Apache Spark pooler**.
    
 4. Välj en enskild Spark-pool och överför miljö konfigurations filen med fil väljaren i avsnittet  **paket** på sidan.
 
@@ -106,7 +106,7 @@ Så här uppdaterar eller avinstallerar du ett bibliotek:
 
 3. Navigera till avsnittet **paket** och ladda upp en ny miljö konfigurations fil
    
-4. När du har sparat ändringarna måste du avsluta aktiva sessioner och låta poolen starta om. Du kan också tvinga aktiva sessioner att sluta genom att markera kryss rutan för att **tvinga nya inställningar** .
+4. När du har sparat ändringarna måste du avsluta aktiva sessioner och låta poolen starta om. Du kan också tvinga aktiva sessioner att sluta genom att markera kryss rutan för att **tvinga nya inställningar**.
 
     ![Lägg till Python-bibliotek](./media/apache-spark-azure-portal-add-libraries/update-libraries.png "Lägg till Python-bibliotek")
    

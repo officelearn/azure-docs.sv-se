@@ -1,6 +1,6 @@
 ---
-title: Skapa och Använd externa tabeller i SQL på begäran (för hands version)
-description: I det här avsnittet får du lära dig hur du skapar och använder externa tabeller i SQL på begäran (för hands version).
+title: Skapa och Använd externa tabeller i SQL-poolen utan server (för hands version)
+description: I det här avsnittet får du lära dig hur du skapar och använder externa tabeller i SQL-poolen utan server (för hands version).
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 182deba959144f6a3992bb41243f29023bad5e5c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0a52db131311d9956cf7217d910f22c3a4f07738
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91289335"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314723"
 ---
-# <a name="create-and-use-external-tables-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Skapa och Använd externa tabeller i SQL på begäran (för hands version) med Azure Synapse Analytics
+# <a name="create-and-use-external-tables-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Skapa och Använd externa tabeller med Server lös SQL-pool (för hands version) i Azure Synapse Analytics
 
-I det här avsnittet får du lära dig hur du skapar och använder [externa tabeller](develop-tables-external-tables.md) i SQL på begäran (för hands version). Externa tabeller är användbara när du vill kontrol lera åtkomsten till externa data i SQL på begäran och om du vill använda verktyg, till exempel Power BI, tillsammans med SQL på begäran. Externa tabeller har åtkomst till två typer av lagring:
+I det här avsnittet får du lära dig hur du skapar och använder [externa tabeller](develop-tables-external-tables.md) i SQL-poolen utan server (för hands version). Externa tabeller är användbara när du vill kontrol lera åtkomsten till externa data i SQL-poolen utan server och om du vill använda verktyg som Power BI, tillsammans med SQL-poolen utan server. Externa tabeller har åtkomst till två typer av lagring:
 - Offentlig lagring där användare kommer åt offentliga lagringsfiler.
 - Skyddad lagring där användare får åtkomst till lagrings filer med SAS-autentiseringsuppgifter, Azure AD-identitet eller hanterad identitet för Synapse-arbetsytan.
 

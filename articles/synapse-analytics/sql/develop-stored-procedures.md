@@ -1,6 +1,6 @@
 ---
 title: Använda lagrade procedurer
-description: Tips för att implementera lagrade procedurer i Synapse SQL för utveckling av lösningar.
+description: Tips för att implementera lagrade procedurer med Synapse SQL i Azure Synapse Analytics för utveckling av lösningar.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,14 +10,14 @@ ms.subservice: sql
 ms.date: 11/03/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 607060851a8afa48b9570dfcb17732279a3629ee
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 3940d762dbc249e0303ddf905acbeeed7f96aa4f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286668"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315560"
 ---
-# <a name="use-stored-procedures-in-synapse-sql"></a>Använda lagrade procedurer i Synapse SQL
+# <a name="stored-procedures-using-synapse-sql-in-azure-synapse-analytics"></a>Lagrade procedurer med Synapse SQL i Azure Synapse Analytics
 
 Synapse SQL etablerade och pooler utan Server gör att du kan placera komplex data bearbetnings logik i lagrade SQL-procedurer. Lagrade procedurer är ett bra sätt att kapsla in din SQL-kod och lagra den nära dina data i data lagret. Lagrade procedurer hjälper utvecklare att modularize sina lösningar genom att kapsla in koden i hanterbara enheter och under lätta större åter användning av kod. Varje lagrad procedur kan också acceptera parametrar för att göra dem ännu mer flexibla.
 I den här artikeln hittar du några tips för att implementera lagrade procedurer i Synapse SQL-pool för utveckling av lösningar.
@@ -27,7 +27,7 @@ I den här artikeln hittar du några tips för att implementera lagrade procedur
 Synapse SQL stöder många av de T-SQL-funktioner som används i SQL Server. Det är viktigt att det finns skalbara funktioner som du kan använda för att maximera prestandan för din lösning. I den här artikeln får du lära dig mer om de funktioner som du kan placera i lagrade procedurer.
 
 > [!NOTE]
-> I procedur texten kan du bara använda de funktioner som stöds i Synapse SQL-arbetsytan. Läs [den här artikeln](overview-features.md) för att identifiera objekt, instruktion som kan användas i lagrade procedurer. I exemplen i de här artiklarna används allmänna funktioner som är tillgängliga både i Server lös och allokerat ytdiagram. Se ytterligare [begränsningar i etablerade och serverbaserade SYNAPSE SQL-pooler](#limitations) i slutet av den här artikeln.
+> I procedur texten kan du bara använda de funktioner som stöds i Synapse SQL-arbetsytan. Läs [den här artikeln](overview-features.md) för att identifiera objekt, instruktion som kan användas i lagrade procedurer. I exemplen i de här artiklarna används allmänna funktioner som är tillgängliga både i Server lös och dedikerad yta. Se ytterligare [begränsningar i etablerade och serverbaserade SYNAPSE SQL-pooler](#limitations) i slutet av den här artikeln.
 
 För att upprätthålla skalning och prestanda i SQL-poolen finns det också vissa funktioner och funktioner som har beteende skillnader och andra som inte stöds.
 

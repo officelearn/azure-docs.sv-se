@@ -1,6 +1,6 @@
 ---
 title: Partitionerings tabeller
-description: Rekommendationer och exempel för att använda Table-partitioner i Synapse SQL-pool
+description: Rekommendationer och exempel för att använda Table-partitioner i dedikerad SQL-pool
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,26 +11,26 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ed5c0a140c69e9042fc9b85589719a54b65e985e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39a1f41d97b1f4576d5877e4f35c99b3e189e3b2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88763141"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314513"
 ---
-# <a name="partitioning-tables-in-synapse-sql-pool"></a>Partitionerings tabeller i Synapse SQL-pool
+# <a name="partitioning-tables-in-dedicated-sql-pool"></a>Partitionerings tabeller i dedikerad SQL-pool
 
-Rekommendationer och exempel för att använda Table-partitioner i Synapse SQL-pool.
+Rekommendationer och exempel för att använda Table-partitioner i dedikerad SQL-pool.
 
 ## <a name="what-are-table-partitions"></a>Vad är Table-partitioner?
 
-Med Table partitions kan du dela upp data i mindre grupper av data. I de flesta fall skapas Table partitions i en datum kolumn. Partitionering stöds i alla Synapse för SQL-pooler. inklusive grupperat columnstore, grupperat index och heap. Partitionering stöds också på alla distributions typer, inklusive både hash-och resursallokering-distribution.  
+Med Table partitions kan du dela upp data i mindre grupper av data. I de flesta fall skapas Table partitions i en datum kolumn. Partitionering stöds i alla dedikerade tabell typer för SQL-pooler. inklusive grupperat columnstore, grupperat index och heap. Partitionering stöds också på alla distributions typer, inklusive både hash-och resursallokering-distribution.  
 
 Partitionering kan dra nytta av data underhåll och frågans prestanda. Vare sig det gäller både eller bara en är beroende av hur data läses in och om samma kolumn kan användas för båda syfte, eftersom partitionering bara kan göras på en kolumn.
 
 ### <a name="benefits-to-loads"></a>Fördelar med att läsa in
 
-Den främsta fördelen med att partitionera i Synapse SQL-poolen är att förbättra effektiviteten och prestandan vid inläsning av data genom att använda borttagning av partition, växling och sammanslagning. I de flesta fall är data partitionerade i en datum kolumn som är nära knutna till den ordning som data läses in i databasen. En av de största fördelarna med att använda partitioner för att underhålla data är att undvika transaktions loggning. Även om du helt enkelt infogar, uppdaterar eller tar bort data är det enklaste sättet, med lite tanke och ansträngning, att använda partitionering under inläsnings processen och förbättra prestanda avsevärt.
+Den främsta fördelen med partitionering i dedikerad SQL-pool är att förbättra effektiviteten och prestandan vid inläsning av data genom att använda borttagning av partition, växling och sammanslagning. I de flesta fall är data partitionerade i en datum kolumn som är nära knutna till den ordning som data läses in i databasen. En av de största fördelarna med att använda partitioner för att underhålla data är att undvika transaktions loggning. Även om du helt enkelt infogar, uppdaterar eller tar bort data är det enklaste sättet, med lite tanke och ansträngning, att använda partitionering under inläsnings processen och förbättra prestanda avsevärt.
 
 Partition växling kan användas för att snabbt ta bort eller ersätta en del av en tabell.  En försäljnings fakta tabell kan till exempel innehålla endast data för de senaste 36 månaderna. I slutet av varje månad tas den äldsta månaden av försäljnings data bort från tabellen.  Dessa data kan tas bort med hjälp av en Delete-instruktion för att ta bort data för den äldsta månaden. 
 
@@ -48,17 +48,17 @@ Medan partitionering kan användas för att förbättra prestanda för vissa sce
 
 För att partitionering ska vara till hjälp är det viktigt att förstå när du ska använda partitionering och antalet partitioner som ska skapas. Det finns ingen fast snabb regel för hur många partitioner som är för många, beroende på dina data och hur många partitioner som du läser in samtidigt. Ett lyckat partitionerings schema har vanligt vis till hundratals partitioner, inte tusentals.
 
-När du skapar partitioner i **grupperade columnstore** -tabeller är det viktigt att fundera över hur många rader som tillhör varje partition. För optimal komprimering och prestanda för grupperade columnstore-tabeller behövs minst 1 000 000 rader per distribution och partition. Innan partitionerna skapas delar Synapse SQL-poolen redan varje tabell i 60-distribuerade databaser. 
+När du skapar partitioner i **grupperade columnstore** -tabeller är det viktigt att fundera över hur många rader som tillhör varje partition. För optimal komprimering och prestanda för grupperade columnstore-tabeller behövs minst 1 000 000 rader per distribution och partition. Innan partitionerna skapas delar den dedikerade SQL-poolen redan varje tabell i 60-distribuerade databaser. 
 
-Alla partitioner som läggs till i en tabell är utöver de distributioner som skapats i bakgrunden. I det här exemplet, om försäljnings fakta tabellen innehöll 36 månader, och eftersom en Synapse SQL-pool har 60-distributioner, ska försäljnings fakta tabellen innehålla 60 000 000 rader per månad eller 2 100 000 000 rader när alla månader fylls. Om en tabell innehåller färre än det rekommenderade lägsta antalet rader per partition bör du överväga att använda färre partitioner för att öka antalet rader per partition. 
+Alla partitioner som läggs till i en tabell är utöver de distributioner som skapats i bakgrunden. I det här exemplet, om försäljnings fakta tabellen innehöll 36 månader, och eftersom en dedikerad SQL-pool har 60 distributioner, ska försäljnings fakta tabellen innehålla 60 000 000 rader per månad eller 2 100 000 000 rader när alla månader är ifyllda. Om en tabell innehåller färre än det rekommenderade lägsta antalet rader per partition bör du överväga att använda färre partitioner för att öka antalet rader per partition. 
 
 Mer information finns i [indexerings](sql-data-warehouse-tables-index.md) artikeln, som innehåller frågor som kan bedöma kvaliteten på kluster columnstore-index.
 
 ## <a name="syntax-differences-from-sql-server"></a>Skillnader i syntaxen från SQL Server
 
-Synapse SQL-pool gör det möjligt att definiera partitioner som är enklare än SQL Server. Partitionerings funktioner och scheman används inte i Synapse SQL-poolen eftersom de finns i SQL Server. I stället behöver du bara identifiera partitionerade kolumner och gränserna. 
+Dedikerad SQL-pool gör det möjligt att definiera partitioner som är enklare än SQL Server. Partitionering och scheman används inte i dedicerade SQL-pooler eftersom de är i SQL Server. I stället behöver du bara identifiera partitionerade kolumner och gränserna. 
 
-Även om syntaxen för partitionering kan skilja sig något från SQL Server, är de grundläggande begreppen desamma. SQL Server-och Synapse SQL-poolen stöder en partitions kolumn per tabell som kan ha en intervall partition. Mer information om partitionering finns i [partitionerade tabeller och index](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Även om syntaxen för partitionering kan skilja sig något från SQL Server, är de grundläggande begreppen desamma. SQL Server och dedikerad SQL-pool stöder en partitions kolumn per tabell som kan ha en intervall partition. Mer information om partitionering finns i [partitionerade tabeller och index](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 I följande exempel används instruktionen [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att partitionera tabellen FactInternetSales i kolumnen OrderDateKey:
 
@@ -88,12 +88,12 @@ WITH
 
 ## <a name="migrating-partitioning-from-sql-server"></a>Migrera partitionering från SQL Server
 
-Så här migrerar du SQL Server partitions definitioner till Synapse SQL pool helt enkelt:
+Så här migrerar du SQL Server partitions definitioner till dedikerad SQL-pool helt enkelt:
 
 - Eliminera SQL Server [partition schema](/sql/t-sql/statements/create-partition-scheme-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 - Lägg till [partition funktions](/sql/t-sql/statements/create-partition-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) definitionen i CREATE TABLE.
 
-Om du migrerar en partitionerad tabell från en SQL Server instans kan följande SQL hjälpa dig att ta reda på antalet rader i varje partition. Tänk på att om samma partitionerings kornig het används på Synapse SQL-pool, minskas antalet rader per partition med en faktor på 60.  
+Om du migrerar en partitionerad tabell från en SQL Server instans kan följande SQL hjälpa dig att ta reda på antalet rader i varje partition. Tänk på att om samma partitionerings kornig het används i en dedikerad SQL-pool, minskar antalet rader per partition med en faktor på 60.  
 
 ```sql
 -- Partition information for a SQL Server Database
@@ -131,7 +131,7 @@ GROUP BY    s.[name]
 
 ## <a name="partition-switching"></a>Partition växling
 
-Synapse SQL-pool stöder partitions delning, sammanslagning och växling. Var och en av dessa funktioner utförs med instruktionen [Alter Table](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .
+Dedikerad SQL-pool stöder partitions delning, sammanslagning och växling. Var och en av dessa funktioner utförs med instruktionen [Alter Table](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .
 
 Om du vill byta partitioner mellan två tabeller måste du se till att partitionerna överensstämmer med deras respektive gränser och att tabell definitionerna matchar. Eftersom kontroll begränsningar inte är tillgängliga för att genomdriva värde intervallet i en tabell måste käll tabellen innehålla samma partition gränser som mål tabellen. Om partitionernas gränser inte är samma, kommer partitionsuppsättningen att Miss Miss sen eftersom metadata för partitionen inte kommer att synkroniseras.
 
@@ -253,7 +253,7 @@ Att läsa in data i partitioner med partitionering är ett bekvämt sätt att me
 
 Om du vill ta bort befintliga data i en partition måste du `ALTER TABLE` använda dem för att växla ut data.  En annan `ALTER TABLE` krävdes för att växla till nya data.  
 
-I Synapse SQL-poolen `TRUNCATE_TARGET` stöds alternativet i `ALTER TABLE` kommandot.  Med `TRUNCATE_TARGET` `ALTER TABLE` kommandot skriver över befintliga data i partitionen med nya data.  Nedan visas ett exempel som använder `CTAS` för att skapa en ny tabell med befintliga data, infogar nya data och sedan växlar alla data tillbaka till mål tabellen och skriver över befintliga data.
+I dedicerad SQL-pool `TRUNCATE_TARGET` stöds alternativet i `ALTER TABLE` kommandot.  Med `TRUNCATE_TARGET` `ALTER TABLE` kommandot skriver över befintliga data i partitionen med nya data.  Nedan visas ett exempel som använder `CTAS` för att skapa en ny tabell med befintliga data, infogar nya data och sedan växlar alla data tillbaka till mål tabellen och skriver över befintliga data.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_NewSales]

@@ -9,12 +9,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 09/17/2020
-ms.openlocfilehash: 65a627cc009699660de0897ce853acaa78381f6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0ee83cdf3ea710974ce6985db3fc8ce8782351c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275990"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315793"
 ---
 # <a name="data-science-with-an-ubuntu-data-science-virtual-machine-in-azure"></a>Data vetenskap med en Ubuntu Data Science Virtual Machine i Azure
 
@@ -28,8 +28,8 @@ Innan du kan använda en Linux-DSVM måste du ha följande krav:
 
 * **Azure-prenumeration**. Information om hur du skaffar en Azure-prenumeration finns i [skapa ett kostnads fritt Azure-konto idag](https://azure.microsoft.com/free/).
 
-* [**Ubuntu data science Virtual Machine**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Information om hur du etablerar den virtuella datorn finns i [etablera Ubuntu data science Virtual Machine](linux-dsvm-intro.md).
-* [**X2Go**](https://wiki.x2go.org/doku.php) installerat på datorn med en öppen xfce-session. Mer information finns i [Installera och konfigurera X2Go-klienten](linux-dsvm-intro.md#x2go).
+* [**Ubuntu data science Virtual Machine**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Information om hur du etablerar den virtuella datorn finns i [etablera Ubuntu data science Virtual Machine](./release-notes.md).
+* [**X2Go**](https://wiki.x2go.org/doku.php) installerat på datorn med en öppen xfce-session. Mer information finns i [Installera och konfigurera X2Go-klienten](dsvm-ubuntu-intro.md#x2go).
 * Om du vill ha en smidigare rullnings upplevelse, går du till DSVM Firefox-webbläsare och växlar `gfx.xrender.enabled` flaggan i `about:config` . [Läs mer](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Överväg också att ställa in `mousewheel.enable_pixel_scrolling` på `False` . [Läs mer](https://support.mozilla.org/questions/981140).
 
 ## <a name="download-the-spambase-dataset"></a>Ladda ned spambase-datauppsättningen
@@ -62,11 +62,11 @@ mv headers spambaseHeaders.data
 
 Data uppsättningen har flera typer av statistik för varje e-post:
 
-* Kolumner som **Word \_ FREQ \_ _Word_ ** anger procent andelen ord i e-postmeddelandet som matchar *Word*. Om **Word- \_ FREQ \_ ** till exempel är **1**, *gör*1% av alla ord i e-postmeddelandet.
-* Kolumner som **char \_ FREQ \_ _char_ ** anger procent andelen alla tecken i e-postmeddelandet som är *char*.
-* **längd på stor begynnelse \_ \_ \_ ** är den längsta längden för en sekvens med versaler.
-* ** \_ \_ \_ genomsnittlig genomsnittlig längd på versaler** är den genomsnittliga längden för alla sekvenser med versaler.
-* **Summa för kapital \_ körnings \_ längd \_ ** är den totala längden för alla sekvenser med versaler.
+* Kolumner som **Word \_ FREQ \_ _Word_** anger procent andelen ord i e-postmeddelandet som matchar *Word*. Om **Word- \_ FREQ \_** till exempel är **1** , *gör* 1% av alla ord i e-postmeddelandet.
+* Kolumner som **char \_ FREQ \_ _char_** anger procent andelen alla tecken i e-postmeddelandet som är *char*.
+* **längd på stor begynnelse \_ \_ \_** är den längsta längden för en sekvens med versaler.
+* **\_ \_ \_ genomsnittlig genomsnittlig längd på versaler** är den genomsnittliga längden för alla sekvenser med versaler.
+* **Summa för kapital \_ körnings \_ längd \_** är den totala längden för alla sekvenser med versaler.
 * **spam** anger om e-postmeddelandet ansågs vara skräp post eller inte (1 = spam, 0 = inte skräp post).
 
 ## <a name="explore-the-dataset-by-using-r-open"></a>Utforska data uppsättningen med R Open
@@ -213,7 +213,7 @@ Förutom de ramverkbaserade exemplen tillhandahålls även en uppsättning omfat
 
 - [En instruktions guide för att skapa en komplett lösning för att identifiera produkter i bilder](https://github.com/Azure/cortana-intelligence-product-detection-from-images): bild identifiering är en teknik som kan användas för att hitta och klassificera objekt i bilder. Tekniken har möjlighet att få enorma förmåner i många affärs domäner i real tid. Åter försäljare kan till exempel använda den här metoden för att avgöra vilken produkt en kund har hämtat från hyllan. Den här informationen i sin tur hjälper butiker att hantera produkt inventering. 
 
-- [Djup inlärning för ljud](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/): den här självstudien visar hur du tränar en djup inlärnings modell för att upptäcka ljud händelser i [data uppsättningen för urbana ljud](https://urbansounddataset.weebly.com/). I självstudien får du en översikt över hur du arbetar med ljuddata.
+- [Djup inlärning för ljud](/archive/blogs/machinelearning/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure): den här självstudien visar hur du tränar en djup inlärnings modell för att upptäcka ljud händelser i [data uppsättningen för urbana ljud](https://urbansounddataset.weebly.com/). I självstudien får du en översikt över hur du arbetar med ljuddata.
 
 - [Klassificering av text dokument](https://github.com/anargyri/lstm_han): den här genom gången visar hur du skapar och tränar två olika neurala-nätverks arkitekturer: hierarkiskt Attention-nätverk och långsiktigt kortvarigt minne (LSTM). Dessa neurala-nätverk använder keras-API: et för djup inlärning för att klassificera text dokument. Keras är en klient del till tre populära ramverk för djup inlärning: Microsoft Cognitive Toolkit, TensorFlow och Theano.
 
@@ -315,7 +315,7 @@ Flera exempel antecknings böcker är redan installerade på DSVM:
 
 ### <a name="rattle"></a>Rattle
 
-[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (*R* *A*nalysdatamängd *t*OOL *t*o *L*s *E*asily) är ett grafiskt R-verktyg för Data utvinning. Rattle har ett intuitivt gränssnitt som gör det enkelt att läsa in, utforska och transformera data och bygga och utvärdera modeller. [Rattle: ett användar gränssnitt för Data utvinning för R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) innehåller en genom gång som visar Rattle-funktioner.
+[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) ( *R* *A* nalysdatamängd *t* OOL *t* o *L* s *E* asily) är ett grafiskt R-verktyg för Data utvinning. Rattle har ett intuitivt gränssnitt som gör det enkelt att läsa in, utforska och transformera data och bygga och utvärdera modeller. [Rattle: ett användar gränssnitt för Data utvinning för R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) innehåller en genom gång som visar Rattle-funktioner.
 
 Installera och starta Rattle genom att köra följande kommandon:
 
@@ -328,12 +328,12 @@ rattle()
 > [!NOTE]
 > Du behöver inte installera Rattle på DSVM. Du kan dock uppmanas att installera ytterligare paket när Rattle öppnas.
 
-Rattle använder ett flik-baserat gränssnitt. De flesta flikarna motsvarar stegen i [team data science-processen](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), t. ex. inläsning av data eller utforska data. Data vetenskaps processen flödar från vänster till höger genom flikarna. Den sista fliken innehåller en logg med de R-kommandon som kördes av Rattle.
+Rattle använder ett flik-baserat gränssnitt. De flesta flikarna motsvarar stegen i [team data science-processen](../team-data-science-process/index.yml), t. ex. inläsning av data eller utforska data. Data vetenskaps processen flödar från vänster till höger genom flikarna. Den sista fliken innehåller en logg med de R-kommandon som kördes av Rattle.
 
 Så här läser du in och konfigurerar data uppsättningen:
 
 1. Om du vill läsa in filen väljer du fliken **data** .
-1. Välj väljaren bredvid **fil namn**och välj sedan **spambaseHeaders. data**.
+1. Välj väljaren bredvid **fil namn** och välj sedan **spambaseHeaders. data**.
 1. För att läsa in filen. Välj **Kör**. Du bör se en sammanfattning av varje kolumn, inklusive den identifierade data typen. om det är en indatatyp, ett mål eller en annan typ av variabel. och antalet unika värden.
 1. Rattle har identifierat kolumnen **spam** som mål. Välj kolumnen **spam** och ange sedan **mål data typen** till **Categoric**.
 
@@ -346,16 +346,16 @@ För att utforska data:
 Du kan också använda fliken **utforska** för att generera inblickade områden. För att rita ett histogram med data:
 
 1. Välj **distributioner**.
-1. För **word_freq_remove** och **Word_freq_you**väljer du **histogram**.
+1. För **word_freq_remove** och **Word_freq_you** väljer du **histogram**.
 1. Välj **Kör**. Du bör se båda Täthets ritningarna i ett enda diagram fönster, där det är klart att ordet _du_ ser mycket oftare i e-postmeddelanden än _ta bort_.
 
 **Korrelations** områdena är också intressanta. Så här skapar du en rityta:
 
-1. I **typ**väljer du **korrelation**.
+1. I **typ** väljer du **korrelation**.
 1. Välj **Kör**.
 1. Rattle varnar dig om att det rekommenderar högst 40 variabler. Välj **Ja** om du vill visa ritningen.
 
-Det finns några intressanta korrelationer som följer: _teknik_ är starkt korrelerad med _HP_ och _labb_, till exempel. Det är också starkt korrelerat med _650_ eftersom rikt numret för data uppsättnings givarna är 650.
+Det finns några intressanta korrelationer som följer: _teknik_ är starkt korrelerad med _HP_ och _labb_ , till exempel. Det är också starkt korrelerat med _650_ eftersom rikt numret för data uppsättnings givarna är 650.
 
 De numeriska värdena för korrelationer mellan ord är tillgängliga i fönstret **utforska** . Det är intressant att notera, till exempel att _tekniken_ är negativ korrelerad med _dina_ och _pengar_.
 
@@ -374,20 +374,20 @@ Rattle kan också köra kluster analys. Vi kan utesluta vissa funktioner för at
 * word_freq_business
 * skräppost
 
-Gå tillbaka till fliken **kluster** . Välj **KMeans**och ange sedan **antal kluster** till **4**. Välj **Kör**. Resultaten visas i fönstret utdata. Ett kluster har hög frekvens på _George_ och _HP_och är förmodligen ett legitimt företags-e-postmeddelande.
+Gå tillbaka till fliken **kluster** . Välj **KMeans** och ange sedan **antal kluster** till **4**. Välj **Kör**. Resultaten visas i fönstret utdata. Ett kluster har hög frekvens på _George_ och _HP_ och är förmodligen ett legitimt företags-e-postmeddelande.
 
 Så här skapar du en grundläggande besluts träd Machine Learning-modell:
 
 1. Välj fliken **modell** ,
-1. I **typ**väljer du **träd**.
+1. I **typ** väljer du **träd**.
 1. Välj **Kör** för att visa trädet i text form i fönstret utdata.
 1. Välj knappen **Rita** om du vill visa en grafisk version. Besluts trädet liknar det träd vi fick tidigare genom att använda rpart.
 
 En användbar funktion i Rattle är möjligheten att köra flera Machine Learning-metoder och snabbt utvärdera dem. Här är stegen:
 
-1. För **typ**väljer du **alla**.
+1. För **typ** väljer du **alla**.
 1. Välj **Kör**.
-1. När Rattle är klar kan du välja valfritt **typ** värde, t. ex. **SVM**, och visa resultatet.
+1. När Rattle är klar kan du välja valfritt **typ** värde, t. ex. **SVM** , och visa resultatet.
 1. Du kan också jämföra modellens prestanda på validerings uppsättningen med hjälp av fliken **utvärdera** . Till exempel visar **fel mat** ris urvalet visualiserings mat ris, övergripande fel och genomsnittligt klass fel för varje modell i validerings uppsättningen. Du kan också Rita ROC kurvor, köra känslighets analyser och utföra andra typer av modell utvärderingar.
 
 När du är klar med att skapa modeller väljer du fliken **logg** för att visa den R-kod som kördes av Rattle under sessionen. Du kan välja knappen **Exportera** för att spara den.
@@ -416,7 +416,7 @@ host    all             all             127.0.0.1/32            ident
 host    all             all             ::1/128                 ident
 ```
 
-Ändra linjen för **IPv4-lokala anslutningar** så att den använder **MD5** i stället för **identitet**, så att vi kan logga in med ett användar namn och lösen ord:
+Ändra linjen för **IPv4-lokala anslutningar** så att den använder **MD5** i stället för **identitet** , så att vi kan logga in med ett användar namn och lösen ord:
 
 ```
 # IPv4 local connections:
@@ -467,15 +467,15 @@ Kom igång genom att öppna SQuirreL SQL på **program** -menyn. Så här konfig
 1. Välj **Windows**  >  **View-drivrutiner**.
 1. Högerklicka på **postgresql** och välj **ändra driv rutin**.
 1. Välj **extra klass Sök väg**  >  **Lägg till**.
-1. För **fil namn**anger du **/usr/share/Java/jdbcdrivers/postgresql-9.4.1208.jre6.jar**.
+1. För **fil namn** anger du **/usr/share/Java/jdbcdrivers/postgresql-9.4.1208.jre6.jar**.
 1. Välj **Öppna**.
-1. Välj **list driv rutiner**. För **klass namn**väljer du **org. postgresql. driver**och väljer sedan **OK**.
+1. Välj **list driv rutiner**. För **klass namn** väljer du **org. postgresql. driver** och väljer sedan **OK**.
 
 Så här konfigurerar du anslutningen till den lokala servern:
 
-1. Välj alias för **Windows**-  >  **vy.**
+1. Välj alias för **Windows** -  >  **vy.**
 1. Välj **+** knappen för att skapa ett nytt alias. För det nya aliasnamnet anger du **spam-databasen**. 
-1. För **driv rutin**väljer du **postgresql**.
+1. För **driv rutin** väljer du **postgresql**.
 1. Ange URL: en till **JDBC: postgresql://localhost/spam**.
 1. Ange ditt användarnamn och lösenord.
 1. Välj **OK**.
@@ -494,7 +494,7 @@ Det finns många fler frågor som du kan köra för att utforska dessa data. Hur
 SELECT avg(word_freq_make), spam from data group by spam;
 ```
 
-Eller vilka egenskaper för e-post som ofta innehåller *3D*?
+Eller vilka egenskaper för e-post som ofta innehåller *3D* ?
 
 ```SQL
 SELECT * from data order by word_freq_3d desc;
@@ -538,5 +538,3 @@ GO
 ```
 
 Du kan också fråga genom att använda SQuirreL SQL. Följ stegen som liknar PostgreSQL med driv rutinen SQL Server JDBC. JDBC-drivrutinen finns i mappen/usr/share/Java/jdbcdrivers/sqljdbc42.jar.
-
-

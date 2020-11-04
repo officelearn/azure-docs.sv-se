@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 0cc367b86507d6d819608795851052e8a0c1c73b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67d17af4f615907ca50b27ce8fa26973e5869608
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890311"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314245"
 ---
 # <a name="score-model"></a>Poängmodell
 
@@ -48,8 +48,8 @@ Poängen eller det förväntade värdet kan ha många olika format, beroende på
 
 ## <a name="publish-scores-as-a-web-service"></a>Publicera resultat som en webb tjänst
 
-En vanlig användning av poängsättning är att returnera utdata som en del av en förutsägbar webb tjänst. Mer information finns i [den här självstudien](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy) om hur du distribuerar en slut punkt i real tid baserat på en pipeline i Azure Machine Learning designer.
+En vanlig användning av poängsättning är att returnera utdata som en del av en förutsägbar webb tjänst. Mer information finns i [den här självstudien](../tutorial-designer-automobile-price-deploy.md) om hur du distribuerar en slut punkt i real tid baserat på en pipeline i Azure Machine Learning designer.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning.

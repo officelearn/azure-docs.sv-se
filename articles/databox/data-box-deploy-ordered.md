@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: alkohli
-ms.openlocfilehash: f36836681e338c597c068a91a6d4bc011cce3511
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 400c5bd4dd31daaf826ed63ada75266d4ab3099c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206805"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313219"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Självstudie: Beställa Azure Data Box
 
@@ -227,7 +227,7 @@ Utför följande steg i Azure Portal för att beställa en enhet.
     |---------|---------|
     |Överföringstyp     | Välj **Importera till Azure**.        |
     |Prenumeration     | Välj en prenumeration för EA, CSP eller Azure-sponsring för Data Box-tjänsten. <br> Prenumerationen är kopplad till ditt faktureringskonto.       |
-    |Resource Group | Välj en befintlig resurs grupp. En resursgrupp är en logisk container för de resurser som kan hanteras eller distribueras tillsammans. |
+    |Resursgrupp | Välj en befintlig resurs grupp. En resursgrupp är en logisk container för de resurser som kan hanteras eller distribueras tillsammans. |
     |Källans land/region    |    Välj landet/regionen där dina data finns.         |
     |Azure-målregion     |     Välj den Azure-region dit du vill överföra data. <br> Mer information finns i [regional tillgänglighet](data-box-overview.md#region-availability).            |
 
@@ -239,7 +239,7 @@ Utför följande steg i Azure Portal för att beställa en enhet.
 
 6. Gå till fliken **grundläggande** i **ordning**. Ange eller Välj följande information och välj **Nästa: data mål>**.
 
-    |Inställning  |Värde  |
+    |Inställningen  |Värde  |
     |---------|---------|
     |Prenumeration      | Prenumerationen fylls i automatiskt baserat på din tidigare val.|
     |Resursgrupp    | Den resurs grupp som du valde tidigare. |
@@ -255,13 +255,13 @@ Utför följande steg i Azure Portal för att beställa en enhet.
 
     ![Azure Data Box data destination](media/data-box-deploy-ordered/select-data-box-import-07.png)
 
-    Baserat på den angivna Azure-regionen väljer du ett eller flera lagringskonton från den filtrerade listan med befintliga lagringskonton. Data Box kan länkas med upp till 10 lagringskonton. Du kan också skapa ett nytt konto för **Generell användning v1**, **Generell användning v2** eller **bloblagring**.
+    Baserat på den angivna Azure-regionen väljer du ett eller flera lagringskonton från den filtrerade listan med befintliga lagringskonton. Data Box kan länkas med upp till 10 lagringskonton. Du kan också skapa ett nytt konto för **Generell användning v1** , **Generell användning v2** eller **bloblagring**.
 
     Lagringskonton med virtuella nätverk stöds. För att Data Box-tjänsten ska fungera med skyddade lagringskonton aktiverar du de betrodda tjänsterna i inställningarna för nätverksbrandväggen för lagringskontot. Mer information finns i så här [lägger du till Azure Data box som en betrodd tjänst](../storage/common/storage-network-security.md#exceptions).
 
     Om du använder Data Box-enhet för att skapa **hanterade diskar** från lokala virtuella hård diskar (VHD: er), måste du också ange följande information:
 
-    |Inställning  |Värde  |
+    |Inställningen  |Värde  |
     |---------|---------|
     |Resursgrupper     | Skapa nya resursgrupper om du planerar att skapa hanterade diskar från lokala virtuella hårddiskar. Du kan bara använda en befintlig resurs grupp om resurs gruppen skapades tidigare när du skapade en Data Box-enhets ordning för den hanterade disken av Data Box-enhet-tjänsten. <br> Ange flera resursgrupper avgränsade med semikolon. Högst 10 resursgrupper stöds.|
 
@@ -285,13 +285,13 @@ Utför följande steg i Azure Portal för att beställa en enhet.
 
    ![Utöka alternativen för att ta med egna lösen ord för en Data Box-enhet import ordning](media/data-box-deploy-ordered/select-data-box-import-security-02.png) 
 
-   - Om du vill använda ditt eget lösen ord för den nya enheten väljer du **Använd ditt eget lösen ord**i **Ange inställningar för enhetens lösen**ord och anger ett lösen ord som uppfyller säkerhets kraven.
+   - Om du vill använda ditt eget lösen ord för den nya enheten väljer du **Använd ditt eget lösen ord** i **Ange inställningar för enhetens lösen** ord och anger ett lösen ord som uppfyller säkerhets kraven.
    
      ![Säkerhets skärm för Data Box-enhet import, alternativ för att använda ditt eget enhets lösen ord](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
 
    - Så här använder du egna lösen ord för resurser:
 
-     1. Genom att **Ange inställningar för dela lösen ord**väljer **du Använd dina egna lösen ord** och **väljer sedan lösen ord för resurserna**.
+     1. Genom att **Ange inställningar för dela lösen ord** väljer **du Använd dina egna lösen ord** och **väljer sedan lösen ord för resurserna**.
      
         ![Säkerhets skärmen för Data Box-enhet import, alternativ för att använda dina egna resurs lösen ord](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
 
@@ -301,9 +301,9 @@ Utför följande steg i Azure Portal för att beställa en enhet.
      
         ![Skärm för att ange resurs lösen ord för en Data Box-enhet import ordning](media/data-box-deploy-ordered/select-data-box-import-security-05.png)
 
-       På sidan **säkerhet** kan du använda **visning av ändrings lösen ord** för att ändra lösen ord.
+       På **säkerhets** skärmen kan du använda **Visa eller ändra lösen ord** för att ändra lösen ord.
 
-1. I **säkerhet**, om du vill aktivera programvarubaserad dubbel kryptering, expanderar du **Double-Encryption (för hög säkra miljöer)** och väljer **Aktivera dubbel kryptering för beställningen**.
+1. I **säkerhet** , om du vill aktivera programvarubaserad dubbel kryptering, expanderar du **Double-Encryption (för hög säkra miljöer)** och väljer **Aktivera dubbel kryptering för beställningen**.
 
    ![Säkerhets skärm för Data Box-enhet import, aktivera programvarubaserad kryptering för en Data Box-enhet beställning](media/data-box-deploy-ordered/select-data-box-import-security-07.png)
 
@@ -314,7 +314,7 @@ Utför följande steg i Azure Portal för att beställa en enhet.
 
    Välj **Nästa: kontakt uppgifter** för att fortsätta.
 
-8. I **kontakt information**väljer du **+ Lägg till leverans adress**.
+8. I **kontakt information** väljer du **+ Lägg till leverans adress**.
 
     ![Skärm bild av guiden order som visar steget kontakt information i guiden med alternativet Lägg till leverans adress som kallas för.](media/data-box-deploy-ordered/select-data-box-import-08a.png)
 
@@ -326,7 +326,7 @@ Utför följande steg i Azure Portal för att beställa en enhet.
 
 10. Välj **Lägg till leverans adress** när leverans informationen har verifierats. Du kommer tillbaka till fliken **kontakt information** .
 
-11. När du har återlämnat **kontakt uppgifterna**lägger du till en eller flera e-postadresser. Tjänsten skickar e-postmeddelanden om alla uppdateringar rörande orderstatus.
+11. När du har återlämnat **kontakt uppgifterna** lägger du till en eller flera e-postadresser. Tjänsten skickar e-postmeddelanden om alla uppdateringar rörande orderstatus.
 
     Vi rekommenderar att du använder en grupp-e-postadress, så att du kan fortsätta att ta emot meddelanden även om en gruppadministratör lämnar företaget.
 
@@ -709,7 +709,7 @@ Om du vill avbryta en Azure Data Boxs ordning kan du köra [AZ data-Job Cancel](
    |resurs-grupp [obligatoriskt]| Namnet på resurs gruppen som är kopplad till den ordning som ska tas bort. En resursgrupp är en logisk container för de resurser som kan hanteras eller distribueras tillsammans. | myresourcegroup|
    |namn [obligatoriskt]| Namnet på den ordning som ska tas bort. | "mydataboxorder"|
    |Orsak [required]| Orsaken till att ordern annulleras. | "Jag har angett felaktig information och behövde avbryta beställningen." |
-   |ja| Begär inte bekräftelse. | --Ja (-y)| --Ja-y |
+   |yes| Begär inte bekräftelse. | --Ja (-y)| --Ja-y |
    |felsökning| Inkludera felsöknings information för utförlig loggning | --Felsök |
    |Hjälp| Visa hjälp information för det här kommandot. | --hjälp-h |
    |endast-show-Errors| Visa endast fel, ignorera varningar. | --endast-show-Errors |
@@ -746,7 +746,7 @@ Om du har avbrutit en Azure Data Box order kan du köra [AZ](/cli/azure/ext/data
    |resurs-grupp [obligatoriskt]| Namnet på resurs gruppen som är kopplad till den ordning som ska tas bort. En resursgrupp är en logisk container för de resurser som kan hanteras eller distribueras tillsammans. | myresourcegroup|
    |namn [obligatoriskt]| Namnet på den ordning som ska tas bort. | "mydataboxorder"|
    |prenumeration| Namnet eller ID (GUID) för din Azure-prenumeration. | "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" |
-   |ja| Begär inte bekräftelse. | --Ja (-y)| --Ja-y |
+   |yes| Begär inte bekräftelse. | --Ja (-y)| --Ja-y |
    |felsökning| Inkludera felsöknings information för utförlig loggning | --Felsök |
    |Hjälp| Visa hjälp information för det här kommandot. | --hjälp-h |
    |endast-show-Errors| Visa endast fel, ignorera varningar. | --endast-show-Errors |

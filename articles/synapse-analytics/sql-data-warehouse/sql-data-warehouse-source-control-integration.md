@@ -1,6 +1,6 @@
 ---
 title: Källkontrollsintegrering
-description: Databas DevOps-upplevelse i företags klass för SQL-pool med intern käll kontroll integrering med Azure databaser (git och GitHub).
+description: Databas DevOps-upplevelse i företags klass för dedikerad SQL-pool med intern käll kontroll integrering med Azure databaser (git och GitHub).
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: sql-dw
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 84abfea39cb7311e7cd60346d936c08c28c334d4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4751f3cf213098873b0c53b15df82f57d155787a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89441423"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313293"
 ---
-# <a name="source-control-integration-for-sql-pool"></a>Käll kontrolls integrering för SQL-pool
+# <a name="source-control-integration-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Käll kontrolls integrering för dedikerad SQL-pool i Azure Synapse Analytics
 
-I den här självstudien beskrivs hur du integrerar ditt SSDT-databas projekt (SQL Server data verktyg) med käll kontroll.  Käll kontroll integrering är det första steget i att skapa en kontinuerlig integrerings-och distributions-pipeline med SQL-adresspoolen i Azure Synapse Analytics.
+I den här självstudien beskrivs hur du integrerar ditt SSDT-databas projekt (SQL Server data verktyg) med käll kontroll.  Käll kontroll integrering är det första steget i att skapa en kontinuerlig integrerings-och distributions-pipeline med den dedikerade SQL-poolen i Azure Synapse Analytics.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -37,12 +37,12 @@ I den här självstudien beskrivs hur du integrerar ditt SSDT-databas projekt (S
 
    ![Hantera anslutningar](./media/sql-data-warehouse-source-control-integration/2-manage-connections.png "Hantera anslutningar")
 
-3. Anslut till projektet genom att välja **hantera anslutningar**och sedan **ansluta till ett projekt**.
- ![Connect1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "Ansluta")
+3. Anslut till projektet genom att välja **hantera anslutningar** och sedan **ansluta till ett projekt**.
+ ![Connect1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "Anslut")
 
 
 4. Leta upp projektet som du skapade i steg ett, Välj **Anslut**.
-![Connect2](./media/sql-data-warehouse-source-control-integration/3.5-connect.png "Ansluta")
+![Connect2](./media/sql-data-warehouse-source-control-integration/3.5-connect.png "Anslut")
 
 
 3. Klona din Azure DevOps-lagringsplats från projektet till din lokala dator.
@@ -85,8 +85,8 @@ Mer information om hur du ansluter projekt med Visual Studio finns i avsnittet [
 
    ![Verifiera](./media/sql-data-warehouse-source-control-integration/10-verify-column-change-pushed.png "Verifiera ändringarna")
 
-4. (**Valfritt**) Använd schema jämför och uppdatera ändringarna i mål informations lagret med hjälp av SSDT för att se till att objekt definitionerna i Azure lagrings platsen-lagringsplatsen och den lokala lagrings platsen återspeglar ditt informations lager.
+4. ( **Valfritt** ) Använd schema jämför och uppdatera ändringarna i mål informations lagret med hjälp av SSDT för att se till att objekt definitionerna i Azure lagrings platsen-lagringsplatsen och den lokala lagrings platsen återspeglar ditt informations lager.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Utveckla för SQL-pool](sql-data-warehouse-overview-develop.md)
+- [Utveckla för dedikerad SQL-pool](sql-data-warehouse-overview-develop.md)

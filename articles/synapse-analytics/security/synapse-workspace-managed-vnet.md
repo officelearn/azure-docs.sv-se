@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 06b535b25df19e5062d16184f4469d9e9253b9c0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 00920f30061832bd1d685f04113a63781df718b4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87042607"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313694"
 ---
 # <a name="azure-synapse-analytics-managed-virtual-network-preview"></a>Azure Synapse Analytics-hanterad Virtual Network (för hands version)
 
@@ -30,11 +30,11 @@ I den hanterade arbets ytan Virtual Network får du ett värde på fyra sätt:
 - Du behöver inte skapa ett undernät för dina Spark-kluster baserat på hög belastning.
 - Hanterade arbets ytor Virtual Network tillsammans med hanterade privata slut punkter skyddar mot data exfiltrering. Du kan bara skapa hanterade privata slut punkter i en arbets yta som har en hanterad arbets yta Virtual Network associerad med den.
 
-Om du skapar en arbets yta med en hanterad arbets yta Virtual Network associerad med den ser du till att din arbets yta är isolerad från andra arbets ytor. Azure Synapse innehåller olika analys funktioner i en arbets yta: data integrering, Apache Spark, SQL-pool och SQL på begäran.
+Om du skapar en arbets yta med en hanterad arbets yta Virtual Network associerad med den ser du till att din arbets yta är isolerad från andra arbets ytor. Azure Synapse innehåller olika analys funktioner i en arbets yta: data integrering, Server lös Apache Spark pool, dedikerad SQL-pool och Server lös SQL-pool.
 
 Om arbets ytan har en hanterad arbets yta Virtual Network distribueras data integrering och Spark-resurser i den. En hanterad arbets yta Virtual Network även för isolering på användar nivå för Spark-aktiviteter eftersom varje Spark-kluster finns i ett eget undernät.
 
-SQL-poolen och SQL på begäran är funktioner för flera klienter och finns därför utanför den hanterade arbets ytan Virtual Network. Kommunikation inom arbets ytan till SQL-poolen och SQL på begäran använder Azures privata länkar. De här privata länkarna skapas automatiskt åt dig när du skapar en arbets yta med en hanterad arbets yta Virtual Network kopplad till den.
+Dedikerad SQL-pool och Server lös SQL-pool är funktioner för flera klienter och finns därför utanför den hanterade arbets ytan Virtual Network. Kommunikation inom arbets ytan till dedikerad SQL-pool och SQL-pool utan server använder Azures privata länkar. De här privata länkarna skapas automatiskt åt dig när du skapar en arbets yta med en hanterad arbets yta Virtual Network kopplad till den.
 
 >[!IMPORTANT]
 >Du kan inte ändra den här arbets ytans konfiguration när arbets ytan har skapats. Du kan till exempel inte konfigurera om en arbets yta som inte har någon hanterad arbets yta Virtual Network kopplad till den och associera en Virtual Network till den. På samma sätt kan du inte konfigurera om en arbets yta med en hanterad arbets yta Virtual Network kopplad till den och ta bort kopplingen till Virtual Network från den.
@@ -43,7 +43,7 @@ SQL-poolen och SQL på begäran är funktioner för flera klienter och finns dä
 
 Registrera nätverks resurs leverantören om du inte redan har gjort det. När du registrerar en resurs leverantör konfigureras din prenumeration så att den fungerar med resurs leverantören. Välj *Microsoft. Network* i listan över resurs leverantörer när du [registrerar](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)dig.
 
-Om du vill skapa en Azure Synapse-arbetsyta som har en hanterad arbets yta Virtual Network kopplad till den, väljer du fliken **säkerhet + nätverk** i Azure Portal och markerar kryss rutan **Aktivera hanterat virtuellt nätverk** .
+Om du vill skapa en Azure Synapse-arbetsyta som har en hanterad arbets yta Virtual Network kopplad till den, väljer du fliken **nätverk** i Azure Portal och markerar kryss rutan **Aktivera hanterat virtuellt nätverk** .
 
 Om du lämnar kryss rutan avmarkerad kommer din arbets yta inte ha någon Virtual Network kopplad till sig.
 

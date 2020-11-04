@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 05/22/2020
-ms.author: aahi
+ms.date: 10/22/2020
+ms.author: clschott
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c9dcedacb882ef42326580c9d41e0aa307d89572
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7f28ab0d81daaedeec83994fcebc3eb430023bbc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094242"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315844"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-c"></a>Snabb start: söka efter videor med hjälp av Videosökning i Bing REST API och C #
 
@@ -30,93 +30,117 @@ Använd den här snabb starten för att göra ditt första anrop till API för v
 Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingVideoSearchv7.cs) tillsammans med ytterligare kommentarer om hantering av fel, funktioner och kodanteckningar.
 
 ## <a name="prerequisites"></a>Förutsättningar
-* En version av [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/).
-* [Json.NET](https://www.newtonsoft.com/json) framework, tillgänglig som ett NuGet-paket.
-* Om du använder Linux/MacOS kan du köra det här programmet med hjälp av [mono](https://www.mono-project.com/).
+
+Du måste konfigurera datorn för att köra .NET Core. Installations anvisningarna finns på sidan med [.net Core-nedladdningar](https://dotnet.microsoft.com/download) . Du kan köra det här programmet på Windows, Linux, macOS eller i en Docker-behållare. Du måste installera kod redigeraren för din favorit. Beskrivningarna nedan använder [Visual Studio Code](https://code.visualstudio.com/), som är en öppen källa, plattforms oberoende redigerare. Du kan dock använda de verktyg som du är van vid.
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Skapa och initiera ett projekt
 
-1. Skapa en ny konsollösning i Visual Studio. Lägg sedan till följande namn rymder i huvud kod filen:
+Det första steget är att skapa ett nytt program. Öppna en kommando tolk och skapa en ny katalog för programmet. Skapa den aktuella katalogen. Ange följande kommando i ett konsol fönster:
 
-    ```csharp
-    using System;
-    using System.Text;
-    using System.Net;
-    using System.IO;
-    using System.Collections.Generic;
-    ```
+```dotnetcli
+dotnet new console --name VideoSearchClient
+```
 
-2. Lägg till variabler för din prenumerationsnyckel, slutpunkt och sökvillkor. För `uriBase` värdet kan du använda den globala slut punkten i följande kod eller använda den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
-
-    ```csharp
-    const string accessKey = "enter your key here";
-    const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/videos/search";
-    const string searchTerm = "kittens";
-    ```
-
-## <a name="create-a-struct-to-format-the-bing-video-search-api-response"></a>Skapa en struct för att formatera sökresultaten från API för videosökning i Bing
-
-Definiera en `SearchResult`-struct som ska innehålla bildsökningsresultatet och JSON-rubrikinformation.
+Du måste lägga till följande `using` direktiv överst i huvud metoden så att C#-kompilatorn känner igen aktivitets-och JSON-typerna:
 
 ```csharp
-struct SearchResult
-    {
-        public String jsonResult;
-        public Dictionary<String, String> relevantHeaders;
-    }
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+```
+
+Lägg till variabler för din prenumerationsnyckel, slutpunkt och sökvillkor. För `uriBase` värdet kan du använda den globala slut punkten i följande kod eller använda den anpassade slut [domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för resursen.
+
+```csharp
+// Replace the accessKey string value with your valid access key.
+const string _accessKey = "enter your key here";
+
+// Or use the custom subdomain endpoint displayed in the Azure portal for your resource.
+const string _uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/videos/search";
+
+const string _searchTerm = "kittens";
+```
+
+Uppdatera sedan main-metoden så att vi kan använda asynkrona metoder. Lägg till den asynkrona modifieraren och ändra retur typen till aktivitet.
+
+```csharp
+static async Task Main(string[] args)
+{
+    
+}
+```
+
+Nu har du ett program som inte gör något men som gör det asynkront. Nu ska vi förbättra det.
+
+## <a name="create-a-data-structure-to-hold-the-bing-video-search-api-response"></a>Skapa en data struktur som innehåller API för videosökning i Bing svaret
+
+Definiera en- `SearchResult` och- `Video` klass som innehåller video Sök resultatet. Du kan lägga till fler egenskaper senare när du behöver andra fält från JSON-resultatet.
+
+```cscharp
+class SearchResult
+{
+    [JsonPropertyName("totalEstimatedMatches")]
+    public int TotalEstimatedMatches { get; set; }
+
+    [JsonPropertyName("value")]
+    public List<Video> Videos { get; set; }
+}
+
+class Video
+{
+    [JsonPropertyName("name")]
+    public string Name { get; set; }
+
+    [JsonPropertyName("description")]
+    public string Description { get; set; }
+
+    [JsonPropertyName("thumbnailUrl")]
+    public string ThumbnailUrl { get; set; }
+
+    [JsonPropertyName("contentUrl")]
+    public string ContentUrl { get; set; }
+}
 ```
 
 ## <a name="create-and-handle-a-video-search-request"></a>Skapa och hantera en videosökningsbegäran
 
-1. Skapa en metod med namnet `BingVideoSearch` för att utföra anropet till API: et och ange retur typen till den `SearchResult` struct som skapades tidigare. 
+Vi använder `HttpClient` för att utföra anropet till API: et. Först måste vi lägga till rubriken `Ocp-Apim-Subscription-Key` och din åtkomst nyckel. 
 
-   Lägg till kod till den här metoden i stegen som följer.
+```csharp
+using var client = new HttpClient();
+client.BaseAddress = new Uri(_uriBase);
+client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", _accessKey);
+```
 
-1. Konstruera URI för sökbegäran. Formatera Sök termen `toSearch` innan du lägger till den i strängen.
+Konstruera URI för sökbegäran. Formatera Sök termen `_searchTerm` innan du lägger till den i strängen.
 
-    ```csharp    
-    static SearchResult BingVideoSearch(string toSearch){
-    
-        var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(toSearch);
-    //...
-    ```
-
-2. Utför webbegäran genom att lägga till din nyckel till rubriken `Ocp-Acpim-Subscription-Key` och använd ett `HttpWebResponse`-objekt för att lagra API-svaret. Använd sedan en `StreamReader` för att hämta JSON-strängen.
-
-    ```csharp
-    //...
-    WebRequest request = HttpWebRequest.Create(uriQuery);
-    request.Headers["Ocp-Apim-Subscription-Key"] = accessKey;
-    HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
-    string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
-    //...
-    ```
+```csharp
+var response = await client.GetAsync($"?q={Uri.EscapeDataString(_searchTerm)}");
+```
 
 ## <a name="process-the-result"></a>Bearbeta resultatet
 
-1. Skapa sökresultatsobjektet och extrahera Bing-HTTP-rubriker. Returnera sedan `searchResult` objektet. 
+När svaret har slutförts kan vi bearbeta JSON-data. Vi deserialiserar JSON-strängen till vårt `SearchResult` vi skapade tidigare. Upprepa resultatet (om det finns några) och skriv ut resultatet till-konsolen.
 
-    ```csharp
-    var searchResult = new SearchResult();
-    searchResult.jsonResult = json;
-    searchResult.relevantHeaders = new Dictionary<String, String>();
+```csharp
+if (response.IsSuccessStatusCode)
+{
+    var json = await response.Content.ReadAsStringAsync();
+    var result = JsonSerializer.Deserialize<SearchResult>(json);
 
-    // Extract Bing HTTP headers
-    foreach (String header in response.Headers)
+    foreach (var video in result.Videos)
     {
-        if (header.StartsWith("BingAPIs-") || header.StartsWith("X-MSEdge-"))
-            searchResult.relevantHeaders[header] = response.Headers[header];
+        Console.WriteLine($"Name: {video.Name}");
+        Console.WriteLine($"ContentUrl: {video.ContentUrl}");
+        Console.WriteLine();
     }
-    return searchResult;
-    ```
-
-2. Skriv ut svaret.
-
-    ```csharp
-    Console.WriteLine(result.jsonResult);
-    ```
+}
+```
 
 ## <a name="example-json-response"></a>Exempel på JSON-svar 
 

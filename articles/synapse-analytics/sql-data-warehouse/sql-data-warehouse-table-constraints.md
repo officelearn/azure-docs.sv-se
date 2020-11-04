@@ -1,6 +1,6 @@
 ---
 title: Primära, externa och unika nycklar
-description: Tabell begränsningar stöder i SQL-poolen Synapse i Azure Synapse Analytics
+description: Tabell begränsningar stöder användning av dedikerad SQL-pool i Azure Synapse Analytics
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,33 +11,33 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 562e2cce317d8774ecf72971d53be4f66f9c3da4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd1d92dd6be47b2bdf6b8ca2f9a99c62e35eb12a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85212776"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313054"
 ---
-# <a name="primary-key-foreign-key-and-unique-key-in-synapse-sql-pool"></a>Primär nyckel, sekundär nyckel och unik nyckel i Synapse SQL-pool
+# <a name="primary-key-foreign-key-and-unique-key-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Primär nyckel, sekundär nyckel och unik nyckel med dedikerad SQL-pool i Azure Synapse Analytics
 
-Lär dig mer om tabell begränsningar i Synapse SQL-pool, inklusive primär nyckel, sekundär nyckel och unik nyckel.
+Lär dig mer om tabell begränsningar i dedikerad SQL-pool, inklusive primär nyckel, sekundär nyckel och unik nyckel.
 
 ## <a name="table-constraints"></a>Tabellbegränsningar
 
-Synapse SQL-pool stöder följande tabell begränsningar: 
+Dedikerad SQL-pool stöder följande tabell begränsningar: 
 - PRIMÄR nyckel stöds bara om både icke-KLUSTRad och inte framtvingad används.    
 - En unik begränsning stöds endast med inte TVINGAd användning.
 
 För syntax, kontrol lera [Alter Table](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) och [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse). 
 
-Sekundär nyckel begränsning stöds inte i Synapse SQL-pool.  
+Sekundär nyckel begränsning stöds inte i dedikerad SQL-pool.  
 
 
 ## <a name="remarks"></a>Kommentarer
 
-Med primär nyckel och/eller unik nyckel kan Synapse SQL-pool generera en optimal körnings plan för en fråga.  Alla värden i en primär nyckel kolumn eller en unik begränsnings kolumn måste vara unika.
+Med primär nyckel och/eller unik nyckel kan dedikerad SQL pool-motor generera en optimal körnings plan för en fråga.  Alla värden i en primär nyckel kolumn eller en unik begränsnings kolumn måste vara unika.
 
-När du har skapat en tabell med primär nyckel eller unik begränsning i Synapse SQL-pool måste användarna se till att alla värden i dessa kolumner är unika.  En överträdelse av som kan orsaka att frågan returnerar felaktigt resultat.  Det här exemplet visar hur en fråga kan returnera felaktigt resultat om kolumnen primär nyckel eller unik begränsning innehåller dubblettvärden.  
+När du har skapat en tabell med primär nyckel eller unik begränsning i dedikerad SQL-pool måste användarna se till att alla värden i dessa kolumner är unika.  En överträdelse av som kan orsaka att frågan returnerar felaktigt resultat.  Det här exemplet visar hur en fråga kan returnera felaktigt resultat om kolumnen primär nyckel eller unik begränsning innehåller dubblettvärden.  
 
 ```sql
  -- Create table t1
@@ -164,12 +164,13 @@ a1          total
 
 ## <a name="examples"></a>Exempel
 
-Skapa en Synapse för SQL-pool med en primär nyckel: 
+Skapa en särskild SQL-adresspool med en primär nyckel: 
 
 ```sql 
 CREATE TABLE mytable (c1 INT PRIMARY KEY NONCLUSTERED NOT ENFORCED, c2 INT);
 ```
-Skapa en Synapse för SQL-pool med en unik begränsning:
+
+Skapa en särskild SQL-adresspool med en unik begränsning:
 
 ```sql
 CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
@@ -177,4 +178,4 @@ CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har skapat tabellerna för din Synapse SQL-pool är nästa steg att läsa in data i tabellen. En inläsnings kurs finns i [inläsning av data till SYNAPSE SQL-pool](load-data-wideworldimportersdw.md).
+När du har skapat tabellerna för din dedikerade SQL-pool är nästa steg att läsa in data i tabellen. En inläsnings kurs finns i [inläsning av data till dedikerad SQL-pool](load-data-wideworldimportersdw.md).

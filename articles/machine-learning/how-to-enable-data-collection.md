@@ -11,12 +11,12 @@ author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 5a04e5a7136ac1a33766bf543a27ff7794498c26
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: be2afad7e7cb08d9c677e589846f3d67cf43e708
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996360"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314239"
 ---
 # <a name="collect-data-from-models-in-production"></a>Samla in data från modeller i produktion
 
@@ -67,11 +67,11 @@ Sökvägen till utdata i bloben följer den här syntaxen:
 
 - Du behöver ett AKS-kluster. Information om hur du skapar en och distribuerar till den finns i [distribuera och var](how-to-deploy-and-where.md).
 
-- [Konfigurera din miljö](how-to-configure-environment.md) och installera [Azure Machine Learning övervaknings-SDK: n](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
+- [Konfigurera din miljö](how-to-configure-environment.md) och installera [Azure Machine Learning övervaknings-SDK: n](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
 
 ## <a name="enable-data-collection"></a>Aktivera datainsamling
 
-Du kan aktivera [data insamling](https://docs.microsoft.com/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?view=azure-ml-py&preserve-view=true) oavsett vilken modell du distribuerar via Azure Machine Learning eller andra verktyg.
+Du kan aktivera [data insamling](/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?preserve-view=true&view=azure-ml-py) oavsett vilken modell du distribuerar via Azure Machine Learning eller andra verktyg.
 
 Om du vill aktivera data insamling måste du:
 
@@ -153,7 +153,7 @@ Du kan välja ett verktyg för att analysera data som samlas in i blob-lagringen
 
 1. Ladda ned och öppna [Power BI Desktop](https://www.powerbi.com).
 
-1. Välj **Hämta data** och välj [**Azure Blob Storage**](https://docs.microsoft.com/power-bi/desktop-data-sources).
+1. Välj **Hämta data** och välj [**Azure Blob Storage**](/power-bi/desktop-data-sources).
 
     [![Power BI BLOB-installation](./media/how-to-enable-data-collection/PBIBlob.png)](././media/how-to-enable-data-collection/PBIBlob.png#lightbox)
 
@@ -187,7 +187,7 @@ Du kan välja ett verktyg för att analysera data som samlas in i blob-lagringen
 
 ### <a name="analyze-model-data-using-azure-databricks"></a><a id="databricks"></a> Analysera modell data med Azure Databricks
 
-1. Skapa en [Azure Databricks-arbetsyta](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal).
+1. Skapa en [Azure Databricks-arbetsyta](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal).
 
 1. Gå till din Databricks-arbetsyta.
 

@@ -1,6 +1,6 @@
 ---
-title: Komma åt filer på lagring i SQL på begäran (för hands version)
-description: Beskriver hur du frågar lagrings filer med hjälp av SQL on-demand-resurser (för hands version) i Synapse SQL.
+title: Åtkomst till filer på lagrings plats i SQL-pool utan server (för hands version)
+description: Beskriver frågor om lagrings-filer med hjälp av Server lös SQL-pool (för hands version) i Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8884f62ba015cc4b33b75a133f21264dac6430e5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 73a5414a979742c4a7df16dcd2a5edda3748abef
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91288995"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315930"
 ---
-# <a name="access-external-storage-in-synapse-sql-on-demand"></a>Åtkomst till extern lagring i Synapse SQL (på begäran)
+# <a name="access-external-storage-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Få åtkomst till extern lagring med Server lös SQL-pool (för hands version) i Azure Synapse Analytics
 
-I det här dokumentet beskrivs hur kan användare läsa data från filerna som lagras på Azure Storage i Synapse SQL (på begäran). Användare har följande alternativ för åtkomst till lagring:
+Det här dokumentet beskriver hur kan användare läsa data från filerna som lagras på Azure Storage i SQL-poolen utan server. Användare har följande alternativ för åtkomst till lagring:
 
 - [OpenRowSet](develop-openrowset.md) -funktionen som aktiverar ad hoc-frågor över filerna i Azure Storage.
 - [Extern tabell](develop-tables-external-tables.md) som är en fördefinierad data struktur som skapats ovanpå en uppsättning externa filer.
@@ -27,7 +27,7 @@ Användaren kan använda [olika autentiseringsmetoder](develop-storage-files-sto
 
 ## <a name="query-files-using-openrowset"></a>Köra frågefiler med OpenRowSet
 
-OpenRowSet gör det möjligt för användare att fråga externa filer på Azure Storage om de har åtkomst till lagringen. Användare som är ansluten till Synapse SQL-slutpunkt på begäran ska använda följande fråga för att läsa innehållet i filerna i Azure Storage:
+OpenRowSet gör det möjligt för användare att fråga externa filer på Azure Storage om de har åtkomst till lagrings utrymmet. En användare som är ansluten till en server lös SQL-pool bör använda följande fråga för att läsa innehållet i filerna i Azure Storage:
 
 ```sql
 SELECT * FROM

@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2bac9645fa66cd33c7cda79f16628c1104e27d7d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 00b4f38f4a2a44b88718224db2b2442033816f83
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480555"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313889"
 ---
 # <a name="azure-synapse-analytics-ip-firewall-rules-preview"></a>Regler för IP-brandvägg för Azure Synapse Analytics (för hands version)
 
@@ -21,7 +21,7 @@ I den här artikeln förklaras IP-brandväggens regler och du får lära dig hur
 
 ## <a name="ip-firewall-rules"></a>Regler för IP-brandvägg
 
-Regler för IP-brandvägg ger eller nekar åtkomst till din Synapse-arbetsyta baserat på den ursprungliga IP-adressen för varje begäran. Du kan konfigurera IP-brandväggens regler för din arbets yta. Regler för IP-brandvägg som kon figurer ATS på arbets ytans nivå gäller för alla offentliga slut punkter för arbets ytan (SQL-pooler, SQL på begäran och utveckling).
+Regler för IP-brandvägg ger eller nekar åtkomst till din Synapse-arbetsyta baserat på den ursprungliga IP-adressen för varje begäran. Du kan konfigurera IP-brandväggens regler för din arbets yta. Regler för IP-brandvägg som kon figurer ATS på arbets ytans nivå gäller för alla offentliga slut punkter för arbets ytan (dedikerade SQL-pooler, SQL-pool utan server och utveckling).
 
 ## <a name="create-and-manage-ip-firewall-rules"></a>Skapa och hantera IP-brandväggens regler
 
@@ -37,7 +37,7 @@ Du kan också lägga till regler för IP-brandvägg till en Synapse-arbetsyta n�
 
 ## <a name="connect-to-synapse-from-your-own-network"></a>Anslutning till Synapse från ditt eget nätverk
 
-Du kan ansluta till din Synapse-arbetsyta med hjälp av Synapse Studio. Du kan också använda SQL Server Management Studio (SSMS) för att ansluta till SQL-resurserna (SQL-pooler och SQL på begäran) på din arbets yta.
+Du kan ansluta till din Synapse-arbetsyta med hjälp av Synapse Studio. Du kan också använda SQL Server Management Studio (SSMS) för att ansluta till SQL-resurserna (dedikerade SQL-pooler och Server lös SQL-pool) i din arbets yta.
 
 Kontrol lera att brand väggen i nätverket och den lokala datorn tillåter utgående kommunikation på TCP-portarna 80, 443 och 1443 för Synapse Studio.
 

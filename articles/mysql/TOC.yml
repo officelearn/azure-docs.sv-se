@@ -1,4 +1,4 @@
-- name: Dokumentation om Azure DB for MySQL
+- name: Azure Database för MySQL-dokumentation
   href: index.yml
 - name: Översikt
   items:

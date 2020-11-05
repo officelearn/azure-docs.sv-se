@@ -147,8 +147,6 @@
       items:
         - name: Publicera i App Source
           href: howto-get-appsource-certified.md
-        - name: Publicera i Azure AD-appgalleri
-          href: howto-app-gallery-listing.md
         - name: Publicera i Office 365-instrumentpanel för försäljning
           href: /office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
     - name: Azure Access Control Service

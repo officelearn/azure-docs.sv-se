@@ -3,8 +3,10 @@
 - name: Översikt
   href: media-services-overview.md
   items:
-    - name: Scenarier och tillgänglighet
+    - name: Vanliga scenarier
       href: scenarios-and-availability.md
+    - name: Regional tillgänglighet
+      href: availability-regions-v-2.md
     - name: Begrepp
       href: media-services-concepts.md
 - name: Kom igång

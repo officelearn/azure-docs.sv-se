@@ -582,7 +582,7 @@
     - name: Säkra virtuella datorer
       items:
         - name: Rekommendationer
-          href: security-recommendations.md
+          href: ../security-recommendations.md
         - name: Just-in-time-åtkomst
           href: ../../security-center/security-center-just-in-time.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Använd Bastion
@@ -717,7 +717,7 @@
             - name: Agentuppdatering
               href: ../extensions/update-linux-agent.md
         - name: Minimera spekulativ körning
-          href: mitigate-se.md
+          href: ../mitigate-se.md
         - name: Övervaka metadata
           href: instance-metadata-service.md
         - name: Hämta användningsstatistik med REST
@@ -1045,7 +1045,7 @@
         - name: Använda accelererat nätverk
           href: ../../virtual-network/create-vm-accelerated-networking-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Tilldela offentligt DNS-namn
-          href: portal-create-fqdn.md
+          href: ../create-fqdn.md
         - name: Hitta och ta bort ej anslutna nätverkskort
           href: find-unattached-nics.md
         - name: DNS-upplösning

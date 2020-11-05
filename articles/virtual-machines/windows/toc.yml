@@ -558,7 +558,7 @@
     - name: Säkra virtuella datorer
       items:
         - name: Rekommendationer
-          href: security-recommendations.md
+          href: ../security-recommendations.md
         - name: Just-in-time-åtkomst
           href: ../../security-center/security-center-just-in-time.md
         - name: Använd Bastion
@@ -666,7 +666,7 @@
         - name: Virtuell Azure-datoragent
           href: ../extensions/agent-windows.md
         - name: Minimera spekulativ körning
-          href: mitigate-se.md
+          href: ../mitigate-se.md
         - name: Övervaka metadata
           href: instance-metadata-service.md
         - name: Aktivera kapslad virtualisering
@@ -959,7 +959,7 @@
         - name: Använda accelererat nätverk
           href: ../../virtual-network/create-vm-accelerated-networking-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Tilldela offentligt DNS-namn
-          href: portal-create-fqdn.md
+          href: ../create-fqdn.md
         - name: DNS-upplösning
           href: ../../dns/dns-for-azure-services.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Konfigurera hanterade identiteter

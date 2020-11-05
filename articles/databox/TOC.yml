@@ -127,6 +127,7 @@
           items:
             - name: Konfiguration – Azure-portalen
               href: data-box-disk-quickstart-portal.md
+              displayName: 'Azure CLI, az databox job create, create Data Box job'
         - name: Självstudier
           items:
             - name: 1 – Beställ
@@ -177,6 +178,7 @@
           items:
             - name: Konfiguration – Azure-portalen
               href: data-box-heavy-quickstart-portal.md
+              displayName: 'Azure CLI, az databox job create, create Data Box job'
         - name: Självstudier
           items:
             - name: 1 – Beställ

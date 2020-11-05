@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 7bb38824f2071e2575877940795f9b90a2a384b4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 57b6bac49f0142b008a21accfffb614453cc6aec
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325769"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358158"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Skicka frågor till Azure Digitals dubbla grafer
 
@@ -154,21 +154,19 @@ AND T.Temperature = 70
 Du kan också skapa dubbla baserat på **om en viss egenskap har definierats**. Här är en fråga som hämtar dubbla med en definierad *plats* egenskap:
 
 ```sql
-SELECT *
-FROM DIGITALTWINS WHERE IS_DEFINED(Location)
+SELECT * FROM DIGITALTWINS WHERE IS_DEFINED(Location)
 ```
 
 Detta kan hjälpa dig att få en upplösning med hjälp av taggarnas *egenskaper,* enligt beskrivningen i [lägga till taggar till digitala dubbla](how-to-use-tags.md). Här är en fråga som hämtar alla dubbla Taggar med *rött* :
 
 ```sql
-select * from digitaltwins where is_defined(tags.red)
+SELECT * FROM DIGITALTWINS WHERE IS_DEFINED(tags.red)
 ```
 
 Du kan också få dubbla baserat på **typen av egenskap**. Här är en fråga som sammanfaller vars *temperatur* egenskap är ett tal:
 
 ```sql
-SELECT * FROM DIGITALTWINS T
-WHERE IS_NUMBER(T.Temperature)
+SELECT * FROM DIGITALTWINS T WHERE IS_NUMBER(T.Temperature)
 ```
 
 ### <a name="query-by-model"></a>Fråga efter modell

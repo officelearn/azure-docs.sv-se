@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/01/2017
+ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4683a77b9467775fbe368e2017416e0fbff9718c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0769366ad56e1b7431dbfa7c95f1256c509d24fa
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266297"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358175"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Använda hanterade identiteter för Azure-resurser på en virtuell Azure-dator för att hämta en åtkomsttoken 
 
@@ -64,7 +64,7 @@ Ett klient program kan begära hanterade identiteter för Azure-resurser [endast
 
 Det grundläggande gränssnittet för att förvärva en åtkomsttoken baseras på REST, vilket gör det tillgängligt för alla klient program som körs på den virtuella datorn och som kan göra HTTP REST-anrop. Detta liknar programmerings modellen för Azure AD, förutom att klienten använder en slut punkt på den virtuella datorn (jämfört med en Azure AD-slutpunkt).
 
-Exempel förfrågan med hjälp av Azure Instance Metadata Service (IMDS)-slut punkten *(rekommenderas)*:
+Exempel förfrågan med hjälp av Azure Instance Metadata Service (IMDS)-slut punkten *(rekommenderas)* :
 
 ```
 GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' HTTP/1.1 Metadata: true
@@ -81,7 +81,7 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 | `client_id` | Valfritt En frågesträngparametern, som anger client_id för den hanterade identitet som du vill ha token för. Krävs om den virtuella datorn har flera användare tilldelade hanterade identiteter.|
 | `mi_res_id` | Valfritt En frågesträngparametern, som anger mi_res_id (Azure-resurs-ID) för den hanterade identitet som du vill ha token för. Krävs om den virtuella datorn har flera användare tilldelade hanterade identiteter. |
 
-Exempel förfrågan som använder hanterade identiteter för VM-tillägget för virtuella Azure *-resurser (planerat för utfasning i januari 2019)*:
+Exempel förfrågan som använder hanterade identiteter för VM-tillägget för virtuella Azure *-resurser (planerat för utfasning i januari 2019)* :
 
 ```http
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1

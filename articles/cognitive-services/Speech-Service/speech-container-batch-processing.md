@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/22/2020
 ms.author: aahi
-ms.openlocfilehash: a3b2a9db688104c168017863910745427a3a68f9
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 80e0de73bbeae2ee1a79199fde34a3c430959ac8
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425797"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356713"
 ---
 # <a name="batch-processing-kit-for-speech-containers"></a>Batch bearbetnings paket för tal behållare
 
@@ -106,7 +106,7 @@ Batch bearbetnings paketet innehåller tre lägen med hjälp av- `--run-mode` pa
 
 `ONESHOT` läget beskrivar en enda batch med ljudfiler (från en inmatnings katalog och valfri fil lista) till en mapp för utdata.
 
-:::image type="content" source="media/containers/batch-oneshot-mode.png" alt-text="Ett diagram som visar ett exempel på ett arbets flöde för batch-kit-behållare.":::
+:::image type="content" source="media/containers/batch-oneshot-mode.png" alt-text="Ett diagram som visar bearbetnings filen för batch-kit-behållaren i OneShot-läge.":::
 
 1. Definiera de tal behållare slut punkter som batch-klienten ska använda i `config.yaml` filen. 
 2. Placera ljudfiler för avskrift i en indatafil.  
@@ -121,7 +121,7 @@ Batch bearbetnings paketet innehåller tre lägen med hjälp av- `--run-mode` pa
 
 `DAEMON` läget beskrivar befintliga filer i en specifik mapp och beskrivar kontinuerligt nya ljudfiler när de läggs till.          
 
-:::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="Ett diagram som visar ett exempel på ett arbets flöde för batch-kit-behållare.":::
+:::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="Ett diagram som visar bearbetnings filen för batch-paket behållare i daemon-läge.":::
 
 1. Definiera de tal behållare slut punkter som batch-klienten ska använda i `config.yaml` filen. 
 2. Anropa behållaren i en indatamängds katalog. Batch-klienten börjar övervaka katalogen för inkommande filer. 
@@ -134,7 +134,7 @@ Batch bearbetnings paketet innehåller tre lägen med hjälp av- `--run-mode` pa
 
 `REST` mode är ett API-serverinställningar som tillhandahåller en grundläggande uppsättning HTTP-slutpunkter för att skicka ljud filens batch, status kontroll och lång avsökning. Aktiverar även programmatisk användning med hjälp av en python-moduls tillägg eller importera som en undermodul.
 
-:::image type="content" source="media/containers/batch-rest-api-mode.png" alt-text="Ett diagram som visar ett exempel på ett arbets flöde för batch-kit-behållare.":::
+:::image type="content" source="media/containers/batch-rest-api-mode.png" alt-text="Ett diagram som visar bearbetnings filen för batch-kit-behållaren i REST-läge.":::
 
 1. Definiera de tal behållare slut punkter som batch-klienten ska använda i `config.yaml` filen. 
 2. Skicka en begäran om HTTP-begäran till en av API-serverns slut punkter. 
@@ -158,7 +158,7 @@ Batch bearbetnings paketet innehåller tre lägen med hjälp av- `--run-mode` pa
 
 Klienten skapar en *Kör. log* -fil i den katalog som anges av `-log_folder` argumentet i Docker- `run` kommandot. Loggarna fångas in på fel SÖKNINGs nivå som standard. Samma loggar skickas till `stdout/stderr` och filtreras beroende på `-log_level` argumentet. Den här loggen krävs bara för fel sökning eller om du behöver skicka en spårning för support. Mappen loggning innehåller också tal-SDK-loggarna för varje ljudfil.
 
-Den utgående katalogen som anges av `-output_folder` kommer att innehålla en *run_summary.jspå*en   fil, som regelbundet skrivs om var 30: e sekund eller när nya avskrifter är klara. Du kan använda den här filen för att kontrol lera förloppet när batchen fortsätter. Den kommer också att innehålla den slutliga körnings statistiken och den slutliga statusen för varje fil när batchen har slutförts. Batchen slutförs när processen har en ren avslut. 
+Den utgående katalogen som anges av `-output_folder` kommer att innehålla en *run_summary.jspå* en   fil, som regelbundet skrivs om var 30: e sekund eller när nya avskrifter är klara. Du kan använda den här filen för att kontrol lera förloppet när batchen fortsätter. Den kommer också att innehålla den slutliga körnings statistiken och den slutliga statusen för varje fil när batchen har slutförts. Batchen slutförs när processen har en ren avslut. 
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -10,19 +10,19 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/09/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq2
-ms.openlocfilehash: 681e965d5fb64e35374b580cbbb238defd619492
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, contperfq2, automl
+ms.openlocfilehash: fcbe0fc5049f6e892f80f048a885c75420bc636e
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311481"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359093"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Utvärdera resultat från automatiska maskin inlärnings experiment
 
-I den här artikeln får du lära dig hur du visar och utvärderar resultaten från din automatiserade maskin inlärning, AutoML, experiment. Experimenten består av flera körningar, där varje körning skapar en modell. För att hjälpa dig att utvärdera varje modell genererar AutoML automatiskt prestanda mått och diagram som är speciella för din experiment typ. 
+I den här artikeln lär du dig att visa och utvärdera resultaten av din automatiserade maskin inlärning, automatiserade ML-experiment. Experimenten består av flera körningar, där varje körning skapar en modell. För att hjälpa dig att utvärdera varje modell genererar automatiserade ML automatiskt prestanda mått och diagram som är speciella för din experiment typ. 
 
-AutoML tillhandahåller till exempel olika diagram för klassificerings-och Regressions modeller. 
+Till exempel tillhandahåller automatiserad ML olika diagram för klassificerings-och Regressions modeller. 
 
 |Klassificering|Regression
 |---|---|
@@ -61,7 +61,7 @@ Visa körnings historik och modell prestanda mått och diagram i Studio:
 
 ## <a name="classification-performance-metrics"></a>Klassificering av prestanda mått
 
-I följande tabell sammanfattas de modell prestanda mått som AutoML beräknar för varje klassificerings modell som genereras för experimentet. 
+I följande tabell sammanfattas de modell prestanda mått som automatiserade ML beräknar för varje klassificerings modell som genereras för experimentet. 
 
 Mått|Beskrivning|Beräkning|Extra parametrar
 --|--|--|--
@@ -88,7 +88,7 @@ weighted_accuracy|Viktad noggrannhet är exakthet där vikten för varje exempel
 
 ### <a name="binary-vs-multiclass-metrics"></a>Egenskaper för binär vs. multiklass
 
-AutoML skiljer sig inte mellan binära och multiklass-mått. Samma verifierings mått rapporteras om en data uppsättning har två klasser eller fler än två klasser. Vissa mått är dock avsedda för klassificering av flera klasser. När dessa mått används i en binär data uppsättning, kommer dessa mått inte att behandla någon klass som `true` klass, vilket kan förväntas. Mått som är tydligt avsedda för multiklassen är suffix till `micro` , `macro` eller `weighted` . Exempel:,,, `average_precision_score` `f1_score` `precision_score` `recall_score` och `AUC` .
+Automatisk ML särskiljer inte mellan binära och multiklassiga mått. Samma verifierings mått rapporteras om en data uppsättning har två klasser eller fler än två klasser. Vissa mått är dock avsedda för klassificering av flera klasser. När dessa mått används i en binär data uppsättning, kommer dessa mått inte att behandla någon klass som `true` klass, vilket kan förväntas. Mått som är tydligt avsedda för multiklassen är suffix till `micro` , `macro` eller `weighted` . Exempel:,,, `average_precision_score` `f1_score` `precision_score` `recall_score` och `AUC` .
 
 Till exempel, i stället för att beräkna återkalla som, Genomsnittligt `tp / (tp + fn)` återställnings genomsnitt för flera `micro` `macro` `weighted` klasser över båda klasserna av en binär klassificerings data uppsättning. Detta motsvarar att beräkna återkallningen för `true` klassen och `false` klassen separat, och sedan ta medelvärdet av de två.
 
@@ -209,7 +209,7 @@ En väl kalibrerad modell justeras mot y = x-raden, där den beräknar sannolikh
 
 ## <a name="regression-performance-metrics"></a>Regressions prestanda mått
 
-I följande tabell sammanfattas de modell prestanda mått som AutoML beräknar för varje Regressions-eller prognos modell som genereras för experimentet. 
+I följande tabell sammanfattas modell prestanda måtten som automatiserade ML beräknar för varje Regressions-eller prognos modell som genereras för experimentet. 
 
 |Mått|Beskrivning|Beräkning|Extra parametrar
 --|--|--|--|

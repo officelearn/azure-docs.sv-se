@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: c62d1a0b17fda2531a963c292fbd16aaf3a551b3
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: a1fc5be93e2b9729838aa9fb3a777936003c5f45
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145998"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356401"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Förstå digitala sammanflätade och deras dubbla diagram
 
-I en Azure digital-lösning för dubbla lösningar representeras entiteterna i din miljö av Azures **digitala dubbla** . En digital, dubbel är en instans av en av dina anpassade [modeller](concepts-models.md). Det kan anslutas till andra digitala dubbla nätverk via **relationer** för att bilda ett sammanslaget **diagram** : det här dubbla diagrammet är en representation av hela miljön.
+I en Azure digital-lösning för dubbla lösningar representeras entiteterna i din miljö av Azures **digitala dubbla**. En digital, dubbel är en instans av en av dina anpassade [modeller](concepts-models.md). Det kan anslutas till andra digitala dubbla nätverk via **relationer** för att bilda ett sammanslaget **diagram** : det här dubbla diagrammet är en representation av hela miljön.
 
 > [!TIP]
 > "Azure Digital-dubbla" syftar på den här Azure-tjänsten som helhet. "Digitals dubbla (s)" eller "dubbla (s)" syftar på enskilda dubbla noder i din instans av tjänsten.
@@ -31,7 +31,7 @@ När du har skapat och laddat upp en modell kan ditt klient program skapa en ins
 
 Dubbla är anslutna till ett dubbel diagram av deras relationer. Relationerna som en snöre kan ha definieras som en del av modellen.  
 
-Modell *ytan* kan till exempel definiera en *contains* -relation som är riktad mot varandra av typen *Room* . Med den här definitionen kan du med hjälp av Azure Digitals dubbla sammanhållen *skapa relationer* från valfri *våning* till *rummets* dubbla (inklusive dubbla som är av *Room* -undertyper). 
+Modell *ytan* kan till exempel definiera en *contains* -relation som är riktad mot varandra av typen *Room*. Med den här definitionen kan du med hjälp av Azure Digitals dubbla sammanhållen *skapa relationer* från valfri *våning* till *rummets* dubbla (inklusive dubbla som är av *Room* -undertyper). 
 
 Resultatet av den här processen är en uppsättning noder (de digitala dubbla) som är anslutna via gränser (deras relationer) i ett diagram.
 
@@ -43,20 +43,20 @@ Det här avsnittet visar hur det ser ut för att skapa digitala dubbla objekt oc
 
 ### <a name="create-digital-twins"></a>Skapa digitala dubbla
 
-Nedan visas ett fragment med klient koden som använder [DigitalTwins-API: er](/rest/api/digital-twins/dataplane/twins) för att instansiera ett garn av typen *Room* .
+Nedan visas ett fragment med klient koden som använder [DigitalTwins-API: er](/rest/api/digital-twins/dataplane/twins) för att instansiera ett garn av typen *Room*.
 
 Du kan initiera egenskaperna för en dubbel när den har skapats, eller ange dem senare. Om du vill skapa en dubbla med initierade egenskaper skapar du ett JSON-dokument som innehåller de nödvändiga initierings värdena.
 
 [!INCLUDE [Azure Digital Twins code: create twin](../../includes/digital-twins-code-create-twin.md)]
 
-Du kan också använda en hjälp klass som kallas `BasicDigitalTwin` för att lagra egenskaps fält i ett "" dubbla "objekt mer direkt, som ett alternativ till att använda en ord lista. Mer information om hjälp klassen och exempel på hur det används finns i avsnittet [*skapa en digital*](how-to-manage-twin.md#create-a-digital-twin) enhet med *anvisningar: hantera digitala dubbla* .
+Du kan också använda en hjälp klass som kallas `BasicDigitalTwin` för att lagra egenskaps fält i ett "" dubbla "objekt mer direkt, som ett alternativ till att använda en ord lista. Mer information om hjälp klassen och exempel på hur det används finns i avsnittet [*skapa en digital*](how-to-manage-twin.md#create-a-digital-twin) enhet med *anvisningar: hantera digitala dubbla*.
 
 >[!NOTE]
 >Även om dubbla egenskaper behandlas som valfria och därför inte behöver initieras, måste alla [komponenter](concepts-models.md#elements-of-a-model) på **den dubbla anges** när den skapas. De kan vara tomma objekt, men själva komponenterna måste finnas.
 
 ### <a name="create-relationships"></a>Skapa relationer
 
-Här är ett exempel på en klient kod som använder [DigitalTwins-API: er](/rest/api/digital-twins/dataplane/twins) för att bygga en relation mellan en *vånings* typ, Digital, som kallas *GroundFloor* och en av *rums* typen digital, som kallas *Cafe* .
+Här är ett exempel på en klient kod som använder [DigitalTwins-API: er](/rest/api/digital-twins/dataplane/twins) för att bygga en relation mellan en *vånings* typ, Digital, som kallas *GroundFloor* och en av *rums* typen digital, som kallas *Cafe*.
 
 ```csharp
 // Create Twins, using functions similar to the previous sample
@@ -71,7 +71,7 @@ var relationship = new BasicRelationship
 try
 {
     string relId = $"GroundFloor-contains-Cafe";
-    await client.CreateOrReplaceRelationshipAsync("GroundFloor", relId, relationship);
+    await client.CreateOrReplaceRelationshipAsync<BasicRelationship>("GroundFloor", relId, relationship);
 } catch(ErrorResponseException e)
 {
     Console.WriteLine($"*** Error creating relationship: {e.Response.StatusCode}");

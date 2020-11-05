@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c1734af799ee473d6ba75fe2e8ab8429afa51d0
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: f6c30dffbc8f97273ee59ce33ae3fe75ed730763
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318199"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356645"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Skapa ett nytt Access-paket i hantering av Azure AD-berättigande
 
@@ -57,17 +57,17 @@ Här följer de övergripande stegen för att skapa ett nytt Access-paket.
 
 **Nödvändig roll:** Global administratör, användar administratör, katalog ägare eller åtkomst till paket hanteraren
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in i [Azure-portalen](https://portal.azure.com).
 
 1. Klicka på **Azure Active Directory** och klicka sedan på **identitets styrning**.
 
-1. Klicka på **åtkomst paket**på den vänstra menyn.
+1. Klicka på **åtkomst paket** på den vänstra menyn.
 
 1. Klicka på **nytt Access-paket**.
    
     ![Hantering av rättigheter i Azure Portal](./media/entitlement-management-shared/access-packages-list.png)
 
-## <a name="basics"></a>Grundläggande inställningar
+## <a name="basics"></a>Grunder
 
 På fliken **grundläggande** ger du åtkomst paketet ett namn och anger vilken katalog som du vill skapa åtkomst paketet i.
 
@@ -89,7 +89,7 @@ På fliken **grundläggande** ger du åtkomst paketet ett namn och anger vilken 
 
 På fliken **resurs roller** väljer du de resurser som du vill ta med i åtkomst paketet. Användare som begär och tar emot åtkomst paketet får alla resurs roller i åtkomst paketet.
 
-1. Klicka på den resurs typ som du vill lägga till (**grupper och team**, **program**eller **SharePoint-platser**).
+1. Klicka på den resurs typ som du vill lägga till ( **grupper och team** , **program** eller **SharePoint-platser** ).
 
 1. I fönstret Välj som visas väljer du en eller flera resurser i listan.
 
@@ -125,7 +125,7 @@ På fliken **Granska + skapa** kan du granska dina inställningar och kontrol le
 
 1. Granska åtkomst paketets inställningar
 
-    ![Åtkomst paket-princip-aktivera princip inställning](./media/entitlement-management-access-package-create/review-create.png)
+    ![Åtkomst paket – aktivera princip inställning](./media/entitlement-management-access-package-create/review-create.png)
 
 1. Skapa åtkomst paketet genom att klicka på **skapa** .
 

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/03/2020
+ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: d6df94cca46d82c3e066779cd28584c84f12fbce
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 3b9f744e414e83c103f6b9249a0ccf5020588463
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339443"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356356"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publicera din app i Azure AD App-galleriet
 
@@ -69,7 +69,7 @@ Stegen för att publicera din app i Azure AD App-galleriet är:
 - Ömsesidiga kunder får en steg-för-steg-konfigurations guide.
 - Kunder som använder systemet för[scim](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)(Cross-Domain Identity Management) kan använda etablering för samma app.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver ett permanent konto för testning med minst två användare registrerade.
 
@@ -97,6 +97,7 @@ I följande tabell jämförs huvud standarder: Open Authentication 2,0 (OAuth 2,
 | Mobil-baserad enkel utloggning| √| √* |
 | Principer för villkorlig åtkomst för mobila program| √| X |
 | Sömlös MFA-upplevelse för mobila program| √| X |
+| SCIM-etablering| √| √ |
 | Åtkomst Microsoft Graph| √| X |
 
 * Möjligt, men Microsoft tillhandahåller inte exempel eller rikt linjer.
@@ -261,7 +262,7 @@ Om du vill lägga till ditt program i listan i galleriet med hjälp av lösen or
 
 ![Visar en lista med ett SSO-program i galleriet](./media/howto-app-gallery-listing/passwordsso.png)
 
-Om du implementerar en SCIM 2,0-slutpunkt för användar etablering väljer du alternativet som visas. 
+Om du implementerar en [SCIM](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups) 2,0-slutpunkt för användar etablering väljer du alternativet som visas. 
 
    ![Begäran om användar etablering](./media/howto-app-gallery-listing/user-provisioning.png)
 

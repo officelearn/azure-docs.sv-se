@@ -6,18 +6,18 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.custom: how-to, devx-track-python, data4ml
 ms.author: iefedore
 author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 8f229c52b62c740c9d955f745a6922e59163b907
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: fe2f35708f6a148f8db9ef6fd0a598e19e746fbd
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348567"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358634"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>DevOps i en pipeline för datainmatning
 
@@ -211,18 +211,18 @@ Värdena i JSON-filen är standardvärden som kon figurer ATS i pipeline-definit
 
 Den kontinuerliga leverans processen tar artefakterna och distribuerar dem till den första mål miljön. Det säkerställer att lösningen fungerar genom att köra tester. Om det lyckas fortsätter den till nästa miljö. 
 
-CD-pipeline för Azure består av flera steg som representerar miljöerna. Varje steg innehåller [distributioner](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) och [jobb](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops) som utför följande steg:
+CD-pipeline för Azure består av flera steg som representerar miljöerna. Varje steg innehåller [distributioner](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops&preserve-view=true) och [jobb](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops&preserve-view=true) som utför följande steg:
 
 _ Distribuera en python-anteckningsbok till Azure Databricks arbets ytan
 * Distribuera en Azure Data Factory pipeline 
 * Köra en pipeline
 * Kontrol lera resultatet av data inmatningen
 
-Pipeline-stegen kan konfigureras med [godkännanden](/azure/devops/pipelines/process/approvals?tabs=check-pass&view=azure-devops) och [portar](/azure/devops/pipelines/release/approvals/gates?view=azure-devops) som ger ytterligare kontroll över hur distributions processen utvecklas genom en kedja av miljöer.
+Pipeline-stegen kan konfigureras med [godkännanden](/azure/devops/pipelines/process/approvals?tabs=check-pass&view=azure-devops&preserve-view=true) och [portar](/azure/devops/pipelines/release/approvals/gates?view=azure-devops&preserve-view=true) som ger ytterligare kontroll över hur distributions processen utvecklas genom en kedja av miljöer.
 
 ### <a name="deploy-a-python-notebook"></a>Distribuera en python-anteckningsbok
 
-Följande kodfragment definierar en Azure pipeline- [distribution](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) som kopierar en python-anteckningsbok till ett Databricks-kluster:
+Följande kodfragment definierar en Azure pipeline- [distribution](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops&preserve-view=true) som kopierar en python-anteckningsbok till ett Databricks-kluster:
 
 ```yaml
 - stage: 'Deploy_to_QA'
@@ -258,7 +258,7 @@ Följande kodfragment definierar en Azure pipeline- [distribution](/azure/devops
               displayName: 'Deploy (copy) data processing notebook to the Databricks cluster'       
 ```            
 
-Artefakterna som skapas av CI kopieras automatiskt till distributions agenten och är tillgängliga i `$(Pipeline.Workspace)` mappen. I det här fallet refererar distributions aktiviteten till `di-notebooks` artefakten som innehåller python-anteckningsboken. I den här [distributionen](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) används [Databricks Azure DevOps-tillägget](https://marketplace.visualstudio.com/items?itemName=riserrad.azdo-databricks) för att kopiera Notebook-filerna till Databricks-arbetsytan.
+Artefakterna som skapas av CI kopieras automatiskt till distributions agenten och är tillgängliga i `$(Pipeline.Workspace)` mappen. I det här fallet refererar distributions aktiviteten till `di-notebooks` artefakten som innehåller python-anteckningsboken. I den här [distributionen](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops&preserve-view=true) används [Databricks Azure DevOps-tillägget](https://marketplace.visualstudio.com/items?itemName=riserrad.azdo-databricks) för att kopiera Notebook-filerna till Databricks-arbetsytan.
 
 `Deploy_to_QA`Fasen innehåller en referens till `devops-ds-qa-vg` variabel gruppen som definierats i Azure DevOps-projektet. Stegen i det här steget avser variablerna från den här variabel gruppen (till exempel `$(DATABRICKS_URL)` och `$(DATABRICKS_TOKEN)` ). Idén är att nästa steg (t. ex. `Deploy_to_UAT` ) fungerar med samma variabel namn som definierats i en egen UAT variabel grupp.
 
@@ -339,7 +339,7 @@ Den fullständiga CI/CD-pipeline för Azure består av följande steg: _ CI
     * Distribuera till Databricks + distribuera till ADF
     * Integrations test
 
-Det innehåller ett antal * **distribuera** _-steg som motsvarar antalet mål miljöer som du har. Varje _*_distributions_*_ steg innehåller två [distributioner](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) som körs parallellt och ett [jobb](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops) som körs efter distributionen för att testa lösningen i miljön.
+Det innehåller ett antal * **distribuera** _-steg som motsvarar antalet mål miljöer som du har. Varje _*_distributions_*_ steg innehåller två [distributioner](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops&preserve-view=true) som körs parallellt och ett [jobb](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops&preserve-view=true) som körs efter distributionen för att testa lösningen i miljön.
 
 En exempel implementering av pipelinen monteras i följande _*_yaml_*_ -kodfragment:
 

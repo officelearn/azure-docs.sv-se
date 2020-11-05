@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: f1da7149a41ec8dd08e307394cba3e7feabec42a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 02772ff6279ee813b86f92984742ba8301bdf74e
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320716"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357954"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Återskapa åtkomst nycklar för lagrings kontot
 
@@ -26,7 +26,8 @@ Lär dig hur du ändrar åtkomst nycklarna för Azure Storage konton som använd
 Av säkerhets synpunkt kan du behöva ändra åtkomst nycklarna för ett Azure Storage-konto. När du återskapar åtkomst nyckeln måste Azure Machine Learning uppdateras för att använda den nya nyckeln. Azure Machine Learning kan använda lagrings kontot för både modell lagring och som ett data lager.
 
 > [!IMPORTANT]
-> Autentiseringsuppgifterna som registreras med data lager sparas i Azure Key Vault som är kopplade till arbets ytan. Om du har [mjuk borttagning](../key-vault/general/soft-delete-overview.md) aktiverat för din Key Vault, se till att följa den här artikeln för att uppdatera autentiseringsuppgifter. Det går inte att avregistrera data lagret och omregistrera det med samma namn.
+
+> Autentiseringsuppgifterna som registrerats med data lager sparas i Azure Key Vault som är kopplade till arbets ytan. Om du har [mjuk borttagning](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview) aktiverat för din Key Vault innehåller den här artikeln instruktioner för att uppdatera autentiseringsuppgifter. Om du avregistrerar data lagret och försöker registrera det igen med samma namn, kommer den här åtgärden att Miss Miss läge. Se [Aktivera mjuk borttagning för ett befintligt nyckel valv]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault) för att aktivera mjuk borttagning i det här scenariot.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

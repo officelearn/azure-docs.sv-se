@@ -6,12 +6,13 @@ ms.topic: quickstart
 ms.date: 08/01/2020
 ms.custom: mvc, devcenter, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: f105acaa4e2801ca6dc8c33b404fdb9f9d65adc8
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+adobe-target: true
+ms.openlocfilehash: b42abfda863ed38eb3c29004630f905edef075c4
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92633730"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359110"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Skapa en Node.js-webbapp i Azure
 
@@ -70,7 +71,7 @@ I det här avsnittet ska du distribuera din Node.js-app till Azure med VS Code o
 
 1. I **Azure App Service** Explorer med vs Code väljer du ikonen blå UPPIL för att distribuera appen till Azure. (Du kan också anropa samma kommando från **kommando rads verktyget** ( **CTRL** + **Shift** + **P** ) genom att skriva "distribuera till webbapp" och välja **Azure App Service: distribuera till Web App** ).
 
-    :::image type="content" source="media/quickstart-nodejs/deploy.png" alt-text="Skärm bild av Azure App tjänsten i VS Code som visar den blå pilens ikon vald.&quot;:::
+    :::image type="content" source="media/quickstart-nodejs/deploy.png" alt-text="Skärm bild av Azure App tjänsten i VS Code som visar den blå pilens ikon vald.":::
         
 1. Välj mappen *NodeJS-dok-Hello-World* .
 
@@ -79,7 +80,7 @@ I det här avsnittet ska du distribuera din Node.js-app till Azure med VS Code o
     - Linux: Välj **Skapa ny webbapp**
     - Windows: Välj **Skapa ny webbapp... Avancerad**
 
-1. Ange ett globalt unikt namn för din webbapp och tryck på **RETUR** . Namnet måste vara unikt för alla Azure och använder endast alfanumeriska tecken (&quot;A-Z&quot;, &quot;a-z&quot; och &quot;0-9&quot;) och bindestreck (-).
+1. Ange ett globalt unikt namn för din webbapp och tryck på **RETUR**. Namnet måste vara unikt för alla Azure och använder endast alfanumeriska tecken ("A-Z", "a-z" och "0-9") och bindestreck (-).
 
 1. Om du anger Linux-mål väljer du en Node.js version när du uppmanas till det. En **LTS** -version rekommenderas.
 
@@ -96,9 +97,9 @@ I det här avsnittet ska du distribuera din Node.js-app till Azure med VS Code o
 
     ![Prompt för att uppdatera konfigurationen på mål servern för Linux](media/quickstart-nodejs/server-build.png)
 
-1. Välj **Ja** när du uppmanas **att alltid distribuera arbets ytan &quot;NodeJS-dok-Hello-World&quot; till (App Name) &quot;** . Välj **Ja** om du vill att vs-kod automatiskt ska rikta in samma app service-webbapp med efterföljande distributioner.
+1. Välj **Ja** när du uppmanas **att alltid distribuera arbets ytan "NodeJS-dok-Hello-World" till (App Name) "**. Välj **Ja** om du vill att vs-kod automatiskt ska rikta in samma app service-webbapp med efterföljande distributioner.
 
-1. Om du distribuerar till Linux väljer du **Bläddra på webbplats** i prompten för att visa din nyligen distribuerade webbapp när distributionen är klar. Webbläsaren ska Visa &quot;Hello World!"
+1. Om du distribuerar till Linux väljer du **Bläddra på webbplats** i prompten för att visa din nyligen distribuerade webbapp när distributionen är klar. Webbläsaren ska Visa "Hello World!"
 
 1. Om du distribuerar till Windows måste du först ange Node.js versions nummer för webbappen:
 
@@ -112,7 +113,7 @@ I det här avsnittet ska du distribuera din Node.js-app till Azure med VS Code o
 
         ![Starta om App Service-kommando](media/quickstart-nodejs/restart.png)
 
-    1. Högerklicka på noden för App Service en gång till och välj **Bläddra webbplats** .
+    1. Högerklicka på noden för App Service en gång till och välj **Bläddra webbplats**.
 
 > [!div class="nextstepaction"]
 > [Jag stötte på ett problem](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=deploy-app)
@@ -136,41 +137,13 @@ Du kan distribuera ändringar i den här appen genom att göra redigeringar i VS
 
 Du kan visa loggens utdata (anrop till `console.log` ) från appen direkt i fönstret vs-kod.
 
-1. I **Azure App Service** Explorer högerklickar du på noden app och väljer **Starta strömmande loggar** .
+1. I **Azure App Service** Explorer högerklickar du på noden app och väljer **Starta strömmande loggar**.
 
     ![Starta strömmande loggar](media/quickstart-nodejs/view-logs.png)
 
 1. När du uppmanas väljer du att aktivera loggning och starta om programmet. När appen har startats om öppnas VS Code-utdatafönstret med en anslutning till logg strömmen. 
 
-    :::image type="content" source="media/quickstart-nodejs/enable-restart.png" alt-text="Skärm bild av Azure App tjänsten i VS Code som visar den blå pilens ikon vald.&quot;:::
-        
-1. Välj mappen *NodeJS-dok-Hello-World* .
-
-1. Välj ett alternativ för att skapa baserat på det operativ system som du vill distribuera till:
-
-    - Linux: Välj **Skapa ny webbapp**
-    - Windows: Välj **Skapa ny webbapp... Avancerad**
-
-1. Ange ett globalt unikt namn för din webbapp och tryck på **RETUR** . Namnet måste vara unikt för alla Azure och använder endast alfanumeriska tecken (&quot;A-Z&quot;, &quot;a-z&quot; och &quot;0-9&quot;) och bindestreck (-).
-
-1. Om du anger Linux-mål väljer du en Node.js version när du uppmanas till det. En **LTS** -version rekommenderas.
-
-1. Om du riktar in dig på Windows följer du ytterligare prompter:
-    1. Välj **skapa en ny resurs grupp** och ange sedan ett namn för resurs gruppen, till exempel `AppServiceQS-rg` .
-    1. Välj **Windows** för operativ systemet.
-    1. Välj **Skapa ny app service plan** och ange sedan ett namn för planen (till exempel `AppServiceQS-plan` ) och välj **F1 kostnads fritt** för pris nivån.
-    1. Välj **hoppa över för tillfället** när du tillfrågas om Application Insights.
-    1. Välj en region nära dig eller nära resurser som du vill ha åtkomst till.
-
-1. När du har svarat på alla prompter visar VS Code de Azure-resurser som skapas för din app i popup-fönstret för meddelanden.
-
-    När du distribuerar till Linux väljer du **Ja** när du uppmanas att uppdatera konfigurationen så att den körs `npm install` på mål-Linux-servern.
-
-    ![Prompt för att uppdatera konfigurationen på mål servern för Linux](media/quickstart-nodejs/server-build.png)
-
-1. Välj **Ja** när du uppmanas **att alltid distribuera arbets ytan &quot;NodeJS-dok-Hello-World&quot; till (App Name) &quot;** . Välj **Ja** om du vill att vs-kod automatiskt ska rikta in samma app service-webbapp med efterföljande distributioner.
-
-1. Om du distribuerar till Linux väljer du **Bläddra på webbplats** i prompten för att visa din nyligen distribuerade webbapp när distributionen är klar. Webbläsaren ska Visa &quot;Hello World!":::
+    :::image type="content" source="media/quickstart-nodejs/enable-restart.png" alt-text="Skärm bild av Visual Studio Code-prompten för att aktivera loggning och starta om programmet med knappen Ja markerat.":::
 
 1. Efter några sekunder visar utdatafönstret ett meddelande som anger att du är ansluten till logg strömnings tjänsten. Du kan generera fler utdata-aktiviteter genom att uppdatera sidan i webbläsaren.
 
@@ -292,35 +265,16 @@ code .
 
 I **Azure App Service** Explorer väljer du ikonen blå UPPIL för att distribuera appen till Azure.
 
-:::image type="content" source="./media/quickstart-nodejs/deploy.png" alt-text="Skärm bild av Azure App tjänsten i VS Code som visar den blå pilens ikon vald.&quot;:::
-        
-1. Välj mappen *NodeJS-dok-Hello-World* .
+:::image type="content" source="./media/quickstart-nodejs/deploy.png" alt-text="Skärm bild av Azure App Service menyn i Visual Studio Code med pilen blå distribution vald.":::
 
-1. Välj ett alternativ för att skapa baserat på det operativ system som du vill distribuera till:
+> [!TIP]
+> Du kan också distribuera från **kommando paletten** (Ctrl + Shift + P) genom att skriva "distribuera till webbapp" och köra kommandot **Azure App Service: distribuera till** webbapp.
 
-    - Linux: Välj **Skapa ny webbapp**
-    - Windows: Välj **Skapa ny webbapp... Avancerad**
+1. Välj den katalog som för närvarande är öppen `myExpressApp` .
 
-1. Ange ett globalt unikt namn för din webbapp och tryck på **RETUR** . Namnet måste vara unikt för alla Azure och använder endast alfanumeriska tecken (&quot;A-Z&quot;, &quot;a-z&quot; och &quot;0-9&quot;) och bindestreck (-).
+1. Välj **Skapa ny webbapp** , som distribueras till App Service på Linux som standard.
 
-1. Om du anger Linux-mål väljer du en Node.js version när du uppmanas till det. En **LTS** -version rekommenderas.
-
-1. Om du riktar in dig på Windows följer du ytterligare prompter:
-    1. Välj **skapa en ny resurs grupp** och ange sedan ett namn för resurs gruppen, till exempel `AppServiceQS-rg` .
-    1. Välj **Windows** för operativ systemet.
-    1. Välj **Skapa ny app service plan** och ange sedan ett namn för planen (till exempel `AppServiceQS-plan` ) och välj **F1 kostnads fritt** för pris nivån.
-    1. Välj **hoppa över för tillfället** när du tillfrågas om Application Insights.
-    1. Välj en region nära dig eller nära resurser som du vill ha åtkomst till.
-
-1. När du har svarat på alla prompter visar VS Code de Azure-resurser som skapas för din app i popup-fönstret för meddelanden.
-
-    När du distribuerar till Linux väljer du **Ja** när du uppmanas att uppdatera konfigurationen så att den körs `npm install` på mål-Linux-servern.
-
-    ![Prompt för att uppdatera konfigurationen på mål servern för Linux](media/quickstart-nodejs/server-build.png)
-
-1. Välj **Ja** när du uppmanas **att alltid distribuera arbets ytan &quot;NodeJS-dok-Hello-World&quot; till (App Name) &quot;** . Välj **Ja** om du vill att vs-kod automatiskt ska rikta in samma app service-webbapp med efterföljande distributioner.
-
-1. Om du distribuerar till Linux väljer du **Bläddra på webbplats** i prompten för att visa din nyligen distribuerade webbapp när distributionen är klar. Webbläsaren ska Visa &quot;Hello World!" och "-".
+1. Ange ett globalt unikt namn för din webbapp och tryck på RETUR. Giltiga tecken för ett app-namn är "a-z", "0-9" och "-".
 
 1. Välj din **Node.js-version** , LTS rekommenderas.
 
@@ -328,67 +282,11 @@ I **Azure App Service** Explorer väljer du ikonen blå UPPIL för att distribue
 
 1. Välj **Ja** när du uppmanas att uppdatera konfigurationen så att den körs `npm install` på mål servern. Din app distribueras sedan.
 
-    :::image type="content" source="./media/quickstart-nodejs/server-build.png" alt-text="Skärm bild av Azure App tjänsten i VS Code som visar den blå pilens ikon vald.&quot;:::
-        
-1. Välj mappen *NodeJS-dok-Hello-World* .
-
-1. Välj ett alternativ för att skapa baserat på det operativ system som du vill distribuera till:
-
-    - Linux: Välj **Skapa ny webbapp**
-    - Windows: Välj **Skapa ny webbapp... Avancerad**
-
-1. Ange ett globalt unikt namn för din webbapp och tryck på **RETUR** . Namnet måste vara unikt för alla Azure och använder endast alfanumeriska tecken (&quot;A-Z&quot;, &quot;a-z&quot; och &quot;0-9&quot;) och bindestreck (-).
-
-1. Om du anger Linux-mål väljer du en Node.js version när du uppmanas till det. En **LTS** -version rekommenderas.
-
-1. Om du riktar in dig på Windows följer du ytterligare prompter:
-    1. Välj **skapa en ny resurs grupp** och ange sedan ett namn för resurs gruppen, till exempel `AppServiceQS-rg` .
-    1. Välj **Windows** för operativ systemet.
-    1. Välj **Skapa ny app service plan** och ange sedan ett namn för planen (till exempel `AppServiceQS-plan` ) och välj **F1 kostnads fritt** för pris nivån.
-    1. Välj **hoppa över för tillfället** när du tillfrågas om Application Insights.
-    1. Välj en region nära dig eller nära resurser som du vill ha åtkomst till.
-
-1. När du har svarat på alla prompter visar VS Code de Azure-resurser som skapas för din app i popup-fönstret för meddelanden.
-
-    När du distribuerar till Linux väljer du **Ja** när du uppmanas att uppdatera konfigurationen så att den körs `npm install` på mål-Linux-servern.
-
-    ![Prompt för att uppdatera konfigurationen på mål servern för Linux](media/quickstart-nodejs/server-build.png)
-
-1. Välj **Ja** när du uppmanas **att alltid distribuera arbets ytan &quot;NodeJS-dok-Hello-World&quot; till (App Name) &quot;** . Välj **Ja** om du vill att vs-kod automatiskt ska rikta in samma app service-webbapp med efterföljande distributioner.
-
-1. Om du distribuerar till Linux väljer du **Bläddra på webbplats** i prompten för att visa din nyligen distribuerade webbapp när distributionen är klar. Webbläsaren ska Visa &quot;Hello World!":::
+    :::image type="content" source="./media/quickstart-nodejs/server-build.png" alt-text="Skärm bild av prompten för att uppdatera konfigurationen på mål servern med knappen Ja markerad.":::
 
 1. När distributionen startar uppmanas du att uppdatera arbets ytan så att senare distributioner automatiskt riktar sig till samma App Service-webbapp. Välj **Ja** för att se till att ändringarna distribueras till rätt app.
 
-    :::image type="content" source="./media/quickstart-nodejs/save-configuration.png" alt-text="Skärm bild av Azure App tjänsten i VS Code som visar den blå pilens ikon vald.&quot;:::
-        
-1. Välj mappen *NodeJS-dok-Hello-World* .
-
-1. Välj ett alternativ för att skapa baserat på det operativ system som du vill distribuera till:
-
-    - Linux: Välj **Skapa ny webbapp**
-    - Windows: Välj **Skapa ny webbapp... Avancerad**
-
-1. Ange ett globalt unikt namn för din webbapp och tryck på **RETUR** . Namnet måste vara unikt för alla Azure och använder endast alfanumeriska tecken (&quot;A-Z&quot;, &quot;a-z&quot; och &quot;0-9&quot;) och bindestreck (-).
-
-1. Om du anger Linux-mål väljer du en Node.js version när du uppmanas till det. En **LTS** -version rekommenderas.
-
-1. Om du riktar in dig på Windows följer du ytterligare prompter:
-    1. Välj **skapa en ny resurs grupp** och ange sedan ett namn för resurs gruppen, till exempel `AppServiceQS-rg` .
-    1. Välj **Windows** för operativ systemet.
-    1. Välj **Skapa ny app service plan** och ange sedan ett namn för planen (till exempel `AppServiceQS-plan` ) och välj **F1 kostnads fritt** för pris nivån.
-    1. Välj **hoppa över för tillfället** när du tillfrågas om Application Insights.
-    1. Välj en region nära dig eller nära resurser som du vill ha åtkomst till.
-
-1. När du har svarat på alla prompter visar VS Code de Azure-resurser som skapas för din app i popup-fönstret för meddelanden.
-
-    När du distribuerar till Linux väljer du **Ja** när du uppmanas att uppdatera konfigurationen så att den körs `npm install` på mål-Linux-servern.
-
-    ![Prompt för att uppdatera konfigurationen på mål servern för Linux](media/quickstart-nodejs/server-build.png)
-
-1. Välj **Ja** när du uppmanas **att alltid distribuera arbets ytan &quot;NodeJS-dok-Hello-World&quot; till (App Name) &quot;** . Välj **Ja** om du vill att vs-kod automatiskt ska rikta in samma app service-webbapp med efterföljande distributioner.
-
-1. Om du distribuerar till Linux väljer du **Bläddra på webbplats** i prompten för att visa din nyligen distribuerade webbapp när distributionen är klar. Webbläsaren ska Visa &quot;Hello World!":::
+    :::image type="content" source="./media/quickstart-nodejs/save-configuration.png" alt-text="Skärm bild av prompten för att uppdatera din arbets yta med knappen Ja markerad.":::
 
 > [!TIP]
 > Se till att ditt program lyssnar på porten som tillhandahålls av PORT miljö variabeln: `process.env.PORT` .
@@ -412,41 +310,13 @@ Du kan distribuera ändringar i den här appen genom att använda samma process 
 
 I det här avsnittet får du lära dig att visa (eller "pilslut") loggarna från den App Service appen som körs. Alla anrop till `console.log` i appen visas i fönstret utdata i Visual Studio Code.
 
-Hitta appen i **Azure App Service** Explorer, högerklicka på appen och välj **Visa strömmande loggar** .
+Hitta appen i **Azure App Service** Explorer, högerklicka på appen och välj **Visa strömmande loggar**.
 
 Fönstret VS Code output öppnas med en anslutning till logg strömmen.
 
 ![Visa strömmande loggar](./media/quickstart-nodejs/view-logs.png)
 
-:::image type="content" source="./media/quickstart-nodejs/enable-restart.png" alt-text="Skärm bild av Azure App tjänsten i VS Code som visar den blå pilens ikon vald.&quot;:::
-        
-1. Välj mappen *NodeJS-dok-Hello-World* .
-
-1. Välj ett alternativ för att skapa baserat på det operativ system som du vill distribuera till:
-
-    - Linux: Välj **Skapa ny webbapp**
-    - Windows: Välj **Skapa ny webbapp... Avancerad**
-
-1. Ange ett globalt unikt namn för din webbapp och tryck på **RETUR** . Namnet måste vara unikt för alla Azure och använder endast alfanumeriska tecken (&quot;A-Z&quot;, &quot;a-z&quot; och &quot;0-9&quot;) och bindestreck (-).
-
-1. Om du anger Linux-mål väljer du en Node.js version när du uppmanas till det. En **LTS** -version rekommenderas.
-
-1. Om du riktar in dig på Windows följer du ytterligare prompter:
-    1. Välj **skapa en ny resurs grupp** och ange sedan ett namn för resurs gruppen, till exempel `AppServiceQS-rg` .
-    1. Välj **Windows** för operativ systemet.
-    1. Välj **Skapa ny app service plan** och ange sedan ett namn för planen (till exempel `AppServiceQS-plan` ) och välj **F1 kostnads fritt** för pris nivån.
-    1. Välj **hoppa över för tillfället** när du tillfrågas om Application Insights.
-    1. Välj en region nära dig eller nära resurser som du vill ha åtkomst till.
-
-1. När du har svarat på alla prompter visar VS Code de Azure-resurser som skapas för din app i popup-fönstret för meddelanden.
-
-    När du distribuerar till Linux väljer du **Ja** när du uppmanas att uppdatera konfigurationen så att den körs `npm install` på mål-Linux-servern.
-
-    ![Prompt för att uppdatera konfigurationen på mål servern för Linux](media/quickstart-nodejs/server-build.png)
-
-1. Välj **Ja** när du uppmanas **att alltid distribuera arbets ytan &quot;NodeJS-dok-Hello-World&quot; till (App Name) &quot;** . Välj **Ja** om du vill att vs-kod automatiskt ska rikta in samma app service-webbapp med efterföljande distributioner.
-
-1. Om du distribuerar till Linux väljer du **Bläddra på webbplats** i prompten för att visa din nyligen distribuerade webbapp när distributionen är klar. Webbläsaren ska Visa &quot;Hello World!":::
+:::image type="content" source="./media/quickstart-nodejs/enable-restart.png" alt-text="Skärm bild av VS Code-prompten för att aktivera fil loggning och starta om webbappen med knappen Ja markerat.":::
 
 Efter några sekunder visas ett meddelande som anger att du är ansluten till logg strömnings tjänsten. Uppdatera sidan några gånger för att se mer aktivitet.
 

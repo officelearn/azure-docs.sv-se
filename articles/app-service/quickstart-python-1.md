@@ -5,19 +5,20 @@ ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python
 zone_pivot_groups: python-frameworks-01
-ms.openlocfilehash: eef0a4f24ba65fea4bb33c68f7e7d15f592e808d
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+adobe-target: true
+ms.openlocfilehash: 9262d9674aa8100e3cfc52ee2834d3e8224f36f5
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92917047"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359042"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Snabb start: skapa en python-app i Azure App Service på Linux
 
 I den här snabb starten distribuerar du en python-webbapp till [app service på Linux](overview.md#app-service-on-linux), Azures mycket skalbara, självkorrigerande webb värd tjänst. Du använder det lokala [Azures kommando rads gränssnitt (CLI)](/cli/azure/install-azure-cli) på en Mac-, Linux-eller Windows-dator för att distribuera ett prov med antingen flaska eller django-ramverk. Webbappen som du konfigurerar använder en kostnads fri App Service nivå, så du debiteras inte några kostnader i samband med den här artikeln.
 
 > [!TIP]
-> Om du föredrar att distribuera appar via en IDE, se **[distribuera python-appar till App Service från Visual Studio Code](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)** .
+> Om du föredrar att distribuera appar via en IDE, se **[distribuera python-appar till App Service från Visual Studio Code](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)**.
 
 ## <a name="set-up-your-initial-environment"></a>Konfigurera din inledande miljö
 
@@ -151,7 +152,7 @@ Python-exempel koden kör en Linux-behållare i App Service med hjälp av en inb
     
     Som standard förutsätter servern att appens inmatnings modul är i *app.py* , som används i exemplet. (Om du använder ett annat Modulnamn anger du `FLASK_APP` miljövariabeln till det namnet.)
 
-1. Öppna en webbläsare och gå till exempel appen på `http://localhost:5000/` . Appen visar meddelandet **Hej, World!** .
+1. Öppna en webbläsare och gå till exempel appen på `http://localhost:5000/` . Appen visar meddelandet **Hej, World!**.
 
     ![Kör en exempel-python-app lokalt](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
     
@@ -189,7 +190,7 @@ Python-exempel koden kör en Linux-behållare i App Service med hjälp av en inb
 
     ---    
 
-1. Öppna en webbläsare och gå till exempel appen på `http://localhost:8000/` . Appen visar meddelandet **Hej, World!** .
+1. Öppna en webbläsare och gå till exempel appen på `http://localhost:8000/` . Appen visar meddelandet **Hej, World!**.
 
     ![Kör en exempel-python-app lokalt](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
     
@@ -260,7 +261,7 @@ Tryck på **CTRL** + **C** i terminalen om du vill stoppa logg strömningen när
 
 ## <a name="manage-the-azure-app"></a>Hantera Azure-appen
 
-Gå till <a href="https://portal.azure.com" target="_blank">Azure-portalen</a> för att hantera den app som du skapade. Sök efter och välj **app Services** .
+Gå till <a href="https://portal.azure.com" target="_blank">Azure-portalen</a> för att hantera den app som du skapade. Sök efter och välj **app Services**.
 
 ![Navigera till App Services i Azure Portal](./media/quickstart-python/navigate-to-app-services-in-the-azure-portal.png)
 

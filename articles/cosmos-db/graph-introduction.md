@@ -1,18 +1,18 @@
 ---
 title: Introduktion till Azure Cosmos DB Gremlin API
 description: Läs hur du kan använda Azure Cosmos DB för att lagra, fråga och bläddra igenom massiva diagram med låga svarstider med hjälp av Gremlin-diagramfrågespråket för Apache TinkerPop.
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/10/2020
-ms.author: jasonh
-ms.openlocfilehash: 98ad02c134df919c593c87dd96a9a71d73371a1c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.author: chrande
+ms.openlocfilehash: d0bd94037a75db8d69cfd44820a80ae8b403c9ea
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087425"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357087"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Introduktion till Gremlin-API i Azure Cosmos DB
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -79,7 +79,7 @@ Här följer några scenarier där diagram stöd för Azure Cosmos DB kan vara a
 
   Många program inom telekommunikation, logistik och reseplanering måste hitta en plats av intresse inom ett område eller hitta den kortaste/optimala vägen mellan två platser. Azure Cosmos DB är en naturlig lösning på de här problemen.
 
-* **Internet of Things**
+* **Sakernas Internet**
 
   Med nätverket och anslutningarna mellan IoT-enheter som modellerats som ett diagram, kan du skapa en bättre förståelse för dina enheters och tillgångars tillstånd. Du kan också undersöka hur ändringar i en del av nätverket kan påverka en annan del.
 
@@ -107,7 +107,7 @@ Graf-databaser ingår ofta i NoSQL eller icke-relationell databas kategori efter
 
 Nu ska vi använda ett exempeldiagram för att förstå hur frågor kan uttryckas i Gremlin. Följande bild visar ett affärsprogram som hanterar data om användare, intressen och enheter i form av ett diagram.  
 
-:::image type="content" source="./media/gremlin-support/sample-graph.png" alt-text="Azure Cosmos DB-diagramarkitektur" border="false"::: 
+:::image type="content" source="./media/gremlin-support/sample-graph.png" alt-text="Exempeldatabas som visar personer, enheter och intressen" border="false"::: 
 
 Det här diagrammet har följande *hörn* typer (dessa kallas även "etikett" i Gremlin):
 

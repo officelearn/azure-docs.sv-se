@@ -8,16 +8,16 @@ ms.author: manoskow
 ms.date: 10/23/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 4921078e9e7b5d9de06fbbc9a97dc4a964569e04
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ff3e7fee87661fb89ba930b7368bd54e71ad57bf
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92754757"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357631"
 ---
 # <a name="troubleshooting-in-azure-communication-services"></a>Fel sökning i Azure Communication Services
 
-I det här dokumentet får du hjälp med att samla in den information du behöver för att felsöka kommunikations tjänst lösningen.
+I det här dokumentet får du hjälp med fel sökning av problem som kan uppstå i kommunikations tjänst lösningen. Om du ska felsöka SMS kan du [Aktivera leverans rapportering med event Grid](../quickstarts/telephony-sms/handle-sms-events.md) för att avbilda information om SMS-leverans.
 
 ## <a name="getting-help"></a>Få hjälp
 
@@ -33,6 +33,8 @@ För att hjälpa dig att felsöka vissa typer av problem kan du bli ombedd att a
 * **MS-CV-ID** : detta ID används för att felsöka samtal och meddelanden. 
 * **Anrops-ID** : detta ID används för att identifiera kommunikations tjänst anrop.
 * **SMS-meddelande-ID** : detta ID används för att identifiera SMS-meddelanden.
+* **Anrops loggar** : dessa loggar innehåller detaljerad information som kan användas för att felsöka anrop och nätverks problem.
+
 
 ## <a name="access-your-ms-cv-id"></a>Få åtkomst till ditt MS-CV ID
 
@@ -126,6 +128,44 @@ console.log(result); // your message ID will be in the result
 }
 ```
 ---
+
+## <a name="enable-and-access-call-logs"></a>Aktivera och få åtkomst till samtals loggar
+
+
+
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+Följande kod kan användas för att konfigurera `AzureLogger` för att spara loggar till-konsolen med hjälp av Java Script-klient biblioteket:
+
+```javascript
+import { AzureLogger } from '@azure/logger'; 
+
+AzureLogger.verbose = (...args) => { console.info(...args); } 
+AzureLogger.info = (...args) => { console.info(...args); } 
+AzureLogger.warning = (...args) => { console.info(...args); } 
+AzureLogger.error = (...args) => { console.info(...args); } 
+
+callClient = new CallClient({logger: AzureLogger}); 
+```
+
+# <a name="ios"></a>[iOS](#tab/ios)
+
+När du utvecklar för iOS lagras dina loggar i `.blog` filer. Observera att du inte kan visa loggarna direkt eftersom de är krypterade.
+
+Dessa kan nås genom att öppna Xcode. Gå till Windows > enheter och simulatorer > enheter. Välj din enhet. Under installerade appar väljer du ditt program och klickar på "Hämta behållare". 
+
+Då får du en `xcappdata` fil. Högerklicka på filen och välj Visa paket innehåll. Därefter ser du de `.blog` filer som du sedan kan koppla till din support förfrågan för Azure.
+
+# <a name="android"></a>[Android](#tab/android)
+
+När du utvecklar för Android lagras dina loggar i `.blog` filer. Observera att du inte kan visa loggarna direkt eftersom de är krypterade.
+
+På Android Studio navigerar du till enhetens fil Utforskaren genom att välja Visa > verktyget Windows > Device File Explorer från både simulatorn och enheten. `.blog`Filen kommer att finnas i programmets katalog, vilket bör se ut ungefär så här `/data/data/[app_name_space:com.contoso.com.acsquickstartapp]/files/acs_sdk.blog` . Du kan bifoga filen till din support förfrågan. 
+   
+
+---
+
 
 ## <a name="related-information"></a>Relaterad information
 - [Loggar och diagnostik](logging-and-diagnostics.md)

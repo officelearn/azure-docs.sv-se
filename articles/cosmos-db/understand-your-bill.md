@@ -5,14 +5,14 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 11/04/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 7b26c88bcbd303f00dc6163dd0323b07cbb83dcf
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3ac90b79053e59047dbe64598688e77b9df059d1
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93073833"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358719"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Förstå Azure Cosmos DB-fakturan
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -103,11 +103,11 @@ Om du ökar det etablerade data flödet för en behållare eller en uppsättning
 
 * I en månad om 720 timmar, om 300 timmar etablerade data flöde var 120-K RU/SEK och de återstående 420 timmar etablerade data flöden var 155-K RU/SEK, visas din månads faktura: 300 x $9.60/timme + 420 x $12.40/timme = $2 880 + $5 208 = $8088/månad. 
 
-:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Exempel på dedikerad data flödes faktura":::
+:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Faktura exempel för delad data flöde":::
 
-## <a name="billing-examples-with-geo-replication-and-multi-region-writes"></a>Fakturerings exempel med skrivningar för geo-replikering och flera regioner  
+## <a name="billing-examples-with-geo-replication"></a>Fakturerings exempel med geo-replikering  
 
-Du kan när som helst lägga till/ta bort Azure-regioner var som helst i världen till ditt Azure Cosmos Database-konto. Det data flöde som du har konfigurerat för olika Azure Cosmos-databaser och behållare kommer att reserveras i var och en av de Azure-regioner som är kopplade till ditt Azure Cosmos Database-konto. Om summan av det etablerade data flödet (RU/s) som kon figurer ATS över alla databaser och behållare i ditt Azure Cosmos Database-konto (etablerad per timme) är T och antalet Azure-regioner som är kopplade till ditt databas konto är N, det totala etablerade data flödet för en viss timme, för ditt Azure Cosmos Database-konto (a) som kon figurer ATS med en enda Skriv region motsvarar T x N RU/SEK och (b) som kon figurer ATS med alla regioner som kan bearbeta skrivningar är lika med T x (N + 1) RU/SEK. Kostnader för etablerade data flöden (enkla Skriv åtgärder) $0.008/timme per 100 RU/SEK och tillhandahållet data flöde med flera skrivbara regioner (konfigurationer med flera regioner) $0.016/per timme per 100 RU/SEK (se sidan med [priser](https://azure.microsoft.com/pricing/details/cosmos-db/)). Oavsett om det är en enskild Skriv region eller flera Skriv regioner kan du med Azure Cosmos DB läsa data från vilken region som helst.
+Du kan när som helst lägga till/ta bort Azure-regioner var som helst i världen till ditt Azure Cosmos Database-konto. Det data flöde som du har konfigurerat för olika Azure Cosmos-databaser och behållare kommer att reserveras i var och en av de Azure-regioner som är kopplade till ditt Azure Cosmos Database-konto. Om summan av det etablerade data flödet (RU/s) som kon figurer ATS över alla databaser och behållare i ditt Azure Cosmos Database-konto (etablerad per timme) är T och antalet Azure-regioner som är kopplade till ditt databas konto är N, är det totala etablerade data flödet för en viss timme för ditt Azure Cosmos Database-konto lika med T x N RU/SEK. Kostnader för etablerade data flöden (enkla Skriv åtgärder) $0.008/timme per 100 RU/SEK och tillhandahållet data flöde med flera skrivbara regioner (konfigurationer med flera regioner) $0.016/per timme per 100 RU/SEK (se sidan med [priser](https://azure.microsoft.com/pricing/details/cosmos-db/)). Oavsett om det är en enskild Skriv region eller flera Skriv regioner kan du med Azure Cosmos DB läsa data från vilken region som helst.
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-single-region-writes"></a>Fakturerings exempel: Azure Cosmos-konto med flera regioner, enskild region skrivningar
 
@@ -193,7 +193,7 @@ Vi ska tänka på följande exempel, där vi har ett Azure Cosmos-konto med fler
 
 Ändringar i det totala etablerade data flödet under 720 timmar för månaden visas visuellt i bilden nedan: 
 
-:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="Exempel på dedikerad data flödes faktura":::
+:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="Exempel på real tid":::
 
 Den totala månads fakturan blir (förutsatt att 30 dagar/720 timmar per månad) beräknas enligt följande:
 

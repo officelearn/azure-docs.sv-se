@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 88f1c88e721419bf944207b9c748b9250a25f428
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: aa4be5852b4f8af00346a3ea9a86b13a85f99824
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348074"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358464"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Skapa loopar som upprepar arbetsflödesåtgärder eller processmatriser i Azure Logic Apps
 
 Om du vill bearbeta en matris i din Logic app kan du skapa en ["förgrunds"-slinga](#foreach-loop). Den här slingan upprepar en eller flera åtgärder för varje objekt i matrisen. För att begränsa antalet mat ris objekt som en "förgrunds" slinga kan bearbeta, se [samtidighets-, loop-och avbatchorders gränser](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-Om du vill upprepa åtgärder tills ett villkor uppfylls eller ett tillstånd ändras, kan du skapa en ["till"-loop](#until-loop). Din Logic app kör först alla åtgärder i slingan och kontrollerar sedan villkoret eller tillståndet. Om villkoret är uppfyllt stoppas loopen. Annars upprepas loopen. För begränsningen av antalet fram till-loopar som en Logic app-körning kan ha, se [samtidighets-, loop-och avbatchorders gränser](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+Om du vill upprepa åtgärder tills ett villkor uppfylls eller ett tillstånd ändras, kan du skapa en ["till"-loop](#until-loop). Din Logic app kör först alla åtgärder i slingan och kontrollerar sedan villkoret eller tillståndet. Om villkoret är uppfyllt stoppas loopen. Annars upprepas loopen. För standard-och Max gränsen för antalet "till"-slingor som en Logic app-körning kan ha, se [samtidighets-, loop-och avbatchorders gränser](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 > [!TIP]
 > Om du har en utlösare som tar emot en matris och vill köra ett arbets flöde för varje mat ris objekt, kan du *Avgruppera* matrisen med [egenskapen **SplitOn** trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
@@ -152,7 +152,7 @@ Om du arbetar med din Logic Apps JSON-definition kan du använda `Sequential` al
 
 ## <a name="until-loop"></a>"Until"-loop
   
-Om du vill köra och upprepa åtgärder tills ett villkor har uppfyllts eller ett tillstånd ändras, ska du införa dessa åtgärder i en "till"-slinga. Din Logic app kör först alla åtgärder i slingan och kontrollerar sedan villkoret eller tillståndet. Om villkoret är uppfyllt stoppas loopen. Annars upprepas loopen. För begränsningen av antalet fram till-loopar som en Logic app-körning kan ha, se [samtidighets-, loop-och avbatchorders gränser](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+Om du vill köra och upprepa åtgärder tills ett villkor har uppfyllts eller ett tillstånd ändras, ska du införa dessa åtgärder i en "till"-slinga. Din Logic app kör först alla åtgärder i slingan och kontrollerar sedan villkoret eller tillståndet. Om villkoret är uppfyllt stoppas loopen. Annars upprepas loopen. För standard-och Max gränsen för antalet "till"-slingor som en Logic app-körning kan ha, se [samtidighets-, loop-och avbatchorders gränser](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 Här följer några vanliga scenarier där du kan använda en "till"-slinga:
 
@@ -245,17 +245,19 @@ Från och med 8:00 varje dag, ökar den här exempel Logic app en variabel tills
 
       ![Mottagen e-post](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
 
+<a name="prevent-endless-loops"></a>
+
 ## <a name="prevent-endless-loops"></a>Förhindra oändliga slingor
 
-En "till"-loop har standard gränser som slutar köras om något av dessa villkor inträffar:
+Loopen "tills" stoppar körningen baserat på dessa egenskaper, så se till att du ställer in värdena enligt följande:
 
-| Egenskap | Standardvärde | Beskrivning | 
-| -------- | ------------- | ----------- | 
-| **Reparationer** | 60 | Det högsta antalet slingor som körs innan loopen avslutas. Standardvärdet är 60. | 
-| **Standardvärde** | PT1H | Det mesta av tiden att köra en loop innan loopen avslutas. Standardvärdet är en timme och anges i ISO 8601-format. <p>Timeout-värdet utvärderas för varje loop-cykel. Om en åtgärd i slingan tar längre tid än tids gränsen, stoppas inte den aktuella cykeln. Nästa cykel startar dock inte eftersom gräns villkoret inte är uppfyllt. | 
-|||| 
+* **Count** : det här värdet är det högsta antalet slingor som körs innan loopen avslutas. För standard-och Max gränsen för antalet "till"-slingor som en Logic app-körning kan ha, se [samtidighets-, loop-och avbatchorders gränser](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-Om du vill ändra dessa standard gränser väljer du **Visa avancerade alternativ** i formen loop-åtgärd.
+* **Timeout** : det här värdet är den längsta tid som loopen körs innan den avslutas och anges i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601). För standardvärdet och Max gränsen för **timeout** -värdet, se [samtidighets-, loop-och debatch-gränser](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+
+  Timeout-värdet utvärderas för varje loop-cykel. Om en åtgärd i slingan tar längre tid än tids gränsen, stoppas inte den aktuella cykeln. Nästa cykel startar dock inte eftersom gräns villkoret inte är uppfyllt.
+
+Om du vill ändra de här gränserna väljer du **ändra gränser** i instruktionen upprepa.
 
 <a name="until-json"></a>
 

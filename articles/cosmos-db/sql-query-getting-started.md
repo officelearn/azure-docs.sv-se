@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 07/24/2020
+ms.date: 11/04/2020
 ms.author: tisande
-ms.openlocfilehash: 7a4b2a778fc3d520c0ce85bed5bec0b49fc14384
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 9176205b93519f0afac0c57f5da8593df6673c0f
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341917"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356628"
 ---
 # <a name="getting-started-with-sql-queries"></a>Komma igång med SQL-frågor
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -21,26 +21,35 @@ I Azure Cosmos DB SQL API-konton finns det två sätt att läsa data:
 
 **Punkt läsningar** – du kan göra en nyckel/värde-sökning på ett enskilt *objekt-ID* och en partitionsnyckel. Kombinationen av *objekt-ID* och partitionsnyckel är nyckeln och själva objektet är värdet. För ett dokument med 1 KB läser vi vanligt vis kostnad 1 [begär ande enhet](request-units.md) med en svars tid under 10 MS. Punkt läsningar returnerar ett enskilt objekt.
 
-**SQL-frågor** – du kan fråga efter data genom att skriva frågor med hjälp av STRUCTURED Query Language (SQL) som ett JSON-frågespråk. Frågor kostar alltid att vara minst 2,3 enheter för programbegäran och i allmänhet har de en högre och mer varierande svars tid än punkt läsningar. Frågor kan returnera många objekt.
-
-De flesta Läs tunga arbets belastningar på Azure Cosmos DB använda en kombination av både punkt läsningar och SQL-frågor. Om du bara behöver läsa ett enskilt objekt är punkt läsningarna billigare och snabbare än frågor. Punkt läsningar behöver inte använda frågemotor för att få åtkomst till data och kan läsa data direkt. Naturligtvis är det inte möjligt för alla arbets belastningar att enbart läsa data med hjälp av punkt läsningar, så stöd för SQL som frågespråk och [schema-oberoende indexering](index-overview.md) ger ett mer flexibelt sätt att komma åt dina data.
-
-Här följer några exempel på hur du gör punkt läsningar med varje SDK:
+Här följer några exempel på hur du gör **punkt läsningar** med varje SDK:
 
 - [.NET SDK](/dotnet/api/microsoft.azure.cosmos.container.readitemasync?preserve-view=true&view=azure-dotnet)
 - [Java SDK](/java/api/com.azure.cosmos.cosmoscontainer.readitem?preserve-view=true&view=azure-java-stable#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
 - [Node.js SDK](/javascript/api/@azure/cosmos/item?preserve-view=true&view=azure-node-latest#read-requestoptions-)
 - [Python SDK](/python/api/azure-cosmos/azure.cosmos.containerproxy?preserve-view=true&view=azure-python#read-item-item--partition-key--populate-query-metrics-none--post-trigger-include-none----kwargs-)
 
+**SQL-frågor** – du kan fråga efter data genom att skriva frågor med hjälp av STRUCTURED Query Language (SQL) som ett JSON-frågespråk. Frågor kostar alltid att vara minst 2,3 enheter för programbegäran och i allmänhet har de en högre och mer varierande svars tid än punkt läsningar. Frågor kan returnera många objekt.
+
+De flesta Läs tunga arbets belastningar på Azure Cosmos DB använda en kombination av både punkt läsningar och SQL-frågor. Om du bara behöver läsa ett enskilt objekt är punkt läsningarna billigare och snabbare än frågor. Punkt läsningar behöver inte använda frågemotor för att få åtkomst till data och kan läsa data direkt. Naturligtvis är det inte möjligt för alla arbets belastningar att enbart läsa data med hjälp av punkt läsningar, så stöd för SQL som frågespråk och [schema-oberoende indexering](index-overview.md) ger ett mer flexibelt sätt att komma åt dina data.
+
+Här följer några exempel på hur du gör **SQL-frågor** med varje SDK:
+
+- [.NET SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-dotnet-v3sdk-samples#query-examples)
+- [Java SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-java-sdk-samples#query-examples)
+- [Node.js SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-nodejs-samples#item-examples)
+- [Python SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-python-samples#item-examples)
+
 Resten av det här dokumentet visar hur du kommer igång med att skriva SQL-frågor i Azure Cosmos DB. SQL-frågor kan köras via antingen SDK eller Azure Portal.
 
 ## <a name="upload-sample-data"></a>Ladda upp exempel data
 
-Skapa en behållare med namnet i ditt SQL API Cosmos DB-konto `Families` . Skapa två enkla JSON-objekt i behållaren. Du kan köra de flesta exempel frågorna i Azure Cosmos DB Query-dokumentationen med hjälp av den här data uppsättningen.
+I ditt SQL API Cosmos DB-konto öppnar du [datautforskaren](https://docs.microsoft.com/azure/cosmos-db/data-explorer) för att skapa en behållare med namnet `Families` . När den har skapats använder du data struktur listan för att hitta och öppna den. I din `Families` behållare visas `Items` alternativet direkt under namnet på behållaren. Öppna det här alternativet så visas en knapp i meny raden i mitten av skärmen för att skapa ett nytt objekt. Du kommer att använda den här funktionen för att skapa JSON-objekten nedan.
 
 ### <a name="create-json-items"></a>Skapa JSON-objekt
 
-Följande kod skapar två enkla JSON-objekt om familjer. De enkla JSON-objekten för Andersen-och Wakefield-familjer innehåller föräldrar, barn och deras hus djur, adress och registrerings information. Det första objektet har strängar, siffror, booleska värden, matriser och kapslade egenskaper.
+Följande 2 JSON-objekt är dokument om Andersen-och Wakefield-familjer. De omfattar föräldrar, barn och deras hus djur, adress och registrerings information. 
+
+Det första objektet har strängar, siffror, booleska värden, matriser och kapslade egenskaper:
 
 ```json
 {
@@ -64,7 +73,7 @@ Följande kod skapar två enkla JSON-objekt om familjer. De enkla JSON-objekten 
 }
 ```
 
-Det andra objektet använder `givenName` och `familyName` i stället för `firstName` och `lastName` .
+Det andra objektet använder `givenName` och `familyName` i stället för `firstName` och `lastName` :
 
 ```json
 {

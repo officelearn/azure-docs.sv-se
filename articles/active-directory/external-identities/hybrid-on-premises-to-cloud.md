@@ -5,25 +5,28 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/24/2018
+ms.date: 11/03/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76b17391008160cfea9cbf029932d7081466cf3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06a6a42724eb172a77079b94f2cf50afb8e9cdf1
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87910109"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357325"
 ---
 # <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources-using-azure-ad-b2b-collaboration"></a>Bevilja lokalt hanterad partner konton åtkomst till moln resurser med Azure AD B2B-samarbete
 
 Innan Azure Active Directory (Azure AD) har organisationer med lokala identitets system traditionellt hanterade partner konton i sin lokala katalog. När du börjar flytta appar till Azure AD i en sådan organisation, vill du se till att dina partner har åtkomst till de resurser som de behöver. Det bör inte vara viktigt om resurserna är lokala eller i molnet. Du vill också att dina partner användare ska kunna använda samma inloggnings uppgifter för både lokala och Azure AD-resurser. 
 
-Om du skapar konton för dina externa partner i din lokala katalog (till exempel skapar du ett konto med inloggnings namnet "wmoran" för en extern användare med namnet Wendy Moran i din partners.contoso.com-domän) kan du nu synkronisera dessa konton till molnet. Mer specifikt kan du använda Azure AD Connect för att synkronisera partner kontona till molnet som Azure AD B2B-användare (det vill säga användare med UserType = gäst). Detta gör det möjligt för dina partner användare att komma åt moln resurser med samma autentiseringsuppgifter som de lokala kontona, utan att ge dem mer åtkomst än de behöver. 
+Om du skapar konton för dina externa partner i din lokala katalog (till exempel skapar du ett konto med inloggnings namnet "wmoran" för en extern användare med namnet Wendy Moran i din partners.contoso.com-domän) kan du nu synkronisera dessa konton till molnet. Mer specifikt kan du använda Azure AD Connect för att synkronisera partner kontona till molnet, vilket skapar ett användar konto med UserType = gäst. Detta gör det möjligt för dina partner användare att komma åt moln resurser med samma autentiseringsuppgifter som de lokala kontona, utan att ge dem mer åtkomst än de behöver.
+
+> [!NOTE]
+> Se även hur du [bjuder in interna användare till B2B-samarbete](invite-internal-users.md) (en offentlig för hands versions funktion). Med den här funktionen kan du bjuda in interna gäst användare att använda B2B-samarbete, oavsett om du har synkroniserat deras konton från din lokala katalog till molnet. När användaren har godkänt inbjudan att använda B2B-samarbete kan de använda sina egna identiteter och autentiseringsuppgifter för att logga in på de resurser som du vill att de ska ha åtkomst till. Du behöver inte hantera lösen ord eller hantera livs cykel för konton.
 
 ## <a name="identify-unique-attributes-for-usertype"></a>Identifiera unika attribut för UserType
 
@@ -32,13 +35,13 @@ Innan du aktiverar synkronisering av UserType-attributet måste du först bestä
 Två vanliga metoder för detta är att:
 
 - Ange ett oanvänt lokalt Active Directory-attribut (till exempel extensionAttribute1) som ska användas som källattribut. 
-- Du kan också härleda värdet för attributet UserType från andra egenskaper. Till exempel vill du synkronisera alla användare som gäst om deras lokala Active Directory UserPrincipalName-attribut slutar med domänen * \@ partners.contoso.com*.
+- Du kan också härleda värdet för attributet UserType från andra egenskaper. Till exempel vill du synkronisera alla användare som gäst om deras lokala Active Directory UserPrincipalName-attribut slutar med domänen *\@ partners.contoso.com*.
  
 Detaljerade attribut krav finns i [Aktivera synkronisering av UserType](../hybrid/how-to-connect-sync-change-the-configuration.md#enable-synchronization-of-usertype). 
 
 ## <a name="configure-azure-ad-connect-to-sync-users-to-the-cloud"></a>Konfigurera Azure AD Connect för att synkronisera användare till molnet
 
-När du har identifierat det unika attributet kan du konfigurera Azure AD Connect att synkronisera dessa användare till molnet som Azure AD B2B-användare (det vill säga användare med UserType = gäst). Från en behörighets punkt i vyn kan de här användarna inte särskiljas från B2B-användare som skapats genom inbjudan till Azure AD B2B-samarbete.
+När du har identifierat det unika attributet kan du konfigurera Azure AD Connect att synkronisera dessa användare till molnet, vilket skapar ett användar konto med UserType = gäst. Från en behörighets punkt i vyn kan de här användarna inte särskiljas från B2B-användare som skapats genom inbjudan till Azure AD B2B-samarbete.
 
 Anvisningar för implementering finns i [Aktivera synkronisering av UserType](../hybrid/how-to-connect-sync-change-the-configuration.md#enable-synchronization-of-usertype).
 

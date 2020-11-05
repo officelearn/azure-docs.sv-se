@@ -1,5 +1,5 @@
 ---
-title: Ansluta till Azure-lagringstjänster
+title: Ansluta till lagrings tjänster på Azure
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du använder data lager för att säkert ansluta till Azure Storage-tjänster under utbildning med Azure Machine Learning
 services: machine-learning
@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
-ms.date: 07/22/2020
-ms.custom: how-to, contperfq1, devx-track-python
-ms.openlocfilehash: db641eee13350f5a774e4ffd138e38c474af4981
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/03/2020
+ms.custom: how-to, contperfq1, devx-track-python, data4ml
+ms.openlocfilehash: f60d864bd367b5f44869abc9ccac4e4cc266075a
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320867"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358107"
 ---
-# <a name="connect-to-azure-storage-services"></a>Ansluta till Azure-lagringstjänster
+# <a name="connect-to-storage-services-azure"></a>Anslut till Storage Services Azure
 
-I den här artikeln får du lära dig hur du **ansluter till Azure Storage-tjänster via Azure Machine Learning data lager**. Data lagringen ansluter säkert till Azure Storage-tjänsten utan att dina autentiseringsuppgifter för autentisering och integritet för den ursprungliga data källan bevaras i risk zonen. De lagrar anslutnings information, t. ex. prenumerations-ID och token-auktorisering i [Key Vault](https://azure.microsoft.com/services/key-vault/) som är kopplade till arbets ytan, så att du kan komma åt lagringen på ett säkert sätt utan att behöva hårdkoda dem i dina skript. Du kan använda [Azure Machine Learning python SDK](#python) eller [Azure Machine Learning Studio](how-to-connect-data-ui.md) för att skapa och registrera data lager.
+I den här artikeln får du lära dig hur du **ansluter till lagrings tjänster på Azure via Azure Machine Learning data lager**. Data lagringen ansluter säkert till Azure Storage-tjänsten utan att dina autentiseringsuppgifter för autentisering och integritet för den ursprungliga data källan bevaras i risk zonen. De lagrar anslutnings information, t. ex. prenumerations-ID och token-auktorisering i [Key Vault](https://azure.microsoft.com/services/key-vault/) som är kopplade till arbets ytan, så att du kan komma åt lagringen på ett säkert sätt utan att behöva hårdkoda dem i dina skript. Du kan använda [Azure Machine Learning python SDK](#python) eller [Azure Machine Learning Studio](how-to-connect-data-ui.md) för att skapa och registrera data lager.
 
 Om du föredrar att skapa och hantera data lager med hjälp av Azure Machine Learning VS Code-tillägget; Mer information finns i [vs Code Resource Management instruktions guide](how-to-manage-resources-vscode.md#datastores) .
 
@@ -109,11 +109,13 @@ Du hittar konto nyckel, SAS-token och information om tjänstens huvud namn på d
     * Dess motsvarande **översikts** sida innehåller nödvändig information, t. ex. klient-ID och klient-ID.
 
 > [!IMPORTANT]
-> Av säkerhets skäl kan du behöva ändra åtkomst nycklarna för ett Azure Storage konto (konto nyckel eller SAS-token). När du gör det, måste du synkronisera de nya autentiseringsuppgifterna med din arbets yta och de data lager som är anslutna till den. Lär dig hur du [synkroniserar dina uppdaterade autentiseringsuppgifter](how-to-change-storage-access-key.md). 
-
+> * Om du behöver ändra åtkomst nycklarna för ett Azure Storage konto (konto nyckel eller SAS-token) måste du synkronisera de nya autentiseringsuppgifterna med din arbets yta och de data lager som är anslutna till den. Lär dig hur du [synkroniserar dina uppdaterade autentiseringsuppgifter](how-to-change-storage-access-key.md). 
 ### <a name="permissions"></a>Behörigheter
 
-För Azure Blob-behållare och Azure Data Lake gen 2-lagring, se till att dina autentiseringsuppgifter har åtkomst till **lagrings-BLOB-dataläsaren** . Läs mer om [Storage BLOB data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). Ett konto SAS-token som standard saknar behörighet. För Läs behörighet för data måste autentiseringsuppgifterna för autentisering ha minst list-och Läs behörighet för behållare och objekt. För data skriv åtkomst krävs även Skriv-och tilläggs behörigheter.
+För Azure Blob-behållare och Azure Data Lake gen 2-lagring, se till att dina autentiseringsuppgifter har åtkomst till **lagrings-BLOB-dataläsaren** . Läs mer om [Storage BLOB data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). Ett konto SAS-token som standard saknar behörighet. 
+* För **Läs behörighet** för data måste autentiseringsuppgifterna för autentisering ha minst list-och Läs behörighet för behållare och objekt. 
+
+* För data **Skriv åtkomst** krävs även Skriv-och tilläggs behörigheter.
 
 <a name="python"></a>
 
@@ -130,6 +132,8 @@ I det här avsnittet finns exempel på hur du skapar och registrerar ett data la
  Information om hur du skapar data lager för andra lagrings tjänster som stöds finns i [referens dokumentationen för tillämpliga `register_azure_*` metoder](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=truemethods).
 
 Om du föredrar en låg kod upplevelse, se [Anslut till data med Azure Machine Learning Studio](how-to-connect-data-ui.md).
+>[!IMPORTANT]
+> Om du avregistrerar och omregistrerar ett data lager med samma namn, och det Miss lyckas, kan det hända att Azure Key Vault för din arbets yta inte har mjuk borttagning aktive rad. Som standard aktive ras mjuk borttagning för Key Vault-instansen som skapats av din arbets yta, men den är kanske inte aktive rad om du använde ett befintligt nyckel valv eller har en arbets yta som skapats före oktober 2020. Information om hur du aktiverar mjuk borttagning finns i [Aktivera mjuk borttagning för ett befintligt nyckel valv]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault). "
 
 > [!NOTE]
 > Data lager namnet får bara bestå av gemena bokstäver, siffror och under streck. 

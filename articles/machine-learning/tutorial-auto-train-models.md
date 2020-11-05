@@ -1,7 +1,7 @@
 ---
 title: 'Regressions självstudie: automatiserad ML'
 titleSuffix: Azure Machine Learning
-description: I den här självstudien får du lära dig hur du skapar en maskin inlärnings modell med hjälp av automatisk maskin inlärning. Azure Machine Learning kan förbearbeta data, välja algoritm och hyperparameter på ett automatiserat sätt åt dig.
+description: Skapa ett automatiserat maskin inlärnings experiment som genererar en Regressions modell för dig baserat på de tränings data och konfigurations inställningar som du anger.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ author: aniththa
 ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
-ms.custom: devx-track-python
-ms.openlocfilehash: 731c6c743b103111a699074e10d8ba43a353d8e6
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: devx-track-python, automl
+ms.openlocfilehash: 811f1c27af660d388ecb875741c073591bd25f7f
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317985"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358617"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Självstudie: Använda automatiserad maskininlärning till att beräkna taxikostnader
 

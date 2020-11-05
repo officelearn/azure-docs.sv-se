@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/21/2020
 ms.author: memildin
-ms.openlocfilehash: 55a4e50e3a85eccb9517cf682b67268e633abecc
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: bcbad58935300c765fdcccb1701b64f239de43fd
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93081237"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357886"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Säkerhetspoäng i Azure Security Center
 
@@ -29,7 +29,7 @@ Azure Security Center har två huvudsakliga mål:
 - för att hjälpa dig att förstå den aktuella säkerhets situationen
 - för att hjälpa dig att effektivt och effektivt förbättra din säkerhet
 
-Den centrala funktionen i Security Center som gör att du kan uppnå dessa mål är **säkra Poäng** .
+Den centrala funktionen i Security Center som gör att du kan uppnå dessa mål är **säkra Poäng**.
 
 Security Center utvärderar kontinuerligt dina resurser, prenumerationer och din organisation efter säkerhets problem. Den sammanställer sedan alla resultat i en enda poäng så att du snabbt kan tala om din aktuella säkerhets situation: ju högre poäng, desto lägre är den identifierade risk nivån.
 
@@ -39,7 +39,7 @@ De säkra poängen visas på Azure Portal sidor som ett procent värde, men de u
 
 Du kan öka säkerheten genom att granska Security Centerens rekommendationer-sida för de utestående åtgärder som krävs för att öka dina poäng. Varje rekommendation innehåller anvisningar som hjälper dig att åtgärda det aktuella problemet.
 
-Rekommendationerna är grupperade i **säkerhets kontroller** . Varje kontroll är en logisk grupp relaterade säkerhets rekommendationer och återspeglar dina sårbara angrepps ytor. Poängen ökar bara när du reparerar *alla* rekommendationer för en enskild resurs i en kontroll. Om du vill se hur väl din organisation skyddar varje enskild attack yta granskar du poängen för varje säkerhets kontroll.
+Rekommendationerna är grupperade i **säkerhets kontroller**. Varje kontroll är en logisk grupp relaterade säkerhets rekommendationer och återspeglar dina sårbara angrepps ytor. Poängen ökar bara när du reparerar *alla* rekommendationer för en enskild resurs i en kontroll. Om du vill se hur väl din organisation skyddar varje enskild attack yta granskar du poängen för varje säkerhets kontroll.
 
 Mer information finns i [så här beräknas din säkra Poäng](secure-score-security-controls.md#how-your-secure-score-is-calculated) nedan. 
 
@@ -60,15 +60,15 @@ I Sammanfattning visas dina säkra poäng på följande platser i Security Cente
 
 - I en panel på Security Center **Översikt** (huvud instrument panel):
 
-    :::image type="content" source="./media/secure-score-security-controls/score-on-main-dashboard.png" alt-text="Övergripande säkra poäng som visas i portalen":::
+    :::image type="content" source="./media/secure-score-security-controls/score-on-main-dashboard.png" alt-text="Den säkra poängen på Security Centers instrument panel":::
 
 - På sidan dedikerad **säker Poäng** :
 
-    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="Övergripande säkra poäng som visas i portalen":::
+    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="Säkerhets poängen på Security Center säkra Poäng Sidan":::
 
 - Överst på sidan **rekommendationer** :
 
-    :::image type="content" source="./media/secure-score-security-controls/score-on-recommendations-page.png" alt-text="Övergripande säkra poäng som visas i portalen":::
+    :::image type="content" source="./media/secure-score-security-controls/score-on-recommendations-page.png" alt-text="Sidan säker poäng på Security Centerens rekommendationer":::
 
 
 
@@ -90,7 +90,7 @@ För att komma åt säkra Poäng för flera prenumerationer med ARG:
 
 1. Öppna **Azure Resource Graph Explorer** från Azure Portal.
 
-    :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="Övergripande säkra poäng som visas i portalen" :::
+    :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="Startar Azure Resource Graph Explorer * * rekommendations sida" :::
 
 1. Ange din Kusto-fråga (med hjälp av exemplen nedan för vägledning).
 
@@ -112,7 +112,7 @@ För att komma åt säkra Poäng för flera prenumerationer med ARG:
         | project SecureControl , unhealthy, currentscore, maxscore
         ```
 
-1. Välj **Kör fråga** .
+1. Välj **Kör fråga**.
 
 ## <a name="how-your-secure-score-is-calculated"></a>Så här beräknas din säkra Poäng 
 
@@ -150,7 +150,7 @@ Rekommendationer som har flaggats som **förhands granskning** ingår inte i ber
 
 Ett exempel på en förhands gransknings rekommendation:
 
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Övergripande säkra poäng som visas i portalen":::
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Rekommendation med förhands gransknings flaggan":::
 
 ## <a name="improve-your-secure-score"></a>Förbättra dina säkerhetspoäng
 
@@ -203,11 +203,11 @@ Vi rekommenderar att varje organisation noggrant granskar sina tilldelade Azure 
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Kryptera data under överföring (max. 4)</p></strong>Data är "under överföring" när den överförs mellan komponenter, platser eller program. Organisationer som inte kan skydda data under överföringen är utsatta för att man ska kunna skydda data som är i mellanliggande attacker, avlyssning och kapning av sessioner. SSL/TLS-protokoll ska användas för att utbyta data och ett VPN rekommenderas. När du skickar krypterade data mellan en virtuell Azure-dator och en lokal plats, via Internet, kan du använda en virtuell nätverksgateway som <a href="/azure/vpn-gateway/vpn-gateway-about-vpngateways">Azure VPN gateway</a> för att skicka krypterad trafik.</td>
-    <td class="tg-lboi"; width=55%>- API-appen bör bara vara tillgänglig via HTTPS<br>- Funktionsapp bör endast vara tillgängligt via HTTPS<br>- Endast säkra anslutningar till din Redis Cache ska vara aktiverade<br>- Säker överföring till lagrings konton ska vara aktiverat<br>- Webb program bör endast vara tillgängliga via HTTPS</td>
+    <td class="tg-lboi"; width=55%>- API-appen bör bara vara tillgänglig via HTTPS<br>- Funktionsapp bör endast vara tillgängligt via HTTPS<br>- Endast säkra anslutningar till din Redis Cache ska vara aktiverade<br>- Säker överföring till lagrings konton ska vara aktiverat<br>- Webb program bör endast vara tillgängliga via HTTPS<br>- Den privata slut punkten måste vara aktive rad för PostgreSQL-servrar<br>- Tvinga SSL-anslutning ska vara aktive rad för PostgreSQL-databas servrar<br>- Tvinga SSL-anslutning ska vara aktive rad för MySQL-databas servrar<br>- TLS bör uppdateras till den senaste versionen för din API-app<br>- TLS bör uppdateras till den senaste versionen för din Function-app<br>- TLS bör uppdateras till den senaste versionen för din webbapp<br>- FTPS måste anges i din API-app<br>- FTPS måste anges i din Function-app<br>- FTPS måste anges i din webbapp</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Hantera åtkomst och behörigheter (max. 4)</p></strong>En kärn del av ett säkerhets program ser till att användarna har den behörighet som krävs för att utföra sina jobb, men inte mer än det: den <a href="/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models">minsta behörighets åtkomst modellen</a>.<br>Kontrol lera åtkomsten till dina resurser genom att skapa roll tilldelningar med <a href="/azure/role-based-access-control/overview">rollbaserad åtkomst kontroll (RBAC)</a>. En roll tilldelning består av tre element:<br>- <strong>Säkerhets objekt</strong>: det objekt som användaren begär åtkomst till<br>- <strong>Roll definition</strong>: deras behörigheter<br>- <strong>Omfattning</strong>: den uppsättning resurser som behörigheterna gäller</td>
-    <td class="tg-lboi"; width=55%>- Föråldrade konton bör tas bort från din prenumeration (för hands version)<br>- Föråldrade konton med ägar behörigheter bör tas bort från din prenumeration (för hands version)<br>- Externa konton med ägar behörigheter bör tas bort från din prenumeration (för hands version)<br>- Externa konton med Skriv behörighet bör tas bort från din prenumeration (för hands version)<br>- Det bör finnas fler än en ägare som tilldelats din prenumeration<br>- Role-Based Access Control (RBAC) ska användas på Kubernetes Services (för hands version)<br>- Service Fabric kluster bör endast använda Azure Active Directory för klientautentisering<br>- Tjänstens huvud namn ska användas för att skydda dina prenumerationer i stället för hanterings certifikat<br>- Minst privilegierade Linux-funktioner bör tillämpas för behållare (för hands version)<br>- Oföränderligt (skrivskyddat) rot fil system måste tillämpas för behållare (för hands version)<br>- Container med behörighets eskalering bör undvikas (för hands version)<br>- Att köra behållare som rot användare bör undvikas (förhands granskning)<br>- Behållare som delar känsliga värd namn områden bör undvikas (förhands granskning)<br>- Användningen av Pod HostPath-volym monteringar bör begränsas till en känd lista (för hands version)<br>- Privilegierade behållare bör undvikas (förhands granskning)<br>- Azure Policy tillägg för Kubernetes ska installeras och aktive ras på dina kluster (för hands version)</td>
+    <td class="tg-lboi"; width=55%>- Föråldrade konton bör tas bort från din prenumeration (för hands version)<br>- Föråldrade konton med ägar behörigheter bör tas bort från din prenumeration (för hands version)<br>- Externa konton med ägar behörigheter bör tas bort från din prenumeration (för hands version)<br>- Externa konton med Skriv behörighet bör tas bort från din prenumeration (för hands version)<br>- Det bör finnas fler än en ägare som tilldelats din prenumeration<br>- Role-Based Access Control (RBAC) ska användas på Kubernetes Services (för hands version)<br>- Service Fabric kluster bör endast använda Azure Active Directory för klientautentisering<br>- Tjänstens huvud namn ska användas för att skydda dina prenumerationer i stället för hanterings certifikat<br>- Minst privilegierade Linux-funktioner bör tillämpas för behållare (för hands version)<br>- Oföränderligt (skrivskyddat) rot fil system måste tillämpas för behållare (för hands version)<br>- Container med behörighets eskalering bör undvikas (för hands version)<br>- Att köra behållare som rot användare bör undvikas (förhands granskning)<br>- Behållare som delar känsliga värd namn områden bör undvikas (förhands granskning)<br>- Användningen av Pod HostPath-volym monteringar bör begränsas till en känd lista (för hands version)<br>- Privilegierade behållare bör undvikas (förhands granskning)<br>- Azure Policy tillägg för Kubernetes ska installeras och aktive ras på dina kluster (för hands version)<br>- Web Apps bör begära ett SSL-certifikat för alla inkommande begär Anden<br>- Hanterad identitet ska användas i din API-app<br>- Hanterad identitet ska användas i din Function-app<br>- Hanterad identitet ska användas i din webbapp</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Åtgärda säkerhetskonfigurationer (max. 4)</p></strong>Felkonfigurerade IT-tillgångar har en högre risk för angrepp. Grundläggande härdnings åtgärder glöms ofta när till gångar distribueras och tids gränser måste vara uppfyllda. Säkerhets konfigurations inställningar kan vara på valfri nivå i infrastrukturen: från operativ system och nätverks enheter till moln resurser.<br>Azure Security Center jämför kontinuerligt konfigurationen av dina resurser med krav i bransch standarder, regler och benchmarks. När du har konfigurerat relevanta "efterlevnadsprinciper" (standarder och bas linjer) som är viktiga för din organisation kommer eventuella luckor att leda till säkerhets rekommendationer som innehåller CCEID och en förklaring till den potentiella säkerhets påverkan.<br>Vanliga paket är <a href="/azure/security/benchmarks/introduction">Azure Security benchmark</a> och <a href="https://www.cisecurity.org/benchmark/azure/">CIS Microsoft Azure grunderna 1.1.0</a></td>
@@ -215,7 +215,7 @@ Vi rekommenderar att varje organisation noggrant granskar sina tilldelade Azure 
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Begränsa obehörig nätverks åtkomst (max. 4)</p></strong>Slut punkter inom en organisation ger en direkt anslutning från ditt virtuella nätverk till Azure-tjänster som stöds. Virtuella datorer i ett undernät kan kommunicera med alla resurser. Om du vill begränsa kommunikationen till och från resurser inom ett undernät skapar du en nätverks säkerhets grupp och kopplar den till under nätet. Organisationer kan begränsa och skydda mot obehörig trafik genom att skapa regler för inkommande och utgående trafik.</td>
-    <td class="tg-lboi"; width=55%>- IP-vidarebefordran på den virtuella datorn bör inaktive ras<br>- Auktoriserade IP-intervall ska definieras för Kubernetes Services (för hands version)<br>- FÖRÅLDRAD Åtkomst till App Services ska vara begränsad (för hands version)<br>- FÖRÅLDRAD Reglerna för webb program på IaaS NSG: er bör vara härdade<br>- Virtuella datorer ska associeras med en nätverks säkerhets grupp<br>- CORS bör inte tillåta alla resurser åtkomst till din API-app<br>- CORS bör inte tillåta alla resurser att komma åt din Funktionsapp<br>- CORS bör inte tillåta alla resurser åtkomst till ditt webb program<br>- Fjärrfelsökning bör inaktive ras för API-appen<br>- Fjärrfelsökning bör inaktive ras för Funktionsapp<br>- Fjärrfelsökning bör inaktive ras för webb program<br>- Åtkomsten ska begränsas för tillåtade nätverks säkerhets grupper med virtuella datorer som riktas mot Internet<br>- Regler för nätverks säkerhets grupper för virtuella datorer som riktas mot Internet bör vara skärpta<br>- Azure Policy tillägg för Kubernetes ska installeras och aktive ras på dina kluster (för hands version)<br>- Behållare ska bara lyssna på tillåtna portar (för hands version)<br>- Tjänsterna ska bara lyssna på tillåtna portar (för hands version)<br>- Användning av värd nätverk och portar ska begränsas (för hands version)<br>- Virtuella nätverk bör skyddas av Azure Firewall (för hands version)</td>
+    <td class="tg-lboi"; width=55%>- IP-vidarebefordran på den virtuella datorn bör inaktive ras<br>- Auktoriserade IP-intervall ska definieras för Kubernetes Services (för hands version)<br>- FÖRÅLDRAD Åtkomst till App Services ska vara begränsad (för hands version)<br>- FÖRÅLDRAD Reglerna för webb program på IaaS NSG: er bör vara härdade<br>- Virtuella datorer ska associeras med en nätverks säkerhets grupp<br>- CORS bör inte tillåta alla resurser åtkomst till din API-app<br>- CORS bör inte tillåta alla resurser att komma åt din Funktionsapp<br>- CORS bör inte tillåta alla resurser åtkomst till ditt webb program<br>- Fjärrfelsökning bör inaktive ras för API-appen<br>- Fjärrfelsökning bör inaktive ras för Funktionsapp<br>- Fjärrfelsökning bör inaktive ras för webb program<br>- Åtkomsten ska begränsas för tillåtade nätverks säkerhets grupper med virtuella datorer som riktas mot Internet<br>- Regler för nätverks säkerhets grupper för virtuella datorer som riktas mot Internet bör vara skärpta<br>- Azure Policy tillägg för Kubernetes ska installeras och aktive ras på dina kluster (för hands version)<br>- Behållare ska bara lyssna på tillåtna portar (för hands version)<br>- Tjänsterna ska bara lyssna på tillåtna portar (för hands version)<br>- Användning av värd nätverk och portar ska begränsas (för hands version)<br>- Virtuella nätverk bör skyddas av Azure Firewall (för hands version)<br>- Den privata slut punkten måste vara aktive rad för MariaDB-servrar<br>- Den privata slut punkten måste vara aktive rad för MySQL-servrar<br>- Den privata slut punkten måste vara aktive rad för PostgreSQL-servrar</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Använd adaptiv program kontroll (Max poäng 3)</p></strong>Adaptiva program kontroller (AAC) är en intelligent, automatiserad lösning från slut punkt till slut punkt som gör det möjligt att styra vilka program som kan köras på dina Azure-och icke-Azure-datorer. Det hjälper också till att förstärka dina datorer mot skadlig kod.<br>Security Center använder Machine Learning för att skapa en lista över kända säkra program för en grupp datorer.<br>Den här innovativa metoden för godkänd program registrering ger säkerhets fördelarna utan hanterings komplexitet.<br>AAC är särskilt relevant för syftes skapade servrar som behöver köra en särskild uppsättning program.</td>
@@ -243,7 +243,7 @@ Vi rekommenderar att varje organisation noggrant granskar sina tilldelade Azure 
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Implementera rekommenderade säkerhets metoder (max antal poäng 0)</p></strong>Modern säkerhets praxis "anta överträdelse" av nätverks omkretsen. Därför är många av de bästa metoderna i den här kontrollen fokuserade på att hantera identiteter.<br>Att förlora nycklar och autentiseringsuppgifter är ett vanligt problem. <a href="/azure/key-vault/key-vault-overview">Azure Key Vault</a> skyddar nycklar och hemligheter genom att kryptera nycklar, PFX-filer och lösen ord.<br>Virtuella privata nätverk (VPN) är ett säkert sätt att komma åt dina virtuella datorer. Om VPN inte är tillgängligt använder du komplexa lösen fraser och tvåfaktorautentisering, till exempel <a href="/azure/active-directory/authentication/concept-mfa-howitworks">Azure Multi-Factor Authentication</a>. Med tvåfaktorautentisering undviker du de svagheter som endast förlitar sig på användar namn och lösen ord.<br>Att använda kraftfulla plattformar för autentisering och auktorisering är en annan metod. Med federerade identiteter kan organisationer delegera hantering av auktoriserade identiteter. Detta är också viktigt när anställda avslutas och deras åtkomst måste återkallas.</td>
-    <td class="tg-lboi"; width=55%>- Högst 3 ägare bör anges för din prenumeration<br>- Externa konton med Läs behörighet bör tas bort från din prenumeration<br>- MFA ska vara aktiverat på konton med Läs behörighet för din prenumeration<br>- Åtkomst till lagrings konton med brand väggar och virtuella nätverkskonfigurationer bör begränsas<br>- Alla auktoriseringsregler utom RootManageSharedAccessKey ska tas bort från Event Hub-namnområdet<br>- En Azure Active Directory administratör bör tillhandahållas för SQL-servrar<br>- Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser<br>- Auktoriseringsregler för Event Hub-instansen måste definieras<br>- Lagrings konton ska migreras till nya Azure Resource Manager resurser<br>- Virtuella datorer ska migreras till nya Azure Resource Manager-resurser<br>- Undernät ska associeras med en nätverks säkerhets grupp<br>- Förhandsgranskningsvyn Windows sårbarhets Guard ska vara aktive rad <br>- Förhandsgranskningsvyn Konfigurations agenten för gäster bör installeras<br>- Virtuella datorer som inte är baserade på Internet bör skyddas med nätverks säkerhets grupper</td>
+    <td class="tg-lboi"; width=55%>- Högst 3 ägare bör anges för din prenumeration<br>- Externa konton med Läs behörighet bör tas bort från din prenumeration<br>- MFA ska vara aktiverat på konton med Läs behörighet för din prenumeration<br>- Åtkomst till lagrings konton med brand väggar och virtuella nätverkskonfigurationer bör begränsas<br>- Alla auktoriseringsregler utom RootManageSharedAccessKey ska tas bort från Event Hub-namnområdet<br>- En Azure Active Directory administratör bör tillhandahållas för SQL-servrar<br>- Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser<br>- Auktoriseringsregler för Event Hub-instansen måste definieras<br>- Lagrings konton ska migreras till nya Azure Resource Manager resurser<br>- Virtuella datorer ska migreras till nya Azure Resource Manager-resurser<br>- Undernät ska associeras med en nätverks säkerhets grupp<br>- Förhandsgranskningsvyn Windows sårbarhets Guard ska vara aktive rad <br>- Förhandsgranskningsvyn Konfigurations agenten för gäster bör installeras<br>- Virtuella datorer som inte är baserade på Internet bör skyddas med nätverks säkerhets grupper<br>- Azure Backup ska vara aktiverat för virtuella datorer<br>- Geo-redundant säkerhets kopiering måste aktive ras för Azure Database for MariaDB<br>- Geo-redundant säkerhets kopiering måste aktive ras för Azure Database for MySQL<br>- Geo-redundant säkerhets kopiering måste aktive ras för Azure Database for PostgreSQL<br>- PHP bör uppdateras till den senaste versionen för din API-app<br>- PHP bör uppdateras till den senaste versionen för din webbapp<br>- Java bör uppdateras till den senaste versionen för din API-app<br>- Java bör uppdateras till den senaste versionen för din Function-app<br>- Java bör uppdateras till den senaste versionen för din webbapp<br>- Python bör uppdateras till den senaste versionen för din API-app<br>- Python bör uppdateras till den senaste versionen för din Function-app<br>- Python bör uppdateras till den senaste versionen för din webbapp<br>- Gransknings kvarhållning för SQL-servrar ska vara minst 90 dagar</td>
   </tr>
 </tbody>
 </table>

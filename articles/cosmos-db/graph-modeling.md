@@ -1,18 +1,18 @@
 ---
 title: Diagram data modellering för Azure Cosmos DB Gremlin-API
 description: Lär dig att modellera en graf-databas med hjälp av Azure Cosmos DB Gremlin API. I den här artikeln beskrivs när du ska använda en graf-databas och metod tips för att modellera entiteter och relationer.
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 12/02/2019
-ms.author: jasonh
-ms.openlocfilehash: 70cbe3a7dae243105a659e1363a44f17f03758e2
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.author: chrande
+ms.openlocfilehash: d99e2e2ffd63b050e7373c98084fed3fb14727bf
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129651"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357053"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Diagram data modellering för Azure Cosmos DB Gremlin-API
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -31,18 +31,18 @@ Den process som beskrivs i den här guiden baseras på följande antaganden:
 En diagram databas lösning kan tillämpas optimalt om entiteterna och relationerna i en data domän har någon av följande egenskaper: 
 
 * Entiteterna är **mycket anslutna** via beskrivande relationer. Fördelen med det här scenariot är att relationerna är bestående av lagring.
-* Det finns **cykliska relationer** eller **självrefererade entiteter** . Det här mönstret är ofta en utmaning när du använder Relations-eller dokument databaser.
+* Det finns **cykliska relationer** eller **självrefererade entiteter**. Det här mönstret är ofta en utmaning när du använder Relations-eller dokument databaser.
 * Det finns **dynamiskt växande relationer** mellan entiteter. Det här mönstret gäller särskilt för hierarkiska eller träd strukturerade data med många nivåer.
 * Det finns **många-till-många-relationer** mellan entiteter.
-* Det finns **Skriv-och Läs krav för både entiteter och relationer** . 
+* Det finns **Skriv-och Läs krav för både entiteter och relationer**. 
 
-Om ovanstående villkor är uppfyllt är det troligt att en diagram databas metod ger fördelar för att **fråga komplexitet** , **skalbarhet för data modeller** och **fråga om prestanda** .
+Om ovanstående villkor är uppfyllt är det troligt att en diagram databas metod ger fördelar för att **fråga komplexitet** , **skalbarhet för data modeller** och **fråga om prestanda**.
 
 Nästa steg är att avgöra om grafen ska användas för analys-eller transaktions syfte. Om grafen är avsedd att användas för tung beräkning och data bearbetnings arbets belastningar, skulle det vara värt att utforska [Cosmos DB Spark-anslutaren](./spark-connector.md) och användningen av [Graphx-biblioteket](https://spark.apache.org/graphx/). 
 
 ## <a name="how-to-use-graph-objects"></a>Använda diagram objekt
 
-[Apache Tinkerpop-egenskapen Graph standard](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) definierar två typer av objekt **hörn** och **kanter** . 
+[Apache Tinkerpop-egenskapen Graph standard](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) definierar två typer av objekt **hörn** och **kanter**. 
 
 Här följer de rekommenderade metoderna för egenskaperna i graf-objekten:
 
@@ -68,7 +68,7 @@ Följande är en uppsättning rikt linjer för att använda data modellering fö
 
 ### <a name="modeling-vertices-and-properties"></a>Modellerings hörn och egenskaper 
 
-Det första steget för en diagram data modell är att mappa varje identifierad entitet till ett **hörn objekt** . En en-till-en-mappning av alla entiteter till hörn måste vara ett inledande steg och komma att ändras.
+Det första steget för en diagram data modell är att mappa varje identifierad entitet till ett **hörn objekt**. En en-till-en-mappning av alla entiteter till hörn måste vara ett inledande steg och komma att ändras.
 
 En gemensam Pitfall är att mappa egenskaper för en enskild entitet som separata hörn. Tänk på exemplet nedan, där samma entitet representeras på två olika sätt:
 
@@ -78,7 +78,7 @@ En gemensam Pitfall är att mappa egenskaper för en enskild entitet som separat
 
 * **Egenskap – inbäddade hörn** : den här metoden utnyttjar nyckel värde par listan för att representera alla egenskaper för entiteten i ett hörn. Den här metoden ger minskad modell komplexitet, vilket leder till enklare frågor och kostnads effektiva bläddringskontroll.
 
-:::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="Enhets modell med hörn för egenskaper." border="false":::
+:::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="Diagram visar Luis-hörnen från föregående diagram med i/d, etikett och egenskaper." border="false":::
 
 > [!NOTE]
 > I exemplen ovan visas en förenklad diagram modell som bara visar jämförelsen mellan de två sätten att dela egenskaper för entiteten.
@@ -89,7 +89,7 @@ Det finns dock scenarier där referenser till en egenskap kan ge fördelar. Exem
 
 ### <a name="relationship-modeling-with-edge-directions"></a>Relations modellering med kant riktningar
 
-När hörnen har modeller ATS kan kanterna läggas till för att beteckna relationerna mellan dem. Den första aspekt som måste utvärderas är **riktningen på relationen** . 
+När hörnen har modeller ATS kan kanterna läggas till för att beteckna relationerna mellan dem. Den första aspekt som måste utvärderas är **riktningen på relationen**. 
 
 Kant objekt har en standard riktning som följs av en genom gång när `out()` funktionen eller används `outE()` . Att använda den här naturliga riktningen resulterar i en effektiv åtgärd, eftersom alla formhörn lagras med sina utgående kanter. 
 
@@ -106,7 +106,7 @@ Om du använder beskrivande Relations etiketter kan du förbättra effektivitete
 * Använd icke-generiska villkor för att namnge en relation.
 * Koppla etiketten till käll Bryt punkten till etiketten för mål Bryt punkten med relations namnet.
 
-:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="Enhets modell med hörn för egenskaper." border="false":::
+:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="Exempel på Relations etiketter." border="false":::
 
 Den mer detaljerade etiketten som används för att filtrera kanterna, desto bättre. Det här beslutet kan också ha en betydande inverkan på frågans kostnad. Du kan när som helst utvärdera kostnad för frågan [med hjälp av executionProfile-steget](graph-execution-profile.md).
 

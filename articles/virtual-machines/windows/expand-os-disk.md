@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: kirpas
 ms.subservice: disks
-ms.openlocfilehash: 3908e5f4b7b246fe1c74e5ac4d20053242ece9f6
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: df27d7b25010fa68fc86ffe093318b2b0b7f4e96
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927693"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393837"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Utöka operativsystemenheten för en virtuell dator
 
@@ -39,18 +39,18 @@ När du skapar en ny virtuell dator i en resurs grupp genom att distribuera en a
 ## <a name="resize-a-managed-disk-in-the-azure-portal"></a>Ändra storlek på en hanterad disk i Azure Portal
 
 1. I [Azure Portal](https://portal.azure.com)går du till den virtuella dator där du vill expandera disken. Välj **stoppa** för att frigöra den virtuella datorn.
-2. När den virtuella datorn är stoppad väljer du **diskar** på den vänstra menyn under **Inställningar** .
+2. När den virtuella datorn är stoppad väljer du **diskar** på den vänstra menyn under **Inställningar**.
 
     :::image type="content" source="./media/expand-os-disk/select-disks.png" alt-text="Skärm bild som visar alternativet diskar som marker ATS i avsnittet Inställningar på menyn.":::
 
  
 3. Under **disk namn** väljer du den disk som du vill ändra storlek på.
 
-    :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="Skärm bild som visar alternativet diskar som marker ATS i avsnittet Inställningar på menyn.":::
+    :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="Skärm bild som visar fönstret disks med ett disk namn valt.":::
 
-4. På den vänstra menyn under **Inställningar** väljer du **konfiguration** .
+4. På den vänstra menyn under **Inställningar** väljer du **konfiguration**.
 
-    :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="Skärm bild som visar alternativet diskar som marker ATS i avsnittet Inställningar på menyn.":::
+    :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="Skärm bild som visar det konfigurations alternativ som valts i avsnittet Inställningar på menyn.":::
 
 5. I **storlek (GIB)** väljer du den disk storlek som du vill använda.
    
@@ -58,11 +58,11 @@ När du skapar en ny virtuell dator i en resurs grupp genom att distribuera en a
    > Den nya storleken måste vara större än den befintliga. Det högsta tillåtna antalet är 2 048 GB för OS-diskar. (Det är möjligt att expandera VHD-blobben utöver den storleken, men operativ systemet fungerar endast med de första 2 048 GB utrymme.)
    > 
 
-    :::image type="content" source="./media/expand-os-disk/size.png" alt-text="Skärm bild som visar alternativet diskar som marker ATS i avsnittet Inställningar på menyn.":::
+    :::image type="content" source="./media/expand-os-disk/size.png" alt-text="Skärm bild som visar konfigurations fönstret med den valda disk storleken.":::
 
-6. Välj **Spara** .
+6. Välj **Spara**.
 
-    :::image type="content" source="./media/expand-os-disk/save.png" alt-text="Skärm bild som visar alternativet diskar som marker ATS i avsnittet Inställningar på menyn.":::
+    :::image type="content" source="./media/expand-os-disk/save.png" alt-text="Skärm bild som visar konfigurations fönstret med knappen Spara vald.":::
 
 
 ## <a name="resize-a-managed-disk-by-using-powershell"></a>Ändra storlek på en hanterad disk med hjälp av PowerShell
@@ -226,16 +226,16 @@ På samma sätt kan du referera till andra data diskar som är anslutna till den
 **Ohanterad disk**
 
 ```powershell
-($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'}).DiskSizeGB = 1023
+($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'})).DiskSizeGB = 1023
 ```
 
 ## <a name="expand-the-volume-within-the-os"></a>Expandera volymen i operativ systemet
 
-När du har expanderat disken för den virtuella datorn måste du gå till operativ systemet och expandera volymen för att omfatta det nya utrymmet. Det finns flera metoder för att expandera en partition. I det här avsnittet beskrivs hur du ansluter den virtuella datorn via en RDP-anslutning för att expandera partitionen med **DiskPart** .
+När du har expanderat disken för den virtuella datorn måste du gå till operativ systemet och expandera volymen för att omfatta det nya utrymmet. Det finns flera metoder för att expandera en partition. I det här avsnittet beskrivs hur du ansluter den virtuella datorn via en RDP-anslutning för att expandera partitionen med **DiskPart**.
 
 1. Öppna en RDP-anslutning till den virtuella datorn.
 
-2. Öppna en kommando tolk och skriv **DiskPart** .
+2. Öppna en kommando tolk och skriv **DiskPart**.
 
 3. Skriv i **DiskPart** -prompten `list volume` . Anteckna den volym som du vill utöka.
 

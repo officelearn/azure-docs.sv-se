@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
-ms.openlocfilehash: ee2d65d66caef5cd9405d6e3d0e094de2e30ae87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9408aaa8fd5b677f012392ef4bd51c8826650eee
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90902500"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395163"
 ---
 # <a name="enable-and-disable-data-retention-policies"></a>Aktivera och inaktivera data lagrings principer
 
@@ -22,7 +22,7 @@ I det här avsnittet beskrivs hur du aktiverar och inaktiverar data lagrings pri
 
 ## <a name="enable-data-retention-for-a-database"></a>Aktivera datakvarhållning för en databas
 
-I följande exempel visas hur du aktiverar datakvarhållning med hjälp av [Alter Database](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options).
+I följande exempel visas hur du aktiverar datakvarhållning med hjälp av [Alter Database](/sql/t-sql/statements/alter-database-transact-sql-set-options).
 
 ```sql
 ALTER DATABASE [<DatabaseName>] SET DATA_RETENTION  ON;
@@ -38,9 +38,9 @@ FROM sys.databases;
 
 ## <a name="enable-data-retention-for-a-table"></a>Aktivera datakvarhållning för en tabell
 
-Data kvarhållning måste vara aktiverat för varje tabell som du vill att data ska rensas automatiskt. När datakvarhållning är aktiverat för databasen och tabellen, kommer en bakgrunds system aktivitet regelbundet att söka i tabellen för att identifiera och ta bort föråldrade (gamla) rader. Datakvarhållning kan aktive ras på en tabell antingen när tabellen skapas med hjälp av [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) eller med [Alter Table](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
+Data kvarhållning måste vara aktiverat för varje tabell som du vill att data ska rensas automatiskt. När datakvarhållning är aktiverat för databasen och tabellen, kommer en bakgrunds system aktivitet regelbundet att söka i tabellen för att identifiera och ta bort föråldrade (gamla) rader. Datakvarhållning kan aktive ras på en tabell antingen när tabellen skapas med hjälp av [CREATE TABLE](/sql/t-sql/statements/create-table-transact-sql) eller med [Alter Table](/sql/t-sql/statements/alter-table-transact-sql).
 
-I följande exempel visas hur du aktiverar datakvarhållning för en tabell med hjälp av [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql). 
+I följande exempel visas hur du aktiverar datakvarhållning för en tabell med hjälp av [CREATE TABLE](/sql/t-sql/statements/create-table-transact-sql). 
 
 ```sql
 CREATE TABLE [dbo].[data_retention_table] 
@@ -63,7 +63,7 @@ Den `WITH (DATA_DELETION = ON ( FILTER_COLUMN = [dbdatetime2], RETENTION_PERIOD 
     - DateTimeOffset
 - RETENTION_PERIOD – ett heltals värde följt av en enhets beskrivning. De tillåtna enheterna är dag, dagar, vecka, veckor, månad, månader, år och år.
 
-I följande exempel visas hur du aktiverar datakvarhållning för tabellen med hjälp av [Alter Table](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).  
+I följande exempel visas hur du aktiverar datakvarhållning för tabellen med hjälp av [Alter Table](/sql/t-sql/statements/alter-table-transact-sql).  
 
 ```sql
 Alter Table [dbo].[data_retention_table]
@@ -101,7 +101,7 @@ Inställningen datakvarhållning i databasen och tabellen används tillsammans f
 
 ## <a name="disable-data-retention-on-a-table"></a>Inaktivera datakvarhållning av data i en tabell 
 
-Datakvarhållning kan inaktive ras för en tabell med hjälp av [Alter Table](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql). Följande kommando kan användas för att inaktivera datakvarhållning av data i en tabell.
+Datakvarhållning kan inaktive ras för en tabell med hjälp av [Alter Table](/sql/t-sql/statements/alter-table-transact-sql). Följande kommando kan användas för att inaktivera datakvarhållning av data i en tabell.
 
 ```sql
 Alter Table [dbo].[data_retention_table]
@@ -110,7 +110,7 @@ Set (DATA_DELETION = OFF)
 
 ## <a name="disable-data-retention-on-a-database"></a>Inaktivera datakvarhållning av data i en databas
 
-Datakvarhållning kan inaktive ras för en tabell med hjälp av [Alter Database](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options). Följande kommando kan användas för att inaktivera datakvarhållning för en databas.
+Datakvarhållning kan inaktive ras för en tabell med hjälp av [Alter Database](/sql/t-sql/statements/alter-database-transact-sql-set-options). Följande kommando kan användas för att inaktivera datakvarhållning för en databas.
 
 ```sql
 ALTER DATABASE <DatabaseName> SET DATA_RETENTION  OFF;

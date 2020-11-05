@@ -1,5 +1,5 @@
 ---
-title: Visa och konfigurera Azure IoT Connector för FHIR (för hands version) mått
+title: Visa och konfigurera Azure IoT-anslutningsprogram för FHIR-mått (förhandsversion)
 description: Den här artikeln förklarar hur du visar och konfigurerar Azure IoT Connector för FHIR (för hands version) mått
 services: healthcare-apis
 author: msjasteppe
@@ -8,19 +8,19 @@ ms.subservice: iomt
 ms.topic: how-to
 ms.date: 10/29/2020
 ms.author: jasteppe
-ms.openlocfilehash: 76166fc5c525d36474a585179472e93b22dad647
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 1cdae789b8286be408735fff92e2de46e28ce514
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93133741"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394296"
 ---
-# <a name="view-and-configure-azure-iot-connector-for-fhir-preview-metrics"></a>Visa och konfigurera Azure IoT Connector för FHIR (för hands version) mått 
+# <a name="view-and-configure-azure-iot-connector-for-fhir-preview-metrics"></a>Visa och konfigurera Azure IoT-anslutningsprogram för FHIR-mått (förhandsversion) 
 
 I den här artikeln får du lära dig hur du visar och konfigurerar Azure IoT Connector för FHIR *-mått. 
 
 > [!TIP]
-> Följ anvisningarna i [Exportera mått för Azure IoT Connector för FHIR (för hands version) via diagnostikinställningar](https://docs.microsoft.com/azure/healthcare-apis/iot-metrics-diagnostics-export) för att lära dig hur du konfigurerar export av mått data.
+> Följ anvisningarna i [Exportera mått för Azure IoT Connector för FHIR (för hands version) via diagnostikinställningar](./iot-metrics-diagnostics-export.md) för att lära dig hur du konfigurerar export av mått data.
 
 ## <a name="view-metrics-for-azure-iot-connector-for-fhir-preview"></a>Visa mått för Azure IoT Connector för FHIR (för hands version)
 1. Om du vill visa mått för IoT-kopplingar väljer du din Azure API för FHIR-tjänst i Azure Portal. 
@@ -33,14 +33,14 @@ I den här artikeln får du lära dig hur du visar och konfigurerar Azure IoT Co
 
 4. Välj en IoT-koppling för att visa dess mått (till exempel: det finns (4) IoT-kopplingar som är kopplade till det här Azure API för FHIR-tjänsten).
 
-   :::image type="content" source="media/iot-metrics-display/iot-metrics-select-connector.png" alt-text="IoT-Connector1" lightbox="media/iot-metrics-display/iot-metrics-select-connector.png"::: 
+   :::image type="content" source="media/iot-metrics-display/iot-metrics-select-connector.png" alt-text="IoT-Connector2" lightbox="media/iot-metrics-display/iot-metrics-select-connector.png"::: 
 
 > [!NOTE]
 > På fliken **anpassad** kan du skapa vissa tids-/datum kombinationer för att Visa IoT Connector-mått.
 
 5. Välj tids period för IoT Connector-mått som ska visas (till exempel: 1 timme, 24 timmar, 7 dagar eller anpassat).
 
-   :::image type="content" source="media/iot-metrics-display/iot-metrics-select-time.png" alt-text="IoT-Connector1" lightbox="media/iot-metrics-display/iot-metrics-select-time.png"::: 
+   :::image type="content" source="media/iot-metrics-display/iot-metrics-select-time.png" alt-text="IoT-Connector3" lightbox="media/iot-metrics-display/iot-metrics-select-time.png"::: 
  
 ## <a name="metrics-types-for-azure-iot-connector-for-fhir-preview"></a>Mått typer för Azure IoT Connector för FHIR (för hands version) 
 De visade måtten för IoT-koppling är följande:
@@ -59,11 +59,11 @@ I det här exemplet kommer vi att fokusera på **antalet inkommande meddelande**
 
 1. Välj en tidpunkt som du vill fokusera på.
 
-   :::image type="content" source="media/iot-metrics-display/iot-metrics-focus.png" alt-text="IoT-Connector1" lightbox="media/iot-metrics-display/iot-metrics-focus.png"::: 
+   :::image type="content" source="media/iot-metrics-display/iot-metrics-focus.png" alt-text="IoT-Connector4" lightbox="media/iot-metrics-display/iot-metrics-focus.png"::: 
 
 2. Från den här skärmen kan du **lägga till mått** , **lägga till filter** och **tillämpa delning** för ytterligare anpassningar. 
 
-   :::image type="content" source="media/iot-metrics-display/iot-metrics-add-options.png" alt-text="IoT-Connector1" lightbox="media/iot-metrics-display/iot-metrics-add-options.png"::: 
+   :::image type="content" source="media/iot-metrics-display/iot-metrics-add-options.png" alt-text="IoT-Connector5" lightbox="media/iot-metrics-display/iot-metrics-add-options.png"::: 
 
 ## <a name="conclusion"></a>Slutsats 
 Att ha åtkomst till data Plans mått är viktigt för övervakning och fel sökning.  Azure IoT Connector för FHIR hjälper dig att utföra dessa åtgärder via mått. 

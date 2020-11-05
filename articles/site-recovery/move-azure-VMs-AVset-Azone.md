@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sideeksh
 ms.custom: MVC
-ms.openlocfilehash: fd541e551102b205acff28b6bc06bc88abd14763
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8224ae4a48bb4915492240c414b90edb86a4c258
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90605115"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393140"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Flytta virtuella Azure-datorer till tillgänglighetszoner
 
@@ -62,7 +62,7 @@ I ett scenario där de virtuella datorerna distribueras som *en enda instans* ti
 4. För virtuella Linux-datorer följer du rikt linjerna från Linux-distributören för att få de senaste betrodda rot certifikaten och listan över återkallade certifikat på den virtuella datorn.
 5. Se till att du inte använder en autentiseringsprovider för att kontrol lera nätverks anslutningen för virtuella datorer som du vill flytta.
 
-6. Om den virtuella datorn som du försöker flytta inte har åtkomst till Internet och använder en brand Väggs-proxy för att kontrol lera utgående åtkomst, kontrollerar du kraven i [Konfigurera utgående nätverks anslutning](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
+6. Kontrol lera de [utgående anslutnings kraven för virtuella datorer](azure-to-azure-tutorial-enable-replication.md#set-up-vm-connectivity).
 
 7. Identifiera käll nätverkets layout och de resurser som du för närvarande använder för verifiering, inklusive belastningsutjämnare, NSG: er och offentlig IP-adress.
 
@@ -94,21 +94,17 @@ I ett scenario där de virtuella datorerna distribueras som *en enda instans* ti
 Följande steg vägleder dig när du använder Azure Site Recovery för att aktivera replikering av data till mål regionen, innan du flyttar dem till Tillgänglighetszoner.
 
 > [!NOTE]
-> De här stegen är för en enskild virtuell dator. Du kan utöka samma till flera virtuella datorer. Gå till Recovery Services-valvet, Välj **+ Replikera**och välj relevanta virtuella datorer tillsammans.
+> De här stegen är för en enskild virtuell dator. Du kan utöka samma till flera virtuella datorer. Gå till Recovery Services-valvet, Välj **+ Replikera** och välj relevanta virtuella datorer tillsammans.
 
-1. I Azure Portal väljer du **virtuella datorer**och väljer den virtuella dator som du vill flytta till Tillgänglighetszoner.
+1. I Azure Portal väljer du **virtuella datorer** och väljer den virtuella dator som du vill flytta till Tillgänglighetszoner.
 2. I **Åtgärder** väljer du **Haveriberedskap**.
 3. I **Konfigurera haveriberedskap** > **Målregion** väljer du den målregion du ska replikera till. Se till att den här regionen [stöder](../availability-zones/az-region.md) Tillgänglighetszoner.
-
-    ![Val av mål region](media/azure-vms-to-zones/enable-rep-1.PNG)
-
 4. Välj **Nästa: avancerade inställningar**.
 5. Välj lämpliga värden för mål prenumerationen, resurs gruppen för den virtuella mål datorn och det virtuella nätverket.
 6. I avsnittet **tillgänglighet** väljer du den tillgänglighets zon som du vill flytta den virtuella datorn till. 
    > [!NOTE]
    > Om du inte ser alternativet för tillgänglighets uppsättning eller tillgänglighets-zonen kontrollerar du att [kraven](#prepare-the-source-vms) är uppfyllda och att [förberedelsen](#prepare-the-source-vms) av de virtuella käll datorerna är slutförd.
   
-    ![Val för att välja en tillgänglighets zon](media/azure-vms-to-zones/enable-rep-2.PNG)
 
 7. Välj **Aktivera replikering**. Den här åtgärden startar ett jobb för att aktivera replikering för den virtuella datorn.
 
@@ -119,17 +115,16 @@ När replikeringen har slutförts kan du kontrollera replikeringsstatus, ändra 
 1. I den virtuella datormenyn väljer du **Haveriberedskap**.
 2. Du kan kontrol lera replikeringsstatus, återställnings punkter som har skapats och källa och mål regioner på kartan.
 
-   ![Replikeringsstatus](media/azure-to-azure-quickstart/replication-status.png)
 
 ## <a name="test-the-configuration"></a>Testa konfigurationen
 
 1. I menyn virtuell dator väljer du  **haveri beredskap**.
 2. Välj ikonen **testa redundans** .
-3. I **testa redundans**väljer du en återställnings punkt som ska användas för redundansväxlingen:
+3. I **testa redundans** väljer du en återställnings punkt som ska användas för redundansväxlingen:
 
-   - **Senaste bearbetade**: Redundansväxlar den virtuella datorn till den senaste återställningspunkten som bearbetades av Site Recovery-tjänsten. Tidsstämpeln visas. Med det här alternativet läggs ingen tid på bearbetning av data så den ger ett lågt mål för återställningstid (RTO).
-   - **Senaste app-konsekventa**: Det här alternativet redundansväxlar alla virtuella datorer till den senaste app-konsekventa återställningspunkten. Tidsstämpeln visas.
-   - **Anpassad**: Välj annan återställningspunkt.
+   - **Senaste bearbetade** : Redundansväxlar den virtuella datorn till den senaste återställningspunkten som bearbetades av Site Recovery-tjänsten. Tidsstämpeln visas. Med det här alternativet läggs ingen tid på bearbetning av data så den ger ett lågt mål för återställningstid (RTO).
+   - **Senaste app-konsekventa** : Det här alternativet redundansväxlar alla virtuella datorer till den senaste app-konsekventa återställningspunkten. Tidsstämpeln visas.
+   - **Anpassad** : Välj annan återställningspunkt.
 
 3. Välj målets virtuella Azure-testnätverk som du vill flytta de virtuella Azure-datorerna till för att testa konfigurationen. 
 

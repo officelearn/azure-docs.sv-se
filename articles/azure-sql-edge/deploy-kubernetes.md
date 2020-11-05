@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 16ad757fc00439bb390a7e0dea902901c468dd1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31a454c93ad5192f387306a8ec557c4e4d3ae991
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90946615"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395299"
 ---
 # <a name="deploy-an-azure-sql-edge-container-in-kubernetes"></a>Distribuera en Azure SQL Edge-behållare i Kubernetes
 
@@ -43,12 +43,12 @@ I följande diagram misslyckades noden som är värd för `azure-sql-edge` behå
 
 ![Azure SQL Edge i ett Kubernetes-kluster efter att noden har misslyckats](media/deploy-kubernetes/kubernetes-sql-edge-after-node-fail.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Kubernetes-kluster**
    - I självstudien krävs ett Kubernetes-kluster. I stegen används [kubectl](https://kubernetes.io/docs/user-guide/kubectl/) för att hantera klustret. 
 
-   - I den här självstudien kommer vi att använda Azure Kubernetes-tjänsten för att distribuera Azure SQL Edge. Se [distribuera ett Azure Kubernetes service-kluster (AKS)](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-deploy-cluster) för att skapa och ansluta till ett Kubernetes-kluster med en nod i AKS med `kubectl` . 
+   - I den här självstudien kommer vi att använda Azure Kubernetes-tjänsten för att distribuera Azure SQL Edge. Se [distribuera ett Azure Kubernetes service-kluster (AKS)](../aks/tutorial-kubernetes-deploy-cluster.md) för att skapa och ansluta till ett Kubernetes-kluster med en nod i AKS med `kubectl` . 
 
    >[!NOTE]
    >För att skydda mot nodfel kräver ett Kubernetes-kluster mer än en nod.
@@ -108,7 +108,7 @@ Konfigurera en [beständig volym](https://kubernetes.io/docs/concepts/storage/pe
          storage: 8Gi
    ```
 
-   Spara filen (till exempel **PVC. yaml**).
+   Spara filen (till exempel **PVC. yaml** ).
 
 2. Skapa ett beständigt volym anspråk i Kubernetes.
 
@@ -241,7 +241,7 @@ spec:
    >[!NOTE]
    >Genom att använda `LoadBalancer` tjänst typen kan Azure SQL Edge-instansen nås via fjärr anslutning (via Internet) på port 1433.
 
-   Spara filen (till exempel **sqledgedeploy. yaml**).
+   Spara filen (till exempel **sqledgedeploy. yaml** ).
 
 2. Skapa distributionen.
 
@@ -318,8 +318,7 @@ I den här självstudien har du lärt dig hur du distribuerar Azure SQL Edge-beh
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Introduktion till Kubernetes](https://docs.microsoft.com/azure/aks/intro-kubernetes)
+- [Introduktion till Kubernetes](../aks/intro-kubernetes.md)
 - [Machine Learning och artificiell intelligens med ONNX i SQL Edge](onnx-overview.md).
 - [Skapa en IoT-lösning från slut punkt till slut punkt med SQL Edge med hjälp av IoT Edge](tutorial-deploy-azure-resources.md).
 - [Data strömning i Azure SQL Edge](stream-data.md)
-

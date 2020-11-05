@@ -7,28 +7,29 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.author: victorh
-ms.openlocfilehash: c3ae62bf5b4f0b4796cac2e7079c8a09116d4895
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c53b35351108717c7b597e052a66e9902be5ec6c
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85602541"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394534"
 ---
 # <a name="create-ip-groups"></a>Skapa IP-grupper
 
 Med IP-grupper kan du gruppera och hantera IP-adresser för Azure brand Väggs regler. De kan ha en enskild IP-adress, flera IP-adresser eller ett eller flera IP-adressintervall.
 
-## <a name="create-an-ip-group"></a>Skapa en IP-grupp
+## <a name="create-an-ip-group---azure-portal"></a>Skapa en IP-grupp – Azure Portal
 
-1. På Start sidan Azure Portal väljer du **skapa en resurs**.
-2. Skriv **IP-grupper** i Sök text rutan och välj sedan **IP-grupper**.
-3. Välj **Skapa**.
-4. Välj din prenumeration.
-5. Välj en resurs grupp eller skapa en ny.
-6. Ange ett unikt namn för IP-gruppen och välj sedan en region.
+Så här skapar du en IP-grupp med hjälp av Azure Portal:
 
-6. Välj **Nästa: IP-adresser**.
-7. Ange en IP-adress, flera IP-adresser eller IP-adressintervall.
+1. På Azure Portal start sida väljer du **skapa en resurs**.
+1. I rutan Sök anger du **IP-grupper** och väljer sedan **IP-grupper**.
+1. Välj **Skapa**.
+1. Välj din prenumeration.
+1. Välj en resurs grupp eller skapa en ny.
+1. Ange ett unikt namn för IP-gruppen och välj sedan en region.
+1. Välj **Nästa: IP-adresser**.
+1. Ange en IP-adress, flera IP-adresser eller IP-adressintervall.
 
    Det finns två sätt att ange IP-adresser:
    - Du kan ange dem manuellt
@@ -38,9 +39,35 @@ Med IP-grupper kan du gruppera och hantera IP-adresser för Azure brand Väggs r
 
    När du anger en IP-adress validerar portalen den för att söka efter överlappande, dubbletter och formateringsfel.
 
-5. När du är färdig väljer du **Granska + skapa**.
-6. Välj **Skapa**.
+1. När du är färdig väljer du **Granska + skapa**.
+1. Välj **Skapa**.
 
+## <a name="create-an-ip-group---azure-powershell"></a>Skapa en IP-grupp – Azure PowerShell
+
+I det här exemplet skapas en IP-grupp med ett adressprefix och en IP-adress med hjälp av Azure PowerShell:
+
+```azurepowershell
+$ipGroup = @{
+    Name              = 'ipGroup'
+    ResourceGroupName = 'ipGroupRG'
+    Location          = 'West US'
+    IpAddress         = @('10.0.0.0/24', '192.168.1.10') 
+}
+
+New-AzIpGroup @ipGroup
+```
+
+## <a name="create-an-ip-group---azure-cli"></a>Skapa en IP-grupp – Azure CLI
+
+I det här exemplet skapas en IP-grupp med ett adressprefix och en IP-adress med hjälp av Azure CLI:
+
+```azurecli-interactive
+az network ip-group create \
+    --name ipGroup \ 
+    --resource-group ipGroupRG \
+    --location westus \
+    --ip-addresses '10.0.0.0/24' '192.168.1.10'
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

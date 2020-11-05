@@ -10,12 +10,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 04/06/2018
-ms.openlocfilehash: 28a4a53851155c56e8d34981862bf52a3a2cf15b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3097041c96f70dda384f0b116bbbc9bc9130be4d
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72249180"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395758"
 ---
 # <a name="overview-of-business-continuity-with-microsoft-genomics"></a>Översikt över affärs kontinuitet med Microsoft Genomics
 Den här översikten beskriver de funktioner som Microsoft Genomics tillhandahåller för affärs kontinuitet och haveri beredskap. Lär dig mer om alternativ för att återskapa från störande händelser, till exempel ett avbrott i Azure-regionen, som kan orsaka data förlust. 
@@ -43,7 +43,7 @@ När den ursprungliga regionen återställs migrerar Microsoft Genomics tjänste
 Om du är orolig över snabbare återställningar när det gäller ett avbrott i data centret, finns det några steg som du kan vidta för att minska den tid det tar att skicka in Microsoft Genomics arbets flöden manuellt till en sekundär region:
 
 * Identifiera en lämplig sekundär region och pro-aktivt skapa ett genomik-konto i den regionen
-* Duplicera dina data i den primära och den sekundära regionen så att dina data omedelbart är tillgängliga i den sekundära regionen. Detta kan göras manuellt eller med hjälp av den [geo-redundanta lagrings](https://docs.microsoft.com/azure/storage/common/storage-redundancy) funktionen som är tillgänglig i Azure Storage. 
+* Duplicera dina data i den primära och den sekundära regionen så att dina data omedelbart är tillgängliga i den sekundära regionen. Detta kan göras manuellt eller med hjälp av den [geo-redundanta lagrings](../storage/common/storage-redundancy.md) funktionen som är tillgänglig i Azure Storage. 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln har du lärt dig om dina alternativ för verksamhets kontinuitet och haveri beredskap när du använder tjänsten Microsoft Genomics. Mer information om verksamhets kontinuitet och haveri beredskap i Azure i allmänhet finns i [teknisk vägledning för Azure-återhämtning.](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region) 
+I den här artikeln har du lärt dig om dina alternativ för verksamhets kontinuitet och haveri beredskap när du använder tjänsten Microsoft Genomics. Mer information om verksamhets kontinuitet och haveri beredskap i Azure i allmänhet finns i [teknisk vägledning för Azure-återhämtning.](/azure/architecture/resiliency/recovery-loss-azure-region)

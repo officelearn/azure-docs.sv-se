@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 10/13/2020
-ms.openlocfilehash: 8da0b34339f2ac03f50e2dcb1a4ed13cc2ea9785
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 6dd7715292470d186806443d0a0b05bdbb084a43
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075441"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392188"
 ---
 # <a name="deploy-and-make-predictions-with-an-onnx-model-and-sql-machine-learning"></a>Distribuera och göra förutsägelser med en ONNX-modell och SQL Machine Learning
 
@@ -26,11 +26,11 @@ Den här snabb starten baseras på **scikit – lära** och använder [data upps
 
 * Om du använder Azure SQL Edge och du inte har distribuerat en Azure SQL Edge-modul följer du stegen för att [Distribuera SQL Edge med hjälp av Azure Portal](deploy-portal.md).
 
-* Installera [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download).
+* Installera [Azure Data Studio](/sql/azure-data-studio/download).
 
 * Installera python-paket som krävs för den här snabb starten:
 
-  1. Öppna en [ny antecknings bok](https://docs.microsoft.com/sql/azure-data-studio/sql-notebooks) som är ansluten till python 3-kernel. 
+  1. Öppna en [ny antecknings bok](/sql/azure-data-studio/sql-notebooks) som är ansluten till python 3-kernel. 
   1. Klicka på **Hantera paket**
   1. På fliken **installerad** letar du efter följande python-paket i listan över installerade paket. Om något av dessa paket inte är installerat väljer du fliken **Lägg till ny** , söker efter paketet och klickar på **Installera**.
      - **scikit-learn**
@@ -72,14 +72,14 @@ y_train = pd.DataFrame(df.iloc[:,df.columns.tolist().index(target_column)])
 print("\n*** Training dataset x\n")
 print(x_train.head())
 
-print("\n*** Training dataset y\n")
+print("\n**_ Training dataset y\n")
 print(y_train.head())
 ```
 
-**Utdata**:
+_ * Utdata * *:
 
 ```text
-*** Training dataset x
+**_ Training dataset x
 
         CRIM    ZN  INDUS  CHAS    NOX     RM   AGE     DIS  RAD    TAX  \
 0  0.00632  18.0   2.31   0.0  0.538  6.575  65.2  4.0900  1.0  296.0
@@ -95,7 +95,7 @@ print(y_train.head())
 3     18.7  394.63   2.94  
 4     18.7  396.90   5.33  
 
-*** Training dataset y
+_*_ Training dataset y
 
 0    24.0
 1    21.6
@@ -137,15 +137,15 @@ from sklearn.metrics import r2_score, mean_squared_error
 y_pred = model.predict(x_train)
 sklearn_r2_score = r2_score(y_train, y_pred)
 sklearn_mse = mean_squared_error(y_train, y_pred)
-print('*** Scikit-learn r2 score: {}'.format(sklearn_r2_score))
-print('*** Scikit-learn MSE: {}'.format(sklearn_mse))
+print('_*_ Scikit-learn r2 score: {}'.format(sklearn_r2_score))
+print('_*_ Scikit-learn MSE: {}'.format(sklearn_mse))
 ```
 
-**Utdata**:
+_ * Utdata * *:
 
 ```text
-*** Scikit-learn r2 score: 0.7406426641094094
-*** Scikit-learn MSE: 21.894831181729206
+**_ Scikit-learn r2 score: 0.7406426641094094
+_*_ Scikit-learn MSE: 21.894831181729206
 ```
 
 ## <a name="convert-the-model-to-onnx"></a>Konvertera modellen till ONNX
@@ -208,18 +208,18 @@ onnx_r2_score = r2_score(y_train, y_pred)
 onnx_mse = mean_squared_error(y_train, y_pred)
 
 print()
-print('*** Onnx r2 score: {}'.format(onnx_r2_score))
-print('*** Onnx MSE: {}\n'.format(onnx_mse))
+print('_*_ Onnx r2 score: {}'.format(onnx_r2_score))
+print('_*_ Onnx MSE: {}\n'.format(onnx_mse))
 print('R2 Scores are equal' if sklearn_r2_score == onnx_r2_score else 'Difference in R2 scores: {}'.format(abs(sklearn_r2_score - onnx_r2_score)))
 print('MSE are equal' if sklearn_mse == onnx_mse else 'Difference in MSE scores: {}'.format(abs(sklearn_mse - onnx_mse)))
 print()
 ```
 
-**Utdata**:
+_ * Utdata * *:
 
 ```text
-*** Onnx r2 score: 0.7406426691136831
-*** Onnx MSE: 21.894830759270633
+**_ Onnx r2 score: 0.7406426691136831
+_*_ Onnx MSE: 21.894830759270633
 
 R2 Scores are equal
 MSE are equal
@@ -227,7 +227,7 @@ MSE are equal
 
 ## <a name="insert-the-onnx-model"></a>Infoga ONNX-modellen
 
-Lagra modellen i en Azure SQL Edge-eller Azure SQL-hanterad instans i en `models` tabell i en databas `onnx` . I anslutnings strängen anger du **Server adressen**, **användar namnet**och **lösen ordet**.
+Lagra modellen i en Azure SQL Edge-eller Azure SQL-hanterad instans i en `models` tabell i en databas `onnx` . I anslutnings strängen anger du _ * Server adressen * *, **användar namn** och **lösen ord**.
 
 ```python
 import pyodbc
@@ -287,7 +287,7 @@ conn.commit()
 
 Läs in data i SQL.
 
-Skapa först två tabeller, **funktioner** och **mål**för att lagra del mängder av data uppsättningen Boston.
+Skapa först två tabeller, **funktioner** och **mål** för att lagra del mängder av data uppsättningen Boston.
 
 * **Funktioner** innehåller alla data som används för att förutsäga målet, median värdet. 
 * **Målet** innehåller median värdet för varje post i data uppsättningen. 
@@ -395,7 +395,7 @@ SELECT predict_input.id
 FROM PREDICT(MODEL = @model, DATA = predict_input, RUNTIME=ONNX) WITH (variable1 FLOAT) AS p;
 ```
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 * [Machine Learning och AI med ONNX i SQL Edge](onnx-overview.md)
 * [Machine Learning Services i Azure SQL-hanterad instans (för hands version)](../azure-sql/managed-instance/machine-learning-services-overview.md)

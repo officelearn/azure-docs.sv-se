@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 05/19/2020
-ms.openlocfilehash: 47c040b0fad0211af413141a5b16b587d41d3b08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dc3d44ac4396897fd43831d51ee628bb06048cb
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907136"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392069"
 ---
 # <a name="machine-learning-and-ai-with-onnx-in-sql-edge"></a>Machine Learning och AI med ONNX i SQL Edge
 
@@ -28,7 +28,7 @@ För att kunna härleda maskin inlärnings modeller i Azure SQL Edge måste du f
 
 Så här hämtar du en modell i ONNX-formatet:
 
-- **Bygg tjänster för modeller**: tjänster, till exempel [funktionen för automatisk Machine Learning i Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) och [Azure Custom vision service](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) stöd för att exportera den tränade modellen i ONNX-format.
+- **Bygg tjänster för modeller** : tjänster, till exempel [funktionen för automatisk Machine Learning i Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) och [Azure Custom vision service](../cognitive-services/custom-vision-service/getting-started-build-a-classifier.md) stöd för att exportera den tränade modellen i ONNX-format.
 
 - [**Konvertera och/eller exportera befintliga modeller**](https://github.com/onnx/tutorials#converting-to-onnx-format): flera utbildnings ramverk (t. ex. [PyTorch](https://pytorch.org/docs/stable/onnx.html), kedjer och Caffe2) har stöd för interna export funktioner till ONNX, vilket gör att du kan spara den tränade modellen till en specifik version av ONNX-formatet. För ramverk som inte stöder intern export finns det fristående ONNX-omvandlare som gör det möjligt att konvertera modeller som har tränats från olika ramverk för maskin inlärning till ONNX-formatet.
 
@@ -36,19 +36,19 @@ Så här hämtar du en modell i ONNX-formatet:
    * [PyTorch](http://pytorch.org/docs/master/onnx.html)
    * [Tensorflow](https://github.com/onnx/tensorflow-onnx)
    * [Keras](https://github.com/onnx/keras-onnx)
-   * [Scikit-learn](https://github.com/onnx/sklearn-onnx)
+   * [Scikit – lär dig](https://github.com/onnx/sklearn-onnx)
    * [CoreML](https://github.com/onnx/onnxmltools)
     
     En fullständig lista över ramverk som stöds och exempel finns i [konvertera till ONNX-format](https://github.com/onnx/tutorials#converting-to-onnx-format).
 
 ## <a name="limitations"></a>Begränsningar
 
-För närvarande stöds inte alla ONNX-modeller av Azure SQL Edge. Stödet är begränsat till modeller med **numeriska data typer**:
+För närvarande stöds inte alla ONNX-modeller av Azure SQL Edge. Stödet är begränsat till modeller med **numeriska data typer** :
 
-- [int och bigint](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql)
-- [verkligt och flyttal](https://docs.microsoft.com/sql/t-sql/data-types/float-and-real-transact-sql).
+- [int och bigint](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql)
+- [verkligt och flyttal](/sql/t-sql/data-types/float-and-real-transact-sql).
   
-Andra numeriska typer kan konverteras till typer som stöds med [Cast och Convert](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql).
+Andra numeriska typer kan konverteras till typer som stöds med [Cast och Convert](/sql/t-sql/functions/cast-and-convert-transact-sql).
 
 Modellens indata ska vara strukturerade så att varje indata till modellen motsvarar en enskild kolumn i en tabell. Om du till exempel använder en Pandas-dataframe för att träna en modell ska varje Indatatyp vara en separat kolumn till modellen.
 

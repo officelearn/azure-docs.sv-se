@@ -16,12 +16,12 @@ ms.author: curtand
 ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02fbfc83c16cb13376cce820f19b247a7cd7db59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe57a44a5a6fa9a631604d92419fd8f5ebcce50a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82232316"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394738"
 ---
 # <a name="email-notifications-in-pim"></a>E-postmeddelanden i PIM
 
@@ -50,11 +50,11 @@ Vem som får dessa e-postmeddelanden för Azure AD-roller beror på din roll, h�
 
 | Användare | Roll aktiveringen väntar på godkännande | Begäran om roll aktivering har slutförts | PIM är aktiverat |
 | --- | --- | --- | --- |
-| Privilegie rad roll administratör</br>(Aktive rad/berättigad) | Ja</br>(endast om inga uttryckliga god kännare har angetts) | Ja* | Ja |
-| Säkerhetsadministratör</br>(Aktive rad/berättigad) | Inga | Ja* | Ja |
-| Global administratör</br>(Aktive rad/berättigad) | Inga | Ja* | Ja |
+| Privilegie rad roll administratör</br>(Aktive rad/berättigad) | Yes</br>(endast om inga uttryckliga god kännare har angetts) | Ja* | Yes |
+| Säkerhetsadministratör</br>(Aktive rad/berättigad) | No | Ja* | Yes |
+| Global administratör</br>(Aktive rad/berättigad) | No | Ja* | Yes |
 
-\*Om inställningen [ **meddelanden** ](pim-how-to-change-default-settings.md#notifications) är inställd på **Aktivera**.
+\*Om inställningen [ **meddelanden**](pim-how-to-change-default-settings.md#notifications) är inställd på **Aktivera**.
 
 Följande visar ett exempel på ett e-postmeddelande som skickas när en användare aktiverar en Azure AD-roll för den fiktiva Contoso-organisationen.
 
@@ -68,7 +68,7 @@ Ett vecko Privileged Identity Management Sammanfattning av e-post för Azure AD-
 
 E-postmeddelandet innehåller fyra paneler:
 
-| Panel | Beskrivning |
+| Panel | Description |
 | --- | --- |
 | **Användare aktiverade** | Antal gånger som användare har aktiverat sin berättigade roll i organisationen. |
 | **Användare som gjorts permanenta** | Antalet gånger som användare med en berättigad tilldelning görs permanenta. |
@@ -79,10 +79,13 @@ I avsnittet **Översikt över dina främsta roller** visas de fem främsta rolle
 
 ## <a name="email-timing-for-activation-approvals"></a>E-posttiming för aktiverings godkännanden
 
-När användarna aktiverar sin roll och roll inställningen kräver godkännande, får god kännare tre e-postmeddelanden för varje godkännande:
+När användarna aktiverar sin roll och roll inställningen kräver godkännande, så får god kännare två e-postmeddelanden för varje godkännande:
 
 - Begäran om att godkänna eller neka användarens aktiverings förfrågan (som skickats av motorn för förfrågnings godkännande)
 - Användarens begäran har godkänts (skickas av motorn för förfrågnings godkännande)
+
+Globala administratörer och privilegierade roll administratörer får också ett e-postmeddelande för varje godkännande:
+
 - Användarens roll aktive ras (skickas av Privileged Identity Management)
 
 De första två e-postmeddelanden som skickas av motorn för godkännande av begär Ande kan vara fördröjda. För närvarande tar 90% av e-postmeddelanden tre till tio minuter, men för 1%-kunder kan det vara mycket längre, upp till femton minuter.

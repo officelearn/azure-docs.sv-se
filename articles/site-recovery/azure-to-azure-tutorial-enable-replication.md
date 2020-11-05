@@ -1,68 +1,79 @@
 ---
-title: Konfigurera haveri beredskap för Azure VM med Azure Site Recovery
-description: Lär dig konfigurera programåterställning för virtuella Azure-datorer till annan Azure-region med Azure Site Recovery-tjänsten.
+title: Självstudie för att konfigurera haveri beredskap för virtuella Azure-datorer med Azure Site Recovery
+description: I den här självstudien konfigurerar du haveri beredskap för virtuella Azure-datorer till en annan Azure-region med hjälp av tjänsten Site Recovery.
 ms.topic: tutorial
-ms.date: 1/24/2020
-ms.author: raynew
+ms.date: 11/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 50bf1ec7f21ccbc3a3fa8feaea02e45bd08a158a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90527ad39055e438e4970ad4686f204f72d20cd2
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87421424"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394181"
 ---
-# <a name="set-up-disaster-recovery-for-azure-vms"></a>Konfigurera katastrof återställning för virtuella Azure-datorer
+# <a name="tutorial-set-up-disaster-recovery-for-azure-vms"></a>Självstudie: Konfigurera haveri beredskap för virtuella Azure-datorer
 
-[Azure Site Recoverys](site-recovery-overview.md) tjänsten bidrar till din strategi för haveri beredskap genom att hantera och dirigera replikering, redundans och återställning efter fel för lokala datorer och virtuella datorer i Azure.
-
-Den här självstudien visar hur du konfigurerar haveri beredskap för virtuella Azure-datorer genom att replikera dem från en Azure-region till en annan. I den här guiden får du lära dig att:
+Den här självstudien visar hur du konfigurerar haveri beredskap för virtuella Azure-datorer med hjälp av [Azure Site Recovery](site-recovery-overview.md). I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
+> * Verifiera Azure-inställningar och-behörigheter
+> * Förbered virtuella datorer som du vill replikera
 > * skapar ett Recovery Services-valv
-> * Verifiera målresursuppsättningar
-> * Konfigurera utgående nätverks anslutning för virtuella datorer
-> * Aktivera replikering för en virtuell dator
+> * Aktivera VM-replikering
+
+När du aktiverar replikering för en virtuell dator för att konfigurera haveri beredskap installeras Site Recovery mobilitets tjänst tillägget på den virtuella datorn och registrerar det med Azure Site Recovery. Vid replikering skickas de virtuella dator diskarna till ett cache Storage-konto i käll regionen. Data skickas därifrån till mål regionen och återställnings punkterna genereras från data. När du växlar över en virtuell dator under haveri beredskap används en återställnings punkt för att återställa den virtuella datorn i mål regionen.
 
 > [!NOTE]
-> Den här artikeln innehåller instruktioner för distribution av haveriberedskap med de enklaste inställningarna. Om du vill lära dig mer om anpassade inställningar kan du läsa artiklarna i [avsnittet How to](azure-to-azure-how-to-enable-replication.md).
+> Självstudier ger instruktioner med de enklaste standardinställningarna. Läs [den här artikeln](azure-to-azure-how-to-enable-replication.md)om du vill konfigurera haveri beredskap för virtuella Azure-datorer med anpassade inställningar.
 
-## <a name="prerequisites"></a>Krav
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-För att slutföra den här kursen behöver du:
+## <a name="prerequisites"></a>Förutsättningar
 
-- Granska [arkitekturen och komponenterna för scenariot](./azure-to-azure-architecture.md).
-- Granska [support kraven](./azure-to-azure-support-matrix.md) innan du börjar.
+Innan du börjar den här självstudien:
 
-## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
+- [Granska regioner som stöds](azure-to-azure-support-matrix.md#region-support). Du kan konfigurera katastrof återställning för virtuella Azure-datorer mellan två regioner i samma geografi.
+- Du behöver en eller flera virtuella Azure-datorer. Kontrol lera att virtuella [Windows](azure-to-azure-support-matrix.md#windows) -eller [Linux](azure-to-azure-support-matrix.md#replicated-machines---linux-file-systemguest-storage) -datorer stöds.
+- Granska [beräknings](azure-to-azure-support-matrix.md#replicated-machines---compute-settings)-, [lagrings](azure-to-azure-support-matrix.md#replicated-machines---storage)-och [nätverks](azure-to-azure-support-matrix.md#replicated-machines---networking) krav för virtuella datorer.
+- Den här självstudien förutsätter att virtuella datorer inte är krypterade. [Följ den här artikeln](azure-to-azure-how-to-enable-replication-ade-vms.md)om du vill konfigurera en katastrof återställning för krypterade virtuella datorer.
 
-Skapa valvet i valfri region, utom i källregionen.
+## <a name="check-azure-settings"></a>Kontrol lera Azure-inställningarna
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. I menyn i Azure-portalen eller på sidan **Start** väljer du **Skapa en resurs**. Välj sedan **den & hanterings verktyg**  >  **säkerhets kopiering och Site Recovery**.
-1. I **namn**anger du ett eget namn som identifierar valvet. Om du har mer än en prenumeration väljer du den lämpligaste.
-1. Skapa en resursgrupp eller välj en befintlig. Ange en Azure-region. Information om vilka regioner som stöds finns under Geografisk tillgänglighet i avsnittet med [Azure Site Recovery-prisinformation](https://azure.microsoft.com/pricing/details/site-recovery/).
-1. Om du vill komma åt valvet från instrument panelen väljer du **Fäst på instrument panelen** och väljer sedan **skapa**.
+Kontrol lera behörigheter och inställningar i mål regionen.
 
-   ![Nytt valv](./media/azure-to-azure-tutorial-enable-replication/new-vault-settings.png)
+### <a name="check-permissions"></a>Kontrol lera behörigheter
 
-Det nya valvet läggs till på **Instrumentpanelen** under **Alla resurser** och på huvudsidan för **Recovery Services-valv**.
+Ditt Azure-konto måste ha behörighet att skapa ett Recovery Services-valv och för att skapa virtuella datorer i mål regionen.
 
-## <a name="verify-target-resource-settings"></a>Verifiera målresursuppsättningar
+- Om du precis har skapat en kostnads fri Azure-prenumeration är du konto administratör och ingen ytterligare åtgärd krävs.
+- Om du inte är administratör kan du arbeta med administratören för att få de behörigheter som du behöver.
+    - **Skapa ett valv** : administratörs-eller ägar behörigheter för prenumerationen. 
+    - **Hantera Site Recovery åtgärder i valvet** : den inbyggda Azure-rollen *Site Recovery Contributor* .
+    - **Skapa virtuella Azure-datorer i mål regionen** : antingen den inbyggda rollen *virtuell dator deltagare* eller specifika behörigheter för att:
+        - Skapa en virtuell dator i det valda virtuella nätverket.
+        - Skriv till ett Azure Storage-konto.
+        - Skriv till en Azure-hanterad disk.
 
-Kontrol lera din Azure-prenumeration för mål regionen.
+### <a name="verify-target-settings"></a>Verifiera mål inställningarna
 
-- Verifiera att Azure-prenumerationen låter dig skapa virtuella datorer i målregionen. Kontakta supporten och aktivera den kvot som krävs.
-- Se till att din prenumeration har tillräckligt med resurser för att hantera storlekar för virtuella datorer som överensstämmer med dina virtuella källdatorer. Site Recovery väljer samma storlek eller närmaste möjliga storlek för den virtuella måldatorn.
+När du växlar över från käll regionen under identifierings återställning skapas virtuella datorer i mål regionen. 
 
-## <a name="set-up-outbound-network-connectivity-for-vms"></a>Konfigurera utgående nätverks anslutning för virtuella datorer
+Kontrol lera att din prenumeration har tillräckligt med resurser i mål regionen. Du måste kunna skapa virtuella datorer med storlekar som matchar de virtuella datorerna i käll regionen. När du konfigurerar haveri beredskap, Site Recovery väljer samma storlek (eller den närmast möjliga storleken) för den virtuella mål datorn.
 
-Site Recovery kräver att vissa ändringar görs i utgående nätverksanslutning från de virtuella datorer som du vill replikera.
+
+## <a name="prepare-vms"></a>Förbereda virtuella datorer
+
+Se till att de virtuella datorerna har utgående anslutning och de senaste rot certifikaten. 
+
+
+### <a name="set-up-vm-connectivity"></a>Konfigurera VM-anslutning
+
+Virtuella datorer som du vill replikera behöver utgående nätverks anslutning.
 
 > [!NOTE]
 > Site Recovery har inte stöd för en autentiseringsproxy för att styra nätverksanslutningar.
 
-### <a name="outbound-connectivity-for-urls"></a>Utgående anslutning för webbadresser
+#### <a name="outbound-connectivity-for-urls"></a>Utgående anslutning för webbadresser
 
 Om du använder en URL-baserad brand Väggs-proxy för att kontrol lera utgående anslutning ger du åtkomst till följande URL: er:
 
@@ -73,118 +84,107 @@ Om du använder en URL-baserad brand Väggs-proxy för att kontrol lera utgåend
 | Replikering               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Låter den virtuella datorn kommunicera med Site Recovery-tjänsten. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Låter den virtuella datorn skriva övervaknings- och diagnostikdata för Site Recovery. |
 
-### <a name="outbound-connectivity-for-ip-address-ranges"></a>Utgående anslutning för IP-adressintervall
+#### <a name="outbound-connectivity-for-ip-address-ranges"></a>Utgående anslutning för IP-adressintervall
 
-Om du använder en nätverks säkerhets grupp (NSG) skapar du service-tag-baserade NSG-regler för åtkomst till Azure Storage, Azure Active Directory, Site Recovery tjänst och Site Recovery övervakning. [Läs mer](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags).
+Om du använder nätverks säkerhets grupper (NSG: er) för att kontrol lera anslutningen skapar du service-tag-baserade NSG-regler som tillåter HTTPS utgående till port 443 för dessa [service märken](../virtual-network/service-tags-overview.md#available-service-tags)(grupper med IP-adresser):
 
-## <a name="verify-azure-vm-certificates"></a>Verifiera certifikat för virtuella Azure-datorer
+**Tag** | **Tillåt** 
+--- | ---
+Lagrings tag gen  |Tillåter att data skrivs från den virtuella datorn till cache Storage-kontot.   
+Azure AD-tagg | Tillåter åtkomst till alla IP-adresser som motsvarar Azure AD.   
+EventsHub-tagg | Ger åtkomst till Site Recovery övervakning.  
+AzureSiteRecovery-tagg | Tillåter åtkomst till tjänsten Site Recovery i vilken region som helst.   
+GuestAndHybridManagement-tagg | Använd om du vill uppgradera den Site Recovery mobilitets agent som körs på virtuella datorer som är aktiverade för replikering.
 
-Kontrollera att de virtuella datorer som du vill replikera har de senaste rotcertifikaten. Om de inte gör det går det inte att registrera den virtuella datorn på Site Recovery på grund av säkerhets begränsningar.
+[Lär dig mer](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) om obligatoriska taggar och taggnings exempel.
 
-- I virtuella datorer med Windows installerar du alla de senaste uppdateringarna så att alla betrodda rotcertifikat finns på datorn. I en frånkopplad miljö använder du organisationens vanliga processer för Windows Update och certifikatuppdatering.
-- I virtuella datorer med Linux följer du de riktlinjer du fått från Linux-distributören för att hämta de senaste betrodda rotcertifikaten och listan över återkallade certifikat till den virtuella datorn.
+### <a name="verify-vm-certificates"></a>Verifiera certifikat för virtuella datorer
 
-## <a name="set-permissions-on-the-account"></a>Ange behörigheter för kontot
+Kontrol lera att de virtuella datorerna har de senaste rot certifikaten. Annars kan den virtuella datorn inte registreras med Site Recovery på grund av säkerhets begränsningar.
 
-Azure Site Recovery har tre inbyggda roller som styr Site Recovery-hanteringen.
+- **Virtuella Windows-datorer** : installera alla de senaste Windows-uppdateringarna på den virtuella datorn så att alla betrodda rot certifikat finns på datorn. I en frånkopplad miljö följer du standard processerna för Windows Update och certifikat uppdateringar.
+- **Virtuella Linux-datorer** : Följ de rikt linjer som tillhandahålls av Linux-distributören för att hämta de senaste betrodda rot certifikaten och listan över återkallade certifikat (CRL).
 
-- **Site Recovery-bidragsgivare** – Den här rollen har alla behörigheter som krävs för att hantera Azure Site Recovery-åtgärder i ett Recovery Services-valv. En användare med denna roll kan dock inte skapa eller ta bort ett Recovery Services-valv eller tilldela behörighet till andra användare. Den här rollen lämpar sig bäst för haveriberedskapsadministratörer som kan aktivera och hantera haveriberedskap för program eller hela organisationer.
+## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
-- **Site Recovery-operatör** – Den här rollen har behörighet att utföra och hantera operationer för redundans och återställning av fel. En användare med den här rollen kan inte aktivera eller inaktivera replikering, skapa eller ta bort valv, registrera ny infrastruktur eller tilldela åtkomstbehörigheter till andra användare. Den här rollen lämpar sig bäst för en haveriberedskapsoperatör som kan redundansväxla virtuella datorer eller program efter instruktioner från programägare och IT-administratörer. Efter haveri stängningen kan haveri återställnings operatören återaktivera och återställa de virtuella datorerna.
+Skapa ett Recovery Services-valv i vilken region som helst, förutom i käll regionen som du vill replikera virtuella datorer från.
 
-- **Site Recovery-läsare** – Den här rollen har behörighet att visa all Site Recovery-hantering. Den här rollen lämpar sig bäst för en IT-chef som kan övervaka aktuell skyddsnivå och skapa supportärenden.
+1. Logga in i [Azure-portalen](https://portal.azure.com).
+2. Skriv *återställning* i rutan Sök. Under **tjänster** väljer du **Recovery Services valv**.
 
-Lär dig mer om [inbyggda Azure-roller](../role-based-access-control/built-in-roles.md).
+    ![Sök efter Recovery Services valv](./media/azure-to-azure-tutorial-enable-replication/search.png)
 
-## <a name="enable-replication-for-a-vm"></a>Aktivera replikering för en virtuell dator
+3. I **Recovery Services valv** väljer du **Lägg till**.
+4. I **skapa Recovery Services Vault**  >  - **grunderna** väljer du den prenumeration som du vill skapa valvet i.
+5. I **resurs grupp** väljer du en befintlig resurs grupp för valvet eller skapar en ny.
+6. I **valv namn** anger du ett eget namn som identifierar valvet.
+7. I **region** väljer du den Azure-region där du vill placera valvet. [Kontrol lera regioner som stöds](https://azure.microsoft.com/pricing/details/site-recovery/).
+8. Välj **Granska + skapa**.
 
-I följande avsnitt beskrivs hur du aktiverar replikering.
+   ![Valv inställningar på sidan för att skapa ett nytt valv](./media/azure-to-azure-tutorial-enable-replication/vault-basics.png)
 
-### <a name="select-the-source"></a>Välj källan
+9. I **Granska + skapa** , väljer du **skapa**.
 
-Påbörja replikeringen genom att välja den källa där dina virtuella Azure-datorer körs.
+10. Valv distributionen börjar. Följ förloppet i aviseringarna.
+11. När valvet har distribuerats väljer du **Fäst på instrument panelen** för att spara den för snabb referens. Välj **gå till resurs** för att öppna det nya valvet. 
+    
+    ![Knappar för att öppna valvet efter distribution och fästa på instrument panelen](./media/azure-to-azure-tutorial-enable-replication/vault-deploy.png)
 
-1. Gå till **Recovery Services valv**, Välj valv namnet och välj sedan **+ Replikera**.
-1. För **källan**väljer du **Azure**.
-1. I **Källplats** väljer du den Azure källregion där de virtuella datorerna körs just nu.
-1. Välj den **källprenumeration** där de virtuella datorerna körs. Detta kan vara en prenumeration i samma Azure Active Directory-klientorganisation som dina valv i återställningstjänsten finns i.
-1. Välj **käll resurs gruppen**och spara inställningarna genom att välja **OK** .
+### <a name="enable-site-recovery"></a>Aktivera Site Recovery
 
-   ![Konfigurera källan](./media/azure-to-azure-tutorial-enable-replication/source.png)
+I valv inställningarna väljer du **aktivera Site Recovery**.
+
+![Val för att aktivera Site Recovery i valvet](./media/azure-to-azure-tutorial-enable-replication/enable-site-recovery.png)
+
+## <a name="enable-replication"></a>Aktivera replikering
+
+Välj käll inställningar och aktivera VM-replikering. 
+
+### <a name="select-source-settings"></a>Välj käll inställningar
+
+1. På sidan valv > **Site Recovery** , under **Azure Virtual Machines** , väljer du **Aktivera replikering**.
+
+    ![Val för att aktivera replikering för virtuella Azure-datorer](./media/azure-to-azure-tutorial-enable-replication/enable-replication.png)
+
+2. På **käll** >  **käll plats** väljer du den Azure-region där virtuella datorer körs för närvarande.
+3. I **distributions modell för virtuell Azure-dator** lämnar du standard inställningen för **Resource Manager** .
+4. I **käll prenumeration** väljer du den prenumeration som de virtuella datorerna körs i. Du kan välja vilken prenumeration som helst i samma Azure Active Directory-klient (AD) som valvet.
+5. I **resurs grupp för källa** väljer du den resurs grupp som innehåller de virtuella datorerna.
+6. I **haveri beredskap mellan tillgänglighets zoner** lämnar du standardvärdet **no** .
+
+     ![Konfigurera källan](./media/azure-to-azure-tutorial-enable-replication/source.png)
+
+7. Välj **Nästa**.
 
 ### <a name="select-the-vms"></a>Välj virtuella datorer
 
-Site Recovery hämtar en lista med de virtuella datorer som är kopplade till prenumerationen och resursgruppen eller molntjänsten.
+Site Recovery hämtar de virtuella datorer som är associerade med den valda prenumerationen/resurs gruppen.
 
-1. I **Virtuella datorer** väljer du de virtuella datorer du vill replikera.
-1. Välj **OK**.
+1. I **Virtual Machines** väljer du de virtuella datorer som du vill aktivera för haveri beredskap.
 
-### <a name="configure-replication-settings"></a>Konfigurera replikeringsinställningar
+     ![Sidan för att välja virtuella datorer för replikering](./media/azure-to-azure-tutorial-enable-replication/select-vm.png)
 
-Site Recovery skapar standardinställningar och replikeringsprinciper för målregionen. Du kan ändra inställningarna efter behov.
+2. Välj **Nästa**.
 
-1. Välj **Inställningar** för att visa inställningarna för mål och replikering.
+### <a name="review-replication-settings"></a>Granska replikeringsinställningar
 
-1. Om du vill åsidosätta standard mål inställningarna väljer du **Anpassa** bredvid **resurs grupp, nätverk, lagring och tillgänglighet**.
+1. Granska inställningarna i **replikeringsinställningar**. Site Recovery skapar standardinställningar/princip för mål regionen. I den här självstudien använder vi standardinställningarna.
+2. Välj **Aktivera replikering**.
 
-   ![Konfigurera inställningar](./media/azure-to-azure-tutorial-enable-replication/settings.png)
+    ![Sida för att anpassa inställningar och aktivera replikering](./media/azure-to-azure-tutorial-enable-replication/enable-vm-replication.png)   
 
-1. Anpassa mål inställningarna som sammanfattas i tabellen.
+3. Spåra replikeringens förlopp i aviseringarna.
 
-   | **Inställning** | **Information** |
-   | --- | --- |
-   | **Mål prenumeration** | Som standard är mål prenumerationen densamma som käll prenumerationen. Välj **Anpassa** om du vill välja en annan mål prenumeration inom samma Azure Active Directory klient. |
-   | **Målplats** | Den målregion som används för haveriberedskap.<br/><br/> Vi rekommenderar att målplatsen överensstämmer med Site Recovery-valvets plats. |
-   | **Mål resurs grupp** | Den resursgrupp i målregionen som innehåller virtuella Azure-datorer efter redundansväxling.<br/><br/> Som standard skapar Site Recovery en ny resurs grupp i mål regionen med ett `asr` suffix. Platsen för mål resurs gruppen kan vara vilken region som helst, förutom den region där dina virtuella käll datorer finns. |
-   | **Virtuellt mål nätverk** | Nätverket i den målregion där virtuella Azure-datorer finns efter redundansväxling.<br/><br/> Som standard skapar Site Recovery ett nytt virtuellt nätverk (och undernät) i mål regionen med ett `asr` suffix. |
-   | **Cachelagra lagrings konton** | Site Recovery använder ett lagringskonto i källregionen. Ändringar i virtuella källdatorer skickas till det här kontot innan replikering till målplatsen.<br/><br/> Om du använder ett brand Väggs-aktiverat lagrings konto för cache kontrollerar du att du aktiverar **Tillåt betrodda Microsoft-tjänster**. [Läs mer](../storage/common/storage-network-security.md#exceptions). Se också till att du tillåter åtkomst till minst ett undernät för det virtuella käll-VNet. |
-   | **Mål lagrings konton (den virtuella käll datorn använder icke-hanterade diskar)** | Som standard skapar Site Recovery ett nytt lagringskonto i målregionen som speglar lagringskontot för den virtuella källdatorn.<br/><br/> Aktivera **Tillåt betrodda Microsoft-tjänster** om du använder ett brand Väggs-aktiverat cache Storage-konto. |
-   | **Hanterade replik diskar (om den virtuella käll datorn använder Managed Disks)** | Som standard skapar Site Recovery replik Managed disks i mål regionen för att spegla den virtuella käll datorns hanterade diskar med samma lagrings typ (standard eller Premium) som den virtuella käll datorns hanterade disk. Du kan bara anpassa disk typen. |
-   | **Tillgänglighets uppsättningar för mål** | Som standard skapar Azure Site Recovery en ny tillgänglighets uppsättning i mål regionen med namnet med `asr` suffix för den virtuella dator delen av en tillgänglighets uppsättning i käll regionen. Om tillgänglighets uppsättningen som skapats av Azure Site Recovery redan finns används den igen. |
-   | **Mål tillgänglighets zoner** | Som standard tilldelar Site Recovery samma zonnummer som källregionen i målregionen om målregionen har stöd för tillgänglighetszoner.<br/><br/> Om mål regionen inte stöder tillgänglighets zoner konfigureras de virtuella mål datorerna som enskilda instanser som standard.<br/><br/> Välj **Anpassa** för att konfigurera virtuella datorer som en del av en tillgänglighets uppsättning i mål regionen.<br/><br/> Du kan inte ändra tillgänglighets typ (enskild instans, tillgänglighets uppsättning eller tillgänglighets zon) när du har aktiverat replikering. Om du vill ändra tillgänglighets typ inaktiverar du och aktiverar replikering. |
+     ![Spåra förloppet i meddelanden ](./media/azure-to-azure-tutorial-enable-replication/notification.png) ![ Spåra meddelande om slutförd replikering](./media/azure-to-azure-tutorial-enable-replication/notification-success.png)
 
-1. Om du vill anpassa inställningarna för replikeringsprincipen väljer du **Anpassa** bredvid **replikeringsprincip**och ändrar inställningarna efter behov.
+4. De virtuella datorer som du aktiverar visas på sidan valv > **replikerade objekt** .
 
-   | **Inställning** | **Information** |
-   | --- | --- |
-   | **Namn på replikeringsprincip** | Principnamn. |
-   | **Kvarhållning av återställnings punkt** | Som standard behåller Site Recovery återställningspunkter i 24 timmar. Du kan ställa in ett värde mellan 1 och 72 timmar. |
-   | **Frekvens för programkonsekventa ögonblicks bilder** | Som standard tar Site Recovery en appkompatibel ögonblicksbild var 4:e timme. Du kan ställa in ett värde mellan 1 och 12 timmar.<br/><br/> En programkonsekvent ögonblicks bild är en tidpunkts ögonblicks bild av program data i den virtuella datorn. Volume Shadow Copy-tjänsten (VSS) säkerställer att programmen i den virtuella datorn är i ett konsekvent tillstånd när ögonblicksbilden tas. |
-   | **Replikeringsgrupp** | Om programmet kräver konsekvens för flera virtuella datorer mellan virtuella datorer kan du skapa en replikeringsgrupp för dessa virtuella datorer. Som standard är valda virtuella datorer inte en del av någon replikeringsgrupp. |
+    ![Den virtuella datorn på sidan replikerade objekt](./media/azure-to-azure-tutorial-enable-replication/replicated-items.png)
 
-1. I **Anpassa** väljer du **Ja** för konsekvens för flera virtuella datorer om du vill lägga till virtuella datorer i en ny eller en befintlig replikeringsgrupp. Välj sedan **OK**.
-
-   > [!NOTE]
-   > - Alla datorer i en replikeringsgrupp har delade krascher konsekventa och programkonsekventa återställnings punkter vid växling vid fel.
-   > - Att aktivera konsekvens för flera virtuella datorer kan påverka arbets belastnings prestandan (den är processor intensiv). Den bör endast användas om datorer kör samma arbets belastning och du behöver konsekvens på flera datorer.
-   > - Du kan ha högst 16 virtuella datorer i en replikeringsgrupp.
-   > - Om du aktiverar konsekvens för flera virtuella datorer kommunicerar datorer i replikeringsgruppen med varandra på port 20004. Se till att det inte finns någon brand vägg som blockerar den interna kommunikationen mellan de virtuella datorerna via den här porten.
-   > - För virtuella Linux-datorer i en replikeringsgrupp ser du till att utgående trafik på port 20004 öppnas manuellt i enlighet med vägledningen för Linux-versionen.
-
-### <a name="configure-encryption-settings"></a>Konfigurera krypteringsinställningar
-
-Om den virtuella käll datorn har Azure Disk Encryption (ADE) aktiverat, granskar du inställningarna.
-
-1. Verifiera inställningarna:
-   1. **Nyckel valv för disk kryptering**: som standard skapar Site Recovery ett nytt nyckel valv på den virtuella käll diskens disk krypterings nycklar med ett `asr` suffix. Om nyckel valvet redan finns återanvänds det.
-   1. **Nyckel valv för nyckel kryptering**: som standard skapar Site Recovery ett nytt nyckel valv i mål regionen. Namnet har ett `asr` suffix och baseras på den virtuella käll nyckelns krypterings nycklar. Om nyckel valvet som skapats av Site Recovery redan finns återanvänds det.
-1. Välj **Anpassa** för att välja anpassade nyckel valv.
-
->[!NOTE]
-> Site Recovery stöder för närvarande ADE, med och utan Azure Active Directory (AAD) för virtuella datorer som kör Windows operativ system. För Linux-operativsystem stöder vi bara ADE utan AAD. För datorer som kör ADE 1,1 (utan AAD) måste dessutom de virtuella datorerna använda hanterade diskar. Virtuella datorer med ohanterade diskar stöds inte. Om du växlar från ADE 0,1 (med AAD) till 1,1 måste du inaktivera replikering och aktivera replikering för en virtuell dator efter att ha aktiverat 1,1.
-
-### <a name="track-replication-status"></a>Spåra replikeringsstatus
-
-När replikering har Aktiver ATS kan du spåra jobbets status.
-
-1. I **Inställningar**väljer du **Uppdatera** för att hämta den senaste statusen.
-1. Spåra förlopp och status på följande sätt:
-   1. Spåra förloppet för jobbet **Aktivera skydd** i **Inställningar** > **Jobb** > **Site Recovery-jobb**.
-   1. I **Inställningar**  >  **replikerade objekt**kan du Visa status för virtuella datorer och den inledande replikeringen. Välj den virtuella datorn för att öka detalj nivån i inställningarna.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien konfigurerade du haveriberedskap för en virtuell Azure-dator. Nu kan du köra en granskning av haveri beredskap för att kontrol lera att redundansväxlingen fungerar som förväntat.
+I den här självstudien har du aktiverat haveri beredskap för en virtuell Azure-dator. Nu ska du köra en detalj granskning för att kontrol lera att redundansväxlingen fungerar som förväntat.
 
 > [!div class="nextstepaction"]
 > [Köra ett programåterställningstest](azure-to-azure-tutorial-dr-drill.md)

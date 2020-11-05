@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: f90d84b5897175dbda0a24591893c4e41a06822a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5d7d232ada814d5d3c30e7b012c6289f847d641f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973588"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395096"
 ---
 # <a name="deploy-azure-sql-edge"></a>Distribuera Azure SQL Edge 
 
@@ -23,7 +23,7 @@ Azure SQL Edge är en Relations databas motor som är optimerad för IoT och Azu
 ## <a name="before-you-begin"></a>Innan du börjar
 
 * Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
-* Logga in på [Azure-portalen](https://portal.azure.com/).
+* Logga in i [Azure-portalen](https://portal.azure.com/).
 * Skapa ett [Azure-IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
 * Skapa en [Azure IoT Edge enhet](../iot-edge/how-to-install-iot-edge.md).
 
@@ -52,7 +52,7 @@ Azure Marketplace är ett online-program och tjänster för tjänster där du ka
 
 4. På sidan **Ange moduler på enheten:** klickar du på modulen Azure SQL Edge under **IoT Edge moduler**. Standardmodulens namn är inställt på *AzureSQLEdge*. 
 
-5. I avsnittet *Modulnamn* i bladet **Uppdatera IoT Edge modul** anger du önskade värden för namnet på IoT Edge- *modulen*, *startar om principen* och *önskad status*. 
+5. I avsnittet *Modulnamn* i bladet **Uppdatera IoT Edge modul** anger du önskade värden för namnet på IoT Edge- *modulen* , *startar om principen* och *önskad status*. 
 
    > [!IMPORTANT]    
    > Ändra eller uppdatera inte bild- **URI** -inställningarna i modulen.
@@ -106,13 +106,13 @@ Azure Marketplace är ett online-program och tjänster för tjänster där du ka
    > [!IMPORTANT]    
    > Ändra inte miljön- `PlanId` variabeln som definierats i inställningen skapa konfiguration. Om det här värdet ändras går det inte att starta Azure SQL Edge-behållaren. 
    
-8. Klicka på **Uppdatera**i fönstret **Uppdatera IoT Edge-modulen** .
+8. Klicka på **Uppdatera** i fönstret **Uppdatera IoT Edge-modulen** .
 9. På sidan **Ange moduler på enhet** klickar du på **nästa: vägar >** om du behöver definiera vägar för distributionen. Annars klickar du på **Granska + skapa**. Mer information om hur du konfigurerar vägar finns i [distribuera moduler och upprätta vägar i IoT Edge](../iot-edge/module-composition.md).
 11. På sidan **Ange moduler på enheten** klickar du på **skapa**.
 
 ## <a name="connect-to-azure-sql-edge"></a>Ansluta till Azure SQL Edge
 
-I följande steg används kommando rads verktyget för Azure SQL Edge, **SQLCMD**, inuti behållaren för att ansluta till Azure SQL Edge.
+I följande steg används kommando rads verktyget för Azure SQL Edge, **SQLCMD** , inuti behållaren för att ansluta till Azure SQL Edge.
 
 > [!NOTE]      
 > SQL Command line tools (SQLCMD) är inte tillgängliga i ARM64-versionen av Azure SQL Edge-behållare.
@@ -212,11 +212,11 @@ Kör nu en fråga för att returnera data från `Inventory` tabellen.
 
 ## <a name="connect-from-outside-the-container"></a>Anslut utanför behållaren
 
-Du kan ansluta och köra SQL-frågor mot din Azure SQL Edge-instans från alla externa Linux-, Windows-eller macOS-verktyg som stöder SQL-anslutningar. Mer information om hur du ansluter till en SQL Edge-behållare från utsidan finns i [Anslut och fråga Azure SQL Edge](https://docs.microsoft.com/azure/azure-sql-edge/connect).
+Du kan ansluta och köra SQL-frågor mot din Azure SQL Edge-instans från alla externa Linux-, Windows-eller macOS-verktyg som stöder SQL-anslutningar. Mer information om hur du ansluter till en SQL Edge-behållare från utsidan finns i [Anslut och fråga Azure SQL Edge](./connect.md).
 
 I den här snabb starten har du distribuerat en SQL Edge-modul på en IoT Edge enhet. 
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - [Machine Learning och artificiell intelligens med ONNX i SQL Edge](onnx-overview.md)
 - [Skapa en IoT-lösning från slut punkt till slut punkt med SQL Edge med IoT Edge](tutorial-deploy-azure-resources.md)

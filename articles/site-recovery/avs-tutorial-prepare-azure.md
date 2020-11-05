@@ -1,5 +1,5 @@
 ---
-title: Förbered Azure-resurser för haveri beredskap för Azure VMware-lösningen med Azure Site Recovery
+title: Förbereda Azure Site Recovery-resurser för haveri beredskap för virtuella Azure VMware-lösningar
 description: Lär dig hur du förbereder Azure-resurser för haveri beredskap för Azure VMware-lösningar datorer som använder Azure Site Recovery.
 services: site-recovery
 author: Harsha-CS
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 09/29/2020
 ms.author: harshacs
 ms.custom: MVC
-ms.openlocfilehash: 83e2c46e1ce1977d0dd136e821c90843ce2de481
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bd305e3760a8c3d743037e7d90b71f5e9579eda
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91814629"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395486"
 ---
-# <a name="prepare-azure-resources-for-disaster-recovery-of-azure-vmware-solution-to-azure"></a>Förbered Azure-resurser för haveri beredskap för Azure VMware-lösningen till Azure
+# <a name="prepare-azure-site-recovery-resources-for-disaster-recovery-of-azure-vmware-solution-vms"></a>Förbereda Azure Site Recovery-resurser för haveri beredskap för virtuella Azure VMware-lösningar
 
 Den här artikeln beskriver hur du förbereder Azure-resurser och-komponenter så att du kan konfigurera haveri beredskap för virtuella Azure VMware-lösningar med hjälp av [Azure Site Recovery](site-recovery-overview.md) -tjänsten. [Azure VMware-lösningen](../azure-vmware/introduction.md) tillhandahåller privata moln i Azure. Dessa privata moln innehåller vSphere-kluster som bygger på dedikerade Azure-infrastrukturer utan operativ system.
 
@@ -42,7 +42,7 @@ I den här guiden får du lära dig att:
 - Granska arkitekturen för katastrof återställning i [VMware](vmware-azure-architecture.md)
 - Läs vanliga frågor för [VMware](vmware-azure-common-questions.md)
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar. Logga sedan in på [Azure Portal](https://portal.azure.com).
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar. Logga sedan in på [Azure Portal](https://portal.azure.com).
 
 
 ## <a name="verify-account-permissions"></a>Verifiera kontobehörighet
@@ -59,17 +59,17 @@ För att slutföra dessa uppgifter måste ditt konto tilldelas en inbyggd roll s
 
 ## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
-1. Från Azure Portal-menyn väljer du **skapa en resurs**och söker efter **återställning**i Marketplace.
-2. Välj **säkerhets kopiering och Site Recovery** från Sök resultaten och klicka på **skapa**på sidan säkerhets kopiering och Site Recovery. 
+1. Från Azure Portal-menyn väljer du **skapa en resurs** och söker efter **återställning** i Marketplace.
+2. Välj **säkerhets kopiering och Site Recovery** från Sök resultaten och klicka på **skapa** på sidan säkerhets kopiering och Site Recovery. 
 3. På sidan **skapa Recovery Services valv** väljer du **prenumerationen**. Vi använder **contoso-prenumerationen**.
 4. I **Resursgrupp** väljer du en befintlig resursgrupp eller skapar en ny. I den här självstudien använder vi **contosoRG**.
-5. I **valv namn**anger du ett eget namn som identifierar valvet. I de här självstudierna använder vi namnet **ContosoVMVault**.
-6. I **region**väljer du den region där valvet ska placeras. Använder vi **Europa, västra**.
+5. I **valv namn** anger du ett eget namn som identifierar valvet. I de här självstudierna använder vi namnet **ContosoVMVault**.
+6. I **region** väljer du den region där valvet ska placeras. Använder vi **Europa, västra**.
 7. Välj **Granska + skapa**.
 
    ![Skärm bild av sidan Skapa Recovery Services valv.](./media/tutorial-prepare-azure/new-vault-settings.png)
 
-   Det nya valvet visas nu i **instrument panelen**  >  **alla resurser**och på huvud sidan **Recovery Services valv** .
+   Det nya valvet visas nu i **instrument panelen**  >  **alla resurser** och på huvud sidan **Recovery Services valv** .
 
 ## <a name="set-up-an-azure-network"></a>Skapa ett Azure-nätverk
 
@@ -78,11 +78,11 @@ För att slutföra dessa uppgifter måste ditt konto tilldelas en inbyggd roll s
 1. I [Azure-portalen](https://portal.azure.com) väljer du **Skapa en resurs** > **Nätverk** > **Virtuellt nätverk**.
 2. Behåll **Resource Manager** valt som distributions modell.
 3. I **Namn** anger du ett nätverksnamn. Namnet måste vara unikt inom Azure-resursgruppen. Vi använder **ContosASRnet** i den här självinlärningskursen.
-4. I **adress utrymme**anger du det virtuella nätverkets adress intervall i CDR-notation. Vi använder **10.1.0.0/24**.
+4. I **adress utrymme** anger du det virtuella nätverkets adress intervall i CDR-notation. Vi använder **10.1.0.0/24**.
 5. I **Prenumeration** väljer du den prenumeration där du vill skapa nätverket.
 6. Ange **resurs gruppen** som nätverket ska skapas i. Vi använder den befintliga resursgruppen **contosoRG**.
-7. I **plats**väljer du samma region som Recovery Servicess valvet har skapats i. I vår självstudie är det **Västeuropa**. Nätverket måste finnas i samma region som valvet.
-8. I **adress intervall**anger du intervallet för nätverket. Vi använder **10.1.0.0/24**och använder inte ett undernät.
+7. I **plats** väljer du samma region som Recovery Servicess valvet har skapats i. I vår självstudie är det **Västeuropa**. Nätverket måste finnas i samma region som valvet.
+8. I **adress intervall** anger du intervallet för nätverket. Vi använder **10.1.0.0/24** och använder inte ett undernät.
 9. Vi lämnar standard alternativen för grundläggande DDoS-skydd, utan tjänst slut punkt eller brand vägg i nätverket.
 9. Välj **Skapa**.
 

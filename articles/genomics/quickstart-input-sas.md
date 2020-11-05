@@ -9,23 +9,23 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 03/02/2018
-ms.openlocfilehash: d6228762b9a1299d8e9229f7a0f73dc7d0bca2b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82f5e8b4a0c06517381857f0d914bcb65ba41d35
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72248586"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394619"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Skicka ett arbetsflöde till Microsoft Genomics med en SAS istället för en lagringskontonyckel 
 
-Den här artikeln visar hur du skickar ett arbets flöde till Microsoft Genomics tjänsten med hjälp av en config.txt-fil som innehåller [signaturer för delad åtkomst (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) i stället för lagrings konto nycklar. Den här funktionen är användbar om det finns några säkerhetsproblemen med lagringskontonyckeln som är synliga i filen config.txt. 
+Den här artikeln visar hur du skickar ett arbets flöde till Microsoft Genomics tjänsten med hjälp av en config.txt-fil som innehåller [signaturer för delad åtkomst (SAS)](../storage/common/storage-sas-overview.md) i stället för lagrings konto nycklar. Den här funktionen är användbar om det finns några säkerhetsproblemen med lagringskontonyckeln som är synliga i filen config.txt. 
 
 I den här artikeln förutsätts det att du redan har installerat och kört `msgen`-klienten och att du vet hur du använder Azure Storage. Om du har skickat ett arbets flöde med hjälp av de tillhandahållna exempel data, är du redo att fortsätta med den här artikeln. 
 
 ## <a name="what-is-a-sas"></a>Vad är en SAS?
-En [signatur för delad åtkomst (Shared Access Signature, SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) ger delegerad åtkomst till resurser på ditt lagringskonto. Med en SAS kan du bevilja åtkomst till resurser i ditt lagringskonto utan att dela dina kontonycklar. Det här är en viktig aspekt av att använda signaturer för delad åtkomst i dina program – en SAS är ett säkert sätt att dela dina lagringsresurser utan att kompromissa med lagringsnycklar.
+En [signatur för delad åtkomst (Shared Access Signature, SAS)](../storage/common/storage-sas-overview.md) ger delegerad åtkomst till resurser på ditt lagringskonto. Med en SAS kan du bevilja åtkomst till resurser i ditt lagringskonto utan att dela dina kontonycklar. Det här är en viktig aspekt av att använda signaturer för delad åtkomst i dina program – en SAS är ett säkert sätt att dela dina lagringsresurser utan att kompromissa med lagringsnycklar.
 
-SAS som skickas till Microsoft Genomics ska vara en [SAS för tjänst](https://docs.microsoft.com/rest/api/storageservices/Constructing-a-Service-SAS) som endast delegerar åtkomst till bloben eller containern där indata- och utdatafiler lagras. 
+SAS som skickas till Microsoft Genomics ska vara en [SAS för tjänst](/rest/api/storageservices/Constructing-a-Service-SAS) som endast delegerar åtkomst till bloben eller containern där indata- och utdatafiler lagras. 
 
 URI:n för en SAS-token (signatur för delad åtkomst) består av resursens URI för vilken SAS delegerar åtkomst, följt av SAS-token. SAS-token är frågesträngen som innehåller all information som krävs för att autentisera SAS, samt för att ange resursen, de behörigheter som krävs för åtkomst, tidsintervallet då signaturen är giltig, IP-adresser eller adressintervallet som stöds från vilka begäran kan härstamma från, protokollet som stöds som en begäran kan göras med, en valfri principidentifierare för åtkomst som är kopplad till begäran och själva signaturen. 
 
@@ -49,18 +49,18 @@ Det finns två sätt att skapa ett SAS-token, antingen med Azure Storage Explore
 
 ### <a name="set-up-create-a-sas-using-azure-storage-explorer"></a>Konfigurera: Skapa en SAS med Azure Storage Explorer
 
-[Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) är ett verktyg för att hantera resurser som du har lagrat i Azure Storage.  Du kan läsa mer om att använda Azure Storage Explorer [här](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+[Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) är ett verktyg för att hantera resurser som du har lagrat i Azure Storage.  Du kan läsa mer om att använda Azure Storage Explorer [här](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
-SAS för indatafilerna ska vara begränsad till den specifika indatafilen (bloben). Skapa en SAS-token genom att följa [anvisningarna](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer). När du har skapat SAS tillhandahålls en fullständig URL med både frågesträngen och frågesträngen fristående som kan kopieras från nästa skärm.
+SAS för indatafilerna ska vara begränsad till den specifika indatafilen (bloben). Skapa en SAS-token genom att följa [anvisningarna](../storage/blobs/storage-quickstart-blobs-storage-explorer.md). När du har skapat SAS tillhandahålls en fullständig URL med både frågesträngen och frågesträngen fristående som kan kopieras från nästa skärm.
 
  ![Genomiks-SAS Storage Explorer](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Genomiks-SAS Storage Explorer")
 
 
 ### <a name="set-up-create-a-sas-programmatically"></a>Konfigurera: skapa en SAS program mässigt
 
-Om du vill skapa en SAS med Azure Storage SDK läser du den befintliga dokumentationen på flera språk, som [.NET](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage) och [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage). 
+Om du vill skapa en SAS med Azure Storage SDK läser du den befintliga dokumentationen på flera språk, som [.NET](../storage/common/storage-sas-overview.md), [Python](../storage/blobs/storage-quickstart-blobs-python.md) och [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs.md). 
 
-Om du vill skapa en SAS utan SDK kan du skapa SAS-frågesträngen direkt, inklusive all nödvändig information för att autentisera din SAS. Dessa [instruktioner](https://docs.microsoft.com/rest/api/storageservices/constructing-a-service-sas) innehåller information om komponenterna i SAS-frågesträngen och hur du skapar den. SAS-signaturen som krävs skapas via generering av en HMAC med blobens/containerns autentiseringsinformation, som beskrivs i de här [instruktionerna](https://docs.microsoft.com/rest/api/storageservices/service-sas-examples).
+Om du vill skapa en SAS utan SDK kan du skapa SAS-frågesträngen direkt, inklusive all nödvändig information för att autentisera din SAS. Dessa [instruktioner](/rest/api/storageservices/constructing-a-service-sas) innehåller information om komponenterna i SAS-frågesträngen och hur du skapar den. SAS-signaturen som krävs skapas via generering av en HMAC med blobens/containerns autentiseringsinformation, som beskrivs i de här [instruktionerna](/rest/api/storageservices/service-sas-examples).
 
 
 ## <a name="add-the-sas-to-the-configtxt-file"></a>Lägga till SAS till filen config.txt
@@ -86,4 +86,4 @@ msgen submit -f [full path to your config file]
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln har du använt SAS-token istället för kontonycklar för att skicka ett arbetsflöde till Microsoft Genomics-tjänsten via `msgen` Python-klienten. Ytterligare information om att skicka arbetsflöden och andra kommandon som du kan använda med tjänsten Microsoft Genomics finns i [vanliga frågor och svar](frequently-asked-questions-genomics.md). 
+I den här artikeln har du använt SAS-token istället för kontonycklar för att skicka ett arbetsflöde till Microsoft Genomics-tjänsten via `msgen` Python-klienten. Ytterligare information om att skicka arbetsflöden och andra kommandon som du kan använda med tjänsten Microsoft Genomics finns i [vanliga frågor och svar](frequently-asked-questions-genomics.md).

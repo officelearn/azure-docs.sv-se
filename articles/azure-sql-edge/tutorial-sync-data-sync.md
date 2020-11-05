@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 5830cedfdce54c4cd91eb60a5cd2145309e965b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5659ce5fa6f99463f58a33662563d768248fd8cb
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904116"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394908"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-sql-database-by-using-sql-data-sync"></a>Självstudie: synkronisera data från SQL Edge till Azure SQL Database med SQL Data Sync
 
@@ -22,7 +22,7 @@ I den här självstudien får du lära dig hur du använder en Azure SQL Data Sy
 
 Eftersom SQL Edge bygger på de senaste versionerna av [SQL Server Database Engine](/sql/sql-server/sql-server-technical-documentation/)kan all mekanism för datasynkronisering som är tillämplig på en SQL Server-instans också användas för att synkronisera data till eller från en SQL Edge-instans som körs på en Edge-enhet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här självstudien kräver att en Windows-dator har kon figurer ATS med [Data Sync-agenten för Azure SQL Data Sync](../azure-sql/database/sql-data-sync-agent-overview.md)
 
@@ -55,7 +55,7 @@ Mer information om SQL Data Sync finns i följande artiklar:
 
 * [Metod tips](../azure-sql/database/sql-data-sync-best-practices.md) och [fel sökning av problem med Azure SQL Data Sync](../azure-sql/database/sql-data-sync-troubleshoot.md)
 
-* [Övervaka SQL Data Sync med Azure Monitor loggar](../azure-sql/database/sql-data-sync-monitor-sync.md)
+* [Övervaka SQL Data Sync med Azure Monitor loggar](../azure-sql/database/monitor-tune-overview.md)
 
 * [Uppdatera synkroniseringsschemat med Transact-SQL](../azure-sql/database/sql-data-sync-update-sync-schema.md) eller [PowerShell](../azure-sql/database/scripts/update-sync-schema-in-sync-group.md)
 

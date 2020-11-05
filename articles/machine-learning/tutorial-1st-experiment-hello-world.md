@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 7bee7bede0219f41d9d5e56214a6dc1b94977cb5
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 20173c4ba02f53a526167a5a8e22bd0cedc85594
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322737"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393226"
 ---
 # <a name="tutorial-run-a-hello-world-python-script-part-2-of-4"></a>Självstudie: kör en "Hello World!" Python-skript (del 2 av 4)
 
@@ -138,6 +138,14 @@ Här är en beskrivning av hur kontroll skriptet fungerar:
 ## <a name="submit-and-run-your-code-in-the-cloud"></a>Skicka in och kör din kod i molnet
 
 Kör ditt kontroll skript, som i sin tur körs `hello.py` på det beräknings kluster som du skapade i [installations guiden](tutorial-1st-experiment-sdk-setup-local.md)för.
+
+Den allra första körningen tar 5-10 minuter att slutföra. Detta beror på att följande inträffar:
+
+* En Docker-avbildning är inbyggd i molnet
+* Beräknings klustrets storlek ändras från 0 till 1 nod
+* Docker-avbildningen har laddats ned till beräkningen. 
+
+Efterföljande körningar är mycket snabbare (~ 15 sekunder) när Docker-avbildningen cachelagras i beräkningen – du kan testa detta genom att skicka koden nedan igen när den första körningen har slutförts.
 
 ```bash
 python 03-run-hello.py

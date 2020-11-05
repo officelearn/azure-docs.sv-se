@@ -9,18 +9,18 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: 646ce94587a9aa1bb8fd20a28b84658994b25cf1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19dcbbf102a1d8d21f1b14780ea33816a1677c55
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90886528"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392035"
 ---
 # <a name="supported-features-of-azure-sql-edge"></a>Funktioner som stöds i Azure SQL Edge 
 
 Azure SQL Edge bygger på den senaste versionen av SQL Database-motorn. Den har stöd för en delmängd av funktionerna som stöds i SQL Server 2019 på Linux, förutom vissa funktioner som för närvarande inte stöds eller är tillgängliga i SQL Server 2019 på Linux (eller i SQL Server i Windows).
 
-En fullständig lista över de funktioner som stöds i SQL Server på Linux finns i [utgåvor och stödda funktioner i SQL Server 2019 i Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-editions-and-components-2019). För utgåvor och stödda funktioner i SQL Server i Windows, se [utgåvor och stödda funktioner i SQL Server 2019 (15. x)](https://docs.microsoft.com/sql/sql-server/editions-and-components-of-sql-server-version-15).
+En fullständig lista över de funktioner som stöds i SQL Server på Linux finns i [utgåvor och stödda funktioner i SQL Server 2019 i Linux](/sql/linux/sql-server-linux-editions-and-components-2019). För utgåvor och stödda funktioner i SQL Server i Windows, se [utgåvor och stödda funktioner i SQL Server 2019 (15. x)](/sql/sql-server/editions-and-components-of-sql-server-version-15).
 
 ## <a name="azure-sql-edge-editions"></a>Azure SQL Edge-utgåvor
 

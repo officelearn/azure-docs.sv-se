@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.assetid: 8a4df7bf-be49-4198-800e-db381cda98f5
 ms.date: 10/30/2020
-ms.openlocfilehash: d97148393d3158e38f9740d4a8f8e17dd04326d5
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: cfd465476aa8963de6093bccd5d4821ea2b29338
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135440"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395826"
 ---
 # <a name="deploy-enterprise-java-applications-to-azure-with-jboss-eap-on-red-hat-enterprise-linux"></a>Distribuera företags-Java-program till Azure med JBoss EAP på Red Hat Enterprise Linux
 
@@ -24,12 +24,12 @@ I de här snabb starts mallarna visas hur du distribuerar [JBoss-EAP](https://ww
 * Ett Azure-konto med en aktiv prenumeration. Om du vill skaffa en Azure-prenumeration aktiverar du dina [Azure-krediter för Visual Studio-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) eller [skapar ett konto kostnads fritt](https://azure.microsoft.com/pricing/free-trial).
 
 * JBoss-EAP-installation – du måste ha ett Red Hat-konto med Red Hat Subscription Management (RHSM) rättighet för JBoss EAP. Med den här rättigheten kan du ladda ned Red Hat tested-och Certified JBoss EAP-versionen.  Om du inte har EAP-rättighet kan du hämta en [JBoss EAP-utvärderings prenumeration](https://access.redhat.com/products/red-hat-jboss-enterprise-application-platform/evaluation) innan du börjar. Om du vill skapa en ny Red Hat-prenumeration går du till [Red Hat-kund Portal](https://access.redhat.com/) och konfigurerar ett konto.
-F
+
 * [Azure Command-Line-gränssnittet](https://docs.microsoft.com/cli/azure/overview).
 
 * RHEL-alternativ – Välj mellan PAYG (betala per användning) eller ta din egen prenumeration (BYOS). Med BYOS måste du aktivera ditt [Red Hat Cloud Access](https://access.redhat.com/) RHEL Gold-bild innan du distribuerar snabb starts mal len.
 
-## <a name="java-ee--jakarata-ee-application-migration"></a>Java EE/Jakarata EE Application Migration
+## <a name="java-ee--jakarta-ee-application-migration"></a>Java EE/Jakarta EE Application Migration
 
 ### <a name="migrate-to-jboss-eap"></a>Migrera till JBoss EAP
 JBoss EAP 7,2 och 7,3 är certifierade implementeringar av specifikationerna Java Enterprise Edition (Java EE) 8 och Jakarta EE 8. JBoss EAP innehåller förkonfigurerade alternativ för funktioner som hög tillgänglighet (HA), meddelanden och distribuerad cachelagring. Det gör det också möjligt för användarna att skriva, distribuera och köra program med de olika API: er och tjänster som JBoss EAP tillhandahåller.  Mer information om JBoss-EAP finns i [Introduktion till JBoss eap 7,2](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html-single/introduction_to_jboss_eap/index) eller [Introduktion till JBoss EAP 7,3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/introduction_to_jboss_eap/index).
@@ -86,7 +86,7 @@ Azures arbets belastnings verktyg fören klar POC-, utvärderings-och migrerings
 
 ## <a name="server-configuration-choice"></a>Val av Server konfiguration
 
-För distribution av RHEL VM kan du antingen välja mellan PAYG eller BYOS. Avbildningar från [Azure Marketplace](https://azuremarketplace.microsoft.com) -standardvärden till PAYG. Distribuera en BYOS-typ RHEL VM om du har en egen RHEL OS-avbildning. Se till att ditt RHSM-konto har BYOS-behörighet via moln åtkomst innan du distribuerar de virtuella datorerna eller skalnings uppsättningen för virtuella datorer.
+För distribution av RHEL VM kan du antingen välja mellan PAYG eller BYOS. Avbildningar från [Azure Marketplace](https://azuremarketplace.microsoft.com) -standardvärden till PAYG. Distribuera en BYOS-typ RHEL VM om du har en egen RHEL OS-avbildning. Kontrol lera att ditt RHSM-konto har BYOS-rättighet via moln åtkomst innan du distribuerar de virtuella datorerna eller skalnings uppsättningen för virtuella datorer.
 
 JBoss EAP har kraftfulla hanterings funktioner samt tillhandahåller funktioner och API: er för programmen. Dessa hanterings funktioner varierar beroende på vilket operativ läge som används för att starta JBoss EAP. Den stöds på RHEL och Windows Server. JBoss EAP erbjuder ett fristående server drift läge för hantering av diskreta instanser. Det ger också ett hanterat domän operativt läge för hantering av grupper av instanser från en enda kontroll punkt. Obs! JBoss EAP-hanterade domäner stöds inte i Microsoft Azure eftersom funktionen hög tillgänglighet (HA) hanteras av Azures infrastruktur tjänster. Miljövariabeln med namnet *EAP_HOME* används för att beteckna sökvägen till JBoss-EAP-installationen.
 
@@ -120,7 +120,7 @@ Se [Red Hat Enterprise Linux prissättning](https://azure.microsoft.com/pricing/
 
 #### <a name="using-rhel-os-with-byos-model"></a>Använda RHEL OS med BYOS-modellen
 
-Om du vill använda BYOS för RHEL OS måste du ha en giltig Red Hat-prenumeration med rättigheter för att använda RHEL OS i Azure. Slutför följande krav innan du distribuerar den här snabb starts mal len:
+Om du vill använda BYOS för RHEL OS måste du ha en giltig Red Hat-prenumeration med rättigheter för att använda RHEL OS i Azure. Slutför följande förutsättningar innan du distribuerar RHEL OS med BYOS-modellen:
 
 1. Se till att du har RHEL-OS-och JBoss EAP-rättigheter kopplade till din Red Hat-prenumeration.
 2. Auktorisera ditt Azure-prenumerations-ID för att använda RHEL BYOS-avbildningar. Följ [RHSM-dokumentationen (Red Hat Subscription Management)](https://access.redhat.com/documentation/en/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/con-enable-subs) för att slutföra processen, som innehåller följande steg:

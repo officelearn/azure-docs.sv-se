@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: ff14f8a9f236701889aea95911f2a1e381eabf83
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fce098767fffd36376399bbd9396699e3d9fbfd3
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90947886"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392086"
 ---
 # <a name="deploy-azure-sql-edge-with-docker"></a>Distribuera Azure SQL Edge med Docker
 
@@ -28,7 +28,7 @@ Den här avbildningen består av Azure SQL Edge baserat på Ubuntu 18,04. Den ka
 - Docker **overlay2** lagrings driv rutin. Detta är standardinställningen för de flesta användare. Om du upptäcker att du inte använder den här lagrings leverantören och behöver ändra den, se anvisningarna och varningarna i [Docker-dokumentationen för att konfigurera overlay2](https://docs.docker.com/storage/storagedriver/overlayfs-driver/#configure-docker-with-the-overlay-or-overlay2-storage-driver).
 - Minst 10 GB disk utrymme.
 - Minst 1 GB RAM-minne.
-- [Maskin varu krav för Azure SQL Edge](https://docs.microsoft.com/azure/azure-sql-edge/features#hardware-support).
+- [Maskin varu krav för Azure SQL Edge](./features.md#hardware-support).
 
 
 ## <a name="pull-and-run-the-container-image"></a>Hämta och kör behållar avbildningen
@@ -70,7 +70,7 @@ Föregående kommando hämtar de senaste avbildningarna av Azure SQL Edge-behål
     | Parameter | Beskrivning |
     |-----|-----|
     | **-e "ACCEPT_EULA = Y"** |  Ange **ACCEPT_EULA** variabeln till ett värde för att bekräfta ditt godkännande av [licens avtalet för slutanvändare](https://go.microsoft.com/fwlink/?linkid=2139274). Inställning som krävs för Azure SQL Edge-avbildningen. |
-    | **-e "MSSQL_SA_PASSWORD = yourStrong (!) Ords** | Ange ett eget starkt lösen ord som består av minst 8 tecken och uppfyller [lösen ords kraven för Azure SQL Edge](https://docs.microsoft.com/sql/relational-databases/security/password-policy). Inställning som krävs för Azure SQL Edge-avbildningen. |
+    | **-e "MSSQL_SA_PASSWORD = yourStrong (!) Ords** | Ange ett eget starkt lösen ord som består av minst 8 tecken och uppfyller [lösen ords kraven för Azure SQL Edge](/sql/relational-databases/security/password-policy). Inställning som krävs för Azure SQL Edge-avbildningen. |
     | **-p 1433:1433** | Mappa en TCP-port på värd miljön (första värdet) med en TCP-port i behållaren (andra värdet). I det här exemplet lyssnar Azure SQL Edge på TCP 1433 i behållaren och exponeras för porten 1433 på värden. |
     | **--Name azuresqledge** | Ange ett eget namn på behållaren i stället för en slumpmässigt genererad. Om du kör mer än en behållare kan du inte återanvända samma namn. |
     | **d, DDD** | Köra behållaren i bakgrunden (daemon) |
@@ -83,7 +83,7 @@ Föregående kommando hämtar de senaste avbildningarna av Azure SQL Edge-behål
     sudo docker ps -a
    ```
 
-4. Om **status** kolumnen visar statusen **upp**körs Azure SQL Edge i behållaren och lyssnar på den port som anges i kolumnen **ports** . Om kolumnen **status** för din Azure SQL Edge-behållare visar att den har **avslut ATS**kan du läsa avsnittet fel sökning i Azure SQL Edge-dokumentationen.
+4. Om **status** kolumnen visar statusen **upp** körs Azure SQL Edge i behållaren och lyssnar på den port som anges i kolumnen **ports** . Om kolumnen **status** för din Azure SQL Edge-behållare visar att den har **avslut ATS** kan du läsa avsnittet fel sökning i Azure SQL Edge-dokumentationen.
 
     `-h`Parametern (värd namn) är också användbar, men den används inte i den här självstudien för enkelhetens skull. Detta ändrar behållarens interna namn till ett anpassat värde. Detta är det namn som visas i följande Transact-SQL-fr åga:
 
@@ -114,7 +114,7 @@ Föregående kommando hämtar de senaste avbildningarna av Azure SQL Edge-behål
 
 ## <a name="connect-to-azure-sql-edge"></a>Ansluta till Azure SQL Edge
 
-I följande steg används kommando rads verktyget för Azure SQL Edge, **SQLCMD**, inuti behållaren för att ansluta till Azure SQL Edge.
+I följande steg används kommando rads verktyget för Azure SQL Edge, **SQLCMD** , inuti behållaren för att ansluta till Azure SQL Edge.
 
 > [!NOTE]
 > SQLCMD-verktyget är inte tillgängligt i ARM64-versionen av SQL Edge-behållare.
@@ -228,7 +228,7 @@ sudo docker rm azuresqledge
 > [!WARNING]
 > Om du stoppar och tar bort en behållare permanent raderas alla Azure SQL Edge-data i behållaren. Om du behöver bevara dina data kan du [skapa och kopiera en säkerhets kopia från behållaren](backup-restore.md) eller använda en [beständig teknik för behållar data](configure.md#persist-your-data).
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - [Machine Learning och artificiell intelligens med ONNX i SQL Edge](onnx-overview.md).
 - [Skapa en IoT-lösning från slut punkt till slut punkt med SQL Edge med hjälp av IoT Edge](tutorial-deploy-azure-resources.md).

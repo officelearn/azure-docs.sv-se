@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.workload: identity
-ms.date: 09/22/2020
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa0abffc9bfb1a0c6511af331d1e8dbc10cff455
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: bbe76d21d948525421790f574830da7b3a163216
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026538"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395401"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Hantera administrativa enheter i Azure Active Directory
 
@@ -31,9 +31,9 @@ För mer detaljerad administrativ kontroll i Azure Active Directory (Azure AD) k
 
     a. I Azure Portal går du till Azure AD. 
     
-    b. I listan program väljer du **Graph Explorer** .
+    b. I listan program väljer du **Graph Explorer**.
     
-    c. I rutan **behörigheter** väljer du **bevilja administrativt godkännande för Graph Explorer** .
+    c. I rutan **behörigheter** väljer du **bevilja administrativt godkännande för Graph Explorer**.
 
     ![Skärm bild som visar länken bevilja administrativt medgivande för Graph Explorer.](./media/admin-units-manage/select-graph-explorer.png)
 
@@ -85,9 +85,9 @@ I Azure AD kan du ta bort en administrativ enhet som du inte längre behöver so
 
 ### <a name="use-the-azure-portal"></a>Använda Azure-portalen
 
-1. I Azure Portal går du till **Azure AD** och väljer sedan **administrativa enheter** . 
-1. Välj den administrativa enhet som ska tas bort och välj sedan **ta bort** . 
-1. Bekräfta att du vill ta bort den administrativa enheten genom att välja **Ja** . Den administrativa enheten tas bort.
+1. I Azure Portal går du till **Azure AD** och väljer sedan **administrativa enheter**. 
+1. Välj den administrativa enhet som ska tas bort och välj sedan **ta bort**. 
+1. Bekräfta att du vill ta bort den administrativa enheten genom att välja **Ja**. Den administrativa enheten tas bort.
 
 ![Skärm bild av den administrativa enhets knappen Ta bort och bekräftelse fönstret.](./media/admin-units-manage/select-admin-unit-to-delete.png)
 

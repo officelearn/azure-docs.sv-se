@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 781b37405bebc5ddc3d33cbbc089049b0c0f8ca4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: aca7b7e8590c9c8eb3db987c5d1527d9f135bf3f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325530"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393004"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Använda Azure Machine Learning Studio i ett virtuellt Azure-nätverk
 
@@ -97,7 +97,10 @@ De här stegen lägger till den arbets ytans hanterade identiteten som en __läs
 
 ## <a name="technical-notes-for-managed-identity"></a>Tekniska kommentarer för hanterad identitet
 
-Att använda hanterad identitet för att komma åt lagrings tjänster påverkar vissa säkerhets aspekter. Dessa överväganden är unika för den typ av lagrings konto som du ansluter till. I det här avsnittet beskrivs ändringarna för varje typ av lagrings konto.
+Att använda hanterad identitet för att komma åt lagrings tjänster påverkar vissa säkerhets aspekter. I det här avsnittet beskrivs ändringarna för varje typ av lagrings konto.
+
+> [!IMPORTANT]
+> Dessa överväganden är unika för den __typ av lagrings konto__ som du ansluter till.
 
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 

@@ -1,5 +1,5 @@
 ---
-title: Exportera mått för Azure IoT Connector för FHIR (för hands version) via diagnostikinställningar
+title: Exportera Azure IoT-anslutningsprogram för FHIR-mått (förhandsversion) via diagnostikinställningar
 description: I den här artikeln förklaras hur du exporterar Azure IoT Connector för FHIR (för hands version) mått via diagnostikinställningar
 services: healthcare-apis
 author: msjasteppe
@@ -8,16 +8,16 @@ ms.subservice: iomt
 ms.topic: how-to
 ms.date: 10/30/2020
 ms.author: jasteppe
-ms.openlocfilehash: 2c10dc05775739a55267dd3766e533b73e12b3a1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5a57b13cdb8c7c1144815543e03b970de32b4369
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322368"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394262"
 ---
-# <a name="export-azure-iot-connector-for-fhir-preview-metrics-through-diagnostic-settings"></a>Exportera mått för Azure IoT Connector för FHIR (för hands version) via diagnostikinställningar
+# <a name="export-azure-iot-connector-for-fhir-preview-metrics-through-diagnostic-settings"></a>Exportera Azure IoT-anslutningsprogram för FHIR-mått (förhandsversion) via diagnostikinställningar
 
-I den här artikeln får du lära dig hur du exporterar Azure IoT Connector för FHIR * Metrics-loggar. Funktionen som aktiverar mått loggning är [**diagnostikinställningar**](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) i Azure Portal. 
+I den här artikeln får du lära dig hur du exporterar Azure IoT Connector för FHIR * Metrics-loggar. Funktionen som aktiverar mått loggning är [**diagnostikinställningar**](../azure-monitor/platform/diagnostic-settings.md) i Azure Portal. 
 
 > [!TIP]
 > Följ anvisningarna i [Aktivera diagnostisk loggning i Azure API för FHIR och Azure IoT Connector för FHIR](enable-diagnostic-logging.md#enable-diagnostic-logging-in-azure-api-for-fhir) för att konfigurera gransknings loggning.
@@ -48,7 +48,7 @@ I den här artikeln får du lära dig hur du exporterar Azure IoT Connector för
 > [!Note] 
 > Det kan ta upp till 15 minuter innan de första mått loggarna visas i valfri lagrings plats.  
  
-Mer information om hur du arbetar med diagnostikloggar finns i [dokumentationen för Azure Resource log](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-overview)
+Mer information om hur du arbetar med diagnostikloggar finns i [dokumentationen för Azure Resource log](../azure-monitor/platform/platform-logs-overview.md)
 
 ## <a name="conclusion"></a>Slutsats 
 Att ha åtkomst till statistik loggar är viktigt för övervakning och fel sökning.  Med Azure IoT Connector för FHIR kan du utföra dessa åtgärder via mått loggar. 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sharrai
 ms.custom: MVC
-ms.openlocfilehash: 33d1be493cba9fd9f01ecdbad10afb5330256aa0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 076adbfd4cecf7dae9ffc490e911fcb7ffce48e6
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045354"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394840"
 ---
 # <a name="move-vms-to-another-azure-region"></a>Flytta virtuella datorer till en annan Azure-region
 
@@ -21,7 +21,7 @@ Det finns scenarier där du vill flytta dina befintliga virtuella Azure IaaS-dat
 
 Du kan använda [Azure Site Recovery](site-recovery-overview.md) tjänst för att flytta virtuella Azure-datorer till en sekundär region.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > 
@@ -46,7 +46,7 @@ I de här självstudierna får du lära dig att
 > [!NOTE]
 > Den här självstudien visar hur du flyttar virtuella Azure-datorer från en region till en annan. Om du behöver förbättra tillgängligheten genom att flytta virtuella datorer i en tillgänglighets uppsättning till zon fästa virtuella datorer i en annan region, se avsnittet [flytta virtuella Azure-datorer till Tillgänglighetszoner själv studie kursen](move-azure-vms-avset-azone.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Se till att de virtuella Azure-datorerna finns i den Azure-region som du vill flytta.
 - Kontrol lera att valet av [käll region – kombination av mål region stöds](./azure-to-azure-support-matrix.md#region-support)och fatta ett informerat beslut om mål regionen.
@@ -68,7 +68,7 @@ I de här självstudierna får du lära dig att
 - För virtuella Linux-datorer följer du rikt linjerna från Linux-distributören för att få de senaste betrodda rot certifikaten och listan över återkallade certifikat på den virtuella datorn.
 - Se till att du inte använder en autentiseringsprovider för att kontrol lera nätverks anslutningen för virtuella datorer som du vill flytta.
 
-- Om den virtuella datorn som du försöker flytta inte har åtkomst till Internet, eller om den använder en brand Väggs-proxy för att kontrol lera utgående åtkomst, [kontrollerar du kraven](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
+- Om den virtuella datorn som du försöker flytta inte har åtkomst till Internet, eller om den använder en brand Väggs-proxy för att kontrol lera utgående åtkomst, [kontrollerar du kraven](azure-to-azure-tutorial-enable-replication.md#set-up-vm-connectivity).
 
 - Identifiera käll nätverks layouten och alla resurser som du använder just nu. Detta omfattar men är inte begränsat till belastningsutjämnare, nätverks säkerhets grupper (NSG: er) och offentliga IP-adresser.
 
@@ -84,7 +84,7 @@ I de här självstudierna får du lära dig att
     Information om hur du skapar de vanligaste nätverks resurserna som är relevanta för dig baserat på konfigurationen av den virtuella käll datorn finns i följande dokumentation:
     - [Nätverkssäkerhetsgrupper](../virtual-network/manage-network-security-group.md)
     - [Lastbalanserare](../load-balancer/index.yml)
-    -  [Offentlig IP](../virtual-network/virtual-network-public-ip-address.md)
+    -  [Offentlig IP-adress](../virtual-network/virtual-network-public-ip-address.md)
     - Information om andra nätverks komponenter finns i [dokumentationen till nätverket](../index.yml?pivot=products&panel=network).
 
 
@@ -100,7 +100,7 @@ Följande steg visar hur du förbereder den virtuella datorn för flytt med Azur
 1. I **Namn** anger du det egna namnet **ContosoVMVault**. Om du har mer än en prenumeration väljer du den lämpligaste.
 1. Skapa resurs gruppen **conto sorg**.
 1. Ange en Azure-region. Om du vill kontrol lera regioner som stöds, se geografisk tillgänglighet i [Azure Site Recovery pris information](https://azure.microsoft.com/pricing/details/site-recovery/).
-1. Välj **ContosoVMVault** **Recovery Services vaults**  >  **replikerade objekt**  >  **+ Replikera**i Recovery Services valv.
+1. Välj **ContosoVMVault** **Recovery Services vaults**  >  **replikerade objekt**  >  **+ Replikera** i Recovery Services valv.
 1. I list rutan väljer du **Azure Virtual Machines**.
 1. I **Källplats** väljer du den Azure källregion där de virtuella datorerna körs just nu.
 1. Välj Resource Manager-distributionsmodellen. Välj sedan **källprenumerationen** och **källresursgruppen**.
@@ -111,18 +111,18 @@ Följande steg visar hur du förbereder den virtuella datorn för flytt med Azur
 Site Recovery hämtar en lista över de virtuella datorer som är associerade med prenumerationen och resurs gruppen.
 
 1. I nästa steg väljer du den virtuella dator som du vill flytta och väljer sedan **OK**.
-1. I **Inställningar**väljer du **haveri beredskap**.
+1. I **Inställningar** väljer du **haveri beredskap**.
 1. I **Konfigurera haveriberedskap** > **Målregion** väljer du den målregion du ska replikera till.
 1. I den här självstudiekursen accepterar du de andra standardinställningarna.
 1. Välj **Aktivera replikering**. Det här steget startar ett jobb för att aktivera replikering för den virtuella datorn.
 
-    ![Aktivera replikering](media/tutorial-migrate-azure-to-azure/settings.png)
+
 
 ## <a name="move"></a>Flytta
 
 Följande steg visar hur du utför flytten till mål regionen.
 
-1. Gå till valvet. I **Inställningar**  >  **replikerade objekt**väljer du den virtuella datorn och väljer sedan **redundans**.
+1. Gå till valvet. I **Inställningar**  >  **replikerade objekt** väljer du den virtuella datorn och väljer sedan **redundans**.
 2. I **Redundans** väljer du **Senaste**.
 3. Välj **Stäng datorn innan du påbörjar redundans**. Site Recovery försöker stänga av den virtuella källdatorn innan redundansen utlöses. Redundansväxlingen fortsätter även om avstängningen misslyckas. Du kan följa förloppet för redundansväxlingen på **jobb** sidan.
 4. När jobbet är klart kontrollerar du att den virtuella datorn visas i Azure-regionen som förväntat.
@@ -130,12 +130,12 @@ Följande steg visar hur du utför flytten till mål regionen.
 
 ## <a name="discard"></a>Ignorera 
 
-Om du har markerat den flyttade virtuella datorn och behöver göra ändringen till platsen för redundans eller vill gå tillbaka till en tidigare plats, högerklickar du på den virtuella datorn > **ändra återställnings punkt**i de **replikerade objekten**. Det här steget ger dig möjlighet att ange en annan återställnings punkt och redundansväxla till den. 
+Om du har markerat den flyttade virtuella datorn och behöver göra ändringen till platsen för redundans eller vill gå tillbaka till en tidigare plats, högerklickar du på den virtuella datorn > **ändra återställnings punkt** i de **replikerade objekten**. Det här steget ger dig möjlighet att ange en annan återställnings punkt och redundansväxla till den. 
 
 
 ## <a name="commit"></a>Checka in 
 
-När du har checkat in den flyttade virtuella datorn och är redo att genomföra ändringen i de **replikerade objekten**, högerklickar du på den virtuella datorn > **genomför**. I det här steget slutförs flyttnings processen till mål regionen. Vänta tills commit-jobbet har slutförts.
+När du har checkat in den flyttade virtuella datorn och är redo att genomföra ändringen i de **replikerade objekten** , högerklickar du på den virtuella datorn > **genomför**. I det här steget slutförs flyttnings processen till mål regionen. Vänta tills commit-jobbet har slutförts.
 
 ## <a name="clean-up"></a>Rensa
 

@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 35985404d5ac97940c324c3ad7f7d46c959b4902
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02f22883a0989714d8b74f778cacf1ba2c65d0b4
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90942105"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392019"
 ---
 # <a name="performance-best-practices-and-configuration-guidelines"></a>Metod tips för prestanda och rikt linjer för konfigurering
 
@@ -28,13 +28,13 @@ Azure SQL Edge som standard skapar bara en tempdb-datafil som en del av containe
 
 ### <a name="use-clustered-columnstore-indexes-where-possible"></a>Använd klustrade columnstore-index där det är möjligt
 
-IoT-och Edge-enheter tenderar att generera stora mängder data som vanligt vis sammanställs under en tids period för analys. Enskilda data rader används sällan för analyser. Columnstore-index är idealiska för att lagra och ställa frågor till sådana stora data mängder. Det här indexet använder kolumnbaserade data lagrings-och fråge bearbetning för att uppnå upp till 10 gånger frågans prestanda över traditionell orienterad lagring. Du kan också få upp till 10 gånger data komprimeringen över den okomprimerade data storleken. Mer information finns i [columnstore-index](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview)
+IoT-och Edge-enheter tenderar att generera stora mängder data som vanligt vis sammanställs under en tids period för analys. Enskilda data rader används sällan för analyser. Columnstore-index är idealiska för att lagra och ställa frågor till sådana stora data mängder. Det här indexet använder kolumnbaserade data lagrings-och fråge bearbetning för att uppnå upp till 10 gånger frågans prestanda över traditionell orienterad lagring. Du kan också få upp till 10 gånger data komprimeringen över den okomprimerade data storleken. Mer information finns i [columnstore-index](/sql/relational-databases/indexes/columnstore-indexes-overview)
 
 Dessutom är andra Azure SQL Edge-funktioner som data strömning och datakvarhållning att dra nytta av columnstore-optimeringar kring data infogning och data borttagning. 
 
 ### <a name="simple-recovery-model"></a>Enkel återställnings modell
 
-Eftersom lagringen kan begränsas till gräns enheter använder alla användar databaser i Azure SQL Edge den enkla återställnings modellen som standard. Enkel återställnings modell frigörs automatiskt logg utrymme för att hålla utrymmes kraven små, vilket innebär att behovet av att hantera transaktions logg utrymmet elimineras. Detta kan vara användbart på gräns enheter med begränsad lagring tillgänglig. Mer information om den enkla återställnings modellen och andra återställnings modeller finns i [återställnings modeller](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server)
+Eftersom lagringen kan begränsas till gräns enheter använder alla användar databaser i Azure SQL Edge den enkla återställnings modellen som standard. Enkel återställnings modell frigörs automatiskt logg utrymme för att hålla utrymmes kraven små, vilket innebär att behovet av att hantera transaktions logg utrymmet elimineras. Detta kan vara användbart på gräns enheter med begränsad lagring tillgänglig. Mer information om den enkla återställnings modellen och andra återställnings modeller finns i [återställnings modeller](/sql/relational-databases/backup-restore/recovery-models-sql-server)
 
 Åtgärder som logg överföring och omlagring av tidpunkter, som kräver säkerhets kopiering av transaktions loggar, stöds inte av den enkla återställnings modellen.  
 
@@ -56,16 +56,9 @@ Transaktioner i Azure SQL Edge kan vara antingen helt varaktiga, SQL Server stan
 
 Fullständigt varaktiga transaktions skrivningar är synkrona och rapporterar en genomför som lyckad och returnerar kontroll till klienten först efter att logg posterna för transaktionen skrivits till disk. Fördröjda varaktiga transaktions skrivningar är asynkrona och rapporterar ett genomförande som lyckat innan logg posterna för transaktionen skrivs till disk. Att skriva transaktions logg posterna till disk krävs för att en transaktion ska vara beständig. Fördröjda varaktiga transaktioner blir varaktiga när transaktions logg posterna töms på disk. 
 
-I distributioner där **viss data förlust** kan tolereras eller på gräns enheter med långsam lagring, kan fördröjd hållbarhet användas för att optimera data inmatning och data kvarhållning baserad rensning. Mer information finns i [reglera hållbarhet för transaktioner](https://docs.microsoft.com/sql/relational-databases/logs/control-transaction-durability).
+I distributioner där **viss data förlust** kan tolereras eller på gräns enheter med långsam lagring, kan fördröjd hållbarhet användas för att optimera data inmatning och data kvarhållning baserad rensning. Mer information finns i [reglera hållbarhet för transaktioner](/sql/relational-databases/logs/control-transaction-durability).
 
 
 ### <a name="linux-os-configurations"></a>Linux OS-konfigurationer 
 
-Överväg att använda följande [konfigurations](https://docs.microsoft.com/sql/linux/sql-server-linux-performance-best-practices#linux-os-configuration) inställningar för Linux-operativsystemet för att få bästa möjliga prestanda för en SQL-installation.
-
-
-
-
-
-
-
+Överväg att använda följande [konfigurations](/sql/linux/sql-server-linux-performance-best-practices#linux-os-configuration) inställningar för Linux-operativsystemet för att få bästa möjliga prestanda för en SQL-installation.

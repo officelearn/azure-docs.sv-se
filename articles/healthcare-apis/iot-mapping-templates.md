@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: punagpal
-ms.openlocfilehash: 4eede07b285614c061f4b59845c8f44d82083ec2
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: 1702c17555d1d3c39a83fa16ca790d6f8f2b3344
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558541"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394245"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Azure IoT-anslutningsprogram för FHIR (förhandsversion) – mappningsmall
 Den här artikeln beskriver hur du konfigurerar Azure IoT Connector för FHIR * med hjälp av mappning av mallar.
@@ -254,7 +254,7 @@ JsonPathContentTemplate tillåter matchning av och extrahering av värden från 
 #### <a name="iotjsonpathcontenttemplate"></a>IotJsonPathContentTemplate
 IotJsonPathContentTemplate liknar JsonPathContentTemplate, förutom att DeviceIdExpression och TimestampExpression inte krävs.
 
-När du använder den här mallen skickas meddelanden som utvärderas med hjälp av [Azure IoT Hub enhets-SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-device-sdks): er. När du använder dessa SDK: er är enhets identiteten (förutsatt att enhets identifieraren från Azure IoT Hub/Central har registrerats som en identifierare för en enhets resurs på mål FHIR-servern) och tidsstämpeln för meddelandet är känd. Om du använder Azure IoT Hub-enhets-SDK: er men använder anpassade egenskaper i meddelande texten för enhets identiteten eller tidsstämpeln för mätning, kan du fortfarande använda JsonPathContentTemplate.
+När du använder den här mallen skickas meddelanden som utvärderas med hjälp av [Azure IoT Hub enhets-SDK](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks): er. När du använder dessa SDK: er är enhets identiteten (förutsatt att enhets identifieraren från Azure IoT Hub/Central har registrerats som en identifierare för en enhets resurs på mål FHIR-servern) och tidsstämpeln för meddelandet är känd. Om du använder Azure IoT Hub-enhets-SDK: er men använder anpassade egenskaper i meddelande texten för enhets identiteten eller tidsstämpeln för mätning, kan du fortfarande använda JsonPathContentTemplate.
 
 *Obs: när du använder IotJsonPathContentTemplate bör TypeMatchExpression matcha hela meddelandet som en JToken. Se exemplen nedan.* 
 ##### <a name="examples"></a>Exempel

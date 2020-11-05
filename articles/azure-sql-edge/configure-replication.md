@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: a748bf977e76357c710518e608c12ad19a8cd0be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b424ece9207328d87068160f78ebc78a3bd1a8d
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888425"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395231"
 ---
 # <a name="configure-replication-to-azure-sql-edge"></a>Konfigurera replikering till Azure SQL Edge 
 
@@ -24,8 +24,8 @@ Du kan konfigurera en instans av Azure SQL Edge som push-prenumerant för enkelr
   
 - Instansen av Azure SQL Edge måste vara en push-prenumerant för en utgivare.
 - Utgivaren och distributören kan vara antingen:
-   - En instans av SQL Server som körs lokalt eller en instans av SQL Server som körs i en virtuell Azure-dator. Mer information finns i [Översikt över SQL Server på Azure Virtual Machines](https://docs.microsoft.com/azure/azure-sql/virtual-machines/). SQL Server instanser måste använda en senare version än SQL Server 2016.
-   - En instans av en Azure SQL-hanterad instans. SQL-hanterad instans kan vara värd för utgivare, distributör och prenumerant databaser. Mer information finns i [replikering med SQL Database Hanterad instans](https://docs.microsoft.com/azure/sql-database/replication-with-sql-database-managed-instance/).
+   - En instans av SQL Server som körs lokalt eller en instans av SQL Server som körs i en virtuell Azure-dator. Mer information finns i [Översikt över SQL Server på Azure Virtual Machines](../azure-sql/virtual-machines/index.yml). SQL Server instanser måste använda en senare version än SQL Server 2016.
+   - En instans av en Azure SQL-hanterad instans. SQL-hanterad instans kan vara värd för utgivare, distributör och prenumerant databaser. Mer information finns i [replikering med SQL Database Hanterad instans](/azure/sql-database/replication-with-sql-database-managed-instance/).
 
 - Distributions databasen och-replik agenterna kan inte placeras på en instans av Azure SQL Edge.  
 
@@ -36,7 +36,7 @@ Du kan konfigurera en instans av Azure SQL Edge som push-prenumerant för enkelr
 
 Följande krav och bästa praxis är viktiga för att förstå när du konfigurerar replikering:
 
-- Du kan konfigurera replikering med hjälp av [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Du kan också göra det genom att köra Transact-SQL-uttryck på utgivaren genom att använda antingen SQL Server Management Studio eller [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio).
+- Du kan konfigurera replikering med hjälp av [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms). Du kan också göra det genom att köra Transact-SQL-uttryck på utgivaren genom att använda antingen SQL Server Management Studio eller [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
 - Om du vill replikera till en instans av Azure SQL Edge måste du använda SQL Server autentisering för att logga in.
 - Replikerade tabeller måste ha en primär nyckel.
 - En enda publikation på SQL Server kan stödja både Azure SQL Edge och SQL Server (lokala och SQL Server på en virtuell Azure-dator) prenumeranter.  
@@ -82,15 +82,13 @@ Följande alternativ stöds inte för Azure SQL Edge-prenumerationer:
 
 Skapa en publikation och en utgivarinitierad prenumeration. Mer information finns i:
   
-- [Skapa en publikation](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Skapa en push-prenumeration](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) med hjälp av Azure SQL Edge-servernamnet och IP som prenumerant (till exempel **myEdgeinstance, 1433**) och ett databas namn på Azure SQL Edge-instansen som mål databas (till exempel **AdventureWorks**).  
+- [Skapa en publikation](/sql/relational-databases/replication/publish/create-a-publication)
+- [Skapa en push-prenumeration](/sql/relational-databases/replication/create-a-push-subscription/) med hjälp av Azure SQL Edge-servernamnet och IP som prenumerant (till exempel **myEdgeinstance, 1433** ) och ett databas namn på Azure SQL Edge-instansen som mål databas (till exempel **AdventureWorks** ).  
 
 ## <a name="next-steps"></a>Nästa steg  
 
-- [Skapa en publikation](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Skapa en push-prenumeration](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
-- [Typer av replikering](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
-- [Övervakning (replikering)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)
-- [Initiera en prenumeration](https://docs.microsoft.com/sql/relational-databases/replication/initialize-a-subscription)  
-
-
+- [Skapa en publikation](/sql/relational-databases/replication/publish/create-a-publication)
+- [Skapa en push-prenumeration](/sql/relational-databases/replication/create-a-push-subscription/)
+- [Typer av replikering](/sql/relational-databases/replication/types-of-replication)
+- [Övervakning (replikering)](/sql/relational-databases/replication/monitor/monitoring-replication)
+- [Initiera en prenumeration](/sql/relational-databases/replication/initialize-a-subscription)

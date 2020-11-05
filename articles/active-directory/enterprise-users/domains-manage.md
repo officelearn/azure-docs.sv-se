@@ -9,27 +9,27 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 01/31/2019
+ms.date: 11/05/2020
 ms.author: curtand
-ms.reviewer: elkuzmen
+ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48f924cef12db974faae8fb8ed73f01ff8c9a3f8
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 66c7229c7e6d32bbec9a7659329aff7a90e7887d
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376959"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393616"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Hantera anpassade domän namn i Azure Active Directory
 
-Ett domän namn är en viktig del av identifieraren för många katalog resurser: det är en del av ett användar namn eller en e-postadress för en användare, en del av adressen för en grupp och är ibland en del av app-ID-URI: n för ett program. En resurs i Azure Active Directory (Azure AD) kan innehålla ett domän namn som ägs av den katalog som innehåller resursen. Endast en global administratör kan hantera domäner i Azure AD.
+Ett domän namn är en viktig del av identifieraren för många Azure Active Directory (Azure AD)-resurser: den är en del av ett användar namn eller en e-postadress för en användare, en del av en grupps adress och är ibland en del av app-ID-URI: n för ett program. En resurs i Azure AD kan innehålla ett domän namn som ägs av den organisation som innehåller resursen. Endast en global administratör kan hantera domäner i Azure AD.
 
-## <a name="set-the-primary-domain-name-for-your-azure-ad-directory"></a>Ange det primära domän namnet för din Azure AD-katalog
+## <a name="set-the-primary-domain-name-for-your-azure-ad-organization"></a>Ange det primära domän namnet för din Azure AD-organisation
 
-När din katalog skapas, är det första domän namnet, till exempel "contoso.onmicrosoft.com", även det primära domän namnet. Den primära domänen är standard domän namnet för en ny användare när du skapar en ny användare. Om du anger ett primärt domän namn effektiviseras processen för en administratör att skapa nya användare i portalen. Ändra namnet på den primära domänen:
+När din organisation skapas, är det första domän namnet, till exempel "contoso.onmicrosoft.com", även det primära domän namnet. Den primära domänen är standard domän namnet för en ny användare när du skapar en ny användare. Om du anger ett primärt domän namn effektiviseras processen för en administratör att skapa nya användare i portalen. Ändra namnet på den primära domänen:
 
-1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som är en global administratör för katalogen.
+1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som är en global administratör för organisationen.
 2. Välj **Azure Active Directory**.
 3. Välj **Egna domännamn**.
   
@@ -39,19 +39,19 @@ När din katalog skapas, är det första domän namnet, till exempel "contoso.on
   
    ![Gör ett domän namn till primärt](./media/domains-manage/make-primary-domain.png)
 
-Du kan ändra det primära domän namnet för din katalog till att vara en verifierad anpassad domän som inte är federerad. Om du ändrar den primära domänen för din katalog ändras inte användar namnet för befintliga användare.
+Du kan ändra det primära domän namnet för din organisation till valfri verifierad anpassad domän som inte är federerad. Om du ändrar den primära domänen för din organisation ändras inte användar namnet för befintliga användare.
 
 ## <a name="add-custom-domain-names-to-your-azure-ad-organization"></a>Lägg till anpassade domän namn i din Azure AD-organisation
 
-Du kan lägga till upp till 900 hanterade domän namn. Om du konfigurerar alla domäner för federation med lokala Active Directory kan du lägga till upp till 450 domän namn i varje katalog.
+Du kan lägga till upp till 900 hanterade domän namn. Om du konfigurerar alla domäner för federation med lokala Active Directory kan du lägga till upp till 450 domän namn i varje organisation.
 
 ## <a name="add-subdomains-of-a-custom-domain"></a>Lägg till under domäner i en anpassad domän
 
-Om du vill lägga till ett domän namn på tredje nivån, till exempel "europe.contoso.com" i din katalog, bör du först lägga till och verifiera den andra nivå domänen, till exempel contoso.com. Under domänen verifieras automatiskt av Azure AD. Om du vill se att den under domän som du har lagt till har verifierats uppdaterar du domän listan i webbläsaren.
+Om du vill lägga till ett under domän namn, till exempel "europe.contoso.com" i din organisation, bör du först lägga till och verifiera rot domänen, till exempel contoso.com. Under domänen verifieras automatiskt av Azure AD. Om du vill se att den under domän som du har lagt till har verifierats uppdaterar du domän listan i webbläsaren.
 
-Anteckning
+Om du redan har lagt till en contoso.com-domän i en Azure AD-organisation kan du också kontrol lera europe.contoso.com för under domänen i en annan Azure AD-organisation. När du lägger till under domänen uppmanas du att lägga till en TXT-post i DNS-hosting-providern.
 
-Om du redan har lagt till en contoso.com-domän i en Azure AD-klient kan du också lägga till under domänen europe.contoso.com till en andra Azure AD-klient. När du lägger till under domänen uppmanas du att lägga till en TXT-post i DNS-hosting-providern.
+
 
 ## <a name="what-to-do-if-you-change-the-dns-registrar-for-your-custom-domain-name"></a>Vad du gör om du ändrar DNS-registratorn för ditt anpassade domän namn
 
@@ -61,19 +61,19 @@ Om du ändrar DNS-registratorn finns det inga ytterligare konfigurations åtgär
 
 Du kan ta bort ett anpassat domän namn från din Azure AD om din organisation inte längre använder det domän namnet, eller om du behöver använda det domän namnet med en annan Azure AD.
 
-Om du vill ta bort ett anpassat domän namn måste du först se till att inga resurser i katalogen är beroende av domän namnet. Du kan inte ta bort ett domän namn från din katalog om:
+Om du vill ta bort ett anpassat domän namn måste du först se till att inga resurser i organisationen förlitar sig på domän namnet. Du kan inte ta bort ett domän namn från din organisation om:
 
 * Alla användare har ett användar namn, en e-postadress eller en proxyadress som innehåller domän namnet.
 * Alla grupper har en e-postadress eller proxyadress som innehåller domän namnet.
 * Alla program i din Azure AD har en app-ID-URI som innehåller domän namnet.
 
-Du måste ändra eller ta bort alla sådana resurser i Azure AD-katalogen innan du kan ta bort det anpassade domän namnet.
+Du måste ändra eller ta bort den här resursen i din Azure AD-organisation innan du kan ta bort det anpassade domän namnet.
 
 ### <a name="forcedelete-option"></a>Alternativet ForceDelete
 
-Du kan **ForceDelete** ett domän namn i [Azure AD Admin Center](https://aad.portal.azure.com) eller använda [Microsoft Graph API](/graph/api/domain-forcedelete?view=graph-rest-beta). Dessa alternativ använder en asynkron åtgärd och uppdaterar alla referenser från det anpassade domän namnet som " user@contoso.com " till det initiala standard domän namnet som " user@contoso.onmicrosoft.com ." 
+Du kan **ForceDelete** ett domän namn i [Azure AD Admin Center](https://aad.portal.azure.com) eller använda [Microsoft Graph API](/graph/api/domain-forcedelete?view=graph-rest-beta&preserve-view=true). Dessa alternativ använder en asynkron åtgärd och uppdaterar alla referenser från det anpassade domän namnet som " user@contoso.com " till det initiala standard domän namnet som " user@contoso.onmicrosoft.com ."
 
-Om du vill anropa **ForceDelete** i Azure Portal måste du se till att det finns färre än 1000 referenser till domän namnet och alla referenser där Exchange är etablerings tjänsten måste uppdateras eller tas bort i [administrations centret för Exchange](https://outlook.office365.com/ecp/). Detta omfattar Exchange Mail-Enabled säkerhets grupper och distribuerade listor. Mer information finns i [ta bort e-postaktiverade säkerhets grupper](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups). **ForceDelete** -åtgärden lyckas inte heller om något av följande stämmer:
+Om du vill anropa **ForceDelete** i Azure Portal måste du se till att det finns färre än 1000 referenser till domän namnet och alla referenser där Exchange är etablerings tjänsten måste uppdateras eller tas bort i [administrations centret för Exchange](https://outlook.office365.com/ecp/). Detta omfattar Exchange Mail-Enabled säkerhets grupper och distribuerade listor. Mer information finns i [ta bort e-postaktiverade säkerhets grupper](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups&preserve-view=true). **ForceDelete** -åtgärden lyckas inte heller om något av följande stämmer:
 
 * Du har köpt en domän via Microsoft 365 domän prenumerations tjänster
 * Du är en partner som administreras åt en annan kund organisation
@@ -110,11 +110,11 @@ Om du upptäcker att något av villkoren inte har uppfyllts kan du rensa referen
 
 De flesta hanterings aktiviteter för domän namn i Azure Active Directory kan också slutföras med hjälp av Microsoft PowerShell eller program mässigt med hjälp av Microsoft Graph API.
 
-* [Använda PowerShell för att hantera domän namn i Azure AD](/powershell/module/azuread/?view=azureadps-2.0#domains)
-* [Domän resurs typ](/graph/api/resources/domain?view=graph-rest-1.0)
+* [Använda PowerShell för att hantera domän namn i Azure AD](/powershell/module/azuread/?view=azureadps-2.0#domains&preserve-view=true)
+* [Domän resurs typ](/graph/api/resources/domain?view=graph-rest-1.0&preserve-view=true)
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Lägga till anpassade domännamn](../fundamentals/add-custom-domain.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)
-* [Ta bort Exchange mail-aktiverade säkerhets grupper i Exchange administrations Center på ett anpassat domän namn i Azure AD](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups)
-* [ForceDelete ett anpassat domän namn med Microsoft Graph-API](/graph/api/domain-forcedelete?view=graph-rest-beta)
+* [Ta bort Exchange mail-aktiverade säkerhets grupper i Exchange administrations Center på ett anpassat domän namn i Azure AD](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups&preserve-view=true)
+* [ForceDelete ett anpassat domän namn med Microsoft Graph-API](/graph/api/domain-forcedelete?view=graph-rest-beta&preserve-view=true)

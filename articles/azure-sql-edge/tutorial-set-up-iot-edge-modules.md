@@ -9,12 +9,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sourabha, sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 7b2432fda70e8f9a5fa8bc64ede846d977672e9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8c5b20f833ab09463e1ae8b5bd3825c7c23f85e
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90886487"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394941"
 ---
 # <a name="set-up-iot-edge-modules-and-connections"></a>Konfigurera IoT Edge moduler och anslutningar
 
@@ -30,35 +30,35 @@ Autentiseringsuppgifterna för behållar register som är värdar för modulblad
 - Registernamn
 - Inloggningsserver
 - Användarnamn
-- lösenordsinställning
+- Lösenord
 
 Ange nu autentiseringsuppgifter för behållare i IoT Edge-modulen.
 
 1. Navigera till IoT-hubben som skapades i din resurs grupp.
 
-2. I avsnittet **IoT Edge** under **Automatisk enhets hantering**klickar du på **enhets-ID**. I den här självstudien är ID: t `IronOrePredictionDevice` .
+2. I avsnittet **IoT Edge** under **Automatisk enhets hantering** klickar du på **enhets-ID**. I den här självstudien är ID: t `IronOrePredictionDevice` .
 
 3. Välj avsnittet **Ange moduler** .
 
-4. Ange följande värden under **container Registry autentiseringsuppgifter**:
+4. Ange följande värden under **container Registry autentiseringsuppgifter** :
 
    _Fält_|_Värde_
    -------|-------
    Name|Registernamn
    Adress|Inloggningsserver
    Användarnamn|Användarnamn
-   lösenordsinställning|lösenordsinställning
+   Lösenord|Lösenord
   
 ## <a name="deploy-the-data-generator-module"></a>Distribuera modulen data Generator
 
-1. I avsnittet **IoT Edge** under **Automatisk enhets hantering**klickar du på **enhets-ID**. I den här självstudien är ID: t `IronOrePredictionDevice` och klickar sedan på **Ange moduler**.
+1. I avsnittet **IoT Edge** under **Automatisk enhets hantering** klickar du på **enhets-ID**. I den här självstudien är ID: t `IronOrePredictionDevice` och klickar sedan på **Ange moduler**.
 
 2.  Under avsnittet **IoT Edge moduler** på sidan **Ange moduler på enhet:** klickar du på **+ Lägg till** och väljer **IoT Edge modul**.
 
 3. Ange ett giltigt namn och bild-URI för IoT Edge-modulen.
    Avbildnings-URI: n finns i behållar registret i resurs gruppen som skapades i del ett av den här självstudien. Välj avsnittet **databaser** under **tjänster**. I den här självstudien väljer du den lagrings plats som heter `silicaprediction` . Välj lämplig tagg. Bild-URI: n kommer att ha formatet:
 
-   *inloggnings Server för containerregistry* / *namn på databas*:*taggnamn*
+   *inloggnings Server för containerregistry* / *namn på databas* : *taggnamn*
 
    Exempel:
 
@@ -77,7 +77,7 @@ Ange nu autentiseringsuppgifter för behållare i IoT Edge-modulen.
 
 2. På bladet **Marketplace för IoT Edge module** söker du efter *Azure SQL Edge* och väljer *Azure SQL Edge Developer*. 
 
-3. Konfigurera Azure SQL Edge-modulen genom att klicka på den nyligen tillagda *Azure SQL Edge* -modulen under **IoT Edge moduler** . Mer information om konfigurations alternativen finns i [Distribuera Azure SQL Edge](https://docs.microsoft.com/azure/azure-sql-edge/deploy-portal).
+3. Konfigurera Azure SQL Edge-modulen genom att klicka på den nyligen tillagda *Azure SQL Edge* -modulen under **IoT Edge moduler** . Mer information om konfigurations alternativen finns i [Distribuera Azure SQL Edge](./deploy-portal.md).
 
 4. Lägg till `MSSQL_PACKAGE` miljövariabeln i *Azure SQL Edge* module-distributionen och ange SAS-URL: en för databasen DACPAC-filen som skapades i steg 8 i [del ett](tutorial-deploy-azure-resources.md) av den här självstudien.
 
@@ -114,9 +114,9 @@ Ange nu autentiseringsuppgifter för behållare i IoT Edge-modulen.
    |Anslutningstyp| Microsoft SQL Server|
    |Server|Offentlig IP-adress som anges i den virtuella datorn som skapades för den här demon|
    |Användarnamn|sa|
-   |lösenordsinställning|Det starka lösen ord som användes när Azure SQL Edge-instansen skapades|
-   |Databas|Default|
-   |Server grupp|Default|
+   |Lösenord|Det starka lösen ord som användes när Azure SQL Edge-instansen skapades|
+   |Databas|Standard|
+   |Servergrupp|Standard|
    |Namn (valfritt)|Ange ett valfritt namn|
 
 3. Klicka på **Anslut**

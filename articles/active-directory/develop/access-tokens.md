@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: hirsin
-ms.reviewer: hirsin
+ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: ee8ea874ba8133216bf5a28587f841d3b7cfa2ed
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b60be1b3d30ab462f89dd4d72ab67d43393740b8
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740168"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393378"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Åtkomsttoken för Microsoft Identity Platform
 
@@ -33,7 +33,7 @@ I följande avsnitt får du lära dig hur en resurs kan verifiera och använda a
 > [!IMPORTANT]
 > Åtkomsttoken skapas baserat på token för token, vilket *innebär det program* som äger omfattningarna i token.  Det här är en resurs inställning `accessTokenAcceptedVersion` i [appens manifest](reference-app-manifest.md#manifest-reference) så att `2` en klient som anropar en v 1.0-slutpunkt kan ta emot en v 2.0-åtkomsttoken.  På samma sätt är det anledningen till att ändra de [valfria anspråken](active-directory-optional-claims.md) för åtkomsttoken för din klient ändrar inte den åtkomsttoken som tas emot när en token begärs för `user.read` , som ägs av resursen.
 >
-> Av samma anledning kommer du att se att den åtkomsttoken som tas emot av klienten är en ogenomskinlig sträng, samtidigt som du testar ditt klient program med ett Microsoft API som stöder personligt konto (till exempel hotmail.com eller outlook.com). Detta beror på att resursen som används har krypterade tokens och inte kan tolkas av klienten.  Detta är förväntat och bör inte vara ett problem för appen-klient program bör aldrig ha ett beroende på formatet för åtkomsttoken. 
+> Av samma anledning kommer du att se att den åtkomsttoken som tas emot av klienten är en ogenomskinlig sträng, samtidigt som du testar ditt klient program med ett Microsoft API som stöder personligt konto (till exempel hotmail.com eller outlook.com). Detta beror på att resursen som används har krypterade tokens och inte kan tolkas av klienten.  Detta är förväntat och bör inte vara ett problem för appen-klient program bör aldrig ha ett beroende på formatet för åtkomsttoken.
 
 ## <a name="sample-tokens"></a>Exempel-token
 
@@ -72,7 +72,7 @@ Anspråk finns bara om det finns ett värde för att fylla det. Därför bör ap
 
 ### <a name="header-claims"></a>Huvud anspråk
 
-|Begär | Format | Beskrivning |
+|Begär | Format | Description |
 |--------|--------|-------------|
 | `typ` | Sträng-Always-JWT | Anger att token är en JWT.|
 | `nonce` | Sträng | En unik identifierare som används för att skydda mot repetitions attacker med token. Din resurs kan registrera det här värdet för att skydda mot uppspelningar. |
@@ -82,7 +82,7 @@ Anspråk finns bara om det finns ett värde för att fylla det. Därför bör ap
 
 ### <a name="payload-claims"></a>Nytto Last anspråk
 
-| Begär | Format | Beskrivning |
+| Begär | Format | Description |
 |-----|--------|-------------|
 | `aud` | Sträng, en app-ID-URI | Identifierar den avsedda mottagaren för token. I ID-token är mål gruppen appens program-ID som tilldelats din app i Azure Portal. Din app bör validera det här värdet och avvisa token om värdet inte matchar. |
 | `iss` | Sträng, en STS-URI | Identifierar säkerhetstokentjänst som konstruerar och returnerar token och Azure AD-klienten där användaren autentiserades. Om token som utfärdas är en v 2.0-token (se `ver` anspråket) avslutas URI: n `/v2.0` . GUID som anger att användaren är en konsument användare från en Microsoft-konto `9188040d-6c67-4c5b-b112-36a304b66dad` . Din app ska använda en GUID-del av anspråket för att begränsa den uppsättning innehavare som kan logga in på appen, om tillämpligt. |
@@ -140,7 +140,7 @@ Du kan använda den `BulkCreateGroups.ps1` som finns i mappen skript för att [S
 
 Följande anspråk kommer att ingå i v 1.0-token om det är tillämpligt, men inte ingår i v 2.0-token som standard. Om du använder v 2.0 och behöver någon av dessa anspråk kan du begära dem med [valfria anspråk](active-directory-optional-claims.md).
 
-| Begär | Format | Beskrivning |
+| Begär | Format | Description |
 |-----|--------|-------------|
 | `ipaddr`| Sträng | IP-adressen som användaren autentiseras från. |
 | `onprem_sid`| Sträng, i [sid-format](/windows/desktop/SecAuthZ/sid-components) | I de fall där användaren har en lokal autentisering, ger detta anspråk sitt SID. Du kan använda `onprem_sid` för auktorisering i äldre program.|
@@ -178,7 +178,7 @@ Vi tillhandahåller bibliotek och kod exempel som visar hur du hanterar verifier
 
 ### <a name="validating-the-signature"></a>Verifiera signaturen
 
-En JWT innehåller tre segment, som avgränsas med `.` specialtecknet. Det första segmentet kallas **sidhuvud** , det andra som **bröd texten** och det tredje som **signaturen** . Du kan använda signatur segmentet för att verifiera tokens äkthet så att den kan vara betrodd av din app.
+En JWT innehåller tre segment, som avgränsas med `.` specialtecknet. Det första segmentet kallas **sidhuvud** , det andra som **bröd texten** och det tredje som **signaturen**. Du kan använda signatur segmentet för att verifiera tokens äkthet så att den kan vara betrodd av din app.
 
 Token som utfärdas av Azure AD är signerade med algoritmer för asymmetrisk kryptering i bransch standard, till exempel RS256. Huvud-i-JWT-filen innehåller information om nyckeln och krypterings metoden som används för att signera token:
 
@@ -245,7 +245,7 @@ Uppdaterings-token kan inaktive ras eller återkallas av olika skäl. De delas i
 
 ### <a name="token-timeouts"></a>Timeout för token
 
-Med [konfiguration av livs längd för token](active-directory-configurable-token-lifetimes.md)kan du ändra livs längden för uppdaterade tokens.  Det är normalt och förväntas att vissa token ska gå utan användning (t. ex. om användaren inte öppnar appen i tre månader) och därför upphör att gälla.  Appar kommer att stöta på scenarier där inloggnings servern avvisar en uppdateringstoken på grund av dess ålder. 
+Med [konfiguration av livs längd för token](active-directory-configurable-token-lifetimes.md)kan du ändra livs längden för uppdaterade tokens.  Det är normalt och förväntas att vissa token ska gå utan användning (t. ex. om användaren inte öppnar appen i tre månader) och därför upphör att gälla.  Appar kommer att stöta på scenarier där inloggnings servern avvisar en uppdateringstoken på grund av dess ålder.
 
 * MaxInactiveTime: om uppdateringstoken inte har använts inom den tid som bestäms av MaxInactiveTime, kommer uppdateringstoken inte längre att vara giltig.
 * MaxSessionAge: om MaxAgeSessionMultiFactor eller MaxAgeSessionSingleFactor har angetts till något annat än standardvärdet (tills det har återkallats) krävs omautentisering efter att den tid som anges i MaxAgeSession * går ut.
@@ -255,7 +255,7 @@ Med [konfiguration av livs längd för token](active-directory-configurable-toke
 
 ### <a name="revocation"></a>Återkallade
 
-Uppdaterings-token kan återkallas av servern på grund av en ändring av autentiseringsuppgifter eller på grund av användnings-eller administratörs åtgärder.  Uppdaterade token hamnar i två klasser – de som utfärdats till konfidentiella klienter (kolumnen längst till höger) och de som utfärdats till offentliga klienter (alla andra kolumner).   
+Uppdaterings-token kan återkallas av servern på grund av en ändring av autentiseringsuppgifter eller på grund av användnings-eller administratörs åtgärder.  Uppdaterade token hamnar i två klasser – de som utfärdats till konfidentiella klienter (kolumnen längst till höger) och de som utfärdats till offentliga klienter (alla andra kolumner).
 
 | Ändra | Lösenordsbaserad cookie | Lösenordsbaserad token | Icke-lösenordsbaserad cookie | Icke-lösenordsbaserad token | Konfidentiell klient-token |
 |---|-----------------------|----------------------|---------------------------|--------------------------|---------------------------|
@@ -275,12 +275,12 @@ En *icke-lösenordsbaserad* inloggning är en där användaren inte skrev något
 - FIDO2-nyckel
 - SMS
 - Röst
-- PIN-KOD 
+- PIN-KOD
 
 > [!NOTE]
 > Primära uppdateringstoken (PRT) i Windows 10 åtskiljs utifrån autentiseringsuppgifterna. Till exempel har Windows Hello och lösen ordet sina respektive PRTs, isolerade från varandra. När en användare loggar in med en hälsnings information (PIN-kod eller biometrik) och sedan ändrar lösen ordet, kommer lösen ordsbaserade PRT som hämtades tidigare att återkallas. Om du loggar in igen med ett lösen ord avverifierar du det gamla PRT och begär ett nytt.
 >
-> Uppdateringstoken är inte ogiltiga eller återkallade när de används för att hämta en ny åtkomsttoken och en uppdateringstoken.  Appen bör dock ta bort den gamla en så fort den används och ersätta den med den nya, eftersom den nya token har en ny förfallo tid. 
+> Uppdateringstoken är inte ogiltiga eller återkallade när de används för att hämta en ny åtkomsttoken och en uppdateringstoken.  Appen bör dock ta bort den gamla en så fort den används och ersätta den med den nya, eftersom den nya token har en ny förfallo tid.
 
 ## <a name="next-steps"></a>Nästa steg
 

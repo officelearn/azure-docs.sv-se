@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.workload: identity
-ms.date: 09/22/2020
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfae813f01d3e7a08e18cde76e5c26ca253a371f
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 73ed2741c7dd754127a57642703b650a70637c63
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026606"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393446"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Tilldela begränsade roller till en administrativ enhet
 
@@ -52,7 +52,7 @@ Du kan tilldela en omfattnings roll med hjälp av Azure Portal, PowerShell eller
 
 ### <a name="use-the-azure-portal"></a>Använda Azure-portalen
 
-1. I Azure Portal går du till **Azure AD** .
+1. I Azure Portal går du till **Azure AD**.
 
 1. Välj **administrativa enheter** och välj sedan den administrativa enhet som du vill tilldela användar roll omfånget till. 
 
@@ -60,7 +60,7 @@ Du kan tilldela en omfattnings roll med hjälp av Azure Portal, PowerShell eller
 
    ![Skärm bild av fönstret "roll och administratörer" där du kan välja en administrativ enhet vars roll omfång du vill tilldela.](./media/admin-units-assign-roles/select-role-to-scope.png)
 
-1. Välj den roll som ska tilldelas och välj sedan **Lägg till tilldelningar** . 
+1. Välj den roll som ska tilldelas och välj sedan **Lägg till tilldelningar**. 
 
 1. I fönstret **Lägg till tilldelningar** väljer du en eller flera användare som ska tilldelas rollen.
 
@@ -105,7 +105,7 @@ Du kan visa en lista över omfångs administratörer med hjälp av Azure Portal,
 
 Du kan visa alla roll tilldelningar som skapats med en administrativ enhets omfattning i [avsnittet administrativa enheter i Azure AD](https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit). 
 
-1. I Azure Portal går du till **Azure AD** .
+1. I Azure Portal går du till **Azure AD**.
 
 1. I det vänstra fönstret väljer du **administrativa enheter** och väljer sedan den administrativa enheten för listan med roll tilldelningar som du vill visa. 
 

@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
-ms.openlocfilehash: 45ce874ffb626f63b2239c66afdefd091114cbd2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f547f0b3219889b54364c4805c2dd5b183a9861a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888140"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392375"
 ---
 # <a name="manage-historical-data-with-retention-policy"></a>Hantera historiska data med bevarande princip
 
@@ -66,11 +66,11 @@ Med utmärkt data komprimering och effektiv kvarhållning av rensning görs ett 
 
 ## <a name="monitoring-data-retention-cleanup"></a>Övervaka rensning av datakvarhållning
 
-Rensnings åtgärder för data lagrings principer kan övervakas med utökade händelser (XEvents) i Azure SQL Edge. Mer information om utökade händelser finns i [Översikt över XEvents](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events). 
+Rensnings åtgärder för data lagrings principer kan övervakas med utökade händelser (XEvents) i Azure SQL Edge. Mer information om utökade händelser finns i [Översikt över XEvents](/sql/relational-databases/extended-events/extended-events). 
 
 Följande sex utökade händelser hjälper till att spåra status för rensnings åtgärderna. 
 
-| Namn | Beskrivning |
+| Name | Beskrivning |
 |------| ------------|
 | data_retention_task_started  | Inträffar när bakgrunds aktiviteten för rensning av tabeller med bevarande princip startar. |
 | data_retention_task_completed  | Inträffar när bakgrunds aktiviteten för rensning av tabeller med bevarande princip upphör. |

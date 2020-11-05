@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 4fbd410a7d2a7374303e637ca81c34dbea90fcb7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 36c12fa7dd37ce1ffebde16cf6ca856d9fcdca0a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791043"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392001"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Vad är nytt i Azure SQL Database & SQL-hanterad instans?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -25,7 +25,7 @@ Den här artikeln innehåller Azure SQL Database-och Azure SQL-hanterade instans
 
 ## <a name="whats-new"></a>Nyheter
 
-Dokumentation för Azure SQL Database och Azure SQL-hanterad instans har delats in i separata avsnitt. Vi har även uppdaterat hur vi refererar till en hanterad instans från *Azure SQL Database Hanterad instans* till en *Azure SQL-hanterad instans* .
+Dokumentation för Azure SQL Database och Azure SQL-hanterad instans har delats in i separata avsnitt. Vi har även uppdaterat hur vi refererar till en hanterad instans från *Azure SQL Database Hanterad instans* till en *Azure SQL-hanterad instans*.
 
 Vi har gjort detta eftersom vissa funktioner och funktioner varierar kraftigt mellan en enda databas och en hanterad instans, och den har blivit allt svårare att förklara komplexa olika delarna mellan Azure SQL Database och Azure SQL-hanterad instans i enskilda delade artiklar.
 
@@ -104,7 +104,7 @@ Följande funktioner är aktiverade i distributions modellen SQL-hanterad instan
 |[Tjänstens huvud namn kan inte komma åt Azure AD och AKV](#service-principal-cannot-access-azure-ad-and-akv)|Aug 2020|Har en lösning||
 |[Återställning av manuell säkerhets kopiering utan kontroll summa kan Miss kopie ras](#restoring-manual-backup-without-checksum-might-fail)|Maj 2020|Matchat|Juni 2020|
 |[Agenten slutar svara vid ändring, inaktive ring eller aktivering av befintliga jobb](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Maj 2020|Matchat|Juni 2020|
-|[Behörigheter för resurs gruppen gäller inte för SQL-hanterad instans](#permissions-on-resource-group-not-applied-to-sql-managed-instance)|Feb 2020|Har en lösning||
+|[Behörigheter för resurs gruppen gäller inte för SQL-hanterad instans](#permissions-on-resource-group-not-applied-to-sql-managed-instance)|Feb 2020|Matchat|Nov 2020|
 |[Begränsning av manuell redundans via portalen för failover-grupper](#limitation-of-manual-failover-via-portal-for-failover-groups)|Jan 2020|Har en lösning||
 |[SQL Agent-roller behöver uttryckliga EXECUTE-behörigheter för icke-sysadmin-inloggningar](#in-memory-oltp-memory-limits-are-not-applied)|Dec 2019|Har en lösning||
 |[SQL Agent-jobb kan avbrytas efter omstart av agent processen](#sql-agent-jobs-can-be-interrupted-by-agent-process-restart)|Dec 2019|Matchat|Mar 2020|

@@ -11,12 +11,12 @@ ms.topic: end-user-help
 ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 04076ed5b91f8e840a084b784477d07eea5adee7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cba8837fc738884fc187b13083487c2ab62d25f0
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87015978"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392585"
 ---
 # <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Lägg till konton som inte kommer från Microsoft i Microsoft Authenticator-appen
 
@@ -36,7 +36,7 @@ För alla dina personliga konton måste du i allmänhet:
     >[!Note]
     >Om det här är första gången du konfigurerar Microsoft Authenticator-appen kan du få en fråga om du vill tillåta att appen får åtkomst till kameran (iOS) eller tillåter att appen tar bilder och spelar in video (Android). Du måste välja **Tillåt** så att Authenticator-appen kan komma åt kameran för att ta en bild av QR-koden i nästa steg. Om du inte tillåter kameran kan du fortfarande konfigurera Authenticator-appen, men du måste lägga till kod informationen manuellt. Information om hur du lägger till koden manuellt finns i se [lägga till ett konto manuellt i appen](user-help-auth-app-add-account-manual.md).
 
-Vi tillhandahåller processen för dina Facebook-, Google-, GitHub-och Amazon-konton, men den här processen är densamma för alla andra appar, till exempel Instagram, Netflix eller Adobe.
+Vi tillhandahåller processen för dina Facebook-, Google-, GitHub-och Amazon-konton, men processen är densamma för andra appar, till exempel Instagram och Adobe.
 
 ## <a name="add-your-google-account"></a>Lägg till ditt Google-konto
 
@@ -44,7 +44,7 @@ Lägg till ditt Google-konto genom att aktivera tvåstegsverifiering och sedan l
 
 ### <a name="turn-on-two-factor-verification"></a>Aktivera tvåstegsverifiering
 
-1. Gå till på datorn, https://myaccount.google.com/signinoptions/two-step-verification/enroll-welcome Välj **Kom igång**och kontrol lera din identitet.
+1. Gå till på datorn, https://myaccount.google.com/signinoptions/two-step-verification/enroll-welcome Välj **Kom igång** och kontrol lera din identitet.
 
 2. Följ stegen på sidan för att aktivera tvåstegsverifiering för ditt personliga Google-konto.
 
@@ -159,7 +159,7 @@ Lägg till ditt Amazon-konto genom att aktivera tvåstegsverifiering och sedan l
 
 1. På datorn öppnar du Amazon, väljer List rutan **konto & listor** och väljer sedan **ditt konto**.
 
-2. Välj **Logga in & säkerhet**, logga in på ditt Amazon-konto och välj sedan **Redigera** i avsnittet **avancerade säkerhets inställningar** .
+2. Välj **Logga in & säkerhet** , logga in på ditt Amazon-konto och välj sedan **Redigera** i avsnittet **avancerade säkerhets inställningar** .
 
     Sidan **avancerade säkerhets inställningar** visas.
 

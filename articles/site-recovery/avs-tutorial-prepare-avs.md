@@ -1,5 +1,5 @@
 ---
-title: Förbered för haveri beredskap för virtuella Azure VMware-lösningar med Azure Site Recovery
+title: Förbered Azure VMware-lösningen för katastrof återställning till Azure Site Recovery
 description: Lär dig hur du förbereder Azure VMware-lösnings servrar för haveri beredskap till Azure med hjälp av tjänsten Azure Site Recovery.
 author: Harsha-CS
 manager: rochakm
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 09/29/2020
 ms.author: harshacs
 ms.custom: MVC
-ms.openlocfilehash: 9b04faf6797d04404dc0c5d617af2fd62a68c49a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e77ede7b04c95bfd6b6b8f660c8d811e7434c0f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91814630"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395452"
 ---
-# <a name="prepare-azure-vmware-solution-servers-for-disaster-recovery-to-azure"></a>Förbered Azure VMware-lösnings servrar för haveri beredskap till Azure
+# <a name="prepare-azure-vmware-solution-for-disaster-recovery-to-azure-site-recovery"></a>Förbered Azure VMware-lösningen för katastrof återställning till Azure Site Recovery
 
 Den här artikeln beskriver hur du förbereder Azure VMware-lösnings servrar för haveri beredskap till Azure med hjälp av [Azure Site Recovery](site-recovery-overview.md) -tjänsterna. 
 
@@ -52,7 +52,7 @@ Skapa kontot enligt följande:
 
 ### <a name="vmware-account-permissions"></a>Behörighet för VMware-konto
 
-**Uppgift** | **Roll/behörigheter** | **Information**
+**Uppgift** | **Roll/behörigheter** | **Detaljer**
 --- | --- | ---
 **VM-identifiering** | Minst en skrivskyddad användare<br/><br/> Data Center-objekt –> Sprid till underordnat objekt, roll = skrivskyddad | Användaren tilldelas på datacenternivå och har åtkomst till alla objekt i datacentret.<br/><br/> Om du vill begränsa åtkomsten tilldelar du rollen **Ingen åtkomst** med objektet **Sprid till underordnad** till underordnade objekt (vSphere-värdar, data lager, virtuella datorer och nätverk).
 **Fullständig replikering, redundans och återställning efter fel** |  Skapa en roll (Azure_Site_Recovery) med behörigheterna som krävs och tilldela sedan rollen till en VMware-användare eller grupp<br/><br/> Datacenterobjekt –> Sprid till underordnat objekt, roll=Azure_Site_Recovery<br/><br/> Datalager -> Allokera utrymme, bläddra i datalagret, filåtgärder på låg nivå, ta bort filen, uppdatera filer för virtuella datorer<br/><br/> Nätverk -> Tilldela nätverk<br/><br/> Resurs -> Tilldela VM till resurspool, migrera avstängd VM, migrera påslagen VM<br/><br/> Uppgifter -> Skapa uppgift, uppdatera uppgift<br/><br/> Virtuell dator -> Konfiguration<br/><br/> Virtuell dator -> Interagera -> Besvara fråga, enhetsanslutning, konfigurera CD-skiva, konfigurera diskettstation, stänga av, sätta på, installera VMware-verktyg<br/><br/> Virtuell dator -> Lager -> Skapa, registrera, avregistrera<br/><br/> Virtuell dator -> Etablering -> Tillåt nedladdning till virtuell dator, tillåt filuppladdning till virtuell dator<br/><br/> Virtuell dator -> Ögonblicksbilder -> Ta bort ögonblicksbilder | Användaren tilldelas på datacenternivå och har åtkomst till alla objekt i datacentret.<br/><br/> Om du vill begränsa åtkomsten tilldelar du rollen **Ingen åtkomst** med objektet **Sprid till underordnad** till underordnade objekt (vSphere-värdar, data lager, virtuella datorer och nätverk).
@@ -68,8 +68,8 @@ Förbered kontot enligt följande:
 
 Förbereda en domän eller ett lokalt konto med behörighet för att installera på den virtuella datorn.
 
-- **Virtuella Windows-datorer**: Om du vill installera på virtuella Windows-datorer och inte använder ett domänkonto, inaktiverar du åtkomstkontroll för fjärranvändare på den lokala datorn. Du gör det genom att gå till registret > **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** och lägga till DWORD-posten **LocalAccountTokenFilterPolicy**, med värdet 1.
-- **Virtuella Linux-datorer**: För att installera på virtuella Linux-datorer, förbereder du ett rotkonto på Linux-källservern.
+- **Virtuella Windows-datorer** : Om du vill installera på virtuella Windows-datorer och inte använder ett domänkonto, inaktiverar du åtkomstkontroll för fjärranvändare på den lokala datorn. Du gör det genom att gå till registret > **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** och lägga till DWORD-posten **LocalAccountTokenFilterPolicy** , med värdet 1.
+- **Virtuella Linux-datorer** : För att installera på virtuella Linux-datorer, förbereder du ett rotkonto på Linux-källservern.
 
 
 ## <a name="check-vmware-requirements"></a>Kontrollera VMware-kraven
@@ -92,7 +92,7 @@ Efter redundansväxlingen kanske du vill ansluta till de virtuella Azure-datorer
 Om du vill ansluta till virtuella Windows-datorer med RDP efter en redundans, gör du följande:
 
 - **Internet åtkomst**. Innan redundansväxlingen aktiverar du RDP på den virtuella Azure VMware-lösningen innan du aktiverar redundansväxlingen. Kontrollera att TCP- och UDP-regler har lagts till för den **offentliga** profilen och att RDP tillåts i **Windows-brandväggen** > **Tillåtna appar** för alla profiler.
-- **Plats-till-plats VPN-åtkomst**:
+- **Plats-till-plats VPN-åtkomst** :
     - Innan redundansväxlingen aktiverar du RDP på den virtuella Azure VMware-lösningen.
     - RDP bör tillåtas i **Windows-brandväggen**  ->  **tillåtna appar och funktioner** för **domän nätverk och privata** nätverk.
     - Kontrollera att operativsystemets SAN-princip har angetts till **OnlineAll**. [Läs mer](https://support.microsoft.com/kb/3031135).

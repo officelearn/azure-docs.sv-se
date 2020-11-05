@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: 9e75edad9f2e473d27d81c73fc784c568c4e404c
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 4d420bf45cd705f518df0d52929a331d23537184
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896148"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395180"
 ---
 # <a name="create-a-data-streaming-job-in-azure-sql-edge"></a>Skapa ett data strömnings jobb i Azure SQL Edge 
 
@@ -24,21 +24,21 @@ Den här artikeln beskriver hur du skapar ett T-SQL streaming-jobb i Azure SQL E
 
 T-SQL streaming använder den externa data käll funktionen i SQL Server för att definiera de data källor som är associerade med de externa data strömmarnas indata och utdata från strömnings jobbet. Använd följande T-SQL-kommandon för att skapa ett indata-eller utdata-objekt för extern ström:
 
-- [Skapa externt filformat (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql)
+- [Skapa externt filformat (Transact-SQL)](/sql/t-sql/statements/create-external-file-format-transact-sql)
 
-- [Skapa extern datakälla (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql)
+- [Skapa extern datakälla (Transact-SQL)](/sql/t-sql/statements/create-external-data-source-transact-sql)
 
 - [Skapa extern ström (Transact-SQL)](#example-create-an-external-stream-object-to-azure-sql-database)
 
-Om Azure SQL Edge, SQL Server eller Azure SQL Database används som utdataström måste du dessutom använda [Transact-SQL (Create Database begränsade autentiseringsuppgifter)](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql). Det här T-SQL-kommandot definierar de autentiseringsuppgifter som krävs för att komma åt databasen.
+Om Azure SQL Edge, SQL Server eller Azure SQL Database används som utdataström måste du dessutom använda [Transact-SQL (Create Database begränsade autentiseringsuppgifter)](/sql/t-sql/statements/create-database-scoped-credential-transact-sql). Det här T-SQL-kommandot definierar de autentiseringsuppgifter som krävs för att komma åt databasen.
 
 ### <a name="supported-input-and-output-stream-data-sources"></a>Data källor för indata och utdataström som stöds
 
 Azure SQL Edge stöder för närvarande endast följande data källor som indata och utdata.
 
-| Typ av data Källa | Indata | Resultat | Beskrivning |
+| Typ av data Källa | Indata | Resultat | Description |
 |------------------|-------|--------|------------------|
-| Azure IoT Edge hubb | Y | Y | Data källa för att läsa och skriva strömmande data till en Azure IoT Edge hubb. Mer information finns i [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).|
+| Azure IoT Edge hubb | Y | Y | Data källa för att läsa och skriva strömmande data till en Azure IoT Edge hubb. Mer information finns i [IoT Edge Hub](../iot-edge/iot-edge-runtime.md#iot-edge-hub).|
 | SQL Database | N | Y | Anslutning till data källa för att skriva strömmande data till SQL Database. Databasen kan vara en lokal databas i Azure SQL Edge eller en fjärrdatabas i SQL Server eller Azure SQL Database.|
 | Kafka | Y | N | Data källa för att läsa strömmande data från ett Kafka-ämne. Det här kortet är för närvarande endast tillgängligt för Intel-eller AMD-versioner av Azure SQL Edge. Den är inte tillgänglig för ARM64-versionen av Azure SQL Edge.|
 
@@ -103,7 +103,7 @@ I följande exempel skapas ett externt Stream-objekt till den lokala databasen i
 
 3. Skapa en extern data källa med skapa extern DATA källa. Följande exempel:
 
-    * Skapar en extern data källa med namnet *LocalSQLOutput* .
+    * Skapar en extern data källa med namnet *LocalSQLOutput*.
     * Identifierar den externa data källan (LOCATION = ' <vendor> :// <server> [: <port> ] '). I exemplet pekar den på en lokal instans av Azure SQL Edge.
     * Använder de autentiseringsuppgifter som skapades tidigare.
 
@@ -117,7 +117,7 @@ I följande exempel skapas ett externt Stream-objekt till den lokala databasen i
     go
     ```
 
-4. Skapa det externa Stream-objektet. I följande exempel skapas ett externt Stream-objekt som pekar på en tabell *dbo. TemperatureMeasurements* , i databasen *MySQLDatabase* .
+4. Skapa det externa Stream-objektet. I följande exempel skapas ett externt Stream-objekt som pekar på en tabell *dbo. TemperatureMeasurements* , i databasen *MySQLDatabase*.
 
     ```sql
     CREATE EXTERNAL STREAM TemperatureMeasurements 
@@ -173,7 +173,7 @@ I följande exempel skapas ett externt Stream-objekt till den lokala databasen i
 Använd den `sys.sp_create_streaming_job` systemlagrade proceduren för att definiera strömnings frågorna och skapa direkt uppspelnings jobbet. Den `sp_create_streaming_job` lagrade proceduren tar följande parametrar:
 
 - `job_name`: Namnet på direkt uppspelnings jobbet. Strömmande jobb namn är unika i instansen.
-- `statement`: [Stream Analytics Query Language](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference?)-baserade frågeuttryck.
+- `statement`: [Stream Analytics Query Language](/stream-analytics-query/stream-analytics-query-language-reference)-baserade frågeuttryck.
 
 I följande exempel skapas ett enkelt strömnings jobb med en direkt uppspelnings fråga. Den här frågan läser in indata från IoT Edge Hub och skriver till `dbo.TemperatureMeasurements` i-databasen.
 
@@ -249,7 +249,7 @@ Direkt uppspelnings jobbet kan ha någon av följande statusar:
 | Bearbetar | Direkt uppspelnings jobbet körs och bearbetar indata. Det här tillståndet anger ett felfritt tillstånd för strömnings jobbet. |
 | Degraderad | Direkt uppspelnings jobbet körs, men det fanns några icke-allvarliga fel under bearbetningen av indata. Inmatnings jobbet kommer att fortsätta köras, men kommer att släppa indata som stöter på fel. |
 | Stoppad | Direkt uppspelnings jobbet har stoppats. |
-| Misslyckades | Streaming-jobbet misslyckades. Detta är vanligt vis ett tecken på ett allvarligt fel under bearbetningen. |
+| Misslyckad | Streaming-jobbet misslyckades. Detta är vanligt vis ett tecken på ett allvarligt fel under bearbetningen. |
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: f2cc8901ee3952f7d258d768e175412254ec5d1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 114be810ea50f984c3211291691b4c4dd45ac2c7
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905956"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395248"
 ---
 # <a name="back-up-and-restore-databases-in-azure-sql-edge"></a>Säkerhetskopiera och återställa databaser i Azure SQL Edge 
 
@@ -75,9 +75,9 @@ I följande exempel använder du `BACKUP DATABASE` Transact-SQL-kommandot för a
 
 ### <a name="back-up-to-url"></a>Säkerhetskopiera till URL
 
-Azure SQL Edge stöder säkerhets kopiering till både sid-blobar och block-blobar. Mer information finns i [säkerhetskopiera för att blockera BLOB vs Page BLOB](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url#blockbloborpageblob). I följande exempel säkerhets kopie ras databasen *IronOreSilicaPrediction* till en Block-Blob. 
+Azure SQL Edge stöder säkerhets kopiering till både sid-blobar och block-blobar. Mer information finns i [säkerhetskopiera för att blockera BLOB vs Page BLOB](/sql/relational-databases/backup-restore/sql-server-backup-to-url#blockbloborpageblob). I följande exempel säkerhets kopie ras databasen *IronOreSilicaPrediction* till en Block-Blob. 
 
-1. Om du vill konfigurera säkerhets kopieringar för att blockera blobbar måste du först skapa en signatur för signatur för delad åtkomst (SAS) som du kan använda för att skapa en SQL Server autentiseringsuppgift på Azure SQL Edge. Skriptet skapar en SAS som är associerad med en lagrad åtkomst princip. Mer information finns i [signaturer för delad åtkomst, del 1: förstå SAS-modellen](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/). Skriptet skriver också det T-SQL-kommando som krävs för att skapa autentiseringsuppgiften på SQL Server. Följande skript förutsätter att du redan har en Azure-prenumeration med ett lagrings konto och en lagrings behållare för säkerhets kopiorna.
+1. Om du vill konfigurera säkerhets kopieringar för att blockera blobbar måste du först skapa en signatur för signatur för delad åtkomst (SAS) som du kan använda för att skapa en SQL Server autentiseringsuppgift på Azure SQL Edge. Skriptet skapar en SAS som är associerad med en lagrad åtkomst princip. Mer information finns i [signaturer för delad åtkomst, del 1: förstå SAS-modellen](../storage/common/storage-sas-overview.md). Skriptet skriver också det T-SQL-kommando som krävs för att skapa autentiseringsuppgiften på SQL Server. Följande skript förutsätter att du redan har en Azure-prenumeration med ett lagrings konto och en lagrings behållare för säkerhets kopiorna.
 
     ```PowerShell
     # Define global variables for the script  
@@ -133,7 +133,7 @@ Azure SQL Edge stöder säkerhets kopiering till både sid-blobar och block-blob
 
 ## <a name="restore-a-database-in-azure-sql-edge"></a>Återställa en databas i Azure SQL Edge
 
-I Azure SQL Edge kan du återställa från en lokal disk, en nätverks plats eller ett Azure Blob Storage-konto. Mer information om återställning och återställning i SQL Server finns i [Översikt över återställning och återställning](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-and-recovery-overview-sql-server). En översikt över den enkla återställnings modellen i SQL Server finns i [fullständig databas återställning (enkel återställnings modell)](https://docs.microsoft.com/sql/relational-databases/backup-restore/complete-database-restores-simple-recovery-model).
+I Azure SQL Edge kan du återställa från en lokal disk, en nätverks plats eller ett Azure Blob Storage-konto. Mer information om återställning och återställning i SQL Server finns i [Översikt över återställning och återställning](/sql/relational-databases/backup-restore/restore-and-recovery-overview-sql-server). En översikt över den enkla återställnings modellen i SQL Server finns i [fullständig databas återställning (enkel återställnings modell)](/sql/relational-databases/backup-restore/complete-database-restores-simple-recovery-model).
 
 > [!IMPORTANT] 
 > Databaser som har skapats i Azure SQL Edge kan inte återställas på en instans av Microsoft SQL Server eller Azure SQL. Dessutom kan en databas som skapas på Microsoft SQL Server eller Azure SQL återställas på Azure SQL Edge, förutsatt att databasen inte innehåller några av de funktioner som inte stöds av Azure SQL Edge. 
@@ -180,5 +180,3 @@ WITH MOVE 'IronOreSilicaPrediction' TO '/var/opt/mssql/data/IronOreSilicaPredict
 MOVE 'IronOreSilicaPrediction_log' TO '/var/opt/mssql/data/IronOreSilicaPrediction_Primary_3.ldf',
 STATS = 10;
 ```
-
-

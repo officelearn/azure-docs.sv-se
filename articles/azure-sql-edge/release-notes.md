@@ -10,12 +10,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: afd78acadf133a9f128eec402eba9d0eed51b8e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 543a71bc2a77f0a31f8ddaa0de13135b93db48ec
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91284490"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395044"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Viktig information om Azure SQL Edge 
 
@@ -37,9 +37,9 @@ I den här artikeln beskrivs vad som är nytt och vad som har ändrats med varje
    - Aktivera parallella körnings scenarier
 6. Förbättringar av energispar funktioner för låg energi läge
 7. Strömmande ny funktions support 
-   - [Snapshot-fönster](https://docs.microsoft.com/stream-analytics-query/snapshot-window-azure-stream-analytics) : ny fönster typ som gör det möjligt att gruppera efter händelser på exakt samma tid. 
-   - Aktivera [TopOne](https://docs.microsoft.com/stream-analytics-query/topone-azure-stream-analytics) och [CollectTop](https://docs.microsoft.com/stream-analytics-query/collecttop-azure-stream-analytics) som analys funktion så att du kan returnera poster sorterade efter valfri kolumn, utan att behöva vara en del av ett fönster. 
-   - Förbättringar av [MATCH_RECOGNIZE](https://docs.microsoft.com/stream-analytics-query/match-recognize-stream-analytics). 
+   - [Snapshot-fönster](/stream-analytics-query/snapshot-window-azure-stream-analytics) : ny fönster typ som gör det möjligt att gruppera efter händelser på exakt samma tid. 
+   - Aktivera [TopOne](/stream-analytics-query/topone-azure-stream-analytics) och [CollectTop](/stream-analytics-query/collecttop-azure-stream-analytics) som analys funktion så att du kan returnera poster sorterade efter valfri kolumn, utan att behöva vara en del av ett fönster. 
+   - Förbättringar av [MATCH_RECOGNIZE](/stream-analytics-query/match-recognize-stream-analytics). 
 
 ### <a name="fixes"></a>Korrigeringar
 1. Ytterligare fel meddelanden och information om fel sökning av TSQL streaming-åtgärder. 

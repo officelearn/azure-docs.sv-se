@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: e92fab392dc73d8de0b7b2547e38b3f345562930
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e22eaacd73bb15ddf43f416831ff5ff42923b6e0
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975866"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393395"
 ---
 # <a name="register-a-resource-application-in-azure-active-directory"></a>Registrera ett resurs program i Azure Active Directory
 
@@ -43,7 +43,7 @@ Om du använder FHIR-servern med öppen källkod för Azure följer du stegen ne
 
 1. Klicka på **Azure Active Directory** på den vänstra navigeringspanelen på [Azure Portal](https://portal.azure.com).
 
-2. I bladet **Azure Active Directory** klickar du på **Appregistreringar**:
+2. I bladet **Azure Active Directory** klickar du på **Appregistreringar** :
 
     ![Azure Portal. Ny app-registrering.](media/how-to-aad/portal-aad-new-app-registration.png)
 
@@ -71,9 +71,9 @@ Ett resurs program har en identifierare-URI (program-ID-URI) som klienter kan an
 
 ### <a name="define-application-roles"></a>Definiera program roller
 
-Azure API för FHIR och OSS FHIR-servern för Azure använder [Azure Active Directory program roller](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles) för rollbaserad åtkomst kontroll. Om du vill definiera vilka roller som ska vara tillgängliga för FHIR-serverns API öppnar du resurs programmets [manifest](https://docs.microsoft.com/azure/active-directory/active-directory-application-manifest/):
+Azure API för FHIR och OSS FHIR-servern för Azure använder [Azure Active Directory program roller](/azure/architecture/multitenant-identity/app-roles) för rollbaserad åtkomst kontroll. Om du vill definiera vilka roller som ska vara tillgängliga för FHIR-serverns API öppnar du resurs programmets [manifest](/azure/active-directory/active-directory-application-manifest/):
 
-1. Klicka på **manifest**:
+1. Klicka på **manifest** :
 
     ![Program roller](media/how-to-aad/portal-aad-register-new-app-registration-APP-ROLES.png)
 

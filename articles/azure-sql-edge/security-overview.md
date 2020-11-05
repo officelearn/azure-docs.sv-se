@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 737c7e61a7ae0573ca6de0d6daa8288313f70741
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: cb673efb3e5d14e72e945bcf8c23d57495823720
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201910"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394959"
 ---
 # <a name="securing-azure-sql-edge"></a>Skydda Azure SQL Edge
 
@@ -34,24 +34,24 @@ Implementering av plattforms säkerhet börjar med att behålla obehöriga anvä
 - Ange och begränsa värd portar som använder för Azure SQL Edge
 - Se till att rätt åtkomst kontroll tillämpas på alla data volymer som är värdar för Azure SQL Edge-data. 
 
-Mer information om Azure SQL Edge nätverks protokoll och TDS-slutpunkter finns i [nätverks protokoll och TDS-slutpunkter](https://docs.microsoft.com//previous-versions/sql/sql-server-2008-r2/ms191220(v=sql.105)).
+Mer information om Azure SQL Edge nätverks protokoll och TDS-slutpunkter finns i [nätverks protokoll och TDS-slutpunkter](//previous-versions/sql/sql-server-2008-r2/ms191220(v=sql.105)).
 
 ## <a name="authentication-and-authorization"></a>Autentisering och auktorisering 
 
 ### <a name="authentication"></a>Autentisering  
 Autentisering är en process för att bevisa att användaren är den som han eller hon ansöker. Azure SQL Edge stöder för närvarande bara `SQL Authentication` mekanismen.
 
-- *SQL-autentisering*:
+- *SQL-autentisering* :
 
     SQL-autentisering syftar på autentiseringen av en användare när du ansluter till Azure SQL Edge med användar namn och lösen ord. Inloggnings lösen ordet för SQL **sa** måste anges vid SQL Edge-distribution. Efter det kan ytterligare SQL-inloggningar och användare skapas av Server administratören, vilket gör det möjligt för användare att ansluta med användar namn och lösen ord.
 
-    Mer information om hur du skapar och hanterar inloggningar och användare i SQL Edge finns i [skapa en inloggning](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) och [skapa databas användare](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-database-user).
+    Mer information om hur du skapar och hanterar inloggningar och användare i SQL Edge finns i [skapa en inloggning](/sql/relational-databases/security/authentication-access/create-a-login) och [skapa databas användare](/sql/relational-databases/security/authentication-access/create-a-database-user).
 
 ### <a name="authorization"></a>Auktorisering   
 
-Auktorisering syftar på de behörigheter som tilldelats till en användare i en databas i Azure SQL Edge och avgör vad användaren får göra. Behörigheter styrs genom att lägga till användar konton till [databas roller](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles) och tilldela behörigheter på databas nivå till dessa roller eller genom att bevilja användaren vissa [behörigheter på objekt nivå](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine). Mer information finns i [inloggningar och användare](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage).
+Auktorisering syftar på de behörigheter som tilldelats till en användare i en databas i Azure SQL Edge och avgör vad användaren får göra. Behörigheter styrs genom att lägga till användar konton till [databas roller](/sql/relational-databases/security/authentication-access/database-level-roles) och tilldela behörigheter på databas nivå till dessa roller eller genom att bevilja användaren vissa [behörigheter på objekt nivå](/sql/relational-databases/security/permissions-database-engine). Mer information finns i [inloggningar och användare](../azure-sql/database/logins-create-manage.md).
 
-Vi rekommenderar att du skapar anpassade roller vid behov. Lägg till användare i rollen med de minsta privilegier som krävs för att utföra jobb funktionen. Tilldela inte behörigheter direkt till användare. Server administratörs kontot är medlem i den inbyggda db_owners rollen, som har omfattande behörigheter och bör bara beviljas till några få användare med administrativa uppgifter. För program använder du [Kör som](https://docs.microsoft.com/sql/t-sql/statements/execute-as-clause-transact-sql) för att ange körnings kontexten för den anropade modulen eller använda [program roller](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) med begränsad behörighet. Den här metoden säkerställer att det program som ansluter till databasen har den lägsta behörighet som krävs för programmet. Genom att följa dessa rekommendationer bör du också skilja på olika uppgifter.
+Vi rekommenderar att du skapar anpassade roller vid behov. Lägg till användare i rollen med de minsta privilegier som krävs för att utföra jobb funktionen. Tilldela inte behörigheter direkt till användare. Server administratörs kontot är medlem i den inbyggda db_owners rollen, som har omfattande behörigheter och bör bara beviljas till några få användare med administrativa uppgifter. För program använder du [Kör som](/sql/t-sql/statements/execute-as-clause-transact-sql) för att ange körnings kontexten för den anropade modulen eller använda [program roller](/sql/relational-databases/security/authentication-access/application-roles) med begränsad behörighet. Den här metoden säkerställer att det program som ansluter till databasen har den lägsta behörighet som krävs för programmet. Genom att följa dessa rekommendationer bör du också skilja på olika uppgifter.
 
 ## <a name="database-object-security"></a>Säkerhet för databas objekt
 
@@ -59,8 +59,8 @@ Huvud konton är individer, grupper och processer som har beviljats åtkomst til
 
 |För information om|Se|  
 |---------------------------|---------|  
-|Server-och databas användare, roller och processer|[Huvud databas motor](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine)|  
-|Säkerhet för Server-och databas objekt|[Skydd bara objekt](https://docs.microsoft.com/sql/relational-databases/security/securables)|
+|Server-och databas användare, roller och processer|[Huvud databas motor](/sql/relational-databases/security/authentication-access/principals-database-engine)|  
+|Säkerhet för Server-och databas objekt|[Skydd bara objekt](/sql/relational-databases/security/securables)|
 | &nbsp; | &nbsp; |
 
 ### <a name="encryption-and-certificates"></a>Kryptering och certifikat  
@@ -69,47 +69,46 @@ Kryptering löser inte problem med åtkomst kontroll. Det förbättrar dock säk
   
 |För information om|Se|  
 |---------------------------|---------|  
-|Implementera säkra anslutningar|[Kryptera anslutningar](https://docs.microsoft.com/sql/linux/sql-server-linux-encrypted-connections)|  
-|Krypterings funktioner|[Kryptografiska funktioner &#40;Transact-SQL&#41;](https://docs.microsoft.com/sql/t-sql/functions/cryptographic-functions-transact-sql)|
-|Data kryptering i vila|[Transparent datakryptering](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption)|
-|Alltid krypterad|[Alltid krypterad](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine)|
+|Implementera säkra anslutningar|[Kryptera anslutningar](/sql/linux/sql-server-linux-encrypted-connections)|  
+|Krypterings funktioner|[Kryptografiska funktioner &#40;Transact-SQL&#41;](/sql/t-sql/functions/cryptographic-functions-transact-sql)|
+|Data kryptering i vila|[Transparent datakryptering](/sql/relational-databases/security/encryption/transparent-data-encryption)|
+|Alltid krypterad|[Alltid krypterad](/sql/relational-databases/security/encryption/always-encrypted-database-engine)|
 | &nbsp; | &nbsp; |
 
 > [!NOTE]
-> De säkerhets begränsningar som beskrivs för [SQL Server på Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-security-overview) gäller även för Azure SQL Edge. 
+> De säkerhets begränsningar som beskrivs för [SQL Server på Linux](/sql/linux/sql-server-linux-security-overview) gäller även för Azure SQL Edge. 
 
 
 > [!NOTE]
 > Azure SQL Edge inkluderar inte verktyget MSSQL-conf. Alla konfigurationer inklusive krypterings relaterad konfiguration måste utföras via [MSSQL. conf-filen](configure.md#configure-by-using-an-mssqlconf-file) eller [miljövariablerna](configure.md#configure-by-using-environment-variables). 
 
 
-I likhet med Azure SQL och Microsoft SQL Server tillhandahåller Azure SQL Edge samma mekanism för att skapa och använda certifikat för att förbättra säkerheten för objekt och anslutningar. Mer information finns i [Skapa certifikat (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-certificate-transact-sql).
+I likhet med Azure SQL och Microsoft SQL Server tillhandahåller Azure SQL Edge samma mekanism för att skapa och använda certifikat för att förbättra säkerheten för objekt och anslutningar. Mer information finns i [Skapa certifikat (Transact-SQL)](/sql/t-sql/statements/create-certificate-transact-sql).
 
 
 ## <a name="application-security"></a>Programsäkerhet
 
 ### <a name="client-programs"></a>Klient program
 
-Metod tips för Azure SQL Edge Security är att skriva säkra klient program. Mer information om hur du skyddar klient program på nätverks nivå finns i [klient nätverks konfiguration](https://docs.microsoft.com/sql/database-engine/configure-windows/client-network-configuration).
+Metod tips för Azure SQL Edge Security är att skriva säkra klient program. Mer information om hur du skyddar klient program på nätverks nivå finns i [klient nätverks konfiguration](/sql/database-engine/configure-windows/client-network-configuration).
 
 ### <a name="security-catalog-views-and-functions"></a>Säkerhets katalogs visningar och funktioner  
 Säkerhets information visas i flera vyer och funktioner som är optimerade för prestanda och verktyg. Följande tabell innehåller information om säkerhetsvyer och funktioner i Azure SQL Edge.  
   
 |Funktioner och vyer|Länkar|  
 |---------------------------|---------|  
-|Vyer för säkerhets kataloger, som returnerar information om behörigheter på databas nivå och server nivå, huvud konton, roller och så vidare. Dessutom finns det katalogfiler som innehåller information om krypterings nycklar, certifikat och autentiseringsuppgifter.|[Säkerhets katalogs visningar &#40;Transact-SQL&#41;](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/security-catalog-views-transact-sql)|  
-|Säkerhets funktioner, som returnerar information om den aktuella användaren, behörigheter och scheman.|[Säkerhets funktioner &#40;Transact-SQL&#41;](https://docs.microsoft.com/sql/t-sql/functions/security-functions-transact-sql)|  
-|Vyer för dynamisk hantering av säkerhet.|[Säkerhets-relaterade vyer och funktioner i dynamisk hantering &#40;Transact-SQL&#41;](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/security-related-dynamic-management-views-and-functions-transact-sql)|  
+|Vyer för säkerhets kataloger, som returnerar information om behörigheter på databas nivå och server nivå, huvud konton, roller och så vidare. Dessutom finns det katalogfiler som innehåller information om krypterings nycklar, certifikat och autentiseringsuppgifter.|[Säkerhets katalogs visningar &#40;Transact-SQL&#41;](/sql/relational-databases/system-catalog-views/security-catalog-views-transact-sql)|  
+|Säkerhets funktioner, som returnerar information om den aktuella användaren, behörigheter och scheman.|[Säkerhets funktioner &#40;Transact-SQL&#41;](/sql/t-sql/functions/security-functions-transact-sql)|  
+|Vyer för dynamisk hantering av säkerhet.|[Säkerhets-relaterade vyer och funktioner i dynamisk hantering &#40;Transact-SQL&#41;](/sql/relational-databases/system-dynamic-management-views/security-related-dynamic-management-views-and-functions-transact-sql)|  
 | &nbsp; | &nbsp; |
 
 ### <a name="auditing"></a>Granskning 
 
-Azure SQL Edge ger samma gransknings metoder som SQL Server. Mer information finns i [SQL Server granskning (databas motor)](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine).
+Azure SQL Edge ger samma gransknings metoder som SQL Server. Mer information finns i [SQL Server granskning (databas motor)](/sql/relational-databases/security/auditing/sql-server-audit-database-engine).
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Komma igång med säkerhetsfunktioner](https://docs.microsoft.com/sql/linux/sql-server-linux-security-get-started)
+- [Komma igång med säkerhetsfunktioner](/sql/linux/sql-server-linux-security-get-started)
 - [Köra Azure SQL Edge som en icke-rot användare](configure.md#run-azure-sql-edge-as-non-root-user)
-- [Azure Security Center för IoT](https://docs.microsoft.com/azure/asc-for-iot/overview)
-
+- [Azure Security Center för IoT](../defender-for-iot/overview.md)

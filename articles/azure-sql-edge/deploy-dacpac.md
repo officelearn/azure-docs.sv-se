@@ -9,18 +9,18 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: e9c8c58c6be8d2c2a85e56690903e6b54f0e4a0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40bd0eda16f9f96dd356eef900369ab25854e9f9
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293908"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392256"
 ---
 # <a name="sql-database-dacpac-and-bacpac-packages-in-sql-edge"></a>SQL Database DACPAC-och BACPAC-paket i SQL Edge
 
 Azure SQL Edge är en optimerad relationsdatabasmotor som är avsedd för IoT- och Edge-distributioner. Den bygger på de senaste versionerna av Microsoft SQL Database-motorn, som tillhandahåller branschledande prestanda-, säkerhets-och fråge bearbetnings funktioner. Tillsammans med de branschledande Relations databas hanterings funktionerna i SQL Server ger Azure SQL Edge inbyggd strömnings kapacitet för analys i real tid och komplex händelse bearbetning.
 
-Azure SQL Edge tillhandahåller inbyggd mekanism som gör att du kan distribuera ett [SQL Database DACPAC-och BACPAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) -paket under eller efter distributionen av SQL Edge.
+Azure SQL Edge tillhandahåller inbyggd mekanism som gör att du kan distribuera ett [SQL Database DACPAC-och BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications) -paket under eller efter distributionen av SQL Edge.
 
 SQL Database DACPAC-och BACPAC-paket kan distribueras till SQL Edge med `MSSQL_PACKAGE` miljövariabeln. Miljö variabeln kan konfigureras med något av följande.  
 - En lokal mapplats i SQL-behållaren som innehåller DACPAC-och BACPAC-filerna. Den här mappen kan mappas till en värd volym med hjälp av antingen monterings punkter eller data volym behållare. 
@@ -35,7 +35,7 @@ Om du vill distribuera (eller importera) ett SQL Database DAC-paket `(*.dacpac)`
 
 1. Skapa/extrahera ett DAC-paket eller exportera en BACPAC-fil med hjälp av mekanismen nedan. 
     - Skapa eller extrahera ett SQL Database DAC-paket. Mer information om hur du skapar ett DAC-paket för en befintlig SQL Server databas finns i [extrahera en DAC från en databas](/sql/relational-databases/data-tier-applications/extract-a-dac-from-a-database/) .
-    - Exportera ett distribuerat DAC-paket eller en databas. Se [Exportera ett data skikts program](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application/) för information om hur du skapar en BACPAC-fil för en befintlig SQL Server databas.
+    - Exportera ett distribuerat DAC-paket eller en databas. Se [Exportera ett data skikts program](/sql/relational-databases/data-tier-applications/export-a-data-tier-application/) för information om hur du skapar en BACPAC-fil för en befintlig SQL Server databas.
 
 2. Zip- `*.dacpac` eller `*.bacpac` File-filen och ladda upp den till ett Azure Blob Storage-konto. Mer information om hur du laddar upp filer till Azure Blob Storage finns i [Ladda upp, ladda ned och lista blobar med Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md).
 

@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.workload: identity
-ms.date: 09/22/2020
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c877878fe25d4c6c8904840c3c3350fbe2acf7b5
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: b490e03ea7ac0a3bc780fa731629217126b6828a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026674"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395537"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Lägga till och hantera användare i en administrativ enhet i Azure Active Directory
 
@@ -39,7 +39,7 @@ Du kan tilldela användare till administrativa enheter individuellt eller som en
 
    1. Välj **användare** och klicka sedan på den användare som ska tilldelas en administrativ enhet för att öppna användarens profil.
    
-   1. Välj **administrativa enheter** . 
+   1. Välj **administrativa enheter**. 
    
    1. Om du vill tilldela användaren till en eller flera administrativa enheter väljer du **tilldela till administrativ enhet** och väljer sedan de administrativa enheter som du vill tilldela användaren i den högra rutan.
 
@@ -57,11 +57,11 @@ Du kan tilldela användare till administrativa enheter individuellt eller som en
 
    1. Logga in på [administrations Center för Azure AD](https://portal.azure.com) med administratörs behörighet för privilegierade roller.
 
-   1. Välj **administrativa enheter** .
+   1. Välj **administrativa enheter**.
 
    1. Välj den administrativa enhet som du vill lägga till användare i.
 
-   1. Välj **användare**  >  **Mass aktiviteter**  >  **Mass Lägg till medlemmar** . Sedan kan du hämta den kommaavgränsade värden (CSV)-mallen och redigera filen. Formatet är enkelt och behöver ett enda User Principal Name som ska läggas till på varje rad. När filen är klar sparar du den på en lämplig plats och laddar sedan upp den som en del av det här steget.
+   1. Välj **användare**  >  **Mass aktiviteter**  >  **Mass Lägg till medlemmar**. Sedan kan du hämta den kommaavgränsade värden (CSV)-mallen och redigera filen. Formatet är enkelt och behöver ett enda User Principal Name som ska läggas till på varje rad. När filen är klar sparar du den på en lämplig plats och laddar sedan upp den som en del av det här steget.
 
       ![Skärm bild av fönstret "användare" för att tilldela användare till en administrativ enhet som en Mass åtgärd.](./media/admin-units-add-manage-users/bulk-assign-to-admin-unit.png)
 
@@ -103,7 +103,7 @@ Exempel:
 
 I Azure Portal kan du öppna en användar profil genom att göra följande:
 
-1. Gå till **Azure AD** och välj **användare** .
+1. Gå till **Azure AD** och välj **användare**.
 
 1. Välj den användare vars profil du vill visa.
 
@@ -135,15 +135,15 @@ https://graph.microsoft.com/v1.0/users/{id}/memberOf/$/Microsoft.Graph.Administr
 
 Du kan ta bort en användare från en administrativ enhet på något av två sätt: 
 
-* I Azure Portal går du till **Azure AD** och väljer sedan **användare** . 
+* I Azure Portal går du till **Azure AD** och väljer sedan **användare**. 
   1. Välj användaren för att öppna användarens profil. 
-  1. Välj den administrativa enhet som du vill ta bort användaren från och välj sedan **ta bort från administrativ enhet** .
+  1. Välj den administrativa enhet som du vill ta bort användaren från och välj sedan **ta bort från administrativ enhet**.
 
      ![Skärm bild som visar hur du tar bort en användare från en administrativ enhet från användarens profil fönster.](./media/admin-units-add-manage-users/user-remove-admin-units.png)
 
-* I Azure Portal går du till **Azure AD** och väljer sedan **administrativa enheter** .
+* I Azure Portal går du till **Azure AD** och väljer sedan **administrativa enheter**.
   1. Välj den administrativa enhet som du vill ta bort användaren från. 
-  1. Välj användaren och välj sedan **ta bort medlem** .
+  1. Välj användaren och välj sedan **ta bort medlem**.
   
      ![Skärm bild som visar hur du tar bort en användare på den administrativa enhets nivån.](./media/admin-units-add-manage-users/admin-units-remove-user.png)
 
@@ -165,7 +165,7 @@ Ersätt plats hållarna med test information och kör följande kommando:
 
 Om du vill ta bort flera användare från en administrativ enhet gör du följande:
 
-1. I Azure Portal går du till **Azure AD** .
+1. I Azure Portal går du till **Azure AD**.
 
 1. Välj **administrativa enheter** och välj sedan den administrativa enhet som du vill ta bort användare från. 
 
@@ -177,7 +177,7 @@ Om du vill ta bort flera användare från en administrativ enhet gör du följan
 
    ![Skärm bild av en redige rad CSV-fil för att ta bort användare från en administrativ enhet i bulk.](./media/admin-units-add-manage-users/bulk-user-entries.png)
 
-1. Spara ändringarna, ladda upp filen och välj sedan **Skicka** .
+1. Spara ändringarna, ladda upp filen och välj sedan **Skicka**.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/24/2020
+ms.date: 11/05/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5deb84cdc2dee61474c9f2bd1f93311d89f8918
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 98b9a2da11ad32e35704a49cfcf1788f95276dda
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92308887"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393463"
 ---
 # <a name="how-long-does-azure-ad-store-reporting-data"></a>Hur länge rapporterar Azure AD Store-data?
 
@@ -51,12 +51,6 @@ Om du redan har aktivitets data med din kostnads fria licens kan du se den direk
 
 ---
 
-### <a name="can-i-see-last-months-data-after-getting-an-azure-ad-premium-license"></a>Kan jag se den senaste månadens data efter att ha skaffat en Azure AD Premium-licens?
-
-Om du nyligen har bytt till en Premium-version (inklusive en utvärderings version) kan du se data upp till sju dagar från början. När data ackumuleras kan du se data för de senaste 30 dagarna.
-
----
-
 ### <a name="when-does-azure-ad-start-collecting-security-signal-data"></a>När börjar Azure AD samla in säkerhets signal data?  
 
 För säkerhets signaler startar samlings processen när du väljer att använda **identitets skydds centret**. 
@@ -81,5 +75,11 @@ Du kan behålla gransknings-och inloggnings aktivitets data längre än den stan
 | :--            | :--           | :--                 | :--                 |
 | Användare i riskzonen  | 7 dagar        | 30 dagar             | 90 dagar             |
 | Riskfyllda inloggningar | 7 dagar        | 30 dagar             | 90 dagar             |
+
+---
+
+### <a name="can-i-see-last-months-data-after-getting-an-azure-ad-premium-license"></a>Kan jag se den senaste månadens data efter att ha skaffat en Azure AD Premium-licens?
+
+**Nej** , du kan inte. Azure lagrar upp till sju dagars aktivitets data för en kostnads fri version. Det innebär att när du växlar från en kostnads fri till en Premium-version kan du bara se upp till sju dagars data.
 
 ---

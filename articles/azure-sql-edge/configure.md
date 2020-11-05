@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 6284e85d8c4e9ad9f9896081f04c6b7669b8e1c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c49f5ab9f10456c32f7f8516cba0e851fa80e74
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91446948"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392341"
 ---
 # <a name="configure-azure-sql-edge"></a>Konfigurera Azure SQL Edge
 
@@ -32,7 +32,7 @@ Azure SQL Edge visar flera olika miljövariabler som kan användas för att konf
 
 Följande nya miljövariabler har lagts till i Azure SQL Edge. 
 
-| Miljövariabel | Beskrivning | Värden |     
+| Miljövariabel | Description | Värden |     
 |-----|-----| ---------- | 
 | **PlanId** | Anger den Azure SQL Edge-SKU som ska användas under initieringen. Den här miljö variabeln krävs bara när du distribuerar Azure SQL Edge med Azure IoT Edge. | **asde-Developer-on-IoT-Edge** eller **asde-Premium-on-IoT-Edge** | 
 | **MSSQL_TELEMETRY_ENABLED** | Aktivera eller inaktivera data insamling för användning och diagnostik. | TRUE eller FALSE |  
@@ -42,7 +42,7 @@ Följande nya miljövariabler har lagts till i Azure SQL Edge.
 
 Följande SQL Server på Linux Environment-variabel stöds inte för Azure SQL Edge. Om det är definierat ignoreras den här miljövariabeln vid initiering av behållare.
 
-| Miljövariabel | Beskrivning |
+| Miljövariabel | Description |
 |-----|-----|
 | **MSSQL_ENABLE_HADR** | Aktivera tillgänglighets grupp. Till exempel **1** är aktive rad och **0** är inaktiverat. |
 
@@ -95,11 +95,11 @@ Följande MSSQL. conf-alternativ gäller inte för SQL Edge:
 |**Kundfeedback** | Välj om SQL Server skicka feedback till Microsoft. |
 |**Database mail-profil** | Ange e-postprofilen för standard databasen för SQL Server på Linux. |
 |**Hög tillgänglighet** | Aktivera tillgänglighets grupper. |
-|**Microsoft koordinator för distribuerad transaktion** | Konfigurera och Felsök MSDTC i Linux. Ytterligare distribuerade transaktions-relaterade konfigurations alternativ stöds inte för SQL Edge. Mer information om dessa ytterligare konfigurations alternativ finns i [Configure MSDTC](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf#msdtc). |
+|**Microsoft koordinator för distribuerad transaktion** | Konfigurera och Felsök MSDTC i Linux. Ytterligare distribuerade transaktions-relaterade konfigurations alternativ stöds inte för SQL Edge. Mer information om dessa ytterligare konfigurations alternativ finns i [Configure MSDTC](/sql/linux/sql-server-linux-configure-mssql-conf#msdtc). |
 |**Service avtal för ML** | Godkänn R-och python-licensavtalet för Azure Machine Learning-paket. Gäller endast SQL Server 2019.|
 |**outboundnetworkaccess** |Aktivera utgående nätverks åtkomst för [Machine Learning Services](/sql/linux/sql-server-linux-setup-machine-learning/) R-, python-och Java-tillägg.|
 
-Följande exempel på MSSQL. conf-filen fungerar för SQL Edge. Mer information om formatet för en MSSQL. conf-fil finns i [MSSQL. conf-format](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf#mssql-conf-format).
+Följande exempel på MSSQL. conf-filen fungerar för SQL Edge. Mer information om formatet för en MSSQL. conf-fil finns i [MSSQL. conf-format](/sql/linux/sql-server-linux-configure-mssql-conf#mssql-conf-format).
 
 ```ini
 [EULA]

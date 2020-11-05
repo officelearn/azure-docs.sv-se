@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: 592d96195d1c70c73e32589fe764a8747b0b66e6
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 4469d92ed7bf33ed5384925e1c0161a318b8233d
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546780"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393361"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-offline-using-dms"></a>Självstudie: Migrera SQL Server till en Azure SQL-hanterad instans offline med DMS
 
@@ -57,7 +57,7 @@ För att slutföra den här kursen behöver du:
 
 - Se till att de virtuella nätverkets säkerhets grupp regler inte blockerar följande portar för inkommande kommunikation till Azure Database Migration Service: 443, 53, 9354, 445, 12000. Mer information om NSG för trafik filtrering i virtuellt nätverk finns i artikeln [filtrera nätverks trafik med nätverks säkerhets grupper](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Konfigurera din [Windows-brandvägg för källdatabasmotoråtkomst](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-- Öppna Windows-brandväggen för att tillåta Azure Database Migration Service åtkomst till käll SQL Server, vilket som standard är TCP-port 1433.
+- Öppna Windows-brandväggen för att tillåta Azure Database Migration Service åtkomst till käll SQL Server, vilket som standard är TCP-port 1433. Om standard instansen lyssnar på någon annan port lägger du till den i brand väggen.
 - Om du kör flera namngivna SQL Server instanser med dynamiska portar kanske du vill aktivera tjänsten SQL Browser och tillåta åtkomst till UDP-port 1434 genom brand väggarna så att Azure Database Migration Service kan ansluta till en namngiven instans på käll servern.
 - Om du använder en brand Väggs installation framför dina käll databaser kan du behöva lägga till brand Väggs regler för att tillåta Azure Database Migration Service åtkomst till käll databaserna för migrering, samt filer via SMB-port 445.
 - Skapa en SQL-hanterad instans genom att följa informationen i artikeln [skapa en SQL-hanterad instans i Azure Portal](https://aka.ms/sqldbmi).
@@ -66,7 +66,7 @@ För att slutföra den här kursen behöver du:
     >[!NOTE]
     >Som standard stöder Azure Database Migration Service bara migrering av SQL-inloggningar. Du kan dock aktivera möjligheten att migrera Windows-inloggningar genom att:
     >
-    >- Se till att den inloggade SQL-instansen har AAD-Läs behörighet, som kan konfigureras via Azure Portal av en användare med rollen **företags administratör** eller **Global administratör** .
+    >- Se till att den inloggade SQL-instansen har AAD-Läs behörighet, som kan konfigureras via Azure Portal av en användare med rollen **företags administratör** eller **Global administratör**.
     >- Konfigurera Azure Database Migration Service-instansen för att aktivera migrering av Windows-användare/grupper, som har kon figurer ATS via Azure Portal, på sidan konfiguration. När du har aktiverat den här inställningen startar du om tjänsten för att ändringarna ska börja gälla.
     >
     > När tjänsten har startats om visas Windows användare/grupp-inloggningar i listan över inloggningar som är tillgängliga för migrering. För alla Windows-användare/grupp-inloggningar som du migrerar uppmanas du att ange det associerade domän namnet. Tjänst användar konton (konto med domän namns UTFÄRDAre) och virtuella användar konton (konto namn med domän namns tjänsten) stöds inte.
@@ -81,15 +81,15 @@ För att slutföra den här kursen behöver du:
     
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registrera resursprovidern Microsoft.DataMigration
 
-1. Logga in på Azure Portal och välj **Alla tjänster** och sedan **Prenumerationer** .
+1. Logga in på Azure Portal och välj **Alla tjänster** och sedan **Prenumerationer**.
 
     ![Visa portalprenumerationer](media/tutorial-sql-server-to-managed-instance/portal-select-subscriptions.png)
 
-2. Välj den prenumeration där du vill skapa instansen av Azure Database Migration Service och välj sedan **resurs leverantörer** .
+2. Välj den prenumeration där du vill skapa instansen av Azure Database Migration Service och välj sedan **resurs leverantörer**.
 
     ![Visa resursprovidrar](media/tutorial-sql-server-to-managed-instance/portal-select-resource-provider.png)
 
-3. Sök efter migrering och välj sedan **Registrera** till höger om **Microsoft. data migration** .
+3. Sök efter migrering och välj sedan **Registrera** till höger om **Microsoft. data migration**.
 
     ![Registrera resursprovider](media/tutorial-sql-server-to-managed-instance/portal-register-resource-provider.png)
 
@@ -99,7 +99,7 @@ För att slutföra den här kursen behöver du:
 
     ![Azure Marketplace](media/tutorial-sql-server-to-managed-instance/portal-marketplace.png)
 
-2. På sidan **Azure Database Migration Service** väljer du **Skapa** .
+2. På sidan **Azure Database Migration Service** väljer du **Skapa**.
 
     ![Skapa Azure Database Migration Service-instans](media/tutorial-sql-server-to-managed-instance/dms-create1.png)
 
@@ -127,15 +127,15 @@ För att slutföra den här kursen behöver du:
 
 När en instans av tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och skapar sedan ett nytt migreringsprojekt.
 
-1. I Azure Portal väljer du **Alla tjänster** , söker efter Azure Database Migration Service och väljer sedan **Azure Database Migration Services** .
+1. I Azure Portal väljer du **Alla tjänster** , söker efter Azure Database Migration Service och väljer sedan **Azure Database Migration Services**.
 
     ![Hitta alla instanser av Azure Database Migration Service](media/tutorial-sql-server-to-managed-instance/dms-search.png)
 
 2. På **Azure Database Migration Service-sidan** söker du efter namnet på instansen som du har skapat och väljer sedan instansen.
 
-3. Välj + **Nytt migreringsprojekt** .
+3. Välj + **Nytt migreringsprojekt**.
 
-4. På skärmen **ny migrerings projekt** anger du ett namn för projektet i text rutan **typ av käll server** , väljer **SQL Server** i text rutan **mål server typ** , väljer **Azure SQL-hanterad instans** och väljer sedan typ av **data migrering offline** under **Välj typ av aktivitet** .
+4. På skärmen **ny migrerings projekt** anger du ett namn för projektet i text rutan **typ av käll server** , väljer **SQL Server** i text rutan **mål server typ** , väljer **Azure SQL-hanterad instans** och väljer sedan typ av **data migrering offline** under **Välj typ av aktivitet**.
 
    ![Skapa DMS-projekt](media/tutorial-sql-server-to-managed-instance/dms-create-project2.png)
 
@@ -145,7 +145,7 @@ När en instans av tjänsten har skapats letar du reda på den i Azure Portal, �
 
 1. På sidan **Migreringskällinformation** anger du anslutningsinformationen för SQL Server-källan.
 
-2. Om du inte har installerat ett betrott certifikat på servern markerar du kryssrutan **Lita på servercertifikatet** .
+2. Om du inte har installerat ett betrott certifikat på servern markerar du kryssrutan **Lita på servercertifikatet**.
 
     När ett betrott certifikat inte har installerats genererar SQL Server ett självsignerat certifikat när instansen har startats. Detta certifikat används till att kryptera autentiseringsuppgifterna för klientanslutningar.
 
@@ -154,7 +154,7 @@ När en instans av tjänsten har skapats letar du reda på den i Azure Portal, �
 
    ![Källinformation](media/tutorial-sql-server-to-managed-instance/dms-source-details1.png)
 
-3. Välj **Spara** .
+3. Välj **Spara**.
 
 4. På sidan **Välj källdatabaser** , välj databsen **Adventureworks2012** för migrering.
 
@@ -163,7 +163,7 @@ När en instans av tjänsten har skapats letar du reda på den i Azure Portal, �
     > [!IMPORTANT]
     > Om du använder SQL Server Integration Services (SSIS) stöder inte DMS för närvarande migrering av katalog databasen för SSIS-projekt/-paket (SSISDB) från SQL Server till SQL-hanterad instans. Du kan dock etablera SSIS i Azure Data Factory (ADF) och distribuera om dina SSIS-projekt/-paket till mål-SSISDB som hanteras av SQL-hanterad instans. Mer information om migrera SSIS-paket finns i artikeln [Migrate SQL Server Integration Services packages to Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages) (Migrera SQL Server Integration Services-paket till Azure).
 
-5. Välj **Spara** .
+5. Välj **Spara**.
 
 ## <a name="specify-target-details"></a>Ange målinformation
 
@@ -173,7 +173,7 @@ När en instans av tjänsten har skapats letar du reda på den i Azure Portal, �
 
     ![Välja mål](media/tutorial-sql-server-to-managed-instance/dms-target-details2.png)
 
-2. Välj **Spara** .
+2. Välj **Spara**.
 
 ## <a name="select-source-databases"></a>Välj källdatabaser
 
@@ -181,7 +181,7 @@ När en instans av tjänsten har skapats letar du reda på den i Azure Portal, �
 
     ![Välj källdatabaser](media/tutorial-sql-server-to-managed-instance/select-source-databases.png)
 
-2. Välj **Spara** .
+2. Välj **Spara**.
 
 ## <a name="select-logins"></a>Välj inloggningar
 
@@ -192,7 +192,7 @@ När en instans av tjänsten har skapats letar du reda på den i Azure Portal, �
 
     ![Välj inloggningar](media/tutorial-sql-server-to-managed-instance/select-logins.png)
 
-2. Välj **Spara** .
+2. Välj **Spara**.
 
 ## <a name="configure-migration-settings"></a>Konfigurera migreringsinställningar
 
@@ -209,25 +209,25 @@ När en instans av tjänsten har skapats letar du reda på den i Azure Portal, �
 
     ![Konfigurera migreringsinställningar](media/tutorial-sql-server-to-managed-instance/dms-configure-migration-settings3.png)
 
-2. Välj **Spara** .
+2. Välj **Spara**.
 
 ## <a name="review-the-migration-summary"></a>Granska migreringssammanfattningen
 
 1. På sidan **Migreringssammanfattning** , i textrutan **Aktivitetsnamn** anger du ett namn på migreringsaktiviteten.
 
-2. Expandera avsnittet **Valideringsalternativ** för att visa sidan **Välj verifieringsalternativ** , ange om du vill verifiera att den migrerade databasen är frågeriktig och välj sedan **Spara** .
+2. Expandera avsnittet **Valideringsalternativ** för att visa sidan **Välj verifieringsalternativ** , ange om du vill verifiera att den migrerade databasen är frågeriktig och välj sedan **Spara**.
 
 3. Granska och verifiera informationen som är kopplad till migreringsprojektet.
 
     ![Sammanfattning av migreringsprojekt](media/tutorial-sql-server-to-managed-instance/dms-project-summary2.png)
 
-4. Välj **Spara** .
+4. Välj **Spara**.
 
 ## <a name="run-the-migration"></a>Köra migreringen
 
-- Välj **Kör migrering** .
+- Välj **Kör migrering**.
 
-  Fönstret migrering av aktivitet visas och aktivitetens status är **väntande** .
+  Fönstret migrering av aktivitet visas och aktivitetens status är **väntande**.
 
 ## <a name="monitor-the-migration"></a>Övervaka migreringen
 

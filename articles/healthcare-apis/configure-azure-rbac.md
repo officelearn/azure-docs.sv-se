@@ -8,16 +8,16 @@ ms.topic: reference
 ms.date: 03/15/2020
 ms.author: matjazl
 ms.reviewer: dseven
-ms.openlocfilehash: 1df2d112814c93261c364883f4b834e0bdb657bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cadfad445c76726b1b825b131de4016a57979fa
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839919"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93391848"
 ---
 # <a name="configure-azure-rbac-for-fhir"></a>Konfigurera Azure RBAC för FHIR 
 
-I den här artikeln får du lära dig hur du använder [Azures rollbaserad åtkomst kontroll (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/) för att tilldela åtkomst till Azure-API: et för FHIR data plan. Azure RBAC är de bästa metoderna för att tilldela data Plans åtkomst när data planet användare hanteras i den Azure Active Directory klient som är associerad med din Azure-prenumeration. Om du använder en extern Azure Active Directory klient organisation, se den [lokala referensen för RBAC-tilldelning](configure-local-rbac.md).
+I den här artikeln får du lära dig hur du använder [Azures rollbaserad åtkomst kontroll (Azure RBAC)](../role-based-access-control/index.yml) för att tilldela åtkomst till Azure-API: et för FHIR data plan. Azure RBAC är de bästa metoderna för att tilldela data Plans åtkomst när data planet användare hanteras i den Azure Active Directory klient som är associerad med din Azure-prenumeration. Om du använder en extern Azure Active Directory klient organisation, se den [lokala referensen för RBAC-tilldelning](configure-local-rbac.md).
 
 ## <a name="confirm-azure-rbac-mode"></a>Bekräfta Azure RBAC-läge
 
@@ -29,13 +29,13 @@ För att kunna använda Azure RBAC måste ditt Azure API för FHIR konfigureras 
 
 ## <a name="assign-roles"></a>Tilldela roller
 
-Om du vill ge användare, tjänstens huvud namn eller grupper åtkomst till FHIR-dataplanen klickar du på **åtkomst kontroll (IAM)** och klickar sedan på **roll tilldelningar** och klickar på **+ Lägg till**:
+Om du vill ge användare, tjänstens huvud namn eller grupper åtkomst till FHIR-dataplanen klickar du på **åtkomst kontroll (IAM)** och klickar sedan på **roll tilldelningar** och klickar på **+ Lägg till** :
 
-:::image type="content" source="media/rbac/add-azure-rbac-role-assignment.png" alt-text="Bekräfta Azure RBAC-läge":::
+:::image type="content" source="media/rbac/add-azure-rbac-role-assignment.png" alt-text="Lägg till roll tilldelning i Azure":::
 
 I **roll** valet söker du efter någon av de inbyggda rollerna för FHIR-dataplanen:
 
-:::image type="content" source="media/rbac/built-in-fhir-data-roles.png" alt-text="Bekräfta Azure RBAC-läge":::
+:::image type="content" source="media/rbac/built-in-fhir-data-roles.png" alt-text="Inbyggda FHIR data roller":::
 
 Du kan välja mellan:
 
@@ -44,7 +44,7 @@ Du kan välja mellan:
 * FHIR data exportör: kan läsa och exportera `$export` data (operator).
 * FHIR data deltagare: kan utföra alla data Plans åtgärder.
 
-Om dessa roller inte räcker för ditt behov kan du också [skapa anpassade roller](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-powershell).
+Om dessa roller inte räcker för ditt behov kan du också [skapa anpassade roller](../role-based-access-control/tutorial-custom-role-powershell.md).
 
 I rutan **Välj** söker du efter en användare, tjänstens huvud namn eller grupp som du vill tilldela rollen till.
 

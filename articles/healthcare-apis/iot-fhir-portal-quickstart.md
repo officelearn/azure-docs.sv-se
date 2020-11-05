@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: quickstart
 ms.date: 09/08/2020
 ms.author: punagpal
-ms.openlocfilehash: 3b6db74d637ac17ef5d09e1d9c5d3dac30ba8ba9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1e3101c8abcaef52c0ae9aaafef36b23aa45b586
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89594381"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394517"
 ---
 # <a name="quickstart-deploy-azure-iot-connector-for-fhir-preview-using-azure-portal"></a>Snabb start: Distribuera Azure IoT Connector för FHIR (för hands version) med Azure Portal
 
@@ -163,16 +163,16 @@ Behåll den här anslutnings strängen som ska användas i ett senare steg.
 
 Azure erbjuder en omfattande uppsättning IoT-produkter för att ansluta och hantera dina IoT-enheter. Du kan skapa en egen lösning baserat på PaaS med hjälp av Azure IoT Hub eller börja med en hantera IoT Apps-plattform med Azure IoT Central. I den här självstudien får vi använda Azure IoT Central, som har branschledande Solution mallar som hjälper dig att komma igång.
 
-Distribuera [program mal len för kontinuerlig övervakning av patienter](https://docs.microsoft.com/azure/iot-central/healthcare/tutorial-continuous-patient-monitoring#create-an-application-template). Den här mallen innehåller två simulerade enheter som genererar real tids data för att hjälpa dig att komma igång: snabb **korrigering av smarta viktiga** **Knee och smart-klammer**.
+Distribuera [program mal len för kontinuerlig övervakning av patienter](../iot-central/healthcare/tutorial-continuous-patient-monitoring.md#create-an-application-template). Den här mallen innehåller två simulerade enheter som genererar real tids data för att hjälpa dig att komma igång: snabb **korrigering av smarta viktiga** **Knee och smart-klammer**.
 
 > [!NOTE]
-> När dina riktiga enheter är klara kan du använda samma IoT Central-program för att [publicera dina enheter](https://docs.microsoft.com/azure/iot-central/core/howto-set-up-template) och ersätta enhets simulatorer. Enhets data kommer automatiskt att börja flöda till FHIR. 
+> När dina riktiga enheter är klara kan du använda samma IoT Central-program för att [publicera dina enheter](../iot-central/core/howto-set-up-template.md) och ersätta enhets simulatorer. Enhets data kommer automatiskt att börja flöda till FHIR. 
 
 ## <a name="connect-your-iot-data-with-the-azure-iot-connector-for-fhir-preview"></a>Anslut dina IoT-data med Azure IoT Connector för FHIR (för hands version)
 > [!WARNING]
 > Den enhets mappnings mall som anges i den här guiden är utformad för att fungera med data export (bakåtkompatibelt) i IoT Central.
 
-När du har distribuerat ditt IoT Central-program börjar du skapa telemetri genom att använda dina två färdiga simulerade enheter. I den här självstudien tar vi in Telemetrin från *smarta viktigare korrigerings* Simulator i FHIR via Azure IoT-anslutningen för FHIR. Om du vill exportera dina IoT-data till Azure IoT-anslutningsprogrammet för FHIR ska vi [ställa in en kontinuerlig data export i IoT Central](https://docs.microsoft.com/azure/iot-central/core/howto-export-data-legacy). På sidan kontinuerlig data export:
+När du har distribuerat ditt IoT Central-program börjar du skapa telemetri genom att använda dina två färdiga simulerade enheter. I den här självstudien tar vi in Telemetrin från *smarta viktigare korrigerings* Simulator i FHIR via Azure IoT-anslutningen för FHIR. Om du vill exportera dina IoT-data till Azure IoT-anslutningsprogrammet för FHIR ska vi [ställa in en kontinuerlig data export i IoT Central](../iot-central/core/howto-export-data-legacy.md). På sidan kontinuerlig data export:
 - Välj *Azure-Event Hubs* som export mål.
 - Välj *Använd ett värde för anslutnings sträng* för fältet **Event Hubs namn område** .
 - Tillhandahåll Azure IoT Connector för FHIR anslutnings sträng som hämtades i föregående steg för fältet **anslutnings sträng** .

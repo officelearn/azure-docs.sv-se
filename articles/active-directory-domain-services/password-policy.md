@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: joflore
-ms.openlocfilehash: 240b96a47c84ec3b15a356edc35549a4a197b219
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2dbc75ac4f143089db778b260bb2c4bee5b49f6a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967975"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393174"
 ---
-# <a name="password-and-account-lockout-policies-on-active-directory-domain-services-managed-domains"></a>Principer för lösen ords-och konto utelåsning på Active Directory Domain Services hanterade domäner
+# <a name="password-and-account-lockout-policies-on-azure-active-directory-domain-services-managed-domains"></a>Principer för lösen ords-och konto utelåsning på Azure Active Directory Domain Services hanterade domäner
 
 Om du vill hantera användar säkerhet i Azure Active Directory Domain Services (Azure AD DS) kan du definiera detaljerade lösen ords principer som styr inställningarna för konto utelåsning eller minsta längd och komplexitet för lösen ord. En standard detaljerad lösen ords princip skapas och tillämpas på alla användare i en Azure AD DS-hanterad domän. För att ge detaljerad kontroll och uppfylla specifika krav för affärs-eller efterlevnad kan ytterligare principer skapas och tillämpas på specifika användar grupper.
 
@@ -90,7 +90,7 @@ Om du vill skapa en anpassad lösen ords princip använder du Active Directory a
 > [!NOTE]
 > Om du vill skapa en anpassad lösen ords princip i en hanterad domän måste du vara inloggad på ett användar konto som är medlem i *Administratörs gruppen för AAD-domänkontrollanten* .
 
-1. Välj **administrations verktyg**på Start skärmen. En lista över tillgängliga hanterings verktyg visas som har installerats i självstudien för att [skapa en virtuell hanterings dator][tutorial-create-management-vm].
+1. Välj **administrations verktyg** på Start skärmen. En lista över tillgängliga hanterings verktyg visas som har installerats i självstudien för att [skapa en virtuell hanterings dator][tutorial-create-management-vm].
 1. Om du vill skapa och hantera organisationsenheter väljer du **Active Directory Administrationscenter** i listan över administrations verktyg.
 1. I det vänstra fönstret väljer du din hanterade domän, till exempel *aaddscontoso.com*.
 1. Öppna **system** behållaren, sedan **Password Settings Container**.
@@ -117,7 +117,7 @@ Om du vill skapa en anpassad lösen ords princip använder du Active Directory a
 
     ![Välj de användare och grupper som lösen ords principen ska tillämpas på](./media/password-policy/fgpp-applies-to.png)
 
-1. Lösen ords principer kan bara tillämpas på grupper. I dialog rutan **platser** expanderar du domän namnet, till exempel *aaddscontoso.com*, och väljer sedan en organisationsenhet, till exempel **AADDC-användare**. Om du har en anpassad ORGANISATIONSENHET som innehåller en grupp med användare som du vill tillämpa väljer du den ORGANISATIONSENHETen.
+1. Lösen ords principer kan bara tillämpas på grupper. I dialog rutan **platser** expanderar du domän namnet, till exempel *aaddscontoso.com* , och väljer sedan en organisationsenhet, till exempel **AADDC-användare**. Om du har en anpassad ORGANISATIONSENHET som innehåller en grupp med användare som du vill tillämpa väljer du den ORGANISATIONSENHETen.
 
     ![Välj den ORGANISATIONSENHET som gruppen tillhör](./media/password-policy/fgpp-container.png)
 

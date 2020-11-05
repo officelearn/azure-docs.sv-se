@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: overview
 ms.date: 08/03/2020
 ms.author: matjazl
-ms.openlocfilehash: 78dec9180da2a78903ae5d5e87bca515b212f167
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 12635979d90dcc4be5b45bf7d64ceb602119faf7
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87843444"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394772"
 ---
 # <a name="what-is-azure-api-for-fhirreg"></a>Vad är Azure API för FHIR &reg; ?
 
@@ -24,7 +24,7 @@ Med Azure API för FHIR kan du snabbt utbyta data genom att använda API: er fö
 - Hög prestanda, låg latens
 - Säker hantering av skyddade hälso data (PHI) i en kompatibel moln miljö
 - SMART på FHIR för mobil-och webb implementeringar
-- Kontrol lera dina egna data i skala med rollbaserad Access Control (RBAC)
+- Kontrol lera dina egna data i skala med Role-Based Access Control (RBAC)
 - Gransknings logg spårning för åtkomst, skapande, ändring och läsningar i varje data lager
 
 Med Azure API för FHIR kan du skapa och distribuera en FHIR-tjänst på bara några minuter för att utnyttja molnets elastiska skala.  Du betalar bara för det data flöde och den lagring du behöver. De Azure-tjänster som Power Azure API för FHIR är utformade för att få snabba prestanda oavsett vilken storlek data uppsättningar som du hanterar.
@@ -53,7 +53,7 @@ Med hjälp av Azure API för FHIR kan du ansluta till alla system som utnyttjar 
 
 ### <a name="control-data-access-at-scale"></a>Kontrol lera data åtkomst i skala
 
-Du styr dina data. Med rollbaserad Access Control (RBAC) kan du hantera hur dina data lagras och nås.  Genom att tillhandahålla ökad säkerhet och minska den administrativa belastningen kan du bestämma vem som har åtkomst till de data uppsättningar som du skapar, baserat på de roll definitioner som du skapar för din miljö.  
+Du styr dina data. Med Role-Based Access Control (RBAC) kan du hantera hur dina data lagras och nås.  Genom att tillhandahålla ökad säkerhet och minska den administrativa belastningen kan du bestämma vem som har åtkomst till de data uppsättningar som du skapar, baserat på de roll definitioner som du skapar för din miljö.  
 
 ### <a name="audit-logs-and-tracking"></a>Gransknings loggar och spårning 
 
@@ -86,7 +86,7 @@ För användnings fall som kräver utökning eller anpassning av FHIR-servern el
 
 Azure IoT Connector för FHIR * är en valfri funktion i Azure API för FHIR som gör det möjligt att mata in data från-enheter. Internet av medicinska saker är en kategori av IoT-enheter som fångar och utbyter hälso & Wellness data med andra hälso vårds IT-system över nätverket. Några exempel på IoMT-enheter är lämplighet och klinisk wearables, övervakning av sensorer, aktivitets Spårare, skötsel av karriär platser eller till och med en smart Pill. Med funktionen Azure IoT Connector för FHIR kan du snabbt konfigurera en tjänst för att mata in IoMT-data i Azure API för FHIR på ett skalbart, säkert och kompatibelt sätt.
 
-Azure IoT Connector för FHIR kan acceptera alla JSON-baserade meddelanden som skickas ut av en IoMT-enhet. Dessa data omvandlas först till lämpliga FHIR [observations](https://www.hl7.org/fhir/observation.html) resurser och sparas sedan i Azure API för FHIR. Data omvandlings logiken definieras genom ett par mappnings-mallar som du konfigurerar baserat på ditt meddelande schema och FHIR krav. Enhets data kan push-överföras direkt till Azure IoT Connector för FHIR eller sömlöst använt i samförstånd med andra Azure IoT-lösningar ([azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) och [Azure IoT Central](https://docs.microsoft.com/azure/iot-central/)). Azure IoT Connector för FHIR ger en säker datapipeline och gör det möjligt för Azure IoT-lösningar att hantera etablering och underhåll av de fysiska enheterna.
+Azure IoT Connector för FHIR kan acceptera alla JSON-baserade meddelanden som skickas ut av en IoMT-enhet. Dessa data omvandlas först till lämpliga FHIR [observations](https://www.hl7.org/fhir/observation.html) resurser och sparas sedan i Azure API för FHIR. Data omvandlings logiken definieras genom ett par mappnings-mallar som du konfigurerar baserat på ditt meddelande schema och FHIR krav. Enhets data kan push-överföras direkt till Azure IoT Connector för FHIR eller sömlöst använt i samförstånd med andra Azure IoT-lösningar ([azure IoT Hub](../iot-hub/index.yml) och [Azure IoT Central](../iot-central/index.yml)). Azure IoT Connector för FHIR ger en säker datapipeline och gör det möjligt för Azure IoT-lösningar att hantera etablering och underhåll av de fysiska enheterna.
 
 ### <a name="applications-of-azure-iot-connector-for-fhir-preview"></a>Program för Azure IoT Connector för FHIR (för hands version)
 
@@ -96,7 +96,7 @@ Användningen av IoMT-enheter kan snabbt expanderas i sjukvården och Azure IoT 
 - **Avancerad analys:** IoMT-enheter kan ge stora mängder data och en hög hastighet, vilket gör att de passar bra för att betjäna utbildning och testa data för dina maskin inlärnings modeller. Azure IoT Connector för FHIR är utformat för att fungera med en mängd olika data frekvenser, flexibelt data schema och moln skalning med låg latens. Dessa attribut gör Azure IoT-anslutning för att FHIR ett utmärkt val för att samla in enhets data för dina avancerade analys behov.
 - **Smart sjukhus/kliniker:** Idag är smart sjukhus och kliniker att skapa en infrastruktur för sammankopplade digitala till gångar. Azure IoT Connector för FHIR kan användas för att avbilda och integrera data från dessa anslutna komponenter. Användbara insikter från sådan data uppsättning möjliggör bättre patienter och drifts effektivitet.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Om du vill börja arbeta med Azure-API: et för FHIR följer du snabb starten på 5 minuter för att distribuera Azure-API: t för FHIR.
 

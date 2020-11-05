@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: notification-hubs
 author: spelluru
 ms.service: notification-hubs
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/06/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: a7d0a899b4a2ef86153e82a4e3f04e7ec430a1bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b32ff0926aa2b797bdb8dfcbb01cf845080a0ce9
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67187935"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375976"
 ---
 1. Navigera till [Google Cloud-konsolen](https://console.developers.google.com/cloud-resource-manager) och logga in med dina Google-kontouppgifter. 
 2. Välj **Skapa projekt** i verktygsfältet. 
@@ -43,7 +43,7 @@ ms.locfileid: "67187935"
     ![Knappen Skapa autentiseringsuppgifter](./media/mobile-services-enable-google-cloud-messaging/create-credentials-button.png)
 11. Välj länken **API-nyckel** på sidan för att **lägga till autentiseringsuppgifter till ditt projekt**. 
 
-    ![Knappen Skapa autentiseringsuppgifter](./media/mobile-services-enable-google-cloud-messaging/api-key-button.png)    
+    ![Lägg till autentiseringsuppgifter](./media/mobile-services-enable-google-cloud-messaging/api-key-button.png)    
 12. Välj **Skapa/spara** på sidan **API-nyckel**. I följande exempel är alternativet **IP-adresser** markerat och **0.0.0.0/0** har angetts för tillåtna IP-adresser. Du bör begränsa din API-nyckel på lämpligt sätt. 
 
     ![API-nyckel – knappen Skapa](./media/mobile-services-enable-google-cloud-messaging/api-key-create-button.png)

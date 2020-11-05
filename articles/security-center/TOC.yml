@@ -223,7 +223,8 @@
         - name: Konfigurera Azure Defender för SQL på virtuella Azure-datorer
           href: defender-for-sql-usage.md
           displayName: 'hybrid, arc'
-        - name: Anpassa informationsskyddsprincipen
+        - name: Anpassa din SQL-informationsskyddsprincip
+          displayName: 'sql, database, data discovery'
           href: security-center-info-protection-policy.md
     - name: Använda Azure Defender för containerregister
       items:

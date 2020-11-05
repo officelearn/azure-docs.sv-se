@@ -13,7 +13,7 @@
       href: quickstart-powershell.md
 - name: Självstudier
   items:
-    - name: Redigera och signera attesteringsprincipen
+    - name: Redigera attesteringsprincipen
       href: author-sign-policy.md
     - name: Kodexempel för SGX-attestering
       href: /samples/browse/?expanded=azure&terms=attestation
@@ -47,5 +47,7 @@
       href: 'https://www.nuget.org/packages/Microsoft.Azure.DCAP/'
     - name: Azure DCAP-bibliotek för Linux
       href: 'https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/'
+    - name: Felsöka problem
+      href: troubleshoot-guide.md
     - name: VBS-attesteringsprotokoll
       href: virtualization-based-security-protocol.md

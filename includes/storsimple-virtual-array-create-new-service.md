@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: storage
 author: alkohli
 ms.service: storage
@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: b7bdeeedaac65f67a3224e824c19e8cad794682b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7bdbfd8ffd44f9515ae4df20c55b09c8a0adcaef
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87507199"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376150"
 ---
 #### <a name="to-create-a-new-service"></a>Skapa en ny tjänst
 
 1.  Logga in på Azure Portal på den här URL: en med hjälp av dina Microsoft-konto autentiseringsuppgifter <https://portal.azure.com/> . Om du distribuerar enheten i myndighets portalen loggar du in på: <https://portal.azure.us/>
 
-2.  I Azure Portal klickar du på **+ skapa en** &gt; **Storage** &gt; **virtuell serie**för resurs lagring StorSimple.
+2.  I Azure Portal klickar du på **+ skapa en** &gt; **Storage** &gt; **virtuell serie** för resurs lagring StorSimple.
 
     ![Skapa ny tjänst](./media/storsimple-virtual-array-create-new-service/createnewservice2.png) 
 
@@ -29,7 +29,7 @@ ms.locfileid: "87507199"
 
     2.  Välj en **prenumeration** från listrutan. Prenumerationen är kopplad till ditt faktureringskonto. Det här fältet syns inte om du bara har en prenumeration.
 
-    3.  För **resurs grupp**väljer du en befintlig eller skapar en ny grupp. Mer information finns i avsnittet om [Azure-resursgrupper](/azure/azure-resource-manager/management/manage-resource-groups-portal).
+    3.  För **resurs grupp** väljer du en befintlig eller skapar en ny grupp. Mer information finns i avsnittet om [Azure-resursgrupper](/azure/azure-resource-manager/management/manage-resource-groups-portal).
 
     4.  Ange en **plats** för din tjänst. Mer information om vilka tjänster som är tillgängliga i vilken region finns i [Azure-regioner](https://azure.microsoft.com/regions/#services) . I allmänhet väljer du en **plats** närmast den geografiska region där du vill distribuera enheten. Du kan också ta med följande i beräkningarna:
 
@@ -45,7 +45,7 @@ ms.locfileid: "87507199"
 
     7.  Skapa StorSimple Device Manager genom att klicka på **Skapa**.
 
-        ![Skapa ny tjänst](./media/storsimple-virtual-array-create-new-service/createnewservice4.png)  
+        ![Skapa ny tjänst 2](./media/storsimple-virtual-array-create-new-service/createnewservice4.png)  
 
 Du dirigeras till **tjänstens** landnings sida. Det tar några minuter att skapa tjänsten. När tjänsten har skapats, kommer du att meddelas och tjänstens status kommer att ändras till **Aktiv**.
 

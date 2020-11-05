@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 4fc92931979aa367bdead435c3d6fd758d66a397
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89f7be31514f0b78c3bfb3efd6e6aca14658d5cd
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67187418"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376091"
 ---
 #### <a name="to-create-a-manual-backup"></a>Så här skapar du en manuell säkerhetskopia
 
@@ -19,15 +19,15 @@ ms.locfileid: "67187418"
 
     ![Skapa en manuell säkerhetskopia](./media/storsimple-8000-create-manual-backup/createmanualbu1.png)
 
-3. Utför följande steg på bladet **Säkerhetskopiera nu**:
+3. Utför följande steg på bladet **Säkerhetskopiera nu** :
 
     1. Välj lämplig **Typ av ögonblicksbild** i listrutan: **Lokal ögonblicksbild** eller **Ögonblicksbild av molndata**. Välj lokal ögonblicksbild för snabbare säkerhetskopieringar eller återställningar, och ögonblicksbild av molndata för dataåterhämtning.
 
-        ![Skapa en manuell säkerhetskopia](./media/storsimple-8000-create-manual-backup/createmanualbu2.png)
+        ![Skapa manuell säkerhets kopia 2](./media/storsimple-8000-create-manual-backup/createmanualbu2.png)
 
     2. Starta ett jobb för att skapa en ögonblicksbild genom att klicka på **OK**. Ett meddelande visas längst upp på sidan när jobbet har skapats.
 
-        ![Skapa en manuell säkerhetskopia](./media/storsimple-8000-create-manual-backup/createmanualbu4.png)
+        ![Skapa manuell säkerhets kopia 3](./media/storsimple-8000-create-manual-backup/createmanualbu4.png)
 
     3. Klicka på meddelandet för att övervaka jobbet. När du gör det öppnas bladet **Jobb** där du kan visa jobbförloppet.
 

@@ -68,6 +68,8 @@
   items:
     - name: Microsoft-programvara mot skadlig kod
       href: antimalware.md
+    - name: Microsoft Antimalware-kodexempel
+      href: antimalware-code-samples.md
     - name: Säkerhetsöversikt för virtuella datorer
       href: virtual-machines-overview.md
     - name: Metodtips – IaaS-arbetsbelastningar

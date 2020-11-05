@@ -529,6 +529,8 @@
       items:
         - name: Läsa in data till SQL-pooler med hjälp av aktiviteten kopiera
           href: quickstart-copy-activity-load-sql-pool.md
+        - name: Omvandla data med Mappa dataflöden
+          href: quickstart-data-flow.md
     - name: Begrepp
       items:
         - name: Pipeline och aktivitet

@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 48a3326dbe0e9eed4a5490e720248555586d189c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e923fdf560692c645c8a69e7e26d13f69d6920c
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67187395"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375945"
 ---
 ### <a name="to-take-a-backup"></a>Gör en säkerhetskopia
 
@@ -19,15 +19,15 @@ ms.locfileid: "67187395"
 
 2. Klicka på **+ Lägg till princip** på bladet **Säkerhetskopieringspolicy**.
 
-    ![Lägg till princip för säkerhetskopiering](./media/storsimple-8000-take-backup/step8takebu2.png)
+    ![Lägg till säkerhets kopiering – princip 2](./media/storsimple-8000-take-backup/step8takebu2.png)
 
 3. På bladet **Skapa säkerhetskopieringspolicy** anger du ett namn som innehåller mellan 3 och 150 tecken för säkerhetskopieringspolicyn.
 
 4. Välj de volymer som ska säkerhetskopieras. Om du väljer mer än en volym grupperas volymerna för att skapa en kraschkonsekvent säkerhetskopia.
 
-    ![Lägg till princip för säkerhetskopiering](./media/storsimple-8000-take-backup/step8takebu4.png)
+    ![Lägg till säkerhets kopiering – princip 3](./media/storsimple-8000-take-backup/step8takebu4.png)
 
-5. På bladet **Lägg till första schema**:
+5. På bladet **Lägg till första schema** :
 
     1. Välj typen av säkerhetskopiering. Välj **lokal** ögonblicks bild för snabbare återställningar. För data återhämtning väljer du **moln** ögonblicks bilder.
     2. Ange frekvensen för säkerhetskopiering i minuter, timmar, dagar eller veckor.
@@ -35,11 +35,11 @@ ms.locfileid: "67187395"
     4. Välj starttiden och datum för principen för säkerhetskopiering.
     5. Skapa säkerhetskopieringspolicyn genom att klicka på **OK**.
 
-        ![Lägg till princip för säkerhetskopiering](./media/storsimple-8000-take-backup/step8takebu5.png) 
+        ![Lägg till säkerhets kopiering – princip 4](./media/storsimple-8000-take-backup/step8takebu5.png) 
 
 6. Starta genereringen av säkerhetskopieringspolicyn genom att klicka på **Skapa**. Du får ett meddelande när säkerhetskopieringspolicyn har skapats. Listan över säkerhetskopieringspolicyer uppdateras också.
       
-      ![Lägg till princip för säkerhetskopiering](./media/storsimple-8000-take-backup/step8takebu9.png)
+      ![Lägg till säkerhets kopiering – princip 5](./media/storsimple-8000-take-backup/step8takebu9.png)
       
       Nu har du en säkerhetskopieringspolicy som skapar schemalagda säkerhetskopieringar av din volymdata.
 

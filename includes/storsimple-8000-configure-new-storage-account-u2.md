@@ -4,24 +4,24 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: d6bad1ec584b28fee77bc654eba8a2d0c7b5df30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f1c30b303bd1fe02e0685c7d848be92073ca2f6
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67187406"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375804"
 ---
 #### <a name="to-add-a-storage-account-credential-in-the-same-azure-subscription-as-the-storsimple-device-manager-service"></a>Så här lägger du till autentiseringsuppgifter för ett lagringskonto i samma Azure-prenumeration som StorSimple Device Manager-tjänsten
 
 1. Gå till StorSimple Device Manager-tjänsten. Klicka på **Autentiseringsuppgifter för lagringskonto** i avsnittet **Konfiguration**.
 
-    ![Autentiseringsuppgifter för lagringskonto](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct1.png)
+    ![Gå till autentiseringsuppgifter för lagrings konto](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct1.png)
 
 2. Klicka på **+ Lägg till** på bladet **Autentiseringsuppgifter för lagringskonto**.
 
     ![Lägg till autentiseringsuppgift för lagringskonto](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct2.png)
 
-3. Utför följande steg på bladet **Lägg till autentiseringsuppgift för lagringskonto**:
+3. Utför följande steg på bladet **Lägg till autentiseringsuppgift för lagringskonto** :
 
     1. När du lägger till en autentiseringsuppgift för ett lagringskonto i samma Azure-prenumeration som din tjänst kontrollerar du att **Aktuell** är markerat.
 
@@ -39,5 +39,5 @@ ms.locfileid: "67187406"
 
 De nya autentiseringsuppgifterna för lagringskontot visas under listan **Autentiseringsuppgifter för lagringskonto**.
 
-![Lista över autentiseringsuppgifter för lagringskonton](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct6.png)
+![Lista autentiseringsuppgifter för lagrings kontot](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct6.png)
 

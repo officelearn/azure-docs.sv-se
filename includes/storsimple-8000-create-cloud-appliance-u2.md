@@ -4,21 +4,21 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: d1ca6d37d6133786aff7ad3156fea2a0c22dfb97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1522bb133c7d8f877a334e47bf7929c533ea3465
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67187407"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376112"
 ---
 #### <a name="to-create-a-cloud-appliance"></a>Så här skapar du en molninstallation
 
-1. Gå till **StorSimple Device Manager**-tjänsten på Azure Portal.
+1. Gå till **StorSimple Device Manager** -tjänsten på Azure Portal.
 2. Gå till bladet **Enheter**. Klicka på **Skapa molninstallation** från kommandofältet på sammanfattningsbladet för tjänsten.
     ![Skapa StorSimple-molninstallation](./media/storsimple-8000-create-cloud-appliance-u2/sca-create1.png)
 3. Ange följande information på bladet **Skapa molninstallation**.
    
-    ![Skapa StorSimple-molninstallation](./media/storsimple-8000-create-cloud-appliance-u2/sca-create2m.png)
+    ![StorSimple skapa moln installation 2](./media/storsimple-8000-create-cloud-appliance-u2/sca-create2m.png)
    
    1. **Namn** – Ett unikt namn för molninstallationen.
    2. **Modell** – Välj modell för molninstallationen. En 8010-enhet erbjuder 30 TB standardlagring, medan 8020 har 64 TB Premium Storage. Välj 8010 om du vill distribuera scenarier för hämtning på objektnivå från säkerhetskopior. Välj 8020 om du vill distribuera högpresterande arbetsbelastningar med korta svarstider, eller för användning som en sekundär enhet för haveriberedskap.

@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: d2df7388018c463ba58b57be46945915210b84b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9832a961562930e61e94b28ed78976fd9f8c6f78
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67187541"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376020"
 ---
 #### <a name="to-install-an-update-from-the-azure-portal"></a>Installera en uppdatering från Azure Portal
 
@@ -21,13 +21,13 @@ ms.locfileid: "67187541"
 
     ![Klicka på enhets uppdateringar](./media/storsimple-8000-install-update5-via-portal/update2.png)
 
-2. Ett meddelande visas om nya uppdateringar är tillgängliga. Alternativt klickar du på **Sök efter uppdateringar**på bladet **enhets uppdateringar** . Det skapas ett jobb för att söka efter tillgängliga uppdateringar. Du meddelas när jobbet har slutförts.
+2. Ett meddelande visas om nya uppdateringar är tillgängliga. Alternativt klickar du på **Sök efter uppdateringar** på bladet **enhets uppdateringar** . Det skapas ett jobb för att söka efter tillgängliga uppdateringar. Du meddelas när jobbet har slutförts.
 
-    ![Klicka på enhets uppdateringar](./media/storsimple-8000-install-update5-via-portal/update3.png)
+    ![Klicka på enhets uppdateringar 2](./media/storsimple-8000-install-update5-via-portal/update3.png)
 
-3. Vi rekommenderar att du läser den viktiga informationen innan du installerar en uppdatering på enheten. Klicka på **Installera uppdateringar**om du vill tillämpa uppdateringar. På bladet **Bekräfta vanliga uppdateringar** kontrollerar du att kraven är uppfyllda innan du installerar uppdateringarna. Markera kryss rutan för att ange att du är redo att uppdatera enheten och klicka sedan på **Installera**.
+3. Vi rekommenderar att du läser den viktiga informationen innan du installerar en uppdatering på enheten. Klicka på **Installera uppdateringar** om du vill tillämpa uppdateringar. På bladet **Bekräfta vanliga uppdateringar** kontrollerar du att kraven är uppfyllda innan du installerar uppdateringarna. Markera kryss rutan för att ange att du är redo att uppdatera enheten och klicka sedan på **Installera**.
 
-    ![Klicka på enhets uppdateringar](./media/storsimple-8000-install-update5-via-portal/update4.png)
+    ![Klicka på enhets uppdateringar 3](./media/storsimple-8000-install-update5-via-portal/update4.png)
 
 6. En uppsättning nödvändiga kontrollerar startar. Dessa kontroller omfattar följande:
    
@@ -45,11 +45,11 @@ ms.locfileid: "67187541"
 
 9. Uppdateringen tar några timmar att slutföra. Markera uppdateringsjobbet och klicka på **Information** så kan du visa information om jobbet när som helst.
 
-    ![Uppdatera skapande av jobb](./media/storsimple-8000-install-update5-via-portal/update8.png)
+    ![Skapa jobb för att uppdatera jobb 2](./media/storsimple-8000-install-update5-via-portal/update8.png)
 
      Du kan också övervaka förloppet för uppdaterings jobbet från **enhets inställningar > jobb**. På bladet **jobb** kan du se uppdaterings förloppet.
 
-     ![Uppdatera skapande av jobb](./media/storsimple-8000-install-update5-via-portal/update7.png)
+     ![Uppdatera jobb, skapa 3](./media/storsimple-8000-install-update5-via-portal/update7.png)
 
 10. När jobbet är klart navigerar du till **enhets inställningarna > enhets uppdateringar**. Program versionen bör nu uppdateras.
 

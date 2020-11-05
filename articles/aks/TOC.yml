@@ -154,6 +154,8 @@
           href: cluster-container-registry-integration.md
         - name: Skapa virtuella noder
           items:
+            - name: Använda virtuella noder
+              href: virtual-nodes.md
             - name: Använda Azure CLI
               href: virtual-nodes-cli.md
             - name: Använda Azure-portalen

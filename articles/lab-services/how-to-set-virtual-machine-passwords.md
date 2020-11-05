@@ -3,12 +3,12 @@ title: Ange lösen ord för virtuella datorer i Azure Lab Services | Microsoft D
 description: Lär dig hur du ställer in och återställer lösen ord för virtuella datorer i klass rum labb Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 49615b37875b8340f46ed900a1e7144256c7cb7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e24fee26670a664012ec5f0216b0638d6149453f
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334080"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379697"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Konfigurera och hantera en pool för virtuella datorer 
 Den här artikeln visar hur du utför följande uppgifter:
@@ -53,6 +53,7 @@ På samma sätt kan du stoppa en eller flera virtuella datorer genom att växla 
 > När en lärare aktive ras på en elev-VM påverkas inte kvoten för studenten. Kvoten för en användare anger antalet Labb timmar som är tillgängliga för användaren utanför den schemalagda klass tiden. Mer information om kvoter finns i [Ange kvoter för användare](how-to-configure-student-usage.md?#set-quotas-for-users).
 
 ## <a name="reset-vms"></a>Återställ virtuella datorer
+
 Om du vill återställa en eller flera virtuella datorer markerar du dem i listan och väljer sedan **Återställ** i verktygsfältet. 
 
 ![Återställ valda virtuella datorer](./media/how-to-set-virtual-machine-passwords/reset-vm-button.png)
@@ -60,8 +61,6 @@ Om du vill återställa en eller flera virtuella datorer markerar du dem i lista
 I dialog rutan **Återställ virtuell dator (er)** väljer du **Återställ**. 
 
 ![Dialog rutan Återställ virtuell dator](./media/how-to-set-virtual-machine-passwords/reset-vms-dialog.png)
-
-
 
 ## <a name="set-password-for-vms"></a>Ange lösen ord för virtuella datorer
 En labb ägare (lärare) kan ange/återställa lösen ordet för virtuella datorer vid tidpunkten för att skapa labbet (guiden Skapa labb) eller när du har skapat labbet på sidan **mall** . 

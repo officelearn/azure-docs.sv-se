@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 60087dc23b804dac6644dc09cddc031526fb0f8f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 930c1f94446eb145a093bf7a8706485d40eec210
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313768"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379671"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Synapse-hanterade privata slut punkter (förhands granskning)
 
@@ -45,11 +45,11 @@ Endast en hanterad privat slutpunkt i ett godkänt tillstånd kan skicka trafik 
 
 ## <a name="managed-private-endpoints-for-dedicated-sql-pool-and-serverless-sql-pool"></a>Hanterade privata slut punkter för dedikerad SQL-pool och Server lös SQL-pool
 
-dedikerad SQL-pool och Server lös SQL-pool är analys funktioner i din Azure Synapse-arbetsyta. Dessa funktioner använder infrastruktur för flera innehavare som inte distribueras till den [hanterade arbets ytan Virtual Network](./synapse-workspace-managed-vnet.md).
+Dedikerad SQL-pool och Server lös SQL-pool är analys funktioner i din Azure Synapse-arbetsyta. Dessa funktioner använder infrastruktur för flera innehavare som inte distribueras till den [hanterade arbets ytan Virtual Network](./synapse-workspace-managed-vnet.md).
 
 När en arbets yta skapas skapar Azure Synapse två hanterade privata slut punkter i arbets ytan, en för dedikerad SQL-pool och en för Server lös SQL-pool. 
 
-Dessa två hanterade privata slut punkter visas i Azure Synapse Studio. Välj **Hantera** i det vänstra navigerings fältet och välj sedan **hanterade virtuella nätverk** för att se dem i Studio.
+Dessa två hanterade privata slut punkter visas i Synapse Studio. Välj **Hantera** i det vänstra navigerings fältet och välj sedan **hanterade privata slut punkter** för att se dem i Studio.
 
 Den hanterade privata slut punkten som är riktad mot SQL-poolen heter *Synapse- \<workspacename\> WS-SQL-* och den som är riktad mot en server lös SQL-pool kallas *Synapse-WS-sqlOnDemand-- \<workspacename\>*.
 

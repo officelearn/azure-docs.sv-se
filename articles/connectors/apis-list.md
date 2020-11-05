@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
-ms.openlocfilehash: 23e6834f4850cc8f44f563a12f4704fec2e13ef7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bf91a3b7843d3212b62ced5b6a7c6fa54892ec9
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400816"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359756"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Anslutningsprogram för Azure Logic Apps
 
@@ -79,9 +79,9 @@ För logi Kap par som behöver direkt åtkomst till resurser i ett virtuellt Azu
 
 Logic Apps innehåller inbyggda utlösare och åtgärder så att du kan skapa schemabaserade arbets flöden, hjälpa dina Logi Kap par att kommunicera med andra appar och tjänster, styra arbets flödet via dina Logi Kap par och hantera eller manipulera data.
 
-| Namn | Beskrivning |
+| Name | Beskrivning |
 |------|-------------|
-| [![Schemalägg det inbyggda kopplings ][schedule-icon]<br> **schemat**][schedule-doc] | – Kör en Logi Kap par på en angiven upprepning, från grundläggande till avancerade scheman med [ **upprepnings** utlösaren][schedule-recurrence-doc]. <br>– Kör en Logi Kap par som måste hantera data i kontinuerliga segment med en [utlösare för **glidnings fönster** ][schedule-sliding-window-doc]. <br>– Pausa din Logic app under en angiven varaktighet med [ **fördröjnings** åtgärden][schedule-delay-doc]. <br>– Pausa din Logi Kap par fram till angivet datum och tid med [ **fördröjningen innan** åtgärden][schedule-delay-until-doc]. |
+| [![Schemalägg det inbyggda kopplings ][schedule-icon]<br> **schemat**][schedule-doc] | – Kör en Logi Kap par på en angiven upprepning, från grundläggande till avancerade scheman med [ **upprepnings** utlösaren][schedule-recurrence-doc]. <br>– Kör en Logi Kap par som måste hantera data i kontinuerliga segment med en [utlösare för **glidnings fönster**][schedule-sliding-window-doc]. <br>– Pausa din Logic app under en angiven varaktighet med [ **fördröjnings** åtgärden][schedule-delay-doc]. <br>– Pausa din Logi Kap par fram till angivet datum och tid med [ **fördröjningen innan** åtgärden][schedule-delay-until-doc]. |
 | [![Batch-inbyggd kopplings ][batch-icon]<br> **grupp**][batch-doc] | – Bearbeta meddelanden i batchar med utlösaren **batch-meddelanden** . <br>– Anropa Logi Kap par som har befintliga batch-utlösare med åtgärden **skicka meddelanden till batch** . |
 | [![Http-inbyggd anslutnings- ][http-icon]<br> **http**][http-doc] | Anropa HTTP- eller HTTPS-slutpunkter med utlösare och åtgärder för HTTP. Andra inbyggda HTTP-utlösare och åtgärder inkluderar [http + Swagger inbyggd koppling][http-swagger-doc] och [http + webhook][http-webhook-doc]. |
 | [![Begär inbyggd kopplings ][http-request-icon]<br> **förfrågan**][http-request-doc] | – Gör ditt Logic app-anrop från andra appar eller tjänster, Utlös på Event Grid resurs händelser eller Utlös på svar till Azure Security Center aviseringar med utlösaren för **begäran** . <br>– Skicka svar till en app eller tjänst med **svars** åtgärden. |
@@ -94,7 +94,7 @@ Logic Apps innehåller inbyggda utlösare och åtgärder så att du kan skapa sc
 
 Logic Apps innehåller inbyggda åtgärder för att köra din egen kod i din Logic Apps-arbets flöde:
 
-| Namn | Beskrivning |
+| Name | Beskrivning |
 |------|-------------|
 | [![Azure Functions inbyggd koppling ][azure-functions-icon]<br> **Azure Functions**][azure-functions-doc] | Anropa Azure Functions som kör anpassade kod avsnitt (C# eller Node.js) från dina Logic Apps. |
 | [![Infogad kod inbyggd kopplings ][inline-code-icon]<br> **kod**][inline-code-doc] | Lägg till och kör kods tycken för JavaScript-kod från dina Logic Apps. |
@@ -104,12 +104,12 @@ Logic Apps innehåller inbyggda åtgärder för att köra din egen kod i din Log
 
 Logic Apps innehåller inbyggda åtgärder för att strukturera och kontrol lera åtgärder i din Logic Apps-arbets flöde:
 
-| Namn | Beskrivning |
+| Name | Beskrivning |
 |------|-------------|
 | [![Villkor för inbyggt åtgärds ][condition-icon]<br> **villkor**][condition-doc] | Utvärdera ett villkor och kör olika åtgärder baserat på om villkoret är sant eller falskt. |
 | [![För varje inbyggd åtgärd ][for-each-icon]<br> **för varje**][for-each-doc] | Utför samma åtgärder på varje objekt i en matris. |
-| [![Omfattning för ][scope-icon]<br> **Scope** inbyggt åtgärds omfång][scope-doc] | Gruppera åtgärder i *omfattningar*, som får sin egen status efter att åtgärderna i omfånget har körts. |
-| [![Växla inbyggd åtgärds ][switch-icon]<br> **växel**][switch-doc] | Gruppera åtgärder i *fall*, som tilldelas unika värden förutom standard fallet. Kör bara det fall vars tilldelade värde matchar resultatet från ett uttryck, ett objekt eller en token. Kör standard fallet om inga matchningar finns. |
+| [![Omfattning för ][scope-icon]<br> **Scope** inbyggt åtgärds omfång][scope-doc] | Gruppera åtgärder i *omfattningar* , som får sin egen status efter att åtgärderna i omfånget har körts. |
+| [![Växla inbyggd åtgärds ][switch-icon]<br> **växel**][switch-doc] | Gruppera åtgärder i *fall* , som tilldelas unika värden förutom standard fallet. Kör bara det fall vars tilldelade värde matchar resultatet från ett uttryck, ett objekt eller en token. Kör standard fallet om inga matchningar finns. |
 | [![Avsluta inbyggd åtgärd ][terminate-icon]<br> **Avsluta**][terminate-doc] | Stoppa ett aktivt Logic app-arbetsflöde som körs. |
 | [![Till dess inbyggda åtgärd ][until-icon]<br> **tills**][until-doc] | Upprepa åtgärder tills det angivna villkoret är sant eller så har status ändrats. |
 |||
@@ -118,11 +118,11 @@ Logic Apps innehåller inbyggda åtgärder för att strukturera och kontrol lera
 
 Logic Apps innehåller inbyggda åtgärder för att arbeta med data utdata och deras format:
 
-| Namn | Beskrivning |
+| Name | Beskrivning |
 |------|-------------|
-| [![Data åtgärder för inbyggda åtgärder för data åtgärder ][data-operations-icon]<br> **Data Operations**][data-operations-doc] | Utför åtgärder med data: <p>- **Skriv**: skapa en enstaka utdata från flera indata med olika typer. <br>- **Skapa CSV-tabell**: skapa en kommaavgränsad tabell (CSV) från en matris med JSON-objekt. <br>- **Skapa HTML-tabell**: skapa en HTML-tabell från en matris med JSON-objekt. <br>- **Filtrera matris**: skapa en matris från objekt i en annan matris som uppfyller dina kriterier. <br>- **Anslut**: skapa en sträng från alla objekt i en matris och avgränsa dessa objekt med angiven avgränsare. <br>- **Parsa JSON**: skapa användarvänliga token från egenskaper och deras värden i JSON-innehåll så att du kan använda dessa egenskaper i ditt arbets flöde. <br>- **Välj**: skapa en matris med JSON-objekt genom att transformera objekt eller värden i en annan matris och mappa dessa objekt till angivna egenskaper. |
-| ![Inbyggd åtgärd för datum/tid][date-time-icon]<br>**Datum tid** | Utföra åtgärder med tidsstämplar: <p>- **Lägg till i tid**: Lägg till det angivna antalet enheter i en tidstämpel. <br>- **Konvertera tidszon**: konvertera en tidsstämpel från käll tids zonen till mål tids zonen. <br>- **Aktuell tid**: returnera den aktuella tidsstämpeln som en sträng. <br>- **Hämta framtida tid**: returnera den aktuella tidsstämpeln och de angivna tidsenheterna. <br>- **Hämta föregående tid**: returnera den aktuella tidsstämpeln minus de angivna tidsenheterna. <br>- **Subtrahera från tid**: subtrahera ett antal tidsenheter från en tidsstämpel. |
-| [![Variabler för inbyggda variabler för ][variables-icon]<br> **Variables** variabler][variables-doc] | Utföra åtgärder med variabler: <p>- **Lägg till matris variabel**: infoga ett värde som det sista objektet i en matris som lagras av en variabel. <br>- **Lägg till i sträng variabel**: infoga ett värde som sista tecken i en sträng som lagras av en variabel. <br>- **Minska variabeln**: minska en variabel med ett konstantvärde. <br>- **Increment-variabel**: öka en variabel med ett konstant värde. <br>- **Initiera variabel**: skapa en variabel och deklarera dess datatyp och initialt värde. <br>- **Ange variabel**: tilldela ett annat värde till en befintlig variabel. |
+| [![Data åtgärder för inbyggda åtgärder för data åtgärder ][data-operations-icon]<br> **Data Operations**][data-operations-doc] | Utför åtgärder med data: <p>- **Skriv** : skapa en enstaka utdata från flera indata med olika typer. <br>- **Skapa CSV-tabell** : skapa en kommaavgränsad tabell (CSV) från en matris med JSON-objekt. <br>- **Skapa HTML-tabell** : skapa en HTML-tabell från en matris med JSON-objekt. <br>- **Filtrera matris** : skapa en matris från objekt i en annan matris som uppfyller dina kriterier. <br>- **Anslut** : skapa en sträng från alla objekt i en matris och avgränsa dessa objekt med angiven avgränsare. <br>- **Parsa JSON** : skapa användarvänliga token från egenskaper och deras värden i JSON-innehåll så att du kan använda dessa egenskaper i ditt arbets flöde. <br>- **Välj** : skapa en matris med JSON-objekt genom att transformera objekt eller värden i en annan matris och mappa dessa objekt till angivna egenskaper. |
+| ![Inbyggd åtgärd för datum/tid][date-time-icon]<br>**Datum tid** | Utföra åtgärder med tidsstämplar: <p>- **Lägg till i tid** : Lägg till det angivna antalet enheter i en tidstämpel. <br>- **Konvertera tidszon** : konvertera en tidsstämpel från käll tids zonen till mål tids zonen. <br>- **Aktuell tid** : returnera den aktuella tidsstämpeln som en sträng. <br>- **Hämta framtida tid** : returnera den aktuella tidsstämpeln och de angivna tidsenheterna. <br>- **Hämta föregående tid** : returnera den aktuella tidsstämpeln minus de angivna tidsenheterna. <br>- **Subtrahera från tid** : subtrahera ett antal tidsenheter från en tidsstämpel. |
+| [![Variabler för inbyggda variabler för ][variables-icon]<br> **Variables** variabler][variables-doc] | Utföra åtgärder med variabler: <p>- **Lägg till matris variabel** : infoga ett värde som det sista objektet i en matris som lagras av en variabel. <br>- **Lägg till i sträng variabel** : infoga ett värde som sista tecken i en sträng som lagras av en variabel. <br>- **Minska variabeln** : minska en variabel med ett konstantvärde. <br>- **Increment-variabel** : öka en variabel med ett konstant värde. <br>- **Initiera variabel** : skapa en variabel och deklarera dess datatyp och initialt värde. <br>- **Ange variabel** : tilldela ett annat värde till en befintlig variabel. |
 |||
 
 <a name="managed-api-connectors"></a>
@@ -131,18 +131,18 @@ Logic Apps innehåller inbyggda åtgärder för att arbeta med data utdata och d
 
 Logic Apps tillhandahåller de här populära standard anslutningarna för automatisering av uppgifter, processer och arbets flöden med dessa tjänster eller system:
 
-| Namn | Beskrivning |
+| Name | Beskrivning |
 |------|-------------|
 | [![Azure Service Bus hanterad koppling ][azure-service-bus-icon]<br> **Azure Service Bus**][azure-service-bus-doc] | Hantera asynkrona meddelanden, sessioner och ämnesprenumerationer med det anslutningsprogram som oftast används i Logic Apps. |
 | [![SQL Server hanterad koppling ][sql-server-icon]<br> **SQL Server**][sql-server-doc] | Anslut till din SQL Server lokalt eller en Azure SQL Database i molnet så att du kan hantera poster, köra lagrade procedurer eller köra frågor. |
 | [![Azure Blob Storage hanterad koppling ][azure-blob-storage-icon]<br> **Azure Blob <br> Storage**][azure-blob-storage-doc] | Anslut till ditt lagrings konto så att du kan skapa och hantera BLOB-innehåll. |
 | [![Office 365 Outlook Managed Connector ][office-365-outlook-icon]<br> **Office 365 <br> Outlook**][office-365-outlook-doc] | Anslut till ditt e-postkonto på ditt arbets-eller skol konto så att du kan skapa och hantera e-post, uppgifter, Kalender händelser och möten, kontakter, förfrågningar och mycket annat. |
-| [![SFTP – SSH Managed Connector ][sftp-ssh-icon]<br> **SFTP-SSH**][sftp-ssh-doc] | Anslut till SFTP-servrar som du kan komma åt från Internet med hjälp av SSH så att du kan arbeta med dina filer och mappar. |
+| [![SFTP – SSH Managed Connector ][sftp-ssh-icon]<br> **SFTP-SSH**][sftp-ssh-doc] | Anslut till SFTP-servrar som du kan komma åt från Internet med SSH så att du kan arbeta med dina filer och mappar. |
 | [![SharePoint Online Managed Connector ][sharepoint-online-icon]<br> **SharePoint <br> online**][sharepoint-online-doc] | Anslut till SharePoint Online så att du kan hantera filer, bilagor, mappar med mera. |
 | [![Azure-köer Managed Connector ][azure-queues-icon]<br> **Azure- <br> köer**][azure-queues-doc] | Anslut till ditt Azure Storage-konto så att du kan skapa och hantera köer och meddelanden. |
 | [![FTP-hanterad anslutnings ][ftp-icon]<br> **-FTP**][ftp-doc] | Anslut till FTP-servrar som du kan komma åt från Internet så att du kan arbeta med dina filer och mappar. |
 | [![Fil system hanterad kopplings ][file-system-icon]<br> **fil <br> system**][file-system-doc] | Anslut till din lokala fil resurs så att du kan skapa och hantera filer. |
-| [![Azure Event Hubs Managed Connector ][azure-event-hubs-icon]<br> **Azure Event Hubs**][azure-event-hubs-doc] | Använda och publicera händelser via en Event Hub. Du kan till exempel hämta utdata från din logikapp med Event Hubs och sedan skicka dem till en leverantör av realtidsanalys. |
+| [![Azure Event Hubs Managed Connector ][azure-event-hubs-icon]<br> **Azure Event Hubs**][azure-event-hubs-doc] | Använda och publicera händelser i en Event Hub. Du kan till exempel hämta utdata från din logikapp med Event Hubs och sedan skicka dem till en leverantör av realtidsanalys. |
 | [![Azure Event Grid hanterad koppling ][azure-event-grid-icon]<br> **Azure Event** <br> **Grid**][azure-event-grid-doc] | Övervaka händelser som publicerats av en Event Grid, till exempel när Azure-resurser eller resurser från tredje part ändras. |
 | [![Salesforce-hanterad koppling ][salesforce-icon]<br> **Salesforce**][salesforce-doc] | Anslut till ditt Salesforce-konto så att du kan skapa och hantera objekt, till exempel poster, jobb, objekt med mera. |
 |||
@@ -151,14 +151,16 @@ Logic Apps tillhandahåller de här populära standard anslutningarna för autom
 
 ## <a name="on-premises-connectors"></a>Lokala anslutningsappar
 
-Här följer några vanliga standard anslutningar som Logic Apps ger åtkomst till data och resurser i lokala system. Innan du kan skapa en anslutning till ett lokalt system måste du först [Ladda ned, installera och konfigurera en lokal datagateway][gateway-doc]. Den här gatewayen tillhandahåller en säker kommunikations kanal utan att behöva konfigurera den nödvändiga nätverks infrastrukturen.
+Innan du kan skapa en anslutning till ett lokalt system måste du först [Ladda ned, installera och konfigurera en lokal datagateway][gateway-doc]. Den här gatewayen tillhandahåller en säker kommunikations kanal utan att behöva konfigurera den nödvändiga nätverks infrastrukturen. 
+
+Här följer *några* vanliga standard anslutningar som Logic Apps ger åtkomst till data och resurser i lokala system. För listan med lokala anslutningar, se [data källor som stöds](../logic-apps/logic-apps-gateway-connection.md#supported-connections).
 
 :::row:::
     :::column:::
         [![BizTalk Server anslutning ][biztalk-server-icon]<br> **BizTalk** <br> **Server**][biztalk-server-doc]
     :::column-end:::
     :::column:::
-        [![Fil system anslutning fil ][file-system-icon]<br> ** <br> system**][file-system-doc]
+        [![Fil system anslutning fil ][file-system-icon]<br> **<br> system**][file-system-doc]
     :::column-end:::
     :::column:::
         [![DB2-anslutning ][ibm-db2-icon]<br> **IBM DB2**][ibm-db2-doc]
@@ -224,7 +226,7 @@ Logic Apps tillhandahåller standard anslutningar för att skapa B2B-lösningar 
         [![Flat fil kodnings åtgärd ][flat-file-encode-icon]<br> **flat fil <br> kodning**][flat-file-encode-doc]
     :::column-end:::
     :::column:::
-        [![Integrations konto åtgärds ][integration-account-icon]<br> ** <br> konto** för åtgärd][integration-account-doc]
+        [![Integrations konto åtgärds ][integration-account-icon]<br> **<br> konto** för åtgärd][integration-account-doc]
     :::column-end:::
     :::column:::
         [![Flytande transformeringar åtgärd ][liquid-icon]<br> **likvida** <br> **transformeringar**][json-liquid-transform-doc]
@@ -241,7 +243,7 @@ Logic Apps tillhandahåller standard anslutningar för att skapa B2B-lösningar 
         [![XML transformerar ][xml-transform-icon]<br> **XML-** <br> **transformeringar**][xml-transform-doc]
     :::column-end:::
     :::column:::
-        [![XML-verifiering för XML-validering ][xml-validate-icon]<br> ** <br> **][xml-validate-doc]
+        [![XML-verifiering för XML-validering ][xml-validate-icon]<br> **<br>**][xml-validate-doc]
     :::column-end:::
 :::row-end:::
 
@@ -367,17 +369,17 @@ Mer information finns i de här ämnena:
 
 ## <a name="triggers-and-action-types"></a>Utlösare och åtgärds typer
 
-Kopplingar kan tillhandahålla *utlösare*, *åtgärder*eller både och. En *utlösare* är det första steget i alla logiska appar, vanligt vis genom att ange den händelse som utlöser utlösaren och börjar köra din Logic app. FTP-anslutningen har till exempel en utlösare som startar din Logic app "när en fil läggs till eller ändras". Vissa utlösare söker regelbundet efter den angivna händelsen eller data och utlöses sedan när de identifierar den angivna händelsen eller informationen. Andra utlösare väntar men utlöses direkt när en enskild händelse inträffar eller när nya data är tillgängliga. Utlösare skickas också tillsammans med alla data som krävs till din Logic app. Din Logic app kan läsa och använda dessa data i hela arbets flödet. Office 365 Outlook Connector har till exempel en utlösare, "när ett nytt e-postmeddelande kommer", som kan skicka innehållet från e-postmeddelandet till din Logic app-arbetsflöde.
+Kopplingar kan tillhandahålla *utlösare* , *åtgärder* eller både och. En *utlösare* är det första steget i alla logiska appar, vanligt vis genom att ange den händelse som utlöser utlösaren och börjar köra din Logic app. FTP-anslutningen har till exempel en utlösare som startar din Logic app "när en fil läggs till eller ändras". Vissa utlösare söker regelbundet efter den angivna händelsen eller data och utlöses sedan när de identifierar den angivna händelsen eller informationen. Andra utlösare väntar men utlöses direkt när en enskild händelse inträffar eller när nya data är tillgängliga. Utlösare skickas också tillsammans med alla data som krävs till din Logic app. Din Logic app kan läsa och använda dessa data i hela arbets flödet. Office 365 Outlook Connector har till exempel en utlösare, "när ett nytt e-postmeddelande kommer", som kan skicka innehållet från e-postmeddelandet till din Logic app-arbetsflöde.
 
 När en utlösare aktive ras skapar Azure Logic Apps en instans av din Logic app och börjar köra *åtgärderna* i din Logic app-arbetsflöde. Åtgärder är de steg som följer utlösaren och utför uppgifter i din Logic app-arbetsflöde. Du kan till exempel skapa en Logic-app som hämtar kund information från en SQL-databas och bearbetar dessa data i senare åtgärder.
 
 Här är de allmänna typerna av utlösare som Azure Logic Apps tillhandahåller:
 
-* *Upprepnings utlösare*: den här utlösaren körs enligt ett angivet schema och är inte nära kopplad till en viss tjänst eller ett visst system.
+* *Upprepnings utlösare* : den här utlösaren körs enligt ett angivet schema och är inte nära kopplad till en viss tjänst eller ett visst system.
 
-* *Avsöknings utlösare*: den här utlösaren avsöker regelbundet en specifik tjänst eller ett system baserat på det angivna schemat, söker efter nya data eller om en specifik händelse har inträffat. Om nya data är tillgängliga eller om den här händelsen har inträffat skapar utlösaren och kör en ny instans av din Logic app, som nu kan använda de data som skickas som indata.
+* *Avsöknings utlösare* : den här utlösaren avsöker regelbundet en specifik tjänst eller ett system baserat på det angivna schemat, söker efter nya data eller om en specifik händelse har inträffat. Om nya data är tillgängliga eller om den här händelsen har inträffat skapar utlösaren och kör en ny instans av din Logic app, som nu kan använda de data som skickas som indata.
 
-* *Push-utlösare*: den här utlösaren väntar och lyssnar efter nya data eller för att en händelse ska inträffa. När nya data är tillgängliga eller när händelsen inträffar skapar utlösaren och kör en ny instans av din Logic app, som nu kan använda de data som skickas som indata.
+* *Push-utlösare* : den här utlösaren väntar och lyssnar efter nya data eller för att en händelse ska inträffa. När nya data är tillgängliga eller när händelsen inträffar skapar utlösaren och kör en ny instans av din Logic app, som nu kan använda de data som skickas som indata.
 
 <a name="connections"></a>
 

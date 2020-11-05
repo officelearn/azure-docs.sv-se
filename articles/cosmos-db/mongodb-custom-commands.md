@@ -1,19 +1,19 @@
 ---
 title: MongoDB-tilläggs kommandon för att hantera data i Azure Cosmos DB s API för MongoDB
 description: Den här artikeln beskriver hur du använder MongoDB-tilläggs kommandon för att hantera data som lagras i Azure Cosmos DB s API för MongoDB.
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.author: jasonh
+ms.author: chrande
 ms.custom: devx-track-js
-ms.openlocfilehash: db230dc0bd1d5cdddf9446b22d8ae682c019c438
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 2fd2fa7620e57c58f72dad73c1012a19190e8fbc
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93333018"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359654"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Använd MongoDB-tilläggs kommandon för att hantera data som lagras i Azure Cosmos DB s API för MongoDB 
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]

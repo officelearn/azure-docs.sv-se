@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 9ada1956af2dabdb8e5deff33722af7a8691dd19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b26979f424798bacf6b40d43e5ab603844f595c3
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91295472"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360861"
 ---
 # <a name="security-control-v2-logging-and-threat-detection"></a>Säkerhets kontroll v2: loggning och hot identifiering
 
@@ -38,9 +38,9 @@ Använd dessutom Azure Sentinel för att bygga analys regler, som rör hot som m
 
 - [Cyberhot Hot information med Azure Sentinel](/azure/architecture/example-scenario/data/sentinel-threat-intelligence)
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infrastruktur- och slutpunktssäkerhet](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -75,9 +75,9 @@ Azure Security Center kan även Varna vid vissa misstänkta aktiviteter, till ex
 
 - [Skydd mot hot i Azure Security Center](../../security-center/threat-protection.md)
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infrastruktur- och slutpunktssäkerhet](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -109,9 +109,9 @@ Aktivera och samla in resurs loggar för nätverks säkerhets grupper (NSG), NSG
 
 - [Samla in insikter om din DNS-infrastruktur med DNS-analys-lösningen](../../azure-monitor/insights/dns-analytics.md)
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infrastruktur- och slutpunktssäkerhet](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -137,11 +137,9 @@ Du kan använda Azure Security Center och Azure Policy för att aktivera resurs 
 
 - [Förstå Azure Security Center insamling av data](../../security-center/security-center-enable-data-collection.md)
 
-- [Aktivera och konfigurera övervakning av program mot skadlig kod](../fundamentals/antimalware.md#enable-and-configure-antimalware-monitoring-using-powershell-cmdlets)
+**Ansvars område** : delat
 
-**Ansvars område**: delat
-
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Säkerhetsåtgärder](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
@@ -169,9 +167,9 @@ Många organisationer väljer att använda Azure Sentinel för "heta" data som a
 
 - [Publicera Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Säkerhetsarkitektur](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -195,9 +193,9 @@ I Azure Monitor kan du Log Analytics ange arbets ytans lagrings period enligt or
 
 - [Azure Security Center aviseringar och rekommendationer exportera](../../security-center/continuous-export.md)
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Säkerhetsarkitektur](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -223,9 +221,9 @@ Alla loggar som genereras av resurser i Azure tillhandahåller tidsstämplar med
 
 - [Så här inaktiverar du inkommande UDP för Azure-tjänster](https://support.microsoft.com/help/4558520/how-to-disable-inbound-udp-for-azure-services)
 
-**Ansvars område**: delat
+**Ansvars område** : delat
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Principer och standarder](/azure/cloud-adoption-framework/organize/cloud-security-policy-standards)
 

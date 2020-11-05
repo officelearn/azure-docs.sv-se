@@ -10,12 +10,13 @@ author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
-ms.openlocfilehash: c3fd4dcfa4c01c39e4e6cab4915de807c3d19ae6
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.custom: automl
+ms.openlocfilehash: 866be6a2449f3b10d200968782b90653e1363906
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913865"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359807"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Självstudie: skapa en klassificerings modell med automatiserad ML i Azure Machine Learning
 
@@ -49,7 +50,7 @@ Det finns många [sätt att skapa en arbets yta](how-to-manage-workspace.md). I 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
 >[!IMPORTANT] 
-> Anteckna din **arbets yta** och din **prenumeration** . Du behöver dessa för att se till att du skapar experimentet på rätt plats. 
+> Anteckna din **arbets yta** och din **prenumeration**. Du behöver dessa för att se till att du skapar experimentet på rätt plats. 
 
 ## <a name="get-started-in-azure-machine-learning-studio"></a>Kom igång i Azure Machine Learning Studio
 
@@ -59,7 +60,7 @@ Du har slutfört följande experiment med att ställa in och köra steg via Azur
 
 1. Välj din prenumeration och arbets ytan du skapade.
 
-1. Välj **Kom igång** .
+1. Välj **Kom igång**.
 
 1. I det vänstra fönstret väljer du **Automatisk ml** under avsnittet **författare** .
 
@@ -67,7 +68,7 @@ Du har slutfört följande experiment med att ställa in och köra steg via Azur
 
    ![Sidan Kom igång](./media/tutorial-first-experiment-automated-ml/get-started.png)
 
-1. Välj **+ ny automatiserad ml-körning** . 
+1. Välj **+ ny automatiserad ml-körning**. 
 
 ## <a name="create-and-load-dataset"></a>Skapa och läsa in data uppsättning
 
@@ -75,13 +76,13 @@ Innan du konfigurerar experimentet laddar du upp data filen till din arbets yta 
 
 1. Skapa en ny data uppsättning genom att välja **från lokala filer** från List rutan  **+ skapa data uppsättning** . 
 
-    1. Ge din data uppsättning ett namn i formuläret **grundläggande information** och ange en valfri beskrivning. Det automatiserade ML-gränssnittet stöder för närvarande endast TabularDatasets, så data uppsättnings typen ska vara standard i *tabell* .
+    1. Ge din data uppsättning ett namn i formuläret **grundläggande information** och ange en valfri beskrivning. Det automatiserade ML-gränssnittet stöder för närvarande endast TabularDatasets, så data uppsättnings typen ska vara standard i *tabell*.
 
     1. Välj **Nästa** längst ned till vänster
 
-    1. I formuläret **data lager och fil markering** väljer du det standard data lager som konfigurerades automatiskt när arbets ytan skapades, **workspaceblobstore (Azure Blob Storage)** . Det är här du överför data filen för att göra den tillgänglig för din arbets yta.
+    1. I formuläret **data lager och fil markering** väljer du det standard data lager som konfigurerades automatiskt när arbets ytan skapades, **workspaceblobstore (Azure Blob Storage)**. Det är här du överför data filen för att göra den tillgänglig för din arbets yta.
 
-    1. Välj **Bläddra** .
+    1. Välj **Bläddra**.
     
     1. Välj **bankmarketing_train.csv** -filen på den lokala datorn. Det här är den fil som du laddade ned som en [förutsättning](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
 
@@ -91,7 +92,7 @@ Innan du konfigurerar experimentet laddar du upp data filen till din arbets yta 
     
        När uppladdningen är klar fylls inställningarna och förhands gransknings formuläret i förväg baserat på filtypen. 
        
-    1. Kontrol lera att **inställningarna och förhands gransknings** formuläret är ifyllt enligt följande och välj **Nästa** .
+    1. Kontrol lera att **inställningarna och förhands gransknings** formuläret är ifyllt enligt följande och välj **Nästa**.
         
         Fält|Beskrivning| Värde för självstudier
         ---|---|---
@@ -101,7 +102,7 @@ Innan du konfigurerar experimentet laddar du upp data filen till din arbets yta 
         Kolumnrubriker| Anger hur data uppsättningens huvuden, om det finns, kommer att behandlas.| Alla filer har samma rubriker
         Hoppa över rader | Anger hur många rader som ska hoppas över i data uppsättningen.| Inget
 
-    1. Med hjälp av **schema** formuläret kan du ytterligare konfigurera dina data för det här experimentet. I det här exemplet väljer du växlings växeln för **day_of_week** -funktionen, så att den inte inkluderas för det här experimentet. Välj **Nästa** .
+    1. Med hjälp av **schema** formuläret kan du ytterligare konfigurera dina data för det här experimentet. I det här exemplet väljer du växlings växeln för **day_of_week** -funktionen, så att den inte inkluderas för det här experimentet. Välj **Nästa**.
 
         ![Konfiguration av fliken för hands version](./media/tutorial-first-experiment-automated-ml/schema-tab-config.gif)
 
@@ -111,9 +112,9 @@ Innan du konfigurerar experimentet laddar du upp data filen till din arbets yta 
     
     1. Välj din data uppsättning när den visas i listan.
     
-    1. Granska **data förhands granskningen**  för att se till att du inte har inkluderat **day_of_week** Välj **OK** .
+    1. Granska **data förhands granskningen**  för att se till att du inte har inkluderat **day_of_week** Välj **OK**.
 
-    1. Välj  **Nästa** .
+    1. Välj  **Nästa**.
 
 ## <a name="configure-experiment-run"></a>Konfigurera experiment körning
 
@@ -140,7 +141,7 @@ När du har läst in och konfigurerat dina data kan du konfigurera experimentet.
 
         1. När du har skapat väljer du det nya beräknings målet i den nedrullningsbara listan.
 
-    1. Välj **Nästa** .
+    1. Välj **Nästa**.
 
 1. I formuläret **uppgifts typ och inställningar** slutför du installationen för ditt AUTOMATISERAde ml-experiment genom att ange aktivitets typ och konfigurations inställningar för Machine Learning.
     
@@ -157,13 +158,13 @@ När du har läst in och konfigurerat dina data kan du konfigurera experimentet.
         Validering | Välj en kors validerings typ och antalet tester.|Validerings typ:<br>&nbsp;k-vikning &nbsp; kors validering <br> <br> Antal valideringar: 2
         Samtidighet| Maximalt antal parallella iterationer som utförs per iteration| Max &nbsp; . antal samtidiga &nbsp; iterationer: 5
         
-        Välj **Spara** .
+        Välj **Spara**.
 
 1. Klicka på **Slutför** om du vill köra experimentet. Skärmen **körnings information**  öppnas med **körnings status** överst när experiment förberedelsen börjar.
 
 >[!IMPORTANT]
 > Förberedelserna tar **10-15 minuter** för att förbereda experiment körningen.
-> När du har kört det tar det **2-3 minuter för varje iteration** .  
+> När du har kört det tar det **2-3 minuter för varje iteration**.  
 > Välj **Uppdatera** regelbundet för att se statusen för körningen när experimentet fortskrider.
 >
 > I produktion skulle du förmodligen gå undan för en bit. I den här självstudien rekommenderar vi att du börjar utforska de testade algoritmerna på fliken **modeller** när de är klara medan de andra fortfarande körs. 
@@ -206,9 +207,9 @@ Vi distribuerar den här modellen, men vi rekommenderar att distributionen tar u
     
     I det här exemplet använder vi de standardvärden som anges i menyn *Avancerat* . 
 
-1. Välj **Distribuera** .  
+1. Välj **Distribuera**.  
 
-    Ett grönt meddelande visas längst upp på skärmen **Kör** och i fönstret **modell Sammanfattning** visas ett status meddelande under **distributions status** . Välj **Uppdatera** regelbundet för att kontrol lera distributions statusen.
+    Ett grönt meddelande visas längst upp på skärmen **Kör** och i fönstret **modell Sammanfattning** visas ett status meddelande under **distributions status**. Välj **Uppdatera** regelbundet för att kontrol lera distributions statusen.
     
 Nu har du en fungerande webb tjänst för att generera förutsägelser. 
 
@@ -224,9 +225,9 @@ Ta bara bort distributions instansen från Azure Machine Learning på https: \/ 
 
 1. Gå till [Azure Machine Learning](https://ml.azure.com/). Gå till arbets ytan och välj **slut punkter** i fönstret **till** vänster. 
 
-1. Välj den distribution som du vill ta bort och välj **ta bort** . 
+1. Välj den distribution som du vill ta bort och välj **ta bort**. 
 
-1. Välj **Fortsätt** .
+1. Välj **Fortsätt**.
 
 ### <a name="delete-the-resource-group"></a>Ta bort resursgruppen
 

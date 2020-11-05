@@ -1,7 +1,7 @@
 ---
 title: Logga ML-experiment och mått
 titleSuffix: Azure Machine Learning
-description: Övervaka dina Azure ML-experiment och körningen av mått för att förbättra modellskapandet. Lägg till loggning i träningsskriptet med run.log, Run.start_logging eller ScriptRunConfig.
+description: Aktivera loggning på din ML-utbildning kör för att övervaka körnings mått i real tid och för att diagnostisera fel och varningar.
 services: machine-learning
 author: likebupt
 ms.author: keli19
@@ -11,14 +11,14 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 6680bdc525c6f07b8330277056413f886412551b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: deeee689c27008ab71df0a050be3d7a6b5109307
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318434"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361071"
 ---
-# <a name="enable-logging-in-azure-ml-training-runs"></a>Aktivera loggning i Azure ML:s träningskörningar
+# <a name="enable-logging-in-ml-training-runs"></a>Aktivera loggning i ML utbildning körs
 
 
 Med Python-SDK:n i Azure Machine Learning kan du logga information i realtid med hjälp av både standardpaketet för Python-loggning och SDK-specifika funktioner. Du kan logga lokalt och skicka loggar till din arbetsyta i portalen.

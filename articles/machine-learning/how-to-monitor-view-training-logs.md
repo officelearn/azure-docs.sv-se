@@ -1,7 +1,7 @@
 ---
 title: Övervaka och Visa ML-körnings loggar & mått
 titleSuffix: Azure Machine Learning
-description: Övervaka dina Azure ML-experiment och Visa körnings mått för att förbättra skapande processen för modeller. Använd widgetar och Studio-portalen för att utforska körnings status och Visa körnings poster.
+description: Övervaka dina ML-experiment och Visa körnings mått med Jupyter-widgetar och Azure Machine Learning Studio.
 services: machine-learning
 author: likebupt
 ms.author: keli19
@@ -11,16 +11,14 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 7929c80f4f90de82c516b746310b5e58819a16bc
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 845160d92100a27c32f16eddcd1f36e9e8624e80
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316688"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360606"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Övervaka och Visa ML körnings loggar och mått
-
-
 
 I den här artikeln får du lära dig hur du övervakar Azure Machine Learning kör och visar deras loggar. Innan du kan visa loggar måste du aktivera dem först. Mer information finns i [Aktivera loggning i Azure ml Training-körningar](how-to-track-experiments.md).
 

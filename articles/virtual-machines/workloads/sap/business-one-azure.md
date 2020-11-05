@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/15/2018
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: caabaa6fbf65787f90c0033a06af26996c2388f2
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: b076045f6a106f77717159d3095ffd5973ab27aa
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994104"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359892"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One på Azure Virtual Machines
 Det här dokumentet innehåller rikt linjer för att distribuera SAP Business One på Azure Virtual Machines. Dokumentationen ersätter inte installations dokumentationen för Business One för SAP. Dokumentationen bör avse grundläggande planerings-och distributions rikt linjer för Azure-infrastrukturen för att köra företag ett program på.
@@ -139,7 +139,7 @@ För SAP HANA säkerhets kopierings-och återställnings strategier bör du läs
 
  
 ### <a name="business-one-client-server"></a>Företag en klient server
-Det är inte viktigt att tänka på vid lagring av de här komponenterna. du vill dock ha en tillförlitlig plattform. Därför bör du använda Azure Premium Storage för den här virtuella datorn, även för den virtuella hård disken. Ändra storlek på den virtuella datorn med de data som finns i [hand boken för SAP Business en maskin varu krav](https://help.sap.com/http.svc/rc/011000358700000244612011e/9.3/en-US/B1_Hardware_Requirements_Guide.pdf). För Azure måste du fokusera och beräkna med de krav som anges i kapitel 2,4 i dokumentet. När du beräknar kraven måste du jämföra dem med följande dokument för att hitta den perfekta virtuella datorn för dig:
+Det är inte viktigt att tänka på vid lagring av de här komponenterna. du vill dock ha en tillförlitlig plattform. Därför bör du använda Azure Premium Storage för den här virtuella datorn, även för den virtuella hård disken. Ändra storlek på den virtuella datorn med de data som finns i [hand boken för SAP Business en maskin varu krav](https://help.sap.com/doc/bfa9770d12284cce8509956dcd4c5fcb/9.3/en-US/B1_Hardware_Requirements_Guide.pdf). För Azure måste du fokusera och beräkna med de krav som anges i kapitel 2,4 i dokumentet. När du beräknar kraven måste du jämföra dem med följande dokument för att hitta den perfekta virtuella datorn för dig:
 
 - [Storlekar för virtuella Windows-datorer i Azure](../../sizes.md)
 - [SAP-anteckning #1928533](https://launchpad.support.sap.com/#/notes/1928533)

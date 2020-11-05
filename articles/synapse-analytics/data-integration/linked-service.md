@@ -2,28 +2,28 @@
 title: Skydda en länkad tjänst
 description: Lär dig hur du etablerar och skyddar en länkad tjänst med hanterat VNet
 services: synapse-analytics
-author: acomet
+author: ArnoMicrosoft
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: f5a3c73d60f038820de100f99c554eec27fd6f55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: feabfe505601276269c2774e3b39dd5cbaa32087
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90033191"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359977"
 ---
-# <a name="secure-a-linked-service-with-private-links"></a>Skydda en länkad tjänst med privata länkar 
+# <a name="secure-a-linked-service-with-private-links"></a>Skydda en länkad tjänst med privata länkar
 
 I den här artikeln får du lära dig hur du skyddar en länkad tjänst i Synapse med en privat slut punkt.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* **Azure-prenumeration**: om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
-* **Azure Storage konto**: du använder Azure Data Lake gen 2 som *käll* data lager. Om du inte har ett lagrings konto kan du läsa [skapa ett Azure Storage-konto](../../storage/blobs/data-lake-storage-quickstart-create-account.md) för att skapa ett. Kontrol lera att lagrings kontot har Synapse Studio IP-filtrering för att komma åt det och att du bara tillåter **valda nätverk** att komma åt lagrings kontot. Inställningen under bladets **brand väggar och virtuella nätverk** bör se ut som på bilden nedan.
+* **Azure-prenumeration** : om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
+* **Azure Storage konto** : du använder Azure Data Lake gen 2 som *käll* data lager. Om du inte har ett lagrings konto kan du läsa [skapa ett Azure Storage-konto](../../storage/blobs/data-lake-storage-quickstart-create-account.md) för att skapa ett. Kontrol lera att lagrings kontot har Synapse Studio IP-filtrering för att komma åt det och att du bara tillåter **valda nätverk** att komma åt lagrings kontot. Inställningen under bladets **brand väggar och virtuella nätverk** bör se ut som på bilden nedan.
 
 ![Skyddat lagrings konto](./media/secure-storage-account.png)
 
@@ -32,7 +32,7 @@ I den här artikeln får du lära dig hur du skyddar en länkad tjänst i Synaps
 I Azure Synapse Analytics är en länkad tjänst där du definierar din anslutnings information till andra tjänster. I det här avsnittet ska du lägga till Azure Synapse Analytics och Azure Data Lake gen 2 som länkade tjänster.
 
 1. Öppna Azure Synapse Studio och gå till fliken **Hantera** .
-1. Under **externa anslutningar**väljer du **länkade tjänster**.
+1. Under **externa anslutningar** väljer du **länkade tjänster**.
 1. Om du vill lägga till en länkad tjänst väljer du **ny**.
 1. Välj panelen Azure Data Lake Storage Gen2 i listan och välj **Fortsätt**.
 1. Se till att aktivera **interaktiv redigering**. Det kan ta cirka 1 minut att aktive ras. 
@@ -62,12 +62,14 @@ Om du inte har valt att använda hyperlänken när du testar anslutningen ovan f
 ## <a name="check-the-connection-works"></a>Kontrol lera att anslutningen fungerar
 1. Gå till fliken **Hantera** och välj den länkade tjänst som du har skapat.
 1. Se till att **interaktiv redigering** är aktiv.
-1. Välj **Testanslutning**. Du bör se att anslutningen lyckades.
+1. Välj **test anslutning**. Du bör se att anslutningen lyckades.
 
 Nu har du upprättat en säker och privat anslutning mellan Synapse och den länkade tjänsten.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du utvecklar en mer förståelse av den hanterade privata slut punkten i Synapse Analytics finns i artikeln om [Synapse hanterad privat slut punkt](data-integration-data-lake.md) .
+
+För att utveckla ytterligare förståelse för hanterad privat slut punkt i Synapse Analytics, se [hanterade privata slut punkter](../security/synapse-workspace-managed-private-endpoints.md).
+
 
 Mer information om data integrering för Synapse-analys finns i mata in [data i en data Lake](data-integration-data-lake.md) artikel.

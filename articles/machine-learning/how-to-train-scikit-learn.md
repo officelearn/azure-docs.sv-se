@@ -10,12 +10,12 @@ author: jpe316
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 0fb7dfb24a3c0a0b73b5fb18924f233080f73e80
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 91a9957c7a68f1752d7a6b9ea66910ec642b7bd1
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314449"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360912"
 ---
 # <a name="train-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Träna scikit – lär dig modeller i stor skala med Azure Machine Learning
 
@@ -71,6 +71,8 @@ Du kan också använda Azure ML för att skapa förbyggda, granskade miljöer om
 Om du vill använda en granskad miljö kan du köra följande kommando i stället:
 
 ```python
+from azureml.core import Environment
+
 sklearn_env = Environment.get(workspace=ws, name='AzureML-Tutorial')
 ```
 

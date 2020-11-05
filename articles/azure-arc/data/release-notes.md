@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 10/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 82dd2f16fa43b52ba4c6dfacd26da5da622523b2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 94074c2c5e11187252084832e5a20a197f6723fd
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321717"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359824"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Viktig information – Azure Arc-aktiverade data tjänster (för hands version)
 
@@ -90,7 +90,7 @@ Mer information finns i [Vad är Azure Arc-aktiverade data tjänster?](overview.
 
 - För hands versionen stöder inte säkerhets kopiering/återställning för PostgreSQL version 11-motorn. Den stöder bara säkerhets kopiering/återställning för PostgreSQL version 12.
 - `azdata arc dc debug copy-logs` ndoes inte insamling av PostgreSQL-motorns loggar i Windows.
-- Om du återskapar en Server grupp med namnet på en Server grupp som just har tagits bort kanske det Miss lyckas eller låser sig. 
+- Om du återskapar en Server grupp med namnet på en Server grupp som just har tagits bort kan det Miss lyckas eller sluta svara. 
    - **Lösning** Återanvänd inte samma namn när du återskapar en Server grupp eller väntar på en belastningsutjämnare/extern tjänst för den tidigare borttagna Server gruppen. Förutsatt att namnet på den server grupp som du tog bort var `postgres01` och den fanns i ett namn område `arc` , innan du återskapar en Server grupp med samma namn, väntar du tills `postgres01-external-svc` inte visas i utdata från kommandot kubectl `kubectl get svc -n arc` .
  - Det går långsamt att läsa in sidan Översikt och beräknings-och lagrings konfiguration i Azure Data Studio. 
 

@@ -5,14 +5,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 06/05/2020
-author: jasonwhowell
-ms.author: jasonh
-ms.openlocfilehash: c005c4fc15f7c7955a7254f386597eee01800da5
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+author: christopheranderson
+ms.author: chrande
+ms.openlocfilehash: 6c48639279556d495be57a2933f1d7f3c139294a
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126608"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361122"
 ---
 # <a name="use-mongodb-compass-to-connect-to-azure-cosmos-dbs-api-for-mongodb"></a>Använd MongoDB kompass för att ansluta till Azure Cosmos DB s API för MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -41,17 +41,17 @@ Om du vill ansluta ditt Cosmos DB konto till kompass kan du följa stegen nedan:
 
 2. Klicka på knappen med texten **Kopiera till Urklipp** bredvid din **primära/sekundära anslutnings sträng** i Cosmos dB. Om du klickar på den här knappen kopieras hela anslutnings strängen till Urklipp.
 
-    :::image type="content" source="./media/mongodb-compass/mongodb-connection-copy.png" alt-text="Skärm bild av bladet anslutnings sträng":::
+    :::image type="content" source="./media/mongodb-compass/mongodb-connection-copy.png" alt-text="Skärm bild av knappen Kopiera till Urklipp":::
 
-3. Öppna kompassen på Skriv bordet/datorn och klicka på **Anslut** och **Anslut sedan till.** ...
+3. Öppna kompassen på Skriv bordet/datorn och klicka på **Anslut** och **Anslut sedan till.**...
 
 4. Kompass identifierar automatiskt en anslutnings sträng i Urklipp och frågar om du vill använda den för att ansluta. Klicka på **Ja** så som visas på skärm bilden nedan.
 
-    :::image type="content" source="./media/mongodb-compass/mongodb-compass-detect.png" alt-text="Skärm bild av bladet anslutnings sträng":::
+    :::image type="content" source="./media/mongodb-compass/mongodb-compass-detect.png" alt-text="Skärm bild som visar en dialog ruta som förklarar att du har en anslutnings sträng i Urklipp.":::
 
 5. När du klickar på **Ja** i ovanstående steg fylls informationen från anslutnings strängen i automatiskt. Ta bort värdet som fylls i automatiskt i fältet **namn på replik uppsättning** för att se till att det lämnas tomt.
 
-    :::image type="content" source="./media/mongodb-compass/mongodb-compass-replica.png" alt-text="Skärm bild av bladet anslutnings sträng":::
+    :::image type="content" source="./media/mongodb-compass/mongodb-compass-replica.png" alt-text="Skärm bild som visar text rutan namn på replik uppsättning.":::
 
 6. Klicka på **Anslut** längst ned på sidan. Ditt Cosmos DB konto och databaser bör nu vara synligt i MongoDB kompass.
 

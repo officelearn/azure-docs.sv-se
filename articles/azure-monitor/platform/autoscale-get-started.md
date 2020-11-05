@@ -4,12 +4,12 @@ description: Lär dig hur du skalar din resurs-webbapp, moln tjänst, virtuell d
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: e0c9770e2065002a4e2acc1198ed096dc588f8e5
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: d37a33ea575bbb8481d7d50dad8eab0f9ce0899d
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342223"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361210"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Kom igång med autoskalning i Azure
 I den här artikeln beskrivs hur du konfigurerar inställningarna för autoskalning för resursen i Microsoft Azure-portalen.
@@ -140,6 +140,20 @@ Om en instans inte är felfri i en timme ersätts den med en ny instans. Högst 
 ### <a name="monitoring"></a>Övervakning
 
 När du har angett din program hälso kontroll Sök väg kan du övervaka webbplatsens hälso tillstånd med hjälp av Azure Monitor. Från **hälso kontroll** bladet i portalen klickar du på **måtten** i det övre verktygsfältet. Då öppnas ett nytt blad där du kan se platsens historiska hälso status och skapa en ny varnings regel. Mer information om övervakning av dina platser [finns i hand boken för Azure Monitor](../../app-service/web-sites-monitor.md).
+
+## <a name="moving-autoscale-to-a-different-region"></a>Flytta autoskalning till en annan region
+I det här avsnittet beskrivs hur du flyttar Azure autoskalning till en annan region under samma prenumeration och resurs grupp. Du kan använda REST API för att flytta inställningar för autoskalning.
+### <a name="prerequisite"></a>Förutsättning
+1. Se till att prenumerationen och resurs gruppen är tillgängliga och att informationen i både käll-och mål regionerna är identiska.
+1. Se till att Azure Autoscale är tillgängligt i den [Azure-region som du vill flytta till](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all).
+
+### <a name="move"></a>Flytta
+Använd [REST API](https://docs.microsoft.com/rest/api/monitor/autoscalesettings/createorupdate) för att skapa en autoskalningsinställning i den nya miljön. Den autoskalningsinställning som skapats i mål regionen är en kopia av den automatiska skalnings inställningen i käll regionen.
+
+Det går inte att flytta [diagnostikinställningar](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) som har skapats i Association med inställningen för autoskalning i käll regionen. Du måste återskapa diagnostikinställningar i mål regionen när du har skapat inställningarna för autoförsäljning. 
+
+### <a name="learn-more-about-moving-resources-across-azure-regions"></a>Lär dig mer om att flytta resurser i Azure-regioner
+Mer information om hur du flyttar resurser mellan regioner och haveri beredskap i Azure finns i [Flytta resurser till en ny resurs grupp eller prenumeration](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
 
 ## <a name="next-steps"></a>Nästa steg
 - [Skapa en aktivitets logg avisering för att övervaka alla åtgärder för autoskalning av motorn i din prenumeration](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)

@@ -1,7 +1,7 @@
 ---
 title: Flytta data i ML-pipelines
 titleSuffix: Azure Machine Learning
-description: Läs om indata & datautdata i Azure Machine Learning pipeliner.
+description: Lär dig hur Azure Machine Learning pipelines inmatnings data och hur du hanterar och flyttar data mellan pipeline-steg.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,13 +9,13 @@ ms.author: laobri
 author: lobrien
 ms.date: 08/20/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq4, devx-track-python
-ms.openlocfilehash: d96f5c0b6b1bb4a38724f53de68c9aad6608b258
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, contperfq4, devx-track-python, data4ml
+ms.openlocfilehash: bf5bfd8c2047764f9a03889c8fdd5012dc38ab65
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316600"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359773"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Flytta data till och mellan olika steg i ML-pipelinen (Python)
 

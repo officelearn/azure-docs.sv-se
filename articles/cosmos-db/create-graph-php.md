@@ -1,19 +1,19 @@
 ---
 title: 'Snabbstart: Gremlin-API med PHP – Azure Cosmos DB'
 description: Den här snabbstarten visar hur du använder Gremlin-API i Azure Cosmos DB för att skapa ett konsolprogram med Azure Portal och PHP
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2019
-ms.author: jasonh
-ms.openlocfilehash: f4bf5ebeb3cda8507b79a7021dd506146ecb2a36
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.author: chrande
+ms.openlocfilehash: dfb7b530ce7d907407eef987b5df8af245c90950
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131317"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360844"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Snabb start: skapa en diagram databas i Azure Cosmos DB med PHP och Azure Portal
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -103,7 +103,7 @@ Det här är valfritt. Om du vill lära dig hur databasresurserna skapas i koden
 
 Gå nu tillbaka till Azure Portal för att hämta anslutningsinformation och kopiera den till appen. De här inställningarna gör det möjligt för appen att kommunicera med den värdbaserade databasen.
 
-1. I [Azure Portal](https://portal.azure.com/) klickar du på **Nycklar** . 
+1. I [Azure Portal](https://portal.azure.com/) klickar du på **Nycklar**. 
 
     Kopiera den första delen av URI-värdet.
 
@@ -192,19 +192,19 @@ Gå nu tillbaka till Azure Portal för att hämta anslutningsinformation och kop
 
 Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i grafen, och lägga till ytterligare datapunkter.
 
-1. Klicka på **Datautforskaren** , expandera **sample-graph** , klicka på **Diagram** och klicka sedan på **Tillämpa filter** . 
+1. Klicka på **Datautforskaren** , expandera **sample-graph** , klicka på **Diagram** och klicka sedan på **Tillämpa filter**. 
 
-   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-expanded.png" alt-text="Visa och kopiera åtkomstnyckeln i Azure Portal, sidan Nycklar":::
+   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-expanded.png" alt-text="Skärm bild som visar diagram som valts från en P I med alternativet att tillämpa filter.":::
 
 2. I listan **Resultat** kan du se nya användare som har lagts till i grafen. Välj **ben** och Lägg märke till att de är anslutna till tax. Du kan flytta hörnen genom att dra och släppa, zooma in och ut genom att bläddra med mushjulet, och utöka diagrammets storlek med hjälp av dubbelpilen. 
 
-   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-graph-explorer-new.png" alt-text="Visa och kopiera åtkomstnyckeln i Azure Portal, sidan Nycklar":::
+   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-graph-explorer-new.png" alt-text="Nya hörn i grafen i datautforskaren på Azure Portal":::
 
 3. Vi ska nu lägga till några nya användare. Klicka på **Nytt hörn** om du vill lägga till data i grafen.
 
-   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Visa och kopiera åtkomstnyckeln i Azure Portal, sidan Nycklar":::
+   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Skärm bild som visar fönstret nytt hörn där du kan ange värden.":::
 
-4. Ange en etikett för *person* .
+4. Ange en etikett för *person*.
 
 5. Klicka på **Lägg till egenskap** för att lägga till var och en av följande egenskaper. Tänk på att du kan skapa unika egenskaper för varje person i grafen. Endast **ID-** nyckeln krävs.
 
@@ -217,11 +217,11 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
     > [!NOTE]
     > I den här snabbstartsguiden skapar du en icke-partitionerad samling. Men om du skapar en partitionerad samling genom att ange en partitionsnyckel när samlingen skapas, måste du lägga till partitionsnyckeln som nyckel i varje nytt hörn. 
 
-6. Klicka på **OK** . Du kan behöva expandera skärmen för att se **OK** längst ned på skärmen.
+6. Klicka på **OK**. Du kan behöva expandera skärmen för att se **OK** längst ned på skärmen.
 
 7. Klicka på **Nytt hörn** igen och lägg till ytterligare en ny användare. 
 
-8. Ange en etikett för *person* .
+8. Ange en etikett för *person*.
 
 9. Klicka på **Lägg till egenskap** för att lägga till var och en av följande egenskaper:
     
@@ -231,23 +231,23 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
     **kön** | man | 
     **skola** | MIT | 
 
-10. Klicka på **OK** . 
+10. Klicka på **OK**. 
 
-11. Klicka på knappen **Tillämpa filter** med standardfiltret `g.V()` för att visa alla värden i diagrammet. Nu visas alla användare i listan **Resultat** . 
+11. Klicka på knappen **Tillämpa filter** med standardfiltret `g.V()` för att visa alla värden i diagrammet. Nu visas alla användare i listan **Resultat**. 
 
     Allteftersom du lägger till data kan du använda filter för att begränsa resultaten. Som standard använder Datautforskaren `g.V()` för att hämta alla hörnen i ett diagram. Du kan ändra till en annan [diagramfråga](tutorial-query-graph.md), t.ex. `g.V().count()`, för att returnera en uppräkning av alla hörn i diagrammet i JSON-format. Om du har ändrat filtret ändrar du tillbaka det till `g.V()` och klickar på **Tillämpa filter** om du vill visa alla resultaten igen.
 
-12. Nu kan du koppla ihop Rakesh och Ashley. Se till att **ashley** är markerat i listan **Resultat** och klicka sedan på redigeringsknappen bredvid **Mål** nere till höger. Du kan behöva bredda fönstret för att se området **Egenskaper** .
+12. Nu kan du koppla ihop Rakesh och Ashley. Se till att **ashley** är markerat i listan **Resultat** och klicka sedan på redigeringsknappen bredvid **Mål** nere till höger. Du kan behöva bredda fönstret för att se området **Egenskaper**.
 
-    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Visa och kopiera åtkomstnyckeln i Azure Portal, sidan Nycklar":::
+    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Ändra mål för ett hörn i en graf":::
 
 13. I rutan **Mål** skriver du *rakesh* och i rutan **Edge label** (Kantetikett) skriver du *känner* och klickar sedan på kryssmarkeringen.
 
-    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-set-target.png" alt-text="Visa och kopiera åtkomstnyckeln i Azure Portal, sidan Nycklar":::
+    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-set-target.png" alt-text="Lägg till en anslutning mellan Ashley och Rakesh i datautforskaren":::
 
 14. Markera nu **rakesh** i resultatlistan och se att Ashley och Rakesh är anslutna. 
 
-    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-graph-explorer.png" alt-text="Visa och kopiera åtkomstnyckeln i Azure Portal, sidan Nycklar":::
+    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-graph-explorer.png" alt-text="Två hörn anslutna i datautforskaren":::
 
     Då är delen om att skapa resurser slutförd i den här snabbstarten. Du kan fortsätta att lägga till hörn i diagrammet, ändra befintliga hörn eller ändra frågorna. Vi ska nu titta på de mått som Azure Cosmos DB tillhandahåller, och sedan ska vi rensa resurserna. 
 

@@ -1,7 +1,7 @@
 ---
 title: Skydda data åtkomst i molnet
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du ansluter säkert till dina data på ett säkert sätt från Azure Machine Learning och hur du använder data uppsättningar och data lager för ML-aktiviteter. Data lager kan lagra data från en Azure-Blob, Azure Data Lake gen 1 & 2, SQL DB och Azure Databricks.
+description: Lär dig hur du på ett säkert sätt ansluter till din data lagring på Azure med Azure Machine Learning data lager och data uppsättningar.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
-ms.custom: devx-track-python
-ms.openlocfilehash: f46222740ad668b8bb6ec9eb85e78efb0f673528
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: devx-track-python, data4ml
+ms.openlocfilehash: 6d8c04e48a3d0009a152830a4ee332cd706c4b2c
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322249"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360181"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Skydda data åtkomst i Azure Machine Learning
 

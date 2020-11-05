@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: bbc532acf704128e2311f440aabe8f707fc03aea
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b03395b9c615466a4d64d8760db8ac23a040d832
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307236"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360946"
 ---
 # <a name="train-pytorch-models-at-scale-with-azure-machine-learning"></a>Träna PyTorch-modeller i skala med Azure Machine Learning
 
@@ -56,6 +56,7 @@ import shutil
 
 from azureml.core.workspace import Workspace
 from azureml.core import Experiment
+from azureml.core import Environment
 
 from azureml.core.compute import ComputeTarget, AmlCompute
 from azureml.core.compute_target import ComputeTargetException
@@ -164,8 +165,6 @@ Skapa en Azure ML-miljö från den här Conda-miljö specifikationen. Miljön ko
 Som standard om ingen bas avbildning anges använder Azure ML en processor avbildning `azureml.core.environment.DEFAULT_CPU_IMAGE` som bas avbildningen. Eftersom det här exemplet kör utbildning i ett GPU-kluster måste du ange en GPU-bas avbildning som har nödvändiga GPU-drivrutiner och-beroenden. Azure ML innehåller en uppsättning grundläggande avbildningar som publiceras på Microsoft Container Registry (MCR) som du kan använda, se [Azure/azureml-containers](https://github.com/Azure/AzureML-Containers) GitHub lagrings platsen för mer information.
 
 ```python
-from azureml.core import Environment
-
 pytorch_env = Environment.from_conda_specification(name='pytorch-1.6-gpu', file_path='./conda_dependencies.yml')
 
 # Specify a GPU base image

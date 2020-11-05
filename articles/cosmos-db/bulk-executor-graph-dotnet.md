@@ -1,20 +1,20 @@
 ---
 title: Använd Graph-utförar .NET-bibliotek med Azure Cosmos DB Gremlin API
 description: Lär dig hur du använder bulk utförar-biblioteket för att importera graf-data i en Azure Cosmos DB Gremlin API-behållare.
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 05/28/2019
-ms.author: jasonh
+ms.author: chrande
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: eb611c77abe5bf9067bfdbabd1e2c5d2ee90ac23
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b31cb33e09158de5912132d0fb7bd31a62131181
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100498"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360521"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Använda Graph-utförar .NET-bibliotek för att utföra Mass åtgärder i Azure Cosmos DB Gremlin API
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -118,7 +118,7 @@ e.AddProperty("customProperty", "value");
 ### <a name="prerequisites"></a>Förutsättningar
 * Visual Studio 2019 med arbets belastningen Azure Development. Du kan komma igång med [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/downloads/) kostnads fritt.
 * En Azure-prenumeration. Du kan skapa [ett kostnadsfritt Azure-konto här](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cosmos-db). Du kan också skapa ett Cosmos Database-konto med [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration.
-* En Azure Cosmos DB Gremlin API-databas med en **obegränsad samling** . Den här guiden visar hur du kommer igång med [Azure Cosmos DB Gremlin API i .NET](./create-graph-dotnet.md).
+* En Azure Cosmos DB Gremlin API-databas med en **obegränsad samling**. Den här guiden visar hur du kommer igång med [Azure Cosmos DB Gremlin API i .NET](./create-graph-dotnet.md).
 * Git. Mer information finns på [sidan för Git-nedladdningar](https://git-scm.com/downloads).
 
 ### <a name="clone-the-sample-application"></a>Klona exempelprogrammet
@@ -142,7 +142,7 @@ Inställning|Beskrivning
 ---|---
 `EndPointUrl`|Det här är **din .NET SDK-slutpunkt** som finns i bladet Översikt för ditt Cosmos DB Gremlin API-databaskonto. Det har formatet för `https://your-graph-database-account.documents.azure.com:443/`
 `AuthorizationKey`|Det här är den primära eller sekundära nyckel som visas under ditt Azure Cosmos DB-konto. Läs mer om att [skydda åtkomst till Azure Cosmos DB-data](./secure-access-to-data.md#primary-keys)
-`DatabaseName`, `CollectionName`|Det här är **måldatabas- och samlingsnamnen** . När `ShouldCleanupOnStart` är inställt på `true` används dessa värden, tillsammans med `CollectionThroughput`, för att ta bort dem och skapa en ny databas och samling. På ett liknande sätt används de om `ShouldCleanupOnFinish` är inställt på `true` för att ta bort databasen när datainmatningen är klar. Observera att målsamlingen måste vara **en obegränsad samling** .
+`DatabaseName`, `CollectionName`|Det här är **måldatabas- och samlingsnamnen**. När `ShouldCleanupOnStart` är inställt på `true` används dessa värden, tillsammans med `CollectionThroughput`, för att ta bort dem och skapa en ny databas och samling. På ett liknande sätt används de om `ShouldCleanupOnFinish` är inställt på `true` för att ta bort databasen när datainmatningen är klar. Observera att målsamlingen måste vara **en obegränsad samling**.
 `CollectionThroughput`|Detta används för att skapa en ny samling om `ShouldCleanupOnStart`-alternativet är inställt på `true`.
 `ShouldCleanupOnStart`|Detta kommer ta bort databaskontot och samlingarna innan programmet körs och sedan skapa nya med värdena `DatabaseName`, `CollectionName` och `CollectionThroughput`.
 `ShouldCleanupOnFinish`|Detta kommer att ta bort databaskontot och samlingarna med angivna `DatabaseName` och `CollectionName` när programmet har körts.

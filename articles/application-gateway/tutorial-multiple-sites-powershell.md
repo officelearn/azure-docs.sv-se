@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: dd73dc69fc2d40a0b4c24739dca6ad8174ad1047
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30c5c5be89f8a318de8690430d4d248817961fc2
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595884"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360317"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-azure-powershell"></a>Skapa en programgateway som är värd för flera webbplatser med Azure PowerShell
 
@@ -31,7 +31,7 @@ I den här artikeln kan du se hur du:
 
 :::image type="content" source="./media/tutorial-multiple-sites-powershell/scenario.png" alt-text="Application Gateway för flera platser":::
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -127,7 +127,7 @@ Skapa den första lyssnaren med [New-AzApplicationGatewayHttpListener](/powershe
 
 >[!NOTE]
 > Med Application Gateway eller WAF v2 SKU kan du också konfigurera upp till 5 värdnamn per lyssnare och du kan använda jokertecken i värd namnet. Mer information finns i [namn på jokertecken i lyssnaren](multiple-site-overview.md#wildcard-host-names-in-listener-preview) .
->Om du vill använda flera värdnamn och jokertecken i en lyssnare med hjälp av Azure PowerShell måste du använda `-HostNames` i stället för `-HostName` . Med värdnamn kan du nämna upp till 5 värdnamn som kommaavgränsade värden. Till exempel `-HostNames "*.contoso.com,*.fabrikam.com"`
+>Om du vill använda flera värdnamn och jokertecken i en lyssnare med hjälp av Azure PowerShell måste du använda `-HostNames` i stället för `-HostName` . Med värdnamn kan du nämna upp till 5 värdnamn som kommaavgränsade värden. Till exempel `-HostNames "*.contoso.com","*.fabrikam.com"`
 
 ```azurepowershell-interactive
 $contosolistener = New-AzApplicationGatewayHttpListener `

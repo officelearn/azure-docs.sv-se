@@ -1,20 +1,20 @@
 ---
 title: Skapa en Azure Cosmos DB Node.js-app med Gremlin API:t
 description: Presenterar ett Node.js-kodexempel som du kan använda för att ansluta till och ställa frågor mot Azure Cosmos DB
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/05/2019
-ms.author: jasonh
+ms.author: chrande
 ms.custom: devx-track-js
-ms.openlocfilehash: 546187b49e1186d665fe32b3f8d632a0281bffa4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0b88456bd245f79c38d7829dca76de702f768c06
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099682"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360147"
 ---
 # <a name="quickstart-build-a-nodejs-application-by-using-azure-cosmos-db-gremlin-api-account"></a>Snabb start: bygga ett Node.js program med hjälp av Azure Cosmos DB Gremlin API-konto
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -71,7 +71,7 @@ Nu ska vi klona en Gremlin-API-app från GitHub, ange anslutningssträngen och k
 
 Det här är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-string). 
 
-Följande kodfragment är alla hämtade från filen *app.js* .
+Följande kodfragment är alla hämtade från filen *app.js*.
 
 Den här konsol appen använder [Gremlin Node.js](https://www.npmjs.com/package/gremlin) driv rutinen med öppen källkod.
 
@@ -162,7 +162,7 @@ Den här konsol appen använder [Gremlin Node.js](https://www.npmjs.com/package/
 
     `config.primaryKey = "PRIMARYKEY";`
 
-   :::image type="content" source="./media/create-graph-nodejs/keys.png" alt-text="Visa och kopiera en åtkomst nyckel på sidan Azure Portal, översikt":::
+   :::image type="content" source="./media/create-graph-nodejs/keys.png" alt-text="Bladet Azure Portal nycklar":::
 
 4. Ange databasens namn och grafvärdet (containern) för config.database och config.collection. 
 
@@ -192,9 +192,9 @@ module.exports = config;
 
 Nu kan du gå tillbaka till datautforskaren i Azure Portal och bläddra bland, ställa frågor mot och arbeta med dina nya grafdata.
 
-Den nya databasen visas i fönstret **Graphs** (Diagram) i Datautforskaren. Expandera databasen, följt av containern, och välj sedan **Diagram** .
+Den nya databasen visas i fönstret **Graphs** (Diagram) i Datautforskaren. Expandera databasen, följt av containern, och välj sedan **Diagram**.
 
-De data som genereras av exempelappen visas i nästa ruta på fliken **Diagram** när du klickar på **Tillämpa filter** .
+De data som genereras av exempelappen visas i nästa ruta på fliken **Diagram** när du klickar på **Tillämpa filter**.
 
 Prova att slutföra `g.V()` med `.has('firstName', 'Thomas')` för att testa filtret. Observera att värdet är skiftlägeskänsligt.
 

@@ -1,19 +1,19 @@
 ---
 title: Använd Azure Cosmos DB-Gremlin med SDK för
 description: Lär dig hur du skapar resurs-tokens och använder dem för att få åtkomst till graf-databasen.
-author: jasonwhowell
-ms.author: jasonh
+author: christopheranderson
+ms.author: chrande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/06/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 74d851a28712beb80bf2a7aa196e471ef4f15074
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 22c048b748806404ccfa580e660552a1744f3781
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085742"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361701"
 ---
 # <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Använd Azure Cosmos DB-Gremlin med SDK för
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -101,7 +101,7 @@ Med ett enda Gremlin-konto kan du utfärda ett obegränsat antal tokens. Du kan 
 
 ## <a name="permission"></a>Behörighet
 
-Ett vanligt fel som uppstår när de använder resurs-token är "otillräcklig behörighet i Authorization-huvudet för motsvarande begäran. Försök igen med ett annat Authorization-huvud. " Det här felet returneras när en Gremlin-överträdelse försöker skriva en gräns eller ett hörn, men resurs-token beviljar endast *Läs* behörighet. Granska din genom gång för att se om den innehåller något av följande steg: *. addV ()* , *. addE ()* , *. drop ()* eller *. Property ()* .
+Ett vanligt fel som uppstår när de använder resurs-token är "otillräcklig behörighet i Authorization-huvudet för motsvarande begäran. Försök igen med ett annat Authorization-huvud. " Det här felet returneras när en Gremlin-överträdelse försöker skriva en gräns eller ett hörn, men resurs-token beviljar endast *Läs* behörighet. Granska din genom gång för att se om den innehåller något av följande steg: *. addV ()* , *. addE ()* , *. drop ()* eller *. Property ()*.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](role-based-access-control.md) i Azure Cosmos DB

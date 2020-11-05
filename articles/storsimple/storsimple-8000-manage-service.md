@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 73373f788a4a87a36a800d69ffcdc646f4cd2084
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66244bd8e24ff62be41df72f7a39c0ce0ed13135
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91249560"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360707"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Distribuera StorSimple Enhetshanteraren-tjänsten för enheter med StorSimple 8000-serien
 
@@ -58,7 +58,7 @@ Utför följande steg för att skapa en tjänst.
 Följande attribut finns för varje StorSimple Enhetshanteraren-tjänst:
 
 * **Namn** – det namn som har tilldelats till din StorSimple Enhetshanteraren-tjänst när den skapades. **Det går inte att ändra tjänst namnet när tjänsten har skapats. Detta gäller även för andra entiteter, till exempel enheter, volymer, volym behållare och säkerhets kopierings principer som inte kan byta namn på Azure Portal.**
-* **Status** – tjänstens status, som kan vara **aktiv**, **skapas**eller **online**.
+* **Status** – tjänstens status, som kan vara **aktiv** , **skapas** eller **online**.
 * **Plats** – den geografiska plats där StorSimple-enheten kommer att distribueras.
 * **Prenumeration** – den fakturerings prenumeration som är associerad med din tjänst.
 
@@ -103,11 +103,11 @@ Du måste återskapa en tjänst registrerings nyckel om du måste utföra nyckel
 Utför följande steg för att återskapa en tjänst registrerings nyckel.
 
 ### <a name="to-regenerate-the-service-registration-key"></a>Återskapa tjänst registrerings nyckeln
-1. I bladet **StorSimple Enhetshanteraren** går du till **hanterings &gt; ** **nycklar**.
+1. I bladet **StorSimple Enhetshanteraren** går du till **hanterings &gt;** **nycklar**.
     
-    ![Bladet Nycklar](./media/storsimple-8000-manage-service/regenregkey2.png)
+    ![Gå till bladet nycklar](./media/storsimple-8000-manage-service/regenregkey2.png)
 
-2. Klicka på **Återskapa**på bladet **nycklar** .
+2. Klicka på **Återskapa** på bladet **nycklar** .
 
     ![Klicka på återskapa](./media/storsimple-8000-manage-service/regenregkey3.png)
 3. I bladet **Återskapa tjänst registrerings nyckel** granskar du den åtgärd som krävs när nycklarna återskapas. Alla efterföljande enheter som är registrerade med den här tjänsten använder den nya registrerings nyckeln. Klicka på **Återskapa** för att bekräfta. Du får ett meddelande när återskapandet har slutförts.
@@ -196,16 +196,16 @@ I Azure Portal stöds endast de StorSimple-enheter som kör uppdatering 5,0 och 
 | Skanna, ladda ned och installera uppdateringar                                                                                             | Ja            |
 | Inaktivera enhet                                                                                                               | Ja            |
 | Ta bort enhet                                                                                                                   | Ja            |
-| Skapa, ändra och ta bort en volym behållare                                                                                   | Inga             |
-| Skapa, ändra och ta bort en volym                                                                                             | Inga             |
-| Skapa, ändra och ta bort en princip för säkerhets kopiering                                                                                      | Inga             |
-| Gör en manuell säkerhets kopiering                                                                                                            | Inga             |
+| Skapa, ändra och ta bort en volym behållare                                                                                   | Nej             |
+| Skapa, ändra och ta bort en volym                                                                                             | Nej             |
+| Skapa, ändra och ta bort en princip för säkerhets kopiering                                                                                      | Nej             |
+| Gör en manuell säkerhets kopiering                                                                                                            | Nej             |
 | Gör en schemalagd säkerhets kopiering                                                                                                         | Inte tillämpligt |
-| Återställ från en säkerhets kopian                                                                                                        | Inga             |
+| Återställ från en säkerhets kopian                                                                                                        | Nej             |
 | Klona till en enhet som kör uppdatering 3,0 och senare <br> Käll enheten kör version före uppdatering 3,0.                                | Ja            |
-| Klona till en enhet som kör versioner före uppdateringen 3,0                                                                          | Inga             |
+| Klona till en enhet som kör versioner före uppdateringen 3,0                                                                          | Nej             |
 | Redundans som käll enhet <br> (från en enhet som kör version före uppdatering 3,0 till en enhet som kör uppdatering 3,0 och senare)                                                               | Ja            |
-| Redundansväxling som mål enhet <br> (till en enhet som kör program varu version före uppdatering 3,0)                                                                                   | Inga             |
+| Redundansväxling som mål enhet <br> (till en enhet som kör program varu version före uppdatering 3,0)                                                                                   | Nej             |
 | Rensa en avisering                                                                                                                  | Ja            |
 | Visa säkerhets kopierings principer, säkerhets kopierings katalog, volymer, volym behållare, övervaknings diagram, jobb och aviseringar som skapats i den klassiska portalen | Ja            |
 | Aktivera och inaktivera enhets styrenheter                                                                                              | Ja            |

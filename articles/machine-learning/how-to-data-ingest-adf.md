@@ -1,7 +1,7 @@
 ---
 title: Datainmatning med Azure Data Factory
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du skapar en pipeline för data inmatning med Azure Data Factory.
+description: Lär dig tillgängliga alternativ för att skapa en pipeline för data inmatning med Azure Data Factory och fördelarna med var och en.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,17 +11,17 @@ manager: davete
 ms.reviewer: larryfr
 ms.date: 03/01/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8cf0abdeaf3a7fe71213b6fa4f78f057bf2f92eb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, devx-track-python, data4ml
+ms.openlocfilehash: 73850d8022618dd6544d19564e425288aff09771
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307359"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360640"
 ---
 # <a name="data-ingestion-with-azure-data-factory"></a>Datainmatning med Azure Data Factory
 
-I den här artikeln får du lära dig hur du skapar en pipeline för data inmatning med Azure Data Factory (ADF). Den här pipelinen används för att mata in data som ska användas med Azure Machine Learning. Med Azure Data Factory kan du enkelt extrahera, transformera och läsa in data (ETL). När data har omvandlats och lästs in i lagringen kan du använda dem för att träna dina maskin inlärnings modeller.
+I den här artikeln får du lära dig mer om tillgängliga alternativ för att skapa en pipeline för data inmatning med Azure Data Factory (ADF). Den här pipelinen används för att mata in data som ska användas med Azure Machine Learning. Med Azure Data Factory kan du enkelt extrahera, transformera och läsa in data (ETL). När data har omvandlats och lästs in i lagringen kan du använda dem för att träna dina maskin inlärnings modeller.
 
 Enkel datatransformering kan hanteras med ursprungliga ADF-aktiviteter och instrument som [data flöde](../data-factory/control-flow-execute-data-flow-activity.md). När det kommer till mer komplicerade scenarier kan data bearbetas med en anpassad kod. Till exempel python eller R-kod.
 

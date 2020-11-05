@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/29/2020
-ms.openlocfilehash: 8310c34e06d52dc12af42f8bc33f4a4d7e99d68d
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 69cc835b37d2405e15638d85309dc89d51c6d043
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "91598089"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360283"
 ---
 # <a name="data-flow-script-dfs"></a>Data flödes skript (DFS)
 
@@ -218,6 +218,17 @@ Det här är ett kodfragment som du kan klistra in i ditt data flöde för att a
 ```
 split(contains(array(columns()),isNull(#item)),
     disjoint: false) ~> LookForNULLs@(hasNULLs, noNULLs)
+```
+
+### <a name="automap-schema-drift-with-a-select"></a>Använda AutoMap-scheman med ett SELECT
+När du behöver läsa in ett befintligt databas schema från en okänd eller dynamisk uppsättning inkommande kolumner måste du mappa de högra kolumnerna i omvandlingen av mottagare. Detta behövs bara när du läser in en befintlig tabell. Lägg till det här kodfragmentet innan du skapar en Välj som automatiskt mappar dina kolumner. Lämna din Sink-mappning till Auto-Map.
+
+```
+select(mapColumn(
+        each(match(true()))
+    ),
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> automap
 ```
 
 ## <a name="next-steps"></a>Nästa steg

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.author: jeedes
-ms.openlocfilehash: eb784d02ec4c380d72438a1c000290fe3a4eea78
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 764342f237452d9322d44c86ebdb41691b44495d
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307503"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360725"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Amazon Web Services (AWS)
 
@@ -27,6 +27,9 @@ I den här självstudien får du lära dig hur du integrerar Amazon Web Services
 * Hantera dina konton på en central plats – Azure Portal.
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+
+> [!Note]
+> Azure AD stöder inte integrering med enkel inloggning med AWS SSO, men det är en annan produkt än AWS. Även om AWS nämner sig [här](https://docs.aws.amazon.com/singlesignon/latest/userguide/azure-ad-idp.html)rekommenderar Azure AD att kunderna använder AWS IAM-integrering i stället så att du kan uppnå bättre säkerhets kontroller med principer för villkorlig åtkomst för enskilda konton och även göra bättre styrning av dessa program.
 
 ![Diagram över Azure AD-och AWS-relationer](./media/amazon-web-service-tutorial/tutorial_amazonwebservices_image.png)
 
@@ -343,7 +346,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     b. Ange AWS-användarhemligheten i fältet **Hemlig token**.
 
-    c. Välj **test anslutning**.
+    c. Välj **Testanslutning**.
 
     d. Spara inställningen genom att välja **Spara**.
 

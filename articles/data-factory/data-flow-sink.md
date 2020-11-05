@@ -8,13 +8,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/30/2020
-ms.openlocfilehash: 8a9c022400f739276060c3d8a275d06bc5ea8579
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.date: 11/02/2020
+ms.openlocfilehash: 47aada0abe2520ba81689ca8fa17787fde847d83
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147243"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360257"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Omvandling av mottagare i data flöde för mappning
 
@@ -71,11 +71,13 @@ I följande videoklipp förklaras ett antal olika Sink-alternativ för text avgr
 
 **Använd tempdb:** Som standard använder Data Factory en global temporär tabell för att lagra data som en del av inläsnings processen. Du kan också avmarkera alternativet "Använd TempDB" och be i stället Data Factory att lagra den tillfälliga tabellen i en användar databas som finns i den databas som används för den här mottagaren.
 
-![TempDB](media/data-flow/tempdb.png "TempDB")
+![Använd Temp DB](media/data-flow/tempdb.png "Använd Temp DB")
 
 ## <a name="cache-sink"></a>Cacheuppdatering
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4HKt1]
  
-En *cache-mottagare* är när ett data flöde skriver data till Spark-cachen i stället för ett data lager. I mappnings data flöden kan du referera till dessa data inom samma flöde många gånger med en *cache-sökning* . Detta är användbart när du vill referera till data som en del av ett uttryck, men inte uttryckligen vill koppla ihop kolumnerna. Vanliga exempel där en cache-mottagare kan hjälpa till att leta upp ett högsta värde i ett data lager och matcha felkoder till en fel meddelande databas. 
+En *cache-mottagare* är när ett data flöde skriver data till Spark-cachen i stället för ett data lager. I mappnings data flöden kan du referera till dessa data inom samma flöde många gånger med en *cache-sökning*. Detta är användbart när du vill referera till data som en del av ett uttryck, men inte uttryckligen vill koppla ihop kolumnerna. Vanliga exempel där en cache-mottagare kan hjälpa till att leta upp ett högsta värde i ett data lager och matcha felkoder till en fel meddelande databas. 
 
 Om du vill skriva till en cache-mottagare lägger du till en Sink-transformering och väljer **cache** som mottagar typ. Till skillnad från andra typer av mottagare behöver du inte välja en data uppsättning eller en länkad tjänst eftersom du inte skriver till en extern lagrings plats. 
 
@@ -92,7 +94,7 @@ Om du t. ex. anger en enda nyckel kolumn i `column1` i en cache `cacheExample` -
 
 ## <a name="field-mapping"></a>Fältmappning
 
-På samma sätt som i en SELECT-omvandling, på fliken **mappning** för mottagaren, kan du bestämma vilka inkommande kolumner som ska skrivas. Som standard mappas alla inmatade kolumner, inklusive ingångna kolumner. Det här beteendet kallas *Automappning* .
+På samma sätt som i en SELECT-omvandling, på fliken **mappning** för mottagaren, kan du bestämma vilka inkommande kolumner som ska skrivas. Som standard mappas alla inmatade kolumner, inklusive ingångna kolumner. Det här beteendet kallas *Automappning*.
 
 När du inaktiverar automappningen kan du lägga till antingen fasta kolumnbaserade mappningar eller regelbaserade mappningar. Med hjälp av regelbaserade mappningar kan du skriva uttryck med mönster matchning. Fast mappning mappar logiska och fysiska kolumn namn. Mer information om regelbaserade mappning finns [i kolumn mönster i mappa data flöde](concepts-data-flow-column-pattern.md#rule-based-mapping-in-select-and-sink).
 
@@ -101,6 +103,11 @@ När du inaktiverar automappningen kan du lägga till antingen fasta kolumnbaser
 Som standard skrivs data till flera handfat i en icke deterministisk ordning. Körnings motorn skriver data parallellt eftersom omvandlings logiken är slutförd och mottagar ordningen kan variera varje gång. Om du vill ange en exakt mottagar ordning aktiverar du **anpassade Sink-sortering** på fliken **Allmänt** i data flödet. När den är aktive rad skrivs Sinks sekventiellt i stigande ordning.
 
 ![Skärm bild som visar beställning av anpassade mottagare.](media/data-flow/custom-sink-ordering.png "Skärm bild som visar beställning av anpassade mottagare.")
+
+> [!NOTE]
+> När du använder [cachelagrade sökningar](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder#cached-lookup)ser du till att din Sink-beställning har de cachelagrade sinkarna inställt på 0.
+
+![Beställning av anpassad mottagare](media/data-flow/cache-2.png "Beställning av anpassad mottagare")
 
 ## <a name="data-preview-in-sink"></a>Förhands granskning av data i mottagare
 

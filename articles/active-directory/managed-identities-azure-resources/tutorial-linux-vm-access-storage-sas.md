@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2017
+ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b0bb70b82e8c34c50743bf56069488e2d4c4e39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3edc63a1532bb6889fc490e400dbb57e7bce10d0
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90968780"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360419"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>Självstudier: Komma åt Azure Storage via en SAS-autentiseringsuppgift med en systemtilldelad hanterad identitet för virtuell Linux-dator
 
@@ -40,7 +40,7 @@ En tjänst-SAS ger möjlighet att ge begränsad åtkomst till objekt i ett lagri
 > * Ge den virtuella datorn åtkomst till en SAS för lagringskonton i Resource Manager 
 > * Hämta en åtkomsttoken med hjälp av den virtuella datorns identitet och använde den när du hämtar SAS:en från Resource Manager 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
@@ -68,14 +68,14 @@ Senare ska vi ladda upp och ned en fil till det nya lagringskontot. Eftersom fil
 
     ![Skapa lagringscontainer](./media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## <a name="grant-your-vms-system-assigned-managed-identity-access-to-use-a-storage-sas"></a>Ge den virtuella datorns systemtilldelade hanterade identitet åtkomst till att använda lagrings-SAS 
+## <a name="grant-your-vms-system-assigned-managed-identity-access-to-use-a-storage-sas"></a>Ge den virtuella datorns systemtilldelade hanterade identitet åtkomst till att använda lagrings-SAS
 
 Azure Storage har inte inbyggt stöd för Azure Active Directory-autentisering.  Men du kan använda den virtuella datorns systemtilldelade hanterade identitet för att hämta en lagrings-SAS från Resource Manager, och sedan få åtkomst till lagring med hjälp av SAS:en.  I det här steget ger du den virtuella datorns systemtilldelade hanterade identitet åtkomst till SAS för lagringskontot.   
 
 1. Gå tillbaka till det lagringskonto du nyss skapade.
 2. Klicka på länken **åtkomstkontroll (IAM)** i vänstra panelen.  
 3. Klicka på **+ Lägg till rolltilldelning** längst upp på sidan för att lägga till en ny rolltilldelning för den virtuella datorn
-4. Ställ in Lagringskontodeltagare som **Roll**, till höger på sidan. 
+4. Ställ in Lagringskontodeltagare som **Roll** , till höger på sidan. 
 5. I nästa listruta väljer du resursen Virtuell dator under **Tilldela behörighet till**.  
 6. Kontrollera sedan att rätt prenumeration visas i listrutan **Prenumeration**. Välj Alla resursgrupper under **Resursgrupper**.  
 7. Under **Välj** väljer du sedan din virtuella Linux-dator i listrutan och klickar på **Spara**.  

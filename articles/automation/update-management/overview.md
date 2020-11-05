@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 36540de8924a1433f16f942d9aedc059efae05de
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 09bd82225fb7d8a6eefe84b5a70660e4553a3070
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348686"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360793"
 ---
 # <a name="update-management-overview"></a>Översikt över Uppdateringshantering
 
@@ -18,6 +18,9 @@ Du kan använda Uppdateringshantering i Azure Automation för att hantera operat
 
 > [!NOTE]
 > Du kan inte använda en dator som kon figurer ATS med Uppdateringshantering för att köra anpassade skript från Azure Automation. Den här datorn kan bara köra det Microsoft-signerade uppdaterings skriptet.
+
+> [!NOTE]
+> För närvarande stöds inte aktivering av Uppdateringshantering direkt från en ARC-aktiverad server. Se [aktivera uppdateringshantering från ditt Automation-konto](../../automation/update-management/enable-from-automation-account.md) för att förstå kraven och hur du aktiverar för servern.
 
 Om du vill hämta och installera tillgängliga *kritiska* uppdateringar och *säkerhets* korrigeringar automatiskt på den virtuella Azure-datorn kan du läsa om [Automatisk uppdatering av virtuella datorer](../../virtual-machines/windows/automatic-vm-guest-patching.md) för virtuella Windows-datorer.
 

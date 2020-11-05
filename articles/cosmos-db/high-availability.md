@@ -4,15 +4,15 @@ description: Den här artikeln beskriver hur Azure Cosmos DB ger hög tillgängl
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 11/04/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 2fb8b24d5d44ced8f9e363008354acf5bc2fde40
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 58507703ca3440e73dbc41757e0bc70f56e886c3
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93081883"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360164"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Hur ger Azure Cosmos DB hög tillgänglighet
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -74,7 +74,7 @@ I sällsynta fall av regionala avbrott ser Azure Cosmos DB till att databasen al
 * När den tidigare påverkade Skriv regionen återställs blir den automatiskt tillgänglig som en Läs region. Du kan växla tillbaka till den återställda regionen som Skriv region. Du kan byta region med hjälp av [PowerShell, Azure CLI eller Azure Portal](how-to-manage-database-account.md#manual-failover). Det finns **Ingen förlust av data eller tillgänglighet** innan, under eller efter att du byter Skriv region och programmet fortfarande har hög tillgänglighet.
 
 > [!IMPORTANT]
-> Vi rekommenderar starkt att du konfigurerar de Azure Cosmos-konton som används för produktions arbets belastningar för att **Aktivera automatisk redundans** . Manuell redundans kräver anslutning mellan sekundär och primär Skriv region för att slutföra en konsekvens kontroll för att säkerställa att inga data går förlorade under redundansväxlingen. Om den primära regionen inte är tillgänglig kan konsekvens kontrollen inte slutföras och den manuella redundansväxlingen Miss lyckas, vilket leder till förlust av Skriv tillgänglighet under den tid det regionala avbrottet varar.
+> Vi rekommenderar starkt att du konfigurerar de Azure Cosmos-konton som används för produktions arbets belastningar för att **Aktivera automatisk redundans**. Manuell redundans kräver anslutning mellan sekundär och primär Skriv region för att slutföra en konsekvens kontroll för att säkerställa att inga data går förlorade under redundansväxlingen. Om den primära regionen inte är tillgänglig kan konsekvens kontrollen inte slutföras och den manuella redundansväxlingen Miss lyckas, vilket leder till förlust av Skriv tillgänglighet under den tid det regionala avbrottet varar.
 
 ### <a name="multi-region-accounts-with-a-single-write-region-read-region-outage"></a>Konton med flera regioner och en enkel-eller region (Läs regions avbrott)
 
@@ -100,9 +100,7 @@ Med support för tillgänglighets zon kan Azure Cosmos DB se till att repliker p
 
 Zon redundans är en *kompletterande funktion* för [replikeringen i skriv funktionen i flera regioner](how-to-multi-master.md) . Zon redundans kan inte förlita sig på att uppnå regional återhämtning. I händelse av regionala avbrott eller åtkomst med låg fördröjning i regionerna, rekommenderar vi till exempel att du har flera Skriv regioner förutom zon redundans.
 
-När du konfigurerar flera regions skrivningar för ditt Azure Cosmos-konto kan du välja zon redundans utan extra kostnad. I annat fall kan du läsa avsnittet om prissättningen av stöd för zon redundans. Du kan aktivera zon redundans i en befintlig region för ditt Azure Cosmos-konto genom att ta bort regionen och lägga till den igen med zon redundansen aktive rad.
-
-Den här funktionen är tillgänglig i: *Storbritannien, södra, Sydostasien, USA, östra USA, östra USA 2, centrala USA, Västeuropa, västra USA 2, Östra Japan, norra Europa, centrala Australien, östra USA 2 EUAP* regioner.
+När du konfigurerar flera regions skrivningar för ditt Azure Cosmos-konto kan du välja zon redundans utan extra kostnad. I annat fall kan du läsa avsnittet om prissättningen av stöd för zon redundans. Du kan aktivera zon redundans i en befintlig region för ditt Azure Cosmos-konto genom att ta bort regionen och lägga till den igen med zon redundansen aktive rad. En lista över regioner där tillgänglighets zoner stöds finns i dokumentationen om [tillgänglighets zoner](../availability-zones/az-region.md) .
 
 I följande tabell sammanfattas funktionen för hög tillgänglighet för olika konto konfigurationer:
 

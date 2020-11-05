@@ -1,20 +1,20 @@
 ---
 title: Bygg en graf-databas med java i Azure Cosmos DB
 description: Presenterar ett Java-kodexempel som du kan använda för att ansluta till och ställa frågor mot Azure Cosmos DB via Gremlin.
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2019
-ms.author: jasonh
+ms.author: chrande
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 2ae86f918b1ecaf28d5f0118d90ea6c2389674da
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 5a793eb69b344e361679759e46db47c78885831e
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129719"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360980"
 ---
 # <a name="quickstart-build-a-graph-database-with-the-java-sdk-and-the-azure-cosmos-db-gremlin-api"></a>Snabb start: bygga en graf-databas med Java SDK och Azure Cosmos DB Gremlin-API: et
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -101,7 +101,7 @@ Den här Java-konsolen använder en [Gremlin-API](graph-introduction.md) -databa
 
 Gå nu tillbaka till Azure Portal för att hämta anslutningsinformation och kopiera den till appen. De här inställningarna gör det möjligt för appen att kommunicera med den värdbaserade databasen.
 
-1. I ditt Azure Cosmos DB konto i [Azure Portal](https://portal.azure.com/)väljer du **nycklar** . 
+1. I ditt Azure Cosmos DB konto i [Azure Portal](https://portal.azure.com/)väljer du **nycklar**. 
 
     Kopiera den första delen av URI-värdet.
 
@@ -168,17 +168,17 @@ Gå nu tillbaka till Azure Portal för att hämta anslutningsinformation och kop
 
 Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i grafen, och lägga till ytterligare datapunkter.
 
-1. I ditt Azure Cosmos DB konto i Azure Portal väljer du **datautforskaren** , expanderar **exempel diagram** , väljer **diagram** och väljer sedan **Använd filter** . 
+1. I ditt Azure Cosmos DB konto i Azure Portal väljer du **datautforskaren** , expanderar **exempel diagram** , väljer **diagram** och väljer sedan **Använd filter**. 
 
-   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png" alt-text="Visa och kopiera åtkomstnyckeln i Azure Portal, sidan Nycklar":::
+   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png" alt-text="Skärm bild som visar diagram som valts från en P I med alternativet att tillämpa filter.":::
 
 2. I listan **Resultat** kan du se nya användare som har lagts till i grafen. Välj **ben** och lägg märke till att användaren är kopplad till robin. Du kan flytta hörnen genom att dra och släppa, zooma in och ut genom att bläddra med mushjulet, och utöka diagrammets storlek med hjälp av dubbelpilen. 
 
-   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png" alt-text="Visa och kopiera åtkomstnyckeln i Azure Portal, sidan Nycklar":::
+   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png" alt-text="Nya hörn i grafen i datautforskaren på Azure Portal":::
 
 3. Vi ska nu lägga till några nya användare. Välj **ny nod** för att lägga till data i diagrammet.
 
-   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Visa och kopiera åtkomstnyckeln i Azure Portal, sidan Nycklar":::
+   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Skärm bild som visar fönstret nytt hörn där du kan ange värden.":::
 
 4. Ange *person* i etikettrutan.
 
@@ -193,11 +193,11 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
     > [!NOTE]
     > I den här snabbstartsguiden skapar du en icke-partitionerad samling. Men om du skapar en partitionerad samling genom att ange en partitionsnyckel när samlingen skapas, måste du lägga till partitionsnyckeln som nyckel i varje nytt hörn. 
 
-6. Välj **OK** . Du kan behöva expandera skärmen för att se **OK** längst ned på skärmen.
+6. Välj **OK**. Du kan behöva expandera skärmen för att se **OK** längst ned på skärmen.
 
 7. Välj **nytt hörn** igen och Lägg till ytterligare en ny användare. 
 
-8. Ange en etikett för *person* .
+8. Ange en etikett för *person*.
 
 9. Välj **Lägg till egenskap** för att lägga till var och en av följande egenskaper:
 
@@ -207,23 +207,23 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
     kön|man| 
     skola|MIT| 
 
-10. Välj **OK** . 
+10. Välj **OK**. 
 
-11. Välj knappen **Använd filter** med standard `g.V()` filtret för att visa alla värden i diagrammet. Nu visas alla användare i listan **Resultat** . 
+11. Välj knappen **Använd filter** med standard `g.V()` filtret för att visa alla värden i diagrammet. Nu visas alla användare i listan **Resultat**. 
 
     Allteftersom du lägger till data kan du använda filter för att begränsa resultaten. Som standard använder Datautforskaren `g.V()` för att hämta alla hörnen i ett diagram. Du kan ändra till en annan [diagramfråga](tutorial-query-graph.md), t.ex. `g.V().count()`, för att returnera en uppräkning av alla hörn i diagrammet i JSON-format. Om du har ändrat filtret ändrar du tillbaka filtret till `g.V()` och väljer **Använd filter** för att visa alla resultat igen.
 
-12. Nu kan du koppla ihop rakesh och ashley. Se till att **Ashley** är markerat i **resultat** listan och välj sedan :::image type="content" source="./media/create-graph-java/edit-pencil-button.png" alt-text="Visa och kopiera åtkomstnyckeln i Azure Portal, sidan Nycklar":::  bredvid **mål** på nedre högra sidan. Du kan behöva bredda fönstret för att se knappen.
+12. Nu kan du koppla ihop rakesh och ashley. Se till att **Ashley** är markerat i **resultat** listan och välj sedan :::image type="content" source="./media/create-graph-java/edit-pencil-button.png" alt-text="ändra målet för ett formhörn i ett diagram":::  bredvid **mål** på nedre högra sidan. Du kan behöva bredda fönstret för att se knappen.
 
-    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Visa och kopiera åtkomstnyckeln i Azure Portal, sidan Nycklar":::
+    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Ändra målet för ett formhörn i ett diagram – Azure-CosmosDB":::
 
 13. I rutan **mål** anger du *Rakesh* och i rutan **kant etikett** anger du *känner* till och markerar sedan kryss rutan.
 
-    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png" alt-text="Visa och kopiera åtkomstnyckeln i Azure Portal, sidan Nycklar":::
+    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png" alt-text="Lägg till en anslutning i Datautforskaren – Azure-CosmosDB":::
 
 14. Markera nu **rakesh** i resultatlistan och se att Ashley och Rakesh är anslutna. 
 
-    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-graph-explorer.png" alt-text="Visa och kopiera åtkomstnyckeln i Azure Portal, sidan Nycklar":::
+    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-graph-explorer.png" alt-text="Två hörn anslutna i Datautforskaren – Azure-CosmosDB":::
 
 Då är delen om att skapa resurser slutförd i den här självstudien. Du kan fortsätta att lägga till hörn i diagrammet, ändra befintliga hörn eller ändra frågorna. Vi ska nu titta på de mått som Azure Cosmos DB tillhandahåller, och sedan ska vi rensa resurserna. 
 

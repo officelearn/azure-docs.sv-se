@@ -11,12 +11,12 @@ ms.date: 09/30/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: dokument bearbetning
-ms.openlocfilehash: 287315440199c4dc3ded1298532167d37d89a877
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5df8ced885768308369599d94c5734fa0620c507
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976155"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360878"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Träna en formulär igenkännings modell med etiketter med hjälp av verktyget för att använda exempel etiketter
 
@@ -32,11 +32,19 @@ För att slutföra den här snabb starten måste du ha:
 * När du har en Azure-prenumeration kan du <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title=" skapa en formulär igenkännings resurs "  target="_blank"> skapa en formulär igenkännings resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
     * Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till Forms igenkännings-API: et. Du klistrar in nyckeln och slut punkten i koden nedan i snabb starten.
     * Du kan använda den kostnads fria pris nivån ( `F0` ) för att testa tjänsten och senare uppgradera till en betald nivå för produktion.
-* En uppsättning av minst sex formulär av samma typ. Du använder dessa data för att träna modellen och testa ett formulär. Du kan använda en [exempel data uppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) (Hämta och extrahera *sample_data.zip*) för den här snabb starten. Ladda upp utbildnings-filerna till roten för en Blob Storage-behållare i ett Azure Storage konto med standard prestanda nivå.
+* En uppsättning av minst sex formulär av samma typ. Du använder dessa data för att träna modellen och testa ett formulär. Du kan använda en [exempel data uppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) (Hämta och extrahera *sample_data.zip* ) för den här snabb starten. Ladda upp utbildnings-filerna till roten för en Blob Storage-behållare i ett Azure Storage konto med standard prestanda nivå.
 
 ## <a name="create-a-form-recognizer-resource"></a>Skapa en formulär igenkännings resurs
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
+
+## <a name="try-it-out"></a>Prova nu
+
+Om du vill testa formulär tolkens exempel etikett verktyg online går du till FOTT- [webbplatsen](https://fott-preview.azurewebsites.net/).
+
+> [!div class="nextstepaction"]
+> [Formulär tolkens exempel etikett verktyg](https://fott-preview.azurewebsites.net/)
+
 
 ## <a name="set-up-the-sample-labeling-tool"></a>Konfigurera verktyget för samplings etiketter
 
@@ -122,7 +130,7 @@ Fyll i fälten med följande värden:
 
 * **Visnings namn** – anslutningens visnings namn.
 * **Beskrivning** – din projekt beskrivning.
-* **SAS-URL** – URL: en för signaturen för delad åtkomst (SAS) för din Azure Blob Storage-behållare. Hämta SAS-URL: en genom att öppna Microsoft Azure Storage Explorer, högerklicka på behållaren och välja **Hämta signatur för delad åtkomst**. Ange förfallotiden till en tid som infaller efter att du har använt tjänsten. Kontrol lera att behörigheterna **läsa**, **skriva**, **ta bort**och **lista** är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Det bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* **SAS-URL** – URL: en för signaturen för delad åtkomst (SAS) för din Azure Blob Storage-behållare. Hämta SAS-URL: en genom att öppna Microsoft Azure Storage Explorer, högerklicka på behållaren och välja **Hämta signatur för delad åtkomst**. Ange förfallotiden till en tid som infaller efter att du har använt tjänsten. Kontrol lera att behörigheterna **läsa** , **skriva** , **ta bort** och **lista** är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Det bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
 :::image type="content" source="../media/label-tool/connections.png" alt-text="Anslutnings inställningar för verktyget för exempel etiketter.":::
 
@@ -139,7 +147,7 @@ I exempel verktyget för etikettering kan du lagra dina konfigurationer och inst
 * **API-nyckel** – ditt formulärs igenkännings prenumerations nyckel.
 * **Beskrivning** – valfri projekt Beskrivning
 
-:::image type="content" source="../media/label-tool/new-project.png" alt-text="Anslutnings inställningar för verktyget för exempel etiketter.":::
+:::image type="content" source="../media/label-tool/new-project.png" alt-text="Sidan ny projekt på exempel etikett verktyg.":::
 
 ## <a name="label-your-forms"></a>Etikettera formulär
 
@@ -155,7 +163,7 @@ Klicka på **Kör OCR på alla filer** i den vänstra rutan för att få informa
 
 Då visas även vilka tabeller som har extraherats automatiskt. Klicka på ikonen för tabell/rutnät till vänster i dokumentet för att se den extraherade tabellen. I den här snabb starten, eftersom tabell innehållet hämtas automatiskt, kommer vi inte att märka tabell innehållet, utan förlitar sig på den automatiserade extraheringen.
 
-:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Anslutnings inställningar för verktyget för exempel etiketter.":::
+:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Tabell visualisering i exempel etikett verktyg.":::
 
 ### <a name="apply-labels-to-text"></a>Använd etiketter på text
 
@@ -201,7 +209,7 @@ Därefter skapar du taggar (etiketter) och tillämpar dem på de text element so
 
 ---
 
-:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Anslutnings inställningar för verktyget för exempel etiketter.":::
+:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Huvud redigerings fönstret för exempel etikett verktyg.":::
 
 
 Följ stegen ovan för att etikettera minst fem av formulären.
@@ -229,7 +237,7 @@ Följande värde typer och varianter stöds för närvarande:
 > 
 > Du måste ange ett format ( `dmy` , `mdy` , `ymd` ) för att datum formatet ska fungera.
 >
-> Följande tecken kan användas som datum avgränsare: `, - / . \` . Det går inte att använda blank steg som avgränsare. Till exempel:
+> Följande tecken kan användas som datum avgränsare: `, - / . \` . Det går inte att använda blank steg som avgränsare. Exempel:
 > * 01, 01, 2020
 > * 01-01-2020
 > * 01/01/2020
@@ -256,7 +264,7 @@ Klicka på ikonen träna i det vänstra fönstret för att öppna sidan utbildni
 * Listan med taggar och den uppskattade noggrannheten per tagg.
 
 
-:::image type="content" source="../media/label-tool/train-screen.png" alt-text="Anslutnings inställningar för verktyget för exempel etiketter.":::
+:::image type="content" source="../media/label-tool/train-screen.png" alt-text="Tränings visning.":::
 
 Efter att utbildningen har slutförts undersöker du det **genomsnittliga noggrannhet** svärdet. Om den är låg bör du lägga till fler indatamängder och upprepa stegen ovan. Dokumenten som du redan har märkt kommer att finnas kvar i projekt indexet.
 
@@ -275,7 +283,7 @@ Med Model Compose kan du ha upp till 100 modeller med ett enda modell-ID. När d
 
 Om du vill skapa modeller i exempel etikett verktyget klickar du på ikonen skapa (sammanfoga pilen) till vänster. Till vänster väljer du de modeller som du vill skapa tillsammans. Modeller med ikonen pilar består redan av modeller. Klicka på knappen "skapa". I popup-fönstret namnger du din nya sammansatta modell och klickar på "skapa". När åtgärden har slutförts ska den nya, färdiga modellen visas i listan. 
 
-:::image type="content" source="../media/label-tool/model-compose.png" alt-text="Anslutnings inställningar för verktyget för exempel etiketter.":::
+:::image type="content" source="../media/label-tool/model-compose.png" alt-text="Skapa UX-vy för modell.":::
 
 ---
 

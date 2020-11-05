@@ -10,13 +10,13 @@ ms.author: nibaccam
 author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
-ms.custom: how-to
-ms.openlocfilehash: a8868b930abe28ed205446df0c6c9b0f111213eb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, data4ml
+ms.openlocfilehash: e97546e678b3b7bf7932600ea53d09557493685c
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312787"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359875"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Ansluta till data med Azure Machine Learning Studio
 
@@ -50,8 +50,6 @@ För en kod första gången kan du läsa följande artiklar för att använda [A
 
 Du kan skapa data lager från [dessa Azure Storage-lösningar](how-to-access-data.md#matrix). **För lagrings lösningar som inte stöds** och för att spara utgående kostnader under ml-experiment måste du [flytta dina data](how-to-access-data.md#move) till en Azure Storage-lösning som stöds. [Läs mer om data lager](how-to-access-data.md). 
 
-
-
 Skapa ett nytt data lager med några steg med Azure Machine Learning Studio.
 
 > [!IMPORTANT]
@@ -60,7 +58,7 @@ Skapa ett nytt data lager med några steg med Azure Machine Learning Studio.
 1. Logga in på [Azure Machine Learning Studio](https://ml.azure.com/).
 1. Välj **data lager** i det vänstra fönstret under **Hantera**.
 1. Välj **+ nytt data lager**.
-1. Fyll i formuläret för ett nytt data lager. Formuläret uppdateras intelligent baserat på dina val för Azures lagrings typ och autentiseringstyp. Se [avsnittet lagrings åtkomst och behörigheter](#access-validation) för att förstå var du hittar autentiseringsuppgifterna för autentisering som du behöver fylla i det här formuläret.
+1. Fyll i formuläret för att skapa och registrera ett nytt data lager. Formuläret uppdateras intelligent baserat på dina val för Azures lagrings typ och autentiseringstyp. Se [avsnittet lagrings åtkomst och behörigheter](#access-validation) för att förstå var du hittar autentiseringsuppgifterna för autentisering som du behöver fylla i det här formuläret.
 
 Följande exempel visar hur formuläret ser ut när du skapar ett **Azure Blob-datalager** :
 
@@ -157,11 +155,15 @@ Du hittar konto nyckel, SAS-token och information om tjänstens huvud namn på d
     * Dess motsvarande **översikts** sida innehåller nödvändig information, t. ex. klient-ID och klient-ID.
 
 > [!IMPORTANT]
-> Av säkerhets skäl kan du behöva ändra åtkomst nycklarna för ett Azure Storage konto (konto nyckel eller SAS-token). När du gör det, måste du synkronisera de nya autentiseringsuppgifterna med din arbets yta och de data lager som är anslutna till den. Lär dig hur du [synkroniserar dina uppdaterade autentiseringsuppgifter](how-to-change-storage-access-key.md).
+> * Om du behöver ändra åtkomst nycklarna för ett Azure Storage konto (konto nyckel eller SAS-token) måste du synkronisera de nya autentiseringsuppgifterna med din arbets yta och de data lager som är anslutna till den. Lär dig hur du [synkroniserar dina uppdaterade autentiseringsuppgifter](how-to-change-storage-access-key.md). <br> <br>
+> * Om du avregistrerar och omregistrerar ett data lager med samma namn, och det Miss lyckas, kan det hända att Azure Key Vault för din arbets yta inte har mjuk borttagning aktive rad. Som standard aktive ras mjuk borttagning för Key Vault-instansen som skapats av din arbets yta, men den är kanske inte aktive rad om du använde ett befintligt nyckel valv eller har en arbets yta som skapats före oktober 2020. Information om hur du aktiverar mjuk borttagning finns i [Aktivera mjuk borttagning för ett befintligt nyckel valv]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault). "
 
 ### <a name="permissions"></a>Behörigheter
 
-För Azure Blob-behållare och Azure Data Lake gen 2-lagring, se till att dina autentiseringsuppgifter har åtkomst till **lagrings-BLOB-dataläsaren** . Läs mer om [Storage BLOB data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). 
+För Azure Blob-behållare och Azure Data Lake gen 2-lagring, se till att dina autentiseringsuppgifter har åtkomst till **lagrings-BLOB-dataläsaren** . Läs mer om [Storage BLOB data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). Ett konto SAS-token som standard saknar behörighet. 
+* För **Läs behörighet** för data måste autentiseringsuppgifterna för autentisering ha minst list-och Läs behörighet för behållare och objekt. 
+
+* För data **Skriv åtkomst** krävs även Skriv-och tilläggs behörigheter.
 
 ## <a name="train-with-datasets"></a>Träna med datauppsättningar
 

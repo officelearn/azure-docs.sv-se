@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
-ms.date: 10/30/2020
+ms.date: 11/4/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 0a97286564f7d2c04268034d6f70b1a178cbb5a5
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 3f3196e775ff9e7d8064559069414952f09a3016
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348346"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360232"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Marknads plats partner och kund användnings behörighet
 
@@ -311,10 +311,6 @@ Kunder kan spåra användningen av enskilda resurser eller kunddefinierade resur
 **Liknar den här metoden en digital partner av Record (DPOR)?**
 
 Den här nya metoden för att ansluta distribution och användning till en partners lösning är en mekanism för att länka en partner lösning till Azure-användning. DPOR är avsett att koppla en konsult (Systems Integrator) eller hanterings partner (hanterad tjänst leverantör) till en kunds Azure-prenumeration.
-
-**Vad är fördelarna med att använda Azure Storages GUID Generator form?**
-
-Azure Storages formulär för GUID-Generator garanterar att ett GUID för det begärda formatet genereras. Om du använder någon av Azure Storages spårnings metoder för data planet kan du dessutom använda samma GUID för spårning av plats kontroll planet. På så sätt kan du använda en enda enhetlig GUID för partner tilldelning utan att behöva ha separata GUID.
 
 **Kan jag använda en privat, anpassad VHD för en lösnings mal len-erbjudande på Azure Marketplace?**
 

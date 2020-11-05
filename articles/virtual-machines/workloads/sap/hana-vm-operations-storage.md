@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0861d1fd3ab2a378f0b9afc4e8b35b32badfc3db
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 99c94528c13228e07327b529782f211ec92a08ea
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670663"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359858"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Lagringskonfigurationer för virtuella Azure-datorer för SAP HANA
 
@@ -44,9 +44,9 @@ Lägsta SAP HANA certifierade villkor för olika lagrings typer är:
 
 - Azure Premium Storage – **/Hana/log** krävs för att Azure [Skrivningsaccelerator](../../how-to-enable-write-accelerator.md)ska kunna användas. **/Hana/data** -volymen kan placeras på Premium Storage utan Azure Skrivningsaccelerator eller på Ultra disk
 - Azure Ultra disk minst för **/Hana/log** -volymen. **/Hana/data** -volymen kan placeras på antingen Premium Storage utan Azure Skrivningsaccelerator eller för att få snabbare omstart Ultra disk
-- **NFS v 4.1** -volymer ovanpå Azure NetApp Files för **/Hana/log och/Hana/data** . Volymen av/Hana/Shared kan använda NFS v3-eller NFS v 4.1-protokollet
+- **NFS v 4.1** -volymer ovanpå Azure NetApp Files för **/Hana/log och/Hana/data**. Volymen av/Hana/Shared kan använda NFS v3-eller NFS v 4.1-protokollet
 
-Några av lagrings typerna kan kombineras. Det är till exempel möjligt att placera **/Hana/data** till Premium Storage och **/Hana/log** kan placeras på Ultra disk Storage för att få en nödvändig låg latens. Om du använder en volym som baseras på ANF för **/Hana/data** måste  **/Hana/log** -volymen baseras på NFS även ovanpå ANF. Att använda NFS ovanpå ANF för en av volymerna (t. ex./Hana/data) och Azure Premium-lagring eller Ultra disk för den andra volymen (t. ex. **/Hana/log** ) **stöds inte** .
+Några av lagrings typerna kan kombineras. Det är till exempel möjligt att placera **/Hana/data** till Premium Storage och **/Hana/log** kan placeras på Ultra disk Storage för att få en nödvändig låg latens. Om du använder en volym som baseras på ANF för **/Hana/data** måste  **/Hana/log** -volymen baseras på NFS även ovanpå ANF. Att använda NFS ovanpå ANF för en av volymerna (t. ex./Hana/data) och Azure Premium-lagring eller Ultra disk för den andra volymen (t. ex. **/Hana/log** ) **stöds inte**.
 
 I den lokala världen var du sällan medveten om I/O-undersystemen och dess funktioner. Orsaken var att den nödvändiga enhets leverantören för att se till att minimi kraven för lagring är uppfyllda för SAP HANA. När du skapar Azure-infrastrukturen själv bör du vara medveten om några av dessa SAP-utfärdade krav. Några av de minsta data flödes egenskaper som SAP rekommenderar är:
 
@@ -93,7 +93,7 @@ Rekommendationerna för cachelagring för Azure Premium-diskar nedan förutsätt
 - **OS-disk** – ändra inte standardvärdet för cachelagring som anges av Azure när den virtuella datorn skapades
 
 
-Om du använder LVM eller mdadm för att skapa stripe-uppsättningar över flera Azure Premium-diskar måste du definiera stripe-storlekar. Dessa storlekar skiljer sig mellan **/Hana/data** och **/Hana/log** . **Rekommendation: som en rand storlek rekommenderar vi att du använder:**
+Om du använder LVM eller mdadm för att skapa stripe-uppsättningar över flera Azure Premium-diskar måste du definiera stripe-storlekar. Dessa storlekar skiljer sig mellan **/Hana/data** och **/Hana/log**. **Rekommendation: som en rand storlek rekommenderar vi att du använder:**
 
 - 256 KB för **/Hana/data**
 - 64 KB för **/Hana/log**
@@ -179,8 +179,8 @@ För de andra volymerna skulle konfigurationen se ut så här:
 
 | VM-SKU | RAM | Max. VM-I/O<br /> Dataflöde | /hana/shared | /root-volym | /usr/sap |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
-| M32ts | 192 GiB | 500 Mbit/s | 1 x P20 | 1 x P6 | 1 x P6 |
-| M32ls | 256 GiB | 500 Mbit/s |  1 x P20 | 1 x P6 | 1 x P6 |
+| M32ts | 192 GiB | 500 Mbit/s | 1 x p15 | 1 x P6 | 1 x P6 |
+| M32ls | 256 GiB | 500 Mbit/s |  1 x p15 | 1 x P6 | 1 x P6 |
 | M64ls | 512 GiB | 1000 Mbit/s | 1 x P20 | 1 x P6 | 1 x P6 |
 | M64s | 1 000 GiB | 1 000 Mbit/s | 1 x P30 | 1 x P6 | 1 x P6 |
 | M64ms | 1 750 GiB | 1 000 Mbit/s | 1 x P30 | 1 x P6 | 1 x P6 | 

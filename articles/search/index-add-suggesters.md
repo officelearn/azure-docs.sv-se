@@ -7,18 +7,18 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/21/2020
+ms.date: 11/04/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f8959bf84e2b5629e03c2571fa494b96cec4f8e9
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 8ae25c63e9c6e3bf6ad363cde9eb641703562811
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347649"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360028"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Skapa en förslags ställare för att aktivera Autoavsluta och föreslagna resultat i en fråga
 
-I Azure Kognitiv sökning aktive ras "Sök som-du-typ" via en **förslags** konstruktion som läggs till i ett [sökindex](search-what-is-an-index.md). En förslags ställare stöder två upplevelser: *komplettera automatiskt* , som slutför en del inbetalningar för en hel terms fråga och *förslag* som bjuder in genom att klicka igenom till en viss matchning. Funktionen Komplettera automatiskt skapar en fråga. Förslag skapar ett matchande dokument.
+I Azure Kognitiv sökning aktive ras "Sök som-du-typ" via en **förslags** konstruktion som läggs till i ett [sökindex](search-what-is-an-index.md). En förslags ställare stöder två upplevelser: *komplettera automatiskt* , som slutför indatamängden för en fullständig term fråga och *förslag* som bjuder in genom att klicka igenom till en viss matchning. Funktionen Komplettera automatiskt skapar en fråga. Förslag skapar ett matchande dokument.
 
 Följande skärm bild från [skapa din första app i C#](tutorial-csharp-type-ahead-and-suggestions.md) visar båda. Autoavsluta förväntar sig en möjlig term, och avslutar "TW" med "in". Förslag är små Sök resultat, där ett fält som ett hotell namn representerar ett matchande hotell Sök dokument från indexet. För förslag kan du Visa alla fält som innehåller beskrivande information.
 
@@ -44,6 +44,8 @@ Om du vill skapa en förslags pekare, lägger du till ett i ett [index schema](/
 
 + Använd standard standard Lucene Analyzer ( `"analyzer": null` ) eller en [språk analys](index-add-language-analyzers.md) (till exempel `"analyzer": "en.Microsoft"` ) i fältet
 
+Om du försöker skapa en förslags ställare med redan existerande fält kommer API: et att tillåta det. Prefix skapas vid indexering, om del termer i två eller flera teckenkombinationer är token i hela termer. Eftersom befintliga fält redan har tokens, måste du återskapa indexet om du vill lägga till dem i en förslags ställare. Mer information finns i [så här återskapar du ett Azure kognitiv sökning-index](search-howto-reindex.md).
+
 ### <a name="choose-fields"></a>Välj fält
 
 Även om en förslags ställare har flera egenskaper, är det i första hand en samling sträng fält för vilka du aktiverar en sökning efter typ. Det finns en förslags ställare för varje index, så att listan över förslag måste innehålla alla fält som bidrar med innehåll för både förslag och Autoavsluta.
@@ -64,12 +66,6 @@ Fält som använder [anpassade analyserare](index-add-custom-analyzers.md) eller
 
 > [!NOTE]
 > Om du behöver använda ett nyckelord eller ngram Analyzer för vissa fråge scenarier, bör du använda två separata fält för samma innehåll. Detta gör att ett av fälten kan ha en förslags ställare, medan det andra kan konfigureras med en anpassad Analyzer-konfiguration.
-
-### <a name="when-to-create-a-suggester"></a>När du ska skapa en förslags ställare
-
-Det bästa sättet att skapa en förslags ställare är när du också skapar själva fält definitionen.
-
-Om du försöker skapa en förslags ställare med redan existerande fält kommer API: et att tillåta det. Prefix skapas vid indexering, om del termer i två eller flera teckenkombinationer är token i hela termer. Eftersom befintliga fält redan har tokens, måste du återskapa indexet om du vill lägga till dem i en förslags ställare. Mer information finns i [så här återskapar du ett Azure kognitiv sökning-index](search-howto-reindex.md).
 
 ## <a name="create-using-rest"></a>Skapa med REST
 

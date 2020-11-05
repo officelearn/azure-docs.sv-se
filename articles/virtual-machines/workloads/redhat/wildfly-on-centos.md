@@ -1,5 +1,5 @@
 ---
-title: Snabb start – WildFly på CentOS
+title: Snabbstart – WildFly på CentOS
 description: Distribuera Java-program till WildFly på CentOS VM
 author: Theresa-Nguyen
 ms.author: bicnguy
@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.assetid: 7aa21ef8-9cfb-43e0-bfda-3f10a2a2f3ef
 ms.date: 10/23/2020
-ms.openlocfilehash: 875d04751475d1d5236e9f15fbca585cdc9b1ab0
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 842913b8e9f83ff3b188976da55aef7c909518ca
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897688"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359926"
 ---
 # <a name="quickstart-wildfly-on-centos-8"></a>Snabb start: WildFly på CentOS 8
 
@@ -49,13 +49,15 @@ Om du vill starta en fristående WildFly-server med en annan angiven konfigurati
 
 Om du till exempel vill använda Jakarta EE plattform 8 med kluster funktioner använder du följande kommando:
 
-`./standalone.sh --server-config=standalone-full-ha.xml`
+```
+./standalone.sh --server-config=standalone-full-ha.xml
+```
 
 Om du vill veta mer om konfigurationerna kan du läsa mer om konfigurationen i [WildFly komma igång guide](https://docs.wildfly.org/18/Getting_Started_Guide.html#wildfly-10-configurations).
 
 ## <a name="licensing-support-and-subscription-notes"></a>Anteckningar om licensiering, support och prenumeration
 
-Azure CentOS 8-avbildningen är en virtuell dator avbildning med PAYG (betala per användning) och kräver inte att användaren skaffar en licens. Första gången den virtuella datorn startas, aktive ras den virtuella datorns operativ system automatiskt och debiteras per tim pris. Detta är i tillägg till Microsofts Linux-Tim taxa för virtuella datorer. Klicka på [priser för virtuella Linux-datorer](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#linux) för mer information. WildFly är kostnads fri att ladda ned och använda och kräver inte en Red Hat-prenumeration eller-licens.
+Azure CentOS 8-avbildningen är en virtuell dator avbildning med PAYG (betala per användning) och kräver inte att användaren skaffar en licens. Första gången den virtuella datorn startas aktive ras den virtuella datorns OS-licens automatiskt och debiteras per tim pris. Detta är i tillägg till Microsofts Linux-Tim taxa för virtuella datorer. Klicka på [priser för virtuella Linux-datorer](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#linux) för mer information. WildFly är kostnads fri att ladda ned och använda och kräver inte en Red Hat-prenumeration eller-licens.
 
 ## <a name="how-to-consume"></a>Hur man använder
 
@@ -63,15 +65,23 @@ Du kan distribuera mallen på följande tre sätt:
 
 - Använd PowerShell – distribuera mallen genom att köra följande kommandon: (kolla [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) för information om hur du installerar och konfigurerar Azure PowerShell).
 
-    `New-AzResourceGroup -Name <resource-group-name> -Location <resource-group-location> #use this command when you need to create a new Resource Group for your deployment`
+    ```
+    New-AzResourceGroup -Name <resource-group-name> -Location <resource-group-location> #use this command when you need to create a new Resource Group for your deployment
+    ```
 
-    `New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/wildfly-standalone-centos8/azuredeploy.json`
+    ```
+    New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/wildfly-standalone-centos8/azuredeploy.json
+    ```
     
 - Använd Azure CLI – distribuera mallen genom att köra följande kommandon: (kolla in [Azures plattforms oberoende kommando rad](https://docs.microsoft.com/cli/azure/install-azure-cli) om du vill ha mer information om hur du installerar och konfigurerar Azures plattforms oberoende Command-Line gränssnittet).
 
-    `az group create --name <resource-group-name> --location <resource-group-location> #use this command when you need to create a new Resource Group for your deployment`
+    ```
+    az group create --name <resource-group-name> --location <resource-group-location> #use this command when you need to create a new Resource Group for your deployment
+    ```
 
-    `az group deployment create --resource-group <my-resource-group> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/wildfly-standalone-centos8/azuredeploy.json`
+    ```
+    az group deployment create --resource-group <my-resource-group> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/wildfly-standalone-centos8/azuredeploy.json
+    ```
 
 - Använd Azure Portal – distribuera mallen genom att klicka <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fwildfly-standalone-centos8%2Fazuredeploy.json" target="_blank">här</a> och logga in på din Azure Portal.
 
@@ -81,7 +91,7 @@ Du kan distribuera mallen på följande tre sätt:
 
 ## <a name="resource-links"></a>Resurs länkar
 
-* Läs mer om [WildFly 18](https://wildfly.org/18)
+* Läs mer om [WildFly 18](https://docs.wildfly.org/18/)
 * Lär dig mer om [Linux-distributioner på Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)
 * [Dokumentation om Azure för Java-utvecklare](https://github.com/JasonFreeberg/jboss-on-app-service)
 

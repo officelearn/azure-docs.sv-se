@@ -6,14 +6,14 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 11/04/2020
 ms.reviewer: sngun
-ms.openlocfilehash: f439fcd8b2aa1c75e1aff2c6b775921beabbcddf
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: cf9d0aea9ab9e79a5f184a42e1bb785b6fb870a7
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340566"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360096"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Time to Live i Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -22,7 +22,7 @@ Med **Time to Live** eller TTL ger Azure Cosmos DB möjlighet att ta bort objekt
 
 Borttagning av utgångna objekt är en bakgrunds aktivitet som förbrukar [enheter](request-units.md)med överdrivet utrymme, det vill säga enheter som inte har använts av användar förfrågningar. Även om TTL-värdet har upphört att gälla, om behållaren överbelastas med begär Anden och om det inte finns tillräckligt många RU-objekt, så fördröjs data borttagningen. Data tas bort när det finns tillräckligt med ru: er tillgängliga för att utföra borttagnings åtgärden. Även om data borttagningen fördröjs, returneras inte data av några frågor (med valfritt API) När TTL har upphört att gälla.
 
-> Det här innehållet är relaterat till Azure Cosmos DB transaktions arkivets TTL. Om du letar efter analitycal Store TTL som aktiverar NoETL HTAP-scenarier via [Azure Synapse länk](./synapse-link.md), klickar du [här](./analytical-store-introduction.md#analytical-ttl).
+> Det här innehållet är relaterat till Azure Cosmos DB transaktions arkivets TTL. Om du letar efter analys lagrings-TTL, som möjliggör NoETL HTAP-scenarier via [Azure Synapse-länken](./synapse-link.md), klickar du [här](./analytical-store-introduction.md#analytical-ttl).
 
 ## <a name="time-to-live-for-containers-and-items"></a>Tid till Live för behållare och objekt
 
@@ -34,7 +34,7 @@ TTL-värdet är inställt på några sekunder och tolkas som en delta från den 
 
    - Om det är tillgängligt och värdet har angetts till "-1", är det lika med oändlighet och objekt förfaller inte som standard.
 
-   - Om det är tillgängligt och värdet är inställt på en siffra *"n"* , kommer objekten att förfalla *"n"* sekunder efter deras senaste ändrings tid.
+   - Om detta är tillgängligt och värdet är inställt på *ett tal som* *inte är noll* , kommer objekten att förfalla *"n"* sekunder efter deras senaste ändrings tid.
 
 2. **Time to Live på ett objekt** (anges med `ttl` ):
 
@@ -44,11 +44,11 @@ TTL-värdet är inställt på några sekunder och tolkas som en delta från den 
 
 ## <a name="time-to-live-configurations"></a>Time to Live konfigurationer
 
-* Om TTL är inställt på *"n"* i en behållare går objekten i den behållaren ut efter *n* sekunder.  Om det finns objekt i samma behållare som har sin egen tid att leva, anger du till-1 (indikerar att de inte går ut) eller om vissa objekt har åsidosatt tiden till Live-inställningen med ett annat antal, förfaller dessa objekt baserat på sitt eget konfigurerade TTL-värde. 
+- Om TTL är inställt på *"n"* i en behållare går objekten i den behållaren ut efter *n* sekunder.  Om det finns objekt i samma behållare som har sin egen tid att leva, anger du till-1 (indikerar att de inte går ut) eller om vissa objekt har åsidosatt tiden till Live-inställningen med ett annat antal, förfaller dessa objekt baserat på sitt eget konfigurerade TTL-värde.
 
-* Om TTL inte är inställt på en behållare, har tiden till Live på ett objekt i den här behållaren ingen påverkan. 
+- Om TTL inte är inställt på en behållare, har tiden till Live på ett objekt i den här behållaren ingen påverkan.
 
-* Om TTL på en behållare är inställt på-1, kommer ett objekt i den här behållaren som har TTL-värdet n att förfalla efter n sekunder, och återstående objekt upphör inte att gälla.
+- Om TTL på en behållare är inställt på-1, kommer ett objekt i den här behållaren som har TTL-värdet n att förfalla efter n sekunder, och återstående objekt upphör inte att gälla.
 
 ## <a name="examples"></a>Exempel
 
@@ -60,10 +60,9 @@ TTL för container är inställt på null (DefaultTimeToLive = null)
 
 |TTL för objekt| Resultat|
 |---|---|
-|TTL = null|    TTL har inaktiverats. Objektet upphör aldrig att gälla (standard).|
-|TTL =-1   |TTL har inaktiverats. Objektet upphör aldrig att gälla.|
-|TTL = 2000 |TTL har inaktiverats. Objektet upphör aldrig att gälla.|
-
+|TTL = null|TTL har inaktiverats. Objektet upphör aldrig att gälla (standard).|
+|TTL =-1|TTL har inaktiverats. Objektet upphör aldrig att gälla.|
+|TTL = 2000|TTL har inaktiverats. Objektet upphör aldrig att gälla.|
 
 ### <a name="example-2"></a>Exempel 2
 
@@ -71,10 +70,9 @@ TTL för container är inställt på-1 (DefaultTimeToLive =-1)
 
 |TTL för objekt| Resultat|
 |---|---|
-|TTL = null |TTL har Aktiver ATS. Objektet upphör aldrig att gälla (standard).|
-|TTL =-1   |TTL har Aktiver ATS. Objektet upphör aldrig att gälla.|
-|TTL = 2000 |TTL har Aktiver ATS. Objektet upphör att gälla efter 2000 sekunder.|
-
+|TTL = null|TTL har Aktiver ATS. Objektet upphör aldrig att gälla (standard).|
+|TTL =-1|TTL har Aktiver ATS. Objektet upphör aldrig att gälla.|
+|TTL = 2000|TTL har Aktiver ATS. Objektet upphör att gälla efter 2000 sekunder.|
 
 ### <a name="example-3"></a>Exempel 3
 
@@ -82,12 +80,12 @@ TTL på container är inställt på 1000 (DefaultTimeToLive = 1000)
 
 |TTL för objekt| Resultat|
 |---|---|
-|TTL = null|    TTL har Aktiver ATS. Objektet upphör att gälla efter 1000 sekunder (standard).|
-|TTL =-1   |TTL har Aktiver ATS. Objektet upphör aldrig att gälla.|
-|TTL = 2000 |TTL har Aktiver ATS. Objektet upphör att gälla efter 2000 sekunder.|
+|TTL = null|TTL har Aktiver ATS. Objektet upphör att gälla efter 1000 sekunder (standard).|
+|TTL =-1|TTL har Aktiver ATS. Objektet upphör aldrig att gälla.|
+|TTL = 2000|TTL har Aktiver ATS. Objektet upphör att gälla efter 2000 sekunder.|
 
 ## <a name="next-steps"></a>Nästa steg
 
 Lär dig hur du konfigurerar Time to Live i följande artiklar:
 
-* [Så här konfigurerar du Time to Live](how-to-time-to-live.md)
+- [Så här konfigurerar du Time to Live](how-to-time-to-live.md)

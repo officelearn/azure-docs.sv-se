@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/22/2017
+ms.date: 11/03/2020
 ms.author: barclayn
 ROBOTS: NOINDEX,NOFOLLOW
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8a898e116ee2d88f4ccc5a0131737b2723f8b8d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f899a6c1b4f359f7e8d6e1e05389aa697b4f1bd7
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90969074"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359705"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Självstudier: Använda en användartilldelad hanterad identitet på en virtuell Linux-dator för att få åtkomst till Azure Resource Manager
 
@@ -37,14 +37,11 @@ I den här guiden får du lära dig att:
 > * Ge den användartilldelade hanterade identiteten åtkomst till en resursgrupp i Azure Resource Manager 
 > * Hämta en åtkomsttoken med hjälp av den användartilldelade hanterade identiteten och använd den för att anropa Azure Resource Manager 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
-- [Logga in på Azure Portal](https://portal.azure.com)
-
-- [Skapa en virtuell Linux-dator](../../virtual-machines/linux/quick-create-portal.md)
-
+- Förståelse för hanterade identiteter. Om du inte känner till funktionen för hanterade identiteter för Azure-resurser kan du läsa igenom den här [översikten](overview.md). 
+- Ett Azure-konto kan du [Registrera dig för ett kostnads fritt konto](https://azure.microsoft.com/free/).
+- Du behöver också en virtuell Linux-dator. Om du behöver skapa en virtuell dator för den här självstudien kan du följa artikeln [skapa en virtuell Linux-dator med Azure Portal](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)
 - Om du vill köra exempel skripten har du två alternativ:
     - Använd [Azure Cloud Shell](../../cloud-shell/overview.md)som du kan öppna med knappen **prova** på det övre högra hörnet av kodblock.
     - Kör skript lokalt genom att installera den senaste versionen av [Azure CLI](/cli/azure/install-azure-cli)och logga sedan in på Azure med [AZ-inloggning](/cli/azure/reference-index#az-login).
@@ -76,7 +73,7 @@ Svaret innehåller information om den användartilldelade hanterade identiteten 
 }
 ```
 
-## <a name="assign-a-user-assigned-managed-identity-to-your-linux-vm"></a>Tilldela en användartilldelad hanterad identitet till din virtuella Linux-dator
+## <a name="assign-an-identity-to-your-linux-vm"></a>Tilldela en identitet till din virtuella Linux-dator
 
 En användartilldelad hanterad identitet kan användas av klienter på flera Azure-resurser. Använd följande kommandon för att tilldela den användartilldelade hanterade identiteten till en enskild virtuell dator. Använd egenskapen `Id` som returnerades i föregående steg för `-IdentityID`-parametern.
 
@@ -86,7 +83,7 @@ Tilldela den användartilldelade hanterade identiteten till din virtuella Linux-
 az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<UAMI NAME>"
 ```
 
-## <a name="grant-your-user-assigned-managed-identity-access-to-a-resource-group-in-azure-resource-manager"></a>Ge den användartilldelade hanterade identiteten åtkomst till en resursgrupp i Azure Resource Manager 
+## <a name="grant-access-to-a-resource-group-in-azure-resource-manager"></a>Bevilja åtkomst till en resurs grupp i Azure Resource Manager
 
 Hanterade identiteter för Azure-resurser tillhandahåller identiteter som din kod kan använda för att begära åtkomsttoken för autentisering mot resurs-API:er som stöder Azure AD-autentisering. I den här självstudiekursen använder koden Azure Resource Manager-API:et.  
 
@@ -122,20 +119,20 @@ För att slutföra de här stegen behöver du en SSH-klient. Om du använder Win
 1. Logga in på Azure- [portalen](https://portal.azure.com).
 2. Gå till **Virtuella datorer** på portalen, gå till den virtuella Linux-datorn och klicka sedan på **Anslut** under **Översikt**. Kopiera strängen för anslutning till din virtuella dator.
 3. Anslut till den virtuella datorn med valfri SSH-klient. Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](/windows/wsl/about). Om du behöver hjälp att konfigurera SSH-klientens nycklar läser du [Så här använder du SSH-nycklar med Windows i Azure](~/articles/virtual-machines/linux/ssh-from-windows.md) eller [How to create and use an SSH public and private key pair for Linux VMs in Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md) (Skapa och använda SSH-nyckelpar med privata och offentliga nycklar för virtuella Linux-datorer i Azure).
-4. Gör ett anrop i terminalfönstret med hjälp av CURL till IMDS-identitetsslutpunkten (Azure Instance Metadata Service) för att hämta en åtkomsttoken för Azure Resource Manager.  
+4. Gör ett anrop i terminalfönstret med hjälp av CURL till IMDS-identitetsslutpunkten (Azure Instance Metadata Service) för att hämta en åtkomsttoken för Azure Resource Manager.  
 
-   CURL-begäran om att hämta en åtkomsttoken visas i följande exempel.Ersätt `<CLIENT ID>` med `clientId`-egenskapen som returnerades av kommandot `az identity create` i [Skapa en användartilldelad hanterad identitet](#create-a-user-assigned-managed-identity): 
+   CURL-begäran om att hämta en åtkomsttoken visas i följande exempel. Ersätt `<CLIENT ID>` med `clientId`-egenskapen som returnerades av kommandot `az identity create` i [Skapa en användartilldelad hanterad identitet](#create-a-user-assigned-managed-identity): 
     
    ```bash
-   curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<UAMI CLIENT ID>"   
+   curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<UAMI CLIENT ID>"   
    ```
     
     > [!NOTE]
-    > Värdet för parametern `resource` måste vara en exakt matchning av vad som förväntas av Azure AD.När du använder Resource Manager-resurs-ID:t måste du ta med det avslutande snedstrecket i URI:n. 
+    > Värdet för parametern `resource` måste vara en exakt matchning av vad som förväntas av Azure AD. När du använder Resource Manager-resurs-ID:t måste du ta med det avslutande snedstrecket i URI:n. 
     
-    Svaret innehåller den åtkomsttoken som du behöver för att komma åt Azure Resource Manager. 
+    Svaret innehåller den åtkomsttoken som du behöver för att komma åt Azure Resource Manager. 
     
-    Svarsexempel:  
+    Svarsexempel:  
 
     ```bash
     {
@@ -146,19 +143,19 @@ För att slutföra de här stegen behöver du en SSH-klient. Om du använder Win
     "not_before":"1504126627",
     "resource":"https://management.azure.com",
     "token_type":"Bearer"
-    } 
+    } 
     ```
 
 5. Använd din åtkomsttoken för att komma åt Azure Resource Manager, och läs egenskaperna för den resursgrupp som du tidigare gav den användartilldelade hanterade identiteten åtkomst till. Ersätt `<SUBSCRIPTION ID>` och `<RESOURCE GROUP>` med de värden som du angav tidigare, och `<ACCESS TOKEN>` med den token som returnerades i föregående steg.
 
     > [!NOTE]
-    > Eftersom URL:en är skiftlägeskänslig måste du använda exakt samma skiftläge som du använde tidigare när du namngav resursgruppen, samt versalt ”G” i `resourceGroups`.  
+    > Eftersom URL:en är skiftlägeskänslig måste du använda exakt samma skiftläge som du använde tidigare när du namngav resursgruppen, samt versalt ”G” i `resourceGroups`.  
 
     ```bash 
-    curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
+    curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
     ```
 
-    Svaret innehåller information om den specifika resursgruppen, liknande den i följande exempel: 
+    Svaret innehåller information om den specifika resursgruppen, liknande den i följande exempel: 
 
     ```bash
     {
@@ -166,9 +163,9 @@ För att slutföra de här stegen behöver du en SSH-klient. Om du använder Win
     "name":"DevTest",
     "location":"westus",
     "properties":{"provisioningState":"Succeeded"}
-    } 
+    } 
     ```
-    
+    
 ## <a name="next-steps"></a>Nästa steg
 
 I den här självstudien har du lärt dig hur du skapar en användartilldelad hanterad identitet och kopplar den till en virtuell Linux-dator för att komma åt Azure Resource Manager-API:et.  Mer information om Azure Resource Manager finns här:

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 9ddfe3ea0d26a9032922423e7f2c2a2b6c3e411a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ca526b7ecbe20a54ec115521cdfbc93c713e0da
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89295572"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360062"
 ---
 # <a name="input-metadata"></a>Inkommande metadata
 
@@ -43,77 +43,77 @@ Innehåller en samling av AssetFile-element för kodnings jobbet.
 > 
 > 
 
-| Namn  | Beskrivning |
+| Name  | Beskrivning |
 | --- | --- | 
 | **VideoTracks**|Varje fysisk till gångs fil kan innehålla noll eller flera video spår som överlämnas till ett lämpligt behållar format. Mer information finns i [VideoTracks](#videotracks). |
 | **AudioTracks**|Varje fysisk till gångs fil kan innehålla noll eller flera ljud spår som överlämnas till ett lämpligt behållar format. Mer information finns i [AudioTracks](#audiotracks) |
-| **Metadatatjänst**  |Till gångs filens metadata representeras som key\value-strängar. <br />Exempelvis: `<Metadata key="language" value="eng" />` |
+| **Metadata**  |Till gångs filens metadata representeras som key\value-strängar. <br />Exempelvis: `<Metadata key="language" value="eng" />` |
 
 ### <a name="other-child-elements"></a>Andra underordnade element
 
-| Namn | Beskrivning |
+| Name | Beskrivning |
 | --- | --- |
-| **Namn**<br />Krävs |Till gångs fil namn. <br /><br />Exempel: `"Name": "Ignite-short.mp4"` |
-| **URI**<br />Krävs |URL: en där inmatad till gång är placerad. För att identifiera den inmatnings till gång som utmatnings till gången tillhör, använder du `Uri` fältet i stället för ID.|
-| **Storlek**<br />Krävs |Storlek på till gångs filen i byte.  <br /><br />Exempel: `"Size": 75739259`|
-| **Varaktighet**<br />Krävs |Innehållets uppspelnings varaktighet. <br /><br />Exempel: `"Duration": "PT1M10.304S"`. |
-| **NumberOfStreams**<br />Krävs |Antal strömmar i till gångs filen.  <br /><br />Exempel: `"NumberOfStreams": 2`|
-| **FormatNames**<br />Krävs |Format namn.  <br /><br />Exempel: `"FormatNames": "mov,mp4,m4a,3gp,3g2,mj2"`|
-| **FormatVerboseName**<br /> Krävs |Formatera utförliga namn. <br /><br />Exempel: `"FormatVerboseName": "QuickTime / MOV"` |
+| **Namn**<br />Obligatorisk |Till gångs fil namn. <br /><br />Exempel: `"Name": "Ignite-short.mp4"` |
+| **URI**<br />Obligatorisk |URL: en där inmatad till gång är placerad. För att identifiera den inmatnings till gång som utmatnings till gången tillhör, använder du `Uri` fältet i stället för ID.|
+| **Storlek**<br />Obligatorisk |Storlek på till gångs filen i byte.  <br /><br />Exempel: `"Size": 75739259`|
+| **Varaktighet**<br />Obligatorisk |Innehållets uppspelnings varaktighet. <br /><br />Exempel: `"Duration": "PT1M10.304S"`. |
+| **NumberOfStreams**<br />Obligatorisk |Antal strömmar i till gångs filen.  <br /><br />Exempel: `"NumberOfStreams": 2`|
+| **FormatNames**<br />Obligatorisk |Format namn.  <br /><br />Exempel: `"FormatNames": "mov,mp4,m4a,3gp,3g2,mj2"`|
+| **FormatVerboseName**<br /> Obligatorisk |Formatera utförliga namn. <br /><br />Exempel: `"FormatVerboseName": "QuickTime / MOV"` |
 | **/St** |Start tid för innehåll.  <br /><br />Exempel: `"StartTime": "PT0S"` |
 | **OverallBitRate** |Genomsnittlig bit hastighet för till gångs filen i bitar per sekund.  <br /><br />Exempel: `"OverallBitRate": 8618539`|
 
 ## <a name="videotracks"></a>VideoTracks
 
-| Namn |  | Beskrivning |
+| Name | Beskrivning |
 | --- | --- |
-| **FourCC**<br />Krävs |Video-codec FourCC-kod som rapporteras av ffmpeg.<br /><br />Exempel: `"FourCC": "avc1"` |
+| **FourCC**<br />Obligatorisk |Video-codec FourCC-kod som rapporteras av ffmpeg.<br /><br />Exempel: `"FourCC": "avc1"` |
 | **Profil** |Video spårets profil. <br /><br />Exempel: `"Profile": "Main"`|
 | **Nivå** |Video spårets nivå. <br /><br />Exempel: `"Level": "3.2"`|
 | **PixelFormat** |Video spårets bild punkts format. <br /><br />Exempel: `"PixelFormat": "yuv420p"`|
-| **LED**<br />Krävs |Kodad video bredd i bild punkter. <br /><br />Exempel: `"Width": "1280"`|
-| **Våghöjd**<br />Krävs |Kodad video höjd i bild punkter.<br /><br />Exempel: `"Height": "720"` |
-| **DisplayAspectRatioNumerator**<br />Krävs |Täljare för bild förhållande i bild förhållande.<br /><br />Exempel: `"DisplayAspectRatioNumerator": 16.0` |
-| **DisplayAspectRatioDenominator**<br />Krävs |Nämnare för bild förhållande i bild. <br /><br />Exempel: `"DisplayAspectRatioDenominator": 9.0`|
+| **Bredd**<br />Obligatorisk |Kodad video bredd i bild punkter. <br /><br />Exempel: `"Width": "1280"`|
+| **Våghöjd**<br />Obligatorisk |Kodad video höjd i bild punkter.<br /><br />Exempel: `"Height": "720"` |
+| **DisplayAspectRatioNumerator**<br />Obligatorisk |Täljare för bild förhållande i bild förhållande.<br /><br />Exempel: `"DisplayAspectRatioNumerator": 16.0` |
+| **DisplayAspectRatioDenominator**<br />Obligatorisk |Nämnare för bild förhållande i bild. <br /><br />Exempel: `"DisplayAspectRatioDenominator": 9.0`|
 | **SampleAspectRatioNumerator** |Bild förhållande – täljare för video exempel. <br /><br />Exempel: `"SampleAspectRatioNumerator": 1.0`|
 | **SampleAspectRatioDenominator**|Exempel: `"SampleAspectRatioDenominator": 1.0`|
-| **Ram**<br />Krävs |Uppmätt video bild Rute frekvens i. 3F-format. <br /><br />Exempel: `"FrameRate": 29.970`|
+| **Ram**<br />Obligatorisk |Uppmätt video bild Rute frekvens i. 3F-format. <br /><br />Exempel: `"FrameRate": 29.970`|
 | **Hastigheten** |Genomsnittlig video bit hastighet i bitar per sekund, beräknat från till gångs filen. Endast den grundläggande data Ströms nytto lasten räknas och förpacknings omkostnaderna ingår inte. <br /><br />Exempel: `"Bitrate": 8421583`|
 | **HasBFrames** |Video spårs nummer för B-ramar. <br /><br />Exempel: `"HasBFrames": 2`|
-| **Metadatatjänst** |Generiska nyckel/värde-strängar som kan användas för att lagra en rad olika uppgifter. <br />Se det fullständiga exemplet i slutet av artikeln. |
-| **Identitet**<br />Krävs |Noll-baserat index för det här ljud-eller video spåret.<br /><br /> Detta **ID** är inte nödvändigt vis det TrackID som används i en MP4-fil. <br /><br />Exempel: `"Id": 2`|
+| **Metadata** |Generiska nyckel/värde-strängar som kan användas för att lagra en rad olika uppgifter. <br />Se det fullständiga exemplet i slutet av artikeln. |
+| **Identitet**<br />Obligatorisk |Noll-baserat index för det här ljud-eller video spåret.<br /><br /> Detta **ID** är inte nödvändigt vis det TrackID som används i en MP4-fil. <br /><br />Exempel: `"Id": 2`|
 | **ADPCM** |Video spårets codec-sträng. <br /><br />Exempel: `"Codec": "h264"`|
 | **CodecLongName** |Ljud-eller video spårs-codec långt namn. <br /><br />Exempel: `"CodecLongName": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10"`|
 | **ADPCM** |Video spårets codec-sträng. <br /><br />Exempel: `"Codec": "h264"`|
-| **Tids**<br />Krävs |Tids bas.<br /><br />Exempel: `"TimeBase": "1/30000"`|
+| **Tids**<br />Obligatorisk |Tids bas.<br /><br />Exempel: `"TimeBase": "1/30000"`|
 | **NumberOfFrames** |Antal bild rutor (som finns för video spår). <br /><br />Exempel: `"NumberOfFrames": 2107`|
 | **/St** |Spåra start tid.<br /><br />Exempel: `"StartTime": "PT0.033S"` |
 | **Varaktighet** |Spår varaktighet. <br /><br />Exempel: `"Duration": "PT1M10.304S"`|
 
 ## <a name="audiotracks"></a>AudioTracks
 
-| Namn  | Beskrivning |
+| Name  | Beskrivning |
 | --- | --- | 
 | **SampleFormat** |Exempel format. <br /><br />Exempel: `"SampleFormat": "fltp"`|
 | **ChannelLayout** |Kanalens layout. <br /><br />Exempel: `"ChannelLayout": "stereo"`|
-| **Kanaler**<br />Krävs |Antal (0 eller fler) ljud kanaler. <br /><br />Exempel: `"Channels": 2`|
-| **SamplingRate**<br />Krävs |Ljud samplings frekvens i sampel/SEK eller Hz. <br /><br />Exempel: `"SamplingRate": 48000`|
+| **Kanaler**<br />Obligatorisk |Antal (0 eller fler) ljud kanaler. <br /><br />Exempel: `"Channels": 2`|
+| **SamplingRate**<br />Obligatorisk |Ljud samplings frekvens i sampel/SEK eller Hz. <br /><br />Exempel: `"SamplingRate": 48000`|
 | **Hastigheten** |Genomsnittlig ljud bit hastighet i bitar per sekund, beräknat från till gångs filen. Endast den grundläggande data Ströms nytto lasten räknas och förpacknings omkostnaderna ingår inte i det här antalet. <br /><br />Exempel: `"Bitrate": 192080`|
-| **Metadatatjänst** |Generiska nyckel/värde-strängar som kan användas för att lagra en rad olika uppgifter.  <br />Se det fullständiga exemplet i slutet av artikeln. |
-| **Identitet**<br />Krävs |Noll-baserat index för det här ljud-eller video spåret.<br /><br /> Detta är inte nödvändigt vis att TrackID som används i en MP4-fil. <br /><br />Exempel: `"Id": 1`|
+| **Metadata** |Generiska nyckel/värde-strängar som kan användas för att lagra en rad olika uppgifter.  <br />Se det fullständiga exemplet i slutet av artikeln. |
+| **Identitet**<br />Obligatorisk |Noll-baserat index för det här ljud-eller video spåret.<br /><br /> Detta är inte nödvändigt vis att TrackID som används i en MP4-fil. <br /><br />Exempel: `"Id": 1`|
 | **ADPCM** |Video spårets codec-sträng. <br /><br />Exempel: `"Codec": "aac"`|
 | **CodecLongName** |Ljud-eller video spårs-codec långt namn. <br /><br />Exempel: `"CodecLongName": "AAC (Advanced Audio Coding)"`|
-| **Tids**<br />Krävs |Tids bas.<br /><br />Exempel: `"TimeBase": "1/48000"` |
+| **Tids**<br />Obligatorisk |Tids bas.<br /><br />Exempel: `"TimeBase": "1/48000"` |
 | **NumberOfFrames** |Antal bild rutor (som finns för video spår). <br /><br />Exempel: `"NumberOfFrames": 3294`|
 | **/St** |Spåra start tid. Mer information finns i [iso8601](https://www.iso.org/iso-8601-date-and-time-format.html). <br /><br />Exempel: `"StartTime": "PT0S"` |
 | **Varaktighet** |Spår varaktighet. <br /><br />Exempel: `"Duration": "PT1M10.272S"` |
 
 ## <a name="metadata"></a>Metadata
 
-| Namn | Beskrivning |
+| Name | Beskrivning |
 | --- | --- |
-| **knapp**<br />Krävs |Nyckeln i nyckel/värde-paret. |
-| **värde**<br /> Krävs |Värdet i nyckel/värde-paret. |
+| **knapp**<br />Obligatorisk |Nyckeln i nyckel/värde-paret. |
+| **värde**<br /> Obligatorisk |Värdet i nyckel/värde-paret. |
 
 ## <a name="schema-example"></a>Schema exempel
 

@@ -10,13 +10,13 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 06/25/2020
 ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: 8ee2280aba99606d9e31a0e565a67cd6202df3c2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, data4ml
+ms.openlocfilehash: 04882c71a2d80e01029dd0a8b476f21a658e632b
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317022"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359603"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Identifiera data avvikelser (för hands version) på data uppsättningar
 
@@ -221,7 +221,7 @@ Ett komplett exempel på hur du konfigurerar en data `timeseries` uppsättning o
 
 * **Övervaka inställningar**.  De här inställningarna gäller för den schemalagda data behandlings övervakaren, som kommer att skapas. 
 
-    | Inställningen | Beskrivning | Tips | Föränderlig | 
+    | Inställning | Beskrivning | Tips | Föränderlig | 
     | ------- | ----------- | ---- | ------- |
     | Name | Namnet på data uppsättnings övervakaren. | | Nej |
     | Funktioner | Lista över funktioner som kommer att analyseras för data drift över tid. | Ställ in till en modells utmatnings funktion (er) för att mäta begrepps avvikelsen. Inkludera inte funktioner som används naturligt över tid (månad, år, index osv.). Du kan fylla på och befintlig data riktnings övervakning när du har justerat listan med funktioner. | Ja | 

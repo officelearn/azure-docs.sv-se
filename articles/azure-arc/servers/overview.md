@@ -4,12 +4,12 @@ description: Lär dig hur du använder Azure Arc-aktiverade servrar för att han
 keywords: Azure Automation, DSC, PowerShell, önskad tillstånds konfiguration, uppdaterings hantering, ändrings spårning, inventering, Runbooks, python, grafisk, hybrid
 ms.date: 11/04/2020
 ms.topic: overview
-ms.openlocfilehash: 2c92d7c73ab17bd5a7bba980e20baa181899eb4e
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: b9d38b2395d922e3e2a7daec654cd73de7267ee1
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93349162"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360589"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Vad är Azure Arc-aktiverade servrar?
 
@@ -32,7 +32,7 @@ När du ansluter datorn till Azure Arc-aktiverade servrar kan du utföra följan
 - Använd [uppdateringshantering](../../automation/update-management/update-mgmt-overview.md) i Azure Automation för att hantera operativ system uppdateringar för dina Windows-och Linux-servrar
 
     > [!NOTE]
-    > För närvarande stöds inte aktivering av Uppdateringshantering från den valda Arc-aktiverad servern. Se [aktivera uppdateringshantering från ditt Automation-konto](../../automation/update-management/enable-from-automation-account.md) för att förstå kraven och hur du aktiverar för servern.
+    > För närvarande stöds inte aktivering av Uppdateringshantering direkt från en ARC-aktiverad server. Se [aktivera uppdateringshantering från ditt Automation-konto](../../automation/update-management/enable-from-automation-account.md) för att förstå kraven och hur du aktiverar för servern.
 
 - Ta med dina icke-Azure-servrar för hot identifiering och proaktiv övervakning för potentiella säkerhetshot med hjälp av [Azure Security Center](../../security-center/security-center-introduction.md).
 

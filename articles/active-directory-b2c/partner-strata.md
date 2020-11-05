@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: e3f067647eb7bdb33b06a9ebdefd8fdd0485e4c6
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 0fd2312df31e61ae30f4c3fd04dc0991ac0f4675
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93294293"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376863"
 ---
 # <a name="tutorial-for-extending-azure-ad-b2c-to-protect-on-premises-applications-using-strata"></a>Självstudie för att utöka Azure AD B2C för att skydda lokala program med hjälp av Strata
 
@@ -29,7 +29,7 @@ Maverics Identity Orchestrator utökar Azure AD B2C för att skydda lokala progr
 
 - **Enkel konfiguration** : Azure AD B2C ger ett enkelt steg-för-steg-användar gränssnitt för att ansluta Maverics Identity Orchestrator SAML eller OIDC connectors till Azure AD B2C.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du:
 
@@ -57,7 +57,7 @@ I följande arkitektur diagram visas implementeringen.
 
 ![Bild visar arkitekturen för en Azure AD B2C-integrering med Strata Maverics för att ge åtkomst till hybrid program](./media/partner-strata/strata-architecture-diagram.png)
 
-| Steg | Beskrivning |
+| Steg | Description |
 |:-------|:---------------|
 | 1. | Användaren gör en begäran om åtkomst till det lokala värd programmet. Maverics Identity Orchestrator-proxyservrar begär Anden som gjorts av användaren till programmet.|
 | 2. | Orchestrator kontrollerar användarens autentiserings tillstånd. Om den inte får en sessionstoken, eller om den angivna sessionstoken är ogiltig, skickar den användaren till Azure AD B2C för autentisering.|
@@ -65,13 +65,11 @@ I följande arkitektur diagram visas implementeringen.
 | 4. | IdP utmanar användaren om autentiseringsuppgifter. Beroende på IdP kan användaren behöva utföra Multi-Factor Authentication (MFA).|
 | 5. | IdP skickar autentiserings svaret tillbaka till Azure AD B2C. Användaren kan eventuellt skapa ett lokalt konto i Azure AD B2C-katalogen under det här steget.|
 | 6. | Azure AD B2C skickar Användarbegäran till den slut punkt som anges under Orchestrator-appens registrering i Azure AD B2C klient organisationen.|
-| 7. | Orchestrator utvärderar åtkomst principer och beräknar attributvärden som ska ingå i HTTP-huvuden som vidarebefordras till appen. Under det här steget kan Orchestrator anropa ytterligare attribut för att hämta den information som krävs för att ange huvud värden korrekt.|
-| 8. | Orchestrator anger huvud värden och skickar begäran till appen.|
-| 9. | Användaren är nu autentiserad och har åtkomst till appen.|
+| 7. | Orchestrator utvärderar åtkomst principer och beräknar attributvärden som ska ingå i HTTP-huvuden som vidarebefordras till appen. Under det här steget kan Orchestrator anropa ytterligare attribut för att hämta den information som krävs för att ange huvud värden korrekt. Orchestrator anger huvud värden och skickar begäran till appen.|
+| 8. | Användaren är nu autentiserad och har åtkomst till appen.|
 
 ## <a name="get-maverics-identity-orchestrator"></a>Hämta Maverics Identity Orchestrator
 
-Kontakta [Strata](https://www.strata.io/contact/)för att få den program vara som du använder för att integrera din äldre lokala app med Azure AD B2C. När du har skaffat program varan följer du stegen nedan för att fastställa Orchestrator-särskilda krav och utför nödvändiga installations-och konfigurations steg.
 
 ## <a name="configure-your-azure-ad-b2c-tenant"></a>Konfigurera Azure AD B2C klient
 

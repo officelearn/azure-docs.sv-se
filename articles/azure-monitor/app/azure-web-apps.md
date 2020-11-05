@@ -4,19 +4,19 @@ description: Övervakning av program prestanda för Azure App Services. Diagramm
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: e326f9764147b882a5009c53b9f13a3c3bd0bfc1
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: c78a43f9efb263c08dad21218636f21121b9732c
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875620"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377810"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Övervaka Azure App Service-prestanda
 
 Nu är det enklare än någonsin att aktivera övervakning i ASP.NET och ASP.NET Core baserade webb program som körs på [Azure App Services](../../app-service/index.yml) . Tidigare var du tvungen att installera ett plats tillägg manuellt, det senaste tillägget/agenten är nu inbyggt i App Service-avbildningen som standard. Den här artikeln vägleder dig genom att aktivera Application Insights övervakning och ge preliminär vägledning för automatisering av processen för storskaliga distributioner.
 
 > [!NOTE]
-> Att manuellt lägga till ett Application Insights webbplats **Development Tools**tillägg via  >  **tillägg** för utvecklingsverktyg är föråldrad. Den här metoden för tilläggs installation var beroende av manuella uppdateringar för varje ny version. Den senaste stabila versionen av tillägget är nu  [förinstallerad](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) som en del av App Service avbildningen. Filerna finns i `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` och uppdateras automatiskt med varje stabil utgåva. Om du följer agentbaserade instruktioner för att aktivera övervakning nedan tas det inaktuella tillägget bort automatiskt.
+> Att manuellt lägga till ett Application Insights webbplats **Development Tools** tillägg via  >  **tillägg** för utvecklingsverktyg är föråldrad. Den här metoden för tilläggs installation var beroende av manuella uppdateringar för varje ny version. Den senaste stabila versionen av tillägget är nu  [förinstallerad](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) som en del av App Service avbildningen. Filerna finns i `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` och uppdateras automatiskt med varje stabil utgåva. Om du följer agentbaserade instruktioner för att aktivera övervakning nedan tas det inaktuella tillägget bort automatiskt.
 
 ## <a name="enable-application-insights"></a>Aktivera Application Insights
 
@@ -65,7 +65,7 @@ Det finns två sätt att aktivera program övervakning för Azure App Services-v
 | Samlar in användningstrender och aktiverar korrelation från tillgänglighetsresultat till transaktioner | Ja |Ja |
 | Samlar in undantag som hanteras av värdprocessen | Ja |Ja |
 | Förbättrar precisionen för APM-mått under belastning när sampling används | Ja |Ja |
-| Korrelerar mikrotjänster över begärande-/beroendegränser | Inga (endast Single-Instance APM-funktioner) |Ja |
+| Korrelerar mikrotjänster över begärande-/beroendegränser | Inga (endast Single-Instance APM-funktioner) |Yes |
 
 3. Om du vill konfigurera inställningar som sampling, som du tidigare kan kontrol lera via applicationinsights.config-filen kan du nu interagera med samma inställningar via program inställningar med ett motsvarande prefix. 
 
@@ -100,7 +100,8 @@ I App Service webbapp under **Inställningar**  >  **väljer du Application Insi
 
 # <a name="java"></a>[Java](#tab/java)
 
-Java-App Service baserade webb program stöder för närvarande inte automatisk agent/tillägg-baserad övervakning. Om du vill aktivera övervakning för ditt Java-program måste du [manuellt instrumentera ditt program](./java-get-started.md).
+Följ rikt linjerna för [Application Insights Java 3,0-agenten](./java-in-process-agent.md) för att aktivera automatisk instrumentering för dina Java-appar utan att ändra koden.
+Den automatiska integreringen är inte tillgänglig ännu för App Service.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -115,7 +116,7 @@ Python App Service-baserade webb program stöder för närvarande inte automatis
 Övervakning på klient sidan är valbar för ASP.NET. Aktivera övervakning på klient sidan:
 
 * **Inställningar** **>** **Konfiguration**
-   * Under program inställningar skapar du en **ny program inställning**:
+   * Under program inställningar skapar du en **ny program inställning** :
 
      Namn: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
@@ -127,12 +128,12 @@ Om du vill inaktivera övervakning på klient sidan tar du antingen bort det ass
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
-Övervakning på klient sidan är **aktiverat som standard** för .net Core-appar med den **rekommenderade samlingen**, oavsett om app-inställningen APPINSIGHTS_JAVASCRIPT_ENABLED finns.
+Övervakning på klient sidan är **aktiverat som standard** för .net Core-appar med den **rekommenderade samlingen** , oavsett om app-inställningen APPINSIGHTS_JAVASCRIPT_ENABLED finns.
 
 Om du av någon anledning vill inaktivera övervakning på klient sidan:
 
 * **Inställningar** **>** **Konfiguration**
-   * Under program inställningar skapar du en **ny program inställning**:
+   * Under program inställningar skapar du en **ny program inställning** :
 
      Namn: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
@@ -350,7 +351,8 @@ Om uppgraderingen görs från en version före 2.5.1 kontrollerar du att DLL-fil
 Nedan visas vår stegvisa fel söknings guide för tillägg/agent-baserad övervakning av .NET-och .NET Core-baserade program som körs på Azure App Services.
 
 > [!NOTE]
-> Java-program stöds bara på Azure App tjänster via manuell SDK-baserad Instrumentation och därför gäller inte stegen nedan för dessa scenarier.
+> Den rekommenderade metoden för att övervaka Java-program är att använda den automatiska Instrumentation utan att ändra koden. Följ rikt linjerna för [Application Insights Java 3,0-agenten](./java-in-process-agent.md).
+
 
 1. Kontrol lera att programmet övervakas via `ApplicationInsightsAgent` .
     * Kontrol lera att `ApplicationInsightsAgent_EXTENSION_VERSION` appens inställning har värdet "~ 2".

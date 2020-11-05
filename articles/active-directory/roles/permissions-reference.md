@@ -7,19 +7,19 @@ manager: daveba
 search.appverid: MET150
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: reference
-ms.date: 09/22/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ece458960002fb6af9e0ef5065e6e926a9fc17d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d55e7f29c9ecefa7cfcf98ef890d9982b044ef30
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378298"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378830"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratörsrollen i Azure Active Directory
 
@@ -69,13 +69,13 @@ Användare med den här rollen kan skapa program registreringar när inställnin
 
 ### <a name="authentication-administrator"></a>[Administratör för autentisering](#authentication-administrator-permissions)
 
-Användare med den här rollen kan ange eller återställa autentiseringsuppgifter som inte är lösen ord för vissa användare och kan uppdatera lösen ord för alla användare. Autentiserings administratörer kan kräva att användare som inte är administratörer eller som har tilldelats vissa roller omregistrerar sig mot befintliga autentiseringsuppgifter som inte är lösen ord (till exempel MFA eller FIDO) och kan även återkalla att **Spara MFA på enheten**, vilket gör att MFA används vid nästa inloggning. Dessa åtgärder gäller endast för användare som inte är administratörer eller som har tilldelats en eller flera av följande roller:
+Användare med den här rollen kan ange eller återställa autentiseringsuppgifter som inte är lösen ord för vissa användare och kan uppdatera lösen ord för alla användare. Autentiserings administratörer kan kräva att användare som inte är administratörer eller som har tilldelats vissa roller omregistrerar sig mot befintliga autentiseringsuppgifter som inte är lösen ord (till exempel MFA eller FIDO) och kan även återkalla att **Spara MFA på enheten** , vilket gör att MFA används vid nästa inloggning. Dessa åtgärder gäller endast för användare som inte är administratörer eller som har tilldelats en eller flera av följande roller:
 
 * Administratör för autentisering
 * Katalog läsare
 * Gäst deltagare
 * Meddelande Center läsare
-* Rapport läsare
+* Rapportläsare
 
 Rollen [Privileged Authentication Administrator](#privileged-authentication-administrator) har behörighet kan framtvinga omregistrering och Multi-Factor Authentication för alla användare.
 
@@ -152,7 +152,7 @@ I | Kan göra
 [Intune](/intune/role-based-access-control) | Visa alla gransknings data i Intune
 [Cloud App Security](/cloud-app-security/manage-admins) | Har Läs behörighet och kan hantera aviseringar<br>Kan skapa och ändra fil principer och tillåta fil styrnings åtgärder<br>Kan visa alla inbyggda rapporter under Datahantering
 
-### <a name="conditional-access-administrator"></a>[Administratör för villkorlig åtkomst](#conditional-access-administrator-permissions)
+### <a name="conditional-access-administrator"></a>[Administratör för villkorsstyrd åtkomst](#conditional-access-administrator-permissions)
 
 Användare med den här rollen kan hantera inställningar för Azure Active Directory villkorlig åtkomst.
 
@@ -233,7 +233,7 @@ Användare med den här rollen kan läsa inställningar och administrativ inform
 >- [Administrations Center för OneDrive](https://admin.onedrive.com/) – administrations Center för OneDrive stöder inte rollen global läsare
 >- [M365 administrations Center](https://admin.microsoft.com/Adminportal/Home#/homepage) – den globala läsaren kan inte läsa förfrågningar om kundsäkerhet. Du hittar inte fliken **Customer Locked-begäranden** under **stöd** i den vänstra rutan i M365 administrations Center.
 >- [Office-säkerhet & Compliance Center](https://sip.protection.office.com/homepage) – den globala läsaren kan inte läsa SCC gransknings loggar, söka efter innehåll eller se säkra poäng.
->- [Team administrations Center](https://admin.teams.microsoft.com) – den globala läsaren kan inte läsa **team livs cykeln**, analysera **& rapporter**, **hantering av IP-telefon enheter** och **program katalog**.
+>- [Team administrations Center](https://admin.teams.microsoft.com) – den globala läsaren kan inte läsa **team livs cykeln** , analysera **& rapporter** , **hantering av IP-telefon enheter** och **program katalog**.
 >- [Privileged Access Management (PAM)](/office365/securitycompliance/privileged-access-management-overview) stöder inte rollen global läsare.
 >- [Azure information Protection](/azure/information-protection/what-is-information-protection) – global läsare stöds endast [för central rapportering](/azure/information-protection/reports-aip) , och när din Azure AD-organisation inte finns på den [enhetliga etiketterande plattformen](/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
 >
@@ -257,7 +257,7 @@ Användare med den här rollen kan ändra lösen ord, ogiltig uppdatera tokens, 
 * Support administratör
 * Meddelande Center läsare
 * Lösen ords administratör
-* Rapport läsare
+* Rapportläsare
 
 > [!IMPORTANT]
 > Användare med den här rollen kan ändra lösen ord för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra lösen ordet för en användare kan innebära att du antar användarens identitet och behörigheter. Exempel:
@@ -311,7 +311,7 @@ Användare i den här rollen kan övervaka meddelanden och råd om hälso uppdat
 
 Använd inte. Den här rollen tilldelas automatiskt från Commerce och är inte avsedd eller stöds inte för någon annan användning. Se informationen nedan.
 
-Den moderna Commerce användar rollen ger vissa användare behörighet att komma åt Microsoft 365 administrations Center och se de vänstra navigerings posterna för **Start**, **fakturering**och **support**. Innehållet som är tillgängligt i dessa områden styrs av handelstilldelade [roller](../../cost-management-billing/manage/understand-mca-roles.md) som har tilldelats användare för att hantera produkter som de har köpt för sig själva eller din organisation. Detta kan omfatta uppgifter som att betala fakturor, eller för åtkomst till fakturerings konton och fakturerings profiler. 
+Den moderna Commerce användar rollen ger vissa användare behörighet att komma åt Microsoft 365 administrations Center och se de vänstra navigerings posterna för **Start** , **fakturering** och **support**. Innehållet som är tillgängligt i dessa områden styrs av handelstilldelade [roller](../../cost-management-billing/manage/understand-mca-roles.md) som har tilldelats användare för att hantera produkter som de har köpt för sig själva eller din organisation. Detta kan omfatta uppgifter som att betala fakturor, eller för åtkomst till fakturerings konton och fakturerings profiler. 
 
 Användare med en modern Commerce-användargrupp har vanligt vis administratörs behörighet i andra Microsoft-inköps system, men har inte rollen som global administratör eller fakturerings administratör för åtkomst till administrations centret. 
 
@@ -374,7 +374,7 @@ Användare med den här rollen kan ange eller återställa autentiseringsuppgift
 * Katalog läsare
 * Gäst deltagare
 * Meddelande Center läsare
-* Rapport läsare
+* Rapportläsare
 
 ### <a name="privileged-role-administrator"></a>[Privilegie rad roll administratör](#privileged-role-administrator-permissions)
 
@@ -383,7 +383,7 @@ Användare med den här rollen kan hantera roll tilldelningar i Azure Active Dir
 > [!IMPORTANT]
 > Den här rollen ger möjlighet att hantera tilldelningar för alla Azure AD-roller, inklusive rollen global administratör. Den här rollen omfattar inte andra privilegierade förmågor i Azure AD som att skapa eller uppdatera användare. Användare som har tilldelats den här rollen kan dock ge sig själva eller andra ytterligare behörigheter genom att tilldela ytterligare roller.
 
-### <a name="reports-reader"></a>[Rapport läsare](#reports-reader-permissions)
+### <a name="reports-reader"></a>[Rapportläsare](#reports-reader-permissions)
 
 Användare med den här rollen kan visa användnings rapporterings data och instrument panelen rapporter i Microsoft 365 administrations Center och implementerings kontext paketet i Power BI. Dessutom ger rollen åtkomst till inloggnings rapporter och aktiviteter i Azure AD och data som returneras av Microsoft Graph repor ting API. En användare som tilldelats rollen rapport läsare kan bara komma åt relevanta användnings-och implementerings mått. De har inte någon administratörs behörighet för att konfigurera inställningar eller komma åt de produktspecifik administrations Center som Exchange. Den här rollen har ingen åtkomst för att visa, skapa eller hantera support biljetter.
 
@@ -497,7 +497,7 @@ Användare med den här rollen kan skapa användare och hantera alla aspekter av
 | --- | --- |
 |Allmänna behörigheter|<p>Skapa användare och grupper</p><p>Skapa och hantera användarvyer</p><p>Hantera Office-support biljetter<p>Uppdatera principer för förfallo datum för lösen ord|
 | <p>För alla användare, inklusive alla administratörer</p>|<p>Hantera licenser</p><p>Hantera alla användar egenskaper utom användarens huvud namn</p>
-| Endast på användare som inte är administratörer eller någon av följande begränsade administratörs roller:<ul><li>Katalog läsare<li>Grupp administratör<li>Gäst deltagare<li>Support administratör<li>Meddelande Center läsare<li>Lösen ords administratör<li>Rapport läsare<li>Användaradministratör|<p>Ta bort och Återställ</p><p>Inaktivera och aktivera</p><p>Invalidera uppdateringstoken</p><p>Hantera alla användar egenskaper inklusive användarens huvud namn</p><p>Återställa lösenord</p><p>Uppdatera (FIDO) enhets nycklar</p>|
+| Endast på användare som inte är administratörer eller någon av följande begränsade administratörs roller:<ul><li>Katalog läsare<li>Grupp administratör<li>Gäst deltagare<li>Support administratör<li>Meddelande Center läsare<li>Lösen ords administratör<li>Rapportläsare<li>Användaradministratör|<p>Ta bort och Återställ</p><p>Inaktivera och aktivera</p><p>Invalidera uppdateringstoken</p><p>Hantera alla användar egenskaper inklusive användarens huvud namn</p><p>Återställa lösenord</p><p>Uppdatera (FIDO) enhets nycklar</p>|
 
 > [!IMPORTANT]
 > Användare med den här rollen kan ändra lösen ord för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra lösen ordet för en användare kan innebära att du antar användarens identitet och behörigheter. Exempel:
@@ -1949,7 +1949,7 @@ Skrivar administratör | Skrivar administratör | 644ef478-e28f-4e28-b9dc-3fdde9
 Skrivar tekniker | Skrivar tekniker | e8cef6f1-e4bd-4ea8-bc07-4b8d950f4477
 Administratör för privilegie rad autentisering | Administratör för privilegie rad autentisering | 7be44c8a-adaf-4e2a-84d6-ab2649e08a13
 Privilegie rad roll administratör | Privilegie rad roll administratör | e8611ab8-c189-46e8-94e1-60213ab1f814
-Rapport läsare | Rapport läsare | 4a5d8f65-41da-4de4-8968-e035b65339cf
+Rapportläsare | Rapport läsare | 4a5d8f65-41da-4de4-8968-e035b65339cf
 Sök administratör | Sök administratör | 0964bb5e-9bdb-4d7b-ac29-58e794862a40
 Sök redigerare | Sök redigerare | 8835291a-918c-4fd7-a9ce-faa49f0cf7d9
 Säkerhetsadministratör | Säkerhetsadministratör | 194ae4cb-b126-40b2-bd5b-6091b380977d
@@ -1991,12 +1991,12 @@ Enhets hanterare | Inaktuell | [Dokumentation om föråldrade roller](permission
 Enhets användare | Inaktuell | [Dokumentation om föråldrade roller](permissions-reference.md#deprecated-roles)
 Konton för katalog synkronisering | Visas inte eftersom det inte ska användas | [Dokumentation om Directory Synchronization-konton](permissions-reference.md#directory-synchronization-accounts)
 Katalog skrivare | Visas inte eftersom det inte ska användas | [Dokumentation om katalog författare](permissions-reference.md#directory-writers)
-Gästanvändare | Visas inte eftersom det inte kan användas  | Ej tillämpligt
+Gästanvändare | Visas inte eftersom det inte kan användas  | NA
 Administratör för Lync-tjänsten | Skype for Business-administratör | [Visar aktuell produkt anpassning](permissions-reference.md#role-template-ids)
 Support på partner nivå 1 | Visas inte eftersom det inte ska användas | [Support dokumentation för partner 1](permissions-reference.md#partner-tier1-support)
 Support på partner nivå 2 | Visas inte eftersom det inte ska användas | [Support dokumentation för partner – nivå 2](permissions-reference.md#partner-tier2-support)
-Begränsad gäst användare | Visas inte eftersom det inte kan användas | Ej tillämpligt
-Användare | Visas inte eftersom det inte kan användas | Ej tillämpligt
+Begränsad gäst användare | Visas inte eftersom det inte kan användas | NA
+Användare | Visas inte eftersom det inte kan användas | NA
 Anslutning till arbets plats enhet | Inaktuell | [Dokumentation om föråldrade roller](permissions-reference.md#deprecated-roles)
 
 ## <a name="next-steps"></a>Nästa steg

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
-ms.openlocfilehash: 64d45861f37e2015b747a4db0feb2d32e68fe893
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 5976b70825ac2854e67ddad968752fc87d9e8cea
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427326"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377147"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>Ansluta Azure till ITSM-verktyg med säker export
 
@@ -28,8 +28,8 @@ ITSMC använder autentiseringsuppgifter för användar namn och lösen ord. Säk
 
 Den säkra export arkitekturen introducerar följande nya funktioner:
 
-* **Ny åtgärds grupp**: aviseringar skickas till verktyget ITSM via åtgärds gruppen säker webhook, i stället för ITSM-som ITSMC använder.
-* **Azure AD-autentisering**: autentisering sker via Azure AD i stället för autentiseringsuppgifter för användar namn/lösen ord.
+* **Ny åtgärds grupp** : aviseringar skickas till verktyget ITSM via åtgärds gruppen säker webhook, i stället för ITSM-som ITSMC använder.
+* **Azure AD-autentisering** : autentisering sker via Azure AD i stället för autentiseringsuppgifter för användar namn/lösen ord.
 
 ## <a name="secure-export-data-flow"></a>Data flöde för säker export
 
@@ -49,9 +49,9 @@ Stegen i data flödet för säker export är:
 
 De främsta fördelarna med integrationen är:
 
-* **Bättre autentisering**: Azure AD ger mer säker autentisering utan tids gränser som vanligt vis uppstår i ITSMC.
-* **Aviseringar som löses i ITSM-verktyget**: mått varningar implementerar "utlöst" och "löst" tillstånd. När villkoret är uppfyllt är aviserings tillståndet "utlöst". När villkoret inte uppfylls längre är aviserings tillståndet "löst". I ITSMC kan aviseringar inte lösas automatiskt. Med säker export flödar det lösta tillstånd till ITSM-verktyget och uppdateras automatiskt.
-* **[Vanligt aviserings schema](./alerts-common-schema.md)**: i ITSMC varierar schemat för aviserings nytto lasten baserat på aviserings typen. I säker export finns det ett gemensamt schema för alla aviserings typer. Det här gemensamma schemat innehåller CI för alla aviserings typer. Alla aviserings typer kan binda sitt CI med CMDB.
+* **Bättre autentisering** : Azure AD ger mer säker autentisering utan tids gränser som vanligt vis uppstår i ITSMC.
+* **Aviseringar som löses i ITSM-verktyget** : mått varningar implementerar "utlöst" och "löst" tillstånd. När villkoret är uppfyllt är aviserings tillståndet "utlöst". När villkoret inte uppfylls längre är aviserings tillståndet "löst". I ITSMC kan aviseringar inte lösas automatiskt. Med säker export flödar det lösta tillstånd till ITSM-verktyget och uppdateras automatiskt.
+* **[Vanligt aviserings schema](./alerts-common-schema.md)** : i ITSMC varierar schemat för aviserings nytto lasten baserat på aviserings typen. I säker export finns det ett gemensamt schema för alla aviserings typer. Det här gemensamma schemat innehåller CI för alla aviserings typer. Alla aviserings typer kan binda sitt CI med CMDB.
 
 Börja använda ITSM-anslutningsprogram-verktyget med följande steg:
 
@@ -60,6 +60,7 @@ Börja använda ITSM-anslutningsprogram-verktyget med följande steg:
 3. Konfigurera din partner miljö. 
 
 Säker export stöder anslutningar med följande ITSM-verktyg:
+* [ServiceNow](https://docs.microsoft.com/azure/azure-monitor/platform/it-service-management-connector-secure-webhook-connections#connect-servicenow-to-azure-monitor)
 * [BMC-Helix](https://docs.microsoft.com/azure/azure-monitor/platform/it-service-management-connector-secure-webhook-connections#connect-bmc-helix-to-azure-monitor)
 
 ## <a name="register-with-azure-active-directory"></a>Registrera dig för Azure Active Directory
@@ -82,7 +83,7 @@ Mer information om åtgärds grupper finns i [skapa och hantera åtgärds gruppe
 
 Om du vill lägga till en webhook till en åtgärd, följer du dessa anvisningar för säker webhook:
 
-1. Sök efter och välj **övervaka**i [Azure Portal](https://portal.azure.com/). I **övervaknings** fönstret samlas alla övervaknings inställningar och data i en vy.
+1. Sök efter och välj **övervaka** i [Azure Portal](https://portal.azure.com/). I **övervaknings** fönstret samlas alla övervaknings inställningar och data i en vy.
 2. Välj **aviseringar**  >  **Hantera åtgärder**.
 3. Välj [Lägg till åtgärds grupp](./action-groups.md#create-an-action-group-by-using-the-azure-portal)och fyll i fälten.
 4. Ange ett namn i rutan **Åtgärds grupp namn** och ange ett namn i rutan **kort namn** . Det korta namnet används i stället för ett fullständigt åtgärdsgruppnamn när meddelanden skickas med den här gruppen.
@@ -102,11 +103,31 @@ Konfigurationen innehåller två steg:
 1. Hämta URI: n för säker export definition.
 2. Definitioner enligt flödet av ITSM-verktyget.
 
+
+### <a name="connect-servicenow-to-azure-monitor"></a>Anslut ServiceNow till Azure Monitor
+
+Följande avsnitt innehåller information om hur du ansluter din ServiceNow-produkt och säker export i Azure.
+
+### <a name="prerequisites"></a>Förutsättningar
+
+Se till att du uppfyller följande krav:
+
+* Azure AD har registrerats.
+* Du har den version av ServiceNow Event Management – ITOM (version Orlando eller senare) som stöds.
+
+### <a name="configure-the-servicenow-connection"></a>Konfigurera ServiceNow-anslutningen
+
+1. Använd länken <https:// <instance name> . service-now.com/api/sn_em_connector/em/inbound_event?source=azuremonitor> URI: n för säker export definition.
+
+2. Följ instruktionerna enligt versionen:
+   * [Paris](https://docs.servicenow.com/bundle/paris-it-operations-management/page/product/event-management/concept/azure-integration.html)
+   * [Orlando](https://docs.servicenow.com/bundle/paris-it-operations-management/page/product/event-management/concept/azure-integration.html)
+
 ### <a name="connect-bmc-helix-to-azure-monitor"></a>Ansluta BMC-Helix till Azure Monitor
 
 Följande avsnitt innehåller information om hur du ansluter din BMC Helix-produkt och säker export i Azure.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Se till att du uppfyller följande krav:
 
@@ -135,15 +156,18 @@ Se till att du uppfyller följande krav:
    4. Välj **konfiguration**.
    5. Välj **Lägg till ny anslutnings** konfiguration.
    6. Fyll i informationen för konfigurations avsnittet:
-      - **Namn**: skapa egna.
-      - **Typ av auktorisering**: **ingen**
-      - **Beskrivning**: skapa en egen.
-      - **Webbplats**: **moln**
-      - **Antal instanser**: **2**, standardvärdet.
-      - **Kontrol lera**: är markerat som standard för att aktivera användning.
+      - **Namn** : skapa egna.
+      - **Typ av auktorisering** : **ingen**
+      - **Beskrivning** : skapa en egen.
+      - **Webbplats** : **moln**
+      - **Antal instanser** : **2** , standardvärdet.
+      - **Kontrol lera** : är markerat som standard för att aktivera användning.
       - ID för Azure-klient organisation och Azure-program hämtas från det program som du definierade tidigare.
 
 ![Skärm bild som visar BMC-konfiguration.](media/it-service-management-connector-secure-webhook-connections/bmc-configuration.png)
+
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 

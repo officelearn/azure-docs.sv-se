@@ -1,17 +1,17 @@
 ---
-title: Övervaka Java-program som körs i valfri miljö – Azure Monitor Application Insights
-description: Övervakning av program prestanda för Java-program som körs på alla miljöer med fristående Java-agent utan att instrumentera appen. Distribuerad spårning och program karta.
+title: Lägga till JVM-arg-Azure Monitor Application Insights Java
+description: Lägga till JVM-arg för Azure Monitor Application Insights Java
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: b1a23c01fdf8a0145c26b709f36709a7b710103f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c9c38d4173413310b715e05c9dcfb9c15be9d4f
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87374311"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377641"
 ---
-# <a name="configuring-jvm-args-java-standalone-agent-for-azure-monitor-application-insights"></a>Konfigurera JVM args Java standalone agent för Azure Monitor Application Insights
+# <a name="adding-the-jvm-arg-for-azure-monitor-application-insights-java"></a>Lägga till JVM-arg för Azure Monitor Application Insights Java
 
 
 
@@ -170,7 +170,7 @@ Lägg till i `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` de
 
 ## <a name="websphere-8"></a>WebSphere 8
 
-Öppna hanterings konsolen gå till **servrar > WebSphere program servrar > program servrar**, Välj lämpliga program servrar och klicka på: 
+Öppna hanterings konsolen gå till **servrar > WebSphere program servrar > program servrar** , Välj lämpliga program servrar och klicka på: 
 
 ```
 Java and Process Management > Process definition >  Java Virtual Machine

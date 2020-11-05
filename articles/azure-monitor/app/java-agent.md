@@ -4,17 +4,19 @@ description: Utökad prestanda och användnings övervakning av din Java-webbpla
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 9cce87fa742df2e623217b5b0f72ad19814fd3b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e91e0252ac2af02157c30fe025e75b6cfee7de6e
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87371370"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378490"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Övervaka beroenden, fångade undantag och metod körnings tider i Java-webbappar
 
+> [!IMPORTANT]
+> Den rekommenderade metoden för att övervaka Java-program är att använda den automatiska Instrumentation utan att ändra koden. Följ rikt linjerna för [Application Insights Java 3,0-agenten](./java-in-process-agent.md).
 
-Om du har [instrumenterat Java-webbappen med Application Insights][java]kan du använda Java-agenten för att få djupare insikter utan några kod ändringar:
+Om du har [instrumenterat Java-webbappen med Application Insights SDK][java]kan du använda Java-agenten för att få djupare insikter utan några kod ändringar:
 
 * **Beroenden:** Data om samtal som ditt program gör till andra komponenter, inklusive:
   * **Utgående HTTP-anrop** som görs via Apache httpclient, OkHttp och `java.net.HttpURLConnection` samlas in.

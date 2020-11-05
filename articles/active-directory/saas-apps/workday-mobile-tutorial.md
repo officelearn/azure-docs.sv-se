@@ -11,147 +11,145 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 256da169761da486d8ac064a2f58a59be43bb5df
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e706649957bf427cd577d7995fb9ce104c687f4b
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92754724"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379000"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday-mobile-application"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med mobil program för arbets dagar
 
-I den här självstudien får du lära dig hur du integrerar Azure Active Directory (Azure AD), villkorlig åtkomst och Intune med Workday-Mobile Apps. När du integrerar Workday Mobile Apps med Microsoft kan du:
+I den här självstudien får du lära dig hur du integrerar Azure Active Directory (Azure AD), villkorlig åtkomst och Intune med mobil program arbets dagar. När du integrerar ett Workday-mobil program med Microsoft kan du:
 
 * Se till att enheterna är kompatibla med dina principer innan du loggar in.
-* Lägg till kontroller i Workday-appen för att se till att användarna har åtkomst till företagets data på ett säkert sätt. 
+* Lägg till kontroller i arbets dagar mobil program för att säkerställa att användarna på ett säkert sätt kommer åt företags data. 
 * Kontroll i Azure AD som har åtkomst till Workday.
-* Gör det möjligt för användarna att logga in automatiskt till Workday med sina Azure AD-konton.
-* Hantera dina konton på en central plats – Azure Portal.
+* Gör det möjligt för användarna att logga in automatiskt på Workday med sina Azure AD-konton.
+* Hantera dina konton på en central plats: Azure Portal.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att komma igång behöver du följande objekt:
+Så här kommer du igång:
 
-* Integrera Workday med Azure AD
-* Självstudie: [Azure Active Directory integration med enkel inloggning (SSO) med Workday](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-tutorial)
+* Integrera arbets dagar med Azure AD.
+* Läs [Azure Active Directory enkel inloggning (SSO) med Workday](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-tutorial).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du Microsofts principer för villkorlig åtkomst och Intune med arbets dagens mobila program.
+I den här självstudien konfigurerar och testar du principer för villkorlig åtkomst för Azure AD och Intune med mobil program för arbets dagar.
 
-* Det federerade programmet för arbets dagar kan nu konfigureras med Azure AD för att aktivera SSO. Om du vill ha mer information om hur du konfigurerar ska du följa [den här](workday-tutorial.md) länken.
+För att aktivera enkel inloggning (SSO) kan du konfigurera ett externt arbets dag program med Azure AD. Mer information finns i [Azure Active Directory integration med enkel inloggning (SSO) med Workday](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-tutorial).
 
 > [!NOTE] 
-> Workday har inte stöd för Intunes skydds principer för appar. Du måste använda hantering av mobila enheter för att använda villkorlig åtkomst.
+> Workday stöder inte app Protection-principerna i Intune. Du måste använda hantering av mobila enheter för att använda villkorlig åtkomst.
 
 
-## <a name="ensure-users-have-access-to-the-workday-mobile-app"></a>Se till att användarna har åtkomst till Workday-mobilappen:
+## <a name="ensure-users-have-access-to-workday-mobile-application"></a>Se till att användarna har åtkomst till mobil programmet för arbets dagar
 
-Konfigurera arbets dagar för att tillåta åtkomst till deras erbjudanden för mobilappar. Du måste konfigurera följande principer för mobila enheter:
-
-Du kan konfigurera dessa genom att följa dessa anvisningar:
+Konfigurera arbets dagar för att tillåta åtkomst till sina mobilappar. Du måste konfigurera följande principer för arbets dagarnas mobila enheter:
 
 1. Gå till säkerhets principer för domäner för funktionellt Area-rapport.
-2. Välj en säkerhets princip.
+1. Välj lämplig säkerhets princip:
     * Mobil användning – Android
     * Mobil användning – iPad
     * Mobil användning – iPhone
-3. Klicka på Redigera behörigheter.
-4. Markera kryss rutan Visa eller ändra om du vill ge säkerhets grupperna åtkomst till rapporten eller uppgiften skydds bara objekt.
-5. Markera kryss rutan hämta eller placera för att ge säkerhets grupper åtkomst till integrering och rapport-eller aktivitets skydds bara åtgärder.
+1. Välj **Redigera behörigheter**.
+1. Markera kryss rutan **Visa eller ändra** om du vill ge säkerhets grupperna åtkomst till rapporten eller uppgiften skydds bara objekt.
+1. Markera kryss rutan **Hämta eller placera** för att ge säkerhets grupper åtkomst till integrering och rapport-eller aktivitets skydds bara åtgärder.
 
-Aktivera väntande säkerhets princip ändringar genom att köra **Aktivera väntande säkerhets princip ändringar** .
+Aktivera väntande säkerhets princip ändringar genom att köra **Aktivera väntande säkerhets princip ändringar**.
 
-## <a name="open-workday-login-page-in-mobile-browser"></a>Öppna inloggnings sidan för arbets dagar i mobil webbläsare:
+## <a name="open-workday-sign-in-page-in-workday-mobile-browser"></a>Öppna inloggnings sidan för arbets dagar i mobil arbets dag mobil webbläsare
 
-Om du vill tillämpa villkorlig åtkomst till Workday-mobilappen krävs det att appen öppnas i en extern webbläsare. Detta kan göras genom att markera kryss rutan **Aktivera mobil webbläsare SSO för inbyggda appar** i **Redigera klient organisations konfiguration-säkerhet.** Det kräver att en Intune-godkänd webbläsare installeras på enheten för iOS och i arbets profilen för Android
+Du måste öppna appen i en extern webbläsare för att kunna använda villkorlig åtkomst för mobil program arbets dagar. I **Redigera klient konfiguration – säkerhet** väljer du **Aktivera mobil webbläsarens SSO för inbyggda appar**. Detta kräver att en webbläsare som godkänts av Intune installeras på enheten för iOS och i arbets profilen för Android.
 
-![Inloggning för mobil webbläsare](./media/workday-tutorial/mobile-browser.png)
+![Skärm bild av inloggning för mobil webbläsare i arbets dagar.](./media/workday-tutorial/mobile-browser.png)
 
-## <a name="setup-conditional-access-policy"></a>Konfigurera princip för villkorlig åtkomst:
+## <a name="set-up-conditional-access-policy"></a>Konfigurera en princip för villkorlig åtkomst
 
-Den här principen påverkar bara inloggningen på en iOS-eller Android-enhet. Om du vill utöka den till alla plattformar väljer du bara **en enhet.** Den här principen kräver att enheten är kompatibel med principen och kommer att verifiera denna via Microsoft Intune. På grund av Android med arbets profiler, ska detta blockera alla användare från att logga in på Workday (webb eller app) om de inte loggar in via sin arbets profil och har installerat appen via Intune-företagsportal. Det finns ett ytterligare steg för iOS för att se till att samma situation gäller. Här följer några skärm bilder av installations programmet för villkorlig åtkomst.
+Den här principen påverkar bara inloggning på en iOS-eller Android-enhet. Om du vill utöka den till alla plattformar väljer du **vilken enhet som helst**. Den här principen kräver att enheten är kompatibel med principen och verifierar detta via Intune. Eftersom Android har arbets profiler, blockerar detta alla användare från att logga in på Workday, om de inte loggar in via sin arbets profil och har installerat appen via företags portalen för Intune. Det finns ett ytterligare steg för iOS för att se till att samma situation gäller.
 
-**Workday stöder följande åtkomst kontroller:**
-* Kräv Multi-Factor Authentication
+Workday stöder följande åtkomst kontroller:
+* Kräv multifaktorautentisering
 * Kräv att enheten ska markeras som kompatibel
 
-**Workday-appen stöder inte följande:**
+Workday-appen stöder inte följande:
 * Kräv godkänd klientapp
 * Kräv app Protection-princip (förhands granskning)
 
-Utför följande steg för att konfigurera **arbets dagar** som **hanterad enhet** :
+Utför följande steg för att konfigurera en arbets dag som en hanterad enhet:
 
-![Konfigurera princip för villkorlig åtkomst](./media/workday-tutorial/managed-devices-only.png)
+![Skärm bild av enbart hanterade enheter och molnappar eller-åtgärder.](./media/workday-tutorial/managed-devices-only.png)
 
-1. Klicka på **start > Microsoft Intune > villkorliga Access-Policies > endast hanterade enheter** 
+1. Välj **Start**  >  **Microsoft Intune**  >  **villkorlig åtkomst-principer**. Välj **endast hanterade enheter**. 
 
-1. På sidan **endast hanterade enheter** ger du **namn** fältet värde som `Managed Devices Only` och klickar på **molnappar eller åtgärder** .
+1. I **hanterade enheter** väljer du endast **hanterade enheter** under **namn** och väljer sedan **molnappar eller åtgärder**.
 
-1. Utför följande steg i **molnappar eller-åtgärder** .
+1. I **molnappar eller-åtgärder** :
 
-    a. Växla **Välj vad den här principen gäller för** **molnappar** .
+    a. Växla **Välj vad den här principen gäller** för **molnappar**.
 
-    b. I inkludera, klickar du på **Välj appar** .
+    b. I **Inkludera** väljer du **Välj appar**.
 
-    c. Välj **arbets dag** i listan Välj.
+    c. Välj **arbets dag** i listan **Välj** .
 
-    d. Klicka på **Klar** .
+    d. Välj **Klar**.
 
-1. Aktivera principen för **att aktivera** .
+1. Växla **Aktivera princip** till **på**.
 
-1. Klicka på **Spara** .
+1. Välj **Spara**.
 
 Utför följande steg för att **bevilja** åtkomst:
 
-![Princip för villkorlig åtkomst för Workday-installation](./media/workday-tutorial/managed-devices-only-2.png)
+![Skärm bild av enbart hanterade enheter och beviljande.](./media/workday-tutorial/managed-devices-only-2.png)
 
-1. Klicka på **start > Microsoft Intune > villkorliga Access-Policies > endast hanterade enheter** 
+1. Välj **Start**  >  **Microsoft Intune**  >  **villkorlig åtkomst-principer**. Välj **endast hanterade enheter**. 
 
-1. På sidan **endast hanterade enheter** ger du **namn** fältet värde som `Managed Devices Only` och klickar på **åtkomst kontroller > bevilja tilldelning** .
+1. Välj endast **hanterade enheter** under **namn** i **hanterade enheter**. Under **Åtkomstkontroller** väljer du **Bevilja**.
 
-1. Utför följande steg på sidan **bevilja** .
+1. I **bevilja** :
 
-    a. Välj de kontroller som ska tillämpas som **beviljad åtkomst** .
+    a. Välj de kontroller som ska tillämpas som **beviljad åtkomst**.
 
-    b. Markera kryss rutan **Kräv att enheten är markerad som kompatibel** .
+    b. Välj **Kräv att enheten är markerad som kompatibel**.
 
-    c. Välj **Kräv en av de valda kontrollerna** .
+    c. Välj **Kräv en av de valda kontrollerna**.
 
-    d. Klicka på **Välj** .
+    d. Välj **Välj**.
 
-1. Aktivera principen för **att aktivera** .
+1. Växla **Aktivera princip** till **på**.
 
-1. Klicka på **Spara**
+1. Välj **Spara**.
 
-## <a name="set-up-device-compliance-policy"></a>Konfigurera efterlevnadsprinciper för enheter:
+## <a name="set-up-device-compliance-policy"></a>Konfigurera efterlevnadsprincip för enheter
 
-För att säkerställa att iOS-enheter bara kan logga in via en MDM-hanterad Workday-app måste du blockera appen App Store genom att lägga till **com. workday. workdayapp** i listan över begränsade appar. Detta säkerställer att endast enheter som har Workday-appen installerat via företags portalen kan komma åt Workday. För webbläsare kommer de endast att kunna komma åt Workday om enheten hanteras av Intune och de använder en hanterad webbläsare.
+För att säkerställa att iOS-enheter bara kan logga in via arbets dagar som hanteras av hantering av mobila enheter, måste du blockera appen App Store genom att lägga till **com. workday. workdayapp** i listan över begränsade appar. Detta säkerställer att endast enheter som har arbets dagar som har installerats via företags portalen kan komma åt Workday. För webbläsaren kan enheterna bara komma åt Workday om enheten hanteras av Intune och använder en hanterad webbläsare.
 
-![Efterlevnadsprincip för installation av workday-enhet](./media/workday-tutorial/ios-policy.png)
+![Skärm bild av policyn för efterlevnadsprinciper för iOS-enheter.](./media/workday-tutorial/ios-policy.png)
 
-## <a name="set-up-microsoft-intune-app-configuration-policies"></a>Konfigurera Microsoft Intune konfigurations principer för appar:
+## <a name="set-up-intune-app-configuration-policies"></a>Konfigurera konfigurations principer för Intune-appar
 
 | Scenario | Nyckel värdes par |
 |----------------------------------------------------------------------------------------   |-----------|
-| Fyll i fälten för klient och webb adress automatiskt för:<br>● Arbets dag på Android när du aktiverar Android for Work-profiler.<br>● Arbets dag på iPad och iPhone.     | Använd de här värdena för att konfigurera din klient: <br>● Konfigurations nyckel = UserGroupCode<br>● Värde typ = sträng <br>● Konfigurations värde = ditt klient namn. Exempel: GMS<br>Använd följande värden för att konfigurera webb adressen:<br>● Konfigurations nyckel = AppServiceHost<br>● Värde typ = sträng<br>● Konfigurations värde = den grundläggande URL: en för din klient. Exempel: https://www.myworkday.com                              |   |
-| Inaktivera de här åtgärderna för Workday på iPad och iPhone:<br>● Klipp ut, kopiera och klistra in<br>● Utskrift                       | Ange värdet (Boolean) till false för de här nycklarna för att inaktivera funktionen:<br>● AllowCutCopyPaste<br>● AllowPrint  |
-| Inaktivera skärm bilder för arbets dagar på Android. |Ange värdet (Boolean) till false i AllowScreenshots-nyckeln för att inaktivera funktionen.|
-| Inaktivera föreslagna uppdateringar för dina användare.|Ange värdet (Boolean) till false i AllowSuggestedUpdates-nyckeln för att inaktivera funktionen.|
-|Anpassa App Store-URL: en för att dirigera mobila användare till valfri App Store.|Använd de här värdena för att ändra App Store-URL:<br>● Konfigurations nyckel = AppUpdateURL<br>● Värde typ = sträng<br> ● Konfigurations värde = App Store-URL|
+| Fyll i fälten för klient och webb adress automatiskt för:<br>● Arbets dag på Android när du aktiverar Android for Work-profiler.<br>● Arbets dag på iPad och iPhone.     | Använd de här värdena för att konfigurera din klient: <br>● Konfigurations nyckel = `UserGroupCode`<br>● Värde typ = sträng <br>● Konfigurations värde = ditt klient namn. Exempel: `gms`<br>Använd följande värden för att konfigurera webb adressen:<br>● Konfigurations nyckel = `AppServiceHost`<br>● Värde typ = sträng<br>● Konfigurations värde = den grundläggande URL: en för din klient. Exempel: `https://www.myworkday.com`                                |   |
+| Inaktivera de här åtgärderna för Workday på iPad och iPhone:<br>● Klipp ut, kopiera och klistra in<br>● Utskrift                       | Ange värdet (Boolean) till `False` på dessa nycklar för att inaktivera funktionen:<br>●   `AllowCutCopyPaste`<br>●    `AllowPrint`    |
+| Inaktivera skärm bilder för arbets dagar på Android. |Ange värdet (Boolean) till `False` på `AllowScreenshots` nyckeln för att inaktivera funktionen.|
+| Inaktivera föreslagna uppdateringar för dina användare.|Ange värdet (Boolean) till `False` på `AllowSuggestedUpdates` nyckeln för att inaktivera funktionen.|
+|Anpassa App Store-URL: en för att dirigera mobila användare till valfri App Store.|Använd de här värdena för att ändra App Store-URL:<br>● Konfigurations nyckel = `AppUpdateURL`<br>● Värde typ = sträng<br> ● Konfigurations värde = App Store-URL|
 |       |
 
 
-## <a name="ios-configuration-policies"></a>Konfigurations principer för iOS:
+## <a name="ios-configuration-policies"></a>Principer för iOS-konfiguration
 
-1. Gå till https://portal.azure.com/ och logga in
-2. Sök efter **Intune** eller klicka på widgeten i listan.
-3. Gå till **klient program – > appar – > konfigurations principer för appar-> + Lägg till > hanterade enheter**
-4. Ange ett namn.
-5. Under **plattform** väljer du **iOS/iPad**
-6. Under **associerad app** väljer du arbets dag för iOS-app som du har lagt till
-7. Klicka på **konfigurations inställningar** och under **konfigurations inställnings format** väljer du **Ange XML-data**
-8. Här är en exempel-XML-fil. Lägg till de konfigurationer som du vill använda. Ersätt **STRING_VALUE** med strängen som du vill använda. Ersätt `<true />` eller `<false />` med `<true />` eller  `<false />` . Om du inte lägger till en konfiguration fungerar den som den skulle vara inställd på True.
+1. Gå till [Azure-portalen](https://portal.azure.com/) och logga in.
+1. Sök efter **Intune** eller Välj widgeten i listan.
+1. Gå till **klient appar**  >  **appar**  >  **konfigurations principer** för appar. Välj sedan **+ Lägg till**  >  **hanterade enheter**.
+1. Ange ett namn.
+1. Under **plattform** väljer du **iOS/iPad**.
+1. Under **associerad app** väljer du den arbets dag för iOS-app som du har lagt till.
+1. Välj **konfigurations inställningar**. Under **konfigurations inställnings format** väljer du **Ange XML-data**.
+1. Här är en exempel-XML-fil. Lägg till de konfigurationer som du vill använda. Ersätt `STRING_VALUE` med den sträng som du vill använda. Ersätt `<true /> or <false />` med `<true />` eller  `<false />` . Om du inte lägger till en konfiguration fungerar det här exemplet som det är inställt på `True` .
 
     ```
     <dict>
@@ -170,18 +168,18 @@ För att säkerställa att iOS-enheter bara kan logga in via en MDM-hanterad Wor
     </dict>
 
     ```
-9. Klicka på Lägg till
-10. Uppdatera sidan och klicka på den nyligen skapade principen.
-11. Klicka på tilldelningar och välj vem du vill att appen ska gälla för.
-12. Klicka på Spara.
+1. Välj **Lägg till**.
+1. Uppdatera sidan och välj den nyligen skapade principen.
+1. Välj **tilldelningar** och välj vem du vill att appen ska gälla för.
+1. Välj **Spara**.
 
-## <a name="android-configuration-policies"></a>Konfigurations principer för Android:
+## <a name="android-configuration-policies"></a>Principer för Android-konfiguration
 
-1. Gå till `https://portal.azure.com/` och logga in.
-2. Sök efter **Intune** eller klicka på widgeten i listan.
-3. Gå till **klient program – > appar – > konfigurations principer för appar-> + Lägg till > hanterade enheter**
+1. Gå till [Azure-portalen](https://portal.azure.com/) och logga in.
+2. Sök efter **Intune** eller Välj widgeten i listan.
+3. Gå till **klient appar**  >  **appar**  >  **konfigurations principer** för appar. Välj sedan **+ Lägg till**  >  **hanterade enheter**.
 5. Ange ett namn. 
-6. Under **plattform** väljer du **Android**
-7. Under **associerad app** väljer du arbets dag för den Android-app som du har lagt till
-8. Klicka på **konfigurations inställningar** och under **konfigurations inställnings format** väljer du **Ange JSON-data**
+6. Under **plattform** väljer du **Android**.
+7. Under **associerad app** väljer du den arbets dag för Android-app som du har lagt till.
+8. Välj **konfigurations inställningar**. Under **konfigurations inställnings format** väljer du **Ange JSON-data**.
 

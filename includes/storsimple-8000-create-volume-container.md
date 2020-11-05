@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 467af776af95cf035121250fdcadd2fee65d9805
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ca02b3d6f4dec805c6ce58d4470c4c8e5f3454f
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67187388"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375846"
 ---
 #### <a name="to-create-a-volume-container"></a>Skapa en volymcontainer
 1. Gå till StorSimple Device Manager-tjänsten och klicka på **Enheter**. Markera och klicka på en enhet i tabellistan med enheter. 
@@ -18,9 +18,9 @@ ms.locfileid: "67187388"
 
 2. Klicka på **+ Lägg till volymcontainer** på instrumentpanelen för enheten
 
-    ![Blad för volymcontainer](./media/storsimple-8000-create-volume-container/createvolumecontainer2.png)
+    ![Bladet volym behållare 2](./media/storsimple-8000-create-volume-container/createvolumecontainer2.png)
 
-3. På bladet **Lägg till volymcontainer**:
+3. På bladet **Lägg till volymcontainer** :
    
    1. Enheten markeras automatiskt.
    2. Ange ett **namn** för din volymcontainer. Namnet måste vara mellan 3 och 32 tecken. Du kan byta namn på en volymcontainer när den har skapats.
@@ -30,10 +30,10 @@ ms.locfileid: "67187388"
    6. Välj **Obegränsad** i listrutan **Ange bandbredd** om du vill använda all tillgänglig bandbredd. Du kan också välja alternativet **Anpassat** om du vill använda bandbreddskontroller, och sedan ange ett värde mellan 1 Mbit/s och 1 000 Mbit/s.
       Om du har informationen om din bandbreddsanvändning tillgänglig, kan du allokera bandbredd enligt ett schema genom att ange **Välj en bandbreddsmall**. Stegvisa instruktioner för proceduren finns i [Lägg till en bandbreddsmall](../articles/storsimple/storsimple-8000-manage-bandwidth-templates.md#add-a-bandwidth-template).
 
-      ![Blad för volymcontainer](./media/storsimple-8000-create-volume-container/createvolumecontainer6b.png)
+      ![Volym container blad 3](./media/storsimple-8000-create-volume-container/createvolumecontainer6b.png)
    7. Klicka på **Skapa**.
 
-        ![Blad för volymcontainer](./media/storsimple-8000-create-volume-container/createvolumecontainer6.png)
+        ![Volym container blad 4](./media/storsimple-8000-create-volume-container/createvolumecontainer6.png)
    
        Du får ett meddelande när volymcontainern har skapats.
 

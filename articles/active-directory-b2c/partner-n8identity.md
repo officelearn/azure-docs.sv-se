@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: a6d6ca825a556ea3c98fb94d4becbb75b8f2a7d7
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: dd6e760fe8052463491f249b54c3af3d2636d46d
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93294323"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376892"
 ---
 # <a name="tutorial-for-configuring-theaccesshub-admin-tool-with-azure-active-directory-b2c"></a>Självstudie för att konfigurera TheAccessHub Admin Tool med Azure Active Directory B2C
 
@@ -52,7 +52,7 @@ Administrations verktyget TheAccessHub körs som alla andra program i Azure. Den
 
 ![Bild som visar n8identity-arkitektur diagram](./media/partner-n8identity/n8identity-architecture-diagram.png)
 
-|Steg | Beskrivning |
+|Steg | Description |
 |:-----| :-----------|
 | 1. | Användaren kommer till inloggnings sidan. Användare väljer registrering för att skapa ett nytt konto och ange information på sidan. Azure AD B2C samlar in användarattribut.
 | 2. | Azure AD B2C anropar administrations verktyget för TheAccessHub och skickar på användarattribut
@@ -102,7 +102,7 @@ Följ dessa steg om du vill auktorisera TheAccessHub Admin Tool för att få åt
 
 5. Följ anvisningarna och välj **Godkänn** för att bevilja TheAccessHub admin verktyget de begärda behörigheterna.
 
-## <a name="configure-a-new-csrhelpdesk-user-using-your-enterprise-identity"></a>Konfigurera en ny CSR/supportavdelningen-användare med din företags identitet
+## <a name="configure-a-new-csr-user-using-your-enterprise-identity"></a>Konfigurera en ny CSR-användare med din företags identitet
 
 Skapa en CSR/supportavdelningen-användare som har åtkomst till TheAccessHub admin-verktyget med sina befintliga företags Azure Active Directory autentiseringsuppgifter.
 
@@ -126,7 +126,7 @@ Om du vill konfigurera CSR/helpdesk-användare med enkel inloggning (SSO) rekomm
 
 6. Välj **Skicka**.
 
-## <a name="configure-a-new-csrhelpdesk-user-using-a-new-identity"></a>Konfigurera en ny CSR/supportavdelningen-användare med en ny identitet
+## <a name="configure-a-new-csr-user-using-a-new-identity"></a>Konfigurera en ny CSR-användare med en ny identitet
 
 Skapa en CSR/supportavdelningen-användare som kommer åt TheAccessHub admin-verktyget med en ny lokal autentiseringsuppgift som är unik för TheAccessHub admin-verktyget. Detta används huvudsakligen av organisationer som inte använder en Azure AD för sitt företag.
 
@@ -150,7 +150,7 @@ Följ dessa steg om du vill [Konfigurera en CSR/supportavdelningen](https://yout
 
 7. Välj **Skicka**
 
-## <a name="configure-partitioned-csrhelpdesk-administration"></a>Konfigurera partitionerad CSR/helpdesk-administration
+## <a name="configure-partitioned-csr-administration"></a>Konfigurera partitionerad CSR-administration
 
 Behörigheter för att hantera kund-och CSR/helpdesk-användare i TheAccessHub admin-verktyget hanteras med hjälp av en organisationshierarki. Alla kollegor och kunder har en hem organisation där de finns. Vissa kollegor eller grupper av kollegor kan tilldelas som ägare av organisationer.  Organisations ägare kan hantera (göra ändringar i) kollegor och kunder i organisationer eller under organisationer som de äger. För att flera kollegor ska kunna hantera en uppsättning användare kan en grupp skapas med många medlemmar. Gruppen kan sedan tilldelas som organisations ägare och alla medlemmar i gruppen kan hantera kollegor och kunder i organisationen.
 
@@ -324,7 +324,7 @@ Med hjälp av TheAccessHub Admin Tool kan du importera data från olika database
 
 18. När **datasynkroniseringen** blir 100% i inläsnings fasen, kommer alla ändringar som uppstår från belastningen att initieras. Kunderna bör börja visa eller ta emot ändringar i Azure AD B2C.
 
-## <a name="synchronize-azure-ad-b2c-customer-data-into-theaccesshub-admin-tool"></a>Synkronisera Azure AD B2C kunddata i administrations verktyget för TheAccessHub
+## <a name="synchronize-azure-ad-b2c-customer-data"></a>Synkronisera Azure AD B2C kund information 
 
 Som en engångs-eller pågående åtgärd kan TheAccessHub admin-verktyget synkronisera all kund information från Azure AD B2C till TheAccessHub admin-verktyget. Detta garanterar att CSR/helpdesk-administratörer ser uppdaterad kund information.
 
@@ -356,7 +356,7 @@ Så här synkroniserar du data från Azure AD B2C till administrations verktyget
 
 13. När **datasynkroniseringen** blir 100% i inläsnings fasen, kommer alla ändringar som uppstår från belastningen att initieras.
 
-## <a name="configure-azure-ad-b2c-policies-to-call-theaccesshub-admin-tool"></a>Konfigurera Azure AD B2C-principer för att anropa TheAccessHub Admin Tool
+## <a name="configure-azure-ad-b2c-policies"></a>Konfigurera Azure AD B2C principer
 
 Ibland kan synkronisering av TheAccessHub-administrationsverktyget vara begränsad i sin förmåga att hålla sitt tillstånd uppdaterat med Azure AD B2C. Vi kan dra nytta av TheAccessHub Admin Tools API och Azure AD B2C principer för att informera TheAccessHub admin-verktyget om ändringar när de sker. Den här lösningen kräver tekniska kunskaper om [Azure AD B2C anpassade principer](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started#:~:text=%20Get%20started%20with%20custom%20policies%20in%20Azure,Experience%20Framework%20applications.%20Azure%20AD%20B2C...%20More%20). I nästa avsnitt får du ett exempel på princip steg och ett säkert certifikat för att meddela TheAccessHub administrations verktyg för nya konton i dina Sign-Up anpassade principer.
 

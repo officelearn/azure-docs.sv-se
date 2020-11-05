@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1aa5671a73c8a4de945a2013d8678d7f0f74625e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4446e5b8abf9ac308a5eb32cadf31eddfcb9d9a1
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097999"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379255"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Skapa och tilldela en anpassad roll i Azure Active Directory
 
@@ -31,11 +31,11 @@ Du kan skapa anpassade roller på fliken [roller och administratörer](https://p
 ### <a name="create-a-new-custom-role-to-grant-access-to-manage-app-registrations"></a>Skapa en ny anpassad roll för att ge åtkomst till hantering av app-registreringar
 
 1. Logga in på [administrations centret för Azure AD](https://aad.portal.azure.com) med privilegierade roll administratörer eller globala administratörs behörigheter i Azure AD-organisationen.
-1. Välj **Azure Active Directory**  >  **roller och administratörer**  >  **ny anpassad roll** .
+1. Välj **Azure Active Directory**  >  **roller och administratörer**  >  **ny anpassad roll**.
 
    ![Skapa eller redigera roller från sidan roller och administratörer](./media/custom-create/new-custom-role.png)
 
-1. På fliken **grundläggande** anger du ett namn och en beskrivning för rollen och klickar sedan på **Nästa** .
+1. På fliken **grundläggande** anger du ett namn och en beskrivning för rollen och klickar sedan på **Nästa**.
 
    ![Ange ett namn och en beskrivning för en anpassad roll på fliken grundläggande](./media/custom-create/basics-tab.png)
 
@@ -44,8 +44,8 @@ Du kan skapa anpassade roller på fliken [roller och administratörer](https://p
 
       ![Välj behörigheter för en anpassad roll på fliken behörigheter](./media/custom-create/permissions-tab.png)
 
-   1. Ange sedan "grundläggande" i Sök fältet, Välj `microsoft.directory/applications/basic/update` behörigheten och klicka sedan på **Nästa** .
-1. På fliken **Granska + skapa** granskar du behörigheterna och väljer **skapa** .
+   1. Ange sedan "grundläggande" i Sök fältet, Välj `microsoft.directory/applications/basic/update` behörigheten och klicka sedan på **Nästa**.
+1. På fliken **Granska + skapa** granskar du behörigheterna och väljer **skapa**.
 
 Den anpassade rollen visas i listan över tillgängliga roller att tilldela.
 
@@ -169,12 +169,12 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
 Precis som inbyggda roller tilldelas anpassade roller som standard till standard området för hela organisationen för att ge åtkomst behörigheter över alla app-registreringar i din organisation. Men till skillnad från inbyggda roller kan anpassade roller också tilldelas i omfånget för en enskild Azure AD-resurs. På så sätt kan du ge användaren behörighet att uppdatera autentiseringsuppgifter och grundläggande egenskaper för en enskild app utan att behöva skapa en andra anpassad roll.
 
 1. Logga in på [Azure AD administrations Center](https://aad.portal.azure.com) med programutvecklare behörigheter i Azure AD-organisationen.
-1. Välj **Appregistreringar** .
+1. Välj **Appregistreringar**.
 1. Välj den app-registrering som du beviljar åtkomst för att hantera. Du kanske måste välja **alla program** om du vill se en fullständig lista över app-registreringar i din Azure AD-organisation.
 
     ![Välj app-registrering som ett resurs omfång för en roll tilldelning](./media/custom-create/appreg-all-apps.png)
 
-1. I appens registrering väljer du **roller och administratörer** . Om du inte redan har skapat ett följer du anvisningarna i [föregående procedur](#create-a-new-custom-role-to-grant-access-to-manage-app-registrations).
+1. I appens registrering väljer du **roller och administratörer**. Om du inte redan har skapat ett följer du anvisningarna i [föregående procedur](#create-a-new-custom-role-to-grant-access-to-manage-app-registrations).
 
 1. Välj rollen för att öppna **tilldelnings** sidan.
 1. Välj **Lägg till tilldelning** för att lägga till en användare. Användaren beviljas alla behörigheter enbart för den valda program registreringen.

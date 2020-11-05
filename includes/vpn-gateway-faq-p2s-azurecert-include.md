@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f322803d3484b4ec2d5449e19d67d75b35d6d92f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ef67580928a45609f50d3fe798eb9d054265c0a
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75751563"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375786"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
 
@@ -23,7 +23,7 @@ Avmarkera **"verifiera serverns identitet genom att verifiera certifikatet"** el
 
 Att kringgå Server identitets verifiering rekommenderas inte i allmänhet, men med Azure certifikatautentisering används samma certifikat för Server verifiering i protokollet IKEv2/SSTP (VPN Tunneling Protocol) och EAP-protokollet. Eftersom Server certifikatet och FQDN redan har verifierats av VPN tunneling-protokollet, är det redundant att verifiera samma igen i EAP.
 
-![punkt-till-plats](./media/vpn-gateway-faq-p2s-all-include/servercert.png "Server certifikat")
+![punkt-till-plats-autentisering](./media/vpn-gateway-faq-p2s-all-include/servercert.png "Server certifikat")
 
 ### <a name="can-i-use-my-own-internal-pki-root-ca-to-generate-certificates-for-point-to-site-connectivity"></a>Kan jag använda min egen interna PKI-rotcertifikatutfärdare för att generera certifikat för punkt-till-plats-anslutning?
 

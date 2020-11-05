@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: notification-hubs
 author: jwargo
 ms.service: notification-hubs
@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 01/17/2019
 ms.author: jowargo
 ms.custom: include file
-ms.openlocfilehash: 5afcc8e4524a0e8353766ba239d5ab9161b29d86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ec602f056b339a1b1dcb78d6b8d7583aeaf0434
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67509072"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375909"
 ---
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in i [Azure-portalen](https://portal.azure.com).
 
-1. Välj **alla tjänster** på den vänstra menyn och välj sedan **Notification Hubs** i avsnittet **mobil** . Välj stjärn ikonen bredvid tjänst namnet för att lägga till tjänsten i **Favoriter** -avsnittet på den vänstra menyn. När du har lagt till **Notification Hubs** i **Favoriter**väljer du den på den vänstra menyn.
+1. Välj **alla tjänster** på den vänstra menyn och välj sedan **Notification Hubs** i avsnittet **mobil** . Välj stjärn ikonen bredvid tjänst namnet för att lägga till tjänsten i **Favoriter** -avsnittet på den vänstra menyn. När du har lagt till **Notification Hubs** i **Favoriter** väljer du den på den vänstra menyn.
 
       ![Azure-portalen – välj Notification Hubs](./media/notification-hubs-portal-create-new-hub/all-services-select-notification-hubs.png)
 
@@ -33,7 +33,7 @@ ms.locfileid: "67509072"
 
     1. Välj ett värde i list rutan **plats** . Det här värdet anger den plats där du vill skapa hubben.
 
-    1. Välj en befintlig resurs grupp i **resurs gruppen**eller skapa ett namn för en ny resurs grupp.
+    1. Välj en befintlig resurs grupp i **resurs gruppen** eller skapa ett namn för en ny resurs grupp.
 
     1. Välj **Skapa**.
 
@@ -41,7 +41,7 @@ ms.locfileid: "67509072"
 
 1. Välj **meddelanden** (klock ikonen) och välj sedan **gå till resurs**. Du kan också uppdatera listan på sidan **Notification Hubs** och välja hubben.
 
-      ![Azure Portal – Meddelanden -> Gå till resurser](./media/notification-hubs-portal-create-new-hub/go-to-notification-hub.png)
+      ![Azure Portal – gå till resurs](./media/notification-hubs-portal-create-new-hub/go-to-notification-hub.png)
 
 1. Välj **Åtkomstprinciper** i listan. Observera att de två anslutnings strängarna är tillgängliga för dig. Du behöver dem senare för att hantera push-meddelanden.
 

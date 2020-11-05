@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: quickstart
-ms.date: 08/07/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, devx-track-azurepowershell
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd764417a4598899bf17dc6a00c633f19d64fa6f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4a78296d3fd040b047c2a6cc3761d429883aa9d1
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92379315"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378796"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Snabb start: bevilja behörighet att skapa obegränsade app-registreringar
 
@@ -29,7 +29,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 ## <a name="create-a-custom-role-using-the-azure-ad-portal"></a>Skapa en anpassad roll med hjälp av Azure AD-portalen
 
 1. Logga in på [administrations centret för Azure AD](https://aad.portal.azure.com) med privilegierade roll administratörer eller globala administratörs behörigheter i Azure AD-organisationen.
-1. Välj **Azure Active Directory**, Välj **roller och administratörer**och välj sedan **ny anpassad roll**.
+1. Välj **Azure Active Directory** , Välj **roller och administratörer** och välj sedan **ny anpassad roll**.
 
     ![Skapa eller redigera roller från sidan roller och administratörer](./media/quickstart-app-registration-limits/new-custom-role.png)
 

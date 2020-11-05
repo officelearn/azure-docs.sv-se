@@ -13,16 +13,22 @@ ms.workload: infrastructure
 ms.date: 03/30/2020
 ms.author: prtyag
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6d723e95212e457a81eedf7726bf3c5bd2499643
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8f573f5f00d266fe5d27857cc9e244d136f61a5
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84488893"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379272"
 ---
-# <a name="enable-kdump-service"></a>Aktivera kdump-tjänsten
+# <a name="kdump-for-sap-hana-on-azure-large-instances-hli"></a>Kdump för SAP HANA på stora Azure-instanser (HLI)
 
-Det här dokumentet beskriver information om hur du aktiverar kdump-tjänsten på den stora Azure HANA-instansen (**typ I och typ II**)
+Att konfigurera och aktivera kdump är ett steg som behövs för att felsöka system krascher som inte har en tydlig orsak.
+Det finns tillfällen när ett system slutar att krascha som inte kan förklaras av ett problem med maskin vara eller infrastruktur.
+I dessa fall kan det vara problem med operativ systemet eller programmet och kdump gör att SUSE kan avgöra varför ett system har kraschat.
+
+## <a name="enable-kdump-service"></a>Aktivera kdump-tjänsten
+
+Det här dokumentet beskriver information om hur du aktiverar kdump-tjänsten på den stora Azure HANA-instansen ( **typ I och typ II** )
 
 ## <a name="supported-skus"></a>SKU: er som stöds
 
@@ -55,13 +61,17 @@ Det här dokumentet beskriver information om hur du aktiverar kdump-tjänsten p�
 |   Typ II                   |  SuSE        |   SLES 12 SP3         |  S576m      |
 |   Typ II                   |  SuSE        |   SLES 12 SP4         |  S576m      |
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Kdump-tjänsten använder `/var/crash` katalogen för att skriva dum par, se till att partitionen motsvarar den här katalogen har tillräckligt med utrymme för att ta emot dumpar.
 
 ## <a name="setup-details"></a>Installations information
 
 - Skript för att aktivera kdump hittar du [här](https://github.com/Azure/sap-hana/blob/master/tools/enable-kdump.sh)
+> [!NOTE]
+> Det här skriptet görs baserat på vår labb konfiguration och kunden förväntas kontakta system leverantören för att få ytterligare justeringar.
+> Separat LUN kommer att tillhandahållas för de nya och befintliga servrarna för att spara dumpningarna och skriptet tar hand om att konfigurera fil systemet från LUN.
+> Microsoft ansvarar inte för att analysera dumpningen. Kunden måste öppna en biljett med OS-leverantören för att få den analyserad.
 
 - Kör det här skriptet på HANA-stor instans med kommandot nedan
 
@@ -72,7 +82,7 @@ Det här dokumentet beskriver information om hur du aktiverar kdump-tjänsten p�
     sudo bash enable-kdump.sh
     ```
 
-- Om kommandot utdata kdump har Aktiver ATS, startar du om systemet för att tillämpa ändringen, sedan har kdump Aktiver ATS. Starta om systemet för att tillämpa ändringarna.
+- Om kommandot utdata kdump har Aktiver ATS, måste du starta om systemet för att ändringarna ska kunna verkställas.
 
 - Om kommandots utdata inte kunde utföra en viss åtgärd, avslutar!!!!, kdump-tjänsten inte är aktive rad. Se avsnittet [support problem](#support-issue).
 
@@ -104,3 +114,6 @@ Om skriptet Miss lyckas med ett fel eller om kdump inte är aktiverat, kan du ge
 * OS-version
 
 * Kernelversion
+
+## <a name="related-documents"></a>Relaterade dokument
+- Mer information om [hur du konfigurerar kdump](https://www.suse.com/support/kb/doc/?id=3374462)

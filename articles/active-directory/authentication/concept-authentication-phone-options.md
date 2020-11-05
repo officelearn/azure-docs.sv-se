@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 11/04/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25161054a53377b9fbbb12621b95dff9c119fa17
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 45851015dd5a845497fb2d09bf1f9fffb9e35a06
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165525"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377759"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Autentiseringsmetoder i Azure Active Directory telefon alternativ
 
@@ -23,7 +23,7 @@ För direkt autentisering med textmeddelande kan du [Konfigurera och aktivera an
 
 Användarna kan också kontrol lera att de använder en mobil telefon eller en arbets telefon som sekundär form av autentisering som används under Azure Multi-Factor Authentication eller lösen ords återställning via självbetjäning (SSPR).
 
-För att fungera korrekt måste telefonnumret vara i formatet *+ CountryCode telefonnummer*, till exempel *+ 1 4251234567*.
+För att fungera korrekt måste telefonnumret vara i formatet *+ CountryCode telefonnummer* , till exempel *+ 1 4251234567*.
 
 > [!NOTE]
 > Det måste finnas ett blank steg mellan lands-/region koden och telefonnumret.
@@ -49,8 +49,6 @@ Med text meddelande verifiering under SSPR eller Azure Multi-Factor Authenticati
 Med Telefonsamtals verifiering under SSPR eller Azure Multi-Factor Authentication görs ett automatiskt röst samtal till det telefonnummer som registrerats av användaren. För att slutföra inloggnings processen uppmanas användaren att ange sina PIN-nummer följt av # på deras knapps ATS.
 
 ## <a name="office-phone-verification"></a>Office Phone-verifiering
-
-Office Phone-attributet hanteras av Azure AD-administratören och kan inte registreras av en användare själva.
 
 Med Telefonsamtals verifiering under SSPR eller Azure Multi-Factor Authentication görs ett automatiskt röst samtal till det telefonnummer som registrerats av användaren. För att slutföra inloggnings processen uppmanas användaren att ange sina PIN-nummer följt av # på deras knapps ATS.
 
@@ -81,7 +79,7 @@ Mer information om SSPR-koncept finns i [hur Azure AD självbetjäning för åte
 
 Mer information om MFA-koncept finns i [hur Azure Multi-Factor Authentication fungerar][concept-mfa].
 
-Läs mer om hur du konfigurerar autentiseringsmetoder med hjälp av [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+Läs mer om hur du konfigurerar autentiseringsmetoder med hjälp av [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta&preserve-view=true).
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md

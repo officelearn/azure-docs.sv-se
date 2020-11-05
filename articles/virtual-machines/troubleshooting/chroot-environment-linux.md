@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.date: 05/05/2020
 ms.author: kaib
-ms.openlocfilehash: 5d803acc7f2287d0b88791d85fa876f89e4a0955
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 0d8a030061ef6aa848344152edaa3267ad916e2a
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332193"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377946"
 ---
 # <a name="chroot-environment-in-a-linux-rescue-vm"></a>Chroot-miljö i en Linux-räddande VM
 
@@ -34,7 +34,7 @@ Den här artikeln beskriver hur du felsöker chroot-miljön i den virtuella dato
 
    1. Få åtkomst till den virtuella datorn som rot användare med följande kommando:
 
-      `#sudo su -`
+      `sudo su -`
 
    1. Hitta disken med `dmesg` (den metod som du använder för att identifiera den nya disken kan variera). I följande exempel används **dmesg** för att filtrera på **SCSI-** diskar:
 
@@ -53,17 +53,17 @@ Den här artikeln beskriver hur du felsöker chroot-miljön i den virtuella dato
    1. Använd följande kommandon för att få åtkomst till chroot-miljön:
 
       ```
-      #mkdir /rescue
-      #mount /dev/sdc1 /rescue
-      #mount /dev/sdc15 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount /dev/sdc1 /rescue
+      mount /dev/sdc15 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Felsöka chroot-miljön.
@@ -71,16 +71,16 @@ Den här artikeln beskriver hur du felsöker chroot-miljön i den virtuella dato
    1. Använd följande kommandon för att avsluta chroot-miljön:
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -101,7 +101,7 @@ Den här artikeln beskriver hur du felsöker chroot-miljön i den virtuella dato
 
    1. Få åtkomst till den virtuella datorn som rot användare med följande kommando:
 
-      `#sudo su -`
+      `sudo su -`
 
    1. Hitta disken med `dmesg` (den metod som du använder för att identifiera den nya disken kan variera). I följande exempel används **dmesg** för att filtrera på **SCSI-** diskar:
 
@@ -120,17 +120,17 @@ Den här artikeln beskriver hur du felsöker chroot-miljön i den virtuella dato
    1. Använd följande kommandon för att få åtkomst till chroot-miljön:
 
       ```
-      #mkdir /rescue
-      #mount -o nouuid /dev/sdc2 /rescue
-      #mount -o nouuid /dev/sdc1 /rescue/boot/
-      #cd /rescue
+      mkdir /rescue
+      mount -o nouuid /dev/sdc2 /rescue
+      mount -o nouuid /dev/sdc1 /rescue/boot/
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Felsöka chroot-miljön.
@@ -138,16 +138,16 @@ Den här artikeln beskriver hur du felsöker chroot-miljön i den virtuella dato
    1. Använd följande kommandon för att avsluta chroot-miljön:
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -171,7 +171,7 @@ Den här artikeln beskriver hur du felsöker chroot-miljön i den virtuella dato
 
    1. Få åtkomst till den virtuella datorn som rot användare med följande kommando:
 
-      `#sudo su -`
+      `sudo su -`
 
    1. Hitta disken med `dmesg` (den metod som du använder för att identifiera den nya disken kan variera). I följande exempel används **dmesg** för att filtrera på **SCSI-** diskar:
 
@@ -190,9 +190,9 @@ Den här artikeln beskriver hur du felsöker chroot-miljön i den virtuella dato
    1. Använd följande kommando för att aktivera den logiska volym gruppen:
 
       ```
-      #vgscan --mknodes
-      #vgchange -ay
-      #lvscan
+      vgscan --mknodes
+      vgchange -ay
+      lvscan
       ```
 
    1. Använd `lsblk` kommandot för att hämta LVM-namnen:
@@ -221,23 +221,23 @@ Den här artikeln beskriver hur du felsöker chroot-miljön i den virtuella dato
    1. Använd följande kommandon för att få åtkomst till chroot-miljön:
 
       ```
-      #mkdir /rescue
-      #mount /dev/mapper/rootvg-rootlv /rescue
-      #mount /dev/mapper/rootvg-varlv /rescue/var
-      #mount /dev/mapper/rootvg-homelv /rescue/home
-      #mount /dev/mapper/rootvg-usrlv /rescue/usr
-      #mount /dev/mapper/rootvg-tmplv /rescue/tmp
-      #mount /dev/mapper/rootvg-optlv /rescue/opt
-      #mount /dev/sdc2 /rescue/boot/
-      #mount /dev/sdc1 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount /dev/mapper/rootvg-rootlv /rescue
+      mount /dev/mapper/rootvg-varlv /rescue/var
+      mount /dev/mapper/rootvg-homelv /rescue/home
+      mount /dev/mapper/rootvg-usrlv /rescue/usr
+      mount /dev/mapper/rootvg-tmplv /rescue/tmp
+      mount /dev/mapper/rootvg-optlv /rescue/opt
+      mount /dev/sdc2 /rescue/boot/
+      mount /dev/sdc1 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Felsöka chroot-miljön.
@@ -245,22 +245,22 @@ Den här artikeln beskriver hur du felsöker chroot-miljön i den virtuella dato
    1. Använd följande kommandon för att avsluta chroot-miljön:
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue/boot
-      #umount /rescue/home
-      #umount /rescue/var
-      #umount /rescue/usr
-      #umount /rescue/tmp
-      #umount /rescue/opt
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue/boot
+      umount /rescue/home
+      umount /rescue/var
+      umount /rescue/usr
+      umount /rescue/tmp
+      umount /rescue/opt
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -284,7 +284,7 @@ Den här artikeln beskriver hur du felsöker chroot-miljön i den virtuella dato
 
    1. Få åtkomst till den virtuella datorn som rot användare med följande kommando:
 
-      `#sudo su -`
+      `sudo su -`
 
    1. Hitta disken med `dmesg` (den metod som du använder för att identifiera den nya disken kan variera). I följande exempel används **dmesg** för att filtrera på **SCSI-** diskar:
 
@@ -303,9 +303,9 @@ Den här artikeln beskriver hur du felsöker chroot-miljön i den virtuella dato
    1. Använd följande kommando för att aktivera den logiska volym gruppen:
 
       ```
-      #vgscan --mknodes
-      #vgchange -ay
-      #lvscan
+      vgscan --mknodes
+      vgchange -ay
+      lvscan
       ```
 
    1. Använd `lsblk` kommandot för att hämta LVM-namnen:
@@ -333,22 +333,22 @@ Den här artikeln beskriver hur du felsöker chroot-miljön i den virtuella dato
    1. Använd följande kommandon för att få åtkomst till chroot-miljön:
 
       ```
-      #mkdir /rescue
-      #mount /dev/mapper/rootvg-rootlv /rescue
-      #mount /dev/mapper/rootvg-varlv /rescue/var
-      #mount /dev/mapper/rootvg-homelv /rescue/home
-      #mount /dev/mapper/rootvg-usrlv /rescue/usr
-      #mount /dev/mapper/rootvg-tmplv /rescue/tmp
-      #mount /dev/sdc1 /rescue/boot/
-      #mount /dev/sdc15 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount /dev/mapper/rootvg-rootlv /rescue
+      mount /dev/mapper/rootvg-varlv /rescue/var
+      mount /dev/mapper/rootvg-homelv /rescue/home
+      mount /dev/mapper/rootvg-usrlv /rescue/usr
+      mount /dev/mapper/rootvg-tmplv /rescue/tmp
+      mount /dev/sdc1 /rescue/boot/
+      mount /dev/sdc15 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Felsöka chroot-miljön.
@@ -356,21 +356,21 @@ Den här artikeln beskriver hur du felsöker chroot-miljön i den virtuella dato
    1. Använd följande kommandon för att avsluta chroot-miljön:
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue/boot
-      #umount /rescue/home
-      #umount /rescue/var
-      #umount /rescue/usr
-      #umount /rescue/tmp
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue/boot
+      umount /rescue/home
+      umount /rescue/var
+      umount /rescue/usr
+      umount /rescue/tmp
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -391,7 +391,7 @@ Den här artikeln beskriver hur du felsöker chroot-miljön i den virtuella dato
 
    1. Få åtkomst till den virtuella datorn som rot användare med följande kommando:
 
-      `#sudo su -`
+      `sudo su -`
 
    1. Hitta disken med `dmesg` (den metod som du använder för att identifiera den nya disken kan variera). I följande exempel används **dmesg** för att filtrera på **SCSI-** diskar:
 
@@ -410,18 +410,18 @@ Den här artikeln beskriver hur du felsöker chroot-miljön i den virtuella dato
    1. Använd följande kommandon för att få åtkomst till chroot-miljön:
 
       ```
-      #mkdir /rescue
-      #mount -o nouuid /dev/sdc2 /rescue
-      #mount -o nouuid /dev/sdc1 /rescue/boot/
-      #mount /dev/sdc15 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount -o nouuid /dev/sdc2 /rescue
+      mount -o nouuid /dev/sdc1 /rescue/boot/
+      mount /dev/sdc15 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      ##chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Felsöka chroot-miljön.
@@ -429,17 +429,17 @@ Den här artikeln beskriver hur du felsöker chroot-miljön i den virtuella dato
    1. Använd följande kommandon för att avsluta chroot-miljön:
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue/boot
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue/boot
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -460,7 +460,7 @@ Den här artikeln beskriver hur du felsöker chroot-miljön i den virtuella dato
 
    1. Få åtkomst till den virtuella datorn som rot användare med följande kommando:
 
-      `#sudo su -`
+      `sudo su -`
 
    1. Hitta disken med `dmesg` (den metod som du använder för att identifiera den nya disken kan variera). I följande exempel används **dmesg** för att filtrera på **SCSI-** diskar:
 
@@ -479,18 +479,18 @@ Den här artikeln beskriver hur du felsöker chroot-miljön i den virtuella dato
    1. Använd följande kommandon för att få åtkomst till chroot-miljön:
 
       ```
-      #mkdir /rescue
-      #mount -o nouuid /dev/sdc4 /rescue
-      #mount -o nouuid /dev/sdc3 /rescue/boot/
-      #mount /dev/sdc2 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount -o nouuid /dev/sdc4 /rescue
+      mount -o nouuid /dev/sdc3 /rescue/boot/
+      mount /dev/sdc2 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Felsöka chroot-miljön.
@@ -498,17 +498,17 @@ Den här artikeln beskriver hur du felsöker chroot-miljön i den virtuella dato
    1. Använd följande kommandon för att avsluta chroot-miljön:
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue/boot
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue/boot
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -519,6 +519,6 @@ Den här artikeln beskriver hur du felsöker chroot-miljön i den virtuella dato
 1. Koppla bort disken från den virtuella datorn för räddning och utför en disk växling med den ursprungliga virtuella datorn.
 1. Starta den ursprungliga virtuella datorn och kontrol lera anslutningen.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - [Felsök SSH-anslutning](troubleshoot-ssh-connection.md)

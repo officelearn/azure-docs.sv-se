@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28df0e420183239eae21aa18c807bb82b4ec7649
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: fb81b5dc98bf75a17e55abafdebfbeca68774a99
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377677"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379153"
 ---
 # <a name="assign-a-role-to-a-cloud-group-in-azure-active-directory"></a>Tilldela en roll till en moln grupp i Azure Active Directory
 
@@ -30,9 +30,9 @@ Att tilldela en grupp till en Azure AD-roll liknar att tilldela användare och t
 
 1. Logga in på [administrations centret för Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) med privilegierade roll administratörer eller globala administratörs behörigheter i Azure AD-organisationen.
 
-1. Välj **Azure Active Directory**  >  **roller och administratörer**och välj den roll som du vill tilldela.
+1. Välj **Azure Active Directory**  >  **roller och administratörer** och välj den roll som du vill tilldela.
 
-1. På sidan ** _roll namn_*_ väljer du > _* Lägg till tilldelning**.
+1. På sidan **_roll namn_*_ väljer du > _* Lägg till tilldelning**.
 
    ![Lägg till den nya roll tilldelningen](./media/groups-assign-role/add-assignment.png)
 
@@ -101,5 +101,5 @@ POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 ```
 ## <a name="next-steps"></a>Nästa steg
 
-- [Använd moln grupper för att hantera roll tilldelningar](groups-concept.md)
+- [Använda molngrupper för att hantera rolltilldelningar](groups-concept.md)
 - [Felsökningsroller tilldelade till molngrupper](groups-faq-troubleshooting.md)

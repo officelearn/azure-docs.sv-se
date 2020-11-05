@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 08/13/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 837750d7eeef9bc7a133a54b23a0c52c847364eb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0f80f67ac695c17cc760e0e87fb9b11384fb7585
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377626"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377742"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>Felsökningsroller tilldelade till molngrupper
 
@@ -32,9 +32,9 @@ Här följer några vanliga frågor och fel söknings tips för att tilldela rol
 
 **A:** Som standard hanterar endast privilegie rad roll administratör och global administratör medlemskap i en grupp som kan tilldelas av roller, men du kan delegera hanteringen av roll tilldelnings bara grupper genom att lägga till grupp ägare.
 
-**F**: Jag är administratör för supportavdelningen i min organisation, men jag kan inte uppdatera lösen ordet för en användare som är katalog läsare. Varför sker detta?
+**F** : Jag är administratör för supportavdelningen i min organisation, men jag kan inte uppdatera lösen ordet för en användare som är katalog läsare. Varför sker detta?
 
-**A**: användaren kan ha blivit katalog läsare via en grupp som kan tilldelas av roller. Alla medlemmar och ägare av en roll tilldelnings bara grupper är skyddade. Endast användare med rollerna Privileged Authentication Administrator eller global administratör kan återställa autentiseringsuppgifter för en skyddad användare.
+**A** : användaren kan ha blivit katalog läsare via en grupp som kan tilldelas av roller. Alla medlemmar och ägare av en roll tilldelnings bara grupper är skyddade. Endast användare med rollerna Privileged Authentication Administrator eller global administratör kan återställa autentiseringsuppgifter för en skyddad användare.
 
 **F:** Jag kan inte uppdatera användarens lösen ord. De har inte tilldelats någon högre privilegie rad roll. Varför händer det?
 
@@ -53,8 +53,8 @@ Här följer några vanliga frågor och fel söknings tips för att tilldela rol
 
 Azure AD-katalog roll | Rättighets hanterings roll | Kan lägga till säkerhets grupp\* | Kan lägga till Microsoft 365 grupp\* | Kan lägga till app | Kan lägga till SharePoint Online-webbplats
 ----------------------- | --------------------------- | ----------------------- | ------------------------- | ----------- |  -----------------------------
-Global administratör | Saknas | ✔️ | ✔️ | ✔️  | ✔️
-Användaradministratör  | Saknas  | ✔️  | ✔️  | ✔️
+Global administratör | saknas | ✔️ | ✔️ | ✔️  | ✔️
+Användaradministratör  | saknas  | ✔️  | ✔️  | ✔️
 Intune-administratör | Katalog ägare | ✔️  | ✔️  | &nbsp;  | &nbsp;
 Exchange-administratör  | Katalog ägare  | &nbsp; | ✔️  | &nbsp;  | &nbsp;
 Team tjänst administratör | Katalog ägare  | &nbsp; | ✔️  | &nbsp;  | &nbsp;
@@ -81,7 +81,7 @@ Användare | Katalog ägare | Endast om grupp ägare | Endast om grupp ägare | 
 1. Logga in på [Azure Portal](https://portal.azure.com) och öppna **Azure Active Directory**.
 1. Välj **grupper**  >  **alla grupper**.
 1. Välj **Lägg till filter**.
-1. Filter till **Roll tilldelnings**bara.
+1. Filter till **Roll tilldelnings** bara.
 
 **F:** Hur gör jag för att vet du vilken roll som tilldelas ett huvud konto direkt och indirekt?
 
@@ -89,7 +89,7 @@ Användare | Katalog ägare | Endast om grupp ägare | Endast om grupp ägare | 
 
 1. Logga in på [Azure Portal](https://portal.azure.com) och öppna **Azure Active Directory**.
 1. Välj användare och öppna en användar profil.
-1. Välj **tilldelade roller**och sedan:
+1. Välj **tilldelade roller** och sedan:
 
     - I Azure AD Premium P1-licensierade organisationer: Välj kugg hjuls ikonen. Ett fönster som kan ge den här informationen visas.
     - I Azure AD Premium P2 licensierade organisationer hittar du direkt och ärvd licens information i kolumnen **medlemskap** .
@@ -100,5 +100,5 @@ Användare | Katalog ägare | Endast om grupp ägare | Endast om grupp ägare | 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Använd moln grupper för att hantera roll tilldelningar](groups-concept.md)
+- [Använda molngrupper för att hantera rolltilldelningar](groups-concept.md)
 - [Skapa en rolltilldelningsbar grupp](groups-create-eligible.md)

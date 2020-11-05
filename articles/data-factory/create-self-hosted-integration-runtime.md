@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 06/09/2020
-ms.openlocfilehash: 123595bb6cd0112e597b9d958763900e07b9ff38
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 2dc8773dc41493e30f64c0602b4345a9491cd7b7
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92633084"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379714"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Skapa och konfigurera lokalt installerad integrationskörning
 
@@ -60,30 +60,30 @@ Använd följande steg för att skapa en IR med egen värd med hjälp av Azure D
 
    ![Knappen Hantera start sida](media/doc-common-process/get-started-page-manage-button.png)
 
-1. Välj **integrerings körningar** i den vänstra rutan och välj sedan **+ ny** .
+1. Välj **integrerings körningar** i den vänstra rutan och välj sedan **+ ny**.
 
    ![Skapa Integration Runtime](media/doc-common-process/manage-new-integration-runtime.png)
 
-1. På sidan **installation av integration runtime** väljer du **Azure, egen värd** och väljer sedan **Fortsätt** . 
+1. På sidan **installation av integration runtime** väljer du **Azure, egen värd** och väljer sedan **Fortsätt**. 
 
-1. På följande sida väljer du **egen värd** för att skapa en Self-Hosted IR och väljer sedan **Fortsätt** .
+1. På följande sida väljer du **egen värd** för att skapa en Self-Hosted IR och väljer sedan **Fortsätt**.
    ![Skapa en selfhosted IR](media/create-self-hosted-integration-runtime/new-selfhosted-integration-runtime.png)
 
-1. Ange ett namn för din IR och välj **skapa** .
+1. Ange ett namn för din IR och välj **skapa**.
 
 1. På sidan **installation av integration runtime** väljer du länken under **alternativ 1** för att öppna Express installationen på datorn. Eller följ stegen under **Alternativ 2** för att konfigurera manuellt. Följande instruktioner baseras på manuell installation:
 
    ![Installation av Integration Runtime](media/create-self-hosted-integration-runtime/integration-runtime-setting-up.png)
 
-    1. Kopiera och klistra in nyckeln Authentication. Välj **Hämta och installera integration runtime** .
+    1. Kopiera och klistra in nyckeln Authentication. Välj **Hämta och installera integration runtime**.
 
     1. Ladda ned Integration Runtime med egen värd på en lokal Windows-dator. Kör installationsprogrammet.
 
-    1. Klistra in den nyckel som du sparade tidigare på sidan **registrera integration Runtime (lokal installation)** och välj **Registrera** .
+    1. Klistra in den nyckel som du sparade tidigare på sidan **registrera integration Runtime (lokal installation)** och välj **Registrera**.
     
        ![Registrera Integration Runtime](media/create-self-hosted-integration-runtime/register-integration-runtime.png)
 
-    1. På sidan **ny integration Runtime (lokal installation) nod** väljer du **Slutför** .
+    1. På sidan **ny integration Runtime (lokal installation) nod** väljer du **Slutför**.
 
 1. När den egen värdbaserade integrerings körningen har registrerats visas följande fönster:
 
@@ -109,22 +109,22 @@ Här följer information om programmets parametrar och egenskaper:
 
 | Egenskap                                                    | Beskrivning                                                  | Krävs |
 | ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
-| **RegisterNewNode** "`<AuthenticationKey>`"                     | Registrera en egen värd för integration runtime-noden med den angivna autentiseringsnyckel. | Nej       |
-| **RegisterNewNode** "`<AuthenticationKey>`" "`<NodeName>`"      | Registrera en egen värd för integration runtime-noden med den angivna autentiseringsnyckel och nodnamn. | Nej       |
-| **EnableRemoteAccess** "`<port>`" ["`<thumbprint>`"]            | Aktivera fjärråtkomst på den aktuella noden för att konfigurera ett kluster med hög tillgänglighet. Eller aktivera inställning av autentiseringsuppgifter direkt mot IR med egen värd utan att gå via Azure Data Factory. Du gör det senare med hjälp av cmdleten **New-AzDataFactoryV2LinkedServiceEncryptedCredential** från en fjärrdator i samma nätverk. | Nej       |
-| **EnableRemoteAccessInContainer** "`<port>`" ["`<thumbprint>`"] | Aktivera fjärråtkomst till den aktuella noden när noden körs i en behållare. | Nej       |
-| **DisableRemoteAccess**                                         | Inaktivera fjärråtkomst till den aktuella noden. Fjärråtkomst krävs för installation av multinoder. PowerShell **-cmdleten New-AzDataFactoryV2LinkedServiceEncryptedCredential** fungerar fortfarande även om fjärråtkomst är inaktiverat. Det här beteendet är sant så länge cmdleten körs på samma dator som den lokala IR-noden. | Nej       |
-| **Nyckel** "`<AuthenticationKey>`"                                 | Skriv över eller uppdatera föregående autentiseringsnyckel. Var försiktig med den här åtgärden. Din tidigare IR-nod med egen värd kan gå offline om nyckeln är en ny integrerings körning. | Nej       |
-| **GenerateBackupFile** "`<filePath>`" "`<password>`"            | Skapa en säkerhets kopierings fil för den aktuella noden. Säkerhets kopian innehåller nodens nyckel och autentiseringsuppgifter för data lagring. | Nej       |
-| **ImportBackupFile** "`<filePath>`" "`<password>`"              | Återställ noden från en säkerhets kopia.                          | Nej       |
-| **Starta om**                                                     | Starta om värd tjänsten för integration runtime med egen värd.   | Nej       |
-| **Start**                                                       | Starta värd tjänsten för integration runtime med egen värd.     | Nej       |
-| **Stopp**                                                        | Stoppa värd tjänsten för integration runtime med egen värd.        | Nej       |
-| **StartUpgradeService**                                         | Starta uppgraderings tjänsten för integration runtime med egen värd.       | Nej       |
-| **StopUpgradeService**                                          | Stoppa uppgraderings tjänsten för integration runtime med egen värd.        | Nej       |
-| **TurnOnAutoUpdate**                                            | Aktivera automatisk uppdatering av integrerings körningen med egen värd.        | Nej       |
-| **TurnOffAutoUpdate**                                           | Inaktivera automatisk uppdatering av integrerings körningen med egen värd.       | Nej       |
-| **SwitchServiceAccount** "`<domain\user>`" ["`<password>`"]           | Ange dia Host service som ska köras som ett nytt konto. Använd det tomma lösen ordet "" för system konton och virtuella konton. | Nej       |
+| **RegisterNewNode** "`<AuthenticationKey>`"                     | Registrera en egen värd för integration runtime-noden med den angivna autentiseringsnyckel. | No       |
+| **RegisterNewNode** "`<AuthenticationKey>`" "`<NodeName>`"      | Registrera en egen värd för integration runtime-noden med den angivna autentiseringsnyckel och nodnamn. | No       |
+| **EnableRemoteAccess** "`<port>`" ["`<thumbprint>`"]            | Aktivera fjärråtkomst på den aktuella noden för att konfigurera ett kluster med hög tillgänglighet. Eller aktivera inställning av autentiseringsuppgifter direkt mot IR med egen värd utan att gå via Azure Data Factory. Du gör det senare med hjälp av cmdleten **New-AzDataFactoryV2LinkedServiceEncryptedCredential** från en fjärrdator i samma nätverk. | No       |
+| **EnableRemoteAccessInContainer** "`<port>`" ["`<thumbprint>`"] | Aktivera fjärråtkomst till den aktuella noden när noden körs i en behållare. | No       |
+| **DisableRemoteAccess**                                         | Inaktivera fjärråtkomst till den aktuella noden. Fjärråtkomst krävs för installation av multinoder. PowerShell **-cmdleten New-AzDataFactoryV2LinkedServiceEncryptedCredential** fungerar fortfarande även om fjärråtkomst är inaktiverat. Det här beteendet är sant så länge cmdleten körs på samma dator som den lokala IR-noden. | No       |
+| **Nyckel** "`<AuthenticationKey>`"                                 | Skriv över eller uppdatera föregående autentiseringsnyckel. Var försiktig med den här åtgärden. Din tidigare IR-nod med egen värd kan gå offline om nyckeln är en ny integrerings körning. | No       |
+| **GenerateBackupFile** "`<filePath>`" "`<password>`"            | Skapa en säkerhets kopierings fil för den aktuella noden. Säkerhets kopian innehåller nodens nyckel och autentiseringsuppgifter för data lagring. | No       |
+| **ImportBackupFile** "`<filePath>`" "`<password>`"              | Återställ noden från en säkerhets kopia.                          | No       |
+| **Starta om**                                                     | Starta om värd tjänsten för integration runtime med egen värd.   | No       |
+| **Start**                                                       | Starta värd tjänsten för integration runtime med egen värd.     | No       |
+| **Stopp**                                                        | Stoppa värd tjänsten för integration runtime med egen värd.        | No       |
+| **StartUpgradeService**                                         | Starta uppgraderings tjänsten för integration runtime med egen värd.       | No       |
+| **StopUpgradeService**                                          | Stoppa uppgraderings tjänsten för integration runtime med egen värd.        | No       |
+| **TurnOnAutoUpdate**                                            | Aktivera automatisk uppdatering av integrerings körningen med egen värd.        | No       |
+| **TurnOffAutoUpdate**                                           | Inaktivera automatisk uppdatering av integrerings körningen med egen värd.       | No       |
+| **SwitchServiceAccount** "`<domain\user>`" ["`<password>`"]           | Ange dia Host service som ska köras som ett nytt konto. Använd det tomma lösen ordet "" för system konton och virtuella konton. | No       |
 
 
 ## <a name="command-flow-and-data-flow"></a>Kommando flöde och data flöde
@@ -147,7 +147,6 @@ Här följer en översikt över de data flödes steg som krävs för att kopiera
 - Du kan bara installera en instans av en egen värd integrerings körning på en enskild dator. Om du har två data fabriker som behöver åtkomst till lokala data källor kan du antingen använda funktionen för [IR-delning med egen värd](#create-a-shared-self-hosted-integration-runtime-in-azure-data-factory) för att dela IR-filen med egen värd, eller installera den lokala IR-enheten på två lokala datorer, en för varje data fabrik.  
 - Integration runtime med egen värd måste inte finnas på samma dator som data källan. Men med den egen värdbaserade integrerings körningen nära data källan minskas tiden för integration runtime med egen värd för att ansluta till data källan. Vi rekommenderar att du installerar den lokala integrerings körningen på en dator som är en annan än den som är värd för den lokala data källan. När den lokala integrerings körningen och data källan finns på olika datorer, konkurrerar inte den lokala integrerings körningen med data källan för resurser.
 - Du kan ha flera egen värdbaserade integrerings körningar på olika datorer som ansluter till samma lokala data källa. Om du till exempel har två egen värdbaserade integrerings körningar som hanterar två data fabriker, kan samma lokala data källa registreras med båda data fabrikerna.
-- Om du redan har en gateway installerad på datorn för att hantera ett Power BI scenario, installerar du en separat integration runtime för egen värd för Data Factory på en annan dator.
 - Använd en integration runtime med egen värd för att stödja data integrering i ett virtuellt Azure-nätverk.
 - Behandla din data källa som en lokal data källa som ligger bakom en brand vägg, även när du använder Azure-ExpressRoute. Använd integration runtime med egen värd för att ansluta tjänsten till data källan.
 - Använd integration runtime med egen värd även om data lagret finns i molnet på en virtuell IaaS-dator (Azure Infrastructure as a Service).
@@ -186,12 +185,12 @@ Du kan installera integration runtime med egen värd genom att hämta ett instal
 ## <a name="install-and-register-a-self-hosted-ir-from-microsoft-download-center"></a>Installera och registrera en egen värd-IR från Microsoft Download Center
 
 1. Gå till [hämtnings sidan för Microsoft integration runtime](https://www.microsoft.com/download/details.aspx?id=39717).
-1. Välj **Hämta** , Välj 64-bitars versionen och välj **Nästa** . 32-bitars versionen stöds inte.
+1. Välj **Hämta** , Välj 64-bitars versionen och välj **Nästa**. 32-bitars versionen stöds inte.
 1. Kör den hanterade identitets filen direkt eller spara den på hård disken och kör den.
-1. I fönstret **Välkommen** väljer du ett språk och väljer **Nästa** .
-1. Godkänn licens villkoren för program vara från Microsoft och välj **Nästa** .
-1. Välj **mapp** för att installera integration runtime med egen värd och välj **Nästa** .
-1. På sidan **klar att installera** väljer du **Installera** .
+1. I fönstret **Välkommen** väljer du ett språk och väljer **Nästa**.
+1. Godkänn licens villkoren för program vara från Microsoft och välj **Nästa**.
+1. Välj **mapp** för att installera integration runtime med egen värd och välj **Nästa**.
+1. På sidan **klar att installera** väljer du **Installera**.
 1. Slutför installationen genom att klicka på **Slutför** .
 1. Hämta nyckeln för autentisering med hjälp av PowerShell. Här är ett PowerShell-exempel för att hämta nyckeln för autentisering:
 
@@ -220,7 +219,7 @@ Du kan associera flera noder genom att installera program varan för egen värd 
 > Du behöver inte skapa en ny integration runtime med egen värd för att associera varje nod. Du kan installera integration runtime med egen värd på en annan dator och registrera den med samma autentiseringsnyckel.
 
 > [!NOTE]
-> Innan du lägger till en annan nod för hög tillgänglighet och skalbarhet måste du kontrol lera att alternativet **fjärråtkomst till intranät** är aktiverat på den första noden. Det gör du genom att välja **Microsoft integration runtime Configuration Manager**  >  **Inställningar**  >  **fjärråtkomst till intranätet** .
+> Innan du lägger till en annan nod för hög tillgänglighet och skalbarhet måste du kontrol lera att alternativet **fjärråtkomst till intranät** är aktiverat på den första noden. Det gör du genom att välja **Microsoft integration runtime Configuration Manager**  >  **Inställningar**  >  **fjärråtkomst till intranätet**.
 
 ### <a name="scale-considerations"></a>Skalnings överväganden
 
@@ -240,7 +239,7 @@ Här följer kraven för TLS/SSL-certifikatet som du använder för att skydda k
 
 - Certifikatet måste vara ett offentligt betrott X509 v3-certifikat. Vi rekommenderar att du använder certifikat som utfärdats av en offentlig partner certifikat utfärdare (CA).
 - Varje nod för integration runtime måste ha förtroende för det här certifikatet.
-- Vi rekommenderar inte certifikat för certifikat mottagarens alternativa namn eftersom endast det sista SAN-objektet används. Alla andra SAN-objekt ignoreras. Om du till exempel har ett SAN-certifikat vars San-nätverk är **node1.domain.contoso.com** och **node2.domain.contoso.com** , kan du bara använda det här certifikatet på en dator vars fullständigt kvalificerade domän namn (FQDN) är **node2.domain.contoso.com** .
+- Vi rekommenderar inte certifikat för certifikat mottagarens alternativa namn eftersom endast det sista SAN-objektet används. Alla andra SAN-objekt ignoreras. Om du till exempel har ett SAN-certifikat vars San-nätverk är **node1.domain.contoso.com** och **node2.domain.contoso.com** , kan du bara använda det här certifikatet på en dator vars fullständigt kvalificerade domän namn (FQDN) är **node2.domain.contoso.com**.
 - Certifikatet kan använda valfri nyckel storlek som stöds av Windows Server 2012 R2 för TLS/SSL-certifikat.
 - Certifikat som använder CNG-nycklar stöds inte.  
 
@@ -360,10 +359,10 @@ Värd tjänsten för integration runtime startas om automatiskt när du har spar
 
 När du har registrerat en integration runtime med egen värd, om du vill visa eller uppdatera proxyinställningar, använder du Microsoft Integration Runtime Configuration Manager.
 
-1. Öppna **Microsoft Integration Runtime Configuration Manager** .
-1. Välj fliken **Inställningar** .
+1. Öppna **Microsoft Integration Runtime Configuration Manager**.
+1. Välj fliken **Inställningar**.
 1. Under **http-proxy** väljer du länken **ändra** för att öppna dialog rutan **ange http-proxy** .
-1. Välj **Nästa** . Sedan visas en varning som ber om din tillåtelse att spara proxyinställningarna och starta om värd tjänsten för integration Runtime.
+1. Välj **Nästa**. Sedan visas en varning som ber om din tillåtelse att spara proxyinställningarna och starta om värd tjänsten för integration Runtime.
 
 Du kan använda Configuration Manager-verktyget för att visa och uppdatera HTTP-proxyn.
 
@@ -403,7 +402,7 @@ Om du väljer alternativet **Använd systemproxy** för HTTP-proxyn använder de
     ```
 1. Spara konfigurations filen på den ursprungliga platsen. Starta sedan om värd tjänsten för integration runtime med egen värd, som hämtar ändringarna.
 
-   Om du vill starta om tjänsten använder du tjänst-appleten från kontroll panelen. Eller från Integration Runtime Configuration Manager, Välj knappen **stoppa tjänst** och välj sedan **Starta tjänst** .
+   Om du vill starta om tjänsten använder du tjänst-appleten från kontroll panelen. Eller från Integration Runtime Configuration Manager, Välj knappen **stoppa tjänst** och välj sedan **Starta tjänst**.
 
    Om tjänsten inte startar har du troligt vis lagt till felaktig syntax för XML-taggar i program konfigurations filen som du redigerade.
 
@@ -417,7 +416,7 @@ Du måste också se till att Microsoft Azure finns i företagets lista över til
 Om du ser fel meddelanden som följande, är den troligaste orsaken felaktig konfiguration av brand väggen eller proxyservern. Sådan konfiguration förhindrar att integrerings körningen med egen värd ansluter till Data Factory att autentisera sig själv. Se föregående avsnitt för att kontrol lera att din brand vägg och proxyserver är korrekt konfigurerade.
 
 * När du försöker registrera den egna värdbaserade integrerings körningen visas följande fel meddelande: "Det gick inte att registrera den här Integration Runtime noden! Bekräfta att autentiseringsnyckel är giltig och att värd tjänsten för integrations tjänsten körs på den här datorn. "
-* När du öppnar Integration Runtime Configuration Manager visas statusen **frånkopplad** eller **ansluten** . När du visar händelse loggar för Windows, under **Loggboken**  >  **program-och tjänst loggar**  >  **Microsoft integration runtime** , visas fel meddelanden som detta:
+* När du öppnar Integration Runtime Configuration Manager visas statusen **frånkopplad** eller **ansluten**. När du visar händelse loggar för Windows, under **Loggboken**  >  **program-och tjänst loggar**  >  **Microsoft integration runtime** , visas fel meddelanden som detta:
 
     ```
     Unable to connect to the remote server
@@ -426,7 +425,7 @@ Om du ser fel meddelanden som följande, är den troligaste orsaken felaktig kon
 
 ### <a name="enable-remote-access-from-an-intranet"></a>Aktivera fjärråtkomst från ett intranät
 
-Om du använder PowerShell för att kryptera autentiseringsuppgifter från en nätverksansluten dator än den där du har installerat integration runtime med egen värd, kan du aktivera alternativet **fjärråtkomst från intranät** . Om du kör PowerShell för att kryptera autentiseringsuppgifter på den dator där du har installerat integration runtime med egen värd kan du inte aktivera **fjärråtkomst från intranätet** .
+Om du använder PowerShell för att kryptera autentiseringsuppgifter från en nätverksansluten dator än den där du har installerat integration runtime med egen värd, kan du aktivera alternativet **fjärråtkomst från intranät** . Om du kör PowerShell för att kryptera autentiseringsuppgifter på den dator där du har installerat integration runtime med egen värd kan du inte aktivera **fjärråtkomst från intranätet**.
 
 Aktivera **fjärråtkomst från intranätet** innan du lägger till en annan nod för hög tillgänglighet och skalbarhet.  
 

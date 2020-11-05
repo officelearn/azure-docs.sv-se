@@ -4,14 +4,18 @@ description: Fel söknings guide – övervakning av direktsända Java-appar med
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 4b6a7070b6b1b76a3f763105f4dce795f3e5c4be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d11eaa76f2133b9fdc66ba4e6bc91e2cc38c51c
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87372526"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379544"
 ---
-# <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Felsökning och vanliga frågor och svar för Application Insights för Java
+# <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>Fel sökning och frågor och svar för Application Insights för Java SDK
+
+> [!IMPORTANT]
+> Den rekommenderade metoden för att övervaka Java-program är att använda den automatiska Instrumentation utan att ändra koden. Följ rikt linjerna för [Application Insights Java 3,0-agenten](./java-in-process-agent.md).
+
 Är du av frågor eller problem med [Azure Application Insights i Java][java]? Här följer några tips.
 
 ## <a name="build-errors"></a>Build-fel
@@ -85,7 +89,7 @@ Med XML-metoden måste du starta om programmet när du ändrar värdet.
 **Hur kan jag ändra vilken Azure-resurs mitt projekt skickar data till?**
 
 * [Hämta Instrumentation-nyckeln för den nya resursen.][java]
-* Om du har lagt till Application Insights i projektet med Azure Toolkit for Eclipse högerklickar du på ditt webb projekt, väljer **Azure**, **konfigurerar Application Insights**och ändrar nyckeln.
+* Om du har lagt till Application Insights i projektet med Azure Toolkit for Eclipse högerklickar du på ditt webb projekt, väljer **Azure** , **konfigurerar Application Insights** och ändrar nyckeln.
 * Om du har konfigurerat Instrumentation-nyckeln som miljö variabel uppdaterar du värdet för miljövariabeln med New iKey.
 * Annars uppdaterar du nyckeln i ApplicationInsights.xml i mappen resurser i projektet.
 

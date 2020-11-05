@@ -6,18 +6,18 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 10/30/2020
 ms.author: rahugup
-ms.openlocfilehash: 5541d5c3b9beea86f5c76747dd13ffeff1b12d97
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e1b34db7f2473e16d3ebde11376652f654f2f778
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93133735"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377963"
 ---
 # <a name="scale-migration-of-vmware-vms"></a>Skala migrering av virtuella VMware-datorer 
 
 Den här artikeln hjälper dig att förstå hur du använder skript för att migrera ett stort antal virtuella VMware-datorer med hjälp av metoden utan agent. Om du vill skala migreringar använder du [Azure Migrate PowerShell-modul](https://aka.ms/azuremigratepowershellvmware). 
 
-Automation-skripten Azure Migrate VMware-migrering är tillgängliga för hämtning på [Azure PowerShell-exempel] https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-vmware-agentles) lagrings platsen på GitHub. Skripten kan användas för att migrera virtuella VMware-datorer till Azure med hjälp av metoden för att migrera utan agent. De Azure Migrate PowerShell-kommandon som används i dessa skript dokumenteras [här](https://aka.ms/azuremigratepowershellvmware).
+Automation-skripten Azure Migrate VMware-migrering är tillgängliga för hämtning på [Azure PowerShell samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-vmware-agentles) lagrings platsen på GitHub. Skripten kan användas för att migrera virtuella VMware-datorer till Azure med hjälp av metoden för att migrera utan agent. De Azure Migrate PowerShell-kommandon som används i dessa skript dokumenteras [här](https://aka.ms/azuremigratepowershellvmware).
 
 ## <a name="current-limitations"></a>Aktuella begränsningar
 - Dessa skript stöder migrering av virtuella VMware-datorer med alla diskar. Du kan uppdatera skripten om du vill replikera diskarna som är anslutna till en virtuell VMware-dator selektivt. 

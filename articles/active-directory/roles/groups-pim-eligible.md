@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23243de192683a4811eb569b17425701381c4cd1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 74ad503374e0148e9813508b6c7f8b21e2dca7a3
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377579"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379170"
 ---
 # <a name="assign-a-role-to-a-group-using-privileged-identity-management"></a>Tilldela en roll till en grupp med hjälp av Privileged Identity Management
 
@@ -31,7 +31,7 @@ I den här artikeln beskrivs hur du kan tilldela en Azure Active Directory-roll 
 
 1. Logga in på [Azure AD Privileged Identity Management](https://ms.portal.azure.com/?Microsoft_AAD_IAM_GroupRoles=true&Microsoft_AAD_IAM_userRolesV2=true&Microsoft_AAD_IAM_enablePimIntegration=true#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) som privilegie rad roll administratör eller global administratör i din organisation.
 
-1. Välj **Privileged Identity Management**  >  roller för**Azure AD-roller**  >  **Roles**  >  **Lägg till tilldelningar**
+1. Välj **Privileged Identity Management**  >  roller för **Azure AD-roller**  >  **Roles**  >  **Lägg till tilldelningar**
 
 1. Välj en roll och välj sedan en grupp. Endast grupper som är berättigade till roll tilldelning (roll tilldelnings grupper) visas, inte alla grupper.
 
@@ -103,7 +103,7 @@ https://graph.microsoft.com/beta/privilegedAccess/aadroles/roleAssignmentRequest
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Använd moln grupper för att hantera roll tilldelningar](groups-concept.md)
+- [Använda molngrupper för att hantera rolltilldelningar](groups-concept.md)
 - [Felsökningsroller tilldelade till molngrupper](groups-faq-troubleshooting.md)
 - [Konfigurera inställningarna för Azure AD admin-rollen i Privileged Identity Management](../privileged-identity-management/pim-how-to-change-default-settings.md)
 - [Tilldela Azure-resurs roller i Privileged Identity Management](../privileged-identity-management/pim-resource-roles-assign-roles.md)

@@ -6,20 +6,20 @@ keywords: ''
 author: curtand
 manager: daveba
 ms.author: curtand
-ms.date: 04/30/2020
+ms.date: 11/05/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdf41a16975505b76e4b49fdf4e73faeb187ddfe
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 69428898ca123bf5b5fa96cf041818cc15f5ac40
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378242"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378643"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Skydda privilegierad åtkomst för hybrid- och molndistributioner i Azure AD
 
@@ -358,13 +358,13 @@ Steg 4 i översikten bör implementeras på sex månader och mer. Slutför din �
 
 Att skydda privilegie rad åtkomst är viktigt för att upprätta säkerhets garantier för företagets till gångar. Det bör dock ingå i ett komplett säkerhets program som tillhandahåller säkerhets garantier som pågår. Det här programmet bör innehålla element som:
 
-* Princip
-* Åtgärder
+* Policy
+* Operations
 * Informations säkerhet
 * Servrar
 * Program
 * Datorer
-* Enheter
+* Egenskaper
 * Cloud Fabric
 
 Vi rekommenderar följande metoder när du hanterar privilegierade åtkomst konton:

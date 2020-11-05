@@ -1,16 +1,16 @@
 ---
-title: Övervaka Java-program på valfri miljö – Azure Monitor Application Insights
-description: Övervakning av program prestanda för Java-program som körs i en miljö utan att behöva instrumentera appen. Distribuerad spårning och program karta.
+title: Azure Monitor Application Insights Java
+description: Övervakning av program prestanda för Java-program som körs i vilken miljö som helst utan kod ändring. Distribuerad spårning och program karta.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 1182813c0b79d43c2c264482629ad97f23683a49
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 07be6a4ff08700ee9407fbf39946b7c24abbc01a
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215288"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377045"
 ---
-# <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Java-kodad program övervakning Azure Monitor Application Insights – offentlig för hands version
+# <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Java-kodad program övervakning Azure Monitor Application Insights
 
 Java-kodad program övervakning är allt om enkelhet – det finns inga kod ändringar, Java-agenten kan aktive ras via bara ett par konfigurations ändringar.
 
@@ -26,15 +26,20 @@ Du kan fortfarande skicka anpassad telemetri från ditt program. 3,0-agenten sp�
 
 **1. Ladda ned agenten**
 
-Hämta [applicationinsights-agent-3.0.0-Preview. 7. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.7/applicationinsights-agent-3.0.0-PREVIEW.7.jar)
+> [!WARNING]
+> **Om du uppgraderar från 3,0 för hands version**
+>
+> Granska alla [konfigurations alternativ](./java-standalone-config.md) noggrant, eftersom JSON-strukturen har ändrats helt och hållet, förutom själva fil namnet som var i gemener.
+
+Ladda ned [applicationinsights-agent-3.0.0. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0/applicationinsights-agent-3.0.0.jar)
 
 **2. peka JVM till agenten**
 
-Lägg till `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.7.jar` i programmets JVM-argument
+Lägg till `-javaagent:path/to/applicationinsights-agent-3.0.0.jar` i programmets JVM-argument
 
 Typiska JVM-argument inkluderar `-Xmx512m` och `-XX:+UseG1GC` . Så om du vet var du vill lägga till dessa, vet du redan var du ska lägga till det.
 
-Mer hjälp om hur du konfigurerar programmets JVM-argument finns i [3,0 Preview: tips för att uppdatera dina JVM-argument](./java-standalone-arguments.md).
+Mer hjälp om hur du konfigurerar programmets JVM-argument finns i [tips för att uppdatera dina JVM-argument](./java-standalone-arguments.md).
 
 **3. peka agenten till din Application Insights-resurs**
 
@@ -46,7 +51,7 @@ Peka agenten till Application Insights resurs, antingen genom att ange en miljö
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
 ```
 
-Eller genom att skapa en konfigurations fil med namnet `ApplicationInsights.json` och placera den i samma katalog som `applicationinsights-agent-3.0.0-PREVIEW.7.jar` , med följande innehåll:
+Eller genom att skapa en konfigurations fil med namnet `applicationinsights.json` och placera den i samma katalog som `applicationinsights-agent-3.0.0.jar` , med följande innehåll:
 
 ```json
 {
@@ -70,19 +75,21 @@ Starta ditt program och gå till din Application Insights-resurs i Azure Portal 
 
 ## <a name="configuration-options"></a>Konfigurationsalternativ
 
-I `ApplicationInsights.json` filen kan du också konfigurera:
+I `applicationinsights.json` filen kan du också konfigurera:
 
 * Namn på moln roll
 * Moln roll instans
-* Samla in program logg
-* JMX mått
-* Micrometer
-* Pulsslag
 * Samling
+* JMX mått
+* Anpassade dimensioner
+* Telemetri-processorer
+* Automatisk insamlad loggning
+* Automatiskt insamlade micrometer-mått (inklusive värden för våren Boot-motstånd)
+* Pulsslag
 * HTTP-proxy
 * Själv diagnostik
 
-Se information på [3,0 offentlig för hands version: konfigurations alternativ](./java-standalone-config.md).
+Se [konfigurations alternativ](./java-standalone-config.md) för fullständig information.
 
 ## <a name="autocollected-requests-dependencies-logs-and-metrics"></a>Autosamlade begär Anden, beroenden, loggar och mått
 
@@ -134,12 +141,12 @@ Tabellen nedan representerar anpassade typer av anpassade telemetri som stöds f
 
 |                     | Micrometer | Log4j, logback, JUL | 2. x SDK |
 |---------------------|------------|---------------------|---------|
-| **Anpassade händelser**   |            |                     |  Ja    |
+| **Anpassade händelser**   |            |                     |  Yes    |
 | **Anpassade mått**  |  Ja       |                     |  Ja    |
-| **Beroenden**    |            |                     |  Ja    |
+| **Beroenden**    |            |                     |  Yes    |
 | **Undantag**      |            |  Ja                |  Ja    |
-| **Sid visningar**      |            |                     |  Ja    |
-| **Begäranden**        |            |                     |  Ja    |
+| **Sid visningar**      |            |                     |  Yes    |
+| **Begäranden**        |            |                     |  Yes    |
 | **Spårningar**          |            |  Ja                |  Ja    |
 
 Vi planerar inte att lansera en SDK med Application Insights 3,0 för tillfället.
@@ -226,9 +233,14 @@ Du kan också använda Application Insights Java SDK 2. x:
 
 ## <a name="upgrading-from-application-insights-java-sdk-2x"></a>Uppgradera från Application Insights Java SDK 2. x
 
-Om du redan använder Application Insights Java SDK 2. x i ditt program behöver du inte ta bort den. Java 3,0-agenten identifierar den och samlar in och korrelerar en anpassad telemetri som du skickar via Java SDK 2. x, samtidigt som du undertrycker en autoinsamling som utförs av Java SDK 2. x för att förhindra dubbel avbildning.
+Om du redan använder Application Insights Java SDK 2. x i ditt program behöver du inte ta bort den.
+Java 3,0-agenten identifierar den och samlar in och korrelerar en anpassad telemetri som du skickar via Java SDK 2. x, samtidigt som du undertrycker automatisk insamling som utförs av Java SDK 2. x för att förhindra duplicerad telemetri.
 
 Om du använde Application Insights 2. x-agenten måste du ta bort det `-javaagent:` JVM-arg som pekade på 2. x-agenten.
 
 > [!NOTE]
-> Obs: Java SDK 2. x TelemetryInitializers och TelemetryProcessors kommer inte att köras när du använder 3,0-agenten.
+> Java SDK 2. x TelemetryInitializers och TelemetryProcessors kommer inte att köras när du använder 3,0-agenten.
+> Många av de användnings fall som tidigare krävdes kan lösas i 3,0 genom att konfigurera [anpassade dimensioner](./java-standalone-config.md#custom-dimensions) eller konfigurera [telemetri-processorer](./java-standalone-telemetry-processors.md).
+
+> [!NOTE]
+> 3,0 har inte stöd för flera Instrumentation-nycklar i en enda JVM än.

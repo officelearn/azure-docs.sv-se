@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: reference
-ms.date: 05/04/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4fc33b0bafc0d56ebf1a14769aeaa5a55508fc4a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7e83ff37140369cb073f4bdc2bd24ac08ee9b1ab
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377766"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379102"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Administratörs roller efter administratörs uppgift i Azure Active Directory
 
@@ -120,7 +120,7 @@ Skapa Azure AD Domain Services instans | Global administratör |
 Utföra alla Azure AD Domain Services uppgifter | Gruppen Azure AD DC-administratörer ([Se dokumentationen](../../active-directory-domain-services/tutorial-create-management-vm.md#administrative-tasks-you-can-perform-on-a-managed-domain)) | 
 Läs all konfiguration | Läsare på Azure-prenumeration som innehåller AD DS-tjänsten | 
 
-## <a name="devices"></a>Enheter
+## <a name="devices"></a>Egenskaper
 
 Uppgift | Minst privilegie rad roll | Ytterligare roller
 ---- | --------------------- | ----------------
@@ -351,6 +351,7 @@ Uppdatera alla egenskaper utom användarens huvud namn | Användaradministratör
 Uppdatera användarens huvud namn för begränsade administratörer (se dokumentationen) | Användaradministratör | 
 Uppdatera egenskapen för användarens huvud namn i privilegierade administratörer (se dokumentationen) | Global administratör | 
 Uppdatera användar inställningar | Global administratör | 
+Uppdatera autentiseringsmetoder | Administratör för autentisering | Administratör för privilegie rad autentisering, global administratör
 
 
 ## <a name="support"></a>Support

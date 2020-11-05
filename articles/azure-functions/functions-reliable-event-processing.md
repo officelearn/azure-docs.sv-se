@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: cshoe
-ms.openlocfilehash: aaafe6d4080d85822ec5af9639c27fc8c55c2ce6
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: fd784bb184ff9432efc569ac9fd40de93eec0b53
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287222"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379595"
 ---
 # <a name="azure-functions-reliable-event-processing"></a>Azure Functions tillförlitlig händelse bearbetning
 
@@ -50,7 +50,7 @@ Azure Functions använder Event Hub-händelser samtidigt som du går igenom föl
 
 Det här beteendet visar några viktiga punkter:
 
-- *Ohanterade undantag kan innebära att du förlorar meddelanden.* Körningar som resulterar i ett undantag fortsätter att försätta pekaren.  Om du anger en [princip för återförsök](./functions-bindings-error-pages.md#retry-policies) fördröjs pekaren tills hela återförsöks principen har utvärderats.
+- *Ohanterade undantag kan innebära att du förlorar meddelanden.* Körningar som resulterar i ett undantag fortsätter att försätta pekaren.  Om du anger en [princip för återförsök](./functions-bindings-error-pages.md#retry-policies-preview) fördröjs pekaren tills hela återförsöks principen har utvärderats.
 - *Functions garanterar minst en leverans.* Din kod och beroende system kan behöva [konto för att samma meddelande ska kunna tas emot två gånger](./functions-idempotent.md).
 
 ## <a name="handling-exceptions"></a>Hantering av undantag
@@ -59,7 +59,7 @@ Som en allmän regel ska varje funktion innehålla ett [try/catch-block](./funct
 
 ### <a name="retry-mechanisms-and-policies"></a>Försök igen mekanismer och principer
 
-Vissa undantag är tillfälliga i natur och visas inte igen när en åtgärd försöker igen senare. Det är därför som det första steget alltid ska försöka utföra åtgärden igen.  Du kan använda funktionen för att [köra nya återförsöks principer](./functions-bindings-error-pages.md#retry-policies) för appar eller redigera logik för omförsök i funktionen.
+Vissa undantag är tillfälliga i natur och visas inte igen när en åtgärd försöker igen senare. Det är därför som det första steget alltid ska försöka utföra åtgärden igen.  Du kan använda funktionen för att [köra nya återförsöks principer](./functions-bindings-error-pages.md#retry-policies-preview) för appar eller redigera logik för omförsök i funktionen.
 
 Genom att införa fel hanterings beteenden för dina funktioner kan du definiera både grundläggande och avancerade principer för återförsök. Du kan till exempel implementera en princip som följer ett arbets flöde som illustreras i följande regler:
 

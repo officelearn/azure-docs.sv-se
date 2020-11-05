@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: edb6a8e04537a74b7ea7d4c9bd9bd27fdc39e402
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5013f8b7dd88340e397fd3d4d4cd93d4b911fbbb
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88007088"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378235"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Åtkomst och identitetsalternativ för Azure Kubernetes Service (AKS)
 
@@ -101,7 +101,7 @@ Azure RBAC är ett auktoriserings system som bygger på [Azure Resource Manager]
 
  Azure RBAC är utformat för att fungera med resurser i din Azure-prenumeration medan Kubernetes RBAC är utformad för att fungera med Kubernetes-resurser i ditt AKS-kluster. 
 
-Med Azure RBAC skapar du en *roll definition* som beskriver de behörigheter som ska tillämpas. En användare eller grupp tilldelas sedan den här roll definitionen via en *roll tilldelning* för ett visst *omfång*, som kan vara en enskild resurs, en resurs grupp eller över prenumerationen.
+Med Azure RBAC skapar du en *roll definition* som beskriver de behörigheter som ska tillämpas. En användare eller grupp tilldelas sedan den här roll definitionen via en *roll tilldelning* för ett visst *omfång* , som kan vara en enskild resurs, en resurs grupp eller över prenumerationen.
 
 Mer information finns i [Vad är Azures rollbaserad åtkomst kontroll (Azure RBAC)?][azure-rbac]
 
@@ -143,7 +143,7 @@ AKS tillhandahåller följande fyra inbyggda roller. De liknar de [inbyggda roll
 | RBAC-administratör för Azure Kubernetes-tjänsten  | Tillåter administratörs åtkomst, som är avsedd att beviljas inom ett namn område. Tillåter Läs-/skriv åtkomst till de flesta resurser i ett namn område (eller ett kluster omfång), inklusive möjligheten att skapa roller och roll bindningar i namn området. Den här rollen tillåter inte skriv åtkomst till resurs kvot eller själva namn området. |
 | Azure Kubernetes service RBAC-kluster administratör  | Ger åtkomst till superanvändare för att utföra alla åtgärder på en resurs. Den ger fullständig kontroll över alla resurser i klustret och i alla namn områden. |
 
-**Se hur du utnyttjar Azure RBAC för Kubernetes-auktorisering [här](manage-azure-rbac.md).**
+**[Läs här](manage-azure-rbac.md)om du vill veta mer om hur du aktiverar Azure RBAC för Kubernetes-auktorisering.**
 
 ## <a name="next-steps"></a>Nästa steg
 

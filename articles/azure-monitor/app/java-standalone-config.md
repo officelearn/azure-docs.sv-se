@@ -1,47 +1,50 @@
 ---
-title: Övervaka Java-program var som helst Azure Monitor Application Insights
-description: Kod för program prestanda övervakning för Java-program som körs i en miljö utan att du instrumenterar appen. Hitta rotor saken till problemen d med hjälp av Distributed tracing och program karta.
+title: Konfigurations alternativ – Azure Monitor Application Insights Java
+description: Konfigurations alternativ för Azure Monitor Application Insights Java
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 36f2add41457d1d82b0efd6c6804496018c85225
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 710347061f072fe66987d88852045986c00812c8
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215271"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377691"
 ---
-# <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Konfigurations alternativ – Java fristående agent för Azure Monitor Application Insights
+# <a name="configuration-options-for-azure-monitor-application-insights-java"></a>Konfigurations alternativ för Azure Monitor Application Insights Java
 
-
+> [!WARNING]
+> **Om du uppgraderar från 3,0 för hands version**
+>
+> Granska alla konfigurations alternativ nedan, eftersom JSON-strukturen har ändrats helt och hållet, förutom själva fil namnet som var i gemener.
 
 ## <a name="connection-string-and-role-name"></a>Anslutnings sträng och rollnamn
 
+Anslutnings strängen och roll namnet är de vanligaste inställningarna som krävs för att komma igång:
+
 ```json
 {
-  "instrumentationSettings": {
-    "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
-    "preview": {
-      "roleName": "my cloud role name"
-    }
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "role": {
+    "name": "my cloud role name"
   }
 }
 ```
 
 Anslutnings strängen krävs och roll namnet är viktigt när du skickar data från olika program till samma Application Insights-resurs.
 
-Du hittar mer information och ytterligare konfigurations alternativ nedan för mer information.
+Du hittar mer information och ytterligare konfigurations alternativ nedan.
 
 ## <a name="configuration-file-path"></a>Sökväg till konfigurations fil
 
-Application Insights Java 3,0 Preview förväntar sig som standard konfigurations filen som ska namnges `ApplicationInsights.json` och placeras i samma katalog som `applicationinsights-agent-3.0.0-PREVIEW.5.jar` .
+Application Insights Java 3,0 förväntar sig som standard konfigurations filen som ska namnges `applicationinsights.json` och placeras i samma katalog som `applicationinsights-agent-3.0.0.jar` .
 
 Du kan ange en egen sökväg för konfigurations filen med antingen
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` miljö variabel eller
-* `applicationinsights.configurationFile` Java system egenskap
+* `applicationinsights.configuration.file` Java system egenskap
 
-Om du anger en relativ sökväg kommer den att matchas i förhållande till den katalog där `applicationinsights-agent-3.0.0-PREVIEW.5.jar` finns.
+Om du anger en relativ sökväg kommer den att matchas i förhållande till den katalog där `applicationinsights-agent-3.0.0.jar` finns.
 
 ## <a name="connection-string"></a>Anslutningssträng
 
@@ -52,9 +55,7 @@ Detta är obligatoriskt. Du kan hitta din anslutnings sträng i Application Insi
 
 ```json
 {
-  "instrumentationSettings": {
-    "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000"
-  }
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000"
 }
 ```
 
@@ -70,10 +71,8 @@ Om du vill ange namnet på moln rollen:
 
 ```json
 {
-  "instrumentationSettings": {
-    "preview": {   
-      "roleName": "my cloud role name"
-    }
+  "role": {   
+    "name": "my cloud role name"
   }
 }
 ```
@@ -90,43 +89,118 @@ Om du vill ställa in en annan moln roll instans i stället för namnet på dato
 
 ```json
 {
-  "instrumentationSettings": {
-    "preview": {
-      "roleInstance": "my cloud role instance"
-    }
+  "role": {
+    "name": "my cloud role name",
+    "instance": "my cloud role instance"
   }
 }
 ```
 
 Du kan också ställa in moln Rolls instansen med hjälp av miljövariabeln `APPLICATIONINSIGHTS_ROLE_INSTANCE` .
 
-## <a name="application-log-capture"></a>Samla in program logg
+## <a name="sampling"></a>Samling
 
-Application Insights Java 3,0 Preview samlar automatiskt in program loggning via log4j, logback och Java. util. logging.
+Sampling är användbart om du behöver minska kostnaderna.
+Sampling utförs som en funktion i åtgärds-ID (även kallat spårnings-ID), så att samma åtgärds-ID alltid kommer att resultera i samma samplings beslut. På så sätt kan du inte hämta delar av en distribuerad transaktion, medan andra delar av det samplas ut.
 
-Som standard kommer den att fånga all loggning som utförs på `INFO` nivån eller över.
+Om du till exempel ställer in sampling till 10% visas bara 10% av dina transaktioner, men var och en av de 10% har fullständig transaktions information från slut punkt till slut punkt.
 
-Om du vill ändra detta tröskelvärde:
+Här är ett exempel på hur du ställer in samplingen för att samla in cirka **1/3 av alla transaktioner** – kontrol lera att du ställer in den samplings frekvens som är korrekt för ditt användnings fall:
 
 ```json
 {
-  "instrumentationSettings": {
-    "preview": {
-      "instrumentation": {
-        "logging": {
-          "threshold": "WARN"
-        }
-      }
+  "sampling": {
+    "percentage": 33.333
+  }
+}
+```
+
+Du kan också ange samplings procenten med hjälp av miljövariabeln `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE` .
+
+> [!NOTE]
+> För samplings procenten väljer du en procents ATS som ligger nära 100/N där N är ett heltal. För närvarande stöder sampling inte andra värden.
+
+## <a name="jmx-metrics"></a>JMX mått
+
+Om du vill samla in ytterligare JMX-mått:
+
+```json
+{
+  "jmxMetrics": [
+    {
+      "name": "JVM uptime (millis)",
+      "objectName": "java.lang:type=Runtime",
+      "attribute": "Uptime"
+    },
+    {
+      "name": "MetaSpace Used",
+      "objectName": "java.lang:type=MemoryPool,name=Metaspace",
+      "attribute": "Usage.used"
+    }
+  ]
+}
+```
+
+`name` är mått namnet som tilldelas till det här JMX-måttet (kan vara vad som helst).
+
+`objectName` är [objekt namnet](https://docs.oracle.com/javase/8/docs/api/javax/management/ObjectName.html) för den JMX-MBean som du vill samla in.
+
+`attribute` är attributnamnet i den JMX-MBean som du vill samla in.
+
+Numeriska och booleska JMX-mått stöds. Booleska JMX-mått mappas till `0` för falskt och `1` true.
+
+[//]: # "Obs!: dokumentera APPLICATIONINSIGHTS_JMX_METRICS här"
+[//]: # "JSON Embedded i kuvert var är rörigt och bör bara dokumenteras för kod kopplings scenario"
+
+## <a name="custom-dimensions"></a>Anpassade dimensioner
+
+Om du vill lägga till anpassade dimensioner i all telemetri:
+
+```json
+{
+  "customDimensions": {
+    "mytag": "my value",
+    "anothertag": "${ANOTHER_VALUE}"
+  }
+}
+```
+
+`${...}` kan användas för att läsa värdet från angiven miljö variabel vid start.
+
+## <a name="telemetry-processors-preview"></a>Telemetri-processorer (för hands version)
+
+Det här är en förhandsversion av funktionen.
+
+Det gör att du kan konfigurera regler som ska tillämpas på begäran, beroende och trace-telemetri, t. ex.
+ * Maskera känsliga data
+ * Lägg till anpassade dimensioner villkorligt
+ * Uppdatera telemetri-namnet som används för agg regering och visning
+
+Mer information finns i dokumentationen om [telemetri-processorn](./java-standalone-telemetry-processors.md) .
+
+## <a name="auto-collected-logging"></a>Automatisk insamlad loggning
+
+Log4j, logback och Java. util. logging är automatiskt instrumenterade och loggning som utförs via dessa loggnings ramverk samlas automatiskt in.
+
+Som standard samlas loggning endast in när loggningen utförs på `INFO` nivån eller över.
+
+Om du vill ändra den här samlings nivån:
+
+```json
+{
+  "instrumentation": {
+    "logging": {
+      "level": "WARN"
     }
   }
 }
 ```
 
-Du kan också ange loggnings tröskeln med hjälp av miljövariabeln `APPLICATIONINSIGHTS_LOGGING_THRESHOLD` .
+Du kan också ange tröskelvärdet med hjälp av miljövariabeln `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL` .
 
-Dessa är giltiga `threshold` värden som du kan ange i `ApplicationInsights.json` filen och hur de motsvarar loggnings nivåer över olika loggnings ramverk:
+Dessa är giltiga `level` värden som du kan ange i `applicationinsights.json` filen och hur de motsvarar loggnings nivåer i olika loggnings ramverk:
 
-| tröskel värde   | Log4j  | Logback | Jul     |
+| nivå             | Log4j  | Logback | Jul     |
 |-------------------|--------|---------|---------|
 | OFF               | OFF    | OFF     | OFF     |
 | DÖDS             | DÖDS  | ERROR   | SEVERE  |
@@ -139,53 +213,19 @@ Dessa är giltiga `threshold` värden som du kan ange i `ApplicationInsights.jso
 | TRACE (eller FINEST) | Rita  | Rita   | FINEST  |
 | ALL               | ALL    | ALL     | ALL     |
 
-## <a name="jmx-metrics"></a>JMX mått
+## <a name="auto-collected-micrometer-metrics-including-spring-boot-actuator-metrics"></a>Automatiskt insamlade micrometer-mått (inklusive värden för våren Boot-motstånd)
 
-Om du har några JMX-mått som du är intresse rad av att fånga:
+Om ditt program använder [micrometer](https://micrometer.io), samlas mått som skickas till micrometer globala registret automatiskt.
 
-```json
-{
-  "instrumentationSettings": {
-    "preview": {
-      "jmxMetrics": [
-        {
-          "objectName": "java.lang:type=Runtime",
-          "attribute": "Uptime",
-          "display": "JVM uptime (millis)"
-        },
-        {
-          "objectName": "java.lang:type=MemoryPool,name=Metaspace",
-          "attribute": "Usage.used",
-          "display": "MetaSpace Used"
-        }
-      ]
-    }
-  }
-}
-```
+Om ditt program använder [våren Boot-motstånd](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html), samlas även statistik som kon figurer ATS av våren Boot-motstånd automatiskt in.
 
-Numeriska och booleska JMX-mått stöds. Booleska JMX-mått mappas till `0` för falskt och `1` true.
-
-[//]: # "Obs!: dokumentera APPLICATIONINSIGHTS_JMX_METRICS här"
-[//]: # "JSON Embedded i kuvert var är rörigt och bör bara dokumenteras för kod kopplings scenario"
-
-## <a name="micrometer-including-metrics-from-spring-boot-actuator"></a>Micrometer (inklusive mått från våren Boot-motstånd)
-
-Om ditt program använder [micrometer](https://micrometer.io), Application Insights 3,0 (från och med för hands version. 2) samlar nu in mått som skickas till det globala registret för micrometer.
-
-Om programmet använder [våren Boot-motstånd](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html)Application Insights 3,0 (från och med för hands version. 4) samlar nu in mått som kon figurer ATS av våren Boot Boot-motstånd (som använder micrometer, men använder inte det globala micrometer-registret).
-
-Om du vill inaktivera dessa funktioner:
+Så här inaktiverar du automatisk insamling av micrometer-mått (inklusive värden för våren Boot-motstånd):
 
 ```json
 {
-  "instrumentationSettings": {
-    "preview": {
-      "instrumentation": {
-        "micrometer": {
-          "enabled": false
-        }
-      }
+  "instrumentation": {
+    "micrometer": {
+      "enabled": false
     }
   }
 }
@@ -193,16 +233,12 @@ Om du vill inaktivera dessa funktioner:
 
 ## <a name="heartbeat"></a>Pulsslag
 
-Som standard skickar Application Insights Java 3,0 för hands version ett pulsslags mått var 15: e minut. Om du använder pulsslags måttet för att utlösa aviseringar kan du öka frekvensen för detta pulsslag:
+Som standard skickar Application Insights Java 3,0 ett pulsslags mått var 15: e minut. Om du använder pulsslags måttet för att utlösa aviseringar kan du öka frekvensen för detta pulsslag:
 
 ```json
 {
-  "instrumentationSettings": {
-    "preview": {
-      "heartbeat": {
-        "intervalSeconds": 60
-      }
-    }
+  "heartbeat": {
+    "intervalSeconds": 60
   }
 }
 ```
@@ -210,86 +246,63 @@ Som standard skickar Application Insights Java 3,0 för hands version ett pulssl
 > [!NOTE]
 > Du kan inte minska frekvensen för det här pulsslaget eftersom pulsslags data också används för att spåra Application Insights användning.
 
-## <a name="sampling"></a>Samling
-
-Sampling är användbart om du behöver minska kostnaderna.
-Sampling utförs som en funktion i åtgärds-ID (även kallat spårnings-ID), så att samma åtgärds-ID alltid kommer att resultera i samma samplings beslut. På så sätt kan du inte hämta delar av en distribuerad transaktion, medan andra delar av det samplas ut.
-
-Om du till exempel ställer in sampling till 10% visas bara 10% av dina transaktioner, men var och en av de 10% har fullständig transaktions information från slut punkt till slut punkt.
-
-Här är ett exempel på hur du ställer in samplingen på **10% av alla transaktioner** . kontrol lera att du ställer in den samplings frekvens som är korrekt för ditt användnings fall:
-
-```json
-{
-  "instrumentationSettings": {
-    "preview": {
-      "sampling": {
-        "fixedRate": {
-          "percentage": 10
-        }
-      }
-    }
-  }
-}
-```
-
-Du kan också ange samplings procenten med hjälp av miljövariabeln `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE` .
-
 ## <a name="http-proxy"></a>HTTP-proxy
 
-Om ditt program ligger bakom en brand vägg och inte kan ansluta direkt till Application Insights (se [IP-adresser som används av Application Insights](./ip-addresses.md)) kan du konfigurera Application Insights Java 3,0 Preview för att använda en http-proxy:
+Om ditt program ligger bakom en brand vägg och inte kan ansluta direkt till Application Insights (se [IP-adresser som används av Application Insights](./ip-addresses.md)) kan du konfigurera Application Insights Java 3,0 för att använda en http-proxy:
 
 ```json
 {
-  "instrumentationSettings": {
-    "preview": {
-      "httpProxy": {
-        "host": "myproxy",
-        "port": 8080
-      }
-    }
+  "proxy": {
+    "host": "myproxy",
+    "port": 8080
   }
 }
 ```
+
+[//]: # "Observera att inte annonsera stöd för opentelemetri förrän vi har stöd för 0.10.0, som har enorma ändringar från 0.9.0"
+
+[//]: # "# # Stöd för opentelemetri API pre-1,0-versioner"
+
+[//]: # "Stöd för pre-1,0-versioner av opentelemetri-API är deltagande, eftersom API för opentelemetri inte är stabilt än"
+[//]: # "så varje version av agenten har endast stöd för en bestämd pre-1,0-version av opentelemetri-API"
+[//]: # "(den här begränsningen gäller inte när opentelemetri API 1,0 har släppts)."
+
+[//]: # "JSON"
+[//]: # "{"
+[//]: # "  \"för hands version \" : {"
+[//]: # "    \"openTelemetryApiSupport \" : sant"
+[//]: # "  }"
+[//]: # "}"
+[//]: # "```"
 
 ## <a name="self-diagnostics"></a>Själv diagnostik
 
-"Självdiagnostik" syftar på intern loggning från Application Insights Java 3,0 Preview.
+"Self-Diagnostics" syftar på intern loggning från Application Insights Java 3,0.
 
 Detta kan vara användbart för att upptäcka och diagnostisera problem med Application Insights sig själv.
 
-Som standard loggar den till-konsolen med nivån `warn` , som motsvarar den här konfigurationen:
+Som standard loggar Application Insights Java 3,0 på nivå `INFO` till både filen `applicationinsights.log` och konsolen, som motsvarar den här konfigurationen:
 
 ```json
 {
-  "instrumentationSettings": {
-    "preview": {
-      "selfDiagnostics": {
-        "destination": "console",
-        "level": "WARN"
-      }
+  "selfDiagnostics": {
+    "destination": "file+console",
+    "level": "INFO",
+    "file": {
+      "path": "applicationinsights.log",
+      "maxSizeMb": 5,
+      "maxHistory": 1
     }
   }
 }
 ```
 
-Giltiga nivåer är,,,, `OFF` `ERROR` `WARN` `INFO` `DEBUG` och `TRACE` .
+`destination` kan vara en av `file` `console` eller `file+console` .
 
-Om du vill logga till en fil i stället för att logga in på konsolen:
+`level` kan vara en av,,,, `OFF` `ERROR` `WARN` `INFO` `DEBUG` eller `TRACE` .
 
-```json
-{
-  "instrumentationSettings": {
-    "preview": {
-      "selfDiagnostics": {
-        "destination": "file",
-        "directory": "/var/log/applicationinsights",
-        "level": "WARN",
-        "maxSizeMB": 10
-      }
-    }
-  }
-}
-```
+`path` kan vara en absolut eller relativ sökväg. Relativa sökvägar matchas mot den katalog där `applicationinsights-agent-3.0.0.jar` finns.
 
-När fil träffar används när fil loggen används, `maxSizeMB` kommer den att förnyas så att bara den senast slutförda logg filen visas, utöver den aktuella logg filen.
+`maxSizeMb` är logg filens Max storlek innan den slås samman.
+
+`maxHistory` är antalet upplyft över loggfiler som bevaras (utöver den aktuella logg filen).

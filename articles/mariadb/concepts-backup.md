@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 8/13/2020
-ms.openlocfilehash: d452070619a8e6284b976ff202d2a86f1ff9312b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1d95459797a32ab3e026ee1c3a2cf93fe6e95cc4
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480742"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378966"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Säkerhets kopiering och återställning i Azure Database for MariaDB
 
@@ -52,7 +52,7 @@ Långsiktig kvarhållning av säkerhets kopieringar utöver 35 dagar stöds för
 Azure Database for MariaDB ger flexibiliteten att välja mellan lokalt redundant eller Geo-redundant lagring av säkerhets kopior i Generell användning och minnesoptimerade nivåer. När säkerhets kopiorna lagras i Geo-redundant lagring av säkerhets kopior lagras de inte bara i den region där servern finns, men replikeras också till ett [parat Data Center](../best-practices-availability-paired-regions.md). Detta ger bättre skydd och möjlighet att återställa servern i en annan region i händelse av en katastrof. Basic-nivån erbjuder endast lokalt redundant säkerhets kopierings lagring.
 
 #### <a name="moving-from-locally-redundant-to-geo-redundant-backup-storage"></a>Flytta från lokalt redundant till Geo-redundant lagring av säkerhets kopior
-Det går bara att konfigurera lokalt redundant eller Geo-redundant lagring för säkerhets kopiering när servern skapas. När servern har tillhandahållits kan du inte ändra redundans alternativet för lagring av säkerhets kopior. För att kunna flytta lagrings utrymme för säkerhets kopior från lokalt redundant lagring till Geo-redundant lagring, skapar du en ny server och migrerar data med [dump och Restore](howto-migrate-dump-restore.md) är det enda alternativ som stöds.
+Det går bara att konfigurera lokalt redundant eller geo-redundant lagring för säkerhetskopiering när servern skapas. När servern har etablerats kan du inte ändra alternativet för redundant lagring för säkerhetskopior. För att kunna flytta lagrings utrymme för säkerhets kopior från lokalt redundant lagring till Geo-redundant lagring, skapar du en ny server och migrerar data med [dump och Restore](howto-migrate-dump-restore.md) är det enda alternativ som stöds.
 
 ### <a name="backup-storage-cost"></a>Reserv lagrings kostnad
 
@@ -90,7 +90,12 @@ Du kan återställa en server till en annan Azure-region där tjänsten är till
 
 Geo-återställning är standard alternativet för återställning när servern inte är tillgänglig på grund av en incident i den region där-servern finns. Om en storskalig incident i en region resulterar i att databas programmet inte är tillgängligt, kan du återställa en server från de geo-redundanta säkerhets kopieringarna till en server i någon annan region. Geo-återställning använder den senaste säkerhets kopian av servern. Det uppstår en fördröjning mellan när en säkerhets kopia tas och när den replikeras till en annan region. Den här fördröjningen kan vara upp till en timme, så om en katastrof inträffar kan det vara upp till en timmes data förlust.
 
+> [!IMPORTANT]
+>Om en geo-återställning utförs för en nyskapad Server kan den första synkroniseringen av säkerhets kopieringen ta mer än 24 timmar, beroende på data storleken eftersom den första säkerhets kopierings tiden för ögonblicks bilder är mycket högre. Efterföljande ögonblicks säkerhets kopieringar är stegvisa kopior och därför går det snabbare att återställa efter 24 timmar efter att servern har skapats. Om du utvärderar geo-Restore för att definiera RTO rekommenderar vi att du väntar och utvärdera geo-återställning **bara efter 24 timmars** Server skapande för bättre uppskattningar.
+
 Vid geo-återställning kan de serverkonfigurationer som kan ändras omfatta beräknings generering, vCore, bevarande period för säkerhets kopior och alternativ för säkerhets kopiering. Det finns inte stöd för att ändra pris nivå (Basic, Generell användning eller Minnesoptimerade) eller lagrings storlek under geo-återställning.
+
+Den uppskattade återställnings tiden beror på flera faktorer, till exempel databasens storlek, transaktions loggens storlek, nätverks bandbredden och det totala antalet databaser som återställs i samma region på samma tid. Återställnings tiden är vanligt vis mindre än 12 timmar.
 
 ### <a name="perform-post-restore-tasks"></a>Utföra uppgifter efter återställning
 

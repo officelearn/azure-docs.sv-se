@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 00cd5a76a52e1b58bc2f01315dd3a1a859074a58
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 283befd08c7802a9df6d2fca78465d50cfb2ba7b
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348465"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376824"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Säkerhets kopiering och återställning i Azure Database for MySQL
 
@@ -115,7 +115,12 @@ Du kan återställa en server till en annan Azure-region där tjänsten är till
 
 Geo-återställning är standard alternativet för återställning när servern inte är tillgänglig på grund av en incident i den region där-servern finns. Om en storskalig incident i en region resulterar i att databas programmet inte är tillgängligt, kan du återställa en server från de geo-redundanta säkerhets kopieringarna till en server i någon annan region. Geo-återställning använder den senaste säkerhets kopian av servern. Det uppstår en fördröjning mellan när en säkerhets kopia tas och när den replikeras till en annan region. Den här fördröjningen kan vara upp till en timme, så om en katastrof inträffar kan det vara upp till en timmes data förlust.
 
+> [!IMPORTANT]
+>Om en geo-återställning utförs för en nyskapad Server kan den första synkroniseringen av säkerhets kopieringen ta mer än 24 timmar, beroende på data storleken eftersom den första säkerhets kopierings tiden för ögonblicks bilder är mycket högre. Efterföljande ögonblicks säkerhets kopieringar är stegvisa kopior och därför går det snabbare att återställa efter 24 timmar efter att servern har skapats. Om du utvärderar geo-Restore för att definiera RTO rekommenderar vi att du väntar och utvärdera geo-återställning **bara efter 24 timmars** Server skapande för bättre uppskattningar.
+
 Vid geo-återställning kan de serverkonfigurationer som kan ändras omfatta beräknings generering, vCore, bevarande period för säkerhets kopior och alternativ för säkerhets kopiering. Det finns inte stöd för att ändra pris nivå (Basic, Generell användning eller Minnesoptimerade) eller lagrings storlek under geo-återställning.
+
+Den uppskattade återställnings tiden beror på flera faktorer, till exempel databasens storlek, transaktions loggens storlek, nätverks bandbredden och det totala antalet databaser som återställs i samma region på samma tid. Återställnings tiden är vanligt vis mindre än 12 timmar.
 
 ### <a name="perform-post-restore-tasks"></a>Utföra uppgifter efter återställning
 

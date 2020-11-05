@@ -3,12 +3,12 @@ title: Felsöka inloggning till registret
 description: Symptom, orsaker och lösningar på vanliga problem vid inloggning i ett Azure Container Registry
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: a00db5cc34da6d90210a22005f33b0ad1bf20f1b
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 5499c64bef8ce36a5f622c4d847b417ef49a5a03
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348907"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379510"
 ---
 # <a name="troubleshoot-registry-login"></a>Felsöka inloggning av registret
 
@@ -98,7 +98,9 @@ Relaterade länkar:
 
 Bekräfta de register behörigheter som är associerade med autentiseringsuppgifterna, till exempel Azure- `AcrPull` rollen för att hämta avbildningar från registret eller `AcrPush` rollen för att push-överföra avbildningar. 
 
-Åtkomst till ett register i portalen eller register hanteringen med hjälp av Azure CLI kräver minst `Reader` rollen att utföra Azure Resource Manager åtgärder.
+Åtkomst till ett register i portalen eller register hanteringen med hjälp av Azure CLI kräver minst `Reader` rollen eller motsvarande behörigheter för att utföra Azure Resource Manager åtgärder.
+
+Om dina behörigheter nyligen har ändrats för att tillåta åtkomst till registret via portalen kan du behöva försöka med en Incognito eller privat session i webbläsaren för att undvika inaktuella webbläsares cacheminnen eller cookies.
 
 Du eller en register ägare måste ha tillräcklig behörighet i prenumerationen för att lägga till eller ta bort roll tilldelningar.
 

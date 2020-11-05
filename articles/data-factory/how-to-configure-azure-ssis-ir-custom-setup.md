@@ -11,13 +11,13 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 10/13/2020
-ms.openlocfilehash: 021c3705ff96774583438d261f894ff1bc24c21f
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 11/06/2020
+ms.openlocfilehash: 1885dd76a94a7a4a6b91c67735103350c473ba44
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636331"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378439"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Anpassa installations programmet för en Azure-SSIS Integration Runtime
 
@@ -76,15 +76,15 @@ Utför följande steg för att etablera eller konfigurera om din Azure-SSIS IR m
 
 1. Ladda ned, installera och öppna [Azure Storage Explorer](https://storageexplorer.com/).
 
-   a. Under **(lokal och ansluten)** högerklickar du på **lagrings konton** och väljer sedan **Anslut till Azure Storage** .
+   a. Under **(lokal och ansluten)** högerklickar du på **lagrings konton** och väljer sedan **Anslut till Azure Storage**.
 
       ![Ansluta till Azure Storage](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image1.png)
 
-   b. Välj **Använd ett lagrings konto namn och nyckel** och välj sedan **Nästa** .
+   b. Välj **Använd ett lagrings konto namn och nyckel** och välj sedan **Nästa**.
 
       ![Använda lagringskontots namn och nyckel](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image2.png)
 
-   c. Ange namnet och nyckeln för ditt Azure Storage-konto, Välj **Nästa** och välj sedan **Anslut** .
+   c. Ange namnet och nyckeln för ditt Azure Storage-konto, Välj **Nästa** och välj sedan **Anslut**.
 
       ![Ange lagrings kontots namn och nyckel](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image3.png)
 
@@ -96,7 +96,7 @@ Utför följande steg för att etablera eller konfigurera om din Azure-SSIS IR m
 
       ![Ladda upp filer till BLOB-behållaren](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png)
 
-   f. Högerklicka på behållaren och välj sedan **Hämta signatur för delad åtkomst** .
+   f. Högerklicka på behållaren och välj sedan **Hämta signatur för delad åtkomst**.
 
       ![Hämta signaturen för delad åtkomst för behållaren](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image6.png)
 
@@ -127,7 +127,7 @@ Utför följande steg för att etablera eller konfigurera om Azure-SSIS IR med a
 
 #### <a name="running-cmdkey-command"></a>Kör cmdkey-kommando
 
-Om du väljer **Kör cmdkey-kommando** typen för den anpassade snabb installationen kan du köra Windows cmdkey-kommandot på Azure-SSIS IR. Det gör du genom att ange namnet på din dator eller ditt domän namn, användar namn, konto namn och lösen ord eller konto nyckel i text rutorna **/Add** , **/User** och **/pass** . Detta gör att du kan spara autentiseringsuppgifter för SQL-servrar, fil resurser eller Azure Files på Azure-SSIS IR. Om du till exempel vill komma åt Azure Files kan du ange `YourAzureStorageAccountName.file.core.windows.net` , `azure\YourAzureStorageAccountName` och `YourAzureStorageAccountKey` för **/Add** , **/User** respektive **/pass** . Detta påminner om att köra Windows [cmdkey](/windows-server/administration/windows-commands/cmdkey) -kommandot på den lokala datorn. Endast en Express anpassad installation för att köra cmdkey-kommandot stöds för tillfället. Om du vill köra flera cmdkey-kommandon använder du i stället en standard anpassad installation.
+Om du väljer **Kör cmdkey-kommando** typen för den anpassade snabb installationen kan du köra Windows cmdkey-kommandot på Azure-SSIS IR. Det gör du genom att ange namnet på din dator eller ditt domän namn, användar namn, konto namn och lösen ord eller konto nyckel i text rutorna **/Add** , **/User** och **/pass** . Detta gör att du kan spara autentiseringsuppgifter för SQL-servrar, fil resurser eller Azure Files på Azure-SSIS IR. Om du till exempel vill komma åt Azure Files kan du ange `YourAzureStorageAccountName.file.core.windows.net` , `azure\YourAzureStorageAccountName` och `YourAzureStorageAccountKey` för **/Add** , **/User** respektive **/pass**. Detta påminner om att köra Windows [cmdkey](/windows-server/administration/windows-commands/cmdkey) -kommandot på den lokala datorn. Endast en Express anpassad installation för att köra cmdkey-kommandot stöds för tillfället. Om du vill köra flera cmdkey-kommandon använder du i stället en standard anpassad installation.
 
 #### <a name="adding-environment-variables"></a>Lägga till miljövariabler
 
@@ -135,31 +135,31 @@ Om du väljer alternativet för att **lägga till miljövariabeln** för den anp
 
 #### <a name="installing-azure-powershell"></a>Installerar Azure PowerShell
 
-Om du väljer **installations Azure PowerShell** typen för den anpassade snabb installationen kan du installera AZ-modulen för PowerShell på din Azure-SSIS IR. Det gör du genom att ange AZ-modulens versions nummer (x. y. z) som du vill använda från en [lista över de som stöds](https://www.powershellgallery.com/stats/packages/Az?groupby=Version). Detta gör att du kan köra Azure PowerShell-cmdletar/-skript i dina paket för att hantera Azure-resurser, till exempel [Azure Analysis Services (AAS)](../analysis-services/analysis-services-powershell.md).
+Om du väljer **installations Azure PowerShell** typen för den anpassade snabb installationen kan du installera AZ-modulen för PowerShell på din Azure-SSIS IR. Det gör du genom att ange AZ-modulens versions nummer (x. y. z) som du vill använda från en [lista över de som stöds](https://www.powershellgallery.com/packages/az). Detta gör att du kan köra Azure PowerShell-cmdletar/-skript i dina paket för att hantera Azure-resurser, till exempel [Azure Analysis Services (AAS)](../analysis-services/analysis-services-powershell.md).
 
 #### <a name="installing-licensed-components"></a>Installera licensierade komponenter
 
 Om du väljer alternativet **Installera licensierad komponent** för den anpassade snabb installationen kan du välja en integrerad komponent från våra ISV-partner i list rutan **komponent namn** :
 
-   * Om du väljer **uppgifts fabriks komponenten SentryOne** kan du installera [Task Factory](https://www.sentryone.com/products/task-factory/high-performance-ssis-components) Suite-komponenter från SentryOne på din Azure-SSIS IR. Det gör du genom att ange den produkt licens nyckel som du har köpt från dem i förväg i text rutan **licens nyckel** . Den aktuella integrerade versionen är **2020.1.3** .
+   * Om du väljer **uppgifts fabriks komponenten SentryOne** kan du installera [Task Factory](https://www.sentryone.com/products/task-factory/high-performance-ssis-components) Suite-komponenter från SentryOne på din Azure-SSIS IR. Det gör du genom att ange den produkt licens nyckel som du har köpt från dem i förväg i text rutan **licens nyckel** . Den aktuella integrerade versionen är **2020.1.3**.
 
-   * Om du väljer **oh22's-Hedda. I/o** -komponenten kan du installera [Hedda. IO](https://github.com/oh22is/HEDDA.IO/tree/master/SSIS-IR) -datakvalitet/rengörings komponent från oh22 på din Azure-SSIS IR. För att göra det måste du köpa sin tjänst i förväg. Den aktuella integrerade versionen är **1.0.14** .
+   * Om du väljer **oh22's-Hedda. I/o** -komponenten kan du installera [Hedda. IO](https://github.com/oh22is/HEDDA.IO/tree/master/SSIS-IR) -datakvalitet/rengörings komponent från oh22 på din Azure-SSIS IR. För att göra det måste du köpa sin tjänst i förväg. Den aktuella integrerade versionen är **1.0.14**.
 
-   * Om du väljer komponenten **oh22's SQLPhonetics.net** kan du installera [SQLPhonetics.net](https://appsource.microsoft.com/product/web-apps/oh22.sqlphonetics-ssis) Data Quality/Matching-komponenten från oh22 på din Azure-SSIS IR. Det gör du genom att ange den produkt licens nyckel som du har köpt från dem i förväg i text rutan **licens nyckel** . Den aktuella integrerade versionen är **1.0.45** .
+   * Om du väljer komponenten **oh22's SQLPhonetics.net** kan du installera [SQLPhonetics.net](https://appsource.microsoft.com/product/web-apps/oh22.sqlphonetics-ssis) Data Quality/Matching-komponenten från oh22 på din Azure-SSIS IR. Det gör du genom att ange den produkt licens nyckel som du har köpt från dem i förväg i text rutan **licens nyckel** . Den aktuella integrerade versionen är **1.0.45**.
 
-   * Om du väljer komponenten **SSIS Integration Toolkit för KingswaySoft** kan du installera [SSIS Integration Toolkit](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) Suite för kopplingar för CRM/ERP/marknadsföring/samarbets program, till exempel Microsoft Dynamics/SharePoint/Project Server, Oracle/Salesforce marknadsförings moln osv. från KingswaySoft på din Azure-SSIS IR. Det gör du genom att ange den produkt licens nyckel som du har köpt från dem i förväg i text rutan **licens nyckel** . Den aktuella integrerade versionen är **2020,1** .
+   * Om du väljer komponenten **SSIS Integration Toolkit för KingswaySoft** kan du installera [SSIS Integration Toolkit](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) Suite för kopplingar för CRM/ERP/marknadsföring/samarbets program, till exempel Microsoft Dynamics/SharePoint/Project Server, Oracle/Salesforce marknadsförings moln osv. från KingswaySoft på din Azure-SSIS IR. Det gör du genom att ange den produkt licens nyckel som du har köpt från dem i förväg i text rutan **licens nyckel** . Den aktuella integrerade versionen är **2020,1**.
 
-   * Om du väljer **KINGSWAYSOFT SSIS Productivity Pack** -komponenten kan du installera [SSIS Productivity Pack](https://www.kingswaysoft.com/products/ssis-productivity-pack) Suite-komponenter från KingswaySoft på din Azure-SSIS IR. Det gör du genom att ange den produkt licens nyckel som du har köpt från dem i förväg i text rutan **licens nyckel** . Den aktuella integrerade versionen är **20,1** .
+   * Om du väljer **KINGSWAYSOFT SSIS Productivity Pack** -komponenten kan du installera [SSIS Productivity Pack](https://www.kingswaysoft.com/products/ssis-productivity-pack) Suite-komponenter från KingswaySoft på din Azure-SSIS IR. Det gör du genom att ange den produkt licens nyckel som du har köpt från dem i förväg i text rutan **licens nyckel** . Den aktuella integrerade versionen är **20,1**.
 
-   * Om du väljer **Theobald program varans xtract** -komponent kan du installera [xtract](https://theobald-software.com/en/xtract-is/) -serien för SAP-system (ERP, s/4HANA, BW) från Theobald program vara på din Azure-SSIS IR. Det gör du genom att dra & släpp/Ladda upp den produkt licens fil som du har köpt från dem i förväg i indata-rutan för **licens filen** . Den aktuella integrerade versionen är **6.1.1.3** .
+   * Om du väljer **Theobald program varans xtract** -komponent kan du installera [xtract](https://theobald-software.com/en/xtract-is/) -serien för SAP-system (ERP, s/4HANA, BW) från Theobald program vara på din Azure-SSIS IR. Det gör du genom att dra & släpp/Ladda upp den produkt licens fil som du har köpt från dem i förväg i indata-rutan för **licens filen** . Den aktuella integrerade versionen är **6.1.1.3**.
 
-   * Om du väljer **integration service** -komponenten för AecorSoft kan du installera [integration service](https://www.aecorsoft.com/en/products/integrationservice) Suite för anslutnings program för SAP-och Salesforce-system från AecorSoft på din Azure-SSIS IR. Det gör du genom att ange den produkt licens nyckel som du har köpt från dem i förväg i text rutan **licens nyckel** . Den aktuella integrerade versionen är **3.0.00** .
+   * Om du väljer **integration service** -komponenten för AecorSoft kan du installera [integration service](https://www.aecorsoft.com/en/products/integrationservice) Suite för anslutnings program för SAP-och Salesforce-system från AecorSoft på din Azure-SSIS IR. Det gör du genom att ange den produkt licens nyckel som du har köpt från dem i förväg i text rutan **licens nyckel** . Den aktuella integrerade versionen är **3.0.00**.
 
-   * Om du väljer SSIS-komponenten för **CDATA-standarden** kan du installera SSIS- [standardpaketet](https://www.cdata.com/kb/entries/ssis-adf-packages.rst#standard) för de mest populära komponenterna från CDATA, till exempel Microsoft SharePoint-kopplingar, på din Azure-SSIS IR. Det gör du genom att ange den produkt licens nyckel som du har köpt från dem i förväg i text rutan **licens nyckel** . Den aktuella integrerade versionen är **19,7354** .
+   * Om du väljer SSIS-komponenten för **CDATA-standarden** kan du installera SSIS- [standardpaketet](https://www.cdata.com/kb/entries/ssis-adf-packages.rst#standard) för de mest populära komponenterna från CDATA, till exempel Microsoft SharePoint-kopplingar, på din Azure-SSIS IR. Det gör du genom att ange den produkt licens nyckel som du har köpt från dem i förväg i text rutan **licens nyckel** . Den aktuella integrerade versionen är **19,7354**.
 
-   * Om du väljer **SSIS Extended Package** -komponenten för CDATA kan du installera [SSIS Extended Package](https://www.cdata.com/kb/entries/ssis-adf-packages.rst#extended) Suite för alla komponenter från CDATA, till exempel Microsoft Dynamics 365 Business Central-anslutningar och andra komponenter i deras **SSIS standard-paket** , på din Azure-SSIS IR. Det gör du genom att ange den produkt licens nyckel som du har köpt från dem i förväg i text rutan **licens nyckel** . Den aktuella integrerade versionen är **19,7354** . På grund av dess stora storlek, för att undvika installations tids gräns, kontrollerar du att Azure-SSIS IR har minst fyra processor kärnor per nod.
+   * Om du väljer **SSIS Extended Package** -komponenten för CDATA kan du installera [SSIS Extended Package](https://www.cdata.com/kb/entries/ssis-adf-packages.rst#extended) Suite för alla komponenter från CDATA, till exempel Microsoft Dynamics 365 Business Central-anslutningar och andra komponenter i deras **SSIS standard-paket** , på din Azure-SSIS IR. Det gör du genom att ange den produkt licens nyckel som du har köpt från dem i förväg i text rutan **licens nyckel** . Den aktuella integrerade versionen är **19,7354**. På grund av dess stora storlek, för att undvika installations tids gräns, kontrollerar du att Azure-SSIS IR har minst fyra processor kärnor per nod.
 
-Dina anpassade installations alternativ kommer att visas på sidan **Avancerade inställningar** . Om du vill ta bort dem markerar du kryss rutorna och väljer sedan **ta bort** .
+Dina anpassade installations alternativ kommer att visas på sidan **Avancerade inställningar** . Om du vill ta bort dem markerar du kryss rutorna och väljer sedan **ta bort**.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -273,7 +273,7 @@ Utför följande steg om du vill visa och återanvända några exempel på vanli
 
 1. Anslut till vår offentliga för hands versions behållare med hjälp av Azure Storage Explorer.
 
-   a. Under **(lokal och ansluten)** högerklickar du på **lagrings konton** , väljer **Anslut till Azure Storage** , väljer **Använd en anslutnings sträng eller en signatur-URI för delad åtkomst** och välj sedan **Nästa** .
+   a. Under **(lokal och ansluten)** högerklickar du på **lagrings konton** , väljer **Anslut till Azure Storage** , väljer **Använd en anslutnings sträng eller en signatur-URI för delad åtkomst** och välj sedan **Nästa**.
 
       ![Ansluta till Azure Storage med signaturen för delad åtkomst](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image9.png)
 
@@ -283,13 +283,13 @@ Utför följande steg om du vill visa och återanvända några exempel på vanli
 
       ![Ange signaturen för delad åtkomst för behållaren](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image10.png)
 
-   c. Välj **Nästa** och välj sedan **Anslut** .
+   c. Välj **Nästa** och välj sedan **Anslut**.
 
    d. I den vänstra rutan väljer du den anslutna **publicpreview** -behållaren och dubbelklickar sedan på mappen *CustomSetupScript* . I den här mappen finns följande objekt:
 
       * En *exempel* mapp som innehåller en anpassad installation för att installera en grundläggande aktivitet på varje nod i Azure-SSIS IR. Aktiviteten gör ingenting men väntar i ett par sekunder. Mappen innehåller också en *Gacutil* -mapp vars hela innehåll ( *gacutil.exe* , *gacutil.exe.config* och *1033\gacutlrc.dll* ) kan kopieras som är till din behållare.
 
-      * En *UserScenarios* -mapp som innehåller flera anpassade installations exempel från verkliga användar scenarier.
+      * En *UserScenarios* -mapp som innehåller flera anpassade installations exempel från verkliga användar scenarier. Om du vill installera flera exempel på Azure-SSIS IR kan du kombinera deras anpassade Setup Script-filer ( *main. cmd* ) till en enda och ladda upp den med alla tillhör ande filer i din behållare.
 
         ![Innehåll i offentlig för hands versions behållare](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image11.png)
 

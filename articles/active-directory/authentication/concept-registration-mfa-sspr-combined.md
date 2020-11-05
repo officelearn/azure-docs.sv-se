@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 11/04/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79a5d306643fa9597b30f6941c420c403695c22e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7e1036e63b4fdef241350786fa3a246946a9223c
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424573"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378014"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Kombinerad säkerhets informations registrering för Azure Active Directory översikt
 
@@ -58,7 +58,7 @@ Kombinerad registrering stöder följande autentiseringsmetoder och åtgärder:
 | Maskinvaru-token | Nej | Nej | Ja |
 | Telefon | Ja | Ja | Ja |
 | Alternativ telefon | Ja | Ja | Ja |
-| Arbetstelefon | Nej | Nej | Nej |
+| Arbetstelefon | Ja | Ja | Ja |
 | E-post | Ja | Ja | Ja |
 | Säkerhetsfrågor | Ja | Nej | Ja |
 | Applösenord | Ja | Nej | Ja |

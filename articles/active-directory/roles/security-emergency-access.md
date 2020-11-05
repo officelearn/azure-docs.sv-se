@@ -5,20 +5,20 @@ services: active-directory
 author: markwahl-msft
 manager: daveba
 ms.author: curtand
-ms.date: 11/08/2019
+ms.date: 11/05/2020
 ms.topic: conceptual
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ffcbd77997e230b9b21ed29b47e37236de025f6
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 966d264cc338487dd1a8c04f2efd0825dfccdef0
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378181"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378762"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Hantera konton för nöd åtkomst i Azure AD
 
@@ -72,7 +72,7 @@ Om du använder lösen ord kontrollerar du att kontona har starka lösen ord som
 
 Organisationer bör övervaka inloggnings-och gransknings loggs aktiviteter från nödfalls kontona och utlösa meddelanden till andra administratörer. När du övervakar aktiviteten på Bryt glas konton kan du kontrol lera att dessa konton endast används för testning eller faktiska nöd situationer. Du kan använda Azure Log Analytics för att övervaka inloggnings loggarna och utlösa e-post och SMS-aviseringar till dina administratörer när Break glas-konton loggar in.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 1. [Skicka inloggnings loggar för Azure AD](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) till Azure Monitor.
 
@@ -87,34 +87,34 @@ Organisationer bör övervaka inloggnings-och gransknings loggs aktiviteter frå
 ### <a name="create-an-alert-rule"></a>Skapa en varningsregel
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som tilldelats rollen övervaknings deltagare i Azure Monitor.
-1. Välj **alla tjänster**", ange" Log Analytics "i sökningen och välj sedan **Log Analytics arbets ytor**.
+1. Välj **alla tjänster** ", ange" Log Analytics "i sökningen och välj sedan **Log Analytics arbets ytor**.
 1. Välj en arbetsyta.
 1. I arbets ytan väljer du **aviseringar**  >  **ny aviserings regel**.
-    1. Under **resurs**kontrollerar du att prenumerationen är den som du vill associera varnings regeln med.
-    1. Välj **Lägg till**under **villkor**.
+    1. Under **resurs** kontrollerar du att prenumerationen är den som du vill associera varnings regeln med.
+    1. Välj **Lägg till** under **villkor**.
     1. Välj **anpassad loggs ökning** under **signal namn**.
-    1. Under **Sök fråga**anger du följande fråga och infogar objekt-ID: n för de två rast glas kontona.
+    1. Under **Sök fråga** anger du följande fråga och infogar objekt-ID: n för de två rast glas kontona.
         > [!NOTE]
         > För varje ytterligare rast glas konto som du vill inkludera lägger du till ett annat "eller UserId = =" ObjectGuid "" i frågan.
 
         ![Lägg till objekt-ID: n för rast glas kontona i en varnings regel](./media/security-emergency-access/query-image1.png)
 
-    1. Under **aviserings logik**anger du följande:
+    1. Under **aviserings logik** anger du följande:
 
         - Baserat på: antal resultat
         - Operator: större än
         - Tröskel värde: 0
 
-    1. Under **utvärdera baserat på**väljer du **perioden (i minuter)** för hur länge du vill att frågan ska köras och hur ofta **(i minuter)** som du vill att frågan ska köras. Frekvensen ska vara mindre än eller lika med perioden.
+    1. Under **utvärdera baserat på** väljer du **perioden (i minuter)** för hur länge du vill att frågan ska köras och hur ofta **(i minuter)** som du vill att frågan ska köras. Frekvensen ska vara mindre än eller lika med perioden.
 
         ![aviserings logik](./media/security-emergency-access/alert-image2.png)
 
-    1. Välj **Done** (Klar). Nu kan du Visa den uppskattade månads kostnaden för den här aviseringen.
+    1. Välj **Klar**. Nu kan du Visa den uppskattade månads kostnaden för den här aviseringen.
 1. Välj en åtgärds grupp användare som ska meddelas via aviseringen. Om du vill skapa ett, se [skapa en åtgärds grupp](#create-an-action-group).
 1. Om du vill anpassa e-postmeddelandet som skickas till medlemmarna i åtgärds gruppen väljer du åtgärder under **Anpassa åtgärder**.
-1. Under **aviserings information**anger du namnet på varnings regeln och lägger till en valfri beskrivning.
+1. Under **aviserings information** anger du namnet på varnings regeln och lägger till en valfri beskrivning.
 1. Ange händelsens **allvarlighets grad** . Vi rekommenderar att du ställer in det på **kritiskt (allvarlighets grad 0)**.
-1. Under **Aktivera regel vid skapande**, låt den vara **Ja**.
+1. Under **Aktivera regel vid skapande** , låt den vara **Ja**.
 1. Om du vill inaktivera aviseringar för en stund markerar du kryss rutan **Ignorera aviseringar** och anger vänte tiden innan aviseringen görs igen och väljer sedan **Spara**.
 1. Klicka på **Skapa aviseringsregel**.
 

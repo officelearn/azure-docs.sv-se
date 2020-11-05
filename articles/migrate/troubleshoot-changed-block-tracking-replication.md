@@ -6,12 +6,12 @@ ms.manager: bsiva
 ms.author: anvar
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 2b653a0abbe89686c764a6a0885720cc746975c8
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: da1f7ce1474513fd9de286495f59aca63d8628b6
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314735"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377265"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Felsöka replikeringsfel i VM-migrering utan agent
 
@@ -29,11 +29,16 @@ Du kan ibland se att det inte går att köra cykler för en virtuell dator. Dess
 Använd följande steg för att övervaka replikeringsstatus för dina virtuella datorer:
 
   1. Gå till sidan servrar i Azure Migrate på Azure Portal.
-  2. Gå till sidan "replikera datorer" genom att klicka på "replikera servrar" i panelen Server migrering.
-  3. Du ser en lista över replikering av servrar och ytterligare information som status, hälsa, senaste synkroniseringstid osv. I kolumnen hälsa anges den aktuella replikeringens aktuella hälso tillstånd för den virtuella datorn. Värdet "kritisk" eller "varning" i hälso kolumnen indikerar vanligt vis att den tidigare replikeringen för den virtuella datorn misslyckades. Om du vill ha mer information högerklickar du på den virtuella datorn och väljer fel information. Sidan fel information innehåller information om felet och ytterligare information om hur du felsöker. Du ser också länken "senaste händelser" som kan användas för att navigera till sidan händelser för den virtuella datorn.
-  4. Klicka på senaste händelser om du vill se tidigare Körfel för den virtuella datorn. På sidan händelser söker du efter den senaste händelsen av typen "Replikeringsinitieringen misslyckades" eller "Det gick inte att utföra replikering för disken" för den virtuella datorn.
-  5. Klicka på händelsen för att förstå möjliga orsaker till felet och rekommenderade reparations steg. Använd informationen som visas för att felsöka och åtgärda felet.
-    
+  ![Bild 1](./media/troubleshoot-changed-block-tracking-replication/image0.png)
+  1. Gå till sidan "replikera datorer" genom att klicka på "replikera servrar" i panelen Server migrering.
+  ![Bild 2](./media/troubleshoot-changed-block-tracking-replication/image1.png)
+  1. Du ser en lista över replikering av servrar och ytterligare information som status, hälsa, senaste synkroniseringstid osv. I kolumnen hälsa anges den aktuella replikeringens aktuella hälso tillstånd för den virtuella datorn. Värdet "kritisk" eller "varning" i hälso kolumnen indikerar vanligt vis att den tidigare replikeringen för den virtuella datorn misslyckades. Om du vill ha mer information högerklickar du på den virtuella datorn och väljer fel information. Sidan fel information innehåller information om felet och ytterligare information om hur du felsöker. Du ser också länken "senaste händelser" som kan användas för att navigera till sidan händelser för den virtuella datorn.
+  ![Bild 3](./media/troubleshoot-changed-block-tracking-replication/image2.png)
+  1. Klicka på senaste händelser om du vill se tidigare Körfel för den virtuella datorn. På sidan händelser söker du efter den senaste händelsen av typen "Replikeringsinitieringen misslyckades" eller "Det gick inte att utföra replikering för disken" för den virtuella datorn.
+  ![Bild 4](./media/troubleshoot-changed-block-tracking-replication/image3.png)
+  1. Klicka på händelsen för att förstå möjliga orsaker till felet och rekommenderade reparations steg. Använd informationen som visas för att felsöka och åtgärda felet.
+ ![Bild 5](./media/troubleshoot-changed-block-tracking-replication/image4.png)
+
 ## <a name="common-replication-errors"></a>Vanliga replikeringsfel
 
 I det här avsnittet beskrivs några vanliga fel och hur du kan felsöka dem.
@@ -54,7 +59,7 @@ När portalen skapar nyckel valvet lägger det också till en princip för anvä
 
 - Det andra fallet var det kan inträffa när en användare (Användare1) försökte konfigurera replikeringen från början och påträffade ett fel, men nyckel valvet har redan skapats (och användar åtkomst principen har tilldelats korrekt till den här användaren). Nu vid ett senare tillfälle försöker en annan användare (användare2) Konfigurera replikering, men åtgärden konfigurera hanterat lagrings konto eller skapa SAS-definition Miss lyckas eftersom det inte finns någon princip för användar åtkomst som motsvarar användare2 i nyckel valvet.
 
-**Lösning**: Lös problemet genom att skapa en princip för användar åtkomst för användare2 i användare2-behörighet för att konfigurera hanterat lagrings konto och generera SAS-definitioner. Användare2 kan göra detta från Azure PowerShell med hjälp av nedanstående cmdlets:
+**Lösning** : Lös problemet genom att skapa en princip för användar åtkomst för användare2 i användare2-behörighet för att konfigurera hanterat lagrings konto och generera SAS-definitioner. Användare2 kan göra detta från Azure PowerShell med hjälp av nedanstående cmdlets:
 
 $userPrincipalId = $ (Get-AzureRmADUser-UserPrincipalName "user2_email_address"). Identitet
 
@@ -134,7 +139,7 @@ Komponenten som försöker replikera data till Azure är antingen avstängd elle
     
     Det här kommandot försöker upprätta en TCP-anslutning och returnerar utdata.
     
-     - I utdata kontrollerar du fältet "_TcpTestSucceeded_". Om värdet är "_Sant_" uppstår inga anslutnings problem mellan Azure Migrate-installationen och Azure Key Vault. Om värdet är "false", finns det ett anslutnings problem.
+     - I utdata kontrollerar du fältet " _TcpTestSucceeded_ ". Om värdet är " _Sant_ " uppstår inga anslutnings problem mellan Azure Migrate-installationen och Azure Key Vault. Om värdet är "false", finns det ett anslutnings problem.
     
     **Lösning:** Om det här testet Miss lyckas uppstår ett anslutnings problem mellan Azure Migrate-apparaten och Azure Key Vault. Delta i det lokala nätverkets team för att kontrol lera anslutnings problem. Normalt kan det finnas vissa brand Väggs inställningar som orsakar felen.
     
@@ -220,7 +225,7 @@ Möjliga orsaker är:
     
     Det här kommandot försöker upprätta en TCP-anslutning och returnerar utdata.
     
-    1. I utdata kontrollerar du fältet "_TcpTestSucceeded_". Om värdet är "_Sant_" uppstår inga anslutnings problem mellan Azure Migrate-installationen och Azure Key Vault. Om värdet är "false", finns det ett anslutnings problem.
+    1. I utdata kontrollerar du fältet " _TcpTestSucceeded_ ". Om värdet är " _Sant_ " uppstår inga anslutnings problem mellan Azure Migrate-installationen och Azure Key Vault. Om värdet är "false", finns det ett anslutnings problem.
     
     **Lösning:** Om det här testet Miss lyckas uppstår ett anslutnings problem mellan Azure Migrate-apparaten och Azure Key Vault. Delta i det lokala nätverkets team för att kontrol lera anslutnings problem. Normalt kan det finnas vissa brand Väggs inställningar som orsakar felen.
     
@@ -271,7 +276,7 @@ Om du har en virtuell dator med flera diskar kan du stöta på det här felet om
 
 Det här problemet uppstår när ögonblicks bilds genereringen slutar svara. När det här problemet uppstår kan du se Skapa ögonblicks bilds aktivitet på 95% eller 99%. Se denna [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138969) för att lösa problemet.
 
-### <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>Fel meddelande: ett internt fel uppstod. [Det gick inte att konsolidera diskarna på den virtuella datorn _[orsaker]_]
+### <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>Fel meddelande: ett internt fel uppstod. [Det gick inte att konsolidera diskarna på den virtuella datorn _[orsaker]_ ]
 
 När vi konsoliderar diskar i slutet av en replikeringscykel, Miss lyckas åtgärden. Följ anvisningarna i [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138970) genom att välja lämplig _orsak_ för att lösa problemet.
 
@@ -293,6 +298,6 @@ Detta är ett känt VMware-problem där disk storleken som anges av Snapshot bli
 
 Detta inträffar när NFC-värdstyrenheten har slut på minne. För att lösa det här problemet måste du flytta den virtuella datorn (Compute vMotion) till en annan värd, som har kostnads fria resurser.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Fortsätt VM-replikering och utför [testmigrering](./tutorial-migrate-vmware.md#run-a-test-migration).

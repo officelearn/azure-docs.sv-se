@@ -8,17 +8,17 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: victorh
-ms.openlocfilehash: 2a269137508feb8a2d2cc0710986e1b74b91c0ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63f4b28915a932398e5417f8ea9be3fe4d68e705
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86186749"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397849"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Skapa en anpassad avsökning för Azure Application Gateway med hjälp av PowerShell för Azure Resource Manager
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-create-probe-portal.md)
+> * [Azure-portalen](application-gateway-create-probe-portal.md)
 > * [PowerShell och Azure Resource Manager](application-gateway-create-probe-ps.md)
 > * [PowerShell och den klassiska Azure-portalen](application-gateway-create-probe-classic-ps.md)
 
@@ -197,5 +197,4 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du konfigurerar TLS-avlastning genom att besöka: [Konfigurera TLS-avläsning](application-gateway-ssl-arm.md)
-
+Lär dig hur du konfigurerar TLS-avlastning genom att besöka: [Konfigurera TLS-avläsning](./tutorial-ssl-powershell.md)

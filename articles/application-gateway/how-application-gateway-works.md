@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: absha
-ms.openlocfilehash: d33ec829e490ae45d38d33f5784126a71ae2d0aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9166125fac28f43a93cbee2875b91bee986b1400
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86506561"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397475"
 ---
 # <a name="how-an-application-gateway-works"></a>Så här fungerar en Application Gateway
 
@@ -32,7 +32,7 @@ Den här artikeln förklarar hur en Programgateway accepterar inkommande begär 
 
 Azure Application Gateway kan användas som en intern programs belastningsutjämnare eller som en belastningsutjämnare mot Internet. En Internetbaserad Application Gateway använder offentliga IP-adresser. DNS-namnet på en Internetbaserad Application Gateway kan matchas offentligt mot dess offentliga IP-adress. Därför kan Internet-riktade programgatewayer dirigera klient begär anden till Internet.
 
-Interna programgatewayer använder endast privata IP-adresser. Om du använder en anpassad eller [privat DNS zon](https://docs.microsoft.com/azure/dns/private-dns-overview)ska domän namnet vara internt matchat till den privata IP-adressen för Application Gateway. Därför kan interna belastnings utjämning bara dirigera begär Anden från klienter med åtkomst till ett virtuellt nätverk för programgatewayen.
+Interna programgatewayer använder endast privata IP-adresser. Om du använder en anpassad eller [privat DNS zon](../dns/private-dns-overview.md)ska domän namnet vara internt matchat till den privata IP-adressen för Application Gateway. Därför kan interna belastnings utjämning bara dirigera begär Anden från klienter med åtkomst till ett virtuellt nätverk för programgatewayen.
 
 ## <a name="how-an-application-gateway-routes-a-request"></a>Hur en Application Gateway dirigerar en begäran
 
@@ -52,9 +52,9 @@ När en Programgateway skickar den ursprungliga begäran till backend-servern, s
 
  >[!NOTE]
 >Om backend-poolen:
-> - **Är en offentlig slut punkt**använder Application Gateway dess offentliga IP-adress för att komma åt servern. Om det inte finns någon offentlig IP-adress för klient delen tilldelas en för utgående extern anslutning.
-> - **Innehåller en internt matchad FQDN eller en privat IP-adress**, och programgatewayen dirigerar begäran till backend-servern genom att använda dess privata IP-adresser.
-> - **Innehåller en extern slut punkt eller ett externt matchat fullständigt domän namn**, programgatewayen dirigerar begäran till backend-servern genom att använda dess offentliga IP-adress för klient delen. DNS-matchningen baseras på en privat DNS-zon eller en anpassad DNS-server, om den är konfigurerad, eller om den använder standard-Azure-standardvärdet. Om det inte finns någon offentlig IP-adress för klient delen tilldelas en för utgående extern anslutning.
+> - **Är en offentlig slut punkt** använder Application Gateway dess offentliga IP-adress för att komma åt servern. Om det inte finns någon offentlig IP-adress för klient delen tilldelas en för utgående extern anslutning.
+> - **Innehåller en internt matchad FQDN eller en privat IP-adress** , och programgatewayen dirigerar begäran till backend-servern genom att använda dess privata IP-adresser.
+> - **Innehåller en extern slut punkt eller ett externt matchat fullständigt domän namn** , programgatewayen dirigerar begäran till backend-servern genom att använda dess offentliga IP-adress för klient delen. DNS-matchningen baseras på en privat DNS-zon eller en anpassad DNS-server, om den är konfigurerad, eller om den använder standard-Azure-standardvärdet. Om det inte finns någon offentlig IP-adress för klient delen tilldelas en för utgående extern anslutning.
 
 ### <a name="modifications-to-the-request"></a>Ändringar i begäran
 

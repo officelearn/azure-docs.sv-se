@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
-ms.openlocfilehash: d6cfac7f0fb3939e57ce64f552556138ce9feacd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc5efd6ad478710ba839634a49f041211756af71
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89653189"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397679"
 ---
 # <a name="application-gateway-front-end-ip-address-configuration"></a>Application Gateway IP-adresskonfiguration på klient Sidan
 
@@ -32,11 +32,11 @@ En offentlig IP-adress krävs inte för en intern slut punkt som inte är expone
 
 Det finns bara stöd för en offentlig IP-adress eller en privat IP-adress. Du väljer klient delens IP-adress när du skapar programgatewayen.
 
-- För en offentlig IP-adress kan du skapa en ny offentlig IP-adress eller använda en befintlig offentlig IP-adress på samma plats som Application Gateway. Mer information finns i [statisk eller dynamisk offentlig IP-adress](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-versus-dynamic-public-ip-address).
+- För en offentlig IP-adress kan du skapa en ny offentlig IP-adress eller använda en befintlig offentlig IP-adress på samma plats som Application Gateway. Mer information finns i [statisk eller dynamisk offentlig IP-adress](./application-gateway-components.md#static-versus-dynamic-public-ip-address).
 
-- För en privat IP-adress kan du ange en privat IP-adress från det undernät där programgatewayen skapas. Om du inte anger något väljs en godtycklig IP-adress automatiskt från under nätet. Den IP-adress typ som du väljer (statisk eller dynamisk) kan inte ändras senare. Mer information finns i [skapa en Programgateway med en intern belastningsutjämnare](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm).
+- För en privat IP-adress kan du ange en privat IP-adress från det undernät där programgatewayen skapas. Om du inte anger något väljs en godtycklig IP-adress automatiskt från under nätet. Den IP-adress typ som du väljer (statisk eller dynamisk) kan inte ändras senare. Mer information finns i [skapa en Programgateway med en intern belastningsutjämnare](./application-gateway-ilb-arm.md).
 
-En IP-adress på klient sidan är kopplad till en *lyssnare*som söker efter inkommande begär Anden på klient delens IP.
+En IP-adress på klient sidan är kopplad till en *lyssnare* som söker efter inkommande begär Anden på klient delens IP.
 
 ## <a name="next-steps"></a>Nästa steg
 

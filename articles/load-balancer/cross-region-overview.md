@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: d55f52b5e99a7a617e2bec8bea4d6e6ef687730a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 898b0d00fcad99a1059e01ad54ce13d192f1227f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336538"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398019"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Belastningsutjämnare för flera regioner (för hands version)
 
@@ -45,7 +45,7 @@ Klient delens IP-konfiguration för belastningsutjämnaren i flera regioner är 
 :::image type="content" source="./media/cross-region-overview/cross-region-load-balancer.png" alt-text="Diagram över belastnings utjämning i flera regioner." border="true":::
 
 > [!NOTE]
-> Backend-porten för belastnings Utjämnings regeln för belastningsutjämnare i flera regioner ska matcha frontend-porten för belastnings Utjämnings regeln/inkommande NAT-regel i regional standard Load Balancer. 
+> Server dels porten i belastnings Utjämnings regeln i en belastningsutjämnare för flera regioner bör matcha frontend-porten för belastnings Utjämnings regeln/inkommande NAT-regel i regional standard Load Balancer. 
 
 ### <a name="regional-redundancy"></a>Regional redundans
 
@@ -55,7 +55,7 @@ Om en region Miss lyckas dirigeras trafiken till nästa närmaste felfria region
 
 Hälso avsökningen av belastningsutjämnaren i flera regioner samlar in information om tillgänglighet var 20: e sekund. Om en regional belastningsutjämnare släpper sin tillgänglighet till 0, kommer belastnings utjämning mellan regioner att identifiera problemet. Den regionala belastningsutjämnaren tas sedan bort från rotationen. 
 
-:::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="Diagram över belastnings utjämning i flera regioner." border="true":::
+:::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="Diagram över vyn trafik för global region." border="true":::
 
 ### <a name="ultra-low-latency"></a>Extremt låg latens
 

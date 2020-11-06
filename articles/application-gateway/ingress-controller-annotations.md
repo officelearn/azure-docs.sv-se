@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: f54381ddcd11a2e4a24d30d812468da85b5403de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f570f9f18f9c9d484a9bc9c1a5c64d42dbdc714
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80335825"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397458"
 ---
 # <a name="annotations-for-application-gateway-ingress-controller"></a>Anteckningar för Application Gateway ingångs kontroll 
 
@@ -72,7 +72,7 @@ I exemplet ovan har vi definierat en ingress-resurs med namnet `go-server-ingres
 
 ## <a name="tls-redirect"></a>TLS-omdirigering
 
-Application Gateway [kan konfigureras](https://docs.microsoft.com/azure/application-gateway/application-gateway-redirect-overview) för automatisk omdirigering av http-URL: er till deras https-motsvarigheter. När den här anteckningen är tillgänglig och TLS har kon figurer ATS, skapar Kubernetes ingress Controller en [regel för vidarebefordran med en omdirigerings konfiguration](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal#add-a-routing-rule-with-a-redirection-configuration) och tillämpar ändringarna på din Application Gateway. Den omdirigering som skapas är HTTP `301 Moved Permanently` .
+Application Gateway [kan konfigureras](./redirect-overview.md) för automatisk omdirigering av http-URL: er till deras https-motsvarigheter. När den här anteckningen är tillgänglig och TLS har kon figurer ATS, skapar Kubernetes ingress Controller en [regel för vidarebefordran med en omdirigerings konfiguration](./redirect-http-to-https-portal.md#add-a-routing-rule-with-a-redirection-configuration) och tillämpar ändringarna på din Application Gateway. Den omdirigering som skapas är HTTP `301 Moved Permanently` .
 
 ### <a name="usage"></a>Användning
 

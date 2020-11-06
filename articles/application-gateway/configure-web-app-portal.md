@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: victorh
-ms.openlocfilehash: df92e08e91761d77c606ccb5389eee7dc219c101
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a72f0106088d26eb2ff53456840c598c3d9619a7
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91323400"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397560"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Konfigurera App Service med Application Gateway
 
@@ -30,15 +30,15 @@ I den här artikeln kan du se hur du:
 
 - Application Gateway: skapa en Programgateway utan mål för Server delens pool. Mer information finns i [snabb start: direkt webb trafik med Azure Application Gateway – Azure Portal](quick-create-portal.md)
 
-- App Service: om du inte har en befintlig App Service kan du läsa [dokumentationen om App Service](https://docs.microsoft.com/azure/app-service/).
+- App Service: om du inte har en befintlig App Service kan du läsa [dokumentationen om App Service](../app-service/index.yml).
 
 ## <a name="add-app-service-as-backend-pool"></a>Lägg till App Service som backend-pool
 
 1. I Azure Portal väljer du din Application Gateway.
 
-2. Under **backend-pooler**väljer du backend-poolen.
+2. Under **backend-pooler** väljer du backend-poolen.
 
-4. Under **måltyp**väljer du **app Services**.
+4. Under **måltyp** väljer du **app Services**.
 
 5. Under **mål** väljer du App Service.
 
@@ -50,19 +50,19 @@ I den här artikeln kan du se hur du:
 
 ## <a name="edit-http-settings-for-app-service"></a>Redigera HTTP-inställningar för App Service
 
-1. Under **http-inställningar**väljer du den befintliga http-inställningen.
+1. Under **http-inställningar** väljer du den befintliga http-inställningen.
 
-2. Välj **Ja**under **åsidosättande med nytt värdnamn**.
-3. Under **Åsidosätt värdnamn**väljer du **Välj värdnamn från backend-målet**.
+2. Välj **Ja** under **åsidosättande med nytt värdnamn**.
+3. Under **Åsidosätt värdnamn** väljer du **Välj värdnamn från backend-målet**.
 4. Välj **Spara**.
 
-   :::image type="content" source="./media/configure-web-app-portal/http-settings.png" alt-text="App Service-backend":::
+   :::image type="content" source="./media/configure-web-app-portal/http-settings.png" alt-text="Välj värd namnet från Server delens http-inställningar":::
 
 ## <a name="additional-configuration-in-case-of-redirection-to-app-services-relative-path"></a>Ytterligare konfiguration i händelse av omdirigering till app Services relativa sökväg
 
 När App Service skickar ett svar för omdirigering till klienten som ska omdirigeras till dess relativa sökväg (till exempel en omdirigering från `contoso.azurewebsites.net/path1` till `contoso.azurewebsites.net/path2` ), använder den samma värdnamn i plats rubriken i svars listan som den som finns i den begäran som togs emot från Application Gateway. Klienten kommer därför att göra begäran direkt till `contoso.azurewebsites.net/path2` i stället för att gå igenom Application Gateway ( `contoso.com/path2` ). Att kringgå Application Gateway är inte önskvärt.
 
-Om du är i ditt användnings fall finns det scenarier där App Service måste skicka ett svar på omdirigering till klienten, utföra de [ytterligare stegen för att skriva om plats rubriken](https://docs.microsoft.com/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url#sample-configuration).
+Om du är i ditt användnings fall finns det scenarier där App Service måste skicka ett svar på omdirigering till klienten, utföra de [ytterligare stegen för att skriva om plats rubriken](./troubleshoot-app-service-redirection-app-service-url.md#sample-configuration).
 
 ## <a name="restrict-access"></a>Begränsa åtkomst
 
@@ -72,4 +72,4 @@ Ett sätt som du kan begränsa åtkomsten till dina webbappar är att använda [
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om app service och andra stöd för flera innehavare med Application Gateway finns i [service support för flera innehavare med Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview).
+Mer information om app service och andra stöd för flera innehavare med Application Gateway finns i [service support för flera innehavare med Application Gateway](./application-gateway-web-app-overview.md).

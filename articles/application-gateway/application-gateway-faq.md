@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 492041e39cf3e7be256bc783afc82fc756e17bf4
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8df24b44d648343c46532eed443717f444bd0058
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791553"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397798"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Vanliga frågor och svar om Application Gateway
 
@@ -29,7 +29,7 @@ Azure Application Gateway tillhandahåller en program leverans kontroll (ADC) so
 
 ### <a name="what-features-does-application-gateway-support"></a>Vilka funktioner stöder Application Gateway?
 
-Application Gateway stöder automatisk skalning, TLS-avlastning och autentisering från slut punkt till slut punkt, en brand vägg för webbaserade program (WAF), cookie-baserad session tillhörighet, URL-sökväg baserad routning, multisite-värd och andra funktioner. En fullständig lista över funktioner som stöds finns i [Introduktion till Application Gateway](application-gateway-introduction.md).
+Application Gateway stöder automatisk skalning, TLS-avlastning och autentisering från slut punkt till slut punkt, en brand vägg för webbaserade program (WAF), cookie-baserad session tillhörighet, URL-sökväg baserad routning, multisite-värd och andra funktioner. En fullständig lista över funktioner som stöds finns i [Introduktion till Application Gateway](./overview.md).
 
 ### <a name="how-do-application-gateway-and-azure-load-balancer-differ"></a>Hur skiljer sig Application Gateway och Azure Load Balancer?
 
@@ -41,17 +41,17 @@ Application Gateway stöder HTTP, HTTPS, HTTP/2 och WebSocket.
 
 ### <a name="how-does-application-gateway-support-http2"></a>Hur stöder Application Gateway HTTP/2?
 
-Se [stöd för http/2](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http2-support).
+Se [stöd för http/2](./configuration-listeners.md#http2-support).
 
 ### <a name="what-resources-are-supported-as-part-of-a-backend-pool"></a>Vilka resurser stöds som en del av en backend-pool?
 
-Se [stödda Server dels resurser](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#backend-pools).
+Se [stödda Server dels resurser](./application-gateway-components.md#backend-pools).
 
 ### <a name="in-what-regions-is-application-gateway-available"></a>I vilka regioner är Application Gateway tillgängliga?
 
 Application Gateway v1 (standard och WAF) är tillgängligt i alla regioner i Global Azure. Det är också tillgängligt i [Azure Kina 21Vianet](https://www.azure.cn/) och [Azure Government](https://azure.microsoft.com/overview/clouds/government/).
 
-Application Gateway v2 (Standard_v2 och WAF_v2) tillgänglighet finns i [regioner som stöds för Application Gateway v2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#supported-regions)
+Application Gateway v2 (Standard_v2 och WAF_v2) tillgänglighet finns i [regioner som stöds för Application Gateway v2](./application-gateway-autoscaling-zone-redundant.md#supported-regions)
 
 ### <a name="is-this-deployment-dedicated-for-my-subscription-or-is-it-shared-across-customers"></a>Är den här distributionen dedikerad för min prenumeration eller delas den mellan kunder?
 
@@ -59,17 +59,17 @@ Application Gateway är en dedikerad distribution i det virtuella nätverket.
 
 ### <a name="does-application-gateway-support-http-to-https-redirection"></a>Stöder Application Gateway HTTP-till-HTTPS-omdirigering?
 
-Omdirigering stöds. Se [Application Gateway omdirigerings översikt](application-gateway-redirect-overview.md).
+Omdirigering stöds. Se [Application Gateway omdirigerings översikt](./redirect-overview.md).
 
 ### <a name="in-what-order-are-listeners-processed"></a>I vilken ordning bearbetas lyssnare?
 
-Se [ordningen för avlyssnings bearbetning](https://docs.microsoft.com/azure/application-gateway/configuration-overview#order-of-processing-listeners).
+Se [ordningen för avlyssnings bearbetning](./configuration-listeners.md#order-of-processing-listeners).
 
 ### <a name="where-do-i-find-the-application-gateway-ip-and-dns"></a>Var hittar jag Application Gateway IP och DNS?
 
 Om du använder en offentlig IP-adress som en slut punkt hittar du IP-och DNS-information om den offentliga IP-adressresursen. Eller hitta den i portalen på sidan Översikt för Application Gateway. Om du använder interna IP-adresser hittar du informationen på sidan Översikt.
 
-För v2-SKU: n öppnar du den offentliga IP-resursen och väljer **konfiguration** . Fältet **DNS-namn (valfritt)** är tillgängligt för att konfigurera DNS-namnet.
+För v2-SKU: n öppnar du den offentliga IP-resursen och väljer **konfiguration**. Fältet **DNS-namn (valfritt)** är tillgängligt för att konfigurera DNS-namnet.
 
 ### <a name="what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout"></a>Vad är inställningarna för Keep-Alive timeout och timeout för TCP-inaktivitet?
 
@@ -97,7 +97,7 @@ En Application Gateway stöder bara en offentlig IP-adress.
 
 ### <a name="how-large-should-i-make-my-subnet-for-application-gateway"></a>Hur stor ska jag göra mitt undernät för Application Gateway?
 
-Se [Application Gateway-undernätets storleks överväganden](https://docs.microsoft.com/azure/application-gateway/configuration-overview#size-of-the-subnet).
+Se [Application Gateway-undernätets storleks överväganden](./configuration-infrastructure.md#size-of-the-subnet).
 
 ### <a name="can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>Kan jag distribuera fler än en Application Gateway resurs till ett enda undernät?
 
@@ -111,7 +111,7 @@ Ja, men endast vissa scenarier. Mer information finns i [Application Gateway inf
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>Stöder Application Gateway x-vidarebefordrade-för rubriker?
 
-Ja. Se [ändringar av en begäran](https://docs.microsoft.com/azure/application-gateway/how-application-gateway-works#modifications-to-the-request).
+Ja. Se [ändringar av en begäran](./how-application-gateway-works.md#modifications-to-the-request).
 
 ### <a name="how-long-does-it-take-to-deploy-an-application-gateway-will-my-application-gateway-work-while-its-being-updated"></a>Hur lång tid tar det att distribuera en Application Gateway? Fungerar min Application Gateway när den uppdateras?
 
@@ -138,7 +138,7 @@ Nej. Application Gateway v2 har inte stöd för proxy-begäranden med NTLM-auten
 ### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>Stöder Application Gateway SameSite för tillhörighets-cookie?
 Ja, Chrome- [webbläsarens](https://www.chromium.org/Home) [V80-uppdatering](https://chromiumdash.appspot.com/schedule) introducerade ett mandat på HTTP cookies utan SameSite-attribut som ska behandlas som SameSite = lax. Det innebär att den Application Gateway tillhörighets-cookien inte skickas av webbläsaren i en tredjeparts kontext. 
 
-För att stödja det här scenariot infogar Application Gateway en annan cookie med namnet *ApplicationGatewayAffinityCORS* förutom den befintliga *ApplicationGatewayAffinity* -cookien.  Dessa cookies liknar varandra, men cookien *ApplicationGatewayAffinityCORS* har två fler attribut som läggs till: *SameSite = none; Säker* . De här attributen upprätthåller tröga sessioner även för frågor mellan ursprung. Mer information finns i [avsnittet cookie-baserad tillhörighet](configuration-http-settings.md#cookie-based-affinity) .
+För att stödja det här scenariot infogar Application Gateway en annan cookie med namnet *ApplicationGatewayAffinityCORS* förutom den befintliga *ApplicationGatewayAffinity* -cookien.  Dessa cookies liknar varandra, men cookien *ApplicationGatewayAffinityCORS* har två fler attribut som läggs till: *SameSite = none; Säker*. De här attributen upprätthåller tröga sessioner även för frågor mellan ursprung. Mer information finns i [avsnittet cookie-baserad tillhörighet](configuration-http-settings.md#cookie-based-affinity) .
 
 ## <a name="performance"></a>Prestanda
 
@@ -172,7 +172,7 @@ Ja.
 
 ### <a name="is-application-gateway-always-deployed-in-a-virtual-network"></a>Är Application Gateway alltid distribuerat i ett virtuellt nätverk?
 
-Ja. Application Gateway distribueras alltid i ett undernät för virtuellt nätverk. Det här under nätet får bara innehålla programgatewayer. Mer information finns i [krav för virtuellt nätverk och undernät](https://docs.microsoft.com/azure/application-gateway/configuration-overview#azure-virtual-network-and-dedicated-subnet).
+Ja. Application Gateway distribueras alltid i ett undernät för virtuellt nätverk. Det här under nätet får bara innehålla programgatewayer. Mer information finns i [krav för virtuellt nätverk och undernät](./configuration-infrastructure.md#virtual-network-and-dedicated-subnet).
 
 ### <a name="can-application-gateway-communicate-with-instances-outside-of-its-virtual-network-or-outside-of-its-subscription"></a>Kan Application Gateway kommunicera med instanser utanför det virtuella nätverket eller utanför prenumerationen?
 
@@ -184,15 +184,15 @@ Nej. Men du kan distribuera andra programgatewayer i under nätet.
 
 ### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>Stöds nätverks säkerhets grupper i undernät för Application Gateway?
 
-Se [nätverks säkerhets grupper i Application Gateway under nätet](https://docs.microsoft.com/azure/application-gateway/configuration-infrastructure#network-security-groups).
+Se [nätverks säkerhets grupper i Application Gateway under nätet](./configuration-infrastructure.md#network-security-groups).
 
 ### <a name="does-the-application-gateway-subnet-support-user-defined-routes"></a>Har Application Gateway-undernätet stöd för användardefinierade vägar?
 
-Se [användardefinierade vägar som stöds i Application Gateway under nätet](https://docs.microsoft.com/azure/application-gateway/configuration-infrastructure#supported-user-defined-routes).
+Se [användardefinierade vägar som stöds i Application Gateway under nätet](./configuration-infrastructure.md#supported-user-defined-routes).
 
 ### <a name="are-service-endpoint-policies-supported-in-the-application-gateway-subnet"></a>Stöds service slut punkts principer i Application Gateway-undernätet?
 
-Nej. [Tjänst slut punkts principer](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview) för lagrings konton stöds inte i Application Gateway under nät och konfigureras blockerar Azures infrastruktur trafik.
+Nej. [Tjänst slut punkts principer](../virtual-network/virtual-network-service-endpoint-policies-overview.md) för lagrings konton stöds inte i Application Gateway under nät och konfigureras blockerar Azures infrastruktur trafik.
 
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>Vilka är gränserna för Application Gateway? Kan jag öka de här gränserna?
 
@@ -220,7 +220,7 @@ Nej.
 
 ### <a name="how-are-routing-rules-processed-in-application-gateway"></a>Hur bearbetas routningsregler i Application Gateway?
 
-Se [ordning för bearbetnings regler](https://docs.microsoft.com/azure/application-gateway/configuration-overview#order-of-processing-rules).
+Se [ordning för bearbetnings regler](./configuration-request-routing-rules.md#order-of-processing-rules).
 
 ### <a name="for-custom-probes-what-does-the-host-field-signify"></a>Vad indikerar värd fältet för anpassade avsökningar?
 
@@ -228,7 +228,7 @@ Fältet värd anger namnet som avsökningen ska skickas till när du har konfigu
 
 ### <a name="can-i-allow-application-gateway-access-to-only-a-few-source-ip-addresses"></a>Kan jag bara tillåta Application Gateway åtkomst till några få käll-IP-adresser?
 
-Ja. Se [begränsa åtkomsten till vissa käll-IP-adresser](https://docs.microsoft.com/azure/application-gateway/configuration-infrastructure#allow-access-to-a-few-source-ips).
+Ja. Se [begränsa åtkomsten till vissa käll-IP-adresser](./configuration-infrastructure.md#allow-access-to-a-few-source-ips).
 
 ### <a name="can-i-use-the-same-port-for-both-public-facing-and-private-facing-listeners"></a>Kan jag använda samma port för både offentlig och privat lyssnare?
 
@@ -247,13 +247,13 @@ Application Gateway v2 stöder för närvarande inte enbart privat IP-läge. Det
 Men om du vill använda Application Gateway v2 med endast privat IP kan du följa stegen nedan:
 1. Skapa en Application Gateway med både offentlig och privat klient dels-IP-adress
 2. Skapa inga lyssnare för den offentliga IP-adressen för klient delen. Application Gateway lyssnar inte på någon trafik på den offentliga IP-adressen om inga lyssnare har skapats för den.
-3. Skapa och koppla en [nätverks säkerhets grupp](https://docs.microsoft.com/azure/virtual-network/security-overview) för Application Gateway under nätet med följande konfiguration i prioritetsordning:
+3. Skapa och koppla en [nätverks säkerhets grupp](../virtual-network/network-security-groups-overview.md) för Application Gateway under nätet med följande konfiguration i prioritetsordning:
     
-    a. Tillåt trafik från källa som **GatewayManager** service tag och destination som **valfri** port och målport som **65200-65535** . Det här port intervallet krävs för kommunikation mellan Azure-infrastrukturen. Dessa portar är skyddade (låsta) av certifikatautentisering. Externa entiteter, inklusive Gateway-användarens administratörer, kan inte påbörja ändringar av dessa slut punkter utan lämpliga certifikat på plats
+    a. Tillåt trafik från källa som **GatewayManager** service tag och destination som **valfri** port och målport som **65200-65535**. Det här port intervallet krävs för kommunikation mellan Azure-infrastrukturen. Dessa portar är skyddade (låsta) av certifikatautentisering. Externa entiteter, inklusive Gateway-användarens administratörer, kan inte påbörja ändringar av dessa slut punkter utan lämpliga certifikat på plats
     
     b. Tillåt trafik från källa som **AzureLoadBalancer** service tag och mål-och mål port som **alla**
     
-    c. Neka all inkommande trafik från källan som **Internet** service tag och mål-och mål port som **en** . Ge den här regeln *lägst prioritet* i reglerna för inkommande trafik
+    c. Neka all inkommande trafik från källan som **Internet** service tag och mål-och mål port som **en**. Ge den här regeln *lägst prioritet* i reglerna för inkommande trafik
     
     d. Behåll standard reglerna som att tillåta VirtualNetwork inkommande så att åtkomsten till den privata IP-adressen inte är blockerad
     
@@ -337,7 +337,7 @@ Ja, Application Gateway v2-SKU: n stöder Key Vault. Mer information finns i [TL
 
 ### <a name="how-do-i-configure-https-listeners-for-com-and-net-sites"></a>Hur gör jag för att konfigurera HTTPS-lyssnare för. com-och .net-platser? 
 
-För flera domänbaserade (värdbaserade) routningar kan du skapa multisite-lyssnare, konfigurera lyssnare som använder HTTPS som protokoll och associera lyssnarna med routningsregler. Mer information finns i vara [värd för flera platser med hjälp av Application Gateway](https://docs.microsoft.com/azure/application-gateway/multiple-site-overview).
+För flera domänbaserade (värdbaserade) routningar kan du skapa multisite-lyssnare, konfigurera lyssnare som använder HTTPS som protokoll och associera lyssnarna med routningsregler. Mer information finns i vara [värd för flera platser med hjälp av Application Gateway](./multiple-site-overview.md).
 
 ### <a name="can-i-use-special-characters-in-my-pfx-file-password"></a>Kan jag använda specialtecken i lösen ordet för PFX-filen?
 
@@ -350,7 +350,7 @@ Webb läsar medlemmar för certifikat utfärdare (CA) har nyligen publicerat rap
 * [Bugg 1649951](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951)
 * [Bugg 1650910](https://bugzilla.mozilla.org/show_bug.cgi?id=1650910)
 
-Som enligt branschens krav på efterlevnad började CA-leverantörer återkallade icke-kompatibla certifikat utfärdare och utfärdande av kompatibla ca: er som kräver att kunderna har återupprättat sina certifikat.Microsoft samarbetar nära dessa leverantörer för att minimera den potentiella påverkan till Azure-tjänster, **men dina självutfärdade certifikat eller certifikat som används i "ta dina egna certifikat" (BYOC) är fortfarande utsatta för att oväntade återkallas** .
+Som enligt branschens krav på efterlevnad började CA-leverantörer återkallade icke-kompatibla certifikat utfärdare och utfärdande av kompatibla ca: er som kräver att kunderna har återupprättat sina certifikat.Microsoft samarbetar nära dessa leverantörer för att minimera den potentiella påverkan till Azure-tjänster, **men dina självutfärdade certifikat eller certifikat som används i "ta dina egna certifikat" (BYOC) är fortfarande utsatta för att oväntade återkallas**.
 
 För att kontrol lera om certifikat som används av ditt program har återkallats referens [DigiCert meddelande](https://knowledge.digicert.com/alerts/DigiCert-ICA-Replacement) och [Spårare för certifikat återkallning](https://misissued.com/#revoked). Om dina certifikat har återkallats eller kommer att återkallas måste du begära nya certifikat från den CA-leverantör som används i dina program. För att undvika att programmets tillgänglighet avbryts på grund av att certifikaten har återkallats, eller om du vill uppdatera ett certifikat som har återkallats, kan du gå till våra Azure updates-uppdateringar för reparations Länkar för olika Azure-tjänster som stöder BYOC: https://azure.microsoft.com/updates/certificateauthorityrevocation/
 
@@ -365,7 +365,7 @@ Om du använder ett certifikat som utfärdats av en av de återkallade ICAs kan 
 För att undvika avbrott i ditt program på grund av det här problemet, eller för att utfärda en certifikat utfärdare som har återkallats, måste du vidta följande åtgärder: 
 
 1.  Kontakta din certifikat leverantör om hur du utfärdar certifikat på nytt
-2.  Uppdatera dina certifikat på Azure Application Gateway-WAF med en fullständig [förtroende kedja](https://docs.microsoft.com/windows/win32/seccrypto/certificate-chains) (löv, mellanliggande rot certifikat) när du har utfärdat det. Baserat på var du använder certifikatet, antingen på lyssnaren eller HTTP-inställningarna för Application Gateway, följer du stegen nedan för att uppdatera certifikaten och kontrol lera dokumentations länkarna som nämns för mer information.
+2.  Uppdatera dina certifikat på Azure Application Gateway-WAF med en fullständig [förtroende kedja](/windows/win32/seccrypto/certificate-chains) (löv, mellanliggande rot certifikat) när du har utfärdat det. Baserat på var du använder certifikatet, antingen på lyssnaren eller HTTP-inställningarna för Application Gateway, följer du stegen nedan för att uppdatera certifikaten och kontrol lera dokumentations länkarna som nämns för mer information.
 3.  Uppdatera Server dels applikations servrarna så att de använder det återutfärdade certifikatet. Beroende på vilken backend-server du använder kan ditt certifikat uppdaterings steg variera. Mer information finns i dokumentationen från leverantören.
 
 Så här uppdaterar du certifikatet i din lyssnare:
@@ -374,14 +374,14 @@ Så här uppdaterar du certifikatet i din lyssnare:
 2.  Öppna inställningarna för lyssnare som är associerade med ditt certifikat
 3.  Klicka på "förnya eller redigera det valda certifikatet"
 4.  Överför ditt nya PFX-certifikat med lösen ordet och klicka på Spara
-5.  Gå till webbplatsen och kontrol lera att platsen fungerar som förväntat. mer information finns i dokumentationen [här](https://docs.microsoft.com/azure/application-gateway/renew-certificates).
+5.  Gå till webbplatsen och kontrol lera att platsen fungerar som förväntat. mer information finns i dokumentationen [här](./renew-certificates.md).
 
 Om du refererar till certifikat från Azure-valv i din Application Gateway lyssnare rekommenderar vi följande steg för en snabb ändring –
 
 1.  I [Azure Portal](https://portal.azure.com/)navigerar du till dina Azure-inställningar för nyckel valv som har associerats med Application Gateway
-2.  Lägg till/importera det återkallade certifikatet i butiken. I dokumentationen [finns mer information](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal) om hur du gör.
+2.  Lägg till/importera det återkallade certifikatet i butiken. I dokumentationen [finns mer information](../key-vault/certificates/quick-create-portal.md) om hur du gör.
 3.  När certifikatet har importer ATS navigerar du till Application Gateway lyssnar inställningar och under "Välj ett certifikat från Key Vault" klickar du på list rutan "certifikat" och väljer det nyligen tillagda certifikatet
-4.  Klicka på Spara om du vill ha mer information om TLS-avslutning på Application Gateway med Key Vault certifikat, Läs dokumentationen [här](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
+4.  Klicka på Spara om du vill ha mer information om TLS-avslutning på Application Gateway med Key Vault certifikat, Läs dokumentationen [här](./key-vault-certs.md).
 
 
 Så här uppdaterar du certifikatet i HTTP-inställningarna:
@@ -391,7 +391,7 @@ Om du använder v1 SKU för tjänsten Application Gateway/WAF måste du ladda up
 2.  Öppna de HTTP-inställningar som är associerade med ditt certifikat
 3.  Klicka på "Lägg till certifikat" och överför det återutfärdade certifikatet och klicka på Spara
 4.  Du kan ta bort det gamla certifikatet senare genom att klicka på "..." alternativ knappen bredvid det gamla certifikatet och välj Ta bort och klicka på Spara.
-Mer information hittar du i dokumentationen [här](https://docs.microsoft.com/azure/application-gateway/end-to-end-ssl-portal#add-authenticationtrusted-root-certificates-of-back-end-servers).
+Mer information hittar du i dokumentationen [här](./end-to-end-ssl-portal.md#add-authenticationtrusted-root-certificates-of-back-end-servers).
 
 Om du använder v2-SKU: n för tjänsten Application Gateway/WAF behöver du inte ladda upp det nya certifikatet i HTTP-inställningarna eftersom v2 SKU använder "betrodda rot certifikat" och ingen åtgärd behöver vidtas här.
 
@@ -454,7 +454,7 @@ I portalen väljer du **aktivitets logg** för att få åtkomst till gransknings
 
 ### <a name="can-i-set-alerts-with-application-gateway"></a>Kan jag ange aviseringar med Application Gateway?
 
-Ja. I Application Gateway konfigureras aviseringar för mått. Mer information finns i [Application Gateway mått](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics) och [ta emot aviseringar](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+Ja. I Application Gateway konfigureras aviseringar för mått. Mer information finns i [Application Gateway mått](./application-gateway-metrics.md) och [ta emot aviseringar](../azure-monitor/platform/alerts-overview.md).
 
 ### <a name="how-do-i-analyze-traffic-statistics-for-application-gateway"></a>Hur gör jag för att analysera trafik statistik för Application Gateway?
 

@@ -8,16 +8,16 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: victorh
-ms.openlocfilehash: 7dbfa877f634256c86166892a38d048a95e56baa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49fd6a939fc30671cf78984fdcba009666f6121e
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331037"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397322"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Skapa en Application Gateway med HTTP till HTTPS-omdirigering med hjälp av Azure CLI
 
-Du kan använda Azure CLI för att skapa en [Programgateway](overview.md) med ett certifikat för TLS/SSL-avslutning. En regel för routning används för att omdirigera HTTP-trafik till HTTPS-porten i din Programgateway. I det här exemplet skapar du också en [skalnings uppsättning för virtuella datorer](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för den Programgateway som innehåller två instanser av virtuella datorer.
+Du kan använda Azure CLI för att skapa en [Programgateway](overview.md) med ett certifikat för TLS/SSL-avslutning. En regel för routning används för att omdirigera HTTP-trafik till HTTPS-porten i din Programgateway. I det här exemplet skapar du också en [skalnings uppsättning för virtuella datorer](../virtual-machine-scale-sets/overview.md) för den Programgateway som innehåller två instanser av virtuella datorer.
 
 I den här artikeln kan du se hur du:
 
@@ -27,7 +27,7 @@ I den här artikeln kan du se hur du:
 * Lägg till en regel för avlyssning och omdirigering
 * Skapa en VM-skalningsuppsättning med serverdelens standardpool
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -224,5 +224,3 @@ Om du använde ett självsignerat certifikat och vill acceptera säkerhetsvarnin
 ## <a name="next-steps"></a>Nästa steg
 
 - [Skapa en Application Gateway med intern omdirigering med Azure CLI](redirect-internal-site-cli.md)
-
-

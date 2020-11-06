@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 0652c49acf58a52244cc27ae3e59120ac7f03858
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c11de2f1bc4143281d2859de7a38268932b13fba
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84807104"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397407"
 ---
 # <a name="install-an-application-gateway-ingress-controller-agic-using-an-existing-application-gateway"></a>Installera en Application Gateway ingress-styrenhet (AGIC) med hjälp av en befintlig Application Gateway
 
@@ -27,10 +27,10 @@ AGIC övervakar Kubernetes [ingress](https://kubernetes.io/docs/concepts/service
 - [Installera ingress-styrenheten med Helm](#install-ingress-controller-as-a-helm-chart)
 - [Flera kluster/delade Application Gateway](#multi-cluster--shared-application-gateway): installera AGIC i en miljö där Application Gateway delas mellan ett eller flera AKS-kluster och/eller andra Azure-komponenter.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Det här dokumentet förutsätter att du redan har följande verktyg och infrastruktur installerade:
-- [AKS](https://azure.microsoft.com/services/kubernetes-service/) med [avancerade nätverksfunktioner](https://docs.microsoft.com/azure/aks/configure-azure-cni) aktiverade
-- [Application Gateway v2](https://docs.microsoft.com/azure/application-gateway/create-zone-redundant) i samma virtuella nätverk som AKS
+- [AKS](https://azure.microsoft.com/services/kubernetes-service/) med [avancerade nätverksfunktioner](../aks/configure-azure-cni.md) aktiverade
+- [Application Gateway v2](./tutorial-autoscale-ps.md) i samma virtuella nätverk som AKS
 - [AAD Pod-identitet](https://github.com/Azure/aad-pod-identity) installerad på ditt AKS-kluster
 - [Cloud Shell](https://shell.azure.com/) är Azure Shell-miljön, som har `az` CLI, `kubectl` och `helm` installerat. De här verktygen krävs för kommandona nedan.
 
@@ -41,10 +41,10 @@ __Säkerhetskopiera din Application gateways konfiguration__ innan du installera
 Zip-filen som du laddade ned kommer att ha JSON-mallar, bash-och PowerShell-skript som du kan använda för att återställa App gatewayen, om det blir nödvändigt
 
 ## <a name="install-helm"></a>Installera Helm
-[Helm](https://docs.microsoft.com/azure/aks/kubernetes-helm) är en paket hanterare för Kubernetes. Vi använder den för att installera `application-gateway-kubernetes-ingress` paketet.
+[Helm](../aks/kubernetes-helm.md) är en paket hanterare för Kubernetes. Vi använder den för att installera `application-gateway-kubernetes-ingress` paketet.
 Använd [Cloud Shell](https://shell.azure.com/) för att installera Helm:
 
-1. Installera [Helm](https://docs.microsoft.com/azure/aks/kubernetes-helm) och kör följande för att lägga till `application-gateway-kubernetes-ingress` Helm-paketet:
+1. Installera [Helm](../aks/kubernetes-helm.md) och kör följande för att lägga till `application-gateway-kubernetes-ingress` Helm-paketet:
 
     - *RBAC-aktiverad* AKS-kluster
 
@@ -72,7 +72,7 @@ AGIC kommunicerar med Kubernetes API-servern och Azure Resource Manager. Den kr�
 
 ## <a name="set-up-aad-pod-identity"></a>Konfigurera AAD Pod-identitet
 
-[AAD Pod-identiteten](https://github.com/Azure/aad-pod-identity) är en kontrollant som liknar AGIC, som också körs på din AKS. Den binder Azure Active Directory identiteter till din Kubernetes-poddar. Identitet krävs för att ett program i en Kubernetes-Pod ska kunna kommunicera med andra Azure-komponenter. I det här fallet behöver vi auktorisering för AGIC-Pod för att göra HTTP-förfrågningar till [arm](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+[AAD Pod-identiteten](https://github.com/Azure/aad-pod-identity) är en kontrollant som liknar AGIC, som också körs på din AKS. Den binder Azure Active Directory identiteter till din Kubernetes-poddar. Identitet krävs för att ett program i en Kubernetes-Pod ska kunna kommunicera med andra Azure-komponenter. I det här fallet behöver vi auktorisering för AGIC-Pod för att göra HTTP-förfrågningar till [arm](../azure-resource-manager/management/overview.md).
 
 Följ [anvisningarna för AAD Pod-identitets installationen](https://github.com/Azure/aad-pod-identity#deploy-the-azure-aad-identity-infra) för att lägga till den här komponenten i din AKS.
 
@@ -323,7 +323,7 @@ Bredda AGIC-behörigheter med:
     ```
 
 ### <a name="enable-for-an-existing-agic-installation"></a>Aktivera för en befintlig AGIC-installation
-Vi antar att vi redan har en fungerande AKS, Application Gateway och konfigurerat AGIC i vårt kluster. Vi har ett ingress för `prod.contosor.com` och betjänar trafik för den från AKS. Vi vill lägga till `staging.contoso.com` i vår befintliga Application Gateway, men du måste vara värd för den på en [virtuell dator](https://azure.microsoft.com/services/virtual-machines/). Vi kommer att återanvända den befintliga Application Gateway och manuellt konfigurera en lyssnare och backend-pooler för `staging.contoso.com` . Men att anpassa Application Gateway config manuellt (via [Portal](https://portal.azure.com), [arm-API: er](https://docs.microsoft.com/rest/api/resources/) eller [terraform](https://www.terraform.io/)) hamnar i konflikt med AGICs antaganden om full ägande. Strax efter att vi tillämpar ändringar skriver AGIC över eller tar bort dem.
+Vi antar att vi redan har en fungerande AKS, Application Gateway och konfigurerat AGIC i vårt kluster. Vi har ett ingress för `prod.contosor.com` och betjänar trafik för den från AKS. Vi vill lägga till `staging.contoso.com` i vår befintliga Application Gateway, men du måste vara värd för den på en [virtuell dator](https://azure.microsoft.com/services/virtual-machines/). Vi kommer att återanvända den befintliga Application Gateway och manuellt konfigurera en lyssnare och backend-pooler för `staging.contoso.com` . Men att anpassa Application Gateway config manuellt (via [Portal](https://portal.azure.com), [arm-API: er](/rest/api/resources/) eller [terraform](https://www.terraform.io/)) hamnar i konflikt med AGICs antaganden om full ägande. Strax efter att vi tillämpar ändringar skriver AGIC över eller tar bort dem.
 
 Vi kan förhindra AGIC från att göra ändringar i en delmängd av konfigurationen.
 

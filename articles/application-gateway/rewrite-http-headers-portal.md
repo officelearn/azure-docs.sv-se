@@ -8,22 +8,22 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: 4626d40acc9ae84e7fcc5da16add0de7ffe6ffcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79314db13531f1fcf518c7931d4a1aa9158a172b
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84807903"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397203"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Skriv om HTTP-begäran och svarshuvuden med Azure Application Gateway – Azure Portal
 
-Den här artikeln beskriver hur du använder Azure Portal för att konfigurera en instans av [Application Gateway v2-SKU](<https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant>) för att skriva om HTTP-huvudena i begär Anden och svar.
+Den här artikeln beskriver hur du använder Azure Portal för att konfigurera en instans av [Application Gateway v2-SKU](./application-gateway-autoscaling-zone-redundant.md) för att skriva om HTTP-huvudena i begär Anden och svar.
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Du måste ha en instans av Application Gateway v2 SKU för att kunna slutföra stegen i den här artikeln. Omskrivning av rubriker stöds inte i v1 SKU. Om du inte har installerat v2-SKU: n skapar du en instans av [Application Gateway v2-SKU](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps) innan du börjar.
+Du måste ha en instans av Application Gateway v2 SKU för att kunna slutföra stegen i den här artikeln. Omskrivning av rubriker stöds inte i v1 SKU. Om du inte har installerat v2-SKU: n skapar du en instans av [Application Gateway v2-SKU](./tutorial-autoscale-ps.md) innan du börjar.
 
 ## <a name="create-required-objects"></a>Skapa nödvändiga objekt
 
@@ -31,17 +31,17 @@ Om du vill konfigurera omskrivning av HTTP-huvud måste du slutföra de här ste
 
 1. Skapa de objekt som krävs för omskrivning av HTTP-huvud:
 
-   - **Skriv om åtgärd**: används för att ange de rubrik fält för begäran och begär Ande som du tänker skriva om och det nya värdet för rubrikerna. Du kan associera ett eller flera omskrivnings villkor med en Skriv åtgärd.
+   - **Skriv om åtgärd** : används för att ange de rubrik fält för begäran och begär Ande som du tänker skriva om och det nya värdet för rubrikerna. Du kan associera ett eller flera omskrivnings villkor med en Skriv åtgärd.
 
-   - **Skriv villkor**: en valfri konfiguration. Omskrivnings villkor utvärderar innehållet i HTTP (S)-begär Anden och svar. Återskrivning görs om HTTP (S)-begäran eller-svaret matchar omskrivnings villkoret.
+   - **Skriv villkor** : en valfri konfiguration. Omskrivnings villkor utvärderar innehållet i HTTP (S)-begär Anden och svar. Återskrivning görs om HTTP (S)-begäran eller-svaret matchar omskrivnings villkoret.
 
      Om du associerar fler än ett villkor med en åtgärd sker åtgärden endast när alla villkor är uppfyllda. Med andra ord är åtgärden ett logiskt och en åtgärd.
 
-   - **Rewrite-regel**: innehåller flera kombinationer av åtgärder för omskrivning/omskrivning.
+   - **Rewrite-regel** : innehåller flera kombinationer av åtgärder för omskrivning/omskrivning.
 
-   - **Regel ordning**: hjälper till att fastställa i vilken ordning reglerna för att skriva om ska köras. Den här konfigurationen är användbar när du har flera omskrivnings regler i en omskrivnings uppsättning. En omskrivnings regel som har ett lägre regel ordnings värde körs först. Om du tilldelar samma regel ordnings värde till två omskrivnings regler är körnings ordningen icke-deterministisk.
+   - **Regel ordning** : hjälper till att fastställa i vilken ordning reglerna för att skriva om ska köras. Den här konfigurationen är användbar när du har flera omskrivnings regler i en omskrivnings uppsättning. En omskrivnings regel som har ett lägre regel ordnings värde körs först. Om du tilldelar samma regel ordnings värde till två omskrivnings regler är körnings ordningen icke-deterministisk.
 
-   - **Skriv över uppsättning**: innehåller flera omskrivnings regler som ska associeras med en regel för anslutningsbegäran.
+   - **Skriv över uppsättning** : innehåller flera omskrivnings regler som ska associeras med en regel för anslutningsbegäran.
 
 2. Koppla den omskrivnings uppsättningen till en regel för routning. Den omskrivna konfigurationen är kopplad till käll lyssnaren via regeln för routning. När du använder en regel för grundläggande routning associeras konfigurationen för omskrivning av huvuden med en käll lyssnare och är en omskrivning av globala huvuden. När du använder en regel för Sök vägs-baserad routning definieras konfigurationen för att skriva över rubriker i sökvägen till URL-sökvägen. I så fall gäller det bara för det angivna Sök vägs området på en plats.
 
@@ -55,11 +55,11 @@ Logga in på [Azure-portalen](https://portal.azure.com/) med ditt Azure-konto.
 
 I det här exemplet ska vi ändra en URL för omdirigering genom att skriva om plats rubriken i HTTP-svaret som skickas av ett Server dels program.
 
-1. Välj **alla resurser**och välj sedan din Application Gateway.
+1. Välj **alla resurser** och välj sedan din Application Gateway.
 
 2. Välj **omarbetningar** i det vänstra fönstret.
 
-3. Välj **Skriv över uppsättning**:
+3. Välj **Skriv över uppsättning** :
 
    ![Lägg till Skriv över uppsättning](media/rewrite-http-headers-portal/add-rewrite-set.png)
 
@@ -87,7 +87,7 @@ I det här exemplet ska vi ändra en URL för omdirigering genom att skriva om p
 
      ![Lägga till ett villkor](media/rewrite-http-headers-portal/add-condition.png)
 
-   - Välj **http-huvud**i listan **typ av variabel att checka** in.
+   - Välj **http-huvud** i listan **typ av variabel att checka** in.
 
    - I listan **rubrik typ** väljer du **svar**.
 
@@ -95,7 +95,7 @@ I det här exemplet ska vi ändra en URL för omdirigering genom att skriva om p
 
    - I listan med **vanliga rubriker** väljer du **plats**.
 
-   - Under **SKIFT**läges känslig väljer du **Nej**.
+   - Under **SKIFT** läges känslig väljer du **Nej**.
 
    - I listan **operator** väljer du **lika med (=)**.
 
@@ -111,7 +111,7 @@ I det här exemplet ska vi ändra en URL för omdirigering genom att skriva om p
 
    - I listan **rubrik typ** väljer du **svar**.
 
-   - Under **rubrik namn**väljer du **gemensam rubrik**.
+   - Under **rubrik namn** väljer du **gemensam rubrik**.
 
    - I listan med **vanliga rubriker** väljer du **plats**.
 
@@ -131,4 +131,4 @@ I det här exemplet ska vi ändra en URL för omdirigering genom att skriva om p
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du konfigurerar några vanliga användnings fall finns i [vanliga scenarier](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)för att skriva om huvuden.
+Mer information om hur du konfigurerar några vanliga användnings fall finns i [vanliga scenarier](./rewrite-http-headers.md)för att skriva om huvuden.

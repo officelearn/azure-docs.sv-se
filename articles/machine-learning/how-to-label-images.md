@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: ff8ade938433e09c6b9ff9deffe64d8294d96b8c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 0d0f344e60edfc83c8ac4f79ad18520307b790e3
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325548"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396649"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Tagga bilder i ett etikett projekt 
 
@@ -126,6 +126,28 @@ Använd mallen för **mallbaserade Box** ![ -verktyget ](./media/how-to-label-im
 Om du vill ta bort *alla* avgränsnings rutor i den aktuella bilden väljer du verktyget **ta bort alla regioner** ![ ta bort regioner ](./media/how-to-label-images/delete-regions-tool.png) .
 
 När du har skapat markerings rutorna för en bild väljer du **Skicka** för att spara ditt arbete, eller så sparas inte ditt arbete.
+
+## <a name="tag-images-and-specify-polygons-for-image-segmentation"></a>Tagga bilder och ange polygoner för bild segmentering 
+
+Om ditt projekt är av typen "instans segmentering (Polygon)", anger du en eller flera polygoner i bilden och använder en tagg för varje polygon. Bilder kan ha flera avgränsnings polygoner, var och en med en enda tagg. Använd **Visa detaljerade instruktioner** för att avgöra om flera avgränsnings polygoner används i projektet.
+
+1. Välj en tagg för den polygon som du planerar att skapa.
+1. Välj verktyget **Rita polygon region** verktyget ![ Rita polygon region ](./media/how-to-label-images/polygon-tool.png) eller välj "P".
+3. Klicka för varje punkt i polygonen.  När du har slutfört formen, dubbelklickar du på den för att slutföra.
+
+    :::image type="content" source="media/how-to-label-images/polygon.gif" alt-text="Skapa polygoner för katt och hund":::
+
+Om du vill ta bort en polygon klickar du på det X-formade mål som visas bredvid polygonen när den har skapats.
+
+Om du vill ändra taggen för en polygon väljer du verktyget **Flytta region** , klickar på polygonen och väljer rätt tagg.
+
+Du kan redigera befintliga polygoner. Verktyget **Lock/unlock regioner** ![ Lock/unlock regions ](./media/how-to-label-images/lock-bounding-boxes-tool.png) eller "L" växlar beteendet. Om regionerna är låsta kan du bara ändra form eller plats för en ny polygon.
+
+Använd verktyg för att **lägga till eller ta bort polygon** -verktyget ![ ](./media/how-to-label-images/add-remove-points-tool.png) eller "U" för att justera en befintlig polygon. Klicka på polygonen för att lägga till eller ta bort en punkt. Om du inte kan redigera en region har du förmodligen växlat **Lås/Lås upp** regions verktyget.
+
+Om du vill ta bort *alla* polygoner i den aktuella bilden väljer du verktyget **ta bort alla regioner** ![ ta bort regioner ](./media/how-to-label-images/delete-regions-tool.png) .
+
+När du har skapat polygonerna för en bild väljer du **Skicka** för att spara ditt arbete, eller så sparas inte ditt arbete.
 
 ## <a name="finish-up"></a>Slutför
 

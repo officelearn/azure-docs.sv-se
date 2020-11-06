@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 8/15/2018
 ms.author: victorh
-ms.openlocfilehash: de57a58f7c891009d2e0cc43b351c2cad42a2766
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 413ae2ee19f0b8e427de9167b52971e413cdf573
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84807879"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397237"
 ---
 # <a name="renew-application-gateway-certificates"></a>Förnya Application Gateway certifikat
 
@@ -20,7 +20,7 @@ Vid något tillfälle måste du förnya dina certifikat om du har konfigurerat d
 
 Du kan förnya ett certifikat som är associerat med en lyssnare med antingen Azure Portal, Azure PowerShell eller Azure CLI:
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure-portalen
 
 Om du vill förnya ett lyssnar certifikat från portalen navigerar du till dina Application Gateway-lyssnare. Klicka på den lyssnare som har ett certifikat som behöver förnyas och klicka sedan på **förnya eller redigera det valda certifikatet**.
 
@@ -62,4 +62,4 @@ az network application-gateway ssl-cert update \
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du konfigurerar TLS-avlastning med Azure Application Gateway finns i [Konfigurera TLS-avläsning](application-gateway-ssl-portal.md)
+Information om hur du konfigurerar TLS-avlastning med Azure Application Gateway finns i [Konfigurera TLS-avläsning](./create-ssl-portal.md)

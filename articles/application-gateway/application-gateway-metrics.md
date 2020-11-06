@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 06/06/2020
 ms.author: absha
-ms.openlocfilehash: ce349a0539986d88f689c53fc2099877df8030bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c072e7c1339a2217a3c167be3237029bd71429c2
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87424400"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397747"
 ---
 # <a name="metrics-for-application-gateway"></a>Mått för Application Gateway
 
-Application Gateway publicerar data punkter, som kallas mått, för att [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) för prestanda för dina Application Gateway-och Server dels instanser. Dessa mått är numeriska värden i en ordnad uppsättning av Time Series-data som beskriver någon aspekt av programgatewayen vid en viss tidpunkt. Om det finns begär Anden som flödar genom Application Gateway, mäter den och skickar sina mått i intervall om 60 sekunder. Om det inte finns några begär Anden som flödar genom Application Gateway eller inga data för ett mått, rapporteras inte måttet. Mer information finns i [Azure Monitor mått](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+Application Gateway publicerar data punkter, som kallas mått, för att [Azure Monitor](../azure-monitor/overview.md) för prestanda för dina Application Gateway-och Server dels instanser. Dessa mått är numeriska värden i en ordnad uppsättning av Time Series-data som beskriver någon aspekt av programgatewayen vid en viss tidpunkt. Om det finns begär Anden som flödar genom Application Gateway, mäter den och skickar sina mått i intervall om 60 sekunder. Om det inte finns några begär Anden som flödar genom Application Gateway eller inga data för ett mått, rapporteras inte måttet. Mer information finns i [Azure Monitor mått](../azure-monitor/platform/data-platform-metrics.md).
 
 ## <a name="metrics-supported-by-application-gateway-v2-sku"></a>Mått som stöds av Application Gateway v2 SKU
 
@@ -40,7 +40,7 @@ Application Gateway innehåller flera inbyggda tids mått för begäran och svar
 
   Tidsintervall mellan början av att upprätta en anslutning till backend-servern och ta emot den första byten i svars huvudet. 
 
-  Detta uppskattar summan av *Server dels anslutnings tiden*, tid det tar för en begäran att komma åt Server delen från Application Gateway, tid det tar för backend-program att svara (den tid det tog att generera innehåll, potentiellt hämtning av databas frågor) och den tid det tar för den första byten av svaret att uppnå Application Gateway från Server delen.
+  Detta uppskattar summan av *Server dels anslutnings tiden* , tid det tar för en begäran att komma åt Server delen från Application Gateway, tid det tar för backend-program att svara (den tid det tog att generera innehåll, potentiellt hämtning av databas frågor) och den tid det tar för den första byten av svaret att uppnå Application Gateway från Server delen.
 
 - **Svars tid för senaste byte för Server delen**
 
@@ -52,7 +52,7 @@ Application Gateway innehåller flera inbyggda tids mått för begäran och svar
 
   Genomsnittlig tid det tar för en begäran att tas emot, bearbetas och dess svar skickas. 
 
-  Detta är intervallet från den tidpunkt då Application Gateway tar emot den första byten i HTTP-begäran till den tidpunkt då den senaste svars byte har skickats till klienten. Detta inkluderar bearbetnings tiden som det tar Application Gateway, *Server delens svars tid för senaste byte*, tid det tar för Application Gateway att skicka alla svar och den aktuella *klienten*.
+  Detta är intervallet från den tidpunkt då Application Gateway tar emot den första byten i HTTP-begäran till den tidpunkt då den senaste svars byte har skickats till klienten. Detta inkluderar bearbetnings tiden som det tar Application Gateway, *Server delens svars tid för senaste byte* , tid det tar för Application Gateway att skicka alla svar och den aktuella *klienten*.
 
 - **Klient-/klient**
 
@@ -62,7 +62,7 @@ Application Gateway innehåller flera inbyggda tids mått för begäran och svar
 
 Dessa mått kan användas för att avgöra om den observerade minskningen beror på klient nätverket, Application Gateway prestanda, backend-nätverket och Server dels serverns TCP-stack-mättnad, prestanda för backend-program eller stor fil storlek.
 
-Om det till exempel finns en topp i den *första byte tiden för svars tid* , men tiden för *anslutnings tiden för Server delen* är stabil, kan det härledas att programgatewayen till Server dels svars tiden och den tid det tar att upprätta anslutningen är stabil och insamling orsakas av en ökning av svars tiden för backend-programmet. Å andra sidan, om inökningen i *svars tiden för första byte-bytet* är kopplad till en motsvarande insamling i *Server dels anslutnings tiden*, kan det härledas att antingen nätverket mellan Application Gateway-och backend-servern eller Server dels serverns TCP-stack har mätt. 
+Om det till exempel finns en topp i den *första byte tiden för svars tid* , men tiden för *anslutnings tiden för Server delen* är stabil, kan det härledas att programgatewayen till Server dels svars tiden och den tid det tar att upprätta anslutningen är stabil och insamling orsakas av en ökning av svars tiden för backend-programmet. Å andra sidan, om inökningen i *svars tiden för första byte-bytet* är kopplad till en motsvarande insamling i *Server dels anslutnings tiden* , kan det härledas att antingen nätverket mellan Application Gateway-och backend-servern eller Server dels serverns TCP-stack har mätt. 
 
 Om du märker att det finns en topp i *svars tiden för sista byte i Server delen* , men *svars tiden för första byte-databytet* är stabil, kan det härledas att insamling är på grund av en större fil som begärs.
 
@@ -214,11 +214,11 @@ Följande exempel visar hur du skapar en varnings regel som skickar ett e-postme
 
 2. På sidan **Lägg till regel** fyller du i avsnitten namn, villkor och meddelande och väljer **OK**.
 
-   * I **villkors** väljaren väljer du något av de fyra värdena: **större än**, **större än eller lika med**, **mindre än**eller **mindre än eller lika**med.
+   * I **villkors** väljaren väljer du något av de fyra värdena: **större än** , **större än eller lika med** , **mindre än** eller **mindre än eller lika** med.
 
    * I **period** väljaren väljer du en period på fem minuter till sex timmar.
 
-   * Om du väljer **e-postägare, deltagare och läsare**kan e-postmeddelandet vara dynamiskt baserat på de användare som har åtkomst till resursen. Annars kan du ange en kommaavgränsad lista med användare i rutan **ytterligare administratörs e-post (er)** .
+   * Om du väljer **e-postägare, deltagare och läsare** kan e-postmeddelandet vara dynamiskt baserat på de användare som har åtkomst till resursen. Annars kan du ange en kommaavgränsad lista med användare i rutan **ytterligare administratörs e-post (er)** .
 
    ![Sidan Lägg till regel][7]
 
@@ -230,7 +230,7 @@ En lista med aviseringar visas när du har skapat en mått-avisering. Den ger en
 
 ![Lista över aviseringar och regler][9]
 
-Mer information om aviserings aviseringar finns i [ta emot aviseringar](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+Mer information om aviserings aviseringar finns i [ta emot aviseringar](../azure-monitor/platform/alerts-overview.md).
 
 Om du vill veta mer om webhookar och hur du kan använda dem med aviseringar kan du gå till [Konfigurera en webhook på en Azure Metric-avisering](../azure-monitor/platform/alerts-webhooks.md).
 

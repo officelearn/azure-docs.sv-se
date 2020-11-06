@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 67d22535f44d4d1b39b6c305fa0670d2d08be0c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bd57344f0bd7f3b97c523f9378a5820c1a90a84
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595809"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396574"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-azure-powershell"></a>Skapa en Application Gateway med TLS-avslutning med Azure PowerShell
 
-Du kan använda Azure PowerShell för att skapa en [Programgateway](overview.md) med ett certifikat för [TLS/SSL-avslutning](ssl-overview.md) som använder en [skalnings uppsättning för virtuella datorer](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för backend-servrar. I det här exemplet innehåller skalningsuppsättningen två virtuella datorinstanser i serverdelens standardpool i programgatewayen. 
+Du kan använda Azure PowerShell för att skapa en [Programgateway](overview.md) med ett certifikat för [TLS/SSL-avslutning](ssl-overview.md) som använder en [skalnings uppsättning för virtuella datorer](../virtual-machine-scale-sets/overview.md) för backend-servrar. I det här exemplet innehåller skalningsuppsättningen två virtuella datorinstanser i serverdelens standardpool i programgatewayen. 
 
 I den här artikeln kan du se hur du:
 
@@ -27,7 +27,7 @@ I den här artikeln kan du se hur du:
 * Skapa en programgateway med certifikatet
 * Skapa en VM-skalningsuppsättning med serverdelens standardpool
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -35,7 +35,7 @@ Den här artikeln kräver Azure PowerShell module version 1.0.0 eller senare. K�
 
 ## <a name="create-a-self-signed-certificate"></a>Skapa ett självsignerat certifikat
 
-I produktion bör du importera ett giltigt certifikat som är signerat av en betrodd provider. I den här artikeln skapar du ett självsignerat certifikat med [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate). Du kan använda [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) med det tumavtryck som returnerades och exportera en pfx-fil från certifikatet.
+I produktion bör du importera ett giltigt certifikat som är signerat av en betrodd provider. I den här artikeln skapar du ett självsignerat certifikat med [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate). Du kan använda [Export-PfxCertificate](/powershell/module/pkiclient/export-pfxcertificate) med det tumavtryck som returnerades och exportera en pfx-fil från certifikatet.
 
 ```powershell
 New-SelfSignedCertificate `

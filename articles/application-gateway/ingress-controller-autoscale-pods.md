@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 5e0533a44db269229b2f26fa8d2f2b4f84f4d0b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8f015085baa8fffa6f208e9d8dd749e397c76c3
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85125471"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397441"
 ---
 # <a name="autoscale-your-aks-pods-using-application-gateway-metrics-beta"></a>Autoskala din AKS-poddar med hjälp av Application Gateway mått (beta)
 
@@ -23,7 +23,7 @@ I följande självstudie förklarar vi hur du kan använda Application Gateways 
 Vi ska använda följande två komponenter:
 
 * [`Azure Kubernetes Metric Adapter`](https://github.com/Azure/azure-k8s-metrics-adapter) – Vi använder mått kortet för att Visa Application Gateway mått via mått servern. Azure Kubernetes Metric adapter är ett projekt med öppen källkod under Azure, som liknar Application Gateway ingångs kontroll. 
-* [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler) – Vi använder HPA för att använda Application Gateway mått och rikta en distribution för skalning.
+* [`Horizontal Pod Autoscaler`](../aks/concepts-scale.md#horizontal-pod-autoscaler) – Vi använder HPA för att använda Application Gateway mått och rikta en distribution för skalning.
 
 ## <a name="setting-up-azure-kubernetes-metric-adapter"></a>Konfigurera Azure Kubernetes Metric adapter
 
@@ -92,7 +92,7 @@ kubectl get --raw "/apis/external.metrics.k8s.io/v1beta1/namespaces/default/appg
 
 ## <a name="using-the-new-metric-to-scale-up-the-deployment"></a>Använda det nya måttet för att skala upp distributionen
 
-När vi kan exponera `appgw-request-count-metric` via mått servern är vi redo att använda [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler) för att skala upp vår mål distribution.
+När vi kan exponera `appgw-request-count-metric` via mått servern är vi redo att använda [`Horizontal Pod Autoscaler`](../aks/concepts-scale.md#horizontal-pod-autoscaler) för att skala upp vår mål distribution.
 
 I följande exempel ska vi rikta in sig på en exempel distribution `aspnet` . Vi kommer att skala upp poddar när `appgw-request-count-metric` > 200 per POD upp till högst `10` poddar.
 

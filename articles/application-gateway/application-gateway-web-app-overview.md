@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 06/09/2020
 ms.author: victorh
-ms.openlocfilehash: 308098bd1ac49510afccf0a7964face726906332
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe6ea6f348d796962141bd39ff858d891a29a2f6
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84628679"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397696"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>Application Gateway stöd för Server delar för flera klient organisationer, till exempel App Service
 
@@ -28,11 +28,11 @@ Application Gateway erbjuder en funktion där användarna kan åsidosätta HTTP-
 
 ## <a name="override-host-header-in-the-request"></a>Åsidosätt värd rubriken i begäran
 
-Möjligheten att ange en åsidosättning av värden definieras i [http-inställningarna](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http-settings) och kan tillämpas på alla backend-pooler när regeln skapas. Följande två sätt att åsidosätta värd huvud-och SNI-tillägget för Server delar med flera innehavare stöds:
+Möjligheten att ange en åsidosättning av värden definieras i [http-inställningarna](./configuration-overview.md#http-settings) och kan tillämpas på alla backend-pooler när regeln skapas. Följande två sätt att åsidosätta värd huvud-och SNI-tillägget för Server delar med flera innehavare stöds:
 
 - Möjligheten att ange värd namnet till ett fast värde som uttryckligen anges i HTTP-inställningarna. Den här funktionen säkerställer att värd huvudet åsidosätts till det här värdet för all trafik till backend-poolen där de specifika HTTP-inställningarna tillämpas. När du använder TLS-to-end-TLS används det åsidosatta värd namnet i SNI-tillägget. Den här funktionen möjliggör scenarier där en Server grupp för Server delen förväntar sig en värd rubrik som inte är samma som för den inkommande kund värd rubriken.
 
-- Möjlighet att härleda värd namnet från IP eller FQDN för backend-poolens medlemmar. HTTP-inställningar innehåller också ett alternativ för att dynamiskt välja värd namnet från en medlem i Server delens FQDN om det kon figurer ATS med alternativet att härleda värd namnet från en enskild medlem i Server delen. När du använder TLS-to-end-TLS härleds detta värdnamn från det fullständiga domän namnet och används i SNI-tillägget. Den här funktionen möjliggör scenarier där en backend-pool kan ha två eller flera PaaS-tjänster för flera innehavare, t. ex. Azure Web Apps och begärans värd rubrik till varje medlem, innehåller värd namnet som härleds från dess FQDN. För att implementera det här scenariot använder vi en växel i HTTP-inställningarna som kallas [Välj värdnamn från Server dels adressen](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address) som dynamiskt åsidosätter värd rubriken i den ursprungliga begäran till den som anges i backend-poolen.  Om FQDN-adresspoolen till exempel innehåller "contoso11.azurewebsites.net" och "contoso22.azurewebsites.net", kommer den ursprungliga begär ande värd rubriken som contoso.com att åsidosättas till contoso11.azurewebsites.net eller contoso22.azurewebsites.net när begäran skickas till lämplig backend-server. 
+- Möjlighet att härleda värd namnet från IP eller FQDN för backend-poolens medlemmar. HTTP-inställningar innehåller också ett alternativ för att dynamiskt välja värd namnet från en medlem i Server delens FQDN om det kon figurer ATS med alternativet att härleda värd namnet från en enskild medlem i Server delen. När du använder TLS-to-end-TLS härleds detta värdnamn från det fullständiga domän namnet och används i SNI-tillägget. Den här funktionen möjliggör scenarier där en backend-pool kan ha två eller flera PaaS-tjänster för flera innehavare, t. ex. Azure Web Apps och begärans värd rubrik till varje medlem, innehåller värd namnet som härleds från dess FQDN. För att implementera det här scenariot använder vi en växel i HTTP-inställningarna som kallas [Välj värdnamn från Server dels adressen](./configuration-http-settings.md#pick-host-name-from-back-end-address) som dynamiskt åsidosätter värd rubriken i den ursprungliga begäran till den som anges i backend-poolen.  Om FQDN-adresspoolen till exempel innehåller "contoso11.azurewebsites.net" och "contoso22.azurewebsites.net", kommer den ursprungliga begär ande värd rubriken som contoso.com att åsidosättas till contoso11.azurewebsites.net eller contoso22.azurewebsites.net när begäran skickas till lämplig backend-server. 
 
   ![Scenario för webbappar](./media/application-gateway-web-app-overview/scenario.png)
 
@@ -59,8 +59,8 @@ Det kan finnas scenarier där värd namnet i svaret från App Service kan dirige
 - Du har konfigurerat omdirigeringen på App Service. Omdirigering kan vara lika enkelt som att lägga till ett avslutande snedstreck i begäran.
 - Du har Azure AD-autentisering som gör omdirigeringen.
 
-Information om hur du löser sådana fall finns i [Felsöka omdirigering till URL-problem i App Service](https://docs.microsoft.com/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url).
+Information om hur du löser sådana fall finns i [Felsöka omdirigering till URL-problem i App Service](./troubleshoot-app-service-redirection-app-service-url.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du konfigurerar en Programgateway med en app för flera klienter, till exempel Azure App tjänstens webbapp som en medlem i en server del genom att gå [till konfigurera App Service webbappar med Application Gateway](https://docs.microsoft.com/azure/application-gateway/configure-web-app-portal)
+Lär dig hur du konfigurerar en Programgateway med en app för flera klienter, till exempel Azure App tjänstens webbapp som en medlem i en server del genom att gå [till konfigurera App Service webbappar med Application Gateway](./configure-web-app-portal.md)

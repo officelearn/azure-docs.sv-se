@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: 531a7fd8547130b4897f3dad0900e1c27fb7fe9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8acf1b025a5943773821c8ab78de6288eb6bec2
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132049"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397906"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Felsök problem med Server delens hälsa i Application Gateway
 ==================================================
@@ -24,7 +24,7 @@ Azure Application Gateway avsöker som standard server dels servrar för att kon
 
 ### <a name="how-to-check-backend-health"></a>Så här kontrollerar du Server dels hälsa
 
-Om du vill kontrol lera hälso tillståndet för din backend-pool kan du använda sidan för **hälso tillstånds** sidan på Azure Portal. Du kan också använda [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/get-azapplicationgatewaybackendhealth?view=azps-2.6.0), [CLI](https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest#az-network-application-gateway-show-backend-health)eller [REST API](https://docs.microsoft.com/rest/api/application-gateway/applicationgateways/backendhealth).
+Om du vill kontrol lera hälso tillståndet för din backend-pool kan du använda sidan för **hälso tillstånds** sidan på Azure Portal. Du kan också använda [Azure PowerShell](/powershell/module/az.network/get-azapplicationgatewaybackendhealth?view=azps-2.6.0), [CLI](/cli/azure/network/application-gateway?view=azure-cli-latest#az-network-application-gateway-show-backend-health)eller [REST API](/rest/api/application-gateway/applicationgateways/backendhealth).
 
 Statusen som hämtas av någon av dessa metoder kan vara något av följande:
 
@@ -91,7 +91,7 @@ Det meddelande som visas i kolumnen **information** innehåller mer detaljerade 
 
 **Orsak:** När Application Gateway skickar en HTTP (S)-avsöknings förfrågan till backend-servern, väntar den på ett svar från backend-servern för en konfigurerad period. Om backend-servern inte svarar inom den konfigurerade perioden (timeout-värdet), markeras den som ohälsosam tills den börjar svara inom den angivna tids perioden igen.
 
-**Lösning:** Kontrol lera varför backend-servern eller programmet inte svarar inom den angivna tids gränsen och kontrol lera även program beroenden. Kontrol lera till exempel om databasen har problem som kan utlösa en fördröjning i svaret. Om du är medveten om programmets beteende och det bara ska svara efter timeout-värdet, ökar du timeout-värdet från inställningarna för anpassad avsökning. Du måste ha en anpassad avsökning för att ändra timeout-värdet. Information om hur du konfigurerar en anpassad avsökning [finns på dokumentations sidan](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal).
+**Lösning:** Kontrol lera varför backend-servern eller programmet inte svarar inom den angivna tids gränsen och kontrol lera även program beroenden. Kontrol lera till exempel om databasen har problem som kan utlösa en fördröjning i svaret. Om du är medveten om programmets beteende och det bara ska svara efter timeout-värdet, ökar du timeout-värdet från inställningarna för anpassad avsökning. Du måste ha en anpassad avsökning för att ändra timeout-värdet. Information om hur du konfigurerar en anpassad avsökning [finns på dokumentations sidan](./application-gateway-create-probe-portal.md).
 
 Följ dessa steg om du vill öka timeout-värdet:
 
@@ -105,7 +105,7 @@ Följ dessa steg om du vill öka timeout-värdet:
 
 #### <a name="dns-resolution-error"></a>DNS-matchnings fel
 
-**Meddelande:** Application Gateway gick inte att skapa en avsökning för den här server delen. Detta inträffar vanligtvis när det fullständiga domännamnet (FQDN) för serverdelen inte har angetts på korrekt sätt. 
+**Meddelande:** Application Gateway gick inte att skapa en avsökning för den här server delen. Detta inträffar vanligtvis när det fullständiga domännamnet (FQDN) för serverdelen inte har angetts på korrekt sätt. 
 
 **Orsak:** Om backend-poolen är av typen IP-adress/FQDN eller App Service, matchar Application Gateway IP-adressen för FQDN som anges via Domain Name System (DNS) (anpassat eller Azure standard) och försöker ansluta till servern på TCP-porten som anges i HTTP-inställningarna. Men om det här meddelandet visas föreslår det att Application Gateway inte kunde matcha IP-adressen för det FQDN som angetts.
 
@@ -119,7 +119,7 @@ Följ dessa steg om du vill öka timeout-värdet:
 
 1.  Om du använder Azure standard DNS, kan du kontrol lera med domän namnet registrator om rätt A-post eller CNAME-Postmappning har slutförts.
 
-1.  Om domänen är privat eller intern försöker du lösa den från en virtuell dator i samma virtuella nätverk. Om du kan lösa det startar du om Application Gateway och kontrollerar igen. Om du vill starta om Application Gateway måste du [stoppa](https://docs.microsoft.com/powershell/module/azurerm.network/stop-azurermapplicationgateway?view=azurermps-6.13.0) och [Starta](https://docs.microsoft.com/powershell/module/azurerm.network/start-azurermapplicationgateway?view=azurermps-6.13.0) med hjälp av PowerShell-kommandona som beskrivs i dessa länkade resurser.
+1.  Om domänen är privat eller intern försöker du lösa den från en virtuell dator i samma virtuella nätverk. Om du kan lösa det startar du om Application Gateway och kontrollerar igen. Om du vill starta om Application Gateway måste du [stoppa](/powershell/module/azurerm.network/stop-azurermapplicationgateway?view=azurermps-6.13.0) och [Starta](/powershell/module/azurerm.network/start-azurermapplicationgateway?view=azurermps-6.13.0) med hjälp av PowerShell-kommandona som beskrivs i dessa länkade resurser.
 
 #### <a name="tcp-connect-error"></a>TCP Connect-fel
 
@@ -138,7 +138,7 @@ Kontrol lera också om någon NSG/UDR/brand vägg blockerar åtkomsten till IP-a
 
 1.  Om du inte kan ansluta till porten från den lokala datorn kan du också:
 
-    a.  Kontrol lera inställningarna för nätverks säkerhets gruppen (NSG) för backend-serverns nätverkskort och undernät och om inkommande anslutningar till den konfigurerade porten är tillåtna. Om de inte gör det skapar du en ny regel som tillåter anslutningarna. Information om hur du skapar NSG-regler [finns i dokumentations sidan](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic#create-security-rules).
+    a.  Kontrol lera inställningarna för nätverks säkerhets gruppen (NSG) för backend-serverns nätverkskort och undernät och om inkommande anslutningar till den konfigurerade porten är tillåtna. Om de inte gör det skapar du en ny regel som tillåter anslutningarna. Information om hur du skapar NSG-regler [finns i dokumentations sidan](../virtual-network/tutorial-filter-network-traffic.md#create-security-rules).
 
     b.  Kontrol lera om NSG-inställningarna för Application Gateway under nätet tillåter utgående offentlig och privat trafik, så att en anslutning kan göras. Kontrol lera dokument sidan som anges i Steg 3a för att lära dig mer om hur du skapar NSG-regler.
     ```azurepowershell
@@ -185,13 +185,13 @@ Kontrol lera också om någon NSG/UDR/brand vägg blockerar åtkomsten till IP-a
 
 Eller också kan du skapa en anpassad avsökning om du tror att svaret är giltigt och du vill Application Gateway acceptera andra status koder som felfria. Den här metoden är användbar i situationer där Server dels webbplatsen behöver autentisering. Eftersom avsöknings begär Anden inte har några användarautentiseringsuppgifter, kommer de inte att fungera, och en HTTP 401-status kod returneras av backend-servern.
 
-Följ [dessa steg](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal)om du vill skapa en anpassad avsökning.
+Följ [dessa steg](./application-gateway-create-probe-portal.md)om du vill skapa en anpassad avsökning.
 
 #### <a name="http-response-body-mismatch"></a>Felaktigt innehåll i HTTP-svar
 
 **Meddelande:** Innehållet i Server delens \' HTTP-svar matchade inte avsöknings inställningen. Mottagen svars texten innehåller inte {String}.
 
-**Orsak:** När du skapar en anpassad avsökning har du ett alternativ för att markera en backend-server som felfri genom att matcha en sträng från svars texten. Du kan till exempel konfigurera Application Gateway att godkänna "obehörig" som en sträng som ska matchas. Om Server delens svar för avsöknings förfrågan innehåller strängen **obehörig**, så markeras den som felfri. Annars kommer den att markeras som ohälsosam med det här meddelandet.
+**Orsak:** När du skapar en anpassad avsökning har du ett alternativ för att markera en backend-server som felfri genom att matcha en sträng från svars texten. Du kan till exempel konfigurera Application Gateway att godkänna "obehörig" som en sträng som ska matchas. Om Server delens svar för avsöknings förfrågan innehåller strängen **obehörig** , så markeras den som felfri. Annars kommer den att markeras som ohälsosam med det här meddelandet.
 
 **Lösning:** Följ dessa steg för att lösa problemet:
 
@@ -201,7 +201,7 @@ Följ [dessa steg](https://docs.microsoft.com/azure/application-gateway/applicat
 
 1.  Om de inte matchar ändrar du avsöknings konfigurationen så att har rätt sträng värde att acceptera.
 
-Läs mer om [matchning av Application Gateway avsökning](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching).
+Läs mer om [matchning av Application Gateway avsökning](./application-gateway-probe-overview.md#probe-matching).
 
 >[!NOTE]
 > Information om SNI beteende och skillnader mellan v1-och v2-SKU finns på sidan [TLS-översikt](ssl-overview.md) för alla TLS-relaterade fel meddelanden.
@@ -232,13 +232,13 @@ För att ett TLS/SSL-certifikat ska vara betrott måste certifikatet på backend
 
 1.  Öppna sidan Application Gateway HTTP- **Inställningar** i Azure Portal.
 
-1. Öppna HTTP-inställningarna, Välj **Lägg till certifikat**och leta upp den certifikat fil som du nyss sparade.
+1. Öppna HTTP-inställningarna, Välj **Lägg till certifikat** och leta upp den certifikat fil som du nyss sparade.
 
 1. Välj **Spara** för att spara http-inställningarna.
 
 Alternativt kan du exportera rot certifikatet från en klient dator genom att direkt komma åt servern (kringgå Application Gateway) via webbläsare och exportera rot certifikatet från webbläsaren.
 
-Mer information om hur du extraherar och laddar upp betrodda rot certifikat i Application Gateway finns [Exportera ett betrott rot certifikat (för v2-SKU)](https://docs.microsoft.com/azure/application-gateway/certificates-for-backend-authentication#export-trusted-root-certificate-for-v2-sku).
+Mer information om hur du extraherar och laddar upp betrodda rot certifikat i Application Gateway finns [Exportera ett betrott rot certifikat (för v2-SKU)](./certificates-for-backend-authentication.md#export-trusted-root-certificate-for-v2-sku).
 
 #### <a name="trusted-root-certificate-mismatch"></a>Matchnings fel för betrodda rot certifikat
 
@@ -253,7 +253,7 @@ Certifikatet som har laddats upp till Application Gateway HTTP-inställningarna 
 
 Följ steg 1-11 i föregående metod för att ladda upp rätt betrott rot certifikat till Application Gateway.
 
-Mer information om hur du extraherar och laddar upp betrodda rot certifikat i Application Gateway finns [Exportera ett betrott rot certifikat (för v2-SKU)](https://docs.microsoft.com/azure/application-gateway/certificates-for-backend-authentication#export-trusted-root-certificate-for-v2-sku).
+Mer information om hur du extraherar och laddar upp betrodda rot certifikat i Application Gateway finns [Exportera ett betrott rot certifikat (för v2-SKU)](./certificates-for-backend-authentication.md#export-trusted-root-certificate-for-v2-sku).
 > [!NOTE]
 > Det här felet kan också inträffa om backend-servern inte utbyter hela kedjan av certifikatet, inklusive roten > mellanliggande (om tillämpligt) > löv under TLS-handskakningen. För att verifiera kan du använda OpenSSL-kommandon från vilken klient som helst och ansluta till backend-servern med hjälp av de konfigurerade inställningarna i Application Gateway avsökningen.
 
@@ -331,7 +331,7 @@ För Linux med OpenSSL:
 
 1.  Öppna inställningarna för Application Gateway HTTP i portalen.
 
-1.  Välj den inställning som har det utgångna certifikatet, Välj **Lägg till certifikat**och öppna den nya certifikat filen.
+1.  Välj den inställning som har det utgångna certifikatet, Välj **Lägg till certifikat** och öppna den nya certifikat filen.
 
 1.  Ta bort det gamla certifikatet med hjälp av ikonen **ta bort** bredvid certifikatet och välj sedan **Spara**.
 
@@ -359,7 +359,7 @@ Detta kan bero på en eller flera av följande orsaker:
 
 **Lösning:**
 
-1.  Kontrol lera om din NSG blockerar åtkomsten till portarna 65503-65534 (v1 SKU) eller 65200-65535 (v2 SKU) från **Internet**:
+1.  Kontrol lera om din NSG blockerar åtkomsten till portarna 65503-65534 (v1 SKU) eller 65200-65535 (v2 SKU) från **Internet** :
 
     a.  På fliken Application Gateway **Översikt** väljer du länken **Virtual Network/undernät** .
 
@@ -371,17 +371,17 @@ Detta kan bero på en eller flera av följande orsaker:
 
     e.  I avsnittet **regler för inkommande** trafik lägger du till en regel för inkommande trafik som tillåter mål port intervallet 65503-65534 för v1 sku eller 65200-65535 v2 SKU med **käll** uppsättningen som **valfri** eller **Internet**.
 
-    f.  Välj **Spara** och verifiera att du kan visa Server delen som felfri. Alternativt kan du göra det via [PowerShell/CLI](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+    f.  Välj **Spara** och verifiera att du kan visa Server delen som felfri. Alternativt kan du göra det via [PowerShell/CLI](../virtual-network/manage-network-security-group.md).
 
-1.  Kontrol lera om din UDR har en standard väg (0.0.0.0/0) med nästa hopp som inte angetts som **Internet**:
+1.  Kontrol lera om din UDR har en standard väg (0.0.0.0/0) med nästa hopp som inte angetts som **Internet** :
     
     a.  Följ steg 1a och 1b för att fastställa ditt undernät.
 
     b.  Kontrol lera om några UDR har kon figurer ATS. I så fall kan du söka efter resursen i Sök fältet eller under **alla resurser**.
 
-    c.  Kontrol lera om det finns några standard vägar (0.0.0.0/0) med nästa hopp som inte angetts som **Internet**. Om inställningen är **virtuell** installation eller **Virtual Network Gateway**, måste du se till att den virtuella enheten eller den lokala enheten kan dirigera paketet tillbaka till Internet-målet utan att ändra paketet.
+    c.  Kontrol lera om det finns några standard vägar (0.0.0.0/0) med nästa hopp som inte angetts som **Internet**. Om inställningen är **virtuell** installation eller **Virtual Network Gateway** , måste du se till att den virtuella enheten eller den lokala enheten kan dirigera paketet tillbaka till Internet-målet utan att ändra paketet.
 
-    d.  Annars ändrar du nästa hopp till **Internet**, väljer **Spara**och kontrollerar Server dels hälsan.
+    d.  Annars ändrar du nästa hopp till **Internet** , väljer **Spara** och kontrollerar Server dels hälsan.
 
 1.  Standard väg annonseras av ExpressRoute/VPN-anslutningen till det virtuella nätverket via BGP:
 
@@ -398,4 +398,4 @@ Detta kan bero på en eller flera av följande orsaker:
 <a name="next-steps"></a>Nästa steg
 ----------
 
-Läs mer om [Application Gateway diagnostik och loggning](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics).
+Läs mer om [Application Gateway diagnostik och loggning](./application-gateway-diagnostics.md).

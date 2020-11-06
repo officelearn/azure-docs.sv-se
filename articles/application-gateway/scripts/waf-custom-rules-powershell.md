@@ -7,18 +7,18 @@ ms.topic: sample
 ms.date: 6/7/2019
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8bf19052c11301412a299c31a2cd73ed2f9ffc7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 312f052671036d8153dd19fcf4e559e825fd8464
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89079905"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396999"
 ---
 # <a name="create-web-application-firewall-waf-custom-rules-with-azure-powershell"></a>Skapa anpassade regler för brand vägg för webbaserade program (WAF) med Azure PowerShell
 
 Det här skriptet skapar en Application Gateway brand vägg för webbaserade program som använder anpassade regler. Den anpassade regeln blockerar trafik om begär ande huvudet innehåller User-Agent *evilbot*.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="azure-powershell-module"></a>Azure PowerShell-modul
 
@@ -45,7 +45,7 @@ Remove-AzResourceGroup -Name CustomRulesTest
 
 Det här skriptet använder följande kommandon för att skapa distributionen. Varje post i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | Skapar undernätskonfigurationen. |
@@ -70,6 +70,6 @@ Det här skriptet använder följande kommandon för att skapa distributionen. V
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om anpassade regler för WAF finns i [anpassade regler för brand vägg för webbaserade program](../custom-waf-rules-overview.md)
+- Mer information om anpassade regler för WAF finns i [anpassade regler för brand vägg för webbaserade program](../../web-application-firewall/ag/custom-waf-rules-overview.md)
 - Mer information om Azure PowerShell-modulen finns i [Azure PowerShell-dokumentationen](/powershell/azure/).
 - Ytterligare PowerShell-skriptexempel för programgatewayer finns i [dokumentationen för Azure Application Gateway](../powershell-samples.md).

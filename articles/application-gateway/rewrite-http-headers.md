@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: absha
-ms.openlocfilehash: fb5196f9612cb4ce1f0a49be8b5a76f6703fdab6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e8eb79d519e2f7bfbf006b852f0c5294976b727
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85248691"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397159"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Skriv om HTTP-huvuden med Application Gateway
 
@@ -22,7 +22,7 @@ HTTP-huvuden låter en klient och Server skicka ytterligare information med en b
 
 Med Application Gateway kan du lägga till, ta bort eller uppdatera HTTP-huvuden för begäran och svar när begäran- och svarspaketen flyttas mellan klientens och serverdelens pooler. Du kan också lägga till villkor så att de angivna rubrikerna bara skrivs om när vissa villkor uppfylls.
 
-Application Gateway stöder också flera [servervariabler](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) som hjälper dig att lagra ytterligare information om begär Anden och svar. Detta gör det enklare för dig att skapa kraftfulla omskrivnings regler.
+Application Gateway stöder också flera [servervariabler](#server-variables) som hjälper dig att lagra ytterligare information om begär Anden och svar. Detta gör det enklare för dig att skapa kraftfulla omskrivnings regler.
 
 > [!NOTE]
 >
@@ -48,19 +48,19 @@ Du kan använda ett villkor för att utvärdera om en angiven variabel finns, om
 
 Du använder återskrivnings åtgärder för att ange de begärandehuvuden för begäran och svar som du vill skriva om och det nya värdet för rubrikerna. Du kan antingen skapa ett nytt sidhuvud, ändra värdet för en befintlig rubrik eller ta bort ett befintligt sidhuvud. Värdet för ett nytt sidhuvud eller en befintlig rubrik kan anges till följande typer av värden:
 
-- Information.
-- Begär ande huvud. Om du vill ange ett huvud för begäran måste du använda syntaxen {http_req_*huvud*}.
-- Svarshuvud. Om du vill ange ett svars huvud måste du använda syntaxen {http_resp_*huvud*}.
-- Server variabel. Om du vill ange en server variabel måste du använda syntaxen {var_*serverVariable*}.
+- Text.
+- Begär ande huvud. Om du vill ange ett huvud för begäran måste du använda syntaxen {http_req_ *huvud* }.
+- Svarshuvud. Om du vill ange ett svars huvud måste du använda syntaxen {http_resp_ *huvud* }.
+- Server variabel. Om du vill ange en server variabel måste du använda syntaxen {var_ *serverVariable* }.
 - En kombination av text, ett begär ande huvud, ett svars huvud och en server variabel.
 
 ## <a name="server-variables"></a>Servervariabler
 
-Application Gateway använder servervariabler för att lagra användbar information om servern, anslutningen till klienten och den aktuella begäran på anslutningen. Exempel på information som lagras är klientens IP-adress och webbläsarens typ. Servervariabler ändras dynamiskt, till exempel när en ny sida läses in eller när ett formulär publiceras. Du kan använda dessa variabler för att utvärdera Skriv villkor och skriva om rubriker. För att kunna använda värdet för servervariabler för att skriva om rubriker måste du ange dessa variabler i syntaxen {var_*serverVariable*}
+Application Gateway använder servervariabler för att lagra användbar information om servern, anslutningen till klienten och den aktuella begäran på anslutningen. Exempel på information som lagras är klientens IP-adress och webbläsarens typ. Servervariabler ändras dynamiskt, till exempel när en ny sida läses in eller när ett formulär publiceras. Du kan använda dessa variabler för att utvärdera Skriv villkor och skriva om rubriker. För att kunna använda värdet för servervariabler för att skriva om rubriker måste du ange dessa variabler i syntaxen {var_ *serverVariable* }
 
 Application Gateway stöder följande servervariabler:
 
-| Variabelnamn | Beskrivning                                                  |
+| Variabelnamn | Description                                                  |
 | -------------------------- | :----------------------------------------------------------- |
 | add_x_forwarded_for_proxy  | Det X-vidarebefordrade – för fältet för klient begär ande huvud med `client_ip` variabeln (se förklaringen senare i den här tabellen) som läggs till i formatet IP1, IP2, IP3 och så vidare. Om fältet X-forwarded inte finns i klient begär ande huvudet `add_x_forwarded_for_proxy` är variabeln lika med `$client_ip` variabeln. Den här variabeln är särskilt användbar när du vill skriva om den X-vidarebefordrade-för-rubrik som angetts av Application Gateway så att sidhuvudet endast innehåller IP-adressen utan portinformation. |
 | ciphers_supported          | En lista över de chiffer som stöds av klienten.          |
@@ -70,7 +70,7 @@ Application Gateway stöder följande servervariabler:
 | client_tcp_rtt             | Information om klientens TCP-anslutning. Tillgängligt på system som har stöd för alternativet TCP_INFO socket. |
 | client_user                | När HTTP-autentisering används anges användar namnet för autentisering. |
 | värd                       | I den här prioritetsordningen: värd namnet från begär ande raden, värd namnet från fältet värd begär ande huvud eller Server namnet som matchar en begäran. Exempel: i begäran *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* är värd värdet *contoso.com* |
-| cookie_*namn*              | Cookie- *namn* .                                            |
+| cookie_ *namn*              | Cookie- *namn* .                                            |
 | http_method                | Den metod som används för att göra URL-begäran. Till exempel GET eller POST. |
 | http_status                | Sessionens status. Till exempel 200, 400 eller 403.                       |
 | http_version               | Protokollet för begäran. Vanligt vis HTTP/1.0, HTTP/1.1 eller HTTP/2.0. |
@@ -91,19 +91,19 @@ Om du vill konfigurera omskrivning av HTTP-huvud måste du slutföra de här ste
 
 1. Skapa de objekt som krävs för omskrivning av HTTP-huvud:
 
-   - **Skriv om åtgärd**: används för att ange de rubrik fält för begäran och begär Ande som du vill skriva om och det nya värdet för rubrikerna. Du kan associera ett eller flera omskrivnings villkor med en Skriv åtgärd.
+   - **Skriv om åtgärd** : används för att ange de rubrik fält för begäran och begär Ande som du vill skriva om och det nya värdet för rubrikerna. Du kan associera ett eller flera omskrivnings villkor med en Skriv åtgärd.
 
-   - **Skriv villkor**: en valfri konfiguration. Omskrivnings villkor utvärderar innehållet i HTTP (S)-begär Anden och svar. Återskrivning görs om HTTP (S)-begäran eller-svaret matchar omskrivnings villkoret.
+   - **Skriv villkor** : en valfri konfiguration. Omskrivnings villkor utvärderar innehållet i HTTP (S)-begär Anden och svar. Återskrivning görs om HTTP (S)-begäran eller-svaret matchar omskrivnings villkoret.
 
      Om du associerar fler än ett villkor med en åtgärd sker åtgärden endast när alla villkor är uppfyllda. Med andra ord är åtgärden ett logiskt och en åtgärd.
 
-   - **Rewrite-regel**: innehåller flera kombinationer av åtgärder för omskrivning/omskrivning.
+   - **Rewrite-regel** : innehåller flera kombinationer av åtgärder för omskrivning/omskrivning.
 
-   - **Regel ordning**: hjälper till att fastställa i vilken ordning reglerna för att skriva om ska köras. Den här konfigurationen är användbar när du har flera omskrivnings regler i en omskrivnings uppsättning. En omskrivnings regel som har ett lägre regel ordnings värde körs först. Om du tilldelar samma regel ordning till två omskrivnings regler är körnings ordningen icke-deterministisk.
+   - **Regel ordning** : hjälper till att fastställa i vilken ordning reglerna för att skriva om ska köras. Den här konfigurationen är användbar när du har flera omskrivnings regler i en omskrivnings uppsättning. En omskrivnings regel som har ett lägre regel ordnings värde körs först. Om du tilldelar samma regel ordning till två omskrivnings regler är körnings ordningen icke-deterministisk.
 
-   - **Skriv över uppsättning**: innehåller flera omskrivnings regler som ska associeras med en regel för anslutningsbegäran.
+   - **Skriv över uppsättning** : innehåller flera omskrivnings regler som ska associeras med en regel för anslutningsbegäran.
 
-2. Koppla*rewriteRuleSet*(Rewrite set) till en regel för routning. Den omskrivna konfigurationen är kopplad till käll lyssnaren via regeln för routning. När du använder en regel för grundläggande routning associeras konfigurationen för omskrivning av huvuden med en käll lyssnare och är en omskrivning av globala huvuden. När du använder en regel för Sök vägs-baserad routning definieras konfigurationen för att skriva över rubriker i sökvägen till URL-sökvägen. I så fall gäller det bara för det angivna Sök vägs området på en plats.
+2. Koppla *rewriteRuleSet* (Rewrite set) till en regel för routning. Den omskrivna konfigurationen är kopplad till käll lyssnaren via regeln för routning. När du använder en regel för grundläggande routning associeras konfigurationen för omskrivning av huvuden med en käll lyssnare och är en omskrivning av globala huvuden. När du använder en regel för Sök vägs-baserad routning definieras konfigurationen för att skriva över rubriker i sökvägen till URL-sökvägen. I så fall gäller det bara för det angivna Sök vägs området på en plats.
    > [!NOTE]
    > URL-omskrivning ändra rubrikerna. URL: en för sökvägen ändras inte.
 
@@ -168,5 +168,5 @@ Du kan utvärdera en HTTP-begäran eller ett svars huvud för förekomst av en h
 
 Information om hur du skriver om HTTP-huvuden finns i:
 
-- [Skriva om HTTP-huvuden med Microsoft Azure-portalen](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
+- [Skriva om HTTP-huvuden med Microsoft Azure-portalen](./rewrite-http-headers-portal.md)
 - [Skriv om HTTP-huvuden med Azure PowerShell](add-http-header-rewrite-rule-powershell.md)

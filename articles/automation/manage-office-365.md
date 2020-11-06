@@ -2,20 +2,20 @@
 title: Hantera Office 365-tjänster med Azure Automation
 description: Den här artikeln beskriver hur du använder Azure Automation för att hantera Office 365-prenumerations tjänster.
 services: automation
-ms.date: 04/01/2020
+ms.date: 11/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 91f5ac0c3adabf9880078d7a4d3703e2757cb97f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70c8892969a3b13175c60a4e20e0cf9086112abe
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86185321"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398053"
 ---
 # <a name="manage-office-365-services"></a>Hantera Office 365-tjänster
 
 Du kan använda Azure Automation för hantering av Office 365-prenumerations tjänster för produkter som Microsoft Word och Microsoft Outlook. Interaktioner med Office 365 aktive ras av [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md). Se [använda Azure AD i Azure Automation för att autentisera till Azure](automation-use-azure-ad.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att kunna hantera Office 365-prenumerations tjänster i Azure Automation.
 
@@ -44,7 +44,7 @@ Lägg nu till de installerade MSOnline-och MSOnlineExt-modulerna för att aktive
 3. Välj **moduler-Galleri** under **delade resurser**.
 4. Sök efter MSOnline.
 5. Välj `MSOnline` PowerShell-modulen och klicka på **Importera** för att importera modulen som en till gång.
-6. Upprepa steg 4 och 5 för att hitta och importera `MSOnlineExt` modulen. 
+6. Upprepa steg 4 och 5 för att hitta och importera `MSOnlineExt` modulen.
 
 ## <a name="create-a-credential-asset-optional"></a>Skapa en inloggnings till gång (valfritt)
 
@@ -52,7 +52,7 @@ Det är valfritt att skapa en inloggnings till gång för den administrativa Off
 
 ## <a name="create-an-office-365-service-account"></a>Skapa ett Office 365-tjänst konto
 
-Om du vill köra Office 365-prenumerations tjänster behöver du ett konto för Office 365-tjänsten med behörighet att göra vad du vill. Du kan använda ett globalt administratörs konto, ett konto per tjänst eller en funktion eller ett skript som ska köras. I alla fall kräver tjänst kontot ett komplext och säkert lösen ord. Se [Konfigurera Office 365 för företag](/microsoft-365/admin/setup/setup?view=o365-worldwide). 
+Om du vill köra Office 365-prenumerations tjänster behöver du ett konto för Office 365-tjänsten med behörighet att göra vad du vill. Du kan använda ett globalt administratörs konto, ett konto per tjänst eller en funktion eller ett skript som ska köras. I alla fall kräver tjänst kontot ett komplext och säkert lösen ord. Se [Konfigurera Office 365 för företag](/microsoft-365/admin/setup/setup).
 
 ## <a name="connect-to-the-azure-ad-online-service"></a>Ansluta till Azure AD online-tjänsten
 
@@ -61,7 +61,7 @@ Om du vill köra Office 365-prenumerations tjänster behöver du ett konto för 
 
 Du kan använda MSOnline-modulen för att ansluta till Azure AD från Office 365-prenumerationen. Anslutningen använder ett Office 365-användar namn och lösen ord eller använder Multi-Factor Authentication (MFA). Du kan ansluta med hjälp av Azure Portal eller en Windows PowerShell-kommandotolk (behöver inte vara förhöjd).
 
-Ett PowerShell-exempel visas nedan. Cmdleten [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) efterfrågar autentiseringsuppgifter och lagrar dem i `Msolcred` variabeln. Sedan använder cmdleten [Connect-MSOLService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) autentiseringsuppgifterna för att ansluta till Azure Directory online-tjänsten. Om du vill ansluta till en speciell Azure-miljö använder du `AzureEnvironment` parametern.
+Ett PowerShell-exempel visas nedan. Cmdleten [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) efterfrågar autentiseringsuppgifter och lagrar dem i `Msolcred` variabeln. Sedan använder cmdleten [Connect-MSOLService](/powershell/module/msonline/connect-msolservice) autentiseringsuppgifterna för att ansluta till Azure Directory online-tjänsten. Om du vill ansluta till en speciell Azure-miljö använder du `AzureEnvironment` parametern.
 
 ```powershell
 $Msolcred = Get-Credential
@@ -71,25 +71,23 @@ Connect-MsolService -Credential $MsolCred -AzureEnvironment "AzureCloud"
 Om du inte får några fel har du Anslut ATS. Ett snabb test är att köra en Office 365-cmdlet, till exempel, `Get-MsolUser` och se resultatet. Observera att ett vanligt problem är ett felaktigt lösen ord om du får fel.
 
 >[!NOTE]
->Du kan också använda AzureRM-modulen eller AZ-modulen för att ansluta till Azure AD från Office 365-prenumerationen. Huvud anslutnings-cmdleten är [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0). Denna cmdlet stöder `AzureEnvironmentName` parametern för vissa Office 365-miljöer.
+>Du kan också använda AzureRM-modulen eller AZ-modulen för att ansluta till Azure AD från Office 365-prenumerationen. Huvud anslutnings-cmdleten är [Connect-AzureAD](/powershell/module/azuread/connect-azuread). Denna cmdlet stöder `AzureEnvironmentName` parametern för vissa Office 365-miljöer.
 
 ## <a name="create-a-powershell-runbook-from-an-existing-script"></a>Skapa en PowerShell-Runbook från ett befintligt skript
 
 Du får åtkomst till Office 365-funktioner från ett PowerShell-skript. Här är ett exempel på ett skript för autentiseringsuppgifter med namnet `Office-Credentials` med användar namnet `admin@TenantOne.com` . Den använder `Get-AutomationPSCredential` för att importera Office 365-autentiseringsuppgiften.
 
 ```powershell
-$emailFromAddress = "admin@TenantOne.com" 
-$emailToAddress = "servicedesk@TenantOne.com" 
-$emailSMTPServer = "outlook.office365.com" 
-$emailSubject = "Office 365 License Report" 
+$emailFromAddress = "admin@TenantOne.com"
+$emailToAddress = "servicedesk@TenantOne.com"
+$emailSMTPServer = "outlook.office365.com"
+$emailSubject = "Office 365 License Report"
 
-$credObject = Get-AutomationPSCredential -Name "Office-Credentials" 
+$credObject = Get-AutomationPSCredential -Name "Office-Credentials"
 Connect-MsolService -Credential $credObject
 
-$O365Licenses = Get-MsolAccountSku | Out-String 
-Send-MailMessage -Credential $credObject -From $emailFromAddress -To $emailToAddress -Subject $emailSubject -Body 
-
-$O365Licenses -SmtpServer $emailSMTPServer -UseSSL
+$O365Licenses = Get-MsolAccountSku | Out-String
+Send-MailMessage -Credential $credObject -From $emailFromAddress -To $emailToAddress -Subject $emailSubject -Body $O365Licenses -SmtpServer $emailSMTPServer -UseSSL
 ```
 
 ## <a name="run-the-script-in-a-runbook"></a>Kör skriptet i en Runbook
@@ -100,9 +98,9 @@ Du kan använda ditt skript i en Azure Automation Runbook. I exempel syfte anvä
 2. Från ditt Automation-konto väljer du **Runbooks** under **process automatisering**.
 3. Välj den nya runbooken och klicka på **Redigera**.
 4. Kopiera skriptet och klistra in det i text redigeraren för runbooken.
-5. Välj **till gångar**och expandera sedan **autentiseringsuppgifter** och kontrol lera att Office 365-autentiseringsuppgiften finns där.
+5. Välj **till gångar** och expandera sedan **autentiseringsuppgifter** och kontrol lera att Office 365-autentiseringsuppgiften finns där.
 6. Klicka på **Spara**.
-7. Välj **test fönster**och klicka sedan på **Starta** för att börja testa din Runbook. Se [Hantera Runbooks i Azure Automation](./manage-runbooks.md).
+7. Välj **test fönster** och klicka sedan på **Starta** för att börja testa din Runbook. Se [Hantera Runbooks i Azure Automation](./manage-runbooks.md).
 8. När testningen är klar avslutar du från test-fönstret.
 
 ## <a name="publish-and-schedule-the-runbook"></a>Publicera och Schemalägg Runbook

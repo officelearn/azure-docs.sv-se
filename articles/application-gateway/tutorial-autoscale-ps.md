@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: e07fc34c7177e3a1dace34ab298b64dc3aa6a06a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5731b65892877e5c363220d84a0bddeb5f958cee
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74011368"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396880"
 ---
 # <a name="tutorial-create-an-application-gateway-that-improves-web-application-access"></a>Självstudie: skapa en Programgateway som förbättrar åtkomsten till webb program
 
@@ -30,13 +30,13 @@ I den här guiden får du lära dig att:
 > * Skapa programgatewayen
 > * Testa programgatewayen
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Den här självstudien kräver att du kör Azure PowerShell lokalt. Du måste ha Azure PowerShell-modul version 1.0.0 eller senare installerad. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). När du har verifierat PowerShell-versionen kör du `Connect-AzAccount` för att skapa en anslutning till Azure.
+Den här självstudien kräver att du kör Azure PowerShell lokalt. Du måste ha Azure PowerShell-modul version 1.0.0 eller senare installerad. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). När du har verifierat PowerShell-versionen kör du `Connect-AzAccount` för att skapa en anslutning till Azure.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -58,7 +58,7 @@ New-AzResourceGroup -Name $rg -Location $location
 
 ## <a name="create-a-self-signed-certificate"></a>Skapa ett självsignerat certifikat
 
-I produktion bör du importera ett giltigt certifikat som är signerat av en betrodd provider. I den här självstudiekursen skapar du ett självsignerat certifikat med [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate). Du kan använda [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) med det tumavtryck som returnerades och exportera en pfx-fil från certifikatet.
+I produktion bör du importera ett giltigt certifikat som är signerat av en betrodd provider. I den här självstudiekursen skapar du ett självsignerat certifikat med [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate). Du kan använda [Export-PfxCertificate](/powershell/module/pkiclient/export-pfxcertificate) med det tumavtryck som returnerades och exportera en pfx-fil från certifikatet.
 
 ```powershell
 New-SelfSignedCertificate `

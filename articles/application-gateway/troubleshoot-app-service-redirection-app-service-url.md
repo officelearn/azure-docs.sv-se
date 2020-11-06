@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: f3a3ba3ee908204668ad9d7201ddfddec0a26f28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 676d7c2ad18327471c6e95f3cef26185fa49b78b
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595952"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396897"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Felsöka App Service problem i Application Gateway
 
@@ -80,10 +80,10 @@ I föregående exempel ser du att svars huvudet har status kod 301 för omdirige
 
 ## <a name="solution-rewrite-the-location-header"></a>Lösning: Skriv om plats rubriken
 
-Ange värd namnet i plats rubriken till Application gatewayens domän namn. Det gör du genom att skapa en [Rewrite-regel](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) med ett villkor som utvärderar om plats rubriken i svaret innehåller azurewebsites.net. Det måste också utföra en åtgärd för att skriva om plats huvudet till Application Gateway-värdnamnet. Mer information finns i anvisningar om [hur du skriver om plats rubriken](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#modify-a-redirection-url).
+Ange värd namnet i plats rubriken till Application gatewayens domän namn. Det gör du genom att skapa en [Rewrite-regel](./rewrite-http-headers.md) med ett villkor som utvärderar om plats rubriken i svaret innehåller azurewebsites.net. Det måste också utföra en åtgärd för att skriva om plats huvudet till Application Gateway-värdnamnet. Mer information finns i anvisningar om [hur du skriver om plats rubriken](./rewrite-http-headers.md#modify-a-redirection-url).
 
 > [!NOTE]
-> Stödet för omskrivning av HTTP-huvud är bara tillgängligt för [Standard_v2 och WAF_V2 SKU](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) för Application Gateway. Om du använder v1 SKU rekommenderar vi att du [migrerar från v1 till v2](https://docs.microsoft.com/azure/application-gateway/migrate-v1-v2). Du vill använda omskrivning och andra [avancerade funktioner](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#feature-comparison-between-v1-sku-and-v2-sku) som är tillgängliga med v2-SKU: n.
+> Stödet för omskrivning av HTTP-huvud är bara tillgängligt för [Standard_v2 och WAF_V2 SKU](./application-gateway-autoscaling-zone-redundant.md) för Application Gateway. Om du använder v1 SKU rekommenderar vi att du [migrerar från v1 till v2](./migrate-v1-v2.md). Du vill använda omskrivning och andra [avancerade funktioner](./application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku) som är tillgängliga med v2-SKU: n.
 
 ## <a name="alternate-solution-use-a-custom-domain-name"></a>Alternativ lösning: Använd ett anpassat domän namn
 
@@ -93,7 +93,7 @@ App Service gör nu omdirigeringen (om det finns en sådan) på samma ursprungli
 
 Du måste äga en anpassad domän och följa den här processen:
 
-- Registrera domänen i den anpassade domän listan för App Service. Du måste ha en CNAME-post i din anpassade domän som pekar på App Services FQDN. Mer information finns i [mappa ett befintligt anpassat DNS-namn till Azure App Service](https://docs.microsoft.com//azure/app-service/app-service-web-tutorial-custom-domain).
+- Registrera domänen i den anpassade domän listan för App Service. Du måste ha en CNAME-post i din anpassade domän som pekar på App Services FQDN. Mer information finns i [mappa ett befintligt anpassat DNS-namn till Azure App Service](//azure/app-service/app-service-web-tutorial-custom-domain).
 
     ![App Service, anpassad domän lista](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
 

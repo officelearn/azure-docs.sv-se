@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d55e7f29c9ecefa7cfcf98ef890d9982b044ef30
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 6dd88f6e8eb2ce95c1aa68c63f3d14a14e079d19
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378830"
+ms.locfileid: "93396523"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratörsrollen i Azure Active Directory
 
@@ -90,7 +90,7 @@ Rollen [Privileged Authentication Administrator](#privileged-authentication-admi
 
 ### <a name="azure-devops-administrator"></a>[Azure DevOps-administratör](#azure-devops-administrator-permissions)
 
-Användare med den här rollen kan hantera Azure DevOps-principen för att begränsa skapandet av nya Azure DevOps-organisationer till en uppsättning konfigurerbara användare eller grupper. Användare med den här rollen kan hantera den här principen via en Azure DevOps-organisation som har säkerhetskopierat företagets Azure AD-organisation.
+Användare med den här rollen kan hantera Azure DevOps-principen för att begränsa skapandet av nya Azure DevOps-organisationer till en uppsättning konfigurerbara användare eller grupper. Användare med den här rollen kan hantera den här principen via valfri Azure DevOps-organisation som backas upp av företagets Azure AD-organisation. Den här rollen beviljar inga andra Azure DevOps-särskilda behörigheter (till exempel projekt samlings administratörer) i någon av Azure DevOps-organisationerna som backas upp av företagets Azure AD-organisation.
 
 Alla Enterprise Azure DevOps-principer kan hanteras av användare i den här rollen.
 

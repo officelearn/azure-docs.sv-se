@@ -7,17 +7,17 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 06/10/2020
 ms.author: caya
-ms.openlocfilehash: c1bd41587e4f56fb0a7f3eb8285d301751f558d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26f53a8f93d4d51ec8f8fd91051496a46670f432
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84668108"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397356"
 ---
 # <a name="what-is-application-gateway-ingress-controller"></a>Vad är Application Gateway ingress-styrenhet?
 Application Gateway ingress (AGIC) är ett Kubernetes-program som gör det möjligt för [Azure Kubernetes service-kunder (AKS)](https://azure.microsoft.com/services/kubernetes-service/) att utnyttja Azures inbyggda [Application Gateway](https://azure.microsoft.com/services/application-gateway/) L7-belastningsutjämnare för att exponera moln program vara till Internet. AGIC övervakar det Kubernetes-kluster som det finns på och uppdaterar kontinuerligt en Application Gateway, så att valda tjänster exponeras för Internet.
 
-Ingångs styrenheten körs i sin egen Pod på kundens AKS. AGIC övervakar en delmängd av Kubernetes-resurser för ändringar. Status för AKS-klustret översätts till Application Gateway speciell konfiguration och tillämpas på [Azure Resource Manager (arm)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+Ingångs styrenheten körs i sin egen Pod på kundens AKS. AGIC övervakar en delmängd av Kubernetes-resurser för ändringar. Status för AKS-klustret översätts till Application Gateway speciell konfiguration och tillämpas på [Azure Resource Manager (arm)](../azure-resource-manager/management/overview.md).
 
 ## <a name="benefits-of-application-gateway-ingress-controller"></a>Fördelar med Application Gateway ingress-kontrollant
 AGIC bidrar till att eliminera behovet av att ha en annan belastningsutjämnare/offentlig IP framför AKS-klustret och undvika flera hopp i din Datapath innan begär Anden når AKS-klustret. Application Gateway pratar med poddar med sin privata IP-adress direkt och kräver inte NodePort-eller KubeProxy-tjänster. Detta ger också bättre prestanda för dina distributioner.
@@ -77,4 +77,3 @@ Följande tabeller sorterar vilka scenarier som för närvarande stöds med Helm
 - [**AKS Add-On brownfield-distribution**](tutorial-ingress-controller-add-on-existing.md): installera AGIC-tillägg på ett AKS-kluster med en befintlig Application Gateway.
 - [**Helm Bygg-distribution**](ingress-controller-install-new.md): installera AGIC via Helm, nya AKS-kluster och nya Application Gateway på en tom infrastruktur.
 - [**Helm brownfield-distribution**](ingress-controller-install-existing.md): Distribuera AGIC via Helm på ett befintligt AKS-kluster och Application Gateway.
-

@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 66c725e8d6c28137db5c3220e0a6548714da0911
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da6d02e620c33610770c71f0c0e3ae68e70ee317
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88959603"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397068"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Självstudie: Skapa en programgateway med webbadressbaserad omdirigering i Azure CLI
 
-Du kan använda Azure CLI till att konfigurera [webbadressbaserade routningsregler](tutorial-url-route-cli.md) när du skapar en [programgateway](application-gateway-introduction.md). I den här självstudien skapar du serverdelspooler med [VM-skalningsuppsättningar](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Sedan skapar du routningsregler som ser till att webbtrafiken dirigeras till rätt serverdelspool.
+Du kan använda Azure CLI till att konfigurera [webbadressbaserade routningsregler](tutorial-url-route-cli.md) när du skapar en [programgateway](./overview.md). I den här självstudien skapar du serverdelspooler med [VM-skalningsuppsättningar](../virtual-machine-scale-sets/overview.md). Sedan skapar du routningsregler som ser till att webbtrafiken dirigeras till rätt serverdelspool.
 
 I den här guiden får du lära dig att:
 
@@ -34,9 +34,9 @@ I följande exempel visas hur trafiken kommer från portarna 8080 och 8081 och d
 
 Om du vill kan du utföra den här självstudien med [Azure PowerShell](tutorial-url-redirect-powershell.md).
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 
 Om du väljer att installera och använda CLI lokalt måste du ha Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
@@ -236,7 +236,7 @@ az network application-gateway rule create \
 
 ## <a name="create-virtual-machine-scale-sets"></a>Skapa VM-skalningsuppsättningar
 
-I det här exemplet skapar du tre VM-skalningsuppsättningar för de tre serverdelspooler du har skapat. Skalningsuppsättningarna du skapar har namnen *myvmss1*, *myvmss2* och *myvmss3*. Varje skalningsuppsättning innehåller två virtuella datorinstanser där du installerar NGINX.
+I det här exemplet skapar du tre VM-skalningsuppsättningar för de tre serverdelspooler du har skapat. Skalningsuppsättningarna du skapar har namnen *myvmss1* , *myvmss2* och *myvmss3*. Varje skalningsuppsättning innehåller två virtuella datorinstanser där du installerar NGINX.
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -318,4 +318,4 @@ az group delete --name myResourceGroupAG
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Läs mer om vad du kan göra med en programgateway](application-gateway-introduction.md)
+> [Läs mer om vad du kan göra med en programgateway](./overview.md)

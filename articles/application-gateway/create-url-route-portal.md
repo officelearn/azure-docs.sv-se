@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 08/13/2020
 ms.author: victorh
-ms.openlocfilehash: 02332e190def7770fa57977461d57766f3dee13a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 407bd5679c6afebf26c2e6b768e0f8513ac39123
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88205583"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397594"
 ---
 # <a name="tutorial-create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Självstudie: skapa en Programgateway med sökvägar baserade routningsregler med hjälp av Azure Portal
 
-Du kan använda Azure Portal för att konfigurera [URL-sökvägar baserade routningsregler](application-gateway-url-route-overview.md) när du skapar en [Application Gateway](application-gateway-introduction.md). I den här självstudien skapar du backend-pooler med virtuella datorer. Du skapar sedan routningsregler som kontrollerar att webb trafiken kommer till rätt servrar i poolerna.
+Du kan använda Azure Portal för att konfigurera [URL-sökvägar baserade routningsregler](./url-route-overview.md) när du skapar en [Application Gateway](./overview.md). I den här självstudien skapar du backend-pooler med virtuella datorer. Du skapar sedan routningsregler som kontrollerar att webb trafiken kommer till rätt servrar i poolerna.
 
 I den här artikeln kan du se hur du:
 
@@ -29,11 +29,11 @@ I den här artikeln kan du se hur du:
 
 ![URL-routningsexempel](./media/application-gateway-create-url-route-portal/scenario.png)
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
@@ -45,16 +45,16 @@ I det här exemplet skapar du tre virtuella datorer som ska användas som backen
 2. Välj **Windows Server 2016 Data Center** i listan populär.
 3. Ange följande värden för den virtuella datorn:
 
-    - **Resurs grupp**, Välj **Skapa ny**och skriv sedan *myResourceGroupAG*.
-    - **Namn på virtuell dator**: *myVM1*
-    - **Region**: *(USA) USA, östra*
-    - **Användar namn**: *azureuser*
-    - **Lösen ord**: *Azure123456!*
+    - **Resurs grupp** , Välj **Skapa ny** och skriv sedan *myResourceGroupAG*.
+    - **Namn på virtuell dator** : *myVM1*
+    - **Region** : *(USA) USA, östra*
+    - **Användar namn** : *azureuser*
+    - **Lösen ord** : *Azure123456!*
 
 
 4. Välj **Nästa:Diskar**.
 5. Välj **Nästa: nätverk**
-6. För **virtuellt nätverk**väljer du **Skapa nytt** och anger sedan de här värdena för det virtuella nätverket:
+6. För **virtuellt nätverk** väljer du **Skapa nytt** och anger sedan de här värdena för det virtuella nätverket:
 
    - *myVnet* – Det virtuella nätverkets namn.
    - *10.0.0.0/16* – Det virtuella nätverkets adressutrymme.
@@ -64,9 +64,9 @@ I det här exemplet skapar du tre virtuella datorer som ska användas som backen
    - *10.0.0.0/24* – Undernätets adressutrymme.
 7. Välj **OK**.
 
-8. Se till att **myBackendSubnet** är valt för under nätet under **nätverks gränssnitt**och välj sedan **Nästa: hantering**.
+8. Se till att **myBackendSubnet** är valt för under nätet under **nätverks gränssnitt** och välj sedan **Nästa: hantering**.
 9. Välj **av** om du vill inaktivera startdiagnostik.
-10. Klicka på **Granska + skapa**, granska inställningarna på sidan Sammanfattning och välj sedan **skapa**.
+10. Klicka på **Granska + skapa** , granska inställningarna på sidan Sammanfattning och välj sedan **skapa**.
 11. Skapa två fler virtuella datorer, *myVM2* och *myVM3* och placera dem i *MyVNet* virtuella nätverk och *myBackendSubnet* -undernätet.
 
 ### <a name="install-iis"></a>Installera IIS
@@ -103,15 +103,15 @@ I det här exemplet skapar du tre virtuella datorer som ska användas som backen
 
 1. På fliken **grundläggande** anger du dessa värden för följande Programgateway-inställningar:
 
-   - **Resurs grupp**: Välj **myResourceGroupAG** för resurs gruppen.
-   - **Namn på Application Gateway**: ange *myAppGateway* som namn på Application Gateway.
+   - **Resurs grupp** : Välj **myResourceGroupAG** för resurs gruppen.
+   - **Namn på Application Gateway** : ange *myAppGateway* som namn på Application Gateway.
    - **Region** – Välj **USA, östra**.
 
         ![Skapa ny Application Gateway: grunderna](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
 
-2.  Under **Konfigurera virtuellt nätverk**väljer du **myVNet** som namn på det virtuella nätverket.
+2.  Under **Konfigurera virtuellt nätverk** väljer du **myVNet** som namn på det virtuella nätverket.
 3. Välj **myAGSubnet** för under nätet.
-3. Acceptera standardvärdena för de andra inställningarna och välj sedan **Nästa: frontend**-klienter.
+3. Acceptera standardvärdena för de andra inställningarna och välj sedan **Nästa: frontend** -klienter.
 
 ### <a name="frontends-tab"></a>Fliken frontend
 
@@ -131,8 +131,8 @@ Backend-poolen används för att dirigera begär anden till backend-servrar som 
 
 2. I fönstret **Lägg till en server dels grupp** som öppnas anger du följande värden för att skapa en tom backend-pool:
 
-    - **Namn**: ange *myBackendPool* som namn på backend-poolen.
-3. Under **backend-mål**, **måltyp**väljer du **virtuell dator** i den nedrullningsbara listan.
+    - **Namn** : ange *myBackendPool* som namn på backend-poolen.
+3. Under **backend-mål** , **måltyp** väljer du **virtuell dator** i den nedrullningsbara listan.
 
 5. Under **mål** väljer du nätverks gränssnittet för **myVM1**.
 6. Välj **Lägg till**.
@@ -151,22 +151,22 @@ På fliken **konfiguration** ansluter du klient dels-och backend-poolen som du s
 
 3. En regel för routning kräver en lyssnare. Ange följande värden för lyssnaren på fliken **lyssnare** i fönstret **Lägg till regel för vidarebefordran** :
 
-    - **Namn på lyssnare**: *Ange en lyssnare* för namnet på lyssnaren.
-    - **IP-adress för klient**del: Välj **offentlig** för att välja den offentliga IP-adress som du skapade för klient delen.
-    - **Port**: typ *8080*
+    - **Namn på lyssnare** : *Ange en lyssnare* för namnet på lyssnaren.
+    - **IP-adress för klient** del: Välj **offentlig** för att välja den offentliga IP-adress som du skapade för klient delen.
+    - **Port** : typ *8080*
   
         Acceptera standardvärdena för de andra inställningarna på fliken **lyssnare** och välj sedan fliken **backend-mål** för att konfigurera resten av regeln.
 
 4. På fliken **backend-mål** väljer du **MyBackendPool** för **Server dels målet**.
 
-5. För **http-inställningen**väljer du **Skapa ny** för att skapa en ny http-inställning. HTTP-inställningen avgör hur routningsregler fungerar. 
+5. För **http-inställningen** väljer du **Skapa ny** för att skapa en ny http-inställning. HTTP-inställningen avgör hur routningsregler fungerar. 
 
 6. I fönstret **Lägg till en HTTP-inställning** som öppnas anger du *myHTTPSetting* som **namn på http-inställningen**. Acceptera standardvärdena för de andra inställningarna i fönstret **Lägg till en HTTP-inställning** och välj sedan **Lägg till** för att återgå till fönstret **Lägg till regel för routning** .
-7. Under **Path-baserad routning**väljer **du Lägg till flera mål för att skapa en Sök vägs baserad regel**.
-8. För **sökväg**skriver du */images/* \* .
-9. För **Sök vägs regelns namn**skriver du *bilder*.
-10. För **http-inställning**väljer du **myHTTPSetting**
-11. För **Server dels mål**väljer du **bilder**.
+7. Under **Path-baserad routning** väljer **du Lägg till flera mål för att skapa en Sök vägs baserad regel**.
+8. För **sökväg** skriver du */images/* \* .
+9. För **Sök vägs regelns namn** skriver du *bilder*.
+10. För **http-inställning** väljer du **myHTTPSetting**
+11. För **Server dels mål** väljer du **bilder**.
 12. Välj **Lägg till** för att spara Sök vägs regeln och gå tillbaka till fliken **Lägg till en regel för routning** .
 13. Upprepa om du vill lägga till en annan regel för video.
 14. Välj **Lägg** till för att lägga till regeln för Routning och återgå till fliken **konfiguration** .
@@ -192,13 +192,13 @@ Granska inställningarna på fliken **Granska + skapa** och välj sedan **skapa*
 
    Lyssnaren på Port 8080 dirigerar den här begäran till standard-backend-poolen.
 
-3. Ändra URL: en till *http:// &lt; IP-address &gt; : 8080/images/test.htm*, ersätta &lt; IP-adress &gt; med din IP-adress och du bör se något som liknar följande exempel:
+3. Ändra URL: en till *http:// &lt; IP-address &gt; : 8080/images/test.htm* , ersätta &lt; IP-adress &gt; med din IP-adress och du bör se något som liknar följande exempel:
 
     ![Testa bildadressen i programgatewayen](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
 
    Lyssnaren på Port 8080 dirigerar den här begäran till *avbildningens* backend-pool.
 
-4. Ändra URL: en till *http:// &lt; IP-address &gt; : 8080/video/test.htm*, ersätta &lt; IP-adress &gt; med din IP-adress och du bör se något som liknar följande exempel:
+4. Ändra URL: en till *http:// &lt; IP-address &gt; : 8080/video/test.htm* , ersätta &lt; IP-adress &gt; med din IP-adress och du bör se något som liknar följande exempel:
 
     ![Testa videoadressen i programgatewayen](./media/application-gateway-create-url-route-portal/application-gateway-iistest-video.png)
 
@@ -211,4 +211,4 @@ Ta bort resurs gruppen och alla relaterade resurser när de inte längre behövs
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Aktivera TLS från slut punkt till slut punkt på Azure Application Gateway](application-gateway-backend-ssl.md)
+> [Aktivera TLS från slut punkt till slut punkt på Azure Application Gateway](./ssl-overview.md)

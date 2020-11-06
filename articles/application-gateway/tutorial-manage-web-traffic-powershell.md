@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 07/19/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: f29b31b09c2532c336ef2a2d574fab5e000b3e4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e410218117aa0d21167b6d615a3835aeec470e7
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595894"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397118"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-azure-powershell"></a>Hantera webbtrafik med en programgateway med Azure PowerShell
 
-Programgatewayen används till att hantera och skydda webbtrafiken till de servrar du hanterar. Du kan använda Azure PowerShell till att skapa en [programgateway](overview.md) som använder en [VM-skalningsuppsättning](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för hantering av webbtrafik på servrarna i serverdelen. I det här exemplet innehåller skalningsuppsättningen två virtuella datorinstanser i serverdelens standardpool i programgatewayen.
+Programgatewayen används till att hantera och skydda webbtrafiken till de servrar du hanterar. Du kan använda Azure PowerShell till att skapa en [programgateway](overview.md) som använder en [VM-skalningsuppsättning](../virtual-machine-scale-sets/overview.md) för hantering av webbtrafik på servrarna i serverdelen. I det här exemplet innehåller skalningsuppsättningen två virtuella datorinstanser i serverdelens standardpool i programgatewayen.
 
 I den här artikeln kan du se hur du:
 
@@ -27,7 +27,7 @@ I den här artikeln kan du se hur du:
 
 Om du vill kan du slutföra den här proceduren med hjälp av [Azure CLI](tutorial-manage-web-traffic-cli.md).
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -257,4 +257,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Begränsa webbtrafik med en brandvägg för webbaserade program](./tutorial-restrict-web-traffic-powershell.md)
+[Begränsa webbtrafik med en brandvägg för webbaserade program](../web-application-firewall/ag/tutorial-restrict-web-traffic-powershell.md)

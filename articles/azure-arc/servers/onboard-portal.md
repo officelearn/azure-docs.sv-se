@@ -1,14 +1,14 @@
 ---
 title: Ansluta hybrid datorer till Azure från Azure Portal
 description: I den här artikeln får du lära dig hur du installerar agenten och ansluter datorer till Azure med hjälp av Azure Arc-aktiverade servrar från Azure Portal.
-ms.date: 10/21/2020
+ms.date: 11/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8769a3b76172bc6508b7c52eda359695c01eaa4b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ca3c08acdef1b2a1f7c3774f5755967d472c93ed
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370159"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398036"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Ansluta hybrid datorer till Azure från Azure Portal
 
@@ -18,7 +18,7 @@ Den här metoden kräver att du har administratörs behörighet på datorn för 
 
 Innan du börjar bör du läsa igenom kraven och kontrol lera att din [prenumeration och dina](agent-overview.md#prerequisites) resurser uppfyller kraven. Information om regioner som stöds och andra relaterade överväganden finns i [Azure-regioner som stöds](overview.md#supported-regions).
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="generate-the-installation-script-from-the-azure-portal"></a>Generera installations skriptet från Azure Portal
 
@@ -113,9 +113,9 @@ Om agenten inte startar efter att installationen har slutförts, kontrollerar du
 
 Den anslutna dator agenten för Linux finns i det önskade paket formatet för distributionen (. RPM eller. DEB) som finns i Microsoft- [paketets lagrings plats](https://packages.microsoft.com/). [Gränssnitts skript paketet `Install_linux_azcmagent.sh` ](https://aka.ms/azcmagent) utför följande åtgärder:
 
-- Konfigurerar värd datorn för att ladda ned agent paketet från packages.microsoft.com.
-- Installerar hybrid resurs leverantörs paketet.
-- Registrerar datorn med Azure Arc
+* Konfigurerar värd datorn för att ladda ned agent paketet från packages.microsoft.com.
+
+* Installerar hybrid resurs leverantörs paketet.
 
 Alternativt kan du konfigurera agenten med din proxyinformation genom att inkludera `--proxy "{proxy-url}:{proxy-port}"` parametern.
 
@@ -131,15 +131,30 @@ wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 bash ~/Install_linux_azcmagent.sh
 ```
 
-Kör följande kommandon för att ladda ned och installera agenten, inklusive `--proxy` parametern för att konfigurera agenten för att kommunicera via proxyservern:
+1. Kör följande kommandon för att ladda ned och installera agenten, inklusive `--proxy` parametern för att konfigurera agenten för att kommunicera via proxyservern:
 
-```bash
-# Download the installation package.
-wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
+    ```bash
+    # Download the installation package.
+    wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 
-# Install the connected machine agent. 
-bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
-```
+    # Install the connected machine agent.
+    bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
+    ```
+
+2. När du har installerat agenten behöver du konfigurera den så att den kommunicerar med Azure Arc-tjänsten genom att köra följande kommando:
+
+    ```bash
+    azcmagent connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --cloud "cloudName"
+    if [ $? = 0 ]; then echo "\033[33mTo view your onboarded server(s), navigate to https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.HybridCompute%2Fmachines\033[m"; fi
+    ```
+
+### <a name="install-with-the-scripted-method"></a>Installera med den skriptbaserade metoden
+
+1. Logga in på servern med ett konto som har rot åtkomst.
+
+1. Ändra till den mapp eller resurs som du kopierade skriptet till och kör det på servern genom att köra `./OnboardingScript.sh` skriptet.
+
+Om agenten inte startar efter att installationen har slutförts, kontrollerar du i loggarna om det finns detaljerad fel information. Logg katalogen är *varians/opt/azcmagent/log*.
 
 ## <a name="verify-the-connection-with-azure-arc"></a>Kontrollera anslutningen med Azure Arc
 

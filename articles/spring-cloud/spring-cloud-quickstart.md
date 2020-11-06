@@ -8,12 +8,12 @@ ms.date: 10/23/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: a4400adeff8907e2d4ff690a83c63d32da8031bd
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 41bbac2032c69861790b806e914827183f83844b
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289316"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396081"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Snabb start: Distribuera ditt första Azure våren Cloud-program
 
@@ -33,7 +33,7 @@ Genom att följa den här snabb starten får du lära dig att:
 
 Den program kod som används i den här snabb starten är en enkel app som skapats med en .NET Core Web API Project-mall. När du har slutfört det här exemplet är programmet tillgängligt online och kan hanteras via Azure Portal och Azure CLI.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [.Net Core 3,1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1). Azure våren Cloud Service stöder .NET Core 3,1 och senare versioner.
@@ -144,8 +144,8 @@ I Visual Studio skapar du ett ASP.NET Core webb program med namnet "Hello-World"
 
    ```xml
    <ItemGroup>
-     <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="2.4.4" />
-     <PackageReference Include="Microsoft.Azure.SpringCloud.Client" Version="1.0.0-preview.1" />
+     <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="3.0.0" />
+     <PackageReference Include="Microsoft.Azure.SpringCloud.Client" Version="2.0.0-preview.1" />
    </ItemGroup>
    <Target Name="Publish-Zip" AfterTargets="Publish">
        <ZipDirectory SourceDirectory="$(PublishDir)" DestinationFile="$(MSBuildProjectDirectory)/deploy.zip" Overwrite="true" />
@@ -334,7 +334,7 @@ Den här snabb starten förklarar hur du:
 > * Bygg och distribuera appen med en offentlig slut punkt
 > * Stream-loggar i real tid
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabbstarten behöver du:
 

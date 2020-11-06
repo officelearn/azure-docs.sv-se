@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 08/26/2020
 ms.author: victorh
-ms.openlocfilehash: 7ccc83a61ac4ffe6e1bb6767a9c611bd3fcc0edf
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 52bc2a20be0d7113583b7f23cc569dbb9503d364
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88892787"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397254"
 ---
 # <a name="what-is-azure-application-gateway"></a>Vad är Azure Application Gateway?
 
@@ -28,7 +28,7 @@ Den här typen av routning kallas belastningsutjämning för programlager (OSI l
 >[!NOTE]
 > Med Azure har du tillgång till en uppsättning fullständigt hanterade belastningsutjämningslösningar för dina scenarier. Om du behöver hög prestanda, låg latens, Layer-4 belastnings utjämning, se [Vad är Azure Load Balancer?](../load-balancer/load-balancer-overview.md) Om du letar efter global belastnings utjämning för DNS, se [Vad är Traffic Manager?](../traffic-manager/traffic-manager-overview.md) Dina scenarier från slut punkt till slut punkt kan dra nytta av att kombinera dessa lösningar.
 >
-> En alternativ jämförelse för Azure-belastnings utjämning finns i [Översikt över belastnings Utjämnings alternativ i Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
+> En alternativ jämförelse för Azure-belastnings utjämning finns i [Översikt över belastnings Utjämnings alternativ i Azure](/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 ## <a name="features"></a>Funktioner
 

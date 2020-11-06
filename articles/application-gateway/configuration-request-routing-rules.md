@@ -7,20 +7,20 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
-ms.openlocfilehash: 20a665eefbb73f062f1f036e17b16da891a43eef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 047ce9b33836e2c23a37b1383942323d7c382485
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89653212"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397543"
 ---
 # <a name="application-gateway-request-routing-rules"></a>Regler för routning av Application Gateway-begäran
 
-När du skapar en Programgateway med hjälp av Azure Portal skapar du en standard regel (*regel 1*). Den här regeln binder standard avlyssningen (*appGatewayHttpListener*) med standard server delen (*appGatewayBackendPool*) och standardvärdet för Server delens http-inställningar (*appGatewayBackendHttpSettings*). När du har skapat gatewayen kan du redigera inställningarna för standard regeln eller skapa nya regler.
+När du skapar en Programgateway med hjälp av Azure Portal skapar du en standard regel ( *regel 1* ). Den här regeln binder standard avlyssningen ( *appGatewayHttpListener* ) med standard server delen ( *appGatewayBackendPool* ) och standardvärdet för Server delens http-inställningar ( *appGatewayBackendHttpSettings* ). När du har skapat gatewayen kan du redigera inställningarna för standard regeln eller skapa nya regler.
 
 ## <a name="rule-type"></a>Regeltyp
 
-När du skapar en regel väljer du mellan [ *Basic* och *Path-based*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rules).
+När du skapar en regel väljer du mellan [ *Basic* och *Path-based*](./application-gateway-components.md#request-routing-rules).
 
 - Välj Basic om du vill vidarebefordra alla begär Anden på den associerade lyssnaren (till exempel *blogg <i></i> . contoso.com/ \* )* till en enda backend-pool.
 - Välj sökväg – baserat om du vill dirigera begär Anden från särskilda URL-sökvägar till särskilda backend-pooler. Sök vägs mönstret används bara på sökvägen till URL: en, inte dess frågeparametrar.
@@ -51,13 +51,13 @@ För en sökväg-baserad regel lägger du till flera Server dels-HTTP-inställni
 
 ## <a name="redirection-setting"></a>Inställning för omdirigering
 
-Om omdirigering har kon figurer ATS för en grundläggande regel omdirigeras alla begär Anden på den associerade lyssnaren till målet. Detta är *Global* omdirigering. Om omdirigering har kon figurer ATS för en Sök vägs baserad regel omdirigeras endast begär anden i ett särskilt plats område. Ett exempel är ett shopping vagns områden som betecknas av */Cart/ \* *. Detta är en *Path-baserad* omdirigering.
+Om omdirigering har kon figurer ATS för en grundläggande regel omdirigeras alla begär Anden på den associerade lyssnaren till målet. Detta är *Global* omdirigering. Om omdirigering har kon figurer ATS för en Sök vägs baserad regel omdirigeras endast begär anden i ett särskilt plats område. Ett exempel är ett shopping vagns områden som betecknas av */Cart/ \**. Detta är en *Path-baserad* omdirigering.
 
 Mer information om omdirigering finns i [Application Gateway omdirigerings översikt](redirect-overview.md).
 
 ### <a name="redirection-type"></a>Typ av omdirigering
 
-Välj den typ av omdirigering som krävs: *permanent (301)*, *temporär (307)*, *found (302)* eller *Se övrigt (303)*.
+Välj den typ av omdirigering som krävs: *permanent (301)* , *temporär (307)* , *found (302)* eller *Se övrigt (303)*.
 
 ### <a name="redirection-target"></a>Omdirigerings mål
 

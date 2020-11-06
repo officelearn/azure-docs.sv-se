@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: absha
-ms.openlocfilehash: e18288dbc2a09c7e9dd5b0c0e96dfd04ec192596
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a1a122eb7b5b0abcc47cd321c74267a1a4aecda
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595911"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396863"
 ---
 # <a name="create-an-application-gateway-and-rewrite-http-headers"></a>Skapa en Application Gateway och skriv om HTTP-huvuden
 
-Du kan använda Azure PowerShell för att konfigurera [regler för att skriva om HTTP-begäran och svarshuvuden](rewrite-http-headers.md) när du skapar den nya [autoskalning och den Zone-redundanta Application Gateway-SKU: n](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
+Du kan använda Azure PowerShell för att konfigurera [regler för att skriva om HTTP-begäran och svarshuvuden](rewrite-http-headers.md) när du skapar den nya [autoskalning och den Zone-redundanta Application Gateway-SKU: n](./application-gateway-autoscaling-zone-redundant.md)
 
 I den här artikeln kan du se hur du:
 
@@ -28,11 +28,11 @@ I den här artikeln kan du se hur du:
 * Skapa programgatewayen
 * Testa programgatewayen
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den här artikeln kräver att du kör Azure PowerShell lokalt. Du måste ha AZ-modul version 1.0.0 eller senare installerad. Kör `Import-Module Az` och sedan `Get-Module Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). När du har verifierat PowerShell-versionen kör du `Login-AzAccount` för att skapa en anslutning till Azure.
+Den här artikeln kräver att du kör Azure PowerShell lokalt. Du måste ha AZ-modul version 1.0.0 eller senare installerad. Kör `Import-Module Az` och sedan `Get-Module Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). När du har verifierat PowerShell-versionen kör du `Login-AzAccount` för att skapa en anslutning till Azure.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -107,11 +107,11 @@ $setting = New-AzApplicationGatewayBackendHttpSettings -Name "BackendHttpSetting
 
 Konfigurera de nya objekt som krävs för att skriva om HTTP-huvudena:
 
-- **RequestHeaderConfiguration**: det här objektet används för att ange de begär ande huvud fält som du tänker skriva om och det nya värdet som de ursprungliga huvudena måste skrivas om till.
-- **ResponseHeaderConfiguration**: det här objektet används för att ange de svars huvud fält som du tänker skriva om och det nya värdet som de ursprungliga huvudena måste skrivas om till.
-- **ActionSet**: det här objektet innehåller konfigurationerna för de begär ande och svars rubriker som anges ovan. 
-- **RewriteRule**: det här objektet innehåller alla *actionSets* som anges ovan. 
-- **RewriteRuleSet**– det här objektet innehåller alla *rewriteRules* och måste kopplas till en regel för routning av förfrågningar – Basic eller Path-based.
+- **RequestHeaderConfiguration** : det här objektet används för att ange de begär ande huvud fält som du tänker skriva om och det nya värdet som de ursprungliga huvudena måste skrivas om till.
+- **ResponseHeaderConfiguration** : det här objektet används för att ange de svars huvud fält som du tänker skriva om och det nya värdet som de ursprungliga huvudena måste skrivas om till.
+- **ActionSet** : det här objektet innehåller konfigurationerna för de begär ande och svars rubriker som anges ovan. 
+- **RewriteRule** : det här objektet innehåller alla *actionSets* som anges ovan. 
+- **RewriteRuleSet** – det här objektet innehåller alla *rewriteRules* och måste kopplas till en regel för routning av förfrågningar – Basic eller Path-based.
 
    ```azurepowershell
    $requestHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-isThroughProxy" -HeaderValue "True"

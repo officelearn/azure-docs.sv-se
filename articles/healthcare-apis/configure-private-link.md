@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 10/12/2020
 ms.author: matjazl
-ms.openlocfilehash: 121ddcc013fbeef29c6d22cfbd273cfd3b8d3d98
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: bfbdb98e691312db5665261743f8ce698541d4cc
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92559005"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398223"
 ---
 # <a name="configure-private-link"></a>Konfigurera privat länk
 
@@ -30,7 +30,7 @@ Innan du skapar en privat slut punkt finns det några Azure-resurser som du mås
 - Azure API för FHIR – den FHIR-resurs som du vill använda bakom en privat slut punkt.
 - Virtual Network – det virtuella nätverk som dina klient tjänster och privata slut punkter ska anslutas till.
 
-Mer information finns i [dokumentationen till privat länk](https://docs.microsoft.com/azure/private-link/).
+Mer information finns i [dokumentationen till privat länk](../private-link/index.yml).
 
 ## <a name="disable-public-network-access"></a>Inaktivera offentlig nätverks åtkomst
 
@@ -40,7 +40,7 @@ Att skapa en privat slut punkt för FHIR-resursen inaktiverar inte den offentlig
 
 ## <a name="create-private-endpoint"></a>Skapa privat slut punkt
 
-För att skapa en privat slut punkt kan en utvecklare med RBAC-behörigheter på FHIR-resursen använda Azure Portal, [Azure PowerShell](https://docs.microsoft.com/azure/private-link/create-private-endpoint-powershell)eller [Azure CLI](https://docs.microsoft.com/azure/private-link/create-private-endpoint-cli). I den här artikeln får du stegvisa anvisningar om hur du använder Azure Portal. Att använda Azure Portal rekommenderas eftersom det automatiserar skapandet och konfigurationen av Privat DNSs zonen. Du kan referera till den [privata länken Snabbstart guider](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal) för mer information.
+För att skapa en privat slut punkt kan en utvecklare med RBAC-behörigheter på FHIR-resursen använda Azure Portal, [Azure PowerShell](../private-link/create-private-endpoint-powershell.md)eller [Azure CLI](../private-link/create-private-endpoint-cli.md). I den här artikeln får du stegvisa anvisningar om hur du använder Azure Portal. Att använda Azure Portal rekommenderas eftersom det automatiserar skapandet och konfigurationen av Privat DNSs zonen. Du kan referera till den [privata länken Snabbstart guider](../private-link/create-private-endpoint-portal.md) för mer information.
 
 Det finns två sätt att skapa en privat slut punkt. Flöde för automatisk godkännande tillåter en användare som har RBAC-behörigheter på FHIR-resursen för att skapa en privat slut punkt utan att behöva godkännas. Manuellt godkännande flöde gör det möjligt för en användare utan behörigheter för FHIR-resursen att begära att en privat slut punkt godkänns av ägare av FHIR-resursen.
 

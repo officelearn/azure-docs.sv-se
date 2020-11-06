@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2020
 ms.author: matjazl
-ms.openlocfilehash: 20bf72c55a5b6d76a3b214f0a679e28da81e41e2
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: 66ea8692fd3d93b8de9740e145404a8db50ebfdf
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558575"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398104"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Vanliga frågor och svar om Azure API för FHIR
 
@@ -52,7 +52,7 @@ Om du vill se en del av vad som är lanserat i Azure API för FHIR, se [lanserin
 
 ### <a name="in-which-regions-is-azure-api-for-fhir-available"></a>I vilka regioner är Azure API för FHIR tillgängligt?
 
-För närvarande har vi allmän tillgänglighet för både offentlig och myndighets i [flera geo-regioner](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir&regions=non-regional,us-east,us-east-2,us-central,us-north-central,us-south-central,us-west-central,us-west,us-west-2,canada-east,canada-central,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia). Information om statliga moln tjänster på Microsoft finns i Azure- [tjänster av FedRAMP](https://docs.microsoft.com/azure/azure-government/compliance/azure-services-in-fedramp-auditscope).
+För närvarande har vi allmän tillgänglighet för både offentlig och myndighets i [flera geo-regioner](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir&regions=non-regional,us-east,us-east-2,us-central,us-north-central,us-south-central,us-west-central,us-west,us-west-2,canada-east,canada-central,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia). Information om statliga moln tjänster på Microsoft finns i Azure- [tjänster av FedRAMP](../azure-government/compliance/azure-services-in-fedramp-auditscope.md).
 
 ### <a name="where-can-i-see-what-is-releasing-into-the-azure-api-for-fhir"></a>Var kan jag se vad som släpps i Azure API för FHIR?
 
@@ -97,17 +97,17 @@ Några exempel på detta är nedan:
 
 ### <a name="what-is-the-default-sort-when-searching-for-resources-in-azure-api-for-fhir"></a>Vad är standard sortering vid sökning efter resurser i Azure API för FHIR?
 
-Vi stöder sortering efter datumet då uppdateringen senast uppdaterades: _sort = _lastUpdated. Mer information om andra Sök parametrar som stöds finns på [sidan funktioner som stöds](https://docs.microsoft.com/azure/healthcare-apis/fhir-features-supported#search).
+Vi stöder sortering efter datumet då uppdateringen senast uppdaterades: _sort = _lastUpdated. Mer information om andra Sök parametrar som stöds finns på [sidan funktioner som stöds](./fhir-features-supported.md#search).
 
 ### <a name="how-does-export-work"></a>Hur fungerar $export?
 
-$export är en del av FHIR-specifikationen: https://hl7.org/fhir/uv/bulkdata/export/index.html . Om FHIR-tjänsten har kon figurer ATS med en hanterad identitet och ett lagrings konto, och om den hanterade identiteten har åtkomst till det lagrings kontot, kan du bara anropa $export i FHIR-API: et och alla FHIR-resurser kommer att exporteras till lagrings kontot. Mer information finns [i vår artikel om $export](https://docs.microsoft.com/azure/healthcare-apis/export-data).
+$export är en del av FHIR-specifikationen: https://hl7.org/fhir/uv/bulkdata/export/index.html . Om FHIR-tjänsten har kon figurer ATS med en hanterad identitet och ett lagrings konto, och om den hanterade identiteten har åtkomst till det lagrings kontot, kan du bara anropa $export i FHIR-API: et och alla FHIR-resurser kommer att exporteras till lagrings kontot. Mer information finns [i vår artikel om $export](./export-data.md).
 
 ## <a name="using-azure-api-for-fhir"></a>Använda Azure API för FHIR
 
 ### <a name="how-do-i-enable-log-analytics-for-azure-api-for-fhir"></a>Hur gör jag för att aktivera Log Analytics för Azure API för FHIR?
 
-Vi aktiverar diagnostikloggning och gör det möjligt att granska exempel frågor för de här loggarna. Mer information om hur du aktiverar gransknings loggar och exempel frågor finns i [det här avsnittet](https://docs.microsoft.com/azure/healthcare-apis/enable-diagnostic-logging). Om du vill inkludera ytterligare information i loggarna kan du kolla in [med anpassade HTTP-huvuden](https://docs.microsoft.com/azure/healthcare-apis/use-custom-headers).
+Vi aktiverar diagnostikloggning och gör det möjligt att granska exempel frågor för de här loggarna. Mer information om hur du aktiverar gransknings loggar och exempel frågor finns i [det här avsnittet](./enable-diagnostic-logging.md). Om du vill inkludera ytterligare information i loggarna kan du kolla in [med anpassade HTTP-huvuden](./use-custom-headers.md).
 
 ### <a name="where-can-i-see-some-examples-of-using-the-azure-api-for-fhir-within-a-workflow"></a>Var kan jag se några exempel på hur man använder Azure API för FHIR i ett arbets flöde?
 
@@ -121,7 +121,7 @@ Vi har en [GitHub-sida för hälso arkitektur](https://github.com/microsoft/heal
 
 ### <a name="is-there-a-way-to-encrypt-my-data-using-my-personal-key-not-a-default-key"></a>Finns det något sätt att kryptera mina data med min personliga nyckel inte en standard nyckel?
 
-Ja, Azure API för FHIR gör det möjligt att konfigurera Kundhanterade nycklar, vilket ger stöd från Cosmos DB. Mer information om hur du krypterar dina data med en personlig nyckel finns i [det här avsnittet](https://docs.microsoft.com/azure/healthcare-apis/customer-managed-key).
+Ja, Azure API för FHIR gör det möjligt att konfigurera Kundhanterade nycklar, vilket ger stöd från Cosmos DB. Mer information om hur du krypterar dina data med en personlig nyckel finns i [det här avsnittet](./customer-managed-key.md).
 
 ## <a name="azure-api-for-fhir-preview-features"></a>Azure API för FHIR: för hands versions funktioner
 

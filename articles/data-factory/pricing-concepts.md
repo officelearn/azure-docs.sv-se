@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.openlocfilehash: a80e0f1b62257fdbce6598c9cc4088701cc2ae9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13a05089ae6365bb5d279105f8c010278bd0adb8
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983615"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396013"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Förstå Data Factory-priser genom exempel
 
@@ -48,7 +48,7 @@ För att uppnå scenariot måste du skapa en pipeline med följande objekt:
 | Hämta pipeline | 1 Läs-/skriv entitet |
 | Kör pipeline | 2 aktivitets körningar (1 för körnings körning, 1 för aktivitets körningar) |
 | Kopiera data antagande: körnings tid = 10 min | 10 \* 4 Azure integration Runtime (standard DIU-inställning = 4) mer information om data integrerings enheter och optimering av kopierings prestanda finns i [den här artikeln](copy-activity-performance.md) |
-| Övervaka pipeline-antagande: endast 1 körning inträffade | 2 nya försök att köra poster (1 för pipeline-körning, 1 för aktivitets körning) |
+| Övervaka pipeline-antagande: endast 1 körning inträffade | 2 övervaknings körnings poster har hämtats (1 för pipeline-körning, 1 för aktivitets körning) |
 
 **Pris för total scenario: $0,16811**
 
@@ -79,7 +79,7 @@ För att uppnå scenariot måste du skapa en pipeline med följande objekt:
 | Hämta pipeline | 1 Läs-/skriv entitet |
 | Kör pipeline | 3 aktivitets körningar (1 för körnings körning, 2 för aktivitets körningar) |
 | Kopiera data antagande: körnings tid = 10 min | 10 \* 4 Azure integration Runtime (standard DIU-inställning = 4) mer information om data integrerings enheter och optimering av kopierings prestanda finns i [den här artikeln](copy-activity-performance.md) |
-| Övervaka pipeline-antagande: endast 1 körning inträffade | 3 försök att köra poster för övervakning (1 för pipeline-körning, 2 för aktivitets körning) |
+| Övervaka pipeline-antagande: endast 1 körning inträffade | 3 övervaknings körnings poster har hämtats (1 för pipeline-körning, 2 för aktivitets körning) |
 | Kör Databricks Activity Assumptions: körnings tid = 10 min | 10 min externa pipeline-aktivitets körning |
 
 **Pris för total scenario: $0,16916**
@@ -113,7 +113,7 @@ För att uppnå scenariot måste du skapa en pipeline med följande objekt:
 | Hämta pipeline | 1 Läs-/skriv entitet |
 | Kör pipeline | 4 aktivitets körningar (1 för körning av Utlös punkt, 3 för aktivitets körningar) |
 | Kopiera data antagande: körnings tid = 10 min | 10 \* 4 Azure integration Runtime (standard DIU-inställning = 4) mer information om data integrerings enheter och optimering av kopierings prestanda finns i [den här artikeln](copy-activity-performance.md) |
-| Övervaka pipeline-antagande: endast 1 körning inträffade | 4 försök att köra poster för övervakning (1 för pipeline-körning, 3 för aktivitets körning) |
+| Övervaka pipeline-antagande: endast 1 körning inträffade | 4 övervaknings körnings poster har hämtats (1 för pipeline-körning, 3 för aktivitets körning) |
 | Kör söknings aktivitets antagande: körnings tid = 1 min | 1 min körning av pipeline-aktivitet |
 | Kör Databricks Activity Assumptions: körnings tid = 10 min | 10 min externa pipeline-aktivitets körning |
 
@@ -160,7 +160,7 @@ För att uppnå scenariot måste du skapa en pipeline med följande objekt:
 | Hämta pipeline | 1 Läs-/skriv entitet |
 | Kör pipeline | 2 aktivitets körningar (1 för körnings körning, 1 för aktivitets körningar) |
 | Antaganden för data flöde: körnings tid = 10 min + 10 min TTL | 10 \* 16 kärnor i allmän beräkning med TTL på 10 |
-| Övervaka pipeline-antagande: endast 1 körning inträffade | 2 nya försök att köra poster (1 för pipeline-körning, 1 för aktivitets körning) |
+| Övervaka pipeline-antagande: endast 1 körning inträffade | 2 övervaknings körnings poster har hämtats (1 för pipeline-körning, 1 för aktivitets körning) |
 
 **Pris för total scenario: $1,4631**
 
@@ -189,7 +189,7 @@ I det här scenariot vill du ta bort original filerna på Azure Blob Storage och
 | Kör pipeline | 6 aktivitets körningar (2 för körning av utlösare, 4 för aktivitets körningar) |
 | Utför borttagnings aktivitet: varje körnings tid = 5 min. Körningen av borttagnings aktiviteten i den första pipelinen är från 10:00 AM UTC till 10:05 AM UTC. Körningen av borttagnings aktiviteten i den andra pipelinen är från 10:02 AM UTC till 10:07 AM UTC.|Totalt 7 min körning av pipeline-aktiviteter i hanterat VNET. Pipeline-aktiviteten har stöd för upp till 50 samtidighet i hanterat VNET. |
 | Kopiera data antagande: varje körnings tid = 10 min. Kopierings körningen i första pipelinen är från 10:06 AM UTC till 10:15 AM UTC. Körningen av borttagnings aktiviteten i den andra pipelinen är från 10:08 AM UTC till 10:17 AM UTC. | 10 * 4 Azure Integration Runtime (standard DIU-inställning = 4) mer information om data integrerings enheter och optimering av kopierings prestanda finns i [den här artikeln](copy-activity-performance.md) |
-| Övervaka pipeline-antagande: endast 2 körningar inträffade | 6 övervaknings körnings poster har gjorts om (2 för pipeline-körning, 4 för aktivitets körning) |
+| Övervaka pipeline-antagande: endast 2 körningar inträffade | 6 övervaknings körnings poster har hämtats (2 för pipeline-körning, 4 för aktivitets körning) |
 
 
 **Pris för total scenario: $0,45523**

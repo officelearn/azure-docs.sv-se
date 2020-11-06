@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: f39fb5766965e3881068bd6d2fd3a8142f9eb2ac
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ff7bb6084839af56b5f6e874b39929021f23f8a1
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975917"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398087"
 ---
 # <a name="register-a-public-client-application-in-azure-active-directory"></a>Registrera ett offentligt klient program i Azure Active Directory
 
@@ -21,13 +21,13 @@ I den här artikeln får du lära dig hur du registrerar ett offentligt program 
 
 Klient program registreringar är Azure Active Directory representationer av program som kan autentisera och fråga efter API-behörigheter för en användares räkning. Offentliga klienter är program som mobil program och en enda sida JavaScript-program som inte kan spara hemligheter konfidentiellt. Proceduren påminner om att [Registrera en konfidentiell klient](register-confidential-azure-ad-client-app.md), men eftersom offentliga klienter inte är betrodda för att innehålla en program hemlighet behöver du inte lägga till en.
 
-Snabb starten tillhandahåller allmän information om hur du [registrerar ett program med Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
+Snabb starten tillhandahåller allmän information om hur du [registrerar ett program med Microsoft Identity Platform](../active-directory/develop/quickstart-register-app.md).
 
 ## <a name="app-registrations-in-azure-portal"></a>Appregistreringar i Azure Portal
 
 1. Klicka på **Azure Active Directory** på den vänstra navigeringspanelen på [Azure Portal](https://portal.azure.com).
 
-2. Klicka på **Appregistreringar**på bladet **Azure Active Directory** :
+2. Klicka på **Appregistreringar** på bladet **Azure Active Directory** :
 
     ![Azure Portal. Ny app-registrering.](media/how-to-aad/portal-aad-new-app-registration.png)
 
@@ -42,11 +42,11 @@ Snabb starten tillhandahåller allmän information om hur du [registrerar ett pr
     ![Azure Portal. Ny registrering av offentliga appar.](media/how-to-aad/portal-aad-register-new-app-registration-PUB-CLIENT-NAME.png)
 
 
-Så här konfigurerar du [Skriv bordet](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration), [mobilt](https://docs.microsoft.com/azure/active-directory/develop/scenario-mobile-app-registration) eller [en Enkels Ides](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration) applikation som ett offentligt program:
+Så här konfigurerar du [Skriv bordet](../active-directory/develop/scenario-desktop-app-registration.md), [mobilt](../active-directory/develop/scenario-mobile-app-registration.md) eller [en Enkels Ides](../active-directory/develop/scenario-spa-app-registration.md) applikation som ett offentligt program:
 
-1. I [Azure Portal](https://portal.azure.com)väljer du din App i **Appregistreringar**och väljer sedan **autentisering**.
+1. I [Azure Portal](https://portal.azure.com)väljer du din App i **Appregistreringar** och väljer sedan **autentisering**.
 
-2. Välj **Avancerade inställningar**  >  **standard klient typ**. För **behandla program som en offentlig klient**väljer du **Ja**.
+2. Välj **Avancerade inställningar**  >  **standard klient typ**. För **behandla program som en offentlig klient** väljer du **Ja**.
 
 3. För ett program med en enda sida väljer du **åtkomsttoken** och **ID-token** för att aktivera implicit flöde.
 
@@ -62,7 +62,7 @@ På samma sätt som i det [konfidentiella klient programmet](register-confidenti
     Om du använder Azure-API: et för FHIR lägger du till en behörighet i Azure sjukvårds-API: erna genom att söka efter Azure sjukvårds-API: er under **API: er som används i organisationen**. Du kommer bara att kunna hitta detta om du redan har [distribuerat Azure API för FHIR](fhir-paas-powershell-quickstart.md).
 
     
-    Om du refererar till ett annat resurs program väljer du den [FHIR-API resurs program registrering](register-resource-azure-ad-client-app.md) som du skapade tidigare under **Mina API: er**:
+    Om du refererar till ett annat resurs program väljer du den [FHIR-API resurs program registrering](register-resource-azure-ad-client-app.md) som du skapade tidigare under **Mina API: er** :
 
     ![Azure Portal. Nya offentliga API-behörigheter – Azure API för FHIR standard](media/public-client-app/api-permissions.png)
 

@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 07/31/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 37e76f54b9c4fe38c891f7cee7bc443d1b0b20f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a73208ef7014c1f21c78485fc613a26ce3bfc76
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89596081"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397186"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-azure-powershell"></a>Dirigera webbtrafik baserat på webbadressen med Azure PowerShell
 
-Du kan använda Azure PowerShell till att konfigurera dirigering av webbtrafik till specifika, skalbara serverpooler baserat på webbadressen som användes för åtkomst till ditt program. I den här artikeln skapar du en [Azure Application Gateway](application-gateway-introduction.md) med tre backend-pooler med hjälp av [Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Var och en av serverdelspoolerna har ett specifikt syfte, som vanliga data, bilder eller video.  När du dirigerar trafiken till olika pooler garanterar du att dina kunder får den information de behöver, när de behöver den.
+Du kan använda Azure PowerShell till att konfigurera dirigering av webbtrafik till specifika, skalbara serverpooler baserat på webbadressen som användes för åtkomst till ditt program. I den här artikeln skapar du en [Azure Application Gateway](./overview.md) med tre backend-pooler med hjälp av [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md). Var och en av serverdelspoolerna har ett specifikt syfte, som vanliga data, bilder eller video.  När du dirigerar trafiken till olika pooler garanterar du att dina kunder får den information de behöver, när de behöver den.
 
-Om du vill aktivera trafikdirigering skapar du [routningsregler](application-gateway-url-route-overview.md) som tilldelas till lyssnarna för specifika portar. Då ser du till att webbtrafiken kommer till rätt server i poolen.
+Om du vill aktivera trafikdirigering skapar du [routningsregler](./url-route-overview.md) som tilldelas till lyssnarna för specifika portar. Då ser du till att webbtrafiken kommer till rätt server i poolen.
 
 I den här artikeln kan du se hur du:
 
@@ -31,7 +31,7 @@ I den här artikeln kan du se hur du:
 
 Om du vill kan du slutföra den här proceduren med hjälp av [Azure CLI](tutorial-url-route-cli.md) eller [Azure Portal](create-url-route-portal.md).
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -185,7 +185,7 @@ Nu har du en Programgateway som lyssnar efter trafik på port 80 och skickar tra
 
 ### <a name="add-image-and-video-backend-pools-and-port"></a>Lägga till serverdelspooler och portar för bilder och video
 
-Lägg till backend-pooler med namnet *imagesBackendPool* och *videoBackendPool* i Application Gateway[Add-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/add-azapplicationgatewaybackendaddresspool). Lägg till frontend-porten för poolerna med [Add-AzApplicationGatewayFrontendPort](/powershell/module/az.network/add-azapplicationgatewayfrontendport). Skicka ändringarna till Application Gateway med [set-AzApplicationGateway](/powershell/module/az.network/set-azapplicationgateway).
+Lägg till backend-pooler med namnet *imagesBackendPool* och *videoBackendPool* i Application Gateway [Add-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/add-azapplicationgatewaybackendaddresspool). Lägg till frontend-porten för poolerna med [Add-AzApplicationGatewayFrontendPort](/powershell/module/az.network/add-azapplicationgatewayfrontendport). Skicka ändringarna till Application Gateway med [set-AzApplicationGateway](/powershell/module/az.network/set-azapplicationgateway).
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway `
@@ -312,7 +312,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ## <a name="create-virtual-machine-scale-sets"></a>Skapa VM-skalningsuppsättningar
 
-I det här exemplet skapar du tre VM-skalningsuppsättningar för de tre serverdelspooler du har skapat. Skalningsuppsättningarna du skapar har namnen *myvmss1*, *myvmss2* och *myvmss3*. Du tilldelar skalningsuppsättningen till serverdelspoolen när du konfigurerar IP-inställningarna.
+I det här exemplet skapar du tre VM-skalningsuppsättningar för de tre serverdelspooler du har skapat. Skalningsuppsättningarna du skapar har namnen *myvmss1* , *myvmss2* och *myvmss3*. Du tilldelar skalningsuppsättningen till serverdelspoolen när du konfigurerar IP-inställningarna.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `

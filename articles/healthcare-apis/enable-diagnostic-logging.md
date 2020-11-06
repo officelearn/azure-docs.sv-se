@@ -9,16 +9,16 @@ ms.reviewer: dseven
 ms.author: cavoeg
 author: CaitlinV39
 ms.date: 11/01/2019
-ms.openlocfilehash: 948ca03b5bf503c884df5df56c61951b381874a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 262509df98b93c7902d83f90756872a16d84198f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84871703"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398138"
 ---
 # <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Aktivera diagnostisk loggning i Azure API för FHIR®
 
-I den här artikeln får du lära dig hur du aktiverar diagnostisk loggning i Azure API för FHIR® och kan granska några exempel frågor för dessa loggar. Åtkomst till diagnostikloggar är nödvändig för alla sjukvårds tjänster där efterlevnaden av myndighets krav (t. ex. HIPAA) är en måste. Funktionen i Azure API för FHIR® som aktiverar diagnostikloggar är [**diagnostikinställningar**](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) i Azure Portal. 
+I den här artikeln får du lära dig hur du aktiverar diagnostisk loggning i Azure API för FHIR® och kan granska några exempel frågor för dessa loggar. Åtkomst till diagnostikloggar är nödvändig för alla sjukvårds tjänster där efterlevnaden av myndighets krav (t. ex. HIPAA) är en måste. Funktionen i Azure API för FHIR® som aktiverar diagnostikloggar är [**diagnostikinställningar**](../azure-monitor/platform/diagnostic-settings.md) i Azure Portal. 
 
 ## <a name="enable-audit-logs"></a>Aktivera gransknings loggar
 1. Om du vill aktivera diagnostikloggning i Azure API för FHIR® väljer du ditt Azure API för FHIR®-tjänsten i Azure Portal 
@@ -42,12 +42,12 @@ I den här artikeln får du lära dig hur du aktiverar diagnostisk loggning i Az
 > [!Note] 
 > Det kan ta upp till 15 minuter innan de första loggarna visas i Log Analytics.  
  
-Mer information om hur du arbetar med diagnostikloggar finns i [dokumentationen till Azure Resource log](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-overview)
+Mer information om hur du arbetar med diagnostikloggar finns i [dokumentationen till Azure Resource log](../azure-monitor/platform/platform-logs-overview.md)
 
 ## <a name="audit-log-details"></a>Gransknings logg information
 För närvarande returnerar Azure API för FHIR®-tjänsten följande fält i gransknings loggen: 
 
-|Fältnamn  |Typ  |Obs!  |
+|Fältnamn  |Typ  |Kommentarer  |
 |---------|---------|---------|
 |CallerIdentity|Dynamisk|En generisk egenskaps uppsättning med identitets information
 |CallerIdentityIssuer|Sträng|Utfärdare 
@@ -56,16 +56,16 @@ För närvarande returnerar Azure API för FHIR®-tjänsten följande fält i gr
 |CorrelationId|Sträng| Korrelations-ID
 |FhirResourceType|Sträng|Resurs typen som åtgärden kördes för
 |LogCategory|Sträng|Logg kategorin (vi returnerar AuditLogs LogCategory)
-|Location|Sträng|Platsen för den server som bearbetade begäran (t. ex. södra centrala USA)
+|Plats|Sträng|Platsen för den server som bearbetade begäran (t. ex. södra centrala USA)
 |OperationDuration|Int|Tiden det tog att slutföra den här begäran på några sekunder
 |OperationName|Sträng| Beskriver typ av åtgärd (t. ex. uppdatering, söknings typ)
 |RequestUri|Sträng|Begärd URI 
-|ResultType|Sträng|De tillgängliga värdena är för närvarande **igång**, **lyckades**eller **misslyckades**
+|ResultType|Sträng|De tillgängliga värdena är för närvarande **igång** , **lyckades** eller **misslyckades**
 |StatusCode|Int|HTTP-statuskod. (t. ex. 200) 
 |TimeGenerated|DateTime|Datum och tid för händelsen|
 |Egenskaper|Sträng| Beskriver egenskaperna för fhirResourceType
 |SourceSystem|Sträng| Käll system (alltid i Azure i detta fall)
-|TenantId|Sträng|Klientorganisations-ID
+|TenantId|Sträng|Klient-ID:t
 |Typ|Sträng|Typ av logg (alltid MicrosoftHealthcareApisAuditLog i det här fallet)
 |_ResourceId|Sträng|Information om resursen
 
@@ -80,7 +80,7 @@ MicrosoftHealthcareApisAuditLogs
 | limit 100
 ```
 
-Kör den här frågan för att gruppera åtgärder efter **FHIR resurs typ**:
+Kör den här frågan för att gruppera åtgärder efter **FHIR resurs typ** :
 
 ```Application Insights
 MicrosoftHealthcareApisAuditLogs 

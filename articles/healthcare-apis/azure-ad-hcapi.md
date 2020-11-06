@@ -9,16 +9,16 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: cavoeg
-ms.openlocfilehash: cdb73670996341e9219230bb277e087009266f32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b362a81fc9b533fe00987a74d7e25dbba61a2589
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87846028"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398257"
 ---
 # <a name="azure-active-directory-identity-configuration-for-azure-api-for-fhir"></a>Azure Active Directory identitets konfiguration för Azure API för FHIR
 
-En viktig del när du arbetar med hälso vårds data är att säkerställa att data är säkra och inte kan nås av obehöriga användare eller program. FHIR-servrar använder [OAuth 2,0](https://oauth.net/2/) för att säkerställa denna data säkerhet. [Azure API för FHIR](https://azure.microsoft.com/services/azure-api-for-fhir/) skyddas med [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/), vilket är ett exempel på en identitets leverantör för OAuth 2,0. Den här artikeln innehåller en översikt över FHIR Server-auktorisering och de steg som krävs för att hämta en token för att få åtkomst till en FHIR-Server. De här stegen gäller för alla FHIR-servrar och identitets leverantörer, och vi går igenom Azure API för FHIR som FHIR-Server och Azure AD som vår identitets leverantör i den här artikeln.
+En viktig del när du arbetar med hälso vårds data är att säkerställa att data är säkra och inte kan nås av obehöriga användare eller program. FHIR-servrar använder [OAuth 2,0](https://oauth.net/2/) för att säkerställa denna data säkerhet. [Azure API för FHIR](https://azure.microsoft.com/services/azure-api-for-fhir/) skyddas med [Azure Active Directory](../active-directory/index.yml), vilket är ett exempel på en identitets leverantör för OAuth 2,0. Den här artikeln innehåller en översikt över FHIR Server-auktorisering och de steg som krävs för att hämta en token för att få åtkomst till en FHIR-Server. De här stegen gäller för alla FHIR-servrar och identitets leverantörer, och vi går igenom Azure API för FHIR som FHIR-Server och Azure AD som vår identitets leverantör i den här artikeln.
 
 ## <a name="access-control-overview"></a>Översikt över åtkomstkontroll
 
@@ -26,12 +26,12 @@ För att ett klient program ska kunna komma åt Azure API för FHIR måste det p
 
 Det finns ett antal sätt att hämta en token, men Azure API för FHIR inte bryr sig om att token erhålls så länge det är en korrekt signerad token med rätt anspråk. 
 
-Genom att använda [Flow-flöde](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code) som exempel går det att komma åt en FHIR-Server genom de fyra stegen nedan:
+Genom att använda [Flow-flöde](../active-directory/azuread-dev/v1-protocols-oauth-code.md) som exempel går det att komma åt en FHIR-Server genom de fyra stegen nedan:
 
 ![FHIR-auktorisering](media/azure-ad-hcapi/fhir-authorization.png)
 
-1. Klienten skickar en begäran till `/authorize` slut punkten för Azure AD. Azure AD kommer att omdirigera klienten till en inloggnings sida där användaren autentiseras med hjälp av lämpliga autentiseringsuppgifter (till exempel användar namn och lösen ord eller tvåfaktorautentisering). Se information om hur du [skaffar en auktoriseringskod](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code#request-an-authorization-code). Vid lyckad autentisering returneras en *auktoriseringskod* till klienten. Azure AD tillåter bara att den här auktoriseringskod returneras till en registrerad svars-URL som kon figurer ATS i klient program registreringen (se nedan).
-1. Klient programmet utbyter auktoriseringskod för en *åtkomsttoken* i `/token` slut punkten för Azure AD. När en token begärs kan klient programmet behöva ange en klient hemlighet (program lösen ordet). Se information om hur du [skaffar en åtkomsttoken](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code#use-the-authorization-code-to-request-an-access-token).
+1. Klienten skickar en begäran till `/authorize` slut punkten för Azure AD. Azure AD kommer att omdirigera klienten till en inloggnings sida där användaren autentiseras med hjälp av lämpliga autentiseringsuppgifter (till exempel användar namn och lösen ord eller tvåfaktorautentisering). Se information om hur du [skaffar en auktoriseringskod](../active-directory/azuread-dev/v1-protocols-oauth-code.md#request-an-authorization-code). Vid lyckad autentisering returneras en *auktoriseringskod* till klienten. Azure AD tillåter bara att den här auktoriseringskod returneras till en registrerad svars-URL som kon figurer ATS i klient program registreringen (se nedan).
+1. Klient programmet utbyter auktoriseringskod för en *åtkomsttoken* i `/token` slut punkten för Azure AD. När en token begärs kan klient programmet behöva ange en klient hemlighet (program lösen ordet). Se information om hur du [skaffar en åtkomsttoken](../active-directory/azuread-dev/v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token).
 1. Klienten skickar en begäran till Azure-API: t för FHIR, till exempel för `GET /Patient` att söka i alla patienter. När du gör en begäran, innehåller den åtkomsttoken i en HTTP-begärans huvud, till exempel `Authorization: Bearer eyJ0e...` där `eyJ0e...` representerar Base64-kodad åtkomsttoken.
 1. Azure API för FHIR verifierar att token innehåller lämpliga anspråk (egenskaper i token). Om allting checkar ut, slutförs begäran och returnerar ett FHIR-paket med resultat till klienten.
 
@@ -89,7 +89,7 @@ Token kan avkodas och inspekteras med verktyg som [https://jwt.ms](https://jwt.m
 
 ## <a name="obtaining-an-access-token"></a>Hämta en åtkomsttoken
 
-Som nämnts ovan finns det flera sätt att hämta en token från Azure AD. De beskrivs i detalj i dokumentationen för [Azure AD-utvecklare](https://docs.microsoft.com/azure/active-directory/develop/).
+Som nämnts ovan finns det flera sätt att hämta en token från Azure AD. De beskrivs i detalj i dokumentationen för [Azure AD-utvecklare](../active-directory/develop/index.yml).
 
 Azure AD har två olika versioner av OAuth 2,0-slutpunkter, som kallas `v1.0` och `v2.0` . Båda dessa versioner är OAuth 2,0-slutpunkter och- `v1.0` och- `v2.0` benämningarna avser skillnader i hur Azure AD implementerar standarden. 
 
@@ -98,11 +98,11 @@ När du använder en FHIR-Server kan du använda antingen- `v1.0` eller- `v2.0` 
 De relevanta avsnitten i Azure AD-dokumentationen är:
 
 * `v1.0` Endpoint
-    * [Flöde för auktoriseringskod](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code).
-    * [Flöde](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)för klientautentiseringsuppgifter.
+    * [Flöde för auktoriseringskod](../active-directory/azuread-dev/v1-protocols-oauth-code.md).
+    * [Flöde](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md)för klientautentiseringsuppgifter.
 * `v2.0` Endpoint
-    * [Flöde för auktoriseringskod](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow).
-    * [Flöde](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)för klientautentiseringsuppgifter.
+    * [Flöde för auktoriseringskod](../active-directory/develop/v2-oauth2-auth-code-flow.md).
+    * [Flöde](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md)för klientautentiseringsuppgifter.
 
 Det finns andra varianter (till exempel för flödets räkning) för att hämta en token. Mer information finns i Azure AD-dokumentationen. När du använder Azure API för FHIR finns det också vissa genvägar för att hämta en åtkomsttoken (för fel söknings syfte) [med hjälp av Azure CLI](get-healthcare-apis-access-token-cli.md).
 

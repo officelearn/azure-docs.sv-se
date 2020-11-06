@@ -4,12 +4,12 @@ description: Tillgänglighet för beräknings-och minnes resurser för tjänsten
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 1ed3f50198c0410d9c893fe87523fa214ca03d88
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: e4fbf1023863f9f4c46e6bd2266f72ff2f7d7adc
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521466"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395877"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Resurs tillgänglighet för Azure Container Instances i Azure-regioner
 
@@ -31,25 +31,26 @@ Följande regioner och maximala resurser är tillgängliga för behållar gruppe
 
 | Region | Maximal CPU | Högsta mängd minne (GB) | Max-CPU för VNET | Största mängd minne i VNET (GB) | Lagring (GB) | GPU SKU: er (för hands version) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: | :----: |
-| Australien, östra | 4 | 16 | 4 | 16 | 50 | Ej tillämpligt |
-| Brasilien, södra | 4 | 16 | 2 | 8 | 50 | Ej tillämpligt |
-| Kanada, centrala | 4 | 16 | 4 | 16 | 50 | Ej tillämpligt |
+| Australien, östra | 4 | 16 | 4 | 16 | 50 | E.t. |
+| Brasilien, södra | 4 | 16 | 2 | 8 | 50 | E.t. |
+| Kanada, centrala | 4 | 16 | 4 | 16 | 50 | E.t. |
 | Indien, centrala | 4 | 16 | Saknas | Saknas | 50 | V100 |
-| Central US | 4 | 16 | 4 | 16 | 50 | Ej tillämpligt |
-| Asien, östra | 4 | 16 | 4 | 16 | 50 | Ej tillämpligt |
+| Central US | 4 | 16 | 4 | 16 | 50 | E.t. |
+| Asien, östra | 4 | 16 | 4 | 16 | 50 | E.t. |
 | East US | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
-| USA, östra 2 | 4 | 16 | 4 | 16 | 50 | Ej tillämpligt |
-| Japan, östra | 2 | 8 | 4 | 16 | 50 | Ej tillämpligt |
-| Sydkorea, centrala | 4 | 16 | Saknas | Saknas | 50 | Ej tillämpligt |
-| USA, norra centrala | 2 | 3.5 | 4 | 16 | 50 | Ej tillämpligt |
+| USA, östra 2 | 4 | 16 | 4 | 16 | 50 | E.t. |
+| Frankrike, centrala | 4 | 16 | 4 | 16 | 50 | E.t. |
+| Japan, östra | 2 | 8 | 4 | 16 | 50 | E.t. |
+| Sydkorea, centrala | 4 | 16 | Saknas | Saknas | 50 | E.t. |
+| USA, norra centrala | 2 | 3.5 | 4 | 16 | 50 | K80, P100, V100 |
 | Norra Europa | 4 | 16 | 4 | 16 | 50 | K80 |
-| USA, södra centrala | 4 | 16 | 4 | 16 | 50 | Ej tillämpligt |
+| USA, södra centrala | 4 | 16 | 4 | 16 | 50 | E.t. |
 | Sydostasien | 4 | 16 | 4 | 16 | 50 | P100, V100 |
-| Indien, södra | 4 | 16 | Saknas | Saknas | 50 | Ej tillämpligt |
-| Storbritannien, södra | 4 | 16 | 4 | 16 | 50 | Ej tillämpligt |
-| USA, västra centrala| 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
+| Indien, södra | 4 | 16 | Saknas | Saknas | 50 | E.t. |
+| Storbritannien, södra | 4 | 16 | 4 | 16 | 50 | E.t. |
+| USA, västra centrala| 4 | 16 | 4 | 16 | 50 | E.t. |
 | Europa, västra | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
-| USA, västra | 4 | 16 | 2 | 4 | 16| Ej tillämpligt |
+| USA, västra | 4 | 16 | 4 | 16 | 50 | E.t. |
 | USA, västra 2 | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
 
 Följande maximala resurser är tillgängliga för en behållar grupp som distribueras med [GPU-resurser](container-instances-gpu.md) (för hands version).
@@ -67,29 +68,63 @@ Följande maximala resurser är tillgängliga för en behållar grupp som distri
 
 Följande regioner och maximalt antal resurser är tillgängliga för behållar grupper med [stödda och för hands versioner](container-instances-faq.md#what-windows-base-os-images-are-supported) av Windows Server-behållare.
 
-| Region | Windows Server 2016 Max CPU | Windows Server 2016 Max minne (GB) | Windows Server 2019 LTSC Max CPU | Windows Server 2019 LTSC Max minne (GB) | Lagring (GB) |
+###  <a name="windows-server-2016"></a>Windows Server 2016
+
+> [!NOTE]
+> Se [kompatibilitet för värd-och container version](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility) för mer information om 1b, 2b och 3b värdar.
+
+| Region | 1B/2B Max CPU | 1B/2B Max minne (GB) |3B Max CPU | 3B Max minne (GB) | Lagring (GB) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: |
-| Australien, östra | 2 | 3.5 | 4 | 16 | 20 |
+| Australien, östra | 2 | 8 | 2 | 3.5 | 20 |
 | Brasilien, södra | 4 | 16 | 4 | 16 | 20 |
-| Kanada, centrala | 2 | 3.5 | 4 | 16 | 20 |
-| Indien, centrala | 2 | 3.5 | 4 | 16 | 20 |
-| Central US | 2 | 3.5 | 4 | 16 | 20 |
-| Asien, östra | 2 | 3.5 | 4 | 16 | 20 |
-| East US | 2 | 8 | 4 | 16 | 20 |
-| USA, östra 2 | 2 | 3.5 | 2 | 3.5 | 20 |
-| Frankrike, centrala | 4 | 16 | 4 | 16 | 20 |
+| Kanada, centrala | 2 | 3.5 | 2 | 3.5 | 20 |
+| Indien, centrala | 2 | 3.5 | 2 | 3.5 | 20 |
+| Central US | 2 | 3.5 | 2 | 3.5 | 20 |
+| Asien, östra | 2 | 3.5 | 2 | 3.5 | 20 |
+| East US | 4 | 16 | 2 | 8 | 20 |
+| USA, östra 2 | 2 | 3.5 | 4 | 16 | 20 |
 | Japan, östra | 4 | 16 | 4 | 16 | 20 |
 | Sydkorea, centrala | 4 | 16 | 4 | 16 | 20 |
-| USA, norra centrala | 2 | 3.5 | 4 | 16 | 20 |
-| Norra Europa | 2 | 3.5 | 4 | 16 | 20 |
-| USA, södra centrala | 2 | 3.5 | 4 | 16 | 20 |
-| Indien, södra | 2 | 3.5 | 4 | 16 | 20 |
-| Sydostasien | 2 | 3.5 | 4 | 16 | 20 |
-| Storbritannien, södra | 2 | 3.5 | 4 | 16 | 20 |
+| USA, norra centrala | 4 | 16 | 4 | 16 | 20 |
+| Norra Europa | 2 | 3.5 | 2 | 8 | 20 |
+| USA, södra centrala | 2 | 3.5 | 2 | 3.5 | 20 |
+| Sydostasien | Saknas | Saknas | 2 | 3.5 | 20 |
+| Indien, södra | 2 | 3.5 | 2 | 3.5 | 20 |
+| Storbritannien, södra | 2 | 8 | 2 | 3.5 | 20 |
 | USA, västra centrala | 4 | 16 | 4 | 16 | 20 |
 | Europa, västra | 4 | 16 | 4 | 16 | 20 |
-| USA, västra | 4 | 14 | Saknas | Saknas | 20 |
+| USA, västra | 4 | 16 | 2 | 8 | 20 |
 | USA, västra 2 | 2 | 3.5 | 2 | 3.5 | 20 |
+
+
+### <a name="windows-server-2019-ltsc"></a>Windows Server 2019 LTSC
+
+> [!NOTE]
+> Se [kompatibilitet för värd-och container version](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility) för mer information om 1b, 2b och 3b värdar.
+
+| Region | 1B/2B Max CPU | 1B/2B Max minne (GB) |3B Max CPU | 3B Max minne (GB) | Lagring (GB) |
+| -------- | :---: | :---: | :----: | :-----: | :-------: |
+| Australien, östra | 4 | 16 | 4 | 16 | 20 |
+| Brasilien, södra | 4 | 16 | 4 | 16 | 20 |
+| Kanada, centrala | 4 | 16 | 4 | 16 | 20 |
+| Indien, centrala | 4 | 16 | 4 | 16 | 20 |
+| Central US | 4 | 16 | 4 | 16 | 20 |
+| Asien, östra | 4 | 16 | 4 | 16 | 20 |
+| East US | 4 | 16 | 4 | 16 | 20 |
+| USA, östra 2 | 2 | 3.5 | 2 | 3.5 | 20 |
+| Frankrike, centrala | 4 | 16 | 4 | 16 | 20 |
+| Japan, östra | Saknas | Saknas | 4 | 16 | 20 |
+| Sydkorea, centrala | 4 | 16 | 4 | 16 | 20 |
+| USA, norra centrala | 4 | 16 | 4 | 16 | 20 |
+| Norra Europa | 4 | 16 | 4 | 16 | 20 |
+| USA, södra centrala | 4 | 16 | 4 | 16 | 20 |
+| Sydostasien | 4 | 16 | 4 | 16 | 20 |
+| Indien, södra | 4 | 16 | 4 | 16 | 20 |
+| Storbritannien, södra | 4 | 16 | 4 | 16 | 20 |
+| USA, västra centrala | 4 | 16 | 4 | 16 | 20 |
+| Europa, västra | 4 | 16 | 4 | 16 | 20 |
+| USA, västra | 4 | 16 | 4 | 16 | 20 |
+| USA, västra 2 | 2 | 8 | 4 | 16 | 20 |
 
 ## <a name="next-steps"></a>Nästa steg
 

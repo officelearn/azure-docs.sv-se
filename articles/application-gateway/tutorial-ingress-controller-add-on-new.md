@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: a93ef47d4a7ecc136f66cf54a08f7ed23bec2cc0
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 18c8aa0ff05dababc5a79c5c05b43ce9ebcbf9b4
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427980"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397104"
 ---
 # <a name="tutorial-enable-the-ingress-controller-add-on-preview-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>Självstudie: aktivera tillägg för ingångs kontroll (för hands version) för ett nytt AKS-kluster med en ny Application Gateway instans
 
@@ -39,17 +39,17 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.4 eller senare i den här självstudien. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
-Registrera funktions flaggan *AKS-IngressApplicationGatewayAddon* med hjälp av kommandot [AZ Feature register](https://docs.microsoft.com/cli/azure/feature#az-feature-register) , som du ser i följande exempel. Du behöver bara göra detta en gång per prenumeration medan tillägget fortfarande finns i en för hands version.
+Registrera funktions flaggan *AKS-IngressApplicationGatewayAddon* med hjälp av kommandot [AZ Feature register](/cli/azure/feature#az-feature-register) , som du ser i följande exempel. Du behöver bara göra detta en gång per prenumeration medan tillägget fortfarande finns i en för hands version.
 ```azurecli-interactive
 az feature register --name AKS-IngressApplicationGatewayAddon --namespace Microsoft.ContainerService
 ```
 
-Det kan ta några minuter innan status visas `Registered` . Du kan kontrol lera registrerings statusen med hjälp av kommandot [AZ feature list](https://docs.microsoft.com/cli/azure/feature#az-feature-register) :
+Det kan ta några minuter innan status visas `Registered` . Du kan kontrol lera registrerings statusen med hjälp av kommandot [AZ feature list](/cli/azure/feature#az-feature-register) :
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
 ```
 
-När du är klar uppdaterar du registreringen av resurs leverantören Microsoft. container service med hjälp av kommandot [AZ Provider register](https://docs.microsoft.com/cli/azure/provider#az-provider-register) :
+När du är klar uppdaterar du registreringen av resurs leverantören Microsoft. container service med hjälp av kommandot [AZ Provider register](/cli/azure/provider#az-provider-register) :
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
@@ -82,15 +82,15 @@ Nu ska du distribuera ett nytt AKS-kluster med AGIC-tillägget aktiverat. Om du 
 > - Aktivera WAF på Application Gateway via portalen. 
 > - Skapa först WAF_v2 Application Gateway-instansen och följ sedan anvisningarna om hur du [aktiverar AGIC-tillägget med ett befintligt AKS-kluster och befintlig Application Gateway-instans](tutorial-ingress-controller-add-on-existing.md). 
 
-I följande exempel distribuerar du ett nytt AKS-kluster *med namnet IT-kluster med hjälp* av [Azure cni](https://docs.microsoft.com/azure/aks/concepts-network#azure-cni-advanced-networking) och [hanterade identiteter](https://docs.microsoft.com/azure/aks/use-managed-identity). AGIC-tillägget aktive ras i resurs gruppen som du skapade, *myResourceGroup*. 
+I följande exempel distribuerar du ett nytt AKS-kluster *med namnet IT-kluster med hjälp* av [Azure cni](../aks/concepts-network.md#azure-cni-advanced-networking) och [hanterade identiteter](../aks/use-managed-identity.md). AGIC-tillägget aktive ras i resurs gruppen som du skapade, *myResourceGroup*. 
 
-Om du distribuerar ett nytt AKS-kluster med AGIC-tillägget aktiverat utan att ange en befintlig Application Gateway instans, innebär det att en automatisk generering av en Standard_v2 SKU Application Gateway-instans skapas automatiskt. Så du kan också ange namn och under näts adress utrymme för Application Gateway-instansen. Namnet på Application Gateway-instansen kommer att vara *myApplicationGateway*och adress utrymmet för under nätet som vi använder är 10.2.0.0/16. Se till att du har lagt till eller uppdaterat tillägget AKS-Preview i början av den här självstudien. 
+Om du distribuerar ett nytt AKS-kluster med AGIC-tillägget aktiverat utan att ange en befintlig Application Gateway instans, innebär det att en automatisk generering av en Standard_v2 SKU Application Gateway-instans skapas automatiskt. Så du kan också ange namn och under näts adress utrymme för Application Gateway-instansen. Namnet på Application Gateway-instansen kommer att vara *myApplicationGateway* och adress utrymmet för under nätet som vi använder är 10.2.0.0/16. Se till att du har lagt till eller uppdaterat tillägget AKS-Preview i början av den här självstudien. 
 
 ```azurecli-interactive
 az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-prefix "10.2.0.0/16" --generate-ssh-keys
 ```
 
-Information om hur du konfigurerar ytterligare parametrar för `az aks create` kommandot finns i [följande referenser](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create). 
+Information om hur du konfigurerar ytterligare parametrar för `az aks create` kommandot finns i [följande referenser](/cli/azure/aks?view=azure-cli-latest#az-aks-create). 
 
 > [!NOTE]
 > Det AKS-kluster som du har skapat visas i resurs gruppen som du skapade, *myResourceGroup*. Den automatiskt skapade Application Gateway-instansen kommer dock att finnas i resurs gruppen för noden där agent poolerna är. Resurs gruppen för noden med namnet *MC_resource-Group-name_cluster-name_location* som standard, men kan ändras. 
@@ -138,4 +138,3 @@ az group delete --name myResourceGroup
 
 > [!div class="nextstepaction"]
 > [Läs om hur du inaktiverar AGIC-tillägget](./ingress-controller-disable-addon.md)
-

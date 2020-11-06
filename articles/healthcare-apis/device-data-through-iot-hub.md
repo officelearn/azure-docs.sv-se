@@ -8,22 +8,22 @@ ms.subservice: iomt
 ms.topic: tutorial
 ms.date: 08/03/2020
 ms.author: punagpal
-ms.openlocfilehash: 3b2e4a1ae5ff43283893b286dafb38491a1181b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee286540d4fd740c5e7c1f8bd693fddd625eeae2
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91308233"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398155"
 ---
 # <a name="tutorial-receive-device-data-through-azure-iot-hub"></a>Självstudie: ta emot enhets data via Azure IoT Hub
 
 Azure IoT Connector för FHIR * ger dig möjlighet att mata in data från IoMT-enheter (Internet of medicinska saker) i Azure API för FHIR. [Distribuera Azure IoT Connector för FHIR (för hands version) med Azure Portal](iot-fhir-portal-quickstart.md) snabb start visade ett exempel på en enhet som hanteras av Azure IoT Central [Skicka telemetri](iot-fhir-portal-quickstart.md#connect-your-devices-to-iot) till Azure IoT Connector för FHIR. Azure IoT-anslutning för FHIR kan också användas med enheter som tillhandahålls och hanteras via Azure IoT Hub. Den här självstudien visar hur du ansluter och dirigerar enhets data från Azure IoT Hub till Azure IoT Connector för FHIR.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En aktiv Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Azure API för FHIR-resurs med minst en Azure IoT-anslutning för FHIR – [Distribuera Azure IoT Connector för FHIR (för hands version) med Azure Portal](iot-fhir-portal-quickstart.md)
-- Azure IoT Hub resurs som är ansluten till verkliga eller simulerade enheter – [skapa en IoT Hub med hjälp av Azure Portal](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-dotnet)
+- Azure IoT Hub resurs som är ansluten till verkliga eller simulerade enheter – [skapa en IoT Hub med hjälp av Azure Portal](../iot-hub/quickstart-send-telemetry-dotnet.md)
 
 > [!TIP]
 > Om du använder ett Azure IoT Hub simulerat enhets program kan du välja mellan olika språk och system som stöds.
@@ -36,19 +36,19 @@ Azure IoT Connector för FHIR använder en Azure Event Hub-instans under huven f
 
 ## <a name="connect-azure-iot-hub-with-the-azure-iot-connector-for-fhir-preview"></a>Ansluta Azure IoT Hub med Azure IoT Connector för FHIR (för hands version)
 
-Azure IoT Hub stöder en funktion som kallas [meddelanderoutning](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) som ger möjlighet att skicka enhets data till olika Azure-tjänster som Händelsehubben, lagrings konto och Service Bus. Azure IoT Connector för FHIR använder den här funktionen för att ansluta och skicka enhets data från Azure IoT Hub till händelse navets slut punkt.
+Azure IoT Hub stöder en funktion som kallas [meddelanderoutning](../iot-hub/iot-hub-devguide-messages-d2c.md) som ger möjlighet att skicka enhets data till olika Azure-tjänster som Händelsehubben, lagrings konto och Service Bus. Azure IoT Connector för FHIR använder den här funktionen för att ansluta och skicka enhets data från Azure IoT Hub till händelse navets slut punkt.
 
 > [!NOTE] 
-> Vid detta tillfälle kan du bara använda PowerShell-eller CLI-kommandot för att [skapa meddelanderoutning](https://docs.microsoft.com/azure/iot-hub/tutorial-routing) eftersom Azure IoT Connector för FHIR-händelsehubben inte finns på kund prenumerationen, och därför är den inte synlig för dig via Azure Portal. Trots att meddelande väg objekt har lagts till med hjälp av PowerShell eller CLI, är de synliga i Azure Portal och kan hanteras därifrån.
+> Vid detta tillfälle kan du bara använda PowerShell-eller CLI-kommandot för att [skapa meddelanderoutning](../iot-hub/tutorial-routing.md) eftersom Azure IoT Connector för FHIR-händelsehubben inte finns på kund prenumerationen, och därför är den inte synlig för dig via Azure Portal. Trots att meddelande väg objekt har lagts till med hjälp av PowerShell eller CLI, är de synliga i Azure Portal och kan hanteras därifrån.
 
 Att konfigurera en meddelanderoutning består av två steg.
 
 ### <a name="add-an-endpoint"></a>Lägga till en slutpunkt
-I det här steget definieras en slut punkt som IoT Hub dirigerar data till. Skapa den här slut punkten med hjälp av antingen [Add-AzIotHubRoutingEndpoint](https://docs.microsoft.com/powershell/module/az.iothub/Add-AzIotHubRoutingEndpoint) PowerShell-kommandot eller [AZ IoT Hub routing-Endpoint Create CLI-](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?#az-iot-hub-routing-endpoint-create) kommando baserat på din preferens.
+I det här steget definieras en slut punkt som IoT Hub dirigerar data till. Skapa den här slut punkten med hjälp av antingen [Add-AzIotHubRoutingEndpoint](/powershell/module/az.iothub/Add-AzIotHubRoutingEndpoint) PowerShell-kommandot eller [AZ IoT Hub routing-Endpoint Create CLI-](/cli/azure/iot/hub/routing-endpoint#az-iot-hub-routing-endpoint-create) kommando baserat på din preferens.
 
 Här är listan över parametrar som ska användas med kommandot för att skapa en slut punkt:
 
-|PowerShell-parameter|CLI-parameter|Beskrivning|
+|PowerShell-parameter|CLI-parameter|Description|
 |---|---|---|
 |ResourceGroupName|resource-group|Resurs grupps namnet för din IoT Hub-resurs.|
 |Name|hubb-namn|Namnet på din IoT Hub-resurs.|
@@ -59,11 +59,11 @@ Här är listan över parametrar som ska användas med kommandot för att skapa 
 |Begär|connection-string|Anslutnings sträng till din Azure IoT-anslutning för FHIR. Använd det värde som du fick i föregående steg.|
 
 ### <a name="add-a-message-route"></a>Lägg till en meddelande väg
-I det här steget definieras en meddelande väg som använder den slut punkt som skapades ovan. Skapa en väg med antingen [Add-AzIotHubRoute](https://docs.microsoft.com/powershell/module/az.iothub/Add-AzIoTHubRoute) PowerShell-kommandot eller [AZ IoT Hub Route skapa](https://docs.microsoft.com/cli/azure/iot/hub/route#az-iot-hub-route-create) CLI-kommando baserat på din preferens.
+I det här steget definieras en meddelande väg som använder den slut punkt som skapades ovan. Skapa en väg med antingen [Add-AzIotHubRoute](/powershell/module/az.iothub/Add-AzIoTHubRoute) PowerShell-kommandot eller [AZ IoT Hub Route skapa](/cli/azure/iot/hub/route#az-iot-hub-route-create) CLI-kommando baserat på din preferens.
 
 Här är listan över parametrar som ska användas med kommandot för att lägga till en meddelande väg:
 
-|PowerShell-parameter|CLI-parameter|Beskrivning|
+|PowerShell-parameter|CLI-parameter|Description|
 |---|---|---|
 |ResourceGroupName|g|Resurs grupps namnet för din IoT Hub-resurs.|
 |Name|hubb-namn|Namnet på din IoT Hub-resurs.|

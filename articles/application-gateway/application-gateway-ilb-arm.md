@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 439523fe55f231548ebc80ebc5d3b53c2f0d6e2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d663dc4e2bd860ec9494785ecbf6dbf10a4c5b5
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84808130"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397764"
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Skapa en Programgateway med en intern belastningsutjämnare (ILB)
 
@@ -50,7 +50,7 @@ Här följer de steg som krävs för att skapa en programgateway:
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Skapa en resursgrupp för Resource Manager
 
-Glöm inte att byta PowerShell-läge så att du kan använda cmdlets för Azure Resource Manager. Mer information finns i [Använda Windows PowerShell med Resource Manager](../powershell-azure-resource-manager.md).
+Glöm inte att byta PowerShell-läge så att du kan använda cmdlets för Azure Resource Manager. Mer information finns i [Använda Windows PowerShell med Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md).
 
 ### <a name="step-1"></a>Steg 1
 
@@ -258,10 +258,9 @@ Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill konfigurera SSL-avlastning läser du [Konfigurera en programgateway för SSL-avlastning](application-gateway-ssl.md).
+Om du vill konfigurera SSL-avlastning läser du [Konfigurera en programgateway för SSL-avlastning](./tutorial-ssl-powershell.md).
 
 Om du vill ha mer information om belastningsutjämningsalternativ i allmänhet läser du:
 
 * [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
-

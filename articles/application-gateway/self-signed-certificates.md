@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: de580d8f94292ae65769c696aa232f5b660bf414
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e60aa9f072a447af97aa7cc66534e6e893fdbcf6
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84806762"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396948"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Generera ett självsignerat certifikat för Azure Application Gateway med en anpassad rot certifikat utfärdare
 
@@ -30,7 +30,7 @@ I den här artikeln får du lära dig att:
 - Skapa ett självsignerat certifikat signerat av din anpassade certifikat utfärdare
 - Ladda upp ett självsignerat rot certifikat till en Application Gateway för att autentisera backend-servern
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - **[Openssl](https://www.openssl.org/) på en dator som kör Windows eller Linux** 
 
@@ -133,7 +133,7 @@ Konfigurera TLS i webb servern med hjälp av filerna fabrikam. CRT och fabrikam.
 
 Anvisningar om hur du importerar certifikat och laddar upp dem som server certifikat i IIS finns i [så här gör du: Installera importerade certifikat på en webb server i Windows server 2003](https://support.microsoft.com/help/816794/how-to-install-imported-certificates-on-a-web-server-in-windows-server).
 
-Instruktioner för TLS-bindning finns i [så här konfigurerar du SSL i IIS 7](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis#create-an-ssl-binding-1).
+Instruktioner för TLS-bindning finns i [så här konfigurerar du SSL i IIS 7](/iis/manage/configuring-security/how-to-set-up-ssl-on-iis#create-an-ssl-binding-1).
 
 ### <a name="apache"></a>Apache
 
@@ -179,7 +179,7 @@ openssl s_client -connect localhost:443 -servername www.fabrikam.com -showcerts
 
 Om du vill överföra certifikatet i Application Gateway måste du exportera. CRT-certifikatet till ett. cer-format Base-64-kodat. Eftersom. CRT redan innehåller den offentliga nyckeln i formatet Base-64-kodat byter du bara namn på fil namns tillägget från. CRT till. cer. 
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
 Om du vill ladda upp det betrodda rot certifikatet från portalen väljer du **http-inställningar** och sedan **https** -protokollet.
 
@@ -273,4 +273,3 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om SSL\TLS i Application Gateway finns i [Översikt över TLS-terminering och slut punkt till slut punkt för TLS med Application Gateway](ssl-overview.md).
-

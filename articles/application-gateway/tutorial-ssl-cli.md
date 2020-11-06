@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: d2a49c1ba90c35575116ed6cf1482683c45e0b5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76fea0c8b6f3c13c9f462ecbb72611c6659c65d0
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595826"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397088"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Skapa en Programgateway med TLS-avslutning med Azure CLI
 
-Du kan använda Azure CLI för att skapa en [Programgateway](overview.md) med ett certifikat för [TLS-avslutning](ssl-overview.md). För backend-servrar kan du använda en [skalnings uppsättning för virtuella datorer](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) . I det här exemplet innehåller skalningsuppsättningen två virtuella datorinstanser i serverdelens standardpool i programgatewayen.
+Du kan använda Azure CLI för att skapa en [Programgateway](overview.md) med ett certifikat för [TLS-avslutning](ssl-overview.md). För backend-servrar kan du använda en [skalnings uppsättning för virtuella datorer](../virtual-machine-scale-sets/overview.md) . I det här exemplet innehåller skalningsuppsättningen två virtuella datorinstanser i serverdelens standardpool i programgatewayen.
 
 I den här artikeln kan du se hur du:
 
@@ -28,7 +28,7 @@ I den här artikeln kan du se hur du:
 
 Om du vill kan du slutföra den här proceduren med hjälp av [Azure PowerShell](tutorial-ssl-powershell.md).
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

@@ -8,17 +8,17 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: victorh
-ms.openlocfilehash: 5dc8bf670e14d8a44b10b8093d786091791ae793
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d2760415e4f4ef3b181f2fb69802659fec3ef66
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86186813"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397883"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Skapa en anpassad avsökning för Application Gateway med hjälp av portalen
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-create-probe-portal.md)
+> * [Azure-portalen](application-gateway-create-probe-portal.md)
 > * [PowerShell och Azure Resource Manager](application-gateway-create-probe-ps.md)
 > * [PowerShell och den klassiska Azure-portalen](application-gateway-create-probe-classic-ps.md)
 
@@ -26,7 +26,7 @@ I den här artikeln lägger du till en anpassad hälso avsökning till en befint
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Om du inte redan har en Application Gateway kan du gå till [skapa en Application Gateway](application-gateway-create-gateway-portal.md) för att skapa en Programgateway att arbeta med.
+Om du inte redan har en Application Gateway kan du gå till [skapa en Application Gateway](./quick-create-portal.md) för att skapa en Programgateway att arbeta med.
 
 ## <a name="create-probe-for-application-gateway-v2-sku"></a>Skapa avsökning för Application Gateway v2 SKU
 
@@ -34,7 +34,7 @@ Avsökningar konfigureras i en två stegs process via portalen. Det första steg
 
 ### <a name="enter-probe-properties"></a><a name="createprobe"></a>Ange egenskaper för avsökning
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Om du inte redan har ett konto kan du registrera dig för en [kostnads fri utvärderings period på en månad](https://azure.microsoft.com/free)
+1. Logga in i [Azure-portalen](https://portal.azure.com). Om du inte redan har ett konto kan du registrera dig för en [kostnads fri utvärderings period på en månad](https://azure.microsoft.com/free)
 
 2. Klicka på Alla resurser i rutan Favoriter i Azure Portal. Klicka på Application Gateway på bladet alla resurser. Om den prenumeration du valde redan har flera resurser kan du ange partners.contoso.net i rutan Filtrera efter namn... för att enkelt få åtkomst till Application Gateway.
 
@@ -44,19 +44,19 @@ Avsökningar konfigureras i en två stegs process via portalen. Det första steg
 
 4. På sidan **Lägg till hälso avsökning** fyller du i den information som krävs för avsökningen och när du är klar väljer du **OK**.
 
-   |**Inställning** | **Värde** | **Information**|
+   |**Inställning** | **Värde** | **Detaljer**|
    |---|---|---|
    |**Namn**|customProbe|Det här värdet är ett eget namn som anges för den avsökning som är tillgänglig i portalen.|
    |**Protokoll**|HTTP eller HTTPS | Det protokoll som används av hälso avsökningen. |
    |**Värd**|säga contoso.com|Det här värdet är namnet på den virtuella värden (skiljer sig från värd namnet för den virtuella datorn) som körs på program servern. Avsökningen skickas till \<protocol\> :// \<host name\> :\<port\>/\<urlPath\>|
-   |**Välj värd namnet från Server delens HTTP-inställningar**|Ja eller nej|Anger *värd* rubriken i avsökningen till värd namnet från de http-inställningar som denna avsökning är kopplad till. Särskilt krävs i händelse av Server delar för flera klient organisationer, till exempel Azure App Service. [Läs mer](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|
+   |**Välj värd namnet från Server delens HTTP-inställningar**|Ja eller nej|Anger *värd* rubriken i avsökningen till värd namnet från de http-inställningar som denna avsökning är kopplad till. Särskilt krävs i händelse av Server delar för flera klient organisationer, till exempel Azure App Service. [Läs mer](./configuration-http-settings.md#pick-host-name-from-back-end-address)|
    |**Välj port från Server delens HTTP-inställningar**| Ja eller nej|Anger *porten* för hälso avsökningen till porten från http-inställningar som denna avsökning är kopplad till. Om du väljer Nej kan du ange en anpassad målport som ska användas |
    |**Port**| 1-65535 | Anpassad port som ska användas för hälso avsökningar | 
    |**Sökväg**|/eller en giltig sökväg|Resten av den fullständiga URL: en för den anpassade avsökningen. En giltig sökväg börjar med "/". För standard Sök vägen för http: \/ /contoso.com Använd bara "/" |
    |**Intervall (SEK)**|30|Hur ofta avsökningen körs för att kontrol lera hälso tillståndet. Vi rekommenderar inte att du anger de lägre än 30 sekunderna.|
    |**Tids gräns (SEK)**|30|Den tid som avsökningen väntar innan tids gränsen uppnåddes. Om ett giltigt svar inte tas emot inom den här tids perioden markeras avsökningen som misslyckad. Timeout-intervallet måste vara tillräckligt högt så att ett HTTP-anrop kan göras för att se till att sidan för Server dels hälsa är tillgänglig. Observera att timeout-värdet inte ska vara mer än värdet för ' Interval ' som används i den här avsöknings inställningen eller värdet för timeout för begäran i HTTP-inställningen som ska associeras med den här avsökningen.|
    |**Tröskelvärde för ej felfri**|3|Antalet misslyckade på varandra följande försök anses vara ohälsosamt. Tröskelvärdet kan anges till 1 eller mer.|
-   |**Använd villkor för avsöknings matchning**|Ja eller nej|Som standard betraktas ett HTTP (S)-svar med status kod mellan 200 och 399 som felfri. Du kan ändra det godkända intervallet för Server dels svars kod eller Server dels svars text. [Läs mer](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching)|
+   |**Använd villkor för avsöknings matchning**|Ja eller nej|Som standard betraktas ett HTTP (S)-svar med status kod mellan 200 och 399 som felfri. Du kan ändra det godkända intervallet för Server dels svars kod eller Server dels svars text. [Läs mer](./application-gateway-probe-overview.md#probe-matching)|
    |**HTTP-inställningar**|markering från listruta|Avsökningen associeras med de HTTP-inställningar som valts här och övervakar därför hälso tillståndet för den backend-poolen som är associerad med den valda HTTP-inställningen. Den kommer att använda samma port för avsöknings förfrågan som den som används i den valda HTTP-inställningen. Du kan bara välja de HTTP-inställningar som inte är associerade med andra anpassade avsökningar. <br>Observera att endast de HTTP-inställningar som är tillgängliga för associationer som har samma protokoll som det protokoll som valts i denna avsöknings konfiguration och har samma tillstånd för *inställningen Välj värd namn från Server delens HTTP-* växel.|
    
    > [!IMPORTANT]
@@ -85,7 +85,7 @@ Avsökningar konfigureras i en två stegs process via portalen. Det första steg
 
 ### <a name="create-the-probe"></a><a name="createprobe"></a>Skapa avsökningen
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Om du inte redan har ett konto kan du registrera dig för en [kostnads fri utvärderings period på en månad](https://azure.microsoft.com/free)
+1. Logga in i [Azure-portalen](https://portal.azure.com). Om du inte redan har ett konto kan du registrera dig för en [kostnads fri utvärderings period på en månad](https://azure.microsoft.com/free)
 
 2. Klicka på **Alla resurser** i rutan Favoriter i Azure Portal. Välj Application Gateway på sidan **alla resurser** . Om den prenumeration du valde redan har flera resurser kan du ange partners.contoso.net i rutan Filtrera efter namn... för att enkelt få åtkomst till Application Gateway.
 
@@ -95,17 +95,17 @@ Avsökningar konfigureras i en två stegs process via portalen. Det första steg
 
 4. På bladet **Lägg till hälso avsökning** fyller du i den information som krävs för avsökningen och när du är klar väljer du **OK**.
 
-   |**Inställning** | **Värde** | **Information**|
+   |**Inställning** | **Värde** | **Detaljer**|
    |---|---|---|
    |**Namn**|customProbe|Det här värdet är ett eget namn som anges för den avsökning som är tillgänglig i portalen.|
    |**Protokoll**|HTTP eller HTTPS | Det protokoll som används av hälso avsökningen. |
    |**Värd**|säga contoso.com|Det här värdet är namnet på den virtuella värden (skiljer sig från värd namnet för den virtuella datorn) som körs på program servern. Avsökningen skickas till (protokoll)://(värd namn):(port från httpsetting)/urlPath.  Detta gäller när flera platser har kon figurer ATS på Application Gateway. Om Application Gateway har kon figurer ATS för en enda plats anger du 127.0.0.1.|
-   |**Välj värd namnet från Server delens HTTP-inställningar**|Ja eller nej|Anger *värd* rubriken i avsökningen till värd namnet för backend-resursen i backend-poolen som är kopplad till den http-inställning som den här avsökningen är kopplad till. Särskilt krävs i händelse av Server delar för flera klient organisationer, till exempel Azure App Service. [Läs mer](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|
+   |**Välj värd namnet från Server delens HTTP-inställningar**|Ja eller nej|Anger *värd* rubriken i avsökningen till värd namnet för backend-resursen i backend-poolen som är kopplad till den http-inställning som den här avsökningen är kopplad till. Särskilt krävs i händelse av Server delar för flera klient organisationer, till exempel Azure App Service. [Läs mer](./configuration-http-settings.md#pick-host-name-from-back-end-address)|
    |**Sökväg**|/eller en giltig sökväg|Resten av den fullständiga URL: en för den anpassade avsökningen. En giltig sökväg börjar med "/". För standard Sök vägen för http: \/ /contoso.com Använd bara "/" |
    |**Intervall (SEK)**|30|Hur ofta avsökningen körs för att kontrol lera hälso tillståndet. Vi rekommenderar inte att du anger de lägre än 30 sekunderna.|
    |**Tids gräns (SEK)**|30|Den tid som avsökningen väntar innan tids gränsen uppnåddes. Om ett giltigt svar inte tas emot inom den här tids perioden markeras avsökningen som misslyckad. Timeout-intervallet måste vara tillräckligt högt så att ett HTTP-anrop kan göras för att se till att sidan för Server dels hälsa är tillgänglig. Observera att timeout-värdet inte ska vara mer än värdet för ' Interval ' som används i den här avsöknings inställningen eller värdet för timeout för begäran i HTTP-inställningen som ska associeras med den här avsökningen.|
    |**Tröskelvärde för ej felfri**|3|Antalet misslyckade på varandra följande försök anses vara ohälsosamt. Tröskelvärdet kan anges till 1 eller mer.|
-   |**Använd villkor för avsöknings matchning**|Ja eller nej|Som standard betraktas ett HTTP (S)-svar med status kod mellan 200 och 399 som felfri. Du kan ändra det godkända intervallet för Server dels svars kod eller Server dels svars text. [Läs mer](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching)|
+   |**Använd villkor för avsöknings matchning**|Ja eller nej|Som standard betraktas ett HTTP (S)-svar med status kod mellan 200 och 399 som felfri. Du kan ändra det godkända intervallet för Server dels svars kod eller Server dels svars text. [Läs mer](./application-gateway-probe-overview.md#probe-matching)|
 
    > [!IMPORTANT]
    > Värd namnet är inte detsamma som server namn. Det här värdet är namnet på den virtuella värd som körs på program servern. Avsökningen skickas till \<protocol\> :// \<hostName\> :\<port from http settings\>/\<urlPath\>
@@ -123,7 +123,7 @@ Nu när avsökningen har skapats är det dags att lägga till den i gatewayen. A
 
 ## <a name="next-steps"></a>Nästa steg
 
-Visa hälso tillståndet för Server dels resurserna som fastställs av avsökningen med hjälp av [Server dels hälso visningen](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health).
+Visa hälso tillståndet för Server dels resurserna som fastställs av avsökningen med hjälp av [Server dels hälso visningen](./application-gateway-diagnostics.md#back-end-health).
 
 [1]: ./media/application-gateway-create-probe-portal/figure1.png
 [2]: ./media/application-gateway-create-probe-portal/figure2.png

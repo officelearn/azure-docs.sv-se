@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 03/24/2020
 ms.author: caya
-ms.openlocfilehash: b96720ead2c7b7bc942efca32a8510f57c2dbcad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48730d03e9a578fb26b691577fa033e5f7bb4d19
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85250256"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397492"
 ---
 # <a name="application-gateway-high-traffic-support"></a>Stöd för höga trafikvolymer i Application Gateway
 
@@ -24,7 +24,7 @@ Du kan använda Application Gateway med brand vägg för webbaserade program (WA
 Följande rekommendationer hjälper dig att konfigurera Application Gateway med WAF för att hantera extra trafik.
 
 ## <a name="use-the-v2-sku-over-v1-for-its-autoscaling-capabilities-and-performance-benefits"></a>Använd v2-SKU över v1 för dess funktioner för automatisk skalning och prestanda för delar
-V2-SKU: n erbjuder automatisk skalning för att säkerställa att Application Gateway kan skalas upp när trafiken ökar. Det ger också andra betydande prestanda för delar, till exempel 5x bättre TLS-avlastning, snabbare distribution och uppdaterings tider, zon redundans och mer jämfört med v1. Mer information finns i vår [v2-dokumentation](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant). 
+V2-SKU: n erbjuder automatisk skalning för att säkerställa att Application Gateway kan skalas upp när trafiken ökar. Det ger också andra betydande prestanda för delar, till exempel 5x bättre TLS-avlastning, snabbare distribution och uppdaterings tider, zon redundans och mer jämfört med v1. Mer information finns i vår [v2-dokumentation](./application-gateway-autoscaling-zone-redundant.md). 
 
 ## <a name="set-maximum-instance-count-to-the-maximum-possible-125"></a>Ange maximalt antal instanser till högsta möjliga (125)
  
@@ -35,7 +35,7 @@ Förutsatt att du har en Application Gateway v2-SKU, ställer du in maximalt ant
 Förutsatt att du har en Application Gateway v2-SKU tar det sex till sju minuter för automatisk skalning att skala ut. Med ett högre minsta antal instanser kan Application Gateway bättre hantera trafiken när belastningen ökar, eftersom en insamling i trafik inte kräver en automatisk skalnings åtgärd.  
 
 ## <a name="alert-if-a-certain-metric-surpasses-75-of-average-cu-utilization"></a>Avisera om ett visst mått överskrider 75% av genomsnittligt CU-användning 
-I [dokumentationen för Application Gateway statistik](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#metrics-visualization) finns en detaljerad förklaring av våra mått och andra genom gångar. 
+I [dokumentationen för Application Gateway statistik](./application-gateway-metrics.md#metrics-visualization) finns en detaljerad förklaring av våra mått och andra genom gångar. 
 
 ### <a name="example-setting-up-an-alert-on-75-of-average-cu-usage"></a>Exempel: Konfigurera en avisering på 75% av genomsnittligt CU-användning
 
@@ -51,13 +51,13 @@ Det här exemplet visar hur du använder Azure Portal för att ställa in en avi
 > Du kan ställa in aviseringen på ett lägre eller högre antal CU i procent beroende på hur känsliga du vill ha till gång till potentiella trafik toppar.
 
 ## <a name="set-up-waf-with-geofiltering-and-bot-protection-to-stop-attacks"></a>Konfigurera WAF med skydd mot filter för att stoppa attacker
-Om du vill ha ett extra säkerhets lager framför ditt program, använder du Application Gateway WAF_v2 SKU för WAF-funktioner. Du kan konfigurera v2-SKU: n så att den endast tillåter åtkomst till dina program från ett specifikt land/region eller länder/regioner. Du ställer in en anpassad WAF-regel för att explicit tillåta eller blockera trafik baserat på den lokala platsen. Mer information finns i avsnittet om att [filtrera anpassade regler](https://docs.microsoft.com/azure/web-application-firewall/ag/geomatch-custom-rules) och [hur du konfigurerar anpassade regler på Application Gateway WAF_v2 SKU via PowerShell](https://docs.microsoft.com/azure/web-application-firewall/ag/configure-waf-custom-rules).
+Om du vill ha ett extra säkerhets lager framför ditt program, använder du Application Gateway WAF_v2 SKU för WAF-funktioner. Du kan konfigurera v2-SKU: n så att den endast tillåter åtkomst till dina program från ett specifikt land/region eller länder/regioner. Du ställer in en anpassad WAF-regel för att explicit tillåta eller blockera trafik baserat på den lokala platsen. Mer information finns i avsnittet om att [filtrera anpassade regler](../web-application-firewall/ag/geomatch-custom-rules.md) och [hur du konfigurerar anpassade regler på Application Gateway WAF_v2 SKU via PowerShell](../web-application-firewall/ag/configure-waf-custom-rules.md).
 
-Aktivera bot-skydd för att blockera kända dåliga robotar. Detta bör minska mängden trafik som får till ditt program. Mer information finns i [bot-skydd med konfigurera instruktioner](https://docs.microsoft.com/azure/web-application-firewall/ag/configure-waf-custom-rules).
+Aktivera bot-skydd för att blockera kända dåliga robotar. Detta bör minska mängden trafik som får till ditt program. Mer information finns i [bot-skydd med konfigurera instruktioner](../web-application-firewall/ag/configure-waf-custom-rules.md).
 
 ## <a name="turn-on-diagnostics-on-application-gateway-and-waf"></a>Aktivera diagnostik på Application Gateway och WAF
 
-Med diagnostikloggar kan du Visa brand Väggs loggar, prestanda loggar och åtkomst loggar. Du kan använda dessa loggar i Azure för att hantera och felsöka programgatewayer. Mer information finns i vår [diagnostiska dokumentation](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#diagnostic-logging). 
+Med diagnostikloggar kan du Visa brand Väggs loggar, prestanda loggar och åtkomst loggar. Du kan använda dessa loggar i Azure för att hantera och felsöka programgatewayer. Mer information finns i vår [diagnostiska dokumentation](./application-gateway-diagnostics.md#diagnostic-logging). 
 
 ## <a name="set-up-an-tls-policy-for-extra-security"></a>Konfigurera en TLS-princip för extra säkerhet
-Se till att du använder den senaste TLS-[AppGwSslPolicy20170401S](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview#appgwsslpolicy20170401s)(TLS policy version). Detta tillämpar TLS 1,2 och starkare chiffer. Mer information finns i [Konfigurera TLS-principinställningar och cipher-paket via PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-configure-ssl-policy-powershell).
+Se till att du använder den senaste TLS-[AppGwSslPolicy20170401S](./application-gateway-ssl-policy-overview.md#appgwsslpolicy20170401s)(TLS policy version). Detta tillämpar TLS 1,2 och starkare chiffer. Mer information finns i [Konfigurera TLS-principinställningar och cipher-paket via PowerShell](./application-gateway-configure-ssl-policy-powershell.md).

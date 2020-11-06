@@ -7,17 +7,17 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 1445d1418bde6d5d15e365c59ceb56e7661faccb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13441899eeb5ca2b7c60977ab2858fe40a398d1a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87088078"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397866"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Skapa en anpassad avsökning för Azure Application Gateway (klassisk) med hjälp av PowerShell
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-create-probe-portal.md)
+> * [Azure-portalen](application-gateway-create-probe-portal.md)
 > * [PowerShell och Azure Resource Manager](application-gateway-create-probe-ps.md)
 > * [PowerShell och den klassiska Azure-portalen](application-gateway-create-probe-classic-ps.md)
 
@@ -200,7 +200,6 @@ Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill konfigurera Transport Layer Security (TLS), som tidigare kallades Secure Sockets Layer (SSL) avlastning, se [Konfigurera en Application Gateway för TLS-avläsning](application-gateway-ssl.md).
+Om du vill konfigurera Transport Layer Security (TLS), som tidigare kallades Secure Sockets Layer (SSL) avlastning, se [Konfigurera en Application Gateway för TLS-avläsning](./tutorial-ssl-powershell.md).
 
-Om du vill konfigurera en programgateway för användning med en intern lastbalanserare läser du [Skapa en programgateway med en intern lastbalanserare (ILB)](application-gateway-ilb.md).
-
+Om du vill konfigurera en programgateway för användning med en intern lastbalanserare läser du [Skapa en programgateway med en intern lastbalanserare (ILB)](./application-gateway-ilb-arm.md).

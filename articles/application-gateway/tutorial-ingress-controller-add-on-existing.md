@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: d0ce58c5bb6de4712117959f10b48ae3449f0b97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10f78167b9c3f557fa16061cfac8aad080519415
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285680"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397135"
 ---
 # <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway-through-azure-cli-preview"></a>Självstudie: Aktivera Application Gateway ingress Controller-tillägg för ett befintligt AKS-kluster med en befintlig Application Gateway via Azure CLI (för hands version)
 
@@ -37,17 +37,17 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Om du väljer att installera och använda CLI lokalt måste du ha Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
-Registrera funktions flaggan *AKS-IngressApplicationGatewayAddon* med hjälp av kommandot [AZ Feature register](https://docs.microsoft.com/cli/azure/feature#az-feature-register) , som du ser i följande exempel. du behöver bara göra detta en gång per prenumeration medan tillägget fortfarande är i för hands version:
+Registrera funktions flaggan *AKS-IngressApplicationGatewayAddon* med hjälp av kommandot [AZ Feature register](/cli/azure/feature#az-feature-register) , som du ser i följande exempel. du behöver bara göra detta en gång per prenumeration medan tillägget fortfarande är i för hands version:
 ```azurecli-interactive
 az feature register --name AKS-IngressApplicationGatewayAddon --namespace microsoft.containerservice
 ```
 
-Det kan ta några minuter för statusen att Visa registrerad. Du kan kontrol lera registrerings statusen med hjälp av kommandot [AZ feature list](https://docs.microsoft.com/cli/azure/feature#az-feature-register) :
+Det kan ta några minuter för statusen att Visa registrerad. Du kan kontrol lera registrerings statusen med hjälp av kommandot [AZ feature list](/cli/azure/feature#az-feature-register) :
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'microsoft.containerservice/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
 ```
 
-När du är klar uppdaterar du registreringen av resurs leverantören Microsoft. container service med hjälp av [AZ Provider register](https://docs.microsoft.com/cli/azure/provider#az-provider-register) kommando:
+När du är klar uppdaterar du registreringen av resurs leverantören Microsoft. container service med hjälp av [AZ Provider register](/cli/azure/provider#az-provider-register) kommando:
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
@@ -74,17 +74,17 @@ az group create --name myResourceGroup --location canadacentral
 
 Nu ska du distribuera ett nytt AKS-kluster för att simulera att ha ett befintligt AKS-kluster som du vill aktivera AGIC-tillägget för.  
 
-I följande exempel ska du distribuera ett nytt AKS-kluster *med namnet IT-kluster* med [Azure cni](https://docs.microsoft.com/azure/aks/concepts-network#azure-cni-advanced-networking) och [hanterade identiteter](https://docs.microsoft.com/azure/aks/use-managed-identity) i resurs gruppen som du skapade, *myResourceGroup*.    
+I följande exempel ska du distribuera ett nytt AKS-kluster *med namnet IT-kluster* med [Azure cni](../aks/concepts-network.md#azure-cni-advanced-networking) och [hanterade identiteter](../aks/use-managed-identity.md) i resurs gruppen som du skapade, *myResourceGroup*.    
 
 ```azurecli-interactive
 az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity 
 ```
 
-Om du vill konfigurera ytterligare parametrar för `az aks create` kommandot kan du gå till referenser [här](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create). 
+Om du vill konfigurera ytterligare parametrar för `az aks create` kommandot kan du gå till referenser [här](/cli/azure/aks?view=azure-cli-latest#az-aks-create). 
 
 ## <a name="deploy-a-new-application-gateway"></a>Distribuera en ny Application Gateway 
 
-Nu ska du distribuera en ny Application Gateway, för att simulera att ha en befintlig Application Gateway som du vill använda för att belastningsutjämna trafik till ditt AKS-kluster, för *klustret*. Namnet på Application Gateway kommer att vara *myApplicationGateway*, men du måste först skapa en offentlig IP-resurs med namnet *myPublicIp*och ett nytt virtuellt nätverk som kallas *myVnet* med adress utrymme 11.0.0.0/8 och ett undernät med adress utrymme 11.1.0.0/16 som kallas för *undernät*och distribuera Application Gateway i *under nätet* med *myPublicIp*. 
+Nu ska du distribuera en ny Application Gateway, för att simulera att ha en befintlig Application Gateway som du vill använda för att belastningsutjämna trafik till ditt AKS-kluster, för *klustret*. Namnet på Application Gateway kommer att vara *myApplicationGateway* , men du måste först skapa en offentlig IP-resurs med namnet *myPublicIp* och ett nytt virtuellt nätverk som kallas *myVnet* med adress utrymme 11.0.0.0/8 och ett undernät med adress utrymme 11.1.0.0/16 som kallas för *undernät* och distribuera Application Gateway i *under nätet* med *myPublicIp*. 
 
 När du använder ett AKS-kluster och Application Gateway i separata virtuella nätverk, får inte adress utrymmena för de två virtuella nätverken överlappa varandra. Standard adress utrymmet som ett AKS-kluster distribuerar i är 10.0.0.0/8, så vi ställer in det Application Gateway virtuella nätverkets adressprefix till 11.0.0.0/8. 
 
@@ -99,7 +99,7 @@ az network application-gateway create -n myApplicationGateway -l canadacentral -
 
 ## <a name="enable-the-agic-add-on-in-existing-aks-cluster-with-existing-application-gateway"></a>Aktivera AGIC-tillägget i det befintliga AKS-klustret med befintliga Application Gateway 
 
-Nu ska du aktivera AGIC-tillägget i AKS-klustret som du har skapat, ett *redundanskluster*och ange AGIC-tillägget för att använda den befintliga Application Gateway som du skapade, *myApplicationGateway*. Se till att du har lagt till/uppdaterat AKS i början av den här självstudien. 
+Nu ska du aktivera AGIC-tillägget i AKS-klustret som du har skapat, ett *redundanskluster* och ange AGIC-tillägget för att använda den befintliga Application Gateway som du skapade, *myApplicationGateway*. Se till att du har lagt till/uppdaterat AKS i början av den här självstudien. 
 
 ```azurecli-interactive
 appgwId=$(az network application-gateway show -n myApplicationGateway -g myResourceGroup -o tsv --query "id") 

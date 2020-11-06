@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: cbebf430bf44ccdee51bf44b11b8b01f23544dcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04d8a77cd051823559aba42d5dfc1418e6343ecc
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84807144"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397390"
 ---
 # <a name="how-to-install-an-application-gateway-ingress-controller-agic-using-a-new-application-gateway"></a>Så här installerar du en Application Gateway ingress-styrenhet (AGIC) med en ny Application Gateway
 
@@ -30,7 +30,7 @@ Du kan också starta Cloud Shell från Azure Portal med följande ikon:
 
 Din [Azure Cloud Shell](https://shell.azure.com/) har redan alla verktyg som krävs. Om du väljer att använda en annan miljö bör du kontrol lera att följande kommando rads verktyg är installerade:
 
-* `az` – Azure CLI: [installations anvisningar](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* `az` – Azure CLI: [installations anvisningar](/cli/azure/install-azure-cli?view=azure-cli-latest)
 * `kubectl` -Kubernetes kommando rads verktyg: [installations anvisningar](https://kubernetes.io/docs/tasks/tools/install-kubectl)
 * `helm` – Kubernetes Package Manager: [installations anvisningar](https://github.com/helm/helm/releases/latest)
 * `jq` – kommando rads-JSON-processor: [Installationsinstruktioner](https://stedolan.github.io/jq/download/)
@@ -38,9 +38,9 @@ Din [Azure Cloud Shell](https://shell.azure.com/) har redan alla verktyg som kr�
 
 ## <a name="create-an-identity"></a>Skapa en identitet
 
-Följ stegen nedan för att skapa ett [huvud namns objekt](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object)för en Azure Active Directory (AAD). Registrera `appId` -,- `password` och `objectId` -värden – dessa kommer att användas i följande steg.
+Följ stegen nedan för att skapa ett [huvud namns objekt](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)för en Azure Active Directory (AAD). Registrera `appId` -,- `password` och `objectId` -värden – dessa kommer att användas i följande steg.
 
-1. Skapa AD-tjänstens huvud namn ([Läs mer om RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)):
+1. Skapa AD-tjänstens huvud namn ([Läs mer om RBAC](../role-based-access-control/overview.md)):
     ```azurecli
     az ad sp create-for-rbac --skip-assignment -o json > auth.json
     appId=$(jq -r ".appId" auth.json)
@@ -71,11 +71,11 @@ Följ stegen nedan för att skapa ett [huvud namns objekt](https://docs.microsof
 ## <a name="deploy-components"></a>Distribuera komponenter
 I det här steget läggs följande komponenter till i din prenumeration:
 
-- [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/intro-kubernetes)
-- [Application Gateway](https://docs.microsoft.com/azure/application-gateway/overview) v2
-- [Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) med två [undernät](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
-- [Offentlig IP-adress](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)
-- [Hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), som kommer att användas av [AAD Pod-identitet](https://github.com/Azure/aad-pod-identity/blob/master/README.md)
+- [Azure Kubernetes Service](../aks/intro-kubernetes.md)
+- [Application Gateway](./overview.md) v2
+- [Virtual Network](../virtual-network/virtual-networks-overview.md) med två [undernät](../virtual-network/virtual-networks-overview.md)
+- [Offentlig IP-adress](../virtual-network/virtual-network-public-ip-address.md)
+- [Hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md), som kommer att användas av [AAD Pod-identitet](https://github.com/Azure/aad-pod-identity/blob/master/README.md)
 
 1. Ladda ned Azure Resource Manager-mallen och ändra mallen efter behov.
     ```bash
@@ -111,7 +111,7 @@ Med anvisningarna i föregående avsnitt skapade vi och konfigurerade ett nytt A
 ### <a name="setup-kubernetes-credentials"></a>Konfigurera Kubernetes-autentiseringsuppgifter
 För följande steg behöver vi Setup [kubectl](https://kubectl.docs.kubernetes.io/) -kommandot som vi ska använda för att ansluta till vårt nya Kubernetes-kluster. [Cloud Shell](https://shell.azure.com/) har `kubectl` redan installerats. Vi kommer `az` att använda CLI för att hämta autentiseringsuppgifter för Kubernetes.
 
-Hämta autentiseringsuppgifter för din nyligen distribuerade AKS ([Läs mer](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough#connect-to-the-cluster)):
+Hämta autentiseringsuppgifter för din nyligen distribuerade AKS ([Läs mer](../aks/kubernetes-walkthrough.md#connect-to-the-cluster)):
 ```azurecli
 # use the deployment-outputs.json created after deployment to get the cluster name and resource group name
 aksClusterName=$(jq -r ".aksClusterName.value" deployment-outputs.json)
@@ -121,7 +121,7 @@ az aks get-credentials --resource-group $resourceGroupName --name $aksClusterNam
 ```
 
 ### <a name="install-aad-pod-identity"></a>Installera AAD Pod-identitet
-  Azure Active Directory Pod identitet ger tokenbaserad åtkomst till [Azure Resource Manager (arm)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+  Azure Active Directory Pod identitet ger tokenbaserad åtkomst till [Azure Resource Manager (arm)](../azure-resource-manager/management/overview.md).
 
   [AAD Pod-identitet](https://github.com/Azure/aad-pod-identity) kommer att lägga till följande komponenter i ditt Kubernetes-kluster:
    * Kubernetes [CRDs](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/): `AzureIdentity` , `AzureAssignedIdentity` , `AzureIdentityBinding`
@@ -144,9 +144,9 @@ Så här installerar du AAD Pod-identiteten till klustret:
      ```
 
 ### <a name="install-helm"></a>Installera Helm
-[Helm](https://docs.microsoft.com/azure/aks/kubernetes-helm) är en paket hanterare för Kubernetes. Vi använder den för att installera `application-gateway-kubernetes-ingress` paketet:
+[Helm](../aks/kubernetes-helm.md) är en paket hanterare för Kubernetes. Vi använder den för att installera `application-gateway-kubernetes-ingress` paketet:
 
-1. Installera [Helm](https://docs.microsoft.com/azure/aks/kubernetes-helm) och kör följande för att lägga till `application-gateway-kubernetes-ingress` Helm-paketet:
+1. Installera [Helm](../aks/kubernetes-helm.md) och kör följande för att lägga till `application-gateway-kubernetes-ingress` Helm-paketet:
 
     - *RBAC-aktiverad* AKS-kluster
 

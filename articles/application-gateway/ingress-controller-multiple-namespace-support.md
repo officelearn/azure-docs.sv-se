@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 953430421bd30aaa1df352451b549994aeaa1a70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cffc15974bf5a016a4584f5c5f3dcc8a185c9824
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85556160"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397339"
 ---
 # <a name="enable-multiple-namespace-support-in-an-aks-cluster-with-application-gateway-ingress-controller"></a>Aktivera stöd för flera namnrymder i ett AKS-kluster med Application Gateway ingress-styrenhet
 
@@ -35,7 +35,7 @@ När du har distribuerat med möjligheten att observera flera namn områden, kom
   - lista inkommande resurser från alla tillgängliga namn områden
   - Filtrera för att ingressa resurser som är kommenterade med `kubernetes.io/ingress.class: azure/application-gateway`
   - Skapa kombinerad [Application Gateway konfiguration](https://github.com/Azure/azure-sdk-for-go/blob/37f3f4162dfce955ef5225ead57216cf8c1b2c70/services/network/mgmt/2016-06-01/network/models.go#L1710-L1744)
-  - Använd config på den associerade Application Gateway via [arm](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
+  - Använd config på den associerade Application Gateway via [arm](../azure-resource-manager/management/overview.md)
 
 ## <a name="conflicting-configurations"></a>Motstridiga konfigurationer
 Flera namn områdes [ingångs resurser](https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource) kan instruera AGIC att skapa motstridiga konfigurationer för en enda Application Gateway. (Två ingress-anspråk på samma domän för instansen.)
@@ -90,7 +90,7 @@ Trots de två ingress-resurserna som kräver trafik för `www.contoso.com` att k
   - HTTP-inställningar: `bp-production-contoso-web-service-80-80-websocket-ingress`
   - Hälso avsökning: `pb-production-contoso-web-service-80-websocket-ingress`
 
-Observera att om du har skapat Application Gateway-resurser som har skapats med undantag för *lyssnare* och *regler*, inkluderas namnet på det namn område ( `production` ) som de skapades för.
+Observera att om du har skapat Application Gateway-resurser som har skapats med undantag för *lyssnare* och *regler* , inkluderas namnet på det namn område ( `production` ) som de skapades för.
 
 Om de två ingångs resurserna introduceras i AKS-klustret vid olika tidpunkter, är det sannolikt för AGIC att få ett scenario där den konfigurerar om Application Gateway och dirigerar om trafik från `namespace-B` till `namespace-A` .
 
@@ -99,7 +99,7 @@ Om du till exempel först har lagt till `staging` konfigurerar AGIC Application 
 ## <a name="restrict-access-to-namespaces"></a>Begränsa åtkomsten till namn områden
 Som standard konfigurerar AGIC Application Gateway baserat på kommenterade ingångar i ett namn område. Om du vill begränsa det här beteendet kan du välja mellan följande alternativ:
   - begränsa namn områdena genom att uttryckligen definiera namn områden AGIC bör Observera via `watchNamespace` yaml-nyckeln i [Helm-config. yaml](#sample-helm-config-file)
-  - Använd [roll-RoleBinding](https://docs.microsoft.com/azure/aks/azure-ad-rbac) för att begränsa AGIC till vissa namn områden
+  - Använd [roll-RoleBinding](../aks/azure-ad-rbac.md) för att begränsa AGIC till vissa namn områden
 
 ## <a name="sample-helm-config-file"></a>Exempel på Helm konfigurations fil
 
@@ -155,4 +155,3 @@ Som standard konfigurerar AGIC Application Gateway baserat på kommenterade ing�
     aksClusterConfiguration:
         apiServerAddress: <aks-api-server-address>
 ```
-

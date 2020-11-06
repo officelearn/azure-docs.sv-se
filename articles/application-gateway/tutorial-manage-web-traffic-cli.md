@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 07/20/2019
 ms.author: victorh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6bc5761f4e629a90dacf06cd7503ca86a5448fe4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d0a130830c8b03fd1f47086b9a997f6fc3df9a4
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595886"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396965"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>Hantera webbtrafik med en programgateway som använder Azure CLI
 
-Programgatewayen används till att hantera och skydda webbtrafiken till de servrar du hanterar. Du kan använda Azure CLI för att skapa en [Programgateway](overview.md) som använder en [skalnings uppsättning för virtuella datorer](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för backend-servrar. I det här exemplet innehåller skalnings uppsättningen två instanser av virtuella datorer. Skalnings uppsättningen läggs till i standard server delen för programgatewayen.
+Programgatewayen används till att hantera och skydda webbtrafiken till de servrar du hanterar. Du kan använda Azure CLI för att skapa en [Programgateway](overview.md) som använder en [skalnings uppsättning för virtuella datorer](../virtual-machine-scale-sets/overview.md) för backend-servrar. I det här exemplet innehåller skalnings uppsättningen två instanser av virtuella datorer. Skalnings uppsättningen läggs till i standard server delen för programgatewayen.
 
 I den här artikeln kan du se hur du:
 
@@ -27,7 +27,7 @@ I den här artikeln kan du se hur du:
 
 Om du vill kan du slutföra den här proceduren med hjälp av [Azure PowerShell](tutorial-manage-web-traffic-powershell.md).
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -155,4 +155,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Begränsa webbtrafik med en brandvägg för webbaserade program](./tutorial-restrict-web-traffic-cli.md)
+[Begränsa webbtrafik med en brandvägg för webbaserade program](../web-application-firewall/ag/tutorial-restrict-web-traffic-cli.md)

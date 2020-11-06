@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: victorh
-ms.openlocfilehash: 3d714b579bebb096745a47410da3f8f458e27161
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c39401289ffc6f27c292168adaa15c5163a3967b
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88723307"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396931"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Översikt över TLS-terminering och slut punkt till slut punkt för TLS med Application Gateway
 
@@ -51,10 +51,10 @@ Application Gateway stöder följande typer av certifikat:
 - Jokertecken: det här certifikatet har stöd för valfritt antal under domäner baserat på *. site.com, där din under domän skulle ersätta *. Den har dock inte stöd för site.com, så om användarna kommer åt din webbplats utan att skriva den inledande "www", kommer jokertecknet för jokertecken inte att gälla.
 - Self-Signed certifikat: klient webbläsare kan inte lita på dessa certifikat och varnar användaren om att den virtuella tjänstens certifikat inte ingår i en förtroende kedja. Självsignerade certifikat är bra för testning eller miljöer där administratörer styr klienterna och kan kringgå webbläsarens säkerhets aviseringar på ett säkert sätt. Produktions arbets belastningar bör aldrig använda självsignerade certifikat.
 
-Mer information finns i [Konfigurera TLS-avslutning med Application Gateway](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
+Mer information finns i [Konfigurera TLS-avslutning med Application Gateway](./create-ssl-portal.md).
 
 ### <a name="size-of-the-certificate"></a>Certifikatets storlek
-I avsnittet [Application Gateway gränser](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits) kan du se hur den maximala storleken på TLS/SSL-certifikat stöds.
+I avsnittet [Application Gateway gränser](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits) kan du se hur den maximala storleken på TLS/SSL-certifikat stöds.
 
 ## <a name="end-to-end-tls-encryption"></a>TLS-kryptering från slut punkt till slut punkt
 
@@ -62,7 +62,7 @@ Du kanske inte vill ha okrypterad kommunikation till backend-servrarna. Du kan h
 
 Med end-to-end-TLS kan du kryptera och skicka känsliga data på ett säkert sätt till Server delen samtidigt som du använder Application Gateway lager-7 belastnings Utjämnings funktioner. Dessa funktioner omfattar cookie-baserad sessionsgräns, URL-baserad routning, stöd för routning baserat på platser, möjligheten att skriva om eller mata in X-forwarded-*-rubriker och så vidare.
 
-När den är konfigurerad med kommunikation från slut punkt till slut punkt, avslutar Application Gateway TLS-sessionerna på gatewayen och dekrypterar användar trafiken. Därefter appliceras de konfigurerade reglerna för att välja en lämplig serverdels-serverpoolinstans att dirigera trafiken till. Application Gateway initierar sedan en ny TLS-anslutning till backend-servern och återkrypterar data med Server dels serverns offentliga nyckel certifikat innan begäran skickas till Server delen. Eventuella svar från webbservern genomgår samma process på väg tillbaka till användaren. TLS från slut punkt till slut punkt aktive ras genom att ställa in protokoll inställningen i [HTTP-inställningen för http](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http-settings) till https, som sedan tillämpas på en backend-pool.
+När den är konfigurerad med kommunikation från slut punkt till slut punkt, avslutar Application Gateway TLS-sessionerna på gatewayen och dekrypterar användar trafiken. Därefter appliceras de konfigurerade reglerna för att välja en lämplig serverdels-serverpoolinstans att dirigera trafiken till. Application Gateway initierar sedan en ny TLS-anslutning till backend-servern och återkrypterar data med Server dels serverns offentliga nyckel certifikat innan begäran skickas till Server delen. Eventuella svar från webbservern genomgår samma process på väg tillbaka till användaren. TLS från slut punkt till slut punkt aktive ras genom att ställa in protokoll inställningen i [HTTP-inställningen för http](./configuration-overview.md#http-settings) till https, som sedan tillämpas på en backend-pool.
 
 För Application Gateway-och WAF v1 SKU: n gäller TLS-principen för både frontend-och backend-trafik. På klient sidan fungerar Application Gateway som-servern och tillämpar principen. På Server delen fungerar Application Gateway som klienten och skickar protokoll/chiffrering-information som inställningen under TLS-handskakningen.
 

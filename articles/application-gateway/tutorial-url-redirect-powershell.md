@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.date: 03/19/2020
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 8763c07ee91f228f63880c2be16497a7a78c6453
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9606bfe8b4719ed4ab3c51fc177f331b754f7a1
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595282"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397076"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Skapa en programgateway med webbadressbaserad omdirigering med Azure PowerShell
 
-Du kan använda Azure PowerShell till att konfigurera [webbadressbaserade routningsregler](application-gateway-url-route-overview.md) när du skapar en [programgateway](application-gateway-introduction.md). I den här artikeln skapar du backend-pooler med  [virtuella datorers skalnings uppsättningar](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Sedan skapar du routningsregler som ser till att webbtrafiken dirigeras till rätt serverdelspool.
+Du kan använda Azure PowerShell till att konfigurera [webbadressbaserade routningsregler](./url-route-overview.md) när du skapar en [programgateway](./overview.md). I den här artikeln skapar du backend-pooler med  [virtuella datorers skalnings uppsättningar](../virtual-machine-scale-sets/overview.md). Sedan skapar du routningsregler som ser till att webbtrafiken dirigeras till rätt serverdelspool.
 
 I den här artikeln kan du se hur du:
 
@@ -31,7 +31,7 @@ I följande exempel visas hur trafiken kommer från portarna 8080 och 8081 och d
 
 Om du vill kan du slutföra den här proceduren med hjälp av [Azure CLI](tutorial-url-redirect-cli.md).
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -390,7 +390,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ## <a name="create-virtual-machine-scale-sets"></a>Skapa VM-skalningsuppsättningar
 
-I det här exemplet skapar du tre VM-skalningsuppsättningar för de tre serverdelspooler du har skapat. Skalningsuppsättningarna du skapar har namnen *myvmss1*, *myvmss2* och *myvmss3*. Varje skalningsuppsättning innehåller två virtuella datorinstanser där du installerar IIS. Du tilldelar skalningsuppsättningen till serverdelspoolen när du konfigurerar IP-inställningarna.
+I det här exemplet skapar du tre VM-skalningsuppsättningar för de tre serverdelspooler du har skapat. Skalningsuppsättningarna du skapar har namnen *myvmss1* , *myvmss2* och *myvmss3*. Varje skalningsuppsättning innehåller två virtuella datorinstanser där du installerar IIS. Du tilldelar skalningsuppsättningen till serverdelspoolen när du konfigurerar IP-inställningarna.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
@@ -518,4 +518,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Läs mer om vad du kan göra med en programgateway](application-gateway-introduction.md)
+> [Läs mer om vad du kan göra med en programgateway](./overview.md)

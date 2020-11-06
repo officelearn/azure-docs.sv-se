@@ -307,6 +307,8 @@
           href: cloud-partner-portal-api-troubleshooting-authentication-errors.md
     - name: Marketplace-mättjänst
       items:
+        - name: Tjänst för avvikelseidentifiering
+          href: partner-center-portal/anomaly-detection-service-for-metered-billing.md
         - name: Autentiseringsstrategier
           href: partner-center-portal/marketplace-metering-service-authentication.md
         - name: 'API:er för Marketplace Metering Service'

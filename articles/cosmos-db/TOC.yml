@@ -662,6 +662,8 @@
               href: how-to-time-to-live.md
             - name: Definiera unika nycklar
               href: how-to-define-unique-keys.md
+            - name: Utföra transaktionella batchåtgärder
+              href: transactional-batch.md
         - name: Prestanda
           items:
             - name: Söka i data
@@ -753,8 +755,6 @@
               href: create-sql-api-java-changefeed.md
         - name: Programmering på serversidan
           items:
-            - name: Utföra transaktionella batchåtgärder
-              href: transactional-batch.md
             - name: 'Skriva lagrade procedurer, utlösare och UDF:er'
               href: how-to-write-stored-procedures-triggers-udfs.md
             - name: Skriva lagrade procedurer och utlösare med fråge-API för JavaScript

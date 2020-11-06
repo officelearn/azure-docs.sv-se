@@ -13,21 +13,47 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Skapa funktion
+    - name: Skapa din första funktion
       expanded: true
       items:
-        - name: Visual Studio-koden
-          href: ./functions-create-first-function-vs-code.md
+        - name: Visuell Studio-kod
+          expanded: true
+          items:
+            - name: C#
+              href: create-first-function-vs-code-csharp.md
+            - name: Java
+              href: create-first-function-vs-code-java.md
+            - name: JavaScript
+              href: create-first-function-vs-code-node.md
+            - name: PowerShell
+              href: create-first-function-vs-code-powershell.md
+            - name: Python
+              href: create-first-function-vs-code-python.md
+            - name: TypeScript
+              href: create-first-function-vs-code-typescript.md
         - name: Visual Studio
           href: functions-create-your-first-function-visual-studio.md
         - name: Kommandorad
-          href: functions-create-first-azure-function-azure-cli.md
+          expanded: false
+          items:
+            - name: C#
+              href: create-first-function-cli-csharp.md
+            - name: Java
+              href: create-first-function-cli-java.md
+            - name: JavaScript
+              href: create-first-function-cli-node.md
+            - name: PowerShell
+              href: create-first-function-cli-powershell.md
+            - name: Python
+              href: create-first-function-cli-python.md
+            - name: TypeScript
+              href: create-first-function-cli-typescript.md
         - name: ARM-mall
           displayName: Resource Manager
           href: functions-create-first-function-resource-manager.md
     - name: Ansluta till lagring
       items:
-        - name: Visual Studio-koden
+        - name: Visual Studio Code
           href: functions-add-output-binding-storage-queue-vs-code.md
         - name: Visual Studio
           href: functions-add-output-binding-storage-queue-vs.md
@@ -212,11 +238,11 @@
                 - name: Azure Portal
                   href: functions-create-first-azure-function.md
                 - name: Kommandorad
-                  href: ./functions-create-first-azure-function-azure-cli.md
+                  href: ./create-first-function-cli-csharp.md
                 - name: Visual Studio
                   href: ./functions-create-your-first-function-visual-studio.md
                 - name: Visual Studio-koden
-                  href: ./functions-create-first-function-vs-code.md
+                  href: ./create-first-function-vs-code-csharp.md
                 - name: Java med Gradle
                   href: functions-create-first-java-gradle.md
                 - name: Java med hjälp av Eclipse
@@ -230,7 +256,7 @@
                 - name: Linux App Service-plan
                   href: create-function-app-linux-app-service-plan.md
                 - name: Linux-förbrukningsplan
-                  href: ./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python
+                  href: create-first-function-cli-python.md
                 - name: Microsoft Azure for Students Starter
                   href: functions-create-student-starter.md
             - name: Azure Cosmos DB-utlösare

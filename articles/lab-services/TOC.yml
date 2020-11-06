@@ -4,6 +4,10 @@
   items:
     - name: Om Lab Services
       href: lab-services-overview.md
+- name: Snabbstarter
+  items:
+    - name: Kom igång
+      href: get-started-manage-labs.md
 - name: Självstudier
   items:
     - name: Konfigurera ett labbkonto

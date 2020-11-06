@@ -34,7 +34,7 @@
       href: search-get-started-java.md
     - name: JavaScript
       href: search-get-started-javascript.md
-    - name: Postman
+    - name: REST
       href: search-get-started-postman.md
     - name: PowerShell
       href: search-get-started-powershell.md
@@ -94,6 +94,8 @@
   items:
     - name: Fulltextsökning
       href: search-lucene-query-architecture.md
+    - name: Relevanspoäng
+      href: index-similarity-and-scoring.md
     - name: Indexerare
       href: search-indexer-overview.md
     - name: AI-berikning
@@ -294,8 +296,6 @@
       items:
         - name: Arbeta med resultat
           href: search-pagination-page-layout.md
-        - name: Relevanspoäng
-          href: index-similarity-and-scoring.md
         - name: Poängprofiler
           href: index-add-scoring-profiles.md
         - name: Likhetsalgoritm

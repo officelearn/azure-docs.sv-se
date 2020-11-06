@@ -14,8 +14,9 @@
     - name: Viktig information
       href: release-notes.md
 - name: Snabbstarter
+  expanded: true
   items:
-    - name: Introduktion
+    - name: Kom igång
       href: get-started.md
       displayName: 'get, started, quickstart'
     - name: 1 Skapa en Synapse-arbetsyta
@@ -170,7 +171,9 @@
           href: sql/overview-features.md
         - name: Resursförbrukningsmodeller
           href: sql/resource-consumption-models.md
-        - name: Metodtips för serverlös SQL-pool
+        - name: Bearbetade data
+          href: sql/data-processed.md
+        - name: Metodtips för SQL på begäran
           href: sql/best-practices-sql-on-demand.md
         - name: Metodtips för dedikerade SQL-pooler
           href: sql/best-practices-sql-pool.md

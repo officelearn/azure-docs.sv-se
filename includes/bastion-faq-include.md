@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 11/05/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: a38c4bb18e16a814b626a6941d626b66311cd8ea
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 5d14068f6be4717f74e4917d6fccf1082cd0efd3
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329474"
+ms.locfileid: "94331766"
 ---
 ### <a name="which-regions-are-available"></a><a name="regions"></a>Vilka regioner är tillgängliga?
 
-[!INCLUDE [region](bastion-regions-include.md)]
+[!INCLUDE [Azure Bastion region availability](bastion-regions-include.md)]
 
-### <a name="do-i-need-a-public-ip-on-my-virtual-machine"></a><a name="publicip"></a>Behöver jag en offentlig IP-adress på min virtuella dator?
+### <a name="do-i-need-a-public-ip-on-my-virtual-machine-to-connect-via-azure-bastion"></a><a name="publicip"></a>Behöver jag en offentlig IP-adress på min virtuella dator för att ansluta via Azure skydds?
 
-När du ansluter till en virtuell dator med hjälp av Azure skydds behöver du inte en offentlig IP-adress på den virtuella Azure-dator som du ansluter till. Skydds-tjänsten öppnar RDP/SSH-sessionen/-anslutningen till den virtuella datorn via den privata IP-adressen för den virtuella datorn i det virtuella nätverket.
+Nej. När du ansluter till en virtuell dator med hjälp av Azure skydds behöver du inte någon offentlig IP-adress på den virtuella Azure-dator som du ansluter till. Skydds-tjänsten öppnar RDP/SSH-sessionen/-anslutningen till den virtuella datorn via den privata IP-adressen för den virtuella datorn i det virtuella nätverket.
 
 ### <a name="is-ipv6-supported"></a>Stöds IPv6?
 
@@ -29,11 +29,11 @@ För tillfället stöds inte IPv6. Azure skydds stöder endast IPv4.
 
 ### <a name="do-i-need-an-rdp-or-ssh-client"></a><a name="rdpssh"></a>Behöver jag en RDP-eller SSH-klient?
 
-Du behöver inte en RDP-eller SSH-klient för att få åtkomst till RDP/SSH till din virtuella Azure-dator i din Azure Portal. Använd [Azure Portal](https://portal.azure.com) så att du kan få RDP/SSH-åtkomst till den virtuella datorn direkt i webbläsaren.
+Nej. Du behöver inte en RDP-eller SSH-klient för att få åtkomst till RDP/SSH till din virtuella Azure-dator i din Azure Portal. Använd [Azure Portal](https://portal.azure.com) så att du kan få RDP/SSH-åtkomst till den virtuella datorn direkt i webbläsaren.
 
 ### <a name="do-i-need-an-agent-running-in-the-azure-virtual-machine"></a><a name="agent"></a>Behöver jag en agent som körs på den virtuella Azure-datorn?
 
-Du behöver inte installera en agent eller någon program vara i din webbläsare eller din virtuella Azure-dator. Skydds-tjänsten är utan agent och kräver ingen ytterligare program vara för RDP/SSH.
+Nej. Du behöver inte installera en agent eller någon program vara i din webbläsare eller din virtuella Azure-dator. Skydds-tjänsten är utan agent och kräver ingen ytterligare program vara för RDP/SSH.
 
 ### <a name="how-many-concurrent-rdp-and-ssh-sessions-does-each-azure-bastion-support"></a><a name="limits"></a>Hur många samtidiga RDP-och SSH-sessioner gör varje Azure skydds-support?
 
@@ -43,7 +43,7 @@ Både RDP och SSH är ett användnings-baserat protokoll. Med en hög användnin
 
 ### <a name="what-features-are-supported-in-an-rdp-session"></a><a name="rdpfeaturesupport"></a>Vilka funktioner stöds i en RDP-session?
 
-För närvarande stöds endast kopiering och inklistring av text. Funktioner som filkopiering stöds inte. Du får gärna ge feedback på nya funktioner på [feedbacksidan för Azure Bastion](https://feedback.azure.com/forums/217313-networking?category_id=367303).
+För närvarande stöds endast kopiering och inklistring av text. Funktioner, till exempel fil kopiering, stöds inte. Det är kostnads fritt att dela din feedback om nya funktioner på [feedback-sidan för Azure skydds](https://feedback.azure.com/forums/217313-networking?category_id=367303).
 
 ### <a name="does-bastion-hardening-work-with-aadj-vm-extension-joined-vms"></a><a name="aadj"></a>Fungerar skydds härdning med AADJ VM Extensions-anslutna virtuella datorer?
 
@@ -70,15 +70,17 @@ Följande roller krävs för att upprätta en anslutning:
 Mer information finns på sidan med [priser](https://aka.ms/BastionHostPricing).
 
 ### <a name="does-azure-bastion-require-an-rds-cal-for-administrative-purposes-on-azure-hosted-vms"></a><a name="rdscal"></a>Kräver Azure-skydds en klient åtkomst licens för fjärr skrivbords tjänster för administrativa orsaker på virtuella datorer i Azure?
+
 Nej, åtkomst till virtuella Windows Server-datorer med Azure skydds kräver inte en [klient åtkomst licens för fjärr skrivbords tjänster](https://www.microsoft.com/p/windows-server-remote-desktop-services-cal/dg7gmgf0dvsv?activetab=pivot:overviewtab) när den används enbart för administrativa syfte.
 
-### <a name="what-keyboard-layouts-are-supported-during-the-bastion-remote-session"></a><a name="keyboard"></a>Vilka tangentbordslayouter stöds under skydds-fjärrsessionen?
+### <a name="which-keyboard-layouts-are-supported-during-the-bastion-remote-session"></a><a name="keyboard"></a>Vilka tangentbordslayouter stöds under skydds-fjärrsessionen?
 
 Azure skydds stöder för närvarande en-US-QWERTY-tangentbordslayout inuti den virtuella datorn.  Stöd för andra språk för tangentbordslayout är pågående.
 
 ### <a name="is-user-defined-routing-udr-supported-on-an-azure-bastion-subnet"></a><a name="udr"></a>Stöds UDR (User-Defined routing) i ett Azure skydds-undernät?
 
 Nej. UDR stöds inte i ett Azure skydds-undernät.
+
 För scenarier som omfattar både Azure-skydds och Azure Firewall/Network Virtual Machine (NVA) i samma virtuella nätverk behöver du inte tvinga trafik från ett Azure skydds-undernät till Azure-brandväggen eftersom kommunikationen mellan Azure skydds och dina virtuella datorer är privat. Mer information finns i [komma åt virtuella datorer bakom Azure Firewall med skydds](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/).
 
 ### <a name="why-do-i-get-your-session-has-expired-error-message-before-the-bastion-session-starts"></a><a name="session"></a>Varför visas ett fel meddelande om att sessionen har upphört att gälla innan skydds-sessionen startar?
@@ -87,8 +89,8 @@ En session ska endast initieras från Azure Portal. Logga in på Azure Portal oc
 
 ### <a name="how-do-i-handle-deployment-failures"></a><a name="udr"></a>Hur gör jag för att hantera distributions problem?
 
-Granska eventuella fel meddelanden och [få en supportbegäran i Azure Portal](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) efter behov. Distributions felen kan bero på [begränsningar i Azure-prenumerationen, kvoter och begränsningar](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). Mer specifikt kan kunderna stöta på en gräns för antalet offentliga IP-adresser som tillåts per prenumeration och som gör att Azure skydds-distributionen Miss lyckas.
+Granska eventuella fel meddelanden och [få en supportbegäran i Azure Portal](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) efter behov. Distributions felen kan bero på [begränsningar, kvoter och begränsningar för Azure-prenumerationen](../articles/azure-resource-manager/management/azure-subscription-service-limits.md). Mer specifikt kan kunderna stöta på en gräns för antalet offentliga IP-adresser som tillåts per prenumeration och som gör att Azure skydds-distributionen Miss lyckas.
 
-### <a name="how-do-i-incorporate-azure-bastion-in-my-dr-plan"></a><a name="dr"></a>Hur gör jag för att införliva Azure-skydds i min DR-plan?
+### <a name="how-do-i-incorporate-azure-bastion-in-my-disaster-recovery-plan"></a><a name="dr"></a>Hur gör jag för att införliva Azure-skydds i min haveri beredskaps plan?
 
-Eftersom Azure skydds är associerat med en Azure-region och distribueras i virtuella nätverk eller peered virtuella nätverk, ansvarar du för att distribuera Azure-skydds till en haveri beredskap (DR)-webbplats VNet. Om det uppstår ett fel i en Azure-region utför du en redundansväxling för virtuella datorer och använder sedan den Azure skydds-värd som har distribuerats i DR-regionen för att ansluta till de virtuella datorer som distribueras i DR-regionen.
+Azure-skydds distribueras i virtuella nätverk eller peered virtuella nätverk och är kopplad till en Azure-region. Du ansvarar för att distribuera Azure-skydds till en haveri beredskaps webbplats VNet. Om ett fel uppstår i Azure-regionen utför du en redundansväxling för dina virtuella datorer till DR-regionen. Använd sedan den Azure skydds-värd som distribueras i DR-regionen för att ansluta till de virtuella datorer som nu har distribuerats där.

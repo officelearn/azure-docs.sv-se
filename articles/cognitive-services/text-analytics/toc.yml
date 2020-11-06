@@ -80,6 +80,8 @@
           href: how-tos/text-analytics-how-to-use-container-instances.md
         - name: Använda Kubernetes Service (AKS)
           href: how-tos/text-analytics-how-to-use-kubernetes-service.md
+        - name: Dokumentation om containrar för Cognitive Services
+          href: ../containers/index.yml
     - name: 'Migrera till version 3 av API:et'
       href: migration-guide.md
 - name: Referens

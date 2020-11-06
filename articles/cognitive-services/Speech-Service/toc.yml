@@ -39,8 +39,6 @@
           href: how-to-automatic-language-detection.md
         - name: Använda API för batch-transkription
           href: batch-transcription.md
-        - name: Utvärdera uttal
-          href: how-to-pronunciation-assessment.md
     - name: Självstudier
       items:
         - name: Identifiera tal som lagras i bloblagring
@@ -530,6 +528,8 @@
           href: deploy-speech-on-container-instances.md
         - name: Vanliga frågor och svar om containrar
           href: speech-container-faq.md
+        - name: Dokumentation om containrar för Cognitive Services
+          href: ../containers/index.yml
 - name: Enheter
   items:
     - name: Dokumentation om Speech-enheter

@@ -1,0 +1,90 @@
+### YamlMime:Landing
+title: Azure Cognitive Services-containrar
+summary: Azure Cognitive Services erbjuder flera containrar för att använda AI lokalt. Containrar ger dig flexibiliteten att ta Cognitive Services närmare dina data för efterlevnad, säkerhet eller andra driftsorsaker.
+metadata:
+  title: Azure Cognitive Services-containrar
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  author: aahill
+  manager: nitinme
+  ms.service: cognitive-services
+  ms.topic: landing-page
+  ms.date: 10/27/2020
+  ms.author: aahi
+  ms.openlocfilehash: 28eb8450201280e58e24dd5ad9b8826165b614c3
+  ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 11/04/2020
+  ms.locfileid: "93328092"
+landingContent:
+- title: Om Cognitive Services-containrar
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Vad är Cognitive Services-containrar?
+      url: ../cognitive-services-container-support.md
+    - text: Vanliga frågor och svar
+      url: container-faq.md
+    - text: Taggar för containeravbildningar
+      url: container-image-tags.md
+- title: Containerinstruktioner
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Recept för återanvändning av containrar
+      url: container-reuse-recipe.md
+    - text: Distribuera på Azure Container Instances
+      url: azure-container-instance-recipe.md
+    - text: Distribuera på Kubernetes
+      url: azure-kubernetes-recipe.md
+    - text: Distribuera med Docker Compose
+      url: azure-kubernetes-recipe.md
+- title: Containrar för visuellt innehåll
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - url: ../computer-vision/computer-vision-how-to-install-containers.md
+      text: Läsa OCR
+    - url: ../computer-vision/spatial-analysis-container.md
+      text: Rumslig analys
+    - url: ../face/face-how-to-install-containers.md
+      text: Ansikte
+    - url: ../form-recognizer/form-recognizer-container-howto.md
+      text: Formigenkänning
+- title: Språkcontainrar
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=sentiment
+      text: Attitydanalys
+    - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=keyphrase
+      text: Extrahering av nyckelfraser
+    - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=language
+      text: Identifiering av språk i text
+    - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare
+      text: Textanalys för hälsa
+    - url: ../luis/luis-container-howto.md
+      text: LUIS-container
+- title: Speech-containrar
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - url: ../speech-service/speech-container-howto.md?tabs=stt
+      text: Tal till text
+    - url: ../speech-service/speech-container-howto.md?tabs=cstt
+      text: Anpassat tal till text
+    - url: ../speech-service/speech-container-howto.md?tabs=tts
+      text: Text till tal
+    - url: ../speech-service/speech-container-howto.md?tabs=ctts
+      text: Anpassat text till tal
+    - url: ../speech-service/speech-container-howto.md?tabs=ntts
+      text: Neural text till tal
+    - url: ../speech-service/speech-container-howto.md?tabs=lid
+      text: Språkidentifiering
+- title: Beslutscontainer
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - url: ../anomaly-detector/anomaly-detector-container-howto.md
+      text: Avvikelseidentifiering

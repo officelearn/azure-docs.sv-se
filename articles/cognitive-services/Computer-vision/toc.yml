@@ -161,6 +161,8 @@
           href: spatial-analysis-zone-line-placement.md
         - name: Kameraplacering
           href: spatial-analysis-camera-placement.md
+    - name: Dokumentation om containrar för Cognitive Services
+      href: ../containers/index.yml
 - name: Anvisningar
   items:
     - name: 'Anropa API:et för visuellt innehåll'

@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/13/2020
+ms.date: 11/06/2020
 ms.author: b-juche
-ms.openlocfilehash: 54e6f4abd5ca6d15a4cc5a7bc9015abb005296a0
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: ff1899fbc89ab4a78bf793a133a7aa9a8f03dd2a
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013652"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337567"
 ---
-# <a name="troubleshoot-capacity-pool-issues"></a>Felsök problem med kapacitets pooler
+# <a name="troubleshoot-capacity-pool-issues"></a>Felsöka problem med kapacitetspooler
 
 I den här artikeln beskrivs lösningar på problem som du kan ha när du hanterar kapacitets grupper, inklusive ändrings åtgärden för poolen. 
 
@@ -38,7 +38,6 @@ I den här artikeln beskrivs lösningar på problem som du kan ha när du hanter
 |-|-|
 | Det är inte tillåtet att ändra kapacitets gruppen för en volym. | Du kanske inte har behörighet att använda den här funktionen. <br> Funktionen för att flytta en volym till en annan kapacitets pool är för närvarande en för hands version. Om du använder den här funktionen för första gången måste du registrera funktionen först och ange `-FeatureName ANFTierChange` . Se registrerings stegen i [dynamisk ändring av Service nivån för en volym](dynamic-change-volume-service-level.md). |
 | Storleken på kapacitets poolen är för liten för total volym storlek. |  Felet är ett resultat av att mål kapacitets gruppen inte har den tillgängliga kapaciteten för volymen som flyttas.  <br> Öka storleken på måldomänkontrollanten eller Välj en annan pool som är större.  Se [ändra storlek på en kapacitets grupp eller en volym](azure-netapp-files-resize-capacity-pools-or-volumes.md).   |
-| Det går inte att flytta en volym när poolen för mål kapacitet har en annan krypterings typ än den ursprungliga kapacitets gruppen.  Du kan till exempel flytta från Double Encryption till Single Encryption eller vice versa.  | Välj en pool för mål kapacitet med samma krypterings typ som käll kapacitets pool.   |
 |  Det går inte att slutföra ändringen av poolen eftersom det `'{source pool name}'` redan finns en volym med namnet i mål-poolen `'{target pool name}'` | Felet beror på att det redan finns en volym med samma namn i poolen för mål kapacitet.  Välj en annan kapacitets pool som inte har en volym med samma namn.   | 
 
 ## <a name="next-steps"></a>Nästa steg  

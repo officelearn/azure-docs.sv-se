@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: sample
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.openlocfilehash: caf492c2cd3940fd7f37e2a4462c8376a127f393
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a4fe2492433aa793d1a7e4be41c5f93043848a5
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86189829"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337873"
 ---
 # <a name="python-samples-for-cognitive-services-for-big-data"></a>Python-exempel för Cognitive Services för Big data
 
@@ -27,7 +27,7 @@ I exemplen i den här artikeln används följande Cognitive Services:
 - Tal-till-text – att skriva av ljudfiler för att extrahera textbaserade avskrifter.
 - Avvikelse detektor – identifiera avvikelser inom en tids serie data.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 1. Följ stegen i [komma igång](getting-started.md) för att konfigurera din Azure Databricks och Cognitive Servicess miljö. Den här självstudien visar hur du installerar MMLSpark och hur du skapar ett Spark-kluster i Databricks.
 1. När du har skapat en ny antecknings bok i Azure Databricks kopierar du den **delade koden** nedan och klistrar in den i en ny cell i antecknings boken.
@@ -78,16 +78,16 @@ sentiment = (TextSentiment()
     .setLanguageCol("language"))
 
 # Show the results of your text query in a table format
-display(sentiment.transform(df).select("text", col("sentiment")[0].getItem("score").alias("sentiment")))
+display(sentiment.transform(df).select("text", col("sentiment")[0].getItem("sentiment").alias("sentiment")))
 ```
 
 ### <a name="expected-result"></a>Förväntat resultat
 
 | text                                      | sentiment                                             |
 |:------------------------------------------|:------------------------------------------------------|
-| Jag är så glad idag, dess solig!           | 0.9789592027664185                                    |
-| Jag är frustrerad genom den här trafik som skynda på trafik | 0.023795604705810547                                  |
-| Kognitiva tjänster på Spark aint-dåliga  | 0.8888956308364868                                    |
+| Jag är så glad idag, dess solig!           | positivt                                              |
+| Jag är frustrerad genom den här trafik som skynda på trafik | negativt                                              |
+| Kognitiva tjänster på Spark aint-dåliga  | positivt                                              |
 
 ## <a name="computer-vision-sample"></a>Visuellt innehåll exempel
 

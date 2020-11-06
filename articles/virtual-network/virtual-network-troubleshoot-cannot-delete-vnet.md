@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 83afdf7e9dc50e50d747db99cd8439d75e6f7804
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 27372207df66b4198bd9c785ecc099fa88cbe548
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167822"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335712"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Fel sökning: det gick inte att ta bort ett virtuellt nätverk i Azure
 
@@ -31,10 +31,11 @@ Du kan få fel meddelanden när du försöker ta bort ett virtuellt nätverk i M
 
 1. [Kontrol lera om en virtuell nätverksgateway körs i det virtuella nätverket](#check-whether-a-virtual-network-gateway-is-running-in-the-virtual-network).
 2. [Kontrol lera om en Application Gateway körs i det virtuella nätverket](#check-whether-an-application-gateway-is-running-in-the-virtual-network).
-3. [Kontrol lera om Azure Active Directory domän tjänsten är aktive rad i det virtuella nätverket](#check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network).
-4. [Kontrol lera om det virtuella nätverket är anslutet till en annan resurs](#check-whether-the-virtual-network-is-connected-to-other-resource).
-5. [Kontrol lera om en virtuell dator fortfarande körs i det virtuella nätverket](#check-whether-a-virtual-machine-is-still-running-in-the-virtual-network).
-6. [Kontrol lera om det virtuella nätverket fastnar i migreringen](#check-whether-the-virtual-network-is-stuck-in-migration).
+3. [Kontrol lera om Azure Container instances fortfarande finns i det virtuella nätverket](#check-whether-azure-container-instances-still-exist-in-the-virtual-network).
+4. [Kontrol lera om Azure Active Directory domän tjänsten är aktive rad i det virtuella nätverket](#check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network).
+5. [Kontrol lera om det virtuella nätverket är anslutet till en annan resurs](#check-whether-the-virtual-network-is-connected-to-other-resource).
+6. [Kontrol lera om en virtuell dator fortfarande körs i det virtuella nätverket](#check-whether-a-virtual-machine-is-still-running-in-the-virtual-network).
+7. [Kontrol lera om det virtuella nätverket fastnar i migreringen](#check-whether-the-virtual-network-is-stuck-in-migration).
 
 ## <a name="troubleshooting-steps"></a>Felsökningsanvisningar
 
@@ -59,6 +60,19 @@ Gå till **översikts** sidan för det virtuella nätverket. Kontrol lera de **a
 ![Skärm bild av listan över anslutna enheter för ett virtuellt nätverk i Azure Portal. Programgatewayen är markerad i listan.](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
 
 Om det finns en Application Gateway måste du ta bort den innan du kan ta bort det virtuella nätverket.
+
+### <a name="check-whether-azure-container-instances-still-exist-in-the-virtual-network"></a>Kontrol lera om Azure Container instances fortfarande finns i det virtuella nätverket
+
+1. I Azure Portal går du till resurs gruppens **översikts** sida.
+1. I rubriken för listan över resurs gruppens resurser väljer du **Visa dolda typer**. Nätverks profil typen är dold i Azure Portal som standard.
+1. Välj Nätverks profilen som är relaterad till behållar grupperna.
+1. Välj **Ta bort**.
+
+   ![Skärm bild av listan över dolda nätverks profiler.](media/virtual-network-troubleshoot-cannot-delete-vnet/container-instances.png)
+
+1. Ta bort under nätet eller det virtuella nätverket igen.
+
+Om de här stegen inte löser problemet kan du använda dessa [Azure CLI-kommandon](https://docs.microsoft.com/azure/container-instances/container-instances-vnet#clean-up-resources) för att rensa resurser. 
 
 ### <a name="check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network"></a>Kontrol lera om Azure Active Directory domän tjänsten är aktive rad i det virtuella nätverket
 

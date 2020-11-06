@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 400c5bd4dd31daaf826ed63ada75266d4ab3099c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a73005580c9b7ddeae17e3e0490aa586bd9b0fbb
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313219"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335838"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Självstudie: Beställa Azure Data Box
 
@@ -89,7 +89,7 @@ You have logged in. Now let us find all the subscriptions to which you have acce
 
 **Installera Azure Data Box CLI-tillägget**
 
-Innan du kan använda kommandona för Azure Data Box CLI måste du installera tillägget. Med Azure CLI-tillägg får du tillgång till experimentella kommandon som inte finns med i standardversionen av CLI:t ännu. Mer information om tillägg finns i [använda tillägg med Azure CLI](/cli/azure/azure-cli-extensions-overview).
+Innan du kan använda kommandona för Azure Data Box CLI måste du installera tillägget. Med Azure CLI-tillägg får du tillgång till experimentella kommandon som inte finns med i standardversionen av CLI:t ännu. Mer information om tillägg finns i [Använda tillägg med Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
 Kör följande kommando för att installera tillägget för Azure Data Box: `az extension add --name databox` :
 
@@ -123,7 +123,7 @@ Om tillägget har installerats visas följande utdata:
 
 Du kan använda [Azure Cloud Shell](https://shell.azure.com/), en Azure-värdbaserad, interaktiv gränssnitts miljö i webbläsaren för att köra CLI-kommandon. Azure Cloud Shell stöder bash eller Windows PowerShell med Azure-tjänster. Azure CLI är förinstallerat och konfigurerat för användning med ditt konto. Välj knappen Cloud Shell på menyn i det övre högra avsnittet av Azure Portal:
 
-![Cloud Shell](../storage/common/media/storage-quickstart-create-account/cloud-shell-menu.png)
+![Val av Cloud Shell meny](../storage/common/media/storage-quickstart-create-account/cloud-shell-menu.png)
 
 Knappen startar ett interaktivt gränssnitt som du kan använda för att köra stegen som beskrivs i den här instruktions artikeln.
 
@@ -215,11 +215,11 @@ Utför följande steg i Azure Portal för att beställa en enhet.
 1. Använd dina Microsoft Azure-autentiseringsuppgifter för att logga in på denna URL: [https://portal.azure.com](https://portal.azure.com).
 2. Välj **+ Skapa en resurs** och sök efter *Azure Data Box*. Välj **Azure Data Box**.
 
-   ![Skärm bild av det nya avsnittet med Azure Data Box i Sök fältet.](media/data-box-deploy-ordered/select-data-box-import-02.png)
+   ![Skärm bild av nytt avsnitt med Azure Data Box i Sök fältet](media/data-box-deploy-ordered/select-data-box-import-02.png)
 
 3. Välj **Skapa**.
 
-   ![Skärm bild av Azure Data Box-avsnittet med alternativet Skapa som kallas för.](media/data-box-deploy-ordered/select-data-box-import-03.png)
+   ![Skärm bild av Azure Data Box avsnittet med alternativet Skapa](media/data-box-deploy-ordered/select-data-box-import-03.png)
 
 4. Kontrollera om Data Box-tjänsten är tillgänglig i din region. Ange eller välj följande information och välj **Tillämpa**.
 
@@ -231,21 +231,21 @@ Utför följande steg i Azure Portal för att beställa en enhet.
     |Källans land/region    |    Välj landet/regionen där dina data finns.         |
     |Azure-målregion     |     Välj den Azure-region dit du vill överföra data. <br> Mer information finns i [regional tillgänglighet](data-box-overview.md#region-availability).            |
 
-    [![Azure Data Box import ordning](media/data-box-deploy-ordered/select-data-box-import-04b.png)](media/data-box-deploy-ordered/select-data-box-import-04b.png#lightbox)
+    [![Starta en Azure Data Box import ordning](media/data-box-deploy-ordered/select-data-box-import-04b.png)](media/data-box-deploy-ordered/select-data-box-import-04b.png#lightbox)
 
 5. Välj **Data Box**. Den högsta användbara kapaciteten för en enskild order är 80 TB. Du kan skapa flera beställningar för större datamängder.
 
-    ![Skärm bild av de olika data storlekar som är tillgängliga för markering: Data Box Disk 40 terabyte, Data Box-enhet 100 terabyte, Data Box Heavy, 1000 terabyte och skicka dina egna diskar 1 terabyte.](media/data-box-deploy-ordered/select-data-box-import-05.png)
+    ![Tillgängliga data storlekar: Data Box Disk 40 terabyte; Data Box-enhet 100 terabyte; Data Box Heavy 1000 terabyte; Skicka dina egna diskar, 1 terabyte](media/data-box-deploy-ordered/select-data-box-import-05.png)
 
 6. Gå till fliken **grundläggande** i **ordning**. Ange eller Välj följande information och välj **Nästa: data mål>**.
 
-    |Inställningen  |Värde  |
+    |Inställning  |Värde  |
     |---------|---------|
     |Prenumeration      | Prenumerationen fylls i automatiskt baserat på din tidigare val.|
     |Resursgrupp    | Den resurs grupp som du valde tidigare. |
     |Importera beställnings namn | Välj ett smeknamn så att du kan spåra beställningen. <br> Namnet kan innehålla mellan 3 och 24 tecken som kan vara bokstäver, siffror och bindestreck. <br> Namnet måste börja och sluta med en bokstav eller en siffra.    |
 
-    ![Skärm bild av guiden order som visar grundläggande steg i guiden med rätt information ifylld.](media/data-box-deploy-ordered/select-data-box-import-06.png)
+    ![Data Box-enhet guiden Importera order, grundläggande information, med rätt information ifylld](media/data-box-deploy-ordered/select-data-box-import-06.png)
 
     Som standard krypteras lösen ordet för enhets upplåsningen med hjälp av en Microsoft-hanterad nyckel. När du har slutfört beställningen kan du lägga till en kundhanterad nyckel. Med en kundhanterad nyckel kan du använda din egen nyckel från en Azure Key Vault-nyckel för att skydda enhetens lösen ord för att låsa upp enheten. Mer information finns i [använda Kundhanterade nycklar i Azure Key Vault för Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
 
@@ -253,7 +253,7 @@ Utför följande steg i Azure Portal för att beställa en enhet.
 
     Om du använder **lagrings kontona** som lagrings mål visas följande skärm bild:
 
-    ![Azure Data Box data destination](media/data-box-deploy-ordered/select-data-box-import-07.png)
+    ![Data Box-enhet import order guiden, data destinations skärmen, med valda lagrings konton](media/data-box-deploy-ordered/select-data-box-import-07.png)
 
     Baserat på den angivna Azure-regionen väljer du ett eller flera lagringskonton från den filtrerade listan med befintliga lagringskonton. Data Box kan länkas med upp till 10 lagringskonton. Du kan också skapa ett nytt konto för **Generell användning v1** , **Generell användning v2** eller **bloblagring**.
 
@@ -261,11 +261,11 @@ Utför följande steg i Azure Portal för att beställa en enhet.
 
     Om du använder Data Box-enhet för att skapa **hanterade diskar** från lokala virtuella hård diskar (VHD: er), måste du också ange följande information:
 
-    |Inställningen  |Värde  |
+    |Inställning  |Värde  |
     |---------|---------|
     |Resursgrupper     | Skapa nya resursgrupper om du planerar att skapa hanterade diskar från lokala virtuella hårddiskar. Du kan bara använda en befintlig resurs grupp om resurs gruppen skapades tidigare när du skapade en Data Box-enhets ordning för den hanterade disken av Data Box-enhet-tjänsten. <br> Ange flera resursgrupper avgränsade med semikolon. Högst 10 resursgrupper stöds.|
 
-    ![Skärm bild av guiden order som visar steget data mål i guiden med rätt information ifylld.](media/data-box-deploy-ordered/select-data-box-import-07b.png)
+    ![Data Box-enhet importera order-guiden, data måls skärmen, med Managed Disks valt](media/data-box-deploy-ordered/select-data-box-import-07b.png)
 
     Det angivna lagringskontot för hanterade diskar används som ett mellanlagringskonto. Data Box-tjänsten laddar upp de virtuella hårddiskarna som sidblobar till mellanlagringskontot innan de konverteras till hanterade diskar och flyttas till resursgrupperna. Mer information finns i [Verifiera dataöverföring till Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
    > [!NOTE]
@@ -277,23 +277,23 @@ Utför följande steg i Azure Portal för att beställa en enhet.
 
     Alla inställningar på **säkerhets** skärmen är valfria. Om du inte ändrar några inställningar används standardinställningarna.
 
-    ![Säkerhets skärm för en Data Box-enhet import ordning](media/data-box-deploy-ordered/select-data-box-import-security-01.png)
+    ![Säkerhets skärmen i guiden Data Box-enhet importera order](media/data-box-deploy-ordered/select-data-box-import-security-01.png)
 
-1. Om du inte vill använda de systemgenererade lösen orden som Azure Data Box använder som standard, expanderar **du ta med ditt eget lösen ord**.
+8. Om du inte vill använda de systemgenererade lösen orden som Azure Data Box använder som standard, expanderar **du ta med ditt eget lösen ord**.
 
    De systemgenererade lösen orden är säkra och rekommenderas om inte organisationen kräver något annat.
 
-   ![Utöka alternativen för att ta med egna lösen ord för en Data Box-enhet import ordning](media/data-box-deploy-ordered/select-data-box-import-security-02.png) 
+   ![Utöka alternativen för att ta med egna lösen ord på säkerhets skärmen för en Data Box-enhet import ordning](media/data-box-deploy-ordered/select-data-box-import-security-02.png)
 
    - Om du vill använda ditt eget lösen ord för den nya enheten väljer du **Använd ditt eget lösen ord** i **Ange inställningar för enhetens lösen** ord och anger ett lösen ord som uppfyller säkerhets kraven.
    
-     ![Säkerhets skärm för Data Box-enhet import, alternativ för att använda ditt eget enhets lösen ord](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
+     ![Alternativ för att använda ditt eget enhets lösen ord på säkerhets skärmen för en Data Box-enhet import ordning](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
 
    - Så här använder du egna lösen ord för resurser:
 
      1. Genom att **Ange inställningar för dela lösen ord** väljer **du Använd dina egna lösen ord** och **väljer sedan lösen ord för resurserna**.
      
-        ![Säkerhets skärmen för Data Box-enhet import, alternativ för att använda dina egna resurs lösen ord](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
+        ![Alternativ för att använda egna delnings lösen ord på säkerhets skärmen för en Data Box-enhet import ordning](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
 
      1. Ange ett lösen ord för varje lagrings konto i ordern. Lösen ordet kommer att användas på alla resurser för lagrings kontot.
      
@@ -303,9 +303,9 @@ Utför följande steg i Azure Portal för att beställa en enhet.
 
        På **säkerhets** skärmen kan du använda **Visa eller ändra lösen ord** för att ändra lösen ord.
 
-1. I **säkerhet** , om du vill aktivera programvarubaserad dubbel kryptering, expanderar du **Double-Encryption (för hög säkra miljöer)** och väljer **Aktivera dubbel kryptering för beställningen**.
+9. I **säkerhet** , om du vill aktivera programvarubaserad dubbel kryptering, expanderar du **Double-Encryption (för hög säkra miljöer)** och väljer **Aktivera dubbel kryptering för beställningen**.
 
-   ![Säkerhets skärm för Data Box-enhet import, aktivera programvarubaserad kryptering för en Data Box-enhet beställning](media/data-box-deploy-ordered/select-data-box-import-security-07.png)
+   ![Alternativ för att aktivera programvarubaserad kryptering på säkerhets skärmen för en Data Box-enhet import ordning](media/data-box-deploy-ordered/select-data-box-import-security-07.png)
 
    Den programvarubaserade krypteringen utförs förutom AES-256-bitars kryptering av data på Data Box-enhet.
 
@@ -314,29 +314,29 @@ Utför följande steg i Azure Portal för att beställa en enhet.
 
    Välj **Nästa: kontakt uppgifter** för att fortsätta.
 
-8. I **kontakt information** väljer du **+ Lägg till leverans adress**.
+10. I **kontakt information** väljer du **+ Lägg till leverans adress**.
 
-    ![Skärm bild av guiden order som visar steget kontakt information i guiden med alternativet Lägg till leverans adress som kallas för.](media/data-box-deploy-ordered/select-data-box-import-08a.png)
+    ![På sidan kontakt information lägger du till leverans adresser i Azure Data Box import ordning](media/data-box-deploy-ordered/select-data-box-import-08a.png)
 
-9. I **Leveransadress** uppger du för- och efternamn, företagets postadress och ett giltigt telefonnummer. Välj **Verifiera adress**. Tjänsten verifierar leveransadressen och tjänstens tillgänglighet. Om tjänsten är tillgänglig för den angivna leveransadressen får du ett meddelande om det.
+11. I **leverans adress** anger du ditt för-och efter namn, företagets namn och post adress och ett giltigt telefonnummer. Välj sedan **Verifiera adress**. Tjänsten söker efter tjänst tillgänglighet för adressen. Om tjänsten är tillgänglig för leverans adressen får du ett meddelande om detta.
 
-   ![Skärm bild av dialog rutan Lägg till leverans adress med alternativet leverera med alternativ och alternativet Lägg till leverans adress som kallas.](media/data-box-deploy-ordered/select-data-box-import-10.png)
+     ![Dialog rutan Lägg till leverans adress, med alternativet leverera med alternativ och alternativet Lägg till leverans adress som kallas](media/data-box-deploy-ordered/select-data-box-import-10.png)
 
-   Om du har valt självhanterad leverans får du ett e-postmeddelande när beställningen har placerats. Mer information om självhanterad leverans finns i [Använd självhanterad leverans](data-box-portal-customer-managed-shipping.md).
+    Om du har valt självhanterad leverans får du ett e-postmeddelande när beställningen har placerats. Mer information om självhanterad leverans finns i [Använd självhanterad leverans](data-box-portal-customer-managed-shipping.md).
 
-10. Välj **Lägg till leverans adress** när leverans informationen har verifierats. Du kommer tillbaka till fliken **kontakt information** .
+12. Välj **Lägg till leverans adress** när leverans informationen har verifierats. Du kommer tillbaka till fliken **kontakt information** .
 
-11. När du har återlämnat **kontakt uppgifterna** lägger du till en eller flera e-postadresser. Tjänsten skickar e-postmeddelanden om alla uppdateringar rörande orderstatus.
+13. När du har återlämnat **kontakt uppgifterna** lägger du till en eller flera e-postadresser. Tjänsten skickar e-postmeddelanden om alla uppdateringar rörande orderstatus.
 
     Vi rekommenderar att du använder en grupp-e-postadress, så att du kan fortsätta att ta emot meddelanden även om en gruppadministratör lämnar företaget.
 
-    ![Skärm bild av e-postavsnittet i steget kontakt information i guiden Beställ med text rutan e-post och nästa alternativ: granska och ordna som anropas.](media/data-box-deploy-ordered/select-data-box-import-08c.png)
+    ![E-postavsnitt för kontakt information i guiden order](media/data-box-deploy-ordered/select-data-box-import-08c.png)
 
 12. Granska informationen i **Granska + order** som är relaterad till order, kontakt, avisering och sekretess villkor. Markera rutan för avtalet till sekretesspolicyn.
 
 13. Välj **Beställ**. Det tar några minuter att skapa beställningen.
 
-    ![Skärm bild av guiden order som visar steget granska och sortera och beställnings alternativet.](media/data-box-deploy-ordered/select-data-box-import-11.png)
+    ![Granska och beställa skärmen i guiden order](media/data-box-deploy-ordered/select-data-box-import-11.png)
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -344,7 +344,7 @@ Utför följande steg med Azure CLI för att beställa en enhet:
 
 1. Skriv ned inställningarna för din Data Box-enhets ordning. Inställningarna omfattar din personliga/affärs information, prenumerations namn, enhets information och information om leverans. Du måste använda de här inställningarna som parametrar när du kör CLI-kommandot för att skapa Data Box-enhets ordningen. I följande tabell visas de parameter inställningar som används för `az databox job create` :
 
-   | Inställning (parameter) | Beskrivning |  Exempelvärde |
+   | Inställning (parameter) | Description |  Exempelvärde |
    |---|---|---|
    |resource-group| Använd ett befintligt eller skapa ett nytt. En resursgrupp är en logisk container för de resurser som kan hanteras eller distribueras tillsammans. | myresourcegroup|
    |name| Namnet på den ordning som du skapar. | "mydataboxorder"|
@@ -463,7 +463,7 @@ Utför följande steg med Azure PowerShell för att beställa en enhet:
 
 2. Skriv ned inställningarna för din Data Box-enhets ordning. Inställningarna omfattar din personliga/affärs information, prenumerations namn, enhets information och information om leverans. Du måste använda de här inställningarna som parametrar när du kör PowerShell-kommandot för att skapa Data Box-enhets ordningen. I följande tabell visas de parameter inställningar som används för [New-AzDataBoxJob](/powershell/module/az.databox/New-AzDataBoxJob).
 
-    | Inställning (parameter) | Beskrivning |  Exempelvärde |
+    | Inställning (parameter) | Description |  Exempelvärde |
     |---|---|---|
     |ResourceGroupName [krävs]| Använd en befintlig resurs grupp. En resursgrupp är en logisk container för de resurser som kan hanteras eller distribueras tillsammans. | myresourcegroup|
     |Namn [obligatoriskt]| Namnet på den ordning som du skapar. | "mydataboxorder"|
@@ -526,11 +526,11 @@ Om enheten inte är tillgänglig får du ett meddelande. Om enheten är tillgän
 
 När enhetsförberedelserna är klara visar portalen beställningen i tillståndet **Processed** (Behandlad).
 
-![Data Box-beställningen behandlas](media/data-box-overview/data-box-order-status-processed.png)
+![En Data Box-enhet ordning som har bearbetats](media/data-box-overview/data-box-order-status-processed.png)
 
 Microsoft förbereder sedan enheten och skickar den via en regional transportör. Du får ett spårningsnummer när enheten har skickats. Portalen visar ordningen för statusen **Dispatched** (Skickad).
 
-![Data Box-beställningen skickas](media/data-box-overview/data-box-order-status-dispatched.png)
+![En Data Box-enhet order som har skickats](media/data-box-overview/data-box-order-status-dispatched.png)
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 

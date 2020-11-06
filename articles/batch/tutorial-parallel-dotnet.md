@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 09/29/2020
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 8c8dcd01c7e97f77e994d021e39ce6a5e591ff9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ea68b8a6cf26db2e4ba440140cfa900cebbb4aa
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537590"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335663"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Självstudie: Kör en parallell arbetsbelastning med Azure Batch med hjälp av .NET API
 
@@ -29,13 +29,13 @@ I den här självstudien konverterar du MP4-mediefiler parallellt till MP3-forma
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Visual Studio 2017 eller senare](https://www.visualstudio.com/vs), eller [.net Core 2,1](https://www.microsoft.com/net/download/dotnet-core/2.1) för Linux, MacOS eller Windows.
 
 * Ett Batch-konto och ett länkat Azure Storage-konto. Information om hur du skapar de här kontona finns Batch-snabbstarterna som du kommer åt via [Azure-portalen](quick-create-portal.md) eller [Azure CLI](quick-create-cli.md).
 
-* [Windows 64-bitars version av ffmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-09-21-full_build.zip) (. zip). Ladda ned zip-filen till din lokala dator. I den här självstudien behöver du bara zip-filen. Du behöver inte packa upp filen eller installera den lokalt.
+* [Windows 64-bitars version av ffmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-10-01-essentials_build.7z) (. zip). Ladda ned zip-filen till din lokala dator. I den här självstudien behöver du bara zip-filen. Du behöver inte packa upp filen eller installera den lokalt.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -45,9 +45,9 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 Använd Azure-portalen och lägg till ffmpeg i Batch-kontot som ett [programpaket](batch-application-packages.md). Med programpaket kan du hantera uppgiftsprogram och deras distribution till beräkningsnoderna i din pool. 
 
-1. Klicka på **fler tjänster**  >  **batch-konton**i Azure Portal och klicka på namnet på batch-kontot.
+1. Klicka på **fler tjänster**  >  **batch-konton** i Azure Portal och klicka på namnet på batch-kontot.
 3. Klicka på **program**  >  **Lägg till**.
-4. För **program-ID** anger du *ffmpeg*och en paket version av *4.3.1*. Välj zip-filen för ffmpeg som du laddade ned tidigare och klicka på **OK**. Programpaketet för ffmpeg läggs till i Batch-kontot.
+4. För **program-ID** anger du *ffmpeg* och en paket version av *4.3.1*. Välj zip-filen för ffmpeg som du laddade ned tidigare och klicka på **OK**. Programpaketet för ffmpeg läggs till i Batch-kontot.
 
 ![Lägg till programpaket](./media/tutorial-parallel-dotnet/add-application.png)
 

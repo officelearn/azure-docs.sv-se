@@ -11,18 +11,18 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 658e7f206f892c9dc241aab228aa933884f95b94
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 11a295402c925f5b8244eb3294097ff2271b5d68
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675631"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335272"
 ---
 # <a name="scenario-single-page-application"></a>Scenario: ett program med en sida
 
 Lär dig allt du behöver för att bygga ett enda webb program (SPA).
 
-## <a name="getting-started"></a>Kom igång
+## <a name="getting-started"></a>Komma igång
 
 Om du inte redan har gjort det skapar du din första app genom att fylla i Java Script SPA-snabb starten:
 
@@ -38,7 +38,7 @@ Microsoft Identity Platform innehåller **två** alternativ för att aktivera pr
 
 ![Program med en enda sida – auth](./media/scenarios/spa-app-auth.svg)
 
-- [OAuth 2,0 implicit flöde](./v2-oauth2-implicit-grant-flow.md). Med det implicita tilldelnings flödet kan programmet Hämta **ID-** **och åtkomsttoken** . Till skillnad från flödet för auktoriseringskod returnerar inte det implicita tilldelnings flödet en **uppdateringstoken** .
+- [OAuth 2,0 implicit flöde](./v2-oauth2-implicit-grant-flow.md). Med det implicita tilldelnings flödet kan programmet Hämta **ID-** **och åtkomsttoken** . Till skillnad från flödet för auktoriseringskod returnerar inte det implicita tilldelnings flödet en **uppdateringstoken**.
 
 ![Program med en sida – implicit](./media/scenarios/spa-app.svg)
 
@@ -58,5 +58,4 @@ Om du vill aktivera det här scenariot för ditt program behöver du:
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!div class="nextstepaction"]
-> [Appregistrering](scenario-spa-app-registration.md)
+[Appregistrering](scenario-spa-app-registration.md)

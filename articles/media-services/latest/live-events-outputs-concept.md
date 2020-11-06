@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: 300d9e433b4c57f2868416d866f1dcff6c189fb7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: f7f73efff266e012616ac68d956abd921afaac2a
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784464"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337431"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Live-händelser och Live-utdata i Media Services
 
@@ -28,7 +28,7 @@ ms.locfileid: "92784464"
 Med Azure Media Services kan du leverera Live-händelser till dina kunder i Azure-molnet. Om du vill konfigurera direkt uppspelnings händelser i Media Services v3 måste du förstå de begrepp som beskrivs i den här artikeln.
 
 > [!TIP]
-> För kunder som migrerar från Media Services v2-API: er ersätter **Live Event** -enheten **kanal** i v2 och **Live output** ersätter **program** .
+> För kunder som migrerar från Media Services v2-API: er ersätter **Live Event** -enheten **kanal** i v2 och **Live output** ersätter **program**.
 
 ## <a name="live-events"></a>Livehändelser
 
@@ -150,12 +150,12 @@ Du kan antingen använda icke-anpassade eller anpassade URL:er.
     |---|---|---|
     |REST|[egenskaper. vanityUrl](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput. accessToken](/rest/api/media/liveevents/create#liveeventinput)|
     |CLI|[--anpassad-URL](/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--åtkomsttoken](/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
-    |.NET|[LiveEvent.VanityUrl](/dotnet/api/microsoft.azure.management.media.models.liveevent.vanityurl?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput. AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
+    |.NET|[LiveEvent.VanityUrl](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput. AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
 
 ### <a name="live-ingest-url-naming-rules"></a>Namn regler för Live-inmatnings-URL
 
 * Den *slumpmässiga* strängen nedan är ett 128-bitars hexadecimalt tal (som består av 32 tecken mellan 0 och 9 och a–f).
-* *din åtkomsttoken* : den giltiga GUID-sträng som du anger när du använder anpassad-läge. Till exempel `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
+* *din åtkomsttoken* : den giltiga GUID-sträng som du anger när du använder anpassad-läge. Exempelvis `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
 * *data ström namn* : anger data Ströms namnet för en speciell anslutning. Data ström namn svärdet läggs vanligt vis till av den Live-kodare som du använder. Du kan konfigurera Live-kodaren att använda ett namn som beskriver anslutningen, till exempel: "video1_audio1", "video2_audio1", "Stream".
 
 #### <a name="non-vanity-url"></a>Icke-anpassad URL

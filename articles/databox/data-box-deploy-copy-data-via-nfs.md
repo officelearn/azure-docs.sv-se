@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: eee5119336be02621a27b315cb26ca8dd1fd9cb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbebe3b3f63e6ccbb5f351abfc9ba3b846ca6fbe
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766262"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337669"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Självstudie: kopiera data till Azure Data Box via NFS
 
@@ -62,7 +62,7 @@ Om du använder en Linux-värddator utför du stegen nedan för att konfigurera 
 
 2. Ange NFS-klientens IP-adress och klicka på **Add**. Du kan konfigurera åtkomst för flera NFS genom att upprepa det här steget. Klicka på **OK**.
 
-    ![Konfigurera NFS-klientåtkomst 2](media/data-box-deploy-copy-data/nfs-client-access2.png)
+    ![Konfigurera IP-adressen för en NFS-klient](media/data-box-deploy-copy-data/nfs-client-access2.png)
 
 2. Kontrollera att Linux-värddatorn har en NFS-klient av en [version som stöds](data-box-system-requirements.md) installerad. Använd den specifika versionen för din Linux-distribution. 
 
@@ -78,7 +78,7 @@ Om du använder en Linux-värddator utför du stegen nedan för att konfigurera 
     
     `sudo mount -t nfs -o sec=sys,resvport 10.161.23.130:/Mystoracct_Blob /home/databoxubuntuhost/databox`
 
-    **Skapa alltid en mapp för de filer som du vill kopiera under resursen och kopiera sedan filerna till den mappen**. Mappen som skapas under blockblob- och sidblobresurser representerar en container som data laddas upp som blobar till. Du kan inte kopiera filer direkt till *root*-mappen i lagringskontot.
+    **Skapa alltid en mapp för de filer som du vill kopiera under resursen och kopiera sedan filerna till den mappen**. Mappen som skapas under blockblob- och sidblobresurser representerar en container som data laddas upp som blobar till. Du kan inte kopiera filer direkt till *root* -mappen i lagringskontot.
 
 ## <a name="copy-data-to-data-box"></a>Kopiera data till Data Box
 
@@ -88,7 +88,7 @@ När du är ansluten till Data Box-resurser är nästa steg att kopiera data. Gr
 *  När du kopierar data måste du se till att data storleken överensstämmer med storleks begränsningarna som beskrivs i [storleks gränserna för Azure Storage-kontot](data-box-limits.md#azure-storage-account-size-limits).
 * Om data som laddas upp av Data Box samtidigt överförs av andra program utanför Data Box, kan detta resultera i att uppladdningsjobbet misslyckas samt att data skadas.
 * Vi rekommenderar att du inte använda både SMB och NFS samtidigt eller kopierar samma data till samma mål i slutet på Azure. I sådana fall kan slutresultatet inte fastställas.
-* **Skapa alltid en mapp för de filer som du vill kopiera under resursen och kopiera sedan filerna till den mappen**. Mappen som skapas under blockblob- och sidblobresurser representerar en container som data laddas upp som blobar till. Du kan inte kopiera filer direkt till *root*-mappen i lagringskontot.
+* **Skapa alltid en mapp för de filer som du vill kopiera under resursen och kopiera sedan filerna till den mappen**. Mappen som skapas under blockblob- och sidblobresurser representerar en container som data laddas upp som blobar till. Du kan inte kopiera filer direkt till *root* -mappen i lagringskontot.
 * Om du matar in Skift läges känslig katalog och fil namn från en NFS-resurs till NFS på Data Box-enhet:
   * Ärendet bevaras i namnet.
   * Filerna är inte Skift läges känsliga.
@@ -104,7 +104,7 @@ Kommandot `cp` är ett av de bästa alternativen för att kopiera en katalog. Me
 
 Om du använder rsync-alternativet för en flertrådig kopia följer du dessa riktlinjer:
 
-* Installera **CIFS Utils**- eller **NFS Utils**-paketet, beroende på vilket filsystem din Linux-klient använder.
+* Installera **CIFS Utils** - eller **NFS Utils** -paketet, beroende på vilket filsystem din Linux-klient använder.
 
     `sudo apt-get install cifs-utils`
 

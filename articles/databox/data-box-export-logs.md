@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 01eb35a60a6d51b5742d8fedd2ee0631aa86c924
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3a915ac8de83a5e183660ec4a3d05044eafff4a9
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147951"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337516"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-export-orders"></a>Spårning och händelse loggning för din Azure Data Box och Azure Data Box Heavy export order
 
@@ -50,11 +50,11 @@ Mer information om föreslagen Azure RBAC-användning finns i [metod tips för A
 
 ## <a name="enable-verbose-log-in-the-order"></a>Aktivera utförlig logg i ordern
 
-När du placerar en export ordning för Data Box-enhet har du möjlighet att aktivera samlingen utförlig logg. Här är ordnings skärmen där du kan aktivera utförlig logg:
+När du placerar en export ordning för Data Box-enhet har du möjlighet att aktivera insamling av en utförlig logg. Här är ordnings skärmen där du kan aktivera utförlig logg:
 
-![Välj export alternativ](media/data-box-deploy-export-ordered/azure-data-box-export-04b.png)
+![Välj export alternativ](media/data-box-deploy-export-ordered/azure-data-box-export-order-export-option.png)
 
-När du väljer alternativet **Inkludera utförlig logg** genereras en utförlig logg fil när du kopierar data från ditt Azure Storage-konto. Den här loggen innehåller en lista över alla filer som har exporter ATS.      
+När du väljer alternativet **Inkludera utförlig logg** genereras en utförlig logg fil när du kopierar data från ditt Azure Storage-konto. Den här loggen innehåller en lista över alla filer som har exporter ATS.
 
 Mer information om export order finns i [skapa en export ordning för data Box-enhet](data-box-deploy-export-ordered.md)
 
@@ -252,7 +252,7 @@ Om du bläddrar igenom order historiken visas:
 
 - Information om operatörs spårning för enheten.
 - Händelser med *SecureErase* -aktivitet. Dessa händelser motsvarar radering av data på disken.
-- Data Box-enhet logg länkar. Sök vägarna till *gransknings loggarna*, *kopierings loggar*och *BOM* -filer visas.
+- Data Box-enhet logg länkar. Sök vägarna till *gransknings loggarna* , *kopierings loggar* och *BOM* -filer visas.
 
 Här är ett exempel på loggen för order historik från Azure Portal:
 

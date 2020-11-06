@@ -3,12 +3,12 @@ title: Om databaser & avbildningar
 description: Introduktion till viktiga begrepp för Azure Container register,-databaser och behållar avbildningar.
 ms.topic: article
 ms.date: 06/16/2020
-ms.openlocfilehash: f3a3e2a00b4fb35f9e9dd1415d5c197aef0d39b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd2f93c119817c722401f7290064894f3d39dac9
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85390456"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335902"
 ---
 # <a name="about-registries-repositories-and-images"></a>Om register, databaser och avbildningar
 
@@ -73,7 +73,7 @@ För namngivnings regler för taggar, se [Docker-dokumentationen](https://docs.d
 
 ### <a name="layer"></a>Skikt
 
-Behållar avbildningar består av ett eller flera *lager*, var och en som motsvarar en linje i Dockerfile som definierar bilden. Avbildningar i ett register delar gemensamma lager, vilket ökar lagrings effektiviteten. Till exempel kan flera avbildningar i olika lagrings platser dela samma Alpine Linux-basadress, men endast en kopia av det lagret lagras i registret.
+Behållar avbildningar består av ett eller flera *lager* , var och en som motsvarar en linje i Dockerfile som definierar bilden. Avbildningar i ett register delar gemensamma lager, vilket ökar lagrings effektiviteten. Till exempel kan flera avbildningar i olika lagrings platser dela samma Alpine Linux-basadress, men endast en kopia av det lagret lagras i registret.
 
 Lager delning optimerar också lager distribution till noder med flera bilder som delar gemensamma lager. Om en avbildning som redan finns på en nod t. ex. inkluderar Alpine Linux-lagret som bas, överförs inte lagret till noden när den efterföljande hämtningen av en annan bild som refererar till samma lager. I stället refererar den till det lager som redan finns på noden.
 

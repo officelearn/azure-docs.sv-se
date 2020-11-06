@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: a4ac56a4d588071f599f62e6de94d9ec7367a1ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 538a650c6063422f89c8ed3d1753981a293693b7
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87924761"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94338177"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Använda Azure-portalen för att administrera din Data Box Disk
 
@@ -29,15 +29,15 @@ Följ stegen nedan om du vill annullera en beställning.
 
 1.  Gå till **Översikt > Avbryt**. 
 
-    ![Annullera beställning 1](media/data-box-portal-ui-admin/cancel-order1.png)
+    ![Kommandot Avbryt på fliken Översikt för en order](media/data-box-portal-ui-admin/portal-ui-admin-cancel-command.png)
 
 2.  Fyll i en orsak som beskriver varför du vill annullera beställningen.  
 
-    ![Annullera beställning 2](media/data-box-portal-ui-admin/cancel-order2.png)
+    ![Orsak till annullering av en order](media/data-box-portal-ui-admin/portal-ui-admin-cancel-order-reason.png)
 
 3.  När beställningen har annullerats uppdateras statusen för ordern på portalen och visas som **Avbruten**.
 
-    ![Annullera beställning 3](media/data-box-portal-ui-admin/cancel-order3.png)
+    ![Annullerad ordning](media/data-box-portal-ui-admin/portal-ui-admin-canceled-order.png)
 
 Du får inget e-postmeddelande när beställningen har annullerats.
 
@@ -49,13 +49,13 @@ Följ stegen nedan om du vill klona en order.
 
 1.  Gå till **Översikt > Klona**. 
 
-    ![Klona order 1](media/data-box-portal-ui-admin/clone-order1.png)
+    ![Klona kommando på fliken Översikt för en order](media/data-box-portal-ui-admin/portal-ui-admin-clone-command.png)
 
 2.  All information för ordern förblir densamma. Namnet på beställningen är det ursprungliga ordernamnet, med tillägget *-Klon*. Markera kryssrutan för att bekräfta att du har läst sekretessinformationen. Klicka på **Skapa**.    
 
 Klonen skapas på några minuter och portalen uppdateras och visar den nya ordern.
 
-[![Klon ordning 3](media/data-box-portal-ui-admin/clone-order3.png)](media/data-box-portal-ui-admin/clone-order3.png#lightbox) 
+[![Klonad ordning](media/data-box-portal-ui-admin/portal-ui-admin-cloned-order.png)](media/data-box-portal-ui-admin/portal-ui-admin-cloned-order.png#lightbox) 
 
 ## <a name="delete-order"></a>Ta bort en order
 
@@ -65,15 +65,15 @@ Du kan bara ta bort order som har slutförts eller avbrutits. Följ steg nedan o
 
 1. Gå till **Alla resurser**. Sök efter din order.
 
-    ![Söka efter Data Box Disk-order](media/data-box-portal-ui-admin/search-data-box-disk-orders.png)
+    ![Sök efter beställningar](media/data-box-portal-ui-admin/portal-ui-admin-search-data-box-disk-orders.png)
 
 2. Klicka på den order som du vill ta bort och gå till **Översikt**. Klicka på **Ta bort** i kommandofältet.
 
-    ![Ta bort Data Box Disk-order 1](media/data-box-portal-ui-admin/delete-order1.png)
+    ![Ta bort en order](media/data-box-portal-ui-admin/portal-ui-admin-delete-command.png)
 
 3. Ange namnet på ordern när du uppmanas att bekräfta borttagningen av ordern. Klicka på **Ta bort**.
 
-     ![Ta bort Data Box Disk-order 2](media/data-box-portal-ui-admin/delete-order2.png)
+     ![Bekräfta borttagning av order](media/data-box-portal-ui-admin/portal-ui-admin-confirm-deletion.png)
 
 
 ## <a name="download-shipping-label"></a>Ladda ned adressetikett
@@ -83,11 +83,11 @@ Du kan behöva ladda ned fraktsedeln om du tappar bort returfraktsedeln som skic
 Följ stegen nedan om du behöver ladda ned en fraktsedel.
 1.  Öppna **Översikt > Ladda ned adressetikett**. Det här alternativet är endast tillgängligt när disken har skickats. 
 
-    ![Ladda ned adressetikett](media/data-box-portal-ui-admin/download-shipping-label.png)
+    ![Ladda ned adressetikett](media/data-box-portal-ui-admin/portal-ui-admin-download-shipping-label.png)
 
 2.  Med det här alternativet laddas följande returfraktsedel ned. Spara fraktsedeln, skriv ut den och sätt fast den på returpaketet.
 
-    ![Exempel på adressetikett](media/data-box-portal-ui-admin/example-shipping-label.png)
+    ![Exempel på adressetikett](media/data-box-portal-ui-admin/portal-ui-admin-example-shipping-label.png)
 
 ## <a name="edit-shipping-address"></a>Redigera leveransadress
 
@@ -97,11 +97,11 @@ Följ stegen nedan om du vill redigera ordern.
 
 1. Gå till **Orderdetaljer > Redigera leveransadress**.
 
-    ![Redigera leveransadress 1](media/data-box-portal-ui-admin/edit-shipping-address1.png)
+    ![Kommandot Redigera leverans adress i Orderspecifikationer](media/data-box-portal-ui-admin/portal-ui-admin-edit-shipping-address-command.png)
 
 2. Nu kan du redigera leveransadressen och spara ändringarna.
 
-    ![Redigera leveransadress 2](media/data-box-portal-ui-admin/edit-shipping-address2.png)
+    ![Dialog rutan Redigera leverans adress](media/data-box-portal-ui-admin/portal-ui-admin-edit-shipping-address-dbox.png)
 
 ## <a name="edit-notification-details"></a>Redigera meddelandeinformation
 
@@ -111,15 +111,15 @@ Följ stegen nedan om du vill redigera meddelandeinformationen.
 
 1. Gå till **Orderdetaljer > Redigera meddelandeinformation**.
 
-    ![Redigera meddelandeinformation 1](media/data-box-portal-ui-admin/edit-notification-details1.png)
+    ![Redigera meddelande information kommandot i order Detaljer](media/data-box-portal-ui-admin/portal-ui-admin-edit-notification-details-command.png)
 
 2. Nu kan du redigera meddelandeinformationen och spara ändringarna.
  
-    ![Redigera meddelandeinformation 2](media/data-box-portal-ui-admin/edit-notification-details2.png)
+    ![Dialog rutan Redigera meddelande information](media/data-box-portal-ui-admin/portal-ui-admin-edit-notification-details-dbox.png)
 
 ## <a name="view-order-status"></a>Visa orderstatus
 
-|Beställningsstatus |Beskrivning |
+|Beställningsstatus |Description |
 |---------|---------|
 |Beställt     | En beställning har gjorts. <br> Om diskarna inte är tillgängliga får du ett meddelande. <br>Om diskarna är tillgängliga identifierar Microsoft en disk för leverans och förbereder diskpaketet.        |
 |Bearbetad     | Orderbearbetningen har slutförts. <br> Under orderbearbetningen utförs följande åtgärder:<li>Diskarna krypteras med AES-128 BitLocker-kryptering. </li> <li>Data Box-diskarna låses för att förhindra obehörig åtkomst.</li><li>Nyckeln som låser upp diskarna genereras under den här processen.</li>        |
@@ -128,7 +128,7 @@ Följ stegen nedan om du vill redigera meddelandeinformationen.
 |Hämtat     |Ditt returpaket har hämtats. <br> När leveransen har tagits emot på Azure-datacentret laddas data automatiskt upp till Azure.         |
 |Mottaget     | Dina diskar har tagits emot på Azures datacenter. Datakopieringen startar inom kort.        |
 |Kopierade data     |Data kopieras.<br> Vänta tills datakopieringen är klar.         |
-|Slutfört       |Ordern har slutförts.<br> Kontrollera att dina data finns i Azure innan du tar bort lokala data från servrarna.         |
+|Slutförd       |Ordern har slutförts.<br> Kontrollera att dina data finns i Azure innan du tar bort lokala data från servrarna.         |
 |Slutfört med fel| Datakopieringen slutfördes men det uppstod fel. <br> Granska fel loggarna för uppladdning med hjälp av sökvägen som anges i **översikten**. Mer information finns i [Ladda ned fel loggar för uppladdning](data-box-disk-troubleshoot-upload.md#download-logs).   |
 |Avbrutna            |Ordern har avbrutits. <br> Antingen annullerade du beställningen eller så påträffades ett fel som gjorde att tjänsten avbröt ordern.     |
 

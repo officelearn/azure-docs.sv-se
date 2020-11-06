@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: f946a657b5129f773319d73fb428fe0108bac20f
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 52772519cc3b9aebc42175e812ad47ae54b529e9
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123570"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94336703"
 ---
 # <a name="what-is-azure-data-box"></a>Vad är Azure Data Box?
 
@@ -69,7 +69,7 @@ Data Box har utformats för att flytta stora mängder data till Azure med knapp 
 
 Den Data Box-enheten har följande funktioner i den här versionen.
 
-| Specifikationer                                          | Beskrivning              |
+| Specifikationer                                          | Description              |
 |---------------------------------------------------------|--------------------------|
 | Vikt                                                  | < 23 kg                |
 | Dimensioner                                              | Enhet – bredd: 309,0 mm, höjd: 430,4 mm, djup: 502,0 mm |            
@@ -90,12 +90,12 @@ Data Box innehåller följande komponenter:
 
 * **Data Box-enhet** – en fysisk enhet som tillhandahåller primärlagring, hanterar kommunikation med molnlagring och bidrar till att ge säkerhet och sekretess för alla data som lagras på enheten. Data Box-enheten har en användbar lagringskapacitet på 80 TB. 
 
-    ![Främre och bakre plan för Data Box](media/data-box-overview/data-box-combined3.png)
+    ![Främre och bakre plan för Data Box](media/data-box-overview/data-box-combined.png)
 
     
 * **Data Box-tjänsten** – ett tillägg till Azure-portalen som gör att du kan hantera en Data Box-enhet via ett webbgränssnitt som du kan komma åt från olika geografiska platser. Använd Data Box-tjänsten för att utföra daglig administration av din Data Box-enhet. Tjänstens uppgifter är till exempel hur du skapar och hanterar beställningar, visar och hanterar aviseringar och hanterar filresurser.  
 
-    ![Data Box-tjänsten i Azure-portalen](media/data-box-overview/data-box-service1.png)
+    ![Data Box-tjänsten i Azure-portalen](media/data-box-overview/data-box-service.png)
 
     Mer information finns i [Använda Data Box-tjänsten för att administrera din Data Box-enhet](data-box-portal-ui-admin.md).
 

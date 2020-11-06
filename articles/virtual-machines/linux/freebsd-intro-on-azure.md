@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: mimckitt
-ms.openlocfilehash: 2959904029643e5345590bd49f81b231c49771d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39564a34eb7a57cbd20e37b90d064917d5bf3b7a
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87286316"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337537"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Introduktion till FreeBSD på Azure
 Den här artikeln innehåller en översikt över att köra en virtuell FreeBSD-dator i Azure.
@@ -22,9 +22,9 @@ FreeBSD för Microsoft Azure är ett avancerat operativ system för datorer som 
 
 Microsoft Corporation gör avbildningar av FreeBSD tillgängliga i Azure med [Azures gästa Gent](https://github.com/Azure/WALinuxAgent/) förkonfigurerad. För närvarande erbjuds följande FreeBSD-versioner som avbildningar av Microsoft:
 
-- [FreeBSD 10,4 på Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD104)
-- [FreeBSD 11,2 på Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD112)
-- [FreeBSD 12,0 på Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD120)
+- FreeBSD 10,4 på Azure Marketplace
+- FreeBSD 11,2 på Azure Marketplace
+- FreeBSD 12,0 på Azure Marketplace
 
 Agenten ansvarar för kommunikation mellan den virtuella datorn FreeBSD och Azure-infrastrukturen för åtgärder, till exempel etablering av den virtuella datorn vid första användningen (användar namn, lösen ord eller SSH-nyckel, värdnamn osv.) och aktivering av funktioner för selektiva VM-tillägg.
 
@@ -33,22 +33,22 @@ Som för framtida versioner av FreeBSD är strategin att vara aktuell och göra 
 ### <a name="create-a-freebsd-vm-through-azure-cli-on-freebsd"></a>Skapa en virtuell FreeBSD-dator via Azure CLI på FreeBSD
 Först måste du installera [Azure CLI](/cli/azure/get-started-with-azure-cli) genom att följa kommando på en FreeBSD dator.
 
-```bash 
+```bash 
 curl -L https://aka.ms/InstallAzureCli | bash
 ```
 
-Om bash inte är installerat på FreeBSD-datorn kör du följande kommando före installationen. 
+Om bash inte är installerat på FreeBSD-datorn kör du följande kommando före installationen. 
 
 ```bash
 sudo pkg install bash
 ```
 
-Om python inte är installerat på FreeBSD-datorn kör du följande kommandon före installationen. 
+Om python inte är installerat på FreeBSD-datorn kör du följande kommandon före installationen. 
 
 ```bash
 sudo pkg install python35
-cd /usr/local/bin 
-sudo rm /usr/local/bin/python 
+cd /usr/local/bin 
+sudo rm /usr/local/bin/python 
 sudo ln -s /usr/local/bin/python3.5 /usr/local/bin/python
 ```
 
@@ -57,7 +57,7 @@ Under installationen uppmanas du att `Modify profile to update your $PATH and en
 Nu kan du logga in på Azure och skapa din virtuella FreeBSD-dator. Nedan visas ett exempel på hur du skapar en virtuell FreeBSD 11,0-dator. Du kan också lägga till parametern `--public-ip-address-dns-name` med ett globalt unikt DNS-namn för en nyligen skapad offentlig IP-adress. 
 
 ```azurecli
-az login 
+az login 
 az group create --name myResourceGroup --location eastus
 az vm create --name myFreeBSD11 \
     --resource-group myResourceGroup \

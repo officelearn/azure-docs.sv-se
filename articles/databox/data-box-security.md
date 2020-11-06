@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 132c072ad4cbee5cc3ac49695aa34480dc827400
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00b6fab2aeebeeb0f39e07a0751e02cefd195b28
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565775"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337366"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Säkerhet och dataskydd i Azure Data Box
 
@@ -32,11 +32,11 @@ Microsoft Azure Data Box-lösningen består av fyra huvudkomponenter som interag
 
 Följande diagram visar data flödet genom Azure Data Box lösning från lokal plats till Azure och de olika säkerhetsfunktionerna på plats när data flödar genom lösningen. Det här flödet är för en import ordning för din Data Box-enhet.
 
-![Data Box-enhet importera säkerhet](media/data-box-security/data-box-security-2.png)
+![Data Box-enhet importera säkerhet](media/data-box-security/data-box-security-import.png)
 
 Följande diagram är för export ordningen för Data Box-enhet.
 
-![Data Box-enhet exportera säkerhet](media/data-box-security/data-box-security-3.png)
+![Data Box-enhet exportera säkerhet](media/data-box-security/data-box-security-export.png)
 
 När data flödar genom den här lösningen loggas händelser och loggar skapas. Mer information finns på:
 
@@ -90,7 +90,7 @@ Azure Data Box samlar in och visar personlig information i följande viktiga ins
   - Gatuadress
   - City
   - Postnummer
-  - Tillstånd
+  - Stat
   - Land/region
   - Transportföretagets kontonummer
   - Spårningsnummer för leveransen
@@ -106,7 +106,7 @@ Mer information finns i Microsofts sekretesspolicy på [Säkerhetscenter](https:
 
 Följande säkerhetsriktlinjer implementeras i Data Box: 
 
-|Riktlinjer   |Beskrivning   |
+|Riktlinjer   |Description   |
 |---------|---------|
 |[IEC 60529 IP52](https://www.iec.ch/)    | För skydd mot vatten och damm         |
 |[ISTA 2A](https://ista.org/docs/2Aoverview.pdf)     | För tålighet mot felaktiga transportsförhållanden          |

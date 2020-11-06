@@ -7,20 +7,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 10/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 28232981d007e7be04d520ec46739408d03d90b4
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 1394cf6511a65a0e406e51229953e8666d4d4d8d
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124021"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337686"
 ---
 # <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Självstudie: Använd Data Box-enhet för att importera data som Managed disks i Azure
 
 I den här självstudien beskrivs hur du använder Azure Data Box för att migrera lokala virtuella hård diskar till hanterade diskar i Azure. Virtuella hård diskar från lokala virtuella datorer kopieras till Data Box-enhet som Page blobbar och överförs till Azure som hanterade diskar. Dessa hanterade diskar kan sedan anslutas till virtuella Azure-datorer.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
@@ -76,13 +76,13 @@ Om du använder en Windows Server-värddator följer du stegen nedan för att an
     > [!NOTE]
     > Autentiseringsuppgifterna för alla resurser för hanterade diskar är identiska.
 
-    ![Hämta resursautentiseringsuppgifter](media/data-box-deploy-copy-data-from-vhds/get-share-credentials1.png)
+    ![Anslut och kopiera, Hämta autentiseringsuppgifter för delning](media/data-box-deploy-copy-data-from-vhds/get-share-credentials1.png)
 
-2. I dialog rutan åtkomst resurs och kopiera data kopierar du **användar namnet** och **lösen ordet** för resursen. Klicka på **OK**.
+2. I dialog rutan **åtkomst resurs och kopiera data** kopierar du **användar namnet** och **lösen ordet** för resursen. Klicka på **OK**.
     
-    ![Hämta resursautentiseringsuppgifter 2](media/data-box-deploy-copy-data-from-vhds/get-share-credentials2.png)
+    ![Anslut och kopiera, kopiera autentiseringsuppgifter för resurs](media/data-box-deploy-copy-data-from-vhds/get-share-credentials2.png)
 
-3. Öppna ett kommando fönster för att få åtkomst till de resurser som är associerade med din resurs (*mydbmdrg1* i följande exempel) från värddatorn. Skriv följande i kommandotolken:
+3. Öppna ett kommando fönster för att få åtkomst till de resurser som är associerade med din resurs ( *mydbmdrg1* i följande exempel) från värddatorn. Skriv följande i kommandotolken:
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
@@ -100,26 +100,26 @@ Om du använder en Windows Server-värddator följer du stegen nedan för att an
     C: \>
     ```
 
-4. Tryck på Windows + R. I fönstret **Kör** anger du `\\<device IP address>\<ShareName>`. Öppna Utforskaren genom att klicka på **OK**.
+5. Tryck på Windows + R. I fönstret **Kör** anger du `\\<device IP address>\<ShareName>`. Öppna Utforskaren genom att klicka på **OK**.
     
     ![Ansluta till resurs via Utforskaren](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer1.png)
 
     Nu bör du se följande förskapade mappar i varje resurs.
     
-    ![Ansluta till resursen via Utforskaren 2](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer2.png)
+    ![Ansluta till resursen via Utforskaren, mappar för en resurs](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer2.png)
 
 
 ### <a name="connect-to-data-box-via-nfs"></a>Ansluta till Data Box-enhet via NFS
 
 Om du använder en Linux-värddator utför du stegen nedan för att konfigurera Data Box att tillåta åtkomst till NFS-klienter.
 
-1. Ange IP-adresserna för de tillåtna klienterna som har åtkomst till resursen. I det lokala webbgränssnittet går du till sidan **Anslut och kopiera**. Under **NFS-inställningar** klickar du på **NFS-klientåtkomst**.
+1. Ange IP-adresserna för de tillåtna klienterna som har åtkomst till resursen. Gå till sidan **Anslut och kopiera** i det lokala webb gränssnittet. Under **NFS-inställningar** klickar du på **NFS-klientåtkomst**.
 
     ![Konfigurera åtkomst till NFS-klienter](media/data-box-deploy-copy-data-from-vhds/nfs-client-access1.png)
 
 2. Ange NFS-klientens IP-adress och klicka på **Add**. Du kan konfigurera åtkomst för flera NFS genom att upprepa det här steget. Klicka på **OK**.
 
-    ![Konfigurera NFS-klientåtkomst 2](media/data-box-deploy-copy-data-from-vhds/nfs-client-access2.png)
+    ![Konfigurera IP-adress för NFS-klienten](media/data-box-deploy-copy-data-from-vhds/nfs-client-access2.png)
 
 2. Kontrollera att Linux-värddatorn har en NFS-klient av en [version som stöds](data-box-system-requirements.md) installerad. Använd den specifika versionen för din Linux-distribution.
 

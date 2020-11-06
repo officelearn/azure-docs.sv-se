@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/22/2020
 ms.author: amikuma
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
-ms.openlocfilehash: cfe1b66662d73c18934ef9ecc884adee79493eb6
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: e223b5ae072a323ad56ed396c06580fea9b8b7ab
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92641006"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335255"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-node-web-app-using-the-auth-code-flow"></a>Snabb start: Logga in användare och hämta en åtkomsttoken i en Node-webbapp med hjälp av kod flödet för autentisering
 
@@ -42,13 +42,13 @@ I den här snabb starten används Microsoft Authentication Library för Node.js 
 > 1. Logga in på [Azure-portalen](https://portal.azure.com).
 > 1. Om ditt konto ger dig åtkomst till fler än en klient väljer du ditt konto längst upp till höger och anger sedan din portal-session till den Azure AD-klient som du vill använda.
 > 1. Välj [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908).
-> 1. Välj **ny registrering** .
+> 1. Välj **ny registrering**.
 > 1. När sidan **Registrera ett program** visas anger du ett namn för programmet.
 > 1. Under **Kontotyper som stöds** väljer du **Accounts in any organizational directory and personal Microsoft accounts** (Konton i alla organisationskataloger och personliga Microsoft-konton).
 > 1. Ange **omdirigerings-URI** -värdet till `http://localhost:3000/redirect` .
 > 1. Välj **Register** (Registrera). 
 > 1. På sidan **Översikt över** appar noterar du **programmets (klient) ID-** värde för senare användning.
-> 1. Under **certifikat & hemligheter** väljer du **ny klient hemlighet** .  Lämna beskrivningen Tom och standard förfallo datum och klicka sedan på **Lägg till** .
+> 1. Under **certifikat & hemligheter** väljer du **ny klient hemlighet**.  Lämna beskrivningen Tom och standard förfallo datum och klicka sedan på **Lägg till**.
 > 1. Notera **värdet** för **klient hemligheten** för senare användning.
 
 #### <a name="step-2-download-the-project"></a>Steg 2: Ladda ned projektet
@@ -66,8 +66,8 @@ I den här snabb starten används Microsoft Authentication Library för Node.js 
 > #### <a name="step-3-configure-your-node-app"></a>Steg 3: Konfigurera din Node-app
 >
 > Extrahera projektet och öppna mappen *MS-Identity-Node-main* och öppna sedan *index.js* -filen.
-> Ange `clientID` **ID för programmet (klient)** .
-> Ange `clientSecret` **värdet** för **klient hemligheten** .
+> Ange `clientID` **ID för programmet (klient)**.
+> Ange `clientSecret` **värdet** för **klient hemligheten**.
 >
 >```javascript
 >const config = {
@@ -102,7 +102,7 @@ I den här snabb starten används Microsoft Authentication Library för Node.js 
 > ```
 >
 > > [!TIP]
-> > Du hittar värdet för **program-ID: t** genom att gå till sidan med registrerings **översikten** för appen i Azure Portal. Gå till **certifikat & hemligheter** för att hämta eller generera en ny **klient hemlighet** .
+> > Du hittar värdet för **program-ID: t** genom att gå till sidan med registrerings **översikten** för appen i Azure Portal. Gå till **certifikat & hemligheter** för att hämta eller generera en ny **klient hemlighet**.
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Steg 3: appen har kon figurer ATS och är redo att köras
@@ -141,4 +141,4 @@ npm install @azure/msal-node
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lägga till autentisering i ett befintligt GitHub kod exempel >](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/standalone-samples/auth-code/readme.md)
+> [Lägga till autentisering i ett befintligt GitHub kod exempel >](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/standalone-samples/auth-code)

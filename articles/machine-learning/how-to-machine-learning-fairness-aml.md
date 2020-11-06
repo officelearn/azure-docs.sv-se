@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 09/01/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 0332400ce6808e92ba09e3bee3277495f6b6d1a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf819e5cff8c6ef008b0e55e156ba3531936b489
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90897478"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337890"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Använd Azure Machine Learning med Fairlearn-paketet med öppen källkod för att utvärdera skälighet för ML-modeller (för hands version)
 
@@ -33,7 +33,7 @@ I den här instruktions guiden får du lära dig att använda python-paketet [Fa
 
 ## <a name="azure-machine-learning-fairness-sdk"></a>Azure Machine Learning skälighet SDK 
 
-Azure Machine Learning skälighet SDK, `azureml-contrib-fairness` integrerar python-paketet med öppen källkod, [Fairlearn](http://fairlearn.github.io), i Azure Machine Learning. Om du vill veta mer om Fairlearn-integrering i Azure Machine Learning kan du titta på de här [exempel antecknings böckerna](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness). Mer information om Fairlearn finns i [exempel guiden](https://fairlearn.github.io/auto_examples/) och exempel på [bärbara datorer](https://github.com/fairlearn/fairlearn/tree/master/notebooks). 
+Azure Machine Learning skälighet SDK, `azureml-contrib-fairness` integrerar python-paketet med öppen källkod, [Fairlearn](http://fairlearn.github.io), i Azure Machine Learning. Om du vill veta mer om Fairlearn-integrering i Azure Machine Learning kan du titta på de här [exempel antecknings böckerna](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness). Mer information om Fairlearn finns i [exempel guiden](https://fairlearn.github.io/master/auto_examples/) och exempel på [bärbara datorer](https://github.com/fairlearn/fairlearn/tree/master/notebooks). 
 
 Använd följande kommandon för att installera- `azureml-contrib-fairness` och- `fairlearn` paketen:
 ```bash
@@ -205,7 +205,7 @@ I följande exempel visas hur du använder skälighet-paketet för att överför
     1. Om du har registrerat din ursprungliga modell genom att följa föregående steg kan du välja **modeller** i det vänstra fönstret för att visa den.
     1. Välj en modell och klicka sedan på fliken **skälighet** för att visa instrument panelen för förklarings visualisering.
 
-    Om du vill veta mer om instrument panelen för visualiseringar och vad den innehåller kan du checka ut Fairlearn [Användar handbok](https://fairlearn.github.io/user_guide/assessment.html#fairlearn-dashboard).
+    Om du vill veta mer om instrument panelen för visualiseringar och vad den innehåller kan du checka ut Fairlearn [Användar handbok](https://fairlearn.github.io/master/user_guide/assessment.html#fairlearn-dashboard).
 
 ## <a name="upload-fairness-insights-for-multiple-models"></a>Ladda upp skälighet Insights för flera modeller
 
@@ -306,14 +306,14 @@ Om du är intresse rad av att jämföra flera modeller och se hur deras skäligh
     ```
 
 
-    Precis som i föregående avsnitt kan du följa en av Sök vägarna som beskrivs ovan (via **experiment** eller **modeller**) i Azure Machine Learning Studio för att få åtkomst till visualiserings instrument panelen och jämföra de två modellerna med skälighet och prestanda.
+    Precis som i föregående avsnitt kan du följa en av Sök vägarna som beskrivs ovan (via **experiment** eller **modeller** ) i Azure Machine Learning Studio för att få åtkomst till visualiserings instrument panelen och jämföra de två modellerna med skälighet och prestanda.
 
 
 ## <a name="upload-unmitigated-and-mitigated-fairness-insights"></a>Ladda upp minimerade och minimerade skälighet-insikter
 
-Du kan använda Fairlearn för [mitigation algorithms](https://fairlearn.github.io/user_guide/mitigation.html)att jämföra deras genererade, försämrade modell (er) till den ursprungliga minimerade modellen och navigera i prestanda-/skälighet-kompromisser mellan jämförda modeller.
+Du kan använda Fairlearn för [mitigation algorithms](https://fairlearn.github.io/master/user_guide/mitigation.html)att jämföra deras genererade, försämrade modell (er) till den ursprungliga minimerade modellen och navigera i prestanda-/skälighet-kompromisser mellan jämförda modeller.
 
-För att se ett exempel som demonstrerar användningen av algoritmen för [Rutnäts sökning](https://fairlearn.github.io/user_guide/mitigation.html#grid-search) (som skapar en samling av minimerade modeller med olika skälighet och prestanda handeln) kan du kolla in den här [exempel antecknings boken](https://github.com/Azure/MachineLearningNotebooks/blob/master/contrib/fairness/fairlearn-azureml-mitigation.ipynb). 
+För att se ett exempel som demonstrerar användningen av algoritmen för [Rutnäts sökning](https://fairlearn.github.io/master/user_guide/mitigation.html#grid-search) (som skapar en samling av minimerade modeller med olika skälighet och prestanda handeln) kan du kolla in den här [exempel antecknings boken](https://github.com/Azure/MachineLearningNotebooks/blob/master/contrib/fairness/fairlearn-azureml-mitigation.ipynb). 
 
 Att ladda upp flera modeller skälighet insikter i en enda körning möjliggör jämförelse av modeller med avseende på skälighet och prestanda. Du kan också klicka på någon av de modeller som visas i modell jämförelse diagrammet för att se detaljerade skälighet insikter om den aktuella modellen.
 

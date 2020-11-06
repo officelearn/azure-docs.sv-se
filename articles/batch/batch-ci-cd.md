@@ -5,12 +5,12 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: 2ad148579daa30d62da01aded0a01ace56f3dcbc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d758d4613f68450be9c444063d3a6188d1aa689
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760571"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337584"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Använd Azure-pipelines för att bygga och distribuera HPC-lösningar
 
@@ -43,7 +43,7 @@ Kodbas-strukturen som används i det här exemplet liknar följande:
 
 * En mapp för **arm-mallar** som innehåller ett antal Azure Resource Manager mallar. Mallarna förklaras i den här artikeln.
 * En mapp för **klient program** , som är en kopia av [Azure Batch .net-fil bearbetning med ffmpeg](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial) -exempel. Detta behövs inte för den här artikeln.
-* En **HPC-** programmapp, som är Windows 64-bitars versionen av [ffmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-09-21-full_build.zip).
+* En **HPC-** programmapp, som är Windows 64-bitars versionen av [ffmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-10-01-essentials_build.7z).
 * En **pipeline** -mapp. Detta innehåller en YAML-fil som beskriver vår build-process. Detta beskrivs i artikeln.
 
 Det här avsnittet förutsätter att du är bekant med versions kontroll och hur du utformar Resource Manager-mallar. Om du inte är bekant med dessa begrepp kan du se följande sidor för mer information.
@@ -300,7 +300,7 @@ Det finns fyra huvud avsnitt i den här lagrings platsen:
 * Mappen **arm-mallar** som lagrar vår infrastruktur som kod
 * Den **HPC-** programmapp som innehåller binärfilerna för ffmpeg
 * Mappen **pipelines** som innehåller definitionen för vår build-pipeline.
-* **Valfritt**: mappen **klient-app** som lagrar kod för .NET-program. Vi använder inte detta i exemplet, men i ditt eget projekt kanske du vill köra körningar av HPC-batch-programmet via ett klient program.
+* **Valfritt** : mappen **klient-app** som lagrar kod för .NET-program. Vi använder inte detta i exemplet, men i ditt eget projekt kanske du vill köra körningar av HPC-batch-programmet via ett klient program.
 
 > [!NOTE]
 > Detta är bara ett exempel på en struktur för en kodbas. Den här metoden används för att demonstrera att program, infrastruktur och pipeline-kod lagras i samma lagrings plats.
@@ -367,35 +367,35 @@ Azure-pipelines används också för att distribuera ditt program och den underl
 
 Det finns ett antal steg som ingår i distributionen av infrastrukturen. Som vi har använt [länkade mallar](../azure-resource-manager/templates/linked-templates.md)måste de mallarna vara tillgängliga från en offentlig slut punkt (http eller https). Detta kan vara en lagrings plats på GitHub, ett Azure Blob Storage-konto eller en annan lagrings plats. Artefakter för överförda mallar kan vara skyddade, eftersom de kan lagras i ett privat läge, men nås med hjälp av någon form av SAS-token (signatur för delad åtkomst). Följande exempel visar hur du distribuerar en infrastruktur med mallar från en Azure Storage-blob.
 
-1. Skapa en **ny versions definition**och välj en tom definition. Sedan måste du byta namn på den nyligen skapade miljön till något som är relevant för vår pipeline.
+1. Skapa en **ny versions definition** och välj en tom definition. Sedan måste du byta namn på den nyligen skapade miljön till något som är relevant för vår pipeline.
 
     ![Första versions pipeline](media/batch-ci-cd/Release-0.jpg)
 
 1. Skapa ett beroende på Build-pipeline för att hämta utdata för vårt HPC-program.
 
     > [!NOTE]
-    > Lägg märke till **käll Ali Aset**igen, eftersom det behövs när aktiviteter skapas i versions definitionen.
+    > Lägg märke till **käll Ali Aset** igen, eftersom det behövs när aktiviteter skapas i versions definitionen.
 
     ![Skapa en artefakt länk till HPCApplicationPackage i lämplig build-pipeline](media/batch-ci-cd/Release-1.jpg)
 
 1. Skapa en länk till en annan artefakt, den här gången, en Azure-lagrings platsen. Detta krävs för att komma åt Resource Manager-mallarna som lagras i din lagrings plats. Eftersom Resource Manager-mallar inte kräver kompilering behöver du inte skicka dem via en pipeline för bygge.
 
     > [!NOTE]
-    > Lägg märke till **käll Ali Aset**igen, eftersom det behövs när aktiviteter skapas i versions definitionen.
+    > Lägg märke till **käll Ali Aset** igen, eftersom det behövs när aktiviteter skapas i versions definitionen.
 
     ![Skapa en artefakt länk till Azure-databaser](media/batch-ci-cd/Release-2.jpg)
 
 1. Navigera till avsnittet **Variables** . Vi rekommenderar att du skapar ett antal variabler i pipelinen, så att du inte skickar samma information till flera aktiviteter. Detta är de variabler som används i det här exemplet och hur de påverkar distributionen.
 
-    * **applicationStorageAccountName**: namnet på lagrings kontot där binärfiler för HPC-program ska undantas
-    * **batchAccountApplicationName**: namnet på programmet i Azure Batch-kontot
-    * **batchAccountName**: namnet på det Azure Batch kontot
-    * **batchAccountPoolName**: namnet på poolen med virtuella datorer som utför bearbetningen
-    * **batchApplicationId**: unikt ID för det Azure Batch programmet
-    * **batchApplicationVersion**: semantisk version av batch-programmet (det vill säga binärfilerna för ffmpeg)
-    * **plats**: plats för de Azure-resurser som ska distribueras
-    * **resourceGroupName**: namnet på den resurs grupp som ska skapas och var dina resurser ska distribueras
-    * **storageAccountName**: namnet på det lagrings konto som ska innehålla länkade Resource Manager-mallar
+    * **applicationStorageAccountName** : namnet på lagrings kontot där binärfiler för HPC-program ska undantas
+    * **batchAccountApplicationName** : namnet på programmet i Azure Batch-kontot
+    * **batchAccountName** : namnet på det Azure Batch kontot
+    * **batchAccountPoolName** : namnet på poolen med virtuella datorer som utför bearbetningen
+    * **batchApplicationId** : unikt ID för det Azure Batch programmet
+    * **batchApplicationVersion** : semantisk version av batch-programmet (det vill säga binärfilerna för ffmpeg)
+    * **plats** : plats för de Azure-resurser som ska distribueras
+    * **resourceGroupName** : namnet på den resurs grupp som ska skapas och var dina resurser ska distribueras
+    * **storageAccountName** : namnet på det lagrings konto som ska innehålla länkade Resource Manager-mallar
 
     ![Exempel på variabler som ställts in för Azure pipelines-versionen](media/batch-ci-cd/Release-4.jpg)
 
@@ -406,41 +406,41 @@ Det finns ett antal steg som ingår i distributionen av infrastrukturen. Som vi 
 1. Lägg till aktiviteten **Hämta pipeline artefakt (för hands version)** och ange följande egenskaper:
     * **Visnings namn:** Ladda ned ApplicationPackage till agent
     * **Namnet på den artefakt som ska laddas ned:** HPC-Application
-    * **Sökväg att ladda ned till**: $ (system. DefaultWorkingDirectory)
+    * **Sökväg att ladda ned till** : $ (system. DefaultWorkingDirectory)
 
 1. Skapa ett lagrings konto för att lagra dina artefakter. Ett befintligt lagrings konto från lösningen kan användas, men för det självständiga exemplet och isolering av innehåll, gör vi ett dedikerat lagrings konto för våra artefakter (särskilt Resource Manager-mallarna).
 
     Lägg till **distributions uppgiften Azure resurs grupp** och ange följande egenskaper:
     * **Visnings namn:** Distribuera lagrings konto för Resource Manager-mallar
     * **Azure-prenumeration:** Välj lämplig Azure-prenumeration
-    * **Åtgärd**: skapa eller uppdatera resurs grupp
-    * **Resurs grupp**: $ (resourceGroupName)
-    * **Plats**: $ (plats)
-    * **Mall**: $ (system. ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/arm-templates/storageAccount.jspå
-    * **Åsidosätt mallparametrar**:-accountName $ (storageAccountName)
+    * **Åtgärd** : skapa eller uppdatera resurs grupp
+    * **Resurs grupp** : $ (resourceGroupName)
+    * **Plats** : $ (plats)
+    * **Mall** : $ (system. ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates/storageAccount.jspå
+    * **Åsidosätt mallparametrar** :-accountName $ (storageAccountName)
 
 1. Ladda upp artefakterna från käll kontrollen till lagrings kontot. Det finns en Azure pipeline-uppgift för att utföra detta. Som en del av den här uppgiften kan lagrings kontots behållar-URL och SAS-token överföras till en variabel i Azure-pipeliner. Det innebär att den kan återanvändas i den här agent fasen.
 
     Lägg till **Azure File Copy** -aktiviteten och ange följande egenskaper:
-    * **Källa:** $ (system. ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/arm-templates/
-    * **Azure-Anslutnings typ**: Azure Resource Manager
+    * **Källa:** $ (system. ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates/
+    * **Azure-Anslutnings typ** : Azure Resource Manager
     * **Azure-prenumeration:** Välj lämplig Azure-prenumeration
-    * **Måltyp**: Azure-Blob
-    * **RM-lagrings konto**: $ (storageAccountName)
-    * **Behållar namn**: mallar
-    * **URI för lagrings behållare**: templateContainerUri
-    * **SAS-token för lagrings behållare**: templateContainerSasToken
+    * **Måltyp** : Azure-Blob
+    * **RM-lagrings konto** : $ (storageAccountName)
+    * **Behållar namn** : mallar
+    * **URI för lagrings behållare** : templateContainerUri
+    * **SAS-token för lagrings behållare** : templateContainerSasToken
 
 1. Distribuera Orchestrator-mallen. Återkalla Orchestrator-mallen från tidigare kommer du att märka att det fanns parametrar för lagrings kontots behållar-URL, förutom SAS-token. Observera att de variabler som krävs i Resource Manager-mallen antingen finns i avsnittet variabler i versions definitionen eller ställts in från en annan Azure pipeline-uppgift (till exempel en del av Azure Blob Copy-aktiviteten).
 
     Lägg till **distributions uppgiften Azure resurs grupp** och ange följande egenskaper:
     * **Visnings namn:** Distribuera Azure Batch
     * **Azure-prenumeration:** Välj lämplig Azure-prenumeration
-    * **Åtgärd**: skapa eller uppdatera resurs grupp
-    * **Resurs grupp**: $ (resourceGroupName)
-    * **Plats**: $ (plats)
-    * **Mall**: $ (system. ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/arm-templates/deployment.jspå
-    * **Åsidosätt mallparametrar**: ```-templateContainerUri $(templateContainerUri) -templateContainerSasToken $(templateContainerSasToken) -batchAccountName $(batchAccountName) -batchAccountPoolName $(batchAccountPoolName) -applicationStorageAccountName $(applicationStorageAccountName)```
+    * **Åtgärd** : skapa eller uppdatera resurs grupp
+    * **Resurs grupp** : $ (resourceGroupName)
+    * **Plats** : $ (plats)
+    * **Mall** : $ (system. ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates/deployment.jspå
+    * **Åsidosätt mallparametrar** : ```-templateContainerUri $(templateContainerUri) -templateContainerSasToken $(templateContainerSasToken) -batchAccountName $(batchAccountName) -batchAccountPoolName $(batchAccountPoolName) -applicationStorageAccountName $(applicationStorageAccountName)```
 
 En vanlig metod är att använda Azure Key Vault uppgifter. Om tjänstens huvud namn (anslutning till din Azure-prenumeration) har rätt åtkomst principer, kan den Hämta hemligheter från en Azure Key Vault och användas som variabler i din pipeline. Namnet på hemligheten kommer att anges med det associerade värdet. Till exempel kan en hemlighet för sshPassword refereras till $ (sshPassword) i versions definitionen.
 
@@ -449,16 +449,16 @@ En vanlig metod är att använda Azure Key Vault uppgifter. Om tjänstens huvud 
     Lägg till **Azure CLI** -aktiviteten och ange följande egenskaper:
     * **Visnings namn:** Skapa program i Azure Batch konto
     * **Azure-prenumeration:** Välj lämplig Azure-prenumeration
-    * **Skript plats**: infogat skript
-    * **Infogat skript**: ```az batch application create --application-id $(batchApplicationId) --name $(batchAccountName) --resource-group $(resourceGroupName)```
+    * **Skript plats** : infogat skript
+    * **Infogat skript** : ```az batch application create --application-id $(batchApplicationId) --name $(batchAccountName) --resource-group $(resourceGroupName)```
 
 1. Det andra steget används för att överföra associerade paket till programmet. I vårt fall, ffmpeg-filerna.
 
     Lägg till **Azure CLI** -aktiviteten och ange följande egenskaper:
     * **Visnings namn:** Ladda upp paket till Azure Batch konto
     * **Azure-prenumeration:** Välj lämplig Azure-prenumeration
-    * **Skript plats**: infogat skript
-    * **Infogat skript**: ```az batch application package create --application-id $(batchApplicationId)  --name $(batchAccountName)  --resource-group $(resourceGroupName) --version $(batchApplicationVersion) --package-file=$(System.DefaultWorkingDirectory)/$(Release.Artifacts.{YourBuildArtifactSourceAlias}.BuildId).zip```
+    * **Skript plats** : infogat skript
+    * **Infogat skript** : ```az batch application package create --application-id $(batchApplicationId)  --name $(batchAccountName)  --resource-group $(resourceGroupName) --version $(batchApplicationVersion) --package-file=$(System.DefaultWorkingDirectory)/$(Release.Artifacts.{YourBuildArtifactSourceAlias}.BuildId).zip```
 
     > [!NOTE]
     > Programpaketets versions nummer har angetts till en variabel. Detta är praktiskt om du skriver över tidigare versioner av paketet som passar dig, och om du vill styra paketets versions nummer manuellt till Azure Batch.

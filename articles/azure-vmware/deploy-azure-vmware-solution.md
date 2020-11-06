@@ -3,13 +3,13 @@ title: Distribuera och konfigurera Azure VMware-lösning
 description: Lär dig hur du använder den information som samlas in i planerings fasen för att distribuera Azure VMware-lösningens privata moln.
 ms.topic: tutorial
 ms.author: tredavis
-ms.date: 10/02/2020
-ms.openlocfilehash: 0839048c2d0ad5944566a48f54cca07a4daeb754
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.date: 11/09/2020
+ms.openlocfilehash: 264ad99b21150f391c367eba2da31f0d08f4ab08
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152027"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94336343"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Distribuera och konfigurera Azure VMware-lösning
 
@@ -59,7 +59,7 @@ Hopp rutan finns i det virtuella nätverk där Azure VMware-lösningen ansluter 
 
 I listan gällande vägar bör du se de nätverk som skapats som en del av distributionen av Azure VMware-lösningen. Du ser flera nätverk som har härletts från [ `/22` nätverket som du definierade](production-ready-deployment-steps.md#ip-address-segment) under [distributions steget](#deploy-azure-vmware-solution) tidigare i den här artikeln.
 
-:::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Skapa hopp rutan för Azure VMware-lösningen" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Verifiera nätverks vägar som annonseras från Azure VMware-lösning till Azure Virtual Network" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
 
 I det här exemplet har 10.74.72.0/22-nätverket inträffat under distributionen och nätverket är 24.  Om du ser något liknande kan du ansluta till vCenter i Azure VMware-lösningen.
 
@@ -67,7 +67,7 @@ I det här exemplet har 10.74.72.0/22-nätverket inträffat under distributionen
 
 Logga in i hopp rutan som du skapade i föregående steg. När du har loggat in öppnar du en webbläsare och går till och loggar in i både vCenter-och NSX-T-admin-konsolen.  
 
-Du kan identifiera vCenter-och NSX-T-admin-konsolens IP-adresser och autentiseringsuppgifter i Azure Portal.  Välj ditt privata moln och välj sedan **identitet > standard**i vyn **Översikt** . 
+Du kan identifiera vCenter-och NSX-T-admin-konsolens IP-adresser och autentiseringsuppgifter i Azure Portal.  Välj ditt privata moln och välj sedan **identitet > standard** i vyn **Översikt** . 
 
 ## <a name="create-a-network-segment-on-azure-vmware-solution"></a>Skapa ett nätverks segment i Azure VMware-lösningen
 
@@ -97,10 +97,10 @@ Eftersom DNS krävs, identifiera vilken DNS-server som du vill använda.
 
 Om du planerar att använda DHCP på dina NSX-T-segment fortsätter du med det här avsnittet. Annars hoppar du till avsnittet [Lägg till en virtuell dator i avsnittet NSX-T-nätverks segment](#add-a-vm-on-the-nsx-t-network-segment) .  
 
-Nu när du har skapat ditt NSX-T-nätverks segment kan du göra något av följande:
+Nu när du har skapat ditt NSX-T-nätverks segment kan du skapa och hantera DHCP i Azure VMware-lösningen på två sätt:
 
-* Använd NSX-T som DHCP-server för de segment som skapas. För det här alternativet vill du [skapa en DHCP-server i NSX-T](manage-dhcp.md#create-dhcp-server) och [vidarebefordra till den servern](manage-dhcp.md#create-dhcp-relay-service).
-* Vidarebefordra DHCP-begäranden från NSX-T-segment till en DHCP-server på annan plats i din miljö. För det här alternativet [utför du bara relä konfigurationen](manage-dhcp.md#create-dhcp-relay-service).
+* Om du använder NSX-T för att vara värd för DHCP-servern måste du [skapa en DHCP-server](manage-dhcp.md#create-a-dhcp-server) och [vidarebefordra till den servern](manage-dhcp.md#create-dhcp-relay-service). 
+* Om du använder en extern DHCP-server från tredje part i nätverket måste du [skapa DHCP Relay service](manage-dhcp.md#create-dhcp-relay-service).  För det här alternativet [utför du bara relä konfigurationen](manage-dhcp.md#create-dhcp-relay-service).
 
 
 ## <a name="add-a-vm-on-the-nsx-t-network-segment"></a>Lägga till en virtuell dator i NSX-T-nätverksanslutningen

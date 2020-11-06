@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/30/2020
 ms.author: duau
-ms.openlocfilehash: dbce9019e33c07dd4faa91ffd490eba4d313c675
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e810a31fab4457e47329e37f54b16e6f488c9da
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630618"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337635"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>Felsöka vanliga problem med Routning
 
@@ -103,5 +103,26 @@ Det finns flera möjliga orsaker till det här problemet:
             * *Godkända protokoll* är http och https. *Protokoll för vidarebefordran* är http. Matchnings förfrågan fungerar inte, eftersom HTTPS är ett tillåtet protokoll och om en begäran kom in som HTTPS, försöker front dörren vidarebefordra den med hjälp av HTTPS.
 
             * *Godkända protokoll* är http. *Forwarding-protokollet* matchar antingen Request eller http.
-
     - *URL-omskrivning* är inaktive rad som standard. Det här fältet används bara om du vill begränsa omfattningen av de Server dels värd resurser som du vill göra tillgängliga. När den är inaktive rad vidarebefordrar front dörren samma sökväg för begäran som den tar emot. Det är möjligt att felaktigt konfigurera det här fältet. Så när front dörren begär en resurs från Server delen som inte är tillgänglig, returneras en HTTP 404-status kod.
+
+## <a name="request-to-frontend-host-name-returns-411-status-code"></a>Begäran till klient dels värd namnet returnerar 411 status kod
+
+### <a name="symptom"></a>Symptom
+
+Du har skapat en frontend-dörr och konfigurerat en klient dels värd, en backend-pool med minst en server del i den och en routningsprincip som ansluter klient dels värden till backend-poolen. Ditt innehåll verkar inte vara tillgängligt när du skickar en begäran till den konfigurerade klient dels värden eftersom en status kod för HTTP 411 returneras.
+
+Svar på dessa förfrågningar kan också innehålla en HTML-felsida i svars texten som innehåller en för klar ande instruktion. Exempelvis: `HTTP Error 411. The request must be chunked or have a content length`
+
+### <a name="cause"></a>Orsak
+
+Det finns flera möjliga orsaker till det här problemet. den övergripande orsaken är dock att din HTTP-begäran inte är helt RFC-kompatibel. 
+
+Ett exempel på inkompatibilitet är en `POST` begäran som skickas utan något `Content-Length` eller en `Transfer-Encoding` rubrik (till exempel med `curl -X POST https://example-front-door.domain.com` ). Den här begäran uppfyller inte kraven som anges i [RFC 7230](https://tools.ietf.org/html/rfc7230#section-3.3.2) och blockeras av din front dörr med ett HTTP 411-svar.
+
+Det här beteendet är skilt från WAF-funktionerna i front dörren. För närvarande finns det inget sätt att inaktivera det här beteendet. Alla HTTP-begäranden måste uppfylla kraven, även om WAF-funktionen inte används.
+
+### <a name="troubleshooting-steps"></a>Felsökningsanvisningar
+
+- Kontrol lera att dina begär Anden uppfyller de krav som anges i de nödvändiga rapporterna.
+
+- Anteckna vilken HTML-meddelande text som returneras som svar på din begäran, eftersom de ofta förklarar exakt *hur* din begäran är icke-kompatibel.

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 10/24/2018
 ms.author: alkohli
-ms.openlocfilehash: bab81809f42c9afa3d2c701398fa5ff8ffc2800d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2c4cce492c48ebe6e09ad142f97bc6377a8a5e1
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744176"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94334624"
 ---
 # <a name="cabling-options-for-your-azure-data-box"></a>Alternativ för kabelanslutning av Azure Data Box
 
@@ -32,7 +32,7 @@ Kabelanslut enheten med hjälp av följande steg.
 
 1. Använd en RJ45-kabel för att ansluta MGMT-porten till servern som innehåller data.
 
-    ![Konfiguration på en port](media/data-box-cable-options/cabling-mgmt-only.png)
+    ![Konfiguration med en port](media/data-box-cable-options/cabling-mgmt-only.png)
 
 2. Ställ in följande på servern:
 
@@ -65,7 +65,7 @@ Kabelanslut enheten med hjälp av följande steg.
    - **IP-adress** på 192.168.100.5
    - **Undernät** på 255.255.255.0
 
-     ![Konfiguration med två portar](media/data-box-cable-options/cabling-2-port-setup.png)
+     ![Installation med två portar](media/data-box-cable-options/cabling-2-port-setup.png)
 
 3. Öppna det lokala webbgränssnittet på enheten på 192.168.100.10. Logga in och lås upp Data Box-enheten med upplåsningslösenordet från Azure-portalen.
 4. Tilldela statiska IP-adresser till dataportarna du har konfigurerat.
@@ -78,10 +78,10 @@ Kabelanslut enheten med hjälp av följande steg.
 2. Använd en RJ45-kabel för DATA 3 eller SFP+-kabel för att ansluta DATA 1 eller DATA 2 till servern. Vi rekommenderar att du använder 10-GbE DATA 1- eller DATA 2-portar för bra prestanda. Dataportarna ansluts via en 10-GbE-switch till servern med data.
 3. Konfigurera Ethernet-adaptern på den bärbara datorn du använder för att ansluta enheten med:
 
-   - **IP-adress**: 192.168.100.5
-   - **Undernät**: 255.255.255.0.
-
-     ![Konfiguration med två portar med switch](media/data-box-cable-options/cabling-with-static-ip.png)
+   - **IP-adress** : 192.168.100.5
+   - **Undernät** : 255.255.255.0.
+  
+   ![Installation med två portar med en växel](media/data-box-cable-options/cabling-with-static-ip.png)
 
 3. Öppna det lokala webbgränssnittet på enheten på 192.168.100.10. Logga in och lås upp Data Box-enheten med upplåsningslösenordet från Azure-portalen.
 4. Identifiera IP-adresserna som tilldelats av DHCP-servern.
@@ -102,10 +102,10 @@ Kabelanslut enheten med hjälp av följande steg.
 2. Använd en RJ45-kabel för DATA 3 eller SFP+-kabel för att ansluta DATA 1 eller DATA 2 till servern. Vi rekommenderar att du använder 10-GbE DATA 1- eller DATA 2-portar för bra prestanda.
 3. Konfigurera Ethernet-adaptern på den bärbara datorn du använder för att ansluta enheten med:
 
-   - **IP-adress**: 192.168.100.5
-   - **Undernät**: 255.255.255.0.
+   - **IP-adress** : 192.168.100.5
+   - **Undernät** : 255.255.255.0.
 
-     ![Två port installation med en växel 2](media/data-box-cable-options/cabling-with-switch-static-ip.png)
+     ![Installation med två portar med en växel 2](media/data-box-cable-options/cabling-with-switch-static-ip.png)
 
 3. Öppna det lokala webbgränssnittet på enheten på 192.168.100.10. Logga in och lås upp Data Box-enheten med upplåsningslösenordet från Azure-portalen.
 4. Tilldela statiska IP-adresser till dataportarna du har konfigurerat.
@@ -126,6 +126,7 @@ Kabelanslut enheten med hjälp av följande steg.
 1. Använd en RJ45- eller SFP+-kabel via en switch (där DHCP-servern är tillgänglig) till servern.
 
     ![Två port installation med en växel 3](media/data-box-cable-options/cabling-dhcp-data-only.png)
+
 2. Använd DHCP-server eller DNS-server för att identifiera IP-adressen.
 3. Via en server på samma nätverk öppnar du det lokala webbgränssnittet för enheten som använder IP-adressen som har tilldelats av DHCP-servern. Logga in och lås upp Data Box-enheten med upplåsningslösenordet från Azure-portalen.
 

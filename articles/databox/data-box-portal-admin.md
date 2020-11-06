@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 978d1de158f93b06d08ff93605405573000b6b6e
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 7d2734d386f1e49e2227058b148ee6b591d14a42
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123723"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94336502"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Använd Azure Portal för att administrera Azure Data Box och Azure Data Box Heavy
 
@@ -34,11 +34,11 @@ Följ stegen nedan om du vill annullera en beställning.
 
 1.  Gå till **Översikt > Avbryt**.
 
-    ![Annullera beställning 1](media/data-box-portal-admin/cancel-order1.png)
+    ![Kommandot Avbryt på fliken Översikt för en order](media/data-box-portal-admin/portal-admin-cancel-command.png)
 
 2.  Fyll i en orsak som beskriver varför du vill annullera beställningen.  
 
-    ![Annullera beställning 2](media/data-box-portal-admin/cancel-order2.png)
+    ![Dialog rutan Avbryt beställning](media/data-box-portal-admin/portal-admin-cancel-order-dbox.png)
 
 3.  När beställningen har annullerats uppdateras statusen för ordern på portalen och visas som **Avbruten**.
 
@@ -53,7 +53,7 @@ Utför följande steg för att klona en import ordning.
 
 1.  Gå till **Översikt > Klona**. 
 
-    ![Klona order 1](media/data-box-portal-admin/clone-order1.png)
+    ![Klona kommando på fliken Översikt för en order](media/data-box-portal-admin/portal-admin-clone-command.png)
 
 2.  All information för ordern förblir densamma. Namnet på beställningen är det ursprungliga ordernamnet, med tillägget *-Klon*. Markera kryssrutan för att bekräfta att du har läst sekretessinformationen. Klicka på **Skapa**.
 
@@ -70,7 +70,7 @@ Du kan bara ta bort order som har slutförts eller avbrutits. Följ steg nedan o
 
 2. Klicka på den order som du vill ta bort och gå till **Översikt**. Klicka på **Ta bort** i kommandofältet.
 
-    ![Ta bort Data Box-order 1](media/data-box-portal-admin/delete-order1.png)
+    ![Kommandot Ta bort på fliken Översikt för en order](media/data-box-portal-admin/portal-admin-delete-command.png)
 
 3. Ange namnet på ordern när du uppmanas att bekräfta borttagningen av ordern. Klicka på **Ta bort**.
 
@@ -82,11 +82,11 @@ Följ stegen nedan om du behöver ladda ned en fraktsedel.
 
 1.  Öppna **Översikt > Ladda ned adressetikett**. Det här alternativet är endast tillgängligt när enheten har skickats. 
 
-    ![Ladda ned adressetikett](media/data-box-portal-admin/download-shipping-label.png)
+    ![Ladda ned adressetikett](media/data-box-portal-admin/portal-admin-download-shipping-label.png)
 
 2.  Med det här alternativet laddas följande returfraktsedel ned. Spara etiketten och skriv ut den. Vik och infoga etiketten i ta bort fläns på enheten. Se till att etiketten syns tydligt. Ta bort eventuella klistermärken som finns på enheten från föregående leverans.
 
-    ![Exempel på adressetikett](media/data-box-portal-admin/example-shipping-label.png)
+    ![Exempel på adressetikett](media/data-box-portal-admin/portal-admin-example-shipping-label.png)
 
 ## <a name="edit-shipping-address"></a>Redigera leveransadress
 
@@ -96,11 +96,11 @@ Följ stegen nedan om du vill redigera ordern.
 
 1. Gå till **Orderdetaljer > Redigera leveransadress**.
 
-    ![Redigera leveransadress 1](media/data-box-portal-admin/edit-shipping-address1.png)
+    ![Kommandot Redigera leverans adress i Orderspecifikationer](media/data-box-portal-admin/portal-admin-edit-shipping-address-command.png)
 
 2. Redigera och verifiera leveransadressen och spara sedan ändringarna.
 
-    ![Redigera leveransadress 2](media/data-box-portal-admin/edit-shipping-address2.png)
+    ![Dialog rutan Redigera leverans adress](media/data-box-portal-admin/portal-admin-edit-shipping-address-dbox.png)
 
 ## <a name="edit-notification-details"></a>Redigera meddelandeinformation
 
@@ -110,11 +110,11 @@ Följ stegen nedan om du vill redigera meddelandeinformationen.
 
 1. Gå till **Orderdetaljer > Redigera meddelandeinformation**.
 
-    ![Redigera meddelandeinformation 1](media/data-box-portal-admin/edit-notification-details1.png)
+    ![Redigera meddelande information kommandot i order Detaljer](media/data-box-portal-admin/portal-admin-edit-notification-details-command.png)
 
 2. Nu kan du redigera meddelandeinformationen och spara ändringarna.
  
-    ![Redigera meddelandeinformation 2](media/data-box-portal-admin/edit-notification-details2.png)
+    ![Dialog rutan Redigera meddelande information](media/data-box-portal-admin/portal-admin-edit-notification-details-dbox.png)
 
 
 ## <a name="download-order-history"></a>Ladda ned beställningshistorik
@@ -125,7 +125,7 @@ Ladda ned beställningshistoriken med hjälp av följande steg.
 
 1. I Data Box-beställningen går du till **Översikt**. Kontrollera att beställningen är komplett. Om beställningen är komplett enhetsrensningen har slutförts går du till **Beställningsinformation**. Alternativet **Ladda ned beställningshistorik** är tillgängligt.
 
-    ![Ladda ned beställningshistorik](media/data-box-portal-admin/download-order-history-1.png)
+    ![Ladda ned beställningshistorik](media/data-box-portal-admin/portal-admin-download-order-history.png)
 
 2. Klicka på **Ladda ned beställningshistorik**. I den nedladdade historiken visas en post för transportspårningsloggar. Det finns två uppsättningar med logg som motsvarar de två noderna i en Data Box Heavy. Om du rullar ned till slutet av loggen visas följande länkar:
     
@@ -198,11 +198,11 @@ Ladda ned beställningshistoriken med hjälp av följande steg.
 
     Du kan sedan gå till lagringskontot och visa kopieringsloggarna.
 
-![Loggar i lagringskonton](media/data-box-portal-admin/logs-in-storage-acct-2.png)
+   ![Kopierings loggarna för ett lagrings konto](media/data-box-portal-admin/portal-admin-storage-account-copy-logs.png)
 
-Du kan även visa loggar för försörjningskedjan som innehåller granskningsloggar och BOM-filer.
+   Du kan också Visa kedjan med vårdnads loggar, inklusive gransknings loggar och BOM-filer.
 
-![Loggar i lagrings konton 2](media/data-box-portal-admin/logs-in-storage-acct-1.png)
+   ![Kedja av vårdnads loggar för ett lagrings konto](media/data-box-portal-admin/portal-admin-storage-account-chain-of-custody-logs.png)
 
 ## <a name="view-order-status"></a>Visa orderstatus
 
@@ -212,7 +212,7 @@ När enhetens status ändras i portalen meddelas du via e-post.
 
 Här är status för en import ordning.
 
-|Beställningsstatus |Beskrivning |
+|Beställningsstatus |Description |
 |---------|---------|
 |Beställt     | En beställning har gjorts. <br>Om enheten är tillgänglig identifierar Microsoft en enhet för leverans och förbereder enheten. <br> Om enheten inte är tillgänglig omedelbart bearbetas ordern när enheten blir tillgänglig. Ordern kan ta flera dagar till några månader att behandla. Om ordern inte kan uppfyllas inom 90 dagar annulleras den och du får ett meddelande.         |
 |Bearbetad     | Orderbearbetningen har slutförts. Enligt din order förbereds enheten för leverans i datacentret.         |
@@ -231,7 +231,7 @@ Här är status för en import ordning.
 
 Här är status för en export ordning.
 
-|Beställningsstatus |Beskrivning |
+|Beställningsstatus |Description |
 |---------|---------|
 |Beställt     | En export order har placerats. <br>Om enheten är tillgänglig identifierar Microsoft en enhet för leverans och förbereder enheten. <br> Om enheten inte är tillgänglig omedelbart bearbetas ordern när enheten blir tillgänglig. Ordern kan ta flera dagar till några månader att behandla. Om ordern inte kan uppfyllas inom 90 dagar annulleras den och du får ett meddelande.         |
 |Avbrutna            |Ordern har avbrutits. <br> Antingen avbröt du ordern (du kan bara avbryta innan ordern bearbetas) eller så påträffades ett fel och tjänsten avbröt ordern. Om ordern inte kan uppfyllas inom 90 dagar annulleras den också och du får ett meddelande.     |
@@ -254,7 +254,7 @@ Här är status för en export ordning.
 
 Om du använder självhanterad leverans och du efter att kopieringen är klar och innan du får enheten, visas följande tillstånd (i stället för de som nämns i föregående tabell):
 
-|Beställningsstatus |Beskrivning |
+|Beställningsstatus |Description |
 |---------|---------|
 |Redo för hämtning i Azure Data Center      |Enheten är redo att hämtas i Azure-datacentret.        |
 |Hämtat    |Du har valt enheten.         |

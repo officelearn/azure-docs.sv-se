@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 1e0a11ef72698d749349cce8dd7eff73e5284a86
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: b514cce8128dc0b17b5cebf8f2dc42e2c4dd8c8e
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122474"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337134"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Självstudie: skapa en export ordning för Azure Data Box (förhands granskning)
 
@@ -58,11 +58,11 @@ Utför följande steg på Azure-portalen för att beställa en enhet.
 
 2. Välj **+ Skapa en resurs** och sök efter *Azure Data Box*. Välj **Azure Data Box**.
 
-   ![Skapa resurs](media/data-box-deploy-export-ordered/azure-data-box-export-00b.png)
+   ![Skapa en resurs](media/data-box-deploy-export-ordered/azure-data-box-export-order-create-resource.png)
 
 3. Välj **Skapa**.
 
-   ![Skapa Azure Data Box](media/data-box-deploy-export-ordered/azure-data-box-export-00c.png)
+   ![Skapa en Azure Data Box resurs](media/data-box-deploy-export-ordered/azure-data-box-export-order-create-data-box-resource.png)
 
 4. Kontrol lera om Azure Data Box tjänsten är tillgänglig i din region. Ange eller välj följande information och välj **Tillämpa**.
 
@@ -74,11 +74,11 @@ Utför följande steg på Azure-portalen för att beställa en enhet.
     |Käll Azure-region    |    Välj den Azure-region där dina data finns.         |
     |Mål land     |     Välj det land där du vill skicka enheten.        |
 
-   ![Välj Data Box-enhet inställningar](media/data-box-deploy-export-ordered/azure-data-box-export-01.png)
+   ![Välj Data Box-enhet inställningar](media/data-box-deploy-export-ordered/azure-data-box-export-order-data-box-settings.png)
 
 5. Välj **Data Box**. Den högsta användbara kapaciteten för en enskild order är 80 TB. Du kan skapa flera beställningar för större datamängder.
 
-   ![Välj Data Box-enhet kapacitet](media/data-box-deploy-export-ordered/azure-data-box-export-02b.png)
+   ![Välj Data Box-enhet kapacitet](media/data-box-deploy-export-ordered/azure-data-box-export-order-capacity.png)
 
 6. Ange **grundläggande** beställnings information i **ordning**. Ange eller välj följande information och välj **Nästa**.
 
@@ -88,21 +88,21 @@ Utför följande steg på Azure-portalen för att beställa en enhet.
     |Resursgrupp | Den resurs grupp som du valde tidigare. |
     |Exportera beställnings namn     |  Välj ett smeknamn så att du kan spåra beställningen. <br> Namnet kan innehålla mellan 3 och 24 tecken som kan vara bokstäver, siffror och bindestreck. <br> Namnet måste börja och sluta med en bokstav eller en siffra.      |
 
-    ![Grundläggande om export order](media/data-box-deploy-export-ordered/azure-data-box-export-03.png)
+    ![Grundläggande om export order](media/data-box-deploy-export-ordered/azure-data-box-export-order-storage-account-export-type.png)
 
     Välj **Nästa: data urvalet** för att gå vidare.
 
-7. I **data urval**väljer du **Lägg till lagrings konto och export typ**.
+7. I **data urval** väljer du **Lägg till lagrings konto och export typ**.
 
-    ![Lägg till lagrings konto och export typ](media/data-box-deploy-export-ordered/azure-data-box-export-03b.png)
+    ![Lägg till lagrings konto och export typ](media/data-box-deploy-export-ordered/azure-data-box-export-order-basics.png)
 
-8. I **Välj export alternativ**anger du alternativ informationen för export. Ange eller Välj följande information och välj sedan **Lägg till**.
+8. I **Välj export alternativ** anger du alternativ informationen för export. Ange eller Välj följande information och välj sedan **Lägg till**.
 
     |Inställning  |Värde  |
     |---------|---------|
     |Lagringskonto     | Det Azure Storage konto som du vill exportera data från. |
     |Export typ     | Anger vilken typ av data som ska exporteras från **alla objekt** och **använda XML-filen**.<ul><li> **Alla objekt** – anger att jobbet ska exportera alla data beroende på ditt val av **överförings alternativ**.</li><li> **Använd XML-fil** – anger en XML-fil som innehåller en uppsättning sökvägar och prefix för blobbar och/eller filer som ska exporteras från lagrings kontot. XML-filen måste finnas i det valda lagrings kontots behållare och det finns för närvarande inte stöd för att välja från fil resurser. Filen måste vara en XML-fil som inte är tom.</li></ul>        |
-    |Överförings alternativ     |  Anger alternativ för data överföring från **Välj alla**, **alla blobbar**och **alla filer**. <ul><li> **Markera alla** -anger att alla blobbar och Azure-filer exporteras. Om du använder ett lagrings konto som bara stöder blobbar (Blob Storage konto) går det inte att välja alternativet **alla filer** .</li><li> **Alla blobbar** – anger att endast block-och sid-blobar ska exporteras.</li><li> **Alla filer** -anger att alla filer exporteras exklusive blobbar. Vilken typ av lagrings konto du har (GPv1 och GPv2, Premium Storage eller Blob Storage) bestämmer vilka typer av data som du kan exportera. Mer information finns i [lagrings konton som stöds för export](../storage/common/storage-import-export-requirements.md#supported-storage-types).</li></ul>         |
+    |Överförings alternativ     |  Anger alternativ för data överföring från **Välj alla** , **alla blobbar** och **alla filer**. <ul><li> **Markera alla** -anger att alla blobbar och Azure-filer exporteras. Om du använder ett lagrings konto som bara stöder blobbar (Blob Storage konto) går det inte att välja alternativet **alla filer** .</li><li> **Alla blobbar** – anger att endast block-och sid-blobar ska exporteras.</li><li> **Alla filer** -anger att alla filer exporteras exklusive blobbar. Vilken typ av lagrings konto du har (GPv1 och GPv2, Premium Storage eller Blob Storage) bestämmer vilka typer av data som du kan exportera. Mer information finns i [lagrings konton som stöds för export](../storage/common/storage-import-export-requirements.md#supported-storage-types).</li></ul>         |
     |Inkludera utförlig logg     | Anger om du vill ha en utförlig logg fil som innehåller en lista över alla filer som har exporter ATS.        |
 
     > [!NOTE]
@@ -111,82 +111,85 @@ Utför följande steg på Azure-portalen för att beställa en enhet.
 
     Information om hur du lägger till en XML-fil i en behållare finns i [Exportera order med XML-fil](data-box-deploy-export-ordered.md#export-order-using-xml-file).
 
-   ![Välj export alternativ](media/data-box-deploy-export-ordered/azure-data-box-export-04b.png)
+   ![Välj export alternativ](media/data-box-deploy-export-ordered/azure-data-box-export-order-export-option.png)
 
    Ett exempel på XML-indata finns i [exempel på XML-indata](data-box-deploy-export-ordered.md#sample-xml-file)
 
-9. Granska inställningarna i **data urval**och välj **nästa: säkerhets>**.
+9. Granska inställningarna i **data urval** och välj **nästa: säkerhets>**.
 
-   ![Kontaktinformation](media/data-box-deploy-export-ordered/azure-data-box-export-05.png)
+   ![Exportera order, data urval](media/data-box-deploy-export-ordered/azure-data-box-export-order-data-selection.png)
 
-1. I **säkerhet**, om du vill aktivera programvarubaserad dubbel kryptering, väljer du **Aktivera dubbel kryptering för ordern**. 
+10. I **säkerhet** , om du vill aktivera programvarubaserad dubbel kryptering, väljer du **Aktivera dubbel kryptering för ordern**. 
 
-   Den programvarubaserade krypteringen utförs förutom AES-256-bitars kryptering av data på Data Box-enhet.
+    Den programvarubaserade krypteringen utförs förutom AES-256-bitars kryptering av data på Data Box-enhet.
 
-   > [!NOTE]
-   > Att aktivera det här alternativet kan göra order bearbetning och data kopieringen ta längre tid. Du kan inte ändra det här alternativet när du har skapat din beställning.
+   
+    > [!NOTE]
+    > Att aktivera det här alternativet kan göra order bearbetning och data kopieringen ta längre tid. Du kan inte ändra det här alternativet när du har skapat din beställning.
 
-   ![Säkerhets skärm för import av data Box, dubbel kryptering](media/data-box-deploy-export-ordered/azure-data-box-export-05b.png)
+    ![Säkerhets skärm för import av data Box, dubbel kryptering](media/data-box-deploy-export-ordered/azure-data-box-export-order-security-double-encryption.png)
 
-   Välj **Nästa: kontakt uppgifter** för att fortsätta.
+    Välj **Nästa: kontakt uppgifter** för att fortsätta.
 
-10. I **kontakt uppgifterna**väljer du **+ Lägg till leverans adress** för att ange leverans information.
+11. I **kontakt uppgifterna** väljer du **+ Lägg till leverans adress** för att ange leverans information.
 
-    ![Lägg till leverans adress](media/data-box-deploy-export-ordered/azure-data-box-export-06.png)
+    ![Lägg till leverans adress](media/data-box-deploy-export-ordered/azure-data-box-export-order-add-shipping-address.png)
 
-11. I **Lägg till leverans adress**anger du ditt för-och efter namn, namn och post adress för företaget och ett giltigt telefonnummer. Välj **Verifiera**. Tjänsten verifierar leveransadressen och tjänstens tillgänglighet. Om tjänsten är tillgänglig för den angivna leveransadressen får du ett meddelande om det.
+12. I **Lägg till leverans adress** anger du ditt för-och efter namn, namn och post adress för företaget och ett giltigt telefonnummer. Välj **Verifiera**. Tjänsten verifierar leveransadressen och tjänstens tillgänglighet. Om tjänsten är tillgänglig för den angivna leveransadressen får du ett meddelande om det.
 
-    ![Verifiera leverans adress](media/data-box-deploy-export-ordered/azure-data-box-export-07.png)
+    ![Verifiera leverans adress](media/data-box-deploy-export-ordered/azure-data-box-export-order-validate-shipping-address.png)
 
     Om du beställer i en region där själv hanterad leverans är tillgängligt kan du välja det här alternativet. Mer information om självhanterad leverans finns i [Använd självhanterad leverans](data-box-portal-customer-managed-shipping.md).
 
-12. Välj **Lägg till leverans adress** när leverans informationen har verifierats.
+13. Välj **Lägg till leverans adress** när leverans informationen har verifierats.
 
-13. Granska leverans adressen och e-postadressen i **kontakt information**. Tjänsten skickar e-postmeddelanden om alla uppdateringar rörande orderstatus.
+14. Granska leverans adressen och e-postadressen i **kontakt information**. Tjänsten skickar e-postmeddelanden om alla uppdateringar rörande orderstatus.
 
     Vi rekommenderar att du använder en grupp-e-postadress, så att du kan fortsätta att ta emot meddelanden även om en gruppadministratör lämnar företaget.
 
-    ![Beställnings information](media/data-box-deploy-export-ordered/azure-data-box-export-09.png)
+    ![Kontaktinformation](media/data-box-deploy-export-ordered/azure-data-box-export-order-contact-details.png)
 
-14. Välj **Nästa: granska och beställ>**. Du måste godkänna de allmänna villkoren om du vill fortsätta att skapa ordern.
+15. Välj **Nästa: granska och beställ>**. Du måste godkänna de allmänna villkoren om du vill fortsätta att skapa ordern.
 
-15. Välj **Beställ**. Det tar några minuter att skapa beställningen.
+16. Välj **Beställ**. Det tar några minuter att skapa beställningen.
 
-    ![Inchecknings ordning](media/data-box-deploy-export-ordered/azure-data-box-export-10.png)
+    ![Inchecknings ordning](media/data-box-deploy-export-ordered/azure-data-box-select-export-order-commit-order.png)
 
 ## <a name="export-order-using-xml-file"></a>Exportera order med XML-fil
 
-Om du väljer **Använd XML-fil**kan du ange vissa behållare och blobbar (sida och block) som du vill exportera. Du måste följa specifikationerna i [XML-filtabellen](#sample-xml-file) för att formatera XML-filen. Stegen nedan visar hur du använder en XML-fil för att exportera dina data:
+Om du väljer **Använd XML-fil** kan du ange vissa behållare och blobbar (sida och block) som du vill exportera. Du måste följa specifikationerna i [XML-filtabellen](#sample-xml-file) för att formatera XML-filen. Stegen nedan visar hur du använder en XML-fil för att exportera dina data:
 
-1. För **export typ**väljer du **Använd XML-fil**. Det här är XML-filen som anger vilka blobbar och Azure-filer som du vill exportera. Om du vill lägga till XML-filen väljer du **Klicka här för att välja en XML-fil**.
-     ![Skärm bild av alternativet Välj export med alternativet Klicka här för att välja ett alternativ för X M L-fil som kallas för.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-01.png)
+1. För **export typ** väljer du **Använd XML-fil**. Det här är XML-filen som anger vilka blobbar och Azure-filer som du vill exportera. Om du vill lägga till XML-filen väljer du **Klicka här för att välja en XML-fil**.
+
+     ![Välj export alternativ, XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-select-xml-option.png)
 
 2. Välj **+ container** för att skapa en behållare.
-    ![Skärm bild av avsnittet behållare.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-02.png)
+
+    ![Välj export alternativ, behållare](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-containers-option.png)
 
 3. I fliken **ny behållare** som visas från höger sida av Azure Portal lägger du till ett namn för behållaren. Namnet måste innehålla gemener och du kan inkludera siffror och bindestreck "-". Välj sedan den **offentliga åtkomst nivån** i list rutan. Vi rekommenderar att du väljer **privat (icke-anonym åtkomst)** för att hindra andra från att komma åt dina data. Mer information om åtkomst nivåer för behållare finns i [åtkomst behörigheter för behållare](../storage/blobs/anonymous-read-access-configure.md#set-the-public-access-level-for-a-container).
 
-   ![Skärm bild av fliken ny behållare som visar alternativet privat (ingen anonym åtkomst) markerat.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-04.png)
+   ![Välj export alternativ, nya behållar inställningar](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-container-settings.png)
 
 4. Välj **Skapa**.
 
-   ![Skärm bild av fliken ny behållare med alternativet Skapa som kallas för.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-07.png)
+   ![Välj export alternativ, skapa ny behållare.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-create-container.png)
 
    Om din behållare har skapats visas följande meddelande:
 
-   ![Skärm bild av meddelandet som säger att lagrings containern har skapats.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-09.png)
+   ![Containern har skapats](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-container-success.png)
 
 5. Välj den behållare som du skapade och dubbelklicka på den.
 
-   ![Skärm bild av avsnittet behållare med behållare för min privata test behållare som anropas.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-08.png)
+   ![Visa information om behållare](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-view-container-details.png)
 
 6. Om du dubbelklickar på behållaren visas behållar egenskaper-vyn. Nu vill du bifoga (eller bläddra till) XML-filen som innehåller listan med blobbar och/eller Azure-filer som du vill exportera. Välj **Överför**.
 
-   ![Skärm bild av dialog rutan Ladda upp BLOB med alternativet upload Inringt.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-10c.png)
+   ![Ladda upp blob till container](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-blob-to-container.png)
 
 7. Du har lagt till XML-filen i behållaren. Endast blobbar och Azure-filer som du har angett i denna XML-fil kommer att exporteras.
 
-   ![Skärm bild av guiden Beställ med följande: säkerhets alternativet har anropats.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-12.png)
+   ![XML-fil Tillagd i behållare](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-added-to-container.png)
 
 ## <a name="track-the-order"></a>Spåra beställningen
 
@@ -194,11 +197,11 @@ När du har skapat beställningen kan du spåra statusen för ordern via Azure-p
 
 När enhets förberedelsen är klar kommer data kopieringen att börja från de valda lagrings kontona. Portalen visar ordningen i status för **data kopiering pågår** .
 
-![Data Box-enhetd export order har bearbetats](media/data-box-deploy-export-ordered/azure-data-box-export-15b.png)
+![Data Box-enhet export ordning, data kopiering pågår](media/data-box-deploy-export-ordered/azure-data-box-export-order-data-copy-in-progress.png)
 
 Data Box-enhet kopierar data från käll lagrings kontona. När data kopieringen är klar är Data Box-enhet låst och portalen visar ordningen i **Kopiera slutfört** tillstånd.
 
-![Data Box-enhet export av data kopiering slutförd](media/data-box-deploy-export-ordered/azure-data-box-export-15c.png)
+![Data Box-enhet export order, data kopieringen har slutförts](media/data-box-deploy-export-ordered/azure-data-box-export-order-data-copy-complete.png)
 
 Om enheten inte är tillgänglig visas ett meddelande. Om enheten är tillgänglig identifierar Microsoft enheten för leverans och förbereder försändelsen. Vid förberedelse av enheten utförs följande åtgärder:
 
@@ -208,11 +211,11 @@ Om enheten inte är tillgänglig visas ett meddelande. Om enheten är tillgängl
 
 Microsoft förbereder och skickar sedan din enhet via en regional operatör. Du får ett spårningsnummer när enheten har skickats. Portalen visar ordningen för statusen **Dispatched** (Skickad).
 
-![Data Box-enhet export order har skickats](media/data-box-deploy-export-ordered/azure-data-box-export-16.png)
+![Data Box-enhet export order har skickats](media/data-box-deploy-export-ordered/azure-data-box-export-order-dispatched.png)
 
 Om du väljer själv hanterad leverans får du ett e-postmeddelande med nästa steg när enheten är redo att hämtas från data centret. Mer information om självhanterad leverans finns i [självhanterad leverans](data-box-portal-customer-managed-shipping.md).
 
-![Självhanterad leverans klar för upphämtning](media/data-box-deploy-export-ordered/azure-data-box-export-17.png)
+![Självhanterad leverans klar för upphämtning](media/data-box-deploy-export-ordered/azure-data-box-export-order-ready-for-pickup.png)
 
 ## <a name="cancel-the-order"></a>Avbryta beställningen
 
@@ -228,7 +231,7 @@ Följande XML visar ett exempel på BLOB-namn, BLOB-prefix och Azure-filer som f
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-   <!-- BlobList/prefix/Container list for Blob storage for export  -->
+   <!-- BlobList/prefix/Container list for Blob storage for export  -->
    <BlobList>
       <BlobPath>/8tbpageblob/8tbpageblob/8tbpageblob</BlobPath>
       <BlobPathPrefix>/blockblob4dot75tbdata/</BlobPathPrefix>
@@ -237,7 +240,7 @@ Följande XML visar ett exempel på BLOB-namn, BLOB-prefix och Azure-filer som f
       <BlobPathPrefix>/8mbfiles/</BlobPathPrefix>
       <BlobPathPrefix>/64mbfiles/</BlobPathPrefix>
    </BlobList>
-   <!-- FileList/prefix/Share list for Azure File storage for export  -->
+   <!-- FileList/prefix/Share list for Azure File storage for export  -->
    <AzureFileList>
       <FilePathPrefix>/64mbfiles/</FilePathPrefix>
       <FilePathPrefix>/4mbfiles/prefix2/subprefix</FilePathPrefix>
@@ -256,7 +259,7 @@ Några viktiga punkter i avseende XML-filer:
 
 I följande tabell visas exempel på giltiga BLOB-sökvägar:
 
-   | Väljare | BLOB-sökväg | Beskrivning |
+   | Väljare | BLOB-sökväg | Description |
    | --- | --- | --- |
    | Börjar med |/ |Exporterar alla blobar i lagrings kontot |
    | Börjar med |/$root/ |Exporterar alla blobbar i rot behållaren |

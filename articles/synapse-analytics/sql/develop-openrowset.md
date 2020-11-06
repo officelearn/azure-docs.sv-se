@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e7713239391b49663328a7a058f8f6fd5b444335
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b08e834233e1ce12392d940cb0ccc0bef7e96158
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341339"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337754"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Använda OpenRowSet med Server lös SQL-pool (för hands version) i Azure Synapse Analytics
 
@@ -261,12 +261,12 @@ Parquet-filer innehåller typ beskrivningar för varje kolumn. I följande tabel
 | BINARY |UTF8 |varchar \* (utf8-sortering) |
 | BINARY |NOLLÄNGD |varchar \* (utf8-sortering) |
 | BINARY |RÄKNING|varchar \* (utf8-sortering) |
-| BINARY |UUID |uniqueidentifier |
+| FIXED_LEN_BYTE_ARRAY |UUID |uniqueidentifier |
 | BINARY |DECIMAL |decimal |
-| BINARY |JSON |varchar (max) \* (utf8-sortering) |
-| BINARY |BSON |varbinary(max) |
+| BINARY |JSON |varchar (8000) \* (utf8-sortering) |
+| BINARY |BSON | Stöds inte |
 | FIXED_LEN_BYTE_ARRAY |DECIMAL |decimal |
-| BYTE_ARRAY |INTERVALL |varchar (max), serialiserad till standardiserat format |
+| BYTE_ARRAY |INTERVALL | Stöds inte |
 | INT32 |INT (8, sant) |smallint |
 | INT32 |INT (16, sant) |smallint |
 | INT32 |INT (32, sant) |int |
@@ -279,10 +279,10 @@ Parquet-filer innehåller typ beskrivningar för varje kolumn. I följande tabel
 | INT64 |INT (64, sant) |bigint |
 | INT64 |INT (64, falskt) |decimal (20, 0) |
 | INT64 |DECIMAL |decimal |
-| INT64 |TID (MICROS/NANO) |time |
-|INT64 |TIDSSTÄMPEL (MILL/MICROS/NANOS) |datetime2 |
-|[Komplex typ](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |LISTA |varchar (max), serialiserad till JSON |
-|[Komplex typ](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAPPA|varchar (max), serialiserad till JSON |
+| INT64 |TID (MICROS) |Time-TIME (NANO) stöds inte |
+|INT64 |TIDSSTÄMPEL (MILL/MICROS) |datetime2 – TIMESTAMP (NANO) stöds inte |
+|[Komplex typ](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |LISTA |varchar (8000), serialiserad till JSON |
+|[Komplex typ](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAPPA|varchar (8000), serialiserad till JSON |
 
 ## <a name="examples"></a>Exempel
 

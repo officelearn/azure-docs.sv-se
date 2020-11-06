@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: 09485d3279e4ca4fff5b6492bab432d8034d7e42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e426962310417fdca56ea2f7d45a6ea820d41981
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449413"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335884"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights-anslutningsprogram hanterings lösning (inaktuell)
 
@@ -42,7 +42,7 @@ När du använder lösningen kan du:
 
 Till skillnad från de flesta andra Log Analytics lösningar samlas data inte in för Application Insights-anslutningsprogram av agenter. Alla data som används av lösningen kommer direkt från Azure.
 
-| Ansluten källa | Stöds | Beskrivning |
+| Ansluten källa | Stöds | Description |
 | --- | --- | --- |
 | [Windows-agenter](./agent-windows.md) | Inga | Lösningen samlar inte in information från Windows-agenter. |
 | [Linux-agenter](../learn/quick-collect-linux-computer.md) | Inga | Lösningen samlar inte in information från Linux-agenter. |
@@ -57,9 +57,9 @@ Till skillnad från de flesta andra Log Analytics lösningar samlas data inte in
 
 ## <a name="configuration"></a>Konfiguration
 
-1. Aktivera Azure Web Apps-analys-lösningen från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview) eller genom att använda processen som beskrivs i [Lägg till Log Analytics lösningar från Lösningsgalleriet](../insights/solutions.md).
+1. Aktivera Azure Web Apps-analys-lösningen från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps) eller genom att använda processen som beskrivs i [Lägg till Log Analytics lösningar från Lösningsgalleriet](../insights/solutions.md).
 2. Bläddra till [Azure Portal](https://portal.azure.com). Välj **alla tjänster** för att öppna Application Insights. Sök sedan efter Application Insights. 
-3. Under **prenumerationer**väljer du en prenumeration som har Application Insights resurser och väljer sedan ett eller flera program under **namn**.
+3. Under **prenumerationer** väljer du en prenumeration som har Application Insights resurser och väljer sedan ett eller flera program under **namn**.
 4. Klicka på **Spara**.
 
 På cirka 30 minuter blir data tillgängliga och Application Insightss panelen uppdateras med data, t. ex. följande bild:
@@ -135,7 +135,7 @@ Perspektiv komponenter uppdateras beroende på Sök frågan. Det innebär att du
 
 Application Insights-anslutningsprogram blad är utformade för att du ska kunna pivotera till den valda Application Insights-appen *när du använder Azure Portal*. Du kan använda lösningen som en övervaknings plattform på hög nivå som hjälper dig att felsöka en app. När du ser ett potentiellt problem i något av dina anslutna program kan du antingen öka detalj nivån i Log Analytics Sök, eller så kan du pivotera direkt till Application Insights-appen.
 
-Du kan pivotera genom att klicka på ellipserna (**...**) som visas i slutet av varje rad och välja **Öppna i Application Insights**.
+Du kan pivotera genom att klicka på ellipserna ( **...** ) som visas i slutet av varje rad och välja **Öppna i Application Insights**.
 
 >[!NOTE]
 >**Öppna i Application Insights** är inte tillgänglig i Azure Portal.

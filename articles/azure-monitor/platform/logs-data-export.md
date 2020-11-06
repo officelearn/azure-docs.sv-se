@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 6c0908d2656d9d6464ae1f94d5b0cd68f759530a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 972c32b5403a7e6f614161271b7cb7e88693e032
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637351"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335102"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics arbets ytans data export i Azure Monitor (förhands granskning)
 Med Log Analytics data export för arbets yta i Azure Monitor kan du kontinuerligt exportera data från valda tabeller i din Log Analytics arbets yta till ett Azure Storage-konto eller Azure-Event Hubs som det samlas in. Den här artikeln innehåller information om den här funktionen och hur du konfigurerar data export i dina arbets ytor.
@@ -58,15 +58,15 @@ Log Analytics data export för arbets ytan exporterar kontinuerligt data från e
 ## <a name="data-completeness"></a>Data fullständighet
 Data exporten kommer att fortsätta att försöka skicka data i upp till 30 minuter om målet inte är tillgängligt. Om det fortfarande inte är tillgängligt efter 30 minuter tas data bort tills målet blir tillgängligt.
 
-## <a name="cost"></a>Kostnad
+## <a name="cost"></a>Cost
 Det finns för närvarande inga ytterligare avgifter för data export funktionen. Prissättningen för data export kommer att meddelas i framtiden och ett meddelande som tillhandahålls innan faktureringen påbörjas. Om du väljer att fortsätta använda data export efter meddelande perioden debiteras du enligt tillämplig taxa.
 
 ## <a name="export-destinations"></a>Exportera mål
 
 ### <a name="storage-account"></a>Lagringskonto
-Data skickas till lagrings konton varje timme. Konfigurationen för data export skapar en behållare för varje tabell i lagrings kontot med namnet *am-* följt av namnet på tabellen. Tabellen *SecurityEvent* skulle till exempel skickas till en behållare med namnet *am-SecurityEvent* .
+Data skickas till lagrings konton varje timme. Konfigurationen för data export skapar en behållare för varje tabell i lagrings kontot med namnet *am-* följt av namnet på tabellen. Tabellen *SecurityEvent* skulle till exempel skickas till en behållare med namnet *am-SecurityEvent*.
 
-Lagrings kontots BLOB-sökväg är *WorkspaceResourceId =/Subscriptions/Subscription-ID/ResourceGroups/ \<resource-group\> /providers/Microsoft.operationalinsights/workspaces/ \<workspace\> /y = \<four-digit numeric year\> /m = \<two-digit numeric month\> /d = \<two-digit numeric day\> /h = \<two-digit 24-hour clock hour\> /m = 00/PT1H.jspå* . Eftersom bifogade blobbar är begränsade till 50 000 skrivningar i lagringen kan antalet exporterade blobbar utökas om antalet tillägg är högt. Namngivnings mönstret för blobbar i sådana fall är PT1H_ #. JSON, där # är det stegvisa antalet blobar.
+Lagrings kontots BLOB-sökväg är *WorkspaceResourceId =/Subscriptions/Subscription-ID/ResourceGroups/ \<resource-group\> /providers/Microsoft.operationalinsights/workspaces/ \<workspace\> /y = \<four-digit numeric year\> /m = \<two-digit numeric month\> /d = \<two-digit numeric day\> /h = \<two-digit 24-hour clock hour\> /m = 00/PT1H.jspå*. Eftersom bifogade blobbar är begränsade till 50 000 skrivningar i lagringen kan antalet exporterade blobbar utökas om antalet tillägg är högt. Namngivnings mönstret för blobbar i sådana fall är PT1H_ #. JSON, där # är det stegvisa antalet blobar.
 
 Data formatet lagrings konto är [JSON-linjer](diagnostic-logs-append-blobs.md). Det innebär att varje post avgränsas med en ny rad, utan matris för yttre poster och inga kommatecken mellan JSON-poster. 
 
@@ -99,7 +99,7 @@ Följande Azure-adressresurs måste vara registrerad för din prenumeration för
 
 - Microsoft. Insights
 
-Den här resurs leverantören är antagligen redan registrerad för de flesta Azure Monitor användare. För att verifiera går du till **prenumerationer** i Azure Portal. Välj din prenumeration och klicka sedan på **resurs leverantörer** i avsnittet **Inställningar** på menyn. Leta upp **Microsoft. Insights** . Om dess status är **registrerad** är den redan registrerad. Annars klickar du på **Registrera** för att registrera den.
+Den här resurs leverantören är antagligen redan registrerad för de flesta Azure Monitor användare. För att verifiera går du till **prenumerationer** i Azure Portal. Välj din prenumeration och klicka sedan på **resurs leverantörer** i avsnittet **Inställningar** på menyn. Leta upp **Microsoft. Insights**. Om dess status är **registrerad** är den redan registrerad. Annars klickar du på **Registrera** för att registrera den.
 
 Du kan också använda någon av de tillgängliga metoderna för att registrera en resurs leverantör enligt beskrivningen i [Azure Resource providers och-typer](../../azure-resource-manager/management/resource-providers-and-types.md). Följande är ett exempel kommando som använder PowerShell:
 
@@ -108,7 +108,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.insights
 ```
 
 ### <a name="allow-trusted-microsoft-services"></a>Tillåt betrodda Microsoft-tjänster
-Om du har konfigurerat ditt lagrings konto för att tillåta åtkomst från valda nätverk måste du lägga till ett undantag för att tillåta Azure Monitor att skriva till kontot. Från **brand väggar och virtuella nätverk** för ditt lagrings konto väljer **du Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot** .
+Om du har konfigurerat ditt lagrings konto för att tillåta åtkomst från valda nätverk måste du lägga till ett undantag för att tillåta Azure Monitor att skriva till kontot. Från **brand väggar och virtuella nätverk** för ditt lagrings konto väljer **du Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot**.
 
 [![Lagrings kontots brand väggar och virtuella nätverk](media/logs-data-export/storage-account-vnet.png)](media/logs-data-export/storage-account-vnet.png#lightbox)
 
@@ -189,6 +189,7 @@ Följande är en exempel text för REST-begäran för en Event Hub där Event Hu
         ],
         "enable": true
     }
+  }
 }
 ```
 
@@ -270,7 +271,7 @@ Tabeller som stöds är för närvarande begränsade till dem som anges nedan. A
 
 
 | Tabeller | Begränsningar |
-|:---|:---|:---|
+|:---|:---|
 | AADDomainServicesAccountLogon | |
 | AADDomainServicesAccountManagement | |
 | AADDomainServicesDirectoryServiceAccess | |
@@ -436,7 +437,6 @@ Tabeller som stöds är för närvarande begränsade till dem som anges nedan. A
 | WindowsEvent | |
 | WindowsFirewall | |
 | WireData | Delvis stöd. Vissa data matas in via interna tjänster som inte stöds för export. Dessa data exporteras inte för tillfället. |
-| WorkloadMonitoringPerf | |
 | WorkloadMonitoringPerf | |
 | WVDAgentHealthStatus | |
 | WVDCheckpoints | |

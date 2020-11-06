@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: alkohli
 ms.subservice: pod
-ms.openlocfilehash: 31147d534109e0d74d33d102075c69eeb703496e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40b777342c2c565efc5b40d361a259c98eae693c
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91739943"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337726"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-azure-data-box"></a>Använda Kundhanterade nycklar i Azure Key Vault för Azure Data Box
 
@@ -47,7 +47,7 @@ Det är valfritt att konfigurera kundhanterad nyckel för Azure Data Box. Som st
 
     ![Översikts bladet för Data Box-enhet order](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-1.png)
 
-2. Gå till **inställningar > kryptering**. Under **krypterings typ**kan du välja hur du vill skydda din enhets upplåsnings nyckel. Som standard används en hanterad Microsoft-nyckel för att skydda din enhets lösen ord för att låsa upp enheten. 
+2. Gå till **inställningar > kryptering**. Under **krypterings typ** kan du välja hur du vill skydda din enhets upplåsnings nyckel. Som standard används en hanterad Microsoft-nyckel för att skydda din enhets lösen ord för att låsa upp enheten. 
 
     ![Välj krypterings alternativ](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-2.png)
 
@@ -55,40 +55,40 @@ Det är valfritt att konfigurera kundhanterad nyckel för Azure Data Box. Som st
 
     ![Välj kundhanterad nyckel](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-3.png)
 
-5. I bladet **Välj nyckel från Azure Key Vault** fylls prenumerationen i automatiskt. För **Key Vault**kan du välja ett befintligt nyckel valv i list rutan.
+4. I bladet **Välj nyckel från Azure Key Vault** fylls prenumerationen i automatiskt. För **Key Vault** kan du välja ett befintligt nyckel valv i list rutan.
 
-    ![Skapa nytt Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-31.png)
+    ![Välj befintlig Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-3-a.png)
 
-    Du kan också välja **Skapa nytt** för att skapa ett nytt nyckel valv. På **bladet skapa nyckel valv**anger du resurs gruppen och namnet på nyckel valvet. Se till att det **mjuka borttagnings** -och **rensnings skyddet** har Aktiver ATS. Acceptera alla andra standardvärden. Välj **Granska + skapa**.
+    Du kan också välja **Skapa nytt** för att skapa ett nytt nyckel valv. På **bladet skapa nyckel valv** anger du resurs gruppen och namnet på nyckel valvet. Se till att det **mjuka borttagnings** -och **rensnings skyddet** har Aktiver ATS. Acceptera alla andra standardvärden. Välj **Granska + skapa**.
 
-    ![Skapa ny Azure Key Vault 2](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
+    ![Granska och skapa Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
 
-7. Granska informationen som är kopplad till ditt nyckel valv och välj **skapa**. Vänta några minuter tills nyckel valvet har skapats.
+5. Granska informationen som är kopplad till ditt nyckel valv och välj **skapa**. Vänta några minuter tills nyckel valvet har skapats.
 
-    ![Skapa Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-5.png)
+    ![Skapa Azure Key Vault med dina inställningar](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-5.png)
 
-8. I **Välj nyckel från Azure Key Vault**kan du välja en nyckel i det befintliga nyckel valvet.
+6. I **Välj nyckel från Azure Key Vault** kan du välja en nyckel i det befintliga nyckel valvet.
 
-    ![Skapa ny nyckel i Azure Key Vault 3](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)
+    ![Välj nyckel från Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)
 
-9. Om du vill skapa en ny nyckel väljer du **Skapa ny** för att skapa en nyckel. RSA-nyckelns storlek kan vara 2048 eller högre.
+7. Om du vill skapa en ny nyckel väljer du **Skapa ny** för att skapa en nyckel. RSA-nyckelns storlek kan vara 2048 eller högre.
 
-    ![Skapa ny nyckel i Azure Key Vault 4](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-61.png)
+    ![Skapa ny nyckel i Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6-a.png)
 
-10. Ange namnet på nyckeln, acceptera de andra standardinställningarna och välj **skapa**. 
+8. Ange namnet på nyckeln, acceptera de andra standardinställningarna och välj **skapa**.
 
-    ![Skapa ny nyckel](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-7.png)
+    ![Namn ny nyckel](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-7.png)
 
 
-11. Du får ett meddelande om att en nyckel har skapats i ditt nyckel valv. Välj **version** och välj sedan **Välj**.
+9. Du får ett meddelande om att en nyckel har skapats i ditt nyckel valv. Välj **version** och välj sedan **Välj**.
 
-    ![Ny nyckel har skapats i Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8.png)
+    ![Välj version för ny nyckel](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8.png)
 
-12. I fönstret **krypterings typ** ser du nyckel valvet och nyckeln som du har valt för din Kundhanterade nyckel.
+10. I fönstret **krypterings typ** ser du nyckel valvet och nyckeln som du har valt för din Kundhanterade nyckel.
 
     ![Nyckel-och nyckel valv för kundhanterad nyckel](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-9.png)
 
-13. Spara nyckeln. 
+11. Spara nyckeln. 
 
     ![Spara kundhanterad nyckel](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-10.png)
 

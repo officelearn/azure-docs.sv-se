@@ -3,12 +3,12 @@ title: Koncept – privata moln och kluster
 description: Lär dig mer om de viktigaste funktionerna i Azure VMware-lösningen program varu definierade Data Center och vSphere-kluster.
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: b261eb0517e9890d9bccf12f2e5748626f4c1ff9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: daa712a722ca3252a49e4f54e0cc9e42de4ffc73
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791026"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337329"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Azure VMware-lösning, privata moln och kluster koncept
 
@@ -52,9 +52,9 @@ De aktuella program varu versionerna av VMware-programvaran som används i Azure
 
 | Programvara              |    Version   |
 | :---                  |     :---:    |
-| VCSA/vSphere/ESXi |    6,7 U2    | 
-| ESXi                  |    6,7 U2    | 
-| Virtuellt San                  |    6,7 U2    |
+| VCSA/vSphere/ESXi |    6,7 U3    | 
+| ESXi                  |    6,7 U3    | 
+| Virtuellt San                  |    6,7 U3    |
 | NSX-T                 |      2.5     |
 
 För alla nya kluster i ett privat moln, matchar program varu versionen vad som körs för tillfället. Program varu stackens senaste version installeras för alla nya privata moln i en prenumeration.

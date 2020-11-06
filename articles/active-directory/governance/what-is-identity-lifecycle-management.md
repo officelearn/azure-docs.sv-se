@@ -11,14 +11,14 @@ ms.date: 10/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6aa94c58dfb051eadc0059aa556383260a00b10
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 0d54e1127207f0593f8d345b266d7db6e92b5c0d
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135382"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335408"
 ---
-# <a name="what-is-identity-lifecycle-management"></a>Vad är hantering av identitets livs cykel?
+# <a name="what-is-identity-lifecycle-management"></a>Vad är livscykelhantering för identiteter?
 
 Identitets styrning hjälper organisationer att få en balans mellan produktiviteten – hur snabbt kan en person ha åtkomst till de resurser som de behöver, till exempel när de ansluter till min organisation? Och säkerhet – hur ska deras åtkomst ändras över tid, till exempel på grund av ändringar i personens anställnings status?
 
@@ -70,7 +70,7 @@ Azure AD tillhandahåller för närvarande följande funktioner:
 ## <a name="next-steps"></a>Nästa steg 
 
 - [Vad är etablering?](what-is-provisioning.md)
-- [Styra åtkomsten för externa användare i hantering av Azure AD-rättigheter](/azure/active-directory/governance/entitlement-management-external-users.md)
+- [Styra åtkomsten för externa användare i hantering av Azure AD-rättigheter](/azure/active-directory/governance/entitlement-management-external-users)
 - [Vad är HR driven etablering?](what-is-hr-driven-provisioning.md)
-- [Vad är app-etablering?](what-is-app-provisioning.md)
+- [Vad är appetablering?](what-is-app-provisioning.md)
 - [Vad är etablering mellan kataloger?](what-is-inter-directory-provisioning.md)

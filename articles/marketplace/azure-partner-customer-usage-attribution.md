@@ -8,12 +8,12 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 11/4/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 3f3196e775ff9e7d8064559069414952f09a3016
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 95ac1abc1f286330bc5e7036f01faa6cf1b22d70
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360232"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337907"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Marknads plats partner och kund användnings behörighet
 
@@ -43,7 +43,7 @@ Kund användnings behörighet stöder tre distributions alternativ:
 Ett GUID är ett unikt referens-ID som innehåller 32 hexadecimala siffror. Om du vill skapa GUID för spårning bör du använda en GUID-generator, till exempel via PowerShell.
 
 ```powershell
-[guid]::NewGuid()]
+[guid]::NewGuid()
 ```
 
 Vi rekommenderar att du skapar ett unikt GUID för varje erbjudande och distributions kanal för varje produkt. Du kan välja att använda ett enda GUID för produktens flera distributions kanaler om du inte vill att rapportering ska delas.

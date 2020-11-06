@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: b34c6fe58873a614ee8502e052c2af5aaed898cd
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3c1c7ac8fe8b7adf287bcde30a054df5ebaa63d7
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547953"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337448"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Installera Apache Hadoop program från tredje part i Azure HDInsight
 
@@ -23,13 +23,13 @@ An-HDInsight program är ett program som användare kan installera i ett HDInsig
 
 I följande lista visas de publicerade programmen:
 
-|Program |Kluster typ (er) | Beskrivning |
+|Program |Kluster typ (er) | Description |
 |---|---|---|
 |[AtScale intelligence-plattform](https://azuremarketplace.microsoft.com/marketplace/apps/atscaleinc.atscale) |Hadoop |AtScale vänder ditt HDInsight-kluster till en skalbar OLAP-server, så att du kan fråga miljarder rader med data interaktivt med de BI-verktyg som du redan känner till, äger och gillar – från Microsoft Excel, Power BI, Tableau-programvara till QlikView. |
 |[CDAP för HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/cask.cdap-for-hdinsight) |HBase |CDAP är den första enhetliga integrerings plattformen för Big data som påskyndar tiden till värde för Hadoop och gör det möjligt att tillhandahålla självbetjänings data. Öppen källkod och utöknings bar CDAP tar bort hinder för innovation. Krav: 4 regionfiler, min D3 v2. |
 |[Datameer](https://azuremarketplace.microsoft.com/marketplace/apps/datameer.datameer) |Hadoop |Datameers självbetjänings skalbara plattform för att förbereda, utforska och hantera dina data för analys påskyndar komplexa data som är klara att användas i värdefull företags information och ger snabbare och smartare insikter i företags skala. |
 |[Dataiku DSS på HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/dataiku.dss-on-hdi) |Hadoop, Spark |Dataiku DSS i en Enterprise data science-plattform som gör det möjligt för data experter och dataanalytiker att samar beta för att utforma och köra nya data produkter och tjänster mer effektivt, så att rå data blir mer effektiva. |
-|[WANdisco fusion HDI-app](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/wandisco.wandisco-liveanalytics) |Hadoop, Spark, HBase, Storm, Kafka |Att hålla data konsekvent i en distribuerad miljö är en enorm data åtgärds utmaning. WANdisco fusion, en program plattform i företags klass, löser problemet genom att aktivera ostrukturerad data konsekvens i alla miljöer. |
+|[WANdisco fusion HDI-app](https://community.wandisco.com/s/article/Use-WANdisco-Fusion-for-parallel-operation-of-ADLS-Gen1-and-Gen2) |Hadoop, Spark, HBase, Storm, Kafka |Att hålla data konsekvent i en distribuerad miljö är en enorm data åtgärds utmaning. WANdisco fusion, en program plattform i företags klass, löser problemet genom att aktivera ostrukturerad data konsekvens i alla miljöer. |
 |[H2O SparklingWater för HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/h2o-ai.h2o-sparklingwater) |Spark |H2O mousserande vatten har stöd för följande distribuerade algoritmer: GLM, naïve Bayes, distribuerad slumpmässig skog, tonings förstärknings dator, djup neurala nätverk, djup inlärning, K-medelvärde, PCA, generaliserade låg rang modeller, avvikelse identifiering, Autoencoders. |
 |[Striims för Real-Time data integrering till HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/striim.striimbyol) |Hadoop, HBase, Storm, Spark, Kafka |Striims (uttalad "Stream") är en slut punkt till slut punkts data integrering + informations plattform, vilket möjliggör kontinuerlig inmatning, bearbetning och analys av olika data strömmar. |
 |[Jumbune Enterprise-Accelerating BigData Analytics](https://azuremarketplace.microsoft.com/marketplace/apps/impetus-infotech-india-pvt-ltd.impetus_jumbune) |Hadoop, Spark |På en hög nivå hjälper Jumbune företag av, 1. Accelerera tez, MapReduce & Spark Engine-baserad Hive, Java, Scala arbets belastnings prestanda. 2. Proaktiv övervakning av Hadoop-kluster, 3. Upprätta data kvalitets hantering på distribuerat fil system. |
@@ -52,9 +52,9 @@ I följande procedur beskriver vi hur du installerar HDInsight-program i ett bef
 **Installera ett HDInsight-program**
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. I den vänstra menyn navigerar du till **alla tjänster**  >  **Analytics**  >  **HDInsight-kluster** .
+2. I den vänstra menyn navigerar du till **alla tjänster**  >  **Analytics**  >  **HDInsight-kluster**.
 3. Välj ett HDInsight-kluster i listan.  Om du inte har något måste du skapa ett först.  Mer information finns i [Skapa kluster](hadoop/apache-hadoop-linux-tutorial-get-started.md).
-4. Under kategorin **Inställningar** väljer du **program** . Du kan se en lista över installerade program i huvud fönstret. 
+4. Under kategorin **Inställningar** väljer du **program**. Du kan se en lista över installerade program i huvud fönstret. 
    
     ![HDInsight-program – meny på portalen](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
 5. Välj **+ Lägg till** på menyn. Du kan se en lista över tillgängliga program.  Om **+ Lägg till** är nedtonad, innebär det att det inte finns några program för den här versionen av HDInsight-klustret.
@@ -76,9 +76,9 @@ På portalen kan du visa en lista över de installerade HDInsight-programmen fö
 **Visa en lista med HDInsight-program och visnings egenskaper**
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. I den vänstra menyn navigerar du till **alla tjänster**  >  **Analytics**  >  **HDInsight-kluster** .
+2. I den vänstra menyn navigerar du till **alla tjänster**  >  **Analytics**  >  **HDInsight-kluster**.
 3. Välj ett HDInsight-kluster i listan.
-4. Under kategorin **Inställningar** väljer du **program** . Du kan se en lista över installerade program i huvud fönstret. 
+4. Under kategorin **Inställningar** väljer du **program**. Du kan se en lista över installerade program i huvud fönstret. 
    
     ![HDInsight-program – installerade appar](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
 5. Välj ett av de installerade programmen för att visa egenskapen. Egenskaps listorna:
@@ -89,7 +89,7 @@ På portalen kan du visa en lista över de installerade HDInsight-programmen fö
     |Status |Program status. |
     |Historik |URL: en för det webb program som du har distribuerat till Edge-noden. Autentiseringsuppgifterna är samma som HTTP-autentiseringsuppgifterna som du har konfigurerat för klustret. |
     |SSH-slutpunkt |Du kan använda SSH för att ansluta till Edge-noden. SSH-autentiseringsuppgifterna är samma som SSH-autentiseringsuppgifterna som du har konfigurerat för klustret. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight). |
-    |Beskrivning | Programbeskrivning. |
+    |Description | Programbeskrivning. |
 
 6. Om du vill ta bort ett program högerklickar du på programmet och klickar sedan på **ta bort** på snabb menyn.
 

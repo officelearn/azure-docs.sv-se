@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 07/02/2020
 ms.author: alkohli
-ms.openlocfilehash: 17fa361fa4cef194d910d08d4a0afe075b119109
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb0a90db0595c655191006969071bc5b9cceaa75
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742527"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337601"
 ---
 # <a name="tutorial-use-rest-apis-to-copy-data-to-azure-data-box-blob-storage"></a>Självstudie: Använd REST API: er för att kopiera data till Azure Data Box Blob Storage  
 
@@ -85,7 +85,7 @@ Använda Azure-portalen för att ladda ned certifikatet.
 
 1. Logga in i Azure-portalen.
 2. Gå till din Data Box-order och navigera till **Allmänt > Enhetsinformation**.
-3. Under **Autentiseringsuppgifter för enheten** går du till **API-åtkomst** till enheten. Klicka på **Hämta**. Den här åtgärden hämtar en ** \<your order name> . cer** -certifikatfil. **Spara** den här filen. Du installerar det här certifikatet på den klient- eller värddatorn som du kommer att använda för att ansluta till enheten.
+3. Under **Autentiseringsuppgifter för enheten** går du till **API-åtkomst** till enheten. Klicka på **Hämta**. Den här åtgärden hämtar en **\<your order name> . cer** -certifikatfil. **Spara** den här filen. Du installerar det här certifikatet på den klient- eller värddatorn som du kommer att använda för att ansluta till enheten.
 
     ![Ladda ned certifikat i Azure-portalen](media/data-box-deploy-copy-data-via-rest/download-cert-1.png)
 
@@ -111,15 +111,15 @@ Följ dessa steg om du vill importera `.cer` filen till rot arkivet för en Wind
 1. Högerklicka på `.cer` filen och välj **Installera certifikat**. Den här åtgärden startar guiden Importera certifikat.
 2. För **Store location** (Lagringsplats) väljer du **Lokal dator** och klickar sedan på **Nästa**.
 
-    ![Importera certifikat med hjälp av PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-1.png)
+    ![Guiden Importera certifikat, Windows Server](media/data-box-deploy-copy-data-via-rest/import-cert-ws-1.png)
 
 3. Välj **Place all certificates in the following store** (Placera alla certifikat i följande lagringsplats) och klicka sedan på **Bläddra**. Gå till rotcertifikatarkivet på fjärrvärden och klicka på **Nästa**.
 
-    ![Importera certifikat med PowerShell 2](media/data-box-deploy-copy-data-via-rest/import-cert-ws-2.png)
+    ![Guiden Importera certifikat, certifikat Arkiv](media/data-box-deploy-copy-data-via-rest/import-cert-ws-2.png)
 
 4. Klicka på **Finish**. Ett meddelande visas där det står att importen lyckades.
 
-    ![Importera certifikat med PowerShell 3](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
+    ![Guiden Importera certifikat, slutför import](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
 
 #### <a name="use-a-linux-system"></a>Använd ett Linux-system
 
@@ -173,7 +173,7 @@ Det första steget är att skapa en container, eftersom blobar alltid laddas upp
 2. I den vänstra fönsterrutan expanderar du det lagringskonto där du vill skapa blob-containern.
 3. Högerklicka på **Blob-containrar** och välj **Skapa blob-container** på snabbmenyn.
 
-   ![Snabbmeny för att skapa blob-containrar](media/data-box-deploy-copy-data-via-rest/create-blob-container-1.png)
+   ![Snabb meny för BLOB-behållare, skapa BLOB-behållare](media/data-box-deploy-copy-data-via-rest/create-blob-container-1.png)
 
 4. En textruta visas nedanför mappen **Blob Containers** (Blob-containrar). Ange namnet på blob-containern. Information om regler och begränsningar vid namngivning av blob-containrar finns i [Skapa containern och ange behörigheter](../storage/blobs/storage-quickstart-blobs-dotnet.md).
 5. Tryck på **Retur** när du är klar så att blob-containern skapas eller på **Esc** om du vill avbryta. När blob-containern har skapats visas den i mappen **Blob Containers** (Blob-containrar) för det valda lagringskontot.
@@ -200,7 +200,7 @@ azcopy \
 AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S
 ```
 
-Ersätt `<key>` med din kontonyckel. Du hämtar kontonyckeln genom att gå till Azure-portalen och sedan till ditt lagringskonto. Gå till **Inställningar > Åtkomstnycklar**, välj en nyckel och klistra in den i AzCopy-kommandot.
+Ersätt `<key>` med din kontonyckel. Du hämtar kontonyckeln genom att gå till Azure-portalen och sedan till ditt lagringskonto. Gå till **Inställningar > Åtkomstnycklar** , välj en nyckel och klistra in den i AzCopy-kommandot.
 
 Om den angivna målcontainern inte finns, så skapar AzCopy den och överför filen till den. Uppdatera källsökvägen till datakatalogen och ersätt `data-box-storage-account-name` i mål-URL:en med namnet på det lagringskontot som är associerat med din Data Box-enhet.
 
@@ -239,7 +239,7 @@ I den här kursen har du lärt dig om Azure Data Box-ämnen som att:
 
 > [!div class="checklist"]
 >
-> * Krav
+> * Förutsättningar
 > * Ansluta till Data Box Blob-lagring via *http* eller *https*
 > * Kopiera data till Data Box
 

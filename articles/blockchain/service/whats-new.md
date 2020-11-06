@@ -4,12 +4,12 @@ description: Lär dig vad som är nytt med Azure blockchain service, till exempe
 ms.date: 06/30/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
-ms.openlocfilehash: 47e0da5a729519f2af3c5b2a2fd3e0f7485624cf
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 6a3113a2d28e704b188d701da13493ecd8263cab
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948467"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335034"
 ---
 # <a name="whats-new-in-azure-blockchain-service"></a>Vad är nytt i Azure blockchain-tjänsten?
 
@@ -27,7 +27,7 @@ Azure blockchain-tjänsten tar emot förbättringar fort löp ande. För att hå
 
 ### <a name="version-upgrades"></a>Versions uppgraderingar
 
-- Versions uppgradering av kvorum till 2.6.0. Med version 2.6.0 kan du skicka signerade privata transaktioner. Mer information om hur du skickar privata transaktioner finns i [API-dokumentationen för kvorum](https://docs.goquorum.com/en/latest/Getting%20Started/api/).
+- Versions uppgradering av kvorum till 2.6.0. Med version 2.6.0 kan du skicka signerade privata transaktioner. Mer information om hur du skickar privata transaktioner finns i [API-dokumentationen för kvorum](https://docs.goquorum.consensys.net/en/latest/Reference/APIs/ContractExtensionAPIs/#apis).
 - Tessera-version uppgradera till 0.10.5.
 
 ### <a name="contract-size-and-transaction-size-increased-to-128-kb"></a>Kontrakt storlek och transaktions storlek höjs till 128 KB
@@ -69,7 +69,7 @@ Två faser hjälper till att optimera scenarier där en medlem skapas i ett lån
 I kvorum v-2.6.0 anropar funktionen *ETH. estimateGas* utan att tillhandahålla den ytterligare *värde* parametern att en *metod hanterare kraschade* undantaget. Kvorumresursen har meddelats och en korrigering förväntas sluta den 2020 juli. Du kan använda följande lösningar tills en korrigering är tillgänglig:
 
 - Undvik att använda *ETH. estimateGas* eftersom det kan påverka prestandan. Mer information om ETH. estimateGas prestanda problem finns i [anropa ETH. estimateGas-funktionen minskar prestandan](#calling-ethestimategas-function-reduces-performance). Inkludera ett gas värde för varje transaktion. De flesta bibliotek anropar ETH. estimateGas om ett gas värde inte anges vilket gör att kvorum v 2.6.0 kan krascha.
-- Om du behöver anropa *ETH. estimateGas*, föreslår kvorumresursen att du skickar ytterligare parameter *värde* som *0* som en lösning.
+- Om du behöver anropa *ETH. estimateGas* , föreslår kvorumresursen att du skickar ytterligare parameter *värde* som *0* som en lösning.
 
 ### <a name="mining-stops-if-fewer-than-four-validator-nodes"></a>Utvinning stoppas om färre än fyra validator-noder
 
@@ -127,5 +127,5 @@ Undvik obundna slingor i smarta kontrakt eftersom de kan minska prestandan. Mer 
 
 - [Undvik obundna slingor](https://blog.b9lab.com/getting-loopy-with-solidity-1d51794622ad )
 - [Metod tips för smart kontrakt säkerhet](https://github.com/ConsenSys/smart-contract-best-practices)
-- [Rikt linjer för smarta kontrakt som tillhandahålls av kvorum](http://docs.goquorum.com/en/latest/Security/Framework/Decentralized%20Application/Smart%20Contracts%20Security/)
+- [Rikt linjer för smarta kontrakt som tillhandahålls av kvorum](https://docs.goquorum.consensys.net/en/stable/Concepts/Security/Framework/DecentralizedApplication/SmartContractsSecurity/)
 - [Rikt linjer för gasformiga gränser och slingor som tillhandahålls av Massivity](https://solidity.readthedocs.io/en/develop/security-considerations.html#gas-limit-and-loops)

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 2f6051277f1ddb89e67ce8013c78571a2a7314b7
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 55e47b09ac4a6256a125a75c8a0f856e867e7c0e
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089136"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337827"
 ---
 # <a name="quickstart-set-up-azure-spring-cloud-configuration-server"></a>Snabb start: Konfigurera Azure våren Cloud Configuration Server
 
@@ -70,9 +70,33 @@ Konfigurera din konfigurations server med platsen för git-lagringsplatsen för 
 ```azurecli
 az spring-cloud config-server git set -n <service instance name> --uri https://github.com/Azure-Samples/piggymetrics-config
 ```
-
 ---
 ::: zone-end
+
+## <a name="troubleshooting-of-azure-spring-cloud-config-server"></a>Fel sökning av Azure våren Cloud config server
+
+I följande procedur beskrivs hur du felsöker konfigurations Server inställningar.
+
+1. I Azure Portal går du till sidan tjänst **Översikt** och väljer **loggar**. 
+1. Välj **frågor** och **Visa de program loggar som innehåller villkoren "Error" eller "Exception** ". 
+1. Klicka på **Kör**. 
+1. Om du hittar felet **Java. lang. illegalStateException** i loggar, betyder det att våren Cloud service inte kan hitta egenskaper från konfigurations servern.
+
+    [![ASC-portalen kör fråga ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png)](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png)
+
+1. Gå till sidan **Översikt över** tjänsten.
+1. Välj **Diagnostisera och lösa problem**. 
+1. Välj **konfigurations Server** detektor.
+
+    [![ASC-portalen diagnostisera problem ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png)](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png)
+
+3. Klicka på **Konfigurera Server hälso kontroll**.
+
+    [![ASC-portalen Genie ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png)](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png)
+
+4. Klicka på **Konfigurera Server status** om du vill visa mer information från detektorn.
+
+    [![ASC-portalens hälso status ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png)](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

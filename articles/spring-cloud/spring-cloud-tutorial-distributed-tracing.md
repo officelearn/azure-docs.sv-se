@@ -8,12 +8,12 @@ ms.date: 10/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 30eb19e418292e74989be81d94ed684c917f6971
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: a78aec8c18f3b89629bbf696de3a097397ac59bc
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088643"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337924"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Använd distribuerad spårning med Azure våren Cloud
 
@@ -28,14 +28,18 @@ Om du vill följa dessa procedurer behöver du en Steeltoe-app som redan är [f�
 
 ## <a name="dependencies"></a>Beroenden
 
-Installera följande NuGet-paket
+För Steeltoe-2.4.4 lägger du till följande NuGet-paket:
 
 * [Steeltoe. Management. TracingCore](https://www.nuget.org/packages/Steeltoe.Management.TracingCore/)
 * [Steeltoe. Management. ExporterCore](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/)
 
+För Steeltoe-3.0.0 lägger du till följande NuGet-paket:
+
+* [Steeltoe. Management. TracingCore](https://www.nuget.org/packages/Steeltoe.Management.TracingCore/)
+
 ## <a name="update-startupcs"></a>Uppdatera Startup.cs
 
-1. I `ConfigureServices` -metoden anropar du- `AddDistributedTracing` och- `AddZipkinExporter` metoderna.
+1. För Steeltoe-2.4.4 anropar `AddDistributedTracing` `AddZipkinExporter` du och i- `ConfigureServices` metoden.
 
    ```csharp
    public void ConfigureServices(IServiceCollection services)
@@ -45,14 +49,29 @@ Installera följande NuGet-paket
    }
    ```
 
-1. `Configure`Anropa metoden i-metoden `UseTracingExporter` .
+   För Steeltoe-3.0.0, anropa `AddDistributedTracing` i- `ConfigureServices` metoden.
+
+   ```csharp
+   public void ConfigureServices(IServiceCollection services)
+   {
+       services.AddDistributedTracing(Configuration, builder => builder.UseZipkinWithTraceOptions(services));
+   }
+   ```
+
+1. För Steeltoe-2.4.4, anropa `UseTracingExporter` i- `Configure` metoden.
 
    ```csharp
    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
    {
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapControllers();
+        });
         app.UseTracingExporter();
    }
    ```
+
+   För Steeltoe-3.0.0 krävs inga ändringar i- `Configure` metoden.
 
 ## <a name="update-configuration"></a>Uppdatera konfiguration
 
@@ -60,7 +79,7 @@ Lägg till följande inställningar i konfigurations källan som ska användas n
 
 1. Ange `management.tracing.alwaysSample` till Sant.
 
-2. Om du vill se spårnings förrymder som skickas mellan Eureka-servern, konfigurations servern och användarens appar: ange `management.tracing.egressIgnorePattern` till "/API/v2/spans |/v2/Apps/.* /Permissions |/Eureka/.*| /oauth/.*".
+2. Om du vill se spårnings förrymder som skickas mellan Eureka-servern, konfigurations servern och användarens appar: ange `management.tracing.egressIgnorePattern` till "/API/v2/spans |/v2/Apps/. */Permissions |/Eureka/.* | /oauth/.*".
 
 *appsettings.jspå* är till exempel följande egenskaper:
  
@@ -157,7 +176,7 @@ Application Insights tillhandahåller övervaknings funktioner utöver program k
 ## <a name="disable-application-insights"></a>Inaktivera Application Insights
 
 1. Gå till sidan Azure våren Cloud service i Azure Portal.
-1. Vid **övervakning**väljer du **distribuerad spårning**.
+1. Vid **övervakning** väljer du **distribuerad spårning**.
 1. Välj **inaktivera** om du vill inaktivera Application Insights.
 
 ## <a name="next-steps"></a>Nästa steg

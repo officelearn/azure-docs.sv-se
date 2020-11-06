@@ -3,12 +3,12 @@ title: Flytta åtgärds stöd efter resurs typ
 description: Visar en lista över de Azure-resurs typer som kan flyttas till en ny resurs grupp eller prenumeration.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 675f7bb11ed98dd17e8f4ee4a0197d05128af851
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d5875287c7af905579397164029ef0504d6b9dc
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627116"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337958"
 ---
 # <a name="move-operation-support-for-resources"></a>Åtgärds stöd för flytt av resurser
 
@@ -1433,7 +1433,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | privatednszones / virtualnetworklinks | Ja | Ja |
 > | privatednszonesinternal | Inga | Inga |
 > | privateendpointredirectmaps | Inga | Inga |
-> | privateendpoints | Ja | Ja |
+> | privateendpoints | Inga | Inga |
 > | privatelinkservices | Inga | Inga |
 > | publicipaddresses | Ja – grundläggande SKU<br>Ja – standard-SKU | Ja – grundläggande SKU<br>Standard-SKU: n |
 > | publicipprefixes | Ja | Ja |

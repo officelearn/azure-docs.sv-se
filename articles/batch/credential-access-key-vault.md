@@ -4,12 +4,12 @@ description: Lär dig hur du program mässigt får åtkomst till dina autentiser
 ms.topic: how-to
 ms.date: 10/28/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 71e647c05a84c70fe61a66458801bf7390dcb653
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 25cb05374fc0667306e2b1004b3cd237413b4409
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913219"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337499"
 ---
 # <a name="securely-access-key-vault-with-batch"></a>Säker åtkomst till Key Vault med Batch
 
@@ -46,7 +46,7 @@ pvk2pfx -pvk batchcertificate.pvk -spc batchcertificate.cer -pfx batchcertificat
 
 ## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
 
-Åtkomst till Key Vault beviljas antingen en **användare** eller ett **huvud namn för tjänsten** . Om du vill komma åt Key Vault program mässigt använder du ett [huvud namn för tjänsten](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) med det certifikat som du skapade i föregående steg. Tjänstens huvud namn måste finnas i samma Azure AD-klient som Key Vault.
+Åtkomst till Key Vault beviljas antingen en **användare** eller ett **huvud namn för tjänsten**. Om du vill komma åt Key Vault program mässigt använder du ett [huvud namn för tjänsten](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) med det certifikat som du skapade i föregående steg. Tjänstens huvud namn måste finnas i samma Azure AD-klient som Key Vault.
 
 ```powershell
 $now = [System.DateTime]::Parse("2020-02-10")
@@ -67,7 +67,7 @@ URL: erna för programmet är inte viktiga eftersom vi bara använder dem för K
 
 ## <a name="grant-rights-to-key-vault"></a>Bevilja rättigheter till Key Vault
 
-Tjänstens huvud namn som skapades i föregående steg måste ha behörighet att hämta hemligheterna från Key Vault. Behörighet kan beviljas antingen via [Azure Portal](/key-vault/general/assign-access-policy-portal.md) eller med PowerShell-kommandot nedan.
+Tjänstens huvud namn som skapades i föregående steg måste ha behörighet att hämta hemligheterna från Key Vault. Behörighet kan beviljas antingen via [Azure Portal](/azure/key-vault/general/assign-access-policy-portal) eller med PowerShell-kommandot nedan.
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'BatchVault' -ServicePrincipalName '"https://batch.mydomain.com' -PermissionsToSecrets 'Get'
@@ -77,7 +77,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'BatchVault' -ServicePrincipalName '"
 
 Skapa en batch-pool och gå sedan till fliken certifikat i poolen och tilldela det certifikat som du skapade. Certifikatet finns nu på alla batch-noder.
 
-Tilldela sedan certifikatet till batch-kontot. Genom att tilldela certifikatet till kontot kan batch tilldela det till pooler och sedan till noderna. Det enklaste sättet att göra detta på är att gå till ditt batch-konto i portalen, navigera till **certifikat** och välja **Lägg till** . Överför `.pfx` filen som du skapade tidigare och ange lösen ordet. När du är klar läggs certifikatet till i listan och du kan verifiera tumavtrycket.
+Tilldela sedan certifikatet till batch-kontot. Genom att tilldela certifikatet till kontot kan batch tilldela det till pooler och sedan till noderna. Det enklaste sättet att göra detta på är att gå till ditt batch-konto i portalen, navigera till **certifikat** och välja **Lägg till**. Överför `.pfx` filen som du skapade tidigare och ange lösen ordet. När du är klar läggs certifikatet till i listan och du kan verifiera tumavtrycket.
 
 Nu när du skapar en batch-pool kan du navigera till **certifikat** i poolen och tilldela det certifikat som du har skapat till poolen. När du gör det, se till att du väljer **LocalMachine** för lagrings platsen. Certifikatet har lästs in på alla batch-noder i poolen.
 

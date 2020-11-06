@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 1b42e9ea06d13271c277ff254b41f10a1ff07e14
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2e07a54e20e6e60214b2905cf9321120484503eb
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790618"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337652"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Skillnader i T-SQL mellan SQL Server & Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -153,11 +153,13 @@ SQL-hanterad instans har inte åtkomst till filer, så det går inte att skapa k
 - Att ange en Azure AD-inloggning som är mappad till en Azure AD-grupp eftersom databas ägaren inte stöds.
 - Personifiering av Azure AD-huvudobjekt på server nivå med hjälp av andra Azure AD-huvudobjekt stöds, till exempel [execute as](/sql/t-sql/statements/execute-as-transact-sql) -satsen. Kör som-begränsningar är:
 
-  - Kör som-användare stöds inte för Azure AD-användare när namnet skiljer sig från inloggnings namnet. Ett exempel är när användaren skapas med syntaxen CREATE USER [myAadUser] FROM LOGIn [ john@contoso.com ] och personifiering görs i exec as User = _myAadUser_ . När du skapar en **användare** från ett Azure AD server-huvudobjekt (inloggning) anger du user_name som samma Login_name från **inloggningen** .
+  - Kör som-användare stöds inte för Azure AD-användare när namnet skiljer sig från inloggnings namnet. Ett exempel är när användaren skapas med syntaxen CREATE USER [myAadUser] FROM LOGIn [ john@contoso.com ] och personifiering görs i exec as User = _myAadUser_. När du skapar en **användare** från ett Azure AD server-huvudobjekt (inloggning) anger du user_name som samma Login_name från **inloggningen**.
   - Endast SQL Server nivå huvud konton (inloggningar) som är en del av `sysadmin` rollen kan köra följande åtgärder som är riktade till Azure AD-huvud konton:
 
     - KÖRA SOM ANVÄNDARE
     - KÖRA SOM INLOGGNING
+
+  - För att personifiera en användare med kör som-uttryck måste användaren mappas direkt till Azure AD server-huvudobjektet (inloggning). Användare som är medlemmar i Azure AD-grupper som är kopplade till Azure AD server-huvudobjekten kan inte effektivt personifieras med instruktionen EXECUTe AS, trots att anroparen har behörigheten personifiera för det angivna användar namnet.
 
 - Databas export/import med BACPAC-filer stöds för Azure AD-användare i SQL-hanterad instans med antingen [SSMS v 18.4 eller senare](/sql/ssms/download-sql-server-management-studio-ssms), eller [SQLPackage.exe](/sql/tools/sqlpackage-download).
   - Följande konfigurationer stöds med hjälp av databasen BACPAC-fil: 
@@ -300,6 +302,7 @@ Mer information finns i [Alter Database](/sql/t-sql/statements/alter-database-tr
   - Aviseringar stöds inte än.
   - Proxyservrar stöds inte.
 - EventLog stöds inte.
+- Användaren måste mappas direkt till Azure AD server-huvudobjektet (inloggning) för att skapa, ändra eller köra SQL Agent-jobb. Användare som inte är direkt mappade, t. ex. användare som tillhör en Azure AD-grupp som har behörighet att skapa, ändra eller köra SQL Agent-jobb, kan inte effektivt utföra dessa åtgärder. Detta beror på personifiering av hanterade instanser och [körs som begränsningar](#logins-and-users).
 
 Följande SQL Agent-funktioner stöds för närvarande inte:
 

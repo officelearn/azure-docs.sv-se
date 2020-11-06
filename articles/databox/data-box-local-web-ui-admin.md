@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 9f4f9f65b562b01466aec69cd541ea77f443f803
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: f5bcb5c42661c375372d4d0b17571d784152dd5f
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127532"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337295"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Använd det lokala webb gränssnittet för att administrera Data Box-enhet och Data Box Heavy
 
@@ -153,7 +153,7 @@ Du använder den här listan för att bekräfta överföringen av filerna till A
 <file size="3603" crc64="0x7e34c25d5606693f">\databox\TOC.yml</file>
 ```
 
-Den här filen innehåller en lista över alla filer som kopierades i Data Box-enhet eller Data Box Heavy. I den här filen relaterar *crc64*-värdet till kontrollsumman som genererats för den motsvarande filen.
+Den här filen innehåller en lista över alla filer som kopierades i Data Box-enhet eller Data Box Heavy. I den här filen relaterar *crc64* -värdet till kontrollsumman som genererats för den motsvarande filen.
 
 ## <a name="view-available-capacity-of-the-device"></a>Visa tillgänglig kapacitet på enheten
 
@@ -177,7 +177,7 @@ Vi rekommenderar starkt att du inte inaktiverar kontrollsumman såvida inte pres
     ![Inaktivera kontrollsumma](media/data-box-local-web-ui-admin/disable-checksum.png)
 
 2. **Inaktivera** validering av kontrollsummor
-3. Välj **Tillämpa**.
+3. Välj **Använd**.
 
 > [!NOTE]
 > Alternativet för att hoppa över beräkning av kontroll summa är endast tillgängligt när Azure Data Box har låsts upp. Du ser inte det här alternativet när enheten är låst.
@@ -198,7 +198,7 @@ Så här aktiverar du SMB-signering i din Azure-enhet:
 
     ![Aktivera SMB-signering](media/data-box-local-web-ui-admin/data-box-smb-signing-1.png)
 
-3. Välj **Tillämpa**.
+3. Välj **Använd**.
 4. I det lokala webbgränssnittet går du till **Stäng av eller starta om**.
 5. Välj **starta om**.
 
@@ -212,7 +212,7 @@ Så här aktiverar du behörighet för ansvarig för säkerhets kopiering i din 
 
 1. I det övre högra hörnet av det lokala webb gränssnittet på enheten väljer du **Inställningar**.
 
-   ![Öppna Data Box-enhet inställningar](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+   ![Öppna Data Box-enhet-inställningar-1](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
 2. **Aktivera** Behörighet för säkerhets kopierings ansvarig.
 
@@ -235,13 +235,13 @@ Så här aktiverar du överföring av ACL: er för Azure Files:
 
 1. I det övre högra hörnet av det lokala webb gränssnittet på enheten väljer du **Inställningar**.
 
-    ![Öppna Data Box-enhet inställningar](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+    ![Öppna Data Box-enhet inställningar-2](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
 2. **Aktivera** ACL: er för Azure Files.
 
      ![Aktivera ACL: er för Azure Files](media/data-box-local-web-ui-admin/data-box-acls-for-azure-files-1.png)
   
-3. Välj **Tillämpa**.
+3. Välj **Använd**.
 4. I det lokala webbgränssnittet går du till **Stäng av eller starta om**.
 5. Välj **starta om**.
 
@@ -255,13 +255,13 @@ Så här aktiverar du TLS 1,1 i din Azure-enhet:
 
 1. I det övre högra hörnet av det lokala webb gränssnittet på enheten väljer du **Inställningar**.
 
-    ![Öppna Data Box-enhet inställningar](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+    ![Öppna Data Box-enhet inställningar-3](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
 2. **Aktivera** TLS 1,1.
 
     ![Aktivera TLS 1,1](media/data-box-local-web-ui-admin/data-box-tls-1-1.png)
 
-3. Välj **Tillämpa**.
+3. Välj **Använd**.
 4. I det lokala webbgränssnittet går du till **Stäng av eller starta om**.
 5. Välj **starta om**.
 

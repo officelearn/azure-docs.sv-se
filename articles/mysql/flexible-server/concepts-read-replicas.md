@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/26/2020
-ms.openlocfilehash: 9d683f96f31d3b34ac311251f45456551148ca26
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: ae73885016a40cd3cf79de968ca7c07c51f1400a
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420894"
+ms.locfileid: "94336071"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql---flexible-server"></a>Läs repliker i Azure Database for MySQL-flexibel Server
 
@@ -125,8 +125,8 @@ När ditt program har bearbetat läsningar och skrivningar har du slutfört redu
 | Stoppade repliker | Om du stoppar replikeringen mellan en käll Server och en Läs replik blir den stoppade repliken en fristående server som accepterar både läsning och skrivning. Den fristående servern kan inte göras till en replik igen. |
 | Borttagen källa och fristående servrar | När en käll server tas bort, stoppas replikeringen till alla Läs repliker. Dessa repliker blir automatiskt fristående servrar och kan acceptera både läsningar och skrivningar. Själva käll servern tas bort. |
 | Användarkonton | Användare på käll servern replikeras till läsa repliker. Du kan bara ansluta till en Läs replik med de användar konton som är tillgängliga på käll servern. |
-| Serverparametrar | I syfte att förhindra att data blir osynkroniserade samt att undvika potentiell dataförlust eller skadade data är vissa serverparametrar låsta från att uppdateras vid användning av skrivskyddade repliker. <br> Följande Server parametrar är låsta på både käll-och replik servern:<br> - [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/5.7/en/innodb-multiple-tablespaces.html) <br> - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) <br> [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler)Parametern är låst på replik servrarna. <br> Om du vill uppdatera en av parametrarna ovan på käll servern, måste du ta bort replik servrar, uppdatera parametervärdet på källan och återskapa repliker. |
-| Övrigt | – Det finns inte stöd för att skapa en replik av en replik. <br> -InMemory-tabeller kan orsaka att repliker inte längre är synkroniserade. Detta är en begränsning av MySQL-replikeringstrafiken. Mer information finns i [referens dokumentationen för MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) . <br>– Kontrol lera att käll Server tabellerna har primär nycklar. Brist på primär nycklar kan leda till replikeringsfördröjning mellan källan och replikerna.<br>– Granska den fullständiga listan över begränsningar för MySQL-replikering i [MySQL-dokumentationen](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html) |
+| Serverparametrar | I syfte att förhindra att data blir osynkroniserade samt att undvika potentiell dataförlust eller skadade data är vissa serverparametrar låsta från att uppdateras vid användning av skrivskyddade repliker. <br> Följande Server parametrar är låsta på både käll-och replik servern:<br> - [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/8.0/en/innodb-file-per-table-tablespaces.html) <br> - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) <br> [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler)Parametern är låst på replik servrarna. <br> Om du vill uppdatera en av parametrarna ovan på käll servern, måste du ta bort replik servrar, uppdatera parametervärdet på källan och återskapa repliker. |
+| Annat | – Det finns inte stöd för att skapa en replik av en replik. <br> -InMemory-tabeller kan orsaka att repliker inte längre är synkroniserade. Detta är en begränsning av MySQL-replikeringstrafiken. Mer information finns i [referens dokumentationen för MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) . <br>– Kontrol lera att käll Server tabellerna har primär nycklar. Brist på primär nycklar kan leda till replikeringsfördröjning mellan källan och replikerna.<br>– Granska den fullständiga listan över begränsningar för MySQL-replikering i [MySQL-dokumentationen](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html) |
 
 ## <a name="next-steps"></a>Nästa steg
 

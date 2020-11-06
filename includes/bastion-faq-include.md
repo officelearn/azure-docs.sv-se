@@ -5,15 +5,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 10/26/2020
+ms.date: 11/05/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 95c55f92304ddd3ec2b3d44d4f07fb64ab815c6d
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a38c4bb18e16a814b626a6941d626b66311cd8ea
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92755959"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94329474"
 ---
 ### <a name="which-regions-are-available"></a><a name="regions"></a>Vilka regioner är tillgängliga?
 
@@ -88,3 +88,7 @@ En session ska endast initieras från Azure Portal. Logga in på Azure Portal oc
 ### <a name="how-do-i-handle-deployment-failures"></a><a name="udr"></a>Hur gör jag för att hantera distributions problem?
 
 Granska eventuella fel meddelanden och [få en supportbegäran i Azure Portal](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) efter behov. Distributions felen kan bero på [begränsningar i Azure-prenumerationen, kvoter och begränsningar](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). Mer specifikt kan kunderna stöta på en gräns för antalet offentliga IP-adresser som tillåts per prenumeration och som gör att Azure skydds-distributionen Miss lyckas.
+
+### <a name="how-do-i-incorporate-azure-bastion-in-my-dr-plan"></a><a name="dr"></a>Hur gör jag för att införliva Azure-skydds i min DR-plan?
+
+Eftersom Azure skydds är associerat med en Azure-region och distribueras i virtuella nätverk eller peered virtuella nätverk, ansvarar du för att distribuera Azure-skydds till en haveri beredskap (DR)-webbplats VNet. Om det uppstår ett fel i en Azure-region utför du en redundansväxling för virtuella datorer och använder sedan den Azure skydds-värd som har distribuerats i DR-regionen för att ansluta till de virtuella datorer som distribueras i DR-regionen.

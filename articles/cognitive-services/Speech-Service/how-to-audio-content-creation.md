@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
-ms.openlocfilehash: a04088fc1074949a1228794c22c1fa65a0b736a7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5685a2553b95308a1c18c3e490737338f609b594
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370076"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330945"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Förbättra syntesen med verktyget för att skapa ljud innehåll
 
@@ -131,16 +131,16 @@ Om fler än en användare vill använda framställning av ljud innehåll kan du 
 
 Följ dessa steg om du vill lägga till en användare till en tal resurs så att de kan använda ljud innehåll.
 
-1. Sök efter **kognitiva tjänster** i Azure Portal väljer du den tal resurs som du vill lägga till användare i.
+1. Sök efter **kognitiva tjänster** i [Azure Portal](https://portal.azure.com/)väljer du den tal resurs som du vill lägga till användare i.
 2. Klicka på **Åtkomstkontroll (IAM)** . Klicka på fliken **Rolltilldelningar** så att du ser alla rolltilldelningar för prenumerationen.
-    :::image source="media/audio-content-creation/access-control-roles.png" alt-text="Ett diagram över de steg som krävs för att finjustera text till tal-utdata":::
+    :::image source="media/audio-content-creation/access-control-roles.png" alt-text="Fliken roll tilldelning":::
 1. Klicka på **Lägg till** > **Lägg till rolltilldelning** för att öppna fönstret Lägg till rolltilldelning. Välj **användar rollen kognitiv tjänst** i list rutan roll. Om du vill ge användaren ägarskap för den här tal resursen kan du välja **ägar** rollen.
 1. Välj en användare i listan. Om du inte ser användaren i listan kan du skriva i rutan Välj för att söka i katalogen efter visnings namn och e-postadresser. Om användaren inte finns i den här katalogen kan du mata in användarens [Microsoft-konto](https://account.microsoft.com/account) (som är betrodd av Azure Active Directory).
 1. Klicka på **Spara** för att tilldela rollen. Efter en liten stund tilldelas användaren kognitiv tjänst användar rollen i tal resurs omfånget.
 
-    :::image source="media/audio-content-creation/add-role-first.png" alt-text="Ett diagram över de steg som krävs för att finjustera text till tal-utdata":::
+    :::image source="media/audio-content-creation/add-role-first.png" alt-text="Dialog rutan Lägg till roll":::
 
-1. Användare som du lägger till får ett e-postmeddelande om inbjudan. När de klickar på **acceptera inbjudan**  >  **acceptera för att ansluta till Azure**kan de använda [framställning av ljud innehåll](https://aka.ms/audiocontentcreation).
+1. Användare som du lägger till får ett e-postmeddelande om inbjudan. När de klickar på **acceptera inbjudan**  >  **acceptera för att ansluta till Azure** kan de använda [framställning av ljud innehåll](https://aka.ms/audiocontentcreation).
 
 Användare som är i samma tal resurs ser var och en av de andra arbetar med att skapa ljud innehåll Studio. Om du vill att varje enskild användare ska ha en unik och privat arbets plats i innehålls skapande, [skapar du en ny tal resurs](#step-2---create-a-speech-resource) för varje användare och ger varje användare unik åtkomst till tal resursen. 
 
@@ -148,13 +148,13 @@ Användare som är i samma tal resurs ser var och en av de andra arbetar med att
 1. Sök efter **kognitiva tjänster** i Azure Portal väljer du den tal resurs som du vill ta bort användare från.
 2. Klicka på **Åtkomstkontroll (IAM)** . Klicka på fliken **roll tilldelningar** för att visa alla roll tilldelningar för den här tal resursen.
 3. Välj de användare som du vill ta bort och klicka på **ta bort**  >  **OK**.
-    :::image source="media/audio-content-creation/remove-user.png" alt-text="Ett diagram över de steg som krävs för att finjustera text till tal-utdata":::
+    :::image source="media/audio-content-creation/remove-user.png" alt-text="Knappen Ta bort":::
 
 ### <a name="enable-users-to-grant-access"></a>Gör det möjligt för användare att bevilja åtkomst
 Om du vill att en av användarna ska ge åtkomst till andra användare måste du ge användaren rollen som ägare till tal resursen och ange användaren som Azure Directory Reader. 
 1. Lägg till användaren som ägare till tal resursen. Se [hur du lägger till användare till en tal resurs](#add-users-to-a-speech-resource).
-    :::image source="media/audio-content-creation/add-role.png" alt-text="Ett diagram över de steg som krävs för att finjustera text till tal-utdata":::
-1. Välj menyn komprimerad i det övre vänstra hörnet. Klicka på **Azure Active Directory**och sedan på **användare**.
+    :::image source="media/audio-content-creation/add-role.png" alt-text="Roll ägar fältet":::
+1. Välj menyn komprimerad i det övre vänstra hörnet. Klicka på **Azure Active Directory** och sedan på **användare**.
 1. Sök i användarens Microsoft-konto och gå till användarens informations sida. Klicka på **tilldelade roller**.
 1. Klicka på **Lägg till uppdrag**  ->  **katalog läsare**.
 

@@ -6,12 +6,12 @@ ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 08/27/2020
-ms.openlocfilehash: 5032676848536f0b9498cf4beecf86277484a901
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a59b47dadd845f1a522854c503af11c8fff72fd
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230814"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331982"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Anropa, utlösa eller kapsla Logi Kap par genom att använda HTTPS-slutpunkter i Azure Logic Apps
 
@@ -23,7 +23,8 @@ För att din Logi Kap par ska kunna anropas via en URL och kunna ta emot inkomma
 
 Den här artikeln visar hur du skapar en anropad slut punkt i din Logic app genom att använda begär ande utlösare och anropa slut punkten från en annan Logic app. Alla principer gäller identiskt med de andra utlösare typer som du kan använda för att ta emot inkommande begär Anden.
 
-Information om kryptering, säkerhet och auktorisering för inkommande samtal till din Logic app, till exempel [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), som tidigare kallades Secure SOCKETS Layer (SSL) eller [Azure Active Directory öppen autentisering (Azure AD OAuth)](../active-directory/develop/index.yml)finns i [skydda åtkomst och data åtkomst för inkommande anrop till begär ande-baserade utlösare](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
+
+Mer information om säkerhet finns i auktorisering och kryptering för inkommande samtal till din Logi Kap par, till exempel [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), som tidigare kallades Secure SOCKETS Layer (SSL), [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), visar din Logic-app med Azure API Management eller begränsar IP-adresserna som har inkommande anrop, se [säker åtkomst och data åtkomst för inkommande anrop till begär ande-baserade utlösare](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -35,7 +36,7 @@ Information om kryptering, säkerhet och auktorisering för inkommande samtal ti
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). Skapa och öppna en tom Logic-app i Logic App Designer.
 
-1. Välj **inbyggd i**rutan Sök. I rutan Sök anger `request` du som filter. Välj **när en HTTP-begäran tas emot**från listan utlösare.
+1. Välj **inbyggd i** rutan Sök. I rutan Sök anger `request` du som filter. Välj **när en HTTP-begäran tas emot** från listan utlösare.
 
    ![Sök efter och välj begär ande utlösare](./media/logic-apps-http-endpoint/find-and-select-request-trigger.png)
 
@@ -115,7 +116,7 @@ Information om kryptering, säkerhet och auktorisering för inkommande samtal ti
 
         ![Hämta slut punkts-URL från Azure Portal](./media/logic-apps-http-endpoint/find-manual-trigger-url.png)
 
-     1. Under **återanrops-URL [post]**, kopierar du URL: en:
+     1. Under **återanrops-URL [post]** , kopierar du URL: en:
 
         ![Kopiera slut punkts-URL från Azure Portal](./media/logic-apps-http-endpoint/copy-manual-trigger-callback-url-post.png)
 
@@ -125,7 +126,7 @@ Information om kryptering, säkerhet och auktorisering för inkommande samtal ti
 
 Utlösaren förväntar sig som standard en POST-begäran. Du kan ange en annan metod för att förvänta, men bara en enda metod.
 
-1. Öppna listan **Lägg till ny parameter** i begär ande utlösare och välj **metod**, som lägger till den här egenskapen i utlösaren.
+1. Öppna listan **Lägg till ny parameter** i begär ande utlösare och välj **metod** , som lägger till den här egenskapen i utlösaren.
 
    ![Lägg till egenskapen "metod" i utlösare](./media/logic-apps-http-endpoint/select-add-new-parameter-for-method.png)
 
@@ -153,7 +154,7 @@ När du vill acceptera parameter värden via slut punktens URL har du följande 
 
 ### <a name="accept-values-through-get-parameters"></a>Acceptera värden via GET-parametrar
 
-1. Öppna **listan Lägg till ny parameter**i begär ande utlösare, Lägg till egenskapen **metod** i utlösaren och välj **Get** -metoden.
+1. Öppna **listan Lägg till ny parameter** i begär ande utlösare, Lägg till egenskapen **metod** i utlösaren och välj **Get** -metoden.
 
    Mer information finns i [Välj metod för förväntad begäran](#select-method).
 
@@ -161,7 +162,7 @@ När du vill acceptera parameter värden via slut punktens URL har du följande 
 
    1. Under utlösaren för begäran väljer du **nytt steg**  >  **Lägg till en åtgärd**.
    
-   1. Under **Välj en åtgärd**går du till rutan Sök och anger `response` som ditt filter. I listan åtgärder väljer du åtgärden **svar** .
+   1. Under **Välj en åtgärd** går du till rutan Sök och anger `response` som ditt filter. I listan åtgärder väljer du åtgärden **svar** .
 
 1. Följ dessa steg om du vill bygga det `triggerOutputs()` uttryck som hämtar parametervärdet:
 
@@ -216,7 +217,7 @@ När du vill acceptera parameter värden via slut punktens URL har du följande 
 
 ### <a name="accept-values-through-a-relative-path"></a>Acceptera värden via en relativ sökväg
 
-1. Öppna listan **Lägg till ny parameter** i begär ande utlösare och välj **relativ sökväg**, som lägger till den här egenskapen i utlösaren.
+1. Öppna listan **Lägg till ny parameter** i begär ande utlösare och välj **relativ sökväg** , som lägger till den här egenskapen i utlösaren.
 
    ![Lägg till egenskapen "relativ sökväg" i utlösaren](./media/logic-apps-http-endpoint/select-add-new-parameter-for-relative-path.png)
 
@@ -228,7 +229,7 @@ När du vill acceptera parameter värden via slut punktens URL har du följande 
 
    1. Under utlösaren för begäran väljer du **nytt steg**  >  **Lägg till en åtgärd**.
 
-   1. Under **Välj en åtgärd**går du till rutan Sök och anger `response` som ditt filter. I listan åtgärder väljer du åtgärden **svar** .
+   1. Under **Välj en åtgärd** går du till rutan Sök och anger `response` som ditt filter. I listan åtgärder väljer du åtgärden **svar** .
 
 1. I svars åtgärdens egenskap **Body** inkluderar du den token som representerar den parameter som du angav i utlösarens relativa sökväg.
 
@@ -305,7 +306,7 @@ Du kan kapsla arbets flöden i din Logic app genom att lägga till andra Logic A
 
 1. Under steget där du vill anropa en annan Logic app väljer du **nytt steg**  >  **Lägg till en åtgärd**.
 
-1. Under **Välj en åtgärd**väljer du **inbyggt**. I rutan Sök anger `logic apps` du som filter. I listan åtgärder väljer du **Välj ett Logic Apps arbets flöde**.
+1. Under **Välj en åtgärd** väljer du **inbyggt**. I rutan Sök anger `logic apps` du som filter. I listan åtgärder väljer du **Välj ett Logic Apps arbets flöde**.
 
    ![Kapsla Logic app i aktuell Logic app](./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png)
 
@@ -352,10 +353,10 @@ I svars texten kan du inkludera flera huvuden och vilken typ av innehåll som he
 
 Svaren har följande egenskaper:
 
-| Egenskap (Visa) | Egenskap (JSON) | Beskrivning |
+| Egenskap (Visa) | Egenskap (JSON) | Description |
 |--------------------|-----------------|-------------|
 | **Status kod** | `statusCode` | HTTPS-statuskod som ska användas i svaret på inkommande begäran. Den här koden kan vara vilken giltig status kod som helst som börjar med 2xx, 4xx eller 5xx. 3xx status koder är dock inte tillåtna. |
-| **Rubriker** | `headers` | En eller flera huvuden som ska inkluderas i svaret |
+| **Sidhuvuden** | `headers` | En eller flera huvuden som ska inkluderas i svaret |
 | **Brödtext** | `body` | Ett Body-objekt som kan vara en sträng, ett JSON-objekt eller till och med ett binärt innehåll som refereras från ett föregående steg |
 ||||
 
@@ -383,7 +384,7 @@ Om du vill visa JSON-definitionen för svars åtgärden och din Logic Apps fulls
 
 #### <a name="q-what-about-url-security"></a>F: vad gäller URL-säkerhet?
 
-**A**: Azure på ett säkert sätt skapar callback-URL: er för Logic app med hjälp av [signaturen för delad åtkomst (SAS)](/rest/api/storageservices/delegate-access-with-shared-access-signature). Den här signaturen passerar som en frågeparameter och måste verifieras innan din Logi Kap par kan köras. Azure genererar signaturen med en unik kombination av en hemlig nyckel per Logic app, Utlösarens namn och åtgärden som utförs. Så om någon har åtkomst till den hemliga Logic app-nyckeln kan de inte generera en giltig signatur.
+**A** : Azure på ett säkert sätt skapar callback-URL: er för Logic app med hjälp av [signaturen för delad åtkomst (SAS)](/rest/api/storageservices/delegate-access-with-shared-access-signature). Den här signaturen passerar som en frågeparameter och måste verifieras innan din Logi Kap par kan köras. Azure genererar signaturen med en unik kombination av en hemlig nyckel per Logic app, Utlösarens namn och åtgärden som utförs. Så om någon har åtkomst till den hemliga Logic app-nyckeln kan de inte generera en giltig signatur.
 
 > [!IMPORTANT]
 > För produktions-och högre säkerhets system rekommenderar vi starkt att du anropar din Logic-app direkt från webbläsaren av följande anledningar:
@@ -391,9 +392,11 @@ Om du vill visa JSON-definitionen för svars åtgärden och din Logic Apps fulls
 > * Den delade åtkomst nyckeln visas i URL: en.
 > * Du kan inte hantera principer för säkerhets innehåll på grund av delade domäner i Azure Logic Apps kunder.
 
+Mer information om säkerhet finns i auktorisering och kryptering för inkommande samtal till din Logi Kap par, till exempel [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), som tidigare kallades Secure SOCKETS Layer (SSL), [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), visar din Logic-app med Azure API Management eller begränsar IP-adresserna som har inkommande anrop, se [säker åtkomst och data åtkomst för inkommande anrop till begär ande-baserade utlösare](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
+
 #### <a name="q-can-i-configure-callable-endpoints-further"></a>F: kan jag konfigurera uppringnings bara slut punkter ytterligare?
 
-**A**: Ja, https-slutpunkter har stöd för mer avancerad konfiguration via [Azure API Management](../api-management/api-management-key-concepts.md). Den här tjänsten ger också möjlighet att hantera alla dina API: er på ett konsekvent sätt, inklusive Logic Apps, konfigurera anpassade domän namn, använda fler autentiseringsmetoder med mera, till exempel:
+**A** : Ja, https-slutpunkter har stöd för mer avancerad konfiguration via [Azure API Management](../api-management/api-management-key-concepts.md). Den här tjänsten ger också möjlighet att hantera alla dina API: er på ett konsekvent sätt, inklusive Logic Apps, konfigurera anpassade domän namn, använda fler autentiseringsmetoder med mera, till exempel:
 
 * [Ändra metoden för begäran](../api-management/api-management-advanced-policies.md#SetRequestMethod)
 * [Ändra URL-segmenten för begäran](../api-management/api-management-transformation-policies.md#RewriteURL)
@@ -403,4 +406,4 @@ Om du vill visa JSON-definitionen för svars åtgärden och din Logic Apps fulls
 ## <a name="next-steps"></a>Nästa steg
 
 * [Ta emot och svara på inkommande HTTPS-anrop genom att använda Azure Logic Apps](../connectors/connectors-native-reqres.md)
-* [Skydda åtkomst och data i Azure Logic Apps-åtkomst-åtkomst för inkommande anrop till begär ande-baserade utlösare](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
+* [Säker åtkomst och data i Azure Logic Apps-åtkomst för inkommande anrop till begär ande-baserade utlösare](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)

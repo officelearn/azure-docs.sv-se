@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: d0805aaf694f1569e613ab74135c95e454adbdc0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: df0198ba77e1661bb18aa72285e100ca070966a8
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315066"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331744"
 ---
 # <a name="cetas-with-synapse-sql"></a>CETAS med Synapse SQL
 
@@ -68,7 +68,7 @@ Anger namnet på det externa data käll objekt som innehåller den plats där de
 
 FILE_FORMAT = *external_file_format_name*
 
-Anger namnet på det externa fil formats objekt som innehåller formatet för den externa data filen. Om du vill skapa ett externt fil format använder du [Skapa externt fil format (Transact-SQL)](develop-tables-external-tables.md#create-external-file-format). Endast externa fil format med FORMAT_TYPE = PARQUET och FORMAT_TYPE = DELIMITEDTEXT stöds för närvarande.
+Anger namnet på det externa fil formats objekt som innehåller formatet för den externa data filen. Om du vill skapa ett externt fil format använder du [Skapa externt fil format (Transact-SQL)](develop-tables-external-tables.md#create-external-file-format). Endast externa fil format med FORMAT_TYPE = PARQUET och FORMAT_TYPE = DELIMITEDTEXT stöds för närvarande. GZip-komprimering för DELIMITEDTEXT-format stöds inte.
 
 MED *<common_table_expression>*
 
@@ -144,32 +144,30 @@ CETAS kan användas för att lagra resultat uppsättningar med följande SQL-dat
 - varbinary
 - char
 - varchar
+- nchar
+- nvarchar
+- smalldate
 - date
-- time
+- datetime
 - datetime2
+- datetimeoffset
+- time
 - decimal
 - numeric
 - flyt
 - real
 - bigint
-- int
-- smallint
 - tinyint
+- smallint
+- int
+- bigint
 - bit
-
-> [!NOTE]
-> LOBs kan inte användas med CETAS.
-
-Följande data typer kan inte användas i SELECT-delen av CETAS:
-
-- nchar
-- nvarchar
-- datetime
-- smalldatetime
-- datetimeoffset
 - money
 - smallmoney
 - uniqueidentifier
+
+> [!NOTE]
+> LOBs större än 1 MB kan inte användas med CETAS.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: marsma, lenalepa, manrath
-ms.openlocfilehash: e7635aad85352887646a1319b4d0bfbf64924bf9
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: a2838e40844b83d1e90789439ce286f2738e22c4
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042899"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331863"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Begränsningar och begränsningar för omdirigerings-URI (svars-URL)
 
@@ -62,7 +62,9 @@ Enligt [RFC 8252 avsnitt 8,3](https://tools.ietf.org/html/rfc8252#section-8.3) o
 
 I en utvecklings synpunkt innebär detta några saker:
 
-* Registrera inte flera omdirigerings-URI: er där bara porten är annorlunda. Inloggnings servern väljer en godtyckligt och använder beteendet som är kopplat till den omdirigerings-URI: n (till exempel om den är `web` -, `native` -eller `spa` -typ-omdirigering).
+* Registrera inte flera omdirigerings-URI: er där bara porten är annorlunda. Inloggnings servern väljer en godtyckligt och använder beteendet som är kopplat till denna omdirigerings-URI (till exempel om det är en `web` -, `native` -eller `spa` -Skriv-omdirigering).
+
+    Detta är särskilt viktigt när du vill använda olika autentiserings flöden i samma program registrering, till exempel både auktoriseringskod och implicit flöde. För att associera rätt svars beteende med varje omdirigerings-URI måste inloggnings servern kunna skilja mellan omdirigerings-URI: erna och kan inte göra det när bara porten är annorlunda.
 * Om du behöver registrera flera omdirigerings-URI: er på localhost för att testa olika flöden under utvecklingen kan du skilja dem åt med hjälp av *Sök vägs* komponenten i URI: n. Matchar till exempel `http://127.0.0.1/MyWebApp` inte `http://127.0.0.1/MyNativeApp` .
 * IPv6 loopback-adressen ( `[::1]` ) stöds inte för närvarande.
 * För att förhindra att appen bryts av felkonfigurerade brand väggar eller byter namn på nätverks gränssnitt, använder du IP-literal loopback-adress `127.0.0.1` i omdirigerings-URI i stället för `localhost` .

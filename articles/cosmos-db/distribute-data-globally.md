@@ -6,19 +6,19 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 709c802b8b23a39a0f723db3ac7b4636a0c53930
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 45f4b00bcb3bc1c14d49ef1e79b258dc2008882c
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096775"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330656"
 ---
 # <a name="distribute-your-data-globally-with-azure-cosmos-db"></a>Distribuera dina data globalt med Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Dagens program måste ha korta svarstider och alltid vara online. Instanser av dessa program måste distribueras i datacenter som ligger nära användarna för att uppnå kort svarstid och hög tillgänglighet. Dessa program distribueras vanligt vis i flera data Center och kallas globalt distribuerade. Globalt distribuerade program behöver en globalt distribuerad databas som transparent kan replikera data var som helst i världen så att programmen kan köras med en datakopia som ligger nära användarna. 
 
-Azure Cosmos DB är en globalt distribuerad databas tjänst som är utformad för att tillhandahålla låg latens, elastisk skalbarhet för data flöde, väldefinierade semantik för data konsekvens och hög tillgänglighet. Om ditt program behöver snabba svars tider var som helst i världen, om det är nödvändigt att alltid vara online och behöver en obegränsad och elastisk skalbarhet för data flöde och lagring, bör du bygga ditt program på Azure Cosmos DB.
+Azure Cosmos DB är ett globalt distribuerat databas system som gör att du kan läsa och skriva data från databasens lokala repliker. Azure Cosmos DB replikerar data transparent till alla regioner som är kopplade till ditt Cosmos-konto. Azure Cosmos DB är en globalt distribuerad databas tjänst som är utformad för att tillhandahålla låg latens, elastisk skalbarhet för data flöde, väldefinierade semantik för data konsekvens och hög tillgänglighet. Om ditt program behöver snabba svars tider var som helst i världen, om det är nödvändigt att alltid vara online och behöver en obegränsad och elastisk skalbarhet för data flöde och lagring, bör du bygga ditt program på Azure Cosmos DB.
 
 Du kan konfigurera dina databaser så att de distribueras globalt och är tillgängliga i alla Azure-regioner. Minska svars tiden genom att placera data nära var användarna finns. Att välja de regioner som krävs beror på programmets globala räckvidd och var användarna finns. Cosmos DB replikerar data transparent till alla regioner som är kopplade till ditt Cosmos-konto. Den innehåller en enda system avbildning av din globalt distribuerade Azure Cosmos-databas och behållare som ditt program kan läsa och skriva till lokalt. 
 

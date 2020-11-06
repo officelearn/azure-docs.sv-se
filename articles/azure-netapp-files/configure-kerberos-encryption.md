@@ -12,18 +12,22 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 11/05/2020
 ms.author: b-juche
-ms.openlocfilehash: edb084a3539f4ab25f328d4cc59ee4ef3279bf07
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: f4b485e79bfa89fe293c99fc4e84fc8c0729396a
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217056"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331897"
 ---
 # <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Konfigurera NFSv 4.1 Kerberos-kryptering för Azure NetApp Files
 
 Azure NetApp Files stöder NFS-klient kryptering i Kerberos-lägen (krb5, krb5i och krb5p) med AES-256-kryptering. I den här artikeln beskrivs de konfigurationer som krävs för att använda en NFSv 4.1-volym med Kerberos-kryptering.
+
+## <a name="considerations"></a>Överväganden
+
+* NFSv 4.1 Kerberos-krypterings volymer stöder för närvarande inte Azure Active Directory Domain Services (AADDS). 
 
 ## <a name="requirements"></a>Krav
 
@@ -40,7 +44,7 @@ Följande krav gäller för NFSv 4.1-klient kryptering:
 
 1.  Följ stegen i [skapa en NFS-volym för Azure NetApp Files](azure-netapp-files-create-volumes.md) för att skapa nfsv 4.1-volymen.   
 
-    På sidan Skapa en volym anger du NFS-versionen till **nfsv 4.1**och ställer in Kerberos på **aktive rad**.
+    På sidan Skapa en volym anger du NFS-versionen till **nfsv 4.1** och ställer in Kerberos på **aktive rad**.
 
     > [!IMPORTANT] 
     > Du kan inte ändra val av Kerberos-aktivering när volymen har skapats.
@@ -61,7 +65,7 @@ Följande krav gäller för NFSv 4.1-klient kryptering:
 
     Kerberos kräver att du skapar minst ett dator konto i Active Directory. Den konto information som du anger används för att skapa konton för både SMB- *och* Nfsv 4.1 Kerberos-volymer. Den här datorn skapas automatiskt när volymen skapas.
 
-2.  Under **Kerberos-sfär**anger du **namnet på AD-servern** och IP-adressen för **KDC** .
+2.  Under **Kerberos-sfär** anger du **namnet på AD-servern** och IP-adressen för **KDC** .
 
     AD server och KDC IP kan vara samma server. Den här informationen används för att skapa SPN-dator kontot som används av Azure NetApp Files. När dator kontot har skapats kommer Azure NetApp Files använda DNS-servertjänsten för att hitta ytterligare KDC-servrar efter behov. 
 

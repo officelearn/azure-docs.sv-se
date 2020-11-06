@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: networking
 author: anavinahar
 ms.service: networking
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: baf3d02e1c0ecf51ddea043ee560d5054f09d057
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 0d5c9c4a0191c6d5effd8f6067cb6602ed239125
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91936095"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94329529"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Nätverks gränser – Azure Resource Manager
 Följande begränsningar gäller endast för nätverks resurser som hanteras via **Azure Resource Manager** per region per prenumeration. Lär dig hur du [visar din aktuella resursanvändning mot dina prenumerations gränser](../articles/networking/check-usage-against-limits.md).
@@ -55,6 +55,7 @@ Följande begränsningar gäller endast för nätverks resurser som hanteras via
 | Offentliga IP-adresser<sup>1</sup> | 10 för Basic. | Kontakta supporten. |
 | Statiska offentliga IP-adresser<sup>1</sup> | 10 för Basic. | Kontakta supporten. |
 | Offentliga standard IP-adresser<sup>1</sup> | 10 | Kontakta supporten. |
+| [Offentliga IP-adresser per resurs grupp](../articles/azure-resource-manager/management/resources-without-resource-group-limit.md#microsoftnetwork) | 800 | Kontakta supporten. | 
 | Prefix till offentliga IP-adresser | begränsas av antalet offentliga standard-IP: er i en prenumeration | Kontakta supporten. |
 | Prefixlängd för offentlig IP | /28 | Kontakta supporten. |
 
@@ -106,6 +107,6 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 | Användardefinierade vägar per routningstabell |400 |400 |
 | Offentliga IP-adresser (dynamiska) |500 |500 |
 | Reserverade offentliga IP-adresser |500 |500 |
-| Offentlig VIP per distribution |5 |Kontakta supporten |
-| Privat VIP (intern belastnings utjämning) per distribution |1 |1 |
+| Offentlig IP-adress per distribution |5 |Kontakta supporten |
+| Privat IP (intern belastnings utjämning) per distribution |1 |1 |
 | Åtkomst kontrol listor för slut punkt (ACL) |50 |50 |

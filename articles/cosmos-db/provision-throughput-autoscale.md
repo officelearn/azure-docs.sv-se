@@ -6,21 +6,19 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 78fbdbb91925bbe9954cc7a17e194de9c78c6389
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3ada16c98eef516056bd3c139bddc8187fb0fe38
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097353"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330622"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Skapa Azure Cosmos-behållare och databaser med autoskalning av data flöde
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Med Azure Cosmos DB kan du ange standardmässigt (manuell) dataflöde eller dataflöde som etablerats med autoskalning på dina databaser och containrar. I den här artikeln beskrivs fördelarna med och användningsfallen för autoskalningsetablerat dataflöde. 
+I Azure Cosmos DB kan du konfigurera antingen standard (manuell) eller autoskalning av allokerat data flöde på dina databaser och behållare. Med autoskalning av allokerat data flöde i Azure Cosmos DB kan du **skala data flödet (ru/s) i databasen eller behållaren automatiskt och genast**. Data flödet skalas utifrån användningen, utan att det påverkar tillgänglighet, svars tid, data flöde eller prestanda för arbets belastningen.
 
-Autoskalning av allokerat data flöde passar bra för verksamhets kritiska arbets belastningar som har varierande eller oförutsägbara trafik mönster, och kräver service avtal för hög prestanda och skalning. 
-
-Med autoskalning kan Azure Cosmos DB **automatiskt och skala data flödet (ru/s)** i din databas eller behållare direkt baserat på användning, utan att påverka tillgänglighet, svars tid, data flöde eller prestanda för arbets belastningen. 
+Autoskalning av allokerat data flöde passar bra för verksamhets kritiska arbets belastningar som har varierande eller oförutsägbara trafik mönster, och kräver service avtal för hög prestanda och skalning. I den här artikeln beskrivs fördelarna med och användningsfallen för autoskalningsetablerat dataflöde.
 
 ## <a name="benefits-of-autoscale"></a>Fördelar med autoskalning
 

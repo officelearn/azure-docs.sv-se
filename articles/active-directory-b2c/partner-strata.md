@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 0fd2312df31e61ae30f4c3fd04dc0991ac0f4675
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 6276bd0db9bfb93897f7350b87d208ac2951c859
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376863"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330333"
 ---
 # <a name="tutorial-for-extending-azure-ad-b2c-to-protect-on-premises-applications-using-strata"></a>Självstudie för att utöka Azure AD B2C för att skydda lokala program med hjälp av Strata
 
@@ -69,7 +69,7 @@ I följande arkitektur diagram visas implementeringen.
 | 8. | Användaren är nu autentiserad och har åtkomst till appen.|
 
 ## <a name="get-maverics-identity-orchestrator"></a>Hämta Maverics Identity Orchestrator
-
+Kontakta [Strata](https://www.strata.io/contact/)för att få den program vara som du använder för att integrera din äldre lokala app med Azure AD B2C. När du har skaffat program varan följer du stegen nedan för att fastställa Orchestrator-särskilda krav och utför nödvändiga installations-och konfigurations steg.
 
 ## <a name="configure-your-azure-ad-b2c-tenant"></a>Konfigurera Azure AD B2C klient
 

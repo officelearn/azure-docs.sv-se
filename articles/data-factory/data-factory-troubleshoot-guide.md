@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 09/01/2020
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: 3a195f9dd74353734ff65f0d5f210d861fa29a26
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 6f16e4b1f9728ae8d9cb36ab442603083e83eb92
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632591"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331387"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Felsöka Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -522,79 +522,30 @@ Följande tabell gäller för Azure Batch.
  
 ## <a name="hdinsight"></a>HDInsight
 
-### <a name="error-code-200"></a>Felkod: 200
-
-- **Meddelande** : `Unexpected error happened: '%error;'.`
-
-- **Orsak** : det finns ett internt tjänst problem.
-
-- **Rekommendation** : kontakta ADF-supporten för ytterligare hjälp.
-
-### <a name="error-code-201"></a>Felkod: 201
-
-- **Meddelande** : `JobType %jobType; is not found.`
-
-- **Orsak** : det finns en ny jobbtyp som inte stöds av ADF.
-
-- **Rekommendation** : kontakta ADF support team för ytterligare hjälp.
-
-### <a name="error-code-202"></a>Felkod: 202
-
-- **Meddelande** : `Failed to create on demand HDI cluster. Cluster name or linked service name: '%clusterName;', error: '%message;'`
-
-- **Orsak** : fel meddelandet innehåller information om vad som gått fel.
-
-- **Rekommendation** : information om fel meddelandet bör hjälpa dig att felsöka problemet. Om det inte finns tillräckligt med information kan du kontakta ADF-supporten om du vill ha mer hjälp.
-
-### <a name="error-code-203"></a>Felkod: 203
-
-- **Meddelande** : `Failed to delete on demand HDI cluster. Cluster name or linked service name: '%clusterName;', error: '%message;'`
-
-- **Orsak** : fel meddelandet innehåller information om vad som gått fel.
-
-- **Rekommendation** : information om fel meddelandet bör hjälpa dig att felsöka problemet. Om det inte finns tillräckligt med information kan du kontakta ADF-supporten om du vill ha mer hjälp.
-
-### <a name="error-code-204"></a>Felkod: 204
-
-- **Meddelande** : `The resumption token is missing for runId '%runId;'.`
-
-- **Orsak** : det finns ett internt tjänst problem.
-
-- **Rekommendation** : kontakta ADF-supporten för ytterligare hjälp.
-
-### <a name="error-code-205"></a>Felkod: 205
-
-- **Meddelande** : `Failed to prepare cluster for LinkedService '%linkedServiceName;', the current resource status is '%status;'.`
-
-- **Orsak** : ett fel uppstod när HDI på begäran skapades.
-
-- **Rekommendation** : kontakta ADF-supporten för ytterligare hjälp.
-
 ### <a name="error-code-206"></a>Felkod: 206
 
-- **Meddelande** : `The batch ID for Spark job is invalid. Please retry your job, and if the problem persists, contact the ADF support for further assistance.`
+- **Meddelande** : `The batch ID for Spark job is invalid. Please retry your job.`
 
 - **Orsak** : det uppstod ett internt problem med tjänsten som orsakade felet.
 
-- **Rekommendation** : det här problemet kan vara tillfälligt. Försök att utföra jobbet igen och kontakta supporten om du vill ha mer hjälp om problemet kvarstår.
+- **Rekommendation** : det här problemet kan vara tillfälligt. Försök utföra jobbet igen om en stund.
 
 ### <a name="error-code-207"></a>Felkod: 207
 
-- **Meddelande** : `Could not determine the region from the provided storage account. Please try using another primary storage account for the on demand HDI or contact ADF support team and provide the activity run ID.`
+- **Meddelande** : `Could not determine the region from the provided storage account. Please try using another primary storage account for the on demand HDI.`
 
 - **Orsak** : det uppstod ett internt fel vid försök att fastställa regionen från det primära lagrings kontot.
 
-- **Rekommendation** : försök med ett annat lagrings utrymme. Om det här alternativet inte är en acceptabel lösning kan du kontakta ADF support team för ytterligare hjälp.
+- **Rekommendation** : försök med ett annat lagrings utrymme. 
 
 ### <a name="error-code-208"></a>Felkod: 208
 
-- **Meddelande** : `Service Principal or the MSI authenticator are not instantiated. Please consider providing a Service Principal in the HDI on demand linked service which has permissions to create an HDInsight cluster in the provided subscription and try again. In case if this is not an acceptable solution, contact ADF support team for further assistance.`
+- **Meddelande** : `Service Principal or the MSI authenticator are not instantiated. Please consider providing a Service Principal in the HDI on demand linked service which has permissions to create an HDInsight cluster in the provided subscription and try again.`
 
 - **Orsak** : det uppstod ett internt fel vid försök att läsa tjänstens huvud namn eller instansiera MSI-autentiseringen.
 
 - **Rekommendation** : Överväg att tillhandahålla ett huvud namn för tjänsten som har behörighet att skapa ett HDInsight-kluster i den angivna prenumerationen och försök igen. Kontrol lera att [hanterade identiteter är korrekt](../hdinsight/hdinsight-managed-identities.md)konfigurerade.
 
-   Om det här alternativet inte är en acceptabel lösning kan du kontakta ADF support team för ytterligare hjälp.
 
 ### <a name="error-code-2300"></a>Felkod: 2300
 
@@ -612,7 +563,7 @@ Följande tabell gäller för Azure Batch.
 
 - **Rekommendation** : problemet kan vara antingen allmän HDInsight-anslutning eller nätverks anslutning. Bekräfta först att HDInsight Ambari-ANVÄNDARGRÄNSSNITTET är tillgängligt från valfri webbläsare. Kontrol lera sedan att autentiseringsuppgifterna fortfarande är giltiga.
    
-   Om du använder en lokal, integrerad Runtime (IR) utför du det här steget från den virtuella datorn eller datorn där IR för egen värd är installerad. Försök sedan att skicka jobbet från Data Factory igen. Om det fortfarande inte går att kontakta Data Factory-teamet för support.
+   Om du använder en lokal, integrerad Runtime (IR) utför du det här steget från den virtuella datorn eller datorn där IR för egen värd är installerad. Försök sedan att skicka jobbet från Data Factory igen.
 
    Mer information finns i [Ambari Web UI](../hdinsight/hdinsight-hadoop-manage-ambari.md#ambari-web-ui).
 
@@ -1009,7 +960,7 @@ Följande tabell gäller för Azure Batch.
 
 - **Orsak** : det här problemet beror på nätverks anslutningen, ett DNS-fel, en verifiering av Server certifikat eller en tids gräns.
 
-- **Rekommendation** : kontrol lera att slut punkten som du försöker trycka på svarar på begär Anden. Du kan använda verktyg som **Fiddler/Postman** .
+- **Rekommendation** : kontrol lera att slut punkten som du försöker trycka på svarar på begär Anden. Du kan använda verktyg som **Fiddler/Postman**.
 
 ### <a name="error-code-2108"></a>Felkod: 2108
 
@@ -1024,17 +975,17 @@ Så här använder du **Fiddler** för att skapa en http-session för det överv
 
 1. Ladda ned, installera och öppna [Fiddler](https://www.telerik.com/download/fiddler).
 
-1. Om ditt webb program använder https går du till **verktyg**  >  **Fiddler alternativ**  >  **https** .
+1. Om ditt webb program använder https går du till **verktyg**  >  **Fiddler alternativ**  >  **https**.
 
-   1. På fliken HTTPS väljer du både **avbilda https ansluter** och **dekryptera HTTPS-trafik** .
+   1. På fliken HTTPS väljer du både **avbilda https ansluter** och **dekryptera HTTPS-trafik**.
 
       ![Fiddler-alternativ](media/data-factory-troubleshoot-guide/fiddler-options.png)
 
 1. Om ditt program använder TLS/SSL-certifikat, lägger du till Fiddler-certifikatet på enheten.
 
-   Gå till: **verktyg**  >  **Fiddler alternativ**  >  **https**  >  **åtgärder**  >  **Exportera rot certifikat till Skriv bordet** .
+   Gå till: **verktyg**  >  **Fiddler alternativ**  >  **https**  >  **åtgärder**  >  **Exportera rot certifikat till Skriv bordet**.
 
-1. Inaktivera hämtning genom att gå till **fil**  >  **hämtnings trafik** . Eller tryck på **F12** .
+1. Inaktivera hämtning genom att gå till **fil**  >  **hämtnings trafik**. Eller tryck på **F12**.
 
 1. Rensa webbläsarens cacheminne så att alla cachelagrade objekt tas bort och måste laddas ned igen.
 
@@ -1046,11 +997,11 @@ Så här använder du **Fiddler** för att skapa en http-session för det överv
  
    1. Om det behövs kan du lägga till rubriker och en brödtext i begäran.
 
-   1. Välj **Kör** .
+   1. Välj **Kör**.
 
 1. Aktivera trafik insamlingen igen och slutför den felande transaktionen på sidan.
 
-1. Gå **till:**  >  **Spara**  >  **alla sessioner** .
+1. Gå **till:**  >  **Spara**  >  **alla sessioner**.
 
 Mer information finns i [komma igång med Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler).
 

@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 6d0ae81177ca8488c410e40ca56642199694c08c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 8c9007cf14b485c37b94e9f475e2ce890ea0ea2b
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93072656"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330809"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Ändringsflöde i Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Stödet för ändringsflöde i Azure Cosmos DB fungerar genom att lyssna efter ändringar på en Azure Cosmos-container. Funktionen returnerar sedan den sorterade listan över dokument som ändrats i den ordning de ändrades. Ändringarna är beständiga, kan bearbetas asynkront och inkrementellt, och utdata kan distribueras bland en eller flera konsumenter för parallell bearbetning.
+Ändra feed i Azure Cosmos DB är en permanent post med ändringar i en behållare i den ordning som de förekommer. Stödet för ändringsflöde i Azure Cosmos DB fungerar genom att lyssna efter ändringar på en Azure Cosmos-container. Funktionen returnerar sedan den sorterade listan över dokument som ändrats i den ordning de ändrades. De bestående ändringarna kan bearbetas asynkront och stegvis, och utdata kan distribueras över en eller flera konsumenter för parallell bearbetning.
 
 Lär dig mer om [design mönster för att ändra feed](change-feed-design-patterns.md).
 
@@ -28,10 +28,10 @@ Den här funktionen stöds för närvarande av följande Azure Cosmos DB-API: er
 
 | **Klient driv rutiner** | **SQL-API** | **Azure Cosmos DB s API för Cassandra** | **API för Azure Cosmos DB för MongoDB** | **Gremlin-API**|**Tabell-API** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | Ja | Ja | Ja | Ja | Nej |
-|Java|Ja|Ja|Ja|Ja|Nej|
-|Python|Ja|Ja|Ja|Ja|Nej|
-|Node/JS|Ja|Ja|Ja|Ja|Nej|
+| .NET | Ja | Ja | Ja | Ja | Inga |
+|Java|Ja|Ja|Ja|Ja|Inga|
+|Python|Ja|Ja|Ja|Ja|Inga|
+|Node/JS|Ja|Ja|Ja|Ja|Inga|
 
 ## <a name="change-feed-and-different-operations"></a>Ändra feed och olika åtgärder
 

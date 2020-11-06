@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: mjbrown
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: a2b1ca8434c40eca610f95a3031e677782866e04
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 109ce54b48df0724c0d4ba64c02721088ed7ffad
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342019"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330639"
 ---
 # <a name="configure-multi-region-writes-in-your-applications-that-use-azure-cosmos-db"></a>Konfigurera flera region skrivningar i dina program som använder Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -25,7 +25,7 @@ När ett konto har skapats med flera Skriv regioner aktiverade måste du göra t
 
 ## <a name="azure-portal"></a><a id="portal"></a> Azure Portal
 
-Använd följande steg för att aktivera skrivningar i flera regioner från Azure Portal:
+Gör så här om du vill aktivera flera region skrivningar från Azure Portal:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 

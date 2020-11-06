@@ -4,12 +4,12 @@ description: Konfigurations alternativ för Azure Monitor Application Insights J
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 710347061f072fe66987d88852045986c00812c8
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 7165afd77e3f60af5e00b92c1063247325897f9f
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377691"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331914"
 ---
 # <a name="configuration-options-for-azure-monitor-application-insights-java"></a>Konfigurations alternativ för Azure Monitor Application Insights Java
 
@@ -24,7 +24,7 @@ Anslutnings strängen och roll namnet är de vanligaste inställningarna som kr�
 
 ```json
 {
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "connectionString": "InstrumentationKey=...",
   "role": {
     "name": "my cloud role name"
   }
@@ -55,7 +55,7 @@ Detta är obligatoriskt. Du kan hitta din anslutnings sträng i Application Insi
 
 ```json
 {
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000"
+  "connectionString": "InstrumentationKey=..."
 }
 ```
 
@@ -306,3 +306,47 @@ Som standard loggar Application Insights Java 3,0 på nivå `INFO` till både fi
 `maxSizeMb` är logg filens Max storlek innan den slås samman.
 
 `maxHistory` är antalet upplyft över loggfiler som bevaras (utöver den aktuella logg filen).
+
+## <a name="an-example"></a>Ett exempel
+
+Detta är bara ett exempel för att visa hur en konfigurations fil ser ut som med flera komponenter.
+Konfigurera olika alternativ utifrån dina behov.
+
+```json
+{
+  "connectionString": "InstrumentationKey=...",
+  "role": {
+    "name": "my cloud role name"
+  },
+  "sampling": {
+    "percentage": 100
+  },
+  "jmxMetrics": [
+  ],
+  "customDimensions": {
+  },
+  "instrumentation": {
+    "logging": {
+      "level": "INFO"
+    },
+    "micrometer": {
+      "enabled": true
+    }
+  },
+  "httpProxy": {
+  },
+  "preview": {
+    "processors": [
+    ]
+  },
+  "selfDiagnostics": {
+    "destination": "file+console",
+    "level": "INFO",
+    "file": {
+      "path": "applicationinsights.log",
+      "maxSizeMb": 5,
+      "maxHistory": 1
+    }
+  }
+}
+```

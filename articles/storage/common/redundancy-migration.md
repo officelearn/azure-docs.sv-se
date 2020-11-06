@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 286a4f47d542a500fb49f022f3c647088ebad637
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6f5eab8f53fb4c9e15606223707292261b4615e0
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784226"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330299"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Ändra hur ett lagringskonto replikeras
 
@@ -39,8 +39,8 @@ Följande tabell innehåller en översikt över hur du växlar från varje typ a
 
 | Växla | ... till LRS | ... till GRS/RA-GRS | ... till ZRS | ... till GZRS/RA-GZRS |
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
-| <b>... från LRS</b> | E.t. | Använd Azure Portal, PowerShell eller CLI för att ändra replikeringsinställningarna<sup>1</sup> | Utföra en manuell migrering <br /><br /> OR <br /><br /> Begär en Direktmigrering | Utföra en manuell migrering <br /><br /> OR <br /><br /> Växla till GRS/RA-GRS först och begär sedan en Direktmigrering<sup>1</sup> |
-| <b>... från GRS/RA-GRS</b> | Använd Azure Portal, PowerShell eller CLI för att ändra replikeringsinställningarna | E.t. | Utföra en manuell migrering <br /><br /> OR <br /><br /> Växla till LRS först och begär sedan en Direktmigrering | Utföra en manuell migrering <br /><br /> OR <br /><br /> Begär en Direktmigrering |
+| <b>... från LRS</b> | E.t. | Använd Azure Portal, PowerShell eller CLI för att ändra replikeringsinställningarna<sup>1</sup> | Utföra en manuell migrering <br /><br /> ELLER <br /><br /> Begär en Direktmigrering | Utföra en manuell migrering <br /><br /> ELLER <br /><br /> Växla till GRS/RA-GRS först och begär sedan en Direktmigrering<sup>1</sup> |
+| <b>... från GRS/RA-GRS</b> | Använd Azure Portal, PowerShell eller CLI för att ändra replikeringsinställningarna | E.t. | Utföra en manuell migrering <br /><br /> ELLER <br /><br /> Växla till LRS först och begär sedan en Direktmigrering | Utföra en manuell migrering <br /><br /> ELLER <br /><br /> Begär en Direktmigrering |
 | <b>... från ZRS</b> | Utföra en manuell migrering | Utföra en manuell migrering | E.t. | Använd Azure Portal, PowerShell eller CLI för att ändra replikeringsinställningarna<sup>1, 2</sup> |
 | <b>... från GZRS/RA-GZRS</b> | Utföra en manuell migrering | Utföra en manuell migrering | Använd Azure Portal, PowerShell eller CLI för att ändra replikeringsinställningarna | E.t. |
 
@@ -123,26 +123,26 @@ Du måste utföra en manuell migrering om:
 
 Du kan begära en Direktmigrering via [Azure-support portalen](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Från portalen väljer du det lagrings konto som du vill konvertera till ZRS.
 
-1. Välj **ny supportbegäran** .
+1. Välj **ny supportbegäran**.
 2. Slutför **grunderna** baserat på din konto information: 
-    - **Typ av problem** : Välj **teknisk** .
-    - **Tjänst** : Välj **Mina tjänster** och **lagrings konto hantering** .
+    - **Typ av problem** : Välj **teknisk**.
+    - **Tjänst** : Välj **Mina tjänster** och **lagrings konto hantering**.
     - **Resurs** : Välj den resurs som du vill konvertera till ZRS.
-3. Välj **Nästa** .
+3. Välj **Nästa**.
 4. Ange följande värden i avsnittet **problem** :
     - **Allvarlighets grad** : låt standardvärdet vara.
-    - **Problem typ** : Välj **datamigrering** .
-    - **Kategori** : Välj **migrera till ZRS** .
-    - **Title** : Ange en beskrivande rubrik, till exempel **ZRS-kontots migrering** .
+    - **Problem typ** : Välj **datamigrering**.
+    - **Kategori** : Välj **migrera till ZRS**.
+    - **Title** : Ange en beskrivande rubrik, till exempel **ZRS-kontots migrering**.
     - **Information** : Skriv ytterligare information i **informations** rutan, till exempel om jag vill migrera till ZRS från [LRS, GRS] i \_ \_ regionen.
-5. Välj **Nästa** .
+5. Välj **Nästa**.
 6. Kontrol lera att kontakt informationen är korrekt på bladet med **kontakt information** .
-7. Välj **Skapa** .
+7. Välj **Skapa**.
 
 En support person kommer att kontakta dig och tillhandahålla den hjälp du behöver.
 
 > [!NOTE]
-> Direktmigrering stöds för närvarande inte för Premium-filresurser. Det finns för närvarande endast stöd för att kopiera eller flytta data manuellt.
+> Premium fil resurser (FileStorage-konton) är bara tillgängliga för LRS och ZRS.
 >
 > GZRS lagrings konton stöder för närvarande inte Arkiv nivån. Mer information finns i [Azure Blob Storage: frekvent åtkomst, låg frekvent åtkomst och Arkiv](../blobs/storage-blob-storage-tiers.md) lag rings nivåer.
 >

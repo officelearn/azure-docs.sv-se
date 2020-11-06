@@ -3,12 +3,12 @@ title: Azure Monitor Application Insights Java
 description: Övervakning av program prestanda för Java-program som körs i vilken miljö som helst utan kod ändring. Distribuerad spårning och program karta.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 07be6a4ff08700ee9407fbf39946b7c24abbc01a
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 31ee3c4a2dbf6f6832c0228e70aa079b5f028bc4
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377045"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331931"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Java-kodad program övervakning Azure Monitor Application Insights
 
@@ -48,7 +48,7 @@ Om du inte redan har en Application Insights resurs kan du skapa en ny genom att
 Peka agenten till Application Insights resurs, antingen genom att ange en miljö variabel:
 
 ```
-APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
+APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
 ```
 
 Eller genom att skapa en konfigurations fil med namnet `applicationinsights.json` och placera den i samma katalog som `applicationinsights-agent-3.0.0.jar` , med följande innehåll:
@@ -56,7 +56,7 @@ Eller genom att skapa en konfigurations fil med namnet `applicationinsights.json
 ```json
 {
   "instrumentationSettings": {
-    "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000"
+    "connectionString": "InstrumentationKey=..."
   }
 }
 ```
@@ -82,7 +82,7 @@ I `applicationinsights.json` filen kan du också konfigurera:
 * Samling
 * JMX mått
 * Anpassade dimensioner
-* Telemetri-processorer
+* Telemetriprocessorer
 * Automatisk insamlad loggning
 * Automatiskt insamlade micrometer-mått (inklusive värden för våren Boot-motstånd)
 * Pulsslag
@@ -141,12 +141,12 @@ Tabellen nedan representerar anpassade typer av anpassade telemetri som stöds f
 
 |                     | Micrometer | Log4j, logback, JUL | 2. x SDK |
 |---------------------|------------|---------------------|---------|
-| **Anpassade händelser**   |            |                     |  Yes    |
+| **Anpassade händelser**   |            |                     |  Ja    |
 | **Anpassade mått**  |  Ja       |                     |  Ja    |
-| **Beroenden**    |            |                     |  Yes    |
+| **Beroenden**    |            |                     |  Ja    |
 | **Undantag**      |            |  Ja                |  Ja    |
-| **Sid visningar**      |            |                     |  Yes    |
-| **Begäranden**        |            |                     |  Yes    |
+| **Sid visningar**      |            |                     |  Ja    |
+| **Begäranden**        |            |                     |  Ja    |
 | **Spårningar**          |            |  Ja                |  Ja    |
 
 Vi planerar inte att lansera en SDK med Application Insights 3,0 för tillfället.

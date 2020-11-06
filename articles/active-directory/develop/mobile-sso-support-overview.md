@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: a3899d9fbf04f9629885ec38f6b0b2bde728561b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 09fc29b54951d2f33acc725c734e01e3d3364ff0
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740156"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331614"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>Stöd för enkel inloggning och skydds principer för appar i mobilappar som du utvecklar
 
@@ -30,7 +30,7 @@ I den här artikeln förklaras varför SSO och APP är viktiga och ger vägledni
 
 Dessutom är det möjligt att aktivera enkel inloggning i din app för att låsa upp nya autentiseringsmekanismer som medföljer modern autentisering, t. ex. [lösen ords](../authentication/concept-authentication-passwordless.md)skydd. Användar namn och lösen ord är ett av de mest populära angrepps sätten mot program, och att aktivera SSO gör att du kan minska risken genom att framtvinga villkorlig åtkomst eller lösen ords lösa inloggningar som lägger till ytterligare säkerhet eller förlitar sig på säkrare autentiseringsmekanismer. Slutligen aktiverar enkel inloggning även [enkel utloggning](v2-protocols-oidc.md#single-sign-out). Detta är användbart i situationer som arbets program som ska användas på delade enheter.
 
-[App Protection-principer (app)](/mem/intune/apps/app-protection-policy) säkerställer att organisationens data förblir skyddade och inneslutna. De gör det möjligt för företag att hantera och skydda sina data i en app och tillåta kontroll över vem som har åtkomst till appen och dess data. Genom att implementera skydds principer för appar kan din app ansluta användare till resurser som skyddas av principer för villkorlig åtkomst och överföra data på ett säkert sätt till och från andra skyddade appar. Scenarier som har låsts av app Protection-principer innehåller en PIN-kod för att öppna en app, styra delningen av data mellan appar och förhindra att företags AppData sparas på en personlig lagrings plats på enheten.
+[App Protection-principer (app)](/mem/intune/apps/app-protection-policy) säkerställer att organisationens data förblir skyddade och inneslutna. De gör det möjligt för företag att hantera och skydda sina data i en app och tillåta kontroll över vem som har åtkomst till appen och dess data. Genom att implementera skydds principer för appar kan din app ansluta användare till resurser som skyddas av principer för villkorlig åtkomst och överföra data på ett säkert sätt till och från andra skyddade appar. Scenarier som är olåsta av appars skydds principer är att kräva en PIN-kod för att öppna en app, styra delningen av data mellan appar och förhindra att företags AppData sparas till personliga lagrings platser.
 
 ## <a name="implementing-single-sign-on"></a>Implementera enkel inloggning
 

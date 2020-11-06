@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f92864cea4332157b0bf8b171a9d88b34f79a5ac
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: f325a43895e1e9d73b11c06662851d7654d31ddb
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422118"
+ms.locfileid: "94331829"
 ---
 # <a name="azure-database-for-postgresql-versioning-policy"></a>Princip för Azure Database for PostgreSQL versions hantering
 
@@ -50,12 +50,12 @@ I tabellen nedan visas information om pensionering för PostgreSQL-huvud version
 ## <a name="retired-postgresql-engine-versions-not-supported-in-azure-database-for-postgresql"></a>PostgreSQL motor versioner som inte stöds i Azure Database for PostgreSQL
 
 Tänk på följande begränsningar när du fortsätter att köra den nedsänkta versionen av varje PostgreSQL-databas version:
-- Eftersom communityn inte kommer att släppa några ytterligare fel korrigeringar eller säkerhets korrigeringar, kommer Azure för PostgreSQL inte att uppdatera den indragna databas motorn för några buggar eller säkerhets problem eller på annat sätt vidta säkerhets åtgärder med avseende på den indragna databas motorn. Du kan råka ut för säkerhets risker eller andra problem. Men Azure fortsätter att utföra periodiskt underhåll och korrigering för värden, operativ systemet, behållare och andra service komponenter.
+- Eftersom communityn inte kommer att släppa några ytterligare fel korrigeringar eller säkerhets korrigeringar, kommer Azure Database for PostgreSQL inte att uppdatera den indragna databas motorn för några buggar eller säkerhets problem eller på annat sätt vidta säkerhets åtgärder avseende den indragna databas motorn. Du kan råka ut för säkerhets risker eller andra problem. Men Azure fortsätter att utföra periodiskt underhåll och korrigering för värden, operativ systemet, behållare och andra service komponenter.
 - Om något av de support ärenden som du kan stöta på rör PostgreSQL-databasen kanske vi inte kan ge support. I sådana fall måste du uppgradera databasen för att vi ska kunna ge dig all support.
 - Du kommer inte att kunna skapa nya databas servrar för den tillbakadragna versionen. Du kommer dock att kunna utföra återställningar av tidpunkter och skapa Läs repliker för dina befintliga servrar.
 - Nya tjänst funktioner som har utvecklats av Azure Database for PostgreSQL kanske bara är tillgängliga för databas server versioner som stöds.
 - Drift tiden service avtal gäller enbart för Azure Database for PostgreSQL tjänstrelaterade problem och inte avbrotts tid som orsakas av databas motor-relaterade buggar.  
-- I extrema händelse av ett allvarligt hot mot tjänsten som orsakades av säkerhets problemet med PostgreSQL-databasmotorn som identifierats i den indragna databas versionen, kan Azure välja att stoppa Compute-noden på databas servern för att skydda tjänsten. I sådana fall kan du bli meddelad om att uppgradera servern innan du tar servern online.
+- I extrema händelse av ett allvarligt hot mot tjänsten som orsakas av säkerhets problemet med PostgreSQL-databasmotorn som identifierats i den indragna databas versionen, kan Azure välja att stoppa databas servern för att skydda tjänsten. I så fall får du ett meddelande om att uppgradera servern innan du tar servern online.
 
 ## <a name="postgresql-version-syntax"></a>Syntax för PostgreSQL-version
 Innan PostgreSQL version 10 anses den [postgresql versions principen](https://www.postgresql.org/support/versioning/) en _större versions_ uppgradering för att öka det första _eller_ andra numret. 9,5 till 9,6 ansågs till exempel vara en _huvud_ versions uppgradering. Från och med version 10 betraktas bara en ändring i det första talet som en huvud versions uppgradering. Till exempel är 10,0 till 10,1 en _mindre_ versions uppgradering. Version 10 till 11 är en _huvud_ versions uppgradering.

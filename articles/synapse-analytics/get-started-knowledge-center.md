@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: 2857989fb09555ecd808bfdba95bcf58e4444594
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 461fabd0dd9948e8967ac61919f77e3e23a981b9
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93304896"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331965"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Utforska Synapse Knowledge Center
 
@@ -39,7 +39,7 @@ I **kunskaps centret** kan du göra tre saker:
 
 ## <a name="exploring-blob-storage-with-serverless-sql-pool"></a>Utforska Blob Storage med Server lös SQL-pool
 
-1. **Kunskaps centret** , klicka på **Använd exempel omedelbart**
+1. Gå till **kunskaps Center** och klicka på **Använd exempel omedelbart**
 1. Välj **fråga data med SQL** 
 1. Klicka på **Använd exempel omedelbart**
 1. Ett nytt SQL-skript skapas.
@@ -47,7 +47,7 @@ I **kunskaps centret** kan du göra tre saker:
 1. Klicka på Kör. Den text som du har valt körs.
 
 ## <a name="loading-more-nyc-taxi-data"></a>Läser in fler NYC taxi-data
-1. **Kunskaps centret** , klicka på **Bläddra bland tillgängliga exempel** 
+1. Gå till **kunskaps centret** , klicka på **Bläddra bland tillgängliga exempel** 
 1. Välj fliken **SQL-skript** överst
 1. Välj **Läs in New York taxidata-datauppsättning**
 1. Under **indata** väljer du **Välj en befintlig pool** och väljer **SQLDB1**
@@ -60,4 +60,4 @@ I **kunskaps centret** kan du göra tre saker:
 
 * [Kom igång med Azure Synapse Analytics](get-started.md)
 * [Skapa en arbetsyta](quickstart-create-workspace.md)
-* [Använd Server lös SQL-pool](quickstart-sql-on-demand.md)
+* [Använda en serverlös SQL-pool](quickstart-sql-on-demand.md)

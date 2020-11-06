@@ -1,6 +1,6 @@
 ---
-title: Utgående proxy-Azure Load Balancer
-description: Beskriver hur Azure Load Balancer används som proxy för utgående Internet anslutning
+title: SNAT för utgående anslutningar
+description: Beskriver hur Azure Load Balancer används för att utföra SNAT för utgående Internet anslutning
 services: load-balancer
 author: asudbring
 ms.service: load-balancer
@@ -8,28 +8,31 @@ ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 185bb47677e978a3098f39024995da6399f90658
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: b3924a563d8266cfa38f24106dbb84102031a182
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241777"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331880"
 ---
-# <a name="outbound-proxy-azure-load-balancer"></a>Utgående proxy-Azure Load Balancer
+# <a name="using-snat-for-outbound-connections"></a>Använda SNAT för utgående anslutningar
 
-En Azure Load Balancer kan användas som proxy för utgående Internet-anslutning. Belastningsutjämnaren tillhandahåller utgående anslutning för Server dels instanserna. 
+Klient delens IP-adresser för en offentlig belastningsutjämnare i Azure kan användas för att tillhandahålla utgående anslutning till Internet för Server dels instanser. Den här konfigurationen använder **käll Network Address Translation (SNAT)**. SNAT skriver om IP-adressen för Server delen till den offentliga IP-adressen för belastningsutjämnaren. 
 
-Den här konfigurationen använder **käll Network Address Translation (SNAT)**. SNAT skriver om IP-adressen för Server delen till den offentliga IP-adressen för belastningsutjämnaren. 
+SNAT aktiverar **IP-maskerande** av Server dels instansen. Den här maskerade tjänsten förhindrar att externa källor har en direkt adress till Server dels instanserna. Att dela en IP-adress mellan server dels instanser minskar kostnaden för statiska offentliga IP-adresser och har stöd för scenarier som fören klar IP-listor med trafik från kända offentliga IP-adresser. 
 
-SNAT aktiverar **IP-maskerande** av Server dels instansen. Den här maskerade tjänsten förhindrar att externa källor har en direkt adress till Server dels instanserna. 
+>[!Note]
+> För program med som kräver ett stort antal utgående anslutningar eller företags kunder som kräver att en enda uppsättning IP-adresser används från ett visst virtuellt nätverk, [Virtual Network NAT](https://docs.microsoft.com/azure/virtual-network/nat-overview) är den rekommenderade lösningen. Den dynamiska allokeringen tillåter enkel konfiguration och > den mest effektiva användningen av SNAT-portar från varje IP-adress. Det innebär också att alla resurser i det virtuella nätverket kan dela en uppsättning IP-adresser utan att behöva dela > en belastningsutjämnare.
 
-Att dela en IP-adress mellan server dels instanser minskar kostnaden för statiska offentliga IP-adresser och har stöd för scenarier som fören klar IP-listor med trafik från kända offentliga IP-adresser. 
+>[!Important]
+> Även om inga utgående SNAT har kon figurer ATS kommer Azure Storage-konton inom samma region fortfarande vara tillgängliga och Server dels resurser kommer fortfarande att ha åtkomst till Microsoft-tjänster, till exempel Windows-uppdateringar.
 
-## <a name="sharing-ports-across-resources"></a><a name ="snat"></a> Dela portar över resurser
+>[!NOTE] 
+>Den här artikeln beskriver endast Azure Resource Manager distributioner. Granska [utgående anslutningar (klassiska)](load-balancer-outbound-connections-classic.md) för alla klassiska distributions scenarier i Azure.
 
-Om Server dels resurser i en belastningsutjämnare inte har offentliga IP-adresser på instans nivå (ILPIP), upprättar de utgående anslutningar via klient delens IP-adress för den offentliga belastningsutjämnaren.
+## <a name="sharing-frontend-ip-address-across-backend-resources"></a><a name ="snat"></a> Dela klient delens IP-adress över Server dels resurser
 
-Portar används för att generera unika identifierare som används för att underhålla distinkta flöden. Internet använder en fem tuple för att ge den här skillnaden.
+Om Server dels resurser i en belastningsutjämnare inte har offentliga IP-adresser på instans nivå (ILPIP), upprättar de utgående anslutningar via klient delens IP-adress för den offentliga belastningsutjämnaren. Portar används för att generera unika identifierare som används för att underhålla distinkta flöden. Internet använder en fem tuple för att ge den här skillnaden.
 
 Fem tuple består av:
 
@@ -38,17 +41,92 @@ Fem tuple består av:
 * Käll-IP-adress
 * Käll port och protokoll för att ge den här skillnaden.
 
-Om en port används för inkommande anslutningar kommer den att ha en **lyssnare** för inkommande anslutnings begär Anden på den porten och kan inte användas för utgående anslutningar. 
+Om en port används för inkommande anslutningar kommer den att ha en **lyssnare** för inkommande anslutnings begär Anden på den porten och kan inte användas för utgående anslutningar. För att upprätta en utgående anslutning måste en **tillfällig port** användas för att tillhandahålla målet med en port som används för att kommunicera och underhålla ett distinkt trafikflöde. När de här tillfälliga portarna används för att utföra SNAT kallas de för **SNAT-portar** 
 
-För att upprätta en utgående anslutning måste en **tillfällig port** användas för att tillhandahålla målet med en port som används för att kommunicera och underhålla ett distinkt trafikflöde. 
+Per definition har varje IP-adress 65 535 portar. Varje port kan antingen användas för inkommande eller utgående anslutningar för TCP (Transmission Control Protocol) och UDP (User Datagram Protocol). När en offentlig IP-adress läggs till som en klient dels-IP till en belastningsutjämnare ger Azure 64 000 stöd för användning som SNAT-portar. 
 
-Varje IP-adress har 65 535 portar. De första 1024 portarna är reserverade som **system portar**. Varje port kan antingen användas för inkommande eller utgående anslutningar för TCP och UDP. 
+>[!NOTE]
+> Varje port som används för en belastnings Utjämnings regel eller en inkommande NAT-regel använder en rad åtta portar från de här 64 000 portarna, vilket minskar antalet portar som är kvalificerade för SNAT. Om en belastnings > balansering eller NAT-regel finns i samma intervall på åtta som en annan kommer den inte att förbruka några ytterligare portar. 
 
-Av de återstående portarna ger Azure 64 000 för användning som **tillfälliga portar**. När en IP-adress läggs till som en IP-konfiguration för klient delen kan dessa tillfälliga portar användas för SNAT.
+Genom regler för [utgående trafik](https://docs.microsoft.com/azure/load-balancer/outbound-rules) och belastnings utjämning kan de här SNAT-portarna distribueras till Server dels instanser för att de ska kunna dela de offentliga IP-adresserna för belastningsutjämnaren för utgående anslutningar.
 
-Via utgående regler kan de här SNAT-portarna distribueras till Server dels instanser för att de ska kunna dela den offentliga IP-adressen för belastningsutjämnaren för utgående anslutningar.
+När du har konfigurerat [Scenario 2](#scenario2) nedan, kommer värden för varje server dels instans att utföra SNAT på paket som ingår i en utgående anslutning. När du utför SNAT på en utgående anslutning från en server dels instans, skriver värden om käll-IP: en till en av klient delens IP-adresser. För att upprätthålla unika flöden skriver värden om käll porten för varje utgående paket till någon av de SNAT-portar som allokerats för backend-instansen.
 
-Nätverk på värden för varje server dels instans kommer att göra SNAT till paket som ingår i en utgående anslutning. Värden skriver om käll-IP-adressen till en av de offentliga IP-adresserna. Värden skriver om käll porten för varje utgående paket till någon av SNAT-portarna.
+## <a name="outbound-connection-behavior-for-different-scenarios"></a>Utgående anslutnings beteende för olika scenarier
+  * Virtuell dator med offentlig IP-adress.
+  * Virtuell dator utan offentlig IP-adress.
+  * Virtuell dator utan offentlig IP-adress och utan standard belastnings utjämning.
+        
+
+ ### <a name="scenario-1-virtual-machine-with-public-ip"></a><a name="scenario1"></a> Scenario 1: virtuell dator med offentlig IP
+
+
+ | Typer | Metod | IP-protokoll |
+ | ---------- | ------ | ------------ |
+ | Offentlig belastningsutjämnare eller fristående | [SNAT (käll nätverks adress översättning)](#snat) </br> används inte. | TCP (Transmission Control Protocol) </br> UDP (User Datagram Protocol) </br> ICMP (Internet Control Message Protocol) </br> ESP (Encapsulating Security Payload) |
+
+
+ #### <a name="description"></a>Description
+
+
+ Azure använder den offentliga IP-adress som tilldelats IP-konfigurationen av instansens nätverkskort för alla utgående flöden. Instansen har alla tillfälliga portar tillgängliga. Det spelar ingen roll om den virtuella datorn är belastningsutjämnad eller inte. Det här scenariot prioriteras framför de andra. 
+
+
+ En offentlig IP-adress som tilldelas till en virtuell dator är en 1:1-relation (i stället för 1: många) och implementeras som en tillstånds Lös 1:1 NAT.
+
+
+ ### <a name="scenario-2-virtual-machine-without-public-ip-and-behind-standard-public-load-balancer"></a><a name="scenario2"></a>Scenario 2: virtuell dator utan offentlig IP-adress och bakom offentliga standard Load Balancer
+
+
+ | Typer | Metod | IP-protokoll |
+ | ------------ | ------ | ------------ |
+ | Offentlig lastbalanserare | Användning av IP-adresser för belastningsutjämnare för [SNAT](#snat).| TCP </br> UDP |
+
+
+ #### <a name="description"></a>Description
+
+
+ Belastnings Utjämnings resursen har kon figurer ATS med en utgående regel eller en regel för belastnings utjämning som aktiverar standard SNAT. Den här regeln används för att skapa en länk mellan den offentliga IP-klient delen med backend-poolen. 
+
+
+ Om du inte slutför den här regel konfigurationen är beteendet som beskrivs i scenario 3. 
+
+
+ En regel med en lyssnare krävs inte för att hälso avsökningen ska lyckas.
+
+
+ När en virtuell dator skapar ett utgående flöde översätter Azure käll-IP-adressen till den offentliga IP-adressen för den offentliga belastnings Utjämnings klient delen. Den här översättningen görs via [SNAT](#snat). 
+
+
+ Tillfälliga portar för den offentliga IP-adressen för belastningsutjämnaren i klient delen används för att särskilja enskilda flöden från den virtuella datorn. SNAT använder dynamiskt [förallokerade portar](#preallocatedports) när utgående flöden skapas. 
+
+
+ I det här sammanhanget kallas de tillfälliga portarna som används för SNAT som SNAT-portar. Vi rekommenderar starkt att en [utgående regel](https://docs.microsoft.com/azure/load-balancer/outbound-rules) konfigureras explicit. Om du använder standard SNAT via en belastnings Utjämnings regel är SNAT-portarna fördelade enligt beskrivningen i [standard tilldelnings tabellen för SNAT-portar](#snatporttable).
+
+
+ ### <a name="scenario-3-virtual-machine-without-public-ip-and-behind-basic-load-balancer"></a><a name="scenario3"></a>Scenario 3: virtuell dator utan offentlig IP och bakom Basic Load Balancer
+
+
+ | Typer | Metod | IP-protokoll |
+ | ------------ | ------ | ------------ |
+ |Inget </br> Basic Load Balancer | [SNAT](#snat) med dynamisk IP-adress på instans nivå| TCP </br> UDP | 
+
+ #### <a name="description"></a>Description
+
+
+ När den virtuella datorn skapar ett utgående flöde översätter Azure käll-IP-adressen till en dynamiskt allokerad offentlig käll-IP-adress. Den här offentliga IP-adressen kan **inte konfigureras** och kan inte reserveras. Den här adressen räknas inte mot prenumerationens offentliga IP-adressresurs. 
+
+
+ Den offentliga IP-adressen kommer att släppas och en ny offentlig IP-adress krävs om du distribuerar om: 
+
+
+ * Virtuell dator
+ * Tillgänglighetsuppsättning
+ * Skaluppsättning för virtuella datorer 
+
+
+ Använd inte det här scenariot för att lägga till IP-adresser i en lista över tillåtna. Använd scenario 1 eller 2 där du explicit deklarerar utgående beteende. [SNAT](#snat) -portar är fördelade enligt beskrivningen i [standard tilldelnings tabellen för SNAT-portar](#snatporttable).
+
 
 ## <a name="exhausting-ports"></a><a name="scenarios"></a> Uttömda portar
 
@@ -72,7 +150,7 @@ För UDP-anslutningar använder belastningsutjämnaren en **port-begränsad kon 
 
 En port återanvänds för ett obegränsat antal anslutningar. Porten återanvänds endast om mål-IP-adressen eller porten är annorlunda.
 
-## <a name="port-allocation"></a><a name="preallocatedports"></a> Port tilldelning
+## <a name="default-port-allocation"></a><a name="preallocatedports"></a> Standard port tilldelning
 
 Varje offentlig IP-adress som tilldelas till klient delens IP-adress för belastningsutjämnaren ges 64 000 SNAT-portar för dess medlemmar i Server delens pool. Portar kan inte delas med medlemmar i backend-poolen. Ett antal SNAT-portar kan bara användas av en enda server dels instans för att säkerställa att RETUR paket dirigeras korrekt. 
 

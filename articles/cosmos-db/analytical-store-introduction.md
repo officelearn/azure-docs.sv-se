@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: rosouz
-ms.openlocfilehash: d0727f512ab24342b493ba2563262a9253d95d8c
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 60326b0ba06e1642e2831814dd931c69f6a04f3b
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339984"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330911"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Vad är Azure Cosmos DB Analytical Store (för hands version)?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -19,7 +19,7 @@ ms.locfileid: "93339984"
 > [!IMPORTANT]
 > Azure Cosmos DB Analytical Store är för närvarande en för hands version. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Mer information finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.
 
-Azure Cosmos DB Analytical Store är ett fullständigt isolerat kolumn lager för att möjliggöra storskalig analys av drift data i din Azure Cosmos DB, utan att påverka dina transaktions arbets belastningar.  
+Azure Cosmos DB Analytical Store är ett fullständigt isolerat kolumn lager för att möjliggöra storskalig analys av drift data i din Azure Cosmos DB, utan att påverka dina transaktions arbets belastningar. Azure Cosmos DB transaktions lager är schema-oberoende, och det gör att du kan iterera i dina transaktions program utan att behöva hantera schema-eller index hantering. I motsats till detta är Azure Cosmos DB Analytical Store schematiserade för att optimera prestanda för analytiska frågor. Den här artikeln beskriver i detalj om analytisk lagring.
 
 ## <a name="challenges-with-large-scale-analytics-on-operational-data"></a>Utmaningar med storskalig analys av drift data
 

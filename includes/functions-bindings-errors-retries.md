@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 10/01/2020
 ms.author: glenga
-ms.openlocfilehash: 285c3bf37e9d6de042cb028745fc8b094d34c3a1
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 39c0556350482e171234a3ff9dce0c16ed88d110
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93284391"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93406688"
 ---
 Fel som har Aktiver ATS i en Azure Functions kan komma från något av följande ursprung:
 
@@ -23,15 +23,15 @@ Följande metoder för bra fel hantering är viktigt för att undvika förlust a
 - [Aktivera Application Insights](../articles/azure-functions/functions-monitoring.md)
 - [Använd strukturerad fel hantering](#use-structured-error-handling)
 - [Design för idempotens](../articles/azure-functions/functions-idempotent.md)
-- [Implementera principer för återförsök](#retry-policies) (där det är lämpligt)
+- [Implementera principer för återförsök](#retry-policies-preview) (där det är lämpligt)
 
 ### <a name="use-structured-error-handling"></a>Använd strukturerad fel hantering
 
 Det är viktigt att samla in och logga fel för att övervaka hälso tillståndet för programmet. Den översta nivån i en funktions kod ska innehålla ett try/catch-block. I catch-blocket kan du samla in och logga fel.
 
-## <a name="retry-policies"></a>Principer för återförsök
+## <a name="retry-policies-preview"></a>Principer för återförsök (förhands granskning)
 
-En princip för återförsök kan definieras för alla funktioner för utlösnings typ i din Function-app.  Principen för återförsök kör om en funktion tills körningen lyckades eller tills det maximala antalet återförsök inträffar.  Principer för återförsök kan definieras för alla funktioner i en app eller för enskilda funktioner.  Som standard försöker en Function-app inte göra om meddelanden (förutom de [angivna utlösare som har en princip för återförsök på utlösnings källan](#trigger-specific-retry-support)).  En princip för återförsök utvärderas varje gång en körning resulterar i ett undantag som inte kan identifieras.  Som bästa praxis bör du fånga alla undantag i koden och återskapa eventuella fel som bör resultera i ett nytt försök.  Det går inte att skriva Event Hubs och Azure Cosmos DB kontroll punkter förrän återförsöks principen för körningen har slutförts, vilket innebär att förloppet på den partitionen pausas tills den aktuella batchen har slutförts.
+En princip för återförsök kan definieras för alla funktioner för utlösnings typ i din Function-app.  Principen för återförsök kör om en funktion tills körningen lyckades eller tills det maximala antalet återförsök inträffar.  Principer för återförsök kan definieras för alla funktioner i en app eller för enskilda funktioner.  Som standard försöker en Function-app inte göra om meddelanden (förutom de [angivna utlösare som har en princip för återförsök på utlösnings källan](#using-retry-support-on-top-of-trigger-resilience)).  En princip för återförsök utvärderas varje gång en körning resulterar i ett undantag som inte kan identifieras.  Som bästa praxis bör du fånga alla undantag i koden och utlösa eventuella fel som skulle leda till ett nytt försök.  Det går inte att skriva Event Hubs och Azure Cosmos DB kontroll punkter förrän återförsöks principen för körningen har slutförts, vilket innebär att förloppet på den partitionen pausas tills den aktuella batchen har slutförts.
 
 ### <a name="retry-policy-options"></a>Försök igen princip alternativ
 
@@ -57,6 +57,8 @@ En princip för återförsök kan definieras för en viss funktion.  En funktion
 #### <a name="fixed-delay-retry"></a>Försök till fast fördröjning
 
 # <a name="c"></a>[C#](#tab/csharp)
+
+Nya försök kräver NuGet-paketet [Microsoft. Azure. WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) >= 3.0.23
 
 ```csharp
 [FunctionName("EventHubTrigger")]
@@ -153,6 +155,8 @@ Här är principen för återförsök i *function.jspå* filen:
 
 # <a name="c"></a>[C#](#tab/csharp)
 
+Nya försök kräver NuGet-paketet [Microsoft. Azure. WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) >= 3.0.23
+
 ```csharp
 [FunctionName("EventHubTrigger")]
 [ExponentialBackoffRetry(5, "00:00:04", "00:15:00")]
@@ -247,7 +251,7 @@ Här är principen för återförsök i *function.jspå* filen:
 ```
 ---
 
-|function.jspå egenskap  |Attributets egenskap | Beskrivning |
+|function.jspå egenskap  |Attributets egenskap | Description |
 |---------|---------|---------| 
 |strategi|saknas|Krävs. Återförsöksstrategin som ska användas. Giltiga värden är `fixedDelay` eller `exponentialBackoff` .|
 |maxRetryCount|saknas|Krävs. Maximalt antal tillåtna försök per funktions körning. `-1` innebär ett nytt försök på obestämd tid.|
@@ -255,12 +259,27 @@ Här är principen för återförsök i *function.jspå* filen:
 |minimumInterval|saknas|Den minsta fördröjningen för återförsök när du använder `exponentialBackoff` strategin.|
 |maximumInterval|saknas|Den maximala fördröjningen vid nya försök när du använder `exponentialBackoff` strategin.| 
 
-## <a name="trigger-specific-retry-support"></a>Utlösare för att aktivera stöd för återförsök
+### <a name="retry-limitations-during-preview"></a>Begränsningar för återförsök under för hands versionen
 
-Vissa utlösare ger nya försök till utlösarens källa.  Dessa utlösare återförsök kan användas förutom eller som ersättning för funktionens återförsöks princip för program värden.  Om ett fast antal nya försök önskas bör du använda den utlösade principen för återförsök för principen för allmän värd återförsök.  Följande utlösare stöder återförsök vid utlösarens Källa:
+- För .NET-projekt kan du behöva hämta en version av [Microsoft. Azure. WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) >= 3.0.23 manuellt.
+- I förbruknings planen kan appen skalas ned till noll samtidigt som du försöker utföra de sista meddelandena i en kö.
+- I förbruknings planen kan appen skalas ned när du utför nya försök.  För bästa resultat väljer du ett återförsöksintervall <= 00:01:00 och <= 5 försök.
+
+## <a name="using-retry-support-on-top-of-trigger-resilience"></a>Använda stöd för återförsök ovanpå utlösnings återhämtning
+
+Funktionen för att försöka köra en princip oberoende av eventuella återförsök eller återhämtning som utlösaren tillhandahåller.  Principen för att försöka utföra endast lager på ett elastiskt återställnings försök.  Om du till exempel använder Azure Service Bus har köer som standard ett meddelande leverans på 10.  Standardvärdet för leverans innebär att efter 10 försök att leverera ett Queue-meddelande kommer Service Bus att obeställbara meddelandet.  Du kan definiera en princip för återförsök för en funktion som har en Service Bus-utlösare, men försöken kommer att skiktas över Service Bus leverans försök.  
+
+Om du till exempel använde standard antalet Service Bus leverans antal 10, och definierat en princip för återförsök för funktion på 5.  Meddelandet skulle först ta bort kön och öka Service Bus-leveransens konto till 1.  Om varje körning Miss lyckas, efter fem försök att utlösa samma meddelande, skulle meddelandet markeras som överlappande.  Service Bus kommer omedelbart att köa meddelandet, det skulle utlösa funktionen och öka leverans antalet till 2.  Slutligen, efter 50 eventuella försök (10 Service Bus-leveranser * fem funktions försök per leverans), skulle meddelandet överges och utlöser en obeställbara meddelanden på Service Bus.
+
+> [!WARNING]
+> Vi rekommenderar inte att du anger antalet leveranser för en utlösare som Service Bus köer till 1, vilket innebär att meddelandet inte kommer att besvaras omedelbart efter en enda funktion för nya försök.  Detta beror på att utlösare ger återhämtning med återförsök, medan principen för att försöka igen är bästa möjliga och kan leda till mindre än det önskade antalet återförsök.
+
+### <a name="triggers-with-additional-resiliency-or-retries"></a>Utlösare med ytterligare återhämtning eller återförsök
+
+Följande utlösare stöder återförsök vid utlösarens Källa:
 
 * [Azure Blob Storage](../articles/azure-functions/functions-bindings-storage-blob.md)
 * [Azure Queue Storage](../articles/azure-functions/functions-bindings-storage-queue.md)
 * [Azure Service Bus (kö/ämne)](../articles/azure-functions/functions-bindings-service-bus.md)
 
-Som standard begär de här utlösarna nya försök upp till fem gånger. Efter det femte försöket har både Azure Queue Storage och Azure Service Bus utlösts Skriv ett meddelande till en [Poison-kö](../articles/azure-functions/functions-bindings-storage-queue-trigger.md#poison-messages).
+Som standard begär de flesta utlösare nya försök upp till fem gånger. Efter det femte försöket kommer både Azure Queue Storage att skriva ett meddelande till en [Poison-kö](../articles/azure-functions/functions-bindings-storage-queue-trigger.md#poison-messages).  Standard principen Service Bus kö och ämnes princip skriver ett meddelande till en [kö för obeställbara meddelanden](../articles/service-bus-messaging/service-bus-dead-letter-queues.md) efter 10 försök.

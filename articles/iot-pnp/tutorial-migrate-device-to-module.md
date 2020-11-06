@@ -1,18 +1,18 @@
 ---
-title: Anslut en allmän IoT Plug and Play-modul | Microsoft Docs
-description: Använd exempel C# IoT Plug and Play enhets kod i en allmän modul.
+title: Självstudie – ansluta en allmän Azure IoT Plug and Play-modul | Microsoft Docs
+description: Självstudie – använda exempel C# IoT Plug and Play enhets kod i en allmän modul.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: d425152f83821e1d157065370bd02e2d990ec876
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: dc86340026ec7b85afc9e5208ea8ef8c32d8bac6
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426928"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421472"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>Självstudie: ansluta en IoT Plug and Play-modul (C#)
 
@@ -22,7 +22,7 @@ En enhet är en IoT Plug and Play-enhet om den publicerar sitt modell-ID när de
 
 För att demonstrera hur du implementerar en IoT Plug and Play-modul visar den här självstudien hur du konverterar termostat C#-enhets exemplet till en allmän modul.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
@@ -33,15 +33,15 @@ Om du vill slutföra den här självstudien i Windows installerar du följande p
 
 Använd Azure IoT Explorer-verktyget för att lägga till en ny enhet som kallas **min-module-enhet** i IoT Hub.
 
-Lägg till en modul som kallas **My-module** i **min-modul-Device**:
+Lägg till en modul som kallas **My-module** i **min-modul-Device** :
 
 1. I Azure IoT Explorer-verktyget, navigerar du till enheten för **min-modul-enhet** .
 
-1. Välj **modulens identitet**och välj sedan **+ Lägg till**.
+1. Välj **modulens identitet** och välj sedan **+ Lägg till**.
 
 1. Ange **My-module** som modulens identitets namn och välj **Spara**.
 
-1. Välj **min-modul**i listan med modul identiteter. Kopiera sedan den primära anslutnings strängen. Du använder den här modulens anslutnings sträng senare i den här självstudien.
+1. Välj **min-modul** i listan med modul identiteter. Kopiera sedan den primära anslutnings strängen. Du använder den här modulens anslutnings sträng senare i den här självstudien.
 
 1. Välj fliken med **dubbla** flikar och Lägg märke till att det inte finns några önskade eller rapporterade egenskaper:
 

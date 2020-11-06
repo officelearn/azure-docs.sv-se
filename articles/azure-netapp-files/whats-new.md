@@ -12,18 +12,24 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/30/2020
+ms.date: 11/05/2020
 ms.author: b-juche
-ms.openlocfilehash: 56ae3ac1331ed054a1fb808ae06e990b67c06bae
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 3f13d997f73e9737b8770eec7e0742d50bf1abb8
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932421"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421710"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Vad är nytt i Azure NetApp Files
 
 Azure NetApp Files uppdateras regelbundet. Den här artikeln innehåller en översikt över de senaste nya funktionerna och förbättringarna. 
+
+## <a name="november-2020"></a>November 2020
+
+* [Återställ ögonblicks bild](azure-netapp-files-manage-snapshots.md#revert-a-volume-using-snapshot-revert)
+
+    Med funktionen för återställning av ögonblicks bilder kan du snabbt återställa en volym till det tillstånd den var i när en viss ögonblicks bild togs. I de flesta fall går det mycket snabbare att återställa en volym än att återställa enskilda filer från en ögonblicks bild till det aktiva fil systemet. Det är också mer utrymmes effektivt jämfört med att återställa en ögonblicks bild till en ny volym.
 
 ## <a name="september-2020"></a>September 2020
 
@@ -46,10 +52,10 @@ Azure NetApp Files uppdateras regelbundet. Den här artikeln innehåller en öve
 * Nya [mått](azure-netapp-files-metrics.md):   
 
     * Nya volym mått: 
-        * *Storlek på allokerad volym: den allokerade*storleken på en volym
+        * *Storlek på allokerad volym: den allokerade* storleken på en volym
     * Mått för nya pooler: 
-        * *Allokerad storlek för pool*: poolens allokerade storlek 
-        * *Total ögonblicks bild storlek för poolen*: summan av ögonblicks bildernas storlek från alla volymer i poolen
+        * *Allokerad storlek för pool* : poolens allokerade storlek 
+        * *Total ögonblicks bild storlek för poolen* : summan av ögonblicks bildernas storlek från alla volymer i poolen
 
 ## <a name="july-2020"></a>Juli 2020
 

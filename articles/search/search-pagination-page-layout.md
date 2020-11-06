@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 08641814e2a4fdf6f174f94b1e38e4124cf531d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e583cedc04113615c50cc9906cbd11a99ff48683
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934930"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421727"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Så här arbetar du med Sök resultat i Azure Kognitiv sökning
 
 I den här artikeln förklaras hur du får ett svar på frågan som kommer tillbaka med ett totalt antal matchande dokument, rad brytnings resultat, sorterade resultat och träff markerade termer.
 
-Strukturen för ett svar bestäms av parametrarna i frågan: [Sök dokument](/rest/api/searchservice/Search-Documents) i REST API-eller [DocumentSearchResult-klassen](/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) i .NET SDK.
+Strukturen för ett svar bestäms av parametrarna i frågan: [Sök dokument](/rest/api/searchservice/Search-Documents) i REST API-eller [SearchResults-klassen](/dotnet/api/azure.search.documents.models.searchresults-1) i .NET SDK.
 
 ## <a name="result-composition"></a>Resultat sammansättning
 
@@ -52,7 +52,7 @@ Om du vill returnera ett annat antal matchande dokument lägger du till `$top` o
 + Returnera den andra uppsättningen, hoppa över de första 15 för att få nästa 15: `$top=15&$skip=15` . Gör samma sak för den tredje uppsättningen 15: `$top=15&$skip=30`
 
 Resultatet av sid brytnings frågor är inte garanterat stabilt om det underliggande indexet ändras. Växling ändrar värdet för `$skip` för varje sida, men varje fråga är oberoende och fungerar på den aktuella vyn av data som finns i indexet vid tidpunkten (med andra ord finns det ingen cachelagring eller ögonblicks bild av resultat, till exempel de som finns i en databas för generell användning).
- 
+ 
 Följande är ett exempel på hur du kan få dubbletter. Anta ett index med fyra dokument:
 
 ```text
@@ -61,21 +61,21 @@ Följande är ett exempel på hur du kan få dubbletter. Anta ett index med fyra
 { "id": "3", "rating": 2 }
 { "id": "4", "rating": 1 }
 ```
- 
+ 
 Anta nu att du vill att resultat returnerades två i taget, sorterade efter klassificering. Du kör den här frågan för att få den första sidan med resultat: `$top=2&$skip=0&$orderby=rating desc` , som producerar följande resultat:
 
 ```text
 { "id": "1", "rating": 5 }
 { "id": "2", "rating": 3 }
 ```
- 
+ 
 I tjänsten antar vi att ett femte dokument läggs till i indexet i mellan fråga-anrop: `{ "id": "5", "rating": 4 }` .  Strax därefter kör du en fråga för att hämta den andra sidan: `$top=2&$skip=2&$orderby=rating desc` och får följande resultat:
 
 ```text
 { "id": "2", "rating": 3 }
 { "id": "3", "rating": 2 }
 ```
- 
+ 
 Observera att dokument 2 hämtas två gånger. Detta beror på att det nya dokumentet 5 har ett större värde för klassificering, så det sorteras före dokument 2 och på den första sidan. Även om det här beteendet kan vara oväntat, är det vanligt av hur en sökmotor beter sig.
 
 ## <a name="ordering-results"></a>Ordna resultaten
@@ -84,7 +84,7 @@ För fullständiga texts öknings frågor rangordnas resultaten automatiskt efte
 
 Sök Poäng förmedla allmän känsla av relevans, vilket återspeglar styrkan hos matchning jämfört med andra dokument i samma resultat uppsättning. Poängen är inte alltid konsekventa från en fråga till nästa, så när du arbetar med frågor kan du lägga märke till små skillnader i hur Sök dokumenten beställs. Det finns flera förklaringar till varför detta kan inträffa.
 
-| Orsak | Beskrivning |
+| Orsak | Description |
 |-----------|-------------|
 | Data flyktiga | Index innehållet varierar när du lägger till, ändrar eller tar bort dokument. Termen frekvens kommer att ändras när index uppdateringar bearbetas över tid, vilket påverkar Sök resultaten för matchande dokument. |
 | Flera repliker | För tjänster som använder flera repliker utfärdas frågor till varje replik parallellt. Index statistiken som används för att beräkna ett Sök Resultat beräknas per replik, med resultat som sammanfogas och beställs i fråge svaret. Repliker är oftast speglar varandra, men statistik kan skilja sig på grund av små skillnader i tillstånd. En replik kan till exempel ha borttagna dokument som bidrar till sin statistik, som sammanfogades från andra repliker. Normalt sett är skillnader i statistik per replik mer märkbart i mindre index. |

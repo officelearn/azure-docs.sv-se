@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: af4797d7d7d7cb866674747ea8871bebb059207d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4fd8fb2e40fa44c5aec3f14bfd586187c952df0d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90031253"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422441"
 ---
 # <a name="about-microsoft-security-code-analysis"></a>Om Microsofts säkerhets kod analys
 
@@ -39,7 +39,7 @@ Att lägga till Microsofts säkerhets kod analys verktyg i din Azure DevOps-pipe
 
 ### <a name="clean-builds"></a>Rensa versioner
 
-När du har åtgärdat de första problemen som har rapporter ATS av verktygen kan du konfigurera tillägget att avbryta versioner vid nya problem.Det är enkelt att konfigurera kontinuerliga integrerings versioner på varje pull-begäran.
+När du har åtgärdat de första problemen som har rapporter ATS av verktygen kan du konfigurera tillägget att avbryta versioner vid nya problem. Det är enkelt att konfigurera kontinuerliga integrerings versioner på varje pull-begäran.
 
 ### <a name="set-it-and-forget-it"></a>Ange den och Glöm den
 
@@ -73,7 +73,7 @@ Lösen ord och andra hemligheter lagrade i käll koden är ett betydande problem
 
 ### <a name="roslyn-analyzers"></a>Roslyn-analysverktyg
 
-Roslyn-analyser är Microsofts Compilation-integrerade verktyg för statisk analys av hanterade C# och Visual Basic kod. Mer information finns i [Roslyn-baserade analyser](https://docs.microsoft.com/dotnet/standard/analyzers/api-analyzer).
+Roslyn-analyser är Microsofts Compilation-integrerade verktyg för statisk analys av hanterade C# och Visual Basic kod. Mer information finns i [Roslyn-baserade analyser](https://docs.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/security-warnings).
 
 ### <a name="tslint"></a>TSLint
 

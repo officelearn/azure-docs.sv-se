@@ -1,7 +1,7 @@
 ---
 title: Vad är nytt i Azure Active Directory program hantering
 description: Ny och uppdaterad dokumentation för Azure Active Directory program hantering.
-ms.date: 10/21/2020
+ms.date: 11/05/2020
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -10,16 +10,34 @@ ms.author: kenwith
 author: kenwith
 manager: CelesteDG
 services: active-directory
-ms.openlocfilehash: 569c111c392e6bbaf9a54d17dc6e88bc8d851dc6
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 257057c4688fcf75651df4250c601eb1f1a2e8a3
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428029"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422611"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Azure Active Directory program hantering: Nyheter
 
 Välkommen till nyheter i Azure Active Directory program hanterings dokumentation. Den här artikeln innehåller nya dokument som har lagts till och de som har haft betydande uppdateringar under de senaste tre månaderna. Information om vad som är nytt i program hanterings tjänsten finns i [Nyheter i Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="october-2020"></a>Oktober 2020
+
+### <a name="new-articles"></a>Nya artiklar
+
+- [Azure Active Directory program hantering: Nyheter](whats-new-docs.md)
+- [Förstå OIDC-baserad enkel inloggning](configure-oidc-single-sign-on.md)
+- [Konfigurera behörighetsklassificeringar](configure-permission-classifications.md)
+- [Konfigurera grupp ägare medgivande till appar som har åtkomst till grupp data](configure-user-consent-groups.md)
+- [Hantera principer för appmedgivande](manage-app-consent-policies.md)
+
+### <a name="updated-articles"></a>Uppdaterade artiklar
+
+- [Problem med att logga in till SAML-baserade enkel inloggning konfigurerade appar](application-sign-in-problem-federated-sso-gallery.md)
+- [Problem med att installera anslutningsappen för programproxyagenten](application-proxy-connector-installation-problem.md)
+- [Flytta programautentisering från Active Directory Federation Services (AD FS) till Azure Active Directory](migrate-adfs-apps-to-azure.md)
+- [Konfigurera hur slutanvändare godkänner program](configure-user-consent.md)
+
 
 ## <a name="september-2020"></a>September 2020
 

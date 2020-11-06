@@ -5,20 +5,39 @@ ms.date: 02/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 3e84db3aa13ae77f931a46683f0c5e4572f6ce44
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c7d41d889692856a9818aacd265e67b0c2d3d1ad
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87852641"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422874"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-command-line-tools"></a>Ansluta Azure Functions till Azure Storage med hjälp av kommando rads verktyg
 
-I den här artikeln integrerar du en Azure Storage kö med den funktion och det lagrings konto som du skapade i [föregående snabb start](functions-create-first-azure-function-azure-cli.md). Du uppnår denna integrering genom att använda en *utgående bindning* som skriver data från en http-begäran till ett meddelande i kön. Om du slutför den här artikeln debiteras inga ytterligare kostnader utöver de få USD cent i föregående snabb start. Mer information om bindningar finns i [Azure Functions utlösare och bindningar begrepp](functions-triggers-bindings.md).
+I den här artikeln integrerar du en Azure Storage kö med den funktion och det lagrings konto som du skapade i föregående snabb starts artikel. Du uppnår denna integrering genom att använda en *utgående bindning* som skriver data från en http-begäran till ett meddelande i kön. Om du slutför den här artikeln debiteras inga ytterligare kostnader utöver de få USD cent i föregående snabb start. Mer information om bindningar finns i [Azure Functions utlösare och bindningar begrepp](functions-triggers-bindings.md).
 
 ## <a name="configure-your-local-environment"></a>Konfigurera din lokala miljö
 
-Innan du börjar måste du slutföra artikeln, [snabb start: skapa ett Azure Functions-projekt från kommando raden](functions-create-first-azure-function-azure-cli.md). Om du redan har rensat resurser i slutet av den artikeln går du igenom stegen igen för att återskapa Function-appen och relaterade resurser i Azure.
+Innan du börjar måste du slutföra artikeln, [snabb start: skapa ett Azure Functions-projekt från kommando raden][previous-quickstart]. Om du redan har rensat resurser i slutet av den artikeln går du igenom stegen igen för att återskapa Function-appen och relaterade resurser i Azure.
+
+::: zone pivot="programming-language-csharp"  
+Innan du börjar måste du slutföra artikeln, [snabb start: skapa ett Azure Functions-projekt från kommando raden](create-first-function-cli-csharp.md). Om du redan har rensat resurser i slutet av den artikeln går du igenom stegen igen för att återskapa Function-appen och relaterade resurser i Azure.  
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
+Innan du börjar måste du slutföra artikeln, [snabb start: skapa ett Azure Functions-projekt från kommando raden](create-first-function-cli-node.md). Om du redan har rensat resurser i slutet av den artikeln går du igenom stegen igen för att återskapa Function-appen och relaterade resurser i Azure.  
+::: zone-end   
+::: zone pivot="programming-language-java"  
+Innan du börjar måste du slutföra artikeln, [snabb start: skapa ett Azure Functions-projekt från kommando raden](create-first-function-cli-java.md). Om du redan har rensat resurser i slutet av den artikeln går du igenom stegen igen för att återskapa Function-appen och relaterade resurser i Azure.  
+::: zone-end   
+::: zone pivot="programming-language-typescript"  
+Innan du börjar måste du slutföra artikeln, [snabb start: skapa ett Azure Functions-projekt från kommando raden](create-first-function-cli-typescript.md). Om du redan har rensat resurser i slutet av den artikeln går du igenom stegen igen för att återskapa Function-appen och relaterade resurser i Azure.  
+::: zone-end   
+::: zone pivot="programming-language-python"  
+Innan du börjar måste du slutföra artikeln, [snabb start: skapa ett Azure Functions-projekt från kommando raden](create-first-function-cli-python.md). Om du redan har rensat resurser i slutet av den artikeln går du igenom stegen igen för att återskapa Function-appen och relaterade resurser i Azure.  
+::: zone-end   
+::: zone pivot="programming-language-powershell"  
+Innan du börjar måste du slutföra artikeln, [snabb start: skapa ett Azure Functions-projekt från kommando raden](create-first-function-cli-powershell.md). Om du redan har rensat resurser i slutet av den artikeln går du igenom stegen igen för att återskapa Function-appen och relaterade resurser i Azure.  
+::: zone-end   
 
 [!INCLUDE [functions-cli-get-storage-connection](../../includes/functions-cli-get-storage-connection.md)]
 
@@ -107,7 +126,7 @@ mvn azure-functions:deploy
 
     # <a name="curl"></a>[klammerparentes](#tab/curl)
     
-    Kör [`curl`](https://curl.haxx.se/) med **anrops-URL: en**och Lägg till parametern `&name=Functions` . Kommandots utdata ska vara texten, "Hello Functions".
+    Kör [`curl`](https://curl.haxx.se/) med **anrops-URL: en** och Lägg till parametern `&name=Functions` . Kommandots utdata ska vara texten, "Hello Functions".
     
     ![Resultatet av funktionen körs på Azure med hjälp av sväng](./media/functions-add-output-binding-storage-queue-cli/function-test-cloud-curl.png)
 
@@ -129,33 +148,41 @@ Du har uppdaterat din HTTP-utlöst funktion för att skriva data till en lagring
 
 + [Arbeta med Azure Functions Core Tools](functions-run-local.md)  
 
++ [Azure Functions utlösare och bindningar](functions-triggers-bindings.md)
+
 ::: zone pivot="programming-language-csharp"  
 + [Exempel på kompletta funktions projekt i C#](/samples/browse/?products=azure-functions&languages=csharp).
 
 + [Referens för Azure Functions C#-utvecklare](functions-dotnet-class-library.md)  
+
+[previous-quickstart]: create-first-function-cli-csharp.md
+
 ::: zone-end 
 ::: zone pivot="programming-language-javascript"  
 + [Exempel på kompletta funktions projekt i Java Script](/samples/browse/?products=azure-functions&languages=javascript).
 
 + [Azure Functions JavaScript-guide för utvecklare](functions-reference-node.md)  
+
+[previous-quickstart]: create-first-function-cli-javascript.md
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 + [Exempel på kompletta funktions projekt i typescript](/samples/browse/?products=azure-functions&languages=typescript).
 
 + [Guide för Azure Functions TypeScript-utvecklare](functions-reference-node.md#typescript)  
+
+[previous-quickstart]: create-first-function-cli-typescript.md
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 + [Exempel på kompletta funktions projekt i python](/samples/browse/?products=azure-functions&languages=python).
 
 + [Guide för Azure Functions python-utvecklare](functions-reference-python.md)  
+
+[previous-quickstart]: create-first-function-cli-python.md
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 + [Exempel på kompletta funktions projekt i PowerShell](/samples/browse/?products=azure-functions&languages=azurepowershell).
 
 + [Azure Functions PowerShell-guide för utvecklare](functions-reference-powershell.md) 
+
+[previous-quickstart]: create-first-function-cli-powershell.md
 ::: zone-end
-+ [Azure Functions utlösare och bindningar](functions-triggers-bindings.md)
-
-+ [Prissättnings sida för funktioner](https://azure.microsoft.com/pricing/details/functions/)
-
-+ [Uppskatta förbruknings Plans kostnader](functions-consumption-costs.md) 

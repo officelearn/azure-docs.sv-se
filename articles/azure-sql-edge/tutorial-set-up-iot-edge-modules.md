@@ -9,12 +9,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sourabha, sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: a8c5b20f833ab09463e1ae8b5bd3825c7c23f85e
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 75e6ebaea4c5ba883820d2309212b35fed128142
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394941"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422135"
 ---
 # <a name="set-up-iot-edge-modules-and-connections"></a>Konfigurera IoT Edge moduler och anslutningar
 
@@ -49,27 +49,30 @@ Ange nu autentiseringsuppgifter för behållare i IoT Edge-modulen.
    Användarnamn|Användarnamn
    Lösenord|Lösenord
   
-## <a name="deploy-the-data-generator-module"></a>Distribuera modulen data Generator
+## <a name="build-push-and-deploy-the-data-generator-module"></a>Bygg, push och distribuera data Generator-modulen
 
-1. I avsnittet **IoT Edge** under **Automatisk enhets hantering** klickar du på **enhets-ID**. I den här självstudien är ID: t `IronOrePredictionDevice` och klickar sedan på **Ange moduler**.
-
-2.  Under avsnittet **IoT Edge moduler** på sidan **Ange moduler på enhet:** klickar du på **+ Lägg till** och väljer **IoT Edge modul**.
-
-3. Ange ett giltigt namn och bild-URI för IoT Edge-modulen.
-   Avbildnings-URI: n finns i behållar registret i resurs gruppen som skapades i del ett av den här självstudien. Välj avsnittet **databaser** under **tjänster**. I den här självstudien väljer du den lagrings plats som heter `silicaprediction` . Välj lämplig tagg. Bild-URI: n kommer att ha formatet:
-
-   *inloggnings Server för containerregistry* / *namn på databas* : *taggnamn*
-
-   Exempel:
-
+1. Klona [projektfilerna](https://github.com/microsoft/sqlsourabh/tree/main/SQLEdgeSamples/IoTEdgeSamples/IronOreSilica) till datorn.
+2. Öppna filen **IronOre_Silica_Predict. SLN** med Visual Studio 2019
+3. Uppdatera behållar register informationen i **deployment.template.jspå** 
+   ```json
+   "registryCredentials":{
+        "RegistryName":{
+            "username":"",
+            "password":""
+            "address":""
+        }
+    }
    ```
-   ASEdemocontregistry.azurecr.io/silicaprediction:amd64
+4. Uppdatera **modules.jspå** filen för att ange mål behållar registret (eller lagrings platsen för modulen)
+   ```json
+   "image":{
+        "repository":"samplerepo.azurecr.io/ironoresilicapercent",
+        "tag":
+    }
    ```
-
-4. Lämna *principen för omstart* och *önskade status* fält som är.
-
-5. Klicka på **Lägg till**.
-
+5. Kör projektet i antingen fel söknings-eller publicerings läge för att säkerställa att projektet körs utan problem 
+6. Skicka projektet till behållar registret genom att högerklicka på projekt namnet och sedan välja **Bygg-och push-IoT Edge moduler**.
+7. Distribuera data Generator-modulen som en IoT Edge modul till din Edge-enhet. 
 
 ## <a name="deploy-the-azure-sql-edge-module"></a>Distribuera Azure SQL Edge-modulen
 

@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: bfdda75c0826ed12fbce1eb47680f91abbde4934
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 051a7f506d351a17764e38c760ffba06d224cc38
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91661065"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422577"
 ---
 # <a name="create-azure-arc-data-controller-using-kubernetes-tools"></a>Skapa en Azure båg-datakontrollant med Kubernetes-verktyg
 
@@ -102,7 +102,7 @@ containers:
       - env:
         - name: ACCEPT_EULA
           value: "Y"
-        #image: mcr.microsoft.com/arcdata/arc-bootstrapper:public-preview-sep-2020 <-- template value to change
+        #image: mcr.microsoft.com/arcdata/arc-bootstrapper:public-preview-oct-2020  <-- template value to change
         image: <your registry DNS name or IP address>/<your repo>/arc-bootstrapper:<your tag>
         imagePullPolicy: IfNotPresent
         name: bootstrapper
@@ -170,21 +170,21 @@ Börja med att skapa en kopia av [mallfilen](https://raw.githubusercontent.com/m
 Redigera följande efter behov:
 
 **KUNNA**
-- **plats**: ändra till den Azure-plats där _metadata_ om data styrenheten ska lagras.  Du kan se en lista över tillgängliga Azure-platser i artikeln [skapa datacontroller-översikt](create-data-controller.md) .
-- **resourceGroup**: Azure-resurs gruppen där du vill skapa Azure-resursen data controller i Azure Resource Manager.  Normalt bör den här resurs gruppen redan finnas, men den är inte obligatorisk förrän den tid som du överför data till Azure.
-- **prenumeration**: GUID för Azure-prenumerationen för den prenumeration som du vill skapa Azure-resurserna i.
+- **plats** : ändra till den Azure-plats där _metadata_ om data styrenheten ska lagras.  Du kan se en lista över tillgängliga Azure-platser i artikeln [skapa datacontroller-översikt](create-data-controller.md) .
+- **resourceGroup** : Azure-resurs gruppen där du vill skapa Azure-resursen data controller i Azure Resource Manager.  Normalt bör den här resurs gruppen redan finnas, men den är inte obligatorisk förrän den tid som du överför data till Azure.
+- **prenumeration** : GUID för Azure-prenumerationen för den prenumeration som du vill skapa Azure-resurserna i.
 
 **REKOMMENDERAS FÖR ATT GRANSKA OCH EVENTUELLT ÄNDRA STANDARDVÄRDEN**
-- **lagring.. className**: den lagrings klass som ska användas för datakontrollantens data och loggfiler.  Om du är osäker på tillgängliga lagrings klasser i Kubernetes-klustret kan du köra följande kommando: `kubectl get storageclass` .  Standardvärdet är att `default` det finns en lagrings klass som finns och som har ett namn som `default` inte är en lagrings klass som _är_ standard.  Obs! det finns två className-inställningar som ska anges till önskad lagrings klass – en för data och en för loggar.
-- **ServiceType**: ändra tjänst typen till `NodePort` om du inte använder en Loadbalancer.  Obs: det finns två serviceType-inställningar som måste ändras.
+- **lagring.. className** : den lagrings klass som ska användas för datakontrollantens data och loggfiler.  Om du är osäker på tillgängliga lagrings klasser i Kubernetes-klustret kan du köra följande kommando: `kubectl get storageclass` .  Standardvärdet är att `default` det finns en lagrings klass som finns och som har ett namn som `default` inte är en lagrings klass som _är_ standard.  Obs! det finns två className-inställningar som ska anges till önskad lagrings klass – en för data och en för loggar.
+- **ServiceType** : ändra tjänst typen till `NodePort` om du inte använder en Loadbalancer.  Obs: det finns två serviceType-inställningar som måste ändras.
 
 **VALFRITT**
-- **namn**: standard namnet för datakontrollanten är `arc` , men du kan ändra den om du vill.
-- **DisplayName**: Ange värdet till samma värde som attributet name överst i filen.
-- **register**: Microsoft container Registry är standard.  Om du hämtar bilderna från Microsoft Container Registry och skickar [dem till ett privat behållar register](offline-deployment.md), anger du IP-adressen eller DNS-namnet för ditt register här.
-- **dockerRegistry**: den image-pull-hemlighet som ska användas för att hämta avbildningar från ett privat behållar register om det behövs.
-- **databas**: standard lagrings platsen på Microsoft container Registry är `arcdata` .  Om du använder ett privat behållar register anger du sökvägen till den mapp/lagrings plats som innehåller de avbildningar av Azure arr-aktiverade data Services-behållare.
-- **imageTag**: den aktuella senaste version-taggen är standard i mallen, men du kan ändra den om du vill använda en äldre version.
+- **namn** : standard namnet för datakontrollanten är `arc` , men du kan ändra den om du vill.
+- **DisplayName** : Ange värdet till samma värde som attributet name överst i filen.
+- **register** : Microsoft container Registry är standard.  Om du hämtar bilderna från Microsoft Container Registry och skickar [dem till ett privat behållar register](offline-deployment.md), anger du IP-adressen eller DNS-namnet för ditt register här.
+- **dockerRegistry** : den image-pull-hemlighet som ska användas för att hämta avbildningar från ett privat behållar register om det behövs.
+- **databas** : standard lagrings platsen på Microsoft container Registry är `arcdata` .  Om du använder ett privat behållar register anger du sökvägen till den mapp/lagrings plats som innehåller de avbildningar av Azure arr-aktiverade data Services-behållare.
+- **imageTag** : den aktuella senaste version-taggen är standard i mallen, men du kan ändra den om du vill använda en äldre version.
 
 Exempel på en slutförd datacontroller yaml-fil:
 ```yaml
@@ -200,7 +200,7 @@ spec:
     serviceAccount: sa-mssql-controller
   docker:
     imagePullPolicy: Always
-    imageTag: public-preview-sep-2020
+    imageTag: public-preview-oct-2020 
     registry: mcr.microsoft.com
     repository: arcdata
   security:

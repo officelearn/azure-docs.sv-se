@@ -1,18 +1,18 @@
 ---
-title: Anslut IoT-Plug and Play exempel C-enhets kod till IoT Hub | Microsoft Docs
-description: Skapa och kör IoT Plug and Play enhets kod på Linux eller Windows som ansluter till en IoT-hubb. Använd Azure IoT Explorer-verktyget för att visa informationen som skickas av enheten till hubben.
+title: Snabb start – ansluta IoT Plug and Play exempel C enhets kod till Azure IoT Hub | Microsoft Docs
+description: Snabb start – skapa och kör IoT Plug and Play exempel enhets kod på Linux eller Windows som ansluter till en IoT-hubb. Använd Azure IoT Explorer-verktyget för att visa informationen som skickas av enheten till hubben.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: e490171fd533783aab9fd44798a9c81c55faf89f
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: d69eca10a3ee19919d7cd9e748486e30db95e749
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047938"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421676"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-running-on-linux-or-windows-to-iot-hub-c"></a>Snabb start: ansluta ett exempel på IoT Plug and Play Device-program som körs på Linux eller Windows till IoT Hub (C)
 
@@ -20,7 +20,7 @@ ms.locfileid: "92047938"
 
 Den här snabb starten visar hur du skapar ett exempel på IoT Plug and Play Device-program, ansluter det till din IoT-hubb och använder Azure IoT Explorer-verktyget för att Visa telemetri som skickas. Exempel programmet skrivs i C och ingår i Azure IoT-enhetens SDK för C. Ett Solution Builder kan använda Azure IoT Explorer-verktyget för att förstå funktionerna i en IoT Plug and Play-enhet utan att behöva visa någon enhets kod.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
@@ -34,7 +34,7 @@ I den här snabb starten förutsätter vi att du använder Ubuntu Linux. Stegen 
 
 För att slutföra den här snabb starten på Linux installerar du följande program vara i din lokala Linux-miljö:
 
-Installera **gcc**, **git**, **cmake**och alla nödvändiga beroenden med `apt-get` kommandot:
+Installera **gcc** , **git** , **cmake** och alla nödvändiga beroenden med `apt-get` kommandot:
 
 ```sh
 sudo apt-get update

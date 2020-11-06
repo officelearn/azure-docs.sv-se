@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2020
-ms.openlocfilehash: 5fb82c6098352076307f71eee022074a247e3cd9
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: cf3c07f32f15ff176974219bd8143a1ea315c945
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629348"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93423053"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Översikt över affärs kontinuitet med Azure Database for PostgreSQL-enskild server
 
@@ -21,9 +21,14 @@ Den här översikten beskriver de funktioner som Azure Database for PostgreSQL t
 
 När du utvecklar din verksamhets kontinuitets plan måste du förstå hur lång tid det tar innan programmet återställs fullständigt efter störnings händelsen – detta är ditt återställnings tids mål (RTO). Du måste också förstå den maximala mängden senaste data uppdateringar (tidsintervall) som programmet kan tolerera vid återställning efter en störnings händelse – detta är återställnings punkt målet.
 
-Azure Database for PostgreSQL tillhandahåller funktioner för verksamhets kontinuitet som innehåller geo-redundanta säkerhets kopieringar med möjligheten att initiera geo-återställning och distribuera Läs repliker i en annan region. Var och en har olika egenskaper för återställnings tiden och eventuell data förlust. Med funktionen [geo-återställning](concepts-backup.md) skapas en ny server med hjälp av de säkerhetskopierade data som replikeras från en annan region. Den totala tid det tar att återställa och återställa beror på databasens storlek och mängden loggar som ska återställas. Den totala tiden för att upprätta servern varierar från några minuter till några timmar. Med [Läs repliker](concepts-read-replicas.md)strömmas transaktions loggar från den primära asynkront till repliken. Fördröjningen mellan den primära och repliken beror på svars tiden mellan platserna och även mängden data som ska överföras. Om det uppstår ett fel på en primär plats, till exempel ett tillgänglighets zon fel, ger replikeringen en kortare RTO och minskad data förlust. 
+Azure Database for PostgreSQL tillhandahåller funktioner för verksamhets kontinuitet som innehåller geo-redundanta säkerhets kopieringar med möjligheten att initiera geo-återställning och distribuera Läs repliker i en annan region. Var och en har olika egenskaper för återställnings tiden och eventuell data förlust. Med funktionen [geo-återställning](concepts-backup.md) skapas en ny server med hjälp av de säkerhetskopierade data som replikeras från en annan region. Den totala tid det tar att återställa och återställa beror på databasens storlek och mängden loggar som ska återställas. Den totala tiden för att upprätta servern varierar från några minuter till några timmar. Med [Läs repliker](concepts-read-replicas.md)strömmas transaktions loggar från den primära asynkront till repliken. Om det uppstår ett avbrott i den primära databasen på grund av ett fel på zon nivå eller ett fel på regions nivå, är det en kortare RTO och minskad data förlust.
 
-I följande tabell jämförs RTO och återställnings punkt i ett typiskt scenario:
+> [!NOTE]
+> Fördröjningen mellan den primära och repliken beror på svars tiden mellan platserna, mängden data som ska överföras och viktigast av den primära serverns Skriv arbets belastning. Tung Skriv arbets belastningar kan generera betydande fördröjning. 
+>
+> På grund av asynkron typ av replikering som används för Read-Replicas **bör de inte** betraktas som en lösning för hög tillgänglighet eftersom den högre lags kan betyda högre RTO och återställnings takt. Endast för arbets belastningar där fördröjningen är mindre genom högsta och låg belastnings tid för arbets belastningen kan läsa repliker fungera som ett alternativ. Annars är Läs repliker avsedda för äkta Läs skala för klara tunga arbets belastningar och för DR-scenarier (haveri beredskap).
+
+I följande tabell jämförs RTO och återställnings punkt i ett **typiskt arbets belastnings** scenario:
 
 | **Kapacitet** | **Basic** | **Generell användning** | **Minnesoptimerad** |
 | :------------: | :-------: | :-----------------: | :------------------: |
@@ -31,7 +36,7 @@ I följande tabell jämförs RTO och återställnings punkt i ett typiskt scenar
 | Geo-återställning från geo-replikerade säkerhets kopieringar | Stöds inte | RTO – varierar <br/>Återställnings < 1 h | RTO – varierar <br/>Återställnings < 1 h |
 | Skrivskyddade repliker | RTO-minuter * <br/>Återställnings < 5 min * | RTO-minuter * <br/>Återställnings < 5 min *| RTO-minuter * <br/>Återställnings < 5 min *|
 
-\* RTO och återställningen kan vara mycket högre i vissa fall, beroende på olika faktorer, inklusive primär databasens arbets belastning och svars tid mellan regioner. 
+ \* RTO och återställningen **kan vara mycket högre** i vissa fall beroende på olika faktorer, inklusive svars tider mellan platser, mängden data som ska överföras och primärt primär databas Skriv arbets belastning. 
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Återställa en server efter ett användar-eller program fel
 
@@ -56,7 +61,7 @@ Funktionen geo-Restore återställer servern med geo-redundanta säkerhets kopie
 > Geo-återställning är bara möjlig om du har upprättat servern med Geo-redundant lagring av säkerhets kopior. Om du vill växla från lokalt redundant till geo-redundanta säkerhets kopieringar för en befintlig server måste du ta en dump med pg_dump av din befintliga server och återställa den till en nyligen skapad server som kon figurer ATS med geo-redundanta säkerhets kopior.
 
 ## <a name="cross-region-read-replicas"></a>Läs repliker i flera regioner
-Du kan använda en oberoende region för att läsa och förbättra verksamhets kontinuiteten och Disaster Recovery-planeringen. Läs repliker uppdateras asynkront med hjälp av PostgreSQL-teknik för fysisk replikering. Lär dig mer om Läs repliker, tillgängliga regioner och hur du växlar över från [artikeln Läs repliker](concepts-read-replicas.md). 
+Du kan använda en oberoende region för att läsa och förbättra verksamhets kontinuiteten och Disaster Recovery-planeringen. Läs repliker uppdateras asynkront med hjälp av PostgreSQL-teknik för fysisk replikering och kan vara en fördröjning på den primära. Lär dig mer om Läs repliker, tillgängliga regioner och hur du växlar över från [artikeln Läs repliker](concepts-read-replicas.md). 
 
 ## <a name="faq"></a>Vanliga frågor
 ### <a name="where-does-azure-database-for-postgresql-store-customer-data"></a>Var lagrar Azure Database for PostgreSQL kund information?

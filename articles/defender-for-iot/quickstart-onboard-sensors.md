@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2020
 ms.author: rkarlin
-ms.openlocfilehash: e90bdcfe22828d85ebeeb74314617fc6eac81385
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 28d64f5d9d845c2a14f0277799213501e1d68010
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094859"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421772"
 ---
 # <a name="quickstart-deploy-and-onboard-a-sensor"></a>Snabb start: Distribuera och publicera en sensor
 
@@ -39,7 +39,7 @@ Med onboarding-sensorer kan du:
 |------ | ----------- |
 | **Definiera ett sensor namn** | Namnge sensorn som du registrerar och koppla den till en IoT Hub eller prenumeration.<br /><br />Mer information finns i **onboard-sensorer** .|
 |**Välj en prenumeration och antalet allokerade enheter**|Välj en prenumeration och antalet enheter som omfattas av prenumerationen. Ange talet i steg om 1000.|
-| **Definiera ett sensor hanterings läge** | Ange var till gång, avisering och annan information som identifieras av sensorn som visas. Detta bestäms utifrån det **sensor hanterings läge** som du definierar.<br /><br />**Lokalt hanterat läge**: information som identifieras av sensorn visas i sensor konsolen. Identifierings information delas också med den lokala hanterings konsolen om sensorn är ansluten till den.<br /><br />**Moln hanterings läge**: information som identifieras av sensorn visas i sensor konsolen. Dessutom levereras aviserings information via en IoT Hub och kan delas med andra Azure-tjänster, till exempel Azure Sentinel.<br />Mer information finns i den **inbyggda sensorn** . |
+| **Definiera ett sensor hanterings läge** | Ange var till gång, avisering och annan information som identifieras av sensorn som visas. Detta bestäms utifrån det **sensor hanterings läge** som du definierar.<br /><br />**Lokalt hanterat läge** : information som identifieras av sensorn visas i sensor konsolen. Identifierings information delas också med den lokala hanterings konsolen om sensorn är ansluten till den.<br /><br />**Moln hanterings läge** : information som identifieras av sensorn visas i sensor konsolen. Dessutom levereras aviserings information via en IoT Hub och kan delas med andra Azure-tjänster, till exempel Azure Sentinel.<br />Mer information finns i den **inbyggda sensorn** . |
 | **Hämta en sensor aktiverings fil** | För **lokalt hanterade** sensorer används en aktiverings fil för att hantera auktoriserade sensor aktiverings perioder.<br /><br />För **moln hanterade** sensorer används en aktiverings fil som en anslutning mellan sensorn och en IoT Hub. Mer information finns i **onboard-sensorer**. |
 | **Ladda upp en aktiverings fil till sensorn** | Aktiverings filer måste överföras till dina företags sensorer. Nätverks övervakning och åtkomst till sensor konsol funktioner är inte tillgängliga förrän aktiverings filen laddas upp. Mer information finns i **överföra sensor aktiverings filer**. |
 | **Uppdatera sensor nätverks parametrar före aktivering** | Uppdatera parametrarna som definieras under sensor installationen. Mer information finns i **fel! Referens källan hittades inte**.|
@@ -57,11 +57,11 @@ Med onboarding-sensorer kan du:
 
 4. Välj ett alternativ för att förvärva en sensor.
 
-   ![Vyn Azure Defender för IoT Network sektor](media/updates/image6.png)
+   ![Vyn Azure Defender för IoT Network sensor](media/updates/image6.png)
 
-  - **Köp en förkonfigurerad sensor**: Microsoft och pilen samarbetar för att tillhandahålla förkonfigurerade sensorer. Om du vill köpa en förkonfigurerad sensor, kontakta pilen vid: <hardware.sales@arrow.com> . Sensorn skickas till din anläggning. Den senaste versionen är installerad.
+  - **Köp en förkonfigurerad sensor** : Microsoft och pilen samarbetar för att tillhandahålla förkonfigurerade sensorer. Om du vill köpa en förkonfigurerad sensor, kontakta pilen vid: <hardware.sales@arrow.com> . Sensorn skickas till din anläggning. Den senaste versionen är installerad.
 
-  - **Ta med din egen installation (ISO-installation)**: lösningen körs på certifierade apparater. Använd [guiden Azure Defender för IoT Hardware Specifications](https://aka.ms/AzureDefenderforIoTBareMetalAppliance) som referens när du köper din certifierade apparat.
+  - **Ta med din egen installation (ISO-installation)** : lösningen körs på certifierade apparater. Använd [guiden Azure Defender för IoT Hardware Specifications](https://aka.ms/AzureDefenderforIoTBareMetalAppliance) som referens när du köper din certifierade apparat.
 
     - Välj en version på menyn **Välj version** .
 
@@ -98,7 +98,7 @@ Sensorer måste registreras på Azure Defender för IoT-portalen. Onboarding ske
 4. Välj ett sensor hanterings läge med hjälp av **anslutning till molnet** . Om växlings listen är på, hanteras sensorn av **molnet**. Om växlingen är avstängd **hanteras sensorn lokalt**.
 
 
-| Sensor hanterings läge | Beskrivning                                                |
+| Sensor hanterings läge | Description                                                |
 | ---------------------- | ---------------------------------------------------------  |
 | **Moln hanterat**          | Information som identifieras av sensorn visas i sensor konsolen. Dessutom levereras aviserings information via en IoT Hub och kan delas med andra Azure-tjänster, till exempel Azure Sentinel.<br /><br />Välj en IoT Hub som ska associeras med den här sensorn.<br /><br />Du måste överföra en moln hanterad aktiverings fil till moln hanterade sensorer.<br /><br />Mer information finns i **överföra sensor aktiverings filer** . |
 | **Lokalt hanterad**        | Information som identifieras av sensorer som hanteras lokalt visas i sensor konsolen. Om du arbetar i ett Air-gapped nätverk och vill ha en enhetlig vy över all information som identifieras av flera lokalt hanterade sensorer, kan du arbeta med den lokala hanterings konsolen.<br /><br />Sensorer som *hanteras lokalt* är kopplade till en Azure-prenumeration och innehåller instruktioner om sensorn för aktiveringens förfallo period.<br /><br />Välj en prenumeration som du vill koppla till den här sensorn.<br /><br />Du måste ladda upp en lokalt hanterad aktiverings fil till varje sensor. Mer information finns i **överföra sensor aktiverings filer** . |

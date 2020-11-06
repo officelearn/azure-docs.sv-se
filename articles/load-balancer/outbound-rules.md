@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 51810876e3636b7023ce9c9318a071636bb00c4c
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 947ecaa2efbfb013f1f3e8203d1c4296b9ca329f
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92002656"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422169"
 ---
 # <a name="outbound-rules-azure-load-balancer"></a><a name="outboundrules"></a>Utgående regler Azure Load Balancer
 
-Med utgående regler kan du konfigurera offentliga standard Load Balancer utgående SNAT (käll Network Address Translation). Med den här konfigurationen kan du använda en eller flera offentliga IP-adresser för belastningsutjämnaren som proxy.
+Med utgående regler kan du uttryckligen definiera SNAT (käll Network Address Translation) för en offentlig standard belastnings utjämning. Med den här konfigurationen kan du använda en eller flera offentliga IP-adresser för din belastningsutjämnare för att tillhandahålla utgående Internet-anslutning för Server dels instanserna.
 
 Den här konfigurationen aktiverar:
 
@@ -37,7 +37,7 @@ Med utgående regler kan du styra:
 
 * **Vilka virtuella datorer som översätts till offentliga IP-adresser.**
      * Två regler var backend-pool A använder IP-adress A och B, backend-pool B använder IP-adress C och D.
-* **Hur utgående SNAT-portar anges.**
+* **Hur utgående SNAT-portar allokeras.**
      * Backend-pool B är den enda poolen som gör utgående anslutningar, ge alla SNAT-portar till backend-pool B och ingen till backend-pool A.
 * **Vilka protokoll som ska tillhandahålla utgående översättning för.**
      * Backend-pool B behöver UDP-portar för utgående. Backend-poolen kräver TCP. Ge TCP-portar till A-och UDP-portar till B.
@@ -48,7 +48,7 @@ Med utgående regler kan du styra:
 
 ## <a name="outbound-rule-definition"></a>Regel definition för utgående trafik
 
-Utgående regler följer samma välbekanta syntax som belastnings utjämning och inkommande NAT- **regler:**  +  Server dels**parametrar**i  +  **backend-poolen**. 
+Utgående regler följer samma välbekanta syntax som belastnings utjämning och inkommande NAT- **regler:**  +  Server dels **parametrar** i  +  **backend-poolen**. 
 
 En utgående regel konfigurerar utgående NAT för _alla virtuella datorer som identifieras av backend-poolen_ som ska översättas till _klient delen_.  
 
@@ -98,6 +98,147 @@ När du tillämpar en NSG på en belastningsutjämnad virtuell dator, bör du t�
 Se till att den virtuella datorn kan ta emot hälso avsöknings begär Anden från Azure Load Balancer.
 
 Om en NSG blockerar hälso avsöknings begär Anden från AZURE_LOADBALANCER-Standardtaggen Miss lyckas din VM-avsökning och den virtuella datorn är markerad som ej tillgänglig. Belastningsutjämnaren slutar skicka nya flöden till den virtuella datorn.
+
+## <a name="scenarios-with-outbound-rules"></a>Scenarier med utgående regler
+        
+
+### <a name="outbound-rules-scenarios"></a>Scenarier för utgående regler
+
+
+* Konfigurera utgående anslutningar till en speciell uppsättning offentliga IP-adresser eller prefix.
+* Ändra [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) -port tilldelning.
+* Aktivera endast utgående.
+* Utgående NAT enbart för virtuella datorer (ingen inkommande).
+* Utgående NAT för intern standard belastningsutjämnare.
+* Aktivera både TCP & UDP-protokoll för utgående NAT med en offentlig standard belastnings utjämning.
+
+
+### <a name="scenario-1-configure-outbound-connections-to-a-specific-set-of-public-ips-or-prefix"></a><a name="scenario1out"></a>Scenario 1: Konfigurera utgående anslutningar till en angiven uppsättning offentliga IP-adresser eller prefix
+
+
+#### <a name="details"></a>Information
+
+
+Använd det här scenariot för att skräddarsy utgående anslutningar till härstammar från en uppsättning offentliga IP-adresser. Lägg till offentliga IP-adresser eller prefix till en lista över tillåtna eller nekade baserade på ursprung.
+
+
+Den här offentliga IP-adressen eller prefixet kan vara samma som används av en belastnings Utjämnings regel. 
+
+
+Använda en annan offentlig IP-adress eller prefix än vad som används av en belastnings Utjämnings regel: 
+
+
+1. Skapa ett offentligt IP-prefix eller en offentlig IP-adress.
+2. Skapa en offentlig standard Load Balancer 
+3. Skapa en klient del som refererar till det offentliga IP-prefixet eller den offentliga IP-adress som du vill använda. 
+4. Återanvänd en backend-pool eller skapa en backend-pool och placera de virtuella datorerna i en backend-pool för den offentliga belastningsutjämnaren
+5. Konfigurera en utgående regel på den offentliga belastningsutjämnaren för att aktivera utgående NAT för de virtuella datorerna med hjälp av klient delen. Du bör inte använda en regel för belastnings utjämning för utgående, inaktivera utgående SNAT i belastnings Utjämnings regeln.
+
+
+### <a name="scenario-2-modify-snat-port-allocation"></a><a name="scenario2out"></a>Scenario 2: ändra [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) -port tilldelning
+
+
+#### <a name="details"></a>Information
+
+
+Du kan använda utgående regler för att finjustera den [automatiska SNAT-port tilldelningen baserat på storleken på backend-poolen](load-balancer-outbound-connections.md#preallocatedports). 
+
+
+Om du upplever SNAT-belastning ökar du antalet [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) -portar som tilldelas från standardvärdet 1024. 
+
+
+Varje offentlig IP-adress bidrar med upp till 64 000 tillfälliga portar. Antalet virtuella datorer i backend-poolen bestämmer antalet portar som distribueras till varje virtuell dator. En virtuell dator i backend-poolen har åtkomst till maximalt 64 000 portar. För två virtuella datorer kan högst 32 000 [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) -portar ges med en utgående regel (2x 32 000 = 64 000). 
+
+
+Du kan använda utgående regler för att finjustera SNAT-portarna som har angetts som standard. Du får mer eller mindre än standardvärdet för [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) -port tilldelning. Varje offentlig IP-adress från en klient del för en utgående regel bidrar upp till 64 000 tillfälliga portar för användning som [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) -portar. 
+
+
+Load Balancer ger [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) -portar i multipler av 8. Om du anger ett värde som inte är delbart med 8 avvisas konfigurations åtgärden. Varje belastnings Utjämnings regel och inkommande NAT-regel använder ett intervall på 8 portar. Om en belastnings utjämning eller inkommande NAT-regel delar samma intervall om 8 som en annan används inga ytterligare portar.
+
+
+Om du försöker ge fler [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) -portar än vad som är tillgängligt baserat på antalet offentliga IP-adresser avvisas konfigurations åtgärden. Om du till exempel ger 10 000 portar per virtuell dator och sju virtuella datorer i en backend-pool delar en offentlig IP-adress, så avvisas konfigurationen. Sju multiplicerat med 10 000 överskrider gränsen på 64 000-porten. Lägg till fler offentliga IP-adresser till klient delen för den utgående regeln för att aktivera scenariot. 
+
+
+Återgå till [standard port tilldelningen](load-balancer-outbound-connections.md#preallocatedports) genom att ange 0 för antalet portar. De första 50 VM-instanserna får 1024 portar, 51-100 VM-instanser kommer att få 512 upp till maximalt antal instanser. Mer information om standard tilldelning av SNAT-portar finns i [tilldelnings tabellen för SNAT-portar](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
+
+
+### <a name="scenario-3-enable-outbound-only"></a><a name="scenario3out"></a>Scenario 3: Aktivera endast utgående
+
+
+#### <a name="details"></a>Information
+
+
+Använd en offentlig standard belastningsutjämnare för att tillhandahålla utgående NAT för en grupp med virtuella datorer. I det här scenariot använder du en utgående regel i sig själv, utan att några ytterligare regler har kon figurer ATS.
+
+
+> [!NOTE]
+> **Azure Virtual Network NAT** kan tillhandahålla utgående anslutningar för virtuella datorer utan att det krävs någon belastningsutjämnare. Se [Vad är Azure Virtual Network NAT?](../virtual-network/nat-overview.md) för mer information.
+
+### <a name="scenario-4-outbound-nat-for-vms-only-no-inbound"></a><a name="scenario4out"></a>Scenario 4: utgående NAT enbart för virtuella datorer (ingen inkommande)
+
+
+> [!NOTE]
+> **Azure Virtual Network NAT** kan tillhandahålla utgående anslutningar för virtuella datorer utan att det krävs någon belastningsutjämnare. Se [Vad är Azure Virtual Network NAT?](../virtual-network/nat-overview.md) för mer information.
+
+#### <a name="details"></a>Information
+
+
+För det här scenariot: Azure Load Balancer utgående regler och Virtual Network NAT är alternativ som är tillgängliga för utgående från ett virtuellt nätverk.
+
+
+1. Skapa en offentlig IP-adress eller ett prefix.
+2. Skapa en offentlig standard Load Balancer. 
+3. Skapa en klient del som är kopplad till den offentliga IP-adressen eller prefixet dedikerat för utgående.
+4. Skapa en backend-pool för de virtuella datorerna.
+5. Placera de virtuella datorerna i backend-poolen.
+6. Konfigurera en regel för utgående trafik för att aktivera utgående NAT.
+
+
+
+Använd ett prefix eller en offentlig IP-adress för att skala [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) -portar. Lägg till källan för utgående anslutningar till en lista över tillåtna eller nekade.
+
+
+
+### <a name="scenario-5-outbound-nat-for-internal-standard-load-balancer"></a><a name="scenario5out"></a>Scenario 5: utgående NAT för intern standard belastnings utjämning
+
+
+> [!NOTE]
+> **Azure Virtual Network NAT** kan tillhandahålla utgående anslutning för virtuella datorer som använder en intern standard belastnings utjämning. Se [Vad är Azure Virtual Network NAT?](../virtual-network/nat-overview.md) för mer information.
+
+#### <a name="details"></a>Information
+
+
+Utgående anslutningar är inte tillgängliga för en intern standard belastningsutjämnare förrän den uttryckligen har deklarerats via offentliga IP-adresser på instans nivå eller Virtual Network NAT, eller genom att associera medlemmar i Server delens pool med en konfiguration för utgående belastnings utjämning. 
+
+
+Mer information finns i [konfiguration av utgående belastnings utjämning](https://docs.microsoft.com/azure/load-balancer/egress-only).
+
+
+
+
+### <a name="scenario-6-enable-both-tcp--udp-protocols-for-outbound-nat-with-a-public-standard-load-balancer"></a><a name="scenario6out"></a>Scenario 6: Aktivera både TCP & UDP-protokoll för utgående NAT med en offentlig standard belastnings utjämning
+
+
+#### <a name="details"></a>Information
+
+
+När du använder en offentlig standard belastningsutjämnare, matchar den automatiskt utgående NAT-överförings protokollet för belastnings Utjämnings regeln. 
+
+
+1. Inaktivera utgående [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) i belastnings Utjämnings regeln. 
+2. Konfigurera en utgående regel på samma belastningsutjämnare.
+3. Återanvänd backend-poolen som redan används av dina virtuella datorer. 
+4. Ange "protokoll": "alla" som en del av regeln för utgående trafik. 
+
+
+När endast inkommande NAT-regler används tillhandahålls ingen utgående NAT. 
+
+
+1. Placera virtuella datorer i en backend-pool.
+2. Definiera en eller flera klient dels-IP-konfigurationer med offentliga IP-adresser eller offentliga IP-prefix 
+3. Konfigurera en utgående regel på samma belastningsutjämnare. 
+4. Ange "protokoll": "alla" som en del av regeln för utgående trafik
+
 
 ## <a name="limitations"></a>Begränsningar
 

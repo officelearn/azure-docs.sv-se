@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: 14031118a93f5760b302e4d2b76334205be6d087
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 98e3eb4927b8eb9e52fd974c1ef7c417aff2ad54
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789632"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422798"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>Självstudie: implementera en geo-distribuerad databas (Azure SQL Database)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -120,7 +120,7 @@ az sql failover-group create --name $failoverGroup --partner-server $drServer `
 
 * * *
 
-Inställningar för geo-replikering kan också ändras i Azure Portal, genom att välja din databas och **Inställningar**  >  **geo-replikering** .
+Inställningar för geo-replikering kan också ändras i Azure Portal, genom att välja din databas och **Inställningar**  >  **geo-replikering**.
 
 ![Inställningar för geo-replikering](./media/geo-distributed-application-configure-tutorial/geo-replication.png)
 
@@ -132,7 +132,7 @@ Inställningar för geo-replikering kan också ändras i Azure Portal, genom att
    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
    ```
 
-1. Skriv in **Y** och tryck på **RETUR** .
+1. Skriv in **Y** och tryck på **RETUR**.
 
 1. Ändra kataloger till det nya projektet.
 
@@ -333,7 +333,7 @@ Så här testar du en redundansväxling:
 1. Starta en manuell redundansväxling av gruppen för redundans:
 
    ```powershell
-   Switch-AzSqlDatabaseFailoverGroup -ResourceGroupName $myresourcegroupname `
+   Switch-AzSqlDatabaseFailoverGroup -ResourceGroupName $resourceGroup `
     -ServerName $drServer -FailoverGroupName $failoverGroup
    ```
 

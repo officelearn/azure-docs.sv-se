@@ -1,6 +1,6 @@
 ---
-title: Interagera med en IoT Plug and Play-enhet som är ansluten till din Azure IoT-lösning (C#) | Microsoft Docs
-description: Använd C# för att ansluta till och interagera med en IoT Plug and Play-enhet som är ansluten till din Azure IoT-lösning.
+title: Snabb start – interagera med en IoT Plug and Play-enhet som är ansluten till din Azure IoT-lösning (C#) | Microsoft Docs
+description: Snabb start – Använd C# för att ansluta till och interagera med en IoT Plug and Play-enhet som är ansluten till din Azure IoT-lösning.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 09/21/2020
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: ec38e0849b7f4c1a0ca98d75d4c6c82908c1e16e
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 018edea9a013df55b32ee22020be7226eab27319
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945384"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421557"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-c"></a>Snabb start: interagera med en IoT Plug and Play-enhet som är ansluten till din lösning (C#)
 
@@ -48,7 +48,7 @@ I den här snabb starten använder du en exempel termostat-enhet som är skriven
 
 1. I Visual Studio navigerar du till **Project > termostat-egenskaper > Felsök**. Lägg sedan till följande miljövariabler i projektet:
 
-    | Namn | Värde |
+    | Name | Värde |
     | ---- | ----- |
     | IOTHUB_DEVICE_SECURITY_TYPE | – |
     | IOTHUB_DEVICE_DPS_ENDPOINT | global.azure-devices-provisioning.net |
@@ -64,8 +64,8 @@ I den här snabb starten använder du en exempel termostat-enhet som är skriven
 
 I [Konfigurera din miljö för iot plug and Play snabb starter och självstudier](set-up-environment.md) som du har skapat två miljövariabler för att konfigurera exemplet för att ansluta till din IoT-hubb och-enhet:
 
-* **IOTHUB_CONNECTION_STRING**: den IoT Hub-anslutningssträng som du antecknade tidigare.
-* **IOTHUB_DEVICE_ID**: `"my-pnp-device"` .
+* **IOTHUB_CONNECTION_STRING** : den IoT Hub-anslutningssträng som du antecknade tidigare.
+* **IOTHUB_DEVICE_ID** : `"my-pnp-device"` .
 
 I den här snabb starten använder du en exempel-IoT-lösning i C# för att interagera med den exempel enhet som du nyss konfigurerade.
 
@@ -73,7 +73,7 @@ I den här snabb starten använder du en exempel-IoT-lösning i C# för att inte
 
 1. I Visual Studio navigerar du till **Project > termostat-egenskaper > Felsök**. Lägg sedan till följande miljövariabler i projektet:
 
-    | Namn | Värde |
+    | Name | Värde |
     | ---- | ----- |
     | IOTHUB_DEVICE_ID | min-PnP-enhet |
     | IOTHUB_CONNECTION_STRING | Värdet du antecknade när du slutförde [konfiguration av din miljö](set-up-environment.md) |

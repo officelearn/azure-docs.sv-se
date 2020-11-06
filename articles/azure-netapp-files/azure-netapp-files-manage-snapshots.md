@@ -1,6 +1,6 @@
 ---
 title: Hantera ögonblicks bilder med Azure NetApp Files | Microsoft Docs
-description: Beskriver hur du skapar och hanterar ögonblicks bilder med hjälp av Azure NetApp Files.
+description: Beskriver hur du skapar, hanterar och använder ögonblicks bilder med hjälp av Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/04/2020
+ms.date: 11/05/2020
 ms.author: b-juche
-ms.openlocfilehash: e9f2a1f9125d25caa9506e954cab3b94dfcb5c24
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 0d7839b11e48e3e260f4d6b1323d1831e28222de
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932285"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421887"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Hantera ögonblicksbilder med hjälp av Azure NetApp Files
 
-Azure NetApp Files har stöd för att skapa ögonblicks bilder och använda ögonblicks bilder för att schemalägga automatisk skapande av ögonblicks bilder.  Du kan också återställa en ögonblicks bild till en ny volym eller återställa en enskild fil med hjälp av en klient.  
+Azure NetApp Files har stöd för att skapa ögonblicks bilder och använda ögonblicks bilder för att schemalägga automatisk skapande av ögonblicks bilder. Du kan också återställa en ögonblicks bild till en ny volym, återställa en enskild fil med hjälp av en klient eller återställa en befintlig volym med hjälp av en ögonblicks bild.
 
 ## <a name="create-an-on-demand-snapshot-for-a-volume"></a>Skapa en ögonblicks bild på begäran för en volym
 
@@ -77,7 +77,7 @@ Med en ögonblicks bild princip kan du ange frekvensen för ögonblicks bild ska
 
 2.  I fönstret ögonblicks bild princip anger du princip tillstånd till **aktive rad**. 
 
-3.  Klicka på fliken varje **timme**, **varje dag**, **varje vecka**eller varje **månad** för att skapa dagliga, dagliga, vecko Visa eller månatliga ögonblicks bilds principer. Ange det **antal ögonblicks bilder som ska behållas**.  
+3.  Klicka på fliken varje **timme** , **varje dag** , **varje vecka** eller varje **månad** för att skapa dagliga, dagliga, vecko Visa eller månatliga ögonblicks bilds principer. Ange det **antal ögonblicks bilder som ska behållas**.  
 
     Se [resurs gränser för Azure NetApp Files](azure-netapp-files-resource-limits.md) om det maximala antalet ögonblicks bilder som tillåts för en volym. 
 
@@ -112,7 +112,7 @@ Om du vill att en volym ska använda en ögonblicks bilds princip som du har ska
 
     ![Volymer på snabb menyn för volymer](../media/azure-netapp-files/volume-right-cick-menu.png) 
 
-2.  I redigerings fönstret, under **ögonblicks bild princip**, väljer du en princip som ska användas för volymen.  Klicka på **OK** för att tillämpa principen.  
+2.  I redigerings fönstret, under **ögonblicks bild princip** , väljer du en princip som ska användas för volymen.  Klicka på **OK** för att tillämpa principen.  
 
     ![Redigera ögonblicks redigerings princip](../media/azure-netapp-files/snapshot-policy-edit.png) 
 
@@ -215,9 +215,40 @@ Om du har markerat kryss rutan Dölj ögonblicks bilds Sök väg när du skapade
 
     ![Klistra in fil som ska återställas](../media/azure-netapp-files/snapshot-paste-file-restore.png) 
 
-4. Du kan också högerklicka på den överordnade katalogen, välja **Egenskaper**, klicka på fliken **tidigare versioner** om du vill se en lista över ögonblicks bilder och välja **Återställ** för att återställa en fil.  
+4. Du kan också högerklicka på den överordnade katalogen, välja **Egenskaper** , klicka på fliken **tidigare versioner** om du vill se en lista över ögonblicks bilder och välja **Återställ** för att återställa en fil.  
 
     ![Egenskaper tidigare versioner](../media/azure-netapp-files/snapshot-properties-previous-version.png) 
+
+## <a name="revert-a-volume-using-snapshot-revert"></a>Återställa en volym med hjälp av återställning av ögonblicks bilder
+
+Med funktionen för återställning av ögonblicks bilder kan du snabbt återställa en volym till det tillstånd den var i när en viss ögonblicks bild togs. I de flesta fall går det mycket snabbare att återställa en volym än att återställa enskilda filer från en ögonblicks bild till det aktiva fil systemet. Det är också mer utrymmes effektivt jämfört med att återställa en ögonblicks bild till en ny volym. 
+
+Du hittar alternativet Återställ volym på menyn ögonblicks bilder på en volym. När du har valt en ögonblicks bild för ny version återställer Azure NetApp Files volymen till de data och tidsstämplar som den innehöll när den valda ögonblicks bilden togs. 
+
+> [!IMPORTANT]
+> Aktiva fil Systems data och ögonblicks bilder som togs efter att den valda ögonblicks bilden togs bort kommer att gå förlorade. Återställnings åtgärden för ögonblicks bilder ersätter *alla* data på mål volymen med data i den valda ögonblicks bilden. Du bör ta hänsyn till ögonblicks bildens innehåll och datum när du väljer en ögonblicks bild. Det går inte att ångra återställnings åtgärden för ögonblicks bilder.
+
+1. Gå till **ögonblicks bilds** menyn för en volym.  Högerklicka på den ögonblicks bild som du vill använda för återställnings åtgärden. Välj **Återställ volym**. 
+
+    ![Skärm bild som beskriver snabb menyn i en ögonblicks bild](../media/azure-netapp-files/snapshot-right-click-menu.png) 
+
+2. I fönstret Återställ volym till ögonblicks bild skriver du namnet på volymen och klickar på **Återställ**.   
+
+    Volymen återställs nu till tidpunkten för den valda ögonblicks bilden.
+
+    ![Skärm bild som visar fönstret Återställ volym till ögonblicks bild](../media/azure-netapp-files/snapshot-revert-volume.png) 
+
+## <a name="delete-snapshots"></a>Ta bort ögonblicks bilder  
+
+Du kan ta bort ögonblicks bilder som du inte längre behöver behålla. 
+
+1. Gå till **ögonblicks bilds** menyn för en volym. Högerklicka på den ögonblicks bild som du vill ta bort. Välj **Ta bort**.
+
+    ![Skärm bild som beskriver snabb menyn i en ögonblicks bild](../media/azure-netapp-files/snapshot-right-click-menu.png) 
+
+2. I fönstret ta bort ögonblicks bild bekräftar du att du vill ta bort ögonblicks bilden genom att klicka på **Ja**. 
+
+    ![Skärm bild som bekräftar borttagning av ögonblicks bilder](../media/azure-netapp-files/snapshot-confirm-delete.png)  
 
 ## <a name="next-steps"></a>Nästa steg
 

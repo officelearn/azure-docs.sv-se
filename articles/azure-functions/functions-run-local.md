@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: 17daef18d87c4b5c906694ab1394694b32b6b130
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 78c6e4dffb35980b73fbc09bdc07d55215e659ae
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164879"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422594"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -35,7 +35,7 @@ Det finns tre versioner av Azure Functions Core Tools. Vilken version du använd
 
 + [**Version 3. x/2. x**](#v2): stöder antingen [version 3. x eller 2. x av Azure Functions runtime](functions-versions.md). Dessa versioner stöder [Windows](?tabs=windows#v2), [MacOS](?tabs=macos#v2)och [Linux](?tabs=linux#v2) och använder plattformsspecifika paket hanterare eller NPM för installation.
 
-+ **Version 1. x**: stöder version 1. x av Azure Functions Runtime. Den här versionen av verktygen stöds endast på Windows-datorer och installeras från ett [NPM-paket](https://www.npmjs.com/package/azure-functions-core-tools).
++ **Version 1. x** : stöder version 1. x av Azure Functions Runtime. Den här versionen av verktygen stöds endast på Windows-datorer och installeras från ett [NPM-paket](https://www.npmjs.com/package/azure-functions-core-tools).
 
 Du kan bara installera en version av Core-verktyg på en specifik dator. Om inget annat anges är exemplen i den här artikeln för version 3. x.
 
@@ -166,7 +166,7 @@ func init MyFunctionProj
 ```
 
 >[!IMPORTANT]
-> Java använder en maven-archetype för att skapa de lokala Functions-projektet, tillsammans med din första HTTP-utlöst funktion. Använd följande kommando för att skapa ett Java-projekt: `mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype` . Ett exempel på hur du använder maven-archetype finns i snabb starten av [kommando raden](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java).  
+> Java använder en maven-archetype för att skapa de lokala Functions-projektet, tillsammans med din första HTTP-utlöst funktion. Använd följande kommando för att skapa ett Java-projekt: `mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype` . Ett exempel på hur du använder maven-archetype finns i snabb starten av [kommando raden](./create-first-function-cli-java.md).  
 
 När du anger ett projekt namn skapas och initieras en ny mapp med det namnet. Annars initieras den aktuella mappen.  
 När du kör kommandot måste du välja en körning för projektet i version 3. x/2. x. 
@@ -179,7 +179,7 @@ python
 powershell
 </pre>
 
-Använd piltangenterna för att välja ett språk och tryck sedan på RETUR. Om du planerar att utveckla Java Script-eller TypeScript-funktioner väljer du **Node**och väljer sedan språket. TypeScript har [vissa ytterligare krav](functions-reference-node.md#typescript). 
+Använd piltangenterna för att välja ett språk och tryck sedan på RETUR. Om du planerar att utveckla Java Script-eller TypeScript-funktioner väljer du **Node** och väljer sedan språket. TypeScript har [vissa ytterligare krav](functions-reference-node.md#typescript). 
 
 Utdata ser ut som i följande exempel för ett JavaScript-projekt:
 
@@ -247,13 +247,13 @@ När ingen giltig lagrings anslutnings sträng har angetts för [`AzureWebJobsSt
 
 Även när du använder Microsoft Azure Storage-emulator för utveckling kanske du vill testa med en faktisk lagrings anslutning. Förutsatt att du redan har [skapat ett lagrings konto](../storage/common/storage-account-create.md)kan du hämta en giltig lagrings anslutnings sträng på något av följande sätt:
 
-- Sök efter och välj **lagrings konton**från [Azure Portal]. 
+- Sök efter och välj **lagrings konton** från [Azure Portal]. 
   ![Välj lagrings konton från Azure Portal](./media/functions-run-local/select-storage-accounts.png)
   
-  Välj ditt lagrings konto, Välj **åtkomst nycklar** i **Inställningar**och kopiera sedan ett av värdena för **anslutnings strängen** .
+  Välj ditt lagrings konto, Välj **åtkomst nycklar** i **Inställningar** och kopiera sedan ett av värdena för **anslutnings strängen** .
   ![Kopiera anslutnings strängen från Azure Portal](./media/functions-run-local/copy-storage-connection-portal.png)
 
-- Använd [Azure Storage Explorer](https://storageexplorer.com/) för att ansluta till ditt Azure-konto. I **Utforskaren**expanderar du din prenumeration, expanderar **lagrings konton**, väljer ditt lagrings konto och kopierar den primära eller sekundära anslutnings strängen.
+- Använd [Azure Storage Explorer](https://storageexplorer.com/) för att ansluta till ditt Azure-konto. I **Utforskaren** expanderar du din prenumeration, expanderar **lagrings konton** , väljer ditt lagrings konto och kopierar den primära eller sekundära anslutnings strängen.
 
   ![Kopiera anslutnings strängen från Storage Explorer](./media/functions-run-local/storage-explorer.png)
 
@@ -309,12 +309,12 @@ Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
 
 Du kan också ange alternativen i kommandot med följande argument:
 
-| Argument     | Beskrivning                            |
+| Argument     | Description                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--csx`** | (Version 2. x och senare versioner.) Genererar samma C#-skript (. CSX) mallar som används i version 1. x och i portalen. |
-| **`--language`**, **`-l`**| Programmeringsspråket för mallar, till exempel C#, F # eller Java Script. Det här alternativet krävs i version 1. x. I version 2. x och senare versioner ska du inte använda det här alternativet eller välja ett språk som matchar Worker-körningen. |
-| **`--name`**, **`-n`** | Funktions namnet. |
-| **`--template`**, **`-t`** | Använd `func templates list` kommandot för att se en fullständig lista över tillgängliga mallar för varje språk som stöds.   |
+| **`--language`** , **`-l`**| Programmeringsspråket för mallar, till exempel C#, F # eller Java Script. Det här alternativet krävs i version 1. x. I version 2. x och senare versioner ska du inte använda det här alternativet eller välja ett språk som matchar Worker-körningen. |
+| **`--name`** , **`-n`** | Funktions namnet. |
+| **`--template`** , **`-t`** | Använd `func templates list` kommandot för att se en fullständig lista över tillgängliga mallar för varje språk som stöds.   |
 
 
 Om du till exempel vill skapa en JavaScript-HTTP-utlösare i ett enda kommando kör du:
@@ -357,7 +357,7 @@ func start
 ```
 func start
 ```
-Det här kommandot måste [köras i en virtuell miljö](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python#create-venv).
+Det här kommandot måste [köras i en virtuell miljö](./create-first-function-cli-python.md).
 
 # <a name="typescript"></a>[TypeScript](#tab/ts)
 
@@ -385,10 +385,10 @@ npm start
 | **`--language-worker`** | Argument för att konfigurera språk arbets tagaren. Du kan till exempel aktivera fel sökning för språk arbetare genom att tillhandahålla [fel söknings port och andra obligatoriska argument](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers). Stöds inte för version 1. x. |
 | **`--cert`** | Sökvägen till en. pfx-fil som innehåller en privat nyckel. Används endast med `--useHttps` . Stöds inte för version 1. x. |
 | **`--password`** | Antingen lösen ordet eller en fil som innehåller lösen ordet för en PFX-fil. Används endast med `--cert` . Stöds inte för version 1. x. |
-| **`--port`**, **`-p`** | Den lokala porten att lyssna på. Standardvärde: 7071. |
+| **`--port`** , **`-p`** | Den lokala porten att lyssna på. Standardvärde: 7071. |
 | **`--pause-on-error`** | Pausa för ytterligare indatatyper innan du avslutar processen. Används endast när du startar kärn verktyg från en Integrated Development Environment (IDE).|
-| **`--script-root`**, **`--prefix`** | Används för att ange sökvägen till roten för Function-appen som ska köras eller distribueras. Detta används för kompilerade projekt som genererar projektfiler i en undermapp. När du till exempel skapar ett C#-klass biblioteks projekt skapas host.jspå, local.settings.jspå och function.jspå filer i en *rotmapp* med en sökväg som `MyProject/bin/Debug/netstandard2.0` . I det här fallet ställer du in prefixet som `--script-root MyProject/bin/Debug/netstandard2.0` . Detta är roten i Function-appen när du kör i Azure. |
-| **`--timeout`**, **`-t`** | Tids gränsen för funktionens värd att starta, i sekunder. Standard: 20 sekunder.|
+| **`--script-root`** , **`--prefix`** | Används för att ange sökvägen till roten för Function-appen som ska köras eller distribueras. Detta används för kompilerade projekt som genererar projektfiler i en undermapp. När du till exempel skapar ett C#-klass biblioteks projekt skapas host.jspå, local.settings.jspå och function.jspå filer i en *rotmapp* med en sökväg som `MyProject/bin/Debug/netstandard2.0` . I det här fallet ställer du in prefixet som `--script-root MyProject/bin/Debug/netstandard2.0` . Detta är roten i Function-appen när du kör i Azure. |
+| **`--timeout`** , **`-t`** | Tids gränsen för funktionens värd att starta, i sekunder. Standard: 20 sekunder.|
 | **`--useHttps`** | Bind till i `https://localhost:{port}` stället för till `http://localhost:{port}` . Som standard skapar det här alternativet ett betrott certifikat på din dator.|
 
 När Functions-värden startar matar den in URL: en för HTTP-utlösta funktioner:
@@ -488,10 +488,10 @@ I version 1. x kan du också anropa en funktion direkt genom att använda `func 
 
 | Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |
-| **`--content`**, **`-c`** | Infogat innehåll. |
-| **`--debug`**, **`-d`** | Koppla en fel sökare till värd processen innan du kör funktionen.|
-| **`--timeout`**, **`-t`** | Vänte tiden (i sekunder) tills den lokala funktionens värd är klar.|
-| **`--file`**, **`-f`** | Fil namnet som ska användas som innehåll.|
+| **`--content`** , **`-c`** | Infogat innehåll. |
+| **`--debug`** , **`-d`** | Koppla en fel sökare till värd processen innan du kör funktionen.|
+| **`--timeout`** , **`-t`** | Vänte tiden (i sekunder) tills den lokala funktionens värd är klar.|
+| **`--file`** , **`-f`** | Fil namnet som ska användas som innehåll.|
 | **`--no-interactive`** | Kräver inte någon indatamängd. Användbart för automatiserings scenarier.|
 
 Om du till exempel vill anropa en HTTP-utlöst funktion och skicka innehålls texten kör du följande kommando:
@@ -537,13 +537,13 @@ Följande publicerings alternativ stöds bara för version 2. x och senare versi
 
 | Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |
-| **`--publish-settings-only`**, **`-o`** |  Publicera bara inställningar och hoppa över innehållet. Standardvärdet är prompt. |
+| **`--publish-settings-only`** , **`-o`** |  Publicera bara inställningar och hoppa över innehållet. Standardvärdet är prompt. |
 |**`--list-ignored-files`** | Visar en lista över filer som ignoreras under publicering, som baseras på. funcignore-filen. |
 | **`--list-included-files`** | Visar en lista över publicerade filer, som baseras på. funcignore-filen. |
 | **`--nozip`** | Stänger av standard `Run-From-Package` läget. |
 | **`--build-native-deps`** | Hoppar över genereringen av. Wheels-mappen när du publicerar python Function-appar. |
-| **`--build`**, **`-b`** | Utför Bygg åtgärd när du distribuerar till en Linux Function-app. Accepterar: `remote` och `local` . |
-| **`--additional-packages`** | Lista över paket som ska installeras när du skapar interna beroenden. Exempel: `python3-dev libevent-dev`. |
+| **`--build`** , **`-b`** | Utför Bygg åtgärd när du distribuerar till en Linux Function-app. Accepterar: `remote` och `local` . |
+| **`--additional-packages`** | Lista över paket som ska installeras när du skapar interna beroenden. Här är ett exempel: `python3-dev libevent-dev`. |
 | **`--force`** | Ignorera för publicerings verifiering i vissa scenarier. |
 | **`--csx`** | Publicera ett C#-skript (. CSX)-projekt. |
 | **`--no-build`** | Projektet har inte skapats under publiceringen. För python `pip install` utförs inte. |

@@ -8,14 +8,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 4bd1bb93c9ce0f491c5bf1153917491b88d55109
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 5e9d9e762568c01d31f0c3a29be809a5f90b6b44
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043722"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421659"
 ---
-# <a name="whats-in-the-current-iot-plug-and-play-release"></a>Vad finns i den aktuella IoT Plug and Play-versionen
+# <a name="what-is-in-the-current-iot-plug-and-play-release"></a>Vad finns i den aktuella IoT Plug and Play-versionen?
 
 I den här artikeln sammanfattas de verktyg, SDK: er och API: er som har stöd för den aktuella IoT Plug and Play-versionen. Versions nummer som visas återspeglar versions numret vid tidpunkten för att IoT Plug and Play skulle vara allmänt tillgängligt. Versions nummer kan öka efter versionen.
 
@@ -69,7 +69,7 @@ Läs mer i [IoT plug and Play Developer Guide](concepts-developer-guide-service.
 
 IoT Plug and Play stöds av IoT Hub i alla regioner. IoT Plug and Play stöds endast av IoT-hubbar av standard eller kostnads fri nivå.
 
-## <a name="announcements"></a>Annonsering
+## <a name="announcements"></a>Meddelanden
 
 För aktuella och tidigare IoT Plug and Play-meddelanden, se följande blogg inlägg:
 

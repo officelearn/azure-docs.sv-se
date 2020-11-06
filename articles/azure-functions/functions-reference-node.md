@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 758e11a9c043fbd1238d1e3533a2d83804ec0b73
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 5b9ffdec83fb613b7df0b5a3227ca66c55e54fe9
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043112"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422560"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript-guide för utvecklare
 
@@ -20,7 +20,7 @@ Som Express.js, Node.js eller JavaScript-utvecklare, om du är nybörjare på Az
 
 | Komma igång | Begrepp| Interaktiv utbildning |
 | -- | -- | -- | 
-| <ul><li>[Node.js funktionen med Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-javascript)</li><li>[Node.js funktion med Terminal/kommando-prompt](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-javascript)</li></ul> | <ul><li>[Utvecklarguide](functions-reference.md)</li><li>[Värdalternativ](functions-scale.md)</li><li>[TypeScript-funktioner](#typescript)</li><li>[Prestanda &nbsp; överväganden](functions-best-practices.md)</li></ul> | <ul><li>[Skapa serverlösa program](/learn/paths/create-serverless-applications/)</li><li>[Node.js-och Express-API: er till Server lös API: er](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
+| <ul><li>[Node.js funktionen med Visual Studio Code](./create-first-function-vs-code-node.md)</li><li>[Node.js funktion med Terminal/kommando-prompt](./create-first-function-cli-java.md)</li></ul> | <ul><li>[Utvecklarguide](functions-reference.md)</li><li>[Värdalternativ](functions-scale.md)</li><li>[TypeScript-funktioner](#typescript)</li><li>[Prestanda &nbsp; överväganden](functions-best-practices.md)</li></ul> | <ul><li>[Skapa serverlösa program](/learn/paths/create-serverless-applications/)</li><li>[Node.js-och Express-API: er till Server lös API: er](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
 ## <a name="javascript-function-basics"></a>Grundläggande om JavaScript-funktioner
 
@@ -107,13 +107,13 @@ I Java Script konfigureras och definieras [bindningarna](functions-triggers-bind
 
 ### <a name="inputs"></a>Indata
 Indatamängden är indelade i två kategorier i Azure Functions: en är utlösaren och den andra är den extra ingången. Utlösare och andra indatamasker (bindningar av `direction === "in"` ) kan läsas av en funktion på tre sätt:
- - **_[Rekommenderas]_ Som parametrar som skickas till din funktion.** De skickas till funktionen i samma ordning som de definieras i *function.jspå* . Den `name` egenskap som definierats i *function.jspå* behöver inte matcha namnet på din parameter, men den borde.
+ - **_[Rekommenderas]_ Som parametrar som skickas till din funktion.** De skickas till funktionen i samma ordning som de definieras i *function.jspå*. Den `name` egenskap som definierats i *function.jspå* behöver inte matcha namnet på din parameter, men den borde.
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
    ```
    
- - **Som medlemmar i [`context.bindings`](#contextbindings-property) objektet.** Varje medlem namnges av den `name` egenskap som definierats i *function.jspå* .
+ - **Som medlemmar i [`context.bindings`](#contextbindings-property) objektet.** Varje medlem namnges av den `name` egenskap som definierats i *function.jspå*.
  
    ```javascript
    module.exports = async function(context) { 
@@ -138,7 +138,7 @@ Utdata (bindningar av `direction === "out"` ) kan skrivas till av en funktion p�
 
 Du kan tilldela data till utgående bindningar på något av följande sätt (kombinera inte dessa metoder):
 
-- **_[Rekommenderas för flera utdata]_ Returnera ett objekt.** Om du använder en asynkron/löftes funktion för att returnera, kan du returnera ett objekt med tilldelad utmatnings information. I exemplet nedan heter utgående bindningarna "httpResponse" och "queueOutput" i *function.jspå* .
+- **_[Rekommenderas för flera utdata]_ Returnera ett objekt.** Om du använder en asynkron/löftes funktion för att returnera, kan du returnera ett objekt med tilldelad utmatnings information. I exemplet nedan heter utgående bindningarna "httpResponse" och "queueOutput" i *function.jspå*.
 
   ```javascript
   module.exports = async function(context) {
@@ -358,7 +358,7 @@ Om du vill ange tröskelvärdet för alla spår som skrivs till loggar och-konso
 }  
 ```
 
-Värdena för **consoleLevel** motsvarar namnen på `context.log` metoderna. Om du vill inaktivera all spårnings loggning till-konsolen anger du **consoleLevel** till _av_ . Mer information finns i [host.jspå v1. x-referens](functions-host-json-v1.md).
+Värdena för **consoleLevel** motsvarar namnen på `context.log` metoderna. Om du vill inaktivera all spårnings loggning till-konsolen anger du **consoleLevel** till _av_. Mer information finns i [host.jspå v1. x-referens](functions-host-json-v1.md).
 
 ---
 
@@ -507,7 +507,7 @@ I följande tabell visas aktuella Node.js-versioner som stöds för varje huvud 
 
 | Funktions version | Node-version (Windows) | Node-version (Linux) |
 |---|---| --- |
-| 1.x | 6.11.2 (låst av körningen) | Saknas |
+| 1.x | 6.11.2 (låst av körningen) | saknas |
 | 2x  | ~ 8<br/>~ 10 (rekommenderas)<br/>~ 12<sup>*</sup> | ~ 8 (rekommenderas)<br/>~ 10  |
 | 3.x | ~ 10<br/>~ 12 (rekommenderas)  | ~ 10<br/>~ 12 (rekommenderas) |
 
@@ -545,12 +545,12 @@ Det finns två sätt att installera paket på Funktionsapp:
 ### <a name="using-kudu"></a>Använda kudu
 1. Gå till `https://<function_app_name>.scm.azurewebsites.net`.
 
-2. Klicka på **Felsök konsol**  >  **cmd** .
+2. Klicka på **Felsök konsol**  >  **cmd**.
 
 3. Gå till `D:\home\site\wwwroot` och dra sedan package.jspå filen till mappen **wwwroot** på sidans övre halva.  
     Du kan också ladda upp filer till din Function-app på andra sätt. Mer information finns i [så här uppdaterar du Function Apps-filer](functions-reference.md#fileupdate). 
 
-4. När package.jsfilen har överförts kör du `npm install` kommandot i **kudu-konsolen för fjärrkörning** .  
+4. När package.jsfilen har överförts kör du `npm install` kommandot i **kudu-konsolen för fjärrkörning**.  
     Den här åtgärden hämtar de paket som anges i package.jspå filen och startar om Function-appen.
 
 ## <a name="environment-variables"></a>Miljövariabler
@@ -651,7 +651,7 @@ Inställningen fungerar inte i version 1. x `languageWorkers:node:arguments` . D
 
 ## <a name="typescript"></a>TypeScript
 
-När du riktar in dig på version 2. x av Functions-körningen kan du använda både [Azure Functions för Visual Studio Code](functions-create-first-function-vs-code.md) och [Azure Functions Core tools](functions-run-local.md) för att skapa Function-appar med hjälp av en mall som stöder typescript Function app projects. Mallen genererar `package.json` och `tsconfig.json` projektfiler som gör det enklare att stapla, köra och publicera JavaScript-funktioner från typescript-kod med dessa verktyg.
+När du riktar in dig på version 2. x av Functions-körningen kan du använda både [Azure Functions för Visual Studio Code](./create-first-function-cli-typescript.md) och [Azure Functions Core tools](functions-run-local.md) för att skapa Function-appar med hjälp av en mall som stöder typescript Function app projects. Mallen genererar `package.json` och `tsconfig.json` projektfiler som gör det enklare att stapla, köra och publicera JavaScript-funktioner från typescript-kod med dessa verktyg.
 
 En genererad `.funcignore` fil används för att ange vilka filer som ska undantas när ett projekt publiceras i Azure.  
 

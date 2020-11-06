@@ -5,31 +5,36 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/15/2020
-ms.openlocfilehash: 7f81e6182209e29e41a21abadbaf05518844d201
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.date: 11/05/2020
+ms.openlocfilehash: 8fabf8169270c3162604b6535a6cf2fb07cd9a9d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490177"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422152"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Läsa repliker i Azure Database for PostgreSQL-enskild server
 
-Med funktionen Läs replik kan du replikera data från en Azure Database for PostgreSQL-server till en skrivskyddad Server. Du kan replikera från den primära servern till upp till fem repliker. Repliker uppdateras asynkront med PostgreSQL-motorns interna replikeringsteknik.
+Med funktionen Läs replik kan du replikera data från en Azure Database for PostgreSQL-server till en skrivskyddad Server. Repliker uppdateras **asynkront** med postgresql-motorns inbyggda teknik för fysisk replikering. Du kan replikera från den primära servern till upp till fem repliker.
 
 Repliker är nya servrar som du hanterar ungefär som vanliga Azure Database for PostgreSQL-servrar. För varje Läs replik debiteras du för den etablerade beräkningen i virtuella kärnor och lagring i GB/månad.
 
 Lär dig hur du [skapar och hanterar repliker](howto-read-replicas-portal.md).
 
 ## <a name="when-to-use-a-read-replica"></a>När du ska använda en Läs replik
-Funktionen Läs replik hjälper till att förbättra prestanda och skalning för Läs intensiva arbets belastningar. Läs arbets belastningar kan isoleras till replikerna, medan Skriv arbets belastningar kan dirigeras till den primära.
+Funktionen Läs replik hjälper till att förbättra prestanda och skalning för Läs intensiva arbets belastningar. Läs arbets belastningar kan isoleras till replikerna, medan Skriv arbets belastningar kan dirigeras till den primära. Det går också att distribuera Läs repliker i en annan region och kan uppgraderas till att vara en Läs-/skriv Server vid haveri beredskap.
 
 Ett vanligt scenario är att låta BI och analytiska arbets belastningar använda Läs repliken som data källa för rapportering.
 
-Eftersom repliker är skrivskyddade kan de inte direkt minska Skriv kapacitets bördan på den primära. Den här funktionen är inte riktad mot skrivintensiva arbetsbelastningar.
+Eftersom repliker är skrivskyddade kan de inte direkt minska Skriv kapacitets bördan på den primära.
 
-Funktionen Läs replik använder PostgreSQL asynkron replikering. Funktionen är inte avsedd för synkrona scenarier för replikering. Det kommer att bli en mätbar fördröjning mellan den primära servern och repliken. Data på repliken kommer slutligen att bli konsekventa med data på den primära. Använd den här funktionen för arbets belastningar som kan hantera denna fördröjning.
+### <a name="considerations"></a>Överväganden
+Funktionen är avsedd för scenarier där fördröjningen är acceptabel och avsedd för avlastning av frågor. Det är inte avsett för synkrona replikeringsalternativ där replik data förväntas vara uppdaterade. Det kommer att bli en mätbar fördröjning mellan den primära servern och repliken. Detta kan vara på några minuter eller till och med timmar beroende på arbets belastningen och fördröjningen mellan den primära och repliken. Data på repliken kommer slutligen att bli konsekventa med data på den primära. Använd den här funktionen för arbets belastningar som kan hantera denna fördröjning. 
 
+> [!NOTE]
+> För de flesta arbets belastningar ger Läs repliker nästan real tids uppdateringar från den primära. Men med beständig tung Skriv intensiv primär arbets belastning kan replikeringen fortsätta att växa och kanske aldrig kan fånga upp med den primära. Detta kan också öka lagrings användningen på den primära servern eftersom WAL-filerna inte tas bort förrän de tas emot på repliken. Om den här situationen kvarstår tar du bort och återskapar Läs repliken när de Skriv intensiva arbets belastningarna är klara, vilket innebär att repliken återgår till ett lyckat tillstånd med avseende på fördröjning.
+> Asynkrona Läs repliker lämpar sig inte för sådana tung Skriv arbets belastningar. När du utvärderar Läs repliker för ditt program kan du övervaka fördröjningen på repliken för att få en fullständig inläsnings cykel för appar under sin högsta och låg belastnings tid för att få åtkomst till den möjliga fördröjningen och den förväntade RTO/återställningen vid olika tidpunkter för arbets belastning
+> 
 ## <a name="cross-region-replication"></a>Replikering mellan regioner
 Du kan skapa en Läs replik i en annan region än den primära servern. Replikering mellan regioner kan vara användbart för scenarier som haveri beredskap planering eller för att hämta data närmare dina användare.
 
@@ -72,9 +77,9 @@ När du skapar en replik ärver den inte brand Väggs reglerna eller slut punkte
 
 Repliken ärver administratörs kontot från den primära servern. Alla användar konton på den primära servern replikeras till de skrivskyddade replikerna. Du kan bara ansluta till en Läs replik med hjälp av de användar konton som är tillgängliga på den primära servern.
 
-Du kan ansluta till repliken med hjälp av dess värdnamn och ett giltigt användar konto, precis som på en vanlig Azure Database for PostgreSQL Server. För en server med namnet **min replik** med admin username- **administratören**kan du ansluta till repliken med hjälp av psql:
+Du kan ansluta till repliken med hjälp av dess värdnamn och ett giltigt användar konto, precis som på en vanlig Azure Database for PostgreSQL Server. För en server med namnet **min replik** med admin username- **administratören** kan du ansluta till repliken med hjälp av psql:
 
-```
+```bash
 psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 ```
 
@@ -83,50 +88,40 @@ Ange lösen ordet för användar kontot vid prompten.
 ## <a name="monitor-replication"></a>Övervaka replikering
 Azure Database for PostgreSQL tillhandahåller två mått för övervakning av replikering. De två måtten är **maximal fördröjning mellan repliker** och **replik fördröjning**. Information om hur du visar dessa mått finns i avsnittet **övervaka en replik** i [artikeln Läs mer om att läsa replikering](howto-read-replicas-portal.md).
 
-Måttet **Max fördröjning över repliker** visar fördröjningen i byte mellan den primära och den mest avbildade repliken. Detta mått är bara tillgängligt på den primära servern och är bara tillgängligt om minst en av Läs repliken är ansluten till den primära servern.
+Måttet **Max fördröjning över repliker** visar fördröjningen i byte mellan den primära och den mest avbildade repliken. Det här måttet är endast tillgängligt på den primära servern och är bara tillgängligt om minst en av Läs repliken är ansluten till den primära servern och den primära är i läget för strömnings-replikering. Fördröjnings informationen visar inte information när repliken håller på att fångas upp med den primära informationen med hjälp av de arkiverade loggarna för den primära i ett fil överförings läge för replikering.
 
-Värdet för **replik fördröjningen** visar tiden sedan den senaste återspelade transaktionen. Om det inte finns några transaktioner på den primära servern återspeglar måttet denna tids fördröjning. Det här måttet är endast tillgängligt för replik servrar. Replik fördröjningen beräknas från `pg_stat_wal_receiver` vyn:
+Värdet för **replik fördröjningen** visar tiden sedan den senaste återspelade transaktionen. Om det inte finns några transaktioner på den primära servern återspeglar måttet denna tids fördröjning. Detta mått är bara tillämpligt och tillgängligt för replik servrar. Replik fördröjningen beräknas från `pg_stat_wal_receiver` vyn:
 
 ```SQL
-EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
+SELECT EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
 ```
 
 Ange en avisering som meddelar dig när replik fördröjningen når ett värde som inte är acceptabelt för din arbets belastning. 
 
 För ytterligare insikter kan du fråga den primära servern direkt för att hämta fördröjningen i byte på alla repliker.
 
-I PostgreSQL version 10:
-
-```SQL
-select pg_wal_lsn_diff(pg_current_wal_lsn(), replay_lsn) 
-AS total_log_delay_in_bytes from pg_stat_replication;
-```
-
-I PostgreSQL version 9,6 och tidigare:
-
-```SQL
-select pg_xlog_location_diff(pg_current_xlog_location(), replay_location) 
-AS total_log_delay_in_bytes from pg_stat_replication;
-```
-
 > [!NOTE]
 > Om en primär server eller en Läs replik startas om återspeglas den tid det tar att starta om och fånga upp i replikens fördröjnings mått.
 
-## <a name="stop-replication"></a>Stoppa replikering
-Du kan stoppa replikering mellan en primär och en replik. Åtgärden stoppa gör att repliken startas om och tar bort dess replikeringsinställningar. När replikeringen har stoppats mellan en primär server och en Läs replik blir repliken en fristående server. Data i den fristående servern är de data som var tillgängliga på repliken när kommandot stoppa replikering startades. Den fristående servern är inte uppfångad med den primära servern.
+## <a name="stop-replication--promote-replica"></a>Stoppa replikering/befordra replik
+Du kan när som helst stoppa replikeringen mellan en primär och en replik. Åtgärden stoppa gör att repliken startas om och befordrar replikeringen som en oberoende, fristående skrivskyddad Server. Data i den fristående servern är de data som var tillgängliga på replik servern vid den tidpunkt då replikeringen stoppades. Eventuella efterföljande uppdateringar på den primära kommer inte att spridas till repliken. Men replik servern kan ha ackumulerade loggar som inte tillämpas än. Som en del av processen för omstart, tillämpar repliken alla väntande loggar innan klient anslutningar accepteras.  
 
-> [!IMPORTANT]
-> Den fristående servern kan inte göras till en replik igen.
-> Innan du stoppar replikeringen på en Läs replik måste du se till att repliken har alla data som du behöver.
+### <a name="considerations"></a>Överväganden
+- Innan du stoppar replikeringen på en Läs replik kontrollerar du att replikeringen innehåller alla data som du behöver. 
+- Eftersom Läs repliken måste tillämpa alla väntande loggar innan den kan göras till en fristående server, kan RTO vara högre för Skriv tunga arbets belastningar när stopp-replikeringen inträffar eftersom det kan finnas en betydande fördröjning på repliken. Kom noga med detta när du planerar att uppgradera en replik.
+- Den upphöjda replik servern kan inte göras till en replik igen.
+- Om du befordrar en replik som primär server kan du inte upprätta replikering tillbaka till den gamla primära servern. Om du vill gå tillbaka till den gamla primära regionen kan du antingen upprätta en ny replik server med ett nytt namn (eller) ta bort den gamla primära servern och skapa en replik med hjälp av det gamla primära namnet.
+- Om du har flera Läs repliker, och om du befordrar en av dem som din primära server, är andra replik servrar fortfarande anslutna till den gamla primära servern. Du kan behöva återskapa repliker från den nya, uppgraderade servern.
 
 När du stoppar replikering förlorar repliken alla länkar till dess tidigare primära och andra repliker.
 
 Lär dig hur du [stoppar replikering till en replik](howto-read-replicas-portal.md).
 
-## <a name="failover"></a>Redundans
-Det finns ingen automatisk redundans mellan primära servrar och replik servrar. 
+## <a name="failover-to-replica"></a>Redundans till replik
 
-Eftersom replikeringen är asynkron finns det en fördröjning mellan den primära servern och repliken. Mängden fördröjning kan påverkas av ett antal faktorer, t. ex. hur mycket hög arbets belastningen som körs på den primära servern och fördröjningen mellan data Center. I vanliga fall är replik fördröjningen mellan några sekunder till några minuter. Men i de fall där den primära körningen är mycket tung arbets belastning och repliken inte blir tillräckligt snabb, kan fördröjningen vara högre. Du kan spåra den faktiska replikeringens fördröjning med hjälp av mått *replik fördröjningen*, som är tillgänglig för varje replik. Det här måttet visar tiden sedan den senaste återspelade transaktionen. Vi rekommenderar att du identifierar den genomsnittliga fördröjningen genom att iaktta din replik fördröjning under en viss tids period. Du kan ställa in en avisering på replik fördröjningen, så att om den går utanför det förväntade intervallet kan du vidta åtgärder.
+Vid fel på en primär server växlar det **inte** automatiskt över till Läs repliken. 
+
+Eftersom replikeringen är asynkron, kan det finnas en stor fördröjning mellan den primära servern och repliken. Förskjutnings mängden påverkas av ett antal faktorer, till exempel vilken typ av arbets belastning som körs på den primära servern och fördröjningen mellan den primära servern och replik servern. I vanliga fall med nominell Skriv arbets belastning förväntas replik fördröjningen mellan några sekunder till några minuter. Men i de fall där den primära kör mycket tung Skriv intensiv arbets belastning och repliken inte blir tillräckligt snabb, kan fördröjningen vara mycket högre. Du kan spåra replikeringens fördröjning för varje replik med hjälp av måttets *replik fördröjning*. Det här måttet visar tiden sedan den senaste återspelade transaktionen på repliken. Vi rekommenderar att du identifierar den genomsnittliga fördröjningen genom att observera replik fördröjningen under en viss tids period. Du kan ställa in en avisering på replik fördröjningen, så att om den går utanför det förväntade intervallet får du ett meddelande om att vidta åtgärder.
 
 > [!Tip]
 > Om du redundansväxlas till repliken kommer fördröjningen vid den tidpunkt då du tar bort repliken från den primära informationen att visa hur mycket data som förloras.
@@ -134,10 +129,10 @@ Eftersom replikeringen är asynkron finns det en fördröjning mellan den primä
 När du har valt att du vill redundansväxla till en replik, 
 
 1. Stoppa replikering till repliken<br/>
-   Det här steget är nödvändigt för att göra replik servern tillgänglig för skrivningar. Som en del av den här processen startas replik servern om och kopplas från den primära. När du har initierat stoppa replikeringen tar det vanligt vis ungefär 2 minuter att slutföra backend-processen. Se avsnittet [stoppa replikering](#stop-replication) i den här artikeln för att förstå konsekvenserna av den här åtgärden.
+   Det här steget är nödvändigt för att göra replik servern till en fristående server och kunna godkänna skrivningar. Som en del av den här processen startas replik servern om och kopplas från den primära. När du har initierat stoppa replikering tar det vanligt vis några minuter för Server dels processen att tillämpa eventuella kvarvarande loggar som inte har tillämpats och för att öppna databasen som en skrivskyddad Server. Se avsnittet [stoppa replikering](#stop-replication--promote-replica) i den här artikeln för att förstå konsekvenserna av den här åtgärden.
     
 2. Peka ditt program till den (tidigare) repliken<br/>
-   Varje server har en unik anslutnings sträng. Uppdatera programmet så att det pekar på den (tidigare) repliken i stället för den primära.
+   Varje server har en unik anslutnings sträng. Uppdatera din program anslutnings sträng så att den pekar på den (tidigare) repliken i stället för den primära.
     
 När ditt program har bearbetat läsningar och skrivningar har du slutfört redundansväxlingen. Hur lång tid det tar för program upplevelser att vara beroende av när du upptäcker ett problem och Slutför steg 1 och 2 ovan.
 
@@ -158,7 +153,6 @@ Om du vill konfigurera rätt loggnings nivå använder du parametern Azure Repli
 * **Replik** – mer utförligt än **.** Detta är den lägsta loggnings nivå som krävs för att [läsa repliker](concepts-read-replicas.md) ska fungera. Den här inställningen är standard på de flesta servrar.
 * **Logisk** – mer utförlig än **replik**. Detta är den lägsta loggnings nivån för logisk avkodning att arbeta. Läs repliker fungerar också med den här inställningen.
 
-Servern måste startas om efter en ändring av den här parametern. Internt anger den här parametern postgres-parametrarna `wal_level` , `max_replication_slots` och `max_wal_senders` .
 
 ### <a name="new-replicas"></a>Nya repliker
 En Läs replik skapas som en ny Azure Database for PostgreSQL Server. Det går inte att göra en befintlig server till en replik. Du kan inte skapa en replik av en annan Läs replik.
@@ -172,8 +166,8 @@ Brand Väggs regler, regler för virtuella nätverk och parameter inställningar
 Skala virtuella kärnor eller mellan Generell användning och Minnesoptimerade:
 * PostgreSQL kräver att `max_connections` inställningen på en sekundär server är [större än eller lika med inställningen på den primära](https://www.postgresql.org/docs/current/hot-standby.html), annars kommer den sekundära inte att starta.
 * I Azure Database for PostgreSQL, åtgärdas det högsta antalet tillåtna anslutningar för varje server till beräknings-SKU: n eftersom anslutningar upptar minne. Du kan lära dig mer om [mappningen mellan max_connections och beräknings-SKU: er](concepts-limits.md).
-* **Skala upp**: skala först upp en repliks beräkning och skala sedan upp den primära. Den här ordningen förhindrar att fel bryter mot `max_connections` kravet.
-* **Skala ned**: först skala ned den primära data bearbetningen och skala sedan ned repliken. Om du försöker skala repliken lägre än den primära, uppstår ett fel eftersom detta strider mot `max_connections` kravet.
+* **Skala upp** : skala först upp en repliks beräkning och skala sedan upp den primära. Den här ordningen förhindrar att fel bryter mot `max_connections` kravet.
+* **Skala ned** : först skala ned den primära data bearbetningen och skala sedan ned repliken. Om du försöker skala repliken lägre än den primära, uppstår ett fel eftersom detta strider mot `max_connections` kravet.
 
 Skala lagring:
 * Alla repliker har automatisk utökning av lagring aktive rad för att förhindra replikeringsfel från en lagrings full replik. Den här inställningen kan inte inaktive ras.

@@ -3,12 +3,12 @@ title: Distribuera Horisont på Azure VMware-lösning
 description: Lär dig hur du distribuerar VMware-Horisont på Azure VMware-lösningen.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: babce512b896009c08165d2e3d9aec7c33724bf4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: fb5e5b4c5f5da4c140f8d3575b963545f3a57db8
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321357"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93423126"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Distribuera Horisont på Azure VMware-lösning 
 
@@ -127,6 +127,18 @@ Samma principer gäller om du distribuerar två Horisont poddar i samma region. 
 ## <a name="size-azure-vmware-solution-hosts-for-horizon-deployments"></a>Storlek på Azure VMware-lösningar värdar för Horisont distributioner 
 
 Metoden för att ändra storlek på en värd som körs i Azure VMware-lösningen är enklare än en horisont lokalt.  Det beror på att Azure VMware-lösningens värd är standardiserad.  Exakt värd storlek hjälper till att fastställa antalet värdar som behövs för att stödja dina VDI-krav.  Det är centralt för att fastställa kostnad per skriv bord.
+
+### <a name="sizing-tables"></a>Storleks tabeller
+
+Tabellerna visar vanliga arbets belastningar för inloggning VSI och arbets belastningar för arbets belastningar.
+
+#### <a name="knowledge-worker-workloads"></a>Arbets belastning för kunskaps arbetare
+
+:::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads-knowledge.png" alt-text="Tabell med vanliga VDI-profiler för VMware-horisont för inloggning VSI arbets belastning för kunskaps arbetare" lightbox="media/horizon/common-vdi-profiles-vsi-workloads-knowledge.png" border="false":::
+
+#### <a name="power-worker-workloads"></a>Arbets belastningar för arbets kraft
+
+:::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads-power.png" alt-text="Tabell med vanliga VDI-profiler för VMware-horisont för inloggning VSI avancerade arbets belastningar" lightbox="media/horizon/common-vdi-profiles-vsi-workloads-power.png" border="false":::
 
 ### <a name="azure-vmware-solution-host-instance"></a>Azure VMware-lösning, värd instans
 

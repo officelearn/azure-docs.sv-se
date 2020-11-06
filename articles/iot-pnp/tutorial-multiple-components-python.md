@@ -1,18 +1,18 @@
 ---
-title: Ansluta IoT-Plug and Play exempel på python-komponent enhets kod till IoT Hub | Microsoft Docs
-description: Skapa och kör IoT Plug and Play exempel på python-enhets kod som använder flera komponenter och ansluter till en IoT-hubb. Använd Azure IoT Explorer-verktyget för att visa informationen som skickas av enheten till hubben.
+title: Självstudie – ansluta IoT Plug and Play exempel på python-komponent enhets kod till Azure IoT Hub | Microsoft Docs
+description: Självstudie – Skapa och kör IoT Plug and Play exempel på python-enhets kod som använder flera komponenter och ansluter till en IoT-hubb. Använd Azure IoT Explorer-verktyget för att visa informationen som skickas av enheten till hubben.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 7/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 1b329206dcc41d8f7fcb3874da037f5b57142722
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a4130688d479902f7836ae09c4006bb36fc16d2
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613670"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421404"
 ---
 # <a name="tutorial-connect-a-sample-iot-plug-and-play-multiple-component-device-application-to-iot-hub-python"></a>Självstudie: ansluta en exempel-IoT Plug and Play flera komponent enhets program till IoT Hub (python)
 
@@ -20,7 +20,7 @@ ms.locfileid: "91613670"
 
 I den här självstudien får du lära dig hur du skapar ett exempel på IoT Plug and Play enhets program med komponenter, ansluter det till din IoT-hubb och använder Azure IoT Explorer-verktyget för att visa den information som skickas till hubben. Exempel programmet skrivs i python och ingår i Azure IoT-enhetens SDK för python. Ett Solution Builder kan använda Azure IoT Explorer-verktyget för att förstå funktionerna i en IoT Plug and Play-enhet utan att behöva visa någon enhets kod.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
@@ -93,7 +93,7 @@ Temperatur styrenheten har flera komponenter och en standard komponent, baserat 
     - Uppdaterar läsbara egenskaper för dess komponenter genom att anropa `patch_twin_reported_properties` .
 
     - Börjar lyssna efter kommando begär Anden med hjälp av `execute_command_listener` funktionen. Funktionen konfigurerar en lyssnare för kommando begär Anden från tjänsten. När du konfigurerar lyssnaren anger du en `method_name` , `user_command_handler` och en valfri `create_user_response_handler` som-parameter.
-        - `method_name`Definierar kommando förfrågan. I det här exemplet definierar modellen kommandona **reboot**och **getMaxMinReport**.
+        - `method_name`Definierar kommando förfrågan. I det här exemplet definierar modellen kommandona **reboot** och **getMaxMinReport**.
         - `user_command_handler`Funktionen definierar vad enheten ska göra när den får ett kommando.
         - `create_user_response_handler`Funktionen skapar ett svar som skickas till din IoT-hubb när ett kommando körs utan problem. Du kan visa det här svaret i portalen. Om den här funktionen inte anges skickas ett allmänt svar till tjänsten.
 

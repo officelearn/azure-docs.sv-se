@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/11/2020
-ms.openlocfilehash: 9f189d1889f3ca3a3aa3234432452b1b3d696c04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7b672b7e2c3004eba4a38bd659965b7dee24db6
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935100"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422492"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>Hantera Azure Kognitiv sökning-tjänsten med PowerShell
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Du kan köra PowerShell-cmdlets och skript i Windows, Linux eller i [Azure Cloud
 
 Ibland tillfrågas frågor om uppgifter som *inte* finns i listan ovan. För närvarande kan du inte använda antingen **AZ. search** -modulen eller hanterings REST API för att ändra server namn, region eller nivå. Dedikerade resurser allokeras när en tjänst skapas. Därför kräver ändring av den underliggande maskin varan (plats eller nodtyp) en ny tjänst. På samma sätt finns det inga verktyg eller API: er för att överföra innehåll, till exempel ett index, från en tjänst till en annan.
 
-I en tjänst är skapandet och hanteringen av innehåll via [Search Service REST API](/rest/api/searchservice/) eller [.NET SDK](/dotnet/api/?term=microsoft.azure.search). Det finns inga dedikerade PowerShell-kommandon för innehåll, men du kan skriva PowerShell-skript som anropar REST-eller .NET-API: er för att skapa och läsa in index.
+I en tjänst är skapandet och hanteringen av innehåll via [Search Service REST API](/rest/api/searchservice/) eller [.NET SDK](/dotnet/api/overview/azure/search.documents-readme). Det finns inga dedikerade PowerShell-kommandon för innehåll, men du kan skriva PowerShell-skript som anropar REST-eller .NET-API: er för att skapa och läsa in index.
 
 <a name="check-versions-and-load"></a>
 
@@ -90,7 +90,7 @@ Select-AzSubscription -SubscriptionName ContosoSubscription
 
 ## <a name="list-services-in-a-subscription"></a>Visa en lista över tjänster i en prenumeration
 
-Följande kommandon är från [**AZ. Resources**](/powershell/module/az.resources/?view=azps-1.4.0#resources), returnerar information om befintliga resurser och tjänster som redan har skapats i din prenumeration. Om du inte vet hur många Sök tjänster som redan har skapats, returnerar de här kommandona informationen och sparar en resa till portalen.
+Följande kommandon är från [**AZ. Resources**](/powershell/module/az.resources), returnerar information om befintliga resurser och tjänster som redan har skapats i din prenumeration. Om du inte vet hur många Sök tjänster som redan har skapats, returnerar de här kommandona informationen och sparar en resa till portalen.
 
 Det första kommandot returnerar alla Sök tjänster.
 
@@ -116,7 +116,7 @@ ResourceId        : /subscriptions/<alpha-numeric-subscription-ID>/resourceGroup
 
 ## <a name="import-azsearch"></a>Importera AZ. search
 
-Kommandon från [**AZ. search**](/powershell/module/az.search/?view=azps-1.4.0#search) är inte tillgängligt förrän du har läst in modulen.
+Kommandon från [**AZ. search**](/powershell/module/az.search) är inte tillgängligt förrän du har läst in modulen.
 
 ```azurepowershell-interactive
 Install-Module -Name Az.Search
@@ -148,7 +148,7 @@ Cmdlet          Set-AzSearchService                 0.7.1      Az.Search
 
 ## <a name="get-search-service-information"></a>Hämta information om Sök tjänst
 
-Efter **AZ. search** har importer ATS och du känner till resurs gruppen som innehåller din Sök tjänst, kör [Get-AzSearchService](/powershell/module/az.search/get-azsearchservice?view=azps-1.4.0) för att returnera tjänst definitionen, inklusive namn, region, nivå och replikering och antal partitioner.
+Efter **AZ. search** har importer ATS och du känner till resurs gruppen som innehåller din Sök tjänst, kör [Get-AzSearchService](/powershell/module/az.search/get-azsearchservice) för att returnera tjänst definitionen, inklusive namn, region, nivå och replikering och antal partitioner.
 
 ```azurepowershell-interactive
 Get-AzSearchService -ResourceGroupName <resource-group-name>
@@ -170,7 +170,7 @@ ResourceId        : /subscriptions/<alphanumeric-subscription-ID>/resourceGroups
 
 ## <a name="create-or-delete-a-service"></a>Skapa eller ta bort en tjänst
 
-[**New-AzSearchService**](/powershell/module/az.search/new-azsearchadminkey?view=azps-1.4.0) används för att [skapa en ny Sök tjänst](search-create-service-portal.md).
+[**New-AzSearchService**](/powershell/module/az.search/new-azsearchadminkey) används för att [skapa en ny Sök tjänst](search-create-service-portal.md).
 
 ```azurepowershell-interactive
 New-AzSearchService -ResourceGroupName "demo-westus" -Name "my-demo-searchapp" -Sku "Standard" -Location "West US" -PartitionCount 3 -ReplicaCount 3
@@ -191,7 +191,7 @@ Tags
 
 ## <a name="regenerate-admin-keys"></a>Återskapa administratörs nycklar
 
-[**New-AzSearchAdminKey**](/powershell/module/az.search/new-azsearchadminkey?view=azps-1.4.0) används för att rulla över administrations- [API-nycklar](search-security-api-keys.md). Två administratörs nycklar skapas med varje tjänst för autentiserad åtkomst. Nycklar krävs på varje begäran. Båda administratörs nycklarna fungerar som likvärdiga, vilket ger fullständig Skriv behörighet till en Sök tjänst med möjlighet att hämta information eller skapa och ta bort objekt. Det finns två nycklar så att du kan använda en när du ersätter den andra. 
+[**New-AzSearchAdminKey**](/powershell/module/az.search/new-azsearchadminkey) används för att rulla över administrations- [API-nycklar](search-security-api-keys.md). Två administratörs nycklar skapas med varje tjänst för autentiserad åtkomst. Nycklar krävs på varje begäran. Båda administratörs nycklarna fungerar som likvärdiga, vilket ger fullständig Skriv behörighet till en Sök tjänst med möjlighet att hämta information eller skapa och ta bort objekt. Det finns två nycklar så att du kan använda en när du ersätter den andra. 
 
 Du kan bara återskapa en i taget, som antingen har angetts som `primary` eller- `secondary` nyckeln. Kom ihåg att uppdatera all klient kod för att använda en sekundär nyckel när du rullar över primär nyckeln för en oavbruten tjänst. Undvik att ändra nycklarna när åtgärderna är i flygning.
 
@@ -213,7 +213,7 @@ Primary                    Secondary
 
 ## <a name="create-or-delete-query-keys"></a>Skapa eller ta bort frågeinställningar
 
-[**New-AzSearchQueryKey**](/powershell/module/az.search/new-azsearchquerykey?view=azps-1.4.0) används för att skapa fråge- [API-nycklar](search-security-api-keys.md) för skrivskyddad åtkomst från klient program till ett Azure kognitiv sökning-index. Frågeinställningar används för att autentisera till ett specifikt index i syfte att hämta Sök resultat. Frågeinställningar beviljar inte skrivskyddad åtkomst till andra objekt i tjänsten, till exempel ett index, en data källa eller indexerare.
+[**New-AzSearchQueryKey**](/powershell/module/az.search/new-azsearchquerykey) används för att skapa fråge- [API-nycklar](search-security-api-keys.md) för skrivskyddad åtkomst från klient program till ett Azure kognitiv sökning-index. Frågeinställningar används för att autentisera till ett specifikt index i syfte att hämta Sök resultat. Frågeinställningar beviljar inte skrivskyddad åtkomst till andra objekt i tjänsten, till exempel ett index, en data källa eller indexerare.
 
 Det går inte att ange en nyckel för Azure Kognitiv sökning att använda. API-nycklar genereras av tjänsten.
 
@@ -223,7 +223,7 @@ New-AzSearchQueryKey -ResourceGroupName <resource-group-name> -ServiceName <sear
 
 ## <a name="scale-replicas-and-partitions"></a>Skala repliker och partitioner
 
-[**Set-AzSearchService**](/powershell/module/az.search/set-azsearchservice?view=azps-1.4.0) används för att [öka eller minska repliker och partitioner](search-capacity-planning.md) för att justera fakturerbara resurser i tjänsten. Ökning av repliker eller partitioner läggs till på din faktura, som har både fasta och variabla avgifter. Om du har tillfälligt behov av ytterligare processor kraft kan du öka replikeringen och partitionerna för att hantera arbets belastningen. Övervaknings avsnittet på sidan översikts Portal innehåller paneler för svars tid, frågor per sekund och begränsning, vilket anger om den aktuella kapaciteten är tillräcklig.
+[**Set-AzSearchService**](/powershell/module/az.search/set-azsearchservice) används för att [öka eller minska repliker och partitioner](search-capacity-planning.md) för att justera fakturerbara resurser i tjänsten. Ökning av repliker eller partitioner läggs till på din faktura, som har både fasta och variabla avgifter. Om du har tillfälligt behov av ytterligare processor kraft kan du öka replikeringen och partitionerna för att hantera arbets belastningen. Övervaknings avsnittet på sidan översikts Portal innehåller paneler för svars tid, frågor per sekund och begränsning, vilket anger om den aktuella kapaciteten är tillräcklig.
 
 Det kan ta en stund att lägga till eller ta bort en omkälla. Justeringar av kapaciteten sker i bakgrunden, vilket gör att befintliga arbets belastningar kan fortsätta. Ytterligare kapacitet används för inkommande begär Anden så snart det är klart, utan ytterligare konfiguration krävs. 
 

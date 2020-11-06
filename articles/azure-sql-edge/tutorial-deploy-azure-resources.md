@@ -9,28 +9,30 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 76c45e586ea7101015cb878d198cab73ed32498e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d83745db6c720a2fdc2260a07a4e3e66b1a0771d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018254"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422220"
 ---
 # <a name="install-software-and-set-up-resources-for-the-tutorial"></a>Installera program vara och konfigurera resurser för självstudien
 
 I den här självstudien med tre delar skapar du en maskin inlärnings modell för att förutsäga halten av järn malm som en procent andel kiseldioxid och distribuerar sedan modellen i Azure SQL Edge. I del ett installerar du den nödvändiga program varan och distribuerar Azure-resurser.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 1. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
-2. Installera [python-3.6.8](https://www.python.org/downloads/release/python-368/).
-      * Använd installations programmet för Windows x86-x64-körbar fil
-      * Lägg till `python.exe` i Path-miljö variabel hämtningar/). Du hittar hämtningen under "verktyg för Visual Studio 2019".
-3. Installera [Microsoft ODBC driver 17 för SQL Server](https://www.microsoft.com/download/details.aspx?id=56567).
-4. Installera [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio/)
-5. Öppna Azure Data Studio och konfigurera python för antecknings böcker.Mer information finns i [Konfigurera python för notebooks](/sql/azure-data-studio/sql-notebooks#configure-python-for-notebooks). Det här steget kan ta flera minuter.
-6. Installera den senaste versionen av [Azure CLI](https://github.com/Azure/azure-powershell/releases/tag/v3.5.0-February2020). Följande skript kräver att AZ PowerShell är den senaste versionen (3.5.0, feb 2020).
-7. Ladda ned [DACPAC](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/DACPAC) och [AMD/arm Docker-bildfilerna](https://www.docker.com/blog/multi-arch-images/) som används i självstudien.
+2. Installera Visual Studio 2019 med 
+      * Azure IoT Edge verktyg
+      * Utveckling av .NET Core plattforms oberoende
+      * Verktyg för container utveckling
+3. Installera [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio/)
+4. Öppna Azure Data Studio och konfigurera python för antecknings böcker. Mer information finns i [Konfigurera python för notebooks](/sql/azure-data-studio/sql-notebooks#configure-python-for-notebooks). Det här steget kan ta flera minuter.
+5. Installera den senaste versionen av [Azure CLI](https://github.com/Azure/azure-powershell/releases/tag/v3.5.0-February2020). Följande skript kräver att AZ PowerShell är den senaste versionen (3.5.0, feb 2020).
+6. Konfigurera miljön för att felsöka, köra och testa IoT Edge lösning genom att installera [verktyget Azure IoT EdgeHub dev](https://pypi.org/project/iotedgehubdev/).
+7. Installera Docker.
+8. Hämta filen [DACPAC](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/DACPAC) som kommer att användas i självstudien. 
 
 ## <a name="deploy-azure-resources-using-powershell-script"></a>Distribuera Azure-resurser med PowerShell-skript
 
@@ -154,26 +156,7 @@ Distribuera de Azure-resurser som krävs av den här själv studie kursen för A
    }
    ```
 
-10. Push-överför ARM/AMD Docker-avbildningar till behållar registret.
-
-    ```powershell
-    $containerRegistryCredentials = Get-AzContainerRegistryCredential -ResourceGroupName $ResourceGroup -Name $containerRegistryName
-    
-    $amddockerimageFile = Read-Host "Please Enter the location to the amd docker tar file:"
-    $armdockerimageFile = Read-Host "Please Enter the location to the arm docker tar file:"
-    $amddockertag = $containerRegistry.LoginServer + "/silicaprediction" + ":amd64"
-    $armdockertag = $containerRegistry.LoginServer + "/silicaprediction" + ":arm64"
-    
-    docker login $containerRegistry.LoginServer --username $containerRegistryCredentials.Username --password $containerRegistryCredentials.Password
-    
-    docker import $amddockerimageFile $amddockertag
-    docker push $amddockertag
-    
-    docker import $armdockerimageFile $armdockertag
-    docker push $armdockertag
-    ```
-
-11. Skapa nätverks säkerhets gruppen i resurs gruppen.
+10. Skapa nätverks säkerhets gruppen i resurs gruppen.
 
     ```powershell
     $nsg = Get-AzNetworkSecurityGroup -ResourceGroupName $ResourceGroup -Name $NetworkSecGroup 
@@ -193,7 +176,7 @@ Distribuera de Azure-resurser som krävs av den här själv studie kursen för A
     }
     ```
 
-12. Skapa en virtuell Azure-dator som är aktive rad med SQL Edge. Den här virtuella datorn fungerar som en gräns enhet.
+11. Skapa en virtuell Azure-dator som är aktive rad med SQL Edge. Den här virtuella datorn fungerar som en gräns enhet.
 
     ```powershell
     $AzVM = Get-AzVM -ResourceGroupName $ResourceGroup -Name $EdgeDeviceId
@@ -226,7 +209,7 @@ Distribuera de Azure-resurser som krävs av den här själv studie kursen för A
     }
     ```
 
-13. Skapa en IoT-hubb i resurs gruppen.
+12. Skapa en IoT-hubb i resurs gruppen.
 
     ```powershell
     $iotHub = Get-AzIotHub -ResourceGroupName $ResourceGroup -Name $IoTHubName
@@ -241,7 +224,7 @@ Distribuera de Azure-resurser som krävs av den här själv studie kursen för A
     }
     ```
 
-14. Lägg till en Edge-enhet i IoT Hub. I det här steget skapas endast enhetens digitala identitet.
+13. Lägg till en Edge-enhet i IoT Hub. I det här steget skapas endast enhetens digitala identitet.
 
     ```powershell
     $deviceIdentity = Get-AzIotHubDevice -ResourceGroupName $ResourceGroup -IotHubName $IoTHubName -DeviceId $EdgeDeviceId
@@ -257,7 +240,7 @@ Distribuera de Azure-resurser som krävs av den här själv studie kursen för A
     $deviceIdentity = Get-AzIotHubDevice -ResourceGroupName $ResourceGroup -IotHubName $IoTHubName -DeviceId $EdgeDeviceId
     ```
 
-15. Hämta enhetens primära anslutnings sträng. Detta kommer att behövas senare för den virtuella datorn. Följande kommando använder Azure CLI för distributioner.
+14. Hämta enhetens primära anslutnings sträng. Detta kommer att behövas senare för den virtuella datorn. Följande kommando använder Azure CLI för distributioner.
 
     ```powershell
     $deviceConnectionString = az iot hub device-identity show-connection-string --device-id $EdgeDeviceId --hub-name $IoTHubName --resource-group $ResourceGroup --subscription $SubscriptionName
@@ -265,18 +248,19 @@ Distribuera de Azure-resurser som krävs av den här själv studie kursen för A
     $connString
     ```
 
-16. Uppdatera anslutnings strängen i IoT Edge konfigurations filen på gräns enheten. Följande kommandon använder Azure CLI för distributioner.
+15. Uppdatera anslutnings strängen i IoT Edge konfigurations filen på gräns enheten. Följande kommandon använder Azure CLI för distributioner.
 
     ```powershell
     $script = "/etc/iotedge/configedge.sh '" + $connString + "'"
     az vm run-command invoke -g $ResourceGroup -n $EdgeDeviceId  --command-id RunShellScript --script $script
     ```
 
-17. Skapa en Azure Machine Learning-arbetsyta i resurs gruppen.
+16. Skapa en Azure Machine Learning-arbetsyta i resurs gruppen.
 
     ```powershell
     az ml workspace create -w $MyWorkSpace -g $ResourceGroup
     ```
+
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
-ms.openlocfilehash: 796aca02e6f70da8f5b94f6bbdbd2fd1d535bd77
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: af9490433c344c712da55e9b29bf9df364380736
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108481"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422543"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure Functions PowerShell-guide för utvecklare
 
@@ -20,7 +20,7 @@ En PowerShell-funktion (funktion) i Azure representeras som ett PowerShell-skrip
 
 Precis som andra typer av funktioner, tar PowerShell-skript funktioner i parametrar som matchar namnen på alla angivna bindningar i `function.json` filen. En `TriggerMetadata` parameter skickas också som innehåller ytterligare information om utlösaren som startade funktionen.
 
-Den här artikeln förutsätter att du redan har läst [Azure Functions Developer-referensen](functions-reference.md). Du bör också ha slutfört funktionen [snabb start för PowerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell) för att skapa din första PowerShell-funktion.
+Den här artikeln förutsätter att du redan har läst [Azure Functions Developer-referensen](functions-reference.md). Du bör också ha slutfört funktionen [snabb start för PowerShell](./create-first-function-vs-code-powershell.md) för att skapa din första PowerShell-funktion.
 
 ## <a name="folder-structure"></a>Mappstruktur
 
@@ -53,7 +53,7 @@ I projekt roten finns det en delad [`host.json`](functions-host-json.md) fil som
 
 Vissa bindningar kräver en `extensions.csproj` fils förekomst. Bindnings tillägg som krävs i [version 2. x och senare versioner](functions-versions.md) av Functions-körningen definieras i `extensions.csproj` filen med de faktiska biblioteksfilerna i `bin` mappen. När du utvecklar lokalt måste du [Registrera bindnings tillägg](functions-bindings-register.md#extension-bundles). När du utvecklar funktioner i Azure Portal görs registreringen åt dig.
 
-I PowerShell Function-appar kan du välja att ha en `profile.ps1` som körs när en Function-app börjar köras (på annat sätt vet som en *[kall start](#cold-start)*). Mer information finns i [PowerShell-profil](#powershell-profile).
+I PowerShell Function-appar kan du välja att ha en `profile.ps1` som körs när en Function-app börjar köras (på annat sätt vet som en *[kall start](#cold-start)* ). Mer information finns i [PowerShell-profil](#powershell-profile).
 
 ## <a name="defining-a-powershell-script-as-a-function"></a>Definiera ett PowerShell-skript som en funktion
 
@@ -126,7 +126,7 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Följande är giltiga parametrar för att anropa `Push-OutputBinding` :
 
-| Namn | Typ | Position | Beskrivning |
+| Namn | Typ | Position | Description |
 | ---- | ---- |  -------- | ----------- |
 | **`-Name`** | Sträng | 1 | Namnet på den utgående bindning som du vill ange. |
 | **`-Value`** | Objekt | 2 | Värdet för den utgående bindning som du vill ange, som accepteras från pipelinen ByValue. |
@@ -418,7 +418,7 @@ Använd följande steg för att ändra den PowerShell-version som används av di
 
 1. I [Azure-portalen](https://portal.azure.com) bläddrar du till din funktionsapp.
 
-1. Under **Inställningar**väljer du **konfiguration**. På fliken **allmänna inställningar** letar du upp **PowerShell-versionen**. 
+1. Under **Inställningar** väljer du **konfiguration**. På fliken **allmänna inställningar** letar du upp **PowerShell-versionen**. 
 
     :::image type="content" source="media/functions-reference-powershell/change-powershell-version-portal.png" alt-text="Välj den PowerShell-version som används av Function-appen"::: 
 
@@ -525,7 +525,7 @@ Flera moduler används ofta av PowerShell-språket. Dessa moduler definieras i d
 Den aktuella listan över moduler är följande:
 
 * [Microsoft. PowerShell. Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive): modulen används för att arbeta med Arkiv, `.zip` t `.nupkg` . ex., och andra.
-* **ThreadJob**: en tråd baserad implementering av PowerShell-jobbets API: er.
+* **ThreadJob** : en tråd baserad implementering av PowerShell-jobbets API: er.
 
 Som standard använder funktionen den senaste versionen av dessa moduler. Om du vill använda en speciell version av en modul, ska du ange den här versionen i `Modules` mappen i din Function-app.
 

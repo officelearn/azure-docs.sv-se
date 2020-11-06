@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 0c37c8f108e9bcbb827c05242d8863994dfc64cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a668024db126c82f96756555aba513b77f7d7366
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89177099"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422968"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Felsöka PowerShell Azure Functions lokalt
 
@@ -38,7 +38,7 @@ PSFunctionApp
  | - profile.ps1
 ```
 
-Den här funktions appen liknar den som du får när du slutför snabb starten av [PowerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell).
+Den här funktions appen liknar den som du får när du slutför snabb starten av [PowerShell](./create-first-function-vs-code-powershell.md).
 
 Funktions koden i `run.ps1` ser ut som följande skript:
 
@@ -95,10 +95,10 @@ Med `Wait-Debugger` på plats kan du nu felsöka funktionerna med hjälp av anti
 Om du vill felsöka PowerShell-funktionerna i Visual Studio Code måste du ha följande installerat:
 
 * [PowerShell-tillägg för Visual Studio Code](/powershell/scripting/components/vscode/using-vscode)
-* [Azure Functions-tillägg för Visual Studio Code](functions-create-first-function-vs-code.md)
+* [Azure Functions-tillägg för Visual Studio Code](./create-first-function-cli-powershell.md)
 * [PowerShell Core 6,2 eller högre](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-När du har installerat dessa beroenden läser du in ett befintligt PowerShell Functions-projekt eller [skapar ditt första PowerShell Functions-projekt](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell).
+När du har installerat dessa beroenden läser du in ett befintligt PowerShell Functions-projekt eller [skapar ditt första PowerShell Functions-projekt](./create-first-function-vs-code-powershell.md).
 
 >[!NOTE]
 > Om projektet inte har de konfigurationsfiler som behövs uppmanas du att lägga till dem.
@@ -111,7 +111,7 @@ PowerShell-kärnan installeras sida vid sida med Windows PowerShell. Ange PowerS
 
 1. Välj **PowerShell: Visa session-menyn**.
 
-1. Om den **aktuella sessionen** inte är **PowerShell Core 6**väljer **du växla till: PowerShell Core 6**.
+1. Om den **aktuella sessionen** inte är **PowerShell Core 6** väljer **du växla till: PowerShell Core 6**.
 
 När du har en PowerShell-fil öppen visas den version som visas i grönt längst ned till höger i fönstret. Om du väljer den här texten visas även session-menyn. Mer information finns i [välja en version av PowerShell som ska användas med tillägget](/powershell/scripting/components/vscode/using-vscode#choosing-a-version-of-powershell-to-use-with-the-extension).
 
@@ -250,7 +250,7 @@ Om den här rasten inträffar kör du `continue` eller- `c` kommandot för att h
 
 Om du har problem under fel sökningen bör du kontrol lera följande:
 
-| Markera | Action |
+| Markera | Åtgärd |
 |------|------|
 | Kör `func --version` från terminalen. Om du får ett fel som `func` inte går att hitta, kan det saknas kärn verktyg (func.exe) från den lokala `path` variabeln.| [Installera om kärn verktyg](functions-run-local.md#v2).|  
 | I Visual Studio Code måste standard terminalen ha åtkomst till func.exe. Kontrol lera att du inte använder en standard-Terminal som inte har några installerade verktyg, till exempel Windows-undersystemet för Linux (WSL).  | Ange standard gränssnittet i Visual Studio Code till antingen PowerShell 7 (rekommenderas) eller Windows PowerShell 5,1.|

@@ -1,18 +1,18 @@
 ---
-title: Ansluta IoT Plug and Play C# komponent enhets kod till IoT Hub | Microsoft Docs
-description: Skapa och kör IoT Plug and Play C# enhets kod som använder flera komponenter och ansluter till en IoT-hubb. Använd Azure IoT Explorer-verktyget för att visa informationen som skickas av enheten till hubben.
+title: Självstudie – ansluta IoT-Plug and Play exempel C#-komponent enhets kod till Azure IoT Hub | Microsoft Docs
+description: Självstudie – Skapa och kör IoT Plug and Play exempel C#-enhets kod som använder flera komponenter och ansluter till en IoT-hubb. Använd Azure IoT Explorer-verktyget för att visa informationen som skickas av enheten till hubben.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 72b85388bf80a6ed2b9617b606940c243c5711f1
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: f7a1aa85c4456bdcf7ed50e42382fc440618ec7d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945540"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421455"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-multiple-component-device-application-running-on-windows-to-iot-hub-c"></a>Självstudie: ansluta en IoT Plug and Play flera komponent enhets program som körs på Windows till IoT Hub (C#)
 
@@ -47,7 +47,7 @@ I den här snabb starten använder du en exempel temperatur styrenhets enhet som
 
 1. I Visual Studio navigerar du till **Project > TemperatureController-egenskaper > Felsök**. Lägg sedan till följande miljövariabler i projektet:
 
-    | Namn | Värde |
+    | Name | Värde |
     | ---- | ----- |
     | IOTHUB_DEVICE_SECURITY_TYPE | – |
     | IOTHUB_DEVICE_DPS_ENDPOINT | global.azure-devices-provisioning.net |

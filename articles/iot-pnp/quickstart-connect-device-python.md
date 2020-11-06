@@ -1,6 +1,6 @@
 ---
-title: Ansluta IoT-Plug and Play exempel på python-enhets kod till Azure IoT Hub | Microsoft Docs
-description: Använd python för att skapa och köra IoT Plug and Play enhets kod som ansluter till en IoT-hubb. Använd Azure IoT Explorer-verktyget för att visa informationen som skickas av enheten till hubben.
+title: Snabb start – ansluta IoT Plug and Play exempel på python-enhets kod till Azure IoT Hub | Microsoft Docs
+description: Snabb start – Använd python för att skapa och köra IoT Plug and Play enhets kod som ansluter till en IoT-hubb. Använd Azure IoT Explorer-verktyget för att visa informationen som skickas av enheten till hubben.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 7/14/2020
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 065e65c0c8ccf61dd67da19fd5a94d4506db73ff
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 38c6b835f0a3ddaaf4c049ca6ea3aeb484ad3280
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737307"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421574"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-to-iot-hub-python"></a>Snabb start: ansluta ett exempel på IoT Plug and Play enhets program till IoT Hub (python)
 
@@ -69,7 +69,7 @@ Mappen *Azure-IoT-SDK-python\azure-IoT-device\samples\pnp* innehåller exempel k
 
     1. Börjar skicka telemetri. **Pnp_send_telemetry** definieras i filen pnp_methods. py. Exempel koden använder en slinga för att anropa den här funktionen var åttonde sekund.
 
-    1. Inaktiverar alla lyssnare och uppgifter och finns i slingan när du trycker på **q** eller **q** .
+    1. Inaktiverar alla lyssnare och uppgifter och finns i slingan när du trycker på **q** eller **q**.
 
 [!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
 

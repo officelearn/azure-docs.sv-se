@@ -1,19 +1,19 @@
 ---
-title: Interagera med en IoT Plug and Play-enhet som är ansluten till din Azure IoT-lösning (Node.js) | Microsoft Docs
-description: Använd Node.js för att ansluta till och interagera med en IoT Plug and Play-enhet som är ansluten till din Azure IoT-lösning.
+title: Snabb start – interagera med en IoT Plug and Play-enhet som är ansluten till din Azure IoT-lösning (Node.js) | Microsoft Docs
+description: Snabb start – Använd Node.js för att ansluta till och interagera med en IoT Plug and Play-enhet som är ansluten till din Azure IoT-lösning.
 author: elhorton
 ms.author: elhorton
 ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 9a71a45f69f7a2bd2fbc198292526a6928e421a2
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 814221997bc927cf411e531b523d693f3ef5854c
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735993"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421523"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-nodejs"></a>Snabb start: interagera med en IoT Plug and Play-enhet som är ansluten till din lösning (Node.js)
 
@@ -164,7 +164,7 @@ I den här snabb starten använder du en exempel-IoT-lösning i Node.js för att
 I det här scenariot matas den ut `Model Id: dtmi:com:example:Thermostat;1` .
 
 > [!NOTE]
-> Dessa tjänst exempel använder **register** klassen från **IoT Hub-tjänst klienten** . Mer information om API: er, inklusive digitala dubbla API: er, finns i [service Developer-guiden](concepts-developer-guide-service.md).
+> Dessa tjänst exempel använder **register** klassen från **IoT Hub-tjänst klienten**. Mer information om API: er, inklusive digitala dubbla API: er, finns i [service Developer-guiden](concepts-developer-guide-service.md).
 
 ### <a name="update-a-writable-property"></a>Uppdatera en skrivbar egenskap
 

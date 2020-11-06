@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: reference
 ms.date: 09/29/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 25c79229a09db912903fba825f0d48f571880745
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: a36e15a56a5a4c8a637120ca730ae1da764d376d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91877003"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422911"
 ---
 # <a name="common-error-codes-for-azure-key-vault"></a>Vanliga felkoder för Azure Key Vault
 
@@ -22,7 +22,7 @@ Fel koderna som anges i följande tabell kan returneras av en åtgärd i Azure K
 
 | Felkod | Användar meddelande |
 |--|--|
-| VaultAlreadyExists |  Det angivna nyckel valvet finns redan (i läget Soft-Deleted eller en annan prenumeration). |
+| VaultAlreadyExists |  Ditt försök att skapa ett nytt nyckel valv med det angivna namnet misslyckades eftersom namnet redan används. Om du nyligen har tagit bort ett nyckel valv med det här namnet kan det fortfarande vara i läget Soft Deleted. Du kan kontrol lera om den finns i läget Soft-Deleted [här](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-portal#list-recover-or-purge-a-soft-deleted-key-vault) |
 | VaultNameNotValid |  Valv namnet ska vara 24 tecken, alfanumeriskt och börja med ett alfabet |
 | AccessDenied |  Du kanske saknar behörigheter i åtkomst principen för att utföra åtgärden. |
 | ForbiddenByFirewall |  Klient adressen är inte auktoriserad och anroparen är inte en betrodd tjänst. |

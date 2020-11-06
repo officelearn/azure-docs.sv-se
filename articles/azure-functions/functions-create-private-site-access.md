@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: 948e4f74763efd641bc0f089c679cdaf7c2f784e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c87fcf4f56b7092436fa16658a72ead24d9fec2
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530076"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93423036"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Självstudie: upprätta Azure Functions åtkomst till privat webbplats
 
@@ -39,13 +39,13 @@ Följande diagram visar arkitekturen för den lösning som ska skapas:
 
 ![Högnivå arkitektur diagram för åtkomst lösning för privat webbplats](./media/functions-create-private-site-access/topology.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 I den här självstudien är det viktigt att du förstår IP-adressering och undernät. Du kan börja med [den här artikeln som beskriver grunderna för adressering och undernät](https://support.microsoft.com/help/164015/understanding-tcp-ip-addressing-and-subnetting-basics). Många fler artiklar och videor är tillgängliga online.
 
 ## <a name="sign-in-to-azure-portal"></a>Logga in på Azure-portalen
 
-Logga in på [Azure-portalen](https://portal.azure.com).
+Logga in i [Azure-portalen](https://portal.azure.com).
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
@@ -53,7 +53,7 @@ Det första steget i den här självstudien är att skapa en ny virtuell dator i
 
 1. Välj knappen **skapa en resurs** .
 
-1. Skriv **Windows Server**i Sök fältet och välj **Windows Server** i Sök resultatet.
+1. Skriv **Windows Server** i Sök fältet och välj **Windows Server** i Sök resultatet.
 
 1. Välj **Windows server 2019 Data Center** i listan över Windows Server-alternativ och klicka på knappen **skapa** .
 
@@ -65,7 +65,7 @@ Det första steget i den här självstudien är att skapa en ny virtuell dator i
     | Inställning      | Föreslaget värde  | Beskrivning      |
     | ------------ | ---------------- | ---------------- |
     | _Prenumeration_ | Din prenumeration | Den prenumeration som dina resurser skapas under. |
-    | [_Resurs grupp_](../azure-resource-manager/management/overview.md) | myResourceGroup | Välj den resurs grupp som innehåller alla resurser för den här självstudien.  Med samma resurs grupp blir det enklare att rensa resurser när du är klar med den här självstudien. |
+    | [_Resursgrupp_](../azure-resource-manager/management/overview.md) | myResourceGroup | Välj den resurs grupp som innehåller alla resurser för den här självstudien.  Med samma resurs grupp blir det enklare att rensa resurser när du är klar med den här självstudien. |
     | _Namn på virtuell dator_ | myVM | Det virtuella dator namnet måste vara unikt i resurs gruppen |
     | [_Region_](https://azure.microsoft.com/regions/) | USA Norra centrala USA | Välj en region nära dig eller nära de funktioner som ska nås. |
     | _Offentliga inkommande portar_ | Inga | Välj **ingen** för att se till att det inte finns någon inkommande anslutning till den virtuella datorn från Internet. Fjärråtkomst till den virtuella datorn kommer att konfigureras via Azure skydds-tjänsten. |
@@ -75,7 +75,7 @@ Det första steget i den här självstudien är att skapa en ny virtuell dator i
     >[!div class="mx-imgBorder"]
     >![Skärm bild som visar fliken "nätverk" med åtgärden "Skapa ny" markerad i avsnittet "virtuellt nätverk".](./media/functions-create-private-site-access/create-vm-networking.png)
 
-1. I _Skapa virtuellt nätverk_använder du inställningarna i tabellen under bilden:
+1. I _Skapa virtuellt nätverk_ använder du inställningarna i tabellen under bilden:
 
     >[!div class="mx-imgBorder"]
     >![Skapa ett nytt virtuellt nätverk för den nya virtuella datorn](./media/functions-create-private-site-access/create-vm-vnet-1.png)
@@ -84,13 +84,13 @@ Det första steget i den här självstudien är att skapa en ny virtuell dator i
     | ------------ | ---------------- | ---------------- |
     | _Namn_ | myResourceGroup-VNet | Du kan använda standard namnet som genereras för det virtuella nätverket. |
     | _Adressintervall_ | 10.10.0.0/16 | Använd ett enda adress intervall för det virtuella nätverket. |
-    | _Namn på undernät_ | Självstudier | Namnet på under nätet. |
+    | _Namn på undernät_ | Självstudie | Namnet på under nätet. |
     | _Adress intervall_ (undernät) | 10.10.1.0/24 | Under näts storleken definierar hur många gränssnitt som kan läggas till i under nätet. Det här under nätet används av den virtuella datorn. Ett/24-undernät tillhandahåller 254-värd adresser. |
 
 1. Välj **OK** för att skapa det virtuella nätverket.
 1. Gå tillbaka till fliken _nätverk_ , se till att **ingen** är markerad för _offentlig IP_.
 1. Välj fliken _hantering_ och sedan **Skapa nytt** lagrings konto i _diagnostik Storage-konto_.
-1. Lämna standardvärdena för avsnitten _identitet_, _Automatisk avstängning_och _säkerhets kopiering_ .
+1. Lämna standardvärdena för avsnitten _identitet_ , _Automatisk avstängning_ och _säkerhets kopiering_ .
 1. Välj _Granska + skapa_. När verifieringen är klar väljer du **skapa**. Processen för att skapa virtuella datorer tar några minuter.
 
 ## <a name="configure-azure-bastion"></a>Konfigurera Azure-skydds
@@ -98,7 +98,7 @@ Det första steget i den här självstudien är att skapa en ny virtuell dator i
 [Azure skydds](https://azure.microsoft.com/services/azure-bastion/) är en helt hanterad Azure-tjänst som ger säker RDP-och SSH-åtkomst till virtuella datorer direkt från Azure Portal. Genom att använda Azure skydds-tjänsten tar du bort behovet av att konfigurera nätverks inställningar som rör RDP-åtkomst.
 
 1. I portalen väljer du **Lägg till** överst i vyn resurs grupp.
-1. Skriv **skydds**i Sök fältet.
+1. Skriv **skydds** i Sök fältet.
 1. Välj **skydds** i Sök resultaten.
 1. Välj **skapa** för att påbörja processen med att skapa en ny Azure skydds-resurs. Du kommer att märka ett fel meddelande i det _virtuella nätverket_ -avsnittet eftersom det inte finns något AzureBastionSubnet-undernät än. Under nätet skapas i följande steg. Använd inställningarna i tabellen under bilden:
 
@@ -145,7 +145,7 @@ Nästa steg är att skapa en Function-app i Azure med hjälp av [förbruknings p
     | _Region_ | USA, norra centrala | Välj en [region](https://azure.microsoft.com/regions/) nära dig eller nära andra tjänster som dina funktioner kommer åt. |
 
     Välj **Nästa: Hosting >** -knappen.
-1. I avsnittet _värd_ väljer du rätt _lagrings konto_, _operativ system_och _plan_ enligt beskrivningen i följande tabell.
+1. I avsnittet _värd_ väljer du rätt _lagrings konto_ , _operativ system_ och _plan_ enligt beskrivningen i följande tabell.
 
     | Inställning      | Föreslaget värde  | Beskrivning      |
     | ------------ | ---------------- | ---------------- |
@@ -165,7 +165,7 @@ Nästa steg är att konfigurera [åtkomst begränsningar](../app-service/app-ser
 1. Sidan _nätverk_ är start punkten för att konfigurera Azure-frontend, Azure CDN och även åtkomst begränsningar.
 1. Välj **Konfigurera åtkomst begränsningar** för att konfigurera åtkomst till privat plats.
 1. På sidan _åtkomst begränsningar_ ser du bara standard begränsningen på plats. Som standard placeras inga begränsningar för åtkomst till Function-appen.  Välj **Lägg till regel** för att skapa en åtkomst begränsnings konfiguration för privata platser.
-1. I fönstret _Lägg till åtkomst begränsning_ anger du ett _namn_, en _prioritet_och en _Beskrivning_ för den nya regeln.
+1. I fönstret _Lägg till åtkomst begränsning_ anger du ett _namn_ , en _prioritet_ och en _Beskrivning_ för den nya regeln.
 1. Välj **Virtual Network** i list rutan _typ_ och välj sedan det tidigare skapade virtuella nätverket och välj sedan under nätet för **självstudier** . 
     > [!NOTE]
     > Det kan ta flera minuter att aktivera tjänstens slut punkt.
@@ -197,7 +197,7 @@ Nästa steg i den här självstudien är att skapa en HTTP-utlöst Azure-funktio
     * [Visual Studio Code](./functions-create-first-function-vs-code.md)
     * [Visual Studio](./functions-create-your-first-function-visual-studio.md)
     * [Kommandorad](./functions-create-first-azure-function-azure-cli.md)
-    * [Maven (Java)](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java&tabs=bash,browser)
+    * [Maven (Java)](./create-first-function-cli-java.md?tabs=bash,browser)
 
 1. När du publicerar Azure Functions-projektet väljer du den Function app-resurs som du skapade tidigare i den här självstudien.
 1. Kontrol lera att funktionen har distribuerats.

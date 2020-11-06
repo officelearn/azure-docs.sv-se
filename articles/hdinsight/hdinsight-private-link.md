@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 4948d23af98e267e72e6f0e0efcc1a4037173576
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3c6bee570312009af5fbdf42a018ad2b387662d9
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547426"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422305"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Skydda och isolera Azure HDInsight-kluster med privat länk (förhands granskning)
 
@@ -29,9 +29,9 @@ Som standard använder HDInsight RP en *inkommande* anslutning till klustret med
 
 De grundläggande belastningsutjämnare som används i standard arkitekturen för virtuella nätverk tillhandahåller automatiskt offentliga NAT (Network Address Translation) för att få åtkomst till nödvändiga utgående beroenden, till exempel HDInsight RP. Om du vill begränsa utgående anslutning till det offentliga Internet kan du [Konfigurera en brand vägg](./hdinsight-restrict-outbound-traffic.md), men det är inget krav.
 
-Genom `resourceProviderConnection` att konfigurera till utgående kan du också komma åt klusterbaserade resurser, till exempel Azure Data Lake Storage Gen2 eller externa metastores, med hjälp av privata slut punkter. Du måste konfigurera privata slut punkter och DNS-poster innan du skapar HDInsight-klustret. Vi rekommenderar att du skapar och tillhandahåller alla externa SQL-databaser som du behöver, till exempel Apache Ranger, Ambari, Oozie och Hive metastores när klustret skapas.
+Genom `resourceProviderConnection` att konfigurera till utgående kan du också komma åt klusterbaserade resurser, till exempel Azure Data Lake Storage Gen2 eller externa metastores, med hjälp av privata slut punkter. Användning av privata slut punkter för de här resurserna är inte mandetory, men om du planerar att ha privata slut punkter för dessa resurser måste du konfigurera de privata slut punkterna och DNS-posterna `before` som du skapar HDInsight-klustret. Vi rekommenderar att du skapar och tillhandahåller alla externa SQL-databaser som du behöver, till exempel Apache Ranger, Ambari, Oozie och Hive metastores, när klustret skapas. Kravet är att alla dessa resurser måste vara tillgängliga inifrån kluster under nätet, antingen via sin egen privata slut punkt eller på annat sätt.
 
-Privata slut punkter för Azure Key Vault stöds inte. Om du använder Azure Key Vault för CMK-kryptering i vila måste Azure Key Vault-slutpunkten vara tillgänglig från HDInsight-undernätet utan privat slut punkt.
+Det finns inte stöd för att använda privata slut punkter för Azure Key Vault. Om du använder Azure Key Vault för CMK-kryptering i vila måste Azure Key Vault-slutpunkten vara tillgänglig från HDInsight-undernätet utan privat slut punkt.
 
 Följande diagram visar hur en potentiell virtuell nätverks arkitektur för HDInsight kan se ut som när `resourceProviderConnection` har angetts till utgående:
 
@@ -52,7 +52,7 @@ För att få åtkomst till klustret med hjälp av kluster-FQDN: er kan du anting
 
 ## <a name="enable-private-link"></a>Aktivera privat länk
 
-Privat länk, som är inaktive rad som standard, kräver omfattande nätverks kunskaper för att konfigurera användardefinierade vägar (UDR) och brand Väggs regler korrekt innan du skapar ett kluster. Privat länk åtkomst till klustret är bara tillgänglig när `resourceProviderConnection` nätverks egenskapen är inställd på *utgående* enligt beskrivningen i föregående avsnitt.
+Privat länk, som är inaktive rad som standard, kräver omfattande nätverks kunskaper för att konfigurera användardefinierade vägar (UDR) och brand Väggs regler korrekt innan du skapar ett kluster. Det är valfritt att använda den här inställningen, men den är bara tillgänglig när `resourceProviderConnection` nätverks egenskapen är inställd på *utgående* enligt beskrivningen i föregående avsnitt.
 
 När `privateLink` är inställt på *Enable* skapas interna [standardload Balancer](../load-balancer/load-balancer-overview.md) (SLB) och en Azure Private Link-tjänst tillhandahålls för varje SLB. Med den privata länk tjänsten kan du komma åt HDInsight-klustret från privata slut punkter.
 
@@ -64,11 +64,11 @@ För att successgfull ska kunna skapas måste du uttryckligen [inaktivera nätve
 
 Följande diagram visar ett exempel på den nätverks konfiguration som krävs innan du skapar ett kluster. I det här exemplet [tvingas](../firewall/forced-tunneling.md) all utgående trafik till Azure-brandväggen med hjälp av UDR och de nödvändiga utgående beroendena ska vara "tillåtna" i brand väggen innan ett kluster skapas. För Enterprise Security Package kluster kan nätverks anslutningen till Azure Active Directory Domain Services tillhandahållas av VNet-peering.
 
-:::image type="content" source="media/hdinsight-private-link/before-cluster-creation.png" alt-text="Diagram över HDInsight-arkitektur med en utgående anslutning till en resurs leverantör":::
+:::image type="content" source="media/hdinsight-private-link/before-cluster-creation.png" alt-text="Diagram över privat länk miljö innan kluster skapas":::
 
 När du har konfigurerat nätverket kan du skapa ett kluster med anslutning till utgående resurs leverantör och privat länk aktiverat, som du ser i följande bild. I den här konfigurationen finns inga offentliga IP-adresser och privata länk tjänster etablerade för varje standard belastningsutjämnare.
 
-:::image type="content" source="media/hdinsight-private-link/after-cluster-creation.png" alt-text="Diagram över HDInsight-arkitektur med en utgående anslutning till en resurs leverantör":::
+:::image type="content" source="media/hdinsight-private-link/after-cluster-creation.png" alt-text="Diagram över privat länk miljö när klustret har skapats":::
 
 ### <a name="access-a-private-cluster"></a>Åtkomst till ett privat kluster
 
@@ -84,7 +84,7 @@ De privata länk poster som skapats i den Azure-hanterade offentliga DNS-zonen `
 
 Följande bild visar ett exempel på de privata DNS-poster som krävs för att komma åt klustret från ett virtuellt nätverk som inte är peer-kopplat eller som inte har direkt insikter om belastnings utjämning för klustret. Du kan använda Azures privata zon för att åsidosätta `*.privatelink.azurehdinsight.net` FQDN: er och matcha dina egna privata slut punkter IP-adresser.
 
-:::image type="content" source="media/hdinsight-private-link/access-private-clusters.png" alt-text="Diagram över HDInsight-arkitektur med en utgående anslutning till en resurs leverantör":::
+:::image type="content" source="media/hdinsight-private-link/access-private-clusters.png" alt-text="Diagram över arkitektur för privata länkar":::
 
 ## <a name="arm-template-properties"></a>Egenskaper för ARM-mall
 

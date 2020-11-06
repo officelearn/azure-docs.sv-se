@@ -1,76 +1,86 @@
 ---
-title: Felsöka dina API:er med hjälp av spårning av förfrågan i Azure API Management | Microsoft Docs
-description: Följ stegen i den här självstudien för att lära dig hur du kontrollerar stegen för bearbetningen av begäran i Azure API Management.
+title: 'Självstudie – felsöka API: er i Azure API Management med hjälp av spårning av förfrågningar'
+description: Följ stegen i den här självstudien för att aktivera spårning och inspektion av bearbetnings steg för begäran i Azure API Management.
 services: api-management
 documentationcenter: ''
 author: vladvino
-manager: cfowler
 editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 10/30/2020
 ms.author: apimpm
-ms.openlocfilehash: fc5e8c7a7aa0d4693d96c3405ec0e180a6d13f8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9a101de408b506fb5375b5f16c1deff4f67532d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75768543"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422052"
 ---
-# <a name="debug-your-apis-using-request-tracing"></a>Felsöka API:er med hjälp av spårning av förfrågningar
+# <a name="tutorial-debug-your-apis-using-request-tracing"></a>Självstudie: Felsöka API: er med hjälp av spårning av förfrågningar
 
-I den här självstudien beskrivs hur du kontrollerar bearbetning av begäran för felsökning av ditt API. 
+I den här självstudien beskrivs hur du inspekterar (spårar) bearbetning av förfrågningar i Azure API Management för att hjälpa dig att felsöka och felsöka ditt API. 
 
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Spåra ett anrop
+> * Spåra ett exempel anrop
+> * Granska bearbetnings steg för begäran
 
-![API Inspector](media/api-management-howto-api-inspector/api-inspector001.PNG)
+:::image type="content" source="media/api-management-howto-api-inspector/api-inspector-001.png" alt-text="API Inspector":::
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + Lär dig [Azure API Management-terminologin](api-management-terminology.md).
 + Slutför följande snabb start: [skapa en Azure API Management-instans](get-started-create-service-instance.md).
-+ Slutför även följande självstudie: [Importera och publicera ditt första API](import-and-publish.md).
++ Slutför följande självstudie: [Importera och publicera ditt första API](import-and-publish.md).
+
+## <a name="verify-allow-tracing-setting"></a>Verifiera Tillåt spårnings inställning 
+
+Inställningen **Tillåt spårning** för den prenumeration som används för ditt API måste vara aktive rad. Om du använder den inbyggda prenumerationen All-Access är den aktive rad som standard. Om du vill verifiera i portalen navigerar du till din API Management instans och väljer **prenumerationer**.
+
+   :::image type="content" source="media/api-management-howto-api-inspector/allow-tracing.png" alt-text="Tillåt spårning för prenumeration":::
 
 ## <a name="trace-a-call"></a>Spåra ett anrop
 
-![API-spårning](media/api-management-howto-api-inspector/06-DebugYourAPIs-01-TraceCall.png)
-
+1. Logga in på [Azure Portal](https://portal.azure.com)och navigera till API Management-instansen.
 1. Välj **API:er**.
-2. Klicka på **Demo Conference API** i API-listan.
-3. Växla till fliken **Test**.
-4. Välj åtgärden **GetSpeakers**.
-5. Se till att ta med HTTP-huvudet med namnet **Ocp-Apim-Trace** med värdet satt till **true**.
+1. Välj  **demo konferens-API** från din API-lista.
+1. Välj fliken **Test**.
+1. Välj åtgärden **GetSpeakers**.
+1. Bekräfta att huvudet för HTTP-begäran innehåller **OCP-admin-trace: true** och ett giltigt värde för **OCP-admin-Subscription-Key**. Om den inte är det väljer du **+ Lägg till rubrik** för att lägga till rubriken.
+1. Välj **Skicka** för att göra ett API-anrop.
 
-   > [!NOTE]
-   > * Om Ocp-Apim-Subscription-Key inte fylls i automatiskt kan du hämta den genom att gå till Utvecklarportalen och exponera nycklarna på profilsidan.
-   > * För att få en spårning när HTTP-huvudet OCP-APIM-trace används måste inställningen **Tillåt spårning** för prenumerations nyckeln vara aktive rad. Om du vill konfigurera inställningen **Tillåt spårning** , under **API Management** på den vänstra menyn, väljer du **prenumerationer**.
-   >   ![Tillåt spårning i fönstret API Managements prenumerationer](media/api-management-howto-api-inspector/allowtracing.png)
+  :::image type="content" source="media/api-management-howto-api-inspector/06-debug-your-apis-01-trace-call.png" alt-text="Konfigurera API-spårning":::
 
-6. Klicka på **Skicka** för att göra ett API-anrop. 
-7. Vänta tills anropet är klart. 
-8. Gå till fliken **Spåra** i **API-konsolen**. Klicka på någon av följande länkar för att komma till detaljerad spårningsinfo: **inkommande**, **serverdel**, **utgående**.
+> [!TIP]
+> Om **OCP-APIM-Subscription-Key** inte fylls i automatiskt i HTTP-förfrågan kan du hämta den i portalen. Välj **prenumerationer** och öppna snabb menyn ( **...** ) för din suscription. Välj **Visa/Dölj nycklar**. Du kan också återskapa nycklar om det behövs. Lägg sedan till en nyckel i rubriken.
 
-    Under **inkommande** kan du se den ursprungliga begäran som API Management fick från anroparen och alla principer som tillämpas på begäran, inklusive hastighetsbegränsning och angivet sidhuvud som lades till i steg 2.
+## <a name="review-trace-information"></a>Granska spårnings information
 
-    Under **serverdelen** visas de förfrågningar som API Management skickade till serverdelen för API:et och svaret den fick.
+1. När anropet är klart går du till fliken **spåra** i **http-svaret**.
+1. Välj någon av följande länkar för att gå till detaljerad spårnings information: **inkommande** , **backend** , **utgående**.
 
-    Under **utgående** visas alla principer som tillämpas på svaret innan det skickas tillbaka till anroparen.
+     :::image type="content" source="media/api-management-howto-api-inspector/response-trace.png" alt-text="Granska svars spårning":::
+
+    * **Inkommande** – visar den ursprungliga begäran API Management tas emot från anroparen och de principer som tillämpas på begäran. Om du till exempel har lagt till principer i [Självstudier: transformera och skydda ditt API](transform-api.md)visas de här.
+
+    * **Backend** – visar de begär anden som API Management skickas till API-Dataservern och svaret den fick.
+
+    * **Utgående** – visar de principer som tillämpas på svaret innan du skickar tillbaka till anroparen.
 
     > [!TIP]
     > Alla steg visar också hur lång tid det tog efter att begäran togs emot av API Management.
 
+1. På fliken **meddelande** visas platsen för spårnings data som lagras i Azure Blob Storage i **OCP-APIM-trace-location** -huvudet. Om det behövs går du till den här platsen för att hämta spårningen.
+
+     :::image type="content" source="media/api-management-howto-api-inspector/response-message.png" alt-text="Spårnings plats i Azure Storage":::
 ## <a name="next-steps"></a>Nästa steg
 
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
-> * Spåra ett anrop
+> * Spåra ett exempel anrop
+> * Granska bearbetnings steg för begäran
 
 Gå vidare till nästa kurs:
 

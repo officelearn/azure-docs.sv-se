@@ -1,19 +1,19 @@
 ---
-title: Ansluta IoT Plug and Play-exempel Node.js enhets kod till Azure IoT Hub | Microsoft Docs
-description: Använd Node.js för att skapa och köra IoT Plug and Play-exempel enhets kod som ansluter till en IoT-hubb. Använd Azure IoT Explorer-verktyget för att visa informationen som skickas av enheten till hubben.
+title: Snabb start – ansluta IoT Plug and Play exempel Node.js enhets kod till Azure IoT Hub | Microsoft Docs
+description: Snabb start – Använd Node.js för att skapa och köra IoT Plug and Play exempel enhets kod som ansluts till en IoT-hubb. Använd Azure IoT Explorer-verktyget för att visa informationen som skickas av enheten till hubben.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/10/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 2342577fdd7e42f4b21d1f47348c39e3ed4a46e3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 24f6cc1e9656957d6894ecb6b7c3e0476b233cf6
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747234"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421591"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-to-iot-hub-nodejs"></a>Snabb start: ansluta ett exempel på IoT Plug and Play enhets program till IoT Hub (Node.js)
 

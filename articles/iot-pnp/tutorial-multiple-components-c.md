@@ -1,18 +1,18 @@
 ---
-title: Anslut IoT-Plug and Play exempel C-enhets kod till IoT Hub | Microsoft Docs
-description: Skapa och kör IoT Plug and Play exempel C-enhets kod som använder flera komponenter och ansluter till en IoT-hubb. Använd Azure IoT Explorer-verktyget för att visa informationen som skickas av enheten till hubben.
+title: Självstudie – ansluta IoT Plug and Play exempel C enhets kod till Azure IoT Hub | Microsoft Docs
+description: Självstudie – Skapa och kör IoT Plug and Play exempel C enhets kod som använder flera komponenter och ansluter till en IoT-hubb. Använd Azure IoT Explorer-verktyget för att visa informationen som skickas av enheten till hubben.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: e1a2a45d0f5743874ce0c0b20190d7d396094e43
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 0bf0e45f6e9b088567dd48d3eb12ae979ba679e4
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046391"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421489"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-multiple-component-device-applications-running-on-linux-or-windows-to-iot-hub-c"></a>Självstudie: Anslut en IoT Plug and Play flera komponent enhets program som körs på Linux eller Windows till IoT Hub (C)
 
@@ -20,7 +20,7 @@ ms.locfileid: "92046391"
 
 I den här självstudien får du lära dig hur du skapar ett exempel på IoT Plug and Play enhets program med komponenter, ansluter det till din IoT-hubb och använder Azure IoT Explorer-verktyget för att visa den information som skickas till hubben. Exempel programmet skrivs i C och ingår i Azure IoT-enhetens SDK för C. Ett Solution Builder kan använda Azure IoT Explorer-verktyget för att förstå funktionerna i en IoT Plug and Play-enhet utan att behöva visa någon enhets kod.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
@@ -34,7 +34,7 @@ I den här självstudien förutsätter vi att du använder Ubuntu Linux. Stegen 
 
 Om du vill slutföra den här självstudien på Linux installerar du följande program vara i din lokala Linux-miljö:
 
-Installera **gcc**, **git**, **cmake**och alla nödvändiga beroenden med `apt-get` kommandot:
+Installera **gcc** , **git** , **cmake** och alla nödvändiga beroenden med `apt-get` kommandot:
 
 ```sh
 sudo apt-get update
@@ -79,9 +79,9 @@ Du kan skapa och köra koden med Visual Studio eller `cmake` på kommando raden.
 ### <a name="use-visual-studio"></a>Använda Visual Studio
 
 1. Öppna rotmappen för den klonade lagrings platsen. Efter några sekunder skapar **cmake** -stödet i Visual Studio allt du behöver för att köra och felsöka projektet.
-1. När Visual Studio är klar går du till **Solution Explorer**och navigerar till exempel *iothub_client/samples/PnP/pnp_temperature_controller/*.
+1. När Visual Studio är klar går du till **Solution Explorer** och navigerar till exempel *iothub_client/samples/PnP/pnp_temperature_controller/*.
 1. Högerklicka på filen *pnp_temperature_controller. c* och välj **Lägg till fel söknings konfiguration**. Välj **standard**.
-1. Denlaunch.vs.jsfilen öppnas * i* Visual Studio. Redigera den här filen som du ser i följande kodfragment för att ange nödvändiga miljövariabler. Du har antecknat omfångs-ID och registrerings primär nyckel när du har [konfigurerat din miljö för IoT plug and Play snabb starter och självstudier](set-up-environment.md):
+1. Denlaunch.vs.jsfilen öppnas *i* Visual Studio. Redigera den här filen som du ser i följande kodfragment för att ange nödvändiga miljövariabler. Du har antecknat omfångs-ID och registrerings primär nyckel när du har [konfigurerat din miljö för IoT plug and Play snabb starter och självstudier](set-up-environment.md):
 
     ```json
     {
@@ -167,7 +167,7 @@ I det här exemplet använder koden vissa hjälp funktioner från mappen */vanli
 
 *pnp_device_client_ll* innehåller metoden Connect för IoT-plug and Play med `model-id` inkluderad som parameter: `PnP_CreateDeviceClientLLHandle` .
 
-*pnp_protocol*: innehåller IoT plug and Play Helper-funktioner:
+*pnp_protocol* : innehåller IoT plug and Play Helper-funktioner:
 
 * `PnP_CreateReportedProperty`
 * `PnP_CreateReportedPropertyWithStatus`

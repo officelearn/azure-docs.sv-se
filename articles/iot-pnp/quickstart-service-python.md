@@ -1,6 +1,6 @@
 ---
-title: Interagera med en IoT Plug and Play-enhet som är ansluten till din Azure IoT-lösning (python) | Microsoft Docs
-description: Använd python för att ansluta till och interagera med en IoT Plug and Play-enhet som är ansluten till din Azure IoT-lösning.
+title: Snabb start – interagera med en IoT Plug and Play-enhet som är ansluten till din Azure IoT-lösning (python) | Microsoft Docs
+description: Snabb start – Använd python för att ansluta till och interagera med en IoT Plug and Play-enhet som är ansluten till din Azure IoT-lösning.
 author: elhorton
 ms.author: elhorton
 ms.date: 10/05/2020
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: ad5fa271e3abfaf0c7ee4884881262773a9ad485
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 681568c3aee88483c7f9c813529f0eb500a59e93
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741495"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421506"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-python"></a>Snabb start: interagera med en IoT Plug and Play-enhet som är ansluten till din lösning (python)
 
@@ -80,7 +80,7 @@ I den här snabb starten använder du en exempel IoT-lösning i python för att 
 1. Öppna filen *registry_manager_pnp_sample. py* och granska koden. Det här exemplet visar hur du använder klassen **IoTHubRegistryManager** för att interagera med din IoT plug and Play-enhet.
 
 > [!NOTE]
-> Dessa tjänst exempel använder klassen **IoTHubRegistryManager** från den **IoT Hub tjänst klienten** . Mer information om API: er, inklusive digitala dubbla API: er, finns i [service Developer-guiden](concepts-developer-guide-service.md).
+> Dessa tjänst exempel använder klassen **IoTHubRegistryManager** från den **IoT Hub tjänst klienten**. Mer information om API: er, inklusive digitala dubbla API: er, finns i [service Developer-guiden](concepts-developer-guide-service.md).
 
 ### <a name="get-the-device-twin"></a>Hämta enheten med dubbla
 

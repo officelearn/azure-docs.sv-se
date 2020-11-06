@@ -7,24 +7,24 @@ ms.author: karler
 ms.date: 10/14/2019
 ms.topic: quickstart
 zone_pivot_groups: java-build-tools-set
-ms.openlocfilehash: faa4df8633c34b23703a3fe9fa405bad959ec894
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: b4381c4acbea8a3b7d86d9c32aaf9cea24cf15fa
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167210"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422662"
 ---
 # <a name="connect-your-java-function-to-azure-storage"></a>Anslut din Java-funktion till Azure Storage
 
 [!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
-Den här artikeln visar hur du integrerar funktionen som du skapade i [föregående snabb starts artikel](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java&tabs=bash,browser) med en Azure Storage kö. Den utgående bindning som du lägger till i den här funktionen skriver data från en HTTP-begäran till ett meddelande i kön.
+Den här artikeln visar hur du integrerar funktionen som du skapade i [föregående snabb starts artikel](./create-first-function-cli-java.md?tabs=bash,browser) med en Azure Storage kö. Den utgående bindning som du lägger till i den här funktionen skriver data från en HTTP-begäran till ett meddelande i kön.
 
 De flesta bindningar kräver en lagrad anslutnings sträng som används för att få åtkomst till den kopplade tjänsten. För att göra anslutningen enklare använder du det lagrings konto som du skapade med din Function-app. Anslutningen till det här kontot är redan lagrad i en app-inställning med namnet `AzureWebJobsStorage` .  
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Innan du börjar den här artikeln slutför du stegen i [del 1 av Java-snabb](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java&tabs=bash,browser)starten.
+Innan du börjar den här artikeln slutför du stegen i [del 1 av Java-snabb](./create-first-function-cli-java.md?tabs=bash,browser)starten.
 
 ## <a name="download-the-function-app-settings"></a>Ladda ned appens funktions inställningar
 

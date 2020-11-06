@@ -1,7 +1,7 @@
 ---
 title: 'Konvertera till CSV: modulreferens'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder modulen konvertera till CSV i Azure Machine Learning för att konvertera en data uppsättning till ett CSV-format som kan laddas ned, exporteras eller delas med R-eller Python-skript moduler.
+description: Lär dig hur du använder modulen konvertera till CSV i Azure Machine Learning designer för att konvertera en data uppsättning till en CSV-fil som kan återanvändas senare.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 3b7c781717952765941acd4ea4aa47593d4b8a0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc58689e30e9b03e490c0871f3decd50372371fa
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898797"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421931"
 ---
 # <a name="convert-to-csv-module"></a>Konvertera till CSV-modul
 
@@ -46,11 +46,11 @@ När du konverterar en data uppsättning till CSV sparas CSV-filen i din Azure M
 ### <a name="results"></a>Resultat
   
 
-Välj fliken **utdata** i den högra panelen i **konvertera till CSV**och välj en av dessa ikoner under **portens utdata**.  
+Välj fliken **utdata** i den högra panelen i **konvertera till CSV** och välj en av dessa ikoner under **portens utdata**.  
 
-+ **Registrera data uppsättning**: Välj ikonen och spara CSV-filen till Azure ml-arbetsytan som en separat data uppsättning. Du kan hitta data uppsättningen som en modul i modul trädet under avsnittet **mina data uppsättningar** .
++ **Registrera data uppsättning** : Välj ikonen och spara CSV-filen till Azure ml-arbetsytan som en separat data uppsättning. Du kan hitta data uppsättningen som en modul i modul trädet under avsnittet **mina data uppsättningar** .
 
- + **Visa utdata**: Välj ögon ikonen och följ anvisningarna för att bläddra i mappen **Results_dataset** och ladda ned data.csv-filen.
+ + **Visa utdata** : Välj ögon ikonen och följ anvisningarna för att bläddra i mappen **Results_dataset** och ladda ned data.csv-filen.
 
 ## <a name="next-steps"></a>Nästa steg
 

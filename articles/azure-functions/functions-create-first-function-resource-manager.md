@@ -5,12 +5,12 @@ ms.date: 3/5/2020
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: subject-armqs
-ms.openlocfilehash: 362ff5cd59982c1d848ed59af8381090344f5c5e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1e623405faa89ff41eccdaa57578bc8ac94cd78c
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88642273"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422832"
 ---
 # <a name="quickstart-create-and-deploy-azure-functions-resources-from-an-arm-template"></a>Snabb start: skapa och Distribuera Azure Functions resurser från en ARM-mall
 
@@ -38,7 +38,14 @@ Välj någon av följande flikar, Följ länken och slutför avsnittet för att 
 
 # <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-[Skapa ditt lokala Functions-projekt i Visual Studio Code](functions-create-first-function-vs-code.md#create-an-azure-functions-project)
+Skapa ditt lokala Functions-projekt på ditt valda språk i Visual Studio Code:  
+
++ [C#](create-first-function-vs-code-csharp.md)
++ [Java](create-first-function-vs-code-java.md)
++ [JavaScript](create-first-function-vs-code-node.md)
++ [PowerShell](create-first-function-vs-code-powershell.md)
++ [Python](create-first-function-vs-code-python.md)
++ [TypeScript](create-first-function-vs-code-typescript.md)
 
 # <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -46,7 +53,14 @@ Välj någon av följande flikar, Följ länken och slutför avsnittet för att 
 
 # <a name="command-line"></a>[Kommandorad](#tab/command-line)
 
-[Skapa ditt lokala Functions-projekt från kommando raden](functions-create-first-azure-function-azure-cli.md#create-a-local-function-project)
+Skapa ditt lokala Functions-projekt på ditt valda språk från kommando raden:
+
++ [C#](create-first-function-cli-csharp.md)
++ [Java](create-first-function-cli-java.md)
++ [JavaScript](create-first-function-cli-node.md)
++ [PowerShell](create-first-function-cli-powershell.md)
++ [Python](create-first-function-cli-python.md)
++ [TypeScript](create-first-function-cli-typescript.md)
 
 ---
 
@@ -109,15 +123,15 @@ I utdata kopierar du URL: en för HTTP-utlösaren. Du kan använda detta för at
 
 1. I **Solution Explorer** högerklickar du på projektet och väljer **Publicera**.
 
-1. I **Välj ett publicerings mål**väljer du **Azure Functions förbruknings plan** med **Välj befintlig** och väljer **Skapa profil**.
+1. I **Välj ett publicerings mål** väljer du **Azure Functions förbruknings plan** med **Välj befintlig** och väljer **Skapa profil**.
 
     :::image type="content" source="media/functions-create-first-function-arm/choose-publish-target-visual-studio.png" alt-text="Välj ett befintligt publicerings mål":::
 
-1. Välj din **prenumeration**, expandera resurs grupp, välj din Function-app och välj **OK**.
+1. Välj din **prenumeration** , expandera resurs grupp, välj din Function-app och välj **OK**.
 
 1. När publiceringen är klar kopierar du **webbplatsens URL**.
 
-    :::image type="content" source="media/functions-create-first-function-arm/publish-summary-site-url.png" alt-text="Välj ett befintligt publicerings mål":::
+    :::image type="content" source="media/functions-create-first-function-arm/publish-summary-site-url.png" alt-text="Kopiera webbplats-URL: en från publicerings sammanfattningen":::
 
 1. Lägg till sökvägen `/api/<FUNCTION_NAME>?name=Functions` , där `<FUNCTION_NAME>` är namnet på din funktion. Den URL som anropar funktionen HTTP-utlösare har följande format:
 

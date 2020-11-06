@@ -5,14 +5,14 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 11/05/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9fd828baed5a03cbce5d5327248eb34045ffd6bc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2fa8794066739302d2f32acb13c936c524dc89a8
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489718"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422356"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>Skapa och hantera Läs repliker från Azure CLI REST API
 
@@ -27,7 +27,9 @@ Om du vill konfigurera rätt loggnings nivå använder du parametern Azure Repli
 * **Replik** – mer utförligt än **.** Detta är den lägsta loggnings nivå som krävs för att [läsa repliker](concepts-read-replicas.md) ska fungera. Den här inställningen är standard på de flesta servrar.
 * **Logisk** – mer utförlig än **replik**. Detta är den lägsta loggnings nivån för logisk avkodning att arbeta. Läs repliker fungerar också med den här inställningen.
 
-Servern måste startas om efter en ändring av den här parametern. Internt anger den här parametern postgres-parametrarna `wal_level` , `max_replication_slots` och `max_wal_senders` .
+
+> [!NOTE]
+> När du distribuerar Läs repliker för permanenta tunga Skriv intensiva primär arbets belastningar kan replikeringen fortsätta att växa och kanske aldrig kan fånga upp med den primära. Detta kan också öka lagrings användningen på den primära servern eftersom WAL-filerna inte tas bort förrän de tas emot på repliken.
 
 ## <a name="azure-cli"></a>Azure CLI
 Du kan skapa och hantera Läs repliker med hjälp av Azure CLI.
@@ -62,7 +64,7 @@ Du kan skapa och hantera Läs repliker med hjälp av Azure CLI.
 
 Kommandot [AZ postgres Server Replica Create](/cli/azure/postgres/server/replica#az-postgres-server-replica-create) kräver följande parametrar:
 
-| Inställning | Exempelvärde | Beskrivning  |
+| Inställning | Exempelvärde | Description  |
 | --- | --- | --- |
 | resource-group | myresourcegroup |  Resurs gruppen där replik servern kommer att skapas.  |
 | name | mydemoserver-replik | Namnet på den nya replik servern som skapas. |

@@ -1,5 +1,5 @@
 ---
-title: Använd Time Series Insights för att lagra och analysera IoT Plug and Play enhets telemetri | Microsoft Docs
+title: Använd Time Series Insights för att lagra och analysera Azure IoT Plug and Play-telemetri för enheter | Microsoft Docs
 description: Konfigurera en Time Series Insights miljö och Anslut IoT Hub för att visa och analysera telemetri från dina IoT Plug and Play-enheter.
 author: lyrana
 ms.author: lyhughes
@@ -7,12 +7,12 @@ ms.date: 10/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 0d4c24ed771b4d112a448ceec0e9fc2f9e8ac359
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: aa99b9059fe8e3cd5b0dfe6f7e62bd02012fd144
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146435"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422271"
 ---
 # <a name="tutorial-create-and-connect-to-time-series-insights-gen2-to-store-visualize-and-analyze-iot-plug-and-play-device-telemetry"></a>Självstudie: skapa och Anslut till Time Series Insights Gen2 för att lagra, visualisera och analysera IoT Plug and Play Device-telemetri
 
@@ -98,7 +98,7 @@ Härnäst ska du översätta din DTDL-enhets modell till till gångs modellen i 
 
 ### <a name="define-your-types"></a>Definiera dina typer
 
-Du kan börja mata in data i Azure Time Series Insights Gen2 utan att ha en fördefinierad modell. När telemetri kommer försöker TSD att automatiskt lösa Time Series-instanser baserat på egenskap svärdet för TS-ID. Alla instanser tilldelas *standard typen* . Du måste skapa en ny typ manuellt för att representera dina modeller. Bilden nedan visar en enkel metod för att synkronisera en DTDL-modell och en TSM-typ:
+Du kan börja mata in data i Azure Time Series Insights Gen2 utan att ha en fördefinierad modell. När telemetri kommer försöker TSD att automatiskt lösa Time Series-instanser baserat på egenskap svärdet för TS-ID. Alla instanser tilldelas *standard typen*. Du måste skapa en ny typ manuellt för att representera dina modeller. Bilden nedan visar en enkel metod för att synkronisera en DTDL-modell och en TSM-typ:
 
 ![DTDL till TSM-typ](./media/tutorial-configure-tsi/DTDL-to-TSM-Type.png)
 
@@ -156,7 +156,7 @@ Du bör se den nyligen definierade termostat-typen.
 
 Du kan också skapa en hierarki för att organisera de två termostat-komponenterna under deras TemeraptureController-överordnade.
 
-Klicka på *hierarkier* och välj *Lägg till en hierarki* . Ange `Device Fleet` som namn och skapa en nivå med namnet `Device Name` och klicka sedan på *Spara* .
+Klicka på *hierarkier* och välj *Lägg till en hierarki*. Ange `Device Fleet` som namn och skapa en nivå med namnet `Device Name` och klicka sedan på *Spara*.
 
 ![Lägg till en hierarki](./media/tutorial-configure-tsi/add-hierarchy.png)
 
@@ -172,7 +172,7 @@ Klicka på list rutan typ och välj `Thermostat` .
 
 ![Ändra instans typ](./media/tutorial-configure-tsi/change-type.png)
 
-Om du har skapat en hierarki väljer du *instans fält* och markerar `Device Fleet` rutan. Ange `Temperature Controller` som värde för den överordnade enheten och klicka sedan på *Spara* .
+Om du har skapat en hierarki väljer du *instans fält* och markerar `Device Fleet` rutan. Ange `Temperature Controller` som värde för den överordnade enheten och klicka sedan på *Spara*.
 
 ![Tilldela till hierarki](./media/tutorial-configure-tsi/assign-to-hierarchy.png)
 
@@ -182,7 +182,7 @@ Upprepa stegen ovan för din andra termostat.
 
 Gå tillbaka till diagram fönstret och expandera enhets flottan och TemperatureController. Klicka på thermostat1, Välj `Temperature` variabeln och klicka sedan på *Lägg till* diagrammets värde. Gör samma sak för thermostat2.
 
-![Ändra instans typ](./media/tutorial-configure-tsi/charting-values.png)
+![Ändra instans typ för thermostat2](./media/tutorial-configure-tsi/charting-values.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

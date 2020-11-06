@@ -5,24 +5,27 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/22/2020
-ms.openlocfilehash: 4ab4a64fa395c105ced8e47cdcec019373f7f835
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/05/2020
+ms.openlocfilehash: 0e9773e5c08f9d07f76a70bc4f899acf5004d3c2
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708619"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421817"
 ---
 # <a name="logical-decoding"></a>Logisk avkodning
  
+> [!NOTE]
+> Logisk avkodning är i offentlig för hands version på Azure Database for PostgreSQL-enskild server.
+
 [Med logisk avkodning i postgresql](https://www.postgresql.org/docs/current/logicaldecoding.html) kan du strömma data ändringar till externa konsumenter. Logisk avkodning används ofta för händelse strömning och ändring av data insamlings scenarier.
 
-Med den logiska avkodningen används ett output-pluginprogram för att konvertera postgres Write Ahead-logg (WAL) till ett läsbart format. Azure Database for PostgreSQL tillhandahåller plugin- [wal2json](https://github.com/eulerto/wal2json), [test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) och pgoutput. pgoutput görs tillgänglig av postgres från postgres version 10 och senare.
+Med den logiska avkodningen används ett output-pluginprogram för att konvertera postgres Write Ahead-logg (WAL) till ett läsbart format. Azure Database for PostgreSQL tillhandahåller plugin- [wal2json](https://github.com/eulerto/wal2json), [test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) och pgoutput. pgoutput görs tillgänglig av PostgreSQL från PostgreSQL version 10 och senare.
 
 En översikt över hur postgres logiska avkodning fungerar [finns på vår blogg](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/change-data-capture-in-postgres-how-to-use-logical-decoding-and/ba-p/1396421). 
 
 > [!NOTE]
-> Logisk avkodning är i offentlig för hands version på Azure Database for PostgreSQL-enskild server.
+> Logisk replikering med PostgreSQL-publikation/-prenumeration stöds inte med Azure Database for PostgreSQL-Single-Server.
 
 
 ## <a name="set-up-your-server"></a>Konfigurera servern 
@@ -39,14 +42,15 @@ Servern måste startas om efter en ändring av den här parametern. Internt ange
 ### <a name="using-azure-cli"></a>Använda Azure CLI
 
 1. Ange azure.replication_support till `logical` .
-   ```
+   ```azurecli-interactive
    az postgres server configuration set --resource-group mygroup --server-name myserver --name azure.replication_support --value logical
    ``` 
 
 2. Starta om servern för att tillämpa ändringen.
-   ```
+   ```azurecli-interactive
    az postgres server restart --resource-group mygroup --name myserver
    ```
+3. Om du kör postgres 9,5 eller 9,6 och använder offentlig nätverks åtkomst lägger du till brand Väggs regeln för att inkludera den offentliga IP-adressen för den klient som du ska köra den logiska replikeringen från. Brand Väggs regelns namn måste innehålla **_replrule**. Till exempel *test_replrule*. Om du vill skapa en ny brand Väggs regel på servern kör du kommandot [AZ postgres Server Firewall-Rule Create](/cli/azure/postgres/server/firewall-rule) . 
 
 ### <a name="using-azure-portal"></a>Använda Azure Portal
 
@@ -56,8 +60,11 @@ Servern måste startas om efter en ändring av den här parametern. Internt ange
 
 2. Starta om servern för att tillämpa ändringen genom att välja **Ja**.
 
-   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Azure Database for PostgreSQL replikering – stöd för Azure-replikering":::
+   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Azure Database for PostgreSQL-replikering-bekräfta omstart":::
 
+3. Om du kör postgres 9,5 eller 9,6 och använder offentlig nätverks åtkomst lägger du till brand Väggs regeln för att inkludera den offentliga IP-adressen för den klient som du ska köra den logiska replikeringen från. Brand Väggs regelns namn måste innehålla **_replrule**. Till exempel *test_replrule*. Klicka sedan på **Spara**.
+
+   :::image type="content" source="./media/concepts-logical/client-replrule-firewall.png" alt-text="Azure Database for PostgreSQL-replikering – Lägg till brand Väggs regel":::
 
 ## <a name="start-logical-decoding"></a>Starta logisk avkodning
 

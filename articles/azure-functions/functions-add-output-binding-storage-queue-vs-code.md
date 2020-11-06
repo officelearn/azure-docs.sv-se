@@ -5,18 +5,18 @@ ms.date: 02/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-js
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 4f4733a52d1d58cbec4413140a613a93c8074188
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b709981e199d63c32426381ba48665402de820ce
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91323438"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422713"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Ansluta Azure Functions till Azure Storage med Visual Studio Code
 
 [!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
-Den här artikeln visar hur du använder Visual Studio Code för att ansluta den funktion som du skapade i [föregående snabb starts artikel](functions-create-first-function-vs-code.md) till Azure Storage. Den utgående bindning som du lägger till i den här funktionen skriver data från HTTP-begäran till ett meddelande i en kö för Azure Queue Storage. 
+Den här artikeln visar hur du använder Visual Studio Code för att ansluta Azure Storage till funktionen som du skapade i föregående snabb starts artikel. Den utgående bindning som du lägger till i den här funktionen skriver data från HTTP-begäran till ett meddelande i en kö för Azure Queue Storage. 
 
 De flesta bindningar kräver en lagrad anslutnings sträng som används för att få åtkomst till den kopplade tjänsten. För att göra det enklare använder du det lagrings konto som du skapade med din Function-app. Anslutningen till det här kontot är redan lagrad i en app-inställning med namnet `AzureWebJobsStorage` .  
 
@@ -32,7 +32,24 @@ Innan du startar den här artikeln måste du uppfylla följande krav:
 * Installera [.net Core CLI verktyg](/dotnet/core/tools/?tabs=netcore2x).
 ::: zone-end
 
-* Slutför stegen i [del 1 av snabb starten för Visual Studio Code](functions-create-first-function-vs-code.md). 
+::: zone pivot="programming-language-csharp"  
+* Slutför stegen i [del 1 av snabb starten för Visual Studio Code](create-first-function-vs-code-csharp.md). 
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
+* Slutför stegen i [del 1 av snabb starten för Visual Studio Code](create-first-function-vs-code-node.md). 
+::: zone-end   
+::: zone pivot="programming-language-java"  
+* Slutför stegen i [del 1 av snabb starten för Visual Studio Code](create-first-function-vs-code-java.md). 
+::: zone-end   
+::: zone pivot="programming-language-typescript"  
+* Slutför stegen i [del 1 av snabb starten för Visual Studio Code](create-first-function-vs-code-typescript.md). 
+::: zone-end   
+::: zone pivot="programming-language-python"  
+* Slutför stegen i [del 1 av snabb starten för Visual Studio Code](create-first-function-vs-code-python.md). 
+::: zone-end   
+::: zone pivot="programming-language-powershell"  
+* Slutför stegen i [del 1 av snabb starten för Visual Studio Code](create-first-function-vs-code-powershell.md). 
+::: zone-end   
 
 Den här artikeln förutsätter att du redan har loggat in på Azure-prenumerationen från Visual Studio Code. Du kan logga in genom `Azure: Sign In` att köra från kommando paletten. 
 
@@ -165,7 +182,7 @@ Hoppa över det här avsnittet om du redan har installerat Azure Storage Explore
 
     ![Lägg till ett Azure-konto i Microsoft Azure Storage Explorer](./media/functions-add-output-binding-storage-queue-vs-code/storage-explorer-add-account.png)
 
-1. I dialog rutan **Anslut** väljer du **Lägg till ett Azure-konto**, väljer din Azure- **miljö**och väljer **Logga in..**. 
+1. I dialog rutan **Anslut** väljer du **Lägg till ett Azure-konto** , väljer din Azure- **miljö** och väljer **Logga in..**. 
 
     ![Logga in på ditt Azure-konto](./media/functions-add-output-binding-storage-queue-vs-code/storage-explorer-connect-azure-account.png)
 
@@ -201,37 +218,46 @@ Nu är det dags att publicera om den uppdaterade Function-appen till Azure.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-I Azure refererar *resurserna* till Function-appar, funktioner, lagrings konton och så vidare. De är grupperade i *resurs grupper*och du kan ta bort allt i en grupp genom att ta bort gruppen.
+I Azure refererar *resurserna* till Function-appar, funktioner, lagrings konton och så vidare. De är grupperade i *resurs grupper* och du kan ta bort allt i en grupp genom att ta bort gruppen.
 
 Du skapade resurser för att slutföra de här snabbstarterna. Det är möjligt att du debiteras för de här resurserna beroende på din [kontostatus](https://azure.microsoft.com/account/) och dina [servicepriser](https://azure.microsoft.com/pricing/). Om du inte behöver resurserna längre så visar vi hur du tar bort dem här:
 
-[!INCLUDE [functions-cleanup-resources-vs-code.md](../../includes/functions-cleanup-resources-vs-code.md)]
+[!INCLUDE [functions-cleanup-resources-vs-code-inner.md](../../includes/functions-cleanup-resources-vs-code-inner.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
 Du har uppdaterat din HTTP-utlöst funktion för att skriva data till en lagrings kö. Nu kan du lära dig mer om hur du utvecklar funktioner med Visual Studio Code:
 
 + [Utveckla Azure Functions med Visual Studio Code](functions-develop-vs-code.md)
+
++ [Azure Functions utlösare och bindningar](functions-triggers-bindings.md).
 ::: zone pivot="programming-language-csharp"  
 + [Exempel på kompletta funktions projekt i C#](/samples/browse/?products=azure-functions&languages=csharp).
+
 + [Referens för Azure Functions C#-utvecklare](functions-dotnet-class-library.md)  
 ::: zone-end 
 ::: zone pivot="programming-language-javascript"  
 + [Exempel på kompletta funktions projekt i Java Script](/samples/browse/?products=azure-functions&languages=javascript).
+
 + [Azure Functions JavaScript-guide för utvecklare](functions-reference-node.md)  
+::: zone-end  
+::: zone pivot="programming-language-java"  
++ [Exempel på kompletta funktions projekt i Java](/samples/browse/?products=azure-functions&languages=java).
+
++ [Azure Functions Java Developer Guide](functions-reference-java.md)  
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 + [Exempel på kompletta funktions projekt i typescript](/samples/browse/?products=azure-functions&languages=typescript).
+
 + [Guide för Azure Functions TypeScript-utvecklare](functions-reference-node.md#typescript)  
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 + [Exempel på kompletta funktions projekt i python](/samples/browse/?products=azure-functions&languages=python).
+
 + [Guide för Azure Functions python-utvecklare](functions-reference-python.md)  
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 + [Exempel på kompletta funktions projekt i PowerShell](/samples/browse/?products=azure-functions&languages=azurepowershell).
+
 + [Azure Functions PowerShell-guide för utvecklare](functions-reference-powershell.md) 
 ::: zone-end
-+ [Azure Functions utlösare och bindningar](functions-triggers-bindings.md).
-+ [Prissättnings sida för funktioner](https://azure.microsoft.com/pricing/details/functions/)
-+ [Beräknar kostnader för förbruknings planer](functions-consumption-costs.md) .

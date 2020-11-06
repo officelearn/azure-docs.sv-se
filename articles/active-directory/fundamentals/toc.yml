@@ -120,6 +120,8 @@
           href: customize-branding.md
         - name: Vill du konfigurera inställningen ”Vill du hålla dig inloggad?”
           href: keep-me-signed-in.md
+        - name: 'Så här hittar du klient-ID:n'
+          href: active-directory-how-to-find-tenant.md
         - name: Associera en Azure-prenumeration
           href: active-directory-how-subscriptions-associated-directory.md
         - name: Lägga till sekretessinformation

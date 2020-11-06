@@ -140,8 +140,6 @@
           href: 'https://go.microsoft.com/fwlink/?linkid=2103727'
         - name: Azure SDK för Java Script
           href: 'https://go.microsoft.com/fwlink/?linkid=2103664'
-        - name: REST-API
-          href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
     - name: Funktionshantering
       items:
         - name: .NET Core-bibliotek
@@ -156,6 +154,52 @@
           href: /powershell/module/az.appconfiguration/
         - name: Terraform
           href: 'https://www.terraform.io/docs/providers/azurerm/r/app_configuration.html'
+    - name: REST-API
+      items:
+        - name: Översikt
+          href: rest-api.md
+        - name: Resurser
+          items:
+            - name: Nycklar
+              href: ./rest-api-keys.md
+            - name: Nyckelvärden
+              href: ./rest-api-key-value.md
+            - name: Etiketter
+              href: ./rest-api-labels.md
+            - name: Lås
+              href: ./rest-api-locks.md
+            - name: Revideringar
+              href: ./rest-api-revisions.md
+        - name: Protokoll
+          items:
+            - name: Autentisering
+              href: ./rest-api-authentication-index.md
+              items:
+                - name: Azure Active Directory-autentisering
+                  href: rest-api-authentication-azure-ad.md
+                - name: HMAC-autentisering
+                  href: rest-api-authentication-hmac.md
+            - name: Auktorisering
+              href: ./rest-api-authorization-index.md
+              items:
+                - name: Azure Active Directory-auktorisering
+                  href: rest-api-authorization-azure-ad.md
+                - name: HMAC-auktorisering
+                  href: rest-api-authorization-hmac.md
+            - name: Konsekvensmodell
+              href: ./rest-api-consistency.md
+            - name: Vanliga rubriker
+              href: ./rest-api-headers.md
+            - name: Begränsning
+              href: ./rest-api-throttling.md
+            - name: Versionshantering
+              href: ./rest-api-versioning.md
+        - name: Utveckling
+          items:
+            - name: Fiddler
+              href: ./rest-api-fiddler.md
+            - name: Postman
+              href: ./rest-api-postman.md
     - name: Inbyggda Azure Policy-program
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md

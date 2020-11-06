@@ -36,29 +36,31 @@
       href: tutorial-virtual-network.md
     - name: 9 – Säkerhetskopiera virtuella datorer
       href: tutorial-backup-vms.md
-    - name: 10 – Hantera virtuella datorer
+    - name: 10 – Aktivera haveriberedskap
+      href: tutorial-disaster-recovery.md
+    - name: 11 – Hantera virtuella datorer
       href: tutorial-govern-resources.md
-    - name: 11 – Spåra och uppdatera virtuella datorer
+    - name: 12 – Spåra och uppdatera virtuella datorer
       href: tutorial-config-management.md
-    - name: 12 – Övervaka virtuella datorer
+    - name: 13 – Övervaka virtuella datorer
       href: tutorial-monitor.md
-    - name: 13 – Hantera VM-säkerhet
+    - name: 14 – Hantera VM-säkerhet
       href: tutorial-azure-security.md
-    - name: 14a – Skapa med Jenkins
+    - name: 15a – Skapa med Jenkins
       href: /azure/developer/jenkins/pipeline-with-github-and-docker
-    - name: 14b – Integrera Jenkins med Azure DevOps
+    - name: 15b – Integrera Jenkins med Azure DevOps
       href: /azure/developer/jenkins/deploy-to-linux-vm-using-azure-devops-services
-    - name: 15a – Konfigurera strategi för löpande distribution
+    - name: 16a – Konfigurera strategi för löpande distribution
       href: tutorial-devops-azure-pipelines-classic.md
-    - name: 15a – Konfigurera strategi för kontrollvärdesdistribution
+    - name: 16b – Konfigurera strategi för kontrollvärdesdistribution
       href: tutorial-azure-devops-canary-strategy.md
-    - name: 15a – Konfigurera strategi för blå-grön distribution
+    - name: 16c – Konfigurera strategi för blå-grön distribution
       href: tutorial-azure-devops-blue-green-strategy.md
-    - name: 15d – CI/CD med Azure Pipelines (YAML)
+    - name: 16d – CI/CD med Azure Pipelines (YAML)
       href: tutorial-build-deploy-azure-pipelines.md
-    - name: 16 – Skapa LAMP-stack
+    - name: 17 – Skapa LAMP-stack
       href: tutorial-lamp-stack.md
-    - name: 17 – Säker webbserver med SSL
+    - name: 18 – Säker webbserver med SSL
       href: tutorial-secure-web-server.md
 - name: Exempel
   items:
@@ -285,7 +287,7 @@
         - name: Reserverade instanser
           items:
             - name: Förskottsbetala för virtuella datorer
-              href: prepay-reserved-vm-instances.md
+              href: ../prepay-reserved-vm-instances.md
             - name: Förskottsbetala för Dedicated Host
               href: ../prepay-dedicated-hosts-reserved-instances.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
             - name: Vad är Azure-reservationer?

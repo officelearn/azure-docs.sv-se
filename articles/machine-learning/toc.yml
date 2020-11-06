@@ -399,6 +399,9 @@
         - name: Använd fjärrberäkningsmål
           displayName: automl automated auto ml
           href: how-to-auto-train-remote.md
+        - name: Använd automatiserad ML med Databricks
+          displayName: automl
+          href: how-to-configure-databricks-automl-environment.md
         - name: Träna prognosmodeller automatiskt
           displayName: time series
           href: how-to-auto-train-forecast.md

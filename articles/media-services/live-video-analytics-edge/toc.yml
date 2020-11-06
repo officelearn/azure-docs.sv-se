@@ -95,6 +95,8 @@
       href: use-azure-portal-to-invoke-direct-methods.md
     - name: Distribuera på Azure Stack Edge
       href: deploy-azure-stack-edge-how-to.md
+    - name: Konfigurera en signalgrind
+      href: configure-signal-gate-how-to.md
     - name: Felsöka
       href: troubleshoot-how-to.md
 - name: Referens

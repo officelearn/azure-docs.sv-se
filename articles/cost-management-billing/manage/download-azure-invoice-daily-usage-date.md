@@ -7,15 +7,15 @@ ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 08/20/2020
+ms.topic: how-to
+ms.date: 10/28/2020
 ms.author: banders
-ms.openlocfilehash: c24af5a9fb1367e00d9a014b1e10f750a38ad30b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e380aa1f4d50e6ced34254ceca9d899022142f6d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91270907"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911298"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Ladda ned eller visa din Azure-faktura och information om den dagliga användningen
 
@@ -136,9 +136,7 @@ Om du vill visa och ladda ned användningsdata som EA-kund måste du vara Enterp
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Sök efter *Kostnadshantering + fakturering*.
-
-    ![Skärmbild som visar en sökning i Azure-portalen](./media/download-azure-invoice-daily-usage-date/portal-cm-billing-search.png)
-
+1. Om du har åtkomst till flera faktureringskonton väljer du faktureringsomfånget för ditt EA-faktureringskonto.
 1. Välj **Användning och avgifter**.
 1. Välj **Ladda ned** för den månad du vill ladda ned.
 
@@ -165,10 +163,6 @@ Du kan också ladda ned användningen hittills under månaden för den aktuella 
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Kontrollera åtkomsten till ett Microsoft-kundavtal
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
-
-## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss
-
-Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Nästa steg
 

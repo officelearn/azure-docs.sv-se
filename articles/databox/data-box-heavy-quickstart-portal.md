@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: quickstart
-ms.date: 09/03/2019
+ms.date: 11/04/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 9eda54ad23e06149910fe69ec16588f49829a5a5
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 3a7f9179822720b0e5ffc21bc560b4c6ccad9463
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122831"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347430"
 ---
 ::: zone target = "docs"
 
@@ -60,6 +60,8 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 ## <a name="order"></a>Beställa
 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 Det här steget tar ungefär 5 minuter.
 
 1. Skapa en ny Azure Data Box-resurs på Azure-portalen.
@@ -68,6 +70,77 @@ Det här steget tar ungefär 5 minuter.
 4. Ange order- och leveransinformationen. Om tjänsten är tillgänglig i din region anger du e-postadresser för aviseringsmeddelanden, läser sammanfattningen och skapar sedan ordern.
 
 När ordern har skapats förbereds enheten för leverans.
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Använd de här Azure CLI-kommandona för att skapa ett Data Box Heavy-jobb.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+1. Kör kommandot [az group create](/cli/azure/group#az_group_create) om du vill skapa en resursgrupp eller använda en befintlig resursgrupp:
+
+   ```azurecli
+   az group create --name databox-rg --location westus 
+   ```
+
+1. Använd kommandot [az storage account create](/cli/azure/storage/account#az_storage_account_create) om du vill skapa ett lagringskonto eller använda ett befintligt lagringskonto:
+
+   ```azurecli
+   az storage account create --resource-group databox-rg --name databoxtestsa
+   ```
+
+1. Kör kommandot [az databox job create](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_create) om du vill skapa ett Data Box-jobb med **--sku** -värdet `DataBoxHeavy`:
+
+   ```azurecli
+   az databox job create --resource-group databox-rg --name databoxheavy-job \
+       --location westus --sku DataBoxHeavy --contact-name "Jim Gan" --phone 4085555555 \
+       --city Sunnyvale --email-list JimGan@contoso.com --street-address1 "1020 Enterprise Way" \
+       --postal-code 94089 --country US --state-or-province CA --storage-account databoxtestsa \
+       --staging-storage-account databoxtestsa --resource-group-for-managed-disk rg-for-md
+   ```
+
+   > [!NOTE]
+   > Kontrollera att din prenumeration stöder Data Box Heavy.
+
+1. Kör [az databox job update](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_update) om du vill uppdatera ett jobb, som i det här exemplet, där du ändrar kontaktnamnet och e-postadressen:
+
+   ```azurecli
+   az databox job update -g databox-rg --name databox-job --contact-name "Robert Anic" --email-list RobertAnic@contoso.com
+   ```
+
+   Kör kommandot [az databox job show](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_show) om du vill hämta information om jobbet:
+
+   ```azurecli
+   az databox job show --resource-group databox-rg --name databox-job
+   ```
+
+   Använd kommandot [az databox job list]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list) om du vill visa alla Data Box-jobb för en resursgrupp:
+
+   ```azurecli
+   az databox job list --resource-group databox-rg
+   ```
+
+   Kör kommandot [az databox job cancel](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_cancel) om du vill avbryta ett jobb:
+
+   ```azurecli
+   az databox job cancel –resource-group databox-rg --name databox-job --reason "Cancel job."
+   ```
+
+   Kör kommandot [az databox job delete](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_delete) om du vill ta bort ett jobb:
+
+   ```azurecli
+   az databox job delete –resource-group databox-rg --name databox-job
+   ```
+
+1. Använd kommandot [az databox job list-credentials]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list_credentials) om du vill visa autentiseringsuppgifter för ett Data Box-jobb:
+
+   ```azurecli
+   az databox job list-credentials --resource-group "databox-rg" --name "databoxdisk-job"
+   ```
+
+När ordern har skapats förbereds enheten för leverans.
+
+---
 
 ::: zone-end
 

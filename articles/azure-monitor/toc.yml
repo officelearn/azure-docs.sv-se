@@ -282,7 +282,7 @@
               href: platform/design-logs-deployment.md
             - name: Skapa en arbetsyta
               items:
-                - name: Azure Portal
+                - name: Azure-portalen
                   href: learn/quick-create-workspace.md
                 - name: Azure CLI
                   href: learn/quick-create-workspace-cli.md
@@ -692,12 +692,14 @@
               href: app/kubernetes-codeless.md
             - name: Fristående – valfri miljö
               items:
-                - name: Java (förhandsversion)
+                - name: Java
                   items:
                     - name: Översikt
                       href: app/java-in-process-agent.md
                     - name: Konfigurationsalternativ
                       href: app/java-standalone-config.md
+                    - name: Telemetriprocessorer
+                      href: app/java-standalone-telemetry-processors.md
                     - name: Konfiguration av JVM-argument
                       href: app/java-standalone-arguments.md
             - name: Lokala servrar

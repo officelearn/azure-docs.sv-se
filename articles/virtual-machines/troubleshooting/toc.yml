@@ -109,6 +109,8 @@
           href: unresponsive-vm-apply-group-policy.md
         - name: Den virtuella datorn svarar inte när säkerhetsprincipen tillämpas
           href: unresponsive-vm-apply-security-policy.md
+        - name: Den virtuella datorn svarar inte vid väntan på den lokala sessionshanteraren
+          href: vm-unresponsive-wait-local-session-manager.md
         - name: Fel i Windows Boot Manager – bild-hash för ogiltig status
           href: windows-boot-error-invalid-image-hash.md
         - name: Windows-stoppfel – felaktig systemkonfigurationsinformation
@@ -117,6 +119,8 @@
           href: troubleshoot-windows-stop-error.md
         - name: Windows-stoppfel – systemprocessen avslutades
           href: windows-stop-error-system-process-terminated.md
+        - name: Windows-stoppfel – systemtrådsundantag hanterades inte
+          href: windows-stop-error-system-thread-exception-not-handled.md
 - name: Det går inte att ansluta till min virtuella dator
   items:
     - name: RDP

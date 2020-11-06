@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
-ms.date: 09/03/2019
+ms.date: 11/04/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: fcc7c6ff74e17db2066d97597849c985f5a961e9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 23615daf4a07e02b01bbd5a9cdf57ec9a81a2b76
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76514076"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347405"
 ---
 ::: zone target="docs"
 
@@ -24,7 +24,7 @@ Den här snabbstarten beskriver hur du distribuerar Azure Data Box Disk med hjä
 
 Detaljerade stegvisa instruktioner för distribution och spårning finns i [Självstudie: Beställa Azure Data Box Disk](data-box-disk-deploy-ordered.md). 
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F&preserve-view=true).
 
 ::: zone-end
 
@@ -52,11 +52,11 @@ Logga in på Azure Portal på [https://aka.ms/azuredataboxfromdiskdocs](https://
 
 > [!div class="checklist"]
 >
-> - **Gå igenom förhandskraven**: Kontrollera antalet diskar och kablar, operativsystem och annan programvara.
-> - **Ansluta och låsa upp**: Anslut enheten och lås upp disken för att kopiera data.
-> - **Kopiera data till disken och verifiera**: Kopiera data till de förskapade mapparna på diskarna.
-> - **Returnera diskarna**: Returnera diskarna till Azure-datacentret där data överförs till ditt lagrings konto.
-> - **Verifiera data i Azure**: Kontrollera att dina data har laddats upp till ditt lagringskonto innan du tar bort dem från källdataservern.
+> - **Gå igenom förhandskraven** : Kontrollera antalet diskar och kablar, operativsystem och annan programvara.
+> - **Ansluta och låsa upp** : Anslut enheten och lås upp disken för att kopiera data.
+> - **Kopiera data till disken och verifiera** : Kopiera data till de förskapade mapparna på diskarna.
+> - **Returnera diskarna** : Returnera diskarna till Azure-datacentret där data överförs till ditt lagrings konto.
+> - **Verifiera data i Azure** : Kontrollera att dina data har laddats upp till ditt lagringskonto innan du tar bort dem från källdataservern.
 
 ::: zone-end
 
@@ -64,6 +64,8 @@ Logga in på Azure Portal på [https://aka.ms/azuredataboxfromdiskdocs](https://
 ::: zone target="docs"
 
 ## <a name="order"></a>Beställa
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Det här steget tar ungefär 5 minuter.
 
@@ -73,6 +75,74 @@ Det här steget tar ungefär 5 minuter.
 4. Ange order- och leveransinformationen. Om tjänsten är tillgänglig i din region anger du e-postadresser för aviseringsmeddelanden, läser sammanfattningen och skapar sedan ordern.
 
 När ordern har skapats förbereds diskarna för leverans.
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Använd de här Azure CLI-kommandona för att skapa ett Data Box Disk-jobb.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+1. Kör kommandot [az group create](/cli/azure/group#az_group_create) om du vill skapa en resursgrupp eller använda en befintlig resursgrupp:
+
+   ```azurecli
+   az group create --name databox-rg --location westus
+   ```
+
+1. Använd kommandot [az storage account create](/cli/azure/storage/account#az_storage_account_create) om du vill skapa ett lagringskonto eller använda ett befintligt lagringskonto:
+
+   ```azurecli
+   az storage account create --resource-group databox-rg --name databoxtestsa
+   ```
+
+1. Kör kommandot [az databox job create](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_create) om du vill skapa ett Data Box-jobb med SKU:n DataBoxDisk:
+
+   ```azurecli
+   az databox job create --resource-group databox-rg --name databoxdisk-job \
+       --location westus --sku DataBoxDisk --contact-name "Jim Gan" --phone=4085555555 \
+       –-city Sunnyvale --email-list JimGan@contoso.com --street-address1 "1020 Enterprise Way" \
+       --postal-code 94089 --country US --state-or-province CA \
+       --storage-account databoxtestsa --expected-data-size 1
+   ```
+
+1. Kör [az databox job update](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_update) om du vill uppdatera ett jobb, som i det här exemplet, där du ändrar kontaktnamnet och e-postadressen:
+
+   ```azurecli
+   az databox job update -g databox-rg --name databox-job --contact-name "Robert Anic" --email-list RobertAnic@contoso.com
+   ```
+
+   Kör kommandot [az databox job show](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_show) om du vill hämta information om jobbet:
+
+   ```azurecli
+   az databox job show --resource-group databox-rg --name databox-job
+   ```
+
+   Använd kommandot [az databox job list]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list) om du vill visa alla Data Box-jobb för en resursgrupp:
+
+   ```azurecli
+   az databox job list --resource-group databox-rg
+   ```
+
+   Kör kommandot [az databox job cancel](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_cancel) om du vill avbryta ett jobb:
+
+   ```azurecli
+   az databox job cancel –resource-group databox-rg --name databox-job --reason "Cancel job."
+   ```
+
+   Kör kommandot [az databox job delete](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_delete) om du vill ta bort ett jobb:
+
+   ```azurecli
+   az databox job delete –resource-group databox-rg --name databox-job
+   ```
+
+1. Använd kommandot [az databox job list-credentials]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list_credentials) om du vill visa autentiseringsuppgifter för ett Data Box-jobb:
+
+   ```azurecli
+   az databox job list-credentials --resource-group "databox-rg" --name "databoxdisk-job"
+   ```
+
+När ordern har skapats förbereds enheten för leverans.
+
+---
 
 ## <a name="unpack"></a>Uppackning
 
@@ -100,11 +170,11 @@ Det här steget tar ungefär 5 minuter.
 
 Hur lång tid det tar att slutföra den här åtgärden beror på datastorleken.
 
-1. Enheten innehåller mapparna *PageBlob*, *BlockBlob*, *AzureFile*, *ManagedDisk* och *DataBoxDiskImport*. Dra och släpp för att kopiera de data som ska importeras som blockblobar till mappen *BlockBlob*. På samma sätt kan du dra och släppa data som VHD/VHDX till *PageBlob*-mappen och lämpliga data till *AzureFile*. Kopiera de virtuella hårddiskar som du vill överföra som hanterade diskar till en mapp under *ManagedDisk*.
+1. Enheten innehåller mapparna *PageBlob* , *BlockBlob* , *AzureFile* , *ManagedDisk* och *DataBoxDiskImport*. Dra och släpp för att kopiera de data som ska importeras som blockblobar till mappen *BlockBlob*. På samma sätt kan du dra och släppa data som VHD/VHDX till *PageBlob* -mappen och lämpliga data till *AzureFile*. Kopiera de virtuella hårddiskar som du vill överföra som hanterade diskar till en mapp under *ManagedDisk*.
 
     En container skapas i Azure Storage-kontot för varje undermapp under mapparna *BlockBlob* och *PageBlob*. En filresurs skapas för en undermapp under *AzureFile*.
 
-    Alla filer under mapparna *BlockBlob* och *PageBlob* kopieras till standardcontainern `$root` under Azure Storage-kontot. Kopiera filer till en mapp i *AzureFile*. Filer som kopieras direkt till *AzureFile*-mappen misslyckas och laddas upp som blockblobar.
+    Alla filer under mapparna *BlockBlob* och *PageBlob* kopieras till standardcontainern `$root` under Azure Storage-kontot. Kopiera filer till en mapp i *AzureFile*. Filer som kopieras direkt till *AzureFile* -mappen misslyckas och laddas upp som blockblobar.
 
     > [!NOTE]
     > - Alla containrar, blobar och filer måste följa [namngivningskonventionerna för Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Om dessa regler inte uppfylls misslyckas datauppladdningen till Azure.

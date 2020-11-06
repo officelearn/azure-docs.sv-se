@@ -1,7 +1,7 @@
 ---
 title: 'Kors validerings modell: modulreferens'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder modulen för kors validering i Azure Machine Learning för att korsa validering av parameter beräkningar för klassificerings-eller Regressions modeller genom att partitionera data.
+description: Använd modulen för att kontrol lera modell i Azure Machine Learning designer för att korsa beräkning av parameter uppskattningar för klassificerings-eller Regressions modeller.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,18 +9,18 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 63c61b12ad68a3add2e7b40ab0bec38d3c2835e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4099ecf6e6bcc6654391e54292878393fb22914
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898573"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421353"
 ---
 # <a name="cross-validate-model"></a>Korsvalidera modell
 
 Den här artikeln beskriver hur du använder modulen för att validera modeller i Azure Machine Learning designer. *Kors validering* är en teknik som ofta används i Machine Learning för att utvärdera både variabiliteten hos en data uppsättning och tillförlitligheten för en modell som har tränas genom dessa data.  
 
-Modulen för att validera modell tar sig in som indata för en etikettad data uppsättning, tillsammans med en klass som inte är tränad eller Regressions modell. Den delar in data uppsättningen i ett antal del mängder (*vikning*), skapar en modell på varje vikning och returnerar sedan en uppsättning noggrannhets statistik för varje vikning. Genom att jämföra noggrannhets statistiken för alla vik objekt kan du tolka data uppsättningens kvalitet. Du kan sedan förstå om modellen är mottaglig för variationer i data.  
+Modulen för att validera modell tar sig in som indata för en etikettad data uppsättning, tillsammans med en klass som inte är tränad eller Regressions modell. Den delar in data uppsättningen i ett antal del mängder ( *vikning* ), skapar en modell på varje vikning och returnerar sedan en uppsättning noggrannhets statistik för varje vikning. Genom att jämföra noggrannhets statistiken för alla vik objekt kan du tolka data uppsättningens kvalitet. Du kan sedan förstå om modellen är mottaglig för variationer i data.  
 
 Med kors validerings modellen returneras även förväntade resultat och sannolikheter för data uppsättningen, så att du kan utvärdera förutsägelsens tillförlitlighet.  
 
@@ -68,7 +68,7 @@ I det här scenariot tränar du och testar modellen med hjälp av kors validerin
     > Du behöver inte träna modellen eftersom en kors validerings modell automatiskt tränar modellen som en del av utvärderingen.  
 3.  På **data uppsättnings** porten för kors validerings modellen ansluter du till en etikettad utbildnings data uppsättning.  
 
-4.  Klicka på **Redigera kolumn**i den högra panelen av kors validerings modellen. Välj den enstaka kolumn som innehåller klass etiketten eller det förutsägbara värdet. 
+4.  Klicka på **Redigera kolumn** i den högra panelen av kors validerings modellen. Välj den enstaka kolumn som innehåller klass etiketten eller det förutsägbara värdet. 
 
 5. Ange ett värde för den **slumpmässiga start** parametern om du vill upprepa resultatet av kors valideringen mellan efterföljande körningar på samma data.  
 
@@ -86,7 +86,7 @@ Den första utdata i modulen tillhandahåller källdata för varje rad, tillsamm
 
 Om du vill visa resultaten går du till pipelinen och högerklickar på modulen för att validera modell. Välj **visualisera Poäng resultat**.
 
-| Nytt kolumnnamn      | Beskrivning                              |
+| Nytt kolumnnamn      | Description                              |
 | -------------------- | ---------------------------------------- |
 | Poängsatta etiketter        | Den här kolumnen läggs till i slutet av data uppsättningen. Det innehåller det förväntade värdet för varje rad. |
 | Resultat sannolikhet | Den här kolumnen läggs till i slutet av data uppsättningen. Det anger den uppskattade sannolikheten för värdet i **Poäng etiketter**. |
@@ -101,7 +101,7 @@ I den här rapporten visas vikningarna efter index värde i stigande ordning.  O
 Om du vill visa resultaten går du till pipelinen och högerklickar på modulen för att validera modell. Välj **visualisera utvärderings resultat per vikning**.
 
 
-|Kolumnnamn| Beskrivning|
+|Kolumnnamn| Description|
 |----|----|
 |Vikt nummer| En identifierare för varje vikning. Om du har skapat fem vikningar skulle det finnas fem del mängder av data, numrerade 0 till 4.
 |Antal exempel i vikning|Antalet rader tilldelade till varje vikning. De bör vara ungefär lika. |
@@ -109,9 +109,9 @@ Om du vill visa resultaten går du till pipelinen och högerklickar på modulen 
 
 Modulen innehåller också följande mått för varje vikning, beroende på vilken typ av modell du utvärderar: 
 
-+ **Klassificerings modeller**: precision, återkallande, F-score, AUC, precision  
++ **Klassificerings modeller** : precision, återkallande, F-score, AUC, precision  
 
-+ **Regressions modeller**: Genomsnittligt absolut fel, rot genomsnitts fel, relativt absolut fel, relativt kvadratvärde och koefficient för bestämning
++ **Regressions modeller** : Genomsnittligt absolut fel, rot genomsnitts fel, relativt absolut fel, relativt kvadratvärde och koefficient för bestämning
 
 
 ## <a name="technical-notes"></a>Tekniska anteckningar  

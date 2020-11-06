@@ -1,26 +1,26 @@
 ---
-title: Använda MQTT för att skapa en IoT Plug and Play enhets klient | Microsoft Docs
-description: 'Använd MQTT-protokollet direkt för att skapa en IoT Plug and Play enhets klient utan att använda SDK: er för Azure IoT-enheter'
+title: Självstudie – använda MQTT för att skapa en Azure IoT Plug and Play-enhets klient | Microsoft Docs
+description: 'Självstudie – Använd MQTT-protokollet direkt för att skapa en IoT Plug and Play enhets klient utan att använda SDK: er för Azure IoT-enheter'
 author: ericmitt
 ms.author: ericmitt
 ms.date: 05/13/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: d0ac0f000b6a096ae3de1f4f00a17b64f1948c1e
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 6852b0532b23e46c7b986926b21cd0b7e9f9736d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046289"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421387"
 ---
-# <a name="use-mqtt-to-develop-an-iot-plug-and-play-device-client"></a>Använda MQTT för att utveckla en IoT Plug and Play enhets klient
+# <a name="tutorial---use-mqtt-to-develop-an-iot-plug-and-play-device-client"></a>Självstudie – använda MQTT för att utveckla en IoT Plug and Play enhets klient
 
 Du bör använda en av Azure IoT-enhetens SDK: er för att bygga IoT-Plug and Play enhets klienter om det är möjligt. I scenarier som att använda en minnes begränsad enhet kan du dock behöva använda ett MQTT-bibliotek för att kommunicera med IoT-hubben.
 
 Exemplet i den här självstudien använder [Mosquitto](http://mosquitto.org/) MQTT-biblioteket och Visual Studio. Stegen i den här självstudien förutsätter att du använder Windows på din utvecklings dator.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
@@ -37,7 +37,7 @@ Använd *Azure IoT Explorer* -verktyget för att lägga till en ny enhet i IoT H
 1. På sidan **enheter** väljer du **+ ny**.
 1. Skapa en enhet med namnet *My-MQTT-Device* som använder en automatiskt genererad symmetrisk nyckel.
 1. På sidan **enhets identitet** expanderar du **ANSLUTNINGS sträng med SAS-token**.
-1. Välj den **primära nyckel** som ska användas som **symmetrisk nyckel**, ange förfallo tiden till 60 minuter och välj **generera**.
+1. Välj den **primära nyckel** som ska användas som **symmetrisk nyckel** , ange förfallo tiden till 60 minuter och välj **generera**.
 1. Kopiera den genererade **SAS-tokens anslutnings sträng**. du använder det här värdet senare i självstudien.
 
 ## <a name="clone-sample-repo"></a>Klona exempel lagrings platsen
@@ -80,7 +80,7 @@ Uppdatera koden med information om din IoT-hubb och-enhet innan du skapar och k�
 
 Om du vill visa exempel koden i Visual Studio öppnar du lösnings filen *MQTTWin32. SLN* i mappen *IoTMQTTSample\src\Windows* .
 
-I **Solution Explorer**högerklickar du på projektet **TelemetryMQTTWin32** och väljer **Ange som start projekt**.
+I **Solution Explorer** högerklickar du på projektet **TelemetryMQTTWin32** och väljer **Ange som start projekt**.
 
 Öppna käll filen **MQTT_Mosquitto. cpp** i **TelemetryMQTTWin32** -projektet. Uppdatera anslutnings informations definitionerna med enhets informationen som du antecknade tidigare. Ersätt plats hållarna för token sträng för:
 
@@ -96,7 +96,7 @@ Kör programmet (Ctrl + F5) efter några sekunder visas utdata som ser ut så h�
 
 I Azure IoT Explorer kan du se att enheten inte är en IoT Plug and Play-enhet:
 
-:::image type="content" source="media/tutorial-use-mqtt/non-pnp-iot-explorer.png" alt-text="Utdata från MQTT exempel program":::
+:::image type="content" source="media/tutorial-use-mqtt/non-pnp-iot-explorer.png" alt-text="Icke-IoT Plug and Play-enhet i Azure IoT Explorer":::
 
 ### <a name="make-the-device-an-iot-plug-and-play-device"></a>Gör enheten till en IoT Plug and Play-enhet
 
@@ -117,11 +117,11 @@ I det här exemplet lägger du till ett modell-ID i MQTT-anslutnings paketet. Du
 
 Enheten, som nu innehåller modell-ID:
 
-:::image type="content" source="media/tutorial-use-mqtt/model-id-iot-explorer.png" alt-text="Utdata från MQTT exempel program":::
+:::image type="content" source="media/tutorial-use-mqtt/model-id-iot-explorer.png" alt-text="Visa modell-ID i Azure IoT Explorer":::
 
 Nu kan du navigera i IoT Plug and Play-komponenten:
 
-:::image type="content" source="media/tutorial-use-mqtt/components-iot-explorer.png" alt-text="Utdata från MQTT exempel program":::
+:::image type="content" source="media/tutorial-use-mqtt/components-iot-explorer.png" alt-text="Visa komponenter i Azure IoT Explorer":::
 
 Du kan nu ändra enhets koden för att implementera telemetri, egenskaper och kommandon som definierats i din modell. Om du vill se en exempel implementering av termostat-enheten med hjälp av Mosquitto-biblioteket läser du [använda MQTT PnP med Azure IoTHub utan IoT SDK i Windows](https://github.com/Azure-Samples/IoTMQTTSample/tree/master/src/Windows/PnPMQTTWin32) på GitHub.
 

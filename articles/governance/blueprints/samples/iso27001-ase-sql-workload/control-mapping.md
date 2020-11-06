@@ -1,20 +1,20 @@
 ---
 title: Exempel kontroller för ISO 27001 ASE/SQL-arbetsbelastning
 description: Styra mappningen av exempel på arbets belastningen ISO 27001 App Service-miljön/SQL Database till Azure Policy och Azure RBAC.
-ms.date: 07/13/2020
+ms.date: 11/05/2020
 ms.topic: sample
-ms.openlocfilehash: 662e5dce9c58cec3be36c3e492d7231ed0e83939
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 438f2af05e0c499e9f002b501b97e291705cee9a
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91929327"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420418"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Kontroll mappning av exemplet ISO 27001 ASE/SQL arbets belastnings skiss
 
 I följande artikel beskrivs hur arbets belastningen Azure-ritningar ISO 27001 ASE/SQL arbets belastnings skiss mappar till ISO 27001-kontrollerna. Mer information om kontrollerna finns i [ISO 27001](https://www.iso.org/isoiec-27001-information-security.html).
 
-Följande mappningar är till **ISO 27001:2013** -kontrollerna. Använd navigeringen till höger om du vill gå direkt till en bestämd kontroll mappning. Många av de mappade kontrollerna implementeras med ett [Azure policy](../../../policy/overview.md) initiativ. Om du vill granska hela initiativet öppnar du **princip** i Azure Portal och väljer sidan **definitioner** . Leta sedan reda på och välj gransknings ** \[ visa \] ISO 27001:2013-kontroller och distribuera särskilda VM-tillägg för att ge stöd för det inbyggda princip initiativet för gransknings krav** .
+Följande mappningar är till **ISO 27001:2013** -kontrollerna. Använd navigeringen till höger om du vill gå direkt till en bestämd kontroll mappning. Många av de mappade kontrollerna implementeras med ett [Azure policy](../../../policy/overview.md) initiativ. Om du vill granska hela initiativet öppnar du **princip** i Azure Portal och väljer sidan **definitioner** . Leta sedan reda på och välj gransknings **\[ visa \] ISO 27001:2013-kontroller och distribuera särskilda VM-tillägg för att ge stöd för det inbyggda princip initiativet för gransknings krav** .
 
 > [!IMPORTANT]
 > Varje kontroll nedan är kopplad till en eller flera [Azure policy](../../../policy/overview.md) -definitioner. Dessa principer kan hjälpa dig att [utvärdera efterlevnaden](../../../policy/how-to/get-compliance-data.md) av kontrollen. Det finns dock ofta ingen en-till-en-eller fullständig matchning mellan en kontroll och en eller flera principer. Som sådan är **kompatibel** i Azure policy endast som avser själva principerna. Detta garanterar inte att du är helt kompatibel med alla krav för en kontroll. Standarden för efterlevnad innehåller dessutom kontroller som inte åtgärdas av några Azure Policy definitioner för tillfället. Därför är regelefterlevnad i Azure Policy bara en partiell vy av din övergripande kompatibilitetsstatus. Kopplingarna mellan kontroller och Azure Policy definitioner för det här skiss exemplet för efterlevnad kan ändras med tiden. Om du vill visa ändrings historiken läser du [inchecknings historiken för GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/iso27001-ase-sql-workload/control-mapping.md).
@@ -37,8 +37,6 @@ Azures [tjänst för SQL sårbarhets bedömning](../../../../azure-sql/database/
 Azure implementerar [Azure rollbaserad åtkomst kontroll (Azure RBAC)](../../../../role-based-access-control/overview.md) för att hantera vem som har åtkomst till Azure-resurser. Den här skissen hjälper dig att styra åtkomsten till Azure-resurser genom att tilldela sju [Azure policy](../../../policy/overview.md) definitioner. Dessa principer granskar användningen av resurs typer och konfigurationer som kan tillåta mer åtkomst till resurser.
 Att förstå resurser som strider mot dessa principer kan hjälpa dig att vidta lämpliga åtgärder för att säkerställa åtkomst till Azure-resurser som är begränsade till behöriga användare.
 
-- Distribuera förutsättningar för att granska virtuella Linux-datorer som har konton utan lösen ord
-- Distribuera förutsättningar för att granska virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
 - Visa gransknings resultat från virtuella Linux-datorer som har konton utan lösen ord
 - Visa gransknings resultat från virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
 - Lagrings konton ska migreras till nya Azure Resource Manager resurser
@@ -65,7 +63,6 @@ Den här skissen tilldelar tre [Azure policy](../../../policy/overview.md) defin
 - MFA ska vara aktiverat på konton med Läs behörighet för din prenumeration
 - Multifaktorautentisering bör aktiveras på konton med skrivbehörighet för prenumerationen
 - Visa gransknings resultat från virtuella Linux-datorer som inte har passwd-filbehörigheterna inställt på 0644
-- Distribuera krav för att granska virtuella Linux-datorer som inte har passwd-filbehörigheterna inställt på 0644
 
 ## <a name="a925-review-of-user-access-rights"></a>En. 9.2.5-granskning av användar behörighet
 
@@ -100,11 +97,6 @@ Den här skissen hjälper dig att använda starka lösen ord genom att tilldela 
 - Visa gransknings resultat från virtuella Windows-datorer som inte har minsta ålder på lösen ord på 1 dag
 - Visa gransknings resultat från virtuella Windows-datorer som inte begränsar minsta längd på lösen ord till 14 tecken
 - Visa gransknings resultat från virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
-- Distribuera krav för att granska virtuella Windows-datorer som inte har inställningen för lösen ords komplexitet aktiverat
-- Distribuera krav för att granska virtuella Windows-datorer som inte har en högsta ålder för lösen ord på 70 dagar
-- Distribuera krav för att granska virtuella Windows-datorer som inte har en minsta ålder på lösen ord på 1 dag
-- Distribuera krav för att granska virtuella Windows-datorer som inte begränsar minsta längd på lösen ord till 14 tecken
-- Distribuera krav för att granska virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
 
 ## <a name="a1011-policy-on-the-use-of-cryptographic-controls"></a>En. 10.1.1-princip för användning av kryptografiska kontroller
 
@@ -114,7 +106,6 @@ Att förstå var dina Azure-resurser kan ha icke-optimala kryptografiska konfigu
 - Funktionsapp bör endast vara tillgängligt via HTTPS
 - Webb program bör endast vara tillgängliga via HTTPS
 - API-appen bör bara vara tillgänglig via HTTPS
-- Distribuera krav för att granska virtuella Windows-datorer som inte lagrar lösen ord med omvänd kryptering
 - Visa gransknings resultat från virtuella Windows-datorer som inte lagrar lösen ord med omvänd kryptering
 - Disk kryptering bör tillämpas på virtuella datorer
 - Variabler för Automation-konton ska vara krypterade

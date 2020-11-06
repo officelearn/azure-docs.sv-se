@@ -1,7 +1,7 @@
 ---
 title: Syntax för sökfråga i Graph
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder Sök-frågesyntaxen för att söka efter noder i Pipeline-diagram.
+description: Lär dig hur du använder Sök-frågesyntaxen i Azure Machine Learning designer för att söka efter noder i Pipeline-diagram.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 8/24/2020
-ms.openlocfilehash: 166b87159b5ac2434c3ce7a7c66529a4b61ee565
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 762581ea5b3183d62913e9ea6935bf7e4c4ae67f
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91290508"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420775"
 ---
 # <a name="graph-search-query-syntax"></a>Syntax för sökfråga i Graph
 
@@ -36,7 +36,7 @@ I Graph search används en enkel texts ökning med hjälp av funktionen för ful
 
  
 - OCH/ELLER
-- Matchar jokertecken med **?** och- **\*** operatörer.
+- Matchar jokertecken med **?** och * *\** _ operatorer.
 
 ### <a name="examples"></a>Exempel
 
@@ -49,7 +49,7 @@ I Graph search används en enkel texts ökning med hjälp av funktionen för ful
  
 - Matchning med jokertecken: 
     - `machi?e learning`
-    - `mach*ing`
+    - `mach_ing`
  
 >[!NOTE]
 > Du kan inte starta en Lucene-fråga med ett "*"-Character.

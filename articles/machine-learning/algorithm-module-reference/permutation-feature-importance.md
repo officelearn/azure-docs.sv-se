@@ -1,7 +1,7 @@
 ---
 title: 'Permutations funktions prioritet: modulreferens'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder funktionen permutations prioritet i Azure Machine Learning för att beräkna permutations funktionens prioritets resultat för funktions variabler, med en utbildad modell och en test data uppsättning.
+description: Lär dig hur du använder modulen permutations prioritet i designern för att beräkna permutations funktionens prioritets resultat för funktions variabler.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/24/2020
-ms.openlocfilehash: bddd9a6825899f646a86ae274c539b54156667c5
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 8ae1e79922cc0f34e8b2d1f253fce5078df286d2
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319407"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421251"
 ---
 # <a name="permutation-feature-importance"></a>Permutationfunktionsprioritet
 

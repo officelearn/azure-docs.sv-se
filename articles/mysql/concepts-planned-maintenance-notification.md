@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 754d693294235ff34c68f828235cca5bb2389a2b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c85624d9eced3130a1c7b99943095688beee62bd
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544842"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93417596"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mysql---single-server"></a>Meddelande om planerat underhåll i Azure Database for MySQL-enskild server
 
@@ -46,14 +46,14 @@ Du kan antingen kontrol lera den planerade underhålls aviseringen på Azure Por
 
 ### <a name="check-planned-maintenance-notification-from-azure-portal"></a>Kontrol lera planerat underhålls meddelande från Azure Portal
 
-1. I [Azure Portal](https://portal.azure.com)väljer du **service Health** .
+1. I [Azure Portal](https://portal.azure.com)väljer du **service Health**.
 2. Fliken Välj **planerat underhåll**
-3. Välj **prenumeration** , * * region och **tjänst** för vilken du vill kontrol lera aviseringen om planerat underhåll. 
+3. Välj den **prenumeration** , **region** och **tjänst** för vilken du vill kontrol lera aviseringen om planerat underhåll. 
    
 ### <a name="to-receive-planned-maintenance-notification"></a>För att få ett meddelande om planerat underhåll
 
-1. I [portalen](https://portal.azure.com)väljer du **service Health** .
-2. I avsnittet **aviseringar** väljer du **hälso aviseringar** .
+1. I [portalen](https://portal.azure.com)väljer du **service Health**.
+2. I avsnittet **aviseringar** väljer du **hälso aviseringar**.
 3. Välj **+ Lägg till tjänstens hälso tillstånds avisering** och fyll i fälten.
 4. Fyll i de obligatoriska fälten. 
 5. Välj **händelse typ** , Välj **planerat underhåll** eller **Välj alla**

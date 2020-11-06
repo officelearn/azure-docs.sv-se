@@ -1,7 +1,7 @@
 ---
 title: Dela bildkatalog
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder modulen dela avbildnings katalog i Azure Machine Learning designer (för hands version) för att dela upp avbildningarna av en avbildnings katalog i två distinkta mängder.
+description: Lär dig hur du använder modulen dela avbildnings katalog i designern för att dela upp avbildningarna i en avbildnings katalog i två distinkta mängder.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/26/2020
-ms.openlocfilehash: fe5ba25904298fe1a394a4b01d6bdacc72d599c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ee4dd9b2e344ecb3e1a6424ce7310270e7cd076
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448678"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421200"
 ---
 # <a name="split-image-directory"></a>Dela bildkatalog
 
@@ -35,19 +35,19 @@ Den här modulen är särskilt användbar när du behöver separera bilddata til
 
 ### <a name="expected-inputs"></a>Förväntade indata
 
-| Namn                  | Typ           | Beskrivning              |
+| Namn                  | Typ           | Description              |
 | --------------------- | -------------- | ------------------------ |
 | Avbildnings katalog för indata | ImageDirect | Avbildnings katalog att dela |
 
 ### <a name="module-parameters"></a>Parametrar för modul
 
-| Namn                                   | Typ  | Intervall | Valfritt | Beskrivning                            | Default |
+| Namn                                   | Typ  | Intervall | Valfritt | Description                            | Standard |
 | -------------------------------------- | ----- | ----- | -------- | -------------------------------------- | ------- |
-| Delar av bilder i de första utdata | Float | 0-1   | Krävs | Delar av bilder i de första utdata | 0,9     |
+| Delar av bilder i de första utdata | Float | 0-1   | Obligatorisk | Delar av bilder i de första utdata | 0,9     |
 
 ### <a name="outputs"></a>Utdata
 
-| Namn                    | Typ           | Beskrivning                              |
+| Namn                    | Typ           | Description                              |
 | ----------------------- | -------------- | ---------------------------------------- |
 | Directory1 för utgående bild | ImageDirect | Avbildnings katalog som innehåller valda bilder |
 | Directory2 för utgående bild | ImageDirect | Avbildnings katalog som innehåller alla andra bilder |

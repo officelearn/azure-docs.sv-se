@@ -1,7 +1,7 @@
 ---
 title: 'Two-Class utökat besluts träd: modulreferens'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder modulen Two-Class Boosted beslut Tree i Azure Machine Learning för att skapa en Machine Learning-modell som baseras på algoritmen för besluts träd.
+description: Lär dig hur du använder modulen Two-Class Boosted beslut Tree i designern för att skapa en binär klassificerare.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/24/2020
-ms.openlocfilehash: 833caa0cf264fb49d8b32255f429132cd888c6c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 568cd7b280b8fb65b5f75588a2832631361938dd
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907736"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420622"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>Two-Class utökat besluts träd
 
@@ -38,19 +38,19 @@ Du kan träna den här typen av modell med hjälp av [träna modell](././train-m
   
 2.  Ange hur du vill att modellen ska tränas genom att ställa in alternativet **skapa utbildare läge** .
   
-    + **Enskild parameter**: om du vet hur du vill konfigurera modellen kan du ange en viss uppsättning värden som argument.
+    + **Enskild parameter** : om du vet hur du vill konfigurera modellen kan du ange en viss uppsättning värden som argument.
   
-    + **Parameter intervall**: om du inte är säker på de bästa parametrarna kan du hitta de optimala parametrarna med hjälp av modulen [finjustera modellens standardparametrar](tune-model-hyperparameters.md) . Du anger några värden och utbildaren upprepas över flera kombinationer av inställningarna för att avgöra vilken kombination av värden som ger bäst resultat.
+    + **Parameter intervall** : om du inte är säker på de bästa parametrarna kan du hitta de optimala parametrarna med hjälp av modulen [finjustera modellens standardparametrar](tune-model-hyperparameters.md) . Du anger några värden och utbildaren upprepas över flera kombinationer av inställningarna för att avgöra vilken kombination av värden som ger bäst resultat.
   
-3.  För **maximalt antal löv per träd**, anger du det maximala antalet terminalservrar (löv) som kan skapas i alla träd.
+3.  För **maximalt antal löv per träd** , anger du det maximala antalet terminalservrar (löv) som kan skapas i alla träd.
   
      Genom att öka det här värdet kan du öka storleken på trädet och få bättre precision vid överanpassning och längre inlärnings tid.
   
-4.  För **minsta antal exempel per lövnod**, anger du antalet fall som krävs för att skapa en terminalserversession (löv) i ett träd.  
+4.  För **minsta antal exempel per lövnod** , anger du antalet fall som krävs för att skapa en terminalserversession (löv) i ett träd.  
   
      Genom att öka det här värdet ökar du tröskelvärdet för att skapa nya regler. Till exempel, med standardvärdet 1, kan ett enda ärende orsaka att en ny regel skapas. Om du ökar värdet till 5 måste tränings data innehålla minst fem fall som uppfyller samma villkor.
   
-5.  För **inlärnings hastighet**anger du ett tal mellan 0 och 1 som definierar steg storleken under inlärningen.  
+5.  För **inlärnings hastighet** anger du ett tal mellan 0 och 1 som definierar steg storleken under inlärningen.  
   
      Inlärnings frekvensen avgör hur snabbt eller långsamt en elev konvergerar på den optimala lösningen. Om steg storleken är för stor kan du överskrida den optimala lösningen. Om steg storleken är för liten tar inlärningen längre tid att konvergera i den bästa lösningen.
   
@@ -58,16 +58,16 @@ Du kan träna den här typen av modell med hjälp av [träna modell](././train-m
   
      Det här värdet styr också antalet träd som visas vid visualisering av den tränade modellen. Om du vill se eller skriva ut ett enda träd ställer du in värdet på 1. Men när du gör det skapas endast ett träd (trädet med den inledande uppsättningen parametrar) och inga ytterligare iterationer utförs.
   
-7.  För **slumpmässigt antal frön**kan du ange ett icke-negativt heltal som ska användas som det slumpmässiga startvärdet. Genom att ange ett utsäde säkerställer du reproducerbarhet i körningar som har samma data och parametrar.  
+7.  För **slumpmässigt antal frön** kan du ange ett icke-negativt heltal som ska användas som det slumpmässiga startvärdet. Genom att ange ett utsäde säkerställer du reproducerbarhet i körningar som har samma data och parametrar.  
   
      Det slumpmässiga startvärdet anges som standard till 0, vilket innebär att det första startvärdet hämtas från system klockan.  Efterföljande körningar med hjälp av ett slumpmässigt Seed kan ha olika resultat.
   
 
 9. Träna modellen:
 
-    + Om du ställer in **skapa utbildare** för en **parameter**ansluter du en taggad data uppsättning och modulen [träna modell](train-model.md) .  
+    + Om du ställer in **skapa utbildare** för en **parameter** ansluter du en taggad data uppsättning och modulen [träna modell](train-model.md) .  
   
-    + Om du ställer in **skapa utbildare** för **parameter intervall**ansluter du en taggad data uppsättning och tränar modellen med hjälp av [finjustera modellens egenskaper](tune-model-hyperparameters.md).  
+    + Om du ställer in **skapa utbildare** för **parameter intervall** ansluter du en taggad data uppsättning och tränar modellen med hjälp av [finjustera modellens egenskaper](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 

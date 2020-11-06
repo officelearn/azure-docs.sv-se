@@ -1,7 +1,7 @@
 ---
 title: 'Two-Class stöder Vector Machine: modulreferens'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder modulen för **dubbelriktad Vector** i Azure Machine Learning för att skapa en modell som baseras på algoritmen för att stödja Vector-datorer.
+description: Lär dig hur du använder modulen Two-Class support Vector Machine i Azure Machine Learning för att skapa en binär klassificerare.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 1dc2f8bdf6ed2823b44d25bdf65766b1f7ae060c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46cfdd319fc89e569d165dc2e11303e67c6dd54e
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907660"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420571"
 ---
 # <a name="two-class-support-vector-machine-module"></a>Modulen Two-Class stöder Vector
 
@@ -42,23 +42,23 @@ För den här modell typen rekommenderar vi att du normaliserar data uppsättnin
   
 2.  Ange hur du vill att modellen ska tränas genom att ställa in alternativet **skapa utbildare läge** .  
   
-    -   **Enskild parameter**: om du vet hur du vill konfigurera modellen kan du ange en viss uppsättning värden som argument.  
+    -   **Enskild parameter** : om du vet hur du vill konfigurera modellen kan du ange en viss uppsättning värden som argument.  
 
-    -   **Parameter intervall**: om du inte är säker på de bästa parametrarna kan du hitta de optimala parametrarna med hjälp av modulen [finjustera modellens standardparametrar](tune-model-hyperparameters.md) . Du anger några värden och utbildaren upprepas över flera kombinationer av inställningarna för att avgöra vilken kombination av värden som ger bäst resultat.
+    -   **Parameter intervall** : om du inte är säker på de bästa parametrarna kan du hitta de optimala parametrarna med hjälp av modulen [finjustera modellens standardparametrar](tune-model-hyperparameters.md) . Du anger några värden och utbildaren upprepas över flera kombinationer av inställningarna för att avgöra vilken kombination av värden som ger bäst resultat.
 
-3.  För **antal iterationer**anger du ett tal som anger antalet iterationer som används när modellen skapas.  
+3.  För **antal iterationer** anger du ett tal som anger antalet iterationer som används när modellen skapas.  
   
      Den här parametern kan användas för att styra kompromisser mellan inlärnings hastigheten och noggrannhet.  
   
-4.  För **lambda**anger du ett värde som ska användas som vikt för L1-regulariseringshastigheten.  
+4.  För **lambda** anger du ett värde som ska användas som vikt för L1-regulariseringshastigheten.  
   
      Den här regulariseringshastigheten-koefficienten kan användas för att finjustera modellen. Större värden bestraffa mer komplexa modeller.  
   
-5.  Välj alternativet, **normalisera funktioner**om du vill normalisera funktioner innan du tränar.
+5.  Välj alternativet, **normalisera funktioner** om du vill normalisera funktioner innan du tränar.
   
      Om du använder normalisering före träning centreras data punkter på medelvärdet och skalas för att ha en enhet av standard avvikelsen.
   
-6.  Välj alternativet och **projicera till enhets sfären**för att normalisera koefficienter.
+6.  Välj alternativet och **projicera till enhets sfären** för att normalisera koefficienter.
   
      Projekt värden till enhets utrymme innebär att data punkter centreras på 0 och skalas för att ha en enhet av standard avvikelsen.
   
@@ -66,9 +66,9 @@ För den här modell typen rekommenderar vi att du normaliserar data uppsättnin
   
 9. Anslut en data uppsättning med etiketter och träna modellen:
 
-    + Om du ställer in **skapa utbildare** för en **parameter**ansluter du en taggad data uppsättning och modulen [träna modell](train-model.md) .  
+    + Om du ställer in **skapa utbildare** för en **parameter** ansluter du en taggad data uppsättning och modulen [träna modell](train-model.md) .  
   
-    + Om du ställer in **skapa utbildare** för **parameter intervall**ansluter du en taggad data uppsättning och tränar modellen med hjälp av [finjustera modellens egenskaper](tune-model-hyperparameters.md).  
+    + Om du ställer in **skapa utbildare** för **parameter intervall** ansluter du en taggad data uppsättning och tränar modellen med hjälp av [finjustera modellens egenskaper](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 

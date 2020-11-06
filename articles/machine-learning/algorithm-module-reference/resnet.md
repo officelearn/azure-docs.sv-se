@@ -1,7 +1,7 @@
 ---
 title: ResNet
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du skapar en bild klassificerings modell med ResNet-algoritmen.
+description: Lär dig hur du skapar en bild klassificerings modell i Azure Machine Learning designer med ResNet-algoritmen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/26/2020
-ms.openlocfilehash: bd0431a8e503605c6137d948cf207c1bd2fa45b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88a820d0f1fa9515b4f2992a8305a2d1065e0987
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442032"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421217"
 ---
 # <a name="resnet"></a>ResNet
 
@@ -34,9 +34,9 @@ Mer information om ResNet finns i [det här dokumentet](https://pytorch.org/docs
 
 1.  Lägg till **ResNet** -modulen i din pipeline i designern.  
 
-2.  För **modell namn**anger du namnet på en viss ResNet-struktur och du kan välja från ResNet: "resnet18", "resnet34", "resnet50", "resnet101", "resnet152", "resnet152", "resnext50 \_ 32x4d", "resnext101 \_ 32x8d", "wide_resnet50 \_ 2", "wide_resnet101 \_ 2".
+2.  För **modell namn** anger du namnet på en viss ResNet-struktur och du kan välja från ResNet: "resnet18", "resnet34", "resnet50", "resnet101", "resnet152", "resnet152", "resnext50 \_ 32x4d", "resnext101 \_ 32x8d", "wide_resnet50 \_ 2", "wide_resnet101 \_ 2".
 
-3.  För **förtränat**anger du om du vill använda en förtränad modell på ImageNet. Om du väljer det här kan du finjustera modellen baserat på vald förtränad modell. om det är avmarkerat kan du träna från början.
+3.  För **förtränat** anger du om du vill använda en förtränad modell på ImageNet. Om du väljer det här kan du finjustera modellen baserat på vald förtränad modell. om det är avmarkerat kan du träna från början.
 
 4.  Anslut utdata från modulen **DenseNet** , Training and validation image data uppsättning till [träna Pytorch-modellen](train-pytorch-model.md). 
 
@@ -50,15 +50,15 @@ När pipeline-körningen har slutförts ska du använda modellen för att skapa 
 
 ###  <a name="module-parameters"></a>Parametrar för modul  
 
-| Namn       | Intervall | Typ    | Default           | Beskrivning                              |
+| Name       | Intervall | Typ    | Standard           | Description                              |
 | ---------- | ----- | ------- | ----------------- | ---------------------------------------- |
-| Modellnamn | Alla   | Läge    | resnext101 \_ 32x8d | Namn på en viss ResNet-struktur       |
-| Tränats | Alla   | Boolesk | Sant              | Om du vill använda en förtränad modell på ImageNet |
+| Modellnamn | Valfri   | Läge    | resnext101 \_ 32x8d | Namn på en viss ResNet-struktur       |
+| Tränats | Valfri   | Boolesk | Sant              | Om du vill använda en förtränad modell på ImageNet |
 |            |       |         |                   |                                          |
 
 ###  <a name="output"></a>Utdata  
 
-| Namn            | Typ                    | Beskrivning                              |
+| Namn            | Typ                    | Description                              |
 | --------------- | ----------------------- | ---------------------------------------- |
 | Modell som inte är tränad | UntrainedModelDirectory | En ResNet modell som kan anslutas till träna Pytorch-modellen. |
 

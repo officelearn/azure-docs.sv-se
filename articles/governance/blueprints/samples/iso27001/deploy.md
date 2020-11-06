@@ -1,14 +1,14 @@
 ---
 title: Distribuera exempel på ISO 27001-skiss
 description: Distribuera steg för det fristående ISO 27001-skiss exemplet inklusive information om skiss artefakt parameter.
-ms.date: 07/13/2020
+ms.date: 11/02/2020
 ms.topic: sample
-ms.openlocfilehash: 6580c4f8bc66238ad45fe3d969caa7a4b3b4ce82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75403710ecbfb0cc7046804b45c2da042531e98b
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87006814"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420310"
 ---
 # <a name="deploy-the-iso-27001-blueprint-sample"></a>Distribuera exempel på ISO 27001-skissen
 
@@ -33,8 +33,8 @@ Börja först med att implementera skissexemplet genom att skapa en ny skiss i d
 
 1. Ange _Grundinställningar_ för skissexemplet:
 
-   - **Skiss namn**: Ange ett namn för din kopia av exempel på ISO 27001-skissen.
-   - **Definitions plats**: Använd ellipsen och välj den hanterings grupp där du vill spara din kopia av exemplet.
+   - **Skiss namn** : Ange ett namn för din kopia av exempel på ISO 27001-skissen.
+   - **Definitions plats** : Använd ellipsen och välj den hanterings grupp där du vill spara din kopia av exemplet.
 
 1. Välj fliken _Artefakter_ överst på sidan eller **Nästa: Artefakter** längst ned på sidan.
 
@@ -52,7 +52,7 @@ Din kopia av skissexemplet har nu skapats i din miljö. Den skapas i läget **Ut
 
 ## <a name="assign-the-sample-copy"></a>Tilldela exempelkopian
 
-När kopieringen av skiss exemplet har **publicerats**kan den tilldelas en prenumeration i hanterings gruppen som den sparades till. I det här steget anges parametrar för att göra varje distribution av skissexemplets kopia unik.
+När kopieringen av skiss exemplet har **publicerats** kan den tilldelas en prenumeration i hanterings gruppen som den sparades till. I det här steget anges parametrar för att göra varje distribution av skissexemplets kopia unik.
 
 1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
 
@@ -64,11 +64,11 @@ När kopieringen av skiss exemplet har **publicerats**kan den tilldelas en prenu
 
    - Grundläggande inställningar
 
-     - **Prenumerationer**: Välj en eller flera av de prenumerationer som finns i hanterings gruppen som du sparade din kopia av skiss exemplet till. Om du väljer mer än en prenumeration, skapas en tilldelning för var och en med de angivna parametrarna.
-     - **Tilldelnings namn**: namnet fylls i automatiskt för dig baserat på namnet på skissen.
+     - **Prenumerationer** : Välj en eller flera av de prenumerationer som finns i hanterings gruppen som du sparade din kopia av skiss exemplet till. Om du väljer mer än en prenumeration, skapas en tilldelning för var och en med de angivna parametrarna.
+     - **Tilldelnings namn** : namnet fylls i automatiskt för dig baserat på namnet på skissen.
        Ändra vid behov eller lämna det som det är.
-     - **Plats**: Välj en region som den hanterade identiteten ska skapas i. Azure Blueprint använder den här hanterade identiteten för att distribuera alla artefakter i den tilldelade skissen. Mer information finns i [hanterade identiteter för Azure-resurser](../../../../active-directory/managed-identities-azure-resources/overview.md).
-     - **Ritnings definitions version**: Välj en **publicerad** version av din kopia av skiss exemplet.
+     - **Plats** : Välj en region som den hanterade identiteten ska skapas i. Azure Blueprint använder den här hanterade identiteten för att distribuera alla artefakter i den tilldelade skissen. Mer information finns i [hanterade identiteter för Azure-resurser](../../../../active-directory/managed-identities-azure-resources/overview.md).
+     - **Ritnings definitions version** : Välj en **publicerad** version av din kopia av skiss exemplet.
 
    - Lås tilldelning
 
@@ -82,7 +82,7 @@ När kopieringen av skiss exemplet har **publicerats**kan den tilldelas en prenu
 
      De parametrar som definieras i avsnittet används av många av artefakterna i skissdefinitionen för att ge konsekvens.
 
-     - **Tillåten plats för resurser och resurs grupper**: värde som anger tillåtna platser för resurs grupper och resurser.
+     - **Tillåten plats för resurser och resurs grupper** : värde som anger tillåtna platser för resurs grupper och resurser.
 
    - Artefaktparametrar
 
@@ -108,7 +108,7 @@ I följande tabell visas en lista med skissartefaktens parametrar:
 |\[För hands version \] : distribuera Log Analytics agent för virtuella Windows-datorer|Principtilldelning|Log Analytics arbets yta för virtuella Windows-datorer|Om den här arbets ytan ligger utanför tilldelnings omfånget måste du manuellt bevilja behörigheten Log Analytics deltagare (eller liknande) till princip tilldelningens huvud-ID.|
 |\[För hands version \] : distribuera Log Analytics agent för virtuella Windows-datorer|Principtilldelning|Valfritt: lista över virtuella dator avbildningar som har stöd för Windows OS som ska läggas till i omfånget|En tom matris kan användas för att ange inga valfria parametrar: \[\]|
 |Tillåtna SKU:er för lagringskonto|Principtilldelning|Lista över tillåtna lagrings-SKU: er|Listan över SKU: er som kan anges för lagrings konton.|
-|Tillåtna SKU: er för virtuella datorer|Principtilldelning|Lista över tillåtna SKU: er för virtuella datorer|Listan över SKU: er som kan anges för virtuella datorer.|
+|Tillåtna SKU:er för virtuella datorer|Principtilldelning|Lista över tillåtna SKU: er för virtuella datorer|Listan över SKU: er som kan anges för virtuella datorer.|
 |Skiss initiativ för ISO 27001|Principtilldelning|Lista över resurs typer som ska ha diagnostiska loggar aktiverade|Lista över resurs typer som ska granskas om diagnostisk logg inställning inte är aktive rad. Du hittar giltiga värden i [Azure Monitor-diagnostiska loggar scheman](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
 
 ## <a name="next-steps"></a>Nästa steg

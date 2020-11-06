@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: mbullwin
-ms.openlocfilehash: ab1c07bd7814afb054bb20b77bbc84c1ee9df017
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 30d8fdf99da7a4854db0985bed6256ecd6f7a366
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046799"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420928"
 ---
 # <a name="how-to-configure-alerts-and-get-notifications-using-a-hook"></a>Anvisningar: Konfigurera aviseringar och få meddelanden med hjälp av en Hook
 
@@ -28,7 +28,7 @@ Mått Advisor stöder tre olika typer av krokar: e-posthook, Web Hook och Azure 
 ### <a name="email-hook"></a>E-posthook
 
 > [!Note]
-> Resurs administratörer för mått rådgivare måste konfigurera e-postinställningarna och mata in SMTP-relaterad information i mått rådgivare innan avvikelse aviseringar kan skickas. Administratörs-eller prenumerations administratören för resurs gruppen måste tilldela minst en *Administratörs roll för Cognitive Services mått rådgivare* på fliken åtkomst kontroll i mått Advisor-resursen. 
+> Resurs administratörer för mått rådgivare måste konfigurera e-postinställningarna och mata in SMTP-relaterad information i mått rådgivare innan avvikelse aviseringar kan skickas. Administratörs-eller prenumerations administratören för resurs gruppen måste tilldela minst en *Administratörs roll för Cognitive Services mått rådgivare* på fliken åtkomst kontroll i mått Advisor-resursen. [Läs mer om konfiguration av e-postinställningar](../faq.md#how-to-set-up-email-settings-and-enable-alerting-by-email).
 
 Följande parametrar är tillgängliga för att skapa en e-posthook: 
 
@@ -41,7 +41,7 @@ En e-posthook är kanalen för avvikelse aviseringar som skickas till e-postadre
 | Extern länk | Valfritt fält som möjliggör en anpassad omdirigering, t. ex. för fel söknings anteckningar. |
 | Anpassad avvikelse aviserings rubrik | Rubrik mal len stöder `${severity}` , `${alertSettingName}` , `${datafeedName}` ,, `${metricName}` `${detectConfigName}` `${timestamp}` , `${topDimension}` `${incidentCount}` ,, `${anomalyCount}`
 
-När du klickar på **OK**skapas en e-posthook. Du kan använda den i alla aviserings inställningar för att få avvikelse aviseringar. 
+När du klickar på **OK** skapas en e-posthook. Du kan använda den i alla aviserings inställningar för att få avvikelse aviseringar. 
 
 ### <a name="web-hook"></a>Webb-Hook
 
@@ -86,17 +86,17 @@ Om du vill skapa en Azure DevOps-Hook måste du lägga till följande informatio
 ## <a name="add-or-edit-alert-settings"></a>Lägg till eller redigera aviserings inställningar
 
 Gå till sidan med mått information för att hitta avsnittet **aviserings inställningar** i det nedre vänstra hörnet av mått informations sidan. Den visar alla aviserings inställningar som gäller för den valda identifierings konfigurationen. När en ny identifierings konfiguration skapas, finns det ingen varnings inställning och inga aviseringar kommer att skickas.  
-Du kan ändra aviserings inställningarna med hjälp av ikonerna **Lägg till**, **Redigera** och **ta bort** .
+Du kan ändra aviserings inställningarna med hjälp av ikonerna **Lägg till** , **Redigera** och **ta bort** .
 
-:::image type="content" source="../media/alerts/alert-setting.png" alt-text="fönstret Skapa webb-Hook.":::
+:::image type="content" source="../media/alerts/alert-setting.png" alt-text="Meny alternativet aviserings inställningar.":::
 
 Klicka på knappen **Lägg till** eller **Redigera** för att hämta ett fönster för att lägga till eller redigera dina aviserings inställningar.
 
-:::image type="content" source="../media/alerts/edit-alert.png" alt-text="fönstret Skapa webb-Hook.":::
+:::image type="content" source="../media/alerts/edit-alert.png" alt-text="Lägg till eller redigera aviserings inställningar":::
 
-**Namn på varnings inställning**: namnet på den här varnings inställningen. Den visas i rubriken aviserings-e-postadress.
+**Namn på varnings inställning** : namnet på den här varnings inställningen. Den visas i rubriken aviserings-e-postadress.
 
-**Hookar**: listan över hookar som aviseringar ska skickas till.
+**Hookar** : listan över hookar som aviseringar ska skickas till.
 
 Avsnittet som är markerat i skärm bilden ovan är inställningarna för en identifierings konfiguration. Du kan ange olika aviserings inställningar för olika identifierings konfigurationer. Välj mål konfigurationen med hjälp av den tredje List rutan i det här fönstret. 
 
@@ -106,16 +106,16 @@ Följande är filter inställningar för en identifierings konfiguration.
 
 **Avisering för** har fyra alternativ för att filtrera avvikelser:
 
-* **Avvikelser i alla serier**: alla avvikelser tas med i aviseringen.         
-* **Avvikelser i serie gruppen**: filtrera serier efter dimensions värden. Ange ett visst värde för vissa dimensioner. Avvikelser inkluderas bara i aviseringen när serien matchar det angivna värdet.       
-* **Avvikelser i favorit serien**: endast serien som marker ATS som favorit tas med i aviseringen.        |
-* **Avvikelser i de översta n i alla serier**: det här filtret gäller för det fall du bara bryr dig om serien vars värde är i de översta n. Vi ser tillbaka några tidsstämplar och kontrollerar om seriens värde i den här tidsstämpeln är i översta N. Om antalet i högsta n-antal är större än det angivna antalet tas avvikelsen med i en avisering.        |
+* **Avvikelser i alla serier** : alla avvikelser tas med i aviseringen.         
+* **Avvikelser i serie gruppen** : filtrera serier efter dimensions värden. Ange ett visst värde för vissa dimensioner. Avvikelser inkluderas bara i aviseringen när serien matchar det angivna värdet.       
+* **Avvikelser i favorit serien** : endast serien som marker ATS som favorit tas med i aviseringen.        |
+* **Avvikelser i de översta n i alla serier** : det här filtret gäller för det fall du bara bryr dig om serien vars värde är i de översta n. Vi ser tillbaka några tidsstämplar och kontrollerar om seriens värde i den här tidsstämpeln är i översta N. Om antalet i högsta n-antal är större än det angivna antalet tas avvikelsen med i en avisering.        |
 
 **Filtrera avvikelse alternativ** är ett ytterligare filter med följande alternativ:
 
 - **allvarlighets grad** : avvikelsen tas bara med när avvikelsen är inom det angivna intervallet.
 - **Vilo läge** : Stoppa aviseringar tillfälligt för avvikelser under de följande N punkterna (punkt), när de utlöses i en avisering.
-    - **vilo läges typ** : när värdet är **serien**är en utlöst avvikelse bara en vilo läges serie. För **mått**är ett utlöst avvikelse i vilo läge alla serier i måttet.
+    - **vilo läges typ** : när värdet är **serien** är en utlöst avvikelse bara en vilo läges serie. För **mått** är ett utlöst avvikelse i vilo läge alla serier i måttet.
     - **vilo läges nummer** : antalet punkter (punkt) till vilo läge.
     - **återställning efter** fel: när det här alternativet har valts kommer en utlöst avvikelse bara att försätta nästa n efterföljande avvikelser. Om någon av följande data punkter inte är en avvikelse kommer vilo läget att återställas från den punkten. När det är omarkerat kommer en utlöst avvikelse att inledas nästa n punkter (punkt), även om efterföljande data punkter inte är avvikelser.
 - **värde** (valfritt): Filtrera efter värde. Endast punkt värden som uppfyller villkoret, avvikelser tas med. Om du använder motsvarande värde för ett annat mått bör dimensions namnen för de två måtten vara konsekventa.
@@ -132,9 +132,9 @@ Klicka på **+ Lägg till inställningar för kors mått** på sidan aviserings 
 |Operator  |Beskrivning  |
 |---------|---------|
 |AND     | Skicka bara en avisering om en serie matchar varje aviserings avsnitt och alla data punkter är avvikelser. Om måtten har olika dimensions namn utlöses aldrig en avisering.         |
-|OR     | Skicka aviseringen om minst ett avsnitt innehåller avvikelser.         |
+|ELLER     | Skicka aviseringen om minst ett avsnitt innehåller avvikelser.         |
 
-:::image type="content" source="../media/alerts/alert-setting-operator.png" alt-text="fönstret Skapa webb-Hook.":::
+:::image type="content" source="../media/alerts/alert-setting-operator.png" alt-text="Avsnittet operator för flera aviserings inställningar":::
 
 ## <a name="next-steps"></a>Nästa steg
 

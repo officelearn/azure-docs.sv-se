@@ -1,7 +1,7 @@
 ---
 title: En-mot-alla – multiklass
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder modulen En-mot-alla – multiklass i Azure Machine Learning för att skapa en klassificerings modell med multiklasser från en ensemble av binära klassificerings modeller.
+description: Lär dig hur du använder modulen En-mot-alla – multiklass i Azure Machine Learning designer för att skapa en ensemble med binära klassificerings modeller.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: dfe01e16b55325db03e4150a33ae5c4aa5822ae2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f09a77043a552d8d7f09c2a6abcb78f89cbf8ee2
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898505"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420690"
 ---
 # <a name="one-vs-all-multiclass"></a>En-mot-alla – multiklass
 
@@ -40,7 +40,7 @@ Du ansluter den binära modellen till En-mot-alla – multiklass-modulen. Sedan 
 
 När du kombinerar modeller skapar En-mot-alla – multiklass flera binära klassificerings modeller, optimerar algoritmen för varje klass och sammanfogar sedan modellerna. Modulen utför dessa uppgifter även om träning-datauppsättningen kan ha flera klass värden.
 
-1. Lägg till En-mot-alla – multiklass-modulen i din pipeline i designern. Du hittar den här modulen under **Machine Learning-Initialize**i **klassificerings** kategorin.
+1. Lägg till En-mot-alla – multiklass-modulen i din pipeline i designern. Du hittar den här modulen under **Machine Learning-Initialize** i **klassificerings** kategorin.
 
    En-mot-alla – multiklass klassificeraren har inga parametrar som kan konfigureras. Alla anpassningar måste göras i den binära klassificerings modellen som anges som indata.
 

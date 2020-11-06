@@ -1,20 +1,20 @@
 ---
 title: Storbritannien, officiella & UK NHS-skisser kontroller
 description: Kontroll mappning av NHS i Storbritannien och Storbritannien. Varje kontroll mappas till en eller flera Azure Policy definitioner som hjälper till med utvärderingen.
-ms.date: 07/13/2020
+ms.date: 11/05/2020
 ms.topic: sample
-ms.openlocfilehash: b798ac98e057b85cce0faa835575dbb0d50f9c8c
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 352ba30a21c638c68401e2f8e471096a777fbde9
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931280"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420265"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Kontroll mappning av NHS i Storbritannien och Storbritannien i Storbritannien
 
 I följande artikel beskrivs hur NHS i Storbritannien och Storbritannien i Storbritannien mappas till de officiella NHS-kontrollerna i Storbritannien och Storbritannien. Mer information om kontrollerna finns i [Storbritannien officiellt](https://www.gov.uk/government/publications/government-security-classifications).
 
-Följande mappningar är de officiella NHS-kontrollerna i **Storbritannien** och **Storbritannien** . Använd navigeringen till höger om du vill gå direkt till en bestämd kontroll mappning. Många av de mappade kontrollerna implementeras med ett [Azure policy](../../../policy/overview.md) initiativ. Om du vill granska hela initiativet öppnar du **princip** i Azure Portal och väljer sidan **definitioner** . Leta sedan reda på och välj ** \[ förhands granskningen i \] Storbritannien NHS kontroller och distribuera särskilda VM-tillägg så att de stöder gransknings krav i** det inbyggda princip initiativet.
+Följande mappningar är de officiella NHS-kontrollerna i **Storbritannien** och **Storbritannien** . Använd navigeringen till höger om du vill gå direkt till en bestämd kontroll mappning. Många av de mappade kontrollerna implementeras med ett [Azure policy](../../../policy/overview.md) initiativ. Om du vill granska hela initiativet öppnar du **princip** i Azure Portal och väljer sidan **definitioner** . Leta sedan reda på och välj **\[ förhands granskningen i \] Storbritannien NHS kontroller och distribuera särskilda VM-tillägg så att de stöder gransknings krav i** det inbyggda princip initiativet.
 
 > [!IMPORTANT]
 > Varje kontroll nedan är kopplad till en eller flera [Azure policy](../../../policy/overview.md) -definitioner. Dessa principer kan hjälpa dig att [utvärdera efterlevnaden](../../../policy/how-to/get-compliance-data.md) av kontrollen. Det finns dock ofta ingen en-till-en-eller fullständig matchning mellan en kontroll och en eller flera principer. Som sådan är **kompatibel** i Azure policy endast som avser själva principerna. Detta garanterar inte att du är helt kompatibel med alla krav för en kontroll. Standarden för efterlevnad innehåller dessutom kontroller som inte åtgärdas av några Azure Policy definitioner för tillfället. Därför är regelefterlevnad i Azure Policy bara en partiell vy av din övergripande kompatibilitetsstatus. Kopplingarna mellan kontroller och Azure Policy definitioner för det här skiss exemplet för efterlevnad kan ändras med tiden. Om du vill visa ändrings historiken läser du [inchecknings historiken för GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ukofficial/control-mapping.md).
@@ -26,7 +26,6 @@ Skissen hjälper dig att se till att informations överföring med Azure-tjänst
 - Endast säkra anslutningar till din Redis Cache ska vara aktiverade
 - Säker överföring till lagringskonton ska vara aktiverat
 - Visa gransknings resultat från Windows-webbservrar som inte använder säkra kommunikations protokoll
-- Distribuera förutsättningar för att granska Windows-webbservrar som inte använder säkra kommunikations protokoll
 - Webb program bör endast vara tillgängliga via HTTPS
 - Funktionsapp bör endast vara tillgängligt via HTTPS
 - API-appen bör bara vara tillgänglig via HTTPS
@@ -55,19 +54,19 @@ Den här skissen hjälper dig att hantera säkerhets risker i informations syste
 - Säkerhets risker i SQL-databaser bör åtgärdas
 - Säkerhets risker bör åtgärdas av en lösning för sårbarhets bedömning
 - Sårbarhets bedömning bör vara aktiverat på dina SQL-servrar
-- Sårbarhets bedömning ska vara aktiverat på SQL-hanterade instanser
+- Sårbarhets bedömning ska vara aktiverat på din SQL-hanterade instans
 - Säkerhets problem i säkerhets konfiguration på den virtuella datorns skalnings uppsättningar bör åtgärdas
-- Avancerad data säkerhet ska vara aktiverat på SQL-hanterade instanser
+- Avancerad data säkerhet ska vara aktiverat på din SQL-hanterade instans
 - Avancerad data säkerhet ska vara aktiverat på dina SQL-servrar
 
 ## <a name="53-protective-monitoring"></a>5,3 skydds övervakning
 
 Den här skissen hjälper dig att skydda informations systemets till gångar genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som ger skyddad övervakning av obegränsad åtkomst, Tillåt List aktivitet och hot.
 
-- Granska obegränsad nätverks åtkomst till lagrings konton
-- Anpassningsbara program kontroller ska vara aktiverade på virtuella datorer
+- Lagrings konton bör begränsa nätverks åtkomsten
+- Anpassningsbara program kontroller för att definiera säkra program ska aktive ras på dina datorer
 - Granska virtuella datorer utan haveri beredskap har kon figurer ATS
-- DDoS Protection standard ska vara aktive rad
+- Azure DDoS Protection standard ska vara aktive rad
 - Avancerade skydds typer måste anges till alla i avancerade data säkerhets inställningar för SQL-hanterad instans
 - Avancerade skydds typer måste anges till alla i avancerade data säkerhets inställningar för SQL Server
 - Distribuera hot identifiering på SQL-servrar
@@ -115,11 +114,6 @@ Den här skissen tilldelar också en Azure Policy-definition som granskar Linux 
 
 Den här skissen hjälper dig att använda starka lösen ord genom att tilldela Azure Policy definitioner som granskar virtuella Windows-datorer som inte uppfyller minimi kraven och andra lösen ords krav. Om de virtuella datorerna strider mot principen för lösen ords säkerhet kan du vidta åtgärder för att säkerställa att lösen ord för alla VM-användarkonton är kompatibla med principen.
 
-- Distribuera krav för att granska virtuella Windows-datorer som inte har inställningen för lösen ords komplexitet aktiverat
-- Distribuera krav för att granska virtuella Windows-datorer som inte har en högsta ålder för lösen ord på 70 dagar
-- Distribuera krav för att granska virtuella Windows-datorer som inte har en minsta ålder på lösen ord på 1 dag
-- Distribuera krav för att granska virtuella Windows-datorer som inte begränsar minsta längd på lösen ord till 14 tecken
-- Distribuera krav för att granska virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
 - Visa gransknings resultat från virtuella Windows-datorer där inställningen för lösen ords komplexitet är aktive rad
 - Visa gransknings resultat från virtuella Windows-datorer som inte har en högsta ålder för lösen ord på 70 dagar
 - Visa gransknings resultat från virtuella Windows-datorer som inte har minsta ålder på lösen ord på 1 dag
@@ -128,8 +122,6 @@ Den här skissen hjälper dig att använda starka lösen ord genom att tilldela 
 
 Den här skissen hjälper dig också att styra åtkomsten till Azure-resurser genom att tilldela Azure Policy definitioner. Dessa principer granskar användningen av resurs typer och konfigurationer som kan tillåta mer åtkomst till resurser. Att förstå resurser som strider mot dessa principer kan hjälpa dig att vidta lämpliga åtgärder för att säkerställa åtkomst till Azure-resurser som är begränsade till behöriga användare.
 
-- Distribuera krav för att granska virtuella Linux-datorer som har konton utan lösen ord
-- Distribuera krav för att granska virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
 - Visa gransknings resultat från virtuella Linux-datorer som har konton utan lösen ord
 - Visa gransknings resultat från virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
 - Lagrings konton ska migreras till nya Azure Resource Manager resurser
@@ -141,15 +133,15 @@ Den här skissen hjälper dig också att styra åtkomsten till Azure-resurser ge
 Förutom att använda fler än 25 principer för lämplig säker användar hantering hjälper den här skissen dig att skydda tjänst gränssnitt från obehörig åtkomst genom att tilldela en [Azure policy](../../../policy/overview.md) -definition som övervakar obegränsade lagrings konton.
 Lagrings konton med obegränsad åtkomst kan ge oavsiktlig åtkomst till information som finns i informations systemet. Den här skissen tilldelar också en princip som aktiverar anpassningsbara program kontroller på virtuella datorer.
 
-- Granska obegränsad nätverks åtkomst till lagrings konton
-- Anpassningsbara program kontroller ska vara aktiverade på virtuella datorer
+- Lagrings konton bör begränsa nätverks åtkomsten
+- Anpassningsbara program kontroller för att definiera säkra program ska aktive ras på dina datorer
 - Åtkomst via slut punkt mot Internet bör vara begränsad
 - Rekommendationer för anpassningsbar nätverks härdning bör tillämpas på virtuella datorer som är riktade mot Internet
 - Endpoint Protection-lösningen bör installeras på virtuella datorers skalnings uppsättningar
-- Just-in-time-kontroller av nätverksåtkomst ska tillämpas på virtuella datorer
-- Fjärrfelsökning bör inaktive ras för Funktionsapp
+- Hanterings portar för virtuella datorer bör skyddas med just-in-Time-kontroll för nätverks åtkomst
+- Fjärrfelsökning bör inaktive ras för Function-appar
 - Fjärrfelsökning bör inaktive ras för webb program
-- Fjärrfelsökning bör inaktive ras för API-appen
+- Fjärrfelsökning bör inaktive ras för API Apps
 
 ## <a name="13-audit-information-for-users"></a>13 gransknings information för användare
 
@@ -161,6 +153,7 @@ En tilldelad princip granskar också om virtuella datorer inte skickar loggar ti
 - \[För hands version \] : distribuera Log Analytics agent för virtuella Linux-datorer
 - \[För hands version \] : distribuera Log Analytics agent för virtuella Windows-datorer
 - Distribuera nätverks övervakare när virtuella nätverk skapas
+
 
 ## <a name="next-steps"></a>Nästa steg
 

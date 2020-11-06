@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 1faf4455a983e87ce4c702c09f8bf2d9fbe70047
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 0ae6366acf270d762b1c15563bfec1b2eb2a1b8d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92893411"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421081"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Använda Linux-diagnostiktillägget för att övervaka mått och loggar
 
@@ -70,10 +70,33 @@ Distributioner och versioner som stöds:
 
 ### <a name="prerequisites"></a>Förutsättningar
 
-* **Azure Linux-agentens version 2.2.0 eller senare** . De flesta Azure VM Linux-avbildningar innehåller version 2.2.7 eller senare. Kör `/usr/sbin/waagent -version` för att bekräfta versionen som är installerad på den virtuella datorn. Om den virtuella datorn kör en äldre version av gäst agenten följer du [de här anvisningarna](./update-linux-agent.md) för att uppdatera den.
-* **Azure CLI** . [Konfigurera Azure CLI](/cli/azure/install-azure-cli) -miljön på din dator.
+* **Azure Linux-agentens version 2.2.0 eller senare**. De flesta Azure VM Linux-avbildningar innehåller version 2.2.7 eller senare. Kör `/usr/sbin/waagent -version` för att bekräfta versionen som är installerad på den virtuella datorn. Om den virtuella datorn kör en äldre version av gäst agenten följer du [de här anvisningarna](./update-linux-agent.md) för att uppdatera den.
+* **Azure CLI**. [Konfigurera Azure CLI](/cli/azure/install-azure-cli) -miljön på din dator.
 * Kommandot wget, om du inte redan har det: kör `sudo apt-get install wget` .
 * En befintlig Azure-prenumeration och ett befintligt allmänt lagrings konto för lagring av data i.  Lagrings konton för generell användning stöder tabell lagring som krävs.  Ett Blob Storage-konto kommer inte att fungera.
+* Python 2
+
+### <a name="python-requirement"></a>Python-krav
+
+Tillägget för Linux-diagnostik kräver python 2. Om den virtuella datorn använder en distribution som inte innehåller python 2 som standard måste du installera den. Följande exempel kommandon kommer att installera python 2 på olika distributioner.    
+
+ - Red Hat, CentOS, Oracle: `yum install -y python2`
+ - Ubuntu, Debian: `apt-get install -y python2`
+ - SUSE `zypper install -y python2`
+
+Den körbara filen python2 måste ha ett alias till *python*. Följande är en metod som du kan använda för att ange det här aliaset:
+
+1. Kör följande kommando för att ta bort alla befintliga alias.
+ 
+    ```
+    sudo update-alternatives --remove-all python
+    ```
+
+2. Kör följande kommando för att skapa aliaset.
+
+    ```
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
+    ```
 
 ### <a name="sample-installation"></a>Exempel installation
 
@@ -175,14 +198,14 @@ När du har ändrat dina skyddade eller offentliga inställningar distribuerar d
 
 ### <a name="migration-from-previous-versions-of-the-extension"></a>Migrering från tidigare versioner av tillägget
 
-Den senaste versionen av tillägget är **3,0** . **Alla gamla versioner (2. x) är inaktuella och kan tas bort från och med den 31 juli 2018** .
+Den senaste versionen av tillägget är **3,0**. **Alla gamla versioner (2. x) är inaktuella och kan tas bort från och med den 31 juli 2018**.
 
 > [!IMPORTANT]
 > Tillägget introducerar ändringar i tilläggets konfiguration. En sådan ändring gjordes för att förbättra säkerheten för tillägget. Det innebär att det inte går att behålla bakåtkompatibilitet med 2. x. Tilläggs utgivaren för det här tillägget skiljer sig också från utgivaren för 2. x-versionerna.
 >
 > Om du vill migrera från 2. x till den här nya versionen av tillägget måste du avinstallera det gamla tillägget (under det gamla utgivar namnet) och sedan installera version 3 av tillägget.
 
-Rekommenderade
+Rekommendationer:
 
 * Installera tillägget med automatisk uppgradering av lägre version aktiverat.
   * På klassiska virtuella datorer för distributions modell anger du ' 3. * ' som version om du installerar tillägget via Azure XPLAT CLI eller PowerShell.
@@ -205,7 +228,7 @@ Den här uppsättningen konfigurations information innehåller känslig informat
 }
 ```
 
-Namn | Värde
+Name | Värde
 ---- | -----
 storageAccountName | Namnet på det lagrings konto där data skrivs av tillägget.
 storageAccountEndPoint | valfritt Slut punkten som identifierar molnet där lagrings kontot finns. Om den här inställningen saknas, LAD standardvärdet för det offentliga Azure-molnet `https://core.windows.net` . Om du vill använda ett lagrings konto i Azure Germany, Azure Government eller Azure Kina anger du detta värde i enlighet med detta.

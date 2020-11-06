@@ -1,7 +1,7 @@
 ---
 title: 'Two-Class neurala nätverk: modulreferens'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder modulen Two-Class neurala-nätverk i Azure Machine Learning för att skapa en neurala-nätverks modell som kan användas för att förutsäga ett mål som bara har två värden.
+description: Lär dig hur du använder modulen Two-Class neurala-nätverk i Azure Machine Learning för att skapa en binär klassificerare.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 2ad4fc575a6e9d07e4e24c2d570f68edbbea46c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9131a2439facef00cae818bffef38e536a40a2fd
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907679"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421166"
 ---
 # <a name="two-class-neural-network-module"></a>Two-Class neurala-nätverksmapp
 
@@ -22,7 +22,7 @@ I den här artikeln beskrivs en modul i Azure Machine Learning designer.
 
 Använd den här modulen för att skapa en neurala-nätverks modell som kan användas för att förutsäga ett mål som bara har två värden.
 
-Klassificering med neurala-nätverk är en övervakad inlärnings metod och kräver därför en *Taggad data uppsättning*som innehåller en etikett kolumn. Du kan till exempel använda den här neurala-nätverks modellen till att förutsäga binära resultat, till exempel om en patient har en viss sjukdom eller om en dator sannolikt kommer att sluta inom ett visst tidsintervall.  
+Klassificering med neurala-nätverk är en övervakad inlärnings metod och kräver därför en *Taggad data uppsättning* som innehåller en etikett kolumn. Du kan till exempel använda den här neurala-nätverks modellen till att förutsäga binära resultat, till exempel om en patient har en viss sjukdom eller om en dator sannolikt kommer att sluta inom ett visst tidsintervall.  
 
 När du har definierat modellen tränar du den genom att tillhandahålla en taggad data uppsättning och modellen som indata för att [träna modellen](./train-model.md). Den tränade modellen kan sedan användas för att förutsäga värden för nya indata.
 
@@ -38,17 +38,17 @@ För att beräkna nätverkets utdata för ett visst indata beräknas ett värde 
   
 ## <a name="how-to-configure"></a>Så här konfigurerar du
 
-1.  Lägg till **neurala-modulen i två klasser** i din pipeline. Du kan hitta den här modulen under **Machine Learning**, **initiera**i **klassificerings** kategorin.  
+1.  Lägg till **neurala-modulen i två klasser** i din pipeline. Du kan hitta den här modulen under **Machine Learning** , **initiera** i **klassificerings** kategorin.  
   
 2.  Ange hur du vill att modellen ska tränas genom att ställa in alternativet **skapa utbildare läge** .  
   
-    -   **Enda parameter**: Välj det här alternativet om du redan vet hur du vill konfigurera modellen.
+    -   **Enda parameter** : Välj det här alternativet om du redan vet hur du vill konfigurera modellen.
 
-    -   **Parameter intervall**: om du inte är säker på de bästa parametrarna kan du hitta de optimala parametrarna med hjälp av modulen [finjustera modellens standardparametrar](tune-model-hyperparameters.md) . Du anger några värden och utbildaren upprepas över flera kombinationer av inställningarna för att avgöra vilken kombination av värden som ger bäst resultat.  
+    -   **Parameter intervall** : om du inte är säker på de bästa parametrarna kan du hitta de optimala parametrarna med hjälp av modulen [finjustera modellens standardparametrar](tune-model-hyperparameters.md) . Du anger några värden och utbildaren upprepas över flera kombinationer av inställningarna för att avgöra vilken kombination av värden som ger bäst resultat.  
 
-3.  För **dolda lager specifikation**väljer du vilken typ av nätverks arkitektur som ska skapas.  
+3.  För **dolda lager specifikation** väljer du vilken typ av nätverks arkitektur som ska skapas.  
   
-    -   **Fullständigt anslutet ärende**: använder standard nätverks arkitekturen neurala, som definieras för neurala-nätverk i två klasser enligt följande:
+    -   **Fullständigt anslutet ärende** : använder standard nätverks arkitekturen neurala, som definieras för neurala-nätverk i två klasser enligt följande:
   
         -   Har ett dolt lager.
   
@@ -60,13 +60,13 @@ För att beräkna nätverkets utdata för ett visst indata beräknas ett värde 
   
         -   Antalet noder är lika med antalet klasser. För ett neurala nätverk med två klasser innebär detta att alla indata måste mappas till en av två noder i output-lagret.
 
-5.  För **inlärnings takt**definierar du storleken på steget som tas vid varje iteration, före korrigeringen. Ett större värde för inlärnings frekvensen kan göra att modellen konvergerar snabbare, men den kan överskotta lokala minimi.
+5.  För **inlärnings takt** definierar du storleken på steget som tas vid varje iteration, före korrigeringen. Ett större värde för inlärnings frekvensen kan göra att modellen konvergerar snabbare, men den kan överskotta lokala minimi.
 
-6.  I **antal inlärnings iterationer**anger du det maximala antalet gånger som algoritmen ska bearbeta inlärnings fallen.
+6.  I **antal inlärnings iterationer** anger du det maximala antalet gånger som algoritmen ska bearbeta inlärnings fallen.
 
-7.  För **den inledande utbildningen för inlärnings viktning**anger du nodens vikt i början av inlärnings processen.
+7.  För **den inledande utbildningen för inlärnings viktning** anger du nodens vikt i början av inlärnings processen.
 
-8.  För **det**här steget anger du en vikt att tillämpa vid inlärning till noder från föregående iterationer  
+8.  För **det** här steget anger du en vikt att tillämpa vid inlärning till noder från föregående iterationer  
 
 10. Välj alternativet **blanda exempel** för att blanda fall mellan iterationer. Om du avmarkerar det här alternativet bearbetas ärenden i exakt samma ordning varje gång du kör pipelinen.
   
@@ -76,9 +76,9 @@ För att beräkna nätverkets utdata för ett visst indata beräknas ett värde 
   
 13. Lägg till en etikettad data uppsättning i pipelinen och träna modellen:
 
-    + Om du ställer in **skapa utbildare** för en **parameter**ansluter du en taggad data uppsättning och modulen [träna modell](train-model.md) .  
+    + Om du ställer in **skapa utbildare** för en **parameter** ansluter du en taggad data uppsättning och modulen [träna modell](train-model.md) .  
   
-    + Om du ställer in **skapa utbildare** för **parameter intervall**ansluter du en taggad data uppsättning och tränar modellen med hjälp av [finjustera modellens egenskaper](tune-model-hyperparameters.md).  
+    + Om du ställer in **skapa utbildare** för **parameter intervall** ansluter du en taggad data uppsättning och tränar modellen med hjälp av [finjustera modellens egenskaper](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 

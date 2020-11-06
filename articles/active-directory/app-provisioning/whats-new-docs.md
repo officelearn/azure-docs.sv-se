@@ -1,7 +1,7 @@
 ---
 title: Vad är nytt i Azure Active Directory programmets etablering
 description: Ny och uppdaterad dokumentation för Azure Active Directory programmets etablering.
-ms.date: 10/21/2020
+ms.date: 11/05/2020
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -10,16 +10,36 @@ ms.author: kenwith
 author: kenwith
 manager: CelesteDG
 services: active-directory
-ms.openlocfilehash: 885838e1a517ab4713f1753957f8b85f40297fd2
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 83375eebdbe46fc0132f1fcf0b6d11457aa0e897
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424562"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421013"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Azure Active Directory applikations etablering: Nyheter
 
 Välkommen till nyheter i Azure Active Directory Application Provisioning-dokumentationen. Den här artikeln innehåller nya dokument som har lagts till och de som har haft betydande uppdateringar under de senaste tre månaderna. Information om vad som är nytt med etablerings tjänsten finns i [Nyheter i Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="october-2020"></a>Oktober 2020
+
+### <a name="new-articles"></a>Nya artiklar
+
+- [Förstå hur etablering integreras med Azure Monitor loggar](application-provisioning-log-analytics.md)
+
+### <a name="updated-articles"></a>Uppdaterade artiklar
+
+- [Så här fungerar etablering](how-provisioning-works.md)
+- [Förstå hur etablering integreras med Azure Monitor loggar](application-provisioning-log-analytics.md)
+- [Anpassa attribut för användar etablering för SaaS-program i Azure Active Directory](customize-application-attributes.md)
+- [Referens för att skriva uttryck för mappningar av attribut i Azure AD](functions-for-customizing-application-data.md)
+- [Självstudie – Bygg en SCIM-slutpunkt och konfigurera användar etablering med Azure AD](use-scim-to-provision-users-and-groups.md)
+- [Aktivera automatisk användar etablering för ditt program för flera klienter](isv-automatic-provisioning-multi-tenant-apps.md)
+- [Kända problem: program etablering](known-issues.md)
+- [Planera en distribution med automatisk användaretablering](plan-auto-user-provisioning.md)
+- [Planera molnet HR Application för att Azure Active Directory användar etablering](plan-cloud-hr-provision.md)
+- [Etablering på begäran](provision-on-demand.md)
+
 
 ## <a name="september-2020"></a>September 2020
 

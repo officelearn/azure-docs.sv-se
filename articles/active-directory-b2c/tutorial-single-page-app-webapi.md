@@ -11,12 +11,12 @@ ms.custom: mvc, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 9fe1363ffc714754c1de333a77d36595ce4223e6
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 737810a7d07d0d97b2e42acffa17fdd32986c48b
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442345"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421098"
 ---
 # <a name="tutorial-protect-and-grant-access-to-a-nodejs-web-api-from-a-single-page-application-with-azure-ad-b2c"></a>Självstudie: skydda och bevilja åtkomst till ett Node.js webb-API från ett program med en sida med Azure AD B2C
 
@@ -34,7 +34,7 @@ I den [första självstudien](tutorial-single-page-app.md) i den här serien lad
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Slutför stegen och kraven i [Självstudier: aktivera autentisering i ett program med en sida med Azure AD B2C](tutorial-single-page-app.md)
 * [Visual Studio Code](https://code.visualstudio.com/) eller en annan kod redigerare
@@ -56,11 +56,11 @@ Registrera värdet under **omfattningar** för `demo.read` omfånget som ska anv
 
 Om du vill anropa ett skyddat webb-API från ett annat program måste du ge den program behörighet till webb-API: et.
 
-I den nödvändiga självstudien har du skapat ett webb program med namnet *webapp1*. I den här självstudien konfigurerar du programmet för att anropa det webb-API som du skapade i ett tidigare avsnitt, *webapi1*.
+I den nödvändiga självstudien har du skapat ett program med en enda sida med namnet *spaapp1*. I den här självstudien konfigurerar du programmet för att anropa det webb-API som du skapade i ett tidigare avsnitt, *spaapp1*.
 
 [!INCLUDE [active-directory-b2c-permissions-api](../../includes/active-directory-b2c-permissions-api.md)]
 
-Webb programmet med en sida har nu beviljats behörigheter till det skyddade webb-API: et för de angivna omfattningarna. En användare autentiseras med Azure AD B2C för att använda ett program med en sida. En app med en sida använder ett flöde för auktorisering för att få åtkomst till det skyddade webb-API: et med en åtkomsttoken som returnerades av Azure AD B2C.
+Webb programmet med en sida har nu beviljats behörigheter till det skyddade webb-API: et för de angivna omfattningarna. En användare autentiseras med Azure AD B2C för att använda ett program med en sida. En app med en enda sida får en åtkomsttoken från Azure AD B2C för åtkomst till det skyddade webb-API: et.
 
 ## <a name="configure-the-sample"></a>Konfigurera exemplet
 
@@ -161,7 +161,7 @@ Nu är du redo att testa programmets begränsade åtkomst till API: et. Kör bå
 1. Öppna ett annat konsol fönster och ändra till den katalog som innehåller SPA-exemplet för Java Script. Exempel:
 
     ```console
-    cd active-directory-b2c-javascript-msal-singlepageapp
+    cd ms-identity-b2c-javascript-spa
     ```
 
 1. Kör följande kommandon:

@@ -1,7 +1,7 @@
 ---
 title: 'Exportera data: modulreferens'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder modulen exportera data i Azure Machine Learning för att spara resultat, mellanliggande data och arbeta data från dina pipelines till moln lagrings mål utanför Azure Machine Learning.
+description: Använd modulen exportera data i Azure Machine Learning designer för att spara resultat och mellanliggande data utanför Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/28/2020
-ms.openlocfilehash: 5964ed9773d45b809fc79252eabc754b1b04af84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6e3d56958168cd279c98a4ba4c021c2362c2694
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907987"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421319"
 ---
 # <a name="export-data-module"></a>Exportera datamodul
 
@@ -40,12 +40,12 @@ Innan du exporterar dina data måste du först registrera ett data lager på din
 
 1. Välj **Exportera data** för att öppna fönstret **Egenskaper** .
 
-1. För **data lager**väljer du ett befintligt data lager i list rutan. Du kan också skapa ett nytt data lager. Se hur du [använder åtkomst data i Azure Storage-tjänster](../how-to-access-data.md).
+1. För **data lager** väljer du ett befintligt data lager i list rutan. Du kan också skapa ett nytt data lager. Se hur du [använder åtkomst data i Azure Storage-tjänster](../how-to-access-data.md).
 
     > [!NOTE]
     > Export av data för en viss datatyp till en SQL Database-kolumn som har angetts som en annan datatyp stöds inte. Mål tabellen behöver inte existera först.
 
-1. Kryss rutan **skapa utdata**igen, bestämmer om modulen ska köras för att återskapa utdata vid körning. 
+1. Kryss rutan **skapa utdata** igen, bestämmer om modulen ska köras för att återskapa utdata vid körning. 
 
     Den är som standard omarkerad, vilket innebär att om modulen har körts med samma parametrar tidigare kommer systemet att återanvända utdata från senaste körning för att minska körnings tiden. 
 
@@ -54,7 +54,7 @@ Innan du exporterar dina data måste du först registrera ett data lager på din
 1. Definiera sökvägen i data lagret där datan finns. Sökvägen är en relativ sökväg. Tomma sökvägar eller URL-sökvägar är inte tillåtna.
 
 
-1. I **fil format**väljer du det format som data ska lagras i.
+1. I **fil format** väljer du det format som data ska lagras i.
  
 1. Skicka pipelinen.
 

@@ -1,7 +1,7 @@
 ---
 title: 'Välj kolumn omvandling: modulreferens'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder Transform-modulen Välj kolumner i Azure Machine Learning för att skapa en omvandling som väljer samma del av kolumner som i den aktuella data uppsättningen.
+description: Lär dig hur du använder Transform-modulen Select columns i Azure Machine Learning designer för att utföra en SELECT-omvandling.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2020
-ms.openlocfilehash: 14f08502f35afdc8a9a2cdc741b539b5f9cca712
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: f03840e55366d7f105ca4b57bd60061c82833e72
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945607"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420724"
 ---
 # <a name="select-columns-transform"></a>Välja kolumntranformering
 

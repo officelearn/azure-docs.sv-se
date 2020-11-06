@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 10/15/2020
+ms.date: 11/05/2020
 ms.author: mbullwin
-ms.openlocfilehash: da4dc3579630d641fcbc1d4321b56de0cc09d555
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 0c4c296cb1454ed89eef102732533589b1c8ca0d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92893585"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420967"
 ---
 # <a name="metrics-advisor-frequently-asked-questions"></a>Vanliga frågor och svar om mått rådgivare
 
@@ -88,7 +88,7 @@ Se till att använda rätt granularitet för din tids serie. För ett Tim mått 
 
 Observera att dessa frågor bara returnerar data i en enda tidsstämpel och innehåller alla dimensions kombinationer som ska matas in av Metrics Advisor. 
 
-:::image type="content" source="media/query-result.png" alt-text="Meddelande när det redan finns en F0-resurs" lightbox="media/query-result.png":::
+:::image type="content" source="media/query-result.png" alt-text="Ett frågeresultat med en tidsstämpel" lightbox="media/query-result.png":::
 
 
 ### <a name="how-do-i-detect-spikes--dips-as-anomalies"></a>Hur gör jag för att identifiera toppar & DIP som avvikelser?
@@ -104,6 +104,19 @@ Om det inte finns några tröskelvärden kan du använda "Smart identifiering" s
 
 Om dina data normalt är instabila och varierar mycket, och du vill bli aviserad om det blir för stabilt eller till och med en plan, kan "ändra tröskel" konfigureras för att identifiera sådana data punkter när ändringen är för liten.
 Mer information finns i [konfigurationer för avvikelse identifiering](how-tos/configure-metrics.md#anomaly-detection-methods) .
+
+### <a name="how-to-set-up-email-settings-and-enable-alerting-by-email"></a>Hur konfigurerar jag e-postinställningar och aktiverar aviseringar via e-post?
+
+1.  En användare med administratörs behörighet för prenumeration eller resurs grupp måste gå till den Metric Advisor-resurs som skapades i Azure Portal och välja fliken **åtkomst kontroll (IAM)** . 
+2.  Välj **Lägg till roll tilldelningar**
+3.  Välj en roll för **Cognitive Services Metrics Advisor-administratör** , Välj ditt konto som i bilden nedan.
+4.  Klicka på knappen **Spara** , sedan har du lagt till som administratör för Metrics Advisor-resursen. Observera att alla åtgärder ovan måste utföras av prenumerations administratören eller resurs grupps administratören. 
+
+:::image type="content" source="media/access-control.png" alt-text="Meny sidan åtkomst kontroll (IAM) med Lägg till en roll tilldelning markerad, följt av en ruta med tilldela åtkomst till vald användare som visas med en åtkomst roll för Cognitive Services Metrics Advisor-administratör, följt av knappen Spara för det användar gränssnitt som valts för att illustrera stegen för att söka efter en användare och lägga till en viss nivå av åtkomst behörighet." lightbox="media/access-control.png":::
+
+
+5.  Det kan ta upp till en minut innan behörigheterna har spridits. Välj sedan arbets ytan mått rådgivare och välj alternativet **e-postinställning** i den vänstra navigerings panelen. Fyll i de obligatoriska objekten, särskilt SMTP-relaterad information. 
+6.  Välj **Spara**. sedan är allt konfigurerat med e-postkonfigurationen. Du kan skapa nya krokar och prenumerera på mått avvikelser för nära real tids aviseringar. 
 
 ## <a name="advanced-concepts"></a>Avancerade koncept
 
@@ -127,7 +140,7 @@ Från och med summan `Response latency` kan vi öka detalj nivån i måttet av `
 
 I Metric Advisor kan användarna ange vilken sökväg de vill öka detalj nivån eller sammanslagningen från en nod i den hierarkiska topologin. Mer exakt är den hierarkiska topologin ett riktat acykliska diagram i stället för en träd struktur. Det finns en fullständig hierarkisk topologi som består av alla möjliga dimensions kombinationer, som detta: 
 
-:::image type="content" source="media/dimension-combinations-view.png" alt-text="Meddelande när det redan finns en F0-resurs" lightbox="media/dimension-combinations-view.png":::
+:::image type="content" source="media/dimension-combinations-view.png" alt-text="diagram över hierarkiska topologier som består av flera sammankopplade hörn och kanter med flera dimensioner märkta S, DC och M med motsvarande nummer mellan 1 och 6" lightbox="media/dimension-combinations-view.png":::
 
 I teorin, om dimensionen `Service` har `Ls` distinkta värden, `Data center` har dimensionen `Ldc` distinkta värden och dimensionen `Machine` har `Lm` distinkta värden, så det kan finnas `(Ls + 1) * (Ldc + 1) * (Lm + 1)` Dimensions kombinationer i den hierarkiska topologin. 
 

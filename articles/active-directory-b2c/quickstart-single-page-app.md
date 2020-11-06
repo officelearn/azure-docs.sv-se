@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: db18c71b09cd9beb58799ad4fbcbc944061153fb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6471d1b5a5ad2b8ba34080ae1220872fa0e2e232
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87921767"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421064"
 ---
-# <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Snabbstart – Konfigurera inloggning för en ensidesapp med Azure Active Directory B2C
+# <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Snabb start: Konfigurera inloggning för en app med en sida med hjälp av Azure Active Directory B2C
 
 Azure Active Directory B2C (Azure AD B2C) tillhandahåller moln identitets hantering för att hålla ditt program, din verksamhet och dina kunder skyddade. Med Azure AD B2C kan program autentisera med konton på sociala medier och företagskonton med öppna protokoll. I den här snabbstarten använder du ett enkelsidigt program för ASP.NET till att logga in med en social identitetsprovider och anropa en Azure AD B2C-skyddad webb-API.
 
@@ -29,12 +29,12 @@ Azure Active Directory B2C (Azure AD B2C) tillhandahåller moln identitets hante
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Node.js](https://nodejs.org/en/download/)
 - Socialt konto från Facebook, Google eller Microsoft
-- Kod exempel från GitHub: [Active-Directory-B2C-JavaScript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
+- Kod exempel från GitHub: [MS-Identity-B2C-JavaScript-Spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa)
 
-    Du kan [Hämta zip-arkivet](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) eller klona lagrings platsen:
+    Du kan [Hämta zip-arkivet](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/archive/main.zip) eller klona lagrings platsen:
 
     ```console
-    git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
+    git clone https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa.git
     ```
 
 ## <a name="run-the-application"></a>Kör programmet
@@ -42,7 +42,6 @@ Azure Active Directory B2C (Azure AD B2C) tillhandahåller moln identitets hante
 1. Starta servern genom att köra följande kommandon från Node.js-kommandotolken:
 
     ```console
-    cd active-directory-b2c-javascript-msal-singlepageapp
     npm install && npm update
     npm start
     ```
@@ -53,14 +52,14 @@ Azure Active Directory B2C (Azure AD B2C) tillhandahåller moln identitets hante
     Listening on port 6420...
     ```
 
-1. Bläddra till programmets URL. Till exempel `http://localhost:6420`.
+1. Bläddra till programmets URL. Exempelvis `http://localhost:6420`.
 
     ![Exempel program för en enda sida som visas i webbläsare](./media/quickstart-single-page-app/sample-app-spa.png)
 
 ## <a name="sign-in-using-your-account"></a>Logga in på ditt konto
 
 1. Välj **Logga** in för att starta användar resan.
-1. Azure AD B2C visar en inloggnings sida för ett fiktivt företag som kallas Fabrikam för exempel webb programmet. Om du vill registrera dig med en social identitetsprovider väljer du knappen för den identitetsprovider som du vill använda.
+1. Azure AD B2C visar en inloggnings sida för ett fiktivt företag som kallas "Fabrikam" för exempel webb programmet. Om du vill registrera dig med en social identitetsprovider väljer du knappen för den identitetsprovider som du vill använda.
 
     ![Sidan logga in eller registrera dig med identitets leverantörs knappar](./media/quickstart-single-page-app/sign-in-or-sign-up-spa.png)
 

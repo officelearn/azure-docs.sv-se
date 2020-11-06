@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 06/25/2020
+ms.date: 11/05/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca2190079cb97e37318bd1c6a32dfb2b9b309a8d
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: f337a66f50338692508ab2e5b4b7d489c735aa20
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276944"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420503"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Förhandskrav för Azure AD Connect
 I den här artikeln beskrivs kraven och maskin varu kraven för Azure Active Directory (Azure AD) Connect.
@@ -42,8 +42,8 @@ Innan du installerar Azure AD Connect finns det några saker du behöver.
 
 ### <a name="on-premises-active-directory"></a>Lokalt Active Directory
 * Den Active Directory schema versionen och skogens funktions nivå måste vara Windows Server 2003 eller senare. Domän kontrol Lanterna kan köra alla versioner så länge som schema versionen och kraven på skogs nivå är uppfyllda.
-* Om du planerar att använda tillbakaskrivning av funktions *lösen ord*måste domän kontrol Lanterna vara på Windows Server 2008 R2 eller senare.
-* Domänkontrollanten som används av Azure AD måste vara skrivbar. Det *finns inte stöd*för att använda en skrivskyddad DOMÄNKONTROLLANT (RODC) och Azure AD Connect inte utföra några Skriv omdirigeringar.
+* Om du planerar att använda tillbakaskrivning av funktions *lösen ord* måste domän kontrol Lanterna vara på Windows Server 2012 eller senare.
+* Domänkontrollanten som används av Azure AD måste vara skrivbar. Det *finns inte stöd* för att använda en skrivskyddad DOMÄNKONTROLLANT (RODC) och Azure AD Connect inte utföra några Skriv omdirigeringar.
 * Att använda lokala skogar eller domäner med hjälp av "prickad" (namnet innehåller en punkt ".") NetBIOS-namn *stöds inte*.
 * Vi rekommenderar att du [aktiverar Active Directory pappers korgen](how-to-connect-sync-recycle-bin.md).
 
@@ -92,7 +92,7 @@ Vi rekommenderar att du skärper Azure AD Connect-servern för att minska säker
 * Om du använder en annan installation av SQL Server gäller dessa krav:
   * Azure AD Connect stöder alla versioner av SQL Server från 2012 (med de senaste service pack) till SQL Server 2019. Azure SQL Database *stöds inte* som en databas.
   * Du måste använda en Skift läges okänslig SQL-sortering. Dessa sorteringar identifieras med ett \_ CI_ i sitt namn. Användning av en Skift läges känslig sortering som identifieras av \_ CS_ i deras namn *stöds inte*.
-  * Du kan bara ha en Sync-motor per SQL-instans. Det *finns inte stöd*för att dela en SQL-instans med FIM/MIM Sync, DirSync eller Azure AD Sync.
+  * Du kan bara ha en Sync-motor per SQL-instans. Det *finns inte stöd* för att dela en SQL-instans med FIM/MIM Sync, DirSync eller Azure AD Sync.
 
 ### <a name="accounts"></a>Konton
 * Du måste ha ett globalt administratörs konto för Azure AD för den Azure AD-klient som du vill integrera med. Kontot måste vara ett *skol-eller organisations konto* och får inte vara ett *Microsoft-konto*.
@@ -106,7 +106,7 @@ Vi rekommenderar att du skärper Azure AD Connect-servern för att minska säker
   * Om du använder Microsoft-molnet i Tyskland eller Microsoft Azure Government molnet kan du läsa om [Azure AD Connect Sync service-instanser](reference-connect-instances.md) för URL: er.
 * Azure AD Connect (version 1.1.614.0 och efter) som standard använder TLS 1,2 för kryptering av kommunikation mellan Synkroniseringsmotorn och Azure AD. Om TLS 1,2 inte är tillgängligt i det underliggande operativ systemet går Azure AD Connect stegvis tillbaka till äldre protokoll (TLS 1,1 och TLS 1,0).
 * Före version 1.1.614.0 använder Azure AD Connect som standard TLS 1,0 för kryptering av kommunikation mellan Synkroniseringsmotorn och Azure AD. Om du vill ändra till TLS 1,2 följer du stegen i [Aktivera tls 1,2 för Azure AD Connect](#enable-tls-12-for-azure-ad-connect).
-* Om du använder en utgående proxy för att ansluta till Internet måste följande inställning i **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** -filen läggas till för installations guiden och Azure AD Connect synkronisering för att kunna ansluta till Internet och Azure AD. Texten måste anges längst ned i filen. I den här koden representerar * &lt; PROXYADDRESS &gt; * den faktiska proxy-IP-adressen eller värd namnet.
+* Om du använder en utgående proxy för att ansluta till Internet måste följande inställning i **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** -filen läggas till för installations guiden och Azure AD Connect synkronisering för att kunna ansluta till Internet och Azure AD. Texten måste anges längst ned i filen. I den här koden representerar *&lt; PROXYADDRESS &gt;* den faktiska proxy-IP-adressen eller värd namnet.
 
     ```
         <system.net>
@@ -180,7 +180,7 @@ När du använder Azure AD Connect för att distribuera AD FS eller Webbprogramp
   * På den dator där guiden körs (om mål datorn är icke-domänansluten eller är en domän som inte är betrodd):
     * Använd kommandot i ett upphöjd PowerShell-kommando fönster `Set-Item.WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate` .
     * I Server hanteraren:
-      * Lägg till en DMZ WAP-värd i en resurspool. I Server hanteraren väljer du **Hantera**  >  **Lägg till servrar**och använder sedan fliken **DNS** .
+      * Lägg till en DMZ WAP-värd i en resurspool. I Server hanteraren väljer du **Hantera**  >  **Lägg till servrar** och använder sedan fliken **DNS** .
       * På fliken **Serverhanteraren alla servrar** högerklickar du på WAP-servern och väljer **Hantera som**. Ange lokala autentiseringsuppgifter (inte domän) för WAP-datorn.
       * För att verifiera Fjärran sluten PowerShell-anslutning, på fliken **Serverhanteraren alla servrar** , högerklickar du på WAP-servern och väljer **Windows PowerShell**. En fjärrpowershell-session bör vara öppen för att säkerställa att fjärranslutna PowerShell-sessioner kan upprättas.
 

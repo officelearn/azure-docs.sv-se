@@ -11,16 +11,18 @@ ms.custom: mvc, seo-javascript-september2019, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 3a3eb77315953c3791e09c4326af7cc3e3231a69
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 6daf2da5b5bac051ac110ff15ed2c44971300a30
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670045"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421047"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Självstudie: aktivera autentisering i ett program med en sida med Azure AD B2C
 
-I den här självstudien får du lära dig hur du använder Azure Active Directory B2C (Azure AD B2C) för att registrera och logga in användare i ett enda webb program (SPA) med hjälp av det implicita tilldelnings flödet för OAuth 2,0.
+Den här självstudien visar hur du använder Azure Active Directory B2C (Azure AD B2C) för att registrera och logga in användare i ett enda webb program (SPA) med hjälp av antingen:
+* [OAuth 2,0 Authorization Code Flow](https://docs.microsoft.com/azure/active-directory-b2c/authorization-code-flow) (med [MSAL.js 2. x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser))
+* [OAuth-flöde för implicit beviljande av OAuth 2,0](https://docs.microsoft.com/azure/active-directory-b2c/implicit-flow-single-page-application) (med [MSAL.js 1. x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core))
 
 I den här självstudien är den första i en serie i två delar:
 
@@ -39,7 +41,7 @@ I den här självstudien är den första i en serie i två delar:
 Du behöver följande Azure AD B2C resurser på plats innan du fortsätter med stegen i den här självstudien:
 
 * [Azure AD B2C klient](tutorial-create-tenant.md)
-* [Programmet är registrerat](tutorial-register-spa.md) i din klient (Använd alternativ för implicit flöde)
+* [Programmet är registrerat](tutorial-register-spa.md) i din klient
 * [Användar flöden som skapats](tutorial-create-user-flows.md) i din klient organisation
 
 Dessutom behöver du följande i din lokala utvecklings miljö:
@@ -49,30 +51,41 @@ Dessutom behöver du följande i din lokala utvecklings miljö:
 
 ## <a name="update-the-application"></a>Uppdatera programmet
 
-I den andra själv studie kursen som du avslutade som en del av förutsättningarna registrerade du ett webb program i Azure AD B2C. Om du vill aktivera kommunikation med kod exemplet i den här självstudien lägger du till en svars-URL (kallas även en omdirigerings-URI) till program registreringen.
+I den [andra själv studie kursen](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-spa) som du avslutade som en del av förutsättningarna registrerade du ett program med en sida i Azure AD B2C. Om du vill aktivera kommunikation med kod exemplet i den här självstudien lägger du till en svars-URL (kallas även en omdirigerings-URI) till program registreringen.
 
 Om du vill uppdatera ett program i din Azure AD B2C klient kan du använda vår nya enhetliga **Appregistreringar** upplevelse eller äldre  **program (äldre)** . [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregtraining)
 
-#### <a name="app-registrations"></a>[Appregistreringar](#tab/app-reg-ga/)
+#### <a name="app-registrations-auth-code-flow"></a>[Appregistreringar (kod flöde för autentisering)](#tab/app-reg-auth/)
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in i [Azure-portalen](https://portal.azure.com).
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
-1. På den vänstra menyn väljer du **Azure AD B2C** . Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C** .
-1. Välj **Appregistreringar** , Välj fliken **ägda program** och välj sedan *webapp1* -programmet.
-1. Under **webb** väljer du länken **Lägg till URI** , anger `http://localhost:6420` .
-1. Under **implicit beviljande** väljer du kryss rutorna för **åtkomsttoken** och **ID-token** om de inte redan är markerade och väljer sedan **Spara** .
-1. Välj **Översikt** .
+1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
+1. Välj **Appregistreringar** , Välj fliken **ägda program** och välj sedan *spaapp1* -programmet.
+1. Under **en Enkels Ides applikation** väljer du länken **Lägg till URI** och sedan ange `http://localhost:6420` .
+1. Välj **Spara**.
+1. Välj **Översikt**.
+1. Registrera **program-ID: t (klient)** för användning i ett senare steg när du uppdaterar koden i webb programmet med en sida.
+
+#### <a name="app-registrations-implicit-flow"></a>[Appregistreringar (implicit flöde)](#tab/app-reg-implicit/)
+
+1. Logga in i [Azure-portalen](https://portal.azure.com).
+1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
+1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
+1. Välj **Appregistreringar** , Välj fliken **ägda program** och välj sedan *spaapp1* -programmet.
+1. Under **en Enkels Ides applikation** väljer du länken **Lägg till URI** och sedan ange `http://localhost:6420` .
+1. Under **implicit beviljande** väljer du kryss rutorna för **åtkomsttoken** och **ID-token** om de inte redan är markerade och väljer sedan **Spara**.
+1. Välj **Översikt**.
 1. Registrera **program-ID: t (klient)** för användning i ett senare steg när du uppdaterar koden i webb programmet med en sida.
 
 #### <a name="applications-legacy"></a>[Program (bakåtkompatibelt)](#tab/applications-legacy/)
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in i [Azure-portalen](https://portal.azure.com).
 1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
-1. Välj **alla tjänster** i det övre vänstra hörnet av Azure Portal och Sök sedan efter och välj **Azure AD B2C** .
-1. Välj **program (bakåtkompatibelt)** och välj sedan *webapp1* -programmet.
+1. Välj **alla tjänster** i det övre vänstra hörnet av Azure Portal och Sök sedan efter och välj **Azure AD B2C**.
+1. Välj **program (bakåtkompatibelt)** och välj sedan *spaapp1* -programmet.
 1. Under **Svars-URL** lägger du till `http://localhost:6420`.
-1. Välj **Spara** .
-1. På sidan Egenskaper registrerar du **program-ID: t** . Du använder app-ID i ett senare steg när du uppdaterar koden i webb programmet med en sida.
+1. Välj **Spara**.
+1. På sidan Egenskaper registrerar du **program-ID: t**. Du använder app-ID i ett senare steg när du uppdaterar koden i webb programmet med en sida.
 
 * * *
 
@@ -80,56 +93,114 @@ Om du vill uppdatera ett program i din Azure AD B2C klient kan du använda vår 
 
 I den här självstudien konfigurerar du ett kod exempel som du hämtar från GitHub för att arbeta med din B2C-klient. Exemplet visar hur ett program med en enda sida kan använda Azure AD B2C för användarens registrering och inloggning, och anropa ett skyddat webb-API (du aktiverar webb-API: et i nästa självstudie i serien).
 
-[Ladda ned en zip-fil](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) eller klona exemplet från GitHub.
+* Exempel på kod flöde med MSAL.js 2. x:
 
-```
-git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
-```
+    [Hämta en zip-fil](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/archive/main.zip) eller klona exemplet från GitHub:
+
+    ```
+    git clone https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa.git
+    ```
+* MSAL.js 1. x implicit flödes exempel:
+
+    [Hämta en zip-fil](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) eller klona exemplet från GitHub:
+
+    ```
+    git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
+    ```
 
 ## <a name="update-the-sample"></a>Uppdatera exemplet
 
 Nu när du har hämtat exemplet uppdaterar du koden med ditt Azure AD B2C klient namn och det program-ID som du registrerade i ett tidigare steg.
 
-1. Öppna *authConfig.js* -filen i mappen *JavaScriptSPA*
-1. I `msalConfig` objektet uppdaterar du:
-    * `clientId` med värdet med det **program-ID (klient)** som du registrerade i ett tidigare steg
-    * `authority` URI med ditt Azure AD B2C klient namn och namnet på det registrerings-/inloggnings användar flöde som du skapade som en del av förutsättningarna (till exempel *B2C_1_signupsignin1* )
+#### <a name="auth-code-flow-sample"></a>[Exempel på kod flöde för autentisering](#tab/config-auth/)
 
-    ```javascript
-    const msalConfig = {
-        auth: {
-          clientId: "00000000-0000-0000-0000-000000000000", // Replace this value with your Application (client) ID
-          authority: b2cPolicies.authorities.signUpSignIn.authority,
-          validateAuthority: false
+1. Öppna *authConfig.js* -filen i *app* -mappen.
+1. I `msalConfig` objektet söker du efter tilldelningen för `clientId` och ersätter den med det **program-ID** som du registrerade i ett tidigare steg.
+1. Öppna filen `policies.js`.
+1. Hitta posterna under `names` och ersätt deras tilldelning med namnet på de användar flöden som du skapade i ett tidigare steg, till exempel `B2C_1_signupsignin1` .
+1. Hitta posterna under `authorities` och ersätt dem efter behov med namnen på de användar flöden som du skapade i ett tidigare steg, till exempel `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>` .
+1. Sök efter tilldelningen `authorityDomain` och ersätt den med `<your-tenant-name>.b2clogin.com` .
+1. Öppna filen `apiConfig.js`.
+1. Hitta tilldelningen för `b2cScopes` och ersätt URL: en med den omfattnings-URL som du skapade för webb-API: t `b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/helloapi/demo.read"]` .
+1. Hitta tilldelningen för `webApi` och ersätt den aktuella URL: en med URL: en där du har distribuerat ditt webb-API i steg 4, till exempel `webApi: http://localhost:5000/hello` .
+
+#### <a name="implicit-flow-sample"></a>[Exempel på implicit flöde](#tab/config-implicit/)
+
+1. Öppna *authConfig.js* -filen i mappen *JavaScriptSPA*
+1. I `msalConfig` objektet söker du efter tilldelningen för `clientId` och ersätter den med det **program-ID** som du registrerade i ett tidigare steg.
+1. Öppna filen `policies.js`.
+1. Hitta posterna under `names` och ersätt deras tilldelning med namnet på de användar flöden som du skapade i ett tidigare steg, till exempel `B2C_1_signupsignin1` .
+1. Hitta posterna under `authorities` och ersätt dem efter behov med namnen på de användar flöden som du skapade i ett tidigare steg, till exempel `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>` .
+1. Öppna filen `apiConfig.js`.
+1. Hitta tilldelningen för `b2cScopes` och ersätt URL: en med den omfattnings-URL som du skapade för webb-API: t `b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/helloapi/demo.read"]` .
+1. Hitta tilldelningen för `webApi` och ersätt den aktuella URL: en med URL: en där du har distribuerat ditt webb-API i steg 4, till exempel `webApi: http://localhost:5000/hello` .
+
+* * *
+
+Den resulterande koden bör se ut ungefär så här:
+
+#### <a name="auth-code-flow-sample"></a>[Exempel på kod flöde för autentisering](#tab/review-auth/)
+
+*authConfig.js* :
+
+```javascript
+const msalConfig = {
+  auth: {
+    clientId: "e760cab2-b9a1-4c0d-86fb-ff7084abd902",
+    authority: b2cPolicies.authorities.signUpSignIn.authority,
+    knownAuthorities: [b2cPolicies.authorityDomain],
+  },
+  cache: {
+    cacheLocation: "localStorage",
+    storeAuthStateInCookie: true
+  }
+};
+
+const loginRequest = {
+  scopes: ["openid", "profile"],
+};
+
+const tokenRequest = {
+  scopes: apiConfig.b2cScopes // i.e. ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"]
+};
+```
+
+*policies.js* :
+
+```javascript
+const b2cPolicies = {
+    names: {
+        signUpSignIn: "b2c_1_susi",
+        forgotPassword: "b2c_1_reset",
+        editProfile: "b2c_1_edit_profile"
+    },
+    authorities: {
+        signUpSignIn: {
+            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_susi",
         },
-        cache: {
-          cacheLocation: "localStorage",
-          storeAuthStateInCookie: true
+        forgotPassword: {
+            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_reset",
+        },
+        editProfile: {
+            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_edit_profile"
         }
-    };
+    },
+    authorityDomain: "fabrikamb2c.b2clogin.com"
+}
+```
 
-    const loginRequest = {
-       scopes: ["openid", "profile"],
-    };
+*apiConfig.js* :
 
-    const tokenRequest = {
-      scopes: apiConfig.b2cScopes // i.e. ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"]
-    };
-    ```
+```javascript
+const apiConfig = {
+  b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"],
+  webApi: "https://fabrikamb2chello.azurewebsites.net/hello"
+};
+```
 
-1. Öppna *authConfig.js* -filen i mappen *JavaScriptSPA*
-1. I `msalConfig` objektet uppdaterar du:
-    * `clientId` med det **program-ID (klient)** som du registrerade i ett tidigare steg
-    * `authority` URI med ditt Azure AD B2C klient namn och namnet på det registrerings-/inloggnings användar flöde som du skapade som en del av förutsättningarna (till exempel *B2C_1_signupsignin1* )
-1. Öppna *policies.js* -filen.
-1. Hitta poster för `names` och `authorities` och ersätt dem efter behov med namnen på de principer som du skapade i steg 2. Ersätt `fabrikamb2c.onmicrosoft.com` med namnet på din Azure AD B2C-klient, till exempel `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>` .
-1. Öppna *apiConfig.js* -filen.
-1. Sök efter tilldelningen för omfattningarna `b2cScopes` och ersätt URL: en med den omfattnings-URL som du skapade för webb-API: t `b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/helloapi/demo.read"]` .
-1. Hitta tilldelningen för API-URL: en `webApi` och ersätt den aktuella URL: en med URL: en där du har distribuerat ditt webb-API i steg 4, till exempel `webApi: http://localhost:5000/hello` .
+#### <a name="implicit-flow-sample"></a>[Exempel på implicit flöde](#tab/review-implicit/)
 
-Den resulterande koden bör se ut så här:
-
-### <a name="authconfigjs"></a>authConfig.js
+*authConfig.js* :
 
 ```javascript
 const msalConfig = {
@@ -152,7 +223,8 @@ const tokenRequest = {
   scopes: apiConfig.b2cScopes // i.e. ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"]
 };
 ```
-### <a name="policiesjs"></a>policies.js
+
+*policies.js* :
 
 ```javascript
 const b2cPolicies = {
@@ -174,7 +246,8 @@ const b2cPolicies = {
     },
 }
 ```
-### <a name="apiconfigjs"></a>apiConfig.js
+
+*apiConfig.js* :
 
 ```javascript
 const apiConfig = {
@@ -183,13 +256,24 @@ const apiConfig = {
 };
 ```
 
+* * *
+
+
 ## <a name="run-the-sample"></a>Kör exemplet
 
-1. Öppna ett konsol fönster och ändra till den katalog som innehåller exemplet. Exempel:
+1. Öppna ett konsol fönster och navigera till den katalog som innehåller exemplet. 
 
-    ```console
-    cd active-directory-b2c-javascript-msal-singlepageapp
-    ```
+    - För MSAL.js 2. x-Authorization Code Flow-exempel:
+
+        ```console
+        cd ms-identity-b2c-javascript-spa
+        ```
+    - För MSAL.js 1. x implicit flödes exempel: 
+
+        ```console
+        cd active-directory-b2c-javascript-msal-singlepageapp
+        ```
+
 1. Kör följande kommandon:
 
     ```console
@@ -216,13 +300,13 @@ Det här exempel programmet stöder registrering, inloggning och lösen ords åt
 
     Använd en giltig e-postadress och verifiera med verifieringskoden. Ställ in ett lösenord. Ange värden för de begärda attributen.
 
-    :::image type="content" source="media/tutorial-single-page-app/user-flow-sign-up-workflow-01.png" alt-text="Webbläsare som visar en Enkels Ides applikation som körs lokalt":::
+    :::image type="content" source="media/tutorial-single-page-app/user-flow-sign-up-workflow-01.png" alt-text="Sidan registrera visas i Azure AD B2C användar flöde":::
 
 1. Välj **skapa** för att skapa ett lokalt konto i katalogen Azure AD B2C.
 
 När du väljer **skapa** , visar programmet namnet på den inloggade användaren.
 
-:::image type="content" source="media/tutorial-single-page-app/web-app-spa-02-logged-in.png" alt-text="Webbläsare som visar en Enkels Ides applikation som körs lokalt":::
+:::image type="content" source="media/tutorial-single-page-app/web-app-spa-02-logged-in.png" alt-text="En webbläsare som visar ett program med en sida med inloggad användare":::
 
 Om du vill testa inloggningen väljer du knappen **Logga ut** . Välj sedan **Logga in** och logga in med den e-postadress och det lösen ord som du angav när du registrerade dig.
 

@@ -1,6 +1,6 @@
 ---
 title: Algoritm- och modulreferens
-description: Lär dig mer om modulerna som är tillgängliga i Azure Machine Learning designer
+description: Lär dig mer om de Azure Machine Learning designer-moduler som du kan använda för att skapa dina egna Machine Learning-projekt.
 titleSuffix: Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: 9a2e21696409c320b89d1fed54fefad953b955e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 998f9ef7bddfd988dc0af8183fb9c000bf8c79e7
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90886394"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421302"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer"></a>Algoritmen & module-referens för Azure Machine Learning designer
 
@@ -32,16 +32,16 @@ Hjälp med att välja algoritmer finns i
 ## <a name="data-preparation-modules"></a>Moduler för data förberedelse
 
 
-| Funktioner | Beskrivning | Modul |
+| Funktioner | Description | Modul |
 | --- |--- | --- |
 | Data indata och utdata | Flytta data från moln källor till din pipeline. Skriv resultaten eller mellanliggande data till Azure Storage, SQL Database eller Hive, medan du kör en pipeline eller Använd moln lagring för att utbyta data mellan pipeliner.  | [Ange data manuellt](enter-data-manually.md) <br/> [Exportera data](export-data.md) <br/> [Importera data](import-data.md) |
-| Data omvandling | Åtgärder för data som är unika för maskin inlärning, till exempel normaliserande eller diskretisering data, Dimensional reducering och konvertering av data mellan olika fil format.| [Lägga till kolumner](add-columns.md) <br/> [Lägga till rader](add-rows.md) <br/> [Använda matematisk åtgärd](apply-math-operation.md) <br/> [Använda SQL-transformering](apply-sql-transformation.md) <br/> [Rensa data som saknas](clean-missing-data.md) <br/> [Beskärningsvärden](clip-values.md) <br/> [Konvertera till CSV](convert-to-csv.md) <br/> [Konvertera till datamängd](convert-to-dataset.md) <br/> [Konvertera till indikatorvärden](convert-to-indicator-values.md) <br/> [Redigera metadata](edit-metadata.md) <br/> [Gruppera data till lagerplatser](group-data-into-bins.md) <br/> [Koppla data](join-data.md) <br/> [Normalisera Data](normalize-data.md) <br/> [Partitionera och prova](partition-and-sample.md)  <br/> [Ta bort dubblettrader](remove-duplicate-rows.md) <br/> [SMOTE](smote.md) <br/> [Välja kolumntranformering](select-columns-transform.md) <br/> [Välja kolumner i datauppsättning](select-columns-in-dataset.md) <br/> [Dela data](split-data.md) |
+| Data Transformation | Åtgärder för data som är unika för maskin inlärning, till exempel normaliserande eller diskretisering data, Dimensional reducering och konvertering av data mellan olika fil format.| [Lägg till kolumner](add-columns.md) <br/> [Lägga till rader](add-rows.md) <br/> [Använda matematisk åtgärd](apply-math-operation.md) <br/> [Använda SQL-transformering](apply-sql-transformation.md) <br/> [Rensa data som saknas](clean-missing-data.md) <br/> [Beskärningsvärden](clip-values.md) <br/> [Konvertera till CSV](convert-to-csv.md) <br/> [Konvertera till datamängd](convert-to-dataset.md) <br/> [Konvertera till indikatorvärden](convert-to-indicator-values.md) <br/> [Redigera metadata](edit-metadata.md) <br/> [Gruppera data till lagerplatser](group-data-into-bins.md) <br/> [Koppla data](join-data.md) <br/> [Normalisera Data](normalize-data.md) <br/> [Partitionera och prova](partition-and-sample.md)  <br/> [Ta bort dubblettrader](remove-duplicate-rows.md) <br/> [SMOTE](smote.md) <br/> [Välja kolumntranformering](select-columns-transform.md) <br/> [Välja kolumner i datauppsättning](select-columns-in-dataset.md) <br/> [Dela data](split-data.md) |
 | Val av funktion | Välj en delmängd av relevanta, användbara funktioner som du kan använda när du skapar en analys modell. | [Filterbaserat funktionsval](filter-based-feature-selection.md) <br/> [Permutationfunktionsprioritet](permutation-feature-importance.md) |
 | Statistiska funktioner | Tillhandahålla en mängd olika statistiska metoder för data vetenskap. | [Sammanfatta data](summarize-data.md)|
 
 ## <a name="machine-learning-algorithms"></a>Maskininlärningsalgoritmer
 
-| Funktioner | Beskrivning | Modul |
+| Funktioner | Description | Modul |
 | --- |--- | --- |
 | Regression | Förutsäg ett värde. | [Förbättrad regression för beslutsträd](boosted-decision-tree-regression.md) <br/> [Regression för beslutsskog](decision-forest-regression.md) <br/> [Fast Forest Quantile Regression](fast-forest-quantile-regression.md)  <br/> [Linjär regression](linear-regression.md)  <br/> [Regression för Neural Network](neural-network-regression.md)  <br/> [Poisson-regression](poisson-regression.md)  <br/>|
 | Klustring | Gruppera data tillsammans.| [K-means-klustring](k-means-clustering.md)
@@ -49,7 +49,7 @@ Hjälp med att välja algoritmer finns i
 
 ## <a name="modules-for-building-and-evaluating-models"></a>Moduler för att skapa och utvärdera modeller
 
-| Funktioner | Beskrivning | Modul |
+| Funktioner | Description | Modul |
 | --- |--- | --- |
 | Modell träning | Kör data via algoritmen. |  [Träna klustringsmodellen](train-clustering-model.md) <br/> [Träningsmodell](train-model.md) <br/> [Träna Pytorch-modell](train-pytorch-model.md) <br/> [Finjustera hyperparametrar för modell](tune-model-hyperparameters.md) |
 | Bedömnings-och utvärderings modell | Mät noggrannheten för den tränade modellen. | [Använda transformering](apply-transformation.md) <br/> [Tilldela data till kluster](assign-data-to-clusters.md) <br/> [Korsvalidera modell](cross-validate-model.md) <br/> [Utvärdera modell](evaluate-model.md) <br/> [Bildpoängmodell](score-image-model.md) <br/> [Poängmodell](score-model.md) |

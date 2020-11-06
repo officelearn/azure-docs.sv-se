@@ -1,7 +1,7 @@
 ---
 title: 'Logistik regression i multiklass: modulreferens'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder MultiClass Logistisk regression-modulen i Azure Machine Learning för att skapa en logistik Regressions modell som kan användas för att förutsäga flera värden.
+description: Lär dig hur du använder MultiClass logistik regression-modulen i Azure Machine Learning designer för att förutsäga flera värden.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 247a0bef8e166c72f185f2d384067fc5814a602e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2bbc28735bcbfd952c4941453956acd0568ea67
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90893740"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420741"
 ---
 # <a name="multiclass-logistic-regression-module"></a>Logistik Regressions-modul för multiklass
 
@@ -38,13 +38,13 @@ I multiklass Logistisk regression kan klassificeraren användas för att föruts
 
 2. Ange hur du vill att modellen ska tränas genom att ställa in alternativet **skapa utbildare läge** .
 
-    + **Enskild parameter**: Använd det här alternativet om du vet hur du vill konfigurera modellen och ange en viss uppsättning värden som argument.
+    + **Enskild parameter** : Använd det här alternativet om du vet hur du vill konfigurera modellen och ange en viss uppsättning värden som argument.
 
-    + **Parameter intervall**: Välj det här alternativet om du inte är säker på de bästa parametrarna och vill köra en parameter rensning. Välj ett värde intervall som du vill iterera över, och de [finjusterande modellens egenskaper](tune-model-hyperparameters.md) upprepas över alla möjliga kombinationer av de inställningar som du angav för att fastställa de egenskaper som ger optimala resultat.  
+    + **Parameter intervall** : Välj det här alternativet om du inte är säker på de bästa parametrarna och vill köra en parameter rensning. Välj ett värde intervall som du vill iterera över, och de [finjusterande modellens egenskaper](tune-model-hyperparameters.md) upprepas över alla möjliga kombinationer av de inställningar som du angav för att fastställa de egenskaper som ger optimala resultat.  
 
-3. **Optimerings tolerans**, ange tröskelvärdet för optimerings konvergens. Om förbättringen mellan iterationer är mindre än tröskelvärdet stannar algoritmen och returnerar den aktuella modellen.
+3. **Optimerings tolerans** , ange tröskelvärdet för optimerings konvergens. Om förbättringen mellan iterationer är mindre än tröskelvärdet stannar algoritmen och returnerar den aktuella modellen.
 
-4. **L1 regulariseringshastigheten vikt**, **L2 regulariseringshastigheten vikt**: Ange ett värde som ska användas för regulariseringshastigheten-parametrarna L1 och L2. Ett värde som inte är noll rekommenderas för båda.
+4. **L1 regulariseringshastigheten vikt** , **L2 regulariseringshastigheten vikt** : Ange ett värde som ska användas för regulariseringshastigheten-parametrarna L1 och L2. Ett värde som inte är noll rekommenderas för båda.
 
     Regulariseringshastigheten är en metod för att förhindra övermontering genom att motverka modeller med extrema koefficient värden. Regulariseringshastigheten fungerar genom att lägga till den påföljd som är kopplad till koefficienterna till felet i hypotesen. En korrekt modell med extrema koefficienter skulle innebära mer, men en mindre exakt modell med fler restriktiva värden skulle bli mindre.
 
@@ -52,13 +52,13 @@ I multiklass Logistisk regression kan klassificeraren användas för att föruts
 
      Olika linjära kombinationer av L1-och L2-villkor har gjorts för logistik Regressions modeller som [elastiska net regulariseringshastigheten](https://wikipedia.org/wiki/Elastic_net_regularization).
 
-6. Värde för **slumpmässig siffra**: Ange ett heltals värde som ska användas som startvärdet för algoritmen om du vill att resultatet ska upprepas vid körning. Annars används ett system klock värde som startvärdet, vilket kan producera något annorlunda resultat i körningar av samma pipeline.
+6. Värde för **slumpmässig siffra** : Ange ett heltals värde som ska användas som startvärdet för algoritmen om du vill att resultatet ska upprepas vid körning. Annars används ett system klock värde som startvärdet, vilket kan producera något annorlunda resultat i körningar av samma pipeline.
 
 8. Anslut en data uppsättning med etiketter och träna modellen:
 
-    + Om du ställer in **skapa utbildare** för en **parameter**ansluter du en taggad data uppsättning och modulen [träna modell](train-model.md) .  
+    + Om du ställer in **skapa utbildare** för en **parameter** ansluter du en taggad data uppsättning och modulen [träna modell](train-model.md) .  
   
-    + Om du ställer in **skapa utbildare** för **parameter intervall**ansluter du en taggad data uppsättning och tränar modellen med hjälp av [finjustera modellens egenskaper](tune-model-hyperparameters.md).  
+    + Om du ställer in **skapa utbildare** för **parameter intervall** ansluter du en taggad data uppsättning och tränar modellen med hjälp av [finjustera modellens egenskaper](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 

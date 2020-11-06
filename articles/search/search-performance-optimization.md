@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 5fd949466978714fe1dc0c4ccc67a3cb8f993314
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 362d5f2046ff4e9ba52dd2e73433cc39e80f7a50
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934964"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420605"
 ---
 # <a name="scale-for-performance-on-azure-cognitive-search"></a>Skalbarhet för prestanda på Azure Kognitiv sökning
 
@@ -30,7 +30,7 @@ Innan du försäkrar en större distributions ansträngning bör du se till att 
 
 1. Börja med ett lågt antal frågor per sekund (frågor per sekund) och öka sedan gradvis antalet som körs i testet tills svars tiden för frågan sjunker under det fördefinierade målet. Detta är ett viktigt mått för att hjälpa dig att planera för skalning när ditt program växer i användning.
 
-1. Återanvända HTTP-anslutningar närhelst det är möjligt. Om du använder Azure Kognitiv sökning .NET SDK innebär det att du bör återanvända en instans eller [SearchIndexClient](/dotnet/api/microsoft.azure.search.searchindexclient) -instans och om du använder REST API bör du återanvända en enda httpclient.
+1. Återanvända HTTP-anslutningar närhelst det är möjligt. Om du använder Azure Kognitiv sökning .NET SDK innebär det att du bör återanvända en instans eller [SearchClient](/dotnet/api/azure.search.documents.searchclient) -instans och om du använder REST API bör du återanvända en enda httpclient.
 
 1. Variera ämnet för förfrågningar så att sökningen sker över olika delar av ditt index. Variationen är viktig eftersom om du kontinuerligt kör samma Sök begär Anden börjar cachelagring av data att öka prestandan bättre än den kan ha en mer detaljerad frågegrupp.
 
@@ -43,7 +43,7 @@ När du skapar de här test arbets belastningarna finns det vissa egenskaper fö
 + Azure Kognitiv sökning kör inte indexerings aktiviteter i bakgrunden. Om tjänsten hanterar fråge-och indexerings arbets belastningar samtidigt tar du hänsyn till detta genom att antingen introducera indexerings jobb i dina testtester eller genom att undersöka alternativen för att köra indexerings jobb under låg belastnings tid.
 
 > [!Tip]
-> Du kan simulera en realistisk läsar fråga med hjälp av belastnings test verktyg. Prova att [läsa in tester med Azure DevOps](/azure/devops/test/load-test/get-started-simple-cloud-load-test?view=azure-devops) eller Använd något av dessa [alternativ](/azure/devops/test/load-test/overview?view=azure-devops#alternatives).
+> Du kan simulera en realistisk läsar fråga med hjälp av belastnings test verktyg. Prova att [läsa in tester med Azure DevOps](/azure/devops/test/load-test/get-started-simple-cloud-load-test) eller Använd något av dessa [alternativ](/azure/devops/test/load-test/overview#alternatives).
 
 ## <a name="scale-for-high-query-volume"></a>Skala för hög fråga-volym
 

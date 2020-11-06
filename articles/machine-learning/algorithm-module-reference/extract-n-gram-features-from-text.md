@@ -1,7 +1,7 @@
 ---
 title: Extrahera N-gram-funktioner från text module-referens
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder modulen extrahera N-g i Azure Machine Learning för att funktionalisera text data.
+description: Lär dig hur du använder modulen extrahera N-g i Azure Machine Learning designer för att funktionalisera text data.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/01/2019
-ms.openlocfilehash: c21c63bdb64f7c15c049bfe4039ef47cea689922
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4d9c7c2cb7a0a86824a373f1b64044b6dcd6c20
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907973"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420809"
 ---
 # <a name="extract-n-gram-features-from-text-module-reference"></a>Extrahera N-gram-funktioner från text module-referens
 
@@ -44,15 +44,15 @@ Modulen stöder följande scenarier för användning av en n-gram-ordlista:
 
 1. **Viktnings funktionen** anger hur du skapar dokument funktions vektorn och hur du extraherar vokabulär från dokument.
 
-    * **Binär vikt**: tilldelar ett binärt närvaro värde till den extraherade n-gram. Värdet för varje n-gram är 1 när det finns i dokumentet och 0 annars.
+    * **Binär vikt** : tilldelar ett binärt närvaro värde till den extraherade n-gram. Värdet för varje n-gram är 1 när det finns i dokumentet och 0 annars.
 
-    * **TF vikt**: tilldelar en term frekvens (tf) poäng till den extraherade n-gram. Värdet för varje n-gram är dess förekomst frekvens i dokumentet.
+    * **TF vikt** : tilldelar en term frekvens (tf) poäng till den extraherade n-gram. Värdet för varje n-gram är dess förekomst frekvens i dokumentet.
 
-    * **IDF-vikt**: tilldelar ett IDF-värde (inverterad dokument frekvens) till den extraherade n-gram. Värdet för varje n-gram är loggen för sökkorpus storlek dividerat med dess förekomst frekvens i hela sökkorpus.
+    * **IDF-vikt** : tilldelar ett IDF-värde (inverterad dokument frekvens) till den extraherade n-gram. Värdet för varje n-gram är loggen för sökkorpus storlek dividerat med dess förekomst frekvens i hela sökkorpus.
     
       `IDF = log of corpus_size / document_frequency`
  
-    *  **TF – IDF-vikt**: tilldelar en term frekvens/Inverse Document frekvens (tf/IDF) poäng till den extraherade n-gram. Värdet för varje n-gram är dess TF-poäng multiplicerat med dess IDF-poäng.
+    *  **TF – IDF-vikt** : tilldelar en term frekvens/Inverse Document frekvens (tf/IDF) poäng till den extraherade n-gram. Värdet för varje n-gram är dess TF-poäng multiplicerat med dess IDF-poäng.
 
 1. Ange **minsta längd på ord** till det minsta antal bokstäver som kan användas i ett *enskilt ord* i en n-gram.
 
@@ -79,11 +79,11 @@ Modulen stöder följande scenarier för användning av en n-gram-ordlista:
 
 1.  Lägg till funktionerna extrahera N-g från text-modulen i din pipeline och Anslut den data uppsättning som innehåller den text som du vill bearbeta till **data uppsättnings** porten.
 
-1.  Använd **text kolumnen** för att välja den text kolumn som innehåller den text som du vill funktionalisera. Som standard markeras alla kolumner av typen **sträng**i modulen. För bästa resultat ska du bearbeta en enskild kolumn i taget.
+1.  Använd **text kolumnen** för att välja den text kolumn som innehåller den text som du vill funktionalisera. Som standard markeras alla kolumner av typen **sträng** i modulen. För bästa resultat ska du bearbeta en enskild kolumn i taget.
 
 1. Lägg till den sparade data uppsättningen som innehåller en tidigare skapad n-gram-ordlista och Anslut den till porten för **indata-ordlista** . Du kan också ansluta **resultatet** av en överordnad instans av en överordnad instans av funktionerna extrahera N-g från text-modulen.
 
-1. För **ord listans läge**väljer du alternativet **skrivskyddad** uppdatering i list rutan.
+1. För **ord listans läge** väljer du alternativet **skrivskyddad** uppdatering i list rutan.
 
    Alternativet **ReadOnly** representerar sökkorpus för indatamängden. I stället för att använda term frekvenser från den nya text data uppsättningen (till vänster), tillämpas vikterna i n-gram från indata-vokabuläret som de är.
 
@@ -110,20 +110,20 @@ Modulen stöder följande scenarier för användning av en n-gram-ordlista:
 
 Utdraget av N-gram-funktioner från en text-modul skapar två typer av utdata: 
 
-* **Resultat data uppsättning**: det här resultatet är en sammanfattning av den analyserade texten kombinerat med det n-gram som extraherades. Kolumner som du inte har valt i **text kolumns** alternativet skickas till utdata. För varje kolumn med text som du analyserar genererar modulen dessa kolumner:
+* **Resultat data uppsättning** : det här resultatet är en sammanfattning av den analyserade texten kombinerat med det n-gram som extraherades. Kolumner som du inte har valt i **text kolumns** alternativet skickas till utdata. För varje kolumn med text som du analyserar genererar modulen dessa kolumner:
 
-  * **Matris med n-gram-förekomster**: modulen genererar en kolumn för varje n-gram som påträffas i den totala sökkorpus och lägger till en poäng i varje kolumn för att ange vikten för n-gram för raden. 
+  * **Matris med n-gram-förekomster** : modulen genererar en kolumn för varje n-gram som påträffas i den totala sökkorpus och lägger till en poäng i varje kolumn för att ange vikten för n-gram för raden. 
 
-* **Resultat vokabulär**: ord listan innehåller den faktiska n-gram-ordlistan, tillsammans med villkors poängen som genereras som en del av analysen. Du kan spara data uppsättningen för åter användning med en annan uppsättning indata eller för en senare uppdatering. Du kan också återanvända ord listan för modellering och bedömning.
+* **Resultat vokabulär** : ord listan innehåller den faktiska n-gram-ordlistan, tillsammans med villkors poängen som genereras som en del av analysen. Du kan spara data uppsättningen för åter användning med en annan uppsättning indata eller för en senare uppdatering. Du kan också återanvända ord listan för modellering och bedömning.
 
 ### <a name="result-vocabulary"></a>Resultat vokabulär
 
 Ord listan innehåller en n-gram-ordlista med termen frekvens Poäng som genereras som en del av analysen. DF-och IDF-poängen genereras oavsett andra alternativ.
 
-+ **ID**: en identifierare som genereras för varje unik n-gram.
-+ **NGram**: n-gram. Blank steg eller andra ord separatorer ersätts av under streck.
-+ **DF**: term frekvens poängen för n-gram i den ursprungliga sökkorpus.
-+ **IDF**: resultatet av den inverterade dokument frekvensen för n-gram i den ursprungliga sökkorpus.
++ **ID** : en identifierare som genereras för varje unik n-gram.
++ **NGram** : n-gram. Blank steg eller andra ord separatorer ersätts av under streck.
++ **DF** : term frekvens poängen för n-gram i den ursprungliga sökkorpus.
++ **IDF** : resultatet av den inverterade dokument frekvensen för n-gram i den ursprungliga sökkorpus.
 
 Du kan uppdatera den här data uppsättningen manuellt, men du kan införa fel. Exempel:
 

@@ -1,7 +1,7 @@
 ---
 title: DenseNet
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du skapar en bild klassificerings modell med DenseNet-algoritmen.
+description: Lär dig hur du använder modulen DenseNet i Azure Machine Learning designer för att skapa en bild klassificerings modell med DenseNet-algoritmen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/26/2020
-ms.openlocfilehash: 2351012738f4cf5697fb29891c9459e4cc86cd3a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d21c7443f6b30d0b7d6e8295c0c9b060a80d9a62
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536638"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421336"
 ---
 # <a name="densenet"></a>DenseNet
 
@@ -35,11 +35,11 @@ Mer information om DenseNet finns i forsknings bladet, [tätt anslutna (convolut
 
 1.  Lägg till **DenseNet** -modulen i din pipeline i designern.  
 
-2.  För **modell namn**anger du namnet på en viss DenseNet-struktur och du kan välja från DenseNet som stöds: "densenet121", "densenet161", "densenet169", "densenet201".
+2.  För **modell namn** anger du namnet på en viss DenseNet-struktur och du kan välja från DenseNet som stöds: "densenet121", "densenet161", "densenet169", "densenet201".
 
-3.  För **förtränat**anger du om du vill använda en förtränad modell på ImageNet. Om du väljer det här kan du finjustera modellen baserat på vald förtränad modell. om det är avmarkerat kan du träna från början.
+3.  För **förtränat** anger du om du vill använda en förtränad modell på ImageNet. Om du väljer det här kan du finjustera modellen baserat på vald förtränad modell. om det är avmarkerat kan du träna från början.
 
-4.  För **minnes effektiv**anger du om du vill använda kontroll punkter, vilket är mycket mer minnes effektivt men långsammare. Mer information finns i Research Paper, [minnes effektiv implementering av DenseNets](https://arxiv.org/pdf/1707.06990.pdf).
+4.  För **minnes effektiv** anger du om du vill använda kontroll punkter, vilket är mycket mer minnes effektivt men långsammare. Mer information finns i Research Paper, [minnes effektiv implementering av DenseNets](https://arxiv.org/pdf/1707.06990.pdf).
 
 5.  Anslut utdata från modulen **DenseNet** modul, Training och validering av avbildnings data uppsättning till [träna Pytorch-modellen](train-pytorch-model.md). 
 
@@ -54,15 +54,15 @@ När pipeline-körningen har slutförts ska du använda modellen för att skapa 
 
 ###  <a name="module-parameters"></a>Parametrar för modul  
 
-| Namn             | Intervall | Typ    | Default     | Beskrivning                              |
+| Name             | Intervall | Typ    | Standard     | Description                              |
 | ---------------- | ----- | ------- | ----------- | ---------------------------------------- |
-| Modellnamn       | Alla   | Läge    | densenet201 | Namn på en viss DenseNet-struktur     |
-| Tränats       | Alla   | Boolesk | Sant        | Om du vill använda en förtränad modell på ImageNet |
-| Minnes effektiv | Alla   | Boolesk | Falskt       | Om du vill använda kontroll punkter, vilket är mycket mer minnes effektivt men långsammare |
+| Modellnamn       | Valfri   | Läge    | densenet201 | Namn på en viss DenseNet-struktur     |
+| Tränats       | Valfri   | Boolesk | Sant        | Om du vill använda en förtränad modell på ImageNet |
+| Minnes effektiv | Valfri   | Boolesk | Falskt       | Om du vill använda kontroll punkter, vilket är mycket mer minnes effektivt men långsammare |
 
 ###  <a name="output"></a>Utdata  
 
-| Namn            | Typ                    | Beskrivning                              |
+| Namn            | Typ                    | Description                              |
 | --------------- | ----------------------- | ---------------------------------------- |
 | Modell som inte är tränad | UntrainedModelDirectory | En DenseNet modell som kan anslutas till träna Pytorch-modellen. |
 

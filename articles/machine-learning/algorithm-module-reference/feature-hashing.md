@@ -1,7 +1,7 @@
 ---
 title: Modulreferens för funktion för hashing
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder modulen för funktions-hash i Azure Machine Learning för att funktionalisera text data.
+description: Lär dig hur du använder modulen för funktions-hash i Azure Machine Learning designer för att funktionalisera text data.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: a9ef6ff81a2c9f3697f7c3ccf1cd8e91ad2fb683
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: cd48b32afee320aa3d252540d566317c374c73a8
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323731"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420792"
 ---
 # <a name="feature-hashing-module-reference"></a>Modulreferens för funktion för hashing
 
@@ -22,7 +22,7 @@ I den här artikeln beskrivs en modul som ingår i Azure Machine Learning design
 
 Använd modulen funktion-hash för att transformera en strömmande engelsk text till en uppsättning med heltals funktioner. Du kan sedan skicka den här hash-funktionen till en Machine Learning-algoritm för att träna en text analys modell.
 
-Funktionerna i funktionen hashing som tillhandahålls i den här modulen baseras på nimbusml-ramverket. Mer information finns i [NgramHash-klass](/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest).
+Funktionerna i funktionen hashing som tillhandahålls i den här modulen baseras på nimbusml-ramverket. Mer information finns i [NgramHash-klass](/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest&preserve-view=true).
 
 ## <a name="what-is-feature-hashing"></a>Vad är funktionen hashing?
 

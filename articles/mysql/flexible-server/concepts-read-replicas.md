@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/26/2020
-ms.openlocfilehash: 6f3482bdc608d97e4adba5f99393e74f2e6c7cde
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9d683f96f31d3b34ac311251f45456551148ca26
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92795353"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420894"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql---flexible-server"></a>Läs repliker i Azure Database for MySQL-flexibel Server
 
@@ -31,7 +31,7 @@ Mer information om funktioner och problem med MySQL-replikering finns i [dokumen
 > [!NOTE]
 > Kompensations fri kommunikation
 >
-> Microsoft stöder en mängd olika och införlivande miljöer. Den här artikeln innehåller referenser till ordet _slav_ . Microsofts [stil guide för en kostnads fri kommunikation](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) känner igen detta som ett undantags ord. Ordet används i den här artikeln för konsekvens eftersom det är det ord som visas i program varan. När program varan har uppdaterats för att ta bort ordet uppdateras den här artikeln som en justering.
+> Microsoft stöder en mängd olika och införlivande miljöer. Den här artikeln innehåller referenser till ordet _slav_. Microsofts [stil guide för en kostnads fri kommunikation](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) känner igen detta som ett undantags ord. Ordet används i den här artikeln för konsekvens eftersom det är det ord som visas i program varan. När program varan har uppdaterats för att ta bort ordet uppdateras den här artikeln som en justering.
 >
 
 ## <a name="common-use-cases-for-read-replica"></a>Vanliga användnings fall för Läs replik
@@ -61,7 +61,7 @@ Lär dig hur du [skapar en Läs replik i Azure Portal](how-to-read-replicas-port
 
 ## <a name="connect-to-a-replica"></a>Anslut till en replik
 
-Vid skapandet ärver en replik anslutnings metoden för käll servern. Det går inte att ändra anslutnings metod för repliken. Till exempel om käll servern har **privat åtkomst (VNet-integrering)** kan repliken inte vara i **offentlig åtkomst (tillåtna IP-adresser)** .
+Vid skapandet ärver en replik anslutnings metoden för käll servern. Det går inte att ändra anslutnings metod för repliken. Till exempel om käll servern har **privat åtkomst (VNet-integrering)** kan repliken inte vara i **offentlig åtkomst (tillåtna IP-adresser)**.
 
 Repliken ärver administratörs kontot från käll servern. Alla användar konton på käll servern replikeras till läsa repliker. Du kan bara ansluta till en Läs replik med hjälp av de användar konton som är tillgängliga på käll servern.
 
@@ -117,6 +117,7 @@ När ditt program har bearbetat läsningar och skrivningar har du slutfört redu
 | Scenario | Begränsning/övervägande |
 |:-|:-|
 | Replik på server med zon-redundant HA aktiverat | Stöds inte |
+| Läs replikering mellan regioner | Stöds inte |
 | Prissättning | Kostnaden för att köra replik servern baseras på den region där replik servern körs |
 | Omstart av käll Server | När du skapar en replik för en källa som inte har några befintliga repliker startas källan om först för att förbereda sig för replikering. Ta detta i beaktande och utför dessa åtgärder under en låg belastnings period |
 | Nya repliker | En Läs replik skapas som en ny Azure Database for MySQL flexibel Server. Det går inte att göra en befintlig server till en replik. Du kan inte skapa en replik av en annan Läs replik |
@@ -125,7 +126,7 @@ När ditt program har bearbetat läsningar och skrivningar har du slutfört redu
 | Borttagen källa och fristående servrar | När en käll server tas bort, stoppas replikeringen till alla Läs repliker. Dessa repliker blir automatiskt fristående servrar och kan acceptera både läsningar och skrivningar. Själva käll servern tas bort. |
 | Användarkonton | Användare på käll servern replikeras till läsa repliker. Du kan bara ansluta till en Läs replik med de användar konton som är tillgängliga på käll servern. |
 | Serverparametrar | I syfte att förhindra att data blir osynkroniserade samt att undvika potentiell dataförlust eller skadade data är vissa serverparametrar låsta från att uppdateras vid användning av skrivskyddade repliker. <br> Följande Server parametrar är låsta på både käll-och replik servern:<br> - [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/5.7/en/innodb-multiple-tablespaces.html) <br> - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) <br> [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler)Parametern är låst på replik servrarna. <br> Om du vill uppdatera en av parametrarna ovan på käll servern, måste du ta bort replik servrar, uppdatera parametervärdet på källan och återskapa repliker. |
-| Annat | – Det finns inte stöd för att skapa en replik av en replik. <br> -InMemory-tabeller kan orsaka att repliker inte längre är synkroniserade. Detta är en begränsning av MySQL-replikeringstrafiken. Mer information finns i [referens dokumentationen för MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) . <br>– Kontrol lera att käll Server tabellerna har primär nycklar. Brist på primär nycklar kan leda till replikeringsfördröjning mellan källan och replikerna.<br>– Granska den fullständiga listan över begränsningar för MySQL-replikering i [MySQL-dokumentationen](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html) |
+| Övrigt | – Det finns inte stöd för att skapa en replik av en replik. <br> -InMemory-tabeller kan orsaka att repliker inte längre är synkroniserade. Detta är en begränsning av MySQL-replikeringstrafiken. Mer information finns i [referens dokumentationen för MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) . <br>– Kontrol lera att käll Server tabellerna har primär nycklar. Brist på primär nycklar kan leda till replikeringsfördröjning mellan källan och replikerna.<br>– Granska den fullständiga listan över begränsningar för MySQL-replikering i [MySQL-dokumentationen](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html) |
 
 ## <a name="next-steps"></a>Nästa steg
 

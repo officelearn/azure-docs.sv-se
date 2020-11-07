@@ -8,15 +8,15 @@ ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 3b592591f3d2190fdcc9ed7b3b12b2eca20a25a5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 1d6213d49c98f5e09f22e7310183315800d0c6f6
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675843"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359790"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Självstudie: Konfigurera ServiceNow för automatisk användar etablering
 
@@ -58,8 +58,8 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 
 3. Kontrol lera att följande inställningar är **inaktiverade** i ServiceNow:
 
-   1. Välj **säkerhets**  >  **Inställningar** för system säkerhet  >  **kräver grundläggande autentisering för inkommande schema begär Anden** .
-   2. Välj **system egenskaper**  >  **webb tjänster**  >  **kräver grundläggande auktorisering för inkommande SOAP-begäranden** .
+   1. Välj **säkerhets**  >  **Inställningar** för system säkerhet  >  **kräver grundläggande autentisering för inkommande schema begär Anden**.
+   2. Välj **system egenskaper**  >  **webb tjänster**  >  **kräver grundläggande auktorisering för inkommande SOAP-begäranden**.
      
    > [!IMPORTANT]
    > Om den här inställningen är *aktive rad* kommer etablerings motorn inte att kunna kommunicera med ServiceNow.
@@ -72,7 +72,7 @@ Lägg till ServiceNow från Azure AD-programgalleriet för att börja hantera et
 
 Med Azure AD-etableringstjänsten kan du bestämma vem som ska etableras, baserat på tilldelningen till programmet och eller baserat på attribut för användaren/gruppen. Om du väljer att omfånget som ska etableras till din app ska baseras på tilldelning, kan du använda följande [steg](../manage-apps/assign-user-or-group-access-portal.md) för att tilldela användare och grupper till programmet. Om du väljer att omfånget endast ska etableras baserat på attribut för användaren eller gruppen, kan du använda ett omfångsfilter enligt beskrivningen [här](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* När du tilldelar användare och grupper till ServiceNow måste du välja en annan roll än **standard åtkomst** . Användare med rollen Standardåtkomst undantas från etableringen och markeras som icke-berättigade i etableringsloggarna. Om den enda rollen som är tillgänglig i programmet är standardrollen för åtkomst, kan du [uppdatera applikationsmanifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) och lägga till fler roller. 
+* När du tilldelar användare och grupper till ServiceNow måste du välja en annan roll än **standard åtkomst**. Användare med rollen Standardåtkomst undantas från etableringen och markeras som icke-berättigade i etableringsloggarna. Om den enda rollen som är tillgänglig i programmet är standardrollen för åtkomst, kan du [uppdatera applikationsmanifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) och lägga till fler roller. 
 
 * Starta i liten skala. Testa med en liten uppsättning användare och grupper innan du distribuerar till alla. När etableringsomfånget har angetts till tilldelade användare och grupper, kan du kontrollera detta genom att tilldela en eller två användare eller grupper till appen. När omfånget är inställt på alla användare och grupper, kan du ange ett [attributbaserat omfångsfilter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
@@ -83,19 +83,19 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 ### <a name="to-configure-automatic-user-provisioning-for-servicenow-in-azure-ad"></a>Konfigurera automatisk användar etablering för ServiceNow i Azure AD:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **Företagsprogram** och sedan **Alla program** .
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **Företagsprogram** och sedan **Alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I programlistan väljer du **ServiceNow** .
+2. I programlistan väljer du **ServiceNow**.
 
     ![ServiceNow-länken i programlistan](common/all-applications.png)
 
-3. Välj fliken **Etablering** .
+3. Välj fliken **Etablering**.
 
     ![Skärm bild av alternativen för att hantera med etablerings alternativet.](common/provisioning.png)
 
-4. Ange **Etableringsläge** som **Automatiskt** .
+4. Ange **Etableringsläge** som **Automatiskt**.
 
     ![Skärm bild av list rutan etablerings läge med det automatiska alternativet inringat.](common/provisioning-automatic.png)
 
@@ -103,17 +103,17 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Skärm bild som visar sidan tjänst etablering där du kan ange autentiseringsuppgifter för administratören.](./media/servicenow-provisioning-tutorial/provisioning.png)
 
-6. I fältet **E-postavisering** anger du e-postadressen till den person eller grupp som ska ta emot meddelanden om etableringsfel. Markera sedan kryssrutan **Skicka ett e-postmeddelande när ett fel uppstår** .
+6. I fältet **E-postavisering** anger du e-postadressen till den person eller grupp som ska ta emot meddelanden om etableringsfel. Markera sedan kryssrutan **Skicka ett e-postmeddelande när ett fel uppstår**.
 
     ![E-postavisering](common/provisioning-notification-email.png)
 
-7. Välj **Spara** .
+7. Välj **Spara**.
 
-8. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till ServiceNow** .
+8. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till ServiceNow**.
 
 9. Granska de användarattribut som synkroniseras från Azure AD till ServiceNow i avsnittet **attribut-mappning** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i ServiceNow för uppdaterings åtgärder. Om du väljer att ändra [matchande målattribut](../app-provisioning/customize-application-attributes.md)måste du se till att ServiceNow-API: et stöder filtrering av användare baserat på det attributet. Välj knappen **Spara** för att spara ändringarna.
 
-10. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory grupper till ServiceNow** .
+10. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory grupper till ServiceNow**.
 
 11. Granska gruppattributen som synkroniseras från Azure AD till ServiceNow i avsnittet **attribut-mappning** . Attributen som väljs som **matchande** egenskaper används för att matcha grupperna i ServiceNow för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
@@ -127,11 +127,11 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Etableringsomfång](common/provisioning-scope.png)
 
-15. När du är redo att etablera klickar du på **Spara** .
+15. När du är redo att etablera klickar du på **Spara**.
 
     ![Spara etableringskonfiguration](common/provisioning-configuration-save.png)
 
-Åtgärden startar den initiala synkroniseringscykeln för alla användare och grupper som har definierats i **Omfång** i avsnittet **Inställningar** . Den första cykeln tar längre tid att utföra än efterföljande cykler, vilket inträffar ungefär var 40:e minut om Azure AD-etableringstjänsten körs. 
+Åtgärden startar den initiala synkroniseringscykeln för alla användare och grupper som har definierats i **Omfång** i avsnittet **Inställningar**. Den första cykeln tar längre tid att utföra än efterföljande cykler, vilket inträffar ungefär var 40:e minut om Azure AD-etableringstjänsten körs. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Steg 6. Övervaka distributionen
 När du har konfigurerat etableringen använder du följande resurser till att övervaka distributionen:
@@ -151,8 +151,8 @@ När du har konfigurerat etableringen använder du följande resurser till att �
 
    Det här felet indikerar ett problem som kommunicerar med ServiceNow-instansen. Kontrol lera att följande inställningar är inaktiverade i ServiceNow för att kontrol lera att följande inställningar är *inaktiverade* :
    
-   1. Välj **säkerhets**  >  **Inställningar** för system säkerhet  >  **kräver grundläggande autentisering för inkommande schema begär Anden** .
-   2. Välj **system egenskaper**  >  **webb tjänster**  >  **kräver grundläggande auktorisering för inkommande SOAP-begäranden** .
+   1. Välj **säkerhets**  >  **Inställningar** för system säkerhet  >  **kräver grundläggande autentisering för inkommande schema begär Anden**.
+   2. Välj **system egenskaper**  >  **webb tjänster**  >  **kräver grundläggande auktorisering för inkommande SOAP-begäranden**.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

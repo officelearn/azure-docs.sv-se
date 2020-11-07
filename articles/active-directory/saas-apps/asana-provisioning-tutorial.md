@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.reviewer: celested
-ms.openlocfilehash: 11e0606568fdaad20f996a7ae20a622576acea15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4abc117ae0e983cf684f0e70a363758f9be196aa
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88549474"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359434"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Självstudie: Konfigurera asana för automatisk användar etablering
 
@@ -64,7 +64,7 @@ Det här avsnittet vägleder dig genom att ansluta din Azure AD till asana-API f
 
     ![Asana-etablering](./media/asana-provisioning-tutorial/asanaazureprovisioning.png)
 
-1. Under avsnittet **admin credentials** , följer du dessa anvisningar för att generera token och ange den i  **hemlig token**:
+1. Under avsnittet **admin credentials** , följer du dessa anvisningar för att generera token och ange den i  **hemlig token** :
 
     a. Logga in på [asana](https://app.asana.com) med ditt administratörs konto.
 
@@ -74,7 +74,7 @@ Det här avsnittet vägleder dig genom att ansluta din Azure AD till asana-API f
 
     d. Välj **Lägg till tjänst konto**.
 
-    e. Uppdatera **namnet** och **om** och profil fotot efter behov. Kopiera token i **token**och välj den i **Spara ändringar**.
+    e. Uppdatera **namnet** och **om** och profil fotot efter behov. Kopiera token i **token** och välj den i **Spara ändringar**.
 
 1. I Azure Portal väljer du **Testa anslutning** för att se till att Azure AD kan ansluta till din asana-app. Om anslutningen Miss lyckas kontrollerar du att ditt asana-konto har administratörs behörighet och provar steget **Testa anslutning** igen.
 

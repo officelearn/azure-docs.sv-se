@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: Zhchia
-ms.openlocfilehash: 00adf8f1559d01d6ba17692e1166c93c93fcbf8f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 5ba9adbc8553e92eb76a4d3327681f798db19218
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516655"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359146"
 ---
 # <a name="tutorial-configure-promapp-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Promapp för automatisk användar etablering
 
@@ -72,11 +72,11 @@ Innan du konfigurerar Promapp för automatisk användar etablering med Azure AD 
 
 **Utför följande steg för att lägga till Promapp från Azure AD-programgalleriet:**
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
+1. Välj **Azure Active Directory** i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -84,7 +84,7 @@ Innan du konfigurerar Promapp för automatisk användar etablering med Azure AD 
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **Promapp**, väljer **Promapp** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **Promapp** , väljer **Promapp** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![Promapp i resultat listan](common/search-new-app.png)
 

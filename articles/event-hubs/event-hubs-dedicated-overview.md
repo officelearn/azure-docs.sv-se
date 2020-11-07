@@ -3,18 +3,22 @@ title: Översikt över dedikerade Event Hub – Azure Event Hubs | Microsoft Doc
 description: Den här artikeln innehåller en översikt över dedikerade Azure-Event Hubs, som erbjuder distributioner av enskilda innehavare av Event Hub.
 ms.topic: article
 ms.date: 10/23/2020
-ms.openlocfilehash: 20b153c9093c96e7357a8e439b6655f1db80bd46
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 1a15206fc35f0d536c7105aa73dfdcfc9967124d
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517011"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358872"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Översikt över Event Hubs Dedicated
 
-*Event Hubs kluster* erbjuder distributioner för enskilda klienter för kunder med de mest krävande strömnings behoven. Det här erbjudandet för en enda klient organisation har ett garanterat 99,99% SLA och är bara tillgängligt på vår dedikerade pris nivå. Ett Event Hubs kluster kan intränga miljon tals händelser per sekund med garanterad kapacitet och under sekund svars tid. Namn områden och händelse nav som skapats i det dedikerade klustret inkluderar alla funktioner i standard erbjudandet och mer, men utan några ingångs gränser. Den innehåller också den populära [Event Hubs Capture](event-hubs-capture-overview.md) -funktionen utan extra kostnad, så att du automatiskt kan registrera och logga data strömmar till Azure Storage eller Azure Data Lake. 
+*Event Hubs kluster* erbjuder distributioner för enskilda klienter för kunder med de mest krävande strömnings behoven. Det här erbjudandet för en enda klient organisation har ett garanterat 99,99% SLA och är bara tillgängligt på vår dedikerade pris nivå. Ett Event Hubs kluster kan intränga miljon tals händelser per sekund med garanterad kapacitet och under sekund svars tid. Namn områden och händelse nav som skapats i det dedikerade klustret inkluderar alla funktioner i standard erbjudandet och mer, men utan några ingångs gränser. Den innehåller också den populära [Event Hubs Capture](event-hubs-capture-overview.md) -funktionen utan extra kostnad. Med den här funktionen kan du automatiskt köra och logga data strömmar för att Azure Storage eller Azure Data Lake. 
 
-Kluster etablerade och debiteras efter **kapacitets enheter (CUS)**, en förallokerad mängd processor-och minnes resurser. Du kan köpa 1, 2, 4, 8, 12, 16 eller 20 CUs för varje kluster. Hur mycket du kan mata in och strömma per CU beror på en mängd olika faktorer, till exempel antalet tillverkare och konsumenter, nytto lasts form, utgående taxa (se benchmark-resultat nedan för mer information). 
+Kluster etablerade och debiteras efter **kapacitets enheter (CUS)** , en förallokerad mängd processor-och minnes resurser. Du kan köpa 1, 2, 4, 8, 12, 16 eller 20 CUs för varje kluster. Hur mycket du kan mata in och strömma per CU beror på flera olika faktorer, till exempel följande: 
+
+- Antal producenter och konsumenter
+- Nytto Last form
+- Utgående hastighet
 
 > [!NOTE]
 > Alla Event Hubs-kluster är Kafka-aktiverade som standard och stöder Kafka-slutpunkter som kan användas av dina befintliga Kafka-baserade program. Att ha Kafka aktiverat i klustret påverkar inte dina användnings fall som inte är Kafka; Det finns inget alternativ eller behöver inaktivera Kafka på ett kluster.
@@ -25,10 +29,10 @@ Dedikerade Event Hubs erbjuder tre övertygande förmåner för kunder som behö
 
 #### <a name="single-tenancy-guarantees-capacity-for-better-performance"></a>En enda innehavare garanterar kapaciteten för bättre prestanda
 
-Ett dedikerat kluster garanterar kapacitet i full skala och kan tränga upp till gigabyte av strömmande data med fullständigt varaktig lagring och under en andra latens för att hantera all burst i trafiken. 
+Ett dedikerat kluster garanterar kapacitet vid full skala. Det kan intränga upp till gigabyte av strömmande data med helt varaktig lagring och under en andra latens för att hantera burst i trafiken. 
 
 #### <a name="inclusive-and-exclusive-access-to-features"></a>Inklusive och exklusiv åtkomst till funktioner 
-Det dedikerade erbjudandet omfattar funktioner som att fånga utan extra kostnad och exklusiv åtkomst till kommande funktioner som Bring Your Own Key (BYOK). Tjänsten hanterar även belastnings utjämning, OS-uppdateringar, säkerhets uppdateringar och partitionering för kunden, så att du kan lägga mindre tid på infrastruktur underhåll och mer tid på att skapa funktioner på klient sidan.  
+Det dedikerade erbjudandet omfattar funktioner som att fånga utan extra kostnad och exklusiv åtkomst till kommande funktioner som Bring Your Own Key (BYOK). Tjänsten hanterar även belastnings utjämning, OS-uppdateringar, säkerhets korrigeringar och partitionering. Det innebär att du kan lägga mindre tid på infrastruktur underhåll och mer tid på att skapa funktioner på klient sidan.  
 
 #### <a name="cost-savings"></a>Kostnads besparingar
 Vid höga ingångs volymer (>100-dataflödes enheter) är ett kluster kostar betydligt mindre per timme än att köpa en jämförbar mängd data flödes enheter i standard erbjudandet.
@@ -36,20 +40,22 @@ Vid höga ingångs volymer (>100-dataflödes enheter) är ett kluster kostar bet
 
 ## <a name="event-hubs-dedicated-quotas-and-limits"></a>Event Hubs Dedicated kvoter och begränsningar
 
-Event Hubs Dedicated erbjudandet debiteras till ett fast månads pris, med minst fyra timmars användning. Den dedikerade nivån innehåller alla funktioner i standard planen, men med kapacitet för företags skala och gränser för kunder med krävande arbets belastningar. 
+Event Hubs Dedicated erbjudandet debiteras till ett fast månads pris, med minst fyra timmars användning. Den dedikerade nivån innehåller alla funktioner i standard planen, men med kapacitet och gränser i företags skala för kunder med krävande arbets belastningar. 
 
 | Funktion | Standard | Dedikerad |
-| --- |:---:|:---:|
+| --- |:---|:---|
 | Bandbredd | 20 antal (upp till 40 antal) | 20 CUs |
 | Namnrymder |  1 | 50 per CU |
 | Event Hubs |  10 per namnrymd | 1000 per namnrymd |
 | Ingress-händelser | Betala per miljon händelser | Ingår |
 | Meddelande storlek | 1 000 000 byte | 1 000 000 byte |
-| Partitioner | 32 per Event-hubb | 1024 per Event-hubb |
+| Partitioner | 32 per Event-hubb | 1024 per Event-hubb<br/>2000 per CU |
 | Konsumentgrupper | 20 per Event-hubb | Ingen gräns per CU, 1000 per Event-hubb |
 | Brokered Connections | 1 000 ingår, 5 000 max | 100 KB ingår och Max |
 | Kvarhållning av meddelanden | 7 dagar, 84 GB ingår per data flödes enheter | 90 dagar, 10 TB inkluderat per CU |
 | Capture | Betala per timme | Ingår |
+
+Mer kvoter och begränsningar finns i [Event Hubs kvoter och begränsningar](event-hubs-quotas.md)
 
 ## <a name="how-to-onboard"></a>Publicera
 

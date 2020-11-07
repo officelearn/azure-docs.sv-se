@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: zhchia
-ms.openlocfilehash: 06fca39b1170d36f22040ccf48eb02f948e47e41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5fc5045643c9baf67b61d45188c8a2b6ccbc5c23
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91304710"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359827"
 ---
 # <a name="tutorial-configure-peakon-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Peakon för automatisk användar etablering
 
@@ -70,11 +70,11 @@ Innan du konfigurerar och aktiverar automatisk användar etablering bör du best
 
 Om du vill konfigurera Peakon för automatisk användar etablering med Azure AD måste du lägga till Peakon från Azure AD-programgalleriet i listan över hanterade SaaS-program.
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
+1. Välj **Azure Active Directory** i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -82,7 +82,7 @@ Om du vill konfigurera Peakon för automatisk användar etablering med Azure AD 
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **Peakon**, väljer **Peakon** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **Peakon** , väljer **Peakon** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![Peakon i resultat listan](common/search-new-app.png)
 

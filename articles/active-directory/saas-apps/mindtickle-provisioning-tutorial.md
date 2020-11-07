@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/23/2019
 ms.author: Zhchia
-ms.openlocfilehash: 145793d7e451e7db9598118fb3adbd49d1d9c650
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68d084b7fde7d4c28b1c9b1da1e1c66cb6a63dd8
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850684"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359450"
 ---
 # <a name="tutorial-configure-mindtickle-for-automatic-user-provisioning"></a>Självstudie: Konfigurera MindTickle för automatisk användar etablering
 
@@ -62,11 +62,11 @@ Om du vill konfigurera MindTickle för automatisk användar etablering med Azure
 
 **Utför följande steg för att lägga till MindTickle från Azure AD-programgalleriet:**
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
+1. Välj **Azure Active Directory** i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -74,7 +74,7 @@ Om du vill konfigurera MindTickle för automatisk användar etablering med Azure
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **MindTickle**, väljer **MindTickle** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **MindTickle** , väljer **MindTickle** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![MindTickle i resultatlistan](common/search-new-app.png)
 
@@ -119,7 +119,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 9. Granska de användarattribut som synkroniseras från Azure AD till MindTickle i avsnittet **Mappning av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i MindTickle för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
-    :::image type="content" source="media/mindtickle-provisioning-tutorial/userattribute.png" alt-text="Skärm bild av avsnittet mappningar. Under namn visas synkronisera Azure Active Directory användare till MindTickle." border="false":::
+    :::image type="content" source="media/mindtickle-provisioning-tutorial/userattribute.png" alt-text="Skärm bild av sidan mappningar för attribut. En tabell visar Azure Active Directory-och MindTickle-attribut och matchnings prioritet." border="false":::
 
 12. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudien för omfångsfilter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

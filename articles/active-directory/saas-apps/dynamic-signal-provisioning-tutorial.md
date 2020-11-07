@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 9ebb0927f9721c5c35ee0d83a108efd72732958b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 263a67fd8fba2c336d1ed4d91475386a8ae175dd
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851245"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359025"
 ---
 # <a name="tutorial-configure-dynamic-signal-for-automatic-user-provisioning"></a>Självstudie: Konfigurera dynamisk signal för automatisk användar etablering
 
@@ -41,11 +41,11 @@ Innan du konfigurerar dynamisk signal för automatisk användar etablering med A
 
 **Utför följande steg för att lägga till dynamisk signal från Azure AD-programgalleriet:**
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
+1. Välj **Azure Active Directory** i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -53,7 +53,7 @@ Innan du konfigurerar dynamisk signal för automatisk användar etablering med A
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I rutan Sök anger du **dynamisk signal**, väljer **dynamisk signal** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I rutan Sök anger du **dynamisk signal** , väljer **dynamisk signal** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![Dynamic Signal i resultatlistan](common/search-new-app.png)
 
@@ -104,7 +104,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     Kopiera URL **: en för scim-API** till **klient-URL**. Klicka på **Skapa ny token** för att generera en **Bearer-token** och kopiera värdet till den **hemliga token**.
 
-    :::image type="content" source="./media/dynamic-signal-provisioning-tutorial/secret-token-2.png" alt-text="Skärm bild av administrations konsolen för dynamisk signal. Avancerad är markerat i administratörs menyn. Menyn Avancerat visas också med en P I som är markerad." border="false":::
+    :::image type="content" source="./media/dynamic-signal-provisioning-tutorial/secret-token-2.png" alt-text="Skärm bild av sidan tokens med S C I M A P I U R L, generera ny token och Bearer-token markerat och en plats hållare i rutan Bearer-token." border="false":::
 
 7. När du fyller i fälten som visas i steg 5, klickar du på **Testa anslutning** för att se till att Azure AD kan ansluta till en dynamisk signal. Om anslutningen Miss lyckas ser du till att det dynamiska signal kontot har administratörs behörighet och försöker igen.
 

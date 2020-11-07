@@ -282,7 +282,7 @@
               href: platform/design-logs-deployment.md
             - name: Skapa en arbetsyta
               items:
-                - name: Azure-portalen
+                - name: Azure Portal
                   href: learn/quick-create-workspace.md
                 - name: Azure CLI
                   href: learn/quick-create-workspace-cli.md
@@ -618,8 +618,6 @@
                 - name: Webbappar
                   displayname: java
                   href: app/java-get-started.md
-                - name: Docker-appar
-                  href: app/docker.md
                 - name: Loggspårningar
                   href: app/java-trace-logs.md
                 - name: Unix-mått
@@ -1346,10 +1344,6 @@
           href: insights/azure-web-apps-analytics.md
         - name: Application Insights-anslutningsprogram
           href: platform/app-insights-connector.md
-        - name: Application Insights för AKS utan kod
-          href: app/kubernetes.md
-        - name: Övervaka Docker-program
-          href: app/docker.md
         - name: Utfasning av OMS-portalen
           href: platform/oms-portal-transition.md
         - name: Utfasning av diskmått

@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: Zhchia
-ms.openlocfilehash: 786e99cec4999eef0af92fe2be18bcf0e48ed379
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 31631209a16024e4414cc19bca37166332b427de
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519001"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359240"
 ---
 # <a name="tutorial-configure-miro-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Miro för automatisk användar etablering
 
@@ -58,11 +58,11 @@ Innan du konfigurerar Miro för automatisk användar etablering med Azure AD må
 
 **Utför följande steg för att lägga till Miro från Azure AD-programgalleriet:**
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
+1. Välj **Azure Active Directory** i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -70,7 +70,7 @@ Innan du konfigurerar Miro för automatisk användar etablering med Azure AD må
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **Miro**, väljer **Miro** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **Miro** , väljer **Miro** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![Miro i resultat listan](common/search-new-app.png)
 

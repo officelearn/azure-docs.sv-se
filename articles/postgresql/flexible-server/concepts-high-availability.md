@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 7db9ac0eb624c2732295639d65e0311fcf459f71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b23c95ef0005c8246feb8dc32e4a07a0ae19b72f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90937045"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359552"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql---flexible-server"></a>Koncept med hög tillgänglighet i Azure Database for PostgreSQL-flexibel Server
 
@@ -43,7 +43,7 @@ Hälso tillståndet för konfigurationen med hög tillgänglighet övervakas kon
 
 PostgreSQL klient program är anslutna till den primära servern med hjälp av DB-servernamnet. Program läsningar betjänas direkt från den primära servern, medan incheckningar och skrivningar bekräftas till programmet endast efter att data har sparats på både den primära servern och i standby-repliken. På grund av detta ytterligare krav för tur och retur kan program förväntas förhöjd svars tid för skrivningar och incheckningar. Du kan övervaka hälso tillståndet för hög tillgänglighet på portalen.
 
-:::image type="content" source="./media/business-continuity/concepts-high-availability-steady-state.png" alt-text="zon redundant hög tillgänglighet"::: 
+:::image type="content" source="./media/business-continuity/concepts-high-availability-steady-state.png" alt-text="redundant hög tillgänglighet för zonens redundant status"::: 
 
 1. Klienterna ansluter till den flexibla servern och utför Skriv åtgärder.
 2. Ändringar replikeras till vänte läges platsen.
@@ -64,7 +64,7 @@ För andra åtgärder som initieras av användaren, till exempel Scale-Compute e
 
 Oplanerade avbrott innefattar program varu fel eller infrastruktur komponent fel påverkar databasens tillgänglighet. Om servern inte är tillgänglig upptäcks av övervaknings systemet, så är replikeringen till standby-repliken mycket stor och standby-repliken är aktive rad som den primära databas servern. Klienter kan återansluta till databas servern med samma anslutnings sträng och återuppta sina åtgärder. Den totala redundansväxlingen förväntas ta 60-120S. Beroende på aktiviteten på den primära databas servern vid tidpunkten för redundansväxlingen, till exempel stora transaktioner och återställnings tid, kan redundansväxlingen ta längre tid.
 
-:::image type="content" source="./media/business-continuity/concepts-high-availability-failover-state.png" alt-text="zon redundant hög tillgänglighet"::: 
+:::image type="content" source="./media/business-continuity/concepts-high-availability-failover-state.png" alt-text="zonens redundant hög tillgänglighet – redundans"::: 
 
 1. Den primära databas servern är avstängd och klienterna förlorar databas anslutningen. 
 2. Standby-servern aktive ras för att bli den nya primära servern. Klienten ansluter till den nya primära servern med samma anslutnings sträng. Att ha klient programmet i samma zon som den primära databas servern minskar svars tiden och förbättrar prestandan.
@@ -112,6 +112,8 @@ Flexibla servrar som är konfigurerade med hög tillgänglighet replikerar data 
 -   Konfigurering av kundens initierade hanterings uppgifter kan inte schemaläggas under hanterat underhålls fönster.
 
 -   Planerade händelser som att skala beräknings- och skalningslagring sker först på standby-repliken och sedan på den primära servern. Tjänsten redundansväxlas inte. 
+
+-  Om logisk avkodning eller logisk replikering har kon figurer ATS med en HA kon figurer ATS med hög tillgänglighet, i händelse av en redundansväxling till standby-servern, kopieras inte de logiska replikerings platserna över till standby-servern.  
 
 ## <a name="next-steps"></a>Nästa steg
 

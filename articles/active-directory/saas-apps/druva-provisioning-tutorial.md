@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 9163c64370e0718d6b9acf37bb7a9fc28c936948
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5579a9d96828caa1453547e7c2e11b8f0d717d2a
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851194"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359314"
 ---
 # <a name="tutorial-configure-druva-for-automatic-user-provisioning"></a>Självstudie: Konfigurera druva för automatisk användar etablering
 
@@ -56,17 +56,17 @@ Innan du konfigurerar druva för automatisk användar etablering med Azure AD m�
 
     ![Druva-administratörskonsolen](media/druva-provisioning-tutorial/menubar.png)
 
-2. Navigera till **Hantera**  >  **distributioner**-  >  **användare**.
+2. Navigera till **Hantera**  >  **distributioner** -  >  **användare**.
 
     :::image type="content" source="media/druva-provisioning-tutorial/manage.png" alt-text="Skärm bild av druva-administratörskonsolen. Hantera är markerat och menyn Hantera visas. I menyn under distributioner markeras användare." border="false":::
 
 3.  Navigera till **Inställningar**. Klicka på **generera token**.
 
-    :::image type="content" source="media/druva-provisioning-tutorial/settings.png" alt-text="Skärm bild av druva-administratörskonsolen. Hantera är markerat och menyn Hantera visas. I menyn under distributioner markeras användare." border="false":::
+    :::image type="content" source="media/druva-provisioning-tutorial/settings.png" alt-text="Skärm bild av en sida i druva-administratörskonsolen. Inställningarna är markerade och fliken Inställningar är öppen. Knappen skapa token är markerad." border="false":::
 
 4.  Kopiera värdet för **auth-token** . Det här värdet anges i fältet **hemlig token** på fliken etablering i ditt druva-program i Azure Portal.
     
-    :::image type="content" source="media/druva-provisioning-tutorial/auth.png" alt-text="Skärm bild av druva-administratörskonsolen. Hantera är markerat och menyn Hantera visas. I menyn under distributioner markeras användare." border="false":::
+    :::image type="content" source="media/druva-provisioning-tutorial/auth.png" alt-text="Skärm bild av sidan skapa token i administrations konsolen för druva. En länk som heter Copy token är tillgänglig för kopiering av värdet för auth-token." border="false":::
 
 ## <a name="add-druva-from-the-gallery"></a>Lägg till druva från galleriet
 
@@ -74,11 +74,11 @@ Om du vill konfigurera druva för automatisk användar etablering med Azure AD m
 
 **Utför följande steg för att lägga till druva från Azure AD-programgalleriet:**
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
+1. Välj **Azure Active Directory** i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -86,7 +86,7 @@ Om du vill konfigurera druva för automatisk användar etablering med Azure AD m
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **druva**, väljer **druva** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **druva** , väljer **druva** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![Druva i resultatlistan](common/search-new-app.png)
 

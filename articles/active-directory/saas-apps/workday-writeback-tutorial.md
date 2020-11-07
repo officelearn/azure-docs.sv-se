@@ -6,16 +6,16 @@ author: cmmdesai
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.topic: article
+ms.topic: tutorial
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: chmutali
-ms.openlocfilehash: a1428a92857f48920c86ed7a3f0719fa42b38b24
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c65fddcc90b25f70759fb038a72dad0facfa99a9
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072041"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359739"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-workday"></a>Självstudie: Konfigurera tillbakaskrivning av attribut från Azure AD till Workday
 Syftet med den här självstudien är att visa de steg du behöver utföra för att göra om attribut från Azure AD till Workday. Tillbakaskrivning av tillbakaskrivning-appen för Workday stöder tilldelning av värden till följande Workday-attribut:
@@ -56,11 +56,11 @@ Följ de här anvisningarna för att konfigurera tillbakaskrivning av användare
 
 2. I Azure Portal söker du efter och väljer **Azure Active Directory**.
 
-3. Välj **företags program**och sedan **alla program**.
+3. Välj **företags program** och sedan **alla program**.
 
-4. Välj **Lägg till ett program**och välj sedan kategorin **alla** .
+4. Välj **Lägg till ett program** och välj sedan kategorin **alla** .
 
-5. Sök efter **tillbakaskrivning av arbets dagar**och Lägg till den appen från galleriet.
+5. Sök efter **tillbakaskrivning av arbets dagar** och Lägg till den appen från galleriet.
 
 6. När appen har lagts till och skärmen information om appen visas väljer du **etablering**.
 
@@ -82,7 +82,7 @@ Följ de här anvisningarna för att konfigurera tillbakaskrivning av användare
 
 I det här avsnittet ska du konfigurera hur tillbakaskrivning av attribut flödar från Azure AD till Workday. 
 
-1. På fliken etablering under **mappningar**klickar du på mappnings namnet.
+1. På fliken etablering under **mappningar** klickar du på mappnings namnet.
 
 2. I fältet **käll objekt omfånget** kan du välja att filtrera, vilka uppsättningar med användare i Azure Active Directory ska vara en del av tillbakaskrivning. Standard omfånget är "alla användare i Azure AD".
 

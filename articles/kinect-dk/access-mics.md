@@ -7,28 +7,28 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Kinect, Azure, sensor, SDK, mikrofon, åtkomst MICS, Mic-data
-ms.openlocfilehash: f2e604d39bc191af095e009c50f3a93e0d695657
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76edb50c7ac07e743fa015ed503221143fdfb7d9
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85277741"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359637"
 ---
 # <a name="access-azure-kinect-dk-microphone-input-data"></a>Få åtkomst till Azure Kinect DK-mikrofonens indata
 
-De här [snabb starterna för tal-SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service) innehåller exempel på hur du använder Azure Kinect DK Microphone-matrisen i olika programmeringsspråk.
+De här [snabb starterna för tal-SDK](../cognitive-services/speech-service/index.yml) innehåller exempel på hur du använder Azure Kinect DK Microphone-matrisen i olika programmeringsspråk.
 Se till exempel att **känna igen tal i C++ i Windows med hjälp** av snabb start för tal-SDK. Koden är tillgänglig [från GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp).
 
 Få åtkomst till Microphone-matrisen via Windows-API. Mer information om Windows-dokumentation finns i följande dokument:
 
-* [Windows ljud arkitektur](https://docs.microsoft.com/windows-hardware/drivers/audio/windows-audio-architecture)
-* [Dokumentation om Windows. Media. Capture](https://docs.microsoft.com/uwp/api/Windows.Media.Capture)
-* [Självstudie för webb kamera hämtning](https://docs.microsoft.com/windows/uwp/audio-video-camera/basic-photo-video-and-audio-capture-with-mediacapture)
-* [Information om USB-ljud](https://docs.microsoft.com/windows-hardware/drivers/audio/usb-2-0-audio-drivers)
+* [Windows ljud arkitektur](/windows-hardware/drivers/audio/windows-audio-architecture)
+* [Dokumentation om Windows. Media. Capture](/uwp/api/Windows.Media.Capture)
+* [Självstudie för webb kamera hämtning](/windows/uwp/audio-video-camera/basic-photo-video-and-audio-capture-with-mediacapture)
+* [Information om USB-ljud](/windows-hardware/drivers/audio/usb-2-0-audio-drivers)
 
 Du kan också granska [maskin varu specifikationen för mikrofon mat ris](hardware-specification.md#microphone-array).
 
 ## <a name="next-steps"></a>Nästa steg
 
 >[!div class="nextstepaction"]
->[Speech Services SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/)
+>[Speech Services SDK](../cognitive-services/speech-service/index.yml)

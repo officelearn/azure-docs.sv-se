@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/17/2019
 ms.author: Zhchia
-ms.openlocfilehash: f5f7ed8a905aad873ecfc878979ac32af1e21730
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee656f147bd27ff782121f088a239a7337d81075
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91312252"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359773"
 ---
 # <a name="tutorial-configure-workgrid--for-automatic-user-provisioning"></a>Självstudie: Konfigurera Workgrid för automatisk användar etablering
 
@@ -56,7 +56,7 @@ Innan du konfigurerar Workgrid för automatisk användar etablering med Azure AD
 
     ![Skärm bild av Workgrid U med användare och användar etablerings alternativ som anropas.](media/Workgrid-provisioning-tutorial/user.png)
 
-2. Under **Account Management API**klickar du på **skapa autentiseringsuppgifter**.
+2. Under **Account Management API** klickar du på **skapa autentiseringsuppgifter**.
 
     ![Skärm bild av alternativet för konto hantering i P I I avsnittet Skapa autentiseringsuppgifter som kallas för.](media/Workgrid-provisioning-tutorial/scim.png)
 
@@ -71,11 +71,11 @@ Om du vill konfigurera Workgrid för automatisk användar etablering med Azure A
 
 **Utför följande steg för att lägga till Workgrid från Azure AD-programgalleriet:**
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
+1. Välj **Azure Active Directory** i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -83,7 +83,7 @@ Om du vill konfigurera Workgrid för automatisk användar etablering med Azure A
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **Workgrid**, väljer **Workgrid** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **Workgrid** , väljer **Workgrid** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![Workgrid i resultat listan](common/search-new-app.png)
 

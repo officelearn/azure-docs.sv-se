@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: f9d6f58256ccc21e5121a16a429e0f4c3ff1e485
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 19736a37e0da07237f6b112de7da86efe3d8bfe5
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323092"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359382"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Företags säkerhet och styrning för Azure Machine Learning
 
@@ -42,9 +42,9 @@ Mer information finns i [Konfigurera autentisering för Azure Machine Learning r
 
 Azure Machine Learning stöder två typer av autentisering för webb tjänster: nyckel och token. Varje webb tjänst kan bara aktivera en form av autentisering i taget.
 
-|Autentiseringsmetod|Beskrivning|Azure Container Instances|AKS|
+|Autentiseringsmetod|Description|Azure Container Instances|AKS|
 |---|---|---|---|
-|Tangent|Nycklar är statiska och behöver inte uppdateras. Nycklar kan återskapas manuellt.|Inaktiverat som standard| Aktiverat som standard|
+|Nyckel|Nycklar är statiska och behöver inte uppdateras. Nycklar kan återskapas manuellt.|Inaktiverat som standard| Aktiverat som standard|
 |Token|Token upphör att gälla efter en viss tids period och behöver uppdateras.| Inte tillgängligt| Inaktiverat som standard |
 
 Kod exempel finns i [avsnittet Web-Service Authentication](how-to-setup-authentication.md#web-service-authentication).
@@ -126,6 +126,7 @@ Du kan också aktivera Azures privata länk för din arbets yta. Med privat län
 * Rensar den lokala disken för tillfällig lagring mellan körningar
 * Skickar autentiseringsuppgifter på ett säkert sätt för ditt lagrings konto, behållar registret och SSH-kontot från körnings skiktet till dina beräknings kluster med hjälp av nyckel valvet
 * Aktiverar IP-filtrering för att säkerställa att underliggande batch-pooler inte kan anropas av andra externa tjänster än AzureMachineLearningService
+* Observera att beräknings instanser inte stöds i HBI-arbetsytan
 
 #### <a name="azure-blob-storage"></a>Azure Blob Storage
 

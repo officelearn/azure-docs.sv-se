@@ -1,18 +1,21 @@
 ---
 title: Aktivera VM-tillägg från Azure Portal
 description: Den här artikeln beskriver hur du distribuerar tillägg för virtuella datorer till Azure Arc-aktiverade servrar som körs i hybrid moln miljöer från Azure Portal.
-ms.date: 10/19/2020
+ms.date: 11/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: dcab7cb441c329a60b2c6fa3256aeedb2bb5b33d
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 48d7d4085dce893d94436fe0c6be32cfeea9cda3
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92462993"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359093"
 ---
 # <a name="enable-azure-vm-extensions-from-the-azure-portal"></a>Aktivera Azure VM-tillägg från Azure Portal
 
 Den här artikeln visar hur du distribuerar och avinstallerar virtuella Azure-tillägg, som stöds av Azure Arc-aktiverade servrar, till en Linux-eller Windows hybrid dator via Azure Portal.
+
+> [!NOTE]
+> Key Vault VM-tillägget (för hands version) stöder inte distribution från Azure Portal, bara med Azure CLI, Azure PowerShell eller med en Azure Resource Manager mall.
 
 ## <a name="enable-extensions-from-the-portal"></a>Aktivera tillägg från portalen
 
@@ -22,7 +25,7 @@ VM-tillägg kan tillämpas på en server hanterad dator via Azure Portal.
 
 2. I portalen bläddrar du till **servrar – Azure Arc** och väljer hybrid datorn i listan.
 
-3. Välj **tillägg**och välj sedan **Lägg till**. Välj det tillägg du vill använda i listan över tillgängliga tillägg och följ anvisningarna i guiden. I det här exemplet ska vi distribuera Log Analytics VM-tillägget.
+3. Välj **tillägg** och välj sedan **Lägg till**. Välj det tillägg du vill använda i listan över tillgängliga tillägg och följ anvisningarna i guiden. I det här exemplet ska vi distribuera Log Analytics VM-tillägget.
 
     ![Välj VM-tillägg för den valda datorn](./media/manage-vm-extensions/add-vm-extensions.png)
 
@@ -45,7 +48,7 @@ Du kan ta bort ett eller flera tillägg från en ARC-aktiverad server från Azur
 
 2. I portalen bläddrar du till **servrar – Azure Arc** och väljer hybrid datorn i listan.
 
-3. Välj **tillägg**och välj sedan ett tillägg i listan över installerade tillägg.
+3. Välj **tillägg** och välj sedan ett tillägg i listan över installerade tillägg.
 
 4. Välj **Avinstallera** och när du uppmanas att bekräfta väljer du **Ja** för att fortsätta.
 

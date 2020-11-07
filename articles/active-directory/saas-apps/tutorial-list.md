@@ -6,18 +6,18 @@ author: jeevansd
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.topic: article
+ms.topic: tutorial
 ms.workload: identity
 ms.date: 10/10/2019
 ms.author: jeedes
 ms.custom: it-pro
 ms.reviewer: celested
-ms.openlocfilehash: 8eeddecbec31ec1bfa73cf956deb4c50809c50e7
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: fc94abdfbf5263a559c71d8321a8df7a8c6965a1
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521954"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359858"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>Självstudier för att integrera SaaS-appar med Azure Active Directory
 
@@ -83,7 +83,7 @@ Använd innehålls förteckningen till vänster om du vill ha fler självstudier
 | ![logo typ-hjälp Scout](./media/tutorial-list/active-directory-saas-helpscout-tutorial.png)| [Help Scout](helpscout-tutorial.md)|
 | ![logo typ – Hightail](./media/tutorial-list/active-directory-saas-hightail-tutorial.png)| [Hightail](hightail-tutorial.md)|
 | ![logo typ – HRworks Single Sign-On](./media/tutorial-list/active-directory-saas-hrworks-single-sign-on-tutorial.png)| [HRworks Single Sign-On](hrworks-single-sign-on-tutorial.md)|
-| ![logo typ – JAMF Pro](./media/tutorial-list/active-directory-saas-jamfprosamlconnector-tutorial.png)| [JAMF Pro](jamfprosamlconnector-tutorial.md)|
+| ![logo typ – JAMF Pro](./media/tutorial-list/active-directory-saas-jamfprosamlconnector-tutorial.png)| [Jamf Pro](jamfprosamlconnector-tutorial.md)|
 | ![logo typ – Kanbanize](./media/tutorial-list/active-directory-saas-kanbanize-tutorial.png)| [Kanbanize](kanbanize-tutorial.md)|
 | ![logo typ – kunskap överallt i LMS](./media/tutorial-list/active-directory-saas-knowlwdge-anywhere-lms-tutorial.png)| [Knowledge Anywhere LMS](knowledge-anywhere-lms-tutorial.md)|
 | ![logo-monday.com](./media/tutorial-list/active-directory-saas-mondaycom-tutorial.png)| [monday.com](mondaycom-tutorial.md)|

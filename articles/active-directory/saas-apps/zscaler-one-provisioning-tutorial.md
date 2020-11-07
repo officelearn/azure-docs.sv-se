@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: e306c65735d8a5682cd90a1ce28fceec7d045c4d
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: b8b6383c7808fd6c298d7776fc10572631bc6ddc
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519766"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359569"
 ---
 # <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Zscaler en för automatisk användar etablering
 
@@ -47,7 +47,7 @@ Följ dessa steg om du vill lägga till Zscaler från Marketplace.
 
     ![Ikonen Azure Active Directory](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -98,7 +98,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 5. Under avsnittet **admin-autentiseringsuppgifter** fyller du i rutorna **klient-URL** och **hemlig token** med inställningarna för ditt Zscaler-konto enligt beskrivningen i steg 6.
 
-6. Om du vill hämta klient-URL: en och den hemliga token går du till **Administration**  >  **autentiseringsinställningar** i Zscaler ett Portal gränssnitt. Under **Autentiseringstyp**väljer du **SAML**.
+6. Om du vill hämta klient-URL: en och den hemliga token går du till **Administration**  >  **autentiseringsinställningar** i Zscaler ett Portal gränssnitt. Under **Autentiseringstyp** väljer du **SAML**.
 
     ![Zscaler en autentiseringsinställningar](./media/zscaler-one-provisioning-tutorial/secret-token-1.png)
 
@@ -122,7 +122,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Zscaler en användar-synkronisering](./media/zscaler-one-provisioning-tutorial/user-mappings.png)
 
-11. Granska de användarattribut som synkroniseras från Azure AD till Zscaler ett i avsnittet **mappningar av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i Zscaler ett för uppdaterings åtgärder. Välj **Spara**om du vill spara ändringarna.
+11. Granska de användarattribut som synkroniseras från Azure AD till Zscaler ett i avsnittet **mappningar av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i Zscaler ett för uppdaterings åtgärder. Välj **Spara** om du vill spara ändringarna.
 
     ![Zscaler ett matchande användarattribut](./media/zscaler-one-provisioning-tutorial/user-attribute-mappings.png)
 
@@ -130,13 +130,13 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Zscaler en grupp-synkronisering](./media/zscaler-one-provisioning-tutorial/group-mappings.png)
 
-13. Granska gruppattributen som synkroniseras från Azure AD till Zscaler ett i avsnittet **mappningar av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha grupperna i Zscaler en för uppdaterings åtgärder. Välj **Spara**om du vill spara ändringarna.
+13. Granska gruppattributen som synkroniseras från Azure AD till Zscaler ett i avsnittet **mappningar av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha grupperna i Zscaler en för uppdaterings åtgärder. Välj **Spara** om du vill spara ändringarna.
 
     ![Zscaler en matchande grupps attribut](./media/zscaler-one-provisioning-tutorial/group-attribute-mappings.png)
 
 14. Följ anvisningarna i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)för att konfigurera omfångs filter.
 
-15. Om du vill aktivera Azure AD Provisioning-tjänsten för Zscaler, ändrar du **etablerings statusen** till **på**i avsnittet **Inställningar** .
+15. Om du vill aktivera Azure AD Provisioning-tjänsten för Zscaler, ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
     ![Zscaler en etablerings status](./media/zscaler-one-provisioning-tutorial/provisioning-status.png)
 

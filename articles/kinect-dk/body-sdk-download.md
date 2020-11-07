@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Azure, Kinect, SDK, hämtnings uppdatering, senaste, tillgänglig, installation, brödtext, spårning
-ms.openlocfilehash: e3f8233d208e2a45c1af9a52a76b6064b15bfe4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ac0598d893617f341b9e1fd4d45c0c3e3f3c619
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85277729"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359603"
 ---
 # <a name="download-azure-kinect-body-tracking-sdk"></a>Hämta Azure Kinect Body tracking SDK
 
@@ -41,7 +41,7 @@ Version       | Ladda ned
 
 För närvarande är den enda distribution som stöds Ubuntu 18,04. Information om hur du begär stöd för andra distributioner finns på [den här sidan](https://aka.ms/azurekinectfeedback).
 
-Först måste du konfigurera [Microsofts paket lagrings plats](https://packages.microsoft.com/)genom att följa anvisningarna [här](https://docs.microsoft.com/windows-server/administration/linux-package-repository-for-microsoft-software).
+Först måste du konfigurera [Microsofts paket lagrings plats](https://packages.microsoft.com/)genom att följa anvisningarna [här](/windows-server/administration/linux-package-repository-for-microsoft-software).
 
 `libk4abt<major>.<minor>-dev`Paketet innehåller de huvuden-och cmake-filer som ska byggas `libk4abt` .
 `libk4abt<major>.<minor>`Paketet innehåller de delade objekt som krävs för att köra körbara filer som är beroende av `libk4abt` och exempel visnings programmet.

@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/02/2019
 ms.author: Zhchia
-ms.openlocfilehash: fe48cef0fb235d217f95012e81d7daf501928300
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: fc67d649e3a7cd094eb2c3d633244077abcab308
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518576"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359939"
 ---
 # <a name="tutorial-configure-officespace-software-for-automatic-user-provisioning"></a>Självstudie: Konfigurera OfficeSpace-programvara för automatisk användar etablering
 
@@ -68,11 +68,11 @@ Innan du konfigurerar OfficeSpace-programvaran för automatisk användar etabler
 
 **Gör så här om du vill lägga till OfficeSpace-programvara från Azure AD-programgalleriet:**
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
+1. Välj **Azure Active Directory** i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -80,7 +80,7 @@ Innan du konfigurerar OfficeSpace-programvaran för automatisk användar etabler
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **OfficeSpace program vara**, väljer **OfficeSpace program vara** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **OfficeSpace program vara** , väljer **OfficeSpace program vara** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![OfficeSpace program vara i resultat listan](common/search-new-app.png)
 

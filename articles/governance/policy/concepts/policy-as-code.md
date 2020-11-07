@@ -1,16 +1,16 @@
 ---
-title: Utforma Azure Policy som kod arbets flöden
+title: Utforma arbetsflöden för Azure Policy som kod
 description: Lär dig att utforma arbets flöden för att distribuera dina Azure Policy-definitioner som kod och validera resurserna automatiskt.
 ms.date: 10/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2be6c0770098d50abbb9695e04b3f53c073de9ae
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 74d2097e4db4442e6e65f30541864fb554f7379d
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320616"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359688"
 ---
-# <a name="design-azure-policy-as-code-workflows"></a>Utforma Azure Policy som kod arbets flöden
+# <a name="design-azure-policy-as-code-workflows"></a>Utforma arbetsflöden för Azure Policy som kod
 
 När du fortskrider på resan med moln styrning vill du byta från manuellt hantering av varje princip definition i Azure Portal eller genom de olika SDK: erna till något mer hanterbart och upprepat i företags skala. Två av de dominerande metoderna för att hantera system i skala i molnet är:
 
@@ -38,8 +38,6 @@ Exempel på dessa fil format finns i [Azure policy GitHub lagrings platsen](http
 
 - Princip definition: [Lägg till en tagg till resurser](https://github.com/Azure/azure-policy/tree/master/samples/Tags/add-tag)
 - Initiativ definition: [fakturerings koder](https://github.com/Azure/azure-policy/tree/master/samples/PolicyInitiatives/multiple-billing-tags)
-
-Läs också [exportera Azure policy resurser](../how-to/export-resources.md) för att hämta dina befintliga definitioner och tilldelningar till käll kods hanterings miljön [GitHub](https://www.github.com).
 
 ## <a name="workflow-overview"></a>Översikt över arbets flöde
 
@@ -73,6 +71,8 @@ Princip definitionerna skapas med JSON och lagras i käll kontroll. Varje princi
 ```
 
 När en ny princip läggs till eller en befintlig har uppdaterats, bör arbets flödet automatiskt uppdatera princip definitionen i Azure. Testning av den nya eller uppdaterade princip definitionen kommer i ett senare steg.
+
+Läs också [exportera Azure policy resurser](../how-to/export-resources.md) för att hämta dina befintliga definitioner och tilldelningar till käll kods hanterings miljön [GitHub](https://www.github.com).
 
 ### <a name="create-and-update-initiative-definitions"></a>Skapa och uppdatera initiativ definitioner
 

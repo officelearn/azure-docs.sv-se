@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/18/2019
 ms.author: Zhchia
-ms.openlocfilehash: fcb971cd0bd0addd3190e2a3a5f9c6740494b7fd
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 3bfcd652572b989e98bf4c7cb717cb314dfbaaeb
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318967"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359892"
 ---
 # <a name="tutorial-configure-airstack-for-automatic-user-provisioning"></a>Självstudie: Konfigurera en netstack för automatisk användar etablering
 
@@ -68,11 +68,11 @@ Innan du konfigurerar en netstack för automatisk användar etablering med Azure
 
 **Utför följande steg för att lägga till en flygstack från Azure AD-programgalleriet:**
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
+1. Välj **Azure Active Directory** i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -80,7 +80,7 @@ Innan du konfigurerar en netstack för automatisk användar etablering med Azure
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **netstack**, väljer **flygstack** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **netstack** , väljer **flygstack** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![Flygstack i resultat listan](common/search-new-app.png)
 

@@ -31,14 +31,10 @@
       href: spring-cloud-tutorial-setup-autoscale.md
     - name: Aviseringar och åtgärdsgrupper
       href: spring-cloud-tutorial-alerts-action-groups.md
-    - name: Använda IntelliJ för att distribuera appar
-      href: spring-cloud-tutorial-intellij-deploy-apps.md
     - name: Circuit Breaker Dashboard
       href: spring-cloud-tutorial-circuit-breaker.md
     - name: Anpassat DNS-namn
       href: spring-cloud-tutorial-custom-domain.md
-    - name: Etablera en Azure Spring Cloud-instans med terraform
-      href: spring-cloud-tutorial-provision-azure-spring-cloud-instance-terraform.md
     - name: Använda en hanterad identitet för att ansluta Key Vault till en Azure Spring Cloud-app
       href: spring-cloud-tutorial-managed-identities-key-vault.md
     - name: Distribuera Azure Spring Cloud i virtuellt nätverk
@@ -77,6 +73,8 @@
           href: spring-cloud-howto-staging-environment.md
         - name: Starta Java-appen från källkoden
           href: spring-cloud-howto-launch-from-source.md
+        - name: Använda IntelliJ för att distribuera appar
+          href: spring-cloud-tutorial-intellij-deploy-apps.md
     - name: Konfigurera
       items:
         - name: 'Starta, stoppa och ta bort en app'
@@ -115,6 +113,8 @@
           href: spring-cloud-howto-github-actions.md
         - name: Autentisering med Key Vault i GitHub Actions
           href: spring-cloud-github-actions-key-vault.md
+        - name: Etablera en Azure Spring Cloud-instans med terraform
+          href: spring-cloud-tutorial-provision-azure-spring-cloud-instance-terraform.md
     - name: Felsöka
       items:
         - name: Diagnostisera och lösa problem på egen hand

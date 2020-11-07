@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: 5596dfab98f6826cd61241441a9ddade72e36674
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ca7654d930247f70d85cbc20fbbeb961223f05f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851279"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359807"
 ---
 # <a name="tutorial-configure-federated-directory-for-automatic-user-provisioning"></a>Självstudie: Konfigurera en federerad katalog för automatisk användar etablering
 
@@ -57,20 +57,20 @@ Innan du konfigurerar en federerad katalog för automatisk användar etablering 
 
 2. Navigera till **kataloger > användar kataloger** och välj din klient. 
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/ad-user-directories.png" alt-text="Skärm bild av den federerade katalogens administratörs konsol som visar ett fält för att ange ett företags namn. Inloggnings knapparna visas också." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/ad-user-directories.png" alt-text="Skärm bild av den federerade katalogens administratörs konsol, med kataloger och federerat katalog Azure A D-test markerat." border="false":::
 
 3.  Om du vill skapa en permanent Bearer-token navigerar du till **Katalog nycklar > skapa ny nyckel.** 
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated01.png" alt-text="Skärm bild av den federerade katalogens administratörs konsol som visar ett fält för att ange ett företags namn. Inloggnings knapparna visas också." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated01.png" alt-text="Skärm bild av sidan Katalog nycklar i den federerade katalogens administratörs konsol. Knappen Skapa ny nyckel är markerad." border="false":::
 
 4. Skapa en katalog nyckel. 
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated02.png" alt-text="Skärm bild av den federerade katalogens administratörs konsol som visar ett fält för att ange ett företags namn. Inloggnings knapparna visas också." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated02.png" alt-text="Skärm bild av sidan Skapa katalog nyckel i den federerade katalogens administratörs konsol, med fälten namn och beskrivning och knappen Skapa nyckel." border="false":::
     
 
 5. Kopiera värdet **för åtkomsttoken.** Det här värdet anges i fältet **hemlig token** på fliken etablering i ditt federerade katalog program i Azure Portal. 
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated03.png" alt-text="Skärm bild av den federerade katalogens administratörs konsol som visar ett fält för att ange ett företags namn. Inloggnings knapparna visas också." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated03.png" alt-text="Skärm bild av en sida i den federerade katalogens administratörs konsol. En plats hållare för åtkomst-token och ett nyckel namn, beskrivning och utfärdare visas." border="false":::
     
 ## <a name="add-federated-directory-from-the-gallery"></a>Lägg till federerad katalog från galleriet
 
@@ -78,11 +78,11 @@ Om du vill konfigurera en federerad katalog för automatisk användar etablering
 
 **Gör så här om du vill lägga till en federerad katalog från Azure AD-programgalleriet:**
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
+1. Välj **Azure Active Directory** i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -90,21 +90,21 @@ Om du vill konfigurera en federerad katalog för automatisk användar etablering
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I rutan Sök anger du **federerad katalog**och väljer **federerad katalog** i resultat panelen.
+4. I rutan Sök anger du **federerad katalog** och väljer **federerad katalog** i resultat panelen.
 
     ![Federerad katalog i resultat listan](common/search-new-app.png)
 
 5. Navigera till **URL:** en som marker ATS nedan i en separat webbläsare. 
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage1.png" alt-text="Skärm bild av den federerade katalogens administratörs konsol som visar ett fält för att ange ett företags namn. Inloggnings knapparna visas också." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage1.png" alt-text="Skärm bild av en sida i Azure Portal som visar information om federerade kataloger. U R L-värdet är markerat." border="false":::
 
-6. Klicka på **Logga**in.
+6. Klicka på **Logga** in.
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated04.png" alt-text="Skärm bild av den federerade katalogens administratörs konsol som visar ett fält för att ange ett företags namn. Inloggnings knapparna visas också." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated04.png" alt-text="Skärm bild av huvud menyn på den federerade katalog platsen. Knappen Logga in är markerad." border="false":::
 
 7.  Eftersom den federerade katalogen är en OpenIDConnect-app väljer du att logga in på en federerad katalog med ditt Microsoft Work-konto.
     
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage3.png" alt-text="Skärm bild av den federerade katalogens administratörs konsol som visar ett fält för att ange ett företags namn. Inloggnings knapparna visas också." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage3.png" alt-text="Skärm bild av sidan S C I M A D-test på den federerade katalog platsen. Logga in med din Microsoft-konto är markerad." border="false":::
  
 8. När autentiseringen är klar godkänner du frågan om medgivande för sidan medgivande. Programmet läggs sedan till automatiskt i din klient organisation och du omdirigeras till ditt federerade katalog konto.
 
@@ -146,12 +146,12 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 10. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till federerad katalog**.
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/user-mappings.png" alt-text="Skärm bild av den federerade katalogens administratörs konsol som visar ett fält för att ange ett företags namn. Inloggnings knapparna visas också." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/user-mappings.png" alt-text="Skärm bild av avsnittet mappningar. Synkronisera Azure Active Directory användare till federerad katalog under namn är markerat." border="false":::
     
     
 11. Granska de användarattribut som synkroniseras från Azure AD till den federerade katalogen i avsnittet **Mappning av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i den federerade katalogen för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/user-attributes.png" alt-text="Skärm bild av den federerade katalogens administratörs konsol som visar ett fält för att ange ett företags namn. Inloggnings knapparna visas också." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/user-attributes.png" alt-text="Skärm bild av sidan mappningar för attribut. En tabell visar Azure Active Directory och federerade katalogattribut och matchande status." border="false":::
     
 
 12. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudien för omfångsfilter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).

@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 26f12b18e2199fb45e6eb94f2a136d2af2b1576c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2670dc0cb56805a2afa966bee1d2aa52b6c8e46a
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317607"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358991"
 ---
 # <a name="tutorial-configure-keeper-password-manager--digital-vault-for-automatic-user-provisioning"></a>Självstudie: Konfigurera lösen ords hanteraren för & Digital Vault för automatisk användar etablering
 
@@ -41,11 +41,11 @@ Innan du konfigurerar Keepr Password Manager & Digital Vault för automatisk anv
 
 **Gör så här om du vill lägga till lösen ords hanteraren & digitala valvet i Azure AD-programgalleriet:**
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
+1. Välj **Azure Active Directory** i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -53,7 +53,7 @@ Innan du konfigurerar Keepr Password Manager & Digital Vault för automatisk anv
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **Behåll lösen ords hanteraren & digitala valvet**, väljer **lösen ords hanterare för lösen ord & digitalt valv** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **Behåll lösen ords hanteraren & digitala valvet** , väljer **lösen ords hanterare för lösen ord & digitalt valv** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![Keeper Password Manager & Digital Vault i resultatlistan](common/search-new-app.png)
 

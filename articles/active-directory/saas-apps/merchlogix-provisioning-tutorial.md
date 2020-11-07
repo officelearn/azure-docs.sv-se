@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: zhchia
-ms.openlocfilehash: 9be2205ad0664d58c7a2ef0c07481b1c7aa02402
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d0a52f06a751fba57a00615e2d57485ff740d04
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273355"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359705"
 ---
 # <a name="tutorial-configure-merchlogix-for-automatic-user-provisioning"></a>Självstudie: Konfigurera MerchLogix för automatisk användar etablering
 
@@ -53,7 +53,7 @@ Innan du konfigurerar MerchLogix för automatisk användar etablering med Azure 
 
 4. I rutan Sök skriver du **MerchLogix**.
 
-5. I resultat panelen väljer du **MerchLogix**och klickar sedan på knappen **Lägg** till för att lägga till MerchLogix i listan över SaaS-program.
+5. I resultat panelen väljer du **MerchLogix** och klickar sedan på knappen **Lägg** till för att lägga till MerchLogix i listan över SaaS-program.
 
     ![Skärm bild av Lägg till från text-avsnittet med text rutan Ange ett namn som heter ut.][4]
 

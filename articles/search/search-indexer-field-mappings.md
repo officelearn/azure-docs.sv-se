@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a20b6509973c7dc7e54d2e4f702175ad61e88da8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 579d0e334b4e60815b3a5efc877833ab75a3375d
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532508"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358940"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Fält mappningar och transformeringar med Azure Kognitiv sökning indexerare
 
@@ -28,7 +28,7 @@ Några situationer där fält mappningar är användbara:
 * Data källan har ett fält med namnet `_id` , men Azure kognitiv sökning tillåter inte fält namn som börjar med ett under streck. Med en fält mappning kan du effektivt byta namn på ett fält.
 * Du vill fylla i flera fält i indexet från samma data käll data. Du kanske till exempel vill använda olika analys verktyg för dessa fält.
 * Du vill fylla i ett index fält med data från fler än en data källa och data källorna använder olika fält namn.
-* Du måste base64 koda eller avkoda dina data. Fält mappningar har stöd för flera **mappnings funktioner**, inklusive funktioner för base64-kodning och avkodning.
+* Du måste base64 koda eller avkoda dina data. Fält mappningar har stöd för flera **mappnings funktioner** , inklusive funktioner för base64-kodning och avkodning.
 
 > [!NOTE]
 > Fält mappningar i indexerare är ett enkelt sätt att mappa data fält till index fält, med viss möjlighet till låg data konvertering. Mer komplexa data kan kräva för bearbetning för att forma om den till ett formulär som är till för indexering. Ett alternativ som du kan överväga är [Azure Data Factory](../data-factory/index.yml).
@@ -81,7 +81,7 @@ Det går att referera till ett käll fält i flera fält mappningar. I följande
 
 ## <a name="map-fields-using-the-net-sdk"></a>Mappa fält med hjälp av .NET SDK
 
-Du definierar fält mappningar i .NET SDK med klassen [FieldMapping](/dotnet/api/microsoft.azure.search.models.fieldmapping) , som har egenskaperna `SourceFieldName` och `TargetFieldName` , och en valfri `MappingFunction` referens.
+Du definierar fält mappningar i .NET SDK med klassen [FieldMapping](/dotnet/api/azure.search.documents.indexes.models.fieldmapping) , som har egenskaperna `SourceFieldName` och `TargetFieldName` , och en valfri `MappingFunction` referens.
 
 Du kan ange fält mappningar när du konstruerar indexeraren eller senare genom att ange egenskapen direkt `Indexer.FieldMappings` .
 
@@ -215,7 +215,7 @@ I följande tabell jämförs olika base64-kodningar för strängen `00>00?00` . 
 | Base64 med utfyllnad | `MDA+MDA/MDA=` | Använd URL-säkra tecken och ta bort utfyllnad | Använd standard base64-tecken och Lägg till utfyllnad |
 | Base64 utan utfyllnad | `MDA+MDA/MDA` | Använd URL-säkra tecken | Använd standard base64-tecken |
 | URL – säker base64 med utfyllnad | `MDA-MDA_MDA=` | Ta bort utfyllnad | Lägg till utfyllnad |
-| URL – säker base64 utan utfyllnad | `MDA-MDA_MDA` | Inget | Inget |
+| URL – säker base64 utan utfyllnad | `MDA-MDA_MDA` | Inga | Inga |
 
 <a name="extractTokenAtPositionFunction"></a>
 

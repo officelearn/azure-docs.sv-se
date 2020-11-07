@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 06a31e61583ac28218b34195dd6e5b7f92776dce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b10cf314bc9394f3297839d45d3497f9f5d3b0e0
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541245"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358838"
 ---
 # <a name="how-to-monitor-azure-cognitive-search-indexer-status-and-results"></a>Övervaka status och resultat för Azure Kognitiv sökning Indexer
 
@@ -51,7 +51,7 @@ Du kan se aktuell status för alla indexerare i listan **indexerare** på sidan 
 
    ![Lista med indexerare](media/search-monitor-indexers/indexers-list.png "Lista med indexerare")
 
-När en indexerare körs visas statusen i listan **i förlopp**och värdet för **dokument lyckades** visar antalet dokument som bearbetats hittills. Det kan ta några minuter för portalen att uppdatera indexerings status värden och antalet dokument.
+När en indexerare körs visas statusen i listan **i förlopp** och värdet för **dokument lyckades** visar antalet dokument som bearbetats hittills. Det kan ta några minuter för portalen att uppdatera indexerings status värden och antalet dokument.
 
 En indexerare vars senaste körning lyckades visas som **lyckad**. En indexerare-körning kan lyckas även om enskilda dokument innehåller fel, om antalet fel är mindre än inställningen för **maximalt antal misslyckade objekt** i indexeraren.
 
@@ -122,7 +122,7 @@ Körnings historiken innehåller upp till de 50 senaste körningarna, som sorter
 
 Observera att det finns två olika status värden. Status på den högsta nivån är för själva indexeraren. En indexerare-status för **körning** innebär att indexeraren är korrekt inställd och tillgänglig för körning, men inte att den körs för närvarande.
 
-Varje körning av indexeraren har också sin egen status som anger om den specifika körningen pågår (**körs**) eller redan har slutförts med statusen **lyckades**, **transientFailure**eller **persistentFailure** . 
+Varje körning av indexeraren har också sin egen status som anger om den specifika körningen pågår ( **körs** ) eller redan har slutförts med statusen **lyckades** , **transientFailure** eller **persistentFailure** . 
 
 När en indexerare återställs för att uppdatera status för ändrings spårning läggs en separat post för körnings historik till med en **återställnings** status.
 
@@ -181,7 +181,7 @@ Latest run
 
 Observera att det finns två olika status värden. Status på den högsta nivån är status för själva indexeraren. En indexerare status för **körning** innebär att indexeraren är korrekt inställd och tillgänglig för körning, men inte att den körs.
 
-Varje körning av indexeraren har också sin egen status för huruvida den specifika körningen pågår (**körs**) eller redan har slutförts med statusen **lyckades** eller **TransientError** . 
+Varje körning av indexeraren har också sin egen status för huruvida den specifika körningen pågår ( **körs** ) eller redan har slutförts med statusen **lyckades** eller **TransientError** . 
 
 När en indexerare återställs för att uppdatera ändrings spårnings statusen läggs en separat historik post till med en **återställnings** status.
 

@@ -7,18 +7,18 @@ ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 10/06/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3d03d0267ff4fb16042d5cc2016e87139b88281a
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 645d5beb19b738e2269c0ec9e5b84fb140c7deb8
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056590"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359514"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>Självstudie: skapa en VPN-anslutning för användare med Azure Virtual WAN
 
 I den här självstudien förklarar vi hur du använder Virtual WAN för att ansluta till dina resurser i Azure via en IPsec/IKE-anslutning (IKEv2) eller en OpenVPN VPN-anslutning. Den här typen av anslutning kräver att en klient konfigureras på klientdatorn. Mer information om virtuellt WAN finns i [Översikt över virtuella WAN-nätverk](virtual-wan-about.md)
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa WAN (Wide Area Network)
@@ -32,7 +32,9 @@ I de här självstudierna får du lära dig att
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-[!INCLUDE [Before beginning](../../includes/virtual-wan-before-include.md)]
+Kontrollera att du har uppfyllt följande villkor innan du påbörjar konfigurationen:
+
+[!INCLUDE [Before you begin](../../includes/virtual-wan-before-include.md)]
 
 ## <a name="create-a-virtual-wan"></a><a name="wan"></a>Skapa ett virtuellt WAN
 
@@ -50,7 +52,7 @@ En punkt-till-plats-konfiguration (P2S) definierar parametrar för att ansluta f
 
 ## <a name="specify-dns-server"></a><a name="dns"></a>Ange DNS-Server
 
-Med VPN-gatewayer för virtuella WAN-användare kan du ange upp till fem DNS-servrar. Du kan konfigurera detta när du skapar hubben eller ändrar det vid ett senare tillfälle. Det gör du genom att leta upp den virtuella hubben. Under **användar-VPN (peka på plats)**, väljer du **Konfigurera** och anger DNS-serverns IP-adress (er) i den **anpassade DNS-** serverns text ruta (er).
+Med VPN-gatewayer för virtuella WAN-användare kan du ange upp till fem DNS-servrar. Du kan konfigurera detta när du skapar hubben eller ändrar det vid ett senare tillfälle. Det gör du genom att leta upp den virtuella hubben. Under **användar-VPN (peka på plats)** , väljer du **Konfigurera** och anger DNS-serverns IP-adress (er) i den **anpassade DNS-** serverns text ruta (er).
 
    :::image type="content" source="media/virtual-wan-point-to-site-portal/custom-dns.png" alt-text="anpassad DNS" lightbox="media/virtual-wan-point-to-site-portal/custom-dns-expand.png":::
 

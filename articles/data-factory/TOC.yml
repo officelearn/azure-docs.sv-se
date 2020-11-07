@@ -203,6 +203,8 @@
       href: concepts-roles-permissions.md
     - name: Namngivningsregler
       href: naming-rules.md
+    - name: Dataredundans
+      href: concepts-data-redundancy.md
 - name: Anvisningar
   items:
     - name: Författare

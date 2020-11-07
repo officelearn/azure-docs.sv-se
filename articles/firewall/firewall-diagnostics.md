@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 11/04/2020
 ms.author: victorh
-ms.openlocfilehash: 2899121db4b6a3f202be4860e2e4f43027cdef7c
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 2dd1b51c6bcdbc531661d9ecf45d3d0282eb5b45
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348777"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358855"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Övervaka Azure Firewall-loggar och mått
 
@@ -50,74 +50,55 @@ Det kan ta några minuter innan data visas i loggarna när du har aktiverat diag
 8. Välj din prenumeration.
 9. Välj **Spara**.
 
-## <a name="enable-logging-with-powershell"></a>aktivera loggning med PowerShell
+## <a name="enable-diagnostic-logging-by-using-powershell"></a>Aktivera diagnostisk loggning med hjälp av PowerShell
 
 Aktivitetsloggning är automatiskt aktiverad för alla Resource Manager-resurser. Däremot måste du aktivera diagnostisk loggning om du vill börja samla in de data som är tillgängliga via dessa loggar.
 
-Så här aktiverar du diagnostisk loggning:
+Använd följande steg för att aktivera diagnostisk loggning med PowerShell:
 
-1. Anteckna resurs-ID:t för det lagringskonto där loggdata lagras. Det här värdet är av formatet: */Subscriptions/ \<subscriptionId\> /resourceGroups/ \<resource group name\> /providers/Microsoft.Storage/storageAccounts/ \<storage account name\>*.
+1. Anteckna Log Analytics arbets ytans resurs-ID, där loggdata lagras. Det här värdet är av formatet: `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>` .
 
-   Du kan använda valfritt lagringskonto i din prenumeration. Du hittar den här informationen i Azure Portal. Informationen finns på sidan **Egenskaper** för resursen.
+   Du kan använda valfri arbets yta i din prenumeration. Du hittar den här informationen i Azure Portal. Informationen finns på sidan resurs **Egenskaper** .
 
-2. Anteckna resurs-ID:t för den brandvägg som ska loggas. Det här värdet är av formatet: */Subscriptions/ \<subscriptionId\> /resourceGroups/ \<resource group name\> /providers/Microsoft.Network/azureFirewalls/ \<Firewall name\>*.
+2. Anteckna resurs-ID:t för den brandvägg som ska loggas. Det här värdet är av formatet: `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>` .
 
    Du hittar den här informationen i Azure Portal.
 
-3. Aktivera diagnostisk loggning med följande PowerShell-cmdlet:
+3. Aktivera diagnostisk loggning för alla loggar och mått med hjälp av följande PowerShell-cmdlet:
 
-    ```powershell
-    Set-AzDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name> `
-   -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> `
-   -Enabled $true     
-    ```
+   ```powershell
+   $diagSettings = @{
+      Name = 'toLogAnalytics'
+      ResourceId = '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>'
+      WorkspaceId = '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>'
+      Enabled = $true
+   }
+   Set-AzDiagnosticSetting  @diagSettings 
+   ```
 
-> [!TIP]
->Du behöver inget separat lagringskonto för diagnostiska loggar. När du använder lagring för åtkomst- och prestandaloggning debiteras avgifter för tjänsten.
-
-## <a name="enable-diagnostic-logging-by-using-azure-cli"></a>Aktivera diagnostisk loggning med hjälp av Azure CLI
+## <a name="enable-diagnostic-logging-by-using-the-azure-cli"></a>Aktivera diagnostisk loggning med hjälp av Azure CLI
 
 Aktivitetsloggning är automatiskt aktiverad för alla Resource Manager-resurser. Däremot måste du aktivera diagnostisk loggning om du vill börja samla in de data som är tillgängliga via dessa loggar.
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+Använd följande steg för att aktivera diagnostisk loggning med Azure CLI:
 
-### <a name="enable-diagnostic-logging"></a>Aktivera diagnostisk loggning
+1. Anteckna Log Analytics arbets ytans resurs-ID, där loggdata lagras. Det här värdet är av formatet: `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>` .
 
-Använd följande kommandon för att aktivera diagnostisk loggning.
+   Du kan använda valfri arbets yta i din prenumeration. Du hittar den här informationen i Azure Portal. Informationen finns på sidan resurs **Egenskaper** .
 
-1. Kör kommandot [AZ Monitor Diagnostic-Settings Create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) för att aktivera diagnostisk loggning:
+2. Anteckna resurs-ID:t för den brandvägg som ska loggas. Det här värdet är av formatet: `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>` .
 
-   ```azurecli
-   az monitor diagnostic-settings create –name AzureFirewallApplicationRule \
-     --resource Firewall07 --storage-account MyStorageAccount
+   Du hittar den här informationen i Azure Portal.
+
+3. Aktivera diagnostisk loggning för alla loggar och mått med hjälp av följande Azure CLI-kommando:
+
+   ```azurecli-interactive
+   az monitor diagnostic-settings create -n 'toLogAnalytics'
+      --resource '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>'
+      --workspace '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>'
+      --logs '[{\"category\":\"AzureFirewallApplicationRule\",\"Enabled\":true}, {\"category\":\"AzureFirewallNetworkRule\",\"Enabled\":true}, {\"category\":\"AzureFirewallDnsProxy\",\"Enabled\":true}]' 
+      --metrics '[{\"category\": \"AllMetrics\",\"enabled\": true}]'
    ```
-
-   Kör kommandot [AZ Monitor Diagnostic-Settings List](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_list) för att Visa diagnostikinställningar för en resurs:
-
-   ```azurecli
-   az monitor diagnostic-settings list --resource Firewall07
-   ```
-
-   Använd [AZ Monitor Diagnostic-Settings show](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_show) för att visa de aktiva diagnostikinställningar för en resurs:
-
-   ```azurecli
-   az monitor diagnostic-settings show --name AzureFirewallApplicationRule --resource Firewall07
-   ```
-
-1. Kör kommandot [AZ Monitor Diagnostic-Settings Update](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_update) för att uppdatera inställningarna.
-
-   ```azurecli
-   az monitor diagnostic-settings update --name AzureFirewallApplicationRule --resource Firewall07 --set retentionPolicy.days=365
-   ```
-
-   Använd kommandot [AZ Monitor Diagnostic-Settings Delete](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_delete) för att ta bort en diagnostisk inställning.
-
-   ```azurecli
-   az monitor diagnostic-settings delete --name AzureFirewallApplicationRule --resource Firewall07
-   ```
-
-> [!TIP]
->Du behöver inget separat lagringskonto för diagnostiska loggar. När du använder lagring för åtkomst- och prestandaloggning debiteras avgifter för tjänsten.
 
 ## <a name="view-and-analyze-the-activity-log"></a>Visa och analysera aktivitetsloggar
 
@@ -133,6 +114,8 @@ Du kan visa och analysera aktivitetsloggdata med någon av följande metoder:
 
 Log Analytics-exempelfrågor för Azure Firewall finns i [Log Analytics-exempel för Azure Firewall](log-analytics-samples.md).
 
+[Azure Firewall-arbetsboken](firewall-workbook.md) innehåller en flexibel arbets yta för analys av Azure Firewall-data. Du kan använda den för att skapa omfattande visuella rapporter i Azure Portal. Du kan trycka på flera brand väggar som distribueras i Azure och kombinera dem till enhetliga interaktiva upplevelser.
+
 Du kan också ansluta till ditt lagringskonto och hämta JSON-loggposter för åtkomst- och prestandaloggar. När du har laddat ned JSON-filerna kan du konvertera dem till CSV-format och visa dem i Excel, Power BI eller något annat verktyg för visualisering av data.
 
 > [!TIP]
@@ -144,5 +127,7 @@ Bläddra till en Azure-brandvägg, under **övervakning** Välj **mått**. Om du
 ## <a name="next-steps"></a>Nästa steg
 
 Nu när du har konfigurerat brandväggen för insamling av loggar kan du utforska hur du visar dina data i Azure Monitor-loggar.
+
+[Övervaka loggar med hjälp av Azure Firewall-arbetsboken](firewall-workbook.md)
 
 [Lösningar för nätverksövervakning i Azure Monitor-loggar](../azure-monitor/insights/azure-networking-analytics.md)

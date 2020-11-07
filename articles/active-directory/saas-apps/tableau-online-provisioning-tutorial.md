@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: fa28b299a33f5386edc6ce14c523d2c332b0767b
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a42790e079985b003776b381c74f837b0ba619b1
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520514"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359212"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Tableau online för automatisk användar etablering
 
@@ -45,7 +45,7 @@ Följ dessa steg om du vill lägga till Tableau online från Marketplace.
 
     ![Ikonen Azure Active Directory](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -131,7 +131,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Synkronisering av Tableau online](./media/tableau-online-provisioning-tutorial/UserMappings.png)
 
-11. Granska de användarattribut som synkroniseras från Azure AD till Tableau online i avsnittet **mappningar av attribut** . De attribut som väljs som **matchande** egenskaper används för att matcha användar kontona i Tableau online för uppdaterings åtgärder. Välj **Spara**om du vill spara ändringarna.
+11. Granska de användarattribut som synkroniseras från Azure AD till Tableau online i avsnittet **mappningar av attribut** . De attribut som väljs som **matchande** egenskaper används för att matcha användar kontona i Tableau online för uppdaterings åtgärder. Välj **Spara** om du vill spara ändringarna.
 
     ![Tableau som matchar användar attribut online](./media/tableau-online-provisioning-tutorial/attribute.png)
 
@@ -139,7 +139,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Synkronisering av Tableau online-grupp](./media/tableau-online-provisioning-tutorial/GroupMappings.png)
 
-13. Granska gruppattributen som synkroniseras från Azure AD till Tableau online i avsnittet **mappningar av attribut** . De attribut som väljs som **matchande** egenskaper används för att matcha användar kontona i Tableau online för uppdaterings åtgärder. Välj **Spara**om du vill spara ändringarna.
+13. Granska gruppattributen som synkroniseras från Azure AD till Tableau online i avsnittet **mappningar av attribut** . De attribut som väljs som **matchande** egenskaper används för att matcha användar kontona i Tableau online för uppdaterings åtgärder. Välj **Spara** om du vill spara ändringarna.
 
     ![Tableau för matchande grupp](./media/tableau-online-provisioning-tutorial/GroupAttributeMapping.png)
 

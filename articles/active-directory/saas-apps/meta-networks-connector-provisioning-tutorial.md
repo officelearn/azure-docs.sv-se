@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/01/2019
 ms.author: Zhchia
-ms.openlocfilehash: 2fe0d8e6ad2056a244ec0d811f1b2dcb67e7bd84
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: ac41fb5ed6fd1e46719fcc39ccaf5b29375e7410
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516817"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359909"
 ---
 # <a name="tutorial-configure-meta-networks-connector-for-automatic-user-provisioning"></a>Självstudie: Konfigurera meta Networks Connector för automatisk användar etablering
 
@@ -68,7 +68,7 @@ Innan du konfigurerar och aktiverar automatisk användar etablering bör du best
 
 5.  Klicka på **Lägg till**. Kopiera **hemligheten** och spara den eftersom det är den enda gången du kan visa den. Det här värdet anges i fältet Hemlig token på fliken etablering i appen för meta Networks Connector i Azure Portal.
 
-    :::image type="content" source="media/meta-networks-connector-provisioning-tutorial/token.png" alt-text="Skärm bild av administratörs konsolen för meta Networks Connector med markerat ett P I nyckel namn och ett P I Key Description-värden för Azure A D och en P I-nyckel." border="false":::
+    :::image type="content" source="media/meta-networks-connector-provisioning-tutorial/token.png" alt-text="Skärm bild av ett fönster som talar om för användarna att en P I-nyckel har lagts till. Rutan hemlighet innehåller ett värde som inte kan tolkas och är markerat." border="false":::
 
 6.  Lägg till en IdP genom att gå till **Administration > inställningar > IdP > skapa nytt**.
 
@@ -94,11 +94,11 @@ Innan du konfigurerar meta Network Connector för automatisk användar etablerin
 
 **Gör så här om du vill lägga till meta Networks Connector från Azure AD-programgalleriet:**
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
+1. Välj **Azure Active Directory** i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -106,7 +106,7 @@ Innan du konfigurerar meta Network Connector för automatisk användar etablerin
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I rutan Sök anger du **meta Networks Connector**, väljer **meta Networks Connector** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I rutan Sök anger du **meta Networks Connector** , väljer **meta Networks Connector** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![Meta Networks Connector i resultatlistan](common/search-new-app.png)
 

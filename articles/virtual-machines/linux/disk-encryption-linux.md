@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: d3e856256e02e2c1914aeec493a87ffe992bbf13
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e8f71b277a4f4b538d501b1fa825bc6ec43428c8
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740313"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359399"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Azure Disk Encryption-scenarier på virtuella Linux-datorer
 
@@ -25,7 +25,7 @@ Azure Disk Encryption är [integrerat med Azure Key Vault](disk-encryption-key-v
 Du kan bara använda disk kryptering för virtuella datorer med [stödda VM-storlekar och operativ system](disk-encryption-overview.md#supported-vms-and-operating-systems). Du måste också uppfylla följande krav:
 
 - [Ytterligare krav för virtuella datorer](disk-encryption-overview.md#supported-vms-and-operating-systems)
-- [Nätverks krav](disk-encryption-overview.md#networking-requirements)
+- [Nätverkskrav](disk-encryption-overview.md#networking-requirements)
 - [Lagrings krav för krypterings nyckel](disk-encryption-overview.md#encryption-key-storage-requirements)
 
 I samtliga fall bör du [ta en ögonblicks bild](snapshot-copy-managed-disk.md) och/eller skapa en säkerhets kopia innan diskarna krypteras. Säkerhets kopieringar säkerställer att ett återställnings alternativ är möjligt om ett oväntat fel uppstår under krypteringen. Virtuella datorer med hanterade diskar kräver en säkerhets kopia innan krypteringen utförs. När du har gjort en säkerhets kopia kan du använda [cmdleten Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) för att kryptera hanterade diskar genom att ange parametern-skipVmBackup. Mer information om hur du säkerhetskopierar och återställer krypterade virtuella datorer finns i [Azure Backup](../../backup/backup-azure-vms-encryption.md) artikeln. 
@@ -201,7 +201,7 @@ I följande tabell visas parametrar för Resource Manager-mallar för befintliga
 | keyVaultName | Namnet på nyckel valvet som krypterings nyckeln ska överföras till. Du kan hämta den med hjälp av cmdleten `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` eller Azure CLI- `az keyvault list --resource-group "MyKeyVaultResourceGroupName"` kommandot.|
 | keyVaultResourceGroup | Namnet på den resurs grupp som innehåller nyckel valvet. |
 |  keyEncryptionKeyURL | URL till den nyckel krypterings nyckel som används för att kryptera krypterings nyckeln. Den här parametern är valfri om du väljer **nokek** i list rutan UseExistingKek. Om du väljer **KEK** i list rutan UseExistingKek måste du ange värdet _keyEncryptionKeyURL_ . |
-| volumeType | Typ av volym som krypterings åtgärden utförs på. Giltiga värden är _OS_ , _data_ och _alla_ . 
+| volumeType | Typ av volym som krypterings åtgärden utförs på. Giltiga värden är _OS_ , _data_ och _alla_. 
 | forceUpdateTag | Skicka ett unikt värde som ett GUID varje gång åtgärden måste tvingas köras. |
 | location | Platser för alla resurser. |
 
@@ -415,6 +415,7 @@ Azure Disk Encryption fungerar inte för följande scenarier, funktioner och tek
 - Virtuella datorer i M-serien med Skrivningsaccelerator diskar.
 - Använda ADE på en virtuell dator som har diskar som är krypterade med [kryptering på Server sidan med Kundhanterade nycklar](disk-encryption.md) (SSE + CMK). Att använda SSE + CMK till en datadisk på en virtuell dator som är krypterad med ADE är ett scenario som inte stöds.
 - Migrering av en virtuell dator som är krypterad med ADE eller **som har varit** krypterad med ade, till kryptering på [Server sidan med Kundhanterade nycklar](disk-encryption.md).
+- [Azure VM-storlekar utan lokal temporär disk](../azure-vms-no-temp-disk.md); Mer specifikt, DV4, Dsv4, Ev4 och Esv4.
 
 ## <a name="next-steps"></a>Nästa steg
 

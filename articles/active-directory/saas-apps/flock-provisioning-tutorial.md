@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 636bb4c3340f13046706bf887119108b86b6a660
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01c3f6429d2a5c8443ac128d763033dc8c53cbc7
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850917"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359416"
 ---
 # <a name="tutorial-configure-flock-for-automatic-user-provisioning"></a>Självstudie: Konfigurera flock för automatisk användar etablering
 
@@ -58,11 +58,11 @@ Innan du konfigurerar flock för automatisk användar etablering med Azure AD m�
 
 2. Välj **autentisering och etablering**.
 
-    :::image type="content" source="media/Flock-provisioning-tutorial/auth.png" alt-text="Skärm bild av flock-webbplatsen. Inställnings ikonen är markerad och dess snabb meny visas. I den menyn är hantera ditt team markerat." border="false":::
+    :::image type="content" source="media/Flock-provisioning-tutorial/auth.png" alt-text="Skärm bild av en meny på flock-webbplatsen. Autentiserings-och etablerings objekt är markerat." border="false":::
 
 3. Kopiera **API-token**. Dessa värden anges i fältet **hemlig token** på fliken etablering i ditt Flocks program i Azure Portal.
 
-    :::image type="content" source="media/Flock-provisioning-tutorial/provisioning.png" alt-text="Skärm bild av flock-webbplatsen. Inställnings ikonen är markerad och dess snabb meny visas. I den menyn är hantera ditt team markerat." border="false":::
+    :::image type="content" source="media/Flock-provisioning-tutorial/provisioning.png" alt-text="Skärm bild av fliken etablering på flock-webbplatsen. Ett värde markeras under en P I-token. Bredvid token är knappen Kopiera token." border="false":::
 
 
 ## <a name="add-flock--from-the-gallery"></a>Lägg till flock från galleriet
@@ -71,11 +71,11 @@ Om du vill konfigurera flock för automatisk användar etablering med Azure AD m
 
 **Utför följande steg för att lägga till besättningar från Azure AD-programgalleriet:**
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
+1. Välj **Azure Active Directory** i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -83,7 +83,7 @@ Om du vill konfigurera flock för automatisk användar etablering med Azure AD m
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I rutan Sök anger du **flock**, väljer **flock** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I rutan Sök anger du **flock** , väljer **flock** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![Flock i resultat listan](common/search-new-app.png)
 

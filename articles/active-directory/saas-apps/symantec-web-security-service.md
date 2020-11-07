@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/23/2019
 ms.author: Zhchia
-ms.openlocfilehash: 7b4a5e76ec8dad66bf300cc3e1d55471383f83ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7e0db1b0bc1e7aef68ee06f3bdd5e5e0f83b73e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285850"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94354741"
 ---
 # <a name="tutorial-configure-symantec-web-security-service-wss-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Symantec Web Security Service (WSS) för automatisk användar etablering
 
@@ -74,11 +74,11 @@ Om du vill konfigurera Symantec Web Security Service (WSS) för automatisk anvä
 
 **Gör så här för att lägga till Symantec Web Security Service (WSS) från Azure AD Application Gallery:**
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
+1. Välj **Azure Active Directory** i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -86,7 +86,7 @@ Om du vill konfigurera Symantec Web Security Service (WSS) för automatisk anvä
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **Symantec Web Security Service**, väljer **Symantec Web Security Service** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **Symantec Web Security Service** , väljer **Symantec Web Security Service** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![Symantec Web Security Service (WSS) i resultatlistan](common/search-new-app.png)
 

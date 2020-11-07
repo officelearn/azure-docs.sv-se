@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: a6f5526b01588649d1e094036241d616a8392949
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: f95d7ae38ece2a2ad939d2b3c829aed2c676d0f7
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996478"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94354010"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption för virtuella Linux-datorer 
 
@@ -47,6 +47,8 @@ När operativ systemets disk krypterings process har slutförts på virtuella Li
 Azure Disk Encryption är också tillgängligt för virtuella datorer med Premium Storage.
 
 Azure Disk Encryption är inte tillgänglig på virtuella datorer i [generation 2](../generation-2.md#generation-1-vs-generation-2-capabilities) och [virtuella datorer i Lsv2-serien](../lsv2-series.md). Mer undantag finns i [Azure Disk Encryption: scenarier som inte stöds](disk-encryption-linux.md#unsupported-scenarios).
+
+Azure Disk Encryption är inte tillgängligt på VM-avbildningar utan temporära diskar (DV4, Dsv4, Ev4 och Esv4).  Se [storlekar för virtuella Azure-datorer utan lokal temporär disk](../azure-vms-no-temp-disk.md).
 
 ### <a name="supported-operating-systems"></a>Operativsystem som stöds
 
@@ -116,7 +118,7 @@ echo "UUID=$UUID0 /data0 ext4 defaults,nofail 0 0" >>/etc/fstab
 echo "UUID=$UUID1 /data1 ext4 defaults,nofail 0 0" >>/etc/fstab
 mount -a
 ```
-## <a name="networking-requirements"></a>Nätverks krav
+## <a name="networking-requirements"></a>Nätverkskrav
 
 Om du vill aktivera funktionen Azure Disk Encryption måste de virtuella Linux-datorerna uppfylla följande konfigurations krav för nätverks slut punkt:
   - Om du vill hämta en token för att ansluta till ditt nyckel valv måste den virtuella Linux-datorn kunna ansluta till en Azure Active Directory-slutpunkt, \[ login.microsoftonline.com \] .

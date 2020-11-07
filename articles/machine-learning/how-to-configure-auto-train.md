@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1, automl
-ms.openlocfilehash: 825413421bc9025c2912bb790a3166c6e3d34a0f
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 435476bee4839d083e3fe6cb0aa635d5ca67c4c0
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421846"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94352582"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurera automatiserade ML-experiment i Python
 
@@ -46,7 +46,7 @@ För den här artikeln behöver du
     Om du vill installera SDK kan du antingen 
     * Skapa en beräknings instans som automatiskt installerar SDK och som är förkonfigurerat för ML-arbetsflöden. Mer information finns i [skapa och hantera en Azure Machine Learning beräknings instans](how-to-create-manage-compute-instance.md) . 
 
-    * [Installera SDK själv](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py). Se bara till att inkludera `automl` extra. 
+    * [Installera `automl` paketet själv](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment), som innehåller [standard installationen](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py#default-install&preserve-view=true) av SDK.
 
 ## <a name="select-your-experiment-type"></a>Välj experimenttyp
 

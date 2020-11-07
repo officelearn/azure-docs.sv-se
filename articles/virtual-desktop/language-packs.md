@@ -3,15 +3,15 @@ title: Installera språk paket på virtuella Windows 10-datorer i Windows Virtua
 description: Så här installerar du språk paket för Windows 10-virtuella datorer med flera sessioner i Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/21/2020
+ms.date: 11/06/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fbc2aba21212a83bd73d5664f4fe288017954c0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10d79d08e3f6ed422f0354074ebc6e0acc125553
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90084217"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94354044"
 ---
 # <a name="add-language-packs-to-a-windows-10-multi-session-image"></a>Lägga till språk paket i en Windows 10-avbildning för flera sessioner
 
@@ -43,6 +43,11 @@ Du behöver följande för att anpassa dina Windows 10 Enterprise multi-session-
      - Inkorg-appar ISO:
         - [Inbox-appar för Windows 10, version 1903 eller 1909 i ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_InboxApps.iso)
         - [Windows 10, version 2004 Inbox-appar ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_InboxApps.iso)
+        - [Windows 10, version 20H2 Inbox-appar ISO](https://software-download.microsoft.com/download/pr/19041.508.200905-1327.vb_release_svc_prod1_amd64fre_InboxApps.iso)
+     
+     - Om du använder Windows 10, version 2004 eller 20H2 kan du använda LXP-ISO (Local Experience Pack) för att hämta nya språk. Använd informationen för [att lägga till språk i Windows 10: kända problem](/windows-hardware/manufacture/desktop/language-packs-known-issue) för att ta reda på om du ska hämta version 9b eller 9c:
+        - [Windows 10, version 2004 eller 20H2 **9b** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_64_ARM64_MultiLang_LangPckAll_LIP_LXP_ONLY)
+        - [Windows 10, version 2004 eller 20H2 **9c** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_32_64_ARM64_MultiLng_LngPkAll_LIP_9C_LXP_ONLY) 
 
 - En Azure Files resurs eller en fil resurs på en virtuell Windows-fil Server
 
@@ -59,7 +64,7 @@ Så här skapar du innehålls lagrings platsen för språk paket och FODs och en
 
 3. Gå till språk paketet ISO och kopiera innehållet från mappen **LocalExperiencePacks** och **x64 \\ Langpacks** och klistra in innehållet i fil resursen.
 
-4. Gå till **ISO-filen med franska**, kopiera allt innehåll och klistra in den i fil resursen.
+4. Gå till **ISO-filen med franska** , kopiera allt innehåll och klistra in den i fil resursen.
 5. Gå till mappen **amd64fre** i Inkorgen appar i ISO och kopiera innehållet i lagrings platsen för de Inbox-appar som du har för berett.
 
      >[!NOTE]

@@ -5,17 +5,17 @@ services: peering-service
 author: derekolo
 ms.service: peering-service
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
-ms.date: 10/19/2020
+ms.date: 11/06/2020
 ms.author: derekol
-ms.openlocfilehash: 02135b7e1f2086e430411c31f59ddeb55b2978e7
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 29ce0c1421019b95adb00c4eab3f9c1d90da0510
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201077"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353789"
 ---
 # <a name="peering-service-partners"></a>Peering service-partner
 
@@ -43,6 +43,7 @@ Tabellen i den här artikeln innehåller information om peering-tjänstens anslu
 | [PCCW](https://www.pccwglobal.com/en/enterprise/products/network/ep-global-internet-access) |Asien |
 | [Singtel](https://www.singtel.com/business/campaign/singnet-cloud-connect-microsoft-direct) |Asien |
 | [NAP-Afrika](https://www.napafrica.net/technical/microsoft-azure-peering-service/) |Afrika|
+| [Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/wireline/ip-plus.html) |Europa|
 
 > [!NOTE]
 >För ytterligare information om att lista med peering service partner program, kontakta peeringservice@microsoft.com .

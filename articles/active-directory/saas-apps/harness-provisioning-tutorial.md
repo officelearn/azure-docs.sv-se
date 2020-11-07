@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: 2f8cafc0ec94e9254d42bf6718e796a256d128d4
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 13ae960f5d259314f00f8f09b2999a36c0919bc5
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92445726"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353738"
 ---
 # <a name="tutorial-configure-harness-for-automatic-user-provisioning"></a>Självstudie: Konfigurera ett nät för automatisk användar etablering
 
@@ -27,7 +27,7 @@ I den här artikeln får du lära dig hur du konfigurerar Azure Active Directory
 >
 > Den här kopplingen är för närvarande en för hands version. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här artikeln förutsätter att du redan har följande krav:
 
@@ -49,7 +49,7 @@ Innan du konfigurerar och aktiverar automatisk användar etablering ska du best�
 
 ## <a name="set-up-harness-for-provisioning"></a>Konfigurera ett nät för etablering
 
-1. Logga in på din- [administrations konsol](https://app.harness.io/#/login)och gå sedan till **kontinuerlig**  >  **hantering**av säkerhets åtkomst.
+1. Logga in på din- [administrations konsol](https://app.harness.io/#/login)och gå sedan till **kontinuerlig**  >  **hantering** av säkerhets åtkomst.
 
     ![Nät administrations konsol](media/harness-provisioning-tutorial/admin.png)
 
@@ -90,7 +90,7 @@ Innan du konfigurerar ett nät för automatisk användar etablering med Azure AD
 
     ![Knappen "nytt program"](common/add-new-app.png)
 
-1. I sökrutan anger du **nät**, väljer **nät** i resultat listan och väljer sedan knappen **Lägg till** för att lägga till programmet.
+1. I sökrutan anger du **nät** , väljer **nät** i resultat listan och väljer sedan knappen **Lägg till** för att lägga till programmet.
 
     ![Nät i resultat listan](common/search-new-app.png)
 
@@ -122,7 +122,7 @@ Gör så här för att konfigurera automatisk användar etablering för nät i A
 
     ![List rutan "etablerings läge"](common/provisioning-automatic.png)
 
-1. Under **admin-autentiseringsuppgifter**gör du följande:
+1. Under **admin-autentiseringsuppgifter** gör du följande:
 
     ![Klient-URL + token](common/provisioning-testconnection-tenanturltoken.png)
  
@@ -136,29 +136,29 @@ Gör så här för att konfigurera automatisk användar etablering för nät i A
 
 1. Välj **Spara**.
 
-1. Under **mappningar**väljer **du synkronisera Azure Active Directory användare att använda**.
+1. Under **mappningar** väljer **du synkronisera Azure Active Directory användare att använda**.
 
     !["" Synkronisera Azure Active Directory användare till nät "-länken](media/harness-provisioning-tutorial/usermappings.png)
 
-1. Under **attribut mappningar**granskar du de användarattribut som synkroniseras från Azure AD till att utnyttja. De attribut som väljs som *matchning* används för att matcha användar konton i drift för uppdaterings åtgärder. Välj **Spara** för att genomföra ändringarna.
+1. Under **attribut mappningar** granskar du de användarattribut som synkroniseras från Azure AD till att utnyttja. De attribut som väljs som *matchning* används för att matcha användar konton i drift för uppdaterings åtgärder. Välj **Spara** för att genomföra ändringarna.
 
     ![Fönster för att koppla användar-attribut](media/harness-provisioning-tutorial/userattributes.png)
 
-1. Under **mappningar**väljer **du synkronisera Azure Active Directory grupper att**använda.
+1. Under **mappningar** väljer **du synkronisera Azure Active Directory grupper att** använda.
 
     ![Använd länken "synkronisera Azure Active Directory grupper till nätet"](media/harness-provisioning-tutorial/groupmappings.png)
 
-1. Under **attribut mappningar**granskar du de Gruppattribut som synkroniseras från Azure AD till att utnyttja. Attributen som väljs som *matchande* egenskaper används för att matcha grupperna i-funktioner för uppdaterings åtgärder. Välj **Spara** för att genomföra ändringarna.
+1. Under **attribut mappningar** granskar du de Gruppattribut som synkroniseras från Azure AD till att utnyttja. Attributen som väljs som *matchande* egenskaper används för att matcha grupperna i-funktioner för uppdaterings åtgärder. Välj **Spara** för att genomföra ändringarna.
 
     ![Fönster för grupp mappningar](media/harness-provisioning-tutorial/groupattributes.png)
 
 1. Information om hur du konfigurerar omfångs filter finns i [attribut-baserad program etablering med omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-1. Aktivera Azure AD Provisioning-tjänsten för nät genom att växla **etablerings status** växeln **på på**under **Inställningar**.
+1. Aktivera Azure AD Provisioning-tjänsten för nät genom att växla **etablerings status** växeln **på på** under **Inställningar**.
 
     ![Etablerings status växlar växlat till "på"](common/provisioning-toggle-on.png)
 
-1. Under **Inställningar**i list rutan **omfattning** väljer du hur du vill synkronisera de användare eller grupper som du håller på att tillhandahålla.
+1. Under **Inställningar** i list rutan **omfattning** väljer du hur du vill synkronisera de användare eller grupper som du håller på att tillhandahålla.
 
     ![Etableringsomfång](common/provisioning-scope.png)
 

@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 8dc4087d1a10b4c4af7477a02f397c5a2bc547c2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 5a104dcd6ccf500c115359a1b72c67b85359a802
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459398"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94355166"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Självstudie: Azure Active Directory integrering med Jobscience
 
@@ -55,7 +55,7 @@ Om du vill konfigurera integreringen av Jobscience i Azure AD måste du lägga t
 
 **Utför följande steg för att lägga till Jobscience från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen. 
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory** -ikonen. 
 
     ![Active Directory][1]
 
@@ -71,7 +71,7 @@ Om du vill konfigurera integreringen av Jobscience i Azure AD måste du lägga t
 
     ![Skärm bild som visar Lägg till från galleriet med Jobscience angivet.](./media/jobscience-tutorial/tutorial_jobscience_search.png)
 
-1. I resultat panelen väljer du **Jobscience**och klickar sedan på knappen **Lägg till** för att lägga till programmet.
+1. I resultat panelen väljer du **Jobscience** och klickar sedan på knappen **Lägg till** för att lägga till programmet.
 
     ![Skärm bilden visar resultaten som inkluderade Jobscience.](./media/jobscience-tutorial/tutorial_jobscience_addfromgallery.png)
 
@@ -96,7 +96,7 @@ I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure Portal o
 
 **Utför följande steg för att konfigurera enkel inloggning med Jobscience i Azure AD:**
 
-1. Klicka på **enkel inloggning**på sidan **Jobscience** Application Integration i Azure Portal.
+1. Klicka på **enkel inloggning** på sidan **Jobscience** Application Integration i Azure Portal.
 
     ![Skärm bild som visar enkel inloggning markerad under hantera i Azure Portal.][4]
 
@@ -135,11 +135,11 @@ I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure Portal o
    
    ![Min domän](./media/jobscience-tutorial/ic767825.png "Min domän")
 
-1. Kontrol lera att din domän har kon figurer ATS korrekt genom att se till att den är i "**steg 4 distribuerad till användare**" och granska dina "**Mina domän inställningar**".
+1. Kontrol lera att din domän har kon figurer ATS korrekt genom att se till att den är i " **steg 4 distribuerad till användare** " och granska dina " **Mina domän inställningar** ".
 
     ![Domän distribuerad till användare](./media/jobscience-tutorial/ic784377.png "Domän distribuerad till användare")
 
-1. På Jobscience Company-webbplatsen klickar du på **säkerhets kontroller**och klickar sedan på **inställningar för enkel Sign-On**.
+1. På Jobscience Company-webbplatsen klickar du på **säkerhets kontroller** och klickar sedan på **inställningar för enkel Sign-On**.
     
     ![Skärm bild som visar enskilda Sign-On inställningar som valts från säkerhets kontroller.](./media/jobscience-tutorial/ic784364.png "Säkerhetskontroller")
 
@@ -147,7 +147,7 @@ I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure Portal o
     
     ![Inställningar för enskilda Sign-On](./media/jobscience-tutorial/ic781026.png "Inställningar för enskilda Sign-On")
     
-    a. Välj **SAML-aktiverat **.
+    a. Välj **SAML-aktiverat**.
 
     b. Klicka på **nytt**.
 
@@ -157,19 +157,19 @@ I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure Portal o
     
     a. I textrutan **Namn** skriver du ett namn för konfigurationen.
 
-    b. I text rutan **utfärdare** klistrar du in värdet för **SAML Entity ID**, som du har kopierat från Azure Portal.
+    b. I text rutan **utfärdare** klistrar du in värdet för **SAML Entity ID** , som du har kopierat från Azure Portal.
 
     c. I text rutan **entitets-ID** skriver du `https://salesforce-jobscience.com`
 
     d. Klicka på **Bläddra** för att ladda upp ditt Azure AD-certifikat.
 
-    e. Som **SAML-identitets typ**väljer du **Assertion innehåller Federations-ID: t från användarobjektet**.
+    e. Som **SAML-identitets typ** väljer du **Assertion innehåller Federations-ID: t från användarobjektet**.
 
-    f. Som **SAML-identitets plats**väljer du **identitet i NameIdentfier-elementet för ämnes instruktionen**.
+    f. Som **SAML-identitets plats** väljer du **identitet i NameIdentfier-elementet för ämnes instruktionen**.
 
-    ex. I text rutan **inloggnings-URL för identitetsprovider** klistrar du in värdet för **URL för SAML Single Sign-On**som du har kopierat från Azure Portal.
+    ex. I text rutan **inloggnings-URL för identitetsprovider** klistrar du in värdet för **URL för SAML Single Sign-On** som du har kopierat från Azure Portal.
 
-    h. I text rutan **Logga in URL för identitets leverantör** klistrar du in värdet för **utloggnings-URL**, som du har kopierat från Azure Portal.
+    h. I text rutan **Logga in URL för identitets leverantör** klistrar du in värdet för **utloggnings-URL** , som du har kopierat från Azure Portal.
 
     i. Klicka på **Spara**.
 
@@ -192,7 +192,7 @@ I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure Portal o
     Klicka på den SSO-profil som du har skapat i steget ovan. Den här sidan visar URL: en för enkel inloggning för ditt företag (till exempel `https://companyname.my.salesforce.com?so=companyid` .    
 
 > [!TIP]
-> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om den inbäddade dokumentations funktionen här: [Azure AD Embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram** , behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om den inbäddade dokumentations funktionen här: [Azure AD Embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare för Azure AD
@@ -202,7 +202,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 **Utför följande steg för att skapa en test användare i Azure AD:**
 
-1. I **Azure Portal**i det vänstra navigerings fönstret klickar du på **Azure Active Directory** ikon.
+1. I **Azure Portal** i det vänstra navigerings fönstret klickar du på **Azure Active Directory** ikon.
 
     ![Skärm bild som visar Azure A D-ikonen i Azure Portal.](./media/jobscience-tutorial/create_aaduser_01.png) 
 
@@ -218,7 +218,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
  
     ![Skärm bild som visar dialog rutan användare där du kan ange värden i det här steget.](./media/jobscience-tutorial/create_aaduser_04.png) 
 
-    a. Skriv **BrittaSimon**i text rutan **namn** .
+    a. Skriv **BrittaSimon** i text rutan **namn** .
 
     b. Skriv **e-postadressen** för BrittaSimon i text rutan **användar namn** .
 

@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: 1163f4b0992afe03f5bbdc38cad4e3cbca060dd2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3fe13d2fad2382e0e9fa8b93b79c5f27695ad898
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459787"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94355200"
 ---
 # <a name="tutorial-configure-iprova-for-automatic-user-provisioning"></a>Självstudie: Konfigurera iProva för automatisk användar etablering
 
@@ -58,7 +58,7 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 
     ![iProva Lägg till SCIM](media/iprova-provisioning-tutorial/external.png)
 
-3. Om du vill lägga till en ny provider klickar du på **plus** ikonen. Ange en **rubrik**i dialog rutan ny **Lägg till provider** . Du kan välja att lägga till **IP-baserad åtkomst begränsning**. Klicka på **OK** -knappen.
+3. Om du vill lägga till en ny provider klickar du på **plus** ikonen. Ange en **rubrik** i dialog rutan ny **Lägg till provider** . Du kan välja att lägga till **IP-baserad åtkomst begränsning**. Klicka på **OK** -knappen.
 
     ![iProva Lägg till ny](media/iprova-provisioning-tutorial/add.png)
 

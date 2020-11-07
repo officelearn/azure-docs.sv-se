@@ -8,16 +8,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/26/2020
 ms.author: aahi
-ms.openlocfilehash: debc5130824a0f661a3736b8d24d950fc789f2f3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 624263cfc9f4a566c9b1b79d580a37523bcf9391
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "80550004"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94341013"
 ---
 Använd den här snabb starten för att börja hämta bild insikter från tjänsten Visuell sökning i Bing med hjälp av python-klient biblioteket. Även om Visuell sökning i Bing har en REST API som är kompatibel med de flesta programmeringsspråk, är klient biblioteket ett enkelt sätt att integrera tjänsten i dina program. Du hittar käll koden för det här exemplet på [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/visual_search_samples.py) 
 
-[Referens dokumentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/visualsearch?view=azure-python)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-search-visualsearch)  |  [Paket (PyPi)](https://pypi.org/project/azure-cognitiveservices-search-visualsearch/)  |  [Exempel](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/)
+[Referens dokumentation](/python/api/azure-cognitiveservices-search-visualsearch/?view=azure-python)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-search-visualsearch)  |  [Paket (PyPi)](https://pypi.org/project/azure-cognitiveservices-search-visualsearch/)  |  [Exempel](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/)
 
 ## <a name="prerequisites"></a>Förutsättningar
 

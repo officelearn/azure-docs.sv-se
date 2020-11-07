@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 02/04/2020
 ms.author: Zhchia
-ms.openlocfilehash: 3c3aa5c1f640db79e4e64545dc0da804508f64a9
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3fa91e6d9c1df941a930d53119e6d4bd4cabca04
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460044"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94354367"
 ---
 # <a name="tutorial-configure-insight4grc-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Insight4GRC för automatisk användar etablering
 
@@ -86,7 +86,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Skärm bild av list rutan etablerings läge med det automatiska alternativet inringat.](common/provisioning-automatic.png)
 
-5. Under avsnittet **admin credentials** måste du skriva in URL-adressen för scim-slutpunkt i **klient-URL**: en. URL: en för webb adressen ska vara i formatet `https://<Insight4GRC Domain Name>.insight4grc.com/public/api/scim/v2 ` där **Insight4GRC-domänens namn** är det värde som hämtades i föregående steg. Mata in värdet för Bearer-token som hämtades tidigare i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till Insight4GRC. Om anslutningen Miss lyckas kontrollerar du att Insight4GRC-kontot har administratörs behörighet och försöker igen.
+5. Under avsnittet **admin credentials** måste du skriva in URL-adressen för scim-slutpunkt i **klient-URL** : en. URL: en för webb adressen ska vara i formatet `https://<Insight4GRC Domain Name>.insight4grc.com/public/api/scim/v2 ` där **Insight4GRC-domänens namn** är det värde som hämtades i föregående steg. Mata in värdet för Bearer-token som hämtades tidigare i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till Insight4GRC. Om anslutningen Miss lyckas kontrollerar du att Insight4GRC-kontot har administratörs behörighet och försöker igen.
 
     ![Skärm bild som visar dialog rutan admin-autentiseringsuppgifter där du kan ange din klient U R L och hemlig token.](./media/insight4grc-provisioning-tutorial/provisioning.png)
 

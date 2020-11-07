@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/13/2020
 ms.author: Zhchia
-ms.openlocfilehash: 7d9f5792fe3da9f47dd1391d1e7cb0162fd36fad
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: b87b9d9e7cab0334f1b1996feb99dc69396527b7
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670837"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94352973"
 ---
 # <a name="tutorial-configure-sap-analytics-cloud-for-automatic-user-provisioning"></a>Självstudie: konfigurera SAP Analytics-moln för automatisk användar etablering
 
@@ -52,11 +52,11 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 
 ## <a name="step-2-configure-sap-analytics-cloud-to-support-provisioning-with-azure-ad"></a>Steg 2. Konfigurera SAP Analytics-molnet för att ge stöd för etablering med Azure AD
 
-1. Logga in på [administrations konsolen för SAP Identity-etableringen](https://ips-xlnk9v890j.dispatcher.us1.hana.ondemand.com/) med ditt administratörs konto och välj sedan **proxyservrar** .
+1. Logga in på [administrations konsolen för SAP Identity-etableringen](https://ips-xlnk9v890j.dispatcher.us1.hana.ondemand.com/) med ditt administratörs konto och välj sedan **proxyservrar**.
 
    ![SAP-proxyservrar](./media/sap-analytics-cloud-provisioning-tutorial/sap-proxy-systems.png.png)
 
-2. Välj **Egenskaper** .
+2. Välj **Egenskaper**.
 
    ![Egenskaper för SAP-proxy-system](./media/sap-analytics-cloud-provisioning-tutorial/sap-proxy-systems-properties.png)
 
@@ -80,7 +80,7 @@ Lägg till SAP Analytics-moln från Azure AD-programgalleriet för att börja ha
 
 Med Azure AD-etableringstjänsten kan du bestämma vem som ska etableras, baserat på tilldelningen till programmet och eller baserat på attribut för användaren/gruppen. Om du väljer att omfånget som ska etableras till din app ska baseras på tilldelning, kan du använda följande [steg](../manage-apps/assign-user-or-group-access-portal.md) för att tilldela användare och grupper till programmet. Om du väljer att omfånget endast ska etableras baserat på attribut för användaren eller gruppen, kan du använda ett omfångsfilter enligt beskrivningen [här](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* När du tilldelar användare och grupper till SAP Analytics-molnet måste du välja en annan roll än **standard åtkomst** . Användare med rollen Standardåtkomst undantas från etableringen och markeras som icke-berättigade i etableringsloggarna. Om den enda rollen som är tillgänglig i programmet är standardrollen för åtkomst, kan du [uppdatera applikationsmanifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) och lägga till fler roller. 
+* När du tilldelar användare och grupper till SAP Analytics-molnet måste du välja en annan roll än **standard åtkomst**. Användare med rollen Standardåtkomst undantas från etableringen och markeras som icke-berättigade i etableringsloggarna. Om den enda rollen som är tillgänglig i programmet är standardrollen för åtkomst, kan du [uppdatera applikationsmanifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) och lägga till fler roller. 
 
 * Starta i liten skala. Testa med en liten uppsättning användare och grupper innan du distribuerar till alla. När etableringsomfånget har angetts till tilldelade användare och grupper, kan du kontrollera detta genom att tilldela en eller två användare eller grupper till appen. När omfånget är inställt på alla användare och grupper, kan du ange ett [attributbaserat omfångsfilter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
@@ -91,33 +91,33 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 ### <a name="to-configure-automatic-user-provisioning-for-sap-analytics-cloud-in-azure-ad"></a>Konfigurera automatisk användar etablering för SAP Analytics-moln i Azure AD:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **Företagsprogram** och sedan **Alla program** .
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **Företagsprogram** och sedan **Alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan program väljer du **SAP Analytics-moln** .
+2. I listan program väljer du **SAP Analytics-moln**.
 
     ![Moln länken SAP Analytics i program listan](common/all-applications.png)
 
-3. Välj fliken **Etablering** .
+3. Välj fliken **Etablering**.
 
     ![Skärm bild av alternativen för att hantera med etablerings alternativet.](common/provisioning.png)
 
-4. Ange **Etableringsläge** som **Automatiskt** .
+4. Ange **Etableringsläge** som **Automatiskt**.
 
     ![Skärm bild av list rutan etablerings läge med det automatiska alternativet inringat.](common/provisioning-automatic.png)
 
-5. Under avsnittet **admin credentials** kan du mata in klient webb adressen som hämtades tidigare i **klient-URL: en** . Mata in värdet för åtkomsttoken som hämtades tidigare i **hemlig token** . Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till en insikt. Om anslutningen Miss lyckas kontrollerar du att ditt SAP Analytics Cloud-konto har administratörs behörighet och försöker igen.
+5. Under avsnittet **admin credentials** kan du mata in klient webb adressen som hämtades tidigare i **klient-URL: en**. Mata in värdet för åtkomsttoken som hämtades tidigare i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till en insikt. Om anslutningen Miss lyckas kontrollerar du att ditt SAP Analytics Cloud-konto har administratörs behörighet och försöker igen.
 
     ![Skärm bild som visar dialog rutan admin-autentiseringsuppgifter där du kan ange din klient U R L och hemlig token.](./media/sap-analytics-cloud-provisioning-tutorial/provisioning.png)
 
-6. I fältet **E-postavisering** anger du e-postadressen till den person eller grupp som ska ta emot meddelanden om etableringsfel. Markera sedan kryssrutan **Skicka ett e-postmeddelande när ett fel uppstår** .
+6. I fältet **E-postavisering** anger du e-postadressen till den person eller grupp som ska ta emot meddelanden om etableringsfel. Markera sedan kryssrutan **Skicka ett e-postmeddelande när ett fel uppstår**.
 
     ![E-postavisering](common/provisioning-notification-email.png)
 
-7. Välj **Spara** .
+7. Välj **Spara**.
 
-8. Under avsnittet **mappningar** väljer du **etablera Azure Active Directory användare** .
+8. Under avsnittet **mappningar** väljer du **etablera Azure Active Directory användare**.
 
 9. Granska de användarattribut som synkroniseras från Azure AD till SAP Analytics-molnet i avsnittet **attribut-mappning** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i SAP Analytics-molnet för uppdaterings åtgärder. Om du väljer att ändra [matchande målattribut](../app-provisioning/customize-application-attributes.md)måste du se till att moln-API: t SAP Analytics stöder filtrering av användare baserat på det attributet. Välj knappen **Spara** för att spara ändringarna.
 
@@ -140,11 +140,11 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Etableringsomfång](common/provisioning-scope.png)
 
-13. När du är redo att etablera klickar du på **Spara** .
+13. När du är redo att etablera klickar du på **Spara**.
 
     ![Spara etableringskonfiguration](common/provisioning-configuration-save.png)
 
-Åtgärden startar den initiala synkroniseringscykeln för alla användare och grupper som har definierats i **Omfång** i avsnittet **Inställningar** . Den första cykeln tar längre tid att utföra än efterföljande cykler, vilket inträffar ungefär var 40:e minut om Azure AD-etableringstjänsten körs. 
+Åtgärden startar den initiala synkroniseringscykeln för alla användare och grupper som har definierats i **Omfång** i avsnittet **Inställningar**. Den första cykeln tar längre tid att utföra än efterföljande cykler, vilket inträffar ungefär var 40:e minut om Azure AD-etableringstjänsten körs. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Steg 6. Övervaka distributionen
 När du har konfigurerat etableringen använder du följande resurser till att övervaka distributionen:

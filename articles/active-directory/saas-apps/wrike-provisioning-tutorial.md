@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/26/2019
 ms.author: Zhchia
-ms.openlocfilehash: 76b5f279294dda0d2b1c01bf8cdd803390b04cec
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 53b1db1a8c4da59055c0af5f448fa0c8a6933daf
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520038"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94354314"
 ---
 # <a name="tutorial-configure-wrike-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Wrike för automatisk användar etablering
 
@@ -72,7 +72,7 @@ Innan du konfigurerar Wrike för automatisk användar etablering med Azure AD m�
 
     ![Skapa token för Wrike](media/Wrike-provisioning-tutorial/password.png)
 
-6.  Kopiera den **hemliga token**och klistra in den i Azure AD. Välj **Spara** för att slutföra etablerings konfigurationen på Wrike.
+6.  Kopiera den **hemliga token** och klistra in den i Azure AD. Välj **Spara** för att slutföra etablerings konfigurationen på Wrike.
 
     ![Permanent åtkomsttoken](media/Wrike-provisioning-tutorial/Wrike-create-token.png)
 
@@ -87,7 +87,7 @@ Följ dessa steg om du vill lägga till Wrike från Azure AD Application Gallery
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -95,7 +95,7 @@ Följ dessa steg om du vill lägga till Wrike från Azure AD Application Gallery
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **Wrike**, väljer **Wrike** i panelen resultat och väljer sedan **Lägg till** för att lägga till programmet.
+4. I sökrutan anger du **Wrike** , väljer **Wrike** i panelen resultat och väljer sedan **Lägg till** för att lägga till programmet.
 
     ![Wrike i resultat listan](common/search-new-app.png)
 

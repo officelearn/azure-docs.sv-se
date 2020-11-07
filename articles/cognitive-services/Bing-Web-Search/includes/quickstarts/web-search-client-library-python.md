@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: bdbd183ba161c96e0ed8e160ce602da2ec30dfb7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1bc1d455e5597e86a3d5c8d1690fa2daa9097865
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85940422"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94341103"
 ---
 Med Webbsökning i Bing klient biblioteket är det enkelt att integrera Webbsökning i Bing i python-programmet. I den här snabbstarten lär du dig att skicka en begäran, ta emot ett JSON-svar och filtrera och parsa resultaten.
 
@@ -169,7 +169,7 @@ Om svaret innehåller webbplatser, bilder, nyheter eller videor skrivs det förs
 
 1. Ersätt `YOUR_ENDPOINT` med URL: en för slut punkten i portalen och ta bort avsnittet "Bing/v 7.0" från slut punkten.
 
-1. Kör programmet. Till exempel: `python your_program.py`.
+1. Kör programmet. Här är ett exempel: `python your_program.py`.
 
 ## <a name="define-functions-and-filter-results"></a>Definiera funktioner och filtrera resultat
 
@@ -320,4 +320,4 @@ När du är klar med det här projektet bör du ta bort din prenumerationsnyckel
 
 ## <a name="see-also"></a>Se även
 
-* [Azure Python SDK-referens](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/websearch)
+* [Azure Python SDK-referens](/python/api/azure-cognitiveservices-search-websearch/?view=azure-python)

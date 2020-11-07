@@ -3,12 +3,12 @@ author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 10/25/2020
-ms.openlocfilehash: 7ef19e72b519d16da66306e4bf64f70f5c708927
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 0072f0ae862e6484649179626a34e6b28da7d3bd
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678243"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94341101"
 ---
 Kom igång med Custom Vision klient biblioteket för python. Följ de här stegen för att installera paketet och prova exempel koden för att skapa en modell för objekt identifiering. Du skapar ett projekt, lägger till taggar, tränar projektet och använder projektets förutsäga slut punkts-URL för att program mässigt testa det. Använd det här exemplet som mall för att skapa en egen bild igenkännings app.
 
@@ -51,7 +51,7 @@ Skapa en ny python-fil och importera följande bibliotek.
 [!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ObjectDetection/CustomVisionQuickstart.py?name=snippet_imports)]
 
 > [!TIP]
-> Vill du Visa hela snabb starts kod filen samtidigt? Du kan hitta den på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/CustomVision/ObjectDetection/CustomVisionQuickstart.cs), som innehåller kod exemplen i den här snabb starten.
+> Vill du Visa hela snabb starts kod filen samtidigt? Du kan hitta den på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/CustomVision/ObjectDetection/CustomVisionQuickstart.py), som innehåller kod exemplen i den här snabb starten.
 
 Skapa variabler för resursens Azure-slut punkts-och prenumerations nycklar.
 
@@ -59,15 +59,15 @@ Skapa variabler för resursens Azure-slut punkts-och prenumerations nycklar.
 
 
 > [!IMPORTANT]
-> Gå till Azure-portalen. Om Custom Vision resurserna som du skapade i avsnittet **krav** har distribuerats, klickar du på knappen **gå till resurs** under **Nästa steg** . Du hittar nycklar och slut punkt i resursens nyckel- **och slut punkts** sidor under **resurs hantering** . Du måste få både din utbildning och dina förutsägelse nycklar.
+> Gå till Azure-portalen. Om Custom Vision resurserna som du skapade i avsnittet **krav** har distribuerats, klickar du på knappen **gå till resurs** under **Nästa steg**. Du hittar nycklar och slut punkt i resursens nyckel- **och slut punkts** sidor under **resurs hantering**. Du måste få både din utbildning och dina förutsägelse nycklar.
 >
-> Du hittar värdet för förutsägelse resurs-ID på resursens flik **Översikt** , listad som **prenumerations-ID** .
+> Du hittar värdet för förutsägelse resurs-ID på resursens flik **Översikt** , listad som **prenumerations-ID**.
 >
 > Kom ihåg att ta bort nycklarna från koden när du är klar och publicera dem aldrig offentligt. För produktion bör du överväga att använda ett säkert sätt att lagra och komma åt dina autentiseringsuppgifter. Mer information finns i [säkerhets](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) artikeln Cognitive Services.
 
 ## <a name="object-model"></a>Objekt modell
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |[CustomVisionTrainingClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient?view=azure-python) | Den här klassen hanterar skapandet, utbildningen och publiceringen av dina modeller. |
 |[CustomVisionPredictionClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-python)| Den här klassen hanterar frågekörning för modeller för objekt identifierings förutsägelser.|
@@ -153,7 +153,7 @@ Om du vill skicka en bild till slutpunkten för förutsägelse och hämta förut
 
 ## <a name="run-the-application"></a>Kör programmet
 
-Kör *CustomVisionQuickstart.py* .
+Kör *CustomVisionQuickstart.py*.
 
 ```powershell
 python CustomVisionQuickstart.py
@@ -171,5 +171,5 @@ Nu har du gjort varje steg i processen för objekt identifiering i kod. Det här
 > [Testa och träna om en modell](../../test-your-model.md)
 
 * [Vad är Custom Vision?](../../overview.md)
-* Du hittar käll koden för det här exemplet på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/CustomVision/ObjectDetection/CustomVisionQuickstart.cs)
+* Du hittar käll koden för det här exemplet på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/CustomVision/ObjectDetection/CustomVisionQuickstart.py)
 * [Referensdokumentation för SDK](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customvision?view=azure-python)

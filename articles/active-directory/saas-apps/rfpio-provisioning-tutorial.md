@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 98f92a6b0169c573b97788c7ffaf76255796cfa6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2792d5cc65e08a23a333deebdb24c0fd869446c3
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91278948"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94352922"
 ---
 # <a name="tutorial-configure-rfpio-for-automatic-user-provisioning"></a>Självstudie: Konfigurera RFPIO för automatisk användar etablering
 
@@ -78,11 +78,11 @@ Om du vill konfigurera RFPIO för automatisk användar etablering med Azure AD m
 
 **Utför följande steg för att lägga till RFPIO från Azure AD-programgalleriet:**
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
+1. Välj **Azure Active Directory** i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -90,7 +90,7 @@ Om du vill konfigurera RFPIO för automatisk användar etablering med Azure AD m
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **RFPIO**, väljer **RFPIO** i resultat panelen och klickar sedan på knappen    **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **RFPIO** , väljer **RFPIO** i resultat panelen och klickar sedan på knappen    **Lägg** till för att lägga till programmet.
 
     ![RFPIO i resultat listan](common/search-new-app.png)
 

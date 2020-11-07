@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/25/2020
 ms.author: Zhchia
-ms.openlocfilehash: c58a3d9f07b62e92d1e71096ae9dd3fc85515843
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: f6a03a65b18d09000e93a1e0fa4a194321912211
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459891"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94354263"
 ---
 # <a name="tutorial-configure-invision-for-automatic-user-provisioning"></a>Självstudie: Konfigurera insikter för automatisk användar etablering
 
@@ -102,7 +102,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Etableringsläge](common/provisioning-automatic.png)
 
-5. Under avsnittet **admin credentials** kan du läsa in scim API URL-värdet som hämtades tidigare i **klient-URL**: en. Mata in token för autentisering som hämtades tidigare i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till en insikt. Om anslutningen Miss lyckas kontrollerar du att ditt insikts konto har administratörs behörighet och försöker igen.
+5. Under avsnittet **admin credentials** kan du läsa in scim API URL-värdet som hämtades tidigare i **klient-URL** : en. Mata in token för autentisering som hämtades tidigare i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till en insikt. Om anslutningen Miss lyckas kontrollerar du att ditt insikts konto har administratörs behörighet och försöker igen.
 
     ![Admin-autentiseringsuppgifter](./media/inVision-provisioning-tutorial/provisioning.png)
 

@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/13/2020
 ms.author: Zhchia
-ms.openlocfilehash: 2f694c5a089245a29aaf0e493542fc7f4fce46f7
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 5cdc36c20cbba148bb68bda700f5fdccbc593caf
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675439"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353007"
 ---
 # <a name="tutorial-configure-solarwinds-service-desk-previously-samanage-for-automatic-user-provisioning"></a>Självstudie: Konfigurera SolarWinds Service Desk (tidigare Samanage) för automatisk användar etablering
 
@@ -24,16 +24,16 @@ I den här självstudien beskrivs de steg du behöver utföra i både SolarWinds
 
 ## <a name="migrate-to-the-new-solarwinds-service-desk-application"></a>Migrera till det nya SolarWinds Service Desk-programmet
 
-Om du har en befintlig integrering med SolarWinds Service Desk, se följande avsnitt om kommande ändringar. Om du konfigurerar SolarWinds Service Desk för första gången kan du hoppa över det här avsnittet och flytta till funktioner som **stöds** .
+Om du har en befintlig integrering med SolarWinds Service Desk, se följande avsnitt om kommande ändringar. Om du konfigurerar SolarWinds Service Desk för första gången kan du hoppa över det här avsnittet och flytta till funktioner som **stöds**.
 
 #### <a name="whats-changing"></a>Vad förändras?
 
-* Ändringar på Azure AD-sidan: autentiseringsmetoden för att etablera användare i Samange har tidigare varit **grundläggande autentisering** . Snart kommer du att se autentiseringsmetoden har ändrats till den **hemliga token för lång livs längd** .
+* Ändringar på Azure AD-sidan: autentiseringsmetoden för att etablera användare i Samange har tidigare varit **grundläggande autentisering**. Snart kommer du att se autentiseringsmetoden har ändrats till den **hemliga token för lång livs längd**.
 
 
 #### <a name="what-do-i-need-to-do-to-migrate-my-existing-custom-integration-to-the-new-application"></a>Vad behöver jag för att migrera min befintliga anpassade integrering till det nya programmet?
 
-Om du har en befintlig SolarWinds för service skriv bord med giltiga administratörsautentiseringsuppgifter **krävs ingen åtgärd** . Vi migrerar automatiskt kunder till det nya programmet. Den här processen är helt klar bakom kulisserna. Om de befintliga autentiseringsuppgifterna upphör att gälla, eller om du behöver ge åtkomst till programmet igen, måste du skapa en hemlig token för lång livs längd. Om du vill generera en ny token, se steg 2 i den här artikeln.
+Om du har en befintlig SolarWinds för service skriv bord med giltiga administratörsautentiseringsuppgifter **krävs ingen åtgärd**. Vi migrerar automatiskt kunder till det nya programmet. Den här processen är helt klar bakom kulisserna. Om de befintliga autentiseringsuppgifterna upphör att gälla, eller om du behöver ge åtkomst till programmet igen, måste du skapa en hemlig token för lång livs längd. Om du vill generera en ny token, se steg 2 i den här artikeln.
 
 
 #### <a name="how-can-i-tell-if-my-application-has-been-migrated"></a>Hur ser jag om mitt program har migrerats? 
@@ -75,7 +75,7 @@ Lägg till SolarWinds Service Desk från Azure AD-programgalleriet för att bör
 
 Med Azure AD-etableringstjänsten kan du bestämma vem som ska etableras, baserat på tilldelningen till programmet och eller baserat på attribut för användaren/gruppen. Om du väljer att omfånget som ska etableras till din app ska baseras på tilldelning, kan du använda följande [steg](../manage-apps/assign-user-or-group-access-portal.md) för att tilldela användare och grupper till programmet. Om du väljer att omfånget endast ska etableras baserat på attribut för användaren eller gruppen, kan du använda ett omfångsfilter enligt beskrivningen [här](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* När du tilldelar användare och grupper till SolarWinds-helpdesk måste du välja en annan roll än **standard åtkomst** . Användare med rollen Standardåtkomst undantas från etableringen och markeras som icke-berättigade i etableringsloggarna. Om den enda rollen som är tillgänglig i programmet är standardrollen för åtkomst, kan du [uppdatera applikationsmanifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) och lägga till fler roller. 
+* När du tilldelar användare och grupper till SolarWinds-helpdesk måste du välja en annan roll än **standard åtkomst**. Användare med rollen Standardåtkomst undantas från etableringen och markeras som icke-berättigade i etableringsloggarna. Om den enda rollen som är tillgänglig i programmet är standardrollen för åtkomst, kan du [uppdatera applikationsmanifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) och lägga till fler roller. 
 
 * Starta i liten skala. Testa med en liten uppsättning användare och grupper innan du distribuerar till alla. När etableringsomfånget har angetts till tilldelade användare och grupper, kan du kontrollera detta genom att tilldela en eller två användare eller grupper till appen. När omfånget är inställt på alla användare och grupper, kan du ange ett [attributbaserat omfångsfilter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
@@ -86,37 +86,37 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 ### <a name="to-configure-automatic-user-provisioning-for-solarwinds-service-desk-in-azure-ad"></a>Konfigurera automatisk användar etablering för SolarWinds Service Desk i Azure AD:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **Företagsprogram** och sedan **Alla program** .
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **Företagsprogram** och sedan **Alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan program väljer du **SolarWinds Service Desk** .
+2. I listan program väljer du **SolarWinds Service Desk**.
 
-3. Välj fliken **Etablering** .
+3. Välj fliken **Etablering**.
 
     ![Skärm bild som visar fliken etablering vald.](common/provisioning.png)
 
-4. Ange **Etableringsläge** som **Automatiskt** .
+4. Ange **Etableringsläge** som **Automatiskt**.
 
     ![Skärm bild som visar etablerings läget inställt på automatiskt.](common/provisioning-automatic.png)
 
-5. Under avsnittet **admin credentials** , inmatat `https://api.samanage.com` i **klient-URL** .  Mata in det hemliga token-värdet som hämtades tidigare i **hemlig token** . Välj **Testa anslutning** för att se till att Azure AD kan ansluta till SolarWinds-helpdesk. Om anslutningen Miss lyckas kontrollerar du att ditt SolarWinds-konto har administratörs behörighet och försöker igen.
+5. Under avsnittet **admin credentials** , inmatat `https://api.samanage.com` i **klient-URL**.  Mata in det hemliga token-värdet som hämtades tidigare i **hemlig token**. Välj **Testa anslutning** för att se till att Azure AD kan ansluta till SolarWinds-helpdesk. Om anslutningen Miss lyckas kontrollerar du att ditt SolarWinds-konto har administratörs behörighet och försöker igen.
 
     ![Skärm bild som visar knappen Testa anslutning vald.](./media/samanage-provisioning-tutorial/provisioning.png)
 
-6. I fältet **E-postavisering** anger du e-postadressen till den person eller grupp som ska ta emot meddelanden om etableringsfel. Markera sedan kryssrutan **Skicka ett e-postmeddelande när ett fel uppstår** .
+6. I fältet **E-postavisering** anger du e-postadressen till den person eller grupp som ska ta emot meddelanden om etableringsfel. Markera sedan kryssrutan **Skicka ett e-postmeddelande när ett fel uppstår**.
 
     ![E-postavisering](common/provisioning-notification-email.png)
 
-7. Välj **Spara** .
+7. Välj **Spara**.
 
-8. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till SolarWinds-supportavdelningen** .
+8. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till SolarWinds-supportavdelningen**.
 
 9. Granska de användarattribut som synkroniseras från Azure AD till SolarWinds Service Desk i avsnittet **attribut-mappning** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i SolarWinds-helpdesk för uppdaterings åtgärder. Om du väljer att ändra [matchande målattribut](../app-provisioning/customize-application-attributes.md)måste du se till att SolarWinds Service Desk-API: et stöder filtrering av användare baserat på det attributet. Välj knappen **Spara** för att spara ändringarna.
 
       ![Samange användar mappningar](./media/samanage-provisioning-tutorial/user-attributes.png)
 
-10. Under avsnittet **mappningar** väljer **du synkronisera Azure Active Directory grupper för att SolarWinds Service Desk** .
+10. Under avsnittet **mappningar** väljer **du synkronisera Azure Active Directory grupper för att SolarWinds Service Desk**.
 
 11. Granska gruppattributen som synkroniseras från Azure AD till SolarWinds Service Desk i avsnittet **attribut-mappning** . De attribut som väljs som **matchande** egenskaper används för att matcha grupperna i SolarWinds-helpdesk för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
@@ -132,11 +132,11 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Etableringsomfång](common/provisioning-scope.png)
 
-15. När du är redo att etablera väljer du **Spara** .
+15. När du är redo att etablera väljer du **Spara**.
 
     ![Spara etableringskonfiguration](common/provisioning-configuration-save.png)
 
-Åtgärden startar den initiala synkroniseringscykeln för alla användare och grupper som har definierats i **Omfång** i avsnittet **Inställningar** . Den första cykeln tar längre tid att utföra än efterföljande cykler, vilket inträffar ungefär var 40:e minut om Azure AD-etableringstjänsten körs. 
+Åtgärden startar den initiala synkroniseringscykeln för alla användare och grupper som har definierats i **Omfång** i avsnittet **Inställningar**. Den första cykeln tar längre tid att utföra än efterföljande cykler, vilket inträffar ungefär var 40:e minut om Azure AD-etableringstjänsten körs. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Steg 6. Övervaka distributionen
 När du har konfigurerat etableringen använder du följande resurser till att övervaka distributionen:

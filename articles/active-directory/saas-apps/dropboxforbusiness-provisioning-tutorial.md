@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: f1ad698ccacc2fee94c797a20a43744d4cafba76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7bbf9b199b15815127f0ecb26ae027ef7bfa52d2
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91305689"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94355472"
 ---
 # <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Dropbox för företag för automatisk användar etablering
 
@@ -42,11 +42,11 @@ Innan du konfigurerar Dropbox för företag för automatisk användar etablering
 
 **Utför följande steg för att lägga till Dropbox för företag i program galleriet för Azure AD:**
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
+1. Välj **Azure Active Directory** i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -54,7 +54,7 @@ Innan du konfigurerar Dropbox för företag för automatisk användar etablering
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **Dropbox för företag**, väljer **Dropbox för företag** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **Dropbox för företag** , väljer **Dropbox för företag** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![Dropbox for Business i resultatlistan](common/search-new-app.png)
 

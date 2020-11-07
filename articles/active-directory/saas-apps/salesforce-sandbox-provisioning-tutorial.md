@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: cc094376ed6d5a183b65a598ca9d0a55670be70e
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 7e3f8e5e975468b468712ae8907cdca0e80a5f9f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676727"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94352616"
 ---
 # <a name="tutorial-configure-salesforce-sandbox-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Salesforce-Sandbox för automatisk användar etablering
 
@@ -61,7 +61,7 @@ Syftet med det här avsnittet är att skapa en översikt över hur du aktiverar 
 
 1. Välj din instans av Salesforce Sandbox och välj sedan fliken **etablering** .
 
-1. Ange **Etableringsläge** som **Automatiskt** .
+1. Ange **Etableringsläge** som **Automatiskt**.
 
     ![Skärm bild som visar sidan för sandbox-etablering för Salesforce, med etablerings läget inställt på automatiskt och andra värden som du kan ange.](./media/salesforce-sandbox-provisioning-tutorial/provisioning.png)
 
@@ -71,11 +71,11 @@ Syftet med det här avsnittet är att skapa en översikt över hur du aktiverar 
    
     b. I text rutan **Administratörs lösen ord** skriver du lösen ordet för det här kontot.
 
-1. Öppna en ny flik och logga in på samma Salesforce Sandbox-administratörskonto för att få en säkerhetstoken för Salesforce. Klicka på ditt namn i det övre högra hörnet på sidan och klicka sedan på **Inställningar** .
+1. Öppna en ny flik och logga in på samma Salesforce Sandbox-administratörskonto för att få en säkerhetstoken för Salesforce. Klicka på ditt namn i det övre högra hörnet på sidan och klicka sedan på **Inställningar**.
 
      ![Skärm bild som visar länken Inställningar valda.](./media/salesforce-sandbox-provisioning-tutorial/sf-my-settings.png "Aktivera automatisk användar etablering")
 
-1. I det vänstra navigerings fönstret klickar du på **Mina personliga uppgifter** för att expandera det relaterade avsnittet och klicka sedan på **Återställ min säkerhetstoken** .
+1. I det vänstra navigerings fönstret klickar du på **Mina personliga uppgifter** för att expandera det relaterade avsnittet och klicka sedan på **Återställ min säkerhetstoken**.
   
     ![Skärm bild som visar Återställ min säkerhetstoken som valts från min personliga information.](./media/salesforce-sandbox-provisioning-tutorial/sf-personal-reset.png "Aktivera automatisk användar etablering")
 

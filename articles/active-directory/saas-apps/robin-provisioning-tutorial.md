@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/12/2019
 ms.author: Zhchia
-ms.openlocfilehash: 1a7c2634f4dc06e3c988a48c7ca15294160759e2
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 6ef4558cc0cbbacb372fc4a4c2b52859517a2635
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520735"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353534"
 ---
 # <a name="tutorial-configure-robin-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Tax för automatisk användar etablering
 
@@ -68,11 +68,11 @@ Innan du konfigurerar Robin för automatisk användar etablering med Azure AD m�
 
 **Utför följande steg för att lägga till tax från program galleriet i Azure AD:**
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
+1. Välj **Azure Active Directory** i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -80,7 +80,7 @@ Innan du konfigurerar Robin för automatisk användar etablering med Azure AD m�
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I rutan Sök anger du **Tax**, väljer **Tax** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I rutan Sök anger du **Tax** , väljer **Tax** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![Resursallokering i resultat listan](common/search-new-app.png)
 

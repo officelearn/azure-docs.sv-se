@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 5858e785b2105d8357ebd478699e2d17768fc25f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 2c7f4aebc70ff831459fe111bcc30f5385088028
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519732"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357699"
 ---
 # <a name="tutorial-configure-zscaler-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Zscaler för automatisk användar etablering
 
@@ -43,7 +43,7 @@ Innan du konfigurerar Zscaler för automatisk användar etablering med Azure AD 
 
 **Utför följande steg för att lägga till Zscaler från Azure AD-programgalleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory** -ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -55,7 +55,7 @@ Innan du konfigurerar Zscaler för automatisk användar etablering med Azure AD 
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I rutan Sök skriver du **Zscaler**, väljer **Zscaler** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
+4. I rutan Sök skriver du **Zscaler** , väljer **Zscaler** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
     ![Zscaler i resultat listan](common/search-new-app.png)
 
@@ -82,7 +82,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 ### <a name="to-configure-automatic-user-provisioning-for-zscaler-in-azure-ad"></a>Konfigurera automatisk användar etablering för Zscaler i Azure AD:
 
-1. Logga in på [Azure Portal](https://portal.azure.com) och välj **företags program**, Välj **alla program**och välj sedan **Zscaler**.
+1. Logga in på [Azure Portal](https://portal.azure.com) och välj **företags program** , Välj **alla program** och välj sedan **Zscaler**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -100,7 +100,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 5. Under avsnittet **admin credentials** måste du skriva in **klient-URL: en** och den **hemliga token** för ditt Zscaler-konto enligt beskrivningen i steg 6.
 
-6. Hämta klient- **URL** och **hemlig token**genom att gå till **Administration > autentiseringsinställningar** i användar gränssnittet för Zscaler-portalen och klicka på **SAML** under **Autentiseringstyp**.
+6. Hämta klient- **URL** och **hemlig token** genom att gå till **Administration > autentiseringsinställningar** i användar gränssnittet för Zscaler-portalen och klicka på **SAML** under **Autentiseringstyp**.
 
     ![Skärm bild av sidan autentiseringsinställningar.](./media/zscaler-provisioning-tutorial/secret-token-1.png)
 
@@ -108,7 +108,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Skärm bild av dialog rutan konfigurera S A M L med text rutorna grundläggande U R L och Bearer-token.](./media/zscaler-provisioning-tutorial/secret-token-2.png)
 
-    Välj **aktivera SCIM-Based etablering** för att hämta **bas-URL** och **Bearer-token**och spara sedan inställningarna. Kopiera **bas-URL** : en till klient- **URL: en**och **ha token token**  till **hemlig token** i Azure Portal.
+    Välj **aktivera SCIM-Based etablering** för att hämta **bas-URL** och **Bearer-token** och spara sedan inställningarna. Kopiera **bas-URL** : en till klient- **URL: en** och **ha token token**  till **hemlig token** i Azure Portal.
 
 7. När du fyller i fälten som visas i steg 5, klickar du på **Testa anslutning** för att se till att Azure AD kan ansluta till Zscaler. Om anslutningen Miss lyckas kontrollerar du att Zscaler-kontot har administratörs behörighet och försöker igen.
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: baa6e10d33d1c0a1a9c367baa8888fdfb5a47c01
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e0409f289289aaebc760473f1f74130b34fbdd39
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746227"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357733"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Azure Disk Encryption-scenarier på virtuella Windows-datorer
 
@@ -23,7 +23,7 @@ Azure Disk Encryption är [integrerat med Azure Key Vault](disk-encryption-key-v
 
 Du kan bara använda disk kryptering för virtuella datorer med [stödda VM-storlekar och operativ system](disk-encryption-overview.md#supported-vms-and-operating-systems). Du måste också uppfylla följande krav:
 
-- [Nätverks krav](disk-encryption-overview.md#networking-requirements)
+- [Nätverkskrav](disk-encryption-overview.md#networking-requirements)
 - [grupprincip krav](disk-encryption-overview.md#group-policy-requirements)
 - [Lagrings krav för krypterings nyckel](disk-encryption-overview.md#encryption-key-storage-requirements)
 
@@ -123,7 +123,7 @@ Använd kommandot [AZ VM Encryption Enable](/cli/azure/vm/encryption#az-vm-encry
 Du kan aktivera disk kryptering på befintliga eller köra IaaS virtuella Windows-datorer i Azure med hjälp av [Resource Manager-mallen för att kryptera en Windows-VM som körs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-without-aad).
 
 
-1. I mallen för Azure snabb start klickar **du på distribuera till Azure** .
+1. I mallen för Azure snabb start klickar **du på distribuera till Azure**.
 
 2. Välj prenumeration, resurs grupp, plats, inställningar, juridiska villkor och avtal. Klicka på **köp** för att aktivera kryptering på den befintliga eller aktiva virtuella IaaS-datorn.
 
@@ -135,7 +135,7 @@ I följande tabell visas parametrarna för Resource Manager-mallen för befintli
 | keyVaultName | Namnet på nyckel valvet som BitLocker-nyckeln ska överföras till. Du kan hämta den med hjälp av cmdleten `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` eller Azure CLI-kommandot `az keyvault list --resource-group "MyKeyVaultResourceGroup"`|
 | keyVaultResourceGroup | Namnet på den resurs grupp som innehåller nyckel valvet|
 |  keyEncryptionKeyURL | URL: en för nyckel krypterings nyckeln, i formatet https:// &lt; Key Vault-name &gt; . Vault.Azure.net/Key/ &lt; nyckel-name &gt; . Lämna fältet tomt om du inte vill använda en KEK. |
-| volumeType | Typ av volym som krypterings åtgärden utförs på. Giltiga värden är _OS_ , _data_ och _alla_ . 
+| volumeType | Typ av volym som krypterings åtgärden utförs på. Giltiga värden är _OS_ , _data_ och _alla_. 
 | forceUpdateTag | Skicka ett unikt värde som ett GUID varje gång åtgärden måste tvingas köras. |
 | resizeOSDisk | Vill du ändra storlek på operativ systemets partition så att den upptar full OS VHD innan du delar upp system volymen. |
 | location | Platser för alla resurser. |
@@ -266,6 +266,7 @@ Azure Disk Encryption fungerar inte för följande scenarier, funktioner och tek
 - Virtuella datorer i M-serien med Skrivningsaccelerator diskar.
 - Använda ADE på en virtuell dator som har diskar som är krypterade med [kryptering på Server sidan med Kundhanterade nycklar](disk-encryption.md) (SSE + CMK). Att använda SSE + CMK till en datadisk på en virtuell dator som är krypterad med ADE är ett scenario som inte stöds.
 - Migrering av en virtuell dator som är krypterad med ADE eller **som har varit** krypterad med ade, till kryptering på [Server sidan med Kundhanterade nycklar](disk-encryption.md).
+- [Azure VM-storlekar utan lokal temporär disk](../azure-vms-no-temp-disk.md); Mer specifikt, DV4, Dsv4, Ev4 och Esv4.
 
 ## <a name="next-steps"></a>Nästa steg
 

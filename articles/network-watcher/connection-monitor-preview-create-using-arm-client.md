@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: 7d35799cd73ff4d065cb58189f2325dc4dac6840
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a30b5c225bcbcb7ca0febad5ae23bce522d2135
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87567997"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357529"
 ---
 # <a name="create-a-connection-monitor-preview-using-the-armclient"></a>Skapa en anslutnings övervakare (för hands version) med hjälp av ARMClient
 
@@ -60,40 +60,92 @@ properties: {
 
 endpoints: [{
 
-name: 'workspace',
+name: 'endpoint_workspace_machine',
+
+type: 'MMAWorkspaceMachine',
 
 resourceId: '/subscriptions/<subscription id>/resourcegroups/<resource group>/providers/Microsoft.OperationalInsights/workspaces/sampleWorkspace',
 
-filter: {
+//Example 1: Choose a machine
 
- items: [{
-
-type: 'AgentAddress',
-
-address: '<FQDN of your on-premises agent>'
-
-}]
-
+address : '<non-Azure machine FQDN>'
 }
 
-          },
+//Example 2: Select IP from chosen machines
 
- {
+address : '<non-Azure machine FQDN>
 
-name: 'vm1',
+"scope": {
+      "include": [
+            {
+                  "address": "<IP belonging to machine chosen above>"  
+        }
+       ]
+      }
+   }    
+   
+name: 'endpoint_workspace_network',
+
+type: 'MMAWorkspaceNetwork',
+
+resourceId: '/subscriptions/<subscription id>/resourcegroups/<resource group>/providers/Microsoft.OperationalInsights/workspaces/sampleWorkspace',
+
+ coverage level : 'high', //Optional
+ 
+ //Include subnets. You can also exclude IPs from subnet to exclude from monitoring
+ 
+ scope: {
+      "include": [
+            {
+                  "address": "<subnet 1 mask>" // Eg: 10.10.1.0/28
+            },
+            {
+                  "address": "<subnet 2 mask>" 
+            }
+      ],
+      "exclude": [
+            { 
+            "address" : "<ip-from-included-subnets-that-should-be-excluded>"
+        }
+      ]
+     }
+},
+
+//Use a Azure VM as an endpoint
+{
+
+name: 'endpoint_virtualmachine',
 
 resourceId: '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<vm-name>'
 
 },
 
+//Use an Azure VNET or Subnet as an endpoint
+
  {
 
-name: 'vm2',
+name: 'endpoint_vnet_subnet',
 
-resourceId: '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<vm-name>'
+resourceId: '<resource id of VNET or subnet'
+coverage level: 'high' //Optional
 
+//Scope is optional.
+
+  "scope": {
+      "include": [
+            {
+                  "address": "<subnet 1 mask>" // Eg: 10.10.1.0/28 .This subnet should match with any existing subnet in vnet
+            }
+      ],
+    "exclude": [
+            {
+                  "address": "<ip-from-included-subnets-that-should-be-excluded>" // If used with include, IP should be part of the subnet defined above. Without include, this could be any address within vnet range or any specific subnet range as a whole.
+            }
+      ]
+  }
    },
 
+//Endpoint as a URL
 {
 
 name: 'azure portal'
@@ -102,6 +154,7 @@ address: '<URL>'
 
    },
 
+//Endpoint as an IP 
  {
 
     name: 'ip',
@@ -167,9 +220,24 @@ address: '<URL>'
     protocol: 'HTTP',
 
     httpConfiguration: {
-
-     preferHTTPS: true
-
+    
+     port: '<port of choice>'
+  
+    preferHTTPS: true // If port chosen is not 80 or 443
+    
+    method: 'GET', //Choose GET or POST
+    
+    path: '/', //Specify path for request
+         
+    requestHeaders: [
+            {
+              "name": "Content-Type",
+              "value": "appication/json"
+            }
+          ],
+          
+    validStatusCodeRanges: [ "102", "200-202", "3xx" ], //Samples
+          
     },
 
     successThreshold: {
@@ -180,7 +248,8 @@ address: '<URL>'
 
     }
 
-   }, {
+   }, 
+   {
 
     name: 'tcpEnabled',
 
@@ -307,9 +376,15 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
     * Namn – namnet på test konfigurationen.
     * testFrequencySec – ange hur ofta källor ska pinga mål på det protokoll och den port som du har angett. Du kan välja 30 sekunder, 1 minut, 5 minuter, 15 minuter eller 30 minuter. Källorna kommer att testa anslutningen till destinationer utifrån det värde som du väljer. Om du till exempel väljer 30 sekunder kommer källorna att kontrol lera anslutningen till målet minst en gång under en 30-sekunders period.
     * protokoll – du kan välja TCP, ICMP, HTTP eller HTTPS. Beroende på protokollet kan du göra vissa protokolls par konfigurations information
-        * preferHTTPS – ange om HTTPS ska användas över HTTP
+    
+        * preferHTTPS – ange om du vill använda HTTPS över HTTP, när porten som används är varken 80 eller 443
         * Port – ange vilken målport du önskar.
-        * disableTraceRoute – detta gäller för test grupper vars protokoll är TCP eller ICMP. Den stoppar källor från identifiering av topologi och sökning efter hopp.
+        * disableTraceRoute – detta gäller för test av konfigurationer vars protokoll är TCP eller ICMP. Den stoppar källor från identifiering av topologi och sökning efter hopp.
+        * metod – detta används för att testa konfigurationer vars protokoll är HTTP. Välj metoden HTTP-begäran – antingen GET eller POST
+        * Sökväg – Ange Sök vägs parametrar som ska läggas till i URL
+        * validStatusCodes – Välj tillämpliga status koder. Om svars koden inte matchar den här listan visas ett diagnostiskt meddelande
+        * requestHeaders – ange anpassade rubrik strängar för begäran som kommer att skickas till målet
+        
     * successThreshold – du kan ange tröskelvärden för följande nätverks parametrar:
         * checksFailedPercent – ange procent andelen kontroller som kan avbrytas när källor kontrollerar anslutningen till destinationer genom att använda de villkor som du har angett. Procent andelen misslyckade kontroller i TCP-eller ICMP-protokollet kan likställas med procent andelen av paket förlusten. För HTTP-protokoll representerar det här fältet den procent andel av HTTP-begäranden som inte fick något svar.
         * roundTripTimeMs – ange önskad söktext i millisekunder för hur lång tid det tar att ansluta till målet via test konfigurationen.

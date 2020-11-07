@@ -8,15 +8,15 @@ ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: df993aae4e6c572c8f99688fd0053bdd07aefd56
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: c06595b683092abf52300481068daab26394c4cb
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92453937"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358753"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integrera Azure Active Directory med E-Remix för försäljnings chef
 
@@ -68,7 +68,7 @@ Om du vill konfigurera integreringen av Azure AD med E Sales Manager-Remix lägg
 
     ![Knappen Nytt program][3]
 
-1. I sökrutan skriver du **e Sales Manager Remix**, väljer **e Sales Manager-Remix** i resultat listan och väljer sedan **Lägg till**.
+1. I sökrutan skriver du **e Sales Manager Remix** , väljer **e Sales Manager-Remix** i resultat listan och väljer sedan **Lägg till**.
 
     ![E försäljnings hanterarens Remix i resultat listan](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_addfromgallery.png)
 
@@ -88,24 +88,24 @@ Aktivera enkel inloggning i Azure AD i Azure Portal och konfigurera enkel inlogg
 
     ![Länken "enkel inloggning"][4]
 
-1. I fönstret **enkel inloggning** väljer du **SAML-baserad inloggning**i rutan **läge för enkel inloggning** .
+1. I fönstret **enkel inloggning** väljer du **SAML-baserad inloggning** i rutan **läge för enkel inloggning** .
  
     ![Fönstret "enkel inloggning"](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_samlbase.png)
 
-1. Under **E Remix-domän och URL: er för försäljnings hanteraren**gör du följande:
+1. Under **E Remix-domän och URL: er för försäljnings hanteraren** gör du följande:
 
     ![E-Remix för information om domän och URL: er för försäljnings chef](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_url.png)
 
     a. I rutan **inloggnings-URL** skriver du en URL i följande format: *https:// \<Server-Based-URL> / \<sub-domain> /eSales-PC*.
 
-    b. I rutan **identifierare** anger du en URL i följande format: *https:// \<Server-Based-URL> / \<sub-domain> / *.
+    b. I rutan **identifierare** anger du en URL i följande format: *https:// \<Server-Based-URL> / \<sub-domain> /*.
 
     c. Observera **ID** -värdet för senare användning i den här självstudien.
     
     > [!NOTE] 
     > Föregående värden är inte verkliga. Uppdatera dem med den faktiska inloggnings-URL: en och identifieraren. Om du vill hämta värdena kontaktar du [E-Remix för kund support för försäljnings chef](mailto:esupport@softbrain.co.jp).
 
-1. Under **SAML-signeringscertifikat**väljer du **certifikat (base64)** och sparar sedan certifikat filen på din dator.
+1. Under **SAML-signeringscertifikat** väljer du **certifikat (base64)** och sparar sedan certifikat filen på din dator.
 
     ![Hämtnings länken för certifikatet (base64)](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_certificate.png) 
 
@@ -119,7 +119,7 @@ Aktivera enkel inloggning i Azure AD i Azure Portal och konfigurera enkel inlogg
 
     ![Fönstret redigera attribut](./media/esalesmanagerremix-tutorial/configure2.png)
 
-1. Under **E-Remix konfiguration av försäljnings chef**väljer du **Konfigurera E Sales Manager Remix**.
+1. Under **E-Remix konfiguration av försäljnings chef** väljer du **Konfigurera E Sales Manager Remix**.
 
     ![Skärm bild som visar avsnittet "E-Remix konfiguration av försäljnings chef" med "konfigurera E Sales Manager Remix" markerat.](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_configure.png) 
 
@@ -145,13 +145,13 @@ Aktivera enkel inloggning i Azure AD i Azure Portal och konfigurera enkel inlogg
 
     ![Fönstret "samar beta med externt system"](./media/esalesmanagerremix-tutorial/configure6.png)
 
-1. Under **inställningen SAML-autentisering**gör du följande:
+1. Under **inställningen SAML-autentisering** gör du följande:
 
     ![Avsnittet "SAML Authentication Setting"](./media/esalesmanagerremix-tutorial/configure3.png)
     
     a. Markera kryss rutan **PC-version** .
     
-    b. Välj **e-post**i list rutan i avsnittet **samarbets objekt** .
+    b. Välj **e-post** i list rutan i avsnittet **samarbets objekt** .
 
     c. I rutan **samarbets objekt** klistrar du in det anspråk värde som du kopierade tidigare från Azure Portal (det vill säga **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`** ).
 
@@ -175,7 +175,7 @@ I det här avsnittet skapar du test User Britta Simon i Azure Portal genom att g
 
 ![Skapa en Azure AD-testanvändare][100]
 
-1. I Azure Portal väljer du **Azure Active Directory**i det vänstra fönstret.
+1. I Azure Portal väljer du **Azure Active Directory** i det vänstra fönstret.
 
     ![Azure Active Directory länken](./media/paloaltoadmin-tutorial/create_aaduser_01.png)
 
@@ -183,7 +183,7 @@ I det här avsnittet skapar du test User Britta Simon i Azure Portal genom att g
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](./media/paloaltoadmin-tutorial/create_aaduser_02.png)
 
-1. Klicka på **Lägg till**längst upp i fönstret **alla användare** .
+1. Klicka på **Lägg till** längst upp i fönstret **alla användare** .
 
     ![Knappen Lägg till](./media/paloaltoadmin-tutorial/create_aaduser_03.png)
     
@@ -193,7 +193,7 @@ I det här avsnittet skapar du test User Britta Simon i Azure Portal genom att g
 
     ![Fönstret användare](./media/paloaltoadmin-tutorial/create_aaduser_04.png)
 
-    a. Skriv **BrittaSimon**i rutan **namn** .
+    a. Skriv **BrittaSimon** i rutan **namn** .
 
     b. Skriv e-postadressen för användaren Britta Simon i rutan **användar namn** .
 
@@ -209,7 +209,7 @@ I det här avsnittet skapar du test User Britta Simon i Azure Portal genom att g
 
     ![Konfiguration av E-Remix för försäljnings chef](./media/esalesmanagerremix-tutorial/configure4.png)
 
-1. Välj **ditt företags inställningar**  >  **underhåll av avdelningar och anställda**och välj sedan **medarbetare registrerade**.
+1. Välj **ditt företags inställningar**  >  **underhåll av avdelningar och anställda** och välj sedan **medarbetare registrerade**.
 
     ![Fliken "anställda har registrerats"](./media/esalesmanagerremix-tutorial/user1.png)
 
@@ -217,7 +217,7 @@ I det här avsnittet skapar du test User Britta Simon i Azure Portal genom att g
     
     ![Avsnittet "ny personal registrering"](./media/esalesmanagerremix-tutorial/user2.png)
 
-    a. I rutan **namn på anställd** skriver du namnet på användaren (till exempel **Britta**).
+    a. I rutan **namn på anställd** skriver du namnet på användaren (till exempel **Britta** ).
 
     b. Fyll i de återstående obligatoriska fälten.
     
@@ -225,7 +225,7 @@ I det här avsnittet skapar du test User Britta Simon i Azure Portal genom att g
 
     d. Välj **registrering**.
 
-1. Om du vill logga in som administratör i framtiden loggar du in som den användare som har administratörs behörighet och väljer sedan på **Administratörs menyn**längst upp till höger.
+1. Om du vill logga in som administratör i framtiden loggar du in som den användare som har administratörs behörighet och väljer sedan på **Administratörs menyn** längst upp till höger.
 
     ![Kommandot "till administratörs meny"](./media/esalesmanagerremix-tutorial/configure4.png)
 
@@ -251,7 +251,7 @@ I det här avsnittet aktiverar du User Britta Simon till att använda enkel inlo
 
     ![Fönstret Lägg till tilldelning][203]
 
-1. I fönstret **användare och grupper** väljer du **Britta Simon**i listan **användare** .
+1. I fönstret **användare och grupper** väljer du **Britta Simon** i listan **användare** .
 
 1. Välj knappen **Välj**.
 

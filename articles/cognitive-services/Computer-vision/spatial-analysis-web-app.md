@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 11/06/2020
 ms.author: aahi
-ms.openlocfilehash: 3bc03cf03f8a8e0f2a222ca1089618eaade9485d
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 24d4dd4d0caa49b9514bf19f707ea87b0b071a79
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496077"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357104"
 ---
 # <a name="how-to-deploy-a-people-counting-web-application"></a>Så här distribuerar du en användare som räknar webb program
 
@@ -64,6 +64,8 @@ az iot hub device-identity create --hub-name "<IoT Hub Name>" --device-id "<Edge
 ### <a name="deploy-the-container-on-azure-iot-edge-on-the-host-computer"></a>Distribuera behållaren på Azure IoT Edge på värddatorn
 
 Distribuera behållaren för rums analys som en IoT-modul på värddatorn med hjälp av Azure CLI. Distributions processen kräver en distributions manifest fil som beskriver de obligatoriska behållarna, variablerna och konfigurationerna för distributionen. Du kan hitta ett exempel på [Azure Stack Edge-särskilt distributions manifest](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/) och ett [icke-Azure Stack-särskilt distributions manifest](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) på GitHub, som innehåller en grundläggande distributions konfiguration för behållaren för *spatial analys* . 
+
+Du kan också använda Azure IoT-tillägg för Visual Studio Code för att utföra åtgärder med IoT Hub. Gå till [distribuera Azure IoT Edge moduler från Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-vscode) för mer information.
 
 > [!NOTE] 
 > Behållarna *spatial-analys-teleympkvistar* och *spatial-analys – diagnostik* är valfria. Du kan välja att ta bort dem från *DeploymentManifest.jsi* filen. Mer information finns i artikeln om [telemetri och fel sökning](./spatial-analysis-logging.md) . Du kan hitta två exempel *DeploymentManifest.jspå* filer på GitHub, antingen för en [Azure Stack Edge-enhet](https://go.microsoft.com/fwlink/?linkid=2142179) eller en annan [stationär dator](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)
@@ -170,7 +172,7 @@ docker tag rtvsofficial.azurecr.io/acceleratorapp.personcount:1.0 [desired local
 docker push [desired local image name]
 ```
 
-Om du vill installera behållaren skapar du en ny Azure-Web App for Containers och fyller i de obligatoriska parametrarna. Gå sedan till fliken **Docker** och välj **en behållare**och **Azure Container Registry**. Använd din instans av Azure Container Registry där du skickade avbildningen ovan.
+Om du vill installera behållaren skapar du en ny Azure-Web App for Containers och fyller i de obligatoriska parametrarna. Gå sedan till fliken **Docker** och välj **en behållare** och **Azure Container Registry**. Använd din instans av Azure Container Registry där du skickade avbildningen ovan.
 
 ![Ange bild information](./media/spatial-analysis/solution-app-create-screen.png)
 
@@ -190,6 +192,9 @@ När de här två inställningarna har lagts till klickar du på **Spara**. Klic
 Gå till Azure-webbappen och kontrol lera att distributionen lyckades och att webbappen körs. Navigera till den konfigurerade URL: en `<yourapp>.azurewebsites.net` för att Visa appen som körs.
 
 ![Testa distributionen](./media/spatial-analysis/solution-app-output.png)
+
+## <a name="get-the-personcount-source-code"></a>Hämta käll koden för PersonCount
+Om du vill visa eller ändra käll koden för det här programmet kan du hitta den [på GitHub](https://github.com/Azure-Samples/cognitive-services-spatial-analysis).
 
 ## <a name="next-steps"></a>Nästa steg
 

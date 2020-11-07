@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: jeedes
-ms.openlocfilehash: e08c748dec6d21e1ff5d848257c65aa3f8f5aa63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0165e5191a8cd499b42c14704fdf4f0d79b3f6b
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91300039"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358549"
 ---
 # <a name="tutorial-configure-leapsome-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Leapsome för automatisk användar etablering
 
@@ -70,11 +70,11 @@ Innan du konfigurerar Leapsome för automatisk användar etablering med Azure AD
 
 **Utför följande steg för att lägga till Leapsome från Azure AD-programgalleriet:**
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
+1. Välj **Azure Active Directory** i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -82,7 +82,7 @@ Innan du konfigurerar Leapsome för automatisk användar etablering med Azure AD
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **Leapsome**, väljer **Leapsome** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **Leapsome** , väljer **Leapsome** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![Leapsome i resultat listan](common/search-new-app.png)
 

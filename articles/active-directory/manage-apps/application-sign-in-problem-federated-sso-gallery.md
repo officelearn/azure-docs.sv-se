@@ -12,12 +12,12 @@ ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.custom: contperfq2
-ms.openlocfilehash: ec39a6d106973808e26b7c06dce8b3054af490ff
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 12b11d6283bbed4e43daf52a65c0c259c476e73f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427373"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357920"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>Problem med att logga in till SAML-baserade enkel inloggning konfigurerade appar
 För att felsöka inloggnings problemen nedan rekommenderar vi följande för att bättre diagnostisera och automatisera lösnings stegen:
@@ -145,7 +145,24 @@ När programmet lades till som en icke-galleriapp skapade Azure Active Directory
 
 Ta bort de oanvända svars-URL: erna som kon figurer ATS för programmet.
 
-På sidan SAML-baserad SSO-konfiguration, i avsnittet **svars-URL för försäkrans konsument tjänst** , tar du bort oanvända eller vanliga svars-URL: er som skapats av systemet. Till exempel `https://127.0.0.1:444/applications/default.aspx`.
+På sidan SAML-baserad SSO-konfiguration, i avsnittet **svars-URL för försäkrans konsument tjänst** , tar du bort oanvända eller vanliga svars-URL: er som skapats av systemet. Exempelvis `https://127.0.0.1:444/applications/default.aspx`.
+
+
+## <a name="authentication-method-by-which-the-user-authenticated-with-the-service-doesnt-match-requested-authentication-method"></a>Autentiseringsmetoden med vilken användaren autentiseras med tjänsten matchar inte den begärda autentiseringsmetoden
+`Error: AADSTS75011 Authentication method by which the user authenticated with the service doesn't match requested authentication method 'AuthnContextClassRef'. `
+
+**Möjlig orsak**
+
+`RequestedAuthnContext`Är i SAML-begäran. Det innebär att appen förväntar sig den `AuthnContext` som anges av `AuthnContextClassRef` . Användaren har dock redan autentiserats innan åtkomst till programmet och `AuthnContext` (autentiseringsmetoden) som används för den tidigare autentiseringen skiljer sig från den som begärs. Till exempel har en federerad användare åtkomst till Mina appar och WIA. `AuthnContextClassRef`Blir `urn:federation:authentication:windows` . AAD utför inte en ny autentiseringsbegäran, den använder den autentisering som skickades genom IdP (ADFS eller någon annan Federations tjänst i det här fallet). Därför är det ett matchnings fel om appen begär andra än `urn:federation:authentication:windows` . Ett annat scenario är när multifaktorn användes: `'X509, MultiFactor` .
+
+**Lösning**
+
+
+`RequestedAuthnContext` är ett valfritt värde. Sedan, om möjligt, fråga programmet om det kan tas bort.
+
+Ett annat alternativ är att se till att det `RequestedAuthnContext` kommer att användas. Detta görs genom att begära en ny autentisering. Genom att göra detta när SAML-begäran bearbetas utförs en ny autentisering och `AuthnContext` kommer att användas. Om du vill begära en ny autentisering innehåller SAML-begäran mest värdet `forceAuthn="true"` . 
+
+
 
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Problem vid anpassning av SAML-anspråk som skickas till ett program
 Information om hur du anpassar SAML-attributets anspråk som skickas till programmet finns i [anspråks mappning i Azure Active Directory](../develop/active-directory-claims-mapping.md).

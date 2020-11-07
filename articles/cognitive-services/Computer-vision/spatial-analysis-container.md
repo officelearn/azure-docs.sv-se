@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 11/06/2020
 ms.author: aahi
-ms.openlocfilehash: d84867dbe51b9c6689ecdac2bc80585a88da66b4
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 6ebc1831b990b540bcb9a3856c380c28142af536
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496122"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357121"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Installera och kör behållaren för rums analys (förhands granskning)
 
@@ -105,7 +105,7 @@ Rums analys använder Compute-funktionerna i Azure Stack Edge för att köra en 
 
 ### <a name="set-up-an-edge-compute-role-and-create-an-iot-hub-resource"></a>Konfigurera en Edge Compute-roll och skapa en IoT Hub resurs
 
-I [Azure Portal](https://portal.azure.com/)navigerar du till Azure Stack Edge-resursen. På sidan **Översikt** eller navigerings listan klickar du på knappen Edge Compute **Kom igång** . I panelen **Konfigurera Edge Compute**   klickar du på **Konfigurera**. 
+I [Azure Portal](https://portal.azure.com/)navigerar du till Azure Stack Edge-resursen. På sidan **Översikt** eller navigerings listan klickar du på knappen Edge Compute **Kom igång** . I panelen  **Konfigurera Edge Compute**   klickar du på **Konfigurera**. 
 
 ![Länk](media/spatial-analysis/configure-edge-compute-tile.png)
 
@@ -289,7 +289,7 @@ sudo apt-get update
 Installera 1.0.9-versionen:
 
 ```bash
-sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.8*
+sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
 ```
 
 Registrera sedan värddatorn som en IoT Edge enhet i IoT Hub-instansen med hjälp av en [anslutnings sträng](https://docs.microsoft.com/azure/iot-edge/how-to-register-device#register-in-the-azure-portal).
@@ -381,7 +381,7 @@ Du kan använda rums analys med både inspelad eller live video. Om du vill anv�
     1. Ändra **säker överföring som krävs** för **inaktive rad**
     2. Ändra **Tillåt att BLOB offentlig åtkomst** har **Aktiver ATS**
 
-Navigera till **container** -avsnittet och skapa en ny behållare eller Använd en befintlig. Ladda sedan upp video filen till behållaren. Expandera fil inställningarna för den överförda filen och välj **generera SAS**. Se till att du ställer in **utgångs datumet** tillräckligt länge för att kunna ta del av test perioden. Ange **tillåtna protokoll** till *http* (*https* stöds inte).
+Navigera till **container** -avsnittet och skapa en ny behållare eller Använd en befintlig. Ladda sedan upp video filen till behållaren. Expandera fil inställningarna för den överförda filen och välj **generera SAS**. Se till att du ställer in **utgångs datumet** tillräckligt länge för att kunna ta del av test perioden. Ange **tillåtna protokoll** till *http* ( *https* stöds inte).
 
 Klicka på **skapa SAS-token och URL** och kopiera BLOB SAS-URL: en. Ersätt den `https` med `http` och testa webb adressen i en webbläsare som stöder videouppspelning.
 

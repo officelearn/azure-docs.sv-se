@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/08/2019
 ms.author: Zhchia
-ms.openlocfilehash: 43f5b96c7029da6b49bc9df40d92fbd250145715
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e79f21300325c6b451dd564bf2c69830f003f55c
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326039"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357869"
 ---
 # <a name="tutorial-configure-priority-matrix-for-automatic-user-provisioning"></a>Självstudie: Konfigurera prioritets mat ris för automatisk användar etablering
 
@@ -67,11 +67,11 @@ Innan du konfigurerar prioritets mat ris för automatisk användar etablering me
 
 Om du vill konfigurera prioritets mat ris för automatisk användar etablering med Azure AD måste du lägga till prioritets mat ris från Azure AD-programgalleriet i listan över hanterade SaaS-program.
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
+1. Välj **Azure Active Directory** i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -79,7 +79,7 @@ Om du vill konfigurera prioritets mat ris för automatisk användar etablering m
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I rutan Sök anger du **prioritets mat ris**, väljer **prioritets mat ris** i resultat panelen. 
+4. I rutan Sök anger du **prioritets mat ris** , väljer **prioritets mat ris** i resultat panelen. 
 
     ![Prioritets mat ris i resultat listan](common/search-new-app.png)
 

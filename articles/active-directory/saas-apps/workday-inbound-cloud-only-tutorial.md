@@ -6,16 +6,16 @@ author: cmmdesai
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.topic: article
+ms.topic: tutorial
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 7d47c21da1279271b12933a2e4642abcce622600
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 197b7ff0a6c613a019007ba507d678b619c9afd4
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90015491"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358600"
 ---
 # <a name="tutorial-configure-workday-to-azure-ad-user-provisioning"></a>Självstudie: Konfigurera arbets dag till användar etablering i Azure AD
 Syftet med den här självstudien är att visa de steg som du måste utföra för att etablera arbetarnas data från arbets dagar till Azure Active Directory. 
@@ -47,7 +47,7 @@ Den här arbets dagen för att Azure Active Directory användar etablerings lös
 
 * Organisationer som använder Microsoft 365 för e-post
 
-## <a name="solution-architecture"></a>Lösningsarkitektur
+## <a name="solution-architecture"></a>Lösningsarkitekturen
 
 I det här avsnittet beskrivs slut punkt till slut punkt för användar etablerings lösnings arkitekturen för endast molnbaserade användare. Det finns två relaterade flöden:
 
@@ -95,11 +95,11 @@ I följande avsnitt beskrivs hur du konfigurerar användar etablering från Work
 
 2. I Azure Portal söker du efter och väljer **Azure Active Directory**.
 
-3. Välj **företags program**och sedan **alla program**.
+3. Välj **företags program** och sedan **alla program**.
 
-4. Välj **Lägg till ett program**och välj sedan kategorin **alla** .
+4. Välj **Lägg till ett program** och välj sedan kategorin **alla** .
 
-5. Sök efter **arbets dag till Azure AD-användar etablering**och Lägg till den appen från galleriet.
+5. Sök efter **arbets dag till Azure AD-användar etablering** och Lägg till den appen från galleriet.
 
 6. När appen har lagts till och skärmen information om appen visas väljer du **etablering**.
 
@@ -134,7 +134,7 @@ I följande avsnitt beskrivs hur du konfigurerar användar etablering från Work
 
 I det här avsnittet ska du konfigurera hur användar data flödar från arbets dagar till Azure Active Directory endast för molnbaserade användare.
 
-1. På fliken etablering under **mappningar**klickar du på **Synkronisera arbetare till Azure AD**.
+1. På fliken etablering under **mappningar** klickar du på **Synkronisera arbetare till Azure AD**.
 
 2. I fältet **käll objekt omfånget** kan du välja vilka uppsättningar av användare i arbets dagar som ska ingå i omfånget för etablering till Azure AD, genom att definiera en uppsättning attributbaserade filter. Standard omfånget är "alla användare i Workday". Exempel filter:
 

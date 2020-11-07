@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 5ea7211ea895c5f6db3e84e382632737468898fb
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 25767a7ddb83acf3ad10698f9f2ff8949a0ad55f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319099"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357206"
 ---
 # <a name="tutorial-configure-8x8-for-automatic-user-provisioning"></a>Självstudie: Konfigurera 8x8 för automatisk användar etablering
 
@@ -116,7 +116,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 9. Granska de användarattribut som synkroniseras från Azure AD till 8x8 i avsnittet **attribut-mappning** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i 8x8 för uppdaterings åtgärder. Om du väljer att ändra [matchande målattribut](../app-provisioning/customize-application-attributes.md)måste du se till att 8x8-API: et stöder filtrering av användare baserat på det attributet. Välj knappen **Spara** för att spara ändringarna.
 
-   |Attribut|Typ|Kommentarer|
+   |Attribut|Typ|Obs!|
    |---|---|---|
    |userName|Sträng|Anger både användar namn och Federations-ID|
    |externalId|Sträng||

@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: jeedes
-ms.openlocfilehash: dde22fe9997e41d6d17fba94e6b9523d82c7b910
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: e22738f1fff813e5a928b76f8049e810847fe548
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456831"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358158"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Självstudie: Konfigurera box för automatisk användar etablering
 
@@ -24,7 +24,7 @@ Syftet med den här självstudien är att visa de steg som du måste utföra i b
 > [!NOTE]
 > I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande saker för att konfigurera Azure AD-integrering med Box:
 

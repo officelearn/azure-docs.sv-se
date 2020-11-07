@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: ea82724ec534aa896fa012332c10e28050caf825
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 27d962a2cf1a1c453d942d320d65b3e9b9a4b959
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92909394"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357801"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Azure Disk Encryption för virtuella Windows-datorer 
 
@@ -39,6 +39,8 @@ Azure Disk Encryption är också tillgängligt för virtuella datorer med Premiu
 
 Azure Disk Encryption är inte tillgänglig på [virtuella datorer i generation 2](../generation-2.md#generation-1-vs-generation-2-capabilities). Mer undantag finns i [Azure Disk Encryption: scenarier som inte stöds](disk-encryption-windows.md#unsupported-scenarios).
 
+Azure Disk Encryption är inte tillgängligt på VM-avbildningar utan temporära diskar (DV4, Dsv4, Ev4 och Esv4).  Se [storlekar för virtuella Azure-datorer utan lokal temporär disk](../azure-vms-no-temp-disk.md).
+
 ### <a name="supported-operating-systems"></a>Operativsystem som stöds
 
 - Windows-klient: Windows 8 och senare.
@@ -50,7 +52,7 @@ Azure Disk Encryption är inte tillgänglig på [virtuella datorer i generation 
 > Windows Server 2012 R2 Core och Windows Server 2016 Core kräver att BdeHdCfg-komponenten installeras på den virtuella datorn för kryptering.
 
 
-## <a name="networking-requirements"></a>Nätverks krav
+## <a name="networking-requirements"></a>Nätverkskrav
 Om du vill aktivera Azure Disk Encryption måste de virtuella datorerna uppfylla följande konfigurations krav för nätverks slut punkt:
   - Om du vill hämta en token för att ansluta till ditt nyckel valv måste den virtuella Windows-datorn kunna ansluta till en Azure Active Directory-slutpunkt, \[ login.microsoftonline.com \] .
   - Om du vill skriva krypterings nycklarna till ditt nyckel valv måste den virtuella Windows-datorn kunna ansluta till Key Vault-slutpunkten.

@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: 135b780f547ddd8e979899898b9971c4dcf89cee
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 4e115de4f86baba9559730d94f45ab7b17cc4379
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514716"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357971"
 ---
 # <a name="tutorial-configure-spaceiq-for-automatic-user-provisioning"></a>Självstudie: Konfigurera SpaceIQ för automatisk användar etablering
 
@@ -74,11 +74,11 @@ Innan du konfigurerar SpaceIQ för automatisk användar etablering med Azure AD 
 
 **Utför följande steg för att lägga till SpaceIQ från Azure AD-programgalleriet:**
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
+1. Välj **Azure Active Directory** i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -86,7 +86,7 @@ Innan du konfigurerar SpaceIQ för automatisk användar etablering med Azure AD 
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **SpaceIQ**, väljer **SpaceIQ** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **SpaceIQ** , väljer **SpaceIQ** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![SpaceIQ i resultat listan](common/search-new-app.png)
 

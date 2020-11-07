@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.openlocfilehash: de4962326a06080ff2bf81954cf85d3b6bbfefd5
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: dfde9bbbeb7f6b349ecbdc4c2da605d39a0708da
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104792"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357886"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-printix"></a>Självstudie: Azure Active Directory integrering med Printix
 
@@ -29,7 +29,7 @@ Genom att integrera Printix med Azure AD får du följande fördelar:
 
 Om du vill veta mer om SaaS-appens integrering med Azure AD, se [Vad är program åtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Printix behöver du följande objekt:
 
@@ -55,7 +55,7 @@ Om du vill konfigurera integreringen av Printix i Azure AD måste du lägga till
 
 **Utför följande steg för att lägga till Printix från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen. 
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory** -ikonen. 
 
     ![Active Directory][1]
 
@@ -71,7 +71,7 @@ Om du vill konfigurera integreringen av Printix i Azure AD måste du lägga till
 
     ![Skärm bild som visar sökning efter Printix i dialog rutan Lägg till i galleriet.](./media/printix-tutorial/tutorial_printix_search.png)
 
-1. I resultat panelen väljer du **Printix**och klickar sedan på knappen **Lägg till** för att lägga till programmet.
+1. I resultat panelen väljer du **Printix** och klickar sedan på knappen **Lägg till** för att lägga till programmet.
 
     ![Skärm bild som visar alternativet Printix markerat.](./media/printix-tutorial/tutorial_printix_addfromgallery.png)
 
@@ -96,7 +96,7 @@ I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure Portal o
 
 **Utför följande steg för att konfigurera enkel inloggning med Printix i Azure AD:**
 
-1. Klicka på **enkel inloggning**på sidan **Printix** Application Integration i Azure Portal.
+1. Klicka på **enkel inloggning** på sidan **Printix** Application Integration i Azure Portal.
 
     ![Skärm bild som visar enkel inloggning markerad under hantera i Azure Portal.][4]
 
@@ -123,7 +123,7 @@ I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure Portal o
 
 1. Logga in på Printix-klienten som administratör.
 
-1. I menyn högst upp klickar du på ikonen i det övre högra hörnet och väljer "**autentisering**".
+1. I menyn högst upp klickar du på ikonen i det övre högra hörnet och väljer " **autentisering** ".
    
     ![Skärm bild som visar den autentisering som valts från menyn.](./media/printix-tutorial/tutorial_printix_06.png)
 
@@ -131,23 +131,23 @@ I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure Portal o
    
     ![Skärm bild som visar Printix.net-sidan där du kan välja Aktivera Azure/Office 365-autentisering.](./media/printix-tutorial/tutorial_printix_07.png)
 
-1. På fliken **Azure** i URL: en för indatakälla-metadata till text rutan för "**federationsmetadata**". 
+1. På fliken **Azure** i URL: en för indatakälla-metadata till text rutan för " **federationsmetadata** ". 
 
     Bifoga metadata-XML-filen som du laddade ned från Azure AD till [Printix support team](mailto:support@printix.net). Sedan laddar de upp XML-filen och anger en URL för federationsmetadata.
    
     ![Skärm bild som visar Printix.net-sidan där du kan ange ett dokument för federationsmetadata.](./media/printix-tutorial/tutorial_printix_08.png)
    
-1. Klicka på knappen "**test**" och klicka på**OK**om testet lyckades.
+1. Klicka på knappen " **test** " och klicka på **OK** om testet lyckades.
    
      Sidan Azure Active Directory visas när du klickar på knappen **testa** . "Testet lyckades" här betyder att när du har angett autentiseringsuppgifterna för ditt Azure test-konto visas ett meddelande om att inställningar har testats OK. Klicka sedan på **OK** .
    
     ![Skärm bild som visar resultatet av testet.](./media/printix-tutorial/tutorial_printix_09.png)
 
-1. Klicka på knappen **Spara** på sidan**autentisering**.
+1. Klicka på knappen **Spara** på sidan **autentisering**.
 
 
 > [!TIP]
-> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om den inbäddade dokumentations funktionen här: [Azure AD Embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram** , behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om den inbäddade dokumentations funktionen här: [Azure AD Embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare för Azure AD
@@ -157,7 +157,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 **Utför följande steg för att skapa en test användare i Azure AD:**
 
-1. I **Azure Portal**i det vänstra navigerings fönstret klickar du på **Azure Active Directory** ikon.
+1. I **Azure Portal** i det vänstra navigerings fönstret klickar du på **Azure Active Directory** ikon.
 
     ![Skärm bild som visar ett namn och ett användar namn som ska skapas.](./media/printix-tutorial/create_aaduser_01.png) 
 
@@ -173,7 +173,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
  
     ![Skärm bild som visar dialog rutan användare där du kan ange de värden som beskrivs.](./media/printix-tutorial/create_aaduser_04.png) 
 
-    a. Skriv **BrittaSimon**i text rutan **namn** .
+    a. Skriv **BrittaSimon** i text rutan **namn** .
 
     b. Skriv **e-postadressen** för BrittaSimon i text rutan **användar namn** .
 

@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 11f89a0a42a42fd84d1dc0c8606128f5af9e751e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6f4b932bb8f16af3c0368ab219bd8a12bf2face
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91711562"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357988"
 ---
 # <a name="azure-files-monitoring-data-reference"></a>Azure Files övervaknings data referens
 
@@ -26,7 +26,7 @@ I följande tabeller visas de plattforms mått som samlas in för Azure Files.
 
 ### <a name="capacity-metrics"></a>Kapacitetsmått
 
-Värdena för kapacitets värden skickas till Azure Monitor varje timme. Värdena uppdateras varje dag. Tids kornig het definierar tidsintervallet för vilka mått värden presenteras. Tids kornig het för alla kapacitets mått är en timme (PT1H).
+Värdena för kapacitets värden uppdateras dagligen (upp till 24 timmar). Tids kornig het definierar tidsintervallet för vilka mått värden presenteras. Tids kornig het för alla kapacitets mått är en timme (PT1H).
 
 Azure Files tillhandahåller följande kapacitets mått i Azure Monitor.
 

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: 94f863bd4f016ed1117fa236323b43515fd53797
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 0ca0c4eacce88bfb53582f7969ed7acbfd75bb8a
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165618"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358719"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Använda namngiven enhets igenkänning i Textanalys
 
@@ -70,7 +70,7 @@ Skicka en POST-begäran. Du kan [använda Postman](text-analytics-how-to-call-ap
 
 #### <a name="version-31-preview2"></a>[Version 3,1 – för hands version. 2](#tab/version-3-preview)
 
-Igenkänning av namngivna enheter `v3.1-preview.2` använder separata slut punkter för ner och begär Anden om enhets länkning. Använd ett URL-format nedan baserat på din begäran:
+Igenkänning av namngivna enheter `v3.1-preview.2` använder separata slut punkter för ner, personligt identifierbara och begär Anden om att länka till entiteter. Använd ett URL-format nedan baserat på din begäran:
 
 Länkning av entitet
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/linking`
@@ -82,6 +82,7 @@ NER
 
 [Namngiven enhets igenkännings version 3,1 – för hands versions referens för `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionGeneral)
 
+Personligt identifierbar information (PII)
 * Personlig ( `PII` ) information – `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii`
 
 Du kan också använda den valfria `domain=phi` parametern för att identifiera hälso `PHI` information () i text. 

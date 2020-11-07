@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 001d139e7fc140f41fa94ea0c6f32d0b08036a9a
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: de42230639351c0dc1e7986156a33b178386d1a4
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519785"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357750"
 ---
 # <a name="tutorial-configure-zscaler-beta-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Zscaler beta för automatisk användar etablering
 
@@ -44,7 +44,7 @@ Innan du konfigurerar Zscaler beta för automatisk användar etablering med Azur
 
 **Gör så här om du vill lägga till Zscaler beta från Azure AD-programgalleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory** -ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -56,7 +56,7 @@ Innan du konfigurerar Zscaler beta för automatisk användar etablering med Azur
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver du **Zscaler Beta**, väljer **Zscaler Beta** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver du **Zscaler Beta** , väljer **Zscaler Beta** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
     ![Zscaler Beta i resultatlistan](common/search-new-app.png)
 
@@ -83,7 +83,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 ### <a name="to-configure-automatic-user-provisioning-for-zscaler-beta-in-azure-ad"></a>Konfigurera automatisk användar etablering för Zscaler beta i Azure AD:
 
-1. Logga in på [Azure Portal](https://portal.azure.com) och välj **företags program**, Välj **alla program**och välj sedan **Zscaler beta**.
+1. Logga in på [Azure Portal](https://portal.azure.com) och välj **företags program** , Välj **alla program** och välj sedan **Zscaler beta**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -101,7 +101,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 5. Under avsnittet **admin credentials** måste du skriva in **klient-URL: en** och den **hemliga token** för ditt Zscaler beta-konto enligt beskrivningen i steg 6.
 
-6. Hämta klient- **URL: en** och den **hemliga token**genom att gå till **Administration > autentiseringsinställningar** i användar gränssnittet för Zscaler beta Portal och klicka på **SAML** under **Autentiseringstyp**.
+6. Hämta klient- **URL: en** och den **hemliga token** genom att gå till **Administration > autentiseringsinställningar** i användar gränssnittet för Zscaler beta Portal och klicka på **SAML** under **Autentiseringstyp**.
 
     ![Zscaler beta-etablering](./media/zscaler-beta-provisioning-tutorial/secret-token-1.png)
 
@@ -109,7 +109,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Zscaler beta-etablering](./media/zscaler-beta-provisioning-tutorial/secret-token-2.png)
 
-    Välj **aktivera SCIM-Based etablering** för att hämta **bas-URL** och **Bearer-token**och spara sedan inställningarna. Kopiera **bas-URL** : en till klient- **URL: en**och **ha token token**  till **hemlig token** i Azure Portal.
+    Välj **aktivera SCIM-Based etablering** för att hämta **bas-URL** och **Bearer-token** och spara sedan inställningarna. Kopiera **bas-URL** : en till klient- **URL: en** och **ha token token**  till **hemlig token** i Azure Portal.
 
 7. När du fyller i fälten som visas i steg 5, klickar du på **Testa anslutning** för att se till att Azure AD kan ansluta till Zscaler beta. Om anslutningen Miss lyckas kontrollerar du att Zscaler beta-kontot har administratörs behörighet och försöker igen.
 

@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: eb04b17db94a2abf0ab11d9b9baff65e764e472a
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 717500050aff89964ff959a4741aed01533ada70
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457052"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357138"
 ---
 # <a name="tutorial-configure-blink-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Blink för automatisk användar etablering
 
@@ -60,11 +60,11 @@ Innan du konfigurerar blinka för automatisk användar etablering med Azure AD m
 
 **Utför följande steg för att lägga till Blink från Azure AD-programgalleriet:**
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
+1. Välj **Azure Active Directory** i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -72,7 +72,7 @@ Innan du konfigurerar blinka för automatisk användar etablering med Azure AD m
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **blinkar**, väljer **blinkar** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **blinkar** , väljer **blinkar** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![Blinkar i resultat listan](common/search-new-app.png)
 

@@ -2,14 +2,14 @@
 title: Python Developer-referens för Azure Functions
 description: Förstå hur du utvecklar funktioner med python
 ms.topic: article
-ms.date: 12/13/2019
+ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 3d459f4249c65f2d09f9d8df6e7958adf852a2ea
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: cc99a8c10ecefc063fdb89c61bdaeb0e686b1a82
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346323"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358056"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guide för Azure Functions python-utvecklare
 
@@ -69,72 +69,70 @@ Du kan ändra standard beteendet för en funktion genom att ange- `scriptFile` o
 Den rekommenderade mappstrukturen för ett python Functions-projekt ser ut som i följande exempel:
 
 ```
- __app__
- | - my_first_function
+ <project_root>/
+ | - .venv/
+ | - .vscode/
+ | - my_first_function/
  | | - __init__.py
  | | - function.json
  | | - example.py
- | - my_second_function
+ | - my_second_function/
  | | - __init__.py
  | | - function.json
- | - shared_code
+ | - shared_code/
+ | | - __init__.py
  | | - my_first_helper_function.py
  | | - my_second_helper_function.py
+ | - tests/
+ | | - test_my_second_function.py
+ | - .funcignore
  | - host.json
+ | - local.settings.json
  | - requirements.txt
  | - Dockerfile
- tests
 ```
-Huvudprojektmappen ( \_ \_ app \_ \_ ) kan innehålla följande filer:
+Huvudprojektmappen (<project_root>) kan innehålla följande filer:
 
 * *local.settings.jspå* : används för att lagra appinställningar och anslutnings strängar när de körs lokalt. Den här filen publiceras inte i Azure. Mer information finns i [Local. Settings. File](functions-run-local.md#local-settings-file).
-* *requirements.txt* : innehåller listan över paket som systemet installerar vid publicering till Azure.
+* *requirements.txt* : innehåller listan över python-paket som systemet installerar vid publicering till Azure.
 * *host.jspå* : innehåller globala konfigurations alternativ som påverkar alla funktioner i en Function-app. Den här filen publiceras i Azure. Alla alternativ stöds inte när du kör lokalt. Läs mer i [host.jspå](functions-host-json.md).
-* *. funcignore* : (valfritt) deklarerar filer som inte ska publiceras i Azure.
+* *. VSCode/* : (valfritt) innehåller konfiguration av Store-VSCode. Läs mer i VSCode- [inställningen](https://code.visualstudio.com/docs/getstarted/settings).
+* *. venv/* : (valfritt) innehåller en virtuell python-miljö som används av lokal utveckling.
 * *Dockerfile* : (valfritt) används vid publicering av ditt projekt i en [anpassad behållare](functions-create-function-linux-custom-image.md).
+* *test/* : (valfritt) innehåller test fall för din Function-app.
+* *. funcignore* : (valfritt) deklarerar filer som inte ska publiceras i Azure. Den här filen innehåller vanligt vis `.vscode/` att ignorera din redigerings inställning, `.venv/` för att ignorera den lokala python-miljön, `tests/` för att ignorera test ärenden och `local.settings.json` förhindra att lokala appinställningar publiceras.
 
 Varje funktion har sin egen kod fil och bindnings konfigurations fil (function.jspå).
 
-När du distribuerar ditt projekt till en Function-app i Azure, ska hela innehållet i huvudprojektet ( *\_ \_ app \_ \_* )-mappen inkluderas i paketet, men inte själva mappen. Vi rekommenderar att du underhåller dina tester i en mapp separat från projektmappen i det här exemplet `tests` . Detta gör att du inte distribuerar test koden med din app. Mer information finns i [enhets testning](#unit-testing).
+När du distribuerar projektet till en Function-app i Azure ska hela innehållet i huvudprojektet ( *<project_root>* ) tas med i paketet, men inte själva mappen, vilket innebär `host.json` att det ska finnas i paket roten. Vi rekommenderar att du underhåller dina tester i en mapp tillsammans med andra funktioner, i det här exemplet `tests/` . Mer information finns i [enhets testning](#unit-testing).
 
 ## <a name="import-behavior"></a>Import beteende
 
-Du kan importera moduler i funktions koden med både explicita relativa och absoluta referenser. Baserat på mappstrukturen som visas ovan fungerar följande importer från funktionen File *\_ \_ app \_ \_ \Mina \_ First \_ Function \\ _ \_ init \_ \_ . py* :
+Du kan importera moduler i funktions koden med både absoluta och relativa referenser. Utifrån mappstrukturen som visas ovan fungerar följande importer från funktions filen *<project_root> \Mina \_ First \_ Function \\ _ \_ init \_ \_ . py* :
 
 ```python
-from . import example #(explicit relative)
+from shared_code import my_first_helper_function #(absolute)
 ```
 
 ```python
-from ..shared_code import my_first_helper_function #(explicit relative)
+import shared_code.my_second_helper_function #(absolute)
 ```
 
 ```python
-from __app__ import shared_code #(absolute)
+from . import example #(relative)
+```
+
+> [!NOTE]
+>  *Shared_code/* mappen måste innehålla en \_ \_ init \_ \_ . py-fil för att markera den som ett python-paket när du använder absolut syntax för import.
+
+Följande \_ \_ app \_ \_ -import och bortom relativ import på översta nivån är föråldrade eftersom den inte stöds av en statisk typ kontroll och inte stöds av python test ramverk:
+
+```python
+from __app__.shared_code import my_first_helper_function #(deprecated __app__ import)
 ```
 
 ```python
-import __app__.shared_code #(absolute)
-```
-
-Följande importer *fungerar inte* från samma fil:
-
-```python
-import example
-```
-
-```python
-from example import some_helper_code
-```
-
-```python
-import shared_code
-```
-
-Delad kod ska lagras i en separat mapp i *\_ \_ appen \_ \_*. Om du vill referera till moduler i den *delade \_ Code* -mappen kan du använda följande syntax:
-
-```python
-from __app__.shared_code import my_first_helper_function
+from ..shared_code import my_first_helper_function #(deprecated beyond top-level relative import)
 ```
 
 ## <a name="triggers-and-inputs"></a>Utlösare och indata
@@ -319,7 +317,7 @@ Standardkonfigurationerna passar för de flesta Azure Functions-program. Du kan 
 |Egenskaper för Function-appen| <ul><li>Appen måste hantera många samtidiga anrop.</li> <li> App bearbetar ett stort antal I/O-händelser, t. ex. nätverks anrop och disk läsning/skrivning.</li> </ul>| <ul><li>I appen körs tids krävande beräkningar, till exempel bild storleks ändring.</li> <li>Data omvandlingen används av appen.</li> </ul> |
 |Exempel| <ul><li>Webb-API:er</li><ul> | <ul><li>Databearbetning</li><li> Maskin inlärnings störningar</li><ul>|
 
- 
+
 > [!NOTE]
 >  Eftersom Reality Functions-arbetsbelastningar är mest av en blandning av I/O och processor gränser, rekommenderar vi att du studerar arbets belastningen under realistiska produktions belastningar.
 
@@ -539,12 +537,14 @@ Kom ihåg att ersätta `<APP_NAME>` med namnet på din Function-app i Azure.
 
 Funktioner som skrivs i python kan testas som annan python-kod med standard testnings ramverk. För de flesta bindningar är det möjligt att skapa ett objekt av en modell genom att skapa en instans av en lämplig klass från `azure.functions` paketet. Eftersom [`azure.functions`](https://pypi.org/project/azure-functions/) paketet inte är omedelbart tillgängligt ser du till att installera det via `requirements.txt` filen enligt beskrivningen i avsnittet [paket hantering](#package-management) ovan.
 
-Följande är till exempel ett modell test av en HTTP-utlöst funktion:
+Ta *my_second_function* som exempel är följande ett modell test av en http-utlöst funktion:
+
+Först måste vi skapa *<project_root>/my_second_function/function.jsi* filen och definiera den här funktionen som en http-utlösare.
 
 ```json
 {
   "scriptFile": "__init__.py",
-  "entryPoint": "my_function",
+  "entryPoint": "main",
   "bindings": [
     {
       "authLevel": "function",
@@ -565,106 +565,72 @@ Följande är till exempel ett modell test av en HTTP-utlöst funktion:
 }
 ```
 
+Nu kan vi implementera *my_second_function* och *shared_code. My _second_helper_function*.
+
 ```python
-# __app__/HttpTrigger/__init__.py
+# <project_root>/my_second_function/__init__.py
 import azure.functions as func
 import logging
 
-def my_function(req: func.HttpRequest) -> func.HttpResponse:
-    logging.info('Python HTTP trigger function processed a request.')
+# Use absolute import to resolve shared_code modules
+from shared_code import my_second_helper_function
 
-    name = req.params.get('name')
-    if not name:
-        try:
-            req_body = req.get_json()
-        except ValueError:
-            pass
-        else:
-            name = req_body.get('name')
+# Define an http trigger which accepts ?value=<int> query parameter
+# Double the value and return the result in HttpResponse
+def main(req: func.HttpRequest) -> func.HttpResponse:
+    logging.info('Executing my_second_function.')
 
-    if name:
-        return func.HttpResponse(f"Hello {name}")
-    else:
-        return func.HttpResponse(
-             "Please pass a name on the query string or in the request body",
-             status_code=400
-        )
+    initial_value: int = int(req.params.get('value'))
+    doubled_value: int = my_second_helper_function.double(initial_value)
+
+    return func.HttpResponse(
+      body=f"{initial_value} * 2 = {doubled_value}",
+      status_code=200
+    )
 ```
 
 ```python
-# tests/test_httptrigger.py
+# <project_root>/shared_code/__init__.py
+# Empty __init__.py file marks shared_code folder as a Python package
+```
+
+```python
+# <project_root>/shared_code/my_second_helper_function.py
+
+def double(value: int) -> int:
+  return value * 2
+```
+
+Vi kan börja skriva test ärenden för vår http-utlösare.
+
+```python
+# <project_root>/tests/test_my_second_function.py
 import unittest
 
 import azure.functions as func
-from __app__.HttpTrigger import my_function
+from my_second_function import main
 
 class TestFunction(unittest.TestCase):
-    def test_my_function(self):
+    def test_my_second_function(self):
         # Construct a mock HTTP request.
         req = func.HttpRequest(
             method='GET',
             body=None,
-            url='/api/HttpTrigger',
-            params={'name': 'Test'})
+            url='/api/my_second_function',
+            params={'value': '21'})
 
         # Call the function.
-        resp = my_function(req)
+        resp = main(req)
 
         # Check the output.
         self.assertEqual(
             resp.get_body(),
-            b'Hello Test',
+            b'21 * 2 = 42',
         )
 ```
 
-Här är ett annat exempel med en funktion som utlöses av en kö:
+I din `.venv` virtuella python-miljö installerar du ditt favorit test ramverk för python (t. ex. `pip install pytest` ). Kör bara `pytest tests` för att kontrol lera test resultatet.
 
-```json
-{
-  "scriptFile": "__init__.py",
-  "entryPoint": "my_function",
-  "bindings": [
-    {
-      "name": "msg",
-      "type": "queueTrigger",
-      "direction": "in",
-      "queueName": "python-queue-items",
-      "connection": "AzureWebJobsStorage"
-    }
-  ]
-}
-```
-
-```python
-# __app__/QueueTrigger/__init__.py
-import azure.functions as func
-
-def my_function(msg: func.QueueMessage) -> str:
-    return f'msg body: {msg.get_body().decode()}'
-```
-
-```python
-# tests/test_queuetrigger.py
-import unittest
-
-import azure.functions as func
-from __app__.QueueTrigger import my_function
-
-class TestFunction(unittest.TestCase):
-    def test_my_function(self):
-        # Construct a mock Queue message.
-        req = func.QueueMessage(
-            body=b'test')
-
-        # Call the function.
-        resp = my_function(req)
-
-        # Check the output.
-        self.assertEqual(
-            resp,
-            'msg body: test',
-        )
-```
 ## <a name="temporary-files"></a>Tillfälliga filer
 
 `tempfile.gettempdir()`Metoden returnerar en tillfällig mapp som finns på Linux `/tmp` . Ditt program kan använda den här katalogen för att lagra temporära filer som skapas och används av funktionerna under körningen.

@@ -3,12 +3,12 @@ title: Skapa en IPSec-tunnel i Azure VMware-lösningen
 description: Lär dig hur du skapar en virtuell WAN-hubb för att upprätta en IPSec-tunnel till Azure VMware-lösningar.
 ms.topic: how-to
 ms.date: 10/02/2020
-ms.openlocfilehash: 74cc31abf432954008cbb20bf64825d199732dab
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 63318b9fdd0de5e0ce102fafe332f40f595f38f1
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951136"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357852"
 ---
 # <a name="create-an-ipsec-tunnel-into-azure-vmware-solution"></a>Skapa en IPSec-tunnel i Azure VMware-lösningen
 
@@ -26,30 +26,30 @@ Om du vill skapa en plats-till-plats-VPN-tunnel måste du skapa en offentlig IP-
 
 ## <a name="create-a-virtual-wan-hub"></a>Skapa en virtuell WAN-hubb
 
-1. Sök på **virtuell WAN**i Azure Portal. Välj **+Lägg till**. Sidan skapa WAN öppnas.  
+1. Sök på **virtuell WAN** i Azure Portal. Välj **+Lägg till**. Sidan skapa WAN öppnas.  
 
 2. Ange de obligatoriska fälten på sidan **skapa WAN** och välj sedan **Granska + skapa**.
    
-   | Field | Värde |
+   | Fält | Värde |
    | --- | --- |
    | **Prenumeration** | Värdet är i förväg ifyllt med prenumerationen som tillhör resurs gruppen. |
    | **Resursgrupp** | Det virtuella WAN-nätverket är en global resurs som inte är begränsad till en speciell region.  |
    | **Resursgruppsplats** | Om du vill skapa den virtuella WAN-hubben måste du ange en plats för resurs gruppen.  |
    | **Namn** |   |
-   | **Typ** | Välj **standard**, vilket ger mer än bara VPN-gatewayens trafik.  |
+   | **Typ** | Välj **standard** , vilket ger mer än bara VPN-gatewayens trafik.  |
 
 
     :::image type="content" source="media/create-ipsec-tunnel/create-wan.png" alt-text="Skapa WAN.":::
 
-3. I Azure Portal väljer du det virtuella WAN som du skapade i föregående steg, väljer **Skapa virtuell hubb**, anger de obligatoriska fälten och väljer sedan **Nästa: webbplats till plats**. 
+3. I Azure Portal väljer du det virtuella WAN som du skapade i föregående steg, väljer **Skapa virtuell hubb** , anger de obligatoriska fälten och väljer sedan **Nästa: webbplats till plats**. 
 
-   | Field | Värde |
+   | Fält | Värde |
    | --- | --- |
    | **Region** | Det krävs ett hanterings perspektiv för att välja en region.  |
    | **Namn** |    |
    | **Privat adressutrymme för hubb** | Ange under nätet med ett `/24` (minst).  |
 
-    :::image type="content" source="media/create-ipsec-tunnel/create-virtual-hub.png" alt-text="Skapa WAN.":::
+    :::image type="content" source="media/create-ipsec-tunnel/create-virtual-hub.png" alt-text="Skapa virtuell hubb.":::
 
 4. På fliken **plats-till-plats** definierar du plats-till-plats-gatewayen genom att ställa in det sammanställda data flödet från List rutan för **Gateway-Scale-enheter** . 
 
@@ -70,11 +70,11 @@ Om du vill skapa en plats-till-plats-VPN-tunnel måste du skapa en offentlig IP-
 2. I **Översikt** över den virtuella hubben väljer du VPN för **anslutning**  >  **(plats-till-plats)** och väljer sedan **Skapa ny VPN-webbplats**.
 
 
-    :::image type="content" source="media/create-ipsec-tunnel/create-vpn-site-basics.png" alt-text="Skapa WAN.":::  
+    :::image type="content" source="media/create-ipsec-tunnel/create-vpn-site-basics.png" alt-text="Skapa VPN-webbplats.":::  
  
 3. På fliken **grundläggande** anger du de obligatoriska fälten och väljer sedan **Nästa: länkar**. 
 
-   | Field | Värde |
+   | Fält | Värde |
    | --- | --- |
    | **Region** | Samma region som du angav i föregående avsnitt.  |
    | **Namn** |  |
@@ -89,18 +89,18 @@ Om du vill skapa en plats-till-plats-VPN-tunnel måste du skapa en offentlig IP-
 
 Det här avsnittet gäller endast för principbaserade VPN-nätverk. Principbaserad (eller statiska, vägbaserade) VPN-inställningar drivs av lokala VPN-enheter i de flesta fall. De kräver lokala och Azure VMware-lösnings nätverk som ska anges. För Azure VMware-lösningen med en virtuell Azure-hubb kan du inte välja *något* nätverk. I stället måste du ange alla relevanta lokala och Azure VMware-lösningar virtuella WAN Hub-intervall. Dessa nav intervall används för att ange krypterings domänen för princip bas-slutpunktens lokala VPN-tunnel. Azure VMware-lösnings sidan kräver bara att indikatorn för principbaserad trafik väljs aktive ras. 
 
-1. Gå till den virtuella WAN Hub-platsen i Azure Portal. under **anslutning**väljer du **VPN (plats till plats)**.
+1. Gå till den virtuella WAN Hub-platsen i Azure Portal. under **anslutning** väljer du **VPN (plats till plats)**.
 
-2. Välj VPN-platsens namn och sedan tre punkter (...) längst till höger. Välj sedan **Redigera VPN-avsnitt till den här hubben**.
+2. Välj VPN-platsens namn och sedan tre punkter (...) längst till höger. Välj sedan **Redigera VPN-anslutning till den här hubben**.
  
-    :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png" alt-text="Skapa WAN." lightbox="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png":::
+    :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png" alt-text="Redigera VPN-anslutning till den här hubben." lightbox="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png":::
 
 3. Redigera anslutningen mellan VPN-platsen och hubben och välj sedan **Spara**.
    - Internet Protocol säkerhet (IPSec) väljer du **anpassad**.
    - Använd principbaserade trafik väljare väljer du **Aktivera**
    - Ange information om **IKE fas 1** och **IKE fas 2 (IPSec)**. 
  
-    :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-connection.png" alt-text="Skapa WAN."::: 
+    :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-connection.png" alt-text="Redigera VPN-anslutning"::: 
  
     Dina trafik väljare eller undernät som ingår i den principbaserad krypterings domänen ska vara:
     
@@ -122,14 +122,14 @@ Det här avsnittet gäller endast för principbaserade VPN-nätverk. Principbase
 
     Gå till avsnittet om **anslutning** i Azure VMware-lösningen privat moln. På fliken **ExpressRoute** väljer du **+ begär en nyckel för autentisering**. Ge den namnet och välj **skapa**. (Det kan ta cirka 30 sekunder att skapa nyckeln.) Kopiera ExpressRoute-ID och verifierings nyckel. 
 
-    :::image type="content" source="media/create-ipsec-tunnel/express-route-connectivity.png" alt-text="Skapa WAN.":::
+    :::image type="content" source="media/create-ipsec-tunnel/express-route-connectivity.png" alt-text="Kopiera Express-Route-ID och nyckel för auktorisering.":::
 
     > [!NOTE]
     > Verifierings nyckeln försvinner efter en stund, så kopiera den så snart den visas.
 
 4. Nu ska vi länka Azure VMware-lösningen och VPN-gatewayen tillsammans i den virtuella WAN-hubben. I Azure Portal öppnar du det virtuella WAN-nätverket som du skapade tidigare. Välj den skapade virtuella WAN-hubben och välj sedan **ExpressRoute** i det vänstra fönstret. Välj **+ Lös in nyckel för autentisering**.
 
-    :::image type="content" source="media/create-ipsec-tunnel/redeem-authorization-key.png" alt-text="Skapa WAN.":::
+    :::image type="content" source="media/create-ipsec-tunnel/redeem-authorization-key.png" alt-text="Lös in nyckel för autentisering.":::
 
     Klistra in auktoriseringsregeln i fältet auktoriseringskod och ExpressRoute-ID i **peer-kretsens URI** -fält. Se till att välja **automatiskt associera den här ExpressRoute-kretsen med hubben.** Välj **Lägg till** för att skapa länken. 
 

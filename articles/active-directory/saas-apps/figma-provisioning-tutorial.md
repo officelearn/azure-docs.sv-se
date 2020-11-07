@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: f5b14ecf061e8f0c53dc1387d1581bc780d190b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 789dafc61c89515f4b2ef64933262252d1232f16
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850922"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357036"
 ---
 # <a name="tutorial-configure-figma-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Figma för automatisk användar etablering
 
@@ -57,29 +57,29 @@ Innan du konfigurerar Figma för automatisk användar etablering med Azure AD m�
 
 2. Gå till **Inställningar för allmän > uppdaterings inloggning**.
 
-    :::image type="content" source="media/Figma-provisioning-tutorial/figma03.png" alt-text="Skärm bild av Figma-administratörskonsolen. En klient som heter ett D scim-test är synlig. Bredvid klienten markeras en kugg hjuls ikon." border="false":::
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma03.png" alt-text="Skärm bild av fliken Allmänt i Figma-administratörskonsolen. Under inloggning och etablering, markeras uppdatera inloggnings inställningar." border="false":::
 
 3. Kopiera **klient-ID: t**. Det här värdet används för att skapa slut punkts-URL: en för SCIM som ska anges i fältet **klient-URL** på fliken etablering i ditt Figma-program i Azure Portal.
 
-    :::image type="content" source="media/Figma-provisioning-tutorial/figma-tenantid.png" alt-text="Skärm bild av Figma-administratörskonsolen. En klient som heter ett D scim-test är synlig. Bredvid klienten markeras en kugg hjuls ikon." border="false":::
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma-tenantid.png" alt-text="Skärm bild av avsnittet S A M L s O i Figma-administratörskonsolen. En klient-ID-etikett och en intilliggande länk med texten Copy är markerad." border="false":::
 
 4. Rulla nedåt och klicka på **generera API-token**.
 
-    :::image type="content" source="media/Figma-provisioning-tutorial/token.png" alt-text="Skärm bild av Figma-administratörskonsolen. En klient som heter ett D scim-test är synlig. Bredvid klienten markeras en kugg hjuls ikon." border="false":::
+    :::image type="content" source="media/Figma-provisioning-tutorial/token.png" alt-text="Skärm bild av avsnittet S C i M-etablering i Figma-administratörskonsolen. En länk som heter generera en P-token har marker ATS." border="false":::
 
 5. Kopiera värdet för  **API-token** . Det här värdet anges i fältet **hemlig token** på fliken etablering i ditt Figma-program i Azure Portal. 
 
-    :::image type="content" source="media/Figma-provisioning-tutorial/figma04.png" alt-text="Skärm bild av Figma-administratörskonsolen. En klient som heter ett D scim-test är synlig. Bredvid klienten markeras en kugg hjuls ikon." border="false":::
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma04.png" alt-text="Skärm bild av en sida i Figma-administratörskonsolen. Under din etablering av en P I-token markeras en plats hållare för token." border="false":::
 
 ## <a name="add-figma-from-the-gallery"></a>Lägg till Figma från galleriet
 
 Om du vill konfigurera Figma för automatisk användar etablering med Azure AD måste du lägga till Figma från Azure AD-programgalleriet i listan över hanterade SaaS-program.
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
+1. Välj **Azure Active Directory** i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -87,7 +87,7 @@ Om du vill konfigurera Figma för automatisk användar etablering med Azure AD m
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **Figma**, väljer **Figma** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **Figma** , väljer **Figma** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![Figma i resultat listan](common/search-new-app.png)
 

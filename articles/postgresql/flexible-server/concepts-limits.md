@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 30c2da4ac750375c66b92cdca552e1a51a8dbc40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1405bce6761b6702146418296cb7b47bb9124ee
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90942016"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357189"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Gränser i Azure Database for PostgreSQL-flexibel Server
 
@@ -73,10 +73,12 @@ En PostgreSQL-anslutning, även inaktiv, kan uppta cirka 10 MB minne. Det tar oc
 - Brand Väggs regler stöds inte i VNET, nätverks säkerhets grupper kan användas i stället.
 - Offentliga åtkomst databas servrar kan ansluta till offentligt Internet, till exempel via `postgres_fdw` , och den här åtkomsten kan inte begränsas. VNET-baserade servrar kan ha begränsad utgående åtkomst med hjälp av nätverks säkerhets grupper.
 
-### <a name="high-availability"></a>Hög tillgänglighet
+### <a name="high-availability-ha"></a>Hög tillgänglighet (HA)
 
 - Zone-Redundant HA stöds för närvarande inte för servrar med burst.
 - Databas serverns IP-adress ändras när servern växlar över till förväntat vänte läge. Se till att du använder DNS-posten i stället för serverns IP-adress.
+- Om logisk replikering har kon figurer ATS med en HA kon figurer ATS med hög tillgänglighet, i händelse av en redundansväxling till standby-servern, kopieras inte de logiska replikerings platserna till standby-servern. 
+- Mer information om begränsningar finns på sidan [begrepp-ha dokumentation](concepts-high-availability.md) .
 
 ### <a name="availability-zones"></a>Tillgänglighetszoner
 

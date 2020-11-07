@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 4200bc9879aba5e18282123be03576cc617a5e14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59c599167089d222324ed880c18e68d763f5e468
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88549238"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358464"
 ---
 # <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>Självstudie: Konfigurera en hörn OnDemand för automatisk användar etablering
 
@@ -46,7 +46,7 @@ Följ dessa steg om du vill lägga till ett hörn OnDemand från Marketplace.
 
     ![Ikonen Azure Active Directory](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -114,7 +114,7 @@ Följ dessa steg om du vill konfigurera automatisk användar etablering för ett
 
     ![Synkronisering av hörn OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/UserMapping.png)
 
-10. Granska de användarattribut som synkroniseras från Azure AD till en hörn-OnDemand i avsnittet **mappningar av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i hörn-OnDemand för uppdaterings åtgärder. Välj **Spara**om du vill spara ändringarna.
+10. Granska de användarattribut som synkroniseras från Azure AD till en hörn-OnDemand i avsnittet **mappningar av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i hörn-OnDemand för uppdaterings åtgärder. Välj **Spara** om du vill spara ändringarna.
 
     ![Attribut mappningar för hörn OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/UserMappingAttributes.png)
 

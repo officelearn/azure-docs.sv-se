@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6c46dfb3f36c3ef7f67ce2f3b52c2ffe4c805a61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d83e5c39f97db49e2cc9b77cc806cff0a1fa6de
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91534802"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94355992"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Filter i Azure Kognitiv sökning 
 
@@ -98,13 +98,13 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 
 I följande exempel visas flera användnings mönster för filter scenarier. Fler idéer finns i [syntax för OData-uttryck > exempel](./search-query-odata-filter.md#examples).
 
-+ Fristående **$filter**, utan en frågesträng, användbart när filter uttrycket fullständigt kvalificerar dokument av intresse. Utan en frågesträng finns det ingen lexikalisk eller språklig analys, ingen poäng och ingen rangordning. Observera att Sök strängen bara är en asterisk, vilket innebär "matcha alla dokument".
++ Fristående **$filter** , utan en frågesträng, användbart när filter uttrycket fullständigt kvalificerar dokument av intresse. Utan en frågesträng finns det ingen lexikalisk eller språklig analys, ingen poäng och ingen rangordning. Observera att Sök strängen bara är en asterisk, vilket innebär "matcha alla dokument".
 
    ```
    search=*&$filter=Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Honolulu'
    ```
 
-+ En kombination av frågesträng och **$filter**, där filtret skapar delmängd och frågesträngen innehåller term inmatningar för full texts ökning över den filtrerade del mängden. Genom att lägga till villkor (promenads avstånds biograf) införs Sök resultat i resultaten, där dokument som bäst matchar villkoren rangordnas högre. Att använda ett filter med en frågesträng är det vanligaste användnings mönstret.
++ En kombination av frågesträng och **$filter** , där filtret skapar delmängd och frågesträngen innehåller term inmatningar för full texts ökning över den filtrerade del mängden. Genom att lägga till villkor (promenads avstånds biograf) införs Sök resultat i resultaten, där dokument som bäst matchar villkoren rangordnas högre. Att använda ett filter med en frågesträng är det vanligaste användnings mönstret.
 
    ```
   search=walking distance theaters&$filter=Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Seattle'&$count=true
@@ -138,11 +138,11 @@ Följ upp med de här artiklarna för utförlig vägledning om speciella använd
 
 I REST API är filtrerings bara *aktiverat* som standard för enkla fält. Filter bara fält ökar index storleken. var noga med att ange `"filterable": false` för fält som du inte planerar att använda i ett filter. Mer information om inställningar för fält definitioner finns i [skapa index](/rest/api/searchservice/create-index).
 
-I .NET SDK är filtrerings funktionen *avstängd* som standard. Du kan göra ett fält filter bara genom att ange [egenskapen IsFilterable](/dotnet/api/microsoft.azure.search.models.field.isfilterable) för motsvarande [fält](/dotnet/api/microsoft.azure.search.models.field) objekt till `true` . Du kan också göra detta med hjälp av [attributet IsFilterable](/dotnet/api/microsoft.azure.search.isfilterableattribute). I exemplet nedan anges attributet i `BaseRate` egenskapen för en modell klass som mappar till index definitionen.
+I .NET SDK är filtrerings funktionen *avstängd* som standard. Du kan göra ett fält filter bara genom att ange [egenskapen IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) för motsvarande [SearchField](/dotnet/api/azure.search.documents.indexes.models.searchfield) -objekt till `true` . I exemplet nedan anges attributet i `BaseRate` egenskapen för en modell klass som mappar till index definitionen.
 
 ```csharp
-    [IsFilterable, IsSortable, IsFacetable]
-    public double? BaseRate { get; set; }
+[IsFilterable, IsSortable, IsFacetable]
+public double? BaseRate { get; set; }
 ```
 
 ### <a name="making-an-existing-field-filterable"></a>Göra ett befintligt fält filter bara
@@ -157,10 +157,10 @@ Text strängar är Skift läges känsliga. Det finns inget lägre Skift läge f�
 
 ### <a name="approaches-for-filtering-on-text"></a>Metoder för filtrering av text
 
-| Metod | Beskrivning | När du ska använda detta |
+| Metod | Description | När du ska använda detta |
 |----------|-------------|-------------|
 | [`search.in`](search-query-odata-search-in-function.md) | En funktion som matchar ett fält mot en avgränsad lista med strängar. | Rekommenderas för [säkerhets filter](search-security-trimming-for-azure-search.md) och för alla filter där många rå text värden måste matchas med ett sträng fält. Funktionen **search.in** är utformad för snabbhet och är mycket snabbare än att explicit jämföra fältet mot varje sträng med `eq` och `or` . | 
-| [`search.ismatch`](search-query-odata-full-text-search-functions.md) | En funktion som gör att du kan blanda full texts öknings åtgärder med strikta booleska filter åtgärder i samma filter uttryck. | Använd **search. ismatch** (eller dess bedömnings motsvarighet, **search. ismatchscoring**) när du vill ha flera Sök filter kombinationer i en begäran. Du kan också använda det för a *innehåller* filter för att filtrera på en delvis sträng inom en större sträng. |
+| [`search.ismatch`](search-query-odata-full-text-search-functions.md) | En funktion som gör att du kan blanda full texts öknings åtgärder med strikta booleska filter åtgärder i samma filter uttryck. | Använd **search. ismatch** (eller dess bedömnings motsvarighet, **search. ismatchscoring** ) när du vill ha flera Sök filter kombinationer i en begäran. Du kan också använda det för a *innehåller* filter för att filtrera på en delvis sträng inom en större sträng. |
 | [`$filter=field operator string`](search-query-odata-comparison-operators.md) | Ett användardefinierat uttryck bestående av fält, operatorer och värden. | Använd det här när du vill hitta exakta matchningar mellan ett sträng fält och ett sträng värde. |
 
 ## <a name="numeric-filter-fundamentals"></a>Numeriska filter grunderna

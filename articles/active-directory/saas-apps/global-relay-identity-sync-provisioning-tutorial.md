@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/22/2020
 ms.author: Zhchia
-ms.openlocfilehash: 9445004170fb06a3d563982da51f89535464e328
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: bdbda77c45e3b1f1533326483ee19aa8ff4af515
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927999"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358345"
 ---
 # <a name="tutorial-configure-global-relay-identity-sync-for-automatic-user-provisioning"></a>Självstudie: Konfigurera global vidarebefordring identitets synkronisering för automatisk användar etablering
 
@@ -71,19 +71,19 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 ### <a name="to-configure-automatic-user-provisioning-for-global-relay-identity-sync-in-azure-ad"></a>Konfigurera automatisk användar etablering för global vidarebefordra identitets synkronisering i Azure AD:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **Företagsprogram** och sedan **Alla program** .
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **Företagsprogram** och sedan **Alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan program väljer du **Global relä identitets synkronisering** .
+2. I listan program väljer du **Global relä identitets synkronisering**.
 
     ![Länken global Relay Identity Sync i listan program](common/all-applications.png)
 
-3. Välj fliken **Etablering** .
+3. Välj fliken **Etablering**.
 
     ![Fliken Etablering](common/provisioning.png)
 
-4. Ange **Etableringsläge** som **Automatiskt** .
+4. Ange **Etableringsläge** som **Automatiskt**.
 
     ![Fliken etablering automatiskt](common/provisioning-automatic.png)
 
@@ -91,13 +91,13 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Knappen auktorisering](media/global-relay-identity-sync-provisioning-tutorial/authorization.png)
 
-6. I fältet **E-postavisering** anger du e-postadressen till den person eller grupp som ska ta emot meddelanden om etableringsfel. Markera sedan kryssrutan **Skicka ett e-postmeddelande när ett fel uppstår** .
+6. I fältet **E-postavisering** anger du e-postadressen till den person eller grupp som ska ta emot meddelanden om etableringsfel. Markera sedan kryssrutan **Skicka ett e-postmeddelande när ett fel uppstår**.
 
     ![E-postavisering](common/provisioning-notification-email.png)
 
-7. Välj **Spara** .
+7. Välj **Spara**.
 
-8. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till global vidarebefordra identitets synkronisering** .
+8. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till global vidarebefordra identitets synkronisering**.
 
 9. Granska de användarattribut som synkroniseras från Azure AD till global vidarebefordra identitets synkronisering i avsnittet **attribut-mappning** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i global Relay Identity Sync för uppdaterings åtgärder. Om du väljer att ändra [matchande målattribut](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)måste du kontrol lera att det globala relä-ID: t för synkronisering stöder filtrering av användare baserat på detta attribut. Välj knappen **Spara** för att spara ändringarna.
 
@@ -173,7 +173,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 
 
-10. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory grupper till global vidarebefordra identitets synkronisering** .
+10. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory grupper till global vidarebefordra identitets synkronisering**.
 
 11. Granska gruppattributen som synkroniseras från Azure AD till global vidarebefordra identitets synkronisering i avsnittet **attribut-mappning** . Attributen som väljs som **matchande** egenskaper används för att matcha grupperna i global Relay Identity Sync för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
@@ -192,11 +192,11 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Etableringsomfång](common/provisioning-scope.png)
 
-15. När du är redo att etablera klickar du på **Spara** .
+15. När du är redo att etablera klickar du på **Spara**.
 
     ![Spara etableringskonfiguration](common/provisioning-configuration-save.png)
 
-Åtgärden startar den initiala synkroniseringscykeln för alla användare och grupper som har definierats i **Omfång** i avsnittet **Inställningar** . Den första cykeln tar längre tid att utföra än efterföljande cykler, vilket inträffar ungefär var 40:e minut om Azure AD-etableringstjänsten körs. 
+Åtgärden startar den initiala synkroniseringscykeln för alla användare och grupper som har definierats i **Omfång** i avsnittet **Inställningar**. Den första cykeln tar längre tid att utföra än efterföljande cykler, vilket inträffar ungefär var 40:e minut om Azure AD-etableringstjänsten körs. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Steg 6. Övervaka distributionen
 När du har konfigurerat etableringen använder du följande resurser till att övervaka distributionen:

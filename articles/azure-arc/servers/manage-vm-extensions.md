@@ -1,14 +1,14 @@
 ---
 title: Hantering av VM-tillägg med Azure Arc-aktiverade servrar
 description: Azure Arc-aktiverade servrar kan hantera distribution av virtuella dator tillägg som tillhandahåller konfiguration och automatiserings uppgifter efter distributionen med icke-virtuella datorer i Azure.
-ms.date: 10/19/2020
+ms.date: 11/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: e9865761fd3e5897ee3f01cd3d6ca620d5ea2f4b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 7682f6c8631bbaf2310d501d7cee6aecb2311226
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460894"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358039"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Hantering av virtuella dator tillägg med Azure Arc-aktiverade servrar
 
@@ -33,6 +33,8 @@ Stöd för VM-tillägg för Azure Arc-aktiverade servrar ger följande viktiga f
 
 - Ladda ned och kör skript på Hybrid anslutna datorer med tillägget för anpassat skript. Det här tillägget är användbart för konfiguration av distribution, program varu installation eller andra konfigurations-eller hanterings uppgifter.
 
+- Automatisk uppdatering av certifikat som lagras i en [Azure Key Vault](../../key-vault/general/overview.md).
+
 ## <a name="availability"></a>Tillgänglighet
 
 Funktioner för virtuella dator tillägg är bara tillgängliga i listan över [regioner som stöds](overview.md#supported-regions). Se till att du har registrerat datorn i någon av dessa regioner.
@@ -47,10 +49,12 @@ I den här versionen har vi stöd för följande VM-tillägg på Windows-och Lin
 |DSC |Windows |Microsoft. PowerShell|[Windows PowerShell DSC-tillägg](../../virtual-machines/extensions/dsc-windows.md)|
 |Log Analytics-agent |Windows |Microsoft. EnterpriseCloud. Monitoring |[Log Analytics VM-tillägg för Windows](../../virtual-machines/extensions/oms-windows.md)|
 |Microsoft-beroende agent | Windows |Microsoft.Compute | [Tillägg för virtuell dator för beroende agent för Windows](../../virtual-machines/extensions/agent-dependency-windows.md)|
+|Key Vault | Windows | Microsoft.Compute | [Key Vault tillägg för virtuell dator för Windows](../../virtual-machines/extensions/key-vault-windows.md) |
 |CustomScript|Linux |Microsoft. Azure. extension |[Anpassat skript tillägg för Linux version 2](../../virtual-machines/extensions/custom-script-linux.md) |
 |DSC |Linux |Microsoft. OSTCExtensions |[PowerShell DSC-tillägg för Linux](../../virtual-machines/extensions/dsc-linux.md) |
 |Log Analytics-agent |Linux |Microsoft. EnterpriseCloud. Monitoring |[Log Analytics VM-tillägg för Linux](../../virtual-machines/extensions/oms-linux.md) |
 |Microsoft-beroende agent | Linux |Microsoft.Compute | [Tillägg för virtuell dator för beroende agent för Linux](../../virtual-machines/extensions/agent-dependency-linux.md) |
+|Key Vault | Linux | Microsoft.Compute | [Key Vault tillägg för virtuell dator för Linux](../../virtual-machines/extensions/key-vault-linux.md) |
 
 Mer information om paketet för Azure Connected Machine agent och information om tilläggs Agent komponenten finns i [agent översikt](agent-overview.md#agent-component-details).
 
@@ -63,7 +67,29 @@ Den här funktionen är beroende av följande Azure-resurs leverantörer i din p
 
 Om de inte redan är registrerade följer du stegen under [Registrera Azure Resource providers](agent-overview.md#register-azure-resource-providers).
 
+### <a name="log-analytics-vm-extension"></a>Log Analytics VM-tillägg
+
 Det virtuella dator tillägget för Log Analytics agent för Linux kräver python 2. x installerat på mål datorn.
+
+### <a name="azure-key-vault-vm-extension-preview"></a>Azure Key Vault VM-tillägg (för hands version)
+
+Key Vault VM-tillägget (för hands version) stöder inte följande Linux-operativ system:
+
+- CentOS Linux 7 (x64)
+- Red Hat Enterprise Linux (RHEL) 7 (x64)
+- Amazon Linux 2 (x64)
+
+Distribution av Key Vault VM-tillägget (för hands version) stöds bara med:
+
+- Azure CLI
+- Azure PowerShell
+- Azure Resource Manager-mall
+
+Innan du distribuerar tillägget måste du göra följande:
+
+1. [Skapa ett valv och certifikat](../../key-vault/certificates/quick-create-portal.md) (självsignerat eller importerat).
+
+2. Ge Azure Arc-aktiverad åtkomst till certifikat hemligheten. Om du använder RBAC- [förhandsgranskningen](../../key-vault/general/rbac-guide.md)söker du efter namnet på Azure Arc-resursen och tilldelar den rollen som **Key Vault hemligheter (förhands granskning)** . Om du använder [Key Vault åtkomst princip](../../key-vault/general/assign-access-policy-portal.md)tilldelar du hemligt **Get** behörighet till Azure Arc-resursens tilldelade identitet.
 
 ### <a name="connected-machine-agent"></a>Ansluten dator agent
 
@@ -75,4 +101,4 @@ Om du vill uppgradera datorn till den version av agenten som krävs, se [uppgrad
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan distribuera, hantera och ta bort VM-tillägg med hjälp av [Azure CLI](manage-vm-extensions-cli.md), [PowerShell](manage-vm-extensions-powershell.md), från [Azure Portal](manage-vm-extensions-portal.md)eller [Azure Resource Manager mallar](manage-vm-extensions-template.md).
+Du kan distribuera, hantera och ta bort VM-tillägg med hjälp av [Azure CLI](manage-vm-extensions-cli.md), [Azure PowerShell](manage-vm-extensions-powershell.md)från [Azure Portal](manage-vm-extensions-portal.md)eller [Azure Resource Manager mallar](manage-vm-extensions-template.md).

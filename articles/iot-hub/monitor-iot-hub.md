@@ -5,13 +5,13 @@ author: robinsh
 ms.author: robinsh
 ms.topic: conceptual
 ms.service: iot-hub
-ms.date: 10/22/2020
-ms.openlocfilehash: 71a7041ec02da9a85de411f1113814311c21cd4f
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 11/06/2020
+ms.openlocfilehash: dc239843c4ed597949b4ba00c44ec84fc70741a8
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128887"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357614"
 ---
 # <a name="monitoring-azure-iot-hub"></a>Övervaka Azure-IoT Hub
 
@@ -65,13 +65,13 @@ I Azure Portal kan du välja **diagnostikinställningar** under **övervakning**
 
 Följande skärm bild visar en diagnostisk inställning för att vidarebefordra resurs logg typen *anslutnings åtgärder* och alla plattforms mått till en Log Analytics-arbetsyta.
 
-:::image type="content" source="media/monitor-iot-hub/diagnostic-setting-portal.png" alt-text="Översikts sidan standard mått diagram på IoT Hub.":::
+:::image type="content" source="media/monitor-iot-hub/diagnostic-setting-portal.png" alt-text="Fönstret diagnostikinställningar för en IoT Hub.":::
 
 Mer information om hur du skapar en diagnostisk inställning med hjälp av Azure Portal, CLI eller PowerShell finns i [skapa diagnostisk inställning för att samla in plattforms loggar och statistik i Azure](/azure/azure-monitor/platform/diagnostic-settings) . När du skapar en diagnostisk inställning anger du vilka kategorier av loggar som ska samlas in. Kategorierna för Azure IoT Hub visas under [resurs loggar i data referens för övervakning av Azure-IoT Hub](monitor-iot-hub-reference.md#resource-logs).
 
 Tänk på följande när du dirigerar IoT Hub plattforms mått till andra platser:
 
-- Det går inte att exportera följande plattforms mått via diagnostikinställningar: *anslutna enheter (för hands version)* och *Totalt antal enheter (för hands version)* .
+- Det går inte att exportera följande plattforms mått via diagnostikinställningar: *anslutna enheter (för hands version)* och *Totalt antal enheter (för hands version)*.
 
 - Flerdimensionella mått, till exempel vissa mått för [routning](monitor-iot-hub-reference.md#routing-metrics), exporteras för närvarande som sammansatta enkla mått för dimensions värden. Mer information finns i [Exportera plattforms mått till andra platser](/azure/azure-monitor/platform/metrics-supported#exporting-platform-metrics-to-other-locations).
 
@@ -81,7 +81,7 @@ Du kan analysera mått för Azure IoT Hub med mått från andra Azure-tjänster 
 
 I Azure Portal kan du välja **mått** under **övervakning** i den vänstra rutan i din IoT-hubb för att öppna området med mått Utforskaren som standard för de plattforms mått som skickas av din IoT Hub:
 
-:::image type="content" source="media/monitor-iot-hub/metrics-portal.png" alt-text="Översikts sidan standard mått diagram på IoT Hub.":::
+:::image type="content" source="media/monitor-iot-hub/metrics-portal.png" alt-text="Sidan Metrics Explorer för en IoT-hubb.":::
 
 En lista över de plattforms mått som samlas in för Azure IoT Hub finns i [mått i data referens för övervakning av Azure-IoT Hub](monitor-iot-hub-reference.md#metrics). En lista över de plattforms mått som samlas in för alla Azure-tjänster finns i [mått som stöds med Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
 
@@ -97,7 +97,7 @@ Om du vill dirigera data till Azure Monitor loggar måste du skapa en diagnostis
 
 I Azure Portal kan du välja **loggar** under **övervakning** i den vänstra rutan i IoT hub för att utföra Log Analytics frågor, som standard, till de loggar och mått som samlas in i Azure Monitor loggar för din IoT-hubb.
 
-:::image type="content" source="media/monitor-iot-hub/logs-portal.png" alt-text="Översikts sidan standard mått diagram på IoT Hub.":::
+:::image type="content" source="media/monitor-iot-hub/logs-portal.png" alt-text="Sidan loggar för en IoT-hubb.":::
 
 En lista över de tabeller som används av Azure Monitor loggar och efter frågas av Log Analytics finns i [Azure Monitor loggar tabeller i data referens för övervakning av Azure IoT Hub](monitor-iot-hub-reference.md#azure-monitor-logs-tables).
 
@@ -107,7 +107,7 @@ Alla resurs loggar i Azure Monitor har samma fält följt av tjänstespecific-f�
 
 Tänk på följande när du dirigerar IoT Hub plattforms mått till Azure Monitor loggar:
 
-- Det går inte att exportera följande plattforms mått via diagnostikinställningar: *anslutna enheter (för hands version)* och *Totalt antal enheter (för hands version)* .
+- Det går inte att exportera följande plattforms mått via diagnostikinställningar: *anslutna enheter (för hands version)* och *Totalt antal enheter (för hands version)*.
 
 - Flerdimensionella mått, till exempel vissa mått för [routning](monitor-iot-hub-reference.md#routing-metrics), exporteras för närvarande som sammansatta enkla mått för dimensions värden. Mer information finns i [Exportera plattforms mått till andra platser](/azure/azure-monitor/platform/metrics-supported#exporting-platform-metrics-to-other-locations).
 
@@ -291,6 +291,14 @@ class Program
 Azure Monitor aviseringar proaktivt meddela dig när viktiga villkor finns i dina övervaknings data. De gör att du kan identifiera och åtgärda problem i systemet innan kunderna märker dem. Du kan ställa in aviseringar för [mått](/azure/azure-monitor/platform/alerts-metric-overview), [loggar](/azure/azure-monitor/platform/alerts-unified-log)och [aktivitets loggen](/azure/azure-monitor/platform/activity-log-alerts). Olika typer av aviseringar har fördelar och nack delar.
 
 När du skapar en varnings regel baserat på plattforms mått bör du vara medveten om att för IoT Hub plattforms mått som samlas in i antal enheter, kan vissa agg regeringar inte vara tillgängliga eller användbara. Mer information finns i [agg regeringar som stöds i data referens för övervakning av Azure-IoT Hub](monitor-iot-hub-reference.md#supported-aggregations).
+
+## <a name="monitor-per-device-disconnects-with-event-grid"></a>Övervaka varje enhet som kopplas från med Event Grid
+
+Azure Monitor tillhandahåller ett mått, *anslutna enheter* , som du kan använda för att övervaka antalet enheter som är anslutna till din IoT Hub och utlösa en avisering när antalet anslutna enheter sjunker under ett tröskelvärde. Det kan vara tillräckligt för vissa scenarier, [Azure Event Grid](/azure/event-grid/) ger en övervaknings lösning med låg latens per enhet som du kan använda för att spåra enhets anslutningar för kritiska enheter och infrastruktur.
+
+Med Event Grid kan du prenumerera på IoT Hub [ **DeviceConnected** -och **DeviceDisconnected** -händelser](iot-hub-event-grid.md#event-types) för att utlösa aviseringar och övervaka enhetens anslutnings tillstånd. Event Grid ger mycket lägre händelse latens än Azure Monitor och du kan övervaka per enhet, i stället för det totala antalet anslutna enheter. Dessa faktorer gör Event Grid den bästa metoden för att övervaka anslutningar för kritiska enheter och infrastruktur. Vi rekommenderar starkt att du använder Event Grid för att övervaka enhets anslutningar i produktions miljöer.
+
+Mer detaljerad information om övervakning av enhets anslutningar med Event Grid och Azure Monitor finns i [övervaka, diagnostisera och felsöka från kopplingar till Azure-IoT Hub](iot-hub-troubleshoot-connectivity.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: bf779918dbfb9f7b95096f3a5efcc8e64f09c403
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 397aab743da25da3882c66d0fdf32c4c4d202586
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850522"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357002"
 ---
 # <a name="tutorial-configure-ipass-smartconnect-for-automatic-user-provisioning"></a>Självstudie: Konfigurera iPass SmartConnect för automatisk användar etablering
 
@@ -61,11 +61,11 @@ Om du vill konfigurera iPass-SmartConnect för automatisk användar etablering m
 
 **Utför följande steg för att lägga till iPass-SmartConnect från Azure AD-programgalleriet:**
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
+1. Välj **Azure Active Directory** i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -73,7 +73,7 @@ Om du vill konfigurera iPass-SmartConnect för automatisk användar etablering m
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **IPass SmartConnect**, väljer **iPass SmartConnect** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **IPass SmartConnect** , väljer **iPass SmartConnect** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![iPass SmartConnect i resultat listan](common/search-new-app.png)
 
@@ -118,7 +118,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 9. Granska de användarattribut som synkroniseras från Azure AD till iPass SmartConnect i avsnittet **Mappning av attribut** . De attribut som väljs som **matchande** egenskaper används för att matcha användar kontona i IPass-SmartConnect för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
-    :::image type="content" source="media/ipass-smartconnect-provisioning-tutorial/userattribute.png" alt-text="Skärm bild av avsnittet mappningar. Under namn, synkronisera Azure Active Directory användare till iPass SmartConnect visas." border="false":::
+    :::image type="content" source="media/ipass-smartconnect-provisioning-tutorial/userattribute.png" alt-text="Skärm bild av sidan mappningar för attribut. En tabell visar Azure Active Directory-och iPass SmartConnect-attribut och matchande prioritet." border="false":::
 
 
 10. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudien för omfångsfilter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).

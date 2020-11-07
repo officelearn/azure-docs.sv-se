@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: 2f3657feb5a68600e4eb2d7bcaa4891a398c2682
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 889972f7d94ab960354982275d45bdc5d5726d6e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850701"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356832"
 ---
 # <a name="tutorial-configure-looop-for-automatic-user-provisioning"></a>Självstudie: Konfigurera LOOOP för automatisk användar etablering
 
@@ -59,7 +59,7 @@ Innan du konfigurerar LOOOP för automatisk användar etablering med Azure AD m�
 
 2. Generera en ny token genom att klicka på **Återställ token** under **scim-integrering**.
 
-    :::image type="content" source="media/looop-provisioning-tutorial/resettoken.png" alt-text="Skärm bild av LOOOP-administratörskonsolen. Fliken konto är markerad och öppen. Under konto inställningar markeras autentiseringen." border="false":::
+    :::image type="content" source="media/looop-provisioning-tutorial/resettoken.png" alt-text="Skärm bild av avsnittet S C I M-integration på en sida i LOOOP-administratörskonsolen. Knappen Återställ token är markerad." border="false":::
 
 3. Kopiera **scim-slutpunkten** och **token**. Dessa värden anges i fälten klient- **URL** och **hemligt token** på fliken etablering i Looop-programmet i Azure Portal. 
 
@@ -69,11 +69,11 @@ Innan du konfigurerar LOOOP för automatisk användar etablering med Azure AD m�
 
 Om du vill konfigurera LOOOP för automatisk användar etablering med Azure AD måste du lägga till LOOOP från Azure AD-programgalleriet i listan över hanterade SaaS-program.
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
+1. Välj **Azure Active Directory** i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -81,7 +81,7 @@ Om du vill konfigurera LOOOP för automatisk användar etablering med Azure AD m
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **LOOOP**och väljer **LOOOP** i panelen resultat. 
+4. I sökrutan anger du **LOOOP** och väljer **LOOOP** i panelen resultat. 
 
     ![LOOOP i resultat listan](common/search-new-app.png)
 

@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: b51b219daec01d0bce3bbfb71c29e9374363665d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8caa39bea2d0d835a94bc95a747f1f870bae3b12
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91711597"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357546"
 ---
 # <a name="azure-blob-storage-monitoring-data-reference"></a>Övervaknings data referens för Azure Blob Storage
 
@@ -26,7 +26,7 @@ I följande tabeller visas de plattforms mått som samlas in för Azure Storage.
 
 ### <a name="capacity-metrics"></a>Kapacitetsmått
 
-Värdena för kapacitets värden skickas till Azure Monitor varje timme. Värdena uppdateras varje dag. Tids kornig het definierar tidsintervallet för vilka mått värden presenteras. Tids kornig het för alla kapacitets mått är en timme (PT1H).
+Värdena för kapacitets värden uppdateras dagligen (upp till 24 timmar). Tids kornig het definierar tidsintervallet för vilka mått värden presenteras. Tids kornig het för alla kapacitets mått är en timme (PT1H).
 
 Azure Storage tillhandahåller följande kapacitets mått i Azure Monitor.
 
@@ -40,8 +40,8 @@ Den här tabellen visar [Blob Storage-mått](https://docs.microsoft.com/azure/az
 
 | Mått | Beskrivning |
 | ------------------- | ----------------- |
-| BlobCapacity | Summan av Blob Storage som används i lagrings kontot. <br/><br/> Enhet: byte <br/> Sammansättnings typ: genomsnitt <br/> Värde exempel: 1024 <br/> Dimensioner: **BlobType**och **BlobTier** ([definition](#metrics-dimensions)) |
-| BlobCount    | Antalet BLOB-objekt som lagras i lagrings kontot. <br/><br/> Enhet: antal <br/> Sammansättnings typ: genomsnitt <br/> Värde exempel: 1024 <br/> Dimensioner: **BlobType**och **BlobTier** ([definition](#metrics-dimensions)) |
+| BlobCapacity | Summan av Blob Storage som används i lagrings kontot. <br/><br/> Enhet: byte <br/> Sammansättnings typ: genomsnitt <br/> Värde exempel: 1024 <br/> Dimensioner: **BlobType** och **BlobTier** ( [definition](#metrics-dimensions)) |
+| BlobCount    | Antalet BLOB-objekt som lagras i lagrings kontot. <br/><br/> Enhet: antal <br/> Sammansättnings typ: genomsnitt <br/> Värde exempel: 1024 <br/> Dimensioner: **BlobType** och **BlobTier** ( [definition](#metrics-dimensions)) |
 | BlobProvisionedSize | Mängden lagrings utrymme som har allokerats i lagrings kontot. Detta mått gäller endast för Premium Storage-konton. <br/><br/> Enhet: byte <br/> Sammansättnings typ: genomsnitt |
 | ContainerCount    | Antalet behållare i lagrings kontot. <br/><br/> Enhet: antal <br/> Sammansättnings typ: genomsnitt <br/> Värde exempel: 1024 |
 | IndexCapacity     | Mängden lagrings utrymme som används av ADLS Gen2 hierarkiskt index <br/><br/> Enhet: byte <br/> Sammansättnings typ: genomsnitt <br/> Värde exempel: 1024 |
@@ -64,10 +64,10 @@ Azure Storage stöder följande dimensioner för mått i Azure Monitor.
 
 ### <a name="dimensions-specific-to-blob-storage"></a>Dimensioner som är speciella för Blob Storage
 
-| Dimensions namn | Beskrivning |
+| Dimensions namn | Description |
 | ------------------- | ----------------- |
-| **BlobType** | Typ av BLOB för BLOB-mått. De värden som stöds är **BlockBlob**, **PageBlob**och **Azure Data Lake Storage**. Bifogade blobbar ingår i **BlockBlob**. |
-| **BlobTier** | Azure Storage erbjuder olika åtkomst nivåer, vilket gör att du kan lagra BLOB-Datadata på det mest kostnads effektiva sättet. Läs mer i [Azure Storage BLOB-nivå](../blobs/storage-blob-storage-tiers.md). De värden som stöds är: <br/> <li>Frekvent **: frekvent**nivå</li> <li>Låg **frekvent: låg**frekvent nivå</li> <li>**Arkiv**: Arkiv lag ring</li> <li>**Premium**: Premium-nivån för Block-Blob</li> <li>**P4/P6/P10/p15/P20/P30/P40/P50/P60**: nivå typer för Premium Page-BLOB</li> <li>**Standard**: nivå typ för standard sid-BLOB</li> <li>Inte i **nivå**: nivå typ för generell användning v1 lagrings konto</li> |
+| **BlobType** | Typ av BLOB för BLOB-mått. De värden som stöds är **BlockBlob** , **PageBlob** och **Azure Data Lake Storage**. Bifogade blobbar ingår i **BlockBlob**. |
+| **BlobTier** | Azure Storage erbjuder olika åtkomst nivåer, vilket gör att du kan lagra BLOB-Datadata på det mest kostnads effektiva sättet. Läs mer i [Azure Storage BLOB-nivå](../blobs/storage-blob-storage-tiers.md). De värden som stöds är: <br/> <li>Frekvent **: frekvent** nivå</li> <li>Låg **frekvent: låg** frekvent nivå</li> <li>**Arkiv** : Arkiv lag ring</li> <li>**Premium** : Premium-nivån för Block-Blob</li> <li>**P4/P6/P10/p15/P20/P30/P40/P50/P60** : nivå typer för Premium Page-BLOB</li> <li>**Standard** : nivå typ för standard sid-BLOB</li> <li>Inte i **nivå** : nivå typ för generell användning v1 lagrings konto</li> |
 
 För mått som stöder dimensioner måste du ange dimension svärdet för att se motsvarande mått värden. Om du till exempel tittar på  **transaktions** värde för lyckade svar måste du filtrera **ResponseType** -dimensionen med **lyckat resultat**. Om du tittar på **BlobCount** -värdet för Block-Blob måste du filtrera **BlobType** -dimensionen med **BlockBlob**.
 

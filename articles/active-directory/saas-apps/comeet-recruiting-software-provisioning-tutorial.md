@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 37a446d721b7353c647d7d7e26de79e7038d1a3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 288d1e6cec8ddcf7d4afe5a35f28a022c2a7be10
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91300011"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357087"
 ---
 # <a name="tutorial-configure-comeet-recruiting-software-for-automatic-user-provisioning"></a>Självstudie: Konfigurera samstämmande rekryterings program vara för automatisk användar etablering
 
@@ -41,11 +41,11 @@ Innan du konfigurerar samstämmande av rekryterings program vara för automatisk
 
 **Gör så här för att lägga till samstämmande rekryterings program vara från Azure AD-programgalleriet:**
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
+1. Välj **Azure Active Directory** i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -53,7 +53,7 @@ Innan du konfigurerar samstämmande av rekryterings program vara för automatisk
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **samstämmande rekryterings program vara**, väljer **Samstämmande rekryterings program vara** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **samstämmande rekryterings program vara** , väljer **Samstämmande rekryterings program vara** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![Comeet Recruiting Software i resultatlistan](common/search-new-app.png)
 
@@ -98,7 +98,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 5. Under avsnittet **admin credentials** måste du skriva in **klient-URL: en** och den **hemliga token** för den Samstämmande rekryterings program varans konto enligt beskrivningen i steg 6.
 
-6. I den [samstämmiga rekryterings program varans administratörs konsol](https://app.comeet.co/)navigerar du till  **samstämmiga > inställningar > autentisering > Microsoft Azure**och kopierar den **hemliga token för ditt företags** värde till fältet **hemligt token** i Azure AD.
+6. I den [samstämmiga rekryterings program varans administratörs konsol](https://app.comeet.co/)navigerar du till  **samstämmiga > inställningar > autentisering > Microsoft Azure** och kopierar den **hemliga token för ditt företags** värde till fältet **hemligt token** i Azure AD.
 
     ![Möt rekrytering av program varu etablering](./media/comeet-recruiting-software-provisioning-tutorial/secret-token-1.png)
 

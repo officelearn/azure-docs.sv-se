@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: Zhchia
-ms.openlocfilehash: 45a1ae281a8a1acb1cfd12efe500f5a623033ef3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da6e1a8ba31f8f4991bde4803191598a015a68b3
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850073"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358449"
 ---
 # <a name="tutorial-configure-oracle-fusion-erp-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Oracle Fusion ERP för automatisk användar etablering
 
@@ -54,13 +54,13 @@ Innan du konfigurerar Oracle Fusion ERP för automatisk användar etablering med
 
 1. Logga in på [administrations konsolen för Oracle Fusion ERP](https://cloud.oracle.com/sign-in)
 
-2. Klicka på navigatören i det övre vänstra övre hörnet. Under **verktyg**väljer du **säkerhets konsol**.
+2. Klicka på navigatören i det övre vänstra övre hörnet. Under **verktyg** väljer du **säkerhets konsol**.
 
     :::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/login.png" alt-text="Skärm bild av sidan navigatör i administrations konsolen för Oracle Fusion E R P. Verktyg och säkerhets konsol är markerade." border="false":::
 
 3. Navigera till **användare**.
     
-    :::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/user.png" alt-text="Skärm bild av sidan navigatör i administrations konsolen för Oracle Fusion E R P. Verktyg och säkerhets konsol är markerade." border="false":::
+    :::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/user.png" alt-text="Skärm bild av en panel i administrations konsolen för Oracle Fusion E R P. Objektet användare är markerat." border="false":::
 
 4. Spara användar namnet och lösen ordet för det administratörs användar konto som du ska använda för att logga in på administrations konsolen för Oracle Fusion ERP. Dessa värden måste anges i fälten **admin användar namn** och **lösen ord** på fliken etablering i ditt Oracle Fusion ERP-program i Azure Portal.
 
@@ -70,11 +70,11 @@ Om du vill konfigurera Oracle Fusion ERP för automatisk användar etablering me
 
 **Gör så här om du vill lägga till Oracle Fusion ERP från Azure AD Application Gallery:**
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
+1. Välj **Azure Active Directory** i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -82,7 +82,7 @@ Om du vill konfigurera Oracle Fusion ERP för automatisk användar etablering me
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **Oracle Fusion ERP**, väljer **Oracle Fusion ERP** i resultat panelen.
+4. I sökrutan anger du **Oracle Fusion ERP** , väljer **Oracle Fusion ERP** i resultat panelen.
 
     ![Oracle Fusion ERP i resultatlistan](common/search-new-app.png)
 
@@ -116,7 +116,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 5. Under avsnittet **admin credentials** , inmatat `https://ejlv.fa.em2.oraclecloud.com/hcmRestApi/scim/` i **klient-URL**. Ange administratörens användar namn och lösen ord som hämtades tidigare till fälten **admin-användarnamn** och **lösen ord** . Klicka på **Testa anslutning** mellan Azure AD och Oracle Fusion ERP. 
 
-    :::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/admin.png" alt-text="Skärm bild av sidan navigatör i administrations konsolen för Oracle Fusion E R P. Verktyg och säkerhets konsol är markerade." border="false":::
+    :::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/admin.png" alt-text="Skärm bild av avsnittet admin-autentiseringsuppgifter. En test anslutnings knapp och fält för en klient U R L, admin användar namn och administratörs lösen ord visas." border="false":::
 
 6. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan – **Skicka ett e-postmeddelande när ett fel uppstår**.
 
@@ -126,11 +126,11 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 8. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till Oracle Fusion ERP**.
 
-    :::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/user-mapping.png" alt-text="Skärm bild av sidan navigatör i administrations konsolen för Oracle Fusion E R P. Verktyg och säkerhets konsol är markerade." border="false":::
+    :::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/user-mapping.png" alt-text="Skärm bild av avsnittet mappningar. Under namn visas synkronisera Azure Active Directory användare till Oracle Fusion E R P." border="false":::
 
 9. Granska de användarattribut som synkroniseras från Azure AD till Oracle Fusion ERP i avsnittet **attribut-mappning** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i Oracle Fusion ERP för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
-    :::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/user-attribute.png" alt-text="Skärm bild av sidan navigatör i administrations konsolen för Oracle Fusion E R P. Verktyg och säkerhets konsol är markerade." border="false":::
+    :::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/user-attribute.png" alt-text="Skärm bild av sidan mappningar för attribut. En tabell visar Azure Active Directory-och Oracle Fusion E R P-attribut och matchande prioritet." border="false":::
 
 10. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory grupper till Oracle Fusion ERP**.
 

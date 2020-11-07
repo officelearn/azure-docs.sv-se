@@ -6,17 +6,17 @@ manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: troubleshooting
-ms.date: 01/30/2020
+ms.date: 11/06/2020
 ms.author: jlian
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: af057750e81086bf691b87057da97af3de19cd3b
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 8fb891d5a47203c9905a7def9d04199d24327f70
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92909649"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357257"
 ---
 # <a name="401003-iothubunauthorized"></a>401003 IoTHubUnauthorized
 
@@ -42,7 +42,7 @@ Begär anden till IoT Hub fungerar inte med något av följande fel meddelanden:
 
 ### <a name="cause-1"></a>Orsak 1
 
-Vissa SDK: er förlitar sig på IoT Hub att utfärda från koppling när SAS-token upphör att veta när de ska uppdateras. Så, 
+Vissa SDK: er förlitar sig på IoT Hub att utfärda från koppling när SAS-token upphör att veta när de ska uppdateras. Så,
 
 1. SAS-token upphör att gälla
 1. IoT Hub meddelar förfallo datumet och kopplar från enheten med **401003 IoTHubUnauthorized**
@@ -58,9 +58,11 @@ IoT Hub kunde inte autentisera auth-huvudet, regeln eller nyckeln. Detta kan ber
 
 ### <a name="solution-1"></a>Lösning 1
 
-Ingen åtgärd krävs om du använder IoT SDK för anslutning med enhets anslutnings strängen. IoT SDK återskapar den nya token för att återansluta vid förfallo datum för SAS-token. 
+Ingen åtgärd krävs om du använder IoT SDK för anslutning med enhets anslutnings strängen. IoT SDK återskapar den nya token för att återansluta vid förfallo datum för SAS-token.
 
-Om det är ett problem med fel volymen växlar du till C SDK, som förnyar SAS-token innan det går ut. För AMQP kan SAS-token Dessutom uppdateras utan från koppling.
+Standardvärdet för token livs längd är 60 minuter över SDK: er. men för vissa SDK: er token livs längd och tröskelvärdet för förnyelse av token kan konfigureras. Dessutom skiljer sig de fel som uppstår när en enhet kopplar från och återansluter till token förnyelse för varje SDK. Mer information om hur du avgör vilken SDK enheten använder i loggar finns i [MQTT enhets kopplings beteende med Azure IoT SDK](iot-hub-troubleshoot-connectivity.md#mqtt-device-disconnect-behavior-with-azure-iot-sdks): er.
+
+För enhets utvecklare, om det är något som är problem, kan du växla till C SDK, som förnyar SAS-token innan det upphör att gälla. SAS-token kan uppdateras utan från koppling för AMQP.
 
 ### <a name="solution-2"></a>Lösning 2
 

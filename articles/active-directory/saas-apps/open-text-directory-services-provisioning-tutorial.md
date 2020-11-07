@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: Zhchia
-ms.openlocfilehash: c0858c2e5b1ada866d252e45113f0f90b73caaf8
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c023d9b79b81257419814c3087b78f65e1cb6dd5
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428967"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356000"
 ---
 # <a name="tutorial-configure-opentext-directory-services-for-automatic-user-provisioning"></a>Självstudie: Konfigurera OpenText Directory-tjänster för automatisk användar etablering
 
@@ -35,7 +35,7 @@ I den här självstudien beskrivs de steg du behöver utföra i både OpenText D
 > * Etablera grupper och grupp medlemskap i OpenText Directory-tjänster
 > * [Enkel inloggning](https://docs.microsoft.com/azure/active-directory/saas-apps/opentext-directory-services-tutorial) till OpenText Directory-tjänster (rekommenderas)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
@@ -54,7 +54,7 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 > Stegen nedan gäller för en OpenText Directory Services-installation. De gäller inte för OpenText CoreShare eller OpenText OT2-klienter.
 
 1. Skapa en dedikerad konfidentiell **OAuth-klient**.
-2. Ange **livs längd för token**för lång åtkomst.
+2. Ange **livs längd för token** för lång åtkomst.
 
       ![Livs längd för åtkomsttoken](media/open-text-directory-services-provisioning-tutorial/token-life.png)
 

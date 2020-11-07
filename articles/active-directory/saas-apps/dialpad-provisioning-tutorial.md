@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: zhchia
-ms.openlocfilehash: 7475ebc6dd51bbc1c30ee22623c7cbda1a5237ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b88e618da3f8a23c0517aaeb251e54bf559fc468
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91848984"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358515"
 ---
 # <a name="tutorial-configure-dialpad-for-automatic-user-provisioning"></a>Självstudie: Konfigurera dialpad för automatisk användar etablering
 
@@ -58,9 +58,9 @@ Innan du konfigurerar dialpad för automatisk användar etablering med Azure AD 
 
 2. Generera en ny nyckel genom att klicka på **Lägg till en nyckel** och konfigurera egenskaperna för din hemliga token.
 
-    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad02.png" alt-text="Skärm bild av dialpad-administratörskonsolen med inställnings ikonen, mitt företags-, autentiserings-och P I-nycklar markerade och mitt företag har valt." border="false":::
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad02.png" alt-text="Skärm bild av sidan för P-I-nycklar i dialpad-administratörskonsolen. Lägg till en nyckel markeras." border="false":::
 
-    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad03.png" alt-text="Skärm bild av dialpad-administratörskonsolen med inställnings ikonen, mitt företags-, autentiserings-och P I-nycklar markerade och mitt företag har valt." border="false":::
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad03.png" alt-text="Skärm bild av sidan Redigera en P-i-nyckel i dialpad-administratörskonsolen. Knappen Spara är markerad." border="false":::
 
 3. Klicka på knappen **Klicka för att Visa värde** för din nyligen skapade API-nyckel och kopiera värdet som visas. Det här värdet anges i fältet **hemlig token** på fliken etablering i ditt dialpad-program i Azure Portal. 
 
@@ -72,11 +72,11 @@ Om du vill konfigurera dialpad för automatisk användar etablering med Azure AD
 
 **Utför följande steg för att lägga till dialpad från Azure AD-programgalleriet:**
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
+1. Välj **Azure Active Directory** i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -84,24 +84,24 @@ Om du vill konfigurera dialpad för automatisk användar etablering med Azure AD
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **dialpad**och väljer **dialpad** i panelen resultat.
+4. I sökrutan anger du **dialpad** och väljer **dialpad** i panelen resultat.
     ![Dialpad i resultat listan](common/search-new-app.png)
 
 5. Navigera till **URL:** en som marker ATS nedan i en separat webbläsare. 
 
-    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad05.png" alt-text="Skärm bild av dialpad-administratörskonsolen med inställnings ikonen, mitt företags-, autentiserings-och P I-nycklar markerade och mitt företag har valt." border="false":::
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad05.png" alt-text="Skärm bild av en sida som visar information om dialpad-appen. Under U R L visas en adress i listan och den är markerad." border="false":::
 
 6. I det övre högra hörnet väljer du logga in **> använder dialpad online**.
 
-    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad06.png" alt-text="Skärm bild av dialpad-administratörskonsolen med inställnings ikonen, mitt företags-, autentiserings-och P I-nycklar markerade och mitt företag har valt." border="false":::
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad06.png" alt-text="Skärm bild av dialpad-webbplatsen. Logga in är markerat och fliken Logga in är öppen. Använd dialpad online är också markerat." border="false":::
 
 7. Som dialpad är en OpenIDConnect-app väljer du att logga in på dialpad med ditt Microsoft Work-konto.
 
-    :::image type="content" source="media/dialpad-provisioning-tutorial/loginpage.png" alt-text="Skärm bild av dialpad-administratörskonsolen med inställnings ikonen, mitt företags-, autentiserings-och P I-nycklar markerade och mitt företag har valt." border="false":::
+    :::image type="content" source="media/dialpad-provisioning-tutorial/loginpage.png" alt-text="Skärm bild av sidan för att skapa samtal på dialpad-webbplatsen. Knappen Logga in med Office 365 är markerad." border="false":::
 
 8. När autentiseringen är klar godkänner du frågan om medgivande för sidan medgivande. Programmet läggs sedan till automatiskt i din klient organisation och du omdirigeras till ditt dialpad-konto.
 
-    :::image type="content" source="media/dialpad-provisioning-tutorial/redirect.png" alt-text="Skärm bild av dialpad-administratörskonsolen med inställnings ikonen, mitt företags-, autentiserings-och P I-nycklar markerade och mitt företag har valt." border="false":::
+    :::image type="content" source="media/dialpad-provisioning-tutorial/redirect.png" alt-text="Skärm bild som visar en Microsoft-autentiseringsnyckel som säger att dialpad-appen har begärt åtkomst till vissa data. Knappen acceptera är markerad." border="false":::
 
  ## <a name="configure-automatic-user-provisioning-to-dialpad"></a>Konfigurera automatisk användar etablering till dialpad
 

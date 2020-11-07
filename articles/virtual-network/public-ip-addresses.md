@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: fbd4c4ecfa2be9815e5d301a02460dc28171716a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f2dfb113f4c82dfea422a7c2be1c5fb07ffd60e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329269"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358175"
 ---
 # <a name="public-ip-addresses"></a>Offentliga IP-adresser
 
@@ -38,6 +38,8 @@ I Azure Resource Manager är en [offentlig IP-adress](virtual-network-public-ip-
 Offentliga IP-adresser skapas med en IPv4- eller IPv6-adress. 
 
 ## <a name="sku"></a>SKU
+
+Mer information om SKU-uppgradering finns i [offentlig IP-uppgradering](../virtual-network/virtual-network-public-ip-address-upgrade.md).
 
 Offentliga IP-adresser skapas med någon av följande SKU:er:
 

@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/12/2020
-ms.openlocfilehash: dffa8393dcfebf1cb73e3ab72890999cfa633b80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/06/2020
+ms.openlocfilehash: 80c3f9aa02680097276f966ce6aea02acf1e40fb
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532575"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358804"
 ---
 # <a name="how-to-schedule-indexers-in-azure-cognitive-search"></a>Så här schemalägger du indexerare i Azure Kognitiv sökning
 
@@ -30,8 +30,8 @@ Scheduler är en inbyggd funktion i Azure Kognitiv sökning. Du kan inte använd
 ## <a name="define-schedule-properties"></a>Definiera schema egenskaper
 
 Ett Indexer schema har två egenskaper:
-* **Intervall**, som definierar hur lång tid det tar mellan körningar av schemalagd indexerare. Det minsta tillåtna intervallet är 5 minuter och det största är 24 timmar.
-* **Start tid (UTC)**, som anger första gången då indexeraren ska köras.
+* **Intervall** , som definierar hur lång tid det tar mellan körningar av schemalagd indexerare. Det minsta tillåtna intervallet är 5 minuter och det största är 24 timmar.
+* **Start tid (UTC)** , som anger första gången då indexeraren ska köras.
 
 Du kan ange ett schema när du först skapar indexeraren eller genom att uppdatera indexeraren egenskaper senare. Indexerings scheman kan ställas in med hjälp av [portalen](#portal), [REST API](#restApi)eller [.NET SDK](#dotNetSdk).
 
@@ -50,11 +50,11 @@ Låt oss ta en titt på ett exempel för att göra detta mer konkret. Anta att v
 
 ## <a name="schedule-in-the-portal"></a>Schemalägg i portalen
 
-Med guiden Importera data i portalen kan du definiera schemat för en indexerare när den skapas. Standard schema inställningen är **varje timme**, vilket innebär att indexeraren körs en gång efter att den har skapats och körs igen varje timme efteråt.
+Med guiden Importera data i portalen kan du definiera schemat för en indexerare när den skapas. Standard schema inställningen är **varje timme** , vilket innebär att indexeraren körs en gång efter att den har skapats och körs igen varje timme efteråt.
 
 Du kan ändra schema inställningen till **en gång** om du inte vill att indexeraren ska köras igen automatiskt, eller till **varje** dag för att köras en gång per dag. Ange den som **anpassad** om du vill ange ett annat intervall eller en särskild framtida start tid.
 
-När du ställer in schemat på **anpassad**visas fält där du kan ange **intervall** och **Start tid (UTC)**. Det kortaste tidsintervallet som tillåts är 5 minuter och det längsta är 1440 minuter (24 timmar).
+När du ställer in schemat på **anpassad** visas fält där du kan ange **intervall** och **Start tid (UTC)**. Det kortaste tidsintervallet som tillåts är 5 minuter och det längsta är 1440 minuter (24 timmar).
 
    ![Konfigurera indexerings schema i guiden Importera data](media/search-howto-schedule-indexers/schedule-import-data.png "Konfigurera indexerings schema i guiden Importera data")
 
@@ -92,28 +92,32 @@ Du kan också köra en indexerare på begäran när som helst med hjälp av anro
 
 Du kan definiera schemat för en indexerare med hjälp av Azure Kognitiv sökning .NET SDK. Det gör du genom att lägga till egenskapen **schema** när du skapar eller uppdaterar en indexerare.
 
-Följande C#-exempel skapar en indexerare med hjälp av en fördefinierad data källa och ett index, och ställer in schemat så att det körs en gång per dag med början 30 minuter från nu:
+Följande C#-exempel skapar en Azure SQL Database-indexerare med hjälp av en fördefinierad data källa och ett index, och ställer in schemat så att det körs en gång om dagen startar nu:
 
+```csharp
+var schedule = new IndexingSchedule(TimeSpan.FromDays(1))
+{
+    StartTime = DateTimeOffset.Now
+};
+
+var indexer = new SearchIndexer("hotels-sql-idxr", dataSource.Name, searchIndex.Name)
+{
+    Description = "Data indexer",
+    Schedule = schedule
+};
+
+await indexerClient.CreateOrUpdateIndexerAsync(indexer);
 ```
-    Indexer indexer = new Indexer(
-        name: "azure-sql-indexer",
-        dataSourceName: dataSource.Name,
-        targetIndexName: index.Name,
-        schedule: new IndexingSchedule(
-                        TimeSpan.FromDays(1), 
-                        new DateTimeOffset(DateTime.UtcNow.AddMinutes(30))
-                    )
-        );
-    await searchService.Indexers.CreateOrUpdateAsync(indexer);
-```
-Om **schema** parametern utelämnas körs indexeraren bara en gång omedelbart efter det att den har skapats.
+
+
+Om **Schedule** -egenskapen utelämnas körs indexeraren bara en gång omedelbart efter att den har skapats.
 
 Parametern **StartTime** kan ställas in på en tid i det förflutna. I så fall schemaläggs den första körningen som om indexeraren har körts kontinuerligt sedan den angivna **StartTime**.
 
-Schemat definieras med [IndexingSchedule](/dotnet/api/microsoft.azure.search.models.indexingschedule) -klassen. **IndexingSchedule** -konstruktorn kräver en **intervall** parameter som anges med ett **TimeSpan** -objekt. Det minsta intervallet tillåts är 5 minuter och det största värdet är 24 timmar. Den andra **StartTime** -parametern, som anges som ett **DateTimeOffset** -objekt, är valfri.
+Schemat definieras med [IndexingSchedule](/dotnet/api/azure.search.documents.indexes.models.indexingschedule) -klassen. **IndexingSchedule** -konstruktorn kräver en **intervall** parameter som anges med ett **TimeSpan** -objekt. Det minsta intervallet tillåts är 5 minuter och det största värdet är 24 timmar. Den andra **StartTime** -parametern, som anges som ett **DateTimeOffset** -objekt, är valfri.
 
-Med .NET SDK kan du styra indexerings åtgärder med hjälp av klassen [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) och dess egenskaps [index](/dotnet/api/microsoft.azure.search.searchserviceclient.indexers) , som implementerar metoder från **IIndexersOperations** -gränssnittet. 
+Med .NET SDK kan du styra indexerings åtgärder med hjälp av [SearchIndexerClient](/dotnet/api/azure.search.documents.indexes.searchindexerclient). 
 
-Du kan köra en indexerare på begäran när som helst med hjälp av någon av metoderna [Run](/dotnet/api/microsoft.azure.search.indexersoperationsextensions.run), [RunAsync](/dotnet/api/microsoft.azure.search.indexersoperationsextensions.runasync)eller [RunWithHttpMessagesAsync](/dotnet/api/microsoft.azure.search.iindexersoperations.runwithhttpmessagesasync) .
+Du kan köra en indexerare på begäran när som helst med hjälp av någon av metoderna [RunIndexer](/dotnet/api/azure.search.documents.indexes.searchindexerclient.runindexer) eller [RunIndexerAsync](/dotnet/api/azure.search.documents.indexes.searchindexerclient.runindexerasync) .
 
-Mer information om att skapa, uppdatera och köra indexerare finns i [IIindexersOperations](/dotnet/api/microsoft.azure.search.iindexersoperations).
+Mer information om att skapa, uppdatera och köra indexerare finns i [SearchIndexerClient](/dotnet/api/azure.search.documents.indexes.searchindexerclient).

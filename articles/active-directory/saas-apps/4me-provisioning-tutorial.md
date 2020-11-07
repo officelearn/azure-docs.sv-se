@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/3/2019
 ms.author: jeedes
-ms.openlocfilehash: 8350ebc92575911991ca772229912941f2af10e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0c428997cfba8871a29d9bfe0df0a6920a1d22f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851296"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357597"
 ---
 # <a name="tutorial-configure-4me-for-automatic-user-provisioning"></a>Självstudie: Konfigurera 4me för automatisk användar etablering
 
@@ -41,11 +41,11 @@ Innan du konfigurerar 4me för automatisk användar etablering med Azure AD mås
 
 **Utför följande steg för att lägga till 4me från Azure AD-programgalleriet:**
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
+1. Välj **Azure Active Directory** i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -53,7 +53,7 @@ Innan du konfigurerar 4me för automatisk användar etablering med Azure AD mås
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **4me**, väljer **4me** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **4me** , väljer **4me** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![4me i resultatlistan](common/search-new-app.png)
 
@@ -126,11 +126,11 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
     
 11. Granska de användarattribut som synkroniseras från Azure AD till 4me i avsnittet **Mappning av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i 4me för uppdaterings åtgärder. Kontrol lera att [4me stöder filtrering](https://developer.4me.com/v1/scim/users/) av matchande attribut som du har valt. Välj knappen **Spara** för att spara ändringarna.
 
-    :::image type="content" source="media/4me-provisioning-tutorial/4me-user-attributes.png" alt-text="Skärm bild av sidan mappningar. Under namn, synkronisera Azure Active Directory användare till FourMe är markerat." border="false":::
+    :::image type="content" source="media/4me-provisioning-tutorial/4me-user-attributes.png" alt-text="Skärm bild av sidan mappningar för attribut. En tabell visar Azure Active Directory attribut, motsvarande FourMe-attribut och matchande status." border="false":::
     
 12. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory grupper till 4me**.
 
-    :::image type="content" source="media/4me-provisioning-tutorial/4me-group-mapping.png" alt-text="Skärm bild av sidan mappningar. Under namn, synkronisera Azure Active Directory användare till FourMe är markerat." border="false":::
+    :::image type="content" source="media/4me-provisioning-tutorial/4me-group-mapping.png" alt-text="Skärm bild av sidan mappningar. Under namn, synkronisera Azure Active Directory grupper till FourMe är markerat." border="false":::
     
 13. Granska gruppattributen som synkroniseras från Azure AD till 4me i avsnittet **Mappning av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha grupperna i 4me för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 

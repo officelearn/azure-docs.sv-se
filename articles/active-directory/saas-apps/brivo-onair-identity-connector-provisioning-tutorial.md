@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/01/2019
 ms.author: Zhchia
-ms.openlocfilehash: dd5a0e05b303d6fc7a5cfa012f49fab99828e8a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f230a70ae87c7c0ec9db347e7cf975c0252bb18
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91300079"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357818"
 ---
 # <a name="tutorial-configure-brivo-onair-identity-connector-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Brivo OnAir Identity Connector för automatisk användar etablering
 
@@ -68,11 +68,11 @@ Innan du konfigurerar Brivo OnAir Identity Connector för automatisk användar e
 
 **Gör så här om du vill lägga till Brivo OnAir Identity Connector från Azure AD-programgalleriet:**
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
+1. Välj **Azure Active Directory** i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -80,7 +80,7 @@ Innan du konfigurerar Brivo OnAir Identity Connector för automatisk användar e
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. Skriv **Brivo OnAir Identity Connector**i sökrutan, Välj **Brivo OnAir Identity Connector** i panelen resultat och klicka sedan på knappen **Lägg** till för att lägga till programmet.
+4. Skriv **Brivo OnAir Identity Connector** i sökrutan, Välj **Brivo OnAir Identity Connector** i panelen resultat och klicka sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![Brivo OnAir Identity Connector i resultat listan](common/search-new-app.png)
 

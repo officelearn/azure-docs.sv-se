@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: Zhchia
-ms.openlocfilehash: 171a96f37d4c1e740e23cc766566d3c1756b6d08
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: a62afa9469caa886d86814036017427c0cc0d193
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460195"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357444"
 ---
 # <a name="tutorial-configure-infor-cloudsuite-for-automatic-user-provisioning"></a>Självstudie: Konfigurera information CloudSuite för automatisk användar etablering
 
@@ -72,7 +72,7 @@ Innan du konfigurerar och aktiverar automatisk användar etablering bör du best
 
 5. Om du vill generera Bearer-token kopierar du **användar identifieraren** och **scim lösen ord**. Klistra in dem i anteckningar + + avgränsade med kolon. Koda strängvärdet genom att navigera till plugin-program **> MIME-verktyg > Basic64-koda**. 
 
-    :::image type="content" source="media/infor-cloudsuite-provisioning-tutorial/token.png" alt-text="Skärm bild av CloudSuite för information i administrations konsolen som visar en markerad tabell rad. Raden innehåller en användar identifierare, lösen ord och en tidsstämpel." border="false":::
+    :::image type="content" source="media/infor-cloudsuite-provisioning-tutorial/token.png" alt-text="Skärm bild av ett Anteckningar + +-dokument. MIME-verktyg är markerat i menyn plugin-program. I menyn MIME-verktyg markeras base64-kodning." border="false":::
 
 3.  Kopiera Bearer-token. Det här värdet anges i fältet Hemlig token på fliken etablering i CloudSuite-programmet i informationens program i Azure Portal.
 
@@ -82,11 +82,11 @@ Innan du konfigurerar information CloudSuite för automatisk användar etablerin
 
 **Utför följande steg för att lägga till information CloudSuite från Azure AD-programgalleriet:**
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
+1. Välj **Azure Active Directory** i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -94,7 +94,7 @@ Innan du konfigurerar information CloudSuite för automatisk användar etablerin
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **information CloudSuite**, väljer **infor CloudSuite** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **information CloudSuite** , väljer **infor CloudSuite** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![Information CloudSuite i resultat listan](common/search-new-app.png)
 

@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: arvinh
-ms.openlocfilehash: d82aca50ce57a09697d389197bf2b102bb5df457
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 1f82cab1172e7293e2a5910d35280eefb30ed49e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456344"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357461"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Självstudie: Konfigurera CERN central för automatisk användar etablering
 
@@ -92,7 +92,7 @@ För att kunna etablera användar konton till CERN Central måste du begära ett
 
    ![CERN, Central etablering](./media/cernercentral-provisioning-tutorial/Cerner.PNG)
 
-9. Fyll i följande fält under **admin-autentiseringsuppgifter**:
+9. Fyll i följande fält under **admin-autentiseringsuppgifter** :
 
    * I fältet **klient-URL** anger du en URL i formatet nedan och ersätter "User-List-REALM-ID" med sfär-ID: t som du fick i steg #4.
 

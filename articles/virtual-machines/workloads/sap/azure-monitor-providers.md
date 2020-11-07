@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.reviewer: cynthn
-ms.openlocfilehash: 235572cc4d697e7488765c464b12f9349c1e012b
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: f5df8bccc10ca64ee9a04f195299c5228b7274c1
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994168"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356458"
 ---
 # <a name="azure-monitor-for-sap-solutions-providers-preview"></a>Azure Monitor för SAP Solutions-providers (för hands version)
 
 ## <a name="overview"></a>Översikt  
 
-I samband med Azure Monitor för SAP-lösningar refererar en *providertyp* till en speciell *Provider*. Till exempel *SAP HANA*, som har kon figurer ATS för en speciell komponent i SAP-landskap, t. ex. SAP HANA Database. En provider innehåller anslutnings informationen för motsvarande komponent och hjälper till att samla in telemetridata från den komponenten. En Azure Monitor för SAP-lösningar (även kallat SAP Monitor-resurs) kan konfigureras med flera leverantörer av samma providertyp eller flera providers för flera typer av leverantörer.
+I samband med Azure Monitor för SAP-lösningar refererar en *providertyp* till en speciell *Provider*. Till exempel *SAP HANA* , som har kon figurer ATS för en speciell komponent i SAP-landskap, t. ex. SAP HANA Database. En provider innehåller anslutnings informationen för motsvarande komponent och hjälper till att samla in telemetridata från den komponenten. En Azure Monitor för SAP-lösningar (även kallat SAP Monitor-resurs) kan konfigureras med flera leverantörer av samma providertyp eller flera providers för flera typer av leverantörer.
    
 Kunderna kan välja att konfigurera olika typer av leverantörer för att aktivera insamling av data från motsvarande komponenter i deras SAP-landskap. Kunder kan till exempel konfigurera en provider för SAP HANA typ av Provider, en annan provider för kluster leverantör med hög tillgänglighet och så vidare.  
 
@@ -53,13 +53,24 @@ I en offentlig för hands version kan kunderna se följande data med kluster lev
 
 ![Azure Monitor för SAP Solutions-leverantörer – kluster med hög tillgänglighet](./media/azure-monitor-sap/azure-monitor-providers-pacemaker-cluster.png)
 
-Det finns två huvudsakliga steg för att konfigurera en kluster leverantör med hög tillgänglighet: 
-1. Installera [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) i *varje* nod i pacemaker-kluster 
-    - Kunder kan använda Azure Automation skript för att distribuera kluster med hög tillgänglighet. Skripten kommer att installera [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) på varje klusternod.  
-    - eller kunder kan utföra manuell installation genom att följa anvisningarna på [den här sidan](https://github.com/ClusterLabs/ha_cluster_exporter) 
-2. Konfigurera kluster leverantör med hög tillgänglighet i *varje* nod i pacemaker-kluster  
-  För att konfigurera kluster leverantören med hög tillgänglighet krävs Prometheus-URL, kluster namn, värdnamn och system-ID.   
-  Kunder rekommenderas att konfigurera en provider per klusternod.   
+För att konfigurera en kluster leverantör med hög tillgänglighet ingår två primära steg:
+
+1. Installera [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) i *varje* nod i pacemaker-klustret.
+
+   Du har två alternativ för att installera ha_cluster_exporter:
+   
+   - Använd Azure Automation skript för att distribuera ett kluster med hög tillgänglighet. Skripten installeras [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) på varje klusternod.  
+   - Gör en [manuell installation](https://github.com/ClusterLabs/ha_cluster_exporter#manual-clone--build). 
+
+2. Konfigurera en kluster leverantör med hög tillgänglighet för *varje* nod i pacemaker-klustret.
+
+   Följande information krävs för att konfigurera kluster leverantören med hög tillgänglighet:
+   
+   - **Namn**. Ett namn för den här providern. Det måste vara unikt för den här Azure Monitor för SAP-lösningar-instans.
+   - **Prometheus-slutpunkt**. Vanligt vis http \: // \<servername or ip address\> : 9664/Metrics.
+   - **Sid**. För SAP-system använder du SAP SID. För andra system (t. ex. NFS-kluster) använder du ett namn med tre bokstäver för klustret. SID måste skilja sig från andra kluster som övervakas.   
+   - **Kluster namn**. Kluster namnet som används när klustret skapas. Kluster namnet kan hittas i kluster egenskapen `cluster-name` .
+   - **Hostname**. Linux-värdnamn för den virtuella datorn.  
 
 ## <a name="provider-type-microsoft-sql-server"></a>Typ av Provider Microsoft SQL Server
 

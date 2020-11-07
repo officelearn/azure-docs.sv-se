@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 65db3bcbad905626a47b617c3c34935ec5cd0e88
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: edb21287b30f8ba77d6312ec6b456e20aa260598
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455428"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358220"
 ---
 # <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Concur för automatisk användar etablering
 
@@ -58,11 +58,11 @@ Om du vill aktivera appar i utgifts tjänsten måste det finnas en korrekt konfi
 
 Concur-konsulter eller klient administratören måste skapa en distinkt profil för webb tjänst administratörer och klient administratören måste använda den här profilen för funktionerna för webb tjänst administratören (till exempel aktivera appar). De här profilerna måste hållas åtskilda från klient administratörens dagliga T&E admin-profil (T&E admin-profilen ska inte ha WSAdmin-rollen tilldelad).
 
-När du skapar profilen som ska användas för att aktivera appen anger du klient administratörens namn i användar profil fälten. Detta tilldelar ägarskapet till profilen. När en eller flera profiler har skapats måste klienten logga in med den här profilen för att klicka på knappen "*Aktivera*" för en partner app i menyn webb tjänster.
+När du skapar profilen som ska användas för att aktivera appen anger du klient administratörens namn i användar profil fälten. Detta tilldelar ägarskapet till profilen. När en eller flera profiler har skapats måste klienten logga in med den här profilen för att klicka på knappen " *Aktivera* " för en partner app i menyn webb tjänster.
 
 Av följande skäl bör den här åtgärden inte utföras med den profil som de använder för normal T&E-administration.
 
-* Klienten måste vara den som klickar på*Ja*i dialog fönstret som visas när en app har Aktiver ATS. Detta klickar på bekräftar att klienten är villig för partner programmet att komma åt sina data, så att du eller partnern inte kan klicka på Ja-knappen.
+* Klienten måste vara den som klickar på *Ja* i dialog fönstret som visas när en app har Aktiver ATS. Detta klickar på bekräftar att klienten är villig för partner programmet att komma åt sina data, så att du eller partnern inte kan klicka på Ja-knappen.
 
 * Om en klient administratör som har aktiverat en app med hjälp av E-&E admin-profilen lämnar företaget (vilket leder till att profilen inaktive RAS) fungerar inte alla appar som är aktiverade med den profilen förrän appen aktive ras med en annan Active WS-administratörs profil. Det är därför du ska skapa distinkta profil profiler för WS.
 
@@ -72,7 +72,7 @@ Av följande skäl bör den här åtgärden inte utföras med den profil som de 
 
 1. Logga in på **Concur** -klienten.
 
-2. Välj **webb tjänster**på menyn **Administration** .
+2. Välj **webb tjänster** på menyn **Administration** .
    
     ![Concur-klient](./media/concur-provisioning-tutorial/IC721729.png "Concur-klient")
 
@@ -80,7 +80,7 @@ Av följande skäl bör den här åtgärden inte utföras med den profil som de 
    
     ![Aktivera partner program](./media/concur-provisioning-tutorial/ic721730.png "Aktivera partner program")
 
-4. I listan **Aktivera program** väljer du **Azure Active Directory**och klickar sedan på **Aktivera**.
+4. I listan **Aktivera program** väljer du **Azure Active Directory** och klickar sedan på **Aktivera**.
    
     ![Microsoft Azure Active Directory](./media/concur-provisioning-tutorial/ic721731.png "Microsoft Azure Active Directory")
 

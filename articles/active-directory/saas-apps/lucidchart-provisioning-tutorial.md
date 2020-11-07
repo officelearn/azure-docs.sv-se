@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/13/2020
 ms.author: Zhchia
-ms.openlocfilehash: d92db526e0fa3f3f8898ac2ea264d0b8f37be071
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: e0b98f15e03552f27cdd1c9683bdd7e74a1c02df
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458327"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358700"
 ---
 # <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Lucidchart för automatisk användar etablering
 
@@ -31,7 +31,7 @@ I den här självstudien beskrivs de steg du behöver utföra i både Lucidchart
 > * Etablera grupper och grupp medlemskap i Lucidchart
 > * [Enkel inloggning](./lucidchart-tutorial.md) till Lucidchart (rekommenderas)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
@@ -53,7 +53,7 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 
 2. Navigera till **scim**.
 
-      :::image type="content" source="./media/lucidchart-provisioning-tutorial/scim.png" alt-text="Skärm bild av Lucidchart-administratörskonsolen. Grupp-menyn är markerad och öppen. Under admin är integrering av appar markerat." border="false":::
+      :::image type="content" source="./media/lucidchart-provisioning-tutorial/scim.png" alt-text="Skärm bild av Lucidchart-administratörskonsolen. I ett stort S C I M-knapp är texten S C I M markerad och en aktive rad banderoll visas." border="false":::
 
 3. Rulla nedåt för att se **Bearer-token** och **LUCIDCHART bas-URL**. Kopiera och spara **Bearer-token**. Det här värdet anges i fältet **hemlig token** * på fliken etablering i ditt Lucidchart-program i Azure Portal. 
 

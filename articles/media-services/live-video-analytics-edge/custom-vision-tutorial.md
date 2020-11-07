@@ -3,12 +3,13 @@ title: Analysera direktsänd video med real tids video analys på IoT Edge och A
 description: Lär dig hur du använder Azure Custom Vision för att bygga en behållar modell som kan identifiera en leksaks Truck och använda AI-utöknings möjligheter i Azure Live Video Analytics på Azure IoT Edge för att distribuera modellen på gränsen för att identifiera leksaks truckar från en real tids video ström.
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 52678d66bd4a91c9308a3cc48fbf784e89a5cfe8
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+zone_pivot_groups: ams-lva-edge-programming-languages
+ms.openlocfilehash: 685aab603b2589a97b4c80ef0f8c5860617f1147
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171515"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358323"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Självstudie: analysera direktsänd video med real tids video analys på IoT Edge och Azure Custom Vision
 
@@ -16,7 +17,13 @@ I den här självstudien får du lära dig hur du använder Azure [Custom vision
 
 Vi visar dig hur du sammanställer kraften hos Custom Vision att bygga och träna en modell för visuellt innehåll genom att ladda upp och etikettera några bilder. Du behöver ingen kunskap om data vetenskap, maskin inlärning eller AI. Du lär dig också om funktionerna i real tids analys för att enkelt distribuera en anpassad modell som en behållare på gränsen och analysera en simulerad Live-videofeed.
 
-I den här självstudien används en virtuell Azure-dator (VM) som en IoT Edge enhet och baseras på exempel kod som skrivits i C#. Informationen i den här självstudien bygger på snabb starten för att [identifiera rörelse och generera händelser](detect-motion-emit-events-quickstart.md) .
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [header](includes/custom-vision-tutorial/csharp/header.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [header](includes/custom-vision-tutorial/python/header.md)]
+::: zone-end
 
 Självstudien visar hur du:
 
@@ -29,7 +36,7 @@ Självstudien visar hur du:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="suggested-pre-reading"></a>Föreslagen för läsning
+## <a name="suggested-pre-reading"></a>Föreslagen för läsning  
 
 Läs igenom följande artiklar innan du börjar:
 
@@ -44,21 +51,18 @@ Läs igenom följande artiklar innan du börjar:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Krav för den här självstudien är:
 
-* [Visual Studio Code](https://code.visualstudio.com/) på utvecklings datorn med [Azure IoT-verktyg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) och [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) -tillägg.
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [prerequisites](includes/custom-vision-tutorial/csharp/prerequisites.md)]
+::: zone-end
 
-    > [!TIP]
-    > Du kan uppmanas att installera Docker. Ignorera den här varningen.
-* [.Net Core 3,1 SDK](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-windows-x64-installer) på din utvecklings dator.
-* Se till att du har:
-    
-    * [Ställa in Azure-resurser](detect-motion-emit-events-quickstart.md#set-up-azure-resources)
-    * [Ställt in din utvecklingsmiljö](detect-motion-emit-events-quickstart.md#set-up-your-development-environment)
-
+::: zone pivot="programming-language-python"
+[!INCLUDE [prerequisites](includes/custom-vision-tutorial/python/prerequisites.md)]
+::: zone-end
 ## <a name="review-the-sample-video"></a>Granska exempel videon
 
-I den här självstudien används en video fil för [leksaks bilar](https://lvamedia.blob.core.windows.net/public/t2.mkv) för att simulera en Live-dataström. Du kan granska videon via ett program, till exempel [VLC Media Player](https://www.videolan.org/vlc/). Välj **CTRL + N**och klistra sedan in en länk till [videon för leksaks bilen](https://lvamedia.blob.core.windows.net/public/t2.mkv) för att starta uppspelningen. Observera att när du tittar på videon visas en leksaks Truck i videon vid den 36-andra markören. Den anpassade modellen har tränats för att identifiera denna speciella leksaks Truck. I den här självstudien använder du video analys i real tid för IoT Edge för att identifiera sådana leksaks truckar och publicera associerade härlednings händelser till IoT Edge Hub.
+
+I den här självstudien används en video fil för [leksaks bilar](https://lvamedia.blob.core.windows.net/public/t2.mkv) för att simulera en Live-dataström. Du kan granska videon via ett program, till exempel [VLC Media Player](https://www.videolan.org/vlc/). Välj **CTRL + N** och klistra sedan in en länk till [videon för leksaks bilen](https://lvamedia.blob.core.windows.net/public/t2.mkv) för att starta uppspelningen. Observera att när du tittar på videon visas en leksaks Truck i videon vid den 36-andra markören. Den anpassade modellen har tränats för att identifiera denna speciella leksaks Truck. I den här självstudien använder du video analys i real tid för IoT Edge för att identifiera sådana leksaks truckar och publicera associerade härlednings händelser till IoT Edge Hub.
 
 ## <a name="overview"></a>Översikt
 
@@ -69,7 +73,7 @@ Det här diagrammet visar hur signal flödet i den här självstudien. En [Edge-
 
 Noden HTTP-tillägg spelar rollen för en proxy. Den konverterar video bild rutorna till den angivna bild typen. Sedan vidarebefordrar avbildningen över REST till en annan Edge-modul som kör en AI-modell bakom en HTTP-slutpunkt. I det här exemplet är den Edge-modulen leksakens detektor modell som skapats med hjälp av Custom Vision. Noden för HTTP-tilläggsbegäranden samlar in identifierings resultaten och publicerar händelser till [Azure IoT Hub Sink](media-graph-concept.md#iot-hub-message-sink) -noden. Noden skickar sedan händelserna till [IoT Edge Hub](../../iot-edge/iot-edge-glossary.md#iot-edge-hub).
 
-## <a name="build-and-deploy-a-custom-vision-toy-detection-model"></a>Bygg och distribuera en Custom Vision leksaks igenkännings modell
+## <a name="build-and-deploy-a-custom-vision-toy-detection-model"></a>Bygg och distribuera en identifierings modell för Custom Vision leksak 
 
 Som namnet Custom Vision föreslår kan du använda det för att bygga en egen anpassad objekt detektor eller klassificerare i molnet. Det ger ett enkelt, lättanvänt och intuitivt gränssnitt för att bygga Custom Vision modeller som kan distribueras i molnet eller på gränsen via behållare.
 
@@ -83,7 +87,33 @@ Ytterligare kommentarer:
 När du är klar kan du exportera modellen till en Docker-behållare med hjälp av knappen **Exportera** på fliken **prestanda** . Se till att du väljer Linux som behållar plattforms typ. Detta är den plattform som containern ska köras på. Datorn som du hämtar behållaren på kan vara antingen Windows eller Linux. Anvisningarna nedan baseras på den behållar fil som hämtats till en Windows-dator.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/custom-vision-tutorial/docker-file.png" alt-text="Diagram som visar en Custom Vision översikt."   13 hours ago        Up 25 seconds       127.0.0.1:80->80/tcp   practical_cohen
+> :::image type="content" source="./media/custom-vision-tutorial/docker-file.png" alt-text="Skärm bild som visar Dockerfile vald.":::
+ 
+1. Du bör ha en zip-fil som hämtats till den lokala datorn med namnet `<projectname>.DockerFile.Linux.zip` . 
+1. Kontrol lera om du har Docker installerat. Om inte, installerar du [Docker](https://docs.docker.com/get-docker/) för Windows-skrivbordet.
+1. Zippa upp den hämtade filen på valfri plats. Använd kommando raden för att gå till den zippade katalogen.
+    
+    Kör följande kommandon:
+    
+    1. `docker build -t cvtruck` 
+    
+        Det här kommandot hämtar många paket, skapar Docker-avbildningen och taggar den som `cvtruck:latest` .
+    
+        > [!NOTE]
+        > Om det lyckas bör du se följande meddelanden: `Successfully built <docker image id>` och `Successfully tagged cvtruck:latest` . Försök igen om kommandot build Miss lyckas. Ibland laddas inte beroende paket om första gången.
+    1. `docker  image ls`
+
+        Det här kommandot kontrollerar om den nya avbildningen finns i det lokala registret.
+    1. `docker run -p 127.0.0.1:80:80 -d cvtruck`
+    
+        Det här kommandot bör publicera Docker-portens exponerade port (80) på den lokala datorns port (80).
+    1. `docker container ls`
+    
+        Det här kommandot kontrollerar port mappningarna och om Docker-behållaren körs på datorn. Utdata ska vara något som liknar:
+
+        ```
+        CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                      NAMES
+        8b7505398367        cvtruck             "/bin/sh -c 'python …"   13 hours ago        Up 25 seconds       127.0.0.1:80->80/tcp   practical_cohen
         ```
       1. `curl -X POST http://127.0.0.1:80/image -F imageData=@<path to any image file that has the toy delivery truck in it>`
             
@@ -97,20 +127,15 @@ När du är klar kan du exportera modellen till en Docker-behållare med hjälp 
 
 ## <a name="examine-the-sample-files"></a>Granska exempelfilerna
 
-1. Bläddra till src/Edge i Visual Studio Code. Du ser den. kuvert-fil som du skapade tillsammans med några filer för distributions mal len.
 
-    Distributions mal len refererar till distributions manifestet för gräns enheten med några plats hållarnas värden. . Kuvert-filen innehåller värdena för dessa variabler.
-1. Bläddra sedan till mappen src/Cloud-to-Device-console-app. Här ser du appsettings.jspå filen som du skapade tillsammans med några andra filer:
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [examine-sample-files](includes/custom-vision-tutorial/csharp/examine-sample-files.md)]
+::: zone-end
 
-    * C2D-console-app. CSPROJ: det här är projekt filen för Visual Studio Code.
-    * operations.jspå: den här filen visar de olika åtgärder som du vill att programmet ska köra.
-    * Program.cs: den här exempel koden:
+::: zone pivot="programming-language-python"
+[!INCLUDE [examine-sample-files](includes/custom-vision-tutorial/python/examine-sample-files.md)]
+::: zone-end
 
-        * Läser in appinställningar.
-        * Anropar live video analys på IoT Edge modulens direkta metoder för att skapa topologi, instansiera grafen och aktivera grafen.
-        * Pausar så att du kan granska diagrammets utdata i **terminalfönstret** och de händelser som skickas till IoT Hub i fönstret **utdata** .
-        * Inaktiverar graf-instansen, tar bort graf-instansen och tar bort diagram sto pol Ogin.
-        
 ## <a name="generate-and-deploy-the-deployment-manifest"></a>Generera och distribuera distributions manifestet
 
 1. I Visual Studio Code går du till src/Cloud-to-Device-console-app/operations.jspå.
@@ -124,7 +149,7 @@ När du är klar kan du exportera modellen till en Docker-behållare med hjälp 
 1. Högerklicka på filen src/Edge/deployment.customvision.template.jsoch välj **generera IoT Edge distributions manifest**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-vision-tutorial/deployment-template-json.png" alt-text="Diagram som visar en Custom Vision översikt.":::
+    > :::image type="content" source="./media/custom-vision-tutorial/deployment-template-json.png" alt-text="Skärm bild som visar generera IoT Edge distributions manifest.":::
   
     Den här åtgärden ska skapa en manifest fil i mappen src/Edge/config med namnet deployment.customvision.amd64.jspå.
 1. Öppna filen src/Edge/deployment.customvision.template.jsoch leta upp `registryCredentials` JSON-blocket. I det här blocket hittar du adressen till ditt Azure Container Registry tillsammans med dess användar namn och lösen ord.
@@ -146,11 +171,11 @@ När du är klar kan du exportera modellen till en Docker-behållare med hjälp 
 1. Ange IoT Hub anslutnings sträng genom att välja ikonen **fler åtgärder** bredvid fönstret **Azure IoT Hub** i det nedre vänstra hörnet. Du kan kopiera strängen från appsettings.jsi filen. (Här är en annan metod som rekommenderas för att se till att du har rätt IoT Hub konfigurerat i Visual Studio Code via [kommandot Select IoT Hub](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub).)
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-vision-tutorial/connection-string.png" alt-text="Diagram som visar en Custom Vision översikt.":::
+    > :::image type="content" source="./media/custom-vision-tutorial/connection-string.png" alt-text="Skärm bild som visar set IoT Hub-anslutningssträng.":::
 1. Högerklicka sedan på src/Edge/config/deployment.customvision.amd64.jspå och välj **skapa distribution för en enskild enhet**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-vision-tutorial/deployment-amd64-json.png" alt-text="Diagram som visar en Custom Vision översikt.":::
+    > :::image type="content" source="./media/custom-vision-tutorial/deployment-amd64-json.png" alt-text="Skärm bild som visar skapa distribution för en enskild enhet.":::
 1. Sedan uppmanas du att välja en IoT Hub enhet. Välj **lva-Sample-Device** i list rutan.
 1. Om 30 sekunder uppdaterar du Azure IoT Hub i det nedre vänstra avsnittet. Du bör ha gräns enheten med följande moduler distribuerade:
 
@@ -163,21 +188,52 @@ När du är klar kan du exportera modellen till en Docker-behållare med hjälp 
 Högerklicka på Live Video Analytics-enheten och välj **starta övervakning inbyggd händelse slut punkt**. Du behöver det här steget för att övervaka IoT Hub händelser i fönstret **utdata** i Visual Studio Code.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/custom-vision-tutorial/start-monitoring.png" alt-text="Diagram som visar en Custom Vision översikt.":::
+> :::image type="content" source="./media/custom-vision-tutorial/start-monitoring.png" alt-text="Skärm bild som visar den inbyggda händelse slut punkten för start övervakning.":::
 
 ## <a name="run-the-sample-program"></a>Kör exempel programmet
 
 Om du öppnar Graph-topologin för den här självstudien i en webbläsare ser du att värdet för `inferencingUrl` har angetts till `http://cv:80/image` . Den här inställningen innebär att en härlednings server returnerar resultat när du har identifierat eventuella leksaks truckar i Live-videon.
 
-1. Öppna fliken **tillägg** i Visual Studio Code (eller Välj **CTRL + SHIFT + X**) och sök efter Azure-IoT Hub.
+1. Öppna fliken **tillägg** i Visual Studio Code (eller Välj **CTRL + SHIFT + X** ) och sök efter Azure-IoT Hub.
 1. Högerklicka och välj Inställningar för **tillägg**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Diagram som visar en Custom Vision översikt.":::
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Skärm bild som visar inställningar för tillägg.":::
 1. Sök och aktivera **Visa utförligt meddelande**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Diagram som visar en Custom Vision översikt."
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Skärm bild som visar Visa utförligt meddelande.":::
+1. Om du vill starta en felsökningssession väljer du **F5** -tangenten. Du ser meddelanden som skrivs ut i **terminalfönstret** .
+1. operations.jsvid kod börjar med anrop till direkta metoder `GraphTopologyList` och `GraphInstanceList` . Om du har rensat resurser efter att du har slutfört tidigare snabb starter, kommer den här processen att returnera tomma listor och sedan pausa. Fortsätt genom att välja **RETUR** nyckeln.
+    
+   **Terminalfönstret** visar nästa uppsättning med direkta metod anrop:
+    
+   * Ett anrop till `GraphTopologySet` som använder föregående `topologyUrl` .
+   * Ett anrop till `GraphInstanceSet` som använder följande text:
+        
+   ```
+        {
+          "@apiVersion": "1.0",
+          "name": "Sample-Graph-1",
+          "properties": {
+            "topologyName": "CustomVisionWithHttpExtension",
+            "description": "Sample graph description",
+            "parameters": [
+              { 
+                "name": "inferencingUrl",
+                "value": "http://cv:80/image"
+              },
+              {
+                "name": "rtspUrl",
+                "value": "rtsp://rtspsim:554/media/t2.mkv"
+              },
+              {
+                "name": "rtspUserName",
+                "value": "testuser"
+              },
+              {
+                "name": "rtspPassword",
+                "value": "testpassword"
               }
             ]
           }

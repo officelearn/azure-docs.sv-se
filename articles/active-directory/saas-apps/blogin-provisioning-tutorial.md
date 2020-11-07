@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/08/2020
 ms.author: Zhchia
-ms.openlocfilehash: 4b77208ca7869288ac13e28c6535b1b3972aa22c
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: f50c8d612ca088c97754b1eb90ed049113e33c6e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92928763"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358328"
 ---
 # <a name="tutorial-configure-blogin-for-automatic-user-provisioning"></a>Självstudie: Konfigurera blogg för automatisk användar etablering
 
@@ -52,8 +52,8 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 
 Om du vill konfigurera användar etablering på **bloggen** loggar du in på ditt blogg konto och följer de här stegen:
 
-1. Navigera till **Settings**  >  **User Authentication**  >  **Configure SSO & User etablering** .
-2. Växla till fliken **användar etablering** och ändra användar etablerings statusen till **på** .
+1. Navigera till **Settings**  >  **User Authentication**  >  **Configure SSO & User etablering**.
+2. Växla till fliken **användar etablering** och ändra användar etablerings statusen till **på**.
 3. Klicka på knappen **Spara ändringar** . När den första gången har sparats genereras den **hemliga token (Bearer)** .
 4. Kopierings **bas (Tenant) URL** och **hemliga token (Bearer)** . Dessa värden anges i fälten klient-URL och hemligt token på fliken etablering i ditt blogg program i Azure Portal.
 
@@ -67,7 +67,7 @@ Lägg till blogg från Azure AD-programgalleriet för att börja hantera etabler
 
 Med Azure AD-etableringstjänsten kan du bestämma vem som ska etableras, baserat på tilldelningen till programmet och eller baserat på attribut för användaren/gruppen. Om du väljer att omfånget som ska etableras till din app ska baseras på tilldelning, kan du använda följande [steg](../manage-apps/assign-user-or-group-access-portal.md) för att tilldela användare och grupper till programmet. Om du väljer att omfånget endast ska etableras baserat på attribut för användaren eller gruppen, kan du använda ett omfångsfilter enligt beskrivningen [här](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-* När du tilldelar användare och grupper till bloggen måste du välja en annan roll än **standard åtkomst** . Användare med rollen Standardåtkomst undantas från etableringen och markeras som icke-berättigade i etableringsloggarna. Om den enda rollen som är tillgänglig i programmet är standardrollen för åtkomst, kan du [uppdatera applikationsmanifest](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) och lägga till fler roller. 
+* När du tilldelar användare och grupper till bloggen måste du välja en annan roll än **standard åtkomst**. Användare med rollen Standardåtkomst undantas från etableringen och markeras som icke-berättigade i etableringsloggarna. Om den enda rollen som är tillgänglig i programmet är standardrollen för åtkomst, kan du [uppdatera applikationsmanifest](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) och lägga till fler roller. 
 
 * Starta i liten skala. Testa med en liten uppsättning användare och grupper innan du distribuerar till alla. När etableringsomfånget har angetts till tilldelade användare och grupper, kan du kontrollera detta genom att tilldela en eller två användare eller grupper till appen. När omfånget är inställt på alla användare och grupper, kan du ange ett [attributbaserat omfångsfilter](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
@@ -78,19 +78,19 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 ### <a name="to-configure-automatic-user-provisioning-for-blogin-in-azure-ad"></a>Konfigurera automatisk användar etablering för Bloggering i Azure AD:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **Företagsprogram** och sedan **Alla program** .
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **Företagsprogram** och sedan **Alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan program väljer du **blogg** .
+2. I listan program väljer du **blogg**.
 
     ![Länken blogg inlägg i listan program](common/all-applications.png)
 
-3. Välj fliken **Etablering** .
+3. Välj fliken **Etablering**.
 
     ![Fliken Etablering](common/provisioning.png)
 
-4. Ange **Etableringsläge** som **Automatiskt** .
+4. Ange **Etableringsläge** som **Automatiskt**.
 
     ![Fliken etablering automatiskt](common/provisioning-automatic.png)
 
@@ -98,13 +98,13 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. I fältet **E-postavisering** anger du e-postadressen till den person eller grupp som ska ta emot meddelanden om etableringsfel. Markera sedan kryssrutan **Skicka ett e-postmeddelande när ett fel uppstår** .
+6. I fältet **E-postavisering** anger du e-postadressen till den person eller grupp som ska ta emot meddelanden om etableringsfel. Markera sedan kryssrutan **Skicka ett e-postmeddelande när ett fel uppstår**.
 
     ![E-postavisering](common/provisioning-notification-email.png)
 
-7. Välj **Spara** .
+7. Välj **Spara**.
 
-8. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till blogg** .
+8. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till blogg**.
 
 9. Granska de användarattribut som synkroniseras från Azure AD till blogg i avsnittet **attribut-mappning** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i blogg filen för uppdaterings åtgärder. Om du väljer att ändra [matchande målattribut](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)måste du se till att blogg-API: et stöder filtrering av användare baserat på detta attribut. Välj knappen **Spara** för att spara ändringarna.
 
@@ -119,7 +119,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
    |namn. formaterad|Sträng|
    |phoneNumbers[type eq "work"].value|Sträng|
 
-10. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory grupper i bloggen** .
+10. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory grupper i bloggen**.
 
 11. Granska gruppattributen som synkroniseras från Azure AD till blogg i avsnittet **attribut-mappning** . Attributen som väljs som **matchande** egenskaper används för att matcha grupperna i blogg filen för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
@@ -138,11 +138,11 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Etableringsomfång](common/provisioning-scope.png)
 
-15. När du är redo att etablera klickar du på **Spara** .
+15. När du är redo att etablera klickar du på **Spara**.
 
     ![Spara etableringskonfiguration](common/provisioning-configuration-save.png)
 
-Åtgärden startar den initiala synkroniseringscykeln för alla användare och grupper som har definierats i **Omfång** i avsnittet **Inställningar** . Den första cykeln tar längre tid att utföra än efterföljande cykler, vilket inträffar ungefär var 40:e minut om Azure AD-etableringstjänsten körs. 
+Åtgärden startar den initiala synkroniseringscykeln för alla användare och grupper som har definierats i **Omfång** i avsnittet **Inställningar**. Den första cykeln tar längre tid att utföra än efterföljande cykler, vilket inträffar ungefär var 40:e minut om Azure AD-etableringstjänsten körs. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Steg 6. Övervaka distributionen
 När du har konfigurerat etableringen använder du följande resurser till att övervaka distributionen:

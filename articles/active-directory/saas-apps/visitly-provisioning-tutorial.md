@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 15031a3e139265410179baa13db9ed3f1b41cf17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff3f3ab65df2d801b7c962de7cce645e9fc00b30
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88531811"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358617"
 ---
 # <a name="tutorial-configure-visitly-for-automatic-user-provisioning"></a>Självstudie: Konfigurera besök för automatisk användar etablering
 
@@ -75,7 +75,7 @@ Följ dessa steg om du vill lägga till besök från Azure AD-programgalleriet.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -83,7 +83,7 @@ Följ dessa steg om du vill lägga till besök från Azure AD-programgalleriet.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan går du till **besök**, väljer **besök** i panelen resultat och väljer sedan **Lägg** till för att lägga till programmet.
+4. I sökrutan går du till **besök** , väljer **besök** i panelen resultat och väljer sedan **Lägg** till för att lägga till programmet.
 
     ![Visitly i resultatlistan](common/search-new-app.png)
 

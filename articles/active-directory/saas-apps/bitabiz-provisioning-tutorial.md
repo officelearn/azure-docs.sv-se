@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: f87a2347890f8d17e3901c6d8fc168c1d96c7661
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d17d4dd88e29440304989b8c37eaa81125d1812
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849358"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357563"
 ---
 # <a name="tutorial-configure-bitabiz-for-automatic-user-provisioning"></a>Självstudie: Konfigurera BitaBIZ för automatisk användar etablering
 
@@ -58,7 +58,7 @@ Innan du konfigurerar BitaBIZ för automatisk användar etablering med Azure AD 
 
 2.  Navigera till **integration**.
 
-    :::image type="content" source="media/bitabiz-provisioning-tutorial/integration.png" alt-text="Skärm bild av administratörs konsolen för BitaBIZ med installations administratör markerat." border="false":::
+    :::image type="content" source="media/bitabiz-provisioning-tutorial/integration.png" alt-text="Skärm bild av BitaBIZ-administratörskonsolen där integrering är markerat." border="false":::
 
 2.  Navigera till **Microsoft Azure AD etablering**.  Välj **aktive rad** i automatisk användar etablering. Kopiera värdena för **scim etablerings slut punkts-URL** och  **Bearer-token**. Dessa värden anges i fälten klient-URL och hemligt token på fliken etablering i BitaBIZ-programmet i Azure Portal.
 
@@ -71,11 +71,11 @@ Om du vill konfigurera BitaBIZ för automatisk användar etablering med Azure AD
 
 **Utför följande steg för att lägga till BitaBIZ från Azure AD-programgalleriet:**
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
+1. Välj **Azure Active Directory** i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -83,7 +83,7 @@ Om du vill konfigurera BitaBIZ för automatisk användar etablering med Azure AD
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **BitaBIZ**, väljer **BitaBIZ** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **BitaBIZ** , väljer **BitaBIZ** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![BitaBIZ i resultatlistan](common/search-new-app.png)
 
@@ -151,7 +151,7 @@ Mer information om hur du läser etablerings loggarna i Azure AD finns i [rappor
 
 ## <a name="connector-limitations"></a>Kopplings begränsningar
 
-* BitaBIZ kräver **användar namn**, **e-post**, **FirstName** och **LastName** som obligatoriska attribut. 
+* BitaBIZ kräver **användar namn** , **e-post** , **FirstName** och **LastName** som obligatoriska attribut. 
 * BitaBIZ stöder inte hårda borttagningar för närvarande.
 
 ## <a name="additional-resources"></a>Ytterligare resurser

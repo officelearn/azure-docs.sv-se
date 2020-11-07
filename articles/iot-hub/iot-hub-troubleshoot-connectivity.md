@@ -6,81 +6,93 @@ manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 11/06/2020
 ms.author: jlian
 ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: Technical Support'
-ms.openlocfilehash: b194812ef68820a0c310d0bac3b055360c5b5e4a
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f7073fbf39344fe39e179d55a5a8f395a6ba6240
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538433"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357423"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Övervaka, diagnostisera och Felsök från koppling med Azure IoT Hub
 
-Anslutnings problem för IoT-enheter kan vara svåra att felsöka eftersom det finns många möjliga fel punkter. Program logik, fysiska nätverk, protokoll, maskin vara, IoT Hub och andra moln tjänster kan orsaka problem. Det är viktigt att kunna identifiera och hitta källan till ett problem. En IoT-lösning i skala kan dock ha tusentals enheter, så det är inte praktiskt att kontrol lera enskilda enheter manuellt. För att hjälpa dig att identifiera, diagnostisera och felsöka problemen i stor skala, använder du övervaknings funktionerna IoT Hub tillhandahåller Azure Monitor. Dessa funktioner är begränsade till vad IoT Hub kan se, så vi rekommenderar också att du följer de rekommenderade metoderna för att övervaka dina enheter och andra Azure-tjänster.
+Anslutnings problem för IoT-enheter kan vara svåra att felsöka eftersom det finns många möjliga fel punkter. Program logik, fysiska nätverk, protokoll, maskin vara, IoT Hub och andra moln tjänster kan orsaka problem. Det är viktigt att kunna identifiera och hitta källan till ett problem. En IoT-lösning i skala kan dock ha tusentals enheter, så det är inte praktiskt att kontrol lera enskilda enheter manuellt. IoT Hub integreras med två Azure-tjänster som hjälper dig att:
 
-## <a name="get-alerts-and-error-logs"></a>Hämta aviseringar och fel loggar
+* **Azure Monitor** För att hjälpa dig att identifiera, diagnostisera och felsöka problemen i stor skala, använder du övervaknings funktionerna IoT Hub tillhandahåller Azure Monitor. Detta omfattar att ställa in aviseringar som utlöser meddelanden och åtgärder när från kopplingar sker och hur du konfigurerar loggar som du kan använda för att identifiera de villkor som orsakade från koppling.
 
-Använd Azure Monitor för att få aviseringar och skriva loggar när enheter kopplas från.
+* **Azure Event Grid** Använd Azure Event Grid för att prenumerera på enhets anslutning och koppla från händelser som avsänts av IoT Hub för att koppla från en kritisk infrastruktur och per enhet.
 
-### <a name="turn-on-logs"></a>Aktivera loggar
+I båda fallen är dessa funktioner begränsade till vad IoT Hub kan se, så vi rekommenderar också att du följer de rekommenderade metoderna för att övervaka dina enheter och andra Azure-tjänster.
 
-Om du vill logga anslutnings händelser och fel i enhets anslutning skapar du en diagnostisk inställning för [resurs loggar för IoT Hub-anslutningar](monitor-iot-hub-reference.md#connections). Vi rekommenderar att du skapar den här inställningen så tidigt som möjligt, eftersom dessa loggar inte samlas in som standard och utan att du har någon information om att felsöka enheten från koppling till när de inträffar.
+## <a name="event-grid-vs-azure-monitor"></a>Event Grid jämfört med Azure Monitor
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+Event Grid tillhandahåller en övervaknings lösning med låg latens per enhet som du kan använda för att spåra enhets anslutningar för kritiska enheter och infrastruktur. Azure Monitor tillhandahåller ett mått, *anslutna enheter* , som du kan använda för att övervaka antalet enheter som är anslutna till din IoT Hub och utlösa en avisering när antalet sjunker under ett statiskt tröskelvärde.
 
-1. Bläddra till din IoT-hubb.
+Tänk på följande när du bestämmer om du ska använda Event Grid eller Azure Monitor för ett visst scenario:
 
-1. Välj **diagnostikinställningar** .
+* Aviserings fördröjning: IoT Hub anslutnings händelser levereras mycket snabbare genom Event Grid. Detta gör Event Grid ett bättre alternativ för scenarier där snabb meddelande är önskvärt.
 
-1. Välj **Lägg till diagnostisk inställning** .
+* Meddelanden per enhet: Event Grid ger möjlighet att spåra anslutningar och koppla från enskilda enheter. Detta gör Event Grid ett bättre alternativ för scenarier där du behöver övervaka anslutningarna för kritiska enheter.
 
-1. Välj **anslutnings** loggar.
+* Förenklad installation: Azure Monitor mått aviseringar ger en förenklad installations miljö som inte kräver integrering med andra tjänster för att leverera aviseringar via e-post, SMS, röst meddelanden och andra aviseringar.  Med Event Grid måste du integrera med andra Azure-tjänster för att leverera meddelanden. Båda tjänsterna kan integreras med andra tjänster för att utlösa mer komplexa åtgärder.
 
-1. För enklare analys väljer **du skicka till Log Analytics** ( [Se prissättning](https://azure.microsoft.com/pricing/details/log-analytics/)). Se exemplet under [lösa anslutnings fel](#resolve-connectivity-errors).
+På grund av sina funktioner för låg latens, per enhet, för produktions miljöer rekommenderar vi starkt att du använder Event Grid för att övervaka anslutningar. Valet är inte exklusivt, du kan använda både Azure Monitor metriska aviseringar och Event Grid. Oavsett vad du väljer för att spåra från koppling kommer du troligen att använda Azure Monitor resurs loggar för att felsöka orsakerna till att oväntad enhet kopplas från. I följande avsnitt beskrivs var och en av dessa alternativ i detalj.
 
-   ![Rekommenderade inställningar](./media/iot-hub-troubleshoot-connectivity/diagnostic-settings-recommendation.png)
+## <a name="event-grid-monitor-device-connect-and-disconnect-events"></a>Event Grid: övervaka händelser för enhets anslutning och från koppling
 
-Mer information finns i [övervaka IoT Hub](monitor-iot-hub.md).
+För att övervaka enhets anslutning och från koppling av händelser i produktion, rekommenderar vi att du prenumererar på [ **DeviceConnected** -och **DeviceDisconnected** -händelser](iot-hub-event-grid.md#event-types) i Event Grid för att utlösa aviseringar och övervaka status för enhets anslutning. Event Grid ger mycket lägre händelse latens än Azure Monitor och du kan övervaka per enhet, i stället för det totala antalet anslutna enheter. Dessa faktorer gör Event Grid den bästa metoden för övervakning av kritiska enheter och infrastruktur.
 
-### <a name="set-up-alerts-for-device-disconnect-at-scale"></a>Konfigurera aviseringar för enhets anslutning i skala
+När du använder Event Grid för att övervaka eller utlösa aviseringar på enheten kopplar från, kontrollerar du att du bygger på ett sätt att filtrera bort de periodiska från kopplingar på grund av att en SAS-token förnyas på enheter som använder Azure IoT SDK: er. Läs mer i [MQTT enhets kopplings beteende med Azure IoT SDK](#mqtt-device-disconnect-behavior-with-azure-iot-sdks): er.
 
-Konfigurera aviseringar på måttet **anslutna enheter (förhands granskning)** om du vill få aviseringar när enheter kopplas från.
+I följande avsnitt kan du läsa mer om hur du övervakar anslutnings händelser för enheter med Event Grid:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+* En översikt över hur du använder Event Grid med IoT Hub finns i [reagera på att IoT Hub händelser med event Grid](iot-hub-event-grid.md). Var särskilt uppmärksam på avsnittet [begränsningar för enhet ansluten och frånkopplad enhet](iot-hub-event-grid.md#limitations-for-device-connected-and-device-disconnected-events) .
 
-2. Bläddra till din IoT-hubb.
+* En själv studie kurs om att beställa anslutnings händelser för enheter finns i [beställa enhets anslutnings händelser från Azure IoT Hub med Azure Cosmos DB](iot-hub-how-to-order-connection-state-events.md).
 
-3. Välj **aviseringar** .
+* En själv studie kurs om att skicka e-postaviseringar finns i [skicka e-postaviseringar om Azure IoT Hub händelser med event Grid och Logic Apps](/azure/event-grid/publish-iot-hub-events-to-logic-apps) i Event Grid-dokumentationen.
 
-4. Välj **Ny aviseringsregel** .
+## <a name="azure-monitor-route-connection-events-to-logs"></a>Azure Monitor: dirigera anslutnings händelser till loggar
 
-5. Välj **Lägg till villkor** och välj sedan "anslutna enheter (förhands granskning)".
+IoT Hub genererar kontinuerligt resurs loggar för flera åtgärds kategorier. Om du vill samla in dessa loggdata måste du skapa en diagnostisk inställning för att dirigera den till ett mål där den kan analyseras eller arkiveras. Ett sådant mål är Azure Monitor loggar via en Log Analytics arbets yta ([Se prissättning](https://azure.microsoft.com/pricing/details/log-analytics/)), där du kan analysera data med Kusto-frågor.
 
-6. Konfigurera tröskelvärde och aviseringar genom att följa instruktionerna nedan.
+[Kategorin resurs loggar](monitor-iot-hub-reference.md#connections) för IoT Hub resurs genererar åtgärder och fel som måste utföras med enhets anslutningar. Följande skärm bild visar en diagnostisk inställning för att dirigera dessa loggar till en Log Analytics arbets yta:
 
-Mer information finns i [Vad är aviseringar i Microsoft Azure?](../azure-monitor/platform/alerts-overview.md).
+:::image type="content" source="media/iot-hub-troubleshoot-connectivity/create-diagnostic-setting.png" alt-text="Rekommenderad inställning för att skicka anslutnings loggar till Log Analytics-arbetsyta.":::
 
-#### <a name="detecting-individual-device-disconnects"></a>Identifiera enskilda enheter från kopplingar
+Vi rekommenderar att du skapar en diagnostisk inställning så tidigt som möjligt när du har skapat din IoT-hubb, eftersom IoT Hub alltid skapar resurs loggar, samlas de inte in av Azure Monitor förrän du dirigerar dem till ett mål.
 
-Om du vill identifiera koppling *per enhet* , till exempel när du behöver veta att en fabrik precis gick offline, [konfigurerar du enhets kopplings händelser med event Grid](iot-hub-event-grid.md).
+Mer information om routning av loggar till ett mål finns i [samling och routning](monitor-iot-hub.md#collection-and-routing). Detaljerade anvisningar om hur du skapar en diagnostisk inställning finns i [själv studie kursen använda mått och loggar](tutorial-use-metrics-and-diags.md).
 
-## <a name="resolve-connectivity-errors"></a>Lösa anslutnings fel
+## <a name="azure-monitor-set-up-metric-alerts-for-device-disconnect-at-scale"></a>Azure Monitor: Konfigurera mått varningar för enhets från koppling i skala
 
-När du aktiverar loggar och aviseringar för anslutna enheter får du aviseringar när fel inträffar. I det här avsnittet beskrivs hur du söker efter vanliga problem när du får en avisering. Stegen nedan förutsätter att du redan har skapat en diagnostisk inställning för att skicka IoT Hub anslutnings loggar till en Log Analytics arbets yta.
+Du kan ställa in aviseringar baserat på vilka plattforms mått som genereras av IoT Hub. Med mått aviseringar kan du meddela individer att ett villkor för ränta har inträffat och även utlösa åtgärder som kan svara på det villkoret automatiskt.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+Måttet [*anslutna enheter (förhands granskning)*](monitor-iot-hub-reference.md#device-metrics) visar hur många enheter som är anslutna till din IoT Hub. Du kan skapa aviseringar för att utlösa om detta mått sjunker under ett tröskelvärde:
 
-1. Bläddra till din IoT-hubb.
+:::image type="content" source="media/iot-hub-troubleshoot-connectivity/configure-alert-logic.png" alt-text="Varnings logik inställningar för anslutna enhets mått.":::
 
-1. Välj **loggar** .
+Du kan använda Mät regler för mått för att övervaka enheter från kopplings avvikelser i skala. Det vill säga när ett stort antal enheter från en oväntad anslutning bryts. När en sådan förekomst identifieras kan du titta på loggarna för att felsöka problemet. För att övervaka att varje enhet kopplas från och kopplas från för kritiska enheter. Du måste dock använda Event Grid. Event Grid ger också en mer real tids upplevelse än Azures mått.
 
-1. Om du vill isolera anslutnings fel loggar för IoT Hub anger du följande fråga och väljer sedan **Kör** :
+Mer information om aviseringar med IoT Hub finns [i aviseringar i övervaka IoT Hub](monitor-iot-hub.md#alerts). En genom gång av hur du skapar aviseringar i IoT Hub finns i [själv studie kursen använda mått och loggar](tutorial-use-metrics-and-diags.md). En mer detaljerad översikt över aviseringar finns i [Översikt över aviseringar i Microsoft Azure](../azure-monitor/platform/alerts-overview.md) i Azure Monitor-dokumentationen.
+
+## <a name="azure-monitor-use-logs-to-resolve-connectivity-errors"></a>Azure Monitor: Använd loggar för att lösa anslutnings fel
+
+När du identifierar enhets kopplingar, oavsett om det är med Azure Monitor metriska aviseringar eller med Event Grid, kan du använda loggar för att hjälpa till att felsöka orsaken. I det här avsnittet beskrivs hur du söker efter vanliga problem i Azure Monitor loggar. Stegen nedan förutsätter att du redan har skapat en [diagnostisk inställning](#azure-monitor-route-connection-events-to-logs) för att skicka IoT Hub anslutnings loggar till en Log Analytics arbets yta.
+
+När du har skapat en diagnostisk inställning för att dirigera IoT Hub resurs loggar till Azure Monitor loggar följer du stegen nedan för att visa loggarna i Azure Portal.
+
+1. Navigera till din IoT Hub i [Azure Portal](https://portal.azure.com).
+
+1. Under **övervakning** i den vänstra rutan i IoT Hub väljer du **loggar**.
+
+1. Om du vill isolera anslutnings fel loggar för IoT Hub anger du följande fråga i Frågeredigeraren och väljer sedan **Kör** :
 
     ```kusto
     AzureDiagnostics
@@ -91,13 +103,62 @@ När du aktiverar loggar och aviseringar för anslutna enheter får du avisering
 
    ![Exempel på fel logg](./media/iot-hub-troubleshoot-connectivity/diag-logs.png)
 
-1. Följ rikt linjerna för problemlösning för de vanligaste felen:
+När du har identifierat felet följer du rikt linjerna för problemlösning för att få hjälp med de vanligaste felen:
 
-    - **[404104 DeviceConnectionClosedRemotely](iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md)**
-    - **[401003 IoTHubUnauthorized](iot-hub-troubleshoot-error-401003-iothubunauthorized.md)**
-    - **[409002 LinkCreationConflict](iot-hub-troubleshoot-error-409002-linkcreationconflict.md)**
-    - **[500001 ServerError](iot-hub-troubleshoot-error-500xxx-internal-errors.md)**
-    - **[500008 GenericTimeout](iot-hub-troubleshoot-error-500xxx-internal-errors.md)**
+* [400027 ConnectionForcefullyClosedOnNewConnection](iot-hub-troubleshoot-error-400027-connectionforcefullyclosedonnewconnection.md)
+
+* [404104 DeviceConnectionClosedRemotely](iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md)
+
+* [401003 IoTHubUnauthorized](iot-hub-troubleshoot-error-401003-iothubunauthorized.md)
+
+* [409002 LinkCreationConflict](iot-hub-troubleshoot-error-409002-linkcreationconflict.md)
+
+* [500001 ServerError](iot-hub-troubleshoot-error-500xxx-internal-errors.md)
+
+* [500008 GenericTimeout](iot-hub-troubleshoot-error-500xxx-internal-errors.md)
+
+## <a name="mqtt-device-disconnect-behavior-with-azure-iot-sdks"></a>MQTT enhet från kopplings beteende med Azure IoT SDK: er
+
+SDK: er för Azure IoT-enheter kopplar från IoT Hub och ansluter sedan igen när de förnyar SAS-token över MQTT-protokollet (och MQTT över WebSockets). I loggar visas detta som en informations enhet från koppling och anslutnings händelser som ibland åtföljs av fel händelser.
+
+Som standard är livs längd-token 60 minuter för alla SDK: er; Det kan dock ändras av utvecklare i några av SDK: erna. I följande tabell sammanfattas token livs längd, token förnyelse och förnyelse av token för var och en av SDK: erna:
+
+| SDK | Livs längd för token | Förnya token | Förnyelse beteende |
+|-----|----------|---------------------|---------|
+| .NET | 60 minuter, konfigurerbart | 85% av livs längd, konfigurerbar | SDK ansluter och kopplar från med token livs längd plus en Grace-period på 10 minuter. Informations händelser och fel som genereras i loggar. |
+| Java | 60 minuter, konfigurerbart | 85% av livs längd, kan inte konfigureras | SDK ansluter och kopplar från med token livs längd plus en Grace-period på 10 minuter. Informations händelser och fel som genereras i loggar. |
+| Node.js | 60 minuter, konfigurerbart | konfigurerbara | SDK ansluter och kopplar från vid förnyelse av token. Endast informations händelser genereras i loggar. |
+| Python | 60 minuter, kan inte konfigureras | -- | SDK ansluter och kopplar från med token livs längd. |
+
+Följande skärm bilder visar hur token förnyas i Azure Monitor loggar för olika SDK: er. Livs längd och förnyelse tröskeln för token har ändrats från sina standardinställningar som anges.
+
+* .NET-enhets-SDK med en livs längd på 1200 sekund (20 minuter) och förnyelse inställd på 90% av livs längd. från kopplingar sker var 30: e minut:
+
+    :::image type="content" source="media/iot-hub-troubleshoot-connectivity/net-mqtt.png" alt-text="Fel beteende vid förnyelse av token över MQTT i Azure Monitor loggar med .NET SDK.":::
+
+* Java SDK med en livs längd på 300 sekund (5 minut) och standard 85% av livs längd-förnyelsen. Från kopplingar sker var 15: e minut:
+
+    :::image type="content" source="media/iot-hub-troubleshoot-connectivity/java-mqtt.png" alt-text="Fel beteende vid förnyelse av token över MQTT i Azure Monitor loggar med Java SDK.":::
+
+* Node SDK med en livs längd på 300 sekund (5 minut) och token förnyelse inställt på 3 minuter. Från kopplingar sker vid förnyelse av token. Det finns inte heller några fel, endast informations anslutningar/från kopplings händelser genereras:
+
+    :::image type="content" source="media/iot-hub-troubleshoot-connectivity/node-mqtt.png" alt-text="Fel beteende vid förnyelse av token över MQTT i Azure Monitor loggar med Node SDK.":::
+
+Följande fråga användes för att samla in resultaten. Frågan extraherar SDK-namn och version från egenskaps uppsättningen; Mer information finns [i SDK-version i IoT Hub loggar](monitor-iot-hub.md#sdk-version-in-iot-hub-logs).
+
+```kusto
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.DEVICES" and ResourceType == "IOTHUBS"
+| where Category == "Connections"
+| extend parsed_json = parse_json(properties_s)
+| extend SDKVersion = tostring(parsed_json.sdkVersion) , DeviceId = tostring(parsed_json.deviceId) , Protocol =  tostring(parsed_json.protocol)
+| distinct TimeGenerated, OperationName, Level, ResultType, ResultDescription, DeviceId, Protocol, SDKVersion
+
+```
+
+Som en IoT-lösnings utvecklare eller-operatör måste du vara medveten om det här beteendet för att kunna tolka anslutnings-/från kopplings händelser och relaterade fel i loggarna. Om du vill ändra token-livs längd eller förnyelse beteendet för enheter kontrollerar du om enheten implementerar en enhets inställning eller en enhets metod som gör det möjligt.
+
+Om du övervakar enhets anslutningar med Händelsehubben, se till att du bygger på ett sätt att filtrera bort periodiska från kopplingar på grund av förnyelse av SAS-token. till exempel, genom att inte utlösa åtgärder baserat på från koppling så länge händelsen från koppling följs av en anslutnings händelse inom ett visst tidsintervall.
 
 ## <a name="i-tried-the-steps-but-they-didnt-work"></a>Jag försökte utföra stegen, men de fungerade inte
 

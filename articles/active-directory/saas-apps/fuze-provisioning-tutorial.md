@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: c92d7afb4c1de2596b4c98f50a003fe31176fbb7
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 130bb108af5e44ddf61b639c666cb0dba64d69cb
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92449838"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356900"
 ---
 # <a name="tutorial-configure-fuze-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Fuze för automatisk användar etablering
 
@@ -33,7 +33,7 @@ Syftet med den här självstudien är att demonstrera de steg som ska utföras i
 > * Behåll användarattribut synkroniserade mellan Azure AD och Fuze
 > * [Enkel inloggning](./fuze-tutorial.md) till Fuze (rekommenderas)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 

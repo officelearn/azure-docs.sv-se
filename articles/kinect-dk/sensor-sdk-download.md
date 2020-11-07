@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Azure, Kinect, SDK, Hämta uppdatering, senaste, tillgänglig, installera
-ms.openlocfilehash: 48cdd35a80d68a7ec0d900639c0fca3a2c66787e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48a3df3962796cf561057e8ec85b754c974200f4
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86171796"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358513"
 ---
 # <a name="azure-kinect-sensor-sdk-download"></a>Ladda ned Azure Kinect sensor SDK
 
@@ -39,7 +39,7 @@ Du kan hitta tidigare versioner av Azure Kinect sensor SDK och inbyggd program v
 
 För närvarande är den enda distribution som stöds Ubuntu 18,04. Information om hur du begär stöd för andra distributioner finns på [den här sidan](https://aka.ms/azurekinectfeedback).
 
-Först måste du konfigurera [Microsofts paket lagrings plats](https://packages.microsoft.com/)genom att följa anvisningarna [här](https://docs.microsoft.com/windows-server/administration/linux-package-repository-for-microsoft-software).
+Först måste du konfigurera [Microsofts paket lagrings plats](https://packages.microsoft.com/)genom att följa anvisningarna [här](/windows-server/administration/linux-package-repository-for-microsoft-software).
 
 Nu kan du installera de nödvändiga paketen. `k4a-tools`Paketet innehåller [Azure Kinect Viewer](azure-kinect-viewer.md), [Azure Kinect-inspelaren](record-sensor-streams-file.md)och verktyget för [inbyggd Azure Kinect-programvara](azure-kinect-firmware-tool.md). Kör för att installera den
 

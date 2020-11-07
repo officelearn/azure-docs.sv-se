@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 0a72ea413e7298c8e6cb622cb985e6516435b451
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8238b9902aafcabc079c551a0eabc7170042209a
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91255922"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357631"
 ---
 # <a name="tutorial-configure-theorgwiki-for-automatic-user-provisioning"></a>Självstudie: Konfigurera TheOrgWiki för automatisk användar etablering
 
@@ -65,7 +65,7 @@ Innan du konfigurerar TheOrgWiki för automatisk användar etablering med Azure 
 
     ![Skärm bild av sidan tjänst konton i administrations konsolen för org wiki.](media/theorgwiki-provisioning-tutorial/serviceaccount.png)
 
-4. Klicka på **+ tjänst konto**. Välj **token-baserad**under **typ av tjänst konto**. Klicka på **Spara**.
+4. Klicka på **+ tjänst konto**. Välj **token-baserad** under **typ av tjänst konto**. Klicka på **Spara**.
 
     ![Skärm bild av dialog rutan nytt tjänst konto med tjänst konto typ, token-baserade och sparade alternativ som har anropats.](media/theorgwiki-provisioning-tutorial/auth.png)
 
@@ -77,11 +77,11 @@ Innan du konfigurerar TheOrgWiki för automatisk användar etablering med Azure 
 
 Om du vill konfigurera TheOrgWiki för automatisk användar etablering med Azure AD måste du lägga till TheOrgWiki från Azure AD-programgalleriet i listan över hanterade SaaS-program.
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
+1. Välj **Azure Active Directory** i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -89,7 +89,7 @@ Om du vill konfigurera TheOrgWiki för automatisk användar etablering med Azure
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **TheOrgWiki**och väljer **TheOrgWiki** i panelen resultat. 
+4. I sökrutan anger du **TheOrgWiki** och väljer **TheOrgWiki** i panelen resultat. 
 
     ![TheOrgWiki i resultat listan](common/search-new-app.png)
 

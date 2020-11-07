@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2020
 ms.author: rkarlin
-ms.openlocfilehash: 28d64f5d9d845c2a14f0277799213501e1d68010
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: dafa2f231581ee7e7fa7a59a9c9320f6f2a67038
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421772"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357692"
 ---
 # <a name="quickstart-deploy-and-onboard-a-sensor"></a>Snabb start: Distribuera och publicera en sensor
 
@@ -42,7 +42,7 @@ Med onboarding-sensorer kan du:
 | **Definiera ett sensor hanterings läge** | Ange var till gång, avisering och annan information som identifieras av sensorn som visas. Detta bestäms utifrån det **sensor hanterings läge** som du definierar.<br /><br />**Lokalt hanterat läge** : information som identifieras av sensorn visas i sensor konsolen. Identifierings information delas också med den lokala hanterings konsolen om sensorn är ansluten till den.<br /><br />**Moln hanterings läge** : information som identifieras av sensorn visas i sensor konsolen. Dessutom levereras aviserings information via en IoT Hub och kan delas med andra Azure-tjänster, till exempel Azure Sentinel.<br />Mer information finns i den **inbyggda sensorn** . |
 | **Hämta en sensor aktiverings fil** | För **lokalt hanterade** sensorer används en aktiverings fil för att hantera auktoriserade sensor aktiverings perioder.<br /><br />För **moln hanterade** sensorer används en aktiverings fil som en anslutning mellan sensorn och en IoT Hub. Mer information finns i **onboard-sensorer**. |
 | **Ladda upp en aktiverings fil till sensorn** | Aktiverings filer måste överföras till dina företags sensorer. Nätverks övervakning och åtkomst till sensor konsol funktioner är inte tillgängliga förrän aktiverings filen laddas upp. Mer information finns i **överföra sensor aktiverings filer**. |
-| **Uppdatera sensor nätverks parametrar före aktivering** | Uppdatera parametrarna som definieras under sensor installationen. Mer information finns i **fel! Referens källan hittades inte**.|
+| **Uppdatera sensor nätverks parametrar före aktivering** | Uppdatera parametrarna som definieras under sensor installationen. Mer information finns i **överföra sensor aktiverings filer**.|
 
 
 **Så här distribuerar du en sensor:**

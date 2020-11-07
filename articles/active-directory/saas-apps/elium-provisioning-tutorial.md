@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: d9bb21ab4b5610c8318fe4ee869f1140faf55367
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e8f027ccc577df79e561fca7194c20b6cc7ef2c6
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88544238"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356815"
 ---
 # <a name="tutorial-configure-elium-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Elium för automatisk användar etablering
 
@@ -49,13 +49,13 @@ När du tilldelar en användare till Elium måste du välja en giltig, programsp
 
 ## <a name="set-up-elium-for-provisioning"></a>Konfigurera Elium för etablering
 
-Innan du konfigurerar Elium för automatisk användar etablering med Azure AD måste du aktivera system för etablering av SCIM (Cross-Domain Identity Management) på Elium. Följ de här stegen:
+Innan du konfigurerar Elium för automatisk användar etablering med Azure AD måste du aktivera system för etablering av SCIM (Cross-Domain Identity Management) på Elium. Gör så här:
 
 1. Logga in på Elium och gå till **Mina profil**  >  **Inställningar**.
 
     ![Meny alternativet Inställningar i Elium](media/Elium-provisioning-tutorial/setting.png)
 
-1. I det nedre vänstra hörnet, under **Avancerat**, väljer du **säkerhet**.
+1. I det nedre vänstra hörnet, under **Avancerat** , väljer du **säkerhet**.
 
     ![Säkerhets länk i Elium](media/Elium-provisioning-tutorial/security.png)
 
@@ -65,13 +65,13 @@ Innan du konfigurerar Elium för automatisk användar etablering med Azure AD m�
 
 ## <a name="add-elium-from-the-gallery"></a>Lägg till Elium från galleriet
 
-Om du vill konfigurera Elium för automatisk användar etablering med Azure AD måste du också lägga till Elium från Azure AD-programgalleriet till din lista över hanterade program som en tjänst (SaaS)-program. Följ de här stegen:
+Om du vill konfigurera Elium för automatisk användar etablering med Azure AD måste du också lägga till Elium från Azure AD-programgalleriet till din lista över hanterade program som en tjänst (SaaS)-program. Gör så här:
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i [Azure Portal](https://portal.azure.com).
+1. Välj **Azure Active Directory** i den vänstra navigerings panelen i [Azure Portal](https://portal.azure.com).
 
     ![Meny alternativ för Azure Active Directory](common/select-azuread.png)
 
-1. Gå till **företags program**och välj sedan **alla program**.
+1. Gå till **företags program** och välj sedan **alla program**.
 
      ![Bladet Azure AD Enterprise-program](common/enterprise-applications.png)
 
@@ -79,7 +79,7 @@ Om du vill konfigurera Elium för automatisk användar etablering med Azure AD m
 
     ![Ny program länk](common/add-new-app.png)
 
-1. I rutan Sök skriver du **Elium**, väljer **Elium** i listan resultat och väljer sedan **Lägg** till för att lägga till programmet.
+1. I rutan Sök skriver du **Elium** , väljer **Elium** i listan resultat och väljer sedan **Lägg** till för att lägga till programmet.
 
     ![Sökruta för Galleri](common/search-new-app.png)
 
@@ -92,7 +92,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 Följ dessa steg om du vill konfigurera automatisk användar etablering för Elium i Azure AD:
 
-1. Logga in på [Azure Portal](https://portal.azure.com), Välj **företags program**och välj sedan **alla program**.
+1. Logga in på [Azure Portal](https://portal.azure.com), Välj **företags program** och välj sedan **alla program**.
 
     ![Bladet Azure AD Enterprise-program](common/enterprise-applications.png)
 
@@ -108,7 +108,7 @@ Följ dessa steg om du vill konfigurera automatisk användar etablering för Eli
 
     ![Automatisk inställning för etablerings läge](common/provisioning-automatic.png)
 
-1. I avsnittet **admin-autentiseringsuppgifter** skriver du ** \<tenantURL\> /scim/v2** i fältet **klient-URL** . ( **TenantURL** är det värde som hämtades tidigare från administratörs konsolen för Elium.) Skriv också värdet Elium **Secret token** i fältet **hemligt token** . Välj slutligen **Testa anslutning** för att kontrol lera att Azure AD kan ansluta till Elium. Om anslutningen Miss lyckas kontrollerar du att Elium-kontot har administratörs behörighet och försöker igen.
+1. I avsnittet **admin-autentiseringsuppgifter** skriver du **\<tenantURL\> /scim/v2** i fältet **klient-URL** . ( **TenantURL** är det värde som hämtades tidigare från administratörs konsolen för Elium.) Skriv också värdet Elium **Secret token** i fältet **hemligt token** . Välj slutligen **Testa anslutning** för att kontrol lera att Azure AD kan ansluta till Elium. Om anslutningen Miss lyckas kontrollerar du att Elium-kontot har administratörs behörighet och försöker igen.
 
     ![Fälten för klient-URL och hemlig token i admin-autentiseringsuppgifter](common/provisioning-testconnection-tenanturltoken.png)
 

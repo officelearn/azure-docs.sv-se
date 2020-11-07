@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 49493f47c7178a15e37a54a70dd066690057caba
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: b940da2cf754e7e1cac91df6b517ecebe55e8c40
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519579"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358430"
 ---
 # <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity"></a>Konfigurera en Indexer-anslutning till Azure SQL Database med hjälp av en hanterad identitet
 
@@ -81,7 +81,7 @@ Följ stegen nedan för att tilldela Sök tjänst behörighet för att läsa dat
 I det här steget ska du ge Azure Kognitiv sökning-tjänstens behörighet att läsa data från din SQL Server.
 
 1. I Azure Portal navigerar du till din Azure SQL Server-sida.
-2. Välj **åtkomst kontroll (IAM)**
+2. Välj **Åtkomstkontroll (IAM)**
 3. Välj **Lägg till** och **Lägg till roll tilldelning**
 
     ![Lägg till rolltilldelning](./media/search-managed-identities/add-role-assignment-sql-server.png "Lägg till rolltilldelning")
@@ -94,7 +94,7 @@ I det här steget ska du ge Azure Kognitiv sökning-tjänstens behörighet att l
 
 ### <a name="5---create-the-data-source"></a>5 – skapa data källan
 
-[REST API](/rest/api/searchservice/create-data-source), Azure Portal och [.NET SDK](/dotnet/api/microsoft.azure.search.models.datasource) stöder anslutnings strängen för hanterad identitet. Nedan visas ett exempel på hur du skapar en data källa för att indexera data från en Azure SQL Database med hjälp av [REST API](/rest/api/searchservice/create-data-source) och en anslutnings sträng för hanterad identitet. Formatet för anslutnings strängen för hanterad identitet är detsamma för REST API, .NET SDK och Azure Portal.
+[REST API](/rest/api/searchservice/create-data-source), Azure Portal och [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection) stöder anslutnings strängen för hanterad identitet. Nedan visas ett exempel på hur du skapar en data källa för att indexera data från en Azure SQL Database med hjälp av [REST API](/rest/api/searchservice/create-data-source) och en anslutnings sträng för hanterad identitet. Formatet för anslutnings strängen för hanterad identitet är detsamma för REST API, .NET SDK och Azure Portal.
 
 När du skapar en data källa med hjälp av [REST API](/rest/api/searchservice/create-data-source)måste data källan ha följande obligatoriska egenskaper:
 
@@ -103,7 +103,7 @@ När du skapar en data källa med hjälp av [REST API](/rest/api/searchservice/c
 * **klientautentiseringsuppgifter**
     * När du använder en hanterad identitet för att autentisera, skiljer sig formatet på **autentiseringsuppgifter** till om du inte använder en hanterade-identitet. Här anger du en initial katalog eller ett databas namn och ett ResourceId som inte har någon konto nyckel eller lösen ord. ResourceId måste innehålla prenumerations-ID: t för Azure SQL Database, resurs gruppen för SQL Database och namnet på SQL-databasen. 
     * Format för anslutnings sträng för hanterad identitet:
-        * *Initial katalog | Databas =**databas namn**; ResourceId =/Subscriptions/**ditt prenumerations-ID**/resourceGroups/**resurs gruppens namn**/providers/Microsoft.SQL/Servers/**ditt SQL Server namn**/; Timeout för anslutning =**anslutningens timeout-längd**;*
+        * *Initial katalog | Databas = **databas namn** ; ResourceId =/Subscriptions/ **ditt prenumerations-ID** /resourceGroups/ **resurs gruppens namn** /providers/Microsoft.SQL/Servers/ **ditt SQL Server namn** /; Timeout för anslutning = **anslutningens timeout-längd** ;*
 * **container** anger namnet på den tabell eller vy som du vill indexera.
 
 Exempel på hur du skapar ett Azure SQL Data Source-objekt med hjälp av [REST API](/rest/api/searchservice/create-data-source):

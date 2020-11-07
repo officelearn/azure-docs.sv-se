@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: article
 keywords: Azure, Kinect, RGB, IR, Recording, sensor, SDK, åtkomst, djup, video, kamera, IMU, rörelse, sensor, ljud, mikrofon, Matroska, sensor-SDK, hämtning, brödtext, spårning, support
-ms.openlocfilehash: 61d29284bc2ed9e574e8a19561f19ad6f4259908
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fbfe9c52a46cbf7058e6d5ca91008f1f289bfd2
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85277749"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357053"
 ---
 # <a name="azure-kinect-support-options-and-resources"></a>Support alternativ och resurser för Azure Kinect
 
@@ -32,9 +32,9 @@ Det finns flera sätt att få ett assisterat stöd för Azure Kinect.
 
 ### <a name="microsoft-qa"></a>Microsoft Q&A
 
-För snabba och pålitliga svar på dina tekniska produkt frågor från Microsoft-tekniker, Azure Most Valuable profession ALS (MVP) eller vår expert community, engagerar vi oss på [Microsoft Q&A](https://aka.ms/azureqa), Azures önskade mål för Community-support.
+För snabba och pålitliga svar på dina tekniska produkt frågor från Microsoft-tekniker, Azure Most Valuable profession ALS (MVP) eller vår expert community, engagerar vi oss på [Microsoft Q&A](/answers/products/azure), Azures önskade mål för Community-support.
 
-- [Microsoft Q&A för Azure-Kinect](https://docs.microsoft.com/answers/topics/azure-kinect-dk.html), där du kan ställa frågor eller söka igenom befintliga bibliotek med frågor.
+- [Microsoft Q&A för Azure-Kinect](/answers/topics/azure-kinect-dk.html), där du kan ställa frågor eller söka igenom befintliga bibliotek med frågor.
 
 ### <a name="development-azure-kinect-on-azure"></a>Utveckla Azure-Kinect på Azure
 
@@ -50,7 +50,7 @@ För teknisk support med plattforms-SDK och Body Track SDK lokalt öppnar du en 
 
 ### <a name="azure-kinect-dk-device"></a>Azure Kinect DK-enhet
 
-Kontrol lera att du har konfigurerat och uppdaterat Azure Kinect DK innan du kontaktar maskin varu supporten. Om du vill testa om enheten fungerar använder du [Azure Kinect Viewer](azure-kinect-viewer.md). Lär dig mer på vår [Hjälp sida för Azure Kinect DK](https://aka.ms/kinectsupport) .
+Kontrol lera att du har konfigurerat och uppdaterat Azure Kinect DK innan du kontaktar maskin varu supporten. Om du vill testa om enheten fungerar använder du [Azure Kinect Viewer](azure-kinect-viewer.md). Lär dig mer på vår [Hjälp sida för Azure Kinect DK](./index.yml) .
 Du kanske också vill ta en titt på våra [kända problem och fel sökning](troubleshooting.md).
 
 [Få hjälp](https://support.microsoft.com/supportforbusiness/productselection?sapId=f77b1b95-721e-43a0-2db8-b01e81a3f813) med en enhets-eller sensor funktion, uppdateringar av inbyggd program vara eller köp alternativ.

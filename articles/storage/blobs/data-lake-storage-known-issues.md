@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/28/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 87532876551cacbd4da03b95b10c41600989a947
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 909d64d3d32e8b9a314f7afb06b9c0121f624cec
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359722"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358492"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Kända problem med Azure Data Lake Storage Gen2
 
@@ -54,7 +54,9 @@ Dessa BLOB REST-API: er stöds inte:
 * [Hämta sid intervall](https://docs.microsoft.com/rest/api/storageservices/get-page-ranges)
 * [BLOB för stegvis kopiering](https://docs.microsoft.com/rest/api/storageservices/incremental-copy-blob)
 * [Lägg till sida från URL](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)
+* [Lägg till block](https://docs.microsoft.com/rest/api/storageservices/append-block)
 * [Lägg till block från URL](https://docs.microsoft.com/rest/api/storageservices/append-block-from-url)
+
 
 Ohanterade VM-diskar stöds inte i konton som har ett hierarkiskt namn område. Om du vill aktivera ett hierarkiskt namn område på ett lagrings konto placerar du ohanterade virtuella dator diskar i ett lagrings konto där funktionen för hierarkiskt namn område inte är aktive rad.
 

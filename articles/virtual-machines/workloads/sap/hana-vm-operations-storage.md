@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/26/2020
+ms.date: 11/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 99c94528c13228e07327b529782f211ec92a08ea
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: bbaa9d33d3a31b682a66b2a3254fc2265b6f8d7b
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359858"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357085"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Lagringskonfigurationer för virtuella Azure-datorer för SAP HANA
 
@@ -37,7 +37,7 @@ Azure erbjuder två distributions metoder för virtuella hård diskar på Azure 
 En lista över lagrings typer och deras service avtal i IOPS och lagrings data flöde finns i [Azure-dokumentationen för Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 > [!IMPORTANT]
-> Oberoende av vilken typ av Azure-lagring som valts måste det fil system som används på lagrings platsen stödjas av SAP för det angivna operativ systemet och DBMS. [SAP support note #405827](https://launchpad.support.sap.com/#/notes/405827) listar de fil system som stöds för olika operativ system och databaser, inklusive SAP HANA. Detta gäller för alla volymer SAP HANA kan komma åt för att läsa och skriva för vilken aktivitet som än är. I synnerhet med NFS på Azure för SAP HANA, gäller ytterligare begränsningar för NFS-versioner som anges längre fram i den här artikeln 
+> Oberoende av vilken typ av Azure-lagring som valts måste det fil system som används på lagrings platsen stödjas av SAP för det angivna operativ systemet och DBMS. [SAP support note #2972496](https://launchpad.support.sap.com/#/notes/2972496) listar de fil system som stöds för olika operativ system och databaser, inklusive SAP HANA. Detta gäller för alla volymer SAP HANA kan komma åt för att läsa och skriva för vilken aktivitet som än är. I synnerhet med NFS på Azure för SAP HANA, gäller ytterligare begränsningar för NFS-versioner som anges längre fram i den här artikeln 
 
 
 Lägsta SAP HANA certifierade villkor för olika lagrings typer är: 

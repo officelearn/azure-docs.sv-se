@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 12/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 6d242fa5ac7257908b4f70d97531a9a1c9c88832
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: cee9544dbc2deecafa67d73d3bdea804937c1d7a
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457562"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356322"
 ---
 # <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Atlassian Cloud för automatisk användar etablering
 
@@ -76,7 +76,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 ### <a name="to-configure-automatic-user-provisioning-for-atlassian-cloud-in-azure-ad"></a>Konfigurera automatisk användar etablering för Atlassian Cloud i Azure AD:
 
-1. Logga in på [Azure Portal](https://portal.azure.com) och välj **företags program**, Välj **alla program**och välj sedan **Atlassian Cloud**.
+1. Logga in på [Azure Portal](https://portal.azure.com) och välj **företags program** , Välj **alla program** och välj sedan **Atlassian Cloud**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 

@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: arvinh
-ms.openlocfilehash: 29e28e20bd9b471604a450ddb36ef867f0608e06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac36f5d6d1f57fd8453c54bcc8cf19dd964f47f6
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88553770"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357903"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Pingboard för automatisk användar etablering
 
@@ -65,15 +65,15 @@ Det här avsnittet vägleder dig genom att ansluta din Azure AD till Pingboard-A
 
 1. Under avsnittet **admin-autentiseringsuppgifter** använder du följande steg:
 
-    a. I **klient webb adress**anger `https://your_domain.pingboard.com/scim/v2` du och ersätter "your_domain" med din riktiga domän.
+    a. I **klient webb adress** anger `https://your_domain.pingboard.com/scim/v2` du och ersätter "your_domain" med din riktiga domän.
 
     b. Logga in på [Pingboard](https://pingboard.com/) med ditt administratörs konto.
 
-    c. Välj **Add-Ons**  >  **integrerings**  >  **Azure Active Directory**för tillägg.
+    c. Välj **Add-Ons**  >  **integrerings**  >  **Azure Active Directory** för tillägg.
 
     d. Gå till fliken **Konfigurera** och välj **Aktivera användar etablering från Azure**.
 
-    e. Kopiera token i **OAuth Bearer-token**och ange den i **hemlig token**.
+    e. Kopiera token i **OAuth Bearer-token** och ange den i **hemlig token**.
 
 1. I Azure Portal väljer du **Testa anslutning** för att testa att Azure AD kan ansluta till din Pingboard-app. Om anslutningen Miss lyckas testar du att Pingboard-kontot har administratörs behörighet och provar steget **Testa anslutning** igen.
 

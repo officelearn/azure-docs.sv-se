@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/21/2020
-ms.openlocfilehash: 005bfd4b7e7d062640a79896ccd3d7f76e3d6fb3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b789bf01a043b167d6740f09df935d9b683c48f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447209"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357767"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Konfigurera operativ systemets uppdaterings schema för Linux-baserade HDInsight-kluster
 
@@ -64,7 +64,7 @@ Skriptet [install-updates-Schedule-reboots.sh](https://hdiconfigactions.blob.cor
 
 | Parameter | Godkända värden | Definition |
 | --- | --- | --- |
-| Typ av uppdateringar som ska installeras | 0, 1 eller 2 | Värdet 0 installerar endast kernel-uppdateringar. Värdet 1 installerar alla uppdateringar och 2 installerar endast kernel + säkerhets uppdateringar. Om ingen parameter anges är standardvärdet 0. |
+| Typ av uppdateringar som ska installeras | 0, 1 eller 2 | Värdet 0 installerar endast kernel-uppdateringar. Värdet 1 installerar kernel + säkerhets uppdateringar och 2 installerar alla uppdateringar. Om ingen parameter anges är standardvärdet 0. |
 | Typ av omstart att utföra | 0, 1 eller 2 | Värdet 0 inaktiverar omstart. Värdet 1 möjliggör omstart av schemat och 2 aktiverar omedelbar omstart. Om ingen parameter anges är standardvärdet 0. Användaren måste ändra Indataparametern 1 till indataparameter 2. |
 
 > [!NOTE]

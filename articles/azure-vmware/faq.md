@@ -4,12 +4,12 @@ description: Innehåller svar på några vanliga frågor om Azure VMware-lösnin
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: a1ca50e1e1374b5e819c9355be1a48e2b7c3e536
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 9f0eb1ec7c979e6f35c21f49cad9ab9975a221fc
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93349094"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357301"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Vanliga frågor och svar om Azure VMware-lösningen
 
@@ -74,7 +74,7 @@ Nej, på grund av krav på bandbredd och latens.
 Azure skydds är den tjänst som rekommenderas för att ansluta till hopp rutan för att förhindra att Azure VMware-lösningen exponeras för Internet. Du kan inte använda Azure-skydds för att ansluta till virtuella Azure VMware-lösningar eftersom de inte är Azure IaaS-objekt.
 
 #### <a name="can-azure-load-balancer-internal-be-used-for-azure-vmware-solution-vms"></a>Kan Azure Load Balancer internt användas för virtuella Azure VMware-lösningar?
-Nej. Azure Load Balancer internt stöder endast virtuella Azure IaaS-datorer. Azure Load Balancer stöder inte IP-baserade backend-pooler. endast virtuella Azure-datorer eller virtuella dator skalnings uppsättningar (VMSS)-objekt i vilka virtuella datorer i Azure VMware-lösningen inte är Azure-objekt.
+Nej. Azure Load Balancer internt stöder endast virtuella Azure IaaS-datorer. Azure Load Balancer stöder inte IP-baserade backend-pooler. endast virtuella Azure-datorer eller skal uppsättnings objekt för virtuella datorer i vilka virtuella datorer i Azure VMware-lösningen inte är Azure-objekt.
 
 #### <a name="can-an-existing-expressroute-gateway-be-used-to-connect-to-azure-vmware-solution"></a>Kan en befintlig ExpressRoute-Gateway användas för att ansluta till Azure VMware-lösningen?
 Ja, du kan använda en befintlig ExpressRoute-Gateway för att ansluta till Azure VMware-lösningen så länge den inte överskrider gränsen på fyra ExpressRoute-kretsar per virtuellt nätverk.  Men för att få åtkomst till Azure VMware-lösningen från lokala platser via ExpressRoute måste du ha ExpressRoute Global Reach eftersom ExpressRoute-gatewayen inte tillhandahåller transitiv routning mellan dess anslutna kretsar.
@@ -169,7 +169,7 @@ Uppgraderingarna av det privata molnet för program varu paketet görs för att 
 
 Program varan för det privata molnet uppgraderas enligt ett schema som spårar program varu paketets version från VMware. Det privata molnet kräver ingen stillestånds tid för uppgraderingar.
 
-## <a name="connectivity"></a>Anslutningar
+## <a name="connectivity"></a>Anslutning
 
 #### <a name="what-network-ip-address-planning-is-required-to-incorporate-private-clouds-with-on-premises-environments"></a>Vilken nätverks-IP-adress planering krävs för att inkludera privata moln med lokala miljöer?
 
@@ -280,6 +280,17 @@ Innan du skapar en Azure VMware-lösnings resurs måste du skicka in ett support
    `"
 
    For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
+
+
+## Customer communication
+
+#### How can I receive an alert when Azure sends service health notifications to my Azure subscription?
+
+Service issues, planned maintenance, health advisories, security advisories notifications are published through **Service Health** in the Azure portal.  You can take timely actions when you set up activity log alerts for these notifications. For more information, see [Create service health alerts using the Azure portal](../service-health/alerts-activity-log-service-notifications-portal.md#create-service-health-alert-using-azure-portal).
+
+:::image type="content" source="media/service-health.png" alt-text="Screenshot of Service Health notifications":::
+
+
 
 <!-- LINKS - external -->
 [kb2106952]: https://kb.vmware.com/s/article/2106952?lang=en_US&queryTerm=21069522

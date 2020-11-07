@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: eaf54b7f7336619d03ce0fb6ea7fa032d0fcdff7
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 528ab93d1cf47d64338ef186a120695681f48e55
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319159"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357223"
 ---
 # <a name="tutorial-configure-15five-for-automatic-user-provisioning"></a>Självstudie: Konfigurera 15Five för automatisk användar etablering
 
@@ -58,15 +58,15 @@ Innan du konfigurerar 15Five för automatisk användar etablering med Azure AD m
 
 2.  Klicka på **SCIM 2,0**.
 
-    :::image type="content" source="media/15five-provisioning-tutorial/image00.png" alt-text="Skärm bild av 15Five-administratörskonsolen. Integreringarna visas under funktioner i en meny och båda funktionerna och Integreringarna är markerade." border="false":::
+    :::image type="content" source="media/15five-provisioning-tutorial/image00.png" alt-text="Skärm bild av sidan integreringar i 15Five-administratörskonsolen. Under verktyg är S C I M 2,0 markerad." border="false":::
 
 3.  Navigera till **scim-integration > generera OAuth-token**.
 
-    :::image type="content" source="media/15five-provisioning-tutorial/image02.png" alt-text="Skärm bild av 15Five-administratörskonsolen. Integreringarna visas under funktioner i en meny och båda funktionerna och Integreringarna är markerade." border="false":::
+    :::image type="content" source="media/15five-provisioning-tutorial/image02.png" alt-text="Skärm bild av sidan S C i M-integration i 15Five-administratörskonsolen. Generera OAuth-token har marker ATS." border="false":::
 
 4.  Kopiera värdena för **SCIM 2,0-bas-URL** och **åtkomsttoken**. Det här värdet anges i fältet **klient-URL** och **hemligt token** på fliken etablering i 15Five-programmet i Azure Portal.
     
-    :::image type="content" source="media/15five-provisioning-tutorial/image03.png" alt-text="Skärm bild av 15Five-administratörskonsolen. Integreringarna visas under funktioner i en meny och båda funktionerna och Integreringarna är markerade." border="false":::
+    :::image type="content" source="media/15five-provisioning-tutorial/image03.png" alt-text="Skärm bild av sidan S C I M-integration. I tabellen token är värdena bredvid S C I M 2,0 Base U R L och åtkomsttoken markerade." border="false":::
 
 ## <a name="step-3-add-15five-from-the-azure-ad-application-gallery"></a>Steg 3. Lägg till 15Five från Azure AD-programgalleriet
 

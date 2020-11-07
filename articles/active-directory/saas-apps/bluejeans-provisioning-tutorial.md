@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 7d3aafe93c92a1c756358dfb60a2ca976036d8b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 204cdc689d5a117df428bb314a81a35081f7b13c
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273715"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357665"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Självstudie: Konfigurera BlueJeans för automatisk användar etablering
 
@@ -42,11 +42,11 @@ Innan du konfigurerar BlueJeans för automatisk användar etablering med Azure A
 
 **Utför följande steg för att lägga till BlueJeans från Azure AD-programgalleriet:**
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
+1. Välj **Azure Active Directory** i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -54,7 +54,7 @@ Innan du konfigurerar BlueJeans för automatisk användar etablering med Azure A
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **BlueJeans**, väljer **BlueJeans** i panelen resultat och väljer sedan knappen **Lägg till** för att lägga till programmet.
+4. I sökrutan anger du **BlueJeans** , väljer **BlueJeans** i panelen resultat och väljer sedan knappen **Lägg till** för att lägga till programmet.
 
     ![BlueJeans i resultatlistan](common/search-new-app.png)
 
@@ -81,7 +81,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 ### <a name="to-configure-automatic-user-provisioning-for-bluejeans-in-azure-ad"></a>Konfigurera automatisk användar etablering för BlueJeans i Azure AD:
 
-1. Logga in på [Azure Portal](https://portal.azure.com) och välj **företags program**, Välj **alla program**och välj sedan **BlueJeans**.
+1. Logga in på [Azure Portal](https://portal.azure.com) och välj **företags program** , Välj **alla program** och välj sedan **BlueJeans**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -97,7 +97,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Skärm bild av sidan etablering med avsnitten etablerings läge och admin-autentiseringsuppgifter som anropas.](./media/bluejeans-provisioning-tutorial/Bluejeans1.png)
 
-5. Under avsnittet **admin credentials** måste du skriva in **administratörens användar namn**och **Administratörs lösen ord** för ditt BlueJeans-konto. Exempel på dessa värden är:
+5. Under avsnittet **admin credentials** måste du skriva in **administratörens användar namn** och **Administratörs lösen ord** för ditt BlueJeans-konto. Exempel på dessa värden är:
 
    * I fältet **admin username** , fyller du i användar namnet för administratörs kontot på din BlueJeans-klient. Exempel: admin@contoso.com.
 

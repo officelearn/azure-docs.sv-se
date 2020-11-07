@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/28/2020
 ms.author: Zhchia
-ms.openlocfilehash: f60d73766d2f992faddd7d944436d9179ef18e19
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 43b20f2b286bdadbee33555abc1a19845092c64b
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456147"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357512"
 ---
 # <a name="tutorial-configure-cinode-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Cinode för automatisk användar etablering
 
@@ -34,7 +34,7 @@ I den här självstudien beskrivs de steg du behöver utföra i både Cinode och
 > * Behåll användarattribut synkroniserade mellan Azure AD och Cinode
 > * Etablera grupper och grupp medlemskap i Cinode
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 

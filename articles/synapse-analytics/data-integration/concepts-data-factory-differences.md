@@ -5,15 +5,15 @@ services: synapse-analytics
 author: djpmsft
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 11/06/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: be098977ba51e529aaecfb5dc3b7a03444f55a7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10f5336dd4c8a02acf623b1b14226ca676006953
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91345169"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357657"
 ---
 # <a name="data-integration-in-azure-synapse-analytics-versus-azure-data-factory"></a>Data integrering i Azure Synapse Analytics kontra Azure Data Factory
 
@@ -27,27 +27,26 @@ Om du vill se om en Azure Data Factory funktion eller artikel gäller för Azure
 
 Följande funktioner är tillgängliga i Azure Data Factory, men planeras inte för Azure-Synapse.
 
-* Möjlighet att lyfta och byta SSIS-paket.
-* Snö flingor som mottagare i data flödet för kopierings aktiviteten och mappningen.
-* Tids inställningen för att mappa data flödet till Real tid i Azure integration Runtime.
+* **Liv-och Skift SSIS-paket:** I Azure Data Factory har du möjlighet att lyfta och byta SSIS-paket med hjälp av SSIS integration Runtime. Både SSIS integration Runtime och aktiviteten kör SSIS-paket är inte tillgängliga i Synapse-arbetsytor. 
+* **Tid till Live:** Time to Live är en inställning i Azure integration runtime som gör det möjligt för Spark-klustret i att mappa data flöden att hålla sig *varm* under en viss tid efter att ett data flöde har slutförts. Den här funktionen är inte tillgänglig i Synapse-arbetsytor.
 
 ## <a name="azure-synapse-features-not-supported-in-azure-data-factory"></a>Azure Synapse-funktioner stöds inte i Azure Data Factory
 
 Följande funktioner är tillgängliga i Azure Synapse, men planeras inte för Azure Data Factory.
 
-* Spark-jobb övervakning av mappnings data flöden är bara tillgängligt i Synapse. I Synapse finns Spark-motorn i användarens prenumeration så att användarna kan se detaljerade Spark-loggar. I Azure Data Factory sker jobb körningen i ett Azure Data Factory hanterat Spark-kluster. 
+* **Spark-jobb övervakning av mappnings data flöden:** I Synapse finns Spark-motorn i användarens prenumeration så att användarna kan se detaljerade Spark-loggar. I Azure Data Factory sker jobb körningen i ett Azure Data Factory hanterat Spark-kluster och denna information är inte tillgänglig. 
 
 ## <a name="azure-data-factory-features-that-behave-differently-in-synapse"></a>Azure Data Factory funktioner som beter sig annorlunda i Synapse
 
 Följande funktioner fungerar antingen annorlunda eller finns inte i Azure-Synapse. 
 
-* Datatransformering data flöden
-* Galleriet för lösnings mal len
-* Git-integrering och en inbyggd CI/CD-lösning
-* Integrering med Azure Monitor
-* Byta namn på resurser efter publicering
-* Hybrid integration runtime-konfiguration inom en Synapse-arbetsyta. En användare kan inte ha både en hanterad VNet IR och en Azure IR.
-* Integration runtime-delning mellan Synapse-arbetsytor
+* **Datatransformering data flöden:** Datatransformering Data Flow-aktiviteten är bara tillgänglig i Azure Data Factory för tillfället.
+* **Galleriet för lösnings mal len:** I Azure Data Factory kan användarna hitta pipeline-mallar i lösnings galleriet. I Synapse-arbetsytor innehåller kunskaps centret en annan uppsättning mallar tillsammans med ytterligare data uppsättningar och SQL-skript. 
+* **Git-integrering och inbyggd CI/CD-lösning:** För närvarande kan en Synapse-arbetsyta inte ansluta till en git-lagringsplats eller följa den löpande integrerings-och leverans processen som Azure Data Factory.
+* **Integrering med Azure Monitor:** Synapse-arbetsytor integreras inte med Azure Monitor som Azure Data Factory gör.
+* **Konfiguration av hybrid integrerings körning:** I en Synapse-arbetsyta kan en användare inte ha både en hanterad VNet IR och en Azure IR. Den här funktionen stöds i Azure Data Factory.
+* **Integration runtime-delning:** Integration runtime med egen värd kan inte delas mellan Synapse-arbetsytor. Den här funktionen stöds i Azure Data Factory.
+* **Integrerings körningar mellan regioner för data flöden:** Data flöden kan inte köras på integrerings körningar i olika regioner än en Synapse-arbetsyta. Den här funktionen stöds i Azure Data Factory.
 
 ## <a name="next-steps"></a>Nästa steg
 

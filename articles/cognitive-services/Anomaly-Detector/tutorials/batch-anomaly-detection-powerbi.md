@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: mbullwin
-ms.openlocfilehash: 887e7432151569eb07e3c9256c7f126e7f884d54
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: a17301e0807877662ae1bf34ade48e90a1d30c0c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017632"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368652"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Självstudie: visualisera avvikelser med batch-identifiering och Power BI
 
@@ -48,7 +48,7 @@ Klicka på menyfliksområdet **Start** i huvud Power BI Desktops fönstret. I de
 
 ![En bild av knappen Hämta data i Power BI](../media/tutorials/power-bi-get-data-button.png)
 
-När dialog rutan visas går du till den mapp där du laddade ned filen example. xlsx och markerar den. När **navigerings** dialog rutan visas klickar du på **Blad1**och sedan på **Redigera**.
+När dialog rutan visas går du till den mapp där du laddade ned filen example. xlsx och markerar den. När **navigerings** dialog rutan visas klickar du på **Blad1** och sedan på **Redigera**.
 
 ![En bild av skärmen för data källan "Navigator" i Power BI](../media/tutorials/navigator-dialog-box.png)
 
@@ -112,20 +112,20 @@ I Avancerad redigerare använder du följande Power Query M-kodfragment för att
  in results
 ```
 
-Anropa frågan på ditt data blad genom att välja `Sheet1` under **ange parameter**och klicka på **anropa**.
+Anropa frågan på ditt data blad genom att välja `Sheet1` under **ange parameter** och klicka på **anropa**.
 
 ![En bild av Invoke-funktionen](../media/tutorials/invoke-function-screenshot.png)
 
 ## <a name="data-source-privacy-and-authentication"></a>Sekretess och autentisering för data Källa
 
 > [!NOTE]
-> Tänk på organisationens principer för data sekretess och åtkomst. Mer information finns i [Power BI Desktop sekretess nivåer](https://docs.microsoft.com/power-bi/desktop-privacy-levels) .
+> Tänk på organisationens principer för data sekretess och åtkomst. Mer information finns i [Power BI Desktop sekretess nivåer](/power-bi/desktop-privacy-levels) .
 
 Du kan få ett varnings meddelande när du försöker köra frågan eftersom den använder en extern data källa.
 
 ![En bild som visar en varning som skapats av Power BI](../media/tutorials/blocked-function.png)
 
-Åtgärda detta genom att klicka på **Arkiv**, **alternativ och inställningar**. Klicka sedan på **alternativ**. Under den **aktuella filen**väljer du **Sekretess**och **ignorerar sekretess nivåerna och kan förbättra prestandan**.
+Åtgärda detta genom att klicka på **Arkiv** , **alternativ och inställningar**. Klicka sedan på **alternativ**. Under den **aktuella filen** väljer du **Sekretess** och **ignorerar sekretess nivåerna och kan förbättra prestandan**.
 
 Dessutom kan du få ett meddelande där du uppmanas att ange hur du vill ansluta till API: et.
 
@@ -156,7 +156,7 @@ När du har lagt till fälten klickar du på diagrammet och ändrar storlek på 
 
 ### <a name="display-anomaly-data-points"></a>Visa avvikelse data punkter
 
-Till höger i Power BIs fönstret, under fönstret **fält** , högerklicka på **värde** under **frågan anropad funktion**och klicka på **nytt snabb mått**.
+Till höger i Power BIs fönstret, under fönstret **fält** , högerklicka på **värde** under **frågan anropad funktion** och klicka på **nytt snabb mått**.
 
 ![En bild av den nya snabb mått skärmen](../media/tutorials/new-quick-measure.png)
 
@@ -164,7 +164,7 @@ På skärmen som visas väljer du **filtrerat värde** som beräkning. Ange **ba
 
 ![En andra bild av den nya snabb måtts skärmen](../media/tutorials/new-quick-measure-2.png)
 
-När du har klickat på **OK**har du ett `Value for True` fält längst ned i listan över dina fält. Högerklicka på den och Byt namn på den till **avvikelse**. Lägg till den i diagrammets **värden**. Välj sedan **format** verktyget och ange X-axelns typ till **kategoriska**.
+När du har klickat på **OK** har du ett `Value for True` fält längst ned i listan över dina fält. Högerklicka på den och Byt namn på den till **avvikelse**. Lägg till den i diagrammets **värden**. Välj sedan **format** verktyget och ange X-axelns typ till **kategoriska**.
 
 ![En bild av formatet x-axel](../media/tutorials/format-x-axis.png)
 

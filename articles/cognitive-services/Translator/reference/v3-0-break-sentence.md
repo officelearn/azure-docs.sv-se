@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: 340b0ed02821fb98f271539ac39e0ccad8581082
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27069cf38da2567a3af3ed0fb65baead43665186
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87904011"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369485"
 ---
 # <a name="translator-30-breaksentence"></a>Translator 3,0: BreakSentence
 
@@ -33,7 +33,7 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 
 Parametrarna för begäran som skickades till frågesträngen är:
 
-| Frågeparameter | Beskrivning |
+| Frågeparameter | Description |
 | -------| ----------- |
 | api-version <img width=200/>   | **Parameter för obligatorisk fråga**.<br/>Den version av API: t som klienten begär. Värdet måste vara `3.0` . |
 | language | **Valfri frågeparameter**.<br/>Språk tag gen som identifierar språk för inmatad text. Om ingen kod anges används automatisk språk identifiering. |
@@ -41,9 +41,9 @@ Parametrarna för begäran som skickades till frågesträngen är:
 
 Begärandehuvuden innehåller:
 
-| Rubriker | Beskrivning |
+| Sidhuvuden | Description |
 | ------- | ----------- |
-| Authentication-huvud (er) <img width=200/>  | **Begär ande huvud för begäran**.<br/>Se <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">tillgängliga alternativ för autentisering</a>. |
+| Authentication-huvud (er) <img width=200/>  | **Begär ande huvud för begäran**.<br/>Se <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">tillgängliga alternativ för autentisering</a>. |
 | Content-Type | **Begär ande huvud för begäran**.<br/>Anger nytto lastens innehålls typ. Möjliga värden är: `application/json` . |
 | Innehålls längd    | **Begär ande huvud för begäran**.<br/>Längden på begär ande texten.  | 
 | X-ClientTraceId   | **Valfritt**.<br/>Ett GUID som skapats av klienten för att unikt identifiera begäran. Observera att du kan utelämna detta sidhuvud om du inkluderar spårnings-ID: t i frågesträngen med hjälp av en frågeparameter med namnet `ClientTraceId` .  | 
@@ -96,8 +96,8 @@ Ett exempel på JSON-svar är:
 ## <a name="response-headers"></a>Svarshuvuden
 
 <table width="100%">
-  <th width="20%">Rubriker</th>
-  <th>Beskrivning</th>
+  <th width="20%">Sidhuvuden</th>
+  <th>Description</th>
   <tr>
     <td>X-RequestId</td>
     <td>Värde som genereras av tjänsten för att identifiera begäran. Den används i fel söknings syfte.</td>
@@ -110,7 +110,7 @@ Följande är de möjliga HTTP-statuskod som en begäran returnerar.
 
 <table width="100%">
   <th width="20%">Statuskod</th>
-  <th>Beskrivning</th>
+  <th>Description</th>
   <tr>
     <td>200</td>
     <td>Åtgärden lyckades.</td>
@@ -141,7 +141,7 @@ Följande är de möjliga HTTP-statuskod som en begäran returnerar.
   </tr>
 </table> 
 
-Om ett fel inträffar returnerar begäran även ett JSON-felsvar. Felkoden är ett 6-siffrigt tal som kombinerar den tresiffriga HTTP-statuskoden följt av ett 3-siffrigt nummer för att ytterligare kategorisera felet. Vanliga felkoder finns på [referens sidan för v3 Translator](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Om ett fel inträffar returnerar begäran även ett JSON-felsvar. Felkoden är ett 6-siffrigt tal som kombinerar den tresiffriga HTTP-statuskoden följt av ett 3-siffrigt nummer för att ytterligare kategorisera felet. Vanliga felkoder finns på [referens sidan för v3 Translator](./v3-0-reference.md#errors). 
 
 ## <a name="examples"></a>Exempel
 
@@ -150,4 +150,3 @@ I följande exempel visas hur du hämtar menings gränser för en enda mening. S
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'How are you? I am fine. What did you do today?'}]"
 ```
-

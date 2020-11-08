@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 9e1b666e8929309778fc7b72e034a425c841fc2f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 8d5352a79d2920701c96289f6162c1466f0f9f75
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095925"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367581"
 ---
 # <a name="tutorial-get-search-suggestions-on-a-web-page"></a>Självstudie: Hämta Sök förslag på en webb sida
 
@@ -124,7 +124,7 @@ Hjälpfunktionen getSubscriptionKeyLocalStorage försöker först hämta nyckeln
     }
 ```
 
-getSubscriptionKey-hjälpfunktionen stöder en parameter, **invalidate** . Om **invalidate** är **true** tar getSubscriptionKey bort cookien som innehåller nyckeln för API:et Automatiska förslag i Bing. Om **invalidate** är **false** returnerar getSubscriptionKey värdet för nyckeln för API:et Automatiska förslag i Bing.
+getSubscriptionKey-hjälpfunktionen stöder en parameter, **invalidate**. Om **invalidate** är **true** tar getSubscriptionKey bort cookien som innehåller nyckeln för API:et Automatiska förslag i Bing. Om **invalidate** är **false** returnerar getSubscriptionKey värdet för nyckeln för API:et Automatiska förslag i Bing.
 
 ```html
     function getSubscriptionKey(invalidate) {
@@ -289,7 +289,7 @@ Spara filen.
 
 ## <a name="display-results"></a>Visa resultat
 
-Öppna webbsidan i webbläsaren. Ange din prenumerationsnyckel för API:et Automatiska förslag i Bing i Kommandotolken. Ange sedan en fråga (till exempel ”segla”) i textrutan **Automatiska förslag** . När du skriver uppdateras webbsidan automatiskt och visar de automatiska förslagen.
+Öppna webbsidan i webbläsaren. Ange din prenumerationsnyckel för API:et Automatiska förslag i Bing i Kommandotolken. Ange sedan en fråga (till exempel ”segla”) i textrutan **Automatiska förslag**. När du skriver uppdateras webbsidan automatiskt och visar de automatiska förslagen.
 
 ```json
 {
@@ -358,4 +358,4 @@ Spara filen.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Använda och visa krav](../UseAndDisplayRequirements.md)
+> [Använda och visa krav](../../bing-web-search/use-display-requirements.md)

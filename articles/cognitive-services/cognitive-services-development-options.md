@@ -8,14 +8,14 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 05d3ca7cf532b739b943e2a87d5ab29ae66cabd7
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 4eaa33778287bfcda45547c24e6abe0606b6baa7
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548631"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368805"
 ---
-# <a name="cognitive-services-development-options"></a>Cognitive Services utvecklings alternativ
+# <a name="cognitive-services-development-options"></a>Utvecklingsalternativ för Cognitive Services
 
 Det här dokumentet innehåller en översikt över utvecklings-och distributions alternativ som hjälper dig att komma igång med Azure Cognitive Services.
 
@@ -69,7 +69,7 @@ Om du vill lära dig mer om Big data för Cognitive Services är det en bra idé
 
 ### <a name="azure-functions-and-azure-service-web-jobs"></a>Azure Functions och Azure service Web Jobs
 
-[Azure Functions](https://docs.microsoft.com/azure/azure-functions/) [-och Azure App Service-webbjobben](https://docs.microsoft.com/azure/app-service/) ger både kod-och integrerings tjänster utformade för utvecklare och bygger på [Azure App tjänster](https://docs.microsoft.com/azure/app-service/). Dessa produkter tillhandahåller en server lös infrastruktur för att skriva kod. I den koden kan du ringa till våra tjänster med hjälp av våra klient bibliotek och REST-API: er. 
+[Azure Functions](../azure-functions/index.yml) [-och Azure App Service-webbjobben](../app-service/index.yml) ger både kod-och integrerings tjänster utformade för utvecklare och bygger på [Azure App tjänster](../app-service/index.yml). Dessa produkter tillhandahåller en server lös infrastruktur för att skriva kod. I den koden kan du ringa till våra tjänster med hjälp av våra klient bibliotek och REST-API: er. 
 
 * **Mål användare** : utvecklare och data forskare
 * **Fördelar** : Server lös beräknings tjänst som gör att du kan köra händelse utlöst kod. 
@@ -78,7 +78,7 @@ Om du vill lära dig mer om Big data för Cognitive Services är det en bra idé
 
 ### <a name="azure-logic-apps"></a>Azure Logic Apps 
 
-[Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) dela samma arbets flödes designer och kopplingar som Power automatisering men ger mer avancerad och kontroll, inklusive integreringar med Visual Studio och DevOps. Med automatisk energi förbrukning kan du enkelt integrera med dina kognitiva tjänst resurser via tjänstspecifika anslutningar som tillhandahåller en proxy eller en omslutning runt API: erna. Detta är samma kopplingar som de som är tillgängliga i energi spar läge. 
+[Azure Logic Apps](../logic-apps/index.yml) dela samma arbets flödes designer och kopplingar som Power automatisering men ger mer avancerad och kontroll, inklusive integreringar med Visual Studio och DevOps. Med automatisk energi förbrukning kan du enkelt integrera med dina kognitiva tjänst resurser via tjänstspecifika anslutningar som tillhandahåller en proxy eller en omslutning runt API: erna. Detta är samma kopplingar som de som är tillgängliga i energi spar läge. 
 
 * **Mål användare** : utvecklare, integrerare, IT-proffs, DevOps
 * **Fördelar** : design modell-First (deklarativ) utvecklings modell som tillhandahåller avancerade alternativ och integrering i en lösning med låg kod
@@ -87,7 +87,7 @@ Om du vill lära dig mer om Big data för Cognitive Services är det en bra idé
 
 ### <a name="power-automate"></a>Power Automate 
 
-Energis par är en tjänst i den [energi plattform](https://docs.microsoft.com/power-platform/) som hjälper dig att skapa automatiserade arbets flöden mellan appar och tjänster utan att skriva kod. Vi erbjuder flera kopplingar för att göra det enkelt att interagera med din Cognitive Services-resurs i en automatiserad lösning. Automatisk energi förbrukning bygger på Logic Apps. 
+Energis par är en tjänst i den [energi plattform](/power-platform/) som hjälper dig att skapa automatiserade arbets flöden mellan appar och tjänster utan att skriva kod. Vi erbjuder flera kopplingar för att göra det enkelt att interagera med din Cognitive Services-resurs i en automatiserad lösning. Automatisk energi förbrukning bygger på Logic Apps. 
 
 * **Mål användare** : företags användare (analytiker) och SharePoint-administratörer
 * **Fördelar** : automatisera återkommande manuella uppgifter genom att bara spela in mus klickningar, tangenttryckningar och kopiera klistra in steg från Skriv bordet!
@@ -96,7 +96,7 @@ Energis par är en tjänst i den [energi plattform](https://docs.microsoft.com/p
 
 ### <a name="ai-builder"></a>AI Builder 
 
-[AI Builder](https://docs.microsoft.com/ai-builder/overview) är en Microsoft Power Platform-funktion som du kan använda för att förbättra affärs prestanda genom att automatisera processer och förutsäga resultat. AI-verktyget ger dig kraften hos AI för dina lösningar genom en punkt-och-klickning-upplevelse. Många kognitiva tjänster, till exempel formulär igenkänning, Textanalys och Visuellt innehåll har integrerats direkt här och du behöver inte skapa dina egna Cognitive Services. 
+[AI Builder](/ai-builder/overview) är en Microsoft Power Platform-funktion som du kan använda för att förbättra affärs prestanda genom att automatisera processer och förutsäga resultat. AI-verktyget ger dig kraften hos AI för dina lösningar genom en punkt-och-klickning-upplevelse. Många kognitiva tjänster, till exempel formulär igenkänning, Textanalys och Visuellt innehåll har integrerats direkt här och du behöver inte skapa dina egna Cognitive Services. 
 
 * **Mål användare** : företags användare (analytiker) och SharePoint-administratörer
 * **Fördelar** : en nyckel färdig lösning som ger dig kraften hos AI genom en punkt-och klicknings upplevelse. Inga kodnings-eller data vetenskaps kunskaper krävs.
@@ -124,24 +124,24 @@ De verktyg som du ska använda för att träna och konfigurera modeller skiljer 
 
 | Grundpelare | Tjänst | Anpassnings gränssnitt | Snabbstart |
 |--------|---------|------------------|------------|
-| Visuellt innehåll | Custom Vision | https://www.customvision.ai/ | [Snabbstart](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/quickstarts/image-classification?pivots=programming-language-csharp) | 
-| Visuellt innehåll | Formigenkänning | Exempel på etikett verktyg | [Snabbstart](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool?tabs=v2-0) |
-| Beslut | Content Moderator | https://contentmoderator.cognitive.microsoft.com/dashboard | [Snabbstart](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/human-in-the-loop) |
-| Beslut | Metrics Advisor | https://metricsadvisor.azurewebsites.net/  | [Snabbstart](https://docs.microsoft.com/azure/cognitive-services/metrics-advisor/quickstarts/web-portal) |
-| Beslut | Personanpassning | UI är tillgängligt i Azure Portal under din personanpassa resurs. | [Snabbstart](https://docs.microsoft.com/azure/cognitive-services/personalizer/quickstart-personalizer-sdk) |
+| Visuellt innehåll | Custom Vision | https://www.customvision.ai/ | [Snabbstart](./custom-vision-service/quickstarts/image-classification.md?pivots=programming-language-csharp) | 
+| Visuellt innehåll | Formigenkänning | Exempel på etikett verktyg | [Snabbstart](./form-recognizer/quickstarts/label-tool.md?tabs=v2-0) |
+| Beslut | Content Moderator | https://contentmoderator.cognitive.microsoft.com/dashboard | [Snabbstart](./content-moderator/review-tool-user-guide/human-in-the-loop.md) |
+| Beslut | Metrics Advisor | https://metricsadvisor.azurewebsites.net/  | [Snabbstart](./metrics-advisor/quickstarts/web-portal.md) |
+| Beslut | Personanpassning | UI är tillgängligt i Azure Portal under din personanpassa resurs. | [Snabbstart](./personalizer/quickstart-personalizer-sdk.md) |
 | Språk | Language Understanding (LUIS) | https://www.luis.ai/ | |
-| Språk | QnA Maker | https://www.qnamaker.ai/ | [Snabbstart](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base) |
-| Språk | Translator/anpassad översättare | https://portal.customtranslator.azure.ai/ | [Snabbstart](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/quickstart-build-deploy-custom-model) |
-| Speech | Anpassade kommandon | https://speech.microsoft.com/ | [Snabbstart](https://docs.microsoft.com/azure/cognitive-services/speech-service/custom-commands) |
-| Speech | Custom Speech | https://speech.microsoft.com/ | [Snabbstart](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-speech) |
-| Speech | Anpassad röst | https://speech.microsoft.com/ | [Snabbstart](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice) |  
+| Språk | QnA Maker | https://www.qnamaker.ai/ | [Snabbstart](./qnamaker/quickstarts/create-publish-knowledge-base.md) |
+| Språk | Translator/anpassad översättare | https://portal.customtranslator.azure.ai/ | [Snabbstart](./translator/custom-translator/quickstart-build-deploy-custom-model.md) |
+| Speech | Anpassade kommandon | https://speech.microsoft.com/ | [Snabbstart](./speech-service/custom-commands.md) |
+| Speech | Custom Speech | https://speech.microsoft.com/ | [Snabbstart](./speech-service/how-to-custom-speech.md) |
+| Speech | Anpassad röst | https://speech.microsoft.com/ | [Snabbstart](./speech-service/how-to-custom-voice.md) |  
 
 ### <a name="continuous-integration-and-delivery-with-devops-and-github-actions"></a>Kontinuerlig integrering och leverans med DevOps-och GitHub-åtgärder
 
 Language Understanding och tal tjänsten erbjuder kontinuerlig integrering och lösningar för kontinuerlig distribution som drivs av Azure-DevOps och GitHub-åtgärder. Dessa verktyg används för automatisk utbildning, testning och versions hantering av anpassade modeller. 
 
-* [CI/CD för Custom Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-speech-continuous-integration-continuous-deployment)
-* [CI/CD för LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-devops-automation)
+* [CI/CD för Custom Speech](./speech-service/how-to-custom-speech-continuous-integration-continuous-deployment.md)
+* [CI/CD för LUIS](./luis/luis-concept-devops-automation.md)
 
 ## <a name="on-prem-containers"></a>Lokal behållare 
 
@@ -150,4 +150,4 @@ Många av de Cognitive Services kan distribueras i behållare för lokal åtkoms
 ## <a name="next-steps"></a>Nästa steg
 <!--
 * Learn more about low code development options for Cognitive Services -->
-* [Skapa en Cognitive Services resurs och börja bygga](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Clinux)
+* [Skapa en Cognitive Services resurs och börja bygga](./cognitive-services-apis-create-account.md?tabs=multiservice%252clinux)

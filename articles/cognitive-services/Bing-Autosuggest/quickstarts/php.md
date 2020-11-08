@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: 8a30c053fc004d3e1eae6e876f5fc09c255aec8e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 52f93435376519c4021dd25e23304494546f7425
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101841"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367734"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-php"></a>Snabb start: föreslå Sök frågor med Automatiska förslag i Bing REST API och PHP
 
@@ -161,4 +161,4 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 ## <a name="see-also"></a>Se även
 
 - [Vad är Automatiska förslag i Bing?](../get-suggested-search-terms.md)
-- [Referens för API v7 för automatiska förslag i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)
+- [Referens för API v7 för automatiska förslag i Bing](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

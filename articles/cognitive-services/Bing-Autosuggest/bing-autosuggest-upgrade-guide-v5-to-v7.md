@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: c4b02ef7bc833a7f5ab41e0203836637613244e0
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9e887d8f7579a90e7d4e8d54dcf28e1256269063
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101994"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368465"
 ---
 # <a name="autosuggest-api-upgrade-guide"></a>Guide för automatiska förslag för API-uppgradering
 
@@ -42,7 +42,7 @@ Den här uppgraderings guiden identifierar ändringarna mellan version 5 och ver
 
 - Ersatt felkoderna för v5 med följande möjliga `code` `subCode` värden.
 
-|Kod|Under kod|Beskrivning
+|Kod|Under kod|Description
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing returnerar ServerError när något av under kods villkoren inträffar. Svaret innehåller dessa fel om HTTP-statuskoden är 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Blockerad|Bing returnerar InvalidRequest när någon del av begäran är ogiltig. Till exempel saknas en obligatorisk parameter eller också är ett parameter värde ogiltigt.<br/><br/>Om felet är ParameterMissing eller ParameterInvalidValue är HTTP-status koden 400.<br/><br/>Om felet är HttpNotAllowed är HTTP-status koden 410.
@@ -76,4 +76,4 @@ Blockerad|InvalidRequest. blockerad
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Använda och visa krav](./UseAndDisplayRequirements.md)
+> [Använda och visa krav](../bing-web-search/use-display-requirements.md)

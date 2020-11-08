@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 184073ef3ee1b6a67c844754f7da81f88bbbdf62
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e556ca2051fd75eb9bf6411c5479e63554606d48
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757035"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368346"
 ---
 # <a name="how-to-manage-settings"></a>Hantera inställningar
 
@@ -33,7 +33,7 @@ Du måste ha en prenumerations nyckel för översättare kopplad till din arbets
 
 Om du inte har någon prenumeration följer du stegen nedan:
 
-1. Prenumerera för att skapa en Translator-resurs. Följ [hur du registrerar dig för Translator](https://docs.microsoft.com/azure/cognitive-services/translator/translator-how-to-signup) för att prenumerera på och hämta en Translator-nyckel.
+1. Prenumerera för att skapa en Translator-resurs. Följ [hur du registrerar dig för Translator](../translator-how-to-signup.md) för att prenumerera på och hämta en Translator-nyckel.
 2. Notera nyckeln för din Translator-prenumeration. Antingen KEY1 eller Key2 är acceptabla.
 3. Gå tillbaka till den anpassade översättnings portalen.
 
@@ -52,7 +52,7 @@ Om du inte har någon prenumeration följer du stegen nedan:
     ![Dialog rutan skapa ny arbets yta](media/how-to/create-new-workspace-dialog.png)
 
 >[!Note]
->Anpassad översättare stöder inte skapande av arbets yta för Translator Text API resurs (kallas även Azure-prenumerations nyckel) som skapades i [aktiverat VNet](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet).
+>Anpassad översättare stöder inte skapande av arbets yta för Translator Text API resurs (kallas även Azure-prenumerations nyckel) som skapades i [aktiverat VNet](../../../api-management/api-management-using-with-vnet.md).
 
 ### <a name="modify-existing-key"></a>Ändra befintlig nyckel
 

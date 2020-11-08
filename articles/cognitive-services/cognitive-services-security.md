@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: erhopf
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: ceaa04fdf8776d4fab1db4cfb1b3df4298f28de9
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f14ac72443dedc8e33e607a82b2145c7ebf95ad2
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152292"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368788"
 ---
 # <a name="azure-cognitive-services-security"></a>Azure Cognitive Services-säkerhet
 
@@ -211,7 +211,7 @@ För följande tjänster kommer Microsoft-tekniker inte att komma åt någon kun
 * Personanpassning
 
 > [!IMPORTANT]
-> För **formulär igenkänning**kommer Microsoft-tekniker inte att komma åt någon kund information i resurser som skapats efter den 10 juli 2020.
+> För **formulär igenkänning** kommer Microsoft-tekniker inte att komma åt någon kund information i resurser som skapats efter den 10 juli 2020.
 
 För att begära möjlighet att använda E0 SKU, fyller du i och skickar det här [formuläret för begäran](https://aka.ms/cogsvc-cmk). Det tar cirka 3-5 arbets dagar att höra om status för din begäran. Beroende på efter frågan kan du placera i en kö och godkännas som utrymme blir tillgängligt. När du har godkänt för att använda E0 SKU med LUIS måste du skapa en ny resurs från Azure Portal och välja E0 som pris nivå. Användarna kommer inte att kunna uppgradera från F0 till den nya E0 SKU: n.
 
@@ -222,5 +222,5 @@ Tal tjänsten har för närvarande inte stöd för Customer Lockbox. Kund inform
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Utforska de olika [Cognitive Services](welcome.md)
+* Utforska de olika [Cognitive Services](./what-are-cognitive-services.md)
 * Läs mer om [Cognitive Services virtuella nätverk](cognitive-services-virtual-networks.md)

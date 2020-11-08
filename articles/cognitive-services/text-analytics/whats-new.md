@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: a85c129dd11e587a0714e92c850315101df103f0
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: f0204f5b923cf3363d85be9642d2866436df155a
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166190"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369468"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Vad är nytt i API:et för textanalys?
 
@@ -157,13 +157,13 @@ Namnen på följande egenskaper i JSON-svaret har ändrats, i tillämpliga fall:
 ### <a name="sdk-support-for-text-analytics-api-v3-public-preview"></a>SDK-stöd för API för textanalys v3 offentlig för hands version
 
 Som en del av den [enhetliga Azure SDK-versionen](https://techcommunity.microsoft.com/t5/azure-sdk/january-2020-unified-azure-sdk-release/ba-p/1097290)är API för TEXTANALYS v3 SDK nu tillgängligt som en offentlig för hands version för följande programmeringsspråk:
-   * [C#](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-csharp)
-   * [Python](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-python)
-   * [JavaScript (Node.js)](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-javascript)
-   * [Java](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-java)
+   * [C#](./quickstarts/text-analytics-sdk.md?pivots=programming-language-csharp&tabs=version-3)
+   * [Python](./quickstarts/text-analytics-sdk.md?pivots=programming-language-python&tabs=version-3)
+   * [JavaScript (Node.js)](./quickstarts/text-analytics-sdk.md?pivots=programming-language-javascript&tabs=version-3)
+   * [Java](./quickstarts/text-analytics-sdk.md?pivots=programming-language-java&tabs=version-3)
    
    > [!div class="nextstepaction"]
-> [Läs mer om API för textanalys v3 SDK](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3)
+> [Läs mer om API för textanalys v3 SDK](./quickstarts/text-analytics-sdk.md?tabs=version-3)
 
 ### <a name="named-entity-recognition-v3-public-preview"></a>Namngiven enhets igenkänning v3 offentlig för hands version
 
@@ -223,7 +223,7 @@ Det stöder engelska ( `en` ), japanska ( `ja` ), kinesiska (förenklad) `zh-Han
 
 * [Vad är API för textanalys?](overview.md)  
 * [Exempel på användarscenarier](text-analytics-user-scenarios.md)
-* [Sentiment-analys](how-tos/text-analytics-how-to-sentiment-analysis.md)
-* [Språk identifiering](how-tos/text-analytics-how-to-language-detection.md)
-* [Enhets igenkänning](how-tos/text-analytics-how-to-entity-linking.md)
-* [Extrahering av nyckel fraser](how-tos/text-analytics-how-to-keyword-extraction.md)
+* [Sentimentanalys](how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [Språkidentifiering](how-tos/text-analytics-how-to-language-detection.md)
+* [Igenkänning av enhet](how-tos/text-analytics-how-to-entity-linking.md)
+* [Extrahering av nyckelfraser](how-tos/text-analytics-how-to-keyword-extraction.md)

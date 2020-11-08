@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/06/2020
 ms.author: b-juche
-ms.openlocfilehash: ff1899fbc89ab4a78bf793a133a7aa9a8f03dd2a
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: c6194469837997108964feda82d406c9108641b9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337567"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369247"
 ---
 # <a name="troubleshoot-capacity-pool-issues"></a>Felsöka problem med kapacitetspooler
 
@@ -34,6 +34,10 @@ I den här artikeln beskrivs lösningar på problem som du kan ha när du hanter
 | Det går inte att skapa eller ändra volym med `Requested throughput not available` fel | Tillgängligt data flöde för en volym bestäms av poolens storlek och tjänst nivå. Om du inte har tillräckligt med data flöde bör du öka Poolens storlek eller justera det befintliga volym data flödet. | 
 
 ## <a name="issues-moving-a-capacity-pool"></a>Problem med att flytta en pool med kapacitet 
+
+> [!IMPORTANT] 
+> Den [dynamiskt ändrade Service nivån för en volym offentlig för](dynamic-change-volume-service-level.md) hands versions registrering är stoppad tills vidare meddelande.
+
 |     Feltillstånd    |     Lösning    |
 |-|-|
 | Det är inte tillåtet att ändra kapacitets gruppen för en volym. | Du kanske inte har behörighet att använda den här funktionen. <br> Funktionen för att flytta en volym till en annan kapacitets pool är för närvarande en för hands version. Om du använder den här funktionen för första gången måste du registrera funktionen först och ange `-FeatureName ANFTierChange` . Se registrerings stegen i [dynamisk ändring av Service nivån för en volym](dynamic-change-volume-service-level.md). |

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/06/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9d199a6c0246379100db0d3bb412dcde4d73a17e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c47ef99d5e7e78710f8be4b967e262262f205a39
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101892"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367887"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-c"></a>Snabb start: föreslå Sök frågor med Automatiska förslag i Bing REST API och C #
 
@@ -46,7 +46,7 @@ Följ den här snabb starten om du vill lära dig att ringa till API för automa
     using System.Text;
     ```
 
-2. I en ny klass skapar du variabler för din API-värd och sökväg, [marknads kod](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)och en partiell Sök fråga. Använd den globala slut punkten i följande kod eller Använd den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+2. I en ny klass skapar du variabler för din API-värd och sökväg, [marknads kod](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)och en partiell Sök fråga. Använd den globala slut punkten i följande kod eller Använd den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
     ```csharp
     static string host = "https://api.cognitive.microsoft.com";
@@ -172,4 +172,4 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 ## <a name="see-also"></a>Se även
 
 - [Vad är Automatiska förslag i Bing?](../get-suggested-search-terms.md)
-- [Referens för API v7 för automatiska förslag i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)
+- [Referens för API v7 för automatiska förslag i Bing](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

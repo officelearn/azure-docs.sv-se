@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: devx-track-python
-ms.openlocfilehash: 569b9b8b7141c767e8ec7e813029b73c8485dcbd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1b7c19c06e663fc959389a26710c5c748a9654e8
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084693"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369145"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-python"></a>Snabb start: skicka en Sök förfrågan till Entitetssökning i Bing REST API med python
 
@@ -152,5 +152,5 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [!div class="nextstepaction"]
 > [Skapa en enkelsidig webbapp](../tutorial-bing-entities-search-single-page-app.md)
 
-* [Vad är API för entitetsökning i Bing?](../search-the-web.md)
-* [API för entitetsökning i Bing referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).
+* [Vad är API för entitetsökning i Bing?](../overview.md)
+* [API för entitetsökning i Bing referens](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

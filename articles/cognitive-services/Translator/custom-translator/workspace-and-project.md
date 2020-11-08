@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 41586b2ec96d30fd583cbc9a746493ed9206548b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28bc07cadf9ffea56059755e243cb3e828077588
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510750"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368975"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>Vad är en anpassad översättare-arbetsyta?
 
@@ -25,7 +25,7 @@ Arbets ytan är privat för dig och de personer som du bjuder in till din arbets
 
 ## <a name="what-is-a-custom-translator-project"></a>Vad är ett anpassat översättare-projekt?
 
-Ett projekt är ett omslutnings gränssnitt för en modell, dokument och tester. Varje projekt innehåller automatiskt alla dokument som överförs till den arbets ytan som har rätt språk par. Om du till exempel har både ett engelskt till spanska-projekt och ett spanskt till engelskt projekt, kommer samma dokument att inkluderas i båda projekten. Varje projekt har en associerad kategori kategori som används när du frågar [v3 API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl) för översättningar. Kategorinr är en parameter som används för att hämta översättningar från ett anpassat system som skapats med anpassad översättare.
+Ett projekt är ett omslutnings gränssnitt för en modell, dokument och tester. Varje projekt innehåller automatiskt alla dokument som överförs till den arbets ytan som har rätt språk par. Om du till exempel har både ett engelskt till spanska-projekt och ett spanskt till engelskt projekt, kommer samma dokument att inkluderas i båda projekten. Varje projekt har en associerad kategori kategori som används när du frågar [v3 API](../reference/v3-0-translate.md?tabs=curl) för översättningar. Kategorinr är en parameter som används för att hämta översättningar från ett anpassat system som skapats med anpassad översättare.
 
 ## <a name="project-categories"></a>Projekt kategorier
 

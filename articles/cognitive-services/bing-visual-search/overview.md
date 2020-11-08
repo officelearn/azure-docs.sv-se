@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: scottwhi
-ms.openlocfilehash: 2eab79d79a287bc8a92133c6901c420dfaee2fd5
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 50db66d54993a4b5ee8afb4756be6b1f4387a1d0
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082053"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369349"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>Vad är API:et för visuell sökning i Bing?
 
@@ -35,7 +35,7 @@ Om du använder [API för bildsökning i Bing](../bing-image-search/overview.md)
 
 Du kan identifiera följande insikter genom att använda Visuell sökning i Bing:
 
-| Insight                              | Beskrivning |
+| Insight                              | Description |
 |--------------------------------------|-------------|
 | Visuellt likartade bilder              | En lista med avbildningar som visuellt liknar den inmatade bilden. |
 | Visuellt liknande produkter            | Produkter som är visuellt likartade för produkten som visas.            |
@@ -53,7 +53,7 @@ Visuell sökning i Bing resultat inkluderar också avgränsnings rutor för intr
 
 API:et för visuell sökning i Bing är en RESTful-webbtjänst, vilket innebär att den är enkel att anropa från alla programmeringsspråk som kan göra HTTP-begäranden och tolka JSON. Du kan använda antingen REST API eller SDK för tjänsten.
 
-1. Skapa ett [Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att få åtkomst till API:er för Bing-sökresultat. Om du inte har någon Azure-prenumeration kan du [skapa ett konto kostnadsfritt](https://azure.microsoft.com/free/cognitive-services/).
+1. Skapa ett [Cognitive Services konto](../cognitive-services-apis-create-account.md) för att få åtkomst till API:er för Bing-sökresultat. Om du inte har någon Azure-prenumeration kan du [skapa ett konto kostnadsfritt](https://azure.microsoft.com/free/cognitive-services/).
 2. Skicka en begäran till API: et med en giltig Sök fråga.
 3. Bearbeta API-svaret genom att tolka det returnerade JSON-meddelandet.
 
@@ -74,8 +74,8 @@ Kom igång snabbt med din första begäran genom att läsa snabbstarterna:
 
 ## <a name="see-also"></a>Se även
 
-* Referensen [avbildnings visuell sökning](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch) beskriver definitioner och information om slut punkterna, begärandehuvuden, svar och frågeparametrar som du kan använda för att begära bildbaserade Sök resultat.
+* Referensen [avbildnings visuell sökning](/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch) beskriver definitioner och information om slut punkterna, begärandehuvuden, svar och frågeparametrar som du kan använda för att begära bildbaserade Sök resultat.
 
 * [Användnings-och visnings kraven för Bing-sökning-API](../bing-web-search/use-display-requirements.md) anger acceptabel användning av innehållet och information som erhålls via Bing Search-API: erna.
 
-* Gå till [sidan Bing-sökning API Hub](../bing-web-search/search-the-web.md) och utforska de andra tillgängliga API: erna.
+* Gå till [sidan Bing-sökning API Hub](../bing-web-search/overview.md) och utforska de andra tillgängliga API: erna.

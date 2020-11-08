@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: ce9f7e922b9a168205ea1d193830dd654691998a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6477432636db9592d9b0d9c1f90f5eee7d6e00db
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510818"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369009"
 ---
 # <a name="what-are-parallel-documents"></a>Vad är parallella dokument?
 
@@ -23,7 +23,7 @@ Det spelar ingen roll vilket språk som har marker ATS som "källa" och vilket s
 
 ## <a name="requirements"></a>Krav
 
-Du behöver minst 10 000 unika justerade parallella meningar för att träna ett system. Den här begränsningen är ett säkerhets nät för att se till att dina parallella meningar innehåller tillräckligt med unik vokabulär för att kunna träna en översättnings modell. Bästa praxis är att kontinuerligt lägga till mer Parallel-innehåll och omträna för att förbättra kvaliteten på ditt översättnings system. Se [menings justering](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment).
+Du behöver minst 10 000 unika justerade parallella meningar för att träna ett system. Den här begränsningen är ett säkerhets nät för att se till att dina parallella meningar innehåller tillräckligt med unik vokabulär för att kunna träna en översättnings modell. Bästa praxis är att kontinuerligt lägga till mer Parallel-innehåll och omträna för att förbättra kvaliteten på ditt översättnings system. Se [menings justering](./sentence-alignment.md).
 
 Microsoft kräver att dokument som överförs till den anpassade översättaren inte bryter mot en tredje parts upphovs rätt eller immateriell egendom. Mer information finns i [användnings villkoren](https://azure.microsoft.com/support/legal/cognitive-services-terms/).
 Att ladda upp ett dokument med hjälp av portalen ändrar inte ägande rätten till den immateriella egendomen i själva dokumentet.

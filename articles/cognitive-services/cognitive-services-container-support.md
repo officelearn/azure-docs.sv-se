@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 10/22/2020
 ms.author: aahi
 keywords: lokal, Docker, behållare, Kubernetes
-ms.openlocfilehash: e6a01192068617dcdb52e6160ffcf633d099bdf1
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a59d9fb4fb15b361259a705a024b9bea975e8072
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677457"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368856"
 ---
-# <a name="azure-cognitive-services-containers"></a>Azure Cognitive Services-behållare
+# <a name="azure-cognitive-services-containers"></a>Azure Cognitive Services-containrar
 
 > [!WARNING]
 > Den 11 juni 2020 meddelade Microsoft att de inte kommer att sälja teknik för ansiktsigenkänning till polismyndigheter i USA förrän starka föreskrifter som rör användningen av dessa tekniker och som bygger på de mänskliga rättigheterna har införts. Därför kan kunder inte använda ansikts igenkännings funktioner eller funktioner som ingår i Azure-tjänster, till exempel ansikte eller Video Indexer, om en kund är eller tillåter att sådana tjänster används av eller för en polis avdelning i USA.
@@ -30,7 +30,7 @@ Container support är för närvarande tillgängligt för en delmängd av Azure 
 > [!div class="checklist"]
 > * [Avvikelseidentifiering][ad-containers]
 > * [Läs OCR (optisk tecken läsning) ][cv-containers]
-> * [Rums analys][spa-containers]
+> * [Rumslig analys][spa-containers]
 > * [Ansiktsigenkänning][fa-containers]
 > * [Formigenkänning][fr-containers]
 > * [Language Understanding (LUIS)][lu-containers]
@@ -56,7 +56,7 @@ Cognitive Services resurser är tillgängliga på [Microsoft Azure](https://azur
 
 Azure Cognitive Services-behållare innehåller följande uppsättning Docker-behållare, som var och en innehåller en delmängd funktioner från tjänster i Azure Cognitive Services:
 
-| Tjänst | Pris nivå som stöds | Container | Beskrivning |
+| Tjänst | Pris nivå som stöds | Container | Description |
 |--|--|--|--|
 | [Avvikelse detektor][ad-containers] | F0, S0 | **Avvikelser-detektor** ( [bild](https://hub.docker.com/_/azure-cognitive-services-decision-anomaly-detector))  | Med API: t för avvikelse identifiering kan du övervaka och identifiera avvikelser i dina Time Series-data med Machine Learning.<br>[Begär åtkomst][request-access] |
 | [Visuellt innehåll][cv-containers] | F0, S1 | **Läs** OCR ( [bild](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | Med Read OCR-behållaren kan du extrahera utskrift och handskriven text från bilder och dokument med stöd för JPEG-, PNG-, BMP-, PDF-och TIFF-filformat. Mer information finns i [Read API-dokumentationen](./computer-vision/concept-recognizing-text.md).<br>[Begär åtkomst][request-access] |
@@ -72,10 +72,10 @@ Azure Cognitive Services-behållare innehåller följande uppsättning Docker-be
 | [Textanalys][ta-containers-language] | F0, S | **Språkidentifiering** ( [bild](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | För upp till 120 språk identifierar det språk som indatamängden är skrivet i och rapporterar en enda språkkod för varje dokument som skickas på begäran. Språkkoden paras med poäng som anger styrkan hos poängen. |
 | [Textanalys][ta-containers-sentiment] | F0, S | **Attitydanalys v3** ( [bild](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | Analyserar rå text för LED trådar om positiv eller negativ sentiment. Den här versionen av sentiment-analys returnerar sentiment etiketter (till exempel *positivt* eller *negativt* ) för varje dokument och mening i det. |
 | [Textanalys][ta-containers-health] | F0, S | **Textanalys för hälsa** | Extrahera och märk medicinsk information från ostrukturerad klinisk text. |
-| [Rumslig analys][spa-containers] | S0 | **Rums analys** | Analyserar direktuppspelad video i real tid för att förstå spatiala relationer mellan människor, deras rörelse och interaktioner med objekt i fysiska miljöer. |
+| [Rums analys][spa-containers] | S0 | **Rumslig analys** | Analyserar direktuppspelad video i real tid för att förstå spatiala relationer mellan människor, deras rörelse och interaktioner med objekt i fysiska miljöer. |
 
 <!--
-|[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
+|[Personalizer](./personalizer/what-is-personalizer.md) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
 -->
 
 Dessutom stöds vissa behållare i Cognitive Services [**alla-i-ett-erbjudande**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resurs nycklar. Du kan skapa en enda Cognitive Services alla-i-en-resurs och använda samma fakturerings nyckel mellan tjänster som stöds för följande tjänster:
@@ -132,7 +132,7 @@ Installera och utforska de funktioner som finns i behållare i Azure Cognitive S
 [fr-containers]: form-recognizer/form-recognizer-container-howto.md
 [lu-containers]: luis/luis-container-howto.md
 [sp-containers]: speech-service/speech-container-howto.md
-[spa-containers]: https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-container
+[spa-containers]: ./computer-vision/spatial-analysis-container.md
 [sp-containers-stt]: speech-service/speech-container-howto.md?tabs=stt
 [sp-containers-cstt]: speech-service/speech-container-howto.md?tabs=cstt
 [sp-containers-tts]: speech-service/speech-container-howto.md?tabs=tts

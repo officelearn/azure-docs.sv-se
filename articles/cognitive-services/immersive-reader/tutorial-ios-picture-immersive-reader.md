@@ -9,18 +9,18 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: metang
-ms.openlocfilehash: 73084f5116083b190b6fa31e504ffc5e8f6f39f6
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: d8ee6b2344f0c953233195a693e774e410a8a8ea
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636501"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368210"
 ---
 # <a name="tutorial-create-an-ios-app-that-launches-the-immersive-reader-with-content-from-a-photo-swift"></a>Självstudie: skapa en iOS-app som startar den fördjupade läsaren med innehåll från ett foto (SWIFT)
 
 Den [fördjupade läsaren](https://www.onenote.com/learningtools) är ett särskilt utformat verktyg som implementerar beprövade tekniker för att förbättra läsningen av förståelse.
 
-[Visuellt innehåll Cognitive Services Read API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) identifierar text innehåll i en avbildning med hjälp av Microsofts senaste igenkännings modeller och konverterar den identifierade texten till en maskin läsnings bar tecken ström.
+[Visuellt innehåll Cognitive Services Read API](../computer-vision/concept-recognizing-text.md) identifierar text innehåll i en avbildning med hjälp av Microsofts senaste igenkännings modeller och konverterar den identifierade texten till en maskin läsnings bar tecken ström.
 
 I den här självstudien skapar du en iOS-app från grunden och integrerar Read API och den fördjupade läsaren med hjälp av SDK för avancerad läsare. Ett komplett fungerande exempel på den här själv studie kursen finns [här](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios).
 
@@ -38,7 +38,7 @@ Skapa ett nytt projekt i Xcode.
 
 ![Nytt projekt](./media/ios/xcode-create-project.png)
 
-Välj **en app för enskild vy** .
+Välj **en app för enskild vy**.
 
 ![Ny app för enskild vy](./media/ios/xcode-single-view-app.png)
 

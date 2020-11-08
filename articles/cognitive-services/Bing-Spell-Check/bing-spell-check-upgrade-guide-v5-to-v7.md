@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: 43086c245f1d16975eae6951b1e8c2cb56fe5241
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ac581b96ba4e29837570ab8c01bf6c927eb34a28
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098339"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367530"
 ---
 # <a name="spell-check-api-upgrade-guide"></a>Stavningskontrolls-API uppgraderings guide
 
@@ -30,7 +30,7 @@ Den här uppgraderings guiden identifierar ändringarna mellan version 5 och ver
 
 ### <a name="endpoints"></a>Slutpunkter
 
-- Slut punktens versions nummer har ändrats från V5 till v7. Till exempel `https://api.cognitive.microsoft.com/bing/v7.0/spellcheck`.
+- Slut punktens versions nummer har ändrats från V5 till v7. Exempelvis `https://api.cognitive.microsoft.com/bing/v7.0/spellcheck`.
 
 ### <a name="error-response-objects-and-error-codes"></a>Fel svars objekt och felkoder
 
@@ -43,7 +43,7 @@ Den här uppgraderings guiden identifierar ändringarna mellan version 5 och ver
 
 - Ersatt felkoderna för v5 med följande möjliga `code` `subCode` värden.  
   
-|Kod|Under kod|Beskrivning
+|Kod|Under kod|Description
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing returnerar ServerError när något av under kod villkoren inträffar. Svaret innehåller dessa fel om HTTP-statuskoden är 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Blockerad|Bing returnerar InvalidRequest när någon del av begäran inte är giltig. Till exempel saknas en obligatorisk parameter eller också är ett parameter värde ogiltigt.<br/><br/>Om felet är ParameterMissing eller ParameterInvalidValue är HTTP-status koden 400.<br/><br/>Om felet är HttpNotAllowed, HTTP-statuskod 410.
@@ -77,4 +77,4 @@ Blockerad|InvalidRequest. blockerad
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Använda och visa krav](./UseAndDisplayRequirements.md)
+> [Använda och visa krav](../bing-web-search/use-display-requirements.md)

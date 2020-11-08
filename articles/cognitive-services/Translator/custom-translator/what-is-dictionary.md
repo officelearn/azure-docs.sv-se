@@ -9,18 +9,18 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: f4c3d23f6abbdc20d210e5ddda6c527d27654bb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14ff76e090e628a880290bb0e9f90026260de0c7
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510767"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368992"
 ---
 # <a name="what-is-a-dictionary"></a>Vad är en ord lista?
 
 En ord lista är ett justerat par med dokument som anger en lista med fraser eller meningar och deras motsvarande översättningar. Använd en ord lista i din utbildning, om du vill att Microsoft Translator alltid ska översätta alla instanser av käll frasen eller meningen med den översättning som du har angett i ord listan. Ord listor kallas ibland Glossaries-eller term Bases. Du kan tänka på att ord listan är bruten "kopiera och Ersätt" för alla de termer som du har angett. Dessutom bygger tjänsten Microsoft Custom Translator och använder sina egna ord listor för allmän användning för att förbättra kvaliteten på översättningen. En kundanged ord lista tar dock överordnade och genomsöks först för att söka efter ord eller meningar.
 
-Ord listor fungerar bara för projekt i språk par som har en Microsoft General neurala-nätverks modell som stöds bakom dem. [Visa den fullständiga listan med språk](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
+Ord listor fungerar bara för projekt i språk par som har en Microsoft General neurala-nätverks modell som stöds bakom dem. [Visa den fullständiga listan med språk](../language-support.md#customization).
 
 ## <a name="phrase-dictionary"></a>Fras ord lista
 Fras ord listan är Skift läges känslig. Det är en exakt åtgärd för att söka och ersätta. När du inkluderar en fras ord lista i träna din modell, översätts alla ord eller fraser som visas på det sätt som du har angett. Resten av meningen översätts som vanligt. Du kan använda en fras ord lista för att ange fraser som inte ska översättas genom att tillhandahålla samma översättnings fras i käll-och mål filen i ord listan.

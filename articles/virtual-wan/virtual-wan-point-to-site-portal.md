@@ -5,36 +5,34 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 10/06/2020
+ms.date: 11/06/2020
 ms.author: cherylmc
-ms.openlocfilehash: 645d5beb19b738e2269c0ec9e5b84fb140c7deb8
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 0671e41703ecc4b8580c8439eec5bac954b4dbe0
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359514"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368839"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>Självstudie: skapa en VPN-anslutning för användare med Azure Virtual WAN
 
-I den här självstudien förklarar vi hur du använder Virtual WAN för att ansluta till dina resurser i Azure via en IPsec/IKE-anslutning (IKEv2) eller en OpenVPN VPN-anslutning. Den här typen av anslutning kräver att en klient konfigureras på klientdatorn. Mer information om virtuellt WAN finns i [Översikt över virtuella WAN-nätverk](virtual-wan-about.md)
+I den här självstudien förklarar vi hur du använder Virtual WAN för att ansluta till dina resurser i Azure via en IPsec/IKE-anslutning (IKEv2) eller en OpenVPN VPN-anslutning. Den här typen av anslutning kräver att VPN-klienten konfigureras på klient datorn. Mer information om virtuella WAN-nätverk finns i [översikten om virtuellt WAN](virtual-wan-about.md).
 
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Skapa WAN (Wide Area Network)
+> * Skapa ett virtuellt WAN
 > * Skapa en P2S-konfiguration
-> * Skapa en hubb
+> * Skapa en virtuell hubb
 > * Ange DNS-servrar
-> * Ladda ned en VPN-klient profil
+> * Generera och installera konfigurations paket för VPN-klient profil
 > * Visa virtuellt WAN
 
 ![Virtual WAN-diagram](./media/virtual-wan-about/virtualwanp2s.png)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Kontrollera att du har uppfyllt följande villkor innan du påbörjar konfigurationen:
-
-[!INCLUDE [Before you begin](../../includes/virtual-wan-before-include.md)]
+[!INCLUDE [Before beginning](../../includes/virtual-wan-before-include.md)]
 
 ## <a name="create-a-virtual-wan"></a><a name="wan"></a>Skapa ett virtuellt WAN
 
@@ -44,27 +42,27 @@ Kontrollera att du har uppfyllt följande villkor innan du påbörjar konfigurat
 
 En punkt-till-plats-konfiguration (P2S) definierar parametrar för att ansluta fjärrklienter.
 
-[!INCLUDE [Create client profiles](../../includes/virtual-wan-p2s-configuration-include.md)]
+[!INCLUDE [Create P2S configuration](../../includes/virtual-wan-p2s-configuration-include.md)]
 
-## <a name="create-hub-with-point-to-site-gateway"></a><a name="hub"></a>Skapa hubb med punkt-till-plats-Gateway
+## <a name="create-virtual-hub-and-gateway"></a><a name="hub"></a>Skapa virtuell hubb och gateway
 
 [!INCLUDE [Create hub](../../includes/virtual-wan-p2s-hub-include.md)]
 
 ## <a name="specify-dns-server"></a><a name="dns"></a>Ange DNS-Server
 
-Med VPN-gatewayer för virtuella WAN-användare kan du ange upp till fem DNS-servrar. Du kan konfigurera detta när du skapar hubben eller ändrar det vid ett senare tillfälle. Det gör du genom att leta upp den virtuella hubben. Under **användar-VPN (peka på plats)** , väljer du **Konfigurera** och anger DNS-serverns IP-adress (er) i den **anpassade DNS-** serverns text ruta (er).
+Du kan konfigurera den här inställningen när du skapar hubben, eller ändra den vid ett senare tillfälle. Du ändrar genom att leta upp den virtuella hubben. Under **användar-VPN (peka på plats)** , väljer du **Konfigurera** och anger DNS-serverns IP-adress (er) i den **anpassade DNS-** serverns text ruta (er). Du kan ange upp till fem DNS-servrar.
 
    :::image type="content" source="media/virtual-wan-point-to-site-portal/custom-dns.png" alt-text="anpassad DNS" lightbox="media/virtual-wan-point-to-site-portal/custom-dns-expand.png":::
 
-## <a name="download-vpn-profile"></a><a name="download"></a>Ladda ned VPN-profil
+## <a name="generate-and-install-client-profile-package"></a><a name="download"></a>Generera och installera klient profil paket
 
-Använd VPN-profilen för att konfigurera dina klienter.
+Generera profil paketet för VPN-klienten för att konfigurera VPN-klienter.
 
 [!INCLUDE [Download profile](../../includes/virtual-wan-p2s-download-profile-include.md)]
 
-### <a name="configure-user-vpn-clients"></a>Konfigurera användares VPN-klienter
+### <a name="configure-vpn-clients"></a>Konfigurera VPN-klienter
 
-Använd den nedladdade profilen för att konfigurera fjärråtkomstklienterna. Proceduren för varje operativ system är annorlunda, följ instruktionerna som gäller för systemet.
+Använd den hämtade profilen för att konfigurera VPN-klienter för fjärråtkomst. Proceduren för varje operativ system är annorlunda. Följ anvisningarna som gäller ditt system.
 
 [!INCLUDE [Configure clients](../../includes/virtual-wan-p2s-configure-clients-include.md)]
 

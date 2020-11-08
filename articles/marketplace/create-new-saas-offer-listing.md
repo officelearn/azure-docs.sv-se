@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 6884b0c5d351d5cca160a1e00e409397f21311ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6b3cac51ffd4ccd138994ac65b4f96b07816970
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89381265"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368703"
 ---
 # <a name="how-to-configure-your-saas-offer-listing-details"></a>Så här konfigurerar du din SaaS-lista med information om erbjudandet
 
@@ -24,24 +24,26 @@ Den information som du anger på sidan **erbjudande lista** för ditt SaaS-erbju
 
 ## <a name="marketplace-details"></a>Information om Marketplace
 
-På sidan **erbjudande lista** , under **Marketplace-information**, utför du följande steg. Om du vill veta mer om dessa uppgifter som krävs, se [erbjudande lista](plan-saas-offer.md#offer-listing-details).
+På sidan **erbjudande lista** , under **Marketplace-information** , utför du följande steg. Om du vill veta mer om dessa uppgifter som krävs, se [erbjudande lista](plan-azure-application-offer.md#offer-listing-details).
 
 1. Rutan **namn** är förifylld med det namn som du angav tidigare i dialog rutan  **nytt erbjudande** . Du kan ändra namnet när som helst.
 1. Ange upp till 50 tecken text i rutan **Sammanfattning av Sök Resultat** . Den här sammanfattningen används i Sök resultaten för Marketplace-listan.
 1. I rutan **Beskrivning** anger du en beskrivning för ditt erbjudande. Den här text rutan innehåller text redigerings kontroller som du kan använda för att göra din beskrivning mer engagerande. Du kan också använda HTML-taggar för att formatera beskrivningen. Du kan ange upp till 3 000 tecken text i den här rutan, inklusive HTML-kod och blank steg. Information om HTML-formatering finns [i HTML-taggar som stöds i de kommersiella erbjudandena för Marketplace-erbjudanden](supported-html-tags.md).
 1. I rutan **komma igång instruktioner** ger du instruktioner för att hjälpa kunder att ansluta till ditt SaaS-erbjudande. Du kan lägga till upp till 3 000 tecken med text och länkar till mer detaljerad onlinedokumentationen.
-1. Valfritt I rutorna **Sök Nyckelord** anger du upp till tre Sök nyckelord som kunder kan använda för att hitta ditt erbjudande i den kommersiella Marketplace. Du behöver inte inkludera erbjudandets **namn** och **Beskrivning**: den texten ingår automatiskt i sökningen.
+1. Valfritt I rutorna **Sök Nyckelord** anger du upp till tre Sök nyckelord som kunder kan använda för att hitta ditt erbjudande i den kommersiella Marketplace. Du behöver inte inkludera erbjudandets **namn** och **Beskrivning** : den texten ingår automatiskt i sökningen.
 1. I **länk rutan sekretess policy** anger du en länk (från och med https) till din organisations sekretess policy. Du är ansvarig för att se till att din app uppfyller sekretess lagar och föreskrifter och att tillhandahålla en giltig sekretess policy.
 
-## <a name="add-links-to-supplemental-online-documentation-optional"></a>Lägg till länkar till kompletterande onlinedokumentation (valfritt)
+## <a name="add-supplemental-links-optional"></a>Lägg till kompletterande länkar (valfritt)
 
-1. Om du vill lägga till valfria kompletterande online-dokument om din app eller relaterade tjänster väljer du **Lägg till en länk**under **användbara länkar**.
+Slutför de här stegen för att lägga till länkar till kompletterande onlinedokumentation.
+
+1. Om du vill lägga till valfria kompletterande online-dokument om din app eller relaterade tjänster väljer du **Lägg till en länk** under **användbara länkar**.
 1. I de fält som visas anger du en rubrik (upp till 255 tecken) och länken (från och med https) till online-dokumentet.
 1. Upprepa steg 1 till 2 om du vill ange en annan länk.
 
 ## <a name="enter-your-contact-information"></a>Ange din kontakt information
 
-Ange information för följande kontakter under **kontakt information**:
+Ange information för följande kontakter under **kontakt information** :
 
 - **Support kontakt**  (krävs) – för allmänna supportfrågor.
 - Teknisk **kontakt** (krävs) – för tekniska frågor. Vi kommer att använda den här informationen för att kontakta dig när det finns problem med erbjudandet, inklusive certifierings problem.
@@ -69,14 +71,14 @@ Du måste lägga till minst ett och högst tre marknadsförings dokument för di
 
 ### <a name="add-logos"></a>Lägg till logo typer
 
-Under **logo typer**överför du en **stor** logo typ i PNG-format mellan 216 x 216 och 350 x 350 bild punkter. Partner Center skapar automatiskt **små** (48 x 48) och **medium** (90 x 90) logo typer, som du kan ersätta senare om du vill.
+Under **logo typer** överför du en **stor** logo typ i PNG-format mellan 216 x 216 och 350 x 350 bild punkter. Partner Center skapar automatiskt **små** (48 x 48) och **medium** (90 x 90) logo typer, som du kan ersätta senare om du vill.
 
 Alla tre logo typernas storlekar används på olika platser i onlinebutiker.
 
 - **Medie** logo typen visas när du skapar en ny resurs i Microsoft Azure.
 - Den **stora** logo typen visas på sidan med din erbjudande lista i Azure Marketplace och Microsoft AppSource.
 - Den **lilla** logo typen visas i Sök resultaten för Azure Marketplace och på sidorna Microsoft AppSource huvud sida och Sök resultat.
-   
+
 ### <a name="add-screenshots"></a>Lägg till skärm bilder
 
 Du måste lägga till minst en och högst fem skärm bilder som demonstrerar ditt erbjudande. Alla bilder måste vara 1280 x 720 bild punkter i storlek och i. PNG-format.

@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: aahi
-ms.openlocfilehash: 38191c55afb87151b238069a75a6c86acd8904df
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a27f252f401d0fcf863391a0d45538b01b1141e9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100549"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367292"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Anropa din Anpassad sökning i Bing instans från portalen
 
@@ -31,7 +31,7 @@ När du har konfigurerat din anpassade Sök upplevelse kan du testa den från An
 
 När du har loggat in på Anpassad sökning i Bing- [portalen](https://customsearch.ai)väljer du din Sök instans och klickar på fliken **produktion** . Under **slut punkter** väljer du en API-slutpunkt (till exempel webb-API). Din prenumeration avgör vilka slut punkter som visas.
 
-Om du vill skapa en Sök fråga anger du parameter värden för slut punkten. Observera att parametrarna som visas i portalen kan ändras beroende på vilken slut punkt du väljer. Mer information finns i [referensen för API för anpassad sökning](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) . Om du vill ändra vilken prenumeration din Sök instans använder lägger du till rätt prenumerations nyckel och uppdaterar lämplig marknad och/eller språk parametrar.
+Om du vill skapa en Sök fråga anger du parameter värden för slut punkten. Observera att parametrarna som visas i portalen kan ändras beroende på vilken slut punkt du väljer. Mer information finns i [referensen för API för anpassad sökning](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) . Om du vill ändra vilken prenumeration din Sök instans använder lägger du till rätt prenumerations nyckel och uppdaterar lämplig marknad och/eller språk parametrar.
 
 Några viktiga parametrar är nedan:
 
@@ -65,4 +65,4 @@ Du kan ändra prenumerationen som är kopplad till din Anpassad sökning i Bing 
 - [Anropa din anpassade vy med NodeJs](./call-endpoint-nodejs.md)
 - [Anropa din anpassade vy med python](./call-endpoint-python.md)
 
-- [Anropa din anpassade vy med C# SDK](./sdk-csharp-quick-start.md)
+- [Anropa din anpassade vy med C# SDK](./quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)

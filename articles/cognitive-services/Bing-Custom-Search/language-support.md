@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: aahi
-ms.openlocfilehash: 3519c9d6a62eaff036cf8f7006a0b443383f5131
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2579d24e1a1754e873c6591b6d86ec12dd0dfa60
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090502"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367326"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Språk-och region stöd för API för anpassad Bing-sökning
 
@@ -26,11 +26,11 @@ ms.locfileid: "93090502"
 
 API för anpassad Bing-sökning har stöd för fler än tre dussin länder/regioner, många med fler än ett språk.
 
-Även om det är valfritt, bör begäran ange Frågeparametern [mkt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#mkt) , som identifierar den marknad där du vill att resultatet ska komma från. En lista med parametrar för valfria frågor finns i [frågeparametrar](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)
+Även om det är valfritt, bör begäran ange Frågeparametern [mkt](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#mkt) , som identifierar den marknad där du vill att resultatet ska komma från. En lista med parametrar för valfria frågor finns i [frågeparametrar](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)
 
 Du kan ange ett land/en region med hjälp av `cc` Frågeparametern. Om du anger ett land/en region måste du också ange en eller flera språk koder med hjälp av `Accept-Language` rubriken. Vilka språk som stöds varierar beroende på land/region; de anges för varje land/region i tabellen **marknad** .
 
-`Accept-Language`Rubriken och `setLang` frågeparametern är ömsesidigt uteslutande – ange inte båda. Mer information finns i [Accept-language](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#acceptlanguage).
+`Accept-Language`Rubriken och `setLang` frågeparametern är ömsesidigt uteslutande – ange inte båda. Mer information finns i [Accept-language](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#acceptlanguage).
 
 ## <a name="countriesregions"></a>Länder/regioner
 

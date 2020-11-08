@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 83a398b114a8bf0ac25d875e037208d775debc4b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4490142a278d5e724fade42e697d8cf2206c0da8
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077348"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367343"
 ---
 # <a name="what-is-the-bing-custom-search-api"></a>Vad är API:et för anpassad Bing-sökning?
 
@@ -50,16 +50,15 @@ Information om hur du kommer igång snabbt finns i [Create your first Bing Custo
 
 Mer information om hur du anpassar din sökinstans finns i [Define a custom search instance](define-your-custom-view.md) (Definiera en anpassad Sökinstans).
 
-Läs [Användnings- och visningskrav för Bing](./use-and-display-requirements.md) för att använda sökresultat i dina tjänster och appar.
+Läs [Användnings- och visningskrav för Bing](../bing-web-search/use-display-requirements.md) för att använda sökresultat i dina tjänster och appar.
 
-Gå till [sidan Bing-sökning API Hub](../bing-web-search/search-the-web.md) och utforska de andra tillgängliga API: erna.
+Gå till [sidan Bing-sökning API Hub](../bing-web-search/overview.md) och utforska de andra tillgängliga API: erna.
 
 Bekanta dig med referensinnehållet för var och en av slutpunkterna för anpassad sökning. Referensen innehåller de slutpunkter, rubriker och frågeparametrar som du använder för att begära sökresultat. Den omfattar även definitioner av svarsobjekten.
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
-- [API för anpassad sökning](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
-- [API för anpassad bild](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference)
-- [API för anpassad video](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference)
-- [API för anpassade automatiska förslag](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference)
-
+- [API för anpassad sökning](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
+- [API för anpassad bild](/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference)
+- [API för anpassad video](/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference)
+- [API för anpassade automatiska förslag](/rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference)

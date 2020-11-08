@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 449d57579b802191434cda3e63e103e5f3ef4bc5
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 64c449bdefe6fb067a7c0e26b155b58b6f00c399
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220881"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368295"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrera Hub-arbetsytan och projekt till anpassad översättare
 
@@ -27,7 +27,7 @@ De här åtgärderna utförs under migreringen:
 * BLEU-poängen som migreras från hubben i någon punkt finns i TrainingDetails-sidan i modellen i rubriken "Bleu score i MT Hub".
 
 > [!Note] 
-> För att en utbildning ska lyckas kräver anpassad översättare minst 10 000 unika extraherade meningar. Anpassad översättare kan inte utföra en utbildning med färre än det [föreslagna minimivärdet](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment#suggested-minimum-number-of-sentences).
+> För att en utbildning ska lyckas kräver anpassad översättare minst 10 000 unika extraherade meningar. Anpassad översättare kan inte utföra en utbildning med färre än det [föreslagna minimivärdet](./sentence-alignment.md#suggested-minimum-number-of-sentences).
 
 ## <a name="find-custom-translator-workspace-id"></a>Hitta anpassad Translator-arbetsyte-ID
 
@@ -122,7 +122,7 @@ Om du vill ha mer detaljerad migrering om dina projekt, utbildningar och dokumen
 * System med språk par som ännu inte är tillgängliga i en anpassad översättare är bara tillgängliga för att komma åt data eller avdistribuera via anpassad översättare. Dessa projekt kommer att markeras som "ej tillgängliga" på sidan projekt. När vi aktiverar nya språk par med anpassad översättare blir projekten aktiva för att träna och distribuera. 
 * Migrering av ett projekt från hubb till anpassad översättare påverkar inte dina nav eller projekt. Vi tar inte bort projekt eller dokument från hubben under en migrering och vi avinstallerar inte modeller.
 * Du får bara migrera en gång per projekt. Om du behöver upprepa en migrering i ett projekt kan du kontakta oss.
-* Anpassad översättare stöder NMT språk par till och från engelska. [Visa en fullständig lista över språk som stöds](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization). Hubben kräver inte bas linje modeller och stöder därför flera tusen språk. Du kan migrera ett språk par som inte stöds, men vi kommer bara att utföra migreringen av dokument och projekt definitioner. Vi kommer inte att kunna träna den nya modellen. Dessa dokument och projekt visas dessutom som inaktiva för att indikera att de inte kan användas för tillfället. Om support läggs till för de här projekten och/eller dokumenten blir de aktiva och kan tränas.
+* Anpassad översättare stöder NMT språk par till och från engelska. [Visa en fullständig lista över språk som stöds](../language-support.md#customization). Hubben kräver inte bas linje modeller och stöder därför flera tusen språk. Du kan migrera ett språk par som inte stöds, men vi kommer bara att utföra migreringen av dokument och projekt definitioner. Vi kommer inte att kunna träna den nya modellen. Dessa dokument och projekt visas dessutom som inaktiva för att indikera att de inte kan användas för tillfället. Om support läggs till för de här projekten och/eller dokumenten blir de aktiva och kan tränas.
 * Anpassad översättare stöder för närvarande inte monolingual inlärnings data. Precis som språk par som inte stöds kan du migrera monolingual-dokument, men de visas som inaktiva tills monolingual-data stöds.
 * Anpassad översättare kräver 10 000 parallella meningar för att träna. Microsoft Hub kan träna på en mindre uppsättning data. Om en utbildning migreras som inte uppfyller det här kravet, kommer den inte att tränas.
 
@@ -146,4 +146,4 @@ Om du är en community eller organisation som arbetar med att skapa ett nytt spr
 ## <a name="next-steps"></a>Nästa steg
 
 - [Träna en modell](how-to-train-model.md).
-- Börja använda din distribuerade anpassade översättnings modell via [Translator v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Börja använda din distribuerade anpassade översättnings modell via [Translator v3](../reference/v3-0-translate.md?tabs=curl).

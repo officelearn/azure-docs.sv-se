@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 0033f4919e4e4e5e56e4057e00c393ae7be1ca44
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: d5caa9b4168307bb27022b59415e43b37f30bf67
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090570"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367394"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Konfigurera värdbaserad UI-upplevelse
 
@@ -37,7 +37,7 @@ Följ dessa steg om du vill konfigurera ett värdbaserat användar gränssnitt f
   
 2. Välj din Anpassad sökning i Bing-instans.
 
-3. Klicka på fliken för **värdbaserat användargränssnitt** .  
+3. Klicka på fliken för **värdbaserat användargränssnitt**.  
   
 4. Välj en layout.
 
@@ -45,7 +45,7 @@ Följ dessa steg om du vill konfigurera ett värdbaserat användar gränssnitt f
     - Endast resultat: visar endast Sök resultat, utan en sökruta. När du använder den här layouten måste du ange Sök frågan ( `&q=<query string>` ). Lägg till frågeparametern i fråge-URL: en i JavaScript-kodfragmentet eller på HTML-slutpunktens länk.
     - Pop-on: innehåller en sökruta och visar Sök resultatet i ett glidande överlägg.
 
-5. Välj ett färgtema. Du kan anpassa färgerna så att de passar ditt program genom att klicka på **Anpassa tema** . Om du vill ändra en färg anger du antingen RGB HEX-värdet (till exempel) som färg `#366eb8` eller klickar på förhands visningen av färg.
+5. Välj ett färgtema. Du kan anpassa färgerna så att de passar ditt program genom att klicka på **Anpassa tema**. Om du vill ändra en färg anger du antingen RGB HEX-värdet (till exempel) som färg `#366eb8` eller klickar på förhands visningen av färg.
 
    Du kan förhandsgranska dina ändringar på höger sida av portalen. Om du klickar på **Återställ till standard** återställs dina ändringar till standard färgerna för det valda temat.
 
@@ -54,7 +54,7 @@ Följ dessa steg om du vill konfigurera ett värdbaserat användar gränssnitt f
 
 6. Under **ytterligare konfigurationer** anger du värden efter behov för din app. De här inställningarna är valfria. Information om hur du använder eller tar bort dem finns i förhands gransknings fönstret till höger. Tillgängliga konfigurations alternativ:  
 
-7. Ange Sök prenumerations nyckeln eller Välj en i list rutan. List rutan fylls i med nycklar från ditt Azure-kontos prenumerationer. Se [COGNITIVE Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).  
+7. Ange Sök prenumerations nyckeln eller Välj en i list rutan. List rutan fylls i med nycklar från ditt Azure-kontos prenumerationer. Se [COGNITIVE Services API-konto](../cognitive-services-apis-create-account.md).  
 
 8. Om du har aktiverat automatiska förslag anger du den automatiska förslags prenumerations nyckeln eller väljer en från List rutan. List rutan fylls i med nycklar från ditt Azure-kontos prenumerationer. Anpassad automatiska förslag kräver en speciell prenumerations nivå, se [prissättningen](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/).
 
@@ -82,7 +82,7 @@ Om du vill använda det värdbaserade gränssnittet kan du antingen:
   `https://ui.customsearch.ai/hosted?customConfig=YOUR-CUSTOM-CONFIG-ID`  
   
   > [!NOTE]
-  > Lägg till följande frågeparametrar i URL: en efter behov. Information om dessa parametrar finns [API för anpassad sökning](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) referens.
+  > Lägg till följande frågeparametrar i URL: en efter behov. Information om dessa parametrar finns [API för anpassad sökning](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) referens.
   >
   > - q
   > - mkt
@@ -115,7 +115,7 @@ Följande konfigurationer visas om du klickar på **Visa avancerade konfiguratio
 - Bild resultat har Aktiver ATS: avgör om bilds ökning är aktiverat (fliken bilder visas överst på sidan).
 - Bild resultat per sida: antal bilds öknings resultat som ska visas i taget (det högsta är 150 resultat per sida).
 
-Följande konfiguration visas om du klickar på **Visa avancerade konfigurationer** .  
+Följande konfiguration visas om du klickar på **Visa avancerade konfigurationer**.  
   
 - Aktivera filter: lägger till filter som användaren kan använda för att filtrera de bilder som Bing returnerar. Användaren kan till exempel filtrera resultaten enbart för animerade GIF-filer.
 
@@ -124,7 +124,7 @@ Följande konfiguration visas om du klickar på **Visa avancerade konfiguratione
 - Video resultat har Aktiver ATS: avgör om Videos ökning är aktiverat (fliken videor visas överst på sidan).
 - Video resultat per sida: antal video Sök resultat som ska visas i taget (det högsta är 150 resultat per sida).
 
-Följande konfiguration visas om du klickar på **Visa avancerade konfigurationer** .  
+Följande konfiguration visas om du klickar på **Visa avancerade konfigurationer**.  
   
 - Aktivera filter: lägger till filter som användaren kan använda för att filtrera videor som Bing returnerar. Användaren kan till exempel filtrera resultaten för videor med en bestämd upplösning eller videor som identifierats under de senaste 24 timmarna.
 
@@ -133,7 +133,7 @@ Följande konfiguration visas om du klickar på **Visa avancerade konfiguratione
 - Sid rubrik: text som visas i rubrik ytan på sidan Sök resultat (inte för popup-överlayout).
 - Verktygsfälts tema: anger bakgrunds färgen för rubrik ytan på Sök Resultat sidan.
 
-Följande konfigurationer visas om du klickar på **Visa avancerade konfigurationer** .  
+Följande konfigurationer visas om du klickar på **Visa avancerade konfigurationer**.  
 
 |Column1  |Column2  |
 |---------|---------|
@@ -153,4 +153,4 @@ Följande konfigurationer gäller bara om du använder det värdbaserade använd
 ## <a name="next-steps"></a>Nästa steg
 
 - [Använda dekorationsmarkörer för att markera text](../bing-web-search/hit-highlighting.md)
-- [Webbsidor för sida](./page-webpages.md)
+- [Webbsidor för sida](../bing-web-search/paging-search-results.md)

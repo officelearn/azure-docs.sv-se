@@ -11,12 +11,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: mbullwin
-ms.openlocfilehash: 8ef5d8e049ac4a779d5139945bf1073f38eb434c
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0982f89d59f2ef9a282a46a93b98801b9df00a40
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017666"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368720"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Självstudie: avvikelse identifiering vid strömmande data med Azure Databricks
 
@@ -47,7 +47,7 @@ Skapa en [Azure-prenumeration](https://azure.microsoft.com/free/cognitive-servic
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Ett [Azure Event Hubs-namnområde](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) och händelsehubben.
+- Ett [Azure Event Hubs-namnområde](../../../event-hubs/event-hubs-create.md) och händelsehubben.
 
 - [Anslutnings strängen](../../../event-hubs/event-hubs-get-connection-string.md) som används för att komma åt Event Hubs-namnrymden. Anslutnings strängen måste ha ett liknande format för att:
 
@@ -84,7 +84,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med hjälp av [Azur
 
 1. I Azure-portalen går du till Databricks-arbetsytan som du skapade. Välj sedan **Starta arbetsyta**.
 
-2. Du omdirigeras till Azure Databricks-portalen. Välj **nytt kluster**från portalen.
+2. Du omdirigeras till Azure Databricks-portalen. Välj **nytt kluster** från portalen.
 
     ![Databricks på Azure](../media/tutorials/databricks-on-azure.png "Databricks på Azure")
 
@@ -123,11 +123,11 @@ Spara de värden som du hämtade för Twitter-programmet. Du behöver dem senare
 
 I den här självstudien använder du Twitter-API:er för att skicka tweets till Event Hubs. Du använder också [Apache Spark Event Hubs-anslutningsprogram](https://github.com/Azure/azure-event-hubs-spark) för att läsa och skriva data till Azure Event Hubs. Använd dessa API:er som en del av klustret, lägg till dem som bibliotek i Azure Databricks och koppla dem sedan till ditt Spark-kluster. Följande instruktioner visar hur du lägger till biblioteken i den **delade** mappen på din arbets yta.
 
-1. I Azure Databricks-arbetsytan väljer du **Arbetsyta** och högerklickar sedan på **Delade**. Välj **skapa**  >  **bibliotek**på snabb menyn.
+1. I Azure Databricks-arbetsytan väljer du **Arbetsyta** och högerklickar sedan på **Delade**. Välj **skapa**  >  **bibliotek** på snabb menyn.
 
    ![Dialog rutan Lägg till bibliotek](../media/tutorials/databricks-add-library-option.png "Dialog rutan Lägg till bibliotek")
 
-2. På sidan nytt bibliotek för **källa** väljer du **maven**. För **koordinater**anger du koordinaten för det paket som du vill lägga till. Här är Maven-koordinaterna för de bibliotek som används i självstudien:
+2. På sidan nytt bibliotek för **källa** väljer du **maven**. För **koordinater** anger du koordinaten för det paket som du vill lägga till. Här är Maven-koordinaterna för de bibliotek som används i självstudien:
 
    * Spark Event Hubs-anslutningsprogram – `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
    * Twitter-API – `org.twitter4j:twitter4j-core:4.0.7`
@@ -176,7 +176,7 @@ I den här självstudien använder du [Azure Cognitive Services avvikelse igenk�
 
     ![Visa åtkomst nycklar](../media/tutorials/cognitive-services-get-access-keys.png "Visa åtkomst nycklar")
 
-6. Under **nycklar**väljer du kopierings ikonen mot den nyckel som du vill använda. Spara åtkomst nyckeln.
+6. Under **nycklar** väljer du kopierings ikonen mot den nyckel som du vill använda. Spara åtkomst nyckeln.
 
     ![Kopiera åtkomst nycklar](../media/tutorials/cognitive-services-copy-access-keys.png "Kopiera åtkomst nycklar")
 
@@ -554,7 +554,7 @@ Nu har du strömmat data från Azure Event Hubs till Azure Databricks nästan i 
 
 ## <a name="run-anomaly-detection-on-tweets"></a>Kör avvikelse identifiering på tweets
 
-I det här avsnittet ska du köra avvikelse identifiering på Tweets som tagits emot med hjälp av API: t för avvikelse identifiering. I det här avsnittet lägger du till kodfragmenten till samma **AnalyzeTweetsFromEventHub**-anteckningsbok.
+I det här avsnittet ska du köra avvikelse identifiering på Tweets som tagits emot med hjälp av API: t för avvikelse identifiering. I det här avsnittet lägger du till kodfragmenten till samma **AnalyzeTweetsFromEventHub** -anteckningsbok.
 
 För att utföra avvikelse identifiering måste du först aggregera ditt mått antal per timme.
 ```scala

@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: aahi
-ms.openlocfilehash: cad20f589bb5a6d3e73481081d9fe532381ab647
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fd1d9e708a5f1a500440f20c2947ddfe4bc7460
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827387"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368924"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-portal"></a>Snabb start: skapa en Cognitive Services resurs med hjälp av Azure Portal
 
@@ -56,7 +56,7 @@ Azure Cognitive Services är molnbaserade tjänster med REST API: er och SDK: er
 
     Använd länkarna nedan för att skapa en resurs för de tillgängliga Cognitive Services:
 
-    | Visuellt innehåll                      | Tal                  | Språk                          | Beslut             | Search                 |
+    | Visuellt innehåll                      | Tal                  | Språk                          | Beslut             | Sök                 |
     |-----------------------------|-------------------------|-----------------------------------|----------------------|------------------------|
     | [Dator vision](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)         | [Tal tjänster](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)     | [Avancerad läsare](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesImmersiveReader)              | [Avvikelseidentifiering](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) | [Bing-sökning API-v7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7) |
     | [Custom vision service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision) | [Talarigenkänning](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeakerRecognition) | [Language Understanding (LUIS)](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) | [Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) | [Anpassad sökning i Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) |
@@ -64,9 +64,9 @@ Azure Cognitive Services är molnbaserade tjänster med REST API: er och SDK: er
     | [Handskriftsigenkänning](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesInkRecognizer)        |                         | [Textanalys](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |  [Metrics Advisor](https://go.microsoft.com/fwlink/?linkid=2142156)                    | [Stavningskontroll i Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7)   |
     |           |                         | [Översättare](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)               |                      | [Automatiska förslag i Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7)                       |
 
-    ***
+    **_
 
-3. Ange följande information på sidan **skapa** :
+3. Ange följande information på sidan _ *skapa* *:
 
     #### <a name="multi-service-resource"></a>[Resurs för flera tjänster](#tab/multiservice)
 
@@ -96,13 +96,13 @@ Azure Cognitive Services är molnbaserade tjänster med REST API: er och SDK: er
 
     Klicka på **Skapa**.
 
-    ***
+    **_
 
 [!INCLUDE [Register Azure resource for subscription](./includes/register-resource-subscription.md)]
 
 ## <a name="get-the-keys-for-your-resource"></a>Hämta nycklar för din resurs
 
-1. När resursen har distribuerats klickar **du på gå till resurs** under **Nästa steg**.
+1. När resursen har distribuerats klickar du på _ *gå till resurs* * under **Nästa steg**.
 
     ![Sök efter Cognitive Services](media/cognitive-services-apis-create-account/resource-next-steps.png)
 
@@ -123,7 +123,7 @@ Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort 
 ## <a name="see-also"></a>Se även
 
 * [Autentisera begär anden till Azure Cognitive Services](authentication.md)
-* [Vad är Azure Cognitive Services?](Welcome.md)
+* [Vad är Azure Cognitive Services?](./what-are-cognitive-services.md)
 * [Skapa en ny resurs med hjälp av klient biblioteket för Azure-hantering](.\cognitive-services-apis-create-account-client-library.md)
 * [Stöd för naturligt språk](language-support.md)
 * [Stöd för Docker-behållare](cognitive-services-container-support.md)

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 11/04/2020
-ms.openlocfilehash: 7248c82882d32ae0eb225a9ec4c3b48dff3b9fcb
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.date: 11/06/2020
+ms.openlocfilehash: 7532366d533aa957525235511a1f29649d6f8828
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360045"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369228"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Information om begränsningar och konfiguration för Azure Logic Apps
 
@@ -137,13 +137,57 @@ Här är gränserna för en enda Logic app-definition:
 
 | Name | Gräns | Kommentarer |
 | ---- | ----- | ----- |
-| Åtgärd: körningar per 5 minuter | 100 000 är standard gränsen, men 300 000 är max gränsen. | Om du vill ändra standard gränsen läser du köra din Logi Kap par [i läget "hög genom strömning"](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), som finns i för hands version. Eller så kan du distribuera arbets belastningen i mer än en Logic app vid behov. |
+| Åtgärd: körningar per 5 minuter | 100 000 är standard gränsen, men 300 000 är max gränsen. | För att öka standard gränsen till maximalt för din Logic app, se [köra i högt data flödes läge](#run-high-throughput-mode), som finns i för hands version. Eller så kan du [distribuera arbets belastningen i mer än en Logic app](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) vid behov. |
 | Åtgärd: utgående utgående samtal | ~ 2 500 | Du kan minska antalet samtidiga förfrågningar eller minska varaktigheten om det behövs. |
 | Runtime-slutpunkt: samtidiga inkommande samtal | ~ 1 000 | Du kan minska antalet samtidiga förfrågningar eller minska varaktigheten om det behövs. |
 | Runtime-slutpunkt: Läs anrop per 5 minuter  | 60 000 | Den här gränsen gäller för anrop som hämtar rå data och utdata från en Logic Apps körnings historik. Du kan distribuera arbets belastningen i mer än en app vid behov. |
 | Runtime-slutpunkt: anropa anrop per 5 minuter | 45 000 | Du kan distribuera arbets belastningen i mer än en app vid behov. |
 | Innehålls data flöde per 5 minuter | 600 MB | Du kan distribuera arbets belastningen i mer än en app vid behov. |
 ||||
+
+<a name="run-high-throughput-mode"></a>
+
+#### <a name="run-in-high-throughput-mode"></a>Kör i högt data flödes läge
+
+För en enda Logic app-definition har antalet åtgärder som körs var 5: e minut en [standard gräns](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Om du vill öka standard gränsen till maximalt för din Logic-app kan du aktivera läget för hög data flöde, som finns i för hands version. Eller så kan du [distribuera arbets belastningen i mer än en Logic app](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) vid behov.
+
+1. I Azure Portal väljer du **arbets flödes inställningar** under **Inställningar** på din Logic app-meny.
+
+1. Under **körnings alternativ**  >  för **högt data flöde** ändrar du inställningen till **på**.
+
+   ![Skärm bild som visar Logic app-menyn i Azure Portal med "arbets flödes inställningar" och "högt data flöde" inställt på "on".](./media/logic-apps-limits-and-config/run-high-throughput-mode.png)
+
+Om du vill aktivera den här inställningen i en ARM-mall för att distribuera din Logic app, `properties` lägger du till `runtimeConfiguration` objektet med `operationOptions` egenskapen inställt på i objekt för din Logic Apps resurs definition `OptimizedForHighThroughput` :
+
+```json
+{
+   <template-properties>
+   "resources": [
+      // Start logic app resource definition
+      {
+         "properties": {
+            <logic-app-resource-definition-properties>,
+            <logic-app-workflow-definition>,
+            <more-logic-app-resource-definition-properties>,
+            "runtimeConfiguration": {
+               "operationOptions": "OptimizedForHighThroughput"
+            }
+         },
+         "name": "[parameters('LogicAppName')]",
+         "type": "Microsoft.Logic/workflows",
+         "location": "[parameters('LogicAppLocation')]",
+         "tags": {},
+         "apiVersion": "2016-06-01",
+         "dependsOn": [
+         ]
+      }
+      // End logic app resource definition
+   ],
+   "outputs": {}
+}
+```
+
+Mer information om din resurs definition för Logic app finns i [Översikt: Automatisera distribution av Azure Logic Apps med hjälp av Azure Resource Manager mallar](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#logic-app-resource-definition).
 
 ### <a name="integration-service-environment-ise"></a>Integrerings tjänst miljö (ISE)
 
@@ -190,7 +234,7 @@ Vissa kopplings åtgärder gör asynkrona anrop eller lyssnar efter webhook-beg�
 | Name | Gräns för flera innehavare | Miljö gräns för integrerings tjänst | Kommentarer |
 |------|--------------------|---------------------------------------|-------|
 | Meddelandestorlek | 100 MB | 200 MB | För att undvika den här gränsen, se [hantera stora meddelanden med segment](../logic-apps/logic-apps-handle-large-messages.md). Vissa anslutningar och API: er kanske inte stöder segment koppling eller till och med standard gränsen. <p><p>– Kopplingar som AS2, X12 och EDIFACT har egna [gränser för B2B-meddelanden](#b2b-protocol-limits). <br>– ISE-kopplingar använder ISE-gränsen, inte deras gränser som inte är ISE-anslutningsprogrammet. |
-| Meddelande storlek med segment | 1 GB | 5 GB | Den här gränsen gäller för åtgärder som antingen har inbyggt stöd för segmentering eller som låter dig aktivera segment i körnings konfigurationen. <p><p>Om du använder en ISE stöder Logic Apps motor den här gränsen, men kopplingarna har sina egna segment gränser upp till motor gränsen, till exempel, se [Azure-Blob Storage Connectors API-referens](/connectors/azureblob/). Mer information om segment finns i [hantera stora meddelanden med segment](../logic-apps/logic-apps-handle-large-messages.md). |
+| Meddelande storlek med segment | 1 GB | 5 GB | Den här gränsen gäller för åtgärder som antingen har inbyggt stöd för segmentering eller som låter dig aktivera segment i körnings konfigurationen. <p><p>Om du använder en ISE stöder Logic Apps motor den här gränsen, men kopplingarna har sina egna segment gränser upp till motor gränsen, till exempel, se [Azure-Blob Storage Connectors API-referens](/connectors/azureblob/). Mer information om segment finns i [hantera stora meddelanden med segment](../logic-apps/logic-apps-handle-large-messages.md). |
 |||||
 
 #### <a name="character-limits"></a>Character-gränser

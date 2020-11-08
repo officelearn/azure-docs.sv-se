@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/19/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 52efd103bf510e7cca8a1e4a1d682948b498d64c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1b0cac94ac3a0c8dff24cf154e4dd7ab7ddf4dd9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084858"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368431"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Snabb start: skicka en Sök förfrågan till Entitetssökning i Bing REST API med C #
 
@@ -43,8 +43,8 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
 
 1. Skapa en ny C#-konsollösning i Visual Studio. 
 1. Lägg till [Newtonsoft.Jsi](https://www.nuget.org/packages/Newtonsoft.Json/) NuGet-paketet.
-    1. Högerklicka på ditt projekt i **Solution Explorer** .
-    2. Välj **Hantera NuGet-paket** .
+    1. Högerklicka på ditt projekt i **Solution Explorer**.
+    2. Välj **Hantera NuGet-paket**.
     3. Sök efter och välj *Newtonsoft.Jspå* och installera sedan paketet.
 1. Lägg sedan till följande namn rymder i huvud kod filen:
     
@@ -185,4 +185,4 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [Skapa en enkelsidig webbapp](../tutorial-bing-entities-search-single-page-app.md)
 
 * [Vad är API för entitetsökning i Bing?](../overview.md )
-* [API för entitetsökning i Bing referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).
+* [API för entitetsökning i Bing referens](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

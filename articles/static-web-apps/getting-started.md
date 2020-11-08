@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: db3836e6171d187539b8615efcb5ab782c368020
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a78f74b4aadd26af141ed84ca99a092693f56af5
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88752647"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369570"
 ---
 # <a name="quickstart-building-your-first-static-web-app"></a>Snabb start: skapa din första statiska webbapp
 
@@ -44,27 +44,27 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt utvärder
 
 1. Placera musen över etiketten _Static Web Apps_ och välj **plustecknet**.
 
-    :::image type="content" source="media/getting-started/extension-create-button.png" alt-text="Azure-logotyp":::
+    :::image type="content" source="media/getting-started/extension-create-button.png" alt-text="Programnamn":::
 
 1. Kommandot palett visas längst upp i redigeraren och du blir ombedd att namnge ditt program.
 
     Skriv **min-första-statiska-webbapp** och tryck på **Retur**.
 
-    :::image type="content" source="media/getting-started/extension-create-app.png" alt-text="Azure-logotyp":::
+    :::image type="content" source="media/getting-started/extension-create-app.png" alt-text="Skapa en statisk webbapp":::
 
 1. Välj **huvud** grenen och tryck på **RETUR**.
 
-    :::image type="content" source="media/getting-started/extension-branch.png" alt-text="Azure-logotyp":::
+    :::image type="content" source="media/getting-started/extension-branch.png" alt-text="Namn på gren":::
 
 1. Välj **/** som plats för program koden och tryck på **RETUR**.
 
-    :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="Azure-logotyp":::
+    :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="Plats för programkod":::
 
 1. Tillägget söker efter API-platsen i ditt program. Den här artikeln implementerar inte ett API.
 
     Välj **Hoppa över för tillfället** och tryck på **Retur**.
 
-    :::image type="content" source="media/getting-started/extension-api-location.png" alt-text="Azure-logotyp":::
+    :::image type="content" source="media/getting-started/extension-api-location.png" alt-text="API-plats":::
 
 1. Välj den plats där filer skapas för produktion i din app.
 
@@ -72,39 +72,39 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt utvärder
 
     Avmarkera rutan och tryck på **RETUR**.
 
-    :::image type="content" source="media/getting-started/extension-artifact-no-framework.png" alt-text="Azure-logotyp":::
+    :::image type="content" source="media/getting-started/extension-artifact-no-framework.png" alt-text="Sökväg till app-filer":::
 
     # <a name="angular"></a>[Angular](#tab/angular)
 
     Skriv **förd/vinkel-Basic** och tryck på **RETUR**.
 
-    :::image type="content" source="media/getting-started/extension-artifact-angular.png" alt-text="Azure-logotyp":::
+    :::image type="content" source="media/getting-started/extension-artifact-angular.png" alt-text="Sökväg för Angular-appfiler":::
 
     # <a name="react"></a>[React](#tab/react)
 
     Skriv **build** och tryck på **Retur**.
 
-    :::image type="content" source="media/getting-started/extension-artifact-react.png" alt-text="Azure-logotyp":::
+    :::image type="content" source="media/getting-started/extension-artifact-react.png" alt-text="Sökväg för React-appfiler":::
 
     # <a name="vue"></a>[Vue](#tab/vue)
 
     Skriv **dist** och tryck på **Retur**.
 
-    :::image type="content" source="media/getting-started/extension-artifact-vue.png" alt-text="Azure-logotyp":::
+    :::image type="content" source="media/getting-started/extension-artifact-vue.png" alt-text="Sökväg för Vue-appfiler":::
 
     ---
 
 1. Välj platsen närmast dig och tryck på **Retur**.
 
-    :::image type="content" source="media/getting-started/extension-location.png" alt-text="Azure-logotyp":::
+    :::image type="content" source="media/getting-started/extension-location.png" alt-text="Resursplats":::
 
 1. När appen har skapats visas ett bekräftelsemeddelande i Visual Studio Code.
 
-    :::image type="content" source="media/getting-started/extension-confirmation.png" alt-text="Azure-logotyp":::
+    :::image type="content" source="media/getting-started/extension-confirmation.png" alt-text="Skapad bekräftelse":::
 
-1. I fönstret Visual Studio Code Explorer går du tillbaka till avsnittet _statisk Web Apps_ och högerklickar på **produktion** och väljer **Öppna i portalen** för att Visa appen i Azure Portal.
+1. I fönstret Visual Studio Code Explorer navigerar du till den nod som har ditt prenumerations namn och expanderar den. Observera att det kan ta några minuter innan distributionen har slutförts. Gå sedan tillbaka till avsnittet med den statiska Web Apps och välj namnet på din app och högerklicka sedan på min-första statiska webb-app och välj Öppna i portalen för att Visa appen i Azure Portal.
 
-    :::image type="content" source="media/getting-started/extension-open-in-portal.png" alt-text="Azure-logotyp":::
+    :::image type="content" source="media/getting-started/extension-open-in-portal.png" alt-text="Öppna Portal":::
 
 [!INCLUDE [view website](../../includes/static-web-apps-get-started-view-website.md)]
 
@@ -114,7 +114,7 @@ Om du inte kommer att fortsätta att använda det här programmet kan du ta bort
 
 I fönstret Visual Studio Code Explorer går du tillbaka till avsnittet för _statisk Web Apps_ och högerklickar på **min-första-statisk-Web-App** och väljer **ta bort**.
 
-:::image type="content" source="media/getting-started/extension-delete.png" alt-text="Azure-logotyp":::
+:::image type="content" source="media/getting-started/extension-delete.png" alt-text="Ta bort app":::
 
 ## <a name="next-steps"></a>Nästa steg
 

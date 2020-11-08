@@ -7,18 +7,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.openlocfilehash: 0b034d0135c66852b07e0a2ed2fd69e8c3fdc4a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96cca89b1206aaa7890648def694074a18b2aa17
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132848"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368873"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services och Machine Learning
 
 Cognitive Services tillhandahåller funktioner för maskin inlärning för att lösa allmänna problem, till exempel analys av text för känslomässig sentiment eller analys av bilder för att identifiera objekt eller ansikten. Du behöver inte ha några speciella kunskaper om maskininlärning eller datavetenskap för att använda de här tjänsterna. 
 
-[Cognitive Services](welcome.md) är en grupp tjänster, som var och en stöder olika, generaliserade förutsägelse funktioner. Tjänsterna är indelade i olika kategorier för att hjälpa dig att hitta rätt tjänst. 
+[Cognitive Services](./what-are-cognitive-services.md) är en grupp tjänster, som var och en stöder olika, generaliserade förutsägelse funktioner. Tjänsterna är indelade i olika kategorier för att hjälpa dig att hitta rätt tjänst. 
 
 |Tjänste kategori|Syfte|
 |--|--|
@@ -44,7 +44,7 @@ Machine Learning är ett koncept där du kan samla data och en algoritm för att
 
 Processen för att skapa ett Machine Learning-system kräver viss kunskap om Machine Learning eller data vetenskap.
 
-Maskin inlärning tillhandahålls med hjälp av [Azure Machine Learning (AML)-produkter och-tjänster](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context).
+Maskin inlärning tillhandahålls med hjälp av [Azure Machine Learning (AML)-produkter och-tjänster](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure%252fmachine-learning%252fstudio%252fcontext%252fml-context).
 
 ## <a name="what-is-a-cognitive-service"></a>Vad är en kognitiv tjänst?
 
@@ -91,9 +91,9 @@ Följande data kategoriserar varje tjänst enligt vilken typ av data den tillåt
 |--|--|--|--|
 |[Avvikelseidentifiering](./Anomaly-Detector/overview.md)|x|x|x|
 |Bing Search |x|||
-|[Visuellt innehåll](./Computer-vision/Home.md)|x|||
+|[Visuellt innehåll](./computer-vision/overview.md)|x|||
 |[Content Moderator](./Content-Moderator/overview.md)|x||x|
-|[Custom Vision](./Custom-Vision-Service/home.md)||x||
+|[Custom Vision](./custom-vision-service/overview.md)||x||
 |[Ansiktsigenkänning](./Face/Overview.md)|x|x||
 |[Formigenkänning](./form-recognizer/overview.md)||x||
 |[Avancerad läsare](./immersive-reader/overview.md)|x|||
@@ -101,10 +101,10 @@ Följande data kategoriserar varje tjänst enligt vilken typ av data den tillåt
 |[Language Understanding (LUIS)](./LUIS/what-is-luis.md)||x||
 |[Personanpassning](./personalizer/what-is-personalizer.md)|röntgen|röntgen|x|
 |[QnA Maker](./QnAMaker/Overview/overview.md)||x||
-|[Högtalar tolk](./speaker-recognition/home.md)||x||
+|[Högtalar tolk](./speech-service/speaker-recognition-overview.md)||x||
 |[Tal text till tal (TTS)](speech-service/text-to-speech.md)|x|x||
 |[Tal-till-text (STT)](speech-service/speech-to-text.md)|x|x||
-|[Tal Översättning](speech-service/speech-translation.md)|x|||
+|[Talöversättning](speech-service/speech-translation.md)|x|||
 |[Textanalys](./text-analytics/overview.md)|x|||
 |[Översättare](./translator/translator-info-overview.md)|x|||
 |[Translator-anpassad översättare](./translator/custom-translator/overview.md)||x||
@@ -127,16 +127,16 @@ Cognitive Services som innehåller exporterade modeller för andra Machine Learn
 
 |Kognitiv tjänst|Modell information|
 |--|--|
-|[Custom Vision](./custom-vision-service/home.md)|[Exportera](./Custom-Vision-Service/export-model-python.md) för Tensorflow för Android, CoreML för IOS11, ONNX för Windows ml|
+|[Custom Vision](./custom-vision-service/overview.md)|[Exportera](./Custom-Vision-Service/export-model-python.md) för Tensorflow för Android, CoreML för IOS11, ONNX för Windows ml|
 
 ## <a name="learn-more"></a>Läs mer
 
-* [Arkitektur guide – vilka är Machine Learning-produkter på Microsoft?](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
+* [Arkitektur guide – vilka är Machine Learning-produkter på Microsoft?](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
 * [Maskin inlärning – introduktion till djup inlärning jämfört med Machine Learning](../machine-learning/concept-deep-learning-vs-machine-learning.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Skapa ett kognitivt tjänst konto i [Azure Portal](cognitive-services-apis-create-account.md) eller med [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli).
+* Skapa ett kognitivt tjänst konto i [Azure Portal](cognitive-services-apis-create-account.md) eller med [Azure CLI](./cognitive-services-apis-create-account-cli.md).
 * Lär dig hur du [autentiserar](authentication.md) till en kognitiv tjänst.
 * Använd [diagnostisk loggning](diagnostic-logging.md) för problem identifiering och fel sökning. 
 * Distribuera en kognitiv tjänst i en Docker- [behållare](cognitive-services-container-support.md).

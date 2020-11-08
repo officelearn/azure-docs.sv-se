@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/24/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 13e094b0f5d59e070a96ab4b45dcd37315c46c60
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ca1c18fd1ea8507c8b6a58b5f786b9686b1f3a34
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91327380"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369092"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-javascript"></a>Snabb start: identifiera digitalt bläck med hand SKRIFTS tolken REST API och Java Script
 
@@ -167,7 +167,7 @@ Det här programmet kan köras i webbläsaren. Ett lyckat svar returneras i JSON
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Referens för REST-API](https://go.microsoft.com/fwlink/?linkid=2089907)
+> [Referens för REST-API](/rest/api/cognitiveservices/inkrecognizer/inkrecognizer)
 
 Ta en titt på följande exempel program på GitHub för att se hur API: et för färg igenkänning fungerar i en digital inkungs app:
 * [C# och Universal Windows-plattform (UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  

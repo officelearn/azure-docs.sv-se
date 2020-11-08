@@ -10,18 +10,18 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 8d49d9b9d29116d95173c1daf5133622c3694de6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95cb4aa5827190abf125669f2423c808cf8c92a5
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86524003"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368941"
 ---
 # <a name="customize-your-text-translations"></a>Anpassa dina text översättningar
 
 Den anpassade översättaren är en funktion i Translator-tjänsten, vilket gör att användare kan anpassa Microsoft translators avancerade neurala för maskin översättning vid översättning av text med hjälp av Translator (endast version 3).
 
-Funktionen kan också användas för att anpassa tal översättning när den används med [Cognitive Services tal](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
+Funktionen kan också användas för att anpassa tal översättning när den används med [Cognitive Services tal](../speech-service/index.yml).
 
 ## <a name="custom-translator"></a>Custom Translator
 
@@ -37,7 +37,7 @@ Det anpassade systemet är sedan tillgängligt via ett vanligt anrop till Transl
 
 Med hänsyn till lämplig typ och mängd av utbildnings data är det inte ovanligt att förväntas vinster mellan 5 och 10, eller till och med fler BLEU punkter om översättnings kvalitet med hjälp av anpassad översättare.
 
-Mer information om olika anpassnings nivåer som baseras på tillgängliga data finns i [användar handboken för anpassad översättare](https://aka.ms/CustomTranslatorDocs).
+Mer information om olika anpassnings nivåer som baseras på tillgängliga data finns i [användar handboken för anpassad översättare](./custom-translator/overview.md).
 
 
 ## <a name="microsoft-translator-hub"></a>Microsoft Translator-hubb
@@ -64,4 +64,4 @@ Mer information om olika anpassnings nivåer som baseras på tillgängliga data 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Konfigurera ett anpassat språk system med anpassad översättare](https://aka.ms/CustomTranslatorDocs)
+> [Konfigurera ett anpassat språk system med anpassad översättare](./custom-translator/overview.md)

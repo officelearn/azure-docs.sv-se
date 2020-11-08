@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: aahi
-ms.openlocfilehash: 331b2ffde8d034ba94f5b1adcae5efa223f57594
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e8a8b843345d21d38c11789b09003a4b82f768f5
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095126"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369502"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Skicka Sök frågor till API för visuell sökning i Bing
 
@@ -28,7 +28,7 @@ I den här artikeln beskrivs parametrarna och attributen för begär Anden som s
 
 Du kan få insikter om en bild på tre sätt:
 
-- Med hjälp av en insikts-token som du hämtar från en avbildning i ett tidigare anrop till en av [API för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) slut punkterna.
+- Med hjälp av en insikts-token som du hämtar från en avbildning i ett tidigare anrop till en av [API för bildsökning i Bing](/rest/api/cognitiveservices/bing-images-api-v7-reference) slut punkterna.
 - Skickar URL: en för en bild.
 - Laddar upp en bild (i binärformat).
 
@@ -78,7 +78,7 @@ Begäranden måste skickas som HTTP POST-begäranden.
 
 Här följer frågeparametrarna som din begäran bör ange. Du bör minst ta med `mkt` Frågeparametern:
 
-| Namn | Värde | Typ | Obligatorisk |
+| Name | Värde | Typ | Obligatorisk |
 | --- | --- | --- | --- |
 | <a name="cc"></a>cc  | En landskod med två tecken som representerar var resultatet kommer från.<br /><br /> Om du anger parametern måste du även ange huvudet [Accept-Language](#acceptlanguage). Bing använder det första språket som stöds på listan över språk och kombinerar språket med landskoden som du anger för att fastställa vilken marknad som resultatet som returneras från. Om listan över språk inte innehåller något språk som stöds hittar Bing det närmaste språket och marknaden som har stöd för begäran. Eller så kan den använda en sammansatt eller standardmarknad för resultatet i stället för den angivna.<br /><br /> Du bör endast använda den här frågeparametern och `Accept-Language`-frågeparametern om du anger flera språk. I annat fall bör du använda frågeparametrarna `mkt` och `setLang`.<br /><br /> Den här parametern och [mkt](#mkt)-frågeparametern utesluter varandra&mdash;ange inte båda två. | Sträng | No       |
 | <a name="mkt"></a>mkt   | Marknaden som resultatet kommer från. <br /><br /> **Obs:** Du bör alltid ange marknaden, om det är känt. Om du anger marknaden gör det enklare för Bing att dirigera begäran och returnera ett lämpligt och optimalt svar.<br /><br /> Den här parametern och [cc](#cc)-frågeparametern utesluter varandra&mdash;ange inte båda två. | Sträng | Yes      |
@@ -89,7 +89,7 @@ Här följer frågeparametrarna som din begäran bör ange. Du bör minst ta med
 
 Här följer huvudena som din begäran bör ange. `Content-Type` `Ocp-Apim-Subscription-Key` Rubrikerna och är de enda huvuden som krävs, men du bör även inkludera `User-Agent` , `X-MSEdge-ClientID` , `X-MSEdge-ClientIP` och `X-Search-Location` .
 
-| Sidhuvud | Beskrivning |
+| Sidhuvud | Description |
 | --- | --- |
 | <a name="acceptlanguage"></a>Accept-Language  | Valfritt begärandehuvud.<br /><br /> En kommaavgränsad lista över språk som ska användas för användargränssnittssträngar. Listan är i fallande prioritetsordning. Mer information, bland annat om det förväntade formatet, finns i [RFC2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Det är huvudet och [setLang](#setlang)-frågeparametern utesluter varandra&mdash;ange inte båda två.<br /><br /> Om du anger huvudet måste du även ange frågeparametern [cc](#cc). För att fastställa vilken marknad som resultat ska returneras för använder Bing det första språk som stöds på listan och kombinerar det med parametervärdet `cc`. Om listan inte innehåller något språk som stöds hittar Bing det närmaste språket och marknaden som har stöd för begäran, eller så använder Bing en aggregerad eller standardmarknad för resultatet. Se rubriken för att fastställa på vilken marknad Bing används `BingAPIs-Market` .<br /><br /> Använd enbart det här huvudet och `cc`-frågeparametern om du anger flera språk. Annars kan du använda frågeparametrarna [mkt](#mkt) och [setLang](#setlang).<br /><br /> En användargränssnittssträng är en sträng som används som en etikett i ett användargränssnitt. Det finns några användargränssnittssträngar i JSON-svarsobjekt. Alla länkar till Bing.com-egenskaper i svarsobjekten använder det angivna språket.  |
 | <a name="contenttype"></a>Content-Type  |     |
@@ -109,7 +109,7 @@ Här följer huvudena som din begäran bör ange. `Content-Type` `Ocp-Apim-Subsc
 
 ### <a name="content-form-types"></a>Typer av innehållsformulär
 
-Varje begäran måste innehålla `Content-Type` rubriken. Huvudet måste vara inställt på: `multipart/form-data; boundary=\<boundary string\>` , där \<boundary string\> är en unik, ogenomskinlig sträng som identifierar gränserna för formulär data. Till exempel `boundary=boundary_1234-abcd`.
+Varje begäran måste innehålla `Content-Type` rubriken. Huvudet måste vara inställt på: `multipart/form-data; boundary=\<boundary string\>` , där \<boundary string\> är en unik, ogenomskinlig sträng som identifierar gränserna för formulär data. Exempelvis `boundary=boundary_1234-abcd`.
 
 Om du skickar Visuell sökning en bildtoken eller URL, visar följande fragment de formulär data som du måste inkludera i POSTens brödtext. Formulär data måste innehålla `Content-Disposition` rubriken och du måste ange dess `name` parameter till "knowledgeRequest". Mer information om `imageInfo` objektet finns i begäran.
 

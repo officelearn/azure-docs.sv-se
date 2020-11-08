@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 57edc16f4396e0fe71380d4f51fa9e0dcca1ef03
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 52819caeb833eb475c8ea2c476ef5ba27681a50c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090825"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367564"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Konfigurera din Anpassad sökning i Bing upplevelse
 
@@ -30,9 +30,9 @@ Med portalen kan du skapa en Sök instans som anger webb sektorerna: domäner, u
 
 Använd följande när du definierar dina segment på webben:
 
-| Segment namn | Beskrivning                                                                                                                                                                                                                                                                                                |
+| Segment namn | Description                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain     | En domän sektor inkluderar allt innehåll som finns i en Internet domän. Till exempel `www.microsoft.com`. Om `www.` du utelämnar Bing genomsöks även domänens under domäner. Om du till exempel anger `microsoft.com` , returnerar Bing även resultat från `support.microsoft.com` eller `technet.microsoft.com` . |
+| Domain     | En domän sektor inkluderar allt innehåll som finns i en Internet domän. Exempelvis `www.microsoft.com`. Om `www.` du utelämnar Bing genomsöks även domänens under domäner. Om du till exempel anger `microsoft.com` , returnerar Bing även resultat från `support.microsoft.com` eller `technet.microsoft.com` . |
 | Undersida    | En subpage-sektor innehåller allt innehåll som finns på undersidan och Sök vägarna under det. Du kan ange högst två under sidor i sökvägen. Till exempel `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | Historik    | En webb sidas sektor kan bara innehålla den webb sidan i en anpassad sökning. Du kan också ange om du vill inkludera under sidor.                                                                                                                                                                                  |
 
@@ -79,16 +79,16 @@ När du har lagt till WebSlices i den **aktiva** listan genererar anpassad sökn
 
 ## <a name="search-for-images-and-videos"></a>Sök efter bilder och videor
 
-Du kan söka efter bilder och videor på samma sätt som webb innehåll med hjälp av [anpassade bildsökning-API: t för Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) eller [Bing anpassad videosökning API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference). Du kan visa dessa resultat med det [värdbaserade användar gränssnittet](hosted-ui.md)eller API: erna. 
+Du kan söka efter bilder och videor på samma sätt som webb innehåll med hjälp av [anpassade bildsökning-API: t för Bing](/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) eller [Bing anpassad videosökning API](/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference). Du kan visa dessa resultat med det [värdbaserade användar gränssnittet](hosted-ui.md)eller API: erna. 
 
-Dessa API: er liknar de icke-anpassade [bildsökning i Bing](../Bing-Image-Search/overview.md) -och [videosökning i Bing](../Bing-Video-Search/search-the-web.md) -API: erna, men du kan inte använda Frågeparametern för att söka igenom hela webbplatsen `customConfig` . Se dessa dokumentations uppsättningar för mer information om hur du arbetar med bilder och videor. 
+Dessa API: er liknar de icke-anpassade [bildsökning i Bing](../Bing-Image-Search/overview.md) -och [videosökning i Bing](../bing-video-search/overview.md) -API: erna, men du kan inte använda Frågeparametern för att söka igenom hela webbplatsen `customConfig` . Se dessa dokumentations uppsättningar för mer information om hur du arbetar med bilder och videor. 
 
 ## <a name="test-your-search-instance-with-the-preview-pane"></a>Testa din Sök instans med förhands gransknings fönstret
 
 Du kan testa din Sök instans genom att använda förhands gransknings fönstret på portalens högra sida för att skicka Sök frågor och visa resultatet. 
 
-1. Under sökrutan väljer du **min instans** . Du kan jämföra resultatet från din Sök upplevelse till Bing genom att välja **Bing** . 
-2. Välj ett säkert Sök filter och vilken marknad du vill söka efter (se [frågeparametrar](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)).
+1. Under sökrutan väljer du **min instans**. Du kan jämföra resultatet från din Sök upplevelse till Bing genom att välja **Bing**. 
+2. Välj ett säkert Sök filter och vilken marknad du vill söka efter (se [frågeparametrar](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)).
 3. Ange en fråga och tryck på RETUR eller klicka på Sök ikonen för att visa resultatet från den aktuella konfigurationen. Du kan ändra Sök typen som du utför genom att klicka på **webb** , **bild** eller **video** för att få motsvarande resultat. 
 
 <a name="adjustrank"></a>
@@ -97,7 +97,7 @@ Du kan testa din Sök instans genom att använda förhands gransknings fönstret
 
 På portalen kan du justera Sök rangordningen för innehåll från vissa domäner, under sidor och på webb sidor. När du har skickat en Sök fråga i förhands gransknings fönstret innehåller varje Sök resultat en lista över justeringar som du kan göra för den:  
 
-| Justering | Beskrivning |
+| Justering | Description |
 |------------|-------------|
 | Blockera      | Flyttar domänen, under sidan eller webb sidan till den blockerade listan. Bing kommer att undanta innehåll från den valda webbplatsen från att visas i Sök resultaten.                    |
 | Stärka      | Ökar innehållet från domänen eller under sidan som ska vara högre i Sök resultaten.                                                                                        |
@@ -125,7 +125,7 @@ Du kan fästa en webb sida överst på två sätt:
 
 * På fliken **Fäst** anger du webb adressen till webb sidan som ska fästas överst och dess motsvarande fråga.
 
-* I **förhands gransknings** fönstret anger du en Sök fråga och klickar på Sök. Hitta den webb sida som du vill fästa för din fråga och klicka på **Fäst överst** . webb sidan och frågan kommer att läggas till i den **fästa** listan.
+* I **förhands gransknings** fönstret anger du en Sök fråga och klickar på Sök. Hitta den webb sida som du vill fästa för din fråga och klicka på **Fäst överst**. webb sidan och frågan kommer att läggas till i den **fästa** listan.
 
 ### <a name="specify-the-pins-match-condition"></a>Ange PIN-kodens matchnings villkor
 
@@ -165,4 +165,4 @@ Om du prenumererar på Anpassad sökning på lämplig nivå (se sidan med [prise
 - [Anropa din anpassade sökning](./search-your-custom-view.md)
 - [Konfigurera värdbaserad UI-upplevelse](./hosted-ui.md)
 - [Använda dekorationsmarkörer för att markera text](../bing-web-search/hit-highlighting.md)
-- [Webbsidor för sida](./page-webpages.md)
+- [Webbsidor för sida](../bing-web-search/paging-search-results.md)

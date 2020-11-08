@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: aahi
-ms.openlocfilehash: d320fcd0b7f9666da39dd1208efd9cdec04ad6b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f79cfce514b81c5829ee7791c18e24d3bc6563b5
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843149"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369383"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Konfigurera virtuella nätverk för Azure Cognitive Services
 
@@ -75,7 +75,7 @@ Som standard accepterar Cognitive Services-resurser anslutningar från klienter 
 
 Du kan hantera standard regler för nätverks åtkomst för Cognitive Services resurser via Azure Portal, PowerShell eller Azure CLI.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
 
 1. Gå till den Cognitive Services resurs som du vill skydda.
 
@@ -154,7 +154,7 @@ Du kan hantera standard regler för nätverks åtkomst för Cognitive Services r
         --default-action Allow
     ```
 
-***
+**_
 
 ## <a name="grant-access-from-a-virtual-network"></a>Bevilja åtkomst från ett virtuellt nätverk
 
@@ -166,7 +166,7 @@ Varje Cognitive Services-resurs har stöd för upp till 100 virtuella nätverks 
 
 ### <a name="required-permissions"></a>Behörigheter som krävs
 
-Om du vill tillämpa en virtuell nätverks regel på en Cognitive Services resurs måste användaren ha rätt behörighet för de undernät som läggs till. Den behörighet som krävs är standard *deltagar* rollen eller rollen *Cognitive Services Contributor* . Nödvändiga behörigheter kan också läggas till i anpassade roll definitioner.
+Om du vill tillämpa en virtuell nätverks regel på en Cognitive Services resurs måste användaren ha rätt behörighet för de undernät som läggs till. Den nödvändiga behörigheten är standard _Contributor *-rollen eller rollen *Cognitive Services Contributor* . Nödvändiga behörigheter kan också läggas till i anpassade roll definitioner.
 
 Cognitive Services resurs och de virtuella nätverk som beviljats åtkomst kan finnas i olika prenumerationer, inklusive prenumerationer som ingår i en annan Azure AD-klient.
 
@@ -177,7 +177,7 @@ Cognitive Services resurs och de virtuella nätverk som beviljats åtkomst kan f
 
 Du kan hantera virtuella nätverks regler för Cognitive Services resurser via Azure Portal, PowerShell eller Azure CLI.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
 
 1. Gå till den Cognitive Services resurs som du vill skydda.
 
@@ -185,7 +185,7 @@ Du kan hantera virtuella nätverks regler för Cognitive Services resurser via A
 
 1. Kontrol lera att du har valt att tillåta åtkomst från **valda nätverk**.
 
-1. Om du vill bevilja åtkomst till ett virtuellt nätverk med en befintlig nätverks regel väljer du **Lägg till befintligt virtuellt nätverk**under **virtuella nätverk**.
+1. Om du vill bevilja åtkomst till ett virtuellt nätverk med en befintlig nätverks regel väljer du **Lägg till befintligt virtuellt nätverk** under **virtuella nätverk**.
 
    ![Lägg till befintligt vNet](media/vnet/virtual-network-add-existing.png)
 
@@ -322,10 +322,10 @@ Du kan hantera virtuella nätverks regler för Cognitive Services resurser via A
         --subnet $subnetid
     ```
 
-***
+**_
 
 > [!IMPORTANT]
-> Se till att [Ange standard regeln](#change-the-default-network-access-rule) för **neka**eller att nätverks regler inte har någon påverkan.
+> Var noga med att [ställa in standard regeln](#change-the-default-network-access-rule) på _ * neka * * eller nätverks regler har ingen påverkan.
 
 ## <a name="grant-access-from-an-internet-ip-range"></a>Bevilja åtkomst från ett IP-intervall på internet
 
@@ -353,7 +353,7 @@ Om du använder [ExpressRoute](../expressroute/expressroute-introduction.md) lok
 
 Du kan hantera IP-nätverks regler för Cognitive Services resurser via Azure Portal, PowerShell eller Azure CLI.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
 
 1. Gå till den Cognitive Services resurs som du vill skydda.
 
@@ -472,10 +472,10 @@ Du kan hantera IP-nätverks regler för Cognitive Services resurser via Azure Po
         --ip-address "16.17.18.0/24"
     ```
 
-***
+**_
 
 > [!IMPORTANT]
-> Se till att [Ange standard regeln](#change-the-default-network-access-rule) för **neka**eller att nätverks regler inte har någon påverkan.
+> Var noga med att [ställa in standard regeln](#change-the-default-network-access-rule) på _ * neka * * eller nätverks regler har ingen påverkan.
 
 ## <a name="use-private-endpoints"></a>Använda privata slutpunkter
 
@@ -497,7 +497,7 @@ Privata slut punkter kan skapas i undernät som använder [tjänst slut punkter]
 
 När du skapar en privat slut punkt för en Cognitive Services-resurs i ditt VNet, skickas en begäran om godkännande till Cognitive Services resurs ägare. Om användaren som begär att den privata slut punkten ska skapas även är ägare till resursen, godkänns den här medgivande förfrågningen automatiskt.
 
-Cognitive Services resurs ägare kan hantera medgivande förfrågningar och privata slut punkter via fliken "*privata slut punkter*" för resursen Cognitive Services i [Azure Portal](https://portal.azure.com).
+Cognitive Services resurs ägare kan hantera medgivande förfrågningar och privata slut punkter via fliken " *privata slut punkter* " för resursen Cognitive Services i [Azure Portal](https://portal.azure.com).
 
 ### <a name="private-endpoints"></a>Privata slut punkter
 
@@ -519,7 +519,7 @@ När du använder privata slut punkter med tal tjänsten måste du använda en a
 
 ### <a name="dns-changes-for-private-endpoints"></a>DNS-ändringar för privata slut punkter
 
-När du skapar en privat slut punkt uppdateras DNS CNAME-resursposten för Cognitive Services resursen till ett alias i en under domän med prefixet "*privatelink*". Som standard skapar vi också en [privat DNS-zon](../dns/private-dns-overview.md)som motsvarar under domänen "*privatelink*" med DNS a-resursposter för de privata slut punkterna.
+När du skapar en privat slut punkt uppdateras DNS CNAME-resursposten för Cognitive Services resursen till ett alias i en under domän med prefixet " *privatelink* ". Som standard skapar vi också en [privat DNS-zon](../dns/private-dns-overview.md)som motsvarar under domänen " *privatelink* " med DNS a-resursposter för de privata slut punkterna.
 
 När du löser slut punkts-URL: en från utanför VNet med den privata slut punkten matchas den offentliga slut punkten för Cognitive Services resursen. Vid matchning från det VNet som är värd för den privata slut punkten matchas slut punktens URL till den privata slut punktens IP-adress.
 
@@ -532,8 +532,8 @@ Om du använder en anpassad DNS-server i nätverket måste klienterna kunna matc
 
 Mer information om hur du konfigurerar en egen DNS-server för att stödja privata slut punkter finns i följande artiklar:
 
-* [Namnmatchning för resurser i virtuella nätverk i Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-* [DNS-konfiguration för privata slut punkter](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
+* [Namnmatchning för resurser i virtuella nätverk i Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
+* [DNS-konfiguration för privata slut punkter](../private-link/private-endpoint-overview.md#dns-configuration)
 
 ### <a name="pricing"></a>Prissättning
 
@@ -541,5 +541,5 @@ Pris information finns i [priser för privata Azure-länkar](https://azure.micro
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Utforska de olika [Azure-Cognitive Services](welcome.md)
+* Utforska de olika [Azure-Cognitive Services](./what-are-cognitive-services.md)
 * Läs mer om [Azure Virtual Network-tjänstens slut punkter](../virtual-network/virtual-network-service-endpoints-overview.md)

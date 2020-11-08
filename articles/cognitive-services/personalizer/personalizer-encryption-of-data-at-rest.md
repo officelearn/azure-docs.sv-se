@@ -9,12 +9,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: a19f0a204bec1c0a43a84d93c2dc4b70ef6ecbe6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a27199930587c1a096dd99462ebd0c9d65054ee
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89069928"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369366"
 ---
 # <a name="personalizer-service-encryption-of-data-at-rest"></a>Tjänst kryptering av data i vila
 
@@ -30,4 +30,4 @@ Tjänsten personanpassa krypterar automatiskt dina data när de sparas i molnet.
 ## <a name="next-steps"></a>Nästa steg
 
 * [Formulär för tjänsten personanpassa Customer-Managed nyckel](https://aka.ms/cogsvc-cmk)
-* [Läs mer om Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [Läs mer om Azure Key Vault](../../key-vault/general/overview.md)

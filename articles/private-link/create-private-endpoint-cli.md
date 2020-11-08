@@ -1,198 +1,283 @@
 ---
 title: Snabb start – skapa en privat Azure-slutpunkt med Azure CLI
-description: Läs om den privata Azure-slutpunkten i den här snabb starten
+description: Använd den här snabb starten för att lära dig hur du skapar en privat slut punkt med hjälp av Azure CLI.
 services: private-link
-author: malopMSFT
+author: asudbring
 ms.service: private-link
 ms.topic: quickstart
-ms.date: 09/16/2019
+ms.date: 11/07/2020
 ms.author: allensu
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: e7c098ba06086781306960f76978aac9e4fa06bc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bba912930a9dff0a79e0b0d81025b7524c238db0
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87502672"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368686"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-cli"></a>Snabb start: skapa en privat slut punkt med Azure CLI
 
-Privat slut punkt är det grundläggande Bygg blocket för privat länk i Azure. Den gör det möjligt för Azure-resurser, t. ex. virtuella datorer, att kommunicera privat med privata länk resurser. I den här snabb starten får du lära dig hur du skapar en virtuell dator i ett virtuellt nätverk, en server i SQL Database med en privat slut punkt med hjälp av Azure CLI. Sedan kan du komma åt den virtuella datorn till och säkert komma åt den privata länk resursen (en privat server i SQL Database i det här exemplet).
+Kom igång med en privat Azure-länk genom att använda en privat slut punkt för att ansluta säkert till en Azure-webbapp.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+I den här snabb starten skapar du en privat slut punkt för en Azure-webbapp och distribuerar en virtuell dator för att testa den privata anslutningen.  
 
-Om du väljer att installera och använda CLI lokalt i stället, måste du köra Azure CLI version 2.0.28 eller senare i den här snabbstarten. Kör `az --version` för att hitta den installerade versionen. Se [Installera Azure CLI](/cli/azure/install-azure-cli) för installations- eller uppgraderingsinformation.
+Privata slut punkter kan skapas för olika typer av Azure-tjänster, till exempel Azure SQL och Azure Storage.
+
+## <a name="prerequisites"></a>Förutsättningar
+
+* Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* En Azure-webbapp med en **PremiumV2-** eller högre App Service-plan distribuerad i din Azure-prenumeration.  
+    * Mer information och ett exempel finns i [snabb start: skapa en ASP.net Core webbapp i Azure](../app-service/quickstart-dotnetcore.md). 
+    * En detaljerad själv studie kurs om hur du skapar en webbapp och en slut punkt finns i [Självstudier: Anslut till en webbapp med en privat Azure-slutpunkt](tutorial-private-endpoint-webapp-portal.md).
+* Logga in på Azure Portal och kontrol lera att din prenumeration är aktiv genom att köra `az login` .
+* Kontrol lera din version av Azure CLI i ett terminalfönster eller kommando fönster genom att köra `az --version` . Den senaste versionen finns i den senaste versions [informationen](/cli/azure/release-notes-azure-cli?tabs=azure-cli).
+  * Om du inte har den senaste versionen uppdaterar du installationen genom att följa [installations guiden för ditt operativ system eller din plattform](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Innan du kan skapa en resurs måste du skapa en resurs grupp som är värd för Virtual Network. Skapa en resursgrupp med [az group create](/cli/azure/group). I det här exemplet skapas en resurs grupp med namnet *myResourceGroup* på *westcentralus* -platsen:
+En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
+
+Skapa en resurs grupp med [AZ Group Create](/cli/azure/group#az_group_create):
+
+* Med namnet **CreatePrivateEndpointQS-RG**. 
+* På den **östra** platsen.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location westcentralus
+az group create \
+    --name CreatePrivateEndpointQS-rg \
+    --location eastus
 ```
 
-## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
+## <a name="create-a-virtual-network-and-bastion-host"></a>Skapa ett virtuellt nätverk och en skydds-värd
 
-Skapa en Virtual Network med [AZ Network VNet Create](/cli/azure/network/vnet). I det här exemplet skapas en standard Virtual Network med namnet *myVirtualNetwork* med ett undernät med namnet *undernät*:
+I det här avsnittet ska du skapa ett virtuellt nätverk, ett undernät och en skydds-värd. 
+
+Skydds-värden kommer att användas för att ansluta säkert till den virtuella datorn för att testa den privata slut punkten.
+
+Skapa ett virtuellt nätverk med [AZ Network VNet Create](/cli/azure/network/vnet#az_network_vnet_create)
+
+* Med namnet **myVNet**.
+* Adressprefix för **10.0.0.0/16**.
+* Undernät med namnet **myBackendSubnet**.
+* Undernätsprefixet för **10.0.0.0/24**.
+* I resurs gruppen **CreatePrivateEndpointQS-RG** .
+* Plats för **öster**.
 
 ```azurecli-interactive
 az network vnet create \
- --name myVirtualNetwork \
- --resource-group myResourceGroup \
- --subnet-name mySubnet
+    --resource-group CreatePrivateEndpointQS-rg\
+    --location eastus \
+    --name myVNet \
+    --address-prefixes 10.0.0.0/16 \
+    --subnet-name myBackendSubnet \
+    --subnet-prefixes 10.0.0.0/24
 ```
 
-## <a name="disable-subnet-private-endpoint-policies"></a>Inaktivera privata slut punkts principer för undernät
-
-Azure distribuerar resurser till ett undernät i ett virtuellt nätverk, så du måste skapa eller uppdatera under nätet för att inaktivera nätverks principer för privata slut punkter. Uppdatera en under näts konfiguration med namnet *mitt undernät* med [AZ Network VNet Subnet Update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
+Uppdatera under nätet för att inaktivera nätverks principer för privata slut punkter för den privata slut punkten med [AZ Network VNet Subnet Update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
 
 ```azurecli-interactive
 az network vnet subnet update \
- --name mySubnet \
- --resource-group myResourceGroup \
- --vnet-name myVirtualNetwork \
- --disable-private-endpoint-network-policies true
+    --name myBackendSubnet \
+    --resource-group CreatePrivateEndpointQS-rg \
+    --vnet-name myVNet \
+    --disable-private-endpoint-network-policies true
 ```
 
-## <a name="create-the-vm"></a>Skapa den virtuella datorn
+Använd [AZ Network Public-IP Create](/cli/azure/network/public-ip#az-network-public-ip-create) för att skapa en offentlig IP-adress för skydds-värden:
 
-Skapa en virtuell dator med AZ VM Create. När du uppmanas anger du ett lösen ord som ska användas som inloggnings uppgifter för den virtuella datorn. I det här exemplet skapas en virtuell dator med namnet *myVm*:
+* Skapa en standard zon för redundant offentlig IP-adress med namnet **myBastionIP**.
+* I **CreatePrivateEndpointQS-RG**.
+
+```azurecli-interactive
+az network public-ip create \
+    --resource-group CreatePrivateEndpointQS-rg \
+    --name myBastionIP \
+    --sku Standard
+```
+
+Använd [AZ Network VNet Subnet Create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) för att skapa ett skydds-undernät:
+
+* Med namnet **AzureBastionSubnet**.
+* Adressprefix för **10.0.1.0/24**.
+* I virtuellt nätverk **myVNet**.
+* I resurs gruppen **CreatePrivateEndpointQS-RG**.
+
+```azurecli-interactive
+az network vnet subnet create \
+    --resource-group CreatePrivateEndpointQS-rg \
+    --name AzureBastionSubnet \
+    --vnet-name myVNet \
+    --address-prefixes 10.0.1.0/24
+```
+
+Använd [AZ Network skydds Create](/cli/azure/network/bastion#az-network-bastion-create) för att skapa en skydds-värd:
+
+* Med namnet **myBastionHost**.
+* I **CreatePrivateEndpointQS-RG**.
+* Associerat med offentliga IP- **myBastionIP**.
+* Associerad med **myVNet** för virtuellt nätverk.
+* På **östra** platsen.
+
+```azurecli-interactive
+az network bastion create \
+    --resource-group CreatePrivateEndpointQS-rg \
+    --name myBastionHost \
+    --public-ip-address myBastionIP \
+    --vnet-name myVNet \
+    --location eastus
+```
+
+Det kan ta några minuter innan Azure skydds-värden kan distribueras.
+
+## <a name="create-test-virtual-machine"></a>Skapa virtuell test dator
+
+I det här avsnittet ska du skapa en virtuell dator som ska användas för att testa den privata slut punkten.
+
+Skapa en virtuell dator med [AZ VM Create](/cli/azure/vm#az_vm_create). När du uppmanas till det anger du ett lösen ord som ska användas som autentiseringsuppgifter för den virtuella datorn:
+
+* Med namnet **myVM**.
+* I **CreatePrivateEndpointQS-RG**.
+* I nätverks- **myVNet**.
+* I undernät **myBackendSubnet**.
+* **Win2019Datacenter** för Server avbildning.
 
 ```azurecli-interactive
 az vm create \
-  --resource-group myResourceGroup \
-  --name myVm \
-  --image Win2019Datacenter
+    --resource-group CreatePrivateEndpointQS-rg \
+    --name myVM \
+    --image Win2019Datacenter \
+    --public-ip-address "" \
+    --vnet-name myVNet \
+    --subnet myBackendSubnet \
+    --admin-username azureuser
 ```
 
-Anteckna den offentliga IP-adressen för den virtuella datorn. Du kommer att använda den här adressen när du ansluter till den virtuella datorn från Internet i nästa steg.
+## <a name="create-private-endpoint"></a>Skapa privat slut punkt
 
-## <a name="create-a-server-in-sql-database"></a>Skapa en server i SQL Database
+I det här avsnittet ska du skapa den privata slut punkten.
 
-Skapa en server i SQL Database med kommandot AZ SQL Server Create. Kom ihåg att namnet på servern måste vara unikt i Azure, så Ersätt plats hållarens värde inom hakparenteser med ditt eget unika värde:
+Använd [AZ webapp-listan](/cli/azure/webapp#az_webapp_list) för att placera resurs-ID för webbappen som du tidigare skapade i en gränssnitts variabel.
 
-```azurecli-interactive
-# Create a server in the resource group
-az sql server create \
-    --name "myserver"\
-    --resource-group myResourceGroup \
-    --location WestUS \
-    --admin-user "sqladmin" \
-    --admin-password "CHANGE_PASSWORD_1"
+Använd [AZ Network Private-Endpoint Create](/cli/azure/network/private-endpoint#az_network_private_endpoint_create) för att skapa slut punkten och anslutningen:
 
-# Create a database in the server with zone redundancy as false
-az sql db create \
-    --resource-group myResourceGroup  \
-    --server myserver \
-    --name mySampleDatabase \
-    --sample-name AdventureWorksLT \
-    --edition GeneralPurpose \
-    --family Gen4 \
-    --capacity 1
-```
-
-Server-ID: t liknar att  ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/myserver.``` du använder Server-ID i nästa steg.
-
-## <a name="create-the-private-endpoint"></a>Skapa den privata slut punkten
-
-Skapa en privat slut punkt för den logiska SQL-servern i Virtual Network:
+* Med namnet **myPrivateEndpoint**.
+* I resurs gruppen **CreatePrivateEndpointQS-RG**.
+* I virtuellt nätverk **myVNet**.
+* I undernät **myBackendSubnet**.
+* Anslutning med **namnet för anslutning.**
+* Din webapp **\<webapp-resource-group-name>** .
 
 ```azurecli-interactive
-az network private-endpoint create \  
-    --name myPrivateEndpoint \  
-    --resource-group myResourceGroup \  
-    --vnet-name myVirtualNetwork  \  
-    --subnet mySubnet \  
-    --private-connection-resource-id "<server ID>" \  
-    --group-ids sqlServer \  
+id=$(az webapp list \
+    --resource-group <webapp-resource-group-name> \
+    --query '[].[id]' \
+    --output tsv)
+
+az network private-endpoint create \
+    --name myPrivateEndpoint \
+    --resource-group CreatePrivateEndpointQS-rg \
+    --vnet-name myVNet --subnet myBackendSubnet \
+    --private-connection-resource-id $id \
+    --group-id sites \
     --connection-name myConnection  
- ```
+```
 
-## <a name="configure-the-private-dns-zone"></a>Konfigurera Privat DNS zon
+## <a name="configure-the-private-dns-zone"></a>Konfigurera den privata DNS-zonen
 
-Skapa en Privat DNS zon för SQL Database domän, skapa en kopplings länk med Virtual Network och skapa en DNS-zon för att koppla den privata slut punkten till Privat DNS zon. 
+I det här avsnittet ska du skapa och konfigurera den privata DNS-zonen med [AZ Network Private-DNS Zone Create](/cli/azure/ext/privatedns/network/private-dns/zone#ext_privatedns_az_network_private_dns_zone_create).  
+
+Du använder [AZ Network Private-DNS Link VNet Create](/cli/azure/ext/privatedns/network/private-dns/link/vnet#ext_privatedns_az_network_private_dns_link_vnet_create) för att skapa den virtuella nätverks länken till DNS-zonen.
+
+Du skapar en DNS-zon grupp med [AZ Network Private-Endpoint DNS-Zone-Group Create](/cli/azure/network/private-endpoint/dns-zone-group#az_network_private_endpoint_dns_zone_group_create).
+
+* Zon med namnet **privatelink.azurewebsites.net**
+* I virtuellt nätverk **myVNet**.
+* I resurs gruppen **CreatePrivateEndpointQS-RG**.
+* DNS-länk med namnet **myDNSLink**.
+* Kopplad till **myPrivateEndpoint**.
+* Zon grupp med namnet **MyZoneGroup**.
 
 ```azurecli-interactive
-az network private-dns zone create --resource-group myResourceGroup \
-   --name  "privatelink.database.windows.net"
-az network private-dns link vnet create --resource-group myResourceGroup \
-   --zone-name  "privatelink.database.windows.net"\
-   --name MyDNSLink \
-   --virtual-network myVirtualNetwork \
-   --registration-enabled false
+az network private-dns zone create \
+    --resource-group CreatePrivateEndpointQS-rg \
+    --name "privatelink.azurewebsites.net"
+
+az network private-dns link vnet create \
+    --resource-group CreatePrivateEndpointQS-rg \
+    --zone-name "privatelink.azurewebsites.net" \
+    --name MyDNSLink \
+    --virtual-network myVNet \
+    --registration-enabled false
+
 az network private-endpoint dns-zone-group create \
-   --resource-group myResourceGroup \
+   --resource-group CreatePrivateEndpointQS-rg \
    --endpoint-name myPrivateEndpoint \
    --name MyZoneGroup \
-   --private-dns-zone "privatelink.database.windows.net" \
-   --zone-name sql
+   --private-dns-zone "privatelink.azurewebsites.net" \
+   --zone-name webapp
 ```
 
-## <a name="connect-to-a-vm-from-the-internet"></a>Ansluta till en virtuell dator från Internet
+## <a name="test-connectivity-to-private-endpoint"></a>Testa anslutningen till privat slut punkt
 
-Anslut till VM- *myVm* från Internet på följande sätt:
+I det här avsnittet ska du använda den virtuella datorn som du skapade i föregående steg för att ansluta till SQL Server över den privata slut punkten.
 
-1. I portalens sökfältet anger du *myVm*.
+1. Logga in på [Azure-portalen](https://portal.azure.com) 
+ 
+2. Välj **resurs grupper** i det vänstra navigerings fönstret.
 
-1. Välj knappen **Anslut**. När du har valt knappen **Anslut** öppnas **Anslut till den virtuella datorn**.
+3. Välj **CreatePrivateEndpointQS-RG**.
 
-1. Välj **Hämta RDP-fil**. Azure skapar en Remote Desktop Protocol-fil (*. RDP*) och laddar ned den till datorn.
+4. Välj **myVM**.
 
-1. Öppna den nedladdade RDP *-filen.
+5. På sidan Översikt för **myVM** väljer du **Anslut** sedan **skydds**.
 
-    1. Välj **Anslut** om du uppmanas att göra det.
+6. Välj knappen blå **användnings skydds** .
 
-    1. Ange det användar namn och lösen ord som du angav när du skapade den virtuella datorn.
+7. Ange det användar namn och lösen ord som du angav när du skapade den virtuella datorn.
 
-        > [!NOTE]
-        > Du kan behöva välja **fler alternativ**  >  **Använd ett annat konto**för att ange de autentiseringsuppgifter du angav när du skapade den virtuella datorn.
+8. Öppna Windows PowerShell på servern när du har anslutit.
 
-1. Välj **OK**.
+9. Ange `nslookup <your-webapp-name>.azurewebsites.net`. Ersätt **\<your-webapp-name>** med namnet på den webbapp som du skapade i föregående steg.  Du får ett meddelande som liknar det som visas nedan:
 
-1. Du kan få en certifikatvarning under inloggningen. Välj **Ja** eller **Fortsätt** om du får en certifikatvarning.
-
-1. När virtuella datorns skrivbord visas kan du minimera det att gå tillbaka till din lokala dator.  
-
-## <a name="access-sql-database-privately-from-the-vm"></a>Åtkomst SQL Database privat från den virtuella datorn
-
-I det här avsnittet ska du ansluta till SQL Database från den virtuella datorn med hjälp av den privata slut punkten.
-
-1. Öppna PowerShell i fjärr skrivbordet för *myVM*.
-2. Ange nslookup-myserver.database.windows.net
-
-   Du får ett meddelande som liknar detta:
-
-    ```
+    ```powershell
     Server:  UnKnown
     Address:  168.63.129.16
+
     Non-authoritative answer:
-    Name:    myserver.privatelink.database.windows.net
+    Name:    mywebapp8675.privatelink.azurewebsites.net
     Address:  10.0.0.5
-    Aliases:  myserver.database.windows.net
+    Aliases:  mywebapp8675.azurewebsites.net
     ```
 
-3. Installera SQL Server Management Studio
-4. I Anslut till server anger eller väljer du den här informationen:
+    En privat IP-adress för **10.0.0.5** returneras för namnet på webb programmet.  Adressen finns i under nätet för det virtuella nätverk som du skapade tidigare.
 
-   - Server Typ: Välj databas motor.
-   - Server Namn: Välj myserver.database.windows.net
-   - Användar namn: Ange ett användar namn som angavs vid skapandet.
-   - Lösen ord: Ange ett lösen ord som anges när du skapar.
-   - Kom ihåg lösen ord: Välj Ja.
+10. Öppna Internet Explorer i skydds-anslutningen till **myVM**.
 
-5. Välj **Anslut**.
-6. Bläddra bland **databaser** från menyn till vänster.
-7. Du kan också Skapa eller fråga efter information från en *databas*
-8. Stäng fjärr skrivbords anslutningen till *myVm*.
+11. Ange URL: en för din webbapp, **https:// \<your-webapp-name> . azurewebsites.net**.
 
-## <a name="clean-up-resources"></a>Rensa resurser
+12. Du får standard sidan webbapp om ditt program inte har distribuerats:
 
-När de inte längre behövs kan du använda AZ Group Delete för att ta bort resurs gruppen och alla resurser den har:
+    :::image type="content" source="./media/create-private-endpoint-portal/web-app-default-page.png" alt-text="Standard webb program sida." border="true":::
+
+13. Stäng anslutningen till **myVM**.
+
+## <a name="clean-up-resources"></a>Rensa resurser 
+När du är klar med den privata slut punkten och den virtuella datorn använder du [AZ Group Delete](/cli/azure/group#az_group_delete) för att ta bort resurs gruppen och alla resurser den har:
 
 ```azurecli-interactive
-az group delete --name myResourceGroup --yes
+az group delete \
+    --name CreatePrivateEndpointQS-rg
 ```
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [Azures privata länk](private-link-overview.md)
+I den här snabb starten skapade du en:
+
+* Virtuellt nätverk och skydds-värd.
+* Virtuell dator.
+* Privat slut punkt för en Azure-webbapp.
+
+Du använde den virtuella datorn för att testa anslutningen på ett säkert sätt till webbappen över den privata slut punkten.
+
+Mer information om de tjänster som stöder en privat slut punkt finns i:
+> [!div class="nextstepaction"]
+> [Tillgänglighet för privat länk](private-link-overview.md#availability)

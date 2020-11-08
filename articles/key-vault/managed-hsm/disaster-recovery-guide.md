@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 7dbb7b3fdc15c0a9d502fbe9a0d12d084f9ddf29
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 08c1b415ac075429a9bc89098233fffb8c25b710
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760401"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369264"
 ---
 # <a name="managed-hsm-disaster-recovery"></a>Katastrof återställning av hanterad HSM
 
@@ -48,7 +48,7 @@ Du måste ange följande indata för att skapa en hanterad HSM-resurs:
 - Azure-platsen.
 - En lista med inledande administratörer.
 
-Exemplet nedan skapar en HSM med namnet **ContosoMHSM**i resurs gruppen  **ContosoResourceGroup**, som finns på platsen **östra USA 2** , med **den aktuella inloggade användaren** som administratör.
+Exemplet nedan skapar en HSM med namnet **ContosoMHSM** i resurs gruppen  **ContosoResourceGroup** , som finns på platsen **östra USA 2** , med **den aktuella inloggade användaren** som administratör.
 
 ```azurecli-interactive
 oid=$(az ad signed-in-user show --query objectId -o tsv)
@@ -60,8 +60,8 @@ az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGro
 
 Utdata från det här kommandot visar egenskaper för den hanterade HSM som du har skapat. De två viktigaste egenskaperna är:
 
-* **namn**: i exemplet är namnet ContosoMHSM. Du kommer att använda det här namnet för andra Key Vault-kommandon.
-* **hsmUri**: i exemplet är URI: n " https://contosohsm.managedhsm.azure.net ." Program som använder din HSM via sin REST API måste använda denna URI.
+* **namn** : i exemplet är namnet ContosoMHSM. Du kommer att använda det här namnet för andra Key Vault-kommandon.
+* **hsmUri** : i exemplet är URI: n " https://contosohsm.managedhsm.azure.net ." Program som använder din HSM via sin REST API måste använda denna URI.
 
 Ditt Azure-konto har nu behörighet att utföra alla åtgärder på den här hanterade HSM. Från och med har ingen annan behörighet.
 
@@ -86,7 +86,7 @@ För det här steget behöver du följande:
 - Skapa en säkerhets domän överförings-BLOB krypterad med den säkerhets domän som vi laddade ned i föregående steg och sedan
 - Ladda upp den säkerhetsdomän som överför blobben till HSM för att slutföra säkerhets domän återställning
 
-I exemplet nedan använder vi säkerhets domänen från **ContosoMHSM**, 2 av motsvarande privata nycklar och överför den till **ContosoMHSM2**, vilket väntar på att ta emot en säkerhets domän. 
+I exemplet nedan använder vi säkerhets domänen från **ContosoMHSM** , 2 av motsvarande privata nycklar och överför den till **ContosoMHSM2** , vilket väntar på att ta emot en säkerhets domän. 
 
 ```azurecli-interactive
 az keyvault security-domain upload --hsm-name ContosoMHSM2 --sd-exchange-key ContosoMHSM-SDE.cer --sd-file ContosoMHSM-SD.json --sd-wrapping-keys cert_0.key cert_1.key
@@ -102,11 +102,12 @@ Om du vill skapa en HSM-säkerhetskopiering behöver du följande
 - Ett lagrings konto där säkerhets kopian ska lagras
 - En Blob Storage-behållare i det här lagrings kontot där säkerhets kopieringen ska skapa en ny mapp för att lagra en krypterad säkerhets kopia
 
-Vi använder `az keyvault backup` kommandot för HSM-säkerhetskopieringen i lagrings behållaren **mhsmbackupcontainer**, som finns i **ContosoBackup** för lagrings kontot i exemplet nedan. Vi skapar en SAS-token som upphör att gälla om 30 minuter och anger att en hanterad HSM ska skriva säkerhets kopian.
+Vi använder `az keyvault backup` kommandot för HSM-säkerhetskopieringen i lagrings behållaren **mhsmbackupcontainer** , som finns i **ContosoBackup** för lagrings kontot i exemplet nedan. Vi skapar en SAS-token som upphör att gälla om 30 minuter och anger att en hanterad HSM ska skriva säkerhets kopian.
 
 ```azurecli-interactive
 end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')
 skey=$(az storage account keys list --query '[0].value' -o tsv --account-name ContosoBackup)
+az storage container create --account-name  mhsmdemobackup --name mhsmbackupcontainer  --account-key $skey
 sas=$(az storage container generate-sas -n mhsmbackupcontainer --account-name ContosoBackup --permissions crdw --expiry $end --account-key $skey -o tsv)
 az keyvault backup start --hsm-name ContosoMHSM2 --storage-account-name ContosoBackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas
 

@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 886f04d2ea143b7c6c22aa2e746de179fcf7e7dd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c29e83f7851bc9be1688f3828373942c0e31f4ef
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090655"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367479"
 ---
 # <a name="get-images-from-your-custom-view"></a>Hämta bilder från din anpassade vy
 
@@ -26,7 +26,7 @@ ms.locfileid: "93090655"
 
 Med Bing-anpassade bilder kan du utöka din anpassade Sök upplevelse med bilder. På ett liknande sätt som med webbresultat har anpassad sökning stöd för bildsökning i listan över webbplatser i dina instanser. Du kan hämta avbildningar med hjälp av Bing: s anpassade bilder Sök-API eller via funktionen för värdbaserad gränssnitt. Att använda funktionen för värdbaserade gränssnitt är enkel att använda och rekommendera för att få din Sök upplevelse igång i kort ordning.  Information om hur du konfigurerar det värdbaserade användar gränssnittet för att inkludera avbildningar finns i [Konfigurera den värdbaserade gränssnitts upplevelsen](hosted-ui.md).
 
-Om du vill ha mer kontroll över att Visa Sök resultaten kan du använda Bing: s anpassade bilder Sök-API. Eftersom anrop till API: et liknar att anropa API för bildsökning i Bing, kan du checka [bildsökning i Bing](../Bing-Image-Search/overview.md) för exempel som anropar API: et. Men innan du gör det kan du bekanta dig med de [anpassade avbildningarna Sök-API referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) innehåll. De huvudsakliga skillnaderna är de frågeparametrar som stöds (du måste inkludera Frågeparametern customConfig) och den slut punkt som du skickar begär anden till.
+Om du vill ha mer kontroll över att Visa Sök resultaten kan du använda Bing: s anpassade bilder Sök-API. Eftersom anrop till API: et liknar att anropa API för bildsökning i Bing, kan du checka [bildsökning i Bing](../Bing-Image-Search/overview.md) för exempel som anropar API: et. Men innan du gör det kan du bekanta dig med de [anpassade avbildningarna Sök-API referens](/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) innehåll. De huvudsakliga skillnaderna är de frågeparametrar som stöds (du måste inkludera Frågeparametern customConfig) och den slut punkt som du skickar begär anden till.
 
 <!--
 ## Next steps

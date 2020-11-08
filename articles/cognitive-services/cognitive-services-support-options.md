@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/11/2020
 ms.author: erhopf
-ms.openlocfilehash: d99cfc8b50155eb4cb2aecb3cb770f71b927ce1d
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 01e46ad8d139f2cab2fbb6499dc66c7af5ceb554
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148694"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368771"
 ---
 # <a name="azure-cognitive-services-support-and-help-options"></a>Support och hjälp alternativ för Azure Cognitive Services
 
@@ -32,39 +32,39 @@ Utforska [support alternativen för Azure och välj den plan](https://azure.micr
 
 ## <a name="post-a-question-on-microsoft-qa"></a>Publicera en fråga på Microsoft Q&A
 
-För snabba och pålitliga svar på dina tekniska produkt frågor från Microsoft-tekniker, Azure Most Valuable profession ALS (MVP) eller vår expert community, engagerar vi oss på [Microsoft Q&A](https://docs.microsoft.com/answers/products/azure?product=all), Azures önskade mål för Community-support.
+För snabba och pålitliga svar på dina tekniska produkt frågor från Microsoft-tekniker, Azure Most Valuable profession ALS (MVP) eller vår expert community, engagerar vi oss på [Microsoft Q&A](/answers/products/azure?product=all), Azures önskade mål för Community-support.
 
 Om du inte kan hitta ett svar på problemet med hjälp av Sök skickar du en ny fråga till Microsoft Q&A. Använd någon av följande Taggar när du ställer din fråga:
 
-* [Cognitive Services](https://docs.microsoft.com/answers/topics/azure-cognitive-services.html)
+* [Cognitive Services](/answers/topics/azure-cognitive-services.html)
 
 **Visuellt innehåll**
 
-* [Visuellt innehåll](https://docs.microsoft.com/answers/topics/azure-computer-vision.html)
-* [Custom Vision](https://docs.microsoft.com/answers/topics/azure-custom-vision.html)
-* [Ansiktsigenkänning](https://docs.microsoft.com/answers/topics/azure-face.html)
-* [Formigenkänning](https://docs.microsoft.com/answers/topics/azure-form-recognizer.html)
-* [Video Indexer](https://docs.microsoft.com/answers/topics/azure-media-services.html)
+* [Visuellt innehåll](/answers/topics/azure-computer-vision.html)
+* [Custom Vision](/answers/topics/azure-custom-vision.html)
+* [Ansiktsigenkänning](/answers/topics/azure-face.html)
+* [Formigenkänning](/answers/topics/azure-form-recognizer.html)
+* [Video Indexer](/answers/topics/azure-media-services.html)
 
 **Språk**
 
-* [Avancerad läsare](https://docs.microsoft.com/answers/topics/azure-immersive-reader.html)
-* [Language Understanding (LUIS)](https://docs.microsoft.com/answers/topics/azure-language-understanding.html)
-* [QnA Maker](https://docs.microsoft.com/answers/topics/azure-qna-maker.html)
-* [Textanalys](https://docs.microsoft.com/answers/topics/azure-text-analytics.html)
-* [Översättare](https://docs.microsoft.com/answers/topics/azure-translator.html)
+* [Avancerad läsare](/answers/topics/azure-immersive-reader.html)
+* [Language Understanding (LUIS)](/answers/topics/azure-language-understanding.html)
+* [QnA Maker](/answers/topics/azure-qna-maker.html)
+* [Textanalys](/answers/topics/azure-text-analytics.html)
+* [Översättare](/answers/topics/azure-translator.html)
 
 **Speech**
 
-* [Tjänst för taligenkänning](https://docs.microsoft.com/answers/topics/azure-speech.html)
+* [Tjänst för taligenkänning](/answers/topics/azure-speech.html)
 
 
 **Beslut**
 
-* [Avvikelseidentifiering](https://docs.microsoft.com/answers/topics/azure-anomaly-detector.html) 
-* [Content Moderator](https://docs.microsoft.com/answers/topics/azure-content-moderator.html)
+* [Avvikelseidentifiering](/answers/topics/azure-anomaly-detector.html) 
+* [Content Moderator](/answers/topics/azure-content-moderator.html)
 * [Metrics Advisor (förhandsversion)]()
-* [Personanpassning](https://docs.microsoft.com/answers/topics/azure-personalizer.html)
+* [Personanpassning](/answers/topics/azure-personalizer.html)
 
 ## <a name="post-a-question-to-stack-overflow"></a>Skicka en fråga till Stack Overflow
 
@@ -143,4 +143,4 @@ Att hålla dig informerad om funktioner i en ny version eller nyheter på Azure-
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Vad är Azure Cognitive Services?](welcome.md)
+> [Vad är Azure Cognitive Services?](./what-are-cognitive-services.md)

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: pafarley
 zone_pivot_groups: programming-languages-set-ten
-ms.openlocfilehash: e8628d051db7f5066a81171567f6f7e54fb0ab97
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1fd748a0184c1718ac9450aaca3e2db1a185051a
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91262458"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368958"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-management-client-library"></a>Snabb start: skapa en Cognitive Services resurs med hjälp av klient biblioteket för Azure-hantering
 
@@ -24,7 +24,7 @@ Använd den här snabb starten för att skapa och hantera Azure Cognitive Servic
 
 Azure Cognitive Services är Cloud-Base-tjänster med REST API: er och SDK: er för klient bibliotek som är tillgängliga för att hjälpa utvecklare att bygga kognitiv information i program utan att ha direkt artificiell intelligens (AI) eller data vetenskaps kunskaper eller kunskap. Azure Cognitive Services gör det möjligt för utvecklare att enkelt lägga till kognitiva funktioner i sina program med kognitiva lösningar som kan se, höra, tala, förstå och till och med börja på skäl.
 
-Enskilda AI-tjänster representeras av Azure- [resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) som du skapar under din Azure-prenumeration. När du har skapat en resurs kan du använda nycklarna och slut punkten som genereras för att autentisera dina program.
+Enskilda AI-tjänster representeras av Azure- [resurser](../azure-resource-manager/management/manage-resources-portal.md) som du skapar under din Azure-prenumeration. När du har skapat en resurs kan du använda nycklarna och slut punkten som genereras för att autentisera dina program.
 
 ::: zone pivot="programming-language-csharp"
 

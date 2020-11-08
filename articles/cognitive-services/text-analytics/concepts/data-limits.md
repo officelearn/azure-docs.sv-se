@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/14/2020
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: 068c2dc698e9f0b6d6f2f6486dff863c1343b178
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 905dde6932afb440c34bcccb563bfda98f23eb7c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88258282"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363841"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Data-och hastighets begränsningar för API för textanalys
 <a name="data-limits"></a>
@@ -31,7 +31,7 @@ Använd den här artikeln för att hitta gränserna för storlek och frekvenser 
 
 | Gräns | Värde |
 |------------------------|---------------|
-| Maximal storlek på ett enskilt dokument | 5 120 tecken som mäts av [StringInfo. LengthInTextElements](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). Gäller även för Textanalys för hälso container. |
+| Maximal storlek på ett enskilt dokument | 5 120 tecken som mäts av [StringInfo. LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). Gäller även för Textanalys för hälso container. |
 | Maximal storlek på hela begäran | 1 MB. Gäller även för Textanalys för hälso container. |
 
 Det maximala antalet dokument som du kan skicka i en enskild begäran beror på vilken API-version och funktion du använder.

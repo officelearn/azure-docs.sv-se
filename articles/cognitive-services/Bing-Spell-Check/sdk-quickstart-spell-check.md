@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 12/16/2019
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3304cc36c37a548eabd3aa6ddc32255f3d09dffb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b2df7bab9bceaefae5793e4802eba6a6aa218e96
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083736"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364810"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-sdk-for-c"></a>Snabb start: kontrol lera stavningen med Stavningskontroll i Bing SDK för C #
 
@@ -110,4 +110,4 @@ Skapa och kör ditt projekt. Om du använder Visual Studio trycker du på **F5**
 > [Skapa en webbapp med en sida](tutorials/spellcheck.md)
 
 - [Vad är API för stavningskontroll i Bing?](overview.md)
-- [Referens guide för Stavningskontroll i Bing C# SDK](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-dotnet)
+- [Referens guide för Stavningskontroll i Bing C# SDK](/dotnet/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-dotnet)

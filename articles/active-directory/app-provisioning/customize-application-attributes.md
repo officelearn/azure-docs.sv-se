@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: kenwith
-ms.openlocfilehash: cac7b169232bb43ba1b1893b59dac81ce4c39c49
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: 2f21e4f41814b47d8e630df72c255886ac2af53b
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233891"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364300"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Anpassa attribut för användar etablering för SaaS-program i Azure Active Directory
 
@@ -110,7 +110,7 @@ Program och system som stöder anpassning av attributlistan är:
 - Workday till Active Directory/arbets dag att Azure Active Directory
 - SuccessFactors för att Active Directory/SuccessFactors till Azure Active Directory
 - Azure Active Directory ([Azure AD Graph API standardattribut](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) och anpassade katalog tillägg stöds)
-- Appar som stöder [SCIM 2,0](https://tools.ietf.org/html/rfc7643), där attribut som definierats i [kärn schemat](https://tools.ietf.org/html/rfc7643) måste läggas till
+- Appar som stöder [SCIM 2,0](https://tools.ietf.org/html/rfc7643)
 - För att Azure Active Directory tillbakaskrivning till Workday eller SuccessFactors, stöds det att uppdatera relevanta metadata för attribut som stöds (XPATH och JSONPath), men det finns inte stöd för att lägga till nya Workday-eller SuccessFactors-attribut utöver de som ingår i standard schemat
 
 
@@ -146,7 +146,7 @@ För SCIM-program måste attributnamnet följa mönstret som visas i exemplet ne
 
 Dessa anvisningar gäller endast för SCIM-aktiverade program. Program som ServiceNow och Salesforce är inte integrerade med Azure AD med hjälp av SCIM, och därför behövs inte det här särskilda namn området när du lägger till ett anpassat attribut.
 
-Anpassade attribut kan inte vara referens attribut eller flervärdesattribut. Anpassade attribut för multi-Value-tillägg stöds för närvarande endast för program i galleriet.  
+Anpassade attribut kan inte vara referens attribut, flervärdesfält eller komplexa-skrivna attribut. Anpassade attribut för flera värden och komplext typ stöds för närvarande endast för program i galleriet.  
  
 **Exempel på representation av en användare med ett attribut för tillägg:**
 

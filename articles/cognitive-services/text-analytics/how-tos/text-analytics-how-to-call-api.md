@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: e17f2015ed4428cfd3c1a6c8a7bc4f92854a6b71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43ee7272066dbd89e7c0053d51ba039b83fb494f
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710608"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363824"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Så här anropar du Textanalys REST API
 
@@ -43,9 +43,9 @@ Du kan för närvarande skicka samma dokument för alla Textanalys åtgärder: s
 
 | Element | Giltiga värden | Obligatoriskt? | Användning |
 |---------|--------------|-----------|-------|
-|`id` |Data typen är sträng, men i dokument-ID: n är det vanligt vis heltal. | Krävs | Systemet använder de ID: n som du anger för att strukturera utdata. Språk koder, nyckel fraser och sentiment resultat genereras för varje ID i begäran.|
-|`text` | Ostrukturerad rå text, upp till 5 120 tecken. | Krävs | För språk identifiering kan text uttryckas på valfritt språk. För sentiment analys, extrahering av nyckel fraser och enhets identifiering måste texten vara på ett [språk som stöds](../text-analytics-supported-languages.md). |
-|`language` | 2 teckens [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) -kod för ett [språk som stöds](../text-analytics-supported-languages.md) | Det varierar | Krävs för sentiment-analys, extrahering av nyckel fraser och länkning av entiteter. valfritt för språk identifiering. Det finns inget fel om du exkluderar det, men analysen har minskats utan den. Språk koden ska motsvara den `text` du anger. |
+|`id` |Data typen är sträng, men i dokument-ID: n är det vanligt vis heltal. | Obligatorisk | Systemet använder de ID: n som du anger för att strukturera utdata. Språk koder, nyckel fraser och sentiment resultat genereras för varje ID i begäran.|
+|`text` | Ostrukturerad rå text, upp till 5 120 tecken. | Obligatorisk | För språk identifiering kan text uttryckas på valfritt språk. För sentiment analys, extrahering av nyckel fraser och enhets identifiering måste texten vara på ett [språk som stöds](../language-support.md). |
+|`language` | 2 teckens [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) -kod för ett [språk som stöds](../language-support.md) | Det varierar | Krävs för sentiment-analys, extrahering av nyckel fraser och länkning av entiteter. valfritt för språk identifiering. Det finns inget fel om du exkluderar det, men analysen har minskats utan den. Språk koden ska motsvara den `text` du anger. |
 
 Mer information om gränser finns i [textanalys översikt > data begränsningar](../overview.md#data-limits). 
 
@@ -106,10 +106,10 @@ Tjänsten accepterar en begäran på upp till 1 MB. Om du använder Postman (ell
 
 5. Klistra in vissa JSON-dokument i ett format som är giltigt för den avsedda analysen. Mer information om en viss analys finns i avsnitten nedan:
 
-  + [Språk identifiering](text-analytics-how-to-language-detection.md)  
-  + [Extrahering av nyckel fraser](text-analytics-how-to-keyword-extraction.md)  
-  + [Sentiment-analys](text-analytics-how-to-sentiment-analysis.md)  
-  + [Enhets igenkänning](text-analytics-how-to-entity-linking.md)  
+  + [Språkidentifiering](text-analytics-how-to-language-detection.md)  
+  + [Extrahering av nyckelfraser](text-analytics-how-to-keyword-extraction.md)  
+  + [Sentimentanalys](text-analytics-how-to-sentiment-analysis.md)  
+  + [Igenkänning av enhet](text-analytics-how-to-entity-linking.md)  
 
 
 6. Klicka på **Skicka** för att skicka begäran. I avsnittet [data begränsningar](../overview.md#data-limits) i översikt finns information om antalet förfrågningar som du kan skicka per minut och sekund.

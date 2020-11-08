@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: aad00d60c5a1b75e200b49b0cdcf0d396012a5f9
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a42b282ac2c42480473186f90a542e33781c8a68
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101960"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364045"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>Skickar begär anden till API för automatiska förslag i Bing.
 
@@ -38,13 +38,13 @@ Skicka en `GET` begäran till följande slut punkt för att få förslag på fr�
 GET https://api.cognitive.microsoft.com/bing/v7.0/Suggestions 
 ```
 
-Mer information om sidhuvuden, parametrar, marknads koder, svars objekt, fel osv. finns i referens för [API för automatiska förslag i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference) .
+Mer information om sidhuvuden, parametrar, marknads koder, svars objekt, fel osv. finns i referens för [API för automatiska förslag i Bing v7](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference) .
 
 API: erna för **Bing** stöder Sök åtgärder som returnerar resultat enligt deras typ. Alla Sök slut punkter returnerar resultat som JSON-svars objekt.
 Alla slut punkter har stöd för frågor som returnerar ett särskilt språk och/eller plats efter longitud, latitud och Sök-radie.
 
 Fullständig information om de parametrar som stöds av varje slut punkt finns i referens sidorna för varje typ.
-Exempel på grundläggande begär Anden som använder automatiska förslag finns i [snabb starter för automatiska](https://docs.microsoft.com/azure/cognitive-services/Bing-Autosuggest)förslag.
+Exempel på grundläggande begär Anden som använder automatiska förslag finns i [snabb starter för automatiska](/azure/cognitive-services/Bing-Autosuggest)förslag.
 
 ## <a name="bing-autosuggest-api-requests"></a>API för automatiska förslag i Bing begär Anden
 
@@ -53,18 +53,18 @@ Exempel på grundläggande begär Anden som använder automatiska förslag finns
 
 Vi rekommenderar att alla förfrågningar kommer från en server. Om du distribuerar nyckeln som en del av ett klient program får du fler möjligheter till skadlig åtkomst från tredje part. Dessutom ger anrop från en server en enda uppgraderings punkt för framtida uppdateringar.
 
-Begäran måste ange frågeparametern [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query), som innehåller användarens partiella sökterm. Även om det är valfritt bör begäran även innehålla frågeparametern [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#mkt), som identifierar marknaden som du vill att resultatet ska komma från. En lista över valfria frågeparametrar finns i [Frågeparametrar](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query-parameters). Alla frågeparametervärden måste vara URL-kodade.
+Begäran måste ange frågeparametern [q](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query), som innehåller användarens partiella sökterm. Även om det är valfritt bör begäran även innehålla frågeparametern [mkt](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#mkt), som identifierar marknaden som du vill att resultatet ska komma från. En lista över valfria frågeparametrar finns i [Frågeparametrar](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query-parameters). Alla frågeparametervärden måste vara URL-kodade.
 
-Begäran måste innehålla huvudet [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#subscriptionkey). Även om det är valfritt rekommenderar vi även att följande huvuden finns med:
+Begäran måste innehålla huvudet [Ocp-Apim-Subscription-Key](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#subscriptionkey). Även om det är valfritt rekommenderar vi även att följande huvuden finns med:
 
-- [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#useragent)
-- [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#clientid)
-- [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#clientip)
-- [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#location)
+- [User-Agent](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#useragent)
+- [X-MSEdge-ClientID](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#clientid)
+- [X-Search-ClientIP](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#clientip)
+- [X-Search-Location](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#location)
 
 Sidhuvuden för klientens IP-adress och platsen är viktiga för att returnera platsmedvetet innehåll.
 
-En lista över alla sidhuvuden för begäranden och svar finns i [Sidhuvuden](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#headers).
+En lista över alla sidhuvuden för begäranden och svar finns i [Sidhuvuden](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#headers).
 
 > [!NOTE]
 > När du anropar API för automatiska förslag i Bing från java script kan webbläsarens inbyggda säkerhetsfunktioner förhindra åtkomst till värdena i dessa huvuden.
@@ -110,7 +110,7 @@ Följande webb förslags grupp är ett svar på begäran ovan. Gruppen innehåll
 
 Fältet `displayText` innehåller den föreslagna frågan som du använder för att fylla i sökrutans listruta. Du måste visa alla förslag som svaret innehåller, och i den angivna ordningen.  
 
-Om användaren väljer en fråga i list rutan kan du använda den för att anropa en av [API:er för Bing-sökresultat](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/bing-api-comparison?toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fbing-autosuggest%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) och visa resultatet själv eller skicka användaren till Bing-resultat sidan med det fält som returneras `url` .
+Om användaren väljer en fråga i list rutan kan du använda den för att anropa en av [API:er för Bing-sökresultat](../../bing-web-search/bing-api-comparison.md?bc=%252fen-us%252fazure%252fbread%252ftoc.json&toc=%252fen-us%252fazure%252fcognitive-services%252fbing-autosuggest%252ftoc.json) och visa resultatet själv eller skicka användaren till Bing-resultat sidan med det fält som returneras `url` .
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 
@@ -181,5 +181,5 @@ BingAPIs-Market: en-US
 ## <a name="next-steps"></a>Nästa steg
 
 - [Vad är Automatiska förslag i Bing?](../get-suggested-search-terms.md)
-- [Referens för API v7 för automatiska förslag i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)
+- [Referens för API v7 för automatiska förslag i Bing](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)
 - [Hämta föreslagna Sök villkor från API för automatiska förslag i Bing](get-suggestions.md)

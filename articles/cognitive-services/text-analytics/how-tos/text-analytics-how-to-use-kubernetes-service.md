@@ -10,24 +10,24 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: b7a5953edd9aec96a7f75e747c39e8f07f7210bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 744be742d9f638df14f9d6720c9dad9678685af0
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88243776"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366901"
 ---
 # <a name="deploy-a-text-analytics-container-to-azure-kubernetes-service"></a>Distribuera en Textanalys-behållare till Azure Kubernetes-tjänsten
 
-Lär dig hur du distribuerar Azure Cognitive Services [textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers) container image till Azure Kubernetes service (AKS). Den här proceduren visar hur du skapar en Textanalys resurs, hur du skapar en associerad sentiment-analys avbildning och hur du använder den här dirigeringen av de två från en webbläsare. Genom att använda behållare kan du flytta uppmärksamheten från att hantera infrastrukturen i stället för att fokusera på program utveckling.
+Lär dig hur du distribuerar Azure Cognitive Services [textanalys](./text-analytics-how-to-install-containers.md) container image till Azure Kubernetes service (AKS). Den här proceduren visar hur du skapar en Textanalys resurs, hur du skapar en associerad sentiment-analys avbildning och hur du använder den här dirigeringen av de två från en webbläsare. Genom att använda behållare kan du flytta uppmärksamheten från att hantera infrastrukturen i stället för att fokusera på program utveckling.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Den här proceduren kräver flera verktyg som måste installeras och köras lokalt. Använd inte Azure Cloud Shell. Du behöver följande:
 
-* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services) innan du börjar.
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services) innan du börjar.
 * En text redigerare, till exempel [Visual Studio Code](https://code.visualstudio.com/download).
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) installerat.
+* [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) installerat.
 * [KUBERNETES CLI](https://kubernetes.io/docs/tasks/tools/install-kubectl/) har installerats.
 * En Azure-resurs med rätt pris nivå. Alla pris nivåer fungerar inte med den här behållaren:
     * Endast **Azure textanalys** -resurser med F0 eller standard pris nivåer.
@@ -55,9 +55,9 @@ Den här proceduren kräver flera verktyg som måste installeras och köras loka
 
 [!INCLUDE [Verify the Sentiment Analysis container instance](../includes/verify-sentiment-analysis-container.md)]
 
-***
+**_
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Använd fler [Cognitive Services behållare](../../cognitive-services-container-support.md)
-* Använd [textanalys anslutna tjänsten](../vs-text-connected-service.md)
+_ Använd fler [Cognitive Services behållare](../../cognitive-services-container-support.md)
+* Använd [textanalys anslutna tjänsten](../index.yml)

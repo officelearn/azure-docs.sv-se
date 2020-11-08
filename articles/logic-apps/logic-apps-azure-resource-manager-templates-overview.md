@@ -5,17 +5,17 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 08/17/2020
-ms.openlocfilehash: a3d7386e976551d70fbbc08930b2ab5603aa5d50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/06/2020
+ms.openlocfilehash: 4070f373175f3497156ced011a57e2ed7bd6e770
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269054"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364266"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Översikt: Automatisera distribution av Azure Logic Apps med hjälp av Azure Resource Manager mallar
 
-När du är redo att automatisera skapandet och distributionen av din Logic app kan du expandera din Logic Apps underliggande arbets flödes definition till en [Azure Resource Manager-mall](../azure-resource-manager/management/overview.md). Den här mallen definierar infrastruktur, resurser, parametrar och annan information för etablering och distribution av din Logic app. Genom att definiera parametrar för värden som varierar vid distribution, även kallat *parametriserade*, kan du upprepade gånger och distribuera Logi Kap par baserat på olika distributions behov.
+När du är redo att automatisera skapandet och distributionen av din Logic app kan du expandera din Logic Apps underliggande arbets flödes definition till en [Azure Resource Manager-mall](../azure-resource-manager/management/overview.md). Den här mallen definierar infrastruktur, resurser, parametrar och annan information för etablering och distribution av din Logic app. Genom att definiera parametrar för värden som varierar vid distribution, även kallat *parametriserade* , kan du upprepade gånger och distribuera Logi Kap par baserat på olika distributions behov.
 
 Om du till exempel distribuerar till miljöer för utveckling, testning och produktion använder du förmodligen olika anslutnings strängar för varje miljö. Du kan deklarera mallparametrar som accepterar olika anslutnings strängar och sedan lagra dessa strängar i en separat [parameter fil](../azure-resource-manager/templates/parameter-files.md). På så sätt kan du ändra dessa värden utan att behöva uppdatera och distribuera om mallen. För scenarier där du har parameter värden som är känsliga eller måste skyddas, till exempel lösen ord och hemligheter, kan du lagra dessa värden i [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md) och låta parameter filen hämta dessa värden. I dessa scenarier kan du dock omdistribuera för att hämta de aktuella värdena.
 
@@ -187,8 +187,8 @@ Mer metod tips finns i [metod tips för](../azure-resource-manager/templates/tem
 
 Om du vill ange värden för mallparametrar lagrar du dessa värden i en [parameter fil](../azure-resource-manager/templates/parameter-files.md). På så sätt kan du använda olika parametrar-filer baserat på dina distributions behov. Här är fil namns formatet som ska användas:
 
-* Logic app-mallens fil namn: ** < *Logic – App-Name* # C0.jspå**
-* Parametrar fil namn: ** < *Logic – App-Name* # C0.parameters.jspå**
+* Logic app-mallens fil namn: **< *Logic – App-Name* # C0.jspå**
+* Parametrar fil namn: **< *Logic – App-Name* # C0.parameters.jspå**
 
 Här är strukturen i parameter filen, som innehåller en nyckel valv referens för att [Skicka ett skyddat parameter värde med Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md):
 
@@ -288,7 +288,7 @@ Din Logic Apps [resurs definition i en mall](/azure/templates/microsoft.logic/wo
 * ID för alla integrations konton som används av din Logic app
 * Din Logic Apps arbets flödes definition
 * Ett `parameters` objekt som anger de värden som ska användas vid körning
-* Annan resursinformation om din Logic app, till exempel namn, typ, plats och så vidare
+* Annan resursinformation om din Logic app, till exempel namn, typ, plats, konfigurations inställningar för körning och så vidare
 
 ```json
 {
@@ -307,7 +307,8 @@ Din Logic Apps [resurs definition i en mall](/azure/templates/microsoft.logic/wo
             },
             "definition": {<workflow-definition>},
             "parameters": {<workflow-definition-parameter-values>},
-            "accessControl": {}
+            "accessControl": {},
+            "runtimeConfiguration": {}
          },
          "name": "[parameters('LogicAppName')]", // Template parameter reference
          "type": "Microsoft.Logic/workflows",
@@ -330,11 +331,12 @@ Här följer de attribut som är speciella för din resurs definition för Logic
 | Attribut | Krävs | Typ | Beskrivning |
 |-----------|----------|------|-------------|
 | `state` | Ja | Sträng | Din Logi Kap par status vid distribution där innebär att din Logi Kap par `Enabled` är Live och `Disabled` innebär att din Logic app är inaktiv. Om du till exempel inte är redo för din Logi Kap par, men vill distribuera ett utkast till en version, kan du använda `Disabled` alternativet. |
-| `integrationAccount` | Inga | Objekt | Om din Logic app använder ett integrations konto, som lagrar artefakter för Business-to-Business (B2B)-scenarier, inkluderar det här objektet `id` attributet, som anger ID: t för integrations kontot. |
-| `definition` | Ja | Objekt | Din Logic Apps-underliggande arbets flödes definition, som är samma objekt som visas i kodvyn och beskrivs fullständigt i avsnittet [schema referens för språk för arbets flödes definition](../logic-apps/logic-apps-workflow-definition-language.md) . I den här arbets flödes definitionen `parameters` deklarerar objektet parametrar för de värden som ska användas vid Logic app Runtime. Mer information finns i [arbets flödes definitioner och parametrar](#workflow-definition-parameters). <p><p>Om du vill visa attributen i din Logic Apps arbets flödes definition växlar du från "designvyn" till "kodvyn" i Azure Portal eller Visual Studio, eller genom att använda ett verktyg som [Azure Resource Explorer](https://resources.azure.com). |
-| `parameters` | Inga | Objekt | [Parameter värden för arbets flödes definition](#workflow-definition-parameters) som ska användas vid Logic app Runtime. Parameter definitionerna för dessa värden visas i [arbets flödes definitionens](#workflow-definition-parameters)Parameters-objekt. Om din Logic app använder [hanterade anslutningar](../connectors/apis-list.md) för att komma åt andra tjänster och system, innehåller det här objektet dessutom ett `$connections` objekt som anger de anslutnings värden som ska användas vid körning. |
-| `accessControl` | Inga | Objekt | För att ange säkerhetsattribut för din Logi Kap par, till exempel att begränsa IP-åtkomsten till begär ande utlösare eller köra tidigare indata och utdata. Mer information finns i [säker åtkomst till Logic Apps](../logic-apps/logic-apps-securing-a-logic-app.md). |
-||||
+| `integrationAccount` | No | Objekt | Om din Logic app använder ett integrations konto, som lagrar artefakter för Business-to-Business (B2B)-scenarier, inkluderar det här objektet `id` attributet, som anger ID: t för integrations kontot. |
+| `definition` | Yes | Objekt | Din Logic Apps-underliggande arbets flödes definition, som är samma objekt som visas i kodvyn och beskrivs fullständigt i avsnittet [schema referens för språk för arbets flödes definition](../logic-apps/logic-apps-workflow-definition-language.md) . I den här arbets flödes definitionen `parameters` deklarerar objektet parametrar för de värden som ska användas vid Logic app Runtime. Mer information finns i [arbets flödes definitioner och parametrar](#workflow-definition-parameters). <p><p>Om du vill visa attributen i din Logic Apps arbets flödes definition växlar du från "designvyn" till "kodvyn" i Azure Portal eller Visual Studio, eller genom att använda ett verktyg som [Azure Resource Explorer](https://resources.azure.com). |
+| `parameters` | No | Objekt | [Parameter värden för arbets flödes definition](#workflow-definition-parameters) som ska användas vid Logic app Runtime. Parameter definitionerna för dessa värden visas i [arbets flödes definitionens](#workflow-definition-parameters)Parameters-objekt. Om din Logic app använder [hanterade anslutningar](../connectors/apis-list.md) för att komma åt andra tjänster och system, innehåller det här objektet dessutom ett `$connections` objekt som anger de anslutnings värden som ska användas vid körning. |
+| `accessControl` | No | Objekt | För att ange säkerhetsattribut för din Logi Kap par, till exempel att begränsa IP-åtkomsten till begär ande utlösare eller köra tidigare indata och utdata. Mer information finns i [säker åtkomst till Logic Apps](../logic-apps/logic-apps-securing-a-logic-app.md). |
+| `runtimeConfiguration` | No | Objekt | För att ange `operationOptions` egenskaper som styr hur din Logic app beter sig vid körning. Du kan till exempel köra din Logic app i [läget för hög data flöde](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode). |
+|||||
 
 Mer information om resurs definitioner för dessa Logic Apps-objekt finns i [Microsoft. Logic-resurs typer](/azure/templates/microsoft.logic/allversions):
 
@@ -437,7 +439,7 @@ Den här syntaxen visar var du kan deklarera parametrar på både mall-och arbet
 }
 ```
 
-<a name="secure-workflow-definition-parmameters"></a>
+<a name="secure-workflow-definition-parameters"></a>
 
 ### <a name="secure-workflow-definition-parameters"></a>Parametrar för säker arbets flödes definition
 
@@ -1045,7 +1047,7 @@ Mer information om hur du arbetar med tjänstens huvud namn finns i följande av
 
 ## <a name="references-to-parameters"></a>Referenser till parametrar
 
-Om du vill referera till mallparametrar kan du använda mallar med [mallar](../azure-resource-manager/templates/template-functions.md)som utvärderas vid distributionen. Mall uttryck använder hak paren tes (**[]**):
+Om du vill referera till mallparametrar kan du använda mallar med [mallar](../azure-resource-manager/templates/template-functions.md)som utvärderas vid distributionen. Mall uttryck använder hak paren tes ( **[]** ):
 
 `"<attribute-name>": "[parameters('<template-parameter-name>')]"`
 

@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 97327517b40e715294393a97e8a26c078173e762
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8a662bf94e958d9e96a454ced9c44058b178a8c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510852"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366850"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Menings koppling och justering i parallella dokument
 
@@ -28,7 +28,7 @@ Anpassad översättare lär sig översättningar av meningar en mening i taget. 
 
 Om du vet att du har parallella dokument kan du åsidosätta menings justeringen genom att ange textfiler som är justerade för text. Du kan extrahera alla meningar från båda dokumenten till text filen, ordnade en mening per rad och ladda upp med ett `.align` tillägg. `.align`Tillägget signalerar den anpassade översättare som det ska hoppa över menings justeringen.
 
-För bästa resultat bör du försöka se till att du har en mening per rad i dina filer.Det finns inte några tecken för ny rad i en mening eftersom detta ger dåliga justeringar.
+För bästa resultat bör du försöka se till att du har en mening per rad i dina filer. Det finns inte några tecken för ny rad i en mening eftersom detta ger dåliga justeringar.
 
 ## <a name="suggested-minimum-number-of-sentences"></a>Föreslaget minsta antal meningar
 
@@ -44,7 +44,7 @@ För att en utbildning ska lyckas visar tabellen nedan det minsta antalet mening
 > [!NOTE]
 > - Träningen kommer inte att starta och kommer att Miss klaras om 10 000 det lägsta antalet meningar för träning inte är uppfyllt. 
 > - Justering och testning är valfria. Om du inte anger dem kommer systemet att ta bort en lämplig procent andel av träningen som används för validering och testning. 
-> - Du kan träna en modell med endast data från en ord lista. Se [ord listan](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/what-is-dictionary).
+> - Du kan träna en modell med endast data från en ord lista. Se [ord listan](./what-is-dictionary.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

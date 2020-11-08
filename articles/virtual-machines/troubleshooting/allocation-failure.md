@@ -10,22 +10,27 @@ tags: top-support-issue,azure-resource-manager,azure-service-management
 ms.assetid: 1ef41144-6dd6-4a56-b180-9d8b3d05eae7
 ms.service: virtual-machines
 ms.topic: troubleshooting
-ms.date: 04/13/2018
+ms.date: 11/06/2020
 ms.author: daberry
-ms.openlocfilehash: 3766c31add02799c62bca7e9063e723e0a5b498e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79bc043a991404a3ee9da954b9639bf1a41f2c51
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86509366"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365881"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Felsöka allokeringsfel när du skapar, startar om eller ändrar storlek på virtuella datorer i Azure
 
 När du skapar en virtuell dator (VM) måste du starta om stoppade (Frigjord) virtuella datorer eller ändra storlek på en virtuell dator, Microsoft Azure allokerar beräknings resurser till din prenumeration. Vi går ständigt att investera i ytterligare infrastruktur och funktioner för att se till att vi alltid har alla VM-typer som är tillgängliga för att stödja kund behovet. Du kan dock ibland uppleva resurs tilldelnings felen på grund av oöverträffad tillväxt i efter frågan på Azure-tjänster i vissa regioner. Det här problemet kan uppstå när du försöker skapa eller starta virtuella datorer i en region medan de virtuella datorerna visar följande felkod och meddelande:
 
-**Felkod**: AllocationFailed eller ZonalAllocationFailed
+**Felkod** : AllocationFailed eller ZonalAllocationFailed
 
-**Fel meddelande**: "allokeringen misslyckades. Det finns inte tillräckligt med kapacitet för den begärda virtuella dator storleken i den här regionen. Läs mer om hur du förbättrar sannolikheten för att tilldelningen lyckades vid https: \/ /aka.MS/Allocation-Guidance "
+**Fel meddelande** : "allokeringen misslyckades. Det finns inte tillräckligt med kapacitet för den begärda virtuella dator storleken i den här regionen. Läs mer om hur du förbättrar sannolikheten för att tilldelningen lyckades vid https: \/ /aka.MS/Allocation-Guidance "
+
+> [!NOTE]
+> Om du felsöker en skalnings uppsättning för virtuella datorer (VMSS) är processen densamma som en standard-VM. Lös problemet genom att följa anvisningarna i den här artikeln.
+> 
+>**Fel meddelande** : "allokeringen misslyckades. Om du försöker lägga till en ny virtuell dator i en skalnings uppsättning för virtuella datorer med en enda placerings grupp eller uppdatera/ändra storlek på en befintlig virtuell dator i en skalnings uppsättning för virtuella datorer med en enda placerings grupp, Observera att en sådan allokering är begränsad till ett enda kluster och att klustret har slut på kapacitet. Läs mer om hur du förbättrar sannolikheten för att tilldelningen lyckades vid http: \/ /aka.MS/Allocation-Guidance. "
 
 I den här artikeln beskrivs orsakerna till några vanliga allokeringsfel och förslag på möjliga lösningar.
 

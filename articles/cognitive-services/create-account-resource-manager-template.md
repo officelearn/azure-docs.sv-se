@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
 ms.custom: subject-armqs
-ms.openlocfilehash: d88d613b6edfc6b08d08410cdc7cf481d973512d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9ca92bf81acd72260d89404051f941b317ee3e1d
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91349197"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363399"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>Snabb start: skapa en Cognitive Services resurs med en ARM-mall
 
@@ -45,7 +45,7 @@ Mallen som används i den här snabbstarten kommer från [Azure-snabbstartsmalla
 :::code language="json" source="~/quickstart-templates/101-cognitive-services-universalkey/azuredeploy.json":::
 
 En Azure-resurs har definierats i mallen:
-* [Microsoft. CognitiveServices/Accounts](https://docs.microsoft.com/azure/templates/microsoft.cognitiveservices/accounts): skapar en Cognitive Services-resurs.
+* [Microsoft. CognitiveServices/Accounts](/azure/templates/microsoft.cognitiveservices/accounts): skapar en Cognitive Services-resurs.
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
@@ -60,7 +60,7 @@ En Azure-resurs har definierats i mallen:
     |Värde  |Beskrivning  |
     |---------|---------|
     | **Prenumeration** | Välj en Azure-prenumeration. |
-    | **Resursgrupp** | Välj **Skapa ny**, ange ett unikt namn för resurs gruppen och klicka sedan på **OK**. |
+    | **Resursgrupp** | Välj **Skapa ny** , ange ett unikt namn för resurs gruppen och klicka sedan på **OK**. |
     | **Region** | Välj en region.  Till exempel **USA, östra** |
     | **Kognitivt tjänst namn** | Ersätt med ett unikt namn för din resurs. Du kommer att behöva namnet i nästa avsnitt när du validerar distributionen. |
     | **Plats** | Ersätt med den region som används ovan. |
@@ -73,9 +73,9 @@ En Azure-resurs har definierats i mallen:
 # <a name="azure-cli"></a>[Azure CLI](#tab/CLI)
 
 > [!NOTE]
-> `az deployment group` Create kräver Azure CLI version 2,6 eller senare. För att Visa versions typen `az --version` . Mer information finns i [dokumentationen](https://docs.microsoft.com/cli/azure/deployment/group).
+> `az deployment group` Create kräver Azure CLI version 2,6 eller senare. För att Visa versions typen `az --version` . Mer information finns i [dokumentationen](/cli/azure/deployment/group).
 
-Kör följande skript med hjälp av Azure Command Line Interface (CLI) [på den lokala datorn](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)eller i en webbläsare med knappen **prova** . Ange ett namn och en plats (till exempel `centralus` ) för en ny resurs grupp och arm-mallen kommer att användas för att distribuera en Cognitive Services resurs i den. Kom ihåg det namn som du använder. Du kommer att använda den senare för att verifiera distributionen.
+Kör följande skript med hjälp av Azure Command Line Interface (CLI) [på den lokala datorn](/cli/azure/install-azure-cli?view=azure-cli-latest)eller i en webbläsare med knappen **prova** . Ange ett namn och en plats (till exempel `centralus` ) för en ny resurs grupp och arm-mallen kommer att användas för att distribuera en Cognitive Services resurs i den. Kom ihåg det namn som du använder. Du kommer att använda den senare för att verifiera distributionen.
 
 
 ```azurecli-interactive
@@ -140,6 +140,6 @@ az group delete --name $resourceGroupName
 ## <a name="next-steps"></a>Nästa steg
 
 * [Autentisera begär anden till Azure Cognitive Services](authentication.md)
-* [Vad är Azure Cognitive Services?](Welcome.md)
+* [Vad är Azure Cognitive Services?](./what-are-cognitive-services.md)
 * [Stöd för naturligt språk](language-support.md)
 * [Stöd för Docker-behållare](cognitive-services-container-support.md)

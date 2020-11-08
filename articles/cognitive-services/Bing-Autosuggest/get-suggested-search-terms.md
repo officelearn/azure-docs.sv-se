@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: d55ff4ed8717a449628e94a940c0896d31818da2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a0187a5d2be6b2f93897fc358e26ad095e5a70f7
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101943"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364589"
 ---
 # <a name="what-is-bing-autosuggest"></a>Vad är Automatiska förslag i Bing?
 
@@ -36,7 +36,7 @@ Om programmet skickar frågor till något av API:erna för Bing-sökning, kan du
 
 API för automatiska förslag för Bing är en RESTful-webbtjänst, vilket innebär att den är enkel att anropa från alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON.
 
-1. Skapa ett [Cognitive Services-API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med åtkomst till API:er för Bing-sökresultat. Om du inte har någon Azure-prenumeration kan du [skapa ett konto](https://azure.microsoft.com/free/cognitive-services/) kostnads fritt.
+1. Skapa ett [Cognitive Services-API-konto](../cognitive-services-apis-create-account.md) med åtkomst till API:er för Bing-sökresultat. Om du inte har någon Azure-prenumeration kan du [skapa ett konto](https://azure.microsoft.com/free/cognitive-services/) kostnads fritt.
 2. Skicka en begäran till det här API:et varje gång en användare skriver ett nytt tecken i programmets sökruta.
 3. Bearbeta API-svaret genom att tolka det returnerade JSON-meddelandet.
 
@@ -52,11 +52,11 @@ När en användare väljer ett förslag i den nedrullningsbara listan, kan du an
 
 Kom igång snabbt med din första begäran genom att läsa avsnittet om att [Skapa din första fråga](quickstarts/csharp.md).
 
-Bekanta dig med referensen för [API för automatiska förslag i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference). Referensen innehåller en lista över de slutpunkter, rubriker och frågeparametrar som du använder för att begära föreslagna frågetermer samt definitionerna av svarsobjekten.
+Bekanta dig med referensen för [API för automatiska förslag i Bing v7](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference). Referensen innehåller en lista över de slutpunkter, rubriker och frågeparametrar som du använder för att begära föreslagna frågetermer samt definitionerna av svarsobjekten.
 
-Gå till [sidan Bing-sökning API Hub](../bing-web-search/search-the-web.md) och utforska de andra tillgängliga API: erna.
+Gå till [sidan Bing-sökning API Hub](../bing-web-search/overview.md) och utforska de andra tillgängliga API: erna.
 
 
-Lär dig hur du söker på webben med hjälp av [API för webbsökning i Bing](../bing-web-search/search-the-web.md)och utforskar den andra[API:er för Bing-sökresultat](../bing-web-search/index.yml).
+Lär dig hur du söker på webben med hjälp av [API för webbsökning i Bing](../bing-web-search/overview.md)och utforskar den andra[API:er för Bing-sökresultat](../bing-web-search/index.yml).
 
-Se till att läsa [Bing Use and Display Requirements](./useanddisplayrequirements.md) (Krav för användning och visning i Bing) så att du inte bryter mot någon av reglerna om användning av sökresultat.
+Se till att läsa [Bing Use and Display Requirements](../bing-web-search/use-display-requirements.md) (Krav för användning och visning i Bing) så att du inte bryter mot någon av reglerna om användning av sökresultat.

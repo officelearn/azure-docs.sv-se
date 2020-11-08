@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.author: aahi
 ms.reviewer: jdesousa
-ms.openlocfilehash: 14fd7c2b034077d818d1a1224d3c4c12a7fc07bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c587bb042601b947b71658bf790e9acdfbdbf742
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855651"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363790"
 ---
 # <a name="text-offsets-in-the-text-analytics-api-output"></a>Text förskjutningar i API för textanalys utdata
 
@@ -34,9 +34,9 @@ Tänk på följande när offsets returnerade API-svar, till exempel [igenkännin
 
 ## <a name="extracting-substrings-from-text-with-offsets"></a>Extrahera del strängar från text med förskjutningar
 
-Förskjutningar kan orsaka problem när du använder teckenbaserade under sträng metoder, till exempel metoden .NET [substring ()](https://docs.microsoft.com/dotnet/api/system.string.substring?view=netframework-4.8) . Ett problem är att en förskjutning kan leda till att en del Strängs metod avslutas i mitten av en Grapheme kodning i flera tecken i stället för slutet.
+Förskjutningar kan orsaka problem när du använder teckenbaserade under sträng metoder, till exempel metoden .NET [substring ()](/dotnet/api/system.string.substring?view=netframework-4.8) . Ett problem är att en förskjutning kan leda till att en del Strängs metod avslutas i mitten av en Grapheme kodning i flera tecken i stället för slutet.
 
-I .NET bör du överväga att använda klassen [StringInfo](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) , som gör att du kan arbeta med en sträng som en serie text element, i stället för enskilda tecken objekt. Du kan också söka efter Grapheme delarer bibliotek i din önskade program miljö. 
+I .NET bör du överväga att använda klassen [StringInfo](/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) , som gör att du kan arbeta med en sträng som en serie text element, i stället för enskilda tecken objekt. Du kan också söka efter Grapheme delarer bibliotek i din önskade program miljö. 
 
 API för textanalys returnerar även dessa text element, för bekvämlighet.
 
@@ -53,7 +53,7 @@ Om det `stringIndexType` begärda matchar den programmerings miljö du väljer k
 ## <a name="see-also"></a>Se även
 
 * [Översikt över Textanalys](../overview.md)
-* [Sentiment-analys](../how-tos/text-analytics-how-to-sentiment-analysis.md)
-* [Enhets igenkänning](../how-tos/text-analytics-how-to-entity-linking.md)
+* [Sentimentanalys](../how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [Igenkänning av enhet](../how-tos/text-analytics-how-to-entity-linking.md)
 * [Identifiera språk](../how-tos/text-analytics-how-to-keyword-extraction.md)
 * [Språk igenkänning](../how-tos/text-analytics-how-to-language-detection.md)

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: erhopf
-ms.openlocfilehash: 4fab0be90e6941d1a6b8f137ae574223b0d7a9d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7aeb9e9f4de7b4de62f9b5a8da6d997e32a2399
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86232754"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363331"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autentisera begär anden till Azure Cognitive Services
 
@@ -24,7 +24,7 @@ Varje begäran till en Azure-kognitiv tjänst måste innehålla ett Authenticati
 * Autentisera med en [token](#authenticate-with-an-authentication-token)
 * Autentisera med [Azure Active Directory (AAD)](#authenticate-with-azure-active-directory)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du gör en förfrågan behöver du ett Azure-konto och en Azure Cognitive Services-prenumeration. Om du redan har ett konto kan du gå vidare och gå vidare till nästa avsnitt. Om du inte har ett konto har vi en guide som hjälper dig att konfigurera på några minuter: [skapa ett Cognitive Services konto för Azure](cognitive-services-apis-create-account.md).
 
@@ -34,7 +34,7 @@ Du kan hämta din prenumerations nyckel från [Azure Portal](cognitive-services-
 
 Vi går snabbt igenom de autentiseringsscheman som är tillgängliga för användning med Azure Cognitive Services.
 
-| Sidhuvud | Beskrivning |
+| Sidhuvud | Description |
 |--------|-------------|
 | Ocp-Apim-Subscription-Key | Använd den här rubriken för att autentisera med en prenumerations nyckel för en enskild tjänst eller en prenumerations nyckel för flera tjänster. |
 | OCP-APIM-Subscription-region | Den här rubriken krävs bara när du använder en prenumerations nyckel för flera tjänster med [tjänsten Translator](./Translator/reference/v3-0-reference.md). Använd den här rubriken för att ange prenumerations region. |
@@ -75,7 +75,7 @@ Prenumerations nyckeln anges i varje begäran som `Ocp-Apim-Subscription-Key` ru
 
 ### <a name="supported-regions"></a>Regioner som stöds
 
-När du använder prenumerations nyckeln för flera tjänster för att göra en begäran till `api.cognitive.microsoft.com` måste du inkludera regionen i URL: en. Exempel: `westus.api.cognitive.microsoft.com`.
+När du använder prenumerations nyckeln för flera tjänster för att göra en begäran till `api.cognitive.microsoft.com` måste du inkludera regionen i URL: en. Här är ett exempel: `westus.api.cognitive.microsoft.com`.
 
 När du använder en prenumerations nyckel för flera tjänster med Translator-tjänsten måste du ange prenumerations region med `Ocp-Apim-Subscription-Region` rubriken.
 
@@ -177,6 +177,6 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 ## <a name="see-also"></a>Se även
 
-* [Vad är Cognitive Services?](welcome.md)
+* [Vad är Cognitive Services?](./what-are-cognitive-services.md)
 * [Prissättning för Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/)
 * [Anpassade under domäner](cognitive-services-custom-subdomains.md)

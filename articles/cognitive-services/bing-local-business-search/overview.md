@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: overview
 ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: 6b715d4b801159b451957c30ee9ef7b406f3a2f4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ee31eac55298c86a7bdd784ea54c9a0c8caa47a4
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095381"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364623"
 ---
 # <a name="what-is-bing-local-business-search"></a>Vad är lokal sökning i Bing Business?
 
@@ -35,7 +35,7 @@ API: t för lokal sökning i Bing är en RESTful-tjänst som gör det möjligt f
 ## <a name="workflow"></a>Arbetsflöde
 Anropa Bing-API: et för lokal sökning från alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON-svar. Den här tjänsten kan nås med hjälp av REST API.
  
-1. Skapa ett [Cognitive Services-API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)  med åtkomst till API:er för Bing-sökresultat. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/).   
+1. Skapa ett [Cognitive Services-API-konto](../cognitive-services-apis-create-account.md)  med åtkomst till API:er för Bing-sökresultat. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/).   
 2. URL koda dina Sök villkor för `q=""` Frågeparametern. Exempel: `q=nearby+restaurant` eller `q=nearby%20restaurant`. Ange även sid brytning, om det behövs. 
 3. Skicka en [begäran till Bing-API för lokal affärs sökning](quickstarts/local-quickstart.md) 
 4. Tolka JSON-svaret 
@@ -49,4 +49,4 @@ Anropa Bing-API: et för lokal sökning från alla programmeringsspråk som kan 
 - [Fråga och svar](local-search-query-response.md)
 - [Snabb start för lokal affärs sökning](quickstarts/local-quickstart.md)
 - [API-referens för sökning efter lokala företag](local-search-reference.md)
-- [Använda och visa krav](use-display-requirements.md)
+- [Använda och visa krav](../bing-web-search/use-display-requirements.md)

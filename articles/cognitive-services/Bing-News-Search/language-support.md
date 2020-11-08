@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
-ms.openlocfilehash: bc28cdbca7d2566318a3158399c1d44fd8d2ccd9
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ef3f7cde226d7246b1de3ae23cd9b4340b012b33
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101729"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366374"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Språk-och region stöd för API för nyhetssökning i Bing
 
@@ -167,4 +167,4 @@ Följande är de lands-/regions koder som du kan ange i `cc` Frågeparametern. L
 |USA|USA|
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om Nyhetssökning i Bing slut punkter finns i [NYHETSSÖKNING API v7-referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference).
+Mer information om Nyhetssökning i Bing slut punkter finns i [NYHETSSÖKNING API v7-referens](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference).

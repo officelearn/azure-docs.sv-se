@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: sample
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.openlocfilehash: 4546ef03c82f19d188a71a86f6964ca87c0f834e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c47aa803774343b39efeabe3452f1b256cc64c0d
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90524971"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363280"
 ---
 # <a name="quick-examples"></a>Snabba exempel
 
@@ -27,7 +27,7 @@ Exemplen använder följande Cognitive Services:
 - Tal-till-text – att skriva av ljudfiler för att extrahera textbaserade avskrifter.
 - Avvikelse detektor – identifiera avvikelser inom en tids serie data.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 1. Följ stegen i [komma igång](getting-started.md) för att konfigurera din Azure Databricks och Cognitive Servicess miljö. I den här kursen får du veta hur du installerar MMLSpark och hur du skapar ett Spark-kluster i Databricks.
 1. När du har skapat en ny antecknings bok i Azure Databricks kopierar du den **delade koden** nedan och klistrar in den i en ny cell i antecknings boken.
@@ -49,7 +49,7 @@ val location = "eastus"
 
 ## <a name="text-analytics"></a>Textanalys
 
-Tjänsten [textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) tillhandahåller flera algoritmer för att extrahera intelligenta insikter från text. Vi kan till exempel hitta sentiment för den angivna texten. Tjänsten returnerar ett resultat mellan `0.0` och `1.0` där låga poäng indikerar negativa sentiment och höga poäng indikerar positiv sentiment.  Exemplet nedan använder tre enkla meningar och returnerar sentiment-poängen för var och en.
+Tjänsten [textanalys](../text-analytics/index.yml) tillhandahåller flera algoritmer för att extrahera intelligenta insikter från text. Vi kan till exempel hitta sentiment för den angivna texten. Tjänsten returnerar ett resultat mellan `0.0` och `1.0` där låga poäng indikerar negativa sentiment och höga poäng indikerar positiv sentiment.  Exemplet nedan använder tre enkla meningar och returnerar sentiment-poängen för var och en.
 
 ```scala
 import org.apache.spark.sql.functions.col
@@ -81,7 +81,7 @@ display(sentiment.transform(df).select(col("text"), col("sentiment")(0).getItem(
 
 ## <a name="computer-vision"></a>Visuellt innehåll
 
-[Visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) analyserar bilder för att identifiera strukturen som ansikten, objekt och beskrivningar av naturligt språk.
+[Visuellt innehåll](../computer-vision/index.yml) analyserar bilder för att identifiera strukturen som ansikten, objekt och beskrivningar av naturligt språk.
 I det här exemplet Taggar vi en lista med bilder. Taggar är en beskrivning av saker i bilden, till exempel igenkännliga objekt, människor, landskap och åtgärder.
 
 ```scala
@@ -118,7 +118,7 @@ display(analysis.transform(df).select(col("image"), col("results").getItem("tags
 
 ## <a name="bing-image-search"></a>Bildsökning i Bing
 
-[Bildsökning i Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview) söker på webben för att hämta avbildningar relaterade till en användares naturliga språk fråga. I det här exemplet använder vi en text fråga som söker efter bilder med citat tecken. Den returnerar en lista med bild-URL: er som innehåller foton som är relaterade till vår fråga.
+[Bildsökning i Bing](../bing-image-search/overview.md) söker på webben för att hämta avbildningar relaterade till en användares naturliga språk fråga. I det här exemplet använder vi en text fråga som söker efter bilder med citat tecken. Den returnerar en lista med bild-URL: er som innehåller foton som är relaterade till vår fråga.
 
 
 ```scala
@@ -163,7 +163,7 @@ display(pipeline.fit(df).transform(df))
 
 ## <a name="speech-to-text"></a>Tal till text
 
-Tjänsten [tal-till-text](https://docs.microsoft.com/azure/cognitive-services/speech-service/index-speech-to-text) konverterar data strömmar eller filer av talade ljud till text. I det här exemplet ska vi skriva två ljudfiler. Den första filen är lätt att förstå och den andra är mer utmanande.
+Tjänsten [tal-till-text](../speech-service/index-speech-to-text.yml) konverterar data strömmar eller filer av talade ljud till text. I det här exemplet ska vi skriva två ljudfiler. Den första filen är lätt att förstå och den andra är mer utmanande.
 
 ```scala
 import org.apache.spark.sql.functions.col
@@ -196,7 +196,7 @@ display(speechToText.transform(df).select(col("url"), col("text").getItem("Displ
 
 ## <a name="anomaly-detector"></a>Avvikelseidentifiering
 
-[Avvikelse detektor](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/) är perfekt för att upptäcka överträdelser i dina tids serie data. I det här exemplet använder vi tjänsten för att hitta avvikelser i hela tids serien.
+[Avvikelse detektor](../anomaly-detector/index.yml) är perfekt för att upptäcka överträdelser i dina tids serie data. I det här exemplet använder vi tjänsten för att hitta avvikelser i hela tids serien.
 
 ```scala
 import org.apache.spark.sql.functions.{col, lit}

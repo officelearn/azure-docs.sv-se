@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: 18b980a868173b1fa721f9fc0986d7e1efb203af
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 89bbb16f96d06d1861dabdf89cf690e69c10735c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348924"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364487"
 ---
 # <a name="troubleshooting-shared-image-galleries-in-azure"></a>Felsöka delade avbildnings gallerier i Azure
 
@@ -153,7 +153,7 @@ Om du får problem när du utför åtgärder i delade bildgallerier, eller för 
 
 *Det är inte tillåtet att ändra egenskapen ' galleryImageVersion. Properties. storageProfile. <Diskimage om \> . Source.ID '.*  
 **Orsak** : det går inte att ändra käll-ID: t för en Galleri avbildnings version efter skapandet.  
-**Lösning** : kontrol lera att käll-ID: t är samma som det redan befintliga käll-ID: t eller ändra versions numret för avbildnings versionen.
+**Lösning** : kontrol lera att käll-ID: t är samma som det redan befintliga käll-ID: t, ändra versions numret för avbildnings versionen eller ta bort den aktuella avbildnings versionen och försök igen.
 
 *Duplicerade LUN-nummer har identifierats i indata-diskarna. LUN-numret måste vara unikt för varje data disk.*  
 **Orsak** : när du skapar en avbildnings version med hjälp av en lista över diskar och/eller disk ögonblicks bilder, har två eller flera diskar eller disk ögonblicks bilder samma LUN-nummer.  

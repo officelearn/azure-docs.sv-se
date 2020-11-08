@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
 ms.date: 07/17/2020
-ms.openlocfilehash: 5e3606ac04d5023e28bc2304aba79a8211c58881
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a62c7dc8238b642aeaa59a7b470266378832e26e
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87133086"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363892"
 ---
 # <a name="whats-new-in-personalizer"></a>Nyheter i Personanpassaren
 
@@ -31,7 +31,7 @@ Läs om vad som är nytt i tjänsten. Dessa objekt kan innehålla viktig informa
 
 ### <a name="may-2020---build-conference"></a>2020 maj-build-konferens
 
-Följande är tillgängligt i den **offentliga för hands versionen**:
+Följande är tillgängligt i den **offentliga för hands versionen** :
 
  * [Lärlings läge](concept-apprentice-mode.md) som ett inlärnings beteende.
 
@@ -50,7 +50,7 @@ Följande för hands versions funktioner släpptes på Build 2019-konferensen:
 
 * [Inlärnings slinga för rang och belöning](what-is-personalizer.md)
 
-## <a name="videos"></a>Videoklipp
+## <a name="videos"></a>Video
 
 ### <a name="2019-build-videos"></a>2019 Bygg videor
 
@@ -62,5 +62,5 @@ Följande för hands versions funktioner släpptes på Build 2019-konferensen:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Snabb start: skapa en feedback-slinga i C #](csharp-quickstart-commandline-feedback-loop.md)
+* [Snabb start: skapa en feedback-slinga i C #](./quickstart-personalizer-sdk.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)
 * [Använd den interaktiva demonstrationen](https://personalizationdemo.azurewebsites.net/)

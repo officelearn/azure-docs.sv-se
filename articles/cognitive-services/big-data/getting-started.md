@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.openlocfilehash: 444b76a594e768face892462da12a1cbb35a5106
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 37239f9c7857a8e72bb293cfa3caeb429962a542
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324677"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363348"
 ---
 # <a name="getting-started"></a>Komma igång
 
@@ -31,7 +31,7 @@ Om du vill använda Big data Cognitive Services måste du först skapa en kognit
 
 ### <a name="cloud-services"></a>Molntjänster
 
-Molnbaserad Cognitive Services är intelligenta algoritmer som finns i Azure. Dessa tjänster är redo att användas utan utbildning. du behöver bara en Internet anslutning. Du kan [skapa en kognitiv tjänst i Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows) eller med [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows).
+Molnbaserad Cognitive Services är intelligenta algoritmer som finns i Azure. Dessa tjänster är redo att användas utan utbildning. du behöver bara en Internet anslutning. Du kan [skapa en kognitiv tjänst i Azure Portal](../cognitive-services-apis-create-account.md?tabs=multiservice%2Cwindows) eller med [Azure CLI](../cognitive-services-apis-create-account-cli.md?tabs=windows).
 
 ### <a name="containerized-services-optional"></a>Behållar tjänster (valfritt)
 
@@ -45,7 +45,7 @@ Om ditt program eller din arbets belastning använder stora data uppsättningar,
 
 * **Hög skalbarhet** : behållarens tjänster har inte "hastighets begränsningar" och körs på användar hanterade datorer. Det innebär att du kan skala Cognitive Services utan slut för att hantera stora arbets belastningar.
 
-Följ [den här guiden](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support?tabs=luis) för att skapa en behållar kognitiv tjänst.
+Följ [den här guiden](../cognitive-services-container-support.md?tabs=luis) för att skapa en behållar kognitiv tjänst.
 
 ## <a name="create-an-apache-spark-cluster"></a>Skapa ett Apache Spark-kluster
 
@@ -55,8 +55,8 @@ Följ [den här guiden](https://docs.microsoft.com/azure/cognitive-services/cogn
 
 Azure Databricks är en Apache Spark-baserad analys plattform med en enkel klicknings installation, strömlinjeformade arbets flöden och en interaktiv arbets yta. Den används ofta för att samar beta mellan data experter, tekniker och affärsanalytiker. Följ dessa steg om du vill använda Big data Cognitive Services på Azure Databricks:
 
-1. [Skapa en Azure Databricks-arbetsyta](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal#create-an-azure-databricks-workspace)
-1. [Skapa ett Spark-kluster i Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal#create-a-spark-cluster-in-databricks)
+1. [Skapa en Azure Databricks-arbetsyta](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal#create-an-azure-databricks-workspace)
+1. [Skapa ett Spark-kluster i Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal#create-a-spark-cluster-in-databricks)
 1. Installera Big data Cognitive Services
     * Skapa ett nytt bibliotek i din databricks-arbetsyta  
        <img src="media/create-library.png" alt="Create library" width="50%"/>
@@ -69,8 +69,8 @@ Azure Databricks är en Apache Spark-baserad analys plattform med en enkel klick
 
 Du kan också använda Synapse Analytics för att skapa ett Spark-kluster. Azure Synapse Analytics samlar ihop företags data lager hantering och stor data analys. Det ger dig friheten att fråga efter data på dina villkor, med hjälp av antingen server utan på begäran eller etablerade resurser i stor skala. Följ dessa steg för att komma igång med Synapse Analytics:
 
-1. [Skapa en Synapse-arbetsyta (för hands version)](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace).
-1. [Skapa en ny server lös Apache Spark pool (för hands version) med hjälp av Azure Portal](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool-portal).
+1. [Skapa en Synapse-arbetsyta (för hands version)](../../synapse-analytics/quickstart-create-workspace.md).
+1. [Skapa en ny server lös Apache Spark pool (för hands version) med hjälp av Azure Portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md).
 
 I Synapse Analytics installeras Big data för Cognitive Services som standard.
 
@@ -80,9 +80,9 @@ Om du använder container Cognitive Services, är ett populärt alternativ för 
 
 Följ dessa steg för att komma igång med Azure Kubernetes-tjänsten:
 
-1. [Distribuera ett kluster med Azure Kubernetes Service (AKS) med hjälp av Azure Portal](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal)
+1. [Distribuera ett kluster med Azure Kubernetes Service (AKS) med hjälp av Azure Portal](../../aks/kubernetes-walkthrough-portal.md)
 1. [Installera Apache Spark 2.4.0 Helm-diagrammet](https://hub.helm.sh/charts/microsoft/spark)
-1. [Installera en kognitiv tjänst behållare med Helm](https://docs.microsoft.com/azure/cognitive-services/computer-vision/deploy-computer-vision-on-premises)
+1. [Installera en kognitiv tjänst behållare med Helm](../computer-vision/deploy-computer-vision-on-premises.md)
 
 ## <a name="try-a-sample"></a>Prova ett exempel
 

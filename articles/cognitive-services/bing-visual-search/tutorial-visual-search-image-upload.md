@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: scottwhi
 ms.custom: devx-track-js
-ms.openlocfilehash: 8ecea9dce3509e064d9244a8b725add21747a03e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a0afee57eaaa0708ebde2a2aeaced76f008ebd9f
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102212"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366136"
 ---
 # <a name="tutorial-upload-images-to-the-bing-visual-search-api"></a>Självstudie: Ladda upp bilder till API för visuell sökning i Bing
 
@@ -477,7 +477,7 @@ function addDivContent(div, tag, json) {
 
 ## <a name="display-insights-for-different-actions"></a>Visar insikter för olika åtgärder
 
-Följande funktioner visar insikter för olika åtgärder. Funktionerna ger antingen en klickbar bild eller en klickbar länk som dirigerar dig till en webbplats med mer information om bilden. Den här sidan hanteras antingen av Bing.com eller av bildens ursprungliga webbplats. Inte alla av insikternas data visas i det här programmet. Om du vill se alla tillgängliga fält för en insikt, se referensen för [avbildnings visuell sökning](https://aka.ms/bingvisualsearchreferencedoc) .
+Följande funktioner visar insikter för olika åtgärder. Funktionerna ger antingen en klickbar bild eller en klickbar länk som dirigerar dig till en webbplats med mer information om bilden. Den här sidan hanteras antingen av Bing.com eller av bildens ursprungliga webbplats. Inte alla av insikternas data visas i det här programmet. Om du vill se alla tillgängliga fält för en insikt, se referensen för [avbildnings visuell sökning](/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch) .
 
 > [!NOTE]
 > Det finns en minsta mängd insiktsinformation som du måste visa på sidan. Läs mer i [Bing-sökning API-användning och Visa krav](../bing-web-search/use-display-requirements.md) .

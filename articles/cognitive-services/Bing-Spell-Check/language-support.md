@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 2b4e4eb84cecf2f68c50f0a40630cc2e6f34554f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 38bf38f47e4430c847e54bd89f6bf3cd7be50527
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084225"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367088"
 ---
 # <a name="language-and-region-support-for-bing-spell-check-api"></a>Språk-och region stöd för API för stavningskontroll i Bing
 
@@ -26,7 +26,7 @@ ms.locfileid: "93084225"
 
 Dessa språk stöds av API för stavningskontroll i Bing (endast i `spell` läge).
 
-Observera att om du arbetar med ett annat språk än `en-US` , `mkt` bör det ställas in och `Accept-Language` anges `setLang` som det har beskrivits i [stavningskontrolls-API v7-referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+Observera att om du arbetar med ett annat språk än `en-US` , `mkt` bör det ställas in och `Accept-Language` anges `setLang` som det har beskrivits i [stavningskontrolls-API v7-referens](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
 
 | Språk    | Språkkod |
 |:----------- |:-------------:|
@@ -73,5 +73,5 @@ Observera att om du arbetar med ett annat språk än `en-US` , `mkt` bör det st
 
 ## <a name="see-also"></a>Se även
 
-- [Dokumentationssida om Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/)
+- [Dokumentationssida om Cognitive Services](../index.yml)
 - [Produktsida om Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)

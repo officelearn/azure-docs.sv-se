@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: a8fa86ef33fe7b0d9e97aebca96b3aa5465f24a4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7abd67ef072303b7f8156a18c2e3ac34758c03dd
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099869"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364742"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>Självstudie: Skapa en klient för en webbsida med stavningskontroll
 
@@ -128,7 +128,7 @@ getSubscriptionKeyLocalStorage-hjälpfunktionen försöker först hämta nyckeln
     }
 ```
 
-getSubscriptionKey-hjälpfunktionen stöder en parameter, **invalidate** . Om **invalidate** är **true** tar getSubscriptionKey bort cookien som innehåller nyckeln för API:et för stavningskontroll i Bing. Om **invalidate** är **false** returnerar getSubscriptionKey värdet för nyckeln för API:et för stavningskontroll i Bing.
+getSubscriptionKey-hjälpfunktionen stöder en parameter, **invalidate**. Om **invalidate** är **true** tar getSubscriptionKey bort cookien som innehåller nyckeln för API:et för stavningskontroll i Bing. Om **invalidate** är **false** returnerar getSubscriptionKey värdet för nyckeln för API:et för stavningskontroll i Bing.
 
 ```html
     function getSubscriptionKey(invalidate) {
@@ -293,7 +293,7 @@ Spara filen.
 
 ## <a name="display-results"></a>Visa resultat
 
-Öppna webbsidan i webbläsaren. Ange din prenumerationsnyckel för API:et för stavningskontroll i Bing i Kommandotolken. Skriv en fråga (till exempel ”Hollo, wlrd!”) i textrutan **Stavningskontroll** och tryck på **Retur** . Webbsidan visar resultatet från frågan.
+Öppna webbsidan i webbläsaren. Ange din prenumerationsnyckel för API:et för stavningskontroll i Bing i Kommandotolken. Skriv en fråga (till exempel ”Hollo, wlrd!”) i textrutan **Stavningskontroll** och tryck på **Retur**. Webbsidan visar resultatet från frågan.
 
 ```json
 {
@@ -332,4 +332,4 @@ Spara filen.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Använda och visa krav](../UseAndDisplayRequirements.md)
+> [Använda och visa krav](../../bing-web-search/use-display-requirements.md)

@@ -8,59 +8,59 @@ ms.service: cognitive-services
 ms.topic: overview
 ms.date: 07/09/2020
 ms.author: marhamil
-ms.openlocfilehash: 030fb4b4e5fa10304167f8d6bc2307c5b93c6d58
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 1b08925db12edffdaf5c85f1fa6f5934a412d81f
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776637"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363314"
 ---
 # <a name="azure-cognitive-services-for-big-data"></a>Azure Cognitive Services för Big data
 
 ![Azure Cognitive Services för Big data](media/cognitive-services-big-data-overview.svg)
 
-Med hjälp av Azure-Cognitive Services för Big data kan användarna channela terabyte data genom att Cognitive Services använda [Apache Spark &trade; ](https://docs.microsoft.com/dotnet/spark/what-is-spark). Med Cognitive Services för Big data är det enkelt att skapa storskaliga intelligenta program med alla data lager.
+Med hjälp av Azure-Cognitive Services för Big data kan användarna channela terabyte data genom att Cognitive Services använda [Apache Spark &trade; ](/dotnet/spark/what-is-spark). Med Cognitive Services för Big data är det enkelt att skapa storskaliga intelligenta program med alla data lager.
 
 Med Cognitive Services för Big data kan du bädda in kontinuerligt och intelligenta modeller direkt i Apache Spark- &trade; och SQL-beräkningar. Dessa verktyg utvecklar utvecklare från lågnivå information på låg nivå, så att de kan fokusera på att skapa smarta, distribuerade program.
 
 ## <a name="features-and-benefits"></a>Funktioner och fördelar
 
-Cognitive Services för Big data kan använda tjänster från valfri region i världen, samt [Cognitive Services för behållare](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support). Behållare stöder låga eller inga anslutnings distributioner med svar med ultralåg svars tid. Container Cognitive Services kan köras lokalt, direkt på arbetsnoderna i Spark-klustret eller på en extern Orchestrator som Kubernetes.
+Cognitive Services för Big data kan använda tjänster från valfri region i världen, samt [Cognitive Services för behållare](../cognitive-services-container-support.md). Behållare stöder låga eller inga anslutnings distributioner med svar med ultralåg svars tid. Container Cognitive Services kan köras lokalt, direkt på arbetsnoderna i Spark-klustret eller på en extern Orchestrator som Kubernetes.
 
 ## <a name="supported-services"></a>Tjänster som stöds
 
-[Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/), som nås via API: er och SDK: er, hjälper utvecklare att bygga smarta program utan att ha några AI-eller data vetenskaps kunskaper. Med Cognitive Services kan du göra dina program se, höra, tala, förstå och varför. Om du vill använda Cognitive Services måste programmet skicka data till tjänsten över nätverket. Tjänsten skickar ett intelligent svar i retur när den har tagits emot. Följande tjänster är tillgängliga för stora data arbets belastningar:
+[Cognitive Services](../index.yml), som nås via API: er och SDK: er, hjälper utvecklare att bygga smarta program utan att ha några AI-eller data vetenskaps kunskaper. Med Cognitive Services kan du göra dina program se, höra, tala, förstå och varför. Om du vill använda Cognitive Services måste programmet skicka data till tjänsten över nätverket. Tjänsten skickar ett intelligent svar i retur när den har tagits emot. Följande tjänster är tillgängliga för stora data arbets belastningar:
 
 ### <a name="vision"></a>Visuellt innehåll
 
 |Tjänstens namn|Beskrivning av tjänst|
 |:-----------|:------------------|
-|[Visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/ "Visuellt innehåll")| Tjänsten Visuellt innehåll ger dig till gång till avancerade algoritmer för bearbetning av avbildningar och att returnera information. |
-|[Ansiktsigenkänning](https://docs.microsoft.com/azure/cognitive-services/face/ "Ansikte")| Ansikts tjänsten ger till gång till avancerade ansikts algoritmer, vilket möjliggör identifiering och igenkänning av ansikts attribut. |
+|[Visuellt innehåll](../computer-vision/index.yml "Visuellt innehåll")| Tjänsten Visuellt innehåll ger dig till gång till avancerade algoritmer för bearbetning av avbildningar och att returnera information. |
+|[Ansiktsigenkänning](../face/index.yml "Ansikte")| Ansikts tjänsten ger till gång till avancerade ansikts algoritmer, vilket möjliggör identifiering och igenkänning av ansikts attribut. |
 
 ### <a name="speech"></a>Speech
 
 |Tjänstens namn|Beskrivning av tjänst|
 |:-----------|:------------------|
-|[Tal tjänst](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Tjänst för taligenkänning")|Tal tjänsten ger till gång till funktioner som tal igenkänning, tal syntes, tal översättning och högtalar verifiering och identifiering.|
+|[Tjänst för taligenkänning](../speech-service/index.yml "Tjänst för taligenkänning")|Tal tjänsten ger till gång till funktioner som tal igenkänning, tal syntes, tal översättning och högtalar verifiering och identifiering.|
 
 ### <a name="decision"></a>Beslut
 
 |Tjänstens namn|Beskrivning av tjänst|
 |:-----------|:------------------|
-|[Avvikelseidentifiering](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/ "Avvikelseidentifiering") | Med tjänsten avvikelse detektor (förhands granskning) kan du övervaka och identifiera avvikelser i dina tids serie data.|
+|[Avvikelseidentifiering](../anomaly-detector/index.yml "Avvikelseidentifiering") | Med tjänsten avvikelse detektor (förhands granskning) kan du övervaka och identifiera avvikelser i dina tids serie data.|
 
 ### <a name="language"></a>Språk
 
 |Tjänstens namn|Beskrivning av tjänst|
 |:-----------|:------------------|
-|[Textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "Textanalys")| Tjänsten Textanalys tillhandahåller naturlig språk bearbetning över rå text för sentiment analys, extrahering av nyckel fraser och språk identifiering.|
+|[Textanalys](../text-analytics/index.yml "Textanalys")| Tjänsten Textanalys tillhandahåller naturlig språk bearbetning över rå text för sentiment analys, extrahering av nyckel fraser och språk identifiering.|
 
 ### <a name="search"></a>Sök
 
 |Tjänstens namn|Beskrivning av tjänst|
 |:-----------|:------------------|
-|[Bildsökning i Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search "Bildsökning i Bing")|Tjänsten Bildsökning i Bing returnerar en visning av bilder som har fastställts vara relevanta för användarens fråga.|
+|[Bildsökning i Bing](/azure/cognitive-services/bing-image-search "Bildsökning i Bing")|Tjänsten Bildsökning i Bing returnerar en visning av bilder som har fastställts vara relevanta för användarens fråga.|
 
 ## <a name="supported-programming-languages-for-cognitive-services-for-big-data"></a>Programmeringsspråk som stöds för Cognitive Services för Big data
 
@@ -80,19 +80,19 @@ Cognitive Services för Big data kräver Apache Spark. Det finns flera Apache Sp
 
 ### <a name="azure-databricks"></a>Azure Databricks
 
-[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/what-is-azure-databricks) är en Apache Spark-baserad analysplattform som är optimerad för Microsoft Azures plattform för molntjänster. Den innehåller en enkel klicknings installation, effektiviserade arbets flöden och en interaktiv arbets yta som har stöd för samarbete mellan data experter, data tekniker och affärsanalytiker.
+[Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) är en Apache Spark-baserad analysplattform som är optimerad för Microsoft Azures plattform för molntjänster. Den innehåller en enkel klicknings installation, effektiviserade arbets flöden och en interaktiv arbets yta som har stöd för samarbete mellan data experter, data tekniker och affärsanalytiker.
 
 ### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 
-[Azure Synapse Analytics](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/synapse-analytics) (tidigare SQL Data Warehouse) är ett informations lager för företag som använder massiv parallell bearbetning. Med Synapse Analytics kan du snabbt köra komplexa frågor över petabyte data. Azure Synapse Analytics tillhandahåller hanterade Spark-pooler för att köra Spark-jobb med ett intuitivt Jupyter Notebook gränssnitt.
+[Azure Synapse Analytics](/azure/databricks/data/data-sources/azure/synapse-analytics) (tidigare SQL Data Warehouse) är ett informations lager för företag som använder massiv parallell bearbetning. Med Synapse Analytics kan du snabbt köra komplexa frågor över petabyte data. Azure Synapse Analytics tillhandahåller hanterade Spark-pooler för att köra Spark-jobb med ett intuitivt Jupyter Notebook gränssnitt.
 
 ### <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
 
-[Azure Kubernetes service (AKS)](https://docs.microsoft.com/azure/aks/) dirigerar Docker-behållare och distribuerade program i massiv skala. AKS är ett hanterat Kubernetes-erbjudande som fören klar användningen av Kubernetes i Azure. Kubernetes kan ge detaljerad kontroll över skalning, svars tid och nätverk för kognitiva tjänster. Vi rekommenderar dock att du använder Azure Databricks eller Synapse Analytics om du inte är bekant med Apache Spark.
+[Azure Kubernetes service (AKS)](../../aks/index.yml) dirigerar Docker-behållare och distribuerade program i massiv skala. AKS är ett hanterat Kubernetes-erbjudande som fören klar användningen av Kubernetes i Azure. Kubernetes kan ge detaljerad kontroll över skalning, svars tid och nätverk för kognitiva tjänster. Vi rekommenderar dock att du använder Azure Databricks eller Synapse Analytics om du inte är bekant med Apache Spark.
 
 ### <a name="data-connectors"></a>Data kopplingar
 
-När du har ett Spark-kluster ansluter nästa steg till dina data. Apache Spark har en bred samling databas anslutningar. Dessa anslutningar gör det möjligt för program att arbeta med stora data uppsättningar oavsett var de lagras. Mer information om databaser och anslutningar som stöds finns i [listan över data källor som stöds för Azure Databricks](https://docs.microsoft.com/azure/databricks/data/data-sources/).
+När du har ett Spark-kluster ansluter nästa steg till dina data. Apache Spark har en bred samling databas anslutningar. Dessa anslutningar gör det möjligt för program att arbeta med stora data uppsättningar oavsett var de lagras. Mer information om databaser och anslutningar som stöds finns i [listan över data källor som stöds för Azure Databricks](/azure/databricks/data/data-sources/).
 
 ## <a name="concepts"></a>Begrepp
 

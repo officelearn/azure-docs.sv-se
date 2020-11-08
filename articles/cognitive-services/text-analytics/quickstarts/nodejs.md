@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: aahi
 ms.custom: seo-javascript-september2019, devx-track-js
-ms.openlocfilehash: 00026066c90520f59700c7c5ddc33557099b3e8a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 912434f20d00d276bde23803f4560ebd528872d9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91309021"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365133"
 ---
 # <a name="quickstart-use-nodejs-to-call-the-text-analytics-cognitive-service"></a>Snabb start: Använd Node.js för att anropa tjänsten Textanalys kognitiv  
 <a name="HOLTop"></a>
 
-Den här artikeln visar hur du [identifierar språk](#Detect), [analyserar attityder](#SentimentAnalysis), [extraherar diskussionsämnen](#KeyPhraseExtraction) och [identifierar länkade entiteter](#Entities) Med  [API:er för textanalys](//go.microsoft.com/fwlink/?LinkID=759711)  med Node.js.
+Den här artikeln visar hur du [identifierar språk](#Detect), [analyserar attityder](#SentimentAnalysis), [extraherar diskussionsämnen](#KeyPhraseExtraction) och [identifierar länkade entiteter](#Entities) Med [API:er för textanalys](//go.microsoft.com/fwlink/?LinkID=759711) med Node.js.
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
@@ -366,7 +366,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="identify-linked-entities"></a>Identifiera länkade entiteter
 
-API:et för entiteter identifierar välkända entiteter i ett textdokument med hjälp av [metoden Entiteter](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [Entiteter](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraherar ord från text, t. ex. "USA", och ger dig sedan typen och/eller Wikipedia-länken för dessa ord. Typen för "USA" är `location` , medan länken till Wikipedia är `https://en.wikipedia.org/wiki/United_States` .  I följande exempel identifieras entiteter för engelska dokument.
+API:et för entiteter identifierar välkända entiteter i ett textdokument med hjälp av [metoden Entiteter](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [Entiteter](../how-tos/text-analytics-how-to-entity-linking.md) extraherar ord från text, t. ex. "USA", och ger dig sedan typen och/eller Wikipedia-länken för dessa ord. Typen för "USA" är `location` , medan länken till Wikipedia är `https://en.wikipedia.org/wiki/United_States` .  I följande exempel identifieras entiteter för engelska dokument.
 
 1. Skapa ett nytt Node.JS-projekt i din favorit-IDE eller en-mapp på Skriv bordet.
 1. Lägg till den kod som anges nedan till en ny `.js` fil.

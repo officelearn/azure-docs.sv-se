@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: acb32e2fe3dae45cc4a95cea1b9fa4ea01d576c0
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: f68618c4387bc5105914eccc4e6149650119fd0f
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102187"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366085"
 ---
 # <a name="tutorial-find-similar-images-from-previous-searches-using-an-image-insights-token"></a>Självstudie: hitta liknande bilder från tidigare sökningar med en image Insights-token
 
@@ -44,7 +44,7 @@ Den fullständiga käll koden för den här själv studie kursen hittar du ytter
 
 ## <a name="get-the-imageinsightstoken-from-the-bing-image-search-client-library"></a>Hämta ImageInsightsToken från klient biblioteket för Bildsökning i Bing
 
-Det här programmet använder en `ImageInsightsToken` hämtade genom [bildsökning i Bing klient biblioteket](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart). I ett nytt C#-konsol program skapar du en-klient för att anropa API: et med `ImageSearchClient()` . Använd sedan `SearchAsync()` med frågan:
+Det här programmet använder en `ImageInsightsToken` hämtade genom [bildsökning i Bing klient biblioteket](../bing-image-search/quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp). I ett nytt C#-konsol program skapar du en-klient för att anropa API: et med `ImageSearchClient()` . Använd sedan `SearchAsync()` med frågan:
 
 ```csharp
 var client = new ImageSearchClient(new Microsoft.Azure.CognitiveServices.Search.ImageSearch.ApiKeyServiceClientCredentials(subKey));
@@ -129,7 +129,7 @@ Hämtning av faktiska bild-URL: er från åtgärds typer kräver en Cast som lä
     }
 ```
 
-Mer information om dessa datatyper finns i [Bilder – Visuell sökning](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch).
+Mer information om dessa datatyper finns i [Bilder – Visuell sökning](/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch).
 
 ## <a name="returned-urls"></a>Returnerade URL: er
 

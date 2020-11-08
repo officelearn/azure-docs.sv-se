@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: 2b13ac02a8a276b2ef46c8ffd5f13846e394d938
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 3bc2d339ade7dade3cf3be6e63e150c77d3c44b4
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166938"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366765"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Så här: identifiera sentiment med hjälp av API för textanalys
 
@@ -23,7 +23,7 @@ API för textanalysens Attitydanalys-funktion utvärderar text och returnerar se
 
 När du har skickat en sentiment Analysis-begäran returnerar API: n sentiment etiketter (till exempel "negativa", "neutral" och "positiv") och konfidens tecken på meningen och dokument nivån.
 
-Attitydanalys stöder en mängd olika språk, med mer i för hands version. Mer information finns i [språk som stöds](../text-analytics-supported-languages.md).
+Attitydanalys stöder en mängd olika språk, med mer i för hands version. Mer information finns i [språk som stöds](../language-support.md).
 
 ## <a name="sentiment-analysis-versions-and-features"></a>Attitydanalys versioner och funktioner
 
@@ -40,7 +40,7 @@ Attitydanalys stöder en mängd olika språk, med mer i för hands version. Mer 
 
 Attitydanalys i v3 tillämpar sentiment-etiketter på text, som returneras på en mening och dokument nivå, med en förtroende poäng för var och en. 
 
-Etiketterna är *positiva*, *negativa*och *neutrala*. På dokument nivå kan du också returnera den *blandade* sentiment-etiketten. Sentiment för dokumentet fastställs nedan:
+Etiketterna är *positiva* , *negativa* och *neutrala*. På dokument nivå kan du också returnera den *blandade* sentiment-etiketten. Sentiment för dokumentet fastställs nedan:
 
 | Mening sentiment                                                                            | Etikett för returnerat dokument |
 |-----------------------------------------------------------------------------------------------|-------------------------|

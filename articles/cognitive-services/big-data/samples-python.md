@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: sample
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.openlocfilehash: 1a4fe2492433aa793d1a7e4be41c5f93043848a5
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 590ddef27315f37719da5b28c68b6c402371e986
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337873"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363263"
 ---
 # <a name="python-samples-for-cognitive-services-for-big-data"></a>Python-exempel för Cognitive Services för Big data
 
@@ -56,7 +56,7 @@ assert service_key != "ADD_YOUR_SUBSCRIPION_KEY"
 
 ## <a name="text-analytics-sample"></a>Textanalys exempel
 
-Tjänsten [textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) tillhandahåller flera algoritmer för att extrahera intelligenta insikter från text. Vi kan till exempel hitta sentiment för den angivna texten. Tjänsten returnerar ett resultat mellan 0,0 och 1,0 där låga poäng indikerar negativa sentiment och höga poäng indikerar positiv sentiment.  Det här exemplet använder tre enkla meningar och returnerar sentiment för var och en.
+Tjänsten [textanalys](../text-analytics/index.yml) tillhandahåller flera algoritmer för att extrahera intelligenta insikter från text. Vi kan till exempel hitta sentiment för den angivna texten. Tjänsten returnerar ett resultat mellan 0,0 och 1,0 där låga poäng indikerar negativa sentiment och höga poäng indikerar positiv sentiment.  Det här exemplet använder tre enkla meningar och returnerar sentiment för var och en.
 
 ```python
 from pyspark.sql.functions import col
@@ -91,7 +91,7 @@ display(sentiment.transform(df).select("text", col("sentiment")[0].getItem("sent
 
 ## <a name="computer-vision-sample"></a>Visuellt innehåll exempel
 
-[Visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) analyserar bilder för att identifiera strukturen som ansikten, objekt och beskrivningar av naturligt språk. I det här exemplet Taggar vi en lista med bilder. Taggar är en beskrivning av saker i bilden, till exempel igenkännliga objekt, människor, landskap och åtgärder.
+[Visuellt innehåll](../computer-vision/index.yml) analyserar bilder för att identifiera strukturen som ansikten, objekt och beskrivningar av naturligt språk. I det här exemplet Taggar vi en lista med bilder. Taggar är en beskrivning av saker i bilden, till exempel igenkännliga objekt, människor, landskap och åtgärder.
 
 ```python
 
@@ -126,7 +126,7 @@ display(analysis.transform(df).select("image", "analysis_results.description.tag
 
 ## <a name="bing-image-search-sample"></a>Bildsökning i Bing exempel
 
-[Bildsökning i Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview) söker på webben för att hämta avbildningar relaterade till en användares naturliga språk fråga. I det här exemplet använder vi en text fråga som söker efter bilder med citat tecken. Den returnerar en lista med bild-URL: er som innehåller foton som är relaterade till vår fråga.
+[Bildsökning i Bing](../bing-image-search/overview.md) söker på webben för att hämta avbildningar relaterade till en användares naturliga språk fråga. I det här exemplet använder vi en text fråga som söker efter bilder med citat tecken. Den returnerar en lista med bild-URL: er som innehåller foton som är relaterade till vår fråga.
 
 ```python
 from pyspark.ml import PipelineModel
@@ -171,7 +171,7 @@ display(pipeline.transform(bingParameters))
 
 
 ## <a name="speech-to-text-sample"></a>Tal till text-exempel
-Tjänsten [tal-till-text](https://docs.microsoft.com/azure/cognitive-services/speech-service/index-speech-to-text) konverterar data strömmar eller filer av talade ljud till text. I det här exemplet ska vi skriva två ljudfiler. Den första filen är lätt att förstå och den andra är mer utmanande.
+Tjänsten [tal-till-text](../speech-service/index-speech-to-text.yml) konverterar data strömmar eller filer av talade ljud till text. I det här exemplet ska vi skriva två ljudfiler. Den första filen är lätt att förstå och den andra är mer utmanande.
 
 ```python
 
@@ -205,7 +205,7 @@ display(speech_to_text.transform(df).select("url", "text.DisplayText"))
 
 ## <a name="anomaly-detector-sample"></a>Exempel på avvikelse detektor
 
-[Avvikelse detektor](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/) är perfekt för att upptäcka överträdelser i dina tids serie data. I det här exemplet använder vi tjänsten för att hitta avvikelser i hela tids serien.
+[Avvikelse detektor](../anomaly-detector/index.yml) är perfekt för att upptäcka överträdelser i dina tids serie data. I det här exemplet använder vi tjänsten för att hitta avvikelser i hela tids serien.
 
 ```python
 from pyspark.sql.functions import lit

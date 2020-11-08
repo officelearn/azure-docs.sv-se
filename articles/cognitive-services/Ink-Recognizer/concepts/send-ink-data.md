@@ -10,12 +10,12 @@ ms.subservice: ink-recognizer
 ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: aahi
-ms.openlocfilehash: 8665e27b6b7c43bce7d749d9bfe0a2f815a0f46d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ecf3ad43b46d491d5f15270790251a0bc4e882e
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051108"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365371"
 ---
 # <a name="send-ink-data-to-the-ink-recognizer-api"></a>Skicka pennanteckning till API:et för handskriftsigenkänning 
 
@@ -64,7 +64,7 @@ Pennan tecknings-API: et returnerar ett analys svar om de objekt som identifiera
 
 ## <a name="shapes-recognized-by-the-ink-recognizer-api"></a>Former som identifieras av pennan tecknings tolkens API
 
-Färg igenkännings-API: et kan identifiera de vanligaste formerna i Obs! I bilden nedan visas några grundläggande exempel. En fullständig lista över former och annat bläck innehåll som identifieras av API: et finns i [referens artikeln för API](https://go.microsoft.com/fwlink/?linkid=2089907). 
+Färg igenkännings-API: et kan identifiera de vanligaste formerna i Obs! I bilden nedan visas några grundläggande exempel. En fullständig lista över former och annat bläck innehåll som identifieras av API: et finns i [referens artikeln för API](/rest/api/cognitiveservices/inkrecognizer/inkrecognizer). 
 
 ![Listan över former som identifieras av pennan tecknings tolkens API](../media/shapes.png)
 
@@ -84,12 +84,12 @@ Med igenkännings resultatet får du information om egenskaperna för penndrag n
 
 ## <a name="integrate-the-ink-recognizer-api-with-windows-ink"></a>Integrera pennan tecknings tolkens API med Windows Ink
 
-[Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions) innehåller verktyg och tekniker som möjliggör digitala pennan tecknings upplevelser på flera olika enheter. Du kan kombinera Windows Ink-plattformen med pennan tecknings-API: et för att skapa program som visar och tolkar digitala Penn streck.
+[Windows Ink](/windows/uwp/design/input/pen-and-stylus-interactions) innehåller verktyg och tekniker som möjliggör digitala pennan tecknings upplevelser på flera olika enheter. Du kan kombinera Windows Ink-plattformen med pennan tecknings-API: et för att skapa program som visar och tolkar digitala Penn streck.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Vad är API för handskriftsigenkänning?](../overview.md)
-* [Referens för hand SKRIFTS igenkänning REST API](https://go.microsoft.com/fwlink/?linkid=2089907)
+* [Referens för hand SKRIFTS igenkänning REST API](/rest/api/cognitiveservices/inkrecognizer/inkrecognizer)
 
 * Börja skicka digitala Penn strecks data med:
     * [C#](../quickstarts/csharp.md)

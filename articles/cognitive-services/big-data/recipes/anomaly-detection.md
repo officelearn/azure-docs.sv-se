@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: marhamil
 ms.custom: devx-track-python
-ms.openlocfilehash: aa650fe9cb7df64a6a7a948224be225ecfad9057
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d2995f39bc61ae5bb87abafd674f411271e57ca2
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324619"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366289"
 ---
 # <a name="recipe-predictive-maintenance-with-the-cognitive-services-for-big-data"></a>Recept: förutsägande underhåll med Cognitive Services för Big data
 
@@ -31,13 +31,13 @@ Det kan finnas extrem värden i data med slumpmässig frekvens. I dessa situatio
 ## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services)
-* [Azure Synapse-arbetsyta](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace) konfigurerad med en [Server lös Apache Spark pool](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool)
+* [Azure Synapse-arbetsyta](../../../synapse-analytics/quickstart-create-workspace.md) konfigurerad med en [Server lös Apache Spark pool](../../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
 
 ## <a name="setup"></a>Installation
 
 ### <a name="create-an-anomaly-detector-resource"></a>Skapa en resurs för avvikelse detektor
 
-Azure-Cognitive Services representeras av Azure-resurser som du prenumererar på. Skapa en resurs för Translator med hjälp av [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) eller [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli). Du kan även:
+Azure-Cognitive Services representeras av Azure-resurser som du prenumererar på. Skapa en resurs för Translator med hjälp av [Azure Portal](../../cognitive-services-apis-create-account.md) eller [Azure CLI](../../cognitive-services-apis-create-account-cli.md). Du kan även:
 
 - Visa en befintlig resurs i  [Azure Portal](https://portal.azure.com/).
 

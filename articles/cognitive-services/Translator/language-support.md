@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 426445342263ad10f174ecf7cca926805eb601e6
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: bdd12b5c866ee723547513e35a5adcfabb59dab9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669626"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364433"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Språk-och region stöd för text-och tal Översättning
 
@@ -347,7 +347,7 @@ Följande språk är tillgängliga för anpassning till eller från engelska med
 | Walesiska | `cy` |
 
 ## <a name="speech-translation"></a>Talöversättning
-Tal översättning är tillgängligt med hjälp av Translator med Cognitive Services Speech service. Visa [dokumentation om röst tjänster](https://docs.microsoft.com/azure/cognitive-services/speech-service/) för att lära dig mer om hur du använder tal översättning och se alla [tillgängliga språk alternativ](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support).
+Tal översättning är tillgängligt med hjälp av Translator med Cognitive Services Speech service. Visa [dokumentation om röst tjänster](../speech-service/index.yml) för att lära dig mer om hur du använder tal översättning och se alla [tillgängliga språk alternativ](../speech-service/language-support.md).
 
 ### <a name="speech-to-text"></a>Tal till text
 Konvertera tal till text för att översätta till valfritt språk. Tal-till-text används för tal till text översättning, eller för översättning av tal till tal när de används tillsammans med tal syntes.

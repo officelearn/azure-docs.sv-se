@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: aahi
 ms.custom: seo-java-july2019, seo-java-august2019, devx-track-java
-ms.openlocfilehash: 6c3c613f8733c8f786d121ab33b09afab244b09e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 26ddbf4cf97f5b9161be8b6b4ac3c31f801e82a3
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90532281"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365167"
 ---
 # <a name="quickstart-use-java-to-call-the-azure-text-analytics-cognitive-service"></a>Snabb start: Använd Java för att anropa tjänsten Azure Textanalys kognitivt
 <a name="HOLTop"></a>
 
-Den här artikeln visar hur du [identifierar språk](#Detect), [analyserar sentiment](#SentimentAnalysis), [extraherar diskussionsämnen](#KeyPhraseExtraction) och [identifierar länkade entiteter](#Entities) med hjälp av  [API:er för textanalys](//go.microsoft.com/fwlink/?LinkID=759711) med Java.
+Den här artikeln visar hur du [identifierar språk](#Detect), [analyserar attityder](#SentimentAnalysis), [extraherar diskussionsämnen](#KeyPhraseExtraction) och [identifierar länkade entiteter](#Entities) Med [API:er för textanalys](//go.microsoft.com/fwlink/?LinkID=759711) med Java.
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
@@ -35,7 +35,7 @@ Du måste även ha [slutpunkten och åtkomstnyckeln](../../cognitive-services-ap
 
 ## <a name="detect-language"></a>Identifiera språk
 
-API:et för språkidentifiering identifierar språket i ett textdokument med hjälp av metoden  [Detect Language](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) (Identifiera språk).
+API:et för språkidentifiering identifierar språket i ett textdokument, med metoden [Detect Language](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) (Identifiera språk).
 
 1. Skapa ett nytt Java-projekt i din favorit IDE (eller nya mapp på Skriv bordet). Skapa en klass med namnet `DetectLanguage.java` .
 1. Lägg till den kod som anges nedan till din-klass.
@@ -553,7 +553,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="identify-entities"></a>Identifiera entiteter
 
-API:et för entiteter identifierar välkända entiteter i ett textdokument med hjälp av [metoden Entiteter](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [Entiteter](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraherar ord från text, t. ex. "USA", och ger dig sedan typen och/eller Wikipedia-länken för dessa ord. Typen för "USA" är `location` , medan länken till Wikipedia är `https://en.wikipedia.org/wiki/United_States` .  I följande exempel identifieras entiteter för engelska dokument.
+API:et för entiteter identifierar välkända entiteter i ett textdokument med hjälp av [metoden Entiteter](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [Entiteter](../how-tos/text-analytics-how-to-entity-linking.md) extraherar ord från text, t. ex. "USA", och ger dig sedan typen och/eller Wikipedia-länken för dessa ord. Typen för "USA" är `location` , medan länken till Wikipedia är `https://en.wikipedia.org/wiki/United_States` .  I följande exempel identifieras entiteter för engelska dokument.
 
 1. Skapa ett nytt Java-projekt i din favorit IDE (eller nya mapp på Skriv bordet). Skapa en klass i den med namnet `GetEntities.java` .
 1. Lägg till den kod som anges nedan till din-klass.

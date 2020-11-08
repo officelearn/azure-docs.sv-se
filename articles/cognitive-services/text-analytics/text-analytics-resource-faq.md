@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: aca3b0bea65923cee1bae25020058666c973922c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ffa70afa0edf29181bc622cbef6ff8716134b1f7
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73837129"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364946"
 ---
 # <a name="frequently-asked-questions-faq-about-the-text-analytics-cognitive-service"></a>Vanliga frågor och svar om Textanalys kognitiva tjänster
 
@@ -29,11 +29,11 @@ Det finns alltid en viss grad av precision i sentiment-analysen, men modellen ä
 
 ## <a name="can-i-add-my-own-training-data-or-models"></a>Kan jag lägga till mina egna tränings data eller modeller?
 
-Nej, modellerna förtränas. De enda åtgärder som är tillgängliga för överförda data är poäng, extrahering av nyckel fraser och språk identifiering. Vi är inte värd för anpassade modeller. Om du vill skapa och vara värd för anpassade maskin inlärnings modeller bör du tänka på [maskin inlärnings funktionerna i Microsoft R Server](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package).
+Nej, modellerna förtränas. De enda åtgärder som är tillgängliga för överförda data är poäng, extrahering av nyckel fraser och språk identifiering. Vi är inte värd för anpassade modeller. Om du vill skapa och vara värd för anpassade maskin inlärnings modeller bör du tänka på [maskin inlärnings funktionerna i Microsoft R Server](/r-server/r/concept-what-is-the-microsoftml-package).
 
 ## <a name="can-i-request-additional-languages"></a>Kan jag begära fler språk?
 
-Sentiment-analys och extrahering av nyckel fraser är tillgängliga för ett [Select-antal språk](text-analytics-supported-languages.md). Bearbetning av naturligt språk är komplex och kräver avsevärd testning innan nya funktioner kan släppas. Därför undviker vi att förpresentera support så att ingen tar ett beroende på funktioner som behöver mer tid till vuxen. 
+Sentiment-analys och extrahering av nyckel fraser är tillgängliga för ett [Select-antal språk](./language-support.md). Bearbetning av naturligt språk är komplex och kräver avsevärd testning innan nya funktioner kan släppas. Därför undviker vi att förpresentera support så att ingen tar ett beroende på funktioner som behöver mer tid till vuxen. 
 
 För att hjälpa oss att prioritera vilka språk som ska användas på nästa, rösta på vissa språk i [User Voice](https://cognitive.uservoice.com/forums/555922-text-analytics). 
 

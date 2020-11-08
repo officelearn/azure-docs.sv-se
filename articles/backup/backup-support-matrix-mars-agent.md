@@ -3,12 +3,12 @@ title: Support mat ris för MARS-agenten
 description: I den här artikeln sammanfattas Azure Backup support när du säkerhetskopierar datorer som kör Microsoft Azure Recovery Services-agenten (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 53034d058e0cd2e1623acc6629da0a694b35e60b
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 26a47c2648d1307d2e7da2b25455f3f036cbf32d
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173525"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363246"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Support mat ris för säkerhets kopiering med Microsoft Azure Recovery Services MARS-agenten
 
@@ -46,7 +46,7 @@ När du använder MARS-agenten för att säkerhetskopiera data tar agenten en ö
 Storlek |  Det lediga utrymmet i cache-mappen bör vara minst 5 till 10 procent av den totala storleken på dina säkerhets kopierings data.
 Plats | Cache-mappen måste lagras lokalt på den dator som säkerhets kopie ras och måste vara online. Cache-mappen får inte finnas på en nätverks resurs, på flyttbara medier eller på en frånkopplad volym.
 Mapp | Cache-mappen bör inte vara krypterad på en deduplicerad volym eller i en mapp som är komprimerad, som är sparse eller som har en referens punkt.
-Plats ändringar | Du kan ändra cache-platsen genom att stoppa säkerhets kopierings motorn ( `net stop bengine` ) och kopiera cache-mappen till en ny enhet. (Kontrol lera att det finns tillräckligt med utrymme på den nya enheten.) Uppdatera sedan två register poster under **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**config/ScratchLocation** och **config/CloudBackupProvider/ScratchLocation**) till den nya platsen och starta om motorn.
+Plats ändringar | Du kan ändra cache-platsen genom att stoppa säkerhets kopierings motorn ( `net stop bengine` ) och kopiera cache-mappen till en ny enhet. (Kontrol lera att det finns tillräckligt med utrymme på den nya enheten.) Uppdatera sedan två register poster under **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** ( **config/ScratchLocation** och **config/CloudBackupProvider/ScratchLocation** ) till den nya platsen och starta om motorn.
 
 ## <a name="networking-and-access-support"></a>Nätverks-och åtkomst stöd
 
@@ -67,9 +67,9 @@ Och till följande IP-adresser:
 
 Åtkomst till alla webb adresser och IP-adresser som anges ovan använder HTTPS-protokollet på port 443.
 
-När du säkerhetskopierar filer och mappar från virtuella Azure-datorer med MARS-agenten måste det virtuella Azure-nätverket också konfigureras för att tillåta åtkomst. Om du använder nätverks säkerhets grupper (NSG) använder du tjänst tag gen *AzureBackup* för att tillåta utgående åtkomst till Azure Backup. Förutom taggen Azure Backup måste du också tillåta anslutning för autentisering och data överföring genom att skapa liknande [NSG-regler](../virtual-network/network-security-groups-overview.md#service-tags) för Azure AD (*AzureActiveDirectory*) och Azure Storage (*lagring*). Följande steg beskriver processen för att skapa en regel för taggen Azure Backup:
+När du säkerhetskopierar filer och mappar från virtuella Azure-datorer med MARS-agenten måste det virtuella Azure-nätverket också konfigureras för att tillåta åtkomst. Om du använder nätverks säkerhets grupper (NSG) använder du tjänst tag gen *AzureBackup* för att tillåta utgående åtkomst till Azure Backup. Förutom taggen Azure Backup måste du också tillåta anslutning för autentisering och data överföring genom att skapa liknande [NSG-regler](../virtual-network/network-security-groups-overview.md#service-tags) för Azure AD ( *AzureActiveDirectory* ) och Azure Storage ( *lagring* ). Följande steg beskriver processen för att skapa en regel för taggen Azure Backup:
 
-1. I **alla tjänster**går du till **nätverks säkerhets grupper** och väljer Nätverks säkerhets gruppen.
+1. I **alla tjänster** går du till **nätverks säkerhets grupper** och väljer Nätverks säkerhets gruppen.
 2. Välj **utgående säkerhets regler** under **Inställningar**.
 3. Välj **Lägg till**. Ange all information som krävs för att skapa en ny regel enligt beskrivningen i [säkerhets regel inställningar](../virtual-network/manage-network-security-group.md#security-rule-settings). Se till att alternativet **destination** har angetts till *service tag* och **mål tjänst tag gen** är inställt på *AzureBackup*.
 4. Välj **Lägg till** för att spara den nyligen skapade utgående säkerhets regeln.
@@ -168,6 +168,17 @@ Windows Server 2008 R2 SP1 |1 700 GB
 Windows Server 2008 SP2| 1 700 GB
 Windows 8 eller senare| 54 400 GB
 Windows 7| 1 700 GB
+
+### <a name="minimum-retention-limits"></a>Lägsta gräns för kvarhållning
+
+Följande är de minsta Retentions tiderna som kan anges för de olika återställnings punkterna:
+
+|Återställnings punkt |Varaktighet  |
+|---------|---------|
+|Daglig återställnings punkt    |   7 dagar      |
+|Veckovis återställnings punkt     |    4 veckor     |
+|Månatlig återställnings punkt    |   3 månader      |
+|Årlig återställnings punkt  |      1 år   |
 
 ### <a name="other-limitations"></a>Andra begränsningar
 

@@ -9,40 +9,40 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: erhopf
-ms.openlocfilehash: 9660aa3923964392f1789570d26dd825e0fef350
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: e33e8fe6e626700790a3b62265c6889f06e0861b
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143191"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366612"
 ---
 # <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>Aktivera diagnostisk loggning för Azure Cognitive Services
 
-Den här guiden innehåller stegvisa instruktioner för att aktivera diagnostisk loggning för en Azure-tjänst. Dessa loggar ger omfattande, frekventa data om driften av en resurs som används för problem identifiering och fel sökning. Innan du fortsätter måste du ha ett Azure-konto med en prenumeration på minst en kognitiv tjänst, till exempel [webbsökning i Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/overview), [tal tjänster](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview)eller [Luis](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis).
+Den här guiden innehåller stegvisa instruktioner för att aktivera diagnostisk loggning för en Azure-tjänst. Dessa loggar ger omfattande, frekventa data om driften av en resurs som används för problem identifiering och fel sökning. Innan du fortsätter måste du ha ett Azure-konto med en prenumeration på minst en kognitiv tjänst, till exempel [webbsökning i Bing](./bing-web-search/overview.md), [tal tjänster](./speech-service/overview.md)eller [Luis](./luis/what-is-luis.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill aktivera diagnostikloggning måste du lagra dina loggdata någonstans. I den här självstudien används Azure Storage och Log Analytics.
 
-* [Azure Storage](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs) – behåller diagnostikloggar för princip granskning, statisk analys eller säkerhets kopiering. Lagrings kontot behöver inte finnas i samma prenumeration som resursen som skapar loggar så länge som den användare som konfigurerar inställningen har lämplig Azure RBAC-åtkomst till båda prenumerationerna.
-* [Log Analytics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics) – ett flexibelt loggs öknings-och analys verktyg som möjliggör analys av obehandlade loggar som genereras av en Azure-resurs.
+* [Azure Storage](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) – behåller diagnostikloggar för princip granskning, statisk analys eller säkerhets kopiering. Lagrings kontot behöver inte finnas i samma prenumeration som resursen som skapar loggar så länge som den användare som konfigurerar inställningen har lämplig Azure RBAC-åtkomst till båda prenumerationerna.
+* [Log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) – ett flexibelt loggs öknings-och analys verktyg som möjliggör analys av obehandlade loggar som genereras av en Azure-resurs.
 
 > [!NOTE]
-> Det finns ytterligare konfigurations alternativ. Mer information finns i [samla in och använda loggdata från dina Azure-resurser](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
+> Det finns ytterligare konfigurations alternativ. Mer information finns i [samla in och använda loggdata från dina Azure-resurser](../azure-monitor/platform/platform-logs-overview.md).
 
 ## <a name="enable-diagnostic-log-collection"></a>Aktivera insamling av diagnostikdata  
 
 Låt oss börja med att aktivera diagnostisk loggning med hjälp av Azure Portal.
 
 > [!NOTE]
-> Om du vill aktivera den här funktionen med PowerShell eller Azure CLI använder du anvisningarna i [samla in och Använd loggdata från dina Azure-resurser](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
+> Om du vill aktivera den här funktionen med PowerShell eller Azure CLI använder du anvisningarna i [samla in och Använd loggdata från dina Azure-resurser](../azure-monitor/platform/platform-logs-overview.md).
 
 1. Gå till Azure-portalen. Leta sedan reda på och välj en Cognitive Services resurs. Till exempel din prenumeration på Webbsökning i Bing.   
 2. Gå sedan till den vänstra navigerings menyn och leta upp **övervakning** och välj **diagnostikinställningar**. Den här skärmen innehåller alla tidigare skapade diagnostikinställningar för den här resursen.
 3. Om det finns en resurs som du redan har skapat som du vill använda, kan du välja den nu. Annars väljer du **+ Lägg till diagnostisk inställning**.
 4. Ange ett namn för inställningen. Välj sedan **Arkiv till ett lagrings konto** och **Skicka till Log Analytics**.
 5. När du uppmanas att konfigurera väljer du det lagrings konto och den OMS-arbetsyta som du vill använda för att lagra dina diagnostikloggar. **Obs!** om du inte har ett lagrings konto eller en OMS-arbetsyta följer du anvisningarna för att skapa ett.
-6. Välj **granskning**, **RequestResponse**och **AllMetrics**. Ange sedan kvarhållningsperioden för din diagnostiska loggdata. Om en bevarande princip är inställd på noll lagras händelser för den logg kategorin under obestämd tid.
+6. Välj **granskning** , **RequestResponse** och **AllMetrics**. Ange sedan kvarhållningsperioden för din diagnostiska loggdata. Om en bevarande princip är inställd på noll lagras händelser för den logg kategorin under obestämd tid.
 7. Klicka på **Spara**.
 
 Det kan ta upp till två timmar innan loggnings data är tillgängliga för att fråga och analysera. Oroa dig inte om du inte ser något direkt.
@@ -56,7 +56,7 @@ Azure Storage är en robust lösning för objekt lagring som är optimerad för 
 3. Använd de tillgängliga List rutorna för att konfigurera din fråga. I det här exemplet ska vi ställa in tidsintervallet för de **senaste 30 dagarna** och måttet på **transaktionen**.
 4. När frågan har slutförts visas en visualisering av transaktionen under de senaste 30 dagarna. Om du vill exportera dessa data använder du knappen **Exportera till Excel** som finns överst på sidan.
 
-Lär dig mer om vad du kan göra med diagnostikdata i [Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction).
+Lär dig mer om vad du kan göra med diagnostikdata i [Azure Storage](../storage/blobs/storage-blobs-introduction.md).
 
 ## <a name="view-logs-in-log-analytics"></a>Visa loggar i Log Analytics
 
@@ -64,7 +64,7 @@ Följ dessa anvisningar för att utforska logg analys data för din resurs.
 
 1. Leta upp och välj **Log Analytics** i den vänstra navigerings menyn från Azure Portal.
 2. Leta upp och välj den resurs som du skapade när du aktiverade diagnostik.
-3. Leta upp och välj **loggar**under **Allmänt**. Från den här sidan kan du köra frågor mot dina loggar.
+3. Leta upp och välj **loggar** under **Allmänt**. Från den här sidan kan du köra frågor mot dina loggar.
 
 ### <a name="sample-queries"></a>Exempelfrågor
 
@@ -85,7 +85,7 @@ AzureDiagnostics
 | take 10
 ```
 
-Kör den här frågan för att gruppera åtgärder efter **resurs**:
+Kör den här frågan för att gruppera åtgärder efter **resurs** :
 
 ```kusto
 AzureDiagnostics
@@ -113,9 +113,9 @@ by bin(TimeGenerated, 10s), OperationName
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om hur du aktiverar loggning och även de mått och logg kategorier som stöds av de olika Azure-tjänsterna finns i både [översikten över mått](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) i Microsoft Azure och [Översikt över artiklar om Azure Diagnostic-loggar](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview) .
+* Information om hur du aktiverar loggning och även de mått och logg kategorier som stöds av de olika Azure-tjänsterna finns i både [översikten över mått](../azure-monitor/platform/data-platform.md) i Microsoft Azure och [Översikt över artiklar om Azure Diagnostic-loggar](../azure-monitor/platform/platform-logs-overview.md) .
 * Läs de här artiklarna om du vill veta mer om Event Hub:
-  * [Vad är Azure Event Hubs?](https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs)
-  * [Kom igång med Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-csharp-ephcs-getstarted)
-* Läs [hämtnings statistik och diagnostikloggar från Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#download-blobs).
-* Läs [förstå loggs ökningar i Azure Monitor loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-new).
+  * [Vad är Azure Event Hubs?](../event-hubs/event-hubs-about.md)
+  * [Kom igång med Event Hubs](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
+* Läs [hämtnings statistik och diagnostikloggar från Azure Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs).
+* Läs [förstå loggs ökningar i Azure Monitor loggar](../azure-monitor/log-query/log-query-overview.md).

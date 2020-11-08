@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: d9517eef8976e79db21fbe552861d0d59923e8ba
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: e3e0ae444e2b3b6ac195a83653baf4b71bac6644
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173959"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363875"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Gör så här: använda Textanalys för hälsa (för hands version)
 
@@ -32,7 +32,7 @@ Textanalys för hälsa är en behållar tjänst som extraherar och namnger relev
 
 Textanalys för hälso containern utför för närvarande namngiven entitets igenkänning (NER), Relations extrahering, enhets negation och entitet länkning för engelsk text i din egen utvecklings miljö som uppfyller dina specifika krav för säkerhet och data styrning.
 
-#### <a name="named-entity-recognition"></a>[Igenkänning av namngiven enhet](#tab/ner)
+#### <a name="named-entity-recognition"></a>[Igenkänning av namngiven entitet](#tab/ner)
 
 Igenkänning av namngivna enheter identifierar ord och fraser som nämns i ostrukturerad text som kan associeras med en eller flera semantiska typer, till exempel diagnos, medicinens namn, symptom/signering eller ålder.
 
@@ -84,7 +84,7 @@ Fyll i och skicka [fråge formuläret för Cognitive Services containers](https:
 Det finns flera sätt att installera och köra behållaren. 
 
 - Använd [Azure Portal](text-analytics-how-to-install-containers.md?tabs=healthcare) för att skapa en textanalys resurs och Använd Docker för att hämta din behållare.
-- Använd följande PowerShell-och [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) -skript för att automatisera konfigurationen av resurs distributions behållare.
+- Använd följande PowerShell-och [Azure CLI](/cli/azure/?view=azure-cli-latest) -skript för att automatisera konfigurationen av resurs distributions behållare.
 
 ### <a name="install-the-container-using-azure-web-app-for-containers"></a>Installera behållaren med Azure Web App for Containers
 
@@ -124,7 +124,7 @@ az webapp config appsettings set -g $resource_group_name -n $appservice_name --s
 Du kan också använda en Azure Container Instance (ACI) för att förenkla distributionen. ACI är en resurs som gör att du kan köra Docker-behållare på begäran i en hanterad, Server lös Azure-miljö. 
 
 Se [hur du använder Azure Container instances](text-analytics-how-to-use-container-instances.md) för steg som beskriver hur du distribuerar en ACI-resurs med hjälp av Azure Portal. Du kan också använda PowerShell-skriptet nedan med hjälp av Azure CLI, som skapar en ACI i din prenumeration med hjälp av behållar avbildningen.  Vänta tills skriptet har slutförts (cirka 25-30 minuter) innan du skickar den första begäran.  På grund av gränsen för maximalt antal processorer per ACI-resurs väljer du inte det här alternativet om du förväntar dig att skicka fler än 5 stora dokument (cirka 5000 tecken var) per begäran.
-Se [ACI regional support](https://docs.microsoft.com/azure/container-instances/container-instances-region-availability) artikel för tillgänglighets information. 
+Se [ACI regional support](../../../container-instances/container-instances-region-availability.md) artikel för tillgänglighets information. 
 
 > [!NOTE] 
 > Azure Container Instances inkluderar inte HTTPS-stöd för de inbyggda domänerna. Om du behöver HTTPS måste du konfigurera den manuellt, inklusive att skapa ett certifikat och registrera en domän. Du hittar anvisningar om hur du gör detta med NGINX nedan.

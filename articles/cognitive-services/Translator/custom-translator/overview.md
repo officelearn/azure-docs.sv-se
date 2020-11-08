@@ -9,20 +9,20 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: overview
-ms.openlocfilehash: d84a0190e13d7bb7664e8792e0047338fe4bf5e2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 55555d81eb531ae5a4d946fa3f661796b3294897
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85961242"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365507"
 ---
 # <a name="what-is-custom-translator"></a>Vad är Custom Translator?
 
 [Custom Translator](https://portal.customtranslator.azure.ai) är en funktion i Microsoft Translator-tjänsten, där översättningsföretag, apputvecklare och leverantörer av språktjänster kan skapa anpassade NMT-system för neural maskinöversättning. De anpassade översättningssystemen integreras sömlöst i befintliga program, arbetsflöden och webbplatser. [Custom Translator](https://portal.customtranslator.azure.ai/) har liknande funktioner som [Microsoft Translator Hub](https://hub.microsofttranslator.com/) utför för statistisk maskinöversättning, men exklusivt för NMT-system för neural maskinöversättning.
 
-Översättningssystem som skapats med [Custom Translator](https://portal.customtranslator.azure.ai) är tillgängliga genom samma molnbaserade, [säkra](https://cognitive.uservoice.com/knowledgebase/articles/1147537-api-and-customization-confidentiality), högpresterande, mycket skalbara Microsoft Translator [Text API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl) vars funktioner används av flera miljarder översättningar varje dag.
+Översättningssystem som skapats med [Custom Translator](https://portal.customtranslator.azure.ai) är tillgängliga genom samma molnbaserade, [säkra](https://cognitive.uservoice.com/knowledgebase/articles/1147537-api-and-customization-confidentiality), högpresterande, mycket skalbara Microsoft Translator [Text API V3](../reference/v3-0-translate.md?tabs=curl) vars funktioner används av flera miljarder översättningar varje dag.
 
-Custom Translator stöder mer än tre dussin språk och mappas direkt till språken som är tillgängliga för neural maskinöversättning. En komplett lista finns i artikeln om [Microsoft Translator-språk](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
+Custom Translator stöder mer än tre dussin språk och mappas direkt till språken som är tillgängliga för neural maskinöversättning. En komplett lista finns i artikeln om [Microsoft Translator-språk](../language-support.md#customization).
 
 ## <a name="features"></a>Funktioner
 
@@ -34,7 +34,7 @@ Custom Translator har olika funktioner för att skapa ett anpassat översättnin
 |[Skapa system som känner till din affärsterminologi](what-are-parallel-documents.md)     |  Anpassa och skapa översättningssystem med hjälp av parallella dokument, som förstår den terminologi som används i din egen verksamhet och bransch.       |
 |[Använda ordlista till att skapa dina modeller](what-is-dictionary.md)     |   Om du inte har angett träningsdata kan du träna en modell med bara ordlistedata.       |
 |[Samarbeta med andra](how-to-manage-settings.md#share-your-workspace)     |   Samarbeta med teamet genom att dela ditt arbete med olika personer.     |
-|[Få åtkomst till din anpassade översättningsmodell](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl)     |  Den anpassade översättningsmodellen kan användas när som helst av dina befintliga appar/program via Microsoft Translator Text API V3.       |
+|[Få åtkomst till din anpassade översättningsmodell](../reference/v3-0-translate.md?tabs=curl)     |  Den anpassade översättningsmodellen kan användas när som helst av dina befintliga appar/program via Microsoft Translator Text API V3.       |
 
 ## <a name="get-better-translations"></a>Få bättre översättningar
 

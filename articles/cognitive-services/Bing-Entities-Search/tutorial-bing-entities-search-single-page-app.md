@@ -11,23 +11,23 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 7fa09ee40ca646be6ee104c7b2d4428c92934337
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: f725a4095103a7dcfc3dcdbdcefdc84d16501632
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084637"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366541"
 ---
 # <a name="tutorial-single-page-web-app"></a>Självstudie: Enkelsidig webbapp
 
 > [!WARNING]
-> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
-> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
+> Instruktioner för migrering finns i [Bing-sökning Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
-Med API:et för entitetsökning i Bing kan du söka efter information på webben om *entiteter* och *platser* . Du kan begära endera typ av resultat eller båda i en given fråga. Definitionerna av platser och entiteter visas nedan.
+Med API:et för entitetsökning i Bing kan du söka efter information på webben om *entiteter* och *platser*. Du kan begära endera typ av resultat eller båda i en given fråga. Definitionerna av platser och entiteter visas nedan.
 
-| Resultat | Beskrivning |
+| Resultat | Description |
 |-|-|
 |Entiteter|Välkända personer, platser och saker som du hittar med hjälp av namn|
 |Placerar|Restauranger, hotell och andra lokala företag som du hittar med hjälp av namn *eller* efter typ (italienska restauranger)|
@@ -57,7 +57,7 @@ I den här självstudieappen visas hur du:
 
 Självstudiekurssidan är helt självständigt. Den använder inte några externa ramverk, formatmallar eller ens bildfiler. Den använder endast JavaScript-språkfunktioner som stöds och fungerar med aktuella versioner av alla större webbläsare.
 
-I den här självstudien diskuterar vi endast vissa delar av källkoden. Den fullständiga källkoden finns [på en separat sida](tutorial-bing-entities-search-single-page-app-source.md). Kopiera och klistra in den här koden i en textredigerare och spara den som `bing.html`.
+I den här självstudien diskuterar vi endast vissa delar av källkoden. Den fullständiga källkoden finns [på en separat sida](). Kopiera och klistra in den här koden i en textredigerare och spara den som `bing.html`.
 
 > [!NOTE]
 > Den här självstudien liknar i stora delar [självstudien om enkelsidiga app för Webbsökning i Bing](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md), men den behandlar endast entitetssökresultat.
@@ -68,8 +68,8 @@ Om du vill följa med i själv studie kursen behöver du prenumerations nycklar 
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
 * När du har en Azure-prenumeration:
-  * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Skapa en Bing-sökning resurs "  target="_blank"> skapa en Bing-sökning resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs** .
-  * <a href="https://www.microsoft.com/maps/create-a-bing-maps-key.aspx"  title="Skapa en Visuellt innehåll resurs "  target="_blank"> skapa en Bing Maps-resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs** .
+  * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Skapa en Bing-sökning resurs "  target="_blank"> skapa en Bing-sökning resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
+  * <a href="https://www.microsoft.com/maps/create-a-bing-maps-key.aspx"  title="Skapa en Visuellt innehåll resurs "  target="_blank"> skapa en Bing Maps-resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
 
 ## <a name="app-components"></a>Appkomponenter
 
@@ -147,7 +147,7 @@ HTML-taggen `<body>` innehåller ett `onload`-attribut som anropar `getSearchSub
 
 HTML-formuläret innehåller följande kontroller:
 
-| Kontroll | Beskrivning |
+| Kontroll | Description |
 |-|-|
 |`where`|En listruta för att välja marknad (plats och språk) som används för sökningen.|
 |`query`|Textfältet för att ange sökvillkor.|
@@ -405,7 +405,7 @@ Fel hanteras genom att anropa `renderErrorMessage()` med all känd information o
 
 ## <a name="displaying-search-results"></a>Visa sökresultat
 
-API:et för entitetsökning i Bing [kräver att du visar resultat i en angiven ordning](use-display-requirements.md). Eftersom API: et kan returnera två olika typer av svar, är det inte tillräckligt att iterera genom den översta nivån `Entities` eller `Places` samlingen i JSON-svaret och visa dessa resultat. (Om du bara vill ha en typ av resultat använder du `responseFilter`-frågeparametern.)
+API:et för entitetsökning i Bing [kräver att du visar resultat i en angiven ordning](../bing-web-search/use-display-requirements.md). Eftersom API: et kan returnera två olika typer av svar, är det inte tillräckligt att iterera genom den översta nivån `Entities` eller `Places` samlingen i JSON-svaret och visa dessa resultat. (Om du bara vill ha en typ av resultat använder du `responseFilter`-frågeparametern.)
 
 I stället använder vi `rankingResponse`-samlingen i sökresultatet för att sortera resultaten för visning. Det här objektet refererar till objekt i samlingen `Entitiess` och/eller `Places`.
 

@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: 564af32b724c8b4883cd27d01813e246e5fa4901
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: fe9511df5fb290853dbd6cb8d39fed4e289fca4d
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100209"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366425"
 ---
 # <a name="news-search-api-upgrade-guide"></a>Nyhetssökning API-uppgraderings guide
 
@@ -30,7 +30,7 @@ Den här uppgraderings guiden identifierar ändringarna mellan version 5 och ver
 
 ### <a name="endpoints"></a>Slutpunkter
 
-- Slut punktens versions nummer har ändrats från V5 till v7. Till exempel `https://api.cognitive.microsoft.com/bing/v7.0/news/search`.
+- Slut punktens versions nummer har ändrats från V5 till v7. Exempelvis `https://api.cognitive.microsoft.com/bing/v7.0/news/search`.
 
 ### <a name="error-response-objects-and-error-codes"></a>Fel svars objekt och felkoder
 
@@ -42,7 +42,7 @@ Den här uppgraderings guiden identifierar ändringarna mellan version 5 och ver
 
 - Ersatt felkoderna för v5 med följande möjliga `code` `subCode` värden.
 
-|Kod|Under kod|Beskrivning
+|Kod|Under kod|Description
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing returnerar ServerError när något av under kods villkoren inträffar. Svaret innehåller dessa fel om HTTP-statuskoden är 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Blockerad|Bing returnerar InvalidRequest när någon del av begäran är ogiltig. Till exempel saknas en obligatorisk parameter eller också är ett parameter värde ogiltigt.<br/><br/>Om felet är ParameterMissing eller ParameterInvalidValue är HTTP-status koden 400.<br/><br/>Om felet är HttpNotAllowed, HTTP-statuskod 410.
@@ -75,24 +75,24 @@ Blockerad|InvalidRequest. blockerad
 
 ### <a name="object-changes"></a>Objekt ändringar
 
-- Fältet har lagts `contractualRules` till i [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) -objektet. `contractualRules`Fältet innehåller en lista över regler som du måste följa (till exempel artikel behörighet). Du måste tillämpa den behörighet som anges i i `contractualRules` stället för att använda `provider` . Artikeln innehåller `contractualRules` bara när [webbsökning API](../bing-web-search/search-the-web.md) -svaret innehåller ett diskussions grupps svar.
+- Fältet har lagts `contractualRules` till i [NewsArticle](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) -objektet. `contractualRules`Fältet innehåller en lista över regler som du måste följa (till exempel artikel behörighet). Du måste tillämpa den behörighet som anges i i `contractualRules` stället för att använda `provider` . Artikeln innehåller `contractualRules` bara när [webbsökning API](../bing-web-search/overview.md) -svaret innehåller ett diskussions grupps svar.
 
 ## <a name="non-breaking-changes"></a>Icke-brytande ändringar
 
 ### <a name="query-parameters"></a>Frågeparametrar
 
-- Du har lagt till produkter som ett möjligt värde som du kan ange [Kategorins](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category) frågeparameter till. Se [kategorier efter marknad](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference).
+- Du har lagt till produkter som ett möjligt värde som du kan ange [Kategorins](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category) frågeparameter till. Se [kategorier efter marknad](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference).
 
-- Du har lagt till Frågeparametern [SortBy](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortby) , som returnerar trender som sorteras efter datum med den senaste först.
+- Du har lagt till Frågeparametern [SortBy](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortby) , som returnerar trender som sorteras efter datum med den senaste först.
 
-- Har lagt till [sedan](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#since) Frågeparametern, som returnerar trender som identifierades av Bing på eller efter den angivna den angivna UNIX-tidsstämpeln.
+- Har lagt till [sedan](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#since) Frågeparametern, som returnerar trender som identifierades av Bing på eller efter den angivna den angivna UNIX-tidsstämpeln.
 
 ### <a name="object-changes"></a>Objekt ändringar
 
-- Fältet har lagts `mentions` till i [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) -objektet. `mentions`Fältet innehåller en lista med entiteter (personer eller platser) som hittades i artikeln.
+- Fältet har lagts `mentions` till i [NewsArticle](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) -objektet. `mentions`Fältet innehåller en lista med entiteter (personer eller platser) som hittades i artikeln.
 
-- Fältet har lagts `video` till i [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) -objektet. `video`Fältet innehåller en video som är relaterad till nyhets artikeln. Videon är antingen en \<iframe\> som du kan bädda in eller en rörelse miniatyr bild.
+- Fältet har lagts `video` till i [NewsArticle](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) -objektet. `video`Fältet innehåller en video som är relaterad till nyhets artikeln. Videon är antingen en \<iframe\> som du kan bädda in eller en rörelse miniatyr bild.
 
-- Fältet har lagts `sort` till i [nyhetsobjektet](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news) -objektet. I `sort` fältet visas sorterings ordningen för artiklarna. Artiklarna sorteras exempelvis efter relevans (standard) eller datum.
+- Fältet har lagts `sort` till i [nyhetsobjektet](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news) -objektet. I `sort` fältet visas sorterings ordningen för artiklarna. Artiklarna sorteras exempelvis efter relevans (standard) eller datum.
 
-- [SortValue](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortvalue) -objektet har lagts till, vilket definierar en sorterings ordning. `isSelected`Fältet visar om svaret använde sorterings ordningen. Om **värdet är true** används sorterings ordningen i svaret. Om `isSelected` är **falskt** kan du använda URL: en i `url` fältet för att begära en annan sorterings ordning.
+- [SortValue](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortvalue) -objektet har lagts till, vilket definierar en sorterings ordning. `isSelected`Fältet visar om svaret använde sorterings ordningen. Om **värdet är true** används sorterings ordningen i svaret. Om `isSelected` är **falskt** kan du använda URL: en i `url` fältet för att begära en annan sorterings ordning.

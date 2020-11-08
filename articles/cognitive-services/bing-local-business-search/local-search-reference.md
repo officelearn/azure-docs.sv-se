@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: dbd4f32e77dc8d386067987a0ab0436a7875c15e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2a9c6b924f564c96c6018fbc395ad226a383280f
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095398"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364657"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>V7-referens för Bing Local Business Search API
 
@@ -34,7 +34,7 @@ Information om frågeparametrar som begär Anden ska inkludera finns i [frågepa
   
 Information om JSON-objekten som svaret innehåller finns i [Response Objects](#response-objects).
 
-Information om tillåten användning och visning av resultat finns i [använda och Visa krav](use-display-requirements.md).
+Information om tillåten användning och visning av resultat finns i [använda och Visa krav](../bing-web-search/use-display-requirements.md).
 
 
   
@@ -55,7 +55,7 @@ Begäran måste använda HTTPS-protokollet.
 ## <a name="headers"></a>Sidhuvuden  
 Följande är huvuden som en begäran och ett svar kan innehålla.  
   
-|Sidhuvud|Beskrivning|  
+|Sidhuvud|Description|  
 |------------|-----------------|  
 |Acceptera|Valfritt begärandehuvud.<br /><br /> Standard medie typen är Application/JSON. Om du vill ange att svaret använder [JSON-LD](https://json-ld.org/), ställer du in accept-huvudet på Application/LD + JSON.|  
 |<a name="acceptlanguage"></a>Accept-Language|Valfritt begärandehuvud.<br /><br /> En kommaavgränsad lista över språk som ska användas för användargränssnittssträngar. Listan är i fallande prioritetsordning. Mer information, bland annat om det förväntade formatet, finns i [RFC2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Det är huvudet och [setLang](#setlang)-frågeparametern utesluter varandra&mdash;ange inte båda två.<br /><br /> Om du anger huvudet måste du även ange frågeparametern cc. För att fastställa vilken marknad som resultat ska returneras för använder Bing det första språk som stöds på listan och kombinerar det med parametervärdet `cc`. Om listan inte innehåller något språk som stöds hittar Bing det närmaste språket och marknaden som har stöd för begäran, eller så använder Bing en aggregerad eller standardmarknad för resultatet. För att avgöra vilken marknad som används i Bing kan du gå till BingAPIs-Market-huvudet.<br /><br /> Använd enbart det här huvudet och `cc`-frågeparametern om du anger flera språk. Annars kan du använda frågeparametrarna [mkt](#mkt) och [setLang](#setlang).<br /><br /> En användargränssnittssträng är en sträng som används som en etikett i ett användargränssnitt. Det finns några användargränssnittssträngar i JSON-svarsobjekt. Alla länkar till Bing.com-egenskaper i svarsobjekten använder det angivna språket.|  
@@ -76,7 +76,7 @@ Följande är huvuden som en begäran och ett svar kan innehålla.
 Begäran kan innehålla följande frågeparametrar. Se kolumnen obligatorisk för obligatoriska parametrar. Du måste URL-koda parametrarna för frågan.  
   
   
-|Namn|Värde|Typ|Obligatorisk|  
+|Name|Värde|Typ|Obligatorisk|  
 |----------|-----------|----------|--------------|
 |<a name="count"></a>reparationer|Antalet resultat som ska returneras, med början på det index som anges av `offset` parametern.|Sträng|No|   
 |<a name="localCategories"></a>localCategories|Lista med alternativ som definierar Sök efter affärs kategori.  Se [Sök efter lokala affärs kategorier](local-categories.md)|Sträng|No|  
@@ -92,7 +92,7 @@ Begäran kan innehålla följande frågeparametrar. Se kolumnen obligatorisk fö
 Följande är de JSON-svars objekt som svaret kan innehålla. Om begäran lyckas, är objektet på den översta nivån i svaret [SearchResponse](#searchresponse) -objektet. Om begäran Miss lyckas är objektet på den översta nivån [ErrorResponse](#errorresponse) -objektet.
 
 
-|Objekt|Beskrivning|  
+|Objekt|Description|  
 |------------|-----------------|  
 |[Ringa](#place)|Definierar information om en lokal verksamhet, till exempel en restaurang eller hotell.|  
 
@@ -113,7 +113,7 @@ Definierar det fel som inträffat.
 ### <a name="errorresponse"></a>ErrorResponse  
 Objektet på den översta nivån som svaret innehåller när begäran Miss lyckas.  
   
-|Namn|Värde|Typ|  
+|Name|Värde|Typ|  
 |----------|-----------|----------|  
 |_type|Typ tips.|Sträng|  
 |<a name="errors"></a>kompileringsfel|En lista med fel som beskriver orsakerna till att begäran misslyckades.|[Fel](#error)[]|  
@@ -123,7 +123,7 @@ Objektet på den översta nivån som svaret innehåller när begäran Miss lycka
 ### <a name="license"></a>Licens  
 Definierar under vilken licens texten eller fotot kan användas.  
   
-|Namn|Värde|Typ|  
+|Name|Värde|Typ|  
 |----------|-----------|----------|  
 |name|Namnet på licensen.|Sträng|  
 |url|URL: en till en webbplats där användaren kan få mer information om licensen.<br /><br /> Använd namnet och URL: en för att skapa en hyperlänk.|Sträng|  
@@ -132,7 +132,7 @@ Definierar under vilken licens texten eller fotot kan användas.
 ### <a name="link"></a>Länk  
 Definierar komponenterna i en hyperlänk.  
   
-|Namn|Värde|Typ|  
+|Name|Värde|Typ|  
 |----------|-----------|----------|  
 |_type|Typ tips.|Sträng|  
 |text|Visnings texten.|Sträng|  
@@ -146,7 +146,7 @@ Definierar en utgivare.
   
 Observera att en utgivare kan ange sitt namn eller deras webbplats eller både och.  
   
-|Namn|Värde|Typ|  
+|Name|Värde|Typ|  
 |----------|-----------|----------|  
 |name|Utgivarens namn.|Sträng|  
 |url|URL: en till utgivarens webbplats.<br /><br /> Observera att utgivaren inte kan tillhandahålla en webbplats.|Sträng|  
@@ -156,7 +156,7 @@ Observera att en utgivare kan ange sitt namn eller deras webbplats eller både o
 ### <a name="place"></a>Plats  
 Definierar information om en lokal verksamhet, till exempel en restaurang eller hotell.  
   
-|Namn|Värde|Typ|  
+|Name|Värde|Typ|  
 |----------|-----------|----------|  
 |_type|Typ tips, som kan ställas in på något av följande:<br /><br /><ul><li>Hotell</li><li>LocalBusiness<br /></li><li>Restauranger</ul><li>|Sträng|  
 |adress|Post adressen till den plats där entiteten finns.|PostalAddress|  
@@ -172,29 +172,29 @@ Definierar den frågeterm som Bing används för begäran.
   
 |Element|Beskrivning|Typ|  
 |-------------|-----------------|----------|  
-|adultIntent|Ett booleskt värde som anger om den angivna frågan har vuxen avsikt. Värdet är **True** om frågan har vuxen avsikt; annars **false** .|Boolesk|  
-|alterationOverrideQuery|Frågesträngen som ska användas för att tvinga Bing att använda den ursprungliga strängen. Om frågesträngen t. ex. är *Saling downwind* , kommer frågesträngen för åsidosättning *+ Saling downwind* . Kom ihåg att koda frågesträngen som resulterar i *% 2Bsaling + downwind* .<br /><br /> Det här fältet tas med endast om den ursprungliga frågesträngen innehåller en stavnings fel.|Sträng|  
+|adultIntent|Ett booleskt värde som anger om den angivna frågan har vuxen avsikt. Värdet är **True** om frågan har vuxen avsikt; annars **false**.|Boolesk|  
+|alterationOverrideQuery|Frågesträngen som ska användas för att tvinga Bing att använda den ursprungliga strängen. Om frågesträngen t. ex. är *Saling downwind* , kommer frågesträngen för åsidosättning *+ Saling downwind*. Kom ihåg att koda frågesträngen som resulterar i *% 2Bsaling + downwind*.<br /><br /> Det här fältet tas med endast om den ursprungliga frågesträngen innehåller en stavnings fel.|Sträng|  
 |alteredQuery|Frågesträngen som används av Bing för att utföra frågan. Bing använder den ändrade frågesträngen om den ursprungliga frågesträngen innehåller stavfel. Om frågesträngen t. ex. är `saling downwind` , kommer den ändrade frågesträngen att vara `sailing downwind` .<br /><br /> Det här fältet tas med endast om den ursprungliga frågesträngen innehåller en stavnings fel.|Sträng|  
-|askUserForLocation|Ett booleskt värde som anger om Bing kräver användarens plats för att ge korrekta resultat. Om du har angett användarens plats med hjälp av huvudena [X-MSEdge-ClientIP](#clientip) och [X-search-location](#location) kan du ignorera det här fältet.<br /><br /> För plats medveten frågor, till exempel "Dagens väder" eller "restauranger nära mig" som behöver användarens plats för att ge korrekta resultat, är det här fältet inställt på **Sant** .<br /><br /> För plats medveten frågor som omfattar platsen (till exempel "Seattle-väder") är det här fältet inställt på **falskt** . Det här fältet är också inställt på **falskt** för frågor som inte är medvetna, till exempel "bästa säljare".|Boolesk|  
+|askUserForLocation|Ett booleskt värde som anger om Bing kräver användarens plats för att ge korrekta resultat. Om du har angett användarens plats med hjälp av huvudena [X-MSEdge-ClientIP](#clientip) och [X-search-location](#location) kan du ignorera det här fältet.<br /><br /> För plats medveten frågor, till exempel "Dagens väder" eller "restauranger nära mig" som behöver användarens plats för att ge korrekta resultat, är det här fältet inställt på **Sant**.<br /><br /> För plats medveten frågor som omfattar platsen (till exempel "Seattle-väder") är det här fältet inställt på **falskt**. Det här fältet är också inställt på **falskt** för frågor som inte är medvetna, till exempel "bästa säljare".|Boolesk|  
 |originalQuery|Frågesträngen som anges i begäran.|Sträng|  
 
 ### <a name="identifiable"></a>Särskilj
 
-|Namn|Värde|Typ|  
+|Name|Värde|Typ|  
 |-------------|-----------------|----------|
 |id|Ett resurs-ID|Sträng|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Definierar en Sök Resultat grupp, till exempel Mainline.
 
-|Namn|Värde|Typ|  
+|Name|Värde|Typ|  
 |-------------|-----------------|----------|
 |objekt|En lista med Sök resultat som ska visas i gruppen.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Definierar ett Sök Resultat objekt som ska visas.
 
-|Namn|Värde|Typ|  
+|Name|Värde|Typ|  
 |-------------|-----------------|----------|
 |resultIndex|Ett nollbaserat index för objektet i svaret som ska visas. Om objektet inte innehåller det här fältet, visar du alla objekt i svaret. Du kan till exempel Visa alla nyhets artiklar i svaret på diskussions gruppen.|Integer|
 |answerType|Svaret som innehåller objektet som ska visas. Till exempel nyheter.<br /><br />Använd typen för att hitta svaret i SearchResponse-objektet. Typen är namnet på ett SearchResponse-fält.<br /><br /> Använd bara svars typen om det här objektet innehåller fältet värde. Annars kan du ignorera det.|Sträng|
@@ -204,7 +204,7 @@ Definierar ett Sök Resultat objekt som ska visas.
 ### <a name="rankingresponse"></a>RankingResponse  
 Definierar var på sidan med Sök Resultat sidans innehåll ska placeras och i vilken ordning.  
   
-|Namn|Värde|  
+|Name|Värde|  
 |----------|-----------|  
 |<a name="ranking-mainline"></a>mainline|Sök resultaten som ska visas i Mainline.|  
 |<a name="ranking-pole"></a>Polen|Sök resultaten som ska få den mest synliga behandlingen (till exempel, som visas ovanför Mainline och sido panelen).|  
@@ -215,7 +215,7 @@ Definierar objektet på den översta nivån som svaret innehåller när begäran
   
 Observera att om tjänsten misstänker en denial of service-attack kommer begäran att lyckas (HTTP-statuskod är 200 OK). bröd texten i svaret är dock tom.  
   
-|Namn|Värde|Typ|  
+|Name|Värde|Typ|  
 |----------|-----------|----------|  
 |_type|Typ tips, som är inställt på SearchResponse.|Sträng|  
 |placerar|En lista med entiteter som är relevanta för Sök frågan.|JSON-objekt|  
@@ -226,7 +226,7 @@ Observera att om tjänsten misstänker en denial of service-attack kommer begär
 
 Följande är de möjliga HTTP-statuskod som en begäran returnerar.  
   
-|Statuskod|Beskrivning|  
+|Statuskod|Description|  
 |-----------------|-----------------|  
 |200|Åtgärden lyckades.|  
 |400|En av frågeparametrarna saknas eller är ogiltig.|  
@@ -266,7 +266,7 @@ Om begäran Miss lyckas innehåller svaret ett [ErrorResponse](#errorresponse) -
 
 Följande är möjliga felkoder och underordnade fel kod värden.
 
-|Kod|Under kod|Beskrivning
+|Kod|Under kod|Description
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|HTTP-statuskod är 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Blockerad|Bing returnerar InvalidRequest när någon del av begäran är ogiltig. Till exempel saknas en obligatorisk parameter eller också är ett parameter värde ogiltigt.<br/><br/>Om felet är ParameterMissing eller ParameterInvalidValue är HTTP-status koden 400.<br/><br/>Om du använder HTTP-protokollet i stället för HTTPS returnerar Bing HttpNotAllowed och HTTP-statuskod är 410.

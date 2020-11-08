@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: f7dbb79e2d9009b00b21d4c12663d8e6c855a4c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be43d04672dcefe368eb4052b4d1a929e25327ab
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88243759"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366867"
 ---
 # <a name="deploy-a-text-analytics-container-to-azure-container-instances"></a>Distribuera en Textanalys-behållare till Azure Container Instances
 
@@ -23,7 +23,7 @@ Lär dig hur du distribuerar Cognitive Services [textanalys][install-and-run-con
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Använd en Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services) innan du börjar.
+* Använd en Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services) innan du börjar.
 
 [!INCLUDE [Create a Cognitive Services Text Analytics resource](../includes/create-text-analytics-resource.md)]
 
@@ -50,7 +50,7 @@ Lär dig hur du distribuerar Cognitive Services [textanalys][install-and-run-con
 ## <a name="next-steps"></a>Nästa steg 
 
 * Använd fler [Cognitive Services behållare](../../cognitive-services-container-support.md)
-* Använd [textanalys anslutna tjänsten](../vs-text-connected-service.md)
+* Använd [textanalys anslutna tjänsten](../index.yml)
 
 [install-and-run-containers]: ./text-analytics-how-to-install-containers.md
 [container-instances]: https://docs.microsoft.com/azure/container-instances

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 060b648a0d1ee963b44c25e45a7de2888f662335
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3229091a0effda7837b8e58fe8764910e3b6636d
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084144"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367003"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Snabb start: kontrol lera stavningen med Stavningskontroll i Bing REST API och C #
 
@@ -37,7 +37,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
    Installera det här paketet i Visual Studio:
 
      1. I **Solution Explorer** högerklickar du på lösnings filen.
-     1. Välj **Hantera NuGet-paket för lösningen** .
+     1. Välj **Hantera NuGet-paket för lösningen**.
      1. Sök efter *Newtonsoft.Jspå* och installera paketet.
 
 * Om du använder Linux/MacOS kan du köra det här programmet med hjälp av [mono](https://www.mono-project.com/).
@@ -205,4 +205,4 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [Skapa en enkelsidig webbapp](../tutorials/spellcheck.md)
 
 - [Vad är API för stavningskontroll i Bing?](../overview.md)
-- [API för stavningskontroll i Bing v7-referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+- [API för stavningskontroll i Bing v7-referens](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

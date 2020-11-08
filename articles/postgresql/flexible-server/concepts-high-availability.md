@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: b23c95ef0005c8246feb8dc32e4a07a0ae19b72f
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: c0d9b6042ae695caa73d926653f237b756bf4971
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359552"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366731"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql---flexible-server"></a>Koncept med hög tillgänglighet i Azure Database for PostgreSQL-flexibel Server
 
@@ -101,17 +101,17 @@ Flexibla servrar som är konfigurerade med hög tillgänglighet replikerar data 
 -   Hög tillgänglighet stöds bara i regioner där flera zoner är tillgängliga.
 -   På grund av synkron replikering till en annan tillgänglighets zon kan program uppleva förhöjda Skriv-och bekräftelse svar.
 
--   Det går inte att använda standby-repliker för skrivskyddade frågor.
+-   Det går inte att använda standby-repliker för Läs frågor.
 
--   Beroende på aktivitet på den primära servern vid redundansväxlingen, kan det ta upp till två minuter eller längre innan redundansväxlingen har slutförts.
+-   Beroende på arbets belastningen och aktiviteten på den primära servern kan redundansväxlingen ta längre tid än 120 sekunder.
 
--   Att starta om den primära databas servern för att hämta statiska parameter ändringar startar även om repliken för vänte läge.
+-   Att starta om den primära databas servern startar även om replikeringen i vänte läge. 
 
 -   Det finns inte stöd för att konfigurera ytterligare Läs repliker.
 
 -   Konfigurering av kundens initierade hanterings uppgifter kan inte schemaläggas under hanterat underhålls fönster.
 
--   Planerade händelser som att skala beräknings- och skalningslagring sker först på standby-repliken och sedan på den primära servern. Tjänsten redundansväxlas inte. 
+-   Planerade händelser som att skala beräknings- och skalningslagring sker först på standby-repliken och sedan på den primära servern. Servern har inte redundansväxlats för dessa planerade åtgärder. 
 
 -  Om logisk avkodning eller logisk replikering har kon figurer ATS med en HA kon figurer ATS med hög tillgänglighet, i händelse av en redundansväxling till standby-servern, kopieras inte de logiska replikerings platserna över till standby-servern.  
 

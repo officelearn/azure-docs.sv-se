@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: d1405bce6761b6702146418296cb7b47bb9124ee
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: f270ac736bb5dbc429dc8659cc88e63d0b51a523
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357189"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366646"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Gränser i Azure Database for PostgreSQL-flexibel Server
 
@@ -78,7 +78,7 @@ En PostgreSQL-anslutning, även inaktiv, kan uppta cirka 10 MB minne. Det tar oc
 - Zone-Redundant HA stöds för närvarande inte för servrar med burst.
 - Databas serverns IP-adress ändras när servern växlar över till förväntat vänte läge. Se till att du använder DNS-posten i stället för serverns IP-adress.
 - Om logisk replikering har kon figurer ATS med en HA kon figurer ATS med hög tillgänglighet, i händelse av en redundansväxling till standby-servern, kopieras inte de logiska replikerings platserna till standby-servern. 
-- Mer information om begränsningar finns på sidan [begrepp-ha dokumentation](concepts-high-availability.md) .
+- Mer information om Zone-redundanta användare, inklusive begränsningar, finns på [dokumentations sidan för Concepts-ha](concepts-high-availability.md) .
 
 ### <a name="availability-zones"></a>Tillgänglighetszoner
 

@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: 1e14f13d0e9fba407a983fb182d25c77593e4d3c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: fbe8f9f4c5354d5a1b68909fcb65597e8c03dfb8
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098407"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367175"
 ---
 # <a name="search-for-news-with-the-bing-news-search-api"></a>Sök efter nyheter med API för nyhetssökning i Bing
 
@@ -32,7 +32,7 @@ API:et för nyhetssökning i Bing hittar och returnerar i första hand relevanta
 
 Om du tillhandahåller en sökruta där användaren anger sin sökterm bör du använda [API för automatiska förslag i Bing ](../../bing-autosuggest/get-suggested-search-terms.md) för att ge bättre funktioner. API:t returnerar föreslagna frågesträngar baserat på partiella söktermer som användaren skriver in.
 
-När användaren har angett sin sökterm ska du koda den i en webbadress innan du ställer in frågeparametern [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query). Om användaren till exempel anger *segeljollar* ställer du in `q` till `sailing+dinghies` eller `sailing%20dinghies`.
+När användaren har angett sin sökterm ska du koda den i en webbadress innan du ställer in frågeparametern [q](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query). Om användaren till exempel anger *segeljollar* ställer du in `q` till `sailing+dinghies` eller `sailing%20dinghies`.
 
 ## <a name="get-general-news"></a>Få allmänna nyheter
 
@@ -50,13 +50,13 @@ Host: api.cognitive.microsoft.com
 
 Om det är den första gången du anropar ett Bing-API inkluderar du inte klientens ID-huvud. Inkludera endast klient-ID om du har anropat ett Bing-API förut och om Bing returnerade ett klient-ID för användar- och enhetskombinationen.
 
-Om du vill hämta nyheter från en specifik domän använder du frågeoperatorn [site:](https://msdn.microsoft.com/library/ff795613.aspx).
+Om du vill hämta nyheter från en specifik domän använder du frågeoperatorn [site:](/previous-versions/bing/search/ff795613(v=msdn.10)).
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
 ```
 
-Följande JSON-exempel visar svaret på föregående fråga. Som en del av [användnings- och visningskraven](../useanddisplayrequirements.md) för API:er för Bing-sökresultat måste du visa nyhetsartiklarna i den ordning som anges i svaret. Om artikeln innehåller klustrade artiklar ska du indikera att den relaterade artikeln finns och visa den om användaren begär det.
+Följande JSON-exempel visar svaret på föregående fråga. Som en del av [användnings- och visningskraven](../../bing-web-search/use-display-requirements.md) för API:er för Bing-sökresultat måste du visa nyhetsartiklarna i den ordning som anges i svaret. Om artikeln innehåller klustrade artiklar ska du indikera att den relaterade artikeln finns och visa den om användaren begär det.
 
 ```json
 {
@@ -104,9 +104,9 @@ Följande JSON-exempel visar svaret på föregående fråga. Som en del av [anv�
 }
 ```
 
-I svaret med [nyheter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v5-reference#news) visas de nyhetsartiklar som Bing anser vara relevanta för frågan. Fältet `totalEstimatedMatches` innehåller en uppskattning av antalet artiklar som är tillgängliga för visning. Läs mer om bläddring mellan artiklar i [Sidindela nyheter](../paging-news.md).
+I svaret med [nyheter](/rest/api/cognitiveservices-bingsearch/bing-news-api-v5-reference#news) visas de nyhetsartiklar som Bing anser vara relevanta för frågan. Fältet `totalEstimatedMatches` innehåller en uppskattning av antalet artiklar som är tillgängliga för visning. Läs mer om bläddring mellan artiklar i [Sidindela nyheter](../../bing-web-search/paging-search-results.md).
 
-Varje [nyhetsartikel](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v5-reference#newsarticle) i listan innehåller artikels namn, beskrivning och webbadressen till artikeln på värdens webbplats. Om artikeln innehåller en bild innehåller objektet även en miniatyr för bilden. Använd `name` och `url` till att skapa en hyperlänk som tar användaren till nyhetsartikeln på värdens webbplats. Om artikeln innehåller en bild ska du även göra den klickbar med `url`. Se till att du tillskriver artikeln med `provider`.
+Varje [nyhetsartikel](/rest/api/cognitiveservices-bingsearch/bing-news-api-v5-reference#newsarticle) i listan innehåller artikels namn, beskrivning och webbadressen till artikeln på värdens webbplats. Om artikeln innehåller en bild innehåller objektet även en miniatyr för bilden. Använd `name` och `url` till att skapa en hyperlänk som tar användaren till nyhetsartikeln på värdens webbplats. Om artikeln innehåller en bild ska du även göra den klickbar med `url`. Se till att du tillskriver artikeln med `provider`.
 
 Om Bing kan fastställa vilken kategori nyhetsartikeln tillhör innehåller den även fältet `category`.
 
@@ -140,7 +140,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-Använd frågeparametern [category](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category) till att ange vilken typ av artiklar som ska hämtas. En lista med de nyhetskategorier du kan ange finns i [Nyhetskategorier per marknad](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news-categories-by-market).
+Använd frågeparametern [category](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category) till att ange vilken typ av artiklar som ska hämtas. En lista med de nyhetskategorier du kan ange finns i [Nyhetskategorier per marknad](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news-categories-by-market).
 
 Svaret när du hämtar nyheter i en viss kategori är nästan samma som för allmänna nyheter. Alla artiklar kommer dock från den angivna kategorin.
 
@@ -158,11 +158,11 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-Ta inte med frågeparametern [category](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category).
+Ta inte med frågeparametern [category](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category).
 
-Svaret med toppnyheter är nästan samma som för dagens populäraste nyheter. Om artikeln är en toppnyhet har fältet `headline` värdet **true** .
+Svaret med toppnyheter är nästan samma som för dagens populäraste nyheter. Om artikeln är en toppnyhet har fältet `headline` värdet **true**.
 
-Svaret innehåller som standard upp till 12 toppnyheter. Om du vill ändra antalet toppnyheter som ska returneras ställer du in frågeparametern [headlineCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#headlinecount). Svaret innehåller också upp till fyra nyhetsartiklar per kategori som inte är toppnyheter.
+Svaret innehåller som standard upp till 12 toppnyheter. Om du vill ändra antalet toppnyheter som ska returneras ställer du in frågeparametern [headlineCount](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#headlinecount). Svaret innehåller också upp till fyra nyhetsartiklar per kategori som inte är toppnyheter.
 
 I svaret räknas klustret som en artikel. Eftersom ett kluster kan innehålla flera artiklar så kan svaret innehålla fler än 12 toppnyheter och fler än fyra andra nyhetsartiklar per kategori.
 
@@ -184,7 +184,7 @@ Host: api.cognitive.microsoft.com
 > [!NOTE]
 > Populära ämnen är bara tillgängliga på marknaderna en-US och zh-CN.
 
-Följande JSON är svaret på föregående förfrågan. Varje populär nyhetsartikel innehåller en relaterad bild, flaggan ”senaste nytt” och en webbadress till Bing-sökresultatet för artikeln. Använd webbadressen i fältet `webSearchUrl` om du vill dirigera användaren till sidan med Bing-sökresultatet. Du kan också använda frågetexten till att anropa [API för webbsökning](../../bing-web-search/search-the-web.md) och visa resultaten själv istället.
+Följande JSON är svaret på föregående förfrågan. Varje populär nyhetsartikel innehåller en relaterad bild, flaggan ”senaste nytt” och en webbadress till Bing-sökresultatet för artikeln. Använd webbadressen i fältet `webSearchUrl` om du vill dirigera användaren till sidan med Bing-sökresultatet. Du kan också använda frågetexten till att anropa [API för webbsökning](../../bing-web-search/overview.md) och visa resultaten själv istället.
 
 ```json
 {
@@ -228,7 +228,7 @@ Följande JSON är svaret på föregående förfrågan. Varje populär nyhetsart
 
 ## <a name="getting-related-news"></a>Hämta relaterade nyheter
 
-Om det finns andra artiklar som är relaterade till en nyhetsartikel så kan nyhetsartikeln innehålla fältet [clusteredArticles](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle-clusteredarticles). Här visas en artikel med klustrade artiklar.
+Om det finns andra artiklar som är relaterade till en nyhetsartikel så kan nyhetsartikeln innehålla fältet [clusteredArticles](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle-clusteredarticles). Här visas en artikel med klustrade artiklar.
 
 ```json
     {
@@ -269,4 +269,4 @@ Om det finns andra artiklar som är relaterade till en nyhetsartikel så kan nyh
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Bläddra igenom resultaten för nyhetssökning i Bing](../paging-news.md)
+> [Bläddra igenom resultaten för nyhetssökning i Bing](../../bing-web-search/paging-search-results.md)

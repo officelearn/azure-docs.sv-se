@@ -8,18 +8,18 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: 590416f077fc1ff9430e42e27217548476c9032f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edd1549ddabef0ae1ba37150ad75a371ac6e6d85
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132780"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365524"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Funktioner är information om åtgärder och kontext
 
 Personanpassa tjänsten arbetar genom att lära dig vad ditt program ska visa för användare i en specifik kontext.
 
-I personanpassaren används **funktioner**, som innehåller information om den **aktuella kontexten** för att välja den bästa **åtgärden**. Funktionerna representerar all information du tycker kan hjälpa dig att anpassa för att uppnå högre förmåner. Funktioner kan vara mycket generiska eller bara för ett objekt. 
+I personanpassaren används **funktioner** , som innehåller information om den **aktuella kontexten** för att välja den bästa **åtgärden**. Funktionerna representerar all information du tycker kan hjälpa dig att anpassa för att uppnå högre förmåner. Funktioner kan vara mycket generiska eller bara för ett objekt. 
 
 Du kan till exempel ha en **funktion** om:
 
@@ -41,8 +41,8 @@ En personanpassare stöder funktioner av typerna String, numeric och Boolean.
 
 ### <a name="how-choice-of-feature-type-affects-machine-learning-in-personalizer"></a>Hur valet av funktions typ påverkar Machine Learning i personanpassa
 
-* **Strängar**: för sträng typer skapar varje kombination av nyckel och värde nya vikter i personanpassa maskin inlärnings modell. 
-* **Numerisk**: du bör använda numeriska värden när antalet ska proportionellt påverka anpassnings resultatet. Detta är mycket scenariot beroende. I ett förenklat exempel, t. ex. När du anpassar en återförsäljarversion, kan NumberOfPetsOwned vara en funktion som är numerisk eftersom du vill att personer med 2 eller tre hus djur ska påverka anpassnings resultatet två gånger eller tre gånger om så mycket som med 1 hus djur. Funktioner som baseras på numeriska enheter men där innebörden inte är linjär, till exempel ålder, temperatur eller person höjd – är bäst kodade som strängar, och funktions kvaliteten kan vanligt vis förbättras med hjälp av intervall. Till exempel kan ålder kodas som "ålder": "0-5", "Age": "6-10" osv.
+* **Strängar** : för sträng typer skapar varje kombination av nyckel och värde nya vikter i personanpassa maskin inlärnings modell. 
+* **Numerisk** : du bör använda numeriska värden när antalet ska proportionellt påverka anpassnings resultatet. Detta är mycket scenariot beroende. I ett förenklat exempel, t. ex. När du anpassar en återförsäljarversion, kan NumberOfPetsOwned vara en funktion som är numerisk eftersom du vill att personer med 2 eller tre hus djur ska påverka anpassnings resultatet två gånger eller tre gånger om så mycket som med 1 hus djur. Funktioner som baseras på numeriska enheter men där innebörden inte är linjär, till exempel ålder, temperatur eller person höjd – är bäst kodade som strängar, och funktions kvaliteten kan vanligt vis förbättras med hjälp av intervall. Till exempel kan ålder kodas som "ålder": "0-5", "Age": "6-10" osv.
 * **Booleska** värden som skickas med värdet "false" fungerar som om de inte hade har skickats över huvud taget.
 
 Funktioner som inte finns ska utelämnas från begäran. Undvik att skicka funktioner med ett null-värde eftersom det kommer att bearbetas som befintligt och med värdet "null" när du tränar modellen.
@@ -152,10 +152,10 @@ Exempel:
 
 Du kan använda flera andra [Azure-Cognitive Services](https://www.microsoft.com/cognitive-services), t. ex.
 
-* [Entity Linking](../entitylinking/home.md)
+* [Entity Linking](../text-analytics/index.yml)
 * [Textanalys](../text-analytics/overview.md)
-* [Känsla](../emotion/home.md)
-* [Visuellt innehåll](../computer-vision/home.md)
+* [Känsla](../face/overview.md)
+* [Visuellt innehåll](../computer-vision/overview.md)
 
 ## <a name="actions-represent-a-list-of-options"></a>Åtgärder representerar en lista med alternativ
 
@@ -179,7 +179,7 @@ De åtgärder som du skickar till ranknings-API: et beror på vad du försöker 
 
 Här följer några exempel:
 
-|Syfte|Action|
+|Syfte|Åtgärd|
 |--|--|
 |Anpassa vilken artikel som är markerad på en nyhets webbplats.|Varje åtgärd är en potentiell nyhets artikel.|
 |Optimera AD-placering på en webbplats.|Varje åtgärd är en layout eller regler för att skapa en layout för annonserna (till exempel överst, till höger, små bilder, stora bilder).|
@@ -322,4 +322,4 @@ JSON-objekt kan innehålla kapslade JSON-objekt och enkla egenskaper/värden. En
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Kunskapsförmedling](concepts-reinforcement-learning.md) 
+[Kunskapsförmedling](concepts-reinforcement-learning.md)

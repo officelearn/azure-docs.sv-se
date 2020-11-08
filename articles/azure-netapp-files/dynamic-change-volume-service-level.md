@@ -12,16 +12,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 11/06/2020
 ms.author: b-juche
-ms.openlocfilehash: 3f5627f4bd0d62a70ef9d7809f0bf1441141f4c6
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: fe4b2925a34ae7c06bb0b597f0bcdcc3f4d80896
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931253"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363229"
 ---
 # <a name="dynamically-change-the-service-level-of-a-volume"></a>Ändra tjänstnivå för en volym dynamiskt
+
+> [!IMPORTANT] 
+> Den offentliga förhands gransknings registreringen för den här funktionen är stoppad tills vidare meddelande. 
 
 Du kan ändra service nivån för en befintlig volym genom att flytta volymen till en annan kapacitets pool som använder den [tjänste nivå](azure-netapp-files-service-levels.md) som du vill använda för volymen. Den här ändringar på plats på service nivå för volymen kräver inte att du migrerar data. Det påverkar inte heller åtkomsten till volymen.  
 
@@ -33,28 +36,28 @@ Den kapacitets grupp som du vill flytta volymen till måste redan finnas. Kapaci
 
 * När volymen har flyttats till en annan kapacitets pool kommer du inte längre att ha åtkomst till de tidigare volym aktivitets loggarna och volym måtten. Volymen börjar med nya aktivitets loggar och mät värden under den nya kapacitets gruppen.
 
-* Om du flyttar en *volym till en* kapacitets uppsättning med en högre service nivå (till exempel genom att flytta från *standard* till *Premium* eller *Ultra* Service Level) måste du vänta minst sju dagar innan du kan flytta volymen till en kapacitets pool med en lägre service nivå (till exempel genom att flytta från *Ultra* till *Premium* eller *standard*).  
+* Om du flyttar en *volym till en* kapacitets uppsättning med en högre service nivå (till exempel genom att flytta från *standard* till *Premium* eller *Ultra* Service Level) måste du vänta minst sju dagar innan du kan flytta volymen till en kapacitets pool med en lägre service nivå (till exempel genom att flytta från *Ultra* till *Premium* eller *standard* ).  
+<!-- 
+## Register the feature
 
-## <a name="register-the-feature"></a>Registrera funktionen
+The feature to move a volume to another capacity pool is currently in preview. If you are using this feature for the first time, you need to register the feature first.
 
-Funktionen för att flytta en volym till en annan kapacitets pool är för närvarande en för hands version. Om du använder den här funktionen för första gången måste du registrera funktionen först.
-
-1. Registrera funktionen: 
+1. Register the feature: 
 
     ```azurepowershell-interactive
     Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFTierChange
     ```
 
-2. Kontrol lera status för funktions registreringen: 
+2. Check the status of the feature registration: 
 
     > [!NOTE]
-    > **RegistrationState** kan vara i ett `Registering` tillstånd i upp till 60 minuter innan den ändras till `Registered` . Vänta tills statusen har **registrerats** innan du fortsätter.
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
 
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFTierChange
     ```
-Du kan också använda [Azure CLI-kommandon](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` och `az feature show` Registrera funktionen och Visa registrerings status. 
-
+You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status. 
+--> 
 ## <a name="move-a-volume-to-another-capacity-pool"></a>Flytta en volym till en annan kapacitets grupp
 
 1.  På sidan volymer högerklickar du på den volym vars service nivå du vill ändra. Välj **ändra pool**.

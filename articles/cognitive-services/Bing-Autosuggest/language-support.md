@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: d6971dafc7e3157b3de62284b400ebdc6ddc19c0
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6156dbe4d189800172250f56ad3ab095bea17bb8
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101909"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364521"
 ---
 # <a name="language-and-region-support-for-the-bing-autosuggest-api"></a>Språk-och region stöd för API för automatiska förslag i Bing
 
@@ -71,5 +71,5 @@ I följande lista visas de språk som stöds av API för automatiska förslag i 
 
 ## <a name="see-also"></a>Se även
 
-- [Sidan Azure Cognitive Services-dokumentation](https://docs.microsoft.com/azure/cognitive-services/)
+- [Sidan Azure Cognitive Services-dokumentation](../index.yml)
 - [Sidan Azure Cognitive Services Product](https://azure.microsoft.com/services/cognitive-services/)

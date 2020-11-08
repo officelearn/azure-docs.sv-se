@@ -12,18 +12,18 @@ ms.date: 11/02/2020
 ms.author: aahi
 keywords: text utvinning, sentiment-analys, text analys
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: d58c501af3d90fec1eea43d13fa2383c8e847f18
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 6d10161609abda321ed1be9dfda0acabf2030c9e
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289693"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365303"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Vad är API för textanalys?
 
 API för textanalys är en molnbaserad tjänst som tillhandahåller NLP-funktioner (Natural Language Processing) för text utvinning och text analys, inklusive: sentiment analys, uppläggnings utvinning, extrahering av nyckel fraser, språk identifiering och identifiering av namngivna enheter.
 
-API:et är en del av [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/), en samling maskininlärnings- och AI-algoritmer i molnet för dina utvecklingsprojekt. Du kan använda dessa funktioner med [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/)eller [klient biblioteket](quickstarts/text-analytics-sdk.md).
+API:et är en del av [Azure Cognitive Services](../index.yml), en samling maskininlärnings- och AI-algoritmer i molnet för dina utvecklingsprojekt. Du kan använda dessa funktioner med [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/)eller [klient biblioteket](quickstarts/text-analytics-sdk.md).
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Understanding-Text-using-Cognitive-Services/player]
 
@@ -73,18 +73,18 @@ Du kan börja använda API för textanalys i dina processer, även om du inte ha
 
 * Minimal programmering krävs:
     * [Extrahera information i Excel med Textanalys och energi automatisering](tutorials/extract-excel-information.md)
-    * [Använd API för textanalys och MS Flow för att identifiera sentiment av kommentarer i en Yammer-grupp](https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
+    * [Använd API för textanalys och MS Flow för att identifiera sentiment av kommentarer i en Yammer-grupp](/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure?bc=%252f%252fazure%252fbread%252ftoc.json&toc=%252f%252fazure%252fcognitive-services%252ftext-analytics%252ftoc.json)
     * [Integrera Power BI med API för textanalys för att analysera feedback från kunder](tutorials/tutorial-power-bi-key-phrases.md)
 * Programmerings upplevelse rekommenderas:
-    * [Sentimentanalys på strömmade data med hjälp av Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
-    * [Bygg en kolv-app för att översätta text, analysera sentiment och syntetiskt tal](https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
+    * [Sentimentanalys på strömmade data med hjälp av Azure Databricks](/azure/databricks/scenarios/databricks-sentiment-analysis-cognitive-services?bc=%252f%252fazure%252fbread%252ftoc.json&toc=%252f%252fazure%252fcognitive-services%252ftext-analytics%252ftoc.json)
+    * [Bygg en kolv-app för att översätta text, analysera sentiment och syntetiskt tal](../translator/tutorial-build-flask-app-translation-synthesis.md?bc=%252f%252fazure%252fbread%252ftoc.json&toc=%252f%252fazure%252fcognitive-services%252ftext-analytics%252ftoc.json)
 
 
 <a name="supported-languages"></a>
 
 ## <a name="supported-languages"></a>Språk som stöds
 
-Det här avsnittet har flyttats till en separat artikel för bättre synlighet. Referera till [språk som stöds i API för textanalys](text-analytics-supported-languages.md) för det här innehållet.
+Det här avsnittet har flyttats till en separat artikel för bättre synlighet. Referera till [språk som stöds i API för textanalys](./language-support.md) för det här innehållet.
 
 <a name="data-limits"></a>
 
@@ -94,7 +94,7 @@ Alla av slutpunkterna för API för textanalys accepterar råtextdata. Mer infor
 
 ## <a name="unicode-encoding"></a>Unicode-kodning
 
-API för textanalys använder Unicode-kodning för textrepresentation och beräkningar av antal tecken. Begäranden kan skickas i både UTF-8 och UTF-16 utan mätbara skillnader i antal tecken. Unicode-kodpunkter används som heuristik för teckenlängd och anses motsvara för databegränsningar för textanalys. Om du använder [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements) för att hämta antalet bokstäver använder du samma metod som vi använder för att mäta data storleken.
+API för textanalys använder Unicode-kodning för textrepresentation och beräkningar av antal tecken. Begäranden kan skickas i både UTF-8 och UTF-16 utan mätbara skillnader i antal tecken. Unicode-kodpunkter används som heuristik för teckenlängd och anses motsvara för databegränsningar för textanalys. Om du använder [`StringInfo.LengthInTextElements`](/dotnet/api/system.globalization.stringinfo.lengthintextelements) för att hämta antalet bokstäver använder du samma metod som vi använder för att mäta data storleken.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -104,6 +104,6 @@ API för textanalys använder Unicode-kodning för textrepresentation och beräk
 
 + Se [vad som är nytt i API för textanalys](whats-new.md) för information om nya versioner och funktioner.
 
-+ Lär dig mer om den här [självstudien om sentiment analys](https://docs.microsoft.com/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services) med hjälp av Azure Databricks.
++ Lär dig mer om den här [självstudien om sentiment analys](/azure/databricks/scenarios/databricks-sentiment-analysis-cognitive-services) med hjälp av Azure Databricks.
 
 + Kolla in vår lista med blogg inlägg och fler videor om hur du använder API för textanalys med andra verktyg och tekniker på sidan för den [externa & community-innehåll](text-analytics-resource-external-community.md).

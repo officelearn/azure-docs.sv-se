@@ -10,21 +10,21 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
-ms.openlocfilehash: 8c724925a12535c561b035296e374691f3fb2689
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9c095a46b3a0526b23645c9cbb5e99eb8eda9067
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098356"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366408"
 ---
 # <a name="bing-news-search-api-endpoints"></a>API för nyhetssökning i Bing slut punkter
 
 > [!WARNING]
-> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
-> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
+> Instruktioner för migrering finns i [Bing-sökning Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
-**Nyhetssökning-API: n** returnerar nyhets artiklar, webb sidor, bilder, videor och [entiteter](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web). Entiteter innehåller sammanfattnings information om en person, plats eller ämne.
+**Nyhetssökning-API: n** returnerar nyhets artiklar, webb sidor, bilder, videor och [entiteter](../bing-entities-search/overview.md). Entiteter innehåller sammanfattnings information om en person, plats eller ämne.
 
 ## <a name="endpoints"></a>Slutpunkter
 
@@ -44,7 +44,7 @@ Returnerar nyhets objekt baserat på en Sök fråga. Om Sök frågan är tom, re
 GET https://api.cognitive.microsoft.com/bing/v7.0/news  
 ```
 
-Returnerar de översta nyhets objekten efter kategori. Du kan särskilt beställa de översta affärs-, idrotts-och underhållnings artiklarna med hjälp av `category=business` , `category=sports` eller `category=entertainment` .  `category`Parametern kan bara användas med `/news` URL: en. Det finns vissa formella krav för att ange kategorier. Läs mer `category` i dokumentationen om [Frågeparametern](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query-parameters) . Skicka en fråga utifrån URL: en och koda Sök termen och Lägg till den i `q=""` parametern. För tillgänglighet, se [länder/regioner och marknader som stöds](language-support.md#supported-markets-for-news-endpoint).
+Returnerar de översta nyhets objekten efter kategori. Du kan särskilt beställa de översta affärs-, idrotts-och underhållnings artiklarna med hjälp av `category=business` , `category=sports` eller `category=entertainment` .  `category`Parametern kan bara användas med `/news` URL: en. Det finns vissa formella krav för att ange kategorier. Läs mer `category` i dokumentationen om [Frågeparametern](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query-parameters) . Skicka en fråga utifrån URL: en och koda Sök termen och Lägg till den i `q=""` parametern. För tillgänglighet, se [länder/regioner och marknader som stöds](language-support.md#supported-markets-for-news-endpoint).
 
 ### <a name="trending-news-topics"></a>Trender i nyhets ämnen 
 
@@ -56,7 +56,7 @@ Returnerar nyhets ämnen som för närvarande är trender i sociala nätverk. N�
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om sidhuvuden, parametrar, marknads koder, svars objekt, fel osv. finns i [Bing News Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference) reference.
+Mer information om sidhuvuden, parametrar, marknads koder, svars objekt, fel osv. finns i [Bing News Search API v7](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference) reference.
 
 Fullständig information om de parametrar som stöds av varje slut punkt finns i referens sidorna för varje typ.
-Exempel på grundläggande förfrågningar som använder API: t för nyhets sökning finns i [nyhetssökning i Bing snabb starter](https://docs.microsoft.com/azure/cognitive-services/bing-news-search).
+Exempel på grundläggande förfrågningar som använder API: t för nyhets sökning finns i [nyhetssökning i Bing snabb starter](/azure/cognitive-services/bing-news-search).

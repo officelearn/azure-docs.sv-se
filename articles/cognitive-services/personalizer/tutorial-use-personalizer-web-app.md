@@ -6,12 +6,12 @@ ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e06d191573219df44631f6ffaee86f895166de57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c004887e3883ae711974b544510dff16a98d4ef9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777266"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363926"
 ---
 # <a name="tutorial-add-personalizer-to-a-net-web-app"></a>Självstudie: Lägg till en Personanpassare till en .NET-webbapp
 
@@ -158,7 +158,7 @@ Webbappen använder sig av Personanpassare för att välja den bästa åtgärden
 * **åtgärder** med deras funktioner, till exempel `taste` och `spiceLevel`
 * **kontext** funktioner som `time` dag, användarens `taste` preferens och webbläsarens användar agent information och kontext funktioner
 * **åtgärder för att undanta** till exempel juice
-* **eventId**, som skiljer sig för varje anrop till Range-API.
+* **eventId** , som skiljer sig för varje anrop till Range-API.
 
 ## <a name="personalizer-model-features-in-a-web-app"></a>Funktioner för personanpassa modeller i en webbapp
 
@@ -216,7 +216,7 @@ Installera följande programvara:
 
 * [.Net core 2,1](https://dotnet.microsoft.com/download/dotnet-core/2.1) – exempel Server delen använder .net Core
 * [Node.js](https://nodejs.org/) -klientens/klient delen är beroende av det här programmet
-* [Visual studio 2019](https://visualstudio.microsoft.com/vs/)eller [.net Core CLI](https://docs.microsoft.com/dotnet/core/tools/) – Använd antingen utvecklings miljön i visual Studio 2019 eller .net Core CLI för att skapa och köra appen
+* [Visual studio 2019](https://visualstudio.microsoft.com/vs/)eller [.net Core CLI](/dotnet/core/tools/) – Använd antingen utvecklings miljön i visual Studio 2019 eller .net Core CLI för att skapa och köra appen
 
 ### <a name="set-up-the-sample"></a>Konfigurera exemplet
 1. Klona lagrings platsen för Azures anpassade Azure-exempel.
@@ -235,7 +235,7 @@ Installera följande programvara:
 
 1. I Azure Portal hittar du `Endpoint` och antingen `Key1` eller `Key2` (fungerar antingen) på fliken **nycklar och slut punkter** . Det här är dina `PersonalizerServiceEndpoint` och dina `PersonalizerApiKey` .
 1. Fyll i `PersonalizerServiceEndpoint` **appsettings.jspå**.
-1. Konfigurera `PersonalizerApiKey` som en [program hemligheter](https://docs.microsoft.com/aspnet/core/security/app-secrets) på något av följande sätt:
+1. Konfigurera `PersonalizerApiKey` som en [program hemligheter](/aspnet/core/security/app-secrets) på något av följande sätt:
 
     * Om du använder .NET Core CLI kan du använda `dotnet user-secrets set "PersonalizerApiKey" "<API Key>"` kommandot.
     * Om du använder Visual Studio kan du högerklicka på projektet och välja meny alternativet **hantera användar hemligheter** för att konfigurera de personliga nycklarna. Genom att göra detta öppnar Visual Studio en `secrets.json` fil där du kan lägga till nycklarna enligt följande:
@@ -283,7 +283,7 @@ I följande avsnitt förklaras de delar av servern och klienten som en utvecklar
 
 ## <a name="rank-api-client-application-sends-context-to-server"></a>Ranknings-API: klient programmet skickar en kontext till servern
 
-Klient programmet samlar in användarens _användar agent_för webbläsare.
+Klient programmet samlar in användarens _användar agent_ för webbläsare.
 
 > [!div class="mx-imgBorder"]
 > ![Skapa och kör HTTPRequestFeaturesExample-projektet. Ett webbläsarfönster öppnas för att visa programmet för en enda sida.](./media/tutorial-web-app/user-agent.png)
@@ -294,7 +294,7 @@ Det här är en typisk .NET-webbapp med ett klient program, men en stor del av p
 
 ### <a name="create-personalizer-client"></a>Skapa en personanpassa klient
 
-I serverns **startup.cs**används den personligare slut punkten och nyckeln för att skapa en personanpassa klient. Klient programmet behöver inte kommunicera med en Personanpassare i den här appen, i stället förlitar sig på servern för att göra dessa SDK-anrop.
+I serverns **startup.cs** används den personligare slut punkten och nyckeln för att skapa en personanpassa klient. Klient programmet behöver inte kommunicera med en Personanpassare i den här appen, i stället förlitar sig på servern för att göra dessa SDK-anrop.
 
 Webb serverns .NET-start kod är:
 
@@ -340,7 +340,7 @@ namespace HttpRequestFeaturesExample
 
 ### <a name="select-best-action"></a>Välj bästa åtgärd
 
-I serverns **PersonalizerController.cs**sammanfattar API: et för **GenerateRank** -Server förberedelserna för att anropa rang-API: et
+I serverns **PersonalizerController.cs** sammanfattar API: et för **GenerateRank** -Server förberedelserna för att anropa rang-API: et
 
 * Skapa `eventId` en ny för rang anropet
 * Hämta listan över åtgärder

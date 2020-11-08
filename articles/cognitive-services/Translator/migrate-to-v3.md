@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: fb907e0b9c923a77c6956723f6df397fabd84da8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f22213bf192b12e046bab12346e5d5d83fb36b96
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86523986"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364283"
 ---
 # <a name="translator-v2-to-v3-migration"></a>Translator v2 till v3-migrering
 
@@ -37,7 +37,7 @@ Slutet av det här dokumentet innehåller användbara länkar som hjälper dig a
 * Translittererad till en translittererad-metod har lagts till i API: et. Med den här metoden konverteras ord och meningar i ett skript (t. ex. Arabic) i ett annat skript (t. ex. Latin).
 * Språk – en ny "språk"-metod levererar språk information i JSON-format för användning med metoderna "Översätt", "dictionary" och "translittererad".
 * Nytt att översätta – nya funktioner har lagts till i "Översätt"-metoden för att stödja vissa av funktionerna i v2-API: et som separata metoder. Ett exempel är TranslateArray.
-* Speak-metoden – text till tal-funktionen stöds inte längre i Microsoft Translator. Text till tal-funktionen finns i [Microsoft Speech service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech).
+* Speak-metoden – text till tal-funktionen stöds inte längre i Microsoft Translator. Text till tal-funktionen finns i [Microsoft Speech service](../speech-service/text-to-speech.md).
 
 I följande lista med v2-och v3-metoder identifieras de v3-metoder och API: er som tillhandahåller de funktioner som medföljde v2.
 
@@ -47,8 +47,8 @@ I följande lista med v2-och v3-metoder identifieras de v3-metoder och API: er s
 | `TranslateArray`      | [Översätta](reference/v3-0-translate.md)        |
 | `GetLanguageNames`      | [Språk](reference/v3-0-languages.md)         |
 | `GetLanguagesForTranslate`     | [Språk](reference/v3-0-languages.md)       |
-| `GetLanguagesForSpeak`      | [Microsoft Speech service](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
-| `Speak`     | [Microsoft Speech service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
+| `GetLanguagesForSpeak`      | [Microsoft Speech service](../speech-service/language-support.md#text-to-speech)         |
+| `Speak`     | [Microsoft Speech service](../speech-service/text-to-speech.md)          |
 | `Detect`     | [Identifiering](reference/v3-0-detect.md)         |
 | `DetectArray`     | [Identifiering](reference/v3-0-detect.md)         |
 | `AddTranslation`     | Funktionen stöds inte längre       |

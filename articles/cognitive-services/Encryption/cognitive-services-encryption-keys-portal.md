@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 1369f30c4a3bcb0a391a5f2b2a63191590afd622
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d161c82c087fd86a3774f0d121330260b1574e4
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84310707"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366102"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-for-cognitive-services"></a>Konfigurera Kundhanterade nycklar med Azure Key Vault för Cognitive Services
 
@@ -38,5 +38,5 @@ Processen för att aktivera Customer-Managed nycklar med Azure Key Vault för Co
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Vad är Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?
+* [Vad är Azure Key Vault](../../key-vault/general/overview.md)?
 * [Formulär för begäran om Cognitive Services Customer-Managed nyckel](https://aka.ms/cogsvc-cmk)

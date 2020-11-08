@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 08/27/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: personanpassare, Azure-personanpassare, maskin inlärning
-ms.openlocfilehash: ae17b799c2b222525db53d5bb8e0afdbbcf19975
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: f843e7bfa014ad8391e20efff83a3c21a9de11b9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91777249"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363909"
 ---
 # <a name="what-is-personalizer"></a>Vad är Personanpassning?
 
@@ -29,14 +29,14 @@ Innan du börjar kan du prova att lära dig [med den här interaktiva demonstrat
 
 ## <a name="how-does-personalizer-select-the-best-content-item"></a>Hur väljer Personanpassare det bästa innehålls objektet?
 
-Personanpassare använder **förstärknings inlärning** för att välja det bästa objektet (_åtgärd_) baserat på kollektivt beteende och belönings resultat för alla användare. Åtgärder är innehålls objekt, till exempel nyhets artiklar, vissa filmer eller produkter.
+Personanpassare använder **förstärknings inlärning** för att välja det bästa objektet ( _åtgärd_ ) baserat på kollektivt beteende och belönings resultat för alla användare. Åtgärder är innehålls objekt, till exempel nyhets artiklar, vissa filmer eller produkter.
 
 **Ranknings** anropet tar objektet Action, tillsammans med funktionerna i åtgärden och kontext funktionerna för att välja det översta objektet:
 
 * **Åtgärder med funktioner** – innehålls objekt med funktioner som är speciella för varje objekt
 * **Kontext funktioner** – funktioner för dina användare, deras kontext eller deras miljö när du använder din app
 
-Rang anropet returnerar det ID för vilket innehålls objekt, __åtgärd__, som ska visas för användaren i fältet **belönings åtgärds-ID** .
+Rang anropet returnerar det ID för vilket innehålls objekt, __åtgärd__ , som ska visas för användaren i fältet **belönings åtgärds-ID** .
 
 Den __åtgärd__ som visas för användaren väljs med Machine Learning-modeller, som försöker maximera det totala antalet förmåner över tid.
 
@@ -57,7 +57,7 @@ Personanpassare använder förstärknings inlärning för att välja den enda b�
 
 ## <a name="when-to-use-personalizer"></a>När du ska använda en Personanpassare
 
-En persons **rang** - [API](https://go.microsoft.com/fwlink/?linkid=2092082) anropas varje gången ditt program presenterar innehåll. Detta kallas en **händelse**som anges med ett _händelse-ID_.
+En persons **rang** - [API](https://go.microsoft.com/fwlink/?linkid=2092082) anropas varje gången ditt program presenterar innehåll. Detta kallas en **händelse** som anges med ett _händelse-ID_.
 
 Personens **belönings** - [API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) kan anropas i real tid eller fördröjs för att bättre passa din infrastruktur. Du fastställer belönings poängen utifrån dina affärs behov. Belönings poängen är mellan 0 och 1. Det kan vara ett enda värde, till exempel 1 för bra, och 0 för dåligt, eller ett tal som skapats av en algoritm som du skapar med tanke på dina affärs mål och mät värden.
 
@@ -87,14 +87,14 @@ Eftersom Personanpassaren använder samlad information i nära real tid för att
 
 1. Lägg till en Personanpassare till ditt program, din webbplats eller ditt system:
     1. Lägg till ett **rang** anrop till personanpassaren i ditt program, din webbplats eller ditt system för att fastställa det bästa, enda _innehålls_ posten innan innehållet visas för användaren.
-    1. Visa det bästa, enda _innehålls_ objekt, vilket är det returnerade _Åtgärds-ID: t för belöning_, till användare.
+    1. Visa det bästa, enda _innehålls_ objekt, vilket är det returnerade _Åtgärds-ID: t för belöning_ , till användare.
     1. Använd _affärs logik_ för att samla in information om hur användaren beter sig för att fastställa **belönings** poängen, till exempel:
 
     |Beteende|Beräknad belönings Poäng|
     |--|--|
     |Användaren har valt bästa, enskilt _innehålls_ objekt (ID för belönings åtgärd)|**1**|
     |Användaren har valt annat innehåll|**0**|
-    |Användaren pausade, rullade runt på ett avgörande sätt innan du väljer bästa, enskilt _innehålls_ objekt (belönings ÅTGÄRDS-ID)|**0,5**|
+    |Användaren pausade, rullade runt på ett avgörande sätt innan du väljer bästa, enskilt _innehålls_ objekt (belönings ÅTGÄRDS-ID)|**0.5**|
 
     1. Lägg till ett **belönings** samtal som skickar en belönings Poäng mellan 0 och 1
         * Direkt efter att ha visat ditt innehåll
@@ -105,7 +105,7 @@ Eftersom Personanpassaren använder samlad information i nära real tid för att
 
 Vi erbjuder snabb starter i C#, Java Script och python. Varje snabb start är utformad för att lära dig grundläggande design mönster, och du kan köra kod på mindre än 10 minuter. 
 
-* [Snabb start: så här använder du personanpassa klient biblioteket](sdk-learning-loop.md)
+* [Snabb start: så här använder du personanpassa klient biblioteket](./quickstart-personalizer-sdk.md)
 
 När du har fått en chans att komma igång med tjänsten för anpassning kan du prova våra självstudier och lära dig hur du använder personanpassa i webb program, chatta robotar eller en Azure-anteckningsbok.
 
@@ -115,10 +115,10 @@ När du har fått en chans att komma igång med tjänsten för anpassning kan du
 
 ## <a name="reference"></a>Referens 
 
-* [/.NET-distribution. SDK för personanpassa C#](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/personalizer?view=azure-dotnet)
+* [/.NET-distribution. SDK för personanpassa C#](/dotnet/api/overview/azure/cognitiveservices/client/personalizer?view=azure-dotnet)
 * [Personanpassa go SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/personalizer/v1.0/personalizer)
-* [SDK för anpassnings-Java Script](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest)
-* [Personanpassa python SDK](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/personalizer?view=azure-python)
+* [SDK för anpassnings-Java Script](/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest)
+* [Personanpassa python SDK](/python/api/overview/azure/cognitiveservices/personalizer?view=azure-python)
 * [REST API:er](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank)
 
 ## <a name="next-steps"></a>Nästa steg

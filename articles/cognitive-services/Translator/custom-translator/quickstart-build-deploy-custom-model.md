@@ -9,27 +9,27 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: quickstart
-ms.openlocfilehash: f24c9c372ff91db5836a62ac2d08b569434ff253
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 4fbac2c2d77d838ac7fc4f3caaa73983633c3e03
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761587"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366068"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Snabbstart: Skapa, distribuera och använda en anpassad modell för översättning
 
 Den här artikeln innehåller stegvisa instruktioner för att skapa ett översättningssystem med Custom Translator.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-1. För att använda [Custom Translator](https://portal.customtranslator.azure.ai)-portalen behöver du ett [Microsoft-konto](https://signup.live.com) eller [Azure AD-konto](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (organisationskonto på Azure) för att logga in.
+1. För att använda [Custom Translator](https://portal.customtranslator.azure.ai)-portalen behöver du ett [Microsoft-konto](https://signup.live.com) eller [Azure AD-konto](../../../active-directory/fundamentals/active-directory-whatis.md) (organisationskonto på Azure) för att logga in.
 
-2. En prenumeration på Translator Text API via Azure-portalen. Du behöver prenumerationsnyckeln för Translator Text API för att associera med din arbetsyta i Custom Translator. Se [hur du registrerar dig för Translator Text API](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
+2. En prenumeration på Translator Text API via Azure-portalen. Du behöver prenumerationsnyckeln för Translator Text API för att associera med din arbetsyta i Custom Translator. Se [hur du registrerar dig för Translator Text API](../translator-how-to-signup.md).
 
 3. När du har båda ovanstående loggar du in på den  [anpassade översättnings](https://portal.customtranslator.azure.ai) portalen för att skapa arbets ytor, projekt, ladda upp filer och skapa/distribuera modeller.
 
 >[!Note]
->Anpassad översättare har inte stöd för att skapa arbets yta för Translator Text API resurs som har skapats i det [aktiverade VNet](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet).
+>Anpassad översättare har inte stöd för att skapa arbets yta för Translator Text API resurs som har skapats i det [aktiverade VNet](../../../api-management/api-management-using-with-vnet.md).
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
 
@@ -92,7 +92,7 @@ Om du vill byta ut en distribuerad modell med en annan i ett projekt klickar du 
 
 ## <a name="use-a-deployed-model"></a>Använda en distribuerad modell
 
-Du kan nå distribuerade modeller via Microsoft Translator [Text API V3 genom att ange CategoryID](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl). Mer information om Translator Text API kan hittas på webbsidan [API-referens](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference).
+Du kan nå distribuerade modeller via Microsoft Translator [Text API V3 genom att ange CategoryID](../reference/v3-0-translate.md?tabs=curl). Mer information om Translator Text API kan hittas på webbsidan [API-referens](../reference/v3-0-reference.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

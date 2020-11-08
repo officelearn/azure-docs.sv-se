@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 495847d31682aff64fed3c81b1d5d68cf67dfd38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea153b1927a337be29c2eb69e2417cc250abf5e8
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87086448"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366061"
 ---
 # <a name="handle-throttling-problems-429---too-many-requests-errors-in-azure-logic-apps"></a>Hantera begränsnings problem (429-"för många begär Anden"-fel) i Azure Logic Apps
 
@@ -22,7 +22,7 @@ I [Azure Logic Apps](../logic-apps/logic-apps-overview.md)returnerar din Logic [
 Här följer några vanliga typer av begränsningar som din Logic app kan uppleva:
 
 * [Logic app](#logic-app-throttling)
-* [Kurva](#connector-throttling)
+* [Anslutning](#connector-throttling)
 * [Mål tjänst eller system](#destination-throttling)
 
 <a name="logic-app-throttling"></a>
@@ -35,11 +35,11 @@ Du hittar begränsnings händelser på den här nivån genom att kontrol lera di
 
 1. I [Azure Portal](https://portal.azure.com)öppnar du din Logic app i Logic Apps designer.
 
-1. På menyn Logic app, under **övervakning**, väljer du **mått**.
+1. På menyn Logic app, under **övervakning** , väljer du **mått**.
 
-1. Under **diagram rubrik**väljer du **Lägg till mått** så att du kan lägga till ett annat mått i det befintliga.
+1. Under **diagram rubrik** väljer du **Lägg till mått** så att du kan lägga till ett annat mått i det befintliga.
 
-1. I det första mått fältet i listan **mått** väljer du **Åtgärds begränsade händelser**. I det andra mått fältet väljer du **Utlös begränsad händelse**i listan **mått** .
+1. I det första mått fältet i listan **mått** väljer du **Åtgärds begränsade händelser**. I det andra mått fältet väljer du **Utlös begränsad händelse** i listan **mått** .
 
 För att kunna hantera begränsning på den här nivån har du följande alternativ:
 
@@ -51,15 +51,15 @@ För att kunna hantera begränsning på den här nivån har du följande alterna
 
 * Aktivera högt data flödes läge.
 
-  En Logic app har en [standard gräns för antalet åtgärder som kan köras under ett rullande intervall på 5 minuter](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Aktivera [hög data flödes läge](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode) på din Logic app om du vill höja gränsen till maximalt antal åtgärder.
+  En Logic app har en [standard gräns för antalet åtgärder som kan köras under ett rullande intervall på 5 minuter](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Aktivera [hög data flödes läge](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode) på din Logic app om du vill höja gränsen till maximalt antal åtgärder.
 
 * Inaktivera funktionen för att dela upp matrisen ("dela på") i utlösare.
 
-  Om en utlösare returnerar en matris för återstående arbets flödes åtgärder som ska bearbetas, delar utlösaren [ **dela vid** inställningen](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) upp mat ris objekten och startar en arbets flödes instans för varje mat ris objekt, vilket utlöser flera samtidiga körningar upp till gränsen för [ **delning** ](../logic-apps/logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits). Om du vill kontrol lera begränsningen inaktiverar du **delningen vid** beteendet och kör din Logic Apps hela matrisen med ett enda anrop, i stället för att hantera ett enskilt objekt per anrop.
+  Om en utlösare returnerar en matris för återstående arbets flödes åtgärder som ska bearbetas, delar utlösaren [ **dela vid** inställningen](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) upp mat ris objekten och startar en arbets flödes instans för varje mat ris objekt, vilket utlöser flera samtidiga körningar upp till gränsen för [ **delning**](../logic-apps/logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits). Om du vill kontrol lera begränsningen inaktiverar du **delningen vid** beteendet och kör din Logic Apps hela matrisen med ett enda anrop, i stället för att hantera ett enskilt objekt per anrop.
 
 * Återtvingande åtgärder i mindre Logic Apps.
 
-  Som tidigare nämnts är en logisk app begränsad till ett [standard antal åtgärder som kan köras under en 5 minuters period](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Även om du kan öka den här gränsen genom att aktivera [läget för hög genom strömning](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), kan du också fundera över om du vill dela upp din Logi Kap par åtgärder i mindre Logic-appar så att antalet åtgärder som körs i varje Logi Kap par förblir under gränsen. På så sätt minskar du belastningen på en enda Logic app-resurs och distribuerar belastningen över flera Logic Apps. Den här lösningen fungerar bättre för åtgärder som hanterar stora data uppsättningar eller som ökar så många aktiviteter som körs samtidigt, loop-iterationer eller åtgärder i varje slinga, vilket innebär att de överskrider åtgärds körnings gränsen.
+  Som tidigare nämnts är en logisk app begränsad till ett [standard antal åtgärder som kan köras under en 5 minuters period](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Även om du kan öka den här gränsen genom att aktivera [läget för hög genom strömning](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode), kan du också fundera över om du vill dela upp din Logi Kap par åtgärder i mindre Logic-appar så att antalet åtgärder som körs i varje Logi Kap par förblir under gränsen. På så sätt minskar du belastningen på en enda Logic app-resurs och distribuerar belastningen över flera Logic Apps. Den här lösningen fungerar bättre för åtgärder som hanterar stora data uppsättningar eller som ökar så många aktiviteter som körs samtidigt, loop-iterationer eller åtgärder i varje slinga, vilket innebär att de överskrider åtgärds körnings gränsen.
 
   Den här Logic-appen gör till exempel allt arbete för att hämta tabeller från en SQL Server-databas och hämtar raderna från varje tabell. **För varje** slinga upprepas samtidigt genom varje tabell så att åtgärden **Hämta rader** returnerar raderna för varje tabell. Beroende på mängden data i dessa tabeller kan de här åtgärderna överskrida gränsen för åtgärds körningar.
 

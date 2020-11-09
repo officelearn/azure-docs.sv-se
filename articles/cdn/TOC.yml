@@ -64,6 +64,8 @@
           href: cdn-create-endpoint-how-to.md
         - name: Hantera med hjälp av Azure PowerShell
           href: cdn-manage-powershell.md
+        - name: Registrera en rotdomän eller basdomän
+          href: onboard-apex-domain.md
         - name: Begränsa åtkomst efter land eller region
           href: cdn-restrict-access-by-country.md
         - name: Förbättra prestandan genom att komprimera filer

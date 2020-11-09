@@ -1,9 +1,9 @@
 - name: Dokumentation om talarigenkänning
-  href: Home.md
+  href: ../speech-service/speaker-recognition-overview.md
 - name: Översikt
   items:
     - name: Lär dig om talarigenkänning
-      href: Home.md
+      href: ../speech-service/speaker-recognition-overview.md
 - name: Referens
   items:
     - name: API-referens

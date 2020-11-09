@@ -4,15 +4,14 @@ description: Ta reda på vilka portar och adresser som krävs för att styra utg
 services: container-service
 ms.topic: article
 ms.author: jpalma
-ms.date: 06/29/2020
-ms.custom: fasttrack-edit, devx-track-azurecli
+ms.date: 11/09/2020
 author: palma21
-ms.openlocfilehash: dcc015b9ff4cb9b980c7163f526eafbe5cd36119
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: e3b755ca3ca5338acfc1918bd2085d9fba18b8ac
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900485"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380219"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Styra utgående trafik för klusternoder i Azure Kubernetes service (AKS)
 
@@ -39,7 +38,7 @@ _ IP-adress beroenden är för trafik som inte är HTTP/S (både TCP-och UDP-tra
 * FQDN HTTP/HTTPS-slutpunkter kan placeras i brand Väggs enheten.
 * HTTP/HTTPS-slutpunkter med jokertecken är beroenden som kan variera med ditt AKS-kluster baserat på ett antal kvalificerare.
 * AKS använder en åtkomst kontroll för att mata in FQDN som en miljö variabel för alla distributioner under Kube-system och Gatekeeper-system, som säkerställer all system kommunikation mellan noder och API-servern använder API-serverns FQDN och inte IP-adressen för API-servern. 
-* Om du har en app eller lösning som behöver kommunicera med API-servern måste du lägga till **ytterligare** en nätverks regel för att tillåta *TCP-kommunikation till port 443 i din API-servers IP* .
+* Om du har en app eller lösning som behöver kommunicera med API-servern måste du lägga till **ytterligare** en nätverks regel för att tillåta *TCP-kommunikation till port 443 i din API-servers IP*.
 * Vid sällsynta tillfällen, om det finns en underhålls åtgärd kan din API-servers IP-adress ändras. Planerade underhålls åtgärder som kan ändra API-serverns IP-adress förmedlas alltid i förväg.
 
 
@@ -63,7 +62,6 @@ Följande FQDN/program-regler krävs:
 |----------------------------------|-----------------|----------|
 | **`*.hcp.<location>.azmk8s.io`** | **`HTTPS:443`** | Krävs för noden <-> API-server kommunikation. Ersätt *\<location\>* med den region där ditt AKS-kluster har distribuerats. |
 | **`mcr.microsoft.com`**          | **`HTTPS:443`** | Krävs för att få åtkomst till avbildningar i Microsoft Container Registry (MCR). Det här registret innehåller bilder/diagram från första part (till exempel coreDNS osv.). De här avbildningarna krävs för att skapa och arbeta med klustret korrekt, inklusive skalnings-och uppgraderings åtgärder.  |
-| **`*.cdn.mscr.io`**              | **`HTTPS:443`** | Krävs för MCR-lagring som backas upp av Azure-Content Delivery Network (CDN). |
 | **`*.data.mcr.microsoft.com`**   | **`HTTPS:443`** | Krävs för MCR-lagring som backas upp av Azure Content Delivery Network (CDN). |
 | **`management.azure.com`**       | **`HTTPS:443`** | Krävs för Kubernetes-åtgärder mot Azure-API: et. |
 | **`login.microsoftonline.com`**  | **`HTTPS:443`** | Krävs för Azure Active Directory autentisering. |
@@ -92,7 +90,6 @@ Följande FQDN/program-regler krävs:
 | **`*.hcp.<location>.cx.prod.service.azk8s.cn`**| **`HTTPS:443`** | Krävs för noden <-> API-server kommunikation. Ersätt *\<location\>* med den region där ditt AKS-kluster har distribuerats. |
 | **`*.tun.<location>.cx.prod.service.azk8s.cn`**| **`HTTPS:443`** | Krävs för noden <-> API-server kommunikation. Ersätt *\<location\>* med den region där ditt AKS-kluster har distribuerats. |
 | **`mcr.microsoft.com`**                        | **`HTTPS:443`** | Krävs för att få åtkomst till avbildningar i Microsoft Container Registry (MCR). Det här registret innehåller bilder/diagram från första part (till exempel coreDNS osv.). De här avbildningarna krävs för att skapa och arbeta med klustret korrekt, inklusive skalnings-och uppgraderings åtgärder. |
-| **`*.cdn.mscr.io`**                            | **`HTTPS:443`** | Krävs för MCR-lagring som backas upp av Azure-Content Delivery Network (CDN). |
 | **`.data.mcr.microsoft.com`**                  | **`HTTPS:443`** | Krävs för MCR-lagring som backas upp av Azure-Content Delivery Network (CDN). |
 | **`management.chinacloudapi.cn`**              | **`HTTPS:443`** | Krävs för Kubernetes-åtgärder mot Azure-API: et. |
 | **`login.chinacloudapi.cn`**                   | **`HTTPS:443`** | Krävs för Azure Active Directory autentisering. |
@@ -119,7 +116,6 @@ Följande FQDN/program-regler krävs:
 |---------------------------------------------------------|-----------------|----------|
 | **`*.hcp.<location>.cx.aks.containerservice.azure.us`** | **`HTTPS:443`** | Krävs för noden <-> API-server kommunikation. Ersätt *\<location\>* med den region där ditt AKS-kluster har distribuerats.|
 | **`mcr.microsoft.com`**                                 | **`HTTPS:443`** | Krävs för att få åtkomst till avbildningar i Microsoft Container Registry (MCR). Det här registret innehåller bilder/diagram från första part (till exempel coreDNS osv.). De här avbildningarna krävs för att skapa och arbeta med klustret korrekt, inklusive skalnings-och uppgraderings åtgärder. |
-| **`*.cdn.mscr.io`**                                     | **`HTTPS:443`** | Krävs för MCR-lagring som backas upp av Azure-Content Delivery Network (CDN). |
 | **`*.data.mcr.microsoft.com`**                          | **`HTTPS:443`** | Krävs för MCR-lagring som backas upp av Azure Content Delivery Network (CDN). |
 | **`management.usgovcloudapi.net`**                      | **`HTTPS:443`** | Krävs för Kubernetes-åtgärder mot Azure-API: et. |
 | **`login.microsoftonline.us`**                          | **`HTTPS:443`** | Krävs för Azure Active Directory autentisering. |

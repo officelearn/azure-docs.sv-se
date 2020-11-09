@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: cb532098cda290654d6bdebe9cec2edab8ccbf99
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 6393b0b8d794345fded95718a2581ae9b929ad49
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94355795"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381158"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Flytta en digital Azure-instans till en annan Azure-region
 
@@ -120,7 +120,7 @@ Sedan slutför du "flytta"-instansen genom att skapa en ny instans i mål region
 
 ### <a name="create-a-new-instance"></a>Skapa en ny instans
 
-Börja med att skapa en ny instans av Azure Digitals dubbla i mål regionen. Följ stegen i [Konfigurera en instans och autentisering](how-to-set-up-instance-portal.md). Tänk på följande:
+Börja med att skapa en ny instans av Azure Digitals dubbla i mål regionen. Följ stegen i [instruktion: Konfigurera en instans och autentisering](how-to-set-up-instance-portal.md). Tänk på följande:
 
 * Du kan behålla samma namn för den nya instansen *om* den finns i en annan resurs grupp. Om du behöver använda samma resurs grupp som innehåller den ursprungliga instansen måste den nya instansen ha sitt eget distinkta namn.
 * Ange den nya mål regionen när du uppmanas att ange en plats.

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/26/2020
 ms.author: thomasge
-ms.openlocfilehash: d34505b1f36d6de77e2bb1df9aa98b7a14b5f44d
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: fdbef15bb7831fedd7c375d565e0cde10f9b9a9e
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171931"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380440"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>AKS-hanterad Azure Active Directory-integrering
 
@@ -21,13 +21,6 @@ AKS-hanterad Azure AD-integrering är utformad för att förenkla Azure AD-integ
 Kluster administratörer kan konfigurera Kubernetes-rollbaserad åtkomst kontroll (RBAC) baserat på användarens identitet eller katalog grupp medlemskap. Azure AD-autentisering tillhandahålls för AKS-kluster med OpenID Connect. OpenID Connect är ett identitets lager som byggts ovanpå OAuth 2,0-protokollet. Mer information om OpenID Connect finns i [Open ID Connect-dokumentationen][open-id-connect].
 
 Läs mer om Azure AD-integrerings flödet i [dokumentationen för Azure Active Directory integrations begrepp](concepts-identity.md#azure-active-directory-integration).
-
-## <a name="region-availability"></a>Regional tillgänglighet
-
-AKS-hanterad Azure Active Directory-integrering är tillgänglig i offentliga regioner där [AKS stöds](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
-
-* Azure Government stöds inte för närvarande.
-* Azure Kina 21Vianet stöds inte för närvarande.
 
 ## <a name="limitations"></a>Begränsningar 
 

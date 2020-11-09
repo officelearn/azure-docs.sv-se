@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/28/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3043cd5f8cb27197048bd84c7181c2b42c4ad5c9
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 2052e27cde3427986dbf7784dcd5dbb179c5b209
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376909"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380937"
 ---
 # <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>Vad är Azure Synapse Analytics (för hands versioner av arbets ytor)?
 
@@ -74,6 +74,11 @@ Azure Synapse erbjuder ett enda sätt för företag att hantera analys resurser,
 * Bygg en lösning från slut punkt till slut punkt på en plats: mata in, utforska, förbereda, dirigera, visualisera
 * Branschledande produktivitet för data tekniker som skriver SQL-eller Spark-kod: redigering, fel sökning och prestanda optimering
 * Integrera med Enterprise CI/CD-processer
+
+## <a name="engage-with-the-synapse-engineering-team"></a>Engagera dig med Synapse Engineering-teamet
+
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse): Ställ frågor om utveckling.
+- [Sidan Microsoft Q&en fråga](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html): Ställ tekniska frågor.
 
 ## <a name="next-steps"></a>Nästa steg
 

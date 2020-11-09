@@ -1,6 +1,6 @@
 ---
-title: Bearbetade data med Server lös SQL-pool
-description: Det här dokumentet beskriver hur data som bearbetas beräknas när du frågar efter data i Azure Storage med hjälp av SQL-poolen utan server.
+title: Bearbetade data med hjälp av Server lös SQL-pool
+description: Det här dokumentet beskriver hur det data som bearbetas beräknas när du frågar efter data i data Lake.
 services: synapse analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,75 +9,81 @@ ms.subservice: sql
 ms.date: 11/05/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 06eb02aa3dd4d5fc8bd3605dac480d5afa52d5fa
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: a108e5fdd30c21cdb7771e3f683dad22773653a4
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424432"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381209"
 ---
-# <a name="data-processed-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Bearbetade data med Server lös SQL-pool i Azure Synapse Analytics
+# <a name="data-processed-by-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Bearbetade data med hjälp av Server lös SQL-pool i Azure Synapse Analytics
 
-Bearbetade data är mängden data som lagras temporärt i systemet när en fråga körs och består av:
+*Bearbetade data* är mängden data som systemet lagrar tillfälligt medan en fråga körs. Bearbetade data består av följande kvantiteter:
 
-- Mängden data som läses från Storage – bland annat:
-  - Data mängden läst vid inläsning av data
-  - Data mängden läst vid läsning av metadata (för fil format som innehåller metadata, t. ex. Parquet)
-- Mängden data i mellanliggande resultat – data som överförs mellan noder under frågekörningen, inklusive data överföring till din slut punkt, i okomprimerat format. 
-- Data mängd som skrivs till lagring – om du använder CETAS för att exportera resultat uppsättningen till Storage debiteras du för byte som skrivs ut och mängden data som bearbetas för den valda delen av CETAS.
+- Mängden data som läses från lagringen. Detta belopp inkluderar:
+  - Data lästes vid läsning av data.
+  - Data lästes vid läsning av metadata (för fil format som innehåller metadata, t. ex. Parquet).
+- Mängden data i mellanliggande resultat. Dessa data överförs mellan noder medan frågan körs. Den innehåller data överföringen till din slut punkt i ett okomprimerat format. 
+- Mängden data som skrivs till lagringen. Om du använder CETAS för att exportera resultat uppsättningen till Storage, läggs mängden data som skrivs ut till i mängden data som bearbetas för den valda delen av CETAS.
 
-Läsning av filer från lagring är mycket optimerat och använder:
+Läsning av filer från lagring är starkt optimerat. Processen använder:
 
-- För hämtning – som kan lägga till en liten omkostnader i mängden data som läses. Om en fråga läser en hel fil sker ingen överbelastning. Om en fil läses delvis, som i de x främsta frågorna, kommer en bit mer data att läsas med för hämtning.
-- Optimerad CSV-parser – om du använder PARSER_VERSION = ' 2.0 ' för att läsa CSV-filer kommer det att leda till ett något ökat antal data som läses från lagringen.  Optimerad CSV-parser läser filer parallellt i segment med samma storlek. Det finns ingen garanti för att segment ska innehålla hela rader. Om du vill se till att alla rader tolkas, kommer små fragment av intilliggande segment att läsas och lägga till en liten del av omkostnaderna.
+- För hämtning, som kan lägga till viss overhead till mängden data som läses. Om en fråga läser en hel fil finns det ingen omkostnader. Om en fil läses delvis, som i de x främsta frågorna, läses en bit mer data med hjälp av för hämtning.
+- En optimerad CSV-parser (kommaavgränsade värden). Om du använder PARSER_VERSION = 2.0 för att läsa CSV-filer ökar mängden data som läses från lagrings utrymme något. En optimerad CSV-parser läser filer parallellt, i segment med samma storlek. Segment innehåller inte nödvändigt vis hela rader. För att se till att alla rader tolkas, läser den optimerade CSV-parsern också små fragment av intilliggande segment. Den här processen lägger till en liten del av omkostnaderna.
 
 ## <a name="statistics"></a>Statistik
 
-SQL-poolens fråga optimering förlitar sig på statistik för att skapa optimala fråge körnings planer. Du kan skapa statistik manuellt eller så skapas de automatiskt av en server lös SQL-pool. I båda fallen skapas statistik genom att köra en separat fråga som returnerar en särskild kolumn vid angiven samplings frekvens. Den här frågan har en associerad mängd bearbetade data.
+SQL-poolens fråga optimering förlitar sig på statistik för att skapa optimala fråge körnings planer. Du kan skapa statistik manuellt. Annars skapar Server lös SQL-poolen automatiskt. I båda fallen skapas statistik genom att köra en separat fråga som returnerar en särskild kolumn i en angiven samplings frekvens. Den här frågan har en associerad mängd bearbetade data.
 
-Om du kör samma eller någon annan fråga som skulle dra nytta av statistik som skapats, kommer statistik att återanvändas om det är möjligt och inga ytterligare data bearbetas för att skapa statistik.
+Om du kör samma eller någon annan fråga som skulle dra nytta av statistik som skapats, kommer statistik att återanvändas om möjligt. Det finns inga ytterligare data som bearbetas för att skapa statistik.
 
-När du skapar statistik för en Parquet-kolumn kan du bara läsa den relevanta kolumnen från filerna. När du skapar statistik för en CSV-kolumn blir hela filer lästa och tolkas.
+När statistik skapas för en Parquet-kolumn läses endast den relevanta kolumnen in från filer. När statistik skapas för en CSV-kolumn läses och tolkas hela filer.
 
 ## <a name="rounding"></a>Avrundning
 
-Mängden data som bearbetas avrundas uppåt till närmaste MB per fråga, med minst 10 MB data som bearbetas per fråga.
+Mängden data som bearbetas avrundas uppåt till närmaste MB per fråga. Varje fråga har minst 10 MB bearbetade data.
 
-## <a name="what-is-not-included-in-data-processed"></a>Det som inte ingår i data som bearbetas
+## <a name="what-data-processed-doesnt-include"></a>Vilka data som bearbetas omfattar inte
 
-- Metadata på server nivå (t. ex. inloggningar, roller, autentiseringsuppgifter på server nivå)
-- Databaser som du skapar i slut punkten eftersom dessa databaser bara innehåller metadata (t. ex. användare, roller, scheman, vyer, infogade TVFs, lagrade procedurer, databasens begränsade autentiseringsuppgifter, externa data källor, externa fil format, externa tabeller)
-  - Om du använder schema härledning kommer fragment av filer att läsas för att härleda kolumn namn och data typer
-- DDL-instruktioner förutom att skapa statistik som bearbetar data från lagrings utrymme baserat på den angivna exempel procenten
-- Frågor med enbart metadata
+- Metadata på server nivå (t. ex. inloggningar, roller och autentiseringsuppgifter på server nivå).
+- Databaser som du skapar i slut punkten. Dessa databaser innehåller endast metadata (t. ex. användare, roller, scheman, vyer, infogade tabell värdes funktioner [TVFs], lagrade procedurer, autentiseringsuppgifter för databas, externa data källor, externa fil format och externa tabeller).
+  - Om du använder schema härledning, läses filfragmenten för att härleda kolumn namn och data typer och mängden data som läses läggs till i mängden data som bearbetas.
+- DDL-uttryck (Data Definition Language), förutom CREATE STATISTICS-instruktionen, eftersom den bearbetar data från lagring baserat på den angivna exempel procenten.
+- Frågor med enbart metadata.
 
-## <a name="reduce-amount-of-data-processed"></a>Minska mängden bearbetade data
+## <a name="reducing-the-amount-of-data-processed"></a>Minska mängden bearbetade data
 
-Du kan optimera mängden data som bearbetas per fråga och få bättre prestanda genom att partitionera och konvertera data till ett komprimerat kolumn format som Parquet.
+Du kan optimera mängden data som bearbetas per fråga och förbättra prestandan genom att partitionera och konvertera data till ett komprimerat kolumnbaserade format som Parquet.
 
 ## <a name="examples"></a>Exempel
 
-Anta att det finns två tabeller som har samma data i fem lika stora kolumner:
+Föreställ dig tre tabeller.
 
-- population_csv tabell som backas upp av 5 TB CSV-filer
-- population_parquet tabell som backas upp av 1 TB Parquet-filer – den här tabellen är mindre än den tidigare en som Parquet innehåller komprimerade data
-- very_small_csv tabell som backas upp av 100 KB CSV-filer
+- Den population_csv tabellen backas upp med 5 TB CSV-filer. Filerna är ordnade i fem lika stora kolumner.
+- Population_parquet tabellen har samma data som population_csvs tabellen. Den backas upp med 1 TB av Parquet-filer. Den här tabellen är mindre än föregående, eftersom data komprimeras i Parquet-format.
+- Very_small_csv tabellen backas upp av 100 KB CSV-filer.
 
-**Fråga #1** : Välj sum (population) från population_csv
+**Fråga 1** : Välj sum (population) från population_csv
 
-Den här frågan läser och tolkar hela filer för att hämta värden för populations kolumnen. Noderna bearbetar fragment i den här tabellen, populations summan för varje fragment överförs mellan noder och den slutliga summan överförs till din slut punkt. Den här frågan bearbetar 5 TB data plus små kostnader för att överföra summor av fragment.
+Den här frågan läser och tolkar hela filer för att hämta värden för populations kolumnen. Noderna bearbetar fragmenten i den här tabellen och populations summan för varje fragment överförs mellan noder. Den sista summan överförs till din slut punkt. 
 
-**Fråga #2** : Välj sum (population) från population_parquet
+Den här frågan bearbetar 5 TB data plus ett litet antal omkostnader för att överföra summor av fragment.
 
-Att fråga efter komprimerade och kolumnbaserade format som Parquet resulterar i att du läser mindre data än i föregående fråga, eftersom en server fri SQL-pool läser en komprimerad kolumn i stället för hela filen. I det här fallet kommer 0,2 TB att läsas (fem lika stora kolumner, 0,2 TB vardera). Noderna bearbetar fragment i den här tabellen, populations summan för varje fragment överförs mellan noder och den slutliga summan överförs till din slut punkt. Den här frågan bearbetar 0,2 TB plus en liten omkostnader för att överföra summor av fragment.
+**Fråga 2** : Välj sum (population) från population_parquet
 
-**Fråga #3** : Välj * från population_parquet
+När du frågar efter komprimerade och kolumnbaserade format som Parquet läses mindre data än i fråga 1. Du ser det här resultatet eftersom SQL-poolen utan Server läser en komprimerad kolumn i stället för hela filen. I det här fallet är 0,2 TB läst. (Fem lika stora kolumner är 0,2 TB vardera.) Noderna bearbetar fragmenten i den här tabellen och populations summan för varje fragment överförs mellan noder. Den sista summan överförs till din slut punkt. 
 
-Den här frågan läser alla kolumner och överför alla data i okomprimerat format. Om komprimerings formatet är 5:1 kommer det att bearbeta 6 TB eftersom det läser 1 TB + överföring 5 TB av okomprimerade data.
+Den här frågan bearbetar 0,2 TB plus en liten del av omkostnader för att överföra summor av fragment.
 
-**Fråga #4** : Välj Count (*) från very_small_csv
+**Fråga 3** : Välj * från population_parquet
 
-Den här frågan läser hela filer. Den totala storleken på filer som lagras i den här tabellen är 100 KB. Noderna bearbetar fragment i den här tabellen, summan för varje fragment överförs mellan noder och den sista summan överförs till din slut punkt. Den här frågan kommer att bearbeta en aning över 100 KB data. Mängden data som bearbetas för den här frågan avrundas uppåt till 10 MB som anges i [avrundning](#rounding).
+Den här frågan läser alla kolumner och överför alla data i ett okomprimerat format. Om komprimerings formatet är 5:1, bearbetar frågan 6 TB eftersom den läser 1 TB och överför 5 TB okomprimerade data.
+
+**Fråga 4** : Välj Count (*) från very_small_csv
+
+Den här frågan läser hela filer. Den totala storleken på filer som lagras i den här tabellen är 100 KB. Noderna bearbetar fragment i den här tabellen och summan för varje fragment överförs mellan noder. Den sista summan överförs till din slut punkt. 
+
+Den här frågan bearbetar något mer än 100 KB data. Mängden data som bearbetas för den här frågan avrundas uppåt till 10 MB, enligt vad som anges i avsnittet [Avrunda](#rounding) i den här artikeln.
 
 ## <a name="next-steps"></a>Nästa steg
 

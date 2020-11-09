@@ -3,12 +3,12 @@ title: Vanliga frågor om katastrof återställning i VMware med Azure Site Reco
 description: Få svar på vanliga frågor om haveri beredskap för lokala virtuella VMware-datorer till Azure med hjälp av Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 421a96255e7dbbec723122fb3920dcc27da72670
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8f292e7f624b80e8e13514a714c5759d88fbe57c
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359806"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379998"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Vanliga frågor om replikering av VMware till Azure
 
@@ -176,7 +176,7 @@ För VMware-replikering till Azure kan du ändra disk storleken för virtuella k
 
 ### <a name="can-i-migrate-on-premises-machines-to-a-new-vcenter-server-without-impacting-ongoing-replication"></a>Kan jag migrera lokala datorer till en ny vCenter Server utan att påverka pågående replikering?
 
-Nej. En ändring av VMware vCenter eller migrering kommer att påverka pågående replikering. Konfigurera Site Recovery med den nya vCenter Server och aktivera replikering för datorer igen.
+Se vår [vägledning](vmware-azure-manage-vcenter.md#migrate-all-vms-to-a-new-server) för att migrera datorer till en ny vCenter
 
 ### <a name="can-i-replicate-to-a-cache-or-target-storage-account-that-has-a-virtual-network-with-azure-firewalls-configured-on-it"></a>Kan jag replikera till ett cache-eller mål lagrings konto som har ett virtuellt nätverk (med Azure-brandväggar) konfigurerat?
 
@@ -286,7 +286,7 @@ Ja, men Observera att den fysiska datorn inte kan återställas till en virtuell
 
 ### <a name="where-can-i-download-vault-registration-keys"></a>Var kan jag hämta valv registrerings nycklar?
 
-I Recovery Services-valvet väljer du **konfigurations servrar** i **Site Recovery infrastruktur**  >  **hantering**. I **servrar**väljer du sedan **Hämta registrerings nyckel** för att ladda ned valv filen med autentiseringsuppgifter.
+I Recovery Services-valvet väljer du **konfigurations servrar** i **Site Recovery infrastruktur**  >  **hantering**. I **servrar** väljer du sedan **Hämta registrerings nyckel** för att ladda ned valv filen med autentiseringsuppgifter.
 
 ### <a name="can-a-single-configuration-server-be-used-to-protect-multiple-vcenter-instances"></a>Kan en enda konfigurations Server användas för att skydda flera vCenter-instanser?
 

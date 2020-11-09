@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: aahi
-ms.openlocfilehash: e2907cb568076ef4de199c5227e03db652414464
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1e6fc68a1e48c9c47cc6a76911f947f2d9916a25
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077225"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379518"
 ---
 # <a name="sending-search-requests-to-the-bing-video-search-api"></a>Skicka sökbegäranden till API:et för videosökning i Bing
 
@@ -32,7 +32,7 @@ I den här artikeln beskrivs parametrarna och attributen för begäranden som sk
 
 Om du tillhandahåller en sökruta där användaren anger sin sökterm bör du använda [API för automatiska förslag i Bing ](../../bing-autosuggest/get-suggested-search-terms.md) för att ge bättre funktioner. API:t returnerar föreslagna frågesträngar baserat på partiella söktermer som användaren skriver in.
 
-När användaren har angett sin sökterm URL-kodar du den innan du anger frågeparametern [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#query). Om användaren till exempel anger *segeljollar* ställer du in `q` till `sailing+dinghies` eller `sailing%20dinghies`.
+När användaren har angett sin sökterm URL-kodar du den innan du anger frågeparametern [q](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#query). Om användaren till exempel anger *segeljollar* ställer du in `q` till `sailing+dinghies` eller `sailing%20dinghies`.
 
 ## <a name="sending-a-request"></a>Skicka en begäran
 
@@ -47,18 +47,18 @@ Begäran måste använda HTTPS-protokollet.
 Vi rekommenderar att alla förfrågningar kommer från en server. Om nyckeln distribueras som en del av ett klientprogram ökar risken för att en illvillig tredje part kan komma åt den. Anrop från en server innebär dessutom att det bara finns en enda uppgraderingspunkt för framtida versioner av API:et.
 
   
-Begäran måste innehålla frågeparametern [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#query), som innehåller användarens sökterm. Även om det är valfritt bör begäran även innehålla frågeparametern [mkt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#mkt), som identifierar marknaden som du vill att resultatet ska komma från. En lista över valfria frågeparametrar som `pricing` finns i [Frågeparametrar](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#query-parameters). Alla frågeparametervärden måste vara URL-kodade.  
+Begäran måste innehålla frågeparametern [q](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#query), som innehåller användarens sökterm. Även om det är valfritt bör begäran även innehålla frågeparametern [mkt](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#mkt), som identifierar marknaden som du vill att resultatet ska komma från. En lista över valfria frågeparametrar som `pricing` finns i [Frågeparametrar](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#query-parameters). Alla frågeparametervärden måste vara URL-kodade.  
   
-Begäran måste innehålla huvudet [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#subscriptionkey). Även om det är valfritt rekommenderar vi även att följande huvuden finns med:  
+Begäran måste innehålla huvudet [Ocp-Apim-Subscription-Key](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#subscriptionkey). Även om det är valfritt rekommenderar vi även att följande huvuden finns med:  
   
--   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#useragent)  
--   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#clientid)  
--   [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#clientip)  
--   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#location)  
+-   [User-Agent](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#useragent)  
+-   [X-MSEdge-ClientID](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#clientid)  
+-   [X-Search-ClientIP](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#clientip)  
+-   [X-Search-Location](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#location)  
 
 Sidhuvuden för klientens IP-adress och platsen är viktiga för att returnera platsmedvetet innehåll.  
 
-En lista över alla sidhuvuden för begäranden och svar finns i [Sidhuvuden](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#headers).
+En lista över alla sidhuvuden för begäranden och svar finns i [Sidhuvuden](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#headers).
 
 ## <a name="example-search-request"></a>Exempel på sökbegäran
 
@@ -154,8 +154,8 @@ BingAPIs-Market: en-US
 
 Testa API:et. Gå till [testningskonsolen för videosöknings-API:et](https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/58113fe5e31dac0a1ce6b0a8). 
 
-Mer information om hur du använder svarsobjekten finns i [Searching the Web for Videos](../search-the-web.md) (Söka efter videor på webben).
+Mer information om hur du använder svarsobjekten finns i [Searching the Web for Videos](../overview.md) (Söka efter videor på webben).
 
 Mer information om hur du får insikter om en video, till exempel relaterade sökningar, finns i [Video Insights](../video-insights.md) (Videoinsikter).  
   
-Mer information om videor som är populära i sociala medier finns i [Populära videor](../trending-videos.md).  
+Mer information om videor som är populära i sociala medier finns i [Populära videor](../trending-videos.md).

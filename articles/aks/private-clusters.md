@@ -4,22 +4,22 @@ description: Lär dig hur du skapar ett privat Azure Kubernetes service-kluster 
 services: container-service
 ms.topic: article
 ms.date: 7/17/2020
-ms.openlocfilehash: 4ebc5e44f491b5ff5950a13771fe3d7179b6fc9f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5c45c01e34c4663657dbeee803fe0bb5cdae6a3c
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143094"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380580"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Skapa ett privat Azure Kubernetes service-kluster
 
-I ett privat kluster har kontroll planet eller API-servern interna IP-adresser som definieras i [RFC1918 för privata Internet](https://tools.ietf.org/html/rfc1918) dokument. Genom att använda ett privat kluster kan du se till att nätverks trafiken mellan API-servern och noderna i pooler fortfarande finns kvar i det privata nätverket.
+I ett privat kluster har kontroll planet eller API-servern interna IP-adresser som definieras i [RFC1918 för privat Internet-](https://tools.ietf.org/html/rfc1918) dokument. Genom att använda ett privat kluster kan du se till att nätverks trafiken mellan API-servern och noderna i pooler fortfarande finns kvar i det privata nätverket.
 
 Kontroll planet eller API-servern finns i en Azure Kubernetes service (AKS)-hanterad Azure-prenumeration. En kunds kluster eller Node-pool är i kundens prenumeration. Servern och klustret eller noden kan kommunicera med varandra via [tjänsten Azure Private Link][private-link-service] i det virtuella nätverkets API-Server och en privat slut punkt som exponeras i under nätet för KUNDEns AKS-kluster.
 
 ## <a name="region-availability"></a>Regional tillgänglighet
 
-Privat kluster är tillgängligt i offentliga regioner där [AKS stöds](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
+Privat kluster är tillgängligt i offentliga regioner, Azure Government och Azure Kina 21Vianet-regioner där [AKS stöds](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
 
 > [!NOTE]
 > Azure Government-platser stöds, men US Gov, Texas stöds inte för närvarande på grund av stöd för privata länkar.
@@ -43,7 +43,7 @@ az group create -l westus -n MyResourceGroup
 ```azurecli-interactive
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster  
 ```
-Where *--Enable-Private-Cluster* är en obligatorisk flagga för ett privat kluster. 
+Där `--enable-private-cluster` är en obligatorisk flagga för ett privat kluster. 
 
 ### <a name="advanced-networking"></a>Avancerat nätverk  
 
@@ -59,7 +59,7 @@ az aks create \
     --dns-service-ip 10.2.0.10 \
     --service-cidr 10.2.0.0/24 
 ```
-Where *--Enable-Private-Cluster* är en obligatorisk flagga för ett privat kluster. 
+Där `--enable-private-cluster` är en obligatorisk flagga för ett privat kluster. 
 
 > [!NOTE]
 > Om Docker-bryggan Address CIDR (172.17.0.1/16) står i konflikt med under nätets CIDR, ändra Docker-bryggans adress på lämpligt sätt.
@@ -83,10 +83,10 @@ Som nämnts är virtuell nätverks-peering ett sätt att komma åt ditt privata 
 3. I det vänstra fönstret väljer du länken **virtuellt nätverk** .  
 4. Skapa en ny länk för att lägga till det virtuella nätverket för den virtuella datorn i den privata DNS-zonen. Det tar några minuter för DNS-zon-länken att bli tillgänglig.  
 5. I Azure Portal navigerar du till resurs gruppen som innehåller klustrets virtuella nätverk.  
-6. Välj det virtuella nätverket i den högra rutan. Det virtuella nätverks namnet har formatet *AKS-VNet- \* *.  
-7. Välj **peering**i det vänstra fönstret.  
-8. Välj **Lägg till**, Lägg till det virtuella nätverket för den virtuella datorn och skapa sedan peering.  
-9. Gå till det virtuella nätverket där du har den virtuella datorn, Välj **peering**, Välj det virtuella AKS-nätverket och skapa sedan peer-kopplingen. Om adress intervallen för det virtuella AKS-nätverket och den virtuella DATORns virtuella nätverk är i konflikt med varandra, Miss lyckas peering. Mer information finns i  [peering för virtuella nätverk][virtual-network-peering].
+6. Välj det virtuella nätverket i den högra rutan. Det virtuella nätverks namnet har formatet *AKS-VNet- \**.  
+7. Välj **peering** i det vänstra fönstret.  
+8. Välj **Lägg till** , Lägg till det virtuella nätverket för den virtuella datorn och skapa sedan peering.  
+9. Gå till det virtuella nätverket där du har den virtuella datorn, Välj **peering** , Välj det virtuella AKS-nätverket och skapa sedan peer-kopplingen. Om adress intervallen för det virtuella AKS-nätverket och den virtuella DATORns virtuella nätverk är i konflikt med varandra, Miss lyckas peering. Mer information finns i  [peering för virtuella nätverk][virtual-network-peering].
 
 ## <a name="hub-and-spoke-with-custom-dns"></a>Hubb och eker med anpassad DNS
 
@@ -94,9 +94,9 @@ Som nämnts är virtuell nätverks-peering ett sätt att komma åt ditt privata 
 
 ![Hubb och eker för privata kluster](media/private-clusters/aks-private-hub-spoke.png)
 
-1. När ett privat kluster har allokerats skapas som standard en privat slut punkt (1) och en privat DNS-zon (2) i den hanterade resurs gruppen för klustret. Klustret använder en A-post i den privata zonen för att matcha IP-adressen för den privata slut punkten för kommunikation till API-servern.
+1. När ett privat kluster har allokerats skapas som standard en privat slut punkt (1) och en privat DNS-zon (2) i den kluster hanterade resurs gruppen. Klustret använder en A-post i den privata zonen för att matcha IP-adressen för den privata slut punkten för kommunikation till API-servern.
 
-2. Den privata DNS-zonen är länkad till det virtuella nätverk som klusternoderna är kopplade till (3). Det innebär att den privata slut punkten bara kan matchas av värdar i den länkade VNet. I scenarier där ingen anpassad DNS har kon figurer ATS i VNet (standard), fungerar detta utan problem som värd punkt på 168.63.129.16 för DNS, som kan lösa poster i den privata DNS-zonen på grund av länken.
+2. Den privata DNS-zonen är länkad till det virtuella nätverk som klusternoderna är kopplade till (3). Det innebär att den privata slut punkten bara kan matchas av värdar i den länkade VNet. I scenarier där ingen anpassad DNS har kon figurer ATS i VNet (standard), fungerar detta utan problem som värd punkt på 168.63.129.16 för DNS som kan lösa poster i den privata DNS-zonen på grund av länken.
 
 3. I scenarier där det virtuella nätverket som innehåller klustret har anpassade DNS-inställningar (4) Miss lyckas kluster distributionen om inte den privata DNS-zonen är länkad till det virtuella nätverk som innehåller de anpassade DNS-matcharna (5). Du kan skapa den här länken manuellt när den privata zonen har skapats under kluster etableringen eller via Automation när du har identifierat att zonen har skapats med hjälp av en Event-baserad distributions mekanism (till exempel Azure Event Grid och Azure Functions).
 

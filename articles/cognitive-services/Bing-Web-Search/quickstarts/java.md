@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 4db81571fe4b77382ccf269351ddbf46ef5f06e2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c19aca20b1b5dff53630c0b51c75689394ad3d53
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93076715"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381090"
 ---
 # <a name="quickstart-use-java-to-search-the-web-with-the-bing-web-search-rest-api-an-azure-cognitive-service"></a>Snabb start: Använd Java för att söka på webben med Webbsökning i Bing REST API, en Azure-tjänst för inlärning
 
@@ -31,7 +31,7 @@ I den här snabb starten ska du använda ett Java-program för att göra ditt f�
 
 Här följer några saker som du behöver innan du kör den här snabbstarten:
 
-* [JDK 7 eller 8](https://aka.ms/azure-jdks)
+* [JDK 7 eller 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 * [Gson-bibliotek](https://github.com/google/gson)
 * En prenumerationsnyckel
 
@@ -333,4 +333,4 @@ Svar från API för webbsökning i Bing returneras som JSON. Det här exempelsva
 > [!div class="nextstepaction"]
 > [Själv studie kurs om API för webbsökning i Bing enkel sida](../tutorial-bing-web-search-single-page-app.md)
 
-[!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]  
+[!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

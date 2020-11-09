@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 03/03/2019
 ms.author: aahi
-ms.openlocfilehash: 15a2d3b433236d74f3fa3d09e38071bacae02508
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 5bd5ff0e49b125277255ec8e5c216583d75043a0
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078840"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381141"
 ---
 # <a name="autosuggest-bing-search-terms-in-your-application"></a>Autoföreslå Bing-sökord i ditt program
 
@@ -26,9 +26,9 @@ ms.locfileid: "93078840"
 
 Om du tillhandahåller en sökruta där användaren anger sin sökterm bör du använda [API för automatiska förslag i Bing ](../bing-autosuggest/get-suggested-search-terms.md) för att ge bättre funktioner. API:t returnerar föreslagna frågesträngar baserat på partiella söktermer som användaren skriver in.
 
-När användaren har angett en sökterm måste den vara URL-kodad innan [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query) -Frågeparametern anges. Om användaren till exempel anger *segeljollar* ställer du in `q` till `sailing+dinghies` eller `sailing%20dinghies`.
+När användaren har angett en sökterm måste den vara URL-kodad innan [q](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query) -Frågeparametern anges. Om användaren till exempel anger *segeljollar* ställer du in `q` till `sailing+dinghies` eller `sailing%20dinghies`.
 
-Om frågetermen innehåller en stavnings fel innehåller Sök svaret ett [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#querycontext) -objekt. Objektet visar den ursprungliga stavningen och den korrigerade stavningen som Bing använde för sökningen.
+Om frågetermen innehåller en stavnings fel innehåller Sök svaret ett [QueryContext](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#querycontext) -objekt. Objektet visar den ursprungliga stavningen och den korrigerade stavningen som Bing använde för sökningen.
 
 ```json
 "queryContext": {
@@ -48,4 +48,4 @@ Du kan använda den här informationen för att låta användaren veta att du ha
 
 ## <a name="see-also"></a>Se även  
 
-* [API för webbsökning i Bing referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)
+* [API för webbsökning i Bing referens](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)

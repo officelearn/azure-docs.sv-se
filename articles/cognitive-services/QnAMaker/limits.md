@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: c61c550e9a09d0f0708e8f1dbc63e76b329a8166
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 1a384eed542d0c09a973e0e68288f9fc1660cc96
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/09/2020
-ms.locfileid: "94375626"
+ms.locfileid: "94380917"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker grundläggande gränser och gränser för kunskap
 
@@ -96,14 +96,14 @@ Längden på och godkända tecken för namn och värde för metadata visas i fö
 
 ## <a name="create-knowledge-base-call-limits"></a>Skapa svars gränser för kunskaps bas:
 Dessa motsvarar gränserna för varje åtgärd för att skapa kunskaps bas. Det gör du genom att klicka på *skapa KB* eller anropa CreateKnowledgeBase-API: et.
-* Maximalt antal alternativa frågor per svar: 300
+* Rekommenderat Max antal alternativa frågor per svar: 300
 * Maximalt antal URL: er: 10
 * Maximalt antal filer: 10
 
 ## <a name="update-knowledge-base-call-limits"></a>Uppdatera anrops gränser för kunskaps bas
 Dessa representerar gränserna för varje uppdaterings åtgärd. Det gör du genom att klicka på *Spara och träna* eller anropa UpdateKnowledgeBase-API: et.
 * Längd för varje käll namn: 300
-* Maximalt antal alternativa frågor som lagts till eller tagits bort: 300
+* Rekommenderat Max antal alternativa frågor som lagts till eller tagits bort: 300
 * Maximalt antal metadata-fält har lagts till eller tagits bort: 10
 * Maximalt antal URL: er som kan uppdateras: 5
 

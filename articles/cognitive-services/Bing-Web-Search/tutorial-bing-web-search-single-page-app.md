@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 010b65a170d05fb0d2cc55e7519fd27df8b751e1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c47a4fbf51b14d9a13237f77c75dbf2839fb5f80
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095449"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381294"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Självstudier: Skapa en ensidesapp med hjälp av API för webbsökning i Bing
 
@@ -36,14 +36,14 @@ Den här exempelappen kan:
 > * Hantera prenumerationsnycklar
 > * Hantera fel
 
-För att använda den här appen krävs ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med API:er för Bing-sökresultat.
+För att använda den här appen krävs ett [Azure Cognitive Services-konto](../cognitive-services-apis-create-account.md) med API:er för Bing-sökresultat.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Här följer några saker som du kan behöva för att köra appen:
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
-* När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" skapar du en Bing-sökning resurs "  target="_blank"> skapa en Bing-sökning resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs** .
+* När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" skapar du en Bing-sökning resurs "  target="_blank"> skapa en Bing-sökning resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
 
 * Node.js 8 eller senare
 
@@ -86,7 +86,7 @@ Den här självstudien fokuserar på `scripts.js` och den logik som krävs för 
 
 ## <a name="query-options"></a>Frågealternativ
 
-HTML-formuläret innehåller alternativ som mappar till frågeparametrar i [API för webbsökning i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters). Den här tabellen innehåller en detaljerad analys av hur användarna kan filtrera sökresultat med hjälp av exempelappen:
+HTML-formuläret innehåller alternativ som mappar till frågeparametrar i [API för webbsökning i Bing v7](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters). Den här tabellen innehåller en detaljerad analys av hur användarna kan filtrera sökresultat med hjälp av exempelappen:
 
 | Parameter | Beskrivning |
 |-----------|-------------|
@@ -99,7 +99,7 @@ HTML-formuläret innehåller alternativ som mappar till frågeparametrar i [API 
 | `offset` | Dolt fält. Förskjutningen av det första sökresultatet i begäran, vilket används för växling. Den återställs till `0` för varje ny begäran. |
 
 > [!NOTE]
-> API för webbsökning i Bing erbjuder ytterligare frågeparametrar för att begränsa sökresultaten. I det här exemplet används bara några få. En fullständig lista över tillgängliga parametrar finns i [referensen API för webbsökning i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters).
+> API för webbsökning i Bing erbjuder ytterligare frågeparametrar för att begränsa sökresultaten. I det här exemplet används bara några få. En fullständig lista över tillgängliga parametrar finns i [referensen API för webbsökning i Bing v7](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters).
 
 Funktionen `bingSearchOptions()` konverterar dessa alternativ för att matcha det format som krävs av API för sökning i Bing.
 
@@ -303,7 +303,7 @@ Fel hanteras genom att anropa `renderErrorMessage()`. Om svaret klarar samtliga 
 
 ## <a name="display-search-results"></a>Visa sökresultat
 
-Det finns [användar- och visningskrav](useanddisplayrequirements.md) för resultaten som returnerades av API för webbsökning i Bing. Eftersom ett svar kan innehålla olika resultattyper, räcker det inte att gå igenom den översta `WebPages`-samlingen. I stället använder exempelappen `RankingResponse` för att sortera resultaten till specifikationen.
+Det finns [användar- och visningskrav](./use-display-requirements.md) för resultaten som returnerades av API för webbsökning i Bing. Eftersom ett svar kan innehålla olika resultattyper, räcker det inte att gå igenom den översta `WebPages`-samlingen. I stället använder exempelappen `RankingResponse` för att sortera resultaten till specifikationen.
 
 > [!NOTE]
 > Om du bara vill ha en resultattyp, använder du frågeparametern `responseFilter` eller överväger att använda en av de andra slutpunkterna för sökning i Bing, till exempel bildsökning i Bing.

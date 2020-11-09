@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9131dbff9b732ecfc7f6edb62b42959abcc17da8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c6b6aea6a3b0856b3db345e20b87d2a12ad055e1
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078687"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380338"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Bygg en klients öknings klient i C #
 
@@ -38,25 +38,25 @@ Den här självstudien visar hur du:
 För att följa med i själv studie kursen behöver du:
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
-* När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" skapar du en Bing-sökning resurs "  target="_blank"> skapa en Bing-sökning resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs** .
+* När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" skapar du en Bing-sökning resurs "  target="_blank"> skapa en Bing-sökning resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
 * [Visual Studio IDE](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-a-new-console-app-project"></a>Skapa ett nytt konsol program projekt
 
 Skapa ett projekt i Visual Studio med `Ctrl`+`Shift`+`N`.
 
-I dialog rutan **nytt projekt** klickar du på **Visual C# > Windows klassisk Desktop > Console-appen (.NET Framework)** .
+I dialog rutan **nytt projekt** klickar du på **Visual C# > Windows klassisk Desktop > Console-appen (.NET Framework)**.
 
-Ge programmet namnet **MyConsoleSearchApp** och klicka sedan på **OK** .
+Ge programmet namnet **MyConsoleSearchApp** och klicka sedan på **OK**.
 
 ## <a name="add-the-jsonnet-nuget-package-to-the-project"></a>Lägg till JSON.net NuGet-paketet i projektet
 
 Med JSON.net kan du arbeta med de JSON-svar som returneras av API: et. Lägg till dess NuGet-paket i projektet:
 
-- I **Solution Explorer** högerklickar du på projektet och väljer **Hantera NuGet-paket...** .
-- Sök efter på fliken  **Bläddra** `Newtonsoft.Json` . Välj den senaste versionen och klicka sedan på **Installera** .
+- I **Solution Explorer** högerklickar du på projektet och väljer **Hantera NuGet-paket...**.
+- Sök efter på fliken  **Bläddra** `Newtonsoft.Json` . Välj den senaste versionen och klicka sedan på **Installera**.
 - Klicka på **OK** -knappen i fönstret **Granska ändringar** .
-- Stäng Visual Studio-fliken med namnet **NuGet: MyConsoleSearchApp** .
+- Stäng Visual Studio-fliken med namnet **NuGet: MyConsoleSearchApp**.
 
 ## <a name="add-a-reference-to-systemweb"></a>Lägg till en referens i system. Web
 
@@ -77,7 +77,7 @@ using System.Net.Http;
 
 ## <a name="ask-the-user-for-a-query"></a>Fråga användaren om en fråga
 
-Öppna **program.cs** i **Solution Explorer** . Uppdatera `Main()` metoden:
+Öppna **program.cs** i **Solution Explorer**. Uppdatera `Main()` metoden:
 
 ```csharp
 static void Main()
@@ -228,7 +228,7 @@ Innan du visar hur resultatet visas i rangordningen kan du ta en titt på ett ex
 }
 ```
 
-`rankingResponse`JSON-objektet ([dokumentation](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)) beskriver lämplig visnings ordning för Sök resultat. Den innehåller en eller flera av följande prioriterade grupper:
+`rankingResponse`JSON-objektet ([dokumentation](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)) beskriver lämplig visnings ordning för Sök resultat. Den innehåller en eller flera av följande prioriterade grupper:
 
 - `pole`: Sök resultaten för att få den mest synliga behandlingen (till exempel, som visas ovanför Mainline och sid panelen).
 - `mainline`: Sök resultaten visas i Mainline.

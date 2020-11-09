@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018, devx-track-python
-ms.openlocfilehash: 9d6de9b29f0e68d48eab0b2c4081470858d3d69c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 63706eefd4f46c055e8bcbd58a86fdded6f3527d
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93076443"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381056"
 ---
 # <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>Snabbstart: Använda Python för att anropa API för webbsökning i Bing  
 
@@ -62,7 +62,7 @@ Det här exemplet körs som en Jupyter-anteckningsbok på [MyBinder](https://myb
 
 I den här koden används `requests` biblioteket för att anropa API för webbsökning i Bing och returnera resultaten som ett JSON-objekt. API-nyckeln skickas i `headers`-ordlistan, och söktermen samt frågeparametrarna skickas i `params`-ordlistan. 
 
-En fullständig lista över alternativ och parametrar finns i [API för webbsökning i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference).
+En fullständig lista över alternativ och parametrar finns i [API för webbsökning i Bing v7](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference).
 
 ```python
 import requests

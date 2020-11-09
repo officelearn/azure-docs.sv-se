@@ -10,21 +10,21 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: aahi
-ms.openlocfilehash: 25ecd1a753cb9a401408f7ed6605d53e5310df2b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c882e3e4d0cd6ba594a700f4fd53c14103a8d1d1
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075678"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381260"
 ---
 # <a name="web-search-endpoint"></a>Webbsökning slut punkt
 
 > [!WARNING]
-> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
-> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
+> Instruktioner för migrering finns i [Bing-sökning Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
-**Webbsökning-API: et** returnerar webb sidor, nyheter, bilder, videor och [entiteter](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web). Entiteter har sammanfattnings information om en person, plats eller ämne.
+**Webbsökning-API: et** returnerar webb sidor, nyheter, bilder, videor och [entiteter](../bing-entities-search/overview.md). Entiteter har sammanfattnings information om en person, plats eller ämne.
 
 ## <a name="endpoint"></a>Slutpunkt
 
@@ -36,15 +36,15 @@ Skicka en `GET` begäran till följande slut punkt om du vill få webb Sök resu
 GET https://api.cognitive.microsoft.com/bing/v7.0/search
 ```
 
-Slut punkt: Mer information om sidhuvuden, parametrar, marknads koder, svars objekt, fel och mer finns i [Bing Web API v7-](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) referensen.
+Slut punkt: Mer information om sidhuvuden, parametrar, marknads koder, svars objekt, fel och mer finns i [Bing Web API v7-](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) referensen.
 
 ## <a name="response-json"></a>Svars-JSON
 
-Svaret på en Webbs öknings förfrågan innehåller alla resultat som JSON-objekt. Parsning av resultatet kräver procedurer som hanterar elementen i varje typ. Se [självstudien](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/tutorial-bing-web-search-single-page-app) och [käll koden](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search) för exempel.
+Svaret på en Webbs öknings förfrågan innehåller alla resultat som JSON-objekt. Parsning av resultatet kräver procedurer som hanterar elementen i varje typ. Se [självstudien](./tutorial-bing-web-search-single-page-app.md) och [käll koden](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search) för exempel.
 
 ## <a name="next-steps"></a>Nästa steg
 
 API: erna för **Bing** stöder Sök åtgärder som returnerar resultat enligt deras typ. Alla Sök slut punkter returnerar resultat som JSON-svars objekt.  Alla slut punkter har stöd för frågor som returnerar ett särskilt språk och en specifik plats efter longitud, latitud och Sök-radie.
 
 Fullständig information om de parametrar som stöds av varje slut punkt finns i referens sidorna för varje typ.
-Exempel på grundläggande förfrågningar som använder API: et för Webbs ökning finns i [söka på webben snabb starter](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/search-the-web).
+Exempel på grundläggande förfrågningar som använder API: et för Webbs ökning finns i [söka på webben snabb starter](./overview.md).

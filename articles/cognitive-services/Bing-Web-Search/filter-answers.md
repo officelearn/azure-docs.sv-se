@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: scottwhi
-ms.openlocfilehash: ad021b4d219353a6037988c164bb34cac6761682
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: f4f001cdeb37ff760a01ac48d7efb41c0437fe5f
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078636"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380259"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>Filtrera svaren som Sök svaret innehåller  
 
@@ -56,9 +56,9 @@ Om du vill filtrera svaren som returneras av Bing använder du nedanstående fr�
 
 ### <a name="responsefilter"></a>ResponseFilter
 
-Du kan filtrera de typer av svar som Bing inkluderar i svaret (till exempel bilder, videor och nyheter) med hjälp av [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) -Frågeparametern, som är en kommaavgränsad lista med svar. Ett svar tas med i svaret om Bing hittar relevant innehåll för det. 
+Du kan filtrera de typer av svar som Bing inkluderar i svaret (till exempel bilder, videor och nyheter) med hjälp av [responseFilter](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) -Frågeparametern, som är en kommaavgränsad lista med svar. Ett svar tas med i svaret om Bing hittar relevant innehåll för det. 
 
-Om du vill utesluta vissa svar från svaret, till exempel bilder, lägga ett meddelande `-` till svars typen. Exempel:
+Om du vill utesluta vissa svar från svaret, till exempel bilder, lägga ett meddelande `-` till svars typen. Till exempel:
 
 ```
 &responseFilter=-images,-videos
@@ -101,9 +101,9 @@ Nedan visas svaret på den tidigare frågan. Eftersom Bing inte hittade relevant
 }
 ```
 
-Även om Bing inte returnerade video-och nyhets resultat i föregående svar, innebär det inte att video-och nyhets innehållet inte finns. Det innebär bara att sidan inte innehåller dem. Men [om du går](./paging-webpages.md) igenom fler resultat kommer de efterföljande sidorna förmodligen att innehålla dem. Om du anropar Videosökning- [API: et](../bing-video-search/search-the-web.md) och nyhetssökning slut punkter för [API: er](../bing-news-search/search-the-web.md) direkt, skulle svaret förmodligen innehålla resultat.
+Även om Bing inte returnerade video-och nyhets resultat i föregående svar, innebär det inte att video-och nyhets innehållet inte finns. Det innebär bara att sidan inte innehåller dem. Men [om du går](./paging-search-results.md) igenom fler resultat kommer de efterföljande sidorna förmodligen att innehålla dem. Om du anropar Videosökning- [API: et](../bing-video-search/overview.md) och nyhetssökning slut punkter för [API: er](../bing-news-search/search-the-web.md) direkt, skulle svaret förmodligen innehålla resultat.
 
-Du rekommenderas inte `responseFilter` att använda för att få resultat från ett enda API. Om du vill ha innehåll från ett enda Bing API anropar du detta API direkt. Om du till exempel bara vill ta emot bilder skickar du en begäran till Bildsökning API-slutpunkten `https://api.cognitive.microsoft.com/bing/v7.0/images/search` eller någon av de andra slut punkterna för [avbildningar](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#endpoints) . Anrop till det enskilda API: t är viktigt inte bara av prestanda skäl, men eftersom de innehållsbaserade API: erna erbjuder fler resultat. Du kan till exempel använda filter som inte är tillgängliga för Webbsökning API för att filtrera resultaten.  
+Du rekommenderas inte `responseFilter` att använda för att få resultat från ett enda API. Om du vill ha innehåll från ett enda Bing API anropar du detta API direkt. Om du till exempel bara vill ta emot bilder skickar du en begäran till Bildsökning API-slutpunkten `https://api.cognitive.microsoft.com/bing/v7.0/images/search` eller någon av de andra slut punkterna för [avbildningar](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#endpoints) . Anrop till det enskilda API: t är viktigt inte bara av prestanda skäl, men eftersom de innehållsbaserade API: erna erbjuder fler resultat. Du kan till exempel använda filter som inte är tillgängliga för Webbsökning API för att filtrera resultaten.  
 
 ### <a name="site"></a>Webbplats
 
@@ -114,11 +114,11 @@ https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:con
 ```
 
 > [!NOTE]
-> Beroende på frågan, om du använder `site:` fråga-operatorn, finns det risk för att svaret kan innehålla innehåll som är olämpligt för barn oberoende av [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#safesearch) -inställningen. Du bör endast använda `site:` om du är medveten om innehållet på webbplatsen och ditt scenario tillåter möjligheten att det förekommer innehåll som är olämpligt för barn.
+> Beroende på frågan, om du använder `site:` fråga-operatorn, finns det risk för att svaret kan innehålla innehåll som är olämpligt för barn oberoende av [safeSearch](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#safesearch) -inställningen. Du bör endast använda `site:` om du är medveten om innehållet på webbplatsen och ditt scenario tillåter möjligheten att det förekommer innehåll som är olämpligt för barn.
 
 ### <a name="freshness"></a>Aktualitet
 
-Om du vill begränsa webb svars resultatet till webb sidor som Bing identifierade under en viss period, ställer du in Frågeparametern för [uppdatering](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#freshness) till något av följande Skift läges okänsliga värden:
+Om du vill begränsa webb svars resultatet till webb sidor som Bing identifierade under en viss period, ställer du in Frågeparametern för [uppdatering](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#freshness) till något av följande Skift läges okänsliga värden:
 
 * `Day` – Returnera webb sidor som Bing har identifierat under de senaste 24 timmarna
 * `Week` – Returnera webb sidor som Bing har identifierat under de senaste 7 dagarna
@@ -152,7 +152,7 @@ Bing kan returnera flera svars typer i JSON-svaret. Om du till exempel frågar *
 }
 ```
 
-Om du vill begränsa antalet svar som Bing returnerar till de två översta svaren (webb sidor och bilder) anger du [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) till 2.
+Om du vill begränsa antalet svar som Bing returnerar till de två översta svaren (webb sidor och bilder) anger du [answerCount](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) till 2.
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&answerCount=2&mkt=en-us HTTP/1.1  
@@ -193,7 +193,7 @@ Om du lägger till `responseFilter` frågeparametern i den föregående frågan 
 
 ## <a name="promoting-answers-that-are-not-ranked"></a>Befordra svar som inte rangordnas
 
-Om de mest rankade svaren som Bing returnerar för en fråga är webb sidor, bilder, videor och relatedSearches, innehåller svaret dessa svar. Om du ställer in [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) på två (2) returnerar Bing de två främsta rankade svaren: webb sidor och bilder. Om du vill att Bing ska inkludera bilder och videor i svaret anger du parametern [befordra](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) fråga och anger den till bilder och videor.
+Om de mest rankade svaren som Bing returnerar för en fråga är webb sidor, bilder, videor och relatedSearches, innehåller svaret dessa svar. Om du ställer in [answerCount](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) på två (2) returnerar Bing de två främsta rankade svaren: webb sidor och bilder. Om du vill att Bing ska inkludera bilder och videor i svaret anger du parametern [befordra](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) fråga och anger den till bilder och videor.
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&answerCount=2&promote=images%2Cvideos&mkt=en-us HTTP/1.1  

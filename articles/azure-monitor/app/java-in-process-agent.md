@@ -3,12 +3,12 @@ title: Azure Monitor Application Insights Java
 description: Övervakning av program prestanda för Java-program som körs i vilken miljö som helst utan kod ändring. Distribuerad spårning och program karta.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 31ee3c4a2dbf6f6832c0228e70aa079b5f028bc4
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 2459f80746d95234701319bbb5142c8e540890d3
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331931"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379777"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Java-kodad program övervakning Azure Monitor Application Insights
 
@@ -141,12 +141,12 @@ Tabellen nedan representerar anpassade typer av anpassade telemetri som stöds f
 
 |                     | Micrometer | Log4j, logback, JUL | 2. x SDK |
 |---------------------|------------|---------------------|---------|
-| **Anpassade händelser**   |            |                     |  Ja    |
+| **Anpassade händelser**   |            |                     |  Yes    |
 | **Anpassade mått**  |  Ja       |                     |  Ja    |
-| **Beroenden**    |            |                     |  Ja    |
+| **Beroenden**    |            |                     |  Yes    |
 | **Undantag**      |            |  Ja                |  Ja    |
-| **Sid visningar**      |            |                     |  Ja    |
-| **Begäranden**        |            |                     |  Ja    |
+| **Sid visningar**      |            |                     |  Yes    |
+| **Begäranden**        |            |                     |  Yes    |
 | **Spårningar**          |            |  Ja                |  Ja    |
 
 Vi planerar inte att lansera en SDK med Application Insights 3,0 för tillfället.

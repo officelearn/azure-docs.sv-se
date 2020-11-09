@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: 95e80907220a58243844b80d81dc187f8dc4c8bc
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 39848bcaded1669c6a6efd5b649ecf8e8343a596
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078704"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381124"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Uppgradera från API för webbsökning i Bing V5 till v7
 
@@ -44,7 +44,7 @@ Den här uppgraderings guiden identifierar ändringarna mellan version 5 och ver
 
 - Ersatt felkoderna för v5 med följande möjliga `code` `subCode` värden.
 
-|Kod|Under kod|Beskrivning
+|Kod|Under kod|Description
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing returnerar ServerError när något av under kod villkoren inträffar. Svaret kommer att inkludera dessa fel om HTTP-statuskoden är 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Blockerad|Bing returnerar InvalidRequest när någon del av begäran är ogiltig. Till exempel saknas en obligatorisk parameter eller också är ett parameter värde ogiltigt.<br/><br/>Om felet är ParameterMissing eller ParameterInvalidValue är HTTP-status koden 400.<br/><br/>Om felet är HttpNotAllowed, HTTP-statuskod 410.
@@ -80,14 +80,14 @@ Blockerad|InvalidRequest. blockerad
 
 ### <a name="headers"></a>Sidhuvuden
 
-- Den valfria rubriken för [pragma](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#pragma) -begäran har lagts till. Som standard returnerar Bing cachelagrat innehåll om det finns. Om du vill förhindra att Bing returnerar cachelagrat innehåll ska du ställa in huvudet Pragma på no-cache (till exempel Pragma: no-cache).
+- Den valfria rubriken för [pragma](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#pragma) -begäran har lagts till. Som standard returnerar Bing cachelagrat innehåll om det finns. Om du vill förhindra att Bing returnerar cachelagrat innehåll ska du ställa in huvudet Pragma på no-cache (till exempel Pragma: no-cache).
 
 ### <a name="query-parameters"></a>Frågeparametrar
 
-- Frågeparametern för [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) har lagts till. Använd den här parametern för att ange det antal svar som du vill att svaret ska innehålla. Svaren väljs utifrån rangordning. Om du till exempel anger den här parametern till tre (3), innehåller svaret de tre främsta rankade svaren.  
+- Frågeparametern för [answerCount](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) har lagts till. Använd den här parametern för att ange det antal svar som du vill att svaret ska innehålla. Svaren väljs utifrån rangordning. Om du till exempel anger den här parametern till tre (3), innehåller svaret de tre främsta rankade svaren.  
 
-- Parametern [befordra](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) frågeparameter har lagts till. Använd den här parametern tillsammans med `answerCount` för att uttryckligen inkludera en eller flera svars typer, oavsett rangordning. Om du till exempel vill flytta videor och bilder till svaret ställer du in Höj till *videor, bilder* . Listan med svar som du vill befordra räknas inte mot `answerCount` gränsen. Om är till exempel `answerCount` 2 och `promote` är inställt på *videor, bilder* , kan svaret omfatta webb sidor, nyheter, videor och bilder.
+- Parametern [befordra](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) frågeparameter har lagts till. Använd den här parametern tillsammans med `answerCount` för att uttryckligen inkludera en eller flera svars typer, oavsett rangordning. Om du till exempel vill flytta videor och bilder till svaret ställer du in Höj till *videor, bilder*. Listan med svar som du vill befordra räknas inte mot `answerCount` gränsen. Om är till exempel `answerCount` 2 och `promote` är inställt på *videor, bilder* , kan svaret omfatta webb sidor, nyheter, videor och bilder.
 
 ### <a name="object-changes"></a>Objekt ändringar
 
-- Fältet har lagts `someResultsRemoved` till i [webbsvars](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer) -objektet. Fältet innehåller ett booleskt värde som anger om svaret exkluderade vissa resultat från webb svaret.  
+- Fältet har lagts `someResultsRemoved` till i [webbsvars](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer) -objektet. Fältet innehåller ett booleskt värde som anger om svaret exkluderade vissa resultat från webb svaret.

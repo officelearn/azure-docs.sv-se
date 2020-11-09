@@ -11,23 +11,23 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 03/17/2019
 ms.author: scottwhi
-ms.openlocfilehash: 6c328c681874ba171eab1341a16cf059e359feea
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 20501d0993cc4566a79d6e916d801911606bea35
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93076286"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380457"
 ---
 # <a name="how-to-use-ranking-to-display-bing-web-search-api-results"></a>Så här använder du rangordning för att Visa API för webbsökning i Bing resultat  
 
 > [!WARNING]
-> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
-> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
+> Instruktioner för migrering finns i [Bing-sökning Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
-Varje Sök svar innehåller ett [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse) -svar som anger hur du måste visa Sök resultaten. Ranknings svars grupper resulterar i Mainline innehåll och sid List innehåll för en traditionell Sök resultat sida. Om du inte visar resultatet i ett traditionellt Mainline-och sidofält-format måste du ange Mainline-innehållet som är större än innehållet i innehålls sidan.  
+Varje Sök svar innehåller ett [RankingResponse](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse) -svar som anger hur du måste visa Sök resultaten. Ranknings svars grupper resulterar i Mainline innehåll och sid List innehåll för en traditionell Sök resultat sida. Om du inte visar resultatet i ett traditionellt Mainline-och sidofält-format måste du ange Mainline-innehållet som är större än innehållet i innehålls sidan.  
 
-I varje grupp (Mainline eller sid panelen) identifierar [objekt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankinggroup-items) mat ris ordningen som innehållet måste visas i. Varje objekt har följande två sätt att identifiera resultatet inom ett svar.  
+I varje grupp (Mainline eller sid panelen) identifierar [objekt](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankinggroup-items) mat ris ordningen som innehållet måste visas i. Varje objekt har följande två sätt att identifiera resultatet inom ett svar.  
 
 -   `answerType` och `resultIndex` – `answerType` fältet identifierar svaret (till exempel webb sida eller nyheter) och `resultIndex` identifierar ett resultat inom svaret (till exempel en nyhets artikel). Indexet är noll baserat.  
 
@@ -35,11 +35,11 @@ I varje grupp (Mainline eller sid panelen) identifierar [objekt](https://docs.mi
 
 Att använda ID är enklare att använda eftersom du bara behöver matcha rangordnings-ID: t med ID: t för ett svar eller ett av dess resultat. Om ett svars objekt innehåller ett `id` fält visas alla svars resultat tillsammans. Om objektet till exempel `News` innehåller `id` fältet, visar du alla nyhets artiklar. Om `News` objektet inte innehåller `id` fältet innehåller varje nyhets artikel ett `id` fält och ranknings svaret blandar nyhets artiklarna med resultaten från andra svar.  
 
-Att använda `answerType` och `resultIndex` är lite mer komplicerat. Du använder `answerType` för att identifiera svaret som innehåller de resultat som ska visas. Sedan använder du `resultIndex` för att indexera genom svarets resultat för att få resultatet att visas. ( `answerType` Värdet är namnet på fältet i [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) -objektet.) Om du vill visa alla svars resultat tillsammans innehåller inte rangordnings svars posten `resultIndex` fältet.  
+Att använda `answerType` och `resultIndex` är lite mer komplicerat. Du använder `answerType` för att identifiera svaret som innehåller de resultat som ska visas. Sedan använder du `resultIndex` för att indexera genom svarets resultat för att få resultatet att visas. ( `answerType` Värdet är namnet på fältet i [SearchResponse](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) -objektet.) Om du vill visa alla svars resultat tillsammans innehåller inte rangordnings svars posten `resultIndex` fältet.  
 
 ## <a name="ranking-response-example"></a>Exempel på ranknings svar
 
-Nedan visas ett exempel på en [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse). Eftersom webbsvaret inte innehåller något `id` fält visar du alla webb sidor individuellt baserat på rangordningen (varje webb sida innehåller ett `id` fält). Eftersom bilder, videor och relaterade sökningar i sökningar inkluderar `id` fältet, visar du resultatet för var och en av dessa svar baserat på rangordningen.
+Nedan visas ett exempel på en [RankingResponse](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse). Eftersom webbsvaret inte innehåller något `id` fält visar du alla webb sidor individuellt baserat på rangordningen (varje webb sida innehåller ett `id` fält). Eftersom bilder, videor och relaterade sökningar i sökningar inkluderar `id` fältet, visar du resultatet för var och en av dessa svar baserat på rangordningen.
 
 ```json
 {  

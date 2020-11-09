@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: aahi
-ms.openlocfilehash: e7613f4b6bb301c603ae5ded98f271f3cb98b340
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1a52471240ca80335690568faed7849eabc30baf
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93074105"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381073"
 ---
 # <a name="how-to-page-through-results-from-the-bing-search-apis"></a>Så här bläddrar du genom resultat från API:er för Bing-sökresultat
 
@@ -27,7 +27,7 @@ ms.locfileid: "93074105"
 
 När du skickar ett anrop till webb-, anpassade-, bild-, diskussions-eller Videosökning-API: er för Bing returnerar Bing en delmängd av det totala antalet resultat som kan vara relevanta för frågan. Om du vill få det uppskattade totala antalet tillgängliga resultat kan du komma åt svars objektets `totalEstimatedMatches` fält. 
 
-Exempel: 
+Till exempel: 
 
 ```json
 {
@@ -73,15 +73,15 @@ Host: api.cognitive.microsoft.com
 När du använder Bing-avbildningen och video-API: erna kan du använda `nextOffset` värdet för att undvika dubbla Sök resultat. Hämta värdet från `Images` `Videos` -eller-svar-objekten och Använd det i dina begär Anden med `offset` parametern.  
 
 > [!NOTE]
-> API för webbsökning i Bing returnerar Sök resultat som kan innehålla webb sidor, bilder, videor och nyheter. När du bläddrar genom Sök resultatet från API för webbsökning i Bing, är du bara att växla [webb sidor](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage)och inte andra svars typer, till exempel bilder eller nyheter. Sök resultat i `WebPage` objekt kan innehålla resultat som även visas i andra svars typer.
+> API för webbsökning i Bing returnerar Sök resultat som kan innehålla webb sidor, bilder, videor och nyheter. När du bläddrar genom Sök resultatet från API för webbsökning i Bing, är du bara att växla [webb sidor](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage)och inte andra svars typer, till exempel bilder eller nyheter. Sök resultat i `WebPage` objekt kan innehålla resultat som även visas i andra svars typer.
 >
 > Om du använder `responseFilter` Frågeparametern utan att ange några filter värden ska du inte använda `count` parametrarna och `offset` . 
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Vad är Webbsökning i Bing API: er?](bing-api-comparison.md)
-* [Referens för API för webbsökning i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)
-* [API för anpassad Bing-sökning v7-referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
-* [API för nyhetssökning i Bing v7-referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference)
-* [API för videosökning i Bing v7-referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference)
-* [API för bildsökning i Bing v7-referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Referens för API för webbsökning i Bing v7](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)
+* [API för anpassad Bing-sökning v7-referens](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
+* [API för nyhetssökning i Bing v7-referens](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference)
+* [API för videosökning i Bing v7-referens](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference)
+* [API för bildsökning i Bing v7-referens](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

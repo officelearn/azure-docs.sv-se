@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bb120a533e4d11b34bb9712bf0164cec5a7728ce
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 29c89d8d3d2ae194ff48b762bc686feefdd3a528
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207741"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381020"
 ---
 # <a name="hierarchical-state-override"></a>Åsidosätta hierarkiskt tillstånd
 
@@ -28,26 +28,26 @@ Du kan till exempel överväga modellen för en bil och du vill byta hela bilen 
 
 Den fasta uppsättning tillstånd som kan åsidosättas är:
 
-* **`Hidden`**: Respektive maskor i scen diagrammet är dolda eller visas.
-* **`Tint color`**: Ett renderat objekt kan färgtonas med dess enskilda färg och färgton. Bilden nedan visar färg tonens RIM i ett hjul.
+* **`Hidden`** : Respektive maskor i scen diagrammet är dolda eller visas.
+* **`Tint color`** : Ett renderat objekt kan färgtonas med dess enskilda färg och färgton. Bilden nedan visar färg tonens RIM i ett hjul.
   
   ![Färg tons färg som används för att omvandla ett objekt till grönt](./media/color-tint.png)
 
-* **`See-through`**: Geometrin återges som överordnad, till exempel för att visa de inre delarna av ett objekt. Följande bild visar hela bilen som återges i se-läge, förutom den röda bromsen Caliper:
+* **`See-through`** : Geometrin återges som överordnad, till exempel för att visa de inre delarna av ett objekt. Följande bild visar hela bilen som återges i se-läge, förutom den röda bromsen Caliper:
 
   ![Se läge som används för att göra markerade objekt transparenta](./media/see-through.png)
 
   > [!IMPORTANT]
   > Alternativet för att se igenom fungerar bara när *TileBasedComposition* [åter givnings läge](../../concepts/rendering-modes.md) används.
 
-* **`Selected`**: Geometrin återges med en [markerings disposition](outlines.md).
+* **`Selected`** : Geometrin återges med en [markerings disposition](outlines.md).
 
   ![Alternativet disposition som används för att markera en markerad del](./media/selection-outline.png)
 
-* **`DisableCollision`**: Geometrin är undantagen från [rums frågor](spatial-queries.md). **`Hidden`** Flaggan påverkar inte flaggan kollisioner, så dessa två flaggor anges ofta tillsammans.
+* **`DisableCollision`** : Geometrin är undantagen från [rums frågor](spatial-queries.md). **`Hidden`** Flaggan påverkar inte flaggan kollisioner, så dessa två flaggor anges ofta tillsammans.
 
-* **`UseCutPlaneFilterMask`**: Använd en enskild filter bit mask för att kontrol lera det avskurna planet valet. Den här flaggan avgör om den enskilda filter masken ska användas eller ärvas från den överordnade. Själva filtrets bitmask anges via `CutPlaneFilterMask` egenskapen. Detaljerad information om hur filtreringen fungerar finns i [stycket selektivt avskurna plan](cut-planes.md#selective-cut-planes).
-![Selektiva klipp ut plan](./media/selective-cut-planes.png)
+* **`UseCutPlaneFilterMask`** : Använd en enskild filter bit mask för att kontrol lera det avskurna planet valet. Den här flaggan avgör om den enskilda filter masken ska användas eller ärvas från den överordnade. Själva filtrets bitmask anges via `CutPlaneFilterMask` egenskapen. Detaljerad information om hur filtreringen fungerar finns i [stycket selektivt avskurna plan](cut-planes.md#selective-cut-planes). Se följande exempel där endast Tire och RIM klipps ut medan resten av scenen förblir opåverkade.
+![Selektiva klipp ut plan](./media/selective-cut-planes-hierarchical-override.png)
 
 
 > [!TIP]
@@ -101,7 +101,7 @@ component->SetState(
 
 En instans av `HierarchicalStateOverrideComponent` sig lägger inte till mycket körnings kostnader. Men det är alltid bra att hålla antalet aktiva komponenter låga. Till exempel, när du implementerar ett urvals system som markerar det valda objektet, rekommenderar vi att du tar bort komponenten när markeringen tas bort. Att hålla komponenterna runt med neutrala funktioner kan snabbt lägga till.
 
-Transparent åter givning placerar mer arbets belastning på serverns GPU än standard åter givning. Om stora delar av scen diagrammet är växlat för att *Visa genom*att många lager av geometrin är synliga, kan det bli en Flask hals i prestandan. Samma sak gäller för objekt med [markerings kon tur](../../overview/features/outlines.md#performance).
+Transparent åter givning placerar mer arbets belastning på serverns GPU än standard åter givning. Om stora delar av scen diagrammet är växlat för att *Visa genom* att många lager av geometrin är synliga, kan det bli en Flask hals i prestandan. Samma sak gäller för objekt med [markerings kon tur](../../overview/features/outlines.md#performance).
 
 ## <a name="api-documentation"></a>API-dokumentation
 

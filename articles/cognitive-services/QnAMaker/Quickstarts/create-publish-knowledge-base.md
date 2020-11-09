@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: 68cde1be5f1a1cb0e8757f3143cac9363c6d9ddd
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 5759cd80278d20ee383fbe5922e43d250babe09f
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376042"
+ms.locfileid: "94380682"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Snabb start: skapa, träna och publicera QnA Maker kunskaps bas
 
@@ -117,7 +117,7 @@ I det övre högra hörnet väljer du **Spara och träna** för att spara dina �
 
 ## <a name="test-the-knowledge-base"></a>Testa kunskaps basen
 
-# <a name="qnamaker-v1"></a>[QnAMaker v1](#tab/v1)
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (stabil utgåva)](#tab/v1)
 
 1. I den QnA Maker portalen, i det övre högra hörnet, väljer du **test** för att testa att ändringarna du gjort har genomförts.
 2. Ange ett exempel på en användar fråga i text rutan.
@@ -130,7 +130,7 @@ I det övre högra hörnet väljer du **Spara och träna** för att spara dina �
 
 4. Välj **testa** igen för att stänga **test** panelen.
 
-# <a name="qnamaker-v2-preview"></a>[QnAMaker v2 (för hands version)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker hanterad (för hands version)](#tab/v2)
 
 1. I den QnA Maker portalen, i det övre högra hörnet, väljer du **test** för att testa att ändringarna du gjort har genomförts.
 2. Ange ett exempel på en användar fråga i text rutan.

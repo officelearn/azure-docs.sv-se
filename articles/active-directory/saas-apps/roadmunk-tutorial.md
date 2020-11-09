@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Roadmunk | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Roadmunk'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Roadmunk.
 services: active-directory
 author: jeevansd
@@ -11,171 +11,172 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 2ee794237c644cd6ff9652f4bc2e47a8ff590161
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 26424106098a8385faff5ab6d3de33d98576ef4e
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93243941"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381311"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-roadmunk"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Roadmunk
 
 I den här självstudien får du lära dig hur du integrerar Roadmunk med Azure Active Directory (Azure AD). När du integrerar Roadmunk med Azure AD kan du:
 
 * Kontroll i Azure AD som har åtkomst till Roadmunk.
-* Gör det möjligt för användarna att logga in automatiskt till Roadmunk med sina Azure AD-konton.
-* Hantera dina konton på en central plats – Azure Portal.
+* Gör det möjligt för användarna att logga in automatiskt på Roadmunk med hjälp av deras Azure AD-konton.
+* Hantera dina konton på en central plats, Azure Portal.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
-* Roadmunk för enkel inloggning (SSO) aktive rad.
+* En Roadmunk-prenumeration som är aktive rad för enkel inloggning (SSO).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-* Roadmunk stöder **SP-och IDP** -INITIERAd SSO
+Roadmunk stöder SSO som startas av *tjänst leverantören* (SP) och av *identitets leverantören* (IdP).
 
-## <a name="adding-roadmunk-from-the-gallery"></a>Lägga till Roadmunk från galleriet
+## <a name="add-roadmunk-from-the-gallery"></a>Lägg till Roadmunk från galleriet
 
-Om du vill konfigurera integreringen av Roadmunk i Azure AD måste du lägga till Roadmunk från galleriet i listan över hanterade SaaS-appar.
+Om du vill integrera Roadmunk i Azure AD går du till galleriet och lägger till Roadmunk i listan över hanterade SaaS-appar:
 
-1. Logga in på Azure Portal med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
-1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
-1. Navigera till **företags program** och välj sedan **alla program**.
+1. Logga in på Azure Portal med ett arbets-eller skol konto eller en personlig Microsoft-konto.
+1. Välj **Azure Active Directory** i den vänstra rutan.
+1. Gå till **Företagsprogram** och välj sedan **Alla program**.
 1. Välj **nytt program** om du vill lägga till ett nytt program.
-1. I avsnittet **Lägg till från galleriet** , skriver du **Roadmunk** i sökrutan.
-1. Välj **Roadmunk** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
+1. I rutan **Lägg till från galleriet** i rutan Sök skriver du **Roadmunk**.
+1. Välj **Roadmunk** från resultaten och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
 
 ## <a name="configure-and-test-azure-ad-sso-for-roadmunk"></a>Konfigurera och testa Azure AD SSO för Roadmunk
 
-Konfigurera och testa Azure AD SSO med Roadmunk med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Roadmunk.
+Konfigurera och testa Azure AD SSO med Roadmunk med hjälp av en test användare som heter *B. Simon*. Om du vill göra SSO-arbete måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Roadmunk.
 
-Utför följande steg för att konfigurera och testa Azure AD SSO med Roadmunk:
+Här är en översikt över hur du konfigurerar och testar Azure AD SSO med Roadmunk:
 
-1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
-    1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
-    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
-1. **[Konfigurera ROADMUNK SSO](#configure-roadmunk-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
-    1. **[Skapa Roadmunk test User](#create-roadmunk-test-user)** -om du vill ha en motsvarighet till B. Simon i Roadmunk som är länkad till Azure AD-representation av användare.
-1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
+1. [Konfigurera Azure AD SSO](#configure-azure-ad-sso) så att användarna kan använda den här funktionen.
+    1. [Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user) för att testa Azure AD SSO med hjälp av B. Simon.
+    1. [Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user) för att aktivera B. Simon att använda Azure AD SSO.
+1. [Konfigurera ROADMUNK SSO](#configure-roadmunk-sso) för att konfigurera SSO-inställningar på program sidan.
+    1. [Skapa en Roadmunk-test användare](#create-roadmunk-test-user) så att du kan länka motsvarigheten till B. Simon i Roadmunk till Azure AD-åter givningen av användaren.
+1. [Testa SSO](#test-sso) för att kontrol lera att konfigurationen fungerar.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal:
 
-1. I Azure Portal går du till sidan för program integrering i **Roadmunk** , letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. I Azure Portal går du till sidan för program integrering i **Roadmunk** , letar reda på avsnittet **Hantera** och väljer sedan **enkel inloggning**.
 1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
+1. På sidan **Konfigurera enkel inloggning med SAML** väljer du Penn ikonen för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
-   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
+   ![Skärm bild som visar redigerings ikonen för grundläggande SAML-konfiguration.](common/edit-urls.png)
 
-1. I avsnittet **grundläggande SAML-konfiguration** , om du har en **metadata-fil för Service Provider** och vill konfigurera i **IDP** initierat läge, utför du följande steg:
+1. I avsnittet **grundläggande SAML-konfiguration** , om du har en SP-metadatafil och du vill konfigurera i IDP läge, följer du dessa steg:
 
-    a. Klicka på **Ladda upp metadatafil**.
+    a. Välj **Ladda upp metadatafil**.
 
-    ![Ladda upp metadatafil](common/upload-metadata.png)
+    ![Skärm bild som visar länken för uppladdning av metadatafil.](common/upload-metadata.png)
 
-    b. Klicka på **mapp-logotyp** för att välja den metadatafil som du laddade ned i steg 4 i avsnittet **Konfigurera Roadmunk SSO** och klicka på **Ladda upp**.
+    b. Välj mappikonen för att välja den metadatafil som du laddade ned i steg 4 i proceduren "Konfigurera Roadmunk SSO". Välj sedan **Ladda upp**.
 
-    ![välj metadatafil](common/browse-upload-metadata.png)
+    ![Skärm bild som visar hur du väljer metadatafilen.](common/browse-upload-metadata.png)
 
-    c. När metadatafilen har laddats upp, fylls **ID** och **svars-URL** -värden automatiskt i avsnittet grundläggande SAML-konfiguration.
+    När metadatafilen har laddats upp fylls **ID** och **svars-URL** -värden automatiskt i avsnittet **grundläggande SAML-konfiguration** .
 
-    ![image1](common/idp-intiated.png)
+    ![Skärm bild som visar avsnittet grundläggande SAML-konfiguration. Fältet identifierare och fältet svars-URL är markerat.](common/idp-intiated.png)
 
     > [!Note]
-    > Om värdena **Identifierare** och **Svars-URL** inte fylls i automatiskt fyller du i värdena manuellt enligt dina krav.
+    > Om **ID** -och **svars-URL** -värdena inte fylls i automatiskt fyller du i värdena manuellt.
 
-1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP** -initierat läge:
+1. Om du vill konfigurera programmet i SP-initierat läge väljer du **Ange ytterligare URL: er**. I fältet **inloggnings-URL** skriver du `https://login.roadmunk.com`
 
-    ![image2](common/metadata-upload-additional-signon.png)
+    ![Skärm bild som visar var du anger en inloggnings-URL för SP-initierat läge.](common/metadata-upload-additional-signon.png)
 
-    I rutan **Inloggnings-URL** anger du följande URL: `https://login.roadmunk.com`
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata**. Välj sedan **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
-1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
+    ![Skärm bild som visar nedladdnings länken för SAML-signerings certifikatet.](common/metadataxml.png)
 
-    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
+1. I avsnittet **Konfigurera Roadmunk** kopierar du den URL eller de URL: er som du behöver.
 
-1. I avsnittet **Konfigurera Roadmunk** kopierar du lämpliga URL: er baserat på ditt krav.
+    ![Skärm bild som visar var du kan kopiera konfigurations webb adresser.](common/copy-configuration-urls.png)
 
-    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
+I det här avsnittet ska du skapa en test användare i Azure Portal. Du namnger användaren *B. Simon*.
 
-1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory** , väljer **användare** och väljer sedan **alla användare**.
-1. Välj **ny användare** överst på skärmen.
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**  >  **användare**  >  **alla användare**.
+1. Välj **ny användare** längst upp i fönstret.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn** -fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Ange till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
-   1. Klicka på **Skapa**.
+   1. Välj **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Roadmunk.
+I det här avsnittet ska du aktivera B. Simon för att använda Azure SSO genom att bevilja åtkomst till Roadmunk.
 
-1. I Azure Portal väljer du **företags program** och väljer sedan **alla program**.
+1. I Azure Portal väljer du **företags program**  >  **alla program**.
 1. I listan program väljer du **Roadmunk**.
-1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
-1. Välj **Lägg till användare** och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
-1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Om du förväntar dig att en roll ska tilldelas användarna kan du välja den från List rutan **Välj en roll** . Om ingen roll har kon figurer ATS för den här appen ser du rollen "standard åtkomst" vald.
-1. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer sedan **användare och grupper**.
+1. Välj **Lägg till användare**. I dialog rutan **Lägg till tilldelning** väljer **du användare och grupper**.
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** i listan **användare** . Välj sedan **Välj** i slutet av dialog rutan.
+1. Om du förväntar dig att en roll ska tilldelas användarna väljer du den på list menyn **Välj en roll** . Om ingen roll har ställts in för den här appen väljs standard rollen för **åtkomst** .
+1. I dialogrutan **Lägg till tilldelning** väljer du **Tilldela**.
 
 ## <a name="configure-roadmunk-sso"></a>Konfigurera Roadmunk SSO
 
 1. Logga in på Roadmunk-webbplatsen som administratör.
 
-1. Klicka på **användar ikonen** längst ned på sidan och välj **konto inställningar**.
+1. Längst ned på sidan väljer du användar ikonen och väljer sedan **konto inställningar**.
 
-    ![Konto inställningar](./media/roadmunk-tutorial/account.png)
+    ![Skärm bild som visar var du kan välja inställningar för användar konton.](./media/roadmunk-tutorial/account.png)
 
-1. Gå till **inställningarna för företags > autentisering**.
+1. Gå till inställningar för **företags**  >  **autentisering**.
 
-1. Utför följande steg i autentiseringsinställningarna.
+1. Följ dessa steg på sidan **autentiseringsinställningar** :
 
-    ![Autentiseringsinställningar](./media/roadmunk-tutorial/saml-sso.png)
+    ![Skärm bild som visar sidan autentiseringsinställningar.](./media/roadmunk-tutorial/saml-sso.png)
 
-    a. Aktivera **enkel inloggning med SAML (SSO)**.
+    a. Aktivera **SAML enkel inloggning (SSO)**.
 
-    b. I steg 1 kan du antingen ladda upp **XML-** filen med metadata eller så kan du ge den URL: en.
+    b. I avsnittet **steg 1** kan du antingen ladda upp metadata-XML-filen eller ange URL: en för metadata.
 
-    c. I steg 2 laddar du ned **Roadmunk-metadatafilen** och sparar den på din dator.
+    c. I avsnittet **steg 2** laddar du ned Roadmunk-metadatafilen och sparar den sedan på din dator.
 
-    d. Aktivera **endast tvingande SAML-Sign-In** i steg 3, om du vill logga in med SSO.
+    d. Om du vill logga in med hjälp av SSO går du till avsnittet **steg 3** och väljer **genomdriva SAML-Sign-In**.
 
-    e. Klicka på **Spara**.
+    e. Välj **Spara**.
 
 
 ### <a name="create-roadmunk-test-user"></a>Skapa Roadmunk test användare
 
 1. Logga in på Roadmunk-webbplatsen som administratör.
 
-1. Klicka på **användar ikonen** längst ned på sidan och välj **konto inställningar**.
+1. Välj användar ikonen längst ned på sidan och välj sedan **konto inställningar**.
 
-    ![Test användare för konto inställningar](./media/roadmunk-tutorial/account.png)
+    ![Skärm bild som visar hur du öppnar konto inställningar för test användaren.](./media/roadmunk-tutorial/account.png)
 
-1. Gå till fliken **användare** och klicka på **Bjud in användare**.
+1. Öppna fliken **användare** och välj sedan **Bjud in användare**.
 
-    ![Bjud in användare](./media/roadmunk-tutorial/create-user.png)
+    ![Skärm bild som visar fliken användare. Knappen Bjud in användare är markerad. I fönstret öppna markeras fälten e-post och roll.](./media/roadmunk-tutorial/create-user.png)
 
-1. Ange de obligatoriska fälten i formuläret och klicka på **Bjud in**.
+1. Fyll i den information som krävs i formuläret som visas och välj sedan **Bjud in**.
 
 
 ## <a name="test-sso"></a>Testa SSO 
 
-I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
+I det här avsnittet ska du testa din Azure AD SSO-konfiguration med hjälp av åtkomst panelen.
 
-När du klickar på panelen Roadmunk på åtkomst panelen, bör du loggas in automatiskt på den Roadmunk som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer panelen **Roadmunk** i portalen Mina appar, bör du loggas in automatiskt på det Roadmunk-konto som du ställer in SSO för. Mer information finns i [Logga in och starta appar från portalen Mina appar](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har konfigurerat Roadmunk kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+När du har konfigurerat Roadmunk kan du framtvinga kontroll av sessionen. Session Control skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. 
+
+Lär dig hur du [tvingar fram sessions kontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 

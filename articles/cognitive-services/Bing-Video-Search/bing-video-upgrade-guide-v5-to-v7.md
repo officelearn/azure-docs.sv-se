@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: c67ef6ddcd709dea8727a67100607bfc4f8cc8f6
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 392bb46d481df1f872b9a61beffed9e5b46f4dc5
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099852"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379845"
 ---
 # <a name="video-search-api-upgrade-guide"></a>Videosökning API-uppgraderings guide
 
@@ -43,7 +43,7 @@ Den här uppgraderings guiden identifierar ändringarna mellan version 5 och ver
 
 - Ersatt felkoderna för v5 med följande möjliga `code` `subCode` värden.
 
-|Kod|Under kod|Beskrivning
+|Kod|Under kod|Description
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing returnerar ServerError när något av under kods villkoren inträffar. Svaret innehåller dessa fel om HTTP-statuskoden är 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Blockerad|Bing returnerar InvalidRequest när någon del av begäran är ogiltig. Till exempel saknas en obligatorisk parameter eller också är ett parameter värde ogiltigt.<br/><br/>Om felet är ParameterMissing eller ParameterInvalidValue är HTTP-status koden 400.<br/><br/>Om felet är HttpNotAllowed, HTTP-statuskod 410.
@@ -76,11 +76,10 @@ Blockerad|InvalidRequest. blockerad
 
 ### <a name="query-parameters"></a>Frågeparametrar
 
-- Byter namn på `modulesRequested` Frågeparametern till [moduler](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#modulesrequested).  
+- Byter namn på `modulesRequested` Frågeparametern till [moduler](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#modulesrequested).  
 
 ### <a name="object-changes"></a>Objekt ändringar
 
-- Bytt namn på `nextOffsetAddCount` [video](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) fältet till `nextOffset` . Hur du använder förskjutningen har också ändrats. Tidigare skulle du ange parametern [förskjutnings](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#offset) fråga till `nextOffset` värdet plus föregående förskjutnings värde plus antalet videor i resultatet. Nu anger du bara `offset` Frågeparametern till `nextOffset` värdet.  
+- Bytt namn på `nextOffsetAddCount` [video](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) fältet till `nextOffset` . Hur du använder förskjutningen har också ändrats. Tidigare skulle du ange parametern [förskjutnings](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#offset) fråga till `nextOffset` värdet plus föregående förskjutnings värde plus antalet videor i resultatet. Nu anger du bara `offset` Frågeparametern till `nextOffset` värdet.  
   
-- Data typen för fältet har ändrats `relatedVideos` från `Video[]` till [VideosModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videosmodule) (se [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videodetails)).
-
+- Data typen för fältet har ändrats `relatedVideos` från `Video[]` till [VideosModule](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videosmodule) (se [VideoDetails](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videodetails)).

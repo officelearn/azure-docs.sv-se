@@ -1,26 +1,22 @@
 ---
-title: Azure Firewall FQDN-filtrering i nätverks regler (förhands granskning)
+title: Azure Firewall FQDN-filtrering i nätverks regler
 description: Använda Azure Firewall FQDN-filtrering i nätverks regler
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 08/25/2020
+ms.date: 11/06/2020
 ms.author: victorh
-ms.openlocfilehash: 1a35d9c48dd46d5d220699589f4ed758d21feca8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f2cf9639acfa1330c8347ff654649004d7c382e
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88854286"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380920"
 ---
-# <a name="use-fqdn-filtering-in-network-rules-preview"></a>Använd FQDN-filtrering i nätverks regler (förhands granskning)
+# <a name="use-fqdn-filtering-in-network-rules"></a>Använd FQDN-filtrering i nätverks regler
 
-> [!IMPORTANT]
-> FQDN-filtrering i nätverks regler är för närvarande en offentlig för hands version.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Ett fullständigt kvalificerat domän namn (FQDN) representerar ett domän namn för en värd eller IP-adress (er). Du kan använda FQDN: er i nätverks regler baserat på DNS-matchning i Azure brand vägg och brand Väggs princip. Med den här funktionen kan du filtrera utgående trafik med valfritt TCP/UDP-protokoll (inklusive NTP, SSH, RDP och mer). Du måste aktivera DNS-proxy för att använda FQDN i dina nätverks regler. Mer information finns i [Azure FIREWALL DNS Settings (för hands version)](dns-settings.md).
+Ett fullständigt kvalificerat domän namn (FQDN) representerar ett domän namn för en värd eller IP-adress (er). Du kan använda FQDN: er i nätverks regler baserat på DNS-matchning i Azure brand vägg och brand Väggs princip. Med den här funktionen kan du filtrera utgående trafik med valfritt TCP/UDP-protokoll (inklusive NTP, SSH, RDP och mer). Du måste aktivera DNS-proxy för att använda FQDN i dina nätverks regler. Mer information finns i [Azure Firewall DNS-inställningar](dns-settings.md).
 
 > [!NOTE]
 > Enligt design stöder FQDN-filtrering inte jokertecken.
@@ -29,10 +25,15 @@ Ett fullständigt kvalificerat domän namn (FQDN) representerar ett domän namn 
 
 När du har definierat vilken DNS-Server din organisation behöver (Azure DNS eller din egen anpassade DNS) översätter Azure-brandväggen FQDN till en IP-adress (er) baserat på den valda DNS-servern. Den här översättningen sker för bearbetning av både program-och nätverks regler.
 
-Vad är skillnaden mellan att använda domän namn i program regler jämfört med det för nätverks regler? 
+När en ny DNS-matchning äger rum läggs nya IP-adresser till i brand Väggs reglerna. Gamla IP-adresser som inte längre returneras av DNS-servern upphör att gälla om 15 minuter. Azure brand Väggs regler uppdateras var 15: e sekund från DNS-matchning av FQDN i nätverks regler.
 
-- FQDN-filtrering i program regler för HTTP/S och MSSQL baseras på en transparent proxy för program nivå och SNI-huvudet. Det kan till exempel fram mellan två FQDN som har matchats till samma IP-adress. Detta är inte fallet med FQDN-filtrering i nätverks regler. Använd alltid program regler när det är möjligt.
-- I program regler kan du använda HTTP/S och MSSQL som de valda protokollen. I nätverks regler kan du använda valfritt TCP/UDP-protokoll med dina mål-FQDN.
+### <a name="differences-in-application-rules-vs-network-rules"></a>Skillnader i program regler jämfört med nätverks regler
+
+- FQDN-filtrering i program regler för HTTP/S och MSSQL baseras på en transparent proxy för program nivå och SNI-huvudet. Det kan till exempel fram mellan två FQDN som har matchats till samma IP-adress. Detta är inte fallet med FQDN-filtrering i nätverks regler. 
+
+   Använd alltid program regler när det är möjligt:
+     - Om protokollet är HTTP/S eller MSSQL använder du program regler för FQDN-filtrering.
+   - För alla andra protokoll förutom HTTP/S eller MSSQL kan du använda program-eller nätverks regler för FQDN-filtrering.
 
 ## <a name="next-steps"></a>Nästa steg
 

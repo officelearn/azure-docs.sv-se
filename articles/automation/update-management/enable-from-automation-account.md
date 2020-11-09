@@ -2,15 +2,15 @@
 title: Aktivera Azure Automation Uppdateringshantering från Automation-konto
 description: Den här artikeln beskriver hur du aktiverar Uppdateringshantering från ett Automation-konto.
 services: automation
-ms.date: 11/04/2020
+ms.date: 11/09/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 6f14516f36975d84256f9bb1bd3b4949dbf80448
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: b97e1e61401697204f79004e4678e6f2286f4a98
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348839"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380546"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>Aktivera Uppdateringshantering från ett Automation-konto
 
@@ -27,7 +27,7 @@ Den här artikeln beskriver hur du kan använda ditt Automation-konto för att a
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in i [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="enable-update-management"></a>Aktivera uppdateringshantering
 
@@ -49,7 +49,7 @@ Logga in i [Azure-portalen](https://portal.azure.com).
 
 ## <a name="enable-non-azure-vms"></a>Aktivera virtuella datorer som inte är från Azure
 
-Datorer som inte i Azure måste läggas till manuellt.
+För datorer eller servrar som ligger utanför Azure, inklusive de som har registrerats med Azure Arc-aktiverade servrar, utför du följande steg för att aktivera dem med Uppdateringshantering.  
 
 1. Från ditt Automation-konto väljer du **uppdaterings hantering** under **uppdaterings hantering**.
 

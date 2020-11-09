@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: scottwhi
-ms.openlocfilehash: ea9cd9cf064b9c07016bc5e166cc4ec4c041b146
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 5c0bed04fccfba1ac06a54d5ddba9033ef05761b
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078551"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380716"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>Använda dekoration markörer för att markera text
 
@@ -39,7 +39,7 @@ Innan du visar resultatet i användar gränssnittet ersätter du Unicode-tecknen
 
 ## <a name="marker-formatting"></a>Markör format
 
-Bing ger möjlighet att använda antingen Unicode-tecken eller HTML-taggar som markörer. Om du vill ange vilka markörer som ska användas [inkluderar du Frågeparametern](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#textformat) : 
+Bing ger möjlighet att använda antingen Unicode-tecken eller HTML-taggar som markörer. Om du vill ange vilka markörer som ska användas [inkluderar du Frågeparametern](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#textformat) : 
 
 | Värde             | Vänsterindrag                       |
 |-------------------|------------------------------|
@@ -56,7 +56,7 @@ Om begäran inte angav dekorationer `expression` skulle fältet innehålla `log1
 
 Om `textDecorations` är `true` , kan Bing innehålla följande markörer i svars visnings strängar. Om det inte finns någon motsvarande HTML-tagg är tabell cellen tom.
 
-|Unicode|HTML|Beskrivning
+|Unicode|HTML|Description
 |-|-|-
 |U + E000|\<b>|Markerar början på frågetermen (träff markering)
 |U + E001|\</b>|Markerar slutet av frågeterm

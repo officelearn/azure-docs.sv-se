@@ -2,14 +2,14 @@
 title: Konfigurations alternativ – Azure Monitor Application Insights Java
 description: Konfigurations alternativ för Azure Monitor Application Insights Java
 ms.topic: conceptual
-ms.date: 04/16/2020
+ms.date: 11/04/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 7165afd77e3f60af5e00b92c1063247325897f9f
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 6edb77ec21b4f82f8398312fdff24aa5ea207771
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331914"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381039"
 ---
 # <a name="configuration-options-for-azure-monitor-application-insights-java"></a>Konfigurations alternativ för Azure Monitor Application Insights Java
 
@@ -48,7 +48,7 @@ Om du anger en relativ sökväg kommer den att matchas i förhållande till den 
 
 ## <a name="connection-string"></a>Anslutningssträng
 
-Detta är obligatoriskt. Du kan hitta din anslutnings sträng i Application Insights-resursen:
+Anslutnings sträng krävs. Du kan hitta din anslutnings sträng i Application Insights-resursen:
 
 :::image type="content" source="media/java-ipa/connection-string.png" alt-text="Application Insights anslutnings sträng":::
 
@@ -105,7 +105,7 @@ Sampling utförs som en funktion i åtgärds-ID (även kallat spårnings-ID), s�
 
 Om du till exempel ställer in sampling till 10% visas bara 10% av dina transaktioner, men var och en av de 10% har fullständig transaktions information från slut punkt till slut punkt.
 
-Här är ett exempel på hur du ställer in samplingen för att samla in cirka **1/3 av alla transaktioner** – kontrol lera att du ställer in den samplings frekvens som är korrekt för ditt användnings fall:
+Här är ett exempel på hur du ställer in samplingen för att samla in cirka **1/3 av alla transaktioner** – se till att du ställer in den samplings frekvens som är korrekt för ditt användnings fall:
 
 ```json
 {
@@ -169,18 +169,18 @@ Om du vill lägga till anpassade dimensioner i all telemetri:
 
 ## <a name="telemetry-processors-preview"></a>Telemetri-processorer (för hands version)
 
-Det här är en förhandsversion av funktionen.
+Den här funktionen är en förhandsversion.
 
-Det gör att du kan konfigurera regler som ska tillämpas på begäran, beroende och trace-telemetri, t. ex.
+Det gör att du kan konfigurera regler som ska tillämpas på begäran, beroende och trace-telemetri, till exempel:
  * Maskera känsliga data
  * Lägg till anpassade dimensioner villkorligt
  * Uppdatera telemetri-namnet som används för agg regering och visning
 
 Mer information finns i dokumentationen om [telemetri-processorn](./java-standalone-telemetry-processors.md) .
 
-## <a name="auto-collected-logging"></a>Automatisk insamlad loggning
+## <a name="autocollected-logging"></a>Autosamlad loggning
 
-Log4j, logback och Java. util. logging är automatiskt instrumenterade och loggning som utförs via dessa loggnings ramverk samlas automatiskt in.
+Log4j, logback och Java. util. logging är automatiskt instrumenterade och loggning utförs via dessa loggnings ramverk samlas in automatiskt.
 
 Som standard samlas loggning endast in när loggningen utförs på `INFO` nivån eller över.
 
@@ -213,13 +213,16 @@ Dessa är giltiga `level` värden som du kan ange i `applicationinsights.json` f
 | TRACE (eller FINEST) | Rita  | Rita   | FINEST  |
 | ALL               | ALL    | ALL     | ALL     |
 
-## <a name="auto-collected-micrometer-metrics-including-spring-boot-actuator-metrics"></a>Automatiskt insamlade micrometer-mått (inklusive värden för våren Boot-motstånd)
+## <a name="autocollected-micrometer-metrics-including-spring-boot-actuator-metrics"></a>Autosamlade micrometer-mått (inklusive vårens start motstånds mått)
 
-Om ditt program använder [micrometer](https://micrometer.io), samlas mått som skickas till micrometer globala registret automatiskt.
+Om programmet använder [micrometer](https://micrometer.io)samlas mått som skickas till det globala registret för micrometer in.
 
-Om ditt program använder [våren Boot-motstånd](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html), samlas även statistik som kon figurer ATS av våren Boot-motstånd automatiskt in.
+Om ditt program använder [våren Boot-motstånd](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html), samlas även statistik som kon figurer ATS av våren Boot-motstånd in.
 
-Så här inaktiverar du automatisk insamling av micrometer-mått (inklusive värden för våren Boot-motstånd):
+Så här inaktiverar du autoinsamling av micrometer-mått (inklusive värden för våren Boot-startmotstånd):
+
+> [!NOTE]
+> Anpassade mått faktureras separat och kan generera ytterligare kostnader. Se till att se den detaljerade [pris informationen](https://azure.microsoft.com/pricing/details/monitor/). Om du vill inaktivera Mät värdena för micrometer och våren lägger du till nedanstående konfiguration i konfigurations filen.
 
 ```json
 {
@@ -244,7 +247,7 @@ Som standard skickar Application Insights Java 3,0 ett pulsslags mått var 15: e
 ```
 
 > [!NOTE]
-> Du kan inte minska frekvensen för det här pulsslaget eftersom pulsslags data också används för att spåra Application Insights användning.
+> Du kan inte minska frekvensen på pulsslaget, eftersom pulsslags data också används för att spåra Application Insights användning.
 
 ## <a name="http-proxy"></a>HTTP-proxy
 
@@ -279,7 +282,7 @@ Om ditt program ligger bakom en brand vägg och inte kan ansluta direkt till App
 
 "Self-Diagnostics" syftar på intern loggning från Application Insights Java 3,0.
 
-Detta kan vara användbart för att upptäcka och diagnostisera problem med Application Insights sig själv.
+Den här funktionen kan vara till hjälp för att upptäcka och diagnostisera problem med Application Insights.
 
 Som standard loggar Application Insights Java 3,0 på nivå `INFO` till både filen `applicationinsights.log` och konsolen, som motsvarar den här konfigurationen:
 

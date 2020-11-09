@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 02/03/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 1b750554ec231cddd0403c89a33f2af4349ff188
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b6d9ec0760cc8d95f712cfc7a5478de1a99465ef
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099005"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379879"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Självstudie: Skapa en enkelsidig app med videosökning
 
@@ -47,7 +47,7 @@ Den här självstudieappen visar hur du:
 
 Självstudiesidan är helt självständigt. Den använder inte några externa ramverk, formatmallar eller bildfiler. Den använder endast JavaScript-språkfunktioner som stöds och fungerar med aktuella versioner av alla större webbläsare.
 
-I den här självstudien diskuterar vi delar av källkoden. Den fullständiga [källkoden](tutorial-bing-video-search-single-page-app-source.md) är tillgänglig. Om du vill köra exemplet kopierar du och klistrar in källkoden i en textredigerare och sparar det som `bing.html`.
+I den här självstudien diskuterar vi delar av källkoden. Den fullständiga [källkoden]() är tillgänglig. Om du vill köra exemplet kopierar du och klistrar in källkoden i en textredigerare och sparar det som `bing.html`.
 
 ## <a name="app-components"></a>Appkomponenter
 Som andra enkelsidiga webbappar innehåller den här självstudiekursprogrammet tre delar:
@@ -314,7 +314,7 @@ Sökresultaten returneras som `value`-objektet på den översta nivån i JSON-sv
 
 API:et för nyhetssökning i Bing returnerar upp till fyra olika typer av relaterade resultat i sitt respektive toppnivåobjekt. De är:
 
-|Relation|Beskrivning|
+|Relation|Description|
 |-|-|
 |`pivotSuggestions`|Frågor som ersätter ett pivotord i den ursprungliga sökningen med ett annat. Om du till exempel söker efter ”röda blommor” kan ett pivotord vara ”röda”, och ett pivotförslag kan vara ”gula blommor”.|
 |`queryExpansions`|Frågor som begränsar den ursprungliga sökningen genom att lägga till fler termer. Om du exempelvis söker efter ”Microsoft Surface” kan en frågeexpansion vara ”Microsoft Surface Pro”.|

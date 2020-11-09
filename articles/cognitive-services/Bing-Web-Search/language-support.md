@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 998e18f8901dda3430d5289e0590ef8099b6fb8c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b3ce1fdc0b52db2706f81950fff735cf7f95e52b
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095466"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379688"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Språk-och region stöd för API för webbsökning i Bing
 
@@ -26,7 +26,7 @@ ms.locfileid: "93095466"
 
 API för webbsökning i Bing har stöd för över tre dussin länder eller regioner, många med fler än ett språk. Genom att ange ett land eller en region med en fråga kan du förfina Sök resultat baserat på dessa länder eller regioner. Resultaten kan innehålla länkar till Bing, och dessa länkar kan lokalisera Bing-användargränssnittet enligt angivet land/region eller språk.
 
-Du kan ange ett land eller en region med hjälp av `cc` Frågeparametern. När ett land eller en region har angetts måste du ange en eller flera språk koder med [ `Accept-Language` rubriken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#headers). Använd [tabellen marknader](#markets) för att visa en lista över språk som stöds på varje marknad.
+Du kan ange ett land eller en region med hjälp av `cc` Frågeparametern. När ett land eller en region har angetts måste du ange en eller flera språk koder med [ `Accept-Language` rubriken](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#headers). Använd [tabellen marknader](#markets) för att visa en lista över språk som stöds på varje marknad.
 
 Alternativt kan du ange marknaden med `mkt` Frågeparametern och en kod från tabellen **marknader** . Att ange en marknad samtidigt anger ett land eller en region och ett önskat språk. Du kan uttryckligen ange språket med `setLang` Frågeparametern.
 

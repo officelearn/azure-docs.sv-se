@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/30/2020
-ms.openlocfilehash: 75cacf0dc899f47d55c44e5262b23bae73bfa7ab
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: df6da5ce1dcd5213b3e54abe54c087bfdd8480c5
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88924375"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379981"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Snabb start: skapa ett kunskaps lager för Azure Kognitiv sökning i Azure Portal
 
@@ -72,13 +72,13 @@ Nu kan du gå vidare till guiden **Importera data** .
 
 1. I **Anslut till dina data** väljer du **Azure Blob Storage** och väljer kontot och containern som du skapade. 
 
-1. Som **namn**anger du `hotel-reviews-ds` .
+1. Som **namn** anger du `hotel-reviews-ds` .
 
-1. För **tolknings läge**väljer du **avgränsad text**och markerar sedan kryss rutan **första raden innehåller rubrik** . Se till att **avgränsnings tecken** är ett kommatecken (,).
+1. För **tolknings läge** väljer du **avgränsad text** och markerar sedan kryss rutan **första raden innehåller rubrik** . Se till att **avgränsnings tecken** är ett kommatecken (,).
 
-1. I **anslutnings strängen**klistrar du in anslutnings strängen som du kopierade från sidan **åtkomst nycklar** i Azure Storage.
+1. I **anslutnings strängen** klistrar du in anslutnings strängen som du kopierade från sidan **åtkomst nycklar** i Azure Storage.
 
-1. I **behållare**anger du namnet på BLOB-behållaren som innehåller data.
+1. I **behållare** anger du namnet på BLOB-behållaren som innehåller data.
 
     Sidan bör se ut ungefär som på följande skärm bild.
 
@@ -94,14 +94,14 @@ I den här guiden ska du skapa en färdigheter med kognitiva färdigheter. Käll
 
 1. Expandera **Lägg till anrikninger**.
 
-1. För **färdigheter-namn**anger du `hotel-reviews-ss` .
+1. För **färdigheter-namn** anger du `hotel-reviews-ss` .
 
-1. I **fältet käll data**väljer du **reviews_text**.
+1. I **fältet käll data** väljer du **reviews_text**.
 
 1. Välj **sidor (5000-segment)** för **detaljerad granularitet nivå**
 
 1. Välj dessa kognitiva kunskaper:
-    + **Extrahering av diskussionsämne**
+    + **Extrahera nyckel fraser**
     + **Översätt text**
     + **Identifiera sentiment**
 
@@ -109,7 +109,7 @@ I den här guiden ska du skapa en färdigheter med kognitiva färdigheter. Käll
 
 1. Expandera **Spara berikade kunskaper i kunskaps lagret**.
 
-1. Välj följande **Azure Table-projektioner**:
+1. Välj följande **Azure Table-projektioner** :
     + **Dokument**
     + **Sidor**
     + **Nyckel fraser**
@@ -126,7 +126,7 @@ I den här guiden ska du skapa en färdigheter med kognitiva färdigheter. Käll
 
 I det här steget konfigurerar du ett index för valfria full texts öknings frågor. Guiden kommer att sampla data källan för att härleda fält och data typer. Du behöver bara välja attributen för det önskade beteendet. Attributet för **hämtning** kan till exempel tillåta Sök tjänsten att returnera ett fält värde medan **sökbart** aktiverar fullständig texts ökning i fältet.
 
-1. För **index namn**anger du `hotel-reviews-idx` .
+1. För **index namn** anger du `hotel-reviews-idx` .
 
 1. För attribut accepterar du standard valen: **hämtnings** Bart och **sökbara** för de nya fälten som pipelinen skapar.
 
@@ -140,9 +140,9 @@ I det här steget konfigurerar du ett index för valfria full texts öknings fr�
 
 I det här steget ska du konfigurera en indexerare som hämtar data källan, färdigheter och det index som du definierade i föregående steg i guiden.
 
-1. Som **namn**anger du `hotel-reviews-idxr` .
+1. Som **namn** anger du `hotel-reviews-idxr` .
 
-1. Behåll **standardvärdet**för **schema**.
+1. Behåll **standardvärdet** för **schema**.
 
 1. Klicka på **Skicka** för att köra indexeraren. Data extrahering, indexering, program av kognitiva kunskaper alla sker i det här steget.
 

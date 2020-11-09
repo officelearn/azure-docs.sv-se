@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 972c32b5403a7e6f614161271b7cb7e88693e032
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 54d5fdf1f6bc905482186475302901c46de0d285
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335102"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380134"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics arbets ytans data export i Azure Monitor (förhands granskning)
 Med Log Analytics data export för arbets yta i Azure Monitor kan du kontinuerligt exportera data från valda tabeller i din Log Analytics arbets yta till ett Azure Storage-konto eller Azure-Event Hubs som det samlas in. Den här artikeln innehåller information om den här funktionen och hur du konfigurerar data export i dina arbets ytor.
@@ -325,7 +325,6 @@ Tabeller som stöds är för närvarande begränsade till dem som anges nedan. A
 | ContainerImageInventory | |
 | ContainerInventory | |
 | ContainerLog | |
-| ContainerLog | |
 | ContainerNodeInventory | |
 | ContainerServiceLog | |
 | CoreAzureBackup | |
@@ -343,7 +342,6 @@ Tabeller som stöds är för närvarande begränsade till dem som anges nedan. A
 | DnsInventory | |
 | Dynamics365Activity | |
 | Händelse | Delvis stöd. En del av informationen i den här tabellen matas in via lagrings kontot. Dessa data exporteras inte för tillfället. |
-| ExchangeAssessmentRecommendation | |
 | ExchangeAssessmentRecommendation | |
 | FailedIngestion | |
 | FunctionAppLogs | |

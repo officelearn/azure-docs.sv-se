@@ -4,12 +4,12 @@ description: Lär dig hur du utvecklar Azure Functions med C#.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 19edfaf7998632ed1ebb48ff4ad36468669732ae
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 51a7ffe72f8597fbaa11eae12585ebde8bb83153
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167754"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380971"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referens för Azure Functions C#-utvecklare
 
@@ -313,7 +313,7 @@ public static class CancellationTokenExample
 
 ## <a name="logging"></a>Loggning
 
-I funktions koden kan du skriva utdata till loggar som visas som spår i Application Insights. Det rekommenderade sättet att skriva till loggarna är att inkludera en parameter av typen [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger), som vanligt vis kallas `log` . Version 1. x av Functions runtime `TraceWriter` som används, vilket även skriver till Application Insights, men som inte stöder strukturerad loggning. Använder inte `Console.Write` för att skriva loggar eftersom dessa data inte har registrerats av Application Insights. 
+I funktions koden kan du skriva utdata till loggar som visas som spår i Application Insights. Det rekommenderade sättet att skriva till loggarna är att inkludera en parameter av typen [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger), som vanligt vis kallas `log` . Version 1. x av Functions runtime `TraceWriter` som används, vilket även skriver till Application Insights, men som inte stöder strukturerad loggning. Använd inte `Console.Write` för att skriva loggar eftersom dessa data inte har registrerats av Application Insights. 
 
 ### <a name="ilogger"></a>ILogger
 
@@ -615,7 +615,7 @@ public static class IBinderExample
 
 ### <a name="multiple-attribute-example"></a>Exempel på flera attribut
 
-I föregående exempel hämtas app-inställningen för funktions programmets huvud anslutnings sträng för lagrings konto (som är `AzureWebJobsStorage` ). Du kan ange en anpassad app-inställning som ska användas för lagrings kontot genom att lägga till [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) och skicka attributhierarkin till `BindAsync<T>()` . Använd en `Binder` parameter, inte `IBinder` .  Exempel:
+I föregående exempel hämtas app-inställningen för funktions programmets huvud anslutnings sträng för lagrings konto (som är `AzureWebJobsStorage` ). Du kan ange en anpassad app-inställning som ska användas för lagrings kontot genom att lägga till [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) och skicka attributhierarkin till `BindAsync<T>()` . Använd en `Binder` parameter, inte `IBinder` .  Till exempel:
 
 ```cs
 public static class IBinderExampleMultipleAttributes

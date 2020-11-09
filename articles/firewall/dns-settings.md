@@ -1,24 +1,20 @@
 ---
-title: DNS-inställningar för Azure-brandväggen (för hands version)
+title: DNS-inställningar för Azure-brandväggen
 description: Du kan konfigurera Azure-brandväggen med inställningar för DNS-server och DNS-proxy.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 06/30/2020
+ms.date: 11/06/2020
 ms.author: victorh
-ms.openlocfilehash: efe608437f350a29147cf10989cdb6c17a23196d
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: ad0ac040b510783656617ddbf2063cd94c80aae7
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93398002"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380954"
 ---
-# <a name="azure-firewall-dns-settings-preview"></a>DNS-inställningar för Azure-brandväggen (för hands version)
-
-> [!IMPORTANT]
-> Azure Firewall DNS-inställningar finns för närvarande i offentlig för hands version.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="azure-firewall-dns-settings"></a>DNS-inställningar för Azure-brandväggen
 
 Du kan konfigurera en anpassad DNS-server och aktivera DNS-proxy för Azure-brandvägg. Du kan konfigurera de här inställningarna när du distribuerar brand väggen eller senare från sidan **DNS-inställningar** .
 
@@ -29,7 +25,7 @@ En DNS-Server upprätthåller och löser domän namn till IP-adresser. Som stand
 > [!NOTE]
 > För Azure-brandväggar som hanteras med hjälp av Azure Firewall Manager konfigureras DNS-inställningarna i den associerade Azure Firewall-principen.
 
-### <a name="configure-custom-dns-servers-preview---azure-portal"></a>Konfigurera anpassade DNS-servrar (förhands granskning) – Azure Portal
+### <a name="configure-custom-dns-servers---azure-portal"></a>Konfigurera anpassade DNS-servrar – Azure Portal
 
 1. Under **Inställningar** för Azure-brandvägg väljer du **DNS-inställningar**.
 2. Under **DNS-servrar** kan du skriva eller lägga till befintliga DNS-servrar som tidigare har angetts i Virtual Network.
@@ -38,7 +34,7 @@ En DNS-Server upprätthåller och löser domän namn till IP-adresser. Som stand
 
 :::image type="content" source="media/dns-settings/dns-servers.png" alt-text="DNS-servrar":::
 
-### <a name="configure-custom-dns-servers-preview---azure-cli"></a>Konfigurera anpassade DNS-servrar (förhands granskning) – Azure CLI
+### <a name="configure-custom-dns-servers---azure-cli"></a>Konfigurera anpassade DNS-servrar – Azure CLI
 
 I följande exempel uppdateras Azure-brandväggen med anpassade DNS-servrar med hjälp av Azure CLI.
 
@@ -52,7 +48,7 @@ az network firewall update \
 > [!IMPORTANT]
 > Kommandot `az network firewall` kräver att Azure CLI-tillägget `azure-firewall` är installerat. Den kan installeras med hjälp av kommandot `az extension add --name azure-firewall` . 
 
-### <a name="configure-custom-dns-servers-preview---azure-powershell"></a>Konfigurera anpassade DNS-servrar (förhands granskning) – Azure PowerShell
+### <a name="configure-custom-dns-servers---azure-powershell"></a>Konfigurera anpassade DNS-servrar – Azure PowerShell
 
 I följande exempel uppdateras Azure-brandväggen med anpassade DNS-servrar med hjälp av Azure PowerShell.
 
@@ -64,22 +60,32 @@ $azFw.DNSServer = $dnsServers
 $azFw | Set-AzFirewall
 ```
 
-## <a name="dns-proxy-preview"></a>DNS-proxy (för hands version)
+## <a name="dns-proxy"></a>DNS-proxy
 
 Du kan konfigurera Azure-brandväggen så att den fungerar som en DNS-proxy. En DNS-proxy fungerar som en mellanhand för DNS-begäranden från klientens virtuella datorer till en DNS-server. Om du konfigurerar en anpassad DNS-server bör du aktivera DNS-proxy för att undvika matchning av DNS-matchning och aktivera FQDN-filtrering i nätverks regler.
 
 Om du inte aktiverar DNS-proxy kan DNS-begäranden från klienten skickas till en DNS-Server vid en annan tidpunkt eller returnera ett annat svar jämfört med den i brand väggen. DNS-proxy placerar Azure-brandväggen i sökvägen för klient begär Anden för att undvika inkonsekvens.
+
+Det finns två typer av caching-funktioner som sker när Azure-brandväggen är en DNS-proxy:
+
+- Positiv cache – DNS-matchningen har slutförts. Brand väggen använder TTL-värdet (Time-to-Live) för paketet eller objektet. 
+
+- Negativ cache – DNS-matchning resulterar inte i något svar eller ingen upplösning. Brand väggen cachelagrar den här informationen i en timme.
+
+DNS-proxyn lagrar alla matchade IP-adresser från FQDN: er i nätverks regler. Vi rekommenderar att du använder FQDN: er som matchar en IP-adress.  
+
+### <a name="dns-proxy-configuration"></a>Konfiguration av DNS-proxy
 
 Konfiguration av DNS-proxy kräver tre steg:
 1. Aktivera DNS-proxy i Azure Firewall DNS-inställningar.
 2. Om du vill kan du konfigurera din anpassade DNS-server eller använda det angivna standardvärdet.
 3. Slutligen måste du konfigurera Azure firewalls privata IP-adress som en anpassad DNS-adress i DNS-serverinställningar för det virtuella nätverket. Detta säkerställer att DNS-trafik dirigeras till Azure-brandväggen.
 
-### <a name="configure-dns-proxy-preview---azure-portal"></a>Konfigurera DNS-proxy (för hands version) – Azure Portal
+#### <a name="configure-dns-proxy---azure-portal"></a>Konfigurera DNS-proxy – Azure Portal
 
 Om du vill konfigurera DNS-proxy måste du konfigurera inställningen för DNS-servrar för virtuellt nätverk så att den använder brand väggens privata IP-adress. Aktivera sedan DNS-proxy i Azure Firewall **DNS-inställningar**.
 
-#### <a name="configure-virtual-network-dns-servers"></a>Konfigurera virtuella nätverks-DNS-servrar 
+##### <a name="configure-virtual-network-dns-servers"></a>Konfigurera virtuella nätverks-DNS-servrar 
 
 1. Välj det virtuella nätverk där DNS-trafiken ska dirigeras via Azure-brandväggen.
 2. Under **Inställningar** väljer du **DNS-servrar**.
@@ -88,7 +94,7 @@ Om du vill konfigurera DNS-proxy måste du konfigurera inställningen för DNS-s
 5. Välj **Spara**.
 6. Starta om de virtuella datorerna som är anslutna till det virtuella nätverket så tilldelas de nya DNS-serverinställningarna. De virtuella datorerna fortsätter att använda sina aktuella DNS-inställningar tills de startas om.
 
-#### <a name="enable-dns-proxy-preview"></a>Aktivera DNS-proxy (för hands version)
+##### <a name="enable-dns-proxy"></a>Aktivera DNS-proxy
 
 1. Välj din Azure-brandvägg.
 2. Under **Inställningar** väljer du **DNS-inställningar**.
@@ -98,11 +104,11 @@ Om du vill konfigurera DNS-proxy måste du konfigurera inställningen för DNS-s
 
 :::image type="content" source="media/dns-settings/dns-proxy.png" alt-text="DNS-proxy":::
 
-### <a name="configure-dns-proxy-preview---azure-cli"></a>Konfigurera DNS-proxy (för hands version) – Azure CLI
+#### <a name="configure-dns-proxy---azure-cli"></a>Konfigurera DNS-proxy – Azure CLI
 
-Konfigurera DNS-proxyinställningar i Azure Firewall och uppdatera virtuella nätverk för att använda Azure-brandväggen som DNS-server kan utföras med Azure CLI.
+Du kan använda Azure CLI för att konfigurera DNS-proxyinställningar i Azure-brandväggen och uppdatera virtuella nätverk för att använda Azure-brandväggen som DNS-server.
 
-#### <a name="configure-virtual-network-dns-servers"></a>Konfigurera virtuella nätverks-DNS-servrar
+##### <a name="configure-virtual-network-dns-servers"></a>Konfigurera virtuella nätverks-DNS-servrar
 
 I det här exemplet konfigureras det virtuella nätverket så att det använder Azure-brandväggen som DNS-server.
  
@@ -113,7 +119,7 @@ az network vnet update \
     --dns-servers <firewall-private-IP>
 ```
 
-#### <a name="enable-dns-proxy-preview"></a>Aktivera DNS-proxy (för hands version)
+##### <a name="enable-dns-proxy"></a>Aktivera DNS-proxy
 
 I det här exemplet aktive ras funktionen DNS-proxy i Azure-brandväggen.
 
@@ -124,11 +130,11 @@ az network firewall update \
     --enable-dns-proxy true
 ```
 
-### <a name="configure-dns-proxy-preview---azure-powershell"></a>Konfigurera DNS-proxy (för hands version) – Azure PowerShell
+#### <a name="configure-dns-proxy---azure-powershell"></a>Konfigurera DNS-proxy – Azure PowerShell
 
-Konfigurera DNS-proxyinställningar och uppdatera virtuella nätverk för att använda Azure-brandväggen som DNS-server kan utföras med hjälp av Azure PowerShell.
+Du kan använda Azure PowerShell för att konfigurera DNS-proxyinställningar i Azure-brandväggen och uppdatera virtuella nätverk för att använda Azure-brandväggen som DNS-server.
 
-#### <a name="configure-virtual-network-dns-servers"></a>Konfigurera virtuella nätverks-DNS-servrar
+##### <a name="configure-virtual-network-dns-servers"></a>Konfigurera virtuella nätverks-DNS-servrar
 
  I det här exemplet konfigureras det virtuella nätverket så att det använder Azure-brandväggen som DNS-server.
 
@@ -140,7 +146,7 @@ $VNet.DhcpOptions.DnsServers = $dnsServers
 $VNet | Set-AzVirtualNetwork
 ```
 
-#### <a name="enable-dns-proxy-preview"></a>Aktivera DNS-proxy (för hands version)
+##### <a name="enable-dns-proxy"></a>Aktivera DNS-proxy
 
 I det här exemplet aktive ras funktionen DNS-proxy i Azure-brandväggen.
 

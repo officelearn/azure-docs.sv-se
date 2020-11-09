@@ -4,13 +4,13 @@ description: För att migrera en kunskaps bas måste du exportera från en kunsk
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
-ms.date: 03/25/2020
-ms.openlocfilehash: 9ba5f1d3d240867a8f6da52b9666c500c5b6446e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 78e22a9ec150435c1bc83873a2fcf0a00560c0c1
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777379"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375966"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrera en kunskaps bas med export-import
 
@@ -22,6 +22,9 @@ Migrering är en process där du skapar en ny kunskaps bas från en befintlig ku
 
 För att migrera en kunskaps bas måste du exportera från en befintlig kunskaps bas och sedan importera till en annan.
 
+> [!NOTE]
+> Följ anvisningarna nedan om du vill migrera din befintliga kunskaps bas till en ny QnA Maker hanterad (för hands version).
+
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar.
@@ -31,7 +34,7 @@ För att migrera en kunskaps bas måste du exportera från en befintlig kunskaps
 1. Logga in på [QNA Maker Portal](https://qnamaker.ai).
 1. Välj den ursprungliga kunskaps basen som du vill migrera.
 
-1. På sidan **Inställningar** väljer du **Exportera kunskaps bas** för att ladda ned en. TSV-fil som innehåller innehållet i ditt ursprung i kunskaps basen – frågor, svar, metadata, uppföljnings frågor och data käll namn som de extraherades från.
+1. På sidan **Inställningar** väljer du **Exportera kunskaps bas** för att ladda ned en. TSV-fil som innehåller innehållet i ditt ursprung i kunskaps basen – frågor, svar, metadata, uppföljnings frågor och data käll namn som de extraherades från. QnA-ID: n som exporteras med frågorna och svaren kan användas för att uppdatera ett särskilt QnA-par med [uppdaterings-API: et](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). QnA-ID: t för ett enskilt QnA-par förblir oförändrat över flera export åtgärder.
 
 1. Välj **skapa en kunskaps bas** på den översta menyn och skapa en _Tom_ kunskaps bas. Det är tomt eftersom när du skapar den, kommer du inte att lägga till några URL: er eller filer. De läggs till under steget importera när du har skapat.
 
@@ -41,7 +44,7 @@ För att migrera en kunskaps bas måste du exportera från en befintlig kunskaps
 
 1. I steg 5 väljer du **skapa**.
 
-1. I den här nya kunskaps basen öppnar du fliken **Inställningar** och väljer **Importera kunskaps bas**. Detta importerar frågor, svar, metadata, uppföljnings frågor och behåller de data käll namn som de extraherades från.
+1. I den här nya kunskaps basen öppnar du fliken **Inställningar** och väljer **Importera kunskaps bas**. Detta importerar frågor, svar, metadata, uppföljnings frågor och behåller de data käll namn som de extraherades från. **QNA-par som skapats i den nya kunskaps basen måste ha samma QNA-ID som finns i den exporterade filen**. På så sätt kan du skapa en exakt replik av kunskaps basen.
 
    > [!div class="mx-imgBorder"]
    > [![Importera kunskaps bas](../media/qnamaker-how-to-migrate-kb/Import.png)](../media/qnamaker-how-to-migrate-kb/Import.png#lightbox)

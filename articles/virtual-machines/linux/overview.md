@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 71de48c8ac0f74ed4afbe0fafcdbfdf3f34d6654
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 95e4ac884e0eda3b4f469484226962e3fd2e2eea
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422424"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375388"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Virtuella Linux-datorer i Azure
 
@@ -47,7 +47,7 @@ I den här tabellen finns några exempel på hur du kan hämta en lista över ti
 
 | Metod | Beskrivning |
 | --- | --- |
-| Azure-portalen |Välj en plats i listan när du skapar en virtuell dator. |
+| Azure Portal |Välj en plats i listan när du skapar en virtuell dator. |
 | Azure PowerShell |Använd kommandot [Get-AzLocation](/powershell/module/az.resources/get-azlocation). |
 | REST-API |Använd åtgärden [List locations](/rest/api/resources/subscriptions) (Listplatser). |
 | Azure CLI |Använd åtgärden [az account list-locations](/cli/azure/account?view=azure-cli-latest). |
@@ -115,6 +115,11 @@ Azure har stöd för [Cloud-Init](https://cloud-init.io/) i de flesta Linux-dist
 * [IP-adresser i Azure](../../virtual-network/public-ip-addresses.md)
 * [Öppna portar till en virtuell Linux-dator i Azure](nsg-quickstart.md)
 * [Skapa ett fullständigt domännamn i Azure-portalen](portal-create-fqdn.md)
+
+
+## <a name="data-residency"></a>Dataplacering
+
+I Azure är funktionen för att aktivera lagring av kunddata i en enda region för närvarande endast tillgänglig i Sydostasien region (Singapore) i regionen Asien och stillahavsområdet Geo-och Brasilien syd (Sao Paulo State) i Brasilien. För alla andra regioner lagras kund information på Geo. Mer information finns i [säkerhets Center](https://azuredatacentermap.azurewebsites.net/).
 
 
 ## <a name="next-steps"></a>Nästa steg

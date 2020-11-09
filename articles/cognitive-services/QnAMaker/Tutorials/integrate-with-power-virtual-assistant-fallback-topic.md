@@ -4,13 +4,13 @@ description: I den här självstudien får du bättre kvalitet på din kunskaps 
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 06/08/2020
-ms.openlocfilehash: 42b50fcf0df27ddbc3e587a7d8e038e4979935ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 322db4e1535e763f4c3e7c87afaa370471ba0b66
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777408"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376306"
 ---
 # <a name="tutorial-add-your-knowledge-base-to-power-virtual-agents"></a>Självstudie: Lägg till din kunskaps bas för virtuella energi agenter
 Skapa och utöka en [Power Virtual agents](https://powervirtualagents.microsoft.com/) -robot för att ge svar från din kunskaps bas.
@@ -125,7 +125,7 @@ I det här avsnittet skapas ett konversations flöde för återställnings ämne
 
 1. Välj den **+** koppling som flödar till **meddelande** rutan och välj sedan **anropa en åtgärd**.
 
-    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/create-new-item-call-an-action.png" alt-text="En del skärm bild av konversations flödet med alternativet ta bort markerat.":::
+    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/create-new-item-call-an-action.png" alt-text="Delvis skärm bild av anrop till en åtgärd.":::
 
 1. Välj **skapa ett flöde**. Processen tar dig till Energis par portalen.
 
@@ -135,26 +135,29 @@ I det här avsnittet skapas ett konversations flöde för återställnings ämne
 
     Automatisk start öppnas i en ny mall. Du kommer inte att använda den här nya mallen.
 
-    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-automate-flow-initial-template.png" alt-text="En del skärm bild av konversations flödet med alternativet ta bort markerat.":::
+    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-automate-flow-initial-template.png" alt-text="En skärm bild av en skärm som automatiseras med nya flödes mal len.":::
 
 ## <a name="create-a-power-automate-flow-to-connect-to-your-knowledge-base"></a>Skapa ett energi automatiserat flöde för att ansluta till din kunskaps bas
+
+> [!NOTE]
+> För närvarande stöder inte Power automate-mallen QnA Maker Managed (Preview) slut punkter. Om du vill lägga till en QnA Maker hanterad (för hands version) kunskaps bas för att automatisera det här steget, och lägga till slut punkterna manuellt. 
 
 Följande procedur skapar ett energi spar flöde som:
 * Tar den inkommande användar texten och skickar den till QnA Maker.
 * Returnerar det översta svaret tillbaka till agenten.
 
-1. I **Automatisera energi spar läge**väljer du **mallar** i det vänstra navigerings fältet. Om du tillfrågas om du vill lämna webb läsar sidan accepterar du lämna.
+1. I **Automatisera energi spar läge** väljer du **mallar** i det vänstra navigerings fältet. Om du tillfrågas om du vill lämna webb läsar sidan accepterar du lämna.
 
 1. På sidan mallar söker du efter mallen **skapa svar med QNA Maker** och väljer sedan mallen. Den här mallen innehåller alla steg som krävs för att anropa QnA Maker med dina kunskaps bas inställningar och returnera det främsta svaret.
 
 1. På den nya skärmen för QnA Maker flödet väljer du **Fortsätt**.
 
-    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-automate-qna-flow-template-continue.png" alt-text="En del skärm bild av konversations flödet med alternativet ta bort markerat.":::
+    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-automate-qna-flow-template-continue.png" alt-text="En del skärm bild av QnA Maker Template-flöde med knappen Fortsätt markerad.":::
 
 1. Välj rutan skapa **svars** åtgärd och fyll i QNA Maker inställningar från ett tidigare avsnitt med rubriken [skapa och publicera en kunskaps bas](#create-and-publish-a-knowledge-base). Din **tjänst värd** i följande avbildning refererar till din kunskaps bas värds **värd** och har formatet `https://YOUR-RESOURCE-NAME.azurewebsites.net/qnamaker` .
 
 
-    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-fill-in-generate-answer-settings.png" alt-text="En del skärm bild av konversations flödet med alternativet ta bort markerat.":::
+    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-fill-in-generate-answer-settings.png" alt-text="En del skärm bild av QnA Maker Template-flöde med generera svar (förhands granskning) markerat.":::
 
 1. Spara flödet genom att klicka på **Spara**.
 
@@ -178,7 +181,7 @@ För att agenten ska kunna hitta och ansluta till flödet måste flödet inklude
 
 1. I listan med lösningar väljer du den lösning som du nyss skapade. Den ska vara överst i listan. Om den inte är det kan du söka efter ditt e-postnamn, som är en del av lösnings namnet.
 
-1. I lösningen väljer du **+ Lägg till befintlig**och väljer sedan **flöde** i listan.
+1. I lösningen väljer du **+ Lägg till befintlig** och väljer sedan **flöde** i listan.
 
 1. Hitta ditt flöde från listan **utanför lösningar** och välj sedan **Lägg till** för att slutföra processen. Om det finns många flöden tittar du på kolumnen **ändrad** för att hitta det senaste flödet.
 
@@ -190,16 +193,16 @@ För att agenten ska kunna hitta och ansluta till flödet måste flödet inklude
 
 1. I popup-fönstret **flöde** väljer du det nya flödet med namnet **generera svar med QNA Maker kunskaps bas..**.. Den nya åtgärden visas i flödet.
 
-    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-flow-after-adding-action.png" alt-text="En del skärm bild av konversations flödet med alternativet ta bort markerat.":::
+    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-flow-after-adding-action.png" alt-text="En del skärm bild av den virtuella PowerPivot-agentens ämne konversations arbets yta efter tillägg av QnA Maker flöde.":::
 
-1. Om du vill ställa in variabeln till den QnA Maker åtgärden korrekt väljer du **Välj en variabel**och sedan **robot. UnrecognizedTriggerPhrase**.
+1. Om du vill ställa in variabeln till den QnA Maker åtgärden korrekt väljer du **Välj en variabel** och sedan **robot. UnrecognizedTriggerPhrase**.
 
-    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-selection-action-input.png" alt-text="En del skärm bild av konversations flödet med alternativet ta bort markerat.":::
+    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-selection-action-input.png" alt-text="En del skärm bild av den virtuella PowerPivot-agentens ämne konversations arbets yta väljer indatamängd.":::
 
 
-1. Om du vill ange den utgående variabeln till åtgärden QnA Maker väljer du **UnrecognizedTriggerPhrase**i **meddelande** åtgärden och väljer sedan ikonen för att infoga en variabel, `{x}` och väljer sedan **FinalAnswer**.
+1. Om du vill ange den utgående variabeln till åtgärden QnA Maker väljer du **UnrecognizedTriggerPhrase** i **meddelande** åtgärden och väljer sedan ikonen för att infoga en variabel, `{x}` och väljer sedan **FinalAnswer**.
 
-1. I verktygsfältet kontext väljer du **Spara**för att spara arbets ytans redigerings information för ämnet.
+1. I verktygsfältet kontext väljer du **Spara** för att spara arbets ytans redigerings information för ämnet.
 
 Så här ser den sista agent arbets ytan ut.
 
@@ -208,7 +211,7 @@ Så här ser den sista agent arbets ytan ut.
 
 ## <a name="test-the-agent"></a>Testa agenten
 
-1. Växla **spår mellan ämnen**i rutan test. På så sätt kan du se förloppet mellan ämnena och i ett enda ämne.
+1. Växla **spår mellan ämnen** i rutan test. På så sätt kan du se förloppet mellan ämnena och i ett enda ämne.
 
 1. Testa agenten genom att ange användar texten i följande ordning. Redigerings arbets ytan rapporterar de slutförda stegen med en grön bock markering.
 
@@ -216,20 +219,20 @@ Så här ser den sista agent arbets ytan ut.
     |--|--|--|
     |1|Hello|Starta konversation|
     |2|Store-timmar|Exempel ämne. Detta är konfigurerat för dig utan ytterligare arbete på din sida.|
-    |3|Ja|Som svar på `Did that answer your question?`|
+    |3|Yes|Som svar på `Did that answer your question?`|
     |4|Utmärkt|Som svar på `Please rate your experience.`|
-    |5|Ja|Som svar på `Can I help with anything else?`|
+    |5|Yes|Som svar på `Can I help with anything else?`|
     |6|Hur kan jag förbättra data flödes prestandan för fråga förutsägelser?|Den här frågan utlöser återställnings åtgärden, som skickar texten till din kunskaps bas för att svara. Sedan visas svaret. de gröna bock markeringarna för de enskilda åtgärderna indikerar att det är klart för varje åtgärd.|
 
-    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-test-tracked.png" alt-text="En del skärm bild av konversations flödet med alternativet ta bort markerat.":::
+    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-test-tracked.png" alt-text="Skärm bild av Chat-roboten med arbets ytan som visar grön bock markering för lyckade åtgärder.":::
 
 ## <a name="publish-your-bot"></a>Publicera din robot
 
 Om du vill att agenten ska vara tillgänglig för alla medlemmar i din skola eller organisation måste du publicera den.
 
-1. Välj **publicera**i navigerings fönstret till vänster. Välj sedan **publicera** på sidan.
+1. Välj **publicera** i navigerings fönstret till vänster. Välj sedan **publicera** på sidan.
 
-1. Prova din robot på demo webbplatsen (leta efter länken under **publicera**).
+1. Prova din robot på demo webbplatsen (leta efter länken under **publicera** ).
 
     En ny webb sida öppnas med din robot. Fråga roboten samma test fråga: `How can I improve the throughput performance for query predictions?`
 
@@ -240,7 +243,7 @@ Om du vill att agenten ska vara tillgänglig för alla medlemmar i din skola ell
 
 Om du vill dela demo webbplatsen konfigurerar du den som en kanal.
 
-1. Välj **Hantera**kanaler i navigeringen till vänster  >  **Channels**.
+1. Välj **Hantera** kanaler i navigeringen till vänster  >  **Channels**.
 
 1. Välj **Demo webbplats** från listan kanaler.
 

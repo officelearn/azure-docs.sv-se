@@ -4,13 +4,13 @@ description: QnA Maker har meta-gränser för delar av kunskaps basen och tjäns
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
-ms.date: 02/14/2020
-ms.openlocfilehash: 773c9caa2fb25b3abe4fb451bc59598c485a6110
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: c61c550e9a09d0f0708e8f1dbc63e76b329a8166
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776263"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375626"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker grundläggande gränser och gränser för kunskap
 
@@ -50,6 +50,9 @@ Fil namn får inte innehålla följande tecken:
 ### <a name="maximum-number-of-files"></a>Maximalt antal filer
 
 Det maximala antalet filer som kan extraheras och maximal fil storlek baseras på **[QNA Maker pris nivå gränser](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)**.
+
+> [!NOTE]
+> QnA Maker Managed (för hands version) är en kostnads fri tjänst utan gränser för antalet källor som kan läggas till. Genomflödet är för närvarande begränsade till 10 transaktioner per sekund för både hanterings-API: er och förutsägelse-API: er.
 
 ### <a name="maximum-number-of-deep-links-from-url"></a>Maximalt antal djup länkar från URL
 

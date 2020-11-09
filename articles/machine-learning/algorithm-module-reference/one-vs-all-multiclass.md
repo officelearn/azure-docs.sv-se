@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: f09a77043a552d8d7f09c2a6abcb78f89cbf8ee2
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 23077d7d6b476bcca0812dcff8660376568f7dd9
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420690"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376340"
 ---
 # <a name="one-vs-all-multiclass"></a>En-mot-alla – multiklass
 
@@ -26,7 +26,7 @@ Den här modulen är användbar för att skapa modeller som förutsäger tre ell
 
 Vissa klassificerings algoritmer tillåter användning av fler än två klasser efter design. Andra begränsar möjliga resultat till ett av två värden (en binär eller en modell med två klasser). Men även binära klassificerings algoritmer kan anpassas för klassificerings uppgifter med flera klasser via en mängd olika strategier. 
 
-Den här modulen implementerar metoden One-och-all, där en binär modell skapas för var och en av de olika utgående klasserna. Modulen utvärderar var och en av dessa binära modeller för de enskilda klasserna mot komplementet (alla andra klasser i modellen) som om det är ett binärt klassificerings problem. Modulen utför sedan förutsägelse genom att köra dessa binära klassificerare och välja förutsägelse med högsta möjliga resultat.  
+Den här modulen implementerar metoden One-och-all, där en binär modell skapas för var och en av de olika utgående klasserna. Modulen utvärderar var och en av dessa binära modeller för de enskilda klasserna mot komplementet (alla andra klasser i modellen) som om det är ett binärt klassificerings problem. Utöver dess beräknings effektivitet (endast `n_classes` klassificerare krävs), är det en fördel med den här metoden att tolkas. Eftersom varje klass representeras av en och endast en klassificerare, är det möjligt att få kunskap om klassen genom att inspektera motsvarande klassificerare. Det här är den vanligaste strategin för klassificering av flera klasser och är ett rimligt standard val. Modulen utför sedan förutsägelse genom att köra dessa binära klassificerare och välja förutsägelse med högsta möjliga resultat. 
 
 I grunden skapar modulen en ensemble med enskilda modeller och sammanfogar sedan resultaten för att skapa en enskild modell som förutsäger alla klasser. En binär klassificerare kan användas som grund för en modell med en-och-alla.  
 

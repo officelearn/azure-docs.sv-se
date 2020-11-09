@@ -4,19 +4,21 @@ description: Att testa din QnA Maker kunskaps bas är en viktig del av en iterat
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 03/05/2020
-ms.openlocfilehash: 05ae359182ac3d9c3f4cc17d7675a3f2fefa0bff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 21984a03947e4f9f60e705955cb1be3b2df8933c
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776841"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376199"
 ---
 # <a name="test-your-knowledge-base-in-qna-maker"></a>Testa din kunskaps bas i QnA Maker
 
 Att testa din QnA Maker kunskaps bas är en viktig del av en iterativ process för att förbättra noggrannheten i svaren som returneras. Du kan testa kunskaps basen via ett förbättrat chatt-gränssnitt som gör det möjligt att redigera.
 
 ## <a name="interactively-test-in-qna-maker-portal"></a>Testa interaktivt i QnA Maker Portal
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (stabil utgåva)](#tab/v1)
 
 1. Gå till kunskaps basen genom att välja namnet på sidan **Mina kunskaps baser** .
 1. Välj **testa** i programmets övre panel för att komma åt test-bildspel-panelen.
@@ -37,7 +39,7 @@ Du har granskat informationen om test resultatet i inspektions panelen.
 
 1.  Med test-out-panelen öppen väljer du **Granska** för mer information om svaret.
 
-    ![Inspektera svar](../media/qnamaker-how-to-test-kb/inspect.png)
+    ![Inspektera svar](../media/qnamaker-how-to-test-knowledge-bases/inspect.png)
 
 2.  Inspektions panelen visas. Panelen innehåller den översta bedömnings avsikten samt alla identifierade entiteter. Panelen visar resultatet av den valda uttryck.
 
@@ -45,13 +47,13 @@ Du har granskat informationen om test resultatet i inspektions panelen.
 
 Om det översta bedömnings svaret är felaktigt väljer du rätt svar i listan och väljer **Spara och träna**.
 
-![Korrigera det främsta bedömnings svaret](../media/qnamaker-how-to-test-kb/choose-answer.png)
+![Korrigera det främsta bedömnings svaret](../media/qnamaker-how-to-test-knowledge-bases/choose-answer.png)
 
 ### <a name="add-alternate-questions"></a>Lägg till alternativa frågor
 
-Du kan lägga till alternativa formulär för en fråga till ett angivet svar. Skriv de alternativa svaren i text rutan och klicka på RETUR för att lägga till dem. Välj **Spara och träna** för att lagra uppdateringarna.
+Du kan lägga till alternativa formulär för en fråga till ett angivet svar. Skriv de alternativa svaren i text rutan och välj RETUR för att lägga till dem. Välj **Spara och träna** för att lagra uppdateringarna.
 
-![Lägg till alternativa frågor](../media/qnamaker-how-to-test-kb/add-alternate-question.png)
+![Lägg till alternativa frågor](../media/qnamaker-how-to-test-knowledge-bases/add-alternate-question.png)
 
 ### <a name="add-a-new-answer"></a>Lägg till ett nytt svar
 
@@ -64,11 +66,62 @@ Välj **Spara och träna** för att spara det här svaret. Ett nytt fråge-/svar
 > [!NOTE]
 > Alla redigeringar av kunskaps basen sparas bara när du trycker på knappen **Spara och träna** .
 
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker hanterad (för hands version)](#tab/v2)
+
+1. Gå till kunskaps basen genom att välja namnet på sidan **Mina kunskaps baser** .
+1. Välj **testa** i programmets övre panel för att komma åt test-bildspel-panelen. 
+1. En kryss ruta visas i det övre **visnings kort svaret** , som är markerat som standard. Det här alternativet används för att aktivera identifiering av MRC-baserade svars intervall i test panelen. 
+1. Ange en fråga i text rutan och välj RETUR. 
+1. Om det finns ett exakt svars-/kort svar i svars passage för varje fråga, tillsammans med bäst matchade svars passage, som finns i kunskaps basen, kommer du även att ha ett kort svar på din fråga.
+    ![Hanterat aktiverat test fönster](../media/qnamaker-how-to-test-knowledge-bases/test-pane-with-managed-detail.png)
+1. Om du avmarkerar det **korta visnings kortets svar** returneras bara det bästa matchade svars resultatet från kunskaps basen som svar.
+
+### <a name="clear-test-panel"></a>Rensa test panelen
+
+Om du vill rensa alla angivna test frågor och resultat från test konsolen väljer du **börja** i det övre vänstra hörnet på test panelen.
+
+### <a name="close-test-panel"></a>Stäng test panelen
+
+Välj knappen **testa** igen för att stänga test panelen. Medan test panelen är öppen kan du inte redigera innehållet i kunskaps basen.
+
+### <a name="inspect-score"></a>Granska Poäng
+
+Du har granskat informationen om test resultatet i inspektions panelen.
+
+1.  Med test-out-panelen öppen väljer du **Granska** för mer information om svaret.
+
+    ![Granska svar för för hands version](../media/qnamaker-how-to-test-knowledge-bases/inspect-with-managed.png)
+
+2.  Inspektions panelen visas. Panelen innehåller den översta bedömnings avsikten samt alla identifierade entiteter. Panelen visar resultatet av den valda uttryck.
+3. Panelen visar förtroende poängen för svars passage tillsammans med poängen för svars intervallet upptäckt.
+
+### <a name="correct-the-top-scoring-answer"></a>Korrigera det främsta bedömnings svaret
+
+Om det översta bedömnings svaret är felaktigt väljer du rätt svar i listan och väljer **Spara och träna**.
+
+![Korrigera den främsta för hands versionen av bedömnings svar](../media/qnamaker-how-to-test-knowledge-bases/choose-answer-managed.png)
+
+### <a name="add-alternate-questions"></a>Lägg till alternativa frågor
+
+Du kan lägga till alternativa formulär för en fråga till ett angivet svar. Skriv de alternativa svaren i text rutan och välj RETUR för att lägga till dem. Välj **Spara och träna** för att lagra uppdateringarna.
+
+![Lägg till förhands granskning av alternativa frågor](../media/qnamaker-how-to-test-knowledge-bases/add-alternate-question-with-managed.png)
+
+### <a name="add-a-new-answer"></a>Lägg till ett nytt svar
+
+Du kan lägga till ett nytt svar om något av de befintliga svaren som matchades är felaktigt eller om svaret inte finns i kunskaps basen (ingen lämplig matchning hittades i KB).
+
+Längst ned i listan med svar använder du text rutan för att ange ett nytt svar och trycker på RETUR för att lägga till den.
+
+Välj **Spara och träna** för att spara det här svaret. Ett nytt fråge-/svar-par har nu lagts till i din kunskaps bas.
+
+---
+
 ### <a name="test-the-published-knowledge-base"></a>Testa den publicerade kunskaps basen
 
 Du kan testa den publicerade versionen av kunskaps basen i test fönstret. När du har publicerat KB väljer du rutan **publicerad KB** och skickar en fråga för att få resultat från den publicerade KB.
 
-![Testa mot en publicerad KB](../media/qnamaker-how-to-test-kb/test-against-published-kb.png)
+![Testa mot en publicerad KB](../media/qnamaker-how-to-test-knowledge-bases/test-against-published-knowledge-base.png)
 
 ## <a name="batch-test-with-tool"></a>Batch-test med verktyget
 
@@ -98,7 +151,7 @@ Använd batch-testverktyget när du vill:
     * Språk – det engelska språket
 1. Ange namnet `Multi-turn batch test quickstart` som namn på din kunskaps bas.
 
-1. I **steg 4**konfigurerar du inställningarna med följande tabell:
+1. I **steg 4** konfigurerar du inställningarna med följande tabell:
 
     |Inställning|Värde|
     |--|--|
@@ -107,7 +160,7 @@ Använd batch-testverktyget när du vill:
     |**+ Lägg till fil**|Välj den nedladdade `.docx` fil listan i kraven.|
     |**Chit-chat**|Välj **Professional**|
 
-1. I **steg 5**väljer **du skapa din KB**.
+1. I **steg 5** väljer **du skapa din KB**.
 
     När processen har slutförts visas den redigerbara kunskaps basen i portalen.
 
@@ -126,15 +179,15 @@ Använd batch-testverktyget när du vill:
 
 För att kunna använda batch-testverktyget skapar du en fil med namnet `batch-test-data-1.tsv` med en text redigerare. Filen ska vara i UTF-8-format och måste ha följande kolumner avgränsade med en flik.
 
-|Fält för TSV-indatafiler|Obs!|Exempel|
+|Fält för TSV-indatafiler|Kommentarer|Exempel|
 |--|--|--|
 |Kunskaps bas-ID|Ditt kunskaps bas-ID finns på publicerings sidan. Testa flera kunskaps banker i samma tjänst samtidigt i en enda fil med hjälp av olika kunskaps bas-ID: n i en enda fil.|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (36 tecken sträng visas som en del av `POST` ) |
 |Fråga|Den frågetext som en användare skulle ange. 1 000-Character max.|`How do I sign out?`|
-|Metadatataggar|valfri|`topic:power` använder _nyckeln: värde_ format|
+|Metadatataggar|valfri|`topic:power` använder `key:value` formatet|
 |Övre parameter|valfri|`25`|
 |Förväntat svars-ID|valfri|`13`|
 
-I den här kunskaps basen lägger du till 3 rader av bara de 2 obligatoriska kolumnerna i filen. Den första kolumnen är ditt kunskaps bas-ID och den andra kolumnen bör vara följande lista över frågor:
+I den här kunskaps basen lägger du till tre rader av bara de två obligatoriska kolumnerna i filen. Den första kolumnen är ditt kunskaps bas-ID och den andra kolumnen bör vara följande lista över frågor:
 
 |Kolumn 2 – frågor|
 |--|
@@ -144,7 +197,7 @@ I den här kunskaps basen lägger du till 3 rader av bara de 2 obligatoriska kol
 
 Dessa frågor är den exakta orda lydelsen från kunskaps basen och ska returnera 100 som konfidens resultat.
 
-Lägg sedan till några frågor, liknande dessa frågor, men inte exakt samma på tre fler rader med samma kunskaps bas-ID:
+Lägg sedan till några frågor, liknande dessa frågor, men inte exakt samma på tre rader, med samma kunskaps bas-ID:
 
 |Kolumn 2 – frågor|
 |--|
@@ -176,7 +229,7 @@ Testet slutförs och `out.tsv` filen skapas:
 
 Kunskaps bas-ID: t har ersatts av `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` säkerhet. För ditt eget batch-test visar kolumnen ditt kunskaps bas-ID.
 
-Test resultatet av förtroende poängen, i den fjärde kolumnen, visar de tre främsta frågorna returnerade en poäng på 100 som förväntat eftersom varje fråga är exakt samma som den visas i kunskaps basen. De senaste tre frågorna, med en ny formulering av frågan, returnerar inte 100 som säkerhets poäng. För att öka poängen både för testet och användarna måste du lägga till fler alternativa frågor i kunskaps basen.
+Test resultatet av konfidens poängen, i den fjärde kolumnen, visar de tre viktigaste frågorna returnerade en poäng på 100 som förväntat eftersom varje fråga är exakt samma som den visas i kunskaps basen. De tre senaste frågorna, med en ny formulering av frågan, returnerar inte 100 som säkerhets poäng. För att öka poängen både för testet och användarna måste du lägga till fler alternativa frågor i kunskaps basen.
 
 ### <a name="testing-with-the-optional-fields"></a>Testa med valfria fält
 
@@ -192,7 +245,7 @@ Använd följande diagram för att förstå hur du hittar fältvärdena för val
 
 |Kolumn nummer|Valfri kolumn|Dataplats|
 |--|--|--|
-|3|metadata|Exportera befintlig kunskaps bas för befintlig _nyckel:_ värdepar.|
+|3|metadata|Exportera befintlig kunskaps bas för befintliga `key:value` par.|
 |4|top|Standardvärdet `25` rekommenderas.|
 |5|ID för fråga och svars uppsättning|Exportera befintlig kunskaps bas för ID-värden. Observera också att ID: n returnerades i utdatafilen.|
 
@@ -210,7 +263,7 @@ Använd följande diagram för att förstå hur du hittar fältvärdena för val
     > [!TIP]
     > Exportera kunskaps basen om du vill se metadata och QnA-ID för varje uppsättning. Välj sidan **Inställningar** och välj sedan **Exportera** som en `.xls` fil. Hitta den här hämtade filen och öppna med Excel-granska för metadata och ID.
 
-1. Välj **Spara och träna**, välj sedan **publicerings** sidan och välj sedan knappen **publicera** . De här åtgärderna gör ändringen tillgänglig för batch-testet. Hämta kunskaps basen från sidan **Inställningar** .
+1. Välj **Spara och träna** , välj sedan **publicerings** sidan och välj sedan knappen **publicera** . De här åtgärderna gör ändringen tillgänglig för batch-testet. Hämta kunskaps basen från sidan **Inställningar** .
 
     Den hämtade filen har rätt format för metadata och korrekt fråge-och svars uppsättnings-ID. Använd de här fälten i nästa avsnitt
 
@@ -225,7 +278,7 @@ Det finns två huvud scenarier för batch-testning:
 
 Följande procedur förutsätter att scenariot är att bearbeta chatt loggar med
 
-1. Skapa en ny batch-testfil för att inkludera valfria data `batch-test-data-2.tsv` . Lägg till de 6 raderna från den ursprungliga batch-testfilen och Lägg sedan till ID för metadata, topp och QnA-par för varje rad.
+1. Skapa en ny batch-testfil för att inkludera valfria data `batch-test-data-2.tsv` . Lägg till de sex raderna från den ursprungliga batch-testfilen och Lägg sedan till ID för metadata, topp och QnA-par för varje rad.
 
     För att simulera den automatiserade processen med att kontrol lera ny text från Chat-loggar mot kunskaps basen ställer du in metadata för varje kolumn till samma värde: `topic:power` .
 
@@ -241,7 +294,7 @@ Följande procedur förutsätter att scenariot är att bearbeta chatt loggar med
 
 Den här test utdatafilen kan parsas som en del av en automatiserad kontinuerlig test-pipeline.
 
-Den här test utmatningen bör läsas som: varje rad filtreras med metadata och eftersom varje rad inte matchar metadata i kunskaps basen returnerades standard svaret för de icke-matchande raderna ("ingen lämplig matchning hittades i KB"). För de rader som var identiska returnerades QnA-ID och poängen.
+Den här test utmatningen bör läsas som: varje rad filtreras med metadata och eftersom varje rad inte matchar metadata i kunskaps basen returnerades standard svaret för de icke-matchande raderna ("ingen lämplig matchning hittades i KB"). För de rader som var identiska returnerades QnA-ID och poäng.
 
 Alla rader returnerade etiketten fel eftersom ingen rad matchade svars-ID: t förväntades.
 

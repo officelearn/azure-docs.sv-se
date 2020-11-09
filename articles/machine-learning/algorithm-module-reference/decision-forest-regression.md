@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 7f9677bfd793e7ff21ff2c6c7e6760b630dc074b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76fd09b5e2c2540cbc1608558800e7897a6cf839
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898533"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375371"
 ---
 # <a name="decision-forest-regression-module"></a>Besluts skogs Regressions modul
 
@@ -42,15 +42,15 @@ Mer information om det teoretiska ramverket för den här algoritmen och dess im
 
 ## <a name="how-to-configure-decision-forest-regression-model"></a>Konfigurera Regressions modellen för besluts skogar
 
-1. Lägg till **besluts skogs Regressions** modulen i pipelinen. Du kan hitta modulen i designern under **Machine Learning**, **initiera modellen**och **regression**.
+1. Lägg till **besluts skogs Regressions** modulen i pipelinen. Du kan hitta modulen i designern under **Machine Learning** , **initiera modellen** och **regression**.
 
 2. Öppna egenskaperna för modulen och välj den metod som används för att skapa enskilda träd för **omsamplings metod**.  Du kan välja mellan **bagage** eller **Replikera**.
 
-    - **Bagage**: bagage kallas även *Start agg regering*. Varje träd i en Regressions besluts skog matar ut en Gaussisk fördelning genom förutsägelse. Aggregation är att hitta en Gaussisk vars första två moment motsvarar momentet i blandningen av Gaussisk distributioner genom att kombinera alla distributioner som returneras av enskilda träd.
+    - **Bagage** : bagage kallas även *Start agg regering*. Varje träd i en Regressions besluts skog matar ut en Gaussisk fördelning genom förutsägelse. Aggregation är att hitta en Gaussisk vars första två moment motsvarar momentet i blandningen av Gaussisk distributioner genom att kombinera alla distributioner som returneras av enskilda träd.
 
          Mer information finns i Wikipedia-posten för [Start agg regering](https://wikipedia.org/wiki/Bootstrap_aggregating).
 
-    - **Replikera**: i replikering tränas varje träd på exakt samma indata. Bestämning av vilket delat predikat som används för varje trädnod förblir slumpmässigt och träden är olika.
+    - **Replikera** : i replikering tränas varje träd på exakt samma indata. Bestämning av vilket delat predikat som används för varje trädnod förblir slumpmässigt och träden är olika.
 
          Mer information om inlärnings processen med alternativet **Replikera** finns i [besluts skogar för visuellt innehåll och medicinsk bild analys. Criminisi och J. Shotton. Springer 2013.](https://research.microsoft.com/projects/decisionforests/).
 
@@ -60,29 +60,29 @@ Mer information om det teoretiska ramverket för den här algoritmen och dess im
 
       Om du vet hur du vill konfigurera modellen kan du ange en speciell uppsättning värden som argument. Du kanske har lärt dig dessa värden genom att experimentera eller ta emot dem som vägledning.
 
-    - **Parameter intervall**: Välj det här alternativet om du inte är säker på de bästa parametrarna och vill köra en parameter rensning. Välj ett värde intervall som du vill iterera över, och de [finjusterande modellens egenskaper](tune-model-hyperparameters.md) upprepas över alla möjliga kombinationer av de inställningar som du angav för att fastställa de egenskaper som ger optimala resultat. 
+    - **Parameter intervall** : Välj det här alternativet om du inte är säker på de bästa parametrarna och vill köra en parameter rensning. Välj ett värde intervall som du vill iterera över, och de [finjusterande modellens egenskaper](tune-model-hyperparameters.md) upprepas över alla möjliga kombinationer av de inställningar som du angav för att fastställa de egenskaper som ger optimala resultat. 
 
 
 
-4. För **antalet besluts träd**anger du det totala antalet besluts träd som ska skapas i ensemblen. Genom att skapa fler besluts träd kan du eventuellt få bättre täckning, men inlärnings tiden ökar.
+4. För **antalet besluts träd** anger du det totala antalet besluts träd som ska skapas i ensemblen. Genom att skapa fler besluts träd kan du eventuellt få bättre täckning, men inlärnings tiden ökar.
 
     > [!TIP]
-    > Det här värdet styr också antalet träd som visas vid visualisering av den tränade modellen. Om du vill se eller skriva ut ett enda träd kan du ange värdet till 1. Det innebär dock att endast ett träd skapas (trädet med den inledande uppsättningen parametrar) och inga ytterligare iterationer utförs.
+    > Om du ställer in värdet på 1; Det innebär dock att endast ett träd skapas (trädet med den inledande uppsättningen parametrar) och inga ytterligare iterationer utförs.
 
 5. Ange ett tal för att begränsa det maximala djupet för besluts träden för att begränsa det maximala djupet för **besluts träd**. Att öka djupet i trädet kan öka precisionen på risken för viss överanpassning och ökad inlärnings tid.
 
-6. För **antalet slumpmässiga delningar per nod**anger du antalet delningar som ska användas när du skapar varje nod i trädet. En *delning* innebär att funktionerna i varje nivå i trädet (noden) är slumpmässigt uppdelade.
+6. För **antalet slumpmässiga delningar per nod** anger du antalet delningar som ska användas när du skapar varje nod i trädet. En *delning* innebär att funktionerna i varje nivå i trädet (noden) är slumpmässigt uppdelade.
 
-7. För **minsta antal sampel per lövnod**anger du det minsta antal fall som krävs för att skapa en terminalsession (löv) i ett träd.
+7. För **minsta antal sampel per lövnod** anger du det minsta antal fall som krävs för att skapa en terminalsession (löv) i ett träd.
 
      Genom att öka det här värdet ökar du tröskelvärdet för att skapa nya regler. Till exempel, med standardvärdet 1, kan ett enda ärende orsaka att en ny regel skapas. Om du ökar värdet till 5 måste tränings data innehålla minst fem fall som uppfyller samma villkor.
 
 
 9. Träna modellen:
 
-    + Om du ställer in **skapa utbildare** för en **parameter**ansluter du en taggad data uppsättning och modulen [träna modell](train-model.md) .  
+    + Om du ställer in **skapa utbildare** för en **parameter** ansluter du en taggad data uppsättning och modulen [träna modell](train-model.md) .  
   
-    + Om du ställer in **skapa utbildare** för **parameter intervall**ansluter du en taggad data uppsättning och tränar modellen med hjälp av [finjustera modellens egenskaper](tune-model-hyperparameters.md).  
+    + Om du ställer in **skapa utbildare** för **parameter intervall** ansluter du en taggad data uppsättning och tränar modellen med hjälp av [finjustera modellens egenskaper](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 

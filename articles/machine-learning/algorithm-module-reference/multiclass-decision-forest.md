@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: e22881a904ed33214e90604d71489d8691fe820b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1be66bdd8a1cf25a32ad3102d770078c904c4b6c
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883258"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376833"
 ---
 # <a name="multiclass-decision-forest-module"></a>Modul för besluts skog för flera klasser
 
@@ -39,33 +39,33 @@ Besluts skogens klassificerare i Azure Machine Learning består av en ensemble i
 
 ## <a name="how-to-configure-multiclass-decision-forest"></a>Konfigurera besluts skogen i flera klasser
 
-1. Lägg till modulen för **besluts skog** i flera klasser i din pipeline i designern. Du kan hitta den här modulen under **Machine Learning**, **initiera modell**och **klassificering**.
+1. Lägg till modulen för **besluts skog** i flera klasser i din pipeline i designern. Du kan hitta den här modulen under **Machine Learning** , **initiera modell** och **klassificering**.
 
 2. Dubbelklicka på modulen för att öppna fönstret **Egenskaper** .
 
-3. För **metoden**för att sampla om väljer du den metod som används för att skapa enskilda träd.  Du kan välja mellan bagage eller replikering.
+3. För **metoden** för att sampla om väljer du den metod som används för att skapa enskilda träd.  Du kan välja mellan bagage eller replikering.
 
-    + **Bagage**: bagage kallas även *Start agg regering*. I den här metoden odlas varje träd på ett nytt exempel som skapats genom att slumpmässigt sampla den ursprungliga data uppsättningen med ersättning tills du har en data uppsättning som är den ursprungliga storleken. Modellernas utdata kombineras med *röstning*, vilket är en form av agg regering. Mer information finns i Wikipedia-posten för start agg regering.
+    + **Bagage** : bagage kallas även *Start agg regering*. I den här metoden odlas varje träd på ett nytt exempel som skapats genom att slumpmässigt sampla den ursprungliga data uppsättningen med ersättning tills du har en data uppsättning som är den ursprungliga storleken. Modellernas utdata kombineras med *röstning* , vilket är en form av agg regering. Mer information finns i Wikipedia-posten för start agg regering.
 
-    + **Replikera**: i replikering tränas varje träd på exakt samma indata. Bestämning av vilka delade predikat som används för varje trädnod förblir slumpmässiga och skapar olika träd.
+    + **Replikera** : i replikering tränas varje träd på exakt samma indata. Bestämning av vilka delade predikat som används för varje trädnod förblir slumpmässiga och skapar olika träd.
 
    
 
 4. Ange hur du vill att modellen ska tränas genom att ställa in alternativet **skapa utbildare läge** .
 
-    + **Enskild parameter**: Välj det här alternativet om du vet hur du vill konfigurera modellen och ange en uppsättning värden som argument.
+    + **Enskild parameter** : Välj det här alternativet om du vet hur du vill konfigurera modellen och ange en uppsättning värden som argument.
 
-    + **Parameter intervall**: Välj det här alternativet om du inte är säker på de bästa parametrarna och vill köra en parameter rensning. Välj ett värde intervall som du vill iterera över, och de [finjusterande modellens egenskaper](tune-model-hyperparameters.md) upprepas över alla möjliga kombinationer av de inställningar som du angav för att fastställa de egenskaper som ger optimala resultat.   
+    + **Parameter intervall** : Välj det här alternativet om du inte är säker på de bästa parametrarna och vill köra en parameter rensning. Välj ett värde intervall som du vill iterera över, och de [finjusterande modellens egenskaper](tune-model-hyperparameters.md) upprepas över alla möjliga kombinationer av de inställningar som du angav för att fastställa de egenskaper som ger optimala resultat.   
 
-5. **Antal besluts träd**: Ange det maximala antalet besluts träd som kan skapas i ensemblen. Genom att skapa fler besluts träd kan du eventuellt få bättre täckning, men inlärnings tiden kan öka.
+5. **Antal besluts träd** : Ange det maximala antalet besluts träd som kan skapas i ensemblen. Genom att skapa fler besluts träd kan du eventuellt få bättre täckning, men inlärnings tiden kan öka.
 
-    Det här värdet styr också antalet träd som visas i resultaten vid visualisering av den tränade modellen. Om du vill se eller skriva ut ett enda träd kan du ange värdet till 1. Det innebär dock att endast ett träd kan skapas (trädet med den inledande uppsättningen parametrar) och inga ytterligare iterationer utförs.
+    Om du ställer in värdet på 1; Det innebär dock att endast ett träd kan skapas (trädet med den inledande uppsättningen parametrar) och inga ytterligare iterationer utförs.
 
-6. **Högsta djup för besluts träden**: Ange ett tal för att begränsa det maximala djupet för besluts träd. Att öka djupet i trädet kan öka precisionen på risken för viss överanpassning och ökad inlärnings tid.
+6. **Högsta djup för besluts träden** : Ange ett tal för att begränsa det maximala djupet för besluts träd. Att öka djupet i trädet kan öka precisionen på risken för viss överanpassning och ökad inlärnings tid.
 
-7. **Antal slumpmässiga delningar per nod**: Ange antalet delningar som ska användas när du skapar varje nod i trädet. En *delning* innebär att funktionerna i varje nivå i trädet (noden) är slumpmässigt uppdelade.
+7. **Antal slumpmässiga delningar per nod** : Ange antalet delningar som ska användas när du skapar varje nod i trädet. En *delning* innebär att funktionerna i varje nivå i trädet (noden) är slumpmässigt uppdelade.
 
-8. **Minsta antal sampel per lövnod**: Ange det minsta antal fall som krävs för att skapa en terminalsession (löv) i ett träd. Genom att öka det här värdet ökar du tröskelvärdet för att skapa nya regler.
+8. **Minsta antal sampel per lövnod** : Ange det minsta antal fall som krävs för att skapa en terminalsession (löv) i ett träd. Genom att öka det här värdet ökar du tröskelvärdet för att skapa nya regler.
 
     Till exempel, med standardvärdet 1, kan ett enda ärende orsaka att en ny regel skapas. Om du ökar värdet till 5 måste tränings data innehålla minst fem fall som uppfyller samma villkor.
 
@@ -73,9 +73,9 @@ Besluts skogens klassificerare i Azure Machine Learning består av en ensemble i
 
 10. Anslut en data uppsättning med etiketter och träna modellen:
 
-    + Om du ställer in **skapa utbildare** för en **parameter**ansluter du en taggad data uppsättning och modulen [träna modell](train-model.md) .  
+    + Om du ställer in **skapa utbildare** för en **parameter** ansluter du en taggad data uppsättning och modulen [träna modell](train-model.md) .  
   
-    + Om du ställer in **skapa utbildare** för **parameter intervall**ansluter du en taggad data uppsättning och tränar modellen med hjälp av [finjustera modellens egenskaper](tune-model-hyperparameters.md).  
+    + Om du ställer in **skapa utbildare** för **parameter intervall** ansluter du en taggad data uppsättning och tränar modellen med hjälp av [finjustera modellens egenskaper](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 

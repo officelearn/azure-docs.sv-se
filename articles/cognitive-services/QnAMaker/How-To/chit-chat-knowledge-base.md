@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3d5c47d3e3e9485c3a6de8f93782c654fb34a516
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1208d95a282ca6e236d9d6be8013f51dead90d13
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330646"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376664"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Lägga till en Chi2test-chatt i en kunskaps bas
 
@@ -60,7 +60,15 @@ När du har lagt till käll-URL: er och filer i kunskaps basen finns det ett alt
 ## <a name="add-chit-chat-to-an-existing-kb"></a>Lägga till en Chi2test i en befintlig KB
 Välj din KB och gå till sidan **Inställningar** . Det finns en länk till alla data uppsättningar för CHI2TEST i lämpligt **. tsv** -format. Ladda ned den personlighet som du vill ha och ladda sedan upp den som en fil källa. Se till att du inte redigerar formatet eller metadata när du laddar ned och laddar upp filen.
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (stabil utgåva)](#tab/v1)
+
 ![Lägg till en CHI2TEST till befintlig KB](../media/qnamaker-how-to-chit-chat/add-chit-chat-dataset.png)
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker hanterad (för hands version)](#tab/v2)
+
+![Lägg till CHI2TEST i den befintliga för hands versionen av KB](../media/qnamaker-how-to-chit-chat/add-chit-chat-dataset-v2.png)
+
+---
 
 ## <a name="edit-your-chit-chat-questions-and-answers"></a>Redigera frågor och svar om CHI2TEST
 När du redigerar din KB visas en ny källa för CHI2TEST, baserat på den personlighet du har valt. Du kan nu lägga till ändrade frågor eller redigera svaren, precis som med andra källor.

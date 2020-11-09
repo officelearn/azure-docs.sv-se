@@ -5,15 +5,15 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 08/31/2020
-ms.openlocfilehash: ab78ac41be2f900d84e82c21e566f5250b2afd18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa2530f817bf20af40ab2913df9f16e7d1974ef3
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777390"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375476"
 ---
 # <a name="tutorial-create-an-faq-bot-with-azure-bot-service"></a>Självstudie: skapa en robot för vanliga frågor och svar med Azure Bot Service
-Skapa en bot-robot med QnA Maker och Azure [bot service](https://azure.microsoft.com/en-us/services/bot-service/) utan kod.
+Skapa en bot-robot med QnA Maker och Azure [bot service](https://azure.microsoft.com/services/bot-service/) utan kod.
 
 I den här guiden får du lära dig att:
 
@@ -28,7 +28,15 @@ I den här guiden får du lära dig att:
 
 Följ [snabb](../Quickstarts/create-publish-knowledge-base.md) starten för att skapa en kunskaps bas. När kunskaps basen har publicerats visas sidan nedan.
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (stabil utgåva)](#tab/v1)
+
 ![Skärm bild av lyckad publicering](../media/qnamaker-create-publish-knowledge-base/publish-knowledge-base-to-endpoint.png)
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker hanterad (för hands version)](#tab/v2)
+
+![Skärm bild av lyckad publicering hanterad](../media/qnamaker-create-publish-knowledge-base/publish-knowledge-base-to-endpoint-managed.png)
+
+---
 
 ## <a name="create-a-bot"></a>Skapa en robot
 
@@ -41,7 +49,16 @@ När du gör ändringar i kunskaps basen och återpublicerar behöver du inte vi
 
 1. På sidan **publicera** i QNA Maker-portalen väljer du **skapa bot**. Den här knappen visas bara när du har publicerat kunskaps basen.
 
+     # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (stabil utgåva)](#tab/v1)
+
     ![Skärm bild som visar hur du skapar en robot](../media/qnamaker-create-publish-knowledge-base/create-bot-from-published-knowledge-base-page.png)
+
+    # <a name="qna-maker-managed-preview-release"></a>[QnA Maker hanterad (för hands version)](#tab/v2)
+
+    ![Skärm bild av skapa en robot hanterad för hands version](../media/qnamaker-create-publish-knowledge-base/create-bot-from-published-knowledge-base-page-managed.png)
+
+    ---
+    
 
 1. En ny flik i webbläsaren öppnas för Azure Portal med sidan för att skapa Azure Bot Service. Konfigurera Azure bot service. Robot-och QnA Maker kan dela Web App Service-planen, men kan inte dela webbappen. Det innebär att **appens namn** måste vara ett annat än namnet på appen för tjänsten QNA Maker.
 
@@ -55,8 +72,8 @@ När du gör ändringar i kunskaps basen och återpublicerar behöver du inte vi
 
 
 1. När roboten har skapats öppnar du **bot-tjänstens** resurs.
-1. Under **bot-hantering**väljer du **test i Web Chat**.
-1. Skriv följande i Chat-prompten för att **skriva ditt meddelande**:
+1. Under **bot-hantering** väljer du **test i Web Chat**.
+1. Skriv följande i Chat-prompten för att **skriva ditt meddelande** :
 
     `Azure services?`
 

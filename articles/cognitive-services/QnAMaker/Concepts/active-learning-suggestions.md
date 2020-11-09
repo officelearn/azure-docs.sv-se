@@ -1,16 +1,16 @@
 ---
 title: Aktiva utbildnings förslag – QnA Maker
-description: Med aktiva utbildnings förslag kan du förbättra kvaliteten på din kunskaps bas genom att föreslå alternativa frågor, baserat på användar-och användar sändningar, till din fråga och ditt svars par.
+description: Med aktiva utbildnings förslag kan du förbättra din kunskaps Bass kvalitet genom att föreslå alternativa frågor, baserat på användar-och användar sändningar, till din fråga och ditt svars par.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 03/19/2020
-ms.openlocfilehash: e8cdb1d471ceef2aef790c426424b9224faac5ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 707f4c098eacb0b72a7e12ebf79f9389b91095cc
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777045"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376527"
 ---
 # <a name="active-learning-suggestions"></a>Aktiva utbildnings förslag
 
@@ -37,10 +37,18 @@ När frågorna föreslås i QnA Maker portal måste du granska och godkänna ell
 
 ## <a name="turn-on-active-learning"></a>Aktivera aktiv inlärning
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (stabil utgåva)](#tab/v1)
+
 Som standard är aktiv inlärning **inaktiverat**.
 Så här använder du Active Learning:
 * Du måste [Aktivera aktiv inlärning](../How-To/use-active-learning.md#turn-on-active-learning-for-alternate-questions) så att QNA Maker samlar in alternativa frågor om din kunskaps bas.
 * Om du vill se de föreslagna alternativa frågorna [använder du visnings alternativen](../How-To/improve-knowledge-base.md#view-suggested-questions) på sidan Redigera.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker hanterad (för hands version)](#tab/v2)
+
+Som **standard är aktiv inlärning i QNA Maker** hanterad (för hands version). Om du vill se de föreslagna alternativa frågorna [använder du visnings alternativen](../How-To/improve-knowledge-base.md#view-suggested-questions) på sidan Redigera.
+
+---
 
 ## <a name="how-qna-makers-implicit-feedback-works"></a>Så här fungerar QnA Makers implicit feedback
 

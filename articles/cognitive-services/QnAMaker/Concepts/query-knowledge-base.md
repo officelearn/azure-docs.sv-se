@@ -1,16 +1,14 @@
 ---
 title: Fråga kunskaps basen – QnA Maker
 description: 'En kunskaps bas måste publiceras. När den har publicerats frågas kunskaps basen vid körnings förutsägelse slut punkten med generateAnswer-API: et.'
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 01/27/2020
-ms.openlocfilehash: e903714aab35de40c1179045505e1520c65b3ebc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: e8dd056a7b6357b8342d3059e17baa88db92b404
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776926"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376734"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>Fråga kunskaps basen efter svar
 
@@ -18,9 +16,11 @@ En kunskaps bas måste publiceras. När den har publicerats frågas kunskaps bas
 
 ## <a name="how-qna-maker-processes-a-user-query-to-select-the-best-answer"></a>Hur QnA Maker bearbetar en användar fråga för att välja det bästa svaret
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (stabil utgåva)](#tab/v1)
+
 Den utbildade och [publicerade](/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base#publish-the-knowledge-base) QNA Maker kunskaps basen tar emot en användar fråga, från en robot eller något annat klient program, i [GenerateAnswer-API: et](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage). Följande diagram illustrerar processen när användar frågan tas emot.
 
-![Ranknings modell processen för en användar fråga](../media/qnamaker-concepts-knowledgebase/rank-user-query-first-with-azure-search-then-with-qna-maker.png)
+![Ranknings modell processen för en användar fråga](../media/qnamaker-concepts-knowledgebase/ranker-v1.png)
 
 ### <a name="ranker-process"></a>Rangordnings process
 
@@ -38,6 +38,30 @@ Processen beskrivs i följande tabell.
 |||
 
 Funktioner som används inkluderar, men är inte begränsade till semantik på Word-nivå, prioritet på term nivå i en sökkorpus och djup lärt semantiska modeller för att fastställa likhet och relevans mellan två text strängar.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker hanterad (för hands version)](#tab/v2)
+
+Den utbildade och [publicerade](/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base#publish-the-knowledge-base) QNA Maker kunskaps basen tar emot en användar fråga, från en robot eller något annat klient program, i [GenerateAnswer-API: et](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage). Följande diagram illustrerar processen när användar frågan tas emot.
+
+![Ranknings modell processen för för hands versionen av användar frågan](../media/qnamaker-concepts-knowledgebase/ranker-v2.png)
+
+### <a name="ranker-process"></a>Rangordnings process
+
+Processen beskrivs i följande tabell.
+
+|Steg|Syfte|
+|--|--|
+|1|Klient programmet skickar användar frågan till [GenerateAnswer-API: et](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage).|
+|2|QnA Maker förbearbetar användar frågan med språk identifiering, stavnings-och ord separatorer.|
+|3|Den här förbearbetningen görs för att ändra användar frågan för bästa Sök resultat.|
+|4|Den här ändrade frågan skickas till ett Azure Kognitiv sökning-index som tar emot `top` antalet resultat. Om rätt svar inte finns i dessa resultat ökar du värdet `top` något. Normalt är ett värde på 10 för `top` Works i 90% av frågorna.|
+|5|QnA Maker använder den stegvisa transformatorbaserade modellen för att fastställa likheten mellan användar frågan och kandidat QnA resultat som hämtats från Azure Kognitiv sökning. Transformerad modell är en djup inlärnings modell med flera språk, som fungerar vågrätt för alla språk för att fastställa förtroende poängen och den nya rangordnings ordningen.|
+|6|De nya resultaten returneras till klient programmet i rangordnings ordning.|
+|||
+
+Rangordningen fungerar på alla alternativa frågor och svar för att hitta de bäst matchade QnA-par för användar frågan. Användarna har flexibiliteten att konfigurera beställaren så att den bara ställer frågor till rangordnings tjänsten. 
+
+---
 
 ## <a name="http-request-and-response-with-endpoint"></a>HTTP-begäran och-svar med slut punkten
 När du publicerar din kunskaps bas skapar tjänsten en REST-baserad HTTP-slutpunkt som kan integreras i ditt program, ofta en chatt-robot.

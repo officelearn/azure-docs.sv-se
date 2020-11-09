@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 11/09/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 3a67f16b53c2754e2ac5ae1df467aac7726f358e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85abefc8437936ffaedc4811bdd9bed0be32786f
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321007"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375522"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Få ett svar med GenerateAnswer-API och metadata
 
@@ -46,11 +46,19 @@ När du har publicerat din kunskaps bas, antingen från [QNA Maker-portalen](htt
 
 Så här hämtar du information om slut punkten:
 1. Logga in på [https://www.qnamaker.ai](https://www.qnamaker.ai).
-1. I **Mina kunskaps baser**väljer du **Visa kod** för din kunskaps bas.
+1. I **Mina kunskaps baser** väljer du **Visa kod** för din kunskaps bas.
     ![Skärm bild av mina kunskaps baser](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
 1. Hämta information om din GenerateAnswer-slutpunkt.
 
+    # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (stabil utgåva)](#tab/v1)
+
     ![Skärm bild av slut punkts information](../media/qnamaker-how-to-metadata-usage/view-code.png)
+
+    # <a name="qna-maker-managed-preview-release"></a>[QnA Maker hanterad (för hands version)](#tab/v2)
+
+    ![Skärm bild av hanterad slut punkts information](../media/qnamaker-how-to-metadata-usage/view-code-managed.png)
+
+    ---
 
 Du kan också hämta information om slut punkt från fliken **Inställningar** i din kunskaps bas.
 
@@ -128,7 +136,7 @@ Föregående JSON svarade med ett svar med en poäng på 38,5%.
 
 ## <a name="use-qna-maker-with-a-bot-in-c"></a>Använda QnA Maker med en robot i C #
 
-Bot Framework ger till gång till QnA Makerens egenskaper med GetAnswer- [API: et](https://docs.microsoft.com/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync?view=botbuilder-dotnet-stable#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__):
+Bot Framework ger till gång till QnA Makerens egenskaper med GetAnswer- [API: et](https://docs.microsoft.com/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync?view=botbuilder-dotnet-stable#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__&preserve-view=true):
 
 ```csharp
 using Microsoft.Bot.Builder.AI.QnA;
@@ -147,7 +155,7 @@ Föregående JSON begärde bara svar som är 30% eller högre än tröskel poän
 
 ## <a name="use-qna-maker-with-a-bot-in-nodejs"></a>Använda QnA Maker med en robot i Node.js
 
-Bot Framework ger till gång till QnA Makerens egenskaper med GetAnswer- [API: et](https://docs.microsoft.com/javascript/api/botbuilder-ai/qnamaker?view=botbuilder-ts-latest#generateanswer-string---undefined--number--number-):
+Bot Framework ger till gång till QnA Makerens egenskaper med GetAnswer- [API: et](https://docs.microsoft.com/javascript/api/botbuilder-ai/qnamaker?view=botbuilder-ts-latest#generateanswer-string---undefined--number--number-&preserve-view=true):
 
 ```javascript
 const { QnAMaker } = require('botbuilder-ai');

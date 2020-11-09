@@ -4,13 +4,13 @@ description: Använd dessa metod tips för att förbättra din kunskaps bas och 
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 02/15/2020
-ms.openlocfilehash: 15cb1391cb6482401c2a091a4d5c0e9d819ba52d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 2f87f5c7e43757db476153db93d6ecc5082dde89
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777028"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376765"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Metod tips för en QnA Maker kunskaps bas
 
@@ -116,11 +116,17 @@ Som standard söker QnA Maker igenom frågor och svar. Om du bara vill söka ige
 [Metadata](../How-To/edit-knowledge-base.md) lägger till möjligheten för ett klient program att veta att det inte ska ta med alla svar utan i stället begränsa resultatet av en användar fråga baserat på metadata-taggar. Kunskaps bas svaret kan variera beroende på taggen metadata, även om frågan är densamma. Till exempel *"Where är parkerings plats"* kan ha ett annat svar om platsen för restaurang grenen är en annan – det vill säga att metadata är *plats: Seattle* respektive *plats: Redmond*.
 
 ### <a name="use-synonyms"></a>Använd synonymer
-Även om det finns stöd för synonymer på det engelska språket använder du Skift läges känsliga ord ändringar via [API: erna](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) för att lägga till synonymer till nyckelord som tar olika formulär. Synonymer läggs till på QnA Maker service nivå och delas av alla kunskaps banker i tjänsten.
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (stabil utgåva)](#tab/v1)
+Även om det finns stöd för synonymer på det engelska språket använder du Skift läges känsliga ord ändringar via [API: erna](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) för att lägga till synonymer till nyckelord som tar olika formulär. Synonymer läggs till på QnA Maker service nivå och **delas av alla kunskaps banker i tjänsten**.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker hanterad (för hands version)](#tab/v2)
+Även om det finns stöd för synonymer på det engelska språket använder du Skift läges känsliga ord ändringar via [API: erna](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) för att lägga till synonymer till nyckelord som tar olika formulär. Synonymer i QnA Maker hanterad (för hands version) **läggs till per kunskaps bas**.
 
 |Original ord|Synonymer|
 |--|--|
 |handlar|köp<br>NET-Banks<br>NET Banks|
+
+---
 
 ### <a name="use-distinct-words-to-differentiate-questions"></a>Använd distinkta ord för att särskilja frågor
 QnA Makerens rangordning, som matchar en användar fråga med en fråga i kunskaps basen, fungerar bäst om varje fråga behandlar olika behov. Upprepning av samma ord uppsättning mellan frågorna minskar sannolikheten för att rätt svar väljs för en viss användar fråga med dessa ord.
@@ -132,7 +138,7 @@ Du kan till exempel ha två separata kring med följande frågor:
 |där är parkerings *platsen*|
 |var är ATM- *platsen*|
 
-Eftersom dessa två kring är formulerade med mycket liknande ord, kan den här likheten orsaka mycket liknande Poäng för många användar frågor som är formulerade som  *"där är `<x>` platsen"*. Försök i stället att tydligt särskilja med frågor som  *"Where är parkerings partiet"* och *"var är ATM"*, genom att undvika ord som "plats" som kan finnas i många frågor i din KB.
+Eftersom dessa två kring är formulerade med mycket liknande ord, kan den här likheten orsaka mycket liknande Poäng för många användar frågor som är formulerade som  *"där är `<x>` platsen"*. Försök i stället att tydligt särskilja med frågor som  *"Where är parkerings partiet"* och *"var är ATM"* , genom att undvika ord som "plats" som kan finnas i många frågor i din KB.
 
 ## <a name="collaborate"></a>Samarbeta
 QnA Maker gör det möjligt för användare att [samar beta](../How-to/collaborate-knowledge-base.md) i en kunskaps bas. Användare behöver åtkomst till resurs gruppen för Azure-QnA Maker för att få åtkomst till kunskaps baserna. Vissa organisationer kan vilja ta ut kunskaps bas redigeringen och underhållet och fortfarande kunna skydda åtkomsten till sina Azure-resurser. Den här redigeraren – god kännare modell görs genom att konfigurera två identiska [QNA Maker-tjänster](../How-to/set-up-qnamaker-service-azure.md) i olika prenumerationer och välja en för redigerings test cykeln. När testet är klart överförs kunskaps bas innehållet med en [import-export-](../Tutorials/migrate-knowledge-base.md) process till QNA Maker tjänsten för god kännaren som slutligen publicerar kunskaps basen och uppdaterar slut punkten.

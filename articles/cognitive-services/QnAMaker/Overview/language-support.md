@@ -7,44 +7,76 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
-ms.date: 09/24/2019
-ms.openlocfilehash: c990b6980dea871679b0b301e293e4fb94748db7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2019
+ms.openlocfilehash: dc910c01c401468a3dae392a6318344bee25efb7
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89650907"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375658"
 ---
 # <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Språk stöd för en QnA Maker resurs-och kunskaps baser
+
+I den här artikeln beskrivs alternativ för språk support för QnA Maker resurser och kunskaps baser. 
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (stabil utgåva)](#tab/v1)
 
 Språk för tjänsten väljs när du skapar den första kunskaps basen i resursen. Alla ytterligare kunskaps baser i resursen måste vara på samma språk. 
 
 Språket bestämmer relevansen hos resultaten QnA Maker ger svar på användar frågor. QnA Maker resursen och alla kunskaps baser i resursen, stöder ett enda språk. Det enda språket är nödvändigt för att ge bästa svars resultat för en fråga.
 
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker hanterad (för hands version)](#tab/v2)
+
+I QnA Maker hanterat kan du välja att göra språk inställningarna på den enskilda kunskaps bas nivån. Den här inställningen kan endast aktive ras med tjänstens kunskaps bas. När den har angetts kan inte språk inställningarna ändras för tjänsten. 
+
+Om du väljer språk inställningar så att de är kunskapsbaserade, kan du skapa kunskaps baser om olika språk i själva tjänsten. 
+
+---
+
 ## <a name="single-language-per-resource"></a>Enskilt språk per resurs
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (stabil utgåva)](#tab/v1)
 
 Tänk också på följande:
 
 * En QnA Maker tjänst, och alla dess kunskaps baser, stöder bara ett språk.
+* Språket anges explicit när den första kunskaps basen i tjänsten skapas.
+* Språket bestäms av de filer och URL: er som läggs till när kunskaps basen skapas.
+* Det går inte att ändra språket för andra kunskaps banker i tjänsten.
+* Språket används av Kognitiv sökning tjänsten (Ranging #1) och QnA Maker tjänsten (rangation #2) för att generera det bästa svaret på en fråga.
+
+# <a name="qnamaker-managed-preview"></a>[QnAMaker-hanterad (för hands version)](#tab/v2)
+![Språk inställning i QnA Maker hanterad](../media/language-support/language-setting-managed.png)
+
+Om du **inte markerar kryss rutan för att aktivera språk inställningen per kunskaps bas** bör du tänka på följande: 
+* En QnA Maker tjänst och alla dess kunskaps Bases har stöd för ett språk.
 * Språket anges explicit när den första kunskaps basen i tjänsten skapas
 * Språket bestäms av de filer och URL: er som läggs till när kunskaps basen skapas
 * Det går inte att ändra språket för andra kunskaps banker i tjänsten
 * Språket används av Kognitiv sökning tjänsten (Ranging #1) och QnA Maker tjänsten (Ranging #2) för att generera det bästa svaret på en fråga
 
-## <a name="supporting-multiple-languages"></a>Stöd för flera språk
+---
+
+## <a name="supporting-multiple-languages-in-one-qna-maker-resource"></a>Stöd för flera språk i en QnA Maker resurs
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (stabil utgåva)](#tab/v1)
+Den här funktionen stöds inte i vår aktuella allmänt tillgängliga (GA) stabila version. Kolla QnA Maker Managed för att testa den här funktionen. 
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker hanterad (för hands version)](#tab/v2)
+* När du skapar den första kunskaps basen i din tjänst kan du välja att aktivera språk inställningen per kunskaps bas. Markera kryss rutan för att skapa kunskaps baser som tillhör olika språk i en tjänst.
+* Det går inte att ändra språk inställnings alternativet för tjänsten när den första kunskaps basen har skapats.
+* Om du aktiverar språk inställningar som är specifika för varje kunskaps bas måste du i stället för att ha ett test index för tjänsten ha ett test index per kunskaps bas. 
+
+![Språk inställning i QnA Maker hanterad](../media/language-support/language-setting-managed.png)
+
+---
+
+## <a name="supporting-multiple-languages-in-one-knowledge-base"></a>Stöd för flera språk i en kunskaps bas
 
 Om du behöver stöd för ett kunskaps bas system, som innehåller flera språk, kan du:
 
 * Använd [tjänsten Translator](../../translator/translator-info-overview.md) för att översätta en fråga till ett språk innan du skickar frågan till din kunskaps bas. På så sätt kan du fokusera på kvaliteten på ett enda språk och kvaliteten på de alternativa frågorna och svaren.
 * Skapa en QnA Maker resurs och en kunskaps bas i resursen för varje språk. På så sätt kan du hantera separata alternativa frågor och svars text som är mer nyanserade för varje språk. Detta ger dig mycket mer flexibilitet men kräver en mycket högre underhålls kostnad när frågorna eller Svaren ändras på alla språk.
-
-Granska [språk som stöds](../overview/language-support.md) för QNA Maker.
-
-### <a name="support-each-language-with-a-qna-maker-resource"></a>Stöd för varje språk med en QnA Maker-resurs
-
-* Skapa en QnA Maker resurs för varje språk
-* Lägg endast till filer och URL: er för språket
-* Använd en namngivnings konvention för resursen för att identifiera språket. Ett exempel är `qna-maker-fr` för alla kunskaps baser om franska dokument
 
 
 ## <a name="languages-supported"></a>Språk som stöds

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: b6a914df9ed277625d3706465fe335e128aeced1
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: b5b171941a3da42d2f5b385303c51285ff793599
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545165"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376782"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Server parametrar i Azure Database for MySQL
 
@@ -31,7 +31,7 @@ Se följande avsnitt för att lära dig mer om gränserna för de många ofta up
 
 ### <a name="thread-pools"></a>Trådbaserade pooler
 
-MySQL tilldelar traditionellt en tråd för varje klient anslutning. När antalet samtidiga användare växer, finns det en motsvarande minskning av prestanda. Många aktiva trådar kan påverka prestandan avsevärt på grund av ökad kontext växling, tråd konkurrens och felaktig plats för CPU-cacheminnen.
+MySQL tilldelar traditionellt en tråd för varje klient anslutning. I takt med att antalet samtidiga användare växer, finns det en motsvarande Drop-form. Många aktiva trådar kan påverka prestandan avsevärt på grund av ökad kontext växling, tråd konkurrens och felaktig plats för CPU-cacheminnen.
 
 Trådbaserade pooler som är en funktion på Server sidan och som är skilda från anslutningspoolen, maximerar prestanda genom att introducera en dynamisk pool av arbets trådar som kan användas för att begränsa antalet aktiva trådar som körs på servern och minimerar tråd omsättningen. På så sätt ser du till att en burst-anslutning inte medför att servern tar slut på resurser eller kraschar med ett slut på minnes fel. Trådbaserade pooler är mest effektiva för korta frågor och CPU-intensiva arbets belastningar, till exempel OLTP-arbetsbelastningar.
 
@@ -57,9 +57,9 @@ Om du vill förbättra prestanda problem med korta frågor i trådpoolen kan du 
 
 ### <a name="log_bin_trust_function_creators"></a>log_bin_trust_function_creators
 
-I Azure Database for MySQL är binära loggar alltid aktiverade (dvs. `log_bin` är inställt på på). Om du vill använda utlösare får du ett fel som liknar att *du inte har behörigheten Super och binär loggning är aktive rad (du kanske vill använda mindre säker `log_bin_trust_function_creators` variabel)* . 
+I Azure Database for MySQL är binära loggar alltid aktiverade (dvs. `log_bin` är inställt på på). Om du vill använda utlösare får du ett fel som liknar att *du inte har behörigheten Super och binär loggning är aktive rad (du kanske vill använda mindre säker `log_bin_trust_function_creators` variabel)*. 
 
-Formatet för binär loggning är alltid **rad** och alla anslutningar till servern använder **alltid** rad-baserad binär loggning. Med en diskbaserad binär loggning finns inte säkerhets problem och binär loggning kan inte brytas, så du kan säkert ange [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) **värdet sant** .
+Formatet för binär loggning är alltid **rad** och alla anslutningar till servern använder **alltid** rad-baserad binär loggning. Med en diskbaserad binär loggning finns inte säkerhets problem och binär loggning kan inte brytas, så du kan säkert ange [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) **värdet sant**.
 
 ### <a name="innodb_buffer_pool_size"></a>innodb_buffer_pool_size
 
@@ -108,7 +108,7 @@ Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/
 
 MySQL lagrar tabellen InnoDB i olika tabell utrymmen baserat på den konfiguration du angav när tabellen skapades. [Systemets tabell utrymme](https://dev.mysql.com/doc/refman/5.7/en/innodb-system-tablespace.html) är lagrings utrymmet för data ord listan InnoDB. Ett tabell namn för en [fil per tabell](https://dev.mysql.com/doc/refman/5.7/en/innodb-file-per-table-tablespaces.html) innehåller data och index för en enskild InnoDB-tabell och lagras i fil systemet i en egen datafil. Detta beteende styrs av `innodb_file_per_table` Server parametern. Inställningen `innodb_file_per_table` `OFF` gör att InnoDB skapar tabeller i System register utrymmet. Annars skapar InnoDB tabeller i tabell utrymmen per tabell.
 
-Azure Database for MySQL stöder högst **1 TB** i en enskild datafil. Om databas storleken är större än 1 TB bör du skapa tabellen i [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table) tabell utrymme. Om du har en enskild tabell storlek som är större än 1 TB bör du använda partitionstabellen.
+Azure Database for MySQL stöder största, **4 TB** , i en enda data fil. Om databas storleken är större än 4 TB bör du skapa tabellen i [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table) tabell utrymme. Om du har en enskild tabell storlek som är större än 4 TB bör du använda partitionstabellen.
 
 ### <a name="join_buffer_size"></a>join_buffer_size
 
@@ -215,7 +215,7 @@ Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/
 
 ### <a name="innodb_strict_mode"></a>innodb_strict_mode
 
-Om du får ett fel som liknar "rad storleken är för stor (> 8126)" kanske du vill inaktivera parametern **innodb_strict_mode** . Det går inte att ändra server parametern **innodb_strict_mode** globalt på server nivå eftersom data storleken på raden är större än 8k, men data trunkeras utan ett fel som leder till potentiell data förlust. Vi rekommenderar att du ändrar schemat så att det passar sid storleks gränsen. 
+Om du får ett fel som liknar "rad storleken är för stor (> 8126)" kanske du vill inaktivera parametern **innodb_strict_mode**. Det går inte att ändra server parametern **innodb_strict_mode** globalt på server nivå eftersom data storleken på raden är större än 8k, men data trunkeras utan ett fel som leder till potentiell data förlust. Vi rekommenderar att du ändrar schemat så att det passar sid storleks gränsen. 
 
 Den här parametern kan ställas in på en sessionsnyckel med `init_connect` . Om du vill ange **innodb_strict_mode** på sessionsstatus, se [inställnings parameter som inte visas](./howto-server-parameters.md#setting-parameters-not-listed).
 

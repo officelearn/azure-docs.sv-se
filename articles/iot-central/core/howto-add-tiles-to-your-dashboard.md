@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: beeb771ea5053dd0ad867a7568aa64bbb2d0b4ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5276f9b8c6dd3bdc305142e5b9452cd9c5d60bce
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985302"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94377004"
 ---
 # <a name="configure-the-application-dashboard"></a>Konfigurera program instrument panelen
 
@@ -23,17 +23,17 @@ ms.locfileid: "90985302"
 
 ## <a name="add-tiles"></a>Lägg till paneler
 
-På följande skärm bild visas instrument panelen i ett program som skapats från den **anpassade program** mal len. Om du vill anpassa den aktuella instrument panelen väljer du **Redigera**, för att lägga till en anpassad personlig eller delad instrument panel, väljer **ny**:
+På följande skärm bild visas instrument panelen i ett program som skapats från den **anpassade program** mal len. Om du vill anpassa den aktuella instrument panelen väljer du **Redigera** , för att lägga till en anpassad personlig eller delad instrument panel, väljer **ny** :
 
 :::image type="content" source="media/howto-add-tiles-to-your-dashboard/dashboard-sample-contoso.png" alt-text="Instrument panel för program som baseras på den anpassade program mal len":::
 
-När du har valt **redigera** eller **nytt**är instrument panelen i *redigerings* läge. Du kan använda verktygen på panelen **Redigera instrument panel** för att lägga till paneler på instrument panelen och anpassa och ta bort paneler på själva instrument panelen. Om du till exempel vill lägga till en **telemetri** -panel för att visa aktuell temperatur som rapporteras av en eller flera enheter:
+När du har valt **redigera** eller **nytt** är instrument panelen i *redigerings* läge. Du kan använda verktygen på panelen **Redigera instrument panel** för att lägga till paneler på instrument panelen och anpassa och ta bort paneler på själva instrument panelen. Om du till exempel vill lägga till en **telemetri** -panel för att visa aktuell temperatur som rapporteras av en eller flera enheter:
 
 1. I panelen **Redigera instrument panel** väljer du en **enhets grupp**.
 1. Välj en eller flera enheter i list rutan **enheter** som ska visas på panelen. Nu ser du tillgängliga telemetri, egenskaper och kommandon från enheterna.
 1. Välj **temperatur** i avsnittet telemetri och välj sedan **Lägg till panel**. Panelen visas nu på instrument panelen där du kan ändra visualiseringen, ändra storlek på panelen och konfigurera den:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Instrument panel för program som baseras på den anpassade program mal len":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Lägg till en panel för temperatur telemetri på instrument panelen":::
 
 När du är klar med att lägga till och anpassa paneler på instrument panelen väljer du **Spara**.
 
@@ -51,7 +51,7 @@ Om du vill anpassa en panel på instrument panelen måste instrument panelen var
 
 I följande tabell beskrivs de olika typerna av panel som du kan lägga till på en instrument panel:
 
-| Panel             | Beskrivning |
+| Panel             | Description |
 | ---------------- | ----------- |
 | Markdown         | Markdown paneler är klicknings bara paneler som visar en rubrik och en beskrivnings text formaterad med markdown. URL: en kan vara en relativ länk till en annan sida i programmet eller en absolut länk till en extern plats.|
 | Bild            | Bild paneler visar en anpassad bild och går att klicka på. URL: en kan vara en relativ länk till en annan sida i programmet eller en absolut länk till en extern plats.|
@@ -71,27 +71,31 @@ För närvarande kan du lägga till upp till 10 enheter till paneler som har st�
 
 ### <a name="customizing-visualizations"></a>Anpassa visualiseringar
 
+Linje diagram visar som standard data under ett tidsintervall. Det valda tidsintervallet delas upp i 50-enheter med samma storlek och enhets data sammanställs sedan per Bucket för att ge 50 data punkter över det valda tidsintervallet. Om du vill visa rå data kan du ändra ditt val för att visa de senaste 100 värdena. Om du vill ändra tidsintervallet eller välja rå data visualisering, använder du List rutan visnings intervall i panelen **Konfigurera diagram** .
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/display-range.png" alt-text="Ändra visnings intervallet för ett linje diagram":::
+
 För paneler som visar aggregerade värden väljer du kugg hjuls ikonen bredvid typen telemetri i panelen **Konfigurera diagram** för att välja agg regeringen. Du kan välja mellan genomsnitt, sum, Max, minimum och Count.
 
 För linje diagram, liggande diagram och cirkel diagram kan du anpassa färgen på de olika värdena för telemetri. Välj palett-ikonen bredvid den telemetri som du vill anpassa:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/color-customization.png" alt-text="Instrument panel för program som baseras på den anpassade program mal len":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/color-customization.png" alt-text="Ändra färg på ett telemetri värde":::
 
 För paneler som visar sträng egenskaper eller telemetridata kan du välja hur du vill att texten ska visas. Om enheten till exempel lagrar en URL i en sträng egenskap kan du Visa den som en klicknings bara länk. Om URL: en refererar till en bild kan du återge bilden i ett sista känt värde eller en egenskaps panel. Om du vill ändra hur en sträng visas i panelen konfiguration väljer du kugg hjuls ikonen bredvid typen av telemetri eller egenskap:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="Instrument panel för program som baseras på den anpassade program mal len":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="Ändra hur en sträng visas på en panel":::
 
-För numeriska **KPI**: er, **senast kända värde**och **egenskaps** paneler kan du använda villkorsstyrd formatering för att anpassa panelens färg baserat på dess aktuella värde. Om du vill lägga till villkorsstyrd formatering väljer du **Konfigurera** på panelen och väljer sedan ikonen **villkorsstyrd formatering** bredvid värdet som du vill anpassa:
+För numeriska **KPI** : er, **senast kända värde** och **egenskaps** paneler kan du använda villkorsstyrd formatering för att anpassa panelens färg baserat på dess aktuella värde. Om du vill lägga till villkorsstyrd formatering väljer du **Konfigurera** på panelen och väljer sedan ikonen **villkorsstyrd formatering** bredvid värdet som du vill anpassa:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-1.png" alt-text="Instrument panel för program som baseras på den anpassade program mal len":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-1.png" alt-text="Skärm bild som visar hur du hittar alternativet Konfigurera för en panel och sedan ikonen villkorsstyrd formatering":::
 
 Lägg till reglerna för villkorsstyrd formatering:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Instrument panel för program som baseras på den anpassade program mal len":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Skärm bild som visar regler för villkorsstyrd formatering för Genomsnittligt flöde. Det finns tre regler som är mindre Tha 20 är gröna, mindre än 50 är gult och allt över 50 är rött":::
 
 Följande skärm bild visar resultatet av regeln för villkorsstyrd formatering:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Instrument panel för program som baseras på den anpassade program mal len":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Skärm bild som visar den gula bakgrunds färgen på panelen Genomsnittligt vatten flöde. Numret på panelen är 40,84":::
 
 ## <a name="next-steps"></a>Nästa steg
 

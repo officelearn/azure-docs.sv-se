@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/24/2020
-ms.openlocfilehash: 568cd7b280b8fb65b5f75588a2832631361938dd
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 810878956a89b6e7400be99692cf43925d1cd134
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420622"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375935"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>Two-Class utökat besluts träd
 
@@ -26,7 +26,7 @@ Ett utökat besluts träd är en ensemble-utbildnings metod där det andra träd
   
 När rätt konfigurerade besluts träd är korrekt konfigurerade är de enkla metoder som du kan använda för att få bästa prestanda på en mängd olika Machine Learning-uppgifter. De är dock också en av de mer minnes intensiva eleverna och den aktuella implementeringen innehåller allt i minnet. Därför kanske en bättre besluts träd modell inte kan bearbeta de stora data mängderna som vissa linjära lärare kan hantera.
 
-Den här modulen är baserad LightGBM-algoritm.
+Den här modulen baseras på LightGBM-algoritmen.
 
 ## <a name="how-to-configure"></a>Så här konfigurerar du
 
@@ -56,7 +56,7 @@ Du kan träna den här typen av modell med hjälp av [träna modell](././train-m
   
 6.  Ange det totala antalet besluts träd som ska skapas i ensemblen för **antalet skapade träd**. Genom att skapa fler besluts träd kan du eventuellt få bättre täckning, men inlärnings tiden ökar.
   
-     Det här värdet styr också antalet träd som visas vid visualisering av den tränade modellen. Om du vill se eller skriva ut ett enda träd ställer du in värdet på 1. Men när du gör det skapas endast ett träd (trädet med den inledande uppsättningen parametrar) och inga ytterligare iterationer utförs.
+     Om du ställer in värdet på 1 skapas endast ett träd (trädet med den inledande uppsättningen parametrar) och inga ytterligare iterationer utförs.
   
 7.  För **slumpmässigt antal frön** kan du ange ett icke-negativt heltal som ska användas som det slumpmässiga startvärdet. Genom att ange ett utsäde säkerställer du reproducerbarhet i körningar som har samma data och parametrar.  
   

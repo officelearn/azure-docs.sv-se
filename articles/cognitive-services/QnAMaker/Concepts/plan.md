@@ -4,13 +4,13 @@ description: Lär dig hur du planerar din QnA Maker-app. Förstå hur QnA Maker 
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 07/2/2020
-ms.openlocfilehash: 84e4d6907c9036503f43cd607b54577fd3d97444
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 0be2fecfad4d2a2b829266fa1d9574bcc4c50eee
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776943"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376695"
 ---
 # <a name="plan-your-qna-maker-app"></a>Planera QnA Maker-appen
 
@@ -20,6 +20,8 @@ Om du vill planera din QnA Maker-app måste du förstå hur QnA Maker fungerar o
 
 Varje [Azure-resurs](azure-resources.md#resource-purposes) som skapats med QNA Maker har ett specifikt syfte. Varje resurs har sitt eget syfte, gränser och [pris nivå](azure-resources.md#pricing-tier-considerations). Det är viktigt att förstå funktionerna i dessa resurser så att du kan använda dessa kunskaper i planerings processen.
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (stabil utgåva)](#tab/v1)
+
 | Resurs | Syfte |
 |--|--|
 | [QNA Maker](azure-resources.md#qna-maker-resource) resurs | Redigering och fråga förutsägelse |
@@ -27,6 +29,14 @@ Varje [Azure-resurs](azure-resources.md#resource-purposes) som skapats med QNA M
 | Resurs för [resurs-och app-plan för App Service](azure-resources.md#app-service-and-app-service-plan) | Slutpunkt för frågeförutsägelse |
 | [Application Insights](azure-resources.md#application-insights) resurs | Telemetri för fråga förutsägelse |
 
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker hanterad (för hands version)](#tab/v2)
+
+| Resurs | Syfte |
+|--|--|
+| [QNA Maker](azure-resources.md#qna-maker-resource) resurs | Redigering, fråga förutsägelse slut punkt och telemetri|
+| [Kognitiv sökning](azure-resources.md#cognitive-search-resource) resurs | Data lagring och sökning |
+
+---
 ### <a name="resource-planning"></a>Resurs planering
 
 Den kostnads fria nivån, `F0` , för varje resurs, fungerar och kan ge både redigering och fråga förutsägelse. Du kan använda den här nivån för att lära dig att redigera och fråga förutsägelse. När du flyttar till ett produktions-eller Live-scenario kan du utvärdera ditt resurs val igen.
@@ -65,9 +75,22 @@ En kunskaps bas är direkt knuten till sin QnA Maker-resurs. Den innehåller de 
 
 ### <a name="language-considerations"></a>Språk överväganden
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (stabil utgåva)](#tab/v1)
+
 Den första kunskaps basen som skapas på QnA Maker-resursen anger språket för resursen. Du kan bara ha ett språk för en QnA Maker-resurs.
 
 Du kan strukturera QnA Maker resurser efter språk, eller så kan du använda [Translator](../../translator/translator-info-overview.md) för att ändra en fråga från ett annat språk till kunskaps bas språket innan du skickar frågan till slut punkten för frågans förutsägelse.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker hanterad (för hands version)](#tab/v2)
+
+Du kan nu ha kunskaps banker på olika språk inom samma QnA Maker-resurs. När du skapar den första kunskaps basen kan du välja om du vill använda resursen för kunskaps baser på ett enda språk eller flera språk.
+
+![QnA Maker hanterad (för hands version) flerspråkigt kunskaps bas val](../media/concept-plan-your-knowledge-base/qnamaker-v2-select-multilanguage-knowledge-base.png)
+
+> [!NOTE]
+> Om du aktiverar språk inställningar per kunskaps bas kan du inte skapa så många kunskaps baser i din QnA Maker-resurs. [Mer information om språk inställnings begränsningar](./azure-resources.md).
+
+---
 
 ### <a name="ingest-data-sources"></a>Mata in data källor
 
@@ -152,7 +175,15 @@ Det finns en [svars rangordning i två faser](query-knowledge-base.md#how-qna-ma
 
 ### <a name="service-updates"></a>Tjänstuppdateringar
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (stabil utgåva)](#tab/v1)
+
 Använd de [senaste körnings uppdateringarna](../how-to/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates) för att hantera tjänst uppdateringar automatiskt.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker hanterad (för hands version)](#tab/v2)
+
+I QnA Maker hanterad (för hands version) hanteras körningen av själva QnA Maker-tjänsten. Därför är tjänst uppdateringar inte tillämpliga.
+
+---
 
 ### <a name="scaling-throughput-and-resiliency"></a>Skalning, data flöde och återhämtning
 
@@ -160,7 +191,16 @@ Skalning, data flöde och återhämtning bestäms av Azure- [resurser](../how-to
 
 ### <a name="analytics-with-application-insights"></a>Analys med Application Insights
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (stabil utgåva)](#tab/v1)
+
 Alla frågor till kunskaps basen lagras i Application Insights. Använd våra [vanligaste frågor](../how-to/get-analytics-knowledge-base.md) för att förstå dina mått.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker hanterad (för hands version)](#tab/v2)
+
+I den hanterade distributionen erbjuds telemetri via [tjänsten Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/). Använd våra [vanligaste frågor](../how-to/get-analytics-knowledge-base.md) för att förstå dina mått.
+
+
+---
 
 ## <a name="development-lifecycle"></a>Utvecklingscykel
 

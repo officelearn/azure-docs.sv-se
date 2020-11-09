@@ -50,13 +50,13 @@
   items:
     - name: Snabbstarter
       items:
-        - name: Skapa en Synapse-arbetsyta med hjälp av Azure-portalen
+        - name: Skapa en arbetsyta med hjälp av Azure-portalen
           href: quickstart-create-workspace.md
           displayName: quickstart
-        - name: Skapa en Synapse-arbetsyta med hjälp av Azure CLI
+        - name: Skapa en arbetsyta med hjälp av Azure CLI
           href: quickstart-create-workspace-cli.md
           displayName: quickstart
-        - name: Skapa en Synapse-arbetsyta med hjälp av Azure PowerShell
+        - name: Skapa en arbetsyta med hjälp av Azure PowerShell
           href: quickstart-create-workspace-powershell.md
           displayName: quickstart
         - name: Distribuera med en mall
@@ -338,6 +338,12 @@
               displayname: 'workload, management'
     - name: Anvisningar
       items:
+        - name: Säkerhetskopiering och återställning
+          items:
+            - name: Skapa återställningspunkter
+              href: ./backuprestore/sqlpool-create-restore-point.md
+            - name: Återställa en Synapse SQL-pool
+              href: ./backuprestore/restore-sql-pool.md
         - name: Hantera och övervaka
           items:
             - name: Övervaka Gen2-cache

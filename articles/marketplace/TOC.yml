@@ -81,12 +81,36 @@
       href: publisher-guide-by-offer-type.md
     - name: Erbjudanden för Azure-program
       items:
-        - name: Planera ett erbjudande för lösningsmall
-          href: marketplace-solution-templates.md
-        - name: Planera ett erbjudande för hanterat program
-          href: marketplace-managed-apps.md
+        - name: Planera erbjudanden för Azure-program
+          items:
+            - name: Planera ett erbjudande för Azure-program
+              href: plan-azure-application-offer.md
+            - name: Planera en lösningsmall
+              href: plan-azure-app-solution-template.md
+            - name: Planera ett hanterat program
+              href: plan-azure-app-managed-app.md
         - name: Skapa och publicera ett erbjudande om Azure-program
-          href: partner-center-portal/create-new-azure-apps-offer.md
+          items:
+            - name: Skapa ett erbjudande för Azure-program
+              href: create-new-azure-apps-offer.md
+            - name: Konfigurera egenskaper för Azure-programerbjudanden
+              href: create-new-azure-apps-offer-properties.md
+            - name: Konfigurera lista över Azure-programerbjudanden
+              href: create-new-azure-apps-offer-listing.md
+            - name: Lägg till en målgrupp för förhandsversionen
+              href: create-new-azure-apps-offer-preview.md
+            - name: Lägg till teknisk information
+              href: create-new-azure-apps-offer-technical.md
+            - name: Skapa planer
+              href: create-new-azure-apps-offer-plans.md
+            - name: Skapa en plan för lösningsmall
+              href: create-new-azure-apps-offer-solution.md
+            - name: Skapa en plan för hanterat program
+              href: create-new-azure-apps-offer-managed.md
+            - name: Testa och publicera ett erbjudande om Azure-program
+              href: create-new-azure-apps-offer-test-publish.md
+        - name: Marknadsför ditt erbjudande för Azure-program
+          href: create-new-azure-apps-offer-marketing.md
         - name: Förbrukningsbaserad fakturering för Azure-program
           href: partner-center-portal/azure-app-metered-billing.md
         - name: Hantera feedback från granskning

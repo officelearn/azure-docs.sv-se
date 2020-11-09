@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 04/28/2020
+ms.date: 11/08/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 9339ac86595a1edbbd996e410d416074680695ed
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 8cf0652148ad54eeacdec874823ea680f39f670c
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340047"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372735"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Granskning för Azure SQL Database och Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -40,7 +40,7 @@ Du kan använda SQL Database granskning för att:
 - **Analysera** rapporter. Du kan hitta misstänkta händelser, ovanliga aktiviteter och trender.
 
 > [!IMPORTANT]
-> Azure SQL Database granskning är optimerad för tillgänglighet och prestanda. Vid mycket hög aktivitet Azure SQL Database eller Azure-Synapse kan åtgärder fortsätta och vissa granskade händelser kanske inte registreras.
+> Granskning för Azure SQL Database och Azure-Synapse är optimerad för tillgänglighet och prestanda. Under mycket hög aktivitet, eller hög belastning i nätverket, Azure SQL Database och Azure-Synapse tillåta åtgärder att fortsätta och kan inte registrera vissa granskade händelser.
 
 ### <a name="auditing-limitations"></a>Gransknings begränsningar
 

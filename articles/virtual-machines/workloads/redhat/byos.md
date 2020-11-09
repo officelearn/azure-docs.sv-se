@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 8896ed3eed291e6ec18c45df60e6079ada769b28
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 3a597b6454b3fb738ca192fa7750ca94fdb873ab
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993332"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372803"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux guld-avbildningar för prenumerationer i Azure
 
@@ -28,7 +28,7 @@ Red Hat Enterprise Linux-avbildningar (RHEL) är tillgängliga i Azure via en "b
 - Standard Support policys gäller för virtuella datorer som skapats från de här avbildningarna.
 - De virtuella datorer som tillhandahålls från Red Hat Gold-avbildningar har inte RHEL-avgifter som är kopplade till RHEL-avbildningar enligt principen betala per användning.
 - Bilderna är inte berättigade. Du måste använda Red Hat-Subscription-Manager för att registrera och prenumerera på de virtuella datorerna för att få uppdateringar från Red Hat direkt.
-- Det går för närvarande inte att dynamiskt växla mellan BYOS och fakturerings modeller enligt principen betala per användning för Linux-avbildningar. Om du vill byta fakturerings modell måste du distribuera om den virtuella datorn från respektive avbildning.
+- Det går att växla från avbildningar med betala per användning till BYOS med hjälp av [Azure Hybrid-förmån](../../linux/azure-hybrid-benefit-linux.md). Det är dock inte möjligt att växla från en ursprungligen distribuerad BYOS till fakturerings modeller enligt principen betala per användning för Linux-avbildningar. Om du vill byta fakturerings modell från BYOS till "betala per användning" måste du distribuera om den virtuella datorn från respektive avbildning.
 
 >[!NOTE]
 > Generation 2 RHEL BYOS-avbildningar är inte tillgängliga via Marketplace-erbjudandet. Om du behöver en generation 2 RHEL BYOS-avbildning kan du gå till instrument panelen för moln åtkomst i Red Hat-prenumerations hantering. Mer information finns i [Red Hat-dokumentationen](https://access.redhat.com/articles/4847681).

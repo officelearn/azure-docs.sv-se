@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 97853f0524b794169de3aaaec33cf1b30949d930
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: d62ed31a68d9469a1bd1fc66e479b0f91db2f916
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92901545"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372276"
 ---
 # <a name="what-is-azure-security-center"></a>Vad är Azure Security Center?
 
@@ -54,7 +54,7 @@ Security Center skyddar dessutom icke-Azure-servrar och virtuella datorer i moln
 
 De händelser som samlas in från agenterna och från Azure korreleras i Security Analytics-motorn för att ge dig anpassade rekommendationer (härdning av aktiviteter), som du bör följa för att se till att dina arbets belastningar är säkra och säkerhets aviseringar. Du bör kontrollera dessa aviseringar så snart som möjligt så att du kan försäkra dig om att dina arbetsbelastningar inte utsätts för potentiellt skadliga attacker.
 
-När du aktiverar Security Center visas den inbyggda Security Center-säkerhetsprincipen i Azure Policy som ett inbyggt initiativ under kategorin Security Center. Det inbyggda initiativet tilldelas automatiskt till alla Security Center registrerade prenumerationer (kostnads fria eller vanliga pris nivåer). Det inbyggda initiativet innehåller endast granskningsprinciper. Läs mer om Security Center-principer i Azure Policy i artikeln om att [arbeta med säkerhetsprinciper](tutorial-security-policy.md).
+När du aktiverar Security Center återspeglas säkerhets principen som är inbyggd för Security Center i Azure Policy som ett inbyggt initiativ under kategorin Security Center. Det inbyggda initiativet tilldelas automatiskt till alla Security Center registrerade prenumerationer (oavsett om de har Azure Defender aktiverat) eller inte. Det inbyggda initiativet innehåller endast granskningsprinciper. Läs mer om Security Center-principer i Azure Policy i artikeln om att [arbeta med säkerhetsprinciper](tutorial-security-policy.md).
 
 ## <a name="strengthen-security-posture"></a>Förbättra säkerheten
 
@@ -62,27 +62,27 @@ Med Azure Security Center kan du förbättra din säkerhet. Du får hjälp med a
 
 ### <a name="manage-organization-security-policy-and-compliance"></a>Hantera principer för organisationssäkerhet och efterlevnad
 
-Det tillhör grunderna i säkerhetsarbetet att känna till och skydda sina arbetsbelastningar, och utgångspunkten är att ha skräddarsydda säkerhetsprinciper på plats. Eftersom alla principer i Security Center bygger på Azure Policy kontroller får du full räckvidd och flexibilitet i en **princip lösning i världs klass** . Du kan konfigurera dina principer i Security Center så att de körs för hanteringsgrupper, för prenumerationer och även för en hel klientorganisation.
+Det tillhör grunderna i säkerhetsarbetet att känna till och skydda sina arbetsbelastningar, och utgångspunkten är att ha skräddarsydda säkerhetsprinciper på plats. Eftersom alla principer i Security Center bygger på Azure Policy kontroller får du full räckvidd och flexibilitet i en **princip lösning i världs klass**. Du kan konfigurera dina principer i Security Center så att de körs för hanteringsgrupper, för prenumerationer och även för en hel klientorganisation.
 
 :::image type="content" source="./media/security-center-intro/sc-dashboard.png" alt-text="Sidan princip hantering":::
 
-Security Center hjälper dig att **identifiera SKUGG IT-prenumerationer** . Genom att titta på prenumerationer märkta **omfattas inte** på instrumentpanelen kan du se direkt när det har skapats nya prenumerationer och se till att de omfattas av dina principer och skyddas av Azure Security Center.
+Security Center hjälper dig att **identifiera SKUGG IT-prenumerationer**. Genom att titta på prenumerationer märkta **omfattas inte** på instrumentpanelen kan du se direkt när det har skapats nya prenumerationer och se till att de omfattas av dina principer och skyddas av Azure Security Center.
 
-:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Sidan princip hantering":::
+:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Principinstrumentpanelen i Security Center":::
 
 ### <a name="continuous-assessments"></a>Kontinuerliga utvärderingar
 
 Security Center identifierar nya resurser som distribueras till dina arbetsbelastningar och utvärderar om de har konfigurerats enligt rekommenderade säkerhetsmetoder. Om så inte är fallet flaggas de och du får en prioriterad lista med rekommendationer om vad du måste åtgärda för att skydda dina datorer.
 
-För att hjälpa dig att förstå hur viktiga varje rekommendation är för din övergripande säkerhets position, kan Security Center gruppera rekommendationerna i säkerhets kontroller och lägga till ett **säkert Poäng** värde för varje kontroll. Detta är viktigt för att du ska kunna **prioritera ditt säkerhets arbete** .
+För att hjälpa dig att förstå hur viktiga varje rekommendation är för din övergripande säkerhets position, kan Security Center gruppera rekommendationerna i säkerhets kontroller och lägga till ett **säkert Poäng** värde för varje kontroll. Detta är viktigt för att du ska kunna **prioritera ditt säkerhets arbete**.
 
-:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Sidan princip hantering":::
+:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Security Center-säkerhetspoäng":::
 
 ### <a name="network-map"></a>Nätverks karta
 
-Ett av de mest kraftfulla verktygen Security Center ger en kontinuerlig övervakning av nätverkets säkerhets status som **nätverks kartan** . Med hjälp av kartan kan du se dina arbetsbelastningars topologi, och därmed även se om varje enskild nod har konfigurerats korrekt. Du kan se hur dina noder är anslutna, vilket hjälper dig att blockera oönskade anslutningar som potentiellt kan göra det enklare för en angripare att ta sig in i ditt nätverk.
+Ett av de mest kraftfulla verktygen Security Center ger en kontinuerlig övervakning av nätverkets säkerhets status som **nätverks kartan**. Med hjälp av kartan kan du se dina arbetsbelastningars topologi, och därmed även se om varje enskild nod har konfigurerats korrekt. Du kan se hur dina noder är anslutna, vilket hjälper dig att blockera oönskade anslutningar som potentiellt kan göra det enklare för en angripare att ta sig in i ditt nätverk.
 
-:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Sidan princip hantering":::
+:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Security Center-nätverkskarta":::
 
 
 ### <a name="optimize-and-improve-security-by-configuring-recommended-controls"></a>Optimera och förbättra säkerheten genom att konfigurera rekommenderas kontroller
@@ -93,7 +93,7 @@ På så sätt gör Security Center det möjligt för dig att inte bara ställa i
 
 Rekommendationerna hjälper dig att minska risken för angrepp för alla dina resurser. Detta omfattar Azure-datorer, icke-Azure-servrar och Azure PaaS-tjänster, som SQL- och Storage-konton och mycket mer, där varje resurstyp bedöms på olika sätt och har sin egen standarder.
 
-:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Sidan princip hantering":::
+:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Security Center-rekommendationsexempel":::
 
 ## <a name="protect-against-threats"></a>Skydda dig mot risker
 
@@ -101,7 +101,7 @@ Med Security Centers hotskydd kan du upptäcka och förebygga hot mot infrastruk
 
 Security Centers hotskydd innehåller fusionsattackkedjeanalys, som automatiskt korrelerar aviseringar i din miljö, baserat på cyberattackkedjeanalysen, så att du bättre ska förstå en attackkampanjs i dess helhet, var den startade och vilken typ av effekt den haft på dina resurser.
 
-:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Sidan princip hantering":::
+:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Säkerhetsaviseringar":::
 
 ### <a name="integration-with-microsoft-defender-for-endpoint"></a>Integrering med Microsoft Defender för slut punkt
 
@@ -137,6 +137,6 @@ Omfattande logginsamling som innebär att loggar från både Windows och Linux b
 
 - För att komma igång med Security Center måste du ha en prenumeration på Microsoft Azure. Om du inte har en prenumeration kan du registrera dig för en [gratis provversion](https://azure.microsoft.com/free/).
 
-- Security Center kostnads fri pris nivå är aktive rad för alla dina aktuella Azure-prenumerationer när du besöker Azure Security Center instrument panelen i Azure Portal för första gången, eller om den har Aktiver ATS via programmering via API. Om du vill dra nytta av funktionerna för avancerad säkerhets hantering och hot identifiering måste du uppgradera till standard pris nivån. Standard nivån kan provas kostnads fritt i 30 dagar. På [prissättningssidan för Security Center](https://azure.microsoft.com/pricing/details/security-center/) finns det mer information.
+- Security Center kostnads fri pris nivå är aktive rad för alla dina aktuella Azure-prenumerationer när du besöker Azure Security Center instrument panelen i Azure Portal för första gången, eller om den har Aktiver ATS via programmering via API. Om du vill dra nytta av funktionerna för avancerad säkerhets hantering och hot identifiering måste du aktivera Azure Defender. Azure Defender kan provas kostnads fritt i 30 dagar. På [prissättningssidan för Security Center](https://azure.microsoft.com/pricing/details/security-center/) finns det mer information.
 
-- Om du är redo att aktivera Security Center standard nu går du igenom anvisningarna genom att [publicera din Azure-prenumeration till Security Center standard](security-center-get-started.md) .
+- Om du är redo att aktivera Azure Defender nu kan du göra följande [: konfigurera Azure Security Center](security-center-get-started.md) vägleder dig genom stegen.

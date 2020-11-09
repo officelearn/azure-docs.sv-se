@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: 6de06e4ab9a302517a09b34de56c1b5535b245a9
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 375dff1dacc949dd4373bbf26908feb504750224
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357818"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372359"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Vad är nytt i Azure Security Center?
 
@@ -32,6 +32,12 @@ Om du vill veta mer om *planerade* ändringar som kommer snart till Security Cen
 
 
 ## <a name="november-2020"></a>November 2020
+
+Uppdateringarna i november omfattar:
+
+- [29 Preview-rekommendationer har lagts till för att öka täckningen av Azures säkerhets benchmark](#29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
+- [NIST SP 800 171 R2 har lagts till Security Center kontroll panelen för regelefterlevnad](#nist-sp-800-171-r2-added-to-security-centers-regulatory-compliance-dashboard)
+
 
 ### <a name="29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>29 Preview-rekommendationer har lagts till för att öka täckningen av Azures säkerhets benchmark
 
@@ -61,10 +67,21 @@ Relaterade länkar:
 - [Läs mer om Azure Database for PostgreSQL](../postgresql/overview.md)
 
 
+### <a name="nist-sp-800-171-r2-added-to-security-centers-regulatory-compliance-dashboard"></a>NIST SP 800 171 R2 har lagts till Security Center kontroll panelen för regelefterlevnad
+
+NIST SP 800-171 R2 Standard är nu tillgängligt som ett inbyggt initiativ för användning med Azure Security Centers instrument panel för kontroll av efterlevnad. Mappningarna för kontrollerna beskrivs i [information om det inbyggda initiativet NIST SP 800-171 R2](../governance/policy/samples/nist-sp-800-171-r2.md). 
+
+Om du vill använda standarderna för dina prenumerationer och kontinuerligt övervaka din kompatibilitetsstatus använder du anvisningarna i [Anpassa uppsättningen med standarder på instrument panelen för övervakning av efterlevnad](update-regulatory-compliance-packages.md).
+
+:::image type="content" source="media/release-notes/nist-sp-800-171-r2-standard.png" alt-text="NIST SP 800 171 R2 Standard i Security Center kontroll panelen för regelefterlevnad":::
+
+Mer information om den här standarden för efterlevnad finns i [NIST SP 800-171 R2](https://csrc.nist.gov/publications/detail/sp/800-171/rev-2/final).
+
 
 
 ## <a name="october-2020"></a>Oktober 2020
 
+Uppdateringar i oktober inkluderar:
 - [Sårbarhets bedömning för datorer på plats och flera moln (för hands version)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview)
 - [Azure Firewall-rekommendation har lagts till (för hands version)](#azure-firewall-recommendation-added-preview)
 - [Auktoriserade IP-intervall bör definieras i Kubernetes Services-rekommendationen med snabb korrigering](#authorized-ip-ranges-should-be-defined-on-kubernetes-services-recommendation-updated-with-quick-fix)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2020
 ms.author: memildin
-ms.openlocfilehash: 4ec75931a335170a8262cc480f43a0f22db0b79b
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: e7e1567a487dc6cadc94a42f02c597ff0e02665b
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342203"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372769"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Anpassa uppsättningen standarder i din instrument panel för regelefterlevnad
 
@@ -41,7 +41,7 @@ Microsoft spårar också gällande regelverk och förbättrar automatiskt täckn
 
 Du kan lägga till standarder som NIST SP 800-53 R4, SWIFT CSP CSCF-v2020, Storbritannien officiella och Storbritannien NHS, Kanadas federala PBMM och Azure CIS 1.1.0 (ny) – en mer fullständig representation av Azure CIS 1.1.0. 
 
-Dessutom kan du lägga till **Azure Security benchmark**, de Microsoft-baserade, Azure-/regionsspecifika rikt linjerna för säkerhet och efterlevnad av praxis som baseras på vanliga ramverk för efterlevnad. ([Läs mer om Azure Security benchmark](../security/benchmarks/introduction.md).)
+Dessutom kan du lägga till **Azure Security benchmark** , de Microsoft-baserade, Azure-/regionsspecifika rikt linjerna för säkerhet och efterlevnad av praxis som baseras på vanliga ramverk för efterlevnad. ([Läs mer om Azure Security benchmark](../security/benchmarks/introduction.md).)
 
 Ytterligare standarder kommer att stödjas på instrument panelen när de blir tillgängliga. 
 
@@ -68,6 +68,7 @@ Följande steg beskriver hur du lägger till ett paket för att övervaka efterl
 
     - **Benchmark för Azure-säkerhet**
     - **NIST SP 800-53 R4**
+    - **NIST SP 800 171 R2**
     - **SWIFT CSP-CSCF – v2020**
     - **UKO och Storbritannien NHS**
     - **Kanada-PBMM**
@@ -78,7 +79,7 @@ Följande steg beskriver hur du lägger till ett paket för att övervaka efterl
 
 1. Från Security Centerens marginal List väljer du **regler för efterlevnad** igen för att gå tillbaka till instrument panelen för kontroll av efterlevnad.
     * Din nya standard visas i din lista över bransch & reglerande standarder. 
-    * Om du har lagt till **Azure CIS-1.1.0 (ny)**, kommer den ursprungliga *statiska* vyn av din Azure CIS-1.1.0 även att finnas kvar tillsammans. Den kan tas bort automatiskt i framtiden.
+    * Om du har lagt till **Azure CIS-1.1.0 (ny)** , kommer den ursprungliga *statiska* vyn av din Azure CIS-1.1.0 även att finnas kvar tillsammans. Den kan tas bort automatiskt i framtiden.
 
     > [!NOTE]
     > Det kan ta några timmar innan en nyligen tillagd standard visas på instrument panelen för efterlevnad.
@@ -103,9 +104,9 @@ Så här tar du bort en standard:
 
     :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard.png" alt-text="Ta bort en reglerande standard från instrument panelen för regler för efterlevnad i Azure Security Center":::
 
-1. Välj **inaktivera**för den standard som du vill ta bort. Ett bekräftelse fönster visas.
+1. Välj **inaktivera** för den standard som du vill ta bort. Ett bekräftelse fönster visas.
 
-    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard-confirm.png" alt-text="Ta bort en reglerande standard från instrument panelen för regler för efterlevnad i Azure Security Center":::
+    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard-confirm.png" alt-text="Bekräfta att du verkligen vill ta bort den gällande lagen som du har valt":::
 
 1. Välj **Ja**. Standard kommer att tas bort. 
 

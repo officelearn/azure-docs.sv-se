@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: bfb1c0180b50ca95cb2f1fbff62469e63ab5f19d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 3a2de9b167fcbe9dc603d33fd816e70d5c3705e5
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428105"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372786"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Anslut dina AWS-konton till Azure Security Center
 
@@ -39,7 +39,7 @@ I skärm bilden nedan ser du AWS-konton som visas på instrument panelen i Secur
 
 |Aspekt|Information|
 |----|:----|
-|Versions tillstånd:|Förhandsgranskning|
+|Versions tillstånd:|Förhandsgranskning<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Priset|Kräver [Azure Defender för servrar](defender-for-servers-introduction.md)|
 |Nödvändiga roller och behörigheter:|**Ägare** eller **deltagare** på den aktuella Azure-prenumerationen|
 |Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![No](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
@@ -70,14 +70,14 @@ Det finns två sätt att tillåta Security Center att autentisera till AWS:
 - **AWS-användare för Security Center** – ett mindre säkert alternativ om du inte har IAM aktiverat
 
 #### <a name="create-an-iam-role-for-security-center"></a>Skapa en IAM-roll för Security Center
-1. Välj **IAM**i Amazon Web Services-konsolen under **säkerhet, identitet & efterlevnad**.
-    :::image type="content" source="./media/quickstart-onboard-aws/aws-identity-and-compliance.png" alt-text="3 GCP-projekt som visas på Security Center översikts instrument panel":::
+1. Välj **IAM** i Amazon Web Services-konsolen under **säkerhet, identitet & efterlevnad**.
+    :::image type="content" source="./media/quickstart-onboard-aws/aws-identity-and-compliance.png" alt-text="AWS-tjänster":::
 
 1. Välj **roller** och **skapa roll**.
 1. Välj **ett annat AWS-konto**.
 1. Ange följande uppgifter:
 
-    - **Konto-ID** – ange Microsoft-konto-ID: t (**158177204117**) som visas på AWS connector-sidan i Security Center.
+    - **Konto-ID** – ange Microsoft-konto-ID: t ( **158177204117** ) som visas på AWS connector-sidan i Security Center.
     - **Kräv externt ID** – ska väljas
     - **Externt ID** – ange prenumerations-ID: t enligt vad som visas på AWS Connector-sidan i Security Center 
 
@@ -130,15 +130,15 @@ AWS Systems Manager krävs för att automatisera uppgifter över dina AWS-resurs
 
 1. Från Security Center menyn väljer du **flera moln anslutningar**.
 1. Välj **Lägg till AWS-konto**.
-    :::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="3 GCP-projekt som visas på Security Center översikts instrument panel":::
+    :::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="Knappen Lägg till AWS-konto på Security Center sidan med flera moln anslutningar":::
 1. Konfigurera alternativen på fliken **AWS-autentisering** :
     1. Ange ett **visnings namn** för kopplingen.
     1. Bekräfta att prenumerationen är korrekt. Det är den prenumeration som omfattar anslutnings-och AWS för säkerhets nav.
     1. Beroende på vilket autentiseringsalternativ du valde i [steg 2. Konfigurera autentisering för Security Center i AWS](#step-2-set-up-authentication-for-security-center-in-aws):
         - Välj  **anta roll** och klistra in ARN från [skapa en IAM-roll för Security Center](#create-an-iam-role-for-security-center).
-            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="3 GCP-projekt som visas på Security Center översikts instrument panel":::
+            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="Klistra in ARN-filen i relevant fält i guiden AWS-anslutning i Azure-portalen":::
 
-            OR
+            ELLER
 
         - Välj **autentiseringsuppgifter** och klistra in **åtkomst nyckeln** och den **hemliga nyckeln** från CSV-filen som du sparade i [skapa en AWS-användare för Security Center](#create-an-aws-user-for-security-center).
 1. Välj **Nästa**.
@@ -168,7 +168,7 @@ När anslutningen har skapats och AWS-säkerhetshubben har kon figurer ATS korre
 - ASC-tjänsten söker efter nya AWS EC2-instanser var 6: e timme och registrerar dem enligt konfigurationen.
 - AWS CIS-standarden visas i Security Centerens instrument panel för kontroll av efterlevnad.
 - Om säkerhets NAVs principen är aktive rad visas rekommendationerna i Security Center portalen och instrument panelen för övervakning av efterlevnad 5-10 minuter efter att den har slutförts.
-    :::image type="content" source="./media/quickstart-onboard-aws/aws-resources-in-recommendations.png" alt-text="3 GCP-projekt som visas på Security Center översikts instrument panel":::
+    :::image type="content" source="./media/quickstart-onboard-aws/aws-resources-in-recommendations.png" alt-text="AWS-resurser och rekommendationer på sidan rekommendationer för Security Center":::
 
 
 
@@ -178,7 +178,7 @@ Som du ser ovan visar Azure Security Center sidan med säkerhets rekommendatione
 
 Om du vill visa alla aktiva rekommendationer för dina resurser efter resurs typ, använder du Security Center till gångs inventerings sidan och filtrerar till den AWS som du är intresse rad av:
 
-:::image type="content" source="./media/quickstart-onboard-aws/aws-resource-types-in-inventory.png" alt-text="3 GCP-projekt som visas på Security Center översikts instrument panel"::: 
+:::image type="content" source="./media/quickstart-onboard-aws/aws-resource-types-in-inventory.png" alt-text="Resurs typs filtret för till gångs lager visar AWS alternativ"::: 
 
 
 ## <a name="aws-in-security-center-faq"></a>AWS i Security Center vanliga frågor och svar

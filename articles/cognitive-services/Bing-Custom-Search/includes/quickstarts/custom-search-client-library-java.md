@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 02/27/2020
 ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: e871edf1f16c1c73a3c3b16649e5aeb622397c8d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d9c5fe2653cff0d83a145964a3ad9eed166d0688
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87374723"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94372019"
 ---
 Kom igång med Anpassad sökning i Bing klient bibliotek för Java. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. Med API för anpassad Bing-sökning kan du skapa skräddarsydda, annons fria Sök upplevelser för ämnen som du bryr dig om. Du hittar käll koden för det här exemplet på [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingCustomSearch)
 
@@ -22,7 +22,7 @@ Använd Anpassad sökning i Bing klient bibliotek för Java för att:
 
 * Hitta Sök resultat på webben från Anpassad sökning i Bing-instansen.
 
-[Referens dokumentation](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-java-stable)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingCustomSearch)  |  [Artefakt (maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customsearch/)  |  [Exempel](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
+[Referens dokumentation](/java/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-java-stable)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingCustomSearch)  |  [Artefakt (maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customsearch/)  |  [Exempel](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -33,7 +33,7 @@ Använd Anpassad sökning i Bing klient bibliotek för Java för att:
 
 [!INCLUDE [cognitive-services-bing-custom-search-prerequisites](~/includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
-När du har fått en nyckel från resursen [skapar du en miljö variabel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckeln, med namnet `AZURE_BING_CUSTOM_SEARCH_API_KEY` .
+När du har fått en nyckel från resursen [skapar du en miljö variabel](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) för nyckeln, med namnet `AZURE_BING_CUSTOM_SEARCH_API_KEY` .
 
 ### <a name="create-a-new-gradle-project"></a>Skapa ett nytt Gradle-projekt
 
@@ -99,9 +99,9 @@ I-klassen skapar du en- `main` metod och en variabel för resurs nyckeln. Om du 
 
 ## <a name="object-model"></a>Objekt modell
 
-Anpassad sökning i Bing-klienten är ett [BingCustomSearchAPI](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustomsearchapi?view=azure-java-stable) -objekt som skapas från [BingCustomSearchManager](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustomsearchmanager?view=azure-java-stable) -objektets metod för [autentisering ()](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustomsearchmanager.authenticate) . Du kan skicka en Sök förfrågan med hjälp av klientens [BingCustomInstances. search ()](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustominstances.search?view=azure-java-stable#com_microsoft_azure_cognitiveservices_search_customsearch_BingCustomInstances_search__) -metod.
+Anpassad sökning i Bing-klienten är ett [BingCustomSearchAPI](/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustomsearchapi?view=azure-java-stable) -objekt som skapas från [BingCustomSearchManager](/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustomsearchmanager?view=azure-java-stable) -objektets metod för [autentisering ()](/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustomsearchmanager.authenticate) . Du kan skicka en Sök förfrågan med hjälp av klientens [BingCustomInstances. search ()](/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustominstances.search?view=azure-java-stable#com_microsoft_azure_cognitiveservices_search_customsearch_BingCustomInstances_search__) -metod.
 
-API-svaret är ett [SearchResponse](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.models.searchresponse?view=azure-java-stable) -objekt som innehåller information om Sök frågan och Sök resultat.
+API-svaret är ett [SearchResponse](/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.models.searchresponse?view=azure-java-stable) -objekt som innehåller information om Sök frågan och Sök resultat.
 
 ## <a name="code-examples"></a>Kodexempel
 
@@ -112,7 +112,7 @@ De här kodfragmenten visar hur du gör följande uppgifter med Anpassad söknin
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
-Huvud metoden bör innehålla ett [BingCustomSearchManager](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustomsearchapi?view=azure-java-stable) -objekt som tar din nyckel och anropar dess `authenticate()` .
+Huvud metoden bör innehålla ett [BingCustomSearchManager](/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustomsearchapi?view=azure-java-stable) -objekt som tar din nyckel och anropar dess `authenticate()` .
 
 ```java
 BingCustomSearchAPI client = BingCustomSearchManager.authenticate(subscriptionKey);
@@ -120,7 +120,7 @@ BingCustomSearchAPI client = BingCustomSearchManager.authenticate(subscriptionKe
 
 ## <a name="get-search-results-from-your-custom-search-instance"></a>Få Sök Resultat från din anpassade Sök instans
 
-Använd klientens [BingCustomInstances. search ()](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustominstances.search?view=azure-java-stable#com_microsoft_azure_cognitiveservices_search_customsearch_BingCustomInstances_search__) -funktion för att skicka en Sök fråga till din anpassade instans. Ange `withCustomConfig` som anpassat konfigurations-ID eller Använd som standard `1` . När du har skaffat ett svar från API: et kontrollerar du om det finns några Sök resultat. I så fall får du det första Sök resultatet genom att anropa svarets `webPages().value().get()` funktion och skriva ut resultatets namn och URL.
+Använd klientens [BingCustomInstances. search ()](/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustominstances.search?view=azure-java-stable#com_microsoft_azure_cognitiveservices_search_customsearch_BingCustomInstances_search__) -funktion för att skicka en Sök fråga till din anpassade instans. Ange `withCustomConfig` som anpassat konfigurations-ID eller Använd som standard `1` . När du har skaffat ett svar från API: et kontrollerar du om det finns några Sök resultat. I så fall får du det första Sök resultatet genom att anropa svarets `webPages().value().get()` funktion och skriva ut resultatets namn och URL.
 
 [!code-java[call the custom search API](~/cognitive-services-java-sdk-samples/Search/BingCustomSearch/src/main/java/BingCustomSearchSample.java?name=runSample)]
 

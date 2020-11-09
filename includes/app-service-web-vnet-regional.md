@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 06/08/2020
 ms.author: ccompy
-ms.openlocfilehash: 54f80310f274b757d118f34542c1aa2e838ca7b9
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 14b9d9fe0eb9dfe2f25373c2d87d9b4af15dd0d9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92082114"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94371603"
 ---
 Genom att använda regional VNet-integrering kan din app komma åt:
 
@@ -23,8 +23,8 @@ Genom att använda regional VNet-integrering kan din app komma åt:
 
 När du använder VNet-integrering med virtuella nätverk i samma region kan du använda följande funktioner i Azure-nätverk:
 
-* **Nätverks säkerhets grupper (NSG: er)**: du kan blockera utgående trafik med en NSG som placeras i ditt integrations undernät. Reglerna för inkommande trafik gäller inte eftersom du inte kan använda VNet-integrering för att ge inkommande åtkomst till din app.
-* **Routningstabeller (UDR)**: du kan placera en routningstabell i integrations under nätet för att skicka utgående trafik där du vill.
+* **Nätverks säkerhets grupper (NSG: er)** : du kan blockera utgående trafik med en NSG som placeras i ditt integrations undernät. Reglerna för inkommande trafik gäller inte eftersom du inte kan använda VNet-integrering för att ge inkommande åtkomst till din app.
+* **Routningstabeller (UDR)** : du kan placera en routningstabell i integrations under nätet för att skicka utgående trafik där du vill.
 
 Som standard dirigerar din app endast RFC1918 trafik till ditt VNet. Om du vill dirigera all utgående trafik till ditt VNet använder du appens inställning WEBSITE_VNET_ROUTE_ALL till din app. Konfigurera appens inställning:
 
@@ -42,7 +42,7 @@ Som standard dirigerar din app endast RFC1918 trafik till ditt VNet. Om du vill 
 Det finns vissa begränsningar med att använda VNet-integrering med virtuella nätverk i samma region:
 
 * Du kan inte komma åt resurser över global peering anslutningar.
-* Funktionen är endast tillgänglig från nyare Azure App Service skalnings enheter som stöder PremiumV2 App Service-planer. Observera att *detta inte innebär att din app måste köras på en PremiumV2-pris nivå*, bara att den måste köras i en app service plan där alternativet PremiumV2 är tillgängligt (vilket innebär att det är en nyare skalnings enhet där denna VNet-integrering också är tillgänglig).
+* Funktionen är endast tillgänglig från nyare Azure App Service skalnings enheter som stöder PremiumV2 App Service-planer. Observera att *detta inte innebär att din app måste köras på en PremiumV2-pris nivå* , bara att den måste köras i en app service plan där alternativet PremiumV2 är tillgängligt (vilket innebär att det är en nyare skalnings enhet där denna VNet-integrering också är tillgänglig).
 * Integrations under nätet kan bara användas av en App Service plan.
 * Funktionen kan inte användas av isolerade plan-appar som finns i en App Service-miljön.
 * Funktionen kräver ett oanvänt undernät som är a/27 med 32 adresser eller större i ett Azure Resource Manager VNet.
@@ -84,10 +84,15 @@ Border Gateway Protocol (BGP) vägar påverkar också din app-trafik. Om du har 
 
 När din app har integrerats med ditt VNet, använder den samma DNS-server som ditt VNet har kon figurer ATS med. Som standard fungerar inte appen med Azure DNS Private Zones. Om du vill arbeta med Azure DNS Private Zones måste du lägga till följande appinställningar:
 
-1. WEBSITE_DNS_SERVER med värdet 168.63.129.16 
+1. WEBSITE_DNS_SERVER med värdet 168.63.129.16
 1. WEBSITE_VNET_ROUTE_ALL med värdet 1
 
-De här inställningarna kommer att skicka alla utgående samtal från din app till ditt VNet, förutom att aktivera din app för att använda Azure DNS privata zoner.
+De här inställningarna kommer att skicka alla utgående samtal från din app till ditt VNet. Dessutom kommer appen att tillåta att appen använder Azure DNS genom att fråga zonen Privat DNS på arbets nivå. Den här funktionen ska användas när en app som körs har åtkomst till en Privat DNS zon.
+
+> [!NOTE]
+>Det går inte att lägga till en anpassad domän i en webbapp som använder Privat DNS zon med VNET-integration. Anpassad domän verifiering görs på styrenhets nivå, inte på arbets nivå, vilket förhindrar att DNS-poster visas. Om du vill använda en anpassad domän från en Privat DNS zon måste verifieringen kringgås med en Application Gateway-eller ILB-App Service-miljön.
+
+
 
 ### <a name="private-endpoints"></a>Privata slut punkter
 

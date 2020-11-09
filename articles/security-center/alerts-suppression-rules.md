@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/10/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 50426e0b0920e89cf83dc5a81c515b06c06c09c5
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: b954d6ed29074aa9261611f0d1bb79b5917d03f2
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342101"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372667"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Ignorera aviseringar från Azure Defender
 
@@ -23,10 +23,10 @@ På den här sidan förklaras hur du kan använda undertrycks regler för varnin
 
 |Aspekt|Information|
 |----|:----|
-|Versions tillstånd:|Förhandsgranskning|
+|Versions tillstånd:|Förhandsgranskning<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Priset|Kostnadsfri<br>(De flesta säkerhets aviseringar är bara tillgängliga med Azure Defender)|
 |Nödvändiga roller och behörigheter:|**Säkerhets administratör** och **ägare** kan skapa/ta bort regler.<br>**Säkerhets läsare** och **läsare** kan visa regler.|
-|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
+|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![Yes](./media/icons/yes-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
 
 
@@ -60,11 +60,11 @@ Så här skapar du en regel direkt i Azure Portal:
 
 1. Gå till sidan för säkerhetsvarningar i Security Center:
 
-    - Leta upp den avisering som du inte vill se längre och gå till menyn med tre punkter (...) för aviseringen och välj **skapa undertrycks regel**:
+    - Leta upp den avisering som du inte vill se längre och gå till menyn med tre punkter (...) för aviseringen och välj **skapa undertrycks regel** :
 
         [![* * Skapa undertrycks regel * * alternativ](media/alerts-suppression-rules/auto-dismiss-future-option.png)](media/alerts-suppression-rules/auto-dismiss-future-option.png#lightbox)
 
-    - Eller Välj länken **undertrycks regler** överst på sidan och välj **Skapa ny undertrycks regel**på sidan undertrycks regler:
+    - Eller Välj länken **undertrycks regler** överst på sidan och välj **Skapa ny undertrycks regel** på sidan undertrycks regler:
 
         ![Skapa ny undertrycks regel * * knapp](media/alerts-suppression-rules/create-new-suppression-rule.png)
 
@@ -104,7 +104,7 @@ Om du vill ta bort en eller flera regler som du har skapat använder du sidan un
 1. På sidan säkerhets aviseringar för Security Center väljer du länken **undertrycks regler** högst upp på sidan.
 1. Sidan undertrycks regler öppnas med alla regler för de valda prenumerationerna.
 1. Om du vill ta bort en enskild regel öppnar du menyn med tre punkter (...) för regeln och väljer **ta bort**.
-1. Markera kryss rutorna för de regler som ska tas bort och välj **ta bort**om du vill ta bort flera regler.
+1. Markera kryss rutorna för de regler som ska tas bort och välj **ta bort** om du vill ta bort flera regler.
     ![Ta bort en eller flera undertrycks regler](media/alerts-suppression-rules/delete-multiple-alerts.png)
 
 ## <a name="view-suppressed-alerts"></a>Visa ignorerade aviseringar
@@ -127,9 +127,9 @@ Du kan skapa, Visa eller ta bort undervisnings regler för aviseringar via Secur
 
 Relevanta HTTP-metoder för undertrycks regler i REST API är:
 
-- **Lägg**till: om du vill skapa eller uppdatera en undertrycks regel i en angiven prenumeration.
+- **Lägg** till: om du vill skapa eller uppdatera en undertrycks regel i en angiven prenumeration.
 
-- **Hämta**:
+- **Hämta** :
 
     - För att visa en lista med alla regler som kon figurer ATS för en angiven prenumeration. Den här metoden returnerar en matris med tillämpliga regler.
 
@@ -137,7 +137,7 @@ Relevanta HTTP-metoder för undertrycks regler i REST API är:
 
     - För att simulera effekten av en undertrycks regel fortfarande i Design fasen. Det här anropet identifierar vilken av dina befintliga aviseringar som skulle ha stängts om regeln hade varit aktiv.
 
-- **Ta bort**: tar bort en befintlig regel (men ändrar inte statusen för aviseringar som redan har avslagits av den).
+- **Ta bort** : tar bort en befintlig regel (men ändrar inte statusen för aviseringar som redan har avslagits av den).
 
 Fullständig information och användnings exempel finns i [API-dokumentationen](/rest/api/securitycenter/). 
 

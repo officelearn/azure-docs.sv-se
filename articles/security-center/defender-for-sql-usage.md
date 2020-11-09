@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: fa7d252246ed37160ba2a5cfcd90557df1375bc3
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 4f83500e539ff5254db290d156dfcf50ea60de14
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461540"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372565"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>Azure Defender för SQL-servrar på datorer 
 
@@ -30,7 +30,7 @@ Du ser aviseringar när det finns misstänkta databas aktiviteter, potentiella s
 
 |Aspekt|Information|
 |----|:----|
-|Versions tillstånd:|Förhandsgranskning|
+|Versions tillstånd:|Förhandsgranskning<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Priset|**Azure Defender för SQL-servrar på datorer** faktureras enligt [pris sidan](security-center-pricing.md)|
 |Skyddade SQL-versioner:|Azure SQL Server (alla versioner som omfattas av Microsofts support)|
 |Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Kina gov, andra gov|
@@ -53,7 +53,7 @@ Båda beskrivs nedan.
 
 - **SQL Server lokal** – om din SQL Server finns på en lokal Windows-dator utan Azure ARC har du två alternativ för att ansluta den till Azure:
     
-    - **Distribuera Azure-båge** – du kan ansluta en Windows-dator till Security Center. Azure-bågen ger dock djupare integrering i *hela* Azure-miljön. Om du konfigurerar Azure Arc visas sidan **SQL Server – Azure-båge** i portalen. dina säkerhets aviseringar visas på en särskild **säkerhets** flik på sidan. Det första och rekommenderade alternativet är att [Konfigurera Azure-bågen på värden](../azure-arc/servers/onboard-portal.md#install-and-validate-the-agent-on-windows) och följa anvisningarna för **SQL Server på Azure-bågen**ovan.
+    - **Distribuera Azure-båge** – du kan ansluta en Windows-dator till Security Center. Azure-bågen ger dock djupare integrering i *hela* Azure-miljön. Om du konfigurerar Azure Arc visas sidan **SQL Server – Azure-båge** i portalen. dina säkerhets aviseringar visas på en särskild **säkerhets** flik på sidan. Det första och rekommenderade alternativet är att [Konfigurera Azure-bågen på värden](../azure-arc/servers/onboard-portal.md#install-and-validate-the-agent-on-windows) och följa anvisningarna för **SQL Server på Azure-bågen** ovan.
         
     - **Anslut Windows-datorn utan Azure-båge** – om du väljer att ansluta en SQL Server som körs på en Windows-dator utan att använda Azure-bågen följer du anvisningarna i [Anslut Windows-datorer till Azure Monitor](../azure-monitor/platform/agent-windows.md).
 
@@ -64,7 +64,7 @@ Båda beskrivs nedan.
 
     - Om du använder **Azure Security Center standard arbets ytan** (med namnet "defaultworkspace-[ditt prenumerations-ID]-[region]") väljer du den relevanta **prenumerationen**.
 
-    - Om du använder **en arbets yta som inte är standard**väljer du relevant **arbets yta** (ange arbets ytans namn i filtret om det behövs):
+    - Om du använder **en arbets yta som inte är standard** väljer du relevant **arbets yta** (ange arbets ytans namn i filtret om det behövs):
 
         ![Hitta din arbets yta som inte är standard enligt title](./media/security-center-advanced-iaas-data/pricing-and-settings-workspaces.png)
 
@@ -97,7 +97,7 @@ Du kan visa resultaten för sårbarhets bedömning direkt från Security Center.
 
     Den detaljerade vyn för den här rekommendationen visas.
 
-    :::image type="content" source="./media/security-center-advanced-iaas-data/all-servers-view.png" alt-text="Utvärderings resultat av säkerhets risker på dina SQL-servrar på datorer bör åtgärdas (för hands version)":::
+    :::image type="content" source="./media/security-center-advanced-iaas-data/all-servers-view.png" alt-text="Detaljerad vy för rekommendationen":::
 
 1. Mer information finns i öka detalj nivån:
 
@@ -105,7 +105,7 @@ Du kan visa resultaten för sårbarhets bedömning direkt från Security Center.
 
     * En översikt över sårbarheter grupperade efter en speciell SQL-databas får du genom att välja databasens intresse.
 
-    I varje vy sorteras säkerhets kontrollerna efter **allvarlighets grad**. Klicka på en säkerhets kontroll för att visa ett informations fönster med en **Beskrivning**, hur du **åtgärdar** den och annan relaterad information som **påverkan** eller **benchmark**.
+    I varje vy sorteras säkerhets kontrollerna efter **allvarlighets grad**. Klicka på en säkerhets kontroll för att visa ett informations fönster med en **Beskrivning** , hur du **åtgärdar** den och annan relaterad information som **påverkan** eller **benchmark**.
 
 ## <a name="azure-defender-for-sql-alerts"></a>Azure Defender för SQL-aviseringar
 Aviseringar genereras av ovanliga och potentiellt skadliga försök att komma åt eller utnyttja SQL-datorer. Dessa händelser kan utlösa aviseringar som visas i [avsnittet varningar för SQL Database och Azure Synapse Analytics (tidigare SQL Data Warehouse) på sidan aviserings referens](alerts-reference.md#alerts-sql-db-and-warehouse).

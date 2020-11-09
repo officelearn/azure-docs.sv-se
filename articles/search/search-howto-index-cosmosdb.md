@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: 9b3353d3ba1af572b118001691e38af497f6f1fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf2282c5fda29cd266778a322efa4a0a33139c35
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91290049"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372391"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Så här indexerar du Cosmos DB-data med hjälp av en indexerare i Azure Cognitive Search 
 
@@ -32,7 +32,7 @@ Eftersom terminologin kan vara förvirrande, är det värt att notera att [Azure
 
 Cosmos DB indexeraren i Azure Kognitiv sökning kan crawla [Azure Cosmos DB objekt](../cosmos-db/databases-containers-items.md#azure-cosmos-items) som nås via olika protokoll. 
 
-+ För [SQL API](../cosmos-db/sql-query-getting-started.md), som är allmänt tillgänglig, kan du använda [portalen](#cosmos-indexer-portal), [REST API](/rest/api/searchservice/indexer-operations)eller [.NET SDK](/dotnet/api/microsoft.azure.search.models.indexer) för att skapa data källan och indexeraren.
++ För [SQL API](../cosmos-db/sql-query-getting-started.md), som är allmänt tillgänglig, kan du använda [portalen](#cosmos-indexer-portal), [REST API](/rest/api/searchservice/indexer-operations)eller [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexer) för att skapa data källan och indexeraren.
 
 + För [MongoDB-API (för hands version)](../cosmos-db/mongodb-introduction.md)kan du använda antingen [portalen](#cosmos-indexer-portal) eller [REST API version 2020-06-30-Preview](search-api-preview.md) för att skapa data källan och indexeraren.
 
@@ -68,14 +68,14 @@ Du kan [starta guiden](search-import-data-portal.md) från kommando fältet på 
 
 ### <a name="3---set-the-data-source"></a>3 – ange data källan
 
-På sidan **data källa** måste källan vara **Cosmos DB**, med följande specifikationer:
+På sidan **data källa** måste källan vara **Cosmos DB** , med följande specifikationer:
 
 + **Namn** är namnet på objektet i data källan. När du har skapat kan du välja den för andra arbets belastningar.
 
 + **Cosmos DB konto** ska vara i något av följande format:
     1. Den primära eller sekundära anslutnings strängen från Cosmos DB med följande format: `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;` .
         + För version 3,2 och version 3,6 **MongoDB Collections** använder du följande format för Cosmos DB-kontot i Azure Portal: `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;ApiKind=MongoDb`
-        + Registrera dig för för [hands versionen](https://aka.ms/azure-cognitive-search/indexer-preview) av **Gremlin-diagram och Cassandra-tabeller**för att få åtkomst till för hands versionen och information om hur du formaterar autentiseringsuppgifterna.
+        + Registrera dig för för [hands versionen](https://aka.ms/azure-cognitive-search/indexer-preview) av **Gremlin-diagram och Cassandra-tabeller** för att få åtkomst till för hands versionen och information om hur du formaterar autentiseringsuppgifterna.
     1.  En anslutnings sträng för hanterad identitet med följande format som inte innehåller någon konto nyckel: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;(ApiKind=[api-kind];)` . Om du vill använda det här anslutnings sträng formatet följer du anvisningarna för att konfigurera [en Indexer-anslutning till en Cosmos DB-databas med hjälp av en hanterad identitet](search-howto-managed-identities-cosmos-db.md).
 
 + **Databasen** är en befintlig databas från kontot. 
@@ -151,7 +151,7 @@ Du kan hitta dessa värden i portalen:
 
 2. I det vänstra navigerings fönstret klickar du på **nycklar** och kopierar antingen den primära eller sekundära nyckeln (de är motsvarande).
 
-3. Växla till Portal sidorna för ditt Cosmos-lagrings konto. I det vänstra navigerings fönstret, under **Inställningar**, klickar du på **nycklar**. Den här sidan innehåller en URI, två uppsättningar anslutnings strängar och två uppsättningar nycklar. Kopiera en av anslutnings strängarna till anteckningar.
+3. Växla till Portal sidorna för ditt Cosmos-lagrings konto. I det vänstra navigerings fönstret, under **Inställningar** , klickar du på **nycklar**. Den här sidan innehåller en URI, två uppsättningar anslutnings strängar och två uppsättningar nycklar. Kopiera en av anslutnings strängarna till anteckningar.
 
 ### <a name="2---create-a-data-source"></a>2 – Skapa en data Källa
 
@@ -181,12 +181,12 @@ Formulera en POST-begäran för att skapa en data Källa:
 
 Bröd texten i begäran innehåller definitionen av data källan, som ska innehålla följande fält:
 
-| Field   | Beskrivning |
+| Fält   | Beskrivning |
 |---------|-------------|
 | **Namn** | Krävs. Välj ett namn som ska representera ditt data käll objekt. |
 |**bastyp**| Krävs. Måste vara `cosmosdb` . |
-|**klientautentiseringsuppgifter** | Krävs. Måste antingen följa Cosmos DB anslutningens sträng format eller ett format för hanterad identitets anslutnings sträng.<br/><br/>För **SQL-samlingar**kan anslutnings strängar följa något av följande format: <li>`AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<li>En anslutnings sträng för hanterad identitet med följande format som inte innehåller någon konto nyckel: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;` . Om du vill använda det här anslutnings sträng formatet följer du anvisningarna för att konfigurera [en Indexer-anslutning till en Cosmos DB-databas med hjälp av en hanterad identitet](search-howto-managed-identities-cosmos-db.md).<br/><br/>För version 3,2 och version 3,6 **MongoDB samlingar** används något av följande format för anslutnings strängen: <li>`AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<li>En anslutnings sträng för hanterad identitet med följande format som inte innehåller någon konto nyckel: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;ApiKind=MongoDb;` . Om du vill använda det här anslutnings sträng formatet följer du anvisningarna för att konfigurera [en Indexer-anslutning till en Cosmos DB-databas med hjälp av en hanterad identitet](search-howto-managed-identities-cosmos-db.md).<br/><br/>Registrera dig för för [hands versionen](https://aka.ms/azure-cognitive-search/indexer-preview) av **Gremlin-diagram och Cassandra-tabeller**för att få åtkomst till för hands versionen och information om hur du formaterar autentiseringsuppgifterna.<br/><br/>Undvik port nummer i slut punkts-URL: en. Om du inkluderar port numret kan Azure Kognitiv sökning inte indexera Azure Cosmos DB-databasen.|
-| **container** | Innehåller följande element: <br/>**namn**: obligatoriskt. Ange ID för den databas samling som ska indexeras.<br/>**fråga**: valfritt. Du kan ange en fråga för att förenkla ett godtyckligt JSON-dokument till ett plant schema som Azure Kognitiv sökning kan indexera.<br/>För API: et för MongoDB, Gremlin API och API för Cassandra, stöds inte frågor. |
+|**klientautentiseringsuppgifter** | Krävs. Måste antingen följa Cosmos DB anslutningens sträng format eller ett format för hanterad identitets anslutnings sträng.<br/><br/>För **SQL-samlingar** kan anslutnings strängar följa något av följande format: <li>`AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<li>En anslutnings sträng för hanterad identitet med följande format som inte innehåller någon konto nyckel: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;` . Om du vill använda det här anslutnings sträng formatet följer du anvisningarna för att konfigurera [en Indexer-anslutning till en Cosmos DB-databas med hjälp av en hanterad identitet](search-howto-managed-identities-cosmos-db.md).<br/><br/>För version 3,2 och version 3,6 **MongoDB samlingar** används något av följande format för anslutnings strängen: <li>`AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<li>En anslutnings sträng för hanterad identitet med följande format som inte innehåller någon konto nyckel: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;ApiKind=MongoDb;` . Om du vill använda det här anslutnings sträng formatet följer du anvisningarna för att konfigurera [en Indexer-anslutning till en Cosmos DB-databas med hjälp av en hanterad identitet](search-howto-managed-identities-cosmos-db.md).<br/><br/>Registrera dig för för [hands versionen](https://aka.ms/azure-cognitive-search/indexer-preview) av **Gremlin-diagram och Cassandra-tabeller** för att få åtkomst till för hands versionen och information om hur du formaterar autentiseringsuppgifterna.<br/><br/>Undvik port nummer i slut punkts-URL: en. Om du inkluderar port numret kan Azure Kognitiv sökning inte indexera Azure Cosmos DB-databasen.|
+| **fönster** | Innehåller följande element: <br/>**namn** : obligatoriskt. Ange ID för den databas samling som ska indexeras.<br/>**fråga** : valfritt. Du kan ange en fråga för att förenkla ett godtyckligt JSON-dokument till ett plant schema som Azure Kognitiv sökning kan indexera.<br/>För API: et för MongoDB, Gremlin API och API för Cassandra, stöds inte frågor. |
 | **dataChangeDetectionPolicy** | Rekommenderas. Se avsnittet [Indexera ändrade dokument](#DataChangeDetectionPolicy) .|
 |**dataDeletionDetectionPolicy** | Valfritt. Se avsnittet [Indexera borttagna dokument](#DataDeletionDetectionPolicy) .|
 
@@ -194,7 +194,7 @@ Bröd texten i begäran innehåller definitionen av data källan, som ska inneh�
 Du kan ange en SQL-fråga för att förenkla inkapslade egenskaper eller matriser, egenskaper för projekt-JSON och filtrera data som ska indexeras. 
 
 > [!WARNING]
-> Anpassade frågor stöds inte för **MongoDB-API**, **Gremlin API**och **API för Cassandra**: `container.query` parametern måste anges till null eller utelämnat. Om du behöver använda en anpassad fråga kan du berätta för oss om [användar rösten](https://feedback.azure.com/forums/263029-azure-search).
+> Anpassade frågor stöds inte för **MongoDB-API** , **Gremlin API** och **API för Cassandra** : `container.query` parametern måste anges till null eller utelämnat. Om du behöver använda en anpassad fråga kan du berätta för oss om [användar rösten](https://feedback.azure.com/forums/263029-azure-search).
 
 Exempel dokument:
 
@@ -307,16 +307,16 @@ Mer information om hur du definierar indexerare scheman finns i [så här schema
 
 Den allmänt tillgängliga .NET SDK: n har fullständig paritet med allmänt tillgängliga REST API. Vi rekommenderar att du läser avsnittet tidigare REST API för att lära dig begrepp, arbets flöden och krav. Du kan sedan se följande dokumentation om .NET API-referens för att implementera en JSON-indexerare i förvaltad kod.
 
-+ [Microsoft. Azure. search. Models. DataSource](/dotnet/api/microsoft.azure.search.models.datasource)
-+ [Microsoft. Azure. search. Models. datasourcetype](/dotnet/api/microsoft.azure.search.models.datasourcetype)
-+ [Microsoft. Azure. search. Models. index](/dotnet/api/microsoft.azure.search.models.index)
-+ [Microsoft. Azure. search. Models. Indexer](/dotnet/api/microsoft.azure.search.models.indexer)
++ [azure.search.documents. indexs. Models. searchindexerdatasourceconnection](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection)
++ [azure.search.documents. indexs. Models. searchindexerdatasourcetype](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype)
++ [azure.search.documents. indexs. Models. searchindex](/dotnet/api/azure.search.documents.indexes.models.searchindex)
++ [azure.search.documents. indexs. Models. searchindexer](/dotnet/api/azure.search.documents.indexes.models.searchindexer)
 
 <a name="DataChangeDetectionPolicy"></a>
 
 ## <a name="indexing-changed-documents"></a>Indexera ändrade dokument
 
-Syftet med en princip för data ändrings identifiering är att effektivt identifiera ändrade data objekt. För närvarande är den enda princip som stöds att [`HighWaterMarkChangeDetectionPolicy`](/dotnet/api/microsoft.azure.search.models.highwatermarkchangedetectionpolicy) använda `_ts` egenskapen (timestamp) som tillhandahålls av Azure Cosmos DB, vilket anges på följande sätt:
+Syftet med en princip för data ändrings identifiering är att effektivt identifiera ändrade data objekt. För närvarande är den enda princip som stöds att [`HighWaterMarkChangeDetectionPolicy`](/dotnet/api/azure.search.documents.indexes.models.highwatermarkchangedetectionpolicy) använda `_ts` egenskapen (timestamp) som tillhandahålls av Azure Cosmos DB, vilket anges på följande sätt:
 
 ```http
     {

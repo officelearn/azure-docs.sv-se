@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 4d98323ebe973f13e654324f463ae01a8f1268c9
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 66e2f70a5d55d263f7da343c0987e77a9f60c3b0
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629229"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372684"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Red Hat Enterprise Linux-avbildningar (RHEL) som är tillgängliga i Azure
 Azure erbjuder en rad olika RHEL-avbildningar för olika användnings fall.
@@ -28,10 +28,10 @@ Det här är en lista över RHEL-avbildningar som är tillgängliga i Azure. Om 
 
 Erbjudande| SKU | Partitionering | Etablering | Kommentarer
 :----|:----|:-------------|:-------------|:-----
-RHEL          | 6.7      | OUTSPÄDD    | Linux-agent | 
-|             | 6.8      | OUTSPÄDD    | Linux-agent | 
-|             | 6,9      | OUTSPÄDD    | Linux-agent | 
-|             | 6,10     | OUTSPÄDD    | Linux-agent | 
+RHEL          | 6.7      | OUTSPÄDD    | Linux-agent | Stöd för utökad livs cykel är tillgängligt från och med 1 december. [Mer information finns här.](redhat-extended-lifecycle-support.md)
+|             | 6.8      | OUTSPÄDD    | Linux-agent | Stöd för utökad livs cykel är tillgängligt från och med 1 december. [Mer information finns här.](redhat-extended-lifecycle-support.md)
+|             | 6,9      | OUTSPÄDD    | Linux-agent | Stöd för utökad livs cykel är tillgängligt från och med 1 december. [Mer information finns här.](redhat-extended-lifecycle-support.md)
+|             | 6,10     | OUTSPÄDD    | Linux-agent | Stöd för utökad livs cykel är tillgängligt från och med 1 december. [Mer information finns här.](redhat-extended-lifecycle-support.md)
 |             | 7 – RAW    | OUTSPÄDD    | Linux-agent | RHEL 7. x-serien med bilder. <br> Anslutet till vanliga databaser som standard (inte EUS).
 |             | 7-LVM    | LVM    | Linux-agent | RHEL 7. x-serien med bilder. <br> Anslutet till vanliga databaser som standard (inte EUS). Om du letar efter en standard RHEL-avbildning som ska distribueras använder du den här uppsättningen avbildningar och/eller dess andra motsvarighet 2.
 |             | 7lvm – Gen2| LVM    | Linux-agent | Generation 2, RHEL 7. x-serien med bilder. <br> Anslutet till vanliga databaser som standard (inte EUS). Om du letar efter en standard RHEL-avbildning som ska distribueras använder du den här uppsättningen avbildningar och/eller dess motsvarande generation 1.
@@ -67,9 +67,9 @@ RHEL – SAP      | 7,4      | LVM    | Linux-agent | RHEL 7,4 för SAP HANA-och
 |             | 7,6       | LVM    | Linux-agent | RHEL 7,6 för SAP HANA-och Business-appar. Ansluten till E4S-lagringsplatser kommer att ta betalt för SAP och RHEL samt bas beräknings avgiften.
 |             | 76sap – Gen2| LVM    | Linux-agent | RHEL 7,6 för SAP HANA-och Business-appar. Avbildning av generation 2. Ansluten till E4S-lagringsplatser kommer att ta betalt för SAP och RHEL samt bas beräknings avgiften.
 |             | 7,7       | LVM    | Linux-agent | RHEL 7,7 för SAP HANA-och Business-appar. Ansluten till E4S-lagringsplatser kommer att ta betalt för SAP och RHEL samt bas beräknings avgiften.
-RHEL – SAP-HANA (som ska tas bort från Marketplace i oktober 2020) | 6.7       | OUTSPÄDD    | Linux-agent | RHEL 6,7 för SAP HANA. Föråldrad till förmån för RHEL-SAP-avbildningarna. Den här avbildningen tas bort från Azure-Martketplace i oktober 2020. Mer information om Red Hats SAP Cloud-erbjudanden finns [här](https://access.redhat.com/articles/3751271).
-|             | 7.2       | LVM    | Linux-agent | RHEL 7,2 för SAP HANA. Föråldrad till förmån för RHEL-SAP-avbildningarna. Den här avbildningen tas bort från Azure-Martketplace i oktober 2020. Mer information om Red Hats SAP Cloud-erbjudanden finns [här](https://access.redhat.com/articles/3751271).
-|             | 7.3       | LVM    | Linux-agent | RHEL 7,3 för SAP HANA. Föråldrad till förmån för RHEL-SAP-avbildningarna. Den här avbildningen tas bort från Azure-Martketplace i oktober 2020. Mer information om Red Hats SAP Cloud-erbjudanden finns [här](https://access.redhat.com/articles/3751271).
+RHEL – SAP-HANA (som ska tas bort i november 2020) | 6.7       | OUTSPÄDD    | Linux-agent | RHEL 6,7 för SAP HANA. Föråldrad till förmån för RHEL-SAP-avbildningarna. Den här avbildningen tas bort i november 2020. Mer information om Red Hats SAP Cloud-erbjudanden finns [här](https://access.redhat.com/articles/3751271).
+|             | 7.2       | LVM    | Linux-agent | RHEL 7,2 för SAP HANA. Föråldrad till förmån för RHEL-SAP-avbildningarna. Den här avbildningen tas bort i november 2020. Mer information om Red Hats SAP Cloud-erbjudanden finns [här](https://access.redhat.com/articles/3751271).
+|             | 7.3       | LVM    | Linux-agent | RHEL 7,3 för SAP HANA. Föråldrad till förmån för RHEL-SAP-avbildningarna. Den här avbildningen tas bort i november 2020. Mer information om Red Hats SAP Cloud-erbjudanden finns [här](https://access.redhat.com/articles/3751271).
 RHEL – SAP-APPS | 6.8       | OUTSPÄDD    | Linux-agent | RHEL 6,8 för SAP Business Applications. Föråldrad till förmån för RHEL-SAP-avbildningarna.
 |             | 7.3       | LVM    | Linux-agent | RHEL 7,3 för SAP Business Applications. Föråldrad till förmån för RHEL-SAP-avbildningarna.
 |             | 7,4       | LVM    | Linux-agent | RHEL 7,4 för SAP Business Applications.

@@ -7,14 +7,14 @@ ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 87c16207f312479dcfe083ad9494d75b3538e18c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 347d5ac9de164f2e96340df71fd3b1b908e607c1
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532558"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372752"
 ---
-# <a name="exempt-a-resource-from-recommendations-and-secure-score"></a>Undanta en resurs från rekommendationer och säkra Poäng
+# <a name="exempt-a-resource-from-recommendations-and-secure-score"></a>Undanta en resurs från rekommendationer och säkerhetspoäng
 
 En kärn prioritet för alla säkerhets Team försöker säkerställa att analytiker kan fokusera på de uppgifter och incidenter som är viktiga för organisationen. Security Center har många funktioner för att anpassa den information som du prioriterar mest och se till att dina säkra poäng är en giltig reflektion av organisationens säkerhets beslut. Att undanta resurser är en sådan funktion.
 
@@ -30,10 +30,10 @@ Resursen visas som ej tillämplig och orsaken visas som "undantagen" med den jus
 
 |Aspekt|Information|
 |----|:----|
-|Versions tillstånd:|Förhandsgranskning|
+|Versions tillstånd:|Förhandsgranskning<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Priset|Det här är en förstklassig Azure policy-funktion som erbjuds för Azure Defender-kunder utan extra kostnad. För andra användare kan avgifter tillkomma i framtiden.|
 |Nödvändiga roller och behörigheter:|**Prenumerations ägare** eller **princip deltagare** för att skapa ett undantag<br>Om du vill skapa en regel måste du ha behörighet att redigera principer i Azure Policy.<br>Läs mer i [Azure RBAC-behörigheter i Azure policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).|
-|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Inga](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
+|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![No](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
 
 
@@ -45,7 +45,7 @@ Resursen visas som ej tillämplig och orsaken visas som "undantagen" med den jus
 
     Fönstret Skapa undantag öppnas.
 
-    :::image type="content" source="./media/exempt-resource/exemption-rule-options.png" alt-text="Skapa undantags alternativ från snabb menyn":::
+    :::image type="content" source="./media/exempt-resource/exemption-rule-options.png" alt-text="Fönstret Skapa undantag":::
 
 1. Ange kriterier och välj ett villkor för varför den här resursen ska undantas:
     - **Åtgärdat – det** här problemet är inte relevant för resursen eftersom den har hanterats av ett annat verktyg eller en annan process än den som föreslås
@@ -56,11 +56,11 @@ Resursen visas som ej tillämplig och orsaken visas som "undantagen" med den jus
     - Resursen visas på fliken **ej tillämpligt** på rekommendations informations Sidan
     - Informations remsan överst på sidan med rekommendations information visar antalet undantagna resurser:
         
-        :::image type="content" source="./media/exempt-resource/info-banner.png" alt-text="Skapa undantags alternativ från snabb menyn":::
+        :::image type="content" source="./media/exempt-resource/info-banner.png" alt-text="Antal undantagna resurser":::
 
 1. Om du vill granska dina undantagna resurser öppnar du fliken **ej tillämpligt** .
 
-    :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="Skapa undantags alternativ från snabb menyn":::
+    :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="Ändra ett undantag":::
 
     Orsaken till varje undantag ingår i tabellen (1).
 
@@ -73,7 +73,7 @@ Undantags regler använder Azure policy för att skapa ett undantag för resurse
 
 Du kan använda Azure Policy för att spåra alla dina undantag på sidan **undantag** :
 
-:::image type="content" source="./media/exempt-resource/policy-page-exemption.png" alt-text="Skapa undantags alternativ från snabb menyn":::
+:::image type="content" source="./media/exempt-resource/policy-page-exemption.png" alt-text="Azure Policy sidan undantag":::
 
 
 
@@ -81,4 +81,4 @@ Du kan använda Azure Policy för att spåra alla dina undantag på sidan **unda
 
 I den här artikeln har du lärt dig hur du undantar en resurs från en rekommendation så att den inte påverkar dina säkra poäng. Mer information om säkra Poäng finns i:
 
-- [Säkra poäng i Azure Security Center](secure-score-security-controls.md)
+- [Säkerhetspoäng i Azure Security Center](secure-score-security-controls.md)

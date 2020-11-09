@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: 1869ec9b617a7451ec42fa9d092ea3bb5834f9e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe7a8a3df535d05c3c834d3e2fbba5f7df5d6fcd
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88585482"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372259"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-byok"></a>Importera HSM-skyddade nycklar till Key Vault (BYOK)
 
@@ -43,7 +43,7 @@ Här är en översikt över processen. De åtgärder som ska utföras beskrivs s
 * KEK måste finnas i samma nyckel valv där mål nyckeln kommer att importeras.
 * När BYOK-filen överförs till Key Vault, använder en Key Vault HSM den privata KEK-nyckeln för att dekryptera mål nyckel materialet och importera det som en HSM-nyckel. Den här åtgärden sker helt i en Key Vault HSM. Mål nyckeln finns alltid kvar i HSM-skyddets gränser.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 I följande tabell visas förutsättningar för att använda BYOK i Azure Key Vault:
 
@@ -63,12 +63,13 @@ I följande tabell visas förutsättningar för att använda BYOK i Azure Key Va
 |Fortanix|Tillverkare<br/>HSM som en tjänst|<ul><li>Self-Defending nyckel hanterings tjänst (SDKMS)</li><li>Equinix SmartKey</li></ul>|[Exportera SDKMS-nycklar till moln leverantörer för BYOK-Azure Key Vault](https://support.fortanix.com/hc/en-us/articles/360040071192-Exporting-SDKMS-keys-to-Cloud-Providers-for-BYOK-Azure-Key-Vault)|
 |Marvell|Tillverkare|Alla LiquidSecurity-HSM: er med<ul><li>Version 2.0.4 eller senare av inbyggd program vara</li><li>Inbyggd program vara version 3,2 eller senare</li></ul>|[Marvell BYOK-verktyg och dokumentation](https://www.marvell.com/products/security-solutions/nitrox-hs-adapters/exporting-marvell-hsm-keys-to-cloud-azure-key-vault.html)|
 |Cryptomathic|ISV (Enterprise Key Management System)|Flera HSM-varumärken och-modeller, inklusive<ul><li>Hjälp programmet nCipher</li><li>Thales</li><li>Utimaco</li></ul>Mer [information finns på Cryptomathic-webbplatsen](https://www.cryptomathic.com/azurebyok)|[Cryptomathic BYOK-verktyg och dokumentation](https://www.cryptomathic.com/azurebyok)|
-
+|Securosys SA|Tillverkare, HSM som en tjänst|Primus HSM-familjen, Securosys-moln HSM|[Primus BYOK-verktyg och dokumentation](https://www.securosys.com/primus-azure-byok)|
+||||
 
 
 ## <a name="supported-key-types"></a>Nyckeltyper som stöds
 
-|Nyckelnamn|Nyckeltyp|Nyckel storlek|Ursprung|Beskrivning|
+|Nyckelnamn|Nyckeltyp|Nyckel storlek|Ursprung|Description|
 |---|---|---|---|---|
 |Nyckel utbytes nyckel (KEK)|RSA| 2 048-bitars<br />3 072-bitars<br />4 096-bitars|Azure Key Vault HSM|Ett HSM-backat RSA-nyckelpar som genererades i Azure Key Vault|
 |Mål nyckel|RSA|2 048-bitars<br />3 072-bitars<br />4 096-bitars|Vendor HSM|Nyckeln som ska överföras till Azure Key Vault HSM|
@@ -119,7 +120,7 @@ Se din HSM-leverantörs dokumentation för att ladda ned och installera BYOK-ver
 > [!NOTE] 
 > Det finns inte stöd för att importera RSA 1 024-bitars nycklar. Det finns för närvarande inte stöd för att importera en Elliptic Curve-nyckel (EC).
 > 
-> **Känt problem**: det går bara att importera en RSA 4K-mål nyckel från Luna HSM: er med den inbyggda program varan 7.4.0 eller senare.
+> **Känt problem** : det går bara att importera en RSA 4K-mål nyckel från Luna HSM: er med den inbyggda program varan 7.4.0 eller senare.
 
 ### <a name="step-4-transfer-your-key-to-azure-key-vault"></a>Steg 4: överför din nyckel till Azure Key Vault
 

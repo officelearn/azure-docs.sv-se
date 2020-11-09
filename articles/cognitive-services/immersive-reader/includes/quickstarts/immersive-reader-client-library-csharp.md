@@ -11,18 +11,18 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.author: nitinme
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 1c7587a4434a84c6934179393baa5ae684f9b1fd
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: cef5aaae58797e38745b3f5164c171581a005562
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92116687"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94371785"
 ---
 [Avancerad läsare](https://www.onenote.com/learningtools) är ett särskilt utformat verktyg som implementerar beprövade tekniker för att förbättra Läs förståelse för nya läsare, språkutbildningar och personer med inlärnings skillnader som Dyslexia. Du kan använda avancerad läsare i dina program för att isolera text för att förbättra fokus, Visa bilder för vanliga ord, markera delar av tal, läsa den markerade texten, översätta ord och fraser i real tid och mycket mer.
 
 I den här snabb starten skapar du en webbapp från grunden och integrerar avancerad läsare med klient biblioteket för avancerad läsare. Ett fullständigt fungerande exempel på den här snabb starten finns [på GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-csharp).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services)
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads)
@@ -42,7 +42,7 @@ Skapa ett nytt projekt i Visual Studio med hjälp av mallen ASP.NET Core Web App
 
 ### <a name="configure-authentication-values"></a>Konfigurera värden för autentisering
 
-Högerklicka på projektet i _Solution Explorer_ och välj **hantera användar hemligheter**. Då öppnas en fil med namnet _secrets.jspå_. Den här filen är inte markerad i käll kontrollen. Läs mer [här](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows&preserve-view=true). Ersätt innehållet i _secrets.jspå_ med följande, och ange de värden som anges när du skapade din fördjupade läsare-resurs.
+Högerklicka på projektet i _Solution Explorer_ och välj **hantera användar hemligheter**. Då öppnas en fil med namnet _secrets.jspå_. Den här filen är inte markerad i käll kontrollen. Läs mer [här](/aspnet/core/security/app-secrets?preserve-view=true&tabs=windows&view=aspnetcore-3.1). Ersätt innehållet i _secrets.jspå_ med följande, och ange de värden som anges när du skapade din fördjupade läsare-resurs.
 
 ```json
 {
@@ -65,7 +65,7 @@ I följande kod används objekt från **Microsoft. IdentityModel. clients. Activ
 
 ### <a name="update-the-controller-to-acquire-the-token"></a>Uppdatera styrenheten för att hämta token 
 
-Öppna _Controllers\HomeController.cs_och Lägg till följande kod efter _using_ -instruktionerna överst i filen.
+Öppna _Controllers\HomeController.cs_ och Lägg till följande kod efter _using_ -instruktionerna överst i filen.
 
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -218,9 +218,9 @@ Observera att all text har ett **lang** -attribut som beskriver språk i texten.
 
 ## <a name="add-javascript-to-handle-launching-immersive-reader"></a>Lägg till Java Script till hantering starta avancerad läsare
 
-Biblioteket för avancerad läsare innehåller funktioner som att starta den fördjupade läsaren och återge knappar för avancerad läsare. Läs mer [här](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference).
+Biblioteket för avancerad läsare innehåller funktioner som att starta den fördjupade läsaren och återge knappar för avancerad läsare. Läs mer [här](../../reference.md).
 
-Lägg till följande kod längst ned i _Views\Home\Index.cshtml_:
+Lägg till följande kod längst ned i _Views\Home\Index.cshtml_ :
 
 ```html
 @section Scripts
@@ -292,7 +292,7 @@ Lägg till följande kod längst ned i _Views\Home\Index.cshtml_:
 
 ## <a name="build-and-run-the-app"></a>Kompilera och köra appen
 
-I meny raden väljer du **felsök > starta fel sökning**eller trycker på **F5** för att starta programmet.
+I meny raden väljer du **felsök > starta fel sökning** eller trycker på **F5** för att starta programmet.
 
 I webbläsaren bör du se:
 

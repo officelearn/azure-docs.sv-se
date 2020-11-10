@@ -3,12 +3,12 @@ title: Översikt över arkitekturen
 description: Innehåller en översikt över arkitekturen, komponenterna och processerna som används av Azure Backups tjänsten.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: f5d4c881244ddae41ba4c706812bd7b8274a374e
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 288b073c20b93bf1802f34f5dcd17b12430bb279
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173268"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427742"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup arkitektur och komponenter
 
@@ -22,11 +22,11 @@ Azure Backup säkerhetskopierar data, dator tillstånd och arbets belastningar s
 
 Du kan säkerhetskopiera datorer och data genom att använda ett antal metoder:
 
-- **Säkerhetskopiera lokala datorer**:
+- **Säkerhetskopiera lokala datorer** :
   - Du kan säkerhetskopiera lokala Windows-datorer direkt till Azure med hjälp av MARS-agenten (Azure Backup Microsoft Azure Recovery Services). Linux-datorer stöds inte.
   - Du kan säkerhetskopiera lokala datorer till en säkerhets kopierings Server, antingen System Center Data Protection Manager (DPM) eller Microsoft Azure Backup Server (MABS). Du kan sedan säkerhetskopiera säkerhets kopierings servern till ett Recovery Services valv i Azure.
 
-- **Säkerhetskopiera virtuella Azure-datorer**:
+- **Säkerhetskopiera virtuella Azure-datorer** :
   - Du kan säkerhetskopiera virtuella Azure-datorer direkt. Azure Backup installerar ett säkerhets kopierings tillägg för Azure VM-agenten som körs på den virtuella datorn. Det här tillägget säkerhetskopierar hela den virtuella datorn.
   - Du kan säkerhetskopiera vissa filer och mappar på den virtuella Azure-datorn genom att köra MARS-agenten.
   - Du kan säkerhetskopiera virtuella Azure-datorer till MABS som körs i Azure, och du kan sedan säkerhetskopiera MABS till ett Recovery Services-valv.
@@ -35,7 +35,7 @@ Läs mer om [vad du kan säkerhetskopiera](backup-overview.md) och om vilka [sä
 
 ## <a name="where-is-data-backed-up"></a>Var säkerhets kopie ras data?
 
-Azure Backup lagrar säkerhetskopierade data i ett valv – Recovery Services valv och säkerhets kopierings valv. Ett valv är en online-lagrings enhet i Azure som används för att lagra data, till exempel säkerhets kopior, återställnings punkter och säkerhets kopierings principer.
+Azure Backup lagrar säkerhetskopierade data i valv – Recovery Services valv och säkerhets kopierings valv. Ett valv är en online-lagrings enhet i Azure som används för att lagra data, till exempel säkerhets kopior, återställnings punkter och säkerhets kopierings principer.
 
 Valv har följande funktioner:
 
@@ -43,9 +43,9 @@ Valv har följande funktioner:
 - Du kan övervaka säkerhetskopierade objekt i ett valv, inklusive virtuella datorer i Azure och lokala datorer.
 - Du kan hantera valv åtkomst med [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md).
 - Du anger hur data i valvet replikeras för redundans:
-  - **Lokalt Redundant lagring (LRS)**: för att skydda mot problem i ett Data Center kan du använda LRS. LRS replikerar data till en lagrings skalnings enhet. [Läs mer](../storage/common/storage-redundancy.md#locally-redundant-storage).
-  - **Geo-redundant lagring (GRS)**: för att skydda mot hela verksamhets avbrott kan du använda GRS. GRS replikerar dina data till en sekundär region. [Läs mer](../storage/common/storage-redundancy.md#geo-redundant-storage).
-  - **Zone-redundant lagring (ZRS)**: replikerar dina data i [tillgänglighets zoner](../availability-zones/az-overview.md#availability-zones), vilket garanterar data placering och återhämtning i samma region. [Läs mer](../storage/common/storage-redundancy.md#zone-redundant-storage)
+  - **Lokalt Redundant lagring (LRS)** : för att skydda mot problem i ett Data Center kan du använda LRS. LRS replikerar data till en lagrings skalnings enhet. [Läs mer](../storage/common/storage-redundancy.md#locally-redundant-storage).
+  - **Geo-redundant lagring (GRS)** : för att skydda mot hela verksamhets avbrott kan du använda GRS. GRS replikerar dina data till en sekundär region. [Läs mer](../storage/common/storage-redundancy.md#geo-redundant-storage).
+  - **Zone-redundant lagring (ZRS)** : replikerar dina data i [tillgänglighets zoner](../availability-zones/az-overview.md#availability-zones), vilket garanterar data placering och återhämtning i samma region. [Läs mer](../storage/common/storage-redundancy.md#zone-redundant-storage)
   - Som standard använder Recovery Services-valv GRS.
 
 Recovery Services-valv har följande ytterligare funktioner:
@@ -87,8 +87,8 @@ Lagrings förbrukning, återställnings tids mål (RTO) och nätverks förbrukni
 
 - Data källa A består av 10 lagrings block, a1-A10, som säkerhets kopie ras varje månad.
 - Block A2, A3, A4 och A9 ändras under den första månaden, och block A5 ändras nästa månad.
-- För differentiella säkerhets kopior i den andra månaden säkerhets kopie ras de ändrade blocken a2, A3, A4 och A9. Den tredje månaden säkerhetskopieras samma block igen, tillsammans med ändrade A5-block. De ändrade blocken fortsätter att säkerhetskopieras tills nästa fullständiga säkerhetskopiering sker.
-- För stegvisa säkerhets kopieringar är block a2, A3, A4, och A9 markerade som ändrade och överförda. I den tredje månaden markeras och överförs endast ändrade A5-block.
+- För differentiella säkerhets kopieringar, i den andra månaden, ändrade block a2, A3, A4 och A9 säkerhets kopie ras. Den tredje månaden säkerhetskopieras samma block igen, tillsammans med ändrade A5-block. De ändrade blocken fortsätter att säkerhetskopieras tills nästa fullständiga säkerhetskopiering sker.
+- För stegvisa säkerhets kopieringar är a2, A3, A4 och A9 markerade som ändrade och överförda. I den tredje månaden markeras och överförs endast ändrade A5-block.
 
 ![Bild som visar jämförelser av säkerhets kopierings metoder](./media/backup-architecture/backup-method-comparison.png)
 
@@ -99,8 +99,8 @@ I följande tabell sammanfattas de funktioner som stöds för de olika typerna a
 **Funktion** | **Direkt säkerhets kopiering av filer och mappar (med MARS-agenten)** | **VIRTUELL Azure-säkerhetskopiering** | **Datorer eller appar med DPM/MABS**
 --- | --- | --- | ---
 Säkerhetskopiera till valvet | ![Ja][green] | ![Ja][green] | ![Ja][green]
-Säkerhetskopiera till DPM/MABS disk, sedan till Azure | | | ![Ja][green]
-Komprimera data som skickats för säkerhets kopiering | ![Ja][green] | Ingen komprimering används vid överföring av data. Lagringen är inplattat något men återställningen är snabbare.  | ![Ja][green]
+Säkerhetskopiera till DPM/MABS disk, sedan till Azure | | | ![Yes][green]
+Komprimera data som skickats för säkerhets kopiering | ![Yes][green] | Ingen komprimering används vid överföring av data. Lagringen är inplattat något men återställningen är snabbare.  | ![Yes][green]
 Kör stegvis säkerhets kopiering |![Ja][green] |![Ja][green] |![Ja][green]
 Säkerhetskopiera deduplicerade diskar | | | ![Delvis][yellow]<br/><br/> Endast för DPM/MABS-servrar distribuerade lokalt.
 
@@ -123,6 +123,12 @@ Säkerhetskopiera deduplicerade diskar | | | ![Delvis][yellow]<br/><br/> Endast 
 - Kvarhållning för "månatliga", "årliga" säkerhets kopierings platser kallas för långsiktig kvarhållning (brv)
 - När ett valv skapas, skapas även en "DefaultPolicy" och kan användas för att säkerhetskopiera resurser.
 - Alla ändringar som görs i kvarhållningsperioden för en säkerhets kopierings princip tillämpas retroaktivt för alla äldre återställnings punkter som tas bort från de nya.
+
+### <a name="impact-of-policy-change-on-recovery-points"></a>Effekt av princip ändringar på återställnings punkter
+
+- **Retentions tiden höjs/minskas:** När Retentions tiden ändras, tillämpas den nya Retentions tiden även på befintliga återställnings punkter. Därför rensas vissa av återställnings punkterna. Om kvarhållningsperioden ökas har de befintliga återställnings punkterna även en ökad kvarhållning.
+- **Ändrad från varje dag till varje vecka:** När de schemalagda säkerhets kopieringarna ändras från varje dag till varje vecka rensas de befintliga dagliga återställnings punkterna.
+- **Ändras från varje vecka till varje dag:** Befintliga vecko Visa säkerhets kopior kommer att behållas baserat på antalet dagar kvar enligt den aktuella bevarande principen.
 
 ### <a name="additional-reference"></a>Ytterligare referenser
 
@@ -204,7 +210,7 @@ Mer information om disk lagring och tillgängliga disk typer för virtuella dato
 
 Du kan säkerhetskopiera virtuella Azure-datorer med hjälp av Premium Storage med Azure Backup:
 
-- Under säkerhets kopieringen av virtuella datorer med Premium Storage skapar Backup-tjänsten en tillfällig mellanlagringsplats med namnet *AzureBackup-*, i lagrings kontot. Storleken på mellanlagringsplatsen är lika stor som storleken på ögonblicks bilden av återställnings punkten.
+- Under säkerhets kopieringen av virtuella datorer med Premium Storage skapar Backup-tjänsten en tillfällig mellanlagringsplats med namnet *AzureBackup-* , i lagrings kontot. Storleken på mellanlagringsplatsen är lika stor som storleken på ögonblicks bilden av återställnings punkten.
 - Se till att Premium Storage-kontot har tillräckligt med ledigt utrymme för att kunna hantera den tillfälliga mellanlagrings platsen. Mer information finns i [skalbarhets mål för Premium Page Blob Storage-konton](../storage/blobs/scalability-targets-premium-page-blobs.md). Ändra inte mellanlagringsplatsen.
 - När säkerhets kopierings jobbet har slutförts tas mellanlagringsplatsen bort.
 - Priset för det lagrings utrymme som används för mellanlagringsplatsen är konsekvent med [priser för Premium Storage](../virtual-machines/disks-types.md#billing).

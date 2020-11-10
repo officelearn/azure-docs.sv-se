@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: c34cd8e399a005f5eadb3751fb0575f6ecfc27ed
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 90a5f0f84c72895a8450a42260b07f6dbea15e37
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380886"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94428048"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Anslut Azure till ITSM-verktyg med hjälp av Anslutningsprogram för hantering av IT-tjänster (ITSM)
 
@@ -28,6 +28,9 @@ ITSMC stöder anslutningar med följande ITSM-verktyg:
 -   System Center Service Manager
 -   Styrka
 -   Cherwell
+
+   >[!NOTE]
+> Från och med 1 – okt-2020-Cherwell och ITSM-integrering med Azure-avisering kommer inte längre att aktive ras för nya kunder. Det går inte att använda nya ITSM-anslutningar. Befintliga ITSM-anslutningar kommer att stödjas.
 
 Med ITSMC kan du:
 
@@ -150,7 +153,8 @@ Använd följande procedur för att skapa arbets objekt:
 
    ![Skärm bild som visar ITSM Ticket-fönstret.](media/itsmc-overview/itsm-action-configuration.png)
    
-   * I ett fall som du väljer i list rutan arbets objekt "händelse": om du väljer **skapa enskilda arbets objekt för varje loggpost** i alternativ knappar, kommer varje avisering att skapa ett nytt arbets objekt. Om du väljer **skapa enskilda arbets objekt för varje konfigurations objekt** i alternativet alternativ knappar, kommer varje konfigurations objekt ha sitt eget arbets objekt. 
+   * I ett fall som du väljer i list rutan arbets objekt "händelse": om du väljer **skapa enskilda arbets objekt för varje loggpost** i alternativ knappar, kommer varje avisering att skapa ett nytt arbets objekt. Om du väljer **skapa enskilda arbets objekt för varje konfigurations objekt** i alternativet alternativ knappar, kommer varje konfigurations objekt ha sitt eget arbets objekt.
+   ![Skärm bild som visar ITSM Ticket-fönstret.](media/itsmc-overview/itsm-action-configuration-event.png)
 
 10. Välj **OK**.
 
@@ -249,14 +253,14 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 - Planerat slutdatum
 - Start datum för arbete
 - Slutdatum för arbete
-- Description
+- Beskrivning
 - Dator
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Utdata för en ServiceNow-incident
 
 | Log Analytics fält | ServiceNow-fält |
 |:--- |:--- |
-| ServiceDeskId_s| Antal |
+| ServiceDeskId_s| Tal |
 | IncidentState_s | Tillstånd |
 | Urgency_s |Angelägenhetsgrad |
 | Impact_s |Påverkan|
@@ -278,7 +282,7 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 
 | Log Analytics | ServiceNow-fält |
 |:--- |:--- |
-| ServiceDeskId_s| Antal |
+| ServiceDeskId_s| Tal |
 | CreatedBy_s | Begärd av |
 | ClosedBy_s | Stängd av |
 | AssignedTo_s | Tilldelad  |
@@ -296,7 +300,7 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 | PlannedEndDate_t  |   Planerat slutdatum |
 | WorkStartDate_t  | Verkligt start datum |
 | WorkEndDate_t | Verkligt slutdatum|
-| Description_s | Description |
+| Description_s | Beskrivning |
 | Dator  | Konfigurations objekt |
 
 

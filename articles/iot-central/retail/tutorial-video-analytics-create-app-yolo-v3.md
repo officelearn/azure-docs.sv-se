@@ -8,12 +8,12 @@ ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
 ms.date: 10/06/2020
-ms.openlocfilehash: 8066f42a5ab34f5cab0afcdc42cc6ccacfff2855
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 3994b05f613cbebcf6daa05cf8db3ef429b52407
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91877242"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94428070"
 ---
 # <a name="tutorial-create-a-video-analytics---object-and-motion-detection-application-in-azure-iot-central-yolo-v3"></a>Självstudie: skapa ett program för video analys – identifiering av objekt och motion i Azure IoT Central (YOLO v3)
 
@@ -111,7 +111,7 @@ Den här självstudien konfigurerar din lösning att använda YOLO v3-modulen f�
 
 ### <a name="replace-the-manifest"></a>Ersätt manifestet
 
-På sidan **lva Edge Gateway** väljer du **+ Ersätt manifest**.
+På sidan **lva Edge Gateway v2** väljer du **+ Ersätt manifest**.
 
 :::image type="content" source="./media/tutorial-video-analytics-create-app-yolo-v3/replace-manifest.png" alt-text="Ersätt manifest":::
 

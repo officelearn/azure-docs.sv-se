@@ -3,12 +3,12 @@ title: Tagga stöd för resurser
 description: Visar vilka typer av Azure-resurs typer som stöder taggar. Innehåller information om alla Azure-tjänster.
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: c3a94ece52e5c5b17a50fed9810303480a9c974a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: fb81ed303cf27add3a033021f017c03f4b9e9750
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370295"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427776"
 ---
 # <a name="tag-support-for-azure-resources"></a>Tagga stöd för Azure-resurser
 I den här artikeln beskrivs om en resurs typ stöder [taggar](tag-resources.md). Den kolumn som har etiketten **stöder Taggar** anger om resurs typen har en egenskap för taggen. Kolumnen med etiketten **tagg i Cost** visar om den resurs typen skickar taggen till kostnads rapporten. Du kan visa kostnader efter taggar i [Cost Management kostnads analys](../../cost-management-billing/costs/group-filter.md) och Azure- [faktura och användnings data per dag](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -284,7 +284,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | configurationStores | Ja | Ja |
+> | configurationStores | Ja | Nej |
 > | configurationStores / eventGridFilters | Nej | Nej |
 > | configurationStores/-värde | Nej | Nej |
 
@@ -838,7 +838,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Prognoser | Nej | Nej |
 > | samtliga | Nej | Nej |
 > | Marknads platser | Nej | Nej |
-> | Pricesheets | Nej | Nej |
+> | Prisdokument | Nej | Nej |
 > | läkemedle | Nej | Nej |
 > | ReservationDetails | Nej | Nej |
 > | ReservationRecommendationDetails | Nej | Nej |
@@ -1764,9 +1764,9 @@ Hoppa till ett namn område för en resurs leverantör:
 > | expressRoutePorts | Ja | Ja |
 > | expressRouteServiceProviders | Nej | Nej |
 > | firewallPolicies | Ja | Ja |
-> | frontdoors | Ja, men begränsat (se [Obs! nedan](#frontdoor)) | Ja |
-> | frontdoorWebApplicationFirewallManagedRuleSets | Ja, men begränsat (se [Obs! nedan](#frontdoor)) | Nej |
-> | frontdoorWebApplicationFirewallPolicies | Ja, men begränsat (se [Obs! nedan](#frontdoor)) | Ja |
+> | frontdoors | Ja, men begränsat (se [Obs! nedan](#frontdoor)) | Yes |
+> | frontdoorWebApplicationFirewallManagedRuleSets | Ja, men begränsat (se [Obs! nedan](#frontdoor)) | No |
+> | frontdoorWebApplicationFirewallPolicies | Ja, men begränsat (se [Obs! nedan](#frontdoor)) | Yes |
 > | getDnsResourceReference | Nej | Nej |
 > | internalNotify | Nej | Nej |
 > | ipGroups | Ja | Ja |
@@ -2253,7 +2253,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | managedInstances | Ja | Ja |
-> | managedInstances/databaser | Ja (se [Anmärkning nedan](#sqlnote)) | Ja |
+> | managedInstances/databaser | Ja (se [Anmärkning nedan](#sqlnote)) | Yes |
 > | managedInstances/databaser/backupShortTermRetentionPolicies | Nej | Nej |
 > | managedInstances/databaser/scheman/tabeller/kolumner/sensitivityLabels | Nej | Nej |
 > | managedInstances/databaser/vulnerabilityAssessments | Nej | Nej |
@@ -2265,7 +2265,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | brygghuvudservrar | Ja | Ja |
 > | servrar/administratörer | Nej | Nej |
 > | servrar/communicationLinks | Nej | Nej |
-> | servrar/databaser | Ja (se [Anmärkning nedan](#sqlnote)) | Ja |
+> | servrar/databaser | Ja (se [Anmärkning nedan](#sqlnote)) | Yes |
 > | servrar/encryptionProtector | Nej | Nej |
 > | servrar/firewallRules | Nej | Nej |
 > | servrar/nycklar | Nej | Nej |
@@ -2369,7 +2369,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- | ----------- |
 > | kluster | Ja | Ja |
 > | kluster/privateEndpoints | Nej | Nej |
-> | streamingjobs | Ja (se anmärkning nedan) | Ja |
+> | streamingjobs | Ja (se anmärkning nedan) | Yes |
 
 > [!NOTE]
 > Du kan inte lägga till en tagg när streamingjobs körs. Stoppa resursen för att lägga till en tagg.

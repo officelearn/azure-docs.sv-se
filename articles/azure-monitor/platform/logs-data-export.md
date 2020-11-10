@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 54d5fdf1f6bc905482186475302901c46de0d285
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 19d464f0148572f30ecd0c3ab1dcee7bd0315b87
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380134"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427810"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics arbets ytans data export i Azure Monitor (förhands granskning)
 Med Log Analytics data export för arbets yta i Azure Monitor kan du kontinuerligt exportera data från valda tabeller i din Log Analytics arbets yta till ett Azure Storage-konto eller Azure-Event Hubs som det samlas in. Den här artikeln innehåller information om den här funktionen och hur du konfigurerar data export i dina arbets ytor.
@@ -58,7 +58,7 @@ Log Analytics data export för arbets ytan exporterar kontinuerligt data från e
 ## <a name="data-completeness"></a>Data fullständighet
 Data exporten kommer att fortsätta att försöka skicka data i upp till 30 minuter om målet inte är tillgängligt. Om det fortfarande inte är tillgängligt efter 30 minuter tas data bort tills målet blir tillgängligt.
 
-## <a name="cost"></a>Cost
+## <a name="cost"></a>Cost (Kostnad)
 Det finns för närvarande inga ytterligare avgifter för data export funktionen. Prissättningen för data export kommer att meddelas i framtiden och ett meddelande som tillhandahålls innan faktureringen påbörjas. Om du väljer att fortsätta använda data export efter meddelande perioden debiteras du enligt tillämplig taxa.
 
 ## <a name="export-destinations"></a>Exportera mål
@@ -77,8 +77,9 @@ Log Analytics data export kan skriva till att lägga till blobar till oförände
 ### <a name="event-hub"></a>Händelsehubb
 Data skickas till händelsehubben i nära real tid när den når Azure Monitor. En Event Hub skapas för varje datatyp som du exporterar med namnet *am –* följt av namnet på tabellen. Tabellen *SecurityEvent* skulle till exempel skickas till en Event Hub med namnet ' *am-SecurityEvent* '. Om du vill att exporterade data ska uppnå en viss händelsehubben, eller om du har en tabell med ett namn som överskrider tecken gränsen på 47, kan du ange ett eget namn på händelsehubben och exportera alla data för definierade tabeller till den.
 
-Volymen för exporterade data ökar ofta med tiden och skalningen av Event Hub måste ökas för att hantera större överföringshastigheter och undvika begränsnings scenarier och data fördröjning. Du bör använda funktionen för automatisk ökning i Event Hubs för att automatiskt skala upp och öka antalet data flödes enheter och uppfylla användnings behoven. Mer information finns i [skala upp Azure Event Hubs data flödes enheter automatiskt](../../event-hubs/event-hubs-auto-inflate.md) .
-
+Överväganden:
+1. Den grundläggande Event Hub-SKU: n stöder lägre storleks [gräns](https://docs.microsoft.com/azure/event-hubs/event-hubs-quotas#basic-vs-standard-tiers) för händelser och vissa loggar på din arbets yta kan överstiga den och tas bort. Vi rekommenderar att du använder "standard" eller "dedikerad" händelsehubben som export mål.
+2. Volymen för exporterade data ökar ofta med tiden och skalningen av Event Hub måste ökas för att hantera större överföringshastigheter och undvika begränsnings scenarier och data fördröjning. Du bör använda funktionen för automatisk ökning i Event Hubs för att automatiskt skala upp och öka antalet data flödes enheter och uppfylla användnings behoven. Mer information finns i [skala upp Azure Event Hubs data flödes enheter automatiskt](../../event-hubs/event-hubs-auto-inflate.md) .
 
 ## <a name="prerequisites"></a>Förutsättningar
 Följande är förutsättningar som måste slutföras innan du konfigurerar Log Analytics data export.

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/27/2020
-ms.openlocfilehash: b74c7c3e9678c89edbe90d648520b9526c8fb569
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e2e97b857f648390ec017a529115b23c4f17a68d
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748648"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427997"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-intel-nuc"></a>Självstudie: skapa en IoT Edge-instans för video analys (Intel NUC)
 
@@ -27,7 +27,7 @@ I IoT Edge körs dessa tjänster direkt på IoT-enheter över plattformar, så a
 
 Den här självstudien visar hur du installerar och konfigurerar IoT Edge runtime på en Intel NUC-enhet.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Uppdatera och konfigurera IoT Edge
 > * Konfigurera IoT Edge Gateway
@@ -117,9 +117,9 @@ Konfigurera IoT Edge för att registrera och ansluta till ditt IoT Central-progr
 
 1. Ersätt `{scope_id}` med **ID-omfånget** som du gjorde en anteckning om i *scratchpad.txt* -filen i föregående självstudie.
 
-1. Ersätt `{registration_id}` med *lva-Gateway-001* , enheten som du skapade i föregående självstudie.
+1. Ersätt `{registration_id}` med *Gateway – 001* den enhet som du skapade i föregående självstudie.
 
-1. Ersätt `{symmetric_key}` med den **primära nyckeln** för **lva-Gateway-001-** enheten du antecknade i *scratchpad.txt* -filen i föregående självstudie.
+1. Ersätt `{symmetric_key}` med den **primära nyckeln** för den **Gateway-001-** enhet som du antecknade i *scratchpad.txt* -filen i föregående självstudie.
 
 1. Kör följande kommando för att starta om IoT Edge daemon:
 

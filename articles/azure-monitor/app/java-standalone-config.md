@@ -4,12 +4,12 @@ description: Konfigurations alternativ för Azure Monitor Application Insights J
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 6edb77ec21b4f82f8398312fdff24aa5ea207771
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: b703a708af564b9dafc8c1409333a2cfed6d2653
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381039"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427708"
 ---
 # <a name="configuration-options-for-azure-monitor-application-insights-java"></a>Konfigurations alternativ för Azure Monitor Application Insights Java
 
@@ -178,9 +178,9 @@ Det gör att du kan konfigurera regler som ska tillämpas på begäran, beroende
 
 Mer information finns i dokumentationen om [telemetri-processorn](./java-standalone-telemetry-processors.md) .
 
-## <a name="autocollected-logging"></a>Autosamlad loggning
+## <a name="auto-collected-logging"></a>Automatisk insamlad loggning
 
-Log4j, logback och Java. util. logging är automatiskt instrumenterade och loggning utförs via dessa loggnings ramverk samlas in automatiskt.
+Log4j, logback och Java. util. logging är automatiskt instrumenterade och loggning som utförs via dessa loggnings ramverk samlas automatiskt in.
 
 Som standard samlas loggning endast in när loggningen utförs på `INFO` nivån eller över.
 
@@ -213,13 +213,13 @@ Dessa är giltiga `level` värden som du kan ange i `applicationinsights.json` f
 | TRACE (eller FINEST) | Rita  | Rita   | FINEST  |
 | ALL               | ALL    | ALL     | ALL     |
 
-## <a name="autocollected-micrometer-metrics-including-spring-boot-actuator-metrics"></a>Autosamlade micrometer-mått (inklusive vårens start motstånds mått)
+## <a name="auto-collected-micrometer-metrics-including-spring-boot-actuator-metrics"></a>Automatiskt insamlade micrometer-mått (inklusive värden för våren Boot-motstånd)
 
-Om programmet använder [micrometer](https://micrometer.io)samlas mått som skickas till det globala registret för micrometer in.
+Om ditt program använder [micrometer](https://micrometer.io), samlas mått som skickas till micrometer globala registret automatiskt.
 
-Om ditt program använder [våren Boot-motstånd](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html), samlas även statistik som kon figurer ATS av våren Boot-motstånd in.
+Om ditt program använder [våren Boot-motstånd](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html), samlas även statistik som kon figurer ATS av våren Boot-motstånd automatiskt in.
 
-Så här inaktiverar du autoinsamling av micrometer-mått (inklusive värden för våren Boot-startmotstånd):
+Så här inaktiverar du automatisk insamling av micrometer-mått (inklusive värden för våren Boot-motstånd):
 
 > [!NOTE]
 > Anpassade mått faktureras separat och kan generera ytterligare kostnader. Se till att se den detaljerade [pris informationen](https://azure.microsoft.com/pricing/details/monitor/). Om du vill inaktivera Mät värdena för micrometer och våren lägger du till nedanstående konfiguration i konfigurations filen.

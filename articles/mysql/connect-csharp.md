@@ -7,30 +7,34 @@ ms.service: mysql
 ms.custom: mvc, devx-track-csharp
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 10/16/2020
-ms.openlocfilehash: 86362dc6d3e66f8b3d6888318fef0eb1dd12c3c3
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.date: 10/18/2020
+ms.openlocfilehash: 96a32b615da9b9e5549233489ba74bf859236d9a
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93337497"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427963"
 ---
 # <a name="quickstart-use-net-c-to-connect-and-query-data-in-azure-database-for-mysql"></a>Snabb start: använda .NET (C#) för att ansluta och fråga efter data i Azure Database for MySQL
 
-Den här snabbstarten visar hur du ansluter till en Azure Database for MySQL med hjälp av ett C#-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. Det här avsnittet förutsätter att du är van att utveckla i C# och att du saknar erfarenhet av Azure Database for MySQL.
+Den här snabbstarten visar hur du ansluter till en Azure Database for MySQL med hjälp av ett C#-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
+För den här snabb starten behöver du:
 
-I den här snabbstarten används de resurser som skapades i någon av följande guider som utgångspunkt:
-- [Skapa en Azure Database för MySQL med Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
-- [Skapa en Azure Database för MySQL-server med Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free).
+- Skapa en Azure Database for MySQL enskild server med [Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md) <br/> eller [Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md) om du inte har något.
+- Baserat på om du använder offentlig eller privat åtkomst utför du **en** av åtgärderna nedan för att aktivera anslutningen.
 
-Du måste också:
-- Installera [.net](https://www.microsoft.com/net/download). Följ stegen i den länkade artikeln för att installera .NET specifikt för din plattform (Windows, Ubuntu, Linux eller Mac OS). 
-- Installera [Visual Studio](https://www.visualstudio.com/downloads/).
+|Åtgärd| Anslutningsmetod|Instruktionsguide|
+|:--------- |:--------- |:--------- |
+| **Konfigurera brandväggsregler** | Offentliga | [Portal](./howto-manage-firewall-using-portal.md) <br/> [CLI](./howto-manage-firewall-using-cli.md)|
+| **Konfigurera tjänstens slut punkt** | Offentliga | [Portal](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md)| 
+| **Konfigurera privat länk** | Privata | [Portal](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) | 
 
-> [!IMPORTANT] 
-> Se till att den IP-adress som du ansluter från har lagts till i serverns brand Väggs regler med hjälp av [Azure Portal](./howto-manage-firewall-using-portal.md) eller [Azure CLI](./howto-manage-firewall-using-cli.md)
+- [Skapa en databas och icke-administratörs användare](./howto-create-users.md)
+
+[Har du problem? Berätta för oss](https://aka.ms/mysql-doc-feedback)
 
 ## <a name="create-a-c-project"></a>Skapa ett C#-projekt
 Kör följande i en kommandotolk:
@@ -45,14 +49,17 @@ dotnet add package MySqlConnector
 ## <a name="get-connection-information"></a>Hämta anslutningsinformation
 Skaffa den information som du behöver för att ansluta till Azure Database för MySQL. Du behöver det fullständiga servernamnet och inloggningsuppgifter.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. På den vänstra menyn i Azure Portal klickar du på **Alla resurser**. Sök sedan efter den server som du skapade (till exempel **mydemoserver** ).
 3. Klicka på servernamnet.
 4. På serverpanelen **Översikt** antecknar du **Servernamn** och **Inloggningsnamn för serveradministratören**. Om du glömmer lösenordet kan du även återställa det på den här panelen.
  :::image type="content" source="./media/connect-csharp/1_server-overview-name-login.png" alt-text="Azure Database för MySQL-servernamn":::
 
-## <a name="connect-create-table-and-insert-data"></a>Ansluta, skapa tabell och infoga data
-Använd följande kod för att ansluta och läsa in data med SQL-instruktionerna `CREATE TABLE` och `INSERT INTO`. Koden använder `MySqlConnection`-klassen med metoden [OpenAsync()](/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) för att upprätta en anslutning till MySQL. Koden använder därefter metoden [CreateCommand()](/dotnet/api/system.data.common.dbconnection.createcommand), anger egenskapen CommandText och anropar metoden [ExecuteNonQueryAsync()](/dotnet/api/system.data.common.dbcommand.executenonqueryasync) för att köra databaskommandona. 
+## <a name="step-1-connect-and-insert-data"></a>Steg 1: Anslut och infoga data
+Använd följande kod för att ansluta och läsa in data med SQL-instruktionerna `CREATE TABLE` och `INSERT INTO`. I koden används metoderna i `MySqlConnection` klassen:
+- [OpenAsync ()](/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) för att upprätta en anslutning till MySQL.
+- [CreateCommand ()](/dotnet/api/system.data.common.dbconnection.createcommand)anger egenskapen CommandText
+- [ExecuteNonQueryAsync ()](/dotnet/api/system.data.common.dbcommand.executenonqueryasync) för att köra databas kommandona. 
 
 Ersätt parametrarna `Server`, `Database`, `UserID` och `Password` med de värden som du angav när du skapade servern och databasen. 
 
@@ -115,9 +122,17 @@ namespace AzureMySqlExample
 }
 ```
 
-## <a name="read-data"></a>Läsa data
+[Har du problem? Berätta för oss](https://aka.ms/mysql-doc-feedback)
 
-Använd följande kod för att ansluta och läsa data med SQL-instruktionen `SELECT`. Koden använder `MySqlConnection`-klassen med metoden [OpenAsync()](/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) för att upprätta en anslutning till MySQL. Koden använder sedan metoden [CreateCommand()](/dotnet/api/system.data.common.dbconnection.createcommand) och metoden [ExecuteReaderAsync()](/dotnet/api/system.data.common.dbcommand.executereaderasync) för att köra databaskommandona. Därefter använder koden [ReadAsync()](/dotnet/api/system.data.common.dbdatareader.readasync#System_Data_Common_DbDataReader_ReadAsync) för att gå vidare till posterna i resultaten. Koden använder sedan GetInt32 och GetString för att parsa värdena i posten.
+
+## <a name="step-2-read-data"></a>Steg 2: Läs data
+
+Använd följande kod för att ansluta och läsa data med SQL-instruktionen `SELECT`. Koden använder `MySqlConnection` klassen med metoder:
+- [OpenAsync ()](/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) för att upprätta en anslutning till MySQL.
+- [CreateCommand ()](/dotnet/api/system.data.common.dbconnection.createcommand) för att ange egenskapen CommandText.
+- [ExecuteReaderAsync ()](/dotnet/api/system.data.common.dbcommand.executereaderasync) för att köra databas kommandona. 
+- [ReadAsync ()](/dotnet/api/system.data.common.dbdatareader.readasync#System_Data_Common_DbDataReader_ReadAsync) för att gå vidare till posterna i resultaten. Koden använder sedan GetInt32 och GetString för att parsa värdena i posten.
+
 
 Ersätt parametrarna `Server`, `Database`, `UserID` och `Password` med de värden som du angav när du skapade servern och databasen. 
 
@@ -173,8 +188,14 @@ namespace AzureMySqlExample
 }
 ```
 
-## <a name="update-data"></a>Uppdatera data
-Använd följande kod för att ansluta och läsa data med SQL-instruktionen `UPDATE`. Koden använder `MySqlConnection`-klassen med metoden [OpenAsync()](/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) för att upprätta en anslutning till MySQL. Koden använder därefter metoden [CreateCommand()](/dotnet/api/system.data.common.dbconnection.createcommand), anger egenskapen CommandText och anropar metoden [ExecuteNonQueryAsync()](/dotnet/api/system.data.common.dbcommand.executenonqueryasync) för att köra databaskommandona. 
+[Har du problem? Berätta för oss](https://aka.ms/mysql-doc-feedback)
+
+## <a name="step-3-update-data"></a>Steg 3: uppdatera data
+Använd följande kod för att ansluta och läsa data med SQL-instruktionen `UPDATE`. Koden använder `MySqlConnection` klassen med metoden:
+- [OpenAsync ()](/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) för att upprätta en anslutning till MySQL. 
+- [CreateCommand ()](/dotnet/api/system.data.common.dbconnection.createcommand) för att ange egenskapen CommandText
+- [ExecuteNonQueryAsync ()](/dotnet/api/system.data.common.dbcommand.executenonqueryasync) för att köra databas kommandona. 
+
 
 Ersätt parametrarna `Server`, `Database`, `UserID` och `Password` med de värden som du angav när du skapade servern och databasen. 
 
@@ -222,11 +243,16 @@ namespace AzureMySqlExample
     }
 }
 ```
+[Har du problem? Berätta för oss](https://aka.ms/mysql-doc-feedback)
 
-## <a name="delete-data"></a>Ta bort data
+## <a name="step-4-delete-data"></a>Steg 4: ta bort data
 Använd följande kod för att ansluta och ta bort data med SQL-instruktionen `DELETE`. 
 
-Koden använder `MySqlConnection`-klassen med metoden [OpenAsync()](/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) för att upprätta en anslutning till MySQL. Koden använder därefter metoden [CreateCommand()](/dotnet/api/system.data.common.dbconnection.createcommand), anger egenskapen CommandText och anropar metoden [ExecuteNonQueryAsync()](/dotnet/api/system.data.common.dbcommand.executenonqueryasync) för att köra databaskommandona. 
+Koden använder `MySqlConnection` klassen med metoden
+- [OpenAsync ()](/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) för att upprätta en anslutning till MySQL.
+- [CreateCommand ()](/dotnet/api/system.data.common.dbconnection.createcommand) för att ange egenskapen CommandText.
+- [ExecuteNonQueryAsync ()](/dotnet/api/system.data.common.dbcommand.executenonqueryasync) för att köra databas kommandona. 
+
 
 Ersätt parametrarna `Server`, `Database`, `UserID` och `Password` med de värden som du angav när du skapade servern och databasen. 
 
@@ -286,4 +312,9 @@ az group delete \
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
-> [Migrera MySQL-databasen till Azure Database för MySQL med säkerhetskopiering och återställning](concepts-migrate-dump-restore.md)
+> [Hantera Azure Database for MySQL server med hjälp av portalen](./howto-create-manage-server-portal.md)<br/>
+
+> [!div class="nextstepaction"]
+> [Hantera Azure Database for MySQL server med CLI](./how-to-manage-single-server-cli.md)
+
+[Hittar du inte det du letar efter? Berätta för oss.](https://aka.ms/mysql-doc-feedback)

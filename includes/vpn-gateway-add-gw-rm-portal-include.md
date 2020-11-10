@@ -8,25 +8,25 @@ ms.topic: include
 ms.date: 10/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fe95481e977d2e35c2f652b6c99b9e69ae89e2f8
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 6bc8b6cc18f4a4bc41cabf7f8fefe78a5aaf7827
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "92479583"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427893"
 ---
-1. Från [Azure Portal](https://portal.azure.com), i **Sök efter resurser, tjänster och dokument (G +/)** typ **virtuell nätverksgateway** . Leta upp en **virtuell nätverksgateway** i Sök resultaten och markera den.
+1. Från [Azure Portal](https://portal.azure.com), i **Sök efter resurser, tjänster och dokument (G +/)** typ **virtuell nätverksgateway**. Leta upp en **virtuell nätverksgateway** i Sök resultaten och markera den.
 
    :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/search.png" alt-text="Sök fält" lightbox="./media/vpn-gateway-add-gw-rm-portal-include/search-expand.png":::
 
-1. På sidan **virtuell nätverksgateway** väljer du **+ Lägg till** . Då öppnas sidan **Skapa virtuell nätverksgateway** .
+1. På sidan **virtuell nätverksgateway** väljer du **+ Lägg till**. Då öppnas sidan **Skapa virtuell nätverksgateway**.
 
-   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/add.png" alt-text="Sök fält":::
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/add.png" alt-text="Sidan för virtuella nätverksgateway":::
 1. På fliken **grundläggande** fyller du i värdena för din virtuella nätverksgateway.
 
-   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway.png" alt-text="Sök fält":::
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway.png" alt-text="Gateway-fält":::
 
-   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway-vnet.png" alt-text="Sök fält":::
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway-vnet.png" alt-text="Ytterligare Gateway-fält":::
 
    * **Prenumeration** : Välj den prenumeration som du vill använda i list rutan.
    * **Resurs grupp** : den här inställningen fylls i när du väljer ditt virtuella nätverk på den här sidan.
@@ -35,7 +35,7 @@ ms.locfileid: "92479583"
 
    * **Namn** : namnge din gateway. Att namnge din gateway är inte samma sak som att namnge ett Gateway-undernät. Det här är namnet på det gatewayobjekt som du skapar.
    * **Region** : Välj den region där du vill skapa den här resursen. Regionen för gatewayen måste vara samma som det virtuella nätverket.
-   * **Gatewaytyp** : välj **VPN** . En VPN-gateway använder **VPN** som virtuell nätverksgateway.
+   * **Gatewaytyp** : välj **VPN**. En VPN-gateway använder **VPN** som virtuell nätverksgateway.
    * **VPN-typ** : Välj den VPN-typ som har angetts för din konfiguration. De flesta konfigurationer kräver en ruttbaserad VPN-typ.
    * **SKU** : Välj en gateway-SKU från listrutan. SKU:erna som visas i listrutan beror på vilken VPN-typ du har valt. Se [Gateway-SKU:er](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku) för information om gateway-SKU:er.
    * **Generation** : information om VPN gateway generation finns i [Gateway-SKU: er](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
@@ -49,9 +49,9 @@ ms.locfileid: "92479583"
      * **Offentlig IP-adress** : lämna **Skapa ny** är markerat.
      * **Namn på offentlig IP-adress** : Skriv ett namn för din offentliga IP-tjänstinstans i text rutan.
      * **Tilldelning** : VPN-gateway stöder endast dynamisk.
-     * **Aktivera aktivt-aktivt läge** : Välj **aktivera aktivt-aktivt läge** om du skapar en aktiv-aktiv gateway-konfiguration. Annars lämnar du den här inställningen **inaktive rad** .
+     * **Aktivera aktivt-aktivt läge** : Välj **aktivera aktivt-aktivt läge** om du skapar en aktiv-aktiv gateway-konfiguration. Annars lämnar du den här inställningen **inaktive rad**.
      * Lämna **Konfigurera BGP** som **inaktiverat** , om inte konfigurationen kräver den här inställningen. Om du behöver inställningen så är standard-ASN 65515, men detta kan ändras.
 1. Välj **Granska + skapa** för att köra verifieringen.
-1. När verifieringen har godkänts väljer du **skapa** för att distribuera VPN-gatewayen. Det kan ta upp till 45 minuter för en gateway att skapa och distribuera fullständigt. Du kan se distributions status på översikts sidan för din gateway.
+1. När verifieringen har godkänts väljer du **skapa** för att distribuera VPN-gatewayen.
 
-När gatewayen är skapad, kan du se IP-adressen som har tilldelats den genom att se på det virtuella nätverket i portalen. Gatewayen visas som en ansluten enhet.
+Det kan ta upp till 45 minuter för en gateway att skapa och distribuera fullständigt. Du kan se distributions status på översikts sidan för din gateway. När gatewayen är skapad, kan du se IP-adressen som har tilldelats den genom att se på det virtuella nätverket i portalen. Gatewayen visas som en ansluten enhet.

@@ -4,15 +4,14 @@ description: Den här artikeln innehåller information om hur du lägger till en
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1b62f69bad4484239b3a6c5d6f7ae910fbdef03f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8005a2c43d42908a9ad6ebea10b6a13ef381084c
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843387"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427657"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>Tillåt åtkomst till Azure Service Bus namnrymd från vissa virtuella nätverk
-
 Integreringen av Service Bus med [tjänst slut punkter för virtuella datorer med Virtual Network (VNet)][vnet-sep] ger säker åtkomst till meddelande funktioner från arbets belastningar som virtuella datorer som är kopplade till virtuella nätverk, med den nätverks trafik väg som skyddas i båda ändar.
 
 När den har kon figurer ATS för att bindas till minst en tjänst slut punkt för ett virtuellt nätverk, accepterar inte namn området för Service Bus längre trafik från var som helst men auktoriserade virtuella nätverk och eventuellt vissa Internet-IP-adresser. I det virtuella nätverkets perspektiv binder du en Service Bus namnrum till en tjänst slut punkt konfigurerar en isolerad nätverks tunnel från det virtuella nätverkets undernät till meddelande tjänsten.
@@ -20,24 +19,14 @@ När den har kon figurer ATS för att bindas till minst en tjänst slut punkt f�
 Resultatet är en privat och isolerad relation mellan arbets belastningarna som är kopplade till under nätet och respektive Service Bus-namnrymd, trots att den observerade nätverks adressen för meddelande tjänstens slut punkt är i ett offentligt IP-adressintervall.
 
 >[!WARNING]
-> Genom att implementera integrering av virtuella nätverk kan du förhindra andra Azure-tjänster från att interagera med Service Bus.
+> Genom att implementera integrering av virtuella nätverk kan du förhindra andra Azure-tjänster från att interagera med Service Bus. Som ett undantag kan du tillåta åtkomst till Service Bus resurser från vissa betrodda tjänster även när nätverks tjänstens slut punkter är aktiverade. En lista över betrodda tjänster finns i [betrodda tjänster](#trusted-microsoft-services).
 >
-> Betrodda Microsoft-tjänster stöds inte när virtuella nätverk implementeras.
->
-> Vanliga Azure-scenarier som inte fungerar med virtuella nätverk (Observera att listan **inte** är fullständig) –
-> - Integrering med Azure Event Grid
-> - Azure IoT Hub vägar
-> - Azure IoT-Device Explorer
->
-> De Microsoft-tjänster som behövs nedan måste finnas i ett virtuellt nätverk
+> Följande Microsoft-tjänster måste finnas i ett virtuellt nätverk
 > - Azure App Service
 > - Azure Functions
-> - Azure Monitor (diagnostisk inställning)
 
 > [!IMPORTANT]
-> Virtuella nätverk stöds endast på [Premium-nivå](service-bus-premium-messaging.md) Service Bus namn områden.
-> 
-> När du använder VNet-tjänstens slut punkter med Service Bus bör du inte aktivera de här slut punkterna i program som blandar standard-och Premium-nivån Service Bus namn områden. Eftersom standard nivån inte stöder virtuella nätverk. Slut punkten är begränsad till endast Premium-nivåns namn område.
+> Virtuella nätverk stöds endast på [Premium-nivå](service-bus-premium-messaging.md) Service Bus namn områden. När du använder VNet-tjänstens slut punkter med Service Bus bör du inte aktivera de här slut punkterna i program som blandar standard-och Premium-nivån Service Bus namn områden. Eftersom standard nivån inte stöder virtuella nätverk. Slut punkten är begränsad till endast Premium-nivåns namn område.
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Avancerade säkerhets scenarier som aktive ras av VNet-integrering 
 
@@ -96,17 +85,19 @@ Det här avsnittet visar hur du använder Azure Portal för att lägga till en t
     > [!NOTE]
     > Anvisningar om hur du tillåter åtkomst från vissa IP-adresser eller intervall finns i [Tillåt åtkomst från vissa IP-adresser eller intervall](service-bus-ip-filtering.md).
 
+[!INCLUDE [service-bus-trusted-services](../../includes/service-bus-trusted-services.md)]
+
 ## <a name="use-resource-manager-template"></a>Använda Resource Manager-mallar
 Följande Resource Manager-mall gör det möjligt att lägga till en virtuell nätverks regel i ett befintligt Service Bus-namnområde.
 
 Mallparametrar:
 
-* **namespaceName**: Service Bus namnrymd.
-* **virtualNetworkingSubnetId**: fullständigt kvalificerad Resource Manager-sökväg för det virtuella nätverkets undernät; till exempel `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` för standard under nätet för ett virtuellt nätverk.
+* **namespaceName** : Service Bus namnrymd.
+* **virtualNetworkingSubnetId** : fullständigt kvalificerad Resource Manager-sökväg för det virtuella nätverkets undernät; till exempel `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` för standard under nätet för ett virtuellt nätverk.
 
 > [!NOTE]
 > Även om det inte finns några tillåtna nekade regler, har Azure Resource Manager mal len standard åtgärden inställd på **Tillåt** , vilket inte begränsar anslutningar.
-> När du skapar Virtual Network-eller brand Väggs regler måste vi ändra ***"defaultAction"***
+> När du skapar Virtual Network-eller brand Väggs regler måste vi ändra **_"defaultAction"_**
 > 
 > Från
 > ```json

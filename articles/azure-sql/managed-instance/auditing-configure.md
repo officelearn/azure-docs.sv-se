@@ -13,12 +13,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 05/26/2020
-ms.openlocfilehash: 8d067d30220c76de5617aab2c42365351888d744
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 393fceaa91600ab143912bb3af38c349f29f770a
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780027"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427946"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Kom igång med granskning av Azure SQL Managed instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -42,7 +42,7 @@ I följande avsnitt beskrivs konfigurationen av granskning på din hanterade ins
       > - Om ditt lagrings konto ligger bakom en Virtual Network eller en brand vägg kan du se [bevilja åtkomst från ett virtuellt nätverk](../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network).
       > - Om du ändrar kvarhållningsperioden från 0 (obegränsad kvarhållning) till ett annat värde, Observera att kvarhållning endast kommer att gälla för loggar som skrivits efter att kvarhållning har ändrats (loggar som skrivits under perioden när kvarhållning hade värdet obegränsat bevaras, även efter att kvarhållning har Aktiver ATS).
 
-   1. I lagrings kontot går du till **Översikt** och klickar på **blobbar** .
+   1. I lagrings kontot går du till **Översikt** och klickar på **blobbar**.
 
       ![Widgeten Azure-blobbar](./media/auditing-configure/1_blobs_widget.png)
 
@@ -50,7 +50,7 @@ I följande avsnitt beskrivs konfigurationen av granskning på din hanterade ins
 
       ![Ikon för att skapa BLOB-behållare](./media/auditing-configure/2_create_container_button.png)
 
-   1. Ange ett behållar **namn** , ange **offentlig åtkomst nivå** till **privat** och klicka sedan på **OK** .
+   1. Ange ett behållar **namn** , ange **offentlig åtkomst nivå** till **privat** och klicka sedan på **OK**.
 
       ![Skapa konfiguration av BLOB-behållare](./media/auditing-configure/3_create_container_config.png)
 
@@ -61,7 +61,7 @@ I följande avsnitt beskrivs konfigurationen av granskning på din hanterade ins
 
    - <a id="blobtsql"></a>Konfigurera Blob Storage för gransknings loggar med T-SQL:
 
-     1. I listan behållare klickar du på den nyligen skapade behållaren och klickar sedan på **Egenskaper för behållare** .
+     1. I listan behållare klickar du på den nyligen skapade behållaren och klickar sedan på **Egenskaper för behållare**.
 
         ![Egenskaper för BLOB container](./media/auditing-configure/4_container_properties_button.png)
 
@@ -88,7 +88,7 @@ I följande avsnitt beskrivs konfigurationen av granskning på din hanterade ins
             > [!NOTE]
             > Förnya token när den upphör att gälla för att undvika gransknings problem.
 
-          - Klicka sedan på **Generera signatur för delad åtkomst (SAS)** .
+          - Klicka sedan på **Generera signatur för delad åtkomst (SAS)**.
 
             ![SAS-konfiguration](./media/auditing-configure/7_sas_configure.png)
 
@@ -118,7 +118,7 @@ I följande avsnitt beskrivs konfigurationen av granskning på din hanterade ins
         GO
         ```
 
-        Fortsätt genom att [skapa en server gransknings specifikation eller databas gransknings specifikation](#createspec).
+     1. Fortsätt genom att [skapa en server gransknings specifikation eller databas gransknings specifikation](#createspec).
 
    - <a id="blobssms"></a>Konfigurera Blob Storage för gransknings loggar med SQL Server Management Studio 18 (för hands version):
 
@@ -138,7 +138,7 @@ I följande avsnitt beskrivs konfigurationen av granskning på din hanterade ins
 
         ![Logga in på Azure](./media/auditing-configure/12_mi_SSMS_sign_in_to_azure.png)
 
-     1. Välj en prenumeration, ett lagrings konto och en BLOB-behållare i list rutorna eller skapa en egen behållare genom att klicka på **skapa** . När du är färdig klickar du på **OK** :
+     1. Välj en prenumeration, ett lagrings konto och en BLOB-behållare i list rutorna eller skapa en egen behållare genom att klicka på **skapa**. När du är färdig klickar du på **OK** :
 
         ![Välj Azure-prenumeration, lagrings konto och blob-behållare](./media/auditing-configure/13_mi_SSMS_select_subscription_account_container.png)
 
@@ -169,15 +169,15 @@ Gransknings loggar från en hanterad instans kan skickas till Azure Event Hubs e
 
 1. Navigera i [Azure Portal](https://portal.azure.com/) till den hanterade instansen.
 
-2. Klicka på **diagnostiska inställningar** .
+2. Klicka på **diagnostiska inställningar**.
 
-3. Klicka på **Aktivera diagnostik** . Om diagnostik redan har Aktiver ATS visas **+ Lägg till diagnostisk inställning** i stället.
+3. Klicka på **Aktivera diagnostik**. Om diagnostik redan har Aktiver ATS visas **+ Lägg till diagnostisk inställning** i stället.
 
 4. Välj **SQLSecurityAuditEvents** i listan över loggar.
 
 5. Välj ett mål för gransknings händelserna: Event Hubs, Azure Monitor loggar eller båda. Konfigurera för varje mål nödvändiga parametrar (t. ex. Log Analytics arbets yta).
 
-6. Klicka på **Spara** .
+6. Klicka på **Spara**.
 
     ![Konfigurera diagnostikinställningar](./media/auditing-configure/9_mi_configure_diagnostics.png)
 
@@ -234,15 +234,15 @@ De viktigaste skillnaderna mellan granskning i databaser i Azure SQL-hanterad in
 - Med Azure SQL Managed instance fungerar granskning på server nivå och lagrar `.xel` loggfiler i Azure Blob Storage.
 - I SQL Server fungerar granskning på server nivå, men lagrar händelser på filer system/Windows-händelseloggar.
 
-XEvent-granskning i hanterade instanser stöder Azure Blob Storage-mål. Fil-och Windows-loggar **stöds inte** .
+XEvent-granskning i hanterade instanser stöder Azure Blob Storage-mål. Fil-och Windows-loggar **stöds inte**.
 
 Viktiga skillnader i `CREATE AUDIT` syntaxen för granskning till Azure Blob Storage är:
 
 - En ny syntax anges `TO URL` och du kan ange URL: en för den Azure Blob Storage-behållare där `.xel` filerna placeras.
 - Det finns en ny syntax `TO EXTERNAL MONITOR` för att aktivera Event Hubs och Azure Monitor logga mål.
 - Syntaxen `TO FILE` **stöds inte** eftersom den HANTERAde Azure SQL-instansen inte kan komma åt Windows-filresurser.
-- Avslutnings alternativet **stöds inte** .
-- `queue_delay` av 0 **stöds inte** .
+- Avslutnings alternativet **stöds inte**.
+- `queue_delay` av 0 **stöds inte**.
 
 ## <a name="next-steps"></a>Nästa steg
 

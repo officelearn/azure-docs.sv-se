@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-csharp
-ms.openlocfilehash: 03b077c7cadbfd101705c040e485c5766909c2de
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 4fb62ec8d3a6fa97fe6db5b146ba58d3ad66b1b4
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318154"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94441995"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Konsumera en Azure Machine Learning-modell som distribuerats som en webbtjänst
 
@@ -114,12 +114,12 @@ Azure Machine Learning ger dig möjlighet att styra åtkomsten till dina webb tj
 
 |Autentiseringsmetod|ACI|AKS|
 |---|---|---|
-|Tangent|Inaktiverat som standard| Aktiverat som standard|
+|Nyckel|Inaktiverat som standard| Aktiverat som standard|
 |Token| Inte tillgängligt| Inaktiverat som standard |
 
 När du skickar en begäran till en tjänst som skyddas med en nyckel eller token ska du använda __Authorization__ -huvudet för att skicka nyckeln eller token. Nyckeln eller token måste formateras som `Bearer <key-or-token>` , där `<key-or-token>` är nyckel-eller token-värdet.
 
-Den primära skillnaden mellan nycklar och tokens är att **nycklarna är statiska och kan återskapas manuellt** , och **tokens måste uppdateras när de upphör att gälla**. Nyckelbaserad autentisering stöds för Azure Container instance och Azure Kubernetes-tjänsten distribuerade webb tjänster, och tokenbaserad autentisering är **bara** tillgängligt för Azure Kubernetes service-distributioner. Mer information och vissa kod exempel finns i avsnittet om [att](how-to-setup-authentication.md#web-service-authentication) autentisera.
+Den primära skillnaden mellan nycklar och tokens är att **nycklarna är statiska och kan återskapas manuellt** , och **tokens måste uppdateras när de upphör att gälla**. Nyckelbaserad autentisering stöds för Azure Container instance och Azure Kubernetes-tjänsten distribuerade webb tjänster, och tokenbaserad autentisering är **bara** tillgängligt för Azure Kubernetes service-distributioner. Mer information om hur du konfigurerar autentisering finns i [Konfigurera autentisering för modeller som distribueras som webb tjänster](how-to-authenticate-web-service.md).
 
 
 #### <a name="authentication-with-keys"></a>Autentisering med nycklar

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: ea0312cd8129fce342f94cfab5701d1773aca309
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dad7b0563fd1ca0dbf60403bc6172e7616e278b2
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91728343"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443661"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>Webbapp som loggar in användare: kod konfiguration
 
@@ -245,7 +245,7 @@ Om du vill lägga till autentisering med Microsoft Identity Platform (tidigare A
      }).AddMicrosoftIdentityUI();
     ```
 
-3. I `Configure` -metoden i *startup.cs*aktiverar du autentisering med ett anrop till `app.UseAuthentication();`
+3. I `Configure` -metoden i *startup.cs* aktiverar du autentisering med ett anrop till `app.UseAuthentication();`
 
    ```c#
    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -344,22 +344,18 @@ I nästa artikel får du lära dig hur du utlöser inloggning och utloggning.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-> [!div class="nextstepaction"]
-> [Inloggning och utloggning](./scenario-web-app-sign-user-sign-in.md?tabs=aspnetcore)
+Gå vidare till nästa artikel i det här scenariot, [Logga in och logga ut](./scenario-web-app-sign-user-sign-in.md?tabs=aspnetcore).
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-> [!div class="nextstepaction"]
-> [Inloggning och utloggning](./scenario-web-app-sign-user-sign-in.md?tabs=aspnet)
+Gå vidare till nästa artikel i det här scenariot, [Logga in och logga ut](./scenario-web-app-sign-user-sign-in.md?tabs=aspnet).
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [Inloggning och utloggning](./scenario-web-app-sign-user-sign-in.md?tabs=java)
+Gå vidare till nästa artikel i det här scenariot, [Logga in och logga ut](./scenario-web-app-sign-user-sign-in.md?tabs=java).
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [Inloggning och utloggning](./scenario-web-app-sign-user-sign-in.md?tabs=python)
+Gå vidare till nästa artikel i det här scenariot, [Logga in och logga ut](./scenario-web-app-sign-user-sign-in.md?tabs=python).
 
 ---

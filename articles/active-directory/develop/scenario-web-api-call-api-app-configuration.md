@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 993e1a513fae726e00a29c4b9927a0a039572f74
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4a888c3ad771e4a7edbd7110ba584050fe68e810
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92365943"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443797"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>Ett webb-API som anropar webb-API: er kod konfiguration
 
@@ -88,7 +88,7 @@ Microsoft. Identity. Web tillhandahåller flera olika sätt att beskriva certifi
 
 ## <a name="startupcs"></a>Startup.cs
 
-Ditt webb-API måste hämta en token för det underordnade API: et. Du anger det genom att lägga till `.EnableTokenAcquisitionToCallDownstreamApi()` raden efter `.AddMicrosoftIdentityWebApi(Configuration)` . Den här raden visar `ITokenAcquisition` tjänsten som du kan använda i åtgärder för styrenhet/sidor. Men som du ser i de följande två punkterna kan du göra ännu enklare. Du måste också välja en implementation av tokenbaserad cache, till exempel `.AddInMemoryTokenCaches()` i *startup.cs*:
+Ditt webb-API måste hämta en token för det underordnade API: et. Du anger det genom att lägga till `.EnableTokenAcquisitionToCallDownstreamApi()` raden efter `.AddMicrosoftIdentityWebApi(Configuration)` . Den här raden visar `ITokenAcquisition` tjänsten som du kan använda i åtgärder för styrenhet/sidor. Men som du ser i de följande två punkterna kan du göra ännu enklare. Du måste också välja en implementation av tokenbaserad cache, till exempel `.AddInMemoryTokenCaches()` i *startup.cs* :
 
 ```csharp
 using Microsoft.Identity.Web;
@@ -256,5 +256,4 @@ Mer information om OBO-protokollet finns i [Microsoft Identity Platform och OAut
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!div class="nextstepaction"]
-> [Ett webb-API som anropar webb-API: er: Hämta en token för appen](scenario-web-api-call-api-acquire-token.md)
+Gå vidare till nästa artikel i det här scenariot och [Hämta en token för appen](scenario-web-api-call-api-acquire-token.md).

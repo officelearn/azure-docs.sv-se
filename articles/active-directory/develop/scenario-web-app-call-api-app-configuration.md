@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: c8d68a17b3b991b88e02cf056dcb46da2debfa71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b24b95423adb271b8a4016430e7d2b381c386cd2
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403202"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443763"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>En webbapp som anropar webb-API: er kod konfiguration
 
@@ -99,7 +99,7 @@ I stället för en klient hemlighet kan du ange ett klient certifikat. Följande
 
 ## <a name="startupcs"></a>Startup.cs
 
-Din webbapp måste hämta en token för det underordnade API: et. Du anger det genom att lägga till `.EnableTokenAcquisitionToCallDownstreamApi()` raden efter `.AddMicrosoftIdentityWebApi(Configuration)` . Den här raden visar `ITokenAcquisition` tjänsten som du kan använda i din styrenhet och sid åtgärder. Men eftersom du ser i följande två alternativ kan det göras mer enkelt. Du måste också välja en implementation av tokenbaserad cache, till exempel `.AddInMemoryTokenCaches()` i *startup.cs*:
+Din webbapp måste hämta en token för det underordnade API: et. Du anger det genom att lägga till `.EnableTokenAcquisitionToCallDownstreamApi()` raden efter `.AddMicrosoftIdentityWebApi(Configuration)` . Den här raden visar `ITokenAcquisition` tjänsten som du kan använda i din styrenhet och sid åtgärder. Men eftersom du ser i följande två alternativ kan det göras mer enkelt. Du måste också välja en implementation av tokenbaserad cache, till exempel `.AddInMemoryTokenCaches()` i *startup.cs* :
 
    ```csharp
    using Microsoft.Identity.Web;
@@ -519,5 +519,4 @@ def _build_msal_app(cache=None):
 
 När användaren loggar in lagras en token i token-cachen i det här läget. Nu ska vi se hur det används i andra delar av webbappen.
 
-> [!div class="nextstepaction"]
-> [En webbapp som anropar webb-API: ta bort konton från cachen vid global utloggning](scenario-web-app-call-api-sign-in.md)
+[Ta bort konton från cachen vid global utloggning](scenario-web-app-call-api-sign-in.md)

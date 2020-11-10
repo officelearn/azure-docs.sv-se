@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 781406a1bfd253f0ab3eb333f23917be4aeb3ba9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7cad0592c5c4c0487f582ce5405c275b94b7bd0
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83771748"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444035"
 ---
 # <a name="call-a-web-api-from-a-mobile-app"></a>Anropa ett webb-API från en mobilapp
 
@@ -119,9 +119,9 @@ task.resume()
 
 Om du behöver anropa samma API flera gånger, eller om du behöver anropa flera API: er, bör du tänka på följande när du skapar din app:
 
-- **Stegvist godkännande**: med Microsoft Identity Platform kan appar få användar medgivande när behörigheter krävs i stället för alla vid starten. Varje gången appen är redo att anropa ett API bör den endast begära de omfattningar som krävs.
+- **Stegvist godkännande** : med Microsoft Identity Platform kan appar få användar medgivande när behörigheter krävs i stället för alla vid starten. Varje gången appen är redo att anropa ett API bör den endast begära de omfattningar som krävs.
 
-- **Villkorlig åtkomst**: när du gör flera API-begäranden i vissa scenarier kan du behöva uppfylla ytterligare krav för villkorlig åtkomst. Kraven kan öka på det här sättet om den första begäran inte har några principer för villkorlig åtkomst och appen försöker få tyst åtkomst till ett nytt API som kräver villkorlig åtkomst. För att hantera det här problemet, se till att fånga fel från tysta begär Anden och Förbered dig för att skapa en interaktiv begäran.  Mer information finns i [rikt linjer för villkorlig åtkomst](../azuread-dev/conditional-access-dev-guide.md).
+- **Villkorlig åtkomst** : när du gör flera API-begäranden i vissa scenarier kan du behöva uppfylla ytterligare krav för villkorlig åtkomst. Kraven kan öka på det här sättet om den första begäran inte har några principer för villkorlig åtkomst och appen försöker få tyst åtkomst till ett nytt API som kräver villkorlig åtkomst. För att hantera det här problemet, se till att fånga fel från tysta begär Anden och Förbered dig för att skapa en interaktiv begäran.  Mer information finns i [rikt linjer för villkorlig åtkomst](../azuread-dev/conditional-access-dev-guide.md).
 
 ## <a name="call-several-apis-by-using-incremental-consent-and-conditional-access"></a>Anropa flera API: er med hjälp av stegvisa medgivande och villkorlig åtkomst
 
@@ -159,5 +159,4 @@ catch(MsalUiRequiredException ex)
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!div class="nextstepaction"]
-> [Flytta till produktion](scenario-mobile-production.md)
+Gå vidare till nästa artikel i det här scenariot, [Flytta till produktion](scenario-mobile-production.md).

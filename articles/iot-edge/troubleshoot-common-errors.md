@@ -4,19 +4,19 @@ description: Använd den här artikeln för att lösa vanliga problem som uppst�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/27/2020
+ms.date: 11/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: ed93d24bc06a6622a8ace2b0ab6b44582da001c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98ee865a3ddf6c26ffe9cb77767f3872b42018d8
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82783752"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442369"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Vanliga problem och lösningar för Azure IoT Edge
 
@@ -87,7 +87,7 @@ Exemplet ovan anger DNS-servern till en offentligt tillgänglig DNS-tjänst. Om 
 
 Placera `daemon.json` på rätt plats för din plattform:
 
-| Plattform | Location |
+| Plattform | Plats |
 | --------- | -------- |
 | Linux | `/etc/docker` |
 | Windows-värd med Windows-behållare | `C:\ProgramData\iotedge-moby\config` |
@@ -222,7 +222,7 @@ När du ser det här felet kan du lösa det genom att konfigurera den virtuella 
    ![Konfigurera DNS-namnet för den virtuella datorn](./media/troubleshoot/configure-dns.png)
 
 3. Ange ett värde för **DNS-namn etikett** och välj **Spara**.
-4. Kopiera det nya DNS-namnet som ska vara i formatet ** \<DNSnamelabel\> . \<vmlocation\> . cloudapp.azure.com**.
+4. Kopiera det nya DNS-namnet som ska vara i formatet **\<DNSnamelabel\> . \<vmlocation\> . cloudapp.azure.com**.
 5. I den virtuella datorn använder du följande kommando för att konfigurera IoT Edge runtime med ditt DNS-namn:
 
    * I Linux:
@@ -276,7 +276,7 @@ För IoT Edge Hub ställer du in en miljö variabel **OptimizeForPerformance** p
 
 I Azure-portalen:
 
-I IoT Hub väljer du IoT Edge enheten och på sidan enhets information och väljer **Ange**  >  **Inställningar**för moduler. Skapa en miljö variabel för IoT Edge Hub-modulen med namnet *OptimizeForPerformance* som har angetts till *false*.
+I IoT Hub väljer du IoT Edge enheten och på sidan enhets information och väljer **Ange**  >  **Inställningar** för moduler. Skapa en miljö variabel för IoT Edge Hub-modulen med namnet *OptimizeForPerformance* som har angetts till *false*.
 
 ![OptimizeForPerformance har angetts till false](./media/troubleshoot/optimizeforperformance-false.png)
 
@@ -331,6 +331,25 @@ Om en automatisk distribution är riktad mot en enhet, prioriteras den manuellt 
 Använd bara en typ av distributions mekanism per enhet, antingen en automatisk distribution eller en enskild enhets distribution. Om du har flera automatiska distributioner som riktar sig mot en enhet kan du ändra prioritet eller mål beskrivningar för att kontrol lera att rätt en gäller för en specifik enhet. Du kan också uppdatera enheten så att den inte längre matchar mål beskrivningen för den automatiska distributionen.
 
 Mer information finns i [förstå IoT Edge automatiska distributioner för enskilda enheter eller i skala](module-deployment-monitoring.md).
+
+<!-- <1.2> -->
+::: moniker range=">=iotedge-2020-11"
+
+## <a name="iot-edge-behind-a-gateway-cannot-perform-http-requests-and-start-edgeagent-module"></a>IoT Edge bakom en gateway kan inte utföra HTTP-begäranden och starta edgeAgent-modulen
+
+**Observerat beteende:**
+
+IoT Edge daemon är aktiv med en giltig konfigurations fil, men kan inte starta edgeAgent-modulen. Kommandot `iotedge list` returnerar en tom lista. Rapporten IoT Edge daemon-loggar `Could not perform HTTP request` .
+
+**Rotor saken:**
+
+IoT Edge enheter bakom en gateway får sina modulblad från den överordnade IoT Edges enhet som anges i `parent_hostname` fältet i filen config. yaml. `Could not perform HTTP request`Felet innebär att den underordnade enheten inte kan komma åt den överordnade enheten via http.
+
+**Lösning:**
+
+Kontrol lera att den överordnade IoT Edges enheten kan ta emot inkommande begär Anden från den underordnade IoT Edge enheten. Öppna Nätverks trafik på portarna 443 och 6617 för begär Anden som kommer från den underordnade enheten.
+
+:::moniker-end
 
 ## <a name="next-steps"></a>Nästa steg
 

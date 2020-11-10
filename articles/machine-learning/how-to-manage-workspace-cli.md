@@ -10,19 +10,19 @@ author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: 181cae525845e7cae5e8f6f178b01ee33999b8b5
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 9b55c4873c4d7ee430e7d9ce84d2782a37e522ae
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312486"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442148"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Skapa en arbets yta för Azure Machine Learning med Azure CLI
 
 
 I den här artikeln får du lära dig hur du skapar en Azure Machine Learning-arbetsyta med hjälp av Azure CLI. Azure CLI innehåller kommandon för att hantera Azure-resurser. Machine Learning-tillägget till CLI innehåller kommandon för att arbeta med Azure Machine Learning resurser.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En **Azure-prenumeration**. Om du inte har en sådan kan du prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -72,7 +72,7 @@ Azure Machine Learning-arbetsytan är beroende av följande Azure-tjänster elle
 | ---- | ---- |
 | **Azure-resurs grupp** | `-g <resource-group-name>`
 | **Azure Storage konto** | `--storage-account <service-id>` |
-| **Azure Application insikter** | `--application-insights <service-id>` |
+| **Azure Application Insights** | `--application-insights <service-id>` |
 | **Azure Key Vault** | `--keyvault <service-id>` |
 | **Azure Container Registry** | `--container-registry <service-id>` |
 
@@ -177,7 +177,7 @@ Om du vill begränsa de data som Microsoft samlar in på din arbets yta använde
 > [!IMPORTANT]
 > Du kan bara välja hög påverkan på verksamheten när du skapar en arbets yta. Du kan inte ändra den här inställningen när du har skapat arbets ytan.
 
-Mer information om Kundhanterade nycklar och arbets ytan för arbets ytor med hög arbets belastning finns i [företags säkerhet för Azure Machine Learning](concept-enterprise-security.md#encryption-at-rest).
+Mer information om Kundhanterade nycklar och arbets ytan för arbets ytor med hög arbets belastning finns i [företags säkerhet för Azure Machine Learning](concept-data-encryption.md#encryption-at-rest).
 
 ### <a name="use-existing-resources"></a>Använd befintliga resurser
 

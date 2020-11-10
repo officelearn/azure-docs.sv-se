@@ -12,18 +12,18 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperfq2
-ms.openlocfilehash: edcfa19ed93733c4d6b060ebcb5ff179708195aa
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 07637a8be49fb2449c5c92c1a1ea4b2c7ace9a8d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486930"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442267"
 ---
 # <a name="manage-app-consent-policies"></a>Hantera principer för appmedgivande
 
 Med Azure AD PowerShell kan du Visa och hantera principer för program medgivande.
 
-En princip för program medgivande består av en eller flera villkors uppsättningar, inklusive villkors uppsättningar som är noll eller fler. Om en händelse ska övervägas i en princip för en app-princip måste den matcha *minst* en "inkluderar"-villkors uppsättning och får inte innehålla flera villkors uppsättningar för "exkluderande *".*
+En princip för program medgivande består av en eller flera villkors uppsättningar, inklusive villkors uppsättningar som är noll eller fler. För att en händelse ska kunna beaktas i en princip för en app-princip måste den matcha *minst* en "inkluderar"-villkors uppsättning och får inte matcha *alla* villkors uppsättningar för "exkluderande".
 
 Varje villkors uppsättning består av flera villkor. För att en händelse ska matcha en villkors uppsättning måste *alla* villkor i villkors uppsättningen vara uppfyllda.
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 613ba527c8f86257dd271d3cc9e43c97fc475068
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bfbfb1ff5b6cb9c711d987608226c51822dfc935
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257460"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442964"
 ---
 # <a name="protected-web-api-code-configuration"></a>Skyddat webb-API: kod konfiguration
 
@@ -119,7 +119,7 @@ _Microsoft. Identity. Web_ ger ett lim mellan ASP.net Core, autentisering mellan
 
 #### <a name="using-microsoftidentityweb-templates"></a>Använda Microsoft. Identity. Web templates
 
-Du kan skapa ett webb-API från grunden med hjälp av Microsoft. Identity. Web Project-mallar. Mer information finns i [projekt mal len Microsoft. Identity. Web-Web-API](https://aka.ms/ms-id-web/webapi-project-templates)
+Du kan skapa ett webb-API från grunden med hjälp av Microsoft. Identity. Web Project-mallar. Mer information finns i [projekt mal len Microsoft. Identity. Web-Web-API](https://aka.ms/ms-id-web/webapi-project-templates).
 
 #### <a name="starting-from-an-existing-aspnet-core-31-application"></a>Från ett befintligt ASP.NET Core 3,1-program
 
@@ -140,7 +140,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
- För närvarande skapar ASP.NET Core mallar Azure Active Directory (Azure AD) webb-API: er som loggar in användare i din organisation eller i en organisation. De loggar inte in användare med personliga konton. Du kan dock ändra mallarna till att använda Microsoft Identity Platform-slutpunkten genom att använda [Microsoft. Identity. Web](https://www.nuget.org/packages/Microsoft.Identity.Web) och ersätta koden i *startup.cs*:
+ För närvarande skapar ASP.NET Core mallar Azure Active Directory (Azure AD) webb-API: er som loggar in användare i din organisation eller i en organisation. De loggar inte in användare med personliga konton. Du kan dock ändra mallarna till att använda Microsoft Identity Platform-slutpunkten genom att använda [Microsoft. Identity. Web](https://www.nuget.org/packages/Microsoft.Identity.Web) och ersätta koden i *startup.cs* :
 
 ```csharp
 using Microsoft.Identity.Web;
@@ -170,7 +170,7 @@ services.AddControllers();
 ```
 
 > [!NOTE]
-> Om du använder Microsoft. identitet. Web och inte anger `Audience` i *appsettings.jspå*, används följande:
+> Om du använder Microsoft. identitet. Web och inte anger `Audience` i *appsettings.jspå* , används följande:
 > -  `$"{ClientId}"` Om du har angett [åtkomst-token godkänd version](scenario-protected-web-api-app-registration.md#accepted-token-version) till `2` , eller för Azure AD B2C webb-API: er.
 > - `$"api://{ClientId}` i alla andra fall (för v 1.0- [åtkomsttoken](access-tokens.md)).
 > Mer information finns i Microsoft. Identity. Web [Source Code](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/Resource/RegisterValidAudience.cs#L70-L83).
@@ -210,7 +210,7 @@ Verifierarna är kopplade till egenskaperna för klassen **TokenValidationParame
 
 I de flesta fall behöver du inte ändra parametrarna. Appar som inte är enskilda klienter är undantag. Dessa webbappar godkänner användare från vilken organisation som helst eller från personliga Microsoft-konton. Utfärdare i det här fallet måste val IDE ras. Microsoft. Identity. Web tar hand om verifiering av utfärdaren. Mer information finns i Microsoft. Identity. Web [AadIssuerValidator](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web/Resource/AadIssuerValidator.cs).
 
-I ASP.NET Core, om du vill anpassa parametrarna för token-validering, använder du följande kod avsnitt i din *startup.cs*:
+I ASP.NET Core, om du vill anpassa parametrarna för token-validering, använder du följande kod avsnitt i din *startup.cs* :
 
 ```c#
 services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -242,5 +242,4 @@ Du kan också validera inkommande åtkomsttoken i Azure Functions. Du hittar exe
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!div class="nextstepaction"]
-> [Verifiera omfattningar och app-roller i din kod](scenario-protected-web-api-verification-scope-app-roles.md)
+Gå vidare till nästa artikel i det här scenariot, [kontrol lera omfattningarna och app-rollerna i din kod](scenario-protected-web-api-verification-scope-app-roles.md).

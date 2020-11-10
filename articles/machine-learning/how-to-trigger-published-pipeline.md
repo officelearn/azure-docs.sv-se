@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.date: 02/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4
-ms.openlocfilehash: 64f1c83a570e936759d674f40db201fb2f2cd0e5
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: dabcf30488e45fbe6c7c5b9e5aa0c8bd57f28fd8
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146270"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443508"
 ---
 # <a name="trigger-a-run-of-a-machine-learning-pipeline-from-a-logic-app"></a>Utlösa en körning av en Machine Learning pipeline från en Logic app
 
 Utlös körning av Azure Machine Learning pipelinen när nya data visas. Du kanske exempelvis vill utlösa pipelinen för att träna en ny modell när nya data visas i Blob Storage-kontot. Konfigurera utlösaren med [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
@@ -49,7 +49,7 @@ När du har etablerat din Logi Kap par kan du använda de här stegen för att k
     > [!div class="mx-imgBorder"]
     > ![Tom mall](media/how-to-trigger-published-pipeline/blank-template.png)
 
-1. I designern söker du efter **BLOB** . Markera kryss rutan **när en BLOB läggs till eller ändras (endast egenskaper)** utlösas och Lägg till den här utlösaren i din Logic app.
+1. I designern söker du efter **BLOB**. Markera kryss rutan **när en BLOB läggs till eller ändras (endast egenskaper)** utlösas och Lägg till den här utlösaren i din Logic app.
     > [!div class="mx-imgBorder"]
     > ![Lägg till utlösare](media/how-to-trigger-published-pipeline/add-trigger.png)
 
@@ -67,7 +67,7 @@ När du har etablerat din Logi Kap par kan du använda de här stegen för att k
 
   Använd följande inställningar för att konfigurera din åtgärd:
 
-  | Inställning | Värde | 
+  | Inställningen | Värde | 
   |---|---|
   | HTTP-åtgärd | POST |
   | URI |slut punkten till den publicerade pipelinen som du hittade som en [förutsättning](#prerequisites) |
@@ -96,7 +96,7 @@ När du har etablerat din Logi Kap par kan du använda de här stegen för att k
 1. Välj **Spara** så är ditt schema nu klart.
 
 > [!IMPORTANT]
-> Om du använder rollbaserad åtkomst kontroll (RBAC) för att hantera åtkomst till din pipeline, [anger du behörigheterna för ditt pipeline-scenario (utbildning eller poängsättning)](how-to-assign-roles.md#q-what-are-the-permissions-needed-to-perform-some-common-scenarios-in-the-azure-machine-learning-service)
+> Om du använder rollbaserad åtkomst kontroll (RBAC) för att hantera åtkomst till din pipeline, [anger du behörigheterna för ditt pipeline-scenario (utbildning eller poängsättning)](how-to-assign-roles.md#common-scenarios).
 
 ## <a name="next-steps"></a>Nästa steg
 

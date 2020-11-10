@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 11/09/2020
-ms.openlocfilehash: 7f62aade114613261a22a818ab47e096eb16084b
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 62621a36955808ec3f2c796681fe660e6e8524bc
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427980"
+ms.locfileid: "94443389"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Kundhanterad nyckel i Azure Monitor 
 
@@ -27,9 +27,10 @@ Azure Monitor säkerställer att alla data och sparade frågor krypteras i vila 
 
 Den Kundhanterade nyckel kapaciteten levereras på dedikerade Log Analytics kluster. Det gör att du kan skydda dina data med [Lås](#customer-lockbox-preview) kontrollen och ger dig kontrollen att återkalla åtkomsten till dina data när du vill. Data som matats in under de senaste 14 dagarna behålls också i frekvent cache (SSD-backad) för effektiv Operations Engine-åtgärd. Dessa data förblir krypterade med Microsoft-nycklar oavsett kundhanterad nyckel konfiguration, men kontrollen över SSD-data följer [nyckel återkallning](#key-revocation). Vi arbetar med att ha SSD-data krypterade med Customer-Managed Key i första hälften av 2021.
 
-För att kontrol lera att vi har den kapacitet som krävs för att etablera dedikerat kluster i din region, kräver vi att din prenumeration tillåts i förväg. Använd din Microsoft-kontakt eller öppna support förfrågan för att få din prenumeration tillåten innan du påbörjar Customer-Managed nyckel konfigurationen.
-
 [Pris modellen Log Analytics kluster](./manage-cost-storage.md#log-analytics-dedicated-clusters) använder kapacitets reservationer som börjar med en 1000 GB/dag-nivå.
+
+> [!IMPORTANT]
+> På grund av tillfälliga kapacitets begränsningar kräver vi att du förregistrerar dig innan du skapar ett kluster. Använd dina kontakter i Microsoft eller öppna support förfrågan för att registrera dina prenumerations-ID: n.
 
 ## <a name="how-customer-managed-key-works-in-azure-monitor"></a>Så här fungerar Customer-Managed-nyckeln i Azure Monitor
 
@@ -63,11 +64,11 @@ Följande regler gäller:
 
 ## <a name="customer-managed-key-provisioning-procedure"></a>Etablerings procedur för Customer-Manageds nyckel
 
-1. Tillåter prenumeration – kapaciteten levereras på dedikerade Log Analytics kluster. För att verifiera att vi har den kapacitet som krävs i din region, kräver vi att din prenumeration tillåts i förväg. Använd din Microsoft-kontakt för att få din prenumeration tillåten.
-2. Skapa Azure Key Vault och lagra nyckel
-3. Kluster skapas
-4. Bevilja behörighet till din Key Vault
-5. Länkar Log Analytics arbets ytor
+1. Registrera din prenumeration så att klustret kan skapas
+1. Skapa Azure Key Vault och lagra nyckel
+1. Kluster skapas
+1. Bevilja behörighet till din Key Vault
+1. Länkar Log Analytics arbets ytor
 
 Customer-Managed nyckel konfigurationen stöds inte i Azure Portal och etableringen utförs via [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/)-, [CLI](https://docs.microsoft.com/cli/azure/monitor/log-analytics) -eller [rest](https://docs.microsoft.com/rest/api/loganalytics/) -begäranden.
 
@@ -149,7 +150,6 @@ Detta är inte relevant när du tar bort ett kluster utan en länkad arbets yta 
 
 > [!IMPORTANT]
 > Customer-Managed nyckel kapaciteten är regional. Dina Azure Key Vault-, kluster-och länkade Log Analytics-arbetsytor måste finnas i samma region, men de kan finnas i olika prenumerationer.
-> För att kontrol lera att vi har den kapacitet som krävs för att etablera dedikerat kluster i din region, kräver vi att din prenumeration tillåts i förväg. Använd din Microsoft-kontakt eller öppna support förfrågan för att få din prenumeration tillåten innan du börjar Customer-Managed nyckel konfiguration. 
 
 ### <a name="storing-encryption-key-kek"></a>Lagra krypterings nyckel (KEK)
 
@@ -200,6 +200,25 @@ az monitor log-analytics cluster update --name "cluster-name" --resource-group "
 
 ```powershell
 Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -KeyVaultUri "key-uri" -KeyName "key-name" -KeyVersion "key-version"
+```
+
+```rst
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/cluster-name"?api-version=2020-08-01
+Authorization: Bearer <token> 
+Content-type: application/json
+ 
+{
+  "properties": {
+    "keyVaultProperties": {
+      "keyVaultUri": "https://key-vault-name.vault.azure.net",
+      "kyName": "key-name",
+      "keyVersion": "current-version"
+  },
+  "sku": {
+    "name": "CapacityReservation",
+    "capacity": 1000
+  }
+}
 ```
 
 **Response**
@@ -288,6 +307,11 @@ När du tar med din egen lagring (BYOS) och länkar den till din arbets yta öve
 
 Länka ett lagrings konto för *fråga* till din arbets yta – *sparade – sökningar* frågor sparas i ditt lagrings konto. 
 
+```azurecli
+$storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
+az monitor log-analytics workspace linked-storage create --type Query --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
+```
+
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
 New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Query -StorageAccountIds $storageAccount.Id
@@ -314,6 +338,11 @@ Efter konfigurationen sparas alla nya *sparade Sök* frågor i ditt lagrings utr
 **Konfigurera BYOS för logg aviserings frågor**
 
 Länka ett lagrings konto för *aviseringar* till arbets ytan – *logg aviserings* frågor sparas i ditt lagrings konto. 
+
+```azurecli
+$storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
+az monitor log-analytics workspace linked-storage create --type ALerts --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
+```
 
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"

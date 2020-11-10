@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: ab0b74ffbcd8167613c6a8470e2f9102566edc60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56bcc4e4936371b58d78f6de5ce4c2d25fbf614d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257239"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442811"
 ---
 # <a name="a-web-api-that-calls-web-apis-acquire-a-token-for-the-app"></a>Ett webb-API som anropar webb-API: er: Hämta en token för appen
 
@@ -92,5 +92,4 @@ Ett python-webb-API kräver användning av mellanprogram för att verifiera Bear
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!div class="nextstepaction"]
-> [Ett webb-API som anropar webb-API: er: anropa ett API](scenario-web-api-call-api-call-api.md)
+Gå vidare till nästa artikel i det här scenariot, [anropa ett API](scenario-web-api-call-api-call-api.md).

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 9212e99ae317a3abec4bebfc7fb131c6774f8e4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8eb737752741dc55da24ad6b605b081053b8a11
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396203"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443709"
 ---
 # <a name="a-web-api-that-calls-web-apis-call-an-api"></a>Ett webb-API som anropar webb-API: er: anropa ett API
 
@@ -26,7 +26,7 @@ När du har en token kan du anropa ett skyddat webb-API. Du anropar vanligt vis 
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-När du använder *Microsoft. Identity. Web*har du tre användnings scenarier:
+När du använder *Microsoft. Identity. Web* har du tre användnings scenarier:
 
 - [Alternativ 1: anropa Microsoft Graph med Microsoft Graph SDK](#option-1-call-microsoft-graph-with-the-sdk)
 - [Alternativ 2: anropa ett underordnat webb-API med hjälp av klassen](#option-2-call-a-downstream-web-api-with-the-helper-class)
@@ -164,5 +164,4 @@ Ett exempel som demonstrerar det här flödet med MSAL python är ännu inte til
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!div class="nextstepaction"]
-> [Ett webb-API som anropar webb-API: er: flytta till produktion](scenario-web-api-call-api-production.md)
+Gå vidare till nästa artikel i det här scenariot, [Flytta till produktion](scenario-web-api-call-api-production.md).

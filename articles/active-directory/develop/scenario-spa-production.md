@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 21ba0193c3f1e19ffc74452aaceee34759c7e606
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a51442870fb72e2b3cd93d9f03736d2c679ed06
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88949022"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442828"
 ---
 # <a name="single-page-application-move-to-production"></a>Program med en sida: flytta till produktion
 
@@ -36,27 +36,12 @@ Kolla in ett [distributions exempel](https://github.com/Azure-Samples/ms-identit
 
 ## <a name="next-steps"></a>Nästa steg
 
-Djupgående snabb starts exempel, som förklarar koden för att logga in användare och hämta en åtkomsttoken för att anropa Microsoft Graph-API: **et** genom att använda **MSAL.js**:
+- Djupgående snabb starts exempel, som förklarar koden för hur du loggar in användare och hämtar en åtkomsttoken för att anropa **Microsoft Graph-API: et** genom att använda **MSAL.js** : [Java Script Spa själv studie kurs](./tutorial-v2-javascript-spa.md).
 
-> [!div class="nextstepaction"]
-> [Själv studie kurs för JavaScript-SPA](./tutorial-v2-javascript-spa.md)
+- Exempel som visar hur du hämtar token för din egen server dels webb-API (ASP.NET Core) genom att använda **MSAL.js** : [SPA med en ASP.NET Server](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnetcore-webapi)del.
 
-Exempel som visar hur du hämtar token för din egen server dels webb-API (ASP.NET Core) genom att använda **MSAL.js**:
+- Exempel som visar hur du verifierar åtkomsttoken för din server dels webb-API (Node.js) med hjälp av **Passport-Azure-AD** : [Node.js webb-API (Azure AD](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2).
 
-> [!div class="nextstepaction"]
-> [SPA med en ASP.NET Server del](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnetcore-webapi)
+- Exempel som visar hur du använder **MSAL.js** för att logga in användare i en app som har registrerats med **Azure Active Directory B2C** (Azure AD B2C): [spa med Azure AD B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp).
 
-Exempel som visar hur du verifierar åtkomsttoken för ditt Server dels webb-API (Node.js) med hjälp av **Passport-Azure-AD**.
-
-> [!div class="nextstepaction"]
-> [Node.js webb-API (Azure AD)](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2)
-
-Exempel som visar hur du använder **MSAL.js** för att logga in användare i en app som har registrerats med **Azure Active Directory B2C** (Azure AD B2C):
-
-> [!div class="nextstepaction"]
-> [SPA med Azure AD B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
-
-Exempel som visar hur du använder **Passport-Azure-AD** för att verifiera åtkomsttoken för appar som registrerats med **Azure Active Directory B2C** (Azure AD B2C)
-
-> [!div class="nextstepaction"]
-> [Node.js webb-API (Azure AD B2C)](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
+- Exempel som visar hur du använder **Passport-Azure-AD** för att verifiera åtkomsttoken för appar som registrerats med **Azure Active Directory B2C** (Azure AD B2C): [Node.js webb-API (Azure AD B2C)](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi).

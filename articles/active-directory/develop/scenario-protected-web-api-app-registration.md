@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c1fab15cade2ce23e053bc73028e6420692c3d8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a38e2384c5f24bc3a72e1ef8e8f7119b2db0f2f
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86518282"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443950"
 ---
 # <a name="protected-web-api-app-registration"></a>Skyddat webb-API: registrera appar
 
@@ -31,7 +31,7 @@ Slut punkten för Microsoft Identity Platform kan utfärda v 1.0-token och v 2.0
 
 Vilken token-version ditt API kan acceptera beror på ditt val av **konto typer som stöds** när du skapar registreringen av ditt webb-API-program i Azure Portal.
 
-- Om värdet för **konto typer som stöds** är **konton i en organisations katalog och personliga Microsoft-konton (t. ex. Skype, Xbox, Outlook.com)**, måste den godkända token-versionen vara v 2.0.
+- Om värdet för **konto typer som stöds** är **konton i en organisations katalog och personliga Microsoft-konton (t. ex. Skype, Xbox, Outlook.com)** , måste den godkända token-versionen vara v 2.0.
 - Annars kan den godkända token-versionen vara v 1.0.
 
 När du har skapat programmet kan du fastställa eller ändra den godkända token-versionen genom att följa dessa steg:
@@ -40,7 +40,7 @@ När du har skapat programmet kan du fastställa eller ändra den godkända toke
 1. Hitta egenskapen **accessTokenAcceptedVersion** i manifestet.
 1. Värdet anger att Azure Active Directory (Azure AD) vilken token-version som webb-API: n accepterar.
     - Om värdet är 2 accepterar webb-API v 2.0-token.
-    - Om värdet är **Null**accepterar webb-API: et v 1.0-token.
+    - Om värdet är **Null** accepterar webb-API: et v 1.0-token.
 1. Om du har ändrat version för token väljer du **Spara**.
 
 > [!NOTE]
@@ -64,7 +64,7 @@ När du registrerar appar måste du definiera följande parametrar:
 - Ett eller flera omfång
 - En eller flera app-roller
 
-Som standard rekommenderar program registrerings portalen att du använder resurs-URI: n `api://{clientId}` . Denna URI är unik men inte läslig. Om du ändrar URI måste du kontrol lera att det nya värdet är unikt. I program registrerings portalen ser du till att du använder en [konfigurerad Publisher-domän](howto-configure-publisher-domain.md)
+Som standard rekommenderar program registrerings portalen att du använder resurs-URI: n `api://{clientId}` . Denna URI är unik men inte läslig. Om du ändrar URI måste du kontrol lera att det nya värdet är unikt. I program registrerings portalen ser du till att du använder en [konfigurerad Publisher-domän](howto-configure-publisher-domain.md).
 
 För klient program visas omfattningar som *delegerade behörigheter* och app-roller visas som *program behörigheter* för ditt webb-API.
 
@@ -101,7 +101,7 @@ I det här avsnittet får du lära dig hur du registrerar ditt skyddade webb-API
 
 Om du vill visa program behörigheter måste du redigera manifestet.
 
-1. Välj **manifest**i program registreringen för ditt program.
+1. Välj **manifest** i program registreringen för ditt program.
 1. Om du vill redigera manifestet letar du upp `appRoles` inställningen och lägger till program roller. Roll definitionerna finns i följande exempel-JSON-block.
 1. Lämna `allowedMemberTypes` inställningen till `"Application"` endast.
 1. Se till att `id` det är ett unikt GUID.
@@ -132,7 +132,7 @@ Webb-API: et söker efter app-rollen. Den här rollen är en program varu utveck
 För att lägga till denna ökade säkerhet:
 
 1. Gå till **översikts** sidan för appen för att registrera din app.
-1. Under **hanterat program i lokal katalog**väljer du länken med namnet på din app. Etiketten för det här urvalet kan vara trunkerad. Du kan till exempel se **hanterat program i...**
+1. Under **hanterat program i lokal katalog** väljer du länken med namnet på din app. Etiketten för det här urvalet kan vara trunkerad. Du kan till exempel se **hanterat program i...**
 
    > [!NOTE]
    >
@@ -143,9 +143,9 @@ För att lägga till denna ökade säkerhet:
 
    > [!IMPORTANT]
    >
-   > Om du anger **användar tilldelning krävs?** till **Ja**kontrollerar Azure AD program roll tilldelningarna för en klient när den begär en webb-API-åtkomsttoken. Om klienten inte är tilldelad någon app-roll returnerar Azure AD fel meddelandet "invalid_client: AADSTS501051: programmet \<application name\> har inte tilldelats någon roll för \<web API\> ".
+   > Om du anger **användar tilldelning krävs?** till **Ja** kontrollerar Azure AD program roll tilldelningarna för en klient när den begär en webb-API-åtkomsttoken. Om klienten inte är tilldelad någon app-roll returnerar Azure AD fel meddelandet "invalid_client: AADSTS501051: programmet \<application name\> har inte tilldelats någon roll för \<web API\> ".
    >
-   > Om du behåller **användar tilldelningen krävs?** ange till **Nej**, det går inte att kontrol lera roll tilldelningarna för rollerna när en klient begär en åtkomsttoken för ditt webb-API. Alla daemon-klienter, vilket innebär att alla klienter som använder flödet för klientautentiseringsuppgifter, kan få en åtkomsttoken för API: et genom att ange dess mål grupp. Alla program kan komma åt API: et utan att begära behörigheter för det.
+   > Om du behåller **användar tilldelningen krävs?** ange till **Nej** , det går inte att kontrol lera roll tilldelningarna för rollerna när en klient begär en åtkomsttoken för ditt webb-API. Alla daemon-klienter, vilket innebär att alla klienter som använder flödet för klientautentiseringsuppgifter, kan få en åtkomsttoken för API: et genom att ange dess mål grupp. Alla program kan komma åt API: et utan att begära behörigheter för det.
    >
    > Men enligt beskrivningen i föregående avsnitt, kan ditt webb-API alltid verifiera att programmet har rätt roll, vilket är auktoriserat av klient organisationens administratör. API: et utför den här kontrollen genom att verifiera att åtkomsttoken har ett roll anspråk och att värdet för det här anspråket är korrekt. I det föregående JSON-exemplet är värdet `access_as_application` .
 
@@ -153,5 +153,4 @@ För att lägga till denna ökade säkerhet:
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!div class="nextstepaction"]
-> [App Code-konfiguration](scenario-protected-web-api-app-configuration.md)
+Gå vidare till nästa artikel i det här scenariot, [app Code Configuration](scenario-protected-web-api-app-configuration.md).

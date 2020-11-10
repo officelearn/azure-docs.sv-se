@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 13000c5a61dc2c4d49aa395271beddef64d32245
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c13b6ed991403e65c4c4d71c964f1f7f4d1ffe7b
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119223"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443321"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Daemon-app som anropar webb-API: er – hämta en token
 
@@ -57,7 +57,7 @@ Det omfång som används för klientautentiseringsuppgifter bör alltid vara res
 
 > [!IMPORTANT]
 > När MSAL begär en åtkomsttoken för en resurs som accepterar en version 1,0-åtkomsttoken, parsar Azure AD den önskade mål gruppen från det begärda omfånget genom att ta allt före det sista snedstrecket och använda det som resurs-ID.
-> Så om till exempel Azure SQL Database (**https: \/ /Database.Windows.net**) förväntar sig en mål grupp som slutar med ett snedstreck (för Azure SQL Database `https://database.windows.net/` ), måste du begära en omfattning `https://database.windows.net//.default` . (Observera det dubbla snedstrecket.) Se även MSAL.NET problem [#747: resurs-URL: en avslutande snedstreck utelämnas, vilket orsakade SQL-auth-fel](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
+> Så om till exempel Azure SQL Database ( **https: \/ /Database.Windows.net** ) förväntar sig en mål grupp som slutar med ett snedstreck (för Azure SQL Database `https://database.windows.net/` ), måste du begära en omfattning `https://database.windows.net//.default` . (Observera det dubbla snedstrecket.) Se även MSAL.NET problem [#747: resurs-URL: en avslutande snedstreck utelämnas, vilket orsakade SQL-auth-fel](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
 
 ## <a name="acquiretokenforclient-api"></a>AcquireTokenForClient-API
 
@@ -202,7 +202,7 @@ Mer information finns i protokoll dokumentationen: [Microsoft Identity Platform 
 
 ## <a name="application-token-cache"></a>Cache för program-token
 
-I MSAL.NET `AcquireTokenForClient` använder Application token cache. (Alla andra AcquireToken*XX* -metoder använder user token cache.) Anropa inte `AcquireTokenSilent` innan du anropar `AcquireTokenForClient` , eftersom `AcquireTokenSilent` använder cacheminnet för *användarens* token. `AcquireTokenForClient` kontrollerar cacheminnet för *program* -token och uppdaterar det.
+I MSAL.NET `AcquireTokenForClient` använder Application token cache. (Alla andra AcquireToken *XX* -metoder använder user token cache.) Anropa inte `AcquireTokenSilent` innan du anropar `AcquireTokenForClient` , eftersom `AcquireTokenSilent` använder cacheminnet för *användarens* token. `AcquireTokenForClient` kontrollerar cacheminnet för *program* -token och uppdaterar det.
 
 ## <a name="troubleshooting"></a>Felsökning
 
@@ -233,17 +233,14 @@ Content: {
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-> [!div class="nextstepaction"]
-> [Daemon-app – anropar ett webb-API](./scenario-daemon-call-api.md?tabs=dotnet)
+Gå vidare till nästa artikel i det här scenariot och [anropa ett webb-API](./scenario-daemon-call-api.md?tabs=dotnet).
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [Daemon-app – anropar ett webb-API](./scenario-daemon-call-api.md?tabs=python)
+Gå vidare till nästa artikel i det här scenariot och [anropa ett webb-API](./scenario-daemon-call-api.md?tabs=python).
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [Daemon-app – anropar ett webb-API](./scenario-daemon-call-api.md?tabs=java)
+Gå vidare till nästa artikel i det här scenariot och [anropa ett webb-API](./scenario-daemon-call-api.md?tabs=java).
 
 ---

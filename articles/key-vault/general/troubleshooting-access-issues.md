@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 1437ef8675d0ddc96eb7fc641b3663b66c3ea11b
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: f9bbf6e9d1d932f7225807613b789821c1462932
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285242"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94441859"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Felsöka problem med åtkomst principer för Azure Key Vault
 
@@ -53,7 +53,7 @@ Programmet behöver också minst en roll för identitets-och åtkomst hantering 
 
 För närvarande Key Vault omdistribution tar bort alla åtkomst principer i Key Vault och ersätter dem med åtkomst principen i ARM-mallen. Det finns inget stegvist alternativ för Key Vault åtkomst principer. Om du vill bevara åtkomst principer i Key Vault måste du läsa befintliga åtkomst principer i Key Vault och fylla i ARM-mallen med dessa principer för att undvika eventuella åtkomst avbrott.
 
-Ett annat alternativ som kan hjälpa till med det här scenariot är att använda RBAC-roller som ett alternativ till att komma åt principer. Med RBAC kan du distribuera nyckel valvet igen utan att ange principen igen. Du kan läsa mer om den här lösningen [här](./rbac-guide.md).
+Ett annat alternativ som kan hjälpa till med det här scenariot är att använda Azure RBAC och roller som ett alternativ till att få åtkomst till principer. Med Azure RBAC kan du distribuera nyckel valvet igen utan att ange principen igen. Du kan läsa mer om den här lösningen [här](./rbac-guide.md).
 
 ### <a name="recommended-troubleshooting-steps-for-following-error-types"></a>Rekommenderade fel söknings steg för följande feltyper
 

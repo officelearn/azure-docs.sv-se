@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: alkohli
-ms.openlocfilehash: b514cce8128dc0b17b5cebf8f2dc42e2c4dd8c8e
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: ad8a5a23361e721fd5d8d55d3555f51def94e768
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337134"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442029"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Självstudie: skapa en export ordning för Azure Data Box (förhands granskning)
 
@@ -30,7 +30,7 @@ I den här självstudien lär du dig:
 
 [!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Slutför följande konfigurations krav för Data Box-enhet tjänst och enhet innan du beställer enheten.
 
@@ -98,11 +98,11 @@ Utför följande steg på Azure-portalen för att beställa en enhet.
 
 8. I **Välj export alternativ** anger du alternativ informationen för export. Ange eller Välj följande information och välj sedan **Lägg till**.
 
-    |Inställning  |Värde  |
+    |Inställningen  |Värde  |
     |---------|---------|
     |Lagringskonto     | Det Azure Storage konto som du vill exportera data från. |
     |Export typ     | Anger vilken typ av data som ska exporteras från **alla objekt** och **använda XML-filen**.<ul><li> **Alla objekt** – anger att jobbet ska exportera alla data beroende på ditt val av **överförings alternativ**.</li><li> **Använd XML-fil** – anger en XML-fil som innehåller en uppsättning sökvägar och prefix för blobbar och/eller filer som ska exporteras från lagrings kontot. XML-filen måste finnas i det valda lagrings kontots behållare och det finns för närvarande inte stöd för att välja från fil resurser. Filen måste vara en XML-fil som inte är tom.</li></ul>        |
-    |Överförings alternativ     |  Anger alternativ för data överföring från **Välj alla** , **alla blobbar** och **alla filer**. <ul><li> **Markera alla** -anger att alla blobbar och Azure-filer exporteras. Om du använder ett lagrings konto som bara stöder blobbar (Blob Storage konto) går det inte att välja alternativet **alla filer** .</li><li> **Alla blobbar** – anger att endast block-och sid-blobar ska exporteras.</li><li> **Alla filer** -anger att alla filer exporteras exklusive blobbar. Vilken typ av lagrings konto du har (GPv1 och GPv2, Premium Storage eller Blob Storage) bestämmer vilka typer av data som du kan exportera. Mer information finns i [lagrings konton som stöds för export](../storage/common/storage-import-export-requirements.md#supported-storage-types).</li></ul>         |
+    |Överförings alternativ     |  Anger alternativ för data överföring från **Välj alla** , **alla blobbar** och **alla filer**. <ul><li> **Markera alla** -anger att alla blobbar och Azure Files exporteras. Om du använder ett lagrings konto som bara stöder blobbar (Blob Storage konto) går det inte att välja alternativet **alla filer** .</li><li> **Alla blobbar** – anger att endast block-och sid-blobar ska exporteras.</li><li> **Alla filer** -anger att alla filer exporteras exklusive blobbar. Vilken typ av lagrings konto du har (GPv1 och GPv2, Premium Storage eller Blob Storage) bestämmer vilka typer av data som du kan exportera. Mer information finns i [lagrings konton som stöds för export](../storage/common/storage-import-export-requirements.md#supported-storage-types).</li></ul>         |
     |Inkludera utförlig logg     | Anger om du vill ha en utförlig logg fil som innehåller en lista över alla filer som har exporter ATS.        |
 
     > [!NOTE]
@@ -183,11 +183,11 @@ Om du väljer **Använd XML-fil** kan du ange vissa behållare och blobbar (sida
 
    ![Visa information om behållare](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-view-container-details.png)
 
-6. Om du dubbelklickar på behållaren visas behållar egenskaper-vyn. Nu vill du bifoga (eller bläddra till) XML-filen som innehåller listan med blobbar och/eller Azure-filer som du vill exportera. Välj **Överför**.
+6. Om du dubbelklickar på behållaren visas behållar egenskaper-vyn. Nu vill du bifoga (eller bläddra till) XML-filen som innehåller listan över blobbar och/eller Azure Files som du vill exportera. Välj **Överför**.
 
    ![Ladda upp blob till container](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-blob-to-container.png)
 
-7. Du har lagt till XML-filen i behållaren. Endast blobbar och Azure-filer som du har angett i denna XML-fil kommer att exporteras.
+7. Du har lagt till XML-filen i behållaren. Endast blobbar och Azure Files som du har angett i denna XML-fil kommer att exporteras.
 
    ![XML-fil Tillagd i behållare](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-added-to-container.png)
 
@@ -227,7 +227,7 @@ Om du vill ta bort en annullerad order går du till **Översikt** och väljer **
 
 ## <a name="sample-xml-file"></a>Exempel-XML-fil
 
-Följande XML visar ett exempel på BLOB-namn, BLOB-prefix och Azure-filer som finns i det XML-format som export ordningen använder när du väljer alternativet **Använd XML-fil** :
+Följande XML visar ett exempel på BLOB-namn, BLOB-prefix och Azure Files som finns i det XML-format som export ordningen använder när du väljer alternativet **Använd XML-fil** :
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -259,7 +259,7 @@ Några viktiga punkter i avseende XML-filer:
 
 I följande tabell visas exempel på giltiga BLOB-sökvägar:
 
-   | Väljare | BLOB-sökväg | Description |
+   | Väljare | BLOB-sökväg | Beskrivning |
    | --- | --- | --- |
    | Börjar med |/ |Exporterar alla blobar i lagrings kontot |
    | Börjar med |/$root/ |Exporterar alla blobbar i rot behållaren |

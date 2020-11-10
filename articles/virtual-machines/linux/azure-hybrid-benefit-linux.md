@@ -9,15 +9,15 @@ ms.service: virtual-machines-linux
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
-ms.author: alsin
-ms.openlocfilehash: c1200121d1c768a3fdddd7749184d7f8b5c98a96
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.author: mathapli
+ms.openlocfilehash: feaa2471f2867257deb06ab32ed5fc0a26a0d37e
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413113"
+ms.locfileid: "94443440"
 ---
-# <a name="preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>För hands version: Azure Hybrid-förmån – hur det gäller för Virtuella Linux-datorer
+# <a name="public-preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Offentlig för hands version: Azure Hybrid-förmån – hur det gäller för Virtuella Linux-datorer
 
 ## <a name="overview"></a>Översikt
 
@@ -45,30 +45,26 @@ Reserverade instanser, dedikerade värdar och SQL hybrid-förmåner är inte ber
 
 ## <a name="how-to-get-started"></a>Så här kommer du igång
 
-Azure Hybrid-förmån finns för närvarande i en för hands version av virtuella Linux-datorer. När du får åtkomst till förhands granskningen kan du aktivera förmånen med Azure Portal eller Azure CLI.
+Azure Hybrid-förmån finns för närvarande i en för hands version av virtuella Linux-datorer. När du får åtkomst till förhands granskningen kan du aktivera förmånen med Azure CLI.
 
-### <a name="preview"></a>Förhandsgranskning
+### <a name="public-preview"></a>Offentlig för hands version
 
-I den här fasen kan du få åtkomst till förmånen genom att fylla i formuläret [här](https://aka.ms/ahb-linux-form). När du har fyllt i formuläret kommer dina Azure-prenumerationer att aktive ras för förmånen och du får en bekräftelse från Microsoft inom tre arbets dagar.
+Azure Hybrid-förmån (för Linux) finns nu i en offentlig för hands versions fas. Du kan använda stegen nedan för att aktivera förmånerna för Red Hat-och SUSE-distributioner. 
 
 ### <a name="red-hat-customers"></a>Red Hat-kunder
 
-1.    Fyll i formuläret för förhands gransknings förfrågan ovan
 1.    Registrera dig för [Red Hat Cloud Access-programmet](https://aka.ms/rhel-cloud-access)
 1.    Aktivera din Azure-prenumeration (er) för moln åtkomst och aktivera prenumerationerna som innehåller de virtuella datorer som du vill använda förmånen med
-1.    Använd förmånen för dina befintliga virtuella datorer antingen via Azure Portal eller Azure CLI
-1.    Valfritt kan registrera dina virtuella datorer som tar del av förmånen med en separat källa till uppdateringar (växlade virtuella datorer kan vara anslutna till [RHUI](../workloads/redhat/redhat-rhui.md) eller registrerade genom RHSM)
+1.    Tillämpa förmånen för dina befintliga virtuella datorer via Azure CLI
+1.    Registrera dina virtuella datorer som tar del av förmånen med en separat källa till uppdateringar
+
 
 ### <a name="suse-customers"></a>SUSE kunder
 
-1.    Fyll i formuläret för förhands gransknings förfrågan ovan
 1.    Registrera dig för det offentliga moln programmet för SUSE
-1.    Använd förmånen för dina befintliga virtuella datorer antingen via Azure Portal eller Azure CLI
+1.    Tillämpa förmånen för dina befintliga virtuella datorer via Azure CLI
 1.    Registrera dina virtuella datorer som tar del av förmånen med en separat källa till uppdateringar
 
-### <a name="enable-and-disable-the-benefit-in-the-azure-portal"></a>Aktivera och inaktivera förmånen i Azure Portal
-
-Du kan aktivera förmånen på befintliga virtuella datorer genom att gå till **konfigurations** bladet och följa stegen där. Du kan aktivera förmånen för nya virtuella datorer när den virtuella datorn skapas.
 
 ### <a name="enable-and-disable-the-benefit-in-the-azure-cli"></a>Aktivera och inaktivera förmånen i Azure CLI
 
@@ -109,12 +105,8 @@ az vm list -o json | jq '.[] | {VMName: .name, ResourceID: .id}'
 ```
 
 ## <a name="check-ahb-status-of-a-vm"></a>Kontrol lera AHB status för en virtuell dator
-Du kan visa status för AHB för en virtuell dator på tre sätt: genom att kontrol lera i portalen, använda Azure CLI eller använda Azure-Instance Metadata Service (Azure IMDS).
+Du kan visa status för AHB för en virtuell dator på två sätt: använda Azure CLI eller använda Azure-Instance Metadata Service (Azure IMDS).
 
-
-### <a name="portal"></a>Portalen
-
-Visa konfigurations bladet och kontrol lera licensierings statusen för att se om AHB har Aktiver ATS för den virtuella datorn.
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -152,9 +144,7 @@ Det här avsnittet innehåller en lista över vanliga problem som kan påträffa
 
 | Fel | Åtgärd |
 | ----- | ---------- |
-| "Prenumerationen är inte registrerad för för hands versionen av Linux för Azure Hybrid-förmån. Stegvisa instruktioner finns i https://aka.ms/ahb-linux " | Fyll i formuläret i https://aka.ms/ahb-linux-form för att registrera dig för Linux Preview för Azure Hybrid-förmån.
 | "Åtgärden kunde inte slutföras eftersom våra poster visar att du inte har aktiverat Red Hat Cloud Access på din Azure-prenumeration..." | För att kunna använda förmånen med virtuella datorer i RHEL måste du först registrera din Azure-prenumeration (er) med Red Hat Cloud Access. Besök den här länken om du vill veta mer om hur du registrerar Azure-prenumerationer för Red Hat Cloud Access
-|"Alternativet för Azure Hybrid-förmån visas inte i portalen" | Detta är ett känt problem för RHEL-och SLES-datorer som skapats från delade avbildnings gallerier, ögonblicks bilder eller fångade PAYG-avbildningar. I det här fallet använder du CLI-stegen som beskrivs i avsnittet "[Aktivera och inaktivera förmånen i Azure CLI](#enable-and-disable-the-benefit-in-the-azure-cli)". Om du vill visa status för AHB använder du kommandot ` az vm get-instance-view -g MyResourceGroup -n MyVm` .|
 
 ## <a name="next-steps"></a>Nästa steg
-* Kom igång med med förhands granskningen genom att fylla i formuläret [här](https://aka.ms/ahb-linux-form).
+* Lär dig hur du skapar och uppdaterar virtuella datorer och lägger till licens typer (RHEL_BYOS SLES_BYOS) för Azure Hybrid-förmån med hjälp av [Azure CLI här.](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest&preserve-view=true)

@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: e0f1cc446b6b957b17153dd538922d2b9acd891f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35c1ffb370a158acc91e2378119055337e28580d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442742"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443100"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Registrera mobilappar som anropar webb-API: er
 
@@ -44,7 +44,7 @@ Mer information finns i [scenarier och stödda autentiserings flöden](authentic
 
 ### <a name="interactive-authentication"></a>Interaktiv autentisering
 
-När du skapar en mobilapp som använder interaktiv autentisering är den mest kritiska registreringen den omdirigerings-URI: n. Du kan ställa in interaktiv autentisering genom [plattforms konfigurationen på bladet **autentisering** ](https://aka.ms/MobileAppReg).
+När du skapar en mobilapp som använder interaktiv autentisering är den mest kritiska registreringen den omdirigerings-URI: n. Du kan ställa in interaktiv autentisering genom [plattforms konfigurationen på bladet **autentisering**](https://aka.ms/MobileAppReg).
 
 Den här funktionen gör att din app kan hämta enkel inloggning (SSO) via Microsoft Authenticator (och Intune-företagsportal på Android). Den kommer också att ha stöd för enhets hanterings principer.
 
@@ -72,16 +72,16 @@ När du slutför stegen beräknas omdirigerings-URI: n, som i följande bild.
 
 Om du föredrar att konfigurera omdirigerings-URI: n manuellt kan du göra det via applikations manifestet. Här är det rekommenderade formatet för manifestet:
 
-- **iOS**: `msauth.<BUNDLE_ID>://auth`
+- **iOS** : `msauth.<BUNDLE_ID>://auth`
   - Ange till exempel `msauth.com.yourcompany.appName://auth`
-- **Android**: `msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
+- **Android** : `msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
   - Du kan generera Android-signaturens hash med hjälp av versions nyckeln eller fel söknings nyckeln via kommando kommandot.
 
 ### <a name="username-password-authentication"></a>Användar namn – lösenordsautentisering
 
 Om din app endast använder username-Password Authentication behöver du inte registrera en omdirigerings-URI för programmet. Det här flödet gör en tur och retur till Microsoft Identity Platform version 2,0-slutpunkten. Programmet kommer inte att anropas igen på någon specifik URI.
 
-Du måste dock identifiera ditt program som ett offentligt klient program. Det gör du genom att börja i avsnittet **autentisering** i ditt program. I underavsnittet **Avancerade inställningar** , i stycket **standard klient typ** , för frågan **behandla programmet som en offentlig klient**väljer du **Ja**.
+Du måste dock identifiera ditt program som ett offentligt klient program. Det gör du genom att börja i avsnittet **autentisering** i ditt program. I underavsnittet **Avancerade inställningar** , i stycket **standard klient typ** , för frågan **behandla programmet som en offentlig klient** väljer du **Ja**.
 
 ## <a name="api-permissions"></a>API-behörigheter
 
@@ -91,5 +91,4 @@ Genom att registrera behörigheter med statiskt tillstånd kan administratörer 
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!div class="nextstepaction"]
-> [Konfiguration av kod](scenario-mobile-app-configuration.md)
+Gå vidare till nästa artikel i det här scenariot, [app Code Configuration](scenario-mobile-app-configuration.md).

@@ -11,18 +11,18 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 174db339079de91a87cef9551bc79e6f03701605
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4123b0424e52c6a2919de4b60bcc6158062b0f1
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257137"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442641"
 ---
 # <a name="scenario-a-web-app-that-calls-web-apis"></a>Scenario: en webbapp som anropar webb-API: er
 
 Lär dig hur du skapar en webbapp som loggar användare i Microsoft Identity Platform och anropar webb-API: er åt den inloggade användaren.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det här scenariot förutsätter att du redan har slutfört [scenariot: webbapp som loggar in användare](scenario-web-app-sign-user-overview.md).
 
@@ -53,5 +53,4 @@ Utvecklingen av det här scenariot omfattar följande uppgifter:
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!div class="nextstepaction"]
-> [En webbapp som anropar webb-API: app-registrering](scenario-web-app-call-api-app-registration.md)
+Gå vidare till nästa artikel i det här scenariot, [Registrera appen](scenario-web-app-call-api-app-registration.md).

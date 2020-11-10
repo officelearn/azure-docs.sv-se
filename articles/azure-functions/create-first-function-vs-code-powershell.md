@@ -3,12 +3,12 @@ title: Skapa en PowerShell-funktion med Visual Studio Code-Azure Functions
 description: Lär dig hur du skapar en PowerShell-funktion och sedan publicerar det lokala projektet till Server lös värd i Azure Functions med hjälp av Azure Functions tillägget i Visual Studio Code.
 ms.topic: quickstart
 ms.date: 11/04/2020
-ms.openlocfilehash: 585339f87c89b0fa5a0f50dbef155b0dcffda68e
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 73c2de36d3696356289c72d08c29c3870dc91601
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93425134"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427402"
 ---
 # <a name="quickstart-create-a-powershell-function-in-azure-using-visual-studio-code"></a>Snabb start: skapa en PowerShell-funktion i Azure med Visual Studio Code
 
@@ -31,7 +31,7 @@ Innan du börjar bör du kontrol lera att du har följande krav på plats:
 
 + [PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-+ Både [.net core 3,1](https://www.microsoft.com/net/download) och [.net Core 2,1](https://dotnet.microsoft.com/download/dotnet-core/2.2)  
++ Både [.net core 3,1](https://www.microsoft.com/net/download) och [.net Core 2,1](https://dotnet.microsoft.com/download/dotnet-core/2.1)  
 
 + [Visual Studio Code](https://code.visualstudio.com/) på en av de [plattformar som stöds](https://code.visualstudio.com/docs/supporting/requirements#_platforms).    
 

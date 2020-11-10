@@ -3,12 +3,12 @@ title: Virtual Network tjänst slut punkter – Azure Event Hubs | Microsoft Doc
 description: Den här artikeln innehåller information om hur du lägger till en Microsoft. EventHub-tjänsteslutpunkt till ett virtuellt nätverk.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: cb0d9a9c4d5e2503e68620ec4e6386d8e05d471c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 029338e3835d03b1a66ff6629e872c84113b0ff2
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88185083"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427206"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>Tillåt åtkomst till Azure Event Hubs-namnrymder från vissa virtuella nätverk 
 
@@ -18,20 +18,11 @@ När de har kon figurer ATS för att bindas till minst en tjänst slut punkt fö
 
 Resultatet är en privat och isolerad relation mellan arbets belastningarna som är kopplade till under nätet och respektive Event Hubs-namnrymd, trots att den observerade nätverks adressen för meddelande tjänstens slut punkt är i ett offentligt IP-adressintervall. Det finns ett undantag för det här beteendet. Genom att aktivera en tjänst slut punkt aktiverar som standard `denyall` regeln i [IP-brandväggen](event-hubs-ip-filtering.md) som är associerad med det virtuella nätverket. Du kan lägga till vissa IP-adresser i IP-brandväggen för att ge åtkomst till den offentliga slut punkten för Händelsehubben. 
 
->[!IMPORTANT]
+>[!WARNING]
+> Om du aktiverar virtuella nätverk för Event Hubs namn området blockeras inkommande begär Anden som standard, om inte begär Anden härstammar från en tjänst som körs från tillåtna virtuella nätverk. Begär Anden som blockeras inkluderar de från andra Azure-tjänster, från Azure Portal, från loggnings-och mått tjänster och så vidare. Som ett undantag kan du tillåta åtkomst till Event Hubs resurser från vissa betrodda tjänster även när virtuella nätverk är aktiverade. En lista över betrodda tjänster finns i [betrodda tjänster](#trusted-microsoft-services).
+
+> [!NOTE]
 > Virtuella nätverk stöds på **standardnivå** och **dedikerade** nivåer för Event Hubs. Det stöds inte på **Basic** -nivån.
->
-> Genom att aktivera brand Väggs regler för Event Hubs namn området blockeras inkommande begär Anden som standard, om inte begär Anden härstammar från en tjänst som körs från tillåtna virtuella nätverk. Begär Anden som blockeras inkluderar de från andra Azure-tjänster, från Azure Portal, från loggnings-och mått tjänster och så vidare. 
->
-> Här följer några av de tjänster som inte har åtkomst till Event Hubs resurser när virtuella nätverk är aktiverade. Observera att listan **inte** är fullständig.
->
-> - Azure Stream Analytics
-> - Azure IoT Hub vägar
-> - Azure IoT-Device Explorer
-> - Azure Event Grid
-> - Azure Monitor (diagnostikinställningar)
->
-> Som ett undantag kan du tillåta åtkomst till Event Hubs resurser från vissa betrodda tjänster även när virtuella nätverk är aktiverade. En lista över betrodda tjänster finns i [betrodda tjänster](#trusted-microsoft-services).
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Avancerade säkerhets scenarier som aktive ras av VNet-integrering 
 
@@ -64,7 +55,7 @@ Det här avsnittet visar hur du använder Azure Portal för att lägga till en t
 
     ![Brand vägg – alternativet alla nätverk är valt](./media/event-hubs-firewall/firewall-all-networks-selected.png)
 1. Om du vill begränsa åtkomsten till vissa nätverk väljer du alternativet **valda nätverk** överst på sidan om det inte redan är markerat.
-2. I avsnittet **Virtual Network** på sidan väljer du * * + Lägg till befintligt virtuellt nätverk * * *. Välj **+ skapa ett nytt virtuellt nätverk** om du vill skapa ett nytt VNet. 
+2. I avsnittet **Virtual Network** på sidan väljer du **+ Lägg till befintligt virtuellt nätverk** _. Välj _ *+ Skapa nytt virtuellt nätverk* * om du vill skapa ett nytt VNet. 
 
     ![lägga till ett befintligt virtuellt nätverk](./media/event-hubs-tutorial-vnet-and-firewalls/add-vnet-menu.png)
 3. Välj det virtuella nätverket i listan över virtuella nätverk och välj sedan **under nätet**. Du måste aktivera tjänstens slut punkt innan du lägger till det virtuella nätverket i listan. Om tjänstens slut punkt inte är aktive rad uppmanas du att aktivera den.
@@ -99,7 +90,7 @@ Mallparametrar:
 
 > [!NOTE]
 > Även om det inte finns några tillåtna nekade regler, har Azure Resource Manager mal len standard åtgärden inställd på **Tillåt** , vilket inte begränsar anslutningar.
-> När du skapar Virtual Network-eller brand Väggs regler måste vi ändra ***"defaultAction"***
+> När du skapar Virtual Network-eller brand Väggs regler måste vi ändra **_"defaultAction"_**
 > 
 > Från
 > ```json

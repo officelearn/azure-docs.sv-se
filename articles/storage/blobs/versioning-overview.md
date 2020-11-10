@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/06/2020
+ms.date: 11/09/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 20e48640d52fba7b3262014c2e84cfc56c7110cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1aff57c2823b111251c99cb3dbcdea0fd90ad2c
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91767233"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425957"
 ---
 # <a name="blob-versioning"></a>BLOB-versioner
 
@@ -36,13 +36,15 @@ Information om hur du aktiverar BLOB-versioner finns i [Aktivera och hantera BLO
 
 En version fångar in statusen för en BLOB vid en viss tidpunkt. När BLOB-versioner har Aktiver ATS för ett lagrings konto skapar Azure Storage automatiskt en ny version av en BLOB varje gång bloben ändras eller tas bort.
 
-När du skapar en blob med versions hantering aktive rad är den nya blobben den aktuella versionen av blobben (eller bas-BLOB). Om du senare ändrar denna BLOB skapar Azure Storage en version som fångar upp status för blobben innan den ändrades. Den ändrade blobben blir den nya aktuella versionen. En ny version skapas varje gången du ändrar blobben. En BLOB kan ha upp till 1000 associerade versioner.
+När du skapar en blob med versions hantering aktive rad är den nya blobben den aktuella versionen av blobben (eller bas-BLOB). Om du senare ändrar denna BLOB skapar Azure Storage en version som fångar upp status för blobben innan den ändrades. Den ändrade blobben blir den nya aktuella versionen. En ny version skapas varje gången du ändrar blobben.
+
+En BLOB kan ha ett obegränsat antal versioner. Att ha ett stort antal versioner per BLOB kan dock öka svars tiden för BLOB List-åtgärder. Microsoft rekommenderar att du behåller färre än 1000 versioner per blob. Du kan använda livs cykel hantering för att automatiskt ta bort gamla versioner. Mer information om livs cykel hantering finns i [optimera kostnader genom att automatisera Azure-Blob Storage åtkomst nivåer](storage-lifecycle-management-concepts.md).
 
 När du tar bort en blob med versions hantering aktive rad skapar Azure Storage en version som fångar upp status för blobben innan den tas bort. Den aktuella versionen av blobben tas sedan bort, men blobens versioner kvarstår, så att den kan skapas på nytt om det behövs. 
 
 BLOB-versioner är oföränderliga. Du kan inte ändra innehållet eller metadata för en befintlig blob-version.
 
-BLOB-versioner är tillgängligt för General-Purpose v2-, Block Blob-och Blob Storage-konton. Lagrings konton med hierarkiskt namn område som är aktiverade för användning med Azure Data Lake Storage Gen2 stöds inte för närvarande. 
+BLOB-versioner är tillgängligt för General-Purpose v2-, Block Blob-och Blob Storage-konton. Lagrings konton med hierarkiskt namn område som är aktiverade för användning med Azure Data Lake Storage Gen2 stöds inte för närvarande.
 
 Version 2019-10-10 och senare av Azure Storage REST API stöder BLOB-versioner.
 
@@ -79,11 +81,11 @@ Om du anropar åtgärden [ta bort BLOB](/rest/api/storageservices/delete-blob) u
 
 Följande diagram visar effekterna av en borttagnings åtgärd i en versions-BLOB:
 
-:::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="Diagram som visar hur Skriv åtgärder påverkar versioner av blobar.":::
+:::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="Diagram över borttagning av versions-blob.":::
 
 När nya data skrivs till bloben skapas en ny version av blobben. Eventuella befintliga versioner påverkas inte, vilket visas i följande diagram.
 
-:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="Diagram som visar hur Skriv åtgärder påverkar versioner av blobar.":::
+:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="Diagram som visar åter skapandet av versions-BLOB efter borttagning.":::
 
 ### <a name="blob-types"></a>Blobbtyper
 
@@ -122,7 +124,7 @@ Du kan läsa eller ta bort versioner med versions-ID: t när versions hantering 
 
 Följande diagram visar hur ändring av en BLOB efter versions hantering är inaktive rad skapar en blob som inte är en version. Alla befintliga versioner som är associerade med blobben är kvar.
 
-:::image type="content" source="media/versioning-overview/modify-base-blob-versioning-disabled.png" alt-text="Diagram som visar hur Skriv åtgärder påverkar versioner av blobar.":::
+:::image type="content" source="media/versioning-overview/modify-base-blob-versioning-disabled.png" alt-text="Diagram som visar bas-BLOB ändrad efter inaktive rad versions hantering.":::
 
 ## <a name="blob-versioning-and-soft-delete"></a>BLOB-versioner och mjuk borttagning
 
@@ -138,7 +140,7 @@ Ta bort en tidigare version av en BLOB genom att uttryckligen ta bort den genom 
 
 Följande diagram visar vad som händer när du tar bort en BLOB eller en blob-version.
 
-:::image type="content" source="media/versioning-overview/soft-delete-historical-version.png" alt-text="Diagram som visar hur Skriv åtgärder påverkar versioner av blobar.":::
+:::image type="content" source="media/versioning-overview/soft-delete-historical-version.png" alt-text="Diagram som visar borttagning av en version med mjuk borttagning aktive rad.":::
 
 Om både versions hantering och mjuk borttagning är aktiverade på ett lagrings konto skapas ingen mjuk, borttagen ögonblicks bild när en BLOB-eller blob-version ändras eller tas bort.
 
@@ -150,7 +152,7 @@ Att återställa avläsnings bara versioner med **Undelete-BLOB** -åtgärden be
 
 Följande diagram visar hur du återställer avsoft-borttagna BLOB-versioner med åtgärden **ta bort BLOB** och hur du återställer den aktuella versionen av blobben med åtgärden **Kopiera BLOB** .
 
-:::image type="content" source="media/versioning-overview/undelete-version.png" alt-text="Diagram som visar hur Skriv åtgärder påverkar versioner av blobar.":::
+:::image type="content" source="media/versioning-overview/undelete-version.png" alt-text="Diagram som visar hur du återställer mjuka borttagna versioner.":::
 
 När tids perioden för mjuk borttagning har förflutit tas eventuella borttagna BLOB-versioner bort permanent.
 
@@ -169,7 +171,7 @@ När du tar en ögonblicks bild av en versions-BLOB skapas en ny version på sam
 
 Följande diagram visar vad som händer när du tar en ögonblicks bild av en versions-blob. I diagrammet innehåller BLOB-versioner och ögonblicks bilder med versions-ID 2 och 3 identiska data.
 
-:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="Diagram som visar hur Skriv åtgärder påverkar versioner av blobar.":::
+:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="Diagram över ögonblicks bilder av en versions-blob.":::
 
 ## <a name="authorize-operations-on-blob-versions"></a>Auktorisera åtgärder på BLOB-versioner
 
@@ -269,7 +271,7 @@ I följande tabell beskrivs fakturerings beteendet för en BLOB eller version n�
 
 Följande diagram illustrerar hur objekt faktureras när en versions-BLOB flyttas till en annan nivå.
 
-:::image type="content" source="media/versioning-overview/versioning-billing-tiers.png" alt-text="Diagram som visar hur Skriv åtgärder påverkar versioner av blobar.":::
+:::image type="content" source="media/versioning-overview/versioning-billing-tiers.png" alt-text="Diagram över hur objekt faktureras när en versions-BLOB är en explicit nivå.":::
 
 Det går inte att göra en återställning av nivån för en BLOB, version eller ögonblicks bild. Om du flyttar en blob till en ny nivå och sedan flyttar tillbaka den till den ursprungliga nivån debiteras du för objektets fullständiga innehålls längd även om det delar block med andra objekt på den ursprungliga nivån.
 

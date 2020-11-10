@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2020
 ms.author: yelevin
-ms.openlocfilehash: bc3da6f0d82adab2d21d4dbd91dee8654145b896
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: ecb4203c822f5b72068e11d0ad4b988d294aab0d
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951493"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427062"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Konfigurera Azure Sentinel – kundhanterad nyckel
 
@@ -28,7 +28,7 @@ Den här artikeln innehåller bakgrunds information och steg för att konfigurer
 > [!NOTE]
 > - Azure Sentinel CMK-funktionen tillhandahålls endast till **nya kunder**.
 >
-> - Åtkomst till den här funktionen styrs av Azure Feature Registration.Du kan begära åtkomst genom att kontakta azuresentinelCMK@microsoft.com . Väntande begär Anden kommer att godkännas enligt den tillgängliga kapaciteten.
+> - Åtkomst till den här funktionen styrs av Azure Feature Registration. Du kan begära åtkomst genom att kontakta azuresentinelCMK@microsoft.com . Väntande begär Anden kommer att godkännas enligt den tillgängliga kapaciteten.
 >
 > - CMK-funktionen är bara tillgänglig för kunder som skickar 1 TB per dag eller mer. Du får information om ytterligare priser när du använder Microsoft för att etablera CMK i din Azure-prenumeration. Läs mer om [Log Analytics prissättning](../azure-monitor/platform/manage-cost-storage.md#log-analytics-dedicated-clusters).
 
@@ -36,14 +36,14 @@ Den här artikeln innehåller bakgrunds information och steg för att konfigurer
 
 Azure Sentinel-lösningen använder flera lagrings resurser för logg insamling och-funktioner, inklusive Log Analytics och andra. Som en del av konfigurationen av Azure Sentinel-CMK måste du också konfigurera CMK-inställningarna på de relaterade lagrings resurserna. Data som sparas i andra lagrings resurser än Log Analytics kommer också att krypteras.
 
-Läs mer om [CMK](../azure-monitor/platform/customer-managed-keys.md#customer-managed-key-cmk-overview).
+Läs mer om [CMK](../azure-monitor/platform/customer-managed-keys.md#customer-managed-key-overview).
 
 > [!NOTE]
 > Om du aktiverar CMK på Azure Sentinel, aktive ras inte alla offentliga förhands gransknings funktioner som inte stöder CMK.
 
 ## <a name="enable-cmk"></a>Aktivera CMK 
 
-Följ dessa steg om du vill etablera CMK: 
+Följ dessa steg om du vill etablera CMK: 
 
 1.  Skapa en Azure Key Vault och en lagrings nyckel.
 
@@ -114,7 +114,7 @@ Den enda åtgärd som är möjlig efter att krypterings nyckeln har återkallats
 
 Om åtkomsten återställs efter återkallning kommer Azure Sentinel att återställa åtkomsten till data inom en timme.
 
-Om du vill veta mer om hur det fungerar i Azure Monitor, se [Azure Monitor CMK-återkallning](../azure-monitor/platform/customer-managed-keys.md#cmk-kek-revocation).
+Om du vill veta mer om hur det fungerar i Azure Monitor, se [Azure Monitor CMK-återkallning](../azure-monitor/platform/customer-managed-keys.md#key-revocation).
 
 ## <a name="key-encryption-key-rotation"></a>Rotation av nyckel krypterings nyckel
 
@@ -127,7 +127,7 @@ I Key Vault kan du utföra nyckel rotation genom att skapa en ny version av nyck
 
 Du kan inaktivera den tidigare versionen av nyckeln efter 24 timmar, eller efter Azure Key Vault gransknings loggarna visar inte längre aktiviteter som använder den tidigare versionen.
 
-Om du använder samma nyckel i Azure Sentinel och i Log Analytics är det nödvändigt att utföra nyckel rotationen. du måste uttryckligen uppdatera kluster resursen i Log Analytics med den nya Azure Key Vault nyckel versionen. Mer information finns i [Azure Monitor CMK rotation](../azure-monitor/platform/customer-managed-keys.md#cmk-kek-rotation).
+Om du använder samma nyckel i Azure Sentinel och i Log Analytics är det nödvändigt att utföra nyckel rotationen. du måste uttryckligen uppdatera kluster resursen i Log Analytics med den nya Azure Key Vault nyckel versionen. Mer information finns i [Azure Monitor CMK rotation](../azure-monitor/platform/customer-managed-keys.md#key-rotation).
 
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet har du lärt dig hur du konfigurerar en kundhanterad nyckel i Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:

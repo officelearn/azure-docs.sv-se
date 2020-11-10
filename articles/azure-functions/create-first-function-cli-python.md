@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 71745243c29fac95fca452f3c907bcf50982ea97
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 9c88feca5bf4bdac91af7f88c24cd342dc1b04cf
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93425174"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426297"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>Snabb start: skapa en python-funktion i Azure från kommando raden
 
@@ -64,6 +64,50 @@ Verifiera dina krav, beroende på om du använder Azure CLI eller Azure PowerShe
 + Kör `python --version` (Linux/MacOS) eller `py --version` (Windows) för att kontrol lera dina python versions rapporter 3.8. x, 3.7. x eller 3.6. x.
 
 ---
+
+## <a name="create-and-activate-a-virtual-environment"></a><a name="create-venv"></a>Skapa och aktivera en virtuell miljö
+
+I en lämplig mapp kör du följande kommandon för att skapa och aktivera en virtuell miljö med namnet `.venv` . Se till att använda python 3,8, 3,7 eller 3,6, som stöds av Azure Functions.
+
+# <a name="bash"></a>[bash](#tab/bash)
+
+```bash
+python -m venv .venv
+```
+
+```bash
+source .venv/bin/activate
+```
+
+Om python inte installerade venv-paketet på din Linux-distribution kör du följande kommando:
+
+```bash
+sudo apt-get install python3-venv
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+```powershell
+py -m venv .venv
+```
+
+```powershell
+.venv\scripts\activate
+```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```cmd
+py -m venv .venv
+```
+
+```cmd
+.venv\scripts\activate
+```
+
+---
+
+Du kör alla efterföljande kommandon i den här aktiverade virtuella miljön. 
 
 ## <a name="create-a-local-function-project"></a>Skapa ett lokalt funktions projekt
 

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: 5194e088ce2bd35208a92c5295457e6c34cd2cc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18504f1ed4200889b20c9608c9c0ad2c13c9aaa5
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570317"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425770"
 ---
 # <a name="wildcard-domains"></a>Domäner med jokertecken
 
@@ -27,7 +27,7 @@ Viktiga scenarier som har förbättrats med stöd för domäner med jokertecken 
 - Du behöver inte längre ändra din produktions konfiguration för Azures front dörr om ett program lägger till en ny under domän. Tidigare var du tvungen att lägga till under domänen, binda ett certifikat till det, bifoga en WAF-princip (Web Application Firewall) och sedan lägga till domänen i olika regler för routning.
 
 > [!NOTE]
-> För närvarande stöds inte domäner med jokertecken via API, PowerShell och Azure CLI. Stöd för att lägga till och hantera jokertecken domäner i Azure Portal är inte tillgängligt.
+> För närvarande stöds endast domäner som har stöd för att lägga till jokertecken via Azure DNS via API, PowerShell och Azure CLI. Stöd för att lägga till och hantera jokertecken domäner i Azure Portal är inte tillgängligt.
 
 ## <a name="adding-wildcard-domains"></a>Lägga till domäner med jokertecken
 

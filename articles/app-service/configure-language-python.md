@@ -2,15 +2,15 @@
 title: Konfigurera Linux python-appar
 description: Lär dig hur du konfigurerar python-behållaren där webbappar körs, med hjälp av både Azure Portal och Azure CLI.
 ms.topic: quickstart
-ms.date: 10/06/2020
+ms.date: 11/06/2020
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 935baef209811146d0b60f4fc02986818fd103a7
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 9e0e9098959231d4283608e8191081ae2df6737a
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743801"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425923"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Konfigurera en Linux python-app för Azure App Service
 
@@ -26,7 +26,7 @@ Du kan använda antingen [Azure Portal](https://portal.azure.com) eller Azure CL
 
 - **Azure CLI** : du har två alternativ.
 
-    - Kör kommandon i [Azure Cloud Shell](../cloud-shell/overview.md), som du kan öppna med knappen **prova** på det övre högra hörnet av kodblock.
+    - Kör kommandon i [Azure Cloud Shell](../cloud-shell/overview.md).
     - Kör kommandon lokalt genom att installera den senaste versionen av [Azure CLI](/cli/azure/install-azure-cli)och logga sedan in på Azure med [AZ-inloggning](/cli/azure/reference-index#az-login).
     
 > [!NOTE]
@@ -40,7 +40,7 @@ Du kan använda antingen [Azure Portal](https://portal.azure.com) eller Azure CL
 
     -  Visa den aktuella python-versionen med [AZ webapp config show](/cli/azure/webapp/config#az_webapp_config_show):
     
-        ```azurecli-interactive
+        ```azurecli
         az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
         ```
         
@@ -48,13 +48,13 @@ Du kan använda antingen [Azure Portal](https://portal.azure.com) eller Azure CL
     
     - Ange python-versionen med [AZ webapp config set](/cli/azure/webapp/config#az_webapp_config_set)
         
-        ```azurecli-interactive
+        ```azurecli
         az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PYTHON|3.7"
         ```
     
     - Visa alla python-versioner som stöds i Azure App Service med [AZ webapp List-Runtimes](/cli/azure/webapp#az_webapp_list_runtimes):
     
-        ```azurecli-interactive
+        ```azurecli
         az webapp list-runtimes --linux | grep PYTHON
         ```
     
@@ -69,7 +69,7 @@ App Service Bygg systemet, som kallas Oryx, utför följande steg när du distri
 
 1. Kör ett anpassat för skapande skript om det anges med `PRE_BUILD_COMMAND` inställningen.
 1. Kör `pip install -r requirements.txt`. *requirements.txt* -filen måste finnas i projektets rotmapp. Annars rapporterar build-processen felet: "Det gick inte att hitta setup.py eller requirements.txt; Kör inte pip-installation. "
-1. Om *Manage.py* finns i roten för lagrings platsen (som anger en django-app) kör du *Manage.py collectstatic* . Men om `DISABLE_COLLECTSTATIC` inställningen är `true` hoppar detta steg över.
+1. Om *Manage.py* finns i roten för lagrings platsen (som anger en django-app) kör du *Manage.py collectstatic*. Men om `DISABLE_COLLECTSTATIC` inställningen är `true` hoppar detta steg över.
 1. Kör anpassat efter build-skript om det anges med `POST_BUILD_COMMAND` inställningen.
 
 Som standard `PRE_BUILD_COMMAND` `POST_BUILD_COMMAND` `DISABLE_COLLECTSTATIC` är inställningarna, och tomma. 
@@ -81,6 +81,8 @@ Som standard `PRE_BUILD_COMMAND` `POST_BUILD_COMMAND` `DISABLE_COLLECTSTATIC` ä
 - Om du vill köra kommandona efter build anger du `POST_BUILD_COMMAND` att inställningen ska innehålla antingen ett kommando, till exempel `echo Post-build command` eller en sökväg till en skript fil i förhållande till projekt roten, till exempel `scripts/postbuild.sh` . Alla kommandon måste använda relativa sökvägar för rotmappen för projektet.
 
 Ytterligare inställningar som anpassar Bygg automatisering finns i [Oryx-konfiguration](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md). 
+
+För att få åtkomst till bygg-och distributions loggarna, se [åtkomst till distributions loggar](#access-deployment-logs).
 
 Mer information om hur App Service kör och skapar python-appar i Linux finns i [hur Oryx identifierar och skapar python-appar](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/python.md).
 
@@ -102,7 +104,7 @@ I följande tabell beskrivs de produktions inställningar som är relevanta för
 | --- | --- |
 | `SECRET_KEY` | Lagra värdet i en App Service-inställning enligt beskrivningen i [åtkomst till appinställningar som miljövariabler](#access-app-settings-as-environment-variables). Du kan också [lagra värdet som en "hemlighet" i Azure Key Vault](/azure/key-vault/secrets/quick-create-python). |
 | `DEBUG` | Skapa en `DEBUG` inställning på App Service med värdet 0 (falskt) och Läs in värdet som en miljö variabel. I utvecklings miljön skapar du en `DEBUG` miljö variabel med värdet 1 (sant). |
-| `ALLOWED_HOSTS` | I produktion kräver django att du inkluderar appens URL i `ALLOWED_HOSTS` matrisen *Settings.py* . Du kan hämta den här URL: en vid körning med koden `os.environ['WEBSITE_HOSTNAME']` . App Service ställer automatiskt in `WEBSITE_HOSTNAME` miljövariabeln till appens URL. |
+| `ALLOWED_HOSTS` | I produktion kräver django att du inkluderar appens URL i `ALLOWED_HOSTS` matrisen *Settings.py*. Du kan hämta den här URL: en vid körning med koden `os.environ['WEBSITE_HOSTNAME']` . App Service ställer automatiskt in `WEBSITE_HOSTNAME` miljövariabeln till appens URL. |
 | `DATABASES` | Definiera inställningarna i App Service för databas anslutningen och Läs in dem som miljövariabler för att fylla i [`DATABASES`](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DATABASES) ord listan. Du kan också lagra värdena (särskilt användar namn och lösen ord) som [Azure Key Vault hemligheter](/azure/key-vault/secrets/quick-create-python). |
 
 ## <a name="container-characteristics"></a>Containeregenskaper
@@ -164,9 +166,13 @@ Om din huvudsakliga app-modul finns i en annan fil, Använd ett annat namn för 
 
 ### <a name="default-behavior"></a>Standardbeteende
 
-Om App Service inte hittar något anpassat kommando, någon Django-app eller någon Flask-app kör den en skrivskyddad standardapp som finns i mappen _opt/defaultsite_ . Standardappen visas på följande sätt:
+Om App Service inte hittar något anpassat kommando, en django-app eller en kolv-app, körs en skrivskyddad skrivskyddad app som finns i mappen _opt/defaultsite_ och visas i följande bild.
 
-![Standardmässig App Service på Linux-webbplats](media/configure-language-python/default-python-app.png)
+Om du har distribuerat kod och fortfarande ser standardappen, se [fel sökning – appen visas inte](#app-doesnt-appear).
+
+[![Standardmässig App Service på Linux-webbplats](media/configure-language-python/default-python-app.png)](#app-doesnt-appear)
+
+Om du förväntar dig att se en distribuerad app i stället för standardappen, se [fel sökning – appen visas inte](#app-doesnt-appear).
 
 ## <a name="customize-startup-command"></a>Anpassa startkommando
 
@@ -178,11 +184,11 @@ Alla kommandon måste använda relativa sökvägar för rotmappen för projektet
 
 Ange ett start kommando eller en kommando fil:
 
-- **Azure Portal** : Välj appens **konfigurations** sida och välj sedan **allmänna inställningar** . I fältet **Start kommando** placerar du antingen den fullständiga texten i Start kommandot eller namnet på Start kommando filen. Välj sedan **Spara** för att tillämpa ändringarna. Se [Konfigurera allmänna inställningar](configure-common.md#configure-general-settings) för Linux-behållare.
+- **Azure Portal** : Välj appens **konfigurations** sida och välj sedan **allmänna inställningar**. I fältet **Start kommando** placerar du antingen den fullständiga texten i Start kommandot eller namnet på Start kommando filen. Välj sedan **Spara** för att tillämpa ändringarna. Se [Konfigurera allmänna inställningar](configure-common.md#configure-general-settings) för Linux-behållare.
 
 - **Azure CLI** : Använd kommandot [AZ webapp config set](/cli/azure/webapp/config#az_webapp_config_set) med `--startup-file` parametern för att ange start kommandot eller-filen:
 
-    ```azurecli-interactive
+    ```azurecli
     az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
     ```
         
@@ -213,7 +219,7 @@ App Service ignorerar eventuella fel som uppstår vid bearbetning av ett anpassa
 
     Mer information finns i [Gunicorn Logging](https://docs.gunicorn.org/en/stable/settings.html#logging) (docs.gunicorn.org).
     
-- **Main-modul för anpassade flaskor** : som standard förutsätter App Service att en kolvs huvud-modul är *Application.py* eller *app.py* . Om din huvud-modul använder ett annat namn måste du anpassa Start kommandot. Om du till exempel har en kolv-app vars huvudmodul är *Hello.py* och kolv-YF i filen heter `myapp` , är kommandot följande:
+- **Main-modul för anpassade flaskor** : som standard förutsätter App Service att en kolvs huvud-modul är *Application.py* eller *app.py*. Om din huvud-modul använder ett annat namn måste du anpassa Start kommandot. Om du till exempel har en kolv-app vars huvudmodul är *Hello.py* och kolv-YF i filen heter `myapp` , är kommandot följande:
 
     ```bash
     gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
@@ -258,33 +264,81 @@ Med populära ramverk får du åtkomst till `X-Forwarded-*` information i standa
 
 Om du vill komma åt loggarna via Azure Portal väljer du **övervaka**  >  **logg ström** på menyn till vänster för din app.
 
+## <a name="access-deployment-logs"></a>Åtkomst till distributions loggar
+
+När du distribuerar din kod utför App Service Bygg processen som beskrivs tidigare i avsnittet [Anpassa Bygg automatisering](#customize-build-automation). Eftersom bygget körs i en egen behållare lagras build-loggar separat från appens diagnostikloggar.
+
+Använd följande steg för att komma åt distributions loggarna:
+
+1. På Azure Portal för din webbapp väljer du **distributions**  >  **distributions Center (för hands version)** på den vänstra menyn.
+1. På fliken **loggar** väljer du **inchecknings-ID** : t för den senaste incheckningen.
+1. På sidan **logg information** som visas väljer du länken **Visa loggar...** som visas bredvid "kör Oryx build...".
+
+Bygg problem som felaktiga beroenden i *requirements.txt* och fel i för-eller efter build-skript visas i dessa loggar. Fel visas även om din krav fil inte är exakt namngiven *requirements.txt* eller inte visas i rotmappen i projektet.
+
 ## <a name="open-ssh-session-in-browser"></a>Öppna en SSH-session i webbläsaren
 
 [!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
+När du har anslutit till SSH-sessionen bör du se meddelandet "SSH-anslutning upprättad" längst ned i fönstret. Om du ser fel som "SSH_CONNECTION_CLOSED" eller ett meddelande om att behållaren startas om kan ett fel förhindra att appens behållare startas. Se [fel sökning](#troubleshooting) för steg för att undersöka möjliga problem.
+
 ## <a name="troubleshooting"></a>Felsökning
 
-- **Du ser standardappen när du har distribuerat din egen appkod.** Standardappen visas eftersom du antingen inte har distribuerat din kod till App Service eller för att App Service inte kunde hitta din appkod och körde standardappen i stället.
+I allmänhet är det första steget i fel sökning att använda App Service diagnostik:
+
+1. Välj **diagnostisera och lös problem** på den vänstra menyn i Azure Portal för din webbapp.
+1. Välj **tillgänglighet och prestanda**.
+1. Granska informationen i alternativen för **program loggar** , **behållare krasch** och **container-problem** , där de vanligaste problemen visas.
+
+Granska sedan både [distributions loggarna](#access-deployment-logs) och [app-loggarna](#access-diagnostic-logs) för eventuella fel meddelanden. Dessa loggar identifierar ofta specifika problem som kan förhindra program distribution eller app-start. Build-versionen kan till exempel inte köras om *requirements.txt* filen har fel fil namn eller inte finns i rotmappen för Project.
+
+I följande avsnitt finns ytterligare vägledning för specifika problem.
+
+- [Appen visas inte – standard app visas](#app-doesnt-appear)
+- [Appen visas inte-meddelandet "tjänsten är inte tillgänglig"](#service-unavailable)
+- [Det gick inte att hitta setup.py eller requirements.txt](#could-not-find-setuppy-or-requirementstxt)
+- [Lösen ord visas inte i SSH-sessionen när de skrivs](#other-issues)
+- [Kommandon i SSH-sessionen förefaller vara avhuggna](#other-issues)
+- [Statiska till gångar visas inte i en django-app](#other-issues)
+- [En kritisk SSL-anslutning krävs](#other-issues)
+
+#### <a name="app-doesnt-appear"></a>Appen visas inte
+
+- **Du ser standardappen när du har distribuerat din egen appkod.** [Standard programmet](#default-behavior) visas eftersom du inte har distribuerat din app-kod till App Service, eller App Service inte att hitta din app-kod och körde standardappen i stället.
 
     - Starta om App Service, vänta 15–20 sekunder och kontrollera appen igen.
     
-    - Se till att du använder App Service för Linux i stället för en Windows-baserad instans. Från Azure-CLI kör du kommandot `az webapp show --resource-group <resource-group-name> --name <app-name> --query kind`. Byt ut `<resource-group-name>` och `<app-service-name>` därefter. Du bör se `app,linux` som utdata; annars återskapar du App Service och väljer Linux.
+    - Se till att du använder App Service för Linux i stället för en Windows-baserad instans. Från Azure-CLI kör du kommandot `az webapp show --resource-group <resource-group-name> --name <app-name> --query kind`. Byt ut `<resource-group-name>` och `<app-name>` därefter. Du bör se `app,linux` som utdata; annars återskapar du App Service och väljer Linux.
     
-    - Använd SSH- eller Kudu-konsolen för att ansluta direkt till App Service och kontrollera att dina filer finns under *site/wwwroot* . Om filerna inte finns granskar du din distributionsprocess och distribuerar appen på nytt.
+    - Använd [SSH](#open-ssh-session-in-browser) för att ansluta direkt till App Service-behållaren och kontrol lera att filerna finns under *plats/wwwroot*. Använd följande steg om dina filer inte finns:
+      1. Skapa en app-inställning med `SCM_DO_BUILD_DURING_DEPLOYMENT` värdet 1, distribuera om koden, vänta några minuter och försök sedan att öppna appen igen. Mer information om hur du skapar app-inställningar finns [i Konfigurera en app service-app i Azure Portal](configure-common.md).
+      1. Granska distributions processen, [kontrol lera distributions loggarna](#access-deployment-logs), korrigera eventuella fel och distribuera om appen.
     
     - Om filerna finns kunde App Service inte identifiera din specifika startfil. Kontrol lera att din app är strukturerad som App Service förväntar sig för [django](#django-app) eller [flaska](#flask-app), eller Använd ett [anpassat start kommando](#customize-startup-command).
 
-- **Du ser meddelandet ”Service Unavailable” (Tjänsten är ej tillgänglig) i webbläsaren.** Webbläsaren nådde tidsgränsen i väntan på svar från App Service, vilket indikerar att App Service startade Gunicorn-servern, men de argument som specificerar appkoden är felaktiga.
+- <a name="service-unavailable"></a>**Meddelandet "tjänsten är inte tillgänglig" visas i webbläsaren.** Tids gränsen för webbläsaren nåddes i väntan på ett svar från App Service, vilket tyder på att App Service startade Gunicorn-servern, men själva appen startades inte. Det här tillståndet kan tyda på att Gunicorn-argumenten är felaktiga eller att det finns ett fel i app-koden.
 
     - Uppdatera webbläsaren, särskilt om du använder de lägsta prisnivåerna i din App Service-plan. Till exempel kan appen ta längre tid att starta om du använder de kostnadsfria nivåerna och blir tillgänglig när du uppdaterar webbläsaren.
 
     - Kontrol lera att din app är strukturerad som App Service förväntar sig för [django](#django-app) eller [flaska](#flask-app), eller Använd ett [anpassat start kommando](#customize-startup-command).
 
-    - Undersök [logg strömmen](#access-diagnostic-logs) för eventuella fel meddelanden.
+    - Granska [program logg strömmen](#access-diagnostic-logs) för eventuella fel meddelanden. Loggarna visar eventuella fel i app-koden.
+
+#### <a name="could-not-find-setuppy-or-requirementstxt"></a>Det gick inte att hitta setup.py eller requirements.txt
 
 - **Logg strömmen visar att det inte gick att hitta setup.py eller requirements.txt. Det gick inte att installera pip. "** : det gick inte att hitta *requirements.txts* filen med Oryx-build-processen.
 
-    - Använd SSH-eller kudu-konsolen för att ansluta direkt till App Service och kontrol lera att *requirements.txt* finns direkt under *plats/wwwroot* . Om den inte finns gör du platsen som filen finns i din lagrings plats och ingår i distributionen. Om den finns i en separat mapp flyttar du den till roten.
+    - Anslut till webbappens behållare via [SSH](#open-ssh-session-in-browser) och kontrol lera att *requirements.txt* har namnet korrekt och finns direkt under *plats/wwwroot*. Om den inte finns gör du platsen som filen finns i din lagrings plats och ingår i distributionen. Om den finns i en separat mapp flyttar du den till roten.
+
+#### <a name="other-issues"></a>Andra problem
+
+- **Lösen ord visas inte i SSH-sessionen när de skrivs** : av säkerhets skäl håller SSH-sessionen ditt lösen ord dolt när du skriver. Tecknen registreras men skriv ditt lösen ord som vanligt och tryck på **RETUR** när du är färdig.
+
+- **Kommandon i SSH-sessionen förefaller vara kapade** : redigerings programmet kanske inte är ord brytnings kommandon, men de bör fortfarande köras på rätt sätt.
+
+- **Statiska till gångar visas inte i en django-app** : kontrol lera att du har aktiverat [Whitenoise-modulen](http://whitenoise.evans.io/en/stable/django.html)
+
+- **Meddelandet "en kritisk SSL-anslutning krävs"** : kontrol lera eventuella användar namn och lösen ord som används för att få åtkomst till resurser (till exempel databaser) inifrån appen.
 
 ## <a name="next-steps"></a>Nästa steg
 

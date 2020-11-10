@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 11/10/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 5dd2d9e932bd1be3da74a2bdc9bd918401076aa3
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 1bf0a4a86ccc36960f218fabebda5bc82eb29019
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348618"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426178"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Lägg till komplettera automatiskt och förslag till klient program
 
@@ -56,8 +56,8 @@ Följ dessa länkar för referens sidorna REST och .NET SDK:
 
 + [Förslag REST API](/rest/api/searchservice/suggestions) 
 + [Autoavsluta-REST API](/rest/api/searchservice/autocomplete) 
-+ [SuggestWithHttpMessagesAsync-metod](/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync)
-+ [AutocompleteWithHttpMessagesAsync-metod](/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync)
++ [SuggestAsync-metod](/dotnet/api/azure.search.documents.searchclient.suggestasync)
++ [AutocompleteAsync-metod](/dotnet/api/azure.search.documents.searchclient.autocompleteasync)
 
 ## <a name="structure-a-response"></a>Strukturera ett svar
 
@@ -139,45 +139,43 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 ### <a name="suggest-function"></a>Funktionen föreslå
 
-Om du använder C# och ett MVC-program är **HomeController.cs** -filen under katalogen kontrollanter där du kan skapa en klass för föreslagna resultat. I .NET baseras en förslags funktion på [metoden DocumentsOperationsExtensions. föreslå](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest). Mer information om .NET SDK finns i [så här använder du Azure kognitiv sökning från ett .NET-program](search-howto-dotnet-sdk.md).
+Om du använder C# och ett MVC-program är **HomeController.cs** -filen under katalogen kontrollanter där du kan skapa en klass för föreslagna resultat. I .NET baseras en förslags funktion på [metoden SuggestAsync](/dotnet/api/azure.search.documents.searchclient.suggestasync). Mer information om .NET SDK finns i [så här använder du Azure kognitiv sökning från ett .NET-program](search-howto-dotnet-sdk.md).
 
-`InitSearch`Metoden skapar en autentiserad HTTP-index-klient till Azure kognitiv sökning-tjänsten. Egenskaperna för [SuggestParameters](/dotnet/api/microsoft.azure.search.models.suggestparameters) -klassen avgör vilka fält som genomsöks och returneras i resultaten, antalet matchningar och om fuzzy Matching används. 
+`InitSearch`Metoden skapar en autentiserad HTTP-index-klient till Azure kognitiv sökning-tjänsten. Egenskaperna för [SuggestOptions](/dotnet/api/azure.search.documents.suggestoptions) -klassen avgör vilka fält som genomsöks och returneras i resultaten, antalet matchningar och om fuzzy Matching används. 
 
 För automatisk komplettering är en partiell matchning begränsad till ett redigerings avstånd (ett utelämnat eller felplacerat). Observera att fuzzy-matchning i frågor för Komplettera automatiskt kan ibland ge oväntade resultat beroende på index storlek och hur det är shardade. Mer information finns i avsnittet om [partition-och horisontell partitionering-koncept](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards).
 
 ```csharp
-public ActionResult Suggest(bool highlights, bool fuzzy, string term)
+public async Task<ActionResult> SuggestAsync(bool highlights, bool fuzzy, string term)
 {
     InitSearch();
 
-    // Call suggest API and return results
-    SuggestParameters sp = new SuggestParameters()
+    var options = new SuggestOptions()
     {
-        Select = HotelName,
-        SearchFields = HotelName,
         UseFuzzyMatching = fuzzy,
-        Top = 5
+        Size = 8,
     };
 
     if (highlights)
     {
-        sp.HighlightPreTag = "<b>";
-        sp.HighlightPostTag = "</b>";
+        options.HighlightPreTag = "<b>";
+        options.HighlightPostTag = "</b>";
     }
 
-    DocumentSuggestResult resp = _indexClient.Documents.Suggest(term, "sg", sp);
+    // Only one suggester can be specified per index.
+    // The suggester for the Hotels index enables autocomplete/suggestions on the HotelName field only.
+    // During indexing, HotelNames are indexed in patterns that support autocomplete and suggested results.
+    var suggestResult = await _searchClient.SuggestAsync<Hotel>(term, "sg", options).ConfigureAwait(false);
 
     // Convert the suggest query results to a list that can be displayed in the client.
-    List<string> suggestions = resp.Results.Select(x => x.Text).ToList();
-    return new JsonResult
-    {
-        JsonRequestBehavior = JsonRequestBehavior.AllowGet,
-        Data = suggestions
-    };
+    List<string> suggestions = suggestResult.Value.Results.Select(x => x.Text).ToList();
+
+    // Return the list of suggestions.
+    return new JsonResult(suggestions);
 }
 ```
 
-Funktionen Suggest (Föreslå) tar två parametrar som bestämmer om träffmarkeringar returneras eller om fuzzy-matchning används utöver sökordsindata. Metoden skapar ett [SuggestParameters-objekt](/dotnet/api/microsoft.azure.search.models.suggestparameters), som sedan skickas till föreslå API. Resultatet konverteras sedan till JSON, så att det kan visas i klienten.
+Funktionen SuggestAsync tar två parametrar som avgör om träff markeringar returneras eller fuzzy-matchning används utöver Sök term ingången. Upp till åtta matchningar kan inkluderas i föreslagna resultat. Metoden skapar ett [SuggestOptions-objekt](/dotnet/api/azure.search.documents.suggestoptions), som sedan skickas till föreslå API. Resultatet konverteras sedan till JSON, så att det kan visas i klienten.
 
 ## <a name="autocomplete"></a>Komplettera automatiskt
 
@@ -185,7 +183,7 @@ Hittills har Sök-UX-koden centrerats på förslag. Nästa kodblock visar komple
 
 ```javascript
 $(function () {
-    // using modified jQuery Autocomplete plugin v1.2.6 https://xdsoft.net/jqplugins/autocomplete/
+    // using modified jQuery Autocomplete plugin v1.2.8 https://xdsoft.net/jqplugins/autocomplete/
     // $.autocomplete -> $.autocompleteInline
     $("#searchbox1").autocompleteInline({
         appendMethod: "replace",
@@ -220,28 +218,25 @@ $(function () {
 
 ### <a name="autocomplete-function"></a>Funktionen Komplettera automatiskt
 
-Autoavsluta baseras på [metoden DocumentsOperationsExtensions. Autocomplete](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete). Som med förslag skulle det här kod blocket gå till filen **HomeController.cs** .
+Autoavsluta baseras på AutocompleteAsync- [metoden](/dotnet/api/azure.search.documents.searchclient.autocompleteasync). Som med förslag skulle det här kod blocket gå till filen **HomeController.cs** .
 
 ```csharp
-public ActionResult AutoComplete(string term)
+public async Task<ActionResult> AutoCompleteAsync(string term)
 {
     InitSearch();
-    //Call autocomplete API and return results
-    AutocompleteParameters ap = new AutocompleteParameters()
-    {
-        AutocompleteMode = AutocompleteMode.OneTermWithContext,
-        UseFuzzyMatching = false,
-        Top = 5
-    };
-    AutocompleteResult autocompleteResult = _indexClient.Documents.Autocomplete(term, "sg", ap);
 
-    // Convert the Suggest results to a list that can be displayed in the client.
-    List<string> autocomplete = autocompleteResult.Results.Select(x => x.Text).ToList();
-    return new JsonResult
+    // Setup the autocomplete parameters.
+    var ap = new AutocompleteOptions()
     {
-        JsonRequestBehavior = JsonRequestBehavior.AllowGet,
-        Data = autocomplete
+        Mode = AutocompleteMode.OneTermWithContext,
+        Size = 6
     };
+    var autocompleteResult = await _searchClient.AutocompleteAsync(term, "sg", ap).ConfigureAwait(false);
+
+    // Convert the autocompleteResult results to a list that can be displayed in the client.
+    List<string> autocomplete = autocompleteResult.Value.Results.Select(x => x.Text).ToList();
+
+    return new JsonResult(autocomplete);
 }
 ```
 

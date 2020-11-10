@@ -100,7 +100,7 @@
   items:
     - name: Felsökning
       items:
-        - name: Få hjälp med distribution och etableringsfel
+        - name: Skapa en supportbegäran om distributionsproblem
           href: fix-deployment-provisioning-failures.md
     - name: VANLIGA FRÅGOR OCH SVAR
       href: faq.md

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8ae25c63e9c6e3bf6ad363cde9eb641703562811
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: ed7b61e9e0379462e0dfbcdcc93acfccf470d95f
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360028"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427045"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Skapa en förslags ställare för att aktivera Autoavsluta och föreslagna resultat i en fråga
 
@@ -26,7 +26,7 @@ Följande skärm bild från [skapa din första app i C#](tutorial-csharp-type-ah
 
 Du kan använda dessa funktioner separat eller tillsammans. Det finns ett index och en frågekomponent-komponent för att implementera dessa beteenden i Azure Kognitiv sökning. 
 
-+ I indexet lägger du till en förslags pekare till ett index. Du kan använda portalen, [REST API](/rest/api/searchservice/create-index)eller [.NET SDK](/dotnet/api/microsoft.azure.search.models.suggester). Resten av den här artikeln fokuserar på att skapa en förslags ställare.
++ I indexet lägger du till en förslags pekare till ett index. Du kan använda portalen, [Create index (REST) (/REST/API/searchservice/Create-index) eller en [förslags egenskap](/dotnet/api/azure.search.documents.indexes.models.searchindex.suggesters). Resten av den här artikeln fokuserar på att skapa en förslags ställare.
 
 + Anropa ett av [API: erna som anges nedan](#how-to-use-a-suggester)i förfrågan.
 
@@ -107,24 +107,23 @@ Lägg till förslag via [skapa index](/rest/api/searchservice/create-index) elle
 
 ## <a name="create-using-net"></a>Skapa med .NET
 
-Definiera ett [förslags objekt](/dotnet/api/microsoft.azure.search.models.suggester)i C#. `Suggesters` är en samling, men det kan bara ta ett objekt. 
+I C# definierar du ett [SearchSuggester-objekt](/dotnet/api/azure.search.documents.indexes.models.searchsuggester). `Suggesters` är en samling på ett SearchIndex-objekt, men det kan bara ta ett objekt. 
 
 ```csharp
-private static void CreateHotelsIndex(SearchServiceClient serviceClient)
+private static void CreateIndex(string indexName, SearchIndexClient indexClient)
 {
-    var definition = new Index()
-    {
-        Name = "hotels-sample-index",
-        Fields = FieldBuilder.BuildForType<Hotel>(),
-        Suggesters = new List<Suggester>() {new Suggester()
-            {
-                Name = "sg",
-                SourceFields = new string[] { "HotelName", "Category" }
-            }}
-    };
+    FieldBuilder fieldBuilder = new FieldBuilder();
+    var searchFields = fieldBuilder.Build(typeof(Hotel));
 
-    serviceClient.Indexes.Create(definition);
+    //var suggester = new SearchSuggester("sg", sourceFields = "HotelName", "Category");
 
+    var definition = new SearchIndex(indexName, searchFields);
+
+    var suggester = new SearchSuggester("sg", new[] { "HotelName", "Category"});
+
+    definition.Suggesters.Add(suggester);
+
+    indexClient.CreateOrUpdateIndex(definition);
 }
 ```
 
@@ -134,7 +133,7 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 |--------------|-----------------|
 |`name`        |Förslagets namn.|
 |`searchMode`  |Strategin som används för att söka efter kandidat fraser. Det enda läge som stöds för närvarande är `analyzingInfixMatching` , som för närvarande matchar i början av en term.|
-|`sourceFields`|En lista med ett eller flera fält som är källan till innehållet för förslag. Fält måste vara av typen `Edm.String` och `Collection(Edm.String)` . Om en analys anges i fältet måste det vara en namngiven analys från [den här listan](/dotnet/api/microsoft.azure.search.models.analyzername) (inte en anpassad analys).<p/> Vi rekommenderar att du bara anger de fält som lånar ut sig till ett förväntat och lämpligt svar, oavsett om det är en slutförd sträng i ett sökfält eller i en nedrullningsbar listruta.<p/>Ett hotell namn är en bra kandidat eftersom det har precision. Utförliga fält som beskrivningar och kommentarer är för kompakta. På samma sätt är upprepade fält, till exempel kategorier och taggar, mindre effektiva. I exemplen inkluderar vi "Category" ändå för att demonstrera att du kan inkludera flera fält. |
+|`sourceFields`|En lista med ett eller flera fält som är källan till innehållet för förslag. Fält måste vara av typen `Edm.String` och `Collection(Edm.String)` . Om en analys anges i fältet måste det vara en namngiven analys från [den här listan](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) (inte en anpassad analys).<p/> Vi rekommenderar att du bara anger de fält som lånar ut sig till ett förväntat och lämpligt svar, oavsett om det är en slutförd sträng i ett sökfält eller i en nedrullningsbar listruta.<p/>Ett hotell namn är en bra kandidat eftersom det har precision. Utförliga fält som beskrivningar och kommentarer är för kompakta. På samma sätt är upprepade fält, till exempel kategorier och taggar, mindre effektiva. I exemplen inkluderar vi "Category" ändå för att demonstrera att du kan inkludera flera fält. |
 
 <a name="how-to-use-a-suggester"></a>
 
@@ -144,8 +143,8 @@ En förslags ställare används i en fråga. När en förslags ställare har ska
 
 + [Förslag REST API](/rest/api/searchservice/suggestions)
 + [Autoavsluta-REST API](/rest/api/searchservice/autocomplete)
-+ [SuggestWithHttpMessagesAsync-metod](/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync)
-+ [AutocompleteWithHttpMessagesAsync-metod](/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync)
++ [SuggestAsync-metod](/dotnet/api/azure.search.documents.searchclient.suggestasync)
++ [AutocompleteAsync-metod](/dotnet/api/azure.search.documents.searchclient.autocompleteasync)
 
 I ett sökprogram bör klient koden använda ett bibliotek som [JQUERY UI komplettera automatiskt](https://jqueryui.com/autocomplete/) för att samla in den partiella frågan och ange matchningen. Mer information om den här uppgiften finns i [lägga till komplettera automatiskt eller föreslagna resultat till klient koden](search-autocomplete-tutorial.md).
 

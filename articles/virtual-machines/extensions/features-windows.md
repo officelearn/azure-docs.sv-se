@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 78ea26adb8299cc13d4677c66a0e06cba901d9dc
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 00cb63f63ffb1f2e10a276cfdeee9c5e8e1022de
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977382"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427385"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Tillägg och funktioner för virtuella datorer för Windows
 
@@ -92,7 +92,7 @@ Följande metoder kan användas för att köra ett tillägg mot en befintlig vir
 
 ### <a name="powershell"></a>PowerShell
 
-Det finns flera PowerShell-kommandon för att köra enskilda tillägg. Om du vill se en lista använder du [Get-Command](/powershell/module/microsoft.powershell.core/get-command) och filter för *tillägg*:
+Det finns flera PowerShell-kommandon för att köra enskilda tillägg. Om du vill se en lista använder du [Get-Command](/powershell/module/microsoft.powershell.core/get-command) och filter för *tillägg* :
 
 ```powershell
 Get-Command Set-Az*Extension* -Module Az.Compute
@@ -140,9 +140,9 @@ Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Nam
 `Set-AzVMExtension`Kommandot kan användas för att starta alla VM-tillägg. Mer information finns i [set-AzVMExtension-referensen](/powershell/module/az.compute/set-azvmextension).
 
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
-VM-tillägg kan tillämpas på en befintlig virtuell dator via Azure Portal. Välj den virtuella datorn i portalen, Välj **tillägg**och välj sedan **Lägg till**. Välj det tillägg du vill använda i listan över tillgängliga tillägg och följ anvisningarna i guiden.
+VM-tillägg kan tillämpas på en befintlig virtuell dator via Azure Portal. Välj den virtuella datorn i portalen, Välj **tillägg** och välj sedan **Lägg till**. Välj det tillägg du vill använda i listan över tillgängliga tillägg och följ anvisningarna i guiden.
 
 I följande exempel visas installationen av tillägget Microsoft Antimalware från Azure Portal:
 
@@ -286,7 +286,7 @@ Microsoft.Compute     CustomScriptExtension                1.9
 
 #### <a name="agent-updates"></a>Agent uppdateringar
 
-Windows-gäst agenten innehåller bara *tillägg hanterings kod*, *Windows etablerings koden* är separat. Du kan avinstallera Windows gästa Gent. Det går inte att inaktivera den automatiska uppdateringen av fönster gäst agenten.
+Windows-gäst agenten innehåller bara *tillägg hanterings kod* , *Windows etablerings koden* är separat. Du kan avinstallera Windows gästa Gent. Det går inte att inaktivera den automatiska uppdateringen av fönster gäst agenten.
 
 *Tilläggs hanterings koden* ansvarar för kommunikation med Azure-infrastrukturen och hanterar de åtgärder för VM-tillägg som installation, rapporterings status, uppdaterar enskilda tillägg och tar bort dem. Uppdateringar innehåller säkerhets korrigeringar, fel korrigeringar och förbättringar i *tilläggs hanterings koden*.
 
@@ -294,7 +294,7 @@ Information om hur du kontrollerar vilken version du kör finns i [identifiera i
 
 #### <a name="extension-updates"></a>Tilläggs uppdateringar
 
-När en tilläggs uppdatering är tillgänglig laddar Windows gäst agent ned och uppgraderar tillägget. Automatiska tilläggs uppdateringar är antingen *mindre* eller *snabb korrigeringar*. Du kan välja om du vill inaktivera tillägg som är *mindre* uppdateringar när du etablerar tillägget. I följande exempel visas hur du automatiskt uppgraderar lägre versioner i en Resource Manager-mall med *aktiverat autoupgrademinorversion ": true"*:
+När en tilläggs uppdatering är tillgänglig laddar Windows gäst agent ned och uppgraderar tillägget. Automatiska tilläggs uppdateringar är antingen *mindre* eller *snabb korrigeringar*. Du kan välja om du vill inaktivera tillägg som är *mindre* uppdateringar när du etablerar tillägget. I följande exempel visas hur du automatiskt uppgraderar lägre versioner i en Resource Manager-mall med *aktiverat autoupgrademinorversion ": true"* :
 
 ```json
     "properties": {
@@ -322,7 +322,7 @@ Du kan se från VM-modellen om tillägget etablerades med ' aktiverat autoupgrad
  $vm.Extensions
 ```
 
-Följande exempel på utdata visar att *aktiverat autoupgrademinorversion* är inställt på *True*:
+Följande exempel på utdata visar att *aktiverat autoupgrademinorversion* är inställt på *True* :
 
 ```powershell
 ForceUpdateTag              :
@@ -336,7 +336,7 @@ AutoUpgradeMinorVersion     : True
 
 Om du vill se när en uppdatering av tillägget har inträffat granskar du agent loggarna på den virtuella datorn på *C:\WindowsAzure\Logs\WaAppAgent.log*
 
-I följande exempel hade den virtuella datorn *Microsoft. Compute. CustomScriptExtension 1,8* installerat. En snabb korrigering är tillgänglig för version *1,9*:
+I följande exempel hade den virtuella datorn *Microsoft. Compute. CustomScriptExtension 1,8* installerat. En snabb korrigering är tillgänglig för version *1,9* :
 
 ```powershell
 [INFO]  Getting plugin locations for plugin 'Microsoft.Compute.CustomScriptExtension'. Current Version: '1.8', Requested Version: '1.9'
@@ -355,7 +355,7 @@ Följande fel söknings steg gäller för alla VM-tillägg.
 
 1. Om du vill kontrol lera loggen för Windows gäst agent tittar du på aktiviteten när ditt tillägg har allokerats i *C:\WindowsAzure\Logs\WaAppAgent.log*
 
-2. Se de faktiska tilläggs loggarna för mer information *i \<extensionName> C:\WindowsAzure\Logs\Plugins*
+2. Se de faktiska tilläggs loggarna för mer information *i \\ <extensionName> C:\WindowsAzure\Logs\Plugins*
 
 3. Sök efter felkoder, kända problem och fel söknings avsnitt för specifika dokumentation
 
@@ -403,7 +403,7 @@ Extensions[0]           :
     Message             : Finished executing command
 ```
 
-Du kan också hitta körnings status för tillägg i Azure Portal. Om du vill visa status för ett tillägg väljer du den virtuella datorn, väljer **tillägg**och väljer sedan önskat tillägg.
+Du kan också hitta körnings status för tillägg i Azure Portal. Om du vill visa status för ett tillägg väljer du den virtuella datorn, väljer **tillägg** och väljer sedan önskat tillägg.
 
 ### <a name="rerun-vm-extensions"></a>Kör om VM-tillägg
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: 5759cd80278d20ee383fbe5922e43d250babe09f
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: b22c73b3f0626b9938608e88c3382e3f5e8d97fc
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380682"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427487"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Snabb start: skapa, träna och publicera QnA Maker kunskaps bas
 
@@ -135,13 +135,12 @@ I det övre högra hörnet väljer du **Spara och träna** för att spara dina �
 1. I den QnA Maker portalen, i det övre högra hörnet, väljer du **test** för att testa att ändringarna du gjort har genomförts.
 2. Ange ett exempel på en användar fråga i text rutan.
 
-    `How many Azure services are used by a knowledge base?`
+    `whats the size of the touchscreen`
 
-    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/enable-short-answer.png" alt-text="Skärm bild av dialog rutan Chat UI som visar fråga: hur många sidor finns det ett mindre Passport-konto? och svaret: endast 36 sidor Passport-häftet utfärdas till minderåriga.":::
+3. Om du aktiverar MRC-funktionen för din kunskaps bas, genom att välja **visnings kort svar** , ser du också ett exakt svar, om det är tillgängligt, tillsammans med svaren i test fönstret. 
 
-3. Om du aktiverar MRC-funktionen för din kunskaps bas genom att välja **Aktivera kort svar (experimentell)** ser du också ett exakt svar, om det är tillgängligt, tillsammans med svars resultatet i test fönstret. 
-
-    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/enable-short-answer-checked.png" alt-text="Skärm bild av dialog rutan Chat UI som visar fråga: hur många sidor finns det ett mindre Passport-konto? och svaret: 36. på en enda rad följt av en andra rad som talar: endast 36 sidor Passport-häftet utfärdas till minderåriga.":::
+    ![Hanterat aktiverat test fönster](../media/conversational-context/test-pane-with-managed.png)
+    
 
 4. Välj granska för att undersöka svaret i mer detalj. Test fönstret används för att testa dina ändringar i kunskaps basen innan du publicerar din kunskaps bas. 
 5. Välj **testa** igen för att stänga **test** panelen.

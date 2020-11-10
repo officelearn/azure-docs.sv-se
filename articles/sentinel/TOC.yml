@@ -199,6 +199,8 @@
           href: bookmarks.md
         - name: Använda direktsändning för hotjakt
           href: livestream.md
+        - name: Hantera jaktfrågor med REST-API
+          href: hunting-with-rest-api.md
     - name: Ta bort Azure Sentinel
       href: offboard.md
 - name: Referens (ny!)

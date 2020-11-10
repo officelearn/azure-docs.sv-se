@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: aa4ddfc773e2226fe155b563c237f1c533d52311
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 23173432db9364f25901e6e9b285d390c6a63a34
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127036"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426553"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>Självstudie: skapa en IoT Edge-instans för video analys (Linux VM)
 
@@ -27,7 +27,7 @@ I IoT Edge körs dessa tjänster direkt på IoT-enheter över plattformar, så a
 
 Den här självstudien visar hur du förbereder en IoT Edge-enhet på en virtuell Azure-dator. IoT Edge-instansen kör de direktsända video analys moduler som används av program mal len Azure IoT Central video analys – objekt och rörelse identifiering.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Skapa en virtuell Azure-dator med Azure IoT Edge Runtime installerat
 > * Förbered IoT Edge-installationen för att vara värd för modulen för video analys och Anslut till IoT Central
@@ -55,7 +55,7 @@ Använd informationen i följande tabell för att slutföra det **anpassade dist
 | Administratörens användar namn | *AzureUser* |
 | Adminlösenord | Ange ett lösen ord. Anteckna lösen ordet i *scratchpad.txt* -filen. du kan använda det senare. |
 | Omfångs-ID | Det **omfångs-ID** du antecknade i *scratchpad.txt* -filen i den föregående själv studie kursen när du lade till gateway-enheten. |
-| Enhets-ID | *lva-Gateway-001* – den gateway-enhet som du skapade i föregående självstudie. |
+| Enhets-ID | *Gateway – 001* – den gateway-enhet som du skapade i föregående självstudie. |
 | Enhets nyckel | Enhetens primära nyckel du antecknade i *scratchpad.txt* -filen i den föregående själv studie kursen när du lade till gateway-enheten. |
 | IoT Central app-värd | **URL:** en för programmet som du antecknade i *scratchpad.txt* -filen i föregående självstudie. Till exempel *Traders.azureiotcentral.com*. |
 | API-token för IoT Central app | Operatörens API-token du antecknade i föregående självstudie. |

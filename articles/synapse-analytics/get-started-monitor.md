@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: monitoring
 ms.topic: tutorial
 ms.date: 10/15/2020
-ms.openlocfilehash: 924ac3a58a005b84cbf87f833e97862e26a5b8e0
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 2970bb58bb73d52c75729b00a8209a9c576d4ec0
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363365"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427419"
 ---
 # <a name="monitor-your-synapse-workspace"></a>Övervaka din Synapse-arbetsyta
 
@@ -31,8 +31,7 @@ I den här självstudien får du lära dig hur du övervakar aktiviteter i din S
 ## <a name="integration"></a>Integrering
 
 1. Gå till **pipeline för Integration >**. I den här vyn kan du se varje gång en pipeline har körts i din arbets yta. 
-1. Hitta den pipeline som du körde i föregående steg och klicka på dess **pipeliniska namn**.
-1. Nu kan du se hur enskilda aktiviteter i den pipelinen körs.
+1. Hitta den pipeline som du körde i föregående steg och klicka på dess **pipelines namn** för att visa information.
 1. Klicka på **navigerings fältet** längst upp i Synapse Studio, klicka på **alla pipelines körs** för att återgå till den föregående vyn.
 
 ## <a name="apache-spark-activities"></a>Apache Spark aktiviteter

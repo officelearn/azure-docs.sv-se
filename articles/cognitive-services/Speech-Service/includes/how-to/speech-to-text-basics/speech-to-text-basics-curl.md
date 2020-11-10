@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/09/2020
 ms.author: v-jawe
-ms.openlocfilehash: 36d12b29054f736b65af5ac411adbc26d870b982
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0964872d03d6e321d25d51a18edbb4a6f0be8a4f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014161"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425088"
 ---
 I den här snabb starten lär du dig att konvertera tal till text med hjälp av tal tjänsten och svängen.
 
@@ -32,4 +32,4 @@ Du bör få ett svar som följande.
 
 :::code language="curl" source="~/cognitive-services-quickstart-code/curl/speech/speech-to-text.sh" id="response":::
 
-Mer information finns [REST API referens för tal till text](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text).
+Mer information finns [REST API referens för tal till text](../../../rest-speech-to-text.md).

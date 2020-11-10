@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/09/2020
 ms.author: v-jawe
-ms.openlocfilehash: 029cb1e59876eb01c609ef8b7ba0412ed35a2a1b
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 8a877e1773431053c5ad7344209076cb868a0ee3
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940759"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94424759"
 ---
 I den här snabb starten får du lära dig hur du konverterar text till tal med hjälp av tal tjänsten och svängen.
 
@@ -26,7 +26,7 @@ Kör följande kommando i en kommando tolk. Du måste infoga följande värden i
 - Din Speech service-region.
 
 Du kanske också vill ändra följande värden.
-- `X-Microsoft-OutputFormat`Huvudvärdet, som styr formatet för ljud uppspelning. Du hittar en lista över vilka ljud format som stöds i [text till tal-REST API referens](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech#audio-outputs).
+- `X-Microsoft-OutputFormat`Huvudvärdet, som styr formatet för ljud uppspelning. Du hittar en lista över vilka ljud format som stöds i [text till tal-REST API referens](../../../rest-text-to-speech.md#audio-outputs).
 - Rösten utdata. Information om hur du hämtar en lista över röster som är tillgängliga för din tal slut punkt finns i nästa avsnitt.
 - Utdatafilen. I det här exemplet dirigerar vi svaret från servern till en fil med namnet `output.wav` .
 

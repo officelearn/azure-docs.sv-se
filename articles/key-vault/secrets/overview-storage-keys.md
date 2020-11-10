@@ -10,12 +10,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 58b4a8c445548c711c2ad76c2d983acaec11ca7f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e8ae0463633940ba3192815af6a07a6356901044
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786283"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426994"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Hantera lagrings konto nycklar med Key Vault och Azure CLI
 
@@ -46,7 +46,7 @@ Key Vault är ett Microsoft-program som är förregistrerat i alla Azure AD-klie
 | --- | --- | --- |
 | Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
 | Azure AD | Azure, offentlig | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
-| Annat  | Alla | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Övrigt  | Valfri | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -137,29 +137,13 @@ az keyvault storage sas-definition create --vault-name <YourKeyVaultName> --acco
 
 ### <a name="verify-the-shared-access-signature-definition"></a>Verifiera definitionen av signaturen för delad åtkomst
 
-Du kan kontrol lera att definitionen av signaturen för delad åtkomst har lagrats i ditt nyckel valv med hjälp av Azure CLI-AZ för nyckel [valv](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-list) och [AZ Key Vault Secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) -kommandon.
+Du kan kontrol lera att definitionen av signaturen för delad åtkomst har lagrats i ditt nyckel valv med hjälp av kommandot Azure CLI [AZ Key Vault Storage SAS-definition](/cli/azure/keyvault/storage/sas-definition?#az_keyvault_storage_sas_definition_show) .
 
-Börja med att leta upp signaturen för delad åtkomst i ditt nyckel valv med hjälp av kommandot [AZ Key Vault Secret List](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-list) .
-
-```azurecli-interactive
-az keyvault secret list --vault-name <YourKeyVaultName>
-```
-
-Den hemlighet som motsvarar din SAS-definition kommer att ha följande egenskaper:
-
-```console
-    "contentType": "application/vnd.ms-sastoken-storage",
-    "id": "https://<YourKeyVaultName>.vault.azure.net/secrets/<YourStorageAccountName>-<YourSASDefinitionName>",
-```
-
-Du kan nu använda AZ-kommandot för att [Visa hemligheten show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) och `id` egenskapen för att visa innehållet i hemligheten.
+Nu kan du använda kommandot [AZ-definition för-definition](/cli/azure/keyvault/storage/sas-definition?#az_keyvault_storage_sas_definition_show) för att visa och `id` egenskap för att visa innehållet i hemligheten.
 
 ```azurecli-interactive
-az keyvault secret show --vault-name <YourKeyVaultName> --id <SasDefinitionID>
+az keyvault storage sas-definition show --id https://<YourKeyVaultName>.vault.azure.net/storage/<YourStorageAccountName>/sas/<YourSASDefinitionName>
 ```
-
-Utdata från det här kommandot visar din SAS-definitions sträng som `value` .
-
 
 ## <a name="next-steps"></a>Nästa steg
 

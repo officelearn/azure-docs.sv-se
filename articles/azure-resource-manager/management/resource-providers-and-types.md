@@ -2,14 +2,14 @@
 title: Resurs leverantörer och resurs typer
 description: Beskriver de resurs leverantörer som stöder Azure Resource Manager. Den beskriver scheman, tillgängliga API-versioner och de regioner som kan vara värdar för resurserna.
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 11/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8b1a9e6d539d37fb26d8fb0e3a541415dd574e9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 702836e0dc98b06ccf6e0eeb0d0f373374c4e783
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89278895"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426467"
 ---
 # <a name="azure-resource-providers-and-types"></a>Resursproviders och resurstyper i Azure
 
@@ -32,7 +32,7 @@ En lista som mappar resurs leverantörer till Azure-tjänster finns i [Resource 
 
 ## <a name="register-resource-provider"></a>Registrera resursprovider
 
-Innan du använder en resurs leverantör måste du registrera resurs leverantören för din Azure-prenumeration. I det här steget konfigurerar du din prenumeration så att den fungerar med resurs leverantören. Omfånget för registreringen är alltid prenumerationen. Som standard registreras många resurs leverantörer automatiskt. Du kan dock behöva registrera vissa resurs leverantörer manuellt.
+Innan du använder en resurs leverantör måste du registrera din Azure-prenumeration för resurs leverantören. Registreringen konfigurerar din prenumeration så att den fungerar med resurs leverantören. Vissa resurs leverantörer registreras som standard. Andra resurs leverantörer registreras automatiskt när du vidtar vissa åtgärder. När du till exempel skapar en resurs via portalen registreras resurs leverantören vanligt vis. För andra scenarier kan du behöva registrera en resurs leverantör manuellt.
 
 Den här artikeln visar hur du kontrollerar registrerings status för en resurs leverantör och registrerar den efter behov. Du måste ha behörighet att utföra `/register/action` åtgärden för resurs leverantören. Behörigheten ingår i rollerna deltagare och ägare.
 
@@ -40,7 +40,7 @@ Program koden blockerar inte skapandet av resurser för en resurs leverantör so
 
 Du kan inte avregistrera en resurs leverantör när du fortfarande har resurs typer från den resurs leverantören i din prenumeration.
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure-portalen
 
 Så här visar du alla resurs leverantörer och registrerings status för din prenumeration:
 
@@ -49,7 +49,7 @@ Så här visar du alla resurs leverantörer och registrerings status för din pr
 
     ![Välj prenumerationer](./media/resource-providers-and-types/select-all-services.png)
 
-3. I rutan **alla tjänster** anger du **prenumeration**och väljer sedan **prenumerationer**.
+3. I rutan **alla tjänster** anger du **prenumeration** och väljer sedan **prenumerationer**.
 4. Välj den prenumeration i listan prenumeration som du vill visa.
 5. Välj **resurs leverantörer** och Visa listan över tillgängliga resurs leverantörer.
 
@@ -61,7 +61,7 @@ Så här visar du information om en viss resurs leverantör:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Välj **Alla tjänster** på menyn i Azure-portalen.
-3. I rutan **alla tjänster** anger du **resurs läsaren**och väljer sedan **Resursläsaren**.
+3. I rutan **alla tjänster** anger du **resurs läsaren** och väljer sedan **Resursläsaren**.
 
     ![Välj alla tjänster](./media/resource-providers-and-types/select-resource-explorer.png)
 
@@ -83,8 +83,6 @@ Så här visar du information om en viss resurs leverantör:
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 Om du vill se alla resurs leverantörer i Azure och registrerings status för din prenumeration använder du:
 
 ```azurepowershell-interactive
@@ -101,6 +99,12 @@ Microsoft.ClassicNetwork         Registered
 Microsoft.ClassicStorage         Registered
 Microsoft.CognitiveServices      Registered
 ...
+```
+
+Om du vill se alla registrerade resurs leverantörer för din prenumeration använder du:
+
+```azurepowershell-interactive
+ Get-AzResourceProvider -ListAvailable | Where-Object RegistrationState -eq "Registered" | Select-Object ProviderNamespace, RegistrationState | Sort-Object ProviderNamespace
 ```
 
 Om du vill registrera en resurs leverantör använder du:
@@ -190,7 +194,7 @@ West US
 
 Om du vill se alla resurs leverantörer i Azure och registrerings status för din prenumeration använder du:
 
-```azurecli
+```azurecli-interactive
 az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
 ```
 
@@ -206,9 +210,15 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
+Om du vill se alla registrerade resurs leverantörer för din prenumeration använder du:
+
+```azurecli-interactive
+az provider list --query "sort_by([?registrationState=='Registered'].{Provider:namespace, Status:registrationState}, &Provider)" --out table
+```
+
 Om du vill registrera en resurs leverantör använder du:
 
-```azurecli
+```azurecli-interactive
 az provider register --namespace Microsoft.Batch
 ```
 
@@ -216,7 +226,7 @@ Som returnerar ett meddelande om att registreringen pågår.
 
 Om du vill se information om en viss resurs leverantör använder du:
 
-```azurecli
+```azurecli-interactive
 az provider show --namespace Microsoft.Batch
 ```
 
@@ -235,7 +245,7 @@ Vilket returnerar resultat som liknar:
 
 Om du vill se resurs typerna för en resurs leverantör använder du:
 
-```azurecli
+```azurecli-interactive
 az provider show --namespace Microsoft.Batch --query "resourceTypes[*].resourceType" --out table
 ```
 
@@ -254,7 +264,7 @@ API-versionen motsvarar en version av REST API åtgärder som släpps av resurs 
 
 Använd följande för att hämta tillgängliga API-versioner för en resurs typ:
 
-```azurecli
+```azurecli-interactive
 az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceType=='batchAccounts'].apiVersions | [0]" --out table
 ```
 
@@ -274,7 +284,7 @@ Resource Manager stöds i alla regioner, men resurserna som du distribuerar kans
 
 Använd för att hämta de platser som stöds för en resurs typ.
 
-```azurecli
+```azurecli-interactive
 az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceType=='batchAccounts'].locations | [0]" --out table
 ```
 

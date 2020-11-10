@@ -3,12 +3,12 @@ title: Azure Monitor Application Insights Java
 description: Övervakning av program prestanda för Java-program som körs i vilken miljö som helst utan kod ändring. Distribuerad spårning och program karta.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 2459f80746d95234701319bbb5142c8e540890d3
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: f7cda0f9389f0b628aca82dd6c65acba140e739b
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94379777"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426841"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Java-kodad program övervakning Azure Monitor Application Insights
 
@@ -18,7 +18,7 @@ Java-kodad program övervakning är allt om enkelhet – det finns inga kod änd
 
 Det krävs inte längre att lägga till Application Insights Java SDK i programmet, eftersom 3,0-agenten automatiskt samlar in begär Anden, beroenden och loggar på egen hand.
 
-Du kan fortfarande skicka anpassad telemetri från ditt program. 3,0-agenten spårar och korrelerar den tillsammans med all automatiskt insamlad telemetri.
+Du kan fortfarande skicka anpassad telemetri från ditt program. 3,0-agenten spårar och korrelerar den tillsammans med all automatisk insamlad telemetri.
 
 3,0-agenten stöder Java 8 och senare.
 
@@ -82,7 +82,7 @@ I `applicationinsights.json` filen kan du också konfigurera:
 * Samling
 * JMX mått
 * Anpassade dimensioner
-* Telemetriprocessorer
+* Telemetri-processorer (för hands version)
 * Automatisk insamlad loggning
 * Automatiskt insamlade micrometer-mått (inklusive värden för våren Boot-motstånd)
 * Pulsslag
@@ -91,7 +91,7 @@ I `applicationinsights.json` filen kan du också konfigurera:
 
 Se [konfigurations alternativ](./java-standalone-config.md) för fullständig information.
 
-## <a name="autocollected-requests-dependencies-logs-and-metrics"></a>Autosamlade begär Anden, beroenden, loggar och mått
+## <a name="auto-collected-requests-dependencies-logs-and-metrics"></a>Automatiskt insamlade begär Anden, beroenden, loggar och mått
 
 ### <a name="requests"></a>Begäranden
 

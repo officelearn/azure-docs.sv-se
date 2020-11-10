@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 9/22/2020
 ms.author: v-demjoh
-ms.openlocfilehash: e2551952b2d70199b73ac7972a6a6934aa34dd2a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 213d2a0e6f5c156ee0592a1f1389e1fd6e569b29
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91332526"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94424757"
 ---
 Du kan syntetisera tal från text med hjälp av tal-SDK för Swift och mål-C.
 
@@ -27,4 +27,4 @@ Följande exempel förutsätter att du har ett Azure-konto och en röst tjänst 
 * [Syntetisera tal i SWIFT på iOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/ios/text-to-speech)
 * [Ytterligare exempel för mål-C på iOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/objective-c/ios)
 
-Vi tillhandahåller även ett onlinegalleri [för tal-SDK för mål-C-referens](https://docs.microsoft.com/objectivec/cognitive-services/speech/).
+Vi tillhandahåller även ett onlinegalleri [för tal-SDK för mål-C-referens](/objectivec/cognitive-services/speech/).

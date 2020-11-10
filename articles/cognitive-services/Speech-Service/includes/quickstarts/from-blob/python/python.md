@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: d69cb782b3be7035b7571653dcb434e44d22da93
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: edf08715290fc68b65f2d910440093be7df37af0
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91376897"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425513"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -18,7 +18,7 @@ Innan du börjar ska du se till att:
 > [!div class="checklist"]
 > * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?pivots=programming-language-python)
 > * [Skapa en Azure tal-resurs](../../../../overview.md#try-the-speech-service-for-free)
-> * [Ladda upp en källfil till en Azure-Blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
+> * [Ladda upp en källfil till en Azure-Blob](../../../../../../storage/blobs/storage-quickstart-blobs-portal.md)
 
 ## <a name="download-and-install-the-api-client-library"></a>Hämta och installera API-klient biblioteket
 
@@ -27,7 +27,7 @@ Om du vill köra det här exemplet måste du generera python-biblioteket för RE
 Följ de här stegen för installationen:
 
 1. Gå till https://editor.swagger.io.
-1. Klicka på **Arkiv**och sedan på **Importera URL**.
+1. Klicka på **Arkiv** och sedan på **Importera URL**.
 1. Ange Swagger-URL: en, inklusive regionen för din röst tjänst prenumeration: `https://<your-region>.cris.ai/docs/v2.0/swagger` .
 1. Klicka på **generera klient** och välj **python**.
 1. Spara klient biblioteket.

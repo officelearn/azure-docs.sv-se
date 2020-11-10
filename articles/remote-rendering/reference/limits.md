@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: b500a3777ee24d6615022dae2571d021bd0d675a
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 33f5314c80dc33dbec50dc21a71f4cb507979e12
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201179"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427436"
 ---
 # <a name="limitations"></a>Begränsningar
 
@@ -18,20 +18,21 @@ Ett antal funktioner har storlek, antal eller andra begränsningar.
 
 ## <a name="azure-frontend"></a>Azure-frontend
 
-* Totalt antal AzureFrontend-instanser per process: 16.
-* Totalt antal AzureSession-instanser per AzureFrontend: 16.
+Följande begränsningar gäller för klient dels-API: et (C++ och C#):
+* Totalt antal [AzureFrontend](/dotnet/api/microsoft.azure.remoterendering.azurefrontend) -instanser per process: 16.
+* Totalt antal [AzureSession](/dotnet/api/microsoft.azure.remoterendering.azuresession) -instanser per [AzureFrontend](/dotnet/api/microsoft.azure.remoterendering.azurefrontend): 16.
 
 ## <a name="objects"></a>Objekt
 
-* Totalt antal tillåtna objekt av en enskild typ (entitet, CutPlaneComponent osv.): 16 777 215.
+* Totalt antal tillåtna objekt av en enskild typ ([entitet](../concepts/entities.md), [CutPlaneComponent](../overview/features/cut-planes.md)osv.): 16 777 215.
 * Totalt antal tillåtna aktiva klipp plan: 8.
 
 ## <a name="geometry"></a>Geometri
 
-* **Animering:** Animeringar är begränsade till animering av enskilda omvandlingar av spel objekt. Skeletal-animeringar med skalnings-eller hörn funktioner stöds inte. Animerings spår från käll till gångs filen bevaras inte. I stället måste objekt Transformations animeringar drivas av klient koden.
+* **Animering:** Animeringar är begränsade till animering av enskilda omvandlingar av [spel objekt](../concepts/entities.md). Skeletal-animeringar med skalnings-eller hörn funktioner stöds inte. Animerings spår från käll till gångs filen bevaras inte. I stället måste objekt Transformations animeringar drivas av klient koden.
 * **Anpassade skuggningar:** Redigering av anpassade skuggningar stöds inte. Endast inbyggt [färg material](../overview/features/color-materials.md) eller PBR- [material](../overview/features/pbr-materials.md) kan användas.
 * **Maximalt antal distinkt material** i en till gång: 65 535. Mer information om minskning av automatiskt material antal finns [i kapitlet om att minska material.](../how-tos/conversion/configure-model-conversion.md#material-de-duplication)
-* **Högsta dimension för en enda textur**: 16 384 x 16 384. Större käll texturer minskas i storlek av konverterings processen.
+* **Högsta dimension för en enda textur** : 16 384 x 16 384. Större käll texturer minskas i storlek av konverterings processen.
 
 ### <a name="overall-number-of-polygons"></a>Totalt antal polygoner
 

@@ -10,56 +10,61 @@ ms.custom:
 - devx-track-python
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 5/26/2020
-ms.openlocfilehash: 8d181483032deed35adfd6eebcbf870b89593407
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.date: 10/28/2020
+ms.openlocfilehash: 12452367de0e8f936d30387df709d5d2779bfcb1
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93332074"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427640"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-mysql"></a>Snabb start: Använd python för att ansluta och fråga efter data i Azure Database for MySQL
 
 I den här snabb starten ansluter du till en Azure Database for MySQL med hjälp av python. Sedan använder du SQL-uttryck för att fråga, infoga, uppdatera och ta bort data i databasen från Mac, Ubuntu Linux och Windows-plattformar. 
 
-Det här avsnittet förutsätter att du är bekant med att utveckla med python, men du är inte nybörjare på att arbeta med Azure Database for MySQL.
+## <a name="prerequisites"></a>Förutsättningar
+För den här snabb starten behöver du:
 
-## <a name="prerequisites"></a>Krav
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free).
+- Skapa en Azure Database for MySQL enskild server med [Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md) <br/> eller [Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md) om du inte har något.
+- Baserat på om du använder offentlig eller privat åtkomst utför du **en** av åtgärderna nedan för att aktivera anslutningen.
 
-- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- En Azure Database for MySQL-server. [Skapa en Azure Database for MySQL-server med Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md) eller [skapa en Azure Database for MySQL-server med Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
+   |Åtgärd| Anslutningsmetod|Instruktionsguide|
+   |:--------- |:--------- |:--------- |
+   | **Konfigurera brandväggsregler** | Offentliga | [Portal](./howto-manage-firewall-using-portal.md) <br/> [CLI](./howto-manage-firewall-using-cli.md)|
+   | **Konfigurera tjänstens slut punkt** | Offentliga | [Portal](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md)| 
+   | **Konfigurera privat länk** | Privata | [Portal](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) | 
 
-> [!IMPORTANT] 
-> Se till att den IP-adress som du ansluter från har lagts till i serverns brand Väggs regler med hjälp av [Azure Portal](./howto-manage-firewall-using-portal.md) eller [Azure CLI](./howto-manage-firewall-using-cli.md)
+- [Skapa en databas och icke-administratörs användare](./howto-create-users.md)
 
 ## <a name="install-python-and-the-mysql-connector"></a>Installera Python och MySQL Connector
 
 Installera python och MySQL Connector för python på datorn med hjälp av följande steg: 
 
 > [!NOTE]
-> Den här snabb starten använder en RAW SQL-frågeprincip för att ansluta till MySQL. Om du använder ett webb ramverk använder du den rekommenderade anslutningen för ramverket, till exempel [MySqlClient](https://pypi.org/project/mysqlclient/) för django.
+> Den här snabb starten använder [MySQL Connector/python Developer Guide](https://dev.mysql.com/doc/connector-python/en/).
 
 1. Hämta och installera [Python 3,7 eller senare](https://www.python.org/downloads/) för ditt operativ system. Se till att lägga till python till din `PATH` , eftersom MySQL-anslutaren kräver det.
    
-1. Öppna en kommando tolk eller ett `bash` gränssnitt och kontrol lera python-versionen genom `python -V` att köra med versalen V-växeln.
+2. Öppna en kommando tolk eller ett `bash` gränssnitt och kontrol lera python-versionen genom `python -V` att köra med versalen V-växeln.
    
-1. `pip`Paket installations programmet ingår i de senaste versionerna av python. Uppdatera `pip` till den senaste versionen genom att köra `pip install -U pip` . 
+3. `pip`Paket installations programmet ingår i de senaste versionerna av python. Uppdatera `pip` till den senaste versionen genom att köra `pip install -U pip` . 
    
    Om `pip` inte är installerat kan du ladda ned och installera det med `get-pip.py` . Mer information finns i [installationen](https://pip.pypa.io/en/stable/installing/). 
    
-1. Använd `pip` för att installera MySQL Connector för python och dess beroenden:
+4. Använd `pip` för att installera MySQL Connector för python och dess beroenden:
    
    ```bash
    pip install mysql-connector-python
    ```
    
-   Du kan också installera python-anslutaren för MySQL från [MySQL.com](https://dev.mysql.com/downloads/connector/python/). Mer information om MySQL Connector för python finns i [hand boken för MySQL Connector/python Developer](https://dev.mysql.com/doc/connector-python/en/). 
+[Har du problem? Berätta för oss](https://aka.ms/mysql-doc-feedback)
 
 ## <a name="get-connection-information"></a>Hämta anslutningsinformation
 
 Hämta anslutnings informationen som du behöver för att ansluta till Azure Database for MySQL från Azure Portal. Du behöver Server namnet, databas namnet och inloggnings uppgifterna.
 
-1. Logga in i [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
    
 1. I Portal Sök fältet söker du efter och väljer den Azure Database for MySQL server som du skapade, till exempel **mydemoserver**.
    
@@ -69,23 +74,17 @@ Hämta anslutnings informationen som du behöver för att ansluta till Azure Dat
    
    :::image type="content" source="./media/connect-python/azure-database-for-mysql-server-overview-name-login.png" alt-text="Azure Database for MySQL server namn 2":::
 
-## <a name="run-the-python-examples"></a>Köra python-exempel
+## <a name="step-1-create-a-table-and-insert-data"></a>Steg 1: skapa en tabell och infoga data
 
-För varje kod exempel i den här artikeln:
+Använd följande kod för att ansluta till servern och databasen, skapa en tabell och läsa in data med hjälp av en **insert** SQL-instruktion. Koden importerar MySQL. Connector-biblioteket och använder metoden:
+- [Connect ()-](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) funktionen för att ansluta till Azure Database for MySQL med [argumenten](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) i konfigurations samlingen. 
+- Metoden [cursor.exesöta ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) kör SQL-frågan mot MySQL-databasen. 
+- [cursor. Close ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-close.html) när du är färdig med en markör.
+- [ansluten. Close ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlconnection-close.html) för att stänga anslutningen till anslutningen.
 
-1. Skapa en ny fil i en text redigerare.
-1. Lägg till kod exemplet i filen. I koden ersätter du `<mydemoserver>` `<myadmin>` `<mypassword>` plats hållarna,, och `<mydatabase>` med värdena för MySQL-servern och databasen.
-1. Spara filen i en projektmapp med fil namns tillägget *. py* , till exempel *C:\pythonmysql\createtable.py* eller */Home/username/pythonmysql/createTable.py*.
-1. Du kör koden genom att öppna en kommando tolk eller ett `bash` gränssnitt och ändra katalogen till projektmappen, till exempel `cd pythonmysql` . Skriv `python` kommandot följt av fil namnet, till exempel `python createtable.py` , och tryck på RETUR. 
-   
-   > [!NOTE]
-   > Om *python.exe* inte hittas i Windows kan du behöva lägga till python-sökvägen i miljövariabeln PATH, eller ange den fullständiga sökvägen till *python.exe* , till exempel `C:\python27\python.exe createtable.py` .
-
-## <a name="create-a-table-and-insert-data"></a>Skapa en tabell och infoga data
-
-Använd följande kod för att ansluta till servern och databasen, skapa en tabell och läsa in data med hjälp av en **insert** SQL-instruktion. 
-
-Koden importerar MySQL. Connector-biblioteket och använder funktionen [Connect ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) för att ansluta till Azure Database for MySQL med hjälp av [argumenten](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) i konfigurations samlingen. Koden använder en markör i anslutningen och metoden [cursor.exesöta ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) kör SQL-frågan mot MySQL-databasen. 
+> [!IMPORTANT]
+> - SSL är aktiverat som standard. Du kan behöva hämta [DIGICERTGLOBALROOTG2 SSL-certifikatet](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) för att kunna ansluta från den lokala miljön.
+> - Ersätt `<mydemoserver>` `<myadmin>` `<mypassword>` `<mydatabase>` plats hållarna,, och med värdena för MySQL-servern och databasen.
 
 ```python
 import mysql.connector
@@ -96,7 +95,9 @@ config = {
   'host':'<mydemoserver>.mysql.database.azure.com',
   'user':'<myadmin>@<mydemoserver>',
   'password':'<mypassword>',
-  'database':'<mydatabase>'
+  'database':'<mydatabase>',
+  'client_flags': [ClientFlag.SSL],
+  'ssl_cert': '/var/wwww/html/DigiCertGlobalRootG2.crt.pem'
 }
 
 # Construct connection string
@@ -136,40 +137,15 @@ else:
   print("Done.")
 ```
 
-## <a name="read-data"></a>Läsa data
+[Har du problem? Berätta för oss](https://aka.ms/mysql-doc-feedback)
 
-Använd följande kod för att ansluta och läsa data med en **SELECT** -SQL-instruktion. 
+## <a name="step-2-read-data"></a>Steg 2: Läs data
 
-Koden importerar MySQL. Connector-biblioteket och använder funktionen [Connect ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) för att ansluta till Azure Database for MySQL med hjälp av [argumenten](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) i konfigurations samlingen. Koden använder en markör i anslutningen och metoden [cursor.exesöta ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) kör SQL-frågan mot MySQL-databasen. 
+Använd följande kod för att ansluta och läsa data med en **SELECT** -SQL-instruktion. Koden importerar MySQL. Connector-biblioteket och använder [cursor.exesöta ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) -metoden kör SQL-frågan mot MySQL-databasen. 
 
 Koden läser data rader med hjälp av metoden [fetchall ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-fetchall.html) , behåller resultat uppsättningen i en samlings rad och använder en `for` iterator för att loopa över raderna.
 
 ```python
-import mysql.connector
-from mysql.connector import errorcode
-
-# Obtain connection string information from the portal
-config = {
-  'host':'<mydemoserver>.mysql.database.azure.com',
-  'user':'<myadmin>@<mydemoserver>',
-  'password':'<mypassword>',
-  'database':'<mydatabase>'
-}
-
-# Construct connection string
-try:
-   conn = mysql.connector.connect(**config)
-   print("Connection established")
-except mysql.connector.Error as err:
-  if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
-    print("Something is wrong with the user name or password")
-  elif err.errno == errorcode.ER_BAD_DB_ERROR:
-    print("Database does not exist")
-  else:
-    print(err)
-else:
-  cursor = conn.cursor()
-
   # Read data
   cursor.execute("SELECT * FROM inventory;")
   rows = cursor.fetchall()
@@ -179,97 +155,27 @@ else:
   for row in rows:
     print("Data row = (%s, %s, %s)" %(str(row[0]), str(row[1]), str(row[2])))
 
-  # Cleanup
-  conn.commit()
-  cursor.close()
-  conn.close()
-  print("Done.")
 ```
 
-## <a name="update-data"></a>Uppdatera data
+## <a name="step-3-update-data"></a>Steg 3: uppdatera data
 
-Använd följande kod för att ansluta och uppdatera data med en **UPDATE** -SQL-instruktion. 
-
-Koden importerar MySQL. Connector-biblioteket och använder funktionen [Connect ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) för att ansluta till Azure Database for MySQL med hjälp av [argumenten](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) i konfigurations samlingen. Koden använder en markör i anslutningen och metoden [cursor.exesöta ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) kör SQL-frågan mot MySQL-databasen. 
+Använd följande kod för att ansluta och uppdatera data med en **UPDATE** -SQL-instruktion. Koden importerar MySQL. Connector-biblioteket och använder [cursor.exesöta ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) -metoden kör SQL-frågan mot MySQL-databasen. 
 
 ```python
-import mysql.connector
-from mysql.connector import errorcode
-
-# Obtain connection string information from the portal
-config = {
-  'host':'<mydemoserver>.mysql.database.azure.com',
-  'user':'<myadmin>@<mydemoserver>',
-  'password':'<mypassword>',
-  'database':'<mydatabase>'
-}
-
-# Construct connection string
-try:
-   conn = mysql.connector.connect(**config)
-   print("Connection established")
-except mysql.connector.Error as err:
-  if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
-    print("Something is wrong with the user name or password")
-  elif err.errno == errorcode.ER_BAD_DB_ERROR:
-    print("Database does not exist")
-  else:
-    print(err)
-else:
-  cursor = conn.cursor()
-
   # Update a data row in the table
   cursor.execute("UPDATE inventory SET quantity = %s WHERE name = %s;", (200, "banana"))
   print("Updated",cursor.rowcount,"row(s) of data.")
-
-  # Cleanup
-  conn.commit()
-  cursor.close()
-  conn.close()
-  print("Done.")
 ```
 
-## <a name="delete-data"></a>Ta bort data
+## <a name="step-4-delete-data"></a>Steg 4: ta bort data
 
-Använd följande kod för att ansluta och ta bort data med en **DELETE** -SQL-instruktion. 
-
-Koden importerar MySQL. Connector-biblioteket och använder funktionen [Connect ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) för att ansluta till Azure Database for MySQL med hjälp av [argumenten](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) i konfigurations samlingen. Koden använder en markör i anslutningen och metoden [cursor.exesöta ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) kör SQL-frågan mot MySQL-databasen. 
+Använd följande kod för att ansluta och ta bort data med en **DELETE** -SQL-instruktion. Koden importerar MySQL. Connector-biblioteket och använder [cursor.exesöta ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) -metoden kör SQL-frågan mot MySQL-databasen. 
 
 ```python
-import mysql.connector
-from mysql.connector import errorcode
-
-# Obtain connection string information from the portal
-config = {
-  'host':'<mydemoserver>.mysql.database.azure.com',
-  'user':'<myadmin>@<mydemoserver>',
-  'password':'<mypassword>',
-  'database':'<mydatabase>'
-}
-
-# Construct connection string
-try:
-   conn = mysql.connector.connect(**config)
-   print("Connection established.")
-except mysql.connector.Error as err:
-  if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
-    print("Something is wrong with the user name or password.")
-  elif err.errno == errorcode.ER_BAD_DB_ERROR:
-    print("Database does not exist.")
-  else:
-    print(err)
-else:
-  cursor = conn.cursor()
 
   # Delete a data row in the table
   cursor.execute("DELETE FROM inventory WHERE name=%(param1)s;", {'param1':"orange"})
   print("Deleted",cursor.rowcount,"row(s) of data.")
-
-  # Cleanup
-  conn.commit()
-  cursor.close()
-  conn.close()
-  print("Done.")
 ```
 
 ## <a name="clean-up-resources"></a>Rensa resurser
@@ -283,6 +189,10 @@ az group delete \
 ```
 
 ## <a name="next-steps"></a>Nästa steg
+> [!div class="nextstepaction"]
+> [Hantera Azure Database for MySQL server med hjälp av portalen](./howto-create-manage-server-portal.md)<br/>
 
 > [!div class="nextstepaction"]
-> [Migrera din databas med Exportera och importera](./concepts-migrate-import-export.md)
+> [Hantera Azure Database for MySQL server med CLI](./how-to-manage-single-server-cli.md)
+
+[Hittar du inte det du letar efter? Berätta för oss.](https://aka.ms/mysql-doc-feedback)

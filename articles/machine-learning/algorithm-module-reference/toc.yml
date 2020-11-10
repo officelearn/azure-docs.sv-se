@@ -92,6 +92,8 @@
           href: multiclass-neural-network.md
         - name: En-mot- alla-multiklass
           href: one-vs-all-multiclass.md
+        - name: En-mot- En multiklass
+          href: one-vs-one-multiclass.md
         - name: Genomsnittsperceptron med två klasser
           href: two-class-averaged-perceptron.md
         - name: Tvåklassigt förbättrat beslutsträd

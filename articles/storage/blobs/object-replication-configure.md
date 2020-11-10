@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/14/2020
+ms.date: 11/09/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: bca960100ee0c9d7e2a779dc86030fc59949dca5
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: e3503a9eef5c11db35684ca61fb1ee39525a465d
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055978"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427606"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Konfigurera objekt replikering för block-blobar
 
@@ -52,7 +52,7 @@ Azure Portal skapar automatiskt principen på käll kontot när du har konfigure
 Följ dessa steg om du vill skapa en replikeringsprincip i Azure Portal:
 
 1. Navigera till käll lagrings kontot i Azure Portal.
-1. Under **BLOB service**väljer du **objekt replikering**.
+1. Under **BLOB service** väljer du **objekt replikering**.
 1. Välj **Konfigurera regler för replikering**.
 1. Välj mål prenumeration och lagrings konto.
 1. I avsnittet **behållar par** väljer du en käll behållare från käll kontot och en mål behållare från mål kontot. Du kan skapa upp till 10 container par per replikeringsprincip.
@@ -65,19 +65,19 @@ Följ dessa steg om du vill skapa en replikeringsprincip i Azure Portal:
 
     Följande bild visar filter som begränsar vilka blobbar som kopieras som en del av en replikeringsprincip.
 
-    :::image type="content" source="media/object-replication-configure/configure-replication-copy-prefix.png" alt-text="Skärm bild som visar regler för replikering i Azure Portal":::
+    :::image type="content" source="media/object-replication-configure/configure-replication-copy-prefix.png" alt-text="Skärm bild som visar filter för en replikeringsprincip":::
 
 1. Som standard är kopierings omfånget inställt på att bara kopiera nya objekt. Om du vill kopiera alla objekt i behållaren eller kopiera objekt från ett anpassat datum och en anpassad tid, väljer du länken **ändra** och konfigurerar kopierings omfånget för behållar paret.
 
     Följande bild visar en anpassad kopierings omfattning som kopierar objekt från ett angivet datum och tid.
 
-    :::image type="content" source="media/object-replication-configure/configure-replication-copy-scope.png" alt-text="Skärm bild som visar regler för replikering i Azure Portal":::
+    :::image type="content" source="media/object-replication-configure/configure-replication-copy-scope.png" alt-text="Skärm bild som visar en anpassad kopierings omfattning för objekt replikering":::
 
 1. Välj **Spara och tillämpa** för att skapa replikeringsprincipen och påbörja replikering av data.
 
 När du har konfigurerat objekt replikering visar Azure Portal replikeringsprincipen och reglerna, som du ser i följande bild.
 
-:::image type="content" source="media/object-replication-configure/object-replication-policies-portal.png" alt-text="Skärm bild som visar regler för replikering i Azure Portal":::
+:::image type="content" source="media/object-replication-configure/object-replication-policies-portal.png" alt-text="Skärm bild som visar princip för objekt replikering i Azure Portal":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -284,16 +284,16 @@ Följ dessa steg om du vill konfigurera objekt replikering på mål kontot med e
 1. Välj **Ladda upp regler för uppladdning av replikering**.
 1. Ladda upp JSON-filen. Azure Portal visar principen och reglerna som kommer att skapas, som du ser i följande bild.
 
-    :::image type="content" source="media/object-replication-configure/replication-rules-upload-portal.png" alt-text="Skärm bild som visar regler för replikering i Azure Portal":::
+    :::image type="content" source="media/object-replication-configure/replication-rules-upload-portal.png" alt-text="Skärm bild som visar hur du laddar upp en JSON-fil för att definiera en replikeringsprincip":::
 
 1. Välj **överför** för att skapa replikeringsprincipen på mål kontot.
 
 Du kan sedan hämta en JSON-fil som innehåller princip definitionen som du kan ge till en annan användare att konfigurera käll kontot. Följ dessa steg om du vill ladda ned denna JSON-fil:
 
 1. Navigera till inställningarna för **objekt replikering** för mål kontot i Azure Portal.
-1. Välj knappen **mer** bredvid den princip som du vill ladda ned och välj sedan **Hämta regler**, som du ser i följande bild.
+1. Välj knappen **mer** bredvid den princip som du vill ladda ned och välj sedan **Hämta regler** , som du ser i följande bild.
 
-    :::image type="content" source="media/object-replication-configure/replication-rules-download-portal.png" alt-text="Skärm bild som visar regler för replikering i Azure Portal":::
+    :::image type="content" source="media/object-replication-configure/replication-rules-download-portal.png" alt-text="Skärm bild som visar hur du laddar ned regler för replikering till en JSON-fil":::
 
 1. Spara JSON-filen på den lokala datorn om du vill dela den med en annan användare för att konfigurera principen på käll kontot.
 
@@ -361,7 +361,7 @@ Följ dessa steg om du vill kontrol lera replikeringsstatus för en BLOB i käll
 1. Leta upp den behållare som innehåller käll-bloben.
 1. Välj bloben för att visa dess egenskaper. Om blobben har repliker ATS visas i avsnittet **objekt replikering** att status är *slutförd*. Replikeringsprinciper-ID och ID för regeln som styr objekt replikeringen för den här behållaren visas också.
 
-:::image type="content" source="media/object-replication-configure/check-replication-status-source.png" alt-text="Skärm bild som visar regler för replikering i Azure Portal":::
+:::image type="content" source="media/object-replication-configure/check-replication-status-source.png" alt-text="Skärm bild som visar replikeringsstatus för en BLOB i käll kontot":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -392,6 +392,12 @@ az storage blob show \
 
 ---
 
+Om replikeringsstatus för en BLOB i käll kontot indikerar fel, kan du undersöka följande möjliga orsaker:
+
+- Se till att principen för objekt replikering är konfigurerad på mål kontot.
+- Kontrol lera att mål behållaren fortfarande finns.
+- Om käll-bloben har krypterats med en kundanged nyckel som en del av en Skriv åtgärd, kommer objekt replikeringen att Miss Miss sen. Mer information om kundspecifika nycklar finns i [Ange en krypterings nyckel på en begäran till Blob Storage](encryption-customer-provided-keys.md).
+
 ## <a name="remove-a-replication-policy"></a>Ta bort en replikeringsprincip
 
 Om du vill ta bort en replikeringsprincip och dess associerade regler använder du Azure Portal, PowerShell eller CLI.
@@ -401,7 +407,7 @@ Om du vill ta bort en replikeringsprincip och dess associerade regler använder 
 Följ dessa steg om du vill ta bort en replikeringsprincip i Azure Portal:
 
 1. Navigera till käll lagrings kontot i Azure Portal.
-1. Under **Inställningar**väljer du **objekt replikering**.
+1. Under **Inställningar** väljer du **objekt replikering**.
 1. Klicka på knappen **mer** bredvid princip namnet.
 1. Välj **ta bort regler**.
 

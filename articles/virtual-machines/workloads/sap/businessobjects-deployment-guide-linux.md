@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 7253e257f9d721c09f2e041c1473a9d81d09a321
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 1f15a3b4d8f51ec79fffce09bc006942d08096a6
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094516"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427470"
 ---
-# <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Distributions guide för SAP BusinessObjects BI Platform for Linux på Azure
+# <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Distributionsguide för SAP BusinessObjects BI-plattform för Linux i Azure
 
 Den här artikeln beskriver strategin för att distribuera SAP BOBI-plattformen på Azure för Linux. I det här exemplet konfigureras två virtuella datorer med Premium SSD Managed Disks som installations katalog. Azure Database for MySQL används för CMS-databasen och Azure NetApp Files för fil lagrings servern delas mellan båda servrarna. Standard-Tomcat Java-webbprogram och BI-plattform installeras tillsammans på båda de virtuella datorerna. För att belastningsutjämna användar förfrågningen används Application Gateway som har inbyggda funktioner för TLS/SSL-avlastning.
 
@@ -36,7 +36,7 @@ I det här exemplet används under produkt version och fil systemets layout
 - Azure Database for MySQL (version: 8.0.15)
 - MySQL C API-koppling – libmysqlclient (version: 6.1.11)
 
-| Filsystem        | Beskrivning                                                                                                               | Storlek (GB)             | Ägare  | Group  | Lagring                    |
+| Filsystem        | Beskrivning                                                                                                               | Storlek (GB)             | Ägare  | Grupp  | Lagring                    |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------|-----------------------|--------|--------|----------------------------|
 | /usr/sap           | Fil systemet för installation av SAP BOBI-instans, standard webb program för Tomcat och databas driv rutiner (om det behövs) | Rikt linjer för SAP-storlek | bl1adm | sapsys | Hanterad Premium disk – SSD |
 | /usr/sap/frsinput  | Monterings katalogen är för delade filer över alla BOBI-värdar som ska användas som indatafilens lagrings katalog  | Affärs behov         | bl1adm | sapsys | Azure NetApp Files         |
@@ -113,7 +113,7 @@ När du skapar din Azure NetApp Files för SAP BOBI Platform File lagrings Serve
 
 Stegen i det här avsnittet använder följande prefix:
 
-**[A]**: steget gäller alla värdar
+**[A]** : steget gäller alla värdar
 
 ### <a name="format-and-mount-sap-file-system"></a>Formatera och montera SAP-fil system
 
@@ -274,7 +274,7 @@ Rikt linjerna gäller endast om du använder Azure DB för MySQL. Mer informatio
 
 ### <a name="create-an-azure-database-for-mysql"></a>Skapa en Azure Database för MySQL
 
-Logga in på Azure Portal och följ stegen som beskrivs i den här [snabb starts guiden för Azure Database for MySQL](../../../mysql/quickstart-create-mysql-server-database-using-azure-portal.md#create-an-azure-database-for-mysql-server). Några punkter att observera vid etablering Azure Database for MySQL –
+Logga in på Azure Portal och följ stegen som beskrivs i den här [snabb starts guiden för Azure Database for MySQL](../../../mysql/quickstart-create-mysql-server-database-using-azure-portal.md). Några punkter att observera vid etablering Azure Database for MySQL –
 
 1. Välj samma region för Azure Database for MySQL där dina SAP BI-plattformens program servrar körs.
 
@@ -395,15 +395,15 @@ För att SAP BOBI program Server ska kunna komma åt databasen kräver det att d
 
 Stegen i det här avsnittet använder följande prefix:
 
-**[A]**: steget gäller alla värdar.
+**[A]** : steget gäller alla värdar.
 
 1. **[A]** baserat på varianten av Linux (SLES eller RHEL), måste du ange kernel-parametrar och installera nödvändiga bibliotek. Se avsnittet **system krav** i [installations guiden för Business Intelligence-plattform för UNIX](https://help.sap.com/viewer/65018c09dbe04052b082e6fc4ab60030/4.3/en-US).
 
 2. **[A]** kontrol lera att tids zonen på din dator är korrekt inställd. Se [avsnittet ytterligare UNIX-och Linux-krav](https://help.sap.com/viewer/65018c09dbe04052b082e6fc4ab60030/4.3/en-US/46b143336e041014910aba7db0e91070.html) i installations guiden för.
 
-3. **[A]** skapa ett användar konto (**bl1**ADM) och grupp (sapsys) som program varans bakgrunds processer kan köras under. Använd det här kontot för att köra installationen och köra program varan. Kontot kräver inte rot privilegier.
+3. **[A]** skapa ett användar konto ( **bl1** ADM) och grupp (sapsys) som program varans bakgrunds processer kan köras under. Använd det här kontot för att köra installationen och köra program varan. Kontot kräver inte rot privilegier.
 
-4. **[A]** Ange användar konto (**bl1**ADM)-miljö för att använda ett UTF-8-språkområde som stöds och se till att konsol programmet stöder UTF-8-teckenuppsättningar. För att säkerställa att operativ systemet använder rätt språk uppsättning, ställer du in de LC_ALL-och LANG-miljövariablerna på din önskade språkvariant i din (**bl1**ADM) användar miljö.
+4. **[A]** Ange användar konto ( **bl1** ADM)-miljö för att använda ett UTF-8-språkområde som stöds och se till att konsol programmet stöder UTF-8-teckenuppsättningar. För att säkerställa att operativ systemet använder rätt språk uppsättning, ställer du in de LC_ALL-och LANG-miljövariablerna på din önskade språkvariant i din ( **bl1** ADM) användar miljö.
 
    ```bash
    # This configuration is for bash shell. If you are using any other shell for sidadm, kindly set environment variable accordingly.
@@ -413,7 +413,7 @@ Stegen i det här avsnittet använder följande prefix:
    export LC_ALL=en_US.utf8
    ```
 
-5. **[A]** konfigurera användar konto (**bl1**ADM).
+5. **[A]** konfigurera användar konto ( **bl1** ADM).
 
    ```bash
    # Set ulimit for bl1adm to unlimited
@@ -445,7 +445,7 @@ Stegen i det här avsnittet använder följande prefix:
 
 ## <a name="installation"></a>Installation
 
-Kontrol lera språk för användar kontot **bl1**adm på servern
+Kontrol lera språk för användar kontot **bl1** adm på servern
 
 ```bash
 bl1adm@azusbosl1:~> locale
@@ -453,7 +453,7 @@ LANG=en_US.utf8
 LC_ALL=en_US.utf8
 ```
 
-Gå till media för SAP BusinessObjects BI-plattformen och kör nedanstående kommando med **bl1**ADM-användare –
+Gå till media för SAP BusinessObjects BI-plattformen och kör nedanstående kommando med **bl1** ADM-användare –
 
 ```bash
 ./setup.sh -InstallDir /usr/sap/BL1
@@ -465,7 +465,7 @@ Följ installations guiden för [SAP Bobi-plattformen](https://help.sap.com/view
 
 - På sidan **Välj Installations typ** väljer du **fullständig** installation på första servern (azusbosl1) för annan server (Azusbosl2) och väljer **anpassad/expandera** som kommer att expandera den befintliga Bobi-installationen.
 
-- På skärmen **Välj standard eller befintlig databas** väljer du **Konfigurera en befintlig databas**, där du uppmanas att välja CMS och gransknings databas. Välj **MySQL** för CMS-databas typ och gransknings databas typ.
+- På skärmen **Välj standard eller befintlig databas** väljer du **Konfigurera en befintlig databas** , där du uppmanas att välja CMS och gransknings databas. Välj **MySQL** för CMS-databas typ och gransknings databas typ.
 
   Du kan också välja ingen gransknings databas om du inte vill konfigurera granskning under installationen.
 
@@ -557,7 +557,7 @@ Som en del av säkerhets kopieringen tas ögonblicks bilden och data överförs 
 
 #### <a name="backup--restore-for-file-repository-server"></a>Säkerhets kopiering & återställning för fil lagrings Server
 
-För **Azure NetApp Files**kan du skapa en ögonblicks bild på begäran och schemalägga automatisk ögonblicks bild med hjälp av ögonblicks bilds principer. Ögonblicks bilds kopior ger en tidpunkts kopia av din ANF-volym. Mer information finns i [Hantera ögonblicks bilder med hjälp av Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-manage-snapshots.md).
+För **Azure NetApp Files** kan du skapa en ögonblicks bild på begäran och schemalägga automatisk ögonblicks bild med hjälp av ögonblicks bilds principer. Ögonblicks bilds kopior ger en tidpunkts kopia av din ANF-volym. Mer information finns i [Hantera ögonblicks bilder med hjälp av Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-manage-snapshots.md).
 
 **Azure Files** Backup är integrerat med Native [Azure Backup](../../../backup/backup-overview.md) -tjänsten, som centraliserar säkerhets kopierings-och återställnings funktionen tillsammans med säkerhets kopiering av virtuella datorer och fören klar driften. Mer information finns i [säkerhets kopiering av Azure-filresurser](../../../backup/azure-file-share-backup-overview.md) och [faq – säkerhetskopiera Azure Files](../../../backup/backup-azure-files-faq.md).
 

@@ -9,19 +9,19 @@ ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
-ms.openlocfilehash: c4f6124227f5dd5c7735d300f71d5ae7d0c06b3a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f559c87a5c3285bf966f9389d623b2262e93cbca
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975781"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425821"
 ---
 # <a name="client-application-registration"></a>Registrering av klient program
 I den föregående själv studie kursen har du distribuerat och konfigurerat Azure API för FHIR. Nu när du har konfigurerat Azure API för FHIR-installationen kommer vi att registrera ett offentligt klient program. Du kan läsa igenom guiden fullständig [registrering av en offentlig klient](register-public-azure-ad-client-app.md) med instruktioner för mer information eller fel sökning, men vi har informat de viktigaste stegen för den här kursen nedan.
 
 1. Navigera till Azure Active Directory
 1. Välj **app Registration**  -->  **New Registration**
-1. Namnge ditt program och se
+1. Namnge ditt program
 1. Välj **offentlig klient/ursprunglig (mobil & Station ära datorer)** och ange omdirigerings-URI till https://www.getpostman.com/oauth2/callback .
 
    :::image type="content" source="media/tutorial-web-app/register-public-app.png" alt-text="Skärm bild av fönstret registrera ett program och ett exempel på program namn och omdirigerings-URL.":::
@@ -30,13 +30,13 @@ I den föregående själv studie kursen har du distribuerat och konfigurerat Azu
 
 När klient programmet har registrerats kopierar du program-ID: t och klient-ID: t från översikts sidan. Du kommer att behöva dessa två värden senare vid åtkomst till klienten.
 
-:::image type="content" source="media/tutorial-web-app/client-id-tenant-id.png" alt-text="Skärm bild av fönstret registrera ett program och ett exempel på program namn och omdirigerings-URL.":::
+:::image type="content" source="media/tutorial-web-app/client-id-tenant-id.png" alt-text="Skärm bild av fönstret inställningar för klient program där program-och katalog-ID: n är markerade.":::
 
 ### <a name="connect-with-web-app"></a>Anslut med webbapp
 
 Om du har [skrivit din](tutorial-web-app-write-web-app.md) webbapp för att ansluta till Azure-API: t för FHIR, måste du också ange rätt autentiseringsalternativ. 
 
-1. På den vänstra menyn, under **Hantera**, väljer du **autentisering**. 
+1. På den vänstra menyn, under **Hantera** , väljer du **autentisering**. 
 
 1. Om du vill lägga till en ny plattforms konfiguration väljer du **webb**.
 
@@ -44,7 +44,7 @@ Om du har [skrivit din](tutorial-web-app-write-web-app.md) webbapp för att ansl
 
 1. Markera kryss rutorna **åtkomsttoken** och **ID-token** .
 
-   :::image type="content" source="media/tutorial-web-app/web-app-authentication.png" alt-text="Skärm bild av fönstret registrera ett program och ett exempel på program namn och omdirigerings-URL.":::
+   :::image type="content" source="media/tutorial-web-app/web-app-authentication.png" alt-text="Skärm bild av bladet inställningar för app-autentisering med stegen för att lägga till en plattform markerad.":::
 
 ## <a name="add-api-permissions"></a>Lägga till API-behörigheter
 
@@ -54,9 +54,9 @@ Nu när du har konfigurerat rätt autentisering anger du API-behörigheterna:
 1. Sök efter Azure sjukvårds-API: er som **min organisation använder**.
 1. Välj **user_impersonation** och klicka på **Lägg till behörigheter**.
 
-:::image type="content" source="media/tutorial-web-app/api-permissions.png" alt-text="Skärm bild av fönstret registrera ett program och ett exempel på program namn och omdirigerings-URL.":::
+:::image type="content" source="media/tutorial-web-app/api-permissions.png" alt-text="Skärm bild av bladet Lägg till API-behörigheter med stegen för att lägga till API-behörigheter markerade.":::
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Nu har du ett offentligt klient program. I nästa självstudie kommer vi att gå igenom testningen och få åtkomst till det här programmet via Postman.
 
 >[!div class="nextstepaction"]

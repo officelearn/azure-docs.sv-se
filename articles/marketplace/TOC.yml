@@ -37,6 +37,10 @@
           href: test-drive-technical-configuration.md
         - name: Azure Resource Manager-provkörning
           href: azure-resource-manager-test-drive.md
+        - name: Detaljerad konfiguration för värdbaserad provkörning
+          href: test-drive-hosted-detailed-config.md
+        - name: Konfigurera Azure-prenumeration för värdbaserad provkörning
+          href: test-drive-azure-subscription-setup.md
     - name: Spårning av kundanvändning för Azure-partner
       href: azure-partner-customer-usage-attribution.md
     - name: Alternativ för Go-to-market
@@ -270,15 +274,15 @@
     - name: Analys av kommersiell marknadsplats
       href: partner-center-portal/analytics.md
     - name: Instrumentpanel för sammanfattningar
-      href: partner-center-portal/summary-dashboard.md
+      href: summary-dashboard.md
     - name: Orderinstrumentpanel
-      href: partner-center-portal/orders-dashboard.md
+      href: orders-dashboard.md
     - name: Instrumentpanelen Användning
-      href: partner-center-portal/usage-dashboard.md
-    - name: Instrumentpanelen Kund
-      href: partner-center-portal/customer-dashboard.md
+      href: usage-dashboard.md
+    - name: Instrumentpanelen Kunder
+      href: customer-dashboard.md
     - name: Instrumentpanelen Marknadsplatsinsikter
-      href: partner-center-portal/insights-dashboard.md
+      href: insights-dashboard.md
     - name: Ladda ned instrumentpanel
       href: partner-center-portal/downloads-dashboard.md
     - name: Instrumentpanel för omdömen och recensioner

@@ -94,6 +94,8 @@
       href: troubleshooting.md
     - name: Frågor och svar-par
       href: Concepts/question-answer-set.md
+    - name: Exakta svar
+      href: reference-precise-answering.md
     - name: Lägg till skyddade SharePoint-filer
       href: How-To/add-sharepoint-datasources.md
       displayName: 'Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication'

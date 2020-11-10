@@ -5,12 +5,12 @@ description: Läs om hur du uppdaterar eller återställer autentiseringsuppgift
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: e787322f421094cf9ac6681df0119ba820b654ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c787f172bc03e11c574c4de967aee05da9df18aa
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88871232"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427521"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Uppdatera eller rotera autentiseringsuppgifterna för Azure Kubernetes service (AKS)
 
@@ -22,7 +22,7 @@ Alternativt kan du använda en hanterad identitet för behörigheter i stället 
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Du behöver Azure CLI-versionen 2.0.65 eller senare installerad och konfigurerad. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
+Du behöver Azure CLI-versionen 2.0.65 eller senare installerad och konfigurerad. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
 
 ## <a name="update-or-create-a-new-service-principal-for-your-aks-cluster"></a>Uppdatera eller skapa ett nytt huvud namn för tjänsten för ditt AKS-kluster
 
@@ -82,7 +82,7 @@ De utdata som genereras påminner om de i följande exempel. Anteckna dina egna 
 }
 ```
 
-Definiera nu variabler för tjänstens huvud namns-ID och klient hemligheten med hjälp av utdata från ditt eget [AZ AD SP Create-for-RBAC][az-ad-sp-create] -kommando, som visas i följande exempel. *SP_ID* är ditt *appId*och *SP_SECRET* är ditt *lösen ord*:
+Definiera nu variabler för tjänstens huvud namns-ID och klient hemligheten med hjälp av utdata från ditt eget [AZ AD SP Create-for-RBAC][az-ad-sp-create] -kommando, som visas i följande exempel. *SP_ID* är ditt *appId* och *SP_SECRET* är ditt *lösen ord* :
 
 ```console
 SP_ID=7d837646-b1f3-443d-874c-fd83c7c739c5
@@ -104,7 +104,7 @@ az aks update-credentials \
     --name myAKSCluster \
     --reset-service-principal \
     --service-principal $SP_ID \
-    --client-secret "$SP_SECRET"
+    --client-secret $SP_SECRET
 ```
 
 För små och medel stora kluster tar det en stund innan autentiseringsuppgifterna för tjänstens huvud namn uppdateras i AKS.

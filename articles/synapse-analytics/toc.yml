@@ -173,7 +173,7 @@
           href: sql/resource-consumption-models.md
         - name: Bearbetade data
           href: sql/data-processed.md
-        - name: Metodtips för SQL på begäran
+        - name: Metodtips för serverlös SQL-pool
           href: sql/best-practices-sql-on-demand.md
         - name: Metodtips för dedikerade SQL-pooler
           href: sql/best-practices-sql-pool.md

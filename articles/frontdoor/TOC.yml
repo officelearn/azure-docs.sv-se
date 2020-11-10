@@ -40,6 +40,8 @@
       href: front-door-backend-pool.md
     - name: Cachelagring med Front Door
       href: front-door-caching.md
+    - name: DDoS-skydd
+      href: front-door-ddos.md
     - name: Vanliga frågor och svar om Front Door
       href: front-door-faq.md
     - name: Geo-filtrering

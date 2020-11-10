@@ -64,6 +64,8 @@
           href: connection-monitor-preview-create-using-portal.md
         - name: Använda ARMClient
           href: connection-monitor-preview-create-using-arm-client.md
+        - name: Använda PowerShell
+          href: connection-monitor-create-using-powershell.md
     - name: Migrera till anslutningsövervakaren (förhandsversion)
       items:
         - name: Från övervakare av nätverksprestanda

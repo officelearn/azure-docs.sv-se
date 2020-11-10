@@ -120,6 +120,8 @@
           href: understand/subscription-transfer.md
         - name: Överföra prenumerationer mellan partner (förhandsversion)
           href: manage/azure-plan-subscription-transfer-partners.md
+        - name: Kom igång i Azure EA-portalen
+          href: manage/ea-portal-get-started.md
 - name: Anvisningar
   items:
     - name: Konfigurera Cost Management + Fakturering
@@ -200,8 +202,6 @@
               href: manage/cancel-azure-subscription.md
         - name: Hantera Enterprise-avtalsprenumerationer
           items:
-            - name: Kom igång i Azure EA-portalen
-              href: manage/ea-portal-get-started.md
             - name: EA-roller i Azure
               href: manage/understand-ea-roles.md
             - name: Administration i Azure EA-portalen

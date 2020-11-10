@@ -86,7 +86,7 @@
     - name: Säkerhetsbaslinje för Azure Database for PostgreSQL – hyperskala
       href: ../../postgresql/postgresql-hyperscale-security-baseline.md
     - name: Säkerhetsbaslinje för Azure Databricks
-      href: ../../azure-databricks/security-baseline.md
+      href: /azure/databricks/scenarios/security-baseline
     - name: Säkerhetsbaslinje för Azure DNS
       href: ../../dns/security-baseline.md
     - name: Säkerhetsbaslinje för Azure DevTest Labs
@@ -118,7 +118,7 @@
     - name: Säkerhetsbaslinje för Azure Sentinel
       href: ../../sentinel/security-baseline.md
     - name: Säkerhetsbaslinje för Azure SQL Database
-      href: ../../sql-database/security-baseline.md
+      href: ../../azure-sql/database/security-baseline.md
     - name: Säkerhetsbaslinje för Azure Storage
       href: ../../storage/common/security-baseline.md
     - name: Säkerhetsbaslinje för Azure Traffic Manager
@@ -154,7 +154,7 @@
     - name: Säkerhetsbaslinje för HDInsight
       href: ../../hdinsight/security-baseline.md
     - name: Säkerhetsbaslinje för Key Vault
-      href: ../../key-vault/security-baseline.md
+      href: ../../key-vault/general/security-baseline.md
     - name: Logic Apps-säkerhetsbaslinje
       href: ../../logic-apps/security-baseline.md
     - name: Network Watcher-säkerhetsbaslinje

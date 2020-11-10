@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/10/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f6953f145621e11506a009fa59d67a5f40508a13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90fc356929a9ea5713a8d359dfaa83286017b8f8
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539579"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445446"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>Uppgradera till Azure Kognitiv sökning .NET SDK version 11
 
@@ -49,7 +49,7 @@ I förekommande fall mappar följande tabell klient biblioteken mellan de två v
 |---------------------|------------------------------|------------------------------|
 | Klient som används för frågor och för att fylla ett index. | [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) | [SearchClient](/dotnet/api/azure.search.documents.searchclient) |
 | Klient som används för index, analyser, synonym kartor | [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) |
-| Klient som används för indexerare, data källor, färdighetsuppsättningar | [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexerClient (**ny**)](/dotnet/api/azure.search.documents.indexes.searchindexerclient) |
+| Klient som används för indexerare, data källor, färdighetsuppsättningar | [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexerClient ( **ny** )](/dotnet/api/azure.search.documents.indexes.searchindexerclient) |
 
 > [!Important]
 > `SearchIndexClient` finns i båda versionerna, men har stöd för olika saker. `SearchIndexClient`Skapa index och andra objekt i version 10. I version 11 `SearchIndexClient` fungerar med befintliga index. För att undvika förvirring vid uppdatering av kod ska du vara mindful i den ordning som klient referenserna uppdateras. Genom [att följa stegen i steg för uppgraderingen](#UpgradeSteps) bör du undvika eventuella sträng ersättnings problem.
@@ -169,6 +169,24 @@ Följande steg hjälper dig att komma igång med en kod migrering genom att gå 
    ```
 
 1. Lägg till nya klient referenser för indexerare-relaterade objekt. Om du använder indexerare, data källor eller färdighetsuppsättningar ändrar du klient referenserna till [SearchIndexerClient](/dotnet/api/azure.search.documents.indexes.searchindexerclient). Den här klienten är ny i version 11 och har ingen Antecedent.
+
+1. Besöker samlingar. I den nya SDK: n är alla listor skrivskyddade för att undvika underordnade problem om listan sker med null-värden. Kod ändringen är att lägga till objekt i en lista. I stället för att till exempel tilldela strängar till en SELECT-egenskap lägger du till dem på följande sätt:
+
+   ```csharp
+   var options = new SearchOptions
+    {
+       SearchMode = SearchMode.All,
+       IncludeTotalCount = true
+    };
+
+    // Select fields to return in results.
+    options.Select.Add("HotelName");
+    options.Select.Add("Description");
+    options.Select.Add("Tags");
+    options.Select.Add("Rooms");
+    options.Select.Add("Rating");
+    options.Select.Add("LastRenovationDate");
+   ```
 
 1. Uppdatera klient referenser för frågor och data import. Instanser av [SearchIndexClient](/dotnet/api/microsoft.azure.search.searchindexclient) ska ändras till [SearchClient](/dotnet/api/azure.search.documents.searchclient). Se till att du fångar alla instanser innan du fortsätter till nästa steg för att undvika namn förvirring.
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/9/2020
-ms.openlocfilehash: eac930971cab041fbf398da1ac5f8a055412832d
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: d2095919d6f6be482390250fd8d0ee20e9015237
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376867"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444868"
 ---
 # <a name="service-configuration"></a>Tjänstkonfiguration
 
@@ -20,13 +20,13 @@ Varje version av QnA Maker använder en annan uppsättning Azure-resurser (tjän
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (stabil utgåva)](#tab/v1)
 
-QnA Maker använder App Service för att tillhandahålla frågekörningen som används av GenerateAnswer- [API: et](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer).
+QnA Maker använder App Service för att tillhandahålla frågekörningen som används av GenerateAnswer- [API: et](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/runtime/generateanswer).
 
 De här inställningarna är tillgängliga i Azure Portal för App Service. Inställningarna är tillgängliga genom att välja **Inställningar** och sedan **konfiguration**.
 
 Du kan ange en enskild inställning antingen via listan program inställningar eller ändra flera inställningar genom att välja **Avancerad redigering**.
 
-|Resurs|Inställning|
+|Resurs|Inställningen|
 |--|--|
 |AzureSearchAdminKey|Kognitiv sökning – används för QnA par Storage och Ranger #1|
 |AzureSearchName|Kognitiv sökning – används för QnA par Storage och Ranger #1|

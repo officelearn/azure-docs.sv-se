@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3fda153d4c48ced17d1a9ba5f060b435b161542e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 524b34c48146dc9e6102ed8d20ff8d1076706ba7
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127645"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444970"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Testa ett Azure Stream Analytics jobb i portalen
 
@@ -29,7 +29,7 @@ Azure Stream Analytics hämtar automatiskt händelser från dina strömmande ind
 
 3. På sidan Stream Analytics jobb går du till rubriken **jobb Topology** och väljer **fråga** för att öppna fönstret Frågeredigeraren. 
 
-4. Om du vill se en exempel lista över inkommande händelser väljer du ikonen indata med fil och exempel händelser visas automatiskt i **förhands granskningen** .
+4. Om du vill se en exempel lista över inkommande händelser väljer du ikonen indata med fil och exempel händelser visas automatiskt i **förhands granskningen**.
 
    a. Serialiserings typen för dina data identifieras automatiskt om dess JSON eller CSV. Du kan manuellt ändra det och till JSON, CSV, AVRO genom att ändra alternativet i list menyn.
     
@@ -45,15 +45,15 @@ Azure Stream Analytics hämtar automatiskt händelser från dina strömmande ind
 
    ![Azure Stream Analytics exempel på indata i RAW-format](./media/stream-analytics-test-query/asa-sample-raw.png)
 
-5. Om du vill testa din fråga med inkommande data väljer du **test fråga** . Resultaten visas på fliken **test resultat** . Du kan också välja **Hämta resultat** för att hämta resultatet.
+5. Om du vill testa din fråga med inkommande data väljer du **test fråga**. Resultaten visas på fliken **test resultat** . Du kan också välja **Hämta resultat** för att hämta resultatet.
 
    ![Exempel på test frågeresultaten för Azure Stream Analytics](./media/stream-analytics-test-query/asa-test-query.png)
 
-6. Om du vill testa din fråga mot ett speciellt tidsintervall för inkommande händelser väljer du **Välj tidsintervall** .
+6. Om du vill testa din fråga mot ett speciellt tidsintervall för inkommande händelser väljer du **Välj tidsintervall**.
    
    ![Azure Stream Analytics tidsintervall för inkommande exempel händelser](./media/stream-analytics-test-query/asa-select-time-range.png)
 
-7. Ange tidsintervallet för de händelser som du vill använda för att testa frågan och välj **exempel** . Inom denna tidsram kan du hämta upp till 1000 händelser eller 1 MB, beroende på vilket som kommer först.
+7. Ange tidsintervallet för de händelser som du vill använda för att testa frågan och välj **exempel**. Inom denna tidsram kan du hämta upp till 1000 händelser eller 1 MB, beroende på vilket som kommer först.
 
    ![Azure Stream Analytics ange tidsintervall för inkommande exempel händelser](./media/stream-analytics-test-query/asa-set-time-range.png)
 
@@ -81,7 +81,7 @@ I stället för att använda real tids data kan du använda exempel data från e
 
    ![Skärm bild som visar alternativet Ladda upp exempel indatamängd.](./media/stream-analytics-test-query/asa-upload-sample-file.png)
 
-5. Överför din lokala fil för att testa frågan. Du kan bara ladda upp filer med JSON-, CSV-eller AVRO-format. Välj **OK** .
+5. Överför din lokala fil för att testa frågan. Du kan bara ladda upp filer med JSON-, CSV-eller AVRO-format. Välj **OK**.
 
    ![Skärm bild som visar dialog rutan Ladda upp exempel data där du kan välja en fil.](./media/stream-analytics-test-query/asa-upload-sample-json-file.png)
 
@@ -111,6 +111,19 @@ I stället för att använda real tids data kan du använda exempel data från e
 4.  Timeout-storleken är en minut. Alla frågor med en fönster storlek som är större än en minut kan inte hämta några data.
 
 5.  Machine Learning stöds inte.
+
+
+## <a name="troubleshooting"></a>Felsökning
+
+1.  Om det här felet uppstår visas ett problem med nätverks anslutningen när resultaten hämtades. Kontrol lera inställningarna för nätverk och brand vägg. ", Följ stegen nedan:
+
+  * Om du vill kontrol lera anslutningen till tjänsten öppnar du [https://queryruntime.azurestreamanalytics.com/api/home/index](https://queryruntime.azurestreamanalytics.com/api/home/index) i en webbläsare. Uppdatera brand Väggs inställningarna om du inte kan öppna den här länken.
+  
+2. Om du får det här fel meddelandet är storleken för stor. Minska storleken på indata och försök igen. Följ stegen nedan om du vill:
+
+  * Minska indata-storlek – testa frågan med mindre storleks exempel fil eller med ett kortare tidsintervall.
+  * Minska frågans storlek – om du vill testa ett urval av fråga väljer du en del av frågan och klickar sedan på **testa vald fråga**.
+
 
 ## <a name="next-steps"></a>Nästa steg
 * [Bygg en IoT-lösning med hjälp av Stream Analytics: i](./stream-analytics-build-an-iot-solution-using-stream-analytics.md)den här självstudien får du hjälp att bygga en komplett lösning med en data generator som simulerar trafik i en väg LED Ande.

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: f3775e73ce8f152fe39bc8170bbeba054f856630
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: be2fa0fa85da7c0f02567580c50968b7418e4cde
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286601"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445191"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Ge åtkomst till Key Vault nycklar, certifikat och hemligheter med en rollbaserad åtkomst kontroll i Azure (för hands version)
 
@@ -69,7 +69,7 @@ Den nya Azure RBAC-behörighets modellen för Key Vault ger ett alternativ till 
 
 Om du vill lägga till roll tilldelningar måste du ha:
 
-- Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+- Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 - `Microsoft.Authorization/roleAssignments/write` och `Microsoft.Authorization/roleAssignments/delete` behörigheter, till exempel [administratör för användar åtkomst](../../role-based-access-control/built-in-roles.md#user-access-administrator) eller [ägare](../../role-based-access-control/built-in-roles.md#owner)
 
 ### <a name="enable-azure-rbac-permissions-on-key-vault"></a>Aktivera Azure RBAC-behörigheter på Key Vault
@@ -79,11 +79,11 @@ Om du vill lägga till roll tilldelningar måste du ha:
 
 1.  Aktivera Azure RBAC-behörigheter för nya nyckel valv:
 
-    ![Aktivera RBAC-behörigheter – nytt valv](../media/rbac/image-1.png)
+    ![Aktivera Azure RBAC-behörigheter – nytt valv](../media/rbac/image-1.png)
 
 2.  Aktivera Azure RBAC-behörigheter för befintligt nyckel valv:
 
-    ![Aktivera RBAC-behörighet – befintligt valv](../media/rbac/image-2.png)
+    ![Aktivera Azure RBAC-behörigheter – befintligt valv](../media/rbac/image-2.png)
 
 ### <a name="assign-role"></a>Tilldela rollen
 
@@ -224,7 +224,7 @@ Mer information om hur du skapar anpassade roller finns i:
 
 -   Svars tid för roll tilldelningar: vid aktuell förväntad prestanda tar det upp till 10 minuter (600 sekunder) efter att roll tilldelningarna har ändrats för att rollen ska tillämpas
 
-## <a name="learn-more"></a>Mer information
+## <a name="learn-more"></a>Läs mer
 
 - [Översikt över Azure RBAC](../../role-based-access-control/overview.md)
 - [Själv studie kurs om anpassade roller](../../role-based-access-control/tutorial-custom-role-cli.md)

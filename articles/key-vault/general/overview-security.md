@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c3dd4e5138741a3c035507358830f3572cf92751
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc08df7390285f9b6e4701bb1ca5c4227b19f1da
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91739698"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445038"
 ---
 # <a name="azure-key-vault-security"></a>Azure Key Vault-säkerhet
 
@@ -25,7 +25,7 @@ Du använder Azure Key Vault för att skydda krypterings nycklar och hemligheter
 När du skapar ett nyckel valv i en Azure-prenumeration associeras det automatiskt med Azure AD-klienten för prenumerationen. Alla som försöker hantera eller hämta innehåll från ett valv måste autentiseras av Azure AD.
 
 - Autentisering upprättar identiteten för anroparen.
-- Auktorisering avgör vilka åtgärder som anroparen kan utföra. Auktorisering i Key Vault använder sig av en kombination av [rollbaserad åtkomst kontroll](../../role-based-access-control/overview.md) (RBAC) och Azure Key Vault åtkomst principer.
+- Auktorisering avgör vilka åtgärder som anroparen kan utföra. Auktorisering i Key Vault använder en kombination av [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/overview.md) och Azure Key Vault åtkomst principer.
 
 ### <a name="access-model-overview"></a>Översikt över åtkomst modell
 
@@ -34,7 +34,7 @@ När du skapar ett nyckel valv i en Azure-prenumeration associeras det automatis
 - *Hanterings planet* är den plats där du hanterar Key Vault och är det gränssnitt som används för att skapa och ta bort valv. Du kan också läsa Key Vault-egenskaper och hantera åtkomst principer.
 - Med *data planet* kan du arbeta med data som lagras i ett nyckel valv. Du kan lägga till, ta bort och ändra nycklar, hemligheter och certifikat.
 
-För att få åtkomst till ett nyckel valv i något av planerna måste alla anropare (användare eller program) autentiseras och auktoriseras. Båda planerna använder Azure Active Directory (Azure AD) för autentisering. För auktorisering använder hanterings planet rollbaserad åtkomst kontroll (RBAC) och data planet använder en Key Vault åtkomst princip.
+För att få åtkomst till ett nyckel valv i något av planerna måste alla anropare (användare eller program) autentiseras och auktoriseras. Båda planerna använder Azure Active Directory (Azure AD) för autentisering. För auktorisering använder hanterings planet Azure-rollbaserad åtkomst kontroll (Azure RBAC) och data planet använder en Key Vault åtkomst princip.
 
 Modellen för en enda mekanism för autentisering till båda planerna har flera fördelar:
 
@@ -46,11 +46,11 @@ Modellen för en enda mekanism för autentisering till båda planerna har flera 
 
 När du skapar ett nyckel valv i en resurs grupp hanterar du åtkomst med hjälp av Azure AD. Du beviljar användare eller grupper möjligheten att hantera nyckel valv i en resurs grupp. Du kan bevilja åtkomst på en bestämd omfattnings nivå genom att tilldela lämpliga Azure-roller. Om du vill bevilja åtkomst till en användare för att hantera nyckel valv tilldelar du en fördefinierad `key vault Contributor` roll till användaren vid en bestämd omfattning. Följande omfattnings nivåer kan tilldelas en Azure-roll:
 
-- **Prenumeration**: en Azure-roll som tilldelas på prenumerations nivån gäller för alla resurs grupper och resurser i prenumerationen.
-- **Resurs grupp**: en Azure-roll som tilldelas på resurs grupps nivå gäller för alla resurser i den resurs gruppen.
-- **Resurs**: en Azure-roll som är tilldelad en angiven resurs gäller resursen. I det här fallet är resursen ett särskilt nyckel valv.
+- **Prenumeration** : en Azure-roll som tilldelas på prenumerations nivån gäller för alla resurs grupper och resurser i prenumerationen.
+- **Resurs grupp** : en Azure-roll som tilldelas på resurs grupps nivå gäller för alla resurser i den resurs gruppen.
+- **Resurs** : en Azure-roll som är tilldelad en angiven resurs gäller resursen. I det här fallet är resursen ett särskilt nyckel valv.
 
-Det finns flera fördefinierade roller. Om en fördefinierad roll inte passar dina behov kan du definiera en egen roll. Mer information finns i [RBAC: inbyggda roller](../../role-based-access-control/built-in-roles.md).
+Det finns flera fördefinierade roller. Om en fördefinierad roll inte passar dina behov kan du definiera en egen roll. Mer information finns i [Azure RBAC: inbyggda roller](../../role-based-access-control/built-in-roles.md).
 
 > [!IMPORTANT]
 > Om en användare har `Contributor` behörighet till ett nyckel valv hanterings plan kan användaren ge sig själva åtkomst till data planet genom att ange en Key Vault åtkomst princip. Du bör noggrant kontrol lera vem som har `Contributor` roll åtkomst till dina nyckel valv. Se till att endast behöriga personer kan komma åt och hantera nyckel valv, nycklar, hemligheter och certifikat.
@@ -79,7 +79,7 @@ Mer information om Azure Key Vault nätverks adress granska [slut punkter för v
 
 *   Key Vault klient delen (data planet) är en server för flera innehavare. Det innebär att nyckel valv från olika kunder kan dela samma offentliga IP-adress. För att uppnå isolering autentiseras och auktoriseras varje HTTP-begäran oberoende av andra begär Anden.
 *   Du kan identifiera äldre versioner av TLS för att rapportera sårbarheter, men eftersom den offentliga IP-adressen delas, är det inte möjligt för Key Vault Service-teamet att inaktivera gamla versioner av TLS för enskilda nyckel valv på transport nivå.
-*   HTTPS-protokollet gör att klienten kan delta i TLS-förhandling. **Klienter kan genomdriva den senaste versionen av TLS**, och varje gång en klient gör det, kommer hela anslutningen att använda motsvarande nivå skydd. Det faktum att Key Vault fortfarande har stöd för äldre TLS-versioner påverkar inte säkerheten för anslutningar med nyare TLS-versioner.
+*   HTTPS-protokollet gör att klienten kan delta i TLS-förhandling. **Klienter kan genomdriva den senaste versionen av TLS** , och varje gång en klient gör det, kommer hela anslutningen att använda motsvarande nivå skydd. Det faktum att Key Vault fortfarande har stöd för äldre TLS-versioner påverkar inte säkerheten för anslutningar med nyare TLS-versioner.
 *   Trots kända sårbarheter i TLS-protokollet finns det ingen känd attack som tillåter en skadlig agent att extrahera information från ditt nyckel valv när angriparen initierar en anslutning med en TLS-version som har sårbarheter. Angriparen behöver fortfarande autentisera och auktorisera sig själv, och så länge som legitima klienter alltid ansluter med de senaste TLS-versionerna, finns det inget sätt för autentiseringsuppgifterna som har läckts bort från sårbarheter i gamla TLS-versioner.
 
 ## <a name="logging-and-monitoring"></a>Loggning och övervakning
@@ -91,4 +91,4 @@ Rekommendationer för att hantera lagrings konton på ett säkert sätt finns i 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Tjänst slut punkter för virtuella nätverk för Azure Key Vault](overview-vnet-service-endpoints.md)
-- [RBAC: inbyggda roller](../../role-based-access-control/built-in-roles.md)
+- [Azure RBAC: inbyggda roller](../../role-based-access-control/built-in-roles.md)

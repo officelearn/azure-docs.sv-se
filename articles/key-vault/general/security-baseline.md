@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 48a822adc34019ca2f6a39aa70211cae7fbf6030
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 1abbabd3c231a70ca473c4b64e9a8c75d2119c89
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289879"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445531"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Azures säkerhetsbaslinje för Key Vault
 
@@ -344,7 +344,7 @@ https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3,2: ändra standard lösen ord där tillämpligt
 
-**Vägledning** : ej tillämpligt; Azure Key Vault har inte begreppet standard lösen ord som autentiseringen tillhandahålls av Active Directory och skyddas med rollbaserad åtkomst kontroll.
+**Vägledning** : ej tillämpligt; Azure Key Vault har inte begreppet standard lösen ord som autentisering tillhandahålls av Active Directory och skyddas med rollbaserad åtkomst kontroll i Azure (Azure RBAC).
 
 
 **Azure Security Center övervakning** : inte tillämpligt
@@ -445,7 +445,7 @@ Vad är plats villkoret i Azure Active Directory villkorlig åtkomst?: https://d
 
 ### <a name="39-use-azure-active-directory"></a>3,9: Använd Azure Active Directory
 
-**Vägledning** : Använd Azure Active Directory (Azure AD) som central autentiserings-och auktoriserings system för Azure-resurser som Key Vault. Detta gör det möjligt för rollbaserad åtkomst kontroll (RBAC) att administrera känsliga resurser.
+**Vägledning** : Använd Azure Active Directory (Azure AD) som central autentiserings-och auktoriserings system för Azure-resurser som Key Vault. Detta möjliggör Azure-rollbaserad åtkomst kontroll (Azure RBAC) för att administrera känsliga resurser.
 
  
 

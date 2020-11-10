@@ -7,12 +7,12 @@ ms.date: 07/23/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: caaa4499cbed1dce1a858c33a9488650649a5a44
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: dda0e3d6739e94df4ce5910938c164e3db336bce
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042923"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445582"
 ---
 # <a name="use-iot-plug-and-play-models-in-an-iot-solution"></a>Använda IoT Plug and Play-modeller i en IoT-lösning
 
@@ -121,7 +121,7 @@ Lösningar kan använda [modell databasen](concepts-model-repository.md) för at
 
 Följ dessa steg när du har identifierat modell-ID för en ny enhets anslutning:
 
-1. Hämta modell definitionen med modell-ID från modell databasen. Mer information finns i [Hämta modeller](/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodelasync/getmodelasync).
+1. Hämta modell definitionen med modell-ID från modell databasen. Mer information finns i [enhets modellens lagrings plats](concepts-model-repository.md).
 
 1. Med hjälp av modell definitionen för den anslutna enheten kan du räkna upp enhetens funktioner.
 

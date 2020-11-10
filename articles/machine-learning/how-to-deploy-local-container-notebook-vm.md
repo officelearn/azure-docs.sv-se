@@ -11,12 +11,12 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: 1767f149d9935c86281c7b7be3e684aa82a603f9
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 05d810928a71aec0e3314c32051e5f3565413564
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999040"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444613"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Distribuera en modell för att Azure Machine Learning beräknings instanser
 
@@ -30,7 +30,7 @@ Lär dig hur du använder Azure Machine Learning för att distribuera en modell 
 > [!TIP]
 > Att distribuera en modell från en Jupyter Notebook på en beräknings instans till en webb tjänst på samma virtuella dator är en _lokal distribution_. I det här fallet är den lokala datorn beräknings instansen. Mer information om distributioner finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En Azure Machine Learning-arbetsyta med en beräknings instans som körs. Mer information finns i [installations miljö och arbets yta](tutorial-1st-experiment-sdk-setup.md).
 
@@ -44,7 +44,7 @@ En exempel-anteckningsbok som visar lokala distributioner ingår i din beräknin
 
     ![Skärm bild av den lokala tjänsten som körs på antecknings boken](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service.png)
 
-1. Antecknings boken visar den URL och port som tjänsten körs på. Exempelvis `https://localhost:6789`. Du kan också köra cellen som innehåller `print('Local service port: {}'.format(local_service.port))` för att Visa porten.
+1. Antecknings boken visar den URL och port som tjänsten körs på. Ett exempel är `https://localhost:6789`. Du kan också köra cellen som innehåller `print('Local service port: {}'.format(local_service.port))` för att Visa porten.
 
     ![Skärm bild av den aktiva porten för den lokala tjänsten](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service-port.png)
 
@@ -63,7 +63,7 @@ Använd följande kod för att skicka exempel data till den aktiva tjänsten. Er
 > [!NOTE]
 > Vid autentisering till en distribution på beräknings instansen görs autentiseringen med hjälp av Azure Active Directory. Anropet till `interactive_auth.get_authentication_header()` i exempel koden autentiserar dig med hjälp av AAD och returnerar en rubrik som sedan kan användas för att autentisera till tjänsten på beräknings instansen. Mer information finns i [Konfigurera autentisering för Azure Machine Learning resurser och arbets flöden](how-to-setup-authentication.md#interactive-authentication).
 >
-> När du autentiserar till en distribution på Azure Kubernetes service eller Azure Container Instances, används en annan autentiseringsmetod. Mer information finns i [Konfigurera autentisering för Azure Machine Learning resurser och arbets flöden](how-to-setup-authentication.md#web-service-authentication).
+> När du autentiserar till en distribution på Azure Kubernetes service eller Azure Container Instances, används en annan autentiseringsmetod. Mer information finns i [Konfigurera autentisering för Azure Machine Model-distribuerade som webb tjänster](how-to-authenticate-web-service.md).
 
 ```python
 import requests

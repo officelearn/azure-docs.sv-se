@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 29c89d8d3d2ae194ff48b762bc686feefdd3a528
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 851a87885ac765c829e8c2be9fd1205e22906ca9
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381020"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445162"
 ---
 # <a name="hierarchical-state-override"></a>Åsidosätta hierarkiskt tillstånd
 
@@ -39,6 +39,13 @@ Den fasta uppsättning tillstånd som kan åsidosättas är:
 
   > [!IMPORTANT]
   > Alternativet för att se igenom fungerar bara när *TileBasedComposition* [åter givnings läge](../../concepts/rendering-modes.md) används.
+
+* **`Shell`** : Geometrin återges som ett transparent, inmätt gränssnitt. Det här läget gör det möjligt att tona bort icke-viktiga delar av en scen och samtidigt behålla en uppfattning om form och relativ placering. Om du vill ändra skal åter givnings utseendet använder du [ShellRenderingSettings](shell-effect.md) -läget. Se följande bild för bilens modell som helt återges, förutom de blå fjädrarna:
+
+  ![Shell-läge som används för att tona ut vissa objekt](./media/shell.png)
+
+  > [!IMPORTANT]
+  > Gränssnitts effekterna fungerar endast när *TileBasedComposition* [åter givnings läge](../../concepts/rendering-modes.md) används.
 
 * **`Selected`** : Geometrin återges med en [markerings disposition](outlines.md).
 
@@ -101,7 +108,7 @@ component->SetState(
 
 En instans av `HierarchicalStateOverrideComponent` sig lägger inte till mycket körnings kostnader. Men det är alltid bra att hålla antalet aktiva komponenter låga. Till exempel, när du implementerar ett urvals system som markerar det valda objektet, rekommenderar vi att du tar bort komponenten när markeringen tas bort. Att hålla komponenterna runt med neutrala funktioner kan snabbt lägga till.
 
-Transparent åter givning placerar mer arbets belastning på serverns GPU än standard åter givning. Om stora delar av scen diagrammet är växlat för att *Visa genom* att många lager av geometrin är synliga, kan det bli en Flask hals i prestandan. Samma sak gäller för objekt med [markerings kon tur](../../overview/features/outlines.md#performance).
+Transparent åter givning placerar mer arbets belastning på serverns GPU än standard åter givning. Om stora delar av scen diagrammet är växlat för att *Visa genom* att många lager av geometrin är synliga, kan det bli en Flask hals i prestandan. Samma sak gäller för objekt med [markerings kon tur](../../overview/features/outlines.md#performance) och för [skal åter givning](../../overview/features/shell-effect.md#performance) . 
 
 ## <a name="api-documentation"></a>API-dokumentation
 

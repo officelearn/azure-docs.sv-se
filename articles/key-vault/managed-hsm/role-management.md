@@ -8,19 +8,19 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 370be4501a113403a9b1db14571f5a021ac15517
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 78d4d9a8b5023731530c5e348f5c9ba72815d410
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149098"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445650"
 ---
 # <a name="managed-hsm-role-management"></a>Hantering av Managed HSM-roller
 
 > [!NOTE]
 > Key Vault stöder två typer av resurser: valv och hanterade HSM: er. Den här artikeln är en **hanterad HSM**. Om du vill lära dig hur du hanterar ett valv går du [till hantera Key Vault med hjälp av Azure CLI](../general/manage-with-cli2.md).
 
-En översikt över hanterad HSM finns i [Vad är hanterad HSM?](overview.md). Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+En översikt över hanterad HSM finns i [Vad är hanterad HSM?](overview.md). Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 Den här artikeln visar hur du hanterar roller för ett hanterat HSM-dataplan. Information om hanterad HSM-åtkomst kontroll modell finns i [hanterad HSM Access Control](access-control.md).
 
@@ -28,7 +28,7 @@ Om du vill tillåta ett säkerhets objekt (till exempel en användare, ett huvud
 
 En lista över alla inbyggda roller för hanterad HSM och de åtgärder som de tillåter finns i [hanterade HSM-inbyggda roller](built-in-roles.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill använda Azure CLI-kommandona i den här artikeln måste du ha följande objekt:
 
@@ -113,7 +113,7 @@ az keyvault role definition list --hsm-name ContosoMHSM
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se en översikt över [rollbaserad åtkomst kontroll i Azure (RBAC)](../../role-based-access-control/overview.md).
+- Se en översikt över [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/overview.md).
 - Se en självstudie om [hanterad HSM-roll hantering](role-management.md)
 - Läs mer om [hanterad HSM-åtkomst kontroll modell](access-control.md)
 - Se alla [inbyggda roller för hanterad HSM lokalt RBAC](built-in-roles.md)

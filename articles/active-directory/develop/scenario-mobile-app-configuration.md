@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 43cb891ad63a23353437082f7cb1b1e45f146e5b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a18a36b8583f8534b2a2e643e5c155dc7a2d65e2
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204226"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444069"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Konfigurera en mobilapp som anropar webb-API: er
 
@@ -148,9 +148,9 @@ Mer information finns i [UWP-/regionsspecifika överväganden med MSAL.net](msal
 
 I Android och iOS aktiverar mäklaren:
 
-- **Enkel inloggning (SSO)**: du kan använda SSO för enheter som är registrerade med Azure Active Directory (Azure AD). När du använder SSO behöver användarna inte logga in på varje program.
-- **Enhets identifiering**: den här inställningen aktiverar villkorliga åtkomst principer som är relaterade till Azure AD-enheter. Autentiseringsprocessen använder enhets certifikatet som skapades när enheten anslöts till arbets platsen.
-- **Verifiering av program identifiering**: när ett program anropar Service Broker skickas dess omdirigerings-URL. Sedan verifieras den av Service Broker.
+- **Enkel inloggning (SSO)** : du kan använda SSO för enheter som är registrerade med Azure Active Directory (Azure AD). När du använder SSO behöver användarna inte logga in på varje program.
+- **Enhets identifiering** : den här inställningen aktiverar villkorliga åtkomst principer som är relaterade till Azure AD-enheter. Autentiseringsprocessen använder enhets certifikatet som skapades när enheten anslöts till arbets platsen.
+- **Verifiering av program identifiering** : när ett program anropar Service Broker skickas dess omdirigerings-URL. Sedan verifieras den av Service Broker.
 
 ### <a name="enable-the-broker-on-xamarin"></a>Aktivera Broker på Xamarin
 
@@ -367,5 +367,4 @@ Information om hur du aktiverar en Service Broker på Android finns i [Broker-au
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!div class="nextstepaction"]
-> [Hämtar en token](scenario-mobile-acquire-token.md)
+Gå vidare till nästa artikel i det här scenariot och [Skaffa en token](scenario-mobile-acquire-token.md).

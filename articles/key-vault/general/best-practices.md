@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4a522e58677e2c71cb52ad7e04b288622ad62d91
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 3d959cccd4fbce24e36b1ed62bc6bf417af23c82
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287339"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445514"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Metod tips för att använda Key Vault
 
@@ -24,7 +24,7 @@ ms.locfileid: "93287339"
 Azure Key Vault är en moln tjänst som skyddar krypterings nycklar och hemligheter som certifikat, anslutnings strängar och lösen ord. Eftersom dessa data är känsliga och affärs kritiska måste du skydda åtkomsten till dina nyckel valv genom att bara tillåta behöriga program och användare. Den här [artikeln](secure-your-key-vault.md) ger en översikt över Key Vault åtkomst modell. Den förklarar autentisering och auktorisering och beskriver hur du skyddar åtkomsten till dina nyckel valv.
 
 Förslag när du styr åtkomsten till ditt valv är följande:
-1. Lås åtkomst till din prenumeration, resurs grupp och nyckel valv (RBAC)
+1. Lås åtkomst till din prenumeration, resurs grupp och nyckel valv (Azure RBAC)
 2. Skapa åtkomst principer för varje valv
 3. Använd minsta behörighets åtkomst objekt för att bevilja åtkomst
 4. Aktivera brand väggar och [VNet-tjänstens slut punkter](overview-vnet-service-endpoints.md)

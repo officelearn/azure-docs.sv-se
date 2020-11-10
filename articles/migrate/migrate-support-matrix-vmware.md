@@ -2,13 +2,13 @@
 title: Stöd för VMware-utvärdering i Azure Migrate
 description: Läs mer om stöd för utvärdering av virtuella VMware-datorer med Azure Migrate Server-utvärdering.
 ms.topic: conceptual
-ms.date: 06/08/2020
-ms.openlocfilehash: 8b119b56e7e4c7fac74c57cc5c48fb44f91a7ee6
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.date: 11/10/2020
+ms.openlocfilehash: 6e033bdf0f1492d6cbb4c41192cca8206816917d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93345439"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444953"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Support mat ris för VMware-utvärdering 
 
@@ -66,14 +66,14 @@ Förutom att identifiera datorer kan Server utvärderingen identifiera appar, ro
 
 **Support** | **Detaljer**
 --- | ---
-**Datorer som stöds** | Identifiering av appar stöds för närvarande endast för virtuella VMware-datorer. Du kan identifiera appar som är installerade på upp till 10000 virtuella VMware-datorer från varje Azure Migrate-apparat.
-**Operativsystem** | App-Discovery stöds för virtuella datorer som kör alla Windows-och Linux-versioner.
+**Datorer som stöds** | Stöds för närvarande endast för virtuella VMware-datorer. Du kan identifiera appar som är installerade på upp till 10000 virtuella VMware-datorer, från varje Azure Migrate-apparat.
+**Operativsystem** | Stöd för virtuella datorer som kör alla Windows-och Linux-versioner.
 **Krav för virtuell dator** | VMware-verktyg måste installeras och köras på de virtuella datorer där du vill identifiera appar. <br/><br/> VMware Tools-versionen måste vara senare än 10.2.0.<br/><br/> Virtuella datorer måste ha PowerShell version 2,0 eller senare installerat.
-**Identifiering** | Identifiering av appar är agenten. Den använder autentiseringsuppgifter för maskin-gäst och fjärråtkomst till datorer via WMI och SSH-samtal.
+**Identifiering** | Information om appar som är installerade på en virtuell dator samlas in från vCenter Server med hjälp av VMware-verktyg som är installerade på den virtuella datorn. Programinformationen samlas in från vCenter Server med hjälp av vSphere-API: er. Identifiering av appar är agenten. Ingenting installeras på virtuella datorer och installationen ansluter inte direkt till virtuella datorer. WMI/SSH bör vara aktiverat och tillgängligt på virtuella datorer.
 **vCenter** | VCenter Server skrivskyddat konto som används för utvärdering måste ha behörighet som är aktiverat för **Virtual Machines**  >  **gäst åtgärder** för att kunna interagera med den virtuella datorn för program identifiering.
 **VM-åtkomst** | Identifiering av appar behöver ett lokalt användar konto på den virtuella datorn för program identifiering.<br/><br/> Azure Migrate har för närvarande stöd för att använda en autentiseringsuppgift för alla Windows-servrar och en autentiseringsuppgift för alla Linux-servrar.<br/><br/> Du skapar ett gäst användar konto för virtuella Windows-datorer och ett vanligt/vanligt användar konto (icke-sudo åtkomst) för alla virtuella Linux-datorer.
 **Port åtkomst** | Azure Migrate-installationen måste kunna ansluta till TCP-port 443 på ESXi-värdar som kör virtuella datorer där du vill identifiera appar. VCenter Server returnerar en ESXI-värd anslutning för att ladda ned den fil som innehåller information om appen.
-**Gränser** | För app-Discovery kan du identifiera upp till 10000 virtuella datorer på varje Azure Migrate-apparat.
+
 
 
 ## <a name="dependency-analysis-requirements-agentless"></a>Krav för beroende analys (utan agent)
@@ -82,17 +82,15 @@ Beroende [analys](concepts-dependency-visualization.md) hjälper dig att identif
 
 **Krav** | **Detaljer**
 --- | --- 
-**Före distribution** | Du bör ha ett Azure Migrate-projekt på plats, med verktyget för Server bedömning som har lagts till i projektet.<br/><br/>  Du kan distribuera beroende visualisering när du har konfigurerat en Azure Migrate-apparat för att identifiera dina lokala VMware-datorer.<br/><br/> [Lär dig hur](create-manage-projects.md) du skapar ett projekt för första gången.<br/> [Lär dig hur](how-to-assess.md) du lägger till ett utvärderings verktyg i ett befintligt projekt.<br/> [Lär dig hur](how-to-set-up-appliance-vmware.md) du konfigurerar Azure Migrate-installationen för utvärdering av virtuella VMware-datorer.
 **Datorer som stöds** | Stöds för närvarande endast för virtuella VMware-datorer.
-**Virtuella Windows-datorer** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64-bitars).<br/>Microsoft Windows Server 2008 (32-bitars). Se till att PowerShell är installerat.
-**vCenter Server autentiseringsuppgifter** | Beroende visualisering behöver ett vCenter Server-konto med skrivskyddad åtkomst och behörigheter som är aktiverade för Virtual Machines > gäst åtgärder.
-**VM-behörigheter för Windows** |  För beroende analys behöver Azure Migrate-enheten ett domän administratörs konto eller ett lokalt administratörs konto för att få åtkomst till virtuella Windows-datorer.
-**Virtuella Linux-datorer** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14,04, 16,04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.<br/> SUSE Linux Enterprise Server 11 och senare
-**Linux-konto** | För beroende analyser måste Azure Migrate-installationen på Linux-datorer ha ett rot användar konto<br/><br/> Alternativt behöver användar kontot dessa behörigheter för/bin/netstat-och/bin/ls-filer: CAP_DAC_READ_SEARCH och CAP_SYS_PTRACE. Ange dessa funktioner med följande kommandon: <br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = EP-/bin/ls <br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = EP-/bin/netstat
-**Agenter som krävs** | Ingen agent krävs på de datorer som du vill analysera.
-**VMware-verktyg** | VMware-verktyg (senare än 10,2) måste installeras och köras på varje virtuell dator som du vill analysera.
-**PowerShell** | Virtuella Windows-datorer måste ha PowerShell version 2,0 eller senare installerat.
-**Port åtkomst** | På ESXi-värdar som kör virtuella datorer som du vill analysera måste Azure Migrate-installationen kunna ansluta till TCP-port 443.
+**Virtuella Windows-datorer** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64-bitars).<br/>Microsoft Windows Server 2008 (32-bitars). 
+**Virtuella Linux-datorer** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14,04, 16,04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.<br/> SUSE Linux Enterprise Server 11 och senare.
+**Krav för virtuell dator** | VMware-verktyg (senare än 10.2.0) måste installeras och köras på de virtuella datorer som du vill analysera.<br/><br/> Virtuella datorer måste ha PowerShell version 2,0 eller senare installerat.
+**Identifierings metod** |  Beroende information mellan virtuella datorer samlas in från vCenter Server med hjälp av VMware-verktyg som är installerade på den virtuella datorn. Installations programmet samlar in informationen från vCenter Server med hjälp av vSphere-API: er. Identifieringen är agent utan agent. Ingenting installeras på den virtuella datorn och installationen ansluter inte direkt till de virtuella datorerna. WMI/SSH bör vara aktiverat och tillgängligt på virtuella datorer.
+**vCenter-konto** | Det skrivskyddade kontot som används av Azure Migrate för utvärdering måste ha behörighet som Aktiver ATS för **Virtual Machines > gäst åtgärder**.
+**VM-behörigheter för Windows** |  Ett konto (lokal administratör eller domän) med lokal administratörs behörighet på virtuella datorer.
+**Linux-konto** | Rot användar konto eller ett konto med dessa behörigheter för/bin/netstat-och/bin/ls-filer: CAP_DAC_READ_SEARCH och CAP_SYS_PTRACE.<br/><br/> Ange dessa funktioner med följande kommandon: <br/><br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = EP-/bin/ls<br/><br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = EP-/bin/netstat
+**Port åtkomst** | Azure Migrate-installationen måste kunna ansluta till TCP-port 443 på ESXI-värdar som kör de virtuella datorerna vars beroenden du vill identifiera. VCenter Server returnerar en ESXI-värd anslutning för att ladda ned filen som innehåller beroende informationen.
 
 
 ## <a name="dependency-analysis-requirements-agent-based"></a>Krav för beroende analys (agent-baserad)

@@ -7,12 +7,12 @@ ms.date: 09/25/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 1e8f1d2964f42c480026d13bed59921dd3f07610
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: f7f9acd18da57bd83e688249600b8468cc4ebbe5
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286219"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445565"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Grundläggande om Key Vault-autentisering
 
@@ -45,9 +45,9 @@ Följ dokumentations länkarna nedan för att förstå hur du registrerar en anv
 * Registrera en användare i Azure Active Directory [länk](../../active-directory/fundamentals/add-users-azure-active-directory.md)
 * Registrera ett program i Azure Active Directory- [länk](../../active-directory/develop/quickstart-register-app.md)
 
-## <a name="assign-your-security-principal-a-role-in-azure-active-directory"></a>Tilldela säkerhets objekt en roll i Azure Active Directory
+## <a name="assign-your-security-principal-a-role"></a>Tilldela säkerhets objekt en roll
 
-Azure Active Directory använder rollbaserad åtkomst kontroll (RBAC) för att tilldela behörigheter till säkerhets objekt. Dessa behörigheter kallas roll tilldelningar.
+Du kan använda rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att tilldela behörigheter till säkerhets objekt. Dessa behörigheter kallas roll tilldelningar.
 
 I samband med Key Vault bestämmer dessa roll tilldelningar säkerhets objektets åtkomst nivå till hanterings planet (även kallat kontroll plan) för nyckel valvet. Dessa roll tilldelningar ger inte åtkomst till data planet hemligheter direkt, men de ger åtkomst till att hantera egenskaper för nyckel valvet. Till exempel är en användare eller ett program som har tilldelats en **läsar roll** inte tillåten att göra ändringar i inställningarna för brand vägg för nyckel valv, medan en användare eller ett program som har tilldelats en **deltagar roll** kan göra ändringar. Ingen av rollerna har direkt åtkomst för att utföra åtgärder på hemligheter, nycklar och certifikat, till exempel att skapa eller hämta sitt värde tills de tilldelas åtkomst till nyckel valvets data plan. Detta beskrivs i nästa steg.
 
@@ -57,7 +57,7 @@ I samband med Key Vault bestämmer dessa roll tilldelningar säkerhets objektets
 >[!NOTE]
 > När du tilldelar en roll tilldelning till en användare på den Azure Active Directory klient nivån, kommer den här uppsättningen behörigheter att trickle ned till alla prenumerationer, resurs grupper och resurser inom tilldelningens omfattning. Om du vill följa huvud kontot för lägsta behörighet kan du göra den här roll tilldelningen till ett mer detaljerat omfång. Du kan till exempel tilldela en användare en läsar roll på prenumerations nivå och en ägar roll för ett enda nyckel valv. Gå till inställningarna för identitets åtkomst hantering (IAM) för en prenumeration, resurs grupp eller nyckel valv för att skapa en roll tilldelning i en mer detaljerad omfattning.
 
-* Om du vill veta mer om [länken](../../role-based-access-control/built-in-roles.md) Azure Active Directory roller
+* Lär dig mer om [länken](../../role-based-access-control/built-in-roles.md) för Azure roles
 * Lär dig mer om att tilldela eller ta bort roll tilldelnings [länken](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="configure-key-vault-access-policies-for-your-security-principal"></a>Konfigurera åtkomst principer för nyckel valv för ditt säkerhets objekt
@@ -91,7 +91,7 @@ Roll tilldelningar kontrol leras på bladet Key Vault Access Control (IAM). Om d
 Åtkomst principer för nyckel valv ger användare och program åtkomst för att utföra data Plans åtgärder i ett nyckel valv.
 
 > [!NOTE]
-> Den här åtkomst modellen är inte kompatibel med Key Vault RBAC (alternativ 2) som beskrivs nedan. Du måste välja ett. Du har möjlighet att välja det här alternativet när du klickar på fliken åtkomst princip i nyckel valvet.
+> Den här åtkomst modellen är inte kompatibel med Azure RBAC för Key Vault (alternativ 2) som beskrivs nedan. Du måste välja ett. Du har möjlighet att välja det här alternativet när du klickar på fliken åtkomst princip i nyckel valvet.
 
 Klassiska åtkomst principer är detaljerade, vilket innebär att du kan tillåta eller neka varje enskild användares eller Programs möjlighet att utföra enskilda åtgärder i ett nyckel valv. Några exempel:
 
@@ -104,25 +104,25 @@ De klassiska åtkomst principerna tillåter dock inte behörigheter per objekt n
 > [!IMPORTANT]
 > Klassiska åtkomst principer för nyckel valv och Azure Active Directory roll tilldelningar är oberoende av varandra. Genom att tilldela ett säkerhets objekt rollen "deltagare" på en prenumerations nivå tillåts inte automatiskt säkerhets objektets möjlighet att utföra data Plans åtgärder på varje nyckel valv inom prenumerationens omfattning. Säkerhets objekt måste fortfarande beviljas eller ge sig själva åtkomst princip behörighet för att utföra data Plans åtgärder.
 
-### <a name="data-plane-access-option-2--key-vault-rbac-preview"></a>Åtkomst alternativ för data planet 2: Key Vault RBAC (för hands version)
+### <a name="data-plane-access-option-2--azure-rbac-for-key-vault-preview"></a>Åtkomst alternativ för data planet 2: Azure RBAC för Key Vault (för hands version)
 
-Ett nytt sätt att bevilja åtkomst till Key Vault-dataplanen är via rollbaserad åtkomst kontroll (RBAC) för nyckel valvet.
+Ett nytt sätt att bevilja åtkomst till Key Vault-dataplanen är via rollbaserad åtkomst kontroll i Azure (Azure RBAC) för Key Vault.
 
 > [!NOTE]
 > Den här åtkomst modellen är inte kompatibel med klassiska åtkomst principer för Key Vault som visas ovan. Du måste välja ett. Du har möjlighet att välja det här alternativet när du klickar på fliken åtkomst princip i nyckel valvet.
 
 Key Vault roll tilldelningar är en uppsättning inbyggda roll tilldelningar i Azure som omfattar vanliga uppsättningar behörigheter som används för att komma åt nycklar, hemligheter och certifikat. Den här behörighets modellen aktiverar också ytterligare funktioner som inte är tillgängliga i den klassiska åtkomst princip modellen för nyckel valv.
 
-* RBAC-behörigheter kan hanteras i skala genom att tillåta att användare har de här rollerna tilldelade till en prenumeration, resurs grupp eller enskild nyckel valv nivå. En användare får data planet behörighet till alla nyckel valv inom ramen för RBAC-tilldelningen. Detta eliminerar behovet av att tilldela enskilda åtkomst princip behörigheter per användare/program per nyckel valv.
+* Azure RBAC-behörigheter kan hanteras i stor skala genom att låta användare ha de här rollerna tilldelade till en prenumeration, resurs grupp eller enskild nyckel valv nivå. En användare får data planet behörighet till alla nyckel valv inom ramen för Azure RBAC-tilldelningen. Detta eliminerar behovet av att tilldela enskilda åtkomst princip behörigheter per användare/program per nyckel valv.
 
-* RBAC-behörigheter är kompatibla med Privileged Identity Management eller PIM. På så sätt kan du konfigurera just-in-Time-åtkomst-kontroller för privilegierade roller som Key Vault administratör. Detta är en bästa säkerhets rutin och följer huvud kontot för minsta behörighet genom att ta bort den ständiga åtkomsten till dina nyckel valv.
+* Azure RBAC-behörigheter är kompatibla med Privileged Identity Management eller PIM. På så sätt kan du konfigurera just-in-Time-åtkomst-kontroller för privilegierade roller som Key Vault administratör. Detta är en bästa säkerhets rutin och följer huvud kontot för minsta behörighet genom att ta bort den ständiga åtkomsten till dina nyckel valv.
 
-* RBAC-behörigheter är kompatibla med behörigheten per objekt, så du kan begränsa en användare från att bara utföra åtgärder på några av dina Key Vault-objekt. Detta gör att flera program kan dela ett enda nyckel valv samtidigt som du isolerar åtkomst mellan program.
+* Azure RBAC-behörigheter är kompatibla med behörigheten per objekt, så du kan begränsa en användare från att bara utföra åtgärder på några av dina Key Vault-objekt. Detta gör att flera program kan dela ett enda nyckel valv samtidigt som du isolerar åtkomst mellan program.
 
-Mer information om Key Vault RBAC finns i följande dokument:
+Mer information om Azure RBAC för Key Vault finns i följande dokument:
 
-* Azure Key Vault RBAC- [länk](./secure-your-key-vault.md#management-plane-and-azure-rbac)
-* [Länk](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview) till Azure Key Vault RBAC-roller (för hands version)
+* Azure RBAC för Key Vault [länk](./secure-your-key-vault.md#management-plane-and-azure-rbac)
+* [Länk](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview) till Azure RBAC för Key Vault roller (för hands version)
 
 ## <a name="configure-key-vault-firewall"></a>Konfigurera Key Vault-brandvägg
 

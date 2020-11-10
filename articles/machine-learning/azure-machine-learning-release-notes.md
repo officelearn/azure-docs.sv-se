@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 44afcf6883298eb36cd1219e6d60a8444a487412
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 5054451b181223d3d6deece6812358cfd08b1e30
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423019"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445089"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Viktig information om Azure Machine Learning
 
@@ -95,7 +95,7 @@ Läs mer om [etiketter för bild instans segment](how-to-label-images.md).
     + LIME-förklaring har flyttats från azureml-contrib-tolka till tolka-community-paket och bild förklaring borttagen från azureml-contrib-tolka paket
     + instrument panelen för visualiseringar har tagits bort från azureml-contrib-tolka paket, förklarings klient som flyttats till azureml-tolka paket och föråldras i azureml-contrib-tolka paket och antecknings böcker som är uppdaterade för att återspegla
     + åtgärda pypi-paketets beskrivningar för azureml-tolka, azureml-förklara-Model, azureml-contrib-tolka och AzureML-tensorboard
-  + **azureml-contrib-Notebook**
+  + **azureml-contrib-notebook**
     + Fäst nbcovert-beroendet till < 6 så att Papermill 1. x fortfarande fungerar.
   + **azureml-core**
     + Parametrar har lagts till i konstruktorn TensorflowConfiguration och MpiConfiguration för att möjliggöra en mer effektiv initiering av klassens attribut utan att användaren måste ange varje enskilt attribut. En PyTorchConfiguration-klass har lagts till för att konfigurera distribuerade PyTorch-jobb i ScriptRunConfig.
@@ -415,7 +415,7 @@ Läs mer om [etiketter för bild instans segment](how-to-label-images.md).
     + Rensning av klass balansering aktive ras inte längre om användaren inaktiverar funktionalisering.  
   + **azureml-contrib-ITP**
     + Beräknings typ för CmAk stöds. Du kan koppla ditt eget AKS-kluster till arbets ytan för utbildnings jobbet.
-  + **azureml-contrib-Notebook**
+  + **azureml-contrib-notebook**
     + Dokument förbättringar av azureml-contrib-Notebook-paketet.
   + **azureml-contrib-pipeline-steps**
     + Dokument förbättringar av azureml-contrib--pipeline-steg-paketet.
@@ -742,7 +742,7 @@ Nu kan du skapa, redigera och dela Machine Learning-anteckningsböcker och filer
 
 Få åtkomst till följande webbaserade redigerings verktyg från Studio:
     
-| Webbaserat verktyg  |     Description  |
+| Webbaserat verktyg  |     Beskrivning  |
 |---|---|
 | Azure ML Studio-anteckningsböcker   |     Första redigering i klass för notebook-filer och stöd för alla åtgärder som är tillgängliga i Azure ML python SDK. | 
 
@@ -1084,7 +1084,7 @@ Få åtkomst till följande webbaserade redigerings verktyg från Studio:
 
 + **Nya funktioner**
   + Data uppsättning: Lägg till två alternativ `on_error` och `out_of_range_datetime` för `to_pandas_dataframe` att rapportera fel när data innehåller fel värden i stället för att fylla dem med `None` .
-  + Arbets yta: har lagt till `hbi_workspace` flaggan för arbets ytor med känsliga data som möjliggör ytterligare kryptering och inaktiverar avancerad diagnostik på arbets ytor. Vi har också lagt till stöd för att ta med dina egna nycklar för den associerade Cosmos DB-instansen genom att ange `cmk_keyvault` `resource_cmk_uri` parametrarna och när du skapar en arbets yta, vilket skapar en Cosmos DB instans i prenumerationen när du skapar din arbets yta. [Läs mer här.](./concept-enterprise-security.md#azure-cosmos-db)
+  + Arbets yta: har lagt till `hbi_workspace` flaggan för arbets ytor med känsliga data som möjliggör ytterligare kryptering och inaktiverar avancerad diagnostik på arbets ytor. Vi har också lagt till stöd för att ta med dina egna nycklar för den associerade Cosmos DB-instansen genom att ange `cmk_keyvault` `resource_cmk_uri` parametrarna och när du skapar en arbets yta, vilket skapar en Cosmos DB instans i prenumerationen när du skapar din arbets yta. [Läs mer här.](./concept-data-encryption.md#azure-cosmos-db)
 
 + **Fel korrigeringar och förbättringar**
   + **azureml-automl-runtime**
@@ -1254,7 +1254,7 @@ Från Studio kan du träna, testa, distribuera och hantera Azure Machine Learnin
 
 Få åtkomst till följande webbaserade redigerings verktyg från Studio:
 
-| Webbaserat verktyg | Description | 
+| Webbaserat verktyg | Beskrivning | 
 |-|-|-|
 | Notebook VM (för hands version) | Helt hanterad molnbaserad arbets Station | 
 | [Automatisk maskin inlärning](tutorial-first-experiment-automated-ml.md) (för hands version) | Ingen kod upplevelse för automatisering av maskin inlärnings modell utveckling | 
@@ -1781,7 +1781,7 @@ I samband med den här versionen stöds följande webbläsare: Chrome, Firefox, 
   + Prestanda för `read_parquet` har förbättrats vid körning i Spark.
   + Ett problem har åtgärd ATS där `column_type_builder` det inte gick att skapa en enskild kolumn med tvetydiga datum format.
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 + **Förhands gransknings funktion**
   + Logg-och utdatafilen är nu tillgängliga för att köra informations sidor. Filerna strömmar uppdateringar i real tid när växling vid förhands visning är aktive rad.
   + Möjligheten att ange kvot på en arbets ytans nivå släpps i för hands versionen. AmlCompute kvoter tilldelas på prenumerations nivå, men nu kan du distribuera den kvoten mellan arbets ytor och tilldela den till en rättvis delning och styrning. Klicka bara på bladet **användning och kvoter** i det vänstra navigerings fältet på arbets ytan och välj fliken **Konfigurera kvoter** . Du måste vara prenumerations administratör för att kunna ange kvoter på arbets ytans nivå eftersom detta är en åtgärd över arbets ytan.
@@ -2060,7 +2060,7 @@ Azure Machine Learning SDK för python v-1.0.30 har släppts.
 
 ## <a name="2019-04-15"></a>2019-04-15
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
   + Nu kan du skicka om ett befintligt skript som körs på ett befintligt fjärrberäknings kluster.
   + Nu kan du köra en publicerad pipeline med nya parametrar på fliken pipeliner.
   + Körnings informationen stöder nu ett nytt visnings program för Snapshot-filen. Du kan visa en ögonblicks bild av katalogen när du skickade en speciell körning. Du kan också hämta den antecknings bok som har skickats för att starta körningen.
@@ -2118,7 +2118,7 @@ Azure Machine Learning SDK för python v-1.0.30 har släppts.
 + **Fel korrigeringar och förbättringar**
   + Vi har lagt till stöd i Azure Machine Learning pipelines för att ställa in source_directory_data_store-egenskapen till ett önskat data lager (till exempel en blob-lagring) på [RunConfigurations](/python/api/azureml-core/azureml.core.runconfig.runconfiguration?preserve-view=true&view=azure-ml-py) som anges i [PythonScriptStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?preserve-view=true&view=azure-ml-py). Som standard använder Azure File Store som lagrings data lager, som kan köra begränsnings problem när ett stort antal steg körs samtidigt.
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 + **Nya funktioner**
   + Ny dra och släpp tabell redigerings miljö för rapporter. Användare kan dra en kolumn från en källa till tabell området där en förhands granskning av tabellen kommer att visas. Kolumnerna kan ordnas om.

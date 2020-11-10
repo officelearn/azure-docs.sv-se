@@ -37,7 +37,7 @@ Använd den här proceduren för att konfigurera Postman och Läs sedan vart och
 
 1. På sidan **Inställningar** för kunskaps basen väljer du fliken **Postman** för att se konfigurationen som används för att generera ett svar från kunskaps basen. Kopiera följande information som ska användas i Postman.
 
-    |Name|Inställning|Syfte och värde|
+    |Namn|Inställning|Syfte och värde|
     |--|--|--|
     |`POST`| `/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer`|Detta är HTTP-metoden och-vägen för URL: en.|
     |`Host`|`https://YOUR-RESOURCE_NAME.azurewebsites.net/qnamaker`|Detta är värd för URL: en. Sammanfoga värden och publicera värden för att hämta den fullständiga generateAnswer-URL: en.|
@@ -55,7 +55,7 @@ Använd den här proceduren för att konfigurera Postman och Läs sedan vart och
 
 1. På sidan **Inställningar** för kunskaps basen väljer du fliken **Postman** för att se konfigurationen som används för att generera ett svar från kunskaps basen. Kopiera följande information som ska användas i Postman.
 
-    |Name|Inställning|Syfte och värde|
+    |Namn|Inställning|Syfte och värde|
     |--|--|--|
     |`POST`| `/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer`|Detta är HTTP-metoden och-vägen för URL: en.|
     |`Host`|`https://YOUR-RESOURCE_NAME.cognitiveservices.azure.com/qnamaker`|Detta är värd för URL: en. Sammanfoga värden och publicera värden för att hämta den fullständiga generateAnswer-URL: en.|

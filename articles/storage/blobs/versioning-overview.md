@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a1aff57c2823b111251c99cb3dbcdea0fd90ad2c
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 48078ed06e36a33b10ee2d761a249159d14c6220
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425957"
+ms.locfileid: "94444511"
 ---
 # <a name="blob-versioning"></a>BLOB-versioner
 
@@ -38,7 +38,7 @@ En version fångar in statusen för en BLOB vid en viss tidpunkt. När BLOB-vers
 
 När du skapar en blob med versions hantering aktive rad är den nya blobben den aktuella versionen av blobben (eller bas-BLOB). Om du senare ändrar denna BLOB skapar Azure Storage en version som fångar upp status för blobben innan den ändrades. Den ändrade blobben blir den nya aktuella versionen. En ny version skapas varje gången du ändrar blobben.
 
-En BLOB kan ha ett obegränsat antal versioner. Att ha ett stort antal versioner per BLOB kan dock öka svars tiden för BLOB List-åtgärder. Microsoft rekommenderar att du behåller färre än 1000 versioner per blob. Du kan använda livs cykel hantering för att automatiskt ta bort gamla versioner. Mer information om livs cykel hantering finns i [optimera kostnader genom att automatisera Azure-Blob Storage åtkomst nivåer](storage-lifecycle-management-concepts.md).
+Att ha ett stort antal versioner per BLOB kan öka svars tiden för BLOB List-åtgärder. Microsoft rekommenderar att du behåller färre än 1000 versioner per blob. Du kan använda livs cykel hantering för att automatiskt ta bort gamla versioner. Mer information om livs cykel hantering finns i [optimera kostnader genom att automatisera Azure-Blob Storage åtkomst nivåer](storage-lifecycle-management-concepts.md).
 
 När du tar bort en blob med versions hantering aktive rad skapar Azure Storage en version som fångar upp status för blobben innan den tas bort. Den aktuella versionen av blobben tas sedan bort, men blobens versioner kvarstår, så att den kan skapas på nytt om det behövs. 
 

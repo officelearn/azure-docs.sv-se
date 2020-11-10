@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 856c5f106f164a98b60fdb3eeda31d6099d5b7bd
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 5025c4ad81433b6eb18f5beded860625791ffce5
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932013"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445106"
 ---
 # <a name="about-azure-key-vault"></a>Om Azure Key Vault
 
@@ -39,7 +39,7 @@ Dina program får säker åtkomst till den information de behöver med hjälp av
 
 För åtkomst till ett nyckelvalv krävs en korrekt autentisering och auktorisering (av en användare eller ett program). Autentiseringen etablerar anroparens identitet medan auktoriseringen avgör vilka åtgärder som anroparen får utföra.
 
-Autentiseringen görs via Azure Active Directory. Auktoriseringen kan göras via rollbaserad åtkomstkontroll (RBAC) eller med åtkomstprinciper för Key Vault. RBAC används vid hanteringen av valv och åtkomstprinciper för nyckelvalv används vid försök att komma åt data som lagras i ett valv.
+Autentiseringen görs via Azure Active Directory. Auktorisering kan göras via rollbaserad åtkomst kontroll i Azure (Azure RBAC) eller Key Vault åtkomst princip. Azure RBAC används när hantering av valv och åtkomst principer för nyckel valv används vid försök att komma åt data som lagras i ett valv.
 
 Azure Key Vault kan vara antingen program varu skydd eller, med Azure Key Vault Premium-nivån, maskin vara som skyddas av HSM: er (Hardware Security modules). Program skyddade nycklar, hemligheter och certifikat skyddas av Azure med hjälp av algoritmer för bransch standard och nyckel längder.  I situationer där du behöver extra säkerhet kan du importera eller generera nycklar i HSM: er som aldrig lämnar HSM-gränser. Azure Key Vault använder hjälp programmet nCipher HSM: er, som är FIPS (Federal Information Processing Standards) 140-2 nivå 2, verifierad. Du kan använda hjälp programmet nCipher-verktyg för att flytta en nyckel från HSM till Azure Key Vault.
 

@@ -1,34 +1,34 @@
 ---
 title: Installera och använda Azure IoT Explorer | Microsoft Docs
-description: Installera Azure IoT Explorer-verktyget och Använd det för att interagera med IoT-Plug and Play enheter som är anslutna till IoT Hub.
-author: rido-min
-ms.author: rmpablos
-ms.date: 09/23/2020
+description: Installera Azure IoT Explorer-verktyget och Använd det för att interagera med IoT Plug and Play-enheter som är anslutna till IoT Hub. Även om den här artikeln fokuserar på att arbeta med IoT Plug and Play-enheter kan du använda verktyget med vilken enhet som helst som är ansluten till hubben.
+author: dominicbetts
+ms.author: dobett
+ms.date: 11/10/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc
-ms.openlocfilehash: bf68bdafbb8b6fde187a2d787bb5464e5ece4cb2
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.custom: contperfq2
+ms.openlocfilehash: 8482ba608ee5fcefb006234b339cd9b711a38020
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019162"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445310"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Installera och använda Azure IoT Explorer
 
-Azure IoT Explorer är ett grafiskt verktyg för att interagera med och testa dina IoT Plug and Play-enheter. När du har installerat verktyget på den lokala datorn kan du använda det för att ansluta till en hubb. Du kan använda verktyget för att Visa telemetri som enheterna skickar, arbeta med enhets egenskaper och anropa kommandon.
+Azure IoT Explorer är ett grafiskt verktyg för att interagera med och enheter som är anslutna till din IoT Hub. Den här artikeln fokuserar på att använda verktyget för att testa IoT Plug and Play-enheter. När du har installerat verktyget på den lokala datorn kan du använda det för att ansluta till en hubb. Du kan använda verktyget för att Visa telemetri som enheterna skickar, arbeta med enhets egenskaper och anropa kommandon.
 
 Den här artikeln visar hur du:
 
 - Installera och konfigurera Azure IoT Explorer-verktyget.
-- Använd verktyget för att interagera med och testa dina enheter.
+- Använd verktyget för att interagera med och testa IoT Plug and Play-enheter.
 
-## <a name="prerequisites"></a>Förutsättningar
+Mer allmän information om hur du använder verktyget finns i Readme- [filen](https://github.com/Azure/azure-iot-explorer/blob/master/README.md)för GitHub.
 
 Om du vill använda Azure IoT Explorer-verktyget behöver du:
 
-- En Azure IoT-hubb. Det finns många sätt att lägga till en IoT-hubb i din Azure-prenumeration, till exempel [skapa en IoT-hubb med hjälp av Azure CLI](../iot-hub/iot-hub-create-using-cli.md). Du behöver den IoT Hub-anslutningssträngen för att köra Azure IoT Explorer-verktyget. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+- En Azure IoT-hubb. Det finns många sätt att lägga till en IoT-hubb i din Azure-prenumeration, till exempel [skapa en IoT-hubb med hjälp av Azure CLI](../iot-hub/iot-hub-create-using-cli.md). Du behöver den IoT Hub-anslutningssträngen för att köra Azure IoT Explorer-verktyget. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 - En enhet som är registrerad i IoT Hub. Du kan använda IoT Explorer för att skapa och hantera enhets registreringar i IoT Hub.
 
 ## <a name="install-azure-iot-explorer"></a>Installera Azure IoT Explorer
@@ -40,13 +40,13 @@ Gå till [Azure IoT Explorer-versioner](https://github.com/Azure/azure-iot-explo
 
 ## <a name="use-azure-iot-explorer"></a>Använda Azure IoT Explorer
 
-För en enhet kan du antingen ansluta din egen enhet eller använda en av de simulerade exempel enheterna. Följ [de här anvisningarna](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples) för att köra exemplet på simulerad enhet.
+För en enhet kan du antingen ansluta din egen enhet eller använda en av de simulerade exempel enheterna. Vissa exempel på simulerade enheter som skrivits på olika språk finns i [ansluta ett exempel på IoT plug and Play Device-appen till IoT Hub](quickstart-connect-device-node.md) snabb starter.
 
 ### <a name="connect-to-your-hub"></a>Anslut till hubben
 
 Första gången du kör Azure IoT Explorer uppmanas du att ange anslutnings strängen för IoT Hub. När du har lagt till anslutnings strängen väljer du **Anslut**. Du kan använda verktygets inställningar för att växla till en annan IoT-hubb genom att uppdatera anslutnings strängen.
 
-Modell definitionen för en IoT Plug and Play-enhet lagras antingen i det offentliga lagret, på den anslutna enheten eller i en lokal mapp. Som standard letar verktyget efter din modell definition i den offentliga lagrings platsen och den anslutna enheten. Du kan lägga till och ta bort källor eller konfigurera prioriteten för källorna i **inställningarna**:
+Modell definitionen för en IoT Plug and Play-enhet lagras antingen i det offentliga lagret, på den anslutna enheten eller i en lokal mapp. Som standard letar verktyget efter din modell definition i den offentliga lagrings platsen och den anslutna enheten. Du kan lägga till och ta bort källor eller konfigurera prioriteten för källorna i **inställningarna** :
 
 Så här lägger du till en källa:
 
@@ -74,11 +74,11 @@ På sidan **enhets** lista kan du:
 
 ## <a name="interact-with-a-device"></a>Interagera med en enhet
 
-På sidan enhets **lista väljer** du ett värde i kolumnen **enhets-ID** för att Visa informations sidan för den registrerade enheten. Det finns två avsnitt: **enhet** och **digital**, för varje enhet.
+På sidan enhets **lista väljer** du ett värde i kolumnen **enhets-ID** för att Visa informations sidan för den registrerade enheten. Det finns två avsnitt: **enhet** och **digital** , för varje enhet.
 
 ### <a name="device"></a>Enhet
 
-Det här avsnittet innehåller flikarna **enhets identitet**,  **enhets**-ID, **telemetri**, **direkt metod**, **moln-till-enhet**, flikar för **modul identitet**  .
+Det här avsnittet innehåller flikarna **enhets identitet** ,  **enhets** -ID, **telemetri** , **direkt metod** , **moln-till-enhet** , flikar för **modul identitet**  .
 
 - Du kan visa och uppdatera [enhetens identitets](../iot-hub/iot-hub-devguide-identity-registry.md) information på fliken **enhets identitet** .
 - Du kan komma åt [enhetens dubbla](../iot-hub/iot-hub-devguide-device-twins.md) information på fliken **enhets dubbla** .
@@ -89,7 +89,7 @@ Det här avsnittet innehåller flikarna **enhets identitet**,  **enhets**-ID, **
 
 ### <a name="iot-plug-and-play-components"></a>IoT Plug and Play-komponenter
 
-Om enheten är ansluten till hubben med ett **modell-ID**, visar verktyget **IoT plug and Play-komponenter** -fliken där du kan se **modell-ID: t**.
+Om enheten är ansluten till hubben med ett **modell-ID** , visar verktyget **IoT plug and Play-komponenter** där du kan se **modell-ID: t**.
 
 Om **modell-ID: t** är tillgängligt i någon av de konfigurerade källorna – offentliga lagrings platsen eller lokala mappar, visas listan med komponenter. Om du väljer en komponent visas egenskaper, kommandon och telemetri som är tillgängliga.
 
@@ -99,7 +99,7 @@ På sidan **komponent** kan du visa skrivskyddade egenskaper, uppdatera skrivbar
 
 #### <a name="properties"></a>Egenskaper
 
-:::image type="content" source="media/howto-use-iot-explorer/properties-iot-explorer.png" alt-text="Visa komponenter i Azure IoT Explorer":::
+:::image type="content" source="media/howto-use-iot-explorer/properties-iot-explorer.png" alt-text="Visa egenskaper i Azure IoT Explorer":::
 
 Du kan visa de skrivskyddade egenskaperna som definierats i ett gränssnitt på fliken **egenskaper (skrivskyddad)** . Du kan uppdatera de skrivbara egenskaperna som definierats i ett gränssnitt på fliken **egenskaper (skrivbar)** :
 
@@ -109,7 +109,7 @@ Du kan visa de skrivskyddade egenskaperna som definierats i ett gränssnitt på 
 1. Förhandsgranska nytto lasten som ska skickas till enheten.
 1. Skicka ändringen.
 
-När du har skickat in en ändring kan du spåra uppdaterings statusen: **synkronisering**, **lyckades**eller **fel**. När synkroniseringen är klar visas det nya värdet för egenskapen i kolumnen **rapporterad egenskap** . Om du navigerar till andra sidor innan synkroniseringen är klar meddelar verktyget fortfarande dig när uppdateringen är klar. Du kan också använda verktygets meddelande Center för att se meddelande historiken.
+När du har skickat in en ändring kan du spåra uppdaterings statusen: **synkronisering** , **lyckades** eller **fel**. När synkroniseringen är klar visas det nya värdet för egenskapen i kolumnen **rapporterad egenskap** . Om du navigerar till andra sidor innan synkroniseringen är klar meddelar verktyget fortfarande dig när uppdateringen är klar. Du kan också använda verktygets meddelande Center för att se meddelande historiken.
 
 #### <a name="commands"></a>Kommandon
 
@@ -126,13 +126,7 @@ Om du vill visa telemetri för det valda gränssnittet går du till fliken **tel
 
 #### <a name="known-issues"></a>Kända problem
 
-- IoT Edge support: den aktuella versionen visar inte IoT Edge enheter i enhets listan.
-- DTDL språk funktioner: IoT Explorer 0.12. x är inte helt DTDL v2-kompatibel, funktioner som inte stöds är:
-  - Gränssnitts arv med `extends`
-  - Mappa i karta (kapslad karta)
-  - Mat ris typ
-  - Anpassade scheman
-  - Anpassade semantiska typer
+En lista över IoT-funktioner som stöds av den senaste versionen av verktyget finns i [funktions listan](https://github.com/Azure/azure-iot-explorer/wiki).
 
 ## <a name="next-steps"></a>Nästa steg
 

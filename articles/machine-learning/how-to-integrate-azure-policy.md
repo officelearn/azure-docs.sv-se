@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.openlocfilehash: 47a97bb8fbe52d3dde84afd77997b179a5c9248d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 22901c4e8409fc4846c1566a57b2679f4fa92396
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325492"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444576"
 ---
 # <a name="audit-and-manage-azure-machine-learning-using-azure-policy"></a>Granska och hantera Azure Machine Learning med Azure Policy
 
@@ -42,11 +42,11 @@ Du kan också tilldela principer med hjälp av [Azure PowerShell](../governance/
 
 ## <a name="workspaces-encryption-with-customer-managed-key"></a>Kryptering av arbets ytor med kundhanterad nyckel
 
-Styr huruvida arbets ytor ska krypteras med en kundhanterad nyckel (CMK) eller med hjälp av en Microsoft-hanterad nyckel för att kryptera mått och metadata. Mer information om hur du använder CMK finns i avsnittet [Azure Cosmos DB](concept-enterprise-security.md#azure-cosmos-db) i säkerhets artikeln för företag.
+Kontrollerar om arbets ytor ska krypteras med en kundhanterad nyckel eller om du använder en Microsoft-hanterad nyckel för att kryptera mått och metadata. Mer information om hur du använder kundhanterad nyckel finns i avsnittet [Azure Cosmos DB](concept-data-encryption.md#azure-cosmos-db) i artikeln om data kryptering.
 
-Om du vill konfigurera den här principen anger du bedömnings parametern till __audit__ eller __Deny__. Om det är inställt på __granskning__ kan du skapa arbets ytor utan en CMK och en varnings händelse skapas i aktivitets loggen.
+Om du vill konfigurera den här principen anger du bedömnings parametern till __audit__ eller __Deny__. Om det är inställt på __granskning__ kan du skapa arbets ytor utan en kundhanterad nyckel och en varnings händelse skapas i aktivitets loggen.
 
-Om principen är inställd på __neka__ kan du inte skapa en arbets yta om den inte anger en CMK. Försök att skapa en arbets yta utan CMK resulterar i ett fel som liknar `Resource 'clustername' was disallowed by policy` och skapar ett fel i aktivitets loggen. Princip identifieraren returneras också som en del av det här felet.
+Om principen är inställd på __neka__ kan du inte skapa en arbets yta om den inte anger en kundhanterad nyckel. Försök att skapa en arbets yta utan Kundhanterade nycklar resulterar i ett fel som liknar `Resource 'clustername' was disallowed by policy` och skapar ett fel i aktivitets loggen. Princip identifieraren returneras också som en del av det här felet.
 
 ## <a name="workspaces-should-use-private-link"></a>Arbets ytor ska använda privat länk
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 707f4c098eacb0b72a7e12ebf79f9389b91095cc
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: d39e34bd85c4524a6f28d188f977a7ab37eecc58
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376527"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445021"
 ---
 # <a name="active-learning-suggestions"></a>Aktiva utbildnings förslag
 
@@ -137,7 +137,7 @@ QnA Maker behöver uttrycklig feedback om vilka av svaren som var det bästa sva
 * Affärs logik, till exempel att fastställa ett acceptabelt Poäng intervall.
 * En kombination av både feedback och affärs logik.
 
-Använd [träna API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train) för att skicka rätt svar till QNA Maker när användaren har markerat det.
+Använd [träna API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/runtime/train) för att skicka rätt svar till QNA Maker när användaren har markerat det.
 
 ## <a name="next-step"></a>Nästa steg
 

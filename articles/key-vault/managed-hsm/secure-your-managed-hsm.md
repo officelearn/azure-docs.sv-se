@@ -1,6 +1,6 @@
 ---
 title: Säker åtkomst till en hanterad HSM-Azure Key Vault hanterad HSM
-description: Lär dig hur du skyddar åtkomsten till hanterad HSM med Azure RBAC och lokal hanterad HSM RBAC
+description: Lär dig hur du skyddar åtkomsten till hanterad HSM med Azure RBAC och hanterad HSM lokalt RBAC
 services: key-vault
 author: amitbapat
 tags: azure-resource-manager
@@ -9,18 +9,18 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 18ffa0f878effda8888200c13ab312851aaebdcd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99918d039052c9913400b85ac3caa4a1a5481155
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91000897"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445327"
 ---
 # <a name="secure-access-to-your-managed-hsms"></a>Säker åtkomst till din hanterade HSM: er
 
 Azure Key Vault hanterad HSM är en moln tjänst som skyddar krypterings nycklar. Eftersom dessa data är känsliga och affärs kritiska måste du skydda åtkomsten till dina hanterade HSM: er genom att bara tillåta behöriga program och användare att komma åt dem. Den här artikeln ger en översikt över den hanterade HSM-modellen för åtkomst kontroll. Den förklarar autentisering och auktorisering och beskriver hur du skyddar åtkomsten till dina hanterade HSM: er.
 
-Den här självstudien vägleder dig genom ett enkelt exempel som visar hur du kan uppnå separering av uppgifter och åtkomst kontroll med Azure RBAC och lokal hanterad HSM RBAC. Se [hanterad HSM-åtkomstkontroll](access-control.md) om du vill lära dig mer om HANTERAd HSM-åtkomst kontroll modell.
+Den här självstudien vägleder dig genom ett enkelt exempel som visar hur du kan uppnå separering av uppgifter och åtkomst kontroll med Azure RBAC och hanterad HSM lokal RBAC. Se [hanterad HSM-åtkomstkontroll](access-control.md) om du vill lära dig mer om HANTERAd HSM-åtkomst kontroll modell.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -48,9 +48,9 @@ I det här exemplet ska vi utveckla ett program som använder en RSA 2 048-bitar
 
 Vi har identifierat följande roller som hanterar, distribuerar och granskar vårt program:
 
-- **Säkerhets team**: IT-personal från byråns skydds chef (säkerhets tjänsteman) eller liknande bidrags givare. Säkerhets teamet ansvarar för korrekt förvaring av nycklar. Nycklarna RSA eller EG-nycklar för signering, RSA-eller AES-nycklar för data kryptering.
-- **Utvecklare och operatörer**: personal som utvecklar programmet och distribuerar det i Azure. Medlemmarna i det här teamet är inte en del av säkerhets personalen. De bör inte ha till gång till känsliga data som RSA-nycklar. Endast det program som de distribuerar bör ha åtkomst till dessa känsliga data.
-- **Granskare**: den här rollen är för deltagare som inte är medlemmar i utvecklings-eller allmän IT-personal. De granskar användningen och underhållet av certifikat, nycklar och hemligheter för att säkerställa efterlevnaden av säkerhets standarder.
+- **Säkerhets team** : IT-personal från byråns skydds chef (säkerhets tjänsteman) eller liknande bidrags givare. Säkerhets teamet ansvarar för korrekt förvaring av nycklar. Nycklarna RSA eller EG-nycklar för signering, RSA-eller AES-nycklar för data kryptering.
+- **Utvecklare och operatörer** : personal som utvecklar programmet och distribuerar det i Azure. Medlemmarna i det här teamet är inte en del av säkerhets personalen. De bör inte ha till gång till känsliga data som RSA-nycklar. Endast det program som de distribuerar bör ha åtkomst till dessa känsliga data.
+- **Granskare** : den här rollen är för deltagare som inte är medlemmar i utvecklings-eller allmän IT-personal. De granskar användningen och underhållet av certifikat, nycklar och hemligheter för att säkerställa efterlevnaden av säkerhets standarder.
 
 Det finns en annan roll som ligger utanför omfånget för programmet: prenumerationen (eller resurs gruppens) administratör. Prenumerations administratören konfigurerar inledande åtkomst behörighet för säkerhets teamet. De ger åtkomst till säkerhets teamet genom att använda en resurs grupp som har de resurser som krävs av programmet.
 
@@ -79,7 +79,7 @@ I följande tabell sammanfattas roll tilldelningarna för team och resurser för
 | Roll | Hanterings Plans roll | Data Plans roll |
 | --- | --- | --- |
 | Säkerhetsteamet | Hanterad HSM-deltagare | Hanterad HSM-administratör |
-| Utvecklare och operatörer | Inget | Inget |
+| Utvecklare och operatörer | Inga | Inga |
 | Granskare | Inget | Hanterad HSM-krypto |
 | Hanterad identifiering av den virtuella datorn som används av programmet| Inget | Hanterad HSM-kryptografi användare |
 | Hanterad identitet för det lagrings konto som används av programmet| Inget| Kryptering av hanterad HSM-tjänst |

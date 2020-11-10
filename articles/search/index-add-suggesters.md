@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 11/10/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ed7b61e9e0379462e0dfbcdcc93acfccf470d95f
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 498934c01970b296c1491e7ccd36ad947324306a
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427045"
+ms.locfileid: "94445344"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Skapa en förslags ställare för att aktivera Autoavsluta och föreslagna resultat i en fråga
 
@@ -26,9 +26,9 @@ Följande skärm bild från [skapa din första app i C#](tutorial-csharp-type-ah
 
 Du kan använda dessa funktioner separat eller tillsammans. Det finns ett index och en frågekomponent-komponent för att implementera dessa beteenden i Azure Kognitiv sökning. 
 
-+ I indexet lägger du till en förslags pekare till ett index. Du kan använda portalen, [Create index (REST) (/REST/API/searchservice/Create-index) eller en [förslags egenskap](/dotnet/api/azure.search.documents.indexes.models.searchindex.suggesters). Resten av den här artikeln fokuserar på att skapa en förslags ställare.
++ Lägg till en förslags pekare till en Sök index definition. Resten av den här artikeln fokuserar på att skapa en förslags ställare.
 
-+ Anropa ett av [API: erna som anges nedan](#how-to-use-a-suggester)i förfrågan.
++ Anropa en förslags aktive rad fråga, i form av en förslags förfrågan eller en begäran om automatisk komplettering, med hjälp av något av [API: erna som anges nedan](#how-to-use-a-suggester).
 
 Stöd för sökning efter typ har Aktiver ATS baserat på fältet per fält för sträng fält. Du kan implementera båda typeahead-beteenden inom samma Sök lösning om du vill ha en upplevelse som liknar den som anges i skärm bilden. Båda begär Anden mål *dokument* samlingen för ett särskilt index och svar returneras efter att en användare har angett minst en sträng med tre tecken.
 
@@ -36,9 +36,9 @@ Stöd för sökning efter typ har Aktiver ATS baserat på fältet per fält för
 
 En förslags ställare är en intern data struktur som stöder sökning efter typ genom att lagra prefix för matchning på ofullständiga frågor. Precis som med token-termer lagras prefix i inverterade index, en för varje fält som anges i en förslags fält samling.
 
-## <a name="define-a-suggester"></a>Definiera en förslags ställare
+## <a name="how-to-create-a-suggester"></a>Så här skapar du en förslags ställare
 
-Om du vill skapa en förslags pekare, lägger du till ett i ett [index schema](/rest/api/searchservice/create-index) och [anger varje egenskap](#property-reference). Det bästa sättet att skapa en förslags ställare är när du även definierar det fält som ska använda det.
+Om du vill skapa en förslags pekare, lägger du till en i en [index definition](/rest/api/searchservice/create-index). En förslags ställare får ett namn och en samling fält över vilka typeahead-upplevelsen är aktive rad. och [Ange varje egenskap](#property-reference). Det bästa sättet att skapa en förslags ställare är när du även definierar det fält som ska använda det.
 
 + Använd endast sträng fält
 
@@ -60,12 +60,22 @@ Lägg till alla fält som du behöver för Komplettera automatiskt, men Använd 
 
 Ditt val av analys bestämmer hur fälten ska vara token och sedan föregås. För en avstavad sträng som "Sammanhangs känslig", används till exempel följande token för att använda en språk analys: "context", "känslig", "kontext känslig". Hade du använt standard Lucene Analyzer, den avstavade strängen finns inte. 
 
-När du utvärderar analyserare bör du överväga att använda [API: et för analys av text](/rest/api/searchservice/test-analyzer) för att lära dig mer om hur termerna är tokens och senare. När du skapar ett index kan du prova olika analys verktyg i en sträng för att visa utdata för token.
+När du utvärderar analyser, bör du överväga att använda [analys text API](/rest/api/searchservice/test-analyzer) för att lära dig hur termer bearbetas. När du skapar ett index kan du prova olika analys verktyg i en sträng för att visa utdata för token.
 
 Fält som använder [anpassade analyserare](index-add-custom-analyzers.md) eller [fördefinierade analys](index-add-custom-analyzers.md#predefined-analyzers-reference) verktyg (med undantag för standard Lucene) är uttryckligen inte tillåtna för att förhindra dåliga resultat.
 
 > [!NOTE]
 > Om du behöver använda ett nyckelord eller ngram Analyzer för vissa fråge scenarier, bör du använda två separata fält för samma innehåll. Detta gör att ett av fälten kan ha en förslags ställare, medan det andra kan konfigureras med en anpassad Analyzer-konfiguration.
+
+## <a name="create-using-the-portal"></a>Skapa med portalen
+
+När du använder **Lägg till index** eller guiden **Importera data** för att skapa ett index, har du möjlighet att aktivera en förslags ställare:
+
+1. I index definitionen anger du ett namn för förslags tillägget.
+
+1. I varje fält definition för nya fält markerar du en kryss ruta i kolumnen förslag. En kryss ruta är endast tillgänglig i sträng fält. 
+
+Som tidigare nämnts påverkar Analyzer valet tokenisering och prefastion. Överväg hela fält definitionen när du aktiverar förslag. 
 
 ## <a name="create-using-rest"></a>Skapa med REST
 
@@ -131,9 +141,9 @@ private static void CreateIndex(string indexName, SearchIndexClient indexClient)
 
 |Egenskap      |Beskrivning      |
 |--------------|-----------------|
-|`name`        |Förslagets namn.|
-|`searchMode`  |Strategin som används för att söka efter kandidat fraser. Det enda läge som stöds för närvarande är `analyzingInfixMatching` , som för närvarande matchar i början av en term.|
-|`sourceFields`|En lista med ett eller flera fält som är källan till innehållet för förslag. Fält måste vara av typen `Edm.String` och `Collection(Edm.String)` . Om en analys anges i fältet måste det vara en namngiven analys från [den här listan](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) (inte en anpassad analys).<p/> Vi rekommenderar att du bara anger de fält som lånar ut sig till ett förväntat och lämpligt svar, oavsett om det är en slutförd sträng i ett sökfält eller i en nedrullningsbar listruta.<p/>Ett hotell namn är en bra kandidat eftersom det har precision. Utförliga fält som beskrivningar och kommentarer är för kompakta. På samma sätt är upprepade fält, till exempel kategorier och taggar, mindre effektiva. I exemplen inkluderar vi "Category" ändå för att demonstrera att du kan inkludera flera fält. |
+|`name`        | Anges i förslags definitionen, men kallas även för en Autoavsluta-eller förslags förfrågan. |
+|`sourceFields`| Anges i förslags definitionen. Det är en lista över ett eller flera fält i indexet som är källan till innehållet för förslag. Fält måste vara av typen `Edm.String` och `Collection(Edm.String)` . Om en analys anges i fältet måste det vara en namngiven lexikalisk analys från [den här listan](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) (inte en anpassad analys).<p/> Vi rekommenderar att du bara anger de fält som lånar ut sig till ett förväntat och lämpligt svar, oavsett om det är en slutförd sträng i ett sökfält eller i en nedrullningsbar listruta.<p/>Ett hotell namn är en bra kandidat eftersom det har precision. Utförliga fält som beskrivningar och kommentarer är för kompakta. På samma sätt är upprepade fält, till exempel kategorier och taggar, mindre effektiva. I exemplen inkluderar vi "Category" ändå för att demonstrera att du kan inkludera flera fält. |
+|`searchMode`  | En REST-parameter, men även synlig i portalen. Den här parametern är inte tillgänglig i .NET SDK. Den anger den strategi som används för att söka efter kandidat fraser. Det enda läge som stöds för närvarande är `analyzingInfixMatching` , som för närvarande matchar i början av en term.|
 
 <a name="how-to-use-a-suggester"></a>
 
@@ -160,7 +170,7 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 
 ## <a name="sample-code"></a>Exempelkod
 
-+ [Skapa din första app i C# (Lektion 3 – Lägg till sökning efter typ)](tutorial-csharp-type-ahead-and-suggestions.md) visar en förslags konstruktion, föreslagna frågor, Autoavsluta och fasett-navigering. Det här kod exemplet körs på en sandbox Azure Kognitiv sökning-tjänst och använder ett förinställt hotell index så att allt du behöver göra är att trycka på F5 för att köra programmet. Ingen prenumeration eller inloggning är nödvändig.
++ [Skapa din första app i C# (Lektion 3 – Lägg till sökning efter typ) exempel på](tutorial-csharp-type-ahead-and-suggestions.md) frågor, Autoavsluta och fasett-navigering. Det här kod exemplet körs på en sandbox Azure Kognitiv sökning-tjänst och använder ett förinställt hotell index med en förslags ställare som redan har skapats, så allt du behöver göra är att trycka på F5 för att köra programmet. Ingen prenumeration eller inloggning är nödvändig.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -3,14 +3,14 @@ title: Översikt över Azure Automation Ändringsspårning och inventering
 description: I den här artikeln beskrivs funktionen Ändringsspårning och inventering, som hjälper dig att identifiera program-och Microsoft-tjänsteändringar i din miljö.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 10/26/2020
+ms.date: 11/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 39caa60196eca1afb7df1b0acbecddb557796fc3
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: b5390e4b3dc6d77390c3fca6323cbd52544c638a
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130348"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445429"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Översikt över Ändringsspårning och inventering
 
@@ -62,6 +62,16 @@ Datorer som är anslutna till Log Analytics arbets ytan använder [Log Analytics
 
 Information om klient kraven för TLS 1,2 finns i [TLS 1,2 Enforcement för Azure Automation](../automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
+### <a name="python-requirement"></a>Python-krav
+
+Ändringsspårning och inventering stöder endast Python2. Om din dator använder en distribution som inte innehåller python 2 som standard måste du installera den. Följande exempel kommandon kommer att installera python 2 på olika distributioner.
+
+- Red Hat, CentOS, Oracle: `yum install -y python2`
+- Ubuntu, Debian: `apt-get install -y python2`
+- SUSE `zypper install -y python2`
+
+Den körbara filen python2 måste ha ett alias till *python*.
+
 ## <a name="network-requirements"></a>Nätverkskrav
 
 Följande adresser krävs specifikt för Ändringsspårning och inventering. Kommunikationen med de här adresserna sker via port 443.
@@ -73,7 +83,7 @@ Följande adresser krävs specifikt för Ändringsspårning och inventering. Kom
 |*.blob.core.windows.net | *. blob.core.usgovcloudapi.net|
 |*.azure-automation.net | *. azure-automation.us|
 
-När du skapar säkerhets regler för nätverks grupper eller konfigurerar Azure-brandväggen för att tillåta trafik till Automation-tjänsten och Log Analytics arbets ytan, använder du [service tag-](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** och **AzureMonitor** . Detta fören klar den löpande hanteringen av dina nätverks säkerhets regler. Om du vill ansluta till Automation-tjänsten från dina virtuella Azure-datorer på ett säkert och privat sätt kan du läsa [Använd Azure privat länk](../how-to/private-link-security.md). För att hämta den aktuella service tag-koden och intervall informationen som ska ingå som en del av dina lokala brand Väggs konfigurationer, se [nedladdnings bara JSON-filer](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+När du skapar säkerhets regler för nätverks grupper eller konfigurerar Azure-brandväggen för att tillåta trafik till Automation-tjänsten och Log Analytics arbets ytan, använder du [service tag-](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** och **AzureMonitor**. Detta fören klar den löpande hanteringen av dina nätverks säkerhets regler. Om du vill ansluta till Automation-tjänsten från dina virtuella Azure-datorer på ett säkert och privat sätt kan du läsa [Använd Azure privat länk](../how-to/private-link-security.md). För att hämta den aktuella service tag-koden och intervall informationen som ska ingå som en del av dina lokala brand Väggs konfigurationer, se [nedladdnings bara JSON-filer](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
 ## <a name="enable-change-tracking-and-inventory"></a>Aktivera Ändringsspårning och inventering
 
@@ -108,8 +118,8 @@ Med Ändringsspårning och inventering kan du visa innehållet i en Windows-elle
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown` | Övervakar skript som körs vid avstängning.
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run` | Övervakar nycklar som läses in innan användaren loggar in på Windows-kontot. Nyckeln används för 32-bitars program som körs på 64-bitars datorer.
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components` | Övervakar ändringar i program inställningarna.
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Övervakar snabb meny hanterare som kopplas direkt till Utforskaren i Windows och som vanligt vis körs i processen med **explorer.exe** .
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | Övervakar kopior av Hook-hanterare som kopplas direkt till Utforskaren i Windows och som vanligt vis körs i processen med **explorer.exe** .
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Övervakar snabb meny hanterare som kopplas direkt till Utforskaren i Windows och som vanligt vis körs i processen med **explorer.exe**.
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | Övervakar kopior av Hook-hanterare som kopplas direkt till Utforskaren i Windows och som vanligt vis körs i processen med **explorer.exe**.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Övervakare för registrering av ikon överläggs hanterare.
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Övervakare för ikon överläggs hanterare registrering för 32-bitars program som körs på 64-bitars datorer.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Övervakar nya plugin-program för webb läsar tillägg för Internet Explorer. Används för att få åtkomst till Document Object Model (DOM) för den aktuella sidan och för att kontrol lera navigeringen.
@@ -127,7 +137,7 @@ Med Ändringsspårning och inventering kan du visa innehållet i en Windows-elle
 
 - Jokertecken krävs för att spåra flera filer.
 
-- Du kan bara använda jokertecken i det sista segmentet i en fil Sök väg, till exempel **c:\folder- \\ filen** _ eller _ */etc/* . conf * *.
+- Du kan bara använda jokertecken i det sista segmentet i en fil Sök väg, till exempel **c:\folder- \\ filen** _ eller _ */etc/*. conf * *.
 
 - Om en miljö variabel har en ogiltig sökväg, lyckas verifieringen men sökvägen Miss lyckas under körningen.
 
@@ -162,7 +172,7 @@ Genomsnitts Log Analytics data användningen för en dator som använder Ändrin
 
 ### <a name="microsoft-service-data"></a>Microsoft-tjänstedata
 
-Standard frekvensen för insamling av Microsoft-tjänster är 30 minuter. Du kan konfigurera frekvensen med hjälp av ett skjutreglage på fliken **Microsoft-tjänster** under **Redigera inställningar** .
+Standard frekvensen för insamling av Microsoft-tjänster är 30 minuter. Du kan konfigurera frekvensen med hjälp av ett skjutreglage på fliken **Microsoft-tjänster** under **Redigera inställningar**.
 
 ![Skjutreglage för Microsoft-tjänster](./media/overview/windowservices.png)
 

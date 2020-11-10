@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 341d24e73c9e07bb3155535d98a88145643c1692
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 889a70005f1cbabaad525147b4661ea04886138a
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201791"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445616"
 ---
 # <a name="use-the-model-conversion-rest-api"></a>Använda REST API:et för modellkonvertering
 
@@ -26,7 +26,7 @@ Se [listan över tillgängliga regioner](../../reference/regions.md) för bas-UR
 
 Dessa huvuden måste anges för alla begär Anden:
 
-- **Authorization** -huvudet måste ha värdet "Bearer [*token*]", där [*token*] är en [tjänst åtkomst-token](../tokens.md).
+- **Authorization** -huvudet måste ha värdet "Bearer [ *token* ]", där [ *token* ] är en [tjänst åtkomst-token](../tokens.md).
 
 ### <a name="common-response-headers"></a>Vanliga svars rubriker
 
@@ -47,7 +47,7 @@ Ditt Azure Remote rendering-konto måste ha åtkomst till det tillhandahållna l
 
 | Slutpunkt | Metod |
 |-----------|:-----------|
-| /v1/Accounts/**accountID**/conversions/Create | POST |
+| /v1/Accounts/ **accountID** /conversions/Create | POST |
 
 Returnerar ID: t för den pågående konverteringen, figursatt i ett JSON-dokument. Fält namnet är "conversionId".
 
@@ -79,7 +79,7 @@ Om ARR-kontot inte är länkat till ditt lagrings konto kan du använda det här
 
 | Slutpunkt | Metod |
 |-----------|:-----------|
-| /v1/Accounts/**accountID**/conversions/createWithSharedAccessSignature | POST |
+| /v1/Accounts/ **accountID** /conversions/createWithSharedAccessSignature | POST |
 
 Returnerar ID: t för den pågående konverteringen, figursatt i ett JSON-dokument. Fält namnet är `conversionId` .
 
@@ -120,7 +120,7 @@ Statusen för en pågående konvertering startade med ett av REST-anropen ovan k
 
 | Slutpunkt | Metod |
 |-----------|:-----------|
-| /v1/Accounts/**accountID**/conversions/**conversionId** | GET |
+| /v1/Accounts/ **accountID** /conversions/ **conversionId** | GET |
 
 Returnerar ett JSON-dokument med ett "status"-fält som kan ha följande värden:
 
@@ -130,6 +130,21 @@ Returnerar ett JSON-dokument med ett "status"-fält som kan ha följande värden
 - Haverera
 
 Om statusen är "haveri" visas ett ytterligare "fel"-fält med ett "meddelande"-underfält med fel information. Ytterligare loggar överförs till din utmatnings behållare.
+
+## <a name="list-conversions"></a>List konverteringar
+
+Om du vill hämta en lista över alla konverteringar för ett konto använder du gränssnittet:
+
+| Slutpunkt | Metod |
+|-----------|:-----------|
+| /v1/Accounts/ **accountID** /conversions? Skiptoken = **skiptoken** | GET |
+
+| Parameter | Krävs |
+|-----------|:-----------|
+| accountID | Ja |
+| skiptoken | Nej |
+
+Returnerar ett JSON-dokument som innehåller en matris med konverteringar och deras information. Den här frågan returnerar högst 50 konverteringar åt gången. Om det finns fler konverteringar som ska hämtas innehåller svaret en **nextLink** -egenskap som innehåller skipToken som kan frågas för att hämta nästa uppsättning resultat.
 
 ## <a name="next-steps"></a>Nästa steg
 

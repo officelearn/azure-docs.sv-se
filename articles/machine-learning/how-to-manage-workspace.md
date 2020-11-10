@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: ab3f3765a0e988c7e93cca5782b47b3f2d32aef4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2c9d00f1d78d2dea46d4ff4a08433360e00c7b9d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312552"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445633"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Skapa och hantera Azure Machine Learning arbets ytor 
 
@@ -193,7 +193,7 @@ Azure Security Center erbjuder enhetlig säkerhetshantering och avancerat skydd 
 
 Som standard lagras mått och metadata för arbets ytan i en Azure Cosmos DB-instans som Microsoft underhåller. Dessa data är krypterade med Microsoft-hanterade nycklar.
 
-Om du vill begränsa de data som Microsoft samlar in på din arbets yta väljer du __arbets ytan hög arbets yta för affärs påverkan__ i portalen eller ställer in `hbi_workspace=true ` i python. Mer information om den här inställningen finns i [kryptering i vila](concept-enterprise-security.md#encryption-at-rest).
+Om du vill begränsa de data som Microsoft samlar in på din arbets yta väljer du __arbets ytan hög arbets yta för affärs påverkan__ i portalen eller ställer in `hbi_workspace=true ` i python. Mer information om den här inställningen finns i [kryptering i vila](concept-data-encryption.md#encryption-at-rest).
 
 > [!IMPORTANT]  
 > Du kan bara välja hög påverkan på verksamheten när du skapar en arbets yta. Du kan inte ändra den här inställningen när du har skapat arbets ytan.   

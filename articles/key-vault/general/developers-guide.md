@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 707b6d0f8a5fa3cff89339b9b0465d96b5369a34
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 596de459b888bb9973aca1c7d72f2f9e24c966eb
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287609"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445140"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Utvecklarguide för Azure Key Vault
 
@@ -79,21 +79,21 @@ Självstudier om hur du autentiserar till Key Vault i program finns i:
 
 ## <a name="manage-keys-certificates-and-secrets"></a>Hantera nycklar, certifikat och hemligheter
 
-Åtkomst till nycklar, hemligheter och certifikat styrs av data planet. Åtkomst kontroll för data plan kan göras med hjälp av lokala valv åtkomst principer eller RBAC (för hands version).
+Åtkomst till nycklar, hemligheter och certifikat styrs av data planet. Åtkomst kontroll för data plan kan göras med hjälp av lokala valv åtkomst principer eller Azure RBAC (för hands version).
 
 **Nycklar och SDK: er**
 
 
 | Azure CLI | PowerShell | REST-API | Resource Manager | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
-|[Referens](/cli/azure/keyvault/key)<br>[Snabbstart](../keys/quick-create-cli.md)|[Referens](/powershell/module/az.keyvault/)<br>[Snabbstart](../keys/quick-create-powershell.md)|[Referens](/rest/api/keyvault/#key-operations)|E.t.|[Referens](/dotnet/api/azure.security.keyvault.keys)|[Referens](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)<br>[Snabbstart](../keys/quick-create-python.md)|[Referens](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html)|[Referens](/javascript/api/@azure/keyvault-keys/)|
+|[Referens](/cli/azure/keyvault/key)<br>[Snabbstart](../keys/quick-create-cli.md)|[Referens](/powershell/module/az.keyvault/)<br>[Snabbstart](../keys/quick-create-powershell.md)|[Referens](/rest/api/keyvault/#key-operations)|Saknas|[Referens](/dotnet/api/azure.security.keyvault.keys)|[Referens](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)<br>[Snabbstart](../keys/quick-create-python.md)|[Referens](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html)|[Referens](/javascript/api/@azure/keyvault-keys/)|
 
 **API: er och SDK: er för certifikat**
 
 
 | Azure CLI | PowerShell | REST-API | Resource Manager | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
-|[Referens](/cli/azure/keyvault/certificate)<br>[Snabbstart](../certificates/quick-create-cli.md)|[Referens](/powershell/module/az.keyvault)<br>[Snabbstart](../certificates/quick-create-powershell.md)|[Referens](/rest/api/keyvault/#certificate-operations)|E.t.|[Referens](/dotnet/api/azure.security.keyvault.certificates)|[Referens](/python/api/overview/azure/keyvault-certificates-readme)<br>[Snabbstart](../certificates/quick-create-python.md)|[Referens](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-certificates/4.1.0/index.html)|[Referens](/javascript/api/@azure/keyvault-certificates/)|
+|[Referens](/cli/azure/keyvault/certificate)<br>[Snabbstart](../certificates/quick-create-cli.md)|[Referens](/powershell/module/az.keyvault)<br>[Snabbstart](../certificates/quick-create-powershell.md)|[Referens](/rest/api/keyvault/#certificate-operations)|Saknas|[Referens](/dotnet/api/azure.security.keyvault.certificates)|[Referens](/python/api/overview/azure/keyvault-certificates-readme)<br>[Snabbstart](../certificates/quick-create-python.md)|[Referens](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-certificates/4.1.0/index.html)|[Referens](/javascript/api/@azure/keyvault-certificates/)|
 
 **Hemligheter och SDK: er för hemligheter**
 
@@ -104,7 +104,7 @@ Självstudier om hur du autentiserar till Key Vault i program finns i:
 
 Se [klient bibliotek](client-libraries.md) för installations paket och käll kod.
 
-Mer information om Key Vault data Plans säkerhet finns [Key Vault data plan och åtkomst principer](./secure-your-key-vault.md#data-plane-and-access-policies) och [Key Vault data plan och RBAC (för hands version)](./secure-your-key-vault.md#data-plane-and-azure-rbac-preview)
+Mer information om Key Vault data Plans säkerhet finns [Key Vault data plan och åtkomst principer](./secure-your-key-vault.md#data-plane-and-access-policies) och [Key Vault data plan och Azure RBAC (för hands version)](./secure-your-key-vault.md#data-plane-and-azure-rbac-preview)
 
 ### <a name="code-examples"></a>Kodexempel
 

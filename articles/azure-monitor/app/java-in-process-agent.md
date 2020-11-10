@@ -3,12 +3,12 @@ title: Azure Monitor Application Insights Java
 description: Övervakning av program prestanda för Java-program som körs i vilken miljö som helst utan kod ändring. Distribuerad spårning och program karta.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: f7cda0f9389f0b628aca82dd6c65acba140e739b
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 8423443abac90b87349a4a80fce0ec33a8b686da
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426841"
+ms.locfileid: "94444749"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Java-kodad program övervakning Azure Monitor Application Insights
 
@@ -55,9 +55,7 @@ Eller genom att skapa en konfigurations fil med namnet `applicationinsights.json
 
 ```json
 {
-  "instrumentationSettings": {
-    "connectionString": "InstrumentationKey=..."
-  }
+  "connectionString": "InstrumentationKey=..."
 }
 ```
 
@@ -141,12 +139,12 @@ Tabellen nedan representerar anpassade typer av anpassade telemetri som stöds f
 
 |                     | Micrometer | Log4j, logback, JUL | 2. x SDK |
 |---------------------|------------|---------------------|---------|
-| **Anpassade händelser**   |            |                     |  Yes    |
+| **Anpassade händelser**   |            |                     |  Ja    |
 | **Anpassade mått**  |  Ja       |                     |  Ja    |
-| **Beroenden**    |            |                     |  Yes    |
+| **Beroenden**    |            |                     |  Ja    |
 | **Undantag**      |            |  Ja                |  Ja    |
-| **Sid visningar**      |            |                     |  Yes    |
-| **Begäranden**        |            |                     |  Yes    |
+| **Sid visningar**      |            |                     |  Ja    |
+| **Begäranden**        |            |                     |  Ja    |
 | **Spårningar**          |            |  Ja                |  Ja    |
 
 Vi planerar inte att lansera en SDK med Application Insights 3,0 för tillfället.

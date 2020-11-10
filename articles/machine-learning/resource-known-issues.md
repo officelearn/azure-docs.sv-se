@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: troubleshooting, contperfq4
-ms.date: 10/02/2020
-ms.openlocfilehash: b49e7ab7f3412177ee9eafad8d1a68525e054421
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/09/2020
+ms.openlocfilehash: 46763bddd0f173ccf73edc54e5f2688d3bf6efc0
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314767"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445412"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Kända problem och felsökning i Azure Machine Learning
 
@@ -61,7 +61,7 @@ Ibland kan det vara bra om du kan ange diagnostikinformation när du ber om hjä
      
 * **Förklarings paketet är inte garanterat att installeras när du installerar azureml-träna-automl-client:** 
    
-   När du kör en fjärran sluten AutoML med modell förklaring aktive rad visas ett fel meddelande "installera azureml-deklarning-Model-paket för modell förklaringar". Detta är ett känt fel. Som en lösning följer du ett av stegen nedan:
+   När du kör en fjärran sluten AutoML med modell förklaring aktive rad visas ett fel meddelande "installera azureml-deklarning-Model-paket för modell förklaringar". Detta är ett känt problem. Som en lösning följer du ett av stegen nedan:
   
   1. Installera azureml – förklara-Model lokalt.
    ```
@@ -258,7 +258,20 @@ Begränsningar och kända problem för data avvikelse Övervakare:
 
 ## <a name="azure-machine-learning-designer"></a>Azure Machine Learning Designer
 
-* **Förberedelse tid för lång beräkning:**
+### <a name="dataset-visualization-in-the-designer"></a>Data uppsättnings visualisering i designern
+
+När du har registrerat en data uppsättning på till gångs sidan för **data uppsättningar** eller med SDK kan du hitta den under **data uppsättnings** kategorin i listan till design ytan.
+
+Men när du drar data uppsättningen till arbets ytan och visualiseringen kan det hända att det inte går att visualisera på grund av följande orsaker:
+
+- För närvarande kan du endast visualisera tabell data uppsättning i designern. Om du registrerar en fil data uppsättning utanför designern kan du inte visualisera den i designer-arbetsytan.
+- Din data uppsättning lagras i ett virtuellt nätverk (VNet). Om du vill visualisera måste du aktivera arbets ytans hanterade identitet för data lagret.
+    1. Gå till det relaterade data lagret och klicka på uppdatera **autentiseringsuppgifter** 
+     :::image type="content" source="./media/resource-known-issues/datastore-update-credential.png" alt-text="Uppdatera"::: autentiseringsuppgifter
+    1. Välj **Ja** för att aktivera hanterad identitet för arbets ytan.
+    :::image type="content" source="./media/resource-known-issues/enable-workspace-managed-identity.png" alt-text="Aktivera hanterad identitet för arbets yta":::
+
+### <a name="long-compute-preparation-time"></a>Förberedelse tid för lång beräkning
 
 Det kan vara några minuter eller till och med längre första gången du ansluter till eller skapar ett beräknings mål. 
 
@@ -269,7 +282,7 @@ import time
 time.sleep(600)
 ```
 
-* **Logg för real tids slut punkter:**
+### <a name="log-for-real-time-endpoints"></a>Logg för slut punkter i real tid
 
 Loggar över real tids slut punkter är kund information. För fel sökning av slut punkter i real tid kan du använda följande kod för att aktivera loggar. 
 

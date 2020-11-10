@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: c96263b5d40d4f6a4904a6da3d40ad98ac81f030
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f17cdd42c892f6c0d218875cf304846937ba58d7
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322308"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444849"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Hur Azure Machine Learning fungerar: arkitektur och koncept
 
@@ -36,7 +36,7 @@ Arbets ytan är den centrala platsen för att:
   * [Pipelines](#ml-pipelines)
   * [Datauppsättningar](#datasets-and-datastores)
   * [Modeller](#models)
-  * [Slut punkter](#endpoints)
+  * [Slutpunkter](#endpoints)
 
 En arbets yta innehåller andra Azure-resurser som används av arbets ytan:
 
@@ -46,6 +46,19 @@ En arbets yta innehåller andra Azure-resurser som används av arbets ytan:
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): lagrar hemligheter som används av beräknings mål och annan känslig information som krävs av arbets ytan.
 
 Du kan dela en arbets yta med andra.
+
+### <a name="create-workspace"></a>Skapa arbetsyta
+
+I följande diagram visas arbets ytan skapa arbets yta.
+
+* Du loggar in på Azure AD från någon av de Azure Machine Learning klienter som stöds (Azure CLI, python SDK, Azure Portal) och begär rätt Azure Resource Manager-token.
+* Du anropar Azure Resource Manager för att skapa arbets ytan. 
+* Azure Resource Manager kontaktar Azure Machine Learning Resource Provider för att etablera arbets ytan.
+* Om du inte anger befintliga resurser skapas ytterligare nödvändiga resurser i din prenumeration..
+
+Du kan också etablera andra beräknings mål som är kopplade till en arbets yta (t. ex. Azure Kubernetes service eller VM) efter behov.
+
+[![Skapa arbets ytans arbets flöde](media/concept-azure-machine-learning-architecture/create-workspace.png)](media/concept-azure-machine-learning-architecture/create-workspace.png#lightbox)
 
 ## <a name="computes"></a>Beräknar
 
@@ -114,6 +127,10 @@ Du kan till exempel köra konfigurationer i [Konfigurera en tränings körning](
 
 När du skickar en körning komprimerar Azure Machine Learning den katalog som innehåller skriptet som en zip-fil och skickar den till beräknings målet. Zip-filen extraheras sedan och skriptet körs där. Azure Machine Learning lagrar också zip-filen som en ögonblicks bild som en del av körnings posten. Alla som har åtkomst till arbets ytan kan bläddra i en körnings post och ladda ned ögonblicks bilden.
 
+Följande diagram visar arbets flödet för kod ögonblicks bilder.
+
+[![Arbets flöde för kod ögonblicks bild](media/concept-azure-machine-learning-architecture/code-snapshot.png)](media/concept-azure-machine-learning-architecture/code-snapshot.png#lightbox)
+
 ### <a name="logging"></a>Loggning
 
 Azure Machine Learning loggar standard körnings mått automatiskt åt dig. Du kan dock också [använda python SDK för att logga godtyckliga mått](how-to-track-experiments.md).
@@ -129,6 +146,31 @@ Det finns flera sätt att visa dina loggar: övervakningens körnings status i r
 När du startar en utbildning som kör där käll katalogen är en lokal git-lagringsplats, lagras information om lagrings platsen i körnings historiken. Detta fungerar med körningar som skickas med hjälp av en konfiguration för skript körning eller en ML-pipeline. Den fungerar även för körningar som skickats från SDK eller Machine Learning CLI.
 
 Mer information finns i [git-integrering för Azure Machine Learning](concept-train-model-git-integration.md).
+
+### <a name="training-workflow"></a>Arbets flöde för utbildning
+
+När du kör ett experiment för att träna en modell sker följande steg. Dessa illustreras i arbets flödes diagrammet för utbildning nedan:
+
+* Azure Machine Learning anropas med ögonblicks bild-ID: t för kod ögonblicks bilden som sparades i föregående avsnitt.
+* Azure Machine Learning skapar ett körnings-ID (valfritt) och en Machine Learning-nyckeltoken som senare används av beräknings mål som Machine Learning-beräkning/VM: ar för att kommunicera med Machine Learning-tjänsten.
+* Du kan välja antingen ett hanterat beräknings mål (till exempel Machine Learning-beräkning) eller ett ohanterat beräknings mål (t. ex. virtuella datorer) för att köra utbildnings jobb. Här är data flöden för båda scenarierna:
+   * VM/HDInsight, som används av SSH-autentiseringsuppgifter i ett nyckel valv i Microsoft-prenumerationen. Azure Machine Learning kör hanterings kod på Compute-målet som:
+
+   1. Förbereder miljön. (Docker är ett alternativ för virtuella datorer och lokala datorer. Se följande steg för att Machine Learning-beräkning förstå hur du kan köra experiment i Docker-behållare fungerar.)
+   1. Laddar ned koden.
+   1. Ställer in miljövariabler och konfigurationer.
+   1. Kör användar skript (kod ögonblicks bilden som nämns i föregående avsnitt).
+
+   * Machine Learning-beräkning, som nås via en arbets yta-hanterad identitet.
+Eftersom Machine Learning-beräkning är ett hanterat beräknings mål (dvs. det hanteras av Microsoft) körs det under din Microsoft-prenumeration.
+
+   1. Fjärrdockans konstruktion har inaktiverats, om det behövs.
+   1. Hanterings koden skrivs till användarens Azure Files-resurs.
+   1. Behållaren startas med ett inledande kommando. Det vill säga hanterings koden enligt beskrivningen i föregående steg.
+
+* När körningen är klar kan du fråga körningar och mått. I flödes diagrammet nedan inträffar det här steget när träning Compute Target skriver körnings måtten tillbaka till Azure Machine Learning från lagringen i Cosmos DB-databasen. Klienter kan anropa Azure Machine Learning. Machine Learning kommer i tur och retur-mått från Cosmos DB-databasen och återställa dem tillbaka till klienten.
+
+[![Arbets flöde för utbildning](media/concept-azure-machine-learning-architecture/training-and-metrics.png)](media/concept-azure-machine-learning-architecture/training-and-metrics.png#lightbox)
 
 ## <a name="models"></a>Modeller
 
@@ -178,9 +220,21 @@ En slut punkt är en instansiering av din modell i antingen en webb tjänst som 
 
 När du distribuerar en modell som en webb tjänst kan slut punkten distribueras på Azure Container Instances, Azure Kubernetes-tjänsten eller FPGAs. Du skapar tjänsten från din modell, ditt skript och tillhör ande filer. De placeras i en bas behållar avbildning som innehåller körnings miljön för modellen. Avbildningen har en belastningsutjämnad HTTP-slutpunkt som tar emot Poäng begär Anden som skickas till webb tjänsten.
 
-Du kan aktivera Application Insights telemetri eller modellera telemetri för att övervaka din webb tjänst. Telemetri-data är bara tillgängliga för dig.  Den lagras i Application Insights-och lagrings konto instanser.
+Du kan aktivera Application Insights telemetri eller modellera telemetri för att övervaka din webb tjänst. Telemetri-data är bara tillgängliga för dig.  Den lagras i Application Insights-och lagrings konto instanser. Om du har aktiverat automatisk skalning skalar Azure automatiskt distributionen.
 
-Om du har aktiverat automatisk skalning skalar Azure automatiskt distributionen.
+I följande diagram visas ett flödes schema för en modell som distribueras som en webb tjänst slut punkt:
+
+Här är information:
+
+* Användaren registrerar en modell med hjälp av en klient som Azure Machine Learning SDK.
+* Användaren skapar en avbildning med hjälp av en modell, en resultat fil och andra modell beroenden.
+* Docker-avbildningen skapas och lagras i Azure Container Registry.
+* Webb tjänsten distribueras till Compute-målet (Container Instances/AKS) med hjälp av avbildningen som skapades i föregående steg.
+* Information om bedömnings förfrågningar lagras i Application Insights, som finns i användarens prenumeration.
+* Telemetri skickas också till Microsoft/Azure-prenumerationen.
+
+[![Arbets flöde för störningar](media/concept-azure-machine-learning-architecture/inferencing.png)](media/concept-azure-machine-learning-architecture/inferencing.png#lightbox)
+
 
 Ett exempel på hur du distribuerar en modell som en webb tjänst finns [i Distribuera en bild klassificerings modell i Azure Container instances](tutorial-deploy-models-with-aml.md).
 

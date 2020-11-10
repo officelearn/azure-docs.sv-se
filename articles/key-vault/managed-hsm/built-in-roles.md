@@ -8,16 +8,16 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 6b39c1d6fe2e84055e7c94dde076514d04a24f36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5ecd8f13a3255a565168f62f358a6a38e3cbab4
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91000877"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445225"
 ---
 # <a name="managed-hsm-local-rbac-built-in-roles"></a>Hanterade HSM-lokala RBAC-inbyggda roller
 
-Hanterad HSM lokal RBAC har flera inbyggda roller som du kan tilldela till användare, tjänstens huvud namn, grupper och hanterade identiteter. Om du vill tillåta ett huvud konto att utföra en åtgärd måste du tilldela dem en roll som ger dem behörighet att utföra åtgärden. Med alla dessa roller och åtgärder kan du bara hantera behörighet för data Plans åtgärder. Om du vill hantera kontroll Plans behörigheter för hanterad HSM-resurs (till exempel skapa en ny hanterad HSM eller uppdatera, flytta och ta bort en befintlig) måste du använda [rollbaserad åtkomst kontroll (RBAC) i Azure](../../role-based-access-control/overview.md).
+Hanterad HSM lokal RBAC har flera inbyggda roller som du kan tilldela till användare, tjänstens huvud namn, grupper och hanterade identiteter. Om du vill tillåta ett huvud konto att utföra en åtgärd måste du tilldela dem en roll som ger dem behörighet att utföra åtgärden. Med alla dessa roller och åtgärder kan du bara hantera behörighet för data Plans åtgärder. Om du vill hantera kontroll Plans behörigheter för den hanterade HSM-resursen (till exempel skapa en ny hanterad HSM eller uppdatera, flytta och ta bort en befintlig) måste du använda [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/overview.md).
 
 ## <a name="built-in-roles"></a>Inbyggda roller
 
@@ -44,7 +44,7 @@ Hanterad HSM lokal RBAC har flera inbyggda roller som du kan tilldela till anvä
 /securitydomain/upload/action|<center>Röntgen</center>||||||
 /securitydomain/upload/read|<center>Röntgen</center>||||||
 /securitydomain/transferkey/read|<center>Röntgen</center>||||||
-|**Nyckelhantering**|
+|**Nyckel hantering**|
 |/keys/read/action|<center>Röntgen</center>|<center>Röntgen</center>|<center>Röntgen</center>||<center>Röntgen</center>||<center>Röntgen</center>|
 |/keys/write/action|<center>Röntgen</center>|<center>Röntgen</center>|<center>Röntgen</center>||||
 |/keys/create|<center>Röntgen</center>|<center>Röntgen</center>|<center>Röntgen</center>||||
@@ -77,5 +77,5 @@ Hanterad HSM lokal RBAC har flera inbyggda roller som du kan tilldela till anvä
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se en översikt över [rollbaserad åtkomst kontroll i Azure (RBAC)](../../role-based-access-control/overview.md).
+- Se en översikt över [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/overview.md).
 - Se en självstudie om [hanterad HSM-roll hantering](role-management.md)

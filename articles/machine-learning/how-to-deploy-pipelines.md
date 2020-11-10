@@ -11,12 +11,12 @@ author: lobrien
 ms.date: 8/25/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: dea38705dbb6c2b7abd8a9786ef9adb66ad56ad7
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: fd5c0905b4a5d050eaf35456353122fd26f8cbf7
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320441"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445276"
 ---
 # <a name="publish-and-track-machine-learning-pipelines"></a>Publicera och spåra maskin inlärnings pipeliner
 
@@ -26,7 +26,7 @@ Den här artikeln visar hur du kan dela en pipeline för maskin inlärning med d
 
 Maskin inlärnings pipeliner är återanvändbara arbets flöden för Machine Learning-uppgifter. En fördel med pipelines har ökat samarbete. Du kan också versions pipelines, så att kunderna kan använda den aktuella modellen när du arbetar med en ny version. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Skapa en [Azure Machine Learning arbets yta](how-to-manage-workspace.md) för att lagra alla dina pipeline-resurser
 
@@ -74,7 +74,7 @@ När du har en pipeline igång kan du publicera en pipeline så att den körs me
 Alla publicerade pipeliner har en REST-slutpunkt. Med pipeline-slutpunkten kan du utlösa en körning av pipelinen från alla externa system, inklusive icke-python-klienter. Den här slut punkten aktiverar "hanterad repeterbarhet" i batch-poängsättning och ominlärnings scenarier.
 
 > [!IMPORTANT]
-> Om du använder rollbaserad åtkomst kontroll (RBAC) för att hantera åtkomst till din pipeline, [anger du behörigheterna för ditt pipeline-scenario (utbildning eller poängsättning)](how-to-assign-roles.md#q-what-are-the-permissions-needed-to-perform-some-common-scenarios-in-the-azure-machine-learning-service).
+> Om du använder rollbaserad åtkomst kontroll (RBAC) för att hantera åtkomst till din pipeline, [anger du behörigheterna för ditt pipeline-scenario (utbildning eller poängsättning)](how-to-assign-roles.md#common-scenarios).
 
 Om du vill anropa körningen av föregående pipeline behöver du en Azure Active Directory Authentication Head-token. Att hämta en sådan token beskrivs i [klass](/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?preserve-view=true&view=azure-ml-py) referensen AzureCliAuthentication och i [autentiseringen i Azure Machine Learning](https://aka.ms/pl-restep-auth) Notebook.
 
@@ -90,7 +90,7 @@ response = requests.post(published_pipeline1.endpoint,
 
 `json`Argumentet till post-begäran måste innehålla, för `ParameterAssignments` nyckeln, en ord lista som innehåller pipeline-parametrarna och deras värden. Dessutom `json` kan argumentet innehålla följande nycklar:
 
-| Tangent | Beskrivning |
+| Nyckel | Beskrivning |
 | --- | --- | 
 | `ExperimentName` | Namnet på experimentet som är associerat med den här slut punkten |
 | `Description` | Fri hands text som beskriver slut punkten | 

@@ -7,12 +7,12 @@ ms.date: 08/27/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 3fdc9a9f99b239f68022067a5aedbc7e6e0d12a4
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 7423114d2da23207dfcc1a329675b8c902b1f320
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287506"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445548"
 ---
 # <a name="authenticate-to-azure-key-vault"></a>Autentisera till Azure Key Vault
 
@@ -62,7 +62,7 @@ Key Vault fungerar med två olika nivåer av auktorisering:
 
     Key Vault stöder för närvarande [deltagar](../../role-based-access-control/built-in-roles.md#key-vault-contributor) rollen, som tillåter hanterings åtgärder på Key Vault resurser. Ett antal andra roller är för närvarande en för hands version. Du kan också skapa anpassade roller enligt beskrivningen i [Azures anpassade roller](../../role-based-access-control/custom-roles.md).
 
-    Allmän information om roller finns i [Vad är Azure Role-Based Access Control (RBAC)?](../../role-based-access-control/overview.md).
+    Allmän information om roller finns i [Vad är Azures rollbaserad åtkomst kontroll (Azure RBAC)?](../../role-based-access-control/overview.md).
 
 
 > [!IMPORTANT]
@@ -125,4 +125,4 @@ Följande tabell länkar till olika artiklar som visar hur du arbetar med Key Va
 - [Fel sökning av Key Vault åtkomst princip](troubleshooting-access-issues.md)
 - [Fel koder för Key Vault REST API](rest-error-codes.md)
 - [Guide för Key Vault utvecklare](developers-guide.md)
-- [Vad är Azure Role-Based Access Control (RBAC)?](../../role-based-access-control/overview.md)
+- [Vad är rollbaserad åtkomstkontroll i Azure (Azure RBAC)?](../../role-based-access-control/overview.md)

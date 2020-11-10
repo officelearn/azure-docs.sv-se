@@ -2,13 +2,13 @@
 title: Vad är nytt med Azure Arc-aktiverade Server agenter
 description: Den här artikeln innehåller viktig information om Azure Arc-aktiverade Server agenter. För många av de sammanfattade problemen finns det länkar till ytterligare information.
 ms.topic: conceptual
-ms.date: 09/16/2020
-ms.openlocfilehash: 1918d03b5bbfaaa64b7d74c18fad4eb9a86800a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/10/2020
+ms.openlocfilehash: 5322a92bfc67d9f80c2271a3ef9b5626455e9ad7
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90908159"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445293"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Vad är nytt med Azure Arc-aktiverade Server agenter
 
@@ -17,6 +17,21 @@ Azure Arc-aktiverade servrar som är anslutna till dator agenten får fort löp 
 - De senaste versionerna
 - Kända problem
 - Felkorrigeringar
+
+## <a name="november-2020"></a>November 2020
+
+### <a name="fixed"></a>Fast
+
+Löst problem där proxykonfigurationen kan försvinna efter uppgraderingen på RPM-baserade distributioner.
+
+## <a name="october-2020"></a>Oktober 2020
+
+### <a name="fixed"></a>Fast
+
+- Fast proxy-skript för att hantera alternativ plats för en annan GC-enhets fil.
+- GuestConfig-agentens tillförlitlighet ändras.
+- Stöd för GuestConfig-agent för US Gov, Virginia region.
+- GuestConfig agent Extension rapporterar meddelanden för att vara mer utförliga om det uppstår problem.
 
 ## <a name="september-2020"></a>September 2020
 

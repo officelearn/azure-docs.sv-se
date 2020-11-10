@@ -5,17 +5,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 11/10/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4e8623ecb351fa99a437de70a9b74a70fb6228cd
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5f2d3ba12fa65beb7156e056c23e44b028cbb520
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151152"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445072"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Client-Side kryptering och Azure Key Vault för Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -223,7 +223,7 @@ BlobClient clientSideEncryptionBlob = plaintextBlob.WithClientSideEncryptionOpti
 ```
 
 # <a name="net-v11"></a>[.NET-v11](#tab/dotnet11)
-Skapa ett **BlobEncryptionPolicy** -objekt och ange det i alternativ för begäran (per API eller på klient nivå med hjälp av **DefaultRequestOptions**). Allt annat kommer att hanteras av klient biblioteket internt.
+Skapa ett **BlobEncryptionPolicy** -objekt och ange det i alternativ för begäran (per API eller på klient nivå med hjälp av **DefaultRequestOptions** ). Allt annat kommer att hanteras av klient biblioteket internt.
 
 ```csharp
 // Create the IKey used for encryption.
@@ -324,7 +324,7 @@ Debug.Assert(messages.Length == 4)
 ```
 
 # <a name="net-v11"></a>[.NET-v11](#tab/dotnet11)
-Skapa ett **QueueEncryptionPolicy** -objekt och ange det i alternativ för begäran (per API eller på klient nivå med hjälp av **DefaultRequestOptions**). Allt annat kommer att hanteras av klient biblioteket internt.
+Skapa ett **QueueEncryptionPolicy** -objekt och ange det i alternativ för begäran (per API eller på klient nivå med hjälp av **DefaultRequestOptions** ). Allt annat kommer att hanteras av klient biblioteket internt.
 
 ```csharp
 // Create the IKey used for encryption.
@@ -344,7 +344,7 @@ Skapa ett **QueueEncryptionPolicy** -objekt och ange det i alternativ för begä
 ---
 
 ### <a name="table-service-encryption-v11-only"></a>Table service kryptering (endast V11)
-Förutom att skapa en krypterings princip och ställa in den på begär ande alternativ måste du antingen ange en **EncryptionResolver** i **TableRequestOptions**eller ange attributet [EncryptProperty] för entiteten.
+Förutom att skapa en krypterings princip och ställa in den på begär ande alternativ måste du antingen ange en **EncryptionResolver** i **TableRequestOptions** eller ange attributet [EncryptProperty] för entiteten.
 
 #### <a name="using-the-resolver"></a>Använda matcharen
 

@@ -8,12 +8,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/12/2020
-ms.openlocfilehash: 6a3916a41635a1c76bddbb092294f6d362fc6050
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1e6f4e16e3eda8519913a9e2ae14f7cc909bf61
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88924719"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445463"
 ---
 # <a name="aml-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>AML-kunskaper i en pipeline för Azure Kognitiv sökning-anrikning
 
@@ -29,7 +29,7 @@ Precis som inbyggda kunskaper har en **AML** -färdighet indata och utdata. Inda
 > * `503 Service Unavailable`
 > * `429 Too Many Requests`
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En [AML-arbetsyta](../machine-learning/concept-workspace.md)
 * En [Azure Kubernetes-tjänst AML Compute Target](../machine-learning/concept-compute-target.md) på den här arbets ytan med en [distribuerad modell](../machine-learning/how-to-deploy-azure-kubernetes-service.md)
@@ -58,9 +58,9 @@ Parametrar är skiftlägeskänsliga. Vilka parametrar du väljer att använda be
 
 Vilka AML kvalifikations parametrar som krävs beror på vilken autentisering din AML-tjänst använder, om det finns någon. AML Services tillhandahåller tre autentiseringsalternativ:
 
-* [Nyckelbaserad autentisering](../machine-learning/concept-enterprise-security.md#authentication-for-web-service-deployment). En statisk nyckel tillhandahålls för att autentisera Poäng förfrågningar från AML-färdigheter
+* [Nyckelbaserad autentisering](../machine-learning/how-to-authenticate-web-service.md#key-based-authentication). En statisk nyckel tillhandahålls för att autentisera Poäng förfrågningar från AML-färdigheter
   * Använd _URI_ och _nyckel_ parametrar
-* [Tokenbaserad autentisering](../machine-learning/concept-enterprise-security.md#authentication). AML-tjänsten [distribueras med hjälp av token-baserad autentisering](../machine-learning/how-to-deploy-azure-kubernetes-service.md#authentication-with-tokens). Den [hanterade identiteten](../active-directory/managed-identities-azure-resources/overview.md) för Azure kognitiv sökning-tjänsten beviljas [rollen läsare](../machine-learning/how-to-assign-roles.md) i AML-tjänstens arbets yta. AML-kompetensen använder sedan Azure Kognitiv sökning tjänstens hanterade identitet för att autentisera mot AML-tjänsten, utan att det krävs några statiska nycklar.
+* [Tokenbaserad autentisering](../machine-learning/how-to-authenticate-web-service.md#token-based-authentication). AML-tjänsten [distribueras med hjälp av token-baserad autentisering](../machine-learning/how-to-authenticate-web-service.md#token-based-authentication). Den [hanterade identiteten](../active-directory/managed-identities-azure-resources/overview.md) för Azure kognitiv sökning-tjänsten beviljas [rollen läsare](../machine-learning/how-to-assign-roles.md) i AML-tjänstens arbets yta. AML-kompetensen använder sedan Azure Kognitiv sökning tjänstens hanterade identitet för att autentisera mot AML-tjänsten, utan att det krävs några statiska nycklar.
   * Använd parametern _resourceId_ .
   * Om Azure Kognitiv sökning-tjänsten finns i en annan region än arbets ytan AML använder du parametern _region_ för att ange den region som AML-tjänsten distribuerades i
 * Ingen autentisering. Ingen autentisering krävs för att använda AML-tjänsten

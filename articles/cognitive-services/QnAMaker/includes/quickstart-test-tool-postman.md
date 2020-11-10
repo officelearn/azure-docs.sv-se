@@ -1,19 +1,19 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: luis
+ms.subservice: qna-maker
 ms.topic: include
 ms.custom: include file
-ms.date: 04/27/2020
-ms.openlocfilehash: fabd79829425147667c46f686a1ec1ceb6a29b00
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 11/09/2020
+ms.openlocfilehash: fa497b69b067d5556f11effdb52505895ecc3bdd
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87132913"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94386631"
 ---
 Denna Postmanbaserade snabbstart vägleder dig genom att hämta ett svar från en kunskapsbas.
 
@@ -29,13 +29,15 @@ Denna Postmanbaserade snabbstart vägleder dig genom att hämta ett svar från e
 
 ## <a name="set-up-postman-for-requests"></a>Konfigurera PostMan för förfrågningar
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (stabil utgåva)](#tab/v1)
+
 I den här snabb starten används samma inställningar för Postman **post** -begäran och konfigureras sedan för att publicera text-JSON som skickas till tjänsten baserat på vad du försöker fråga efter.
 
 Använd den här proceduren för att konfigurera Postman och Läs sedan vart och ett av följande avsnitt för att konfigurera inlägget för inläggs texten JSON.
 
 1. På sidan **Inställningar** för kunskaps basen väljer du fliken **Postman** för att se konfigurationen som används för att generera ett svar från kunskaps basen. Kopiera följande information som ska användas i Postman.
 
-    |Namn|Inställning|Syfte och värde|
+    |Name|Inställning|Syfte och värde|
     |--|--|--|
     |`POST`| `/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer`|Detta är HTTP-metoden och-vägen för URL: en.|
     |`Host`|`https://YOUR-RESOURCE_NAME.azurewebsites.net/qnamaker`|Detta är värd för URL: en. Sammanfoga värden och publicera värden för att hämta den fullständiga generateAnswer-URL: en.|
@@ -44,6 +46,25 @@ Använd den här proceduren för att konfigurera Postman och Läs sedan vart och
     ||`{"question":"<Your question>"}`|Bröd texten i POST-begäran som ett JSON-objekt. Det här värdet kommer att ändras i följande avsnitt beroende på vad frågan är tänkt att göra.|
 
 1. Öppna Postman och skapa en ny grundläggande **post** -begäran med dina publicerade kunskaps bas inställningar. I följande avsnitt ändrar du JSON för INLÄGGs texten till att ändra frågan till din kunskaps bas.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker hanterad (för hands version)](#tab/v2)
+
+I den här snabb starten används samma inställningar för Postman **post** -begäran och konfigureras sedan för att publicera text-JSON som skickas till tjänsten baserat på vad du försöker fråga efter.
+
+Använd den här proceduren för att konfigurera Postman och Läs sedan vart och ett av följande avsnitt för att konfigurera inlägget för inläggs texten JSON.
+
+1. På sidan **Inställningar** för kunskaps basen väljer du fliken **Postman** för att se konfigurationen som används för att generera ett svar från kunskaps basen. Kopiera följande information som ska användas i Postman.
+
+    |Name|Inställning|Syfte och värde|
+    |--|--|--|
+    |`POST`| `/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer`|Detta är HTTP-metoden och-vägen för URL: en.|
+    |`Host`|`https://YOUR-RESOURCE_NAME.cognitiveservices.azure.com/qnamaker`|Detta är värd för URL: en. Sammanfoga värden och publicera värden för att hämta den fullständiga generateAnswer-URL: en.|
+    |`Ocp-Apim-Subscription-Key`|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`|Huvud-värdet för för att auktorisera din begäran. |
+    |`Content-type`|`application/json`|Rubrik svärdet för ditt innehåll.|
+    ||`{"question":"<Your question>"}`|Bröd texten i POST-begäran som ett JSON-objekt. Det här värdet kommer att ändras i följande avsnitt beroende på vad frågan är tänkt att göra.|
+
+1. Öppna Postman och skapa en ny grundläggande **post** -begäran med dina publicerade kunskaps bas inställningar. I följande avsnitt ändrar du JSON för INLÄGGs texten till att ändra frågan till din kunskaps bas.
+---
 
 ## <a name="use-metadata-to-filter-answer"></a>Använd metadata för att filtrera svar
 

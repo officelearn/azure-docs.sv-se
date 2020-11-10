@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: storage
 author: roygara
 ms.service: storage
@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 866640d90c66dd82e8be61d221bc903907575454
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10177dd949ac531027e13cf633b11c16674fd4ab
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91639661"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94386552"
 ---
 I för hands versionen har NFS följande begränsningar:
 
 - NFS 4,1 stöder för närvarande bara de obligatoriska funktionerna från [protokoll specifikationen](https://tools.ietf.org/html/rfc5661). Valfria funktioner som delegering och motringning av alla typer, Lås uppgraderingar och degradering och Kerberos-autentisering och kryptering stöds inte.
 - Om de flesta av dina begär Anden är metadata-koncentriska kommer svars tiden att bli sämre vid jämförelse med Läs-/skriv-/uppdaterings åtgärder.
 - Du måste skapa ett nytt lagrings konto för att kunna skapa en NFS-resurs.
-- Endast hanterings planens REST-API: er stöds. REST-API: er för data plan är inte tillgängliga, vilket innebär att verktyg som Storage Explorer inte fungerar med NFS-resurser, eller att du inte kan bläddra i NFS-dela data i Azure Portal.
+- Endast hanterings planens REST-API: er stöds. REST-API: er för data plan är inte tillgängliga, vilket innebär att verktyg som Storage Explorer inte fungerar med NFS-resurser eller att du inte kan bläddra i NFS dela data i Azure Portal.
 - Endast tillgängligt för Premium-nivån.
 - För närvarande endast tillgängligt med lokalt redundant lagring (LRS).
 

@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f80808f917036dfba122a97bbd255d466f40e476
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0adf548b009ad6fe0c85501b9777ff23723b3e24
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90018500"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413419"
 ---
 # <a name="azure-ad-connect-version-release-history-archive"></a>Azure AD Connect: versions historik Arkiv för version
 
@@ -167,7 +167,7 @@ Azure AD Connect uppgraderingen Miss lyckas om SQL Always on-tillgänglighet har
 ### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar
 
 - Ping Federer-integrationen i Azure AD Connect är nu tillgänglig för allmän tillgänglighet. [Läs mer om hur du federerade Azure AD med ping Federer](./plan-connect-user-signin.md#federation-with-pingfederate)
-- Azure AD Connect skapar nu säkerhets kopian av Azure AD-förtroende i AD FS varje gång en uppdatering görs och lagras i en separat fil för enkel återställning om det behövs. [Läs mer om de nya funktionerna och Azure AD Trust Management i Azure AD Connect](https://aka.ms/fedtrustinaadconnect).
+- Azure AD Connect skapar nu säkerhets kopian av Azure AD-förtroende i AD FS varje gång en uppdatering görs och lagras i en separat fil för enkel återställning om det behövs. [Läs mer om de nya funktionerna och Azure AD Trust Management i Azure AD Connect](./how-to-connect-azure-ad-trust.md).
 - Nya fel söknings verktyg hjälper dig att felsöka ändring av primär e-postadress och dölja konto från Global adress lista
 - Azure AD Connect uppdaterades till att omfatta den senaste SQL Server 2012-interna klienten
 - När du växlar användar inloggning till hash-synkronisering av lösen ord eller direktautentisering i uppgiften "ändra användarens inloggning", aktive ras kryss rutan sömlöst Sign-On som standard.
@@ -212,8 +212,8 @@ Nya funktioner och förbättringar
 - Konfigurationen för tillbakaskrivning av enhet hanteras nu bara i Azure AD Connect guiden.
 - En ny PowerShell-modul med namnet ADSyncTools. psm1 har lagts till som kan användas för att felsöka problem med SQL-anslutningen och olika fel söknings verktyg. Läs mer om ADSyncTools-modulen [här](tshoot-connect-tshoot-sql-connectivity.md). 
 - En ny ytterligare uppgift "Konfigurera enhets alternativ" har lagts till. Du kan använda aktiviteten för att konfigurera följande två åtgärder: 
-  - **Hybrid Azure AD-anslutning**: om din miljö har ett lokalt AD-utrymme och du även vill ha nytta av de funktioner som tillhandahålls av Azure Active Directory kan du implementera hybrid Azure AD-anslutna enheter. Det är enheter som är anslutna både till din lokala Active Directory och din Azure Active Directory.
-  - **Tillbakaskrivning av enhet**: enhetens tillbakaskrivning används för att aktivera villkorlig åtkomst baserat på enheter till AD FS (2012 R2 eller högre) skyddade enheter
+  - **Hybrid Azure AD-anslutning** : om din miljö har ett lokalt AD-utrymme och du även vill ha nytta av de funktioner som tillhandahålls av Azure Active Directory kan du implementera hybrid Azure AD-anslutna enheter. Det är enheter som är anslutna både till din lokala Active Directory och din Azure Active Directory.
+  - **Tillbakaskrivning av enhet** : enhetens tillbakaskrivning används för att aktivera villkorlig åtkomst baserat på enheter till AD FS (2012 R2 eller högre) skyddade enheter
 
     >[!NOTE] 
     > - Alternativet att aktivera tillbakaskrivning av enheter från Anpassa synkroniseringsalternativ blir grå. 
@@ -362,7 +362,7 @@ Lås åtkomst till AD DS-kontot genom att implementera följande behörighets ä
 *   Ta bort alla ACE: er för det angivna objektet, förutom åtkomst till sig själv. Vi vill behålla standard behörigheterna när det kommer till dig själv.
 *   Tilldela följande behörigheter:
 
-Typ     | Namn                          | Access               | Gäller för
+Typ     | Name                          | Access               | Gäller för
 ---------|-------------------------------|----------------------|--------------|
 Tillåt    | SYSTEM                        | Fullständig kontroll         | Det här objektet  |
 Tillåt    | Företagsadministratörer             | Fullständig kontroll         | Det här objektet  |
@@ -425,27 +425,27 @@ Status: 19 2017 oktober
 #### <a name="fixed-issues"></a>Åtgärdade problem
 * Ett problem har åtgärd ATS med *inloggnings uppgiften ändra användare* i Azure AD Connect guiden:
 
-  * Problemet uppstår när du har en befintlig Azure AD Connect distribution med Lösenordssynkronisering **aktiverat**och du försöker ange användar inloggnings metoden som *direktautentisering*. Innan ändringen verkställs visas meddelandet "*inaktivera lösenordssynkronisering*" i guiden. Lösenordssynkronisering förblir dock aktiverat när ändringen har tillämpats. Med den här korrigeringen visar guiden inte längre prompten.
+  * Problemet uppstår när du har en befintlig Azure AD Connect distribution med Lösenordssynkronisering **aktiverat** och du försöker ange användar inloggnings metoden som *direktautentisering*. Innan ändringen verkställs visas meddelandet " *inaktivera lösenordssynkronisering* " i guiden. Lösenordssynkronisering förblir dock aktiverat när ändringen har tillämpats. Med den här korrigeringen visar guiden inte längre prompten.
 
   * Som design inaktiverar guiden inte Lösenordssynkronisering när du uppdaterar användar inloggnings metoden med hjälp av uppgiften *ändra användarens inloggning* . Detta är för att undvika avbrott i kunder som vill behålla Lösenordssynkronisering, även om de aktiverar direktautentisering eller Federation som sin primära användar inloggnings metod.
 
   * Om du vill inaktivera lösenordssynkronisering när du har uppdaterat användar inloggnings metoden måste du köra åtgärden *Anpassa konfiguration av synkronisering* i guiden. När du går till sidan *valfria funktioner* avmarkerar du alternativet *Lösenordssynkronisering* .
 
-  * Observera att samma problem även uppstår om du försöker aktivera/inaktivera sömlös enkel inloggning. Mer specifikt har du en befintlig Azure AD Connect distribution med Lösenordssynkronisering aktiverat och användar inloggnings metoden redan kon figurer ATS som *direktautentisering*. Med hjälp av uppgiften *ändra användarens inloggning* försöker du markera/avmarkera alternativet *Aktivera sömlös enkel inloggning* medan användar inloggnings metoden fortfarande är konfigurerad som "direktautentisering". Innan ändringen verkställs visas meddelandet "*inaktivera lösenordssynkronisering*" i guiden. Lösenordssynkronisering förblir dock aktiverat när ändringen har tillämpats. Med den här korrigeringen visar guiden inte längre prompten.
+  * Observera att samma problem även uppstår om du försöker aktivera/inaktivera sömlös enkel inloggning. Mer specifikt har du en befintlig Azure AD Connect distribution med Lösenordssynkronisering aktiverat och användar inloggnings metoden redan kon figurer ATS som *direktautentisering*. Med hjälp av uppgiften *ändra användarens inloggning* försöker du markera/avmarkera alternativet *Aktivera sömlös enkel inloggning* medan användar inloggnings metoden fortfarande är konfigurerad som "direktautentisering". Innan ändringen verkställs visas meddelandet " *inaktivera lösenordssynkronisering* " i guiden. Lösenordssynkronisering förblir dock aktiverat när ändringen har tillämpats. Med den här korrigeringen visar guiden inte längre prompten.
 
 * Ett problem har åtgärd ATS med *inloggnings uppgiften ändra användare* i Azure AD Connect guiden:
 
-  * Problemet uppstår när du har en befintlig Azure AD Connect distribution med Lösenordssynkronisering **inaktiverat**och du försöker ange användar inloggnings metoden som *direktautentisering*. När ändringen tillämpas aktiverar guiden både direktautentisering och Lösenordssynkronisering. Med den här korrigeringen kan guiden inte längre aktivera Lösenordssynkronisering.
+  * Problemet uppstår när du har en befintlig Azure AD Connect distribution med Lösenordssynkronisering **inaktiverat** och du försöker ange användar inloggnings metoden som *direktautentisering*. När ändringen tillämpas aktiverar guiden både direktautentisering och Lösenordssynkronisering. Med den här korrigeringen kan guiden inte längre aktivera Lösenordssynkronisering.
 
-  * Tidigare var Lösenordssynkronisering ett krav för att aktivera direktautentisering. När du ställer in användar inloggnings metoden som *direktautentisering*, aktiverar guiden både genom strömnings autentisering och Lösenordssynkronisering. Nyligen har Lösenordssynkronisering tagits bort som ett krav. Som en del av Azure AD Connect version 1.1.557.0 gjordes en ändring av Azure AD Connect att inte aktivera Lösenordssynkronisering när du angav användar inloggnings metoden som *direktautentisering*. Ändringen tillämpades dock endast för Azure AD Connect installationen. Med den här korrigeringen används även samma ändring för *inloggnings uppgiften change user* .
+  * Tidigare var Lösenordssynkronisering ett krav för att aktivera direktautentisering. När du ställer in användar inloggnings metoden som *direktautentisering* , aktiverar guiden både genom strömnings autentisering och Lösenordssynkronisering. Nyligen har Lösenordssynkronisering tagits bort som ett krav. Som en del av Azure AD Connect version 1.1.557.0 gjordes en ändring av Azure AD Connect att inte aktivera Lösenordssynkronisering när du angav användar inloggnings metoden som *direktautentisering*. Ändringen tillämpades dock endast för Azure AD Connect installationen. Med den här korrigeringen används även samma ändring för *inloggnings uppgiften change user* .
 
   * Observera att samma problem även uppstår om du försöker aktivera/inaktivera sömlös enkel inloggning. Mer specifikt har du en befintlig Azure AD Connect distribution med Lösenordssynkronisering inaktiverat och användar inloggnings metoden redan har kon figurer ATS som *direktautentisering*. Med hjälp av uppgiften *ändra användarens inloggning* försöker du markera/avmarkera alternativet *Aktivera sömlös enkel inloggning* medan användar inloggnings metoden fortfarande är konfigurerad som "direktautentisering". När ändringen har tillämpats aktiverar guiden Lösenordssynkronisering. Med den här korrigeringen kan guiden inte längre aktivera Lösenordssynkronisering. 
 
-* Ett problem som orsakade Azure AD Connect uppgraderingen kunde inte slutföras, fel meddelandet "*Det gick inte att uppgradera synkroniseringstjänsten*". Dessutom kan synkroniseringstjänsten inte längre starta med ett händelse fel:*Det gick inte att starta tjänsten eftersom databasens version är nyare än den installerade binärfilens version*. Problemet uppstår när administratören som utför uppgraderingen inte har sysadmin-behörighet till den SQL Server som används av Azure AD Connect. Med den här korrigeringen kräver Azure AD Connect bara att administratören ska ha db_owner behörighet till ADSync-databasen under uppgraderingen.
+* Ett problem som orsakade Azure AD Connect uppgraderingen kunde inte slutföras, fel meddelandet " *Det gick inte att uppgradera synkroniseringstjänsten* ". Dessutom kan synkroniseringstjänsten inte längre starta med ett händelse fel: *Det gick inte att starta tjänsten eftersom databasens version är nyare än den installerade binärfilens version*. Problemet uppstår när administratören som utför uppgraderingen inte har sysadmin-behörighet till den SQL Server som används av Azure AD Connect. Med den här korrigeringen kräver Azure AD Connect bara att administratören ska ha db_owner behörighet till ADSync-databasen under uppgraderingen.
 
 * Åtgärdat ett Azure AD Connect uppgraderings problem som påverkade kunder som har aktiverat [sömlös enkel inloggning](./how-to-connect-sso.md). När Azure AD Connect har uppgraderats visas sömlöst Sign-On felaktigt som inaktiverat i Azure AD Connect-guiden, även om funktionen fortfarande är aktive rad och fungerar som den ska. Med den här korrigeringen visas nu funktionen korrekt som aktive rad i guiden.
 
-* Åtgärdat ett problem som orsakade Azure AD Connects guiden att alltid Visa prompten "*Konfigurera käll ankare*" på sidan *klar att konfigurera* , även om inga ändringar som rör käll ankare har gjorts.
+* Åtgärdat ett problem som orsakade Azure AD Connects guiden att alltid Visa prompten " *Konfigurera käll ankare* " på sidan *klar att konfigurera* , även om inga ändringar som rör käll ankare har gjorts.
 
 * När du utför en manuell uppgradering av Azure AD Connect måste kunden ange den globala administratörs behörigheten för motsvarande Azure AD-klient. Tidigare kunde uppgraderingen fortsätta även om den globala administratörens autentiseringsuppgifter tillhör en annan Azure AD-klient. När uppgraderingen har slutförts är vissa konfigurationer inte korrekt sparade med uppgraderingen. Med den här ändringen förhindrar guiden att uppgraderingen fortsätter om de angivna autentiseringsuppgifterna inte matchar Azure AD-klienten.
 
@@ -480,7 +480,7 @@ Status: 05 2017 september
 ### <a name="azure-ad-connect"></a>Azure AD Connect
 
 #### <a name="known-issues"></a>Kända problem
-* Det finns ett känt problem som orsakar Azure AD Connect uppgradering av fel meddelandet "*Det gick inte att uppgradera synkroniseringstjänsten*". Dessutom kan synkroniseringstjänsten inte längre starta med ett händelse fel:*Det gick inte att starta tjänsten eftersom databasens version är nyare än den installerade binärfilens version*. Problemet uppstår när administratören som utför uppgraderingen inte har sysadmin-behörighet till den SQL Server som används av Azure AD Connect. Dbo-behörigheter är inte tillräckliga.
+* Det finns ett känt problem som orsakar Azure AD Connect uppgradering av fel meddelandet " *Det gick inte att uppgradera synkroniseringstjänsten* ". Dessutom kan synkroniseringstjänsten inte längre starta med ett händelse fel: *Det gick inte att starta tjänsten eftersom databasens version är nyare än den installerade binärfilens version*. Problemet uppstår när administratören som utför uppgraderingen inte har sysadmin-behörighet till den SQL Server som används av Azure AD Connect. Dbo-behörigheter är inte tillräckliga.
 
 * Det finns ett känt problem med Azure AD Connect uppgradering som påverkar kunder som har aktiverat [sömlös enkel inloggning](how-to-connect-sso.md). När Azure AD Connect har uppgraderats visas funktionen som inaktive rad i guiden, även om funktionen är aktive rad. En korrigering av det här problemet kommer att ges i framtida versioner. Kunder som är intresserade av detta visnings problem kan manuellt åtgärda det genom att aktivera sömlösa Sign-On i guiden.
 

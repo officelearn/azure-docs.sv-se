@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
-ms.openlocfilehash: 36673533fbbfc913f742a32bd20cde2b238e2143
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49c4f7888150446316a04710bc5de5e618cd66eb
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397240"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413317"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Bästa praxis i Azure för nätverkssäkerhet
 I den här artikeln beskrivs en samling Azure Best Practices för att förbättra nätverks säkerheten. Dessa bästa metoder är härledda från vår erfarenhet av Azure-nätverk och våra kunders upplevelser som du själv har.
@@ -49,22 +49,22 @@ Virtuella Azure-nätverk liknar lokala nätverk i det lokala nätverket. Idén b
 
 Metod tips för logiskt segmenterade undernät är:
 
-**Bästa praxis**: Tilldela inte tillåtna regler med breda intervall (till exempel Tillåt 0.0.0.0 till och med 255.255.255.255).  
-**Information**: se till att fel söknings procedurer förhindrar eller förhindrar att de här typerna av regler anges. De här reglerna leder till en falsk säkerhets idé och används ofta och utnyttjas av röda team.
+**Bästa praxis** : Tilldela inte tillåtna regler med breda intervall (till exempel Tillåt 0.0.0.0 till och med 255.255.255.255).  
+**Information** : se till att fel söknings procedurer förhindrar eller förhindrar att de här typerna av regler anges. De här reglerna leder till en falsk säkerhets idé och används ofta och utnyttjas av röda team.
 
-**Bästa praxis**: segmentera det större adress utrymmet i undernät.   
-**Information**: Använd [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)-baserade undernät för undernät för att skapa undernät.
+**Bästa praxis** : segmentera det större adress utrymmet i undernät.   
+**Information** : Använd [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)-baserade undernät för undernät för att skapa undernät.
 
-**Bästa praxis**: skapa nätverks åtkomst kontroller mellan undernät. Routning mellan undernät sker automatiskt och du behöver inte konfigurera vägvals tabeller manuellt. Som standard finns det inga nätverks åtkomst kontroller mellan de undernät som du skapar i ett virtuellt Azure-nätverk.   
-**Information**: Använd en [nätverks säkerhets grupp](/azure/virtual-network/virtual-networks-nsg) för att skydda mot oombedd trafik i Azure-undernät. Nätverks säkerhets grupper är enkla, tillstånds känsliga paket gransknings enheter som använder 5-tupel-metoden (käll-IP, källport, mål-IP, målport och nivå 4-protokoll) för att skapa regler för att tillåta/neka för nätverks trafik. Du tillåter eller nekar trafik till och från en enskild IP-adress, till och från flera IP-adresser, eller till och från hela undernät.
+**Bästa praxis** : skapa nätverks åtkomst kontroller mellan undernät. Routning mellan undernät sker automatiskt och du behöver inte konfigurera vägvals tabeller manuellt. Som standard finns det inga nätverks åtkomst kontroller mellan de undernät som du skapar i ett virtuellt Azure-nätverk.   
+**Information** : Använd en [nätverks säkerhets grupp](../../virtual-network/virtual-network-vnet-plan-design-arm.md) för att skydda mot oombedd trafik i Azure-undernät. Nätverks säkerhets grupper är enkla, tillstånds känsliga paket gransknings enheter som använder 5-tupel-metoden (käll-IP, källport, mål-IP, målport och nivå 4-protokoll) för att skapa regler för att tillåta/neka för nätverks trafik. Du tillåter eller nekar trafik till och från en enskild IP-adress, till och från flera IP-adresser, eller till och från hela undernät.
 
 När du använder nätverks säkerhets grupper för nätverks åtkomst kontroll mellan undernät kan du ange resurser som tillhör samma säkerhets zon eller roll i sina egna undernät.
 
-**Bästa praxis**: Undvik små virtuella nätverk och undernät så att det blir enklare och flexibelt.   
-**Information**: de flesta organisationer lägger till fler resurser än vad som ursprungligen planeras och omtilldelar adresser är arbets krävande. Med små undernät läggs ett begränsat säkerhets värde till och mappar en nätverks säkerhets grupp till varje undernät lägger till resurser. Definiera undernät i stor storlek för att säkerställa att du har flexibilitet för tillväxt.
+**Bästa praxis** : Undvik små virtuella nätverk och undernät så att det blir enklare och flexibelt.   
+**Information** : de flesta organisationer lägger till fler resurser än vad som ursprungligen planeras och omtilldelar adresser är arbets krävande. Med små undernät läggs ett begränsat säkerhets värde till och mappar en nätverks säkerhets grupp till varje undernät lägger till resurser. Definiera undernät i stor storlek för att säkerställa att du har flexibilitet för tillväxt.
 
-**Bästa praxis**: förenkla hanteringen av regel hantering för nätverks säkerhets grupper genom att definiera [program säkerhets grupper](https://azure.microsoft.com/blog/applicationsecuritygroups/).  
-**Information**: definiera en program säkerhets grupp för listor över IP-adresser som du tror kan ändras i framtiden eller som ska användas över flera nätverks säkerhets grupper. Se till att namnge program säkerhets grupper så att andra kan förstå deras innehåll och syfte.
+**Bästa praxis** : förenkla hanteringen av regel hantering för nätverks säkerhets grupper genom att definiera [program säkerhets grupper](https://azure.microsoft.com/blog/applicationsecuritygroups/).  
+**Information** : definiera en program säkerhets grupp för listor över IP-adresser som du tror kan ändras i framtiden eller som ska användas över flera nätverks säkerhets grupper. Se till att namnge program säkerhets grupper så att andra kan förstå deras innehåll och syfte.
 
 ## <a name="adopt-a-zero-trust-approach"></a>Använd en metod som saknar förtroende
 Perimeter-baserade nätverk använder antagandet att alla system i ett nätverk är betrodda. Men dagens anställda får åtkomst till organisationens resurser från var som helst på en rad olika enheter och appar, vilket gör att perimeternätverket inte är irrelevanta. Principer för åtkomst kontroll som bara fokuserar på vem som har åtkomst till en resurs är inte tillräckligt. För att du ska kunna hantera balansen mellan säkerhet och produktivitet måste säkerhets administratörerna också ta hänsyn till *hur* en resurs nås.
@@ -73,14 +73,14 @@ Nätverk behöver utvecklas från traditionella försvars gränser eftersom nät
 
 Bästa praxis är:
 
-**Bästa praxis**: ge villkorlig åtkomst till resurser baserat på enhet, identitet, säkerhet, nätverks plats och mycket annat.  
-**Information**: med [villkorlig åtkomst i Azure AD](../../active-directory/conditional-access/overview.md) kan du tillämpa rätt åtkomst kontroller genom att implementera automatiska åtkomst kontroll beslut baserat på de villkor som krävs. Mer information finns i [Hantera åtkomst till Azure-hantering med villkorlig åtkomst](../../active-directory/conditional-access/howto-conditional-access-policy-azure-management.md).
+**Bästa praxis** : ge villkorlig åtkomst till resurser baserat på enhet, identitet, säkerhet, nätverks plats och mycket annat.  
+**Information** : med [villkorlig åtkomst i Azure AD](../../active-directory/conditional-access/overview.md) kan du tillämpa rätt åtkomst kontroller genom att implementera automatiska åtkomst kontroll beslut baserat på de villkor som krävs. Mer information finns i [Hantera åtkomst till Azure-hantering med villkorlig åtkomst](../../active-directory/conditional-access/howto-conditional-access-policy-azure-management.md).
 
-**Bästa praxis**: Aktivera endast port åtkomst efter arbets flödes godkännande.  
-**Information**: du kan använda [just-in-Time VM-åtkomst i Azure Security Center](../../security-center/security-center-just-in-time.md) för att låsa inkommande trafik till dina virtuella Azure-datorer, vilket minskar exponeringen för attacker och ger enkel åtkomst till att ansluta till virtuella datorer när det behövs.
+**Bästa praxis** : Aktivera endast port åtkomst efter arbets flödes godkännande.  
+**Information** : du kan använda [just-in-Time VM-åtkomst i Azure Security Center](../../security-center/security-center-just-in-time.md) för att låsa inkommande trafik till dina virtuella Azure-datorer, vilket minskar exponeringen för attacker och ger enkel åtkomst till att ansluta till virtuella datorer när det behövs.
 
-**Bästa praxis**: bevilja tillfälliga behörigheter för att utföra privilegierade uppgifter, vilket förhindrar att obehöriga eller obehöriga användare får åtkomst när behörigheterna har upphört att gälla. Åtkomst beviljas endast när användare behöver den.  
-**Information**: Använd just-in-Time-åtkomst i Azure AD Privileged Identity Management eller i en lösning från tredje part för att ge behörighet att utföra privilegierade uppgifter.
+**Bästa praxis** : bevilja tillfälliga behörigheter för att utföra privilegierade uppgifter, vilket förhindrar att obehöriga eller obehöriga användare får åtkomst när behörigheterna har upphört att gälla. Åtkomst beviljas endast när användare behöver den.  
+**Information** : Använd just-in-Time-åtkomst i Azure AD Privileged Identity Management eller i en lösning från tredje part för att ge behörighet att utföra privilegierade uppgifter.
 
 Noll Trust är nästa utveckling av nätverks säkerhet. Statusen för cyberattacker Drivers-organisationer att ta "förmoda överträdelse"-tänkesätt, men den här metoden bör inte begränsas. Med noll Trust-nätverk skyddas företags data och resurser samtidigt som organisationer kan bygga en modern arbets plats genom att använda tekniker som gör det möjligt för anställda att vara produktiva när som helst, var som helst.
 
@@ -114,7 +114,7 @@ Azure Network Security-enheter kan ge bättre säkerhet än vad kontroller på n
 Om du vill hitta tillgängliga Azure Virtual Network Security-enheter går du till [Azure Marketplace](https://azure.microsoft.com/marketplace/) och söker efter "säkerhet" och "nätverks säkerhet".
 
 ## <a name="deploy-perimeter-networks-for-security-zones"></a>Distribuera perimeternätverk för säkerhets zoner
-Ett [perimeternätverk](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) (kallas även DMZ) är ett fysiskt eller logiskt nätverks segment som ger ett extra säkerhets lager mellan dina till gångar och Internet. Specialiserade enheter för nätverks åtkomst kontroll på kanten av ett perimeternätverk tillåter endast önskad trafik till det virtuella nätverket.
+Ett [perimeternätverk](/azure/architecture/vdc/networking-virtual-datacenter) (kallas även DMZ) är ett fysiskt eller logiskt nätverks segment som ger ett extra säkerhets lager mellan dina till gångar och Internet. Specialiserade enheter för nätverks åtkomst kontroll på kanten av ett perimeternätverk tillåter endast önskad trafik till det virtuella nätverket.
 
 Perimeternätverk är användbara eftersom du kan fokusera din hantering av nätverks åtkomst kontroll, övervakning, loggning och rapportering av enheterna vid gränsen för ditt virtuella Azure-nätverk. Ett perimeternätverk är där du normalt aktiverar DDoS-skydd (distributed denial of Service), intrångs identifiering/skydd mot intrång (ID/IP-adresser), brand Väggs regler och principer, webb filtrering, nätverks program mot skadlig kod och mycket annat. Nätverks säkerhetsenheterna hamnar mellan Internet och ditt virtuella Azure-nätverk och har ett gränssnitt i båda nätverken.
 
@@ -122,7 +122,7 @@ Perimeternätverk är användbara eftersom du kan fokusera din hantering av nät
 
 Baserat på begreppet noll förtroende som nämnts tidigare rekommenderar vi att du använder ett perimeternätverk för alla hög säkerhets distributioner för att förbättra nivån på nätverks säkerhet och åtkomst kontroll för dina Azure-resurser. Du kan använda Azure eller en lösning från tredje part för att tillhandahålla ett extra säkerhets lager mellan dina till gångar och Internet:
 
-- Inbyggda Azure-kontroller. [Azure-brandväggen](/azure/firewall/overview) och [brand väggen för webbaserade program i Application Gateway](../../application-gateway/features.md#web-application-firewall) ger grundläggande säkerhet med en fullständigt tillstånds känslig brand vägg som en tjänst, inbyggd hög tillgänglighet, obegränsad moln skalbarhet, FQDN-filtrering, stöd för OWASP Core Rule Set och enkel konfiguration och konfiguration.
+- Inbyggda Azure-kontroller. [Azure-brandväggen](../../firewall/overview.md) och [brand väggen för webbaserade program i Application Gateway](../../application-gateway/features.md#web-application-firewall) ger grundläggande säkerhet med en fullständigt tillstånds känslig brand vägg som en tjänst, inbyggd hög tillgänglighet, obegränsad moln skalbarhet, FQDN-filtrering, stöd för OWASP Core Rule Set och enkel konfiguration och konfiguration.
 - Erbjudanden från tredje part. Sök på [Azure Marketplace](https://azuremarketplace.microsoft.com/) efter nästa generations brand vägg (NGFW) och andra tredjepartsprogram som tillhandahåller välbekanta säkerhets verktyg och avsevärt förbättrade nätverks säkerhets nivåer. Konfigurationen kan vara mer komplex, men ett erbjudande från tredje part kan göra att du kan använda befintliga funktioner och färdighetsuppsättningar.
 
 ## <a name="avoid-exposure-to-the-internet-with-dedicated-wan-links"></a>Undvik att exponera Internet med dedikerade WAN-länkar
@@ -147,30 +147,30 @@ Den här distributionen av trafiken ökar tillgängligheten på grund av att en 
 
 Vi rekommenderar att du använder belastnings utjämning när du kan och efter behov för dina tjänster. Nedan visas scenarier på både Azures virtuella nätverks nivå och global nivå, tillsammans med alternativen för belastnings utjämning för var och en.
 
-**Scenario**: du har ett program som:
+**Scenario** : du har ett program som:
 
 - Kräver förfrågningar från samma användare/klientsession för att komma till samma backend-virtuella dator. Exempel på detta är shopping vagns appar och webb e-postservrar.
 - Accepterar endast en säker anslutning, så okrypterad kommunikation till servern är inte ett acceptabelt alternativ.
 - Kräver flera HTTP-begäranden på samma tids krävande TCP-anslutning som ska dirigeras eller belastnings bal anse ras till olika Server dels servrar.
 
-**Belastnings Utjämnings alternativ**: Använd [Azure Application Gateway](/azure/application-gateway/application-gateway-introduction), en belastnings utjämning för http-webbtrafik. Application Gateway stöder TLS-kryptering från slut punkt till slut punkt och [TLS-avslutning](/azure/application-gateway/application-gateway-introduction) på gatewayen. Webb servrar kan sedan bli inbördat från kryptering och dekryptering och trafik som flödar okrypterade mot backend-servrarna.
+**Belastnings Utjämnings alternativ** : Använd [Azure Application Gateway](../../application-gateway/overview.md), en belastnings utjämning för http-webbtrafik. Application Gateway stöder TLS-kryptering från slut punkt till slut punkt och [TLS-avslutning](../../application-gateway/overview.md) på gatewayen. Webb servrar kan sedan bli inbördat från kryptering och dekryptering och trafik som flödar okrypterade mot backend-servrarna.
 
-**Scenario**: du måste belastningsutjämna inkommande anslutningar från Internet mellan dina servrar som finns i ett virtuellt Azure-nätverk. Scenarier är när du:
+**Scenario** : du måste belastningsutjämna inkommande anslutningar från Internet mellan dina servrar som finns i ett virtuellt Azure-nätverk. Scenarier är när du:
 
 - Ha tillstånds lösa program som accepterar inkommande begär Anden från Internet.
 - Kräv inte tröga sessioner eller TLS-avlastning. Tröga sessioner är en metod som används med belastnings utjämning i programmet för att uppnå Server tillhörighet.
 
-**Belastnings Utjämnings alternativ**: Använd Azure Portal för att [skapa en extern belastningsutjämnare](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) som sprider inkommande begär anden över flera virtuella datorer för att ge en högre tillgänglighets nivå.
+**Belastnings Utjämnings alternativ** : Använd Azure Portal för att [skapa en extern belastningsutjämnare](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) som sprider inkommande begär anden över flera virtuella datorer för att ge en högre tillgänglighets nivå.
 
-**Scenario**: du måste belastningsutjämna anslutningar från virtuella datorer som inte är på Internet. I de flesta fall initieras de anslutningar som godkänns för belastnings utjämning av enheter i ett virtuellt Azure-nätverk, till exempel SQL Server instanser eller interna webb servrar.   
-**Belastnings Utjämnings alternativ**: Använd Azure Portal för att [skapa en intern belastningsutjämnare](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) som sprider inkommande begär anden över flera virtuella datorer för att ge en högre tillgänglighets nivå.
+**Scenario** : du måste belastningsutjämna anslutningar från virtuella datorer som inte är på Internet. I de flesta fall initieras de anslutningar som godkänns för belastnings utjämning av enheter i ett virtuellt Azure-nätverk, till exempel SQL Server instanser eller interna webb servrar.   
+**Belastnings Utjämnings alternativ** : Använd Azure Portal för att [skapa en intern belastningsutjämnare](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) som sprider inkommande begär anden över flera virtuella datorer för att ge en högre tillgänglighets nivå.
 
-**Scenario**: du behöver global belastnings utjämning eftersom du:
+**Scenario** : du behöver global belastnings utjämning eftersom du:
 
 - Ha en moln lösning som är allmänt fördelad i flera regioner och som kräver högsta möjliga drift tid (tillgänglighet).
 - Du behöver högsta möjliga drift tid för att se till att tjänsten är tillgänglig även om ett helt data Center blir otillgängligt.
 
-**Belastnings Utjämnings alternativ**: använd Azure Traffic Manager. Traffic Manager gör det möjligt att belastningsutjämna anslutningar till dina tjänster baserat på användarens plats.
+**Belastnings Utjämnings alternativ** : använd Azure Traffic Manager. Traffic Manager gör det möjligt att belastningsutjämna anslutningar till dina tjänster baserat på användarens plats.
 
 Om användaren till exempel gör en begäran till din tjänst från EU dirigeras anslutningen till tjänsterna som finns i ett EU-datacenter. Den här delen av Traffic Manager global belastnings utjämning hjälper till att förbättra prestandan eftersom det går snabbare att ansluta till närmaste Data Center än att ansluta till data Center som är långt bort.
 
@@ -181,16 +181,16 @@ De potentiella säkerhets problemen med att använda dessa protokoll via Interne
 
 Vi rekommenderar att du inaktiverar direkt RDP och SSH-åtkomst till dina virtuella Azure-datorer från Internet. När direkt RDP och SSH-åtkomst från Internet har inaktiverats har du andra alternativ som du kan använda för att komma åt de virtuella datorerna för fjärrhantering.
 
-**Scenario**: Aktivera en enskild användare för att ansluta till ett virtuellt Azure-nätverk via Internet.   
-**Alternativ**: [punkt-till-plats-VPN](/azure/vpn-gateway/vpn-gateway-point-to-site-create) är en annan term för en VPN-klient/server anslutning för fjärråtkomst. När punkt-till-plats-anslutningen har upprättats kan användaren använda RDP eller SSH för att ansluta till alla virtuella datorer som finns i det virtuella Azure-nätverket som användaren är ansluten till via punkt-till-plats-VPN. Detta förutsätter att användaren har behörighet att komma åt de virtuella datorerna.
+**Scenario** : Aktivera en enskild användare för att ansluta till ett virtuellt Azure-nätverk via Internet.   
+**Alternativ** : [punkt-till-plats-VPN](../../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md) är en annan term för en VPN-klient/server anslutning för fjärråtkomst. När punkt-till-plats-anslutningen har upprättats kan användaren använda RDP eller SSH för att ansluta till alla virtuella datorer som finns i det virtuella Azure-nätverket som användaren är ansluten till via punkt-till-plats-VPN. Detta förutsätter att användaren har behörighet att komma åt de virtuella datorerna.
 
 Punkt-till-plats-VPN är säkrare än direkta RDP-eller SSH-anslutningar eftersom användaren måste autentisera sig två gånger innan den ansluter till en virtuell dator. Först måste användaren autentisera (och vara auktoriserad) för att upprätta punkt-till-plats-VPN-anslutningen. För det andra måste användaren autentisera (och vara auktoriserad) för att upprätta RDP-eller SSH-sessionen.
 
-**Scenario**: Aktivera användare i ditt lokala nätverk för att ansluta till virtuella datorer i ditt virtuella Azure-nätverk.   
-**Alternativ**: en [plats-till-plats-VPN](/azure/vpn-gateway/vpn-gateway-site-to-site-create) ansluter ett helt nätverk till ett annat nätverk via Internet. Du kan använda en plats-till-plats-VPN för att ansluta ditt lokala nätverk till ett virtuellt Azure-nätverk. Användare i det lokala nätverket ansluter med RDP-eller SSH-protokollet via VPN-anslutningen från plats till plats. Du behöver inte tillåta direkt RDP eller SSH-åtkomst via Internet.
+**Scenario** : Aktivera användare i ditt lokala nätverk för att ansluta till virtuella datorer i ditt virtuella Azure-nätverk.   
+**Alternativ** : en [plats-till-plats-VPN](../../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md) ansluter ett helt nätverk till ett annat nätverk via Internet. Du kan använda en plats-till-plats-VPN för att ansluta ditt lokala nätverk till ett virtuellt Azure-nätverk. Användare i det lokala nätverket ansluter med RDP-eller SSH-protokollet via VPN-anslutningen från plats till plats. Du behöver inte tillåta direkt RDP eller SSH-åtkomst via Internet.
 
-**Scenario**: Använd en särskild WAN-länk för att tillhandahålla funktioner som liknar VPN för plats-till-plats.   
-**Alternativ**: Använd [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/). Den innehåller funktioner som liknar plats-till-plats-VPN. De viktigaste skillnaderna är:
+**Scenario** : Använd en särskild WAN-länk för att tillhandahålla funktioner som liknar VPN för plats-till-plats.   
+**Alternativ** : Använd [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/). Den innehåller funktioner som liknar plats-till-plats-VPN. De viktigaste skillnaderna är:
 
 - Den dedikerade WAN-länken går inte igenom Internet.
 - Dedikerade WAN-länkar är vanligt vis mer stabila och fungerar bättre.
@@ -200,12 +200,12 @@ Använd tjänst slut punkter i virtuella nätverk för att utöka det privata ad
 
 Tjänstslutpunkter har följande fördelar:
 
-- **Förbättrad säkerhets för dina Azure-tjänstresurser**: Med tjänstslutpunkter kan Azure-tjänstresurser skyddas i ditt virtuella nätverk. När tjänstresurser skyddas i ett virtuellt nätverk ökar säkerheten genom att du helt tar bort den offentliga internetåtkomsten till resurserna, så att endast trafik från ditt virtuella nätverk tillåts.
-- **Optimal routning för Azure Service-trafik från ditt virtuella nätverk**: alla vägar i ditt virtuella nätverk som framtvingar Internet trafik till dina lokala och/eller virtuella enheter, som kallas Tvingad tunnel trafik, tvingar också Azure Service-trafik att ta samma väg som internet trafiken. Med tjänstslutpunkter får du optimal routning för Azure-trafiken.
+- **Förbättrad säkerhets för dina Azure-tjänstresurser** : Med tjänstslutpunkter kan Azure-tjänstresurser skyddas i ditt virtuella nätverk. När tjänstresurser skyddas i ett virtuellt nätverk ökar säkerheten genom att du helt tar bort den offentliga internetåtkomsten till resurserna, så att endast trafik från ditt virtuella nätverk tillåts.
+- **Optimal routning för Azure Service-trafik från ditt virtuella nätverk** : alla vägar i ditt virtuella nätverk som framtvingar Internet trafik till dina lokala och/eller virtuella enheter, som kallas Tvingad tunnel trafik, tvingar också Azure Service-trafik att ta samma väg som internet trafiken. Med tjänstslutpunkter får du optimal routning för Azure-trafiken.
 
   Slut punkter tar alltid tjänst trafik direkt från ditt virtuella nätverk till tjänsten i Azure stamnät nätverket. Genom att hålla trafiken i Azures stamnät kan du fortsätta att granska och övervaka utgående Internet trafik från dina virtuella nätverk via Tvingad tunnel trafik utan att påverka tjänst trafiken. Läs mer om [användardefinierade vägar och Tvingad tunnel trafik](../../virtual-network/virtual-networks-udr-overview.md).
 
-- **Enkel att konfigurera med mindre hanterings kostnader**: du behöver inte längre reserverade, offentliga IP-adresser i dina virtuella nätverk för att skydda Azure-resurser via en IP-brandvägg. Det behövs inga NAT- eller gatewayenheter för att konfigurera tjänstslutpunkterna. Tjänstslutpunkter konfigureras via ett enkelt klick på ett undernät. Det finns inga ytterligare kostnader för att underhålla slut punkterna.
+- **Enkel att konfigurera med mindre hanterings kostnader** : du behöver inte längre reserverade, offentliga IP-adresser i dina virtuella nätverk för att skydda Azure-resurser via en IP-brandvägg. Det behövs inga NAT- eller gatewayenheter för att konfigurera tjänstslutpunkterna. Tjänstslutpunkter konfigureras via ett enkelt klick på ett undernät. Det finns inga ytterligare kostnader för att underhålla slut punkterna.
 
 Mer information om tjänst slut punkter och de Azure-tjänster och regioner som tjänst slut punkter är tillgängliga för finns i [tjänst slut punkter för virtuella nätverk](../../virtual-network/virtual-network-service-endpoints-overview.md).
 

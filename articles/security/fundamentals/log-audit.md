@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: terrylan
-ms.openlocfilehash: c5ac9daeb741d400a759603c7a3e3e462cc9294f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79c15f2df82125f20dcfaf9992d9047b632c253d
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398877"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412807"
 ---
 # <a name="azure-security-logging-and-auditing"></a>Säkerhetsloggning och granskning i Azure
 
@@ -42,7 +42,7 @@ Azure-loggar kategoriseras i följande typer:
 
 * **Data Plans loggar** innehåller information om händelser som Aktiver ATS som en del av Azure-resursanvändningen. Exempel på den här typen av logg är Windows händelse system-, säkerhets-och program loggar i en virtuell dator (VM) och [de diagnostikloggar](../../azure-monitor/platform/platform-logs-overview.md) som konfigureras via Azure Monitor.
 
-* **Bearbetade händelser** ger information om analyserade händelser/aviseringar som har bearbetats för din räkning. Exempel på den här typen är [Azure Security Center varningar](../../security-center/security-center-managing-and-responding-alerts.md) där [Azure Security Center](../../security-center/security-center-intro.md) har bearbetat och analyserat din prenumeration och ger kortfattade säkerhets aviseringar.
+* **Bearbetade händelser** ger information om analyserade händelser/aviseringar som har bearbetats för din räkning. Exempel på den här typen är [Azure Security Center varningar](../../security-center/security-center-managing-and-responding-alerts.md) där [Azure Security Center](../../security-center/security-center-introduction.md) har bearbetat och analyserat din prenumeration och ger kortfattade säkerhets aviseringar.
 
 I följande tabell visas de viktigaste typerna av loggar som är tillgängliga i Azure:
 
@@ -50,15 +50,15 @@ I följande tabell visas de viktigaste typerna av loggar som är tillgängliga i
 | ------------ | -------- | ------ | ----------- |
 |[Aktivitets loggar](../../azure-monitor/platform/platform-logs-overview.md)|Kontroll – plan händelser på Azure Resource Manager resurser|  Ger insikt i de åtgärder som utfördes på resurser i din prenumeration.|    REST-API, [Azure Monitor](../../azure-monitor/platform/platform-logs-overview.md)|
 |[Azure resurs loggar](../../azure-monitor/platform/platform-logs-overview.md)|Frekventa data om driften av Azure Resource Manager resurser i prenumerationen|   Ger inblick i åtgärder som din resurs själv utfört.| Azure Monitor|
-|[Azure Active Directory-rapportering](../../active-directory/reports-monitoring/overview-reports.md)|Loggar och rapporter | Rapporterar användar inloggnings aktiviteter och system aktivitets information om användare och grupp hantering.|[Graph API](../../active-directory/develop/active-directory-graph-api-quickstart.md)|
-|[Virtuella datorer och moln tjänster](../../azure-monitor/learn/quick-collect-azurevm.md)|Windows händelse logg tjänst och Linux syslog|  Avbildar system data och loggnings data på de virtuella datorerna och överför dessa data till ett valfritt lagrings konto.|   Windows (med Windows Azure-diagnostik [[wad](../../monitoring-and-diagnostics/azure-diagnostics.md)] Storage) och Linux i Azure Monitor|
-|[Azure-lagringsanalys](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Lagrings loggning, tillhandahåller mått data för ett lagrings konto|Ger insyn i trace-begäranden, analyserar användnings trender och diagnostiserar problem med ditt lagrings konto.|   REST API eller [klient biblioteket](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
+|[Azure Active Directory-rapportering](../../active-directory/reports-monitoring/overview-reports.md)|Loggar och rapporter | Rapporterar användar inloggnings aktiviteter och system aktivitets information om användare och grupp hantering.|[Graph API](../../active-directory/develop/microsoft-graph-intro.md)|
+|[Virtuella datorer och moln tjänster](../../azure-monitor/learn/quick-collect-azurevm.md)|Windows händelse logg tjänst och Linux syslog|  Avbildar system data och loggnings data på de virtuella datorerna och överför dessa data till ett valfritt lagrings konto.|   Windows (med Windows Azure-diagnostik [[wad](../../azure-monitor/platform/diagnostics-extension-overview.md)] Storage) och Linux i Azure Monitor|
+|[Azure-lagringsanalys](/rest/api/storageservices/fileservices/storage-analytics)|Lagrings loggning, tillhandahåller mått data för ett lagrings konto|Ger insyn i trace-begäranden, analyserar användnings trender och diagnostiserar problem med ditt lagrings konto.| REST API eller [klient biblioteket](/dotnet/api/overview/azure/storage)|
 |[Flödes loggar för nätverks säkerhets gruppen (NSG)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)|JSON-format, visar utgående och inkommande flöden per regel|Visar information om inkommande och utgående IP-trafik via en nätverks säkerhets grupp.|[Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)|
 |[Program insikter](../../azure-monitor/app/app-insights-overview.md)|Loggar, undantag och anpassad diagnostik|  Tillhandahåller en tjänst för program prestanda övervakning (APM) för webbutvecklare på flera plattformar.| REST API [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
-|[Process data/säkerhets aviseringar](../../security-center/security-center-intro.md)|  Azure Security Center aviseringar Azure Monitor loggar aviseringar|    Tillhandahåller säkerhets information och aviseringar.|  REST API: er, JSON|
+|[Process data/säkerhets aviseringar](../../security-center/security-center-introduction.md)|   Azure Security Center aviseringar Azure Monitor loggar aviseringar|    Tillhandahåller säkerhets information och aviseringar.|  REST API: er, JSON|
 
 ## <a name="log-integration-with-on-premises-siem-systems"></a>Logg integrering med lokala SIEM-system
-Att [integrera Security Center varningar](../../security-center/security-center-export-data-to-siem.md) beskriver hur du synkroniserar Security Center aviseringar, säkerhets händelser för virtuella datorer som samlas in av Azure Diagnostics-loggar och Azure audit-loggar med dina Azure Monitor loggar eller SIEM-lösning.
+Att [integrera Security Center varningar](../../security-center/security-center-partner-integration.md) beskriver hur du synkroniserar Security Center aviseringar, säkerhets händelser för virtuella datorer som samlas in av Azure Diagnostics-loggar och Azure audit-loggar med dina Azure Monitor loggar eller SIEM-lösning.
 
 ## <a name="next-steps"></a>Nästa steg
 

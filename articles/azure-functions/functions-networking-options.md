@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: jehollan
-ms.openlocfilehash: 3a44efac274bf5c5d6cfc6a0f044ee89b479cbe6
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 691fbf3be4e39a724a8a290c3ec147a679013cba
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897083"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413096"
 ---
 # <a name="azure-functions-networking-options"></a>Nätverksalternativ för Azure Functions
 
@@ -107,7 +107,7 @@ För närvarande kan du använda icke-HTTP-utlösare i ett virtuellt nätverk p�
 
 ### <a name="premium-plan-with-virtual-network-triggers"></a>Premium plan med virtuella nätverks utlösare
 
-När du kör en Premium-plan kan du ansluta funktioner som inte är HTTP-utlösare till tjänster som körs i ett virtuellt nätverk. För att göra detta måste du aktivera stöd för virtuell nätverks utlösare för din Function-app. Inställningen för **körnings skalnings övervakning** finns i [Azure Portal](https://portal.azure.com) under **konfigurations**  >  **funktionens körnings inställningar** .
+När du kör en Premium-plan kan du ansluta funktioner som inte är HTTP-utlösare till tjänster som körs i ett virtuellt nätverk. För att göra detta måste du aktivera stöd för virtuell nätverks utlösare för din Function-app. Inställningen för **körnings skalnings övervakning** finns i [Azure Portal](https://portal.azure.com) under **konfigurations**  >  **funktionens körnings inställningar**.
 
 :::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 
@@ -116,6 +116,9 @@ Du kan också aktivera virtuella nätverks utlösare med hjälp av följande Azu
 ```azurecli-interactive
 az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
 ```
+
+> [!TIP]
+> Aktivering av virtuella nätverks utlösare kan påverka programmets prestanda, eftersom dina App Service plan instanser måste övervaka dina utlösare för att fastställa när de ska skalas. Den här effekten är förmodligen mycket liten.
 
 Virtuella nätverks utlösare stöds i version 2. x och senare av Functions-körningen. Följande typer av icke-HTTP-utlösare stöds.
 

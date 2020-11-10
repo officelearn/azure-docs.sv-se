@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 7f274827e646ea0a7c0fd103983cfc566d699228
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a6b6196888aedfd6aa60c9395ff27611907661a
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596783"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413165"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Vilka disktyper är tillgängliga i Azure?
 
@@ -23,7 +23,7 @@ Azure Managed disks erbjuder för närvarande fyra disk typer, och varje typ är
 
 Följande tabell innehåller en jämförelse av Ultra disks, Premium solid-state-hårddiskar (SSD), standard SSD och standard hård diskar (HDD) för hanterade diskar för att hjälpa dig att avgöra vad som ska användas.
 
-| Information | Ultradisk | Premium SSD | Standard SSD | Standard HDD |
+| Detalj | Ultradisk | Premium SSD | Standard SSD | Standard HDD |
 | ------ | ---------- | ----------- | ------------ | ------------ |
 |Disktyp   |SSD   |SSD   |SSD   |HDD   |
 |Scenario   |I/o-intensiva arbets belastningar, till exempel [SAP HANA](workloads/sap/hana-vm-operations-storage.md), toppnivå databaser (till exempel SQL, Oracle) och andra transaktions krävande arbets belastningar.   |Produktion och prestandakänsliga arbetsbelastningar   |Webbservrar, företagsprogram med lätt användning och Dev/Test   |Säkerhetskopiering, icke-kritisk, lågfrekvent åtkomst   |
@@ -59,6 +59,8 @@ Några viktiga funktioner i Ultra disks:
 |256     |76 800         |2 000         |
 |512     |153 600         |2 000         |
 |1 024-65536 (storlekar i det här intervallet ökar i steg om 1 TiB)     |160 000         |2 000         |
+
+Ultra disks har utformats för att ge under millisekunder-fördröjningar och mål-IOPS och data flöde som beskrivs i föregående tabell 99,99% av tiden.
 
 ### <a name="ga-scope-and-limitations"></a>Allmän omfattning och begränsningar
 
@@ -122,15 +124,15 @@ När du använder hanterade diskar gäller följande saker:
 - Utgående data överföringar
 - Antal transaktioner
 
-**Hanterad disk storlek**: hanterade diskar debiteras enligt den etablerade storleken. Azure mappar den etablerade storleken (avrundat uppåt) till den närmaste erbjudna disk storleken. Mer information om de disk storlekar som erbjuds finns i föregående tabeller. Varje disk mappar till ett erbjudande för allokerad disk storlek och debiteras enligt detta. Om du till exempel har upprättat en 200 GiB Standard SSD, mappas den till disk storleks erbjudandet för E15 (256 GiB). Faktureringen för en etablerad disk beräknas per timme genom att använda det månatliga priset för lagrings erbjudandet. Om du till exempel har upprättat en E10-disk och tagit bort den efter 20 timmar debiteras du för E10-erbjudandet som har klassificerats till 20 timmar. Detta gäller oavsett hur mycket faktisk data som skrivs till disken.
+**Hanterad disk storlek** : hanterade diskar debiteras enligt den etablerade storleken. Azure mappar den etablerade storleken (avrundat uppåt) till den närmaste erbjudna disk storleken. Mer information om de disk storlekar som erbjuds finns i föregående tabeller. Varje disk mappar till ett erbjudande för allokerad disk storlek och debiteras enligt detta. Om du till exempel har upprättat en 200 GiB Standard SSD, mappas den till disk storleks erbjudandet för E15 (256 GiB). Faktureringen för en etablerad disk beräknas per timme genom att använda det månatliga priset för lagrings erbjudandet. Om du till exempel har upprättat en E10-disk och tagit bort den efter 20 timmar debiteras du för E10-erbjudandet som har klassificerats till 20 timmar. Detta gäller oavsett hur mycket faktisk data som skrivs till disken.
 
-**Ögonblicks bilder**: ögonblicks bilder faktureras baserat på storleken som används. Om du till exempel skapar en ögonblicks bild av en hanterad disk med en etablerad kapacitet på 64 GiB och den faktiska använda data storleken på 10 GiB faktureras ögonblicks bilden endast för den använda data storleken på 10 GiB.
+**Ögonblicks bilder** : ögonblicks bilder faktureras baserat på storleken som används. Om du till exempel skapar en ögonblicks bild av en hanterad disk med en etablerad kapacitet på 64 GiB och den faktiska använda data storleken på 10 GiB faktureras ögonblicks bilden endast för den använda data storleken på 10 GiB.
 
 Mer information om ögonblicks bilder finns i avsnittet om ögonblicks bilder i [översikten över hanterade diskar](managed-disks-overview.md).
 
-**Utgående data överföringar**: [utgående data överföringar](https://azure.microsoft.com/pricing/details/bandwidth/) (data som går ut från Azures Data Center) debiteras för bandbredds användning.
+**Utgående data överföringar** : [utgående data överföringar](https://azure.microsoft.com/pricing/details/bandwidth/) (data som går ut från Azures Data Center) debiteras för bandbredds användning.
 
-**Transaktioner**: du debiteras för antalet transaktioner som du utför på en standard-hanterad disk. För standard-SSD anses varje I/O-åtgärd som är mindre än eller lika med 256 KiB data flöde betraktas som en enda I/O-åtgärd. I/O-åtgärder som är större än 256 KiB-dataflöde betraktas som flera I/o med storleken 256 KiB. För standard-HDD betraktas varje IO-åtgärd som en enskild transaktion, oavsett I/O-storlek.
+**Transaktioner** : du debiteras för antalet transaktioner som du utför på en standard-hanterad disk. För standard-SSD anses varje I/O-åtgärd som är mindre än eller lika med 256 KiB data flöde betraktas som en enda I/O-åtgärd. I/O-åtgärder som är större än 256 KiB-dataflöde betraktas som flera I/o med storleken 256 KiB. För standard-HDD betraktas varje IO-åtgärd som en enskild transaktion, oavsett I/O-storlek.
 
 Detaljerad information om priser för Managed Disks, inklusive transaktionskostnader, finns [Managed disks prissättning](https://azure.microsoft.com/pricing/details/managed-disks).
 

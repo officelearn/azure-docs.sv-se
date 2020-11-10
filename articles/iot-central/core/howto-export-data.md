@@ -4,16 +4,16 @@ description: Hur du använder den nya data exporten för att exportera dina IoT-
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 09/15/2020
+ms.date: 11/05/2020
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperfq1
-ms.openlocfilehash: 2cbdeca41746099643fb06ff5861a39b2e032b33
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: b16880f42cab21c1437d9adcbeb9825d77475e0e
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126711"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413181"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Exportera IoT-data till moln mål med hjälp av data export
 
@@ -65,7 +65,7 @@ Följ dessa steg om du inte har ett befintligt Event Hubs namn område att expor
     - Kopiera antingen den primära eller sekundära anslutnings strängen. Du använder den här anslutnings strängen för att skapa ett nytt mål i IoT Central.
     - Du kan också skapa en anslutnings sträng för hela Event Hubs namn området:
         1. Gå till ditt Event Hubs namnrum i Azure Portal.
-        2. Under **Inställningar**väljer du **principer för delad åtkomst**
+        2. Under **Inställningar** väljer du **principer för delad åtkomst**
         3. Skapa en ny nyckel eller Välj en befintlig nyckel som har **send** -behörighet.
         4. Kopiera antingen den primära eller sekundära anslutnings strängen
         
@@ -85,7 +85,7 @@ Följ dessa steg om du inte har ett befintligt Service Bus namn område att expo
     - Kopiera antingen den primära eller sekundära anslutnings strängen. Du använder den här anslutnings strängen för att skapa ett nytt mål i IoT Central.
     - Du kan också skapa en anslutnings sträng för hela Service Bus namn området:
         1. Gå till ditt Service Bus namnrum i Azure Portal.
-        2. Under **Inställningar**väljer du **principer för delad åtkomst**
+        2. Under **Inställningar** väljer du **principer för delad åtkomst**
         3. Skapa en ny nyckel eller Välj en befintlig nyckel som har **send** -behörighet.
         4. Kopiera antingen den primära eller sekundära anslutnings strängen
 
@@ -102,7 +102,7 @@ Följ dessa steg om du inte har ett befintligt Azure Storage-konto att exportera
     |Standard|Blob Storage|
     |Premium|Block Blob Storage|
 
-1. Om du vill skapa en behållare i ditt lagrings konto går du till ditt lagrings konto. Under **BLOB service**väljer du **Bläddra i blobbar**. Välj **+ behållare** överst för att skapa en ny behållare.
+1. Om du vill skapa en behållare i ditt lagrings konto går du till ditt lagrings konto. Under **BLOB service** väljer du **Bläddra i blobbar**. Välj **+ behållare** överst för att skapa en ny behållare.
 
 1. Skapa en anslutnings sträng för ditt lagrings konto genom att gå till **inställningar > åtkomst nycklar**. Kopiera en av de två anslutnings strängarna.
 
@@ -119,7 +119,7 @@ Nu när du har ett mål för att exportera data till, konfigurerar du data expor
 
 1. Logga in på ditt IoT Central-program.
 
-1. Välj **data export**i det vänstra fönstret.
+1. Välj **data export** i det vänstra fönstret.
 
     > [!Tip]
     > Om du inte ser **data export** i det vänstra fönstret har du inte behörighet att konfigurera data export i din app. Prata med en administratör för att konfigurera data export.
@@ -135,28 +135,32 @@ Nu när du har ett mål för att exportera data till, konfigurerar du data expor
     |  Telemetri | Exportera telemetri meddelanden från enheter i nära real tid. Varje exporterat meddelande innehåller det fullständiga innehållet i det ursprungliga enhets meddelandet, normaliserat.   |  [Meddelande format för telemetri](#telemetry-format)   |
     | Egenskaps ändringar | Exportera ändringar av enhets-och moln egenskaper i nära real tid. För skrivskyddade enhets egenskaper exporteras ändringar av de rapporterade värdena. För Läs-och skriv egenskaper exporteras både rapporterade och önskade värden. | [Meddelande format för egenskaps ändring](#property-changes-format) |
 
+<a name="DataExportFilters"></a>
 1. Du kan också lägga till filter för att minska mängden exporterade data. Det finns olika typer av filter tillgängliga för varje data export typ:
 
     Om du vill filtrera telemetri kan du:
 
     - **Filtrera** den exporterade data strömmen så att den bara innehåller telemetri från enheter som matchar enhets namn, enhets-ID och enhets mal len filter villkor.
     - **Filtrera** över funktioner: om du väljer ett telemetri-objekt i list rutan **namn** innehåller den exporterade strömmen endast telemetri som uppfyller filter villkoret. Om du väljer en enhet eller ett moln egenskaps objekt i list rutan **namn** , innehåller den exporterade strömmen bara telemetri från enheter med egenskaper som matchar filter villkoret.
-    - **Filter för meddelande egenskap**: enheter som använder enhets-SDK: er kan skicka *meddelande egenskaper* eller *program egenskaper* för varje telemetri. Egenskaperna är en väska med nyckel/värde-par som Taggar meddelandet med anpassade identifierare. Om du vill skapa ett filter för meddelande egenskaper anger du den meddelande egenskaps nyckel som du söker efter och anger ett villkor. Endast telemetri-meddelanden med egenskaper som matchar det angivna filter villkoret exporteras. Följande sträng jämförelse operatorer stöds: Equals, är inte lika med, innehåller inte, innehåller inte, finns inte. [Läs mer om program egenskaper från IoT Hub dokument](../../iot-hub/iot-hub-devguide-messages-construct.md).
+    - **Filter för meddelande egenskap** : enheter som använder enhets-SDK: er kan skicka *meddelande egenskaper* eller *program egenskaper* för varje telemetri. Egenskaperna är en väska med nyckel/värde-par som Taggar meddelandet med anpassade identifierare. Om du vill skapa ett filter för meddelande egenskaper anger du den meddelande egenskaps nyckel som du söker efter och anger ett villkor. Endast telemetri-meddelanden med egenskaper som matchar det angivna filter villkoret exporteras. Följande sträng jämförelse operatorer stöds: Equals, är inte lika med, innehåller inte, innehåller inte, finns inte. [Läs mer om program egenskaper från IoT Hub dokument](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
     Om du vill filtrera egenskaps ändringar använder du ett **funktions filter**. Välj ett egenskaps objekt i list rutan. Den exporterade data strömmen innehåller bara ändringar av den valda egenskapen som uppfyller filter villkoret.
 
+<a name="DataExportEnrichmnents"></a>
 1. Du kan också utöka exporterade meddelanden med ytterligare metadata för nyckel/värde-par. Följande-funktioner är tillgängliga för telemetri-och egenskaps ändringar data export typer:
 
-    - **Anpassad sträng**: lägger till en anpassad statisk sträng i varje meddelande. Ange valfri nyckel och ange valfritt sträng värde.
-    - **Egenskap**: lägger till den aktuella enheten rapporterade egenskapen eller moln egenskap svärdet i varje meddelande. Ange valfri nyckel och välj en enhets-eller moln egenskap. Om det exporterade meddelandet kommer från en enhet som inte har den angivna egenskapen så får inte det exporterade meddelandet berikning.
+    - **Anpassad sträng** : lägger till en anpassad statisk sträng i varje meddelande. Ange valfri nyckel och ange valfritt sträng värde.
+    - **Egenskap** : lägger till den aktuella enheten rapporterade egenskapen eller moln egenskap svärdet i varje meddelande. Ange valfri nyckel och välj en enhets-eller moln egenskap. Om det exporterade meddelandet kommer från en enhet som inte har den angivna egenskapen så får inte det exporterade meddelandet berikning.
 
 1. Lägg till ett nytt mål eller Lägg till ett mål som du redan har skapat. Välj länken **skapa en ny** länk och Lägg till följande information:
 
-    - **Målnamn**: visnings namnet för målet i IoT Central.
-    - **Måltyp: Välj**typ av mål. Om du inte redan har konfigurerat målet läser du [Konfigurera export destination](#set-up-export-destination).
+    - **Målnamn** : visnings namnet för målet i IoT Central.
+    - **Måltyp: Välj** typ av mål. Om du inte redan har konfigurerat målet läser du [Konfigurera export destination](#set-up-export-destination).
     - För Azure Event Hubs, Azure Service Bus kö eller ämne, klistra in anslutnings strängen för resursen och ange Skift läges känslig händelsehubben, kö eller ämnes namn om det behövs.
     - För Azure Blob Storage klistrar du in anslutnings strängen för resursen och anger Skift läges känslig behållar namn vid behov.
-    - För webhook klistrar du in återanrops-URL: en för webhook-slutpunkten.
+    - För webhook klistrar du in återanrops-URL: en för webhook-slutpunkten. Du kan också konfigurera webhook-auktorisering (OAuth 2,0 och autentiseringstoken) och lägga till anpassade rubriker. 
+        - För OAuth 2,0 stöds endast flödet för klientautentiseringsuppgifter. När målet sparas kommer IoT Central att kommunicera med OAuth-providern för att hämta en autentiseringstoken. Denna token kopplas till rubriken "Authorization" för varje meddelande som skickas till det här målet.
+        - För autentiseringstoken kan du ange ett token-värde som ska kopplas direkt till "Authorization"-huvudet för varje meddelande som skickas till det här målet.
     - Välj **Skapa**.
 
 1. Välj **+ destination** och välj ett mål i list rutan. Du kan lägga till upp till fem destinationer till en enda export.
@@ -275,8 +279,8 @@ I följande tabell visas skillnaderna mellan [äldre data export](howto-export-d
 | Funktioner  | Äldre data export | Ny data export |
 | :------------- | :---------- | :----------- |
 | Tillgängliga data typer | Telemetri, enheter, enhetsspecifika mallar | Telemetri, egenskaps ändringar |
-| Filtrering | Inga | Beror på vilken data typ som exporteras. För telemetri, filtrera efter telemetri, meddelande egenskaper, egenskaps värden |
-| Berikningar | Inga | Utöka med en anpassad sträng eller ett egenskaps värde på enheten |
+| Filtrering | Inget | Beror på vilken data typ som exporteras. För telemetri, filtrera efter telemetri, meddelande egenskaper, egenskaps värden |
+| Berikningar | Inget | Utöka med en anpassad sträng eller ett egenskaps värde på enheten |
 | Mål | Azure Event Hubs, Azure Service Bus köer och ämnen, Azure Blob Storage | Samma som för äldre data export plus Webhooks|
 | Program versioner som stöds | V2, V3 | Endast v3 |
 | Viktiga begränsningar | 5 exporter per app, 1 mål per export | 10 exporter – mål anslutningar per app |

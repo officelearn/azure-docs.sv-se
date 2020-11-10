@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: ec81a8f7f9d9f45f1d068a415a599ce30a0d4581
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dafc55656be2d8ef2c0f52d633c7db7eeee83534
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397257"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412790"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure-datakryptering i vila
 
@@ -48,7 +48,7 @@ Kryptering i vila ger data skydd för lagrade data (i vila). Attacker mot data i
 
 Kryptering i vila är utformad för att förhindra att angriparen får åtkomst till okrypterade data genom att se till att data krypteras på disk. Om en angripare får en hård disk med krypterade data men inte krypterings nycklarna måste angriparen manipulera krypteringen för att läsa data. Det här angreppet är mycket mer komplicerat och Resursanvändning än att komma åt okrypterade data på en hård disk. Av den anledningen rekommenderas kryptering i vila starkt och är ett högt prioriterat krav för många organisationer.
 
-Kryptering i vila kan också krävas av en organisations behov av data styrning och efterlevnad. Bransch-och myndighets bestämmelser som HIPAA, PCI och FedRAMP, utformar särskilda skydds nivåer för data skydd och krypterings krav. Kryptering i vila är ett obligatoriskt mått som krävs för att följa vissa av dessa regler. Mer information om Microsofts metod för FIPS 140-2-verifiering finns i [Federal Information Processing standard (FIPS) publikation 140-2](https://docs.microsoft.com/microsoft-365/compliance/offering-fips-140-2).
+Kryptering i vila kan också krävas av en organisations behov av data styrning och efterlevnad. Bransch-och myndighets bestämmelser som HIPAA, PCI och FedRAMP, utformar särskilda skydds nivåer för data skydd och krypterings krav. Kryptering i vila är ett obligatoriskt mått som krävs för att följa vissa av dessa regler. Mer information om Microsofts metod för FIPS 140-2-verifiering finns i [Federal Information Processing standard (FIPS) publikation 140-2](/microsoft-365/compliance/offering-fips-140-2).
 
 Förutom att uppfylla kraven för efterlevnad och regler ger kryptering i rest skydd mot djupgående skydd. Microsoft Azure tillhandahåller en kompatibel plattform för tjänster, program och data. Den tillhandahåller även omfattande anläggningar och fysisk säkerhet, data åtkomst kontroll och granskning. Det är dock viktigt att tillhandahålla ytterligare "överlappande" säkerhets åtgärder om någon av de andra säkerhets åtgärderna Miss lyckas och kryptering i vila ger en sådan säkerhets åtgärd.
 
@@ -115,22 +115,22 @@ Microsoft Azure Services har stöd för en eller flera av krypteringen i rest-mo
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
-Alla kunder som använder Azure Infrastructure as a Service (IaaS)-funktioner kan uppnå kryptering i vila för sina IaaS-VM: ar och diskar via Azure Disk Encryption. Mer information om Azure Disk Encryption finns i [Azure Disk Encryption-dokumentationen](../azure-security-disk-encryption-overview.md).
+Alla kunder som använder Azure Infrastructure as a Service (IaaS)-funktioner kan uppnå kryptering i vila för sina IaaS-VM: ar och diskar via Azure Disk Encryption. Mer information om Azure Disk Encryption finns i [Azure Disk Encryption-dokumentationen](./azure-disk-encryption-vms-vmss.md).
 
 #### <a name="azure-storage"></a>Azure-lagring
 
 Alla Azure Storage tjänster (Blob Storage, Queue Storage, Table Storage och Azure Files) stöder kryptering på Server sidan i vila. vissa tjänster stöder även Kundhanterade nycklar och kryptering på klient sidan.
 
-- Server sidan: alla Azure Storage-tjänster aktiverar kryptering på Server sidan som standard med hjälp av tjänst nycklar, som är transparent för programmet. Mer information finns i [Azure Storage tjänst kryptering för vilande data](../../storage/common/storage-service-encryption.md). Azure Blob Storage och Azure Files stöder även RSA 2048-bitars Kundhanterade nycklar i Azure Key Vault. Mer information finns i [kryptering för lagringstjänst att använda Kundhanterade nycklar i Azure Key Vault](../../storage/common/storage-encryption-keys-portal.md).
+- Server sidan: alla Azure Storage-tjänster aktiverar kryptering på Server sidan som standard med hjälp av tjänst nycklar, som är transparent för programmet. Mer information finns i [Azure Storage tjänst kryptering för vilande data](../../storage/common/storage-service-encryption.md). Azure Blob Storage och Azure Files stöder även RSA 2048-bitars Kundhanterade nycklar i Azure Key Vault. Mer information finns i [kryptering för lagringstjänst att använda Kundhanterade nycklar i Azure Key Vault](../../storage/common/customer-managed-keys-configure-key-vault.md).
 - Klient sidan: Azure-blobar, tabeller och köer stöder kryptering på klient sidan. När du använder kryptering på klient sidan, krypterar kunder data och laddar upp data som en krypterad blob. Nyckel hanteringen görs av kunden. Mer information finns i [kryptering på klient sidan och Azure Key Vault för Microsoft Azure Storage](../../storage/common/storage-client-side-encryption.md).
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
 
 Azure SQL Database stöder för närvarande kryptering i vila för Microsoft-hanterad tjänst sida och krypterings scenarier på klient sidan.
 
-Stöd för server kryptering tillhandahålls för närvarande genom SQL-funktionen som kallas transparent datakryptering. När en Azure SQL Database-kund aktiverar TDE-nyckeln skapas och hanteras automatiskt. Kryptering i vila kan aktive ras på databas-och server nivå. Från och med juni 2017 är [Transparent datakryptering (TDE)](https://msdn.microsoft.com/library/bb934049.aspx) aktiverat som standard på nyligen skapade databaser. Azure SQL Database stöder RSA 2048-bitars Kundhanterade nycklar i Azure Key Vault. Mer information finns i [Transparent datakryptering med Bring Your Own Key stöd för Azure SQL Database och informations lager](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql?view=azuresqldb-current).
+Stöd för server kryptering tillhandahålls för närvarande genom SQL-funktionen som kallas transparent datakryptering. När en Azure SQL Database-kund aktiverar TDE-nyckeln skapas och hanteras automatiskt. Kryptering i vila kan aktive ras på databas-och server nivå. Från och med juni 2017 är [Transparent datakryptering (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) aktiverat som standard på nyligen skapade databaser. Azure SQL Database stöder RSA 2048-bitars Kundhanterade nycklar i Azure Key Vault. Mer information finns i [Transparent datakryptering med Bring Your Own Key stöd för Azure SQL Database och informations lager](/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql?view=azuresqldb-current).
 
-Kryptering på klient sidan av Azure SQL Database data stöds via funktionen [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) . Always Encrypted använder en nyckel som skapas och lagras av klienten. Kunder kan lagra huvud nyckeln i ett Windows-certifikat Arkiv, Azure Key Vault eller en lokal säkerhetsmodul för maskin vara. Med hjälp av SQL Server Management Studio väljer SQL-användare vilken nyckel de vill använda för att kryptera vilken kolumn som helst.
+Kryptering på klient sidan av Azure SQL Database data stöds via funktionen [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) . Always Encrypted använder en nyckel som skapas och lagras av klienten. Kunder kan lagra huvud nyckeln i ett Windows-certifikat Arkiv, Azure Key Vault eller en lokal säkerhetsmodul för maskin vara. Med hjälp av SQL Server Management Studio väljer SQL-användare vilken nyckel de vill använda för att kryptera vilken kolumn som helst.
 
 ## <a name="conclusion"></a>Slutsats
 

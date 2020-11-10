@@ -10,16 +10,31 @@ ms.subservice: custom-vision
 ms.topic: overview
 ms.date: 10/23/2020
 ms.author: pafarley
-ms.openlocfilehash: a87e76d4a726f7a01b96d602e7f41d60409dae56
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 030b09dae9db11fb14defecde3d14e949b9e6748
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521500"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412739"
 ---
 # <a name="whats-new-in-custom-vision"></a>Vad är nytt i Custom Vision
 
 Läs om vad som är nytt i tjänsten. Dessa objekt kan vara viktig information, videor, blogg inlägg och andra typer av information. Skapa ett bok märke för den här sidan för att hålla dig uppdaterad med tjänsten.
+
+
+## <a name="october-2020"></a>Oktober 2020 
+
+### <a name="custom-base-model"></a>Anpassad bas modell
+
+- Vissa program har en stor mängd gemensamma utbildnings data, men du måste finjustera deras modeller separat. Detta resulterar i bättre prestanda för bilder från olika källor med mindre skillnader. I det här fallet kan du träna den första modellen som vanligt med en stor mängd tränings data. Anropa sedan **TrainProject** i 3,4 Public Preview-API: et med _CustomBaseModelInfo_ i begär ande texten för att använda den första steget tränade modellen som bas modell för underordnade projekt. Om käll projektet och det underordnade mål projektet har liknande bild egenskaper kan du förväntar dig bättre prestanda. 
+
+### <a name="new-domain-information"></a>Ny domän information
+
+- Den domän information som returnerades från **GetDomains** i Custom vision 3,4S offentliga för hands versions-API innehåller nu stödda plattformar som stöds, en kort beskrivning av modell arkitekturen och storleken på modellen för kompakta domäner.
+
+### <a name="training-divergence-feedback"></a>Feedback om tränings avvikelser
+
+- Custom Vision Custom Vision 3,4 Public Preview API returnerar nu **TrainingErrorDetails** från **GetIteration** -anropet. Vid misslyckade iterationer visar detta om felet orsakades av utbildnings avvikelser, som kan åtgärdas med mer och bättre utbildnings data.
 
 ## <a name="july-2020"></a>Juli 2020
 

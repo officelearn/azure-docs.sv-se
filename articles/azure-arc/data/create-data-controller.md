@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: a78c67892e2bccb7c98d680539a84c2cc1f49a95
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 6830bdd38e8e1f1d649673cfdaf48e8c50ba6c3e
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372301"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413232"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Skapa data styrenheten för Azure-bågen
 
@@ -36,7 +36,8 @@ För närvarande är den lista över Kubernetes tjänster och distributioner som
 - Öppen källkod, överordnad Kubernetes vanligtvis distribuerad med kubeadm
 
 > [!IMPORTANT]
-> * Den lägsta versionen av Kubernetes som stöds är v-1.14.
+> * Den lägsta versionen av Kubernetes som stöds är v-1.17.
+> * Den lägsta versionen av OCP som stöds är 4,3.
 > * Se [anslutnings kraven](connectivity.md) för att förstå vilken anslutning som krävs mellan din miljö och Azure.
 > * Mer information om hur du konfigurerar beständiga lagrings enheter finns i [rikt linjer för lagrings konfiguration](storage-configuration.md) .
 > * Om du använder Azure Kubernetes-tjänsten bör klustrets virtuella dator storlek vara minst **Standard_D8s_v3** och använda **Premium diskar.** Klustret ska inte omfatta flera tillgänglighets zoner. 
@@ -45,7 +46,7 @@ För närvarande är den lista över Kubernetes tjänster och distributioner som
 > [!NOTE]
 > Om du använder Red Hat OpenShift container Platform på Azure rekommenderar vi att du använder den senaste tillgängliga versionen.
 
-Beroende på vilket alternativ du väljer _krävs_vissa verktyg, men vi rekommenderar att du [installerar alla klient verktyg](./install-client-tools.md) innan du börjar skapa data styrenheten för Azure-bågen.
+Beroende på vilket alternativ du väljer _krävs_ vissa verktyg, men vi rekommenderar att du [installerar alla klient verktyg](./install-client-tools.md) innan du börjar skapa data styrenheten för Azure-bågen.
 
 Oavsett vilket alternativ du väljer måste du ange följande information under skapande processen:
 

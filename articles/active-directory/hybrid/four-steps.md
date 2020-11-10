@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dc931c461988daf9ff6fb2f954b52fa58ce94af
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 795f5ede382e561ee810e54e1f8897c5d806e8b8
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369785"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412382"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Fyra steg till en stark identitets grund med Azure Active Directory
 
@@ -83,7 +83,7 @@ I moderna företag är IT-avdelningar ofta inte medvetna om alla moln program so
 
 [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) (MCAS) kan hjälpa dig att identifiera användbara appar som är populära med användare som det kan sanktionera och lägga till i galleriet för företags program, så att användarna får till gång till funktioner som SSO och villkorlig åtkomst.
 
-<em>"**Cloud App Security** hjälper oss att se till att våra personer på rätt sätt använder våra moln-och SaaS-program, på ett sätt som stöder de grundläggande säkerhets principerna som skyddar Accenture."</em> --- [John Blasi, hantering av regissör, informations säkerhet, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
+<em>" **Cloud App Security** hjälper oss att se till att våra personer på rätt sätt använder våra moln-och SaaS-program, på ett sätt som stöder de grundläggande säkerhets principerna som skyddar Accenture."</em> --- [John Blasi, hantering av regissör, informations säkerhet, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
 
 Förutom att upptäcka skugg-IT kan MCAS också fastställa risk nivån för appar, förhindra obehörig åtkomst till företags data, möjliga data läckage och andra säkerhets risker i programmen.
 
@@ -147,7 +147,7 @@ På samma sätt kan du använda [rapporten för lösen ords hantering med själv
 
 ### <a name="self-service-app-management"></a>Hantering av självbetjänings program
 
-Innan användarna kan identifiera program från sina åtkomst paneler måste du aktivera självbetjänings [program åtkomst](../manage-apps/access-panel-manage-self-service-access.md) till alla program som du vill ge användare möjlighet att själv identifiera och begära åtkomst till. Åtkomst till självbetjänings program är ett bra sätt att ge användare möjlighet att identifiera program och eventuellt tillåta affärs gruppen att godkänna åtkomst till dessa program. Du kan tillåta att affärs gruppen hanterar de autentiseringsuppgifter som tilldelats dessa användare för [lösen ord Single-Sign på program](../manage-apps/application-sign-in-problem-password-sso-gallery.md#configure-password-sso-for-an-azure-ad-gallery-app) direkt från sina åtkomst paneler.
+Innan användarna kan identifiera program från sina åtkomst paneler måste du aktivera självbetjänings [program åtkomst](../manage-apps/access-panel-manage-self-service-access.md) till alla program som du vill ge användare möjlighet att själv identifiera och begära åtkomst till. Åtkomst till självbetjänings program är ett bra sätt att ge användare möjlighet att identifiera program och eventuellt tillåta affärs gruppen att godkänna åtkomst till dessa program. Du kan tillåta att affärs gruppen hanterar de autentiseringsuppgifter som tilldelats dessa användare för [lösen ord Single-Sign på program](../manage-apps/troubleshoot-password-based-sso.md#automatically-capture-sign-in-fields-for-an-app) direkt från sina åtkomst paneler.
 
 ### <a name="self-service-group-management"></a>Självbetjäning, grupphantering
 
@@ -267,6 +267,6 @@ Vi rekommenderar att du skriver ut följande check lista som referens när du p�
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du kan öka din säkra position med funktionerna i Azure Active Directory och i den här check listan i fem steg – [fem steg för att skydda din identitets infrastruktur](https://aka.ms/securitysteps).
+Lär dig hur du kan öka din säkra position med funktionerna i Azure Active Directory och i den här check listan i fem steg – [fem steg för att skydda din identitets infrastruktur](../../security/fundamentals/steps-secure-identity.md).
 
-Lär dig hur identitets funktionerna i Azure AD kan hjälpa dig att påskynda över gången till moln styrnings hantering genom att tillhandahålla lösningar och funktioner som gör att organisationer snabbt kan använda och flytta mer av sin identitets hantering från traditionella lokala system till Azure AD – [hur Azure AD levererar hantering av moln styrning för lokala arbets belastningar](https://aka.ms/cloudgoverned).
+Lär dig hur identitets funktionerna i Azure AD kan hjälpa dig att påskynda över gången till moln styrnings hantering genom att tillhandahålla lösningar och funktioner som gör att organisationer snabbt kan använda och flytta mer av sin identitets hantering från traditionella lokala system till Azure AD – [hur Azure AD levererar hantering av moln styrning för lokala arbets belastningar](./cloud-governed-management-for-on-premises.md).

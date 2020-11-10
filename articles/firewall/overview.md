@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperfq1
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 98ae6de8828ca44dc523bf2c509648a8c58fbd23
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: ab5a4717f32269f34a9351cb0ffa3796b89ccd6e
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380083"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412756"
 ---
 # <a name="what-is-azure-firewall"></a>Vad är Azure Firewall?
 
@@ -59,6 +59,7 @@ Nätverksfiltreringsregler för icke-TCP-/UDP-protokoll (till exempel ICMP) fung
 |Anpassad DNS fungerar inte med Tvingad tunnel trafik|Om Tvingad tunnel trafik är aktive rad fungerar inte anpassad DNS.|En korrigering undersökas.|
 |Nytt stöd för offentliga IP-adresser för flera Tillgänglighetszoner|Du kan inte lägga till en ny offentlig IP-adress när du distribuerar en brand vägg med två tillgänglighets zoner (antingen 1 och 2, 2 och 3 eller 1 och 3)|Detta är en begränsning för en offentlig IP-adressresurs.|
 |Starta/stoppa fungerar inte med en brand vägg som kon figurer ATS i Tvingad tunnel läge|Starta/stoppa fungerar inte med Azure-brandväggen konfigurerad i Tvingad tunnel läge. Försök att starta Azure-brandväggen med Tvingad tunnel trafik har kon figurer ATS i följande fel:<br><br>*Set-AzFirewall: AzureFirewall VB-XX Management IP-konfiguration kan inte läggas till i en befintlig brand vägg. Distribuera om med en hanterings-IP-konfiguration om du vill använda Tvingad tunnel trafik. <br> StatusCode: 400 <br> ReasonPhrase: felaktig begäran*|Under undersökning.<br><br>Som en lösning kan du ta bort den befintliga brand väggen och skapa en ny med samma parametrar.|
+|Det går inte att lägga till brand Väggs princip Taggar med portalen|Azure Firewall-principen har en begränsning för korrigerings stöd som förhindrar att du lägger till en tagg med hjälp av Azure Portal. Följande fel genereras: *Det gick inte att spara taggarna för resursen*.|En korrigering undersökas. Du kan också använda Azure PowerShell-cmdlet `Set-AzFirewallPolicy` : en för att uppdatera taggar.
 
 
 ## <a name="next-steps"></a>Nästa steg

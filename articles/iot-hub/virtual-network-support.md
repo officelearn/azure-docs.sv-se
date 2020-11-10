@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 09/24/2020
+ms.date: 11/09/2020
 ms.author: jlian
-ms.openlocfilehash: cb6e4b2b10b6b44a544416ad5d57808c7ad4d83f
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: fdc106a1a446f51d309ac4317062c8fd20204bae
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427858"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413402"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>IoT Hub stöd för virtuella nätverk med privat länk och hanterad identitet
 
@@ -50,17 +50,17 @@ Innan du fortsätter kontrollerar du att följande krav uppfylls:
 
 Privat slut punkt fungerar för IoT Hub enhets-API: er (t. ex. "enhet till molnet"-meddelanden) och service-API: er (som att skapa och uppdatera enheter
 
-1. I Azure Portal väljer du **nätverk**, **anslutningar för privata slut punkter**och klickar på den **privata slut punkten**.
+1. I Azure Portal väljer du **nätverk** , **anslutningar för privata slut punkter** och klickar på den **privata slut punkten**.
 
     :::image type="content" source="media/virtual-network-support/private-link.png" alt-text="Skärm bild som visar var du ska lägga till privat slut punkt för IoT Hub":::
 
 1. Ange prenumeration, resurs grupp, namn och region för att skapa den nya privata slut punkten i. Vi rekommenderar att privat slut punkt skapas i samma region som hubben.
 
-1. Klicka på **Nästa: resurs**och ange prenumerationen för din IoT Hub-resurs och välj **"Microsoft. Devices/IotHubs"** som resurs typ, ditt IoT Hub namn som **resurs**och **iotHub** som mål under resurs.
+1. Klicka på **Nästa: resurs** och ange prenumerationen för din IoT Hub-resurs och välj **"Microsoft. Devices/IotHubs"** som resurs typ, ditt IoT Hub namn som **resurs** och **iotHub** som mål under resurs.
 
 1. Klicka på **Nästa: konfiguration** och ange ditt virtuella nätverk och undernät för att skapa den privata slut punkten i. Välj alternativet att integrera med Azures privata DNS-zon, om så önskas.
 
-1. Klicka på **Nästa: Taggar**och om du vill kan du även ange taggar för resursen.
+1. Klicka på **Nästa: Taggar** och om du vill kan du även ange taggar för resursen.
 
 1. Klicka på **Granska + skapa** för att skapa en privat länk resurs.
 
@@ -90,9 +90,9 @@ För att andra tjänster ska kunna hitta din IoT Hub som en betrodd Microsoft-tj
 
 1. Navigera till **identitet** i IoT Hubs portalen
 
-1. Under **status**väljer du **på**och klickar sedan på **Spara**.
+1. Under **status** väljer du **på** och klickar sedan på **Spara**.
 
-    :::image type="content" source="media/virtual-network-support/managed-identity.png" alt-text="Skärm bild som visar var du ska lägga till privat slut punkt för IoT Hub":::
+    :::image type="content" source="media/virtual-network-support/managed-identity.png" alt-text="Skärm bild som visar hur du aktiverar hanterad identitet för IoT Hub":::
 
 ### <a name="assign-managed-identity-to-your-iot-hub-at-creation-time-using-arm-template"></a>Tilldela den hanterade identiteten till IoT Hub när den skapas med ARM-mall
 
@@ -174,7 +174,7 @@ IoT Hub kan dirigera meddelanden till ett kundägda lagrings konto. För att rou
 
 1. I Azure Portal navigerar du till ditt lagrings kontos **åtkomst kontroll (IAM)** och klickar på **Lägg till** under avsnittet **Lägg till en roll tilldelning** .
 
-2. Välj **Storage BLOB data-deltagare** ([*inte* bidrags givare eller lagrings konto deltagare](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) som **roll**, **Azure AD-användare, grupp eller tjänstens huvud** namn som **att tilldela åtkomst till** och välja IoT Hub resurs namn i list rutan. Klicka på knappen **Spara**.
+2. Välj **Storage BLOB data-deltagare** ( [*inte* bidrags givare eller lagrings konto deltagare](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) som **roll** , **Azure AD-användare, grupp eller tjänstens huvud** namn som **att tilldela åtkomst till** och välja IoT Hub resurs namn i list rutan. Klicka på knappen **Spara**.
 
 3. Gå till fliken **brand väggar och virtuella nätverk** i ditt lagrings konto och aktivera alternativet **Tillåt åtkomst från valda nätverk** . Under **undantags** listan markerar du kryss rutan **Tillåt att betrodda Microsoft-tjänster får åtkomst till det här lagrings kontot**. Klicka på knappen **Spara**.
 
@@ -192,7 +192,7 @@ IoT Hub kan konfigureras för att dirigera meddelanden till en kundägda Event H
 
 1. I Azure Portal navigerar du till fliken för Event Hub- **åtkomst kontroll (IAM)** och klickar på **Lägg till** under avsnittet **Lägg till en roll tilldelning** .
 
-2. Välj **Event Hubs data avsändare** som **roll**, **Azure AD-användare, grupp eller tjänstens huvud** namn som **att tilldela åtkomst till** och välja din IoT Hubs resurs namn i list rutan. Klicka på knappen **Spara**.
+2. Välj **Event Hubs data avsändare** som **roll** , **Azure AD-användare, grupp eller tjänstens huvud** namn som **att tilldela åtkomst till** och välja din IoT Hubs resurs namn i list rutan. Klicka på knappen **Spara**.
 
 3. Gå till fliken **brand väggar och virtuella nätverk** i Event Hub och aktivera alternativet **Tillåt åtkomst från valda nätverk** . Under **undantags** listan markerar du kryss rutan **Tillåt att betrodda Microsoft-tjänster får åtkomst till Event Hub**. Klicka på knappen **Spara**.
 
@@ -200,7 +200,7 @@ IoT Hub kan konfigureras för att dirigera meddelanden till en kundägda Event H
 
 5. Gå till avsnittet **anpassade slut punkter** och klicka på **Lägg till**. Välj **händelse nav** som typ av slut punkt.
 
-6. Ange ett namn för din slut punkt på sidan som visas, Välj namn området för Event Hub och instansen och klicka på knappen **skapa** .
+6. På sidan som visas anger du ett namn för din slut punkt, väljer namn området för Event Hub och-instansen. Välj **Identity-based** som **Autentiseringstyp** och klicka på knappen **skapa** .
 
 Nu konfigureras slut punkten för anpassade händelse nav till att använda navets tilldelade identitet och har behörighet att komma åt dina Event Hub-resurser trots dess brand Väggs begränsningar. Du kan nu använda den här slut punkten för att ställa in en regel för routning.
 
@@ -210,7 +210,7 @@ IoT Hub kan konfigureras för att dirigera meddelanden till ett kundägda Servic
 
 1. I Azure Portal navigerar du till fliken åtkomst kontroll för Service Bus **(IAM)** och klickar på **Lägg till** under avsnittet **Lägg till en roll tilldelning** .
 
-2. Välj **Service Bus-avsändare** som **roll**, **Azure AD-användare, grupp eller tjänstens huvud** namn som **att tilldela åtkomst till** och välja din IoT Hubs resurs namn i list rutan. Klicka på knappen **Spara**.
+2. Välj **Service Bus-avsändare** som **roll** , **Azure AD-användare, grupp eller tjänstens huvud** namn som **att tilldela åtkomst till** och välja din IoT Hubs resurs namn i list rutan. Klicka på knappen **Spara**.
 
 3. Gå till fliken **brand väggar och virtuella nätverk** i Service Bus och aktivera alternativet **Tillåt åtkomst från valda nätverk** . Under **undantags** listan markerar du kryss rutan för **Tillåt att betrodda Microsoft-tjänster har åtkomst till den här Service Bus-tjänsten**. Klicka på knappen **Spara**.
 
@@ -218,7 +218,7 @@ IoT Hub kan konfigureras för att dirigera meddelanden till ett kundägda Servic
 
 5. Gå till avsnittet **anpassade slut punkter** och klicka på **Lägg till**. Välj en **Service Bus-kö** eller ett **Service Bus ämne** (som tillämpligt) som typ av slut punkt.
 
-6. På sidan som visas anger du ett namn för din slut punkt, väljer din Service Bus-namnrymd och kö eller ämne (om det är tillämpligt). Klicka på knappen **Skapa**.
+6. På sidan som visas anger du ett namn för din slut punkt, väljer din Service Bus-namnrymd och kö eller ämne (om det är tillämpligt). Välj **Identity-based** som **Autentiseringstyp** och klicka på knappen **skapa** .
 
 Nu är din anpassade Service Bus-slutpunkt konfigurerad att använda navets tilldelade identitet och har behörighet att komma åt din Service Bus-resurs trots dess brand Väggs begränsningar. Du kan nu använda den här slut punkten för att ställa in en regel för routning.
 
@@ -230,13 +230,13 @@ Med IoT Hub fil överförings funktionen kan enheter Ladda upp filer till ett ku
 
 1. I Azure Portal navigerar du till ditt lagrings kontos **åtkomst kontroll (IAM)** och klickar på **Lägg till** under avsnittet **Lägg till en roll tilldelning** .
 
-2. Välj **Storage BLOB data-deltagare** ([*inte* bidrags givare eller lagrings konto deltagare](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) som **roll**, **Azure AD-användare, grupp eller tjänstens huvud** namn som **att tilldela åtkomst till** och välja IoT Hub resurs namn i list rutan. Klicka på knappen **Spara**.
+2. Välj **Storage BLOB data-deltagare** ( [*inte* bidrags givare eller lagrings konto deltagare](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) som **roll** , **Azure AD-användare, grupp eller tjänstens huvud** namn som **att tilldela åtkomst till** och välja IoT Hub resurs namn i list rutan. Klicka på knappen **Spara**.
 
 3. Gå till fliken **brand väggar och virtuella nätverk** i ditt lagrings konto och aktivera alternativet **Tillåt åtkomst från valda nätverk** . Under **undantags** listan markerar du kryss rutan **Tillåt att betrodda Microsoft-tjänster får åtkomst till det här lagrings kontot**. Klicka på knappen **Spara**.
 
 4. På resurs sidan för IoT Hub navigerar du till fliken **fil uppladdning** .
 
-5. På sidan som visas väljer du den behållare som du tänker använda i blob-lagringen, konfigurerar **inställningarna för fil meddelanden**, **SAS TTL**, standard- **TTL**och maximalt antal **leveranser** som önskas. Välj **identitets baserad** som **Autentiseringstyp** för lagrings slut punkten. Klicka på knappen **Skapa**. Om du får ett fel i det här steget ska du tillfälligt ange ditt lagrings konto för att tillåta åtkomst från **alla nätverk**och sedan försöka igen. Du kan konfigurera brand väggen på lagrings kontot när fil överförings konfigurationen har slutförts.
+5. På sidan som visas väljer du den behållare som du tänker använda i blob-lagringen, konfigurerar **inställningarna för fil meddelanden** , **SAS TTL** , standard- **TTL** och maximalt antal **leveranser** som önskas. Välj **identitets baserad** som **Autentiseringstyp** för lagrings slut punkten. Klicka på knappen **Skapa**. Om du får ett fel i det här steget ska du tillfälligt ange ditt lagrings konto för att tillåta åtkomst från **alla nätverk** och sedan försöka igen. Du kan konfigurera brand väggen på lagrings kontot när fil överförings konfigurationen har slutförts.
 
 Nu har din lagrings slut punkt för fil uppladdning kon figurer ATS för att använda navets tilldelade identitet och har behörighet att komma åt lagrings resursen trots dess brand Väggs begränsningar.
 
@@ -248,7 +248,7 @@ Den här funktionen kräver anslutning från IoT Hub till lagrings kontot. För 
 
 1. I Azure Portal navigerar du till ditt lagrings kontos **åtkomst kontroll (IAM)** och klickar på **Lägg till** under avsnittet **Lägg till en roll tilldelning** .
 
-2. Välj **Storage BLOB data-deltagare** ([*inte* bidrags givare eller lagrings konto deltagare](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) som **roll**, **Azure AD-användare, grupp eller tjänstens huvud** namn som **att tilldela åtkomst till** och välja IoT Hub resurs namn i list rutan. Klicka på knappen **Spara**.
+2. Välj **Storage BLOB data-deltagare** ( [*inte* bidrags givare eller lagrings konto deltagare](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) som **roll** , **Azure AD-användare, grupp eller tjänstens huvud** namn som **att tilldela åtkomst till** och välja IoT Hub resurs namn i list rutan. Klicka på knappen **Spara**.
 
 3. Gå till fliken **brand väggar och virtuella nätverk** i ditt lagrings konto och aktivera alternativet **Tillåt åtkomst från valda nätverk** . Under **undantags** listan markerar du kryss rutan **Tillåt att betrodda Microsoft-tjänster får åtkomst till det här lagrings kontot**. Klicka på knappen **Spara**.
 

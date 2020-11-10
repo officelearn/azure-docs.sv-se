@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: alsin
-ms.openlocfilehash: da17122de8db41b6ba9ae9597d52bc3e1d8d0062
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c1200121d1c768a3fdddd7749184d7f8b5c98a96
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962402"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413113"
 ---
 # <a name="preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>För hands version: Azure Hybrid-förmån – hur det gäller för Virtuella Linux-datorer
 
@@ -57,7 +57,7 @@ I den här fasen kan du få åtkomst till förmånen genom att fylla i formulär
 1.    Registrera dig för [Red Hat Cloud Access-programmet](https://aka.ms/rhel-cloud-access)
 1.    Aktivera din Azure-prenumeration (er) för moln åtkomst och aktivera prenumerationerna som innehåller de virtuella datorer som du vill använda förmånen med
 1.    Använd förmånen för dina befintliga virtuella datorer antingen via Azure Portal eller Azure CLI
-1.    Registrera dina virtuella datorer som tar del av förmånen med en separat källa till uppdateringar
+1.    Valfritt kan registrera dina virtuella datorer som tar del av förmånen med en separat källa till uppdateringar (växlade virtuella datorer kan vara anslutna till [RHUI](../workloads/redhat/redhat-rhui.md) eller registrerade genom RHSM)
 
 ### <a name="suse-customers"></a>SUSE kunder
 
@@ -112,7 +112,7 @@ az vm list -o json | jq '.[] | {VMName: .name, ResourceID: .id}'
 Du kan visa status för AHB för en virtuell dator på tre sätt: genom att kontrol lera i portalen, använda Azure CLI eller använda Azure-Instance Metadata Service (Azure IMDS).
 
 
-### <a name="portal"></a>Portal
+### <a name="portal"></a>Portalen
 
 Visa konfigurations bladet och kontrol lera licensierings statusen för att se om AHB har Aktiver ATS för den virtuella datorn.
 
@@ -147,13 +147,14 @@ A: Nej, du kan inte. Försök att ange en licens typ som felaktigt matchar den d
 
 A: det kan ta lite tid för prenumerations registreringen av Red Hat Cloud Access att sprida sig från Red Hat till Azure. Kontakta Microsoft-supporten om du fortfarande ser felet efter en arbets dag.
 
-## <a name="common-errors"></a>Vanliga fel
-Det här avsnittet innehåller en lista över vanliga fel och steg för att undvika problemet.
+## <a name="common-issues"></a>Vanliga problem
+Det här avsnittet innehåller en lista över vanliga problem som kan påträffas och åtgärder för att minska.
 
 | Fel | Åtgärd |
 | ----- | ---------- |
 | "Prenumerationen är inte registrerad för för hands versionen av Linux för Azure Hybrid-förmån. Stegvisa instruktioner finns i https://aka.ms/ahb-linux " | Fyll i formuläret i https://aka.ms/ahb-linux-form för att registrera dig för Linux Preview för Azure Hybrid-förmån.
 | "Åtgärden kunde inte slutföras eftersom våra poster visar att du inte har aktiverat Red Hat Cloud Access på din Azure-prenumeration..." | För att kunna använda förmånen med virtuella datorer i RHEL måste du först registrera din Azure-prenumeration (er) med Red Hat Cloud Access. Besök den här länken om du vill veta mer om hur du registrerar Azure-prenumerationer för Red Hat Cloud Access
+|"Alternativet för Azure Hybrid-förmån visas inte i portalen" | Detta är ett känt problem för RHEL-och SLES-datorer som skapats från delade avbildnings gallerier, ögonblicks bilder eller fångade PAYG-avbildningar. I det här fallet använder du CLI-stegen som beskrivs i avsnittet "[Aktivera och inaktivera förmånen i Azure CLI](#enable-and-disable-the-benefit-in-the-azure-cli)". Om du vill visa status för AHB använder du kommandot ` az vm get-instance-view -g MyResourceGroup -n MyVm` .|
 
 ## <a name="next-steps"></a>Nästa steg
 * Kom igång med med förhands granskningen genom att fylla i formuläret [här](https://aka.ms/ahb-linux-form).

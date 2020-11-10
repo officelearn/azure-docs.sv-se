@@ -3,14 +3,14 @@ title: Begränsningar och kvoter för Azure-prenumeration
 description: Innehåller en lista över vanliga gränser, kvoter och begränsningar för Azure-prenumerationer och tjänster. Den här artikeln innehåller information om hur du ökar gränserna tillsammans med högsta värden.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: f18bd4589ea995696175fa23300432793f0f5974
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: b95c056a8885998c3ca5b5c62cb13049c3a8c66d
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950252"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412950"
 ---
-# <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänstbegränsningar, kvoter och krav
+# <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar
 
 Det här dokumentet innehåller några av de vanligaste Microsoft Azures gränserna, som ibland kallas kvoter.
 
@@ -96,7 +96,7 @@ Pris nivåer avgör din Sök tjänsts kapacitet och begränsningar. Nivåerna ä
 
 * En **kostnads fri** tjänst för flera innehavare, som delas med andra Azure-prenumeranter, är avsedd för utvärdering och små utvecklings projekt.
 * **Basic** tillhandahåller dedikerade data bearbetnings resurser för produktions arbets belastningar i en mindre skala, med upp till tre repliker för arbets belastningar med hög tillgänglighet.
-* **Standard**, som omfattar S1, S2, S3 och S3, är för större produktions arbets belastningar. Det finns flera nivåer på standard nivån så att du kan välja en resurs konfiguration som bäst matchar din arbets belastnings profil.
+* **Standard** , som omfattar S1, S2, S3 och S3, är för större produktions arbets belastningar. Det finns flera nivåer på standard nivån så att du kan välja en resurs konfiguration som bäst matchar din arbets belastnings profil.
 
 **Gränser per prenumeration**
 
@@ -285,7 +285,11 @@ För gränser som är begränsade till Media Services v2 (bakåtkompatibelt), se
 
 ### <a name="virtual-network-gateway-limits"></a>Virtual Network Gateway-gränser
 
-[!INCLUDE [virtual-wan-limits](../../../includes/azure-virtual-network-gateway-limits.md)]
+[!INCLUDE [virtual-network-gateway-limits](../../../includes/azure-virtual-network-gateway-limits.md)]
+
+### <a name="nat-gateway-limits"></a>NAT-gateway-gränser
+
+[!INCLUDE [nat-gateway-limits](../../../includes/azure-nat-gateway-limits.md)]
 
 ### <a name="virtual-wan-limits"></a>Virtuella WAN-gränser
 

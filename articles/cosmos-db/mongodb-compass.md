@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 author: christopheranderson
 ms.author: chrande
-ms.openlocfilehash: 6c48639279556d495be57a2933f1d7f3c139294a
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 43bcd54955cb1a8aaf08785368faf13c14f8322c
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93361122"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413062"
 ---
 # <a name="use-mongodb-compass-to-connect-to-azure-cosmos-dbs-api-for-mongodb"></a>Använd MongoDB kompass för att ansluta till Azure Cosmos DB s API för MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -27,9 +27,6 @@ För att ansluta till ditt Cosmos DB-konto med MongoDB kompass måste du:
 
 * Hämta och installera [kompass](https://www.mongodb.com/download-center/compass?jmp=hero)
 * Ha information om Cosmos DB- [anslutningssträng](connect-mongodb-account.md)
-
-> [!NOTE]
-> För närvarande stöds Azure Cosmos DBs-API för MongoDB Server version 3,2 med den senaste versionen av MongoDB kompass. MongoDB kompass stöds inte ännu med 3,6-Server versionen. 
 
 ## <a name="connect-to-cosmos-dbs-api-for-mongodb"></a>Ansluta till Cosmos DB s API för MongoDB
 

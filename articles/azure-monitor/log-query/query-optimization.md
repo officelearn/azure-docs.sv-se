@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: ba9f2b10258f19504e3fd37723eceff7b8c37f6a
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 7e1deb11eb8ae754198cae5be7ecf7150262a61e
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203491"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411396"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optimera logg frågor i Azure Monitor
-Azure Monitor loggar använder [Azure datautforskaren (ADX)](/azure/data-explorer/) för att lagra loggdata och köra frågor för att analysera data. Den skapar, hanterar och underhåller ADX-kluster åt dig, och optimerar dem för din logg analys arbets belastning. När du kör en fråga optimeras den och dirigeras till lämpligt ADX-kluster som lagrar arbets ytans data. Både Azure Monitor loggar och Azure Datautforskaren använder många automatiska metoder för optimering av frågor. Även om automatiska optimeringar ger betydande ökning, finns det i vissa fall där du kan förbättra dina frågeresultat dramatiskt. Den här artikeln beskriver prestanda överväganden och flera tekniker för att åtgärda dem.
+Azure Monitor loggar använder [Azure datautforskaren (ADX)](/azure/data-explorer/) för att lagra loggdata och köra frågor för att analysera data. Den skapar, hanterar och underhåller ADX-kluster åt dig, och optimerar dem för din logg analys arbets belastning. När du kör en fråga optimeras den och dirigeras till lämpligt ADX-kluster som lagrar arbets ytans data. Både Azure Monitor loggar och Azure Datautforskaren använder många automatiska metoder för optimering av frågor. Även om automatiska optimeringar ger betydande ökning, finns det några fall där du kan förbättra dina frågeresultat dramatiskt. Den här artikeln beskriver prestanda överväganden och flera tekniker för att åtgärda dem.
 
 De flesta metoder är vanliga för frågor som körs direkt på Azure Datautforskaren och Azure Monitor loggar, men det finns flera unika Azure Monitor loggar som beskrivs här. Mer information om optimerings tips för Azure Datautforskaren finns i [metod tips för frågor](/azure/kusto/query/best-practices).
 
@@ -131,7 +131,7 @@ SecurityEvent
 
 Vissa agg regerings kommandon som [Max ()](/azure/kusto/query/max-aggfunction), [Sum ()](/azure/kusto/query/sum-aggfunction), [Count ()](/azure/kusto/query/count-aggfunction)och [AVG ()](/azure/kusto/query/avg-aggfunction) har låg processor påverkan på grund av deras logik, andra är mer komplexa och innehåller heuristik och uppskattningar som gör att de kan köras effektivt. Till exempel använder [DCount ()](/azure/kusto/query/dcount-aggfunction) HyperLogLog-algoritmen för att ge en nära bedömning av distinkta mängder av stora data uppsättningar utan att faktiskt räkna varje värde. percentils funktionerna gör liknande uppskattningar med hjälp av den närmaste rang-algoritmen. Flera av kommandona är valfria parametrar för att minska deras påverkan. Funktionen [makeset ()](/azure/kusto/query/makeset-aggfunction) har till exempel en valfri parameter för att definiera maximal uppsättnings storlek, vilket avsevärt påverkar processor och minne.
 
-[Sammanfognings](/azure/kusto/query/joinoperator?pivots=azuremonitor) -och [sammanfattnings](/azure/kusto/query/summarizeoperator) kommandon kan orsaka hög processor användning när de bearbetar en stor uppsättning data. Deras komplexitet är direkt relaterad till antalet möjliga värden, som kallas *kardinalitet*, för de kolumner som används som `by` i sammanfatta eller som kopplings attribut. Förklaring och optimering av sammanfogning och sammanfattning finns i dokumentations artiklar och optimerings tips.
+[Sammanfognings](/azure/kusto/query/joinoperator?pivots=azuremonitor) -och [sammanfattnings](/azure/kusto/query/summarizeoperator) kommandon kan orsaka hög processor användning när de bearbetar en stor uppsättning data. Deras komplexitet är direkt relaterad till antalet möjliga värden, som kallas *kardinalitet* , för de kolumner som används som `by` i sammanfatta eller som kopplings attribut. Förklaring och optimering av sammanfogning och sammanfattning finns i dokumentations artiklar och optimerings tips.
 
 Följande frågor ger till exempel exakt samma resultat eftersom **CounterPath** alltid är en-till-en-mappad till **CounterName** och **ObjectName**. Den andra är mer effektiv eftersom agg regerings dimensionen är mindre:
 
@@ -342,7 +342,7 @@ Perf
 ) on Computer
 ```
 
-Ett vanligt fall där ett sådant fel inträffar är när [arg_max ()](/azure/kusto/query/arg-max-aggfunction) används för att hitta den senaste förekomsten. Exempel:
+Ett vanligt fall där ett sådant fel inträffar är när [arg_max ()](/azure/kusto/query/arg-max-aggfunction) används för att hitta den senaste förekomsten. Till exempel:
 
 ```Kusto
 Perf

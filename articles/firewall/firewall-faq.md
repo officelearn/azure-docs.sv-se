@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: victorh
-ms.openlocfilehash: 75435155ba1dad798d301006a30a5d5b6e96226a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b94b71993285a61042be3c6cd9e4708315fab9f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88611185"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413011"
 ---
 # <a name="azure-firewall-faq"></a>Vanliga frågor och svar om Azure Firewall
 
@@ -40,9 +40,9 @@ Azure-brandväggen stöder regler och regel samlingar. En regel samling är en u
 
 Det finns tre typer av regel samlingar:
 
-* *Program regler*: Konfigurera fullständigt kvalificerade domän namn (FQDN) som kan nås från ett undernät.
-* *Nätverks regler*: Konfigurera regler som innehåller käll adresser, protokoll, mål portar och mål adresser.
-* *NAT-regler*: Konfigurera DNAt-regler för att tillåta inkommande Internet anslutningar.
+* *Program regler* : Konfigurera fullständigt kvalificerade domän namn (FQDN) som kan nås från ett undernät.
+* *Nätverks regler* : Konfigurera regler som innehåller käll adresser, protokoll, mål portar och mål adresser.
+* *NAT-regler* : Konfigurera DNAt-regler för att tillåta inkommande Internet anslutningar.
 
 ## <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>Stöder Azure-brandväggen inkommande trafik filtrering?
 
@@ -80,7 +80,7 @@ Se [priser för Azure-brandvägg](https://azure.microsoft.com/pricing/details/az
 
 Du kan använda Azure PowerShell *frigör* och *allokera* metoder.
 
-Exempel:
+Till exempel:
 
 ```azurepowershell
 # Stop an existing firewall
@@ -139,9 +139,9 @@ Nej. NAT-regler lägger implicit till en motsvarande nätverks regel för att ti
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>Hur fungerar jokertecken i en program regels mål-FQDN?
 
-Jokertecken kan för närvarande endast användas på vänster sida av FQDN. Till exempel ***. contoso.com** och ***contoso.com**.
+Jokertecken kan för närvarande endast användas på vänster sida av FQDN. Till exempel * *_. contoso.com_* och * *_contoso.com_*.
 
-Om du konfigurerar ***. contoso.com**tillåts *anyvalue*. contoso.com, men inte contoso.com (domän Apex). Om du vill tillåta domän Apex måste du uttryckligen konfigurera den som en mål-FQDN.
+Om du konfigurerar * *_. contoso.com_* tillåts *anyvalue*. contoso.com, men inte contoso.com (domän Apex). Om du vill tillåta domän Apex måste du uttryckligen konfigurera den som en mål-FQDN.
 
 ## <a name="what-does-provisioning-state-failed-mean"></a>Vad är *etablerings status: misslyckades,* betyder?
 
@@ -205,7 +205,7 @@ Set-AzFirewall -AzureFirewall $fw
 
 ## <a name="why-can-a-tcp-ping-and-similar-tools-successfully-connect-to-a-target-fqdn-even-when-no-rule-on-azure-firewall-allows-that-traffic"></a>Varför kan en TCP-ping och liknande verktyg ansluta till ett mål-FQDN även när ingen regel på Azure-brandväggen tillåter trafik?
 
-En TCP-ping ansluter faktiskt till mål-FQDN. Detta inträffar eftersom Azure firewalls transparenta proxy lyssnar på port 80/443 för utgående trafik. TCP-ping upprättar en anslutning till brand väggen, som sedan släpper paketet och loggar anslutningen. Det här beteendet har ingen säkerhets påverkan. Men för att undvika förvirring undersöker vi eventuella ändringar i det här beteendet.
+En TCP-ping ansluter faktiskt till mål-FQDN. Detta inträffar eftersom Azure firewalls transparenta proxy lyssnar på port 80/443 för utgående trafik. TCP-ping upprättar en anslutning till brand väggen, som sedan släpper paketet. Det här beteendet har ingen säkerhets påverkan. Men för att undvika förvirring undersöker vi eventuella ändringar i det här beteendet.
 
 ## <a name="are-there-limits-for-the-number-of-ip-addresses-supported-by-ip-groups"></a>Finns det några begränsningar för hur många IP-adresser som stöds av IP-grupperna?
 

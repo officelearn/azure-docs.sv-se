@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 10/22/2020
 ms.author: aahi
 keywords: lokal, Docker, behållare, Kubernetes
-ms.openlocfilehash: a59d9fb4fb15b361259a705a024b9bea975e8072
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 56d88b9223a80ea9981e8830cac44bac7c6edb3b
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368856"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413045"
 ---
 # <a name="azure-cognitive-services-containers"></a>Azure Cognitive Services-containrar
 
@@ -58,7 +58,7 @@ Azure Cognitive Services-behållare innehåller följande uppsättning Docker-be
 
 | Tjänst | Pris nivå som stöds | Container | Description |
 |--|--|--|--|
-| [Avvikelse detektor][ad-containers] | F0, S0 | **Avvikelser-detektor** ( [bild](https://hub.docker.com/_/azure-cognitive-services-decision-anomaly-detector))  | Med API: t för avvikelse identifiering kan du övervaka och identifiera avvikelser i dina Time Series-data med Machine Learning.<br>[Begär åtkomst][request-access] |
+| [Avvikelse detektor][ad-containers] | F0, S0 | **Avvikelser-detektor** ( [bild](https://hub.docker.com/_/microsoft-azure-cognitive-services-decision-anomaly-detector))  | Med API: t för avvikelse identifiering kan du övervaka och identifiera avvikelser i dina Time Series-data med Machine Learning.<br>[Begär åtkomst][request-access] |
 | [Visuellt innehåll][cv-containers] | F0, S1 | **Läs** OCR ( [bild](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | Med Read OCR-behållaren kan du extrahera utskrift och handskriven text från bilder och dokument med stöd för JPEG-, PNG-, BMP-, PDF-och TIFF-filformat. Mer information finns i [Read API-dokumentationen](./computer-vision/concept-recognizing-text.md).<br>[Begär åtkomst][request-access] |
 | [Ansiktsigenkänning][fa-containers] | F0, S0 | **Ansiktsigenkänning** | Identifierar människo ansikten i bilder och identifierar attribut, inklusive ansikts landmärken (till exempel näsaer och ögon), kön, ålder och andra maskin förväntade ansikts funktioner. Förutom identifiering kan FACET kontrol lera om två ansikten i samma bild eller olika bilder är desamma genom att använda en säkerhets poäng, eller jämföra ansikten mot en databas för att se om det redan finns ett liknande eller identiskt ansikte. Det kan också organisera liknande ansikten i grupper med hjälp av delade visuella egenskaper. |
 | [Formulär igenkänning][fr-containers] | F0, S0 | **Formigenkänning** | Forms förståelse använder Machine Learning-teknik för att identifiera och extrahera nyckel/värde-par och tabeller från formulär. |

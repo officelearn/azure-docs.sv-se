@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 6628d693a8df3614097e23785ac234a451565ca3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2471aaad4ef10b611ab4ad812c5b1566cc7c4a07
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777113"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412688"
 ---
 # <a name="overview-of-the-azure-security-benchmark-v2"></a>Översikt över Azure Security benchmark (v2)
 
@@ -22,13 +22,13 @@ ASB (Azure Security benchmark) tillhandahåller beprövade metod tips och rekomm
 Detta riktmärke är en del av en uppsättning holistiska säkerhets guider som också omfattar:
 
 - **Ramverk för moln införande** – rikt linjer för säkerhet, inklusive [strategi](/azure/cloud-adoption-framework/strategy/define-security-strategy), [roller och ansvars områden](/azure/cloud-adoption-framework/organize/cloud-security), [Azures bästa säkerhets metod tips](/azure/cloud-adoption-framework/get-started/security#step-1-establish-essential-security-practices)och [referens implementering](/azure/cloud-adoption-framework/ready/enterprise-scale/).
-- **Azure Well-Architected Framework** – rikt linjer för [att skydda dina arbets belastningar](https://docs.microsoft.com/assessments/?mode=pre-assessment&session=local) på Azure.
+- **Azure Well-Architected Framework** – rikt linjer för [att skydda dina arbets belastningar](/assessments/?mode=pre-assessment&session=local) på Azure.
 - **Microsofts säkerhets** rekommendationer – [rekommendationer](/security/compass/microsoft-security-compass-introduction) med exempel på Azure.
 
  Azures säkerhets riktmärke fokuserar på molnbaserade kontroll områden. Dessa kontroller är konsekventa med välkända säkerhets mått, till exempel de som beskrivs av CIS-kontroller (Center for Internet Security), version 7,1 och National Institute of Standards and Technology (NIST) SP800-53.
 Följande kontroller ingår i Azures säkerhets benchmark:
 
-| ASB kontroll domäner | Beskrivning 
+| ASB kontroll domäner | Description 
 |--|--|
 | [Nätverks &nbsp; säkerhet &nbsp; (NS)](security-controls-v2-network-security.md) | Nätverks säkerhet täcker kontroller för att skydda och skydda Azure-nätverk, inklusive skydd av virtuella nätverk, upprättande av privata anslutningar, förebygga och begränsa externa attacker och säkra DNS. |
 | [Identitets &nbsp; hantering &nbsp; (im)](security-controls-v2-identity-management.md) | Identitets hantering täcker kontroller för att upprätta en säker identitets-och åtkomst kontroll med hjälp av Azure Active Directory, inklusive användning av enkel inloggning, starka autentiseringar, hanterade identiteter (och tjänst principer) för program, villkorlig åtkomst och övervakning av konto avvikelser. |
@@ -46,12 +46,12 @@ Följande kontroller ingår i Azures säkerhets benchmark:
 
 Varje rekommendation innehåller följande information:
 
-- **Azure-ID**: det ID för Azure-säkerhetsbenchmark som motsvarar rekommendationen.
-- **CIS-kontroller v 7.1-ID**: CIS-kontroller v 7.1-kontroll (s) som motsvarar den här rekommendationen.
-- **NIST SP800 – 53 R4-ID**: NIST SP800-53 R4 (måttlig) som motsvarar den här rekommendationen.
-- **Information**: motiveringen till rekommendationen och länkar till vägledning om hur du implementerar den. Om rekommendationen stöds av Azure Security Center, visas även den informationen.
-- **Ansvar**: om kunden, tjänst leverantören eller båda är ansvariga för att implementera den här rekommendationen. Säkerhets ansvars områden delas i det offentliga molnet. Vissa säkerhets kontroller är bara tillgängliga för moln tjänst leverantören och därför ansvarar leverantören för att adressera dem. Detta är allmänna observationer – för vissa enskilda tjänster skiljer sig ansvaret från vad som anges i Azures säkerhets benchmark. Skillnaderna beskrivs i grundläggande rekommendationer för den enskilda tjänsten.
-- **Kund säkerhets intressenter**: [säkerhetsfunktionerna](/azure/cloud-adoption-framework/organize/cloud-security#security-functions) hos kund organisationen som kan vara konto bara, ansvariga eller konsulteras för respektive kontroll. Det kan skilja sig från organisation till organisation beroende på företagets säkerhets organisations struktur och de roller och ansvars områden som du har konfigurerat för Azure-säkerhet.
+- **Azure-ID** : det ID för Azure-säkerhetsbenchmark som motsvarar rekommendationen.
+- **CIS-kontroller v 7.1-ID** : CIS-kontroller v 7.1-kontroll (s) som motsvarar den här rekommendationen.
+- **NIST SP800 – 53 R4-ID** : NIST SP800-53 R4 (måttlig) som motsvarar den här rekommendationen.
+- **Information** : motiveringen till rekommendationen och länkar till vägledning om hur du implementerar den. Om rekommendationen stöds av Azure Security Center, visas även den informationen.
+- **Ansvar** : om kunden, tjänst leverantören eller båda är ansvariga för att implementera den här rekommendationen. Säkerhets ansvars områden delas i det offentliga molnet. Vissa säkerhets kontroller är bara tillgängliga för moln tjänst leverantören och därför ansvarar leverantören för att adressera dem. Detta är allmänna observationer – för vissa enskilda tjänster skiljer sig ansvaret från vad som anges i Azures säkerhets benchmark. Skillnaderna beskrivs i grundläggande rekommendationer för den enskilda tjänsten.
+- **Kund säkerhets intressenter** : [säkerhetsfunktionerna](/azure/cloud-adoption-framework/organize/cloud-security#security-functions) hos kund organisationen som kan vara konto bara, ansvariga eller konsulteras för respektive kontroll. Det kan skilja sig från organisation till organisation beroende på företagets säkerhets organisations struktur och de roller och ansvars områden som du har konfigurerat för Azure-säkerhet.
 
 > [!NOTE]
 > Kontroll mappningarna mellan ASB och bransch mått (t. ex. NIST och CIS) visar bara att en viss Azure-funktion kan användas för att helt eller delvis adressera ett kontroll krav som definierats i NIST eller CIS. Du bör vara medveten om att sådan implementering inte nödvändigt vis översätter den fullständiga efterlevnaden av motsvarande kontroll i CIS eller NIST.

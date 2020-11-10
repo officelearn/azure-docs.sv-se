@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 08/07/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 399c078481fb205221a683e44f74b4d70c383cbe
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7fd52376e6b2d435e3ac6a60243f85ab34e59381
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096571"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412960"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>Azure Cosmos DB:s API för MongoDB (version 3.6): Funktioner och syntax som stöds
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -148,7 +148,7 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 |$currentOp|    No|
 |$listLocalSessions    |No|
 |$listSessions    |No|
-|$graphLookup    |No|
+|$graphLookup    |Yes|
 
 ### <a name="boolean-expressions"></a>Booleska uttryck
 

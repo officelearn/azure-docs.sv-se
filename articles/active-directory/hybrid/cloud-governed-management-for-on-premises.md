@@ -13,12 +13,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed23ffa9971bf4c97b784f230053aed4b1acf0a4
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1f717e14e5abe62aafffdeef841889ea2458fa8b
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369802"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413453"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Hur Azure AD levererar hantering av moln styrning för lokala arbets belastningar
 
@@ -39,7 +39,7 @@ Det här dokumentet beskriver Microsofts strategi för Hybrid IDaaS och beskrive
 
 ## <a name="the-azure-ad-approach-to-cloud-governed-identity-management"></a>Azure AD-metoden för Cloud-styrd identitets hantering
 
-När organisationer övergår till molnet måste de se till att de har kontroller över hela miljön – mer säkerhet och mer insyn i aktiviteter, stöd för automatisering och proaktiva insikter. "**Cloud styrd Management**" beskriver hur organisationer hanterar och styr sina användare, program, grupper och enheter från molnet.
+När organisationer övergår till molnet måste de se till att de har kontroller över hela miljön – mer säkerhet och mer insyn i aktiviteter, stöd för automatisering och proaktiva insikter. " **Cloud styrd Management** " beskriver hur organisationer hanterar och styr sina användare, program, grupper och enheter från molnet.
 
 I den här moderna världen behöver organisationer kunna hantera effektivt i skala på grund av spridningen av SaaS-program och den ökande rollen för samarbete och externa identiteter. Det nya riskkapitalet i molnet innebär att en organisation måste vara mer besvarad – en obehörig aktör som äventyrar en moln användare kan påverka molnet och lokala program.
 
@@ -77,7 +77,7 @@ Samarbete mellan företag i allt större utsträckning kräver att du beviljar �
 
 Azure AD kan [automatiskt skapa konton i AD för gäst användare](../external-identities/hybrid-cloud-to-on-premises.md) vid behov, vilket gör det möjligt för företags gäster att komma åt lokala AD-integrerade program utan att behöva ett annat lösen ord. Organisationer kan ställa in [Multi-Factor Authentication-principer (MFA) för gäst användare](../external-identities/conditional-access.md)s så att MFA-kontroller görs vid autentisering med programproxy. Dessutom gäller alla [åtkomst granskningar](../governance/manage-guest-access-with-access-reviews.md) som görs i Cloud B2B-användare för lokala användare. Om till exempel moln användaren tas bort med hjälp av livs cykel hanterings principer, raderas även den lokala användaren.
 
-**Hantering av autentiseringsuppgifter för Active Directory konton** Med lösen ords återställning via självbetjäning i Azure AD kan användare som har glömt sina lösen ord autentiseras igen och återställa sina lösen ord, med ändrade lösen ord [som skrivits till lokala Active Directory](../authentication/concept-sspr-writeback.md). Processen för lösen ords återställning kan också använda lokala Active Directory lösen ords principer: när en användare återställer sitt lösen ord, kontrol leras det för att säkerställa att det uppfyller den lokala Active Directorys principen innan den allokeras till den katalogen. [Distributions planen](https://aka.ms/deploymentplans/sspr) för lösen ords återställning via självbetjäning beskriver metod tips för att distribuera lösen ords återställning via självbetjäning till användare via webb-och Windows-integrerade upplevelser.
+**Hantering av autentiseringsuppgifter för Active Directory konton** Med lösen ords återställning via självbetjäning i Azure AD kan användare som har glömt sina lösen ord autentiseras igen och återställa sina lösen ord, med ändrade lösen ord [som skrivits till lokala Active Directory](../authentication/concept-sspr-writeback.md). Processen för lösen ords återställning kan också använda lokala Active Directory lösen ords principer: när en användare återställer sitt lösen ord, kontrol leras det för att säkerställa att det uppfyller den lokala Active Directorys principen innan den allokeras till den katalogen. [Distributions planen](../authentication/howto-sspr-deployment.md) för lösen ords återställning via självbetjäning beskriver metod tips för att distribuera lösen ords återställning via självbetjäning till användare via webb-och Windows-integrerade upplevelser.
 
 ![Azure AD SSPR-arkitektur](media/cloud-governed-management-for-on-premises/image3.png)
 
@@ -97,7 +97,7 @@ För att börja migrera federerade program till Azure AD som identitetsprovider,
 
 * White paper [migrera dina program till Azure Active Directory](https://aka.ms/migrateapps/whitepaper), som visar fördelarna med migreringen och beskriver hur du planerar migreringen i fyra tydligt sammansatta faser: identifiering, klassificering, migrering och kontinuerlig hantering. Du kommer att vägleda dig genom processen och dela upp ditt projekt i lätt att förbruka delar. I hela dokumentet finns länkar till viktiga resurser som hjälper dig längs vägen.
 
-* Lösnings guiden [för att migrera programautentisering från Active Directory Federation Services (AD FS) till Azure Active Directory](https://aka.ms/migrateapps/adfssolutionguide) utforska mer i detalj i samma fyra faser för att planera och köra ett programmigrerings projekt. I den här guiden får du lära dig hur du tillämpar dessa faser på det specifika målet att flytta ett program från Active Directory Federation Services (AD FS) (AD FS) till Azure AD.
+* Lösnings guiden [för att migrera programautentisering från Active Directory Federation Services (AD FS) till Azure Active Directory](../manage-apps/migrate-adfs-apps-to-azure.md) utforska mer i detalj i samma fyra faser för att planera och köra ett programmigrerings projekt. I den här guiden får du lära dig hur du tillämpar dessa faser på det specifika målet att flytta ett program från Active Directory Federation Services (AD FS) (AD FS) till Azure AD.
 
 * [Skriptet för Active Directory Federation Services (AD FS) migration readiness](https://aka.ms/migrateapps/adfstools) kan köras på befintliga lokala Active Directory Federation Services (AD FS)-servrar (AD FS) för att fastställa om program är tillgängliga för migrering till Azure AD.
 
@@ -111,7 +111,7 @@ Organisationer kan automatisera livs cykel processen för Access genom tekniker 
 
 ## <a name="future-directions"></a>Framtida anvisningar
 
-I hybrid miljöer är Microsofts strategi att aktivera distributioner där **molnet är kontroll planet för identitet**, och lokala kataloger och andra identitets system, till exempel Active Directory och andra lokala program, är målet för etablering av användare med åtkomst. Den här strategin kommer att fortsätta att säkerställa rättigheter, identiteter och åtkomst i de program och arbets belastningar som förlitar sig på dem. I det här läget kommer organisationer att kunna driva slutanvändarens produktivitet helt från molnet.
+I hybrid miljöer är Microsofts strategi att aktivera distributioner där **molnet är kontroll planet för identitet** , och lokala kataloger och andra identitets system, till exempel Active Directory och andra lokala program, är målet för etablering av användare med åtkomst. Den här strategin kommer att fortsätta att säkerställa rättigheter, identiteter och åtkomst i de program och arbets belastningar som förlitar sig på dem. I det här läget kommer organisationer att kunna driva slutanvändarens produktivitet helt från molnet.
 
 ![Azure AD-arkitekturen](media/cloud-governed-management-for-on-premises/image6.png)
 

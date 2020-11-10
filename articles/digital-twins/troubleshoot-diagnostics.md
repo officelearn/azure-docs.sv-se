@@ -1,34 +1,38 @@
 ---
-title: Konfigurera diagnostik
+title: Aktivera och fråga diagnostikloggar
 titleSuffix: Azure Digital Twins
-description: Se så här aktiverar du loggning med diagnostikinställningar.
+description: Se hur du aktiverar loggning med diagnostikinställningar och frågar loggarna för omedelbar visning.
 author: baanders
 ms.author: baanders
-ms.date: 7/28/2020
+ms.date: 11/9/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: 11a7b4876c773922d4b0ed28f7047912b738ee6a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0d775ffa1ce063c01fc6762d77201e5a4caaad87
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091743"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411773"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Felsöka Azure Digitals sammanflätade: diagnostikloggning
 
-Azure Digitals flätar samlar in [Mät värden](troubleshoot-metrics.md) för din tjänst instans som ger information om statusen för dina resurser. Du kan använda dessa mått för att utvärdera den övergripande hälso statusen för Azure Digital-tjänster och de resurser som är anslutna till den. Den här användaren får hjälp att se vad som händer med Azures digitala dubbla, och hjälper till med rotor Saks analys av problem utan att behöva kontakta Azure-supporten.
+Azure Digitals dubblare kan samla in loggar för din tjänst instans för att övervaka prestanda, åtkomst och andra data. Du kan använda dessa loggar för att få en uppfattning om vad som händer i din Azure Digital-instansen och utföra rotor Saks analys av problem utan att behöva kontakta Azure-supporten.
 
-Den här artikeln visar hur du aktiverar **diagnostikloggning** för dina mått data från din Azure Digital-instansen. Du kan använda dessa loggar för att hjälpa dig att felsöka service problem och konfigurera diagnostikinställningar för att skicka Azure Digitals mått till olika mål. Du kan läsa mer om de här inställningarna i [*skapa diagnostikinställningar för att skicka plattforms loggar och mått till olika mål*](../azure-monitor/platform/diagnostic-settings.md).
+Den här artikeln visar hur du [**konfigurerar diagnostikinställningar**](#turn-on-diagnostic-settings) i [Azure Portal](https://portal.azure.com) för att börja samla in loggar från din Azure Digital-instansen. Du kan också ange var loggarna ska lagras (till exempel Log Analytics eller ett valfritt lagrings konto).
 
-## <a name="turn-on-diagnostic-settings-with-the-azure-portal"></a>Aktivera diagnostikinställningar med Azure Portal
+Den här artikeln innehåller också listor över alla [logg kategorier](#log-categories) och [logg scheman](#log-schemas) som samlas in av Azure Digitals.
 
-Så här aktiverar du diagnostikinställningar för din Azure Digital-instansen:
+När du har konfigurerat loggar kan du också [**skicka frågor till loggarna**](#view-and-query-logs) för att snabbt samla in anpassade insikter.
+
+## <a name="turn-on-diagnostic-settings"></a>Aktivera diagnostikinställningar 
+
+Aktivera diagnostikinställningar för att börja samla in loggar på din Azure Digital-instansen. Du kan också välja den plats där de exporterade loggarna ska lagras. Så här aktiverar du diagnostikinställningar för din Azure Digital-instansen.
 
 1. Logga in på [Azure Portal](https://portal.azure.com) och gå till din Azure Digital-instansen. Du kan hitta det genom att skriva dess namn i portalens sökfält. 
 
-2. Välj **diagnostikinställningar** på menyn och **Lägg sedan till en diagnostisk inställning** .
+2. Välj **diagnostikinställningar** på menyn och **Lägg sedan till en diagnostisk inställning**.
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Skärm bild som visar sidan diagnostikinställningar och knappen som ska läggas till":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Skärm bild som visar sidan diagnostikinställningar och knappen som ska läggas till" lightbox="media/troubleshoot-diagnostics/diagnostic-settings.png":::
 
 3. Fyll i följande värden på sidan som följer:
      * **Namn på diagnos inställning** : ge diagnostikinställningar ett namn.
@@ -39,7 +43,7 @@ Så här aktiverar du diagnostikinställningar för din Azure Digital-instansen:
         - QueryOperation
         - AllMetrics
         
-        Mer information om de här alternativen finns i avsnittet [*kategori information*](#category-details) nedan.
+        Mer information om dessa kategorier och den information som de innehåller finns i avsnittet [*logg kategorier*](#log-categories) nedan.
      * **Mål information** : Välj var du vill skicka loggarna. Du kan välja en valfri kombination av de tre alternativen:
         - Skicka till Log Analytics
         - Arkivera till ett lagringskonto
@@ -49,15 +53,17 @@ Så här aktiverar du diagnostikinställningar för din Azure Digital-instansen:
     
 4. Spara de nya inställningarna. 
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="Skärm bild som visar sidan diagnostikinställningar och knappen som ska läggas till":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="Skärm bild som visar sidan för diagnostikinställningar där användaren har fyllt i ett namn för diagnostikinställningar och gjort några kryss rutor för kategori information och mål information. Knappen Spara är markerad." lightbox="media/troubleshoot-diagnostics/diagnostic-settings-details.png":::
 
 Nya inställningar börjar gälla om 10 minuter. Därefter visas loggar i det konfigurerade målet tillbaka på sidan **diagnostikinställningar** för din instans. 
 
-## <a name="category-details"></a>Kategori information
+Mer detaljerad information om diagnostikinställningar och deras installations alternativ finns i [*skapa diagnostikinställningar för att skicka plattforms loggar och mått till olika mål*](../azure-monitor/platform/diagnostic-settings.md).
 
-Här finns mer information om de logg kategorier som kan väljas under **kategori information** när du ställer in diagnostikinställningar.
+## <a name="log-categories"></a>Logg kategorier
 
-| Loggkategori | Beskrivning |
+Här är mer information om de kategorier av loggar som Azure Digitals samlar in.
+
+| Loggkategori | Description |
 | --- | --- |
 | ADTModelsOperation | Logga alla API-anrop som rör modeller |
 | ADTQueryOperation | Logga alla API-anrop som rör frågor |
@@ -71,7 +77,7 @@ Varje logg kategori består av åtgärder av Skriv-, Läs-, borttagnings-och åt
 | Skriva | PLACERING och korrigering |
 | Läs | GET |
 | Ta bort | DELETE |
-| Åtgärd | POST |
+| Action | POST |
 
 Här är en omfattande lista över åtgärderna och motsvarande [Azure Digital-meddelanden REST API samtal](/rest/api/azure-digitaltwins/) som loggas i varje kategori. 
 
@@ -222,6 +228,34 @@ Nedan visas exempel på JSON-instanser för dessa typer av loggar.
   }
 }
 ```
+
+## <a name="view-and-query-logs"></a>Visa och fråga efter loggar
+
+Tidigare i den här artikeln konfigurerade du typerna av loggar för att lagra och ange deras lagrings plats.
+
+Om du vill felsöka problem med att generera insikter från dessa loggar kan du generera **anpassade frågor**. För att komma igång kan du också dra nytta av några exempel frågor som tillhandahålls av tjänsten, som åtgärdar vanliga frågor som kunder kan ha på sin instans.
+
+Så här frågar du loggarna efter din instans.
+
+1. Logga in på [Azure Portal](https://portal.azure.com) och gå till din Azure Digital-instansen. Du kan hitta det genom att skriva dess namn i portalens sökfält. 
+
+2. Öppna sidan logg fråga genom att välja **loggar** på menyn. Sidan öppnas till ett fönster som kallas *frågor*.
+
+    :::image type="content" source="media/troubleshoot-diagnostics/logs.png" alt-text="Skärm bild som visar sidan loggar för en digital Azure-instans. Den är överdefinierad med ett fråge fönster som visar fördefinierade frågor som heter efter olika logg alternativ, till exempel DigitalTwin API-svars tid och API-svars tid för modell" lightbox="media/troubleshoot-diagnostics/logs.png":::
+
+    Dessa är färdiga exempel frågor skrivna för olika loggar. Du kan välja en av frågorna för att läsa in den i Frågeredigeraren och köra den för att se dessa loggar för din instans.
+
+    Du kan också stänga fönstret *frågor* utan att köra något för att gå direkt till sidan Frågeredigeraren, där du kan skriva eller redigera anpassad kod.
+
+3. När du har avslutat fönstret *frågor* visas huvud sidan för Frågeredigeraren. Här kan du Visa och redigera texten i exempel frågorna eller skriva egna frågor från grunden.
+    :::image type="content" source="media/troubleshoot-diagnostics/logs-query.png" alt-text="Skärm bild som visar sidan loggar för en digital Azure-instans. Fönstret frågor är borta och det finns en lista över olika loggar i ett redigerings fönster som visar redigerbar kod och ett fönster som visar frågor historik." lightbox="media/troubleshoot-diagnostics/logs-query.png":::
+
+    I det vänstra fönstret, 
+    - Fliken *tabeller* visar de olika Azures digitala dubbla databas [Kategorier](#log-categories) som är tillgängliga för användning i dina frågor. 
+    - Fliken *frågor* innehåller exempel frågor som du kan läsa in i redigeraren.
+    - På fliken *filter* kan du anpassa en filtrerad vy av de data som frågan returnerar.
+
+Mer detaljerad information om logg frågor och hur du skriver dem finns [*i Översikt över logg frågor i Azure Monitor*](../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: f2162ee6df551e1bc64741229aec99d5e697fd29
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e2144a61d83f6c7dece8f34232031192b51cde8
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91395999"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412705"
 ---
 # <a name="security-control-data-protection"></a>Säkerhets kontroll: data skydd
 
@@ -26,7 +26,7 @@ Data skydds rekommendationer fokuserar på att hantera problem som rör krypteri
 
 Använd taggar för att spåra Azure-resurser som lagrar eller bearbetar känslig information.
 
-- [Skapa och använda Taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Skapa och använda Taggar](../../azure-resource-manager/management/tag-resources.md)
 
 ## <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4,2: isolera system som lagrar eller bearbetar känslig information
 
@@ -36,11 +36,11 @@ Använd taggar för att spåra Azure-resurser som lagrar eller bearbetar känsli
 
 Implementera isolering med separata prenumerationer och hanterings grupper för enskilda säkerhets domäner, till exempel miljö typ och data känslighets nivå. Du kan begränsa åtkomst nivån till dina Azure-resurser som dina program och företags miljöer kräver. Du kan styra åtkomsten till Azure-resurser via rollbaserad åtkomst kontroll i Azure (Azure RBAC). 
 
-- [Så här skapar du ytterligare Azure-prenumerationer](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [Så här skapar du ytterligare Azure-prenumerationer](../../cost-management-billing/manage/create-subscription.md)
 
-- [Så här skapar du Hanteringsgrupper](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [Så här skapar du Hanteringsgrupper](../../governance/management-groups/create-management-group-portal.md)
 
-- [Skapa och använda Taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Skapa och använda Taggar](../../azure-resource-manager/management/tag-resources.md)
 
 ## <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4,3: övervaka och blockera obehörig överföring av känslig information
 
@@ -52,7 +52,7 @@ Utnyttja en lösning från en tredje part från Azure Marketplace på nätverks-
 
 För den underliggande plattform som hanteras av Microsoft behandlar Microsoft allt kund innehåll som känsligt och skyddar mot kund data förlust och exponering. För att säkerställa att kunddata i Azure förblir skyddade har Microsoft implementerat och underhåller en svit med robusta data skydds kontroller och-funktioner.
 
-- [Förstå kundens data skydd i Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Förstå kundens data skydd i Azure](../fundamentals/protection-customer-data.md)
 
 ## <a name="44-encrypt-all-sensitive-information-in-transit"></a>4,4: kryptera all känslig information under överföring
 
@@ -64,7 +64,7 @@ Kryptera all känslig information under överföring. Se till att alla klienter 
 
 Följ Azure Security Center rekommendationer för kryptering i vila och kryptering under överföring, i förekommande fall.
 
-- [Förstå kryptering i överföring med Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
+- [Förstå kryptering i överföring med Azure](../fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
 ## <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4,5: Använd ett aktivt identifierings verktyg för att identifiera känsliga data
 
@@ -78,11 +78,11 @@ Använd Azure Information Protection för att identifiera känslig information i
 
 Använd Azure SQL-Information Protection för att hjälpa till med klassificering och märkning av information som lagras i Azure SQL Database.
 
-- [Implementera identifiering av Azure SQL-data](https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-classification)
+- [Implementera identifiering av Azure SQL-data](../../azure-sql/database/data-discovery-and-classification-overview.md)
 
-- [Implementera Azure Information Protection](https://docs.microsoft.com/azure/information-protection/deployment-roadmap)
+- [Implementera Azure Information Protection](/azure/information-protection/deployment-roadmap)
 
-- [Förstå kundens data skydd i Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Förstå kundens data skydd i Azure](../fundamentals/protection-customer-data.md)
 
 ## <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: Använd Azure RBAC för att kontrol lera åtkomsten till resurser
 
@@ -92,7 +92,7 @@ Använd Azure SQL-Information Protection för att hjälpa till med klassificerin
 
 Använd rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att kontrol lera åtkomsten till data och resurser, Använd annars tjänstens speciella metoder för åtkomst kontroll.
 
-- [Så här konfigurerar du Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [Så här konfigurerar du Azure RBAC](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4,7: Använd värdbaserade data förlust skydd för att genomdriva åtkomst kontroll
 
@@ -104,19 +104,19 @@ Om det krävs för att göra beräknings resurser implementerar du ett verktyg f
 
 För den underliggande plattform som hanteras av Microsoft behandlar Microsoft allt kund innehåll som känsligt och går till fantastiska längder för att skydda mot kund data förlust och exponering. För att säkerställa att kunddata i Azure förblir skyddade har Microsoft implementerat och underhåller en svit med robusta data skydds kontroller och-funktioner.
 
-- [Förstå kundens data skydd i Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Förstå kundens data skydd i Azure](../fundamentals/protection-customer-data.md)
 
 ## <a name="48-encrypt-sensitive-information-at-rest"></a>4,8: kryptera känslig information i vila
 
 | Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
-| 4,8 | 14,8 | Kund |
+| 4.8 | 14,8 | Kund |
 
 Använd kryptering i vila på alla Azure-resurser. Microsoft rekommenderar att Azure hanterar dina krypterings nycklar, men det finns möjlighet att hantera dina egna nycklar i vissa instanser. 
 
-- [Förstå kryptering i vila i Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
+- [Förstå kryptering i vila i Azure](../fundamentals/encryption-atrest.md)
 
-- [Konfigurera kundens hanterade krypterings nycklar](https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal)
+- [Konfigurera kundens hanterade krypterings nycklar](../../storage/common/customer-managed-keys-configure-key-vault.md)
 
 ## <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4,9: logg och varning vid ändringar av kritiska Azure-resurser
 
@@ -126,7 +126,7 @@ Använd kryptering i vila på alla Azure-resurser. Microsoft rekommenderar att A
 
 Använd Azure Monitor med Azure aktivitets logg för att skapa aviseringar för när ändringar sker i kritiska Azure-resurser.
 
-- [Så här skapar du aviseringar för Azure aktivitets logg händelser](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Så här skapar du aviseringar för Azure aktivitets logg händelser](../../azure-monitor/platform/alerts-activity-log.md)
 
 
 ## <a name="next-steps"></a>Nästa steg

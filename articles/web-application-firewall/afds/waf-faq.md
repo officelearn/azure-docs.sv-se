@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/05/2020
 ms.author: victorh
-ms.openlocfilehash: d129c37c909c630623f8a41c06da9aa80e4e2392
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ba0cbbccd1f4a9bc8ff8a4895e238c9150c9b17
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82837642"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413079"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-azure-front-door-service"></a>Vanliga frågor och svar om Azure Web Application-brandvägg i Azure-tjänsten för front dörr
 
@@ -64,7 +64,7 @@ För närvarande stöds inte ModSec BOKNINGs-2.2.9, DATORISERAde boknings regler
 
 ## <a name="is-ddos-protection-integrated-with-front-door"></a>Är DDoS-skydd integrerat med front dörren? 
 
-I globalt distribuerat i Azures nätverks gränser kan Azures front dörr absorbera och geografiskt isolera stora volym attacker. Du kan skapa en anpassad WAF-princip för automatisk blockering och hastighets begränsning av http (s)-attacker som har kända signaturer. Fler fler kan du aktivera DDoS Protection standard på det virtuella nätverk där dina Server delar distribueras. Azure DDoS Protection standard kunder får ytterligare fördelar, inklusive kostnads skydd, SLA-garanti och åtkomst till experter från DDoS Rapid Response-teamet för omedelbar hjälp vid ett angrepp.
+I globalt distribuerat i Azures nätverks gränser kan Azures front dörr absorbera och geografiskt isolera stora volym attacker. Du kan skapa en anpassad WAF-princip för automatisk blockering och hastighets begränsning av http (s)-attacker som har kända signaturer. Fler fler kan du aktivera DDoS Protection standard på det virtuella nätverk där dina Server delar distribueras. Azure DDoS Protection standard kunder får ytterligare fördelar, inklusive kostnads skydd, SLA-garanti och åtkomst till experter från DDoS Rapid Response-teamet för omedelbar hjälp vid ett angrepp. Mer information finns i [DDoS Protection på front dörren](../../frontdoor/front-door-ddos.md).
 
 ## <a name="why-do-additional-requests-above-the-threshold-configured-for-my-rate-limit-rule-get-passed-to-my-backend-server"></a>Varför skickas ytterligare begär Anden utöver tröskelvärdet som kon figurer ATS för min hastighets begränsnings regel till min backend-server?
 

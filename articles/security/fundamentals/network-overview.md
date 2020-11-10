@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 496ee1bc97f6b72e09a62ae3491af7ccc7328583
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a26228b33a7d90df558de2ecdf4686910e606a54
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80811097"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413300"
 ---
 # <a name="azure-network-security-overview"></a>Översikt över Azure Network Security
 
@@ -63,7 +63,7 @@ Azure har stöd för flera typer av nätverks åtkomst kontroll, t. ex.:
 En säker distribution kräver vissa mått för nätverks åtkomst kontroll. Målet med nätverks åtkomst kontroll är att begränsa kommunikation mellan virtuella datorer och de system som behövs. Andra kommunikations försök blockeras.
 
 > [!NOTE]
-> Lagrings brand väggar beskrivs i artikeln [Översikt över Azure Storage-säkerhet](storage-overview.md)
+> Lagrings brand väggar beskrivs i artikeln [Översikt över Azure Storage-säkerhet](../../storage/blobs/security-recommendations.md)
 
 #### <a name="network-security-rules-nsgs"></a>Nätverks säkerhets regler (NSG: er)
 
@@ -77,11 +77,11 @@ NSG: er tillhandahåller inte kontroll av program lager eller autentiserade åtk
 
 Läs mer:
 
-* [Nätverks säkerhets grupper](../../virtual-network/security-overview.md)
+* [Nätverks säkerhets grupper](../../virtual-network/network-security-groups-overview.md)
 
 #### <a name="asc-just-in-time-vm-access"></a>ASC precis i tid för VM-åtkomst
 
-[Azure Security Center](../../security-center/security-center-intro.md) kan hantera NSG: er på virtuella datorer och låsa åtkomsten till den virtuella datorn tills en användare med lämpliga rollbaserade åtkomst kontrolls [RBAC](/azure/role-based-access-control/overview) -behörigheter begär åtkomst. När användaren har behörigheten ASC gör ändringar i NSG: er att tillåta åtkomst till valda portar under den angivna tiden. När tiden går ut återställs NSG: er till tidigare skyddat tillstånd.
+[Azure Security Center](../../security-center/security-center-introduction.md) kan hantera NSG: er på virtuella datorer och låsa åtkomsten till den virtuella datorn tills en användare med lämpliga rollbaserade åtkomst kontrolls [RBAC](../../role-based-access-control/overview.md) -behörigheter begär åtkomst. När användaren har behörigheten ASC gör ändringar i NSG: er att tillåta åtkomst till valda portar under den angivna tiden. När tiden går ut återställs NSG: er till tidigare skyddat tillstånd.
 
 Läs mer:
 
@@ -141,7 +141,7 @@ Azure Firewall är en hanterad, molnbaserad tjänst för nätverkssäkerhet som 
 
 Läs mer:
 
-* [Översikt över Azure Firewall](/azure/firewall/overview)
+* [Översikt över Azure Firewall](../../firewall/overview.md)
 
 ## <a name="secure-remote-access-and-cross-premises-connectivity"></a>Säker fjärråtkomst och anslutning mellan platser
 
@@ -202,7 +202,7 @@ Det går att använda många virtuella nätverk för dina distributioner. Det fi
 
 Ett alternativ är för tjänster i ett virtuellt nätverk för att ansluta till tjänster i ett annat virtuellt nätverk, med "loopa tillbaka" via Internet. Anslutningen startar på ett virtuellt nätverk, går via Internet och kommer sedan tillbaka till det virtuella mål nätverket. Det här alternativet visar anslutningen till de säkerhets problem som finns i en Internetbaserad kommunikation.
 
-Ett bättre alternativ kan vara att skapa en plats-till-plats-VPN som ansluter mellan två virtuella nätverk. Den här metoden använder samma [IPSec tunnel mode](https://technet.microsoft.com/library/cc786385.aspx) -protokoll som den plats-till-plats-VPN-anslutning som anges ovan.
+Ett bättre alternativ kan vara att skapa en plats-till-plats-VPN som ansluter mellan två virtuella nätverk. Den här metoden använder samma [IPSec tunnel mode](/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10)) -protokoll som den plats-till-plats-VPN-anslutning som anges ovan.
 
 Fördelen med den här metoden är att VPN-anslutningen upprättas via Azures nätverks infrastruktur resurs, i stället för att ansluta via Internet. Detta ger dig ett extra säkerhets lager, jämfört med plats-till-plats-VPN som ansluter via Internet.
 
@@ -237,7 +237,7 @@ Azure Application Gateway tillhandahåller HTTP-baserad belastnings utjämning f
 
 Läs mer:
 
-* [Översikt över Application Gateway](/azure/application-gateway/application-gateway-introduction)
+* [Översikt över Application Gateway](../../application-gateway/overview.md)
 
 ### <a name="network-level-load-balancing"></a>Belastnings utjämning på nätverks nivå
 
@@ -252,8 +252,8 @@ Du kan få fördelarna med belastnings utjämning på nätverks nivå i Azure me
 
 Läs mer:
 
-* [Belastningsutjämnare mot Internet mellan flera virtuella datorer eller tjänster](/azure/load-balancer/load-balancer-internet-overview)
-* [Översikt över intern belastnings utjämning](/azure/load-balancer/load-balancer-internal-overview)
+* [Belastningsutjämnare mot Internet mellan flera virtuella datorer eller tjänster](../../load-balancer/load-balancer-overview.md)
+* [Översikt över intern belastnings utjämning](../../load-balancer/load-balancer-overview.md)
 
 ### <a name="global-load-balancing"></a>Global belastnings utjämning
 
@@ -381,7 +381,7 @@ Security Center hjälper dig att optimera och övervaka nätverks säkerhet geno
 
 Läs mer:
 
-* [Introduktion till Azure Security Center](../../security-center/security-center-intro.md)
+* [Introduktion till Azure Security Center](../../security-center/security-center-introduction.md)
 
 ### <a name="virtual-network-tap"></a>Virtual Network trycka på
 

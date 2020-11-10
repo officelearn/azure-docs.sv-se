@@ -4,14 +4,14 @@ description: Krav för att använda Azure HPC cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 11/05/2020
 ms.author: v-erkel
-ms.openlocfilehash: 92c8d860925ebde7d20befbaa708e8530cd1a0eb
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: a31aee3f4548d3137fa1241aaa3a0f6171cf6895
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92344023"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412518"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Krav för Azure HPC-cache
 
@@ -59,9 +59,22 @@ Det bästa sättet är att skapa ett nytt undernät för varje cache. Du kan ska
 Cachen behöver DNS för att få åtkomst till resurser utanför det virtuella nätverket. Beroende på vilka resurser du använder kan du behöva konfigurera en anpassad DNS-server och konfigurera vidarebefordran mellan servern och Azure DNS servrar:
 
 * För att få åtkomst till Azure Blob Storage-slutpunkter och andra interna resurser behöver du den Azure-baserade DNS-servern.
-* För att komma åt lokal lagring måste du konfigurera en anpassad DNS-server som kan matcha dina lagrings-värdnamn.
+* För att komma åt lokal lagring måste du konfigurera en anpassad DNS-server som kan matcha dina lagrings-värdnamn. Du måste göra detta **innan** du skapar cachen.
 
 Om du bara behöver åtkomst till Blob Storage kan du använda standard-Azure-standardservern för cacheminnet. Men om du behöver åtkomst till andra resurser bör du skapa en anpassad DNS-server och konfigurera den så att den vidarebefordrar alla Azure-speciella matchnings begär anden till Azure DNS-servern.
+
+Om du vill använda en anpassad DNS-server måste du utföra dessa installations steg innan du skapar din cache:
+
+* Skapa det virtuella nätverk som ska vara värd för Azure HPC cache.
+* Skapa DNS-servern.
+* Lägg till DNS-servern i cachens virtuella nätverk.
+
+  Följ dessa steg om du vill lägga till DNS-servern i det virtuella nätverket i Azure Portal:
+
+  1. Öppna det virtuella nätverket i Azure Portal.
+  1. Välj **DNS-servrar** på menyn **Inställningar** i sido rutan.
+  1. Välj **anpassad**
+  1. Ange DNS-serverns IP-adress i fältet.
 
 En enkel DNS-server kan också användas för att belastningsutjämna klient anslutningar bland alla tillgängliga cache-monterings punkter.
 
@@ -143,7 +156,7 @@ Mer information finns i [Felsöka problem med NAS-konfiguration och NFS-lagring]
 * **Katalog åtkomst:** Aktivera `showmount` kommandot på lagrings systemet. Azure HPC cache använder det här kommandot för att kontrol lera att din lagrings mål konfiguration pekar på en giltig export, och också för att se till att flera monteringar inte har åtkomst till samma under kataloger (en risk för fil kollision).
 
   > [!NOTE]
-  > Om ditt NFS Storage-System använder NetApp ONTAP 9,2-operativ system ska **du inte `showmount` Aktivera **. [Kontakta Microsofts tjänst och support](hpc-cache-support-ticket.md) om du behöver hjälp.
+  > Om ditt NFS Storage-System använder NetApp ONTAP 9,2-operativ system ska **du inte `showmount` Aktivera**. [Kontakta Microsofts tjänst och support](hpc-cache-support-ticket.md) om du behöver hjälp.
 
   Läs mer om åtkomst till katalog listor i [fel söknings artikeln](troubleshoot-nas.md#enable-export-listing)för NFS-lagrings målet.
 

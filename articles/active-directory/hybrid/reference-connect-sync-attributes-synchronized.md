@@ -16,12 +16,12 @@ ms.date: 04/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9411c22183620f883b4d2819eb3078e49837e578
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ec05c4160c6502904644bf7035bda0bed66cc33
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90016086"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413198"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect-synkronisering: Attribut synkroniserade till Azure Active Directory
 I det här avsnittet visas de attribut som synkroniseras med Azure AD Connect Sync.  
@@ -64,7 +64,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | company |X |X | | |
 | countryCode |X |X | | |
 | avdelning |X |X | | |
-| description | | |X | |
+| beskrivning | | |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
@@ -185,7 +185,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | company |X |X | | |
 | countryCode |X |X | | |
 | avdelning |X |X | | |
-| description |X |X |X | |
+| beskrivning |X |X |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
@@ -265,7 +265,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | co |X |X | | |
 | company |X |X | | |
 | avdelning |X |X | | |
-| description |X |X |X | |
+| beskrivning |X |X |X | |
 | displayName |X |X |X | |
 | facsimiletelephonenumber |X |X |X | |
 | förnamn |X |X | | |
@@ -325,7 +325,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | accountEnabled |X | | |Definierar om ett konto är aktiverat. |
 | c |X |X | | |
 | nomenklatur |X | |X | |
-| description |X |X |X | |
+| beskrivning |X |X |X | |
 | displayName |X |X |X | |
 | e-post |X |X |X | |
 | MailNickName |X |X |X | |
@@ -346,7 +346,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | co |X |X | | |
 | company |X |X | | |
 | countryCode |X |X | | |
-| description |X |X |X | |
+| beskrivning |X |X |X | |
 | displayName |X |X |X | |
 | facsimiletelephonenumber |X |X | | |
 | förnamn |X |X | | |
@@ -373,7 +373,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 Den här gruppen är en uppsättning attribut som används som de minimala attribut som behövs för en allmän arbets belastning eller ett program. Den kan användas för en arbets belastning som inte listas i ett annat avsnitt eller för en app som inte kommer från Microsoft. Den används explicit för följande:
 
 * Yammer (endast användare förbrukas)
-* [Hybrid samarbets scenarier för företag till företag (B2B) över org som erbjuds av resurser som SharePoint](https://go.microsoft.com/fwlink/?LinkId=747036)
+* [Hybrid samarbets scenarier för företag till företag (B2B) över org som erbjuds av resurser som SharePoint](/sharepoint/create-b2b-extranet)
 
 Den här gruppen är en uppsättning attribut som kan användas om Azure AD-katalogen inte används för att stödja Microsoft 365, Dynamics eller Intune. Den har en liten uppsättning Core-attribut. Observera att enkel inloggning eller etablering till vissa tredjepartsprogram kräver att du konfigurerar synkronisering av attribut utöver de attribut som beskrivs här. Program kraven beskrivs i [själv studie kursen om SaaS-appar](../saas-apps/tutorial-list.md) för varje program.
 
@@ -466,7 +466,7 @@ Enhets objekt skapas i Active Directory. Dessa objekt kan vara enheter som är a
 | msDS-IsManaged |X | |
 | msDS-RegisteredOwner |X | |
 
-## <a name="notes"></a>Obs!
+## <a name="notes"></a>Kommentarer
 * När du använder ett alternativt ID synkroniseras det lokala attributet userPrincipalName med Azure AD-attributet onPremisesUserPrincipalName. Det alternativa ID-attributet, till exempel mail, synkroniseras med Azure AD-attributet userPrincipalName.
 * I listorna ovan gäller objekt typ **användaren** även för objekt typen **InetOrgPerson**.
 

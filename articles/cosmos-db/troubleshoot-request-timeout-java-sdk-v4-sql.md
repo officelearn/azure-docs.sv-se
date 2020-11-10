@@ -8,12 +8,12 @@ ms.date: 10/28/2020
 ms.author: kuthapar
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 442d6638e88462b1dc87e9321dc631fe0a4f3a10
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: a805300ac62d0627c9b06188c9764a6887947afe
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340093"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411294"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-java-v4-sdk-request-timeout-exceptions"></a>Diagnostisera och Felsök Azure Cosmos DB timeout-undantag för Java v4 SDK
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -22,6 +22,9 @@ HTTP 408-felet uppstår om SDK: n inte kunde slutföra begäran innan tids grän
 
 ## <a name="troubleshooting-steps"></a>Felsökningsanvisningar
 Följande lista innehåller kända orsaker och lösningar för timeout-undantag för begäran.
+
+### <a name="existing-issues"></a>Befintliga problem
+Om du ser begär Anden som fastnat för längre varaktighet eller tids gräns oftare, kan du uppgradera Java v4 SDK till den senaste versionen. Obs: Vi rekommenderar starkt att du använder version 4.7.0 och senare. Kolla in [viktigt om Java v4 SDK](sql-api-sdk-java-v4.md) för mer information.
 
 ### <a name="high-cpu-utilization"></a>Hög processor användning
 Hög processor användning är det vanligaste fallet. För optimal latens bör CPU-användningen vara ungefär 40 procent. Använd 10 sekunder som intervall för att övervaka maximal processor belastning (inte Genomsnittligt). CPU-toppar är vanligare med frågor över flera partitioner där det kan göra flera anslutningar för en enda fråga.

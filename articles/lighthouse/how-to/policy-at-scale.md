@@ -1,14 +1,14 @@
 ---
 title: Distribuera Azure Policy till delegerade prenumerationer i stor skala
 description: Lär dig hur Azure Lighthouse låter dig distribuera en princip definition och princip tilldelning över flera klienter.
-ms.date: 08/12/2020
+ms.date: 11/09/2020
 ms.topic: how-to
-ms.openlocfilehash: 27d32a68c1a3806e514533efbae581aa97bc6d0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5af938c61ad3e42e36360a15c6011b54fa1e823d
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167291"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412076"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Distribuera Azure Policy till delegerade prenumerationer i stor skala
 
@@ -91,7 +91,11 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 }
 ```
 
+> [!NOTE]
+> Även om du kan distribuera principer över flera klienter kan du för närvarande inte [Visa kompatibilitetsinformation](../../governance/policy/how-to/determine-non-compliance.md#compliance-details) för icke-kompatibla resurser i dessa klienter.
+
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om [Azure policy](../../governance/policy/index.yml).
 - Lär dig mer om [hanterings upplevelser mellan flera innehavare](../concepts/cross-tenant-management-experience.md).
+- Lär dig hur du [distribuerar en princip som kan åtgärdas](deploy-policy-remediation.md) i en delegerad prenumeration.

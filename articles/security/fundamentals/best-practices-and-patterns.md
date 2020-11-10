@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/03/2019
 ms.author: terrylan
-ms.openlocfilehash: 0bf9b4d3aa1926343ad25000a05762a31d49617d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4a3b2afd8b1a5ffdbb1fe0db1c3e345a9c99154
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73889843"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412620"
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Metod tips och mönster för Azure-säkerhet
 
@@ -28,8 +28,8 @@ Artiklarna nedan innehåller rekommenderade säkerhets metoder som du kan använ
 
 De bästa metoderna är avsedda att vara en resurs för IT-proffs. Detta kan vara designers, arkitekter, utvecklare och testare som skapar och distribuerar säkra Azure-lösningar.
 
-* [Metodtips för gränssäkerhet i Azure](/azure/security/fundamentals/network-best-practices#adopt-a-zero-trust-approach)
-* [Metodtips för databassäkerhet](database-best-practices.md)
+* [Metodtips för gränssäkerhet i Azure](./network-best-practices.md#adopt-a-zero-trust-approach)
+* [Metodtips för databassäkerhet](../../azure-sql/database/security-best-practice.md)
 * [Bästa praxis för datasäkerhet och kryptering med Azure](data-encryption-best-practices.md)
 * [Metodtips för identitetshantering och åtkomstkontroll i Azure](identity-management-best-practices.md)
 * [Metodtips för nätverkssäkerhet i Azure](network-best-practices.md)
@@ -38,7 +38,7 @@ De bästa metoderna är avsedda att vara en resurs för IT-proffs. Detta kan var
 * [Metodtips för Azure Service Fabric-säkerhet](service-fabric-best-practices.md)
 * [Metodtips för säkerhet för virtuella Azure-datorer](iaas.md)
 * [Implementera en säker hybridnätverksarkitektur i Azure](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid)
-* [Metodtips för säkerhet för Sakernas Internet](iot-best-practices.md)
+* [Metodtips för säkerhet för Sakernas Internet](../../iot-fundamentals/iot-security-best-practices.md)
 * [Skydda PaaS-databaser i Azure](paas-applications-using-sql.md)
 * [Skydda PaaS-program för webb och mobil med Azure App Service](paas-applications-using-app-services.md)
 * [Skydda PaaS-program för webb och mobil med Azure Storage](paas-applications-using-storage.md)

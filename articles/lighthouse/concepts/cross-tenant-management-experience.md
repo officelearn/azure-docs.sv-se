@@ -1,14 +1,14 @@
 ---
 title: Miljöer för hantering av flera klienter
 description: Azure-delegerad resurs hantering möjliggör hantering av flera innehavare.
-ms.date: 10/22/2020
+ms.date: 11/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5443c3b5a34cd493e0956f2a0d6ed7d6fecd603d
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: dfb92e3f4f02e693ae5e4bba57e5344288c4615a
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460673"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413130"
 ---
 # <a name="cross-tenant-management-experiences"></a>Miljöer för hantering av flera klienter
 
@@ -104,7 +104,6 @@ De flesta uppgifter och tjänster kan utföras på delegerade resurser över han
 
 [Azure policy](../../governance/policy/index.yml):
 
-- Ögonblicks bilder av kompatibilitet visar information om tilldelade principer i delegerade prenumerationer
 - Skapa och redigera princip definitioner i delegerade prenumerationer
 - Tilldela kunddefinierade princip definitioner inom delegerade prenumerationer
 - Kunder ser principer som skapats av tjänst leverantören tillsammans med eventuella principer som de har skapat själva
@@ -157,7 +156,7 @@ De flesta uppgifter och tjänster kan utföras på delegerade resurser över han
 
 Support förfrågningar:
 
-- [Öppna support förfrågningar från **hjälp + support** ](../../azure-portal/supportability/how-to-create-azure-support-request.md#getting-started) i Azure Portal för delegerade resurser (välja det support avtal som är tillgängligt för det delegerade omfånget)
+- [Öppna support förfrågningar från **hjälp + support**](../../azure-portal/supportability/how-to-create-azure-support-request.md#getting-started) i Azure Portal för delegerade resurser (välja det support avtal som är tillgängligt för det delegerade omfånget)
 
 ## <a name="current-limitations"></a>Aktuella begränsningar
 

@@ -15,12 +15,12 @@ ms.date: 06/27/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 875c503a9959565d76d46902b5ecb386995ef1e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8dddfb8426b769c06cb5b7494431b7eee34dbf9e
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86144722"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410903"
 ---
 # <a name="adsync-service-account"></a>ADSync-tjänstkonto
 Azure AD Connect installerar en lokal tjänst som dirigerar synkronisering mellan Active Directory och Azure Active Directory.  Microsoft Azure AD Sync-synkroniseringstjänsten (ADSync) körs på en server i din lokala miljö.  Autentiseringsuppgifterna för tjänsten ställs in som standard i Express installationer, men kan anpassas för att uppfylla organisationens säkerhets krav.  Dessa autentiseringsuppgifter används inte för att ansluta till dina lokala skogar eller Azure Active Directory.
@@ -61,7 +61,7 @@ Det gick inte att hitta krypterings nycklarna för AdSync-tjänsten och den har 
 
 Genom att felsöka det här problemet blir Microsoft Azure AD synkrona krypterings nycklar otillgängliga om autentiseringsuppgifterna för AdSync-tjänstens inloggning har ändrats.  Om autentiseringsuppgifterna har ändrats använder du tjänst programmet för att ändra inloggnings kontot till det ursprungligen konfigurerade värdet (t. ex. NT SERVICE\AdSync) och startar om tjänsten.  Detta kommer omedelbart att återställa korrekt drift av AdSync-tjänsten.
 
-Mer information finns i följande [artikel](https://go.microsoft.com/fwlink/?linkid=2086764) .
+Mer information finns i följande [artikel](./whatis-hybrid-identity.md) .
 
 ### <a name="example-2"></a>Exempel 2
 
@@ -69,7 +69,7 @@ Det gick inte att starta tjänsten eftersom det inte gick att upprätta en anslu
 
 Felsöka det här problemet. Microsoft Azure AD Sync-tjänsten kommer att förlora behörighet att komma åt den lokala databas leverantören om autentiseringsuppgifterna för AdSync-tjänstens inloggnings information har ändrats.  Om autentiseringsuppgifterna har ändrats använder du tjänst programmet för att ändra inloggnings kontot till det ursprungligen konfigurerade värdet (t. ex. NT SERVICE\AdSync) och startar om tjänsten.  Detta kommer omedelbart att återställa korrekt drift av AdSync-tjänsten.
 
-Mer information finns i följande [artikel](https://go.microsoft.com/fwlink/?linkid=2086764) .
+Mer information finns i följande [artikel](./whatis-hybrid-identity.md) .
 
 Ytterligare information följande fel information returnerades av providern:
  

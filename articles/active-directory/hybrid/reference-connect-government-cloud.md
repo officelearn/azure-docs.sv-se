@@ -11,12 +11,12 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c083b319b11807a88461b2464153821fa2ad0b67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 219893859d05eb419bc862484a9083abf8c26db7
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89276192"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409305"
 ---
 # <a name="hybrid-identity-considerations-for-the-azure-government-cloud"></a>Hybrid identitets överväganden för Azure Government molnet
 
@@ -36,7 +36,7 @@ Följande information beskriver implementeringen av direktautentisering och Azur
 Innan du distribuerar direktautentisering för direkt autentisering kontrollerar du om det finns en brand vägg mellan dina servrar och Azure AD. Om din brand vägg eller proxy tillåter Domain Name System (DNS) blockerade eller säkra program, lägger du till följande anslutningar.
 
 > [!NOTE]
-> Följande rikt linjer gäller även för att installera [Azure AD-programproxy Connector](https://aka.ms/whyappproxy) för Azure Government miljöer.
+> Följande rikt linjer gäller även för att installera [Azure AD-programproxy Connector](../manage-apps/what-is-application-proxy.md) för Azure Government miljöer.
 
 |URL |Hur den används|
 |-----|-----|

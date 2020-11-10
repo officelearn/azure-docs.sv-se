@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7baa851943db3e8c691b50c2cb5446a2adbbccc
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 5e50b9e5dc683eb30452dbb96d82c9f66de93763
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457999"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408013"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Smidig enkel inloggning i Azure Active Directory
 
@@ -63,11 +63,11 @@ Sömlös SSO kan kombineras med antingen [lösen ordets hash-synkronisering](how
 
 | OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Ja\*|Ja|Ja|Ja\*\*\*|Ej tillämpligt
-|Windows 8.1|Yes\*|Ja\*\*\*|Yes|Ja\*\*\*|Ej tillämpligt
-|Windows 8|Yes\*|Ej tillämpligt|Yes|Ja\*\*\*|Ej tillämpligt
-|Windows 7|Yes\*|Ej tillämpligt|Yes|Ja\*\*\*|Ej tillämpligt
-|Windows Server 2012 R2 eller senare|Ja\*\*|Ej tillämpligt|Yes|Ja\*\*\*|Ej tillämpligt
+|Windows 10|Ja\*|Ja|Ja|Ja\*\*\*|Saknas
+|Windows 8,1|Yes\*|Ja\*\*\*|Yes|Ja\*\*\*|Saknas
+|Windows 8|Yes\*|Saknas|Ja|Ja\*\*\*|Saknas
+|Windows 7|Yes\*|Saknas|Ja|Ja\*\*\*|Saknas
+|Windows Server 2012 R2 eller senare|Ja\*\*|Saknas|Ja|Ja\*\*\*|Saknas
 |Mac OS X|Saknas|Saknas|Ja\*\*\*|Ja\*\*\*|Ja\*\*\*
 
 
@@ -85,7 +85,7 @@ Sömlös SSO kan kombineras med antingen [lösen ordets hash-synkronisering](how
 ## <a name="next-steps"></a>Nästa steg
 
 - [**Snabbstart**](how-to-connect-sso-quick-start.md) – kom igång med Azure AD sömlös SSO.
-- [**Distributions plan**](https://aka.ms/deploymentplans/sso) – steg-för-steg-distributions plan.
+- [**Distributions plan**](../manage-apps/plan-sso-deployment.md) – steg-för-steg-distributions plan.
 - [**Teknisk djupgående**](how-to-connect-sso-how-it-works.md) – förstå hur den här funktionen fungerar.
 - [**Vanliga frågor**](how-to-connect-sso-faq.md) och svar på vanliga frågor.
 - [**Felsök**](tshoot-connect-sso.md) – lär dig hur du löser vanliga problem med funktionen.

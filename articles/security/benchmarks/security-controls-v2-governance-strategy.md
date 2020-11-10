@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 420ab87591e230592ec8f728c6acb155266b5912
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae0930e0845e8e8bd6dc4571dc3e8e27491a7be6
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403534"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408800"
 ---
 # <a name="security-control-v2-governance-and-strategy"></a>Säkerhets kontroll v2: styrning och strategi
 
@@ -45,19 +45,19 @@ Strategin bör omfatta dokumenterad vägledning, principer och standarder för f
 - Lämpliga kryptografiska standarder
 
 Mer information finns i följande referenser:
-- [Rekommendation för Azure Security Architecture – lagring, data och kryptering](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
+- [Rekommendation för Azure Security Architecture – lagring, data och kryptering](/azure/architecture/framework/security/storage-data-encryption?amp;bc=%252fsecurity%252fcompass%252fbreadcrumb%252ftoc.json&toc=%252fsecurity%252fcompass%252ftoc.json)
 
 - [Grundläggande Azure-säkerhet – Azure Data Security, kryptering och lagring](../fundamentals/encryption-overview.md)
 
-- [Ramverk för moln införande – metod tips för Azure Data Security och kryptering](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
+- [Ramverk för moln införande – metod tips för Azure Data Security och kryptering](../fundamentals/data-encryption-best-practices.md?amp;bc=%252fazure%252fcloud-adoption-framework%252f_bread%252ftoc.json&toc=%252fazure%252fcloud-adoption-framework%252ftoc.json)
 
 - [Hantering av Azure Security-inventarier](security-controls-v2-asset-management.md)
 
 - [Azure Security benchmark – data skydd](security-controls-v2-data-protection.md)
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Alla intressenter](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -79,9 +79,9 @@ Se till att segmenterings strategin implementeras konsekvent över kontroll type
 
 - [Justera nätverks segmentering med strategi för företags segmentering](/security/compass/network-security-containment#align-network-segmentation-with-enterprise-segmentation-strategy)
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Alla intressenter](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -95,9 +95,9 @@ Kontinuerligt mäta och minimera risker för enskilda till gångar och den milj�
 
 - [Azure Security benchmark – position och sårbarhets hantering](security-controls-v2-posture-vulnerability-management.md)
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Alla intressenter](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -105,19 +105,19 @@ Kontinuerligt mäta och minimera risker för enskilda till gångar och den milj�
 
 | Azure-ID | CIS-kontroller v 7.1-ID: n | NIST SP800 – 53 R4-ID: n |
 |--|--|--|--|
-| GS-4 | E.t. | PL, PM |
+| GS-4 | Saknas | PL, PM |
 
 Se till att dokumentera och förmedla en tydlig strategi för roller och ansvar i din säkerhets organisation. Prioritera att tillhandahålla tydliga ansvar för säkerhets beslut, utbilda alla på den delade ansvars modellen och utbilda tekniska team om teknik för att skydda molnet.
 
-- [Bästa praxis för Azure-säkerhet 1 – personer: utbilda team om molnets säkerhets resa](https://aka.ms/AzSec1)
+- [Bästa praxis för Azure-säkerhet 1 – personer: utbilda team om molnets säkerhets resa](/azure/cloud-adoption-framework/security/security-top-10#1-people-educate-teams-about-the-cloud-security-journey)
 
-- [Bästa praxis för Azure-säkerhet 2 – personer: utbilda team om moln säkerhets teknik](https://aka.ms/AzSec2)
+- [Bästa praxis för Azure-säkerhet 2 – personer: utbilda team om moln säkerhets teknik](/azure/cloud-adoption-framework/security/security-top-10#2-people-educate-teams-on-cloud-security-technology)
 
-- [Bästa praxis för Azure Security 3 – process: tilldela ansvar för moln säkerhets beslut](https://aka.ms/AzSec3)
+- [Bästa praxis för Azure Security 3 – process: tilldela ansvar för moln säkerhets beslut](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Alla intressenter](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -145,7 +145,7 @@ Strategin bör omfatta dokumenterad vägledning, principer och standarder för f
 
 Mer information finns i följande referenser:
 
-- [Azure-säkerhet Best Practice 11-Architecture. Enhetlig säkerhets strategi](https://aka.ms/AzSec11)
+- [Azure-säkerhet Best Practice 11-Architecture. Enhetlig säkerhets strategi](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
 - [Säkerhet för Azure-säkerhet](security-controls-v2-network-security.md)
 
@@ -153,9 +153,9 @@ Mer information finns i följande referenser:
 
 - [Arkitektur strategi för företags nätverk](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture)
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Alla intressenter](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -185,13 +185,13 @@ Mer information finns i följande referenser:
 
 - [Azure Security benchmark – privilegie rad åtkomst](security-controls-v2-privileged-access.md)
 
-- [Azure-säkerhet Best Practice 11-Architecture. Enhetlig säkerhets strategi](https://aka.ms/AzSec11)
+- [Azure-säkerhet Best Practice 11-Architecture. Enhetlig säkerhets strategi](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
 - [Översikt över Azure Identity Management-säkerhet](../fundamentals/identity-management-overview.md)
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Alla intressenter](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -224,15 +224,15 @@ Mer information finns i följande referenser:
 
 - [Azure-säkerhet benchmark – incident svar](security-controls-v2-incident-response.md)
 
-- [Azure Security Best Practice 4 – process. Uppdatera incident svars processer för molnet](https://aka.ms/AzSec4)
+- [Azure Security Best Practice 4 – process. Uppdatera incident svars processer för molnet](/azure/cloud-adoption-framework/security/security-top-10#3-process-assign-accountability-for-cloud-security-decisions)
 
 - [Besluts guide för Azure införande Framework, loggning och rapportering](/azure/cloud-adoption-framework/decision-guides/logging-and-reporting/)
 
 - [Azure Enterprise Scale, Management och Monitoring](/azure/cloud-adoption-framework/ready/enterprise-scale/management-and-monitoring)
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Alla intressenter](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -259,9 +259,8 @@ Mer information finns i följande referenser:
 
 - [Azure adoption Framework – verksamhets kontinuitet och haveri beredskap](/azure/cloud-adoption-framework/ready/enterprise-scale/business-continuity-and-disaster-recovery)
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Alla intressenter](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
-

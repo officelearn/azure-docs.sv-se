@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: d2862d5ab2c42ebdd1787022dc86119bc4e0f596
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d22ce3941b00903be8532caaa36a9ce55e2f2c6f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86229371"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409798"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Översikt över Azure Virtual Machines-säkerhet
 Den här artikeln innehåller en översikt över de centrala Azure-säkerhetsfunktioner som kan användas med virtuella datorer.
@@ -51,13 +51,13 @@ Läs mer om [Microsofts program mot skadlig kod för Azure](antimalware.md) och 
 Lär dig mer om program mot skadlig kod för att hjälpa till att skydda dina virtuella datorer:
 
 * [Distribuera lösningar för skydd mot skadlig kod i Azure Virtual Machines](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
-* [Så här installerar och konfigurerar du Trend Micro djupgående säkerhet som en tjänst på en virtuell Windows-dator](/azure/virtual-machines/windows/classic/install-trend)
-* [Så här installerar och konfigurerar du Symantec Endpoint Protection på en virtuell Windows-dator](/azure/virtual-machines/windows/classic/install-symantec)
+* [Så här installerar och konfigurerar du Trend Micro djupgående säkerhet som en tjänst på en virtuell Windows-dator](../../virtual-machines/extensions/trend.md)
+* [Så här installerar och konfigurerar du Symantec Endpoint Protection på en virtuell Windows-dator](../../virtual-machines/extensions/symantec.md)
 * [Säkerhetslösningar på Azure Marketplace](https://azure.microsoft.com/marketplace/?term=security)
 
-Överväg att använda [Windows Defender Avancerat skydd](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection)för ännu mer kraftfullt skydd. Med Windows Defender ATP får du:
+Överväg att använda [Windows Defender Avancerat skydd](/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection)för ännu mer kraftfullt skydd. Med Windows Defender ATP får du:
 
-* [Minska attackytan](/windows/security/threat-protection/windows-defender-atp/overview-attack-surface-reduction)  
+* [Minskning av attack ytan](/windows/security/threat-protection/windows-defender-atp/overview-attack-surface-reduction)  
 * [Nästa generations skydd](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)  
 * [Endpoint Protection och-svar](/windows/security/threat-protection/windows-defender-atp/overview-endpoint-detection-response)
 * [Automatiserad undersökning och reparation](/windows/security/threat-protection/windows-defender-atp/automated-investigations-windows-defender-advanced-threat-protection)
@@ -75,22 +75,22 @@ Läs mer:
 
 Förbättrad nyckel säkerhet kan förbättra krypterings-och autentiserings skydd. Du kan förenkla hanteringen och säkerheten för viktiga hemligheter och nycklar genom att lagra dem i Azure Key Vault.
 
-Key Vault ger dig möjlighet att lagra dina nycklar i HSM: er (Hardware Security modules) som är certifierade enligt standarden FIPS 140-2 på nivå 2. Dina SQL Server krypterings nycklar för säkerhets kopiering eller [transparent data kryptering](https://msdn.microsoft.com/library/bb934049.aspx) kan lagras i Key Vault med alla nycklar och hemligheter från dina program. Behörigheter och åtkomst till dessa skyddade objekt hanteras via [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
+Key Vault ger dig möjlighet att lagra dina nycklar i HSM: er (Hardware Security modules) som är certifierade enligt standarden FIPS 140-2 på nivå 2. Dina SQL Server krypterings nycklar för säkerhets kopiering eller [transparent data kryptering](/sql/relational-databases/security/encryption/transparent-data-encryption) kan lagras i Key Vault med alla nycklar och hemligheter från dina program. Behörigheter och åtkomst till dessa skyddade objekt hanteras via [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
 
 Läs mer:
 
-* [Vad är Azure Key Vault?](/azure/key-vault/key-vault-overview)
-* [Azure Key Vault blogg](https://blogs.technet.microsoft.com/kv/)
+* [Vad är Azure Key Vault?](../../key-vault/general/overview.md)
+* [Azure Key Vault blogg](/archive/blogs/kv/)
 
 ## <a name="virtual-machine-disk-encryption"></a>Disk kryptering för virtuell dator
 
-Azure Disk Encryption är en ny funktion för att kryptera dina Windows-och Linux-diskar för virtuella datorer. Azure Disk Encryption använder den branschstandardiserade [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) -funktionen i Windows och funktionen [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) i Linux för att tillhandahålla volym kryptering för operativ systemet och data diskarna.
+Azure Disk Encryption är en ny funktion för att kryptera dina Windows-och Linux-diskar för virtuella datorer. Azure Disk Encryption använder den branschstandardiserade [BitLocker](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11)) -funktionen i Windows och funktionen [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) i Linux för att tillhandahålla volym kryptering för operativ systemet och data diskarna.
 
 Lösningen är integrerad med Azure Key Vault som hjälper dig att styra och hantera disk krypterings nycklar och hemligheter i Key Vault-prenumerationen. Det säkerställer att alla data på de virtuella dator diskarna krypteras i vila i Azure Storage.
 
 Läs mer:
 
-* [Azure Disk Encryption för virtuella IaaS-datorer](/azure/security/azure-security-disk-encryption-overview)
+* [Azure Disk Encryption för virtuella IaaS-datorer](./azure-disk-encryption-vms-vmss.md)
 * [Snabbstart: Kryptera en virtuell Windows IaaS-dator med Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
 
 ## <a name="virtual-machine-backup"></a>Säkerhets kopiering av virtuell dator
@@ -99,8 +99,8 @@ Azure Backup är en skalbar lösning som hjälper dig att skydda dina program da
 
 Läs mer:
 
-* [Vad är Azure Backup?](/azure/backup/backup-introduction-to-azure-backup)
-* [Vanliga frågor och svar om Azure Backup-tjänsten](/azure/backup/backup-azure-backup-faq)
+* [Vad är Azure Backup?](../../backup/backup-overview.md)
+* [Vanliga frågor och svar om Azure Backup-tjänsten](../../backup/backup-azure-backup-faq.md)
 
 ## <a name="azure-site-recovery"></a>Azure Site Recovery
 
@@ -108,17 +108,17 @@ En viktig del av din organisations BCDR strategi är att ta reda på hur du hål
 
 Site Recovery:
 
-* **Fören klar din BCDR-strategi**: Site Recovery gör det enkelt att hantera replikering, redundans och återställning av flera arbets belastningar och appar från en enda plats. Site Recovery dirigerar replikering och redundans men fångar inte dina program data eller har ingen information om den.
-* **Ger flexibel replikering**: genom att använda Site Recovery kan du replikera arbets belastningar som körs på virtuella Hyper-V-datorer, virtuella VMware-datorer och fysiska Windows-och Linux-servrar.
-* **Stöder redundans och återställning**: Site Recovery tillhandahåller redundanstest som stöder haveri beredskap utan att påverka produktions miljöer. Du kan också köra planerade redundansväxlingar utan någon dataförlust för förväntade driftsavbrott, eller oplanerade redundansväxlingar med minimal dataförlust (beroende på replikeringsfrekvens) för oväntade haverier. Efter redundansväxlingen kan du växla tillbaka till dina primära platser. Site Recovery tillhandahåller återställningsplaner som kan innehålla skript och Azure Automation Runbook-rutiner så att du kan anpassa redundans och återställning av program med flera nivåer.
-* **Eliminerar sekundära Data Center**: du kan replikera till en sekundär lokal plats eller till Azure. Om du använder Azure som mål för haveri beredskap elimineras kostnaden och komplexiteten med att underhålla en sekundär plats. Replikerade data lagras i Azure Storage.
-* Är **integrerat med befintliga BCDR-tekniker**: Site Recovery partner med andra PROGRAMs BCDR-funktioner. Du kan till exempel använda Site Recovery för att skydda SQL Server backend-delen av företags arbets belastningar. Detta inkluderar inbyggt stöd för SQL Server Always on för att hantera redundans för tillgänglighets grupper.
+* **Fören klar din BCDR-strategi** : Site Recovery gör det enkelt att hantera replikering, redundans och återställning av flera arbets belastningar och appar från en enda plats. Site Recovery dirigerar replikering och redundans men fångar inte dina program data eller har ingen information om den.
+* **Ger flexibel replikering** : genom att använda Site Recovery kan du replikera arbets belastningar som körs på virtuella Hyper-V-datorer, virtuella VMware-datorer och fysiska Windows-och Linux-servrar.
+* **Stöder redundans och återställning** : Site Recovery tillhandahåller redundanstest som stöder haveri beredskap utan att påverka produktions miljöer. Du kan också köra planerade redundansväxlingar utan någon dataförlust för förväntade driftsavbrott, eller oplanerade redundansväxlingar med minimal dataförlust (beroende på replikeringsfrekvens) för oväntade haverier. Efter redundansväxlingen kan du växla tillbaka till dina primära platser. Site Recovery tillhandahåller återställningsplaner som kan innehålla skript och Azure Automation Runbook-rutiner så att du kan anpassa redundans och återställning av program med flera nivåer.
+* **Eliminerar sekundära Data Center** : du kan replikera till en sekundär lokal plats eller till Azure. Om du använder Azure som mål för haveri beredskap elimineras kostnaden och komplexiteten med att underhålla en sekundär plats. Replikerade data lagras i Azure Storage.
+* Är **integrerat med befintliga BCDR-tekniker** : Site Recovery partner med andra PROGRAMs BCDR-funktioner. Du kan till exempel använda Site Recovery för att skydda SQL Server backend-delen av företags arbets belastningar. Detta inkluderar inbyggt stöd för SQL Server Always on för att hantera redundans för tillgänglighets grupper.
 
 Läs mer:
 
-* [Vad är Azure Site Recovery?](/azure/site-recovery/site-recovery-overview)
-* [Hur fungerar Azure Site Recovery?](/azure/site-recovery/site-recovery-components)
-* [Vilka arbets belastningar skyddas av Azure Site Recovery?](/azure/site-recovery/site-recovery-workload)
+* [Vad är Azure Site Recovery?](../../site-recovery/site-recovery-overview.md)
+* [Hur fungerar Azure Site Recovery?](/azure/security/fundamentals/azure-to-azure-architecture)
+* [Vilka arbets belastningar skyddas av Azure Site Recovery?](../../site-recovery/site-recovery-workload.md)
 
 ## <a name="virtual-networking"></a>Virtuellt nätverk
 
@@ -129,7 +129,7 @@ Ett virtuellt Azure-nätverk är en logisk konstruktion som byggts ovanpå den f
 Läs mer:
 
 * [Översikt över Azure Network Security](network-overview.md)
-* [Översikt över Virtual Network](/azure/virtual-network/virtual-networks-overview)
+* [Översikt över Virtual Network](../../virtual-network/virtual-networks-overview.md)
 * [Nätverksfunktioner och partnerskap för företags scenarier](https://azure.microsoft.com/blog/networking-enterprise/)
 
 ## <a name="security-policy-management-and-reporting"></a>Hantering och rapportering av säkerhets principer
@@ -138,14 +138,14 @@ Azure Security Center hjälper dig att förebygga, identifiera och reagera på h
 
 Security Center hjälper dig att optimera och övervaka säkerheten för dina virtuella datorer genom att:
 
-* Tillhandahålla [säkerhets rekommendationer](/azure/security-center/security-center-recommendations) för de virtuella datorerna. Exempel på rekommendationer är: tillämpa system uppdateringar, konfigurera ACL-slutpunkter, aktivera program mot skadlig kod, aktivera nätverks säkerhets grupper och Använd disk kryptering.
+* Tillhandahålla [säkerhets rekommendationer](../../security-center/security-center-recommendations.md) för de virtuella datorerna. Exempel på rekommendationer är: tillämpa system uppdateringar, konfigurera ACL-slutpunkter, aktivera program mot skadlig kod, aktivera nätverks säkerhets grupper och Använd disk kryptering.
 * Övervaka statusen för dina virtuella datorer.
 
 Läs mer:
 
-* [Introduktion till Azure Security Center](/azure/security-center/security-center-intro)
-* [Vanliga frågor och svar om Azure Security Center](/azure/security-center/security-center-faq)
-* [Azure Security Center planering och åtgärder](/azure/security-center/security-center-planning-and-operations-guide)
+* [Introduktion till Azure Security Center](../../security-center/security-center-introduction.md)
+* [Vanliga frågor och svar om Azure Security Center](../../security-center/faq-general.md)
+* [Azure Security Center planering och åtgärder](../../security-center/security-center-planning-and-operations-guide.md)
 
 ## <a name="compliance"></a>Efterlevnad
 

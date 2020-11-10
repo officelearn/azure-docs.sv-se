@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 9833f63d999ab7c24174853bd37f4e7a76f6dfbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ddce9bd8eaa57571cd3c3eac660806340db4b74
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329439"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408676"
 ---
 # <a name="security-control-v2-network-security"></a>Säkerhets kontroll v2: nätverks säkerhet
 
@@ -40,9 +40,9 @@ Använd Azure Sentinel för att identifiera användningen av äldre oskyddade pr
 
 - [Arbets bok för Azure Sentinel-oskyddade protokoll](../../sentinel/quickstart-get-visibility.md#use-built-in-workbooks)
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Säkerhetsarkitektur](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -54,7 +54,7 @@ Använd Azure Sentinel för att identifiera användningen av äldre oskyddade pr
 
 | Azure-ID | CIS-kontroller v 7.1-ID: n | NIST SP800 – 53 R4-ID: n |
 |--|--|--|--|
-| NS-2 | E.t. | CA-3, AC-17, MA-4 |
+| NS-2 | Saknas | CA-3, AC-17, MA-4 |
 
 Använd Azure ExpressRoute eller Azure Virtual Private Network (VPN) för att skapa privata anslutningar mellan Azure-datacenter och lokal infrastruktur i en miljö med en valfri plats. ExpressRoute-anslutningar går inte via det offentliga Internet och de ger högre tillförlitlighet, snabbare hastigheter och lägre fördröjning än vanliga Internet anslutningar. För punkt-till-plats-VPN och plats-till-plats-VPN kan du ansluta lokala enheter eller nätverk till ett virtuellt nätverk med valfri kombination av de här VPN-alternativen och Azure-ExpressRoute.
 
@@ -68,9 +68,9 @@ Om du vill ansluta två eller flera virtuella nätverk i Azure tillsammans anvä
 
 - [Azure Private Link](../../private-link/private-link-service-overview.md)
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Säkerhetsarkitektur](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -92,9 +92,9 @@ Privat åtkomst är ett extra försvar i djupet, förutom autentiserings-och tra
 
 - [Förstå Virtual Network tjänstens slut punkter](../../virtual-network/virtual-network-service-endpoints-overview.md)
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Säkerhetsarkitektur](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -116,15 +116,15 @@ Skydda Azure-resurser mot attacker från externa nätverk, inklusive DDoS-attack
 -   Skydda dina till gångar mot DDoS-attacker genom att aktivera DDoS standard skydd på dina virtuella Azure-nätverk. 
 -   Använd Azure Security Center för att identifiera risker för felaktig konfiguration som är relaterade till ovanstående. 
 
-- [Dokumentation om Azure Firewall](/azure/firewall/)
+- [Dokumentation om Azure Firewall](../../firewall/index.yml)
 
 - [Så här distribuerar du Azure-WAF](../../web-application-firewall/overview.md)
 
 - [Hantera Azure DDoS Protection standard med hjälp av Azure Portal](../../virtual-network/manage-ddos-protection.md)
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 Inget
 
@@ -144,9 +144,9 @@ Obs! Om du har en regel eller annat krav för ID/IP-adresser kan du se till att 
 
 - [Microsoft Defender ATP-EDR-kapacitet](/windows/security/threat-protection/microsoft-defender-atp/overview-endpoint-detection-response)
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Säkerhetsarkitektur](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -168,11 +168,11 @@ Du kan också använda program säkerhets grupper för att förenkla komplex sä
 
 - [Förstå och använda service märken](../../virtual-network/service-tags-overview.md)
 
-- [Förstå och använda program säkerhets grupper](/azure/virtual-network/security-overview#application-security-groups)
+- [Förstå och använda program säkerhets grupper](../../virtual-network/network-security-groups-overview.md#application-security-groups)
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Säkerhetsarkitektur](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -184,7 +184,7 @@ Du kan också använda program säkerhets grupper för att förenkla komplex sä
 
 | Azure-ID | CIS-kontroller v 7.1-ID: n | NIST SP800 – 53 R4-ID: n |
 |--|--|--|--|
-| NS-7 | E.t. | SC-20, SC – 21 |
+| NS-7 | Saknas | SC-20, SC – 21 |
 
 Följ metod tipsen för DNS-säkerhet för att undvika vanliga attacker som Dangling DNS, DNS-utlösnings attacker, DNS-förgiftning och förfalskning osv. 
 
@@ -196,13 +196,12 @@ När Azure DNS används som auktoritativ DNS-tjänst kontrollerar du att DNS-zon
 
 - [Förhindra Dangling DNS-poster och Undvik under domän övertag Ande](../fundamentals/subdomain-takeover.md)
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Säkerhetsarkitektur](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
 - [Statushantering](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
-- [Program säkerhet och DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
-
+- [Program säkerhet och DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)

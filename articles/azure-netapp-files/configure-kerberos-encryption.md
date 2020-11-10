@@ -12,22 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 11/09/2020
 ms.author: b-juche
-ms.openlocfilehash: f4b485e79bfa89fe293c99fc4e84fc8c0729396a
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 1ffbcc24a2ee386be1a8ce50b55375d5bd458df1
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331897"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410104"
 ---
 # <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Konfigurera NFSv 4.1 Kerberos-kryptering för Azure NetApp Files
 
 Azure NetApp Files stöder NFS-klient kryptering i Kerberos-lägen (krb5, krb5i och krb5p) med AES-256-kryptering. I den här artikeln beskrivs de konfigurationer som krävs för att använda en NFSv 4.1-volym med Kerberos-kryptering.
-
-## <a name="considerations"></a>Överväganden
-
-* NFSv 4.1 Kerberos-krypterings volymer stöder för närvarande inte Azure Active Directory Domain Services (AADDS). 
 
 ## <a name="requirements"></a>Krav
 
@@ -93,7 +89,7 @@ Följ anvisningarna i [Konfigurera en NFS-klient för att Azure NetApp Files](co
 
 2. Välj **monterings instruktioner** från volymen för att Visa anvisningarna.
 
-    Exempel: 
+    Till exempel: 
 
     ![Monterings instruktioner för Kerberos-volymer](../media/azure-netapp-files/mount-instructions-kerberos-volume.png)  
 

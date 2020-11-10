@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: 72aff2a2761d3aae695968bd5b4b9d07eab1697f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5a5b20efbf804c2ea1097f905da1cfd62727ff15
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547698"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410699"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referens – IoT Hub kvoter och begränsning
 
@@ -69,9 +69,9 @@ I följande tabell visas de tvingade begränsningarna. Värden refererar till en
 
    Slutligen, om nytto Last storleken är mellan 156KB och 160 KB, kommer du bara att kunna ringa 1 per sekund per enhet i hubben innan du når gränsen på 160 KB/s/Unit.
 
-*  För *jobb enhets åtgärder (uppdatering, dubbla, Invoke Direct-metod)* för nivån S2, gäller 50/SEK/enheten bara när du anropar metoder med hjälp av jobb. Om du anropar direkta metoder direkt gäller den ursprungliga begränsnings gränsen på 24 MB/SEK/per enhet (för S2).
+*  För *jobb enhets åtgärder (uppdatering, dubbla, Invoke Direct-metod)* för nivå S3, gäller 50/SEK/enheten bara när du anropar metoder med hjälp av jobb. Om du anropar direkta metoder direkt gäller den ursprungliga begränsnings gränsen på 24 MB/SEK/per enhet (för S3).
 
-*  **Kvot** är det sammanlagda antalet meddelanden som du kan skicka i hubben *per dag* . Du kan hitta hubbens kvot gräns under kolumnen **Totalt antal meddelanden som per dag** på [sidan IoT Hub prissättning](https://azure.microsoft.com/pricing/details/iot-hub/).
+*  **Kvot** är det sammanlagda antalet meddelanden som du kan skicka i hubben *per dag*. Du kan hitta hubbens kvot gräns under kolumnen **Totalt antal meddelanden som per dag** på [sidan IoT Hub prissättning](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 *  Dina begränsningar för din moln-till-enhet och enhet till moln avgör hur *ofta* du kan skicka meddelanden – antal meddelanden, oavsett om det är 4 KB-segment. Varje meddelande kan vara upp till 256 KB, vilket är den [största meddelande storleken](iot-hub-devguide-quotas-throttling.md#other-limits).
 
@@ -79,7 +79,7 @@ I följande tabell visas de tvingade begränsningarna. Värden refererar till en
 
 ### <a name="traffic-shaping"></a>Trafik utformning
 
-För att kunna hantera burst-trafik accepterar IoT Hub begär Anden ovanför begränsningen under en begränsad tid. De första av dessa begär Anden bearbetas omedelbart. Men om antalet förfrågningar fortsätter strider mot begränsningen börjar IoT Hub att placera begär anden i en kö och bearbetas enligt begränsnings hastigheten. Den här effekterna kallas för *trafik form* . Dessutom är storleken på den här kön begränsad. Om begränsnings överträdelsen fortsätter kan kön fyllas och IoT Hub börjar avvisa begär Anden med `429 ThrottlingException` .
+För att kunna hantera burst-trafik accepterar IoT Hub begär Anden ovanför begränsningen under en begränsad tid. De första av dessa begär Anden bearbetas omedelbart. Men om antalet förfrågningar fortsätter strider mot begränsningen börjar IoT Hub att placera begär anden i en kö och bearbetas enligt begränsnings hastigheten. Den här effekterna kallas för *trafik form*. Dessutom är storleken på den här kön begränsad. Om begränsnings överträdelsen fortsätter kan kön fyllas och IoT Hub börjar avvisa begär Anden med `429 ThrottlingException` .
 
 Du kan till exempel använda en simulerad enhet för att skicka 200 enhet-till-moln-meddelanden per sekund till din S1-IoT Hub (som har en gräns på 100/SEK D2C-sändningar). För den första minuten eller två bearbetas meddelandena direkt. Men eftersom enheten fortsätter att skicka fler meddelanden än begränsnings gränsen börjar IoT Hub endast bearbeta 100 meddelanden per sekund och placerar resten i en kö. Du börjar märker ökad svars tid. Slutligen börjar du få `429 ThrottlingException` medan kön fyller upp och ["antalet begränsnings fel" IoT Hub måttet](monitor-iot-hub-reference.md#device-telemetry-metrics) börjar öka. Information om hur du skapar aviseringar och diagram baserat på mått finns i [övervaka IoT Hub](monitor-iot-hub.md).
 

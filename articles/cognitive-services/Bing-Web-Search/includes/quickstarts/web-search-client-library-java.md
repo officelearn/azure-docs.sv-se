@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: 3723345b10524b2063b3ec8fe43608f49b5b279b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 042a3edf8efe080064a3c41fd55975a40bf47e5e
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87374939"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94386539"
 ---
 Med Webbsökning i Bing klient biblioteket är det enkelt att integrera Webbsökning i Bing i Java-programmet. I den här snabbstarten lär du dig att skicka en begäran, ta emot ett JSON-svar och filtrera och parsa resultaten.
 
@@ -24,7 +24,7 @@ Vill du se koden på en gång? Exempel för [Bing-sökning klient bibliotek för
 
 Här följer några saker som du behöver innan du kör den här snabbstarten:
 
-* [JDK 7 eller 8](https://aka.ms/azure-jdks)
+* [JDK 7 eller 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 * [Apache Maven](https://maven.apache.org/download.cgi) eller valfritt verktyg för versionsautomatisering
 * En prenumerationsnyckel
 
@@ -295,4 +295,4 @@ När du är klar med det här projektet bör du ta bort din prenumerationsnyckel
 
 ## <a name="see-also"></a>Se även
 
-* [Azure Java SDK-referens](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingwebsearchapi?view=azure-java-stable)
+* [Azure Java SDK-referens](/java/api/overview/azure/cognitiveservices/client/bingwebsearchapi?view=azure-java-stable)

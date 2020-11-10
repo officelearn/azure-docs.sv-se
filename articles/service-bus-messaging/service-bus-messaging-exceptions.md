@@ -3,12 +3,12 @@ title: Azure Service Bus – undantag för meddelanden | Microsoft Docs
 description: Den här artikeln innehåller en lista över Azure Service Bus meddelande undantag och föreslagna åtgärder som vidtas när undantaget inträffar.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 45f18d16aaeee0017bd4d219b6dc9e6beab515af
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: e4aa6d82c20e21caabf0205d7446cf88ed8b7f34
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027524"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409322"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Service Bus meddelande undantag
 Den här artikeln innehåller de .NET-undantag som har genererats av .NET Framework API: er. 
@@ -33,8 +33,7 @@ I följande tabell visas meddelande undantags typer och deras orsaker, samt för
 | [ArgumentException](/dotnet/api/system.argumentexception?view=netcore-3.1&preserve-view=true)<br /> [ArgumentNullException](/dotnet/api/system.argumentnullexception?view=netcore-3.1&preserve-view=true)<br />[ArgumentOutOfRangeException](/dotnet/api/system.argumentoutofrangeexception?view=netcore-3.1&preserve-view=true) |Ett eller flera argument som angavs för metoden är ogiltiga.<br /> URI: n som angavs för [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) eller [skapa](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) innehåller Sök vägs segment (n).<br /> URI-schemat som angavs för [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) eller [create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) är ogiltigt. <br />Egenskap svärdet är större än 32 KB. |Kontrol lera anrops koden och se till att argumenten är korrekta. |Det går inte att försöka igen. |
 | [MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.servicebus.messagingentitynotfoundexception) |Entiteten som är kopplad till åtgärden finns inte eller har tagits bort. |Kontrol lera att entiteten finns. |Det går inte att försöka igen. |
 | [MessageNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagenotfoundexception) |Försök att ta emot ett meddelande med ett visst ordnings nummer. Det här meddelandet hittades inte. |Se till att meddelandet inte har tagits emot redan. Kontrol lera obeställbara meddelanden kön-kön för att se om meddelandet har deadlettered. |Det går inte att försöka igen. |
-| [MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) |Klienten kan inte upprätta en anslutning till Service Bus. |Kontrol lera att det angivna värd namnet är rätt och att värden kan kontaktas. <p>Om din kod körs i en miljö med en brand vägg/proxy kontrollerar du att trafiken till Service Bus domän/IP-adress och portar inte är blockerad.
-</p>|Försök igen kan vara till hjälp om det finns tillfälliga anslutnings problem. |
+| [MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) |Klienten kan inte upprätta en anslutning till Service Bus. |Kontrol lera att det angivna värd namnet är rätt och att värden kan kontaktas. <p>Om din kod körs i en miljö med en brand vägg/proxy kontrollerar du att trafiken till Service Bus domän/IP-adress och portar inte är blockerad.</p>|Försök igen kan vara till hjälp om det finns tillfälliga anslutnings problem. |
 | [ServerBusyException](/dotnet/api/microsoft.azure.servicebus.serverbusyexception) |Det går inte att bearbeta begäran för tillfället i tjänsten. |Klienten kan vänta en stund och sedan försöka igen. |Klienten kan försöka igen efter ett visst intervall. Om ett återförsök resulterar i ett annat undantag, kontrol lera beteendet för återförsök i detta undantag. |
 | [MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception) |Allmänt meddelande undantag som kan uppstå i följande fall:<p>Ett försök görs att skapa en [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) med ett namn eller en sökväg som tillhör en annan entitetstyp (till exempel ett ämne).</p><p>Ett försök görs att skicka ett meddelande som är större än 256 KB. </p>Ett fel påträffades av servern eller tjänsten under bearbetningen av begäran. Mer information finns i undantags meddelandet. Det är vanligt vis ett tillfälligt undantag.</p><p>Begäran avbröts eftersom enheten begränsas. Felkod: 50001, 50002, 50008. </p> | Kontrol lera koden och se till att endast serialiserbara objekt används för meddelande texten (eller Använd en anpassad serialiserare). <p>Kontrol lera dokumentationen för de värde typer som stöds och Använd endast typer som stöds.</p><p> Kontrol lera egenskapen [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception) . Om det är **Sant** kan du försöka igen. </p>| Om undantaget beror på begränsningen väntar du några sekunder och försöker sedan igen. Beteendet för återförsök är odefinierat och kanske inte bidrar till andra scenarier.|
 | [MessagingEntityAlreadyExistsException](/dotnet/api/microsoft.servicebus.messaging.messagingentityalreadyexistsexception) |Försök att skapa en entitet med ett namn som redan används av en annan entitet i tjänstens namnrymd. |Ta bort den befintliga entiteten eller Välj ett annat namn för entiteten som ska skapas. |Det går inte att försöka igen. |
@@ -66,7 +65,7 @@ Meddelandet anger att avsnittet överskrider storleks gränsen, i det här falle
 
 ### <a name="namespaces"></a>Namnrymder
 
-[QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) kan ange att ett program har överskridit det maximala antalet anslutningar till ett namn område. Exempel:
+[QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) kan ange att ett program har överskridit det maximala antalet anslutningar till ett namn område. Till exempel:
 
 ```Output
 Microsoft.ServiceBus.Messaging.QuotaExceededException: ConnectionsQuotaExceeded for namespace xxx.
@@ -81,7 +80,7 @@ Det finns två vanliga orsaker till det här felet: kön för obeställbara medd
 1. **[Kö för obeställbara meddelanden](service-bus-dead-letter-queues.md)** En läsare kan inte slutföra meddelanden och meddelandena returneras till kön/ämnet när låset upphör att gälla. Det kan inträffa om läsaren påträffar ett undantag som förhindrar att den anropar [BrokeredMessage. Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.complete). När ett meddelande har lästs 10 gånger flyttas det till kön för obeställbara meddelanden som standard. Detta beteende styrs av egenskapen [QueueDescription. MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) och har standardvärdet 10. När meddelanden sammanfattas i kön för obeställbara meddelanden tar de upp utrymme.
    
     Lös problemet genom att läsa och slutföra meddelandena från kön för obeställbara meddelanden, precis som i andra köer. Du kan använda metoden [FormatDeadLetterPath](/dotnet/api/microsoft.azure.servicebus.entitynamehelper.formatdeadletterpath) för att formatera kön för obeställbara meddelanden.
-2. **Mottagaren stoppades** . En mottagare har slutat ta emot meddelanden från en kö eller prenumeration. Sättet att identifiera detta är att titta på egenskapen [QueueDescription. MessageCountDetails](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails) , som visar den fullständiga detalj nivån av meddelandena. Om [ActiveMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.activemessagecount) -egenskapen är hög eller ökande, läses inte meddelandena som de ska när de skrivs.
+2. **Mottagaren stoppades**. En mottagare har slutat ta emot meddelanden från en kö eller prenumeration. Sättet att identifiera detta är att titta på egenskapen [QueueDescription. MessageCountDetails](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails) , som visar den fullständiga detalj nivån av meddelandena. Om [ActiveMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.activemessagecount) -egenskapen är hög eller ökande, läses inte meddelandena som de ska när de skrivs.
 
 ## <a name="timeoutexception"></a>TimeoutException
 En [TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1&preserve-view=true) anger att en åtgärd som initierats av användaren tar längre tid än tids gränsen för åtgärden. 
@@ -111,7 +110,7 @@ I händelse av en **MessageLockLostException** kan klient programmet inte längr
 
 Eftersom låset på meddelandet har upphört att gälla, kommer det att gå tillbaka i kön (eller prenumerationen) och kan bearbetas av nästa klient program som anropar Receive.
 
-Om **MaxDeliveryCount** har överskridits kan meddelandet flyttas till **DeadLetterQueue** .
+Om **MaxDeliveryCount** har överskridits kan meddelandet flyttas till **DeadLetterQueue**.
 
 ## <a name="sessionlocklostexception"></a>SessionLockLostException
 
@@ -169,7 +168,7 @@ Om namn matchningen **fungerar som förväntat** kontrollerar du om anslutningar
 
 **MessagingException** är ett allmänt undantag som kan uppstå av olika orsaker. Några av orsakerna visas nedan.
 
-   * Ett försök gjordes att skapa en **QueueClient** för ett **ämne** eller en **prenumeration** .
+   * Ett försök gjordes att skapa en **QueueClient** för ett **ämne** eller en **prenumeration**.
    * Storleken på det skickade meddelandet är större än gränsen för den aktuella nivån. Läs mer om [kvoter och begränsningar](service-bus-quotas.md)för Service Bus.
    * En speciell data Plans förfrågan (skicka, ta emot, slutför, överge) avslutades på grund av begränsning.
    * Tillfälliga problem orsakade av tjänst uppgraderingar och omstarter.

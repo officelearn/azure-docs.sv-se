@@ -16,15 +16,15 @@ ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d970fd133f8c43319e7f1fdb6b3a50c3c05f687
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57990fda7475b95bd6582fa5a495ac8d24aa55d5
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "64918447"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408540"
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Fastställ krav för innehålls hantering för din hybrid identitets lösning
-Att förstå kraven på innehålls hantering för ditt företag kan leda till att ditt beslut om vilken hybrid identitets lösning som ska användas. Med spridning av flera enheter och möjligheten för användare att ta med sig sina egna enheter ([BYOD](https://aka.ms/byodcg)) måste företaget skydda sina egna data, men det måste också hålla användarens sekretess intakt. Vanligt vis när en användare har sin egen enhet kan de också ha flera autentiseringsuppgifter som är alternerande enligt det program som de använder. Det är viktigt att skilja på vilket innehåll som skapades med hjälp av personliga autentiseringsuppgifter jämfört med de som har skapats med företags uppgifter. Din identitets lösning bör kunna interagera med moln tjänster för att ge en sömlös upplevelse till slutanvändaren samtidigt som du ser till att dess integritet ökar och skyddar mot data läckage. 
+Att förstå kraven på innehålls hantering för ditt företag kan leda till att ditt beslut om vilken hybrid identitets lösning som ska användas. Med spridning av flera enheter och möjligheten för användare att ta med sig sina egna enheter ([BYOD](/mem/intune/fundamentals/byod-technology-decisions)) måste företaget skydda sina egna data, men det måste också hålla användarens sekretess intakt. Vanligt vis när en användare har sin egen enhet kan de också ha flera autentiseringsuppgifter som är alternerande enligt det program som de använder. Det är viktigt att skilja på vilket innehåll som skapades med hjälp av personliga autentiseringsuppgifter jämfört med de som har skapats med företags uppgifter. Din identitets lösning bör kunna interagera med moln tjänster för att ge en sömlös upplevelse till slutanvändaren samtidigt som du ser till att dess integritet ökar och skyddar mot data läckage. 
 
 Din identitets lösning används av olika tekniska kontroller för att tillhandahålla innehålls hantering såsom visas i bilden nedan:
 
@@ -69,4 +69,3 @@ När du planerar din hybrid identitets lösning ser du till att följande frågo
 
 ## <a name="see-also"></a>Se även
 [Översikt över design överväganden](plan-hybrid-identity-design-considerations-overview.md)
-

@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: f496d0f38452fa7cf64bc9eef370bd0b2116cfa5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe703b9589dcd49298ac45d5a14032ca7e556bfd
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049969"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408421"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Support policy för Azure Red Hat OpenShift
 
@@ -30,6 +30,7 @@ Vissa konfigurationer för Azure Red Hat OpenShift 4-kluster kan påverka klustr
 * Alla virtuella kluster datorer måste ha direkt utgående Internet åtkomst, minst Azure Resource Manager (ARM) och service Logging (Genève).  Ingen form av HTTPS-proxyering stöds.
 * Ändra inte DNS-konfigurationen för klustrets virtuella nätverk. Standard Azure DNS matchare måste användas.
 * Åsidosätt inte något av klustrets MachineConfig-objekt (till exempel kubelet-konfigurationen) på något sätt.
+* Ange inte några unsupportedConfigOverrides-alternativ. Om du ställer in de här alternativen förhindras lägre versions uppgraderingar.
 * Tjänsten Azure Red Hat OpenShift har åtkomst till ditt kluster via tjänsten Private Link.  Ta inte bort eller ändra tjänst åtkomst.
 * RHCOS Compute-noder stöds inte. Du kan till exempel inte använda en RHEL Compute-nod.
 

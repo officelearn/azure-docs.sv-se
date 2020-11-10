@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 11/06/2020
 ms.author: erhopf
-ms.openlocfilehash: c2b96193204c6938338594054bc3cd4715008313
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87832057e955f8408b369e2f55096a713780e965
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89055319"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410784"
 ---
 # <a name="speech-service-whats-new-in-docs"></a>Speech service: Nyheter i dokument
 
@@ -23,9 +23,10 @@ Välkommen! Den här sidan beskriver nyheterna i tal service-dokument. Se tillba
 
 ### <a name="service-updates"></a>Tjänstuppdateringar
 
-Om du vill veta mer om uppdateringar av tal-tjänsten, tal-SDK, tal enheter SDK eller tal-CLI, se:
+Om du vill veta mer om uppdateringar av tal tjänsten, tal SDK, tal enheter SDK, tal CLI eller tal behållare, se:
 * [Viktig information om tal SDK](releasenotes.md).
 * [Viktig information om Speech Devices SDK](devices-sdk-release-notes.md)
+* [Viktig information om Cognitive Services container](../containers/container-image-tags.md)
 
 ## <a name="may-2020"></a>Maj 2020
 
@@ -57,28 +58,28 @@ De här problemen har öppnats i maj. Den här tabellen innehåller en lista öv
 
 Den här tabellen uppdateras varje månad och visar bara problem som har öppnats i maj.  
 
-|ID|Användare|Beskrivning|Inleddes|Tillstånd|Typ|
+|ID|Användare|Description|Inleddes|Tillstånd|Typ|
 | :--- | :--- | :--- | :--- | :--- | :--- |
-|[56045](https://github.com/MicrosoftDocs/azure-docs/issues/56045)|rhalaly|Aktiviteten släpptes eftersom robotens slut punkt saknas|2020-05-31|Stängda|Problem|
+|[56045](https://github.com/MicrosoftDocs/azure-docs/issues/56045)|rhalaly|Aktiviteten släpptes eftersom robotens slut punkt saknas|2020-05-31|Stängd|Problem|
 |[56038](https://github.com/MicrosoftDocs/azure-docs/issues/56038)|rhalaly|Fel när du publicerar bot-steg|2020-05-31|Öppna|Problem|
 |[56014](https://github.com/MicrosoftDocs/azure-docs/issues/56014)|mosdav|Lägg till mer rensa dokument om PCM-exempel format|2020-05-30|Öppna|Problem|
-|[55984](https://github.com/MicrosoftDocs/azure-docs/issues/55984)|chschrae|Rubriken matchar inte sido fältet|2020-05-29|Stängda|Problem|
-|[55857](https://github.com/MicrosoftDocs/azure-docs/issues/55857)|nitinbhatia – dev|CLI-fel med Wave-fil|2020-05-28|Stängda|Problem|
+|[55984](https://github.com/MicrosoftDocs/azure-docs/issues/55984)|chschrae|Rubriken matchar inte sido fältet|2020-05-29|Stängd|Problem|
+|[55857](https://github.com/MicrosoftDocs/azure-docs/issues/55857)|nitinbhatia – dev|CLI-fel med Wave-fil|2020-05-28|Stängd|Problem|
 |[55717](https://github.com/MicrosoftDocs/azure-docs/pull/55717)|dargilco|Uppdatera speech-sdk.md|2020-05-27|Öppna|Pull-begäran|
-|[55299](https://github.com/MicrosoftDocs/azure-docs/issues/55299)|Tirumala-K|Underligt-fel med röst namnet som inte stöds|2020-05-20|Stängda|Problem|
+|[55299](https://github.com/MicrosoftDocs/azure-docs/issues/55299)|Tirumala-K|Underligt-fel med röst namnet som inte stöds|2020-05-20|Stängd|Problem|
 |[55099](https://github.com/MicrosoftDocs/azure-docs/issues/55099)|kmoore-riphaina|Dokumentationen på tal till text-API är dålig|2020-05-18|Öppna|Problem|
-|[55032](https://github.com/MicrosoftDocs/azure-docs/issues/55032)|dubbySwords|Microsoft CognitiveServices tal klass SpeechRecognizer, kan inte samla in en resulterande text|2020-05-18|Stängda|Problem|
-|[55031](https://github.com/MicrosoftDocs/azure-docs/issues/55031)|dubbySwords|Inte klar|2020-05-18|Stängda|Problem|
-|[55027](https://github.com/MicrosoftDocs/azure-docs/issues/55027)|ovishesh|Grafik som inte syns i mörkt tema|2020-05-17|Stängda|Problem|
+|[55032](https://github.com/MicrosoftDocs/azure-docs/issues/55032)|dubbySwords|Microsoft CognitiveServices tal klass SpeechRecognizer, kan inte samla in en resulterande text|2020-05-18|Stängd|Problem|
+|[55031](https://github.com/MicrosoftDocs/azure-docs/issues/55031)|dubbySwords|Inte klar|2020-05-18|Stängd|Problem|
+|[55027](https://github.com/MicrosoftDocs/azure-docs/issues/55027)|ovishesh|Grafik som inte syns i mörkt tema|2020-05-17|Stängd|Problem|
 |[54919](https://github.com/MicrosoftDocs/azure-docs/issues/54919)|kmoore-riphaina|avsnitt saknas?|2020-05-15|Öppna|Problem|
 |[54743](https://github.com/MicrosoftDocs/azure-docs/issues/54743)|fifteenjoy|Körning av tal tjänst behållare fungerar inte|2020-05-13|Öppna|Problem|
 |[54550](https://github.com/MicrosoftDocs/azure-docs/issues/54550)|Manish – 95|Exempel på uttals fil|2020-05-11|Öppna|Problem|
 |[54522](https://github.com/MicrosoftDocs/azure-docs/issues/54522)|pjmlp|Java-exemplet är felaktigt.|2020-05-10|Öppna|Problem|
-|[54387](https://github.com/MicrosoftDocs/azure-docs/issues/54387)|ziadhassan7|Det går inte att hämta uttal-Poäng|2020-05-08|Stängda|Problem|
-|[54382](https://github.com/MicrosoftDocs/azure-docs/issues/54382)|jgtellez1|Mall för YAML-fil|2020-05-07|Stängda|Problem|
-|[54208](https://github.com/MicrosoftDocs/azure-docs/issues/54208)|paparush|C#-exempel koden meddelar inte användaren att tala.|2020-05-06|Stängda|Problem|
-|[54132](https://github.com/MicrosoftDocs/azure-docs/pull/54132)|anthonsu|Uppgradera TTS från v 1.3 till v 1.4|2020-05-05|Stängda|Pull-begäran|
-|[54111](https://github.com/MicrosoftDocs/azure-docs/pull/54111)|anthonsu|Uppdatera anpassad STT senaste version till v 2.2.0|2020-05-05|Stängda|Pull-begäran|
+|[54387](https://github.com/MicrosoftDocs/azure-docs/issues/54387)|ziadhassan7|Det går inte att hämta uttal-Poäng|2020-05-08|Stängd|Problem|
+|[54382](https://github.com/MicrosoftDocs/azure-docs/issues/54382)|jgtellez1|Mall för YAML-fil|2020-05-07|Stängd|Problem|
+|[54208](https://github.com/MicrosoftDocs/azure-docs/issues/54208)|paparush|C#-exempel koden meddelar inte användaren att tala.|2020-05-06|Stängd|Problem|
+|[54132](https://github.com/MicrosoftDocs/azure-docs/pull/54132)|anthonsu|Uppgradera TTS från v 1.3 till v 1.4|2020-05-05|Stängd|Pull-begäran|
+|[54111](https://github.com/MicrosoftDocs/azure-docs/pull/54111)|anthonsu|Uppdatera anpassad STT senaste version till v 2.2.0|2020-05-05|Stängd|Pull-begäran|
 |[53919](https://github.com/MicrosoftDocs/azure-docs/issues/53919)|eyast|Länkar till GitHub-projekt är brutna|2020-05-03|Öppna|Problem|
-|[53892](https://github.com/MicrosoftDocs/azure-docs/issues/53892)|viju2008|Egenskap som ska definieras: maximal ljud igenkännings tid för Android-mikrofon. Stoppa ljud igenkänning efter 15 sekunder|2020-05-02|Stängda|Problem|
-|[53796](https://github.com/MicrosoftDocs/azure-docs/pull/53796)|singhsaumya|Anpassade kommandon: uppdatering av dokument|2020-05-01|Stängda|Pull-begäran|
+|[53892](https://github.com/MicrosoftDocs/azure-docs/issues/53892)|viju2008|Egenskap som ska definieras: maximal ljud igenkännings tid för Android-mikrofon. Stoppa ljud igenkänning efter 15 sekunder|2020-05-02|Stängd|Problem|
+|[53796](https://github.com/MicrosoftDocs/azure-docs/pull/53796)|singhsaumya|Anpassade kommandon: uppdatering av dokument|2020-05-01|Stängd|Pull-begäran|

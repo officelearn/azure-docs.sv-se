@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 4f3e8540902809f951a441aa2fe8d00026c44d82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee28cbffd6f047b4991d29781e0b131a44c7dfae
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81408605"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409186"
 ---
 # <a name="security-control-data-recovery"></a>Säkerhets kontroll: Data återställning
 
@@ -26,7 +26,7 @@ Se till att alla system data, konfigurationer och hemligheter säkerhets kopie r
 
 Aktivera Azure Backup och konfigurera säkerhets kopierings källan (virtuella Azure-datorer, SQL Server eller fil resurser) samt önskad frekvens och kvarhållningsperiod.
 
-- [Så här aktiverar du Azure Backup](https://docs.microsoft.com/azure/backup/)
+- [Så här aktiverar du Azure Backup](../../backup/index.yml)
 
 ## <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9,2: Utför fullständig säkerhets kopiering av systemet och säkerhetskopiera alla Kundhanterade nycklar
 
@@ -36,9 +36,9 @@ Aktivera Azure Backup och konfigurera säkerhets kopierings källan (virtuella A
 
 Aktivera Azure Backup och mål-VM: er samt önskade frekvens-och kvarhållningsperiod. Säkerhetskopiera kund hanterade nycklar inom Azure Key Vault.
 
-- [Så här aktiverar du Azure Backup](https://docs.microsoft.com/azure/backup/)
+- [Så här aktiverar du Azure Backup](../../backup/index.yml)
 
-- [Så här säkerhetskopierar du nyckel valv nycklar i Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Så här säkerhetskopierar du nyckel valv nycklar i Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
 ## <a name="93-validate-all-backups-including-customer-managed-keys"></a>9,3: validera alla säkerhets kopior inklusive Kundhanterade nycklar
 
@@ -48,9 +48,9 @@ Aktivera Azure Backup och mål-VM: er samt önskade frekvens-och kvarhållningsp
 
 Se till att regelbundet utföra Data återställning av innehåll inom Azure Backup. Testa återställning av säkerhetskopierade nycklar som hanteras av kunden.
 
-- [Återställa filer från säkerhets kopiering av virtuella Azure-datorer](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm)
+- [Återställa filer från säkerhets kopiering av virtuella Azure-datorer](../../backup/backup-azure-restore-files-from-vm.md)
 
-- [Återställa Key Vault-nycklar i Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Återställa Key Vault-nycklar i Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 ## <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: se till att skydda säkerhets kopior och Kundhanterade nycklar
 
@@ -62,11 +62,11 @@ Vid lokal säkerhetskopiering tillhandahålls kryptering i vila med hjälp av de
 
 Aktivera Soft-Delete och rensa skydd i Key Vault för att skydda nycklar mot oavsiktlig eller skadlig borttagning.  Om Azure Storage används för att lagra säkerhets kopior aktiverar du mjuk borttagning för att spara och återställa data när blobbar eller BLOB-ögonblicksbilder tas bort. 
 
-- [Förstå Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [Förstå Azure RBAC](../../role-based-access-control/overview.md)
 
-- [Aktivera Soft-Delete och rensa skydd i Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Aktivera Soft-Delete och rensa skydd i Key Vault](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
-- [Mjuk borttagning för Azure Storage-blobar](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Mjuk borttagning för Azure Storage-blobar](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 
 ## <a name="next-steps"></a>Nästa steg

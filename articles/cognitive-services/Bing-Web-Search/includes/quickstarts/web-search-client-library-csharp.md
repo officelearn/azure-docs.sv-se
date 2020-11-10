@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 10/19/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9dbed0de3cf6cc911111825a75430d0c616f4dc4
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: d391586ade9e9a58344f9b1666802a453770152a
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217601"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94386522"
 ---
 Med Webbsökning i Bing klient biblioteket är det enkelt att integrera Webbsökning i Bing i C#-programmet. I den här snabbstarten lär du dig att instansiera en klient, skicka en begäran och skriva ut svaret.
 
@@ -36,7 +36,7 @@ Här följer några saker som du behöver innan du kör den här snabbstarten:
 > [!TIP]
 > Hämta den senaste koden som en Visual Studio-lösning från [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/).
 
-Det första steget är att skapa ett nytt konsollprojekt. Om du behöver hjälp med att konfigurera ett konsol projekt, se [Hello World--ditt första program (C# programmerings guide)](https://docs.microsoft.com/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program). För att kunna använda API för webbsökning i Bing i ditt program behöver du installera `Microsoft.Azure.CognitiveServices.Search.WebSearch` med hjälp av NuGet-pakethanteraren.
+Det första steget är att skapa ett nytt konsollprojekt. Om du behöver hjälp med att konfigurera ett konsol projekt, se [Hello World--ditt första program (C# programmerings guide)](/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program). För att kunna använda API för webbsökning i Bing i ditt program behöver du installera `Microsoft.Azure.CognitiveServices.Search.WebSearch` med hjälp av NuGet-pakethanteraren.
 
 [SDK-paketet för webbsökning](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0) installeras också:
 
@@ -424,4 +424,3 @@ När du är klar med det här projektet bör du ta bort din prenumerationsnyckel
 
 > [!div class="nextstepaction"]
 > [Exempel med Cognitive Services SDK för Node.js](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/)
-                                    

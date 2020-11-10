@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: a02b2157209b5f47ac7ffbde4e15f3e7df1c258b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 278812754c636d434bf579c0408832f1e99d3445
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462538"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408081"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Metod tips för att skydda PaaS-databaser i Azure
 
@@ -40,7 +40,7 @@ Azure SQL Database kan konfigureras för att använda en av två typer av autent
 
 - **Azure Active Directory autentisering** använder identiteter som hanteras av Azure Active Directory och stöds för hanterade och integrerade domäner. Om du vill använda Azure Active Directory autentisering måste du skapa en annan Server administratör som kallas "Azure AD-administratör", som har behörighet att administrera Azure AD-användare och-grupper. Den här administratören kan också utföra alla åtgärder som en vanlig serveradministratören kan.
 
-[Azure Active Directory autentisering](../../active-directory/develop/authentication-scenarios.md) är en mekanism för att ansluta till Azure SQL Database och Azure Synapse Analytics med hjälp av identiteter i Azure Active Directory (AD). Azure AD är ett alternativ till att SQL Server autentisering så att du kan stoppa spridningen av användar identiteter på databas servrar. Med Azure AD-autentisering kan du centralt hantera identiteter för databas användare och andra Microsoft-tjänster på en central plats. Central ID-hantering ger en enda plats för hantering av databasanvändare och förenklar behörighetshanteringen.  
+[Azure Active Directory autentisering](../../active-directory/develop/authentication-vs-authorization.md) är en mekanism för att ansluta till Azure SQL Database och Azure Synapse Analytics med hjälp av identiteter i Azure Active Directory (AD). Azure AD är ett alternativ till att SQL Server autentisering så att du kan stoppa spridningen av användar identiteter på databas servrar. Med Azure AD-autentisering kan du centralt hantera identiteter för databas användare och andra Microsoft-tjänster på en central plats. Central ID-hantering ger en enda plats för hantering av databasanvändare och förenklar behörighetshanteringen.  
 
 ### <a name="benefits-of-using-azure-ad-instead-of-sql-authentication"></a>Fördelar med att använda Azure AD i stället för SQL-autentisering
 
@@ -50,7 +50,7 @@ Azure SQL Database kan konfigureras för att använda en av två typer av autent
 - Använder inneslutna databas användare för att autentisera identiteter på databas nivå.
 - Stöder tokenbaserad autentisering för program som ansluter till SQL Database.
 - Stöder domän federation med Active Directory Federation Services (AD FS) (ADFS) eller autentisering med intern användare/lösenordsautentisering för en lokal Azure AD utan domän-synkronisering.
-- Stöder anslutningar från SQL Server Management Studio som använder Active Directory Universal Authentication, som inkluderar [Multi-Factor Authentication (MFA)](/azure/active-directory/authentication/multi-factor-authentication). I MFA används stark autentisering via en rad enkla verifieringsalternativ – telefonsamtal, SMS, smarta kort med PIN-kod eller avisering i mobilappen. Mer information finns i [Universal Authentication with SQL Database and Azure Synapse Analytics](../../azure-sql/database/authentication-mfa-ssms-overview.md).
+- Stöder anslutningar från SQL Server Management Studio som använder Active Directory Universal Authentication, som inkluderar [Multi-Factor Authentication (MFA)](../../active-directory/authentication/concept-mfa-howitworks.md). I MFA används stark autentisering via en rad enkla verifieringsalternativ – telefonsamtal, SMS, smarta kort med PIN-kod eller avisering i mobilappen. Mer information finns i [Universal Authentication with SQL Database and Azure Synapse Analytics](../../azure-sql/database/authentication-mfa-ssms-overview.md).
 
 Mer information om Azure AD-autentisering finns i:
 

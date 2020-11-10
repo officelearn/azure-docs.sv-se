@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
-ms.openlocfilehash: 3ac044666b8f723e3cc26fd7a30f5dd8a8f77d90
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 3113216b2d8a7572bcb864819a379de6823ee444
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168043"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409883"
 ---
 # <a name="azure-security-technical-capabilities"></a>Tekniska funktioner för Azure-säkerhet
 Den här artikeln innehåller en introduktion till säkerhets tjänster i Azure som hjälper dig att skydda dina data, resurser och program i molnet och uppfylla verksamhetens behov av säkerhet.
@@ -48,7 +48,7 @@ Azure hjälper dig att skydda företags information och personlig information ge
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-Microsofts identitets-och åtkomst hanterings lösningar hjälper till att skydda åtkomsten till program och resurser i företagets data Center och till molnet, vilket möjliggör ytterligare verifierings nivåer, till exempel Multi-Factor Authentication och principer för villkorlig åtkomst. Övervakning av misstänkt aktivitet genom avancerad säkerhetsrapportering, -granskning och -avisering hjälper till att minska potentiella säkerhetsproblem. [Azure Active Directory Premium](../../active-directory/active-directory-whatis.md) ger enkel inloggning till tusentals molnappar och åtkomst till webbappar som du kör lokalt.
+Microsofts identitets-och åtkomst hanterings lösningar hjälper till att skydda åtkomsten till program och resurser i företagets data Center och till molnet, vilket möjliggör ytterligare verifierings nivåer, till exempel Multi-Factor Authentication och principer för villkorlig åtkomst. Övervakning av misstänkt aktivitet genom avancerad säkerhetsrapportering, -granskning och -avisering hjälper till att minska potentiella säkerhetsproblem. [Azure Active Directory Premium](../../active-directory/fundamentals/active-directory-whatis.md) ger enkel inloggning till tusentals molnappar och åtkomst till webbappar som du kör lokalt.
 
 Säkerhets fördelarna med Azure Active Directory (Azure AD) inkluderar möjligheten att:
 
@@ -68,7 +68,7 @@ Följande är grundläggande funktioner för Azure Identity Management:
 
 - Enkel inloggning
 
-- Multifaktorautentisering
+- Multi-Factor Authentication
 
 - Säkerhetsövervakning, varningar och Machine Learning-baserade rapporter
 
@@ -78,7 +78,7 @@ Följande är grundläggande funktioner för Azure Identity Management:
 
 - Privileged Identity Management
 
-- Identity Protection
+- Identitetsskydd
 
 #### <a name="single-sign-on"></a>Enkel inloggning
 
@@ -88,17 +88,17 @@ Många organisationer förlitar sig på SaaS-program (program vara som en tjäns
 
 [Azure AD utökar lokala Active Directory till molnet](../../active-directory/manage-apps/what-is-single-sign-on.md), vilket gör det möjligt för användare att använda sitt primära organisations konto för att inte bara logga in på sina domänanslutna enheter och företags resurser, men även alla webb-och SaaS-program som krävs för sitt arbete.
 
-Användare behöver inte bara hantera flera uppsättningar användar namn och lösen ord, program åtkomsten kan automatiskt etableras eller avetableras baserat på organisations grupper och deras status som anställd. [Azure AD introducerar säkerhets-och åtkomst styrnings kontroller](../../active-directory/active-directory-enterprise-apps-manage-sso.md) som gör att du centralt kan hantera användarnas åtkomst i SaaS-program.
+Användare behöver inte bara hantera flera uppsättningar användar namn och lösen ord, program åtkomsten kan automatiskt etableras eller avetableras baserat på organisations grupper och deras status som anställd. [Azure AD introducerar säkerhets-och åtkomst styrnings kontroller](../../active-directory/manage-apps/view-applications-portal.md) som gör att du centralt kan hantera användarnas åtkomst i SaaS-program.
 
-#### <a name="multi-factor-authentication"></a>Multifaktorautentisering
+#### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-[Azure Multi-Factor Authentication (MFA)](../../active-directory/authentication/multi-factor-authentication.md) är en metod för autentisering som kräver användning av mer än en verifieringsmetod och lägger till ett kritiskt andra säkerhets lager för användar inloggningar och transaktioner. [MFA hjälper](../../active-directory/authentication/concept-mfa-howitworks.md) till att skydda åtkomsten till data och program samtidigt som du kan möta användarnas behov av en enkel inloggnings process. Den ger stark autentisering via ett antal verifierings alternativ – telefonsamtal, textmeddelande eller meddelande från mobilapp eller verifierings kod och OAuth-token från tredje part.
+[Azure Multi-Factor Authentication (MFA)](../../active-directory/authentication/concept-mfa-howitworks.md) är en metod för autentisering som kräver användning av mer än en verifieringsmetod och lägger till ett kritiskt andra säkerhets lager för användar inloggningar och transaktioner. [MFA hjälper](../../active-directory/authentication/concept-mfa-howitworks.md) till att skydda åtkomsten till data och program samtidigt som du kan möta användarnas behov av en enkel inloggnings process. Den ger stark autentisering via ett antal verifierings alternativ – telefonsamtal, textmeddelande eller meddelande från mobilapp eller verifierings kod och OAuth-token från tredje part.
 
 #### <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>Säkerhetsövervakning, varningar och Machine Learning-baserade rapporter
 
 Säkerhetsövervakning och aviseringar och Machine Learning-baserade rapporter som identifierar inkonsekventa åtkomst mönster kan hjälpa dig att skydda ditt företag. Du kan använda Azure Active Directory åtkomst-och användnings rapporter för att få insyn i integriteten och säkerheten i din organisations katalog. Med den här informationen kan en katalog administratör bättre avgöra var möjliga säkerhets risker kan vara så att de kan planera för att minska riskerna.
 
-I Azure Portal eller via [Azure Active Directory portalen](https://aad.portal.azure.com/)kategoriseras [rapporterna](../../active-directory/active-directory-reporting-azure-portal.md) på följande sätt:
+I Azure Portal eller via [Azure Active Directory portalen](https://aad.portal.azure.com/)kategoriseras [rapporterna](../../active-directory/reports-monitoring/overview-reports.md) på följande sätt:
 
 - Avvikelse rapporter – innehåller inloggnings händelser som vi identifierade som avvikande. Vårt mål är att göra dig uppmärksam på sådan aktivitet och gör att du kan bestämma om en händelse är misstänkt.
 
@@ -140,9 +140,9 @@ Med Azure AD Privileged Identity Management kan du:
 
 - Få aviseringar om åtkomst till en privilegie rad roll
 
-#### <a name="identity-protection"></a>Identity Protection
+#### <a name="identity-protection"></a>Identitetsskydd
 
-[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) är en säkerhets tjänst som tillhandahåller en samlad vy över risk identifieringar och potentiella sårbarheter som påverkar organisationens identiteter. Identitets skydd använder befintliga Azure Active Directorys avvikelse identifierings funktioner (tillgängliga via Azure ADs avvikande aktivitets rapporter) och introducerar nya risk identifierings typer som kan identifiera avvikelser i real tid.
+[Azure AD Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md) är en säkerhets tjänst som tillhandahåller en samlad vy över risk identifieringar och potentiella sårbarheter som påverkar organisationens identiteter. Identitets skydd använder befintliga Azure Active Directorys avvikelse identifierings funktioner (tillgängliga via Azure ADs avvikande aktivitets rapporter) och introducerar nya risk identifierings typer som kan identifiera avvikelser i real tid.
 
 ## <a name="secure-resource-access"></a>Säker resurs åtkomst
 
@@ -183,35 +183,35 @@ För organisationer som behöver säker åtkomst från en arbets Station lokalt 
 
 Större data uppsättningar kan flyttas över en dedikerad höghastighets-WAN-länk, till exempel [ExpressRoute](https://azure.microsoft.com/services/expressroute/). Om du väljer att använda ExpressRoute kan du också kryptera data på program nivå med hjälp av [SSL/TLS](https://support.microsoft.com/kb/257591) eller andra protokoll för ytterligare skydd.
 
-Om du interagerar med Azure Storage via Azure Portal sker alla transaktioner via HTTPS. [Lagrings REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx) över https kan också användas för att interagera med [Azure Storage](https://azure.microsoft.com/services/storage/) och [Azure SQL Database](https://azure.microsoft.com/services/sql-database/).
+Om du interagerar med Azure Storage via Azure Portal sker alla transaktioner via HTTPS. [Lagrings REST API](/rest/api/storageservices/) över https kan också användas för att interagera med [Azure Storage](https://azure.microsoft.com/services/storage/) och [Azure SQL Database](https://azure.microsoft.com/services/sql-database/).
 
-Organisationer som inte kan skydda data under överföringen är mer känsliga för [man-in-the-The-the-Middle-attack](https://technet.microsoft.com/library/gg195821.aspx), [avlyssning](https://technet.microsoft.com/library/gg195641.aspx)och kapning av sessioner. Sådana attacker kan vara ett första steg i att få åtkomst till konfidentiella data.
+Organisationer som inte kan skydda data under överföringen är mer känsliga för [man-in-the-The-the-Middle-attack](/previous-versions/office/skype-server-2010/gg195821(v=ocs.14)), [avlyssning](/previous-versions/office/skype-server-2010/gg195641(v=ocs.14))och kapning av sessioner. Sådana attacker kan vara ett första steg i att få åtkomst till konfidentiella data.
 
 Du kan läsa mer om alternativet för Azure VPN genom att läsa artikeln [planering och design för VPN gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
 ### <a name="enforce-file-level-data-encryption"></a>Tvinga data kryptering på filnivå
 
-[Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) använder krypterings-, identitets-och Auktoriseringsprinciper för att skydda dina filer och e-postmeddelanden. Azure RMS fungerar på flera enheter – telefoner, surfplattor och datorer genom att skydda både i din organisation och utanför organisationen. Den här funktionen är möjlig eftersom Azure RMS lägger till en skydds nivå som är kvar med data, även om den lämnar din organisations gränser.
+[Azure RMS](/azure/information-protection/what-is-azure-rms) använder krypterings-, identitets-och Auktoriseringsprinciper för att skydda dina filer och e-postmeddelanden. Azure RMS fungerar på flera enheter – telefoner, surfplattor och datorer genom att skydda både i din organisation och utanför organisationen. Den här funktionen är möjlig eftersom Azure RMS lägger till en skydds nivå som är kvar med data, även om den lämnar din organisations gränser.
 
 När du använder Azure RMS för att skydda dina filer använder du branschstandardiserade kryptografi med fullständigt stöd för [FIPS 140-2](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-2.pdf). När du använder Azure RMS för data skydd kan du vara säker på att skyddet ligger kvar i filen, även om den kopieras till lagring som inte är underordnad, till exempel en moln lagrings tjänst. Samma sak gäller filer som delas via e-post, filen skyddas som en bifogad fil i ett e-postmeddelande med anvisningar för hur du öppnar den skyddade bilagan.
 När du planerar för Azure RMS antar vi att du rekommenderar följande:
 
-- Installera [RMS-delning-appen](https://technet.microsoft.com/library/dn339006.aspx). Den här appen integreras med Office-program genom att installera ett Office-tillägg så att användarna enkelt kan skydda filer direkt.
+- Installera [RMS-delning-appen](/azure/information-protection/rms-client/sharing-app-windows). Den här appen integreras med Office-program genom att installera ett Office-tillägg så att användarna enkelt kan skydda filer direkt.
 
 - Konfigurera program och tjänster för att stödja Azure RMS
 
-- Skapa [anpassade mallar](https://technet.microsoft.com/library/dn642472.aspx) som återspeglar dina affärs behov. Exempel: en mall för Top Secret-data som ska användas i alla Top Secret-relaterade e-postmeddelanden.
+- Skapa [anpassade mallar](/azure/information-protection/configure-policy-templates) som återspeglar dina affärs behov. Exempel: en mall för Top Secret-data som ska användas i alla Top Secret-relaterade e-postmeddelanden.
 
 Organisationer som är svaga på [data klassificering](https://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) och Filskydd kan vara mer känsliga för data läckage. Utan rätt Filskydd kan organisationer inte erhålla affärs insikter, övervaka för missbruk och förhindra skadlig åtkomst till filer.
 
 > [!Note]
-> Du kan lära dig mer om Azure RMS genom att läsa artikeln [komma igång med Azure Rights Management](https://technet.microsoft.com/library/jj585016.aspx).
+> Du kan lära dig mer om Azure RMS genom att läsa artikeln [komma igång med Azure Rights Management](/azure/information-protection/requirements).
 
 ## <a name="secure-your-application"></a>Skydda ditt program
 Även om Azure ansvarar för att skydda den infrastruktur och plattform som ditt program körs på, är det ditt ansvar att skydda själva programmet. Med andra ord måste du utveckla, distribuera och hantera din program kod och ditt innehåll på ett säkert sätt. Utan detta kan program koden eller innehållet fortfarande vara sårbart för hot.
 
 ### <a name="web-application-firewall"></a>Brandvägg för webbaserade program
-[Brand vägg för webbaserade program (WAF)](../../application-gateway/waf-overview.md) är en funktion i [Application Gateway](../../application-gateway/overview.md) som tillhandahåller centraliserat skydd av dina webb program från vanliga sårbarheter och sårbarheter.
+[Brand vägg för webbaserade program (WAF)](../../web-application-firewall/ag/ag-overview.md) är en funktion i [Application Gateway](../../application-gateway/overview.md) som tillhandahåller centraliserat skydd av dina webb program från vanliga sårbarheter och sårbarheter.
 
 Brandväggen använder regler från [OWASP Core Rule Sets](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 eller 2.2.9. Webbprogram blir i allt större utsträckning föremål för attacker där kända svagheter i programmen utnyttjas. Bland annat är SQL-inmatningsattacker och skriptangrepp mellan webbplatser vanliga. Det kan vara svårt att förhindra sådana attacker i programkoden och kräver ofta omfattande underhåll, korrigeringar och övervakning av flera skikt i programtopologin. Med en centraliserad brandvägg för webbaserade program blir det enklare att hantera säkerheten och programadministratörer får bättre möjligheter skydda mot intrång. En brandväggslösning för webbaserade program kan även reagera snabbare på ett säkerhetshot genom att åtgärda en känd svaghet på en central plats jämfört med om korrigeringar ska utföras i varje enskilt webbprogram. Befintliga programgatewayer kan enkelt konverteras till en Application Gateway med brandväggen för webbprogram.
 
@@ -232,7 +232,7 @@ Några vanliga säkerhetshot som brandväggen för webbaserade program skyddar m
 - Identifiering av vanliga program konfigurationer (dvs. Apache, IIS osv.)
 
 > [!Note]
-> En mer detaljerad lista över regler och deras skydd finns i följande [kärn regel uppsättningar](../../application-gateway/waf-overview.md):
+> En mer detaljerad lista över regler och deras skydd finns i följande [kärn regel uppsättningar](../../web-application-firewall/ag/ag-overview.md):
 
 Azure tillhandahåller också flera lättanvända funktioner som hjälper dig att säkra både inkommande och utgående trafik för din app. Azure hjälper också kunderna att skydda sin program kod genom att tillhandahålla externt tillhandahållna funktioner för att söka igenom webb programmet efter sårbarheter.
 
@@ -265,7 +265,7 @@ Azure App Service använder samma lösning för program mot skadlig kod som anv�
 ## <a name="secure-your-network"></a>Skydda nätverket
 Microsoft Azure innehåller en robust nätverks infrastruktur som stöder dina anslutnings krav för program och tjänster. Nätverks anslutningen är möjlig mellan resurser som finns i Azure, mellan lokala och Azure-värdbaserade resurser och till och från Internet och Azure.
 
-Med [Azures nätverks infrastruktur](../../virtual-machines/windows/infrastructure-example.md) kan du på ett säkert sätt ansluta Azure-resurser till varandra med [virtuella nätverk (virtuella nätverk)](../../virtual-network/virtual-networks-overview.md). Ett VNet är en representation av ditt eget nätverk i molnet. Ett VNet är en logisk isolering av Azure Cloud Network dedikerad till din prenumeration. Du kan ansluta virtuella nätverk till dina lokala nätverk.
+Med [Azures nätverks infrastruktur](/previous-versions/azure/virtual-machines/windows/infrastructure-example) kan du på ett säkert sätt ansluta Azure-resurser till varandra med [virtuella nätverk (virtuella nätverk)](../../virtual-network/virtual-networks-overview.md). Ett VNet är en representation av ditt eget nätverk i molnet. Ett VNet är en logisk isolering av Azure Cloud Network dedikerad till din prenumeration. Du kan ansluta virtuella nätverk till dina lokala nätverk.
 
 ![Skydda nätverket (skydda)](./media/technical-capabilities/azure-security-technical-capabilities-fig6.png)
 
@@ -335,7 +335,7 @@ Med den här metoden kan du konsolidera data från olika källor, så att du kan
 
 ### <a name="azure-security-center"></a>Azure Security Center
 
-Med hjälp av [Azure Security Center](../../security-center/security-center-intro.md) kan du förebygga, upptäcka och åtgärda hot med bättre överblick och kontroll över säkerheten för dina resurser i Azure. Härifrån kan du övervaka och hantera principer för alla Azureprenumerationer på en gång och upptäcka hot som annars kanske skulle förbli oupptäckta. Azure Security Center fungerar tillsammans med ett vittomfattande ekosystem med säkerhetslösningar.
+Med hjälp av [Azure Security Center](../../security-center/security-center-introduction.md) kan du förebygga, upptäcka och åtgärda hot med bättre överblick och kontroll över säkerheten för dina resurser i Azure. Härifrån kan du övervaka och hantera principer för alla Azureprenumerationer på en gång och upptäcka hot som annars kanske skulle förbli oupptäckta. Azure Security Center fungerar tillsammans med ett vittomfattande ekosystem med säkerhetslösningar.
 
 Säkerhetstillståndet på resurserna i Azure analyseras i Security Center för upptäckt av eventuella säkerhetsrisker. Genom en lista med rekommendationer får du hjälp att ställa in de kontrollfunktioner som behövs.
 
@@ -378,7 +378,7 @@ Det är viktigt att granska nätverks säkerheten för att identifiera nätverks
 
 ### <a name="storage-analytics"></a>Lagringsanalys
 
-[Lagringsanalys](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) kan lagra mått som innehåller aggregerad transaktions statistik och kapacitets data om begär anden till en lagrings tjänst. Transaktioner rapporteras både på API-nivå och på lagrings tjänst nivå, och kapaciteten rapporteras på lagrings tjänst nivå. Mät data kan användas för att analysera användningen av lagrings tjänster, diagnostisera problem med begär Anden som gjorts mot lagrings tjänsten och förbättra prestanda för program som använder en tjänst.
+[Lagringsanalys](/rest/api/storageservices/fileservices/storage-analytics) kan lagra mått som innehåller aggregerad transaktions statistik och kapacitets data om begär anden till en lagrings tjänst. Transaktioner rapporteras både på API-nivå och på lagrings tjänst nivå, och kapaciteten rapporteras på lagrings tjänst nivå. Mät data kan användas för att analysera användningen av lagrings tjänster, diagnostisera problem med begär Anden som gjorts mot lagrings tjänsten och förbättra prestanda för program som använder en tjänst.
 
 ### <a name="application-insights"></a>Application Insights
 

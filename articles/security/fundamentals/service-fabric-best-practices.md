@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 4548bf77c01194802c2e6203bcbf9fbd240370a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93b25e65914ce603b4a969eda7fd7c048704e466
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81461658"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410020"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Metodtips för Azure Service Fabric-säkerhet
 Att distribuera ett program på Azure är snabbt, enkelt och kostnads effektivt. Innan du distribuerar moln programmet till produktion bör du gå igenom vår lista över viktiga och rekommenderade metod tips för att implementera säkra kluster i ditt program.
@@ -132,7 +132,7 @@ Certifikatet måste uppfylla följande krav för SSL/TLS-certifikat i Azure:
 -   Certifikatets ämnes namn måste matcha domän namnet som används för att komma åt din moln tjänst.
 
     - Hämta ett anpassat domän namn som ska användas för åtkomst till din moln tjänst.
-    - Begär ett certifikat från en certifikat utfärdare med ett ämnes namn som matchar tjänstens anpassade domän namn. Om ditt anpassade domän namn till exempel är __contoso__**. com**, ska certifikatet från din certifikat utfärdare ha ämnes namnet **. contoso.com** eller __www__**. contoso.com**.
+    - Begär ett certifikat från en certifikat utfärdare med ett ämnes namn som matchar tjänstens anpassade domän namn. Om ditt anpassade domän namn till exempel är __contoso__**. com** , ska certifikatet från din certifikat utfärdare ha ämnes namnet **. contoso.com** eller __www__**. contoso.com**.
 
     >[!NOTE]
     >Du kan inte hämta ett SSL/TLS-certifikat från en certifikat utfärdare för __cloudapp__**.net** -domänen.
@@ -178,6 +178,6 @@ Azure Service Fabric stöder två åtkomst kontroll typer för klienter som är 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Service Fabric säkerhets check lista](service-fabric-checklist.md)
+- [Service Fabric säkerhets check lista](../../service-fabric/service-fabric-best-practices-security.md)
 - Konfigurera din Service Fabric [utvecklings miljö](../../service-fabric/service-fabric-get-started.md).
 - Läs mer om [Service Fabric support alternativ](../../service-fabric/service-fabric-support.md).

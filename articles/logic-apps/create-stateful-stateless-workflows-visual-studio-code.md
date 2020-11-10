@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 10/16/2020
-ms.openlocfilehash: 51fd8b8427dd8214e22fa59e50b26bb9db237946
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/09/2020
+ms.openlocfilehash: 749807349fd83f9639461fd4ddd9ab771d108119
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322063"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410563"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Skapa tillståndskänsliga eller tillståndslösa arbetsflöden i Visual Studio Code med Azure Logic Apps-tillägget (förhandsversion)
 
@@ -109,8 +109,6 @@ Dessa funktioner är inte tillgängliga eller stöds inte för den här offentli
   Förutom de tidigare angivna utlösarna kan *tillstånds känsliga* arbets flöden använda både utlösare och åtgärder för [hanterade anslutningar](../connectors/apis-list.md#managed-api-connectors), som distribueras i Azure kontra inbyggda utlösare och åtgärder som körs internt med Logic Apps Runtime. *Tillstånds lösa* arbets flöden stöder dock för närvarande endast *åtgärder* för hanterade anslutningar, inte utlösare. Även om du kan aktivera anslutningar i Azure för ditt tillstånds lösa arbets flöde, visar designern inte några hanterade kopplings utlösare som du kan välja.
 
 * Du kan distribuera den nya **Logic app (för hands version)** -resurs typen enbart till en [Premium-eller App Service värd plan i Azure](#publish-azure) eller till en [Docker-behållare](#deploy-docker)och inte [integrerings tjänst miljöer (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). **Förbruknings** värd planer stöds inte eller är inte tillgängliga för distribution av den här resurs typen.
-
-* I Azure Portal kan du inte skapa nya Logi Kap par med resurs typen ny **Logic app (förhands granskning)** . Du kan bara skapa dessa Logic Apps i Visual Studio Code. När du har distribuerat Logi Kap par med den här resurs typen från Visual Studio Code till Azure kan du dock [lägga till nya arbets flöden i dessa Logic Apps](#add-workflows).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -448,9 +446,9 @@ Logic app-arbetsflödet i det här exemplet använder utlösaren och följande �
 
    | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | **Att** | Ja | <*din-e-postadress*> | E-postmottagaren, som kan vara din e-postadress i test syfte. I det här exemplet används det fiktiva e-postmeddelandet `sophiaowen@fabrikam.com` . |
-   | **Ämne** | Ja | `An email from your example workflow` | E-postmeddelandets ämne |
-   | **Brödtext** | Ja | `Hello from your example workflow!` | Innehållet i e-postmeddelandet |
+   | **Att** | Yes | <*din-e-postadress*> | E-postmottagaren, som kan vara din e-postadress i test syfte. I det här exemplet används det fiktiva e-postmeddelandet `sophiaowen@fabrikam.com` . |
+   | **Ämne** | Yes | `An email from your example workflow` | E-postmeddelandets ämne |
+   | **Brödtext** | Yes | `Hello from your example workflow!` | Innehållet i e-postmeddelandet |
    ||||
 
    > [!NOTE]
@@ -525,13 +523,13 @@ Testa din Logi Kap par genom att följa dessa steg för att starta en felsöknin
 
    ![Skärm bild som visar sidan för arbets flödets översikt med körnings status och historik](./media/create-stateful-stateless-workflows-visual-studio-code/post-trigger-call.png)
 
-   | Körnings status | Beskrivning |
+   | Körnings status | Description |
    |------------|-------------|
    | **Avbruten** | Körningen stoppades eller slutfördes inte på grund av externa problem, till exempel ett system avbrott eller en upphörde Azure-prenumeration. |
    | **Avbröts** | Körningen utlöstes och startades men tog emot en begäran om annullering. |
    | **Misslyckad** | Minst en åtgärd i körningen misslyckades. Inga efterföljande åtgärder i arbets flödet har ställts in för att hantera det här problemet. |
    | **Körs** | Körningen utlöstes och pågår, men den här statusen kan också visas för en körning som är begränsad på grund av [Åtgärds gränser](logic-apps-limits-and-config.md) eller den [aktuella pris Planen](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>**Tips** : om du konfigurerar [diagnostikloggning](monitor-logic-apps-log-analytics.md)kan du få information om eventuella begränsnings händelser som inträffar. |
-   | **Brutit** | Körningen lyckades. Om en åtgärd Miss lyckas, hanterar en efterföljande åtgärd i arbets flödet detta fel. |
+   | **Lyckades** | Körningen lyckades. Om en åtgärd Miss lyckas, hanterar en efterföljande åtgärd i arbets flödet detta fel. |
    | **Tids gränsen uppnåddes** | Tids gränsen för körningen uppnåddes eftersom den aktuella varaktigheten överskred tids gränsen för körning, vilket styrs av inställningen för [ **kvarhållning av körnings historik i dagar**](logic-apps-limits-and-config.md#run-duration-retention-limits). Körningens varaktighet beräknas med hjälp av körningens start tid och tids gräns för körning vid den Start tiden. <p><p>**Obs!** om Körningens varaktighet också överskrider den aktuella *gränsen för körnings historik* , som också styrs av inställningen för [ **kvarhållning av körnings historik i dagar**](logic-apps-limits-and-config.md#run-duration-retention-limits), rensas körningen från körnings historiken med ett dagligt rensnings jobb. Oavsett om tids gränsen för körningen är slut eller slutförd beräknas alltid kvarhållningsperioden med hjälp av start tiden och den *aktuella* kvarhållningsperioden. Så om du minskar tids gränsen för en pågående körnings tid för en flygning. Körningen är dock antingen kvar eller så tas den bort från körnings historiken, baserat på om Körningens varaktighet överskred gränsen för kvarhållning. |
    | **Väntar** | Körningen har inte startat eller pausats, till exempel på grund av en tidigare arbets flödes instans som fortfarande körs. |
    |||
@@ -546,7 +544,7 @@ Testa din Logi Kap par genom att följa dessa steg för att starta en felsöknin
 
    Här är möjliga statusar som varje steg i arbets flödet kan ha:
 
-   | Åtgärds status | Ikon | Beskrivning |
+   | Åtgärds status | Ikon | Description |
    |---------------|------|-------------|
    | Avbruten | ![Ikon för status för avbrutna åtgärder][aborted-icon] | Åtgärden stoppades eller avslutades inte på grund av externa problem, till exempel ett system avbrott eller en upphördende Azure-prenumeration. |
    | Avbrutet | ![Ikon för status för avbrutna åtgärder][cancelled-icon] | Åtgärden kördes men tog emot en begäran om annullering. |
@@ -774,12 +772,7 @@ I Visual Studio Code kan du Visa alla distribuerade Logi Kap par i din Azure-pre
 
 ## <a name="find-and-manage-deployed-logic-apps-in-the-portal"></a>Hitta och hantera distribuerade Logic Apps i portalen
 
-I Azure Portal kan du Visa alla distribuerade Logic-appar som finns i din Azure-prenumeration, oavsett om de är den ursprungliga **Logic Apps** resurs typen eller resurs typen **Logic app (för hands version)** . För närvarande organiseras och hanteras varje resurs typ som separata kategorier i Azure.
-
-> [!NOTE]
-> För offentlig för hands version kan du bara Visa distribuerade **Logic app-resurser (förhands granskning)** i Azure Portal, inte skapa nya resurser för **Logic app (för hands version)** . Du kan bara skapa dessa Logic Apps i Visual Studio Code. Du kan dock [lägga till arbets flöden](#add-workflows) till distribuerade Logic Apps med den här resurs typen.
-
-Följ dessa steg om du vill hitta Logi Kap par som har resurs typen **Logic app (förhands granskning)** :
+I Azure Portal kan du Visa alla distribuerade Logic-appar som finns i din Azure-prenumeration, oavsett om de är den ursprungliga **Logic Apps** resurs typen eller resurs typen **Logic app (för hands version)** . För närvarande organiseras och hanteras varje resurs typ som separata kategorier i Azure. Följ dessa steg om du vill hitta Logi Kap par som har resurs typen **Logic app (förhands granskning)** :
 
 1. Skriv i rutan Azure Portal Sök `logic app preview` . När resultat listan visas väljer du **Logic app (för hands version)** under **tjänster**.
 
@@ -876,7 +869,7 @@ Följ dessa steg om du redan har distribuerat projektet till Azure Portal:
 
 1. I rutan **värde** anger du följande värde: `WithStatelessRunHistory`
 
-   Exempel:
+   Till exempel:
 
    ![Skärm bild som visar resursen Azure Portal och Logic app (för hands version) med inställningen "konfiguration" > nya program inställningar "<" Lägg till/redigera program inställning "och" arbets flöden. {yourWorkflowName}. Alternativet OperationOptions "är inställt på" WithStatelessRunHistory ".](./media/create-stateful-stateless-workflows-visual-studio-code/stateless-operation-options-run-history.png)
 

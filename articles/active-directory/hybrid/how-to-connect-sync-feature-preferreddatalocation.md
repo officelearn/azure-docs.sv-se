@@ -16,12 +16,12 @@ ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ec5757b41da630c4cb09ad0c096aee87572615d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4c456e7788280b7ca5328342e1cd848ba3a583a
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319902"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411141"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-microsoft-365-resources"></a>Azure Active Directory Connect synkronisering: konfigurera önskad data plats för Microsoft 365 resurser
 Syftet med det här avsnittet är att hjälpa dig att konfigurera attributet för önskad data plats i Azure Active Directory (Azure AD) Connect-synkronisering. När någon använder flera geo-funktioner i Microsoft 365 använder du det här attributet för att ange geo-platsen för användarens Microsoft 365 data. ( *Regions region* och *geo* används utbytbart.)
@@ -29,14 +29,14 @@ Syftet med det här avsnittet är att hjälpa dig att konfigurera attributet fö
 ## <a name="enable-synchronization-of-preferred-data-location"></a>Aktivera synkronisering av önskad data plats
 Microsoft 365 resurser för dina användare finns som standard i samma geografiska område som din Azure AD-klient. Om din klient organisation till exempel finns i Nordamerika, finns även användarens Exchange-postlådor i Nordamerika. För en multinationell organisation är detta kanske inte optimalt.
 
-Genom att ange attributet **preferredDataLocation**kan du definiera en användares geo. Du kan ha användarens Microsoft 365 resurser, t. ex. post lådan och OneDrive, i samma geo som användaren och fortfarande ha en klient för hela organisationen.
+Genom att ange attributet **preferredDataLocation** kan du definiera en användares geo. Du kan ha användarens Microsoft 365 resurser, t. ex. post lådan och OneDrive, i samma geo som användaren och fortfarande ha en klient för hela organisationen.
 
 > [!IMPORTANT]
 > Multi-geo är för närvarande tillgängligt för kunder med en aktiv Enterprise-avtal och minst 250 Microsoft 365 Services-prenumerationer. Kontakta din Microsoft-representant om du vill ha mer information.
 >
 >
 
-Du hittar en lista över alla geografiska områden för Microsoft 365 i [var finns dina data?](https://aka.ms/datamaps).
+Du hittar en lista över alla geografiska områden för Microsoft 365 i [var finns dina data?](/microsoft-365/enterprise/o365-data-locations).
 
 Geografiska områden i Microsoft 365 tillgängligt för multi-geo är:
 
@@ -70,7 +70,7 @@ Azure AD Connect stöder synkronisering av attributet **preferredDataLocation** 
 **PreferredDataLocation** är som standard inte aktive rad för synkronisering. Den här funktionen är avsedd för större organisationer. Active Directory-schemat i Windows Server 2019 har attributet **msDS-preferredDataLocation** som du bör använda för detta ändamål. Om du inte har uppdaterat Active Directory schema och inte kan göra det måste du identifiera ett attribut som ska innehålla Microsoft 365 geo för dina användare. Detta kommer att vara detsamma för varje organisation.
 
 > [!IMPORTANT]
-> Med Azure AD kan **preferredDataLocation** -attributet i **moln användar objekt** konfigureras direkt med hjälp av Azure AD PowerShell. Om du vill konfigurera det här attributet på **synkroniserade användar objekt**måste du använda Azure AD Connect.
+> Med Azure AD kan **preferredDataLocation** -attributet i **moln användar objekt** konfigureras direkt med hjälp av Azure AD PowerShell. Om du vill konfigurera det här attributet på **synkroniserade användar objekt** måste du använda Azure AD Connect.
 
 Innan du aktiverar synkronisering:
 
@@ -93,7 +93,7 @@ För att undvika oönskade ändringar som exporteras till Azure AD kontrollerar 
 1. Starta en PowerShell-session på Azure AD Connect servern.
 2. Inaktivera schemalagd synkronisering genom att köra denna cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $false` .
 3. Starta **Synchronization Service Manageren** genom att gå till **Starta**  >  **synkroniseringstjänsten**.
-4. Välj fliken **åtgärder** och bekräfta att det inte finns någon åtgärd *med statusen*pågår.
+4. Välj fliken **åtgärder** och bekräfta att det inte finns någon åtgärd *med statusen* pågår.
 
 ![Skärm bild av Synchronization Service Manager](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step1.png)
 
@@ -116,7 +116,7 @@ Alla Azure AD-attribut importeras inte till det lokala Active Directory anslutni
 2. Högerklicka på den lokala Active Directory anslutningen och välj **Egenskaper**.
 3. I dialog rutan popup går du till fliken **Välj attribut** .
 4. Kontrol lera att det källattribut som du har valt att använda är markerat i attributlistan. Om du inte ser ditt attribut markerar du kryss rutan **Visa alla** .
-5. Välj **OK**för att spara.
+5. Välj **OK** för att spara.
 
 ![Skärm bild som visar dialog rutan Synchronization Service Manager och egenskaper där listan "attribut" är markerad.](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step2.png)
 
@@ -128,7 +128,7 @@ Som standard importeras inte attributet **preferredDataLocation** till Azure AD 
 2. Högerklicka på Azure AD-anslutaren och välj **Egenskaper**.
 3. I dialog rutan popup går du till fliken **Välj attribut** .
 4. Välj attributet **preferredDataLocation** i listan.
-5. Välj **OK**för att spara.
+5. Välj **OK** för att spara.
 
 ![Skärm bild av dialog rutan Synchronization Service Manager och egenskaper](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step3.png)
 
@@ -142,8 +142,8 @@ Regeln för inkommande synkronisering tillåter att attributvärdet flödar frå
 
     | Attribut | Värde | Information |
     | --- | --- | --- |
-    | Namn | *Ange ett namn* | Till exempel "i från AD – User preferredDataLocation" |
-    | Beskrivning | *Ange en anpassad Beskrivning* |  |
+    | Name | *Ange ett namn* | Till exempel "i från AD – User preferredDataLocation" |
+    | Description | *Ange en anpassad Beskrivning* |  |
     | Anslutet system | *Välj lokal Active Directory-anslutning* |  |
     | Ansluten system objekt typ | **Användare** |  |
     | Metaversum objekt typ | **Person** |  |
@@ -151,13 +151,13 @@ Regeln för inkommande synkronisering tillåter att attributvärdet flödar frå
     | Prioritet | *Välj ett tal mellan 1 – 99* | 1 – 99 är reserverad för anpassade regler för synkronisering. Välj inte ett värde som används av en annan Synkroniseringsregel. |
 
 5. Behåll **omfångs filtret** tomt om du vill inkludera alla objekt. Du kan behöva justera omfångs filtret enligt din Azure AD Connect-distribution.
-6. Gå till **fliken omvandling**och implementera följande omvandlings regel:
+6. Gå till **fliken omvandling** och implementera följande omvandlings regel:
 
     | Flödes typ | Target-attribut | Källa | Använd en gång | Sammanslagnings typ |
     | --- | --- | --- | --- | --- |
     |Direct | preferredDataLocation | Välj källattribut | Avmarkerat | Uppdatera |
 
-7. Välj **Lägg till**för att skapa regeln för inkommande trafik.
+7. Välj **Lägg till** för att skapa regeln för inkommande trafik.
 
 ![Skärm bild av Skapa regel för inkommande synkronisering](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step4.png)
 
@@ -171,8 +171,8 @@ Regeln för utgående synkronisering tillåter att attributvärdet flödar från
 
     | Attribut | Värde | Information |
     | ----- | ------ | --- |
-    | Namn | *Ange ett namn* | Till exempel "ut till Azure AD – User preferredDataLocation" |
-    | Beskrivning | *Ange en beskrivning* ||
+    | Name | *Ange ett namn* | Till exempel "ut till Azure AD – User preferredDataLocation" |
+    | Description | *Ange en beskrivning* ||
     | Anslutet system | *Välj Azure AD-anslutning* ||
     | Ansluten system objekt typ | **Användare** ||
     | Metaversum objekt typ | **Person** ||
@@ -204,8 +204,8 @@ I allmänhet krävs en fullständig synkronisering. Det beror på att du har lag
 1. Kör **fullständig import** på den lokala Active Directory-anslutningen:
 
    1. Gå till fliken **åtgärder** i Synchronization Service Manager.
-   2. Högerklicka på den **lokala Active Directory anslutningen**och välj **Kör**.
-   3. I dialog rutan väljer du **fullständig import**och väljer **OK**.
+   2. Högerklicka på den **lokala Active Directory anslutningen** och välj **Kör**.
+   3. I dialog rutan väljer du **fullständig import** och väljer **OK**.
    4. Vänta tills åtgärden har slutförts.
 
       > [!NOTE]
@@ -213,8 +213,8 @@ I allmänhet krävs en fullständig synkronisering. Det beror på att du har lag
 
 2. Kör **fullständig import** på Azure AD-anslutningen:
 
-   1. Högerklicka på **Azure AD-anslutaren**och välj **Kör**.
-   2. I dialog rutan väljer du **fullständig import**och väljer **OK**.
+   1. Högerklicka på **Azure AD-anslutaren** och välj **Kör**.
+   2. I dialog rutan väljer du **fullständig import** och väljer **OK**.
    3. Vänta tills åtgärden har slutförts.
 
 3. Verifiera ändringarna i synkroniseringsregeln för ett befintligt **användar** objekt.
@@ -223,13 +223,13 @@ I allmänhet krävs en fullständig synkronisering. Det beror på att du har lag
 
 4. Kör **fullständig synkronisering** på den lokala Active Directory-anslutningen:
 
-   1. Högerklicka på den **lokala Active Directory anslutningen**och välj **Kör**.
-   2. I dialog rutan väljer du **fullständig synkronisering**och väljer **OK**.
+   1. Högerklicka på den **lokala Active Directory anslutningen** och välj **Kör**.
+   2. I dialog rutan väljer du **fullständig synkronisering** och väljer **OK**.
    3. Vänta tills åtgärden har slutförts.
 
 5. Verifiera **väntande exporter** till Azure AD:
 
-   1. Högerklicka på **Azure AD-anslutaren**och välj **search Connector-utrymme**.
+   1. Högerklicka på **Azure AD-anslutaren** och välj **search Connector-utrymme**.
    2. I dialog rutan **Sök efter anslutnings utrymme** :
 
         a. Ange **omfång** till **väntande export**.<br>
@@ -239,8 +239,8 @@ I allmänhet krävs en fullständig synkronisering. Det beror på att du har lag
 
 6. Kör **export** på **Azure AD-anslutningen**
 
-   1. Högerklicka på **Azure AD-anslutaren**och välj **Kör**.
-   2. I dialog rutan **Kör koppling** väljer du **Exportera**och väljer **OK**.
+   1. Högerklicka på **Azure AD-anslutaren** och välj **Kör**.
+   2. I dialog rutan **Kör koppling** väljer du **Exportera** och väljer **OK**.
    3. Vänta tills åtgärden har slutförts.
 
 > [!NOTE]
@@ -267,8 +267,8 @@ Om din klient har marker ATS för att kunna använda den här funktionen, flytta
 Lär dig mer om multi-geo i Microsoft 365:
 
 * [Multi-geo-sessioner vid antändning](https://aka.ms/MultiGeoIgnite)
-* [Multi-geo i OneDrive](https://aka.ms/OneDriveMultiGeo)
-* [Multi-geo i SharePoint Online](https://aka.ms/SharePointMultiGeo)
+* [Multi-geo i OneDrive](/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365)
+* [Multi-geo i SharePoint Online](/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365)
 
 Läs mer om konfigurations modellen i Synkroniseringsmotorn:
 
@@ -277,5 +277,5 @@ Läs mer om konfigurations modellen i Synkroniseringsmotorn:
 
 Översikts avsnitt:
 
-* [Azure AD Connect synkronisering: förstå och anpassa synkronisering](how-to-connect-sync-whatis.md)
+* [Azure AD Connect-synkronisering: Förstå och anpassa synkronisering](how-to-connect-sync-whatis.md)
 * [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)

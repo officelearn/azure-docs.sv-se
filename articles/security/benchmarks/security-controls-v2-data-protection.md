@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ab42acbc07072f48d28b3adb5bc4c65672f257bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bde95006865a2aab2da4a5d6d27ccccc14d74d12
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91314325"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408930"
 ---
 # <a name="security-control-v2-data-protection"></a>Säkerhets kontroll v2: data skydd
 
@@ -32,11 +32,11 @@ Du kan använda Azure SQL-Information Protection för att hjälpa till med klass
 
 - [Tagga känslig information med hjälp av Azure Information Protection](/azure/information-protection/what-is-information-protection) 
 
-- [Implementera identifiering av Azure SQL-data](/azure/sql-database/sql-database-data-discovery-and-classification)
+- [Implementera identifiering av Azure SQL-data](../../azure-sql/database/data-discovery-and-classification-overview.md)
 
-**Ansvars område**: delat
+**Ansvars område** : delat
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Program säkerhet och DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)  
 
@@ -60,9 +60,9 @@ För den underliggande plattformen, som hanteras av Microsoft, behandlar Microso
 
 - [Förstå kundens data skydd i Azure](../fundamentals/protection-customer-data.md)
 
-**Ansvars område**: delat
+**Ansvars område** : delat
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Program säkerhet och DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -86,13 +86,13 @@ Om det krävs för att förhindra data förlust skydd (DLP) kan du använda en v
 
 - [Aktivera Azure SQL ATP](../../azure-sql/database/threat-detection-overview.md)
 
-- [Aktivera Azure Storage ATP](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection?tabs=azure-security-center)
+- [Aktivera Azure Storage ATP](../../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center)
 
-**Ansvars område**: delat
+**Ansvars område** : delat
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Säkerhetsåtgärder](/azure/cloud-adoption-framework/organize/cloud-security) 
+- [Säkerhets åtgärder](/azure/cloud-adoption-framework/organize/cloud-security) 
 
 - [Program säkerhet och DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -116,9 +116,9 @@ Som standard tillhandahåller Azure kryptering för data i överföring mellan A
 
 - [Double Encryption för Azure-data under överföring](../fundamentals/double-encryption.md#data-in-transit)
 
-**Ansvars område**: delat
+**Ansvars område** : delat
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Säkerhetsarkitektur](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -140,15 +140,15 @@ Azure tillhandahåller kryptering för data i vila som standard. För mycket kä
 
 - [Förstå kryptering i vila i Azure](../fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services)
 
-- [Konfigurera kundens hanterade krypterings nycklar](../../storage/common/storage-encryption-keys-portal.md)
+- [Konfigurera kundens hanterade krypterings nycklar](../../storage/common/customer-managed-keys-configure-key-vault.md)
 
 - [Krypterings modell och nyckel hanterings tabell](../fundamentals/encryption-models.md)
 
 - [Data i vila dubbel kryptering i Azure](../fundamentals/double-encryption.md#data-at-rest)
 
-**Ansvars område**: delat
+**Ansvars område** : delat
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Säkerhetsarkitektur](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -157,4 +157,3 @@ Azure tillhandahåller kryptering för data i vila som standard. För mycket kä
 - [Program säkerhet och DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 - [Data säkerhet](/azure/cloud-adoption-framework/organize/cloud-security-data-security)
-

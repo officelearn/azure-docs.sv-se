@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.author: b-juche
-ms.openlocfilehash: f4b8b4b56693023ede2ccf8ae7eeac7ed5e16824
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: c1cdeaa41dda11f2ab520cf8d31ddb2116587082
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216869"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409577"
 ---
 # <a name="configure-an-nfs-client-for-azure-netapp-files"></a>Konfigurera en NFS-klient för Azure NetApp Files
 
@@ -46,7 +46,7 @@ I exemplen i det här avsnittet används följande domän namn och IP-adress:
 
 1. Konfigurera `/etc/resolv.conf` med rätt DNS-server.  
 
-    Exempel:  
+    Till exempel:  
 
     `[root@reddoc cbs]# cat /etc/resolv.conf`   
     `search contoso.com`   
@@ -72,10 +72,13 @@ I exemplen i det här avsnittet används följande domän namn och IP-adress:
 
     `sudo realm join $DOMAIN.NAME -U $SERVICEACCOUNT --computer-ou="OU=$YOUROU"`
 
-    Exempel: 
+    Till exempel: 
 
     `sudo realm join CONTOSO.COM -U ad_admin --computer-ou="CN=Computers"`
-
+    
+    Se till att anges `default_realm` till den angivna sfären i `/etc/krb5.conf` .  Om inte, lägger du till det under `[libdefaults]` avsnittet i filen som visas i följande exempel:
+    
+    `default_realm = CONTOSO.COM`
 
 7. Starta om alla NFS-tjänster:  
  
@@ -88,7 +91,7 @@ I exemplen i det här avsnittet används följande domän namn och IP-adress:
  
     `sudo kinit $SERVICEACCOUNT@DOMAIN`  
 
-    Exempel:   
+    Till exempel:   
 
     `sudo kinit ad_admin@CONTOSO.COM`
 
@@ -199,18 +202,18 @@ I exemplen i det här avsnittet används följande domän namn och IP-adress:
 
 5. Ubuntu 18,04 använder chrony som standard. Följa konfigurations rikt linjerna i [Ubuntu Bionic: använda chrony för att konfigurera NTP](https://ubuntu.com/blog/ubuntu-bionic-using-chrony-to-configure-ntp).
 
-6. Gå med i Active Directory-domän:   
+6. Anslut Active Directory-domänen:   
  
     `sudo realm join $DOMAIN.NAME -U $SERVICEACCOUNT --computer-ou="OU=$YOUROU"`
  
-    Exempel:    
+    Till exempel:    
     `sudo realm join CONTOSO.COM -U ad_admin --computer-ou="CN=Computers"`
 
 7. Utför `kinit` med användaren för att hämta biljetter: 
  
     `sudo kinit $SERVICEACCOUNT`   
  
-    Exempel:    
+    Till exempel:    
     `sudo kinit ad_admin`  
 
 ### <a name="ubuntu-configuration-if-you-are-using-dual-protocol"></a>Ubuntu-konfiguration om du använder dubbla protokoll  

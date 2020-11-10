@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 172607a7f8f036bbfb68e8d15e77b2a3e3fb5377
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ba7391b3b524f7532101083a444aab6059e8a10
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326396"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408763"
 ---
 # <a name="security-control-v2-incident-response"></a>Säkerhets kontroll v2: incident svar
 
@@ -26,15 +26,15 @@ Incident svar omfattar kontroller i incident svars livs cykel-förberedelse, ide
 
 Se till att din organisation har processer som svarar på säkerhets incidenter, har uppdaterat dessa processer för Azure och utnyttjar dem regelbundet för att säkerställa beredskap.
 
-- [Implementera säkerhet i företags miljön](https://aka.ms/AzSec4)
+- [Implementera säkerhet i företags miljön](/azure/cloud-adoption-framework/security/security-top-10#3-process-assign-accountability-for-cloud-security-decisions)
 
 - [Referens guide för incident svar](/microsoft-365/downloads/IR-Reference-Guide.pdf)
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Säkerhetsåtgärder](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Säkerhets åtgärder](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Incidentberedskap](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -50,11 +50,11 @@ Konfigurera kontakt information för säkerhets incidenter i Azure Security Cent
 
 - [Så här ställer du in Azure Security Center säkerhets kontakt](../../security-center/security-center-provide-security-contact-details.md)
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Säkerhetsåtgärder](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Säkerhets åtgärder](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Incidentberedskap](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -76,11 +76,11 @@ Exportera dina Azure Security Center-aviseringar och rekommendationer med hjälp
 
 - [Strömma aviseringar till Azure Sentinel](../../sentinel/connect-azure-security-center.md)
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Säkerhetsåtgärder](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Säkerhets åtgärder](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Incidentberedskap](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -116,11 +116,11 @@ Azure Sentinel tillhandahåller omfattande data analyser i praktiskt taget alla 
 
 - [Undersök incidenter med Azure Sentinel](../../sentinel/tutorial-investigate-cases.md)
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Säkerhetsåtgärder](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Säkerhets åtgärder](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Incidentberedskap](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -140,13 +140,13 @@ Markera dessutom resurser med taggar och skapa ett namngivnings system för att 
 
 - [Säkerhetsaviseringar i Azure Security Center](../../security-center/security-center-alerts-overview.md)
 
-- [Använd taggar till att organisera dina Azure-resurser](/azure/azure-resource-manager/resource-group-using-tags)
+- [Använda taggar för att organisera dina Azure-resurser](../../azure-resource-manager/management/tag-resources.md)
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Säkerhetsåtgärder](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Säkerhets åtgärder](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Incidentberedskap](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -166,13 +166,12 @@ Automatisera manuella återkommande uppgifter för att påskynda svars tiden och
 
 - [Konfigurera automatiska hot svar i Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Säkerhetsåtgärder](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Säkerhets åtgärder](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Incidentberedskap](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
 - [Hotinformation](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
-

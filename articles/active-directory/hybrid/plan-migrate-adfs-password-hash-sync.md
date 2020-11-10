@@ -12,12 +12,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e85d2ef9d75bbff6357466e76ffcf60e3716e78
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5a22c904d72f09656480be6009e3832fde72b89
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273682"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408642"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migrera från Federation till hash-synkronisering för lösen ord för Azure Active Directory
 
@@ -84,13 +84,13 @@ Verifiera dina aktuella användar inloggnings inställningar:
 #### <a name="verify-the-azure-ad-connect-configuration"></a>Verifiera Azure AD Connect-konfigurationen
 
 1. Öppna Azure AD Connect på Azure AD Connect-servern. Välj **Konfigurera**.
-2. På sidan **Ytterligare aktiviteter** väljer du **Visa aktuell konfiguration**och väljer sedan **Nästa**.<br />
+2. På sidan **Ytterligare aktiviteter** väljer du **Visa aktuell konfiguration** och väljer sedan **Nästa**.<br />
 
    ![Skärm bild av alternativet Visa aktuell konfiguration som valts på sidan Ytterligare aktiviteter](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image2.png)<br />
 3. På sidan **Granska din lösning** noterar du **synkroniseringen av lösen ordets hash** -status.<br /> 
 
-   * Om **lösen ordets hash-synkronisering** är **inaktive rad**, slutför du stegen i den här artikeln för att aktivera det.
-   * Om **Lösenordssynkronisering** är inställt på **aktive rad**kan du hoppa över avsnittet **steg 1: Aktivera** Lösenordssynkronisering för hash i den här artikeln.
+   * Om **lösen ordets hash-synkronisering** är **inaktive rad** , slutför du stegen i den här artikeln för att aktivera det.
+   * Om **Lösenordssynkronisering** är inställt på **aktive rad** kan du hoppa över avsnittet **steg 1: Aktivera** Lösenordssynkronisering för hash i den här artikeln.
 4. På sidan **Granska din lösning** bläddrar du till **Active Directory Federation Services (AD FS) (AD FS)**.<br />
 
    * Om AD FS-konfigurationen visas i det här avsnittet kan du på ett säkert sätt anta att AD FS ursprungligen konfigurerades med hjälp av Azure AD Connect. Du kan konvertera dina domäner från federerad identitet till hanterad identitet med hjälp av alternativet Azure AD Connect **ändra användar inloggning** . Processen beskrivs i avsnittet **A: växla från Federation till hash-synkronisering av lösen ord med hjälp av Azure AD Connect**.
@@ -110,7 +110,7 @@ Exempel:
 Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
 ```
 
-Kontrol lera alla inställningar som kan ha anpassats för din dokumentation om Federations design och distribution. Mer specifikt kan du söka efter anpassningar i **PreferredAuthenticationProtocol**, **SupportsMfa**och **PromptLoginBehavior**.
+Kontrol lera alla inställningar som kan ha anpassats för din dokumentation om Federations design och distribution. Mer specifikt kan du söka efter anpassningar i **PreferredAuthenticationProtocol** , **SupportsMfa** och **PromptLoginBehavior**.
 
 Mer information finns i de här artiklarna:
 
@@ -118,7 +118,7 @@ Mer information finns i de här artiklarna:
 * [Set-MsolDomainAuthentication](/powershell/module/msonline/set-msoldomainauthentication?view=azureadps-1.0)
 
 > [!NOTE]
-> Om **SupportsMfa** är inställt på **Sant**använder du en lokal Multi-Factor Authentication-lösning för att mata in en andra faktor i flödet för användarautentisering. Den här installationen fungerar inte längre för Azure AD-autentiseringar när du har konverterat den här domänen från federerad till hanterad autentisering. När du har inaktiverat federationen kan du använda relationen till din lokala Federation och detta inkluderar lokala MFA-kort. 
+> Om **SupportsMfa** är inställt på **Sant** använder du en lokal Multi-Factor Authentication-lösning för att mata in en andra faktor i flödet för användarautentisering. Den här installationen fungerar inte längre för Azure AD-autentiseringar när du har konverterat den här domänen från federerad till hanterad autentisering. När du har inaktiverat federationen kan du använda relationen till din lokala Federation och detta inkluderar lokala MFA-kort. 
 >
 > Använd i stället den molnbaserade Azure Multi-Factor Authentication-tjänsten för att utföra samma funktion. Utvärdera dina Multi-Factor Authentication-krav noggrant innan du fortsätter. Innan du konverterar domänerna bör du se till att du förstår hur du använder Azure Multi-Factor Authentication, licens konsekvenserna och användar registrerings processen.
 
@@ -144,9 +144,9 @@ Innan du konverterar från federerad identitet till hanterad identitet kan du ti
 |-|-|
 | Du planerar att fortsätta använda AD FS med andra program (andra än Azure AD och Microsoft 365). | När du har konverterat dina domäner använder du både AD FS och Azure AD. Överväg användar upplevelsen. I vissa fall kan användare behöva autentisera två gånger: en gång till Azure AD (där en användare får SSO-åtkomst till andra program, t. ex. Microsoft 365), och igen för program som fortfarande är kopplade till AD FS som förtroende för en förlitande part. |
 | AD FS-instansen är kraftigt anpassad och förlitar sig på särskilda anpassnings inställningar i onload.js-filen (till exempel om du ändrade inloggnings upplevelsen så att användarna endast använder ett **sAMAccountName** -format för sitt användar namn i stället för ett UPN-format eller om din organisation har stor varumärkes inloggnings upplevelsen). onload.js-filen kan inte dupliceras i Azure AD. | Innan du fortsätter måste du kontrol lera att Azure AD kan uppfylla dina aktuella anpassnings krav. Mer information och anvisningar finns i avsnitten om AD FS anpassning och AD FS anpassning.|
-| Du använder AD FS för att blockera tidigare versioner av autentiseringsbegäranden.| Överväg att ersätta AD FS kontroller som blockerar tidigare versioner av autentiseringsbegäranden genom att använda en kombination av [villkorliga åtkomst kontroller](../conditional-access/concept-conditional-access-conditions.md) och [åtkomst regler för Exchange Online-klienter](https://aka.ms/EXOCAR). |
+| Du använder AD FS för att blockera tidigare versioner av autentiseringsbegäranden.| Överväg att ersätta AD FS kontroller som blockerar tidigare versioner av autentiseringsbegäranden genom att använda en kombination av [villkorliga åtkomst kontroller](../conditional-access/concept-conditional-access-conditions.md) och [åtkomst regler för Exchange Online-klienter](/exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules). |
 | Du kräver att användare utför Multi-Factor Authentication mot en lokal Multi-Factor Authentication Server-lösning när användare autentiserar till AD FS.| I en hanterad identitets domän kan du inte mata in en Multi-Factor Authentication-utmaning via den lokala Multi-Factor Authentication-lösningen i autentiseringsschemat. Du kan dock använda Azure Multi-Factor Authentication-tjänsten för Multi-Factor Authentication när domänen har konverterats.<br /><br /> Om användarna inte använder Azure Multi-Factor Authentication krävs ett registrerings steg för databasmigrering-användare. Du måste förbereda för och förmedla den planerade registreringen till dina användare. |
-| Du använder för närvarande principer för åtkomst kontroll (AuthZ-regler) i AD FS för att kontrol lera åtkomsten till Microsoft 365.| Överväg att ersätta principerna med motsvarande [principer för villkorlig åtkomst](../conditional-access/overview.md) för Azure AD och [åtkomst regler för Exchange Online-klienter](https://aka.ms/EXOCAR).|
+| Du använder för närvarande principer för åtkomst kontroll (AuthZ-regler) i AD FS för att kontrol lera åtkomsten till Microsoft 365.| Överväg att ersätta principerna med motsvarande [principer för villkorlig åtkomst](../conditional-access/overview.md) för Azure AD och [åtkomst regler för Exchange Online-klienter](/exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules).|
 
 ### <a name="common-ad-fs-customizations"></a>Vanliga AD FS anpassningar
 
@@ -172,7 +172,7 @@ För Windows 8-och Windows 7-dator konton använder hybrid anslutning sömlös S
 
 Mer information finns i [Konfigurera hybrid Azure AD-anslutna enheter](../devices/hybrid-azuread-join-plan.md).
 
-#### <a name="branding"></a>Anpassning
+#### <a name="branding"></a>Varumärke
 
 Om din organisation har [anpassat dina AD FS inloggnings sidor](/windows-server/identity/ad-fs/operations/ad-fs-user-sign-in-customization) för att visa information som är mer relevant för organisationen, kan du överväga att göra liknande [anpassningar till inloggnings sidan för Azure AD](../fundamentals/customize-branding.md).
 
@@ -238,14 +238,14 @@ Därför rekommenderar vi att du slutför det här steget som en förberedande �
 Så här aktiverar du Lösenordssynkronisering för hash:
 
 1. Öppna guiden Azure AD Connect på Azure AD Connect-servern och välj sedan **Konfigurera**.
-2. Välj **Anpassa synkroniseringsalternativ**och välj sedan **Nästa**.
+2. Välj **Anpassa synkroniseringsalternativ** och välj sedan **Nästa**.
 3. På sidan **Anslut till Azure AD** anger du användar namn och lösen ord för ett globalt administratörs konto.
 4. På sidan **Anslut dina kataloger** väljer du **Nästa**.
 5. På sidan **domän-och OU-filtrering** väljer du **Nästa**.
-6. På sidan **valfria funktioner** väljer du **Lösenordssynkronisering**och väljer sedan **Nästa**.
+6. På sidan **valfria funktioner** väljer du **Lösenordssynkronisering** och väljer sedan **Nästa**.
  
    ![Skärm bild av alternativet för Lösenordssynkronisering som valts på sidan valfria funktioner](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image6.png)<br />
-7. Välj **Nästa** på de återstående sidorna. Välj **Konfigurera**på sista sidan.
+7. Välj **Nästa** på de återstående sidorna. Välj **Konfigurera** på sista sidan.
 8. Azure AD Connect börjar synkronisera lösen ords-hashar vid nästa synkronisering.
 
 När lösen ordets hash-synkronisering har Aktiver ATS hash-kodas lösen ordet för alla användare i omfånget Azure AD Connect-synkronisering och skrivs till Azure AD. Den här åtgärden kan ta några minuter eller flera timmar beroende på antalet användare.
@@ -257,7 +257,7 @@ För att kontrol lera att hash-synkroniseringen av lösen ord fungerar korrekt, 
 1. Öppna en ny Windows PowerShell-session på din Azure AD Connect Server genom att använda alternativet Kör som administratör.
 2. Kör `Set-ExecutionPolicy RemoteSigned` eller `Set-ExecutionPolicy Unrestricted` .
 3. Starta guiden Azure AD Connect.
-4. Gå till sidan **Ytterligare aktiviteter** , Välj **Felsök**och välj sedan **Nästa**.
+4. Gå till sidan **Ytterligare aktiviteter** , Välj **Felsök** och välj sedan **Nästa**.
 5. På sidan **fel sökning** väljer du **Starta** för att starta fel söknings menyn i PowerShell.
 6. På huvud menyn väljer du **Felsök Password hash-synkronisering**.
 7. Välj Password hash-synkronisering på undermenyn **inte fungerar alls**.
@@ -286,11 +286,11 @@ Använd den här metoden om du ursprungligen konfigurerade AD FS miljön med Azu
 Ändra först inloggnings metoden:
 
 1. Öppna guiden Azure AD Connect på Azure AD Connect-servern.
-2. Välj **ändra användar inloggning**och välj sedan **Nästa**. 
+2. Välj **ändra användar inloggning** och välj sedan **Nästa**. 
 
    ![Skärm bild av alternativet ändra användar inloggning på sidan Ytterligare aktiviteter](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image7.png)<br />
 3. På sidan **Anslut till Azure AD** anger du användar namn och lösen ord för ett globalt administratörs konto.
-4. På sidan **användar inloggning** väljer du **knappen lösen ords-hash-synkronisering**. Se till att markera kryss rutan **Konvertera inte användar konton** . Alternativet är föråldrat. Välj **aktivera enkel inloggning**och välj sedan **Nästa**.
+4. På sidan **användar inloggning** väljer du **knappen lösen ords-hash-synkronisering**. Se till att markera kryss rutan **Konvertera inte användar konton** . Alternativet är föråldrat. Välj **aktivera enkel inloggning** och välj sedan **Nästa**.
 
    ![Skärm bild av sidan aktivera enkel inloggning](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image8.png)<br />
 
@@ -336,9 +336,9 @@ Hoppa till [test och nästa steg](#testing-and-next-steps).
 Använd det här alternativet om du inte ursprungligen konfigurerade de federerade domänerna med hjälp av Azure AD Connect. Under den här processen aktiverar du sömlös SSO och växlar dina domäner från federerade till hanterade.
 
 1. Öppna guiden Azure AD Connect på Azure AD Connect-servern.
-2. Välj **ändra användar inloggning**och välj sedan **Nästa**.
+2. Välj **ändra användar inloggning** och välj sedan **Nästa**.
 3. På sidan **Anslut till Azure AD** anger du användar namn och lösen ord för ett globalt administratörs konto.
-4. På sidan **användar inloggning** väljer du knappen **lösen ords-hash-synkronisering** . Välj **aktivera enkel inloggning**och välj sedan **Nästa**.
+4. På sidan **användar inloggning** väljer du knappen **lösen ords-hash-synkronisering** . Välj **aktivera enkel inloggning** och välj sedan **Nästa**.
 
    Innan du aktiverar Password hash Sync: ![ skärm bild som visar alternativet Konfigurera inte på användarens inloggnings sida](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image12.png)<br />
 
@@ -412,7 +412,7 @@ Testa hash-synkronisering av lösen ord:
 
    ![Skärm bild som visar inloggnings sidan där du anger ett lösen ord](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image19.png)
 
-4. När du har angett lösen ordet och väljer **Logga**in omdirigeras du till Office 365-portalen.
+4. När du har angett lösen ordet och väljer **Logga** in omdirigeras du till Office 365-portalen.
 
    ![Skärm bild som visar Office 365-portalen](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image20.png)
 

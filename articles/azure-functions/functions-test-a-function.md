@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp, devx-track-js
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 8ff70c14310dd81a051ac27c1d6d59bb3d1deb7b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: ff64d5c17174f8e1e67111ebca9ccf050deb2f26
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677602"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409662"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategier för att testa din kod i Azure Functions
 
@@ -37,9 +37,9 @@ I följande exempel beskrivs hur du skapar en C# Function-app i Visual Studio oc
 Om du vill konfigurera din miljö skapar du en funktion och testar appen. Följande steg hjälper dig att skapa appar och funktioner som krävs för att stödja testerna:
 
 1. [Skapa en ny Functions-app](./functions-create-first-azure-function.md) och **namnge den-funktionen**
-2. [Skapa en HTTP-funktion från mallen](./functions-create-first-azure-function.md) och ge den namnet **MyHttpTrigger** .
-3. [Skapa en timer-funktion från mallen](./functions-create-scheduled-function.md) och ge den namnet **MyTimerTrigger** .
-4. [Skapa en testapp för xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) i lösningen och ge den namnet **functions. tests** .
+2. [Skapa en HTTP-funktion från mallen](./functions-create-first-azure-function.md) och ge den namnet **MyHttpTrigger**.
+3. [Skapa en timer-funktion från mallen](./functions-create-scheduled-function.md) och ge den namnet **MyTimerTrigger**.
+4. [Skapa en testapp för xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) i lösningen och ge den namnet **functions. tests**.
 5. Använd NuGet för att lägga till en referens från testappen till [Microsoft. AspNetCore. MVC](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
 6. [Referera till *Functions* -appen](/visualstudio/ide/managing-references-in-a-project?view=vs-2017) från *functions. tests* -appen.
 
@@ -251,17 +251,17 @@ De medlemmar som implementeras i den här klassen är:
 
 - **Timer_should_log_message** : det här testet skapar en instans av `ListLogger` och skickar den till en timer-funktion. När funktionen har körts, kontrol leras loggen för att se till att det förväntade meddelandet finns.
 
-Om du vill komma åt program inställningarna i dina tester kan du använda [system. Environment. GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables).
+Om du vill komma åt program inställningarna i dina tester kan du [mata](./functions-dotnet-dependency-injection.md) in en `IConfiguration` instans med modell variabel värden i en funktion.
 
 ### <a name="run-tests"></a>Köra tester
 
-Kör testerna genom att gå till **test Utforskaren** och klicka på **Kör alla** .
+Kör testerna genom att gå till **test Utforskaren** och klicka på **Kör alla**.
 
 ![Testa Azure Functions med C# i Visual Studio](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
 ### <a name="debug-tests"></a>Felsök tester
 
-Om du vill felsöka testerna anger du en Bryt punkt för ett test, navigerar till **test Utforskaren** och klickar på **Kör > Felsök senaste körning** .
+Om du vill felsöka testerna anger du en Bryt punkt för ett test, navigerar till **test Utforskaren** och klickar på **Kör > Felsök senaste körning**.
 
 ## <a name="javascript-in-vs-code"></a>Java Script i VS Code
 
@@ -315,7 +315,7 @@ module.exports = {
 
 Den här modulen implementerar `IsPastDue` egenskapen att stå som en falsk timer-instans. Tidsinställda konfigurationer som NCRONTAB-uttryck krävs inte här eftersom test-nätet bara anropar funktionen direkt för att testa resultatet.
 
-Använd sedan tillägget VS Code Functions för att [skapa en ny JavaScript-HTTP-funktion](/azure/developer/javascript/tutorial-vscode-serverless-node-01) och ge den namnet *HttpTrigger* . När funktionen har skapats lägger du till en ny fil i samma mapp med namnet **index.test.js** och lägger till följande kod:
+Använd sedan tillägget VS Code Functions för att [skapa en ny JavaScript-HTTP-funktion](/azure/developer/javascript/tutorial-vscode-serverless-node-01) och ge den namnet *HttpTrigger*. När funktionen har skapats lägger du till en ny fil i samma mapp med namnet **index.test.js** och lägger till följande kod:
 
 ```javascript
 const httpFunction = require('./index');
@@ -336,7 +336,7 @@ test('Http trigger should return known text', async () => {
 
 HTTP-funktionen från mallen returnerar en sträng med namnet "Hello" som är sammanfogat med det namn som anges i frågesträngen. Det här testet skapar en falsk instans av en begäran och skickar den till HTTP-funktionen. Testet kontrollerar att *logg* metoden anropas en gång och den returnerade texten motsvarar "Hello Bill".
 
-Sedan använder du tillägget VS Code Functions för att skapa en ny JavaScript-timer och ge den namnet *TimerTrigger* . När funktionen har skapats lägger du till en ny fil i samma mapp med namnet **index.test.js** och lägger till följande kod:
+Sedan använder du tillägget VS Code Functions för att skapa en ny JavaScript-timer och ge den namnet *TimerTrigger*. När funktionen har skapats lägger du till en ny fil i samma mapp med namnet **index.test.js** och lägger till följande kod:
 
 ```javascript
 const timerFunction = require('./index');
@@ -379,7 +379,7 @@ Om du vill felsöka dina tester lägger du till följande konfiguration i *launc
 }
 ```
 
-Ange sedan en Bryt punkt i testet och tryck på **F5** .
+Ange sedan en Bryt punkt i testet och tryck på **F5**.
 
 ## <a name="next-steps"></a>Nästa steg
 

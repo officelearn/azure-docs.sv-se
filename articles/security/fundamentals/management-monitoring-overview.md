@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: c5525fc43f23ecd1760c5a869d8171aee0e9415d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e74b540610d3b6520f4c8e25ca2df7bf628706f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91395778"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410342"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Översikt över Azure Security Management och Monitoring
 Den här artikeln innehåller en översikt över de säkerhetsfunktioner och tjänster som Azure tillhandahåller för att hjälpa till med hantering och övervakning av Azure Cloud Services och Virtual Machines.
@@ -48,8 +48,8 @@ Läs mer:
 
 * [Distribuera lösningar för skydd mot skadlig kod i Azure Virtual Machines](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 * [Microsoft Antimalware för Azure Cloud Services och Virtual Machines](antimalware.md)
-* [Så här installerar och konfigurerar du Trend Micro djupgående säkerhet som en tjänst på en virtuell Windows-dator](/azure/virtual-machines/windows/classic/install-trend)
-* [Så här installerar och konfigurerar du Symantec Endpoint Protection på en virtuell Windows-dator](/azure/virtual-machines/windows/classic/install-symantec)
+* [Så här installerar och konfigurerar du Trend Micro djupgående säkerhet som en tjänst på en virtuell Windows-dator](../../virtual-machines/extensions/trend.md)
+* [Så här installerar och konfigurerar du Symantec Endpoint Protection på en virtuell Windows-dator](../../virtual-machines/extensions/symantec.md)
 * [Nya alternativ för program mot skadlig kod för att skydda Azure Virtual Machines](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
@@ -61,7 +61,7 @@ Multi-Factor Authentication hjälper till att skydda åtkomsten till data och pr
 Läs mer:
 
 * [Multifaktorautentisering](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [Vad är Azure Multi-Factor Authentication?](/azure/active-directory/authentication/multi-factor-authentication)
+* [Vad är Azure Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md)
 * [Så fungerar Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="expressroute"></a>ExpressRoute
@@ -112,7 +112,7 @@ Genom att tillhandahålla meddelanden och Rekommenderad reparation bidrar identi
 
 Läs mer:
 
-* [Identitetsskydd för Azure Active Directory](/azure/active-directory/active-directory-identityprotection)
+* [Identitetsskydd för Azure Active Directory](../../active-directory/identity-protection/overview-identity-protection.md)
 * [Kanal 9: Azure AD och identitet Visa: identitets skydd för hands version](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## <a name="security-center"></a>Security Center
@@ -129,8 +129,8 @@ Security Center hjälper dig att optimera och övervaka säkerheten för dina Az
 
 Läs mer:
 
-* [Introduktion till Azure Security Center](../../security-center/security-center-intro.md)
-* [Förbättra dina säkra poäng i Azure Security Center](../../security-center/security-center-secure-score.md)
+* [Introduktion till Azure Security Center](../../security-center/security-center-introduction.md)
+* [Förbättra dina säkra poäng i Azure Security Center](../../security-center/secure-score-security-controls.md)
 
 ## <a name="intelligent-security-graph"></a>Intelligent Security Graph
 

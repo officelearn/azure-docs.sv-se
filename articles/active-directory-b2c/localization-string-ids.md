@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/15/2020
+ms.date: 11/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f75fbf286741fcc122332574332a30ad7fa23644
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 45357092784bd9c8821a81b07ce3c381c4ce7989
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096206"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410512"
 ---
 # <a name="localization-string-ids"></a>Sträng-ID för lokalisering
 
@@ -33,7 +33,7 @@ Följande ID: n används för en innehålls definition med ID `api.signuporsigni
 | **logonIdentifier_email** | E-postadress |
 | **requiredField_email** | Ange din e-postadress |
 | **invalid_email** | Ange en giltig e-postadress |
-| **email_pattern** | ^ [a-zA-Z0-9.! # $% & ' '*+/=? ^ _ \` { \| } ~-] + @ [a-za-Z0-9-] + (?: \\ . [ a-zA-Z0-9-] +)*$ |
+| **email_pattern** | ^ [a-zA-Z0-9.! # $% & ' ' *+/=? ^ _ \` { \| } ~-] + @ [a-za-Z0-9-] + (?: \\ . [ a-zA-Z0-9-] +)*$ |
 | **local_intro_username** | Logga in med ditt användar namn |
 | **logonIdentifier_username** | Användarnamn |
 | **requiredField_username** | Ange ditt användar namn |
@@ -43,7 +43,7 @@ Följande ID: n används för en innehålls definition med ID `api.signuporsigni
 | **forgotpassword_link** | Glömt ditt lösenord? |
 | **createaccount_intro** | Har du inte något konto? |
 | **createaccount_link** | Registrera dig nu |
-| **divider_title** | OR |
+| **divider_title** | ELLER |
 | **cancel_message** | Användaren har glömt sitt lösen ord |
 | **button_signin** | Logga in |
 | **social_intro** | Logga in med ditt sociala konto |
@@ -87,6 +87,7 @@ I följande exempel lokaliserar Facebook Identity Provider till arabiska:
 | ID | Standardvärde |
 | -- | ------------- |
 | **UserMessageIfInvalidPassword** | Lösen ordet är felaktigt. |
+| **UserMessageIfPasswordExpired**| Ditt lösen ord har upphört att gälla.|
 | **UserMessageIfClaimsPrincipalDoesNotExist** | Vi kan inte hitta ditt konto. |
 | **UserMessageIfOldPasswordUsed** | Det verkar som om du använde ett gammalt lösen ord. |
 | **DefaultMessage** | Ogiltigt användar namn eller lösen ord. |
@@ -122,6 +123,7 @@ I följande exempel lokaliserar Facebook Identity Provider till arabiska:
     <LocalizedString ElementType="UxElement" StringId="email_pattern">^[a-zA-Z0-9.!#$%&amp;’'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$</LocalizedString>
     <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">Facebook</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Your password is incorrect.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfPasswordExpired">Your password has expired.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">We can't seem to find your account.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Looks like you used an old password.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="DefaultMessage">Invalid username or password.</LocalizedString>
@@ -143,7 +145,7 @@ Följande är ID: n för en innehålls definition med ID för `api.localaccounts
 | **cancel_message** | Användaren har avbrutit registrering av självkontrollerad information |
 | **preloader_alt** | Vänta |
 | **ver_but_send** | Skicka verifierings kod |
-| **alert_yes** | Ja |
+| **alert_yes** | Yes |
 | **error_fieldIncorrect** | Ett eller flera fält har fyllts i felaktigt. Kontrol lera dina poster och försök igen. |
 | **år** | Year |
 | **verifying_blurb** | Vänta medan vi bearbetar din information. |
@@ -161,7 +163,7 @@ Följande är ID: n för en innehålls definition med ID för `api.localaccounts
 | **ver_incorrect_format** | Felaktigt format. |
 | **ver_but_edit** | Ändra e-post |
 | **ver_but_verify** | Verifiera koden |
-| **alert_no** | Nej |
+| **alert_no** | No |
 | **ver_info_msg** | Verifierings koden har skickats till din inkorg. Kopiera den till inmatade rutan nedan. |
 | **dagen** | Dag |
 | **ver_fail_throttled** | Det finns för många begär Anden att verifiera den här e-postadressen. Vänta en stund och försök sedan igen. |

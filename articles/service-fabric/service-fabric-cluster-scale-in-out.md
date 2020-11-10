@@ -3,12 +3,12 @@ title: Skala ett Service Fabric kluster in eller ut
 description: Skala ett Service Fabric kluster i eller ut för att matcha efter frågan genom att ange regler för automatisk skalning för varje nodtyp/virtuell dators skalnings uppsättning. Lägga till eller ta bort noder i ett Service Fabric-kluster
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: c9393ca4531dea58859a4fc60509524e9c4a0b7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ee04c73b75d6b335e450ff816c51f0a3089b918
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86246494"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409968"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>Skala in eller ut ett kluster
 
@@ -54,7 +54,6 @@ Följ de här anvisningarna [för att ställa in automatisk skalning för varje 
 > [!NOTE]
 > I en skala i scenariot, om inte nodtypen har en [hållbarhets nivå][durability] på guld eller silver, måste du anropa [Remove-ServiceFabricNodeState-cmdlet](/powershell/module/servicefabric/remove-servicefabricnodestate) : en med rätt nodnamn. För brons-hållbarhet rekommenderar vi inte att du skalar på mer än en nod i taget.
 > 
-> 
 
 ## <a name="manually-add-vms-to-a-node-typevirtual-machine-scale-set"></a>Manuellt lägga till virtuella datorer till en nodtyp/skalnings uppsättning för virtuella datorer
 
@@ -97,6 +96,9 @@ För en tillstånds känslig tjänst behöver du ett visst antal noder för att 
 ### <a name="remove-the-service-fabric-node"></a>Ta bort Service Fabric-noden
 
 Stegen för att ta bort Node-tillstånd manuellt gäller endast för nodtyper med en *brons* -hållbarhets nivå.  För *silver* -och *Gold* -hållbarhets nivån görs de här stegen automatiskt av plattformen. Mer information om hållbarhet finns i [Kapacitetsplanering för Service Fabric-kluster][durability].
+
+>[!NOTE]
+> Behåll det lägsta antalet fem noder för alla skalnings uppsättningar för virtuella datorer som har en hög grad av guld eller silver aktiverat. Klustret kommer att ange fel tillstånd om du skalar under det här tröskelvärdet och du måste rensa bort de borttagna noderna manuellt.
 
 Om du vill hålla noderna i klustret jämnt fördelade över uppgraderings- och feldomäner och därmed möjliggöra jämn användning av dem, bör den senast skapade noden tas bort först. Med andra ord bör noderna tas bort i omvänd ordning mot hur de skapades. Den senast skapade noden är den som har den största egenskapsvärdet för `virtual machine scale set InstanceId`. Kodexemplen nedan returnerar den senast skapade noden.
 
@@ -184,7 +186,7 @@ else
 }
 ```
 
-I **sfctl**-koden nedan används följande kommando för att hämta **node-name**-värdet för den nod som skapats senast: `sfctl node list --query "sort_by(items[*], &name)[-1].name"`
+I **sfctl** -koden nedan används följande kommando för att hämta **node-name** -värdet för den nod som skapats senast: `sfctl node list --query "sort_by(items[*], &name)[-1].name"`
 
 ```shell
 # Inform the node that it is going to be removed
@@ -198,7 +200,7 @@ sfctl node remove-state --node-name _nt1vm_5
 ```
 
 > [!TIP]
-> Använd följande **sfctl**-frågor för att kontrollera status för varje steg
+> Använd följande **sfctl** -frågor för att kontrollera status för varje steg
 >
 > **Kontrol lera status för avaktivering**
 > `sfctl node list --query "sort_by(items[*], &name)[-1].nodeDeactivationInfo"`
@@ -239,6 +241,9 @@ För att se till att en nod tas bort när en virtuell dator tas bort har du två
 
 1. Välj en hållbarhets nivå på guld eller silver för nodtyper i klustret, vilket ger dig infrastruktur integrering. Sedan tas noderna automatiskt bort från systemet med system tjänster (FM) när du skalar i.
 Läs [informationen om hållbarhets nivåer här](service-fabric-cluster-capacity.md)
+
+> [!NOTE]
+> Behåll det lägsta antalet fem noder för alla skalnings uppsättningar för virtuella datorer som har en hög grad av guld eller silver aktiverat. Klustret kommer att ange fel tillstånd om du skalar under det här tröskelvärdet och du måste rensa bort de borttagna noderna manuellt.
 
 2. När den virtuella dator instansen har skalats i måste du anropa [cmdleten Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate).
 

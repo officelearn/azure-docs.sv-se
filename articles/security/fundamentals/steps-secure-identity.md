@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: 43974258008e3813a368ab31891251db15060aff
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 4fa5ba935e77055936b2abc4faab49b5d10cb5c0
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127067"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410070"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Fem steg för att skydda din identitets infrastruktur
 
@@ -42,13 +42,13 @@ Rekommendationerna i det här dokumentet är justerade med [identitetens säkra 
 ![Identifiera säkra Poäng för identitet](./media/steps-secure-identity/azure-ad-sec-steps0.png)
 
 > [!NOTE]
-> Många av de funktioner som beskrivs här kräver en Azure AD Premium prenumeration, medan vissa är kostnads fria. Läs igenom vår [Azure Active Directory priser](https://azure.microsoft.com/pricing/details/active-directory/) och [Check lista för Azure AD-distribution](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-checklist-p2) om du vill ha mer information.
+> Många av de funktioner som beskrivs här kräver en Azure AD Premium prenumeration, medan vissa är kostnads fria. Läs igenom vår [Azure Active Directory priser](https://azure.microsoft.com/pricing/details/active-directory/) och [Check lista för Azure AD-distribution](../../active-directory/fundamentals/active-directory-deployment-checklist-p2.md) om du vill ha mer information.
 
 ## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>Innan du börjar: skydda privilegierade konton med MFA
 
 Innan du börjar check listan, se till att du inte blir komprometterad när du läser den här check listan. Du måste först skydda dina privilegierade konton.
 
-Angripare som får kontroll över privilegierade konton kan orsaka mycket allvarliga skador, så det är viktigt att skydda kontona först. Aktivera och Kräv [Azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md) (MFA) för alla administratörer i din organisation med hjälp av [säkerhets inställningar i Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md) eller [villkorlig åtkomst](../../active-directory/conditional-access/plan-conditional-access.md). Om du inte har implementerat MFA kan du göra det nu! Det är viktigt.
+Angripare som får kontroll över privilegierade konton kan orsaka mycket allvarliga skador, så det är viktigt att skydda kontona först. Aktivera och Kräv [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (MFA) för alla administratörer i din organisation med hjälp av [säkerhets inställningar i Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md) eller [villkorlig åtkomst](../../active-directory/conditional-access/plan-conditional-access.md). Om du inte har implementerat MFA kan du göra det nu! Det är viktigt.
 
 Har du angett? Vi börjar med check listan.
 
@@ -59,7 +59,7 @@ De flesta säkerhets överträdelser i företaget kommer att ha ett konto som ha
 
 ### <a name="make-sure-your-organization-uses-strong-authentication"></a>Kontrol lera att din organisation använder stark autentisering
 
-Med hänsyn till frekvensen av lösen ord som gissas, phished, blir stulen med skadlig kod eller återanvänds, är det viktigt att du säkerhetskopierar lösen ordet med någon form av stark autentiseringsuppgift – Läs mer om [Azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md).
+Med hänsyn till frekvensen av lösen ord som gissas, phished, blir stulen med skadlig kod eller återanvänds, är det viktigt att du säkerhetskopierar lösen ordet med någon form av stark autentiseringsuppgift – Läs mer om [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
 
 Om du vill aktivera den grundläggande säkerhets nivån för identiteter kan du använda det här alternativet för att aktivera med [Azure AD-säkerhetsinställningarna](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md). Säkerhets standarder upprätthåller Azure MFA för alla användare i en klient organisation och blockerar inloggningar från äldre protokoll för hela klienten.
 
@@ -75,14 +75,14 @@ Microsoft rekommenderar att du antar följande modern lösen ords princip basera
 2. Inaktivera utgångs regler, som gör att användarna lätt kan gissa lösen ord, till exempel **Spring2019!**
 3. Inaktivera krav på tecken komposition och hindra användarna från att välja ofta angripna lösen ord, eftersom de gör det möjligt för användarna att välja förutsägbara tecken ersättningar i lösen ord.
 
-Du kan använda [PowerShell för att förhindra att lösen ord upphör att gälla](../../active-directory/authentication/concept-sspr-policy.md) för användare om du skapar identiteter i Azure AD direkt. Hybrid organisationer bör implementera dessa principer med hjälp av [domän grup princip inställningar](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10)) eller [Windows PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
+Du kan använda [PowerShell för att förhindra att lösen ord upphör att gälla](../../active-directory/authentication/concept-sspr-policy.md) för användare om du skapar identiteter i Azure AD direkt. Hybrid organisationer bör implementera dessa principer med hjälp av [domän grup princip inställningar](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10)) eller [Windows PowerShell](/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
 
 ### <a name="protect-against-leaked-credentials-and-add-resilience-against-outages"></a>Skydda mot läckta autentiseringsuppgifter och Lägg till återhämtning mot avbrott
 
 Om din organisation använder en hybrid identitets lösning med direktautentisering eller Federation, bör du aktivera lösen ords-hash-synkronisering av följande två orsaker:
 
-* Rapporten [användare med läckta autentiseringsuppgifter](../../active-directory/reports-monitoring/concept-risk-events.md) i Azure AD-hanteringen varnar dig om användar namn och lösen ord, som har exponerats på den "mörka webben". En otrolig mängd lösen ord läcker genom nätfiske, skadlig kod och återkoppling av lösen ord på tredje parts webbplatser som senare strider mot varandra. Microsoft hittar många av dessa autentiseringsuppgifter och meddelar dig, i den här rapporten, om de stämmer överens med autentiseringsuppgifter i din organisation, men bara om du [aktiverar lösen ords synkronisering av lösen ord](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)!
-* I händelse av ett lokalt avbrott (till exempel i en utpressnings attack) kan du växla över till att använda [molnbaserad autentisering med hjälp av hash-synkronisering av lösen ord](choose-ad-authn.md). Med den här metoden för säkerhets kopiering kan du fortsätta att komma åt appar som kon figurer ATS för autentisering med Azure Active Directory, inklusive Microsoft 365. I det här fallet behöver IT-personalen inte använda personliga e-postkonton för att dela data förrän det lokala avbrottet har åtgärd ATS.
+* Rapporten [användare med läckta autentiseringsuppgifter](../../active-directory/identity-protection/overview-identity-protection.md) i Azure AD-hanteringen varnar dig om användar namn och lösen ord, som har exponerats på den "mörka webben". En otrolig mängd lösen ord läcker genom nätfiske, skadlig kod och återkoppling av lösen ord på tredje parts webbplatser som senare strider mot varandra. Microsoft hittar många av dessa autentiseringsuppgifter och meddelar dig, i den här rapporten, om de stämmer överens med autentiseringsuppgifter i din organisation, men bara om du [aktiverar lösen ords synkronisering av lösen ord](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)!
+* I händelse av ett lokalt avbrott (till exempel i en utpressnings attack) kan du växla över till att använda [molnbaserad autentisering med hjälp av hash-synkronisering av lösen ord](../../active-directory/hybrid/choose-ad-authn.md). Med den här metoden för säkerhets kopiering kan du fortsätta att komma åt appar som kon figurer ATS för autentisering med Azure Active Directory, inklusive Microsoft 365. I det här fallet behöver IT-personalen inte använda personliga e-postkonton för att dela data förrän det lokala avbrottet har åtgärd ATS.
 
 Lär dig mer om hur [synkronisering av lösen ord för hash](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md) fungerar.
 
@@ -91,11 +91,11 @@ Lär dig mer om hur [synkronisering av lösen ord för hash](../../active-direct
 
 ### <a name="implement-ad-fs-extranet-smart-lockout"></a>Implementera Smart utelåsning för AD FS extra nät
 
-Organisationer, som konfigurerar program att autentisera direkt till Azure AD-förmånen från [Azure AD Smart utelåsning](../../active-directory/authentication/concept-sspr-howitworks.md). Om du använder AD FS i Windows Server 2012R2 implementerar du AD FS [extra näts utelåsning-skydd](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection). Om du använder AD FS på Windows Server 2016 implementerar du [extra näts Smart utelåsning](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). AD FS Smart extra nät utelåsning skyddar mot brute force-attacker, vilket riktar AD FS samtidigt som användarna förhindras att låsas i Active Directory.
+Organisationer, som konfigurerar program att autentisera direkt till Azure AD-förmånen från [Azure AD Smart utelåsning](../../active-directory/authentication/concept-sspr-howitworks.md). Om du använder AD FS i Windows Server 2012R2 implementerar du AD FS [extra näts utelåsning-skydd](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection). Om du använder AD FS på Windows Server 2016 implementerar du [extra näts Smart utelåsning](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). AD FS Smart extra nät utelåsning skyddar mot brute force-attacker, vilket riktar AD FS samtidigt som användarna förhindras att låsas i Active Directory.
 
 ### <a name="take-advantage-of-intrinsically-secure-easier-to-use-credentials"></a>Dra nytta av de säkraste och enklare att använda autentiseringsuppgifter
 
-Med hjälp av [Windows Hello](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)kan du ersätta lösen ord med stark tvåfaktorautentisering på datorer och mobila enheter. Den här autentiseringen består av en ny typ av användarautentiseringsuppgifter som är säkert bundna till en enhet och använder bio metrisk eller PIN-kod.
+Med hjälp av [Windows Hello](/windows/security/identity-protection/hello-for-business/hello-identity-verification)kan du ersätta lösen ord med stark tvåfaktorautentisering på datorer och mobila enheter. Den här autentiseringen består av en ny typ av användarautentiseringsuppgifter som är säkert bundna till en enhet och använder bio metrisk eller PIN-kod.
 
 ## <a name="step-2---reduce-your-attack-surface"></a>Steg 2 – minska din attack yta
 
@@ -105,8 +105,8 @@ Med tanke på den genomgripande risken för lösen ords angrepp är det viktigt 
 
 Appar som använder sina egna äldre metoder för att autentisera med Azure AD och få åtkomst till företags data, utgör en annan risk för organisationer. Exempel på appar som använder äldre autentisering är POP3-, IMAP4-eller SMTP-klienter. Äldre autentiserings-appar autentiseras för användarens räkning och förhindrar att Azure AD utför avancerade säkerhets utvärderingar. Den alternativa, modern autentiseringen, minskar säkerhets risken, eftersom den stöder Multi-Factor Authentication och villkorlig åtkomst. Vi rekommenderar följande tre åtgärder:
 
-1. Blockera [äldre autentisering om du använder AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12).
-2. Konfigurera [SharePoint Online och Exchange Online för att använda modern autentisering](../../active-directory/conditional-access/conditional-access-for-exo-and-spo.md).
+1. Blockera [äldre autentisering om du använder AD FS](/windows-server/identity/ad-fs/operations/access-control-policies-w2k12).
+2. Konfigurera [SharePoint Online och Exchange Online för att använda modern autentisering](../../active-directory/conditional-access/block-legacy-authentication.md).
 3. Om du har Azure AD Premium använder du villkorliga åtkomst principer för att [blockera äldre autentisering](../../active-directory/conditional-access/howto-conditional-access-policy-block-legacy.md), annars använder du [standardinställningar för Azure AD-säkerhet](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
 
 ### <a name="block-invalid-authentication-entry-points"></a>Blockera ogiltiga start punkter för autentisering
@@ -143,13 +143,13 @@ Azure Active Directory har många funktioner som automatiskt fångar upp attacke
 
 ### <a name="implement-user-risk-security-policy-using-azure-ad-identity-protection"></a>Implementera säkerhets princip för användar risk med Azure AD Identity Protection
 
-Användar risken indikerar sannolikheten för att en användares identitet har komprometterats och beräknas utifrån de [användar risk identifieringar](../../active-directory/identity-protection/overview.md) som är associerade med en användares identitet. En användar risk princip är en princip för villkorlig åtkomst som utvärderar risk nivån för en speciell användare eller grupp. Utifrån låg, medel, hög risk nivå kan en princip konfigureras för att blockera åtkomst eller kräva en säker ändring av lösen ord med hjälp av Multi-Factor Authentication. Microsofts rekommendation är att kräva en säker lösen ords ändring för användare med hög risk.
+Användar risken indikerar sannolikheten för att en användares identitet har komprometterats och beräknas utifrån de [användar risk identifieringar](../../active-directory/identity-protection/overview-identity-protection.md) som är associerade med en användares identitet. En användar risk princip är en princip för villkorlig åtkomst som utvärderar risk nivån för en speciell användare eller grupp. Utifrån låg, medel, hög risk nivå kan en princip konfigureras för att blockera åtkomst eller kräva en säker ändring av lösen ord med hjälp av Multi-Factor Authentication. Microsofts rekommendation är att kräva en säker lösen ords ändring för användare med hög risk.
 
 ![Skärm bild som visar användare som har flaggats för risk, med en vald användare.](./media/steps-secure-identity/azure-ad-sec-steps1.png)
 
 ### <a name="implement-sign-in-risk-policy-using-azure-ad-identity-protection"></a>Implementera inloggnings risk princip med Azure AD Identity Protection
 
-Inloggnings risk är sannolikheten någon annan än konto ägaren försöker logga in med identiteten. En [princip för inloggnings risker](../../active-directory/identity-protection/overview.md) är en princip för villkorlig åtkomst som utvärderar risk nivån för en speciell användare eller grupp. Utifrån risk nivån (hög/medel/låg) kan en princip konfigureras för att blockera åtkomst eller tvinga Multi-Factor Authentication. Se till att du tvingar Multi-Factor Authentication på medium eller över risk inloggningar.
+Inloggnings risk är sannolikheten någon annan än konto ägaren försöker logga in med identiteten. En [princip för inloggnings risker](../../active-directory/identity-protection/overview-identity-protection.md) är en princip för villkorlig åtkomst som utvärderar risk nivån för en speciell användare eller grupp. Utifrån risk nivån (hög/medel/låg) kan en princip konfigureras för att blockera åtkomst eller tvinga Multi-Factor Authentication. Se till att du tvingar Multi-Factor Authentication på medium eller över risk inloggningar.
 
 ![Logga in från anonyma IP-adresser](./media/steps-secure-identity/azure-ad-sec-steps2.png)
 
@@ -169,7 +169,7 @@ Microsoft Azure tjänster och funktioner ger dig möjlighet att konfigurera säk
 
 ### <a name="monitor-azure-ad-identity-protection-events"></a>Övervaka Azure AD Identity Protection händelser
 
-[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) är ett meddelande, övervaknings-och rapporterings verktyg som du kan använda för att identifiera potentiella sårbarheter som påverkar organisationens identiteter. Den identifierar risk identifieringar, t. ex. läckta autentiseringsuppgifter, omöjliga resor och inloggningar från angripna enheter, anonyma IP-adresser, IP-adresser som är kopplade till den misstänkta aktiviteten och okända platser. Aktivera aviseringar om du vill få e-postaviseringar för användare med risk och/eller ett vecko sammandrag e-postmeddelande.
+[Azure AD Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md) är ett meddelande, övervaknings-och rapporterings verktyg som du kan använda för att identifiera potentiella sårbarheter som påverkar organisationens identiteter. Den identifierar risk identifieringar, t. ex. läckta autentiseringsuppgifter, omöjliga resor och inloggningar från angripna enheter, anonyma IP-adresser, IP-adresser som är kopplade till den misstänkta aktiviteten och okända platser. Aktivera aviseringar om du vill få e-postaviseringar för användare med risk och/eller ett vecko sammandrag e-postmeddelande.
 
 Azure AD Identity Protection ger två viktiga rapporter som du bör övervaka dagligen:
 1. Riskfyllda inloggnings rapporter kan användas för användarnas inloggnings aktiviteter som du bör undersöka, den legitima ägaren kanske inte har utfört inloggningen.
@@ -179,9 +179,9 @@ Azure AD Identity Protection ger två viktiga rapporter som du bör övervaka da
 
 ### <a name="audit-apps-and-consented-permissions"></a>Granska appar och samskickade behörigheter
 
-Användare kan luras att navigera till en komprometterad webbplats eller appar som får åtkomst till profil information och användar data, t. ex. e-post. En skadlig aktör kan använda de behörigheter som den tagit emot för att kryptera sitt post låda innehåll och begära en utpressnings tro för att återställa data från din post låda. [Administratörer bör granska och granska](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) de behörigheter som anges av användarna eller inaktivera möjligheten för användare att ge sitt medgivande som standard.
+Användare kan luras att navigera till en komprometterad webbplats eller appar som får åtkomst till profil information och användar data, t. ex. e-post. En skadlig aktör kan använda de behörigheter som den tagit emot för att kryptera sitt post låda innehåll och begära en utpressnings tro för att återställa data från din post låda. [Administratörer bör granska och granska](/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) de behörigheter som anges av användarna eller inaktivera möjligheten för användare att ge sitt medgivande som standard.
 
-Förutom att granska de behörigheter som användarna har givit kan du [hitta riskfyllda eller oönskade OAuth-program](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth) i Premium miljöer.
+Förutom att granska de behörigheter som användarna har givit kan du [hitta riskfyllda eller oönskade OAuth-program](/cloud-app-security/investigate-risky-oauth) i Premium miljöer.
 
 ## <a name="step-5---enable-end-user-self-service"></a>Steg 5 – aktivera självbetjäning för slutanvändare
 
@@ -189,7 +189,7 @@ Så mycket som möjligt bör du utjämna säkerheten med produktiviteten. På sa
 
 ### <a name="implement-self-service-password-reset"></a>Implementera återställning av lösen ord för självbetjäning
 
-Azure ADs självbetjäning för [återställning av lösen ord (SSPR)](../../active-directory/authentication/quickstart-sspr.md) erbjuder ett enkelt sätt för IT-administratörer att tillåta användare att återställa eller låsa upp sina lösen ord eller konton utan supportavdelningen eller administratörs åtgärder. Systemet innehåller detaljerad rapportering som spårar när användare har återställt sina lösen ord, tillsammans med aviseringar för att varna dig om missbruk eller missbruk.
+Azure ADs självbetjäning för [återställning av lösen ord (SSPR)](../../active-directory/authentication/tutorial-enable-sspr.md) erbjuder ett enkelt sätt för IT-administratörer att tillåta användare att återställa eller låsa upp sina lösen ord eller konton utan supportavdelningen eller administratörs åtgärder. Systemet innehåller detaljerad rapportering som spårar när användare har återställt sina lösen ord, tillsammans med aviseringar för att varna dig om missbruk eller missbruk.
 
 ### <a name="implement-self-service-group-and-application-access"></a>Implementera självbetjänings grupp-och program åtkomst
 
@@ -213,6 +213,6 @@ Vi uppskattar hur allvarligt du tar identitets säkerheten och hoppas att det h�
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du behöver hjälp med att planera och distribuera rekommendationerna läser du [distributions planerna för Azure AD-projekt](https://aka.ms/deploymentplans) för att få hjälp.
+Om du behöver hjälp med att planera och distribuera rekommendationerna läser du [distributions planerna för Azure AD-projekt](../../active-directory/fundamentals/active-directory-deployment-plans.md) för att få hjälp.
 
 Om du är säker på att alla dessa steg är fullständiga, använder du Microsofts [identitet för säker](../../active-directory/fundamentals/identity-secure-score.md)användning, som håller dig uppdaterad med de [senaste bästa metoderna](identity-management-best-practices.md) och säkerhetshot.

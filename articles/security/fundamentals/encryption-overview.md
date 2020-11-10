@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d839ea042dec2224885f9ba4a0cb6adef5108568
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff023ad98c7ffa269223b5d0b4a1cecc5fde1feb
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89458628"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410223"
 ---
 # <a name="azure-encryption-overview"></a>Översikt över Azure-kryptering
 
@@ -45,15 +45,15 @@ Med kryptering på klient sidan har moln tjänst leverantörer inte åtkomst til
 
 De tre krypterings modellerna på Server sidan ger olika egenskaper för nyckel hantering, som du kan välja enligt dina krav:
 
-- **Tjänst nycklar som hanteras**: ger en kombination av kontroll och bekvämlighet med låg belastning.
+- **Tjänst nycklar som hanteras** : ger en kombination av kontroll och bekvämlighet med låg belastning.
 
-- **Kundhanterade nycklar**: ger dig kontroll över nycklar, inklusive att ta med egna nycklar (BYOK) support, eller så kan du skapa nya.
+- **Kundhanterade nycklar** : ger dig kontroll över nycklar, inklusive att ta med egna nycklar (BYOK) support, eller så kan du skapa nya.
 
-- **Hanterade nycklar i kundkontrollerad maskin vara**: gör att du kan hantera nycklar i din egen lagrings plats, utanför Microsoft-kontroll. Den här egenskapen kallas värd för din egen nyckel (HYOK). Konfigurationen är dock komplicerad och de flesta Azure-tjänster har inte stöd för den här modellen.
+- **Hanterade nycklar i kundkontrollerad maskin vara** : gör att du kan hantera nycklar i din egen lagrings plats, utanför Microsoft-kontroll. Den här egenskapen kallas värd för din egen nyckel (HYOK). Konfigurationen är dock komplicerad och de flesta Azure-tjänster har inte stöd för den här modellen.
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
-Du kan skydda virtuella Windows-och Linux-datorer med hjälp av [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss), som använder [Windows BitLocker](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) -teknik och Linux [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) för att skydda både operativ system diskar och data diskar med fullständig volym kryptering.
+Du kan skydda virtuella Windows-och Linux-datorer med hjälp av [Azure Disk Encryption](./azure-disk-encryption-vms-vmss.md), som använder [Windows BitLocker](/previous-versions/windows/it-pro/windows-vista/cc766295(v=ws.10)) -teknik och Linux [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) för att skydda både operativ system diskar och data diskar med fullständig volym kryptering.
 
 Krypterings nycklar och hemligheter skyddas i [Azure Key Vault prenumerationen](../../key-vault/general/overview.md). Genom att använda Azure Backup tjänsten kan du säkerhetskopiera och återställa krypterade virtuella datorer som använder KEK-konfiguration (Key Encryption Key).
 
@@ -83,13 +83,13 @@ Slutligen kan du också använda Azure Storage klient bibliotek för Java för a
 
 #### <a name="transparent-data-encryption"></a>Transparent datakryptering
 
-[TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) används för att kryptera [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md)och [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) -datafiler i real tid med hjälp av en databas krypterings nyckel (DEK) som lagras i databasens start post för tillgänglighet under återställningen.
+[TDE](/sql/relational-databases/security/encryption/transparent-data-encryption-tde) används för att kryptera [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md)och [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) -datafiler i real tid med hjälp av en databas krypterings nyckel (DEK) som lagras i databasens start post för tillgänglighet under återställningen.
 
 TDE skyddar data och loggfiler med hjälp av AES-krypteringsalgoritmer (3DES och Triple Data Encryption Standard). Kryptering av databas filen utförs på sidnivå. Sidorna i en krypterad databas krypteras innan de skrivs till disk och dekrypteras när de läses in i minnet. TDE är nu aktiverat som standard på nyligen skapade Azure SQL-databaser.
 
 #### <a name="always-encrypted-feature"></a>Always Encrypted funktion
 
-Med [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) funktionen i Azure SQL kan du kryptera data i klient program innan du lagrar dem i Azure SQL Database. Du kan också aktivera delegering av lokal databas administration till tredje part och upprätthålla separering mellan de som äger och kan visa data och de som hanterar den, men inte ha åtkomst till den.
+Med [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) funktionen i Azure SQL kan du kryptera data i klient program innan du lagrar dem i Azure SQL Database. Du kan också aktivera delegering av lokal databas administration till tredje part och upprätthålla separering mellan de som äger och kan visa data och de som hanterar den, men inte ha åtkomst till den.
 
 #### <a name="cell-level-or-column-level-encryption"></a>Kryptering på cell nivå eller kolumn nivå
 
@@ -125,9 +125,9 @@ Perfect [Forward Secrecy](https://en.wikipedia.org/wiki/Forward_secrecy) (PFS) s
 
 När du interagerar med Azure Storage via Azure Portal sker alla transaktioner över HTTPS. Du kan också använda lagrings REST API över HTTPS för att interagera med Azure Storage. Du kan använda HTTPS när du anropar REST-API: er för att komma åt objekt i lagrings konton genom att aktivera den säkra överföring som krävs för lagrings kontot.
 
-Signaturer för delad åtkomst ([SAS](../../storage/common/storage-dotnet-shared-access-signature-part-1.md)), som kan användas för att delegera åtkomst till Azure Storage objekt, innehåller ett alternativ för att ange att endast HTTPS-protokollet kan användas när du använder signaturer för delad åtkomst. Den här metoden säkerställer att vem som skickar länkar med SAS-token använder rätt protokoll.
+Signaturer för delad åtkomst ([SAS](../../storage/common/storage-sas-overview.md)), som kan användas för att delegera åtkomst till Azure Storage objekt, innehåller ett alternativ för att ange att endast HTTPS-protokollet kan användas när du använder signaturer för delad åtkomst. Den här metoden säkerställer att vem som skickar länkar med SAS-token använder rätt protokoll.
 
-[SMB 3,0](https://technet.microsoft.com/library/dn551363(v=ws.11).aspx#BKMK_SMBEncryption), som används för att få åtkomst till Azure Files resurser, stöder kryptering och är tillgängligt i windows Server 2012 R2, Windows 8, Windows 8,1 och Windows 10. Det ger åtkomst över flera regioner och till och med åtkomst på Skriv bordet.
+[SMB 3,0](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn551363(v=ws.11)#BKMK_SMBEncryption), som används för att få åtkomst till Azure Files resurser, stöder kryptering och är tillgängligt i windows Server 2012 R2, Windows 8, Windows 8,1 och Windows 10. Det ger åtkomst över flera regioner och till och med åtkomst på Skriv bordet.
 
 Kryptering på klient sidan krypterar data innan de skickas till Azure Storage-instansen, så att den krypteras när den överförs i nätverket.
 
@@ -143,7 +143,7 @@ Data som överförs till, från och mellan virtuella datorer som kör Windows ka
 
 ### <a name="rdp-sessions"></a>RDP-sessioner
 
-Du kan ansluta och logga in på en virtuell dator med hjälp av [Remote Desktop Protocol (RDP)](https://msdn.microsoft.com/library/aa383015(v=vs.85).aspx) från en Windows-klientdator eller från en Mac med en RDP-klient installerad. Data som överförs via nätverket i RDP-sessioner kan skyddas av TLS.
+Du kan ansluta och logga in på en virtuell dator med hjälp av [Remote Desktop Protocol (RDP)](/windows/win32/termserv/remote-desktop-protocol) från en Windows-klientdator eller från en Mac med en RDP-klient installerad. Data som överförs via nätverket i RDP-sessioner kan skyddas av TLS.
 
 Du kan också använda fjärr skrivbord för att ansluta till en virtuell Linux-dator i Azure.
 
@@ -163,7 +163,7 @@ VPN för plats-till-plats använder [IPSec](https://en.wikipedia.org/wiki/IPsec)
 
 ### <a name="point-to-site-vpns"></a>Punkt-till-plats-VPN
 
-Med punkt-till-plats-VPN får enskilda klient datorer åtkomst till ett virtuellt Azure-nätverk. [SSTP (Secure Socket Tunneling Protocol)](https://technet.microsoft.com/library/2007.06.cableguy.aspx) används för att skapa VPN-tunneln. Den kan passera brand väggar (tunneln visas som en HTTPS-anslutning). Du kan använda en egen intern PKI (Public Key Infrastructure) rot certifikat utfärdare (CA) för punkt-till-plats-anslutning.
+Med punkt-till-plats-VPN får enskilda klient datorer åtkomst till ett virtuellt Azure-nätverk. [SSTP (Secure Socket Tunneling Protocol)](/previous-versions/technet-magazine/cc162322(v=msdn.10)) används för att skapa VPN-tunneln. Den kan passera brand väggar (tunneln visas som en HTTPS-anslutning). Du kan använda en egen intern PKI (Public Key Infrastructure) rot certifikat utfärdare (CA) för punkt-till-plats-anslutning.
 
 Du kan konfigurera en punkt-till-plats-VPN-anslutning till ett virtuellt nätverk med hjälp av Azure Portal med certifikatautentisering eller PowerShell.
 
@@ -201,9 +201,9 @@ Med Key Vault slipper organisationer konfigurera, korrigera och underhålla mask
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Översikt över Azure-säkerhet](get-started-overview.md)
+- [Översikt över Azure-säkerhet](./overview.md)
 - [Översikt över Azure Network Security](network-overview.md)
-- [Översikt över Azure Database-säkerhet](database-security-overview.md)
+- [Översikt över Azure Database-säkerhet](../../azure-sql/database/security-overview.md)
 - [Säkerhets översikt för Azure Virtual Machines](virtual-machines-overview.md)
 - [Datakryptering i vila](encryption-atrest.md)
 - [Metodtips för datasäkerhet och kryptering](data-encryption-best-practices.md)

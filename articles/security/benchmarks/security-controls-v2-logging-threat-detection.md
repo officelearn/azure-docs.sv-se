@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: b26979f424798bacf6b40d43e5ab603844f595c3
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 99e7a8fcb34c963cfab366f1913508a7ff3f4a51
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360861"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408710"
 ---
 # <a name="security-control-v2-logging-and-threat-detection"></a>Säkerhets kontroll v2: loggning och hot identifiering
 
@@ -30,7 +30,7 @@ Använd Azure Security Center inbyggd hot identifierings funktion, som baseras p
 
 Använd dessutom Azure Sentinel för att bygga analys regler, som rör hot som matchar specifika kriterier i din miljö. Reglerna genererar incidenter när villkoren matchas, så att du kan undersöka varje incident. Azure Sentinel kan också importera Hot information från tredje part för att förbättra sin funktion för hot identifiering. 
 
-- [Skydd mot hot i Azure Security Center](../../security-center/threat-protection.md)
+- [Skydd mot hot i Azure Security Center](../../security-center/azure-defender.md)
 
 - [Referens guide för Azure Security Center säkerhets varningar](../../security-center/alerts-reference.md)
 
@@ -44,7 +44,7 @@ Använd dessutom Azure Sentinel för att bygga analys regler, som rör hot som m
 
 - [Infrastruktur- och slutpunktssäkerhet](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Säkerhetsåtgärder](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Säkerhets åtgärder](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Statushantering](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -73,7 +73,7 @@ Azure Security Center kan även Varna vid vissa misstänkta aktiviteter, till ex
 
 - [Aktivera Azure Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Skydd mot hot i Azure Security Center](../../security-center/threat-protection.md)
+- [Skydd mot hot i Azure Security Center](../../security-center/azure-defender.md)
 
 **Ansvar** : kund
 
@@ -81,7 +81,7 @@ Azure Security Center kan även Varna vid vissa misstänkta aktiviteter, till ex
 
 - [Infrastruktur- och slutpunktssäkerhet](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Säkerhetsåtgärder](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Säkerhets åtgärder](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Statushantering](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -115,7 +115,7 @@ Aktivera och samla in resurs loggar för nätverks säkerhets grupper (NSG), NSG
 
 - [Infrastruktur- och slutpunktssäkerhet](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Säkerhetsåtgärder](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Säkerhets åtgärder](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Statushantering](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -141,7 +141,7 @@ Du kan använda Azure Security Center och Azure Policy för att aktivera resurs 
 
 **Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Säkerhetsåtgärder](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Säkerhets åtgärder](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 Infrastruktur- och slutpunktssäkerhet 
 
@@ -201,7 +201,7 @@ I Azure Monitor kan du Log Analytics ange arbets ytans lagrings period enligt or
 
 - [Program säkerhet och DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
-- [Säkerhetsåtgärder](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) 
+- [Säkerhets åtgärder](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) 
 
 - [Hantering av säkerhetsefterlevnad](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -230,4 +230,3 @@ Alla loggar som genereras av resurser i Azure tillhandahåller tidsstämplar med
 - [Program säkerhet och DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
 - [Infrastruktur- och slutpunktssäkerhet](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
-

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: b2e54545fb79120a3f9d66067da267df3b151b3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3812cef9b90a15870733441c9e830daf32e0b18
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322129"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408948"
 ---
 # <a name="security-control-v2-backup-and-recovery"></a>Säkerhets kontroll v2: säkerhets kopiering och återställning
 
@@ -32,13 +32,13 @@ För en högre skydds nivå kan du aktivera alternativ för Geo-redundant lagrin
 
 - [Affärskontinuitet och haveriberedskap i företagsskala](/azure/cloud-adoption-framework/ready/enterprise-scale/business-continuity-and-disaster-recovery)
 
-- [Så här aktiverar du Azure Backup](/azure/backup/)
+- [Så här aktiverar du Azure Backup](../../backup/index.yml)
 
-- [Aktivera återställning mellan regioner](/azure/backup/backup-azure-arm-restore-vms#cross-region-restore)
+- [Aktivera återställning mellan regioner](../../backup/backup-azure-arm-restore-vms.md#cross-region-restore)
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Principer och standarder](/azure/cloud-adoption-framework/organize/cloud-security-policy-standards)
 
@@ -60,17 +60,17 @@ För lokala säkerhets kopieringar med Azure Backup anges kryptering vid vila me
 
 Använd rollbaserad åtkomst kontroll i Azure Backup, Azure Key Vault eller andra resurser för att skydda säkerhets kopior och kund hanterade nycklar. Dessutom kan du aktivera avancerade säkerhetsfunktioner så att du kan kräva MFA innan du kan ändra eller ta bort säkerhets kopior.
 
-- [Översikt över säkerhetsfunktioner i Azure Backup](/azure/backup/security-overview)
+- [Översikt över säkerhetsfunktioner i Azure Backup](../../backup/security-overview.md)
 
-- [Kryptering av säkerhets kopierings data med Kundhanterade nycklar](/azure/backup/encryption-at-rest-with-cmk) 
+- [Kryptering av säkerhets kopierings data med Kundhanterade nycklar](../../backup/encryption-at-rest-with-cmk.md) 
 
-- [Säkerhetskopiera Key Vault nycklar i Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Säkerhetskopiera Key Vault nycklar i Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
-- [Säkerhetsfunktioner som hjälper till att skydda hybrid säkerhets kopieringar från attacker](/azure/backup/backup-azure-security-feature#prevent-attacks)
+- [Säkerhetsfunktioner som hjälper till att skydda hybrid säkerhets kopieringar från attacker](../../backup/backup-azure-security-feature.md#prevent-attacks)
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Säkerhetsarkitektur](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -86,13 +86,13 @@ Använd rollbaserad åtkomst kontroll i Azure Backup, Azure Key Vault eller andr
 
 Regelbundet utföra Data återställning av säkerhets kopian. Se till att du kan återställa säkerhetskopierade nycklar som hanteras av kunden.
 
-- [Återställa filer från säkerhets kopiering av virtuella Azure-datorer](/azure/backup/backup-azure-restore-files-from-vm)
+- [Återställa filer från säkerhets kopiering av virtuella Azure-datorer](../../backup/backup-azure-restore-files-from-vm.md)
 
-- [Så här återställer du Key Vault nycklar i Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Så här återställer du Key Vault nycklar i Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Incidentberedskap](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -106,15 +106,14 @@ Regelbundet utföra Data återställning av säkerhets kopian. Se till att du ka
 
 Se till att du har mått på plats för att förhindra och återställa från förlust av nycklar. Aktivera mjuk borttagning och tömning av skydd i Azure Key Vault för att skydda nycklar mot oavsiktlig eller skadlig borttagning.  
 
-- [Så här aktiverar du mjuk borttagning och tömning av skydd i Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Så här aktiverar du mjuk borttagning och tömning av skydd i Key Vault](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Säkerhetsarkitektur](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
 - [Incidentberedskap](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
 - [Data säkerhet](/azure/cloud-adoption-framework/organize/cloud-security-data-security)
-

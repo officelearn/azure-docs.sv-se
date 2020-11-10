@@ -15,21 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
-ms.openlocfilehash: fa23637500755f43bb380a9f20cbe3acc7c3a394
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 402fc1b0b436e7e2061cb2e1a922a75c82ac5235
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87925812"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408064"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Metod tips för att skydda PaaS-webb program och mobilappar med hjälp av Azure Storage
 I den här artikeln diskuterar vi en samling Azure Storage säkerhets metod tips för att skydda dina webb-och mobil program för PaaS-tjänster (Platform-as-a-Service). Dessa bästa metoder härleds från vår erfarenhet av Azure och våra kunders upplevelser som du själv har.
 
 Azure gör det möjligt att distribuera och använda lagring på ett sätt som inte kan nås lokalt. Med Azure Storage kan du uppnå höga nivåer av skalbarhet och tillgänglighet med relativt lite ansträngning. Det är inte bara Azure Storage grunden för Windows och Linux Azure Virtual Machines, men det kan också ha stöd för stora distribuerade program.
 
-Azure Storage tillhandahåller följande fyra tjänster: Blob Storage, Table Storage, Queue Storage och File Storage. Mer information finns i [Introduktion till Microsoft Azure Storage](/azure/storage/common/storage-introduction).
+Azure Storage tillhandahåller följande fyra tjänster: Blob Storage, Table Storage, Queue Storage och File Storage. Mer information finns i [Introduktion till Microsoft Azure Storage](../../storage/common/storage-introduction.md).
 
-[Azure Storage säkerhets guide](/azure/storage/common/storage-security-guide) är en bra källa för detaljerad information om Azure Storage och säkerhet. I den här artikeln får du tips på en hög nivå av de begrepp som finns i säkerhets hand boken och länkar till säkerhets hand boken, samt andra källor, för mer information.
+[Azure Storage säkerhets guide](../../storage/blobs/security-recommendations.md) är en bra källa för detaljerad information om Azure Storage och säkerhet. I den här artikeln får du tips på en hög nivå av de begrepp som finns i säkerhets hand boken och länkar till säkerhets hand boken, samt andra källor, för mer information.
 
 Den här artikeln handlar om följande bästa praxis:
 
@@ -53,10 +53,10 @@ Du behöver fortfarande ett sätt att ge åtkomst till objekt i lagringen. För 
 
 SAS gör att du kan dela innehåll på det sätt som du vill dela det utan att lämna dina lagrings konto nycklar. Att alltid använda SAS i ditt program är ett säkert sätt att dela dina lagrings resurser utan att kompromissa med dina lagrings konto nycklar.
 
-Mer information om signaturer för delad åtkomst finns i [använda signaturer för delad åtkomst](/azure/storage/common/storage-dotnet-shared-access-signature-part-1). 
+Mer information om signaturer för delad åtkomst finns i [använda signaturer för delad åtkomst](../../storage/common/storage-sas-overview.md). 
 
 ## <a name="use-role-based-access-control"></a>Använd rollbaserad åtkomstkontroll
-Ett annat sätt att hantera åtkomst är att använda [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](/azure/role-based-access-control/overview). Med RBAC fokuserar du på att ge de anställda de exakta behörigheter som de behöver, baserat på behovet av att känna till och minsta behörighets säkerhets principer. För många behörigheter kan exponera ett konto för angripare. För få behörigheter innebär det att anställda inte kan få jobbet gjort effektivt. RBAC hjälper till att lösa det här problemet genom att erbjuda detaljerad åtkomst hantering för Azure. Detta är nödvändigt för organisationer som vill tillämpa säkerhets principer för data åtkomst.
+Ett annat sätt att hantera åtkomst är att använda [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/overview.md). Med RBAC fokuserar du på att ge de anställda de exakta behörigheter som de behöver, baserat på behovet av att känna till och minsta behörighets säkerhets principer. För många behörigheter kan exponera ett konto för angripare. För få behörigheter innebär det att anställda inte kan få jobbet gjort effektivt. RBAC hjälper till att lösa det här problemet genom att erbjuda detaljerad åtkomst hantering för Azure. Detta är nödvändigt för organisationer som vill tillämpa säkerhets principer för data åtkomst.
 
 Du kan använda inbyggda Azure-roller i Azure för att tilldela behörigheter till användare. Använd till exempel lagrings konto deltagare för moln operatörer som behöver hantera lagrings konton och den klassiska rollen lagrings konto deltagare för att hantera klassiska lagrings konton. För moln operatörer som behöver hantera virtuella datorer, men inte det virtuella nätverk eller lagrings konto som de är anslutna till, kan du lägga till dem i rollen virtuell dator deltagare.
 
@@ -64,19 +64,19 @@ Organisationer som inte tillämpar data åtkomst kontroll genom att använda fun
 
 Läs mer om RBAC i:
 
-- [Hantera åtkomst med hjälp av RBAC och Azure-portalen](/azure/role-based-access-control/role-assignments-portal)
-- [Inbyggda roller i Azure](/azure/role-based-access-control/built-in-roles)
-- [Säkerhetsguiden för Azure Storage](/azure/storage/common/storage-security-guide) 
+- [Hantera åtkomst med hjälp av RBAC och Azure-portalen](../../role-based-access-control/role-assignments-portal.md)
+- [Inbyggda roller i Azure](../../role-based-access-control/built-in-roles.md)
+- [Säkerhetsguiden för Azure Storage](../../storage/blobs/security-recommendations.md) 
 
 ## <a name="use-client-side-encryption-for-high-value-data"></a>Använd kryptering på klient sidan för data med hög värde
 Kryptering på klient sidan gör att du kan kryptera data via programmering innan du överför till Azure Storage och program mässigt dekryptera data när de hämtas. Detta ger kryptering av data under överföring, men ger även kryptering av data i vila. Kryptering på klient sidan är den säkraste metoden för att kryptera dina data, men det kräver att du gör program ändringar i programmet och lägger till nyckel hanterings processer på plats.
 
-Med kryptering på klient sidan kan du också ha en enda kontroll över dina krypterings nycklar. Du kan skapa och hantera dina egna krypterings nycklar. Den använder en kuvert teknik där klient biblioteket för Azure Storage genererar en innehålls krypterings nyckel (CEK) som sedan omsluts (krypteras) med nyckel krypterings nyckeln (KEK). KEK identifieras av en nyckel identifierare och kan vara ett asymmetriskt nyckel par eller en symmetrisk nyckel och kan hanteras lokalt eller lagras i [Azure Key Vault](/azure/key-vault/key-vault-overview).
+Med kryptering på klient sidan kan du också ha en enda kontroll över dina krypterings nycklar. Du kan skapa och hantera dina egna krypterings nycklar. Den använder en kuvert teknik där klient biblioteket för Azure Storage genererar en innehålls krypterings nyckel (CEK) som sedan omsluts (krypteras) med nyckel krypterings nyckeln (KEK). KEK identifieras av en nyckel identifierare och kan vara ett asymmetriskt nyckel par eller en symmetrisk nyckel och kan hanteras lokalt eller lagras i [Azure Key Vault](../../key-vault/general/overview.md).
 
-Kryptering på klient sidan är inbyggd i Java-och .NET-lagrings klient biblioteken. Se [kryptering på klient sidan och Azure Key Vault för Microsoft Azure Storage](/azure/storage/common/storage-client-side-encryption) för information om hur du krypterar data i klient program och genererar och hanterar dina egna krypterings nycklar.
+Kryptering på klient sidan är inbyggd i Java-och .NET-lagrings klient biblioteken. Se [kryptering på klient sidan och Azure Key Vault för Microsoft Azure Storage](../../storage/common/storage-client-side-encryption.md) för information om hur du krypterar data i klient program och genererar och hanterar dina egna krypterings nycklar.
 
 ## <a name="enable-storage-service-encryption-for-data-at-rest"></a>Aktivera Kryptering för lagringstjänst för vilande data
-När [kryptering för lagringstjänst](/azure/storage/common/storage-service-encryption) för fil lagring har Aktiver ATS krypteras data automatiskt med AES-256-kryptering. Microsoft hanterar all kryptering, dekryptering och nyckel hantering. Den här funktionen är tillgänglig för LRS-och GRS-redundanta typer.
+När [kryptering för lagringstjänst](../../storage/common/storage-service-encryption.md) för fil lagring har Aktiver ATS krypteras data automatiskt med AES-256-kryptering. Microsoft hanterar all kryptering, dekryptering och nyckel hantering. Den här funktionen är tillgänglig för LRS-och GRS-redundanta typer.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -16,16 +16,16 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 54c14f1ef78694055c567ded0fdccede062605ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48d0483247f610a1e8c7491e13ea86883bf8f341
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400323"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410376"
 ---
 # <a name="azure-identity-management-security-overview"></a>Översikt över Azure Identity Management-säkerhet
 
- Identitets hantering är en process som autentiserar och auktoriserar [säkerhets objekt](/windows/security/identity-protection/access-control/security-principals). Det omfattar också att kontrol lera information om dessa huvud konton (identiteter). Säkerhets objekt (identiteter) kan omfatta tjänster, program, användare, grupper osv. Microsofts identitets-och åtkomst hanterings lösningar hjälper till att skydda åtkomsten till program och resurser i företags data centret och i molnet. Detta skydd möjliggör ytterligare verifierings nivåer, till exempel Multi-Factor Authentication och principer för villkorlig åtkomst. Övervakning av misstänkt aktivitet via avancerad säkerhets rapportering, granskning och avisering bidrar till att minska potentiella säkerhets problem. [Azure Active Directory Premium](/azure/active-directory/active-directory-editions) tillhandahåller enkel inloggning (SSO) till tusentals moln program vara som en tjänst (SaaS) och åtkomst till webbappar som du kör lokalt.
+ Identitets hantering är en process som autentiserar och auktoriserar [säkerhets objekt](/windows/security/identity-protection/access-control/security-principals). Det omfattar också att kontrol lera information om dessa huvud konton (identiteter). Säkerhets objekt (identiteter) kan omfatta tjänster, program, användare, grupper osv. Microsofts identitets-och åtkomst hanterings lösningar hjälper till att skydda åtkomsten till program och resurser i företags data centret och i molnet. Detta skydd möjliggör ytterligare verifierings nivåer, till exempel Multi-Factor Authentication och principer för villkorlig åtkomst. Övervakning av misstänkt aktivitet via avancerad säkerhets rapportering, granskning och avisering bidrar till att minska potentiella säkerhets problem. [Azure Active Directory Premium](../../active-directory/fundamentals/active-directory-whatis.md) tillhandahåller enkel inloggning (SSO) till tusentals moln program vara som en tjänst (SaaS) och åtkomst till webbappar som du kör lokalt.
  
 Genom att dra nytta av säkerhets fördelarna med Azure Active Directory (Azure AD) kan du:
 
@@ -46,7 +46,7 @@ Artikeln fokuserar på följande viktiga funktioner i Azure Identity Management:
 * Konsument identitets-och åtkomst hantering
 * Enhetsregistrering
 * Privileged Identity Management
-* Identity Protection
+* Identitetsskydd
 * Hybrid identitets hantering/Azure AD Connect
 * Azure AD-åtkomstgranskningar
 
@@ -68,12 +68,12 @@ Läs mer:
 
 ## <a name="reverse-proxy"></a>Omvänd proxy
 
-Med Azure AD-programproxy kan du publicera lokala program, till exempel [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=en-US&rs=en-US&ad=US) -webbplatser, [Outlook Web App](https://technet.microsoft.com/library/jj657718.aspx)och [IIS](https://www.iis.net/)-baserade appar i ditt privata nätverk och ger säker åtkomst till användare utanför nätverket. Programproxyn ger fjärråtkomst och SSO för många typer av lokala webb program med tusentals SaaS-program som stöds av Azure AD. Anställda kan logga in på dina appar från start sidan på sina egna enheter och autentisera via den här molnbaserade proxyn.
+Med Azure AD-programproxy kan du publicera lokala program, till exempel [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=en-US&rs=en-US&ad=US) -webbplatser, [Outlook Web App](/Exchange/clients/outlook-on-the-web/outlook-on-the-web)och [IIS](https://www.iis.net/)-baserade appar i ditt privata nätverk och ger säker åtkomst till användare utanför nätverket. Programproxyn ger fjärråtkomst och SSO för många typer av lokala webb program med tusentals SaaS-program som stöds av Azure AD. Anställda kan logga in på dina appar från start sidan på sina egna enheter och autentisera via den här molnbaserade proxyn.
 
 Läs mer:
 
-* [Aktivera Azure AD-programproxy](/azure/active-directory/manage-apps/application-proxy-enable)
-* [Publicera program med Azure AD Application Proxy](/azure/active-directory/active-directory-application-proxy-publish)
+* [Aktivera Azure AD-programproxy](../../active-directory/manage-apps/application-proxy-add-on-premises-application.md)
+* [Publicera program med Azure AD Application Proxy](../../active-directory/manage-apps/application-proxy-add-on-premises-application.md)
 * [Enkel inloggning med programproxy](../../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 * [Arbeta med villkorlig åtkomst](../../active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 
@@ -84,22 +84,22 @@ Azure Multi-Factor Authentication är en autentiseringsmetod som kräver använd
 Läs mer:
 
 * [Multifaktorautentisering](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [Vad är Azure Multi-Factor Authentication?](/azure/active-directory/authentication/multi-factor-authentication)
+* [Vad är Azure Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md)
 * [Så fungerar Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="azure-rbac"></a>Azure RBAC
 
 Azure RBAC är ett auktoriserings system som bygger på Azure Resource Manager som ger detaljerad åtkomst hantering av resurser i Azure. Med Azure RBAC kan du styra den åtkomst nivå som användarna har. Du kan till exempel begränsa en användare till att endast hantera virtuella nätverk och en annan användare för att hantera alla resurser i en resurs grupp. Azure innehåller flera inbyggda roller som du kan använda. Följande listar fyra grundläggande inbyggda roller. De första tre gäller för alla resurstyper.
 
-- [Ägare](/azure/role-based-access-control/built-in-roles#owner) – Har fullständig åtkomst till alla resurser, inklusive rätten att delegera åtkomst till andra. 
-- [Deltagare](/azure/role-based-access-control/built-in-roles#contributor) – Kan skapa och hantera alla typer av Azure-resurser, men kan inte bevilja åtkomst till andra.
-- [Reader](/azure/role-based-access-control/built-in-roles#reader) – kan visa befintliga Azure-resurser.
-- [Administratör för användaråtkomst](/azure/role-based-access-control/built-in-roles#user-access-administrator) – Kan hantera användarnas åtkomst till Azure-resurser.
+- [Ägare](../../role-based-access-control/built-in-roles.md#owner) – Har fullständig åtkomst till alla resurser, inklusive rätten att delegera åtkomst till andra. 
+- [Deltagare](../../role-based-access-control/built-in-roles.md#contributor) – Kan skapa och hantera alla typer av Azure-resurser, men kan inte bevilja åtkomst till andra.
+- [Reader](../../role-based-access-control/built-in-roles.md#reader) – kan visa befintliga Azure-resurser.
+- [Administratör för användaråtkomst](../../role-based-access-control/built-in-roles.md#user-access-administrator) – Kan hantera användarnas åtkomst till Azure-resurser.
 
 Läs mer:
 
-* [Vad är rollbaserad åtkomstkontroll i Azure (Azure RBAC)?](/azure/role-based-access-control/overview)
-* [Inbyggda roller i Azure](/azure/role-based-access-control/built-in-roles)
+* [Vad är rollbaserad åtkomstkontroll i Azure (Azure RBAC)?](../../role-based-access-control/overview.md)
+* [Inbyggda roller i Azure](../../role-based-access-control/built-in-roles.md)
 
 ## <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>Säkerhetsövervakning, varningar och Machine Learning-baserade rapporter
 
@@ -107,17 +107,17 @@ Säkerhetsövervakning, varningar och Machine Learning-baserade rapporter som id
 
 I den Azure Portal, hamnar rapporter i följande kategorier:
 
-* **Avvikelse rapporter**: innehåller inloggnings händelser som vi har identifierat som avvikande. Målet är att du ska känna till sådan aktivitet och göra det möjligt för dig att avgöra om en händelse är misstänkt.
-* **Integrerade program rapporter**: ger insikter om hur moln program används i din organisation. Azure AD erbjuder integrering med tusentals moln program.
-* **Fel rapporter**: ange fel som kan uppstå när du etablerar konton till externa program.
-* **Användarspecifika rapporter**: Visa information om enhets inloggnings aktiviteter för en speciell användare.
-* **Aktivitets loggar**: innehåller en lista över alla granskade händelser under de senaste 24 timmarna, senaste 7 dagarna eller de senaste 30 dagarna samt grupp aktivitets ändringar och registrering av lösen ord.
+* **Avvikelse rapporter** : innehåller inloggnings händelser som vi har identifierat som avvikande. Målet är att du ska känna till sådan aktivitet och göra det möjligt för dig att avgöra om en händelse är misstänkt.
+* **Integrerade program rapporter** : ger insikter om hur moln program används i din organisation. Azure AD erbjuder integrering med tusentals moln program.
+* **Fel rapporter** : ange fel som kan uppstå när du etablerar konton till externa program.
+* **Användarspecifika rapporter** : Visa information om enhets inloggnings aktiviteter för en speciell användare.
+* **Aktivitets loggar** : innehåller en lista över alla granskade händelser under de senaste 24 timmarna, senaste 7 dagarna eller de senaste 30 dagarna samt grupp aktivitets ändringar och registrering av lösen ord.
 
 Läs mer:
 
-* [Visa åtkomst- och användningsrapporterna](/azure/active-directory/active-directory-view-access-usage-reports)
-* [Kom igång med Azure Active Directory rapportering](/azure/active-directory/active-directory-reporting-getting-started)
-* [Azure Active Directory rapporterings guide](/azure/active-directory/active-directory-reporting-guide)
+* [Visa åtkomst- och användningsrapporterna](../../active-directory/reports-monitoring/overview-reports.md)
+* [Kom igång med Azure Active Directory rapportering](../../active-directory/reports-monitoring/overview-reports.md)
+* [Azure Active Directory rapporterings guide](../../active-directory/reports-monitoring/overview-reports.md)
 
 ## <a name="consumer-identity-and-access-management"></a>Konsument identitets-och åtkomst hantering
 
@@ -135,15 +135,15 @@ Läs mer:
 
 ## <a name="device-registration"></a>Enhetsregistrering
 
-Azure AD Device Registration är grunden för enhets scenarier för [villkorlig åtkomst](/azure/active-directory/active-directory-conditional-access-device-registration-overview) . När en enhet registreras förser Azure AD Device Registration enheten med en identitet som används för att autentisera enheten när användaren loggar in. Den autentiserade enheten och attributen för enheten kan sedan användas för att tillämpa principer för villkorlig åtkomst för program som finns i molnet och lokalt.
+Azure AD Device Registration är grunden för enhets scenarier för [villkorlig åtkomst](../../active-directory/devices/device-management-azure-portal.md) . När en enhet registreras förser Azure AD Device Registration enheten med en identitet som används för att autentisera enheten när användaren loggar in. Den autentiserade enheten och attributen för enheten kan sedan användas för att tillämpa principer för villkorlig åtkomst för program som finns i molnet och lokalt.
 
 När den kombineras med en hanterings lösning för mobila enheter, till exempel Intune, uppdateras enhetens attribut i Azure AD med ytterligare information om enheten. Du kan sedan skapa regler för villkorlig åtkomst som tvingar åtkomst från enheter att uppfylla dina standarder för säkerhet och efterlevnad.
 
 Läs mer:
 
-* [Kom igång med registrering av Azure AD-enheter](/azure/active-directory/active-directory-conditional-access-device-registration-overview)
-* [Automatisk enhets registrering med Azure AD för domänanslutna Windows-enheter](/azure/active-directory/active-directory-conditional-access-automatic-device-registration)
-* [Konfigurera automatisk registrering av Windows-domänanslutna enheter med Azure AD](/azure/active-directory/active-directory-conditional-access-automatic-device-registration-setup)
+* [Kom igång med registrering av Azure AD-enheter](../../active-directory/devices/device-management-azure-portal.md)
+* [Automatisk enhets registrering med Azure AD för domänanslutna Windows-enheter](../../active-directory/devices/hybrid-azuread-join-plan.md)
+* [Konfigurera automatisk registrering av Windows-domänanslutna enheter med Azure AD](../../active-directory/devices/hybrid-azuread-join-plan.md)
 
 ## <a name="privileged-identity-management"></a>Privileged Identity Management
 
@@ -163,13 +163,13 @@ Läs mer:
 * [Vad är Azure AD Privileged Identity Management?](../../active-directory/privileged-identity-management/pim-configure.md)
 * [Tilldela Azure AD Directory-roller i PIM](../../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
 
-## <a name="identity-protection"></a>Identity Protection
+## <a name="identity-protection"></a>Identitetsskydd
 
 Azure AD Identity Protection är en säkerhets tjänst som tillhandahåller en samlad vy över risk identifieringar och potentiella sårbarheter som påverkar organisationens identiteter. Identitets skydd drar nytta av befintliga funktioner för avvikelse identifiering i Azure AD, som är tillgängliga via rapporter om avvikande aktivitets rapporter i Azure AD. Identitets skydd introducerar också nya risk identifierings typer som kan identifiera avvikelser i real tid.
 
 Läs mer:
 
-* [Azure AD Identity Protection](/azure/active-directory/identity-protection/overview)
+* [Azure AD Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md)
 * [Kanal 9: Azure AD och identitet Visa: identitets skydd för hands version](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## <a name="hybrid-identity-managementazure-ad-connect"></a>Hybrid identitets hantering/Azure AD Connect

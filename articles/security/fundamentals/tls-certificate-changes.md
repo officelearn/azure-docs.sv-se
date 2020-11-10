@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 93c2f847678292a1d38eff540a813b591c255ef0
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: dbc426144678f5bd7382b0961bf9bc3f5339b97a
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043214"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409815"
 ---
 # <a name="azure-tls-certificate-changes"></a>Ändringar i Azure TLS-certifikat  
 
@@ -22,12 +22,12 @@ Microsoft uppdaterar Azure-tjänster för att använda TLS-certifikat från en a
 
 ## <a name="when-will-this-change-happen"></a>När sker den här ändringen?
 
-- [Azure Active Directory](/azure/active-directory) (Azure AD)-tjänster började den här över gången den 7 juli 2020.
+- [Azure Active Directory](../../active-directory/index.yml) (Azure AD)-tjänster började den här över gången den 7 juli 2020.
 - Alla nyligen skapade Azure TLS/SSL-slutpunkter innehåller uppdaterade certifikat som går samman till de nya rot certifikat utfärdarna.
 - Befintliga Azure-slutpunkter övergår i ett stegvist sätt med början den 13 augusti 2020.
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) och [DPS](/azure/iot-dps/) finns kvar på Baltimore CyberTrust-rot certifikat utfärdare men deras mellanliggande certifikat utfärdare kommer att ändras. [Klicka här om du vill ha mer information](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
-- [Azure Storage](/azure/storage) kommer att finnas kvar på Baltimore CyberTrust rot certifikat utfärdare, men deras mellanliggande certifikat utfärdare ändras. [Klicka här om du vill ha mer information](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
-- [Azure cache för Redis](/azure/azure-cache-for-redis) är kvar på Baltimore CyberTrust rot certifikat utfärdare, men deras mellanliggande certifikat utfärdare kommer att ändras. [Klicka här om du vill ha mer information](../../azure-cache-for-redis/cache-whats-new.md).
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) och [DPS](../../iot-dps/index.yml) finns kvar på Baltimore CyberTrust-rot certifikat utfärdare men deras mellanliggande certifikat utfärdare kommer att ändras. [Klicka här om du vill ha mer information](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
+- [Azure Storage](../../storage/index.yml) kommer att finnas kvar på Baltimore CyberTrust rot certifikat utfärdare, men deras mellanliggande certifikat utfärdare ändras. [Klicka här om du vill ha mer information](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
+- [Azure cache för Redis](../../azure-cache-for-redis/index.yml) är kvar på Baltimore CyberTrust rot certifikat utfärdare, men deras mellanliggande certifikat utfärdare kommer att ändras. [Klicka här om du vill ha mer information](../../azure-cache-for-redis/cache-whats-new.md).
 > [!IMPORTANT]
 > Kunder kan behöva uppdatera sina program efter den här ändringen för att förhindra anslutnings problem vid försök att ansluta till Azure-tjänster.
 

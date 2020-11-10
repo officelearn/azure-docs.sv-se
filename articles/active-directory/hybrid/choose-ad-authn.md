@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: d5de8da548c2e141eb921aa4f95e82f7199ae1f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e8310d5941916ed3e4a9d7c66af96779be8f939
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602378"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410302"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Välj rätt autentiseringsmetod för din Azure Active Directory hybrid identitets lösning
 
@@ -177,9 +177,9 @@ Följande diagram innehåller en översikt över de hög nivå arkitektur kompon
 |Var sker autentiseringen?|I molnet|I molnet efter ett säkert utbyte av lösen ords verifiering med den lokala Autentiseringstjänsten|Lokal|
 |Vilka är de lokala server kraven utöver etablerings systemet: Azure AD Connect?|Inget|En server för varje ytterligare Authentication agent|Två eller flera AD FS-servrar<br><br>Två eller flera WAP-servrar i perimeternätverket/DMZ-nätverket|
 |Vilka är kraven för lokal Internet och nätverk utöver etablerings systemet?|Inget|[Utgående Internet åtkomst](../../active-directory/hybrid/how-to-connect-pta-quick-start.md) från servrar som kör autentiseringsprinciper|[Inkommande Internet åtkomst](/windows-server/identity/ad-fs/overview/ad-fs-requirements) till WAP-servrar i perimeternätverket<br><br>Inkommande nätverks åtkomst till AD FS servrar från WAP-servrar i perimeternätverket<br><br>Utjämning av nätverksbelastning|
-|Finns det ett TLS/SSL-certifikat krav?|Inga|Inga|Ja|
+|Finns det ett TLS/SSL-certifikat krav?|Nej|Nej|Ja|
 |Finns det en lösning för hälso övervakning?|Krävs inte|Agent status som tillhandahålls av [Azure Active Directory administrations Center](../../active-directory/hybrid/tshoot-connect-pass-through-authentication.md)|[Azure AD Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md)|
-|Får användarna enkel inloggning till moln resurser från domänanslutna enheter i företags nätverket?|Ja med [sömlös SSO](../../active-directory/hybrid/how-to-connect-sso.md)|Ja med [sömlös SSO](../../active-directory/hybrid/how-to-connect-sso.md)|Ja|
+|Får användarna enkel inloggning till moln resurser från domänanslutna enheter i företags nätverket?|Ja med [sömlös SSO](../../active-directory/hybrid/how-to-connect-sso.md)|Ja med [sömlös SSO](../../active-directory/hybrid/how-to-connect-sso.md)|Yes|
 |Vilka inloggnings typer stöds?|UserPrincipalName + lösen ord<br><br>Windows-Integrated autentisering med [sömlös SSO](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[Alternativt inloggnings-ID](../../active-directory/hybrid/how-to-connect-install-custom.md)|UserPrincipalName + lösen ord<br><br>Windows-Integrated autentisering med [sömlös SSO](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[Alternativt inloggnings-ID](../../active-directory/hybrid/how-to-connect-pta-faq.md)|UserPrincipalName + lösen ord<br><br>sAMAccountName + lösen ord<br><br>Windows-Integrated autentisering<br><br>[Autentisering med certifikat och smartkort](/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[Alternativt inloggnings-ID](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
 |Stöds Windows Hello för företag?|[Nyckel förtroende modell](/windows/security/identity-protection/hello-for-business/hello-identity-verification)|[Nyckel förtroende modell](/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br>*Kräver domän funktions nivå för Windows Server 2016*|[Nyckel förtroende modell](/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Certifikat förtroende modell](/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|
 |Vad är alternativen för multifaktorautentisering?|[Azure MFA](/azure/multi-factor-authentication/)<br><br>[Anpassade kontroller med villkorlig åtkomst *](../../active-directory/conditional-access/controls.md)|[Azure MFA](/azure/multi-factor-authentication/)<br><br>[Anpassade kontroller med villkorlig åtkomst *](../../active-directory/conditional-access/controls.md)|[Azure MFA](/azure/multi-factor-authentication/)<br><br>[Azure MFA-Server](../../active-directory/authentication/howto-mfaserver-deploy.md)<br><br>[MFA från tredje part](/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[Anpassade kontroller med villkorlig åtkomst *](../../active-directory/conditional-access/controls.md)|
@@ -221,4 +221,4 @@ I dagens värld är Hot tillgängliga dygnet runt, och kommer från var som än 
 
 [Kom igång](../fundamentals/active-directory-whatis.md) med Azure AD och distribuera rätt autentiserings lösning för din organisation.
 
-Om du funderar på att migrera från federerade till molnbaserad autentisering, lär du dig mer om [att ändra inloggnings metoden](../../active-directory/hybrid/plan-connect-user-signin.md). För att hjälpa dig att planera och implementera migreringen använder du [de här distributions planerna för projekt](https://aka.ms/deploymentplans) eller funderar på att använda den nya [stegvisa](../../active-directory/hybrid/how-to-connect-staged-rollout.md) distributions funktionen för att migrera federerade användare till att använda molnbaserad autentisering i en stegvis metod.
+Om du funderar på att migrera från federerade till molnbaserad autentisering, lär du dig mer om [att ändra inloggnings metoden](../../active-directory/hybrid/plan-connect-user-signin.md). För att hjälpa dig att planera och implementera migreringen använder du [de här distributions planerna för projekt](../fundamentals/active-directory-deployment-plans.md) eller funderar på att använda den nya [stegvisa](../../active-directory/hybrid/how-to-connect-staged-rollout.md) distributions funktionen för att migrera federerade användare till att använda molnbaserad autentisering i en stegvis metod.

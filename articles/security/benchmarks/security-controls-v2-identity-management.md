@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e7447d03fc231d8d96b71c7d944a380c10add0d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b21bea924ee8eaed37246ce55feaf8243e3e7d4
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757944"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408745"
 ---
 # <a name="security-control-v2-identity-management"></a>Säkerhets kontroll v2: identitets hantering
 
@@ -39,13 +39,13 @@ Obs! Azure AD har stöd för externa identitets leverantörer, vilket gör det m
 
 - [Definiera Azure AD-klienter](https://azure.microsoft.com/resources/securing-azure-environments-with-azure-active-directory/)  
 
-- [Använda externa identitets leverantörer för ett program](/azure/active-directory/b2b/identity-providers)
+- [Använda externa identitets leverantörer för ett program](../../active-directory/external-identities/identity-providers.md)
 
 - [Vad är en säker identitet i Azure AD](../../active-directory/fundamentals/identity-secure-score.md)
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Identitets-och nyckel hantering](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys) 
 
@@ -59,7 +59,7 @@ Obs! Azure AD har stöd för externa identitets leverantörer, vilket gör det m
 
 | Azure-ID | CIS-kontroller v 7.1-ID: n | NIST SP800 – 53 R4-ID: n |
 |--|--|--|--|
-| IM-2 | E.t. | AC-2, AC-3, IA-2, IA-4, IA-9 |
+| IM-2 | Saknas | AC-2, AC-3, IA-2, IA-4, IA-9 |
 
 För icke-mänskliga konton som tjänster eller automatisering använder du Azure Managed Identities, i stället för att skapa ett mer kraftfullt humant konto för att få åtkomst till resurser eller köra kod. Azure Managed identiteter kan autentiseras för Azure-tjänster och-resurser som stöder Azure AD-autentisering. Autentisering aktive ras via fördefinierade regler för åtkomst beviljande, Undvik hårdkodade autentiseringsuppgifter i källkod eller konfigurationsfiler. 
 
@@ -75,9 +75,9 @@ För tjänster som inte har stöd för hanterade identiteter använder du Azure 
 
 Använd Azure Key Vault för säkerhets objekts registrering: autentisering # auktorisera-a-Security-huvud-till-åtkomst-nyckel-valv
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Identitets-och nyckel hantering](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
@@ -95,9 +95,9 @@ Använd enkel inloggning för Azure AD för att hantera och skydda åtkomsten ti
 
 - [Förstå Application SSO med Azure AD](../../active-directory/manage-apps/what-is-single-sign-on.md)
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Säkerhetsarkitektur](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -130,9 +130,9 @@ Obs! autentisering baserat på enbart autentiseringsuppgifter för lösen ord ä
 
 - [Eliminera Felaktiga lösen ord med Azure AD Password Protection](../../active-directory/authentication/concept-password-ban-bad.md)
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Säkerhetsarkitektur](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -163,13 +163,13 @@ Azure Advanced Threat Protection (ATP) är en säkerhetslösning som kan använd
 
 - [Granska aktivitets rapporter i Azure AD](../../active-directory/reports-monitoring/concept-audit-logs.md)
 
-- [Visa Azure AD-riskfyllda inloggningar](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Visa Azure AD-riskfyllda inloggningar](../../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Så här identifierar du Azure AD-användare som har flaggats för riskfylld aktivitet](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [Så här identifierar du Azure AD-användare som har flaggats för riskfylld aktivitet](../../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Övervaka användarnas identitets-och åtkomst aktiviteter i Azure Security Center](../../security-center/security-center-identity-access.md)
 
-- [Aviseringar i Azure Security Center hot Intelligence Protection-modulen](/azure/security-center/alerts-reference)
+- [Aviseringar i Azure Security Center hot Intelligence Protection-modulen](../../security-center/alerts-reference.md)
 
 - [Så här integrerar du Azures aktivitets loggar i Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -177,9 +177,9 @@ Azure Advanced Threat Protection (ATP) är en säkerhetslösning som kan använd
 
 - [Azure Advanced Threat Protection](/azure-advanced-threat-protection/what-is-atp)
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Programsäkerhet och DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
@@ -189,7 +189,7 @@ Azure Advanced Threat Protection (ATP) är en säkerhetslösning som kan använd
 
 | Azure-ID | CIS-kontroller v 7.1-ID: n | NIST SP800 – 53 R4-ID: n |
 |--|--|--|--|
-| IM-6 | E.t. | AC-2, AC-3 |
+| IM-6 | Saknas | AC-2, AC-3 |
 
 Använd villkorlig åtkomst i Azure AD för mer detaljerad åtkomst kontroll baserat på användardefinierade villkor, till exempel att kräva användar inloggningar från vissa IP-intervall för att använda MFA. En detaljerad hantering av autentiseringsbegäranden kan också användas via en princip för villkorlig åtkomst i Azure AD för olika användnings fall. 
 
@@ -199,9 +199,9 @@ Använd villkorlig åtkomst i Azure AD för mer detaljerad åtkomst kontroll bas
 
 - [Konfigurera autentiseringsessionshantering med villkorsstyrd åtkomst](../../active-directory/conditional-access/howto-conditional-access-session-lifetime.md)
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Identitets-och nyckel hantering](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
@@ -225,9 +225,9 @@ För GitHub kan du använda intern hemlighet-genomsökning för att identifiera 
 
 - [GitHub Secret-genomsökning](https://docs.github.com/github/administering-a-repository/about-secret-scanning)
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Programsäkerhet och DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
@@ -245,13 +245,13 @@ Med Azure AD-programproxy kan du publicera äldre lokala program till fjärransl
 
 Alternativt är Microsoft Cloud App Security en CASB-tjänst (Cloud Access Security Broker) som kan tillhandahålla kontroller för att övervaka en användares programsessioner och blockera åtgärder (för både äldre lokala program och SaaS-program (Cloud program vara som en tjänst). 
 
-- [Azure-AD-programproxy](../../active-directory/manage-apps/application-proxy.md#what-is-application-proxy)
+- [Azure AD Programproxy](../../active-directory/manage-apps/application-proxy.md#what-is-application-proxy)
 
 - [Metod tips för Microsoft Cloud App Security](/cloud-app-security/best-practices)
 
-**Ansvar**: kund
+**Ansvar** : kund
 
-**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Säkerhetsarkitektur](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 

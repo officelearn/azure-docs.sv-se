@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2020
 ms.author: memildin
-ms.openlocfilehash: d1837d84c97227ba3d8743c3717e2f68dafd6b95
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 7c09a7f6c6a313852fc6212c6190a584ba5f67bd
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911400"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409900"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Förhindra Dangling DNS-poster och Undvik under domän övertag Ande
 
@@ -27,7 +27,7 @@ I den här artikeln beskrivs det vanliga säkerhetshot för under domän Överta
 
 ## <a name="what-is-subdomain-takeover"></a>Vad är under domän överköps?
 
-Under domänens övertag Ande är ett vanligt hot mot hög allvarlighets grad för organisationer som regelbundet skapar och tar bort många resurser. En under domän överköps kan uppstå när du har en [DNS-post](https://docs.microsoft.com/azure/dns/dns-zones-records#dns-records) som pekar på en Deetablerad Azure-resurs. Sådana DNS-poster kallas även "Dangling DNS"-poster. CNAME-poster är särskilt sårbara för det här hotet. Under domänens övertag ande gör det möjligt för skadliga aktörer att omdirigera trafik som är avsedd för en organisations domän till en plats som utför skadlig aktivitet.
+Under domänens övertag Ande är ett vanligt hot mot hög allvarlighets grad för organisationer som regelbundet skapar och tar bort många resurser. En under domän överköps kan uppstå när du har en [DNS-post](../../dns/dns-zones-records.md#dns-records) som pekar på en Deetablerad Azure-resurs. Sådana DNS-poster kallas även "Dangling DNS"-poster. CNAME-poster är särskilt sårbara för det här hotet. Under domänens övertag ande gör det möjligt för skadliga aktörer att omdirigera trafik som är avsedd för en organisations domän till en plats som utför skadlig aktivitet.
 
 Ett vanligt scenario för en under domän överköps:
 

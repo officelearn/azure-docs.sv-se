@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a5decd3e222af11c402cbff4585532a0cf22282e
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: f968267d4233c765bfd107d81957cf04edace923
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168060"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408523"
 ---
 # <a name="azure-operational-security"></a>Drift säkerhet i Azure
 ## <a name="introduction"></a>Introduktion
@@ -43,13 +43,13 @@ Azures drift säkerhet syftar på tjänster, kontroller och funktioner som är t
 Den här white paper beskriver Microsofts metod för Azures drift säkerhet inom Microsoft Azure moln plattform och omfattar följande tjänster:
 1.  [Azure Monitor](../../azure-monitor/index.yml)
 
-2.  [Azure Security Center](../../security-center/security-center-intro.md)
+2.  [Azure Security Center](../../security-center/security-center-introduction.md)
 
 3.  [Azure Monitor](../../azure-monitor/overview.md)
 
 4.  [Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)
 
-5.  [Azure Storage analys](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)
+5.  [Azure Storage analys](/rest/api/storageservices/fileservices/storage-analytics)
 
 6.  [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)
 
@@ -100,15 +100,15 @@ Tjänsten skyddar dina programdata och sparar dem i åratal utan stora investeri
 Skyddade data i Azure Backup lagras i ett säkerhetskopieringsvalv som finns i en viss geografisk region. Data replikeras inom samma region och kan också, beroende på typen av valv, replikeras till en annan region för ytterligare återhämtning.
 
 ### <a name="management-solutions"></a>Hanteringslösningar
-[Azure Monitor](../../security-center/security-center-intro.md) är Microsofts molnbaserade IT-hanterings lösning som hjälper dig att hantera och skydda din lokala infrastruktur och moln infrastruktur.
+[Azure Monitor](../../security-center/security-center-introduction.md) är Microsofts molnbaserade IT-hanterings lösning som hjälper dig att hantera och skydda din lokala infrastruktur och moln infrastruktur.
 
 
-[Hanterings lösningar](../../monitoring/monitoring-solutions.md) är förpaketerade uppsättningar med logikar som implementerar ett visst hanterings scenario med hjälp av en eller flera Azure Monitor-tjänster. Olika lösningar är tillgängliga från Microsoft och från partner som du enkelt kan lägga till i din Azure-prenumeration för att öka värdet på din investering i Azure Monitor. Som partner kan du skapa egna lösningar som har stöd för dina program och tjänster och ge dem till användare via Azure Marketplace eller snabb starts mallar.
+[Hanterings lösningar](../../azure-monitor/insights/solutions.md) är förpaketerade uppsättningar med logikar som implementerar ett visst hanterings scenario med hjälp av en eller flera Azure Monitor-tjänster. Olika lösningar är tillgängliga från Microsoft och från partner som du enkelt kan lägga till i din Azure-prenumeration för att öka värdet på din investering i Azure Monitor. Som partner kan du skapa egna lösningar som har stöd för dina program och tjänster och ge dem till användare via Azure Marketplace eller snabb starts mallar.
 
 
 ![Hanteringslösningar](./media/operational-security/azure-operational-security-fig4.png)
 
-Ett exempel på en lösning som använder flera tjänster för att tillhandahålla ytterligare funktioner är den [uppdateringshantering lösningen](../../automation/update-management/update-mgmt-overview.md). Den här lösningen använder [Azure Monitor loggar](../../log-analytics/log-analytics-queries.md) -agenten för Windows och Linux för att samla in information om nödvändiga uppdateringar på varje agent. Den skriver dessa data till lagrings platsen för Azure Monitor loggar där du kan analysera den med en inkluderad instrument panel.
+Ett exempel på en lösning som använder flera tjänster för att tillhandahålla ytterligare funktioner är den [uppdateringshantering lösningen](../../automation/update-management/overview.md). Den här lösningen använder [Azure Monitor loggar](../../azure-monitor/log-query/log-query-overview.md) -agenten för Windows och Linux för att samla in information om nödvändiga uppdateringar på varje agent. Den skriver dessa data till lagrings platsen för Azure Monitor loggar där du kan analysera den med en inkluderad instrument panel.
 
 När du skapar en distribution används Runbooks i [Azure Automation](../../automation/automation-intro.md) för att installera nödvändiga uppdateringar. Du hanterar hela processen i portalen och du behöver inte tänka på de bakomliggande detaljerna.
 
@@ -148,19 +148,19 @@ Security Center samlar in data från dina virtuella datorer (VM) för att utvär
 
 Azure Security Center hjälper kunder att förhindra, upptäcka och svara på hot genom att samla in och bearbeta säkerhetsrelaterade data, inklusive konfigurationsinformation, metadata, händelseloggar, kraschdumpfiler och annat. Microsoft följer strikta riktlinjer för efterlevnad och säkerhet – från kodning till driften av en tjänst.
 
--   **Datauppdelning**: Data lagras logiskt och separat på varje komponent i tjänsten. Alla data taggas efter organisation. Den här taggningen finns kvar i informationens hela livscykel och används på varje lager i tjänsten.
+-   **Datauppdelning** : Data lagras logiskt och separat på varje komponent i tjänsten. Alla data taggas efter organisation. Den här taggningen finns kvar i informationens hela livscykel och används på varje lager i tjänsten.
 
--   **Data åtkomst**: för att ge säkerhets rekommendationer och undersöka möjliga säkerhetshot kan Microsofts personal komma åt information som samlas in eller analyseras av Azure-tjänster, inklusive krasch dum par, process skapande händelser, ögonblicks bilder av VM-diskar och artefakter, som oavsiktligt kan inkludera kunddata eller personliga data från dina virtuella datorer. Vi följer [villkoren för Microsoft Online Services och sekretess policyn](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), vilket innebär att Microsoft inte använder kunddata eller härleder information från dem för reklam eller liknande kommersiella ändamål.
+-   **Data åtkomst** : för att ge säkerhets rekommendationer och undersöka möjliga säkerhetshot kan Microsofts personal komma åt information som samlas in eller analyseras av Azure-tjänster, inklusive krasch dum par, process skapande händelser, ögonblicks bilder av VM-diskar och artefakter, som oavsiktligt kan inkludera kunddata eller personliga data från dina virtuella datorer. Vi följer [villkoren för Microsoft Online Services och sekretess policyn](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), vilket innebär att Microsoft inte använder kunddata eller härleder information från dem för reklam eller liknande kommersiella ändamål.
 
--   **Dataanvändning**: Microsoft använder mönster och hotinformation som identifieras från flera klientorganisationer i syfte att förbättra våra skydds- och identifieringsfunktioner. Vi gör detta i enlighet med våra sekretessåtaganden som beskrivs i [sekretesspolicyn](https://www.microsoft.com/en-us/privacystatement/OnlineServices/).
+-   **Dataanvändning** : Microsoft använder mönster och hotinformation som identifieras från flera klientorganisationer i syfte att förbättra våra skydds- och identifieringsfunktioner. Vi gör detta i enlighet med våra sekretessåtaganden som beskrivs i [sekretesspolicyn](https://www.microsoft.com/en-us/privacystatement/OnlineServices/).
 
 ### <a name="data-location"></a>Dataplats
 
 Azure Security Center samlar in tillfälliga kopior av dina kraschdumpfiler och analyserar dem efter tecken på kryphål och säkerhetsintrång. Azure Security Center utför den här analysen inom samma geografiska region som arbetsytan och tar bort de tillfälliga kopiorna när analysen är klar. Artefakter lagras centralt i samma region som den virtuella datorn.
 
--   **Dina lagrings konton**: ett lagrings konto anges för varje region där virtuella datorer körs. Det gör att du kan lagra data i samma region som den virtuella dator som data samlas in från.
+-   **Dina lagrings konton** : ett lagrings konto anges för varje region där virtuella datorer körs. Det gör att du kan lagra data i samma region som den virtuella dator som data samlas in från.
 
--   **Azure Security Center Storage**: Information om säkerhetsvarningar, inklusive partneraviseringar, rekommendationer och status för säkerhetstillstånd lagras centralt (för närvarande i USA). Den här informationen kan omfatta relaterad konfigurationsinformation och säkerhetshändelser som samlas in från dina virtuella datorer för att ge dig säkerhetsvarningar, rekommendationer eller säkerhetsrelaterad statusinformation.
+-   **Azure Security Center Storage** : Information om säkerhetsvarningar, inklusive partneraviseringar, rekommendationer och status för säkerhetstillstånd lagras centralt (för närvarande i USA). Den här informationen kan omfatta relaterad konfigurationsinformation och säkerhetshändelser som samlas in från dina virtuella datorer för att ge dig säkerhetsvarningar, rekommendationer eller säkerhetsrelaterad statusinformation.
 
 
 ## <a name="azure-monitor"></a>Azure Monitor
@@ -199,13 +199,13 @@ Diagnostikloggar skiljer sig från [aktivitets loggen (tidigare känd som Gransk
 
 ### <a name="metrics"></a>Mått
 
-Med Azure Monitor kan du använda telemetri för att få insyn i dina arbets belastningar prestanda och hälsa på Azure. Den viktigaste typen av Azure-telemetridata är måtten (kallas även prestanda räknare) som har genererats av de flesta Azure-resurser. Azure Monitor tillhandahåller flera olika sätt att konfigurera och använda dessa [mått](../../monitoring/monitoring-data-collection.md) för övervakning och fel sökning. Mått är en värdefull källa för telemetri och gör att du kan utföra följande uppgifter:
+Med Azure Monitor kan du använda telemetri för att få insyn i dina arbets belastningar prestanda och hälsa på Azure. Den viktigaste typen av Azure-telemetridata är måtten (kallas även prestanda räknare) som har genererats av de flesta Azure-resurser. Azure Monitor tillhandahåller flera olika sätt att konfigurera och använda dessa [mått](../../azure-monitor/platform/data-platform.md) för övervakning och fel sökning. Mått är en värdefull källa för telemetri och gör att du kan utföra följande uppgifter:
 
 -   **Spåra** resursens prestanda (till exempel en virtuell dator, webbplats eller logisk app) genom att rita måtten på ett Portal diagram och fästa diagrammet på en instrument panel.
 
 -   **Få ett meddelande om ett problem** som påverkar resursens prestanda när ett mått överkorsar ett visst tröskelvärde.
 
--   **Konfigurera automatiska åtgärder**, till exempel automatisk skalning av en resurs eller utlöser en runbook när ett mått korsar ett visst tröskelvärde.
+-   **Konfigurera automatiska åtgärder** , till exempel automatisk skalning av en resurs eller utlöser en runbook när ett mått korsar ett visst tröskelvärde.
 
 -   **Utföra avancerad analys** eller rapportering om resursernas prestanda eller användnings trender.
 
@@ -225,22 +225,22 @@ Det är viktigt att granska nätverks säkerheten för att identifiera nätverks
 
 Network Watcher har för närvarande följande funktioner:
 
--   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview">Gransknings loggar</a>**– åtgärder som utförs som en del av konfigurationen av nätverk loggas. Dessa loggar kan visas i Azure Portal eller hämtas med hjälp av Microsoft-verktyg som Power BI eller verktyg från tredje part. Gransknings loggar är tillgängliga via portalen, PowerShell, CLI och REST API. Mer information om gransknings loggar finns i gransknings åtgärder med Resource Manager. Gransknings loggar är tillgängliga för åtgärder som utförs på alla nätverks resurser.
+-   **<a href="/azure/network-watcher/network-watcher-monitoring-overview">Gransknings loggar</a>** – åtgärder som utförs som en del av konfigurationen av nätverk loggas. Dessa loggar kan visas i Azure Portal eller hämtas med hjälp av Microsoft-verktyg som Power BI eller verktyg från tredje part. Gransknings loggar är tillgängliga via portalen, PowerShell, CLI och REST API. Mer information om gransknings loggar finns i gransknings åtgärder med Resource Manager. Gransknings loggar är tillgängliga för åtgärder som utförs på alla nätverks resurser.
 
 
--   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview">IP-flödet verifieras </a>** – kontrollerar om ett paket tillåts eller nekas baserat på flödes information 5-tuple paket parametrar (mål-IP, käll-IP, målport, källport och protokoll). Om paketet nekas av en nätverks säkerhets grupp returneras regeln och nätverks säkerhets gruppen som nekade paketet.
+-   **<a href="/azure/network-watcher/network-watcher-ip-flow-verify-overview">IP-flödet verifieras</a>** – kontrollerar om ett paket tillåts eller nekas baserat på flödes information 5-tuple paket parametrar (mål-IP, käll-IP, målport, källport och protokoll). Om paketet nekas av en nätverks säkerhets grupp returneras regeln och nätverks säkerhets gruppen som nekade paketet.
 
--   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview">Nästa hopp</a>** – bestämmer nästa hopp för paket som dirigeras i Azures nätverks infrastruktur resurs, så att du kan diagnostisera eventuella felkonfigurerade användardefinierade vägar.
+-   **<a href="/azure/network-watcher/network-watcher-next-hop-overview">Nästa hopp</a>** – bestämmer nästa hopp för paket som dirigeras i Azures nätverks infrastruktur resurs, så att du kan diagnostisera eventuella felkonfigurerade användardefinierade vägar.
 
--   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview">Vyn säkerhets grupp</a>** – hämtar de effektiva och tillämpade säkerhets reglerna som tillämpas på en virtuell dator.
+-   **<a href="/azure/network-watcher/network-watcher-security-group-view-overview">Vyn säkerhets grupp</a>** – hämtar de effektiva och tillämpade säkerhets reglerna som tillämpas på en virtuell dator.
 
--   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview">NSG flödes loggning</a>** – flödes loggar för nätverks säkerhets grupper gör att du kan samla in loggar som är relaterade till trafik som tillåts eller nekas av säkerhets reglerna i gruppen. Flödet definieras av en 5-tupel-information – käll-IP, mål-IP, källport, mål Port och protokoll.
+-   **<a href="/azure/network-watcher/network-watcher-nsg-flow-logging-overview">NSG flödes loggning</a>** – flödes loggar för nätverks säkerhets grupper gör att du kan samla in loggar som är relaterade till trafik som tillåts eller nekas av säkerhets reglerna i gruppen. Flödet definieras av en 5-tupel-information – käll-IP, mål-IP, källport, mål Port och protokoll.
 
 ## <a name="azure-storage-analytics"></a>Azure-lagringsanalys
 
-[Lagringsanalys](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) kan lagra mått som innehåller aggregerad transaktions statistik och kapacitets data om begär anden till en lagrings tjänst. Transaktioner rapporteras både på API-åtgärds nivå och på lagrings service nivå, och kapaciteten rapporteras på lagrings tjänst nivå. Mät data kan användas för att analysera användningen av lagrings tjänster, diagnostisera problem med begär Anden som gjorts mot lagrings tjänsten och förbättra prestanda för program som använder en tjänst.
+[Lagringsanalys](/rest/api/storageservices/fileservices/storage-analytics) kan lagra mått som innehåller aggregerad transaktions statistik och kapacitets data om begär anden till en lagrings tjänst. Transaktioner rapporteras både på API-åtgärds nivå och på lagrings service nivå, och kapaciteten rapporteras på lagrings tjänst nivå. Mät data kan användas för att analysera användningen av lagrings tjänster, diagnostisera problem med begär Anden som gjorts mot lagrings tjänsten och förbättra prestanda för program som använder en tjänst.
 
-[Azure-lagringsanalys](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) utför loggning och tillhandahåller mått data för ett lagrings konto. Du kan använda dessa data för att spåra begär Anden, analysera användnings trender och diagnostisera problem med ditt lagrings konto. Lagringsanalys loggning är tillgängligt för [BLOB-, Queue-och table-tjänsterna](../../storage/common/storage-introduction.md). Lagringsanalys loggar detaljerad information om lyckade och misslyckade begäranden till en lagringstjänst.
+[Azure-lagringsanalys](/rest/api/storageservices/fileservices/storage-analytics) utför loggning och tillhandahåller mått data för ett lagrings konto. Du kan använda dessa data för att spåra begär Anden, analysera användnings trender och diagnostisera problem med ditt lagrings konto. Lagringsanalys loggning är tillgängligt för [BLOB-, Queue-och table-tjänsterna](../../storage/common/storage-introduction.md). Lagringsanalys loggar detaljerad information om lyckade och misslyckade begäranden till en lagringstjänst.
 
 Den här informationen kan användas för att övervaka enskilda begäranden och för att diagnostisera problem med en lagringstjänst. Begär Anden loggas med bästa möjliga ansträngning. Logg poster skapas endast om det finns begär Anden som görs mot tjänst slut punkten. Om ett lagrings konto till exempel har aktivitet i dess BLOB-slutpunkt men inte i dess tabell-eller Queue-slutpunkter, skapas endast loggar som rör Blob Service.
 
@@ -256,7 +256,7 @@ Följande åtgärder som utförs av Lagringsanalys är fakturerbara:
 -   Begär Anden om att skapa tabell enheter för mått.
 
 > [!Note]
-> Mer information om fakturerings-och data lagrings principer finns [Lagringsanalys och fakturering](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-and-billing).
+> Mer information om fakturerings-och data lagrings principer finns [Lagringsanalys och fakturering](/rest/api/storageservices/fileservices/storage-analytics-and-billing).
 > För optimala prestanda vill du begränsa antalet mycket använda diskar som är anslutna till den virtuella datorn för att undvika möjlig begränsning. Om alla diskar inte används med hög tillgänglighet samtidigt kan lagrings kontot ha stöd för en större nummer disk.
 
 > [!Note]
@@ -271,7 +271,7 @@ Följande typer av autentiserade och anonyma begär Anden loggas.
 |Misslyckade begäranden, inklusive timeout, begränsning, nätverk, auktorisering och andra fel | Begär Anden som använder en signatur för delad åtkomst (SAS), inklusive misslyckade och lyckade förfrågningar |
 | Begär Anden som använder en signatur för delad åtkomst (SAS), inklusive misslyckade och lyckade förfrågningar |Timeoutfel för både klient och server |
 |   Begäranden om analysdata |    Misslyckade GET-begäranden med felkoden 304 (har inte ändrats) |
-| Begär Anden som görs av Lagringsanalys, till exempel när loggen skapas eller tas bort loggas inte. En fullständig lista över de loggade data som dokumenteras finns i avsnitten [Lagringsanalys loggade åtgärder och status meddelanden](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) och [Lagringsanalys logg format](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format) . | Alla andra misslyckade anonyma begär Anden loggas inte. En fullständig lista över loggade data dokumenteras i [Lagringsanalys loggade åtgärder och status meddelanden](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) och [Lagringsanalys logg format](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format). |
+| Begär Anden som görs av Lagringsanalys, till exempel när loggen skapas eller tas bort loggas inte. En fullständig lista över de loggade data som dokumenteras finns i avsnitten [Lagringsanalys loggade åtgärder och status meddelanden](/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) och [Lagringsanalys logg format](/rest/api/storageservices/fileservices/storage-analytics-log-format) . | Alla andra misslyckade anonyma begär Anden loggas inte. En fullständig lista över loggade data dokumenteras i [Lagringsanalys loggade åtgärder och status meddelanden](/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) och [Lagringsanalys logg format](/rest/api/storageservices/fileservices/storage-analytics-log-format). |
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 
@@ -281,7 +281,7 @@ Azure AD innehåller också en fullständig uppsättning funktioner för identit
 
 -   Övervaka program användning och skydda ditt företag mot avancerade hot med säkerhets rapportering och övervakning.
 
-Azure AD (Active Directory Azure) tillhandahåller säkerhets-, aktivitets- och granskningsrapporter för din katalog. [Rapporten Azure Active Directory granskning](../../active-directory/active-directory-reporting-azure-portal.md) hjälper kunder att identifiera de privilegierade åtgärder som inträffat i deras Azure Active Directory. Privilegierade åtgärder är ändringar i förhöjd behörighet (till exempel skapande av roller eller återställning av lösen ord), ändring av princip konfiguration (till exempel lösen ords principer) eller ändringar i katalog konfigurationen (till exempel ändringar i domän Federations inställningar).
+Azure AD (Active Directory Azure) tillhandahåller säkerhets-, aktivitets- och granskningsrapporter för din katalog. [Rapporten Azure Active Directory granskning](../../active-directory/reports-monitoring/overview-reports.md) hjälper kunder att identifiera de privilegierade åtgärder som inträffat i deras Azure Active Directory. Privilegierade åtgärder är ändringar i förhöjd behörighet (till exempel skapande av roller eller återställning av lösen ord), ändring av princip konfiguration (till exempel lösen ords principer) eller ändringar i katalog konfigurationen (till exempel ändringar i domän Federations inställningar).
 
 Rapporterna innehåller gransknings posten för händelse namnet, aktören som utförde åtgärden, mål resursen som påverkas av ändringen och datum och tid (i UTC). Kunderna kan hämta listan över gransknings händelser för sina Azure Active Directory via [Azure Portal](https://portal.azure.com/), enligt beskrivningen i [Se gransknings loggarna](../../active-directory/reports-monitoring/overview-reports.md). Här är en lista över de rapporter som ingår:
 
@@ -299,14 +299,14 @@ Rapporterna innehåller gransknings posten för händelse namnet, aktören som u
 
 
 
-Data för de här rapporterna kan vara användbara för dina program, till exempel SIEM system, granskning och Business Intelligence verktyg. Azure AD repor ting- [API: erna](../../active-directory/active-directory-reporting-api-getting-started-azure-portal.md) ger programmatisk åtkomst till data via en uppsättning rest-baserade API: er. Du kan anropa dessa API: er från olika programmeringsspråk och verktyg.
+Data för de här rapporterna kan vara användbara för dina program, till exempel SIEM system, granskning och Business Intelligence verktyg. Azure AD repor ting- [API: erna](../../active-directory/reports-monitoring/concept-reporting-api.md) ger programmatisk åtkomst till data via en uppsättning rest-baserade API: er. Du kan anropa dessa API: er från olika programmeringsspråk och verktyg.
 
 Händelser i gransknings rapporten för Azure AD sparas i 180 dagar.
 
 > [!Note]
 > Mer information om kvarhållning av rapporter finns i [Azure Active Directory bevarande principer](../../active-directory/reports-monitoring/reference-reports-data-retention.md)för rapporter.
 
-För kunder som är intresserade av att lagra sina [gransknings händelser](../../active-directory/active-directory-reporting-activity-audit-logs.md) för längre kvarhållningsperiod kan rapporterings-API: t användas för att regelbundet hämta gransknings händelser till ett separat data lager.
+För kunder som är intresserade av att lagra sina [gransknings händelser](../../active-directory/reports-monitoring/concept-audit-logs.md) för längre kvarhållningsperiod kan rapporterings-API: t användas för att regelbundet hämta gransknings händelser till ett separat data lager.
 
 ## <a name="summary"></a>Sammanfattning
 
@@ -331,7 +331,7 @@ Den här artikeln beskriver
 </ul>
 </ul>
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - [Design-och drift säkerhet](https://www.microsoft.com/trustcenter/security/designopsecurity)
 
@@ -342,4 +342,3 @@ Microsoft utformar sina tjänster och program vara med säkerhet i åtanke för 
 Använd Microsofts säkerhets data och analys för att utföra mer intelligent och effektiv hot identifiering.
 
 - [Azure Security Center planering och åtgärder](../../security-center/security-center-planning-and-operations-guide.md) En uppsättning steg och uppgifter som du kan följa för att optimera din användning av Security Center baserat på din organisations säkerhets krav och moln hanterings modell.
-

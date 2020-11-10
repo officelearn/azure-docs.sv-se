@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 42582c9474647c4c203bd0cafae0be664398ba41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa2025fa31ac960eb6c61d03bafd582de4f0e55c
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87533911"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410595"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolering i det offentliga Azure-molnet
 
@@ -86,11 +86,11 @@ Några andra funktioner för Azure Active Directory inkluderar:
 
 - Azure AD aktiverar SSO för SaaS-program, oavsett var de finns. Vissa program federeras med Azure AD och andra använder enkel inloggning med lösenord. Federerade program kan också ha stöd för användar etablering och [lösen ords valv](https://www.techopedia.com/definition/31415/password-vault).
 
-- Åtkomst till data i [Azure Storage](https://azure.microsoft.com/services/storage/) styrs via autentisering. Varje lagrings konto har en primär nyckel ([lagrings konto nyckel](../../storage/common/storage-create-storage-account.md)eller sak) och en sekundär hemlig nyckel (signatur för delad åtkomst eller SAS).
+- Åtkomst till data i [Azure Storage](https://azure.microsoft.com/services/storage/) styrs via autentisering. Varje lagrings konto har en primär nyckel ([lagrings konto nyckel](../../storage/common/storage-account-create.md)eller sak) och en sekundär hemlig nyckel (signatur för delad åtkomst eller SAS).
 
-- Azure AD tillhandahåller identitet som en tjänst via Federation med hjälp av [Active Directory Federation Services (AD FS)](../../active-directory/hybrid/how-to-connect-fed-azure-adfs.md), synkronisering och replikering med lokala kataloger.
+- Azure AD tillhandahåller identitet som en tjänst via Federation med hjälp av [Active Directory Federation Services (AD FS)](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs), synkronisering och replikering med lokala kataloger.
 
-- [Azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md) är Multi-Factor Authentication-tjänsten som kräver att användarna verifierar inloggningar med hjälp av en mobilapp, ett telefonsamtal eller ett textmeddelande. Den kan användas med Azure AD för att skydda lokala resurser med Azure Multi-Factor Authentication-servern och även med anpassade program och kataloger med hjälp av SDK.
+- [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) är Multi-Factor Authentication-tjänsten som kräver att användarna verifierar inloggningar med hjälp av en mobilapp, ett telefonsamtal eller ett textmeddelande. Den kan användas med Azure AD för att skydda lokala resurser med Azure Multi-Factor Authentication-servern och även med anpassade program och kataloger med hjälp av SDK.
 
 - Med [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) kan du ansluta virtuella Azure-datorer till en Active Directory domän utan att distribuera domänkontrollanter. Du kan logga in på dessa virtuella datorer med företagets Active Directory autentiseringsuppgifter och administrera domänanslutna virtuella datorer genom att använda grupprincip för att tvinga säkerhets bas linjer på alla virtuella Azure-datorer.
 
@@ -119,7 +119,7 @@ Microsoft Azure tillhandahåller olika molnbaserade data behandlings tjänster s
 
 ### <a name="dedicated-hosts"></a>Dedikerade värdar
 
-Förutom de isolerade värdar som beskrivs i föregående avsnitt, erbjuder Azure även dedikerade värdar. Dedikerade värdar i Azure är en tjänst som tillhandahåller fysiska servrar som kan vara värdar för en eller flera virtuella datorer och som är dedikerade till en enda Azure-prenumeration. Dedikerade värdar tillhandahåller maskin varu isolering på den fysiska server nivån. Inga andra virtuella datorer kommer att placeras på värdarna. Dedikerade värdar distribueras i samma data Center och delar samma nätverk och underliggande lagrings infrastruktur som andra icke-isolerade värdar. Mer information finns i den detaljerade översikten över [Azure-dedikerade värdar](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts).
+Förutom de isolerade värdar som beskrivs i föregående avsnitt, erbjuder Azure även dedikerade värdar. Dedikerade värdar i Azure är en tjänst som tillhandahåller fysiska servrar som kan vara värdar för en eller flera virtuella datorer och som är dedikerade till en enda Azure-prenumeration. Dedikerade värdar tillhandahåller maskin varu isolering på den fysiska server nivån. Inga andra virtuella datorer kommer att placeras på värdarna. Dedikerade värdar distribueras i samma data Center och delar samma nätverk och underliggande lagrings infrastruktur som andra icke-isolerade värdar. Mer information finns i den detaljerade översikten över [Azure-dedikerade värdar](../../virtual-machines/dedicated-hosts.md).
 
 ### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>Hyper-V & rot operativ system isolering mellan virtuella rot-VM & virtuella gäst datorer
 
@@ -194,7 +194,7 @@ Därför körs Azure Storage på separat maskin vara utan nätverks anslutning t
 
 ![Isolering med åtkomst kontroll för lagring](./media/isolation-choices/azure-isolation-fig9.png)
 
-**Åtkomst till Azure Storage data (inklusive tabeller)** kan styras via en SAS-token [(signatur för delad åtkomst)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) som ger begränsad åtkomst. SAS skapas via en frågegrupp (URL) som är signerad med [sak (lagrings konto nyckel)](https://msdn.microsoft.com/library/azure/ee460785.aspx). Den [signerade URL:](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) en kan ges till en annan process (det vill säga delegerat), som sedan kan fylla i information om frågan och göra en begäran om lagrings tjänsten. Med SAS kan du ge tidsbaserad åtkomst till klienter utan att avslöja lagrings kontots hemliga nyckel.
+**Åtkomst till Azure Storage data (inklusive tabeller)** kan styras via en SAS-token [(signatur för delad åtkomst)](../../storage/common/storage-sas-overview.md) som ger begränsad åtkomst. SAS skapas via en frågegrupp (URL) som är signerad med [sak (lagrings konto nyckel)](/previous-versions/azure/reference/ee460785(v=azure.100)). Den [signerade URL:](../../storage/common/storage-sas-overview.md) en kan ges till en annan process (det vill säga delegerat), som sedan kan fylla i information om frågan och göra en begäran om lagrings tjänsten. Med SAS kan du ge tidsbaserad åtkomst till klienter utan att avslöja lagrings kontots hemliga nyckel.
 
 SAS innebär att vi kan bevilja en klient begränsad behörighet, till objekt i vårt lagrings konto under en angiven tids period och med en angiven uppsättning behörigheter. Vi kan ge dessa begränsade behörigheter utan att behöva dela dina konto åtkomst nycklar.
 
@@ -225,13 +225,13 @@ För många organisationer är [data kryptering i vila](isolation-choices.md) et
 
 - Med [kryptering för lagringstjänst](../../storage/blobs/security-recommendations.md) kan du begära att lagrings tjänsten automatiskt krypterar data när de skrivs till Azure Storage.
 - [Kryptering på klient sidan](../../storage/blobs/security-recommendations.md) tillhandahåller även funktionen för kryptering i vila.
-- Med [Azure Disk Encryption](../azure-security-disk-encryption-overview.md) kan du kryptera de OS-diskar och data diskar som används av en virtuell IaaS-dator.
+- Med [Azure Disk Encryption](./azure-disk-encryption-vms-vmss.md) kan du kryptera de OS-diskar och data diskar som används av en virtuell IaaS-dator.
 
 #### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
-[Azure Disk Encryption](../azure-security-disk-encryption-overview.md) för virtuella datorer (VM) hjälper dig att lösa organisationens krav på säkerhet och efterlevnad genom att kryptera dina virtuella dator diskar (inklusive start-och data diskar) med nycklar och principer som du styr i [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+[Azure Disk Encryption](./azure-disk-encryption-vms-vmss.md) för virtuella datorer (VM) hjälper dig att lösa organisationens krav på säkerhet och efterlevnad genom att kryptera dina virtuella dator diskar (inklusive start-och data diskar) med nycklar och principer som du styr i [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
-Disk krypterings lösningen för Windows är baserad på [Microsoft BitLocker-diskkryptering](https://technet.microsoft.com/library/cc732774.aspx)och Linux-lösningen baseras på [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
+Disk krypterings lösningen för Windows är baserad på [Microsoft BitLocker-diskkryptering](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11))och Linux-lösningen baseras på [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
 
 Lösningen har stöd för följande scenarier för virtuella IaaS-datorer när de är aktiverade i Microsoft Azure:
 
@@ -243,7 +243,7 @@ Lösningen har stöd för följande scenarier för virtuella IaaS-datorer när d
 - Aktivera kryptering på virtuella IaaS-datorer som kör Windows Client OS
 - Aktivera kryptering på volymer med monterings Sök vägar
 - Aktivera kryptering på virtuella Linux-datorer som är konfigurerade med disk striping (RAID) med hjälp av [mdadm](https://en.wikipedia.org/wiki/Mdadm)
-- Aktivera kryptering på virtuella Linux-datorer med hjälp av [LVM (Logical Volume Manager)](https://msdn.microsoft.com/library/windows/desktop/bb540532) för data diskar
+- Aktivera kryptering på virtuella Linux-datorer med hjälp av [LVM (Logical Volume Manager)](/windows/win32/fileio/about-volume-management) för data diskar
 - Aktivera kryptering på virtuella Windows-datorer som har kon figurer ATS med hjälp av lagrings utrymmen
 - Alla offentliga Azure-regioner stöds
 

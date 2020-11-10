@@ -1,27 +1,27 @@
 ---
 title: Azure IoT Hub Operations Monitoring (inaktuell) | Microsoft Docs
 description: Så här använder du Azure IoT Hub Operations Monitoring för att övervaka status för åtgärder i IoT Hub i real tid.
-author: nberdy
-manager: briz
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.author: nberdy
+ms.author: robinsh
 ms.custom: amqp, devx-track-csharp
-ms.openlocfilehash: 559dac0f37daf612404fca839e9918e97077029e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 045d5693c4388c6285bc6983ac2a385ceac9f6d0
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538501"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408132"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>IoT Hub Operations Monitoring (inaktuell)
 
 Med IoT Hub åtgärds övervakning kan du övervaka statusen för åtgärder i IoT Hub i real tid. IoT Hub spårar händelser i flera kategorier av åtgärder. Du kan välja att skicka händelser från en eller flera kategorier till en slut punkt i IoT Hub för bearbetning. Du kan övervaka data för fel eller ställa in mer komplex bearbetning baserat på data mönster.
 
 >[!NOTE]
->IoT Hub **drifts övervakning är föråldrad och har tagits bort från IoT Hub den 10 mars 2019** . Information om hur du övervakar åtgärder och hälsa för IoT Hub finns i [övervaka IoT Hub](monitor-iot-hub.md). Mer information om tids linjen för tids linjen finns i [övervaka dina Azure IoT-lösningar med Azure Monitor och Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health).
+>IoT Hub **drifts övervakning är föråldrad och har tagits bort från IoT Hub den 10 mars 2019**. Information om hur du övervakar åtgärder och hälsa för IoT Hub finns i [övervaka IoT Hub](monitor-iot-hub.md). Mer information om tids linjen för tids linjen finns i [övervaka dina Azure IoT-lösningar med Azure Monitor och Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health).
 
 IoT Hub övervakar sex kategorier av händelser:
 
@@ -39,11 +39,11 @@ IoT Hub övervakar sex kategorier av händelser:
 
 1. Skapa en IoT-hubb. Du hittar anvisningar om hur du skapar en IoT Hub i guiden [Kom igång](quickstart-send-telemetry-dotnet.md) .
 
-2. Öppna bladet med din IoT Hub. Därifrån klickar du på **Åtgärds övervakning** .
+2. Öppna bladet med din IoT Hub. Därifrån klickar du på **Åtgärds övervakning**.
 
     ![Åtkomst till övervaknings konfiguration i portalen](./media/iot-hub-operations-monitoring/enable-OM-1.png)
 
-3. Välj de övervaknings kategorier som du vill övervaka och klicka sedan på **Spara** . Händelserna är tillgängliga för läsning från den Event Hub-kompatibla slut punkten som visas i **övervaknings inställningarna** . IoT Hub slut punkten anropas `messages/operationsmonitoringevents` .
+3. Välj de övervaknings kategorier som du vill övervaka och klicka sedan på **Spara**. Händelserna är tillgängliga för läsning från den Event Hub-kompatibla slut punkten som visas i **övervaknings inställningarna**. IoT Hub slut punkten anropas `messages/operationsmonitoringevents` .
 
     ![Konfigurera drift övervakning på din IoT Hub](./media/iot-hub-operations-monitoring/enable-OM-2.png)
 
@@ -97,7 +97,7 @@ Kategorin hets telemetri spårar fel som inträffar på IoT-hubben och är relat
 }
 ```
 
-### <a name="cloud-to-device-commands"></a>Kommandon från moln till enhet
+### <a name="cloud-to-device-commands"></a>Moln till enhet-kommandon
 
 Kommando kategorin för moln-till-enhet spårar fel som uppstår på IoT-hubben och är relaterade till pipeline för meddelande från moln till enhet. Den här kategorin innehåller fel som uppstår när meddelanden skickas från molnet till enheten (t. ex. obehörig avsändare), mottagning av meddelanden från moln till enhet (t. ex. leverans antal har överskridits) och mottagning av meddelanden från moln till enhet (till exempel feedback upphör). Den här kategorin fångar inte upp fel från en enhet som felaktigt hanterar ett meddelande från molnet till enheten om meddelandet från molnet till enheten levererades utan problem.
 
@@ -201,7 +201,7 @@ Om du vill ansluta till övervaknings slut punkten behöver du en anslutnings st
 
     ![Event Hub-kompatibla slut punkts värden](./media/iot-hub-operations-monitoring/monitoring-endpoint.png)
 
-3. Välj **principer för delad åtkomst** och välj sedan **tjänst** . Anteckna värdet för **primär nyckel** :
+3. Välj **principer för delad åtkomst** och välj sedan **tjänst**. Anteckna värdet för **primär nyckel** :
 
     ![Princip primär nyckel för tjänst för delad åtkomst](./media/iot-hub-operations-monitoring/service-key.png)
 
@@ -267,8 +267,8 @@ class Program
 
 ## <a name="next-steps"></a>Nästa steg
 
-För att ytterligare utforska funktionerna i IoT Hub, se:
+Mer information om hur du använder Azure Monitor för att övervaka IoT Hub finns i:
 
-* [Guide för IoT Hub utvecklare](iot-hub-devguide.md)
+* [Övervaka IoT Hub](monitor-iot-hub.md)
 
-* [Distribuera AI till gränsenheter med Azure IoT Edge](../iot-edge/quickstart-linux.md)
+* [Migrera från IoT Hub åtgärds övervakning till Azure Monitor](iot-hub-migrate-to-diagnostics-settings.md)

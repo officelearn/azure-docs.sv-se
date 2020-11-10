@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: dad01212be3589af7167082ff22c624fa776772a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b74baebd964ee43658f74e0050dff838e29f9b8a
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82193130"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409067"
 ---
 # <a name="security-control-network-security"></a>Säkerhets kontroll: nätverks säkerhet
 
@@ -28,15 +28,15 @@ Se till att alla distributioner av Virtual Network undernät har en nätverks s�
 
 Om du har ett speciellt användnings fall kan kravet uppfyllas genom att implementera Azure-brandväggen.
 
-- [Förstå Virtual Network tjänstens slut punkter](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)
+- [Förstå Virtual Network tjänstens slut punkter](../../virtual-network/virtual-network-service-endpoints-overview.md)
 
-- [Förstå privat Azure-länk](https://docs.microsoft.com/azure/private-link/private-link-overview)
+- [Förstå privat Azure-länk](../../private-link/private-link-overview.md)
 
-- [Så här skapar du en Virtual Network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+- [Så här skapar du en Virtual Network](../../virtual-network/quick-create-portal.md)
 
-- [Så här skapar du en NSG med en säkerhets konfiguration](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+- [Så här skapar du en NSG med en säkerhets konfiguration](../../virtual-network/tutorial-filter-network-traffic.md)
 
-- [Distribuera och konfigurera Azure-brandvägg](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+- [Distribuera och konfigurera Azure-brandvägg](../../firewall/tutorial-firewall-deploy-portal.md)
 
 ## <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics"></a>1,2: övervaka och logga konfigurationen och trafiken för virtuella nätverk, undernät och nätverkskort
 
@@ -46,11 +46,11 @@ Om du har ett speciellt användnings fall kan kravet uppfyllas genom att impleme
 
 Använd Azure Security Center och följ rekommendationerna för nätverks skydd för att skydda dina nätverks resurser i Azure. Aktivera NSG Flow-loggar och skicka loggar till ett lagrings konto för trafik granskning. Du kan också skicka NSG Flow-loggar till en Log Analytics arbets yta och använda Trafikanalys för att ge insikter i trafikflöde i Azure-molnet. Några av fördelarna med Trafikanalys är möjligheten att visualisera nätverks aktivitet och identifiera aktiva punkter, identifiera säkerhetshot, förstå trafikflödes mönster och hitta nätverks problem.
 
-- [Så här aktiverar du NSG Flow-loggar](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+- [Så här aktiverar du NSG Flow-loggar](../../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-- [Så här aktiverar och använder du Trafikanalys](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+- [Så här aktiverar och använder du Trafikanalys](../../network-watcher/traffic-analytics.md)
 
-- [Förstå nätverks säkerhet som tillhandahålls av Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+- [Förstå nätverks säkerhet som tillhandahålls av Azure Security Center](../../security-center/security-center-network-recommendations.md)
 
 ## <a name="13-protect-critical-web-applications"></a>1,3: skydda viktiga webb program
 
@@ -60,7 +60,7 @@ Använd Azure Security Center och följ rekommendationerna för nätverks skydd 
 
 Distribuera Azure Web Application Firewall (WAF) framför viktiga webb program för ytterligare inspektion av inkommande trafik. Aktivera diagnostikinställningar för WAF och mata in loggar till ett lagrings konto, en Event Hub-eller Log Analytics-arbetsyta.
 
-- [Så här distribuerar du Azure-WAF](https://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-ag)
+- [Så här distribuerar du Azure-WAF](../../web-application-firewall/ag/create-waf-policy-ag.md)
 
 ## <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1,4: neka kommunikation med kända skadliga IP-adresser
 
@@ -76,15 +76,15 @@ Använd Azure Security Center just-in-Time Network Access för att konfigurera N
 
 Använd Azure Security Center anpassad nätverks härdning för att rekommendera NSG-konfigurationer som begränsar portar och käll-IP-adresser baserat på faktisk trafik och hot information.
 
-- [Så här konfigurerar du DDoS-skydd](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
+- [Så här konfigurerar du DDoS-skydd](../../virtual-network/manage-ddos-protection.md)
 
-- [Så här distribuerar du Azure-brandvägg](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+- [Så här distribuerar du Azure-brandvägg](../../firewall/tutorial-firewall-deploy-portal.md)
 
-- [Förstå Azure Security Center integrerad Hot information](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer)
+- [Förstå Azure Security Center integrerad Hot information](../../security-center/azure-defender.md)
 
-- [Förstå Azure Security Center anpassad nätverks härdning](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)
+- [Förstå Azure Security Center anpassad nätverks härdning](../../security-center/security-center-adaptive-network-hardening.md)
 
-- [Förstå Azure Security Center just-in-Time-nätverk Access Control](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
+- [Förstå Azure Security Center just-in-Time-nätverk Access Control](../../security-center/security-center-just-in-time.md)
 
 ## <a name="15-record-network-packets"></a>1,5: registrera nätverks paket
 
@@ -94,7 +94,7 @@ Använd Azure Security Center anpassad nätverks härdning för att rekommendera
 
 Aktivera Network Watcher paket fångst för att undersöka avvikande aktiviteter.
 
-- [Så här aktiverar du Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)
+- [Så här aktiverar du Network Watcher](../../network-watcher/network-watcher-create.md)
 
 ## <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1,6: Distribuera Network-baserad intrångs identifiering/intrångs skydd system (ID/IP-adresser)
 
@@ -108,9 +108,9 @@ Distribuera den brand Väggs lösning som du väljer för var och en av organisa
 
 - [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/?term=Firewall)
 
-- [Så här distribuerar du Azure-brandvägg](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+- [Så här distribuerar du Azure-brandvägg](../../firewall/tutorial-firewall-deploy-portal.md)
 
-- [Konfigurera aviseringar med Azure-brandväggen](https://docs.microsoft.com/azure/firewall/threat-intel)
+- [Konfigurera aviseringar med Azure-brandväggen](../../firewall/threat-intel.md)
 
 ## <a name="17-manage-traffic-to-web-applications"></a>1,7: hantera trafik till webb program
 
@@ -120,11 +120,11 @@ Distribuera den brand Väggs lösning som du väljer för var och en av organisa
 
 Distribuera Azure Application Gateway för webb program med HTTPS/TLS aktiverat för betrodda certifikat.
 
-- [Så här distribuerar du Application Gateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
+- [Så här distribuerar du Application Gateway](../../application-gateway/quick-create-portal.md)
 
-- [Så här konfigurerar du Application Gateway att använda HTTPS](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal)
+- [Så här konfigurerar du Application Gateway att använda HTTPS](../../application-gateway/create-ssl-portal.md)
 
-- [Förstå belastnings utjämning för Layer 7 med Azure Web Application Gateway](https://docs.microsoft.com/azure/application-gateway/overview)
+- [Förstå belastnings utjämning för Layer 7 med Azure Web Application Gateway](../../application-gateway/overview.md)
 
 ## <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1,8: minimera komplexitet och administrativa kostnader för nätverks säkerhets regler
 
@@ -136,9 +136,9 @@ Använd Virtual Network Service-taggar för att definiera nätverks åtkomst kon
 
 Du kan också använda program säkerhets grupper för att förenkla komplex säkerhets konfiguration. Med programsäkerhetsgrupper kan du konfigurera nätverkssäkerhet som ett naturligt tillägg till ett programs struktur, så att du kan gruppera virtuella datorer och definiera nätverkssäkerhetsprinciper baserat på dessa grupper.
 
-- [Förstå och använda service märken](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+- [Förstå och använda service märken](../../virtual-network/service-tags-overview.md)
 
-- [Förstå och använda program säkerhets grupper](https://docs.microsoft.com/azure/virtual-network/security-overview#application-security-groups)
+- [Förstå och använda program säkerhets grupper](../../virtual-network/network-security-groups-overview.md#application-security-groups)
 
 ## <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1,9: underhåll standardkonfigurationer för nätverks enheter
 
@@ -150,11 +150,11 @@ Definiera och implementera standardinställda säkerhetskonfigurationer för nä
 
 Du kan också använda Azure-ritningar för att förenkla storskaliga Azure-distributioner genom att paketera viktiga miljö artefakter, till exempel Azure Resources Manager-mallar, RBAC-kontroller och-principer, i en enda skiss definition. Du kan använda skissen för nya prenumerationer och finjustera kontroll och hantering genom versions hantering.
 
-- [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Så här konfigurerar och hanterar du Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy exempel för nätverk](https://docs.microsoft.com/azure/governance/policy/samples/#network)
+- [Azure Policy exempel för nätverk](../../governance/policy/samples/built-in-policies.md#network)
 
-- [Så här skapar du en Azure Blueprint](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+- [Så här skapar du en Azure Blueprint](../../governance/blueprints/create-blueprint-portal.md)
 
 ## <a name="110-document-traffic-configuration-rules"></a>1,10: dokumentera trafik konfigurations regler
 
@@ -168,11 +168,11 @@ Använd någon av de inbyggda Azure Policy definitionerna som är relaterade til
 
 Du kan använda Azure PowerShell eller Azure CLI för att söka efter eller utföra åtgärder på resurser baserat på deras taggar.
 
-- [Skapa och använda Taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Skapa och använda Taggar](../../azure-resource-manager/management/tag-resources.md)
 
-- [Så här skapar du en Virtual Network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+- [Så här skapar du en Virtual Network](../../virtual-network/quick-create-portal.md)
 
-- [Så här skapar du en NSG med en säkerhets konfiguration](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+- [Så här skapar du en NSG med en säkerhets konfiguration](../../virtual-network/tutorial-filter-network-traffic.md)
 
 ## <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1,11: Använd automatiserade verktyg för att övervaka konfigurationer för nätverks resurser och identifiera ändringar
 
@@ -182,9 +182,9 @@ Du kan använda Azure PowerShell eller Azure CLI för att söka efter eller utf�
 
 Använd Azure aktivitets logg för att övervaka datorkonfigurationer och identifiera ändringar i dina Azure-resurser. Skapa aviseringar inom Azure Monitor som ska utlösas när ändringar av kritiska resurser sker.
 
-- [Visa och hämta Azure aktivitets logg händelser](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+- [Visa och hämta Azure aktivitets logg händelser](../../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
-- [Så här skapar du aviseringar i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Så här skapar du aviseringar i Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

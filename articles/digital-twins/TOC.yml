@@ -111,7 +111,7 @@
       items:
         - name: Visa mått i Azure Monitor
           href: troubleshoot-metrics.md
-        - name: Aktivera diagnostikloggar
+        - name: Aktivera och efterfråga diagnostikloggar
           href: troubleshoot-diagnostics.md
         - name: Aktivera aviseringar
           href: troubleshoot-alerts.md

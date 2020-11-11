@@ -6,14 +6,15 @@ ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 10/05/2020
 ms.author: banders
-ms.openlocfilehash: 140fc450623f0dcb6c7cf1bf08a8cfc43b094763
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.custom: contperfq1
+ms.openlocfilehash: 3222c934998febe79c36121ca816f949b78d374e
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371906"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411566"
 ---
 # <a name="azure-enterprise-transfers"></a>Azure Enterprise-överföringar
 
@@ -93,21 +94,25 @@ Azure-förskottsbetalningar kan inte överföras mellan registreringar. Saldot f
 
 Det förekommer inga avbrott under en konto- eller registreringsöverföring. De kan genomföras samma dag som förfrågan inkommer om du anger all nödvändig information.
 
+## <a name="transfer-an-enterprise-subscription-to-a-pay-as-you-go-subscription"></a>Överföra en Enterprise-prenumeration till en Betala per användning-prenumeration
+
+Om du vill överföra en Enterprise-prenumeration till en enskild prenumeration med Betala per användning-priser måste du skapa en ny supportbegäran i Azure Enterprise-portalen. Du skapar en supportbegäran genom att välja **+ Ny supportbegäran** i området **Hjälp och support**.
+
 ## <a name="change-account-owner"></a>Ändra kontoägare
 
-Du kan överföra prenumerationer från en kontoinnehavare till en annan i Azure EA-portalen. Mer information finns i [Ändra kontoinnehavare](ea-portal-get-started.md#change-account-owner).
+Du kan överföra prenumerationer från en kontoinnehavare till en annan i Azure EA-portalen. Mer information finns i [Ändra kontoinnehavare](ea-portal-administration.md#change-account-owner).
 
 ## <a name="subscription-transfer-effects"></a>Åtgärder som utförs vid överföring av prenumerationer
 
 När du överför en Azure-prenumeration till ett konto i samma klientorganisation i Azure Active Directory så behåller alla användare, grupper och huvudnamn för tjänster med [rollbaserad åtkomst (Azure RBAC)](../../role-based-access-control/overview.md) för hantering av resurser sin åtkomst.
 
-Så här visar du användare med Azure RBAC-åtkomst till prenumerationen:
+Så här visar du användare med rollbaserad åtkomst för prenumerationen:
 
 1. Öppna **Prenumerationer** i Azure-portalen.
 2. Välj den prenumeration du vill visa och välj sedan **Åtkomstkontroll (IAM)** .
-3. Välj **Rolltilldelningar**. På sidan med rolltilldelningar ser du alla användare som har Azure RBAC-åtkomst till prenumerationen.
+3. Välj **Rolltilldelningar**. På sidan med rolltilldelningar ser du alla användare som har rollbaserad åtkomst för prenumerationen.
 
-Om prenumerationen överförs till ett konto i en annan klientorganisation i Azure AD så kommer alla användare, grupper och huvudnamn för tjänster med [Azure RBAC-åtkomst](../../role-based-access-control/overview.md) för hantering av resurser att _förlora_ sin behörighet. Även utan Azure RBAC-åtkomst kan användare få åtkomst till prenumerationen via olika säkerhetsmekanismer. Här är några exempel:
+Om prenumerationen överförs till ett konto i en annan klientorganisation i Azure AD så kommer alla användare, grupper och huvudnamn för tjänster med [rollbaserad åtkomst (RBAC)](../../role-based-access-control/overview.md) för hantering av resurser att _förlora_ sin behörighet. Även utan rollbaserad åtkomst kan användare få åtkomst till prenumerationen via olika säkerhetsmekanismer. Här är några exempel:
 
 - Hanteringscertifikat som ger användaren administratörsbehörighet till prenumerationsresurser. Mer information finns i [Skapa och ladda upp ett hanteringscertifikat för Azure](../../cloud-services/cloud-services-certs-create.md).
 - Åtkomstnycklar för tjänster som Storage. Mer information finns i [kontoöversikten för Azure Storage](../../storage/common/storage-account-overview.md).

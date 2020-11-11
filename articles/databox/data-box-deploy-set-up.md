@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 53309023a838f4b256327a37866408f556c81d29
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: ac87d5040cd572635d81be51308f48a57ddd38e3
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924164"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335476"
 ---
 ::: zone target="docs"
 
@@ -119,7 +119,7 @@ Konfigurera din enhet med hjälp av följande steg via det lokala webbgränssnit
 2. Anslut till MGMT-porten på enheten och öppna dess lokala webbgränssnitt på https\://192.168.100.10. Det kan ta upp till 5 minuter efter att du slagit på enheten.
 3. Klicka på **Details** (Information) och klicka sedan på **Go on to the webpage** (Fortsätt till webbsidan).
 
-   ![Ansluta till det lokala webbgränssnittet](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png) 
+   ![Ansluta till det lokala webbgränssnittet](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png)
 
 4. En **inloggningssida** visas för det lokala webbgränssnittet. Kontrollera att enhetens serienummer matchar både portalens användargränssnitt och det lokala webbgränssnittet. Enheten är låst i det här läget.
 5. Logga in på [Azure-portalen](https://portal.azure.com).

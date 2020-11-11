@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 10/07/2020
-ms.openlocfilehash: 303ed66b7d268a5bab33d0d857399e907764d152
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: f7b96bcebb2106e52c62426ca2b64f9305e09141
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378864"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515417"
 ---
 # <a name="creating-a-synapse-workspace"></a>Skapa en Synapse-arbetsyta
 
@@ -31,11 +31,10 @@ För att slutföra den här själv studie kursen måste du ha åtkomst till en r
 1. I Sök resultaten under **tjänster** väljer du **Azure Synapse Analytics (för hands versioner av arbets ytor)**.
 1. Välj **Lägg till** för att skapa en arbets yta.
 1. I **grunderna** anger du önskad **prenumeration** , **resurs grupp** , **region** och väljer sedan ett namn på arbets ytan. I den här självstudien använder vi min **arbets yta**.
-1. Du behöver ett ADLSGEN2-konto och en behållare i det kontot för att skapa en arbets yta. Arbets ytan Synapse kommer att använda den här behållaren som standard plats för att lagra Spark-loggar och data för Spark-tabeller.
-    1. Gå till **välj Data Lake Storage gen 2**. 
-    1. Klicka på **Skapa nytt** och ge den namnet **contosolake**.
-    1. Klicka på **fil system** och ge den namnet **användare**. Då skapas en behållare med namnet **användare**
-1. Din Azure Synapse-arbetsyta kommer att använda det här lagrings kontot som det primära lagrings kontot och behållaren för att lagra data i arbets ytan. Arbets ytan lagrar data i Apache Spark tabeller. Programmet lagrar Spark-programloggarna under en mapp med namnet **/Synapse/workspacename**.
+1. Gå till **välj Data Lake Storage gen 2**. 
+1. Klicka på **Skapa nytt** och ge den namnet **contosolake**.
+1. Klicka på **fil system** och ge den namnet **användare**. Då skapas en behållare med namnet **användare**
+1. Arbets ytan kommer att använda det här lagrings kontot som det primära lagrings kontot för Spark-tabeller och Spark-programloggarna.
 1. Välj **Granska + skapa** > **Skapa**. Din arbets yta är klar på några minuter.
 
 ## <a name="open-synapse-studio"></a>Öppna Synapse Studio

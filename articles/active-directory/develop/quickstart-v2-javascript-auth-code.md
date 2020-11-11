@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 45a6843c5ce55dca7ff72731752f3c1f24a5db6b
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: e2f2904c9b160e01000e63c1c48b7959c7e89603
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216665"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515463"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Snabb start: Logga in användare och hämta en åtkomsttoken i ett Java Script SPA med auth Code Flow
 
-I den här snabb starten kör du ett kod exempel som visar hur ett Java Script-program (Single-Side Application) kan logga in användare av personliga konton, arbets konton och skol konton med hjälp av flödet för auktoriseringskod. Kod exemplet visar också hur man hämtar en åtkomsttoken för att anropa ett webb-API, i det här fallet Microsoft Graph API. Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.
+I den här snabb starten laddar du ned och kör ett kod exempel som visar hur ett Java Script-program (Single-Side Application) kan logga in användare och anropa Microsoft Graph att använda kod flödet för auktorisering. Kod exemplet visar hur du hämtar en åtkomsttoken för att anropa Microsoft Graph API eller något webb-API. 
+
+Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.
 
 I den här snabb starten används MSAL.js 2,0 med Authorization Code Flow. En liknande snabb start som använder MSAL.js 1,0 med det implicita flödet finns i [snabb start: Logga in användare i Java Script-appar med en sida](./quickstart-v2-javascript.md).
 
@@ -57,7 +59,7 @@ I den här snabb starten används MSAL.js 2,0 med Authorization Code Flow. En li
 > 1. Under **Kontotyper som stöds** väljer du **Accounts in any organizational directory and personal Microsoft accounts** (Konton i alla organisationskataloger och personliga Microsoft-konton).
 > 1. Välj **Register** (Registrera). På sidan **Översikt över** appar noterar du **programmets (klient) ID-** värde för senare användning.
 > 1. I det vänstra fönstret i det registrerade programmet väljer du **autentisering**.
-> 1. Under **plattforms konfiguration**väljer du **Lägg till en plattform**. I fönstret som öppnas väljer du **program med en enda sida**.
+> 1. Under **plattforms konfiguration** väljer du **Lägg till en plattform**. I fönstret som öppnas väljer du **program med en enda sida**.
 > 1. Ange **omdirigerings-URI** -värdet till `http://localhost:3000/` .
 > 1. Välj **Konfigurera**.
 
@@ -112,10 +114,10 @@ I den här snabb starten används MSAL.js 2,0 med Authorization Code Flow. En li
 > - `Enter_the_Application_Id_Here` är **program-ID: t (Client)** för det program som du har registrerat.
 > - `Enter_the_Cloud_Instance_Id_Here` är instansen av Azure-molnet. För huvud-eller globala Azure-molnet anger du `https://login.microsoftonline.com/` . För **nationella** moln (till exempel Kina), se [nationella moln](authentication-national-cloud.md).
 > - `Enter_the_Tenant_info_here` är inställt på något av följande:
->   - Om ditt program har stöd *för konton i den här organisations katalogen*ersätter du värdet med **klient-ID** eller **klient namn**. Exempelvis `contoso.microsoft.com`.
->   - Om ditt program har stöd *för konton i en organisations katalog*ersätter du värdet med `organizations` .
->   - Om ditt program har stöd *för konton i en organisations katalog och personliga Microsoft-konton*ersätter du värdet med `common` . **I den här snabb**starten använder du `common` .
->   - Om du bara vill begränsa stödet till *personliga Microsoft-konton*ersätter du värdet med `consumers` .
+>   - Om ditt program har stöd *för konton i den här organisations katalogen* ersätter du värdet med **klient-ID** eller **klient namn**. Ett exempel är `contoso.microsoft.com`.
+>   - Om ditt program har stöd *för konton i en organisations katalog* ersätter du värdet med `organizations` .
+>   - Om ditt program har stöd *för konton i en organisations katalog och personliga Microsoft-konton* ersätter du värdet med `common` . **I den här snabb** starten använder du `common` .
+>   - Om du bara vill begränsa stödet till *personliga Microsoft-konton* ersätter du värdet med `consumers` .
 > - `Enter_the_Redirect_Uri_Here` är `http://localhost:3000/`.
 >
 > `authority`Värdet i *authConfig.js* bör likna följande om du använder det huvudsakliga Azure-molnet (Globalt):
@@ -125,7 +127,7 @@ I den här snabb starten används MSAL.js 2,0 med Authorization Code Flow. En li
 > ```
 >
 > > [!TIP]
-> > Om du vill hitta värdena för **program-ID**, **katalog (klient)-ID**och **konto typer som stöds**, går du till registrerings sidan för **Overview** app-registrering i Azure Portal.
+> > Om du vill hitta värdena för **program-ID** , **katalog (klient)-ID** och **konto typer som stöds** , går du till registrerings sidan för **Overview** app-registrering i Azure Portal.
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Steg 3: appen har kon figurer ATS och är redo att köras
@@ -200,4 +202,4 @@ npm install @azure/msal-browser
 En mer detaljerad steg-för-steg-guide om hur du skapar programmet som används i den här snabb starten finns i följande självstudie:
 
 > [!div class="nextstepaction"]
-> [Självstudie för att logga in och anropa MS Graph >](./tutorial-v2-javascript-auth-code.md)
+> [Självstudie för att logga in och anropa MS Graph](./tutorial-v2-javascript-auth-code.md)

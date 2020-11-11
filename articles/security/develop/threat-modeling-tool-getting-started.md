@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib
-ms.openlocfilehash: eb0aff6692a12ca7fb00090c0585e46f37c84ace
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 322f5f6a79bdce23706b2211ccc04ef2451675d0
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913032"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515735"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Komma igång med Threat Modeling Tool
 
-Microsoft Threat Modeling Tool 2018 släpptes som GA i september 2018 som ett kostnads fritt **[klick att ladda ned](https://aka.ms/threatmodelingtool)** . Med funktionen ändra leverans kan vi skicka de senaste förbättringarna och fel korrigeringarna till kunderna varje gången de öppnar verktyget, vilket gör det lättare att underhålla och använda.
+Microsoft Threat Modeling Tool 2018 släpptes som GA i september 2018 som ett kostnads fritt **[klick att ladda ned](https://aka.ms/threatmodelingtool)**. Med funktionen ändra leverans kan vi skicka de senaste förbättringarna och fel korrigeringarna till kunderna varje gången de öppnar verktyget, vilket gör det lättare att underhålla och använda.
 Den här artikeln tar dig igenom processen för att komma igång med Microsoft SDL Threat Modeling-metoden och visar hur du använder verktyget för att utveckla fantastiska hot modeller som ett stamnät till din säkerhets process.
 
-Den här artikeln bygger på befintliga kunskaper om den här metoden för SDL Threat-modellering. En snabb genom gång finns i **[webb program för hot modellering](https://msdn.microsoft.com/library/ms978516.aspx)** och en arkiverad version av avlästa **[säkerhets brister med hjälp av](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** artikeln gå till MSDN-artikeln Publicerad i 2006.
+Den här artikeln bygger på befintliga kunskaper om den här metoden för SDL Threat-modellering. En snabb genom gång finns i **[webb program för hot modellering](/previous-versions/msp-n-p/ff648006(v=pandp.10))** och en arkiverad version av avlästa **[säkerhets brister med hjälp av](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** artikeln gå till MSDN-artikeln Publicerad i 2006.
 
 För att snabbt sammanfatta, inbegriper metoden att skapa ett diagram, identifiera hot, minimera dem och verifiera varje åtgärd. Här är ett diagram som markerar den här processen:
 
@@ -80,14 +80,14 @@ De går igenom processen med att utveckla sin första hot modell.
 > - De skickar kommandon till vår webb server – cirkeln
 > - Webb servern konsulterar en databas (två parallella linjer)
 
-Det Ricardo som precis visade Cristina är ett DFD-kort för **[data flödes diagram](https://en.wikipedia.org/wiki/Data_flow_diagram)** . Threat Modeling Tool gör det möjligt för användare att ange förtroende gränser, som anges av de röda streckade linjerna, för att visa var olika entiteter är i kontroll. IT-administratörer behöver till exempel ett Active Directory system för autentisering, så att Active Directory utanför kontrollen.
+Det Ricardo som precis visade Cristina är ett DFD-kort för **[data flödes diagram](https://en.wikipedia.org/wiki/Data_flow_diagram)**. Threat Modeling Tool gör det möjligt för användare att ange förtroende gränser, som anges av de röda streckade linjerna, för att visa var olika entiteter är i kontroll. IT-administratörer behöver till exempel ett Active Directory system för autentisering, så att Active Directory utanför kontrollen.
 
 > Cristina: ser bra ut. Vad är det för hot?
 > Ricardo: Låt mig visa dig.
 
 ## <a name="analyzing-threats"></a>Analysera hot
 
-När han klickar på vyn analysvy från meny alternativet ikon (fil med förstorings glas), tas han eller hon till en lista över genererade hot som Threat Modeling Tool som finns baserat på standard mal len, som använder SDL-metoden **[kliv (förfalskning, manipulering, avslöjande av information, förskjutning, Denial of service och höjning av privilegier)](https://en.wikipedia.org/wiki/STRIDE_(security))** . Idén är att program varan finns under en förutsägbar uppsättning hot som kan hittas med dessa 6 kategorier.
+När han klickar på vyn analysvy från meny alternativet ikon (fil med förstorings glas), tas han eller hon till en lista över genererade hot som Threat Modeling Tool som finns baserat på standard mal len, som använder SDL-metoden **[kliv (förfalskning, manipulering, avslöjande av information, förskjutning, Denial of service och höjning av privilegier)](https://en.wikipedia.org/wiki/STRIDE_(security))**. Idén är att program varan finns under en förutsägbar uppsättning hot som kan hittas med dessa 6 kategorier.
 
 Den här metoden är som att skydda ditt hus genom att se till att varje dörr och fönster har en låsnings funktion innan du lägger till ett larm system eller jaga efter tjuven.
 

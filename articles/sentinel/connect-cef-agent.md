@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 6ab02cc7e60870852666c8c01ccc17a1b1102a62
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2f90a7c954fc8930f69dfee3e7b56b394225405a
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742829"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516745"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>Steg 1: Distribuera logg vidarebefordraren
 
@@ -38,11 +38,11 @@ I det här steget ska du ange och konfigurera Linux-datorn som kommer att vidare
 
 - Du måste ha förhöjd behörighet (sudo) på den utsedda Linux-datorn.
 
-- Du måste ha **python 2,7** installerat på Linux-datorn.<br>Använd `python -version` kommandot för att kontrol lera.
+- Du måste ha **python 2,7** eller **3** installerat på Linux-datorn.<br>Använd `python -version` kommandot för att kontrol lera.
 
 - Linux-datorn får inte vara ansluten till några Azure-arbetsytor innan du installerar Log Analytics agenten.
 
-- Du kan behöva arbets ytans ID och primär nyckel för arbets ytan vid något tillfälle i den här processen. Du hittar dem i arbets ytans resurs under **agent hantering** .
+- Du kan behöva arbets ytans ID och primär nyckel för arbets ytan vid något tillfälle i den här processen. Du hittar dem i arbets ytans resurs under **agent hantering**.
 
 ## <a name="run-the-deployment-script"></a>Kör distributionsskriptet
  

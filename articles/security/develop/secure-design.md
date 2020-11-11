@@ -13,15 +13,15 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 22f74d3135597e8627cf7af933f8c6f4fbebc990
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e8eab3a1054541b1ef7fc6d2e65089f01f0df3c0
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364056"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517163"
 ---
 # <a name="design-secure-applications-on-azure"></a>Utforma säkra program på Azure
-I den här artikeln presenterar vi säkerhets aktiviteter och kontroller som du bör tänka på när du utformar program för molnet. Utbildnings resurser tillsammans med säkerhets frågor och koncept som du bör tänka på under krav och design faser i Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) omfattas. Målet är att hjälpa dig att definiera aktiviteter och Azure-tjänster som du kan använda för att utforma ett säkrare program.
+I den här artikeln presenterar vi säkerhets aktiviteter och kontroller som du bör tänka på när du utformar program för molnet. Utbildnings resurser tillsammans med säkerhets frågor och koncept som du bör tänka på under krav och design faser i Microsoft [Security Development Lifecycle (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) omfattas. Målet är att hjälpa dig att definiera aktiviteter och Azure-tjänster som du kan använda för att utforma ett säkrare program.
 
 Följande SDL-faser beskrivs i den här artikeln:
 
@@ -38,12 +38,12 @@ Använd följande resurser under inlärnings fasen för att bekanta dig med de A
 
   - [Kom igång-guide för Azure-utvecklare](../../guides/developer/azure-developer-guide.md) ger nödvändig information för utvecklare som vill komma igång med Azure-plattformen för deras utvecklings behov.
 
-  - [SDK: er och verktyg](https://docs.microsoft.com/azure/index?pivot=sdkstools) beskriver de verktyg som är tillgängliga i Azure.
+  - [SDK: er och verktyg](../../index.yml?pivot=sdkstools) beskriver de verktyg som är tillgängliga i Azure.
 
-  - [Azure DevOps Services](https://docs.microsoft.com/azure/devops/) innehåller samarbets verktyg för utveckling. Verktygen omfattar högpresterande pipelines, kostnads fria git-databaser, konfigurerbara kanban-kort och omfattande automatiserad och molnbaserad belastnings testning.
-    [DevOps Resource Center](https://docs.microsoft.com/azure/devops/learn/) kombinerar våra resurser för Learning DevOps-metoder, git-, flexibla metoder, hur vi arbetar med DevOps på Microsoft och hur du kan utvärdera ditt eget DevOps-förlopp.
+  - [Azure DevOps Services](/azure/devops/) innehåller samarbets verktyg för utveckling. Verktygen omfattar högpresterande pipelines, kostnads fria git-databaser, konfigurerbara kanban-kort och omfattande automatiserad och molnbaserad belastnings testning.
+    [DevOps Resource Center](/azure/devops/learn/) kombinerar våra resurser för Learning DevOps-metoder, git-, flexibla metoder, hur vi arbetar med DevOps på Microsoft och hur du kan utvärdera ditt eget DevOps-förlopp.
 
-  - De [5 främsta säkerhets objekten som du bör tänka på innan du överför till produktion](https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider/index?WT.mc_id=Learn-Blog-tajanca) visar hur du skyddar dina webb program på Azure och skyddar dina appar mot de vanligaste och farliga webb program angrepp.
+  - De [5 främsta säkerhets objekten som du bör tänka på innan du överför till produktion](/learn/modules/top-5-security-items-to-consider/index?WT.mc_id=Learn-Blog-tajanca) visar hur du skyddar dina webb program på Azure och skyddar dina appar mot de vanligaste och farliga webb program angrepp.
 
   - [Secure DevOps kit för Azure](https://azsk.azurewebsites.net/index.html) är en samling skript, verktyg, tillägg och automatiseringar som följer de omfattande Azure-prenumerations-och resurs säkerhets behoven hos DevOps team som använder omfattande automatisering. Secure DevOps kit för Azure kan visa hur du smidigt integrerar säkerheten i dina interna DevOps-arbetsflöden. I paketet finns verktyg som SVTs (Security Verification tests), som kan hjälpa utvecklare att skriva säker kod och testa den säkra konfigurationen för sina moln program i kodnings-och tidigt utvecklings faserna.
 
@@ -66,7 +66,7 @@ Ställ säkerhets frågor som:
 
   - Innehåller mitt program känsliga data?
 
-  - Samlar mitt program in eller lagrar data som kräver att jag följer bransch standarder och compliance-program, till exempel [råds FFIEC (Federal Financial institution Retesting)](../blueprints/ffiec-analytics-overview.md) eller [betalnings kortet bransch data säkerhets standarder (PCI DSS)](../blueprints/pcidss-analytics-overview.md)?
+  - Samlar mitt program in eller lagrar data som kräver att jag följer bransch standarder och compliance-program, till exempel [råds FFIEC (Federal Financial institution Retesting)](/previous-versions/azure/security/blueprints/ffiec-analytics-overview) eller [betalnings kortet bransch data säkerhets standarder (PCI DSS)](/previous-versions/azure/security/blueprints/pcidss-analytics-overview)?
 
   - Samlar mitt program in eller innehåller känslig personlig information eller kund information som kan användas, antingen på egen hand eller med annan information, för att identifiera, kontakta eller hitta en enskild person?
 
@@ -89,7 +89,7 @@ OWASP 10 främsta tar itu med kritiska säkerhets risker för webb program.
 Medvetenheten om dessa säkerhets risker kan hjälpa dig att fatta krav och utforma beslut som minimerar riskerna i ditt program.
 
 Det är viktigt att tänka på säkerhets kontroller för att förhindra överträdelser.
-Du vill dock även anta att [en överträdelse](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/security-in-devops) sker. Om du antar en överträdelse kan du svara på viktiga frågor om säkerhet i förväg, så att de inte behöver besvaras i nödfall:
+Du vill dock även anta att [en överträdelse](/azure/devops/learn/devops-at-microsoft/security-in-devops) sker. Om du antar en överträdelse kan du svara på viktiga frågor om säkerhet i förväg, så att de inte behöver besvaras i nödfall:
 
   - Hur kan jag identifiera ett angrepp?
 
@@ -126,7 +126,7 @@ För utveckling använder du ett säkert kodnings bibliotek och ett ramverk för
 Se till att du använder den senaste versionen av ramverket och alla säkerhetsfunktioner som är tillgängliga i ramverket. Microsoft erbjuder en omfattande [uppsättning utvecklingsverktyg](https://azure.microsoft.com/product-categories/developer-tools/) för alla utvecklare, som arbetar på vilken plattform eller vilket språk som helst, för att leverera moln program. Du kan koda med valfritt språk genom att välja bland olika [SDK](https://azure.microsoft.com/downloads/): er.
 Du kan dra nytta av kompletta, integrerade utvecklings miljöer (IDE: er) och redigerare som har avancerade fel söknings funktioner och inbyggd support för Azure.
 
-Microsoft erbjuder en mängd olika [språk, ramverk och verktyg](https://docs.microsoft.com/azure/index?pivot=sdkstools&panel=sdkstools-all) som du kan använda för att utveckla program i Azure. Ett exempel är [Azure för .net och .net Core-utvecklare](https://docs.microsoft.com/dotnet/azure/). För varje språk och ramverk som vi erbjuder hittar du snabb starter, självstudier och API-referenser som hjälper dig att komma igång snabbt.
+Microsoft erbjuder en mängd olika [språk, ramverk och verktyg](../../index.yml?panel=sdkstools-all&pivot=sdkstools) som du kan använda för att utveckla program i Azure. Ett exempel är [Azure för .net och .net Core-utvecklare](/dotnet/azure/). För varje språk och ramverk som vi erbjuder hittar du snabb starter, självstudier och API-referenser som hjälper dig att komma igång snabbt.
 
 Azure erbjuder en mängd olika tjänster som du kan använda för att vara värd för webbplatser och webb program. Med dessa tjänster kan du utveckla på ditt favorit språk, oavsett om det är .NET, .NET Core, Java, ruby, Node.js, PHP eller python.
 [Azure App Service Web Apps](../../app-service/overview.md) (Web Apps) är en av dessa tjänster.
@@ -153,9 +153,9 @@ Att modellera program designen och räkna upp [kliv](https://docs.google.com/vie
 
 | Hot | Säkerhets egenskap | Potentiell Azure-plattforms minskning |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Förfalskning               | Autentisering        | [KRÄV HTTPS-anslutningar](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
-| Manipulering              | Integritet             | Verifiera SSL/TLS-certifikat. Program som använder SSL/TLS måste fullständigt verifiera X. 509-certifikaten för de entiteter som de ansluter till. Använd Azure Key Vault certifikat för att [Hantera dina x509-certifikat](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-certificates). |
-| Avvislighet            | Oavvislighet       | Aktivera [övervakning och diagnostik](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)i Azure.|
+| Förfalskning               | Autentisering        | [KRÄV HTTPS-anslutningar](/aspnet/core/security/enforcing-ssl?tabs=visual-studio&view=aspnetcore-2.1). |
+| Manipulering              | Integritet             | Verifiera SSL/TLS-certifikat. Program som använder SSL/TLS måste fullständigt verifiera X. 509-certifikaten för de entiteter som de ansluter till. Använd Azure Key Vault certifikat för att [Hantera dina x509-certifikat](../../key-vault/general/about-keys-secrets-certificates.md). |
+| Avvislighet            | Oavvislighet       | Aktivera [övervakning och diagnostik](/azure/architecture/best-practices/monitoring)i Azure.|
 | Avslöjande av information | Konfidentialitet       | Kryptera känsliga data i [vila](../fundamentals/encryption-atrest.md) och [under överföring](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit). |
 | Denial of Service      | Tillgänglighet          | Övervaka prestanda mått för potentiella denial of service-villkor. Implementera anslutnings filter. [Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md#next-steps), kombinerat med bästa praxis för program design, ger skydd mot DDoS-attacker.|
 | Höjning av privilegier | Auktorisering         | Använd Azure Active Directory <span class="underline"> </span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md).|
@@ -209,7 +209,7 @@ Använd tvåfaktorautentisering. Tvåfaktorautentisering är den aktuella standa
 
 Använd de mekanismer för autentisering och auktorisering som tillhandahålls av plattformen i stället för anpassad kod. Detta beror på att det kan vara lätt att utveckla anpassad autentiseringsnyckel. Kommersiell kod (till exempel från Microsoft) är ofta en omfattande granskning av säkerhet. [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) är Azure-lösningen för identitets-och åtkomst hantering. Dessa Azure AD-verktyg och-tjänster hjälper till med säker utveckling:
 
-- [Microsoft Identity Platform](/azure/active-directory/develop/) är en uppsättning komponenter som utvecklare använder för att skapa appar som kan logga in användare på ett säkert sätt. Plattformen hjälper utvecklare som utvecklar appar för en enda klient, verksamhetsspecifika appar och utvecklare som vill utveckla appar för flera klient organisationer. Förutom grundläggande inloggning kan appar som skapats med hjälp av Microsoft Identity Platform anropa Microsoft API: er och anpassade API: er. Microsoft Identity Platform stöder bransch standard protokoll som OAuth 2,0 och OpenID Connect.
+- [Microsoft Identity Platform](../../active-directory/develop/index.yml) är en uppsättning komponenter som utvecklare använder för att skapa appar som kan logga in användare på ett säkert sätt. Plattformen hjälper utvecklare som utvecklar appar för en enda klient, verksamhetsspecifika appar och utvecklare som vill utveckla appar för flera klient organisationer. Förutom grundläggande inloggning kan appar som skapats med hjälp av Microsoft Identity Platform anropa Microsoft API: er och anpassade API: er. Microsoft Identity Platform stöder bransch standard protokoll som OAuth 2,0 och OpenID Connect.
 
 - [Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/index.yml) är en tjänst för identitets hantering som du kan använda för att anpassa och styra hur kunder registrerar sig, loggar in och hanterar sina profiler när de använder dina program. Detta omfattar program som har utvecklats för iOS, Android och .NET, bland annat. Azure AD B2C aktiverar de här åtgärderna samtidigt som kundernas identiteter skyddas.
 
@@ -219,7 +219,7 @@ Begreppet [minsta behörighet](https://en.wikipedia.org/wiki/Principle_of_least_
 
 Skulle en program varu utvecklare behöva domän administratörs rättigheter? Skulle en administrativ assistent ha åtkomst till administrativa kontroller på sin personliga dator? Att utvärdera åtkomsten till program varan är ingen annan. Om du använder [rollbaserad åtkomst kontroll (RBAC)](../../role-based-access-control/overview.md) för att ge användarna olika förmågor och behörigheter i ditt program ger du inte alla åtkomst till allt. Genom att begränsa åtkomsten till vad som krävs för varje roll begränsar du risken för ett säkerhets problem som uppstår.
 
-Se till att ditt program har [minst behörighet](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models#in-applications) över sina åtkomst mönster.
+Se till att ditt program har [minst behörighet](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models#in-applications) över sina åtkomst mönster.
 
 > [!NOTE]
 > Reglerna för minsta behörighet måste gälla för program varan och för de personer som skapar program varan. Programutvecklare kan vara enorma risker för IT-säkerheten om de ges för mycket åtkomst. Konsekvenserna kan vara svåra om en utvecklare har skadlig avsikt eller har fått för mycket åtkomst. Vi rekommenderar att reglerna för minsta behörighet tillämpas för utvecklare under hela utvecklings livs cykeln.
@@ -233,7 +233,7 @@ Implementera JIT-åtkomst ( *just-in-Time* ) för att ytterligare minska exponer
 
 ### <a name="require-re-authentication-for-important-transactions"></a>Kräv ny autentisering för viktiga transaktioner
 
-[Förfalskning av begäran mellan webbplatser](https://docs.microsoft.com/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (även kallat *XSRF* eller *CSRF*) är en attack mot webb värdbaserade appar där en skadlig webbapp påverkar interaktionen mellan en klient webbläsare och en webbapp som litar på webbläsaren. Förfalsknings angrepp mellan webbplatser är möjligt eftersom webbläsare skickar vissa typer av autentiseringstoken automatiskt till varje begäran till en webbplats.
+[Förfalskning av begäran mellan webbplatser](/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (även kallat *XSRF* eller *CSRF* ) är en attack mot webb värdbaserade appar där en skadlig webbapp påverkar interaktionen mellan en klient webbläsare och en webbapp som litar på webbläsaren. Förfalsknings angrepp mellan webbplatser är möjligt eftersom webbläsare skickar vissa typer av autentiseringstoken automatiskt till varje begäran till en webbplats.
 Den här typen av exploatering kallas även för ett *angrepp* eller en *session* som kan utföras på grund av att angreppet utnyttjar användarens tidigare autentiserade session.
 
 Det bästa sättet att skydda mot den här typen av angrepp är att fråga användaren om något som bara användaren kan ange före varje viktig transaktion, till exempel ett köp, konto inaktive ring eller en lösen ords ändring. Du kan be användaren att ange sitt lösen ord på nytt, slutföra en captcha eller skicka en hemlig token som bara användaren skulle ha. Den vanligaste metoden är den hemliga token.
@@ -244,7 +244,7 @@ Att förlora nycklar och autentiseringsuppgifter är ett vanligt problem. Det en
 
 Lägg alltid till nycklar, certifikat, hemligheter och anslutnings strängar i en nyckel hanterings lösning. Du kan använda en centraliserad lösning där nycklar och hemligheter lagras i HSM: er (Hardware Security modules). Azure ger dig en HSM i molnet med [Azure Key Vault](../../key-vault/general/overview.md).
 
-Key Vault är ett *hemligt Arkiv*: det är en centraliserad moln tjänst för att lagra program hemligheter. Key Vault skyddar dina konfidentiella data genom att spara program hemligheter på en enda, central plats och tillhandahålla säker åtkomst, behörighets kontroll och åtkomst loggning.
+Key Vault är ett *hemligt Arkiv* : det är en centraliserad moln tjänst för att lagra program hemligheter. Key Vault skyddar dina konfidentiella data genom att spara program hemligheter på en enda, central plats och tillhandahålla säker åtkomst, behörighets kontroll och åtkomst loggning.
 
 Hemligheter lagras i enskilda *valv*. Varje valv har sina egna konfigurations-och säkerhets principer för att kontrol lera åtkomst. Du kommer till dina data via en REST API eller via en klient-SDK som är tillgänglig för de flesta programmeringsspråk.
 
@@ -277,21 +277,21 @@ När du infogar kommentarer i din kod, se till att du inte sparar känslig infor
 
 I princip förutsätter vi att allt innehåll i ditt utvecklings projekt är offentlig information när det distribueras. Undvik att inkludera känsliga data av någon typ i projektet.
 
-Tidigare diskuterade vi [Azure Key Vault](../../key-vault/general/overview.md). Du kan använda Key Vault för att lagra hemligheter som nycklar och lösen ord i stället för att hårdkoda dem. När du använder Key Vault i kombination med hanterade identiteter för Azure-resurser, kan Azure-webbappen komma åt hemliga konfigurations värden enkelt och säkert utan att lagra några hemligheter i din käll kontroll eller konfiguration. Mer information finns i [Hantera hemligheter i dina Server appar med Azure Key Vault](https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/).
+Tidigare diskuterade vi [Azure Key Vault](../../key-vault/general/overview.md). Du kan använda Key Vault för att lagra hemligheter som nycklar och lösen ord i stället för att hårdkoda dem. När du använder Key Vault i kombination med hanterade identiteter för Azure-resurser, kan Azure-webbappen komma åt hemliga konfigurations värden enkelt och säkert utan att lagra några hemligheter i din käll kontroll eller konfiguration. Mer information finns i [Hantera hemligheter i dina Server appar med Azure Key Vault](/learn/modules/manage-secrets-with-azure-key-vault/).
 
 ### <a name="implement-fail-safe-measures"></a>Implementera fel säkert mått
 
-Programmet måste kunna hantera [fel](https://docs.microsoft.com/dotnet/standard/exceptions/) som uppstår under körningen på ett konsekvent sätt. Programmet bör fånga alla fel och antingen inte säkert eller stängt.
+Programmet måste kunna hantera [fel](/dotnet/standard/exceptions/) som uppstår under körningen på ett konsekvent sätt. Programmet bör fånga alla fel och antingen inte säkert eller stängt.
 
 Du bör också se till att fel loggas med tillräcklig användar kontext för att identifiera misstänkt eller skadlig aktivitet. Loggar bör behållas under tillräckligt lång tid för att tillåta fördröjd kriminal tekniska analys. Loggarna bör ha ett format som enkelt kan användas av en logg hanterings lösning. Se till att aviseringar för fel som är relaterade till säkerhet utlöses. Otillräcklig loggning och övervakning gör det möjligt för angripare att ytterligare attackera system och underhålla beständighet.
 
 ### <a name="take-advantage-of-error-and-exception-handling"></a>Dra nytta av fel-och undantags hantering
 
-Implementering av korrekt fel och [undantags hantering](https://docs.microsoft.com/dotnet/standard/exceptions/best-practices-for-exceptions) är en viktig del av en försvars kod. Fel-och undantags hanteringen är avgörande för att göra ett system tillförlitligt och säkert. Misstag i fel hanteringen kan leda till olika typer av säkerhets problem, till exempel läcka information till angripare och hjälpa angripare att förstå mer om din plattform och design.
+Implementering av korrekt fel och [undantags hantering](/dotnet/standard/exceptions/best-practices-for-exceptions) är en viktig del av en försvars kod. Fel-och undantags hanteringen är avgörande för att göra ett system tillförlitligt och säkert. Misstag i fel hanteringen kan leda till olika typer av säkerhets problem, till exempel läcka information till angripare och hjälpa angripare att förstå mer om din plattform och design.
 
 Se till att:
 
-- Du hanterar undantag på ett centraliserat sätt för att undvika dubbla [try/catch-block](https://docs.microsoft.com/dotnet/standard/exceptions/how-to-use-the-try-catch-block-to-catch-exceptions) i koden.
+- Du hanterar undantag på ett centraliserat sätt för att undvika dubbla [try/catch-block](/dotnet/standard/exceptions/how-to-use-the-try-catch-block-to-catch-exceptions) i koden.
 
 - Alla oväntade beteenden hanteras i programmet.
 
@@ -303,7 +303,7 @@ Se till att:
 
 ### <a name="use-logging-and-alerting"></a>Använd loggning och aviseringar
 
-[Logga](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1) dina säkerhets problem för säkerhets undersökningar och Utlös aviseringar om problem för att se till att människor vet om problem inom rimlig tid. Aktivera granskning och loggning på alla komponenter. Gransknings loggar ska avbilda användar kontext och identifiera alla viktiga händelser.
+[Logga](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1) dina säkerhets problem för säkerhets undersökningar och Utlös aviseringar om problem för att se till att människor vet om problem inom rimlig tid. Aktivera granskning och loggning på alla komponenter. Gransknings loggar ska avbilda användar kontext och identifiera alla viktiga händelser.
 
 Kontrol lera att du inte loggar känsliga data som en användare skickar till din webbplats. Exempel på känsliga data är:
 

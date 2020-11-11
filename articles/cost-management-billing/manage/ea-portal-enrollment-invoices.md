@@ -3,21 +3,102 @@ title: Fakturor för Azure Enterprise-registrering
 description: Den här artikeln förklarar hur du hanterar och använder din Azure Enterprise-faktura.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2020
+ms.date: 09/23/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: fec013395af9aeb3d83f86ab47cc52b3fedd7a1f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: contperfq1
+ms.openlocfilehash: 57ada2ca760ffff2124582c31fdd095d04d4375f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316145"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410976"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Fakturor för Azure Enterprise-registrering
 
 Den här artikeln förklarar hur du hanterar och använder fakturan för ditt Azure Enterprise-avtal (Azure EA). Din faktura är en representation av din räkning. Kontrollera att den är korrekt. Du bör även bekanta dig med andra uppgifter som kan behövas för hantering av din faktura.
+
+## <a name="view-usage-summary-and-download-reports"></a>Visa användningssammanfattning och nedladdning av rapporter
+
+Företagsadministratörer kan visa en sammanfattning av användningsdata, förbrukad Azure-förskottsbetalning samt avgifter som är kopplade till ytterligare användning i Azure Enterprise-portalen. Avgifter presenteras på sammanfattningsnivå för alla konton och prenumerationer.
+
+Om du vill visa detaljerad användning för specifika konton laddar du ned rapporten med användningsinformation:
+
+1. Logga in på Azure Enterprise-portalen.
+1. Välj **Rapporter**.
+1. Välj fliken **Ladda ned användning**.
+1. I listan över rapporter väljer du **Ladda ned** för den månadsrapport som du vill hämta.
+
+   > [!NOTE]
+   > Rapporten med användningsinformation inkluderar inga tillämpliga skatter.
+   >
+   > Det kan finnas en svarstid på upp till åtta timmar från den tidpunkt då användningen började gälla till dess att den återspeglas i rapporten.
+
+Så här visar du rapporter och diagram för användningssammanfattning:
+
+1. Logga in på Azure Enterprise-portalen.
+
+1. Välj en förskottsbetalningsperiod.
+
+   Om du vill ändra datumintervallet för **Användningssammanfattning** kan du växla från **M** (månatligen) till **C** (anpassad, Custom) längst upp till höger på sidan och sedan ange anpassade startdatum och slutdatum.
+
+   ![Skapa och visa användningssammanfattning och ladda ned rapporter i anpassad vy](./media/ea-portal-enrollment-invoices/create-ea-view-usage-summary-and-download-reports-custom-view.png)
+1. Om du vill visa mer information kan du välja en period eller månad i diagrammet.
+
+   - Diagrammet visar användning månad över månad med en analys av utnyttjad användning, tjänstöverförbrukning, separat debiterade avgifter samt Azure Marketplace-avgifter.
+   - För den valda månaden kan du använda fälten nedanför diagrammet för att filtrera efter avdelningar, konton och prenumerationer.
+   - Du kan växla mellan **Avgifter efter tjänster** och **Avgifter efter hierarki**.
+   - Visa information från **Azure-tjänst** , **Separat debiterade avgifter** och **Azure Marketplace** genom att expandera respektive avsnitt.
+
+Titta på den här videon för att se hur du visar användning:
+
+> [!VIDEO https://www.youtube.com/embed/Cv2IZ9QCn9E]
+
+### <a name="download-csv-reports"></a>Ladda ned CSV-rapporter
+
+Företagsadministratörer använder sidan Nedladdning av månadsrapport för att ladda ned följande rapporter som CSV-filer:
+
+- Saldo och avgifter
+- Användningsinformation
+- Azure Marketplace-avgifter
+- Prisdokument
+
+Så här laddar du ned rapporter:
+
+1. Välj **Rapporter** i Azure Enterprise-portalen.
+2. Välj **Ladda ned användning** längst upp på sidan.
+3. Välj **Ladda ned** intill månadens rapport.
+
+   > [!NOTE]
+   > Det kan finnas en svarstid på upp till fem dagar från det gällande användningsdatumet till dess att användningen visas i rapporten.
+   >
+   > Användare som laddar ned CSV-filer med Safari till Excel kan få formateringsfel. Undvik fel genom att öppna filen med ett redigeringsprogram.
+
+![Exempel som visar sidan Ladda ned användning](./media/ea-portal-enrollment-invoices/create-ea-download-csv-reports.png)
+
+Titta på den här videon för att se hur du laddar ned användningsinformation:
+
+> [!VIDEO https://www.youtube.com/embed/eY797htT1qg]
+
+### <a name="advanced-report-download"></a>Nedladdning av avancerad rapport
+
+Du kan använda nedladdning av avancerad rapport om du vill få rapporter som omfattar specifika datumintervall eller konton. Utdatafilen är i CSV-format för att tillgodose stora uppsättningar av poster.
+
+1. I Azure Enterprise-portalen väljer du **Nedladdning av avancerad rapport**.
+1. Välj ett lämpligt datumintervall och lämpliga konton.
+1. Välj **Request Usage Data** (Begär användningsdata).
+1. Välj knappen **Uppdatera** tills rapportens status uppdateras till **Ladda ned**.
+1. Ladda ned rapporten.
+
+### <a name="download-usage-reports-and-billing-information-for-a-prior-enrollment"></a>Ladda ned användningsrapporter och faktureringsinformation för en tidigare registrering
+
+Du kan ladda ned användningsrapporter och faktureringsinformation för en tidigare registrering efter att en registreringsöverföring har skett. Historisk rapportering finns i både Azure Enterprise-portalen och i Cost Management.
+
+Azure Enterprise-portalen filtrerar bort inaktiva registreringar från vyn. Du behöver avmarkera kryssrutan **Aktiva** om du vill visa inaktiva överförda registreringar.  
+
+![Om rutan Aktiva avmarkeras kan användaren se inaktiva registreringar](./media/ea-portal-enrollment-invoices/unchecked-active-box.png)
 
 ## <a name="change-a-po-number-for-an-upcoming-overage-invoice"></a>Ändra ett IO-nummer för en kommande överförbrukningsfaktura
 
@@ -32,7 +113,7 @@ Azure Enterprise-portalen genererar automatiskt ett standardmässigt inköpsorde
 
    Du kan redigera ett inköpsordernummer inom sju dagar efter att du fått ett fakturameddelande, men det måste vara innan du betalar fakturan.
 1. Ange ett nytt IO-nummer i fältet **IO-nummer**.
-1. Välj**Spara** för att spara ändringen.
+1. Välj **Spara** för att spara ändringen.
 
 ### <a name="to-update-the-azure-marketplace-purchase-order-number"></a>Så här uppdaterar du inköpsordernumret för Azure Marketplace:
 
@@ -43,7 +124,7 @@ Azure Enterprise-portalen genererar automatiskt ett standardmässigt inköpsorde
 
    Du kan redigera ett inköpsordernummer inom sju dagar efter att du fått ett fakturameddelande, men det måste vara innan du betalar fakturan.
 1. Ange ett nytt IO-nummer i fältet **IO-nummer**.
-1. Välj**Spara** för att spara ändringen.
+1. Välj **Spara** för att spara ändringen.
 
 ## <a name="azure-enterprise-billing-frequency"></a>Faktureringsfrekvens för Azure Enterprise
 
@@ -61,20 +142,20 @@ Faktureringsintervallet beror på hur du väljer att göra dina köp med försko
 
 Datumet du fick på överförbrukningsfakturan beror på startdatumet och konfigurationen:
 
-- **Direktregistreringar med startdatum före 1 maj 2018**:
+- **Direktregistreringar med startdatum före 1 maj 2018** :
   - Om du har ett Enterprise Azure-avtal (EA) med direktregistrering har du en årlig faktureringsperiod för Azure-tjänster, exklusive Azure Marketplace-tjänster. Din faktureringsperiod baseras på årsdagen: det datum då avtalet började gälla.
   - Om du överskrider 150 % av ditt tröskelbelopp för förskottsbetalning för Azure EA kommer du automatiskt att konverteras till kvartalsvis fakturering som baseras på din årsdag. Du får också en överförbrukningsfaktura för Azure-tjänsten.
   - Om du inte överskrider 150 % av ditt tröskelbelopp för Azure-förskottsbetalning kommer registreringen att behålla den årliga faktureringsperioden. Överförbrukningsfakturan erhålls i slutet av året för förskottsbetalningen.
 
-- **Direktregistreringar med startdatum efter 1 maj 2018**:
+- **Direktregistreringar med startdatum efter 1 maj 2018** :
   - Kundens Azure-förbrukning och avgifter faktureras på separata fakturor per månad.
   - Eventuella avgifter som inte täcks av din Azure-förskottsbetalning betalas som överförbrukning.  
 
-- **Indirekta registreringar med en registrering som startat före 1 maj 2018**:
+- **Indirekta registreringar med en registrering som startat före 1 maj 2018** :
 
   Om du har ett Enterprise-avtal med indirekt registrering med ett startdatum före den 1 maj 2018 faktureras du kvartalsvis. Kanalpartnern fakturerar dig direkt.  
 
-- **Indirekta registreringar med startdatum efter 1 maj 2018**:
+- **Indirekta registreringar med startdatum efter 1 maj 2018** :
 
   Du faktureras per månad.  
 
@@ -88,9 +169,9 @@ Du debiteras för överförbrukning för den användning eller de reservationer 
 
 För varje post på fakturan visas:
 
-- **Beräknat belopp**: det totala antalet avgifter
-- **Utnyttjad förskottsbetalning**: beloppet för din förskottsbetalning som används för att täcka avgifterna
-- **Nettobelopp**: de avgifter som överstiger din förskottsbetalning
+- **Beräknat belopp** : det totala antalet avgifter
+- **Utnyttjad förskottsbetalning** : beloppet för din förskottsbetalning som används för att täcka avgifterna
+- **Nettobelopp** : de avgifter som överstiger din förskottsbetalning
 
 Tillämpliga skatter beräknas bara på det nettobelopp som överstiger förskottsbetalningen.
 

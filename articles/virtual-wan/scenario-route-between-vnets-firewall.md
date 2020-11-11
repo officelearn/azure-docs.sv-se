@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 301bc64bee291fa25506e7f435e923be7e244cd4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d083607782f96744ecbd7d23976f77ee53fec49d
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267524"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515577"
 ---
 # <a name="scenario-azure-firewall---custom"></a>Scenario: Azure Firewall – Custom
 
@@ -28,10 +28,10 @@ För att ta reda på hur många väg tabeller som behövs kan du bygga en anslut
 
 | Från           | Till:      | *Virtuella nätverk*      | *Grenar*    | *Internet*   |
 |---             |---       |---           |---            |---           |
-| **Virtuella nätverk**      |   &#8594;|     X        |     AzFW      |     AzFW     |
-| **Grenar**   |   &#8594;|    AzFW      |       X       |       X      |
+| **Virtuella nätverk**      |   &#8594;|    Direct    |     AzFW      |     AzFW     |
+| **Grenar**   |   &#8594;|    AzFW      |    Direct     |    Direct    |
 
-I den föregående tabellen representerar ett "X" direkt anslutning mellan två anslutningar utan att trafiken passerar Azure-brandväggen i det virtuella WAN-nätverket och "AzFW" visar att flödet kommer att gå via Azure-brandväggen. Eftersom det finns två distinkta anslutnings mönster i matrisen behöver vi två väg tabeller som ska konfigureras på följande sätt:
+I den föregående tabellen representerar en "direkt" anslutning mellan två anslutningar utan att trafiken passerar Azure-brandväggen i det virtuella WAN-nätverket och "AzFW" anger att flödet ska gå via Azure-brandväggen. Eftersom det finns två distinkta anslutnings mönster i matrisen behöver vi två väg tabeller som ska konfigureras på följande sätt:
 
 * Virtuella nätverk:
   * Associerad routningstabell: **RT_VNet**

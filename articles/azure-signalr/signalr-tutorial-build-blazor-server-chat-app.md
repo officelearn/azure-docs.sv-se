@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jixin
-ms.openlocfilehash: d1c13c5d4bea8bfdb0f70e67ce8f264a1929b8a2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 16fd15a5939cc6c268a80e88401f05042a206075
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150888"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516823"
 ---
 # <a name="tutorial-build-a-blazor-server-chat-app"></a>Självstudie: bygga en app för att chatta med en blixt Server
 
@@ -96,7 +96,7 @@ Från Visual Studio 2019 version 16.2.0 är Azure Signaling-tjänsten att public
    dotnet add package Microsoft.AspNetCore.SignalR.Client --version 3.1.7
    ```
 
-1. Skapa `ChartRoom.razor` under `Pages` mapp för att implementera SignalR-klienten. Följ stegen nedan eller kopiera filen [ChatRoom. kniv](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BlazorChat/Pages/ChatRoom.razor)genom att kopiera.
+1. Skapa `ChatRoom.razor` under `Pages` mapp för att implementera SignalR-klienten. Följ stegen nedan eller kopiera filen [ChatRoom. kniv](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BlazorChat/Pages/ChatRoom.razor)genom att kopiera.
 
    1. Lägg till sid länk och referens.
       
@@ -285,7 +285,7 @@ Från Visual Studio 2019 version 16.2.0 är Azure Signaling-tjänsten att public
    </li>
    ```
    
-1. Uppdatera `site.css` för att optimera vyer i diagram ytan. Lägg till följande kod i slutet.
+1. Uppdatera `site.css` för att optimera vyer för chatt-ytan. Lägg till följande kod i slutet.
 
    ```css
    /* improved for chat text box */

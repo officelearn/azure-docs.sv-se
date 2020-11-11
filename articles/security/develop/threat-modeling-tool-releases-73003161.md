@@ -6,12 +6,12 @@ ms.author: jegeib
 ms.service: security
 ms.topic: article
 ms.date: 03/22/2020
-ms.openlocfilehash: 39963e9dadca0ee0be7bb8ad0ebf824c287bfee0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e182d40d20529b5743fa9105c68108a8ae55d943
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317913"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516908"
 ---
 # <a name="threat-modeling-tool-update-release-73003161---03222020"></a>Threat Modeling Tool uppdaterings version 7.3.00316.1 – 03/22/2020
 
@@ -49,7 +49,7 @@ En ny DiagramReader-funktion har lagts till på huvud menyn när en modell är �
 
 ## <a name="documentation-and-feedback"></a>Dokumentation och feedback
 
-- Dokumentationen för Threat Modeling Tool finns på [docs.Microsoft.com](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool)och innehåller information [om hur du använder verktyget](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool-getting-started).
+- Dokumentationen för Threat Modeling Tool finns på [docs.Microsoft.com](./threat-modeling-tool.md)och innehåller information [om hur du använder verktyget](./threat-modeling-tool-getting-started.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

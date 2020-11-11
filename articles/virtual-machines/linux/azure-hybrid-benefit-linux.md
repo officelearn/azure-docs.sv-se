@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: feaa2471f2867257deb06ab32ed5fc0a26a0d37e
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 8437c83faf8dfcec0a21add2006b6cf627447dd1
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443440"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516449"
 ---
 # <a name="public-preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Offentlig för hands version: Azure Hybrid-förmån – hur det gäller för Virtuella Linux-datorer
 
@@ -53,10 +53,12 @@ Azure Hybrid-förmån (för Linux) finns nu i en offentlig för hands versions f
 
 ### <a name="red-hat-customers"></a>Red Hat-kunder
 
-1.    Registrera dig för [Red Hat Cloud Access-programmet](https://aka.ms/rhel-cloud-access)
-1.    Aktivera din Azure-prenumeration (er) för moln åtkomst och aktivera prenumerationerna som innehåller de virtuella datorer som du vill använda förmånen med
-1.    Tillämpa förmånen för dina befintliga virtuella datorer via Azure CLI
-1.    Registrera dina virtuella datorer som tar del av förmånen med en separat källa till uppdateringar
+Azure Hybrid-förmån för RHEL är tillgängligt för kunder som har aktiva/oanvända RHEL-prenumerationer som är tillgängliga för användning i Azure och som har aktiverat en eller flera av dessa prenumerationer för användning i Azure med [Red Hat Cloud Access](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) -programmet. 
+
+1.  Aktivera en eller flera av dina kvalificerade RHEL-prenumerationer för användning i Azure med hjälp av [Red Hat Cloud accesss kund gränssnitt](https://access.redhat.com/management/cloud).
+1.  De Azure-prenumerationer som du tillhandahöll under den Red Hat Cloud Access-aktiveringen kommer sedan att kunna använda Azure Hybrid-förmån funktionen.
+1.  Tillämpa Azure Hybrid-förmån på någon av dina befintliga RHEL PAYG-VM: ar samt eventuella nya RHEL-VM: er som du distribuerar från Azure Marketplace PAYG-avbildningar.
+1.  Följ rekommenderade [Nästa steg](https://access.redhat.com/articles/5419341) för att konfigurera uppdaterings källor för dina virtuella RHEL-datorer och för rikt linjer för RHEL-prenumerationer.
 
 
 ### <a name="suse-customers"></a>SUSE kunder
@@ -124,7 +126,19 @@ Från den virtuella datorn kan du fråga IMDS-bestyrkade metadata för att fasts
 
 ### <a name="red-hat"></a>Red Hat
 
-För att kunna använda Azure Hybrid-förmån för dina virtuella RHEL-datorer måste du först vara registrerad med Red Hat Cloud Access-programmet. Du kan göra detta via webbplatsen för Red Hat Cloud Access här. När du har aktiverat förmånen på den virtuella datorn måste du registrera den virtuella datorn med din egen källa med uppdateringar antingen med Red Hat-prenumerations hanteraren eller Red Hat satellit. Om du registrerar dig för uppdateringar ser du till att det finns ett tillstånd som stöds.
+Kunder som använder Azure Hybrid-förmån för RHEL accepterar de [juridiska villkoren](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Cloud_Software_Subscription_Agreement_for_Microsoft_Azure.pdf) och den [sekretess policy](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Privacy_Statement_for_Microsoft_Azure.pdf) som är ASSOCIERAD med Azure Marketplace RHEL-erbjudanden.
+
+Kunder som använder Azure Hybrid-förmån för RHEL har tre alternativ för att tillhandahålla program uppdateringar och korrigeringsfiler för de virtuella datorerna:
+
+1.  [Red Hat, uppdaterings infrastruktur (RHUI)](../workloads/redhat/redhat-rhui.md) (standard alternativet)
+1.  Red Hat satellit-Server
+1.  Red Hat-prenumerations hanterare
+
+Kunder som väljer alternativet RHUI kan fortsätta att använda RHUI som primär uppdaterings källa för sina AHB RHEL-VM: ar utan att koppla RHEL-prenumerationer till dessa virtuella datorer.  Kunder som väljer alternativet RHUI ansvarar för att säkerställa kompatibilitet med RHEL-prenumeration.
+
+Kunder som väljer antingen Red Hat satellit-Server eller Red Hat-prenumerations hanterare bör ta bort RHUI-konfigurationen och sedan ansluta en moln åtkomst aktive rad RHEL-prenumeration till sina AHB RHEL-VM: ar.  
+
+Mer information om kompatibilitet med Red Hat-prenumeration, program uppdateringar och källor för virtuella AHB RHEL-datorer finns [här](https://access.redhat.com/articles/5419341).
 
 ### <a name="suse"></a>SUSE
 

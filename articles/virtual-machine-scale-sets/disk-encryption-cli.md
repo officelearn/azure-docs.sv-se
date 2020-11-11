@@ -9,20 +9,20 @@ ms.subservice: disks
 ms.date: 10/15/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 4d8e6d225e02006683166de73a0b66f795bc3993
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6edfa1beb568bb05bd0f3f1ef9e7792ac3c3cbe2
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321989"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515752"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Kryptera OS och anslutna data diskar i en skalnings uppsättning för virtuella datorer med Azure CLI
 
 Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här snabb starten visar hur du använder Azure CLI för att skapa och kryptera en skalnings uppsättning för virtuella datorer. Mer information om hur du använder Azure Disk Encryption till en skalnings uppsättning för virtuella datorer finns i [Azure Disk Encryption för Virtual Machine Scale Sets](disk-encryption-overview.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Om du väljer att installera och använda CLI lokalt kräver den här självstudien att du kör Azure CLI-version 2.0.31 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
+- Den här artikeln kräver version 2.0.31 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
 ## <a name="create-a-scale-set"></a>Skapa en skalningsuppsättning
 
@@ -103,7 +103,7 @@ az vmss encryption enable \
 
 Det kan ta en minut eller två innan krypterings processen startas.
 
-Eftersom skalnings uppsättningen är uppgraderings princip på den skalnings uppsättning som skapades i ett tidigare steg är inställd på *Automatisk*, startar automatiskt krypterings processen i VM-instanserna. Starta krypterings principen på de virtuella dator instanserna med [AZ VMSS Update-instances](/cli/azure/vmss#az-vmss-update-instances)i skalnings uppsättningar där uppgraderings principen är manuell.
+Eftersom skalnings uppsättningen är uppgraderings princip på den skalnings uppsättning som skapades i ett tidigare steg är inställd på *Automatisk* , startar automatiskt krypterings processen i VM-instanserna. Starta krypterings principen på de virtuella dator instanserna med [AZ VMSS Update-instances](/cli/azure/vmss#az-vmss-update-instances)i skalnings uppsättningar där uppgraderings principen är manuell.
 
 ### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>Aktivera kryptering med KEK för att omsluta nyckeln
 
@@ -137,9 +137,9 @@ Om du vill kontrol lera statusen för disk kryptering använder du [AZ VMSS Encr
 az vmss encryption show --resource-group myResourceGroup --name myScaleSet
 ```
 
-När de virtuella dator instanserna krypteras rapporterar status koden *EncryptionState/krypterad*, som visas i följande exempel på utdata:
+När de virtuella dator instanserna krypteras rapporterar status koden *EncryptionState/krypterad* , som visas i följande exempel på utdata:
 
-```bash
+```console
 [
   {
     "disks": [

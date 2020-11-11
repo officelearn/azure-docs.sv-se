@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: b05084a7d01f4c5d5d5a79b60ac0b8ba47843622
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4016e1dd055b45f9cd59a172d0e71ef95fec1c40
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91816784"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517214"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Konfigurera och anpassa Bygg aktiviteterna
 
@@ -39,7 +39,7 @@ I list rutan **typ** i skärm bilden är **Basic** valt. Välj **anpassad** om d
 
 Windows Defender använder Windows Update-klienten för att ladda ned och installera signaturer. Om det inte går att uppdatera signaturen på din build-agent kommer **HRESULT** -felkoden troligen från Windows Update.
 
-Mer information om Windows Update fel och deras lösningar finns i [Windows Update felkoder per komponent](https://docs.microsoft.com/windows/deployment/update/windows-update-error-reference) och TechNet [-artikeln Windows Update Agent-felkoder](https://social.technet.microsoft.com/wiki/contents/articles/15260.windows-update-agent-error-codes.aspx).
+Mer information om Windows Update fel och deras lösningar finns i [Windows Update felkoder per komponent](/windows/deployment/update/windows-update-error-reference) och TechNet [-artikeln Windows Update Agent-felkoder](https://social.technet.microsoft.com/wiki/contents/articles/15260.windows-update-agent-error-codes.aspx).
 
 Om du vill ha mer information om YAML-konfigurationen för den här aktiviteten kontrollerar du [alternativen för yaml för program mot skadlig kod](yaml-configuration.md#anti-malware-scanner-task)
 
@@ -58,7 +58,7 @@ Information om aktivitets konfigurationen visas i följande skärm bild och list
 - Undvik att söka och skapa en egen kommando rad:
      - I listan **typ** väljer du **Basic**.
      - I **funktions** listan väljer du **analysera**.
-- I **mål**anger du en eller flera specificerare för en fil, en katalog eller ett filter mönster. Dessa specificerare matchar en eller flera binärfiler som ska analyseras:
+- I **mål** anger du en eller flera specificerare för en fil, en katalog eller ett filter mönster. Dessa specificerare matchar en eller flera binärfiler som ska analyseras:
     - Flera angivna mål måste avgränsas med ett semikolon (;).
     - En specificerare kan vara en enskild fil eller innehålla jokertecken.
     - Directory-specifikationer måste alltid avslutas med \\ *.
@@ -95,20 +95,20 @@ Information om aktivitets konfigurationen visas i följande skärm bild och list
 ![Konfigurera uppgiften för att läsa in autentiseringsuppgifter](./media/security-tools/3-taskdetails.png)
 
 Tillgängliga alternativ inkluderar:
-  - **Visnings namn**: namnet på Azure DevOps-aktiviteten. Standardvärdet är skanner för att köra autentiseringsuppgifter
-  - **Verktygets huvud version**: tillgängliga värden är **CredScan v2**, **CredScan v1**. Vi rekommenderar att kunderna använder **CredScan v2** -versionen.
-  - **Utdataformat**: tillgängliga värden är **TSV**, **CSV**, **SARIF**och för **snabbt**.
-  - **Verktygs version**: Vi rekommenderar att du väljer **senaste**.
-  - **Genomsök mapp**: den databasmapp som ska genomsökas.
-  - **Filtypen sökvägar**: alternativen för att hitta Sök efter-filen som används för genomsökning.
-  - **Undertrycks fil**: en [JSON](https://json.org/) -fil kan förhindra problem i utgående loggen. Mer information om under trycknings scenarier finns i avsnittet Vanliga frågor och svar i den här artikeln.
-  - **Utförlig utdata**: själv för klar Ande.
-  - **Batchstorlek**: antalet samtidiga trådar som används för att köra skannern för autentiseringsuppgifter. Standardvärdet är 20. Möjliga värden är mellan 1 och 2 147 483 647.
-  - **Matchnings-timeout**: hur lång tid i sekunder det tar att försöka lägga till en Sök funktion innan kontrollen avbryts.
-  - **Fil genomsökningens Läs buffertstorlek**: storleken i byte på den buffert som används när innehållet läses. Standardvärdet är 524 288.  
-  - **Maximal läsning av fil läsnings byte**: det maximala antalet byte som ska läsas från en fil under innehålls analysen. Standardvärdet är 104 857 600.
-  - **Kontroll alternativ**  >  **Kör den här uppgiften**: anger när aktiviteten ska köras. Välj **anpassade villkor** för att ange mer komplexa villkor.
-  - **Version**: Bygg uppgifts versionen i Azure DevOps. Det här alternativet används inte ofta.
+  - **Visnings namn** : namnet på Azure DevOps-aktiviteten. Standardvärdet är skanner för att köra autentiseringsuppgifter
+  - **Verktygets huvud version** : tillgängliga värden är **CredScan v2** , **CredScan v1**. Vi rekommenderar att kunderna använder **CredScan v2** -versionen.
+  - **Utdataformat** : tillgängliga värden är **TSV** , **CSV** , **SARIF** och för **snabbt**.
+  - **Verktygs version** : Vi rekommenderar att du väljer **senaste**.
+  - **Genomsök mapp** : den databasmapp som ska genomsökas.
+  - **Filtypen sökvägar** : alternativen för att hitta Sök efter-filen som används för genomsökning.
+  - **Undertrycks fil** : en [JSON](https://json.org/) -fil kan förhindra problem i utgående loggen. Mer information om under trycknings scenarier finns i avsnittet Vanliga frågor och svar i den här artikeln.
+  - **Utförlig utdata** : själv för klar Ande.
+  - **Batchstorlek** : antalet samtidiga trådar som används för att köra skannern för autentiseringsuppgifter. Standardvärdet är 20. Möjliga värden är mellan 1 och 2 147 483 647.
+  - **Matchnings-timeout** : hur lång tid i sekunder det tar att försöka lägga till en Sök funktion innan kontrollen avbryts.
+  - **Fil genomsökningens Läs buffertstorlek** : storleken i byte på den buffert som används när innehållet läses. Standardvärdet är 524 288.  
+  - **Maximal läsning av fil läsnings byte** : det maximala antalet byte som ska läsas från en fil under innehålls analysen. Standardvärdet är 104 857 600.
+  - **Kontroll alternativ**  >  **Kör den här uppgiften** : anger när aktiviteten ska köras. Välj **anpassade villkor** för att ange mer komplexa villkor.
+  - **Version** : Bygg uppgifts versionen i Azure DevOps. Det här alternativet används inte ofta.
 
 Om du vill ha mer information om YAML-konfigurationen för den här aktiviteten kontrollerar du [alternativen för yaml för autentiseringsuppgifter](yaml-configuration.md#credential-scanner-task)
 
@@ -124,10 +124,10 @@ Information om aktivitets konfigurationen visas i följande lista och anmärknin
 
 Tillgängliga alternativ inkluderar:
 
-- **Ruleset**: värden är **sdl krävs**, **sdl rekommenderas**eller din egen anpassade regel uppsättning.
-- **Versions analys**: Vi rekommenderar att du väljer **senaste**.
-- **Kompilator varningar ignorerar fil**: en textfil med en lista över varnings-ID: n som ignoreras.
-- **Kontroll alternativ**  >  **Kör den här uppgiften**: anger när aktiviteten ska köras. Välj **anpassade villkor** för att ange mer komplexa villkor.
+- **Ruleset** : värden är **sdl krävs** , **sdl rekommenderas** eller din egen anpassade regel uppsättning.
+- **Versions analys** : Vi rekommenderar att du väljer **senaste**.
+- **Kompilator varningar ignorerar fil** : en textfil med en lista över varnings-ID: n som ignoreras.
+- **Kontroll alternativ**  >  **Kör den här uppgiften** : anger när aktiviteten ska köras. Välj **anpassade villkor** för att ange mer komplexa villkor.
 
 > [!NOTE]
 >
@@ -143,7 +143,7 @@ Tillgängliga alternativ inkluderar:
 >
 >   Om den nya aktiviteten körs på samma agent som den ursprungliga aktiviteten, skriver den nya aktivitetens utdata över den ursprungliga aktivitetens utdata i mappen *s* sources. Även om bygg resultatet är detsamma, rekommenderar vi att du kör MSBuild, kopierar utdata till den fristående katalogen för artefakter och kör sedan Roslyn-analyserare.
 
-Mer resurser för Roslyn-uppgiften finns i [Roslyn-baserade analyser](https://docs.microsoft.com/dotnet/standard/analyzers/api-analyzer) för Microsoft docs.
+Mer resurser för Roslyn-uppgiften finns i [Roslyn-baserade analyser](/dotnet/standard/analyzers/api-analyzer) för Microsoft docs.
 
 Du hittar det Analyzer-paket som har installerats och använts av den här bygg aktiviteten på NuGet-sidan [Microsoft. CodeAnalysis. FxCopAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.FxCopAnalyzers).
 
@@ -164,9 +164,9 @@ Information om aktivitets konfigurationen visas i följande skärm bild och list
 
 ![Konfigurera aktiviteten publicera säkerhets analys loggar](./media/security-tools/9-publish-security-analsis-logs600.png)  
 
-- **Artefakt namn**: valfri sträng identifierare.
-- **Artefakt typ**: beroende på ditt val kan du publicera loggar till din Azure DevOps Server eller till en delad fil som är tillgänglig för build-agenten.
-- **Verktyg**: du kan välja att bevara loggar för vissa verktyg, eller så kan du välja **alla verktyg** för att bevara alla loggar.
+- **Artefakt namn** : valfri sträng identifierare.
+- **Artefakt typ** : beroende på ditt val kan du publicera loggar till din Azure DevOps Server eller till en delad fil som är tillgänglig för build-agenten.
+- **Verktyg** : du kan välja att bevara loggar för vissa verktyg, eller så kan du välja **alla verktyg** för att bevara alla loggar.
 
 Information om YAML-konfigurationen för den här aktiviteten finns i [yaml alternativ för publicering av säkerhets loggar](yaml-configuration.md#publish-security-analysis-logs-task)
 
@@ -176,10 +176,10 @@ Information om konfigurationen av säkerhets rapporten visas i följande skärm 
 
 ![Konfigurera säkerhets rapportens Bygg aktivitet](./media/security-tools/4-createsecurityanalysisreport600.png)
 
-- **Rapporter**: Välj någon av **pipelinen-konsolen**, **TSV-filen**och **HTML-filformat** . En rapport fil skapas för varje valt format.
-- **Verktyg**: Välj de verktyg i build-definitionen som du vill ha en sammanfattning av identifierade problem för. För varje valt verktyg kan det finnas ett alternativ för att välja om du bara ska se fel eller Visa både fel och varningar i sammanfattnings rapporten.
-- **Avancerade alternativ**: om det inte finns några loggar för något av de valda verktygen kan du välja att logga en varning eller ett fel. Om du loggar ett fel, Miss lyckas uppgiften.
-- **Mappen grundläggande loggar**: du kan anpassa mappen grundläggande loggar där loggar ska hittas. Men det här alternativet används vanligt vis inte.
+- **Rapporter** : Välj någon av **pipelinen-konsolen** , **TSV-filen** och **HTML-filformat** . En rapport fil skapas för varje valt format.
+- **Verktyg** : Välj de verktyg i build-definitionen som du vill ha en sammanfattning av identifierade problem för. För varje valt verktyg kan det finnas ett alternativ för att välja om du bara ska se fel eller Visa både fel och varningar i sammanfattnings rapporten.
+- **Avancerade alternativ** : om det inte finns några loggar för något av de valda verktygen kan du välja att logga en varning eller ett fel. Om du loggar ett fel, Miss lyckas uppgiften.
+- **Mappen grundläggande loggar** : du kan anpassa mappen grundläggande loggar där loggar ska hittas. Men det här alternativet används vanligt vis inte.
 
 Om du vill ha mer information om YAML-konfigurationen för den här aktiviteten kontrollerar du [säkerhets rapportens yaml alternativ](yaml-configuration.md#security-report-task)
 
@@ -189,9 +189,9 @@ Information om aktivitets konfigurationen visas i följande skärm bild och list
 
 ![Konfigurera Bygg aktiviteten efter analys](./media/security-tools/a-post-analysis600.png)
 
-- **Verktyg**: Välj de verktyg i din build-definition som du vill använda för att villkorligt injicera en versions rast. För varje valt verktyg kan det finnas ett alternativ för att välja om du bara vill bryta vid fel eller både fel och varningar.
-- **Rapport**: du kan välja att skriva resultaten som orsakar Bygg rastet. Resultaten skrivs till Azure DevOps-konsol fönstret och logg filen.
-- **Avancerade alternativ**: om det inte finns några loggar för något av de valda verktygen kan du välja att logga en varning eller ett fel. Om du loggar ett fel, Miss lyckas uppgiften.
+- **Verktyg** : Välj de verktyg i din build-definition som du vill använda för att villkorligt injicera en versions rast. För varje valt verktyg kan det finnas ett alternativ för att välja om du bara vill bryta vid fel eller både fel och varningar.
+- **Rapport** : du kan välja att skriva resultaten som orsakar Bygg rastet. Resultaten skrivs till Azure DevOps-konsol fönstret och logg filen.
+- **Avancerade alternativ** : om det inte finns några loggar för något av de valda verktygen kan du välja att logga en varning eller ett fel. Om du loggar ett fel, Miss lyckas uppgiften.
 
 Om du vill ha mer information om YAML-konfigurationen för den här aktiviteten kontrollerar du alternativen för att [publicera yaml](yaml-configuration.md#post-analysis-task)
 

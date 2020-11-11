@@ -9,12 +9,12 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.reviewer: akjosh
-ms.openlocfilehash: 2e1f94b5a8e361a6bbd34f3f12756377dd1713f4
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 62cf7c979be83454ae2433befcdbf4f5d8e5524f
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518721"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516551"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Självstudie: Skapa och använd en anpassad avbildning för VM-skalningsuppsättningar med Azure CLI
 När du skapar en skalningsuppsättning, kan du ange en avbildning som ska användas när de virtuella datorinstanserna distribueras. Om du vill minska antalet uppgifter när de virtuella datorinstanserna distribueras, kan du använda en anpassad virtuell datoravbildning. Den här anpassade virtuella datoravbildningen inkluderar alla nödvändiga programinstallationer eller konfigurationer. Alla virtuella datorinstanser som skapats i skalningsuppsättningen använder den anpassade virtuella datoravbildningen och är redo att hantera din programtrafik. I den här guiden får du lära du dig hur man:
@@ -27,11 +27,11 @@ När du skapar en skalningsuppsättning, kan du ange en avbildning som ska anvä
 > * Dela ett avbildnings Galleri
 
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Om du väljer att installera och använda CLI lokalt kräver den här självstudien att du kör Azure CLI-version 2.4.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
+- Den här artikeln kräver version 2.4.0 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
 ## <a name="overview"></a>Översikt
 
@@ -41,7 +41,7 @@ Med galleriet för delade avbildningar kan du dela dina anpassade VM-avbildninga
 
 ## <a name="create-and-configure-a-source-vm"></a>Skapa och konfigurera en virtuell källdator
 
-Först skapar du en resursgrupp med [az group create](/cli/azure/group), därefter skapar du en virtuell dator med [az vm create](/cli/azure/vm). Den här virtuella datorn används sedan som källa för avbildningen. Följande exempel skapar en virtuell dator som heter *myVM* i resursgruppen med namnet *myResourceGroup*:
+Först skapar du en resursgrupp med [az group create](/cli/azure/group), därefter skapar du en virtuell dator med [az vm create](/cli/azure/vm). Den här virtuella datorn används sedan som källa för avbildningen. Följande exempel skapar en virtuell dator som heter *myVM* i resursgruppen med namnet *myResourceGroup* :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -77,7 +77,7 @@ Ett avbildnings galleri är den primära resurs som används för att aktivera a
 
 Tillåtna tecken för Galleri namn är versaler eller gemener, siffror, punkter och punkter. Galleri namnet får inte innehålla bindestreck.   Galleri namn måste vara unika inom din prenumeration. 
 
-Skapa ett bild galleri med [AZ sig-Create](/cli/azure/sig#az-sig-create). I följande exempel skapas en resurs grupp med namnet *myGalleryRG* i *USA, östra*och ett galleri som heter *Galleri.*
+Skapa ett bild galleri med [AZ sig-Create](/cli/azure/sig#az-sig-create). I följande exempel skapas en resurs grupp med namnet *myGalleryRG* i *USA, östra* och ett galleri som heter *Galleri.*
 
 ```azurecli-interactive
 az group create --name myGalleryRG --location eastus
@@ -96,7 +96,7 @@ Mer information om de värden som du kan ange för en bild definition finns i [b
 
 Skapa en bild definition i galleriet med hjälp av [AZ sig-bild-definition Create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
-I det här exemplet heter avbildnings definitionen *myImageDefinition*och är för en [SPECIALISERAd](../virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images) Linux OS-avbildning. Använd om du vill skapa en definition för avbildningar med hjälp av ett Windows-operativsystem `--os-type Windows` . 
+I det här exemplet heter avbildnings definitionen *myImageDefinition* och är för en [SPECIALISERAd](../virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images) Linux OS-avbildning. Använd om du vill skapa en definition för avbildningar med hjälp av ett Windows-operativsystem `--os-type Windows` . 
 
 ```azurecli-interactive 
 az sig image-definition create \
@@ -165,7 +165,7 @@ Det tar några minuter att skapa och konfigurera alla skalningsuppsättningsresu
 
 
 ## <a name="test-your-scale-set"></a>Testa din skalningsuppsättning
-Om vill låta trafik nå din skalningsuppsättning och verifiera att webbservern fungerar som den ska, skapar du en lastbalanseringsregel med [az network lb rule create](/cli/azure/network/lb/rule). Följande exempel skapar en regel med namnet *myLoadBalancerRuleWeb* som tillåter trafik på *TCP* port *80*:
+Om vill låta trafik nå din skalningsuppsättning och verifiera att webbservern fungerar som den ska, skapar du en lastbalanseringsregel med [az network lb rule create](/cli/azure/network/lb/rule). Följande exempel skapar en regel med namnet *myLoadBalancerRuleWeb* som tillåter trafik på *TCP* port *80* :
 
 ```azurecli-interactive
 az network lb rule create \

@@ -8,15 +8,15 @@ tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 10/05/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: d2814a989cb82216081083f3198d52ccd70210ff
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 1ce461f50a6775bf7884fedc4cfa4dc7cb41bb8c
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131929"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408152"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Överföra faktureringsägarskap för en Azure-prenumeration till ett annat konto
 
@@ -24,7 +24,7 @@ Den här artikeln innehåller de steg som behövs för att överföra fakturerin
 
 Om du vill behålla faktureringsägarskapet men ändra prenumerationstypen kan du läsa mer i [Växla din Azure-prenumeration till ett annat erbjudande](switch-azure-offer.md). Information om hur du kontrollerar vem som kan komma åt resurser i prenumerationen finns i avsnittet om [inbyggda roller i Azure](../../role-based-access-control/built-in-roles.md).
 
-Om du är Enterprise-avtalskund (EA) kan din företagsadministratör överföra faktureringsägarskapet för dina prenumerationer mellan konton. Mer information finns i [Ändra kontoinnehavare](ea-portal-get-started.md#change-account-owner).
+Om du är Enterprise-avtalskund (EA) kan din företagsadministratör överföra faktureringsägarskapet för dina prenumerationer mellan konton. Mer information finns i [Ändra kontoinnehavare](ea-portal-administration.md#change-account-owner).
 
 Endast faktureringsadministratören för ett konto kan överföra ägarskapet för en prenumeration.
 

@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: c4314a0dcbbcb907ef4d6de0a2788cf04dfe1641
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: baaa311620f5c10948aa3494002ce359cc5dab28
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68934870"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517180"
 ---
 # <a name="secure-development-best-practices-on-azure"></a>Säkra bästa metoder för utveckling i Azure
 I den här artikel serien presenteras säkerhets aktiviteter och kontroller som du bör tänka på när du utvecklar program för molnet. Faserna i Microsoft Security Development Lifecycle (SDL) och säkerhets frågor och koncept som du bör tänka på under varje fas i livs cykeln omfattas. Målet är att hjälpa dig att definiera aktiviteter och Azure-tjänster som du kan använda i varje fas i livs cykeln för att utforma, utveckla och distribuera ett säkrare program.
@@ -37,7 +37,7 @@ Följande metod tips för säker program varu utveckling kräver integrering av 
 
 Senare kan du åtgärda ett problem i utvecklings livs cykeln, desto mer som korrigeringen kostar dig. Säkerhets frågor är inget undantag. Om du åsidosätter säkerhets problem i tidiga faser av program varu utvecklingen kan varje fas som följer ärva säkerhets riskerna i föregående fas. Den slutliga produkten kommer att ha samlat flera säkerhets problem och risken för intrång. Att skapa säkerhet i varje fas i utvecklings livs cykeln hjälper dig att fånga upp problem tidigt och det hjälper dig att minska dina utvecklings kostnader.
 
-Vi följer faserna i Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) för att presentera aktiviteter och Azure-tjänster som du kan använda för att uppfylla säkra program utvecklings metoder i varje fas av livs cykeln.
+Vi följer faserna i Microsoft [Security Development Lifecycle (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) för att presentera aktiviteter och Azure-tjänster som du kan använda för att uppfylla säkra program utvecklings metoder i varje fas av livs cykeln.
 
 SDL-faserna är:
 
@@ -63,7 +63,7 @@ Vi förstår att många läsare kanske inte har någon säkerhets-eller Complian
 
 Använd följande resurser för att lära dig mer om att utveckla säkra program och skydda dina program på Azure:
 
-[Microsoft Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) – sdl är en program utvecklings process från Microsoft som hjälper utvecklare att bygga säkrare program vara. Det hjälper dig att hantera krav för säkerhetskompatibilitet samtidigt som utvecklings kostnaderna sänks.
+[Microsoft Security Development Lifecycle (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) – sdl är en program utvecklings process från Microsoft som hjälper utvecklare att bygga säkrare program vara. Det hjälper dig att hantera krav för säkerhetskompatibilitet samtidigt som utvecklings kostnaderna sänks.
 
 [Öppna webb program säkerhets projekt (OWASP)](https://www.owasp.org/index.php/Main_Page) – OWASP är en online-community som ger kostnads fritt tillgängliga artiklar, metoder, dokumentation, verktyg och tekniker i webb program säkerheten.
 

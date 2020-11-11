@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: ba14e2c475611ed77661060d6e17ae0bcbf0a6ca
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: f0c38e72231fb343cb9b27def520f73d923a70f6
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744220"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515718"
 ---
 # <a name="step-3-validate-connectivity"></a>STEG 3: verifiera anslutningen
 
@@ -29,15 +29,15 @@ När du har distribuerat din logg vidarebefordrare (i steg 1) och konfigurerat d
 
 - Du måste ha förhöjd behörighet (sudo) på logg vidarebefordraren.
 
-- Du måste ha **python 2,7** installerat på logg vidarebefordraren.<br>
+- Du måste ha **python 2,7** eller **3** installerat på logg vidarebefordraren.<br>
 Använd `python –version` kommandot för att kontrol lera.
 
-- Du kan behöva arbets ytans ID och primär nyckel för arbets ytan vid något tillfälle i den här processen. Du hittar dem i arbets ytans resurs under **agent hantering** .
+- Du kan behöva arbets ytans ID och primär nyckel för arbets ytan vid något tillfälle i den här processen. Du hittar dem i arbets ytans resurs under **agent hantering**.
 
 ## <a name="how-to-validate-connectivity"></a>Så här verifierar du anslutningen
 
 1. Öppna **loggar** på navigerings menyn i Azure Sentinel. Kör en fråga med **CommonSecurityLog** -schemat för att se om du får loggar från säkerhets lösningen.<br>
-Tänk på att det kan ta ungefär 20 minuter tills loggarna börjar visas i **Log Analytics** . 
+Tänk på att det kan ta ungefär 20 minuter tills loggarna börjar visas i **Log Analytics**. 
 
 1. Om du inte ser några resultat från frågan kontrollerar du att händelser genereras från din säkerhetslösning, eller försöker att generera några, och kontrollerar att de vidarebefordras till den syslog forwarder-dator som du har angett. 
 
@@ -47,9 +47,9 @@ Tänk på att det kan ta ungefär 20 minuter tills loggarna börjar visas i **Lo
     sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]` 
     ```
 
-   - Du kan få ett meddelande som uppmanar dig att köra ett kommando för att åtgärda ett problem med **mappningen av fältet *dator*** . Mer information finns i [förklaringen i validerings skriptet](#mapping-command) .
+   - Du kan få ett meddelande som uppmanar dig att köra ett kommando för att åtgärda ett problem med **mappningen av fältet *dator***. Mer information finns i [förklaringen i validerings skriptet](#mapping-command) .
 
-    - Du kan få ett meddelande som uppmanar dig att köra ett kommando för att åtgärda ett problem med **parsningen av brand Väggs loggar för Cisco ASA** . Mer information finns i [förklaringen i validerings skriptet](#parsing-command) .
+    - Du kan få ett meddelande som uppmanar dig att köra ett kommando för att åtgärda ett problem med **parsningen av brand Väggs loggar för Cisco ASA**. Mer information finns i [förklaringen i validerings skriptet](#parsing-command) .
 
 ## <a name="validation-script-explained"></a>Förklaring av validerings skript
 

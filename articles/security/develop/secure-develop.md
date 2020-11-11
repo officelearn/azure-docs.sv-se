@@ -13,15 +13,15 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 7818ae36c785311466d2fb26ce45dcf50983145d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ca0513f95bc490087f3c84eeecc4ea623f64604
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87283494"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517095"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Utveckla säkra program på Azure
-I den här artikeln presenterar vi säkerhets aktiviteter och kontroller för att tänka på när du utvecklar program för molnet. Säkerhets frågor och koncept som du bör tänka på under implementerings-och verifierings faserna i Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) omfattas. Målet är att hjälpa dig att definiera aktiviteter och Azure-tjänster som du kan använda för att utveckla ett säkrare program.
+I den här artikeln presenterar vi säkerhets aktiviteter och kontroller för att tänka på när du utvecklar program för molnet. Säkerhets frågor och koncept som du bör tänka på under implementerings-och verifierings faserna i Microsoft [Security Development Lifecycle (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) omfattas. Målet är att hjälpa dig att definiera aktiviteter och Azure-tjänster som du kan använda för att utveckla ett säkrare program.
 
 Följande SDL-faser beskrivs i den här artikeln:
 
@@ -34,11 +34,11 @@ Anta att ditt program kommer att användas på sätt som du inte avsåg att anv�
 
 ### <a name="perform-code-reviews"></a>Utföra kod granskningar
 
-Innan du checkar in kod kan du göra [kod granskningar](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) för att öka den övergripande kod kvaliteten och minska risken för att skapa buggar. Du kan använda [Visual Studio](https://docs.microsoft.com/azure/devops/repos/tfvc/get-code-reviewed-vs?view=vsts) för att hantera kod gransknings processen.
+Innan du checkar in kod kan du göra [kod granskningar](/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) för att öka den övergripande kod kvaliteten och minska risken för att skapa buggar. Du kan använda [Visual Studio](/azure/devops/repos/tfvc/get-code-reviewed-vs?view=vsts) för att hantera kod gransknings processen.
 
 ### <a name="perform-static-code-analysis"></a>Utföra analys av statisk kod
 
-[Statisk kod analys](https://owasp.org/www-community/controls/Static_Code_Analysis) (även kallat *käll kods analys*) utförs vanligt vis som en del av en kod granskning. Statisk kod analys avser ofta att köra statiska kod analys verktyg för att hitta potentiella sårbarheter i kod som inte körs genom att använda metoder som [bismaks kontroll](https://en.wikipedia.org/wiki/Taint_checking) och [data flödes analys](https://en.wikipedia.org/wiki/Data-flow_analysis).
+[Statisk kod analys](https://owasp.org/www-community/controls/Static_Code_Analysis) (även kallat *käll kods analys* ) utförs vanligt vis som en del av en kod granskning. Statisk kod analys avser ofta att köra statiska kod analys verktyg för att hitta potentiella sårbarheter i kod som inte körs genom att använda metoder som [bismaks kontroll](https://en.wikipedia.org/wiki/Taint_checking) och [data flödes analys](https://en.wikipedia.org/wiki/Data-flow_analysis).
 
 Azure Marketplace erbjuder [utvecklingsverktyg](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1&search=code%20review) som utför statisk kod analys och hjälper till med kod granskningar.
 
@@ -62,7 +62,7 @@ Detta fungerar på servern, inte på klient sidan (eller på-servern och på kli
 
 ### <a name="verify-your-applications-outputs"></a>Verifiera programmets utdata
 
-Alla utdata som du visar antingen visuellt eller i ett dokument bör alltid kodas och undantas. [Undantag](https://owasp.org/www-community/Injection_Theory#Escaping_.28aka_Output_Encoding.29), även kallat *utkodning av utdata*, används för att säkerställa att ej betrodda data inte är ett fordon för inmatning-angrepp. Undantag, kombinerat med data verifiering, tillhandahåller försvars försvars nivåer för att öka säkerheten för systemet som helhet.
+Alla utdata som du visar antingen visuellt eller i ett dokument bör alltid kodas och undantas. [Undantag](https://owasp.org/www-community/Injection_Theory#Escaping_.28aka_Output_Encoding.29), även kallat *utkodning av utdata* , används för att säkerställa att ej betrodda data inte är ett fordon för inmatning-angrepp. Undantag, kombinerat med data verifiering, tillhandahåller försvars försvars nivåer för att öka säkerheten för systemet som helhet.
 
 Med undantag ser du till att allt visas som *utdata.* Med hjälp av undantag kan tolkaren veta att data inte är avsedda att utföras och detta förhindrar attacker från att fungera. Detta är en annan vanlig angrepps teknik som kallas XSS ( *Cross-Site Scripting* ).
 
@@ -99,7 +99,7 @@ Om programmet måste generera lösen ord automatiskt måste du se till att de ge
 
 Om ditt program tillåter [fil överföringar](https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload)bör du överväga de försiktighets åtgärder som du kan vidta för den här riskfyllda aktiviteten. Det första steget i många attacker är att hämta skadlig kod i ett system som är utsatt för angrepp. Genom att använda en fil uppladdning kan angriparen utföra detta. OWASP erbjuder lösningar för att verifiera en fil för att säkerställa att filen som du laddar upp är säker.
 
-Skydd mot skadlig kod hjälper till att identifiera och ta bort virus, spionprogram och annan skadlig program vara. Du kan installera [Microsoft Antimalware](../fundamentals/antimalware.md) eller en Microsoft partners slut punkts skydds lösning ([Trend Micro](https://www.trendmicro.com/azure/), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)och [Endpoint Protection](https://docs.microsoft.com/configmgr/protect/deploy-use/endpoint-protection)).
+Skydd mot skadlig kod hjälper till att identifiera och ta bort virus, spionprogram och annan skadlig program vara. Du kan installera [Microsoft Antimalware](../fundamentals/antimalware.md) eller en Microsoft partners slut punkts skydds lösning ([Trend Micro](https://www.trendmicro.com/azure/), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)och [Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection)).
 
 [Microsoft Antimalware](../fundamentals/antimalware.md) innehåller funktioner som real tids skydd, schemalagd genomsökning, reparation av skadlig kod, signaturkrav, uppdatering av motor, exempel rapportering och insamling av undantags händelser. Du kan integrera Microsofts lösningar för program mot skadlig kod och partner med [Azure Security Center](../../security-center/security-center-partner-integration.md) för enkel distribution och inbyggd identifiering (aviseringar och incidenter).
 

@@ -9,12 +9,12 @@ ms.subservice: cli
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: f6eda8b3b60658425f4c30850f9f979cf31d32d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9969cf0fa453f857de421dd10934f63f5773f6c
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570161"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516755"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli"></a>Självstudie: Installera program i VM-skalningsuppsättningar med Azure CLI
 Om du vill köra program på virtuella datorinstanser i en skalningsuppsättning, måste du först installera programkomponenter och nödvändiga filer. I en föregående självstudie fick du lära dig hur du skapar och använder en anpassad virtuell datoravbildning för att distribuera dina virtuella datorinstanser. Den här anpassade avbildningen inkluderade programinstallationer och konfigurationer. Du kan också automatisera installationen av programmen till en skalningsuppsättning efter att varje virtuell datorinstans distribueras, eller uppdatera ett program som redan körs på en skalningsuppsättning. I den här guiden får du lära du dig hur man:
@@ -24,11 +24,11 @@ Om du vill köra program på virtuella datorinstanser i en skalningsuppsättning
 > * Använd det anpassade Azure-skripttillägget
 > * Uppdatera ett program som körs på en skalningsuppsättning
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Om du väljer att installera och använda CLI lokalt, måste du köra Azure CLI version 2.0.29 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli). 
+- Den här artikeln kräver version 2.0.29 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad. 
 
 
 ## <a name="what-is-the-azure-custom-script-extension"></a>Vad är det anpassade Azure-skripttillägget?
@@ -78,7 +78,7 @@ Det tar några minuter att skapa och konfigurera alla skalningsuppsättningsresu
 
 
 ## <a name="apply-the-custom-script-extension"></a>Tillämpa det anpassade skripttillägget
-Tillämpa konfigurationen för det anpassade skripttillägget till de virtuella datorinstanserna i din skalningsuppsättning med [az vmss extension set](/cli/azure/vmss/extension). Följande exempel tillämpar konfigurationen *customConfig.json* till de virtuella datorinstanserna *myScaleSet* i resursgruppen med namnet *myResourceGroup*:
+Tillämpa konfigurationen för det anpassade skripttillägget till de virtuella datorinstanserna i din skalningsuppsättning med [az vmss extension set](/cli/azure/vmss/extension). Följande exempel tillämpar konfigurationen *customConfig.json* till de virtuella datorinstanserna *myScaleSet* i resursgruppen med namnet *myResourceGroup* :
 
 ```azurecli-interactive
 az vmss extension set \
@@ -94,7 +94,7 @@ Varje virtuell datorinstans i skalningsuppsättningen laddar ned och kör skript
 
 
 ## <a name="test-your-scale-set"></a>Testa din skalningsuppsättning
-Skapa en regel för lastbalanserare med [az network lb rule create](/cli/azure/network/lb/rule) för att tillåta trafik till webbservern. I följande exempel skapas en regel med namnet *myLoadBalancerRuleWeb*:
+Skapa en regel för lastbalanserare med [az network lb rule create](/cli/azure/network/lb/rule) för att tillåta trafik till webbservern. I följande exempel skapas en regel med namnet *myLoadBalancerRuleWeb* :
 
 ```azurecli-interactive
 az network lb rule create \
@@ -128,7 +128,7 @@ Lämna webbläsaren öppen så att du kan se en uppdaterad version i nästa steg
 ## <a name="update-app-deployment"></a>Uppdatera appdistributionen
 Under livscykeln för en skalningsuppsättning, kan du behöva distribuera en uppdaterad version av ditt program. Med det anpassade skripttillägget, kan du referera till ett uppdaterat distributionsskript och sedan tillämpa tillägget till din skalningsuppsättning igen. När skalnings uppsättningen skapades i ett föregående steg `--upgrade-policy-mode` angavs värdet *automatiskt*. Den här inställningen låter virtuella datorinstanser i skalningsuppsättningen att automatiskt uppdatera och tillämpa den senaste versionen av ditt program.
 
-I ditt nuvarande gränssnitt, skapar du en fil med namnet *cusomConfigv2.json* och klistrar in följande konfiguration. Den här definitionen kör en uppdaterad *v2*-version av installationsskriptet för programmet:
+I ditt nuvarande gränssnitt, skapar du en fil med namnet *cusomConfigv2.json* och klistrar in följande konfiguration. Den här definitionen kör en uppdaterad *v2* -version av installationsskriptet för programmet:
 
 ```json
 {

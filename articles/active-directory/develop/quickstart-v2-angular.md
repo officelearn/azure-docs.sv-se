@@ -12,16 +12,16 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: 4179807b349504d1ac0932f8d0816603f83afae4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 643e3bcd50258e2b5e7f52646f231485f950d677
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91613432"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515553"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Snabb start: Logga in användare och hämta en åtkomsttoken i ett angulande Enkels Ides program
 
-I den här snabb starten använder du ett kod exempel för att lära dig hur ett särskilt SPA-program (Single-Side Application) kan logga in användare som har personliga Microsoft-konton, arbets konton eller skol konton. En vinkel-SPA kan också hämta en åtkomsttoken för att anropa Microsoft Graph-API: et eller något webb-API.
+I den här snabb starten laddar du ned och kör ett kod exempel som visar hur ett särskilt SPA-program (Single-Side Application) kan logga in användare och anropa Microsoft Graph. Kod exemplet visar hur du hämtar en åtkomsttoken för att anropa Microsoft Graph API eller något webb-API.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -35,7 +35,7 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur ett
 >
 > ### <a name="option-1-express-register-and-automatically-configure-the-app-and-then-download-the-code-sample"></a>Alternativ 1 (Express): registrera och konfigurera appen automatiskt och hämta sedan kod exemplet
 >
-> 1. Logga in på [Azure Portal](https://portal.azure.com).
+> 1. Logga in på [Azure-portalen](https://portal.azure.com).
 > 1. Om ditt konto har åtkomst till fler än en klient väljer du kontot längst upp till höger och anger sedan din portal-session till den Azure Active Directory (Azure AD) som du vill använda.
 > 1. Öppna fönstret ny [Appregistreringar](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) i Azure Portal.
 > 1. Ange ett namn för programmet och välj sedan **Registrera**.
@@ -45,7 +45,7 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur ett
 >
 > #### <a name="step-1-register-the-application"></a>Steg 1: registrera programmet
 >
-> 1. Logga in på [Azure Portal](https://portal.azure.com).
+> 1. Logga in på [Azure-portalen](https://portal.azure.com).
 > 1. Om ditt konto har åtkomst till fler än en klient väljer du ditt konto längst upp till höger och ställer in din portal-session till den Azure AD-klient som du vill använda.
 > 1. Följ anvisningarna för att [Registrera ett program på en sida](./scenario-spa-app-registration.md) i Azure Portal.
 > 1. Lägg till en ny plattform i fönstret **verifiering** i appens registrering och registrera omdirigerings-URI: n: `http://localhost:4200/` .
@@ -100,12 +100,12 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur ett
 >|---------|---------|
 >|Enter_the_Application_Id_Here|På sidan **Översikt** i program registreringen är det här ditt **program (klient) ID-** värde. |
 >|Enter_the_Cloud_Instance_Id_Here|Detta är instansen av Azure-molnet. För huvud-eller globala Azure-molnet anger du **https://login.microsoftonline.com** . För nationella moln (till exempel Kina), se [nationella moln](./authentication-national-cloud.md).|
->|Enter_the_Tenant_Info_Here| Ange ett av följande alternativ: om programmet har stöd *för konton i den här organisations katalogen*ersätter du det här värdet med katalogen (klient) ID: t eller klient namnet (till exempel **contoso.Microsoft.com**). Om ditt program har stöd *för konton i en organisations katalog*ersätter du värdet med **organisationer**. Om ditt program har stöd *för konton i en organisations katalog och personliga Microsoft-konton*ersätter du värdet med **vanligt**. Om du bara vill begränsa stödet till *personliga Microsoft-konton*ersätter du värdet med **konsumenter**. |
+>|Enter_the_Tenant_Info_Here| Ange ett av följande alternativ: om programmet har stöd *för konton i den här organisations katalogen* ersätter du det här värdet med katalogen (klient) ID: t eller klient namnet (till exempel **contoso.Microsoft.com** ). Om ditt program har stöd *för konton i en organisations katalog* ersätter du värdet med **organisationer**. Om ditt program har stöd *för konton i en organisations katalog och personliga Microsoft-konton* ersätter du värdet med **vanligt**. Om du bara vill begränsa stödet till *personliga Microsoft-konton* ersätter du värdet med **konsumenter**. |
 >|Enter_the_Redirect_Uri_Here|Ersätt med **http://localhost:4200** .|
 >|cacheLocation  | Valfritt Ange webb läsar lagring för autentiseringens tillstånd. Standardvärdet är **SessionStorage**.   |
 >|storeAuthStateInCookie  | Valfritt Identifiera biblioteket som lagrar status för autentiseringsbegäran. Detta tillstånd krävs för att validera autentiserings flöden i webbläsarens cookies. Den här cookien är inställd för Internet Explorer och Edge för att hantera dessa två webbläsare. Mer information finns i [kända problem](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues->on-IE-and-Edge-Browser#issues). |
 > > [!TIP]
-> > För att hitta värdena för **program-ID (klient)**, **katalog-ID (klient)** och **Kontotyper som stöds** går du till appens **översiktssida** i Azure-portalen.
+> > För att hitta värdena för **program-ID (klient)** , **katalog-ID (klient)** och **Kontotyper som stöds** går du till appens **översiktssida** i Azure-portalen.
 
 Mer information om tillgängliga konfigurerbara alternativ finns i [initiera klient program](msal-js-initializing-client-applications.md).
 
@@ -130,7 +130,7 @@ Om du använder Node.js:
 1. Välj **inloggning**.
 1. Välj **profil** för att anropa Microsoft Graph.
 
-När webbläsaren har läst in programmet väljer du **Logga in**. Första gången du börjar logga in uppmanas du att ange ditt medgivande för att ge programmet åtkomst till din profil och logga in dig. När du har loggat in väljer du **profil**så visas din användar profil information på sidan.
+När webbläsaren har läst in programmet väljer du **Logga in**. Första gången du börjar logga in uppmanas du att ange ditt medgivande för att ge programmet åtkomst till din profil och logga in dig. När du har loggat in väljer du **profil** så visas din användar profil information på sidan.
 
 ## <a name="how-the-sample-works"></a>Så här fungerar exemplet
 

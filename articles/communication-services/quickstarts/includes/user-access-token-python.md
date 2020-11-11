@@ -1,21 +1,21 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: azure-communication-services
-author: matthewrobertson
-manager: nimag
+author: tomaschladek
+manager: nmurav
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
-ms.author: marobert
-ms.openlocfilehash: 4be8821a949527fefcc9005b1de7f4f7c438c568
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.author: tchladek
+ms.openlocfilehash: e307265cc95815f426317cee69d64b210bcd67a9
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90948157"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506286"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -30,17 +30,17 @@ ms.locfileid: "90948157"
 1. Öppna terminalen eller kommando fönstret Skapa en ny katalog för din app och navigera till den.
 
    ```console
-   mkdir user-tokens-quickstart && cd user-tokens-quickstart
+   mkdir access-tokens-quickstart && cd access-tokens-quickstart
    ```
 
-1. Använd en text redigerare för att skapa en fil med namnet **Issue-tokens.py** i projektets rot Katalog och lägga till strukturen för programmet, inklusive grundläggande undantags hantering. Du kommer att lägga till alla käll koder för den här snabb starten till den här filen i följande avsnitt.
+1. Använd en text redigerare för att skapa en fil med namnet **Issue-Access-tokens.py** i projektets rot Katalog och lägga till strukturen för programmet, inklusive grundläggande undantags hantering. Du kommer att lägga till alla käll koder för den här snabb starten till den här filen i följande avsnitt.
 
    ```python
    import os
    from azure.communication.administration import CommunicationIdentityClient
 
    try:
-      print('Azure Communication Services - User Access Tokens Quickstart')
+      print('Azure Communication Services - Access Tokens Quickstart')
       # Quickstart code goes here
    except Exception as ex:
       print('Exception:')
@@ -54,8 +54,6 @@ När du fortfarande är i program katalogen installerar du Azure Communication S
 ```console
 pip install azure-communication-administration
 ```
-
-[!INCLUDE [User Access Tokens Object Model](user-access-tokens-object-model.md)]
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
@@ -72,51 +70,61 @@ connection_string = os.environ['COMMUNICATION_SERVICES_CONNECTION_STRING']
 client = CommunicationIdentityClient.from_connection_string(connection_string)
 ```
 
-## <a name="create-a-user"></a>Skapa en användare
+## <a name="create-an-identity"></a>Skapa en identitet
 
-Azure Communication Services upprätthåller en Lightweight Identity-katalog. Använd `create_user` metoden för att skapa en ny post i katalogen med en unik `Id` . Du bör ha en mappning mellan appens användare och kommunikations tjänster genererade identiteter (t. ex. genom att lagra dem i din program servers databas).
+Azure Communication Services upprätthåller en Lightweight Identity-katalog. Använd `create_user` metoden för att skapa en ny post i katalogen med en unik `Id` . Lagra mottagen identitet med mappning till programmets användare. Till exempel genom att lagra dem i program serverns databas. Identiteten krävs senare för att utfärda åtkomsttoken.
 
 ```python
-user = client.create_user()
-print("\nCreated a user with ID: " + user.identifier + ":")
+identity = client.create_user()
+print("\nCreated an identity with ID: " + identity.identifier + ":")
 ```
 
-## <a name="issue-user-access-tokens"></a>Utfärda token för användar åtkomst
+## <a name="issue-access-tokens"></a>Utfärda åtkomsttoken
 
-Använd `issue_token` metoden för att utfärda en åtkomsttoken för en kommunikations tjänst användare. Om du inte anger den valfria `user` parametern kommer en ny användare att skapas och returneras med token.
+Använd `issue_token` metoden för att utfärda en åtkomsttoken för redan befintlig kommunikations tjänst identitet. Parameter `scopes` definierar uppsättning primitiver som auktoriserar denna åtkomsttoken. Se [listan över åtgärder som stöds](../../concepts/authentication.md). En ny instans av parametern `communicationUser` kan konstrueras baserat på en sträng representation av Azure Communication Service-identiteten.
 
 ```python
-# Issue an access token with the "voip" scope for a new user
+# Issue an access token with the "voip" scope for an identity
 token_result = client.issue_token(user, ["voip"])
 expires_on = token_result.expires_on.strftime('%d/%m/%y %I:%M %S %p')
-print("\nIssued a token with 'voip' scope that expires at " + expires_on + ":")
+print("\nIssued an access token with 'voip' scope that expires at " + expires_on + ":")
 print(token_result.token)
 ```
 
-Token för användar åtkomst är korta autentiseringsuppgifter som måste återutfärdas för att förhindra att användarna upplever avbrott i tjänsten. `expires_on`Egenskapen svar anger livs längden för token.
+Åtkomsttoken är korta autentiseringsuppgifter som måste återutfärdas. Om du inte gör det kan det orsaka störningar i programmets användar upplevelse. `expires_on`Egenskapen svar anger livs längden för åtkomsttoken.
 
-## <a name="revoke-user-access-tokens"></a>Återkalla token för användar åtkomst
+## <a name="refresh-access-tokens"></a>Uppdatera åtkomsttoken
 
-I vissa fall kan du behöva återkalla användar åtkomst-token, till exempel när en användare ändrar lösen ordet som de använder för att autentisera till din tjänst. Den här funktionen är tillgänglig via Azure Communication Services administrations klient bibliotek.
+Om du vill uppdatera en åtkomsttoken använder du `CommunicationUser` objektet för att utfärda följande:
 
 ```python  
-client.revoke_tokens(user)
-print("\nSuccessfully revoked all tokens for user with ID: " + user.identifier)
+# Value existingIdentity represents identity of Azure Communication Services stored during identity creation
+identity = CommunicationUser(existingIdentity)
+token_result = client.issue_token( identity, ["voip"])
 ```
 
-## <a name="delete-a-user"></a>Ta bort en användare
+## <a name="revoke-access-tokens"></a>Återkalla åtkomsttoken
 
-Om du tar bort en identitet återkallar du alla aktiva tokens och förhindrar att du utfärdar efterföljande token för identiteterna. Det tar också bort allt beständigt innehåll som är associerat med användaren.
+I vissa fall kan du uttryckligen återkalla åtkomsttoken. Till exempel när ett programs användare ändrar lösen ordet som de använder för att autentisera till din tjänst. Metoden `revoke_tokens` ogiltig förklarade alla aktiva åtkomsttoken som utfärdats till identiteten.
+
+```python  
+client.revoke_tokens(identity)
+print("\nSuccessfully revoked all access tokens for identity with ID: " + identity.identifier)
+```
+
+## <a name="delete-an-identity"></a>Ta bort en identitet
+
+Om du tar bort en identitet återkallar du alla aktiva åtkomsttoken och förhindrar att du utfärdar åtkomsttoken för identiteten. Det tar också bort allt beständigt innehåll som är associerat med identiteten.
 
 ```python
-client.delete_user(user)
-print("\nDeleted the user with ID: " + user.identifier)
+client.delete_user(identity)
+print("\nDeleted the identity with ID: " + identity.identifier)
 ```
 
 ## <a name="run-the-code"></a>Kör koden
 
-Från en konsol tolk navigerar du till katalogen som innehåller filen *Issue-token.py* och kör sedan följande `python` kommando för att köra appen.
+Från en konsol tolk navigerar du till katalogen som innehåller filen *Issue-Access-token.py* och kör sedan följande `python` kommando för att köra appen.
 
 ```console
-python ./issue-token.py
+python ./issue-access-token.py
 ```

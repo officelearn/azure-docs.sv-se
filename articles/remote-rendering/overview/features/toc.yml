@@ -18,6 +18,8 @@
   href: color-materials.md
 - name: Konturrendering
   href: outlines.md
+- name: Rendering av gränssnitt
+  href: shell-effect.md
 - name: Enkelsidig rendering
   href: single-sided-rendering.md
 - name: Rumsliga frågor

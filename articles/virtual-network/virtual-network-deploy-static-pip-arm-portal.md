@@ -1,5 +1,5 @@
 ---
-title: Skapa en virtuell dator med en statisk offentlig IP-adress – Azure Portal | Microsoft Docs
+title: Skapa en virtuell dator med en statisk offentlig IP-adress – Azure Portal
 description: Lär dig hur du skapar en virtuell dator med en statisk offentlig IP-adress med hjälp av Azure Portal.
 services: virtual-network
 documentationcenter: na
@@ -11,77 +11,91 @@ ms.devlang: ''
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/08/2018
+ms.date: 11/12/2020
 ms.author: allensu
-ms.openlocfilehash: 9e06e4079a5118e0aa9dedb1fca719f0b28e5716
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ae0b869b24c4e05c88b936eceb1b9b1db3a9405
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448634"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506319"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-portal"></a>Skapa en virtuell dator med en statisk offentlig IP-adress med hjälp av Azure Portal
 
-Du kan skapa en virtuell dator med en statisk offentlig IP-adress. Med en offentlig IP-adress kan du kommunicera med en virtuell dator från Internet. Tilldela en statisk offentlig IP-adress i stället för en dynamisk adress för att säkerställa att adressen aldrig ändras. Läs mer om [statiska offentliga IP-adresser](virtual-network-ip-addresses-overview-arm.md#allocation-method). Om du vill ändra en offentlig IP-adress som tilldelats till en befintlig virtuell dator från dynamisk till statisk, eller om du vill arbeta med privata IP-adresser, se [Lägg till, ändra eller ta bort IP-](virtual-network-network-interface-addresses.md)adresser. Offentliga IP-adresser har en [nominell avgift](https://azure.microsoft.com/pricing/details/ip-addresses)och det finns en [gräns](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) för hur många offentliga IP-adresser som du kan använda per prenumeration.
+Med en offentlig IP-adress kan du kommunicera med en virtuell dator från Internet. 
+
+Tilldela en statisk offentlig IP-adress i stället för en dynamisk adress för att säkerställa att adressen aldrig ändras.   
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure Portal på https://portal.azure.com.
+Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
-1. Klicka på **+ Skapa en resurs** längst upp till vänster på Azure Portal.
-2. Välj **Compute (beräkna**) och välj sedan **Windows Server 2016 VM**eller något annat operativ system som du väljer.
-3. Ange eller Välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **OK**:
+1. På den övre vänstra sidan av portalen väljer du **skapa en resurs**  >  **beräkning**  >  **virtuell dator** eller Sök efter **virtuell dator** i sökrutan.
+   
+2. I **skapa en virtuell dator** skriver eller väljer du värdena på fliken **grundläggande** :
 
-    |Inställning|Värde|
-    |---|---|
-    |Namn|myVM|
-    |Användarnamn| Ange ett valfritt användarnamn.|
-    |Lösenord| Ange ett valfritt lösenord. Lösen ordet måste vara minst 12 tecken långt och uppfylla de [definierade komplexitets kraven](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Prenumeration| Välj din prenumeration.|
-    |Resursgrupp| Välj **Använd befintlig** och sedan **myResourceGroup**.|
-    |Plats| Välj **USA, östra**|
+    | Inställning | Värde                                          |
+    |-----------------------|----------------------------------|
+    | **Projekt information** |  |
+    | Prenumeration | Välj din Azure-prenumeration |
+    | Resursgrupp | Välj **Skapa ny**. </br> I **namn** anger du **myResourceGroup**. </br> Välj **OK**. |
+    | **Instansinformation** |  |
+    | Namn på virtuell dator | Ange **myVM** |
+    | Region | Välj **USA, östra** |
+    | Tillgänglighets alternativ | Välj **ingen redundans för infrastruktur krävs** |
+    | Bild | Välj **Windows Server 2019 Data Center – gen1** |
+    | Azure Spot-instans | Välj **Nej** |
+    | Storlek | Välj storlek på virtuell dator eller Ställ in standardinställningen |
+    | **Administratörs konto** |  |
+    | Användarnamn | Ange ett användar namn |
+    | lösenordsinställning | Ange ett lösen ord |
+    | Bekräfta lösenordet | Ange lösenordet igen |
 
-4. Välj en storlek för den virtuella datorn och sedan **Välj**.
-5. Under **Inställningar**väljer du **offentlig IP-adress**.
-6. Ange *myPublicIpAddress*, Välj **statisk**och välj sedan **OK**, som du ser i följande bild:
+3. Välj fliken **Nätverk** eller **Nästa: diskar** och sedan **Nästa: nätverk**.
+  
+4. På fliken nätverk väljer eller anger du:
 
-   ![Välj statisk](./media/virtual-network-deploy-static-pip-arm-portal/select-static.png)
+    | Inställning | Värde |
+    |-|-|
+    | **Nätverksgränssnitt** |  |
+    | Virtuellt nätverk | Acceptera standard nätverks namnet. |
+    | Undernät | Acceptera standard under näts konfigurationen. |
+    | Offentlig IP-adress | Välj **Skapa ny**. </br> I **skapa offentlig IP-adress** , i namn, anger du **myPublicIP**. </br> För **SKU** väljer du **standard**. </br> **Tilldelning** väljer du **statisk**. </br> Välj **OK**.  |
+    | Nätverks säkerhets grupp för nätverkskort | Välj **grundläggande**|
+    | Offentliga inkommande portar | Välj **Tillåt valda portar**. |
+    | Välj inkommande portar | Välj **RDP (3389)** |
 
-   Om den offentliga IP-adressen måste vara en standard-SKU väljer du **standard** under **SKU**. Lär dig mer om [offentliga IP-adresser SKU: er](virtual-network-ip-addresses-overview-arm.md#sku). Om den virtuella datorn ska läggas till i backend-poolen för en offentlig Azure Load Balancer måste SKU: n för den virtuella datorns offentliga IP-adress matcha SKU: n för den offentliga IP-adressen för belastningsutjämnaren. Mer information finns i [Azure Load Balancer](../load-balancer/skus.md).
-
-6. Välj en port eller inga portar under **Välj offentliga inkommande portar**. Portal 3389 är markerad, för att aktivera fjärråtkomst till den virtuella Windows Server-datorn från Internet. Det rekommenderas inte att öppna port 3389 från Internet för produktions arbets belastningar.
-
-   ![Välj en port](./media/virtual-network-deploy-static-pip-arm-portal/select-port.png)
-
-7. Godkänn de återstående standardinställningarna och välj **OK**.
-8. På sidan **Sammanfattning** väljer du **Skapa**. Det tar några minuter att distribuera den virtuella datorn.
-9. När den virtuella datorn har distribuerats anger du *myPublicIpAddress* i sökrutan längst upp i portalen. När **myPublicIpAddress** visas i Sök resultaten väljer du det.
-10. Du kan visa den offentliga IP-adress som har tilldelats och att adressen är tilldelad den virtuella **myVM** -datorn, som du ser i följande bild:
-
-    ![Skärm bild som visar fönstret offentlig I P-adress med den I P-adressen och namnet som heter ut. ](./media/virtual-network-deploy-static-pip-arm-portal/public-ip-overview.png)
-
-    Azure tilldelade en offentlig IP-adress från adresser som används i den region där du skapade den virtuella datorn i. Du kan ladda ned listan över intervall (prefix) för [offentliga](https://www.microsoft.com/download/details.aspx?id=56519) Azure-moln och för Azure-moln för [amerikanska myndigheter](https://www.microsoft.com/download/details.aspx?id=57063), [Kina](https://www.microsoft.com/download/details.aspx?id=57062) eller [Tyskland](https://www.microsoft.com/download/details.aspx?id=57064).
-
-11. Välj **konfiguration** för att bekräfta att tilldelningen är **statisk**.
-
-    ![Skärm bild som visar fönstret offentlig I P-adress med det konfigurations objekt som valts.](./media/virtual-network-deploy-static-pip-arm-portal/public-ip-configuration.png)
-
-> [!WARNING]
-> Ändra inte inställningarna för IP-adress i den virtuella datorns operativ system. Operativ systemet är inte medvetna om offentliga Azure-IP-adresser. Även om du kan lägga till inställningar för privata IP-adresser i operativ systemet rekommenderar vi att du inte gör det om det inte behövs, och inte förrän du har läst [lägga till en privat IP-adress till ett operativ system](virtual-network-network-interface-addresses.md#private).
+    > [!WARNING]
+    > Portal 3389 är markerad, för att aktivera fjärråtkomst till den virtuella Windows Server-datorn från Internet. Det rekommenderas inte att öppna port 3389 på Internet för att hantera produktions arbets belastningar. </br> För säker åtkomst till Azure Virtual Machines, se **[Vad är Azure skydds?](/azure/bastion/bastion-overview)**
+   
+5. Välj **Granska + skapa**. 
+  
+6. Granska inställningarna och välj sedan **Skapa**.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 Ta bort resursgruppen, skalningsuppsättningen och alla resurser som den innehåller:
 
-1. Skriv *myResourceGroup* i **sökrutan** överst i portalen. När du ser **myResourceGroup** i sökresultatet väljer du den.
+1. Skriv **myResourceGroup** i **sökrutan** överst i portalen. När du ser **myResourceGroup** i sökresultatet väljer du den.
 2. Välj **Ta bort resursgrupp**.
-3. Skriv *myResourceGroup* i **SKRIV RESURSGRUPPSNAMNET:** och välj **Ta bort**.
+3. Skriv **myResourceGroup** i **SKRIV RESURSGRUPPSNAMNET:** och välj **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [offentliga IP-adresser](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) i Azure
-- Läs mer om [Inställningar för offentliga IP-adresser](virtual-network-public-ip-address.md#create-a-public-ip-address)
-- Läs mer om [privata IP-adresser](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) och tilldelning av en [statisk privat IP-adress](virtual-network-network-interface-addresses.md#add-ip-addresses) till en virtuell Azure-dator
-- Lär dig mer om att skapa virtuella [Linux](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) -och [Windows](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) -datorer
+Se [lägga till, ändra eller ta bort IP-adresser](virtual-network-network-interface-addresses.md):
+
+* Ändra en offentlig IP-adress från dynamisk till statisk.
+* Arbeta med privata IP-adresser.
+
+Offentliga IP-adresser har en [nominell avgift](https://azure.microsoft.com/pricing/details/ip-addresses). Det finns en [gräns](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) för hur många offentliga IP-adresser som du kan använda per prenumeration.
+
+SKU: n för den virtuella datorns offentliga IP-adress måste matcha den offentliga IP-SKU: n för Azure Load Balancer när den läggs till i en backend-pool. Mer information finns i [Azure Load Balancer](../load-balancer/skus.md).
+
+Du kan ladda ned listan över intervall (prefix) för [offentliga](https://www.microsoft.com/download/details.aspx?id=56519) Azure-moln och för Azure-moln för [amerikanska myndigheter](https://www.microsoft.com/download/details.aspx?id=57063), [Kina](https://www.microsoft.com/download/details.aspx?id=57062) eller [Tyskland](https://www.microsoft.com/download/details.aspx?id=57064).
+
+- Läs mer om [statiska offentliga IP-adresser](virtual-network-ip-addresses-overview-arm.md#allocation-method).
+- Läs mer om [offentliga IP-adresser](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) i Azure.
+- Läs mer om [Inställningar för offentliga IP-adresser](virtual-network-public-ip-address.md#create-a-public-ip-address).
+- Lär dig mer om [privata IP-adresser](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) och tilldela en [statisk privat IP-adress](virtual-network-network-interface-addresses.md#add-ip-addresses) till en virtuell Azure-dator.

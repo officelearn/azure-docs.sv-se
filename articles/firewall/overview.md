@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperfq1
-ms.date: 11/09/2020
+ms.date: 11/10/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: ab5a4717f32269f34a9351cb0ffa3796b89ccd6e
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 07c0169dcbadc6dc8ae293d69e197c2cd1ec2275
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412756"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489802"
 ---
 # <a name="what-is-azure-firewall"></a>Vad är Azure Firewall?
 
@@ -29,6 +29,17 @@ Du kan centralt skapa, framtvinga och logga principer för tillämpning och nät
 ## <a name="features"></a>Funktioner
 
 Information om Azure Firewall-funktioner finns i [Azure Firewall-funktioner](features.md).
+
+## <a name="pricing-and-sla"></a>Priser och service nivå avtal
+
+Pris information om Azure-brandväggen finns i [prissättning för Azure-brandvägg](https://azure.microsoft.com/pricing/details/azure-firewall/).
+
+Information om SLA för Azure-brandväggen finns i [SLA för Azure Firewall](https://azure.microsoft.com/support/legal/sla/azure-firewall/).
+
+## <a name="whats-new"></a>Nyheter
+
+Information om vad som är nytt med Azure-brandväggen finns i [Azure updates](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Firewall).
+
 
 ## <a name="known-issues"></a>Kända problem
 

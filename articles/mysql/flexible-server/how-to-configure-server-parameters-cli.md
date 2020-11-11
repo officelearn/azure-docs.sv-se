@@ -6,16 +6,20 @@ ms.author: ambhatna
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 11/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 87ec99a68c538e8133d64351cdecbbf8b10459e6
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 58e7c024d6494aee745884997e42b527c51ab237
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92525168"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489547"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-flexible-server-using-the-azure-cli"></a>Konfigurera Server parametrar i Azure Database for MySQL flexibel server med Azure CLI
+
+> [!IMPORTANT] 
+> Azure Database for MySQL-flexibel Server är för närvarande en offentlig för hands version.
+
 Du kan visa, Visa och uppdatera parametrar för en Azure Database for MySQL flexibel server med hjälp av Azure CLI, kommando rads verktyget för Azure. Server parametrarna konfigureras med standard och Rekommenderat värde när du skapar servern.  
 
 Den här artikeln beskriver hur du visar, visar och uppdaterar Server parametrar med hjälp av Azure CLI.
@@ -66,7 +70,7 @@ Uppdatera parametern **init \_ Connect** server för Server **mydemoserver.mysql
 az mysql flexible-server parameter set --name init_connect --resource-group myresourcegroup --server-name mydemoserver --value "SET character_set_client=utf8;SET character_set_database=utf8mb4;SET character_set_connection=latin1;SET character_set_results=latin1;"
 ```
 >[!Note]
-> `init_connect` kan användas för att ändra parametrar som inte kräver superprivilegier på sessionsnivå. Kontrollera om du kan ange parametern med `init_connect` genom att köra kommandot `set session parameter_name=YOUR_DESIRED_VALUE;`. Om kommandot returnerar ett fel av typen **Åtkomst nekad; du behöver superprivilegier**, betyder det att du inte kan ange parametern med ”init_connect”.
+> `init_connect` kan användas för att ändra parametrar som inte kräver superprivilegier på sessionsnivå. Kontrollera om du kan ange parametern med `init_connect` genom att köra kommandot `set session parameter_name=YOUR_DESIRED_VALUE;`. Om kommandot returnerar ett fel av typen **Åtkomst nekad; du behöver superprivilegier** , betyder det att du inte kan ange parametern med ”init_connect”.
 
 ## <a name="working-with-the-time-zone-parameter"></a>Arbeta med tids zons parametern
 

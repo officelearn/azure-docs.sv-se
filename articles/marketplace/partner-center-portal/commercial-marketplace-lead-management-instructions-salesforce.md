@@ -4,15 +4,15 @@ description: Lär dig hur du använder Salesforce för att konfigurera leads fö
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 03/30/2020
-ms.openlocfilehash: c3667de6a9bf85109a94201aa8e144869e4b033f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73caf848ab5c6f8e973469066ce4612a075a52f5
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86117123"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489326"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>Konfigurera ledar hantering för Salesforce
 
@@ -48,11 +48,11 @@ Den här artikeln beskriver hur du konfigurerar ditt Salesforce-system för att 
    De återstående stegen är desamma för båda Salesforce-upplevelserna.
 
 1. På sidan **konfiguration av webb-till-lead** väljer du knappen **skapa webb-till-lead-formulär** .
-1. Välj **skapa ett webb-till-lead-formulär**på **webb-till-plats-konfiguration**.
+1. Välj **skapa ett webb-till-lead-formulär** på **webb-till-plats-konfiguration**.
 
     ![Salesforce-konfiguration för webb-till-lead](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-3.png)
 
-1. När du **skapar ett webb-till-lead-formulär**kontrollerar du att `Include reCAPTCHA in HTML` inställningen är avmarkerad och väljer **generera**.
+1. När du **skapar ett webb-till-lead-formulär** kontrollerar du att `Include reCAPTCHA in HTML` inställningen är avmarkerad och väljer **generera**.
 
     ![Salesforce skapa ett webb-till-lead-formulär](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-4.png)
 
@@ -78,7 +78,7 @@ När du är redo att konfigurera ledar hanterings informationen för ditt erbjud
 
     ![Popup-fönster för anslutnings information verifiera kontaktens e-ruta](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-connection-details.png)
 
-1. Under **Kontakta e-postadress**anger du e-postadresser för personer i företaget som ska få e-postaviseringar när ett nytt lead tas emot. Du kan ange flera e-postmeddelanden genom att avgränsa dem med semikolon.
+1. Under **Kontakta e-postadress** anger du e-postadresser för personer i företaget som ska få e-postaviseringar när ett nytt lead tas emot. Du kan ange flera e-postmeddelanden genom att avgränsa dem med semikolon.
 
 1. Välj **OK**.
 

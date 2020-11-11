@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: 4d03e651006661a2fa82901d64f8fb6ac2236210
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/10/2020
+ms.openlocfilehash: 0dc55f4d77fde48590b1fbf206ed988e8fb9ec0e
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098781"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490278"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introduktion till etablerade data flöden i Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -73,7 +73,7 @@ Om ditt Azure Cosmos DB-konto redan innehåller en delad data flödes databas me
 
 Om arbets belastningarna innebär att du tar bort och återskapar alla samlingar i en databas, rekommenderar vi att du släpper den tomma databasen och återskapar en ny databas innan du skapar samlingen. Följande bild visar hur en fysisk partition kan vara värd för en eller flera logiska partitioner som tillhör olika behållare i en databas:
 
-:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="Fysisk partition som är värd för en eller flera logiska partitioner i en behållare" border="false":::
+:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="Fysisk partition som är värd för en eller flera logiska partitioner som tillhör olika behållare " border="false":::
 
 ## <a name="set-throughput-on-a-database-and-a-container"></a>Ange data flöde för en databas och en behållare
 
@@ -82,9 +82,9 @@ Du kan kombinera de två modellerna. Etablering av data flöde på både databas
 * Du kan skapa en Azure Cosmos-databas med namnet *Z* med standard (manuellt) allokerat data flöde för *"K"* ru: er. 
 * Skapa sedan fem behållare med namnet *A* , *B* , *C* , *D* och *E* i databasen. När du skapar container B, se till att aktivera **etablera dedikerat data flöde för det här behållar** alternativet och konfigurera *"P"* -ru: er av etablerat data flöde på den här behållaren. Du kan bara konfigurera delade och dedikerade data flöde när du skapar databasen och behållaren. 
 
-   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Fysisk partition som är värd för en eller flera logiska partitioner i en behållare":::
+   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Ange data flödet på behållar nivån":::
 
-* *"K"* ru: er-dataflödet delas mellan de fyra behållarna *A* , *C* , *D* , och *E* . Den exakta mängden data flöde som är tillgängliga för *A* , *C* , *D* eller *E* varierar. Det finns inga service avtal för varje enskild behållares data flöde.
+* *"K"* ru: er-dataflödet delas mellan de fyra behållarna *A* , *C* , *D* , och *E*. Den exakta mängden data flöde som är tillgängliga för *A* , *C* , *D* eller *E* varierar. Det finns inga service avtal för varje enskild behållares data flöde.
 * Behållaren med namnet *B* garanterar att du kan hämta *"P"* ru: er-dataflöde hela tiden. Den backas upp av service avtal.
 
 > [!NOTE]
@@ -109,7 +109,7 @@ Svaret på dessa metoder innehåller också det [lägsta allokerade data flödet
 Det faktiska antalet RU/s kan variera beroende på din konto konfiguration. Men vanligt vis är det högst:
 
 * 400 RU/s 
-* Aktuellt lagrings utrymme i GB * 10 RU/s
+* Aktuellt lagrings utrymme i GB * 10 RU/s (om inte din behållare eller databas innehåller mer än 1 TB data, se vårt [program för hög lagring/låg genom strömning](#high-storage-low-throughput-program))
 * Mest RU/s etablerad i databasen eller containern/100
 * Antal behållare * 100 RU/s (endast delad data flödes databas)
 

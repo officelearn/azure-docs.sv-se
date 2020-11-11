@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f88548b57cee9b5f637247fda1536488382ae2f6
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: bc811ab3cab4b79b81b16dd94a2c72225046e35a
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042634"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488286"
 ---
 # <a name="define-a-conditional-access-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk profil för villkorlig åtkomst i en Azure Active Directory B2C anpassad princip
 
@@ -53,7 +53,7 @@ För varje inloggning utvärderar Azure AD B2C alla principer och säkerställer
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| OperationType | Ja | Måste vara en **utvärderings version**.  |
+| Åtgärdstyp | Ja | Måste vara en **utvärderings version**.  |
 
 ### <a name="input-claims"></a>Inmatade anspråk
 
@@ -115,7 +115,7 @@ I följande exempel visas en teknisk profil för villkorlig åtkomst som använd
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| OperationType | Ja | Måste vara **reparation**.  |
+| Åtgärdstyp | Ja | Måste vara **reparation**.  |
 
 ### <a name="input-claims"></a>Inmatade anspråk
 
@@ -130,7 +130,7 @@ I följande exempel visas en teknisk profil för villkorlig åtkomst som använd
 
 ### <a name="output-claims"></a>Utgående anspråk
 
-Providern för villkorlig åtkomst returnerar inte några **OutputClaims**, så det finns inga behov av att ange utdata-anspråk. Du kan dock ta med anspråk som inte returneras av den villkorliga åtkomst protokoll leverantören så länge som du ställer in `DefaultValue` attributet.
+Providern för villkorlig åtkomst returnerar inte några **OutputClaims** , så det finns inga behov av att ange utdata-anspråk. Du kan dock ta med anspråk som inte returneras av den villkorliga åtkomst protokoll leverantören så länge som du ställer in `DefaultValue` attributet.
 
 **OutputClaimsTransformations** -elementet kan innehålla en samling av **OutputClaimsTransformation** -element som används för att ändra de utgående anspråken eller skapa nya.
 
@@ -428,7 +428,7 @@ Lägg till en användar resa som använder nya anspråk, som du ser i följande 
             </Precondition>
             <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
               <Value>CAChallengeIsMfa</Value>
-              <Value>false</Value>
+              <Value>False</Value>
               <Action>SkipThisOrchestrationStep</Action>
             </Precondition>
           </Preconditions>
@@ -458,7 +458,7 @@ Lägg till en användar resa som använder nya anspråk, som du ser i följande 
             </Precondition>
             <Precondition Type="ClaimEquals" ExecuteActionsIf="false">
               <Value>CAChallengeIsBlock</Value>
-              <Value>true</Value>
+              <Value>True</Value>
               <Action>SkipThisOrchestrationStep</Action>
             </Precondition>
           </Preconditions>

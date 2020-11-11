@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 34a7cd8669c1545361bc7cd9579cfb6140c0c946
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ac3edc466d640fdb98fd38ba59938aa13fe00f73
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331710"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489156"
 ---
 # <a name="optical-character-recognition-ocr"></a>Optisk teckenläsning (OCR)
 
@@ -73,6 +73,9 @@ Det andra steget är att anropa åtgärden [Hämta Läs resultat](https://westce
 
 När fältet **status** har värdet **lyckades** innehåller JSON-svaret det extraherade text innehållet från din avbildning eller ditt dokument. JSON-svaret underhåller de ursprungliga rad grupperna av identifierade ord. Den innehåller de extraherade text raderna och deras avgränsnings Rute koordinater. Varje textrad innehåller alla extraherade ord med deras koordinater och förtroende poäng.
 
+> [!NOTE]
+> De data som skickas till `Read` åtgärden krypteras tillfälligt och lagras i vila och tas bort inom 48 timmar. På så sätt kan dina program hämta den extraherade texten som en del av tjänst svaret.
+
 ## <a name="sample-json-output"></a>Exempel på JSON-utdata
 
 Se följande exempel på ett lyckat JSON-svar:
@@ -87,7 +90,6 @@ Se följande exempel på ett lyckat JSON-svar:
     "readResults": [
       {
         "page": 1,
-        "language": "en",
         "angle": 0.8551,
         "width": 2661,
         "height": 1901,

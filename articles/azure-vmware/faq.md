@@ -4,12 +4,12 @@ description: Innehåller svar på några vanliga frågor om Azure VMware-lösnin
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: 9f0eb1ec7c979e6f35c21f49cad9ab9975a221fc
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 33250b0ba9209f7806346668dac0ef308101e7c2
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357301"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94487800"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Vanliga frågor och svar om Azure VMware-lösningen
 
@@ -194,6 +194,12 @@ Nej. Inkommande nätverks trafik från Internet direkt till privata moln är int
 
 Ja. Du måste använda NSX-T-hanteraren för att skapa en brand vägg som begränsar VM-åtkomsten till Internet.
 
+
+#### <a name="can-azure-vmware-solution-use-azure-virtual-wan-hosted-expressroute-gateways"></a>Kan Azure VMware-lösningen använda Azure Virtual WAN Hosted ExpressRoute-gatewayer?
+Ja.
+
+#### <a name="can-transit-connectivity-be-established-between-on-premises-and-azure-vmware-solution-through-azure-virtual-wan-over-expressroute-global-reach"></a>Kan överföring av anslutningar upprättas mellan lokal och Azure VMware-lösning via Azure Virtual WAN över ExpressRoute Global Reach?
+Azure Virtual WAN tillhandahåller inte transitiv routning mellan två anslutna ExpressRoute-kretsar och icke-virtuella WAN-ExpressRoute Gateway. Med hjälp av ExpressRoute Global Reach kan du ansluta mellan lokala och Azure VMware-lösningar, men går via Microsofts globala nätverk i stället för den virtuella WAN-hubben.
 
 
 ## <a name="accounts-and-privileges"></a>Konton och behörigheter

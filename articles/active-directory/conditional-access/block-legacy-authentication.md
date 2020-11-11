@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 11/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1485c2abd24022dbfa6476e3c5a530413b9cb4f2
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: e85f36f1b970a4848ee132fe37bd1b0f4f4fdc82
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233805"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489530"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Gör så här: blockera äldre autentisering till Azure AD med villkorlig åtkomst   
 
@@ -116,6 +116,10 @@ Att konfigurera en princip för **andra klienter** blockerar hela organisationen
 Det kan ta upp till 24 timmar innan principen börjar gälla.
 
 Du kan välja alla tillgängliga beviljade kontroller för villkoret **andra klienter** . slut användar upplevelsen är dock alltid samma blockerad åtkomst.
+
+### <a name="sharepoint-online-and-b2b-guest-users"></a>SharePoint Online-och B2B-gäst användare
+
+För att blockera B2B-användare via äldre autentisering till SharePoint Online måste organisationer inaktivera äldre autentisering i SharePoint med hjälp av `Set-SPOTenant` PowerShell-kommandot och ange `-LegacyAuthProtocolsEnabled` parametern till `$false` . Mer information om hur du anger den här parametern finns i referens dokumentet för SharePoint PowerShell gällande [Set-SPOTenant](/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps)
 
 ## <a name="next-steps"></a>Nästa steg
 

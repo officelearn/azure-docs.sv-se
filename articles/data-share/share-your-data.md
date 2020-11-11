@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/28/2020
-ms.openlocfilehash: adc3b4542b6eba0cc0df7d93ac2cabbf7c1c144a
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 232f50c05182799c93a636baa2aec8ed93419be8
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216597"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489479"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Självstudier: Dela data med Azure Data Share  
 
@@ -67,7 +67,7 @@ I den här självstudien får du lära dig att:
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-data-share-account"></a>Skapa ett data resurs konto
 
@@ -89,7 +89,7 @@ Skapa en Azure Data Share-resurs i en Azure-resurs grupp.
     | Namn | *datashareaccount* | Ange ett namn för ditt data resurs konto. |
     | | |
 
-1. Välj **Granska + skapa**och sedan **skapa** för att etablera ditt data resurs konto. Det tar vanligt vis ungefär 2 minuter att tillhandahålla ett nytt data resurs konto. 
+1. Välj **Granska + skapa** och sedan **skapa** för att etablera ditt data resurs konto. Det tar vanligt vis ungefär 2 minuter att tillhandahålla ett nytt data resurs konto. 
 
 1. När distributionen är klar väljer du **Gå till resurs**.
 
@@ -137,8 +137,15 @@ Skapa en Azure Data Share-resurs i en Azure-resurs grupp.
 
 1. På fliken Granska + skapa granskar du paket innehåll, inställningar, mottagare och synkroniseringsinställningar. Välj **Skapa**.
 
-Din Azure Data-resurs har nu skapats och mottagaren av din data resurs är nu klar att acceptera din inbjudan. 
+Din Azure Data-resurs har nu skapats och mottagaren av din data resurs är nu klar att acceptera din inbjudan.
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+När resursen inte längre behövs går du till sidan **Översikt över data resurs** och väljer **ta bort** för att ta bort den.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien får du lära dig hur du skapar en Azure-Dataresurs och bjuder in mottagare. Om du vill veta mer om hur en data konsument kan godkänna och ta emot en data resurs fortsätter du till kursen för att [godkänna och ta emot data](subscribe-to-data-share.md) .
+I den här självstudien får du lära dig hur du skapar en Azure-Dataresurs och bjuder in mottagare. Om du vill veta mer om hur en data konsument kan godkänna och ta emot en data resurs fortsätter du till kursen för att godkänna och ta emot data.
+
+> [!div class="nextstepaction"]
+> [Självstudier: Acceptera och ta emot data med Azure Data Share](subscribe-to-data-share.md)

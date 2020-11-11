@@ -4,15 +4,15 @@ description: Lär dig hur du använder energi automatisering och en HTTPS-slutpu
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 03/30/2020
-ms.openlocfilehash: 3cdbe1f3428418f082d53febca950a6a443fe5ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4dabee6a725fd02b7be6dd12c8a032e3d816835
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86120384"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489377"
 ---
 # <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>Använd en HTTPS-slutpunkt för att hantera affärs marknads platser
 
@@ -31,11 +31,11 @@ I den här artikeln beskrivs hur du skapar ett nytt flöde i Energis par för at
 
     ![Logga in mina flöden](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
 
-1. Under **+ ny**väljer du **+ snabb – från Tom**.
+1. Under **+ ny** väljer du **+ snabb – från Tom**.
 
     ![Mina flöden + automatiserad – från Tom](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-create-fromblank.png)
 
-1. Namnge ditt flöde och välj sedan **när en HTTP-begäran tas emot**under **Välj hur det här flödet ska utlösas**.
+1. Namnge ditt flöde och välj sedan **när en HTTP-begäran tas emot** under **Välj hur det här flödet ska utlösas**.
 
     ![Knappen för att sätta upp en automatisk flödes fönster](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-pick-request-trigger.png)
 
@@ -43,7 +43,7 @@ I den här artikeln beskrivs hur du skapar ett nytt flöde i Energis par för at
 
     ![Expandera flödes steget](./media/commercial-marketplace-lead-management-instructions-https/expand-flow-step.png)
 
-1. Använd någon av följande metoder för att konfigurera **begär ande texten JSON-schema**:
+1. Använd någon av följande metoder för att konfigurera **begär ande texten JSON-schema** :
 
     - Kopiera JSON-schemat till text rutan **JSON-schema för begär ande** text.
     - Välj **Generera schemat genom att använda en exempelnyttolast**. Klistra in i JSON-exemplet i text rutan **Ange eller klistra in en JSON-nyttolast i exemplet** . Välj **färdig** för att skapa schemat.
@@ -152,7 +152,7 @@ I den här artikeln beskrivs hur du skapar ett nytt flöde i Energis par för at
 ### <a name="set-up-email-notification"></a>Konfigurera e-postavisering
 
 1. Nu när du har slutfört JSON-schemat väljer du **+ nytt steg**.
-1. Under **Välj en åtgärd**väljer du **åtgärder**.
+1. Under **Välj en åtgärd** väljer du **åtgärder**.
 1. På fliken **åtgärder** väljer du **Skicka ett e-postmeddelande (Office 365 Outlook)**.
 
     >[!NOTE]
@@ -162,15 +162,15 @@ I den här artikeln beskrivs hur du skapar ett nytt flöde i Energis par för at
 
 1. I fönstret **Skicka ett e-postmeddelande** konfigurerar du följande obligatoriska fält:
 
-   - **Till**: ange minst en giltig e-postadress dit leads ska skickas.
-   - **Subject**: med energi alternativ får du möjlighet att lägga till dynamiskt innehåll, t. ex. **LeadSource** som visas på följande skärm bild. Börja med att ange ett fält namn. Välj sedan listan över dynamiskt innehåll i listan från popup-fönstret. 
+   - **Till** : ange minst en giltig e-postadress dit leads ska skickas.
+   - **Subject** : med energi alternativ får du möjlighet att lägga till dynamiskt innehåll, t. ex. **LeadSource** som visas på följande skärm bild. Börja med att ange ett fält namn. Välj sedan listan över dynamiskt innehåll i listan från popup-fönstret. 
 
         >[!NOTE] 
         > När du lägger till fält namn kan du följa varje namn med ett kolon (:) och välj sedan **RETUR** för att skapa en ny rad. När du har lagt till dina fält namn kan du lägga till varje associerad parameter från den dynamiska plock listan.
 
         ![Lägg till en e-poståtgärd med hjälp av dynamiskt innehåll](./media/commercial-marketplace-lead-management-instructions-https/add-email-using-dynamic-content.png)
 
-   - **Brödtext**: Lägg till den information som du vill ha i e-postmeddelandets brödtext i listan med dynamiskt innehåll. Använd till exempel LastName, FirstName, E-mail och Company. När du är klar med att konfigurera e-postmeddelandet ser det ut som exemplet på följande skärm bild.
+   - **Brödtext** : Lägg till den information som du vill ha i e-postmeddelandets brödtext i listan med dynamiskt innehåll. Använd till exempel LastName, FirstName, E-mail och Company. När du är klar med att konfigurera e-postmeddelandet ser det ut som exemplet på följande skärm bild.
 
 
        ![Exempel på e-postmeddelande](./media/commercial-marketplace-lead-management-instructions-https/send-an-email.png)
@@ -202,7 +202,7 @@ Du kan testa konfigurationen med [Postman](https://app.getpostman.com/app/downlo
 1. Gå tillbaka till [Energis par automatisering](https://flow.microsoft.com/). Hitta det flöde som du skapade för att skicka leads genom att gå till **mina flöden** från meny raden för att automatisera snabb start. Välj ellipsen bredvid flödes namnet för att se fler alternativ och välj **Redigera**.
 
 
-1. Välj **test** i det övre högra hörnet, Välj **Jag vill utföra utlösnings åtgärden**och välj sedan **testa**. Du ser en indikering överst på skärmen som testet har startat.
+1. Välj **test** i det övre högra hörnet, Välj **Jag vill utföra utlösnings åtgärden** och välj sedan **testa**. Du ser en indikering överst på skärmen som testet har startat.
 
    ![Jag utför alternativet utlösnings åtgärd](./media/commercial-marketplace-lead-management-instructions-https/test-flow-trigger-action.png)
 
@@ -236,7 +236,7 @@ När du är redo att konfigurera ledar hanterings informationen för ditt erbjud
 1. I popup-fönstret **anslutnings information** väljer du https- **slutpunkt** för lead- **målet**. Klistra in HTTP POST-URL: en från flödet som du skapade genom att följa tidigare steg i URL-fältet för **https-slutpunkt** .
     ![Anslutnings information kontakta e-post](./media/commercial-marketplace-lead-management-instructions-https/https-connection-details.png)
 
-1. Under **Kontakta e-postadress**anger du e-postadresser för personer i företaget som ska få e-postaviseringar när ett nytt lead tas emot. Du kan ange flera e-postmeddelanden genom att avgränsa dem med semikolon.
+1. Under **Kontakta e-postadress** anger du e-postadresser för personer i företaget som ska få e-postaviseringar när ett nytt lead tas emot. Du kan ange flera e-postmeddelanden genom att avgränsa dem med semikolon.
 
 1. Välj **OK**.
 

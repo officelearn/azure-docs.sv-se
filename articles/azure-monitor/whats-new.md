@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 07/08/2020
-ms.openlocfilehash: c9679fec1d9c5d501ead03bcfbf28132d9e3b90a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 6ed00931e8cca1febac0b9b72b53eeb7e81042ea
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151803"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488000"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Vad är nytt i Azure Monitor-dokumentationen?
 
@@ -99,8 +99,8 @@ Den här artikeln innehåller listor Azure Monitor artiklar som antingen är nya
 
 #### <a name="new-and-updated-articles-from-restructure-of-agent-content"></a>Nya och uppdaterade artiklar från omstrukturering av agent innehåll
 - [Aktivera Azure Monitor for VMs översikt](insights/vminsights-enable-overview.md)
-- [Installera Log Analytics agent på Linux-datorer](platform/agent-linux.md)
-- [Installera Log Analytics agent på Windows-datorer](platform/agent-windows.md)
+- [Installera Log Analytics-agenten på Linux-datorer](platform/agent-linux.md)
+- [Installera Log Analytics-agenten på Windows-datorer](platform/agent-windows.md)
 - [Översikt över Log Analytics agent](platform/log-analytics-agent.md)
 
 ### <a name="application-insights"></a>Application Insights
@@ -157,7 +157,7 @@ Den här artikeln innehåller listor Azure Monitor artiklar som antingen är nya
 ### <a name="alerts"></a>Aviseringar
 - [Åtgärds regler för Azure Monitor aviseringar](platform/alerts-action-rules.md) – tillagda CLI-processer.
 - [Skapa och hantera åtgärds grupper i Azure Portal](platform/action-groups.md) -uppdaterat för att avspegla ändringar i användar gränssnittet.
-- [Sparade frågor i Azure Monitor Log Analytics](log-query/saved-queries.md) – ny artikel.
+- [Exempel frågor i Azure Monitor Log Analytics](log-query/example-queries.md) – ny artikel.
 - [Felsök logg aviseringar i Azure Monitor](platform/alerts-troubleshoot-log.md) -tillägg i varnings regelns kvot.
 - [Felsöka Azure Metric Alerts](platform/alerts-troubleshoot-metric.md) – avsnittet har lagts till i varnings regeln på ett anpassat mått som inte har genererats än.
 - [Förstå hur mått varningar fungerar i Azure Monitor.](platform/alerts-metric-overview.md) -Rekommendationen för att välja agg regerings kornig het har lagts till.
@@ -262,7 +262,7 @@ Nya och uppdaterade artiklar från omstrukturera och konsolidering av plattforms
 - [Azure aktivitets logg](platform/activity-log.md)
 - [Azure Monitor CLI-exempel](samples/cli-samples.md)
 - [Azure Monitor PowerShell-exempel](samples/powershell-samples.md)
-- [Genom gång av Azure Monitoring REST API](platform/rest-api-walkthrough.md)
+- [Genomgång av REST-API:et för Azure Monitoring](platform/rest-api-walkthrough.md)
 - [Tjänster och scheman som stöds av Azure-resurs loggar](./platform/resource-logs-schema.md)
 - [Azure-resursloggar](platform/resource-logs.md)
 - [Samla in och analysera Azure aktivitets logg i Azure Monitor](./platform/activity-log.md)

@@ -4,15 +4,15 @@ description: Läs om dina support alternativ i Partner Center, inklusive hur du 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: navits09
+ms.author: navits
 ms.date: 09/18/2020
-ms.openlocfilehash: 983f7e400a33cb36f30505e5a8a28811d9d4cdfb
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b042d1e1f38b2a4a84522d58ad482d4262f69a4a
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284741"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488901"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Stöd för programmet för kommersiella marknads platser i Partner Center
 
@@ -62,12 +62,12 @@ Följande alternativ blir tillgängliga:
 
 - Om du vill välja ett annat ämne väljer du en annan ämnes länk under det **valda problemet**.
 - Granska beskrivningen av det här problemet, om det är tillgängligt.  Det är den text som visas ovanför de **rekommenderade stegen**.
-- Granska **rekommenderade steg**, om det är tillgängligt.
-- Granska **rekommenderade dokument**, om det är tillgängligt.
+- Granska **rekommenderade steg** , om det är tillgängligt.
+- Granska **rekommenderade dokument** , om det är tillgängligt.
 
 ![Rekommenderade lösningar](./media/support/recommended-solutions.png)
 
-Om du inte kan hitta ditt svar i **rekommenderade lösningar**väljer du **Ange information om utfärdare**. Fyll i alla obligatoriska fält för att påskynda upplösnings processen och välj sedan **Skicka**.
+Om du inte kan hitta ditt svar i **rekommenderade lösningar** väljer du **Ange information om utfärdare**. Fyll i alla obligatoriska fält för att påskynda upplösnings processen och välj sedan **Skicka**.
 
 >[!Note]
 >Om du inte har loggat in på Partner Center och ämnet kräver autentisering, uppmanas du att logga in innan du kan fortsätta.  För offentliga ämnen krävs ingen autentisering.
@@ -85,10 +85,10 @@ För att hjälpa Support för agenter att felsöka ditt problem bör du övervä
 
 ### <a name="microsoft-edge-and-google-chrome"></a>Microsoft Edge och Google Chrome
 
-Så här genererar du en-fil med **Microsoft Edge** eller **Google Chrome**:
+Så här genererar du en-fil med **Microsoft Edge** eller **Google Chrome** :
 
 1. Gå till webb sidan där du har drabbats av problemet.
-2. I det övre högra hörnet i fönstret väljer du ikonen med tre punkter och sedan **fler verktyg**för  >  **utvecklarverktyg**. Du kan trycka på F12 som en genväg.
+2. I det övre högra hörnet i fönstret väljer du ikonen med tre punkter och sedan **fler verktyg** för  >  **utvecklarverktyg**. Du kan trycka på F12 som en genväg.
 3. I fönstret utvecklarverktyg väljer du fliken **nätverk** .
 4. Välj **stoppa registrering av nätverks logg** och **Rensa** för att ta bort befintliga loggar. Inspelnings ikonen blir grå.
 
@@ -100,13 +100,13 @@ Så här genererar du en-fil med **Microsoft Edge** eller **Google Chrome**:
 
 6. Återskapa problemet som du vill felsöka.
 7. När du har återskapat problemet väljer du **stoppa registrering av nätverks logg**.
-8. Välj **Exportera**har, markerat med en nedåtpil-ikon och spara filen.
+8. Välj **Exportera** har, markerat med en nedåtpil-ikon och spara filen.
 
     ![Så här exporterar du en-fil i Microsoft Edge eller Google Chrome](media/support/chromium-network-export-har.png)
 
 ### <a name="mozilla-firefox"></a>Mozilla Firefox
 
-Så här genererar du en-fil med **Mozilla Firefox**:
+Så här genererar du en-fil med **Mozilla Firefox** :
 
 1. Gå till webb sidan där du har drabbats av problemet.
 1. I det övre högra hörnet i fönstret väljer du ikonen med tre punkter och sedan **webb utvecklarens**  >  **Växla verktyg**. Du kan trycka på F12 som en genväg.
@@ -115,17 +115,17 @@ Så här genererar du en-fil med **Mozilla Firefox**:
     ![Så här tar du bort befintliga loggar i Mozilla Firefox](media/support/firefox-clear-session.png)
 
 1. Återskapa problemet som du vill felsöka.
-1. När du har återskapat problemet väljer du har **export/import**  >  **Spara alla som**har.
+1. När du har återskapat problemet väljer du har **export/import**  >  **Spara alla som** har.
 
     ![Så här exporterar du en-fil i Mozilla Firefox](media/support/firefox-network-export-har.png)
 
 ### <a name="apple-safari"></a>Apple Safari
 
-Så här genererar du en-fil med **Safari**:
+Så här genererar du en-fil med **Safari** :
 
 1. Aktivera utvecklarverktyg i Safari: Välj inställningar för **Safari**  >  **Preferences**. Gå till fliken **Avancerat** och välj sedan **Visa utveckla meny i meny raden**.
 1. Gå till webb sidan där du har drabbats av problemet.
-1. Välj **utveckla**och välj sedan **Visa webb kontroll**.
+1. Välj **utveckla** och välj sedan **Visa webb kontroll**.
 1. Välj fliken **nätverk** och välj sedan **Rensa nätverks objekt** för att ta bort befintliga loggar.
 
     ![Ta bort befintliga loggar i Safari](media/support/safari-clear-session.png)

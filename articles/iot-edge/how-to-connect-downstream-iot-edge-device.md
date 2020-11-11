@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 83db314070f4c8857ebaa10b26d0adf51372776f
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: d5da6576258d3e33296781bbc262494220140ddc
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447790"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489292"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway-preview"></a>Ansluta en underordnad IoT Edge enhet till en Azure IoT Edge Gateway (förhands granskning)
 
@@ -39,11 +39,11 @@ Alla steg i den här artikeln bygger på dem i [Konfigurera en IoT Edge-enhet so
 * **Gateway-identifiering** : kontrol lera att den underordnade enheten kan hitta sin överordnade enhet i det lokala nätverket.
 * **Säker anslutning** : upprätta en säker anslutning med betrodda certifikat som ingår i samma kedja.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En kostnads fri eller standard IoT-hubb.
 * Minst två **IoT Edge enheter** , en som ska vara det översta lager enheten och en eller flera enheter med lägre lager. Om du inte har IoT Edge tillgängliga enheter kan du [köra Azure IoT Edge på virtuella Ubuntu-datorer](how-to-install-iot-edge-ubuntuvm.md).
-* Om du använder Azure CLI för att skapa och hantera enheter måste du ha Azure CLI v 2.3.1 med Azure IoT Extension v-0.9.10 eller senare installerat.
+* Om du använder Azure CLI för att skapa och hantera enheter måste du ha Azure CLI v 2.3.1 med Azure IoT Extension v-0.10.6 eller senare installerat.
 
 Den här artikeln innehåller detaljerade steg och alternativ som hjälper dig att skapa rätt Gateway-hierarki för ditt scenario. En guidad självstudie finns i [skapa en hierarki med IoT Edge enheter med hjälp av gatewayer](tutorial-nested-iot-edge.md).
 

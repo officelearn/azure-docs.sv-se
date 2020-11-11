@@ -1,20 +1,20 @@
 ---
-title: Instrument panelen för användning i Microsofts marknads plats analys, Azure Marketplace och Microsoft AppSource
-description: Lär dig hur du kommer åt alla virtuella datorer erbjuder användning och mätning av mät värden. Gå till användnings instrument panelen i Partner Center under kommersiell marknads plats.
+title: Användnings instrument panel i kommersiell Marketplace-analys | Azure Marketplace
+description: Lär dig hur du får åtkomst till alla användnings mått och avgiftsbelagda fakturerings mått för erbjudanden som publicerats på Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/09/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 9a1b6197241b93edf778295f196ccc92c45d85d6
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 1ae30d97e64dc17086e199c3fcc8188f54e6ab69
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414860"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490125"
 ---
-# <a name="usage-dashboard-in-microsoft-commercial-marketplace-analytics"></a>Instrument panelen för användning i Microsofts marknads plats analys
+# <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Instrumentpanelen för användning i Commersial Marketplace-analys
 
 Den här artikeln innehåller information om användnings instrument panelen i Partner Center. Den här instrument panelen visar all virtuell dator (VM) med normaliserad användning, rå data användning och mätnings mått i tre separata flikar: virtuell dator normaliserad användning, VM RAW-användning och mätning av fakturerings användning.
 

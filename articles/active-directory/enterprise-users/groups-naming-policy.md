@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9456d663eb1600bf73b1fe253560c2d9f29205ae
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 45dac4425f4d2f563cbc942f23d81583728139f6
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377118"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489462"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Framtvinga en namngivnings princip på Microsoft 365 grupper i Azure Active Directory
 
@@ -85,7 +85,7 @@ De valda administratörerna kan undantas från dessa principer, i alla grupp arb
 ## <a name="configure-naming-policy-in-azure-portal"></a>Konfigurera namngivnings princip i Azure Portal
 
 1. Logga in på [administrations centret för Azure AD](https://aad.portal.azure.com) med ett grupp administratörs konto.
-1. Välj **grupper**och välj sedan **namngivnings princip** för att öppna sidan namngivnings princip.
+1. Välj **grupper** och välj sedan **namngivnings princip** för att öppna sidan namngivnings princip.
 
     ![Öppna sidan namngivnings princip i administrations centret](./media/groups-naming-policy/policy.png)
 
@@ -249,7 +249,6 @@ Gruppera mobilapp | Grupper som skapats i gruppmobilapp är kompatibla med namng
 Planner | Planner är kompatibelt med namngivnings principen. Planner visar för hands versionen av namngivnings princip när du anger plan namnet. När en användare anger ett anpassat blockerat ord visas ett fel meddelande när du skapar planen.
 Dynamics 365 för Customer Engagement | Dynamics 365 för kund engagemang är kompatibelt med namngivnings principen. Dynamics 365 visar namnet på namngivnings principen när användaren skriver ett grupp namn eller ett e-postalias för grupp. När användaren anger ett anpassat blockerat ord visas ett fel meddelande med det blockerade ordet så att användaren kan ta bort det.
 SDS (School Data Sync) | Grupper som skapats via SDS följer namngivnings principen, men namngivnings principen tillämpas inte automatiskt. SDS-administratörer måste lägga till prefix och suffix till klass namn för vilka grupper måste skapas och sedan överföras till SDS. Det gick inte att skapa eller redigera grupp på annat sätt.
-Outlook-kund Manager (OCM) | Outlook kund Manager är kompatibel med namngivnings principen, som tillämpas automatiskt på den grupp som skapats i Outlook Customer Manager. Om ett anpassat blockerat ord identifieras blockeras skapande av grupper i OCM och användaren blockeras från att använda OCM-appen.
 Klass rums app | Grupper som skapats i klass rums appen följer namngivnings principen, men namngivnings principen tillämpas inte automatiskt, och för hands versionen av namngivnings principen visas inte för användarna när du anger ett grupp namn i klass rummet. Användarna måste ange namnet på den tvingade klass rummets grupp med prefix och suffix. Annars Miss lyckas klass rums gruppen Skapa eller redigera med fel.
 Power BI | Power BI-arbetsytor är kompatibla med namngivnings principen.    
 Yammer | När en användare som är inloggad på Yammer med sitt Azure Active Directory konto skapar en grupp eller redigerar ett grupp namn, kommer grupp namnet att följa namngivnings principen. Detta gäller både för Microsoft 365 anslutna grupper och alla andra Yammer-grupper.<br>Om en Microsoft 365 ansluten grupp skapades innan namngivnings principen är på plats kommer grupp namnet inte automatiskt att följa namngivnings principerna. När en användare redigerar grupp namnet kommer de att uppmanas att lägga till prefixet och suffixet.

@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: 973d3ebe2879a2e98a72ce1f7571a1f00cd67a93
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: b7d587f2be5141f7de82e9294b1fdb9fba4a6a41
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94356152"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488651"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Självstudie: Konfigurera och kör Azure Key Vault-providern för hemligheter Store CSI-drivrutinen på Kubernetes
 
@@ -52,6 +52,12 @@ Den här åtgärden returnerar en serie med nyckel/värde-par:
 ![Skärm bild som visar appId och lösen ordet för contosoServicePrincipal](../media/kubernetes-key-vault-1.png)
 
 Kopiera autentiseringsuppgifterna för **appId** och **lösen ord** för senare användning.
+
+## <a name="flow-for-using-managed-identity"></a>Flöde för att använda hanterad identitet
+
+Det här diagrammet illustrerar AKS-Key Vault-integrations flödet för hanterad identitet:
+
+![Diagram som visar AKS – Key Vault integrations flöde för hanterad identitet](../media/aks-key-vault-integration-flow.png)
 
 ## <a name="deploy-an-azure-kubernetes-service-aks-cluster-by-using-the-azure-cli"></a>Distribuera ett Azure Kubernetes service-kluster (AKS) med hjälp av Azure CLI
 

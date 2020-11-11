@@ -11,14 +11,14 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/03/2020
 ms.custom: how-to, contperfq1, devx-track-python, data4ml
-ms.openlocfilehash: f60d864bd367b5f44869abc9ccac4e4cc266075a
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 7f2c7e99117c338d07abc2ed8760c2be18955d66
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358107"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489309"
 ---
-# <a name="connect-to-storage-services-azure"></a>Anslut till Storage Services Azure
+# <a name="connect-to-storage-services-on-azure"></a>Ansluta till lagrings tjänster på Azure
 
 I den här artikeln får du lära dig hur du **ansluter till lagrings tjänster på Azure via Azure Machine Learning data lager**. Data lagringen ansluter säkert till Azure Storage-tjänsten utan att dina autentiseringsuppgifter för autentisering och integritet för den ursprungliga data källan bevaras i risk zonen. De lagrar anslutnings information, t. ex. prenumerations-ID och token-auktorisering i [Key Vault](https://azure.microsoft.com/services/key-vault/) som är kopplade till arbets ytan, så att du kan komma åt lagringen på ett säkert sätt utan att behöva hårdkoda dem i dina skript. Du kan använda [Azure Machine Learning python SDK](#python) eller [Azure Machine Learning Studio](how-to-connect-data-ui.md) för att skapa och registrera data lager.
 
@@ -254,7 +254,7 @@ Azure Machine Learning tillhandahåller flera olika sätt att använda dina mode
 | Metod | Åtkomst till data lager | Beskrivning |
 | ----- | :-----: | ----- |
 | [Batchförutsägelse](./tutorial-pipeline-batch-scoring-classification.md) | ✔ | Göra förutsägelser kring stora mängder data asynkront. |
-| [Webbtjänst](how-to-deploy-and-where.md) | &nbsp; | Distribuera modeller som en webb tjänst. |
+| [Webb tjänst](how-to-deploy-and-where.md) | &nbsp; | Distribuera modeller som en webb tjänst. |
 | [Azure IoT Edge modul](how-to-deploy-and-where.md) | &nbsp; | Distribuera modeller till IoT Edge enheter. |
 
 I situationer där SDK inte ger åtkomst till data lager kan du kanske skapa anpassad kod med hjälp av relevanta Azure SDK för att få åtkomst till data. Till exempel är [Azure Storage SDK för python](https://github.com/Azure/azure-storage-python) ett klient bibliotek som du kan använda för att komma åt data som lagras i blobbar eller filer.

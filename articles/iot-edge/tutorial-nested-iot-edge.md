@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 624a147a463ad3be7e15a469294f07793046aaf3
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 5b2a74450477d562231eafd684b3d781d92f700d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445959"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489581"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices-preview"></a>Självstudie: skapa en hierarki med IoT Edge enheter (förhands granskning)
 
@@ -45,7 +45,7 @@ I den här självstudien definieras följande nätverks skikt:
 
 I den här självstudien används en hierarki med två enheter för enkelhetens skull. En enhet, **topLayerDevice** , representerar en enhet i hierarkins övre skikt, som kan ansluta direkt till molnet. Enheten kommer även att kallas för den **överordnade enheten**. Den andra enheten, **lowerLayerDevice** , representerar en enhet i den nedre nivån i hierarkin, som inte kan ansluta direkt till molnet. Enheten kommer även att kallas för den **underordnade enheten**. Du kan lägga till ytterligare lägre lager enheter för att representera produktions miljön. Konfigurationen av ytterligare lägre lager enheter kommer att följa **lowerLayerDevice** -konfigurationen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill skapa en hierarki med IoT Edge enheter behöver du:
 
@@ -53,7 +53,7 @@ Om du vill skapa en hierarki med IoT Edge enheter behöver du:
 * Två Linux-enheter kan konfigureras som IoT Edge enheter. Om du inte har tillgängliga enheter kan du använda [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/linux/).
 * Ett Azure-konto med en giltig prenumeration. Om du inte har en [Azure-prenumeration](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 * En kostnads fri eller standard nivå [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) i Azure.
-* Azure CLI v 2.3.1 med Azure IoT-tillägget v 0.9.10 eller senare installerat. I den här självstudien används [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Om du inte känner till Azure Cloud Shell kan du [titta på en snabb start för mer information](https://docs.microsoft.com/azure/iot-edge/quickstart-linux#use-azure-cloud-shell).
+* Azure CLI v 2.3.1 med Azure IoT-tillägget v 0.10.6 eller senare installerat. I den här självstudien används [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Om du inte känner till Azure Cloud Shell kan du [titta på en snabb start för mer information](https://docs.microsoft.com/azure/iot-edge/quickstart-linux#use-azure-cloud-shell).
 
 Du kan också testa det här scenariot genom att följa exemplet med skript [Azure IoT Edge för industriella IoT-exempel](https://aka.ms/iotedge-nested-sample), som distribuerar virtuella Azure-datorer som förkonfigurerade enheter för att simulera en fabriks miljö.
 

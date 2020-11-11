@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9a69ca707577ceddc56ae691d6e5e701458cae28
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 4adf0b8a7c12abed9689b9ac0cc9c5d5c8c3f980
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346609"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488442"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Läs in inläsningar i alla format med anpassade .NET-deserialiserare
 
@@ -249,9 +249,9 @@ Den här funktionen stöds inte. Om du behöver den här funktionen kan du röst
 
 När du har implementerat deserialiseraren kan du hjälpa andra genom att dela den med communityn. Skicka in din kod till [Azure Stream Analytics GitHub-lagrings platsen](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers).
 
-### <a name="what-are-the-other-limitation-of-using-custom-deserializers-in-stream-analytics"></a>Vad är den andra begränsningen för att använda anpassade avserialiseringar i Stream Analytics?
+### <a name="what-are-the-other-limitations-of-using-custom-deserializers-in-stream-analytics"></a>Vilka är de andra begränsningarna med att använda anpassade avserialiseringar i Stream Analytics?
 
-Om du har angett protobuf-format med schema som innehåller MapField-typ, kan du inte implementera en anpassad deserialiserare. Vi arbetar på att stödja den här typen som går framåt.
+Om du har angett protobuf-format med ett schema som innehåller `MapField` typ kommer du inte att kunna implementera en anpassad deserialiserare. Dessutom stöder inte anpassade deserialiserade exempel data eller för hands versions data. 
 
 ## <a name="next-steps"></a>Nästa steg
 

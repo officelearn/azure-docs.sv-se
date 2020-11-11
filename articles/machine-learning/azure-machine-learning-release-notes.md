@@ -9,18 +9,62 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 5054451b181223d3d6deece6812358cfd08b1e30
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 0afd1f2f8dd06c3c224d64304eec2e18489a7e81
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445089"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489139"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Viktig information om Azure Machine Learning
 
 I den här artikeln får du lära dig mer om Azure Machine Learning-versioner.  Information om fullständiga SDK-referenser finns på Azure Machine Learning huvud sidan [**för SDK för python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) -referens.
 
 Se [listan över kända problem](resource-known-issues.md) för att lära dig om kända buggar och lösningar.
+
+
+## <a name="2020-11-09"></a>2020-11-09
+
+### <a name="azure-machine-learning-sdk-for-python-v1180"></a>Azure Machine Learning SDK för python v-1.18.0
++ **Fel korrigeringar och förbättringar**
+  + **azureml-automl-core**
+    +  Förbättrad hantering av kort tids serier genom att tillåta utfyllnad av dem med Gaussisk brus.
+  + **azureml-automl-runtime**
+    + Utlös ConfigException om en DateTime-kolumn har OutOfBoundsDatetime-värde
+    + Förbättrad hantering av kort tids serier genom att tillåta utfyllnad av dem med Gaussisk brus.
+    + Se till att varje text kolumn kan använda char-gram-transformering med n-gram-intervallet baserat på längden på strängarna i text kolumnen
+    + Tillhandahålla förklaringar av RAW-funktionen för bästa möjliga läge för AutoML experiment som körs på användarens lokala beräkning
+  + **azureml-core**
+    + Fäst paketet: pyjwt för att undvika att hämta versioner i kommande versioner.
+    + Om du skapar ett experiment returneras det aktiva eller senaste arkiverade experimentet med samma namn om det finns ett sådant experiment eller ett nytt experiment.
+    + Om du anropar get_experiment efter namn returneras det aktiva eller senaste arkiverade experimentet med det namnet.
+    + Användare kan inte byta namn på ett experiment när det återaktiveras.
+    + Förbättrat fel meddelande som innehåller möjliga korrigeringar när en data uppsättning felaktigt skickas till ett experiment (t. ex. ScriptRunConfig). 
+    + Förbättrad dokumentation för `OutputDatasetConfig.register_on_complete` att inkludera beteendet vad som händer när namnet redan finns.
+    + Om du anger indata-och utdatafiler som är möjliga att krocka med vanliga miljövariabler kommer nu att resultera i en varning
+    + Omtillämpnings `grant_workspace_access` parameter vid registrering av data lager. Ställ in den på `True` för att komma åt data bakom det virtuella nätverket från Machine Learning Studio.
+      [Läs mer](https://docs.microsoft.com/azure/machine-learning/how-to-enable-studio-virtual-network)
+    + Det länkade tjänst-API: t är raffinerat. I stället för att tillhandahålla resurs-ID har vi tre separata parametrar sub_id, rg och namn som definieras i konfigurationen.
+    + För att göra det möjligt för kunder att själv lösa problem med token som är skadade kan du aktivera synkronisering av tidstoken för synkronisering till en offentlig metod.
+    + Den här ändringen gör att en tom sträng kan användas som ett värde för en script_param
+  + **azureml-pipeline-core**
+    + SDK för att stödja SynapseCompute-typ och SynapseSparkStep. Kunder kan köra experiment och pipeline-körningar på Synapse Spark-pool.
+  + **azureml-pipeline-steps**
+    + SDK för att stödja SynapseCompute-typ och SynapseSparkStep. Kunder kan köra experiment och pipeline-körningar på Synapse Spark-pool.
+  + **azureml – Synapse**
+    + Lägg till Synapse Magic och SparkMonitor för att aktivera användar sändning Syanpse-jobb och Visa jobb förloppet i Notebook.
+  + **azureml-train-automl-client**
+    +  Förbättrad hantering av kort tids serier genom att tillåta utfyllnad av dem med Gaussisk brus.
+  + **azureml-train-automl-runtime**
+    + Utlös ConfigException om en DateTime-kolumn har OutOfBoundsDatetime-värde
+    + Stöd har lagts till för att tillhandahålla rå funktions förklaringar för bästa modell för AutoML experiment som körs på användarens lokala beräkning
+    + Förbättrad hantering av kort tids serier genom att tillåta utfyllnad av dem med Gaussisk brus.
+  + **azureml-train-core**
+    + Den här ändringen gör att en tom sträng kan användas som ett värde för en script_param
+  + **azureml-träna-restclients-HyperDrive**
+    + VIKTIGT-filen har ändrats för att erbjuda mer kontext
+  + **azureml-widgets**
+    + Lägg till sträng stöd för diagram/Parallel-koordinater-bibliotek för widget.
 
 ## <a name="2020-11-05"></a>2020-11-05
 
@@ -29,6 +73,7 @@ Se [listan över kända problem](resource-known-issues.md) för att lära dig om
 Bild instans segmenten (polygoner) projekt typen i data etiketter är tillgänglig nu, så att användarna kan rita och kommentera med polygoner runt objektens konturer i bilderna. Användarna kan tilldela en klass och en polygon till varje objekt som är av intresse i en bild.
 
 Läs mer om [etiketter för bild instans segment](how-to-label-images.md).
+
 
 
 ## <a name="2020-10-26"></a>2020-10-26
@@ -95,7 +140,7 @@ Läs mer om [etiketter för bild instans segment](how-to-label-images.md).
     + LIME-förklaring har flyttats från azureml-contrib-tolka till tolka-community-paket och bild förklaring borttagen från azureml-contrib-tolka paket
     + instrument panelen för visualiseringar har tagits bort från azureml-contrib-tolka paket, förklarings klient som flyttats till azureml-tolka paket och föråldras i azureml-contrib-tolka paket och antecknings böcker som är uppdaterade för att återspegla
     + åtgärda pypi-paketets beskrivningar för azureml-tolka, azureml-förklara-Model, azureml-contrib-tolka och AzureML-tensorboard
-  + **azureml-contrib-notebook**
+  + **azureml-contrib-Notebook**
     + Fäst nbcovert-beroendet till < 6 så att Papermill 1. x fortfarande fungerar.
   + **azureml-core**
     + Parametrar har lagts till i konstruktorn TensorflowConfiguration och MpiConfiguration för att möjliggöra en mer effektiv initiering av klassens attribut utan att användaren måste ange varje enskilt attribut. En PyTorchConfiguration-klass har lagts till för att konfigurera distribuerade PyTorch-jobb i ScriptRunConfig.
@@ -117,7 +162,7 @@ Läs mer om [etiketter för bild instans segment](how-to-label-images.md).
     +  Fast pipeline-problem med `OutputFileDatasetConfig` var systemet kan sluta svara när `register_on_complete` anropas med `name` parametern angivet till ett redan befintligt data uppsättnings namn.
   + **azureml-pipeline-steps**
     + Tog bort inaktuella antecknings böcker för databricks.
-  + **azureml-tensorboard**
+  + **azureml – tensorboard**
     + åtgärda pypi-paketets beskrivningar för azureml-tolka, azureml-förklara-Model, azureml-contrib-tolka och AzureML-tensorboard
   + **azureml-train-automl-runtime**
     + instrument panelen för visualiseringar har tagits bort från azureml-contrib-tolka paket, förklarings klient som flyttats till azureml-tolka paket och föråldras i azureml-contrib-tolka paket och antecknings böcker som är uppdaterade för att återspegla

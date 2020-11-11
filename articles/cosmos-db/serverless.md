@@ -5,13 +5,13 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
-ms.openlocfilehash: 75d22a5021c7c8ae3a12f25644f2875e0ccf8cdd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/10/2020
+ms.openlocfilehash: c811a2ea5c06250068e7c0276e4b79e9108d920d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098764"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490363"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB utan server (för hands version)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -50,9 +50,6 @@ Mer information om hur du väljer det erbjudande som bäst passar din användnin
 ## <a name="using-serverless-resources"></a>Använda resurser utan Server
 
 Server lös är en ny typ av Azure Cosmos-konto, vilket innebär att du måste välja mellan **allokerat data flöde** och **Server** lös när du skapar ett nytt konto. Du måste skapa ett nytt Server lös konto för att komma igång med Server lös. Under för hands versionen är det enda stödda sättet att skapa ett nytt Server lös konto genom [att använda Azure Portal](create-cosmosdb-resources-portal.md). Migrering av befintliga konton till/från läge utan Server stöds inte för närvarande.
-
-> [!NOTE]
-> Server lös stöds för närvarande endast i API: et för Azure Cosmos DB Core (SQL).
 
 Alla behållare som har skapats i ett Server lös konto är en server lös behållare. Server lös behållare exponerar samma funktioner som behållare som skapats i det etablerade data flödes läget, så att du kan läsa, skriva och fråga dina data på exakt samma sätt. Dock har Server lös konton och behållare också särskilda egenskaper:
 

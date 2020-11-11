@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5423fc27ecc58bcd79b36a845e4b7569f342f712
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: eef4f6b8ee5821e54b5b7709eee7f8dad8749e63
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286700"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488544"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault-loggning
 
@@ -93,12 +93,14 @@ I följande tabell visas **operationName** -värdena och motsvarande REST API-ko
 | **VaultDelete** |[Ta bort ett nyckelvalv](/rest/api/keyvault/vaults) |
 | **VaultPatch** |[Uppdatera ett nyckelvalv](/rest/api/keyvault/vaults) |
 | **VaultList** |[Visa en lista med alla nyckelvalv i en resursgrupp](/rest/api/keyvault/vaults) |
+| **VaultPurge** |[Ta bort borttaget valv](/rest/api/keyvault/vaults/purgedeleted) |
+| **VaultRecover** |Återställ borttaget valv|
+| **VaultGetDeleted** |[Hämta borttaget valv](/rest/api/keyvault/vaults/getdeleted) |
+| **VaultListDeleted** |[Lista borttagna valv](/rest/api/keyvault/vaults/listdeleted) |
 | **KeyCreate** |[Skapa en nyckel](/rest/api/keyvault/createkey) |
 | **KeyGet** |[Hämta information om en nyckel](/rest/api/keyvault/getkey) |
 | **KeyImport** |[Importera en nyckel till ett valv](/rest/api/keyvault/vaults) |
-| **KeyBackup** |[Säkerhetskopiera en nyckel](/rest/api/keyvault/backupkey) |
 | **KeyDelete** |[Ta bort en nyckel](/rest/api/keyvault/deletekey) |
-| **KeyRestore** |[Återställa en nyckel](/rest/api/keyvault/restorekey) |
 | **KeySign** |[Signera med en nyckel](/rest/api/keyvault/sign) |
 | **KeyVerify** |[Verifiera med en nyckel](/rest/api/keyvault/vaults) |
 | **KeyWrap** |[Omsluta en nyckel](/rest/api/keyvault/wrapkey) |
@@ -106,14 +108,56 @@ I följande tabell visas **operationName** -värdena och motsvarande REST API-ko
 | **KeyEncrypt** |[Kryptera med en nyckel](/rest/api/keyvault/encrypt) |
 | **KeyDecrypt** |[Dekryptera med en nyckel](/rest/api/keyvault/decrypt) |
 | **KeyUpdate** |[Uppdatera en nyckel](/rest/api/keyvault/updatekey) |
-| **KeyList** |[Visa en lista med nycklarna i ett valv](/rest/api/keyvault/vaults) |
+| **KeyList** |[Visa en lista med nycklarna i ett valv](/rest/api/keyvault/getkeys) |
 | **KeyListVersions** |[Visa en lista över versionerna av en nyckel](/rest/api/keyvault/getkeyversions) |
+| **Rensa och rensa** |[Rensa en nyckel](/rest/api/keyvault/purgedeletedkey) |
+| **KeyBackup** |[Säkerhetskopiera en nyckel](/rest/api/keyvault/backupkey) |
+| **KeyRestore** |[Återställa en nyckel](/rest/api/keyvault/restorekey) |
+| **Återställ återställning** |[Återställa en nyckel](/rest/api/keyvault/recoverdeletedkey) |
+| **KeyGetDeleted** |[Hämta borttagen nyckel](/rest/api/keyvault/getdeletedkey) |
+| **KeyListDeleted** |[Lista de borttagna nycklarna i ett valv](/rest/api/keyvault/getdeletedkeys) |
+| **CertificateGet** |[Hämta information om ett certifikat](/rest/api/keyvault/getcertificate) |
+| **CertificateCreate** |[Skapa ett certifikat](/rest/api/keyvault/createcertificate) |
+| **CertificateImport** |[Importera ett certifikat till ett valv](/rest/api/keyvault/importcertificate) |
+| **CertificateUpdate** |[Uppdatera ett certifikat](/rest/api/keyvault/updatecertificate) |
+| **CertificateList** |[Visa en lista över certifikaten i ett valv](/rest/api/keyvault/getcertificates) |
+| **CertificateListVersions** |[Visa en lista över versioner av ett certifikat](/rest/api/keyvault/getcertificateversions) |
+| **CertificateDelete** |[Ta bort ett certifikat](/rest/api/keyvault/deletecertificate) |
+| **CertificatePurge** |[Rensa ett certifikat](/rest/api/keyvault/purgedeletedcertificate) |
+| **CertificateBackup** |[Säkerhetskopiera ett certifikat](/rest/api/keyvault/backupcertificate) |
+| **CertificateRestore** |[Återställa ett certifikat](/rest/api/keyvault/restorecertificate) |
+| **CertificateRecover** |[Återställa ett certifikat](/rest/api/keyvault/recoverdeletedcertificate) |
+| **CertificateGetDeleted** |[Hämta borttaget certifikat](/rest/api/keyvault/getdeletedcertificate) |
+| **CertificateListDeleted** |[Lista de borttagna certifikaten i ett valv](/rest/api/keyvault/getdeletedcertificates) |
+| **CertificatePolicyGet** |[Hämta certifikat princip](/rest/api/keyvault/getcertificatepolicy) |
+| **CertificatePolicyUpdate** |[Uppdatera certifikat princip](/rest/api/keyvault/updatecertificatepolicy) |
+| **CertificatePolicySet** |[Skapa certifikat princip](/rest/api/keyvault/createcertificate) |
+| **CertificateContactsGet** |[Hämta certifikat kontakter](/rest/api/keyvault/getcertificatecontacts) |
+| **CertificateContactsSet** |[Ange certifikat kontakter](/rest/api/keyvault/setcertificatecontacts) |
+| **CertificateContactsDelete** |[Ta bort certifikat kontakter](/rest/api/keyvault/deletecertificatecontacts) |
+| **CertificateIssuerGet** |[Hämta certifikat utfärdare](/rest/api/keyvault/getcertificateissuer) |
+| **CertificateIssuerSet** |[Ange certifikat utfärdare](/rest/api/keyvault/setcertificateissuer) |
+| **CertificateIssuerUpdate** |[Uppdatera certifikat utfärdare](/rest/api/keyvault/updatecertificateissuer) |
+| **CertificateIssuerDelete** |[Ta bort certifikat utfärdare](/rest/api/keyvault/deletecertificateissuer) |
+| **CertificateIssuersList** |[Visa en lista över certifikat utfärdare](/rest/api/keyvault/getcertificateissuers) |
+| **CertificateEnroll** |Registrera ett certifikat |
+| **CertificateRenew** |Förnya ett certifikat |
+| **CertificatePendingGet** |Hämta väntande certifikat |
+| **CertificatePendingMerge** |Väntande certifikat sammanslagning |
+| **CertificatePendingUpdate** |Väntande en certifikat uppdatering |
+| **CertificatePendingDelete** |Ta bort väntande certifikat |
 | **SecretSet** |[Skapa en hemlighet](/rest/api/keyvault/updatecertificate) |
 | **SecretGet** |[Få en hemlighet](/rest/api/keyvault/getsecret) |
 | **SecretUpdate** |[Uppdatera en hemlighet](/rest/api/keyvault/updatesecret) |
 | **SecretDelete** |[Ta bort en hemlighet](/rest/api/keyvault/deletesecret) |
-| **SecretList** |[Visa en lista över hemligheterna i ett valv](/rest/api/keyvault/vaults) |
+| **SecretList** |[Visa en lista över hemligheterna i ett valv](/rest/api/keyvault/getsecrets) |
 | **SecretListVersions** |[Visa en lista över versionerna av en hemlighet](/rest/api/keyvault/getsecretversions) |
+| **SecretPurge** |[Rensa en hemlighet](/rest/api/keyvault/purgedeletedsecret) |
+| **SecretBackup** |[Säkerhetskopiera en hemlighet](/rest/api/keyvault/backupsecret) |
+| **SecretRestore** |[Återställa en hemlighet](/rest/api/keyvault/restoresecret) |
+| **SecretRecover** |[Återställa en hemlighet](/rest/api/keyvault/recoverdeletedsecret) |
+| **SecretGetDeleted** |[Hämta borttagen hemlighet](/rest/api/keyvault/getdeletedsecret) |
+| **SecretListDeleted** |[Lista de borttagna hemligheterna i ett valv](/rest/api/keyvault/getdeletedsecrets) |
 | **VaultAccessPolicyChangedEventGridNotification** | Händelse publicering har ändrats för valv åtkomst princip |
 | **SecretNearExpiryEventGridNotification** |Hemlig händelse som är nära utgångs händelse publicerad |
 | **SecretExpiredEventGridNotification** |Hemligt utgånget händelse publicerat |

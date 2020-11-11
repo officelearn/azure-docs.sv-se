@@ -3,12 +3,12 @@ title: Introduktion
 description: Lär dig om funktionerna och fördelarna med Azure VMware-lösningen för att distribuera och hantera VMware-baserade arbets belastningar i Azure.
 ms.topic: overview
 ms.date: 05/04/2020
-ms.openlocfilehash: b71427402e08167e5868128ed1e553c69bef425d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1875f535a5ca3e346362409c143da82cb8c07a12
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91574473"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488595"
 ---
 # <a name="what-is-azure-vmware-solution"></a>Vad är Azure VMware Solution?
 
@@ -44,7 +44,7 @@ Vanliga uppgraderingar av Azure VMware-lösningen privat moln och VMware-program
 
 ## <a name="monitoring-your-private-cloud"></a>Övervaka ditt privata moln
 
-När Azure VMware-lösningen har distribuerats i din prenumeration genereras [Azure Monitor loggar](../azure-monitor/overview.md) automatiskt. Dessutom kan du samla in loggar på var och en av dina virtuella datorer i ditt privata moln. Du kan [Ladda ned och installera MMA-agenten](../azure-monitor/platform/log-analytics-agent.md#installation-options) på virtuella Linux-och Windows-datorer som körs i dina privata moln för VMware-lösningar i Azure, samt aktivera [tillägget Azure Diagnostics](../azure-monitor/platform/diagnostics-extension-overview.md). Du kan till och med köra samma frågor som du brukar köra på dina virtuella datorer. Mer information om hur du skapar frågor finns i [så här skriver du frågor](../azure-monitor/log-query/log-query-overview.md#how-can-i-learn-how-to-write-queries). Övervaknings mönster i Azure VMware-lösningen liknar Azure Virtual Machines inom IaaS-plattformen. Mer information och instruktioner finns i [övervaka virtuella Azure-datorer med Azure Monitor](../azure-monitor/insights/monitor-vm-azure.md).
+När Azure VMware-lösningen har distribuerats i din prenumeration genereras [Azure Monitor loggar](../azure-monitor/overview.md) automatiskt. Dessutom kan du samla in loggar på var och en av dina virtuella datorer i ditt privata moln. Du kan [Ladda ned och installera MMA-agenten](../azure-monitor/platform/log-analytics-agent.md#installation-options) på virtuella Linux-och Windows-datorer som körs i dina privata moln för VMware-lösningar i Azure, samt aktivera [tillägget Azure Diagnostics](../azure-monitor/platform/diagnostics-extension-overview.md). Du kan till och med köra samma frågor som du brukar köra på dina virtuella datorer. Mer information om hur du skapar frågor finns i [Översikt över Azure Monitor loggar](../azure-monitor/platform/data-platform-logs.md). Övervaknings mönster i Azure VMware-lösningen liknar Azure Virtual Machines inom IaaS-plattformen. Mer information och instruktioner finns i [övervaka virtuella Azure-datorer med Azure Monitor](../azure-monitor/insights/monitor-vm-azure.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

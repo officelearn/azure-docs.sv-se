@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 01/27/2020
-ms.openlocfilehash: 127fcdf68990b15098c24488e6ed879fbaa79116
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 291586bc2e34784a7bbf29016ea1da35d51e844b
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129685"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489955"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Självstudie: köra Azure Functions från Azure Stream Analytics-jobb 
 
@@ -20,7 +20,10 @@ Du kan köra Azure Functions från Azure Stream Analytics genom att konfigurera 
 
 Stream Analytics anropar Functions med HTTP-utlösare. Med utdataadaptern i Functions kan användarna ansluta Functions till Stream Analytics, så att händelserna kan utlösas baserat på Stream Analytics-frågor. 
 
-I de här självstudierna får du lära dig att
+> [!NOTE]
+> Anslutning till Azure Functions i ett virtuellt nätverk (VNet) från ett Stream Analytics jobb som körs i ett kluster med flera innehavare stöds inte.
+
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa och köra ett Stream Analytics jobb
@@ -44,7 +47,7 @@ Följ anvisningarna i självstudien [Upptäck bedrägerier i realtid](stream-ana
 
 1. Skapa en cache i Azure Cache for Redis med anvisningarna i [Skapa en cache](../azure-cache-for-redis/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).  
 
-2. När du har skapat cachen under **Inställningar** väljer du **Åtkomstnycklar** . Skriv ner **den primära anslutningssträngen** .
+2. När du har skapat cachen under **Inställningar** väljer du **Åtkomstnycklar**. Skriv ner **den primära anslutningssträngen**.
 
    ![Skärmbild av Azure Cache for Redis-anslutningssträng](./media/stream-analytics-with-azure-functions/image2.png)
 
@@ -52,7 +55,7 @@ Följ anvisningarna i självstudien [Upptäck bedrägerier i realtid](stream-ana
 
 1. Läs avsnittet [Skapa en funktionsapp](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) i dokumentationen till Functions. Det här avsnittet beskriver hur du skapar en Function-app och en [http-utlöst funktion i Azure Functions](../azure-functions/functions-create-first-azure-function.md#create-function)med hjälp av csharp-språket.  
 
-2. Gå till funktionen **run.csx** . Uppdatera den med nedanstående kod. Ersätt **" \<your Azure Cache for Redis connection string goes here\> "** med Azure cache för Redis primär anslutnings sträng som du hämtade i föregående avsnitt. 
+2. Gå till funktionen **run.csx**. Uppdatera den med nedanstående kod. Ersätt **" \<your Azure Cache for Redis connection string goes here\> "** med Azure cache för Redis primär anslutnings sträng som du hämtade i föregående avsnitt. 
 
     ```csharp
     using System;
@@ -128,11 +131,11 @@ Följ anvisningarna i självstudien [Upptäck bedrägerier i realtid](stream-ana
 
    ```
  
-4. Gå tillbaka till Azure-portalen. Från fliken **Plattformsfunktioner** bläddrar du till din funktion. Under **Utvecklingsverktyg** väljer du **App Service Editor** . 
+4. Gå tillbaka till Azure-portalen. Från fliken **Plattformsfunktioner** bläddrar du till din funktion. Under **Utvecklingsverktyg** väljer du **App Service Editor**. 
  
    ![Skärm bild som visar fliken plattforms funktioner med App Service Editor valt.](./media/stream-analytics-with-azure-functions/image3.png)
 
-5. I App Service Editor högerklickar du på din rotkatalog och laddar upp filen **project.json** . Uppdatera sidan när uppladdningen är klar. Du bör nu se en automatiskt genererad fil med namnet **project.lock.json** . Den automatiskt genererade filen innehåller referenser till de DLL-filer som anges i filen project.json.  
+5. I App Service Editor högerklickar du på din rotkatalog och laddar upp filen **project.json**. Uppdatera sidan när uppladdningen är klar. Du bör nu se en automatiskt genererad fil med namnet **project.lock.json**. Den automatiskt genererade filen innehåller referenser till de DLL-filer som anges i filen project.json.  
 
    ![Skärm bild som visar överför filer markerade från menyn.](./media/stream-analytics-with-azure-functions/image4.png)
 
@@ -140,7 +143,7 @@ Följ anvisningarna i självstudien [Upptäck bedrägerier i realtid](stream-ana
 
 1. Öppna ditt Stream Analytics-jobb på Azure-portalen.  
 
-2. Bläddra till din funktion och välj **Översikt**  >  **utdata**  >  **Lägg till** . Om du vill lägga till en ny utdatakanal väljer du **Azure-funktion** för kanalmottagaralternativet. Utdataadaptern för Functions har följande egenskaper:  
+2. Bläddra till din funktion och välj **Översikt**  >  **utdata**  >  **Lägg till**. Om du vill lägga till en ny utdatakanal väljer du **Azure-funktion** för kanalmottagaralternativet. Utdataadaptern för Functions har följande egenskaper:  
 
    |**Egenskapsnamn**|**Beskrivning**|
    |---|---|
@@ -154,7 +157,7 @@ Följ anvisningarna i självstudien [Upptäck bedrägerier i realtid](stream-ana
 
 3. Ange ett namn för utdataaliaset. I den här självstudien får den namnet **saop1** , men du kan välja valfritt namn. Fyll i övrig information.
 
-4. Öppna Stream Analytics-jobbet och uppdatera frågan till följande. Kom ihåg att ändra den i frågan, om du inte har angett ditt utmatnings mottagare **saop1** .  
+4. Öppna Stream Analytics-jobbet och uppdatera frågan till följande. Kom ihåg att ändra den i frågan, om du inte har angett ditt utmatnings mottagare **saop1**.  
 
    ```sql
     SELECT
@@ -177,7 +180,7 @@ Följ anvisningarna i självstudien [Upptäck bedrägerier i realtid](stream-ana
 
 ## <a name="check-azure-cache-for-redis-for-results"></a>Kontrollera resultatet i Azure Cache for Redis
 
-1. Bläddra till Azure-portalen och leta rätt på din Azure Cache for Redis. Välj **Konsol** .  
+1. Bläddra till Azure-portalen och leta rätt på din Azure Cache for Redis. Välj **Konsol**.  
 
 2. Verifiera att dina data finns i Azure Cache for Redis genom att använda [Azure Cache for Redis-kommandon](https://redis.io/commands). (Kommandot använder formatet get {Key}.) Exempel:
 
@@ -207,7 +210,7 @@ Stöd för att ansluta till Azure Functions som finns i ett virtuellt nätverk h
 Ta bort resursgruppen, strömningsjobbet och alla relaterade resurser när de inte längre behövs. Om du tar bort jobbet undviker du att bli fakturerad för de strömmande enheter som används av jobbet. Om du planerar att använda jobbet i framtiden kan du stoppa det och sedan starta det igen när du behöver det. Om du inte tänker fortsätta använda det här jobbet tar du bort alla resurser som skapades i snabbstarten med följande steg:
 
 1. Klicka på **Resursgrupper** på den vänstra menyn i Azure Portal och sedan på namnet på den resurs du skapade.  
-2. På sidan med resursgrupper klickar du på **Ta bort** , skriver in namnet på resursen att ta bort i textrutan och klickar sedan på **Ta bort** .
+2. På sidan med resursgrupper klickar du på **Ta bort** , skriver in namnet på resursen att ta bort i textrutan och klickar sedan på **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 

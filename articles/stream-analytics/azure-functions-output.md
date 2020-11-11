@@ -7,18 +7,18 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: f3f6e33c7c37089f7a9e87ab61bb00c966d8ccc7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ffaf66cbb5d9fa0b294f5749a1923684f16c2979
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90881906"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488116"
 ---
 # <a name="azure-functions-output-from-azure-stream-analytics"></a>Azure Functions utdata från Azure Stream Analytics
 
 Azure Functions är en server lös beräknings tjänst som du kan använda för att köra kod på begäran utan att behöva etablera eller hantera infrastruktur. Du kan implementera kod som utlöses av händelser som inträffar i Azure-eller partner tjänster. Den här möjligheten att Azure Functions att svara på utlösare gör det till ett naturligt resultat för Azure Stream Analytics. Med det här nätverkskortet kan användarna ansluta Stream Analytics till Azure Functions och köra ett skript eller ett kod avsnitt som svar på en rad olika händelser.
 
-Azure Functions utdata från Stream Analytics är för närvarande inte tillgängligt i regionerna Azure Kina 21Vianet och Azure Tyskland (T-Systems International).
+Azure Functions utdata från Stream Analytics är inte tillgängliga i regionerna Azure Kina 21Vianet och Azure Tyskland (T-Systems International). Anslutning till Azure Functions i ett virtuellt nätverk (VNet) från ett Stream Analytics jobb som körs i ett kluster med flera innehavare stöds inte heller.
 
 Azure Stream Analytics anropar Azure Functions via HTTP-utlösare. Azure Functions-utmatnings kortet är tillgängligt med följande konfigurerbara egenskaper:
 
@@ -26,7 +26,7 @@ Azure Stream Analytics anropar Azure Functions via HTTP-utlösare. Azure Functio
 | --- | --- |
 | Funktionsapp |Namnet på din Azure Functions-app. |
 | Funktion |Namnet på funktionen i din Azure Functions-app. |
-| Tangent |Om du vill använda en Azure-funktion från en annan prenumeration kan du göra det genom att ange nyckeln för att få åtkomst till din funktion. |
+| Nyckel |Om du vill använda en Azure-funktion från en annan prenumeration kan du göra det genom att ange nyckeln för att få åtkomst till din funktion. |
 | Max storlek på batch |En egenskap som låter dig ange den maximala storleken för varje utgående batch som skickas till din Azure-funktion. Den inkommande enheten är i byte. Som standard är det här värdet 262 144 byte (256 KB). |
 | Max antal batchar  |En egenskap som gör att du kan ange det maximala antalet händelser i varje batch som skickas till Azure Functions. Standardvärdet är 100. |
 

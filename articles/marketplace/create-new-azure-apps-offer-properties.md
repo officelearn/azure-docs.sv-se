@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: 1414f2ce53d1764e788749fc2d225c56f624bcdc
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 6f92c138a02c9dbdc1d22ca04c733cfbee69dcd0
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94370459"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488527"
 ---
 # <a name="how-to-configure-your-azure-application-offer-properties"></a>Så här konfigurerar du egenskaper för Azure Applications erbjudande
 
@@ -76,10 +76,6 @@ Du kan välja att ange egna villkor, i stället för standard kontraktet. Kunder
 
 1. Under **juridisk** kontrollerar du att kryss rutan **Använd standard kontraktet för Microsofts kommersiella Marketplace** är avmarkerad.
 1. I rutan **allmänna villkor** anger du upp till 10 000 tecken text.
-
-   > [!NOTE]
-   > Om du behöver en längre Beskrivning anger du en enskild webb adress som pekar på var du hittar dina villkor. Den kommer att visas för kunder som en aktiv länk.
-
 1. Välj **Spara utkast** innan du fortsätter till nästa flik: erbjudande lista.
 
 ## <a name="next-steps"></a>Nästa steg

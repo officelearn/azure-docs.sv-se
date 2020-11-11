@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 381ee08f44ad8fb4dade9b6229f5a5925cf2b6b7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a17143045b368038e24ac40f131325a623fc934d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376794"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489615"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Ändra statisk grupp medlemskap till dynamisk i Azure Active Directory
 
@@ -32,7 +32,7 @@ Du kan ändra en grupps medlemskap från statiskt till dynamiskt (eller vice ver
 
 ## <a name="change-the-membership-type-for-a-group"></a>Ändra medlemskaps typ för en grupp
 
-1. Logga in på [administrations centret för Azure AD](https://aad.portal.azure.com) med ett konto som är en global administratör eller en användar administratör i din Azure AD-organisation.
+1. Logga in på [administrations centret för Azure AD](https://aad.portal.azure.com) med ett konto som är en global administratör, användar administratör eller grupp administratör i din Azure AD-organisation.
 2. Välj **grupper**.
 3. Öppna den grupp som du vill ändra i listan **alla grupper** .
 4. Välj **Egenskaper**.
@@ -40,11 +40,11 @@ Du kan ändra en grupps medlemskap från statiskt till dynamiskt (eller vice ver
 
 Följande steg är ett exempel på hur du ändrar en grupp från statisk till dynamiskt medlemskap för en grupp användare.
 
-1. På sidan **Egenskaper** för den valda gruppen väljer du en **medlemskaps typ** för **dynamisk användare**och väljer sedan Ja i dialog rutan som förklarar ändringarna i grupp medlemskapet för att fortsätta. 
+1. På sidan **Egenskaper** för den valda gruppen väljer du en **medlemskaps typ** för **dynamisk användare** och väljer sedan Ja i dialog rutan som förklarar ändringarna i grupp medlemskapet för att fortsätta. 
   
    ![Välj medlemskaps typ för dynamisk användare](./media/groups-change-type/select-group-to-convert.png)
   
-2. Välj **Lägg till dynamisk fråga**och ange sedan regeln.
+2. Välj **Lägg till dynamisk fråga** och ange sedan regeln.
   
    ![Ange regeln för den dynamiska gruppen](./media/groups-change-type/enter-rule.png)
   

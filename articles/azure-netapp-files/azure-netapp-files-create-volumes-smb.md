@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: b-juche
-ms.openlocfilehash: d0a16dc639fb3206b480c1091a66686955cbb11d
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 9740506da2c03996db756175551867ed43575a7c
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932353"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488187"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Skapa en SMB-volym för Azure NetApp Files
 
@@ -45,7 +45,7 @@ Ett undernät måste delegeras till Azure NetApp Files.
     |    AD-webbtjänster    |    9389      |    TCP           |
     |    DNS                |    53        |    TCP           |
     |    DNS                |    53        |    UDP           |
-    |    ICMPv4             |    E.t.       |    Eko svar    |
+    |    ICMPv4             |    Saknas       |    Eko svar    |
     |    Kerberos           |    464       |    TCP           |
     |    Kerberos           |    464       |    UDP           |
     |    Kerberos           |    88        |    TCP           |
@@ -119,10 +119,10 @@ Ytterligare AADDS-överväganden gäller för Azure NetApp Files:
 
 När du skapar en Active Directory anslutning noterar du följande information för AADDS:
 
-* Du hittar information om **primärt**DNS-, **sekundärt DNS**-och **AD DNS-domännamn** på AADDS-menyn.  
+* Du hittar information om **primärt** DNS-, **sekundärt DNS** -och **AD DNS-domännamn** på AADDS-menyn.  
 För DNS-servrar används två IP-adresser för att konfigurera Active Directory-anslutningen. 
 * **Sökvägen till organisationsenheten** är `OU=AADDC Computers` .  
-Den här inställningen konfigureras i **Active Directory anslutningar** under **NetApp-konto**:
+Den här inställningen konfigureras i **Active Directory anslutningar** under **NetApp-konto** :
 
   ![Sökväg till organisationsenhet](../media/azure-netapp-files/azure-netapp-files-org-unit-path.png)
 
@@ -131,7 +131,7 @@ Den här inställningen konfigureras i **Active Directory anslutningar** under *
 
 ## <a name="create-an-active-directory-connection"></a>Skapa en Active Directory anslutning
 
-1. Klicka på **Active Directory anslutningar**på ditt NetApp-konto och klicka sedan på **Anslut**.  
+1. Klicka på **Active Directory anslutningar** på ditt NetApp-konto och klicka sedan på **Anslut**.  
 
     ![Active Directory anslutningar](../media/azure-netapp-files/azure-netapp-files-active-directory-connections.png)
 
@@ -146,7 +146,7 @@ Den här inställningen konfigureras i **Active Directory anslutningar** under *
     * **AD DNS-domännamn**  
         Detta är domän namnet för din Active Directory Domain Services som du vill ansluta till.
     * **AD-platsens namn**  
-        Detta är webbplats namnet som identifieringen av domänkontrollanten ska begränsas till.
+        Detta är webbplats namnet som identifieringen av domänkontrollanten ska begränsas till. Detta ska matcha plats namnet i Active Directory-platser och-tjänster.
     * **Prefix för SMB-server (dator konto)**  
         Detta är namngivnings prefixet för dator kontot i Active Directory som Azure NetApp Files används för att skapa nya konton.
 

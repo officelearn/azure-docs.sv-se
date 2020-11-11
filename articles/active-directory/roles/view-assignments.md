@@ -13,14 +13,14 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a0300bd66dbeec84aba2102a510b4f6194debc5
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: ccb158548f52059b780fd71bf19788ba200aa7c4
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378592"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505588"
 ---
-# <a name="view-custom-role-assignments-in-azure-active-directory"></a>Visa anpassade roll tilldelningar i Azure Active Directory
+# <a name="view-custom-role-assignments-using-azure-active-directory"></a>Visa anpassade roll tilldelningar med Azure Active Directory
 
 Den här artikeln beskriver hur du visar anpassade roller som du har tilldelat i Azure Active Directory (Azure AD). I Azure Active Directory (Azure AD) kan roller tilldelas till en omfattning i hela organisationen eller med en omfattning för ett enda program.
 

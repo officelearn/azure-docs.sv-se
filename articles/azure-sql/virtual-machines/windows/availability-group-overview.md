@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: eb17b8286ce994146c1fa9867cd8131a909c8ace
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: d04f689dec3a3c182c0da23007247c20c4f8063d
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146696"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504398"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Always on-tillgänglighetsgrupper på SQL Server på virtuella Azure-datorer
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -42,7 +42,7 @@ För att öka redundansen och hög tillgänglighet ska de virtuella SQL Server d
 En tillgänglighets uppsättning är en gruppering av resurser som är konfigurerade så att det inte finns två land i samma tillgänglighets zon. Detta förhindrar att flera resurser i gruppen påverkas under distributions upprullningar. 
 
 
-## <a name="connectivity"></a>Anslutning 
+## <a name="connectivity"></a>Anslutningsmöjlighet 
 
 I en traditionell lokal distribution ansluter klienter till tillgänglighets gruppens lyssnare med hjälp av det virtuella nätverks namnet (VNN) och lyssnaren dirigerar trafik till lämplig SQL Server replik i tillgänglighets gruppen. Det finns dock ett extra krav för att dirigera trafik i Azure-nätverket. 
 
@@ -72,27 +72,26 @@ Information om hur du kommer igång finns i [Konfigurera en DNN-lyssnare](availa
 
 Det finns flera alternativ för att distribuera en tillgänglighets grupp till SQL Server på virtuella Azure-datorer, med mer automatisering än andra. 
 
-Följande tabell innehåller en jämförelse av tillgängliga alternativ: 
+Följande tabell innehåller en jämförelse av tillgängliga alternativ:
 
-| |**[Azure Portal](availability-group-azure-portal-configure.md)**|**[Azure CLI/PowerShell](./availability-group-az-commandline-configure.md)**|**[Snabb starts mallar](availability-group-quickstart-template-configure.md)**|**[Manuell](availability-group-manually-configure-prerequisites-tutorial.md)** | 
-|---------|---------|---------|--------- |---------|
+| | Azure Portal | Azure CLI/PowerShell | Snabb starts mallar | Manuell |
+|---------|---------|---------|---------|---------|
 |**SQL Server-version** |2016 + |2016 +|2016 +|2012 +|
 |**SQL Server-utgåva** |Enterprise |Enterprise |Enterprise |Enterprise, standard|
-|**Windows Server-version**| 2016 + | 2016 + | 2016 + | Alla| 
-|**Skapar klustret åt dig**|Ja|Ja | Ja |Nej|
-|**Skapar tillgänglighets gruppen åt dig** |Ja |Nej|Nej|Nej|
-|**Skapar lyssnare och belastningsutjämnare separat** |Nej|Nej|Nej|Ja|
-|**Möjligt att skapa DNN-lyssnare med den här metoden?**|Nej|Nej|Nej|Ja|
-|**WSFC-kvorum konfiguration** n|Molnvittne|Molnvittne|Molnvittne|Alla|
-|**DR med flera regioner** |Nej|Nej|Nej|Ja|
+|**Windows Server-version**| 2016 + | 2016 + | 2016 + | Alla|
+|**Skapar klustret åt dig**|Ja|Ja | Ja |Inga|
+|**Skapar tillgänglighets gruppen åt dig** |Ja |Inga|Inga|Inga|
+|**Skapar lyssnare och belastningsutjämnare separat** |Inga|Inga|Inga|Ja|
+|**Möjligt att skapa DNN-lyssnare med den här metoden?**|Inga|Inga|Inga|Ja|
+|**Konfiguration av WSFC-kvorum**|Molnvittne|Molnvittne|Molnvittne|Alla|
+|**DR med flera regioner** |Inga|Inga|Inga|Ja|
 |**Stöd för multinätet** |Ja|Ja|Ja|Ja|
 |**Stöd för en befintlig AD**|Ja|Ja|Ja|Ja|
 |**DR med flera zoner i samma region**|Ja|Ja|Ja|Ja|
-|**Distribuerad AG utan AD**|Nej|Nej|Nej|Ja|
-|**Distribuerad AG utan kluster** |Nej|Nej|Nej|Ja|
-||||||
+|**Distribuerad AG utan AD**|Inga|Inga|Inga|Ja|
+|**Distribuerad AG utan kluster** |Inga|Inga|Inga|Ja|
 
-
+Mer information finns i [Azure Portal](availability-group-azure-portal-configure.md), [Azure CLI/PowerShell](./availability-group-az-commandline-configure.md), [snabb starts mallar](availability-group-quickstart-template-configure.md)och [manuell](availability-group-manually-configure-prerequisites-tutorial.md).
 
 ## <a name="considerations"></a>Överväganden 
 

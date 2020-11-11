@@ -2,22 +2,22 @@
 title: ta med fil
 description: ta med fil
 services: azure-communication-services
-author: matthewrobertson
-manager: nimag
+author: tomaschladek
+manager: nmurav
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
-ms.author: marobert
-ms.openlocfilehash: 22cfe369561eab1ca334c7ff2450162dfae3e761
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.author: tchladek
+ms.openlocfilehash: af5af26a8970409b07eda6195b0853c3fa931b3f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92347278"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506282"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/) Aktiva LTS-och underhålls LTS-versioner (8.11.1 och 10.14.1 rekommenderas).
@@ -30,7 +30,7 @@ ms.locfileid: "92347278"
 Öppna terminalen eller kommando fönstret Skapa en ny katalog för din app och navigera till den.
 
 ```console
-mkdir user-tokens-quickstart && cd user-tokens-quickstart
+mkdir access-tokens-quickstart && cd access-tokens-quickstart
 ```
 
 Kör `npm init -y` för att skapa en **package.jspå** en fil med standardinställningar.
@@ -65,7 +65,7 @@ Använd följande kod för att börja:
 const { CommunicationIdentityClient } = require('@azure/communication-administration');
 
 const main = async () => {
-  console.log("Azure Communication Services - User Access Tokens Quickstart")
+  console.log("Azure Communication Services - Access Tokens Quickstart")
 
   // Quickstart code goes here
 };
@@ -76,9 +76,7 @@ main().catch((error) => {
 })
 ```
 
-1. Spara den nya filen som **issue-token.js** i katalogen *User-tokens-snabb start* .
-
-[!INCLUDE [User Access Tokens Object Model](user-access-tokens-object-model.md)]
+1. Spara den nya filen som **issue-access-token.js** i katalogen *åtkomst-tokens-snabb start* .
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
@@ -91,64 +89,67 @@ Lägg till följande kod i `main`-metoden:
 // from an environment variable.
 const connectionString = process.env['COMMUNICATION_SERVICES_CONNECTION_STRING'];
 
-// Instantiate the user token client
+// Instantiate the identity client
 const identityClient = new CommunicationIdentityClient(connectionString);
 ```
 
-## <a name="create-a-user"></a>Skapa en användare
+## <a name="create-an-identity"></a>Skapa en identitet
 
-Azure Communication Services upprätthåller en Lightweight Identity-katalog. Använd `createUser` metoden för att skapa en ny post i katalogen med en unik `Id` . Du bör ha en mappning mellan appens användare och kommunikations tjänster genererade identiteter (t. ex. genom att lagra dem i din program servers databas).
+Azure Communication Services upprätthåller en Lightweight Identity-katalog. Använd `createUser` metoden för att skapa en ny post i katalogen med en unik `Id` . Lagra mottagen identitet med mappning till programmets användare. Till exempel genom att lagra dem i program serverns databas. Identiteten krävs senare för att utfärda åtkomsttoken.
 
 ```javascript
-let userResponse = await identityClient.createUser();
-console.log(`\nCreated a user with ID: ${userResponse.communicationUserId}`);
+let identityResponse = await identityClient.createUser();
+console.log(`\nCreated an identity with ID: ${identityResponse.communicationUserId}`);
 ```
 
-## <a name="issue-user-access-tokens"></a>Utfärda token för användar åtkomst
+## <a name="issue-access-tokens"></a>Utfärda åtkomsttoken
 
-Använd `issueToken` metoden för att utfärda en åtkomsttoken för en kommunikations tjänst användare. Om du inte anger den valfria `user` parametern kommer en ny användare att skapas och returneras med token.
+Använd `issueToken` metoden för att utfärda en åtkomsttoken för redan befintlig kommunikations tjänst identitet. Parameter `scopes` definierar uppsättning primitiver som auktoriserar denna åtkomsttoken. Se [listan över åtgärder som stöds](../../concepts/authentication.md). En ny instans av parametern `communicationUser` kan konstrueras baserat på en sträng representation av Azure Communication Service-identiteten.
 
 ```javascript
-// Issue an access token with the "voip" scope for a new user
-let tokenResponse = await identityClient.issueToken(userResponse, ["voip"]);
+// Issue an access token with the "voip" scope for an identity
+let tokenResponse = await identityClient.issueToken(identityResponse, ["voip"]);
 const { token, expiresOn } = tokenResponse;
-console.log(`\nIssued a token with 'voip' scope that expires at ${expiresOn}:`);
+console.log(`\nIssued an access token with 'voip' scope that expires at ${expiresOn}:`);
 console.log(token);
 ```
 
-Token för användar åtkomst är korta autentiseringsuppgifter som måste återutfärdas för att förhindra att användarna upplever avbrott i tjänsten. `expiresOn`Egenskapen svar anger livs längden för token.
+Åtkomsttoken är korta autentiseringsuppgifter som måste återutfärdas. Om du inte gör det kan det orsaka störningar i programmets användar upplevelse. `expiresOn`Egenskapen svar anger livs längden för åtkomsttoken.
 
-## <a name="revoke-user-access-tokens"></a>Återkalla token för användar åtkomst
 
-I vissa fall kan du behöva återkalla användar åtkomst-token, till exempel när en användare ändrar lösen ordet som de använder för att autentisera till din tjänst. Detta använder `revokeTokens` metoden för att ogiltig förklara alla användares åtkomsttoken.
+## <a name="refresh-access-tokens"></a>Uppdatera åtkomsttoken
 
-```javascript  
-await identityClient.revokeTokens(userResponse);
-console.log(`\nSuccessfully revoked all tokens for user with Id: ${userResponse.communicationUserId}`);
-```
-
-## <a name="refresh-user-access-tokens"></a>Uppdatera token för användar åtkomst
-
-Om du vill uppdatera en token använder du `CommunicationUser` objektet för att försöka igen:
+Om du vill uppdatera en åtkomsttoken använder du `CommunicationUser` objektet för att utfärda följande:
 
 ```javascript  
-let userResponse = new CommunicationUser(existingUserId);
-let tokenResponse = await identityClient.issueToken(userResponse, ["voip"]);
+// Value existingIdentity represents identity of Azure Communication Services stored during identity creation
+identityResponse = new CommunicationUser(existingIdentity);
+tokenResponse = await identityClient.issueToken(identityResponse, ["voip"]);
 ```
 
-## <a name="delete-a-user"></a>Ta bort en användare
 
-Borttagning av en användare återkallar alla aktiva tokens och förhindrar att du utfärdar efterföljande token för identiteterna. Det tar också bort allt beständigt innehåll som är associerat med användaren.
+## <a name="revoke-access-tokens"></a>Återkalla åtkomsttoken
+
+I vissa fall kan du uttryckligen återkalla åtkomsttoken. Till exempel när ett programs användare ändrar lösen ordet som de använder för att autentisera till din tjänst. Metoden `revokeTokens` ogiltig verifiera alla aktiva åtkomsttoken som utfärdats till identiteten.
+
+```javascript  
+await identityClient.revokeTokens(identityResponse);
+console.log(`\nSuccessfully revoked all access tokens for identity with Id: ${identityResponse.communicationUserId}`);
+```
+
+## <a name="delete-an-identity"></a>Ta bort en identitet
+
+Om du tar bort en identitet återkallar du alla aktiva åtkomsttoken och förhindrar att du utfärdar åtkomsttoken för identiteten. Det tar också bort allt beständigt innehåll som är associerat med identiteten.
 
 ```javascript
-await identityClient.deleteUser(userResponse);
-console.log(`\nDeleted the user with Id: ${userResponse.communicationUserId}`);
+await identityClient.deleteUser(identityResponse);
+console.log(`\nDeleted the identity with Id: ${identityResponse.communicationUserId}`);
 ```
 
 ## <a name="run-the-code"></a>Kör koden
 
-Gå till den katalog som innehåller *issue-token.js* -filen från en konsol tolk och kör sedan följande `node` kommando för att köra appen.
+Gå till den katalog som innehåller *issue-access-token.js* -filen från en konsol tolk och kör sedan följande `node` kommando för att köra appen.
 
 ```console
-node ./issue-token.js
+node ./issue-access-token.js
 ```

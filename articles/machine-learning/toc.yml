@@ -160,6 +160,8 @@
         - name: Översikt över Enterprise Security
           displayName: authorization authentication encryption aad azure active directory
           href: concept-enterprise-security.md
+        - name: Datakryptering
+          href: concept-data-encryption.md
         - name: Säkerhetsbaslinje
           href: security-baseline.md
     - name: Ansvarsfull ML
@@ -182,14 +184,17 @@
       items:
         - name: Identitets- och åtkomsthantering
           items:
-            - name: Konfigurera autentisering
+            - name: Autentisering av arbetsyta
               displayName: 'authentication, auth, oauth'
               href: how-to-setup-authentication.md
-            - name: Hantera användare och roller
+            - name: Autentisering av webbtjänst
+              displayName: 'authentication, model, web service'
+              href: how-to-authenticate-web-service.md
+            - name: Hantera åtkomst (auktorisering)
               href: how-to-assign-roles.md
-            - name: Använda hanterade identiteter för åtkomstkontroll
+            - name: Hanterade identiteter för åtkomstkontroll
               href: how-to-use-managed-identities.md
-            - name: Använda Azure AD-identitet i AKS-distributioner
+            - name: Azure AD-identitet i AKS-distributioner
               href: how-to-use-azure-ad-identity.md
         - name: Nätverkssäkerhet
           items:

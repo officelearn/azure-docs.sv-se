@@ -36,6 +36,20 @@
       href: quickstart-multi-container.md
 - name: Självstudier
   items:
+    - name: Säker app får åtkomst till lagring och Microsoft Graph
+      items:
+        - name: Översikt
+          href: scenario-secure-app-overview.md
+        - name: Konfigurera App Service-autentisering
+          href: scenario-secure-app-authentication-app-service.md
+        - name: Säker app får åtkomst till lagring
+          href: scenario-secure-app-access-storage.md
+        - name: Säker app får åtkomst till Microsoft Graph som användaren
+          href: scenario-secure-app-access-microsoft-graph-as-user.md
+        - name: Säker app får åtkomst till Microsoft Graph som appen
+          href: scenario-secure-app-access-microsoft-graph-as-app.md
+        - name: Rensa resurser
+          href: scenario-secure-app-clean-up-resources.md
     - name: App med DB
       items:
         - name: .NET Core med SQL DB

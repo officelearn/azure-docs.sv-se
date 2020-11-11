@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: c4873bded750186f072dd39ddcb8d78941848586
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 870a55e5bc2701df5c03e142522e8490612b2917
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289366"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506064"
 ---
 # <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Diagnostisera konfigurationsproblem för privata länkar i Azure Key Vault
 
@@ -142,21 +142,29 @@ Det här avsnittet är avsett för inlärnings ändamål. När nyckel valvet int
 
 Windows:
 
-    C:\> nslookup fabrikam.vault.azure.net
+```console
+C:\> nslookup fabrikam.vault.azure.net
+```
 
-    Non-authoritative answer:
-    Address:  52.168.109.101
-    Aliases:  fabrikam.vault.azure.net
-              data-prod-eus.vaultcore.azure.net
-              data-prod-eus-region.vaultcore.azure.net
+```output
+Non-authoritative answer:
+Address:  52.168.109.101
+Aliases:  fabrikam.vault.azure.net
+          data-prod-eus.vaultcore.azure.net
+          data-prod-eus-region.vaultcore.azure.net
+```
 
 Linux:
 
-    joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```console
+joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```
 
-    fabrikam.vault.azure.net is an alias for data-prod-eus.vaultcore.azure.net.
-    data-prod-eus.vaultcore.azure.net is an alias for data-prod-eus-region.vaultcore.azure.net.
-    data-prod-eus-region.vaultcore.azure.net has address 52.168.109.101
+```output
+fabrikam.vault.azure.net is an alias for data-prod-eus.vaultcore.azure.net.
+data-prod-eus.vaultcore.azure.net is an alias for data-prod-eus-region.vaultcore.azure.net.
+data-prod-eus-region.vaultcore.azure.net has address 52.168.109.101
+```
 
 Du kan se att namnet matchar en offentlig IP-adress och att det inte finns något `privatelink` alias. Aliaset förklaras senare, oroa dig inte om det nu.
 
@@ -168,23 +176,24 @@ När nyckel valvet har en eller flera privata slut punkts anslutningar i godkän
 
 Windows:
 
-    C:\> nslookup fabrikam.vault.azure.net
+```console
+C:\> nslookup fabrikam.vault.azure.net
+```
 
-    Non-authoritative answer:
-    Address:  52.168.109.101
-    Aliases:  fabrikam.vault.azure.net
-              fabrikam.privatelink.vaultcore.azure.net
-              data-prod-eus.vaultcore.azure.net
-              data-prod-eus-region.vaultcore.azure.net
-
+Icke-auktoritativt svar: adress: 52.168.109.101 alias: fabrikam.vault.azure.net fabrikam.privatelink.vaultcore.azure.net data-prod-eus.vaultcore.azure.net data-prod-eus-region.vaultcore.azure.net
+```
 Linux:
 
-    joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```console
+joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```
 
-    fabrikam.vault.azure.net is an alias for fabrikam.privatelink.vaultcore.azure.net.
-    fabrikam.privatelink.vaultcore.azure.net is an alias for data-prod-eus.vaultcore.azure.net.
-    data-prod-eus.vaultcore.azure.net is an alias for data-prod-eus-region.vaultcore.azure.net.
-    data-prod-eus-region.vaultcore.azure.net has address 52.168.109.101
+```output
+fabrikam.vault.azure.net is an alias for fabrikam.privatelink.vaultcore.azure.net.
+fabrikam.privatelink.vaultcore.azure.net is an alias for data-prod-eus.vaultcore.azure.net.
+data-prod-eus.vaultcore.azure.net is an alias for data-prod-eus-region.vaultcore.azure.net.
+data-prod-eus-region.vaultcore.azure.net has address 52.168.109.101
+```
 
 Den viktiga skillnaden från föregående scenario är att det finns ett nytt alias med värdet `{vaultname}.privatelink.vaultcore.azure.net` . Det innebär att nyckel valvets data plan är redo att ta emot begär Anden från privata länkar.
 
@@ -198,19 +207,27 @@ När nyckel valvet har en eller flera privata slut punkts anslutningar i godkän
 
 Windows:
 
-    C:\> nslookup fabrikam.vault.azure.net
+```console
+C:\> nslookup fabrikam.vault.azure.net
+```
 
-    Non-authoritative answer:
-    Address:  10.1.2.3
-    Aliases:  fabrikam.vault.azure.net
-              fabrikam.privatelink.vaultcore.azure.net
+```output
+Non-authoritative answer:
+Address:  10.1.2.3
+Aliases:  fabrikam.vault.azure.net
+          fabrikam.privatelink.vaultcore.azure.net
+```
 
 Linux:
 
-    joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```console
+joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```
 
-    fabrikam.vault.azure.net is an alias for fabrikam.privatelink.vaultcore.azure.net.
-    fabrikam.privatelink.vaultcore.azure.net has address 10.1.2.3
+```output
+fabrikam.vault.azure.net is an alias for fabrikam.privatelink.vaultcore.azure.net.
+fabrikam.privatelink.vaultcore.azure.net has address 10.1.2.3
+```
 
 Det finns två viktiga skillnader. Först matchas namnet till en privat IP-adress. Det måste vara IP-adressen som vi hittade i [motsvarande avsnitt](#find-the-key-vault-private-ip-address-in-the-virtual-network) i den här artikeln. Sedan finns det inga andra alias efter det `privatelink` . Detta beror på att Virtual Network DNS-servrarna *fångar* upp kedjan med alias och returnerar den privata IP-adressen direkt från namnet `fabrikam.privatelink.vaultcore.azure.net` . Posten är i själva verket en `A` post i en privat DNS zon. Mer information om detta kommer att följa.
 
@@ -227,7 +244,7 @@ Om DNS-matchningen inte fungerar enligt beskrivningen i föregående avsnitt, ka
 
 Din Azure-prenumeration måste ha en [privat DNS zon](../../dns/private-dns-privatednszone.md) resurs med det här exakta namnet:
 
-    privatelink.vaultcore.azure.net
+`privatelink.vaultcore.azure.net`
 
 Du kan söka efter den här resursens förekomst genom att gå till prenumerations sidan i portalen och välja resurser på den vänstra menyn. Resurs namnet måste vara `privatelink.vaultcore.azure.net` och resurs typen måste vara **privat DNS zon**.
 
@@ -282,37 +299,48 @@ Ditt nyckel valv ger `/healthstatus` slut punkten som kan användas för diagnos
 
 Windows (PowerShell):
 
-    PS C:\> $(Invoke-WebRequest -UseBasicParsing -Uri https://fabrikam.vault.azure.net/healthstatus).Headers
+```powershell
+PS C:\> $(Invoke-WebRequest -UseBasicParsing -Uri https://fabrikam.vault.azure.net/healthstatus).Headers
+```
 
-    Key                           Value
-    ---                           -----
-    Pragma                        no-cache
-    x-ms-request-id               3729ddde-eb6d-4060-af2b-aac08661d2ec
-    x-ms-keyvault-service-version 1.2.27.0
-    x-ms-keyvault-network-info    addr=10.4.5.6;act_addr_fam=InterNetworkV6;
-    Strict-Transport-Security     max-age=31536000;includeSubDomains
-    Content-Length                4
-    Cache-Control                 no-cache
-    Content-Type                  application/json; charset=utf-8
+```output
+Key                           Value
+---                           -----
+Pragma                        no-cache
+x-ms-request-id               3729ddde-eb6d-4060-af2b-aac08661d2ec
+x-ms-keyvault-service-version 1.2.27.0
+x-ms-keyvault-network-info    addr=10.4.5.6;act_addr_fam=InterNetworkV6;
+Strict-Transport-Security     max-age=31536000;includeSubDomains
+Content-Length                4
+Cache-Control                 no-cache
+Content-Type                  application/json; charset=utf-8
+```
 
 Linux eller en ny version av Windows 10 som innehåller `curl` :
 
-    joe@MyUbuntu:~$ curl -i https://fabrikam.vault.azure.net/healthstatus
-    HTTP/1.1 200 OK
-    Cache-Control: no-cache
-    Pragma: no-cache
-    Content-Type: application/json; charset=utf-8
-    x-ms-request-id: 6c090c46-0a1c-48ab-b740-3442ce17e75e
-    x-ms-keyvault-service-version: 1.2.27.0
-    x-ms-keyvault-network-info: addr=10.4.5.6;act_addr_fam=InterNetworkV6;
-    Strict-Transport-Security: max-age=31536000;includeSubDomains
-    Content-Length: 4
+```console
+joe@MyUbuntu:~$ curl -i https://fabrikam.vault.azure.net/healthstatus
+```
+
+```output
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Pragma: no-cache
+Content-Type: application/json; charset=utf-8
+x-ms-request-id: 6c090c46-0a1c-48ab-b740-3442ce17e75e
+x-ms-keyvault-service-version: 1.2.27.0
+x-ms-keyvault-network-info: addr=10.4.5.6;act_addr_fam=InterNetworkV6;
+Strict-Transport-Security: max-age=31536000;includeSubDomains
+Content-Length: 4
+```
 
 Om du inte får utdata som liknar den, eller om du får ett nätverks fel, betyder det att ditt nyckel valv inte är tillgängligt via det värdnamn du angav ( `fabrikam.vault.azure.net` i exemplet). Antingen matchar värd namnet inte rätt IP-adress, eller så har du ett anslutnings problem på transport lagret. Det kan bero på problem med routningen, paket droppar och andra orsaker. Du måste undersöka ytterligare.
 
 Svaret måste innehålla sidhuvud `x-ms-keyvault-network-info` :
 
-    x-ms-keyvault-network-info: addr=10.4.5.6;act_addr_fam=InterNetworkV6;
+```console
+x-ms-keyvault-network-info: addr=10.4.5.6;act_addr_fam=InterNetworkV6;
+```
 
 `addr`Fältet i `x-ms-keyvault-network-info` rubriken visar IP-adressen för begärans ursprung. Den här IP-adressen kan vara något av följande:
 
@@ -330,11 +358,15 @@ Svaret måste innehålla sidhuvud `x-ms-keyvault-network-info` :
 
 Om du har installerat en ny version av PowerShell kan du använda `-SkipCertificateCheck` för att hoppa över https-certifikats kontroller, och sedan kan du rikta [nyckel valvets IP-adress](#find-the-key-vault-private-ip-address-in-the-virtual-network) direkt:
 
-    PS C:\> $(Invoke-WebRequest -SkipCertificateCheck -Uri https://10.1.2.3/healthstatus).Headers
+```powershell
+PS C:\> $(Invoke-WebRequest -SkipCertificateCheck -Uri https://10.1.2.3/healthstatus).Headers
+```
 
 Om du använder `curl` kan du göra det med följande `-k` argument:
 
-    joe@MyUbuntu:~$ curl -i -k https://10.1.2.3/healthstatus
+```console
+joe@MyUbuntu:~$ curl -i -k https://10.1.2.3/healthstatus
+```
 
 Svaren måste vara samma som i föregående avsnitt, vilket innebär att det måste innehålla `x-ms-keyvault-network-info` rubriken med samma värde. `/healthstatus`Slut punkten är inte försiktig om du använder Key Vault-värdnamnet eller IP-adressen.
 

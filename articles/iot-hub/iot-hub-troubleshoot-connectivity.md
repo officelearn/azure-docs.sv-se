@@ -13,12 +13,14 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: Technical Support'
-ms.openlocfilehash: f7073fbf39344fe39e179d55a5a8f395a6ba6240
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+- fasttrack-edit
+- iot
+ms.openlocfilehash: b179bb3566cc19b8033a56348db34cd1f05cee10
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357423"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506404"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Övervaka, diagnostisera och Felsök från koppling med Azure IoT Hub
 
@@ -159,6 +161,11 @@ AzureDiagnostics
 Som en IoT-lösnings utvecklare eller-operatör måste du vara medveten om det här beteendet för att kunna tolka anslutnings-/från kopplings händelser och relaterade fel i loggarna. Om du vill ändra token-livs längd eller förnyelse beteendet för enheter kontrollerar du om enheten implementerar en enhets inställning eller en enhets metod som gör det möjligt.
 
 Om du övervakar enhets anslutningar med Händelsehubben, se till att du bygger på ett sätt att filtrera bort periodiska från kopplingar på grund av förnyelse av SAS-token. till exempel, genom att inte utlösa åtgärder baserat på från koppling så länge händelsen från koppling följs av en anslutnings händelse inom ett visst tidsintervall.
+
+> [!NOTE]
+> IoT Hub stöder endast en aktiv MQTT-anslutning per enhet. Alla nya MQTT-anslutningar på uppdrag av samma enhets-ID gör att IoT Hub släppa den befintliga anslutningen.
+>
+> 400027 ConnectionForcefullyClosedOnNewConnection kommer att loggas in i IoT Hub loggar
 
 ## <a name="i-tried-the-steps-but-they-didnt-work"></a>Jag försökte utföra stegen, men de fungerade inte
 

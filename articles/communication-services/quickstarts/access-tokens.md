@@ -3,27 +3,27 @@ title: Snabb start – skapa och hantera åtkomsttoken
 titleSuffix: An Azure Communication Services quickstart
 description: Lär dig hur du hanterar identiteter och åtkomsttoken med hjälp av Azure Communication Services administrations klient bibliotek.
 author: tomaschladek
-manager: jken
+manager: nmurav
 services: azure-communication-services
 ms.author: tchladek
 ms.date: 08/20/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: e323f1f50fe6c67a841c300fcbec1eed3afc4497
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: b67d0808643797d88628b626403c1b9d97cf1cad
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074132"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506244"
 ---
 # <a name="quickstart-create-and-manage-access-tokens"></a>Snabb start: skapa och hantera åtkomsttoken
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Kom igång med Azure Communication Services med hjälp av klient biblioteket kommunikations tjänster för administration för att etablera och hantera dina åtkomsttoken. Med åtkomst-token kan chatten och anropa klient biblioteken autentisera direkt mot Azure Communication Services. Dessa tokens genereras på en server sidans etablerings tjänst för token som du implementerar. De används sedan för att initiera klient biblioteken för kommunikations tjänster på klient enheter.
+Kom igång med Azure Communication Services med hjälp av klient biblioteket för administration av kommunikations tjänster. Det gör att du kan skapa identiteter och hantera dina åtkomst-token. Identiteten representerar entiteten för ditt program i Azure Communication Service (till exempel användare eller enhet). Med åtkomst-token kan chatten och anropa klient biblioteken autentisera direkt mot Azure Communication Services. Vi rekommenderar att du genererar åtkomsttoken på en server-side-tjänst. Åtkomsttoken används sedan för att initiera klient biblioteken för kommunikations tjänster på klient enheter.
 
-Observera att alla priser som visas i bilder i den här självstudien endast är till exempel syfte.
+Alla priser som visas i bilder i den här självstudien är endast i demonstrations syfte.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [.NET](./includes/user-access-token-net.md)]
@@ -46,15 +46,14 @@ Utdata från appen beskriver varje åtgärd som slutförs:
 ```console
 Azure Communication Services - Access Tokens Quickstart
 
-Issued a access token with 'voip' scope for identity with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-1400da9050:
+Created an identity: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
+
+Issued a access token with 'voip' scope for identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502:
 <token signature here>
 
-Issued a access token with 'chat' scope for identity with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-1400da9050:
-<token signature here>
+Successfully deleted the identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
 
-Successfully deleted the identity with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-1400da9050
-
-Deleted the identity with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-1400da9050
+Deleted the identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
 ```
 <!---cSpell:enable --->
 
@@ -63,7 +62,7 @@ Deleted the identity with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-
 Om du vill rensa och ta bort en kommunikations tjänst prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den. Läs mer om att [Rensa resurser](./create-communication-resource.md#clean-up-resources).
 
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 I den här snabbstarten har du lärt dig att:
 
@@ -81,3 +80,4 @@ Du kanske också vill:
  - [Läs mer om autentisering](../concepts/authentication.md)
  - [Lägga till chatt i din app](./chat/get-started.md)
  - [Lär dig mer om klient-och server arkitektur](../concepts/client-and-server-architecture.md)
+ 

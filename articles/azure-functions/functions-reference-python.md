@@ -4,12 +4,12 @@ description: Förstå hur du utvecklar funktioner med python
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: cc99a8c10ecefc063fdb89c61bdaeb0e686b1a82
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: ce8abf439c44e06134113dd562ebadc62b803a28
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358056"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506081"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guide för Azure Functions python-utvecklare
 
@@ -312,10 +312,10 @@ En nyckel för att förbättra prestandan är att förstå hur appen använder r
 
 Standardkonfigurationerna passar för de flesta Azure Functions-program. Du kan dock förbättra prestandan för dina programs data flöde genom att använda konfigurationer baserade på din arbets belastnings profil. Det första steget är att förstå vilken typ av arbets belastning som körs.
 
-|&nbsp;| I/O-Bound-arbetsbelastning | PROCESSOR-bindande arbets belastning |
+| | I/O-Bound-arbetsbelastning | PROCESSOR-bindande arbets belastning |
 |--| -- | -- |
-|Egenskaper för Function-appen| <ul><li>Appen måste hantera många samtidiga anrop.</li> <li> App bearbetar ett stort antal I/O-händelser, t. ex. nätverks anrop och disk läsning/skrivning.</li> </ul>| <ul><li>I appen körs tids krävande beräkningar, till exempel bild storleks ändring.</li> <li>Data omvandlingen används av appen.</li> </ul> |
-|Exempel| <ul><li>Webb-API:er</li><ul> | <ul><li>Databearbetning</li><li> Maskin inlärnings störningar</li><ul>|
+|**Egenskaper för Function-appen**| <ul><li>Appen måste hantera många samtidiga anrop.</li> <li> App bearbetar ett stort antal I/O-händelser, t. ex. nätverks anrop och disk läsning/skrivning.</li> </ul>| <ul><li>I appen körs tids krävande beräkningar, till exempel bild storleks ändring.</li> <li>Data omvandlingen används av appen.</li> </ul> |
+|**Exempel**| <ul><li>Webb-API:er</li><ul> | <ul><li>Databearbetning</li><li> Maskin inlärnings störningar</li><ul>|
 
 
 > [!NOTE]

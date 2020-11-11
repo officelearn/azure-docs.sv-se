@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: alkohli
-ms.openlocfilehash: eeefbcdc080620c60f7cd49b8f749375e23ddd02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0d02532f39d676772e5ee5d6414b802faffba7c
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899707"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505945"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>Distribuera virtuella datorer på din Azure Stack Edge Pro GPU-enhet via mallar
 
@@ -149,7 +149,7 @@ I en typisk miljö skulle du ha konfigurerat din DNS så att alla lagrings konto
 
 ### <a name="optional-install-certificates"></a>Valfritt Installera certifikat
 
-Hoppa över det här steget om du vill ansluta via Storage Explorer med *http*. Om du använder *https*måste du installera lämpliga certifikat i Storage Explorer. I det här fallet installerar du Blob-slutpunktens certifikat. Mer information finns i så här skapar du och laddar upp certifikat i [Hantera certifikat](azure-stack-edge-j-series-manage-certificates.md). 
+Hoppa över det här steget om du vill ansluta via Storage Explorer med *http*. Om du använder *https* måste du installera lämpliga certifikat i Storage Explorer. I det här fallet installerar du Blob-slutpunktens certifikat. Mer information finns i så här skapar du och laddar upp certifikat i [Hantera certifikat](azure-stack-edge-j-series-manage-certificates.md). 
 
 ### <a name="create-and-upload-a-vhd"></a>Skapa och ladda upp en VHD
 
@@ -189,15 +189,15 @@ Kopiera eventuella disk avbildningar som ska användas i sid-blobar i det lokala
 
     ![Anslut till Azure Storage 2](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-azure-storage-2.png)
 
-6. I **Anslut med namn och nyckel**anger du **visnings namn**, **lagrings konto namn**Azure Storage **konto nyckel**. Välj en **annan** lagrings domän och ange sedan `<device name>.<DNS domain>` anslutnings strängen. Om du inte har installerat ett certifikat i Storage Explorer, kontrollerar du alternativet **Använd http** . Välj **Nästa**.
+6. I **Anslut med namn och nyckel** anger du **visnings namn** , **lagrings konto namn** Azure Storage **konto nyckel**. Välj en **annan** lagrings domän och ange sedan `<device name>.<DNS domain>` anslutnings strängen. Om du inte har installerat ett certifikat i Storage Explorer, kontrollerar du alternativet **Använd http** . Välj **Nästa**.
 
     ![Anslut med namn och nyckel](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-name-key-1.png)
 
 7. Granska **anslutnings sammanfattningen** och välj **Anslut**.
 
-8. Lagrings kontot visas i den vänstra rutan. Välj och expandera lagrings kontot. Välj **BLOB-behållare**, högerklicka och välj **skapa BLOB-behållare**. Ange ett namn för din BLOB-behållare.
+8. Lagrings kontot visas i den vänstra rutan. Välj och expandera lagrings kontot. Välj **BLOB-behållare** , högerklicka och välj **skapa BLOB-behållare**. Ange ett namn för din BLOB-behållare.
 
-9. Välj den behållare som du nyss skapade och välj **Ladda upp > Ladda upp filer**i den högra rutan. 
+9. Välj den behållare som du nyss skapade och välj **Ladda upp > Ladda upp filer** i den högra rutan. 
 
     ![Ladda upp VHD-fil 1](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/upload-vhd-file-1.png)
 
@@ -402,7 +402,7 @@ Distribuera mallen `CreateImageAndVnet.json` . Den här mallen distribuerar VNet
 
 ### <a name="edit-parameters-file-to-create-vm"></a>Redigera parameter filen för att skapa en virtuell dator
  
-Använd parameter filen om du vill skapa en virtuell dator `CreateVM.parameters.json` . Det tar följande parametrar.
+Skapa en virtuell dator med parameterfilen `CreateVM.parameters.json`. Det tar följande parametrar.
     
 ```json
 "vmName": {
@@ -441,7 +441,7 @@ Tilldela lämpliga parametrar i `CreateVM.parameters.json` för din Azure Stack 
 
 1. Ange ett unikt namn, ett namn på ett nätverks gränssnitt och ett namn för ipconfig. 
 1. Ange ett användar namn, lösen ord och en VM-storlek som stöds.
-1. Ge samma namn för **VnetName**, **subnetName**och **ImageName** som anges i parametrarna för `CreateImageAndVnet.parameters.json` . Om du till exempel har angett VnetName, subnetName och ImageName som **vnet1**, **subnet1**och **image1**behåller du samma värden för parametrarna i den här mallen också.
+1. Ge samma namn för **VnetName** , **subnetName** och **ImageName** som anges i parametrarna för `CreateImageAndVnet.parameters.json` . Om du till exempel har angett VnetName, subnetName och ImageName som **vnet1** , **subnet1** och **image1** behåller du samma värden för parametrarna i den här mallen också.
 1. Nu behöver du en statisk IP-adress för att tilldela den virtuella datorn som finns i det undernäts nätverk som anges ovan. Ersätt **PrivateIPAddress** med den här adressen i parameter filen. Lämna värdet tomt om du vill att den virtuella datorn ska få en IP-adress från din lokala DCHP-server `privateIPAddress` .  
     
     ```json
@@ -550,7 +550,8 @@ Distribuera mallen för att skapa virtuella datorer `CreateVM.json` . Den här m
         
         PS C:\07-30-2020>
     ```   
-Du kan också köra `New-AzureRmResourceGroupDeployment` kommandot asynkront med `–AsJob` parametern. Här är ett exempel på utdata när cmdleten körs i bakgrunden. Du kan sedan fråga statusen för jobbet som skapas med hjälp av `Get-Job` cmdleten.
+
+    Du kan också köra `New-AzureRmResourceGroupDeployment` kommandot asynkront med `–AsJob` parametern. Här är ett exempel på utdata när cmdleten körs i bakgrunden. Du kan sedan fråga statusen för jobbet som skapas med hjälp av `Get-Job` cmdleten.
 
     ```powershell   
     PS C:\WINDOWS\system32> New-AzureRmResourceGroupDeployment `
@@ -568,7 +569,6 @@ Du kan också köra `New-AzureRmResourceGroupDeployment` kommandot asynkront med
      
     Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
     --     ----            -------------   -----         -----------     --------             -------
-    2      Long Running... AzureLongRun... Completed     True            localhost            New-AzureRmResourceGro...
     ```
 
 7. Kontrol lera om den virtuella datorn har kon figurer ATS. Kör följande kommando:
@@ -615,7 +615,7 @@ On the client used to access your Azure Stack Edge Pro device, set up a global v
 
 ### On Windows client 
 
-`$Env:AZCOPY_DEFAULT_SERVICE_API_VERSION = "2017-11-09"`
+`$Env:AZCOPY_DEFAULT_SERVICE_API_VERSION = "2017-11-09"`
 
 ### On Linux client
 

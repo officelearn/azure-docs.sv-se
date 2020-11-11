@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: bb2ac221169cea84205d087cbe0aadfd035d22db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49a4ab0315dad539a594a20e53eae9fd2890e551
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760520"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504976"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Felsöka problem med att aktivera Application Insights Snapshot Debugger eller Visa ögonblicks bilder
 Om du har aktiverat Application Insights Snapshot Debugger för ditt program, men inte ser några ögonblicks bilder för undantag, kan du använda dessa instruktioner för att felsöka. Det kan finnas många olika orsaker till att ögonblicksbilder inte genereras. Du kan köra hälso kontrollen av ögonblicks bilder för att identifiera några av de möjliga vanliga orsakerna.
@@ -57,19 +57,21 @@ Du kontrollerar inställningen genom att öppna web.config-filen och leta upp av
 > Om targetFramework är 4,7 eller högre, fastställer Windows de tillgängliga protokollen. I Azure App Service är TLS 1,2 tillgängligt. Men om du använder din egen virtuella dator kan du behöva aktivera TLS 1,2 i operativ systemet.
 
 ## <a name="preview-versions-of-net-core"></a>För hands versioner av .NET Core
-Om programmet använder en för hands version av .NET Core och Snapshot Debugger har Aktiver ATS genom [Application Insightss fönstret](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) i portalen, kan Snapshot debugger starta. Följ anvisningarna på [aktivera Snapshot debugger för andra miljöer för](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) att först inkludera paketet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet med programmet, ***förutom*** att aktivera i [Application Insightss fönstret](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
+Om programmet använder en för hands version av .NET Core och Snapshot Debugger har Aktiver ATS genom [Application Insightss fönstret](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) i portalen, kan Snapshot debugger starta. Följ anvisningarna på [aktivera Snapshot debugger för andra miljöer för](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) att först ta med NuGet-paketet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) med programmet * **i tillägg** i [Application Insightss fönstret](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
 
 
 ## <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>Uppgradera till den senaste versionen av NuGet-paketet
 
 Om Snapshot Debugger har Aktiver ATS via [Application Insightss fönstret i portalen](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)bör ditt program redan köra det senaste NuGet-paketet. Om Snapshot Debugger har Aktiver ATS genom att inkludera paketet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet, använder du Visual Studios NuGet Package Manager för att kontrol lera att du använder den senaste versionen av Microsoft. ApplicationInsights. SnapshotCollector.
 
+De senaste uppdateringarna och fel korrigeringarna [finns i viktig information](./snapshot-collector-release-notes.md).
+
 ## <a name="check-the-uploader-logs"></a>Kontrol lera avuppladdnings loggarna
 
 När en ögonblicks bild har skapats skapas en MiniDump-fil (. dmp) på disk. En separat överförings process skapar den Minidump-filen och laddar upp den, tillsammans med eventuella associerade PDBs, för att Application Insights Snapshot Debugger-lagring. När Minidump har laddats upp tas den bort från disken. Loggfilerna för Inhämtnings processen sparas på disken. I en App Service-miljö kan du hitta dessa loggar i `D:\Home\LogFiles` . Använd webbplatsen för hantering av kudu för App Service för att hitta loggfilerna.
 
 1. Öppna ditt App Service-program i Azure Portal.
-2. Klicka på **Avancerade verktyg**eller Sök efter **kudu**.
+2. Klicka på _ * avancerade verktyg * * eller Sök efter **kudu**.
 3. Klicka på **gå**.
 4. I list rutan **fel söknings konsol** väljer du **cmd**.
 5. Klicka på **loggfiler**.

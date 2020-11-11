@@ -114,15 +114,7 @@
     - name: Datakällor
       href: platform/data-sources.md
     - name: Dataplattform
-      items:
-        - name: Översikt
-          href: platform/data-platform.md
-        - name: Loggar
-          href: platform/data-platform-logs.md
-        - name: Mått
-          href: platform/data-platform-metrics.md
-        - name: Strömma data till Event Hubs
-          href: platform/stream-monitoring-data-event-hubs.md
+      href: platform/data-platform.md
     - name: Datasäkerhet
       items:
         - name: Loggdata
@@ -188,98 +180,13 @@
               href: app/pricing.md
             - name: Logga dataanvändning och -kostnader
               href: platform/manage-cost-storage.md
-    - name: Plattformsloggar
+    - name: Azure Monitor-loggar
       items:
         - name: Översikt
-          displayName: 'Platform logs, Resource logs, Activity log'
-          href: platform/platform-logs-overview.md
-        - name: Aktivitetslogg
-          href: platform/activity-log.md
-        - name: Resursloggar
-          href: platform/resource-logs.md
-        - name: Diagnostikinställningar
-          displayName: 'Platform logs, Resource logs, Activity log'
-          href: platform/diagnostic-settings.md
-    - name: Log Analytics
-      items:
-        - name: Översikt
-          displayname: 'Log Analytics, log query, log queries, query, queries'
-          href: log-query/log-query-overview.md
-        - name: Självstudier
-          displayname: 'Log Analytics workspace, log query, log queries, query, queries'
-          href: log-query/get-started-portal.md
-        - name: Frågeomfång
-          href: log-query/scope.md
-        - name: Köra frågor med Azure Data Explorer
-          href: platform/azure-data-explorer-monitor-proxy.md
-        - name: Loggfrågor
-          items:
-            - name: Standardkolumner
-              href: platform/log-standard-columns.md
-            - name: Granskningsfrågor
-              href: log-query/query-audit.md
-            - name: Optimera frågor
-              href: log-query/query-optimization.md
-            - name: Funktioner
-              href: log-query/functions.md
-            - name: Parsa textdata
-              href: log-query/parse-text.md
-            - name: Exempelfrågor
-              href: log-query/saved-queries.md
-            - name: Datorgrupper
-              href: platform/computer-groups.md
-        - name: Frågespråk
-          items:
-            - name: KQL-referens
-              href: /azure/data-explorer/kusto/query/
-            - name: Skillnad jämfört med Azure Data Explorer
-              href: log-query/data-explorer-difference.md
-            - name: Exempel
-              href: log-query/examples.md
-            - name: Exempel på smart analys
-              href: log-query/smart-analytics.md
-            - name: Lektioner
-              items:
-                - name: Strängåtgärder
-                  href: log-query/string-operations.md
-                - name: Åtgärder för datum och tid
-                  href: log-query/datetime-operations.md
-                - name: Aggregeringsfunktioner
-                  href: log-query/aggregations.md
-                - name: Avancerade aggregeringar
-                  href: log-query/advanced-aggregations.md
-                - name: Kopplingar
-                  href: log-query/joins.md
-                - name: JSON och datastrukturer
-                  href: log-query/json-data-structures.md
-                - name: Avancerad frågeskrivning
-                  href: log-query/advanced-query-writing.md
-                - name: Grafer och diagram
-                  href: log-query/charts.md
-                - name: Sökfrågor
-                  href: log-query/search-queries.md
-            - name: Översiktsblad
-              items:
-                - name: SQL
-                  href: log-query/sql-cheatsheet.md
-                - name: Splunk
-                  href: log-query/splunk-cheatsheet.md
-        - name: Frågor mellan resurser
-          items:
-            - name: Översikt
-              href: log-query/cross-workspace-query.md
-            - name: uttryck för app
-              href: log-query/app-expression.md
-            - name: uttryck för arbetsyta
-              href: log-query/workspace-expression.md
-            - name: resursuttryck
-              href: log-query/resource-expression.md
-            - name: Gör dina programdataresurser enhetliga
-              href: log-query/unify-app-resource-data.md
+          displayname: 'Azure Monitor Logs, Logs, Log Analytics, log query, log queries, query, queries'
+          href: platform/data-platform-logs.md
         - name: Arbetsytor och kluster
           items:
-            - name: Designa en arbetsyta för distribution
-              href: platform/design-logs-deployment.md
             - name: Skapa en arbetsyta
               items:
                 - name: Azure Portal
@@ -288,6 +195,8 @@
                   href: learn/quick-create-workspace-cli.md
                 - name: PowerShell
                   href: platform/powershell-workspace-configuration.md
+            - name: Designa en arbetsyta för distribution
+              href: platform/design-logs-deployment.md
             - name: Övervaka en arbetsyta
               href: platform/monitor-workspace.md
             - name: Ta bort och återställa en arbetsyta
@@ -301,6 +210,50 @@
               href: platform/service-providers.md
             - name: Dedikerade kluster
               href: log-query/logs-dedicated-clusters.md
+        - name: Log Analytics
+          items:
+            - name: Översikt
+              displayname: 'Log Analytics, log query, log queries, query, queries'
+              href: log-query/log-analytics-overview.md
+            - name: Självstudier
+              displayname: 'Log Analytics workspace, log query, log queries, query, queries'
+              href: log-query/log-analytics-tutorial.md
+            - name: Frågeomfång
+              href: log-query/scope.md
+            - name: Exempelfrågor
+              href: log-query/example-queries.md
+        - name: Loggfrågor
+          items:
+            - name: Översikt
+              displayname: 'log query, log queries, query, queries'
+              href: log-query/log-query-overview.md
+            - name: KQL-referens
+              href: /azure/data-explorer/kusto/query/
+            - name: Exempelfrågor
+              href: /azure/data-explorer/kusto/query/samples?&pivots=azuremonitor
+            - name: Standardkolumner
+              href: platform/log-standard-columns.md
+            - name: Optimera frågor
+              href: log-query/query-optimization.md
+            - name: Funktioner
+              href: log-query/functions.md
+            - name: Parsa textdata
+              href: log-query/parse-text.md
+            - name: Datorgrupper
+              href: platform/computer-groups.md
+            - name: Frågor mellan resurser
+              items:
+                - name: Översikt
+                  displayname: cross-resource queries
+                  href: log-query/cross-workspace-query.md
+                - name: uttryck för app
+                  href: log-query/app-expression.md
+                - name: uttryck för arbetsyta
+                  href: log-query/workspace-expression.md
+                - name: resursuttryck
+                  href: log-query/resource-expression.md
+                - name: Gör dina programdataresurser enhetliga
+                  href: log-query/unify-app-resource-data.md
         - name: Dataexport
           items:
             - name: Dataexport för arbetsyta
@@ -309,16 +262,33 @@
               href: platform/logs-export-logic-app.md
             - name: Köra frågor mot exporterade data med Datautforskaren
               href: platform/azure-data-explorer-query-storage.md
-    - name: Måttutforskare
+    - name: Azure Monitor-statistik
       items:
-        - name: Komma igång med Metrics Explorer
-          href: platform/metrics-getting-started.md
-        - name: Avancerade funktioner i Metrics Explorer
-          href: platform/metrics-charts.md
-        - name: Exempel på måttdiagram
-          href: platform/metric-chart-samples.md
-        - name: Felsöka måttdiagram
-          href: platform/metrics-troubleshoot.md
+        - name: Översikt
+          displayname: Metrics
+          href: platform/data-platform-metrics.md
+        - name: Måttutforskare
+          items:
+            - name: Komma igång med Metrics Explorer
+              href: platform/metrics-getting-started.md
+            - name: Avancerade funktioner i Metrics Explorer
+              href: platform/metrics-charts.md
+            - name: Exempel på måttdiagram
+              href: platform/metric-chart-samples.md
+            - name: Felsöka måttdiagram
+              href: platform/metrics-troubleshoot.md
+    - name: Plattformsloggar
+      items:
+        - name: Översikt
+          displayName: 'Platform logs, Resource logs, Activity log'
+          href: platform/platform-logs-overview.md
+        - name: Aktivitetslogg
+          href: platform/activity-log.md
+        - name: Resursloggar
+          href: platform/resource-logs.md
+        - name: Diagnostikinställningar
+          displayName: 'Platform logs, Resource logs, Activity log'
+          href: platform/diagnostic-settings.md
     - name: Datainsamling
       items:
         - name: Regler för datainsamling

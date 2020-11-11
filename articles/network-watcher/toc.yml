@@ -29,7 +29,7 @@
 - name: Begrepp
   items:
     - name: Anslutningsövervakaren (förhandsversion)
-      href: connection-monitor-preview.md
+      href: connection-monitor-overview.md
     - name: Diagnostisera problem med VM-nätverkstrafikfilter
       href: network-watcher-ip-flow-verify-overview.md
     - name: Diagnostisera NSG-regler och trafikfiltrering
@@ -61,9 +61,9 @@
     - name: Skapa anslutningsövervakaren (förhandsversion)
       items:
         - name: Använda Azure Portal
-          href: connection-monitor-preview-create-using-portal.md
+          href: connection-monitor-create-using-portal.md
         - name: Använda ARMClient
-          href: connection-monitor-preview-create-using-arm-client.md
+          href: connection-monitor-create-using-template.md
         - name: Använda PowerShell
           href: connection-monitor-create-using-powershell.md
     - name: Migrera till anslutningsövervakaren (förhandsversion)

@@ -1,50 +1,53 @@
 ---
 title: Uppgradera med dumpa och Återställ-Azure Database for PostgreSQL-enskild server
-description: Beskriver några metoder för att dumpa och återställa databaser för att migrera till en högre version Azure Database for PostgreSQL-enskild server.
+description: Beskriver metoder för att uppgradera offline med hjälp av dumpa och Återställ databaser för att migrera till en högre version Azure Database for PostgreSQL-en server.
 author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 11/05/2020
-ms.openlocfilehash: 6dfcf0b2ec1d46821007123908a8e7ba8df29744
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.date: 11/10/2020
+ms.openlocfilehash: e756e033c8e5b2508dca9bde76ad16be26a940fa
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421778"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505792"
 ---
 # <a name="upgrade-your-postgresql-database-using-dump-and-restore"></a>Uppgradera PostgreSQL-databasen med hjälp av dumpa och Återställ
 
-I Azure Database for PostgreSQL-enskild server rekommenderar vi att du uppgraderar PostgreSQL-databasmotorn till en högre huvud version med någon av följande metoder:
-* Offline-metod med PostgreSQL [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) och [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html). I den här metoden utför du först dumpningen från käll servern och återställer sedan den dumpen på mål servern.
-* Online-metod med [**Database migration service**](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal) (DMS). Den här metoden sparar mål databasen i Sync med källan och du kan välja när du vill klippa ut. Det finns dock vissa krav och begränsningar som ska åtgärdas. 
+Du kan uppgradera din PostgreSQL-server som distribueras i Azure Database for PostgreSQL-enskild server genom att migrera dina databaser till en högre huvud versions server med hjälp av följande metoder.
+* **Offline** -Metod med postgresql [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) och [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) som medför stillestånds tid för att migrera data. Det här dokumentet beskriver den här metoden för uppgradering/migrering.
+* **Online** -metod med [Database migration service](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal) (DMS). Med den här metoden kan du minska stillestånds tiden och hålla mål databasen synkroniserad med med källan och du kan välja när du vill klippa ut. Det finns dock några krav och begränsningar som kan åtgärdas med hjälp av DMS. Mer information finns i [dokumentation om DMS](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal). 
 
-Du kan använda följande rekommendationer när du väljer mellan online-och offline-metoder för att utföra större versions uppgraderingar.
+ Följande tabell innehåller några rekommendationer baserat på databasens storlek och scenarier.
 
-| **Databas** | **Dumpa/Återställ (offline)** | **DMS (online)** |
+| **Databas/scenario** | **Dumpa/Återställ (offline)** | **DMS (online)** |
 | ------ | :------: | :-----: |
 | Du har en liten databas och kan erbjuda drift stopp vid uppgradering  | X | |
 | Små databaser (< 10 GB)  | X | X | 
 | Liten – medels databaser (10 GB – 100 GB) | X | X |
 | Stora databaser (> 100 GB) |  | X |
 | Kan ge ett drift stopp vid uppgraderingen (oavsett databasens storlek) | X |  |
-| Kan du ta itu med [krav för DMS,](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal#prerequisites) inklusive en omstart? |  | X |
+| Kan du hantera [krav för](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal#prerequisites)DMS, inklusive en omstart? |  | X |
 | Kan du undvika DDLs och ej loggade tabeller under uppgraderings processen? | |  X |
 
-Den här instruktions guiden innehåller två exempel metoder för hur du uppgraderar dina databaser med hjälp av PostgreSQL pg_dump och pg_restore kommandon. Processen i det här dokumentet kallas **uppgradering** , trots att databasen  **migreras** från käll servern till mål servern. 
+Den här guiden innehåller några metoder för offline-migrering och exempel som visar hur du kan migrera från käll servern till mål servern som kör en senare version av PostgreSQL.
 
 > [!NOTE]
-> PostgreSQL-dump och återställning kan utföras på många sätt. Du kan välja att använda olika metoder än vad som anges i det här dokumentet. Om du till exempel vill göra en dump som följs av återställning från en PostgreSQL-klient, se [dokumentationen](./howto-migrate-using-dump-and-restore.md) för steg-för-steg-instruktioner och bästa praxis. För detaljerad dumpning och återställning av syntax med ytterligare parametrar, se artiklarna [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) och [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html). 
+> PostgreSQL-dump och återställning kan utföras på många sätt. Du kan välja att migrera med hjälp av någon av de metoder som anges i den här hand boken eller välja alternativ som passar dina behov. För detaljerad dumpning och återställning av syntax med ytterligare parametrar, se artiklarna [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) och [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html). 
 
 
-## <a name="prerequisites-for-using-dump-and-restore-with-azure-postgresql"></a>Krav för att använda dump och återställning med Azure PostgreSQL
+## <a name="prerequisites-for-using-dump-and-restore-with-azure-database-for-postgresql"></a>Krav för att använda dump och Restore med Azure Database for PostgreSQL
  
 För att gå igenom den här instruktions guiden behöver du:
-- En käll databas som kör 9,5, 9,6 eller 10 (Azure Database for PostgreSQL – enskild server)
-- Mål databas server med önskad PostgreSQL huvud version [Azure Database for postgresql-server](quickstart-create-server-database-portal.md). 
-- Ett klient system (Linux) med PostgreSQL installerat och har [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) och [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) kommando rads verktyg installerade. 
-- Du kan också använda [Azure Cloud Shell](https://shell.azure.com) eller genom att klicka på Azure Cloud Shell i meny fältet längst upp till höger i [Azure Portal](https://portal.azure.com). Du måste logga in på ditt konto `az login` innan du kör dump-och Restore-kommandona.
-- Din PostgreSQL-klient plats, till exempel en virtuell dator som helst som körs i samma region som käll-och mål servrar). 
+
+- En **käll** PostgreSQL-databas som kör 9,5, 9,6 eller 10 som du vill uppgradera
+- En **mål** databas server för postgresql med önskad huvud version [Azure Database for postgresql server](quickstart-create-server-database-portal.md). 
+- Ett PostgreSQL klient system som kör dump-och Restore-kommandon.
+  - Det kan vara en Linux-eller Windows-klient med PostgreSQL installerat och har [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) och [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) kommando rads verktyg är installerade. 
+  - Du kan också använda [Azure Cloud Shell](https://shell.azure.com) eller genom att klicka på Azure Cloud Shell i meny fältet längst upp till höger i [Azure Portal](https://portal.azure.com). Du måste logga in på ditt konto `az login` innan du kör dump-och Restore-kommandona.
+- Din PostgreSQL-klient använder helst i samma region som käll-och mål servrarna. 
+
 
 ## <a name="additional-details-and-considerations"></a>Ytterligare information och överväganden
 - Du kan hitta anslutnings strängen för käll-och mål databaserna genom att klicka på anslutnings strängarna i portalen. 
@@ -52,16 +55,12 @@ För att gå igenom den här instruktions guiden behöver du:
 - Skapa motsvarande databaser i mål databas servern.
 - Du kan hoppa över uppgradering `azure_maintenance` eller mall databaser.
 - Se tabellerna ovan för att kontrol lera att databasen är lämplig för det här läget för migrering.
-- Om du vill använda Azure Cloud Shell tids gränsen för sessionen efter 20 minuter. Om databas storleken är < 10 GB kan du slutföra uppgraderingen utan tids gräns. Annars kan du behöva hålla sessionen öppen på annat sätt, till exempel trycka på <Enter> en tangent en gång om 10-15 minuter. 
+- Observera att tids gränsen för sessionen är längre än 20 minuter om du vill använda Azure Cloud Shell. Om databas storleken är < 10 GB kan du kanske slutföra uppgraderingen utan tids gräns för sessionen. Annars kan du behöva hålla sessionen öppen på annat sätt, till exempel trycka på <Enter> en tangent en gång om 10-15 minuter. 
 
-> [!TIP] 
-> - Om du använder samma lösen ord för käll-och mål databasen kan du ange `PGPASSWORD=yourPassword` miljövariabeln.  Du behöver inte ange lösen ord varje gång du kör kommandon som psql, pg_dump och pg_restore.  På samma sätt kan du konfigurera ytterligare variabler `PGUSER` , t `PGSSLMODE` . ex., osv. se postgresql- [miljövariabler](https://www.postgresql.org/docs/11/libpq-envars.html).
->  
-> - Om din PostgreSQL-Server kräver TLS/SSL-anslutningar (som standard i Azure Database for PostgreSQL-servrar) anger du en miljö variabel `PGSSLMODE=require` så att pg_restore-verktyget ansluter med TLS. Utan TLS kan felet läsa  `FATAL:  SSL connection is required. Please specify SSL options and retry.`
->
-> - På kommando raden i Windows kör du kommandot `SET PGSSLMODE=require` innan du kör kommandot pg_restore. I Linux eller bash kör du kommandot `export PGSSLMODE=require` innan du kör kommandot pg_restore.
 
 ## <a name="example-database-used-in-this-guide"></a>Exempel databas som används i den här guiden
+
+I den här hand boken används följande käll-och mål servrar och databas namn för att illustrera med exempel.
 
  | **Beskrivning** | **Värde** |
  | ------- | ------- |
@@ -73,9 +72,22 @@ För att gå igenom den här instruktions guiden behöver du:
  | Mål databas | bench5gb |
  | Mål användar namn | pg@pg-11 |
 
-## <a name="method-1-upgrade-with-streaming-backups-to-the-target"></a>Metod 1: uppgradera med strömmande säkerhets kopior till målet 
+## <a name="upgrade-your-databases-using-offline-migration-methods"></a>Uppgradera dina databaser med metoder för offline-migrering
+Du kan välja att använda en av de metoder som beskrivs i det här avsnittet för dina uppgraderingar. Du kan använda följande tips när du utför aktiviteterna.
 
-I den här metoden strömmas hela databas dumpningen direkt till mål databas servern och den lagrar inte dumpen i klienten. Detta kan därför användas med en-klient med begränsad lagring och kan även köras från Azure Cloud Shell. 
+- Om du använder samma lösen ord för käll-och mål databasen kan du ange `PGPASSWORD=yourPassword` miljövariabeln.  Du behöver inte ange något lösen ord varje gång du kör kommandon som psql, pg_dump och pg_restore.  På samma sätt kan du konfigurera ytterligare variabler `PGUSER` , t `PGSSLMODE` . ex., osv. se postgresql- [miljövariabler](https://www.postgresql.org/docs/11/libpq-envars.html).
+  
+- Om din PostgreSQL-Server kräver TLS/SSL-anslutningar (som standard i Azure Database for PostgreSQL-servrar) anger du en miljö variabel `PGSSLMODE=require` så att pg_restore-verktyget ansluter med TLS. Utan TLS kan felet läsa  `FATAL:  SSL connection is required. Please specify SSL options and retry.`
+
+- På kommando raden i Windows kör du kommandot `SET PGSSLMODE=require` innan du kör kommandot pg_restore. I Linux eller bash kör du kommandot `export PGSSLMODE=require` innan du kör kommandot pg_restore.
+
+### <a name="method-1-migrate-using-dump-file"></a>Metod 1: Migrera med dump-fil
+
+Den här metoden omfattar två steg. Börja med att skapa en dump från käll servern. Det andra steget är att återställa dumpfilen-filen till mål servern. Mer information finns i [migrera med dump-och Restore](howto-migrate-using-dump-and-restore.md) -dokumentation. Detta är den rekommenderade metoden om du har stora databaser och klient systemet har tillräckligt med lagrings utrymme för att lagra dumpfilen.
+
+### <a name="method-2-migrate-using-streaming-the-dump-data-to-the-target-database"></a>Metod 2: Migrera med direkt uppspelning av Dumpdata till mål databasen
+
+Om du inte har en PostgreSQL-klient eller om du vill använda Azure Cloud Shell kan du använda den här metoden. Databas dumpningen strömmas direkt till mål databas servern och lagrar inte dumpen i klienten. Detta kan därför användas med en-klient med begränsad lagring och kan även köras från Azure Cloud Shell. 
 
 1. Kontrol lera att databasen finns på mål servern med hjälp av `\l` kommandot. Om databasen inte finns skapar du databasen.
    ```azurecli-interactive
@@ -99,7 +111,7 @@ I den här metoden strömmas hela databas dumpningen direkt till mål databas se
 3. När uppgraderings processen (migreringen) är klar kan du testa programmet med mål servern. 
 4. Upprepa processen för alla databaser på servern.
 
- I följande tabell visas hur lång tid det tog att uppgradera med den här metoden. Data fylls med hjälp av [pgbench](https://www.postgresql.org/docs/10/pgbench.html). Eftersom din databas kan ha olika antal objekt med varierande storlekar än pgbench genererade tabeller och index, rekommenderar vi starkt att du testar dumpning och återställning av databasen för att förstå den faktiska tid det tar att uppgradera databasen. 
+ Som exempel illustrerar följande tabell hur lång tid det tog att migrera med metoden för strömnings-dump. Exempel data fylls med hjälp av [pgbench](https://www.postgresql.org/docs/10/pgbench.html). Eftersom din databas kan ha olika antal objekt med varierande storlekar än pgbench genererade tabeller och index, rekommenderar vi starkt att du testar dumpning och återställning av databasen för att förstå den faktiska tid det tar att uppgradera databasen. 
 
 | **Databas storlek** | **Uppskattad tids åtgång** | 
 | ----- | ------ |
@@ -109,9 +121,9 @@ I den här metoden strömmas hela databas dumpningen direkt till mål databas se
 | 50 GB | 1 – 1,5 timmar |
 | 100 GB | 2,5 – 3 timmar|
    
-## <a name="method-2-upgrade-with-parallel-dump-and-restore"></a>Metod 2: uppgradera med parallell dump och återställning 
+### <a name="method-3-migrate-using-parallel-dump-and-restore"></a>Metod 3: Migrera med parallell dump och återställning 
 
-Den här metoden är användbar om du har några större tabeller i databasen och vill parallellisera dumpning och återställning för den databasen. Du behöver tillräckligt med lagrings utrymme på hård disken för att hantera säkerhets kopior för dina databaser. Den här parallella dumpnings-och återställnings processen minskar tids förbrukningen för att slutföra hela migreringen/uppgraderingen. Till exempel slutfördes den 50 GB pgbench-databasen som tog 1 – 1,5 timmar att migrera, på mindre än 30 minuter.
+Du kan använda den här metoden om du har några större tabeller i databasen och du vill parallellisera för dump och återställning för den databasen. Du behöver också tillräckligt med lagrings utrymme i klient systemet för att hantera säkerhets kopierings dum par. Den här parallella dumpnings-och återställnings processen minskar tids förbrukningen för att slutföra hela migreringen. Till exempel slutfördes den 50 GB pgbench-databasen som tog 1 – 1,5 timmar att migrera, med metod 1 och 2 tog mindre än 30 minuter med den här metoden.
 
 1. Skapa en motsvarande databas på mål servern för varje databas på käll servern.
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/13/2019
 author: trkeya
 ms.author: trkeya
-ms.openlocfilehash: b3f46f934241d924789b97c24cf9b68213d94d63
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 6faecdd561d7c434d2948e70886d6f1b19115d9f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490091"
+ms.locfileid: "94504840"
 ---
 # <a name="test-drive-technical-configuration"></a>Teknisk konfiguration för provkörning
 
@@ -93,9 +93,10 @@ Alternativet **test enhets listor** på fliken **testenhet** i Partner Center vi
 
 Om du för närvarande skapar test enheten i Partner Center väljer du **Spara utkast** innan du fortsätter.
 
+## <a name="additional-resources"></a>Ytterligare resurser
+
 ## <a name="next-steps"></a>Nästa steg
 
 - [Metod tips för test enhet](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Översikt](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)(PDF, se till att blockering av popup-fönster är inaktiverat)
 - [Uppdatera ett befintligt erbjudande i den kommersiella Marketplace](partner-center-portal/update-existing-offer.md)
-- [Azure Marketplace feedback-forum](https://feedback.azure.com/forums/216369-azure-marketplace)

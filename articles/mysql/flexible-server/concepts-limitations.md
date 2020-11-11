@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: 6fff7f22e7d265eb9b15bcec8604eeab692ac1c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a064b2b2d0bad5fc8ded9a59b66d84a361facec9
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91650297"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504347"
 ---
 # <a name="limitations-in-azure-database-for-mysql---flexible-server-preview"></a>Begränsningar i Azure Database for MySQL-flexibel Server (för hands version)
 
@@ -23,9 +23,9 @@ Den här artikeln beskriver begränsningar i Azure Database for MySQL flexibla S
 ## <a name="server-parameters"></a>Serverparametrar
 
 > [!NOTE]
-> Om du letar efter minsta/högsta-värden för Server parametrar som `max_connections` och `innodb_buffer_pool_size` har den här informationen flyttats till Server parametrarnas koncept <!-- **[server parameters](./concepts-server-parameters.md)** --> .
+> Om du letar efter minsta/högsta-värden för Server parametrar som `max_connections` och `innodb_buffer_pool_size` , har den här informationen flyttats till Server parametrarna Concept [Server Parameters](./concepts-server-parameters.md) .
 
-Azure Database for MySQL stöder justering av värdet för Server parametrar. Det minsta och högsta värdet för vissa parametrar (t. ex. `max_connections`, `join_buffer_size` , `query_cache_size` ) bestäms av beräknings nivån och serverns beräknings storlek. Se begrepp för Server parametrar <!-- [server parameters](./concepts-server-parameters.md)--> för mer information om dessa gränser.
+Azure Database for MySQL stöder justering av värdet för Server parametrar. Det minsta och högsta värdet för vissa parametrar (t. ex. `max_connections`, `join_buffer_size` , `query_cache_size` ) bestäms av beräknings nivån och serverns beräknings storlek. Se [Server parametrar](./concepts-server-parameters.md) för mer information om dessa gränser.
 
 Lösen ords-plugin-program som "validate_password" och "caching_sha2_password" stöds inte av tjänsten.
 

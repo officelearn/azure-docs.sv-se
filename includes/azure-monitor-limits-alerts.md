@@ -1,19 +1,19 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: azure-monitor
 author: rboucher
 tags: azure-service-management
 ms.topic: include
-ms.date: 08/11/2020
+ms.date: 10/01/2020
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 332841d4ee4791cb8da1620aa292b05bbde74955
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 33d701fe8dc19b3deaa05cf6f10643bdb1059aa1
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88162658"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505763"
 ---
 | Resurs | Standardgräns | Övre gräns |
 | --- | --- | --- |
@@ -23,7 +23,3 @@ ms.locfileid: "88162658"
 | Loggaviseringar | 512 aktiva varnings regler per prenumeration. 200 aktiva varnings regler per resurs. | Ring support |
 | Åtgärdsgrupper |2 000 åtgärds grupper per prenumeration. | Ring support |
 | Beskrivnings längd för varnings regler och åtgärds regler| Loggs ökning varningar 4096 tecken<br/>Alla andra 2048-tecken | Samma som standard |
-| Inställningar för autoskalning |100 per region per prenumeration. | Samma som standard |
-| Autoskalning av profiler |20 profiler per autoskalning-inställning. | Samma som standard |
-
-

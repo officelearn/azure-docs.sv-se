@@ -10,18 +10,18 @@ ms.subservice: video-indexer
 ms.topic: quickstart
 ms.date: 10/30/2020
 ms.author: juliako
-ms.openlocfilehash: 9ad004f65335d79205cbaddaa190b92a19c327d5
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 7099b0d303965b987fb316170738cc82568dc6d6
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147291"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505605"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Snabb start: så här registrerar du dig och laddar upp din första video
 
 Den här snabb starten visar hur du loggar in på Video Indexer webbplats och hur du laddar upp din första video.
 
-När du skapar ett Video Indexer-konto kan du välja ett kostnadsfritt utvärderingskonto (där du får ett visst antal kostnadsfria indexeringsminuter) eller ett betalalternativ (där du inte begränsas av kvoten). Med den kostnadsfria utvärderingen ger Video Indexer upp till 600 minuter kostnadsfri indexering för webbplatsanvändare och upp till 2 400 minuter kostnadsfri indexering för API-användare. Med betalalternativet skapar du ett Video Indexer-konto som är [anslutet till din Azure-prenumeration och ett Azure Media Services-konto](connect-to-azure.md). Du betalar för minuter som indexeras samt kostnader relaterade till Azure Media Services-kontot. 
+När du skapar ett Video Indexer-konto kan du välja ett kostnadsfritt utvärderingskonto (där du får ett visst antal kostnadsfria indexeringsminuter) eller ett betalalternativ (där du inte begränsas av kvoten). Med den kostnadsfria utvärderingen ger Video Indexer upp till 600 minuter kostnadsfri indexering för webbplatsanvändare och upp till 2 400 minuter kostnadsfri indexering för API-användare. Med betalalternativet skapar du ett Video Indexer-konto som är [anslutet till din Azure-prenumeration och ett Azure Media Services-konto](connect-to-azure.md). Du betalar för minuter indexerat, mer information finns i [Media Services prissättning](https://azure.microsoft.com/pricing/details/media-services/). 
 
 ## <a name="sign-up-for-video-indexer"></a>Registrera dig för Video Indexer
 
@@ -41,7 +41,7 @@ I artikeln om [inmatade behållare/fil format](../latest/media-encoder-standard-
 ### <a name="upload-a-video"></a>Ladda upp en video
 
 1. Logga in på [Video Indexer](https://www.videoindexer.ai/)-webbplatsen.
-1. Ladda upp en video genom att trycka på knappen eller länken **Ladda upp** .
+1. Ladda upp en video genom att trycka på knappen eller länken **Ladda upp**.
 
     > [!NOTE]
     > Namnet på videon får inte vara större än 80 tecken.
@@ -51,12 +51,12 @@ I artikeln om [inmatade behållare/fil format](../latest/media-encoder-standard-
 1. När videon har laddats upp påbörjar Video Indexer indexering och analys av videon. Du ser förloppet. 
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Överför":::
+    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Överförings förlopp":::
 1. När Video Indexer har analyser ATS får du ett e-postmeddelande med en länk till din video och en kort beskrivning av vad som hittades i videon. Exempel: personer, talade och skrivna ord, ämnen och namngivna entiteter.
 1. Du kan senare hitta din video i biblioteks listan och utföra olika åtgärder. Exempel: Sök, indexera om, redigera.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/video-indexer-get-started/uploaded.png" alt-text="Överför":::
+    > :::image type="content" source="./media/video-indexer-get-started/uploaded.png" alt-text="Överförde överföringen":::
  
 ## <a name="see-also"></a>Se även
 

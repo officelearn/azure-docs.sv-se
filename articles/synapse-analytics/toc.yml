@@ -171,7 +171,7 @@
           href: sql/overview-features.md
         - name: Resursförbrukningsmodeller
           href: sql/resource-consumption-models.md
-        - name: Bearbetade data
+        - name: Kostnadshantering för serverlös SQL-pool
           href: sql/data-processed.md
         - name: Metodtips för serverlös SQL-pool
           href: sql/best-practices-sql-on-demand.md
@@ -996,6 +996,8 @@
       href: /powershell/module/az.synapse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: 'REST API:er'
       href: /rest/api/synapse/
+    - name: Microsoft Spark Utilities
+      href: ./spark/microsoft-spark-utilities.md
     - name: Exempel
       href: 'https://github.com/Azure-Samples/Synapse'
     - name: Systemvyer

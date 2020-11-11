@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: d5e8305fb80e6869bf604108aaa0e4d8e36cab8e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 4da0f40c25d322953fea968396ef33924877c2e1
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314747"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505231"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Felsöka utvärdering/beroendevisualisering
 
@@ -23,10 +23,10 @@ Den här artikeln hjälper dig att felsöka problem med utvärderings-och beroen
 
 Åtgärda problem med utvärderings beredskap enligt följande:
 
-**Problem** | **Åtgärda**
+**Problem** | **Löser**
 --- | ---
 Start typen stöds inte | Azure har inte stöd för virtuella datorer med en EFI-starttyp. Vi rekommenderar att du konverterar start typen till BIOS innan du kör en migrering. <br/><br/>Du kan använda migrering av Azure Migrate Server för att hantera migrering av sådana virtuella datorer. Den kommer att konvertera start typen för den virtuella datorn till BIOS under migreringen.
-Villkorligt Windows-operativsystem som stöds | Operativ systemet har passerat sitt slutdatum och måste ha ett anpassat support avtal (CSA) för [support i Azure](/troubleshoot/azure/virtual-machines/server-software-support). Överväg att uppgradera innan du migrerar till Azure.
+Villkorligt Windows-operativsystem som stöds | Operativ systemet har passerat sitt slutdatum och måste ha ett anpassat support avtal (CSA) för [support i Azure](/troubleshoot/azure/virtual-machines/server-software-support). Överväg att uppgradera innan du migrerar till Azure. [Läs]() informationen om hur du [förbereder datorer som kör Windows Server 2003](prepare-windows-server-2003-migration.md) för migrering till Azure.
 Windows-operativsystem som inte stöds | Azure stöder endast [valda Windows OS-versioner](/troubleshoot/azure/virtual-machines/server-software-support). Överväg att uppgradera datorn innan du migrerar till Azure.
 Villkorligt godkänt Linux OS | Azure har endast godkänt [valda Linux OS-versioner](../virtual-machines/linux/endorsed-distros.md). Överväg att uppgradera datorn innan du migrerar till Azure. Se även [här](#linux-vms-are-conditionally-ready-in-an-azure-vm-assessment) för mer information.
 Avsignerat Linux OS | Datorn kan starta i Azure, men Azure tillhandahåller inget stöd för operativ system. Överväg att uppgradera till en [godkänd Linux-version](../virtual-machines/linux/endorsed-distros.md) innan du migrerar till Azure.
@@ -48,7 +48,7 @@ Det gick inte att fastställa VM-lämplighet på grund av ett internt fel | För
 Det gick inte att fastställa lämplighet för en eller flera diskar på grund av ett internt fel | Försök att skapa en ny utvärdering för gruppen.
 Det gick inte att fastställa lämplighet för ett eller flera nätverkskort på grund av ett internt fel | Försök att skapa en ny utvärdering för gruppen.
 Ingen storlek för virtuell dator hittades för den reserverade instansen för erbjudande valutan | Datorn har marker ATS som ej lämplig eftersom det inte gick att hitta VM-storleken för den valda kombinationen av RI, erbjudande och valuta. Redigera bedömnings egenskaperna för att välja giltiga kombinationer och beräkna om utvärderingen. 
-Villkorligt klar Internet Protocol | Gäller endast för Azure VMware Solution (AVS)-utvärderingar. AVS stöder inte IPv6 Internet adresss faktor.Kontakta AVS-teamet för att få vägledning om din dator identifieras med IPv6.
+Villkorligt klar Internet Protocol | Gäller endast för Azure VMware Solution (AVS)-utvärderingar. AVS stöder inte IPv6 Internet adresss faktor. Kontakta AVS-teamet för att få vägledning om din dator identifieras med IPv6.
 
 ## <a name="suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>Föreslaget Migreringsverktyg i importerad AVS-utvärdering markerad som okänd
 
@@ -75,7 +75,7 @@ För fysiska servrar bör den lägre versions informationen för operativ system
 Azure Migrate Server utvärderingen kan rekommendera Azure VM SKU: er med fler kärnor och minne än den aktuella lokala allokeringen baserat på typen av utvärdering:
 
 - Den virtuella datorns SKU-rekommendation beror på utvärderings egenskaperna.
-- Detta påverkas av den typ av utvärdering som du utför i Server utvärderingen: *prestanda-baserad*eller *lokalt*.
+- Detta påverkas av den typ av utvärdering som du utför i Server utvärderingen: *prestanda-baserad* eller *lokalt*.
 - För prestandabaserade utvärderingar beaktar Server utvärderingen användnings data för de lokala virtuella datorerna (CPU, minne, disk och nätverks användning) för att fastställa rätt mål-SKU för virtuella datorer för dina lokala virtuella datorer. Även en komfortfaktor läggs till när du fastställer effektiv användning.
 - För lokal storleks sortering beaktas inte prestanda data och SKU: n rekommenderas för lokal allokering.
 
@@ -83,7 +83,7 @@ För att visa hur detta kan påverka rekommendationerna, tar vi ett exempel:
 
 Vi har en lokal virtuell dator med fyra kärnor och åtta GB minne, med 50% processor användning och 50% minnes användning och en angiven bekvämlighets faktor på 1,3.
 
--  Om utvärderingen är **lokalt**, rekommenderas en Azure VM-SKU med fyra kärnor och 8 GB minne.
+-  Om utvärderingen är **lokalt** , rekommenderas en Azure VM-SKU med fyra kärnor och 8 GB minne.
 - Om utvärderingen är prestanda beroende av, baserat på effektiv processor-och minnes användning (50% av 4 kärnor * 1,3 = 2,6 kärnor och 50% av 8 GB minne * 1,3 = 5,3-GB minne), rekommenderas billigaste VM-SKU: n för fyra kärnor (närmaste antal kärnor som stöds) och åtta GB minne (närmaste minnes storlek som stöds) rekommenderas.
 - [Läs mer](concepts-assessment-calculation.md#types-of-assessments) om utvärderings storlek.
 
@@ -91,8 +91,8 @@ Vi har en lokal virtuell dator med fyra kärnor och åtta GB minne, med 50% proc
 
 Azure Migrate Server-utvärderingen kan rekommendera en större disk baserat på typen av utvärdering.
 - Disk storlek i Server utvärderingen är beroende av två bedömnings egenskaper: storleks kriterier och lagrings typ.
-- Om storleks kriteriet är **prestanda baserat**och lagrings typen är inställd på **Automatisk**, beaktas IOPS-och data flödes värden för disken när mål disk typen identifieras (standard HDD, standard SSD eller Premium). En disk-SKU från disk typen rekommenderas och rekommendationen tar hänsyn till storleks kraven för den lokala disken.
-- Om storleks kriteriet är **prestanda baserat**och lagrings typen är **Premium**rekommenderas en SKU för Premium-diskar i Azure baserat på IOPS, data flöde och storleks krav för den lokala disken. Samma logik används för att utföra disk storlek när storleks kriteriet är **lokalt** och lagrings typen är **standard HDD**, **standard SSD**eller **Premium**.
+- Om storleks kriteriet är **prestanda baserat** och lagrings typen är inställd på **Automatisk** , beaktas IOPS-och data flödes värden för disken när mål disk typen identifieras (standard HDD, standard SSD eller Premium). En disk-SKU från disk typen rekommenderas och rekommendationen tar hänsyn till storleks kraven för den lokala disken.
+- Om storleks kriteriet är **prestanda baserat** och lagrings typen är **Premium** rekommenderas en SKU för Premium-diskar i Azure baserat på IOPS, data flöde och storleks krav för den lokala disken. Samma logik används för att utföra disk storlek när storleks kriteriet är **lokalt** och lagrings typen är **standard HDD** , **standard SSD** eller **Premium**.
 
 Om du till exempel har en lokal disk med 32 GB minne, men den aggregerade läsnings-och skriv-IOPS för disken är 800 IOPS, rekommenderar Server utvärderingen en Premium disk (på grund av de högre IOPS-kraven) och rekommenderar sedan en disk-SKU som stöder den nödvändiga IOPS och storleken. Den bästa matchningen i det här exemplet är P15 (256 GB, 1100 IOPS). Även om den storlek som krävs av den lokala disken var 32 GB, rekommenderar Server utvärderingen en större disk på grund av det höga IOPS-kravet för den lokala disken.
 
@@ -165,8 +165,8 @@ För virtuella Linux-datorer måste du kontrol lera att installations kommandona
 
 ## <a name="supported-operating-systems"></a>Operativsystem som stöds
 
-- **MMS-agent**: granska de [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)-och [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) -operativsystem som stöds.
-- **Beroende agent**: de Windows- [och Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) -operativsystem som stöds.
+- **MMS-agent** : granska de [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)-och [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) -operativsystem som stöds.
+- **Beroende agent** : de Windows- [och Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) -operativsystem som stöds.
 
 ## <a name="visualize-dependencies-for--hour"></a>Visualisera beroenden för > timme
 
@@ -209,7 +209,7 @@ Samla in nätverks trafik loggar enligt följande:
    - I Chrome högerklickar du på och väljer **Spara som har innehåll**. Den här åtgärden komprimerar och exporterar loggarna som en. har-fil.
    - I Microsoft Edge eller Internet Explorer väljer du alternativet **Exportera insamlad trafik** . Den här åtgärden komprimerar och exporterar loggen.
 6. Välj fliken **konsol** för att kontrol lera om det finns varningar eller fel. Så här sparar du konsol loggen:
-   - I Chrome högerklickar du på valfri plats i konsol loggen. Välj **Spara som**, för att exportera och zippa loggen.
+   - I Chrome högerklickar du på valfri plats i konsol loggen. Välj **Spara som** , för att exportera och zippa loggen.
    - I Microsoft Edge eller Internet Explorer högerklickar du på felen och väljer **Kopiera alla**.
 7. Stäng Utvecklarverktyg.
 

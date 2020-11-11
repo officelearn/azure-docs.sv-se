@@ -1,5 +1,7 @@
 - name: Dokumentation om Azure IoT Edge
   href: index.yml
+- name: Azure IoT Edge-versioner
+  href: version-history.md
 - name: Översikt
   items:
     - name: Om Azure IoT Edge
@@ -13,13 +15,13 @@
       href: quickstart.md
 - name: Självstudier
   items:
-    - name: 1. Konfigurera utvecklingsmiljön
+    - name: Konfigurera utvecklingsmiljön
       items:
         - name: Utveckla för Linux-enheter
           href: tutorial-develop-for-linux.md
         - name: Utveckla för Windows-enheter
           href: tutorial-develop-for-windows.md
-    - name: 2. Utveckla anpassade kodmoduler
+    - name: Utveckla anpassade kodmoduler
       items:
         - name: C
           items:
@@ -39,7 +41,7 @@
           href: tutorial-node-module.md
         - name: Python
           href: tutorial-python-module.md
-    - name: 3. Distribuera Azure-tjänster som moduler
+    - name: Distribuera Azure-tjänster som moduler
       items:
         - name: Filtrera data med Azure Functions
           href: tutorial-deploy-function.md
@@ -51,7 +53,11 @@
           href: tutorial-deploy-custom-vision.md
         - name: Lagra data lokalt med SQL
           href: tutorial-store-data-sql-server.md
-    - name: 4. Exempel på maskininlärning för slutpunkt till slutpunkt
+    - name: Använda IoT Edge som en gateway
+      items:
+        - name: Skapa hierarkier för IoT Edge-enheter
+          href: tutorial-nested-iot-edge.md
+    - name: Exempel på maskininlärning för slutpunkt till slutpunkt
       items:
         - name: Introduktion
           href: tutorial-machine-learning-edge-01-intro.md
@@ -187,16 +193,26 @@
           href: how-to-access-built-in-metrics.md
     - name: Använda IoT Edge-enheter som gatewayer
       items:
-        - name: Konfigurera en transparent gateway
-          href: how-to-create-transparent-gateway.md
-        - name: Autentisera en underordnad enhet
-          href: how-to-authenticate-downstream-device.md
-        - name: Ansluta en underordnad enhet
-          href: how-to-connect-downstream-device.md
-        - name: Modbus-protokollgateway
-          href: deploy-modbus-gateway.md
+        - name: Gatewayer för IoT-enheter
+          items:
+            - name: Konfigurera en transparent gateway
+              href: how-to-create-transparent-gateway.md
+            - name: Autentisera en underordnad enhet
+              href: how-to-authenticate-downstream-device.md
+            - name: Ansluta en underordnad enhet
+              href: how-to-connect-downstream-device.md
+            - name: Modbus-protokollgateway
+              href: deploy-modbus-gateway.md
+        - name: Gatewayer för IoT Edge-enheter
+          items:
+            - name: Konfigurera gatewayer för IoT Edge-enheter
+              href: how-to-connect-downstream-iot-edge-device.md
+            - name: Konfigurera API-proxymodulen
+              href: how-to-configure-api-proxy-module.md
     - name: Konfigurera proxyinställningar
       href: how-to-configure-proxy-support.md
+    - name: Publicera och prenumerera med IoT Edge
+      href: how-to-publish-subscribe.md
     - name: Azure Blob Storage på IoT Edge
       items:
         - name: Förstå Blob Storage på Edge

@@ -13,12 +13,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 05/26/2020
-ms.openlocfilehash: 393fceaa91600ab143912bb3af38c349f29f770a
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 31a1169ca6c2194b8d5564e5d0df50116dd25084
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427946"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505673"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Kom igång med granskning av Azure SQL Managed instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -59,7 +59,7 @@ I följande avsnitt beskrivs konfigurationen av granskning på din hanterade ins
   
 3. När du har skapat behållaren för gransknings loggarna finns det två sätt att konfigurera den som mål för gransknings loggarna: [använda T-SQL](#blobtsql) eller [använda SQL Server Management Studio (SSMS)-gränssnittet](#blobssms):
 
-   - <a id="blobtsql"></a>Konfigurera Blob Storage för gransknings loggar med T-SQL:
+   - <a id="blobtsql"></a>**Konfigurera Blob Storage för gransknings loggar med T-SQL:**
 
      1. I listan behållare klickar du på den nyligen skapade behållaren och klickar sedan på **Egenskaper för behållare**.
 
@@ -120,7 +120,7 @@ I följande avsnitt beskrivs konfigurationen av granskning på din hanterade ins
 
      1. Fortsätt genom att [skapa en server gransknings specifikation eller databas gransknings specifikation](#createspec).
 
-   - <a id="blobssms"></a>Konfigurera Blob Storage för gransknings loggar med SQL Server Management Studio 18 (för hands version):
+   - <a id="blobssms"></a>**Konfigurera Blob Storage för gransknings loggar med SQL Server Management Studio 18:**
 
      1. Anslut till den hanterade instansen med hjälp av SQL Server Management Studio gränssnittet.
 
@@ -143,8 +143,8 @@ I följande avsnitt beskrivs konfigurationen av granskning på din hanterade ins
         ![Välj Azure-prenumeration, lagrings konto och blob-behållare](./media/auditing-configure/13_mi_SSMS_select_subscription_account_container.png)
 
      1. Klicka på **OK** i dialog rutan **skapa granskning** .
-
-4. <a id="createspec"></a>När du har konfigurerat BLOB-behållaren som mål för gransknings loggarna skapar du och aktiverar en server gransknings specifikation eller databas gransknings specifikation på samma sätt som för SQL Server:
+     
+     1. <a id="createspec"></a>När du har konfigurerat BLOB-behållaren som mål för gransknings loggarna skapar du och aktiverar en server gransknings specifikation eller databas gransknings specifikation på samma sätt som för SQL Server:
 
    - [Skapa server gransknings specifikation T-SQL-guide](/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [Skapa databas gransknings specifikation T-SQL-guide](/sql/t-sql/statements/create-database-audit-specification-transact-sql)

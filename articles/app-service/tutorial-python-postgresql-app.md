@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: f6b845ec92a4d0d5365ec0615064bfbc238fd1ba
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 348721304970a5d1d697ecf546a8c5039e81afc1
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279708"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506115"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Själv studie kurs: Distribuera en django-webbapp med PostgreSQL i Azure App Service
 
@@ -79,7 +79,7 @@ Det här kommandot öppnar en webbläsare för att samla in dina autentiseringsu
 
 När du har loggat in kan du köra Azure-kommandon med Azure CLI för att arbeta med resurser i din prenumeration.
 
-[Har du problem? Berätta för oss.](https://aka.ms/DjangoCLITutorialHelp)
+Har du problem? [Berätta för oss](https://aka.ms/DjangoCLITutorialHelp).
 
 ## <a name="clone-or-download-the-sample-app"></a>Klona eller hämta exempel appen
 
@@ -116,7 +116,7 @@ Exemplet ändras också till att köras i en produktions miljö som App Service:
 
 Produktions inställningarna är specifika för att konfigurera django som ska köras i en produktions miljö och är inte särskilt App Service. Mer information finns i [Check lista för django-distribution](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/). Se även [produktions inställningar för Django på Azure](configure-language-python.md#production-settings-for-django-apps) för information om några av ändringarna.
 
-[Har du problem? Berätta för oss.](https://aka.ms/DjangoCLITutorialHelp)
+Har du problem? [Berätta för oss](https://aka.ms/DjangoCLITutorialHelp).
 
 ## <a name="create-postgres-database-in-azure"></a>Skapa postgres-databas i Azure
 
@@ -159,7 +159,7 @@ När kommandot har slutförts, matar den ut ett JSON-objekt som innehåller olik
 > [!TIP]
 > `-l <location-name>`, kan ställas in på en av [Azure-regionerna](https://azure.microsoft.com/global-infrastructure/regions/). Du kan hämta de regioner som är tillgängliga för din prenumeration med [`az account list-locations`](/cli/azure/account#az-account-list-locations) kommandot. För produktion av appar sätter du din databas och din app på samma plats.
 
-[Har du problem? Berätta för oss.](https://aka.ms/DjangoCLITutorialHelp)
+Har du problem? [Berätta för oss](https://aka.ms/DjangoCLITutorialHelp).
 
 ## <a name="deploy-the-code-to-azure-app-service"></a>Distribuera koden till Azure App Service
 
@@ -194,7 +194,7 @@ Vid lyckad distribution genererar kommandot JSON-utdata som i följande exempel:
 
 ![Exempel på AZS webapp-utdata](./media/tutorial-python-postgresql-app/az-webapp-up-output.png)
 
-[Har du problem? Berätta för oss.](https://aka.ms/DjangoCLITutorialHelp)
+Har du problem? Se först i [fel söknings guiden](configure-language-python.md#troubleshooting), annars kan du berätta för [oss](https://aka.ms/DjangoCLITutorialHelp).
 
 ### <a name="configure-environment-variables-to-connect-the-database"></a>Konfigurera miljövariabler för att ansluta databasen
 
@@ -214,7 +214,7 @@ az webapp config appsettings set --settings DBHOST="<postgres-server-name>" DBNA
 
 I python-koden får du åtkomst till de här inställningarna som miljövariabler med uttryck som `os.environ.get('DBHOST')` . Mer information finns i [Access Environment-variabler](configure-language-python.md#access-environment-variables).
 
-[Har du problem? Berätta för oss.](https://aka.ms/DjangoCLITutorialHelp)
+Har du problem? Se först i [fel söknings guiden](configure-language-python.md#troubleshooting), annars kan du berätta för [oss](https://aka.ms/DjangoCLITutorialHelp).
 
 ### <a name="run-django-database-migrations"></a>Köra django Database-migreringar
 
@@ -255,7 +255,7 @@ Django Database-migreringar ser till att schemat i PostgreSQL i Azure Database m
 
 1. Om du ser ett fel som databasen är låst, se till att du körde `az webapp settings` kommandot i föregående avsnitt. Utan de här inställningarna kan inte Migrate-kommandot kommunicera med databasen, vilket resulterar i felet.
 
-[Har du problem? Berätta för oss.](https://aka.ms/DjangoCLITutorialHelp)
+Har du problem? Se först i [fel söknings guiden](configure-language-python.md#troubleshooting), annars kan du berätta för [oss](https://aka.ms/DjangoCLITutorialHelp).
     
 ### <a name="create-a-poll-question-in-the-app"></a>Skapa en avsöknings fråga i appen
 
@@ -271,7 +271,7 @@ Django Database-migreringar ser till att schemat i PostgreSQL i Azure Database m
 
 **Grattis!** Du kör en python django-webbapp i Azure App Service för Linux med en aktiv postgres-databas.
 
-[Har du problem? Berätta för oss.](https://aka.ms/DjangoCLITutorialHelp)
+Har du problem? [Berätta för oss](https://aka.ms/DjangoCLITutorialHelp).
 
 > [!NOTE]
 > App Service identifierar ett django-projekt genom att söka efter en *wsgi.py* -fil i varje undermapp som `manage.py startproject` skapas som standard. När App Service hittar filen laddas django-webbappen. Mer information finns i [Konfigurera inbyggd python-avbildning](configure-language-python.md).
@@ -353,7 +353,7 @@ Testa appen lokalt med följande steg:
 
 När du kör lokalt använder appen en lokal sqlite3-databas och stör inte din produktions databas. Du kan också använda en lokal PostgreSQL-databas, om du vill, för att bättre simulera produktions miljön.
 
-[Har du problem? Berätta för oss.](https://aka.ms/DjangoCLITutorialHelp)
+Har du problem? [Berätta för oss](https://aka.ms/DjangoCLITutorialHelp).
 
 ### <a name="update-the-app"></a>Uppdatera appen
 
@@ -375,7 +375,7 @@ Kör utvecklings servern igen med `python manage.py runserver` och testa appen p
 
 Stoppa django-webbservern igen med **CTRL** + **+ C**.
 
-[Har du problem? Berätta för oss.](https://aka.ms/DjangoCLITutorialHelp)
+Har du problem? Se först i [fel söknings guiden](configure-language-python.md#troubleshooting), annars kan du berätta för [oss](https://aka.ms/DjangoCLITutorialHelp).
 
 ### <a name="redeploy-the-code-to-azure"></a>Distribuera om koden till Azure
 
@@ -387,7 +387,7 @@ az webapp up
 
 Det här kommandot använder parametrarna som är cachelagrade i *. Azure/config-* filen. Eftersom App Service upptäcker att appen redan finns, distribuerar den bara om koden.
 
-[Har du problem? Berätta för oss.](https://aka.ms/DjangoCLITutorialHelp)
+Har du problem? Se först i [fel söknings guiden](configure-language-python.md#troubleshooting), annars kan du berätta för [oss](https://aka.ms/DjangoCLITutorialHelp).
 
 ### <a name="rerun-migrations-in-azure"></a>Kör om migreringar i Azure
 
@@ -404,13 +404,13 @@ source /antenv/bin/activate
 python manage.py migrate
 ```
 
-[Har du problem? Berätta för oss.](https://aka.ms/DjangoCLITutorialHelp)
+Har du problem? Se först i [fel söknings guiden](configure-language-python.md#troubleshooting), annars kan du berätta för [oss](https://aka.ms/DjangoCLITutorialHelp).
 
 ### <a name="review-app-in-production"></a>Granska appen i produktion
 
 Bläddra till `http://<app-name>.azurewebsites.net` och testa appen igen i produktion. (Eftersom du bara ändrade längden på ett databas fält är ändringen bara märkbart om du försöker ange ett längre svar när du skapar en fråga.)
 
-[Har du problem? Berätta för oss.](https://aka.ms/DjangoCLITutorialHelp)
+Har du problem? Se först i [fel söknings guiden](configure-language-python.md#troubleshooting), annars kan du berätta för [oss](https://aka.ms/DjangoCLITutorialHelp).
 
 ## <a name="stream-diagnostic-logs"></a>Strömma diagnostikloggar
 
@@ -426,7 +426,7 @@ Om du inte ser konsolloggarna omedelbart kan du titta efter igen efter 30 sekund
 
 Om du vill stoppa logg strömningen när som helst, skriver du **CTRL** + **C**.
 
-[Har du problem? Berätta för oss.](https://aka.ms/DjangoCLITutorialHelp)
+Har du problem? [Berätta för oss](https://aka.ms/DjangoCLITutorialHelp).
 
 > [!NOTE]
 > Du kan även granska loggfilerna från din webbläsare via `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.
@@ -447,7 +447,7 @@ Som standard visar portalen appens **översikts** sida, som ger en allmän prest
 
 ![Hantera din python django-app på sidan Översikt i Azure Portal](./media/tutorial-python-postgresql-app/manage-django-app-in-app-services-in-the-azure-portal.png)
 
-[Har du problem? Berätta för oss.](https://aka.ms/DjangoCLITutorialHelp)
+Har du problem? Se först i [fel söknings guiden](configure-language-python.md#troubleshooting), annars kan du berätta för [oss](https://aka.ms/DjangoCLITutorialHelp).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -461,7 +461,7 @@ Kommandot använder resurs grupps namnet cachelagrat i *. Azure/config-* filen. 
 
 Det kan ta en stund att ta bort alla resurser. `--no-wait`Argumentet tillåter att kommandot returnerar omedelbart.
 
-[Har du problem? Berätta för oss.](https://aka.ms/DjangoCLITutorialHelp)
+Har du problem? [Berätta för oss](https://aka.ms/DjangoCLITutorialHelp).
 
 ## <a name="next-steps"></a>Nästa steg
 

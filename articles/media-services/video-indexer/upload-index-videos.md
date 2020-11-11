@@ -8,15 +8,15 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 11/10/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8ea1df2937c6ae771407e4adf839c9ff0fa9f7f5
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: a5106e1089e2353d2db884977eb51a4fd2717b99
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92218987"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506183"
 ---
 # <a name="upload-and-index-your-videos"></a>Ladda upp och indexera dina videor  
 
@@ -26,7 +26,7 @@ När du laddar upp videor med Video Indexer-API:et har du följande uppladdnings
 * skicka videofilen som en bytematris i begärandetexten,
 * använda en befintlig Azure Media Services-resurs genom att tillhandahålla [tillgångs-id:t](../latest/assets-concept.md) (stöds endast för betalkonton).
 
-När din video har laddats upp kan Video Indexer (valfritt) koda videon (beskrivs i artikeln). När du skapar ett Video Indexer-konto kan du välja ett kostnadsfritt utvärderingskonto (där du får ett visst antal kostnadsfria indexeringsminuter) eller ett betalalternativ (där du inte begränsas av kvoten). Med den kostnadsfria utvärderingen ger Video Indexer upp till 600 minuter kostnadsfri indexering för webbplatsanvändare och upp till 2 400 minuter kostnadsfri indexering för API-användare. Med betalalternativet skapar du ett Video Indexer-konto som är [anslutet till din Azure-prenumeration och ett Azure Media Services-konto](connect-to-azure.md). Du betalar för minuter som indexeras samt kostnader relaterade till mediekontot. 
+När din video har laddats upp kan Video Indexer (valfritt) koda videon (beskrivs i artikeln). När du skapar ett Video Indexer-konto kan du välja ett kostnadsfritt utvärderingskonto (där du får ett visst antal kostnadsfria indexeringsminuter) eller ett betalalternativ (där du inte begränsas av kvoten). Med den kostnadsfria utvärderingen ger Video Indexer upp till 600 minuter kostnadsfri indexering för webbplatsanvändare och upp till 2 400 minuter kostnadsfri indexering för API-användare. Med betalalternativet skapar du ett Video Indexer-konto som är [anslutet till din Azure-prenumeration och ett Azure Media Services-konto](connect-to-azure.md). Du betalar för minuter indexerat, mer information finns i [Media Services prissättning](https://azure.microsoft.com/pricing/details/media-services/).
 
 Artikeln visar hur du överför och indexerar dina videor med följande alternativ:
 
@@ -79,7 +79,7 @@ I artikeln om [inmatade behållare/fil format](../latest/media-encoder-standard-
 1. När videon har laddats upp påbörjar Video Indexer indexering och analys av videon.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Överför":::
+    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Överförings förlopp":::
 1. När Video Indexer har analyser ATS får du ett e-postmeddelande med en länk till din video och en kort beskrivning av vad som hittades i videon. Till exempel: personer, ämnen och OCR.
 
 ## <a name="upload-and-index-with-api"></a><a name="apis"></a>Ladda upp och indexera med API
@@ -101,7 +101,7 @@ En URL som används för att meddela kunder (med en POST-begäran) om följande 
 - Indexering av tillståndsändring: 
     - Egenskaper:    
     
-        |Namn|Beskrivning|
+        |Name|Beskrivning|
         |---|---|
         |id|Video-ID|
         |state|Videotillståndet|  
@@ -109,7 +109,7 @@ En URL som används för att meddela kunder (med en POST-begäran) om följande 
 - Person som identifierades i videon:
   - Egenskaper
     
-      |Namn|Beskrivning|
+      |Name|Beskrivning|
       |---|---|
       |id| Video-ID|
       |faceId|Ansikts-ID som visas i videoindexet|
@@ -118,7 +118,7 @@ En URL som används för att meddela kunder (med en POST-begäran) om följande 
         
     - Exempel: https: \/ /test.com/notifyme?projectName=MyProject&ID = 1234abcd&FaceID = 12&knownPersonId = CCA84350-89B7-4262-861C-3CAC796542A5&personName = Inigo_Montoya 
 
-##### <a name="notes"></a>Kommentarer
+##### <a name="other-considerations"></a>Ytterligare överväganden
 
 - Video Indexer returnerar alla befintliga parametrar som anges i den ursprungliga webbadressen.
 - Den tillhandahållna webbadressen måste vara kodad.
@@ -140,9 +140,9 @@ Priset beror på det valda indexeringsalternativet.
 
 #### <a name="priority"></a>prioritet
 
-Videor indexeras av Video Indexer enligt deras prioritet. Använd parametern **prioritet** för att ange prioritet för indexet. Följande värden är giltiga: **Låg**, **Normal** (standard), och **Hög**.
+Videor indexeras av Video Indexer enligt deras prioritet. Använd parametern **prioritet** för att ange prioritet för indexet. Följande värden är giltiga: **Låg** , **Normal** (standard), och **Hög**.
 
-**Prioritet**-parametern stöds endast för betalda konton.
+**Prioritet** -parametern stöds endast för betalda konton.
 
 #### <a name="streamingpreset"></a>streamingPreset
 
@@ -177,7 +177,7 @@ När du har kopierat koden till din utvecklings plattform måste du ange två pa
 
     * Navigera till https://api-portal.videoindexer.ai/
     * Inloggning
-    * Gå till **produkter**  ->  **auktorisering**av  ->  **Authorization-prenumeration**
+    * Gå till **produkter**  ->  **auktorisering** av  ->  **Authorization-prenumeration**
     * Kopiera **primär nyckeln**
 * Video-URL – en URL för video-/ljud filen som ska indexeras. URL:en måste peka på en mediefil (HTML-sidor stöds inte). Filen kan skyddas av en åtkomsttoken som tillhandahålls som en del av URI:n och slutpunkten som hanterar filen måste skyddas med TLS 1.2 eller senare. URL:en måste vara kodad.
 

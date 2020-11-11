@@ -8,21 +8,21 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 09/03/2020
+ms.date: 11/10/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 85d392323b24df3cede196d2c68f05c9522b2293
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cfaef4460df040ecc9b055fba83d33a3b687b200
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89458305"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505384"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Självstudie: Använda Video Indexer-API:t
 
 Video Indexer konsoliderar olika funktioner för ljud-och video artificiell intelligens (AI) som erbjuds av Microsoft till en integrerad tjänst, vilket gör det enklare att utveckla. API: erna är utformade så att utvecklare kan fokusera på att använda Media AI-tekniker utan att behöva oroa sig för skalning, global räckvidd, tillgänglighet och pålitlighet för moln plattformarna. Du kan använda API: t för att ladda upp filer, få detaljerad information om video insikter, Hämta URL: er för inbäddnings bara insikter och uppspelnings-widgetar med mera.
 
-När du skapar ett Video Indexer-konto kan du välja ett kostnadsfritt utvärderingskonto (där du får ett visst antal kostnadsfria indexeringsminuter) eller ett betalalternativ (där du inte begränsas av kvoten). Med den kostnadsfria utvärderingen ger Video Indexer upp till 600 minuter kostnadsfri indexering för webbplatsanvändare och upp till 2 400 minuter kostnadsfri indexering för API-användare. Med ett betalt alternativ skapar du ett Video Indexer-konto som [är kopplat till din Azure-prenumeration och ett Azure Media Services-konto](connect-to-azure.md). Du betalar för minuter som indexeras samt kostnader relaterade till Azure Media Services-kontot.
+När du skapar ett Video Indexer-konto kan du välja ett kostnadsfritt utvärderingskonto (där du får ett visst antal kostnadsfria indexeringsminuter) eller ett betalalternativ (där du inte begränsas av kvoten). Med den kostnadsfria utvärderingen ger Video Indexer upp till 600 minuter kostnadsfri indexering för webbplatsanvändare och upp till 2 400 minuter kostnadsfri indexering för API-användare. Med ett betalt alternativ skapar du ett Video Indexer-konto som [är kopplat till din Azure-prenumeration och ett Azure Media Services-konto](connect-to-azure.md). Du betalar för minuter indexerat, mer information finns i [Media Services prissättning](https://azure.microsoft.com/pricing/details/media-services/).
 
 Den här artikeln visar hur utvecklarna kan dra nytta av [Video Indexer-API:t](https://api-portal.videoindexer.ai/).
 
@@ -45,7 +45,7 @@ Den här artikeln visar hur utvecklarna kan dra nytta av [Video Indexer-API:t](h
     > [!NOTE]
     > Nya användare prenumererar automatiskt på Auktorisering.
     
-    När du prenumererar kan du hitta prenumerationen under **produkter**som du har  ->  **tillstånd**för. På sidan prenumeration hittar du de primära och sekundära nycklarna. Nycklarna ska vara skyddade. Nycklarna ska bara användas av din serverkod. De bör inte vara tillgängliga på klient sidan (. js,. html och så vidare).
+    När du prenumererar kan du hitta prenumerationen under **produkter** som du har  ->  **tillstånd** för. På sidan prenumeration hittar du de primära och sekundära nycklarna. Nycklarna ska vara skyddade. Nycklarna ska bara användas av din serverkod. De bör inte vara tillgängliga på klient sidan (. js,. html och så vidare).
 
     ![Prenumeration och nycklar i Video Indexer Developer-portalen](./media/video-indexer-use-apis/video-indexer-api03.png)
 
@@ -64,9 +64,9 @@ Varje anrop till åtgärds-API:t ska associeras med en åtkomsttoken, som matcha
 
 Du kan kontrol lera om dessa tokens är skrivskyddade eller om de tillåter redigering genom att ange **AllowEdit = TRUE/FALSE**.
 
-För de flesta server-till-Server-scenarier använder du förmodligen samma **konto** -token eftersom det täcker både **konto** åtgärder och **video** åtgärder. Men om du planerar att göra klient sidans anrop till Video Indexer (till exempel från Java Script) vill du **använda en videoåtkomsttoken för** att förhindra att klienter får åtkomst till hela kontot. Det beror också på att när du bäddar in Video Indexer klient kod i klienten (till exempel med hjälp av **Hämta insikts-widget** eller **Hämta Player-widget**) måste du ange en **video** åtkomst-token.
+För de flesta server-till-Server-scenarier använder du förmodligen samma **konto** -token eftersom det täcker både **konto** åtgärder och **video** åtgärder. Men om du planerar att göra klient sidans anrop till Video Indexer (till exempel från Java Script) vill du **använda en videoåtkomsttoken för** att förhindra att klienter får åtkomst till hela kontot. Det beror också på att när du bäddar in Video Indexer klient kod i klienten (till exempel med hjälp av **Hämta insikts-widget** eller **Hämta Player-widget** ) måste du ange en **video** åtkomst-token.
 
-Du kan göra det lättare genom att använda **Auktoriserings**-API:t > **GetAccounts** för att hämta dina konton utan att erhålla en användartoken först. Du kan också begära att få kontona med giltiga token, så att du kan hoppa över ett ytterligare anrop för att få en kontotoken.
+Du kan göra det lättare genom att använda **Auktoriserings** -API:t > **GetAccounts** för att hämta dina konton utan att erhålla en användartoken först. Du kan också begära att få kontona med giltiga token, så att du kan hoppa över ett ytterligare anrop för att få en kontotoken.
 
 Åtkomsttoken upphör att gälla efter 1 timme. Kontrollera att din åtkomsttoken är giltig innan du använder åtgärds-API:t. Om den går ut anropar du API: et för auktorisering igen för att få en ny åtkomsttoken.
 
@@ -103,9 +103,9 @@ Parametern Konto-ID krävs i alla åtgärds-API-anrop. Konto-ID är ett GUID som
 
 Det här avsnittet innehåller några rekommendationer när du använder Video Indexer-API:t.
 
-- Om du planerar att ladda upp en video rekommenderas att placera filen i en offentlig nätverks plats (till exempel OneDrive). Hämta länken till videon och ange URL:en som parameter för uppladdningsfil.
+- Om du planerar att ladda upp en video rekommenderas att placera filen i en offentlig nätverks plats (till exempel ett Azure Blob Storage-konto). Hämta länken till videon och ange URL:en som parameter för uppladdningsfil.
 
-    URL:en som skickas till Video Indexer måste peka på en mediefil (ljud eller video). Vissa av länkarna som genereras av OneDrive är till en HTML-sida som innehåller filen. En enkel verifiering för URL: en är att klistra in den i en webbläsare – om filen börjar hämtas är det förmodligen en bra URL. Om webbläsaren återger viss visualisering är det troligt vis inte en länk till en fil, men till en HTML-sida.
+    URL:en som skickas till Video Indexer måste peka på en mediefil (ljud eller video). En enkel verifiering för URL: en (eller SAS-URL) är att klistra in den i en webbläsare, om filen börjar spelas upp/hämtas är det förmodligen en bra URL. Om webbläsaren återger viss visualisering är det troligt vis inte en länk till en fil, men till en HTML-sida.
 
 - När du anropar API:t som hämtar videoinsikter för den angivna videon får du detaljerade JSON-utdata som svarsinnehåll. [Information om returnerad JSON finns i det här avsnittet](video-indexer-output-json-v2.md).
 
@@ -215,5 +215,5 @@ Debug.WriteLine(playerWidgetLink);
 ## <a name="next-steps"></a>Nästa steg
 
 - [Granska information om JSON för utdata](video-indexer-output-json-v2.md)
-- Kolla in [exempel koden](https://github.com/Azure-Samples/media-services-video-indexer) som visar viktig aspekt av att ladda upp och indexera en video. Efter koden kunna får du en bra uppfattning om hur du använder vårt API för grundläggande funktioner. Se till att läsa de infogade kommentarerna och Lägg märke till våra bästa praxis råd.
+- Kolla in [exempel koden](https://github.com/Azure-Samples/media-services-video-indexer) som visar viktig aspekt av att ladda upp och indexera en video. Efter koden får du en bra uppfattning om hur du använder vårt API för grundläggande funktioner. Se till att läsa de infogade kommentarerna och Lägg märke till våra bästa praxis råd.
 

@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: ecfeebb9ce86d717531310c2ad1a33a3d27f4c0a
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 9827f79f8407bd04468f1b4456aec9d6a8793a6f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995741"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506302"
 ---
 # <a name="configure-log-analytics-workspace-for-azure-monitor-for-vms"></a>Konfigurera Log Analytics arbets yta för Azure Monitor for VMs
 Azure Monitor for VMs samlar in data från en eller flera Log Analytics arbets ytor i Azure Monitor. Innan du onboarding agents måste du skapa och konfigurera en arbets yta. I den här artikeln beskrivs kraven för arbets ytan och för att konfigurera den för Azure Monitor for VMs.
@@ -20,10 +20,10 @@ Azure Monitor for VMs samlar in data från en eller flera Log Analytics arbets y
 ## <a name="overview"></a>Översikt
 En enda prenumeration kan använda valfritt antal arbets ytor beroende på dina krav. det enda kravet på arbets ytan är att det finns på en plats som stöds och konfigureras med *VMInsights* -lösningen.
 
-När arbets ytan har kon figurer ATS kan du använda något av de tillgängliga alternativen för att installera de nödvändiga agenterna på den virtuella datorn och VMMS och ange en arbets yta där data ska skickas. Azure Monitor for VMs samlar in data från en konfigurerad arbets yta i prenumerationen.
+När arbets ytan har kon figurer ATS kan du använda något av de tillgängliga alternativen för att installera de nödvändiga agenterna på VM och VMSS och ange en arbets yta där data ska skickas. Azure Monitor for VMs samlar in data från en konfigurerad arbets yta i prenumerationen.
 
 > [!NOTE]
-> När du aktiverar Azure Monitor for VMs på en enskild virtuell dator eller VMMS med hjälp av Azure Portal får du möjlighet att välja en befintlig arbets yta eller skapa en ny. *VMInsights* -lösningen kommer att installeras på den här arbets ytan om den inte redan finns. Du kan sedan använda den här arbets ytan för andra agenter.
+> När du aktiverar Azure Monitor for VMs på en enskild virtuell dator eller VMSS med hjälp av Azure Portal får du möjlighet att välja en befintlig arbets yta eller skapa en ny. *VMInsights* -lösningen kommer att installeras på den här arbets ytan om den inte redan finns. Du kan sedan använda den här arbets ytan för andra agenter.
 
 
 ## <a name="create-log-analytics-workspace"></a>Skapa Log Analytics-arbetsyta
@@ -86,10 +86,10 @@ Om du vill konfigurera en enskild arbets yta väljer du **andra onboarding-alter
 
 Om du vill konfigurera flera arbets ytor väljer du fliken **konfiguration av arbets yta** på menyn **Virtual Machines** på **Monitor** -menyn i Azure Portal. Ange filter värden om du vill visa en lista över befintliga arbets ytor. Markera kryss rutan bredvid varje arbets yta som du vill aktivera och klicka sedan på **Konfigurera valda** .
 
-[![Konfiguration av arbets yta](media/vminsights-enable-at-scale-policy/workspace-configuration.png)](media/vminsights-enable-at-scale-policy/workspace-configuration.png#lightbox)
+[![Konfiguration av arbetsyta](media/vminsights-enable-at-scale-policy/workspace-configuration.png)](media/vminsights-enable-at-scale-policy/workspace-configuration.png#lightbox)
 
 
-När du aktiverar Azure Monitor for VMs på en enskild virtuell dator eller VMMS med hjälp av Azure Portal får du möjlighet att välja en befintlig arbets yta eller skapa en ny. *VMInsights* -lösningen kommer att installeras på den här arbets ytan om den inte redan finns. Du kan sedan använda den här arbets ytan för andra agenter.
+När du aktiverar Azure Monitor for VMs på en enskild virtuell dator eller VMSS med hjälp av Azure Portal får du möjlighet att välja en befintlig arbets yta eller skapa en ny. *VMInsights* -lösningen kommer att installeras på den här arbets ytan om den inte redan finns. Du kan sedan använda den här arbets ytan för andra agenter.
 
 [![Aktivera enskild virtuell dator i portalen](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png#lightbox)
 

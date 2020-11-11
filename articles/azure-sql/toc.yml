@@ -1,7 +1,11 @@
 - name: Azure SQL-dokumentation
   href: index.yml
-- name: Vad är Azure SQL?
-  href: azure-sql-iaas-vs-paas-what-is-overview.md
+- name: Azure SQL
+  items:
+    - name: Vad är Azure SQL?
+      href: azure-sql-iaas-vs-paas-what-is-overview.md
+    - name: Migrera till Azure SQL
+      href: migration-guides/index.yml
 - name: Delade SQL DB- och SQL MI-dokument
   items:
     - name: Köpmodeller
@@ -301,6 +305,16 @@
               href: database/sql-data-sync-sql-server-configure.md
             - name: Migrera SQLite till serverlös
               href: database/migrate-sqlite-db-to-azure-sql-serverless-offline-tutorial.md
+    - name: Migreringsguider
+      items:
+        - name: From DB2
+          href: migration-guides/database/db2-to-sql-database-guide.md
+        - name: Från SQL Server
+          items:
+            - name: Översikt
+              href: migration-guides/database/sql-server-to-sql-database-overview.md
+            - name: Migrera
+              href: migration-guides/database/sql-server-to-sql-database-guide.md
     - name: Begrepp
       items:
         - name: Anslutningsarkitektur
@@ -696,6 +710,18 @@
               href: managed-instance/replication-between-two-instances-configure-tutorial.md
             - name: 'MI pub, MI dist, SQL Sub'
               href: managed-instance/replication-two-instances-and-sql-server-configure-tutorial.md
+    - name: Migreringsguider
+      items:
+        - name: From DB2
+          href: migration-guides/managed-instance/db2-to-managed-instance-guide.md
+        - name: Från SQL Server
+          items:
+            - name: Översikt
+              href: migration-guides/managed-instance/sql-server-to-managed-instance-overview.md
+            - name: Migrera
+              href: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
+            - name: Baslinje för prestanda
+              href: migration-guides/managed-instance/sql-server-to-managed-instance-performance-baseline.md
     - name: Begrepp
       items:
         - name: Resursbegränsningar
@@ -1171,6 +1197,14 @@
               href: 'https://azure.microsoft.com/roadmap/?category=compute'
             - name: Stack Overflow
               href: 'https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server'
+    - name: Migreringsguider
+      items:
+        - name: Översikt
+          href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview.md
+        - name: Från SQL Server
+          href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide.md
+        - name: From DB2
+          href: migration-guides/virtual-machines/db2-to-sql-on-azure-vm-guide.md
 - name: Referens
   items:
     - name: T-SQL-språkreferens

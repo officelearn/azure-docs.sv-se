@@ -3,15 +3,15 @@ title: Microsoft Teams på Windows Virtual Desktop – Azure
 description: Använda Microsoft Teams på Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/28/2020
+ms.date: 11/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cae40b9aeed4058ab2082a1d1360558c1c656e1d
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 101b3a05591a7815ba28756bb5b07e855b64e769
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131776"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505554"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Använd Microsoft Teams på Windows Virtual Desktop
 
@@ -32,7 +32,6 @@ Innan du kan använda Microsoft Teams på Windows Virtual Desktop måste du gör
 - [Förbered ditt nätverk](/microsoftteams/prepare-network/) för Microsoft-team.
 - Installera [Windows Skriv bords klient](connect-windows-7-10.md) på en Windows 10-eller Windows 10 IoT Enterprise-enhet som uppfyller Microsoft Teams [maskin varu krav för team på en Windows-dator](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 - Anslut till en virtuell Windows 10-dator med flera sessioner eller Windows 10 Enterprise (VM).
-- [Hämta](https://www.microsoft.com/microsoft-365/microsoft-teams/download-app) och installera Teams Desktop-appen på värden med installation per dator. Medie optimering för Microsoft Teams kräver Teams Desktop app-version 1.3.00.4461 eller senare.
 
 ## <a name="install-the-teams-desktop-app"></a>Installera Teams Desktop-appen
 
@@ -42,7 +41,8 @@ I det här avsnittet visas hur du installerar Teams Desktop-appen på en VM-avbi
 
 Om du vill aktivera medie optimering för team anger du följande register nyckel på värden:
 
-1. Från Start-menyn kör du **regedit** som administratör. Navigera till **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams**.
+1. Från Start-menyn kör du **regedit** som administratör. Navigera till **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams**. Skapa team nyckeln om den inte redan finns.
+
 2. Skapa följande värde för team nyckeln:
 
 | Namn             | Typ   | Data/värde  |
@@ -51,7 +51,7 @@ Om du vill aktivera medie optimering för team anger du följande register nycke
 
 ### <a name="install-the-teams-websocket-service"></a>Installera Teams WebSocket-tjänsten
 
-Installera den senaste [WebSocket-tjänsten](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4AQBt) på den virtuella dator avbildningen. Om ett installations fel uppstår installerar du den [senaste versionen av Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) och försöker igen.
+Installera den senaste [WebRTC för fjärr skrivbord](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4AQBt) på din VM-avbildning. Om ett installations fel uppstår installerar du den [senaste versionen av Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) och försöker igen.
 
 #### <a name="latest-websocket-service-versions"></a>Senaste WebSocket service-versioner
 
@@ -94,7 +94,7 @@ Du kan distribuera Skriv bords appen för team med en installation per dator ell
 
         Detta installerar Teams till mappen programfiler (x86) på ett 32-bitars operativ system och i mappen program på ett 64-bitars operativ system. I det här läget är installationen av gyllene bilder klar. Installation av team per dator krävs för icke-beständiga installationer.
 
-        Det finns två flaggor som kan anges när du installerar Team, **ALLUSER = 1** och **allusers = 1**. Det är viktigt att förstå skillnaden mellan dessa parametrar. Parametern **ALLUSER = 1** används endast i VDI-miljöer för att ange en installation per dator. Parametern **allusers = 1** kan användas i non-VDI-och VDI-miljöer. När du anger den här parametern visas Team Machine-Wide installations programmet i program och funktioner i kontroll panelen samt appar & funktioner i Windows-inställningar. Alla användare med administratörs behörighet på datorn kan avinstallera team.
+        Det finns två flaggor som kan anges när du installerar Team, **ALLUSER = 1** och **allusers = 1**. Det är viktigt att förstå skillnaden mellan dessa parametrar. Parametern **ALLUSER = 1** används endast i VDI-miljöer för att ange en installation per dator. Parametern **allusers = 1** kan användas i non-VDI-och VDI-miljöer. När du anger den här parametern visas **team Machine-Wide installations programmet** i program och funktioner i kontroll panelen samt appar & funktioner i Windows-inställningar. Alla användare med administratörs behörighet på datorn kan avinstallera team.
 
         > [!NOTE]
         > Användare och administratörer kan inte inaktivera automatisk start för team under inloggningen just nu.
@@ -114,14 +114,19 @@ Du kan distribuera Skriv bords appen för team med en installation per dator ell
 
 När du har installerat WebSocket-tjänsten och Teams Desktop-appen följer du dessa steg för att kontrol lera att team medie optimeringar har lästs in:
 
-1. Välj din användar profil avbildning och välj sedan **om**.
-2. Välj **version**.
+1. Avsluta och starta om Team-programmet.
 
-      Om medie optimeringar läses in visar banderollen att **WVD-mediet är optimerat**. Om banderollen visar att du **WVD media inte är ansluten**avslutar du team-appen och försöker igen.
+2. Välj din användar profil avbildning och välj sedan **om**.
 
-3. Välj användar profil avbildningen och välj sedan **Inställningar**.
+3. Välj **version**.
 
-      Om medie optimeringar läses in räknas ljud enheterna och kamerorna som är tillgängliga lokalt i enhets menyn. Om menyn visar **fjärrljud**avslutar du team-appen och försöker igen. Om enheterna fortfarande inte visas i menyn kontrollerar du sekretess inställningarna på den lokala datorn. Se till att **Settings**  >  **Privacy**  >  inställningen **Tillåt att appar får åtkomst till mikrofonen** är **aktiverat**under Inställningar sekretess**program behörigheter** . Koppla från fjärrsessionen och Anslut sedan igen och kontrol lera ljud-och video enheterna igen. Om du vill ansluta till samtal och möten med video måste du också bevilja behörighet för appar för att få åtkomst till kameran.
+      Om medie optimeringar läses in visar banderollen att **WVD-mediet är optimerat**. Om banderollen visar att du **WVD media inte är ansluten** avslutar du team-appen och försöker igen.
+
+4. Välj användar profil avbildningen och välj sedan **Inställningar**.
+
+      Om medie optimeringar läses in räknas ljud enheterna och kamerorna som är tillgängliga lokalt i enhets menyn. Om menyn visar **fjärrljud** avslutar du team-appen och försöker igen. Om enheterna fortfarande inte visas i menyn kontrollerar du sekretess inställningarna på den lokala datorn. Se till att **Settings**  >  **Privacy**  >  inställningen **Tillåt att appar får åtkomst till mikrofonen** är **aktiverat** under Inställningar sekretess **program behörigheter** . Koppla från fjärrsessionen och Anslut sedan igen och kontrol lera ljud-och video enheterna igen. Om du vill ansluta till samtal och möten med video måste du också bevilja behörighet för appar för att få åtkomst till kameran.
+
+      Om Optimeringarna inte läses in avinstallerar du sedan Teams och kontrollerar igen.
 
 ## <a name="known-issues-and-limitations"></a>Kända problem och begränsningar
 

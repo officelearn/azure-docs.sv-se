@@ -2,16 +2,16 @@
 title: 'Snabb start: skapa en python-app'
 description: Kom igång med Azure App Service genom att distribuera din första python-app till en Linux-behållare i App Service.
 ms.topic: quickstart
-ms.date: 09/22/2020
+ms.date: 11/10/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
 zone_pivot_groups: python-frameworks-01
 adobe-target: true
-ms.openlocfilehash: c77465997f74d0f279080a68fd317af0d161127a
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: b32977ac1c8cfe0c461bcd1628c08a0ca215ba93
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357529"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506200"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Snabb start: skapa en python-app i Azure App Service på Linux
 
@@ -64,7 +64,7 @@ Det här kommandot öppnar en webbläsare för att samla in dina autentiseringsu
 
 När du har loggat in kan du köra Azure-kommandon med Azure CLI för att arbeta med resurser i din prenumeration.
 
-[Har du problem? Berätta för oss.](https://aka.ms/FlaskCLIQuickstartHelp)
+Har du problem? [Berätta för oss](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="clone-the-sample"></a>Klona exemplet
 
@@ -96,7 +96,7 @@ cd python-docs-hello-django
 
 Exemplet innehåller en Framework-speciell kod som Azure App Service känner igen när appen startas. Mer information finns i [behållare start process](configure-language-python.md#container-startup-process).
 
-[Har du problem? Berätta för oss.](https://aka.ms/FlaskCLIQuickstartHelp)
+Har du problem? [Berätta för oss](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="run-the-sample"></a>Kör exemplet
 
@@ -146,7 +146,7 @@ Exemplet innehåller en Framework-speciell kod som Azure App Service känner ige
 1. Tryck på **CTRL** + **C** i terminalfönstret för att avsluta utvecklings servern.
 ::: zone-end
 
-[Har du problem? Berätta för oss.](https://aka.ms/FlaskCLIQuickstartHelp)
+Har du problem? [Berätta för oss](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="deploy-the-sample"></a>Distribuera exemplet
 
@@ -167,13 +167,13 @@ Det kan ta några minuter att slutföra kommandot. Under körningen innehåller 
 
 ![Exempel på utdata från kommandot AZ webapp up](./media/quickstart-python/az-webapp-up-output.png)
 
-[Har du problem? Berätta för oss.](https://aka.ms/FlaskCLIQuickstartHelp)
+Har du problem? Se först i [fel söknings guiden](configure-language-python.md#troubleshooting), annars kan du berätta för [oss](https://aka.ms/FlaskCLIQuickstartHelp).
 
 [!include [az webapp up command note](../../includes/app-service-web-az-webapp-up-note.md)]
 
 ## <a name="browse-to-the-app"></a>Bläddra till appen
 
-Bläddra till det distribuerade programmet i webbläsaren på webb adressen `http://<app-name>.azurewebsites.net` . Det tar en stund att starta appen från början.
+Bläddra till det distribuerade programmet i webbläsaren på webb adressen `http://<app-name>.azurewebsites.net` . Det kan ta en minut eller två innan appen startas, så om du ser en standard-app-sida väntar du en minut och uppdaterar webbläsaren.
 
 Python-exempel koden kör en Linux-behållare i App Service med hjälp av en inbyggd avbildning.
 
@@ -181,7 +181,7 @@ Python-exempel koden kör en Linux-behållare i App Service med hjälp av en inb
 
 **Grattis!** Du har distribuerat din python-app till App Service.
 
-[Har du problem? Berätta för oss.](https://aka.ms/FlaskCLIQuickstartHelp)
+Har du problem? Se först i [fel söknings guiden](configure-language-python.md#troubleshooting), annars kan du berätta för [oss](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="redeploy-updates"></a>Distribuera om uppdateringar
 
@@ -218,7 +218,7 @@ När distributionen är klar går du tillbaka till webbläsarfönstret öppna ti
 
 ![Köra en uppdaterad exempel-python-app i Azure](./media/quickstart-python/run-updated-hello-world-sample-python-app-in-browser.png)
 
-[Har du problem? Berätta för oss.](https://aka.ms/FlaskCLIQuickstartHelp)
+Har du problem? Se först i [fel söknings guiden](configure-language-python.md#troubleshooting), annars kan du berätta för [oss](https://aka.ms/FlaskCLIQuickstartHelp).
 
 > [!TIP]
 > Visual Studio Code tillhandahåller kraftfulla tillägg för python och Azure App Service, vilket fören klar processen att distribuera python-webbappar till App Service. Mer information finns i [distribuera python-appar till App Service från Visual Studio Code](/azure/python/tutorial-deploy-app-service-on-linux-01).
@@ -241,7 +241,7 @@ Du kan även granska loggfilerna från din webbläsare via `https://<app-name>.s
 
 Tryck på **CTRL** + **C** i terminalen om du vill stoppa logg strömningen när som helst.
 
-[Har du problem? Berätta för oss.](https://aka.ms/FlaskCLIQuickstartHelp)
+Har du problem? [Berätta för oss](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="manage-the-azure-app"></a>Hantera Azure-appen
 
@@ -259,7 +259,7 @@ När du väljer appen öppnas sidan **Översikt** där du kan utföra grundlägg
 
 App Service-menyn innehåller olika sidor för att konfigurera din app.
 
-[Har du problem? Berätta för oss.](https://aka.ms/FlaskCLIQuickstartHelp)
+Har du problem? Se först i [fel söknings guiden](configure-language-python.md#troubleshooting), annars kan du berätta för [oss](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -275,7 +275,7 @@ Kommandot använder resurs grupps namnet cachelagrat i *. Azure/config-* filen.
 
 `--no-wait`Argumentet tillåter att kommandot returneras innan åtgärden har slutförts.
 
-[Har du problem? Berätta för oss.](https://aka.ms/FlaskCLIQuickstartHelp)
+Har du problem? [Berätta för oss](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="next-steps"></a>Nästa steg
 

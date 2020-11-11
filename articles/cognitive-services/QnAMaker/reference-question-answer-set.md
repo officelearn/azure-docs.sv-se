@@ -5,14 +5,14 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 09/01/2020
-ms.openlocfilehash: 363af72df89be9104e4d946bf8da0d44908382d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef5476ade205109f5dfede1b3bb2c3a4ae2e81a7
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776229"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506013"
 ---
-# <a name="question-and-answer-pair-concepts"></a>Begrepp för frågor och svars par
+# <a name="question-and-answer-pair"></a>Par för frågor och svar
 
 En kunskaps bas består av QnA-par (frågor och svar).  Varje par har ett svar och ett par innehåller all information som är kopplad till det _svaret_. Ett svar kan likna en databas rad eller en data struktur instans.
 
@@ -28,8 +28,8 @@ Varje par representeras av ett **ID**.
 De **valfria** inställningarna för ett par är:
 
 * **Andra typer av frågor** – detta hjälper QNA Maker att returnera rätt svar för en större mängd olika frågor ordföljder
-* **Metadata**: metadata är taggar som är associerade med ett QNA-par och som representeras som nyckel/värde-par. Metadata-Taggar används för att filtrera QnA-par och begränsa den mängd som frågan ska matchas över.
-* Snabb **prompter**som används för att fortsätta en konversation med flera varv
+* **Metadata** : metadata är taggar som är associerade med ett QNA-par och som representeras som nyckel/värde-par. Metadata-Taggar används för att filtrera QnA-par och begränsa den mängd som frågan ska matchas över.
+* Snabb **prompter** som används för att fortsätta en konversation med flera varv
 
 ![QnA Maker kunskaps baser](media/qnamaker-concepts-knowledgebase/knowledgebase.png)
 

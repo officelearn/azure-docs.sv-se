@@ -178,6 +178,8 @@
           href: connect-threat-intelligence.md
         - name: Ansluta virtuella datorer i Azure Stack
           href: connect-azure-stack.md
+        - name: Övervaka hälsotillstånd för dataanslutningsprogram
+          href: monitor-data-connector-health.md
     - name: Aktivera beteendeanalys för användare och entiteter
       href: enable-entity-behavior-analytics.md
     - name: Hantera flera klientorganisationer (MSSP)

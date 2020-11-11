@@ -12,6 +12,8 @@
   items:
     - name: Skapa en SCIM-slutpunkt och konfigurera etablering
       href: use-scim-to-provision-users-and-groups.md
+    - name: Anpassa attributmappningar
+      href: customize-application-attributes.md
     - name: Självstudier om appspecifik etablering
       href: /azure/active-directory/saas-apps
 - name: Begrepp
@@ -30,8 +32,6 @@
   items:
     - name: Konfigurera etablering för en galleriapp
       href: configure-automatic-user-provisioning-portal.md
-    - name: Anpassa attributmappningar
-      href: customize-application-attributes.md
     - name: Inkludera eller exkludera användare och grupper från omfattningen
       items:
         - name: Hitta användare och grupper som ska etableras

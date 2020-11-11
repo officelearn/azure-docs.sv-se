@@ -12,12 +12,12 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 02/14/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 67e90667df2b62ec2c37d865fe431a2be6f81b9e
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 9c75ccaa05457f13697d1a26dbc8fd2f6720a751
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876574"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517860"
 ---
 # <a name="quickstart-set-up-push-notifications-in-a-notification-hub"></a>Snabb start: Konfigurera push-meddelanden i en Notification Hub
 
@@ -33,19 +33,19 @@ Konfigurera Apple Push Notification Service (APN):
 
 1. I Azure Portal på sidan **Notification Hub** väljer du **Apple (APNs)** på den vänstra menyn.
 
-1. För **autentiseringsläge**väljer du antingen **certifikat** eller **token**.
+1. För **autentiseringsläge** väljer du antingen **certifikat** eller **token**.
 
-   a. Om du väljer **certifikat**:
+   a. Om du väljer **certifikat** :
    * Välj fil ikonen och välj sedan den *. p12* -fil som du vill ladda upp.
    * Ange ett lösen ord.
-   * Välj **Sandbox**-läge. Eller, om du vill skicka push-meddelanden till användare som har köpt din app från Store, väljer du **produktions** läge.
+   * Välj **Sandbox** -läge. Eller, om du vill skicka push-meddelanden till användare som har köpt din app från Store, väljer du **produktions** läge.
 
      ![Skärm bild av en konfiguration av APN-certifikat i Azure Portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
 
-   b. Om du väljer **token**:
+   b. Om du väljer **token** :
 
-   * Ange värdena för **nyckel-ID**, **paket-ID**, **Team-ID**och **token**.
-   * Välj **Sandbox**-läge. Eller, om du vill skicka push-meddelanden till användare som har köpt din app från Store, väljer du **produktions** läge.
+   * Ange värdena för **nyckel-ID** , **paket-ID** , **Team-ID** och **token**.
+   * Välj **Sandbox** -läge. Eller, om du vill skicka push-meddelanden till användare som har köpt din app från Store, väljer du **produktions** läge.
 
      ![Skärm bild av en konfiguration av APN-token i Azure Portal](./media/configure-notification-hub-portal-pns-settings/notification-hubs-apple-config-token.png)
 
@@ -67,11 +67,11 @@ När du slutför de här stegen anger en varning att Notification Hub har uppdat
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+Du kommer att behöva **API-nyckeln** för ditt Google Firebase Cloud Messaging-projekt (FCM).
 
-- Notification Hubs kräver version 2.0.67 eller senare av Azure CLI. Kör [AZ-versionen](/cli/azure/reference-index?#az_version) för att hitta den version och beroende bibliotek som är installerade. Uppgradera till den senaste versionen genom att köra [AZ Upgrade](/cli/azure/reference-index?#az_upgrade).
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
 
-- Du kommer att behöva **API-nyckeln** för ditt Google Firebase Cloud Messaging-projekt (FCM).
+- Den här artikeln kräver version 2.0.67 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
 ### <a name="set-up-push-notifications-for-google-fcm"></a>Konfigurera push-meddelanden för Google FCM
 

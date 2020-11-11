@@ -8,22 +8,22 @@ ms.subservice: security
 ms.topic: quickstart
 ms.date: 05/17/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 08324cc32abdf78cf6ff9ef2d04352eb44f709ef
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0156a1d7cea477a1725b60a5e1de229e76d2664c
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974234"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517996"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-vm-with-the-azure-cli"></a>Snabb start: skapa och kryptera en virtuell Windows-dator med Azure CLI
 
 Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här snabb starten visar hur du använder Azure CLI för att skapa och kryptera en virtuell Windows Server 2016-dator (VM).
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Om du väljer att installera och använda Azure CLI lokalt kräver den här snabb starten att du kör Azure CLI-version 2.0.30 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
+- Den här artikeln kräver version 2.0.30 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -48,7 +48,7 @@ az vm create \
 
 Det tar några minuter att skapa den virtuella datorn och stödresurser. Utdataresultatet i följande exempel anger att den virtuella datorn har skapats.
 
-```
+```console
 {
   "fqdns": "",
   "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -65,7 +65,7 @@ Det tar några minuter att skapa den virtuella datorn och stödresurser. Utdatar
 
 Azure Disk Encryption lagrar sin krypterings nyckel i en Azure Key Vault. Skapa en Key Vault med [AZ-valv skapa](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create). Om du vill aktivera Key Vault att lagra krypterings nycklar använder du parametern--enabled-for-Disk-Encryption.
 > [!Important]
-> Varje Key Vault måste ha ett unikt namn. I följande exempel skapas en Key Vault med namnet *myKV*, men du måste namnge något annat.
+> Varje Key Vault måste ha ett unikt namn. I följande exempel skapas en Key Vault med namnet *myKV* , men du måste namnge något annat.
 
 ```azurecli-interactive
 az keyvault create --name "myKV" --resource-group "myResourceGroup" --location eastus --enabled-for-disk-encryption
@@ -87,7 +87,7 @@ az vm encryption show --name MyVM -g MyResourceGroup
 
 Följande visas i utdata som returneras:
 
-```
+```console
 "EncryptionOperation": "EnableEncryption"
 ```
 

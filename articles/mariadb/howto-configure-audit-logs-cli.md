@@ -7,27 +7,28 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/24/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0aba88c10304cf7d87277ad851ae38eae8eb5bf3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e532902e1e6da90d4c81320b34a0b2b5dd1133f
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87497128"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518115"
 ---
 # <a name="configure-and-access-azure-database-for-maria-db-audit-logs-in-the-azure-cli"></a>Konfigurera och få åtkomst till gransknings loggar för Azure Database för Maria DB i Azure CLI
 
 Du kan konfigurera [gransknings loggarna för Azure Database for MariaDB](concepts-audit-logs.md) från Azure CLI.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att gå igenom den här instruktions guiden behöver du:
+För att slutföra den här guiden:
 
-- [Azure Database for MariaDB Server](quickstart-create-mariadb-server-database-using-azure-portal.md)
+- Du behöver en [Azure Database for MariaDB-Server](quickstart-create-mariadb-server-database-using-azure-portal.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-> [!IMPORTANT]
-> Den här instruktions guiden kräver att du använder Azure CLI version 2,0 eller senare. Bekräfta versionen genom att ange i kommando tolken för Azure CLI `az --version` . Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
+- Den här artikeln kräver version 2,0 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
 ## <a name="configure-audit-logging"></a>Konfigurera gransknings loggning
 

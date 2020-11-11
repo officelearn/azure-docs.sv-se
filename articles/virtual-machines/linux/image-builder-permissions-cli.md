@@ -7,12 +7,12 @@ ms.date: 05/06/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 58bbe01c8de0bbe606f4fc428032cd213f05d386
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f598ed3e2aef2f53b90b213d0bd1b002f56bd30c
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88068342"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517758"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-azure-cli"></a>Konfigurera Azure Image Builder-tjänstens behörigheter med Azure CLI
 
@@ -22,7 +22,7 @@ Azure Image Builder-tjänsten kräver konfiguration av behörigheter och behöri
 > Azure Image Builder är för närvarande en offentlig för hands version.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## <a name="register-the-features"></a>Registrera funktionerna
 
@@ -41,7 +41,7 @@ Azure Image Builder kräver att du skapar en [Azure-användardefinierad hanterad
 
 I följande exempel visas hur du skapar en hanterad Azure-användare som tilldelats Azure. Ersätt inställningarna för plats hållaren genom att ange dina variabler.
 
-| Inställning | Beskrivning |
+| Inställningen | Beskrivning |
 |---------|-------------|
 | \<Resource group\> | Resurs grupp där du kan skapa den hanterade identiteten som användaren tilldelats. |
 
@@ -118,7 +118,7 @@ I följande exempel skapas en Azure-roll som använder och distribuerar en anpas
 
 För att förenkla utbytet av värden i exemplet anger du först följande variabler. Ersätt inställningarna för plats hållaren genom att ange dina variabler.
 
-| Inställning | Beskrivning |
+| Inställningen | Beskrivning |
 |---------|-------------|
 | \<Subscription ID\> | Ditt Azure-prenumerations-ID |
 | \<Resource group\> | Resurs grupp för anpassad avbildning |
@@ -160,7 +160,7 @@ I följande exempel skapas en Azure-roll som använder och distribuerar en befin
 
 För att förenkla utbytet av värden i exemplet anger du först följande variabler. Ersätt inställningarna för plats hållaren genom att ange dina variabler.
 
-| Inställning | Beskrivning |
+| Inställningen | Beskrivning |
 |---------|-------------|
 | \<Subscription ID\> | Ditt Azure-prenumerations-ID |
 | \<Resource group\> | VNET-resurs grupp |
@@ -227,7 +227,7 @@ I Image Builder-mallen måste du ange den användare som tilldelats den hanterad
 
 Ersätt följande plats hållarnas inställningar:
 
-| Inställning | Beskrivning |
+| Inställningen | Beskrivning |
 |---------|-------------|
 | \<Region\> | Mall region |
 | \<Resource group\> | Resursgrupp |

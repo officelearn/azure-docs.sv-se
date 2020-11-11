@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 9a68ec82ea5e924916cbe8b07c11a4f8f62199a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8cbe6b39bda0815c4981c497c07750136bcc9dba
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317964"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517492"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Säkerhets ram: konfigurations hantering | Åtgärder 
 | Produkt/tjänst | Artikel |
@@ -88,7 +88,7 @@ Example: var str="alert(1)"; eval(str);
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [Översikt över ASP.net-fel sökning](https://msdn.microsoft.com/library/ms227556.aspx), [Översikt över ASP.net spårning](https://msdn.microsoft.com/library/bb386420.aspx), [How to: Aktivera spårning för ett ASP.NET-program](https://msdn.microsoft.com/library/0x5wc973.aspx), [How to: Aktivera fel sökning för ASP.NET-program](https://msdn.microsoft.com/library/e8z01xdh(VS.80).aspx) |
+| **Referenser**              | [Översikt över ASP.net-fel sökning](/previous-versions/ms227556(v=vs.140)), [Översikt över ASP.net spårning](/previous-versions/bb386420(v=vs.140)), [How to: Aktivera spårning för ett ASP.NET-program](/previous-versions/0x5wc973(v=vs.140)), [How to: Aktivera fel sökning för ASP.NET-program](https://msdn.microsoft.com/library/e8z01xdh(VS.80).aspx) |
 | **Steg** | När spårning har Aktiver ATS för sidan får alla webbläsare som begär den även spårnings information som innehåller information om internt Server tillstånd och arbets flöde. Denna information kan vara säkerhets känslig. När fel sökning har Aktiver ATS för sidan resulterar fel på servern i en fullständig stack spårnings data som visas i webbläsaren. Dessa data kan exponera säkerhets känslig information om serverns arbets flöde. |
 
 ## <a name="access-third-party-javascripts-from-trusted-sources-only"></a><a id="js-trusted"></a>Få till gång till JavaScript-skript från tredje part från betrodda källor
@@ -110,7 +110,7 @@ Example: var str="alert(1)"; eval(str);
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [OWASP Klicka-lathund blad](https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html), [IE-skydd – bekämpa klickning-uttag med X-bildruta-alternativ](https://blogs.msdn.microsoft.com/ieinternals/2010/03/30/combating-clickjacking-with-x-frame-options/) |
+| **Referenser**              | [OWASP Klicka-lathund blad](https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html), [IE-skydd – bekämpa klickning-uttag med X-bildruta-alternativ](/archive/blogs/ieinternals/combating-clickjacking-with-x-frame-options) |
 | **Steg** | <p>Klicka på-uttag, även kallat en "UI-attack", är när en angripare använder flera genomskinliga eller ogenomskinliga lager för att lura användaren att klicka på en knapp eller länk på en annan sida när han eller hon skulle klicka på sidan på den översta nivån.</p><p>Denna skiktning uppnås genom att en skadlig sida skapas med en iframe, som läser in sidan med offerter. Det innebär att angriparen är "kapa"-klickningar avsedda för sina sidor och dirigerar dem till en annan sida, som troligen ägs av ett annat program, en domän eller både och. För att förhindra klicknings uttag, anger du rätt HTTP-svarshuvuden i X-bildruta-alternativ som instruerar webbläsaren att inte tillåta ramar från andra domäner</p>|
 
 ### <a name="example"></a>Exempel
@@ -213,7 +213,7 @@ Observera att verifierings funktionen för begäran inte stöds och att den inte
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [IE8, säkerhets del V: omfattande skydd](https://docs.microsoft.com/archive/blogs/ie/ie8-security-part-v-comprehensive-protection), [MIME-typ](https://en.wikipedia.org/wiki/Mime_type) |
+| **Referenser**              | [IE8, säkerhets del V: omfattande skydd](/archive/blogs/ie/ie8-security-part-v-comprehensive-protection), [MIME-typ](https://en.wikipedia.org/wiki/Mime_type) |
 | **Steg** | Huvudet X-Content-Type-Options är ett HTTP-huvud som gör det möjligt för utvecklare att ange att deras innehåll inte ska vara MIME-sniffed. Den här rubriken är utformad för att minimera MIME-Sniffing attacker. För varje sida som kan innehålla innehåll som kan vara användarvänligt måste du använda HTTP-huvudet X-Content-Type-Options: nosniffer. Om du vill aktivera nödvändigt sidhuvud globalt för alla sidor i programmet kan du göra något av följande|
 
 ### <a name="example"></a>Exempel
@@ -289,7 +289,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | SQL Azure, OnPrem |
 | **Attribut**              | Ej tillämpligt, SQL-version – V12 |
-| **Referenser**              | Konfigurera en [Azure SQL Database brand vägg](https://azure.microsoft.com/documentation/articles/sql-database-firewall-configure/)genom att [Konfigurera en Windows-brandvägg för databas motor åtkomst](https://msdn.microsoft.com/library/ms175043) |
+| **Referenser**              | Konfigurera en [Azure SQL Database brand vägg](../../azure-sql/database/firewall-configure.md)genom att [Konfigurera en Windows-brandvägg för databas motor åtkomst](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) |
 | **Steg** | Brandväggssystem hjälper till att förhindra obehörig åtkomst till datorresurser. För att få åtkomst till en instans av SQL Server Database Engine via en brand vägg måste du konfigurera brand väggen på datorn som kör SQL Server för att tillåta åtkomst |
 
 ## <a name="ensure-that-only-trusted-origins-are-allowed-if-cors-is-enabled-on-aspnet-web-api"></a><a id="cors-api"></a>Se till att endast betrodda ursprung är tillåtna om CORS är aktiverat på ASP.NET webb-API
@@ -300,7 +300,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | MVC 5 |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [Aktivera cross-origin-begäranden i ASP.net webb-API 2](https://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api), [ASP.net Web API-CORS-stöd i ASP.net Web API 2](https://msdn.microsoft.com/magazine/dn532203.aspx) |
+| **Referenser**              | [Aktivera cross-origin-begäranden i ASP.net webb-API 2](https://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api), [ASP.net Web API-CORS-stöd i ASP.net Web API 2](/archive/msdn-magazine/2013/december/asp-net-web-api-cors-support-in-asp-net-web-api-2) |
 | **Steg** | <p>Webbläsarskydd förhindrar att en webbsida gör AJAX-begäranden till en annan domän. Den här begränsningen kallas samma ursprungs princip och förhindrar att en skadlig webbplats läser känsliga data från en annan plats. Ibland kan det dock vara nödvändigt att exponera API: er på ett säkert sätt som andra-platser kan använda. Resurs delning mellan ursprung (CORS) är en W3C-standard som gör att en server kan öka principen för samma ursprung.</p><p>Med hjälp av CORS kan en server uttryckligen tillåta vissa cross-origin-begäranden medan andra nekas. CORS är säkrare och mer flexibel än tidigare tekniker, till exempel JSONP.</p>|
 
 ### <a name="example"></a>Exempel
@@ -488,7 +488,7 @@ Om du vill inaktivera CORS för en styrenhet eller åtgärd använder du attribu
 | **SDL-fas**               | Distribution |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t.  |
-| **Referenser**              | Gör så [här: kryptera konfigurations avsnitt i ASP.NET 2,0 med DPAPI](https://msdn.microsoft.com/library/ff647398.aspx), [Ange en skyddad Konfigurationsprovider](https://msdn.microsoft.com/library/68ze1hb2.aspx) [med hjälp av Azure Key Vault för att skydda program hemligheter](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
+| **Referenser**              | Gör så [här: kryptera konfigurations avsnitt i ASP.NET 2,0 med DPAPI](/previous-versions/msp-n-p/ff647398(v=pandp.10)), [Ange en skyddad Konfigurationsprovider](/previous-versions/68ze1hb2(v=vs.140)) [med hjälp av Azure Key Vault för att skydda program hemligheter](/azure/architecture/multitenant-identity/web-api) |
 | **Steg** | Konfigurationsfiler som Web.config, appsettings.jspå används ofta för att lagra känslig information, inklusive användar namn, lösen ord, databas anslutnings strängar och krypterings nycklar. Om du inte skyddar den här informationen är ditt program sårbart för angripare eller skadliga användare som erhåller känslig information, till exempel användar namn och lösen ord för kontot, databas namn och Server namn. Med hjälp av distributions typen (Azure/on-lokal) krypterar du de känsliga delarna av config-filerna med DPAPI eller tjänster som Azure Key Vault. |
 
 ## <a name="ensure-that-all-admin-interfaces-are-secured-with-strong-credentials"></a><a id="admin-strong"></a>Se till att alla administratörs gränssnitt skyddas med starka autentiseringsuppgifter
@@ -510,7 +510,7 @@ Om du vill inaktivera CORS för en styrenhet eller åtgärd använder du attribu
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [Aktivera säker start och enhets kryptering på enhets lås i Windows 10 IoT Core](https://docs.microsoft.com/windows/iot-core/secure-your-device/securebootandbitlocker) |
+| **Referenser**              | [Aktivera säker start och enhets kryptering på enhets lås i Windows 10 IoT Core](/windows/iot-core/secure-your-device/securebootandbitlocker) |
 | **Steg** | UEFI-säker start begränsar systemet till att endast tillåta körning av binärfiler som signerats av en angiven utfärdare. Den här funktionen förhindrar att okänd kod körs på plattformen och kan eventuellt minska säkerhets position. Aktivera UEFI-säker start och begränsa listan över certifikat utfärdare som är betrodda för signerings kod. Signera all kod som har distribuerats på enheten med hjälp av en av de betrodda certifikat utfärdarna. |
 
 ## <a name="encrypt-os-and-additional-partitions-of-iot-device-with-bit-locker"></a><a id="partition-iot"></a>Kryptera OS och ytterligare partitioner med IoT-enheter med bit Locker
@@ -565,7 +565,7 @@ Om du vill inaktivera CORS för en styrenhet eller åtgärd använder du attribu
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Gateway-val – Azure-IoT Hub |
-| **Referenser**              | [Översikt över IoT Hub enhets hantering](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-overview/), [så här uppdaterar du enhetens inbyggda program vara](../../iot-hub/tutorial-firmware-update.md) |
+| **Referenser**              | [Översikt över IoT Hub enhets hantering](../../iot-hub/iot-hub-device-management-overview.md), [så här uppdaterar du enhetens inbyggda program vara](../../iot-hub/tutorial-firmware-update.md) |
 | **Steg** | LWM2M är ett protokoll från Open Mobile Alliance för IoT Device Management. Med Azure IoT Device Management kan du interagera med fysiska enheter med hjälp av enhets jobb. Se till att Cloud Gateway implementerar en process för att rutinmässigt hålla enheten och andra konfigurations data uppdaterade med hjälp av Azure IoT Hub enhets hantering. |
 
 ## <a name="ensure-that-devices-have-end-point-security-controls-configured-as-per-organizational-policies"></a><a id="controls-policies"></a>Se till att enheterna har slut punkts säkerhets kontroller som kon figurer ATS enligt organisations principer
@@ -587,7 +587,7 @@ Om du vill inaktivera CORS för en styrenhet eller åtgärd använder du attribu
 | **SDL-fas**               | Distribution |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [Azure Storage säkerhets guide – hantera dina lagrings konto nycklar](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_managing-your-storage-account-keys) |
+| **Referenser**              | [Azure Storage säkerhets guide – hantera dina lagrings konto nycklar](../../storage/blobs/security-recommendations.md#identity-and-access-management) |
 | **Steg** | <p>Nyckel lagring: Vi rekommenderar att du lagrar Azure Storage åtkomst nycklar i Azure Key Vault som en hemlighet och att programmen hämtar nyckeln från Key Vault. Detta rekommenderas på grund av följande orsaker:</p><ul><li>Programmet kommer aldrig att ha lagrings nyckeln hårdkodad i en konfigurations fil, vilket tar bort minimering från någon som får åtkomst till nycklarna utan specifika behörigheter</li><li>Åtkomst till nycklarna kan kontrol leras med hjälp av Azure Active Directory. Det innebär att en konto ägare kan bevilja åtkomst till fåtal-program som behöver hämta nycklar från Azure Key Vault. Andra program kommer inte att kunna komma åt nycklarna utan att ge dem behörighet särskilt</li><li>Återskapning av nyckel: Vi rekommenderar att du har en process på plats för att återskapa åtkomst nycklar för Azure Storage av säkerhets skäl. Information om varför och hur du planerar för att återskapa nycklar finns dokumenterade i referens artikeln Azure Storage Security guide</li></ul>|
 
 ## <a name="ensure-that-only-trusted-origins-are-allowed-if-cors-is-enabled-on-azure-storage"></a><a id="cors-storage"></a>Se till att endast betrodda ursprung är tillåtna om CORS är aktiverat i Azure Storage
@@ -598,7 +598,7 @@ Om du vill inaktivera CORS för en styrenhet eller åtgärd använder du attribu
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [CORS-stöd för Azure Storage-tjänsterna](https://msdn.microsoft.com/library/azure/dn535601.aspx) |
+| **Referenser**              | [CORS-stöd för Azure Storage-tjänsterna](/rest/api/storageservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services) |
 | **Steg** | Med Azure Storage kan du aktivera CORS – resurs delning mellan ursprung. För varje lagrings konto kan du ange domäner som har åtkomst till resurserna i det lagrings kontot. Som standard är CORS inaktive rad på alla tjänster. Du kan aktivera CORS genom att använda REST API eller lagrings klient biblioteket för att anropa en av metoderna för att ange tjänst principerna. |
 
 ## <a name="enable-wcfs-service-throttling-feature"></a><a id="throttling"></a>Aktivera WCF-funktionen för tjänst begränsning
@@ -609,7 +609,7 @@ Om du vill inaktivera CORS för en styrenhet eller åtgärd använder du attribu
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | .NET Framework 3 |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [FORTIFY kungariket](https://vulncat.fortify.com) |
+| **Referenser**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [FORTIFY kungariket](https://vulncat.fortify.com) |
 | **Steg** | <p>Om du inte begränsar användningen av system resurser kan det leda till resurs utbelastning och i sista hand en denial of service.</p><ul><li>**Förklaring:** Windows Communication Foundation (WCF) ger möjlighet att begränsa tjänst begär Anden. Om du tillåter för många klient begär Anden kan det belasta systemet och resurserna. Å andra sidan kan endast ett litet antal begär anden till en tjänst förhindra att legitima användare använder tjänsten. Varje tjänst bör vara individuellt anpassad till och konfigurerad för att tillåta lämplig mängd resurser.</li><li>**Rekommendationer** Aktivera WCF-funktionen för tjänst begränsning och ange lämpliga gränser för ditt program.</li></ul>|
 
 ### <a name="example"></a>Exempel
@@ -632,7 +632,7 @@ Följande är en exempel konfiguration med begränsning aktiverat:
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | .NET Framework 3 |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [FORTIFY kungariket](https://vulncat.fortify.com) |
+| **Referenser**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [FORTIFY kungariket](https://vulncat.fortify.com) |
 | **Steg** | Metadata kan hjälpa angripare att lära sig mer om systemet och planera en form av angrepp. WCF-tjänster kan konfigureras för att exponera metadata. Metadata ger detaljerad information om tjänst beskrivningen och ska inte skickas i produktions miljöer. `HttpGetEnabled`  /  `HttpsGetEnabled` Egenskaperna för ServiceMetaData-klassen definierar om en tjänst ska exponera metadata | 
 
 ### <a name="example"></a>Exempel

@@ -6,34 +6,28 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 03/25/2020
-ms.openlocfilehash: 990380d553cc12d1a87b2e1c7ca9b09864801294
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a60a6889217ce6ca8dccd5ebf5ee74b8f67a7757
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334010"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518217"
 ---
 # <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-the-azure-cli"></a>Konfigurera en skalnings uppsättning för virtuella datorer med en befintlig Azure Load Balancer med hjälp av Azure CLI
 
-I den här artikeln får du lära dig hur du konfigurerar en skalnings uppsättning för virtuella datorer med en befintlig Azure Load Balancer. 
+I den här artikeln får du lära dig hur du konfigurerar en skalnings uppsättning för virtuella datorer med en befintlig Azure Load Balancer.
 
-## <a name="prerequisites"></a>Förutsättningar
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- En Azure-prenumeration.
-- En befintlig SKU för standard-SKU i prenumerationen där den virtuella datorns skalnings uppsättning ska distribueras.
-- En Azure-Virtual Network för skalnings uppsättningen för den virtuella datorn.
+## <a name="prerequisites"></a>Förutsättningar 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
+- Du behöver en befintlig SKU för standard-SKU i prenumerationen där den virtuella datorns skalnings uppsättning ska distribueras.
 
-Om du väljer att använda CLI lokalt, kräver den här artikeln att du har en version av Azure CLI-versionen 2.0.28 eller senare installerad. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
+- Du behöver ett Azure-Virtual Network för skalnings uppsättningen för den virtuella datorn.
+ 
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-## <a name="sign-in-to-azure-cli"></a>Logga in på Azure CLI
-
-Logga in på Azure.
-
-```azurecli-interactive
-az login
-```
+- Den här artikeln kräver version 2.0.28 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
 ## <a name="deploy-a-virtual-machine-scale-set-with-existing-load-balancer"></a>Distribuera en skalnings uppsättning för virtuell dator med befintlig belastningsutjämnare
 

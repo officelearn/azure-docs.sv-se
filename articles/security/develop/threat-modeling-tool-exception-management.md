@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8f68bc5e4604f35f9c4c45cd3e38ddaf8d24cd03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41532e554623c47e9728c6ccab92d99500e42021
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89004467"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517435"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Säkerhets ram: undantags hantering | Åtgärder 
 | Produkt/tjänst | Artikel |
@@ -38,7 +38,7 @@ ms.locfileid: "89004467"
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänt, NET Framework 3 |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [FORTIFY kungariket](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_debug_information) |
+| **Referenser**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [FORTIFY kungariket](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_debug_information) |
 | **Steg** | WCF-tjänster (Windows Communication Framework) kan konfigureras för att Visa felsöknings information. Felsöknings information ska inte användas i produktions miljöer. `<serviceDebug>`Taggen definierar om funktionen för fel söknings information är aktive rad för en WCF-tjänst. Om attributet includeExceptionDetailInFaults har angetts till True returneras undantags information från programmet till klienter. Angripare kan utnyttja den ytterligare information som de får från att felsöka utdata för att montera attacker riktade mot ramverket, databasen eller andra resurser som används av programmet. |
 
 ### <a name="example"></a>Exempel
@@ -62,7 +62,7 @@ Inaktivera fel söknings information i tjänsten. Detta kan åstadkommas genom a
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Allmänt, NET Framework 3 |
-| **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [FORTIFY kungariket](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_service_enumeration) |
+| **Referenser**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [FORTIFY kungariket](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_service_enumeration) |
 | **Steg** | Offentligt exponerande information om en tjänst kan ge angripare en värdefull inblick i hur de kan utnyttja tjänsten. `<serviceMetadata>`Taggen aktiverar funktionen för metadata-publicering. Metadata för tjänsten kan innehålla känslig information som inte ska vara offentligt tillgänglig. Låt minst bara tillåta betrodda användare att komma åt metadata och se till att onödig information inte visas. Ännu bättre, inaktivera möjligheten att publicera metadata. En säker WCF-konfiguration kommer inte att innehålla `<serviceMetadata>` taggen. |
 
 ## <a name="ensure-that-proper-exception-handling-is-done-in-aspnet-web-api"></a><a id="exception"></a>Kontrol lera att rätt undantags hantering görs i ASP.NET webb-API
@@ -202,7 +202,7 @@ Se länkarna i avsnittet referenser om du vill ha mer information om exceptionel
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [Redigera dialogrutan för inställningar av ASP.NET-felsidor](https://technet.microsoft.com/library/dd569096(WS.10).aspx) |
+| **Referenser**              | [Redigera dialogrutan för inställningar av ASP.NET-felsidor](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd569096(v=ws.10)) |
 | **Steg** | <p>När ett ASP.NET-program Miss lyckas och orsakar ett internt HTTP/1. x 500-server fel eller en funktions konfiguration (till exempel filtrering av begär Anden) förhindrar att en sida visas, kommer ett fel meddelande att genereras. Administratörer kan välja om programmet ska visa ett eget meddelande för klienten, ett detaljerat fel meddelande till klienten eller enbart ett detaljerat fel meddelande till localhost. `<customErrors>`Taggen i web.config har tre lägen:</p><ul><li>**På:** Anger att anpassade fel har Aktiver ATS. Om inget defaultRedirect-attribut anges ser användarna ett allmänt fel. De anpassade felen visas för fjärrklienter och till den lokala värden</li><li>**Av:** Anger att anpassade fel har inaktiverats. De detaljerade ASP.NET-felen visas för fjärrklienterna och den lokala värden</li><li>**RemoteOnly:** Anger att anpassade fel endast visas för fjärrklienter och att ASP.NET-fel visas för den lokala värden. Detta är standardvärdet</li></ul><p>Öppna `web.config` filen för programmet/platsen och kontrol lera att taggen har antingen `<customErrors mode="RemoteOnly" />` eller `<customErrors mode="On" />` definierats.</p>|
 
 ## <a name="set-deployment-method-to-retail-in-iis"></a><a id="deployment"></a>Ange distributions metod för åter försäljning i IIS
@@ -213,7 +213,7 @@ Se länkarna i avsnittet referenser om du vill ha mer information om exceptionel
 | **SDL-fas**               | Distribution |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [distributions element (ASP.NET Settings schema)](https://msdn.microsoft.com/library/ms228298(VS.80).aspx) |
+| **Referenser**              | [distributions element (ASP.NET Settings schema)](/previous-versions/dotnet/netframework-2.0/ms228298(v=vs.80)) |
 | **Steg** | <p>`<deployment retail>`Växeln är avsedd att användas av produktions-IIS-servrar. Den här växeln används för att hjälpa program att köra med bästa möjliga prestanda och minst möjliga läckage av säkerhets information genom att inaktivera programmets möjlighet att generera spårningsutdata på en sida, inaktivera möjligheten att visa detaljerade fel meddelanden för slutanvändare och inaktivera fel söknings växeln.</p><p>Ofta kan växlar och alternativ som är förfokuserade för utvecklare, till exempel spårning av misslyckade begär Anden och fel sökning, aktive ras under pågående utveckling. Vi rekommenderar att distributions metoden på alla produktions servrar anges till återförsäljarversion. öppna machine.config-filen och se `<deployment retail="true" />` till att förblir inställt på sant.</p>|
 
 ## <a name="exceptions-should-fail-safely"></a><a id="fail"></a>Undantag bör inte fungera säkert
@@ -268,4 +268,4 @@ Se länkarna i avsnittet referenser om du vill ha mer information om exceptionel
             }
         }
 ```
-Metoden ovan returnerar alltid True, om ett undantag inträffar. Om slutanvändaren tillhandahåller en felaktig URL, som webbläsaren följer, men `Uri()` konstruktorn inte, kommer detta att generera ett undantag och den skadelidande kommer att tas till den giltiga men felaktiga URL: en. 
+Metoden ovan returnerar alltid True, om ett undantag inträffar. Om slutanvändaren tillhandahåller en felaktig URL, som webbläsaren följer, men `Uri()` konstruktorn inte, kommer detta att generera ett undantag och den skadelidande kommer att tas till den giltiga men felaktiga URL: en.

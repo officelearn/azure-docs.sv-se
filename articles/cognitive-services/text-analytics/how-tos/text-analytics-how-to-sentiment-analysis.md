@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 10/16/2020
+ms.date: 11/11/2020
 ms.author: aahi
-ms.openlocfilehash: 3bc2d339ade7dade3cf3be6e63e150c77d3c44b4
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 87e6ad488438ae28467f6e904fbb57f7ca5448ff
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94366765"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518183"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Så här: identifiera sentiment med hjälp av API för textanalys
 
@@ -78,9 +78,9 @@ Dokument storleken måste vara under 5 120 tecken per dokument. Du kan ha upp ti
 
 Skicka en POST-begäran. Du kan [använda Postman](text-analytics-how-to-call-api.md) eller **konsolen för API-testning** i följande referens länkar för att snabbt strukturera och skicka en. 
 
-#### <a name="version-31-preview1"></a>[Version 3,1 – för hands version. 1](#tab/version-3-1)
+#### <a name="version-31-preview2"></a>[Version 3,1 – för hands version. 2](#tab/version-3-1)
 
-[Attitydanalys v 3.1-referens](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Sentiment)
+[Attitydanalys v 3.1-referens](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-2/operations/Sentiment)
 
 #### <a name="version-30"></a>[Version 3,0](#tab/version-3)
 
@@ -95,13 +95,13 @@ Ange HTTPS-slutpunkten för sentiment-analys genom att antingen använda en Text
 > [!NOTE]
 > Du kan hitta din nyckel och slut punkt för din Textanalys-resurs på Azure-portalen. De kommer att finnas på resursens **snabb start** sida under **resurs hantering**. 
 
-#### <a name="version-31-preview1"></a>[Version 3,1 – för hands version. 1](#tab/version-3-1)
+#### <a name="version-31-preview2"></a>[Version 3,1 – för hands version. 2](#tab/version-3-1)
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/sentiment`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/sentiment`
 
 Du måste inkludera parametern för att få ett utgångs resultat för utåsikts utvinning `opinionMining=true` . Exempel:
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/sentiment?opinionMining=true`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/sentiment?opinionMining=true`
 
 Den här parametern är inställd på `false` som standard. 
 
@@ -142,7 +142,7 @@ Sentiment-analys returnerar en sentiment-etikett och förtroende poäng för hel
 
 Utdata returneras direkt. Du kan strömma resultaten till ett program som accepterar JSON eller spara utdata till en fil på det lokala systemet. Importera sedan utdata till ett program som du kan använda för att sortera, söka och ändra data. På grund av stöd för flerspråkig och emoji kan svaret innehålla text förskjutningar. Mer information finns i [så här bearbetar du förskjutningar](../concepts/text-offsets.md) .
 
-#### <a name="version-31-preview1"></a>[Version 3,1 – för hands version. 1](#tab/version-3-1)
+#### <a name="version-31-preview2"></a>[Version 3,1 – för hands version. 2](#tab/version-3-1)
 
 ### <a name="sentiment-analysis-v31-example-response"></a>Exempel svar för Attitydanalys v 3.1
 

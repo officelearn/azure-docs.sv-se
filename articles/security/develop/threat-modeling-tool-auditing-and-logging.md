@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: bac17073650736df9ec48e951290852e082e9417
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d3f3ca7b5d4516c2ad5dc9cb19a2eaed0a8a4a8
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87543001"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518285"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>Säkerhets ram: granskning och loggning | Åtgärder 
 
@@ -110,7 +110,7 @@ ms.locfileid: "87543001"
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t.  |
 | **Referenser**              | E.t.  |
-| **Steg**                   | <p>Kontroller bör finnas på plats som ger upphov till säkerhets undantag i händelse av missbruk av program. T. ex., om verifiering av autentisering är på plats och en angripare försöker mata in skadlig kod som inte matchar regex, kan ett säkerhets undantag genereras, vilket kan vara en indikation på system missbruk</p><p>Vi rekommenderar till exempel att du har loggat över säkerhets undantag och åtgärder som vidtas för följande problem:</p><ul><li>Indataverifiering</li><li>CSRF-överträdelser</li><li>Brute Force (övre gräns för antalet begär Anden per användare per resurs)</li><li>Fil överförings fel</li><ul>|
+| **Steg**                   | <p>Kontroller bör finnas på plats som ger upphov till säkerhets undantag i händelse av missbruk av program. T. ex., om verifiering av autentisering är på plats och en angripare försöker mata in skadlig kod som inte matchar regex, kan ett säkerhets undantag genereras, vilket kan vara en indikation på system missbruk</p><p>Vi rekommenderar till exempel att du har loggat över säkerhets undantag och åtgärder som vidtas för följande problem:</p><ul><li>Indatavalidering</li><li>CSRF-överträdelser</li><li>Brute Force (övre gräns för antalet begär Anden per användare per resurs)</li><li>Fil överförings fel</li><ul>|
 
 ## <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a><a id="diagnostics-logging"></a>Aktivera diagnostikloggning för Web Apps i Azure App Service
 
@@ -131,7 +131,7 @@ ms.locfileid: "87543001"
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [Konfigurera inloggningsgranskning](https://msdn.microsoft.com/library/ms175850.aspx) |
+| **Referenser**              | [Konfigurera inloggningsgranskning](/sql/ssms/configure-login-auditing-sql-server-management-studio) |
 | **Steg** | <p>Granskning av databas Server inloggning måste vara aktiverat för att kunna identifiera/bekräfta angrepp vid lösen ords gissning. Det är viktigt att fånga misslyckade inloggnings försök. Att samla både lyckade och misslyckade inloggnings försök ger ytterligare förmån under kriminal tekniska-undersökningar</p>|
 
 ## <a name="enable-threat-detection-on-azure-sql"></a><a id="threat-detection"></a>Aktivera hot identifiering i Azure SQL
@@ -142,7 +142,7 @@ ms.locfileid: "87543001"
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | SQL Azure |
 | **Attribut**              | SQL-version – V12 |
-| **Referenser**              | [Kom igång med SQL Database hot identifiering](https://azure.microsoft.com/documentation/articles/sql-database-threat-detection-get-started/)|
+| **Referenser**              | [Kom igång med SQL Database hot identifiering](../../azure-sql/database/threat-detection-configure.md)|
 | **Steg** |<p>Hot identifiering identifierar avvikande databas aktiviteter som indikerar potentiella säkerhetshot mot databasen. Det ger ett nytt säkerhets lager som gör det möjligt för kunder att upptäcka och svara på potentiella hot när de inträffar genom att tillhandahålla säkerhets aviseringar om avvikande aktiviteter.</p><p>Användare kan utforska misstänkta händelser med Azure SQL Database granskning för att avgöra om de kommer från ett försök att komma åt, avslöja eller utnyttja data i databasen.</p><p>Hot identifiering gör det enkelt att hantera potentiella hot mot databasen utan att behöva vara säkerhets expert eller hantera avancerade säkerhets övervaknings system</p>|
 
 ## <a name="use-azure-storage-analytics-to-audit-access-of-azure-storage"></a><a id="analytics"></a>Använd Azure-lagringsanalys för att granska åtkomst till Azure Storage
@@ -153,7 +153,7 @@ ms.locfileid: "87543001"
 | **SDL-fas**               | Distribution |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t. |
-| **Referenser**              | [Använda Lagringsanalys för att övervaka Authorization-typ](https://azure.microsoft.com/documentation/articles/storage-security-guide/#storage-analytics) |
+| **Referenser**              | [Använda Lagringsanalys för att övervaka Authorization-typ](../../storage/blobs/security-recommendations.md#loggingmonitoring) |
 | **Steg** | <p>För varje lagrings konto kan det vara möjligt för Azure-lagringsanalys att utföra loggnings-och lagrings statistik data. Lagrings analys loggarna innehåller viktig information, till exempel autentiseringsmetoden som används av någon vid åtkomst till lagring.</p><p>Detta kan vara användbart om du nära skyddar åtkomsten till lagringen. I Blob Storage kan du till exempel ange att alla behållare ska vara privata och implementera användningen av en SAS-tjänst i alla program. Sedan kan du kontrol lera loggarna regelbundet för att se om dina blobbar nås med hjälp av lagrings konto nycklarna, vilket kan tyda på en säkerhets överträdelse eller om Blobbarna är offentliga men inte bör vara det.</p>|
 
 ## <a name="implement-sufficient-logging"></a><a id="sufficient-logging"></a>Implementera tillräcklig loggning
@@ -164,7 +164,7 @@ ms.locfileid: "87543001"
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | .NET Framework |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [FORTIFY kungariket](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_logging) |
+| **Referenser**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [FORTIFY kungariket](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_logging) |
 | **Steg** | <p>Bristen på ett korrekt gransknings spår efter en säkerhets incident kan försvåra kriminal tekniska-åtgärder. Windows Communication Foundation (WCF) ger möjlighet att logga lyckade och/eller misslyckade autentiseringsförsök.</p><p>Loggning av misslyckade autentiseringsförsök kan varna administratörer för potentiella angrepp av Brute Force. På samma sätt kan loggning av lyckade autentiseringsfel ge en bra Gransknings logg när ett legitimt konto komprometteras. Aktivera WCF-funktionen för säkerhets granskning av tjänster |
 
 ### <a name="example"></a>Exempel
@@ -193,7 +193,7 @@ Följande är ett exempel på en konfiguration med granskning aktiverat
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | .NET Framework |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [FORTIFY kungariket](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_audit_failure_handling) |
+| **Referenser**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [FORTIFY kungariket](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_audit_failure_handling) |
 | **Steg** | <p>Den utvecklade lösningen har kon figurer ATS för att inte generera ett undantag när det inte går att skriva till en Gransknings logg. Om WCF har kon figurer ATS för att inte utlösa ett undantag när det inte går att skriva till en Gransknings logg, kommer programmet inte att meddelas om felet och granskning av kritiska säkerhets händelser kanske inte inträffar.</p>|
 
 ### <a name="example"></a>Exempel
@@ -242,5 +242,5 @@ Konfigurera WCF för att meddela programmet när det inte går att skriva till e
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [Introduktion till IoT Hub åtgärds övervakning](https://azure.microsoft.com/documentation/articles/iot-hub-operations-monitoring/) |
+| **Referenser**              | [Introduktion till IoT Hub åtgärds övervakning](../../iot-hub/iot-hub-operations-monitoring.md) |
 | **Steg** | <p>Design för att samla in och lagra gransknings data som samlas in via IoT Hub Operations Monitoring. Aktivera följande övervaknings kategorier:</p><ul><li>Enhets identitets åtgärder</li><li>Kommunikation från enhet till moln</li><li>Kommunikation från moln till enhet</li><li>Anslutningar</li><li>Fil överföringar</li></ul>|

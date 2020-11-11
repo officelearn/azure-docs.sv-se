@@ -3,12 +3,12 @@ title: Använda funktionen för offentliga IP-funktioner i Azure VMware-lösning
 description: Den här artikeln förklarar hur du använder funktionen för offentliga IP-funktioner i Azure Virtual WAN.
 ms.topic: how-to
 ms.date: 10/28/2020
-ms.openlocfilehash: 7ff1debe7b52599a2e4f20378f385359325be2f7
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 036ec00077720e9dc3197bf9235bea34b77fb5f4
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504415"
+ms.locfileid: "94517911"
 ---
 # <a name="how-to-use-the-public-ip-functionality-in-azure-vmware-solution"></a>Använda funktionen för offentliga IP-funktioner i Azure VMware-lösningen
 
@@ -32,21 +32,21 @@ Den här artikeln beskriver hur du kan använda funktionen för offentliga IP-fu
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Azure VMware-lösnings miljö
-- En webb server som körs i Azure VMware-lösnings miljö.
+- En-server som körs i Azure VMware-lösnings miljö.
 - Ett nytt icke överlappande IP-intervall för den virtuella WAN Hub-distributionen, vanligt vis a `/24` .
 
 ## <a name="reference-architecture"></a>Referensarkitektur
 
 :::image type="content" source="media/public-ip-usage/public-ip-architecture-diagram.png" alt-text="Diagram över arkitektur för offentliga IP-adresser" border="false" lightbox="media/public-ip-usage/public-ip-architecture-diagram.png":::
 
-Arkitektur diagrammet visar en webb server som finns i Azure VMwares lösnings miljö och som kon figurer ATS med RFC1918 privata IP-adresser.  Webb tjänsten görs tillgänglig för Internet via offentliga IP-funktioner i virtuella WAN.  Offentlig IP är vanligt vis en översatt NAT-destination i Azure-brandväggen. Med DNAT-regler översätter brand Väggs principen offentliga IP-adress begär anden till en privat adress (webb server) med en port.
+Arkitektur diagrammet visar en webb server som finns i Azure VMwares lösnings miljö och som kon figurer ATS med RFC1918 privata IP-adresser.  Webb tjänsten görs tillgänglig för Internet via offentliga IP-funktioner i virtuella WAN.  Offentlig IP är vanligt vis en översatt NAT-destination i Azure-brandväggen. Med DNAT-regler översätter brand Väggs principen offentliga IP-adresser till en privat adress (webserver) med en port.
 
 Användar förfrågningar träffar brand väggen på en offentlig IP-adress som i sin tur översätts till privat IP med DNAT-regler i Azure-brandväggen. Brand väggen kontrollerar NAT-tabellen och om begäran matchar en post vidarebefordras trafiken till den översatta adressen och porten i Azure VMware-lösnings miljön.
 
 Webb servern tar emot begäran och svarar med den begärda informationen eller sidan till brand väggen, och sedan vidarebefordrar brand väggen informationen till användaren på den offentliga IP-adressen.
 
 ## <a name="test-case"></a>Testfall
-I det här scenariot måste du publicera IIS-webbservern på Internet. Använd funktionen offentlig IP i Azure VMware-lösningen för att publicera webbplatsen på en offentlig IP-adress.  Vi konfigurerar NAT-regler i brand väggen och ger åtkomst till Azure VMware-lösningen resurs (VM: ar med webb server) med offentlig IP.
+I det här scenariot publicerar du IIS-webbservern på Internet. Använd funktionen offentlig IP i Azure VMware-lösningen för att publicera webbplatsen på en offentlig IP-adress.  Du kan också konfigurera NAT-regler i brand väggen och komma åt Azure VMware-lösningen resurs (VM: ar med en webb server) med offentlig IP-adress.
 
 ## <a name="deploy-virtual-wan"></a>Distribuera Virtual WAN
 
@@ -66,9 +66,9 @@ I det här scenariot måste du publicera IIS-webbservern på Internet. Använd f
 
 1. Acceptera standardvärdena eller ändra dem och välj sedan **skapa**.
 
-   - Resurs grupp för virtuell Wide Area Network
+   - Virtuell WAN-resurs grupp
 
-   - Namn på virtuell Wide Area Network
+   - Virtuellt WAN-namn
 
    - Adress block för virtuellt nav (med nytt IP-intervall som inte överlappar)
 
@@ -122,7 +122,7 @@ När alla komponenter har distribuerats kan du se dem i den tillagda resurs grup
 
 1. Välj **Lägg till en regel samling** , ange informationen nedan och välj **Lägg till** och välj sedan **Nästa: Hot information**.
 
-   -  Name
+   -  Namn
    -  Typ av regel samling – DNAT
    -  Prioritet
    -  Regel samlings åtgärd – Tillåt
@@ -142,7 +142,7 @@ När alla komponenter har distribuerats kan du se dem i den tillagda resurs grup
 
 1. Välj en hubb i listan och välj **Lägg till**.
 
-   :::image type="content" source="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png" alt-text="Skärm bild som visar de valda hubbarna som kommer att konverteras till virtuella Scecured-nav." border="true" lightbox="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png":::
+   :::image type="content" source="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png" alt-text="Skärm bild som visar de valda hubbarna som kommer att konverteras till skyddade virtuella nav." border="true" lightbox="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png":::
 
 1. Välj **Nästa: Taggar**. 
 

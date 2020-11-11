@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 05/18/2018
 ms.reviewer: avverma
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: cdad018de9f7683d68f1b6d3b63c722134b2bc80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68f311a949d6c7663c5602c444d1b7b9af09dcad
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88783781"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517503"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Självstudie: Skala en VM-skalningsuppsättning automatiskt med Azure CLI
 
@@ -26,11 +26,11 @@ När du skapar en skalningsuppsättning, definierar du antalet virtuella datorin
 > * Belastningstesta virtuella datorinstanser och utlös regler för automatisk skalning
 > * Skala tillbaka automatiskt när efterfrågan minskar
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.32 eller senare i de här självstudierna. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
+- I den här självstudien krävs version 2.0.32 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
 ## <a name="create-a-scale-set"></a>Skapa en skalningsuppsättning
 
@@ -55,7 +55,7 @@ az vmss create \
 
 ## <a name="define-an-autoscale-profile"></a>Definiera en autoskalningsprofil
 
-Om du vill aktivera autoskalning för en skalningsuppsättning börjar du med att definiera en autoskalningsprofil. Den här profilen definierar skalningsuppsättningens förvalda, lägsta och högsta kapacitet. Med hjälp av dessa restriktioner kan du begränsa kostnaderna genom att inte skapa VM-instanser kontinuerligt, samtidigt som du kan balansera godtagbara prestanda med minsta antal instanser som bevaras vid en nedskalning. Skapa en autoskalningsprofil med [az monitor autoscale create](/cli/azure/monitor/autoscale#az-monitor-autoscale-create). Följande exempel anger standard-och minimum kapacitet på *2* virtuella dator instanser och högst *10*:
+Om du vill aktivera autoskalning för en skalningsuppsättning börjar du med att definiera en autoskalningsprofil. Den här profilen definierar skalningsuppsättningens förvalda, lägsta och högsta kapacitet. Med hjälp av dessa restriktioner kan du begränsa kostnaderna genom att inte skapa VM-instanser kontinuerligt, samtidigt som du kan balansera godtagbara prestanda med minsta antal instanser som bevaras vid en nedskalning. Skapa en autoskalningsprofil med [az monitor autoscale create](/cli/azure/monitor/autoscale#az-monitor-autoscale-create). Följande exempel anger standard-och minimum kapacitet på *2* virtuella dator instanser och högst *10* :
 
 ```azurecli-interactive
 az monitor autoscale create \
@@ -123,7 +123,7 @@ SSH till din första virtuella datorinstans. Ange din egen offentliga IP-adress 
 ssh azureuser@13.92.224.66 -p 50001
 ```
 
-När du är inloggad, installerar du **stress**-verktyget. Starta *10* **stress**-arbetare som genererar CPU-belastning. De här arbetarna kör i *420* sekunder, vilket räcker för att få reglerna för automatisk skalning att implementera den önskade åtgärden.
+När du är inloggad, installerar du **stress** -verktyget. Starta *10* **stress** -arbetare som genererar CPU-belastning. De här arbetarna kör i *420* sekunder, vilket räcker för att få reglerna för automatisk skalning att implementera den önskade åtgärden.
 
 ```console
 sudo apt-get update
@@ -131,15 +131,15 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-När **stress** visar utdata som liknar *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, trycker du på *Retur* för att återgå till prompten.
+När **stress** visar utdata som liknar *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* , trycker du på *Retur* för att återgå till prompten.
 
-Kontrollera att **stress** genererar CPU-belastning genom att granska den aktiva systembelastningen med **top**-verktyget:
+Kontrollera att **stress** genererar CPU-belastning genom att granska den aktiva systembelastningen med **top** -verktyget:
 
 ```console
 top
 ```
 
-Avsluta **top**, stäng sedan anslutningen till den virtuella datorinstansen. **stress** fortsätter att köras på den virtuella datorinstansen.
+Avsluta **top** , stäng sedan anslutningen till den virtuella datorinstansen. **stress** fortsätter att köras på den virtuella datorinstansen.
 
 ```console
 Ctrl-c
@@ -159,7 +159,7 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-När **stress** återigen visar utdata som liknar *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, trycker du på *Retur* för att återgå till prompten.
+När **stress** återigen visar utdata som liknar *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* , trycker du på *Retur* för att återgå till prompten.
 
 Stäng din anslutning till den andra virtuella datorinstansen. **stress** fortsätter att köras på den virtuella datorinstansen.
 

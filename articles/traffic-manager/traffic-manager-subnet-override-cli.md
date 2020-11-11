@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: traffic-manager
 ms.date: 09/18/2019
 ms.author: duau
-ms.openlocfilehash: c43b85f3c4b8d1b750e9f97e0be812bee683c702
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 984cdfb3e60717f7632ea1fdcd05a4681dd6a1fd
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90600815"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517945"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-cli"></a>Traffic Manager under näts Åsidosätt med Azure CLI
 
@@ -34,11 +34,9 @@ Det finns två typer av vägvals profiler som stöder under näts åsidosättnin
 
 Om du vill skapa en åsidosättning för Traffic Manager under nätet kan du använda Azure CLI för att lägga till undernät för åsidosättningen i Traffic Manager-slutpunkten.
 
-## <a name="azure-cli"></a>Azure CLI
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Om du väljer att installera och använda CLI lokalt så kräver den här självstudiekursen att du kör Azure CLI version 2.0.28 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
+- Den här artikeln kräver version 2.0.28 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
 ## <a name="update-the-traffic-manager-endpoint-with-subnet-override"></a>Uppdatera Traffic Manager slut punkten med under nätets åsidosättning.
 Använd Azure CLI för att uppdatera din slut punkt med [AZ Network Traffic-Manager Endpoint Update](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update).

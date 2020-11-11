@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 1c4ac7d36b568f68c67a99d078fd65515bbb21b0
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 5f6d768e3d863d52cfc91beb799d86fcd854af16
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747714"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517639"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Snabb start: distribuera din första IoT Edge-modul till en virtuell Windows-enhet
 
@@ -68,8 +68,8 @@ IoT Edge-enhet:
   När den virtuella datorn startar kan du ladda ned en RDP-fil som ska användas vid anslutning till den virtuella datorn:
 
   1. Navigera till den nya virtuella Windows-datorn i Azure Portal.
-  1. Välj **Anslut** .
-  1. På fliken **RDP** väljer du **Ladda ned RDP-fil** .
+  1. Välj **Anslut**.
+  1. På fliken **RDP** väljer du **Ladda ned RDP-fil**.
 
   Öppna den här filen med Anslutning till fjärrskrivbord för att ansluta till din virtuella Windows-dator med hjälp av det administratörs namn och lösen ord som du angav med `az vm create` kommandot.
 
@@ -94,7 +94,7 @@ Följande kod skapar en kostnads fri **F1** -hubb i resurs gruppen `IoTEdgeResou
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 --partition-count 2
    ```
 
-   Om du får ett felmeddelande eftersom det redan finns en kostnadsfri hubb i din prenumeration ändrar du SKU till **S1** . Om du får ett felmeddelande om att IoT Hub-namnet inte är tillgängligt innebär det att någon annan redan har en hubb med det namnet. Prova med ett nytt namn.
+   Om du får ett felmeddelande eftersom det redan finns en kostnadsfri hubb i din prenumeration ändrar du SKU till **S1**. Om du får ett felmeddelande om att IoT Hub-namnet inte är tillgängligt innebär det att någon annan redan har en hubb med det namnet. Prova med ett nytt namn.
 
 ## <a name="register-an-iot-edge-device"></a>Registrera en IoT Edge-enhet
 
@@ -116,7 +116,7 @@ Eftersom IoT Edge-enheter fungerar och kan hanteras på annat sätt än typiska 
 2. Visa anslutnings strängen för enheten, som länkar din fysiska enhet med sin identitet i IoT Hub. Det innehåller namnet på din IoT-hubb, namnet på enheten och sedan en delad nyckel som autentiserar anslutningar mellan de två.
 
    ```azurecli-interactive
-   az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name {hub_name}
+   az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
 3. Kopiera värdet för `connectionString`-nyckeln från JSON-utdata och spara det. Det här värdet är enhetens anslutningssträng. Du ska använda den här anslutningssträngen för att konfigurera IoT Edge-körningen i nästa avsnitt.
@@ -241,7 +241,7 @@ Om du skapade den virtuella datorn och IoT-hubben i en ny resursgrupp kan du ta 
 > [!IMPORTANT]
 > Att ta bort en resursgrupp kan inte ångras.
 
-Ta bort gruppen **IoTEdgeResources** . Det kan ta några minuter att ta bort en resurs grupp.
+Ta bort gruppen **IoTEdgeResources**. Det kan ta några minuter att ta bort en resurs grupp.
 
 ```azurecli-interactive
 az group delete --name IoTEdgeResources

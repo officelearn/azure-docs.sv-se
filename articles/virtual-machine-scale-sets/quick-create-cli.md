@@ -9,21 +9,21 @@ ms.subservice: cli
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 0dc98ba242d3eb5fba79605dae9f8eadc56affd7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5ed6ff00e2ec9a47cec0290fa88ef3b554287607
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87504440"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518166"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Snabbstart: Skapa en VM-skalningsuppsättning med Azure CLI
 Med en skalnings uppsättning för virtuella datorer kan du distribuera och hantera en uppsättning virtuella datorer som skalas automatiskt. Du kan skala antalet virtuella datorer i skalningsuppsättningen manuellt eller definiera regler för automatisk skalning baserat på resursanvändning, till exempel CPU, minneskrav eller nätverkstrafik. En Azure-lastbalanserare distribuerar sedan trafiken till de virtuella datorinstanserna i skalningsuppsättningen. I den här snabbstarten skapar du en VM-skalningsuppsättning och distribuerar ett exempelprogram med Azure CLI.
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Om du väljer att installera och använda CLI lokalt, måste du köra Azure CLI version 2.0.29 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli). 
+- Den här artikeln kräver version 2.0.29 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad. 
 
 
 ## <a name="create-a-scale-set"></a>Skapa en skalningsuppsättning
@@ -65,7 +65,7 @@ az vmss extension set \
 
 
 ## <a name="allow-traffic-to-application"></a>Tillåta trafik till program
-En Azure-lastbalanserare distribuerades automatiskt när skalningsuppsättning skapades. Lastbalanserare distribuerar trafiken till VM-instanserna i skalningsuppsättningen. Använd [az network lb rule create](/cli/azure/network/lb/rule) för att skapa en regel för lastbalanseraren för att tillåta att trafik når exempelwebbprogrammet. I följande exempel skapas en regel med namnet *myLoadBalancerRuleWeb*:
+En Azure-lastbalanserare distribuerades automatiskt när skalningsuppsättning skapades. Lastbalanserare distribuerar trafiken till VM-instanserna i skalningsuppsättningen. Använd [az network lb rule create](/cli/azure/network/lb/rule) för att skapa en regel för lastbalanseraren för att tillåta att trafik når exempelwebbprogrammet. I följande exempel skapas en regel med namnet *myLoadBalancerRuleWeb* :
 
 ```azurecli-interactive
 az network lb rule create \

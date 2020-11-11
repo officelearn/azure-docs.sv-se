@@ -1,6 +1,6 @@
 ---
 title: Anslut CEF-data till Azure Sentinel Preview | Microsoft Docs
-description: Anslut en extern lösning som skickar CEF-meddelanden (common Event format) till Azure Sentinel genom att använda en Linux-dator som en logg vidarebefordrare.
+description: Anslut en extern lösning som skickar CEF-meddelanden (common Event format) till Azure Sentinel, med en Linux-dator som en logg vidarebefordrare.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: e8d1704b7f6048c14528b784f22d60b01592b54f
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: fd08e6cc953f9d8526174fc96dd4e4d1dc9063f5
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347615"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517979"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Ansluta din externa lösning med hjälp av vanligt händelse format
 
@@ -27,14 +27,14 @@ När du ansluter en extern lösning som skickar CEF-meddelanden, finns det tre s
 
 STEG 1: [Anslut CEF genom att distribuera en syslog/CEF forwarder](connect-cef-agent.md) steg 2: [utföra lösnings bara](connect-cef-solution-config.md) steg 3: [kontrol lera anslutningen](connect-cef-verify.md)
 
-Den här artikeln beskriver hur anslutningen fungerar, innehåller krav och innehåller anvisningar för hur du distribuerar agenten på säkerhetslösningar som skickar common Event format-meddelanden (CEF) ovanpå syslog. 
+Den här artikeln beskriver hur anslutningen fungerar, visar krav och visar stegen för att distribuera en mekanism för säkerhetslösningar för att skicka CEF-meddelanden (common Event format) ovanpå syslog. 
 
 > [!NOTE] 
 > Data lagras på den geografiska platsen för den arbets yta där du kör Azure Sentinel.
 
 För att du ska kunna ansluta till den här anslutningen måste du distribuera en syslog-vidarebefordrare som stöder kommunikationen mellan-enheten och Azure Sentinel.  -Servern består av en särskild Linux-dator (VM eller lokal) med Log Analytics agent för Linux installerat. 
 
-Följande diagram beskriver installationen i händelse av en virtuell Linux-dator i Azure:
+Följande diagram beskriver installationen om det gäller en virtuell Linux-dator i Azure:
 
  ![CEF i Azure](./media/connect-cef/cef-syslog-azure.png)
 
@@ -53,18 +53,18 @@ Om du vill använda TLS-kommunikation mellan syslog-källan och syslog-vidarebef
 Kontrol lera att Linux-datorn som du använder som en logg vidarebefordrare kör något av följande operativ system:
 
 - 64-bitars
-  - CentOS 7 och 8, inklusive under versioner (inte 6)
+  - CentOS 7 och 8, inklusive lägre versioner (inte 6)
   - Amazon Linux 2017,09
   - Oracle Linux 7
-  - Red Hat Enterprise Linux (RHEL) Server 7 och 8, inklusive under versioner (inte 6)
+  - Red Hat Enterprise Linux (RHEL) Server 7 och 8, inklusive lägre versioner (inte 6)
   - Debian GNU/Linux 8 och 9
-  - Ubuntu Linux 14,04 LTS 16,04 LTS och 18,04 LTS
+  - Ubuntu Linux 14,04 LTS, 16,04 LTS och 18,04 LTS
   - SUSE Linux Enterprise Server 12, 15
 
 - 32-bitars
-  - CentOS 7 och 8, inklusive under versioner (inte 6)
+  - CentOS 7 och 8, inklusive lägre versioner (inte 6)
   - Oracle Linux 7
-  - Red Hat Enterprise Linux (RHEL) Server 7 och 8, inklusive under versioner (inte 6)
+  - Red Hat Enterprise Linux (RHEL) Server 7 och 8, inklusive lägre versioner (inte 6)
   - Debian GNU/Linux 8 och 9
   - Ubuntu Linux 14,04 LTS och 16,04 LTS
  
@@ -82,7 +82,7 @@ Kontrol lera att datorn också uppfyller följande krav:
   - Du måste ha förhöjd behörighet (sudo) på datorn. 
 
 - Programvarukrav
-  - Se till att python 2,7 körs på datorn.
+  - Se till att du har python 2,7 eller 3 som körs på datorn.
 
 ## <a name="next-steps"></a>Nästa steg
 

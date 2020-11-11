@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 51d8b740ba1275b23bc17a58284141dce0d48fe0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d99295fbb355b3efa22a64c9adc04311508e474
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89300008"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517571"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Säkerhets ram: auktorisering | Åtgärder 
 | Produkt/tjänst | Artikel |
@@ -147,7 +147,7 @@ Nu kan en angripare inte manipulera och ändra program åtgärden eftersom ident
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [SQL-behörighet-hierarki](https://docs.microsoft.com/sql/relational-databases/security/permissions-hierarchy-database-engine), [SQL-skydd bara objekt](https://docs.microsoft.com/sql/relational-databases/security/securables) |
+| **Referenser**              | [SQL-behörighet-hierarki](/sql/relational-databases/security/permissions-hierarchy-database-engine), [SQL-skydd bara objekt](/sql/relational-databases/security/securables) |
 | **Steg** | Konton med minst privilegier ska användas för att ansluta till databasen. Program inloggningen bör vara begränsad i databasen och bör endast köra valda lagrade procedurer. Programmets inloggning ska inte ha någon direkt tabell åtkomst. |
 
 ## <a name="implement-row-level-security-rls-to-prevent-tenants-from-accessing-each-others-data"></a><a id="rls-tenants"></a>Implementera säkerhet på radnivå för att förhindra att klienter får åtkomst till var and ras data
@@ -158,7 +158,7 @@ Nu kan en angripare inte manipulera och ändra program åtgärden eftersom ident
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | SQL Azure, OnPrem |
 | **Attribut**              | SQL-version – V12, SQL-version – MsSQL2016 |
-| **Referenser**              | [SQL Server Row-Level säkerhet (RLS)](https://msdn.microsoft.com/library/azure/dn765131.aspx) |
+| **Referenser**              | [SQL Server Row-Level säkerhet (RLS)](/sql/relational-databases/security/row-level-security) |
 | **Steg** | <p>Säkerhet på radnivå ger kunder möjlighet att styra åtkomsten till rader i en databastabell baserat på egenskaperna för användaren som kör en fråga (t.ex. grupmedlemskap eller körningskontext).</p><p>Row-Level säkerhet (RLS) fören klar utformningen och kodningen av säkerhet i ditt program. RLS låter dig implementera begränsningar för dataåtkomst för raden. Därmed får medarbetare endast tillgång till de datarader som är relevanta för deras avdelning, eller kunder får endast dataåtkomst till data som berör deras företag.</p><p>Logiken för åtkomst begränsning finns i databas nivån i stället för bort från data i en annan program nivå. Databas systemet tillämpar åtkomst begränsningar varje gång som data åtkomsten görs från vilken nivå som helst. Detta gör säkerhets systemet mer tillförlitligt och stabilt genom att minska säkerhets systemets Area.</p><p>|
 
 Observera att RLS som en out-of-Box-databas-funktion bara kan användas för att SQL Server första 2016, Azure SQL Database och SQL-hanterad instans. Om RLS-funktionen är inaktive ras, bör den säkerställa att data åtkomsten är begränsad med hjälp av vyer och procedurer
@@ -171,7 +171,7 @@ Observera att RLS som en out-of-Box-databas-funktion bara kan användas för att
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [SQL-behörighet-hierarki](https://docs.microsoft.com/sql/relational-databases/security/permissions-hierarchy-database-engine), [SQL-skydd bara objekt](https://docs.microsoft.com/sql/relational-databases/security/securables) |
+| **Referenser**              | [SQL-behörighet-hierarki](/sql/relational-databases/security/permissions-hierarchy-database-engine), [SQL-skydd bara objekt](/sql/relational-databases/security/securables) |
 | **Steg** | Medlemmar i den fasta Server rollen SysAdmin bör vara mycket begränsade och innehåller aldrig konton som används av program.  Kontrol lera listan med användare i rollen och ta bort eventuella onödiga konton|
 
 ## <a name="connect-to-cloud-gateway-using-least-privileged-tokens"></a><a id="cloud-least-privileged"></a>Ansluta till en molnbaserad Gateway med hjälp av minst privilegierade token
@@ -182,7 +182,7 @@ Observera att RLS som en out-of-Box-databas-funktion bara kan användas för att
 | **SDL-fas**               | Distribution |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Gateway-val – Azure-IoT Hub |
-| **Referenser**              | [IoT Hub-Access Control](https://azure.microsoft.com/documentation/articles/iot-hub-devguide/#Security) |
+| **Referenser**              | [IoT Hub-Access Control](../../iot-hub/iot-hub-devguide.md) |
 | **Steg** | Ge minst behörighet till olika komponenter som ansluter till en molnbaserad Gateway (IoT Hub). Vanligt exempel är – enhets hantering/etablerings komponent använder registryread/Write, händelse processor (ASA) använder tjänst anslutning. Enskilda enheter ansluter med autentiseringsuppgifter för enhet|
 
 ## <a name="use-a-send-only-permissions-sas-key-for-generating-device-tokens"></a><a id="sendonly-sas"></a>Använd en SAS-nyckel för endast skicka-behörighet för att skapa enhets-token
@@ -193,7 +193,7 @@ Observera att RLS som en out-of-Box-databas-funktion bara kan användas för att
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [Översikt över Event Hubs autentisering och säkerhets modell](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
+| **Referenser**              | [Översikt över Event Hubs autentisering och säkerhets modell](../../event-hubs/authenticate-shared-access-signature.md) |
 | **Steg** | En SAS-nyckel används för att generera enskilda enhets-token. Använd en SAS-nyckel för endast skicka-behörighet när du genererar enhets-token för en specifik utgivare|
 
 ## <a name="do-not-use-access-tokens-that-provide-direct-access-to-the-event-hub"></a><a id="access-tokens-hub"></a>Använd inte åtkomsttoken som ger direkt åtkomst till Händelsehubben
@@ -204,7 +204,7 @@ Observera att RLS som en out-of-Box-databas-funktion bara kan användas för att
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [Översikt över Event Hubs autentisering och säkerhets modell](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
+| **Referenser**              | [Översikt över Event Hubs autentisering och säkerhets modell](../../event-hubs/authenticate-shared-access-signature.md) |
 | **Steg** | En token som beviljar direkt åtkomst till händelsehubben ska inte ges till enheten. Om du använder en minst privilegie rad token för den enhet som ger åtkomst till en utgivare kan det hjälpa att identifiera och neka den om den är en falsk eller komprometterad enhet.|
 
 ## <a name="connect-to-event-hub-using-sas-keys-that-have-the-minimum-permissions-required"></a><a id="sas-minimum-permissions"></a>Anslut till Händelsehubben med SAS-nycklar som har de lägsta behörigheter som krävs
@@ -215,7 +215,7 @@ Observera att RLS som en out-of-Box-databas-funktion bara kan användas för att
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [Översikt över Event Hubs autentisering och säkerhets modell](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
+| **Referenser**              | [Översikt över Event Hubs autentisering och säkerhets modell](../../event-hubs/authenticate-shared-access-signature.md) |
 | **Steg** | Ge minsta behörighet till olika Server dels program som ansluter till Event Hub. Skapa separata SAS-nycklar för varje server dels program och ange endast de behörigheter som krävs – skicka, ta emot eller hantera dem.|
 
 ## <a name="use-resource-tokens-to-connect-to-cosmos-db-whenever-possible"></a><a id="resource-docdb"></a>Använd Resource tokens för att ansluta till Cosmos DB närhelst det är möjligt
@@ -237,7 +237,7 @@ Observera att RLS som en out-of-Box-databas-funktion bara kan användas för att
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [Använda rolltilldelningar för att hantera åtkomsten till dina Azure-prenumerationsresurser](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/)  |
+| **Referenser**              | [Använda rolltilldelningar för att hantera åtkomsten till dina Azure-prenumerationsresurser](../../role-based-access-control/role-assignments-portal.md)  |
 | **Steg** | Rollbaserad åtkomst kontroll i Azure (Azure RBAC) möjliggör detaljerad åtkomst hantering för Azure. Med RBAC kan du bevilja exakt den åtkomstnivå som användarna behöver för att kunna utföra sitt arbete.|
 
 ## <a name="restrict-clients-access-to-cluster-operations-using-rbac"></a><a id="cluster-rbac"></a>Begränsa klientens åtkomst till kluster åtgärder med RBAC
@@ -248,7 +248,7 @@ Observera att RLS som en out-of-Box-databas-funktion bara kan användas för att
 | **SDL-fas**               | Distribution |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Miljö – Azure |
-| **Referenser**              | [Rollbaserad åtkomst kontroll för Service Fabric klienter](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security-roles/) |
+| **Referenser**              | [Rollbaserad åtkomst kontroll för Service Fabric klienter](../../service-fabric/service-fabric-cluster-security-roles.md) |
 | **Steg** | <p>Azure Service Fabric har stöd för två olika åtkomst kontroll typer för klienter som är anslutna till ett Service Fabric-kluster: administratör och användare. Med åtkomst kontroll kan kluster administratören begränsa åtkomsten till vissa kluster åtgärder för olika grupper av användare, vilket gör klustret säkrare.</p><p>Administratörer har fullständig åtkomst till hanterings funktioner (inklusive Läs-och skriv funktioner). Användare har som standard endast Läs behörighet till hanterings funktioner (till exempel fråge funktioner) och möjligheten att lösa program och tjänster.</p><p>Du anger de två klient rollerna (administratör och klient) när klustret skapas genom att tillhandahålla separata certifikat för var och en.</p>|
 
 ## <a name="perform-security-modeling-and-use-field-level-security-where-required"></a><a id="modeling-field"></a>Utför säkerhets modellering och Använd säkerhet på fält nivå där det behövs
@@ -281,7 +281,7 @@ Observera att RLS som en out-of-Box-databas-funktion bara kan användas för att
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | StorageType – tabell |
-| **Referenser**              | [Så här delegerar du åtkomst till objekt i ditt Azure Storage-konto med hjälp av SAS](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_data-plane-security) |
+| **Referenser**              | [Så här delegerar du åtkomst till objekt i ditt Azure Storage-konto med hjälp av SAS](../../storage/blobs/security-recommendations.md#identity-and-access-management) |
 | **Steg** | I vissa affärs scenarier kan Azure Table Storage krävas för att lagra känsliga data som består till olika parter. T. ex. känsliga data som rör olika länder/regioner. I sådana fall kan SAS-signaturer skapas genom att ange nyckel intervall för partition och rad, så att en användare kan komma åt data som är specifika för ett visst land/en viss region.| 
 
 ## <a name="enable-role-based-access-control-rbac-to-azure-storage-account-using-azure-resource-manager"></a><a id="rbac-azure-manager"></a>Aktivera Role-Based Access Control (RBAC) till Azure Storage-kontot med Azure Resource Manager
@@ -292,7 +292,7 @@ Observera att RLS som en out-of-Box-databas-funktion bara kan användas för att
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [Skydda ditt lagrings konto med Role-Based Access Control (RBAC)](https://azure.microsoft.com/documentation/articles/storage-security-guide/#management-plane-security) |
+| **Referenser**              | [Skydda ditt lagrings konto med Role-Based Access Control (RBAC)](../../storage/blobs/security-recommendations.md) |
 | **Steg** | <p>När du skapar ett nytt lagrings konto väljer du en distributions modell av klassisk eller Azure Resource Manager. Den klassiska modellen för att skapa resurser i Azure tillåter bara all-eller-ingen åtkomst till prenumerationen, och i sin tur är lagrings kontot.</p><p>Med Azure Resource Manager-modellen ska du lagra lagrings kontot i en resurs grupp och kontrol lera åtkomsten till hanterings planet för det angivna lagrings kontot med hjälp av Azure Active Directory. Du kan till exempel ge vissa användare möjlighet att komma åt lagrings konto nycklarna, medan andra användare kan visa information om lagrings kontot, men inte åtkomst till lagrings konto nycklarna.</p>|
 
 ## <a name="implement-implicit-jailbreak-or-rooting-detection"></a><a id="rooting-detection"></a>Implementera implicit upplåsning eller identifiering av rottips
@@ -314,7 +314,7 @@ Observera att RLS som en out-of-Box-databas-funktion bara kan användas för att
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänt, NET Framework 3 |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [FORTIFY kungariket](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
+| **Referenser**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [FORTIFY kungariket](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
 | **Steg** | <p>Systemet använder en svag klass referens, vilket kan göra det möjligt för en angripare att köra oauktoriserad kod. Programmet refererar till en användardefinierad klass som inte har identifierats unikt. När .NET läser in den svag identifierade klassen söker CLR-typ inläsaren efter klassen på följande platser i angiven ordning:</p><ol><li>Om sammansättningen av typen är känd söker inläsaren igenom konfigurations filens omdirigerings platser, GAC, den aktuella sammansättningen med hjälp av konfigurations information och programmets bas katalog</li><li>Om sammansättningen är okänd söker inläsaren efter den aktuella sammansättningen, mscorlib och den plats som returneras av händelse hanteraren för TypeResolve</li><li>Den här CLR-sökordningen kan ändras med krokar, till exempel mekanismen för typ vidarebefordran och händelsen AppDomain. TypeResolve</li></ol><p>Om en angripare utnyttjar CLR-sökordningen genom att skapa en alternativ klass med samma namn och placera den på en alternativ plats som CLR kommer att läsa in först, kommer CLR att oavsiktligt köra angriparen-kod som anges</p>|
 
 ### <a name="example"></a>Exempel
@@ -351,7 +351,7 @@ Att använda fullständigt kvalificerade (starka) namn identifierar unikt en typ
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänt, NET Framework 3 |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [FORTIFY kungariket](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
+| **Referenser**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [FORTIFY kungariket](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
 | **Steg** | <p>Den här tjänsten använder inte en Authorization-kontroll. När en klient anropar en viss WCF-tjänst tillhandahåller WCF olika auktoriserings scheman som kontrollerar att anroparen har behörighet att köra tjänst metoden på servern. Om verifierings kontroller inte är aktiverade för WCF-tjänster kan en autentiserad användare få behörighets eskalering.</p>|
 
 ### <a name="example"></a>Exempel

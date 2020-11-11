@@ -9,12 +9,12 @@ ms.author: tchladek
 ms.date: 10/26/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 336e708334778e107331f5f393476c4b3dbb98a3
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 996f138a14923319381738e7a55cd7ba4e8c4320
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/11/2020
-ms.locfileid: "94507550"
+ms.locfileid: "94517775"
 ---
 # <a name="identity-model"></a>Identitets modell
 
@@ -47,7 +47,7 @@ Om du använder Relations databas för lagring av användare kan implementeringe
 
 Egenskaperna för åtkomsttoken är: *identitet, förfallo datum* och *omfång*. Åtkomsttoken är alltid giltig i 24 timmar. Efter den här tiden är åtkomsttoken ogiltig och kan inte användas för att få åtkomst till någon primitiv. Identiteten måste ha ett sätt, så här begär du en ny åtkomsttoken från Server sidan. Parameter *omfånget* definierar en icke-tom uppsättning primitiver som kan användas. Azure Communication Services stöder följande omfång för åtkomsttoken:
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |Chatt|  Ger möjlighet att delta i en chatt|
 |VoIP|  Ger möjlighet att anropa identiteter och telefonnummer|
@@ -59,3 +59,9 @@ Rotationen av åtkomst nycklar för Azure Communication Service kommer att orsak
 Vi rekommenderar att du utfärdar åtkomsttoken på Server sidan och inte i klient programmet. Anledningen är att den utfärdande nyckeln kräver åtkomst nyckel eller som ska hanteras av identiteten. Det rekommenderas inte av säkerhets skäl att dela åtkomst nycklarna med klient programmet. Klient programmet bör använda den betrodda tjänst slut punkten som kan autentisera dina klienter och utfärda åtkomsttoken för deras räkning. Mer information om arkitekturen hittar du [här](./client-and-server-architecture.md).
 
 Om du cachelagrar åtkomsttoken till en lagrings plats rekommenderar vi att du använder kryptering. Åtkomsttoken är känsliga data och kan användas för skadlig aktivitet om den inte är skyddad. Med hjälp av åtkomsttoken kan du initiera SDK och få åtkomst till API: et. Det tillgängliga API: t är endast begränsat baserat på omfattningar, som åtkomsttoken har. Vi rekommenderar att du endast utfärdar åtkomsttoken med omfattningar, som krävs.
+
+## <a name="next-steps"></a>Nästa steg
+
+* En introduktion till hantering av åtkomst till token finns i [skapa och hantera åtkomsttoken](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens)
+* En introduktion till autentisering finns i [autentisera till Azure Communication Services](https://docs.microsoft.com/azure/communication-services/concepts/authentication)
+* En introduktion till data placering och sekretess finns i [region tillgänglighet och data placering](https://docs.microsoft.com/azure/communication-services/concepts/privacy)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 7de0cad91e01187a1ed84257c9e3a7cd8106951a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7af115d8f1244253e461f796c5665609d3b84b21
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87539959"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517452"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Säkerhets ram: kryptografi | Åtgärder 
 
@@ -119,7 +119,7 @@ ms.locfileid: "87539959"
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [Välja en krypteringsalgoritm](https://technet.microsoft.com/library/ms345262(v=sql.130).aspx) |
+| **Referenser**              | [Välja en krypteringsalgoritm](/sql/relational-databases/security/encryption/choose-an-encryption-algorithm) |
 | **Steg** | Krypteringsalgoritmer definierar data transformationer som inte enkelt kan ångras av obehöriga användare. SQL Server låter administratörer och utvecklare välja mellan flera algoritmer, inklusive DES, tredubbel DES, TRIPLE_DES_3KEY, RC2, RC4, 128-bitars RC4, DESX, 128-bitars AES, 192-bitars AES och 256-bitars AES |
 
 ## <a name="ssis-packages-should-be-encrypted-and-digitally-signed"></a><a id="ssis-signed"></a>SSIS-paket ska vara krypterade och digitalt signerade
@@ -130,7 +130,7 @@ ms.locfileid: "87539959"
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [Identifiera källan till paket med digitala signaturer](https://msdn.microsoft.com/library/ms141174.aspx), [hot och sårbarhets minskning (integrerings tjänster)](https://msdn.microsoft.com/library/bb522559.aspx) |
+| **Referenser**              | [Identifiera källan till paket med digitala signaturer](/sql/integration-services/security/identify-the-source-of-packages-with-digital-signatures), [hot och sårbarhets minskning (integrerings tjänster)](/sql/integration-services/security/security-overview-integration-services) |
 | **Steg** | Källan till ett paket är den person eller organisation som skapade paketet. Det kan vara riskabelt att köra ett paket från en okänd eller obetrodd källa. För att förhindra obehörig manipulering av SSIS-paket ska du använda digitala signaturer. För att säkerställa konfidentialiteten för paket under lagring/överföring måste SSIS-paket krypteras |
 
 ## <a name="add-digital-signature-to-critical-database-securables"></a><a id="securables-db"></a>Lägg till digital signatur till en kritisk databas skydd bara objekt
@@ -141,7 +141,7 @@ ms.locfileid: "87539959"
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [Lägg till signatur (Transact-SQL)](https://msdn.microsoft.com/library/ms181700) |
+| **Referenser**              | [Lägg till signatur (Transact-SQL)](/sql/t-sql/statements/add-signature-transact-sql) |
 | **Steg** | I de fall där integriteten för en kritisk databas kan skyddas måste du använda digitala signaturer. Databas skydd bara objekt, till exempel en lagrad procedur, funktion, sammansättning eller utlösare kan signeras digitalt. Nedan visas ett exempel på när detta kan vara användbart: Låt oss säga att en ISV (oberoende program varu leverantör) har tillhandahållit stöd för en program vara som levereras till en av sina kunder. Innan den ger support skulle ISV: en vara säker på att en databas som skyddas i program varan inte manipulerades av misstag eller av ett skadligt försök. Om den skydd bara är digitalt signerad kan ISV verifiera den digitala signaturen och verifiera dess integritet.| 
 
 ## <a name="use-sql-server-ekm-to-protect-encryption-keys"></a><a id="ekm-keys"></a>Använd SQL Server EKM för att skydda krypterings nycklar
@@ -152,7 +152,7 @@ ms.locfileid: "87539959"
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [SQL Server utöknings bar nyckel hantering (EKM)](https://msdn.microsoft.com/library/bb895340), [utöknings bar nyckel hantering med Azure Key Vault (SQL Server)](https://msdn.microsoft.com/library/dn198405) |
+| **Referenser**              | [SQL Server utöknings bar nyckel hantering (EKM)](/sql/relational-databases/security/encryption/extensible-key-management-ekm), [utöknings bar nyckel hantering med Azure Key Vault (SQL Server)](/sql/relational-databases/security/encryption/extensible-key-management-using-azure-key-vault-sql-server) |
 | **Steg** | SQL Server utöknings bar nyckel hantering gör det möjligt för krypterings nycklarna som skyddar databasfilerna att lagras i en annan enhet, till exempel en SmartCard, USB-enhet eller en EKM/HSM-modul. Detta gör det också möjligt att skydda data från databas administratörer (förutom medlemmar i sysadmin-gruppen). Data kan krypteras med hjälp av krypterings nycklar som bara databas användaren har åtkomst till i den externa EKM/HSM-modulen. |
 
 ## <a name="use-alwaysencrypted-feature-if-encryption-keys-should-not-be-revealed-to-database-engine"></a><a id="keys-engine"></a>Använd funktionen AlwaysEncrypted om krypterings nycklar inte ska visas för databas motorn
@@ -163,7 +163,7 @@ ms.locfileid: "87539959"
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | SQL Azure, OnPrem |
 | **Attribut**              | SQL-version – V12, MsSQL2016 |
-| **Referenser**              | [Always Encrypted (databas motor)](https://msdn.microsoft.com/library/mt163865) |
+| **Referenser**              | [Always Encrypted (databas motor)](/sql/relational-databases/security/encryption/always-encrypted-database-engine) |
 | **Steg** | Always Encrypted är en funktion som har utformats för att skydda känsliga data, t. ex. kreditkorts nummer eller nationella identifierings nummer (t. ex. amerikanska socialförsäkrings nummer) som lagras i Azure SQL Database eller SQL Server databaser. Always Encrypted tillåter klienter att kryptera känsliga data i klient program och aldrig avslöja krypterings nycklarna till databas motorn (SQL Database eller SQL Server). Det innebär att Always Encrypted ger en separation mellan de som äger data (och kan visa det) och de som hanterar data (men inte har åtkomst) |
 
 ## <a name="store-cryptographic-keys-securely-on-iot-device"></a><a id="keys-iot"></a>Lagra kryptografiska nycklar säkert på IoT-enheter
@@ -174,7 +174,7 @@ ms.locfileid: "87539959"
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Enhetens operativ system – Windows IoT Core, enhets anslutning – Azure IoT-enhets-SDK: er |
-| **Referenser**              | [TPM på Windows IoT Core](https://developer.microsoft.com/windows/iot/docs/tpm), [Konfigurera TPM på Windows IoT Core](https://docs.microsoft.com/windows/iot-core/secure-your-device/setuptpm), [Azure IoT Device SDK TPM](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM) |
+| **Referenser**              | [TPM på Windows IoT Core](/windows/iot-core/secure-your-device/TPM), [Konfigurera TPM på Windows IoT Core](/windows/iot-core/secure-your-device/setuptpm), [Azure IoT Device SDK TPM](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM) |
 | **Steg** | Symmetriska eller certifikat privata nycklar på ett säkert sätt i en skyddad lagrings plats som TPM eller Smart Card-chips. Windows 10 IoT Core stöder användaren av en TPM och det finns flera kompatibla TPM: er som kan användas: https://docs.microsoft.com/windows/iot-core/secure-your-device/tpm#discrete-tpm-dtpm . Vi rekommenderar att du använder en inbyggd program vara eller en diskret TPM. En program-TPM bör endast användas för utvecklings-och testnings ändamål. När en TPM är tillgänglig och nycklarna har definierats i den, ska den kod som genererar token skrivas utan hård kodning av känslig information i den. | 
 
 ### <a name="example"></a>Exempel

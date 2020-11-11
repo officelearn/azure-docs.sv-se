@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: has-adal-ref, devx-track-js, devx-track-csharp
-ms.openlocfilehash: eade2d24dccb9fc8033a903be5e48b07b44e17ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9a1afd1d998fcb3ba715c890cc4deac1f0a7da5
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317998"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517724"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Säkerhets ram: autentisering | Åtgärder
 
@@ -126,7 +126,7 @@ ms.locfileid: "91317998"
 | **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | OnPrem |
 | **Attribut**              | SQL-version – alla |
-| **Referenser**              | [SQL Server-Välj ett autentiseringsläge](https://msdn.microsoft.com/library/ms144284.aspx) |
+| **Referenser**              | [SQL Server-Välj ett autentiseringsläge](/sql/relational-databases/security/choose-an-authentication-mode) |
 | **Steg** | Windows-autentisering använder Kerberos-säkerhetsprotokoll, tillhandahåller lösen ords princip tillämpning med avseende på komplexitets verifiering för starka lösen ord, ger stöd för konto utelåsning och har stöd för lösen ordets giltighets tid.|
 
 ## <a name="when-possible-use-azure-active-directory-authentication-for-connecting-to-sql-database"></a><a id="aad-authn-sql"></a>När det är möjligt använder Azure Active Directory autentisering för att ansluta till SQL Database
@@ -137,7 +137,7 @@ ms.locfileid: "91317998"
 | **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | SQL Azure |
 | **Attribut**              | SQL-version – V12 |
-| **Referenser**              | [Ansluta till SQL Database med Azure Active Directory autentisering](https://azure.microsoft.com/documentation/articles/sql-database-aad-authentication/) |
+| **Referenser**              | [Ansluta till SQL Database med Azure Active Directory autentisering](../../azure-sql/database/authentication-aad-overview.md) |
 | **Steg** | **Lägsta version:** Azure SQL Database V12 krävs för att Azure SQL Database ska kunna använda AAD-autentisering mot Microsoft-katalogen |
 
 ## <a name="when-sql-authentication-mode-is-used-ensure-that-account-and-password-policy-are-enforced-on-sql-server"></a><a id="authn-account-pword"></a>När SQL-autentiseringsläge används, se till att konto-och lösen ords principen tillämpas på SQL Server
@@ -148,7 +148,7 @@ ms.locfileid: "91317998"
 | **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [SQL Server lösen ords princip](https://technet.microsoft.com/library/ms161959(v=sql.110).aspx) |
+| **Referenser**              | [SQL Server lösen ords princip](/previous-versions/sql/sql-server-2012/ms161959(v=sql.110)) |
 | **Steg** | När du använder SQL Server autentisering skapas inloggningar i SQL Server som inte baseras på Windows-användarkonton. Både användar namnet och lösen ordet skapas med hjälp av SQL Server och lagras i SQL Server. SQL Server kan använda mekanismer för lösen ords principer i Windows. Den kan använda samma komplexitets-och förfallo principer som används i Windows för lösen ord som används i SQL Server. |
 
 ## <a name="do-not-use-sql-authentication-in-contained-databases"></a><a id="autn-contained-db"></a>Använd inte SQL-autentisering i inneslutna databaser
@@ -159,7 +159,7 @@ ms.locfileid: "91317998"
 | **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | OnPrem, SQL Azure |
 | **Attribut**              | SQL-version – MSSQL2012, SQL-version – V12 |
-| **Referenser**              | [Rekommenderade säkerhets metoder med inneslutna databaser](https://msdn.microsoft.com/library/ff929055.aspx) |
+| **Referenser**              | [Rekommenderade säkerhets metoder med inneslutna databaser](/sql/relational-databases/databases/security-best-practices-with-contained-databases) |
 | **Steg** | Avsaknad av en Tvingad lösen ords princip kan öka sannolikheten för att en svag autentiseringsuppgift upprättas i en innesluten databas. Utnyttja Windows-autentisering. |
 
 ## <a name="use-per-device-authentication-credentials-using-sas-tokens"></a><a id="authn-sas-tokens"></a>Använd autentiseringsuppgifter för autentisering per enhet med SaS-token
@@ -170,7 +170,7 @@ ms.locfileid: "91317998"
 | **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [Översikt över Event Hubs autentisering och säkerhets modell](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
+| **Referenser**              | [Översikt över Event Hubs autentisering och säkerhets modell](../../event-hubs/authenticate-shared-access-signature.md) |
 | **Steg** | <p>Event Hubs säkerhets modellen baseras på en kombination av SAS-token (signatur för delad åtkomst) och händelse utgivare. Utgivar namnet representerar den DeviceID som tar emot token. På så sätt kan du associera de token som genereras med respektive enheter.</p><p>Alla meddelanden är taggade med upphovs man på tjänst sidan som gör det möjligt att identifiera inbetalnings försök med ursprung i nytto Last. När du autentiserar enheter genererar du en SaS-token per enhet som är begränsad till en unik utgivare.</p>|
 
 ## <a name="enable-azure-multi-factor-authentication-for-azure-administrators"></a><a id="multi-factor-azure-admin"></a>Aktivera Azure-Multi-Factor Authentication för Azure-administratörer
@@ -181,7 +181,7 @@ ms.locfileid: "91317998"
 | **SDL-fas**               | Distribution |
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [Vad är Azure Multi-Factor Authentication?](https://azure.microsoft.com/documentation/articles/multi-factor-authentication/) |
+| **Referenser**              | [Vad är Azure Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md) |
 | **Steg** | <p>Multi-Factor Authentication (MFA) är en autentiseringsmetod som kräver mer än en verifieringsmetod och lägger till ett kritiskt andra säkerhets lager för användar inloggningar och transaktioner. Det fungerar genom att kräva två eller flera av följande verifierings metoder:</p><ul><li>Något som du känner till (vanligt vis ett lösen ord)</li><li>Något du har (en betrodd enhet som inte enkelt dupliceras, till exempel en telefon)</li><li>Något som du är (biometrik)</li><ul>|
 
 ## <a name="restrict-anonymous-access-to-service-fabric-cluster"></a><a id="anon-access-cluster"></a>Begränsa anonym åtkomst till Service Fabric kluster
@@ -192,7 +192,7 @@ ms.locfileid: "91317998"
 | **SDL-fas**               | Distribution |
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Miljö – Azure  |
-| **Referenser**              | [Service Fabric kluster säkerhets scenarier](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security) |
+| **Referenser**              | [Service Fabric kluster säkerhets scenarier](../../service-fabric/service-fabric-cluster-security.md) |
 | **Steg** | <p>Kluster bör alltid skyddas för att förhindra att obehöriga användare ansluter till klustret, särskilt när de har produktions arbets belastningar som körs på den.</p><p>När du skapar ett Service Fabric-kluster ser du till att säkerhets läget är inställt på "säker" och konfigurerar det obligatoriska X. 509-servercertifikatet. Om du skapar ett "osäker" kluster kan alla anonyma användare ansluta till det om det exponerar hanterings slut punkter för det offentliga Internet.</p>|
 
 ## <a name="ensure-that-service-fabric-client-to-node-certificate-is-different-from-node-to-node-certificate"></a><a id="fabric-cn-nn"></a>Se till att Service Fabric klient-till-nod-certifikat skiljer sig från nod-till-nod-certifikat
@@ -203,7 +203,7 @@ ms.locfileid: "91317998"
 | **SDL-fas**               | Distribution |
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Miljö – Azure, oberoende miljö |
-| **Referenser**              | [Service Fabric säkerhet på klient-till-nod-certifikat](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/#_client-to-node-certificate-security), [Anslut till ett säkert kluster med klient certifikat](https://azure.microsoft.com/documentation/articles/service-fabric-connect-to-secure-cluster/) |
+| **Referenser**              | [Service Fabric säkerhet på klient-till-nod-certifikat](../../service-fabric/service-fabric-cluster-security.md#client-to-node-certificate-security), [Anslut till ett säkert kluster med klient certifikat](../../service-fabric/service-fabric-connect-to-secure-cluster.md) |
 | **Steg** | <p>Säkerhet för klient-till-nod-certifikat konfigureras när klustret skapas, antingen via Azure Portal, Resource Manager-mallar eller en fristående JSON-mall genom att ange ett administratörs klient certifikat och/eller ett användar klient certifikat.</p><p>Administratörs klienten och användar klient certifikaten som du anger bör skilja sig från de primära och sekundära certifikat som du anger för nod-till-nod-säkerhet.</p>|
 
 ## <a name="use-aad-to-authenticate-clients-to-service-fabric-clusters"></a><a id="aad-client-fabric"></a>Använd AAD för att autentisera klienter för Service Fabric-kluster
@@ -214,7 +214,7 @@ ms.locfileid: "91317998"
 | **SDL-fas**               | Distribution |
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Miljö – Azure |
-| **Referenser**              | [Kluster säkerhets scenarier – säkerhets rekommendationer](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/#security-recommendations) |
+| **Referenser**              | [Kluster säkerhets scenarier – säkerhets rekommendationer](../../service-fabric/service-fabric-cluster-security.md#security-recommendations) |
 | **Steg** | Kluster som körs på Azure kan också skydda åtkomsten till hanterings slut punkter med hjälp av Azure Active Directory (AAD), förutom klient certifikat. För Azure-kluster rekommenderar vi att du använder AAD-säkerhet för att autentisera klienter och certifikat för nod-till-nod-säkerhet.|
 
 ## <a name="ensure-that-service-fabric-certificates-are-obtained-from-an-approved-certificate-authority-ca"></a><a id="fabric-cert-ca"></a>Se till att Service Fabric-certifikat hämtas från en godkänd certifikat utfärdare (CA)
@@ -225,7 +225,7 @@ ms.locfileid: "91317998"
 | **SDL-fas**               | Distribution |
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Miljö – Azure |
-| **Referenser**              | [X. 509-certifikat och Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/#x509-certificates-and-service-fabric) |
+| **Referenser**              | [X. 509-certifikat och Service Fabric](../../service-fabric/service-fabric-cluster-security.md#x509-certificates-and-service-fabric) |
 | **Steg** | <p>Service Fabric använder X. 509-Server certifikat för att autentisera noder och klienter.</p><p>Några viktiga saker att tänka på när du använder certifikat i Service Fabric:</p><ul><li>Certifikat som används i kluster som kör produktions arbets belastningar bör skapas med en korrekt konfigurerad Windows Server-certifikatutfärdare eller hämtas från en godkänd certifikat utfärdare (CA). Certifikat utfärdaren kan vara en godkänd extern certifikat utfärdare eller en korrekt hanterad intern offentlig nyckel infrastruktur (PKI)</li><li>Använd aldrig temporära eller test certifikat i produktion som skapas med verktyg som MakeCert.exe</li><li>Du kan använda ett självsignerat certifikat, men bör bara göra det för test kluster och inte i produktion</li></ul>|
 
 ## <a name="use-standard-authentication-scenarios-supported-by-identity-server"></a><a id="standard-authn-id"></a>Använd standard scenarier för autentisering som stöds av identitets servern
@@ -269,7 +269,7 @@ ms.locfileid: "91317998"
 | **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | Allmänt, NET Framework 3 |
 | **Attribut**              | E.t. |
-| **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx) |
+| **Referenser**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)) |
 | **Steg** | Det gick inte att aktivera autentisering vid anslutning till MSMQ-köer, en angripare kan skicka meddelanden anonymt till kön för bearbetning. Om autentisering inte används för att ansluta till en MSMQ-kö som används för att leverera ett meddelande till ett annat program, kan en angripare skicka ett anonymt meddelande som är skadligt.|
 
 ### <a name="example"></a>Exempel
@@ -309,7 +309,7 @@ Konfigurera MSMQ för att kräva Windows-domän eller certifikatautentisering he
 | **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | .NET Framework 3 |
 | **Attribut**              | Typ av klient behörighet – ingen |
-| **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [FORTIFY](https://community.microfocus.com/t5/UFT-Discussions/UFT-API-Test-with-WCF-wsHttpBinding/m-p/600927) |
+| **Referenser**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [FORTIFY](https://community.microfocus.com/t5/UFT-Discussions/UFT-API-Test-with-WCF-wsHttpBinding/m-p/600927) |
 | **Steg** | Avsaknad av autentisering innebär att alla kan komma åt den här tjänsten. En tjänst som inte autentiserar sina klienter ger åtkomst till alla användare. Konfigurera programmet att autentisera mot klientautentiseringsuppgifter. Detta kan göras genom att ange meddelandets clientCredentialType till Windows eller certifikat. |
 
 ### <a name="example"></a>Exempel
@@ -325,7 +325,7 @@ Konfigurera MSMQ för att kräva Windows-domän eller certifikatautentisering he
 | **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | Allmän, .NET Framework 3 |
 | **Attribut**              | Typ av klient behörighet – ingen |
-| **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [FORTIFY](https://community.microfocus.com/t5/UFT-Discussions/UFT-API-Test-with-WCF-wsHttpBinding/m-p/600927) |
+| **Referenser**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [FORTIFY](https://community.microfocus.com/t5/UFT-Discussions/UFT-API-Test-with-WCF-wsHttpBinding/m-p/600927) |
 | **Steg** | Avsaknad av autentisering innebär att alla kan komma åt den här tjänsten. En tjänst som inte autentiserar sina klienter ger alla användare åtkomst till sina funktioner. Konfigurera programmet att autentisera mot klientautentiseringsuppgifter. Detta kan göras genom att ange transport clientCredentialType till Windows eller certifikat. |
 
 ### <a name="example"></a>Exempel
@@ -352,7 +352,7 @@ Konfigurera MSMQ för att kräva Windows-domän eller certifikatautentisering he
 | **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [Autentiserings scenarier för Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/), [Azure Active Directory kod exempel](https://azure.microsoft.com/documentation/articles/active-directory-code-samples/), [Azure Active Directory Developer ' s guide](https://azure.microsoft.com/documentation/articles/active-directory-developers-guide/) |
+| **Referenser**              | [Autentiserings scenarier för Azure AD](../../active-directory/develop/authentication-vs-authorization.md), [Azure Active Directory kod exempel](../../active-directory/azuread-dev/sample-v1-code.md), [Azure Active Directory Developer ' s guide](../../active-directory/develop/index.yml) |
 | **Steg** | <p>Azure Active Directory (Azure AD) fören klar autentiseringen för utvecklare genom att tillhandahålla identitet som en tjänst, med stöd för bransch standard protokoll som OAuth 2,0 och OpenID Connect. Nedan visas de fem primära program scenarier som stöds av Azure AD:</p><ul><li>Webbläsare till webb program: en användare måste logga in på ett webb program som skyddas av Azure AD</li><li>SPA (Single Page Application): en användare måste logga in på ett enda sid program som skyddas av Azure AD</li><li>Inbyggt program till webb-API: ett internt program som körs på en telefon, surfplatta eller dator måste autentisera en användare för att få resurser från ett webb-API som skyddas av Azure AD</li><li>Webb program till webb-API: ett webb program måste hämta resurser från ett webb-API som skyddas av Azure AD</li><li>Daemon-eller serverprogram till webb-API: ett daemon-program eller ett serverprogram utan webb användar gränssnitt behöver få resurser från ett webb-API som skyddas av Azure AD</li></ul><p>Se länkarna i avsnittet referenser för implementerings information på låg nivå</p>|
 
 ## <a name="override-the-default-adal-token-cache-with-a-scalable-alternative"></a><a id="adal-scalable"></a>Åsidosätt standardvärdet för ADAL token med ett skalbart alternativ
@@ -363,7 +363,7 @@ Konfigurera MSMQ för att kräva Windows-domän eller certifikatautentisering he
 | **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [Modern autentisering med Azure Active Directory för webb program](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/), [med hjälp av Redis som ADAL token cache](https://blogs.msdn.microsoft.com/mrochon/2016/09/19/using-redis-as-adal-token-cache/)  |
+| **Referenser**              | [Modern autentisering med Azure Active Directory för webb program](/archive/blogs/microsoft_press/new-book-modern-authentication-with-azure-active-directory-for-web-applications), [med hjälp av Redis som ADAL token cache](https://blogs.msdn.microsoft.com/mrochon/2016/09/19/using-redis-as-adal-token-cache/)  |
 | **Steg** | <p>Standardcachen som ADAL (Active Directory-autentiseringsbibliotek) använder är en minnes intern cache som förlitar sig på en statisk lagring, tillgänglig i hela processen. Även om det här fungerar för interna program, skalar det inte för program på mellan nivå och Server delar av följande orsaker:</p><ul><li>De här programmen används av många användare på samma gång. Att spara alla åtkomsttoken i samma Arkiv skapar isolerings problem och presenterar utmaningar när de körs i stor skala: många användare, var och en med så många tokens som de resurser som appen har åtkomst till för deras räkning, kan innebära enorma siffror och mycket dyra söknings åtgärder</li><li>Dessa program distribueras vanligt vis på distribuerade topologier, där flera noder måste ha åtkomst till samma cacheminne</li><li>Cachelagrade token måste överleva process återkallning och inaktive ring</li></ul><p>För alla ovanstående orsaker, medan du implementerar webbappar, rekommenderas att åsidosätta standardvärdet för ADAL token med ett skalbart alternativ, till exempel Azure cache för Redis.</p>|
 
 ## <a name="ensure-that-tokenreplaycache-is-used-to-prevent-the-replay-of-adal-authentication-tokens"></a><a id="tokenreplaycache-adal"></a>Se till att TokenReplayCache används för att förhindra uppspelning av ADAL-autentiseringstoken
@@ -374,7 +374,7 @@ Konfigurera MSMQ för att kräva Windows-domän eller certifikatautentisering he
 | **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [Modern autentisering med Azure Active Directory för webb program](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/) |
+| **Referenser**              | [Modern autentisering med Azure Active Directory för webb program](/archive/blogs/microsoft_press/new-book-modern-authentication-with-azure-active-directory-for-web-applications) |
 | **Steg** | <p>Med egenskapen TokenReplayCache kan utvecklare definiera en cache för cachelagring av token, en lagrings plats som kan användas för att spara tokens för att verifiera att ingen token kan användas mer än en gång.</p><p>Detta är ett mått mot en gemensam attack, aptly anropade attacken för token-uppspelning: en angripare som fångar upp token som skickas vid inloggning kan försöka skicka den till appen igen ("spela upp" den) för att upprätta en ny session. T. ex., i OIDC-kod för kod beviljande, efter lyckad användarautentisering, görs en begäran till "/signin-OIDC"-slut punkten för den förlitande parten med parametrarna "id_token", "Code" och "State".</p><p>Den förlitande parten verifierar denna begäran och upprättar en ny session. Om en angripare fångar denna begäran och spelar upp den, kan han/hon upprätta en lyckad session och falska användare. Förekomsten av nonce i OpenID Connect kan begränsas, men inte helt eliminera de omständigheter som angreppet kan utföras i. För att skydda sina program kan utvecklare tillhandahålla en implementering av ITokenReplayCache och tilldela en instans till TokenReplayCache.</p>|
 
 ### <a name="example"></a>Exempel
@@ -435,7 +435,7 @@ Observera att du kan testa effektiviteten för den här konfigurationen, logga i
 | **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [ADAL](https://azure.microsoft.com/documentation/articles/active-directory-authentication-libraries/) |
+| **Referenser**              | [ADAL](../../active-directory/azuread-dev/active-directory-authentication-libraries.md) |
 | **Steg** | <p>Azure AD Authentication Library (ADAL) gör det möjligt för utvecklare av klient program att enkelt autentisera användare till molnet eller lokala Active Directory (AD) och sedan hämta åtkomsttoken för att skydda API-anrop.</p><p>ADAL har många funktioner som gör autentisering enklare för utvecklare, till exempel asynkron support, ett konfigurerbart token-cache som lagrar åtkomsttoken och uppdateringstoken, automatisk uppdatering av token när en åtkomsttoken upphör att gälla och en uppdateringstoken är tillgänglig.</p><p>Genom att hantera det mesta av komplexiteten kan ADAL hjälpa utvecklare att fokusera på affärs logik i sina program och enkelt skydda resurser utan att vara expert på säkerhet. Separata bibliotek är tillgängliga för .NET, Java Script (klient och Node.js), python, iOS, Android och Java.</p>|
 
 ## <a name="authenticate-devices-connecting-to-the-field-gateway"></a><a id="authn-devices-field"></a>Autentisera enheter som ansluter till fält-gatewayen
@@ -457,7 +457,7 @@ Observera att du kan testa effektiviteten för den här konfigurationen, logga i
 | **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | Generisk, C#, Node.JS,  |
 | **Attribut**              | Ej tillämpligt, Gateway-val – Azure IoT Hub |
-| **Referenser**              | Ej tillämpligt, [Azure IoT Hub med .net](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/), [komma igång med IoT Hub och Node JS](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted), vilket [skyddar IoT med SAS och certifikat](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/), [git-lagringsplats](https://github.com/Azure/azure-iot-sdks/) |
+| **Referenser**              | Ej tillämpligt, [Azure IoT Hub med .net](../../iot-hub/quickstart-send-telemetry-dotnet.md), [komma igång med IoT Hub och Node JS](../../iot-hub/quickstart-send-telemetry-node.md), vilket [skyddar IoT med SAS och certifikat](../../iot-hub/iot-hub-devguide-security.md), [git-lagringsplats](https://github.com/Azure/azure-iot-sdks/) |
 | **Steg** | <ul><li>**Allmänt:** Autentisera enheten med hjälp av Transport Layer Security (TLS) eller IPSec. Infrastrukturen bör ha stöd för användning av i förväg delad nyckel (PSK) på de enheter som inte kan hantera fullständig asymmetrisk kryptering. Utnyttja Azure AD, OAuth.</li><li>**C#:** När du skapar en DeviceClient-instans skapar metoden Create som standard en DeviceClient-instans som använder AMQP-protokollet för att kommunicera med IoT Hub. Om du vill använda HTTPS-protokollet använder du åsidosättningen av Create-metoden som gör att du kan ange protokollet. Om du använder HTTPS-protokollet bör du också lägga till `Microsoft.AspNet.WebApi.Client` NuGet-paketet i projektet för att inkludera `System.Net.Http.Formatting` namn området.</li></ul>|
 
 ### <a name="example"></a>Exempel
@@ -557,7 +557,7 @@ await deviceClient.SendEventAsync(message);
 | **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Gateway-val – Azure-IoT Hub |
-| **Referenser**              | [Azure IoT Hub säkerhetstoken](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/) |
+| **Referenser**              | [Azure IoT Hub säkerhetstoken](../../iot-hub/iot-hub-devguide-security.md) |
 | **Steg** | Använd autentiseringsuppgifter för autentisering per enhet med SaS-token baserat på enhets nyckel eller klient certifikat, i stället för principer för delad åtkomst på IoT Hub nivå. Detta förhindrar åter användning av autentiseringstoken för en enhet eller fält-Gateway med en annan |
 
 ## <a name="ensure-that-only-the-required-containers-and-blobs-are-given-anonymous-read-access"></a><a id="req-containers-anon"></a>Se till att endast nödvändiga behållare och blobbar får anonym Läs behörighet
@@ -568,7 +568,7 @@ await deviceClient.SendEventAsync(message);
 | **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | StorageType-BLOB |
-| **Referenser**              | [Hantera anonym Läs åtkomst till behållare och blobbar](https://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/), [signaturer för delad åtkomst, del 1: förstå SAS-modellen](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/) |
+| **Referenser**              | [Hantera anonym Läs åtkomst till behållare och blobbar](../../storage/blobs/anonymous-read-access-configure.md), [signaturer för delad åtkomst, del 1: förstå SAS-modellen](../../storage/common/storage-sas-overview.md) |
 | **Steg** | <p>Som standard kan en behållare och alla blobbar i den endast nås av ägare av lagrings kontot. För att ge anonyma användare Läs behörighet till en behållare och dess blobbar, kan en ange behållar behörighet att tillåta offentlig åtkomst. Anonyma användare kan läsa blobbar i en offentligt tillgänglig behållare utan att autentisera begäran.</p><p>Behållare innehåller följande alternativ för att hantera container åtkomst:</p><ul><li>Fullständig offentlig Läs behörighet: behållare och BLOB-data kan läsas via anonym begäran. Klienter kan räkna upp blobar i behållaren via anonym begäran, men kan inte räkna upp behållare i lagrings kontot.</li><li>Offentlig Läs behörighet för blobbar: BLOB-data i den här behållaren kan läsas via anonym begäran, men behållar data är inte tillgängliga. Klienter kan inte räkna upp blobar i behållaren via anonym begäran</li><li>Ingen offentlig Läs behörighet: behållare och BLOB-data kan bara läsas av konto ägaren</li></ul><p>Anonym åtkomst är bäst för scenarier där vissa blobbar alltid ska vara tillgängliga för anonym Läs åtkomst. En bättre och mer detaljerad kontroll är att skapa en signatur för delad åtkomst, som gör att du kan delegera begränsad åtkomst med olika behörigheter och under ett angivet tidsintervall. Se till att behållare och blobbar som potentiellt kan innehålla känsliga data inte ges anonym åtkomst av misstag</p>|
 
 ## <a name="grant-limited-access-to-objects-in-azure-storage-using-sas-or-sap"></a><a id="limited-access-sas"></a>Bevilja begränsad åtkomst till objekt i Azure Storage med SAS eller SAP
@@ -579,5 +579,5 @@ await deviceClient.SendEventAsync(message);
 | **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t. |
-| **Referenser**              | [Signaturer för delad åtkomst, del 1: förstå SAS-modellen](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/), [signaturer för delad åtkomst, del 2: skapa och använda en SAS med Blob Storage](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-2/), [så här delegerar du åtkomst till objekt i ditt konto med hjälp av signaturer för delad åtkomst och lagrade åtkomst principer](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_how-to-delegate-access-to-objects-in-your-account-using-shared-access-signatures-and-stored-access-policies) |
+| **Referenser**              | [Signaturer för delad åtkomst, del 1: förstå SAS-modellen](../../storage/common/storage-sas-overview.md), [signaturer för delad åtkomst, del 2: skapa och använda en SAS med Blob Storage](../../storage/common/storage-sas-overview.md), [så här delegerar du åtkomst till objekt i ditt konto med hjälp av signaturer för delad åtkomst och lagrade åtkomst principer](../../storage/blobs/security-recommendations.md#identity-and-access-management) |
 | **Steg** | <p>Att använda en signatur för delad åtkomst (SAS) är ett kraftfullt sätt att ge begränsad åtkomst till objekt i ett lagrings konto till andra klienter, utan att behöva exponera konto åtkomst nyckel. SAS är en URI som omfattar den information som krävs för autentiserad åtkomst till en lagrings resurs i dess frågeparametrar. För att få åtkomst till lagrings resurser med SAS måste klienten bara skicka in SAS till lämplig konstruktor eller metod.</p><p>Du kan använda en SAS när du vill ge åtkomst till resurser i ditt lagrings konto till en klient som inte är betrodd med konto nyckeln. Dina lagrings konto nycklar innehåller både en primär och sekundär nyckel, som båda ger administrativ åtkomst till ditt konto och alla resurser i den. Genom att exponera någon av dina konto nycklar öppnas ditt konto för möjligheten att använda skadlig eller försumlig användning. Signaturer för delad åtkomst är ett säkert alternativ som gör det möjligt för andra klienter att läsa, skriva och ta bort data i ditt lagrings konto enligt de behörigheter som du har beviljat, och utan att behöva konto nyckeln.</p><p>Om du har en logisk uppsättning parametrar som liknar varje gång, är det en bättre idé att använda en princip för lagrade åtkomst principer (SAP). Eftersom användning av en SAS som härletts från en lagrad åtkomst princip ger dig möjlighet att återkalla SAS omedelbart, är det rekommenderade bästa praxis att alltid använda lagrade åtkomst principer när det är möjligt.</p>|

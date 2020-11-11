@@ -1,6 +1,6 @@
 ---
 title: 'Självstudie: hantera beräkning med Azure Functions'
-description: Hur du använder Azure Functions för att hantera beräkningen av SQL-poolen i Azure Synapse Analytics.
+description: Använda Azure Functions för att hantera beräkningen av SQL-poolen i Azure Synapse Analytics.
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
@@ -11,12 +11,12 @@ ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 1683977d5c8be965cb329611c5a7fd6602a1cd97
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: bc615322c11a456699d2364cf44cad40e086e851
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043359"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517894"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Använda Azure Functions för att hantera beräknings resurser i Azure Synapse Analytics SQL-poolen
 
@@ -44,7 +44,7 @@ När du har distribuerat mallen bör du hitta tre nya resurser: ett kostnads fri
 
 ## <a name="change-the-compute-level"></a>Ändra beräknings nivån
 
-1. Gå till funktionsapptjänsten. Om du har distribuerat mallen med standardvärden ska tjänsten ha namnet *DWOperations* . När funktionsappen är öppen bör du se fem funktioner som har driftsatts inom ramen för din funktionsapptjänst.
+1. Gå till funktionsapptjänsten. Om du har distribuerat mallen med standardvärden ska tjänsten ha namnet *DWOperations*. När funktionsappen är öppen bör du se fem funktioner som har driftsatts inom ramen för din funktionsapptjänst.
 
    ![Funktioner som distribueras med mallen](./media/manage-compute-with-azure-functions/five-functions.png)
 
@@ -52,7 +52,7 @@ När du har distribuerat mallen bör du hitta tre nya resurser: ett kostnads fri
 
    ![Välj Integrera för funktionen](./media/manage-compute-with-azure-functions/select-integrate.png)
 
-3. Det aktuella värdet ska antingen vara *%ScaleDownTime%* eller *%ScaleUpTime%* . Dessa värden anger att schemat baseras på värden som definierats i dina [programinställningar](../../azure-functions/functions-how-to-use-azure-function-app-settings.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). För närvarande kan du ignorera det här värdet och ändra schemat till önskad tid baserat på nästa steg.
+3. Det aktuella värdet ska antingen vara *%ScaleDownTime%* eller *%ScaleUpTime%*. Dessa värden anger att schemat baseras på värden som definierats i dina [programinställningar](../../azure-functions/functions-how-to-use-azure-function-app-settings.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). För närvarande kan du ignorera det här värdet och ändra schemat till önskad tid baserat på nästa steg.
 
 4. I schema-ytan lägger du till tiden CRON-uttrycket som du vill visa hur ofta du vill att Azure Synapse Analytics ska skalas upp.
 
@@ -68,9 +68,9 @@ När du har distribuerat mallen bör du hitta tre nya resurser: ett kostnads fri
 
 ## <a name="change-the-time-of-the-scale-operation"></a>Ändra tid för skalnings åtgärden
 
-1. Gå till funktionsapptjänsten. Om du har distribuerat mallen med standardvärden ska tjänsten ha namnet *DWOperations* . När funktionsappen är öppen bör du se fem funktioner som har driftsatts inom ramen för din funktionsapptjänst.
+1. Gå till funktionsapptjänsten. Om du har distribuerat mallen med standardvärden ska tjänsten ha namnet *DWOperations*. När funktionsappen är öppen bör du se fem funktioner som har driftsatts inom ramen för din funktionsapptjänst.
 
-2. Välj antingen *DWScaleDownTrigger* eller *DWScaleUpTrigger* beroende på om du vill ändra skala upp eller ned beräkningsvärdet. När du har valt funktionerna ska fönstret innehålla filen *index.js* .
+2. Välj antingen *DWScaleDownTrigger* eller *DWScaleUpTrigger* beroende på om du vill ändra skala upp eller ned beräkningsvärdet. När du har valt funktionerna ska fönstret innehålla filen *index.js*.
 
    ![Ändra beräkningsnivån för funktionsutlösaren](././media/manage-compute-with-azure-functions/index-js.png)
 
@@ -78,7 +78,7 @@ När du har distribuerat mallen bör du hitta tre nya resurser: ett kostnads fri
 
 ## <a name="use-pause-or-resume-instead-of-scale"></a>Använd funktionerna Pausa eller Återuppta istället för Skala
 
-Standardfunktionerna är för närvarande *DWScaleDownTrigger* och *DWScaleUpTrigger* . Om du vill använda funktionerna för att pausa och återuppta istället kan du aktivera *DWPauseTrigger* eller *DWResumeTrigger* .
+Standardfunktionerna är för närvarande *DWScaleDownTrigger* och *DWScaleUpTrigger*. Om du vill använda funktionerna för att pausa och återuppta istället kan du aktivera *DWPauseTrigger* eller *DWResumeTrigger*.
 
 1. Gå till  funktionsfönstret.
 
@@ -99,7 +99,7 @@ För närvarande ingår bara två skalningsfunktioner i mallen. Med dessa funkti
 
    ![Skärm bild som visar menyn "funktions program" med ikonen "plus" bredvid "Functions" markerade.](./media/manage-compute-with-azure-functions/create-new-function.png)
 
-2. Från språk väljer du *Java Script* och väljer sedan *TimerTrigger* .
+2. Från språk väljer du *Java Script* och väljer sedan *TimerTrigger*.
 
    ![Skapa ny funktion](./media/manage-compute-with-azure-functions/timertrigger-js.png)
 
@@ -167,6 +167,6 @@ Skala upp på 8.00 till DW1000c, skala ned en gång till DW600c vid 4pm på vard
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om Azures funktioner för [timerutlösare](../../azure-functions/functions-create-scheduled-function.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Läs mer om [timer-utlösare](../../azure-functions/functions-create-scheduled-function.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Azure Functions.
 
 Checka in databasen för SQL-poolens [exempel](https://github.com/Microsoft/sql-data-warehouse-samples).

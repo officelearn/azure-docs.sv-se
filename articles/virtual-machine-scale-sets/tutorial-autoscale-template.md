@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.reviewer: avverma
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: f94a68833347d662f427fa0944dd83d33458bd14
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7e727d06670c9d07ec1aa18b92504433f6c519d6
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745993"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518302"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Självstudie: Skala en VM-skalningsuppsättning automatiskt med en Azure-mall
 När du skapar en skalningsuppsättning, definierar du antalet virtuella datorinstanser som du vill köra. När ditt program behöver ändras, kan du automatiskt öka eller minska antalet virtuella datorinstanser. Möjligheten att skala automatiskt låter dig hålla dig uppdaterad med kundernas behov eller svara på ändringar i programprestandan under hela livscykeln för din app. I den här guiden får du lära du dig hur man:
@@ -25,15 +25,15 @@ När du skapar en skalningsuppsättning, definierar du antalet virtuella datorin
 > * Belastningstesta virtuella datorinstanser och utlös regler för automatisk skalning
 > * Skala tillbaka automatiskt när efterfrågan minskar
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Om du väljer att installera och använda CLI lokalt, måste du köra Azure CLI version 2.0.29 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli). 
+- Den här artikeln kräver version 2.0.29 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad. 
 
 
 ## <a name="define-an-autoscale-profile"></a>Definiera en autoskalningsprofil
-Du definierar en profil för automatisk skalning i en Azure-mall med resursprovidern *Microsoft.insights/autoscalesettings* . En *profil* ger information om skalningsuppsättningens kapacitet och alla associerade regler. Följande exempel definierar en profil med namnet *Automatisk skalning efter procent baserat på CPU-användning* och ställer in standard och minimum kapacitet för *2* VM-instanser och högst *10* :
+Du definierar en profil för automatisk skalning i en Azure-mall med resursprovidern *Microsoft.insights/autoscalesettings*. En *profil* ger information om skalningsuppsättningens kapacitet och alla associerade regler. Följande exempel definierar en profil med namnet *Automatisk skalning efter procent baserat på CPU-användning* och ställer in standard och minimum kapacitet för *2* VM-instanser och högst *10* :
 
 ```json
 {
@@ -73,7 +73,7 @@ Följande parametrar används för den här regeln:
 | *Operator*        | Operator som används för att jämföra måttinformationen mot tröskelvärdet.                                                     | Större än    |
 | *fastställd*       | Det värde som får regeln för automatisk skalning att utlösa en åtgärd.                                                      | 70 %             |
 | *position*       | Anger om skalningsuppsättningen ska skala in eller ut när regeln gäller.                                              | Öka        |
-| *bastyp*            | Anger att antalet virtuella datorinstanser ska ändras med ett specifikt värde.                                    | Ändra antal    |
+| *typ*            | Anger att antalet virtuella datorinstanser ska ändras med ett specifikt värde.                                    | Ändra antal    |
 | *värde*           | Hur många virtuella datorinstanser ska skalas in eller ut när regeln gäller.                                             | 3               |
 | *cooldown*        | Hur lång tid ska gå innan regeln tillämpas igen så att de automatiska skalningsåtgärderna har tid att börja gälla. | 5 minuter       |
 
@@ -225,7 +225,7 @@ exit
 ```
 
 ## <a name="monitor-the-active-autoscale-rules"></a>Övervaka de aktiva reglerna för automatisk skalning
-Du övervakar antalet virtuella datorinstanser i din skalningsuppsättning med **watch** . Det tar 5 minuter för reglerna för automatisk skalning att börja utskalningsprocessen till svar på den CPU-belastning som skapas av **stress** på var och en av de virtuella datorinstanserna:
+Du övervakar antalet virtuella datorinstanser i din skalningsuppsättning med **watch**. Det tar 5 minuter för reglerna för automatisk skalning att börja utskalningsprocessen till svar på den CPU-belastning som skapas av **stress** på var och en av de virtuella datorinstanserna:
 
 ```azurecli-interactive
 watch az vmss list-instances \

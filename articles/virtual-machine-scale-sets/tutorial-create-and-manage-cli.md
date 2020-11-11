@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: skapa & hantera en skalnings uppsättning i Azure VM – Azure CLI'
+title: 'Självstudie: skapa & hantera en skalnings uppsättning för virtuella datorer – Azure CLI'
 description: Läs hur du använder Azure CLI för att skapa en VM-skalningsuppsättning, tillsammans med vissa vanliga hanteringsuppgifter, till exempel att starta och stoppa en instans, eller ändra kapaciteten för en skalningsuppsättning.
 author: ju-shim
 ms.author: jushiman
@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: e7267ca90ea11e63c5523dec0a3ee414f7b655b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f94823b958ae5f95789dd4ef9a62057bdf764a8
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87501652"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517474"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Självstudie: Skapa och hantera en VM-skalningsuppsättning med Azure CLI
 Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Under livscykeln för en VM-skalningsuppsättning kan du behöva köra en eller flera hanteringsuppgifter. I den här guiden får du lära du dig hur man:
@@ -26,11 +26,11 @@ Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning i
 > * Skala en skalningsuppsättning automatiskt
 > * Utför vanliga hanteringsåtgärder för skalningsuppsättningar
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Om du väljer att installera och använda CLI lokalt, måste du köra Azure CLI version 2.0.29 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli). 
+- Den här artikeln kräver version 2.0.29 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad. 
 
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
@@ -78,7 +78,7 @@ Följande exempelutdata visar två virtuella datorinstanser i skalningsuppsättn
 ```
 
 
-Den första kolumnen i utdata visar en *InstanceId*. Om du vill visa mer information om en specifik VM-instans, lägger du till parametern `--instance-id` till [az vmss get-instance-view](/cli/azure/vmss). Följande exempel visar information om den virtuella datorinstansen *1*:
+Den första kolumnen i utdata visar en *InstanceId*. Om du vill visa mer information om en specifik VM-instans, lägger du till parametern `--instance-id` till [az vmss get-instance-view](/cli/azure/vmss). Följande exempel visar information om den virtuella datorinstansen *1* :
 
 ```azurecli-interactive
 az vmss get-instance-view \
@@ -122,7 +122,7 @@ exit
 
 
 ## <a name="understand-vm-instance-images"></a>Förstå avbildningar av virtuella datorinstanser
-När du skapade en skalningsuppsättning i början av självstudien, angavs en `--image` av *UbuntuLTS* för de virtuella datorinstanserna. Azures marknadsplats inkluderar flera avbildningar som kan användas för att skapa virtuella datorinstanser. Du kan lista de vanligaste avbildningarna med kommandot [az vm image list](/cli/azure/vm/image).
+När du skapade en skalningsuppsättning i början av självstudien, angavs en `--image` av *UbuntuLTS* för de virtuella datorinstanserna. Azure Marketplace innehåller många avbildningar som kan användas för att skapa virtuella dator instanser. Du kan lista de vanligaste avbildningarna med kommandot [az vm image list](/cli/azure/vm/image).
 
 ```azurecli-interactive
 az vm image list --output table
@@ -146,7 +146,7 @@ WindowsServer  MicrosoftWindowsServer  2012-Datacenter     MicrosoftWindowsServe
 WindowsServer  MicrosoftWindowsServer  2008-R2-SP1         MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:latest         Win2008R2SP1         latest
 ```
 
-Om du vill visa en fullständig lista, lägger du till `--all`-argumentet. Listan med avbildningar kan även filtreras efter `--publisher` eller `–-offer`. I följande exempel är listan filtrerad så att den visar alla avbildningar med ett erbjudande som överensstämmer med *CentOS*:
+Om du vill visa en fullständig lista, lägger du till `--all`-argumentet. Listan med avbildningar kan även filtreras efter `--publisher` eller `–-offer`. I följande exempel är listan filtrerad så att den visar alla avbildningar med ett erbjudande som överensstämmer med *CentOS* :
 
 ```azurecli-interactive
 az vm image list --offer CentOS --all --output table
@@ -165,7 +165,7 @@ CentOS   OpenLogic   7.3   OpenLogic:CentOS:7.3:7.3.20170707   7.3.20170707
 CentOS   OpenLogic   7.3   OpenLogic:CentOS:7.3:7.3.20170925   7.3.20170925
 ```
 
-Om du vill distribuera en virtuell dator med en viss avbildning, använder du värdet i *Urn*-kolumnen. När du anger avbildningen så kan avbildningens versionsnummer ersättas med *latest*, vilket väljer den senaste versionen av distributionen. Följande exempel använder argumentet `--image` för att ange den senaste versionen av en CentOS 7.3-avbildning.
+Om du vill distribuera en virtuell dator med en viss avbildning, använder du värdet i *Urn* -kolumnen. När du anger avbildningen så kan avbildningens versionsnummer ersättas med *latest* , vilket väljer den senaste versionen av distributionen. Följande exempel använder argumentet `--image` för att ange den senaste versionen av en CentOS 7.3-avbildning.
 
 > [!IMPORTANT]
 > Vi rekommenderar att du använder den *senaste* avbildnings versionen. Ange "senaste" om du vill använda den senaste versionen av en avbildning som är tillgänglig vid distributions tillfället. Obs! även om du använder "senaste" uppdateras inte VM-avbildningen automatiskt efter distributions tiden även om en ny version blir tillgänglig.
@@ -183,7 +183,7 @@ az vmss create \
 
 
 ## <a name="understand-vm-instance-sizes"></a>Förstå storlekar för virtuella datorinstanser
-Storleken på en virtuell datorinstans, eller *SKU*, fastställer mängden beräkningsresurser som CPU, GPU och minne som görs tillgängliga för den virtuella datorinstansen. Virtuella datorinstanser i en skalningsuppsättning måste ha lämplig storlek för förväntad arbetsbelastning.
+Storleken på en virtuell datorinstans, eller *SKU* , fastställer mängden beräkningsresurser som CPU, GPU och minne som görs tillgängliga för den virtuella datorinstansen. Virtuella datorinstanser i en skalningsuppsättning måste ha lämplig storlek för förväntad arbetsbelastning.
 
 ### <a name="vm-instance-sizes"></a>Storlekar på virtuella datorinstanser
 Följande tabell kategoriserar vanliga virtuella datorstorlekar i användningsfall.
@@ -239,7 +239,7 @@ az vmss create \
 ## <a name="change-the-capacity-of-a-scale-set"></a>Ändra kapaciteten för en skalningsuppsättning
 När du skapade en skalningsuppsättning i början av självstudien, distribuerades två virtuella datorinstanser som standard. Du kan ange parametern `--instance-count` med [az vmss create](/cli/azure/vmss) för att ändra antalet instanser som skapas med en skalningsuppsättning. Om du vill öka eller minska antalet virtuella datorinstanser i din befintliga skalningsuppsättning, kan du manuellt ändra kapaciteten. Skalningsuppsättningen skapar eller tar bort antalet virtuella datorinstanser som krävs och konfigurerar sedan lastbalanseraren att distribuera trafiken.
 
-Om du vill öka eller minska antalet virtuella datorinstanser manuellt i skalningsuppsättningen, använder du [az vmss scale](/cli/azure/vmss). Följande exempel anger antalet virtuella datorinstanser i din skalningsuppsättning till *3*:
+Om du vill öka eller minska antalet virtuella datorinstanser manuellt i skalningsuppsättningen, använder du [az vmss scale](/cli/azure/vmss). Följande exempel anger antalet virtuella datorinstanser i din skalningsuppsättning till *3* :
 
 ```azurecli-interactive
 az vmss scale \
@@ -248,7 +248,7 @@ az vmss scale \
     --new-capacity 3
 ```
 
-Det tar några minuter att uppdatera kapaciteten för din skalningsuppsättning. Om du vill se antalet instanser som du har i skalningsuppsättningen för tillfället, använder du [az vmss show](/cli/azure/vmss) och frågar på *sku.capacity*:
+Det tar några minuter att uppdatera kapaciteten för din skalningsuppsättning. Om du vill se antalet instanser som du har i skalningsuppsättningen för tillfället, använder du [az vmss show](/cli/azure/vmss) och frågar på *sku.capacity* :
 
 ```azurecli-interactive
 az vmss show \
@@ -263,27 +263,27 @@ az vmss show \
 Du kan nu skapa en skalningsuppsättning, lista anslutningsinformationen och ansluta till virtuella datorinstanser. Du har lärt dig hur du kan använda en annan OS-avbildning för dina virtuella datorinstanser, välja en annan virtuell datorstorlek eller manuellt skala antalet instanser manuellt. Som en del av den dagliga hanteringen, kan du behöva stoppa, starta eller starta om de virtuella datorinstanserna i en skalningsuppsättning.
 
 ### <a name="stop-and-deallocate-vm-instances-in-a-scale-set"></a>Stoppa och frigöra virtuella datorinstanser i en skalningsuppsättning
-Om du vill stoppa en eller flera virtuella datorinstanser, använder du [az vmss stop](/cli/azure/vmss). Parametern `--instance-ids` låter dig ange en eller flera virtuella datorinstanser att stoppa. Om du inte anger ett instans-ID, stoppas alla virtuella datorinstanser i skalningsuppsättningen. Följande exempel stoppar instansen *1*:
+Om du vill stoppa en eller flera virtuella datorinstanser, använder du [az vmss stop](/cli/azure/vmss). Parametern `--instance-ids` låter dig ange en eller flera virtuella datorinstanser att stoppa. Om du inte anger ett instans-ID, stoppas alla virtuella datorinstanser i skalningsuppsättningen. Följande exempel stoppar instansen *1* :
 
 ```azurecli-interactive
 az vmss stop --resource-group myResourceGroup --name myScaleSet --instance-ids 1
 ```
 
-Stoppade virtuella datorinstanser är fortfarande allokerade och fortsätter att kosta beräkningsavgifter. Om du istället vill att de virtuella datorinstanserna ska frigöras och endast kosta lagringsavgifter, använder du [az vmss deallocate](/cli/azure/vmss). Följande exempel stoppar och frigör instansen *1*:
+Stoppade virtuella datorinstanser är fortfarande allokerade och fortsätter att kosta beräkningsavgifter. Om du istället vill att de virtuella datorinstanserna ska frigöras och endast kosta lagringsavgifter, använder du [az vmss deallocate](/cli/azure/vmss). Följande exempel stoppar och frigör instansen *1* :
 
 ```azurecli-interactive
 az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance-ids 1
 ```
 
 ### <a name="start-vm-instances-in-a-scale-set"></a>Starta virtuella datorinstanser i en skalningsuppsättning
-Om du vill starta en eller flera virtuella datorinstanser, använder du [az vmss start](/cli/azure/vmss). Parametern `--instance-ids` låter dig ange en eller flera virtuella datorinstanser att starta. Om du inte anger ett instans-ID, startas alla virtuella datorinstanser i skalningsuppsättningen. Följande exempel startar instansen *1*:
+Om du vill starta en eller flera virtuella datorinstanser, använder du [az vmss start](/cli/azure/vmss). Parametern `--instance-ids` låter dig ange en eller flera virtuella datorinstanser att starta. Om du inte anger ett instans-ID, startas alla virtuella datorinstanser i skalningsuppsättningen. Följande exempel startar instansen *1* :
 
 ```azurecli-interactive
 az vmss start --resource-group myResourceGroup --name myScaleSet --instance-ids 1
 ```
 
 ### <a name="restart-vm-instances-in-a-scale-set"></a>Starta om virtuella datorinstanser i en skalningsuppsättning
-Om du vill starta om en eller flera virtuella datorinstanser, använder du [az vmss restart](/cli/azure/vmss). Parametern `--instance-ids` låter dig ange en eller flera virtuella datorinstanser att starta om. Om du inte anger ett instans-ID, startas alla virtuella datorinstanser i skalningsuppsättningen om. Följande exempel startar om instansen *1*:
+Om du vill starta om en eller flera virtuella datorinstanser, använder du [az vmss restart](/cli/azure/vmss). Parametern `--instance-ids` låter dig ange en eller flera virtuella datorinstanser att starta om. Om du inte anger ett instans-ID, startas alla virtuella datorinstanser i skalningsuppsättningen om. Följande exempel startar om instansen *1* :
 
 ```azurecli-interactive
 az vmss restart --resource-group myResourceGroup --name myScaleSet --instance-ids 1

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: has-adal-ref, devx-track-js, devx-track-csharp
-ms.openlocfilehash: c26acb1460516781b34a5dcc861164e9ef87a37a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1f4d4a3bb78da82753d651e1a73cf244096d5df
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331632"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518109"
 ---
 # <a name="security-frame-session-management"></a>Säkerhets ram: sessionshantering
 | Produkt/tjänst | Artikel |
@@ -159,7 +159,7 @@ Den bör också förstöra användarens session genom att anropa session. Abando
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | EnvironmentType – OnPrem |
-| **Referenser**              | [httpCookies-element (ASP.net-inställnings schema)](https://msdn.microsoft.com/library/ms228262(v=vs.100).aspx), [HttpCookie. Secure-egenskap](https://msdn.microsoft.com/library/system.web.httpcookie.secure.aspx) |
+| **Referenser**              | [httpCookies-element (ASP.net-inställnings schema)](/previous-versions/dotnet/netframework-4.0/ms228262(v=vs.100)), [HttpCookie. Secure-egenskap](/dotnet/api/system.web.httpcookie.secure) |
 | **Steg** | Cookies är normalt bara tillgängliga för den domän för vilken de har omfånget. Definitionen av "domän" innehåller tyvärr inte protokollet, så cookies som skapas via HTTPS är tillgängliga via HTTP. Attributet "Secure" anger den webbläsare som cookien bara ska göras tillgänglig över HTTPS. Se till att alla cookies som anges över HTTPS använder attributet **Secure** . Kravet kan tillämpas i web.config-filen genom att ange attributet requireSSL till true. Det är den bästa metoden eftersom den upprätthåller attributet **säker** för alla aktuella och framtida cookies utan att behöva göra några ytterligare kod ändringar.|
 
 ### <a name="example"></a>Exempel
@@ -221,7 +221,7 @@ Alla HTTP-baserade program som använder cookies bör ange HttpOnly i cookie-def
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Webb formulär |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [FormsAuthentication. RequireSSL-egenskap](https://msdn.microsoft.com/library/system.web.security.formsauthentication.requiressl.aspx) |
+| **Referenser**              | [FormsAuthentication. RequireSSL-egenskap](/dotnet/api/system.web.security.formsauthentication.requiressl) |
 | **Steg** | Egenskap svärdet RequireSSL anges i konfigurations filen för ett ASP.NET-program med hjälp av requireSSL-attributet för konfigurations elementet. Du kan ange i Web.config-filen för ditt ASP.NET-program om Transport Layer Security (TLS), som tidigare kallades SSL (Secure Sockets Layer), krävs för att returnera en cookie för formulär-autentisering till servern genom att ange requireSSL-attributet.|
 
 ### <a name="example"></a>Exempel 
@@ -238,7 +238,7 @@ I följande kod exempel anges attributet requireSSL i Web.config-filen.
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | MVC5 |
 | **Attribut**              | EnvironmentType – OnPrem |
-| **Referenser**              | [Konfiguration av Windows Identity Foundation (WIF) – del II](https://blogs.msdn.microsoft.com/alikl/2011/02/01/windows-identity-foundation-wif-configuration-part-ii-cookiehandler-chunkedcookiehandler-customcookiehandler/) |
+| **Referenser**              | [Konfiguration av Windows Identity Foundation (WIF) – del II](/archive/blogs/alikl/windows-identity-foundation-wif-configuration-part-ii-cookiehandler-chunkedcookiehandler-customcookiehandler) |
 | **Steg** | Om du vill ange attributet httpOnly för FedAuth cookies ska hideFromCsript-attributvärdet vara inställt på True. |
 
 ### <a name="example"></a>Exempel
@@ -358,7 +358,7 @@ void ValidateRequestHeader(HttpRequestMessage request)
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Webb formulär |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [Dra nytta av ASP.NET inbyggda funktioner för att Fend bort webb attacker](https://msdn.microsoft.com/library/ms972969.aspx#securitybarriers_topic2) |
+| **Referenser**              | [Dra nytta av ASP.NET inbyggda funktioner för att Fend bort webb attacker](/previous-versions/dotnet/articles/ms972969(v=msdn.10)#securitybarriers_topic2) |
 | **Steg** | CSRF-attacker i WebForms-baserade program kan lösas genom att ange ViewStateUserKey till en slumpmässig sträng som varierar för varje användares användar-ID eller, bättre än sessions-ID. För ett antal tekniska och sociala skäl är sessions-ID en mycket bättre anpassning eftersom ett sessions-ID är oförutsägbart, tids gräns och varierar per användare.|
 
 ### <a name="example"></a>Exempel
@@ -378,7 +378,7 @@ void Page_Init (object sender, EventArgs e) {
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [HttpSessionState. timeout-egenskap](https://msdn.microsoft.com/library/system.web.sessionstate.httpsessionstate.timeout(v=vs.110).aspx) |
+| **Referenser**              | [HttpSessionState. timeout-egenskap](/dotnet/api/system.web.sessionstate.httpsessionstate.timeout) |
 | **Steg** | Timeout för session representerar händelsen som inträffar när en användare inte utför någon åtgärd på en webbplats under ett intervall (definieras av webb servern). Händelsen på Server sidan ändrar status för användarsessionen till "ogiltig" (till exempel "används inte längre") och instruerar webb servern att förstöra den (ta bort alla data som finns i den). I följande kod exempel anges attributet session Time to 15 minuter i Web.config-filen.|
 
 ### <a name="example"></a>Exempel
@@ -398,7 +398,7 @@ void Page_Init (object sender, EventArgs e) {
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Webb formulär |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [Formulär element för autentisering (ASP.NET Settings schema)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
+| **Referenser**              | [Formulär element för autentisering (ASP.NET Settings schema)](/previous-versions/dotnet/netframework-4.0/1d3t3c61(v=vs.100)) |
 | **Steg** | Ange formulärets cookie-timeout för formulär för autentisering till 15 minuter|
 
 ### <a name="example"></a>Exempel

@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: eaa7efe761490a639acabd9fd6d91378e1259a67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff9eca855269597477bc42a319c99c886576d92c
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779538"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94482778"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -147,7 +147,8 @@ Detta returnerar en sträng som representerar det aktuella status för ett anrop
 * Ansluten – anropet är anslutet
 * Hold '-anropet är spärrat, inget medium flödar mellan lokal slut punkt och fjärran sluten deltagare
 * "Kopplar från"-över gångs läget innan anropet går till frånkopplat läge
-* Frånkopplat-avslutande anrops tillstånd
+* ' Frånkopplat ' – slutligt anrops tillstånd.
+   * Om nätverks anslutningen förloras går tillstånd till "frånkopplad" efter ungefär 2 minuter.
 
 
 * Om du vill se varför ett angivet samtal avslutades, kontrollerar du `callEndReason` egenskapen.
@@ -233,6 +234,9 @@ const source callClient.getDeviceManager().getCameraList()[1];
 localVideoStream.switchSource(source);
 
 ```
+### <a name="faq"></a>Vanliga frågor
+ * Om nätverks anslutningen förloras ändras anrops läget till "frånkopplad"?
+    * Ja, om nätverks anslutningen går förlorad i mer än två minuter, övergår anropet till frånkopplat läge och anropet avslutas.
 
 ## <a name="remote-participants-management"></a>Hantering av fjärranslutna deltagare
 
@@ -270,7 +274,8 @@ Tillstånd kan vara en av
 * Ansluten – deltagaren är ansluten till anropet
 * Hold '-deltagare är stoppad
 * ' EarlyMedia ' – meddelandet spelas upp innan deltagaren ansluts till anropet
-* ' Frånkopplad ' – slutligt tillstånd-deltagare är frånkopplat från anropet
+* ' Frånkopplad ' – slutligt tillstånd-deltagare är frånkopplat från anropet.
+   * Om fjärrparten förlorar sin nätverks anslutning går fjärr anslutnings status till "frånkopplad" efter ungefär 2 minuter.
 
 Om du vill veta varför deltagaren lämnade anropet, kontrollerar du `callEndReason` egenskapen:
 ```js
@@ -410,7 +415,9 @@ Du kan uppdatera skalnings läget senare genom att anropa- `updateScalingMode` m
 ```js
 view.updateScalingMode('Crop')
 ```
-
+### <a name="faq"></a>Vanliga frågor
+* Om en fjärran sluten part förlorar sin nätverks anslutning, ändrar deras tillstånd till "frånkopplad"?
+    * Ja, om en fjärran sluten deltagare förlorar sin nätverks anslutning under mer än två minuter, kommer deras tillstånd att övergå till frånkopplat och de tas bort från anropet.
 ## <a name="device-management"></a>Enhetshantering
 
 `DeviceManager` gör att du kan räkna upp lokala enheter som kan användas i ett anrop för att överföra ljud-och video strömmar. Du kan också begära behörighet från en användare för att få åtkomst till mikrofonen och kameran med hjälp av det inbyggda webb läsar-API: et.

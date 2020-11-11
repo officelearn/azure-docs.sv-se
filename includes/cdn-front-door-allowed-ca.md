@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/30/2020
 ms.author: sharadag
 ms.custom: include file
-ms.openlocfilehash: 60c26d8c33b1d419da5a51206d310e2112c69644
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 931d9d6da8ac0f8400aa0ec8918901e5e337439f
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93136069"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94482637"
 ---
 Följande ca: er tillåts när du skapar ett eget certifikat:
 
@@ -32,7 +32,7 @@ Följande ca: er tillåts när du skapar ett eget certifikat:
 - D – förtroende rot klass 3 CA 2 2009
 - DigiCert Cloud Services CA-1
 - DigiCert global rot certifikat utfärdare
-- DigiCert global CA G2
+- DigiCert global root G2
 - DigiCert-certifikat med hög säkerhet – 3
 - DigiCert med hög säkerhet och EV-rot certifikat utfärdare
 - DigiCert SHA2 utökad validering Server CA

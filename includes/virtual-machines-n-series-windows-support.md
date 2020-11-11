@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: virtual-machines-windows
 author: cynthn
 ms.service: virtual-machines-windows
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: bfb7d1d52549d7fda9547b65a259fe2ce73f8839
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 22d2ddc65616bbeb0c511afa6f60bc12c6ec67ef
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91997886"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94482792"
 ---
 ## <a name="supported-operating-systems-and-drivers"></a>Operativsystem och drivrutiner som stöds
 
@@ -34,12 +34,12 @@ NVIDIA Tesla-drivrutiner (CUDA) för NC, NCv2, NCv3, NCasT4_v3, ND och NDv2-seri
 
 Microsoft distribuerar NVIDIA GRID-drivrutiner installations program för virtuella datorer i NV-och NVv3-serien som används som virtuella arbets stationer eller för virtuella program. Installera endast dessa RUTNÄTs driv rutiner på virtuella datorer i Azure NV-serien, bara på de operativ system som anges i följande tabell. Dessa driv rutiner inkluderar licensiering för virtuella GPU-program i Azure i Azure. Du behöver inte konfigurera en program licens Server för NVIDIA vGPU.
 
-RUTNÄTs driv rutinerna som distribueras med Azure fungerar inte på virtuella datorer som inte är NV-serien, till exempel NC, NCv2, NCv3, ND och NDv2-seriens virtuella datorer.
+RUTNÄTs driv rutinerna som distribueras med Azure fungerar inte på virtuella datorer som inte är NV-serien, till exempel NC, NCv2, NCv3, ND och NDv2-seriens virtuella datorer. Det enda undantaget är NCas_T4_V3 VM-serien där RUTNÄTs driv rutinerna ska aktivera grafik funktionerna som liknar NV-serien.
 
 Observera att NVIDIA-tillägget alltid kommer att installera den senaste driv rutinen. Vi tillhandahåller länkar till den tidigare versionen här för kunder, som har beroende av en äldre version.
 
 För Windows Server 2019, Windows Server 2016 och Windows 10 (upp till build 2004):
-- [Rutnät 11 (452,39)](https://go.microsoft.com/fwlink/?linkid=874181) (. exe)
+- [GRID 11,1 (452,39)](https://go.microsoft.com/fwlink/?linkid=874181) (. exe)
 - [GRID 11,0 (451,48)](https://download.microsoft.com/download/C/1/4/c147a482-1364-4d12-b9e3-0beda0f00a13/451.48_grid_win10_server2016_server2019_64bit_international.exe) (. exe) 
 
 För Windows Server 2012 R2: 

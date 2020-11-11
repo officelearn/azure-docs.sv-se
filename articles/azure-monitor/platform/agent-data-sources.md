@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: a52f10c7081875113a0ad22bd687776e71d238e2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: ad5e91a6dcdb61e09a64e61a27f12148ec28168e
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460809"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490584"
 ---
 # <a name="log-analytics-agent-data-sources-in-azure-monitor"></a>Log Analytics agent data källor i Azure Monitor
 De data som Azure Monitor samlar in från virtuella datorer med [Log Analytics](log-analytics-agent.md) agent definieras av de data källor som du konfigurerar på [arbets ytan Log Analytics](data-platform-logs.md).   Varje data källa skapar poster av en viss typ med varje typ som har en egen uppsättning egenskaper.
@@ -20,6 +20,9 @@ De data som Azure Monitor samlar in från virtuella datorer med [Log Analytics](
 > Den här artikeln beskriver data källor för [Log Analytics agent](log-analytics-agent.md) som är en av de agenter som används av Azure Monitor. Andra agenter samlar in olika data och konfigureras på olika sätt. Se [Översikt över Azure Monitor agenter](agents-overview.md) för en lista över tillgängliga agenter och de data som de kan samla in.
 
 ![Logg data insamling](media/agent-data-sources/overview.png)
+
+> [!IMPORTANT]
+> De data källor som beskrivs i den här artikeln gäller bara för virtuella datorer som kör Log Analytics agenten. 
 
 ## <a name="summary-of-data-sources"></a>Sammanfattning av data källor
 I följande tabell visas de agent data källor som för närvarande är tillgängliga med Log Analytics-agenten.  Varje har en länk till en separat artikel som innehåller information om data källan.   Den innehåller också information om deras metod och frekvens för insamling. 

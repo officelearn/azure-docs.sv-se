@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: cdddbce3e9eb0a5c933ace186607186265197dc4
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: f8e0d49c2a35a1e97c79e6d4b8c867a4a8ab88b3
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123514"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491536"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Förstå Stream Analytics jobb övervakning och övervaka frågor
 
@@ -43,7 +43,7 @@ Fönstret visas som det visas:
 | Händelser som inte är i ordning    | Antalet händelser som tagits emot utanför ordningen som antingen släpptes eller fått en anpassad tidsstämpel, baserat på händelse ordnings principen. Detta kan påverkas av konfigurationen av inställningen för avställnings tolerans fönstret. |
 | Utgående händelser          | Mängden data som skickas av Stream Analytics jobb till utmatnings målet, i antal händelser. |
 | Körnings fel         | Totalt antal fel som rör bearbetning av frågor (exklusive fel som påträffats vid inmatning av händelser eller resultat av resultat) |
-| SU%-användning       | Användningen av de strömnings enheter som är kopplade till ett jobb från fliken Scale i jobbet. Om den här indikatorn når 80% eller högre, finns det en hög sannolikhet att händelse bearbetningen kan fördröjas eller stoppas. |
+| SU%-användning       | Om resursutnyttjande ligger konsekvent över 80% ökar vattenstämpelns fördröjning och antalet eftersläpande händelser ökar, och det kan vara bra att öka enheter för strömning. Hög användning visar att jobbet använder nära maximalt allokerade resurser. |
 | Fördröjning för vattenstämpel       | Maximal vattenstämpel-fördröjning över alla partitioner i alla utdata i jobbet. |
 
 Du kan använda dessa mått för att [övervaka Stream Analytics jobbets prestanda](./stream-analytics-set-up-alerts.md#scenarios-to-monitor). 

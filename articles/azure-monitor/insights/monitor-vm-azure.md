@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 85c4807d5bf71078e3cfb26bbc27e9eecc10c041
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84db7f58c292cf0a9d01cf90da4b847691f601fb
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90029469"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491638"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Övervaka virtuella Azure-datorer med Azure Monitor
 Den här artikeln beskriver hur du använder Azure Monitor för att samla in och analysera övervaknings data från virtuella Azure-datorer för att upprätthålla deras hälsa. Virtuella datorer kan övervakas för tillgänglighet och prestanda med Azure Monitor som [andra Azure](monitor-azure-resource.md)-resurser, men de är unika för andra resurser eftersom du också behöver övervaka gäst operativ systemet och de arbets belastningar som körs i den. 
@@ -50,7 +50,7 @@ Om du vill samla in data från gäst operativ systemet på en virtuell dator beh
 - [Teleympkvistar-agent](../platform/collect-custom-metrics-linux-telegraf.md) – samla in prestanda data från virtuella Linux-datorer i Azure Monitor Mät värden.
 
 
-## <a name="configuration-requirements"></a>Konfigurations krav
+## <a name="configuration-requirements"></a>Konfigurationskrav
 Om du vill aktivera alla funktioner i Azure Monitor för övervakning av en virtuell dator måste du samla in övervaknings data från den virtuella värddatorn och gäst operativ systemet till både [Azure Monitor mått](../platform/data-platform-logs.md) och [Azure Monitor loggar](../platform/data-platform-logs.md). I följande tabell visas den konfiguration som måste utföras för att aktivera den här samlingen. Du kan välja att inte utföra alla dessa steg beroende på dina specifika krav.
 
 | Konfigurations steg | Slutförda åtgärder | Aktiverade funktioner |
@@ -84,7 +84,7 @@ Log Analytics-agenten som används av Azure Monitor for VMs skickar data till en
 
 Du kan komma åt konfigurationen för arbets ytan direkt från Azure Monitor for VMs genom att välja **arbets ytans konfiguration** från **Kom igång**. Klicka på arbets ytans namn för att öppna dess meny.
 
-![Konfiguration av arbets yta](media/monitor-vm-azure/workspace-configuration.png)
+![Konfiguration av arbetsyta](media/monitor-vm-azure/workspace-configuration.png)
 
 Välj **Avancerade inställningar** på menyn arbets yta och sedan **data** för att konfigurera data källor. För Windows-agenter väljer du **händelse loggar för Windows** och lägger till vanliga händelse loggar som *system* och *program*. För Linux-agenter väljer du **syslog** och lägger till vanliga funktioner som *kerning* och *daemon*. Se [agent data källor i Azure Monitor](../platform/agent-data-sources.md) om du vill ha en lista över tillgängliga data källor och information om hur du konfigurerar dem. 
 
@@ -139,7 +139,7 @@ När du har konfigurerat insamling av övervaknings data för en virtuell dator 
 | Mått | Öppna [Metrics Explorer](../platform/metrics-getting-started.md) med scopet inställt på den aktuella virtuella datorn. |
 | Diagnostikinställningar | Aktivera och konfigurera [diagnostik-tillägg](../platform/diagnostics-extension-overview.md) för den aktuella virtuella datorn. |
 | Advisor-rekommendationer | Rekommendationer för den aktuella virtuella datorn från [Azure Advisor](../../advisor/index.yml). |
-| Loggar | Öppna [Log Analytics](../log-query/log-query-overview.md#what-is-log-analytics) med [scopet](../log-query/scope.md) inställt på den aktuella virtuella datorn. |
+| Loggar | Öppna [Log Analytics](../log-query/log-analytics-overview.md) med [scopet](../log-query/scope.md) inställt på den aktuella virtuella datorn. |
 | Anslutnings övervakare | Öppna [Network Watcher anslutnings övervakare](../../network-watcher/connection-monitor-preview.md) för att övervaka anslutningar mellan den aktuella virtuella datorn och andra virtuella datorer. |
 
 
@@ -170,7 +170,7 @@ Azure Monitor for VMs aktiverar samlingen av en fördefinierad uppsättning pres
 
 
 > [!NOTE]
-> Prestanda data som samlas in av Log Analytics agent skriver till *perf* -tabellen medan Azure Monitor for VMS samlar in dem till *InsightsMetrics* -tabellen. Detta är samma data, men tabellerna har en annan struktur. Om du har befintliga frågor baserade på *perf*måste du skrivas om för att använda *InsightsMetrics*.
+> Prestanda data som samlas in av Log Analytics agent skriver till *perf* -tabellen medan Azure Monitor for VMS samlar in dem till *InsightsMetrics* -tabellen. Detta är samma data, men tabellerna har en annan struktur. Om du har befintliga frågor baserade på *perf* måste du skrivas om för att använda *InsightsMetrics*.
 
 
 ## <a name="alerts"></a>Aviseringar

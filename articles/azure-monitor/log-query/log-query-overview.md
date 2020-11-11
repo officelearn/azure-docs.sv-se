@@ -1,101 +1,82 @@
 ---
-title: Översikt över logg frågor i Azure Monitor | Microsoft Docs
-description: Svarar på vanliga frågor om logg frågor och hjälper dig att komma igång med att använda dem.
+title: Logg frågor i Azure Monitor
+description: Referensinformation för Kusto-frågespråket som används av Azure Monitor. Innehåller ytterligare element som är speciella för Azure Monitor och element som inte stöds i Azure Monitor logg frågor.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/19/2019
-ms.openlocfilehash: 55463f6af47ef8eda712b1787a89a710c08c1fe6
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.date: 10/09/2020
+ms.openlocfilehash: 6174bcbe5a014cff8dbd8dff242880d7f0ef7aa0
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995213"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491400"
 ---
-# <a name="overview-of-log-queries-in-azure-monitor"></a>Översikt över logg frågor i Azure Monitor
-Med logg frågor kan du utnyttja värdet för de data som samlas in i [Azure Monitor loggar](../platform/data-platform-logs.md). Ett kraftfullt frågespråk gör att du kan koppla data från flera tabeller, aggregera stora mängder data och utföra komplexa åtgärder med minimal kod. I stort sett kan alla frågor besvaras och analyseras så länge som stödjande data har samlats in och du förstår hur du skapar rätt fråga.
+# <a name="log-queries-in-azure-monitor"></a>Logg frågor i Azure Monitor
+Azure Monitor loggar baseras på Azure Datautforskaren, och logg frågor skrivs med samma KQL (Kusto Query Language). Detta är ett stort språk utformat för att vara lätt att läsa och redigera, så du bör kunna börja skriva frågor med några grundläggande rikt linjer.
 
-Vissa funktioner i Azure Monitor, till exempel [insikter](../insights/insights-overview.md) och [lösningar](../monitor-reference.md) , bearbetar loggdata utan att du exponerar de underliggande frågorna. För att helt utnyttja andra funktioner i Azure Monitor bör du förstå hur frågor skapas och hur du kan använda dem för att interaktivt analysera data i Azure Monitor loggar.
+Områden i Azure Monitor där du kommer att använda frågor är följande:
 
-Använd den här artikeln som en start punkt för att lära dig om logg frågor i Azure Monitor. Den svarar på vanliga frågor och innehåller länkar till annan dokumentation som innehåller mer information och lektioner.
+- [Log Analytics](../log-query/log-analytics-overview.md). Huvud verktyg i Azure Portal för att redigera logg frågor och analysera resultaten interaktivt. Även om du planerar att använda en logg fråga någon annan stans i Azure Monitor, skriver du vanligt vis och testar den i Log Analytics innan du kopierar den till den slutgiltiga platsen.
+- [Logga varnings regler](../platform/alerts-overview.md). Identifiera problem med data i din arbets yta proaktivt.  Varje varnings regel baseras på en logg fråga som körs automatiskt med jämna mellanrum.  Resultaten kontrol leras för att avgöra om en avisering ska skapas.
+- [Arbets böcker](../platform/workbooks-overview.md). Inkludera resultaten av logg frågor med hjälp av olika visualiseringar i interaktiva visuella rapporter i Azure Portal.
+- [Azure-instrumentpaneler](../learn/tutorial-logs-dashboards.md). Fäst resultatet av en fråga i en Azure-instrumentpanel som gör att du kan visualisera logg-och mät data tillsammans och dela dem med andra Azure-användare.
+- [Logic Apps](../platform/logicapp-flow-connector.md).  Använd resultatet av en logg fråga i ett automatiserat arbets flöde med hjälp av Logic Apps.
+- [PowerShell](/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresult). Använd resultatet av en logg fråga i ett PowerShell-skript från en kommando rad eller en Azure Automation Runbook som använder Get-AzOperationalInsightsSearchResults.
+- [API för Azure Monitor loggar](https://dev.loganalytics.io). Hämta loggdata från arbets ytan från valfri REST API-klient.  API-förfrågan innehåller en fråga som körs mot Azure Monitor för att avgöra vilka data som ska hämtas.
 
-## <a name="how-can-i-learn-how-to-write-queries"></a>Hur kan jag lära mig att skriva frågor?
-Om du vill gå direkt till saker kan du börja med följande Självstudier:
+## <a name="getting-started"></a>Komma igång
+Det bästa sättet att komma igång med att lära sig att skriva logg frågor med hjälp av KQL utnyttjar de tillgängliga självstudierna och exemplen.
 
-- [Kom igång med Log Analytics i Azure Monitor](get-started-portal.md).
-- [Kom igång med logg frågor i Azure Monitor](get-started-queries.md).
-
-När du har fastställt grunderna kan du gå igenom flera lektioner med hjälp av antingen dina egna data eller data från vår demo miljö som börjar med: 
-
-- [Arbeta med strängar i Azure Monitor logg frågor](string-operations.md)
- 
-## <a name="what-language-do-log-queries-use"></a>Vilket språk använder logg frågor för att använda?
-Azure Monitor loggar baseras på [Azure datautforskaren](/azure/data-explorer), och logg frågor skrivs med samma KQL (Kusto Query Language). Detta är ett omfattande språk som utformats för att vara lätt att läsa och redigera och du bör kunna börja använda det med minimal vägledning.
-
-Mer information om KQL och referenser till olika funktioner finns i [dokumentationen för Azure DATAUTFORSKAREN KQL](/azure/kusto/query) .<br>
-Se [Kom igång med logg frågor i Azure Monitor](get-started-queries.md) för en snabb genom gång av språket som använder data från Azure Monitor-loggar.
-Se [Azure Monitor logg frågor språk skillnader](data-explorer-difference.md) för mindre skillnader i den version av KQL som används av Azure Monitor.
-
-## <a name="what-data-is-available-to-log-queries"></a>Vilka data är tillgängliga för att logga frågor?
-Alla data som samlas in i Azure Monitor-loggar är tillgängliga för att hämta och analysera i logg frågor. Olika data källor kommer att skriva sina data till olika tabeller, men du kan inkludera flera tabeller i en enda fråga för att analysera data över flera källor. När du skapar en fråga börjar du med att bestämma vilka tabeller som har de data som du letar efter. Se [strukturen i Azure Monitor loggar](../platform/data-platform-logs.md) för en förklaring av hur data är strukturerade.
-
-## <a name="what-does-a-log-query-look-like"></a>Vad ser en logg fråga ut?
-En fråga kan vara lika enkel som ett enda tabell namn för att hämta alla poster från tabellen:
-
-```Kusto
-Syslog
-```
-
-Du kan också filtrera efter vissa poster, sammanfatta dem och visualisera resultatet i ett diagram:
-
-```
-SecurityEvent
-| where TimeGenerated > ago(7d)
-| where EventID == 4625
-| summarize count() by Computer, bin(TimeGenerated, 1h)
-| render timechart 
-```
-
-För mer komplex analys kan du hämta data från flera tabeller med en koppling för att analysera resultaten tillsammans.
-
-```Kusto
-app("ContosoRetailWeb").requests
-| summarize count() by bin(timestamp,1hr)
-| join kind= inner (Perf
-    | summarize avg(CounterValue) 
-      by bin(TimeGenerated,1hr))
-on $left.timestamp == $right.TimeGenerated
-```
-Även om du inte är bekant med KQL bör du kunna ta bort den grundläggande logiken som används av dessa frågor minst. De börjar med namnet på en tabell och lägger sedan till flera kommandon för att filtrera och bearbeta dessa data. En fråga kan använda valfritt antal kommandon, och du kan skriva mer komplexa frågor när du blir bekant med de olika KQL-kommandona som är tillgängliga.
-
-I [Kom igång med logg frågor i Azure Monitor](get-started-queries.md) finns en själv studie kurs om logg frågor som beskriver språk och vanliga funktioner.<br>
+- [Log Analytics själv studie](log-analytics-tutorial.md) kurs om hur du använder funktionerna i Log Analytics som är det verktyg som du använder i Azure Portal för att redigera och köra frågor. Du kan också skriva enkla frågor utan att du behöver arbeta direkt med frågespråket. Om du inte har använt Log Analytics förut börjar du här så att du förstår verktyget som du kommer att använda med de andra självstudierna och exemplen.
+- [KQL-självstudie](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor) – guidad genom gång av grundläggande KQL-koncept och vanliga operatörer. Detta är den bästa platsen för att komma igång snabbt med själva språket och strukturen på logg frågor. 
+- [Exempel frågor](example-queries.md) – Beskrivning av exempel frågor som är tillgängliga i Log Analytics. Du kan använda frågorna utan att ändra eller använda dem som exempel för att lära dig KQL.
+- [Fråga exempel](/azure/data-explorer/kusto/query/samples?pivots=azuremonitor) – exempel frågor som illustrerar olika koncept.
 
 
-## <a name="what-is-log-analytics"></a>Vad är Log Analytics?
-Log Analytics är det primära verktyget i Azure-portalen för skrivande av loggfrågor och interaktiv analys av deras resultat. Även om en loggfråga används någon annanstans i Azure Monitor skriver du vanligtvis och testar frågan först med Log Analytics.
 
-Du kan starta Log Analytics från flera platser i Azure Portal. Omfattningen av de data som är tillgängliga för Log Analytics bestäms av hur du startar den. Mer information finns i [fråge omfånget](scope.md) .
+## <a name="reference-documentation"></a>Referens dokumentation
+[Dokumentation för KQL](/azure/data-explorer/kusto/query/) , inklusive referensen för alla kommandon och operatorer, finns i Azure datautforskaren-dokumentationen. Även om du får kunskap med KQL, använder du fortfarande regelbundet referensen för att undersöka nya kommandon och scenarier som du inte har använt tidigare.
 
-- Välj **loggar** på menyn **Azure Monitor** eller **Log Analytics arbets ytor** .
-- Välj **loggar** på sidan **översikt** i ett Application Insights-program.
-- Välj **loggar** på menyn för en Azure-resurs.
 
-![Log Analytics](media/log-query-overview/log-analytics.png)
+## <a name="language-differences"></a>Språkskillnader
+När Azure Monitor använder samma KQL som Azure Datautforskaren finns det vissa skillnader. I KQL-dokumentationen anges de operatörer som inte stöds av Azure Monitor eller som har olika funktioner. Operatorer som är speciella för Azure Monitor dokumenteras i Azure Monitor innehållet. I följande avsnitt finns en lista över skillnaderna mellan olika versioner av språket för snabb referens.
 
-Se [Kom igång med Log Analytics i Azure Monitor](get-started-portal.md) för en själv studie genom gång av Log Analytics som introducerar flera av dess funktioner.
+### <a name="statements-not-supported-in-azure-monitor"></a>Instruktioner stöds inte i Azure Monitor
 
-## <a name="where-else-are-log-queries-used"></a>Var vill du använda logg frågor?
-Förutom att interaktivt arbeta med logg frågor och deras resultat i Log Analytics, är områden i Azure Monitor där du kommer att använda frågorna följande:
+* [Aliasuppsättning](/azure/kusto/query/aliasstatement)
+* [Frågeparametrar](/azure/kusto/query/queryparametersstatement)
 
-- **Aviserings regler.** [Aviserings regler](../platform/alerts-overview.md) identifierar proaktivt problem från data i din arbets yta.  Varje varnings regel baseras på en loggs ökning som körs automatiskt med jämna mellanrum.  Resultaten kontrol leras för att avgöra om en avisering ska skapas.
-- **Instrument paneler.** Du kan fästa resultatet av en fråga i en [Azure-instrumentpanel](../learn/tutorial-logs-dashboards.md) som gör att du kan visualisera logg-och mät data tillsammans och dela dem med andra Azure-användare.
-- **Vyer.**  Du kan skapa visualiseringar av data som ska ingå i användar instrument paneler med [View Designer](../platform/view-designer.md).  Logg frågor ger data som används av [paneler](../platform/view-designer-tiles.md) och [visualiserings delar](../platform/view-designer-parts.md) i varje vy.  
-- **Exporteras.**  När du importerar loggdata från Azure Monitor till Excel eller [Power BI](../platform/powerbi.md)skapar du en logg fråga som definierar de data som ska exporteras.
-- **PowerShell.** Du kan köra ett PowerShell-skript från en kommando rad eller en Azure Automation Runbook som använder [Get-AzOperationalInsightsSearchResults](/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresult) för att hämta loggdata från Azure Monitor.  Denna cmdlet kräver en fråga för att avgöra vilka data som ska hämtas.
-- **API för Azure Monitor loggar.**  Med [API: et för Azure Monitor loggar](https://dev.loganalytics.io) kan alla REST API klienter Hämta loggdata från arbets ytan.  API-förfrågan innehåller en fråga som körs mot Azure Monitor för att avgöra vilka data som ska hämtas.
+### <a name="functions-not-supported-in-azure-monitor"></a>Funktioner som inte stöds i Azure Monitor
 
+* [cluster()](/azure/kusto/query/clusterfunction)
+* [cursor_after()](/azure/kusto/query/cursorafterfunction)
+* [cursor_before_or_at()](/azure/kusto/query/cursorbeforeoratfunction)
+* [cursor_current (), current_cursor ()](/azure/kusto/query/cursorcurrent)
+* [databas ()](/azure/kusto/query/databasefunction)
+* [current_principal()](/azure/kusto/query/current-principalfunction)
+* [extent_id()](/azure/kusto/query/extentidfunction)
+* [extent_tags()](/azure/kusto/query/extenttagsfunction)
+
+### <a name="operators-not-supported-in-azure-monitor"></a>Operatorer stöds inte i Azure Monitor
+
+* [Anslutning mellan kluster](/azure/kusto/query/joincrosscluster)
+
+### <a name="plugins-not-supported-in-azure-monitor"></a>Plugin-program stöds inte i Azure Monitor
+
+* [Python-plugin](/azure/kusto/query/pythonplugin)
+* [sql_request-plugin-program](/azure/kusto/query/sqlrequestplugin)
+
+
+### <a name="additional-operators-in-azure-monitor"></a>Ytterligare operatörer i Azure Monitor
+Följande operatörer stöder vissa Azure Monitor funktioner och är inte tillgängliga utanför Azure Monitor.
+
+* [app ()](app-expression.md)
+* [resurs ()](resource-expression.md)
+* [arbets yta ()](workspace-expression.md)
 
 ## <a name="next-steps"></a>Nästa steg
-- Gå igenom en [själv studie kurs om hur du använder Log Analytics i Azure Portal](get-started-portal.md).
-- Gå igenom en [själv studie kurs om att skriva frågor](get-started-queries.md).
+- Gå igenom en [själv studie kurs om att skriva frågor](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor).
+- Få till gång till fullständig [referens dokumentation för Kusto-frågespråk](/azure/kusto/query/).
+

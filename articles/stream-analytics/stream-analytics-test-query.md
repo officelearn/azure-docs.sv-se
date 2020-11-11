@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
-ms.openlocfilehash: 524b34c48146dc9e6102ed8d20ff8d1076706ba7
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 8e08c4c34495b58c105560dba9d818be9ebf5e34
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444970"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490975"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Testa ett Azure Stream Analytics jobb i portalen
 
@@ -101,8 +101,8 @@ I stället för att använda real tids data kan du använda exempel data från e
 
 1.  Tids principen stöds inte i Portal testning:
 
-   * Föråldrad: alla inkommande händelser kommer att beställas.
-   * Sen införsel: det kommer inte att finnas någon sen införsel eftersom Stream Analytics endast kan använda befintliga data för testning.
+    * Föråldrad: alla inkommande händelser kommer att beställas.
+    * Sen införsel: det kommer inte att finnas någon sen införsel eftersom Stream Analytics endast kan använda befintliga data för testning.
    
 2.  C# UDF stöds inte.
 
@@ -112,6 +112,7 @@ I stället för att använda real tids data kan du använda exempel data från e
 
 5.  Machine Learning stöds inte.
 
+6. API: et för exempel data begränsas efter fem förfrågningar i ett 15-minuters fönster. Efter slutet av 15-minuters perioden kan du göra fler exempel på data förfrågningar. Den här begränsningen tillämpas på prenumerations nivån.
 
 ## <a name="troubleshooting"></a>Felsökning
 

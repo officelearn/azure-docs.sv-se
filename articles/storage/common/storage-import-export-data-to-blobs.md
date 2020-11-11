@@ -9,12 +9,12 @@ ms.date: 10/29/2020
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 32187b7aedd43a57ffe77c2f8524c54049ba10ae
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: d23560e8ee387ca8bc9cb4bba4211f6c8272addd
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93234128"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490890"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Använd Azure import/export-tjänsten för att importera data till Azure Blob Storage
 
@@ -34,7 +34,7 @@ Du måste:
 * Aktivera BitLocker på Windows-systemet. Se [hur du aktiverar BitLocker](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
 * [Ladda ned den senaste WAImportExport-versionen 1](https://www.microsoft.com/download/details.aspx?id=42659) på Windows-systemet. Den senaste versionen av verktyget har säkerhets uppdateringar för att tillåta en extern skydds funktion för BitLocker-nyckeln och den uppdaterade funktionen för upplåsnings läge.
 
-  * Zippa upp till standardmappen `waimportexportv1` . Till exempel `C:\WaImportExportV1`.
+  * Zippa upp till standardmappen `waimportexportv1` . Ett exempel är `C:\WaImportExportV1`.
 * Ha ett FedEx-/DHL-konto. Om du vill använda en annan operatör än FedEx/DHL kontaktar du Azure Data Box drifts team på `adbops@microsoft.com` .
   * Kontot måste vara giltigt, måste ha ett saldo och måste ha funktioner för retur leverans.
   * Generera ett spårnings nummer för export jobbet.
@@ -71,7 +71,7 @@ Utför följande steg för att förbereda enheterna.
 7. Kör följande kommando för att förbereda disken. **Beroende på data storleken kan detta ta flera timmar till dagar.**
 
     ```powershell
-    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite
+    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite
     ```
 
     En journal fil skapas i samma mapp som du körde verktyget. Två andra filer skapas också – en *. XML* -fil (mapp där du kör verktyget) och en *drive-manifest.xml* fil (mapp där data finns).
@@ -84,7 +84,7 @@ Utför följande steg för att förbereda enheterna.
     |/ID     |Sessions-ID. Använd ett unikt sessions nummer för varje instans av kommandot.      |
     |/t:     |Enhets beteckningen för den disk som ska levereras. Till exempel enhet `D` .         |
     |/bk:     |Enhetens BitLocker-nyckel. Det numeriska lösen ordet från utdata från `manage-bde -protectors -get D:`      |
-    |/srcdir:     |Enhets beteckningen för den disk som ska levereras följt av `:\` . Till exempel `D:\`.         |
+    |/srcdir:     |Enhets beteckningen för den disk som ska levereras följt av `:\` . Ett exempel är `D:\`.         |
     |/dstdir:     |Namnet på mål behållaren i Azure Storage.         |
     |/blobtype:     |Det här alternativet anger vilken typ av blobbar som du vill importera data till. För block-blobbar är detta `BlockBlob` och för sid blobbar `PageBlob` .         |
     |/skipwrite:     |Alternativet som anger att det inte finns några nya data som behöver kopieras och befintliga data på disken måste förberedas.          |

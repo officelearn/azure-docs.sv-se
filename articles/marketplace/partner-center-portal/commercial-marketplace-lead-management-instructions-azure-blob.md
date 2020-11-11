@@ -4,15 +4,15 @@ description: Lär dig hur du använder Azure Blob för att konfigurera leads fö
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 05/01/2020
-ms.openlocfilehash: dea9c0eec275c6a0596636c8625e52b8978bb9a6
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: bd2f3d40b1aea1c0133f95e069ebfd527d30bd59
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130552"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491111"
 ---
 # <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Använd Azure Blob Storage för att hantera affärs marknads platser
 
@@ -53,7 +53,7 @@ ms.locfileid: "93130552"
 
     ![Skärm bild som visar sidan "åtkomst nycklar" med text rutan "anslutnings sträng" markerad.](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-keys-2.png)
 
-6. På sidan lagrings konto väljer du **blobbar** .
+6. På sidan lagrings konto väljer du **blobbar**.
 
    ![Skärm bild av sidan Azure Storage-konto med blobbar valda](./media/commercial-marketplace-lead-management-instructions-azure-blob/select-blobs.png)
 
@@ -63,7 +63,7 @@ ms.locfileid: "93130552"
 
     Spara det här värdet eftersom det är det *behållar namns* värde som du måste ange i publicerings portalen för att ta emot leads för ditt Marketplace-erbjudande.
 
-9. Ange nivån för offentlig åtkomst till behållaren som **privat (ingen anonym åtkomst)** .
+9. Ange nivån för offentlig åtkomst till behållaren som **privat (ingen anonym åtkomst)**.
 
 10. Klicka på **OK** för att skapa containern.
 
@@ -74,7 +74,7 @@ ms.locfileid: "93130552"
 När du är redo att konfigurera ledar hanterings informationen för ditt erbjudande i publicerings portalen följer du stegen nedan:
 
 1. Gå till sidan med **installations programmet** för erbjudandet.
-2. Under avsnittet **kund leads** väljer du **Anslut** .
+2. Under avsnittet **kund leads** väljer du **Anslut**.
 
     :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-blob/customer-leads.png" alt-text="Kund ledare":::
 
@@ -87,7 +87,7 @@ När du är redo att konfigurera ledar hanterings informationen för ditt erbjud
     * Exempel på container namn: `marketplaceleadcontainer`
     * Exempel på anslutnings sträng för lagrings konto: `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net` ![ anslutnings information](./media/commercial-marketplace-lead-management-instructions-azure-blob/connection-details.png) 
 
-5. Välj **Spara** .
+5. Välj **Spara**.
 
     > [!NOTE]
     > Du måste slutföra konfigurationen av resten av erbjudandet och publicera den innan du kan ta emot leads för erbjudandet.

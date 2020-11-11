@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/02/2020
-ms.openlocfilehash: e8b13369cb961d4be49f0045805a805fda38a59c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/10/2020
+ms.openlocfilehash: cac14687c6193d58069240529955e69fc680b2e8
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319821"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491825"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB tjänst kvoter
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -43,9 +43,9 @@ Du kan etablera data flöde på en behållar nivå eller på databas nivå avsee
 
 En Cosmos-behållare (eller delad data flödes databas) måste ha ett minsta data flöde på 400 RU/s. När behållaren växer är det lägsta tillåtna data flödet också beroende av följande faktorer:
 
-* Maximalt data flöde som någonsin har allokerats på behållaren. Om ditt data flöde till exempel har ökat till 50 000 RU/s är det lägsta möjliga tillhandahållna data flödet 500 RU/s
-* Den aktuella lagringen i GB i behållaren. Om din behållare till exempel har 100 GB lagring, blir det lägsta möjliga tillhandahållna data flödet 1000 RU/s
-* Det minsta data flödet i en delad data flödes databas beror också på det totala antalet behållare som du någonsin har skapat i en delad data flödes databas, mätt på 100 RU/s per behållare. Om du till exempel har skapat fem behållare i en delad data flödes databas måste data flödet vara minst 500 RU/s
+* Maximalt data flöde som någonsin har allokerats på behållaren. Om ditt data flöde till exempel har ökat till 50 000 RU/s är det lägsta möjliga tillhandahållna data flödet 500 RU/s.
+* Den aktuella lagringen i GB i behållaren. Om din behållare till exempel har 100 GB lagring, är det lägsta möjliga tillhandahållna data flödet 1000 RU/s. **Obs!** om din behållare eller databas innehåller mer än 1 TB data kan ditt konto vara berättigat till vårt [program för "hög lagring/låg data flöde"](set-throughput.md#high-storage-low-throughput-program).
+* Det minsta data flödet i en delad data flödes databas beror också på det totala antalet behållare som du någonsin har skapat i en delad data flödes databas, mätt på 100 RU/s per behållare. Om du till exempel har skapat fem behållare i en delad data flödes databas måste data flödet vara minst 500 RU/s.
 
 Det aktuella och lägsta data flödet för en behållare eller en databas kan hämtas från Azure Portal eller SDK: er. Mer information finns i [etablera data flöde på behållare och databaser](set-throughput.md). 
 
@@ -230,7 +230,7 @@ I följande tabell visas gränserna för try- [Azure Cosmos dB för kostnads fri
 | Maximalt antal behållare per prenumeration (MongoDB-API) | 3 |
 | Maximalt data flöde per behållare | 5000 |
 | Maximalt data flöde per delat data flödes databas | 20000 |
-| Maximalt totalt lagrings utrymme per konto | 10 GB |
+| Maximalt totalt lagrings utrymme per konto | 10 GB |
 
 Testa Cosmos DB stöder global distribution bara i Central USA, Nord Europa och Sydostasien regioner. Det går inte att skapa biljetter för Azure-Support för try Azure Cosmos DB-konton. Support ges dock för prenumeranter med befintliga support avtal.
 

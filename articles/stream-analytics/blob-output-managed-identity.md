@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/11/2020
-ms.openlocfilehash: 7eb610f741681be89ef44f8288ed47674c1d6440
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: f14ded89ad294abbfaf9861e5f4caf17dd82fb98
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348584"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490720"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>Använd hanterad identitet för att autentisera ditt Azure Stream Analytics jobb till Azure Blob Storage utdata
 
@@ -223,6 +223,10 @@ När du konfigurerar ditt lagrings kontos **brand väggar och virtuella nätverk
 3.    Om du har aktiverat det klickar du på **Spara**.
 
    ![Aktivera VNET-åtkomst](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-vnet-exception.png)
+
+## <a name="remove-managed-identity"></a>Ta bort hanterad identitet
+
+Den hanterade identitet som skapats för ett Stream Analytics jobb tas bara bort när jobbet tas bort. Det finns inget sätt att ta bort den hanterade identiteten utan att ta bort jobbet. Om du inte längre vill använda den hanterade identiteten kan du ändra autentiseringsmetoden för utdata. Den hanterade identiteten finns kvar tills jobbet tas bort och kommer att användas om du väljer att använda hanterad identitetsautentisering igen.
 
 ## <a name="limitations"></a>Begränsningar
 Nedan visas aktuella begränsningar för den här funktionen:

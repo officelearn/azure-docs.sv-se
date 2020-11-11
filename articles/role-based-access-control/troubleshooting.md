@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/18/2020
+ms.date: 11/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1, devx-track-azurecli
-ms.openlocfilehash: 325931ea024221bc89df3b2e25f3e7844130f4dc
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 53628f5aa0bc5ab5dedde5deb9950c7b13fb4bf6
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741074"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490754"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Felsöka Azure RBAC
 
@@ -59,7 +59,7 @@ $ras.Count
     az role assignment create --assignee "userupn" --role "Contributor"  --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
     ```
 
-    Om du får fel meddelandet "otillräcklig behörighet för att slutföra åtgärden" är det troligt att Azure CLI försöker söka efter den tilldelas identiteten i Azure AD och tjänstens huvud namn kan inte läsa Azure AD som standard.
+    Om du får felet "otillräcklig behörighet för att slutföra åtgärden" är det troligt att Azure CLI försöker leta upp den tilldelade identiteten i Azure AD och tjänstens huvud namn kan inte läsa Azure AD som standard.
 
     Det finns två sätt att eventuellt lösa det här felet. Det första sättet är att tilldela [katalog läsar](../active-directory/roles/permissions-reference.md#directory-readers) rollen till tjänstens huvud namn, så att den kan läsa data i katalogen.
 
@@ -68,6 +68,7 @@ $ras.Count
     ```azurecli
     az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
     ```
+- Om du försöker ta bort den senaste ägar tilldelningen för en prenumeration kan du se felet "det går inte att ta bort den sista rollen för RBAC-admin". Det går inte att ta bort den senaste ägarens roll tilldelning för en prenumeration för att undvika överblivna prenumerationen. Om du vill avbryta din prenumeration kan du läsa mer i [avbryta din Azure-prenumeration](../cost-management-billing/manage/cancel-azure-subscription.md).
 
 ## <a name="problems-with-custom-roles"></a>Problem med anpassade roller
 
@@ -120,7 +121,7 @@ Om du nyligen har bjudit in en användare när du skapade en roll tilldelning, k
 
 Men om detta säkerhets objekt inte är en nyligen inbjuden användare kan det vara ett borttaget säkerhets objekt. Om du tilldelar en roll till ett säkerhets objekt och sedan tar bort säkerhetsobjektet utan att först ta bort roll tilldelningen visas säkerhets objekt listan som **identitet inte hittas** och en **okänd** typ.
 
-Om du anger den här roll tilldelningen med Azure PowerShell kan du se att en tom `DisplayName` och en `ObjectType` uppsättning är **okänd** . [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) returnerar till exempel en roll tilldelning som liknar följande utdata:
+Om du anger den här roll tilldelningen med Azure PowerShell kan du se att en tom `DisplayName` och en `ObjectType` uppsättning är **okänd**. [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) returnerar till exempel en roll tilldelning som liknar följande utdata:
 
 ```
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
@@ -239,7 +240,7 @@ Om du inte kan komma åt någon av dessa paneler kan du be administratören om d
 
 ## <a name="azure-functions-and-write-access"></a>Azure Functions-och skriv åtkomst
 
-Vissa funktioner i [Azure Functions](../azure-functions/functions-overview.md) kräver skriv åtkomst. Om en användare till exempel har tilldelats rollen [läsare](built-in-roles.md#reader) kan de inte Visa funktionerna i en Function-app. Portalen visar **(ingen åtkomst)** .
+Vissa funktioner i [Azure Functions](../azure-functions/functions-overview.md) kräver skriv åtkomst. Om en användare till exempel har tilldelats rollen [läsare](built-in-roles.md#reader) kan de inte Visa funktionerna i en Function-app. Portalen visar **(ingen åtkomst)**.
 
 ![Function-appar ingen åtkomst](./media/troubleshooting/functionapps-noaccess.png)
 

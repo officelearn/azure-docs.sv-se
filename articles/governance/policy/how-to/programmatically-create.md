@@ -3,12 +3,12 @@ title: Skapa principer programmässigt
 description: Den här artikeln vägleder dig genom program mässigt skapa och hantera principer för Azure Policy med Azure CLI, Azure PowerShell och REST API.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 9b0c2e50536a847555dfa5cc6b9c823cfc1a4cfa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bf2b1864331fd785ecdd70be4af79be01f1e5e0
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89047064"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491808"
 ---
 # <a name="programmatically-create-policies"></a>Skapa principer programmässigt
 
@@ -92,7 +92,7 @@ Det första steget mot bättre insyn i resurserna är att skapa och tilldela pri
 
    - Klusterresursen `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Resurs grupp – `/subscriptions/{subId}/resourceGroups/{rgName}`
-   - Prenumerera `/subscriptions/{subId}/`
+   - Prenumerera `/subscriptions/{subId}`
    - Hanterings grupp – `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 Mer information om hur du hanterar resurs principer med hjälp av Resource Manager PowerShell-modulen finns i [AZ. Resources](/powershell/module/az.resources/#policies).

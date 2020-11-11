@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: c2c199b2366f2708af19c1868cce09e0ba38fc96
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: ef03560cff704255d2779a747d124e0b39a1c657
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130263"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491315"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Felsöka Azure Stream Analytics frågor
 
@@ -50,6 +50,8 @@ I den här artikeln beskrivs vanliga problem med att utveckla Azure Stream Analy
 ## <a name="resource-utilization-is-high"></a>Resursutnyttjande är hög
 
 Se till att du utnyttjar parallellisering i Azure Stream Analytics. Du kan lära dig att [skala med parallellisering](stream-analytics-parallelization.md) av Stream Analytics jobb genom att konfigurera inpartitioner och justera analys frågans definition.
+
+Om resursutnyttjande ligger konsekvent över 80% ökar vattenstämpelns fördröjning och antalet eftersläpande händelser ökar, och det kan vara bra att öka enheter för strömning. Hög användning visar att jobbet använder nära maximalt allokerade resurser.
 
 ## <a name="debug-queries-progressively"></a>Felsöka frågor progressivt
 

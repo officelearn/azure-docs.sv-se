@@ -4,15 +4,15 @@ description: Lär dig mer om metod tips för att gå till marknaden för din Mic
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 07/06/2020
-ms.openlocfilehash: 33198f95ef0309cada6f5f11c809811f23d7f826
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ea6a0035a9f9354be5c14699936c6a07dea1150
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708653"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94492097"
 ---
 # <a name="offer-listing-best-practices"></a>Metodtips för erbjudandelistor
 
@@ -20,7 +20,7 @@ Den här artikeln innehåller förslag på hur du kan skapa och engagera Microso
 
 ## <a name="online-store-offer-details"></a>Information om erbjudanden om onlinebutik
 
-| Inställning | Regelverk |
+| Inställningen | Regelverk |
 |:--- |:--- |  
 | Erbjudandets namn | För appar anger du en tydlig rubrik som innehåller sökord för att hjälpa kunderna att identifiera ditt erbjudande. <br> <br> För konsult tjänster följer du detta format: [erbjudandets namn: [duration] [erbjudande typ] (till exempel contoso: 2-veckors implementering) |
 | Beskrivning av erbjudande | Ange en tydlig beskrivning som beskriver ditt erbjudandes värde i de första meningarna.  Tänk på att dessa meningar kan användas i sökmotorns resultat. Kärn komponenterna i dina värde förslag bör innefatta: <ul> <li>Beskrivning av produkten eller lösningen. </li> <li> Användar person som vill dra nytta av produkten eller lösningen. </li> <li> Kunden behöver eller smärta produkt-eller lösnings adresser. </li> </ul> <br> Använd terminologi för bransch standard eller förmånsberättigad formulering när det är möjligt.  Förlita dig inte på funktioner och funktioner för att sälja produkten.  Fokusera i stället på det värde som du levererar. <br> <br> För konsult tjänst listor, anger du tydligt den professionella tjänst som du tillhandahåller. |
@@ -34,7 +34,7 @@ Kategorier och branscher för en annan onlinebutik kan tillämpas på olika type
 
 | Onlinebutik | Kategorier <br>per onlinebutik | Kategorier <br>per onlinebutik | Branscher <br> för AppSource |
 | :------------------- |:----------------:|:------:|:-------------:|
-| **Erbjudandetyp**   |  **Azure Marketplace**  | **AppSource**  |
+| **Erbjudande typ**   |  **Azure Marketplace**  | **AppSource**  |
 | Azure App | X | |
 | Container | X | |
 | Rådgivningstjänster | | | X |
@@ -93,10 +93,10 @@ Bransch val gäller endast för erbjudanden som publicerats på AppSource och ko
 | **Arkitektur & konstruktion** | |
 | **Fordon** | |
 | **Distribution** | Maskiner <br> Paket leverans av paket & |  
-| **Utbildning** | Högre utbildning <br> Primär & sekundär edu/K-12 <br> Bibliotek & Museums |
-| **Finansiella tjänster** | Bank & kapital marknader <br> Försäkringsbokf | 
+| **Education** | Högre utbildning <br> Primär & sekundär edu/K-12 <br> Bibliotek & Museums |
+| **Ekonomiska tjänster** | Bank & kapital marknader <br> Försäkringsbokf | 
 | **Myndigheter** |  Försvars & intelligens <br> Civila myndigheter <br> Allmän säkerhets & rättvisa |
-| **Hälsovård** | Hälso betalare <br> Hälso leverantör <br> Pharmaceuticals | 
+| **Sjukvård** | Hälso betalare <br> Hälso leverantör <br> Pharmaceuticals | 
 | **Service & Travel** | Res & transport <br> Hotell & fritid <br> Restauranger & mat tjänster | 
 | **& resurser för produktion** | Kemisk & Agrochemical <br> Diskret tillverkning <br> Energi | 
 | **Media & kommunikation** | Media & underhållning <br> Telekommunikation | 
@@ -119,7 +119,7 @@ Välj de tillämpliga produkter som appen fungerar med för erbjudandet att visa
 Nyckelord kan hjälpa kunder att hitta ditt erbjudande när de söker. Identifiera de bästa Sök nyckelorden för ditt erbjudande, Lägg till dem i din erbjudande Sammanfattning och beskrivning samt i avsnittet nyckelord i avsnittet information om erbjudanden.
 
 ## <a name="online-store-marketing-details"></a>Marknadsförings information om onlinebutik
-| Inställning | Regelverk |
+| Inställningen | Regelverk |
 |:--- |:--- |  
 | Erbjudande logo typ (PNG-format, från 216 × 216 till 350 x 350 BPT): information om App-sidan | Utforma och optimera din logo typ för ett digitalt medium:<br>Ladda upp logo typen i PNG-format till sidan med information om appar i ditt erbjudande. Partner Center ändrar storlek till de storlekar som krävs för logo typen. |
 | Erbjudande logo typ (PNG-format, 48 × 48 bild punkter): Sök sida | Partner Center kommer att generera logo typen från den stora logo typen som du överförde. Du kan också ersätta detta med en annan avbildning senare. |
@@ -130,8 +130,8 @@ Nyckelord kan hjälpa kunder att hitta ditt erbjudande när de söker. Identifie
 ## <a name="link-to-your-offer-page-from-your-website"></a>Länka till din erbjudande sida från din webbplats
 
 När du länkar från AppSource-eller Azure Marketplace-märket på din webbplats till din lista på den kommersiella marknads platsen kan du använda stark analys och rapportering genom att inkludera följande frågeparametrar i slutet av URL: en:
-* **src**: ta med källan från vilken trafiken dirigeras till AppSource (till exempel webbplats, LinkedIn eller Facebook).
-* **mktcmpid**: ditt marknadsförings kampanj-ID, som kan innehålla upp till 16 tecken i valfri kombination av bokstäver, siffror, under streck och bindestreck (till exempel *blogpost_12*).
+* **src** : ta med källan från vilken trafiken dirigeras till AppSource (till exempel webbplats, LinkedIn eller Facebook).
+* **mktcmpid** : ditt marknadsförings kampanj-ID, som kan innehålla upp till 16 tecken i valfri kombination av bokstäver, siffror, under streck och bindestreck (till exempel *blogpost_12* ).
 
 Följande exempel-URL innehåller båda ovanstående frågeparametrar: `https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12`
 

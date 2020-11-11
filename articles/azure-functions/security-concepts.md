@@ -3,12 +3,12 @@ title: Skydda Azure Functions
 description: Lär dig mer om hur du gör funktions koden igång i Azure säkrare från vanliga attacker.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: cd97193fdf6549e667578e36f0be9104e4381d30
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: ee54ff8c1efaee00999888891e6de255060aa416
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102314"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491332"
 ---
 # <a name="securing-azure-functions"></a>Skydda Azure Functions
 
@@ -28,7 +28,7 @@ Security Center integreras med din Function-app i portalen. Det ger kostnads fri
 
 ### <a name="log-and-monitor"></a>Logga och övervaka
 
-En för att identifiera attacker är genom aktivitets övervakning och loggnings analys. Funktioner integreras med Application Insights för att samla in logg-, prestanda-och fel data för din Function-app. Application Insights identifierar automatiskt prestanda avvikelser och innehåller kraftfulla analys verktyg som hjälper dig att diagnostisera problem och förstå hur dina funktioner används. Mer information finns i [övervaka Azure Functions](functions-monitoring.md).
+Ett sätt att identifiera attacker är genom aktivitets övervakning och loggnings analys. Funktioner integreras med Application Insights för att samla in logg-, prestanda-och fel data för din Function-app. Application Insights identifierar automatiskt prestanda avvikelser och innehåller kraftfulla analys verktyg som hjälper dig att diagnostisera problem och förstå hur dina funktioner används. Mer information finns i [övervaka Azure Functions](functions-monitoring.md).
 
 Funktioner integreras också med Azure Monitor loggar så att du kan konsolidera funktions program loggar med system händelser för enklare analys. Du kan använda diagnostikinställningar för att konfigurera strömnings export av plattforms loggar och mått för dina funktioner till önskat mål, till exempel en logganalys-arbetsyta. Mer information finns i [övervaknings Azure Functions med Azure Monitor loggar](functions-monitor-log-analytics.md). 
 
@@ -58,7 +58,7 @@ System nycklarnas omfattning bestäms av tillägget, men det gäller vanligt vis
 
 I följande tabell jämförs användningen av olika typer av åtkomst nycklar:
 
-| Åtgärd                                        | Omfång                    | Giltiga nycklar         |
+| Action                                        | Omfång                    | Giltiga nycklar         |
 |-----------------------------------------------|--------------------------|--------------------|
 | Köra en funktion                            | Speciell funktion        | Funktion           |
 | Köra en funktion                            | Alla funktioner             | Funktion eller värd   |
@@ -76,7 +76,7 @@ Mer information om åtkomst nycklar finns i artikeln om [bindning av http-utlös
 
 Som standard lagras nycklar i en Blob Storage-behållare i kontot som anges av `AzureWebJobsStorage` inställningen. Du kan använda specifika program inställningar för att åsidosätta det här beteendet och lagra nycklar på en annan plats.
 
-|Plats  |Inställning | Värde | Beskrivning  |
+|Plats  |Inställningen | Värde | Beskrivning  |
 |---------|---------|---------|---------|
 |Annat lagrings konto     |  `AzureWebJobsSecretStorageSas`       | `<BLOB_SAS_URL` | Lagrar nycklar i Blob Storage för ett andra lagrings konto, baserat på den angivna SAS-webbadressen. Nycklar krypteras innan de lagras med en hemlighet som är unik för din Function-app. |
 |Filsystem   | `AzureWebJobsSecretStorageType`   |  `files`       | Nycklar sparas i fil systemet, krypteras före lagring med hjälp av en hemlighet som är unik för din Function-app. |

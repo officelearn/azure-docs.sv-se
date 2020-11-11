@@ -3,12 +3,12 @@ title: Koncept – integrera en Azure VMware-lösning distribution i en hubb och
 description: Lär dig mer om att integrera en Azure VMware-distribution i en hubb och eker-arkitektur på Azure.
 ms.topic: conceptual
 ms.date: 10/26/2020
-ms.openlocfilehash: 93c11ad9253fe78e1935da7b40e7251788f1f037
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 0895e9c97f79e433b0383f0a99fbeeb124fd9064
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674693"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490822"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>Integrera Azure VMware-lösningen i en hubb och eker-arkitektur
 
@@ -36,30 +36,29 @@ Diagrammet visar ett exempel på en distribution av hubb och ekrar i Azure som �
 
 Arkitekturen har följande huvud komponenter:
 
--   **Lokal plats:** Kundens lokala data Center (er) anslutna till Azure via en ExpressRoute-anslutning.
+- **Lokal plats:** Kundens lokala data Center (er) anslutna till Azure via en ExpressRoute-anslutning.
 
--   **Privat moln i Azure VMware-lösning:** Azure VMware-lösningen SDDC utformad av ett eller flera vSphere-kluster, var och en med högst 16 noder.
+- **Privat moln i Azure VMware-lösning:** Azure VMware-lösningen SDDC utformad av ett eller flera vSphere-kluster, var och en med högst 16 noder.
 
--   **ExpressRoute-Gateway:** Möjliggör kommunikationen mellan Azure VMware-lösningen privat moln, delade tjänster på hubb virtuellt nätverk och arbets belastningar som körs på ekrar virtuella nätverk.
+- **ExpressRoute-Gateway:** Möjliggör kommunikationen mellan Azure VMware-lösningen privat moln, delade tjänster på hubb virtuellt nätverk och arbets belastningar som körs på ekrar virtuella nätverk.
 
--   **ExpressRoute Global Reach:** Möjliggör anslutning mellan lokalt och privat moln i Azure VMware-lösningen.
-
-
-  > [!NOTE]
-  > **Överväganden för S2S VPN:** För produktions distributioner av Azure VMware-lösningar stöds inte Azure S2S VPN på grund av nätverks krav för VMware HCX. Du kan dock använda den för en PoC-distribution.
+- **ExpressRoute Global Reach:** Möjliggör anslutning mellan lokalt och privat moln i Azure VMware-lösningen. Anslutningen mellan Azure VMware-lösningen och Azure-infrastrukturen är via ExpressRoute endast Global Reach. Du kan inte välja något annat alternativ än ExpressRoute snabb väg.  ExpressRoute Direct stöds inte.
 
 
--   **Hubb virtuellt nätverk:** Fungerar som central punkt för anslutningen till ditt lokala nätverk och Azure VMware-lösningens privata moln.
+- **Överväganden för S2S VPN:** För produktions distributioner av Azure VMware-lösningar stöds inte Azure S2S VPN på grund av nätverks krav för VMware HCX. Du kan dock använda den för en PoC-distribution.
 
--   **Virtuellt nätverk i eker**
 
-    -   **IaaS eker:** En IaaS eker är värd för Azure IaaS-baserade arbets belastningar, inklusive tillgänglighets uppsättningar för virtuella datorer och skalnings uppsättningar för virtuella datorer och motsvarande nätverks komponenter.
+- **Hubb virtuellt nätverk:** Fungerar som central punkt för anslutningen till ditt lokala nätverk och Azure VMware-lösningens privata moln.
 
-    -   **PaaS eker:** En PaaS eker är värd för Azure PaaS-tjänster med hjälp av privat adressering tack vare [privat slut punkt](../private-link/private-endpoint-overview.md) och [privat länk](../private-link/private-link-overview.md).
+- **Virtuellt nätverk i eker**
 
--   **Azure-brand vägg:** Fungerar som en central del för att segmentera trafik mellan ekrar och Azure VMware-lösningen.
+    - **IaaS eker:** En IaaS eker är värd för Azure IaaS-baserade arbets belastningar, inklusive tillgänglighets uppsättningar för virtuella datorer och skalnings uppsättningar för virtuella datorer och motsvarande nätverks komponenter.
 
--   **Application Gateway:** Exponerar och skyddar webbappar som körs antingen på Azure IaaS/PaaS eller virtuella datorer i Azure VMware-lösningen. Den integreras med andra tjänster som API Management.
+    - **PaaS eker:** En PaaS eker är värd för Azure PaaS-tjänster med hjälp av privat adressering tack vare [privat slut punkt](../private-link/private-endpoint-overview.md) och [privat länk](../private-link/private-link-overview.md).
+
+- **Azure-brand vägg:** Fungerar som en central del för att segmentera trafik mellan ekrar och Azure VMware-lösningen.
+
+- **Application Gateway:** Exponerar och skyddar webbappar som körs antingen på Azure IaaS/PaaS eller virtuella datorer i Azure VMware-lösningen. Den integreras med andra tjänster som API Management.
 
 ## <a name="network-and-security-considerations"></a>Nätverks-och säkerhets aspekter
 
@@ -69,12 +68,12 @@ Eftersom en ExpressRoute-Gateway inte tillhandahåller transitiv routning mellan
 
 * **Trafik flöde för lokala Azure VMware-lösningar**
 
-  :::image type="content" source="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png" alt-text="Azure VMware-lösning hubb och eker-integrering" border="false" lightbox="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png":::
+  :::image type="content" source="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png" alt-text="Trafik flöde för lokala Azure VMware-lösningar" border="false" lightbox="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png":::
 
 
 * **Azure VMware-lösning till hubben för VNET-trafikflöde**
 
-  :::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png" alt-text="Azure VMware-lösning hubb och eker-integrering" border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png":::
+  :::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png" alt-text="Azure VMware-lösning för hubb av virtuellt nätverks trafikflöde" border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png":::
 
 
 Du hittar mer information om nätverks-och anslutnings metoder för Azure VMware-lösningar i [produkt dokumentationen för Azure VMware-lösningen](./concepts-networking.md).
@@ -85,7 +84,7 @@ Du hittar mer information om nätverks-och anslutnings metoder för Azure VMware
 
 Skapa routningstabeller för att dirigera trafiken till Azure-brandväggen.  För de virtuella eker-nätverken skapar du en väg som anger standard vägen till det interna gränssnittet i Azure-brandväggen. På så sätt kan brand väggen, när en arbets belastning i Virtual Network behöver komma åt Azure VMware-lösningens adress utrymme, utvärdera det och tillämpa motsvarande trafik regel för att antingen tillåta eller neka den.  
 
-:::image type="content" source="media/hub-spoke/create-route-table-to-direct-traffic.png" alt-text="Azure VMware-lösning hubb och eker-integrering" lightbox="media/hub-spoke/create-route-table-to-direct-traffic.png":::
+:::image type="content" source="media/hub-spoke/create-route-table-to-direct-traffic.png" alt-text="Skapa routningstabeller för att dirigera trafik till Azure-brandväggen" lightbox="media/hub-spoke/create-route-table-to-direct-traffic.png":::
 
 
 > [!IMPORTANT]
@@ -93,7 +92,7 @@ Skapa routningstabeller för att dirigera trafiken till Azure-brandväggen.  Fö
 
 Ange vägar för vissa nätverk i motsvarande routningstabell. Till exempel kan vägar för att uppnå Azure VMware lösnings hantering och arbets belastningar IP-prefix från eker-arbetsbelastningar och tvärtom.
 
-:::image type="content" source="media/hub-spoke/specify-gateway-subnet-for-route-table.png" alt-text="Azure VMware-lösning hubb och eker-integrering" lightbox="media/hub-spoke/specify-gateway-subnet-for-route-table.png":::
+:::image type="content" source="media/hub-spoke/specify-gateway-subnet-for-route-table.png" alt-text="Ange vägar för vissa nätverk i motsvarande routningstabell" lightbox="media/hub-spoke/specify-gateway-subnet-for-route-table.png":::
 
 En andra nivå av trafik segmentering som använder nätverks säkerhets grupper i ekrar och hubben för att skapa en mer detaljerad trafik princip.
 
@@ -106,7 +105,7 @@ Azure Application Gateway v1 och v2 har testats med webbappar som körs på virt
 
 Mer information och krav hittar du i artikeln om Azure VMware Solution-Special på [Application Gateway](./protect-azure-vmware-solution-with-application-gateway.md) .
 
-:::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Azure VMware-lösning hubb och eker-integrering" border="false":::
+:::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Sekundär nivå för trafik segmentering med nätverks säkerhets grupper" border="false":::
 
 
 ### <a name="jump-box-and-azure-bastion"></a>Hopp Box och Azure-skydds
@@ -122,7 +121,7 @@ Av säkerhets skäl bör du distribuera [Microsoft Azure skydds](../bastion/inde
 > Ge inte en offentlig IP-adress till den virtuella hopp rutan eller exponera port 3389/TCP på det offentliga Internet. 
 
 
-:::image type="content" source="media/hub-spoke/azure-bastion-hub-vnet.png" alt-text="Azure VMware-lösning hubb och eker-integrering" border="false":::
+:::image type="content" source="media/hub-spoke/azure-bastion-hub-vnet.png" alt-text="Virtuellt nätverk för Azure skydds Hub" border="false":::
 
 
 ## <a name="azure-dns-resolution-considerations"></a>Azure DNS lösnings överväganden
@@ -139,11 +138,7 @@ Som en allmän rekommendation använder du den befintliga Azure DNS-infrastruktu
 
 Du kan använda Azure Privat DNS, där Azure Privat DNS Zone länkar till det virtuella nätverket.  DNS-servrarna används som hybrid lösningar med villkorlig vidarebefordran till lokal eller Azure VMware-lösning som kör DNS och utnyttjar kund Azure Privat DNS-infrastrukturen. 
 
-Det finns flera saker att tänka på för Azure DNS privata zoner:
-
-* Automatisk registrering måste vara aktiverat för att Azure DNS ska kunna hantera DNS-postens livs cykel automatiskt för de virtuella datorer som distribueras i ekrar virtuella nätverk.
-* Det maximala antalet privata DNS-zoner som ett virtuellt nätverk kan länkas till med autoregistrering aktiverat är bara ett.
-* Det maximala antalet privata DNS-zoner som ett virtuellt nätverk kan länkas till är 1000 utan att autoregistrering aktive ras.
+Aktivera automatisk registrering för att automatiskt hantera DNS-posternas livs cykel för de virtuella datorer som distribueras i de virtuella nätverken i ekrar. När det är aktiverat är det maximala antalet privata DNS-zoner bara en. Om den är inaktive rad är det maximala antalet 1000.
 
 Lokala och Azure VMware Solution-servrar kan konfigureras med villkorliga vidarebefordrare för att matcha virtuella datorer i Azure för Azure Privat DNS-zonen.
 

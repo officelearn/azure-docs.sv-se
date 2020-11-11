@@ -4,15 +4,15 @@ description: Den här artikeln beskriver krav och rikt linjer för att lista nya
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 09/04/2020
-ms.openlocfilehash: 75bf1e3d81b466098884a354826019aa94a94174
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 3b2fc1ea37b09f6e4813d2a3c2333bc6d744293d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126115"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491502"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Rikt linjer för Azure Marketplace-lista
 
@@ -31,7 +31,7 @@ I den här artikeln beskrivs kraven och rikt linjerna för att lista nya erbjuda
 | 7 | Videoklipp | <ul><li>Ingen video krävs, men om den anges måste den spelas upp utan fel.</li><li>Om den anges får den inte referera till konkurrent-företag *om* den inte demonstrerar en migrations lösning. |<ul><li>Vi rekommenderar att längden är 3 min. eller mer.</li><li>Lösnings erbjudandet är enkelt att förstå med video innehåll.</li><li>Tillhandahåller demo av lösnings funktioner. |
 | 8 | Lista status (list alternativ) | <ul><li>Måste vara märkt som en av följande typer: <ul><li>*Kontakta mig*</li><li>*Utvärdering* / *Hämta utvärderings version nu* / *Starta utvärdering* / *Test enhet*</li><li>*Köp nu* / *Hämta nu*</li></ul></ul> | Kunden kan enkelt förstå vad nästa steg är: <ol><li>Testa utvärderings versionen.</li><li>Köp nu.</li><li>Kontakta via e-post eller telefonnummer för att ordna för POC (proof of Concept), bedömning eller kortfattade.</li></ol> | 
 | 9 | Prissättning för lösning | Måste ha fliken prissättning/information i lösningen och priserna måste vara i den lokala valutan för partner lösnings erbjudandet. | Flera fakturerings alternativ bör vara tillgängliga med nivå priser för att ge kund alternativ. |
-| 10 | Läs mer | Länkar längst ned (under beskrivningen, inte Azure Marketplace-länkarna till vänster) leder till mer information om lösningen och är allmänt tillgängliga och visas korrekt. |    Länkar till särskilda objekt (till exempel Specifikations sidor på partner platsen) och inte bara partnerns start sida. | 
+| 10 | Mer information | Länkar längst ned (under beskrivningen, inte Azure Marketplace-länkarna till vänster) leder till mer information om lösningen och är allmänt tillgängliga och visas korrekt. |    Länkar till särskilda objekt (till exempel Specifikations sidor på partner platsen) och inte bara partnerns start sida. | 
 | 11 | Lösnings support och hjälp | Länka till minst ett av följande: <ul><li>Telefonnummer</li><li>Stöd för e-post</li><li>Chatt-agenter</li><li>Community-forum |<ul><li>Alla support metoder visas.</li><li>Avgiftsbelagd support erbjuds kostnads fritt under *utvärderings* perioden eller *test enhets* perioden. |
 | 12 | Juridisk information | Principer eller villkor är tillgängliga via en offentlig URL. |  |
 |||
@@ -48,7 +48,7 @@ I den här artikeln beskrivs kraven och rikt linjerna för att lista nya erbjuda
 | Nej. | List element | Bas krav | Optimalt krav | 
 |:--- |:--- |:--- |:--- |
 | 1 | Erbjudande rubrik |<ul><li>Får bara bestå av gemena bokstäver, alfanumeriska tecken, bindestreck eller under streck. Det går inte att ändra rubriken när den har publicerats.</li><li>Beskriver lösnings erbjudande.</li><li>Matchar online-befordran av lösningen på partnerns webbplats. | Innehåller ord för nyckels ökning. |
-| 2 | Teknisk information: konfiguration |<ul><li>För SaaS-appar (program vara som en tjänst) väljer du om du bara vill visa en lista över din app eller om du vill att kunderna ska kunna köpa din app via Azure.</li><li>Välj den text som du vill använda på erbjudandet för erbjudandet: *kostnads fri* , *kostnads fri utvärdering* eller *kontakta mig* .</li><li>I popup-fönstret väljer du bara en lämplig produkt om din app använder tekniken: Cortana Intelligence, Power BI Solution templates eller Power Apps. |  |
+| 2 | Teknisk information: konfiguration |<ul><li>För SaaS-appar (program vara som en tjänst) väljer du om du bara vill visa en lista över din app eller om du vill att kunderna ska kunna köpa din app via Azure.</li><li>Välj den text som du vill använda på erbjudandet för erbjudandet: *kostnads fri* , *kostnads fri utvärdering* eller *kontakta mig*.</li><li>I popup-fönstret väljer du bara en lämplig produkt om din app använder tekniken: Cortana Intelligence, Power BI Solution templates eller Power Apps. |  |
 | 3 | Test enhet | Välj *Ja* eller *Nej* | Kunden kan enkelt förstå vad nästa steg är: <ol><li>Testa utvärderings versionen.</li><li>Köp nu.</li><li>Kontakta via e-post eller telefonnummer för att ordna för POC, utvärdering eller korthet.</li></ol> |
 | 4 | Information om onlinebutik: erbjudande Sammanfattning | Visas på appens Sök sida och innehåller högst 100 tecken. | |
 | 5 | Information om onlinebutik: branscher | Branscher (max. 2): Välj de branscher som din app är bäst justerad och tillämplig för. | |
@@ -78,14 +78,14 @@ I den här artikeln beskrivs kraven och rikt linjerna för att lista nya erbjuda
 | 2 | Beskrivning av erbjudande  |<ul><li>Se till att [Microsofts produkt namn](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/en-us.aspx)används korrekt.</li><li>Erbjudanden som marker ATS som *pris: uppskattat* måste ha en anteckning antingen överst eller underst för att förklara variationen (resa till klienten, antalet servrar som migreras och så vidare).</li><li>Varje erbjudande typ har beskrivnings krav, enligt följande: <ul><li>Det måste finnas minst fyra eller fem punkter, med information om ämnen som ska omfattas.</li><li>Alla workshops behöver en agenda.</li><li>Alla dag ordningar måste delas upp per dag eller per vecka, beroende på workshopens varaktighet.</li><li>Utvärdering, POC, ideella workshops och implementerings erbjudanden behöver slut produkter.</li><li>Utbildnings workshops behöver inte slut produkter, men de behöver en mer detaljerad agenda med ämnen som kommer att omfattas.</li></ul></ul> | <ul><li>Alla erbjudanden har dag ordning och slut produkter.</li><li>Erbjudandet innehåller ett stycke med kontext om företaget som tillhandahåller tjänsten i det övre avsnittet.</li><li>Erbjudandet innehåller ett stycke om värdet för själva tjänsten som ett övre avsnitt. |
 | 3 | Markdown-formatering  | Alla erbjudanden måste använda markdown-formatering så att erbjudandet återges korrekt när det konverteras till HTML.  |  |
 | 4 | Kategorier och branscher | Kategorierna är inte relevanta. |  | 
-| 5 | Lista status (list alternativ) | Visas automatiskt som *kontakta mig* . |  | 
+| 5 | Lista status (list alternativ) | Visas automatiskt som *kontakta mig*. |  | 
 | 6 | Lösnings support och hjälp  | Support och hjälp behöver inte anges.  | | 
 | 7 | Sekretess policy och användnings villkor  |  Principer eller villkor är inte obligatoriska.  | | 
 | 8 | Tjänst typer | Se till att tjänst typen matchar titeln. | |
 | 9 | Kompetenser | Måste ha kompetens i minst ett av följande:<ul><li>Apputveckling</li><li>Programintegrering</li><li>Hantering av programlivscykel</li><li>Moln plattform<li>Dataanalys</li><li>Datacenter</li><li>Data plattform</li><li>DevOps |
 | 10 | Produkter | Måste vara Azure-produkter. | |
 | 11 | Land/region | Se till att landet/regionen stämmer överens med den valda valutan. | |
-| 12 | Läs mer  | <ul><li>Länkar längst ned (under beskrivningen, inte Azure Marketplace-länkarna till vänster) leder till mer information om lösningen och är allmänt tillgängliga och visas korrekt.</li><li>Länkar måste ha ett eget namn och visas inte som fil namn för några hämtningar. | |
+| 12 | Mer information  | <ul><li>Länkar längst ned (under beskrivningen, inte Azure Marketplace-länkarna till vänster) leder till mer information om lösningen och är allmänt tillgängliga och visas korrekt.</li><li>Länkar måste ha ett eget namn och visas inte som fil namn för några hämtningar. | |
 ||||
 
 ## <a name="next-steps"></a>Nästa steg

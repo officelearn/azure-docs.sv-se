@@ -4,15 +4,15 @@ description: Få svar på vanliga frågor om Azure Marketplace och Microsoft App
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 09/11/2020
-ms.openlocfilehash: a5c5d7ae4dbf1126d171c78bbd4e353f11402260
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e72acb532a33d0b3751bb8ad5051b1a3df4d7514
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126727"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491485"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Vanliga frågor om Microsofts kommersiella marknads plats
 
@@ -58,9 +58,9 @@ Om du vill registrera dig som en extern Marketplace-utgivare går du till [partn
 
 De sätt som kunder kan använda ditt kommersiella Marketplace-erbjudande beror på hur du skapar erbjudandena.
 
-- För lösningar som du tillhandahåller automatiskt, oavsett om de är betalda, BYOL eller kostnads fri, uppmanas kunderna att *Skaffa det nu* .
-- Erbjudanden som stöder en testenhet (demo) begär att kunden ska *testa enheten* . 
-- SaaS-erbjudanden (Software as a Service) tillhandahåller en utvärderings version utanför den kommersiella Marketplace- *versionen* .
+- För lösningar som du tillhandahåller automatiskt, oavsett om de är betalda, BYOL eller kostnads fri, uppmanas kunderna att *Skaffa det nu*.
+- Erbjudanden som stöder en testenhet (demo) begär att kunden ska *testa enheten*. 
+- SaaS-erbjudanden (Software as a Service) tillhandahåller en utvärderings version utanför den kommersiella Marketplace- *versionen*.
 - Med enkla listor kan *kunden be om hjälp.*
 
 ### <a name="how-do-i-create-offers-for-the-commercial-marketplace"></a>Hur gör jag för att skapa erbjudanden för den kommersiella marknads platsen?
@@ -339,7 +339,7 @@ Information om Microsoft administrations Center finns i [hantera program prenume
 ### <a name="where-can-i-learn-about-azure-government-and-the-azure-government-marketplace"></a>Var kan jag läsa om Azure Government och Azure Government Marketplace?
 
 - [Azure Government](https://azure.microsoft.com/global-infrastructure/government)
-- [Microsoft Säkerhetscenter](https://www.microsoft.com/trust-center)
+- [Säkerhetscenter](https://www.microsoft.com/trust-center)
 - [Dokumentation om Azure Government](../azure-government/index.yml)
 - [Azure Government Marketplace](../azure-government/documentation-government-manage-marketplace.md)
 - [Azure Government efterlevnad](../azure-government/documentation-government-plan-compliance.md)

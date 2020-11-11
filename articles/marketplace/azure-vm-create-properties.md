@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 10/19/2020
-ms.openlocfilehash: cc5702d973150b80188354719333fb7cf22d58b3
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 30e5ea4df3de0b8a10c9c1f3b4b27a9e0a19359e
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284881"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491213"
 ---
 # <a name="how-to-configure-virtual-machine-offer-properties"></a>Så här konfigurerar du egenskaper för erbjudande för virtuell dator
 
@@ -29,7 +29,7 @@ Se den fullständiga listan över kategorier och under Kategorier i [erbjudande 
 
 ## <a name="provide-terms-and-conditions"></a>Ange villkor
 
-Under **juridisk**, ange villkor för ditt erbjudande. Du kan välja mellan två alternativ:
+Under **juridisk** , ange villkor för ditt erbjudande. Du kan välja mellan två alternativ:
 
 - [Använd standard kontraktet med valfria ändringar](#use-the-standard-contract)
 - [Använd egna villkor](#use-your-own-terms-and-conditions)
@@ -59,7 +59,7 @@ I **villkoren för Universal-ändringar till standard kontraktet för Microsofts
 
 #### <a name="add-one-or-more-custom-amendments"></a>Lägg till en eller flera anpassade ändringar
 
-1. Under **anpassade ändrings villkor till standard kontraktet för Microsofts kommersiella marknads plats**väljer du länken **Lägg till anpassad ändrings term (max 10)** .
+1. Under **anpassade ändrings villkor till standard kontraktet för Microsofts kommersiella marknads plats** väljer du länken **Lägg till anpassad ändrings term (max 10)** .
 1. I rutan **anpassade ändrings villkor** anger du dina ändrings villkor.
 1. I rutan **klient-ID** anger du ett klient-ID. Endast kunder som är kopplade till klient-ID: n som du anger för de här anpassade villkoren visas i erbjudandet inköps flöde i Azure Portal.
    > [!TIP]
@@ -73,14 +73,10 @@ I **villkoren för Universal-ändringar till standard kontraktet för Microsofts
 
 Du kan välja att ange egna villkor, i stället för standard kontraktet. Kunderna måste acceptera dessa villkor innan de kan testa ditt erbjudande.
 
-1. Under **juridisk**kontrollerar du att kryss rutan **Använd standard kontraktet för Microsofts kommersiella Marketplace** är avmarkerad.
+1. Under **juridisk** kontrollerar du att kryss rutan **Använd standard kontraktet för Microsofts kommersiella Marketplace** är avmarkerad.
 1. I rutan **allmänna villkor** anger du upp till 10 000 tecken text.
-
-   > [!NOTE]
-   > Om du behöver en längre Beskrivning anger du en enskild webb adress som pekar på var du hittar dina villkor. Den kommer att visas för kunder som en aktiv länk.
-
 1. Välj **Spara utkast** innan du fortsätter till nästa flik, **erbjudande lista**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Konfigurera registrering av virtuellt dator erbjudande](azure-vm-create-listing.md)
+- [Konfigurera visning av VM-erbjudande](azure-vm-create-listing.md)

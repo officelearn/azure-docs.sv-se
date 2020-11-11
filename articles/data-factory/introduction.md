@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
-ms.openlocfilehash: 1840bf93cbca73e593465c999b416e7cbd7af201
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 730141d22b318d79c8c2b7d995b98ee1c311aaf5
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89536320"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491281"
 ---
 # <a name="what-is-azure-data-factory"></a>Vad är Azure Data Factory?
 
@@ -22,7 +22,7 @@ ms.locfileid: "89536320"
 
 När det gäller stordata, lagras råa, oordnade data ofta i relationella, icke-relationella och andra lagringssystem. Men i sig självt så har rådata inte rätt kontext eller mening för att ge analytiker, dataforskare och beslutsfattare meningsfulla insikter. 
 
-Stordata kräver en tjänst som kan samordna och operationalisera processer för att förfina dessa enorma lager av rådata till handlingsbara affärsinsikter. Azure Data Factory är en hanterad molntjänst som skapats för dessa komplexa, hybrida, ETL- (extract-transform-load), ELT- (extract-load-transform) och dataintegreringsprojekt.
+Big data kräver en tjänst som kan samordna och operationalisera processer för att förfina dessa enorma lager av rå data till användbara affärs insikter. Azure Data Factory är en hanterad molntjänst som skapats för dessa komplexa, hybrida, ETL- (extract-transform-load), ELT- (extract-load-transform) och dataintegreringsprojekt.
 
 Tänk dig till exempel ett spelföretag som samlar in petabyte med spelloggar som produceras av spel i molnet. Företaget vill analysera dessa loggar för att få insikter om kundpreferenser, demografi och användningsbeteende. Det vill också identifiera möjligheter till merförsäljning och korsförsäljning, utveckla intressanta nya funktioner, driva affärstillväxten och ge en bättre kundupplevelse.
 

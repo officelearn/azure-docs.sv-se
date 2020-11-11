@@ -1,6 +1,6 @@
 ---
-title: Bearbetade data med hjälp av Server lös SQL-pool
-description: Det här dokumentet beskriver hur det data som bearbetas beräknas när du frågar efter data i data Lake.
+title: Kostnads hantering för Server lös SQL-pool
+description: Det här dokumentet beskriver hur du hanterar kostnaden för SQL-poolen utan server och hur data som bearbetas beräknas när du frågar efter data i Azure Storage.
 services: synapse analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,14 +9,22 @@ ms.subservice: sql
 ms.date: 11/05/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: a108e5fdd30c21cdb7771e3f683dad22773653a4
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 8a26f8ced5e91810f8cadff0a27796dc817e6517
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381209"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491592"
 ---
-# <a name="data-processed-by-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Bearbetade data med hjälp av Server lös SQL-pool i Azure Synapse Analytics
+# <a name="cost-management-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Kostnads hantering för Server lös SQL-pool i Azure Synapse Analytics
+
+Den här artikeln förklarar hur du kan beräkna och hantera kostnader för Server lös SQL-pool i Azure Synapse Analytics:
+- Uppskatta mängden data som bearbetas innan en fråga utfärdas
+- Använd funktionen kostnads kontroll för att ställa in budgeten
+
+Ta reda på att kostnaderna för Server lös SQL-pool i Azure Synapse Analytics bara är en del av månads kostnaderna på din Azure-faktura. Om du använder andra Azure-tjänster debiteras du för alla Azure-tjänster och-resurser som används i din Azure-prenumeration, inklusive tjänster från tredje part. Den här artikeln beskriver hur du planerar för och hanterar kostnader för Server lös SQL-pool i Azure Synapse Analytics.
+
+## <a name="data-processed"></a>Bearbetade data
 
 *Bearbetade data* är mängden data som systemet lagrar tillfälligt medan en fråga körs. Bearbetade data består av följande kvantiteter:
 
@@ -84,6 +92,53 @@ Den här frågan läser alla kolumner och överför alla data i ett okomprimerat
 Den här frågan läser hela filer. Den totala storleken på filer som lagras i den här tabellen är 100 KB. Noderna bearbetar fragment i den här tabellen och summan för varje fragment överförs mellan noder. Den sista summan överförs till din slut punkt. 
 
 Den här frågan bearbetar något mer än 100 KB data. Mängden data som bearbetas för den här frågan avrundas uppåt till 10 MB, enligt vad som anges i avsnittet [Avrunda](#rounding) i den här artikeln.
+
+## <a name="cost-control"></a>Kostnads kontroll
+
+Med funktionen för kostnads kontroll i SQL-poolen utan server kan du ange budgeten för mängden bearbetade data. Du kan ställa in budgeten i TB data som bearbetas för en dag, vecka och månad. Samtidigt kan du ha en eller flera budget uppsättningar. Om du vill konfigurera kostnads styrning för SQL-poolen utan server kan du använda Synapse Studio eller T-SQL.
+
+## <a name="configure-cost-control-for-serverless-sql-pool-in-synapse-studio"></a>Konfigurera kostnads kontroll för Server lös SQL-pool i Synapse Studio
+ 
+Om du vill konfigurera kostnads kontrollen för Server lös SQL-poolen i Synapse Studio navigerar du till hantera objekt i menyn till vänster, än Välj objektet SQL-pool under Analytics-pooler. När du hovrar över en server utan SQL-pool, kommer du att märka en ikon för kostnads kontroll – klicka på den här ikonen.
+
+![Navigering för kostnads kontroll](./media/data-processed/cost-control-menu.png)
+
+När du klickar på ikonen för kostnads kontroll visas ett sido fält:
+
+![Konfiguration av kostnads kontroll](./media/data-processed/cost-control-sidebar.png)
+
+Om du vill ange en eller flera budgetar klickar du först på Aktivera alternativ knapp för en budget som du vill ange, än Ange heltal svärdet i text rutan. Enhet för värdet är TBs. När du har konfigurerat de budgetar som du ville Klicka på tillämpa-knappen längst ned i sido fältet. Då är det dags att du har angett budget.
+
+## <a name="configure-cost-control-for-serverless-sql-pool-in-t-sql"></a>Konfigurera kostnads kontroll för Server lös SQL-pool i T-SQL
+
+Om du vill konfigurera kostnads kontroll för en server lös SQL-pool i T-SQL måste du köra en eller flera av följande lagrade procedurer.
+
+```sql
+sp_set_data_processed_limit
+    @type = N'daily',
+    @limit_tb = 1
+
+sp_set_data_processed_limit
+    @type= N'weekly',
+    @limit_tb = 2
+
+sp_set_data_processed_limit
+    @type= N'monthly',
+    @limit_tb = 3334
+```
+
+Om du vill se den aktuella konfigurationen kör du följande T-SQL-instruktion:
+
+```sql
+SELECT * FROM sys.configurations
+WHERE name like 'Data processed %';
+```
+
+Om du vill se hur mycket data som bearbetades under den aktuella dagen, veckan eller månaden kör du följande T-SQL-uttryck:
+
+```sql
+SELECT * FROM sys.dm_external_data_processed
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

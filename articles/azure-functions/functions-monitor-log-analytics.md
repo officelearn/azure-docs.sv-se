@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 51c611b2565ae0a5a054a45f0aedcb039351b46b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 582dafba40012e9ff9c59bc09adb1a0831e999f5
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88208358"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491230"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Övervaka Azure Functions med Azure Monitor loggar
 
@@ -22,23 +22,23 @@ Azure Monitor loggar ger dig möjlighet att konsolidera loggar från olika resur
 Azure Monitor använder en version av [Kusto-frågespråket](/azure/kusto/query/) som används av Azure datautforskaren som är lämplig för enkla logg frågor, men även avancerade funktioner som agg regeringar, kopplingar och smart analys. Du kan snabbt lära dig frågespråket med [flera lektioner](../azure-monitor/log-query/get-started-queries.md).
 
 > [!NOTE]
-> Integrering med Azure Monitor loggar finns för närvarande i en offentlig för hands version för Function-appar som körs på Windows förbruknings-, Premium-och dedikerade värd planer.
+> Integrering med Azure Monitor loggar finns för närvarande i en offentlig för hands version för v2-och v3-Function-appar som körs på Windows-förbrukning, Premium och dedikerade värd planer.
 
 ## <a name="setting-up"></a>Konfigurera
 
-1. I avsnittet **övervakning** i din Function-app i [Azure Portal](https://portal.azure.com)väljer du **diagnostikinställningar**och väljer sedan **Lägg till diagnostisk inställning**.
+1. I avsnittet **övervakning** i din Function-app i [Azure Portal](https://portal.azure.com)väljer du **diagnostikinställningar** och väljer sedan **Lägg till diagnostisk inställning**.
 
    :::image type="content" source="media/functions-monitor-log-analytics/diagnostic-settings-add.png" alt-text="Välj diagnostikinställningar":::
 
-1. På sidan **diagnostikinställningar** under **kategori information** och **logg**väljer du **FunctionAppLogs**.
+1. På sidan **diagnostikinställningar** under **kategori information** och **logg** väljer du **FunctionAppLogs**.
 
    **FunctionAppLogs** -tabellen innehåller de önskade loggarna.
 
-1. Under **mål information**väljer **du skicka till Log Analytics**. Välj sedan **Log Analytics arbets ytan**. 
+1. Under **mål information** väljer **du skicka till Log Analytics**. Välj sedan **Log Analytics arbets ytan**. 
 
-1. Ange ett **namn på diagnostikinställningar**och välj sedan **Spara**.
+1. Ange ett **namn på diagnostikinställningar** och välj sedan **Spara**.
 
-   :::image type="content" source="media/functions-monitor-log-analytics/choose-table.png" alt-text="Välj diagnostikinställningar":::
+   :::image type="content" source="media/functions-monitor-log-analytics/choose-table.png" alt-text="Lägg till en diagnostisk inställning":::
 
 ## <a name="user-generated-logs"></a>Loggar som skapats av användare
 
@@ -81,7 +81,7 @@ logging.info('My app logs here.')
 
 Så här frågar du på genererade loggar:
  
-1. Välj **diagnostikinställningar**från din Function-app. 
+1. Välj **diagnostikinställningar** från din Function-app. 
 
 1. I listan **diagnostiska inställningar** väljer du den Log Analytics arbets yta som du konfigurerade för att skicka funktions loggarna till. 
 
@@ -89,7 +89,7 @@ Så här frågar du på genererade loggar:
 
    Azure Functions skriver alla loggar till tabellen **FunctionAppLogs** under **LogManagement**. 
 
-   :::image type="content" source="media/functions-monitor-log-analytics/querying.png" alt-text="Välj diagnostikinställningar":::
+   :::image type="content" source="media/functions-monitor-log-analytics/querying.png" alt-text="Frågefönstret i Log Analytics arbets yta":::
 
 Här följer några exempel frågor:
 

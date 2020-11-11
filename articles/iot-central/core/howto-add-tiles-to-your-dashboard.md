@@ -1,18 +1,17 @@
 ---
-title: Lägga till paneler till din Azure IoT Central-instrumentpanel | Microsoft Docs
+title: Konfigurera till din Azure IoT Central-instrumentpanel | Microsoft Docs
 description: Som ett verktyg kan du läsa om hur du konfigurerar standard instrument panelen för Azure IoT Central-program med paneler.
-author: Haley-Rowland
-ms.author: harowl
-ms.date: 05/27/2020
+author: TheJasonAndrew
+ms.author: v-anjaso
+ms.date: 11/06/2020
 ms.topic: how-to
 ms.service: iot-central
-services: iot-central
-ms.openlocfilehash: 5276f9b8c6dd3bdc305142e5b9452cd9c5d60bce
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 2ea2dd18cd5816c7c1406ac201421a2983e431a3
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94377004"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94492044"
 ---
 # <a name="configure-the-application-dashboard"></a>Konfigurera program instrument panelen
 
@@ -29,29 +28,32 @@ På följande skärm bild visas instrument panelen i ett program som skapats fr�
 
 När du har valt **redigera** eller **nytt** är instrument panelen i *redigerings* läge. Du kan använda verktygen på panelen **Redigera instrument panel** för att lägga till paneler på instrument panelen och anpassa och ta bort paneler på själva instrument panelen. Om du till exempel vill lägga till en **telemetri** -panel för att visa aktuell temperatur som rapporteras av en eller flera enheter:
 
-1. I panelen **Redigera instrument panel** väljer du en **enhets grupp**.
-1. Välj en eller flera enheter i list rutan **enheter** som ska visas på panelen. Nu ser du tillgängliga telemetri, egenskaper och kommandon från enheterna.
-1. Välj **temperatur** i avsnittet telemetri och välj sedan **Lägg till panel**. Panelen visas nu på instrument panelen där du kan ändra visualiseringen, ändra storlek på panelen och konfigurera den:
+1. Välj en **enhets grupp** och välj sedan enheterna i list rutan **enheter** så att de visas på panelen. Nu ser du tillgängliga telemetri, egenskaper och kommandon från enheterna.
+
+1. Om det behövs använder du List rutan för att välja ett telemetri-värde som ska visas på panelen. Du kan lägga till fler objekt i panelen en annan genom att välja **+ telemetri** , **+ egenskap** eller egenskaper för **moln**.
 
 :::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Lägg till en panel för temperatur telemetri på instrument panelen":::
 
-När du är klar med att lägga till och anpassa paneler på instrument panelen väljer du **Spara**.
+När du har valt alla värden som ska visas på panelen klickar du på **Lägg till panel.** Panelen visas nu på instrument panelen där du kan ändra visualiseringen, ändra storlek på den, flytta den och konfigurera den.
+
+När du är klar med att lägga till och anpassa paneler på instrument panelen väljer du **Spara** för att spara ändringarna på instrument panelen, som tar dig bort från redigerings läget.
 
 ## <a name="customize-tiles"></a>Anpassa paneler
 
-Om du vill anpassa en panel på instrument panelen måste instrument panelen vara i redigerings läge. De tillgängliga anpassnings alternativen beror på [panel typen](#tile-types):
+Om du vill redigera en panel måste du vara i redigerings läge.  De tillgängliga anpassnings alternativen beror på [panel typen](#tile-types):
 
-* Med ikonen linjal på en panel kan du ändra visualiseringen. Visualiseringar innehåller linje diagram, senaste kända värden och värme kartor.
+* Med ikonen linjal på en panel kan du ändra visualiseringen. Visualiseringar innehåller linje diagram, liggande diagram, cirkel diagram, senaste kända värden, nyckeltal (eller KPI: er), termiska kartor och Maps.
 
 * Med ikonen fyrkant kan du ändra storlek på panelen.
 
 * Med kugg hjuls ikonen kan du konfigurera visualiseringen. För en linje diagram visualisering kan du till exempel välja att Visa förklaringen och axlarna och välja tidsintervallet som ska ritas.
 
+
 ## <a name="tile-types"></a>Panel typer
 
 I följande tabell beskrivs de olika typerna av panel som du kan lägga till på en instrument panel:
 
-| Panel             | Description |
+| Panel             | Beskrivning |
 | ---------------- | ----------- |
 | Markdown         | Markdown paneler är klicknings bara paneler som visar en rubrik och en beskrivnings text formaterad med markdown. URL: en kan vara en relativ länk till en annan sida i programmet eller en absolut länk till en extern plats.|
 | Bild            | Bild paneler visar en anpassad bild och går att klicka på. URL: en kan vara en relativ länk till en annan sida i programmet eller en absolut länk till en extern plats.|
@@ -91,11 +93,16 @@ För numeriska **KPI** : er, **senast kända värde** och **egenskaps** paneler 
 
 Lägg till reglerna för villkorsstyrd formatering:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Skärm bild som visar regler för villkorsstyrd formatering för Genomsnittligt flöde. Det finns tre regler som är mindre Tha 20 är gröna, mindre än 50 är gult och allt över 50 är rött":::
-
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Skärm bild som visar regler för villkorsstyrd formatering för Genomsnittligt flöde. Det finns tre regler som är mindre än 20 är grönt, mindre än 50 är gult och allt över 50 är rött":::
+   
 Följande skärm bild visar resultatet av regeln för villkorsstyrd formatering:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Skärm bild som visar den gula bakgrunds färgen på panelen Genomsnittligt vatten flöde. Numret på panelen är 40,84":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Skärm bild som visar röd bakgrunds färg på panelen Genomsnittligt vatten flöde. Numret på panelen är 50,54":::
+
+### <a name="tile-formatting"></a>"panel"-formatering
+Den här funktionen, som är tillgänglig i panelerna KPI, LKV och Property, låter användare justera tecken storlek, välja decimal precision, förkorta numeriska värden (till exempel format 1 700 som 1.7 K) eller figursätta sträng värden i sina brickor.
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/tile-format.png" alt-text="Panel format":::
 
 ## <a name="next-steps"></a>Nästa steg
 

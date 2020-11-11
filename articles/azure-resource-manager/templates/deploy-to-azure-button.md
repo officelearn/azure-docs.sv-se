@@ -2,13 +2,13 @@
 title: Distribuera till Azure (knapp)
 description: Använd knappen för att distribuera Azure Resource Manager mallar från en GitHub-lagringsplats.
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: 62a0a8b0336d9a7fcf00efb172775b9606bcef98
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/10/2020
+ms.openlocfilehash: 7d002508f6b2402f8cff40fb0369896080ecbbad
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675399"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490907"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Använd en distributions knapp för att distribuera mallar från GitHub-lagringsplatsen
 
@@ -35,7 +35,7 @@ Bilden visas som:
 
 ## <a name="create-url-for-deploying-template"></a>Skapa URL för distribution av mall
 
-Om du vill skapa en URL för mallen börjar du med den råa URL: en till mallen i din lagrings platsen. Om du vill se den råa URL: en väljer du **RAW** .
+Om du vill skapa en URL för mallen börjar du med den råa URL: en till mallen i din lagrings platsen. Om du vill se den råa URL: en väljer du **RAW**.
 
 :::image type="content" source="./media/deploy-to-azure-button/select-raw.png" alt-text="Välj RAW":::
 
@@ -71,6 +71,14 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
 
 Du har en fullständig URL för länken.
 
+Om du använder [git med Azure databaser](/azure/devops/repos/git/) i stället för en GitHub-lagrings platsen kan du fortfarande använda knappen distribuera till Azure. Kontrol lera att din lagrings platsen är offentlig. Använd [åtgärden objekt](/rest/api/azure/devops/git/items/get) för att hämta mallen. Din begäran ska ha följande format:
+
+```http
+https://dev.azure.com/{organization-name}/{project-name}/_apis/git/repositories/{repository-name}/items?scopePath={url-encoded-path}&api-version=6.0
+```
+
+Koda denna URL för begäran.
+
 ## <a name="create-deploy-to-azure-button"></a>Knappen Skapa distribuera till Azure
 
 Lägg slutligen till länken och bilden tillsammans.
@@ -87,6 +95,12 @@ För HTML använder du:
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json" target="_blank">
   <img src="https://aka.ms/deploytoazurebutton"/>
 </a>
+```
+
+För git med Azure lagrings platsen har knappen formatet:
+
+```markdown
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fdev.azure.com%2Forgname%2Fprojectname%2F_apis%2Fgit%2Frepositories%2Freponame%2Fitems%3FscopePath%3D%252Freponame%252Fazuredeploy.json%26api-version%3D6.0)
 ```
 
 ## <a name="deploy-the-template"></a>Distribuera mallen

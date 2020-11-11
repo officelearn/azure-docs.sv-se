@@ -4,16 +4,16 @@ description: Hur du gör uppdateringar av ett befintligt erbjudande för handels
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 10/27/2020
 ms.custom: contperfq2
-ms.openlocfilehash: 376852c214d503867cd938507760e963b9b75e93
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 3d96973d4d1e37ae3fee21eb70e3e32a45867f0c
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129991"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491961"
 ---
 # <a name="update-existing-offers-in-the-commercial-marketplace"></a>Uppdatera befintliga erbjudanden på den kommersiella Marketplace
 
@@ -25,7 +25,7 @@ Följ dessa steg om du vill uppdatera ett erbjudande som har publicerats i för 
 
 1. Välj namnet på erbjudandet som du vill uppdatera. Status för erbjudandet kan visas som för **hands version** , **Live** , **publicering** pågår, **utkast** , **åtgärd krävs** eller **inte tillgängligt** (om du tidigare har valt att sluta sälja erbjudandet). När du har valt så öppnas sidan **erbjudande översikt** för det erbjudandet.
 1. Välj den erbjudande sida som du vill uppdatera, till exempel **Egenskaper** , **erbjudande lista** eller för **hands version** (eller Välj **Uppdatera** från lämpligt kort på sidan **erbjudande översikt** ).
-1. Gör dina ändringar och välj **Spara utkast** . Upprepa processen tills alla ändringar har slutförts.
+1. Gör dina ändringar och välj **Spara utkast**. Upprepa processen tills alla ändringar har slutförts.
 1. Granska ändringarna på sidan **[Jämför](#compare-changes-to-your-offer)** .
 1. När du är redo att publicera ditt uppdaterade erbjudande väljer du **Granska och publicera** från vilken sida som helst. Sidan **Granska och publicera** öppnas. På den här sidan visas slut för ande status för avsnitten i erbjudandet som du uppdaterade: 
     - **Opublicerade ändringar** : avsnittet har uppdaterats och är klart. Alla begärda data har angetts och inga fel infördes i uppdateringarna.
@@ -39,8 +39,8 @@ Följ dessa steg om du vill uppdatera ett erbjudande som har publicerats i för 
 
 Slutför de här stegen för att lägga till en ny plan till ett erbjudande som du redan har publicerat.
 
-1. På sidan **erbjudande översikt** för det befintliga erbjudandet öppnar du sidan **plan översikt** och väljer sedan **Skapa ny plan** .
-1. Skapa en ny plan enligt [rikt linjerna](../plans-pricing.md) genom att använda **pris modellen befintliga planer** .
+1. På sidan **erbjudande översikt** för det befintliga erbjudandet öppnar du sidan **plan översikt** och väljer sedan **Skapa ny plan**.
+1. Skapa en ny plan enligt [rikt linjerna](../plans-pricing.md) genom att använda **pris modellen befintliga planer**.
 1. Välj **Spara utkast** när du har ändrat namnet på planen.
 1. Välj **publicera** när du är redo att publicera dina uppdateringar. Sidan **[Granska och publicera](../review-publish-offer.md)** öppnas och ger en slut för ande status för dina uppdateringar.
 
@@ -48,8 +48,8 @@ Slutför de här stegen för att lägga till en ny plan till ett erbjudande som 
 
 Utför de här stegen för att göra ändringar i en plan för ett erbjudande som du redan har publicerat.
 
-1. På sidan **erbjudande översikt** för det befintliga erbjudandet väljer du den plan som du vill ändra. Om planen inte är tillgänglig från listan **plan översikt** väljer du **Se alla planer** .
-1. Välj plan **namn** , **pris modell** eller **tillgänglighet** . *För närvarande är planer bara tillgängliga på engelska (USA)* .
+1. På sidan **erbjudande översikt** för det befintliga erbjudandet väljer du den plan som du vill ändra. Om planen inte är tillgänglig från listan **plan översikt** väljer du **Se alla planer**.
+1. Välj plan **namn** , **pris modell** eller **tillgänglighet**. *För närvarande är planer bara tillgängliga på engelska (USA)*.
 1. Välj **Spara utkast** när du har ändrat plan namn, beskrivning eller tillgänglighet för mål gruppen.
 1. Välj **Granska och publicera** när du är redo att publicera dina uppdateringar. Sidan **[Granska och publicera](../review-publish-offer.md)** öppnas och ger en slut för ande status för dina uppdateringar.
 1. Välj **publicera** för att skicka den uppdaterade planen för publicering. Vi skickar e-post till dig när en för hands version av det uppdaterade erbjudandet kan granskas och godkännas.
@@ -58,19 +58,19 @@ Utför de här stegen för att göra ändringar i en plan för ett erbjudande so
 
 När en virtuell dator plan har publicerats går det inte att ändra dess pris. Om du vill erbjuda samma plan till ett annat pris måste du dölja planen och skapa en ny med det uppdaterade priset. Börja med att dölja planen med det pris som du vill ändra:
 
-1. På sidan **erbjudande översikt** för det befintliga erbjudandet väljer du den plan som du vill ändra. Om planen inte är tillgänglig från listan **plan översikt** väljer du **Se alla planer** .
+1. På sidan **erbjudande översikt** för det befintliga erbjudandet väljer du den plan som du vill ändra. Om planen inte är tillgänglig från listan **plan översikt** väljer du **Se alla planer**.
 1. Markera kryss rutan **Dölj plan** . Spara utkastet innan du fortsätter.
 
 Nu när du har dolt planen med det gamla priset skapar du en kopia av planen med det uppdaterade priset:
 
 1. Gå tillbaka till **plan översikt** i Partner Center.
-2. Välj **Skapa ny plan** . Ange ett **plan-ID** och ett **plan namn** och välj sedan **skapa** .
+2. Välj **Skapa ny plan**. Ange ett **plan-ID** och ett **plan namn** och välj sedan **skapa**.
 1. Om du vill återanvända den tekniska konfigurationen från den plan som du har dolt, markerar du kryss rutan **Återanvänd teknisk konfiguration** . Läs [skapa planer för ett virtuellt dator erbjudande](../azure-vm-create-plans.md) om du vill veta mer.
     > [!IMPORTANT]
     > Om du väljer **den här planen återanvänder teknisk konfiguration från en annan plan** kan du inte sluta sälja den överordnade planen senare. Använd inte det här alternativet om du inte vill sluta att sälja den överordnade planen.
 3. Slutför alla nödvändiga avsnitt för den nya planen, inklusive det nya priset.
-1. Välj **Spara utkast** .
-1. När du har slutfört alla nödvändiga avsnitt för den nya planen väljer du **Granska och publicera** . Detta skickar ditt erbjudande om granskning och publicering. Läs [Granska och publicera ett erbjudande på den kommersiella Marketplace](../review-publish-offer.md) för mer information.
+1. Välj **Spara utkast**.
+1. När du har slutfört alla nödvändiga avsnitt för den nya planen väljer du **Granska och publicera**. Detta skickar ditt erbjudande om granskning och publicering. Läs [Granska och publicera ett erbjudande på den kommersiella Marketplace](../review-publish-offer.md) för mer information.
 
 ## <a name="sync-private-plan-audiences"></a>Synkronisera privat planens mål grupper
 
@@ -116,7 +116,7 @@ Kom ihåg att publicera om erbjudandet igen när du har gjort uppdateringar för
 Om du har ändringar i för hands versionen som inte är Live kan du jämföra nya ändringar med erbjudandet för hands versions Marketplace.
 
 1. Välj **Jämför** i kommando fältet på sidan.
-2. Välj List rutan **med** och ändra den från **Live-erbjudandet** till för **hands versions erbjudandet** . Om ditt erbjudande inte har varit aktivt än kan du inte se alternativet **Live-erbjudande** .
+2. Välj List rutan **med** och ändra den från **Live-erbjudandet** till för **hands versions erbjudandet**. Om ditt erbjudande inte har varit aktivt än kan du inte se alternativet **Live-erbjudande** .
 3. Sidan **Jämför** innehåller versioner sida vid sida som visar ändringarna.
 
 Kom ihåg att publicera om erbjudandet igen när du har gjort uppdateringar för att ändringarna ska börja gälla.

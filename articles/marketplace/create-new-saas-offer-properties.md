@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 4dd592cb1b0037e2e1054bb24d987d4456f15e2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d90c9b9b2c9aa97083e17d5ab7d20fc6b471658
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89381185"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94492131"
 ---
 # <a name="how-to-configure-your-saas-offer-properties"></a>Så här konfigurerar du egenskaperna för SaaS-erbjudandet
 
@@ -23,16 +23,16 @@ På fliken **Egenskaper** definierar du de kategorier och branscher som är till
 
 ## <a name="select-a-category-for-your-offer"></a>Välj en kategori för ditt erbjudande
 
-Under **kategori**väljer du minst en och upp till två kategorier för att gruppera ditt erbjudande i lämpliga sökområden för Marketplace. Baserat på de kategorier du väljer fastställer vi vilka onlinebutiker som ska lista ditt erbjudande på: antingen Azure Marketplace, Microsoft AppSource eller båda.
+Under **kategori** väljer du minst en och upp till två kategorier för att gruppera ditt erbjudande i lämpliga sökområden för Marketplace. Baserat på de kategorier du väljer fastställer vi vilka onlinebutiker som ska lista ditt erbjudande på: antingen Azure Marketplace, Microsoft AppSource eller båda.
 
 ## <a name="select-industries-optional"></a>Välj branscher (valfritt)
 
-Under **branscher**kan du välja upp till två branscher och upp till två under branscher (kallas även för lodräta) för varje bransch. Dessa branscher används för att Visa erbjudandet när kunderna filtrerar sin sökning på branscher och under branscher i onlinebutiken.
+Under **branscher** kan du välja upp till två branscher och upp till två under branscher (kallas även för lodräta) för varje bransch. Dessa branscher används för att Visa erbjudandet när kunderna filtrerar sin sökning på branscher och under branscher i onlinebutiken.
 
 > [!NOTE]
 > Lämna avsnittet tomt om ditt erbjudande inte är branschspecifika.
 
-1. Under **branscher**väljer du länken **+ Industries** .
+1. Under **branscher** väljer du länken **+ Industries** .
 1. Välj en bransch i **bransch** listan.
 1. Välj minst ett och högst två lodräta i **under bransch** listan. Använd Ctrl-tangenten för att välja flera under branscher.
 1. Om du vill lägga till en annan bransch och lodrät väljer du **+ branscher** och upprepar sedan steg 1 till 3.
@@ -43,7 +43,7 @@ Under **branscher**kan du välja upp till två branscher och upp till två under
 
 ## <a name="provide-terms-and-conditions"></a>Ange villkor
 
-Under **juridisk**, ange villkor för ditt erbjudande. Du kan välja mellan två alternativ:
+Under **juridisk** , ange villkor för ditt erbjudande. Du kan välja mellan två alternativ:
 
 - [Använd standard kontraktet med valfria ändringar](#use-the-standard-contract)
 - [Använd egna villkor](#use-your-own-terms-and-conditions)
@@ -73,7 +73,7 @@ I **villkoren för Universal-ändringar till standard kontraktet för Microsofts
 
 #### <a name="add-one-or-more-custom-amendments"></a>Lägg till en eller flera anpassade ändringar
 
-1. Under **anpassade ändrings villkor till standard kontraktet för Microsofts kommersiella marknads plats**väljer du länken **Lägg till anpassad ändrings term (max 10)** .
+1. Under **anpassade ändrings villkor till standard kontraktet för Microsofts kommersiella marknads plats** väljer du länken **Lägg till anpassad ändrings term (max 10)** .
 1. I rutan **anpassade ändrings villkor** anger du dina ändrings villkor.
 1. I rutan **klient-ID** anger du ett klient-ID. Endast kunder som är kopplade till klient-ID: n som du anger för de här anpassade villkoren visas i erbjudandet inköps flöde i Azure Portal.
    > [!TIP]
@@ -87,12 +87,8 @@ I **villkoren för Universal-ändringar till standard kontraktet för Microsofts
 
 Du kan välja att ange egna villkor, i stället för standard kontraktet. Kunderna måste acceptera dessa villkor innan de kan testa ditt erbjudande.
 
-1. Under **juridisk**kontrollerar du att kryss rutan **Använd standard kontraktet för Microsofts kommersiella Marketplace** är avmarkerad.
+1. Under **juridisk** kontrollerar du att kryss rutan **Använd standard kontraktet för Microsofts kommersiella Marketplace** är avmarkerad.
 1. I rutan **allmänna villkor** anger du upp till 10 000 tecken text.
-
-   > [!NOTE]
-   > Om du behöver en längre Beskrivning anger du en enskild webb adress som pekar på var du hittar dina villkor. Den kommer att visas för kunder som en aktiv länk.
-
 1. Välj **Spara utkast** innan du fortsätter till nästa flik, **erbjudande lista**.
 
 ## <a name="next-steps"></a>Nästa steg

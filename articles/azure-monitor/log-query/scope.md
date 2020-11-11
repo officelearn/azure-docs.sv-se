@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
-ms.openlocfilehash: 2036505dea134a59e7dc0c75a030175b15dac0b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 066e9cf6c63c9f2073ba869e8b40e25bfc993cd8
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90031950"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491383"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Logg frågans omfång och tidsintervall i Azure Monitor Log Analytics
 När du kör en [logg fråga](log-query-overview.md) i [Log Analytics i Azure Portal](get-started-portal.md), beror den uppsättning data som utvärderas av frågan på omfattningen och tidsintervallet som du väljer. I den här artikeln beskrivs omfattning och tidsintervall och hur du kan ställa in dem beroende på dina behov. Det beskriver också beteendet för olika typer av omfång.
@@ -51,9 +51,7 @@ Du kan inte använda följande kommandon i en fråga som är begränsad till en 
 - [platsen](workspace-expression.md)
  
 
-## <a name="query-limits"></a>Frågebegränsningar
-Du kan ha verksamhets krav för en Azure-resurs för att skriva data till flera Log Analytics-arbetsytor. Arbets ytan behöver inte finnas i samma region som resursen, och en enda arbets yta kan samla in data från resurser i flera olika regioner.  
-
+## <a name="query-scope-limits"></a>Omfattnings gränser för fråga
 Att ange ett omfång till en resurs eller en uppsättning resurser är en särskilt kraftfull funktion i Log Analytics eftersom det gör det möjligt att automatiskt konsolidera distribuerade data i en enda fråga. Det kan påverka prestanda avsevärt om data behöver hämtas från arbets ytor i flera Azure-regioner.
 
 Log Analytics skyddar mot onödig omkostnader från frågor som omfattar arbets ytor i flera regioner genom att skicka en varning eller ett fel när ett visst antal regioner används. Frågan får en varning om omfånget omfattar arbets ytor i 5 eller flera regioner. den kommer fortfarande att köras, men det kan ta lång tid att slutföra den.
@@ -66,28 +64,24 @@ Frågan kommer att blockeras från att köras om omfattningen omfattar arbets yt
 
 
 ## <a name="time-range"></a>Tidsintervall
-Tidsintervallet anger den uppsättning poster som utvärderas för frågan baserat på när posten skapades. Detta definieras av en standard kolumn på varje post i arbets ytan eller programmet som anges i följande tabell.
+Tidsintervallet anger den uppsättning poster som utvärderas för frågan baserat på när posten skapades. Detta definieras av kolumnen **TimeGenerated** på varje post i arbets ytan eller programmet som anges i följande tabell. För ett klassiskt Application Insights-program används **timestamp** -kolumnen för tidsintervallet.
 
-| Plats | Kolumn |
-|:---|:---|
-| Log Analytics-arbetsyta          | TimeGenerated |
-| Application Insights program | timestamp     |
 
 Ange tidsintervallet genom att välja det från tids väljaren överst i Log Analyticss fönstret.  Du kan välja en fördefinierad period eller välja **anpassad** om du vill ange ett tidsintervall.
 
 ![Tids väljare](media/scope/time-picker.png)
 
-Om du anger ett filter i frågan som använder kolumnen standard tid som visas i tabellen ovan, ändras tids väljaren till **set i Query**och tids väljare är inaktive rad. I det här fallet är det mest effektivt att ställa in filtret överst i frågan så att all efterföljande bearbetning bara behöver arbeta med de filtrerade posterna.
+Om du anger ett filter i frågan som använder kolumnen standard tid som visas i tabellen ovan, ändras tids väljaren till **set i Query** och tids väljare är inaktive rad. I det här fallet är det mest effektivt att ställa in filtret överst i frågan så att all efterföljande bearbetning bara behöver arbeta med de filtrerade posterna.
 
 ![Filtrerad fråga](media/scope/query-filtered.png)
 
-Om du använder [arbets ytan](workspace-expression.md) eller [appens](app-expression.md) kommando för att hämta data från en annan arbets yta eller ett annat program kan tids väljaren bete sig annorlunda. Om omfånget är en Log Analytics arbets yta och du använder **appen**, eller om omfånget är ett Application Insights program och du använder **arbets ytan**, kan Log Analytics inte förstå att kolumnen som används i filtret bestämmer tids filtret.
+Om du använder [arbets ytan](workspace-expression.md) eller [appens](app-expression.md) kommando för att hämta data från en annan arbets yta eller ett klassiskt program kan tids väljaren bete sig annorlunda. Om omfånget är en Log Analytics arbets yta och du använder **appen** , eller om omfånget är ett klassiskt Application Insights-program och du använder **arbets ytan** , kan Log Analytics inte förstå att den kolumn som används i filtret bestämmer tids filtret.
 
 I följande exempel är omfånget inställt på en Log Analytics-arbetsyta.  Frågan använder **arbets ytan** för att hämta data från en annan Log Analytics-arbetsyta. Tids väljaren ändras till **set i frågan** eftersom den ser ett filter som använder den förväntade **TimeGenerated** -kolumnen.
 
 ![Fråga med arbets yta](media/scope/query-workspace.png)
 
-Om frågan använder **appen** för att hämta data från ett Application Insights program, kan Log Analytics inte identifiera **tidsstämpelkolumn** i filtret, och tid väljaren förblir oförändrad. I det här fallet tillämpas båda filtren. I exemplet ingår endast poster som skapats under de senaste 24 timmarna i frågan även om det anger 7 dagar i **WHERE** -satsen.
+Om frågan använder **appen** för att hämta data från ett klassiskt Application Insights program, kan Log Analytics inte identifiera kolumnen **tidsstämpelkolumn** i filtret, och tids väljaren förblir oförändrad. I det här fallet tillämpas båda filtren. I exemplet ingår endast poster som skapats under de senaste 24 timmarna i frågan även om det anger 7 dagar i **WHERE** -satsen.
 
 ![Fråga med app](media/scope/query-app.png)
 

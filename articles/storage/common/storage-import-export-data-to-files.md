@@ -9,12 +9,12 @@ ms.date: 10/29/2020
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7d969392c3245eb81ed07889bd956d2b8e8fb82f
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: 859325bffe1db9cd6a7afc7e5013681c88209eff
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93234112"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491791"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Importera data till Azure Files med Import/Export-tjänsten i Azure
 
@@ -30,7 +30,7 @@ Innan du skapar ett import jobb för att överföra data till Azure Files bör d
 - Ha minst ett Azure Storage konto. Se listan över [lagrings konton och lagrings typer som stöds för import/export-tjänsten](storage-import-export-requirements.md). Information om hur du skapar ett nytt lagrings konto finns i [så här skapar du ett lagrings konto](storage-account-create.md).
 - Har tillräckligt många diskar av [typer som stöds](storage-import-export-requirements.md#supported-disks).
 - Ha ett Windows-system som kör en [operativ system version som stöds](storage-import-export-requirements.md#supported-operating-systems).
-- [Ladda ned WAImportExport version 2](https://aka.ms/waiev2) på Windows-systemet. Zippa upp till standardmappen `waimportexport` . Till exempel `C:\WaImportExport`.
+- [Ladda ned WAImportExport version 2](https://aka.ms/waiev2) på Windows-systemet. Zippa upp till standardmappen `waimportexport` . Ett exempel är `C:\WaImportExport`.
 - Ha ett FedEx-/DHL-konto. Om du vill använda en annan operatör än FedEx/DHL kontaktar du Azure Data Box drifts team på `adbops@microsoft.com` .
     - Kontot måste vara giltigt, måste ha ett saldo och måste ha funktioner för retur leverans.
     - Generera ett spårnings nummer för export jobbet.
@@ -97,7 +97,7 @@ Utför följande steg för att förbereda enheterna.
 5. Använd `PrepImport` alternativet för att kopiera och förbereda data till disk enheten. Kör följande kommando för att kopiera kataloger och/eller filer med en ny Copy-session för den första kopierings sessionen:
 
     ```cmd
-    .\WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
+    .\WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>]/DataSet:<dataset.csv>
     ```
 
    Ett exempel på en import visas nedan.

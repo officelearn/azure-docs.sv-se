@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/28/2020
-ms.openlocfilehash: 70b5e85c99184b890d2b5269f483785a82340255
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 38f649fbff9ea2c1182adb613b9302768708a4c4
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127560"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490958"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Förstå och justera direktuppspelningsenheter
 
@@ -20,14 +20,14 @@ Strömnings enheter (SUs) representerar de data bearbetnings resurser som alloke
 
 För att minimera svarstiderna vid bearbetningen av dataströmmar utför Azure Stream Analytics-jobb all bearbetning i minnet. Det går inte att köra direkt uppspelnings jobbet när minnet börjar ta slut. För ett produktions jobb är det viktigt att övervaka resursanvändningen för ett direkt uppspelnings jobb och se till att det finns tillräckligt med resurser för att behålla jobben som kör 24/7.
 
-Måttet SU%, som sträcker sig från 0% till 100%, beskriver minnes förbrukningen för din arbets belastning. För ett strömmande jobb med minimalt utrymme är det här måttet vanligt vis mellan 10% och 20%. Om SU%-användningen är hög (över 80%), eller om indata-händelser blir eftersläpande (även om den inte visar CPU-användning), kräver din arbets belastning troligen fler beräknings resurser, vilket kräver att du ökar antalet SUs. Vi rekommenderar att du håller SU-måttet under 80% för att få en tillfällig toppar. Microsoft rekommenderar att du ställer in en avisering på 80% SU-användnings mått för att förhindra resurs överbelastning. Mer information finns i [Självstudier: Konfigurera aviseringar för Azure Stream Analytics jobb](stream-analytics-set-up-alerts.md).
+Måttet SU%, som sträcker sig från 0% till 100%, beskriver minnes förbrukningen för din arbets belastning. För ett strömmande jobb med minimalt utrymme är det här måttet vanligt vis mellan 10% och 20%. Om SU%-användningen är hög (över 80%), eller om indata-händelser blir eftersläpande (även om den inte visar CPU-användning), kräver din arbets belastning troligen fler beräknings resurser, vilket kräver att du ökar antalet SUs. Vi rekommenderar att du håller SU-måttet under 80% för att få en tillfällig toppar. Om du vill reagera på ökade arbets belastningar och öka enheter för strömning bör du överväga att ställa in en avisering på 80% på SU-hälsomåttet. Du kan också använda mått för fördröjning av vattenstämplar och eftersläpande händelser för att se om det finns en effekt.
 
 ## <a name="configure-stream-analytics-streaming-units-sus"></a>Konfigurera Stream Analytics streaming Units (SUs)
-1. Logga in på [Azure Portal](https://portal.azure.com/)
+1. Logga in på [Azure-portalen](https://portal.azure.com/)
 
 2. Leta upp det Stream Analytics jobb som du vill skala i listan över resurser och öppna det sedan. 
 
-3. På sidan jobb, under **Konfigurera** rubrik, väljer du **skala** . Standard antalet SUs är 3 när du skapar ett jobb.
+3. På sidan jobb, under **Konfigurera** rubrik, väljer du **skala**. Standard antalet SUs är 3 när du skapar ett jobb.
 
     ![Azure Portal Stream Analytics jobb konfiguration][img.stream.analytics.preview.portal.settings.scale]
     
@@ -45,7 +45,7 @@ Beräkna det förväntade data flödet för arbets belastningen. Om data flödet
 
 Om du väljer hur många SUs-filer som krävs för ett visst jobb beror det på partitionsuppsättningen för indata och frågan som definieras i jobbet. På sidan **skala** kan du ange rätt antal SUS. Vi rekommenderar att du allokerar mer än vad som behövs. Den Stream Analytics bearbetnings motorn optimerar för svars tid och data flöde till kostnaden för att allokera ytterligare minne.
 
-I allmänhet är det bästa sättet att börja med 6 SUs för frågor som inte använder **partition av** . Ta sedan reda på den söt punkten genom att använda en utvärderings-och fel metod där du ändrar antalet SUs när du har överfört representativa data mängder och undersöker SU-hälsoanvändnings måttet. Det maximala antalet enheter för strömning som kan användas av ett Stream Analytics jobb beror på antalet steg i frågan som definierats för jobbet och antalet partitioner i varje steg. Du kan lära dig mer om begränsningarna [här](./stream-analytics-parallelization.md#calculate-the-maximum-streaming-units-of-a-job).
+I allmänhet är det bästa sättet att börja med 6 SUs för frågor som inte använder **partition av**. Ta sedan reda på den söt punkten genom att använda en utvärderings-och fel metod där du ändrar antalet SUs när du har överfört representativa data mängder och undersöker SU-hälsoanvändnings måttet. Det maximala antalet enheter för strömning som kan användas av ett Stream Analytics jobb beror på antalet steg i frågan som definierats för jobbet och antalet partitioner i varje steg. Du kan lära dig mer om begränsningarna [här](./stream-analytics-parallelization.md#calculate-the-maximum-streaming-units-of-a-job).
 
 Mer information om hur du väljer rätt antal SUs finns på den här sidan: [skala Azure Stream Analytics jobb för att öka data flödet](stream-analytics-scale-jobs.md)
 
@@ -125,12 +125,12 @@ När frågan är utpartitionerad sprids den ut över flera noder. Därför minsk
 ## <a name="temporal-analytic-functions"></a>Temporala analys funktioner
 Förbrukad mängd minne (tillstånds storlek) för en temporal analys funktion är proportionerlig till händelse frekvensen multiplicerat med varaktigheten. Det minne som används av analys funktionerna är inte proportionellt mot fönstrets storlek, utan i stället för antalet partitioner i varje tids period.
 
-Reparationen liknar temporal koppling. Du kan skala ut frågan med **partition by** . 
+Reparationen liknar temporal koppling. Du kan skala ut frågan med **partition by**. 
 
 ## <a name="out-of-order-buffer"></a>Felaktig buffert 
 Användaren kan konfigurera storleks gränsen för bufferten i konfigurations fönstret för händelse ordning. Bufferten används för att lagra indata under fönstrets varaktighet och ändra ordning på dem. Storleken på bufferten är proportionell mot händelsens ingångs frekvens multiplicerat med storleks fönstret. Standard fönstrets storlek är 0. 
 
-Om du vill reparera spill för bufferten som ligger utanför ordningen kan du skala ut fråga med **partition by** . När frågan är utpartitionerad sprids den ut över flera noder. Därför minskar antalet händelser som kommer till varje nod, vilket minskar antalet händelser i varje beställnings buffert. 
+Om du vill reparera spill för bufferten som ligger utanför ordningen kan du skala ut fråga med **partition by**. När frågan är utpartitionerad sprids den ut över flera noder. Därför minskar antalet händelser som kommer till varje nod, vilket minskar antalet händelser i varje beställnings buffert. 
 
 ## <a name="input-partition-count"></a>Antal inmatade partitioner 
 Varje indatatagg i ett jobbs inmatare har en buffert. Ju större antal inpartitioner, desto mer resurs kommer jobbet att förbrukas. För varje strömnings enhet kan Azure Stream Analytics bearbeta ungefär 1 MB/s indata. Därför kan du optimera genom att matcha antalet Stream Analytics strömnings enheter med antalet partitioner i Händelsehubben. 

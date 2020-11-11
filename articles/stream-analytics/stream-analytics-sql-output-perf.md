@@ -1,5 +1,5 @@
 ---
-title: Azure Stream Analytics utdata till Azure SQL Database
+title: Öka data flödes prestandan till Azure SQL Database från Azure Stream Analytics
 description: Lär dig mer om att lägga till data i SQL Azure från Azure Stream Analytics och få högre Skriv data flödes nivåer.
 author: chetanmsft
 ms.author: chetang
@@ -7,14 +7,14 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: 362c16a87e5a24c35b3aa637171b6a3f77aa62a6
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: a902cbc8256e249a608a5da8436a1145ddb0d565
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346340"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490941"
 ---
-# <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Azure Stream Analytics utdata till Azure SQL Database
+# <a name="increase-throughput-performance-to-azure-sql-database-from-azure-stream-analytics"></a>Öka data flödes prestandan till Azure SQL Database från Azure Stream Analytics
 
 Den här artikeln beskriver tips för att få bättre Skriv data flödes prestanda när du läser in data i Azure SQL Database med Azure Stream Analytics.
 

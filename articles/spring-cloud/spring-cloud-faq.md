@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: edd79d08d18e95d27e557a26f0adc36868097bb3
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: f034cd07b481f9d72cb3f753b30e1779bf672ac2
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900277"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491944"
 ---
 # <a name="azure-spring-cloud-faq"></a>Vanliga frågor och svar om Azure våren Cloud
 
@@ -73,9 +73,9 @@ Azure våren Cloud har stöd för Java 8 och 11. Se [Java Runtime och OS-version
 
 ### <a name="where-can-i-view-my-spring-cloud-application-logs-and-metrics"></a>Var kan jag se mina vår moln program loggar och mått?
 
-Hitta mått på fliken Översikt över appen och fliken [Azure Monitor](../azure-monitor/platform/data-platform-metrics.md#interacting-with-azure-monitor-metrics) .
+Hitta mått på fliken Översikt över appen och fliken [Azure Monitor](../azure-monitor/platform/data-platform-metrics.md#metrics-explorer) .
 
-Azure våren Cloud stöder export av vår moln program loggar och mät värden till Azure Storage, EventHub och [Log Analytics](../azure-monitor/platform/data-platform-logs.md#log-queries). Tabell namnet i Log Analytics är *AppPlatformLogsforSpring* . Information om hur du aktiverar det finns i [Diagnostic Services](diagnostic-services.md).
+Azure våren Cloud stöder export av vår moln program loggar och mät värden till Azure Storage, EventHub och [Log Analytics](../azure-monitor/platform/data-platform-logs.md). Tabell namnet i Log Analytics är *AppPlatformLogsforSpring*. Information om hur du aktiverar det finns i [Diagnostic Services](diagnostic-services.md).
 
 ### <a name="does-azure-spring-cloud-support-distributed-tracing"></a>Stöder Azure våren Cloud Distributed tracing?
 

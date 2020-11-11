@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 0a5c788b4429b5048a1b94fa8adfb2d9367982da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0591825bf187648293d5aabc88597b19ab2436e
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90033480"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491060"
 ---
 # <a name="deploy-azure-monitor"></a>Distribuera Azure Monitor
 Att aktivera Azure Monitor att övervaka alla dina Azure-resurser är en kombination av att konfigurera Azure Monitor komponenter och konfigurera Azure-resurser för att generera övervaknings data för Azure Monitor att samla in. I den här artikeln beskrivs de olika stegen som krävs för en fullständig implementering av Azure Monitor att använda en gemensam konfiguration för att övervaka alla resurser i din Azure-prenumeration. Grundläggande beskrivningar för varje steg finns med länkar till annan dokumentation för detaljerade konfigurations krav.
@@ -118,7 +118,7 @@ Mer information om hur du installerar och konfigurerar agenter finns i [Installe
 Azure Monitor övervakar dina anpassade program med [Application Insights](app/app-insights-overview.md)som du måste konfigurera för varje program som du vill övervaka. Konfigurations processen varierar beroende på vilken typ av program som övervakas och vilken typ av övervakning som du vill utföra. Data som samlas in av Application Insights lagras i Azure Monitor Mät värden, Azure Monitor loggar och Azure Blob Storage, beroende på funktion. Prestanda data lagras i både Azure Monitor mått och Azure Monitor loggar utan ytterligare konfiguration krävs.
 
 ### <a name="create-an-application-resource"></a>Skapa en program resurs
-Du måste skapa en resurs i Application Insights för varje program som du ska övervaka. Loggdata som samlas in av Application Insights lagras i Azure Monitor loggar för ett arbets program som baseras på arbets ytan. Loggdata för klassiska program lagras separat från din Log Analytics arbets yta enligt beskrivningen i [data strukturen](platform/data-platform-logs.md#structure-of-data).
+Du måste skapa en resurs i Application Insights för varje program som du ska övervaka. Loggdata som samlas in av Application Insights lagras i Azure Monitor loggar för ett arbets program som baseras på arbets ytan. Loggdata för klassiska program lagras separat från din Log Analytics arbets yta enligt beskrivningen i [data strukturen](platform/data-platform-logs.md#data-structure).
 
  När du skapar programmet måste du välja om du vill använda klassisk eller arbets yta baserad. Skapa ett klassiskt program genom att se [skapa en Application Insights resurs](app/create-new-resource.md) . Se [arbets ytans baserade Application Insights resurser (för hands version)](app/create-workspace-resource.md) för att skapa ett arbets program som baseras på arbets ytan.
 

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 02/20/2020
 ms.author: cshoe
-ms.openlocfilehash: 7fa49583c17c198642d4ad6d72a0faa19dcfe659
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bb07e650c99f18cfecbc7b7674e0ca0e5a01dae
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91323336"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491468"
 ---
 # <a name="signalr-service-output-binding-for-azure-functions"></a>Utgående bindning för signal tjänst för Azure Functions
 
@@ -116,7 +116,7 @@ Exempel function.jspå:
 ```json
 {
   "type": "signalR",
-  "name": "out_message",
+  "name": "outMessage",
   "hubName": "<hub_name>",
   "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
   "direction": "out"
@@ -126,9 +126,9 @@ Exempel function.jspå:
 Här är python-koden:
 
 ```python
-def main(req: func.HttpRequest, out_message: func.Out[str]) -> func.HttpResponse:
+def main(req: func.HttpRequest, outMessage: func.Out[str]) -> func.HttpResponse:
     message = req.get_json()
-    out_message.set(json.dumps({
+    outMessage.set(json.dumps({
         'target': 'newMessage',
         'arguments': [ message ]
     }))
@@ -248,7 +248,7 @@ Exempel function.jspå:
 ```json
 {
   "type": "signalR",
-  "name": "out_message",
+  "name": "outMessage",
   "hubName": "<hub_name>",
   "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
   "direction": "out"
@@ -258,9 +258,9 @@ Exempel function.jspå:
 Här är python-koden:
 
 ```python
-def main(req: func.HttpRequest, out_message: func.Out[str]) -> func.HttpResponse:
+def main(req: func.HttpRequest, outMessage: func.Out[str]) -> func.HttpResponse:
     message = req.get_json()
-    out_message.set(json.dumps({
+    outMessage.set(json.dumps({
         #message will only be sent to this user ID
         'userId': 'userId1',
         'target': 'newMessage',
@@ -383,7 +383,7 @@ Exempel function.jspå:
 ```json
 {
   "type": "signalR",
-  "name": "out_message",
+  "name": "outMessage",
   "hubName": "<hub_name>",
   "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
   "direction": "out"
@@ -393,9 +393,9 @@ Exempel function.jspå:
 Här är python-koden:
 
 ```python
-def main(req: func.HttpRequest, out_message: func.Out[str]) -> func.HttpResponse:
+def main(req: func.HttpRequest, outMessage: func.Out[str]) -> func.HttpResponse:
     message = req.get_json()
-    out_message.set(json.dumps({
+    outMessage.set(json.dumps({
         #message will only be sent to this group
         'groupName': 'myGroup',
         'target': 'newMessage',
@@ -730,9 +730,9 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 |function.jspå egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**bastyp**| Saknas | Måste anges till `signalRConnectionInfo` .|
-|**position**| Saknas | Måste anges till `in` .|
-|**Namn**| Saknas | Variabel namn som används i funktions kod för objektet anslutnings information. |
+|**bastyp**| saknas | Måste anges till `signalRConnectionInfo` .|
+|**position**| saknas | Måste anges till `in` .|
+|**Namn**| saknas | Variabel namn som används i funktions kod för objektet anslutnings information. |
 |**hubName**|**HubName**| Värdet måste anges till namnet på den Signals Hub som anslutnings informationen genereras för.|
 |**userId**|**UserId**| Valfritt: värdet på det användar-ID-anspråk som ska anges i åtkomst nyckelns token. |
 |**connectionStringSetting**|**ConnectionStringSetting**| Namnet på den app-inställning som innehåller signal tjänstens anslutnings sträng (Standardvärdet är "AzureSignalRConnectionString") |
@@ -743,9 +743,9 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 |function.jspå egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**bastyp**| Saknas | Måste anges till `signalR` .|
-|**position**| Saknas | Måste anges till `out` .|
-|**Namn**| Saknas | Variabel namn som används i funktions kod för objektet anslutnings information. |
+|**bastyp**| saknas | Måste anges till `signalR` .|
+|**position**| saknas | Måste anges till `out` .|
+|**Namn**| saknas | Variabel namn som används i funktions kod för objektet anslutnings information. |
 |**hubName**|**HubName**| Värdet måste anges till namnet på den Signals Hub som anslutnings informationen genereras för.|
 |**connectionStringSetting**|**ConnectionStringSetting**| Namnet på den app-inställning som innehåller signal tjänstens anslutnings sträng (Standardvärdet är "AzureSignalRConnectionString") |
 

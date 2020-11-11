@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: e322135cfdb7aaff331367e84c603e8344436528
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a086d9fe150766c6b31210f29bf802a75e0ee4ec
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906258"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491740"
 ---
 # <a name="azure-cosmos-db-output-from-azure-stream-analytics"></a>Azure Cosmos DB utdata från Azure Stream Analytics
 
@@ -34,12 +34,12 @@ I följande tabell beskrivs egenskaperna för att skapa en Azure Cosmos DB utdat
 | Konto-ID | Azure Cosmos DB kontots namn eller slut punkts-URI. |
 | Kontonyckel | Den delade åtkomst nyckeln för det Azure Cosmos DB kontot. |
 | Databas | Namnet på Azure Cosmos DBs databasen. |
-| Containerns namn | Behållar namnet som ska användas, vilket måste finnas i Cosmos DB. Exempel:  <br /><ul><li> En behållar _: en_behållare med namnet "behållar" måste finnas.</li>|
+| Containerns namn | Behållar namnet som ska användas, vilket måste finnas i Cosmos DB. Exempel:  <br /><ul><li> En behållar _: en_ behållare med namnet "behållar" måste finnas.</li>|
 | Dokument-ID |Valfritt. Namnet på fältet i utmatnings händelser som används för att ange den primära nyckel som infognings-eller uppdaterings åtgärder baseras på.
 
 ## <a name="partitioning"></a>Partitionering
 
-Partitionsnyckel baseras på PARTITION BY-satsen i frågan. Antalet utgående skrivare följer inmatnings partitionering för [helt parallella frågor](stream-analytics-scale-jobs.md). Stream Analytics konverterar nyckeln för Cosmos DBs startpartition till en sträng. Om du till exempel har en partitionsnyckel med värdet 1 av typen bigint, konverteras den till "1" av typen sträng.
+Partitionsnyckel baseras på PARTITION BY-satsen i frågan. Antalet utgående skrivare följer inmatnings partitionering för [helt parallella frågor](stream-analytics-scale-jobs.md). Stream Analytics konverterar nyckeln för Cosmos DBs startpartition till en sträng. Om du till exempel har en partitionsnyckel med värdet 1 av typen bigint, konverteras den till "1" av typen sträng. Den här konverteringen sker alltid oavsett om egenskapen partition har skrivits till Cosmos DB.
 
 ## <a name="output-batch-size"></a>Batchstorlek för utdata
 

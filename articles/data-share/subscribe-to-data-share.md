@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/14/2020
-ms.openlocfilehash: 4d4ef9f1d80604373463450adf597f8202611175
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 9031ea2d862a23df5d597b790fffc49e624e53fb
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216580"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491927"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Självstudier: Acceptera och ta emot data med Azure Data Share  
 
@@ -68,13 +68,13 @@ Se till att alla krav är uppfyllda innan du accepterar en inbjudan om data deln
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="open-invitation"></a>Öppna inbjudan
 
 1. Du kan öppna inbjudan från e-post eller direkt från Azure Portal. 
 
-   Om du vill öppna inbjudan från e-post, kontrollerar du Inkorgen för en inbjudan från din data leverantör. Inbjudan är från Microsoft Azure, med titeln **Azure Data Share-inbjudan från <yourdataprovider@domain.com> **. Klicka på **Visa inbjudan** för att se din inbjudan i Azure. 
+   Om du vill öppna inbjudan från e-post, kontrollerar du Inkorgen för en inbjudan från din data leverantör. Inbjudan är från Microsoft Azure, med titeln **Azure Data Share-inbjudan från <yourdataprovider@domain.com>**. Klicka på **Visa inbjudan** för att se din inbjudan i Azure. 
 
    Du öppnar inbjudan från Azure Portal direkt genom att söka efter **inbjudningar för data delning** i Azure Portal. Då går du till listan med data resurs inbjudningar.
 
@@ -87,7 +87,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
    ![Villkor för användning](./media/terms-of-use.png "Villkor för användning") 
 
-1. Under *konto för mål data resurs*väljer du den prenumeration och resurs grupp som du ska distribuera data resursen till. 
+1. Under *konto för mål data resurs* väljer du den prenumeration och resurs grupp som du ska distribuera data resursen till. 
 
    För fältet **data resurs konto** väljer du **Skapa nytt** om du inte har ett befintligt data resurs konto. Annars väljer du ett befintligt data resurs konto som du vill acceptera data resursen till. 
 
@@ -125,12 +125,19 @@ De här stegen gäller endast för Snapshot-baserad delning.
 
    ![Utlös ögonblicks bild](./media/trigger-snapshot.png "Utlös ögonblicks bild") 
 
-1. När den senaste körnings statusen har *slutförts*går du till mål data lagret för att Visa mottagna data. Välj **data uppsättningar**och klicka på länken i mål Sök vägen. 
+1. När den senaste körnings statusen har *slutförts* går du till mål data lagret för att Visa mottagna data. Välj **data uppsättningar** och klicka på länken i mål Sök vägen. 
 
    ![Konsument data uppsättningar](./media/consumer-datasets.png "Mappning av konsument data uppsättning") 
 
 ## <a name="view-history"></a>Visa historik
-Det här steget gäller endast för Snapshot-baserad delning. Välj fliken **Historik** för att visa historiken för dina ögonblicks bilder. Här hittar du historiken för alla ögonblicks bilder som har genererats under de senaste 30 dagarna. 
+Det här steget gäller endast för Snapshot-baserad delning. Välj fliken **Historik** för att visa historiken för dina ögonblicks bilder. Här hittar du historiken för alla ögonblicks bilder som har genererats under de senaste 30 dagarna.
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+När resursen inte längre behövs går du till sidan **Översikt över data resurs** och väljer **ta bort** för att ta bort den.
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudien har du lärt dig hur du godkänner och tar emot en Azure-Dataresurs. Om du vill veta mer om Azure Data Share-koncept fortsätter du till [koncept: Azure Data Share-terminologi](terminology.md).
+I den här självstudien har du lärt dig hur du godkänner och tar emot en Azure-Dataresurs. Om du vill veta mer om Azure Data Share-koncept kan du fortsätta till Azure Data Share-terminologi.
+
+> [!div class="nextstepaction"]
+> [Azure Data Share-koncept](terminology.md)

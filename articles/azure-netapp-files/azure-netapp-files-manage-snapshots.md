@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 11/10/2020
 ms.author: b-juche
-ms.openlocfilehash: 0d7839b11e48e3e260f4d6b1323d1831e28222de
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: e578e377e322e6b6a23f0990ca1fa0285a4ec87d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421887"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491655"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Hantera ögonblicksbilder med hjälp av Azure NetApp Files
 
@@ -108,6 +108,8 @@ Om du vill att en volym ska använda ögonblicks bild principen måste du [till�
 
 Om du vill att en volym ska använda en ögonblicks bilds princip som du har skapat måste du tillämpa principen på volymen. 
 
+Du kan inte tillämpa en ögonblicks bild princip på en mål volym i replikering mellan regioner.  
+
 1.  Gå till sidan **volymer** , högerklicka på den volym som du vill tillämpa en ögonblicks bild princip på och välj **Redigera**.
 
     ![Volymer på snabb menyn för volymer](../media/azure-netapp-files/volume-right-cick-menu.png) 
@@ -172,6 +174,8 @@ Om du inte vill [återställa hela ögonblicks bilden till en volym](#restore-a-
 Den monterade volymen innehåller en ögonblicks bilds katalog med namnet  `.snapshot` (i NFS-klienter) eller `~snapshot` (i SMB-klienter) som är tillgänglig för klienten. Katalogen för ögonblicks bilder innehåller under kataloger som motsvarar ögonblicks bilderna av volymen. Varje under katalog innehåller filerna i ögonblicks bilden. Om du av misstag tar bort eller skriver över en fil, kan du återställa filen till den överordnade katalogen för skriv skydd genom att kopiera filen från en under katalog i ögonblicks bild till katalogen för Läs-och skriv åtgärder. 
 
 Om du har markerat kryss rutan Dölj ögonblicks bilds Sök väg när du skapade volymen döljs ögonblicks bild katalogen. Du kan visa status för Dölj ögonblicks bilds Sök väg för volymen genom att välja volymen. Du kan redigera alternativet Dölj ögonblicks bild Sök väg genom att klicka på **Redigera** på volymens sida.  
+
+För en mål volym i replikering mellan regioner är Dölj ögonblicks bilds Sök väg aktiverat som standard och inställningen kan inte ändras.
 
 ![Redigera alternativ för ögonblicks bild av volym](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
 

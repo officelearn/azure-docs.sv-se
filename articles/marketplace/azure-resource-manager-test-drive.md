@@ -5,14 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/19/2020
-ms.author: keferna
-author: keferna
-ms.openlocfilehash: 1af2793bc32c1f3cdbdcd016562b761e05427073
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.author: trkeya
+author: trkeya
+ms.openlocfilehash: 0b445f9d4fdda0b1fac9dcdb4344533cfd7d37a9
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125146"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491247"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager testen het
 
@@ -76,7 +76,7 @@ Du kan använda valfritt giltigt namn för parametrarna. test enheten känner ig
 | Typ av metadata   | Parameter typ  | Beskrivning     | Exempel värde    |
 |---|---|---|---|
 | **BaseUri**     | sträng          | Distributions paketets bas-URI| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
-| **användar**    | sträng          | Nytt slumpmässigt användar namn.| admin68876      |
+| **användarnamn**    | sträng          | Nytt slumpmässigt användar namn.| admin68876      |
 | **lösenord**    | säker sträng    | Nytt slumpmässigt lösen ord | LP! ACS- \^ 2kh     |
 | **sessions-ID**   | sträng          | Unikt ID för test driven session-ID (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
 
@@ -296,11 +296,11 @@ Det sista avsnittet att slutföra är att kunna distribuera test enheterna autom
 
 ![Information om distributions prenumeration för test enhet](media/test-drive/deployment-subscription-details.png)
 
-1. Hämta ett **ID för Azure-prenumeration** . Detta ger åtkomst till Azure-tjänster och Azure Portal. Prenumerationen är den plats där resursanvändningen rapporteras och tjänsterna faktureras. Om du inte redan har en separat Azure-prenumeration för test enheter kan du göra en. Du kan hitta ID: n för Azure-prenumerationer (till exempel `1a83645ac-1234-5ab6-6789-1h234g764ghty1` ) genom att logga in på Azure Portal och välja **prenumerationer** på menyn till vänster-navigerings.
+1. Hämta ett **ID för Azure-prenumeration**. Detta ger åtkomst till Azure-tjänster och Azure Portal. Prenumerationen är den plats där resursanvändningen rapporteras och tjänsterna faktureras. Om du inte redan har en separat Azure-prenumeration för test enheter kan du göra en. Du kan hitta ID: n för Azure-prenumerationer (till exempel `1a83645ac-1234-5ab6-6789-1h234g764ghty1` ) genom att logga in på Azure Portal och välja **prenumerationer** på menyn till vänster-navigerings.
 
    ![Azure-prenumerationer](media/test-drive/azure-subscriptions.png)
 
-2. Hämta ett **klient-ID för Azure AD** . Om du redan har ett klient-ID tillgängligt kan du hitta det i **Azure Active Directory**  >  **Egenskaper**  >  **katalog-ID** :
+2. Hämta ett **klient-ID för Azure AD**. Om du redan har ett klient-ID tillgängligt kan du hitta det i **Azure Active Directory**  >  **Egenskaper**  >  **katalog-ID** :
 
    ![Azure Active Directory egenskaper](media/test-drive/azure-active-directory-properties.png)
 
@@ -309,14 +309,14 @@ Det sista avsnittet att slutföra är att kunna distribuera test enheterna autom
 3. **Azure AD App-ID** – skapa och registrera ett nytt program. Vi kommer att använda det här programmet för att utföra åtgärder på din test enhets instans.
 
    1. Navigera till katalogen som skapats eller redan är befintlig och välj Azure Active Directory i filter fönstret.
-   2. Sök **Appregistreringar** och välj **Lägg till** .
+   2. Sök **Appregistreringar** och välj **Lägg till**.
    3. Ange ett program namn.
-   4. Välj **typ** av **webbapp/API** .
+   4. Välj **typ** av **webbapp/API**.
    5. Ange ett värde i URL: en för inloggning, det här fältet används inte.
-   6. Välj **Skapa** .
-   7. När programmet har skapats väljer du **Egenskaper**  >  **Ange programmet som flera innehavare** och sedan **Spara** .
+   6. Välj **Skapa**.
+   7. När programmet har skapats väljer du **Egenskaper**  >  **Ange programmet som flera innehavare** och sedan **Spara**.
 
-4. Välj **Spara** .
+4. Välj **Spara**.
 
 5. Kopiera program-ID: t för den här registrerade appen och klistra in det i fältet test enhet.
 
@@ -326,7 +326,7 @@ Det sista avsnittet att slutföra är att kunna distribuera test enheterna autom
 
    1. Välj den typ av **prenumeration** som du använder för test enheten.
    1. Välj **Åtkomstkontroll (IAM)** .
-   1. Välj fliken **roll tilldelningar** och **Lägg sedan till roll tilldelning** .
+   1. Välj fliken **roll tilldelningar** och **Lägg sedan till roll tilldelning**.
 
       ![Lägg till en ny Access Control huvud konto](media/test-drive/access-control-principal.jpg)
 
@@ -334,9 +334,9 @@ Det sista avsnittet att slutföra är att kunna distribuera test enheterna autom
 
       ![Lägg till behörigheterna](media/test-drive/access-control-permissions.jpg)
 
-   1. Välj **Spara** .
+   1. Välj **Spara**.
 
-7. Generera en nyckel för **Azure AD App** -autentisering. Under **nycklar** lägger du till en **nyckel Beskrivning** , ställer in varaktigheten så att den **aldrig upphör att gälla** (en förfallen nyckel bryter din test enhet i produktion) och väljer sedan **Spara** . Kopiera och klistra in det här värdet i fältet för test enheten som krävs.
+7. Generera en nyckel för **Azure AD App** -autentisering. Under **nycklar** lägger du till en **nyckel Beskrivning** , ställer in varaktigheten så att den **aldrig upphör att gälla** (en förfallen nyckel bryter din test enhet i produktion) och väljer sedan **Spara**. Kopiera och klistra in det här värdet i fältet för test enheten som krävs.
 
 ![Visar nycklar för Azure AD-programmet](media/test-drive/azure-ad-app-keys.png)
 

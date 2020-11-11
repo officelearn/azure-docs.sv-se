@@ -3,12 +3,12 @@ title: Kapacitets gränser i Azure Lab Services
 description: Läs mer om kapacitets begränsningar (gränser för virtuella datorer) i Azure Lab Services.
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 92bdc714d70b3d73ca2cbc76b1f5dc5366582cbd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9866628cd11ec8df67e6fe16ae8806f0f30ae9a1
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85444105"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491026"
 ---
 # <a name="capacity-limits-in-azure-lab-services"></a>Kapacitets gränser i Azure Lab Services
 Azure Lab Services har standard kapacitets gränser för Azure-prenumerationer som följer Azures begränsningar för beräknings kvoter och för att minimera bedrägerier. Alla Azure-prenumerationer får en ursprunglig kapacitets gräns, som kan variera beroende på prenumerations typ, antal standard beräknings kärnor och GPU-kärnor som är tillgängliga i Azure Lab Services. Den begränsar hur många virtuella datorer du kan skapa i labbet innan du måste begära en gräns för att öka.  
@@ -50,4 +50,5 @@ När du har skickat in support förfrågan kommer vi att granska begäran. Vid b
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artikel:
+- [Administratörs guide – storlek på virtuell dator](administrator-guide.md#vm-sizing).
 - [Vanliga frågor och svar](classroom-labs-faq.md).

@@ -4,15 +4,15 @@ description: Lär dig hur du använder ett Marketo CRM-system för att hantera l
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 03/30/2020
-ms.openlocfilehash: be1f21f927b01d66e19dc5e97b38e5c35e6664cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbd12481312d310add15bf3d41e21e9c416f1c39
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86120270"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491083"
 ---
 # <a name="use-marketo-to-manage-commercial-marketplace-leads"></a>Använd Marketo för att hantera affärs marknads platser
 
@@ -75,16 +75,16 @@ När du är redo att konfigurera ledar hanterings informationen för ditt erbjud
 
     :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-marketo/customer-leads.png" alt-text="Kund ledare":::
 
-1. Välj **Marketo** för **lead-målet**i popup-fönstret **anslutnings information** .
+1. Välj **Marketo** för **lead-målet** i popup-fönstret **anslutnings information** .
 
     ![Välj ett mål för lead](./media/commercial-marketplace-lead-management-instructions-marketo/choose-lead-destination.png)
 
-1. Ange **Server-ID**, **Munchkin-konto-ID**och **formulär-ID**.
+1. Ange **Server-ID** , **Munchkin-konto-ID** och **formulär-ID**.
 
     > [!NOTE]
     > Du måste slutföra konfigurationen av resten av erbjudandet och publicera den innan du kan ta emot leads för erbjudandet. 
 
-1. Under **Kontakta e-postadress**anger du e-postadresser för personer i företaget som ska få e-postaviseringar när ett nytt lead tas emot. Du kan ange flera e-postadresser genom att avgränsa dem med semikolon.
+1. Under **Kontakta e-postadress** anger du e-postadresser för personer i företaget som ska få e-postaviseringar när ett nytt lead tas emot. Du kan ange flera e-postadresser genom att avgränsa dem med semikolon.
 
 1. Välj **OK**.
 

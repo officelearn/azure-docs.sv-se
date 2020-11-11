@@ -15,12 +15,12 @@ ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: 85ebb7f5ac52f4eea25f9e6f1a2b1b5ac6f4caa5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d476b1db645ed1f91b62fcf11464f7077a8fb3c
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87077922"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491434"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Push-meddelanden med Azure Notification Hubs: vanliga frågor och svar
 
@@ -34,16 +34,16 @@ Azure Notification Hubs har två resurs nivåer: hubbar och namn områden. En hu
 
 Du hittar den senaste pris informationen på sidan [Notification Hubs prissättning] . Notification Hubs faktureras på namn områdes nivå. (Information om definitionen av ett namn område finns i "Vad är resurs strukturen för Notification Hubs?") Notification Hubs har tre nivåer:
 
-* **Kostnads fri**: den här nivån är en lämplig utgångs punkt för att utforska push-funktionerna. Det rekommenderas inte för produktions program. Du får 500 enheter och 1 000 000 push-meddelanden per namnrymd per månad, utan garanti för service nivå avtal (SLA).
-* **Basic**: den här nivån (eller standard nivån) rekommenderas för mindre produktions program. Du får 200 000 enheter och 10 000 000 push-meddelanden per namnrymd per månad som en bas linje.
-* **Standard**: den här nivån rekommenderas för medel stora och stora produktions program. Du får 10 000 000 enheter och 10 000 000 push-meddelanden per namnrymd per månad som en bas linje. Innehåller omfattande telemetri (ytterligare information om push-status har angetts).
+* **Kostnads fri** : den här nivån är en lämplig utgångs punkt för att utforska push-funktionerna. Det rekommenderas inte för produktions program. Du får 500 enheter och 1 000 000 push-meddelanden per namnrymd per månad, utan garanti för service nivå avtal (SLA).
+* **Basic** : den här nivån (eller standard nivån) rekommenderas för mindre produktions program. Du får 200 000 enheter och 10 000 000 push-meddelanden per namnrymd per månad som en bas linje.
+* **Standard** : den här nivån rekommenderas för medel stora och stora produktions program. Du får 10 000 000 enheter och 10 000 000 push-meddelanden per namnrymd per månad som en bas linje. Innehåller omfattande telemetri (ytterligare information om push-status har angetts).
 
 Standard-nivå funktioner:
 
-* **Avancerad telemetri**: du kan använda Notification Hubs per meddelande-telemetri för att spåra eventuella push-begäranden och plattformsspecifikt meddelandesystem feedback för fel sökning.
-* **Flera innehavare**: du kan arbeta med plattformsspecifikt meddelandesystem autentiseringsuppgifter på en namn områdes nivå. Med det här alternativet kan du enkelt dela klienter i hubbar inom samma namnrymd.
-* **Schemalagd push**: du kan schemalägga meddelanden så att de skickas när som helst.
-* **Mass åtgärder**: aktiverar registreringar av export/import-funktioner som beskrivs i dokument för [export/import av registrering] .
+* **Avancerad telemetri** : du kan använda Notification Hubs per meddelande-telemetri för att spåra eventuella push-begäranden och plattformsspecifikt meddelandesystem feedback för fel sökning.
+* **Flera innehavare** : du kan arbeta med plattformsspecifikt meddelandesystem autentiseringsuppgifter på en namn områdes nivå. Med det här alternativet kan du enkelt dela klienter i hubbar inom samma namnrymd.
+* **Schemalagd push** : du kan schemalägga meddelanden så att de skickas när som helst.
+* **Mass åtgärder** : aktiverar registreringar av export/import-funktioner som beskrivs i dokument för [export/import av registrering] .
 
 ### <a name="what-is-the-notification-hubs-sla"></a>Vad är service avtal för Notification Hubs?
 
@@ -159,15 +159,12 @@ Vi tillhandahåller katastrof återställnings täckning för metadata i vårt s
 
 1. Skapa en sekundär meddelande hubb i ett annat data Center. Vi rekommenderar att du skapar en från början för att skydda dig från en katastrof återställnings händelse som kan påverka hanterings funktionerna. Du kan också skapa en vid tidpunkten för katastrof återställnings händelsen.
 
-2. Fyll i den sekundära meddelande hubben med registreringarna från den primära meddelande hubben. Vi rekommenderar inte att du försöker upprätthålla registreringar på båda hubbarna och håller dem synkroniserade som registreringar i. Den här metoden fungerar inte bra på grund av tendensen av att registreringarna upphör att gälla på PNS-sidan. Notification Hubs rensar dem när de får PNS feedback om förfallna eller ogiltiga registreringar.  
+2. Se till att den sekundära Notification-hubben synkroniseras med den primära Notification-hubben med något av följande alternativ:
 
-Vi har två rekommendationer för App-Server delar:
+   * Använd en app-server del som samtidigt skapar och uppdaterar installationer i båda Notification Hub. Med installationer kan du ange en egen unik enhets identifierare, vilket gör den lämpligare för replikeringsrelationen. Mer information finns i den här [exempel koden](https://github.com/Azure/azure-notificationhubs-dotnet/tree/main/Samples/RedundantHubSample).
+   * Använd en app-backend som hämtar en vanlig dumpning av registreringar från den primära Notification Hub som en säkerhets kopia. Den kan sedan utföra en Mass infogning i den sekundära meddelande hubben.
 
-* Använd en app-backend som innehåller en specifik uppsättning registreringar i slutet. Den kan sedan utföra en Mass infogning i den sekundära meddelande hubben.
-* Använd en app-backend som hämtar en vanlig dumpning av registreringar från den primära Notification Hub som en säkerhets kopia. Den kan sedan utföra en Mass infogning i den sekundära meddelande hubben.
-
-> [!NOTE]
-> Registreringar av export-och import funktioner som är tillgängliga på standard nivån beskrivs i dokument för [export/import av registreringar] .
+Den sekundära Notification-hubben kan få slut på installationer/registreringar som har upphört att gälla. När push-meddelandet görs till en utgångs referens rensar Notification Hubs automatiskt den associerade installations-/registrerings posten baserat på svaret från PNS-servern. Om du vill rensa utgångna poster från en sekundär meddelande hubb lägger du till anpassad logik som bearbetar feedback från varje sändning. Sedan väljer du att installera/registrera i den sekundära Notification Hub.
 
 Om du inte har en server del, när appen startar på mål enheter, utför de en ny registrering i den sekundära Notification Hub. Slutligen kommer den sekundära meddelande hubben att alla aktiva enheter har registrerats.
 
@@ -195,12 +192,12 @@ Du kan också program mässigt komma åt Mät värden. Mer information finns i f
 
 - [Hämta Azure Monitor mått med .net](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/). I det här exemplet används användar namn och lösen ord. Om du vill använda ett certifikat överbelastar du FromServicePrincipal-metoden för att tillhandahålla ett certifikat som visas i [det här exemplet](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs). 
 - [Hämta mått och aktivitets loggar för en resurs](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)
-- [Genom gång av Azure Monitoring REST API](../azure-monitor/platform/rest-api-walkthrough.md)
+- [Genomgång av REST-API:et för Azure Monitoring](../azure-monitor/platform/rest-api-walkthrough.md)
 
 > [!NOTE]
 > Lyckade meddelanden innebär bara att push-meddelanden har levererats till den externa PNS (till exempel APN för iOS och macOS eller FCM för Android-enheter). Det åligger PNS att leverera meddelanden till mål enheter. Normalt visar PNS inte leverans måtten för tredje part.  
 
-[Azure Portal]: https://portal.azure.com
+[Azure-portalen]: https://portal.azure.com
 [Notification Hubs priser]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
 [Notification Hubs REST-API: er]: /previous-versions/azure/reference/dn530746(v=azure.100)
@@ -212,6 +209,6 @@ Du kan också program mässigt komma åt Mät värden. Mer information finns i f
 [Notification Hubs fel sökning]: ./notification-hubs-push-notification-fixer.md
 [Notification Hubs mått]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
 [Export/import av registreringar]: ./export-modify-registrations-bulk.md
-[Azure Portal]: https://portal.azure.com
+[Azure-portalen]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [App Service Pricing]: https://azure.microsoft.com/pricing/details/app-service/

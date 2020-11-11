@@ -4,15 +4,15 @@ description: Den här artikeln beskriver berättiganderegler och krav för publi
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 09/04/2020
-ms.openlocfilehash: 0b4941d326359a51ff6a75385a74a8bcdabfa075
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 17b53d656d0344e4178b3034a972e26d6aa0bc15
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129005"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94492114"
 ---
 # <a name="determine-your-publishing-option"></a>Fastställa publiceringsalternativ
 
@@ -54,9 +54,9 @@ De List alternativ som är tillgängliga erbjuder differentierade kund engageman
 | **Publicerings alternativ**    | **Beskrivning**  |
 | :------------------- | :-------------------|
 | **Lista** | En enkel lista över ditt program eller din tjänst som gör det möjligt för en kommersiell Marketplace-användare att begära att du ansluter till kunden via alternativ för **kontakt** listan. |
-| **Utvärdering** | Använd den kommersiella Marketplace för att förbättra identifieringen och automatisera etableringen av lösningens utvärderings version, vilket gör det möjligt för potentiella användare att använda din SaaS, IaaS eller Microsoft app-upplevelse utan kostnad under en begränsad tid innan de köper. De List alternativ som används för publicerings alternativet för utvärdering är antingen **kostnads fria utvärderings versioner** eller **test enheter** . |
-| **BYOL** | Använd den kommersiella Marketplace för att förbättra identifieringen och automatisera etableringen av din lösning och slutföra den finansiella transaktionen separat. Typer av BYOL-erbjudanden är idealiska för lokala och molnbaserade migreringar. List alternativet hämtas **nu** .
-| **Transaktion** | Transact-erbjudanden säljs via den kommersiella marknads platsen. Microsoft ansvarar för fakturering och samlingar. List alternativet hämtas **nu** .|
+| **Utvärdering** | Använd den kommersiella Marketplace för att förbättra identifieringen och automatisera etableringen av lösningens utvärderings version, vilket gör det möjligt för potentiella användare att använda din SaaS, IaaS eller Microsoft app-upplevelse utan kostnad under en begränsad tid innan de köper. De List alternativ som används för publicerings alternativet för utvärdering är antingen **kostnads fria utvärderings versioner** eller **test enheter**. |
+| **BYOL** | Använd den kommersiella Marketplace för att förbättra identifieringen och automatisera etableringen av din lösning och slutföra den finansiella transaktionen separat. Typer av BYOL-erbjudanden är idealiska för lokala och molnbaserade migreringar. List alternativet hämtas **nu**.
+| **Transaktion** | Transact-erbjudanden säljs via den kommersiella marknads platsen. Microsoft ansvarar för fakturering och samlingar. List alternativet hämtas **nu**.|
 
 > [!Note]
 > När du använder alternativet för Transact-publicering är det viktigt att förstå pris-, fakturerings-, fakturerings-och utbetalnings aspekter innan du väljer en erbjudande typ och skapar ditt erbjudande. Läs mer i artikeln om de [kommersiella Transact-funktionerna i Marketplace](./marketplace-commercial-transaction-capabilities-and-considerations.md).

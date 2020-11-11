@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
-ms.openlocfilehash: 9719aea3a16a07f8c4ccbd21ea53c8b8982aefd5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 7260683ab42a64381f80af834ee2b3945b0c1e4c
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674988"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490924"
 ---
 # <a name="azure-for-students"></a>Microsoft Azure for Students
 
@@ -20,7 +20,7 @@ Via Azure dev tools för att lära sig program kan studenter som har en aktuell 
 
 Med Azure för studenter får du en $100 kredit i 12 månader. Den innehåller till gång till fler än 25 kostnads fria tjänster, inklusive beräkning, nätverk, lagring och databaser. Eventuella kostnader som uppkommer under denna period dras från krediten. Du kan se din återstående kredit på [portalen för Azure-sponsring](https://www.microsoftazuresponsorships.com/).
 
-När du har förbrukat din tillgängliga kredit eller nått slutet av 12 månader inaktive ras din Azure-prenumeration. Azure för studenter-prenumerationen har inte förnyats. Om du vill fortsätta använda Azure kan du uppgradera till en prenumeration där du betalar per användning i Azure- [konto portalen](https://account.azure.com/). Om du väljer att inte uppgradera i slutet av 12 månader eller när du har förbrukat din $100 kredit, beroende på vilket som inträffar först, inaktive ras de produkter som du har distribuerat och du kan inte komma åt dem. Du har 90 dagar från slutet av din kostnads fria prenumeration för att uppgradera till en prenumeration där du betalar per användning.
+När du har förbrukat din tillgängliga kredit eller nått slutet av 12 månader inaktive ras din Azure-prenumeration. Azure för studenter-prenumerationen har inte förnyats. Om du vill fortsätta använda Azure kan du uppgradera till en prenumeration där du betalar per användning i [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Om du väljer att inte uppgradera i slutet av 12 månader eller när du har förbrukat din $100 kredit, beroende på vilket som inträffar först, inaktive ras de produkter som du har distribuerat och du kan inte komma åt dem. Du har 90 dagar från slutet av din kostnads fria prenumeration för att uppgradera till en prenumeration där du betalar per användning.
 
 För att få detaljerade användnings villkor för Azure för studenter, se [villkoren för erbjudandet](https://azure.microsoft.com/offers/ms-azr-0170p/).
 

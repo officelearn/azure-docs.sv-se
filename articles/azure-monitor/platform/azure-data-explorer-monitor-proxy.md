@@ -7,12 +7,12 @@ ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 8a503a5456fc28bd1b3ebb69c784fc59b3c6e7df
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 9b434c426264fcfee0dfe663a7d1b21a354badec
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92050075"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491264"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Fråga efter data i Azure Monitor med Azure Datautforskaren (förhands granskning)
 Med Azure Datautforskaren proxy-klustret kan du utföra kors produkt frågor mellan Azure Datautforskaren, Log Analytics arbets ytor och klassiska Application Insights program i Azure Monitor. Du kan mappa Log Analytics arbets ytor i Azure Monitor eller klassiska Application Insights appar som proxy-kluster. Du kan sedan fråga proxy-klustret med hjälp av Azure Datautforskaren-verktyg och se det i en kors kluster fråga. Artikeln visar hur du ansluter till ett proxy-kluster, lägger till ett proxy-kluster i Azure Datautforskaren Web UI och kör frågor mot dina Log Analytics-arbetsytor eller klassiska Application Insights-appar från Azure Datautforskaren.
@@ -28,7 +28,7 @@ Följande diagram visar Azure Datautforskaren proxy-flödet:
 ## <a name="connect-to-the-proxy"></a>Anslut till proxyn
 Om du vill ansluta din Log Analytics arbets yta eller klassisk Application Insights-App öppnar du[Azure datautforskaren-WEBBgränssnittet](https://dataexplorer.azure.com/clusters). Verifiera att ditt Azure Datautforskaren interna kluster (till exempel *Hjälp* kluster) visas på den vänstra menyn innan du ansluter till Log Analytics eller Application Insights klustret.
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-data-explorer-web-ui-help-cluster.png" alt-text="Proxy-flöde för Azure Data Explorer.":::
+:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-data-explorer-web-ui-help-cluster.png" alt-text="Azure Datautforskaren internt kluster.":::
 
 Klicka på **Lägg till kluster** och Lägg sedan till URL: en för Log Analytics eller Application Insights klustret i något av följande format. 
     
@@ -37,14 +37,14 @@ Klicka på **Lägg till kluster** och Lägg sedan till URL: en för Log Analytic
 
 Klicka på **Lägg till** för att ansluta.
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-add-cluster.png" alt-text="Proxy-flöde för Azure Data Explorer.":::
+:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-add-cluster.png" alt-text="Lägg till kluster.":::
  
 > [!NOTE]
 > Om du lägger till en anslutning till fler än ett proxy-kluster måste du ange ett annat namn. Annars har de samma namn i det vänstra fönstret.
 
 När anslutningen har upprättats visas Log Analytics eller Application Insights klustret i det vänstra fönstret med ditt interna Azure Datautforskaren-kluster. 
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-azure-data-explorer-clusters.png" alt-text="Proxy-flöde för Azure Data Explorer.":::
+:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-azure-data-explorer-clusters.png" alt-text="Log Analytics och Azure Datautforskaren-kluster.":::
  
 > [!NOTE]
 > Antalet Azure Monitor arbets ytor som kan mappas är begränsat till 100.
@@ -70,7 +70,7 @@ Kör frågor på Log Analytics eller Application Insights klustret. Kontrol lera
 Perf | take 10 // Demonstrate query through the proxy on the Log Analaytics workspace
 ```
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-query-la.png" alt-text="Proxy-flöde för Azure Data Explorer.":::
+:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-query-la.png" alt-text="Fråga Log Analytics-arbetsyta.":::
 
 ### <a name="cross-query-of-your-log-analytics-or-application-insights-proxy-cluster-and-the-azure-data-explorer-native-cluster"></a>Kors fråga för ditt Log Analytics-eller Application Insights-proxy-kluster och Azure Datautforskaren internt kluster
 
@@ -85,7 +85,7 @@ union StormEvents, cluster('https://ade.loganalytics.io/subscriptions/<subscript
 let CL1 = 'https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>';
 union <Azure Data Explorer table>, cluster(CL1).database(<workspace-name>).<table name>
 ```
-Genom att använda [ `join` operatorn](/azure/data-explorer/kusto/query/joinoperator?pivots=azuredataexplorer)i stället för union kan du behöva en [ledtråd](/azure/data-explorer/kusto/query/joinoperator?pivots=azuredataexplorer#join-hints) för att köra den på ett internt Azure datautforskaren-kluster (och inte på proxyn). 
+Genom att använda [ `join` operatorn](/azure/data-explorer/kusto/query/joinoperator?pivots=azuremonitor)i stället för union kan du behöva en [ledtråd](/azure/data-explorer/kusto/query/joinoperator?pivots=azuremonitor#join-hints) för att köra den på ett internt Azure datautforskaren-kluster (och inte på proxyn). 
 
 ### <a name="join-data-from-an-azure-data-explorer-cluster-in-one-tenant-with-an-azure-monitor-resource-in-another"></a>Koppla data från ett Azure Datautforskaren-kluster i en klient organisation med en Azure Monitor-resurs i en annan
 
@@ -113,7 +113,7 @@ Följande kommandon stöds av proxyn:
 
 Följande bild visar ett exempel på att fråga en tabell funktion från Azure Datautforskaren Web UI. Om du vill använda funktionen kör du namnet i frågefönstret.
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-function-query.png" alt-text="Proxy-flöde för Azure Data Explorer.":::
+:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-function-query.png" alt-text="Fråga en tabell funktion från Azure Datautforskaren Web UI.":::
  
 > [!NOTE]
 > Azure Monitor stöder endast tabell funktioner, som inte stöder parametrar.
@@ -124,7 +124,7 @@ Följande syntax är tillgängliga när du anropar Log Analytics-eller Applicati
 
 |Beskrivning av syntax  |Application Insights  |Log Analytics  |
 |----------------|---------|---------|
-| Databas i ett kluster som bara innehåller den definierade resursen i den här prenumerationen (**rekommenderas för kors kluster frågor**) |   kluster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>').database('<ai-app-name>` ) | kluster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>` )     |
+| Databas i ett kluster som bara innehåller den definierade resursen i den här prenumerationen ( **rekommenderas för kors kluster frågor** ) |   kluster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>').database('<ai-app-name>` ) | kluster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>` )     |
 | Kluster som innehåller alla appar/arbets ytor i den här prenumerationen    |     kluster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>` )    |    kluster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>` )     |
 |Kluster som innehåller alla appar/arbets ytor i prenumerationen och som är medlemmar i den här resurs gruppen    |   kluster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>` )      |    kluster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>` )      |
 |Kluster som bara innehåller den definierade resursen i den här prenumerationen      |    kluster ( `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>` )    |  kluster ( `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>` )     |

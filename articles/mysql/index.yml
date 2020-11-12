@@ -3,17 +3,17 @@ title: Azure Database for MySQL-dokumentation
 summary: Azure Database for MySQL är en relationsdatabastjänst som drivs av MySQL Community Edition. Du kan vara värd för en MySQL-databas i Azure med hjälp av antingen enskild server eller flexibel server (förhandsversion). Det är en fullständigt hanterad databas som en tjänst som används för att hantera verksamhetskritiska arbetsbelastningar med förutsägbar prestanda och dynamisk skalbarhet.
 metadata:
   description: Azure Database for MySQL är en relationsdatabastjänst i Microsoft-molnet som är utformad för utvecklare och som drivs av MySQL Community Edition. Du kan välja att distribuera en MySQL-databas i Azure med antingen enskild server eller flexibel server (förhandsversion).
-  author: ajlam
-  ms.author: andrela
+  author: savjani
+  ms.author: pariks
   ms.date: 09/03/2019
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: 9ac045aac0587f7080ab7df277522674ca603040
-  ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+  ms.openlocfilehash: 82c736b3256a099aa0dbd2edca14f402a3b935be
+  ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 10/26/2020
-  ms.locfileid: "92546304"
+  ms.lasthandoff: 11/12/2020
+  ms.locfileid: "94543042"
 landingContent:
 - title: Om Azure Database for MySQL
   linkLists:

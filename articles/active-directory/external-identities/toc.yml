@@ -10,6 +10,8 @@
           href: what-is-b2b.md
         - name: Vad är Azure AD B2C?
           href: ../../active-directory-b2c/overview.md
+        - name: Nyheter i Docs
+          href: whats-new-docs.md
     - name: Snabbstarter
       items:
         - name: Lägga till gästanvändare på portalen

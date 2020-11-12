@@ -72,7 +72,7 @@
           href: container-instances-vnet.md
         - name: Distribuera från Azure Container Registry
           href: container-instances-using-azure-container-registry.md
-        - name: Distribuera med GitHub Actions (förhandsversion)
+        - name: Distribuera med GitHub-åtgärder
           href: container-instances-github-action.md
         - name: Kryptera distributionsdata
           href: container-instances-encrypt-data.md

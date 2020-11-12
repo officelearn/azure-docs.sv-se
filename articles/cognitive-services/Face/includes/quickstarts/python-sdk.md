@@ -7,24 +7,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: include
-ms.date: 10/26/2020
+ms.date: 11/10/2020
 ms.author: pafarley
-ms.openlocfilehash: ec23ec58a020cc314f301e33b72b4787f4e32e14
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: cf7b82ec1da660ac68c6031434c0e0748ee67b3d
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92924979"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94523696"
 ---
 Kom igång med ansikts igenkänning med ansikts klient biblioteket för python. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. Ansikts tjänsten ger dig till gång till avancerade algoritmer för att identifiera och identifiera mänskliga ansikten i bilder.
 
 Använd ansikts klient biblioteket för python för att:
 
-* Identifiera ansikten i en bild
-* Hitta liknande ansikten
-* Skapa och träna en person grupp
-* Identifiera ett ansikte
-* Verifiera ansikten
+* [Identifiera ansikten i en bild](#detect-faces-in-an-image)
+* [Hitta liknande ansikten](#find-similar-faces)
+* [Skapa och träna en person grupp](#create-and-train-a-person-group)
+* [Identifiera ett ansikte](#identify-a-face)
+* [Verifiera ansikten](#verify-faces)
 
 [Referens dokumentation](/python/api/azure-cognitiveservices-vision-face/?view=azure-python)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face)  |  [Paket (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/)  |  [Exempel](/samples/browse/?products=azure&term=face)
 
@@ -32,7 +32,7 @@ Använd ansikts klient biblioteket för python för att:
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
 * [Python 3.x](https://www.python.org/)
-* När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title=" skapar du en ansikts resurs "  target="_blank"> skapa en ansikts resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs** .
+* När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title=" skapar du en ansikts resurs "  target="_blank"> skapa en ansikts resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
     * Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till Ansikts-API. Du klistrar in nyckeln och slut punkten i koden nedan i snabb starten.
     * Du kan använda den kostnads fria pris nivån ( `F0` ) för att testa tjänsten och senare uppgradera till en betald nivå för produktion.
 
@@ -60,7 +60,7 @@ Skapa sedan variabler för resursens Azure-slutpunkt och nyckel.
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_subvars)]
 
 > [!IMPORTANT]
-> Gå till Azure-portalen. Om resursen [produkt namn] som du skapade i avsnittet **krav** har distribuerats, klickar du på knappen **gå till resurs** under **Nästa steg** . Du hittar din nyckel och slut punkt i resursens **nyckel och slut punkts** sida under **resurs hantering** . 
+> Gå till Azure-portalen. Om resursen [produkt namn] som du skapade i avsnittet **krav** har distribuerats, klickar du på knappen **gå till resurs** under **Nästa steg**. Du hittar din nyckel och slut punkt i resursens **nyckel och slut punkts** sida under **resurs hantering**. 
 >
 > Kom ihåg att ta bort nyckeln från koden när du är klar och publicera den aldrig offentligt. För produktion bör du överväga att använda ett säkert sätt att lagra och komma åt dina autentiseringsuppgifter. Till exempel [Azure Key Vault](../../../../key-vault/general/overview.md).
 
@@ -68,7 +68,7 @@ Skapa sedan variabler för resursens Azure-slutpunkt och nyckel.
 
 Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna i ansikts python-klient biblioteket.
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |[FaceClient](/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.faceclient?view=azure-python) | Den här klassen representerar ditt tillstånd att använda ansikts tjänsten och du behöver den för alla ansikts funktioner. Du instansierar det med din prenumerations information och använder den för att skapa instanser av andra klasser. |
 |[FaceOperations](/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.faceoperations?view=azure-python)|Den här klassen hanterar de grundläggande identifierings-och igenkännings aktiviteter som du kan göra med människo ansikten. |
@@ -102,7 +102,7 @@ Följande kod identifierar en ansikts i en fjärran sluten avbildning. Den skriv
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_detect)]
 
 > [!TIP]
-> Du kan också identifiera ansikten i en lokal bild. Se [FaceOperations](/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.faceoperations?view=azure-python) -metoder som **detect_with_stream** .
+> Du kan också identifiera ansikten i en lokal bild. Se [FaceOperations](/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.faceoperations?view=azure-python) -metoder som **detect_with_stream**.
 
 ### <a name="display-and-frame-faces"></a>Visa och inrama ansikten
 
@@ -157,7 +157,7 @@ Följande kod sorterar bilderna efter prefix, identifierar ansikten och tilldela
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroup_assign)]
 
 > [!TIP]
-> Du kan också skapa en **PersonGroup** från fjärranslutna avbildningar som URL: en refererar till. Se [PersonGroupPersonOperations](/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.persongrouppersonoperations?view=azure-python) -metoder som **add_face_from_url** .
+> Du kan också skapa en **PersonGroup** från fjärranslutna avbildningar som URL: en refererar till. Se [PersonGroupPersonOperations](/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.persongrouppersonoperations?view=azure-python) -metoder som **add_face_from_url**.
 
 ### <a name="train-persongroup"></a>Träna PersonGroup
 
@@ -180,7 +180,7 @@ Följande kod söker i roten i projektet efter en bild _test-image-person-group.
 
 ### <a name="identify-faces"></a>Identifiera ansikten
 
-**Identifiera** -metoden tar en matris med identifierade ansikten och jämför dem med en **PersonGroup** . Om den kan matcha ett identifierat ansikte till en **person** sparas resultatet. Den här koden skriver ut detaljerade matchnings resultat till-konsolen.
+**Identifiera** -metoden tar en matris med identifierade ansikten och jämför dem med en **PersonGroup**. Om den kan matcha ett identifierat ansikte till en **person** sparas resultatet. Den här koden skriver ut detaljerade matchnings resultat till-konsolen.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_identify)]
 

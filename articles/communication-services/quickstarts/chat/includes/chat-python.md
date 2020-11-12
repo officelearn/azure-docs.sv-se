@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: azure-communication-services
 author: mikben
 manager: mikben
@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 3c05596e16edc5243b8a97002a5cc5990c69ec43
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2b7d00335253772683b867acf0765b77fc493e79
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90948078"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94523858"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 Innan du börjar ska du se till att:
@@ -85,7 +85,7 @@ chat_client = ChatClient(endpoint, CommunicationUserCredential(<Access Token>))
 Använd `create_chat_thread` metoden för att skapa en chatt-tråd.
 
 - Använd `topic` för att ge ett tråd ämne. Ämnet kan uppdateras när chatt-tråden har skapats med hjälp av `update_thread` funktionen.
-- Använd `members` för att visa en lista över `ChatThreadMember` som ska läggas till i chatten. `ChatThreadMember` tar med `CommunicationUser` typ som det `user` du fick när du skapade genom att [skapa en användare](../../access-tokens.md#create-a-user)
+- Använd `members` för att visa en lista över `ChatThreadMember` som ska läggas till i chatten. `ChatThreadMember` tar med `CommunicationUser` typ som det `user` du fick när du skapade genom att [skapa en användare](../../access-tokens.md#create-an-identity)
 
 Svaret `chat_thread_client` används för att utföra åtgärder på den nyskapade chatt-tråden som att lägga till medlemmar i chatt-tråden, skicka meddelande, ta bort meddelande, osv. Den innehåller en `thread_id` egenskap som är det unika ID: t för chatt-tråden.
 
@@ -158,7 +158,7 @@ När en chatt-tråd har skapats kan du lägga till och ta bort användare från 
 Använd `add_members` metoden för att lägga till tråd medlemmar i den tråd som identifieras av threadId.
 
 - Används `members` för att visa en lista över medlemmar som ska läggas till i chatten.
-- `user`, krävs, är `CommunicationUser` du skapade av `CommunicationIdentityClient` vid [skapa en användare](../../access-tokens.md#create-a-user)
+- `user`, krävs, är `CommunicationUser` du skapade av `CommunicationIdentityClient` vid [skapa en användare](../../access-tokens.md#create-an-identity)
 - `display_name`, valfritt är visnings namnet för tråd medlemmen.
 - `share_history_time`, valfritt, är den tid som chatt-historiken delas med medlemmen. Om du vill dela historiken på grund av att chatten är i gång, anger du den här egenskapen till ett datum som är lika med eller mindre än tiden för tråd skapande. Om du inte vill dela någon historik tidigare när medlemmen lades till, ställer du in den på det aktuella datumet. Om du vill dela partiell historik anger du ett mellanliggande datum.
 

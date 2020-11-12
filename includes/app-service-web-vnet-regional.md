@@ -2,14 +2,14 @@
 author: ccompy
 ms.service: app-service-web
 ms.topic: include
-ms.date: 06/08/2020
+ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 14b9d9fe0eb9dfe2f25373c2d87d9b4af15dd0d9
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 1a9f468b8e2f9fff20b9b26b8890d485e426b691
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94371603"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94523990"
 ---
 Genom att använda regional VNet-integrering kan din app komma åt:
 
@@ -18,7 +18,7 @@ Genom att använda regional VNet-integrering kan din app komma åt:
 * Säkra tjänster för tjänst slut punkt.
 * Resurser över Azure ExpressRoute-anslutningar.
 * Resurser i det virtuella nätverk som du är integrerad med.
-* Resurser mellan peer-anslutningar, som innehåller Azure ExpressRoute-anslutningar.
+* Resurser mellan peer-anslutningar, inklusive Azure ExpressRoute-anslutningar.
 * Privata slut punkter 
 
 När du använder VNet-integrering med virtuella nätverk i samma region kan du använda följande funktioner i Azure-nätverk:
@@ -42,10 +42,10 @@ Som standard dirigerar din app endast RFC1918 trafik till ditt VNet. Om du vill 
 Det finns vissa begränsningar med att använda VNet-integrering med virtuella nätverk i samma region:
 
 * Du kan inte komma åt resurser över global peering anslutningar.
-* Funktionen är endast tillgänglig från nyare Azure App Service skalnings enheter som stöder PremiumV2 App Service-planer. Observera att *detta inte innebär att din app måste köras på en PremiumV2-pris nivå* , bara att den måste köras i en app service plan där alternativet PremiumV2 är tillgängligt (vilket innebär att det är en nyare skalnings enhet där denna VNet-integrering också är tillgänglig).
+* Funktionen är tillgänglig från alla App Service skalnings enheter i Premium v2 och Premium v3. Den är också tillgänglig i standard men endast från nyare App Service skalnings enheter. Om du använder en äldre skalnings enhet kan du bara använda funktionen från en Premium v2-App Service plan. Om du vill vara säker på att kunna använda funktionen i en standard App Service plan skapar du din app i en Premium v3-App Service plan. Dessa planer stöds endast på våra nyaste skalnings enheter. Du kan skala ned om du vill.  
 * Integrations under nätet kan bara användas av en App Service plan.
 * Funktionen kan inte användas av isolerade plan-appar som finns i en App Service-miljön.
-* Funktionen kräver ett oanvänt undernät som är a/27 med 32 adresser eller större i ett Azure Resource Manager VNet.
+* Funktionen kräver ett oanvänt undernät som är a/28 eller större i ett Azure Resource Manager VNet.
 * Appen och VNet måste finnas i samma region.
 * Du kan inte ta bort ett VNet med en integrerad app. Ta bort integrationen innan du tar bort det virtuella nätverket.
 * Du kan bara integrera med virtuella nätverk i samma prenumeration som appen.
@@ -53,7 +53,21 @@ Det finns vissa begränsningar med att använda VNet-integrering med virtuella n
 * Du kan inte ändra prenumerationen på en app eller en plan när det finns en app som använder regional VNet-integrering.
 * Din app kan inte matcha adresser i Azure DNS Private Zones utan konfigurations ändringar
 
-En adress används för varje plan instans. Om du skalar din app till fem instanser används fem adresser. Eftersom det inte går att ändra under näts storleken efter tilldelningen, måste du använda ett undernät som är tillräckligt stort för att anpassa vilken skala appen kan komma åt. En/26 med 64-adresser är den rekommenderade storleken. A/26 med 64 adresser uppfyller en Premium-plan med 30 instanser. När du skalar upp eller ned en plan behöver du två gånger så många adresser under en kort tids period.
+VNet-integreringen är beroende av att ett dedikerat undernät används.  När du etablerar ett undernät förlorar Azure-undernätet 5 IP-adresser för från början. En adress används från integrations under nätet för varje plan instans. Om du skalar din app till fyra instanser används fyra adresser. Debet med 5 adresser från under näts storleken innebär att maximalt antal tillgängliga adresser per CIDR-block är:
+
+- /28 har 11 adresser
+- /27 har 27 adress
+- /26 har 59 adresser
+
+Om du skalar upp eller ned i storlek måste du dubblera dina adress behov under en kort tids period. Gränserna i storlek innebär att de tillgängliga instanser som stöds per under näts storlek är tillgängliga, om ditt undernät är ett:
+
+- /28, din maximala vågräta skala är 5 instanser
+- /27 är din maximala vågräta skala 13 instanser
+- /26 är din maximala horisontella skalning 29 instanser
+
+De gränser som anges vid maximal horisontell skala förutsätter att du behöver skala upp eller ned i antingen storlek eller SKU. 
+
+Eftersom under näts storleken inte kan ändras efter tilldelningen använder du ett undernät som är tillräckligt stort för att anpassa vilken skala appen kan komma åt. För att undvika problem med under näts kapaciteten är en/26 med 64 adresser den rekommenderade storleken.  
 
 Om du vill att dina appar i en annan plan ska kunna komma åt ett VNet som redan är anslutet till av appar i ett annat abonnemang väljer du ett annat undernät än det som används av den befintliga VNet-integreringen.
 
@@ -82,21 +96,15 @@ Border Gateway Protocol (BGP) vägar påverkar också din app-trafik. Om du har 
 
 ### <a name="azure-dns-private-zones"></a>Azure DNS Private Zones 
 
-När din app har integrerats med ditt VNet, använder den samma DNS-server som ditt VNet har kon figurer ATS med. Som standard fungerar inte appen med Azure DNS Private Zones. Om du vill arbeta med Azure DNS Private Zones måste du lägga till följande appinställningar:
-
-1. WEBSITE_DNS_SERVER med värdet 168.63.129.16
-1. WEBSITE_VNET_ROUTE_ALL med värdet 1
-
-De här inställningarna kommer att skicka alla utgående samtal från din app till ditt VNet. Dessutom kommer appen att tillåta att appen använder Azure DNS genom att fråga zonen Privat DNS på arbets nivå. Den här funktionen ska användas när en app som körs har åtkomst till en Privat DNS zon.
-
-> [!NOTE]
->Det går inte att lägga till en anpassad domän i en webbapp som använder Privat DNS zon med VNET-integration. Anpassad domän verifiering görs på styrenhets nivå, inte på arbets nivå, vilket förhindrar att DNS-poster visas. Om du vill använda en anpassad domän från en Privat DNS zon måste verifieringen kringgås med en Application Gateway-eller ILB-App Service-miljön.
-
-
+När din app har integrerats med ditt VNet, använder den samma DNS-server som ditt VNet har kon figurer ATS med. Du kan åsidosätta det här beteendet i appen genom att konfigurera appens inställning WEBSITE_DNS_SERVER med adressen till önskad DNS-server. Om du har konfigurerat en anpassad DNS-server som har kon figurer ATS med ditt VNet men vill att appen ska använda Azure DNS privata zoner, bör du ange WEBSITE_DNS_SERVER med värdet 168.63.129.16. 
 
 ### <a name="private-endpoints"></a>Privata slut punkter
 
-Om du vill göra anrop till [privata slut punkter][privateendpoints]måste du antingen integrera med Azure DNS Private Zones eller hantera den privata slut punkten på den DNS-server som används av din app. 
+Om du vill göra anrop till [privata slut punkter][privateendpoints]måste du kontrol lera att dina DNS-sökningar kommer att matcha den privata slut punkten. För att säkerställa att DNS-sökningarna från din app pekar på dina privata slut punkter kan du:
+
+* integrera med Azure DNS Private Zones. Om ditt VNet inte har en anpassad DNS-server är detta automatiskt
+* hantera den privata slut punkten på den DNS-server som används av din app. Om du vill göra det måste du känna till adressen till den privata slut punkten och sedan peka den slut punkt som du försöker ansluta till adressen med en A-post.
+* Konfigurera din egen DNS-server att vidarebefordra till Azure DNS privata zoner
 
 <!--Image references-->
 [4]: ../includes/media/web-sites-integrate-with-vnet/vnetint-appsetting.png

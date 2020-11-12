@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: azure-communication-services
 author: mikben
 manager: mikben
@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 994f2829d260223567dcb5aed859812aa1fef3d1
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 5eb9867b17151987b165021f42a075e9355a315d
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91829137"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94523920"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 Innan du börjar ska du se till att:
@@ -53,7 +53,7 @@ dotnet add package Azure.Communication.Chat --version 1.0.0-beta.2
 
 Följande klasser hanterar några av de viktigaste funktionerna i Azure Communication Servicess Chat-klient bibliotek för C#.
 
-| Name                                  | Beskrivning                                                  |
+| Namn                                  | Beskrivning                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | ChatClient | Den här klassen krävs för chatt-funktionen. Du instansierar den med din prenumerations information och använder den för att skapa, hämta och ta bort trådar. |
 | ChatThreadClient | Den här klassen krävs för chatt-trådens funktion. Du får en instans via ChatClient och använder den för att skicka/ta emot/uppdatera/ta bort meddelanden, lägga till/ta bort/hämta användare, skicka meddelanden och läsa kvitton. |
@@ -77,7 +77,7 @@ ChatClient chatClient = new ChatClient(endpoint, communicationUserCredential);
 
 Använd `createChatThread` metoden för att skapa en chatt-tråd.
 - Används `topic` för att ge ett ämne till den här chatten. Ämnet kan uppdateras när chatt-tråden har skapats med hjälp av `UpdateThread` funktionen.
-- Använd `members` egenskap för att skicka en lista med `ChatThreadMember` objekt som ska läggas till i chatt-tråden. `ChatThreadMember`Objektet initieras med ett `CommunicationUser` objekt. Om du vill hämta ett `CommunicationUser` objekt måste du skicka ett åtkomst-ID som du skapade genom att följa anvisningarna för att [skapa en användare](../../access-tokens.md#create-a-user)
+- Använd `members` egenskap för att skicka en lista med `ChatThreadMember` objekt som ska läggas till i chatt-tråden. `ChatThreadMember`Objektet initieras med ett `CommunicationUser` objekt. Om du vill hämta ett `CommunicationUser` objekt måste du skicka ett åtkomst-ID som du skapade genom att följa anvisningarna för att [skapa en användare](../../access-tokens.md#create-an-identity)
 
 Svaret `chatThreadClient` används för att utföra åtgärder på den skapade chatt-tråden: lägga till medlemmar i chatten, skicka ett meddelande, ta bort ett meddelande, osv. Den innehåller det `Id` attribut som är det unika ID: t för chatt-tråden. 
 

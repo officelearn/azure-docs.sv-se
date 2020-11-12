@@ -1,18 +1,18 @@
 ---
 title: 'Självstudie: utforma en server – Azure Portal-Azure Database for MySQL'
 description: I den här självstudien beskrivs hur du skapar och hanterar Azure Database for MySQL server och databas med Azure Portal.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: tutorial
 ms.date: 3/20/2020
 ms.custom: mvc
-ms.openlocfilehash: f65be324a89958e25036df9adcd20f85ef4ca484
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 7559bc2246ca26cf2b14071396e075b28d2af3a7
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341203"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532689"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Självstudie: Utforma en Azure Database for MySQL-databas med Azure Portal
 
@@ -29,7 +29,7 @@ I den här självstudien använder du Azure-portalen till att:
 > * Uppdatera data
 > * Återställa data
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 

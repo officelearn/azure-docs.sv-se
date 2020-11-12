@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e42c889277f937a33e72eaf57819385166d6a409
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd90be6d93dc5ca399ac87daba0ca44fa7e88ff8
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85202322"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532502"
 ---
 # <a name="verification-display-control"></a>Verifierings kontroll
 
@@ -30,11 +30,9 @@ Verifierings visnings kontrollen består av två steg (åtgärder):
 
     ![Exempel sida för åtgärden skicka kod](media/display-control-verification/display-control-verification-email-action-01.png)
 
-1. När koden har skickats läser användaren meddelandet, anger verifierings koden i den kontroll som anges av visnings kontrollen och väljer **verifiera kod**. Genom att välja **verifiera kod**körs **VerifyCode-åtgärden** för att verifiera koden som är kopplad till adressen. Om användaren väljer **Skicka ny kod**utförs den första åtgärden igen.
+1. När koden har skickats läser användaren meddelandet, anger verifierings koden i den kontroll som anges av visnings kontrollen och väljer **verifiera kod**. Genom att välja **verifiera kod** körs **VerifyCode-åtgärden** för att verifiera koden som är kopplad till adressen. Om användaren väljer **Skicka ny kod** utförs den första åtgärden igen.
 
     ![Exempel sida för att verifiera kod åtgärd](media/display-control-verification/display-control-verification-email-action-02.png)
-
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="verificationcontrol-required-elements"></a>VerificationControl nödvändiga element
 
@@ -49,7 +47,7 @@ Verifierings visnings kontrollen består av två steg (åtgärder):
   - **SendCode** – skickar en kod till användaren. Den här åtgärden innehåller vanligt vis två validerings tekniska profiler, för att generera en kod och skicka den.
   - **VerifyCode** – verifierar koden. Den här åtgärden innehåller vanligt vis en teknisk profil med en validering.
 
-I exemplet nedan visas en **e-** posttext ruta på sidan. När användaren anger sin e-postadress och väljer **SendCode**utlöses **SendCode** -åtgärden i Azure AD B2C Server del.
+I exemplet nedan visas en **e-** posttext ruta på sidan. När användaren anger sin e-postadress och väljer **SendCode** utlöses **SendCode** -åtgärden i Azure AD B2C Server del.
 
 Sedan anger användaren **verificationCode** och väljer **VerifyCode** för att utlösa **VerifyCode** -åtgärden i Server delen. Om alla verifierings pass godkänns anses **VerificationControl** vara slutförd och användaren kan fortsätta till nästa steg.
 

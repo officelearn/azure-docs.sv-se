@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: alkohli
-ms.openlocfilehash: 99dd3da3f9e8434f9c859afd347bd19d10628083
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b66a184abce53c31fade19fc9e10ffe4c7ff8415
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90941356"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532451"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro-gpu"></a>Hantera åtkomst, energi och anslutnings läge för Azure Stack Edge Pro GPU
 
@@ -49,12 +49,12 @@ Följ de här stegen i det lokala användar gränssnittet för att ändra enhete
 
 1. I Azure Portal går du till **översikt > Återställ administratörs lösen ord**.
 
-    ![Återställa lösenord](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-1.png)
+    ![Skärm bild som visar enheten med återställt enhets lösen ord valt.](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-1.png)
 
 
 2. Ange det nya lösen ordet och bekräfta det sedan. Det angivna lösen ordet måste innehålla mellan 8 och 16 tecken. Lösen ordet måste innehålla 3 av följande tecken: versaler, gemener, siffror och specialtecken. Välj **Återställ**.
 
-    ![Återställa lösenord](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
+    ![Skärm bild som visar dialog rutan Återställ enhets lösen ord.](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## <a name="manage-resource-access"></a>Hantera företagsresurser
 
@@ -115,7 +115,7 @@ Förutom det fullständigt anslutna standard läget kan enheten också köras i 
 Följ dessa steg om du vill ändra enhets läge:
 
 1. I enhetens lokala webb gränssnitt går du till **konfiguration > molnet**.
-2. I list rutan väljer du det läge som du vill att enheten ska köras i. Du kan välja från **fullständigt anslutna**, **delvis anslutna**och **helt frånkopplade**. Aktivera **Azure Portal hantering**för att köra enheten i delvis frånkopplat läge.
+2. I list rutan väljer du det läge som du vill att enheten ska köras i. Du kan välja från **fullständigt anslutna** , **delvis anslutna** och **helt frånkopplade**. Aktivera **Azure Portal hantering** för att köra enheten i delvis frånkopplat läge.
 
  
 ## <a name="manage-power"></a>Hantera energi

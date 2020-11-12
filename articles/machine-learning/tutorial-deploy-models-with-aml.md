@@ -1,7 +1,7 @@
 ---
 title: 'Själv studie kurs om bild klassificering: Distribuera modeller'
 titleSuffix: Azure Machine Learning
-description: Den här själv studie kursen, som är en del av en serie i två delar, visar hur du använder Azure Machine Learning för att distribuera en bild klassificerings modell med scikit – lära dig i en python Jupyter Notebook.
+description: Den här självstudien visar hur du använder Azure Machine Learning för att distribuera en bild klassificerings modell med scikit – lära dig i en python Jupyter Notebook.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: cc048a523fabdd70c57cb5d75442d440a1753a79
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: ee6529f36c302cba1dc7b5a4b53aaf96ce58e4a5
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309555"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532791"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Självstudie: Distribuera en bild klassificerings modell i Azure Container Instances
 

@@ -4,19 +4,19 @@ description: Azure Functions stöder flera versioner av körnings miljön. Lär 
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 12/09/2019
-ms.openlocfilehash: 6641461e63d7c9452351f3b0b99a274d2714a92e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c67708b5c23667a7b0a1603b756d564b35fa0c3f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88208111"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533743"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Översikt över Azure Functions körnings versioner
 
 Azure Functions stöder för närvarande tre versioner av körnings värden: 1. x, 2. x och 3. x. Alla tre versioner stöds i produktions scenarier.  
 
 > [!IMPORTANT]
-> Version 1. x är i underhålls läge och stöder bara utveckling i Azure Portal eller lokalt på Windows-datorer. Förbättringar finns bara i senare versioner. 
+> Version 1. x är i underhålls läge och stöder bara utveckling i Azure Portal, Azure Stack Hub-portalen eller lokalt på Windows-datorer. Förbättringar finns bara i senare versioner. 
 
 I den här artikeln beskrivs några skillnader mellan olika versioner, hur du kan skapa varje version och hur du ändrar versioner.
 
@@ -200,4 +200,4 @@ Mer information finns i följande resurser:
 
 * [Koda och testa Azure Functions lokalt](functions-run-local.md)
 * [Så här riktar du Azure Functions runtime-versioner](set-runtime-version.md)
-* [Versionsanmärkningar](https://github.com/Azure/azure-functions-host/releases)
+* [Viktig information](https://github.com/Azure/azure-functions-host/releases)

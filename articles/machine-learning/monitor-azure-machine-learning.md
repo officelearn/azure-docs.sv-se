@@ -9,24 +9,26 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/01/2020
-ms.openlocfilehash: b8ca96dd0b11f7a4c76f7a954959ef5005fb4a40
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a77f9c8f7e37d2c5a040a48b6bd96bef11d51f14
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323982"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533488"
 ---
 # <a name="monitor-azure-machine-learning"></a>Övervaka Azure Machine Learning
 
 När du har viktiga program och affärs processer som förlitar sig på Azure-resurser, vill du övervaka resurserna för deras tillgänglighet, prestanda och drift. I den här artikeln beskrivs övervaknings data som genereras av Azure Machine Learning och hur du analyserar och varnar dessa data med Azure Monitor.
 
 > [!TIP]
-> Informationen i det här dokumentet är främst avsedd för administratörer, som beskriver övervakningen av Azure Machine Learning på *arbets ytans* nivå. Om du är data expert eller utvecklare och vill övervaka information som är unik för din *modell utbildning* , se följande dokument:
+> Informationen i det här dokumentet är främst avsedd för __Administratörer__ , som beskriver övervakningen av Azure Machine Learning tjänsten och tillhör ande Azure-tjänster. Om du är __data expert__ eller __utvecklare__ och vill övervaka information som är unik för din *modell utbildning* , se följande dokument:
 >
 > * [Starta, övervaka och avbryta inlärnings körningar](how-to-manage-runs.md)
 > * [Loggmått för träningskörningar](how-to-track-experiments.md)
 > * [Spåra experiment med MLflow](how-to-use-mlflow.md)
 > * [Visualisera körningar med TensorBoard](how-to-monitor-tensorboard.md)
+>
+> Om du vill övervaka information som genererats av modeller som har distribuerats som webb tjänster eller IoT Edge moduler, se [samla in modell data](how-to-enable-data-collection.md) och [övervaka med Application Insights](how-to-enable-app-insights.md).
 
 ## <a name="what-is-azure-monitor"></a>Vad är Azure Monitor?
 

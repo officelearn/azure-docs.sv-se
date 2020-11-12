@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 1f5281ead3c0487b6052859df3b33fa6ddaaf45a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 919d2989cf1d86320d89e8f263bb2a192c992fb4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91613330"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533182"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Snabb start: Logga in användare och hämta en åtkomsttoken i ett Java Script SPA
 
@@ -56,7 +56,7 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur ett
 > 1. Under **Kontotyper som stöds** väljer du **Accounts in any organizational directory and personal Microsoft accounts** (Konton i alla organisationskataloger och personliga Microsoft-konton).
 > 1. Välj **Register** (Registrera). På sidan **Översikt över** appar noterar du **programmets (klient) ID-** värde för senare användning.
 > 1. Den här snabbstarten kräver att [flödet för implicit beviljande](v2-oauth2-implicit-grant-flow.md) aktiveras. I det vänstra fönstret i det registrerade programmet väljer du **autentisering**.
-> 1. Under **plattforms konfiguration**väljer du **Lägg till en plattform**. En panel öppnas till vänster. Där väljer du region för **webb program** .
+> 1. Under **plattforms konfiguration** väljer du **Lägg till en plattform**. En panel öppnas till vänster. Där väljer du region för **webb program** .
 > 1. Fortfarande till vänster anger du **omdirigerings-URI** -värdet till `http://localhost:3000/` . Välj sedan **åtkomsttoken** och **ID-token**.
 > 1. Välj **Konfigurera**.
 
@@ -74,16 +74,16 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur ett
 > [!div renderon="docs"]
 > Om du vill köra projektet med en webb server med hjälp av Node.js [laddar du ned de centrala projektfilerna](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip).
 
-> [!div renderon="portal"]
+> [!div renderon="portal" class="sxs-lookup"]
 > Kör projektet med en webb server genom att använda Node.js
 
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [Ladda ned kod exemplet](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)
 
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-javascript-app"></a>Steg 3: Konfigurera din JavaScript-app
 >
-> I mappen *JavaScriptSPA* redigerar du *authConfig.js*och anger `clientID` `authority` `redirectUri` värdena och `msalConfig` .
+> I mappen *JavaScriptSPA* redigerar du *authConfig.js* och anger `clientID` `authority` `redirectUri` värdena och `msalConfig` .
 >
 > ```javascript
 >
@@ -102,7 +102,7 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur ett
 >
 >```
 
-> [!div renderon="portal"]
+> [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
 
@@ -112,12 +112,12 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur ett
 > - *\<Enter_the_Application_Id_Here>* är **program-ID: t (Client)** för det program som du har registrerat.
 > - *\<Enter_the_Cloud_Instance_Id_Here>* är instansen av Azure-molnet. För det största eller globala Azure-molnet anger du bara *https://login.microsoftonline.com* . För **nationella** moln (till exempel Kina), se [nationella moln](./authentication-national-cloud.md).
 > - *\<Enter_the_Tenant_info_here>* är inställt på något av följande alternativ:
->    - Om ditt program har stöd *för konton i den här organisations katalogen*ersätter du värdet med **klient-ID** eller **klient namn** (till exempel *contoso.Microsoft.com*).
->    - Om ditt program har stöd *för konton i en organisations katalog*ersätter du värdet med **organisationer**.
->    - Om ditt program har stöd *för konton i en organisations katalog och personliga Microsoft-konton*ersätter du värdet med **vanligt**. Om du bara vill begränsa stödet till *personliga Microsoft-konton*ersätter du värdet med **konsumenter**.
+>    - Om ditt program har stöd *för konton i den här organisations katalogen* ersätter du värdet med **klient-ID** eller **klient namn** (till exempel *contoso.Microsoft.com* ).
+>    - Om ditt program har stöd *för konton i en organisations katalog* ersätter du värdet med **organisationer**.
+>    - Om ditt program har stöd *för konton i en organisations katalog och personliga Microsoft-konton* ersätter du värdet med **vanligt**. Om du bara vill begränsa stödet till *personliga Microsoft-konton* ersätter du värdet med **konsumenter**.
 >
 > > [!TIP]
-> > För att hitta värdena för **program-ID (klient)**, **katalog-ID (klient)** och **Kontotyper som stöds** går du till appens **översiktssida** i Azure-portalen.
+> > För att hitta värdena för **program-ID (klient)** , **katalog-ID (klient)** och **Kontotyper som stöds** går du till appens **översiktssida** i Azure-portalen.
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Steg 3: appen har kon figurer ATS och är redo att köras
@@ -158,7 +158,7 @@ Kör projektet med en webb server genom att använda [Node.js](https://nodejs.or
 
 1. Välj **Logga** in för att starta inloggningen och anropa Microsoft Graph API.
 
-När webbläsaren har läst in programmet väljer du **Logga**in. Första gången du loggar in uppmanas du att ange ditt medgivande för att ge programmet åtkomst till din profil och att logga in dig. När du har loggat in visas din användar profil information på sidan.
+När webbläsaren har läst in programmet väljer du **Logga** in. Första gången du loggar in uppmanas du att ange ditt medgivande för att ge programmet åtkomst till din profil och att logga in dig. När du har loggat in visas din användar profil information på sidan.
 
 ## <a name="more-information"></a>Mer information
 
@@ -267,7 +267,7 @@ myMSALObj.acquireTokenSilent(tokenRequest)
 
 #### <a name="get-a-user-token-interactively"></a>Hämta en användartoken interaktivt
 
-Det finns situationer där du måste tvinga användare att interagera med Microsoft Identity Platform-slutpunkten. Till exempel:
+Det finns situationer där du måste tvinga användare att interagera med Microsoft Identity Platform-slutpunkten. Exempel:
 * Användare kan behöva ange sina autentiseringsuppgifter på grund av att deras lösen ord har upphört att gälla.
 * Ditt program begär åtkomst till ytterligare resurs omfattningar som användaren behöver godkänna.
 * Tvåfaktorautentisering krävs.

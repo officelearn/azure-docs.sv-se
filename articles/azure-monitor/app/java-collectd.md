@@ -3,17 +3,17 @@ title: Övervaka prestanda för Java-webbappar på Linux – Azure | Microsoft D
 description: Utökad program prestanda övervakning av din Java-webbplats med det insamlade plugin-programmet för Application Insights.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 63b64226c9e788e060298050a74d9009c8035b89
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: a4ce1ad6a8248680b8bdeec8a98195c3dbfe31a1
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379017"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532876"
 ---
-# <a name="collectd-linux-performance-metrics-in-application-insights"></a>insamlad: prestanda mått för Linux i Application Insights
+# <a name="collectd-linux-performance-metrics-in-application-insights-deprecated"></a>insamlad: prestanda mått för Linux i Application Insights [inaktuell]
 
 > [!IMPORTANT]
-> Den rekommenderade metoden för att övervaka Java-program är att använda den automatiska Instrumentation utan att ändra koden. Följ rikt linjerna för [Application Insights Java 3,0-agenten](./java-in-process-agent.md).
+> Den **rekommenderade metoden** för att övervaka Java-program är att använda den automatiska Instrumentation utan att ändra koden. Följ rikt linjerna för **[Application Insights Java 3,0-agenten](./java-in-process-agent.md)**.
 
 Om du vill utforska prestanda mått för Linux-system i [Application Insights](./app-insights-overview.md)installerar du [samlad](https://collectd.org/), tillsammans med dess Application Insights-plugin-program. Den här lösningen för öppen källkod samlar in olika system-och nätverks statistik.
 

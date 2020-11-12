@@ -4,12 +4,12 @@ description: Prestandaanalys och diagnostik för webbappar vid felsökning och i
 ms.topic: conceptual
 ms.date: 03/17/2017
 ms.custom: vs-azure
-ms.openlocfilehash: a3937719fd47ba988cf1e0a93f4c06fcc8112d3e
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: d2de29d897c84496fd44d74d88d58decbc64b7f8
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932217"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532910"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Felsöka dina program med Azure Application insikter i Visual Studio
 I Visual Studio (2015 och senare) kan du analysera prestanda och diagnostisera problem i din ASP.NET-webbapp både när du felsöker och i produktion med hjälp av telemetri från [Azure Application Insights](./app-insights-overview.md).
@@ -53,12 +53,12 @@ Undantagsrapporter visas i sökfönstret. (I vissa äldre versioner av ASP.NET m
 
 Klicka på ett undantag för att visa en stackspårning. Om koden för appen är öppen i Visual Studio kan du klicka dig igenom från stackspårningen till relevant kodrad.
 
-![Undantag för stackspårning](./media/visual-studio/17.png)
+![Skärm bild som visar objektet om i en stack-spår.](./media/visual-studio/17.png)
 
 ## <a name="view-request-and-exception-summaries-in-the-code"></a>Visa sammanfattningar av förfrågningar och undantag i koden
 I kod lins linjen ovanför varje hanterare-metod ser du antalet begär Anden och undantag som loggats av Application Insights under de senaste 24 h.
 
-![Undantag för stackspårning](./media/visual-studio/21.png)
+![Skärm bilden visar ett undantag i en dialog ruta i ett sammanhang.](./media/visual-studio/21.png)
 
 > [!NOTE] 
 > CodeLens visar Application Insights-data endast om du har [konfigurerat appen för att skicka telemetri till Application Insights-portalen](./asp-net.md).

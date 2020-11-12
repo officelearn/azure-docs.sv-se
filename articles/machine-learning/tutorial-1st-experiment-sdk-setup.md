@@ -1,7 +1,7 @@
 ---
 title: 'Självstudie: kom igång i Jupyter Notebooks (python)'
 titleSuffix: Azure Machine Learning
-description: Installations program för Jupyter Notebook själv studie kurser. Skapa en Azure Machine Learning arbets yta, klona Jupyter-anteckningsböcker till arbets ytan och skapa en beräknings instans där du kör antecknings böckerna.
+description: Installations program för Jupyter Notebook själv studie kurser. Skapa en arbets yta, klona antecknings böcker till arbets ytan och skapa en beräknings instans där du kör antecknings böckerna.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 601e124c1ad87724babfabffc95e9265bc962d87
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 6eb76c9d8cc8447755e045972a7aceddefd1604a
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913304"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532978"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-jupyter-notebooks"></a>Självstudie: kom igång med Azure Machine Learning i Jupyter Notebooks
 
@@ -41,7 +41,7 @@ Det finns många [sätt att skapa en arbets yta](how-to-manage-workspace.md).  I
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
 >[!IMPORTANT]
-> Anteckna din *arbets yta* och din *prenumeration* . Du behöver den här informationen för att se till att du skapar experimentet på rätt plats.
+> Anteckna din *arbets yta* och din *prenumeration*. Du behöver den här informationen för att se till att du skapar experimentet på rätt plats.
 
 ## <a name="run-a-notebook-in-your-workspace"></a><a name="azure"></a>Köra en antecknings bok i din arbets yta
 
@@ -67,7 +67,7 @@ Du har slutfört följande experiment-konfiguration och kör steg i Azure Machin
 
 1. Öppna mappen med ett versions nummer. Det här talet representerar den aktuella versionen för python SDK.
 
-1. Klicka på knappen **...** till höger om mappen **självstudier** och välj sedan **klona** .
+1. Klicka på knappen **...** till höger om mappen **självstudier** och välj sedan **klona**.
 
     :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png" alt-text="Skärm bild som visar mappen klona självstudier.":::
 
@@ -82,7 +82,7 @@ Du har slutfört följande experiment-konfiguration och kör steg i Azure Machin
     
 1. Välj **självstudien – 1st-experiment-SDK-träna. ipynb** -filen i **självstudierna/bild klassificerings-mnist** -datamappen.
 
-    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Skärm bild som visar mappen klona självstudier.":::
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Skärm bild som visar mappen öppna självstudier.":::
 
 1. I det översta fältet väljer du en beräknings instans som ska användas för att köra antecknings boken. De här virtuella datorerna (VM) är förkonfigurerade med [allt du behöver för att köra Azure Machine Learning](concept-compute-instance.md#contents).
 
@@ -99,11 +99,11 @@ Du har slutfört följande experiment-konfiguration och kör steg i Azure Machin
 
     1. Välj den virtuella dator storleken från de tillgängliga alternativen. För självstudierna är standard-VM ett bra val.
 
-    1. Välj sedan **Skapa** . Det kan ta ungefär fem minuter att konfigurera den virtuella datorn.
+    1. Välj sedan **Skapa**. Det kan ta ungefär fem minuter att konfigurera den virtuella datorn.
 
 1. När den virtuella datorn är tillgänglig visas den i det översta verktygsfältet. Nu kan du köra den bärbara datorn genom att antingen **köra alla** i verktygsfältet eller **Shift + ange** i kod cellerna i antecknings boken.
 
-Om du har anpassade widgetar eller vill använda Jupyter eller JupyterLab väljer du List rutan **Jupyter** längst till höger. Välj sedan **Jupyter** eller **JupyterLab** . Fönstret ny webbläsare öppnas.
+Om du har anpassade widgetar eller vill använda Jupyter eller JupyterLab väljer du List rutan **Jupyter** längst till höger. Välj sedan **Jupyter** eller **JupyterLab**. Fönstret ny webbläsare öppnas.
 
 ## <a name="next-steps"></a>Nästa steg
 

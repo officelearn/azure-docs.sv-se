@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperfq1
-ms.openlocfilehash: e621d50280adcccb8dbd82f4ceb0de7956e98e4b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 41ef13351e6a87369f3fe1e2181ca2113bf79bca
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91576973"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533267"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Snabb start: lägga till Microsoft Identity Platform-inloggning till en ASP.NET-webbapp
 I den här snabb starten använder du ett kod exempel för att lära dig hur en ASP.NET-webbapp loggar in personliga konton (hotmail.com, outlook.com, andra) och arbets-och skol konton från valfri Azure Active Directory (Azure AD)-instans.  (Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.)
@@ -50,7 +50,7 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur en 
 > 1. Välj **ny registrering**.
 > 1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
 >      - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `ASPNET-Quickstart`.
->      - Lägg till `https://localhost:44368/` i **omdirigerings-URI**och klicka på **Registrera**.
+>      - Lägg till `https://localhost:44368/` i **omdirigerings-URI** och klicka på **Registrera**.
 >      - I det vänstra navigerings fönstret under avsnittet hantera väljer du **autentisering**
 >          - Under avsnittet **implicit beviljande** underavsnitt väljer du **ID-token**.
 >          - Och välj sedan **Spara**.
@@ -69,9 +69,9 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur en 
 > [!div renderon="docs"]
 > [Ladda ned Visual Studio 2019-lösningen](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
-> [!div renderon="portal"]
+> [!div renderon="portal" class="sxs-lookup"]
 > Kör projektet med Visual Studio 2019.
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [Ladda ned kod exemplet](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -95,12 +95,12 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur en 
 >    Där:
 > - `Enter_the_Application_Id_here` – är program-Id för programmet som du har registrerat.
 > - `Enter_the_Tenant_Info_Here` – är ett av alternativen nedan:
->   - Om ditt program **endast stöder min organisation**ersätter du värdet med **klient-ID** eller **klient namn** (till exempel contoso.onmicrosoft.com)
+>   - Om ditt program **endast stöder min organisation** ersätter du värdet med **klient-ID** eller **klient namn** (till exempel contoso.onmicrosoft.com)
 >   - Om ditt program stöder **Konton i valfri organisationskatalog** ersätter du värdet med `organizations`
 >   - Om ditt program stöder **Alla Microsoft-kontoanvändare** ersätter du värdet med `common`
 >
 > > [!TIP]
-> > - För att hitta värdena för *program-ID*, *katalog-ID (klient)* och *Kontotyper som stöds* går du till **översiktssidan**
+> > - För att hitta värdena för *program-ID* , *katalog-ID (klient)* och *Kontotyper som stöds* går du till **översiktssidan**
 > > - Se till att värdet för `redirectUri` i **Web.config** motsvarar **OMDIRIGERINGS-URI: n** som definierats för appens registrering i Azure AD (om inte, navigera till menyn **autentisering** för appens registrering och uppdatera **omdirigerings-URI: n** så att den matchar)
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -172,7 +172,7 @@ public void Configuration(IAppBuilder app)
 > | `Scope`     | Listan över omfång som begärs, avgränsade med blanksteg |
 > | `ResponseType`     | Begär att svaret från autentiseringen innehåller en ID-token |
 > | `TokenValidationParameters`     | En lista över parametrar för tokenvalidering. I det här fallet ställs `ValidateIssuer` in på `false` för att ange att den kan acceptera inloggningar från personliga konton eller arbets- eller skolkonton |
-> | `Notifications`     | En lista över ombud kan köra på olika *OpenIdConnect*-meddelanden |
+> | `Notifications`     | En lista över ombud kan köra på olika *OpenIdConnect* -meddelanden |
 
 
 > [!NOTE]

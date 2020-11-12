@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 73dbaa544d66c4cbabb84ff63ddc3b636dcec393
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3414159eed9015e8bb837bfb48e62be2f030e946
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961824"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532723"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-python"></a>Snabb start: analysera en fjärravbildning med hjälp av Visuellt innehåll REST API och python
 
-I den här snabb starten ska du analysera en fjärrlagrad avbildning för att extrahera visuella funktioner med hjälp av Visuellt innehåll REST API. Med metoden [analysera avbildning](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) kan du extrahera visuella funktioner baserat på bild innehåll.
+I den här snabb starten ska du analysera en fjärrlagrad avbildning för att extrahera visuella funktioner med hjälp av Visuellt innehåll REST API. Med metoden [analysera avbildning](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) kan du extrahera visuella funktioner baserat på bild innehåll.
 
 Du kan köra den här snabbstarten steg för steg med hjälp av en Jupyter-anteckningsbok på [MyBinder](https://mybinder.org). Starta Binder med den här knappen:
 
@@ -44,9 +44,9 @@ Så här skapar du och kör exemplet:
 
 1. Kopiera följande kod till en textredigerare.
 1. Du kan också ersätta värdet för `image_url` med webbadressen till en annan bild som du vill analysera.
-1. Spara koden som en fil med tillägget `.py`. Exempelvis `analyze-image.py`.
+1. Spara koden som en fil med tillägget `.py`. Ett exempel är `analyze-image.py`.
 1. Öppna ett kommandotolksfönster.
-1. I kommandotolken kör du exemplet med kommandot `python`. Exempelvis `python analyze-image.py`.
+1. I kommandotolken kör du exemplet med kommandot `python`. Ett exempel är `python analyze-image.py`.
 
 ```python
 import requests
@@ -177,4 +177,4 @@ Nu ska du utforska ett python-program som använder Visuellt innehåll för att 
 > [!div class="nextstepaction"]
 > [Självstudie: API för visuellt innehåll med Python](../Tutorials/PythonTutorial.md)
 
-* Du kan experimentera med API för visuellt innehåll i [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+* Du kan experimentera med API för visuellt innehåll i [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).

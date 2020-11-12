@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 4bcd0f6d4d1ac505598c839f89850f9b55a9c36a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d05395f97aded0b57780f898e9cba6ddca491f95
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977501"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534100"
 ---
 # <a name="install-update-10-on-your-storsimple-virtual-array"></a>Installera uppdatering 1,0 på din virtuella StorSimple-matris
 
@@ -102,26 +102,26 @@ Den här proceduren tar cirka 4 minuter att slutföra. Utför följande steg fö
 
 1. I det lokala webb gränssnittet går du till **Underhåll**  >  **program uppdatering**. Anteckna den program varu version som du kör. **Fortsätt bara med uppdateringen om du kör uppdatering 0,6 (10.0.10293.0). Om du kör en tidigare version installerar du [uppdatering 0,6](storsimple-virtual-array-install-update-06.md) på enheten först och installerar sedan uppdatering 1.**
    
-    ![uppdatera enhet 1](./media/storsimple-virtual-array-install-update-1/update1m.png)
+    ![Skärm bild som visar den program uppdatering som valts på menyn underhåll.](./media/storsimple-virtual-array-install-update-1/update1m.png)
 
-2. I **Uppdatera fil Sök väg**anger du fil namnet för uppdateringen eller snabb korrigeringen. Du kan också bläddra till installations filen för uppdateringen eller hotfixen om den placeras på en nätverks resurs. Klicka på **Applicera**.
+2. I **Uppdatera fil Sök väg** anger du fil namnet för uppdateringen eller snabb korrigeringen. Du kan också bläddra till installations filen för uppdateringen eller hotfixen om den placeras på en nätverks resurs. Klicka på **Använd**.
    
-    ![uppdatera enhet 2](./media/storsimple-virtual-array-install-update-1/update2m.png)
+    ![Skärm bild som visar den aktuella program versionen och text rutan Sökväg för uppdaterings fil på program Uppdaterings sidan.](./media/storsimple-virtual-array-install-update-1/update2m.png)
 
 3. En varning visas. Om den virtuella matrisen är en enskild nod enhet startar enheten om och det uppstår avbrott när uppdateringen har tillämpats. Klicka på kryss ikonen.
    
-   ![uppdatera enhet 3](./media/storsimple-virtual-array-install-update-1/update3m.png)
+   ![Skärm bild som visar en dialog ruta med en varning om nedtid.](./media/storsimple-virtual-array-install-update-1/update3m.png)
 
 4. Uppdateringen startar. När enheten har uppdaterats startas den om. Det lokala användar gränssnittet är inte tillgängligt under denna varaktighet.
    
-    ![uppdatera enhet 4](./media/storsimple-virtual-array-install-update-1/update5m.png)
+    ![Skärm bild som visar ett meddelande om att uppdateringen har slutförts.](./media/storsimple-virtual-array-install-update-1/update5m.png)
 
-5. När omstarten är klar tas du till **inloggnings** sidan. Kontrol lera att enhetens program vara har uppdaterats genom att gå till **Underhåll**  >  **program uppdatering**i det lokala webb gränssnittet. Den program varu version som visas ska vara **10.0.0.0.0.10296** för uppdatering 1,0.
+5. När omstarten är klar tas du till **inloggnings** sidan. Kontrol lera att enhetens program vara har uppdaterats genom att gå till **Underhåll**  >  **program uppdatering** i det lokala webb gränssnittet. Den program varu version som visas ska vara **10.0.0.0.0.10296** för uppdatering 1,0.
    
    > [!NOTE]
    > Vi rapporterar program versioner på ett något annorlunda sätt i det lokala webb gränssnittet och Azure Portal. Till exempel kan de lokala Web UI-rapporterna **10.0.0.0.0.10296** och Azure Portal rapporterar **10.0.10296.0** för samma version.
    
-    ![uppdatera enhet 5](./media/storsimple-virtual-array-install-update-1/update6m.png)
+    ![Skärm bild som visar sidan program uppdatering med den aktuella program varu versionen.](./media/storsimple-virtual-array-install-update-1/update6m.png)
 
 6. Upprepa steg 2-4 för att installera säkerhets korrigeringen för Windows med hjälp av fil `windows8.1-kb4012213-x64` . Den virtuella matrisen startas om efter installationen och du måste logga in på det lokala webb gränssnittet.
 

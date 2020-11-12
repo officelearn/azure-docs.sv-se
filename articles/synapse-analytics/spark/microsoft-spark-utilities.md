@@ -4,33 +4,36 @@ description: Själv studie kurs om att använda MSSparkutils i Azure Synapse Ana
 author: ruxu
 services: synapse-analytics
 ms.service: synapse-analytics
-ms.topic: conceptual
+ms.topic: reference
 ms.subservice: spark
 ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: 648c5b75f125725ebda2966d3ebc4200ee76b98c
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: c03d8e744598386db3d6d03a71e4d1b735d9d71f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94428685"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533284"
 ---
 # <a name="introduction-of-microsoft-spark-utilities"></a>Introduktion till Microsoft Spark-verktyg
-Microsoft Spark-verktyg (MSSparkUtils) är ett inbyggt paket som hjälper dig att göra vanliga använda uppgifter enklare. Du kan använda MSSparkUtils för att arbeta med fil systemet effektivt, för att hämta miljövariabler och för att arbeta med hemligheter. MSSparkUtils är tillgängliga i `PySpark (Python)` , `Scala` och `.NET Spark (C#)` antecknings böcker och Synapse-pipeliner.
+
+Microsoft Spark-verktyg (MSSparkUtils) är ett inbyggt paket som hjälper dig att enkelt utföra vanliga uppgifter. Du kan använda MSSparkUtils för att arbeta med fil system, för att hämta miljövariabler och för att arbeta med hemligheter. MSSparkUtils är tillgängliga i `PySpark (Python)` , `Scala` och `.NET Spark (C#)` antecknings böcker och Synapse-pipeliner.
 
 ## <a name="pre-requisites"></a>Förutsättningar
+
 ### <a name="configure-access-to-azure-data-lake-storage-gen2"></a>Konfigurera åtkomst till Azure Data Lake Storage Gen2 
+
 Synapse Notebooks använder Azure Active Directory (Azure AD) genom strömning för att få åtkomst till ADLS Gen2-konton. Du måste vara en **Blob Storage deltagare** för att få åtkomst till ADLS Gen2s kontot (eller mappen). 
 
-Synapse pipelines använder arbets ytans identitet (MSI) för att komma åt lagrings kontona. Om du vill använda MSSparkUtils i dina pipeline-aktiviteter måste din arbets ytans identitet vara en **Blob Storage deltagare** för att få åtkomst till ADLS Gen2-kontot (eller mappen).
+Synapse pipelines använder arbets ytans identitet (MSI) för att komma åt lagrings kontona. Om du vill använda MSSparkUtils i dina pipeline-aktiviteter måste din arbets ytans identitet **Blob Storage deltagare** för att få åtkomst till ADLS Gen2-kontot (eller mappen).
 
 Följ dessa steg för att se till att din Azure AD-och Workspace-MSI har åtkomst till det ADLS Gen2 kontot:
 1. Öppna [Azure Portal](https://portal.azure.com/) och det lagrings konto som du vill få åtkomst till. Du kan gå till den angivna behållaren som du vill komma åt.
 2. Välj **åtkomst kontroll (IAM)** i den vänstra panelen.
-3. För rollen **Storage BLOB data Contributor** på lagrings kontot tilldelar **du ditt Azure AD-konto** och **din arbets yta identitet** (samma som namnet på din arbets yta) eller kontrollerar att det redan har tilldelats. 
-4. Klicka på **Spara**.
+3. Tilldela **ditt Azure AD-konto** och **din arbets yta identitet** (samma som din arbets yta namn) till rollen **Storage BLOB data Contributor** på lagrings kontot om det inte redan har tilldelats. 
+4. Välj **Spara**.
 
 Du kan komma åt data på ADLS Gen2 med Synapse Spark via följande URL:
 
@@ -45,10 +48,10 @@ Följ dessa steg om du vill lägga till en ny länkad tjänst för ett Azure Blo
 1. Öppna [Azure Synapse Studio](https://web.azuresynapse.net/).
 2. Välj **Hantera** i den vänstra panelen och välj **länkade tjänster** under de **externa anslutningarna**.
 3. Sök i **Azure Blob Storage** i den **nya länkade tjänst** panelen till höger.
-4. Klicka på **Fortsätt**.
+4. Välj **Fortsätt**.
 5. Välj Azure Blob Storage-kontot för att komma åt och konfigurera namnet på den länkade tjänsten. Föreslå Använd **konto nyckel** för **autentiseringsmetoden**.
-6. Kontrol lera att inställningarna är korrekta genom att klicka på **Testa anslutning** .
-7. Klicka på **skapa** först och klicka på **publicera alla** för att spara ändringarna. 
+6. Kontrol lera att inställningarna är korrekta genom att välja **Testa anslutning** .
+7. Välj **skapa** först och klicka på **publicera alla** för att spara ändringarna. 
 
 Du kan komma åt data på Azure Blob Storage med Synapse Spark via följande URL:
 
@@ -103,25 +106,25 @@ Du kan lägga till en Azure Key Vault som en länkad tjänst för att hantera di
 2. Välj **Hantera** i den vänstra panelen och välj **länkade tjänster** under de **externa anslutningarna**.
 3. Sök **Azure Key Vault** i den **nya länkade tjänst** panelen till höger.
 4. Välj det Azure Key Vault kontot för att komma åt och konfigurera namnet på den länkade tjänsten.
-5. Kontrol lera att inställningarna är korrekta genom att klicka på **Testa anslutning** .
-6. Klicka på **skapa** först och klicka på **publicera alla** för att spara ändringen. 
+5. Kontrol lera att inställningarna är korrekta genom att välja **Testa anslutning** .
+6. Välj **skapa** först och klicka på **publicera alla** för att spara ändringen. 
 
 Synapse Notebooks använder Azure Active Directory (Azure AD) genom strömning för att få åtkomst till Azure Key Vault. Synapse pipelines använder arbets ytans identitet (MSI) för att få åtkomst till Azure Key Vault. För att se till att din kod fungerar både i den bärbara datorn och i Synapse pipeline rekommenderar vi att du beviljar behörigheten hemlig åtkomst för både ditt Azure AD-konto och din arbets ytans identitet.
 
 Följ de här stegen för att ge hemlig åtkomst till din arbets yta identitet:
 1. Öppna [Azure Portal](https://portal.azure.com/) och Azure Key Vault som du vill komma åt. 
 2. Välj **åtkomst principer** i den vänstra panelen.
-3. Klicka på **Lägg till åtkomst princip** : 
+3. Välj **Lägg till åtkomst princip** : 
     - Välj **nyckel, hemlighet, & certifikat hantering** som config-mall.
     - Välj **ditt Azure AD-konto** och **din arbets ytans identitet** (samma som din arbets ytans namn) i Välj huvud konto eller kontrol lera att den redan är tilldelad. 
-4. Klicka på **Välj** och **Lägg till**.
-5. Klicka på knappen **Spara** för att genomföra ändringarna.  
+4. Välj **Välj** och **Lägg till**.
+5. Välj knappen **Spara** för att genomföra ändringarna.  
 
 ## <a name="file-system-utilities"></a>Verktyg för fil system
 
 `mssparkutils.fs` innehåller verktyg för att arbeta med olika fil system, inklusive Azure Data Lake Storage Gen2 (ADLS Gen2) och Azure-Blob Storage. Se till att du konfigurerar åtkomst till [Azure Data Lake Storage Gen2](#configure-access-to-azure-data-lake-storage-gen2) och [Azure Blob Storage](#configure-access-to-azure-blob-storage) på lämpligt sätt.
 
-Kör följande kommando för att få en översikt över tillgängliga metoder:
+Kör följande kommandon för en översikt över tillgängliga metoder:
 
 :::zone pivot = "programming-language-python"
 
@@ -196,7 +199,7 @@ FS.Ls("Your directory path")
 
 
 ### <a name="view-file-properties"></a>Visa fil egenskaper
-Returnerar fil egenskaper, inklusive fil namn, fil Sök väg, fil storlek, om det är en katalog och om det är en fil.
+Returnerar fil egenskaper, inklusive fil namn, fil Sök väg, fil storlek och om det är en katalog och en fil.
 
 :::zone pivot = "programming-language-python"
 
@@ -230,7 +233,8 @@ foreach(var File in Files) {
 ::: zone-end
 
 ### <a name="create-new-directory"></a>Skapa ny katalog
-Skapar den aktuella katalogen om den inte finns, och som även skapar nödvändiga överordnade kataloger.
+
+Skapar den aktuella katalogen om den inte finns och eventuella nödvändiga överordnade kataloger.
 
 :::zone pivot = "programming-language-python"
 
@@ -256,7 +260,8 @@ FS.Mkdirs("new directory name")
 ::: zone-end
 
 ### <a name="copy-file"></a>Kopiera fil
-Kopierar en fil eller katalog, stöd för kopiering i fil system.
+
+Kopierar en fil eller katalog. Stöder kopiering i fil system.
 
 :::zone pivot = "programming-language-python"
 
@@ -282,6 +287,7 @@ FS.Cp("source file or directory", "destination file or directory", true) // Set 
 ::: zone-end
 
 ### <a name="preview-file-content"></a>Förhandsgranska fil innehåll
+
 Returnerar upp till de första "maxBytes" byte för den aktuella filen som en sträng som kodats i UTF-8.
 
 :::zone pivot = "programming-language-python"
@@ -308,7 +314,8 @@ FS.Head("file path", maxBytes to read)
 ::: zone-end
 
 ### <a name="move-file"></a>Flytta fil
-Flyttar en fil eller katalog, stöd för flyttning i fil system.
+
+Flyttar en fil eller katalog. Stöder flyttning i fil system.
 
 :::zone pivot = "programming-language-python"
 
@@ -334,6 +341,7 @@ FS.Mv("source file or directory", "destination directory", true)
 ::: zone-end
 
 ### <a name="write-file"></a>Skriv fil
+
 Skriver den aktuella strängen ut till en fil som kodats i UTF-8.
 
 :::zone pivot = "programming-language-python"
@@ -360,6 +368,7 @@ FS.Put("file path", "content to write", true) // Set the last parameter as True 
 ::: zone-end
 
 ### <a name="append-content-to-a-file"></a>Lägg till innehåll i en fil
+
 Lägger till den strängen i en fil som kodats i UTF-8.
 
 :::zone pivot = "programming-language-python"
@@ -386,6 +395,7 @@ FS.Append("file path","content to append",true) // Set the last parameter as Tru
 ::: zone-end
 
 ### <a name="delete-file-or-directory"></a>Ta bort fil eller katalog
+
 Tar bort en fil eller en katalog.
 
 :::zone pivot = "programming-language-python"
@@ -454,6 +464,7 @@ putSecret(akvName, secretName, secretValue): puts AKV secret for a given akvName
 ```
 
 ### <a name="get-token"></a>Hämta token
+
 Returnerar Azure AD-token för en specifik mål grupp, namn (valfritt). I tabellen nedan visas alla tillgängliga mål grupps typer: 
 
 |Audience-typ|Mål grupps nyckel|
@@ -492,6 +503,7 @@ mssparkutils.credentials.getToken("audience Key")
 
 
 ### <a name="validate-token"></a>Verifiera token
+
 Returnerar true om token inte har gått ut.
 
 :::zone pivot = "programming-language-python"
@@ -519,6 +531,7 @@ mssparkutils.credentials.isValidToken("your token")
 
 
 ### <a name="get-connection-string-or-credentials-for-linked-service"></a>Hämta anslutnings sträng eller autentiseringsuppgifter för den länkade tjänsten
+
 Returnerar anslutnings sträng eller autentiseringsuppgifter för den länkade tjänsten. 
 
 :::zone pivot = "programming-language-python"
@@ -546,7 +559,8 @@ mssparkutils.credentials.getConnectionStringOrCreds("linked service name")
 
 
 ### <a name="get-secret-using-workspace-identity"></a>Hämta hemlighet med arbets ytans identitet
-Returnerar Azure Key Vault hemlighet för ett angivet Azure Key Vault namn, hemligt namn och länkat tjänst namn med hjälp av arbets ytans identitet. Se till att du konfigurerar åtkomsten till [Azure Key Vault](#configure-access-to-azure-key-vault) på lämpligt sätt.
+
+Returnerar Azure Key Vault hemlighet för ett angivet Azure Key Vault namn, hemligt namn och länkat tjänst namn med hjälp av arbets ytans identitet. Se till att du konfigurerar åtkomst till [Azure Key Vault](#configure-access-to-azure-key-vault) på lämpligt sätt.
 
 :::zone pivot = "programming-language-python"
 
@@ -573,6 +587,7 @@ mssparkutils.credentials.getSecret("azure key vault name","secret name","linked 
 
 
 ### <a name="get-secret-using-user-credentials"></a>Hämta hemlighet med användarautentiseringsuppgifter
+
 Returnerar Azure Key Vault hemlighet för ett angivet Azure Key Vault namn, ett hemligt namn och ett länkat tjänst namn som använder användarautentiseringsuppgifter. 
 
 :::zone pivot = "programming-language-python"
@@ -599,6 +614,7 @@ mssparkutils.credentials.getSecret("azure key vault name","secret name")
 ::: zone-end
 
 ### <a name="put-secret-using-workspace-identity"></a>Lägg till hemlighet med arbets ytans identitet
+
 Placerar Azure Key Vault hemlighet för ett angivet Azure Key Vault namn, hemligt namn och länkat tjänst namn med hjälp av arbets ytans identitet. Se till att du konfigurerar åtkomsten till [Azure Key Vault](#configure-access-to-azure-key-vault) på lämpligt sätt.
 
 :::zone pivot = "programming-language-python"
@@ -626,6 +642,7 @@ mssparkutils.credentials.putSecret("azure key vault name","secret name","secret 
 
 
 ### <a name="put-secret-using-user-credentials"></a>Lägg till hemlighet med användarautentiseringsuppgifter
+
 Placerar Azure Key Vault hemlighet för ett angivet Azure Key Vault namn, hemligt namn och länkat tjänst namn med hjälp av användarautentiseringsuppgifter. 
 
 :::zone pivot = "programming-language-python"
@@ -654,7 +671,7 @@ mssparkutils.credentials.putSecret("azure key vault name","secret name","secret 
 
 ## <a name="environment-utilities"></a>Miljö verktyg 
 
-Kör följande kommando för att få en översikt över tillgängliga metoder:
+Kör följande kommandon för att få en översikt över tillgängliga metoder:
 
 :::zone pivot = "programming-language-python"
 
@@ -689,6 +706,7 @@ getClusterId(): returns cluster id
 ```
 
 ### <a name="get-user-name"></a>Hämta användar namn
+
 Returnerar aktuellt användar namn.
 
 :::zone pivot = "programming-language-python"
@@ -715,6 +733,7 @@ mssparkutils.env.getUserName()
 ::: zone-end
 
 ### <a name="get-user-id"></a>Hämta användar-ID
+
 Returnerar aktuellt användar-ID.
 
 :::zone pivot = "programming-language-python"
@@ -741,6 +760,7 @@ mssparkutils.env.getUserId()
 ::: zone-end
 
 ### <a name="get-job-id"></a>Hämta jobb-ID
+
 Returnerar jobb-ID.
 
 :::zone pivot = "programming-language-python"
@@ -767,6 +787,7 @@ mssparkutils.env.getJobId()
 ::: zone-end
 
 ### <a name="get-workspace-name"></a>Hämta arbets ytans namn
+
 Returnerar namn på arbets yta.
 
 :::zone pivot = "programming-language-python"
@@ -793,6 +814,7 @@ mssparkutils.env.getWorkspaceName()
 ::: zone-end
 
 ### <a name="get-pool-name"></a>Hämta poolnamn
+
 Returnerar namn på Spark-pool.
 
 :::zone pivot = "programming-language-python"
@@ -819,6 +841,7 @@ mssparkutils.env.getPoolName()
 ::: zone-end
 
 ### <a name="get-cluster-id"></a>Hämta kluster-ID
+
 Returnerar aktuellt kluster-ID.
 
 :::zone pivot = "programming-language-python"
@@ -845,6 +868,7 @@ mssparkutils.env.getClusterId()
 ::: zone-end
 
 ## <a name="next-steps"></a>Nästa steg
+
 - [Kolla Synapse-exempel Notebooks](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
 - [Snabb start: skapa en Apache Spark pool (förhands granskning) i Azure Synapse Analytics med hjälp av webb verktyg](../quickstart-apache-spark-notebook.md)
 - [Vad är Apache Spark i Azure Synapse Analytics](apache-spark-overview.md)

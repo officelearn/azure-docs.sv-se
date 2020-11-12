@@ -5,18 +5,18 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/10/2020
 ms.author: baanders
-ms.openlocfilehash: a07c2684856cfe21001f996bb62ce4ea3297e8c2
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 37bccbcd92f627fd45a7f786725afe5b2e475f3c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92379743"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533904"
 ---
 ## <a name="visualization"></a>Visualisering
 
 Det huvudsakliga sättet att interagera med din Azure Digital-instansen är via [API: er och SDK: er](../articles/digital-twins/how-to-use-apis-sdks.md), men det kan vara bra att se en visualisering av de dubbla och grafer som du skapar i din instans.
 
-[**Azure Digitals Internet Explorer**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) är ett exempel program för visualisering och arbete med digitala Azure-enheter. Följ instruktionerna som medföljer exemplet för att hämta och köra program koden. 
+[**Azure Digitals (ADT) Explorer**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) är ett exempel program för visualisering och arbete med digitala Azure-enheter. Följ instruktionerna som medföljer exemplet för att hämta och köra program koden. 
 
 Med det här exemplet kan du se en visuell representation av dina digitala dubbla och grafer som de skapar, bland annat skapande-och hanterings aktiviteter.
 

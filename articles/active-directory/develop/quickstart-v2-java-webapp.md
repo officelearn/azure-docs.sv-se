@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: f00a935815b64f7c2c06dd33130c1a950582e5c3
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 620039ec43009693d09f732913264eff94d662c9
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743496"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533250"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Snabb start: lägga till inloggning med Microsoft i en Java-webbapp
 
@@ -59,7 +59,7 @@ Om du vill köra det här exemplet behöver du:
 > 1. Välj **autentiseringen** på menyn och Lägg till följande information:
 >    - Lägg till **webb** plattforms konfigurationen.  Lägg till dessa `https://localhost:8443/msal4jsample/secure/aad` och `https://localhost:8443/msal4jsample/graph/me` som **omdirigerings-URI: er**..
 >    - Välj **Spara**.
-> 1. Välj **certifikaten & hemligheter** på menyn och klicka på **ny klient hemlighet**i avsnittet **klient hemligheter** :
+> 1. Välj **certifikaten & hemligheter** på menyn och klicka på **ny klient hemlighet** i avsnittet **klient hemligheter** :
 >
 >    - Ange en nyckel Beskrivning (för instansens program hemlighet).
 >    - Välj en nyckel varaktighet **i ett år**.
@@ -99,7 +99,7 @@ Om du vill köra det här exemplet behöver du:
 >   ```
 >   Placera den genererade nyckel lagrings filen i mappen "resurser".
 
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [Ladda ned kod exemplet](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -110,7 +110,7 @@ Om du vill köra det här exemplet behöver du:
 > #### <a name="step-3-configure-the-code-sample"></a>Steg 3: Konfigurera kod exemplet
 > 1. Extrahera zip-filen till en lokal mapp.
 > 1. Om du använder en Integrated Development Environment öppnar du exemplet i din favorit IDE (valfritt).
-> 1. Öppna filen Application. properties, som finns i src/main/Resources/Folder och Ersätt värdet för fälten *AAD. clientId*, *AAD. Authority* och *AAD. SecretKey* med respektive värde för **program-ID**, **klient-ID** och **klient hemlighet** som följande:
+> 1. Öppna filen Application. properties, som finns i src/main/Resources/Folder och Ersätt värdet för fälten *AAD. clientId* , *AAD. Authority* och *AAD. SecretKey* med respektive värde för **program-ID** , **klient-ID** och **klient hemlighet** som följande:
 >
 >    ```file
 >    aad.clientId=Enter_the_Application_Id_here
@@ -155,8 +155,8 @@ Om du kör webb programmet från en IDE klickar du på Kör och navigerar sedan 
 1. På den första sidan väljer du knappen **Logga in** för att omdirigera till Azure Active Directory och uppmana användaren att ange sina autentiseringsuppgifter.
 
 1. När användaren har autentiserats omdirigeras de till *https://localhost:8443/msal4jsample/secure/aad* . De är nu inloggade och sidan visar information om det inloggade kontot. Exempel gränssnittet har följande knappar:
-    - *Logga ut*: loggar den aktuella användaren från programmet och dirigerar om dem till start sidan.
-    - *Visa användar information*: hämtar en token för Microsoft Graph och anropar Microsoft Graph med en begäran som innehåller token, som returnerar grundläggande information om den inloggade användaren.
+    - *Logga ut* : loggar den aktuella användaren från programmet och dirigerar om dem till start sidan.
+    - *Visa användar information* : hämtar en token för Microsoft Graph och anropar Microsoft Graph med en begäran som innehåller token, som returnerar grundläggande information om den inloggade användaren.
 
 ##### <a name="running-from-tomcat"></a>Körs från Tomcat
 
@@ -253,7 +253,7 @@ import com.microsoft.aad.msal4j.*;
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 För en mer djupgående diskussion om att skapa webbappar som loggar in användare på Microsoft Identity Platform, går du vidare till vår scenario serie med flera delar:
 

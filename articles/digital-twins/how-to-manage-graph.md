@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 78e0bfb0af494ecae2865fcc42679b8fcce44916
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 73aa6f8f6ee36aeeb41fbc54afe217ac776a4ebc
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359586"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533901"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Hantera en graf med digitala dubbla med relationer
 
@@ -25,7 +25,13 @@ Den här artikeln fokuserar på att hantera relationer och diagrammet som helhet
 ## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
-    
+
+## <a name="ways-to-manage-graph"></a>Sätt att hantera diagram
+
+[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
+
+Du kan också göra ändringar i grafen med hjälp av ADT (Azure Digital flätas) som gör att du kan visualisera dina sammanställningar och grafer och använda SDK i bakgrunden. I nästa avsnitt beskrivs det här exemplet i detalj.
+
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
 ## <a name="create-relationships"></a>Skapa relationer
@@ -219,7 +225,8 @@ Du kan nu anropa den här metoden för att ta bort en relation så här:
 ```csharp
 await DeleteRelationship(client, srcId, relId);
 ```
-## <a name="create-a-twin-graph"></a>Skapa ett dubbel diagram 
+
+## <a name="runnable-twin-graph-sample"></a>Körbara, två diagram exempel
 
 Följande körbara-kodfragment använder Relations åtgärderna från den här artikeln för att skapa ett sammanflätat diagram från digitala dubbla och relationer.
 
@@ -575,9 +582,6 @@ namespace creating_twin_graph_from_csv
 }
 
 ```
-## <a name="manage-relationships-with-cli"></a>Hantera relationer med CLI
-
-Dubbla och deras relationer kan också hanteras med hjälp av Azure Digitals flätade CLI. Kommandona finns i [*anvisningar: använda Azure Digitals flätade CLI*](how-to-use-cli.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

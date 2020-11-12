@@ -1,19 +1,19 @@
 ---
 title: 'Självstudie: utforma en server – Azure CLI – Azure Database for MySQL'
 description: Den här självstudien beskriver hur du skapar och hanterar en Azure Database for MySQL-server och en databas med Azure CLI från kommandoraden.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 12/02/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: dadf710f726a89184e73189041b6735c548d7d75
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 06d8b7cdd6edb6ae3dad27a8a5f50443e3fc8969
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93337237"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533624"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Självstudie: Utforma Azure Database for MySQL med Azure CLI
 

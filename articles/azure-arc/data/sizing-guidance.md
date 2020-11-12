@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 3bd54d8a23aca7e493cd3c0ddb7f057a6e1f5362
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e7f2e445c3e4e8df7420c0587e156968f3a2c92
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761489"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542685"
 ---
 # <a name="sizing-guidance"></a>Vägledning för storleks kontroll
 
@@ -47,7 +47,7 @@ Se artikeln [lagrings konfiguration](storage-configuration.md) för information 
 
 Datakontrollanten är en samling poddar som distribueras till ditt Kubernetes-kluster för att tillhandahålla ett API, styrenhets tjänsten, start program och övervaknings databaser och instrument paneler.  I den här tabellen beskrivs standardvärdena för minnes-och CPU-begäranden och-gränser.
 
-|Pod namn|PROCESSOR förfrågan|Minnes förfrågan|PROCESSOR gräns|Minnes gräns|Obs!|
+|Pod namn|PROCESSOR förfrågan|Minnes förfrågan|PROCESSOR gräns|Minnes gräns|Kommentarer|
 |---|---|---|---|---|---|
 |**Start program**|100 miljoner|100Mi|200m|200Mi||
 |**reglering**|400m|2Gi|1800|2Gi||
@@ -89,7 +89,8 @@ Varje SQL-hanterad instans måste ha följande minsta resurs begär Anden:
 - Kärnor: 1
 
 Varje SQL-hanterad instans Pod som skapas har tre behållare:
-|Containerns namn|PROCESSOR förfrågan|Minnes förfrågan|PROCESSOR gräns|Minnes gräns|Obs!|
+
+|Containerns namn|PROCESSOR förfrågan|Minnes förfrågan|PROCESSOR gräns|Minnes gräns|Kommentarer|
 |---|---|---|---|---|---|
 |fluentbit|100 miljoner|100Mi|Inte angivet|Inte angivet|Fluentbit behållar resurs begär Anden är _utöver_ de begär Anden som anges för SQL-hanterad instans.||
 |båge – sqlmi|Användaren har angetts eller inte angetts.|Användaren har angetts eller inte angetts.|Användaren har angetts eller inte angetts.|Användaren har angetts eller inte angetts.||
@@ -104,7 +105,8 @@ Varje PostgreSQL för storskalig Server grupp måste ha följande minsta resurs 
 - Kärnor: 1
 
 Varje PostgreSQL-Server grupp koordinator eller arbets Pod som skapas har tre behållare:
-|Containerns namn|PROCESSOR förfrågan|Minnes förfrågan|PROCESSOR gräns|Minnes gräns|Obs!|
+
+|Containerns namn|PROCESSOR förfrågan|Minnes förfrågan|PROCESSOR gräns|Minnes gräns|Kommentarer|
 |---|---|---|---|---|---|
 |fluentbit|100 miljoner|100Mi|Inte angivet|Inte angivet|Fluentbit behållar resurs begär Anden gäller _utöver_ de begär Anden som anges för noderna i postgresql-server gruppen.|
 |postgres|Användaren har angetts eller inte angetts.|Användardefinierad eller 256Mi (standard).|Användaren har angetts eller inte angetts.|Användaren har angetts eller inte angetts.||
@@ -122,9 +124,9 @@ Följande är ett exempel på en storleks beräkning.
 
 Krav:
 
-- **"SQL1"**: 1 SQL-hanterad instans med 16 GB RAM, 4 kärnor
-- **"SQL2"**: 1 SQL-hanterad instans med 256 GB RAM-minne, 16 kärnor
-- **"Postgres1"**: 1 postgresql storskalig Server grupp med 4 arbetare vid 12 GB RAM, 4 kärnor
+- **"SQL1"** : 1 SQL-hanterad instans med 16 GB RAM, 4 kärnor
+- **"SQL2"** : 1 SQL-hanterad instans med 256 GB RAM-minne, 16 kärnor
+- **"Postgres1"** : 1 postgresql storskalig Server grupp med 4 arbetare vid 12 GB RAM, 4 kärnor
 
 Storleks beräkningar:
 

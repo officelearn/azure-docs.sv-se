@@ -1,17 +1,17 @@
 ---
 title: Versioner som stöds – Azure Database for MariaDB
 description: Lär dig vilka versioner av MariaDB-servern som stöds i Azure Database for MariaDBs tjänsten.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 7/20/2020
-ms.openlocfilehash: 0b495bf21b1f78e5e6a9285f67e1769d2d2a0db1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dbf32626714200e6712c67b701ebc597c4a7ba7e
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87065698"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541036"
 ---
 # <a name="supported-azure-database-for-mariadb-server-versions"></a>Azure Database for MariaDB Server versioner som stöds
 
@@ -43,4 +43,4 @@ För närvarande stöds inte uppgradering av lägre och högre versioner. Det fi
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Information om vilka resurs kvoter och begränsningar som baseras på **tjänst nivån**finns i [tjänst nivåer](./concepts-pricing-tiers.md).
+- Information om vilka resurs kvoter och begränsningar som baseras på **tjänst nivån** finns i [tjänst nivåer](./concepts-pricing-tiers.md).

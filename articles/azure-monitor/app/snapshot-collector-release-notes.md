@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: pharring
 ms.author: pharring
 ms.date: 11/10/2020
-ms.openlocfilehash: faacb78ca7f055bb8e9a469afb894bc30ee87501
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 89c13566c3710e56a4cd737d9aa03c6fb57edc93
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94507558"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542736"
 ---
 # <a name="release-notes-for-microsoftapplicationinsightssnapshotcollector"></a>Viktig information för Microsoft. ApplicationInsights. SnapshotCollector
 
@@ -70,7 +70,7 @@ Snapshot Collector läser och tolkar ConnectionString från APPLICATIONINSIGHTS_
 - _Experimentell funktion_ : Snappoint samlings planer: Lägg till "snapshotOnFirstOccurence". Mer information finns [här](https://gist.github.com/alexaloni/5b4d069d17de0dabe384ea30e3f21dfe).
 
 ## <a name="133"></a>[1.3.3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.3)
-- Åtgärdat fel som orsakade SnapshotUploader.exe att låsa upp och inte överföra ögonblicks bilder för .NET Core-appar.
+- Åtgärdat fel som gjorde att SnapshotUploader.exe slutade svara och inte överför ögonblicks bilder för .NET Core-appar.
 
 ## <a name="132"></a>[1.3.2](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.2)
 - _Experimentell funktion_ : Snappoint samlings planer. Mer information finns [här](https://gist.github.com/alexaloni/5b4d069d17de0dabe384ea30e3f21dfe).

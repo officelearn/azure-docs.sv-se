@@ -1,18 +1,18 @@
 ---
 title: Flytta Azure-regioner – Azure Portal – Azure Database for MariaDB
 description: Flytta en Azure Database for MariaDB-Server från en Azure-region till en annan med hjälp av en Läs replik och Azure Portal.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/29/2020
-ms.openlocfilehash: 75fabeeb7fa879a0f2843538d34f85e5ccec40e4
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: f4ce34bc1a1af7b2c0ee57a3297415bd9d033517
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425903"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540832"
 ---
 # <a name="move-an-azure-database-for-mariadb-server-to-another-region-by-using-the-azure-portal"></a>Flytta en Azure Database for MariaDB-server till en annan region med hjälp av Azure Portal
 
@@ -23,7 +23,7 @@ Du kan använda en Azure Database for MariaDB [över flera regioner](concepts-re
 > [!NOTE]
 > Den här artikeln fokuserar på att flytta servern till en annan region. Om du vill flytta servern till en annan resurs grupp eller prenumeration kan du läsa artikeln [Flytta](../azure-resource-manager/management/move-resource-group-and-subscription.md) . 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Funktionen Läs replik är bara tillgänglig för Azure Database for MariaDB servrar i Generell användning eller Minnesoptimerade pris nivåer. Se till att käll servern är i någon av dessa pris nivåer.
 
@@ -33,7 +33,7 @@ Du kan använda en Azure Database for MariaDB [över flera regioner](concepts-re
 
 Gör så här om du vill skapa en skrivskyddad replik Server mellan regioner i mål regionen med hjälp av Azure Portal:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 1. Välj den befintliga Azure Database for MariaDB-server som du vill använda som käll Server. Den här åtgärden öppnar **översikts** sidan.
 1. Välj **replikering** på menyn under **Inställningar**.
 1. Välj **Lägg till replik**.

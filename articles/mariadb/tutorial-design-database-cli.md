@@ -1,19 +1,19 @@
 ---
 title: 'Självstudie: utforma en Azure Database for MariaDB – Azure CLI'
 description: Den här självstudien beskriver hur du skapar och hanterar en Azure Database for MariaDB-server och en databas med Azure CLI från kommandoraden.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 205fe47acb6d10b7596c462476b4e9e718a3d813
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 1fbc68570fb59be14947755a241ab9b005841e99
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424961"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542515"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Självstudie: Utforma en Azure Database for MariaDB med Azure CLI
 
@@ -70,7 +70,7 @@ Se dokumentationen om [prisnivåer](./concepts-pricing-tiers.md) för mer inform
 
 
 ## <a name="configure-firewall-rule"></a>Konfigurera brandväggsregeln
-Skapa en brandväggsregel på Azure Database for MariaDB-servernivå med kommandot `az mariadb server firewall-rule create`. En brandväggsregel på servernivå gör att externa program, som **mysql**-kommandoradsverktyget eller MySQL Workbench, kan ansluta till servern via Azure MariaDB-tjänstens brandvägg.
+Skapa en brandväggsregel på Azure Database for MariaDB-servernivå med kommandot `az mariadb server firewall-rule create`. En brandväggsregel på servernivå gör att externa program, som **mysql** -kommandoradsverktyget eller MySQL Workbench, kan ansluta till servern via Azure MariaDB-tjänstens brandvägg.
 
 I följande exempel skapas en brandväggsregel som kallas `AllowMyIP` som tillåter anslutningar från den specifika IP-adressen 192.168.0.1. Ersätt en IP-adress eller omfång av IP-adresser som motsvarar platsen som du kommer att ansluta från.
 

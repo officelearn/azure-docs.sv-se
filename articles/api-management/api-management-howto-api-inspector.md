@@ -9,12 +9,12 @@ ms.service: api-management
 ms.topic: tutorial
 ms.date: 10/30/2020
 ms.author: apimpm
-ms.openlocfilehash: e9a101de408b506fb5375b5f16c1deff4f67532d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 531e346569b85ababc382f997fd7764a92b3d05f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422052"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542322"
 ---
 # <a name="tutorial-debug-your-apis-using-request-tracing"></a>Självstudie: Felsöka API: er med hjälp av spårning av förfrågningar
 
@@ -47,7 +47,7 @@ Inställningen **Tillåt spårning** för den prenumeration som används för di
 1. Välj  **demo konferens-API** från din API-lista.
 1. Välj fliken **Test**.
 1. Välj åtgärden **GetSpeakers**.
-1. Bekräfta att huvudet för HTTP-begäran innehåller **OCP-admin-trace: true** och ett giltigt värde för **OCP-admin-Subscription-Key**. Om den inte är det väljer du **+ Lägg till rubrik** för att lägga till rubriken.
+1. Bekräfta att rubriken HTTP-begäran innehåller **OCP-APIM-trace: true** och ett giltigt värde för **OCP-APIM-Subscription-Key**. Om den inte är det väljer du **+ Lägg till rubrik** för att lägga till rubriken.
 1. Välj **Skicka** för att göra ett API-anrop.
 
   :::image type="content" source="media/api-management-howto-api-inspector/06-debug-your-apis-01-trace-call.png" alt-text="Konfigurera API-spårning":::

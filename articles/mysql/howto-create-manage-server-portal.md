@@ -1,17 +1,17 @@
 ---
 title: Hantera Server-Azure Portal-Azure Database for MySQL
 description: Lär dig hur du hanterar en Azure Database for MySQL-server från Azure Portal.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: a9dba7c85ded7add1a9f1494d88a3f8a1f62f175
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e29e823834ec813a8389cea220cffc7633aa7103
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90882462"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541461"
 ---
 # <a name="manage-an-azure-database-for-mysql-server-using-the-azure-portal"></a>Hantera en Azure Database for MySQL-server med hjälp av Azure Portal
 
@@ -33,9 +33,9 @@ När servern har skapats kan du skala mellan Generell användning-och Minnesopti
 
 Du kan skala från Generell användning till Minnesoptimerade och tvärtom. Det går inte att byta till och från Basic-nivån efter att servern har skapats.
 
-1. Välj din server i Azure Portal. Välj **pris nivå**, som finns i avsnittet **Inställningar** .
+1. Välj din server i Azure Portal. Välj **pris nivå** , som finns i avsnittet **Inställningar** .
 
-2. Välj **generell användning** eller **minne som är optimerat**, beroende på vad du skalar till.
+2. Välj **generell användning** eller **minne som är optimerat** , beroende på vad du skalar till.
 
    :::image type="content" source="./media/howto-create-manage-server-portal/change-pricing-tier.png" alt-text="Skärm bild av Azure Portal för att välja Basic, Generell användning eller minnesoptimerade nivå i Azure Database for MySQL":::
 
@@ -46,11 +46,11 @@ Du kan skala från Generell användning till Minnesoptimerade och tvärtom. Det 
 
 ### <a name="scale-vcores-up-or-down"></a>Skala virtuella kärnor uppåt eller nedåt
 
-1. Välj din server i Azure Portal. Välj **pris nivå**, som finns i avsnittet **Inställningar** .
+1. Välj din server i Azure Portal. Välj **pris nivå** , som finns i avsnittet **Inställningar** .
 
 2. Ändra **vCore** -inställningen genom att flytta skjutreglaget till önskat värde.
 
-    :::image type="content" source="./media/howto-create-manage-server-portal/scaling-compute.png" alt-text="Skärm bild av Azure Portal för att välja Basic, Generell användning eller minnesoptimerade nivå i Azure Database for MySQL":::
+    :::image type="content" source="./media/howto-create-manage-server-portal/scaling-compute.png" alt-text="Skärm bild av Azure Portal att välja alternativet vCore i Azure Database for MySQL":::
 
     > [!NOTE]
     > Vid skalning av virtuella kärnor sker en omstart av servern.
@@ -59,11 +59,11 @@ Du kan skala från Generell användning till Minnesoptimerade och tvärtom. Det 
 
 ### <a name="scale-storage-up"></a>Skala upp lagring
 
-1. Välj din server i Azure Portal. Välj **pris nivå**, som finns i avsnittet **Inställningar** .
+1. Välj din server i Azure Portal. Välj **pris nivå** , som finns i avsnittet **Inställningar** .
 
 2. Ändra **lagrings** inställningen genom att flytta skjutreglaget uppåt till önskat värde.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/scaling-storage.png" alt-text="Skärm bild av Azure Portal för att välja Basic, Generell användning eller minnesoptimerade nivå i Azure Database for MySQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/scaling-storage.png" alt-text="Skärm bild av Azure Portal för att välja lagrings skala i Azure Database for MySQL":::
 
    > [!NOTE]
    > Det går inte att skala upp lagrings utrymmet.
@@ -74,13 +74,13 @@ Du kan skala från Generell användning till Minnesoptimerade och tvärtom. Det 
 
 Du kan ändra administratörs rollens lösen ord med hjälp av Azure Portal.
 
-1. Välj din server i Azure Portal. Välj **Återställ lösen ord**i **översikts** fönstret.
+1. Välj din server i Azure Portal. Välj **Återställ lösen ord** i **översikts** fönstret.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/overview-reset-password.png" alt-text="Skärm bild av Azure Portal för att välja Basic, Generell användning eller minnesoptimerade nivå i Azure Database for MySQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/overview-reset-password.png" alt-text="Skärm bild av Azure Portal för att återställa lösen ordet i Azure Database for MySQL":::
 
 2. Ange ett nytt lösen ord och bekräfta lösen ordet. I text rutan visas ett varnings krav för lösen ords komplexitet.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/reset-password.png" alt-text="Skärm bild av Azure Portal för att välja Basic, Generell användning eller minnesoptimerade nivå i Azure Database for MySQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/reset-password.png" alt-text="Skärm bild av Azure Portal för att återställa ditt lösen ord och spara i Azure Database for MySQL":::
 
 3. Välj **OK** för att spara det nya lösen ordet.
 
@@ -90,11 +90,11 @@ Du kan ta bort servern om du inte längre behöver den.
 
 1. Välj din server i Azure Portal. I **översikts** fönstret väljer du **ta bort**.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/overview-delete.png" alt-text="Skärm bild av Azure Portal för att välja Basic, Generell användning eller minnesoptimerade nivå i Azure Database for MySQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/overview-delete.png" alt-text="Skärm bild av Azure Portal att ta bort servern i Azure Database for MySQL":::
 
 2. Skriv namnet på servern i indatatypen för att bekräfta att det är den server som du vill ta bort.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/confirm-delete.png" alt-text="Skärm bild av Azure Portal för att välja Basic, Generell användning eller minnesoptimerade nivå i Azure Database for MySQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/confirm-delete.png" alt-text="Skärm bild av Azure Portal för att bekräfta att servern tas bort i Azure Database for MySQL":::
 
    > [!NOTE]
    > Det går inte att ångra borttagningen av en server.

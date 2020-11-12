@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/29/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: ee30e9bba35ad39606fbe201c49e4eed3e656c97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fdee5420fa6a50974250c45260a3727755bfcba7
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548282"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542600"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Öppna ett support ärende för ett import/export-jobb
 
@@ -28,36 +28,36 @@ Utför följande steg för att skapa en support förfrågan:
 
 1. Gå till ditt import/export-jobb. Gå till avsnittet **support + fel sökning** och välj sedan **ny supportbegäran**.
      
-    ![Grundläggande inställningar](./media/storage-import-export-contact-microsoft-support/import-export-support1.png)
+    ![Grunder](./media/storage-import-export-contact-microsoft-support/import-export-support1.png)
    
-2. I **ny supportbegäran**väljer du **grunderna**. I **grunderna**, utför du följande steg:
+2. I **ny supportbegäran** väljer du **grunderna**. I **grunderna** , utför du följande steg:
     
     1. I list rutan **ärende typ** väljer du **teknisk**.
     2. Välj din **prenumeration**.
-    3. Under **tjänst**kontrollerar du **Mina tjänster**. I list rutan kan du välja ett av alternativen – **lagrings konto hantering**, **BLOB**eller **fil**. 
-        - Om du väljer **hantering av lagrings konto**väljer du **resurs**och **Support plan**.
+    3. Under **tjänst** kontrollerar du **Mina tjänster**. I list rutan kan du välja ett av alternativen – **lagrings konto hantering** , **BLOB** eller **fil**. 
+        - Om du väljer **hantering av lagrings konto** väljer du **resurs** och **Support plan**.
             ![Välj hantering av lagrings konto](./media/storage-import-export-contact-microsoft-support/import-export-support3.png)
-        - Om du väljer **BLOB**väljer du **resurs**, **behållar namn** (valfritt) och **Support plan**.
+        - Om du väljer **BLOB** väljer du **resurs** , **behållar namn** (valfritt) och **Support plan**.
             ![Välj BLOB](./media/storage-import-export-contact-microsoft-support/import-export-support2.png)
-        - Om du väljer **fil**väljer du **resurs**, **fil resurs namn** (valfritt) och **Support plan** ![ Välj fil](./media/storage-import-export-contact-microsoft-support/import-export-support4.png)
+        - Om du väljer **fil** väljer du **resurs** , **fil resurs namn** (valfritt) och **Support plan** ![ Välj fil](./media/storage-import-export-contact-microsoft-support/import-export-support4.png)
     4. Välj **Nästa**.
 
-3. I **New Support-begäran**väljer du **steg 2 problem**. I **problem**, utför följande steg:
+3. I **New Support-begäran** väljer du **steg 2 problem**. I **problem** , utför följande steg:
     
     1. Välj **allvarlighets grad** **C-minimal påverkan**. Supporten uppdateras om det behövs.
     2. Välj **typ av problem** som **datamigrering**.
     3. Välj **kategorin** som **import-export**.
     4. Ange ett **namn** på problemet och mer **information**.
     5. Ange start datum och start tid för problemet.
-    6. I **fil uppladdning**väljer du mappikonen för att bläddra bland andra filer som du vill ladda upp.
+    6. I **fil uppladdning** väljer du mappikonen för att bläddra bland andra filer som du vill ladda upp.
     7. Kontrol lera **delning av diagnostikinformation**.
     8. Välj **Nästa**.
 
        ![Problem](./media/storage-import-export-contact-microsoft-support/import-export-support5.png)
 
-4. I **ny supportbegäran**väljer du **steg 3 kontakt information**. Utför följande steg i **kontakt information**:
+4. I **ny supportbegäran** väljer du **steg 3 kontakt information**. Utför följande steg i **kontakt information** :
 
-   1. I **kontakt alternativen**anger du önskad kontakt metod (telefon eller e-post) och språket. Svars tiden väljs automatiskt baserat på prenumerations planen.
+   1. I **kontakt alternativen** anger du önskad kontakt metod (telefon eller e-post) och språket. Svars tiden väljs automatiskt baserat på prenumerations planen.
    2. I kontakt uppgifterna anger du ditt namn, din e-postadress, valfri kontakt, land/region. Markera kryss rutan **Spara kontakt ändringar för framtida support begär Anden** .
    3. Välj **Skapa**.
    
@@ -74,15 +74,15 @@ När du har skapat ett supportärende kan du hantera ärendets livscykel på por
 
 1. Öppna sidan hjälp och support genom att gå till **bläddra > hjälp + support**.
 
-    ![Hantera support förfrågningar](./media/storage-import-export-contact-microsoft-support/manage-support-ticket2.png)   
+    ![Skärm bild som visar dialog rutan hjälp.](./media/storage-import-export-contact-microsoft-support/manage-support-ticket2.png)   
 
 2. En lista över de **senaste support förfrågningarna** visas i **Hjälp + Support**.
 
-    ![Hantera support förfrågningar](./media/storage-import-export-contact-microsoft-support/manage-support-ticket1.png) 
+    ![Skärm bild som visar sidan hjälp + support med din supportbegäran i status öppen.](./media/storage-import-export-contact-microsoft-support/manage-support-ticket1.png) 
 
 3. Välj och klicka på en support förfrågan. Du kan visa status och information för den här begäran. Välj **+ nytt meddelande** om du vill följa upp den här begäran.
 
-    ![Hantera support förfrågningar](./media/storage-import-export-contact-microsoft-support/manage-support-ticket3.png) 
+    ![Skärm bild som visar ett nytt meddelande valt för den här begäran.](./media/storage-import-export-contact-microsoft-support/manage-support-ticket3.png) 
 
 
 ## <a name="next-steps"></a>Nästa steg

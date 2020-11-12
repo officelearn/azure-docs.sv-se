@@ -1,23 +1,23 @@
 ---
 title: Tagga bilder i ett etikett projekt
-titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder verktygen för data märkning i ett Azure Machine Learning etiketting-projekt.
+title.suffix: Azure Machine Learning
+description: Lär dig hur du använder data märknings verktygen för att snabbt förbereda data för en Machine Learning i ett Azure Machine Learning etiketting-projekt.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: cd015e952f93655a7bdba8c947fac6e9a8f6546c
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 4392086146642e18b1fdef28a9e602bdbb5b0b18
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94518268"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542192"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Tagga bilder i ett etikett projekt 
 
-När projekt administratören har [skapat ett etikett projekt](./how-to-create-labeling-projects.md#create-a-labeling-project) i Azure Machine Learning kan du använda etikett verktyget (offentlig för hands version) för att snabbt förbereda data för ett Machine Learning-projekt. I den här artikeln beskrivs:
+När projekt administratören har [skapat ett etikett projekt](./how-to-create-labeling-projects.md#create-a-labeling-project) i Azure Machine Learning kan du använda etikett verktyget för att snabbt förbereda data för ett Machine Learning-projekt. I den här artikeln beskrivs:
 
 > [!div class="checklist"]
 > * Få åtkomst till dina etikett projekt
@@ -141,11 +141,11 @@ Om du vill ta bort en polygon klickar du på det X-formade mål som visas bredvi
 
 Om du vill ändra taggen för en polygon väljer du verktyget **Flytta region** , klickar på polygonen och väljer rätt tagg.
 
-Du kan redigera befintliga polygoner. Verktyget **Lock/unlock regioner** ![ Lock/unlock regions ](./media/how-to-label-images/lock-bounding-boxes-tool.png) eller "L" växlar beteendet. Om regionerna är låsta kan du bara ändra form eller plats för en ny polygon.
+Du kan redigera befintliga polygoner. Verktyget **Lås/Lås upp regioner** ![ redigerar polygoner med verktyget lås/Lås upp regioner ](./media/how-to-label-images/lock-bounding-boxes-tool.png) eller "L" och växlar beteendet. Om regionerna är låsta kan du bara ändra form eller plats för en ny polygon.
 
-Använd verktyg för att **lägga till eller ta bort polygon** -verktyget ![ ](./media/how-to-label-images/add-remove-points-tool.png) eller "U" för att justera en befintlig polygon. Klicka på polygonen för att lägga till eller ta bort en punkt. Om du inte kan redigera en region har du förmodligen växlat **Lås/Lås upp** regions verktyget.
+Använd verktyget **Lägg till eller ta bort polygon-punkter** för att ![ lägga till eller ta bort polygoner-verktyget ](./media/how-to-label-images/add-remove-points-tool.png) eller "U" för att justera en befintlig polygon. Klicka på polygonen för att lägga till eller ta bort en punkt. Om du inte kan redigera en region har du förmodligen växlat **Lås/Lås upp** regions verktyget.
 
-Om du vill ta bort *alla* polygoner i den aktuella bilden väljer du verktyget **ta bort alla regioner** ![ ta bort regioner ](./media/how-to-label-images/delete-regions-tool.png) .
+Om du vill ta bort *alla* polygoner i den aktuella bilden väljer du verktyget **ta** bort alla regioner ![ ta bort alla regioner ](./media/how-to-label-images/delete-regions-tool.png) .
 
 När du har skapat polygonerna för en bild väljer du **Skicka** för att spara ditt arbete, eller så sparas inte ditt arbete.
 

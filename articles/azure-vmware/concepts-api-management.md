@@ -2,13 +2,13 @@
 title: Koncept – API Management
 description: 'Lär dig hur API Management skyddar API: er som körs på virtuella datorer i Azure VMware-lösningen'
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: f412ee81fc77435f2586a31c1bf6f6bdf22c66e2
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 10/27/2020
+ms.openlocfilehash: 958cc52c48d1121a69dca2fc901289ad1ed671cb
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670342"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541971"
 ---
 # <a name="api-management-to-publish-and-protect-apis-running-on-azure-vmware-solution-based-vms"></a>API Management att publicera och skydda API: er som körs på Azure VMware-lösningar baserade på virtuella datorer
 
@@ -59,4 +59,4 @@ I en intern distribution kommer API: er att exponeras för samma API Management-
 * Extern trafik går in i Azure via Application Gateway, som använder det externa skydds skiktet för API Management.
 
 
-:::image type="content" source="media/api-management/internal-deployment.png" alt-text="Extern distribution – API Management för Azure VMware-lösning" lightbox="media/api-management/internal-deployment.png":::
+:::image type="content" source="media/api-management/internal-deployment.png" alt-text="Intern distribution – API Management för Azure VMware-lösning" lightbox="media/api-management/internal-deployment.png":::

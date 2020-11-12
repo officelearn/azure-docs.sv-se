@@ -6,18 +6,18 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: fb158b713bea588e9de94e13ac194ec0a4d0020a
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 4d399dc9298c51906d62dabbc36650bf21f94af8
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058156"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542838"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>Självstudie: använda en Web App-robot som är aktive rad med Language Understanding i Node.js
 
 Använd Node.js för att bygga en chatt-robot integrerad med språk förståelse (LUIS). Roboten är byggd med Azure [Web App bot-](https://docs.microsoft.com/azure/bot-service/) resursen och [bot Framework version](https://github.com/Microsoft/botbuilder-dotnet) v4.
 
-**I de här självstudierna får du lära dig att**
+**I den här guiden får du lära dig att:**
 
 > [!div class="checklist"]
 > * Skapa en webbappsrobot. Den här processen skapar en ny LUIS-app.
@@ -36,7 +36,7 @@ Använd Node.js för att bygga en chatt-robot integrerad med språk förståelse
 
 1. I sökrutan söker du efter och väljer **Web App Bot** (Webbappsrobot). Välj **Skapa**.
 
-1. Ange nödvändig information i **Robottjänst**:
+1. Ange nödvändig information i **Robottjänst** :
 
     |Inställning|Syfte|Rekommenderad inställning|
     |--|--|--|
@@ -52,7 +52,7 @@ Använd Node.js för att bygga en chatt-robot integrerad med språk förståelse
     |Application Insights|Ändra inte från angivet standardvärde.|
     |Microsoft app-ID och lösen ord|Ändra inte från angivet standardvärde.|
 
-1. I **robot-mallen**väljer du följande och väljer sedan knappen **Välj** under följande inställningar:
+1. I **robot-mallen** väljer du följande och väljer sedan knappen **Välj** under följande inställningar:
 
     |Inställning|Syfte|Urval|
     |--|--|--|
@@ -377,16 +377,16 @@ Ställ en fråga på roboten för att ställa en fråga om bok flyg avsikten.
 
 1. Starta bot Framework-emulatorn och välj **Öppna bot**.
 1. Ange din robot-URL i dialog rutan **öppna en robot** -pop, till exempel `http://localhost:3978/api/messages` . `/api/messages`Vägen är webb adressen för bot.
-1. Ange **Microsoft app-ID** och **Microsoft app-lösenordet**, som finns i **. kuvert** -filen i roten av den robot kod som du laddade ned.
+1. Ange **Microsoft app-ID** och **Microsoft app-lösenordet** , som finns i **. kuvert** -filen i roten av den robot kod som du laddade ned.
 
 1. I bot Framework-emulatorn anger `Book a flight from Seattle to Berlin tomorrow` du och får samma svar för den grundläggande roboten som du fick i **testet i Web Chat**.
 
-    [![Grundläggande robot svar i emulatorn](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png#lightbox)
+    [![Skärm bild som visar bot Framework-emulatorn.](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png#lightbox)
 
 1. Välj **Ja**. Roboten svarar med en sammanfattning av dess åtgärder.
 1. Från loggen för bot Framework-emulatorn väljer du den rad som innehåller `<- trace LuisV3 Trace` . Detta visar JSON-svaret från LUIS för avsikten och entiteten i uttryck.
 
-    [![Grundläggande robot svar i emulatorn](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
+    [![Skärm bild som visar bot Framework-emulatorn med panelen till höger som innehåller JSON-kod.](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
 
 [!INCLUDE [Bot Information](../../../includes/cognitive-services-qnamaker-luis-bot-info.md)]
 

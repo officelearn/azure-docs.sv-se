@@ -4,12 +4,12 @@ description: Självstudie – Så renderar du en Autodesk 3ds Max-scen med Arnol
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: fbaa56ab444b9d686e5054a3668604bd40f7a262
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 579a5446cb199bb73f98e2e1cbb0948f062470a8
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097704"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542396"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Självstudie: Rendera en scen med Azure Batch 
 
@@ -34,11 +34,13 @@ I den här självstudien renderar du en 3ds Max-scen med Batch med ray-tracing-r
 
 - I den här självstudien krävs version 2.0.20 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
+> [!TIP]
+> Du kan visa [Arnold](https://github.com/Azure/batch-extension-templates/tree/master/templates/arnold/render-windows-frames) -jobbmallar i GitHub-lagringsplatsen Azure Batch Extension templates.
 ## <a name="create-a-batch-account"></a>Skapa ett Batch-konto
 
 Om du inte redan gjort det skapar du en resursgrupp, ett Batch-konto och ett länkat lagringskonto i din prenumeration. 
 
-Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az-group-create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus2* .
+Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az-group-create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus2*.
 
 ```azurecli-interactive 
 az group create \
@@ -195,7 +197,7 @@ az batch job create \
 
 Använd kommandot [az batch task create](/cli/azure/batch/task#az-batch-task-create) till att skapa en renderingsuppgift i jobbet. I det här exemplet anger du uppgiftsinställningarna i en JSON-fil. Skapa en fil med namnet *myrendertask.json* i ditt nuvarande gränssnitt. Kopiera och klistra in följande innehåll. Se till att all text kopieras på rätt sätt. (Du kan ladda ned filen från [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask.json).)
 
-Uppgiften anger ett 3ds Max-kommando för rendering av en enda bildruta från scenen *MotionBlur-DragonFlying.max* .
+Uppgiften anger ett 3ds Max-kommando för rendering av en enda bildruta från scenen *MotionBlur-DragonFlying.max*.
 
 Ändra elementen `blobSource` och `containerURL` i JSON-filen så att de innehåller namnet på ditt lagringskonto och din SAS-token. 
 
@@ -286,7 +288,7 @@ Det tar några minuter att ändra storlek på poolen. Medan den här processen p
 
 ## <a name="render-a-multiframe-scene"></a>Rendera en scen med flera bildrutor
 
-Precis som i exemplet med en bildruta använder du kommandot [az batch task create](/cli/azure/batch/task#az-batch-task-create) till att skapa renderingsuppgifter i jobbet *myrenderjob* . Här anger du uppgiftsinställningarna i en JSON-fil med namnet *myrendertask_multi.json* . (Du kan hämta filen från [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json).) Var och en av de sex aktiviteterna anger en Arnold kommando rad som återger en bild ruta i max. *Max* .
+Precis som i exemplet med en bildruta använder du kommandot [az batch task create](/cli/azure/batch/task#az-batch-task-create) till att skapa renderingsuppgifter i jobbet *myrenderjob*. Här anger du uppgiftsinställningarna i en JSON-fil med namnet *myrendertask_multi.json*. (Du kan hämta filen från [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json).) Var och en av de sex aktiviteterna anger en Arnold kommando rad som återger en bild ruta i max. *Max*.
 
 Skapa en fil med namnet *myrendertask_multi.json* i ditt aktuella gränssnitt. Kopiera och klistra in innehållet från filen du hämtade. Ändra elementen `blobSource` och `containerURL` i JSON-filen så att de innehåller namnet på ditt lagringskonto och din SAS-token. Kom ihåg att ändra inställningarna för var och en av de sex uppgifterna. Spara filen och kör följande kommando för att placera uppgifterna i kö:
 

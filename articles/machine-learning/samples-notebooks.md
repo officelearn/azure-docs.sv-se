@@ -1,7 +1,7 @@
 ---
 title: Exempel på Jupyter Notebooks
 titleSuffix: Azure Machine Learning
-description: Hitta och Använd exempel Jupyter Notebooks för att utforska Azure Machine Learning python för SDK.
+description: Lär dig hur du hittar och använder Juypter-anteckningsböcker som är utformade för att hjälpa dig att utforska SDK och fungerar som modeller för dina egna Machine Learning-projekt.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 16859a6eeb152949387ac7eec8a50341e69b9691
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3f5cb2831a58ce9d0d30039b80815e281401e883
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323701"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542566"
 ---
 # <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Utforska Azure Machine Learning med Jupyter-anteckningsböcker
 

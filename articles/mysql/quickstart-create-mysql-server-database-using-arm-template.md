@@ -1,18 +1,18 @@
 ---
 title: 'Snabb start: skapa en Azure DB för MySQL-ARM-mall'
 description: I den här snabb starten får du lära dig hur du skapar en Azure Database for MySQL-server med integrering av virtuella nätverk med hjälp av en Azure Resource Manager mall.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/19/2020
-ms.openlocfilehash: 952bfa7182997511ce072c051d872140c3b907cb
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 0e7fcf51d9c663ca4a289f54972f00ef037cb323
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041201"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542277"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql-server"></a>Snabb start: Använd en ARM-mall för att skapa en Azure Database for MySQL-Server
 
@@ -20,7 +20,7 @@ Azure Database for MySQL är en hanterad tjänst som du använder för att köra
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure** . Mallen öppnas på Azure-portalen.
+Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure**. Mallen öppnas på Azure-portalen.
 
 [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Distribuera till Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mysql-with-vnet%2fazuredeploy.json)
 
@@ -70,21 +70,21 @@ Välj följande länk för att distribuera Azure Database for MySQL server mal l
 
 På sidan **distribuera Azure Database for MySQL med VNet** :
 
-1. För **resurs grupp** väljer du **Skapa ny** , anger ett namn för den nya resurs gruppen och väljer **OK** .
+1. För **resurs grupp** väljer du **Skapa ny** , anger ett namn för den nya resurs gruppen och väljer **OK**.
 
 2. Om du har skapat en ny resurs grupp väljer du en **plats** för resurs gruppen och den nya servern.
 
-3. Ange ett **Server namn** , **Administratörs inloggning** och **lösen ord för Administratörs inloggning** .
+3. Ange ett **Server namn** , **Administratörs inloggning** och **lösen ord för Administratörs inloggning**.
 
-    :::image type="content" source="./media/quickstart-create-mysql-server-database-using-arm-template/deploy-azure-database-for-mysql-with-vnet.png" alt-text="Distribuera till Azure":::
+    :::image type="content" source="./media/quickstart-create-mysql-server-database-using-arm-template/deploy-azure-database-for-mysql-with-vnet.png" alt-text="Distribuera Azure Database for MySQL med VNet-fönstret, Azure snabb starts mal len Azure Portal":::
 
 4. Ändra de andra standardinställningarna om du vill:
 
     * **Prenumeration** : den Azure-prenumeration som du vill använda för servern.
-    * **SKU-kapacitet** : vCore-kapaciteten, som kan *vara 2* (standard), *4* , *8* , *16* , *32* eller *64* .
-    * **SKU-namn** : SKU-nivåns prefix, SKU-serien och SKU-kapaciteten som ingår i under streck, till exempel *B_Gen5_1* , *GP_Gen5_2* (standard) eller *MO_Gen5_32* .
+    * **SKU-kapacitet** : vCore-kapaciteten, som kan *vara 2* (standard), *4* , *8* , *16* , *32* eller *64*.
+    * **SKU-namn** : SKU-nivåns prefix, SKU-serien och SKU-kapaciteten som ingår i under streck, till exempel *B_Gen5_1* , *GP_Gen5_2* (standard) eller *MO_Gen5_32*.
     * **SKU-storlek MB** : lagrings utrymmet i megabyte för Azure Database for MySQL server (standard *5120* ).
-    * **SKU-nivå** : distributions nivån, till *exempel Basic* , *generalpurpose* (standard) eller *MemoryOptimized* .
+    * **SKU-nivå** : distributions nivån, till *exempel Basic* , *generalpurpose* (standard) eller *MemoryOptimized*.
     * **SKU-familj** : *Gen4* eller *Gen5* (standard), vilket indikerar maskin varu generering för Server distribution.
     * **MySQL-version** : den version av MySQL-server som ska distribueras, till exempel *5,6* eller *5,7* (standard).
     * **Kvarhållning av säkerhets kopierings dagar** : den önskade perioden för kvarhållning av Geo-redundant säkerhets kopia i dagar (standard *7* ).
@@ -95,9 +95,9 @@ På sidan **distribuera Azure Database for MySQL med VNet** :
     * **VNet-** adressprefix: adressprefixet för det virtuella nätverket (standard *10.0.0.0/16* ).
     * **Undernätsprefixet** : adressprefixet för under nätet (standard *10.0.0.0/16* ).
 
-5. Läs de allmänna villkoren och välj sedan **Jag accepterar villkoren som anges ovan** .
+5. Läs de allmänna villkoren och välj sedan **Jag accepterar villkoren som anges ovan**.
 
-6. Välj **Köp** .
+6. Välj **Köp**.
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
@@ -153,7 +153,7 @@ echo "Press [ENTER] to continue ..."
 
 Följ dessa steg om du vill se en översikt över din nya Azure Database for MySQL server:
 
-1. I [Azure Portal](https://portal.azure.com)söker du efter och väljer **Azure Database for MySQL servrar** .
+1. I [Azure Portal](https://portal.azure.com)söker du efter och väljer **Azure Database for MySQL servrar**.
 
 2. I listan databas väljer du den nya servern. **Översikts** sidan för din nya Azure Database for MySQL-server visas.
 
@@ -187,13 +187,13 @@ När den inte längre behövs tar du bort resurs gruppen, som tar bort resursern
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. I [Azure Portal](https://portal.azure.com)söker du efter och väljer **resurs grupper** .
+1. I [Azure Portal](https://portal.azure.com)söker du efter och väljer **resurs grupper**.
 
 2. I listan resurs grupp väljer du namnet på din resurs grupp.
 
-3. På sidan **Översikt** i resurs gruppen väljer du **ta bort resurs grupp** .
+3. På sidan **Översikt** i resurs gruppen väljer du **ta bort resurs grupp**.
 
-4. I bekräftelse dialog rutan skriver du namnet på din resurs grupp och väljer sedan **ta bort** .
+4. I bekräftelse dialog rutan skriver du namnet på din resurs grupp och väljer sedan **ta bort**.
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 

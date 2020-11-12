@@ -1,17 +1,17 @@
 ---
 title: Konfigurera mått varningar – Azure Portal – Azure Database for MariaDB
 description: I den här artikeln beskrivs hur du konfigurerar och får åtkomst till mått varningar för Azure Database for MariaDB från Azure Portal.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: c972bd3b770f42353d285d0c69aacef56d6e04d5
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: e108ca3aa346af20b31ff446130014e1250f49c0
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426115"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541087"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>Använd Azure Portal för att konfigurera aviseringar för mått för Azure Database for MariaDB
 

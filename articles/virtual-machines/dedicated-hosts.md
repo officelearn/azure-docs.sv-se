@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 07/28/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 3b407ae18316071d77cc87992a70a4fba857ab64
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0b0e198075455f697c87ad48741a770e6f78b5a5
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979027"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542158"
 ---
 # <a name="azure-dedicated-hosts"></a>Dedikerade Azure-värdar
 
@@ -84,7 +84,6 @@ Kända problem och begränsningar när du använder automatisk placering av virt
 
 - Du kommer inte att kunna använda Azure Hybrid-förmåner på dina dedikerade värdar.
 - Du kommer inte att kunna distribuera om den virtuella datorn. 
-- Du kommer inte att kunna kontrol lera underhåll för dina dedikerade värdar.
 - Du kommer inte att kunna använda Lsv2, NVasv4, NVsv3, Msv2 eller M-seriens virtuella datorer med dedikerade värdar 
 
 
@@ -120,7 +119,7 @@ Inte alla inställningar för dirigering och optimering av skalnings uppsättnin
 
 Den infrastruktur som stöder dina virtuella datorer kan ibland uppdateras för att förbättra tillförlitligheten, prestandan, säkerheten och för att starta nya funktioner. Azure-plattformen försöker minimera effekten av plattforms underhåll närhelst det är möjligt, men kunder med *underhålls känsliga* arbets belastningar kan inte tolerera några sekunder på att den virtuella datorn måste frysas eller kopplas från för underhåll.
 
-Med **underhålls kontrollen** får kunderna möjlighet att hoppa över regelbundna plattforms uppdateringar som är schemalagda på sina dedikerade värdar, och sedan använda dem vid den tidpunkt som de väljer i ett rullande 35-dagars fönster.
+Med **underhålls kontrollen** får kunderna möjlighet att hoppa över regelbundna plattforms uppdateringar som är schemalagda på sina dedikerade värdar, och sedan använda dem vid den tidpunkt som de väljer i ett rullande 35-dagars fönster. I underhålls fönstret kan du tillämpa underhåll direkt på värdnivå, i vilken ordning som helst. När underhålls perioden är över kommer Microsoft att gå framåt och tillämpa det väntande underhållet på värdarna i en ordning som inte kan följa de användardefinierade fel domänerna.
 
 Mer information finns i [Hantera plattforms uppdateringar med underhålls kontroll](./maintenance-control.md).
 

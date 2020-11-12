@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 27c117786ca7f0004ed3be6b28ed06cb1c7942de
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 7b430f16e96c6d59fe85c711d07e323bf848b069
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960449"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541257"
 ---
 # <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>Snabbstart: Använd en domänmodell med hjälp av REST API:et och Python i Visuellt innehåll
 
-I den här snabb starten använder du en domän modell för att identifiera landmärken eller, om du vill, kändisar i en fjärrlagrad avbildning med hjälp av Visuellt innehåll REST API. Med metoden [Recognize Domain Specific Content](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) (Identifiera domänspecifikt innehåll) kan du tillämpa en domänspecifik modell för att känna igen innehåll i en bild.
+I den här snabb starten använder du en domän modell för att identifiera landmärken eller, om du vill, kändisar i en fjärrlagrad avbildning med hjälp av Visuellt innehåll REST API. Med metoden [Recognize Domain Specific Content](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f311) (Identifiera domänspecifikt innehåll) kan du tillämpa en domänspecifik modell för att känna igen innehåll i en bild.
 
 Du kan köra den här snabbstarten steg för steg med hjälp av en Jupyter-anteckningsbok på [MyBinder](https://mybinder.org). Starta Binder med den här knappen:
 
@@ -41,9 +41,9 @@ Så här skapar du och kör exemplet med landmärken:
 
 1. Kopiera följande kod till en textredigerare.
 1. Du kan också ersätta värdet för `image_url` med webbadressen till en annan bild som du vill identifiera landmärken i.
-1. Spara koden som en fil med tillägget `.py`. Exempelvis `get-landmarks.py`.
+1. Spara koden som en fil med tillägget `.py`. Ett exempel är `get-landmarks.py`.
 1. Öppna ett kommandotolksfönster.
-1. I kommandotolken kör du exemplet med kommandot `python`. Exempelvis `python get-landmarks.py`.
+1. I kommandotolken kör du exemplet med kommandot `python`. Ett exempel är `python get-landmarks.py`.
 
 ```python
 import os
@@ -125,9 +125,9 @@ Så här skapar du och kör exemplet med landmärken:
     1. Ersätt värdet för `subscription_key` med din prenumerationsnyckel.
     1. Ersätt värdet för `vision_base_url` med slutpunktens URL för resursen för Visuellt innehåll i den Azure-region där du fick dina prenumerationsnycklar, om så behövs.
     1. Du kan också ersätta värdet för `image_url` med webbadressen till en annan bild som du vill identifiera kändisar i.
-1. Spara koden som en fil med tillägget `.py`. Exempelvis `get-celebrities.py`.
+1. Spara koden som en fil med tillägget `.py`. Ett exempel är `get-celebrities.py`.
 1. Öppna ett kommandotolksfönster.
-1. I kommandotolken kör du exemplet med kommandot `python`. Exempelvis `python get-celebrities.py`.
+1. I kommandotolken kör du exemplet med kommandot `python`. Ett exempel är `python get-celebrities.py`.
 
 ```python
 import requests
@@ -212,4 +212,4 @@ Nu ska du utforska ett python-program som använder Visuellt innehåll för att 
 > [!div class="nextstepaction"]
 > [Självstudie: API för visuellt innehåll med Python](../Tutorials/PythonTutorial.md)
 
-* Du kan experimentera med API för visuellt innehåll i [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+* Du kan experimentera med API för visuellt innehåll i [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).

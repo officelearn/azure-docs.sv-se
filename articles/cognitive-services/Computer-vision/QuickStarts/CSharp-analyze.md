@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 6ec84a2a528b992a2645e94472987ea67331b533
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 879b451131ef7b2fa108ca1ae307107506fe8f27
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969508"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541920"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-computer-vision-rest-api-and-c"></a>Snabb start: analysera en lokal avbildning med hjälp av Visuellt innehåll REST API och C #
 
-I den här snabb starten ska du analysera en lokalt lagrad bild för att extrahera visuella funktioner med hjälp av Visuellt innehåll REST API. Med metoden [analysera avbildning](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) kan du extrahera visuell funktions information från bild innehåll.
+I den här snabb starten ska du analysera en lokalt lagrad bild för att extrahera visuella funktioner med hjälp av Visuellt innehåll REST API. Med metoden [analysera avbildning](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) kan du extrahera visuell funktions information från bild innehåll.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -39,7 +39,7 @@ Skapa exemplet i Visual Studio enligt följande:
 1. Installera NuGet-paketet Newtonsoft.Json.
     1. Klicka på **Verktyg** på menyn, välj **NuGet Package Manager** (NuGet-pakethanteraren) och välj sedan **Manage NuGet Packages for Solution** (Hantera NuGet-paket för lösning).
     1. Klicka på fliken **Bläddra** . i **sökrutan skriver** du Newtonsoft.Jspå (om den inte redan visas).
-    1. Välj **Newtonsoft.Jspå**och klicka sedan på kryss rutan bredvid ditt projekt namn och **Installera**.
+    1. Välj **Newtonsoft.Jspå** och klicka sedan på kryss rutan bredvid ditt projekt namn och **Installera**.
 1. Kopiera/klistra in exempel kod avsnittet nedan i din Program.cs-fil. Justera namn områdets namn om det skiljer sig från det som du skapade.
 1. Lägg till en bild som du väljer i mappen bin/debug/netcoreappX. X och Lägg sedan till avbildnings namnet (med tillägget) i variabeln ' imageFilePath '.
 1. Kör programmet.

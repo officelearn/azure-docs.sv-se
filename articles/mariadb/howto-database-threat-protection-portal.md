@@ -1,17 +1,17 @@
 ---
 title: Avancerat skydd – Azure Portal-Azure Database for MariaDB
 description: Skydd mot hot för Azure Database for MariaDB identifierar avvikande databas aktiviteter som indikerar potentiella säkerhetshot mot databasen.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 1b5a16a014892764ee26b524489a82744fe6ca82
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7734feddabb1a4a86e7932da3ef4adc57352637e
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425962"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542702"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mariadb"></a>Avancerat skydd för Azure Database for MariaDB
 
@@ -31,7 +31,7 @@ Avancerat skydd är en del av det avancerade data säkerhets erbjudandet, som ä
 3. På konfigurations sidan för **Advanced Threat Protection (för hands version)** :
 
    - Aktivera avancerat skydd på servern.
-   - I **Inställningar för avancerat skydd**i rutan **skicka aviseringar till** text anger du en lista över e-postmeddelanden som ska ta emot säkerhets aviseringar vid identifiering av avvikande databas aktiviteter.
+   - I **Inställningar för avancerat skydd** i rutan **skicka aviseringar till** text anger du en lista över e-postmeddelanden som ska ta emot säkerhets aviseringar vid identifiering av avvikande databas aktiviteter.
   
    ![Konfigurera hot identifiering](./media/howto-database-threat-protection-portal/set-up-threat-protection.png)
 

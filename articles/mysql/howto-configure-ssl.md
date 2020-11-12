@@ -1,18 +1,18 @@
 ---
 title: Konfigurera SSL – Azure Database for MySQL
 description: Instruktioner för hur du konfigurerar Azure Database for MySQL och associerade program korrekt för att använda SSL-anslutningar
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: 1bedeb752a18d7a0212ede2b34526efb8ea09287
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71e6d024b27ecad09b3339a7b0a8c406c7a3eda1
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905828"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541529"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>Konfigurera SSL-anslutning i ditt program för att ansluta säkert till Azure Database for MySQL
 
@@ -63,7 +63,7 @@ mysql.exe -h mydemoserver.mysql.database.azure.com -u Username@mydemoserver -p -
 
 Använd Azure Portalen, gå till Azure Database for MySQL-servern och klicka sedan på **anslutnings säkerhet**. Använd växlings knappen för att aktivera eller inaktivera inställningen **tvinga SSL-anslutning** och klicka sedan på **Spara**. Microsoft rekommenderar att alltid aktivera inställningen **tvinga SSL-anslutning** för förbättrad säkerhet.
 
-:::image type="content" source="./media/howto-configure-ssl/enable-ssl.png" alt-text="Spara SSL-konfiguration":::
+:::image type="content" source="./media/howto-configure-ssl/enable-ssl.png" alt-text="Skärm bild av Azure Portal att använda SSL-anslutningar i Azure Database for MySQL":::
 
 ### <a name="using-azure-cli"></a>Använda Azure CLI
 

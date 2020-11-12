@@ -1,17 +1,17 @@
 ---
 title: Server parametrar – Azure Database for MariaDB
 description: Det här avsnittet innehåller rikt linjer för hur du konfigurerar Server parametrar i Azure Database for MariaDB.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: b5064e3cef7def1aca5aa0c97d031d519fd610cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4432178d5908d4360cda05a62b62d05687be4235
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626402"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541138"
 ---
 # <a name="server-parameters-in-azure-database-for-mariadb"></a>Server parametrar i Azure Database for MariaDB
 
@@ -43,8 +43,8 @@ Läs mer om den här parametern i [MariaDB-dokumentationen](https://mariadb.com/
 
 |**Prisnivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
 |---|---|---|---|---|
-|Basic|1|872415232|134217728|872415232|
-|Basic|2|2684354560|134217728|2684354560|
+|Grundläggande|1|872415232|134217728|872415232|
+|Grundläggande|2|2684354560|134217728|2684354560|
 |Generell användning|2|3758096384|134217728|3758096384|
 |Generell användning|4|8053063680|134217728|8053063680|
 |Generell användning|8|16106127360|134217728|16106127360|
@@ -61,8 +61,8 @@ Läs mer om den här parametern i [MariaDB-dokumentationen](https://mariadb.com/
 
 |**Prisnivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
 |---|---|---|---|---|
-|Basic|1|872415232|134217728|872415232|
-|Basic|2|2684354560|134217728|2684354560|
+|Grundläggande|1|872415232|134217728|872415232|
+|Grundläggande|2|2684354560|134217728|2684354560|
 |Generell användning|2|7516192768|134217728|7516192768|
 |Generell användning|4|16106127360|134217728|16106127360|
 |Generell användning|8|32212254720|134217728|32212254720|
@@ -82,7 +82,7 @@ Läs mer om den här parametern i [MariaDB-dokumentationen](https://mariadb.com/
 
 MariaDB lagrar InnoDB-tabellen i olika tabell utrymmen baserat på den konfiguration du angav när tabellen skapades. [Systemets tabell utrymme](https://mariadb.com/kb/en/innodb-system-tablespaces/) är lagrings utrymmet för data ord listan InnoDB. Ett tabell namn för en [fil per tabell](https://mariadb.com/kb/en/innodb-file-per-table-tablespaces/) innehåller data och index för en enskild InnoDB-tabell och lagras i fil systemet i en egen datafil. Detta beteende styrs av `innodb_file_per_table` Server parametern. Inställningen `innodb_file_per_table` `OFF` gör att InnoDB skapar tabeller i System register utrymmet. Annars skapar InnoDB tabeller i tabell utrymmen per tabell.
 
-Azure Database for MariaDB stöder högst **1 TB**i en enskild datafil. Om databas storleken är större än 1 TB bör du skapa tabellen i [innodb_file_per_table](https://mariadb.com/kb/en/innodb-system-variables/#innodb_file_per_table) tabell utrymme. Om du har en enskild tabell storlek som är större än 1 TB bör du använda partitionstabellen.
+Azure Database for MariaDB stöder högst **1 TB** i en enskild datafil. Om databas storleken är större än 1 TB bör du skapa tabellen i [innodb_file_per_table](https://mariadb.com/kb/en/innodb-system-variables/#innodb_file_per_table) tabell utrymme. Om du har en enskild tabell storlek som är större än 1 TB bör du använda partitionstabellen.
 
 ### <a name="join_buffer_size"></a>join_buffer_size
 
@@ -90,8 +90,8 @@ Läs mer om den här parametern i [MariaDB-dokumentationen](https://mariadb.com/
 
 |**Prisnivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
 |---|---|---|---|---|
-|Basic|1|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
-|Basic|2|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
+|Grundläggande|1|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
+|Grundläggande|2|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
 |Generell användning|2|262144|128|268435455|
 |Generell användning|4|262144|128|536870912|
 |Generell användning|8|262144|128|1073741824|
@@ -108,8 +108,8 @@ Läs mer om den här parametern i [MariaDB-dokumentationen](https://mariadb.com/
 
 |**Prisnivå**|**vCore (s)**|**Standardvärde**|**Minvärde**|**Maxvärde**|
 |---|---|---|---|---|
-|Basic|1|50|10|50|
-|Basic|2|100|10|100|
+|Grundläggande|1|50|10|50|
+|Grundläggande|2|100|10|100|
 |Generell användning|2|300|10|600|
 |Generell användning|4|625|10|1250|
 |Generell användning|8|1250|10|2500|
@@ -139,8 +139,8 @@ Läs mer om den här parametern i [MariaDB-dokumentationen](https://mariadb.com/
 
 |**Prisnivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
 |---|---|---|---|---|
-|Basic|1|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
-|Basic|2|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
+|Grundläggande|1|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
+|Grundläggande|2|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
 |Generell användning|2|16777216|16384|268435455|
 |Generell användning|4|16777216|16384|536870912|
 |Generell användning|8|16777216|16384|1073741824|
@@ -161,8 +161,8 @@ Läs mer om den här parametern i [MariaDB-dokumentationen](https://mariadb.com/
 
 |**Prisnivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|* * Max värde * *|
 |---|---|---|---|---|
-|Basic|1|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
-|Basic|2|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
+|Grundläggande|1|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
+|Grundläggande|2|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
 |Generell användning|2|0|0|16777216|
 |Generell användning|4|0|0|33554432|
 |Generell användning|8|0|0|67108864|
@@ -181,8 +181,8 @@ Läs mer om den här parametern i [MariaDB-dokumentationen](https://mariadb.com/
 
 |**Prisnivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
 |---|---|---|---|---|
-|Basic|1|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
-|Basic|2|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
+|Grundläggande|1|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
+|Grundläggande|2|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
 |Generell användning|2|524288|32768|4194304|
 |Generell användning|4|524288|32768|8388608|
 |Generell användning|8|524288|32768|16777216|
@@ -201,8 +201,8 @@ Läs mer om den här parametern i [MariaDB-dokumentationen](https://mariadb.com/
 
 |**Prisnivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
 |---|---|---|---|---|
-|Basic|1|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
-|Basic|2|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
+|Grundläggande|1|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
+|Grundläggande|2|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
 |Generell användning|2|16777216|1024|67108864|
 |Generell användning|4|16777216|1024|134217728|
 |Generell användning|8|16777216|1024|268435456|

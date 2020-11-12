@@ -1,18 +1,18 @@
 ---
 title: 'Snabb start: Anslut MySQL Workbench – Azure Database for MariaDB'
 description: Den här snabbstarten förklarar hur du använder MySQL Workbench för att ansluta till och fråga efter data från Azure Database for MariaDB.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 3/18/2020
-ms.openlocfilehash: 90247f093096728ac250f36fa7cb0d5d88a597d9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 209c793903f1f706fc27102a783aa76e65382fcd
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88121892"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541104"
 ---
 # <a name="quickstart-azure-database-for-mariadb-use-mysql-workbench-to-connect-and-query-data"></a>Snabb start: Azure Database for MariaDB: Använd MySQL Workbench för att ansluta och fråga efter data
 
@@ -33,9 +33,9 @@ I den här snabbstarten används de resurser som skapades i någon av följande 
 
 Skaffa den information som du behöver för att ansluta till Azure Database för MariaDB-instansen. Du behöver det fullständiga servernamnet och inloggningsuppgifter.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-2. Välj **Alla resurser** på menyn längst till vänster i Azure-portalen. Sök sedan efter den server som du skapade (som **mydemoserver**).
+2. Välj **Alla resurser** på menyn längst till vänster i Azure-portalen. Sök sedan efter den server som du skapade (som **mydemoserver** ).
 
 3. Välj servernamnet.
 
@@ -49,7 +49,7 @@ För att ansluta till en Azure Database for MariaDB-server med MySQL Workbench g
 
 1. Öppna MySQL Workbench på datorn. 
 
-2. I dialogrutan **Konfigurera ny anslutning** anger du följande information på fliken **Parametrar**:
+2. I dialogrutan **Konfigurera ny anslutning** anger du följande information på fliken **Parametrar** :
 
    | Inställning | Föreslaget värde | Fältbeskrivning |
    |---|---|---|
@@ -57,7 +57,7 @@ För att ansluta till en Azure Database for MariaDB-server med MySQL Workbench g
    | Anslutningsmetod | **Standard (TCP/IP)** | Standard (TCP/IP) är tillräckligt. |
    | Värdnamn | *Server namn* | Ange det servernamnsvärde som du använde när du skapade Azure Database for MariaDB-instansen. Exempelservern är **mydemoserver.mariadb.database.azure.com**. Använd det fullständiga domännamnet (\*.mariadb.database.azure.com) som i det här exemplet. Om du inte kommer ihåg namnet på servern följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation.  |
    | Port | **3306** | Använd alltid port 3306 när du ansluter till Azure Database för MariaDB. |
-   | Användarnamn |  *inloggnings namn för Server administratör* | Ange inloggningen för serveradministratör som du har använt för att skapa Azure Database for MariaDB-instans. Vårt exempel användar namn är ** \@ mydemoserver**. Om du inte kommer ihåg inloggningsnamnet som serveradministratör följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformationen. Formatet är *användar namn \@ Server*namn.
+   | Användarnamn |  *inloggnings namn för Server administratör* | Ange inloggningen för serveradministratör som du har använt för att skapa Azure Database for MariaDB-instans. Vårt exempel användar namn är **\@ mydemoserver**. Om du inte kommer ihåg inloggningsnamnet som serveradministratör följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformationen. Formatet är *användar namn \@ Server* namn.
    | Lösenord | *ditt lösen ord* | Klicka på knappen **Spara i valvet** för att spara lösenordet. |
 
    ![Skapa en ny anslutning](./media/connect-workbench/2-setup-new-connection.png)
@@ -71,7 +71,7 @@ För att ansluta till en Azure Database for MariaDB-server med MySQL Workbench g
    En ny SQL-flik öppnas med en tom redigerare där du kan ange dina frågor.
     
    > [!NOTE]
-   > SSL-anslutningssäkerhet krävs som standard och framtvingas på Azure Database for MariaDB-servern. Men vanligtvis krävs ingen ytterligare konfiguration med SSL-certifikat för att MySQL Workbench ska ansluta till servern. Vi rekommenderar att du binder ihop SSL CA-certifieringen med MySQL Workbench. Om du vill inaktivera SSL går du till översiktssidan i Azure-portalen och väljer **Anslutningssäkerhet** på menyn. Vid **Framtvinga SSL-anslutning**väljer du **Inaktiverad**.
+   > SSL-anslutningssäkerhet krävs som standard och framtvingas på Azure Database for MariaDB-servern. Men vanligtvis krävs ingen ytterligare konfiguration med SSL-certifikat för att MySQL Workbench ska ansluta till servern. Vi rekommenderar att du binder ihop SSL CA-certifieringen med MySQL Workbench. Om du vill inaktivera SSL går du till översiktssidan i Azure-portalen och väljer **Anslutningssäkerhet** på menyn. Vid **Framtvinga SSL-anslutning** väljer du **Inaktiverad**.
 
 ## <a name="create-table-and-insert-read-update-and-delete-data"></a>Skapa tabell och infoga, läsa, uppdatera och ta bort data
 

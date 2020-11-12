@@ -1,19 +1,19 @@
 ---
 title: Hantera brand Väggs regler – Azure CLI – Azure Database for MySQL
 description: Den här artikeln beskriver hur du skapar och hanterar Azure Database for MySQL brand Väggs regler med hjälp av kommando raden i Azure CLI.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cb7f8547419b45314ad044b41957a53085cdbe13
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: eaddd8b2979b30251301ad041ea4b872c23d680b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546406"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541342"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Skapa och hantera Azure Database for MySQL brand Väggs regler med hjälp av Azure CLI
 Brand Väggs regler på server nivå kan användas för att hantera åtkomst till en Azure Database for MySQL-server från en speciell IP-adress eller ett intervall med IP-adresser. Med hjälp av praktiska Azure CLI-kommandon kan du skapa, uppdatera, ta bort, Visa och Visa brand Väggs regler för hantering av servern. En översikt över Azure Database for MySQL brand väggar finns i [Azure Database for MySQL server brand Väggs regler](./concepts-firewall-rules.md).

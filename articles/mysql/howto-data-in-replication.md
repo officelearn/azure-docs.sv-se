@@ -1,17 +1,17 @@
 ---
 title: Konfigurera data-i replikering – Azure Database for MySQL
 description: I den här artikeln beskrivs hur du konfigurerar Datareplikering för Azure Database for MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/29/2020
-ms.openlocfilehash: 58df34ae6a6ff3304304da192b429ac83c1b55c3
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: b7f1f16b5182658f42ad6594aace22fb5a1a80fc
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544043"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541410"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Så här konfigurerar du Azure Database for MySQL Datareplikering
 
@@ -20,7 +20,7 @@ I den här artikeln beskrivs hur du konfigurerar [datareplikering](concepts-data
 > [!NOTE]
 > Kompensations fri kommunikation
 >
-> Microsoft stöder en mängd olika och införlivande miljöer. Den här artikeln innehåller referenser till ordet _slav_ . Microsofts [stil guide för en kostnads fri kommunikation](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) känner igen detta som ett undantags ord. Ordet används i den här artikeln för konsekvens eftersom det är det ord som visas i program varan. När program varan har uppdaterats för att ta bort ordet uppdateras den här artikeln som en justering.
+> Microsoft stöder en mängd olika och införlivande miljöer. Den här artikeln innehåller referenser till ordet _slav_. Microsofts [stil guide för en kostnads fri kommunikation](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) känner igen detta som ett undantags ord. Ordet används i den här artikeln för konsekvens eftersom det är det ord som visas i program varan. När program varan har uppdaterats för att ta bort ordet uppdateras den här artikeln som en justering.
 >
 
 För att skapa en replik i Azure Database for MySQL-tjänsten synkroniserar [datareplikering](concepts-data-in-replication.md)  data från en lokal MySQL-server lokalt, i virtuella datorer (VM) eller i moln databas tjänster. Datareplikering baseras på positionsbaserad replikering med en binär loggfil (binlog) som är inbyggd i MySQL. Mer information om BinLog-replikering finns i [Översikt över MySQL BinLog-replikering](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
@@ -134,17 +134,17 @@ Följande steg förbereder och konfigurerar den MySQL-server som finns lokalt, i
 
    **MySQL Workbench**
 
-   Om du vill skapa en replikeringsprincip i MySQL Workbench öppnar du panelen **användare och privilegier** från **hanterings** panelen. Klicka sedan på **Lägg till konto** . 
+   Om du vill skapa en replikeringsprincip i MySQL Workbench öppnar du panelen **användare och privilegier** från **hanterings** panelen. Klicka sedan på **Lägg till konto**. 
  
    :::image type="content" source="./media/howto-data-in-replication/users_privileges.png" alt-text="Användare och behörigheter":::
 
    Skriv användar namnet i fältet **inloggnings namn** . 
 
-   :::image type="content" source="./media/howto-data-in-replication/syncuser.png" alt-text="Användare och behörigheter":::
+   :::image type="content" source="./media/howto-data-in-replication/syncuser.png" alt-text="Synkronisera användare":::
  
-   Klicka på panelen **administrativa roller** och välj sedan **Replikera slavar** i listan med **globala privilegier** . Klicka sedan på **Verkställ** för att skapa replikeringsprincipen.
+   Klicka på panelen **administrativa roller** och välj sedan **Replikera slavar** i listan med **globala privilegier**. Klicka sedan på **Verkställ** för att skapa replikeringsprincipen.
 
-   :::image type="content" source="./media/howto-data-in-replication/replicationslave.png" alt-text="Användare och behörigheter":::
+   :::image type="content" source="./media/howto-data-in-replication/replicationslave.png" alt-text="Replikering slav":::
 
 1. Ställ in käll servern på skrivskyddat läge
 
@@ -164,7 +164,7 @@ Följande steg förbereder och konfigurerar den MySQL-server som finns lokalt, i
    ```
    Resultatet bör vara som följer. Glöm inte att anteckna det binära fil namnet som det kommer att användas i senare steg.
 
-   :::image type="content" source="./media/howto-data-in-replication/masterstatus.png" alt-text="Användare och behörigheter":::
+   :::image type="content" source="./media/howto-data-in-replication/masterstatus.png" alt-text="Huvud status resultat":::
  
 ## <a name="dump-and-restore-source-server"></a>Dumpa och återställa käll servern
 

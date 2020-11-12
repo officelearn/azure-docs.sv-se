@@ -1,17 +1,17 @@
 ---
 title: Använd sys_schema-Azure Database for MySQL
 description: Lär dig hur du använder sys_schema för att hitta prestanda problem och underhålla databasen i Azure Database for MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/30/2020
-ms.openlocfilehash: 74aa0bf84c19b9d663b92d529604c08bf5800c45
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a20510ee2800a54f9a51a2f498ee8ae8a3e51d55
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544859"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543157"
 ---
 # <a name="how-to-use-sys_schema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Använda sys_schema för prestanda justering och databas underhåll i Azure Database for MySQL
 
@@ -29,7 +29,7 @@ Det finns 52 vyer i sys_schema och varje vy har en av följande prefix:
 - Användare: resurser förbrukade och grupperade efter användare. Exempel är fil-I/o, anslutningar och minne.
 - Vänta: vänta händelser grupperade efter värd eller användare.
 
-Nu ska vi titta på några vanliga användnings mönster för sys_schema. För att börja med ska vi gruppera användnings mönstren i två kategorier: **prestanda justering** och **databas underhåll** .
+Nu ska vi titta på några vanliga användnings mönster för sys_schema. För att börja med ska vi gruppera användnings mönstren i två kategorier: **prestanda justering** och **databas underhåll**.
 
 ## <a name="performance-tuning"></a>Prestandajustering
 
@@ -37,23 +37,23 @@ Nu ska vi titta på några vanliga användnings mönster för sys_schema. För a
 
 I/o är den dyraste åtgärden i-databasen. Vi kan ta reda på den genomsnittliga IO-fördröjningen genom att fråga vyn *sys.user_summary_by_file_io* . Med standard 125 GB allokerad lagring, är min IO-latens cirka 15 sekunder.
 
-:::image type="content" source="./media/howto-troubleshoot-sys-schema/io-latency-125GB.png" alt-text="vyer av sys_schema":::
+:::image type="content" source="./media/howto-troubleshoot-sys-schema/io-latency-125GB.png" alt-text="i/o-latens: 125 GB":::
 
 Eftersom Azure Database for MySQL skalar IO med avseende på lagring, minskar min IO-fördröjning till 571 MS efter att ha ökat mitt allokerat lagrings utrymme till 1 TB.
 
-:::image type="content" source="./media/howto-troubleshoot-sys-schema/io-latency-1TB.png" alt-text="vyer av sys_schema":::
+:::image type="content" source="./media/howto-troubleshoot-sys-schema/io-latency-1TB.png" alt-text="i/o-latens: 1 TB":::
 
 ### <a name="sysschema_tables_with_full_table_scans"></a>*sys.schema_tables_with_full_table_scans*
 
 Trots noggrann planering kan många frågor fortfarande resultera i fullständiga tabells ökningar. Mer information om typer av index och hur du optimerar dem finns i den här artikeln: [fel sökning av frågans prestanda](./howto-troubleshoot-query-performance.md). Fullständiga tabells ökningar är resurs krävande och försämrar databasens prestanda. Det snabbaste sättet att hitta tabeller med fullständig tabells ökning är att fråga vyn *sys.schema_tables_with_full_table_scans* .
 
-:::image type="content" source="./media/howto-troubleshoot-sys-schema/full-table-scans.png" alt-text="vyer av sys_schema":::
+:::image type="content" source="./media/howto-troubleshoot-sys-schema/full-table-scans.png" alt-text="fullständiga tabells ökningar":::
 
 ### <a name="sysuser_summary_by_statement_type"></a>*sys.user_summary_by_statement_type*
 
 För att felsöka problem med databas prestanda kan det vara bra att identifiera de händelser som händer i databasen, och med hjälp av *sys.user_summary_by_statement_type* vyn kan du bara göra det.
 
-:::image type="content" source="./media/howto-troubleshoot-sys-schema/summary-by-statement.png" alt-text="vyer av sys_schema":::
+:::image type="content" source="./media/howto-troubleshoot-sys-schema/summary-by-statement.png" alt-text="Sammanfattning per instruktion":::
 
 I det här exemplet Azure Database for MySQL ägnade 53 minuter att tömma slog-händelseloggen 44579 gånger. Det är en lång tid och många IOs. Du kan minska den här aktiviteten genom att antingen inaktivera din långsamma fråga-logg eller minska frekvensen för långsam inloggning Azure Portal.
 
@@ -66,7 +66,7 @@ I det här exemplet Azure Database for MySQL ägnade 53 minuter att tömma slog-
 
 InnoDB buffer finns i minnet och är den viktigaste cache-mekanismen mellan DBMS och lagring. Storleken på InnoDB-bufferten är kopplad till prestanda nivån och kan inte ändras om inte en annan produkt-SKU väljs. Precis som med minne i operativ systemet, växlas gamla sidor ut för att göra plats för mer information. För att ta reda på vilka tabeller som använder merparten av InnoDB buffer buffer, kan du fråga vyn *sys.innodb_buffer_stats_by_table* .
 
-:::image type="content" source="./media/howto-troubleshoot-sys-schema/innodb-buffer-status.png" alt-text="vyer av sys_schema":::
+:::image type="content" source="./media/howto-troubleshoot-sys-schema/innodb-buffer-status.png" alt-text="Status för InnoDB-buffert":::
 
 I bilden ovan är det uppenbart att andra än system tabeller och vyer, varje tabell i mysqldatabase033-databasen, som är värd för en av mina WordPress-webbplatser, upptar 16 KB eller 1 sida av data i minnet.
 
@@ -74,9 +74,9 @@ I bilden ovan är det uppenbart att andra än system tabeller och vyer, varje ta
 
 Index är fantastiska verktyg för att förbättra Läs prestanda, men de medför ytterligare kostnader för infogningar och lagring. *Sys.schema_unused_indexes* och *sys.schema_redundant_indexes* ge insikter om oanvända eller dubbla index.
 
-:::image type="content" source="./media/howto-troubleshoot-sys-schema/unused-indexes.png" alt-text="vyer av sys_schema":::
+:::image type="content" source="./media/howto-troubleshoot-sys-schema/unused-indexes.png" alt-text="oanvända index":::
 
-:::image type="content" source="./media/howto-troubleshoot-sys-schema/redundant-indexes.png" alt-text="vyer av sys_schema":::
+:::image type="content" source="./media/howto-troubleshoot-sys-schema/redundant-indexes.png" alt-text="redundanta index":::
 
 ## <a name="conclusion"></a>Slutsats
 

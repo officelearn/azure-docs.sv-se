@@ -1,0 +1,57 @@
+---
+title: Vad är nytt i Azure Active Directory externa identiteter
+description: Ny och uppdaterad dokumentation för Azure Active Directory externa identiteter.
+ms.date: 11/10/2020
+ms.service: active-directory
+ms.subservice: B2B
+ms.topic: reference
+ms.workload: identity
+ms.author: kenwith
+author: kenwith
+manager: CelesteDG
+ms.openlocfilehash: f7c296b4a5bed0c3e599f59e9f0461295b86f197
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94550114"
+---
+# <a name="azure-active-directory-external-identities-whats-new"></a>Azure Active Directory externa identiteter: Nyheter
+
+Välkommen till nyheter i Azure Active Directory external Identities-dokumentationen. Den här artikeln innehåller nya dokument som har lagts till och de som har haft betydande uppdateringar under de senaste tre månaderna. Information om vad som är nytt med tjänsten externa identiteter finns i [Nyheter i Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="october-2020"></a>Oktober 2020
+
+### <a name="updated-articles"></a>Uppdaterade artiklar
+- [Lägg till Google som en identitets leverantör för B2B-gäst användare](google-federation.md)
+- [Hur användare i din organisation kan bjuda in gäst användare till en app](add-users-information-worker.md)
+- [Tillåt eller blockera inbjudningar till B2B-användare från specifika organisationer](allow-deny-list.md)
+- [Vanliga frågor och svar om Azure Active Directory B2B-samarbete](faq.md)
+- [Dokumentation om externa identiteter](index.yml)
+- [Azure Active Directory B2B-samarbete för inbjudan](redemption-experience.md)
+- [Lägg till ett anpassat godkännande arbets flöde till självbetjänings registrering](self-service-sign-up-add-approvals.md)
+- [Vad är externa identiteter i Azure Active Directory?](compare-with-b2c.md)
+- [Lägga till en API-anslutning till ett användar flöde](self-service-sign-up-add-api-connector.md)
+
+
+## <a name="september-2020"></a>September 2020
+
+### <a name="updated-articles"></a>Uppdaterade artiklar
+- [Elementen i e-postinbjudanen B2B – Azure Active Directory](invitation-email-elements.md)
+- [Felsöka Azure Active Directory B2B-samarbete](troubleshoot.md)
+- [Fakturerings modell för externa Azure AD-identiteter](external-identities-pricing.md)
+- [Lägg till Google som en identitets leverantör för B2B-gäst användare](google-federation.md)
+
+
+## <a name="august-2020"></a>Augusti 2020
+
+### <a name="new-articles"></a>Nya artiklar
+- [Fakturerings modell för externa Azure AD-identiteter](external-identities-pricing.md)
+
+
+### <a name="updated-articles"></a>Uppdaterade artiklar
+- [Aktivera externt B2B-samarbete och hantera vilka som kan bjuda in gäster](delegate-invitations.md)
+- [Lägga till en API-anslutning till ett användar flöde](self-service-sign-up-add-api-connector.md)
+- [Lägg till ett anpassat godkännande arbets flöde till självbetjänings registrering](self-service-sign-up-add-approvals.md)
+
+

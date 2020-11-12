@@ -3,28 +3,29 @@ title: Azure Service Bus – pausa meddelande enheter
 description: Den här artikeln förklarar hur du tillfälligt inaktiverar och återaktiverar Azure Service Bus meddelande enheter (köer, ämnen och prenumerationer).
 ms.topic: article
 ms.date: 09/29/2020
-ms.openlocfilehash: f89e17e494cc777691b7f7ca47538cd29114d2dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea1acab3d0a86b0064f8b3eef7bfd1496bd17041
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575266"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543059"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Pausa och återaktivera meddelande enheter (inaktivera)
 
 Köer, ämnen och prenumerationer kan tillfälligt avbrytas. SUS Pension placerar entiteten i ett inaktiverat tillstånd där alla meddelanden bevaras i lagrings utrymmet. Meddelanden kan dock inte tas bort eller läggas till, och motsvarande protokoll åtgärder ger fel.
 
-Att pausa en entitet görs vanligt vis av brådskande administrativa skäl. Ett scenario har distribuerat en felaktig mottagare som tar emot meddelanden från kön, Miss lyckas bearbetningen och sedan tar bort alla meddelanden på ett felaktigt sätt. Om detta beteende är diagnostiserat kan kön inaktive ras för mottagning tills korrigerad kod har distribuerats och ytterligare data förlust som orsakas av fel koden kan förhindras.
+Du kanske vill inaktivera en entitet för brådskande administrativa orsaker. Till exempel tar en trasig mottagare bort meddelanden från kön, Miss lyckas bearbetningen och har ännu felaktigt slutfört meddelandena och tar bort dem. I det här fallet kanske du vill inaktivera kön för mottagning tills du har korrigerat och distribuerat koden. 
 
-En SUS pension eller reaktivering kan utföras antingen av användaren eller av systemet. Systemet pausar endast enheter på grund av grava administrativa skäl, till exempel genom att trycka på prenumerations utgifts gränsen. System-inaktiverade entiteter kan inte återaktiveras av användaren, men återställs när orsaken till uppskjutningen har åtgärd ATS.
+En SUS pension eller reaktivering kan utföras antingen av användaren eller av systemet. Systemet pausar bara entiteter på grund av de administrativa skäl som är av sekretesskäl, till exempel när prenumerations utgifts gränsen påträffas. System-inaktiverade entiteter kan inte återaktiveras av användaren, men återställs när orsaken till uppskjutningen har åtgärd ATS.
 
 ## <a name="queue-status"></a>Status för kö 
-De tillstånd som kan ställas in för en kö är:
+De tillstånd som kan ställas in för en **kö** är:
 
--   **Aktiv**: kön är aktiv.
--   **Inaktive rad**: kön har pausats. Det motsvarar att ställa in både **SendDisabled** och **ReceiveDisabled**. 
--   **SendDisabled**: kön är delvis inaktive rad, med mottagning tillåten.
--   **ReceiveDisabled**: kön är delvis inaktive rad, med skicka som tillåten.
+-   **Aktiv** : kön är aktiv. Du kan skicka meddelanden till och ta emot meddelanden från kön. 
+-   **Inaktive rad** : kön har pausats. Det motsvarar att ställa in både **SendDisabled** och **ReceiveDisabled**. 
+-   **SendDisabled** : det går inte att skicka meddelanden till kön, men du kan ta emot meddelanden från den. Du får ett undantag om du försöker skicka meddelanden till kön. 
+-   **ReceiveDisabled** : du kan skicka meddelanden till kön, men du kan inte ta emot meddelanden från den. Du får ett undantag om du försöker ta emot meddelanden till kön.
+
 
 ### <a name="change-the-queue-status-in-the-azure-portal"></a>Ändra köns status i Azure Portal: 
 
@@ -35,9 +36,9 @@ De tillstånd som kan ställas in för en kö är:
     :::image type="content" source="./media/entity-suspend/select-state.png" alt-text="Välj status för kön":::
 4. Välj ny status för kön och välj **OK**. 
 
-    :::image type="content" source="./media/entity-suspend/entity-state-change.png" alt-text="Välj status för kön":::
+    :::image type="content" source="./media/entity-suspend/entity-state-change.png" alt-text="Ange tillstånd för kön":::
     
-Portalen tillåter bara fullständigt inaktive ring av köer. Du kan också inaktivera åtgärderna skicka och ta emot separat med Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) -API: er i .NET Framework SDK eller med en Azure Resource Manager-mall via Azure CLI eller Azure PowerShell.
+Du kan också inaktivera åtgärderna skicka och ta emot med hjälp av Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) -API: er i .NET SDK eller genom att använda en Azure Resource Manager-mall via Azure CLI eller Azure PowerShell.
 
 ### <a name="change-the-queue-status-using-azure-powershell"></a>Ändra köns status med hjälp av Azure PowerShell
 PowerShell-kommandot för att inaktivera en kö visas i följande exempel. Kommandot reaktive ras är detsamma, `Status` inställningen **aktiv**.
@@ -51,24 +52,31 @@ Set-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueu
 ```
 
 ## <a name="topic-status"></a>Ämnes status
-Att ändra ämnes status i Azure Portal liknar att ändra status för en kö. När du väljer aktuell status för ämnet visas följande sida där du kan ändra status. 
+Du kan ändra ämnes status i Azure Portal. Välj aktuell status för avsnittet om du vill se följande sida, vilket gör att du kan ändra status. 
 
-:::image type="content" source="./media/entity-suspend/topic-state-change.png" alt-text="Välj status för kön":::
+:::image type="content" source="./media/entity-suspend/topic-state-change.png" alt-text="Ändra ämnes status":::
 
-De tillstånd som kan ställas in för ett ämne är:
-- **Aktiv**: ämnet är aktivt.
-- **Inaktive rad**: avsnittet har pausats.
-- **SendDisabled**: samma resultat som **inaktive rad**.
+De tillstånd som kan ställas in för ett **ämne** är:
+- **Aktiv** : ämnet är aktivt. Du kan skicka meddelanden till ämnet. 
+- **Inaktive rad** : avsnittet har pausats. Du kan inte skicka meddelanden till ämnet. 
+- **SendDisabled** : samma resultat som **inaktive rad**. Du kan inte skicka meddelanden till ämnet. Du får ett undantag om du försöker skicka meddelanden till ämnet. 
 
 ## <a name="subscription-status"></a>Prenumerations status
-Att ändra prenumerations statusen i Azure Portal liknar att ändra status för ett ämne eller en kö. När du väljer aktuell status för prenumerationen visas följande sida där du kan ändra status. 
+Du kan ändra prenumerations status i Azure Portal. Välj aktuell status för prenumerationen för att se följande sida, vilket gör att du kan ändra status. 
 
-:::image type="content" source="./media/entity-suspend/subscription-state-change.png" alt-text="Välj status för kön":::
+:::image type="content" source="./media/entity-suspend/subscription-state-change.png" alt-text="Ändra prenumerations status":::
 
-De tillstånd som kan ställas in för ett ämne är:
-- **Aktiv**: ämnet är aktivt.
-- **Inaktive rad**: avsnittet har pausats.
-- **ReceiveDisabled**: samma resultat som **inaktive rad**.
+De tillstånd som kan ställas in för en **prenumeration** är:
+- **Aktiv** : prenumerationen är aktiv. Du kan ta emot meddelanden frm prenumerationen.
+- **Inaktive rad** : prenumerationen har pausats. Du kan inte ta emot meddelanden från prenumerationen. 
+- **ReceiveDisabled** : samma resultat som **inaktive rad**. Du kan inte ta emot meddelanden från prenumerationen. Du får ett undantag om du försöker ta emot meddelanden till prenumerationen.
+
+| Ämnes status | Prenumerations status | Beteende | 
+| ------------ | ------------------- | -------- | 
+| Aktiv | Aktiv | Du kan skicka meddelanden till ämnet och ta emot meddelanden från prenumerationen. | 
+| Aktiv | Inaktive rad eller inaktive rad | Du kan skicka meddelanden till ämnet, men du kan inte ta emot meddelanden från prenumerationen | 
+| Inaktiverat eller skickat inaktiverat | Aktiv | Du kan inte skicka meddelanden till ämnet, men du kan ta emot meddelanden som redan finns i prenumerationen. | 
+| Inaktiverat eller skickat inaktiverat | Inaktive rad eller inaktive rad | Du kan inte skicka meddelanden till ämnet och du kan inte ta emot från prenumerationen. | 
 
 ## <a name="other-statuses"></a>Andra statusar
 [EntityStatus](/dotnet/api/microsoft.servicebus.messaging.entitystatus) -uppräkningen definierar också en uppsättning över gångs tillstånd som bara kan ställas in av systemet. 

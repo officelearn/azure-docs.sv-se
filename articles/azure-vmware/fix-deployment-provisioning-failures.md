@@ -2,13 +2,13 @@
 title: Stöd för distribution av Azure VMware-lösningar eller etablerings problem
 description: Hämta information från ditt privata moln i Azure VMware-lösningen för att skicka en tjänstbegäran om distribution av en Azure VMware-lösning eller ett etablerings problem.
 ms.topic: how-to
-ms.date: 06/09/2020
-ms.openlocfilehash: 6d609774b0d3a2de7809d04e4fa0c4e3e6593590
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.date: 10/28/2020
+ms.openlocfilehash: 27b645f4ca225fdd74bca6499b6581b3803e41a4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93349128"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542413"
 ---
 # <a name="open-a-support-request-for-an-azure-vmware-solution-deployment-or-provisioning-failure"></a>Öppna en supportbegäran för en Azure VMware-lösning distribution eller ett etablerings problem
 

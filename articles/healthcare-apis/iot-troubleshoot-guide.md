@@ -6,14 +6,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 09/16/2020
+ms.date: 11/09/2020
 ms.author: jasteppe
-ms.openlocfilehash: a843ee15d4e7c67bcf69609067d70f592b9b50d6
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 124c3b3667e847a5ee1bb8034ef01088c629d503
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394228"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540951"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>Fel söknings guide för Azure IoT Connector för FHIR (för hands version)
 
@@ -68,7 +68,7 @@ I det här avsnittet får du lära dig om validerings processen som Azure IoT Co
 |Kontot finns inte.|API|Försök att lägga till en Azure IoT-anslutning för FHIR och Azure API för FHIR-resursen finns inte.|Skapa Azure API för FHIR-resursen och försök sedan igen.|
 |Azure API för FHIR Resource FHIR-versionen stöds inte för IoT Connector.|API|Försök att använda en Azure IoT-anslutning för FHIR med en inkompatibel version av Azure API för FHIR-resursen.|Skapa en ny Azure API för FHIR-resurs (version R4) eller Använd en befintlig Azure API för FHIR-resurs (version R4).
 
-##  <a name="why-is-my-azure-iot-connector-for-fhir-preview-data-not-showing-up-in-azure-api-for-fhir"></a>Varför visas inte min Azure IoT Connector för FHIR-data (för hands version) i Azure API för FHIR?
+## <a name="why-is-my-azure-iot-connector-for-fhir-preview-data-not-showing-up-in-azure-api-for-fhir"></a>Varför visas inte min Azure IoT Connector för FHIR-data (för hands version) i Azure API för FHIR?
 
 |Potentiella problem|Korrigeringar|
 |----------------|-----|
@@ -82,7 +82,74 @@ I det här avsnittet får du lära dig om validerings processen som Azure IoT Co
 
 * Referens [snabb start: Distribuera Azure IoT Connector (för hands version) med Azure Portal](iot-fhir-portal-quickstart.md#create-new-azure-iot-connector-for-fhir-preview) för en funktionell beskrivning av Azure IoT Connector för FHIR lösnings typer (till exempel lookup eller Create).
 
+## <a name="use-metrics-to-troubleshoot-issues-in-azure-iot-connector-for-fhir-preview"></a>Använd mått för att felsöka problem i Azure IoT Connector för FHIR (för hands version)
+
+Azure IoT Connector för FHIR genererar flera mått för att ge insikter om data flödes processen. Ett av de mått som stöds kallas för *totala fel* , vilket ger antalet fel som inträffar i en instans av Azure IoT Connector för FHIR.
+
+Varje fel loggas med ett antal tillhör ande egenskaper. Varje egenskap ger en annorlunda aspekt av felet, som kan hjälpa dig att identifiera och felsöka problem. I det här avsnittet listas olika egenskaper som har registrerats för varje fel i måttet för *totala antalet fel* och möjliga värden för dessa egenskaper.
+
+> [!NOTE]
+> Du kan navigera till måttet *Total Error* för en instans av Azure IoT Connector för FHIR (för hands version) enligt beskrivningen på [mått sidan för Azure IoT Connector för FHIR (för hands version)](iot-metrics-display.md).
+
+Klicka på diagrammet *Totalt antal fel* och klicka sedan på knappen *Lägg till filter* för att segmentera och sortera fel måttet med någon av egenskaperna som anges nedan.
+
+### <a name="the-operation-performed-by-the-azure-iot-connector-for-fhir-preview"></a>Åtgärden som utförs av Azure IoT Connector för FHIR (för hands version)
+
+Den här egenskapen representerar åtgärden som utförs av IoT Connector när felet har inträffat. En åtgärd representerar vanligt vis data flödes fasen medan ett enhets meddelande bearbetas. Här är listan över möjliga värden för den här egenskapen.
+
+> [!NOTE]
+> Du kan läsa mer om olika stadier i data flödet i Azure IoT Connector för FHIR (för hands version) [här](iot-data-flow.md).
+
+|Data flödes steg|Beskrivning|
+|---------------|-----------|
+|Konfiguration|Åtgärd som är speciell för att konfigurera din instans av IoT Connector|
+|Normaliserings|Data flödes fas där enhets data får normaliseras|
+|Baserat|Data flödes fas där normaliserade data grupperas|
+|FHIRConversion|Steg för data flöde där grupperade normaliserade data omvandlas till en FHIR-resurs|
+|Okänt|Åtgärds typen är okänd när ett fel inträffade|
+
+### <a name="the-severity-of-the-error"></a>Felets allvarlighets grad
+
+Den här egenskapen representerar allvarlighets graden för det inträffade felet. Här är listan över möjliga värden för den här egenskapen.
+
+|Allvarlighetsgrad|Beskrivning|
+|---------------|-----------|
+|Varning|Det finns vissa mindre problem i data flödes processen, men bearbetningen av enhets meddelandet stoppas inte|
+|Fel|Bearbetningen av ett särskilt enhets meddelande har stött på ett fel och andra meddelanden kan fortsätta att köras som förväntat|
+|Kritiskt|Det finns vissa system nivå problem med IoT Connector och inga meddelanden förväntas bearbeta|
+
+### <a name="the-type-of-the-error"></a>Typ av fel
+
+Den här egenskapen anger en kategori för ett angivet fel, vilket i princip representerar en logisk gruppering för liknande typ av fel. Här är listan över möjliga värden för den här egenskapen.
+
+|Typ av fel|Beskrivning|
+|----------|-----------|
+|DeviceTemplateError|Fel som rör enhets mappnings mallar|
+|DeviceMessageError|Fel uppstod vid bearbetning av ett enskilt enhets meddelande|
+|FHIRTemplateError|Fel som rör FHIR mappar|
+|FHIRConversionError|Fel uppstod när ett meddelande skulle omvandlas till en FHIR-resurs|
+|FHIRResourceError|Fel som rör befintliga resurser i FHIR-servern som IoT Connector refererar till|
+|FHIRServerError|Fel som uppstår vid kommunikation med FHIR-servern|
+|GeneralError|Alla andra typer av fel|
+
+### <a name="the-name-of-the-error"></a>Namnet på felet
+
+Den här egenskapen anger namnet på ett angivet fel. Här är listan över alla fel namn med beskrivning och tillhör ande feltyper, allvarlighets grad och data flödes steg.
+
+|Fel namn|Beskrivning|Fel typ (er)|Allvarlighets grad för fel|Data flödes steg|
+|----------|-----------|-------------|--------------|------------------|
+|MultipleResourceFoundException|Ett fel uppstod när flera patient-eller enhets resurser påträffades i FHIR-servern för de respektive identifierare som finns i enhets meddelandet|FHIRResourceError|Fel|FHIRConversion|
+|TemplateNotFoundException|En mall för enhets-eller FHIR har inte kon figurer ATS med instansen av IoT Connector|DeviceTemplateError, FHIRTemplateError|Kritiskt|Normalisering, FHIRConversion|
+|CorrelationIdNotDefinedException|Korrelations-ID har inte angetts i enhets mappnings mal len. CorrelationIdNotDefinedException är ett villkorligt fel som bara uppstår när FHIR-observationen måste gruppera enhets måtten med ett korrelations-ID, men det har inte kon figurer ATS korrekt|DeviceMessageError|Fel|Normaliserings|
+|PatientDeviceMismatchException|Felet uppstår när enhets resursen på FHIR-servern har en referens till en patient resurs, som inte överensstämmer med patient-ID: n som finns i meddelandet|FHIRResourceError|Fel|FHIRConversionError|
+|PatientNotFoundException|Det gick inte att referera till FHIR-resursen som är kopplad till den enhets-ID som finns i enhets meddelandet. Obs! det här felet uppstår bara när IoT Connector-instansen konfigureras med *uppslags* matchnings typ|FHIRConversionError|Fel|FHIRConversion|
+|DeviceNotFoundException|Det finns ingen enhets resurs på den FHIR-server som är associerad med enhets identifieraren som finns i enhets meddelandet|DeviceMessageError|Fel|Normaliserings|
+|PatientIdentityNotDefinedException|Det här felet uppstår när uttryck för att parsa patient-ID från enhets meddelandet inte har kon figurer ATS i enhets mappnings mal len eller eftersom det inte finns någon identifierare i enhets meddelandet. Observera att det här felet bara uppstår när IoT-anslutningens lösnings typ är inställd på att *skapas*|DeviceTemplateError|Kritiskt|Normaliserings|
+|DeviceIdentityNotDefinedException|Felet uppstår när uttryck för att parsa enhets identifierare från enhets meddelandet inte har kon figurer ATS i enhets mappnings mal len eller på att enhetens identifierare inte finns i enhets meddelandet|DeviceTemplateError|Kritiskt|Normaliserings|
+|NotSupportedException|Ett fel uppstod när enhets meddelandet med format som inte stöds togs emot|DeviceMessageError|Fel|Normaliserings|
+
 ## <a name="creating-copies-of-the-azure-iot-connector-for-fhir-preview-conversion-mapping-json"></a>Skapa kopior av Azure IoT Connector för FHIR (förhands granskning) konverterings mappnings-JSON
+
 Kopieringen av Azure IoT Connector för FHIR-mappar kan vara användbar för att redigera och arkivera utanför Azure Portal webbplats.
 
 Mappnings filens kopior bör tillhandahållas till teknisk support för Azure när du öppnar ett support ärende för att under lätta fel sökningen.

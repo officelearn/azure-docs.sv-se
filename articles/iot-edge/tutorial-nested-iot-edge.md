@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 5b2a74450477d562231eafd684b3d781d92f700d
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 78a8ae7724c9ede06b24649d3b19ea90b791ae08
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489581"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541325"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices-preview"></a>Självstudie: skapa en hierarki med IoT Edge enheter (förhands granskning)
 
@@ -244,7 +244,7 @@ Slutför de här stegen och starta om tjänsten IoT Edge för att konfigurera di
    hostname: <device fqdn or IP>
    ```
 
-1. Uppdatera konfigurations filen så att den pekar på det fullständiga domän namnet eller IP-adressen för den överordnade enheten för IoT Edge enheter i **lägre lager** och matcha vad som finns i den överordnade enhetens **värdnamn** -fält. Lämna parametern tom för IoT Edge enheter i det **översta lagret**.
+1. Uppdatera konfigurations filen så att den pekar på det fullständiga domän namnet eller IP-adressen för den överordnade enheten för IoT Edge enheter i **lägre lager** och matcha vad som finns i den överordnade enhetens **värdnamn** -fält. Lämna den här parametern kommenterad för IoT Edge enheter i det **översta lagret**.
 
    ```yml
    parent_hostname: <parent device fqdn or IP>

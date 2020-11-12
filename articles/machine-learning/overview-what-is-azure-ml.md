@@ -1,6 +1,6 @@
 ---
 title: Vad är Azure Machine Learning
-description: Översikt över Azure Machine Learning – en integrerad lösning från slut punkt till slut punkt för data vetenskaps tekniker som utvecklar, experimenterar och distribuerar avancerade analys program i moln skala.
+description: Azure Machine Learning är en integrerad data vetenskaps lösning för data forskare och MLops för att modellera och distribuera ML-program i moln skala.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 4dcc1d755f4fe11dda69f84466d3e958ca981ddf
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: af38f68a9709b21989ba787fb5b2c623e07dc440
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316284"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541291"
 ---
 # <a name="what-is-azure-machine-learning"></a>Vad är Azure Machine Learning?
 

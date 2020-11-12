@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 929181f9a4d159892956274a7958b1daa95cbc10
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 9e00e0e5a34eecd6974e8919ce0d0e16f48757f3
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360079"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540977"
 ---
 # <a name="manage-digital-twins"></a>Hantera digitala tvillingar
 
@@ -26,6 +26,10 @@ Den här artikeln fokuserar på att hantera digitala dubbla, information om hur 
 ## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+
+## <a name="ways-to-manage-twins"></a>Olika sätt att hantera dubbla
+
+[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
 
 ## <a name="create-a-digital-twin"></a>Skapa en digital, dubbel
 
@@ -167,7 +171,7 @@ Resultatet av att ringa `object result = await client.GetDigitalTwinAsync("my-mo
 De definierade egenskaperna för den digitala kanten returneras som toppnivå egenskaper på den digitala dubbla. Metadata-eller system information som inte ingår i DTDL-definitionen returneras med ett `$` prefix. Metadata-egenskaper inkluderar:
 * ID: t för den digitala dubbla i den här Azure Digital-instansen, som `$dtId` .
 * `$etag`, ett standard-HTTP-fält som tilldelas av webb servern.
-* Andra egenskaper i ett `$metadata` avsnitt. Dessa omfattar:
+* Andra egenskaper i ett `$metadata` avsnitt. Exempel på dessa är:
     - DTMI för den digitala dubbla.
     - Synkroniseringsstatus för varje skrivbar egenskap. Detta är mest användbart för enheter, där det är möjligt att tjänsten och enheten har avvikande status (till exempel när en enhet är offline). Den här egenskapen gäller för närvarande endast för fysiska enheter som är anslutna till IoT Hub. Med data i avsnittet metadata är det möjligt att förstå fullständig status för en egenskap samt de senast ändrade tidsstämplar. Mer information om synkroniseringsstatus finns i [den här IoT Hub själv studie kursen](../iot-hub/tutorial-device-twins.md) om synkronisering av enhets status.
     - Tjänstspecifika metadata, t. ex. från IoT Hub eller Azure digitala dubbla. 
@@ -187,6 +191,17 @@ foreach (string prop in twin.Contents.Keys)
 ```
 
 Du kan läsa mer om serialiserings hjälp klasser i [*How-to: använda Azure Digitals dubbla API: er och SDK: er*](how-to-use-apis-sdks.md).
+
+## <a name="view-all-digital-twins"></a>Visa alla digitala dubbla
+
+Om du vill visa alla digitala dubbla i din instans använder du en [fråga](how-to-query-graph.md). Du kan köra en fråga med [fråge-API: erna](/rest/api/digital-twins/dataplane/query) eller [CLI-kommandona](how-to-use-cli.md).
+
+Här är bröd texten i den grundläggande frågan som returnerar en lista över alla digitala, dubbla, i instansen:
+
+```sql
+SELECT *
+FROM DIGITALTWINS
+``` 
 
 ## <a name="update-a-digital-twin"></a>Uppdatera en digital delad
 
@@ -360,7 +375,7 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
 
 Ett exempel på hur du tar bort alla dubbla på en gång får du genom att ladda ned exempel appen som används i [_Tutorial: utforska grunderna med ett exempel på klient program *](tutorial-command-line-app.md). *CommandLoop.cs* -filen gör detta i en `CommandDeleteAllTwins()` funktion.
 
-## <a name="manage-twins-using-runnable-code-sample"></a>Hantera dubbla med körbara kod exempel
+## <a name="runnable-digital-twin-code-sample"></a>Körbara digital kod exempel
 
 Du kan använda körbara-kod exemplet nedan för att skapa en dubbel, uppdatera dess information och ta bort den dubbla. 
 
@@ -535,22 +550,6 @@ Här är konsol resultatet av programmet ovan:
 
 :::image type="content" source="./media/how-to-manage-twin/console-output-manage-twins.png" alt-text="Konsol resultat som visar att den dubbla skapas, uppdateras och tas bort" lightbox="./media/how-to-manage-twin/console-output-manage-twins.png":::
 
-## <a name="manage-twins-with-cli"></a>Hantera dubbla med CLI
-
-Uppdelade kan också hanteras med hjälp av Azure Digitals flätade CLI. Du hittar kommandona i [_How-till: Använd Azure Digitals flätat CLI *](how-to-use-cli.md).
-
-## <a name="view-all-digital-twins"></a>Visa alla digitala dubbla
-
-Om du vill visa alla digitala dubbla i din instans använder du en [fråga](how-to-query-graph.md). Du kan köra en fråga med [fråge-API: erna](/rest/api/digital-twins/dataplane/query) eller [CLI-kommandona](how-to-use-cli.md).
-
-Här är bröd texten i den grundläggande frågan som returnerar en lista över alla digitala, dubbla, i instansen:
-
-```sql
-SELECT *
-FROM DIGITALTWINS
-``` 
-
 ## <a name="next-steps"></a>Nästa steg
 
-Se hur du skapar och hanterar relationer mellan digitala dubbla:
-* [*Anvisningar: hantera den dubbla grafen med relationer*](how-to-manage-graph.md)
+Se så här skapar och hanterar du relationer mellan dina digitala dubbla: _ [ *How-to: hantera den dubbla grafen med relationer*](how-to-manage-graph.md)

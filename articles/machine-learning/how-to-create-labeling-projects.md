@@ -1,19 +1,19 @@
 ---
 title: Skapa ett data etiketts projekt
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du skapar och kör etiketter för projekt för att tagga data för Machine Learning.  Verktygen omfattar ml-etikettering eller mänsklig i slingan för att hjälpa till med uppgiften.
+description: Lär dig hur du skapar och kör etiketter för projekt för att tagga data för Machine Learning.  Använd ML-etikettering eller mänsklig i slingan för att hjälpa till med uppgiften.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 601434628258b8af3fb5fb9336f701be72441c64
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: da046fd633120944231ee440605367bdb730cbff
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318123"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543229"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Skapa ett projekt med data etiketter och exportera etiketter 
 
@@ -44,7 +44,7 @@ I den här artikeln får du lära dig att:
 * De data som du vill märka, antingen i lokala filer eller i Azure Blob Storage.
 * Den uppsättning etiketter som du vill använda.
 * Anvisningarna för att märka.
-* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://aka.ms/AMLFree) innan du börjar.
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://aka.ms/AMLFree) innan du börjar.
 * En Machine Learning-arbetsyta. Se [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
 ## <a name="create-a-labeling-project"></a>Skapa ett etikett projekt

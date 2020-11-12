@@ -1,17 +1,17 @@
 ---
 title: Hantera Läs repliker – Azure Portal-Azure Database for MySQL
 description: Lär dig hur du konfigurerar och hanterar Läs repliker i Azure Database for MySQL att använda Azure Portal.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/10/2020
-ms.openlocfilehash: 63ce078cc80b856fe09f3d2bbad1c6e96615eae8
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 26b503e7d55ed3d2f9bd06837551655e7af05a17
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546814"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541948"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Skapa och hantera Läs repliker i Azure Database for MySQL med hjälp av Azure Portal
 
@@ -31,23 +31,23 @@ I den här artikeln får du lära dig hur du skapar och hanterar Läs repliker i
 
 Du kan skapa en Läs replik server med följande steg:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 2. Välj den befintliga Azure Database for MySQL-server som du vill använda som huvud server. Den här åtgärden öppnar **översikts** sidan.
 
-3. Välj **replikering** på menyn under **Inställningar** .
+3. Välj **replikering** på menyn under **Inställningar**.
 
-4. Välj **Lägg till replik** .
+4. Välj **Lägg till replik**.
 
    :::image type="content" source="./media/howto-read-replica-portal/add-replica.png" alt-text="Azure Database for MySQL-replikering":::
 
 5. Ange ett namn på replik servern.
 
-    :::image type="content" source="./media/howto-read-replica-portal/replica-name.png" alt-text="Azure Database for MySQL-replikering":::
+    :::image type="content" source="./media/howto-read-replica-portal/replica-name.png" alt-text="Azure Database for MySQL-replik namn":::
 
 6. Välj plats för replik servern. Standard platsen är samma som käll servern.
 
-    :::image type="content" source="./media/howto-read-replica-portal/replica-location.png" alt-text="Azure Database for MySQL-replikering":::
+    :::image type="content" source="./media/howto-read-replica-portal/replica-location.png" alt-text="Azure Database for MySQL-replik plats":::
 
    > [!NOTE]
    > Om du vill veta mer om vilka regioner du kan skapa en replik i går du till [artikeln Läs replik begrepp](concepts-read-replicas.md). 
@@ -59,7 +59,7 @@ Du kan skapa en Läs replik server med följande steg:
 
 När replik servern har skapats kan den visas från bladet **replikering** .
 
-   :::image type="content" source="./media/howto-read-replica-portal/list-replica.png" alt-text="Azure Database for MySQL-replikering":::
+   :::image type="content" source="./media/howto-read-replica-portal/list-replica.png" alt-text="Repliker i Azure Database for MySQL lista":::
 
 ## <a name="stop-replication-to-a-replica-server"></a>Stoppa replikering till en replik Server
 
@@ -70,19 +70,19 @@ Använd följande steg för att stoppa replikeringen mellan en källa och en rep
 
 1. I Azure Portal väljer du käll Azure Database for MySQL server. 
 
-2. Välj **replikering** på menyn under **Inställningar** .
+2. Välj **replikering** på menyn under **Inställningar**.
 
 3. Välj den replik server som du vill stoppa replikering för.
 
-   :::image type="content" source="./media/howto-read-replica-portal/stop-replication-select.png" alt-text="Azure Database for MySQL-replikering":::
+   :::image type="content" source="./media/howto-read-replica-portal/stop-replication-select.png" alt-text="Azure Database for MySQL-stoppa replikering Välj server":::
 
-4. Välj **stoppa replikering** .
+4. Välj **stoppa replikering**.
 
-   :::image type="content" source="./media/howto-read-replica-portal/stop-replication.png" alt-text="Azure Database for MySQL-replikering":::
+   :::image type="content" source="./media/howto-read-replica-portal/stop-replication.png" alt-text="Azure Database for MySQL-stoppa replikering":::
 
-5. Bekräfta att du vill stoppa replikeringen genom att klicka på **OK** .
+5. Bekräfta att du vill stoppa replikeringen genom att klicka på **OK**.
 
-   :::image type="content" source="./media/howto-read-replica-portal/stop-replication-confirm.png" alt-text="Azure Database for MySQL-replikering":::
+   :::image type="content" source="./media/howto-read-replica-portal/stop-replication-confirm.png" alt-text="Bekräfta Azure Database for MySQL-stoppa replikering":::
 
 ## <a name="delete-a-replica-server"></a>Ta bort en replik Server
 
@@ -90,19 +90,19 @@ Gör så här om du vill ta bort en Läs replik Server från Azure Portal:
 
 1. I Azure Portal väljer du käll Azure Database for MySQL server.
 
-2. Välj **replikering** på menyn under **Inställningar** .
+2. Välj **replikering** på menyn under **Inställningar**.
 
 3. Välj den replik server som du vill ta bort.
 
-   :::image type="content" source="./media/howto-read-replica-portal/delete-replica-select.png" alt-text="Azure Database for MySQL-replikering":::
+   :::image type="content" source="./media/howto-read-replica-portal/delete-replica-select.png" alt-text="Azure Database for MySQL-ta bort replikering Välj server":::
 
 4. Välj **ta bort replik**
 
-   :::image type="content" source="./media/howto-read-replica-portal/delete-replica.png" alt-text="Azure Database for MySQL-replikering":::
+   :::image type="content" source="./media/howto-read-replica-portal/delete-replica.png" alt-text="Azure Database for MySQL-ta bort replik":::
 
 5. Skriv namnet på repliken och klicka på **ta bort** för att bekräfta borttagningen av repliken.  
 
-   :::image type="content" source="./media/howto-read-replica-portal/delete-replica-confirm.png" alt-text="Azure Database for MySQL-replikering":::
+   :::image type="content" source="./media/howto-read-replica-portal/delete-replica-confirm.png" alt-text="Bekräfta Azure Database for MySQL-ta bort replik":::
 
 ## <a name="delete-a-source-server"></a>Ta bort en käll Server
 
@@ -113,13 +113,13 @@ Gör så här om du vill ta bort en käll Server från Azure Portal:
 
 1. I Azure Portal väljer du käll Azure Database for MySQL server.
 
-2. Välj **ta bort** i **översikten** .
+2. Välj **ta bort** i **översikten**.
 
-   :::image type="content" source="./media/howto-read-replica-portal/delete-master-overview.png" alt-text="Azure Database for MySQL-replikering":::
+   :::image type="content" source="./media/howto-read-replica-portal/delete-master-overview.png" alt-text="Azure Database for MySQL-ta bort huvud":::
 
 3. Skriv namnet på käll servern och klicka på **ta bort** för att bekräfta borttagningen av käll servern.  
 
-   :::image type="content" source="./media/howto-read-replica-portal/delete-master-confirm.png" alt-text="Azure Database for MySQL-replikering":::
+   :::image type="content" source="./media/howto-read-replica-portal/delete-master-confirm.png" alt-text="Bekräfta Azure Database for MySQL-ta bort original":::
 
 ## <a name="monitor-replication"></a>Övervaka replikering
 
@@ -129,15 +129,15 @@ Gör så här om du vill ta bort en käll Server från Azure Portal:
 
 3. Välj **replikeringsfördröjning i sekunder** från List rutan med tillgängliga mått.
 
-   :::image type="content" source="./media/howto-read-replica-portal/monitor-select-replication-lag.png" alt-text="Azure Database for MySQL-replikering":::
+   :::image type="content" source="./media/howto-read-replica-portal/monitor-select-replication-lag.png" alt-text="Välj replikeringsfördröjning":::
 
 4. Välj det tidsintervall som du vill visa. Bilden nedan väljer ett tidsintervall på 30 minuter.
 
-   :::image type="content" source="./media/howto-read-replica-portal/monitor-replication-lag-time-range.png" alt-text="Azure Database for MySQL-replikering":::
+   :::image type="content" source="./media/howto-read-replica-portal/monitor-replication-lag-time-range.png" alt-text="Välj tidsintervall":::
 
 5. Visa replikeringens fördröjning för det valda tidsintervallet. Bilden nedan visar de senaste 30 minuterna.
 
-   :::image type="content" source="./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png" alt-text="Azure Database for MySQL-replikering":::
+   :::image type="content" source="./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png" alt-text="Välj tidsintervall 30 minuter":::
 
 ## <a name="next-steps"></a>Nästa steg
 

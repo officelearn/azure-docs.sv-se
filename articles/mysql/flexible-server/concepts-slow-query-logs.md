@@ -1,17 +1,17 @@
 ---
 title: Långsamma Query-loggar – Azure Database for MySQL-flexibel Server
 description: Beskriver långsamma fråga-loggar som är tillgängliga i Azure Database for MySQL flexibel Server.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 512a103f5ac116f1f4eb18631cdc8e4a8b9380c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dde9575a70ea80ad262bc01bb9d5d0015c803427
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399218"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543025"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql-flexible-server-preview"></a>Långsamma Query-loggar i Azure Database for MySQL flexibel Server (förhands granskning)
 
@@ -27,10 +27,10 @@ Som standard är den långsamma fråge loggen inaktive rad. Om du vill aktivera 
 
 Andra parametrar du kan ändra för att kontrol lera hur långsamma frågor fungerar är:
 
-- **long_query_time**: logga en fråga om den tar längre tid än `long_query_time` (i sekunder) att slutföras. Standardvärdet är 10 sekunder.
-- **log_slow_admin_statements**: bestämmer om administrativa uppgifter (t. ex. `ALTER_TABLE`, `ANALYZE_TABLE` ) loggas.
-- **log_queries_not_using_indexes**: anger om frågor som inte använder index ska loggas.
-- **log_throttle_queries_not_using_indexes**: begränsar antalet icke-indexerade frågor som kan skrivas till den långsamma fråge loggen. Den här parametern börjar gälla när `log_queries_not_using_indexes` har angetts till *på*
+- **long_query_time** : logga en fråga om den tar längre tid än `long_query_time` (i sekunder) att slutföras. Standardvärdet är 10 sekunder.
+- **log_slow_admin_statements** : bestämmer om administrativa uppgifter (t. ex. `ALTER_TABLE`, `ANALYZE_TABLE` ) loggas.
+- **log_queries_not_using_indexes** : anger om frågor som inte använder index ska loggas.
+- **log_throttle_queries_not_using_indexes** : begränsar antalet icke-indexerade frågor som kan skrivas till den långsamma fråge loggen. Den här parametern börjar gälla när `log_queries_not_using_indexes` har angetts till *på*
 
 > [!IMPORTANT]
 > Om dina tabeller inte är indexerade kan inställning av `log_queries_not_using_indexes` `log_throttle_queries_not_using_indexes` parametrarna och **på on** påverka MySQL-prestanda eftersom alla frågor som körs mot dessa icke-indexerade tabeller skrivs till den långsamma frågans logg.

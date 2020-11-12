@@ -1,6 +1,6 @@
 ---
 title: Övervaka Azure Machine Learning data referens | Microsoft Docs
-description: Viktiga referens material krävs när du övervakar Azure Machine Learning. Lär dig mer om de data och resurser som samlats in för Azure Machine Learning och är tillgängliga i Azure Monitor. Azure Monitor samlar in och hämtar data om din Azure Machine Learning arbets yta och gör att du kan visa mått, ställa in aviseringar och analysera loggade data.
+description: Referens dokumentation för övervakning av Azure Machine Learning. Lär dig mer om data & resurser som samlas in och är tillgängliga i Azure Monitor.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2020
-ms.openlocfilehash: be8d6ca79a43ddd2bd709390dd476cb9dcfa7b29
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: bab74a1db04bb557aa6604fe76c05ba3d087f8c0
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323939"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540798"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Övervaka data referens för Azure Machine Learning
 
@@ -61,7 +61,7 @@ Kvot information gäller endast för Azure Machine Learning beräkning.
 | CpuUtilization | Procent | Hur mycket processor användnings procent som används för en viss nod under en körning/ett jobb. Det här måttet publiceras bara när ett jobb körs på en nod. Ett jobb kan använda en eller flera noder. Det här måttet publiceras per nod. |
 | GpuUtilization | Procent | Hur mycket GPU-minne som utnyttjades för en viss nod under en körning/ett jobb. En nod kan ha en eller flera GPU: er. Det här måttet publiceras per GPU per nod. |
 
-**Fungerar**
+**Kör**
 
 Information om utbildning körs.
 

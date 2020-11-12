@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 49225fe535e8e4f05874444b285ced41a9085894
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: fa76da782ab9b0fe7c0adcb7bd37e882d18daaa8
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969202"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542906"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-with-go"></a>Snabb start: skapa en miniatyr med Visuellt innehåll REST API med go
 
@@ -38,10 +38,10 @@ Så här skapar du och kör exemplet:
 
 1. Kopiera följande kod till en textredigerare.
 1. Du kan också ersätta värdet för `imageUrl` med webbadressen till en annan bild från vilken du vill generera en miniatyrbild.
-1. Spara koden som en fil med tillägget `.go`. Exempelvis `get-thumbnail.go`.
+1. Spara koden som en fil med tillägget `.go`. Ett exempel är `get-thumbnail.go`.
 1. Öppna ett kommandotolksfönster.
-1. Kompilera paketet från filen genom att köra kommandot `go build` i kommandotolken. Exempelvis `go build get-thumbnail.go`.
-1. Kör det kompilerade paketet i kommandotolken. Exempelvis `get-thumbnail`.
+1. Kompilera paketet från filen genom att köra kommandot `go build` i kommandotolken. Ett exempel är `go build get-thumbnail.go`.
+1. Kör det kompilerade paketet i kommandotolken. Ett exempel är `get-thumbnail`.
 
 ```go
 package main
@@ -123,7 +123,7 @@ Om åtgärden lyckas innehåller svaret binärdata för miniatyrbilden. Om begä
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska API för visuellt innehåll för att analysera en bild, identifiera kändisar och landmärken, skapa en miniatyr och extrahera utskrift och handskriven text. Du kan experimentera med API för visuellt innehåll i [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Utforska API för visuellt innehåll för att analysera en bild, identifiera kändisar och landmärken, skapa en miniatyr och extrahera utskrift och handskriven text. Du kan experimentera med API för visuellt innehåll i [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).
 
 > [!div class="nextstepaction"]
-> [Utforska API för visuellt innehåll](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Utforska API för visuellt innehåll](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b)

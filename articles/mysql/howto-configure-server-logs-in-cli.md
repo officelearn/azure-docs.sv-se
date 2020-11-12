@@ -1,19 +1,19 @@
 ---
 title: Åtkomst till långsamma Query-loggar – Azure CLI – Azure Database for MySQL
 description: Den här artikeln beskriver hur du kommer åt långsamma frågemeddelanden i Azure Database for MySQL med hjälp av Azure CLI.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 4/13/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a662fe9300d78591cc7ae1fcff67f9b3f93ab8c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 945a67f81010a61adf814f6f6f422eba5001b48d
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87501226"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541580"
 ---
 # <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Konfigurera och komma åt långsamma Query-loggar med hjälp av Azure CLI
 Du kan hämta Azure Database for MySQL långsamma frågemeddelanden med hjälp av Azure CLI, kommando rads verktyget för Azure.

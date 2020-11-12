@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2230784eedd044acd95b3087793ba664b544f76a
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: b558e34d3f5d224515eee669dfa7b8f2c6bbb3cd
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505078"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541019"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-preview-using-the-azure-portal"></a>Snabb start: skapa en dedikerad SQL-pool (för hands version) med hjälp av Azure Portal
 
@@ -48,7 +48,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/)
 
     | Inställning | Föreslaget värde | Beskrivning |
     | :------ | :-------------- | :---------- |
-    | **namn på dedicerad SQL-pool** | Valfritt giltigt namn | Namnet på den dedikerade SQL-poolen. |
+    | **Namn på dedicerad SQL-pool** | Valfritt giltigt namn | Namnet på den dedikerade SQL-poolen. |
     | **Prestanda nivå** | DW100c | Ställ in på den minsta storleken för att minska kostnaderna för den här snabb starten |
 
   
@@ -73,7 +73,6 @@ Logga in på [Azure-portalen](https://portal.azure.com/)
 
 8. När etableringen är klar visas en ny post för den nyligen skapade dedikerade SQL-poolen när du navigerar tillbaka till arbets ytan.
  ![SQL-pool skapa flödes resurs etablering.](media/quickstart-create-sql-pool/create-sql-pool-studio-27.png)
-
 
 
 När den dedikerade SQL-poolen har skapats kommer den att vara tillgänglig i arbets ytan för att läsa in data, bearbeta strömmar, läsa från sjö osv.

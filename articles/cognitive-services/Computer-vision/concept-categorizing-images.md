@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 477349f1addf71a30e8ecb179266d8eac5510887
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43359c47b4d2c1b8895938271c74dab03f7731f7
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80244758"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541784"
 ---
 # <a name="categorize-images-by-subject-matter"></a>Kategorisera bilder efter ämne
 
@@ -53,7 +53,7 @@ Följande JSON-svar illustrerar vad Visuellt innehåll returnerar när du katego
 
 I följande tabell visas en typisk avbildnings uppsättning och kategorin som returneras av Visuellt innehåll för varje bild.
 
-| Bild | Kategori |
+| Avbildning | Kategori |
 |-------|----------|
 | ![Fyra personer träffas tillsammans som en familj](./Images/family_photo.png) | people_group |
 | ![En Puppy som sitter i ett gräs fält](./Images/cute_dog.png) | animal_dog |
@@ -62,7 +62,7 @@ I följande tabell visas en typisk avbildnings uppsättning och kategorin som re
 
 ## <a name="use-the-api"></a>Använda API:et
 
-Kategoriserings funktionen är en del av API: et för [analys av avbildning](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) . Du kan anropa API: et via en inbyggd SDK eller via REST-anrop. Inkludera `Categories` i **visualFeatures** -Frågeparametern. När du sedan får det fullständiga JSON-svaret ska du bara parsa strängen för innehållet i `"categories"` avsnittet.
+Kategoriserings funktionen är en del av API: et för [analys av avbildning](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) . Du kan anropa API: et via en inbyggd SDK eller via REST-anrop. Inkludera `Categories` i **visualFeatures** -Frågeparametern. När du sedan får det fullständiga JSON-svaret ska du bara parsa strängen för innehållet i `"categories"` avsnittet.
 
 * [Snabb start: Visuellt innehåll .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
 * [Snabb start: analysera en avbildning (REST API)](./quickstarts/csharp-analyze.md)

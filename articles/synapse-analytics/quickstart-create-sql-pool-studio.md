@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: skapa en dedikerad dedikerad SQL-pool med Synapse Studio'
+title: 'Snabb start: skapa en dedikerad SQL-pool med Synapse Studio'
 description: Skapa en dedikerad SQL-pool med Synapse Studio genom att följa stegen i den här hand boken.
 services: synapse-analytics
 author: julieMSFT
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 10/16/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: f3ed5f3940a9b02701ad2f3c779b791e128e288c
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 3644891f12a6475ec9cfec51f572df4742481e8f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506353"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541852"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-using-synapse-studio"></a>Snabb start: skapa en dedikerad SQL-pool med Synapse Studio
 
@@ -110,6 +110,7 @@ Om du vill ta bort den dedikerade SQL-poolen gör du följande:
 1. Bekräfta borttagningen och tryck på knappen **ta bort** .
 1. När processen har slutförts visas inte längre den dedikerade SQL-poolen i resurserna för arbets ytan.
 
-## <a name="next-steps"></a>Nästa steg 
+## <a name="next-steps"></a>Nästa steg
+ 
 - Se [snabb start: skapa en Apache Spark Notebook](quickstart-apache-spark-notebook.md).
 - Se [snabb start: skapa en dedikerad SQL-pool med hjälp av Azure Portal](quickstart-create-sql-pool-portal.md).

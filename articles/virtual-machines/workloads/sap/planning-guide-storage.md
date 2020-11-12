@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 819ac1f01cc182c79571de35ec0753f694dc7722
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ed99145a2d3860849c4a8117a93a9a0f24d227c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653621"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540934"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Azure Storage-typer för SAP-arbetsbelastning
 Azure har flera olika lagrings typer som skiljer sig mycket i funktioner, data flöde, svars tid och priser. Några av lagrings typerna är inte eller av begränsad användning för SAP-scenarier. Flera typer av Azure-lagring är väl lämpade eller optimerade för vissa SAP-arbetsbelastnings scenarier. I synnerhet för SAP HANA fick vissa Azure Storage-typer certifierade för användning med SAP HANA. I det här dokumentet ska vi gå igenom de olika typerna av lagring och beskriva deras kapacitet och användbarhet med SAP-arbetsbelastningar och SAP-komponenter.
@@ -134,7 +134,7 @@ Azure har ett enda service avtal för virtuell dator med 99,9% som är knutet ti
 
 Funktions mat ris för SAP-arbetsbelastningen ser ut så här:
 
-| Funktion| Kommentar| Anteckningar/länkar | 
+| Kapacitet| Kommentar| Anteckningar/länkar | 
 | --- | --- | --- | 
 | OS-bas-VHD | korrekt | alla system |
 | Datadisk | korrekt | alla system – [särskilt för SAP HANA](../../how-to-enable-write-accelerator.md) |
@@ -192,7 +192,7 @@ Kostnaden för en enskild disk bestäms av de tre dimensionerna som du kan defin
 
 Funktions mat ris för SAP-arbetsbelastningen ser ut så här:
 
-| Funktion| Kommentar| Anteckningar/länkar | 
+| Kapacitet| Kommentar| Anteckningar/länkar | 
 | --- | --- | --- | 
 | OS-bas-VHD | fungerar inte | - |
 | Datadisk | korrekt | alla system  |
@@ -247,7 +247,7 @@ Precis som med Azure Premium Storage kan en fast eller linjär data flödes stor
 
 Funktions mat ris för SAP-arbetsbelastningen ser ut så här:
 
-| Funktion| Kommentar| Anteckningar/länkar | 
+| Kapacitet| Kommentar| Anteckningar/länkar | 
 | --- | --- | --- | 
 | OS-bas-VHD | fungerar inte | - |
 | Datadisk | korrekt | Endast SAP HANA  |
@@ -273,14 +273,14 @@ Ytterligare inbyggda funktioner för ANF-lagring:
 - Kloning av ANF-volymer från ögonblicks bilder
 - Återställa volymer från ögonblicks bilder (snapin-återställning)
 
-**Sammanfattning**: Azure NetApp Files är en Hana-certifierad lagring med låg latens som gör det möjligt att distribuera NFS-och SMB-volymer eller-resurser. Lagringen levereras med tre olika service nivåer som ger olika data flöde och IOPS på ett linjärt sätt per GiB kapacitet för volymen. ANF-lagringen aktiverar för att distribuera SAP HANA skalnings scenarier med en nod i vänte läge. Lagrings utrymmet är lämpligt för att tillhandahålla fil resurser efter behov för/sapmnt eller SAP global transport katalog. ANF-lagringen levereras med funktions tillgänglighet som är tillgänglig som inbyggda NetApp-funktioner.  
+**Sammanfattning** : Azure NetApp Files är en Hana-certifierad lagring med låg latens som gör det möjligt att distribuera NFS-och SMB-volymer eller-resurser. Lagringen levereras med tre olika service nivåer som ger olika data flöde och IOPS på ett linjärt sätt per GiB kapacitet för volymen. ANF-lagringen aktiverar för att distribuera SAP HANA skalnings scenarier med en nod i vänte läge. Lagrings utrymmet är lämpligt för att tillhandahålla fil resurser efter behov för/sapmnt eller SAP global transport katalog. ANF-lagringen levereras med funktions tillgänglighet som är tillgänglig som inbyggda NetApp-funktioner.  
 
 
 
 ## <a name="azure-standard-ssd-storage"></a>Azure standard SSD-lagring
 Jämfört med Azure standard Storage-lagring ger Azure standard SSD-lagring bättre tillgänglighet, konsekvens, tillförlitlighet och latens. Den är optimerad för arbets belastningar som behöver konsekvent prestanda på lägre IOPS-nivåer. Det här lagrings utrymmet är det minsta lagrings utrymme som används för SAP-system med låg IOPS och data flödes krav. Funktions mat ris för SAP-arbetsbelastningen ser ut så här:
 
-| Funktion| Kommentar| Anteckningar/länkar | 
+| Kapacitet| Kommentar| Anteckningar/länkar | 
 | --- | --- | --- | 
 | OS-bas-VHD | begränsad lämplig | icke-produktionssystem |
 | Datadisk | begränsad lämplig | vissa icke-produktionssystem med låga IOPS-och latens krav |
@@ -307,7 +307,7 @@ Jämfört med Azure standard Storage-lagring ger Azure standard SSD-lagring bät
 ## <a name="azure-standard-hdd-storage"></a>Azure standard HDD-lagring
 Azure Standard HDD Storage var den enda lagrings typen när Azure-infrastrukturen fick certifiering för SAP NetWeaver-arbetsbelastning under året 2014. I år 2014 var Azure Virtual Machines liten och låg i lagrings data flödet. Den här lagrings typen kunde därför bara hålla sig uppdaterad med kraven. Lagringen är idealisk för försvars känsliga arbets belastningar som du inte upplever i SAP-utrymmet. Med det ökande genomflödet av virtuella Azure-datorer och den ökade arbets belastning som de virtuella datorerna producerar, betraktas inte den här lagrings typen för användning med SAP-scenarier längre. Funktions mat ris för SAP-arbetsbelastningen ser ut så här:
 
-| Funktion| Kommentar| Anteckningar/länkar | 
+| Kapacitet| Kommentar| Anteckningar/länkar | 
 | --- | --- | --- | 
 | OS-bas-VHD | inte lämplig | - |
 | Datadisk | inte lämplig | - |
@@ -352,11 +352,10 @@ När du konfigurerar virtuella Azure-datorer i livs cykeln för ett SAP-system b
 
 
 ## <a name="striping-or-not-striping"></a>Randning eller not randning
-Genom att skapa en stripe-uppsättning av flera Azure-diskar i en större volym kan du samla IOPS och data flöde för de enskilda diskarna till en volym. Den används endast för Azure standard Storage och Azure Premium Storage. Azure Ultra disk där du kan konfigurera genomflödet och IOPS oberoende av kapaciteten för en disk, kräver inte att stripe-uppsättningar används. Delade volymer baserade på NFS eller SMB kan inte stripas. På grund av den icke-linjära typen av data flöde i Azure Premium Storage och IOPS kan du etablera mindre kapacitet med samma IOPS och data flöde än stora enskilda Azure Premium Storage-diskar. Det är metoden för att uppnå högre genomflöde eller IOPS med lägre kostnad med hjälp av Azure Premium Storage. Exempel:
+Genom att skapa en stripe-uppsättning av flera Azure-diskar i en större volym kan du samla IOPS och data flöde för de enskilda diskarna till en volym. Den används endast för Azure standard Storage och Azure Premium Storage. Azure Ultra disk där du kan konfigurera genomflödet och IOPS oberoende av kapaciteten för en disk, kräver inte att stripe-uppsättningar används. Delade volymer baserade på NFS eller SMB kan inte stripas. På grund av den icke-linjära typen av data flöde i Azure Premium Storage och IOPS kan du etablera mindre kapacitet med samma IOPS och data flöde än stora enskilda Azure Premium Storage-diskar. Det är metoden för att uppnå högre genomflöde eller IOPS med lägre kostnad med hjälp av Azure Premium Storage. Om du till exempel stripar över två p15 Premium Storage-diskar får du ett data flöde av: 
 
-- Randning över två p15 Premium Storage-diskar ger dig till gång till ett data flöde av 
 - 250 MiB/s. En sådan volym kommer att ha 512 GiB-kapacitet. Om du vill ha en enda disk som ger dig 250 MiB-genomflöde per sekund måste du välja en P40-disk med 2 TiB-kapacitet. 
-- Eller så kan du få ett data flöde på 400 MiB/s genom att Stripa fyra P10 Premium Storage-diskar med en total kapacitet på 512 GiB genom randning. Om du vill ha en enskild disk med minst 500 MiB-genomflöde per sekund måste du välja en P60 Premium Storage-disk med 8 TiB. Eftersom kostnads besparingar eller Premium-lagring är nära linjära med kapaciteten kan du använda randiga kostnader.
+- 400 MiB/s genom randning av fyra P10 Premium Storage-diskar med en total kapacitet på 512 GiB genom randning. Om du vill ha en enskild disk med minst 500 MiB-genomflöde per sekund måste du välja en P60 Premium Storage-disk med 8 TiB. Eftersom kostnaden för Premium Storage ligger nära linjär med kapaciteten kan du använda randiga kostnader.
 
 Vissa regler måste följas vid randning:
 

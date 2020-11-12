@@ -1,19 +1,19 @@
 ---
 title: 'Självstudie: utforma en server – Azure PowerShell-Azure Database for MariaDB'
 description: I den här självstudien beskrivs hur du skapar och hanterar Azure Database for MariaDB Server och databas med PowerShell.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurepowershell
 ms.topic: tutorial
 ms.date: 05/26/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 8087da173c8d1df225456aea6efbdbe5ed8c48be
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 9b4500df459e4d4ef67f97dc4fa923988f30401b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424923"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542481"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-powershell"></a>Självstudie: utforma en Azure Database for MariaDB med hjälp av PowerShell
 
@@ -28,7 +28,7 @@ Azure Database for MariaDB är en relationsdatabastjänst i Microsoft-molnet som
 > - Uppdatera data
 > - Återställa data
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 

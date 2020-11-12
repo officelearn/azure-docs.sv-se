@@ -1,18 +1,18 @@
 ---
 title: 'Snabb start: skapa en server-Azure Portal-Azure Database for MySQL'
 description: Den här artikeln beskriver hur du använder Azure Portal för att skapa ett exempel på en Azure-databas för MySQL-server på fem minuter.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/04/2020
-ms.openlocfilehash: ea131c33b37c8989f3c5eb8f11b8e0d7a236190f
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 4282294ff54fd3da3f764f53efc8b040b9522191
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504509"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542260"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Snabb start: skapa en Azure Database for MySQL-server med hjälp av Azure Portal
 
@@ -48,7 +48,7 @@ En Azure-prenumeration krävs. Om du inte har en Azure-prenumeration kan du skap
    Version | Senaste huvudversion| Använd den senaste huvud versionen. Se [alla versioner som stöds](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
    Beräkning och lagring | Använd standardinställningarna| Standard pris nivån är **generell användning** med **4 virtuella kärnor** och **100 GB** lagring. Kvarhållning av säkerhets kopior har angetts till **7 dagar** , med alternativet **geografiskt redundant** säkerhets kopiering.<br/>Gå igenom sidan med [priser](https://azure.microsoft.com/pricing/details/mysql/) och uppdatera standardinställningarna om du behöver.
    Användarnamn för administratör | **mydemoadmin** | Ange användar namnet för Server administratören. Du kan inte använda **azure_superuser** , **administratör** , **administratör** , **rot** , **gäst** eller **offentlig** för administratörs användar namnet.
-   lösenordsinställning | Ett lösenord | Ett nytt lösen ord för Server administratörs användaren. Lösen ordet måste vara mellan 8 och 128 tecken långt och innehålla en kombination av versaler eller gemener, siffror och icke-alfanumeriska tecken (!, $, #,% osv.).
+   Lösenord | Ett lösenord | Ett nytt lösen ord för Server administratörs användaren. Lösen ordet måste vara mellan 8 och 128 tecken långt och innehålla en kombination av versaler eller gemener, siffror och icke-alfanumeriska tecken (!, $, #,% osv.).
   
 
    > [!NOTE]

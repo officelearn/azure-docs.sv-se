@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/22/2020
 ms.author: v-mibufo
-ms.openlocfilehash: ae3d35bea1c75c797447100316ceab9a27fcbe48
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: f2f0177b5fe8bb97773d297319f6c9196d8178d2
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424446"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536242"
 ---
 # <a name="vm-is-unresponsive-while-waiting-for-the-local-session-manager"></a>Den virtuella datorn svarar inte på den lokala sessionshanteraren
 
@@ -35,7 +35,7 @@ Det kan finnas flera orsaker till att en virtuell dator fastnar i väntan på de
 
 ## <a name="solution"></a>Lösning
 
-I vissa fall behöver du bara vänta tillräckligt länge för att processen ska slutföras för att lösa problemet. Om den virtuella datorn är låst på vänte skärmen i mer än en timme bör du samla in en minnesdump och sedan kontakta Microsoft support.
+I vissa fall behöver du bara vänta tillräckligt länge för att processen ska slutföras för att lösa problemet. Om din virtuella dator inte svarar och är kvar på skärmen vänta i mer än en timme, ska du samla in en minnesdump och sedan kontakta Microsoft support.
 
 ### <a name="collect-the-memory-dump-file"></a>Samla in minnesdumpen
 

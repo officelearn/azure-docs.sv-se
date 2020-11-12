@@ -1,17 +1,17 @@
 ---
 title: Anslut med omdirigering – Azure Database for MariaDB
 description: I den här artikeln beskrivs hur du kan konfigurera programmet för att ansluta till Azure Database for MariaDB med omdirigering.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/8/2020
-ms.openlocfilehash: 45d93797b72b3b35dd44cddc22124acb73eb3454
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f26de72839fcaa39bff4d827aba757721736934
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86121103"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537432"
 ---
 # <a name="connect-to-azure-database-for-mariadb-with-redirection"></a>Anslut till Azure Database for MariaDB med omdirigering
 
@@ -54,7 +54,7 @@ I följande avsnitt i dokumentet får du en översikt över hur du installerar `
 
 ### <a name="ubuntu-linux"></a>Ubuntu Linux
 
-#### <a name="prerequisites"></a>Krav 
+#### <a name="prerequisites"></a>Förutsättningar 
 - PHP-versioner 7.2.15 + och 7.3.2 +
 - PHP PÄRON 
 - php – mysql
@@ -93,7 +93,7 @@ I följande avsnitt i dokumentet får du en översikt över hur du installerar `
 
 ### <a name="windows"></a>Windows
 
-#### <a name="prerequisites"></a>Krav 
+#### <a name="prerequisites"></a>Förutsättningar 
 - PHP-versioner 7.2.15 + och 7.3.2 +
 - php – mysql
 - Azure Database for MariaDB Server

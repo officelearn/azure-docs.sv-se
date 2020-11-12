@@ -14,12 +14,12 @@ ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
 keywords: visuellt innehåll, program för visuellt innehåll, dator vision
-ms.openlocfilehash: fa00265f3c591578f9970b77770fbf7290d87510
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 851470971335f144ebe0f9b602a8adc7d5ee06cf
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90907078"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536225"
 ---
 # <a name="what-is-computer-vision"></a>Vad är visuellt innehåll?
 
@@ -39,7 +39,7 @@ Visuellt innehåll innehåller [OCR-funktioner (optisk tecken läsning)](concept
 
 ## <a name="analyze-images-for-insight"></a>Analysera bilder för att få information
 
-Du kan analysera bilder för att ge insikter om sina visuella funktioner och egenskaper. Alla funktioner i tabellen nedan tillhandahålls av [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)-API:et. Kom igång genom att följa en [snabb start](#next-steps) .
+Du kan analysera bilder för att ge insikter om sina visuella funktioner och egenskaper. Alla funktioner i tabellen nedan tillhandahålls av [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b)-API:et. Kom igång genom att följa en [snabb start](#next-steps) .
 
 
 ### <a name="tag-visual-features"></a>Tagga visuella egenskaper

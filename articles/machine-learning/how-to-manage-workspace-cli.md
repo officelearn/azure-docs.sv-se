@@ -10,19 +10,19 @@ author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: 9b55c4873c4d7ee430e7d9ce84d2782a37e522ae
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: dc5dcf20b8c4fb1dae971b9bda4ef1a7552ce9d4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442148"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534746"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Skapa en arbets yta för Azure Machine Learning med Azure CLI
 
 
 I den här artikeln får du lära dig hur du skapar en Azure Machine Learning-arbetsyta med hjälp av Azure CLI. Azure CLI innehåller kommandon för att hantera Azure-resurser. Machine Learning-tillägget till CLI innehåller kommandon för att arbeta med Azure Machine Learning resurser.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En **Azure-prenumeration**. Om du inte har en sådan kan du prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -156,9 +156,12 @@ Mer information om hur du använder en privat slut punkt och ett virtuellt nätv
 
 ### <a name="customer-managed-key-and-high-business-impact-workspace"></a>Kundhanterad nyckel och arbets yta med hög arbets belastning
 
-Som standard lagras mått och metadata för arbets ytan i en Azure Cosmos DB-instans som Microsoft underhåller. Dessa data är krypterade med Microsoft-hanterade nycklar. 
+Som standard lagras metadata för arbets ytan i en Azure Cosmos DB-instans som Microsoft underhåller. Dessa data är krypterade med Microsoft-hanterade nycklar.
 
-I stället för att använda den Microsoft-hanterade nyckeln kan du använda ange din egen nyckel. Om du gör det skapas Azure Cosmos DB-instansen som lagrar mått och metadata i din Azure-prenumeration. Använd `--cmk-keyvault` parametern för att ange Azure Key Vault som innehåller nyckeln och `--resource-cmk-uri` för att ange URL: en för nyckeln i valvet.
+> [!NOTE]
+> Azure Cosmos DB används __inte__ för att lagra information som modell prestanda, information som loggats av experiment eller information som loggats från modell distributioner. Mer information om hur du övervakar dessa objekt finns i avsnittet [övervakning och loggning](concept-azure-machine-learning-architecture.md) i artikeln arkitektur och begrepp.
+
+I stället för att använda den Microsoft-hanterade nyckeln kan du använda ange din egen nyckel. Om du gör det skapas Azure Cosmos DB-instansen som lagrar metadata i din Azure-prenumeration. Använd `--cmk-keyvault` parametern för att ange Azure Key Vault som innehåller nyckeln och `--resource-cmk-uri` för att ange URL: en för nyckeln i valvet.
 
 Innan du använder `--cmk-keyvault` `--resource-cmk-uri` parametrarna och måste du först utföra följande åtgärder:
 

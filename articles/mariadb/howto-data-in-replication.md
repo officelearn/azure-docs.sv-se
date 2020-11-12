@@ -1,17 +1,17 @@
 ---
 title: Konfigurera data-i replikering – Azure Database for MariaDB
 description: I den här artikeln beskrivs hur du konfigurerar Datareplikering i Azure Database for MariaDB.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 9/29/2020
-ms.openlocfilehash: 21a0aaaa9e10a7c3e445145eb178b50b446ba6ae
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: fe7e02cc34dc9c97e540d7b8d96c48ee8d5cfe09
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425996"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535375"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Konfigurera Datareplikering i Azure Database for MariaDB
 
@@ -54,7 +54,7 @@ Följande steg förbereder och konfigurerar den MariaDB-server som finns lokalt,
 
 1. Granska [huvud server kraven](concepts-data-in-replication.md#requirements) innan du fortsätter. 
 
-2. Se till att käll servern tillåter både inkommande och utgående trafik på port 3306 och att käll servern har en **offentlig IP-adress**, att DNS är offentligt tillgänglig eller har ett fullständigt kvalificerat domän namn (FQDN). 
+2. Se till att käll servern tillåter både inkommande och utgående trafik på port 3306 och att käll servern har en **offentlig IP-adress** , att DNS är offentligt tillgänglig eller har ett fullständigt kvalificerat domän namn (FQDN). 
    
    Testa anslutningen till käll servern genom att försöka ansluta från ett verktyg som till exempel den MySQL-kommandorad som finns på en annan dator eller från den [Azure Cloud Shell](../cloud-shell/overview.md) som är tillgänglig i Azure Portal.
 
@@ -141,7 +141,7 @@ Följande steg förbereder och konfigurerar den MariaDB-server som finns lokalt,
 
    **MySQL Workbench**
 
-   Om du vill skapa en replikeringsprincip i MySQL Workbench väljer du **användare och behörigheter**i fönstret **hantering** . Välj sedan **Lägg till konto**.
+   Om du vill skapa en replikeringsprincip i MySQL Workbench väljer du **användare och behörigheter** i fönstret **hantering** . Välj sedan **Lägg till konto**.
  
    ![Användare och behörigheter](./media/howto-data-in-replication/users_privileges.png)
 
@@ -149,7 +149,7 @@ Följande steg förbereder och konfigurerar den MariaDB-server som finns lokalt,
 
    ![Synkronisera användare](./media/howto-data-in-replication/syncuser.png)
  
-   Välj panelen **administrativa roller** och välj **replikering slav**i listan över **globala privilegier**. Välj **Använd** för att skapa en replikeringsprincip.
+   Välj panelen **administrativa roller** och välj **replikering slav** i listan över **globala privilegier**. Välj **Använd** för att skapa en replikeringsprincip.
 
    ![Replikering slav](./media/howto-data-in-replication/replicationslave.png)
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b31e3d44cc66e97506b29b81cef5b8d981d05e39
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: ca56c285baff9982ff465b0d4115d15eadedb8c9
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279420"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534763"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Hantera Azure Digitals dubbla modeller
 
@@ -20,9 +20,13 @@ Du kan hantera de [modeller](concepts-models.md) som Azure Digitals-instansen ä
 
 Hanterings åtgärder omfattar överföring, validering, hämtning och borttagning av modeller. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+
+## <a name="ways-to-manage-models"></a>Sätt att hantera modeller
+
+[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
 
 ## <a name="create-models"></a>Skapa modeller
 
@@ -73,17 +77,7 @@ Efter den här metoden kan du gå vidare till för att definiera modeller för s
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
-## <a name="manage-models-with-apis"></a>Hantera modeller med API: er
-
-I följande avsnitt visas hur du utför olika modell hanterings åtgärder med hjälp av [Azure Digitals dubbla API: er och SDK: er](how-to-use-apis-sdks.md).
-
-> [!NOTE]
-> I exemplen nedan ingår inte fel hantering för det kortfattat. Vi rekommenderar dock att du i dina projekt kan figursätta tjänst anrop i try/catch-block.
-
-> [!TIP] 
-> Kom ihåg att alla SDK-metoder ingår i synkrona och asynkrona versioner. För växlings anrop returneras asynkrona metoder `AsyncPageable<T>` när de synkrona versionerna returneras `Pageable<T>` .
-
-### <a name="upload-models"></a>Ladda upp modeller
+## <a name="upload-models"></a>Ladda upp modeller
 
 När modeller har skapats kan du ladda upp dem till Azure Digitals-instansen.
 
@@ -136,7 +130,7 @@ Model-filer kan innehålla mer än en enskild modell. I det här fallet måste m
  
 Vid uppladdning verifieras Model-filer av tjänsten.
 
-### <a name="retrieve-models"></a>Hämta modeller
+## <a name="retrieve-models"></a>Hämta modeller
 
 Du kan visa och hämta modeller som är lagrade på din Azure Digital-instansen. 
 
@@ -166,13 +160,13 @@ API-anrop för att hämta modeller med alla retur `DigitalTwinsModelData` objekt
 
 Modeller returneras inte nödvändigt vis i exakt det dokument formulär de överfördes. Azure Digitals dubblare garanterar bara att RETUR formuläret kommer att vara semantiskt likvärdigt. 
 
-### <a name="update-models"></a>Uppdatera modeller
+## <a name="update-models"></a>Uppdatera modeller
 
 När en modell har laddats upp till din Azure Digital-instansen är hela modell gränssnittet oföränderligt. Det innebär att det inte finns någon traditionell "redigering" av modeller. Azure Digitals dubbla, tillåter inte heller åter överföring av samma modell.
 
 Om du i stället vill göra ändringar i en modell, t. ex. uppdatering `displayName` eller `description` – hur du gör detta, så är att ladda upp en **nyare version** av modellen. 
 
-#### <a name="model-versioning"></a>Versionshantering för modell
+### <a name="model-versioning"></a>Versionshantering för modell
 
 Om du vill skapa en ny version av en befintlig modell börjar du med DTDL för den ursprungliga modellen. Uppdatera, Lägg till eller ta bort de fält som du vill ändra.
 
@@ -194,7 +188,7 @@ Ladda sedan upp den nya versionen av modellen till din instans.
 
 Den här versionen av modellen kommer sedan att vara tillgänglig i din instans för att användas för digitala dubbla. Tidigare versioner av modellen skrivs **inte** över, så flera versioner av modellen kan finnas i din instans tills du [tar bort dem](#remove-models).
 
-#### <a name="impact-on-twins"></a>Påverkan på dubbla
+### <a name="impact-on-twins"></a>Påverkan på dubbla
 
 När du skapar en ny dubbla, eftersom den nya modell versionen och den gamla modell versionen finns, kan den nya, dubbla, använda antingen den nya versionen av modellen eller den äldre versionen.
 
@@ -202,7 +196,7 @@ Det innebär också att uppladdning av en ny version av en modell inte automatis
 
 Du kan uppdatera de här befintliga dubblarna till den nya modell versionen genom att uppdatera dem, enligt beskrivningen i avsnittet [*Uppdatera en digital-enhets modell*](how-to-manage-twin.md#update-a-digital-twins-model) i *instruktionen så här: hantera digitala dubbla*. I samma korrigering måste du uppdatera båda **modell-ID: t** (till den nya versionen) och **alla fält som måste ändras på den dubbla för att den ska överensstämma med den nya modellen**.
 
-### <a name="remove-models"></a>Ta bort modeller
+## <a name="remove-models"></a>Ta bort modeller
 
 Modeller kan också tas bort från tjänsten på ett av två sätt:
 * **Avställning** : när en modell har inaktiverats kan du inte längre använda den för att skapa nya digitala dubbla. Befintliga digitala dubbla objekt som redan använder den här modellen påverkas inte, så du kan fortfarande uppdatera dem med saker som egenskaps ändringar och lägga till eller ta bort relationer.
@@ -210,7 +204,7 @@ Modeller kan också tas bort från tjänsten på ett av två sätt:
 
 Dessa är separata funktioner och de påverkar inte varandra, men de kan användas tillsammans för att ta bort en modell gradvis. 
 
-#### <a name="decommissioning"></a>Ställa
+### <a name="decommissioning"></a>Ställa
 
 Här är koden för att inaktivera en modell:
 
@@ -223,7 +217,7 @@ client.DecommissionModel(dtmiOfPlanetInterface);
 
 En modells inaktive rings status ingår i `ModelData` posterna som returneras av modell hämtnings-API: erna.
 
-#### <a name="deletion"></a>Borttagning
+### <a name="deletion"></a>Borttagning
 
 Du kan ta bort alla modeller i din instans på samma gång, eller så kan du göra det på individuell basis.
 
@@ -231,7 +225,7 @@ Ett exempel på hur du tar bort alla modeller får du genom att hämta den exemp
 
 Resten av det här avsnittet delar ned modell borttagning i närmare detalj, och visar hur du gör det för en enskild modell.
 
-##### <a name="before-deletion-deletion-requirements"></a>Före borttagning: borttagnings krav
+#### <a name="before-deletion-deletion-requirements"></a>Före borttagning: borttagnings krav
 
 Modeller kan vanligt vis tas bort när som helst.
 
@@ -239,7 +233,7 @@ Undantaget är modeller som andra modeller är beroende av, antingen med en `ext
 
 Du kan göra detta genom att uppdatera den beroende modellen för att ta bort beroenden eller ta bort den beroende modellen helt.
 
-##### <a name="during-deletion-deletion-process"></a>Under borttagning: borttagnings process
+#### <a name="during-deletion-deletion-process"></a>Under borttagning: borttagnings process
 
 Även om en modell uppfyller kraven för att ta bort den direkt, kan det vara bra att gå igenom några steg för att undvika oönskade konsekvenser för de dubblare som ligger kvar. Här följer några steg som kan hjälpa dig att hantera processen:
 1. Börja med att inaktivera modellen
@@ -255,7 +249,7 @@ Om du vill ta bort en modell använder du det här anropet:
 await client.DeleteModelAsync(IDToDelete);
 ```
 
-##### <a name="after-deletion-twins-without-models"></a>Efter borttagning: sammanflätade utan modeller
+#### <a name="after-deletion-twins-without-models"></a>Efter borttagning: sammanflätade utan modeller
 
 När en modell har tagits bort, anses alla digitala, dubbla, som använde modellen, vara utan en modell. Observera att det inte finns någon fråga som kan ge dig en lista över alla dubbla i det här läget, även om du fortfarande *kan* fråga de dubblarna efter den borttagna modellen för att veta vad som påverkas.
 
@@ -274,17 +268,13 @@ Saker som du **inte kan** göra:
 * Redigera utgående relationer (som i, relationer *från* den här dubbla till andra dubbla)
 * Redigera egenskaper
 
-##### <a name="after-deletion-re-uploading-a-model"></a>Efter borttagning: laddar upp en modell igen
+#### <a name="after-deletion-re-uploading-a-model"></a>Efter borttagning: laddar upp en modell igen
 
 När en modell har tagits bort kan du senare välja att ladda upp en ny modell med samma ID som den som du tog bort. Det här är vad som händer i detta fall.
 * Från lösnings lagrets perspektiv är det samma som att ladda upp en helt ny modell. Tjänsten kommer inte ihåg att den gamla har laddats upp tidigare.   
 * Om det finns några återstående dubbla i grafen som refererar till den borttagna modellen, är de inte längre överblivna. modell-ID: t är giltigt igen med den nya definitionen. Men om den nya definitionen för modellen skiljer sig från modell definitionen som har tagits bort, kan dessa dubbla, ha egenskaper och relationer som matchar den borttagna definitionen och som inte är giltiga med den nya.
 
 Azures digitala dubblare förhindrar inte det här läget, så var noga med att korrigera korrigeringen på lämpligt sätt för att se till att de är giltiga via modell definitions växeln.
-
-## <a name="manage-models-with-cli"></a>Hantera modeller med CLI
-
-Modeller kan också hanteras med hjälp av Azure Digitals flätade CLI. Kommandona finns i [*anvisningar: använda Azure Digitals flätade CLI*](how-to-use-cli.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

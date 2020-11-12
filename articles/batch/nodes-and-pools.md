@@ -2,13 +2,13 @@
 title: Noder och pooler i Azure Batch
 description: Lär dig mer om Compute-noder och pooler och hur de används i ett Azure Batch arbets flöde från en utvecklings synpunkt.
 ms.topic: conceptual
-ms.date: 10/21/2020
-ms.openlocfilehash: c85c50d0b30e30563390d2ffb05942f199047d67
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.date: 11/10/2020
+ms.openlocfilehash: 77f3a1c954f5591537436c9ee747052b3a642ec4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913814"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537619"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Noder och pooler i Azure Batch
 
@@ -72,9 +72,9 @@ Konfigurationen av den **virtuella datorn** anger att poolen består av virtuell
 
 ### <a name="cloud-services-configuration"></a>Cloud Services konfiguration
 
-**Cloud Services-konfigurationen** anger att poolen består av Azure Cloud Services-noder. Cloud Services tillhandahåller *endast* Windows Compute-noder.
+**Cloud Services-konfigurationen** anger att poolen består av Azure Cloud Services-noder. Cloud Services tillhandahåller endast Windows Compute-noder.
 
-Tillgängliga operativsystem för pooler med Cloud Services-konfiguration finns i [Kompatibilitetstabell för versioner av Azure-gästoperativsystem och SDK:er](../cloud-services/cloud-services-guestos-update-matrix.md). När du skapar en pool som innehåller Cloud Services noder måste du ange nodens storlek och dess OS- *familj* (som avgör vilka versioner av .net som installeras med operativ systemet). Cloud Services distribueras snabbare till Azure än virtuella datorer som kör Windows. Om du vill ha pooler med Windows-beräkningsnoder får du bättre distributionstid med Cloud Services.
+Tillgängliga operativ system för Cloud Services konfigurations-pooler visas i [Azure gäst operativ system versioner och SDK-kompatibilitet](../cloud-services/cloud-services-guestos-update-matrix.md), och tillgängliga Compute Node-storlekar anges i [storlekar för Cloud Services](../cloud-services/cloud-services-sizes-specs.md). När du skapar en pool som innehåller Cloud Services noder anger du nodens storlek och dess *OS-familj* (som avgör vilka versioner av .net som installeras med operativ systemet). Cloud Services distribueras snabbare till Azure än virtuella datorer som kör Windows. Om du vill ha pooler med Windows-beräkningsnoder får du bättre distributionstid med Cloud Services.
 
 Precis som med arbetsroller i Cloud Services kan du ange en *operativsystemversion* (mer information om arbetsroller finns i avsnittet [Översikt över Cloud Services](../cloud-services/cloud-services-choose-me.md)). Vi rekommenderar att du anger `Latest (*)` för *operativ system versionen* så att noderna uppgraderas automatiskt och det inte finns något arbete som krävs för att hantera nya versioner. Det huvudsakliga skälet till att välja en viss operativsystemversion är att säkerställa programkompatibiliteten, så att du kan testa bakåtkompatibiliteten innan versionen uppdateras. Efter valideringen kan *operativ system versionen* för poolen uppdateras och den nya operativ system avbildningen kan installeras. Alla pågående aktiviteter avbryts och placeras i kö.
 
@@ -127,7 +127,7 @@ En skalningsformel kan baseras på följande mått:
 
 - **Tidsmått** baseras på statistik som samlas in var femte minut under angivet antalet timmar.
 - **Resursmått** baseras på processoranvändning, bandbreddsanvändning, minnesanvändning och antalet noder.
-- **Aktivitetsmått** baseras på aktivitetens tillstånd, t.ex. *Aktiv* (köad), *Körs* eller *Slutförd* .
+- **Aktivitetsmått** baseras på aktivitetens tillstånd, t.ex. *Aktiv* (köad), *Körs* eller *Slutförd*.
 
 Om den automatiska skalningen minskar antalet beräkningsnoder i en pool måste du bestämma hur pågående aktiviteter ska hanteras vid nedskalningen. Batch tillhandahåller ett [*alternativ för noden*](/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) som du kan inkludera i dina formler. Du kan till exempel ange att pågående aktiviteter ska stoppas direkt och sedan placeras i kö för att köras på en annan nod eller att de ska slutföras innan noden tas bort från poolen. Observera att om du anger alternativet för nodens tilldelning som `taskcompletion` eller `retaineddata` kommer att förhindra åtgärder för att ändra storlek på poolen förrän alla aktiviteter har slutförts, eller om alla aktiviteter för kvarhållning av aktiviteter har gått ut.
 

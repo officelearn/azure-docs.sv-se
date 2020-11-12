@@ -1,7 +1,7 @@
 ---
 title: Övervaka och samla in data från Machine Learning webb tjänst slut punkter
 titleSuffix: Azure Machine Learning
-description: Övervaka webb tjänster som distribueras med Azure Machine Learning med hjälp av Azure Application Insights
+description: Lär dig hur du samlar in data från modeller som distribueras till webb tjänst slut punkter i Azure Kubernetes service (AKS) eller Azure Container Instances (ACI).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: blackmist
 ms.date: 09/15/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 1f02c9b080b87b4fbffcd1870dd139b9d32de0c7
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 5d49a88b89f9e2f4e2c2e6fa8ef18a01c803e3f7
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357679"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536599"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Se Övervaka och samla in data från webbtjänstslutpunkter i ML
 

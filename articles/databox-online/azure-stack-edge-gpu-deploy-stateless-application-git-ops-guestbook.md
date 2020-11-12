@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 3200cfe290cbba208c61e914b17ffa6cd65e6eee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d323504a46cd35525c889a94d2d044193c1471ac
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899552"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535953"
 ---
 # <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Distribuera ett tillstånds lösa program i PHP-programmet med Redis on Arc Enabled Kubernetes Cluster på Azure Stack Edge Pro GPU
 
@@ -79,9 +79,9 @@ Följ dessa steg om du vill konfigurera Azure Arc-resursen för att distribuera 
 
 1. Gå till **konfigurationer** och välj **+ Lägg till konfiguration**.
 
-    ![Gå till konfigurationer](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
+    ![Skärm bild som visar Azure-bågen aktiverat Kubernetes-kluster med Lägg till konfiguration valt.](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
 
-1. I **Lägg till konfiguration**anger du lämpliga värden för fälten och väljer **Använd**.
+1. I **Lägg till konfiguration** anger du lämpliga värden för fälten och väljer **Använd**.
 
     |Parameter  |Beskrivning |
     |---------|---------|
@@ -100,11 +100,11 @@ Följ dessa steg om du vill konfigurera Azure Arc-resursen för att distribuera 
 
 1. Konfigurations distributionen startar och **operatörs statusen** visas som **väntande**. 
 
-    ![Gå till konfigurationer](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-1.png)
+    ![Skärm bild som visar Azure-bågen aktiverat Kubernetes-kluster i ett väntande tillstånd när det uppdateras.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-1.png)
 
 1. Distributionen tar några minuter. När distributionen är klar visas **operatörs status** som **installerad**.
 
-    ![Gå till konfigurationer](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
+    ![Skärm bild som visar Azure-bågen aktiverat Kubernetes-kluster i ett installations läge.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
 
 
 ## <a name="verify-deployment"></a>Verifiera distributionen

@@ -3,17 +3,17 @@ title: Vad är nytt i det virtuella Windows-skrivbordet? – Azure
 description: Nya funktioner och produkt uppdateringar för virtuella Windows-datorer.
 author: Heidilohr
 ms.topic: overview
-ms.date: 10/01/2020
+ms.date: 11/11/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: 0191d6ad74a9b6349f5d1724f9483607dce2d926
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c82312b40955b392243bf616ee991c0108a13fb5
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91630022"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537398"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Vad är nytt i det virtuella Windows-skrivbordet?
 
@@ -25,6 +25,48 @@ Uppdateringar av virtuella Windows-datorer regelbundet. I den här artikeln får
 - Felkorrigeringar
 
 Den här artikeln uppdateras varje månad. Se till att kontrol lera igen ofta för att hålla dig uppdaterad med nya uppdateringar.
+
+## <a name="october-2020"></a>Oktober 2020
+
+Följande har ändrats i oktober 2020:
+
+### <a name="improved-performance"></a>Förbättrade prestanda
+
+- Vi har optimerat prestanda genom att minska anslutnings fördröjningen i följande Azure-geografiska områden:
+    - Schweiz
+    - Kanada
+
+Nu kan du använda [Experience-uppskattningen](https://azure.microsoft.com/services/virtual-desktop/assessment/) för att uppskatta kvaliteten på användar upplevelsen i dessa områden.
+
+### <a name="azure-government-cloud-availability"></a>Azure Government moln tillgänglighet
+
+Azure Government molnet är nu allmänt tillgängligt. Läs mer i [vårt blogg inlägg](https://azure.microsoft.com/updates/windows-virtual-desktop-is-now-generally-available-in-the-azure-government-cloud/).
+
+### <a name="windows-virtual-desktop-azure-portal-updates"></a>Windows Virtual Desktop Azure Portal-uppdateringar
+
+Vi har gjort några uppdateringar av Windows Virtual Desktop Azure Portal:
+
+- Ett resourceID-fel har åtgärd ATS som hindrade användare från att öppna fliken "sessioner".
+- Effektiviserat användar gränssnittet på fliken "sessioner".
+- Korrigera inställningarna "standard," användbarhet "och" Återställ standardvärden "under RDP-egenskaperna.
+- Gjorde "ta bort" och "ta bort"-funktioner på alla flikar.
+- Portalen validerar nu namn på appar i arbets flödet "Lägg till en app".
+- Ett problem har åtgärd ATS där export data för sessionsvärdservern inte justerats i kolumnerna.
+- Ett problem har åtgärd ATS där portalen inte kunde hämta användarsessioner.
+- Ett problem har åtgärd ATS i en sessions värd hämtning som inträffade när den virtuella datorn skapades i en annan resurs grupp.
+- Fliken "Session Host" har uppdaterats till lista både aktiva och frånkopplade sessioner.
+- Fliken "program" har nu sidor.
+- Ett problem har åtgärd ATS där texten "kräver kommando rad" inte visas korrekt på fliken "program lista".
+- Ett problem har åtgärd ATS när portalen inte kunde distribuera värdar eller virtuella datorer när du använder den tyska språk versionen av den delade avbildnings galleriet.
+
+### <a name="client-updates-for-october-2020"></a>Klient uppdateringar för oktober 2020
+
+Vi har släppt nya versioner av-klienterna. Mer information finns i de här artiklarna:
+
+- [Windows](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
+- [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
+
+Mer information om de andra klienterna finns i [klient uppdateringar](#client-updates).
 
 ## <a name="september-2020"></a>September 2020
 
@@ -68,7 +110,7 @@ Följande har ändrats i augusti 2020:
 
 - Azure Advisor är nu en del av det virtuella Windows-skrivbordet. När du ansluter till virtuella Windows-datorer via Azure Portal kan du se rekommendationer för att optimera din Windows-miljö för virtuella skriv bord. Läs mer på [Azure Advisor](azure-advisor.md).
 
-- Azure CLI stöder nu Windows Virtual Desktop ( `az desktopvirtualization` ) för att hjälpa dig att automatisera dina Windows-distributioner av virtuella datorer. Ta en titt på [desktopvirtualization](/cli/azure/ext/desktopvirtualization/?view=azure-cli-latest) för en lista över tilläggs kommandon.
+- Azure CLI stöder nu Windows Virtual Desktop ( `az desktopvirtualization` ) för att hjälpa dig att automatisera dina Windows-distributioner av virtuella datorer. Ta en titt på [desktopvirtualization](/cli/azure/ext/desktopvirtualization/?view=azure-cli-latest&preserve-view=true) för en lista över tilläggs kommandon.
 
 - Vi har uppdaterat våra mallar för att göra dem fullständigt kompatibla med Windows Virtual Desktop Azure Resource Manager-gränssnitt. Du kan hitta mallarna på [GitHub](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates).
 
@@ -88,7 +130,7 @@ Om du vill veta mer om nya funktioner kan du kolla i [det här blogg inlägget](
 
 Den senaste versionen av verktyget autoskalning som fanns i för hands versionen är nu allmänt tillgänglig. Det här verktyget använder ett Azure Automation-konto och Azure Logic-appen för att automatiskt stänga och starta om sessionens virtuella datorer (VM) i en adresspool, vilket minskar infrastruktur kostnaderna. Läs mer i [Scale session-värdar med hjälp av Azure Automation](set-up-scaling-script.md).
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
 Nu kan du göra följande saker med Azure Portal i det virtuella Windows-Skriv bordet: 
 
@@ -97,7 +139,7 @@ Nu kan du göra följande saker med Azure Portal i det virtuella Windows-Skriv b
 
 ### <a name="diagnostics"></a>Diagnostik
 
-Vi har släppt några nya fördefinierade frågor för Log Analytics arbets ytan. Om du vill komma åt frågorna går du till **loggar** och under **kategori**väljer du **virtuellt Windows-skrivbord**. Läs mer i [använda Log Analytics för funktionen diagnostik](diagnostics-log-analytics.md).
+Vi har släppt några nya fördefinierade frågor för Log Analytics arbets ytan. Om du vill komma åt frågorna går du till **loggar** och under **kategori** väljer du **virtuellt Windows-skrivbord**. Läs mer i [använda Log Analytics för funktionen diagnostik](diagnostics-log-analytics.md).
 
 ### <a name="update-for-remote-desktop-client-for-android"></a>Uppdatering för fjärr skrivbords klient för Android
 
@@ -140,7 +182,7 @@ Vi har lagt till nya AzWvd-cmdletar i modulen Azure PowerShell AZ med den här u
 
 Installera modulen genom att följa anvisningarna i [Konfigurera PowerShell-modulen för Windows Virtual Desktop](powershell-module.md).
 
-Du kan också se en lista över tillgängliga kommandon i [AzWvd PowerShell-referensen](/powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization).
+Du kan också se en lista över tillgängliga kommandon i [AzWvd PowerShell-referensen](/powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization&preserve-view=true).
 
 Mer information om de nya funktionerna finns i [vårt blogg inlägg](https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-virtual-desktop-spring-update-enters-public-preview/ba-p/1340245).
 

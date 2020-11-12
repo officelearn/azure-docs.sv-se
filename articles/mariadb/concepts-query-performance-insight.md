@@ -1,17 +1,17 @@
 ---
 title: Query Performance Insight-Azure Database for MariaDB
 description: I den här artikeln beskrivs Query Performance Insight funktionen i Azure Database for MariaDB
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 88777ee44551ed6abdb7a6c7c909d6bf55db48c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b643ba3305736480e06d7c10d594b2271839038f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79527852"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536340"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mariadb"></a>Information om frågeprestanda i Azure Database for MariaDB
 
@@ -35,7 +35,7 @@ Query Performance Insight hjälper dig att snabbt identifiera vad dina längsta 
 
 Behörighet för **ägare** eller **deltagare** krävs för att visa texten för frågorna i Query Performance Insight. **Läsaren** kan visa diagram och tabeller men inte frågetext.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att Query Performance Insight ska fungera måste data finnas i [frågearkivet](concepts-query-store.md).
 
@@ -56,7 +56,7 @@ Du kan klicka och dra i diagrammet för att begränsa till ett specifikt tidsfö
 ### <a name="wait-statistics"></a>Vänta med statistik 
 
 > [!NOTE]
-> Väntande statistik är avsedd för fel sökning av problem med frågans prestanda. Vi rekommenderar att du bara aktive ras i fel söknings syfte. <br>Om du får fel meddelandet i Azure Portal "*problemet upptäcktes för" Microsoft. DBforMariaDB "; Det går inte att slutföra begäran. Kontakta supporten med den här informationen om problemet fortsätter eller är oväntat.*" Använd en kortare tids period när du visar väntande statistik.
+> Väntande statistik är avsedd för fel sökning av problem med frågans prestanda. Vi rekommenderar att du bara aktive ras i fel söknings syfte. <br>Om du får fel meddelandet i Azure Portal " *problemet upptäcktes för" Microsoft. DBforMariaDB "; Det går inte att slutföra begäran. Kontakta supporten med den här informationen om problemet fortsätter eller är oväntat.* " Använd en kortare tids period när du visar väntande statistik.
 
 Vänta med statistik är en vy över de väntande händelser som inträffar när en speciell fråga körs. Läs mer om händelse typerna wait i [MySQL Engine-dokumentationen](https://go.microsoft.com/fwlink/?linkid=2098206).
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: 0d893eb2bf7a57e173d7acb8f15104522edbc3bf
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: db7d9e99de8a4ee67e49f8b7568700fc07b1e2fd
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408217"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536539"
 ---
 # <a name="introduction-to-azure-security"></a>Introduktion till Azure-säkerhet
 ## <a name="overview"></a>Översikt
@@ -200,7 +200,7 @@ Tvingad tunnel trafik används ofta för att tvinga utgående trafik till Intern
 #### <a name="virtual-network-security-appliances"></a>Virtual Network säkerhets anordningar
 Även om nätverks säkerhets grupper, User-Defined vägar och Tvingad tunnel trafik tillhandahåller en säkerhets nivå för nätverks-och transport skikt i OSI- [modellen](https://en.wikipedia.org/wiki/OSI_model), kan det finnas tillfällen när du vill aktivera säkerhet på högre nivåer i stacken. Du kan komma åt dessa utökade nätverks säkerhetsfunktioner med hjälp av en Azure-partner nätverks säkerhetsenhets lösning. Du hittar de mest aktuella Azure Partner Network Security-lösningarna genom att gå till [Azure Marketplace](https://azure.microsoft.com/marketplace/) och söka efter "säkerhet" och "nätverks säkerhet".
 
-### <a name="azure-virtual-network"></a>Azure Virtual Network
+### <a name="azure-virtual-network"></a>Virtuellt Azure-nätverk
 Ett Azure-virtuellt nätverk (VNet) är en representation av ditt eget nätverk i molnet. Det är en logisk isolering av Azure Network Fabric som är dedikerad för din prenumeration. Du kan helt styra IP-adressblocken, DNS-inställningarna, säkerhetsprinciperna och routingtabellerna inom det här nätverket. Du kan segmentera ditt VNet i undernät och placera virtuella Azure IaaS-datorer (VM) och/eller [moln tjänster (PaaS roll instanser)](../../cloud-services/cloud-services-choose-me.md) i virtuella Azure-nätverk.
 
 Du kan dessutom ansluta det virtuella nätverket till ditt lokala nätverk med ett av [anslutningsalternativen](../../vpn-gateway/index.yml) som finns i Azure. I princip kan du expandera ditt nätverk till Azure, med fullständig kontroll över IP-adressblock och de fördelar som Azure på företagsnivå erbjuder.
@@ -221,7 +221,7 @@ Om du vill skicka nätverks trafik mellan Azure-Virtual Network och din lokala p
 ### <a name="express-route"></a>Express Route
 Microsoft Azure [ExpressRoute](../../expressroute/expressroute-introduction.md) är en särskild WAN-länk som du kan använda för att utöka dina lokala nätverk till Microsoft-molnet via en dedikerad privat anslutning som under lättas av en anslutnings leverantör.
 
-![Express Route](./media/overview/azure-security-fig1.png)
+![Express Route](./media/overview/azure-security-figure-1.png)
 
 Med ExpressRoute kan du upprätta anslutningar till Microsofts moln tjänster, till exempel Microsoft Azure, Microsoft 365 och CRM Online. Anslutningen kan vara från ett ”any-to-any”-nätverk (IP VPN), ett ”point-to-point”-nätverk med Ethernet eller en virtuell korsanslutning via en anslutningsleverantör på en samlokaliseringsanläggning.
 
@@ -231,7 +231,7 @@ ExpressRoute-anslutningar går inte via det offentliga Internet och kan därför
 ### <a name="application-gateway"></a>Application Gateway
 Microsoft [Azure Application Gateway](../../application-gateway/overview.md) tillhandahåller en [program leverans kontroll (ADC)](https://en.wikipedia.org/wiki/Application_delivery_controller) som en tjänst som erbjuder olika belastnings Utjämnings funktioner i Layer 7 för ditt program.
 
-![Application Gateway](./media/overview/azure-security-fig2.png)
+![Application Gateway](./media/overview/azure-security-figure-2.png)
 
 Det gör att du kan optimera webb server gruppens produktivitet genom att avlasta CPU-intensiva TLS-avslutning till Application Gateway (kallas även "TLS-avläsning" eller "TLS bryggning"). Det ger även andra funktioner för Layer 7-routning, inklusive resursallokerings distribution av inkommande trafik, cookie-baserad sessionsgräns, URL-sökväg baserad Routning och möjligheten att vara värd för flera webbplatser bakom en enda Application Gateway. Azure Application Gateway är en Layer 7-lastbalanserare.
 
@@ -242,7 +242,7 @@ Programmet innehåller många ADC-funktioner (Application Delivery Controller), 
 ### <a name="web-application-firewall"></a>Brandvägg för webbaserade program
 Brand väggen för webbaserade program är en funktion i [Azure Application Gateway](../../application-gateway/overview.md) som ger skydd till webb program som använder Application Gateway för standard funktioner för program leverans kontroll (ADC). Brandvägg för webbaserade program gör detta genom att skydda dem mot de flesta av de 10 vanligaste OWASP-säkerhetsproblemen.
 
-![Brandvägg för webbaserade program](./media/overview/azure-security-fig1.png)
+![Brandvägg för webbaserade program](./media/overview/azure-security-figure-3.png)
 
 -   Skydd mot SQL-inmatning
 

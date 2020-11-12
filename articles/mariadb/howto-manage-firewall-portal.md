@@ -1,17 +1,17 @@
 ---
 title: Hantera brand Väggs regler – Azure Portal-Azure Database for MariaDB
 description: Skapa och hantera Azure Database for MariaDB brand Väggs regler med hjälp av Azure Portal
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 464b13fe4aa727a4d3ca3ff074b8bb94544576a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 895c8e51e16cb0b82ebf3edcf954dabe62b08ff4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86101230"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537140"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-portal"></a>Skapa och hantera Azure Database for MariaDB brand Väggs regler med hjälp av Azure Portal
 Brand Väggs regler på server nivå kan användas för att hantera åtkomst till en Azure Database for MariaDB-Server från en angiven IP-adress eller ett intervall med IP-adresser.
@@ -49,8 +49,8 @@ Om du vill tillåta att program från Azure ansluter till din Azure Database for
 
 ## <a name="manage-existing-firewall-rules-in-the-azure-portal"></a>Hantera befintliga brand Väggs regler i Azure Portal
 Upprepa stegen för att hantera brand Väggs reglerna.
-* Klicka på **+ Lägg till min IP**för att lägga till den aktuella datorn. Klicka på **Spara** för att spara ändringarna.
-* Om du vill lägga till ytterligare IP-adresser skriver du in **regel namn**, **Start-IP**och **slut-IP**. Klicka på **Spara** för att spara ändringarna.
+* Klicka på **+ Lägg till min IP** för att lägga till den aktuella datorn. Klicka på **Spara** för att spara ändringarna.
+* Om du vill lägga till ytterligare IP-adresser skriver du in **regel namn** , **Start-IP** och **slut-IP**. Klicka på **Spara** för att spara ändringarna.
 * Om du vill ändra en befintlig regel klickar du på något av fälten i regeln och ändrar sedan. Klicka på **Spara** för att spara ändringarna.
 * Om du vill ta bort en befintlig regel klickar du på ellipsen [...] och klickar sedan på **ta bort**. Klicka på **Spara** för att spara ändringarna.
 

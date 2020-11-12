@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: c08e03e6ff77613c0950f17fe5225bccb706524c
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 83e8089073f7e7e7634ddf00f7276e12aaf645b0
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444406"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536446"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Så kan en IoT Edge-enhet användas som gateway
 
@@ -45,21 +45,21 @@ Alla gateway-mönster ger följande fördelar:
 
 I det transparenta Gateway-mönstret kan enheter som teoretiskt kan ansluta till IoT Hub ansluta till en gateway-enhet i stället. De underordnade enheterna har sina egna IoT Hub identiteter och ansluter med antingen MQTT-eller AMQP-protokoll. Gatewayen skickar helt enkelt kommunikation mellan enheterna och IoT Hub. Både enheter och användare som interagerar med dem via IoT Hub är inte medvetna om att en gateway är underställd deras kommunikation. Detta brist på medvetenhet innebär att gatewayen betraktas som *transparent*.
 
-<!-- 1.2.0 -->
-::: moniker range=">=iotedge-2020-11"
-
-IoT Edge enheter kan ansluta via transparenta gatewayer, samt vanliga IoT-enheter.
-
-<!-- TODO add a downstream IoT Edge device to graphic -->
-
-::: moniker-end
-
 <!-- 1.0.10 -->
 ::: moniker range="iotedge-2018-06"
 
 IoT Edge enheter får inte ligga bakom en IoT Edge Gateway.
 
 ![Diagram – transparent Gateway-mönster](./media/iot-edge-as-gateway/edge-as-gateway-transparent.png)
+
+::: moniker-end
+
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
+Från och med version 1.2.0 kan IoT Edge enheter ansluta via transparenta gatewayer.
+
+<!-- TODO add a downstream IoT Edge device to graphic -->
 
 ::: moniker-end
 
@@ -102,10 +102,22 @@ När flera IoT Edge gatewayer ansluter till varandra i en gateway-hierarki, bör
 
 ### <a name="device-capabilities-behind-transparent-gateways"></a>Enhets kapacitet bakom transparenta gateways
 
-
 Alla IoT Hub primitiver som fungerar med IoT Edges pipeline-pipeline stöder även transparenta Gateway-scenarier. Varje IoT Edge Gateway har lagrings-och vidarebefordrings funktioner för meddelanden som kommer genom den.
 
 Använd följande tabell för att se hur olika IoT Hub funktioner stöds för enheter som jämförs med enheter bakom gatewayer.
+
+<!-- 1.0.10 -->
+::: moniker range="iotedge-2018-06"
+
+| Kapacitet | IoT-enhet | IoT bakom en gateway |
+| ---------- | ---------- | -------------------- |
+| [D2C-meddelanden (enhet till moln)](../iot-hub/iot-hub-devguide-messages-d2c.md) |  ![Ja – IoT D2C](./media/iot-edge-as-gateway/check-yes.png) | ![Ja – underordnad IoT-D2C](./media/iot-edge-as-gateway/check-yes.png) |
+| [Meddelanden från moln till enhet (C2D)](../iot-hub/iot-hub-devguide-messages-c2d.md) | ![Ja – IoT C2D](./media/iot-edge-as-gateway/check-yes.png) | ![Ja – underordnad IoT-C2D](./media/iot-edge-as-gateway/check-yes.png) |
+| [Direkta metoder](../iot-hub/iot-hub-devguide-direct-methods.md) | ![Ja – IoT Direct-metod](./media/iot-edge-as-gateway/check-yes.png) | ![Ja-underordnad IoT Direct-metod](./media/iot-edge-as-gateway/check-yes.png) |
+| [Enhetens dubblare](../iot-hub/iot-hub-devguide-device-twins.md) och [modul är dubbla](../iot-hub/iot-hub-devguide-module-twins.md) | ![Ja – IoT-dubbla](./media/iot-edge-as-gateway/check-yes.png) | ![Ja – underordnad IoT är dubbla](./media/iot-edge-as-gateway/check-yes.png) |
+| [Fil uppladdning](../iot-hub/iot-hub-devguide-file-upload.md) | ![Ja – IoT File Upload](./media/iot-edge-as-gateway/check-yes.png) | ![Ingen-IoT, underordnad fil uppladdning](./media/iot-edge-as-gateway/crossout-no.png) |
+
+::: moniker-end
 
 <!-- 1.2.0 -->
 ::: moniker range=">=iotedge-2020-11"
@@ -123,19 +135,6 @@ Använd följande tabell för att se hur olika IoT Hub funktioner stöds för en
 **Behållar avbildningar** kan laddas ned, lagras och levereras från överordnade enheter till underordnade enheter.
 
 **Blobbar** , inklusive stöd paket och loggar, kan överföras från underordnade enheter till överordnade enheter.
-
-::: moniker-end
-
-<!-- 1.0.10 -->
-::: moniker range="iotedge-2018-06"
-
-| Kapacitet | IoT-enhet | IoT bakom en gateway |
-| ---------- | ---------- | -------------------- |
-| [D2C-meddelanden (enhet till moln)](../iot-hub/iot-hub-devguide-messages-d2c.md) |  ![Ja – IoT D2C](./media/iot-edge-as-gateway/check-yes.png) | ![Ja – underordnad IoT-D2C](./media/iot-edge-as-gateway/check-yes.png) |
-| [Meddelanden från moln till enhet (C2D)](../iot-hub/iot-hub-devguide-messages-c2d.md) | ![Ja – IoT C2D](./media/iot-edge-as-gateway/check-yes.png) | ![Ja – underordnad IoT-C2D](./media/iot-edge-as-gateway/check-yes.png) |
-| [Direkta metoder](../iot-hub/iot-hub-devguide-direct-methods.md) | ![Ja – IoT Direct-metod](./media/iot-edge-as-gateway/check-yes.png) | ![Ja-underordnad IoT Direct-metod](./media/iot-edge-as-gateway/check-yes.png) |
-| [Enhetens dubblare](../iot-hub/iot-hub-devguide-device-twins.md) och [modul är dubbla](../iot-hub/iot-hub-devguide-module-twins.md) | ![Ja – IoT-dubbla](./media/iot-edge-as-gateway/check-yes.png) | ![Ja – underordnad IoT är dubbla](./media/iot-edge-as-gateway/check-yes.png) |
-| [Fil uppladdning](../iot-hub/iot-hub-devguide-file-upload.md) | ![Ja – IoT File Upload](./media/iot-edge-as-gateway/check-yes.png) | ![Ingen-IoT, underordnad fil uppladdning](./media/iot-edge-as-gateway/crossout-no.png) |
 
 ::: moniker-end
 

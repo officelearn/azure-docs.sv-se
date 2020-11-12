@@ -2,25 +2,25 @@
 title: Koncept – identitet och åtkomst
 description: Lär dig mer om identitets-och åtkomst koncepten i Azure VMware-lösningen
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 7127109801d92d2177f6edac3efcaf76ddf217e6
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/11/2020
+ms.openlocfilehash: e9c0d62968d94e2b018186f67072b6ae7078db02
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674648"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536106"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Identitets koncept för Azure VMware-lösning
 
-När du distribuerar ett privat moln får vCenter-servern och NSX-T-hanteraren tillhandahållits. Du använder vCenter för att hantera arbets belastningar för virtuella datorer (VM). Du använder NSX-T Manager för att utöka det privata molnets program varu definitions nätverk.
+Privata moln i Azure VMware-lösningen är etablerade med vCenter Server och NSX-T Manager. Du använder vCenter för att hantera arbets belastningar för virtuella datorer (VM). Du kan använda NSX-T-hanteraren för att utöka det privata molnet.
 
 Åtkomst-och identitets hantering använder CloudAdmin grupp behörigheter för vCenter-och begränsade administratörs rättigheter för NSX-T Manager. Det garanterar att din privata moln plattform uppgraderas automatiskt med de senaste funktionerna och korrigeringarna.  Mer information finns i [artikeln om uppgraderingar av privata moln][concepts-upgrades].
 
 ## <a name="vcenter-access-and-identity"></a>vCenter-åtkomst och identitet
 
-Behörigheter i vCenter tillhandahålls genom CloudAdmin-gruppen. Gruppen kan hanteras lokalt i vCenter eller via integrering av enkel inloggning med vCenter LDAP med Azure Active Directory. Du får möjlighet att aktivera integreringen när du har distribuerat ett privat moln.
+CloudAdmin-gruppen ger behörighet i vCenter. Du hanterar gruppen lokalt i vCenter. Ett annat alternativ är genom integrering av enkel inloggning med vCenter LDAP med Azure Active Directory. Du aktiverar den integrationen när du har distribuerat ditt privata moln. 
 
-Behörigheterna CloudAdmin och CloudGlobalAdmin visas i tabellen nedan.
+Tabellen visar **CloudAdmin** -och **CloudGlobalAdmin** -privilegier.
 
 |  Privilegie rad uppsättning           | CloudAdmin | CloudGlobalAdmin | Kommentar |
 | :---                     |    :---:   |       :---:      |   :--:  |

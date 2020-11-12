@@ -2,13 +2,13 @@
 title: Koncept – rollbaserad åtkomst kontroll (RBAC)
 description: Lär dig mer om de viktigaste funktionerna i rollbaserad åtkomst kontroll för Azure VMware-lösning
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.openlocfilehash: 4fbda24ec6a8c1d08570d7f64270a954eb3d8a35
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.date: 10/23/2020
+ms.openlocfilehash: 6e1864fdfe397325a7c5ba601b625bcc1776174c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440951"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535494"
 ---
 # <a name="role-based-access-control-rbac-for-azure-vmware-solution"></a>Rollbaserad åtkomst kontroll (RBAC) för Azure VMware-lösning
 
@@ -31,7 +31,7 @@ Det privata molnets användare har inte åtkomst till och kan inte konfigurera v
 Du kan visa de behörigheter som har tilldelats Azure VMware-lösningen CloudAdmin-rollen i Azure VMware-lösningen privat moln vCenter.
 
 1. Logga in på SDDC vSphere-klienten och gå till **meny**  >  **Administration**.
-1. Under **Access Control**väljer du **roller**.
+1. Under **Access Control** väljer du **roller**.
 1. Välj **CloudAdmin** i listan över roller och välj sedan **behörigheter**. 
 
    :::image type="content" source="media/role-based-access-control-cloudadmin-privileges.png" alt-text="Så här visar du CloudAdmin-rollen behörigheter i vSphere-klienten":::

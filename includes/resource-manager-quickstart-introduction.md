@@ -4,11 +4,11 @@ ms.service: azure-resource-manager
 ms.topic: include
 ms.date: 02/26/2020
 ms.author: jgao
-ms.openlocfilehash: e584bb86cbe99c2b0f706c0c914455829f079dbc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa47831db9190161a827f84278acf8a1676d7bbf
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85249335"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488039"
 ---
-En [ARM-mall](/azure/azure-resource-manager/templates/overview) är en JSON-fil (JavaScript Object Notation) som definierar infrastrukturen och konfigurationen för ditt projekt. Mallen använder deklarativ syntax, som låter dig ange vad du vill distribuera utan att du behöver skriva sekvensen med programmeringskommandon för att skapa det.
+En [ARM-mall](/azure/azure-resource-manager/templates/overview) är en JSON-fil (JavaScript Object Notation) som definierar infrastrukturen och konfigurationen för ditt projekt. Mallen använder deklarativ syntax. I deklarativ syntax beskriver du din avsedda distribution utan att skriva sekvensen med programmeringskommandon för att skapa den.

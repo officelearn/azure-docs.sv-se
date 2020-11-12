@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 03/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f71703dcb6afb5ce7610bf1c5374de1cc98816b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12e9bec0c560f1b068b07a1b6afe218a112e439f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90606577"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553196"
 ---
 När du har skapat ett självsignerat rot certifikat exporterar du rot certifikatet offentlig nyckel. cer-fil (inte den privata nyckeln). Du kommer senare att ladda upp den här filen till Azure. Med följande steg kan du exportera. CER-filen för ditt självsignerade rot certifikat:
 
 1. Om du vill hämta en .cer-fil från certifikatet öppnar du **Hantera användarcertifikat**. Leta upp det självsignerade rotcertifikatet, som vanligtvis finns under ”Certifikat – aktuell användare\Personligt\Certifikat” och högerklicka. Klicka på **Alla aktiviteter** och klicka sedan på **Exportera**. **Guiden Exportera certifikat** öppnas. Om du inte kan hitta certifikatet under aktuell User\Personal\Certificates, kan du av misstag ha öppnat "certifikat-lokal dator" i stället för "certifikat – aktuell användare"). Om du vill öppna certifikat hanteraren i aktuell användar omfattning med PowerShell skriver du *certmgr* i konsol fönstret.
 
-   ![Skärm bild som visar fönstret certifikat för den aktuella användaren med certifikat som valts och en snabb meny med alla aktiviteter och sedan Exportera markerade.](./media/vpn-gateway-certificates-export-public-key-include/export.png)
+   ![Skärm bild som visar fönstret certifikat för den aktuella användaren med certifikat som valts och en snabb meny med exportera valt från alla aktiviteter.](./media/vpn-gateway-certificates-export-public-key-include/export.png)
 2. Klicka på **Nästa** i guiden.
 
    ![Exportera certifikatet](./media/vpn-gateway-certificates-export-public-key-include/exportwizard.png)
@@ -34,7 +34,7 @@ När du har skapat ett självsignerat rot certifikat exporterar du rot certifika
    ![Skärm bild som visar guiden Exportera certifikat med text rutan fil namn och ett alternativ för bläddring.](./media/vpn-gateway-certificates-export-public-key-include/browse.png)
 6. Klicka på **Slutför** för att exportera certifikatet.
 
-   ![Skärm bild som visar den sista sidan i guiden Exportera certifikat med de valda inställningarna.](./media/vpn-gateway-certificates-export-public-key-include/finish.png)
+   ![Skärm bild som visar guiden Exportera certifikat med de valda inställningarna.](./media/vpn-gateway-certificates-export-public-key-include/finish.png)
 7. Ditt certifikat har exporter ATS.
 
    ![Skärm bild som visar ett meddelande om att exporten lyckades.](./media/vpn-gateway-certificates-export-public-key-include/success.png)

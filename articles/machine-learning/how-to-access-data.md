@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/03/2020
 ms.custom: how-to, contperfq1, devx-track-python, data4ml
-ms.openlocfilehash: 7f2c7e99117c338d07abc2ed8760c2be18955d66
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 30ece529b141f3a50191c532d85265d8e9555b34
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489309"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538605"
 ---
 # <a name="connect-to-storage-services-on-azure"></a>Ansluta till lagrings tjänster på Azure
 
@@ -180,7 +180,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
 
 För en Azure Data Lake Storage generation 2 (ADLS gen 2) data lager använder du [register_azure_data_lake_gen2 ()](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) för att registrera ett data lager för autentiseringsuppgifter som är anslutet till en Azure DataLake gen 2-lagring med [tjänstens huvud namn](../active-directory/develop/howto-create-service-principal-portal.md).  
 
-För att kunna använda tjänstens huvud namn måste du [Registrera ditt program](../active-directory/develop/app-objects-and-service-principals.md) och bevilja tjänstens huvud namn med åtkomst till **lagrings BLOB-dataläsaren** . Lär dig mer om [åtkomst kontroll som har kon figurer ATS för ADLS gen 2](../storage/blobs/data-lake-storage-access-control.md). 
+För att kunna använda tjänstens huvud namn måste du [Registrera ditt program](../active-directory/develop/app-objects-and-service-principals.md) och bevilja tjänstens huvud data åtkomst via antingen rollbaserad åtkomst kontroll (Azure RBAC) eller åtkomst kontrol listor (ACL). Lär dig mer om [åtkomst kontroll som har kon figurer ATS för ADLS gen 2](../storage/blobs/data-lake-storage-access-control-model.md). 
 
 Följande kod skapar och registrerar `adlsgen2_datastore_name` data lagret på `ws` arbets ytan. Detta data lager har åtkomst till fil systemet `test` i `account_name` lagrings kontot med hjälp av de angivna autentiseringsuppgifterna för tjänstens huvud namn. Läs avsnittet [lagrings åtkomst & behörigheter](#storage-access-and-permissions) för vägledning om virtuella nätverks scenarier och var du hittar nödvändiga autentiseringsuppgifter för autentisering. 
 

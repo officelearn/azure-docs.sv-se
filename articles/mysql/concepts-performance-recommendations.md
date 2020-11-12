@@ -1,17 +1,17 @@
 ---
 title: Prestanda rekommendationer – Azure Database for MySQL
 description: Den här artikeln beskriver prestanda rekommendations funktionen i Azure Database for MySQL
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/3/2020
-ms.openlocfilehash: 6f41863f45bdc90cb9fe589ba0a5011dea84a67c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1445ad3d6be020326c34d60c555c24c435548fd0
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84485213"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537653"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mysql"></a>Prestandarekommendationer i Azure Database for MySQL
 
@@ -35,7 +35,7 @@ Välj **analysera** och välj en databas som kommer att påbörja analysen. Det 
 
 I fönstret **rekommendationer** visas en lista med rekommendationer om de hittades och det relaterade fråge-ID som skapade rekommendationen. Med fråge-ID kan du använda vyn [MySQL.query_store](concepts-query-store.md#mysqlquery_store) för att lära dig mer om frågan.
 
-:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="Landningssida för prestandarekommendationer":::
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="Ny sida med prestanda rekommendationer":::
 
 Rekommendationerna tillämpas inte automatiskt. Om du vill tillämpa rekommendationen kopierar du frågetexten och kör den från din valda klient. Kom ihåg att testa och övervaka för att utvärdera rekommendationen.
 

@@ -1,17 +1,17 @@
 ---
 title: Felsöka anslutnings problem – Azure Database for MariaDB
 description: Lär dig hur du felsöker anslutnings problem till Azure Database for MariaDB, inklusive tillfälliga fel som kräver nya försök, brand Väggs problem och avbrott.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: 521853fd361007159d7e497eb7e7c1f3d200731c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9a670472529dccd51cbfa71e385151bc63cff9b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82101458"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539387"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mariadb"></a>Felsöka anslutningsproblem till Azure Database for MariaDB
 
@@ -47,7 +47,7 @@ Om programmet inte kan ansluta till Azure Database for MariaDB, indikerar det va
 
 * Brand Väggs konfiguration: Azure Database for MariaDB Server eller brand vägg för klient sidan blockerar anslutningar.
 * Omkonfiguration av nätverk på klient sidan: en ny IP-adress eller proxyserver har lagts till.
-* Användar fel: du kan till exempel ha felangede anslutnings parametrar, till exempel Server namnet i anslutnings strängen eller ett * \@ servername* -suffix som saknas i användar namnet.
+* Användar fel: du kan till exempel ha felangede anslutnings parametrar, till exempel Server namnet i anslutnings strängen eller ett *\@ servername* -suffix som saknas i användar namnet.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Steg för att lösa problem med beständiga anslutningar
 

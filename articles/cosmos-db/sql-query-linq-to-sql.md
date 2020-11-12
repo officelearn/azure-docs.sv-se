@@ -5,19 +5,19 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 7/29/2020
+ms.date: 11/11/2020
 ms.author: tisande
-ms.openlocfilehash: 38d37d03c99bd3a39b00276da110ea0ef6bb962e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 35f212ea246e03be02fa082ef1b55dcb7cae1575
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93332380"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538656"
 ---
 # <a name="linq-to-sql-translation"></a>LINQ to SQL-översättning
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB Query-providern utför en mappning från en LINQ-fråga till en Cosmos DB SQL-fråga. Om du vill hämta SQL-frågan som har översatts från LINQ använder du `ToString()` metoden på det genererade `IQueryable` objektet. Följande beskrivning förutsätter en grundläggande kunskap om [LINQ](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries).
+Azure Cosmos DB Query-providern utför en mappning från en LINQ-fråga till en Cosmos DB SQL-fråga. Om du vill hämta SQL-frågan som har översatts från LINQ använder du `ToString()` metoden på det genererade `IQueryable` objektet. Följande beskrivning förutsätter en grundläggande kunskap om [LINQ](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries). Förutom LINQ stöder Azure Cosmos DB också [Entity Framework Core](/ef/core/providers/cosmos/?tabs=dotnet-core-cli) som fungerar med SQL API.
 
 Typ systemet för fråged provider stöder endast JSON primitiva typer: numeric, Boolean, String och null.
 

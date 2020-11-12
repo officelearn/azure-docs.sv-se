@@ -17,22 +17,24 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: 5fa083626135170a05844a5e4434b608a1fabe60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d5f6f9cfaff722245f6105b5e86390b8aeb769f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302289"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539727"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnostisera ett problem med nätverks routning för virtuella datorer – Azure CLI
 
 I den här artikeln distribuerar du en virtuell dator (VM) och kontrollerar sedan kommunikationen med en IP-adress och URL. Du lär dig också hur du fastställer orsaken till ett kommunikationsfel och hur du löser problemet.
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Om du väljer att installera och använda Azure CLI lokalt, kräver den här artikeln att du kör Azure CLI-version 2.0.28 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli). När du har kontrollerat Azure CLI-versionen kör `az login`  du för att skapa en anslutning till Azure. Azure CLI-kommandona i den här artikeln är formaterade för att köras i ett bash-gränssnitt.
+- Den här artikeln kräver version 2,0 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad. 
+
+- Azure CLI-kommandona i den här artikeln är formaterade för att köras i ett bash-gränssnitt.
 
 ## <a name="create-a-vm"></a>Skapa en virtuell dator
 
@@ -42,7 +44,7 @@ Innan du kan skapa en virtuell dator måste du skapa en resursgrupp som innehål
 az group create --name myResourceGroup --location eastus
 ```
 
-Skapa en virtuell dator med [az vm create](/cli/azure/vm#az-vm-create). Om det inte redan finns SSH-nycklar på en standardnyckelplats skapar kommandot dem. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`. I följande exempel skapas en virtuell dator med namnet *myVm*:
+Skapa en virtuell dator med [az vm create](/cli/azure/vm#az-vm-create). Om det inte redan finns SSH-nycklar på en standardnyckelplats skapar kommandot dem. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`. I följande exempel skapas en virtuell dator med namnet *myVm* :
 
 ```azurecli-interactive
 az vm create \
@@ -85,7 +87,7 @@ az network watcher show-next-hop \
   --out table
 ```
 
-Efter några sekunder informerar utdata om att **nextHopType** är **Internet**och att **routeTableId** är **system väg**. Det innebär att du vet att det finns en giltig väg till målet.
+Efter några sekunder informerar utdata om att **nextHopType** är **Internet** och att **routeTableId** är **system väg**. Det innebär att du vet att det finns en giltig väg till målet.
 
 Testa utgående kommunikation från den virtuella datorn till 172.31.0.100:
 
@@ -99,7 +101,7 @@ az network watcher show-next-hop \
   --out table
 ```
 
-Utdata som returneras informerar dig om att **ingen** är **NextHopType**och att **routeTableId** också är **system väg**. Resultatet visar att det visserligen finns en giltig systemväg till målet, men att det inte finns något nästa hopp för att dirigera trafiken till målet.
+Utdata som returneras informerar dig om att **ingen** är **NextHopType** och att **routeTableId** också är **system väg**. Resultatet visar att det visserligen finns en giltig systemväg till målet, men att det inte finns något nästa hopp för att dirigera trafiken till målet.
 
 ## <a name="view-details-of-a-route"></a>Visa information om en väg
 
@@ -113,7 +115,7 @@ az network nic show-effective-route-table \
 
 Följande text ingår i returnerade utdata:
 
-```
+```console
 {
   "additionalProperties": {
     "disableBgpRoutePropagation": false
@@ -133,7 +135,7 @@ När du använde `az network watcher show-next-hop` kommandot för att testa utg
 
 När du använde `az network watcher show-next-hop` kommandot för att testa utgående kommunikation till 172.31.0.100, informeras du om att det inte fanns någon nästa hopp typ. I returnerade utdata visas även följande text:
 
-```
+```console
 {
   "additionalProperties": {
     "disableBgpRoutePropagation": false

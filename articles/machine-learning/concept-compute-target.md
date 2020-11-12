@@ -1,7 +1,7 @@
 ---
 title: Vad är beräknings mål
 titleSuffix: Azure Machine Learning
-description: Definiera var du vill träna eller distribuera din modell med Azure Machine Learning.
+description: Lär dig hur du anger en beräknings resurs eller miljö för att träna eller distribuera din modell med Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: 72cdfe2ebe79abb9649ac497a6ecddda8918b951
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2a19183f5ba5b1ea4d50cd5cfba6115f7dede6cd
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322299"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540054"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>Vad är beräkningsmål i Azure Machine Learning?
 

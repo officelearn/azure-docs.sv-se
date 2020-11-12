@@ -1,17 +1,17 @@
 ---
 title: Hantera Läs repliker – Azure Portal-Azure Database for MariaDB
 description: Den här artikeln beskriver hur du konfigurerar och hanterar Läs repliker i Azure Database for MariaDB med hjälp av portalen
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/10/2020
-ms.openlocfilehash: 5faed87995d1c49ab635f39264354a791f729b57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ca6ef3c368a5f578cc90fae3923caa89f3b076a
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742867"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537755"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-portal"></a>Skapa och hantera Läs repliker i Azure Database for MariaDB med hjälp av Azure Portal
 
@@ -31,7 +31,7 @@ I den här artikeln får du lära dig hur du skapar och hanterar Läs repliker i
 
 Du kan skapa en Läs replik server med följande steg:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 2. Välj den befintliga Azure Database for MariaDB-server som du vill använda som huvud server. Den här åtgärden öppnar **översikts** sidan.
 
@@ -110,7 +110,7 @@ Gör så här om du vill ta bort en käll Server från Azure Portal:
 
 1. I Azure Portal väljer du käll Azure Database for MariaDB Server.
 
-2. Välj **ta bort**i **översikten**.
+2. Välj **ta bort** i **översikten**.
 
    ![Azure Database for MariaDB-ta bort huvud](./media/howto-read-replica-portal/delete-master-overview.png)
 
@@ -122,7 +122,7 @@ Gör så här om du vill ta bort en käll Server från Azure Portal:
 
 1. I [Azure Portal](https://portal.azure.com/)väljer du den replik Azure Database for MariaDBs server som du vill övervaka.
 
-2. Under avsnittet **övervakning** på sid panelen väljer du **mått**:
+2. Under avsnittet **övervakning** på sid panelen väljer du **mått** :
 
 3. Välj **replikeringsfördröjning i sekunder** från List rutan med tillgängliga mått.
 

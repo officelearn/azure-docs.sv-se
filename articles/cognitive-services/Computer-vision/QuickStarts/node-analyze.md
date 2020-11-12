@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, seo-javascript-september2018, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: 53c358c3a74af7a4be51b3f44b9d942fdc167eed
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 77cf1635f035a4bb256a03d9f11aa0a408bd2fe4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972772"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538996"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-with-nodejs"></a>Snabb start: analysera en fjärravbildning med hjälp av Visuellt innehåll REST API med Node.js
 
-I den här snabb starten ska du analysera en fjärrlagrad avbildning för att extrahera visuella funktioner med hjälp av Visuellt innehåll REST API med Node.js. Med metoden [analysera avbildning](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) kan du extrahera visuella funktioner baserat på bild innehåll.
+I den här snabb starten ska du analysera en fjärrlagrad avbildning för att extrahera visuella funktioner med hjälp av Visuellt innehåll REST API med Node.js. Med metoden [analysera avbildning](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) kan du extrahera visuella funktioner baserat på bild innehåll.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -49,9 +49,9 @@ Så här skapar du och kör exemplet:
 1. Kopiera följande kod till en textredigerare.
 1. Du kan också ersätta värdet för `imageUrl` med webbadressen till en annan bild som du vill analysera.
 1. Du kan också ersätta värdet för frågeparametern `language` med ett annat språk.
-1. Spara koden som en fil med tillägget `.js`. Exempelvis `analyze-image.js`.
+1. Spara koden som en fil med tillägget `.js`. Ett exempel är `analyze-image.js`.
 1. Öppna ett kommandotolksfönster.
-1. Kör filen i kommandotolken med kommandot `node`. Exempelvis `node analyze-image.js`.
+1. Kör filen i kommandotolken med kommandot `node`. Ett exempel är `node analyze-image.js`.
 
 ```javascript
 'use strict';
@@ -183,4 +183,4 @@ När du inte behöver filen längre kan du ta bort den och sedan avinstallera np
 Utforska sedan de Visuellt innehåll-API: er som används för att analysera en avbildning, identifiera kändisar och landmärken, skapa en miniatyr och extrahera utskrift och handskriven text.
 
 > [!div class="nextstepaction"]
-> [Utforska API för visuellt innehåll](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Utforska API för visuellt innehåll](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d)

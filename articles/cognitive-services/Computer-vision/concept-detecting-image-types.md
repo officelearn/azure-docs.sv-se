@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4e6c2db5333962d7ae43534998ffc1c48b0dba45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6623693a7079056cfe107fc8246e0fd43e2c0b8c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80244570"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538198"
 ---
 # <a name="detecting-image-types-with-computer-vision"></a>Identifiera avbildnings typer med Visuellt innehåll
 
-Med [analys avbildnings](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) -API: et kan visuellt innehåll analysera innehålls typen för bilder, vilket anger om en bild är ClipArt eller en linje ritning.
+Med [analys avbildnings](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) -API: et kan visuellt innehåll analysera innehålls typen för bilder, vilket anger om en bild är ClipArt eller en linje ritning.
 
 ## <a name="detecting-clip-art"></a>Identifiera ClipArt
 
@@ -115,7 +115,7 @@ Följande JSON-svar illustrerar vad Visuellt innehåll returnerar när anger om 
 
 ## <a name="use-the-api"></a>Använda API:et
 
-Bild typs identifierings funktionen är en del av API: et [analys av avbildning](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) . Du kan anropa API: et via en inbyggd SDK eller via REST-anrop. Inkludera `ImageType` i **visualFeatures** -Frågeparametern. När du sedan får det fullständiga JSON-svaret ska du bara parsa strängen för innehållet i `"imageType"` avsnittet.
+Bild typs identifierings funktionen är en del av API: et [analys av avbildning](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) . Du kan anropa API: et via en inbyggd SDK eller via REST-anrop. Inkludera `ImageType` i **visualFeatures** -Frågeparametern. När du sedan får det fullständiga JSON-svaret ska du bara parsa strängen för innehållet i `"imageType"` avsnittet.
 
 * [Snabb start: Visuellt innehåll .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
 * [Snabb start: analysera en avbildning (REST API)](./quickstarts/csharp-analyze.md)

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5f32ec82c2b4c6d8b902195782b286cca82befb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a24890f42b795bb4b9a7d187f74ceb9a4f8557f5
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85507644"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539234"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Använd StorSimple Enhetshanteraren för att hantera aviseringar för den virtuella StorSimple-matrisen
 
@@ -48,25 +48,25 @@ När du har aktiverat e-postavisering för en virtuell matris kommer medlemmar i
     ![aviserings inställningar](./media/storsimple-virtual-array-manage-alerts/alerts2.png)
 2. Då öppnas bladet **Inställningar** . I avsnittet **enhets inställningar** väljer du **Allmänt**. Då öppnas bladet **allmänna inställningar** .
    
-    ![aviserings aviserings konfiguration](./media/storsimple-virtual-array-manage-alerts/alerts4.png)
+    ![Skärm bild som visar fönstret enhets inställningar med avsnittet varnings inställningar som kallas för.](./media/storsimple-virtual-array-manage-alerts/alerts4.png)
 3. I bladet **allmänna inställningar** går du till avsnittet **aviserings inställningar** och anger följande:
    
    1. I fältet **Aktivera e-postavisering** väljer du **Ja**.
    2. I fältet **e-posttjänst administratörer** väljer du **Ja** om du vill att tjänst administratören och alla medadministratörer ska få aviserings meddelanden.
    3. I fältet **ytterligare e-postmottagare** anger du e-postadresserna till alla andra mottagare som ska få aviserings meddelanden. Ange namn i formatet *någon \@ Somewhere.com*. Använd semikolon för att avgränsa e-postadresserna. Du kan konfigurera högst 20 e-postadresser per virtuell enhet.
       
-       ![aviserings aviserings konfiguration](./media/storsimple-virtual-array-manage-alerts/alerts6.png)
+       ![Skärm bild som visar information om aviserings inställningar med de inställningar som beskrivs i det här steget.](./media/storsimple-virtual-array-manage-alerts/alerts6.png)
    4. Skicka ett test-e-postmeddelande genom att klicka på **Skicka test-e-post**. Tjänsten StorSimple Enhetshanteraren visar status meddelanden när det vidarebefordrar test meddelandet.
       
-       ![Aviseringar om test av e-postmeddelande har skickats](./media/storsimple-virtual-array-manage-alerts/alerts7.png)
+       ![Skärm bild som visar en informations dialog ruta som verifierar test-e-postmeddelandet.](./media/storsimple-virtual-array-manage-alerts/alerts7.png)
       
       > [!NOTE]
-      > Om test aviserings meddelandet inte kan skickas visar tjänsten StorSimple Enhetshanteraren ett lämpligt meddelande. Klicka på **OK**, vänta några minuter och försök sedan att skicka ett test meddelande igen.
+      > Om test aviserings meddelandet inte kan skickas visar tjänsten StorSimple Enhetshanteraren ett lämpligt meddelande. Klicka på **OK** , vänta några minuter och försök sedan att skicka ett test meddelande igen.
       >
       >
    5. Klicka på **Spara** längst ned på sidan för att spara konfigurationen. Klicka på **Ja** när du uppmanas att bekräfta åtgärden.
       
-      ![Aviseringar om test av e-postmeddelande har skickats](./media/storsimple-virtual-array-manage-alerts/alerts10.png)
+      ![Skärm bild som visar fönstret inställningar med knappen Spara vald.](./media/storsimple-virtual-array-manage-alerts/alerts10.png)
 
 ## <a name="common-alert-conditions"></a>Vanliga aviserings villkor
 
@@ -101,7 +101,7 @@ Klicka på en avisering i listan om du vill ha mer information om aviseringen, i
 
 Du kan kopiera aviserings informationen till en textfil om du behöver skicka informationen till Microsoft Support. När du har följt rekommendationen och löst aviserings tillståndet lokalt bör du ta bort aviseringen från listan. Välj aviseringen i listan och klicka sedan på **Rensa**. Om du vill ta bort flera aviseringar markerar du varje avisering, klickar på en kolumn förutom kolumnen **avisering** och klickar sedan på **Rensa** när du har valt att alla aviseringar ska rensas.
 
-När du klickar på **Rensa**har du möjlighet att ange kommentarer om aviseringen och de steg som du har vidtagit för att lösa problemet.
+När du klickar på **Rensa** har du möjlighet att ange kommentarer om aviseringen och de steg som du har vidtagit för att lösa problemet.
 
 ![aviserings kommentarer](./media/storsimple-virtual-array-manage-alerts/alerts17.png)
 
@@ -130,21 +130,21 @@ I följande tabeller visas några av de StorSimple-aviseringar som du kan stöta
 
 | Aviserings text | Händelse | Mer information/rekommenderade åtgärder |
 |:--- |:--- |:--- |
-| Enhets <*enhets namnet*> är inte anslutet till molnet. |Den namngivna enheten kan inte ansluta till molnet. |Det gick inte att ansluta till molnet. Detta kan bero på något av följande:<ul><li>Det kan finnas ett problem med nätverks inställningarna på enheten.</li><li>Det kan finnas ett problem med lagrings kontots autentiseringsuppgifter.</li></ul>Mer information om fel sökning av anslutnings problem finns i enhetens [lokala webb gränssnitt](storsimple-ova-web-ui-admin.md) . |
+| Enhets < *enhets namnet* > är inte anslutet till molnet. |Den namngivna enheten kan inte ansluta till molnet. |Det gick inte att ansluta till molnet. Detta kan bero på något av följande:<ul><li>Det kan finnas ett problem med nätverks inställningarna på enheten.</li><li>Det kan finnas ett problem med lagrings kontots autentiseringsuppgifter.</li></ul>Mer information om fel sökning av anslutnings problem finns i enhetens [lokala webb gränssnitt](storsimple-ova-web-ui-admin.md) . |
 
 ### <a name="configuration-alerts"></a>Konfigurations aviseringar
 
 | Aviserings text | Händelse | Mer information/rekommenderade åtgärder |
 |:--- |:--- |:--- |
 | Konfiguration av lokal virtuell enhet stöds inte. |Långsamma prestanda. |Den aktuella konfigurationen kan resultera i försämrade prestanda. Kontrol lera att servern uppfyller minimi kraven för konfiguration. Mer information finns i krav för [StorSimple Virtual Array](storsimple-ova-system-requirements.md). |
-| Du håller på att ta slut på det allokerade disk utrymmet på <*enhets namnet* \> . |Varning om disk utrymme. |Det allokerade disk utrymmet håller på att ta slut. För att frigöra utrymme bör du överväga att flytta arbets belastningar till en annan volym eller dela eller ta bort data. |
+| Du håller på att ta slut på det allokerade disk utrymmet på < *enhets namnet* \> . |Varning om disk utrymme. |Det allokerade disk utrymmet håller på att ta slut. För att frigöra utrymme bör du överväga att flytta arbets belastningar till en annan volym eller dela eller ta bort data. |
 
 ### <a name="job-failure-alerts"></a>Aviseringar om jobb haveri
 
 | Aviserings text | Händelse | Mer information/rekommenderade åtgärder |
 |:--- |:--- |:--- |
-| Det gick inte att slutföra säkerhets kopieringen av <*enhets namnet* \> . |Säkerhets kopierings jobbet kunde inte utföras. |Det gick inte att skapa en säkerhets kopia. Överväg något av följande:<ul><li>Anslutnings problem kan hindra säkerhets kopieringen från att slutföras. Se till att det inte finns några anslutnings problem. Mer information om fel sökning av anslutnings problem finns i det [lokala webb gränssnittet](storsimple-ova-web-ui-admin.md) för den virtuella enheten.</li><li>Du har nått den tillgängliga lagrings gränsen. Överväg att ta bort eventuella säkerhets kopior som inte längre behövs för att frigöra utrymme.</li></ul> Lös problemen, rensa aviseringen och försök igen. |
-| Det gick inte att utföra kloningen av <*enhets namnet* \> . |Det gick inte att klona jobbet. |Det gick inte att skapa en klon. Överväg något av följande:<ul><li>Säkerhets kopierings listan kanske inte är giltig. Uppdatera listan för att kontrol lera att den fortfarande är giltig.</li><li>Anslutnings problem kan hindra klonings åtgärden från att slutföras. Se till att det inte finns några anslutnings problem.</li><li>Du har nått den tillgängliga lagrings gränsen. Överväg att ta bort eventuella säkerhets kopior som inte längre behövs för att frigöra utrymme.</li></ul>Lös problemen, rensa aviseringen och försök igen. |
+| Det gick inte att slutföra säkerhets kopieringen av < *enhets namnet* \> . |Säkerhets kopierings jobbet kunde inte utföras. |Det gick inte att skapa en säkerhets kopia. Överväg något av följande:<ul><li>Anslutnings problem kan hindra säkerhets kopieringen från att slutföras. Se till att det inte finns några anslutnings problem. Mer information om fel sökning av anslutnings problem finns i det [lokala webb gränssnittet](storsimple-ova-web-ui-admin.md) för den virtuella enheten.</li><li>Du har nått den tillgängliga lagrings gränsen. Överväg att ta bort eventuella säkerhets kopior som inte längre behövs för att frigöra utrymme.</li></ul> Lös problemen, rensa aviseringen och försök igen. |
+| Det gick inte att utföra kloningen av < *enhets namnet* \> . |Det gick inte att klona jobbet. |Det gick inte att skapa en klon. Överväg något av följande:<ul><li>Säkerhets kopierings listan kanske inte är giltig. Uppdatera listan för att kontrol lera att den fortfarande är giltig.</li><li>Anslutnings problem kan hindra klonings åtgärden från att slutföras. Se till att det inte finns några anslutnings problem.</li><li>Du har nått den tillgängliga lagrings gränsen. Överväg att ta bort eventuella säkerhets kopior som inte längre behövs för att frigöra utrymme.</li></ul>Lös problemen, rensa aviseringen och försök igen. |
 
 ### <a name="networking-alerts"></a>Nätverks aviseringar
 
@@ -157,13 +157,13 @@ I följande tabeller visas några av de StorSimple-aviseringar som du kan stöta
 | Aviserings text | Händelse | Mer information/rekommenderade åtgärder |
 |:--- |:--- |:--- |
 | Du upplever oväntade fördröjningar i data överföringen. |Långsam data överföring. |Begränsnings fel inträffar när du överskrider skalbarhets målen för en lagrings tjänst. Lagrings tjänsten gör detta för att säkerställa att ingen enskild klient eller klient organisation kan använda tjänsten på bekostnad av andra. Mer information om hur du felsöker ditt Azure Storage-konto finns i [övervaka, diagnostisera och felsöka Microsoft Azure Storage](../storage/common/storage-monitoring-diagnosing-troubleshooting.md). |
-| Du har ont om lokalt reservations disk utrymme på <*enhets namnet* \> . |Långsam svars tid. |10% av den totala etablerade storleken för <*enhets namnet* \> är reserverat på den lokala enheten och du börjar nu ta slut på det reserverade utrymmet. Arbets belastningen på <*enhets namnet* \> genererar en högre andel omsättning eller så kanske du nyligen har migrerat en stor mängd data. Detta kan resultera i försämrade prestanda. Överväg följande åtgärder för att lösa problemet:<ul><li>Öka moln bandbredden till den här enheten.</li><li>Minska eller flytta arbets belastningar till en annan volym eller resurs.</li></ul> |
+| Du har ont om lokalt reservations disk utrymme på < *enhets namnet* \> . |Långsam svars tid. |10% av den totala etablerade storleken för < *enhets namnet* \> är reserverat på den lokala enheten och du börjar nu ta slut på det reserverade utrymmet. Arbets belastningen på < *enhets namnet* \> genererar en högre andel omsättning eller så kanske du nyligen har migrerat en stor mängd data. Detta kan resultera i försämrade prestanda. Överväg följande åtgärder för att lösa problemet:<ul><li>Öka moln bandbredden till den här enheten.</li><li>Minska eller flytta arbets belastningar till en annan volym eller resurs.</li></ul> |
 
 ### <a name="security-alerts"></a>Säkerhetsaviseringar
 
 | Aviserings text | Händelse | Mer information/rekommenderade åtgärder |
 |:--- |:--- |:--- |
-| Lösen ordet för <*enhets namnet* \> upphör att gälla om <*nummer* \> dagar. |Lösen ords varning. |Ditt lösen ord upphör att gälla om <*nummer* \> dagar. Överväg att ändra ditt lösen ord. Mer information finns i [ändra StorSimple för den virtuella matris enheten](storsimple-virtual-array-change-device-admin-password.md). |
+| Lösen ordet för < *enhets namnet* \> upphör att gälla om < *nummer* \> dagar. |Lösen ords varning. |Ditt lösen ord upphör att gälla om < *nummer* \> dagar. Överväg att ändra ditt lösen ord. Mer information finns i [ändra StorSimple för den virtuella matris enheten](storsimple-virtual-array-change-device-admin-password.md). |
 
 ## <a name="next-steps"></a>Nästa steg
 

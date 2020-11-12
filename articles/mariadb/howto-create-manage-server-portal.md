@@ -1,17 +1,17 @@
 ---
 title: Hantera Server-Azure Portal-Azure Database for MariaDB
 description: Lär dig hur du hanterar en Azure Database for MariaDB-Server från Azure Portal.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 24481abb6606d9ce830e5b65285b31637417cbd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ade70c884a3ef01db45273e4789f34b629473661
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90562459"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537993"
 ---
 # <a name="manage-an-azure-database-for-mariadb-server-using-the-azure-portal"></a>Hantera en Azure Database for MariaDB-server med hjälp av Azure Portal
 Den här artikeln visar hur du hanterar dina Azure Database for MariaDB-servrar. Hanterings uppgifter omfattar skalning av beräknings-och lagrings utrymme, återställning av administratörs lösen ord och visning av Server information.
@@ -30,9 +30,9 @@ När servern har skapats kan du skala mellan Generell användning-och Minnesopti
 
 Du kan skala från Generell användning till Minnesoptimerade och tvärtom. Det går inte att byta till och från Basic-nivån efter att servern har skapats. 
 
-1. Välj din server i Azure Portal. Välj **pris nivå**, som finns i avsnittet **Inställningar** .
+1. Välj din server i Azure Portal. Välj **pris nivå** , som finns i avsnittet **Inställningar** .
 
-2. Välj **generell användning** eller **minne som är optimerat**, beroende på vad du skalar till. 
+2. Välj **generell användning** eller **minne som är optimerat** , beroende på vad du skalar till. 
 
     ![Skärm bild som visar Azure Portal med den valda pris nivån och ett värde för Minnesoptimerade som valts.](./media/howto-create-manage-server-portal/change-pricing-tier.png)
 
@@ -44,7 +44,7 @@ Du kan skala från Generell användning till Minnesoptimerade och tvärtom. Det 
 
 ### <a name="scale-vcores-up-or-down"></a>Skala virtuella kärnor uppåt eller nedåt
 
-1. Välj din server i Azure Portal. Välj **pris nivå**, som finns i avsnittet **Inställningar** .
+1. Välj din server i Azure Portal. Välj **pris nivå** , som finns i avsnittet **Inställningar** .
 
 2. Ändra **vCore** -inställningen genom att flytta skjutreglaget till önskat värde.
 
@@ -58,7 +58,7 @@ Du kan skala från Generell användning till Minnesoptimerade och tvärtom. Det 
 
 ### <a name="scale-storage-up"></a>Skala upp lagring
 
-1. Välj din server i Azure Portal. Välj **pris nivå**, som finns i avsnittet **Inställningar** .
+1. Välj din server i Azure Portal. Välj **pris nivå** , som finns i avsnittet **Inställningar** .
 
 2. Ändra **lagrings** inställningen genom att flytta skjutreglaget uppåt till önskat värde.
 
@@ -73,7 +73,7 @@ Du kan skala från Generell användning till Minnesoptimerade och tvärtom. Det 
 ## <a name="update-admin-password"></a>Uppdatera administratörs lösen ord
 Du kan ändra administratörs rollens lösen ord med hjälp av Azure Portal.
 
-1. Välj din server i Azure Portal. Välj **Återställ lösen ord**i **översikts** fönstret.
+1. Välj din server i Azure Portal. Välj **Återställ lösen ord** i **översikts** fönstret.
 
    ![översikt](./media/howto-create-manage-server-portal/overview-reset-password.png)
 

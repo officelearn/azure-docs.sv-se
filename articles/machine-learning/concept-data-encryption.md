@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 11/09/2020
-ms.openlocfilehash: de83be26e3cb7105303528e10fb50b7ecc438472
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: a133cdb72e304a254305833b9ae6e8a7ebe30ab3
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447831"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540016"
 ---
 # <a name="data-encryption-with-azure-machine-learning"></a>Data kryptering med Azure Machine Learning
 
@@ -53,7 +53,7 @@ Information om hur du återskapar åtkomst nycklarna finns i [Återskapa lagring
 
 ### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-Azure Machine Learning lagrar mått och metadata i en Azure Cosmos DB-instans. Den här instansen är associerad med en Microsoft-prenumeration som hanteras av Azure Machine Learning. Alla data som lagras i Azure Cosmos DB krypteras i vila med Microsoft-hanterade nycklar.
+Azure Machine Learning lagrar metadata i en Azure Cosmos DB-instans. Den här instansen är associerad med en Microsoft-prenumeration som hanteras av Azure Machine Learning. Alla data som lagras i Azure Cosmos DB krypteras i vila med Microsoft-hanterade nycklar.
 
 Om du vill använda egna (Kundhanterade) nycklar för att kryptera Azure Cosmos DB-instansen kan du skapa en dedikerad Cosmos DB-instans för användning med din arbets yta. Vi rekommenderar den här metoden om du vill lagra dina data, t. ex. information om körnings historik, utanför Cosmos DB-instansen för flera innehavare som finns i vår Microsoft-prenumeration. 
 

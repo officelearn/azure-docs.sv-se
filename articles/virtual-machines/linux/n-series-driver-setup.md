@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: vikancha
-ms.openlocfilehash: 9b6e752f8352db565239aba4a990752b1c397f5f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: b80a09c82b1e932fb93b4c85ee250773aa7d3c38
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517267"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539761"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installera NVIDIA GPU-drivrutiner på virtuella datorer i N-serien som kör Linux
 
@@ -98,7 +98,9 @@ sudo reboot
   
    sudo reboot
 
-2. Install the latest [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106).
+2. Install the latest [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106). Check if LIS is required by verifying the results of lspci. If all GPU devices are listed as expected, installing LIS is not required.
+
+Skip this step if you plan to use CentOS 7.8(or higher) as LIS is no longer required for these versions.
 
    ```bash
    wget https://aka.ms/lis
@@ -150,7 +152,7 @@ Om driv rutinen är installerad visas utdata som liknar följande. Observera att
 
 ## <a name="rdma-network-connectivity"></a>RDMA-nätverksanslutning
 
-RDMA-Nätverksanslutningar kan aktive ras på virtuella datorer med RDMA-kapacitet, till exempel NC24r som distribuerats i samma tillgänglighets uppsättning eller i en enda placerings grupp i en virtuell machiine-uppsättning (VM). RDMA-nätverket stöder MPI-trafik (Message Passing Interface) för program som körs med Intel MPI 5. x eller en senare version. Ytterligare krav följer:
+RDMA-nätverksanslutning kan aktive ras på virtuella datorer med RDMA-kapacitet, till exempel NC24r som distribuerats i samma tillgänglighets uppsättning eller i en enda placerings grupp i en skalnings uppsättning för virtuell dator (VM). RDMA-nätverket stöder MPI-trafik (Message Passing Interface) för program som körs med Intel MPI 5. x eller en senare version. Ytterligare krav följer:
 
 ### <a name="distributions"></a>Distributioner
 
@@ -264,7 +266,7 @@ Om du vill installera NVIDIA GRID-drivrutiner på virtuella datorer med NV eller
    sudo yum install hyperv-daemons
    ```
 
-2. Inaktivera Nouveau kernel-drivrutinen, som inte är kompatibel med NVIDIA-drivrutinen. (Använd bara NVIDIA-drivrutinen på NV-eller NV2 virtuella datorer.) Det gör du genom att skapa en fil med `/etc/modprobe.d` namnet `nouveau.conf` med följande innehåll:
+2. Inaktivera Nouveau kernel-drivrutinen, som inte är kompatibel med NVIDIA-drivrutinen. (Använd bara NVIDIA-drivrutinen på NV-eller NV3 virtuella datorer.) Det gör du genom att skapa en fil med `/etc/modprobe.d` namnet `nouveau.conf` med följande innehåll:
 
    ```
    blacklist nouveau
@@ -272,7 +274,9 @@ Om du vill installera NVIDIA GRID-drivrutiner på virtuella datorer med NV eller
    blacklist lbm-nouveau
    ```
  
-3. Starta om den virtuella datorn, återanslut och installera de senaste [Linux-integrerings tjänsterna för Hyper-V och Azure](https://www.microsoft.com/download/details.aspx?id=55106).
+3. Starta om den virtuella datorn, återanslut och installera de senaste [Linux-integrerings tjänsterna för Hyper-V och Azure](https://www.microsoft.com/download/details.aspx?id=55106). Kontrol lera om LIS krävs genom att verifiera resultatet av lspci. Om alla GPU-enheter visas som förväntat måste du inte installera LIS. 
+
+Hoppa över det här steget är att du använder CentOS/RHEL 7,8 och senare.
  
    ```bash
    wget https://aka.ms/lis
@@ -373,6 +377,7 @@ Skapa sedan en post för ditt uppdaterings skript i `/etc/rc.d/rc3.d` så att sk
 
 * Du kan ställa in persistence-läge med `nvidia-smi` så att kommandots utdata går snabbare när du behöver fråga kort. Kör om du vill ställa in persistence-läge `nvidia-smi -pm 1` . Observera att om den virtuella datorn startas om så går läges inställningen bort. Du kan alltid skripta läges inställningen så att den körs vid start.
 * Om du har uppdaterat NVIDIA CUDA-drivrutinerna till den senaste versionen och inte längre kan hitta RDMA-anslutningen kan du [installera om RDMA-drivrutinerna](#rdma-network-connectivity) för att återupprätta anslutningen. 
+* Om en viss CentOS/RHEL OS-version (eller kernel) inte stöds för LIS, genereras ett fel som inte stöds av kernel-versionen. Rapportera det här felet tillsammans med operativ system-och kernel-versionerna.
 
 ## <a name="next-steps"></a>Nästa steg
 

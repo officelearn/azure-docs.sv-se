@@ -10,22 +10,18 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/2/2020
 ms.author: derekol
-ms.openlocfilehash: ef573817927cf732da3426d802f8f26e2e9cd4ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7b696ba052b2aca9e14628327c07275845607ad
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399031"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540594"
 ---
 # <a name="register-a-peering-service-connection-by-using-the-azure-cli"></a>Registrera en peering service-anslutning med hjälp av Azure CLI
 
 Azure peering-tjänsten är en nätverks tjänst som förbättrar kund anslutningen till Microsofts moln tjänster, till exempel Microsoft 365, Dynamics 365, SaaS-tjänster (Software as a Service), Azure eller Microsoft-tjänster som är tillgängliga via det offentliga Internet. I den här artikeln får du lära dig hur du registrerar en peering service-anslutning med hjälp av Azure CLI.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) nu.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Om du väljer att installera och använda CLI lokalt kräver den här artikeln Azure CLI-version 2.0.28 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
+- Den här artikeln kräver version 2.0.28 eller senare av Azure CLI. Kör [az version](/cli/azure/reference-index#az_version) om du vill hitta versionen och de beroende bibliotek som är installerade. Om du vill uppgradera till den senaste versionen kör du [az upgrade](/cli/azure/reference-index#az_upgrade).
 
 ## <a name="prerequisites"></a>Förutsättningar 
 
@@ -41,19 +37,11 @@ Du kan arbeta med en Internet-leverantör eller en Internet Exchange-partner fö
 
 Se till att anslutnings leverantörerna är partner kopplade till Microsoft.
 
-### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Logga in på ditt Azure-konto och välj din prenumeration
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
 
-Logga in på ditt Azure-konto för att påbörja konfigurationen. Om du använder alternativet Cloud Shell **prova** , är du inloggad automatiskt. Använd följande exempel för att ansluta.
+- Den här artikeln kräver version 2.0.28 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
-```azurecli-interactive
-az login
-```
-
-Kontrollera prenumerationerna för kontot.
-
-```azurecli-interactive
-az account list
-```
+### <a name="1-select-your-subscription"></a>1. Välj din prenumeration
 
 Välj den prenumeration som du vill registrera peering-tjänstens anslutning för.
 

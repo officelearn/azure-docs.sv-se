@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 2c9d00f1d78d2dea46d4ff4a08433360e00c7b9d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 29c378d40e3a4f92852f433677125a9e8a6d1133
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445633"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540135"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Skapa och hantera Azure Machine Learning arbets ytor 
 
@@ -191,7 +191,7 @@ Azure Security Center erbjuder enhetlig säkerhetshantering och avancerat skydd 
 
 ### <a name="advanced"></a>Avancerat
 
-Som standard lagras mått och metadata för arbets ytan i en Azure Cosmos DB-instans som Microsoft underhåller. Dessa data är krypterade med Microsoft-hanterade nycklar.
+Som standard lagras metadata för arbets ytan i en Azure Cosmos DB-instans som Microsoft underhåller. Dessa data är krypterade med Microsoft-hanterade nycklar.
 
 Om du vill begränsa de data som Microsoft samlar in på din arbets yta väljer du __arbets ytan hög arbets yta för affärs påverkan__ i portalen eller ställer in `hbi_workspace=true ` i python. Mer information om den här inställningen finns i [kryptering i vila](concept-data-encryption.md#encryption-at-rest).
 
@@ -200,7 +200,7 @@ Om du vill begränsa de data som Microsoft samlar in på din arbets yta väljer 
 
 #### <a name="use-your-own-key"></a>Använd din egen nyckel
 
-Du kan ange din egen nyckel för data kryptering. Om du gör det skapas Azure Cosmos DB-instansen som lagrar mått och metadata i din Azure-prenumeration.
+Du kan ange din egen nyckel för data kryptering. Om du gör det skapas Azure Cosmos DB-instansen som lagrar metadata i din Azure-prenumeration.
 
 [!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
@@ -318,7 +318,7 @@ Workspace.list('<subscription-id>')
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. I det övre Sök fältet skriver du **Machine Learning**.  
 

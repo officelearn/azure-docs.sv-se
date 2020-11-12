@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: 2234b1507e6e0fdb0b668fc18a7c8533e3ea7cc1
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: eaaedc4404419e6028250a994077dd3df20b83d4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441791"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539659"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Företags säkerhet och styrning för Azure Machine Learning
 
@@ -123,10 +123,11 @@ Du kanske också vill kryptera [diagnostikinformation som loggats från den dist
 
 Det finns flera övervaknings scenarier med Azure Machine Learning, beroende på roll och vad som övervakas.
 
-| Roll | Övervakning som ska användas |
-| ---- | ----- |
-| Admin, DevOps, MLOps | [Azure Monitor Mät värden](#azure-monitor), [aktivitets loggen](#activity-log), [sårbarhets sökning](#vulnerability-scanning) |
-| Data expert, MLOps | [Övervaka körningar](#monitor-runs) |
+| Roll | Övervakning som ska användas | Beskrivning |
+| ---- | ----- | ----- |
+| Admin, DevOps, MLOps | [Azure Monitor Mät värden](#azure-monitor), [aktivitets loggen](#activity-log), [sårbarhets sökning](#vulnerability-scanning) | Information om service nivå |
+| Data expert, MLOps | [Övervaka körningar](#monitor-runs) | Information som loggats under utbildning körs |
+| MLOps | [Samla in modell data](how-to-enable-data-collection.md), [övervaka med Application Insights](how-to-enable-app-insights.md) | Information som loggats av modeller som distribuerats som webb tjänster eller IoT Edge moduler|
 
 ### <a name="monitor-runs"></a>Övervaka körningar
 

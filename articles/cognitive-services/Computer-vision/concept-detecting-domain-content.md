@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 8d6dc91ae7bb0f6d7a24064749d9295558a7d39c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cd872d66088e165bfc8356ab6d96a0a6135a0e0
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68946326"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538316"
 ---
 # <a name="detect-domain-specific-content"></a>Identifiera domänspecifikt innehåll
 
@@ -26,7 +26,7 @@ Det finns två sätt att använda domänbaserade modeller: själva (begränsad a
 
 ### <a name="scoped-analysis"></a>Omfattnings analys
 
-Du kan analysera en avbildning med hjälp av den valda domän bara modellen genom att anropa [ \<model\> /Analyze-](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) API: et.
+Du kan analysera en avbildning med hjälp av den valda domän bara modellen genom att anropa [ \<model\> /Analyze-](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API: et.
 
 Följande är ett exempel på JSON-svar som returneras av **modellerna Models/kändisar/analysera** API för den aktuella avbildningen:
 
@@ -57,7 +57,7 @@ Följande är ett exempel på JSON-svar som returneras av **modellerna Models/k�
 
 ### <a name="enhanced-categorization-analysis"></a>Förbättrad kategoriserings analys
 
-Du kan också använda domänbaserade modeller för att komplettera allmänna bild analyser. Du gör detta som en del av en [övergripande kategorisering](concept-categorizing-images.md) genom att ange företagsspecifika modeller i *informations* parametern i API-anropet [analysera](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) .
+Du kan också använda domänbaserade modeller för att komplettera allmänna bild analyser. Du gör detta som en del av en [övergripande kategorisering](concept-categorizing-images.md) genom att ange företagsspecifika modeller i *informations* parametern i API-anropet [analysera](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) .
 
 I det här fallet anropas klassificeraren för 86-kategorin först. Om någon av de identifierade kategorierna har en matchande domänbaserad modell skickas avbildningen även genom den modellen och resultaten läggs till.
 
@@ -100,12 +100,12 @@ Följande JSON-svar visar hur domänbaserad analys kan tas med `detail` i noden 
 
 Visuellt innehåll stöder för närvarande följande företagsspecifika modeller:
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 |------|-------------|
 | kändisar | Kändis-igenkänning, stöds för bilder som klassificeras i `people_` kategorin |
 | landmärken | Landmärkes igenkänning, stöds för bilder som klassificeras i `outdoor_` `building_` kategorierna eller |
 
-Anrop till [modell](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) -API: et returnerar den här informationen tillsammans med de kategorier som varje modell kan använda:
+Anrop till [modell](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20e) -API: et returnerar den här informationen tillsammans med de kategorier som varje modell kan använda:
 
 ```json
 {

@@ -1,18 +1,18 @@
 ---
 title: Övervakning – Azure Database for MariaDB
 description: Den här artikeln beskriver måtten för övervakning och aviseringar för Azure Database for MariaDB, inklusive CPU, lagring och anslutnings statistik.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 10/21/2020
-ms.openlocfilehash: d2d34e95642308dcdacba20879945f2c965db955
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 5790094571563d3ca8576480a6296a73756fb6a6
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425203"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540424"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Övervakning i Azure Database for MariaDB
 Genom att övervaka data om dina servrar kan du felsöka och optimera för din arbets belastning. Azure Database for MariaDB tillhandahåller olika mått som ger inblick i serverns beteende.
@@ -25,7 +25,7 @@ Steg för steg-anvisningar finns i [så här konfigurerar du aviseringar](howto-
 ### <a name="list-of-metrics"></a>Lista över mått
 De här måtten är tillgängliga för Azure Database for MariaDB:
 
-|Mått|Mått visnings namn|Enhet|Description|
+|Mått|Mått visnings namn|Enhet|Beskrivning|
 |---|---|---|---|
 |cpu_percent|CPU-procent|Procent|Procent andelen CPU som används.|
 |memory_percent|Minnes procent|Procent|Procent andelen minne som används.|

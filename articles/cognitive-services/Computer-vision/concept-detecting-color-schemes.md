@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: af0c39ed8211ac2041d143112437ad5d6b384259
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57e01683cb8027c2a1f79e58bce03b3bb7dedadb
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80244740"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538392"
 ---
 # <a name="detect-color-schemes-in-images"></a>Identifiera färg scheman i bilder
 
@@ -54,7 +54,7 @@ I följande exempel visas ett JSON-svar som returneras av Visuellt innehåll nä
 
 I följande tabell visas de färger som returneras för förgrunds-, bakgrunds-och bildfiler för varje exempel bild.
 
-| Bild | Dominerande färger |
+| Avbildning | Dominerande färger |
 |-------|-----------------|
 |![En vit blomma med grön bakgrund](./Images/flower.png)| Förgrund: svart<br/>Bakgrund: vit<br/>Färger: svart, vit, grönt|
 ![Ett tåg som körs via en station](./Images/train_station.png) | Förgrund: svart<br/>Bakgrund: svart<br/>Färger: svart |
@@ -63,7 +63,7 @@ I följande tabell visas de färger som returneras för förgrunds-, bakgrunds-o
 
  I följande tabell visas den returnerade tilläggs färgen, som ett hexadecimalt HTML-färg värde, för varje exempel bild.
 
-| Bild | Accentfärg |
+| Avbildning | Accentfärg |
 |-------|--------------|
 |![En person som står på en Mountain rock vid solnedgång](./Images/mountain_vista.png) | #BB6D10 |
 |![En vit blomma med grön bakgrund](./Images/flower.png) | #C6A205 |
@@ -73,14 +73,14 @@ I följande tabell visas de färger som returneras för förgrunds-, bakgrunds-o
 
 I följande tabell visas Visuellt innehållens svarta och vita utvärdering i exempel bilderna.
 
-| Bild | Svart & vitt? |
+| Avbildning | Svart & vitt? |
 |-------|----------------|
 |![En svart och vit bild av byggnader i Manhattan](./Images/bw_buildings.png) | true |
 |![Ett blått hus och en främre meter](./Images/house_yard.png) | falskt |
 
 ## <a name="use-the-api"></a>Använda API:et
 
-Funktionen för identifiering av färg scheman är en del av API: et [analys av avbildning](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) . Du kan anropa API: et via en inbyggd SDK eller via REST-anrop. Inkludera `Color` i **visualFeatures** -Frågeparametern. När du sedan får det fullständiga JSON-svaret ska du bara parsa strängen för innehållet i `"color"` avsnittet.
+Funktionen för identifiering av färg scheman är en del av API: et [analys av avbildning](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) . Du kan anropa API: et via en inbyggd SDK eller via REST-anrop. Inkludera `Color` i **visualFeatures** -Frågeparametern. När du sedan får det fullständiga JSON-svaret ska du bara parsa strängen för innehållet i `"color"` avsnittet.
 
 * [Snabb start: Visuellt innehåll .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
 * [Snabb start: analysera en avbildning (REST API)](./quickstarts/csharp-analyze.md)

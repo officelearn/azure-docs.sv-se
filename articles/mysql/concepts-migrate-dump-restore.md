@@ -1,17 +1,17 @@
 ---
 title: Migrera med dump och Restore-Azure Database for MySQL
 description: I den här artikeln beskrivs två vanliga sätt att säkerhetskopiera och återställa databaser i Azure Database for MySQL med hjälp av verktyg som mysqldump, MySQL Workbench och PHPMyAdmin.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/30/2020
-ms.openlocfilehash: 336021792b7e5340e35a0c59e0f113d4dad9307d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: f21587fe6a48d042ed98c126beb2a7dcaa39b7d8
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128971"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537925"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrera MySQL-databasen till Azure Database för MySQL med säkerhetskopiering och återställning
 
@@ -39,7 +39,7 @@ De vanligaste användnings fallen är:
 
 - **Flytta från annan leverantör av hanterade tjänster** : mest hanterade tjänst leverantörer kanske inte ger åtkomst till den fysiska lagrings filen av säkerhets skäl så att logisk säkerhets kopiering och återställning är det enda alternativet att migrera.
 - **Migrering från en lokal miljö eller virtuell dator** – Azure Database for MySQL stöder inte återställning av fysiska säkerhets kopieringar som gör den logiska säkerhets kopieringen och återställningen som den enda metoden.
-- **Att flytta lagrings utrymme för säkerhets kopior från lokalt redundant till Geo-redundant lagring** – Azure Database for MySQL tillåter konfigurering av lokalt redundant eller Geo-redundant lagring för säkerhets kopiering tillåts bara när servern skapas. När servern har tillhandahållits kan du inte ändra redundans alternativet för lagring av säkerhets kopior. För att kunna flytta lagrings utrymme för säkerhets kopior från lokalt redundant lagring till Geo-redundant lagring är dump och Restore det enda alternativet. 
+- **Att flytta lagrings utrymme för säkerhets kopior från lokalt redundant till Geo-redundant lagring** – Azure Database for MySQL tillåter konfigurering av lokalt redundant eller Geo-redundant lagring för säkerhets kopiering tillåts bara när servern skapas. När servern har etablerats kan du inte ändra alternativet för redundant lagring för säkerhetskopior. För att kunna flytta lagrings utrymme för säkerhets kopior från lokalt redundant lagring till Geo-redundant lagring är dump och Restore det enda alternativet. 
 -  **Migrering från alternativa lagrings motorer till InnoDB** -Azure Database for MySQL stöder bara InnoDB Storage Engine och stöder därför inte alternativa lagrings motorer. Om dina tabeller har kon figurer ATS med andra lagrings motorer konverterar du dem till InnoDB-motorns format innan du migrerar till Azure Database for MySQL.
 
     Om du till exempel har en WordPress eller WebApp som använder mina ISAM-tabeller, måste du först konvertera tabellerna genom att migrera till InnoDB-format innan du återställer till Azure Database for MySQL. Använd satsen `ENGINE=InnoDB` för att ställa in motorn som används när du skapar en ny tabell och överför sedan data till den kompatibla tabellen innan du återställer.
@@ -73,7 +73,7 @@ För att ansluta, letar du upp anslutnings informationen i **översikten** över
 
 Lägg till anslutnings informationen i MySQL Workbench.
 
-:::image type="content" source="./media/concepts-migrate-dump-restore/2_setup-new-connection.png" alt-text="Hitta anslutnings informationen i Azure Portal":::
+:::image type="content" source="./media/concepts-migrate-dump-restore/2_setup-new-connection.png" alt-text="Anslutnings sträng för MySQL Workbench":::
 
 ## <a name="preparing-the-target-azure-database-for-mysql-server-for-fast-data-loads"></a>Förbereda mål Azure Database for MySQL servern för snabb data inläsningar
 Följande Server parametrar och konfiguration måste ändras för att förbereda mål Azure Database for MySQL servern för snabbare data inläsningar.

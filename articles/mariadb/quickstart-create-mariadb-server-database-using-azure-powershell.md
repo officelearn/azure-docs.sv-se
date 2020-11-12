@@ -1,25 +1,25 @@
 ---
 title: 'Snabb start: skapa en server-Azure PowerShell-Azure Database for MariaDB'
 description: I den här snabb starten beskrivs hur du använder PowerShell för att skapa en Azure Database for MariaDB-server i en Azure-resurs grupp.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 05/26/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 7db89d315e0df51aad7f4660ec5da64425eae2aa
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 05082ffa891b72b472ed5433282198c61080f073
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424429"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537840"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-using-powershell"></a>Snabb start: skapa en Azure Database for MariaDB-server med PowerShell
 
 I den här snabb starten beskrivs hur du använder PowerShell för att skapa en Azure Database for MariaDB-server i en Azure-resurs grupp. Du kan använda PowerShell för att skapa och hantera Azure-resurser interaktivt eller i skript.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -61,7 +61,7 @@ Följande tabell innehåller en lista över parametrar och exempel värden som a
 
 |        **Inställning**         | **Exempelvärde** |                                                                                                                                                             **Beskrivning**                                                                                                                                                              |
 | -------------------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name                       | mydemoserver     | Välj ett globalt unikt namn i Azure som identifierar din Azure Database for MariaDB-Server. Server namnet får bara innehålla bokstäver, siffror och bindestreck (-). Alla versaler som anges konverteras automatiskt till gemener under skapande processen. Det måste innehålla mellan 3 och 63 tecken. |
+| Namn                       | mydemoserver     | Välj ett globalt unikt namn i Azure som identifierar din Azure Database for MariaDB-Server. Server namnet får bara innehålla bokstäver, siffror och bindestreck (-). Alla versaler som anges konverteras automatiskt till gemener under skapande processen. Det måste innehålla mellan 3 och 63 tecken. |
 | ResourceGroupName          | myresourcegroup  | Ange namnet på Azure-resursgruppen.                                                                                                                                                                                                                                                                                            |
 | Sku                        | GP_Gen5_2        | Namnet på SKU:n. Följer konventions **pris – nivå för \_ beräknings skapande \_ virtuella kärnor** i korthet. Mer information om SKU-parametern finns i informationen som följer den här tabellen.                                                                                                                                           |
 | BackupRetentionDay         | 7                | Hur länge en säkerhetskopia ska behållas. Enheten är dagar. Intervallet är 7–35.                                                                                                                                                                                                                                                                       |
@@ -70,7 +70,7 @@ Följande tabell innehåller en lista över parametrar och exempel värden som a
 | SslEnforcement             | Enabled          | Om SSL ska vara aktiverat eller inte för den här servern. Tillåtna värden: Enabled, Disabled.                                                                                                                                                                                                                                                 |
 | StorageInMb                | 51200            | Serverns lagringskapacitet (enheten är megabyte). Giltig StorageInMb är minst 5120 MB och ökar i steg om 1024 MB. Mer information om lagrings storleks gränser finns i [Azure Database for MariaDB pris nivåer](./concepts-pricing-tiers.md).                                                                               |
 | Version                    | 5.7              | Den MariaDB huvud versionen.                                                                                                                                                                                                                                                                                                                 |
-| AdministratorUserName      | myadmin          | Användarnamnet för administratörsinloggning. Det kan inte vara **azure_superuser**, **admin**, **administrator**, **root**, **guest** eller **public**.                                                                                                                                                                                            |
+| AdministratorUserName      | myadmin          | Användarnamnet för administratörsinloggning. Det kan inte vara **azure_superuser** , **admin** , **administrator** , **root** , **guest** eller **public**.                                                                                                                                                                                            |
 | AdministratorLoginPassword | `<securestring>` | Lösen ordet för administratörs användaren i form av en säker sträng. Det måste innehålla mellan 8 och 128 tecken. Lösenordet måste innehålla tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror och icke-alfanumeriska tecken.                                       |
 
 Värdet för **SKU** -parametern följer konventions **pris-nivå \_ beräknings generationens \_ virtuella kärnor** som visas i följande exempel.
@@ -201,7 +201,7 @@ Fler kommandon finns i [referenshandboken för MySQL 5.7 – kapitel 4.5.1](http
 
 1. Starta programmet MySQL Workbench på klientdatorn. Information om hur du hämtar och installerar MySQL Workbench finns i [Hämta MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
 
-1. I dialogrutan **Konfigurera ny anslutning** anger du följande information på fliken **Parametrar**:
+1. I dialogrutan **Konfigurera ny anslutning** anger du följande information på fliken **Parametrar** :
 
    ![konfigurera ny anslutning](./media/quickstart-create-mariadb-server-database-using-azure-powershell/setup-new-connection.png)
 

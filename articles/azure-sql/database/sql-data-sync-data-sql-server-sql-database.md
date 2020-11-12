@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: fdeddfb0a09151ea010d4e95a2954200dd9371dc
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 01c5d4395eb584631efb9b3b956b9a987e46b0db
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791434"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540628"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Vad är SQL Data Sync för Azure?
 
@@ -46,7 +46,7 @@ En Sync-grupp har följande egenskaper:
 - **Synkroniseringsschemat** beskriver vilka data som synkroniseras.
 - **Sync-riktningen** kan vara dubbelriktad eller kan endast flöda i en riktning. Det vill säga att synkroniseringen kan vara *hubb till medlem* eller *medlem i hubben* eller både och.
 - **Intervallet för synkronisering** beskriver hur ofta synkronisering sker.
-- **Konflikt lösnings principen** är en princip på grup nivå som kan vara en *hubb-WINS* eller *-medlem* .
+- **Konflikt lösnings principen** är en princip på grup nivå som kan vara en *hubb-WINS* eller *-medlem*.
 
 ## <a name="when-to-use"></a>När du ska använda detta
 
@@ -72,7 +72,7 @@ Datasynkronisering är inte den bästa lösningen i följande scenarier:
 
 - **Spårar data ändringar:** Datasynkronisering spårar ändringar med hjälp av INSERT-, Update-och Delete-utlösare. Ändringarna registreras i en sido tabell i användar databasen. Observera att BULK INSERT inte utlösa utlösare som standard. Om FIRE_TRIGGERS inte anges körs inga infognings utlösare. Lägg till alternativet FIRE_TRIGGERS så att datasynkronisering kan spåra dessa infogningar. 
 - **Synkroniserar data:** Datasynkronisering är utformad i en nav-och eker-modell. Hubben synkroniseras med varje medlem individuellt. Ändringar från hubben laddas ned till medlemmen och ändringar från medlemmen överförs till hubben.
-- **Lösa konflikter:** Datasynkronisering innehåller två alternativ för konflikt lösning, *hubb-WINS* eller *medlems-WINS* .
+- **Lösa konflikter:** Datasynkronisering innehåller två alternativ för konflikt lösning, *hubb-WINS* eller *medlems-WINS*.
   - Om du väljer *hubben WINS* skrivs ändringarna i hubben alltid över ändringar i medlemmen.
   - Om du väljer *medlem WINS* skriver ändringarna i medlemmen över ändringarna i hubben. Om det finns fler än en medlem beror det sista värdet på vilka medlemmar som synkroniseras först.
 
@@ -166,7 +166,7 @@ Datasynkronisering kan inte synkronisera skrivskyddade eller systemgenererade ko
 | Tabeller i en Sync-grupp                                          | 500                    | Skapa flera Sync-grupper |
 | Kolumner i en tabell i en Sync-grupp                              | 1000                   |                             |
 | Data rad storlek för en tabell                                        | 24 MB                  |                             |
-| Lägsta frekvens intervall för synkronisering                                 | 5 minuter              |                             |
+| Lägsta frekvens intervall för synkronisering (sedan tidigare synkronisering startades)     | 5 minuter              |                             |
 
 > [!NOTE]
 > Det kan finnas upp till 30 slut punkter i en enda Sync-grupp om det bara finns en Sync-grupp. Om det finns fler än en Sync-grupp får det totala antalet slut punkter i alla Sync-grupper inte överstiga 30. Om en databas tillhör flera Sync-grupper räknas den som flera slut punkter, inte en.
@@ -175,7 +175,7 @@ Datasynkronisering kan inte synkronisera skrivskyddade eller systemgenererade ko
 
 När Sync-gruppen har upprättats måste data Sync-tjänsten ansluta till Hub-databasen. När du upprättar Sync-gruppen måste Azure SQL-servern ha följande konfiguration i dess `Firewalls and virtual networks` inställningar:
 
- * *Neka offentlig nätverks åtkomst* måste anges till *av* .
+ * *Neka offentlig nätverks åtkomst* måste anges till *av*.
  * *Tillåt att Azure-tjänster och-resurser får åtkomst till den här servern* måste anges till *Ja* , eller så måste du skapa IP-regler för de [IP-adresser som används av tjänsten Data Sync](network-access-controls-overview.md#data-sync).
 
 När Sync-gruppen har skapats och kon figureras kan du inaktivera dessa inställningar. Sync-agenten ansluter direkt till NAV databasen och du kan använda serverns [IP-regler för brand väggen](firewall-configure.md) eller [privata slut punkter](private-endpoint-overview.md) för att ge agenten åtkomst till nav servern.
@@ -240,7 +240,7 @@ Federations rot databasen kan användas i SQL Data Sync tjänsten utan någon be
 
 ### <a name="can-i-use-data-sync-to-sync-data-exported-from-dynamics-365-using-bring-your-own-database-byod-feature"></a>Kan jag använda datasynkronisering för att synkronisera data som exporter ATS från Dynamics 365 med en egen databas (BYOD)-funktion?
 
-Med hjälp av en egen databas funktion i Dynamics 365 kan administratörer exportera dataentiteter från programmet till sin egen Microsoft Azure SQL-databas. Datasynkronisering kan användas för att synkronisera dessa data i andra databaser om data exporteras med hjälp av **stegvis push** (fullständig push-överföring stöds inte) och **Aktivera utlösare i mål databasen** har angetts till **Ja** .
+Med hjälp av en egen databas funktion i Dynamics 365 kan administratörer exportera dataentiteter från programmet till sin egen Microsoft Azure SQL-databas. Datasynkronisering kan användas för att synkronisera dessa data i andra databaser om data exporteras med hjälp av **stegvis push** (fullständig push-överföring stöds inte) och **Aktivera utlösare i mål databasen** har angetts till **Ja**.
 
 ## <a name="next-steps"></a>Nästa steg
 

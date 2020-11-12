@@ -1,24 +1,24 @@
 ---
 title: Säkerhets kopiering och återställning – Azure Portal-Azure Database for MariaDB
 description: I den här artikeln beskrivs hur du återställer en server i Azure Database for MariaDB med hjälp av Azure Portal.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/30/2020
-ms.openlocfilehash: 6d050a8bd351617a6ab567243c5b1ef8d9f93ded
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a5f2cc4cbf73f5c13533a94f1454022d3538880
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86115918"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539633"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-portal"></a>Säkerhetskopiera och återställa en server i Azure Database for MariaDB med hjälp av Azure Portal
 
 ## <a name="backup-happens-automatically"></a>Säkerhets kopiering sker automatiskt
 Azure Database for MariaDB servrar säkerhets kopie ras regelbundet för att aktivera återställnings funktioner. Med den här funktionen kan du återställa servern och alla dess databaser till en tidigare tidpunkt på en ny server.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För att slutföra den här instruktions guiden behöver du:
 - En [Azure Database for MariaDB-Server och-databas](quickstart-create-mariadb-server-database-using-azure-portal.md)
 
@@ -37,7 +37,7 @@ När du skapar en server via Azure Portal, är **pris nivå** fönstret där du 
 Mer information om hur du anger dessa värden under skapa finns i [snabb starten för Azure Database for MariaDB Server](quickstart-create-mariadb-server-database-using-azure-portal.md).
 
 Kvarhållningsperioden för säkerhets kopior kan ändras på en server genom följande steg:
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 2. Välj din Azure Database for MariaDB-Server. Den här åtgärden öppnar **översikts** sidan.
 
@@ -64,10 +64,10 @@ Följande steg återställer exempel servern till en tidpunkt:
 3. Fyll i formuläret Återställ med den information som behövs:
 
    ![Azure Database for MariaDB-återställnings information](./media/howto-restore-server-portal/3-restore.png)
-   - **Återställnings punkt**: Välj den tidpunkt som du vill återställa till.
-   - **Mål server**: Ange ett namn för den nya servern.
-   - **Plats**: du kan inte välja region. Som standard är det samma som käll servern.
-   - **Pris nivå**: du kan inte ändra de här parametrarna när du gör en tidpunkts återställning. Det är samma som källservern. 
+   - **Återställnings punkt** : Välj den tidpunkt som du vill återställa till.
+   - **Mål server** : Ange ett namn för den nya servern.
+   - **Plats** : du kan inte välja region. Som standard är det samma som käll servern.
+   - **Pris nivå** : du kan inte ändra de här parametrarna när du gör en tidpunkts återställning. Det är samma som källservern. 
 
 4. Klicka på **OK** för att återställa servern för att återställa till en tidpunkt. 
 
@@ -89,7 +89,7 @@ Om du har konfigurerat servern för geografiskt redundanta säkerhets kopieringa
 
 3. Välj **säkerhets kopia** som **data källa**. Den här åtgärden läser in en listruta som innehåller en lista över servrar som har geo-redundanta säkerhets kopieringar aktiverade.
    
-   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="Navigera till Azure Database for MariaDB.":::
+   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="Välj data källa.":::
     
    > [!NOTE]
    > När en server först skapas kanske den inte är omedelbart tillgänglig för geo Restore. Det kan ta några timmar för nödvändiga metadata att fyllas i.
@@ -97,21 +97,21 @@ Om du har konfigurerat servern för geografiskt redundanta säkerhets kopieringa
 
 4. Välj List rutan **säkerhets kopiering** .
    
-   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore-backup.png" alt-text="Navigera till Azure Database for MariaDB.":::
+   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore-backup.png" alt-text="Välj listruta för säkerhets kopiering.":::
 
 5. Välj käll servern som du vill återställa från.
    
-   :::image type="content" source="./media/howto-restore-server-portal/5-select-backup.png" alt-text="Navigera till Azure Database for MariaDB.":::
+   :::image type="content" source="./media/howto-restore-server-portal/5-select-backup.png" alt-text="Välj säkerhets kopiering.":::
 
-6. Servern kommer att standardvärdet för antal **virtuella kärnor**, **kvarhållning av säkerhets kopior**, **redundans alternativ**för säkerhets kopior, **motor version**och **autentiseringsuppgifter för administratörer**. Välj **Fortsätt**. 
+6. Servern kommer att standardvärdet för antal **virtuella kärnor** , **kvarhållning av säkerhets kopior** , **redundans alternativ** för säkerhets kopior, **motor version** och **autentiseringsuppgifter för administratörer**. Välj **Fortsätt**. 
    
-   :::image type="content" source="./media/howto-restore-server-portal/6-accept-backup.png" alt-text="Navigera till Azure Database for MariaDB.":::
+   :::image type="content" source="./media/howto-restore-server-portal/6-accept-backup.png" alt-text="Fortsätt med säkerhets kopiering.":::
 
 7. Fyll i resten av formuläret med dina inställningar. Du kan välja valfri **plats**.
 
-    När du har valt platsen kan du välja **Konfigurera Server** för att uppdatera **beräknings generationen** (om det är tillgängligt i den region som du har valt), antal **virtuella kärnor**, **kvarhållning av säkerhets kopior**och **alternativet för redundans**. Att ändra **pris nivå** (Basic, generell användning eller minnesoptimerade) eller **lagrings** storlek under återställningen stöds inte.
+    När du har valt platsen kan du välja **Konfigurera Server** för att uppdatera **beräknings generationen** (om det är tillgängligt i den region som du har valt), antal **virtuella kärnor** , **kvarhållning av säkerhets kopior** och **alternativet för redundans**. Att ändra **pris nivå** (Basic, generell användning eller minnesoptimerade) eller **lagrings** storlek under återställningen stöds inte.
 
-   :::image type="content" source="./media/howto-restore-server-portal/7-create.png" alt-text="Navigera till Azure Database for MariaDB."::: 
+   :::image type="content" source="./media/howto-restore-server-portal/7-create.png" alt-text="Fyll i formulär."::: 
 
 8. Välj **Granska + skapa** för att granska dina val. 
 

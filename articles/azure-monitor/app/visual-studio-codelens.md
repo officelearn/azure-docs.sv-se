@@ -4,12 +4,12 @@ description: Kom snabbt åt din Application Insights-begäran och undantagstelem
 ms.topic: conceptual
 ms.date: 03/17/2017
 ms.custom: vs-azure
-ms.openlocfilehash: 92879e9dc7b9de7ef5862f30241f2b80e6aac9e8
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 2cfc4e06dcb5671f34ff98794c9569b6ed5ddae7
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932659"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538503"
 ---
 # <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Application Insights Telemetry i Visual Studio CodeLens
 Metoderna i din webbapps kod kan kommenteras med telemetri om körtidsundantag och förfrågningssvarstider. Om du installerar [Azure Application Insights](./app-insights-overview.md) i ditt program visas telemetrin i Visual Studio [CodeLens](/visualstudio/ide/find-code-changes-and-other-history-with-codelens?view=vs-2015) – anteckningarna längst upp för varje funktion där du är van att se användbar information som antalet platser som refererar till funktionen, eller den person som senast redigerade den.
@@ -30,7 +30,7 @@ Leta efter Application Insights Telemetry i CodeLens-indikatorer för offentliga
 > 
 
 ## <a name="exceptions-in-codelens"></a>Undantag i CodeLens
-![TBD](./media/visual-studio-codelens/codelens-exceptions.png)
+![Skärm bild som visar 47-undantag som visas i CodeLens.](./media/visual-studio-codelens/codelens-exceptions.png)
 
 Indikatorn CodeLens-undantag visar antalet undantag som har inträffat under de senaste 24 timmarna från de 15 oftast inträffade undantagen i din app under denna period, vid bearbetning av den begäran som hanteras av metoden.
 
@@ -52,7 +52,7 @@ Om du vill se mer information klickar du på indikatorn CodeLens-undantag:
 > 
 
 ## <a name="requests-in-codelens"></a>Begäranden i CodeLens
-![TBD](./media/visual-studio-codelens/codelens-requests.png)
+![Skärm bild som visar information om 684-begäranden, inklusive 7% misslyckade.](./media/visual-studio-codelens/codelens-requests.png)
 
 Indikatorn CodeLens-begäran visar antalet HTTP-begäranden som har hanterats av en metod under de senaste 24 timmarna, plus den procent av dessa begäranden som misslyckats.
 

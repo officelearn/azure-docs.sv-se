@@ -1,7 +1,7 @@
 ---
 title: Viktiga begrepp för arkitektur &
 titleSuffix: Azure Machine Learning
-description: Lär dig mer om arkitekturen, termer och koncept som utgör Azure Machine Learning.
+description: Den här artikeln ger dig en övergripande förståelse för arkitekturen, termer och koncept som utgör Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: f17cdd42c892f6c0d218875cf304846937ba58d7
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: a36481b2496060cb12bd755f56680915ec1074bb
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444849"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540194"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Hur Azure Machine Learning fungerar: arkitektur och koncept
 
@@ -267,6 +267,18 @@ Azure IoT Edge säkerställer att modulen körs och övervakar den enhet som är
 Du använder [maskin inlärnings pipeliner](concept-ml-pipelines.md) för att skapa och hantera arbets flöden som häftar ihop Machine Learning-faser. En pipeline kan till exempel omfatta förberedelse av data, modell utbildning, modell distribution och steg för härledning/poängsättning. Varje fas kan omfatta flera steg, som var och en kan köras obevakade i olika beräknings mål. 
 
 Pipeline-steg kan återanvändas och kan köras utan att köra föregående steg om utdata från dessa steg inte har ändrats. Du kan till exempel omträna en modell utan att köra kostsamma data förberedelse steg om data inte har ändrats. Pipelines gör det också möjligt för data experter att samar beta medan de arbetar med olika delar av ett Machine Learning-arbetsflöde.
+
+## <a name="monitoring-and-logging"></a>Övervakning och loggning
+
+Azure Machine Learning tillhandahåller följande funktioner för övervakning och loggning:
+
+* För __data__ experter kan du övervaka dina experiment och logg information från dina utbildnings körningar. Mer information finns i följande artiklar:
+   * [Starta, övervaka och avbryta inlärnings körningar](how-to-manage-runs.md)
+   * [Loggmått för träningskörningar](how-to-track-experiments.md)
+   * [Spåra experiment med MLflow](how-to-use-mlflow.md)
+   * [Visualisera körningar med TensorBoard](how-to-monitor-tensorboard.md)
+* För __Administratörer__ kan du övervaka information om arbets ytan, relaterade Azure-resurser och händelser som att skapa och ta bort resurser med hjälp av Azure Monitor. Mer information finns i [så här övervakar du Azure Machine Learning](monitor-azure-machine-learning.md).
+* För __DevOps__ eller __MLOps__ kan du övervaka information som genererats av modeller som har distribuerats som webb tjänster eller IoT Edge moduler för att identifiera problem med distributionerna och samla in data som skickats till tjänsten. Mer information finns i [samla in modell data](how-to-enable-data-collection.md) och [övervaka med Application Insights](how-to-enable-app-insights.md).
 
 ## <a name="interacting-with-your-workspace"></a>Interagera med din arbets yta
 

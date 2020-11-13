@@ -5,18 +5,18 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 76e7b3d0b0dd514feb7d16a6bc23d1b908be683f
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: f2e63903546e173e17f2b457b78eb41bcdf65dbd
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207214"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555574"
 ---
 # <a name="pbr-materials"></a>PBR-material
 
 *PBR-material* är en av de [material typer](../../concepts/materials.md) som stöds i Azure Remote rendering. De används för [nät](../../concepts/meshes.md) som ska få realistiska belysning.
 
-PBR står för **P**hysically **B**ased **R**endering och innebär att materialet beskriver de visuella egenskaperna för en yta på ett fysiskt plausible sätt, så att realistiska resultat kan utföras under alla ljus förhållanden. De flesta moderna spel motorer och innehålls skapande verktyg stöder PBR-material eftersom de anses vara den bästa uppskattningen av verkliga scenarier för real tids åter givning.
+PBR står för **P** hysically **B** ased **R** endering och innebär att materialet beskriver de visuella egenskaperna för en yta på ett fysiskt plausible sätt, så att realistiska resultat kan utföras under alla ljus förhållanden. De flesta moderna spel motorer och innehålls skapande verktyg stöder PBR-material eftersom de anses vara den bästa uppskattningen av verkliga scenarier för real tids åter givning.
 
 ![Exempel modellen för hjälm-glTF återges av ARR](media/helmet.png)
 
@@ -26,7 +26,7 @@ PBR-material är inte en universell lösning, men. Det finns material som åters
 
 Dessa egenskaper är gemensamma för allt material:
 
-* **albedoColor:** Den här färgen multipliceras med andra färger, till exempel *albedoMap* eller * :::no-loc text="vertex "::: färger*. Om *transparens* är aktiverat på ett material används alfa kanalen för att justera opaciteten, med en `1` helt ogenomskinlig och innebörd som är `0` helt transparent. Standardvärdet är White.
+* **albedoColor:** Den här färgen multipliceras med andra färger, till exempel *albedoMap* eller *:::no-loc text="vertex "::: färger*. Om *transparens* är aktiverat på ett material används alfa kanalen för att justera opaciteten, med en `1` helt ogenomskinlig och innebörd som är `0` helt transparent. Standardvärdet är White.
 
   > [!NOTE]
   > När ett PBR-material är helt transparent, som en helt ren ren glas, visar det fortfarande miljön. Ljusa fläckar som solen är fortfarande synliga i reflektionen. Detta skiljer sig för [färg material](color-materials.md).
@@ -43,9 +43,15 @@ Dessa egenskaper är gemensamma för allt material:
 
 * **TransparencyWritesDepth:** Om TransparencyWritesDepth-flaggan är inställd på materialet och materialet är transparent, kommer objekt som använder det här materialet också att bidra till den slutliga djup bufferten. Se flaggan PBR material *transparent* i nästa avsnitt. Aktivering av den här funktionen rekommenderas om ditt användnings fall behöver en mer plausible av [försenad fas omprojektion](late-stage-reprojection.md) av helt transparenta scener. För blandade ogenomskinliga/transparenta scener kan den här inställningen leda till implausible eller omprojektions-artefakter. Därför är standardinställningen och den rekommenderade inställningen för allmänt användnings fall att inaktivera den här flaggan. De skrivna djupen tas från djup skiktet per bild punkt i objektet som är närmast kameran.
 
+* **FresnelEffect:** Med den här material flaggan kan additiva [Fresnel påverka](../../overview/features/fresnel-effect.md) respektive material. Utseendet på effekten styrs av de andra Fresnel-parametrarna som beskrivs i följande avsnitt. 
+
+* **FresnelEffectColor:** Fresnel färg som används för det här materialet. Endast viktigt när Fresnel Effect-biten har angetts för det här materialet (se ovan). Den här egenskapen styr bas färgen för Fresnel Skin (se [Fresnel-effekter](../../overview/features/fresnel-effect.md) för en fullständig förklaring). För närvarande är RGB-kanalens värden viktiga och alfa värdet ignoreras.
+
+* **FresnelEffectExponent:** Fresnel-exponenten som används för det här materialet. Endast viktigt när Fresnel Effect-biten har angetts för det här materialet (se ovan). Den här egenskapen styr spridningen av Fresnel Skin. Det minsta värdet 0,01 orsakar ett uppslag över hela objektet. Det maximala värdet 10,0 begränsar Skin till de mest gracing kanterna som visas.
+
 ## <a name="pbr-material-properties"></a>Egenskaper för PBR-material
 
-Kärn idén med fysiskt baserad åter givning är att använda *BaseColor*, *Egenskaper*för maskin vara och *ojämnheter* för att emulera ett brett utbud av verkliga material. En detaljerad beskrivning av PBR är utöver den här artikelns omfattning. Mer information om PBR finns i [andra källor](http://www.pbr-book.org). Följande egenskaper är speciella för PBR-material:
+Kärn idén med fysiskt baserad åter givning är att använda *BaseColor* , *Egenskaper* för maskin vara och *ojämnheter* för att emulera ett brett utbud av verkliga material. En detaljerad beskrivning av PBR är utöver den här artikelns omfattning. Mer information om PBR finns i [andra källor](http://www.pbr-book.org). Följande egenskaper är speciella för PBR-material:
 
 * **baseColor:** I PBR-material kallas *albedo-färgen* som *bas färgen*. I Azure Remote rendering finns *albedo färg* -egenskapen redan i de gemensamma material egenskaperna, så det finns ingen ytterligare bas färgs egenskap.
 

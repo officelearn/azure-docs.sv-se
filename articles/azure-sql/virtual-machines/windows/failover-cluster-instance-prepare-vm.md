@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: e5eff13c9ec672937258cf35274d2f5f7bc66f18
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 901c090d26959950d0ffd6a96253bdc36c9331c5
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164252"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556343"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Förbereda virtuella datorer för en FCI (SQL Server på virtuella Azure-datorer)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -47,9 +47,9 @@ Funktionen kluster för växling vid fel kräver att virtuella datorer placeras 
 
 Välj noga alternativet tillgänglighet för virtuell dator som matchar den avsedda kluster konfigurationen: 
 
- - **Azure delade diskar**: [tillgänglighets uppsättningen](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) som kon figurer ATS med fel domänen och uppdaterings domänen har angetts till 1 och placerats i en [närhets placerings grupp](../../../virtual-machines/windows/proximity-placement-groups-portal.md).
- - **Premium-fil resurser**: [tillgänglighets uppsättning](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) eller [tillgänglighets zon](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address). Premium fil resurser är det enda delade lagrings alternativet om du väljer tillgänglighets zoner som tillgänglighets konfiguration för dina virtuella datorer. 
- - **Lagringsdirigering**: [tillgänglighets uppsättning](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
+ - **Azure delade diskar** : [tillgänglighets uppsättningen](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) som kon figurer ATS med fel domänen och uppdaterings domänen har angetts till 1 och placerats i en [närhets placerings grupp](../../../virtual-machines/windows/proximity-placement-groups-portal.md).
+ - **Premium-fil resurser** : [tillgänglighets uppsättning](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) eller [tillgänglighets zon](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address). Premium fil resurser är det enda delade lagrings alternativet om du väljer tillgänglighets zoner som tillgänglighets konfiguration för dina virtuella datorer. 
+ - **Lagringsdirigering** : [tillgänglighets uppsättning](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
 
 >[!IMPORTANT]
 >Du kan inte ange eller ändra tillgänglighets uppsättningen när du har skapat en virtuell dator.
@@ -71,15 +71,15 @@ Du kan skapa en virtuell Azure-dator med hjälp av en avbildning [med](sql-vm-cr
 
 ## <a name="uninstall-sql-server"></a>Avinstallera SQL Server
 
-Som en del av processen för att skapa FCI installerar du SQL Server som en klustrad instans i redundansklustret. *Om du har distribuerat en virtuell dator med en Azure Marketplace-avbildning utan SQL Server kan du hoppa över det här steget.* Om du har distribuerat en avbildning med SQL Server förinstallerad måste du avregistrera SQL Server VM från providern för SQL VM-resursen och sedan avinstallera SQL Server. 
+Som en del av processen för att skapa FCI installerar du SQL Server som en klustrad instans i redundansklustret. *Om du har distribuerat en virtuell dator med en Azure Marketplace-avbildning utan SQL Server kan du hoppa över det här steget.* Om du har distribuerat en avbildning med SQL Server förinstallerad måste du avregistrera SQL Server VM från SQL IaaS agent-tillägget och sedan avinstallera SQL Server. 
 
-### <a name="unregister-from-the-sql-vm-resource-provider"></a>Avregistrera från providern för SQL VM-resurs
+### <a name="unregister-from-the-sql-iaas-agent-extension"></a>Avregistrera från SQL IaaS agent-tillägget
 
-SQL Server VM avbildningar från Azure Marketplace registreras automatiskt med providern för SQL VM-resurs. Innan du avinstallerar den förinstallerade SQL Server-instansen måste du först [avregistrera varje SQL Server VM från providern för SQL VM-resurs](sql-vm-resource-provider-register.md#unregister-from-rp). 
+SQL Server VM avbildningar från Azure Marketplace registreras automatiskt med SQL IaaS agent-tillägget. Innan du avinstallerar den förinstallerade SQL Server-instansen måste du först [avregistrera varje SQL Server VM från SQL IaaS agent-tillägget](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension). 
 
 ### <a name="uninstall-sql-server"></a>Avinstallera SQL Server
 
-När du har avregistrerat dig från resurs leverantören kan du avinstallera SQL Server. Följ de här stegen på varje virtuell dator: 
+När du har avregistrerat dig från tillägget kan du avinstallera SQL Server. Följ de här stegen på varje virtuell dator: 
 
 1. Anslut till den virtuella datorn med RDP.
 
@@ -87,14 +87,14 @@ När du har avregistrerat dig från resurs leverantören kan du avinstallera SQL
 
 1. Om du använder någon av de SQL Server-baserade avbildningarna av virtuella datorer tar du bort SQL Server-instansen:
 
-   1. I **program och funktioner**högerklickar du på **Microsoft SQL Server 201_ (64-bitars)** och väljer **Avinstallera/ändra**.
+   1. I **program och funktioner** högerklickar du på **Microsoft SQL Server 201_ (64-bitars)** och väljer **Avinstallera/ändra**.
    1. Välj **Ta bort**.
    1. Välj standard instansen.
    1. Ta bort alla funktioner under **databas motor tjänster**. Ta inte bort något under **Delade funktioner**. Du ser något som liknar följande skärm bild:
 
       ![Välja funktioner](./media/failover-cluster-instance-prepare-vm/03-remove-features.png)
 
-   1. Välj **Nästa**och välj sedan **ta bort**.
+   1. Välj **Nästa** och välj sedan **ta bort**.
    1. När instansen har tagits bort startar du om den virtuella datorn. 
 
 ## <a name="open-the-firewall"></a>Öppna brand väggen 
@@ -107,9 +107,9 @@ Den här tabellen innehåller information om de portar som du kan behöva öppna
 
    | Syfte | Port | Kommentarer
    | ------ | ------ | ------
-   | SQL Server | TCP 1433 | Normal port för standard instanser av SQL Server. Om du använde en avbildning från galleriet öppnas porten automatiskt. </br> </br> **Används av**: alla FCI-konfigurationer. |
-   | Hälsoavsökning | TCP 59999 | Alla öppna TCP-portar. Konfigurera belastnings utjämningens [hälso avsökning](failover-cluster-instance-vnn-azure-load-balancer-configure.md#configure-health-probe) och klustret för att använda den här porten. </br> </br> **Används av**: FCI med Load Balancer. |
-   | Filresurs | UDP 445 | Port som fil resurs tjänsten använder. </br> </br> **Används av**: FCI med Premium-filresurs. |
+   | SQL Server | TCP 1433 | Normal port för standard instanser av SQL Server. Om du använde en avbildning från galleriet öppnas porten automatiskt. </br> </br> **Används av** : alla FCI-konfigurationer. |
+   | Hälsoavsökning | TCP 59999 | Alla öppna TCP-portar. Konfigurera belastnings utjämningens [hälso avsökning](failover-cluster-instance-vnn-azure-load-balancer-configure.md#configure-health-probe) och klustret för att använda den här porten. </br> </br> **Används av** : FCI med Load Balancer. |
+   | Filresurs | UDP 445 | Port som fil resurs tjänsten använder. </br> </br> **Används av** : FCI med Premium-filresurs. |
 
 ## <a name="join-the-domain"></a>Anslut till domänen
 

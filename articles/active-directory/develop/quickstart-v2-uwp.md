@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 10/07/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: 297b34fd9981308ece52545ac5878eaa144f4829
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 28d912153b52580727e0fb5086e0a7ae55e8b545
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91824403"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560935"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Snabbstart: Anropa Microsoft Graph API från en UWP-app (Universell Windows-plattform)
 
-I den här snabb starten används ett kod exempel för att visa hur ett Universell Windows-plattform-program (UWP) kan logga in användare med personliga konton eller arbets-och skol konton, hämta en åtkomsttoken och anropa Microsoft Graph API. Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.
+I den här snabb starten laddar du ned och kör ett kod exempel som visar hur ett Universell Windows-plattform-program (UWP) kan logga in användare och skaffa en åtkomsttoken för att anropa Microsoft Graph API. 
+
+Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.
 
 > [!div renderon="docs"]
 > ## <a name="prerequisites"></a>Förutsättningar
@@ -49,13 +51,13 @@ I den här snabb starten används ett kod exempel för att visa hur ett Universe
 > 1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
 > 1. Gå till sidan Microsoft Identity Platform för utvecklare [Appregistreringar](https://aka.ms/MobileAppReg) .
 > 1. Välj **ny registrering**.
-> 1. I **Registrera ett program**anger du programmets registrerings information:
+> 1. I **Registrera ett program** anger du programmets registrerings information:
 >      - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `UWP-App-calling-MsGraph`.
 >      - I avsnittet **Kontotyper som stöds** väljer du **Konton alla organisationskataloger och personliga Microsoft-konton (till exempel Skype, Xbox och Outlook.com)**.
 > 1. Välj **Registrera** för att skapa programmet och registrera sedan **program-ID: t (klient)** som ska användas i ett senare steg.
-> 1. Under **Hantera**väljer du **autentisering**.
+> 1. Under **Hantera** väljer du **autentisering**.
 > 1. Välj **Lägg till en plattform**  >  **mobil-och skriv bords program**.
-> 1. Under **omdirigerings-URI: er**väljer du `https://login.microsoftonline.com/common/oauth2/nativeclient` .
+> 1. Under **omdirigerings-URI: er** väljer du `https://login.microsoftonline.com/common/oauth2/nativeclient` .
 > 1. Välj **Konfigurera**.
 
 > [!div renderon="portal" class="sxs-lookup"]
@@ -90,30 +92,30 @@ I den här snabb starten används ett kod exempel för att visa hur ett Universe
 >
 > 1. Extrahera. zip-arkivet till en lokal mapp nära enhetens rot. Till exempel i **C:\Azure-samples**.
 > 1. Öppna projektet i Visual Studio. Installera arbets belastningen **universell Windows-plattform utveckling** och eventuella enskilda SDK-komponenter om du uppmanas att göra det.
-> 1. I *mainpage.XAML.cs*ändrar du värdet för `ClientId` variabeln till **program-ID: t** för programmet som du registrerade tidigare.
+> 1. I *mainpage.XAML.cs* ändrar du värdet för `ClientId` variabeln till **program-ID: t** för programmet som du registrerade tidigare.
 >
 >    ```csharp
 >    private const string ClientId = "Enter_the_Application_Id_here";
 >    ```
 >
->    Du hittar **program-ID: t (Client)** i appens **översikts** fönster i Azure Portal (**Azure Active Directory**  >  **Appregistreringar**  >  *{Your app Registration}*).
+>    Du hittar **program-ID: t (Client)** i appens **översikts** fönster i Azure Portal ( **Azure Active Directory**  >  **Appregistreringar**  >  *{Your app Registration}* ).
 > 1. Skapa och välj sedan ett nytt självsignerat test certifikat för paketet:
->     1. I **Solution Explorer**dubbelklickar du på filen *Package. appxmanifest* .
+>     1. I **Solution Explorer** dubbelklickar du på filen *Package. appxmanifest* .
 >     1. Välj **Paketera**  >  **Välj certifikat...**  >  **Skapa...**.
 >     1. Ange ett lösen ord och välj sedan **OK**.
 >     1. Välj **Välj från fil...** och välj sedan den *Native_UWP_V2_TemporaryKey. pfx* -fil som du nyss skapade och välj **OK**.
 >     1. Stäng filen *Package. appxmanifest* (Välj **OK** om du uppmanas att spara filen).
->     1. I **Solution Explorer**högerklickar du på **Native_UWP_V2** projektet och väljer **Egenskaper**.
->     1. Välj **signering**och välj sedan den. pfx som du skapade i list rutan **Välj en nyckel fil med starkt krypterat namn** .
+>     1. I **Solution Explorer** högerklickar du på **Native_UWP_V2** projektet och väljer **Egenskaper**.
+>     1. Välj **signering** och välj sedan den. pfx som du skapade i list rutan **Välj en nyckel fil med starkt krypterat namn** .
 
 #### <a name="step-4-run-the-application"></a>Steg 4: kör programmet
 
 Så här kör du exempel programmet på den lokala datorn:
 
-1. I verktygsfältet Visual Studio väljer du rätt plattform (antagligen **x64** eller **x86**, inte arm). Mål enheten bör ändras från *enheten* till den *lokala datorn*.
+1. I verktygsfältet Visual Studio väljer du rätt plattform (antagligen **x64** eller **x86** , inte arm). Mål enheten bör ändras från *enheten* till den *lokala datorn*.
 1. Välj **Felsökning** > **Starta utan felsökning**.
     
-    Om du uppmanas att göra det kanske du först måste aktivera **utvecklarläge**och sedan **starta utan att felsöka** igen för att starta appen.
+    Om du uppmanas att göra det kanske du först måste aktivera **utvecklarläge** och sedan **starta utan att felsöka** igen för att starta appen.
 
 När appens fönster visas kan du välja API-knappen **anrops Microsoft Graph** , ange dina autentiseringsuppgifter och godkänna de behörigheter som har begärts av programmet. Om det lyckas visar programmet lite tokentyp och data som hämtats från anropet till Microsoft Graph-API: et.
 

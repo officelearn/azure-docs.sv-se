@@ -2,6 +2,8 @@
   href: cut-planes.md
 - name: Rendering av felsökning
   href: debug-rendering.md
+- name: Fresnel-påverkan
+  href: fresnel-effect.md
 - name: Åsidosätta hierarkiskt tillstånd
   href: override-hierarchical-state.md
 - name: Kamera

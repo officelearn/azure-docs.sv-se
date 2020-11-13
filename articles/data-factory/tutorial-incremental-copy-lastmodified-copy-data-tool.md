@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 6/10/2020
-ms.openlocfilehash: 402214da75bffd278e12db94f089d64acd62221e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: f94975b91a332e480a1b570c29f02040a1047f75
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84730160"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555421"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Kopiera nya och ändrade filer stegvis baserat på LastModifiedDate med hjälp av verktyget Kopiera data
 
@@ -37,10 +37,10 @@ I den här självstudien får du utföra följande uppgifter:
 > * Använd verktyget Kopiera data för att skapa en pipeline.
 > * Övervaka pipelinen och aktivitetskörningarna.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
-* **Azure Storage konto**: Använd Blob Storage för käll-och mottagar data lager. Om du inte har ett Azure Storage konto följer du instruktionerna i [skapa ett lagrings konto](../storage/common/storage-account-create.md).
+* **Azure-prenumeration** : Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+* **Azure Storage konto** : Använd Blob Storage för käll-och mottagar data lager. Om du inte har ett Azure Storage konto följer du instruktionerna i [skapa ett lagrings konto](../storage/common/storage-account-create.md).
 
 ## <a name="create-two-containers-in-blob-storage"></a>Skapa två behållare i Blob Storage
 
@@ -52,19 +52,19 @@ Förbered blob-lagringen för självstudien genom att utföra de här stegen:
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. Välj **Skapa en resurs** i fönstret till vänster. Välj **analys**  >  **Data Factory**:
+1. Välj **Skapa en resurs** i fönstret till vänster. Välj **integrations**  >  **Data Factory** :
 
    ![Välj Data Factory](./media/doc-common-process/new-azure-data-factory-menu.png)
 
-2. I fönstret **Ny datafabrik**, under **Namn** anger du **ADFTutorialDataFactory**.
+2. I fönstret **Ny datafabrik** , under **Namn** anger du **ADFTutorialDataFactory**.
 
    Namnet på datafabriken måste vara globalt unikt. Du kan få det här fel meddelandet:
 
    ![Namnet är inte tillgängligt, fel meddelande](./media/doc-common-process/name-not-available-error.png)
 
    Ange ett annat namn för datafabriken om du får ett felmeddelande om namnvärdet. Använd till exempel namnet _**dittnamn**_**ADFTutorialDataFactory**. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
-3. Under **prenumeration**väljer du den Azure-prenumeration där du vill skapa den nya data fabriken.
-4. Gör något av följande under **resurs grupp**:
+3. Under **prenumeration** väljer du den Azure-prenumeration där du vill skapa den nya data fabriken.
+4. Gör något av följande under **resurs grupp** :
 
     * Välj **Använd befintlig** och välj sedan en befintlig resurs grupp i listan.
 
@@ -73,7 +73,7 @@ Förbered blob-lagringen för självstudien genom att utföra de här stegen:
     Mer information om resursgrupper finns i [Använda resursgrupper för att hantera Azure-resurser](../azure-resource-manager/management/overview.md).
 
 5. Under **Version** väljer du **V2**.
-6. Under **plats**väljer du platsen för data fabriken. Endast platser som stöds visas i listan. Data lag ren (till exempel Azure Storage och Azure SQL Database) och beräkningarna (till exempel Azure HDInsight) som din Data Factory använder kan finnas på andra platser och regioner.
+6. Under **plats** väljer du platsen för data fabriken. Endast platser som stöds visas i listan. Data lag ren (till exempel Azure Storage och Azure SQL Database) och beräkningarna (till exempel Azure HDInsight) som din Data Factory använder kan finnas på andra platser och regioner.
 8. Välj **Skapa**.
 9. När data fabriken har skapats visas start sidan för Data Factory.
 10. Om du vill öppna användar gränssnittet för Azure Data Factory på en separat flik väljer du panelen **skapare & övervakare** :
@@ -88,13 +88,13 @@ Förbered blob-lagringen för självstudien genom att utföra de här stegen:
 
 2. Utför följande steg på sidan **Egenskaper** :
 
-    a. Under **uppgifts namn**, anger du **DeltaCopyFromBlobPipeline**.
+    a. Under **uppgifts namn** , anger du **DeltaCopyFromBlobPipeline**.
 
-    b. Under **aktivitets takt eller aktivitets schema**väljer du **kör regelbundet enligt schema**.
+    b. Under **aktivitets takt eller aktivitets schema** väljer du **kör regelbundet enligt schema**.
 
-    c. Under **utlösnings typ**väljer du **rullande-fönster**.
+    c. Under **utlösnings typ** väljer du **rullande-fönster**.
 
-    d. Under **upprepning**anger du **15 minuter**.
+    d. Under **upprepning** anger du **15 minuter**.
 
     e. Välj **Nästa**.
 
@@ -106,33 +106,33 @@ Förbered blob-lagringen för självstudien genom att utföra de här stegen:
 
     a. Välj  **Skapa ny anslutning** för att lägga till en anslutning.
 
-    b. Välj **Azure Blob Storage** från galleriet och välj sedan **Fortsätt**:
+    b. Välj **Azure Blob Storage** från galleriet och välj sedan **Fortsätt** :
 
     ![Välj Azure blogg lagring](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-blob.png)
 
     c. På sidan **ny länkad tjänst (Azure Blob Storage)** väljer du ditt lagrings konto i listan **lagrings konto namn** . Testa anslutningen och välj sedan **skapa**.
 
-    d. Välj den nya länkade tjänsten och välj sedan **Nästa**:
+    d. Välj den nya länkade tjänsten och välj sedan **Nästa** :
 
    ![Välj den nya länkade tjänsten](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-linkedservice.png)
 
-4. Gör följande på sidan för att **välja indatafil eller -mapp**:
+4. Gör följande på sidan för att **välja indatafil eller -mapp** :
 
     a. Bläddra efter och välj **källmappen** och välj sedan **Välj**.
 
     ![Välj indatafil eller mapp](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-input-file-folder.png)
 
-    b. Under **fil inläsnings beteende**väljer du **stegvis belastning: LastModifiedDate**.
+    b. Under **fil inläsnings beteende** väljer du **stegvis belastning: LastModifiedDate**.
 
-    c. Välj **binär kopia** och välj sedan **Nästa**:
+    c. Välj **binär kopia** och välj sedan **Nästa** :
 
      ![Välj sidan indatafil eller mapp](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/check-binary-copy.png)
 
-5. På sidan **mål data lager** väljer du den **AzureBlobStorage** -tjänst som du har skapat. Det här är samma lagrings konto som käll data lagret. Välj **Nästa**.
+5. På sidan **mål data lager** väljer du den **AzureBlobStorage** -tjänst som du har skapat. Det här är samma lagrings konto som käll data lagret. Välj sedan **Nästa**.
 
 6. Gör följande på sidan **Choose the output file or folder** (Välj utdatafil eller -mapp):
 
-    a. Bläddra efter och välj **målmappen** och välj sedan **Välj**:
+    a. Bläddra efter och välj **målmappen** och välj sedan **Välj** :
 
     ![Välj sidan utdatafil eller mapp](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-output-file-folder.png)
 
@@ -164,7 +164,7 @@ Förbered blob-lagringen för självstudien genom att utföra de här stegen:
 
     ![Skapa file1.txt och ladda upp den till käll behållaren](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3-1.png)
 
-13. Gå tillbaka till vyn **pipeline-körningar** genom att välja **alla pipelines-körningar**och vänta tills samma pipelines automatiskt utlöses igen.  
+13. Gå tillbaka till vyn **pipeline-körningar** genom att välja **alla pipelines-körningar** och vänta tills samma pipelines automatiskt utlöses igen.  
 
 14. När den andra pipeline-körningen är klar följer du samma steg som tidigare för att granska aktivitets körnings informationen.  
 

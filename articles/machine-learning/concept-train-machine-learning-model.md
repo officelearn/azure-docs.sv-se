@@ -1,7 +1,7 @@
 ---
 title: Bygg & träna modeller
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du tränar modeller med Azure Machine Learning, inklusive hur du arbetar med populära ramverk som Scikit – lära, TensorFlow och PyTorch. Machine Learning pipelines gör det enkelt att schemalägga obevakade körningar, använda heterogena beräknings miljöer och återanvänd delar av arbets flödet. Och kör konfigurationer ger detaljerad kontroll över de beräknings mål som inlärnings processen körs på.
+description: Lär dig hur du tränar modeller med Azure Machine Learning. Utforska de olika inlärnings metoderna och välj rätt en för ditt projekt.
 services: machine-learning
 ms.service: machine-learning
 author: Blackmist
@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 8888393cdbc738525b89ace1cf6f5864b7aa3b6e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2448f5f778f19674aec63291acb72536c65ca6c9
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324819"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555897"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Träna modeller med Azure Machine Learning
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: c78899bff39f37c63c7db0eeb12690ab2a90cac4
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: df50583e650d3d44e702c0f7d1596f2a733a4445
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285384"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556394"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Skapa en FCI med Azure Shared disks (SQL Server på virtuella Azure-datorer)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -28,7 +28,7 @@ I den här artikeln förklaras hur du skapar en instans av en redundanskluster (
 Mer information finns i Översikt över [FCI med SQL Server på Azure VM](failover-cluster-instance-overview.md) och [kluster metod tips](hadr-cluster-best-practices.md). 
 
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 
 Innan du slutför instruktionerna i den här artikeln bör du redan ha:
 
@@ -197,7 +197,7 @@ FCI data kataloger måste finnas på de Azure-delade diskarna.
 
 ## <a name="register-with-the-sql-vm-rp"></a>Registrera dig för SQL VM RP
 
-Om du vill hantera din SQL Server VM från portalen registrerar du den med SQL VM Resource Provider (RP) i [läget för förenklad hantering](sql-vm-resource-provider-register.md#lightweight-management-mode), för närvarande det enda läge som stöds med FCI och SQL Server på virtuella Azure-datorer. 
+Om du vill hantera din SQL Server VM från portalen registrerar du den med SQL IaaS agent Extension (RP) i [läget för förenklad hantering](sql-agent-extension-manually-register-single-vm.md#lightweight-management-mode), för närvarande det enda läge som stöds med FCI och SQL Server på virtuella Azure-datorer. 
 
 
 Registrera en SQL Server VM i Lightweight-läge med PowerShell:  
@@ -217,7 +217,7 @@ Om du vill dirigera trafiken korrekt till den aktuella primära noden konfigurer
 
 ## <a name="limitations"></a>Begränsningar
 
-- Det finns bara stöd för registrering med den virtuella SQL-resurs leverantören i [läget för förenklad hantering](sql-server-iaas-agent-extension-automate-management.md#management-modes) .
+- Det finns bara stöd för registrering med SQL IaaS agent extension i [läget för förenklad hantering](sql-server-iaas-agent-extension-automate-management.md#management-modes) .
 
 ## <a name="next-steps"></a>Nästa steg
 

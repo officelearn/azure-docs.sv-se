@@ -1,6 +1,6 @@
 ---
 title: Vad är Azure Machine Learning Studio?
-description: Azure Machine Learning Studio är en webb Portal för Azure Machine Learning arbets ytor. Studio kombinerar inga kod-och kod-första upplevelser för att skapa en inklusiv data vetenskaps plattform.
+description: Studio är en webb Portal för Azure Machine Learning arbets ytor. Studio kombinerar inga kod-och kod-första upplevelser för en inklusiv data vetenskaps plattform.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 345c925d3b1350dfc2ea69d65d8d14688c6930b9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 229c1d2aaab6029ccec3f8831f42a7ce8de2e31e
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310177"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555489"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Vad är Azure Machine Learning Studio?
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: dbf38c303f024884971e95f7be9d4dfc50d118de
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 954e94063ec91cd2a6d67d154dfd7da553e0935a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127832"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560901"
 ---
 # <a name="application-gateway-integration-with-service-endpoints"></a>Application Gateway integrering med tjänst slut punkter
 Det finns tre varianter av App Service som kräver något annorlunda konfiguration av integreringen med Azure Application Gateway. Varianterna omfattar vanliga App Service, även kallade flera innehavare, interna Load Balancer (ILB) App Service-miljön (ASE) och externa ASE. Den här artikeln går igenom hur du konfigurerar den med App Service (flera innehavare) och diskuterar överväganden om ILB och externa ASE.
@@ -36,7 +36,7 @@ Med Azure Portal följer du fyra steg för att etablera och konfigurera installa
 1. Skapa en App Service med en av snabb starterna i App Service-dokumentationen, till exempel [.net Core snabb start](../quickstart-dotnetcore.md)
 2. Skapa en Application Gateway med hjälp av [portalens snabb start](../../application-gateway/quick-create-portal.md), men hoppa över avsnittet Lägg till Server dels mål.
 3. Konfigurera [app service som Server del i Application Gateway](../../application-gateway/configure-web-app-portal.md), men hoppa över avsnittet begränsa åtkomst.
-4. Skapa slutligen [åtkomst begränsningen med hjälp av tjänst slut punkter](../../app-service/app-service-ip-restrictions.md#service-endpoints).
+4. Skapa slutligen [åtkomst begränsningen med hjälp av tjänst slut punkter](../../app-service/app-service-ip-restrictions.md#use-service-endpoints).
 
 Du kan nu komma åt App Service via Application Gateway, men om du försöker komma åt App Service direkt, bör du få ett 403 HTTP-fel som anger att webbplatsen har stoppats.
 

@@ -13,19 +13,17 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 949ddae903a53957f62b89a01ce477edb92917c1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a97e14bcb68629f5f175a4913146187949af08be
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92365921"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94561071"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>Läge för delad enhet för iOS-enheter
 
-> [!NOTE]
-> Den här funktionen är en allmänt tillgänglig förhandsversion.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
-> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>[!IMPORTANT]
+> Den här funktionen [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 Firstline-anställda som detalj handels företag, flyg besättnings medlemmar och fält tjänst arbetare använder ofta en delad mobil enhet för att utföra sitt arbete. Dessa delade enheter kan utgöra en säkerhets risk om användarna delar sina lösen ord eller PIN-filer, avsiktligt eller inte, för att komma åt kund-och affärs data på den delade enheten.
 
@@ -43,7 +41,7 @@ För att skapa en app för delad enhets läge fungerar utvecklare och moln enhet
 
 1. **Enhets administratörer** förbereder enheten för delning med hjälp av en MDM-Provider (Mobile Device Management) som Microsoft Intune för att hantera enheterna i organisationen. MDM push-överför Microsoft Authenticator-appen till enheterna och aktiverar "delat läge" för varje enhet genom en profil uppdatering till enheten. Den här inställningen för delat läge är det som ändrar beteendet för de appar som stöds på enheten. Den här konfigurationen från MDM-providern anger delad enhets läge för enheten och aktiverar [Microsoft Enterprise SSO-plugin-programmet för Apple-enheter](apple-sso-plugin.md) som krävs för delad enhets läge.
 
-1. [**Krävs endast under offentlig för hands version**] En användare med rollen som [moln enhets administratör](../roles/permissions-reference.md#cloud-device-administrator) måste sedan starta [Microsoft Authenticator-appen](../user-help/user-help-auth-app-overview.md) och ansluta sin enhet till organisationen.
+1. [ **Krävs endast under offentlig för hands version** ] En användare med rollen som [moln enhets administratör](../roles/permissions-reference.md#cloud-device-administrator) måste sedan starta [Microsoft Authenticator-appen](../user-help/user-help-auth-app-overview.md) och ansluta sin enhet till organisationen.
 
     Konfigurera medlemskap för organisations roller i Azure Portal: **Azure Active Directory**  >  **roller och administratörer**  >  **moln enhets administratör**
 
@@ -58,10 +56,10 @@ Enheten måste konfigureras för att stödja delat enhets läge. Den måste ha i
 
 1. I konfigurations portalen för Intune ber du enheten att aktivera [Microsoft Enterprise SSO-plugin-programmet för Apple-enheter](apple-sso-plugin.md) med följande konfiguration:
 
-    - **Typ**: omdirigera
-    - **Tilläggs-ID**: com. Microsoft. azureauthenticator. ssoextension
-    - **Team-ID**: (det här fältet behövs inte för iOS)
-    - **URL: er**:   
+    - **Typ** : omdirigera
+    - **Tilläggs-ID** : com. Microsoft. azureauthenticator. ssoextension
+    - **Team-ID** : (det här fältet behövs inte för iOS)
+    - **URL: er** :   
         - `https://login.microsoftonline.com`
         - `https://login.microsoft.com`
         - `https://sts.windows.net`
@@ -71,7 +69,7 @@ Enheten måste konfigureras för att stödja delat enhets läge. Den måste ha i
         - `https://login.microsoftonline.us`
         - `https://login.usgovcloudapi.net`
         - `https://login-us.microsoftonline.com`
-    - **Ytterligare data att konfigurera**:
+    - **Ytterligare data att konfigurera** :
       - Nyckel: sharedDeviceMode
       - Typ: boolesk
       - Värde: true

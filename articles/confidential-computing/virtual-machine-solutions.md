@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: f9b73e0919d660947edd0417f7379b3f6e6140c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d5ce3cde8c86d66bec025c778318a192ef60b73
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88245860"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560862"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Lösningar på virtuella Azure-datorer
 
@@ -29,7 +29,7 @@ Börja distribuera en DCsv2-Series virtuell dator via Microsofts kommersiella ma
 
 ### <a name="current-available-sizes-and-regions"></a>Aktuella tillgängliga storlekar och regioner
 
-Om du vill hämta en lista över alla allmänt tillgängliga storlekar för konfidentiell beräkning av virtuella datorer i tillgängliga regioner och tillgänglighets zoner kör du följande kommando i [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest):
+Om du vill hämta en lista över alla allmänt tillgängliga storlekar för konfidentiell beräkning av virtuella datorer i tillgängliga regioner och tillgänglighets zoner kör du följande kommando i [Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest):
 
 ```azurecli-interactive
 az vm list-skus `
@@ -47,7 +47,7 @@ az vm list-skus `
     --query "[?family=='standardDCSv2Family']"
 ```
 ### <a name="dedicated-host-requirements"></a>Krav för dedikerad värd
-Att distribuera en **Standard_DC8_v2** virtuell dator storlek i DCSv2-Series VM-serien upptar den fullständiga värden och delas inte med andra klienter eller prenumerationer. Denna VM SKU-serie ger den isolering som du kan behöva för att uppfylla kraven på efterlevnad och säkerhet som normalt uppfylls genom att ha en särskild värd tjänst. När du väljer **Standard_DC8_v2** SKU allokerar den fysiska värd servern alla tillgängliga maskin varu resurser, inklusive endast EPC-minne till den virtuella datorn. Observera att den här funktionen finns i infrastruktur designen och att alla funktioner i **Standard_DC8_v2** stöds. Den här distributionen är inte samma som den [Azure-dedikerade värd](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts) tjänst som tillhandahålls av andra Azure VM-familjer.
+Att distribuera en **Standard_DC8_v2** virtuell dator storlek i DCSv2-Series VM-serien upptar den fullständiga värden och delas inte med andra klienter eller prenumerationer. Denna VM SKU-serie ger den isolering som du kan behöva för att uppfylla kraven på efterlevnad och säkerhet som normalt uppfylls genom att ha en särskild värd tjänst. När du väljer **Standard_DC8_v2** SKU allokerar den fysiska värd servern alla tillgängliga maskin varu resurser, inklusive endast EPC-minne till den virtuella datorn. Observera att den här funktionen finns i infrastruktur designen och att alla funktioner i **Standard_DC8_v2** stöds. Den här distributionen är inte samma som den [Azure-dedikerade värd](../virtual-machines/dedicated-hosts.md) tjänst som tillhandahålls av andra Azure VM-familjer.
 
 
 ## <a name="deployment-considerations"></a>Distributionsöverväganden
@@ -59,14 +59,14 @@ Följ en snabb starts guide för att distribuera en DCsv2-Series virtuell dator 
 - **Priser och regional tillgänglighet** – hitta prissättningen för DCsv2-Series virtuella datorer på [pris sidan för virtuella](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)datorer. Kontrol lera [vilka produkter som är tillgängliga i region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) för tillgänglighet i Azure-regioner.
 
 
-- **Kärnor-kvot** – du kan behöva öka kvoten för kärnor i din Azure-prenumeration från standardvärdet. Din prenumeration kan också begränsa antalet kärnor som du kan distribuera i vissa storlekar på virtuella datorer, inklusive DCsv2-serien. Om du vill begära en kvot ökning [öppnar du en support förfrågan online](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests) utan kostnad. Observera att standard gränserna kan variera beroende på din prenumerations kategori.
+- **Kärnor-kvot** – du kan behöva öka kvoten för kärnor i din Azure-prenumeration från standardvärdet. Din prenumeration kan också begränsa antalet kärnor som du kan distribuera i vissa storlekar på virtuella datorer, inklusive DCsv2-serien. Om du vill begära en kvot ökning [öppnar du en support förfrågan online](../azure-portal/supportability/per-vm-quota-requests.md) utan kostnad. Observera att standard gränserna kan variera beroende på din prenumerations kategori.
 
   > [!NOTE]
   > Kontakta Azure-supporten om du har storskaliga kapacitets behov. Azure-kvoter är kredit gränser, inte kapacitets garantier. Oavsett din kvot debiteras du bara för kärnor som du använder.
   
 - **Ändra storlek** – på grund av deras specialiserade maskin vara kan du bara ändra storlek på konfidentiella dator instanser inom samma storleks familj. Du kan till exempel bara ändra storlek på en virtuell dator i DCsv2-serien från en DCsv2-serie till en annan. Det går inte att ändra storlek på en icke-konfidentiell dator storlek till en konfidentiell data behandling.  
 
-- **Avbildning** – för att tillhandahålla Intel-stöd för Software Guard-tillägget (Intel SGX) på konfidentiella beräknings instanser måste alla distributioner köras på generation 2-avbildningar. Azures konfidentiella data behandling har stöd för arbets belastningar som körs på Ubuntu 18,04 gen 2, Ubuntu 16,04 gen 2, Windows Server 2019 Gen2 och Windows Server 2016 gen 2. Läs om [stöd för virtuella datorer i generation 2 på Azure](../virtual-machines/linux/generation-2.md) för att lära dig mer om scenarier som stöds och som inte stöds. 
+- **Avbildning** – för att tillhandahålla Intel-stöd för Software Guard-tillägget (Intel SGX) på konfidentiella beräknings instanser måste alla distributioner köras på generation 2-avbildningar. Azures konfidentiella data behandling har stöd för arbets belastningar som körs på Ubuntu 18,04 gen 2, Ubuntu 16,04 gen 2, Windows Server 2019 Gen2 och Windows Server 2016 gen 2. Läs om [stöd för virtuella datorer i generation 2 på Azure](../virtual-machines/generation-2.md) för att lära dig mer om scenarier som stöds och som inte stöds. 
 
 - **Lagring** – data diskar för virtuella datorer i Azure konfidentiell dator och våra tillfälliga OS-diskar finns på NVMe-diskar. Instanser stöder bara Premium SSD och Standard SSD diskar, inte Ultra SSD eller Standard HDD. Den virtuella datorns storlek **DC8_v2** stöder inte Premium Storage. 
 
@@ -76,7 +76,7 @@ Följ en snabb starts guide för att distribuera en DCsv2-Series virtuell dator 
 
 När du använder virtuella datorer i Azure är det du som ansvarar för att implementera en lösning för hög tillgänglighet och haveri beredskap för att undvika avbrott. 
 
-Azures konfidentiella data behandling har inte stöd för zon-redundans via Tillgänglighetszoner för tillfället. Använd [tillgänglighets uppsättningar](../virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)för högsta tillgänglighet och redundans för konfidentiell dator användning. På grund av maskin varu begränsningar kan tillgänglighets uppsättningar för konfidentiella data bearbetnings instanser bara ha högst 10 uppdaterings domäner. 
+Azures konfidentiella data behandling har inte stöd för zon-redundans via Tillgänglighetszoner för tillfället. Använd [tillgänglighets uppsättningar](../virtual-machines/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)för högsta tillgänglighet och redundans för konfidentiell dator användning. På grund av maskin varu begränsningar kan tillgänglighets uppsättningar för konfidentiella data bearbetnings instanser bara ha högst 10 uppdaterings domäner. 
 
 ## <a name="deployment-with-azure-resource-manager-arm-template"></a>Distribution med Azure Resource Manager-mall (ARM)
 
@@ -101,7 +101,7 @@ Ange en av följande storlekar i ARM-mallen i den virtuella dator resursen. Den 
 
 ### <a name="gen2-os-image"></a>Gen2 OS-avbildning
 
-Under **Egenskaper**måste du också referera till en bild under **storageProfile**. Använd *endast en* av följande avbildningar för din **imageReference**.
+Under **Egenskaper** måste du också referera till en bild under **storageProfile**. Använd *endast en* av följande avbildningar för din **imageReference**.
 
 ```json
       "2019-datacenter-gensecond": {

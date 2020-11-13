@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/13/2019
-ms.openlocfilehash: e80ff2c04cf71fa322bb0bf41e8132f595c0644e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 11/12/2020
+ms.openlocfilehash: 04da4d6466d450d04d7008332e32ea3d59cd0252
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372284"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555540"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Flytta en Log Analytics arbets yta till en annan prenumeration eller resurs grupp
 
@@ -29,14 +29,14 @@ Käll-och mål prenumerationer måste finnas i samma Azure Active Directory-klie
 ```
 
 ## <a name="workspace-move-considerations"></a>Överväganden vid arbets ytans flyttning
-Hanterade lösningar som är installerade på arbets ytan flyttas med flytt åtgärden Log Analytics-arbetsyta. Anslutna agenter förblir anslutna och fortsätter att skicka data till arbets ytan efter flytten. Eftersom flytt åtgärden kräver att det inte finns några länkade tjänster från arbets ytan, måste lösningar som förlitar sig på den länken tas bort så att arbets ytan flyttas.
-
-Lösningar som måste tas bort innan du kan ta bort länken till ditt Automation-konto:
-
-- Uppdateringshantering
-- Spårning av ändringar
-- Starta/stoppa virtuella datorer utanför arbetstid
-- Azure Security Center
+- Hanterade lösningar som är installerade på arbets ytan flyttas med flytt åtgärden Log Analytics-arbetsyta. 
+- Nycklar för arbets ytor återskapas med flytt av arbets ytan (primär och sekundär). Om du har nyckeln till din arbets yta är ett valv uppdaterar du dem med de nya genererade nycklarna. 
+- Anslutna agenter förblir anslutna och fortsätter att skicka data till arbets ytan efter flytten. 
+- Eftersom flytt åtgärden kräver att det inte finns några länkade tjänster från arbets ytan, måste lösningar som förlitar sig på den länken tas bort så att arbets ytan flyttas. Lösningar som måste tas bort innan du kan ta bort länken till ditt Automation-konto:
+  - Uppdateringshantering
+  - Spårning av ändringar
+  - Starta/stoppa virtuella datorer utanför arbetstid
+  - Azure Security Center
 
 >[!IMPORTANT]
 > **Azure Sentinel-kunder**
@@ -98,7 +98,7 @@ Använd följande procedur för att ta bort länken till Automation-kontot från
 
 ## <a name="move-your-workspace"></a>Flytta din arbets yta
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 Använd följande procedur för att flytta din arbets yta med Azure Portal:
 
 1. Öppna menyn **Log Analytics arbets ytor** och välj sedan din arbets yta.

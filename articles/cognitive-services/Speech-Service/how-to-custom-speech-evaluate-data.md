@@ -1,27 +1,27 @@
 ---
-title: Utvärdera precisionen för Custom Speech tal-tjänsten
+title: Utvärdera och förbättra Custom Speech precisions tjänsten för tal igenkänning
 titleSuffix: Azure Cognitive Services
-description: I det här dokumentet får du lära dig hur du kvantitativt mäter kvaliteten på vår tal-till-text-modell eller din anpassade modell. Ljud + mänskligt avskrifts data krävs för att testa precisionen och 30 minuter till 5 timmar representativt ljud bör tillhandahållas.
+description: I det här dokumentet får du lära dig att kvantitativt mäta och förbättra kvaliteten på vår tal-till-text-modell eller din anpassade modell. Ljud + mänskligt avskrifts data krävs för att testa precisionen och 30 minuter till 5 timmar representativt ljud bör tillhandahållas.
 services: cognitive-services
-author: erhopf
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/06/2019
-ms.author: erhopf
-ms.openlocfilehash: cadbe79bbe0af2b5cebacb3d0c7c4e910fc7dbb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/11/2020
+ms.author: trbye
+ms.openlocfilehash: affbf57fcda5ff9fb56e148c2fa8769e7aa775e6
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85856827"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555812"
 ---
-# <a name="evaluate-custom-speech-accuracy"></a>Utvärdera noggrannhet i Custom Speech
+# <a name="evaluate-and-improve-custom-speech-accuracy"></a>Utvärdera och förbättra Custom Speech exakthet
 
-I det här dokumentet får du lära dig hur du kvantitativt mäter kvaliteten på Microsofts tal-till-text-modell eller din anpassade modell. Ljud + mänskligt avskrifts data krävs för att testa precisionen och 30 minuter till 5 timmar representativt ljud bör tillhandahållas.
+I den här artikeln får du lära dig hur du kvantitativt mäter och förbättrar noggrannheten hos Microsofts tal till text-modeller eller dina egna anpassade modeller. Ljud + mänskligt avskrifts data krävs för att testa precisionen och 30 minuter till 5 timmar representativt ljud bör tillhandahållas.
 
-## <a name="what-is-word-error-rate-wer"></a>Vad är en fel frekvens i Word (WER)?
+## <a name="evaluate-custom-speech-accuracy"></a>Utvärdera noggrannhet i Custom Speech
 
 Bransch standarden för att mäta modell precisionen är en *ord Fels frekvens* (WER). WER räknar antalet felaktiga ord som identifierats under igenkänning och dividerar sedan med det totala antalet ord som anges i den märkta avskriften (visas nedan som N). Slutligen multipliceras talet med 100% för att beräkna WER.
 
@@ -60,14 +60,79 @@ Utvärdera modeller sida vid sida:
 
 När testet har skapats kan du jämföra resultatet sida vid sida.
 
-## <a name="side-by-side-comparison"></a>Jämförelse sida vid sida
+### <a name="side-by-side-comparison"></a>Jämförelse sida vid sida
 
-När testet har slutförts, som anges av status ändringen till *lyckades*, hittar du ett WER-nummer för båda modellerna i testet. Klicka på test namnet för att Visa test informations sidan. Den här informations sidan visar en lista över alla yttranden i din data uppsättning, vilket anger tolknings resultatet för de två modellerna jämte avskriften från den skickade data mängden. För att kunna kontrol lera jämförelsen sida vid sida kan du växla mellan olika typer av fel, inklusive infogning, borttagning och ersättning. Genom att lyssna på ljudet och jämföra igenkännings resultaten i varje kolumn, som visar den mänskligt avskriften och resultaten för två tal till text-modeller, kan du bestämma vilken modell som uppfyller dina behov och var ytterligare utbildning och förbättringar krävs.
+När testet har slutförts, som anges av status ändringen till *lyckades* , hittar du ett WER-nummer för båda modellerna i testet. Klicka på test namnet för att Visa test informations sidan. Den här informations sidan visar en lista över alla yttranden i din data uppsättning, vilket anger tolknings resultatet för de två modellerna jämte avskriften från den skickade data mängden. För att kunna kontrol lera jämförelsen sida vid sida kan du växla mellan olika typer av fel, inklusive infogning, borttagning och ersättning. Genom att lyssna på ljudet och jämföra igenkännings resultaten i varje kolumn, som visar den mänskligt avskriften och resultaten för två tal till text-modeller, kan du bestämma vilken modell som uppfyller dina behov och var ytterligare utbildning och förbättringar krävs.
+
+## <a name="improve-custom-speech-accuracy"></a>Förbättra noggrannhet i Custom Speech
+
+Tal igenkännings scenarier varierar beroende på ljud kvalitet och språk (vokabulär-och tal format). Följande tabell undersöker fyra vanliga scenarier:
+
+| Scenario | Ljud kvalitet | Vokabulär | Tal format |
+|----------|---------------|------------|----------------|
+| Kundtjänst | Låg, 8 kHz kan vara 2 människor på 1 ljud kanal, kan komprimeras | Begränsa, unikt för domän och produkter | Konversation, löst strukturerat |
+| Röst assistent (till exempel Cortana eller ett enhets fönster) | Hög, 16 kHz | Enhet tung (sång titlar, produkter, platser) | Tydligt angivna ord och fraser |
+| Diktering (snabb meddelande, anteckningar, sökning) | Hög, 16 kHz | Anpassa | Antecknings bearbetning |
+| Textning för video dold | Varierande, inklusive varierande mikrofon användning, tillagd musik | Varierande, från möten, omciterat tal, musik texter | Läsa, beredd eller löst strukturerad |
+
+Olika scenarier ger olika kvalitets resultat. I följande tabell kontrol leras hur innehåll från dessa fyra scenarier i [fel frekvensen i Word (WER)](how-to-custom-speech-evaluate-data.md). Tabellen visar vilka fel typer som är mest vanliga i varje scenario.
+
+| Scenario | Tal igenkännings kvalitet | Infognings fel | Fel vid borttagning | Ersättnings fel |
+|----------|----------------------------|------------------|-----------------|---------------------|
+| Kundtjänst | Medel (< 30% WER) | Låg, förutom när andra människor pratar i bakgrunden | Kan vara hög. Call Center kan vara störningar och överlappande högtalare kan förvirra modellen | Medium. Produkter och person namn kan orsaka dessa fel |
+| Röstassistent | Hög (kan vara < 10% WER) | Låg | Låg | Medel, på grund av sång titlar, produkt namn eller platser |
+| Diktering | Hög (kan vara < 10% WER) | Låg | Låg | Högt |
+| Textning för video dold | Är beroende av video typ (kan vara < 50% WER) | Låg | Kan vara högt på grund av musik, brus, mikrofon kvalitet | Jargong kan orsaka dessa fel |
+
+Genom att fastställa komponenterna i WER (antal fel vid infogning, borttagning och ersättning) kan du avgöra vilken typ av data som ska läggas till för att förbättra modellen. Använd [Custom Speech Portal](https://speech.microsoft.com/customspeech) för att visa kvaliteten på en bas linje modell. Portalen rapporterar infognings-, ersättnings-och borttagnings frekvenser som kombineras i rapporten för WER-kvalitet.
+
+## <a name="improve-model-recognition"></a>Förbättra modell igenkänning
+
+Du kan minska igenkännings felen genom att lägga till tränings data i [Custom Speech portalen](https://speech.microsoft.com/customspeech). 
+
+Planera för att underhålla din anpassade modell genom att regelbundet lägga till käll material. Din anpassade modell behöver ytterligare utbildning för att hålla koll på ändringar i dina entiteter. Du kan till exempel behöva uppdateringar av produkt namn, låt namn eller nya tjänst platser.
+
+I följande avsnitt beskrivs hur varje typ av ytterligare tränings data kan minska antalet fel.
+
+### <a name="add-related-text-sentences"></a>Lägg till relaterade text meningar
+
+Ytterligare relaterade text meningar kan främst minska ersättnings fel som är relaterade till fel igenkänning av vanliga ord och företagsspecifika ord genom att visa dem i sammanhang. Domänautentiseringsuppgifter kan vara ovanliga eller uppdelade ord, men deras uttal måste vara enkla att känna igen.
+
+> [!NOTE]
+> Undvik relaterade text meningar som innehåller brus, till exempel okända tecken eller ord.
+
+### <a name="add-audio-with-human-labeled-transcripts"></a>Lägg till ljud med medmärkta avskrifter
+
+Ljud med medmärkta avskrifter ger störst precisions förbättringar om ljudet kommer från mål användnings fallet. Exempel måste omfatta det fullständiga tal omfånget. Till exempel skulle ett Call Center för en detalj handels butik få flest samtal om swimwear och sol glasögon under sommaren. Se till att exemplet innehåller det fullständiga omfånget som du vill identifiera.
+
+Överväg följande information:
+
+* Custom Speech kan bara avbilda ord kontext för att minska ersättnings fel, inte infognings-eller borttagnings fel.
+* Undvik exempel som innehåller avskrifts fel, men ta med en mångfald av ljud kvaliteten.
+* Undvik meningar som inte är relaterade till problem domänen. Orelaterade meningar kan skada din modell.
+* När kvaliteten på avskrifter varierar kan du duplicera undantagna meningar (t. ex. utmärkta avskrifter som innehåller viktiga fraser) för att öka deras vikt.
+
+### <a name="add-new-words-with-pronunciation"></a>Lägg till nya ord med uttal
+
+Ord som har skapats eller är mycket specialiserade kan ha unika uttal. Dessa ord kan identifieras om ordet kan brytas ned i mindre ord för att uttala det. Om du till exempel vill känna igen **Xbox** , uttala som **X Box**. Den här metoden kommer inte att öka den övergripande noggrannheten, men kan öka igenkänningen av dessa nyckelord.
+
+> [!NOTE]
+> Den här tekniken är bara tillgänglig för vissa språk för tillfället. Mer information finns i avsnittet anpassning av uttal i [tal-till-text-tabellen](language-support.md) .
+
+## <a name="sources-by-scenario"></a>Källor efter scenario
+
+I följande tabell visas scenarier för röst igenkänning och en lista över käll material som du bör tänka på i de tre kategorierna för utbildnings innehåll som anges ovan.
+
+| Scenario | Tillhör ande text meningar | Ljud + medmärkta avskrifter | Nya ord med uttal |
+|----------|------------------------|------------------------------|------------------------------|
+| Kundtjänst             | marknadsförings dokument, webbplats, produkt granskningar relaterade till Call Center-aktivitet | Call Center-anrop som har tilldelats av människa | termer som har tvetydiga uttal (se Xbox ovan) |
+| Röstassistent         | lista meningar med alla kombinationer av kommandon och entiteter | spela in röster genom att tala om kommandon i enheten och skriva in text | namn (filmer, låtar, produkter) som har unika uttal |
+| Diktering               | skrivna ingångar, t. ex. snabb meddelanden eller e-post | liknar ovan | liknar ovan |
+| Textning för video dold | TV Visa skript, filmer, marknadsförings innehåll, video sammanfattningar | exakta avskrifter av videor | liknar ovan |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Träna modellen](how-to-custom-speech-train-model.md)
-* [Distribuera din modell](how-to-custom-speech-deploy-model.md)
+* [Träna och distribuera en modell](how-to-custom-speech-train-model.md)
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

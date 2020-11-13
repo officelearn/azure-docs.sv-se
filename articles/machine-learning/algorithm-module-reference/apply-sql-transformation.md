@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 09/09/2019
-ms.openlocfilehash: 9a195497b4376633bd3c767d7d0ea029109fdf9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/12/2020
+ms.openlocfilehash: c66fbe59fd5b2660d02bfca285f78666d64569fe
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76314546"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555608"
 ---
 # <a name="apply-sql-transformation"></a>Använda SQL-transformering
 
@@ -29,11 +29,26 @@ Med hjälp av modulen Använd SQL-omvandling kan du:
 -   Kör SQL-frågeuttryck för att filtrera eller ändra data och returnera frågeresultaten som en data tabell.  
 
 > [!IMPORTANT]
-> SQL-motorn som används i den här modulen är **sqlite**. Mer information om SQLite-syntax finns i [SQL som förstås av sqlite](https://www.sqlite.org/index.html) för mer information.  
+> SQL-motorn som används i den här modulen är **sqlite**. Mer information om SQLite-syntax finns i [SQL som förstås av sqlite](https://www.sqlite.org/index.html).
+> Den här modulen kommer att stöta på data till SQLite, som finns i minnes databasen, så att modulens körning kräver mycket mer minne och kan orsaka ett `Out of memory` fel. Kontrol lera att datorn har tillräckligt med RAM-minne.
 
 ## <a name="how-to-configure-apply-sql-transformation"></a>Konfigurera tillämpa SQL-omvandling  
 
 Modulen kan ta upp till tre data uppsättningar som indata. När du refererar till data uppsättningarna som är anslutna till varje indataport måste du använda namnen `t1` , `t2` och `t3` . Tabell numret anger indataportens index.  
+
+Följande är exempel kod som visar hur du kopplar ihop två tabeller. T1 och T2 är två data uppsättningar anslutna till vänster och mittersta indataportar i **Apply SQL-omvandlingen** :
+
+```sql
+SELECT t1.*
+    , t3.Average_Rating
+FROM t1 join
+    (SELECT placeID
+        , AVG(rating) AS Average_Rating
+    FROM t2
+    GROUP BY placeID
+    ) as t3
+on t1.placeID = t3.placeID
+```
   
 Den återstående parametern är en SQL-fråga som använder SQLite-syntaxen. När du skriver flera rader i text rutan **SQL-skript** , använder du ett semikolon för att avsluta varje instruktion. Annars konverteras rad brytningar till blank steg.  
 

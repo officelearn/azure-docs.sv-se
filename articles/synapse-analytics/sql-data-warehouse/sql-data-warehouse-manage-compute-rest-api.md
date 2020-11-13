@@ -1,6 +1,6 @@
 ---
 title: 'Pausa, återuppta och skala med REST API: er'
-description: 'Hantera beräknings kraften i Azure Synapse Analytics-datalagret via REST-API: er.'
+description: 'Hantera beräknings kraften för dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse Analytics via REST-API: er.'
 services: synapse-analytics
 author: antvgski
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 03/29/2019
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: bbb8e82710b4c8ca7736b53d427b3880faf2be05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49702051b5399d5079aacc97c00233a23ba8712d
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213286"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556020"
 ---
-# <a name="rest-apis-for-azure-synapse-analytics-data-warehouse"></a>REST API: er för Azure Synapse Analytics data Warehouse
+# <a name="rest-apis-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>REST API: er för dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse Analytics
 
-REST API: er för att hantera data lagret i Azure Synapse Analytics.
+REST API: er för att hantera data bearbetning för dedikerad SQL-pool (tidigare SQL DW) i Azure Synapse Analytics.
 
 ## <a name="scale-compute"></a>Skala beräkning
 
@@ -64,7 +64,7 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 ## <a name="get-maintenance-schedule"></a>Hämta underhålls schema
 
-Kontrol lera det underhålls schema som har angetts för ett informations lager.
+Kontrol lera det underhålls schema som har angetts för en dedikerad SQL-pool (tidigare SQL DW).
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1
@@ -73,7 +73,7 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 ## <a name="set-maintenance-schedule"></a>Ange underhålls schema
 
-Ange och uppdatera ett underhålls schema för ett befintligt informations lager.
+Ange och uppdatera ett underhålls schema för en befintlig dedikerad SQL-pool (tidigare SQL DW).
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1

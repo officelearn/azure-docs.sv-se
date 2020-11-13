@@ -8,36 +8,36 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/07/2020
 ms.author: aahi
-ms.openlocfilehash: ebfe7e80577b163218a7bc501fa4e3e9b206fd62
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a077d255648ff07cc88b43dece889a221c46c11f
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80879228"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94561518"
 ---
 <a name="create-luis-resources"></a>
 
-## <a name="create-luis-resources-in-azure-portal"></a>Skapa LUIS-resurser i Azure Portal
+## <a name="create-luis-resources-in-the-azure-portal"></a>Skapa LUIS-resurser i Azure Portal
 
 1. Använd [den här länken](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) för att börja skapa Luis-resurser i Azure Portal.
 
 1. Ange alla nödvändiga inställningar:
 
-    |Name|Syfte|
+    |Namn|Syfte|
     |--|--|
-    |Prenumerationens namn| den prenumeration som ska faktureras för resursen.|
+    |Prenumeration | Den prenumeration som ska faktureras för resursen.|
     |Resursgrupp| Ett namn på en anpassad resurs grupp som du väljer eller skapar. Med resurs grupper kan du gruppera Azure-resurser för åtkomst och hantering.|
-    |Name| Ett anpassat namn som du väljer, används som anpassad under domän för dina redigerings-och förutsägelse slut punkts frågor.|
+    |Namn| Ett anpassat namn som du väljer. Den används som din anpassade under domän för dina redigerings-och förutsägelse slut punkt frågor.|
     |Redigerings plats|Den region som är associerad med din modell.|
-    |Redigera pris nivå|Pris nivån avgör den högsta transaktionen per sekund och månad.|
-    |Körnings plats|Den region som är kopplad till den publicerade slut punkts körningen för förutsägelse.|
-    |Pris nivå för körning|Pris nivån avgör den högsta transaktionen per sekund och månad.|
+    |Redigera pris nivå|Fastställer högsta antal transaktioner per sekund och månad.|
+    |Förutsägelse plats|Den region som är kopplad till den publicerade slut punkts körningen för förutsägelse.|
+    |Pris nivå för förutsägelse|Fastställer högsta antal transaktioner per sekund och månad.|
 
     > [!div class="mx-imgBorder"]
-    > [![Skapa en språk förståelse resurs](../media/luis-how-to-azure-subscription/create-resource-in-azure-small.png)](../media/luis-how-to-azure-subscription/create-resource-in-azure-small.png#lightbox)
+    > [![Skärm bild som visar fliken grundläggande under skapa.](../media/luis-how-to-azure-subscription/create-resource-in-azure-small.png)](../media/luis-how-to-azure-subscription/create-resource-in-azure-small.png#lightbox)
 
-1. Klicka på **Granska + skapa** och vänta tills resursen har skapats.
-1. När båda resurserna har skapats väljer du den nya redigerings resursen i Azure Portal och sedan **snabb starter** för att hämta **slut punkts-URL** och **nyckel** för redigering av program mässigt.
+1. Välj **Granska + skapa** och vänta tills resursen har skapats.
+1. När båda resurserna har skapats väljer du den nya redigerings resursen fortfarande i Azure Portal. Välj sedan **snabb starter** för att hämta **slut punktens URL** och **nyckel** för redigering program mässigt.
 
 > [!TIP]
 > Om du vill använda resurserna går du till LUIS-portalen och [tilldelar resurserna](../luis-how-to-azure-subscription.md#assign-an-authoring-resource-in-the-luis-portal-for-all-apps).

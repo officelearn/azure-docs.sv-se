@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: eaaedc4404419e6028250a994077dd3df20b83d4
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: fb1f1d098970927ba04c840e77ec0a0b8d76ca02
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/12/2020
-ms.locfileid: "94539659"
+ms.locfileid: "94561326"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Företags säkerhet och styrning för Azure Machine Learning
 
@@ -105,7 +105,13 @@ Alternativt kan du konfigurera dina egna hanterade identiteter för användning 
 
 Om du vill begränsa fysisk åtkomst till Azure Machine Learning resurser kan du använda Azure Virtual Network (VNet). Med virtuella nätverk kan du skapa nätverks miljöer som är delvis eller helt isolerade från det offentliga Internet. Detta minskar angrepps ytan för din lösning, samt risken för data exfiltrering.
 
-Mer information finns i [Översikt över virtuell nätverks isolering och sekretess](how-to-network-security-overview.md).
+Mer information finns i följande dokument:
+
+* [Översikt över virtuella nätverks isolering och sekretess](how-to-network-security-overview.md)
+* [Skydda arbetsyteresurser](how-to-secure-workspace-vnet.md)
+* [Skydda träningsmiljöer](how-to-secure-training-vnet.md)
+* [Säker miljö för störningar](how-to-secure-inferencing-vnet.md)
+* [Använda Studio i ett säkert virtuellt nätverk](how-to-enable-studio-virtual-network.md)
 
 <a id="encryption-at-rest"></a><a id="azure-blob-storage"></a>
 

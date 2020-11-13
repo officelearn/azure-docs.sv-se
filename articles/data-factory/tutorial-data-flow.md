@@ -7,15 +7,15 @@ ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/07/2019
-ms.openlocfilehash: 0119d134861b54ac14c6fe22b638ab459344c5ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2019
+ms.openlocfilehash: fa516f577254f827a6437697df82010bd9b631ee
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569884"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555918"
 ---
-# <a name="transform-data-using-mapping-data-flows"></a>Transformera data med hjälp av mappnings data flöden
+# <a name="transform-data-using-mapping-data-flows"></a>Omvandla data med Mappa dataflöden
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -36,28 +36,28 @@ I den här självstudien gör du följande:
 * **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * **Azure Storage-konto**. Du använder ADLS-lagring som *käll* -och *mottagar* data lager. Om du inte har ett lagringskonto finns det anvisningar om hur du skapar ett i [Skapa ett Azure Storage-konto](../storage/common/storage-account-create.md).
 
-Filen som vi transformerar i den här självstudien är MoviesDB.csv, som du hittar [här](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv). Om du vill hämta filen från GitHub kopierar du innehållet till en text redigerare som du väljer att spara lokalt som en CSV-fil. Om du vill överföra filen till ditt lagrings konto, se [Ladda upp blobbar med Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md). Exemplen refererar till en behållare med namnet "Sample-data".
+Filen som vi transformerar i den här självstudien är MoviesDB.csv, som du hittar [här](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv). Om du vill hämta filen från GitHub kopierar du innehållet till en text redigerare som du väljer att spara lokalt som en CSV-fil. Om du vill överföra filen till ditt lagrings konto, se [Ladda upp blobar med Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md). Exemplen refererar till en behållare med namnet "Sample-data".
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
 I det här steget skapar du en data fabrik och öppnar Data Factory UX för att skapa en pipeline i data fabriken.
 
 1. Öppna **Microsoft Edge** eller **Google Chrome**. Data Factory-gränssnittet stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
-2. På den vänstra menyn väljer du **skapa en resurs**  >  **analys**  >  **Data Factory**:
+2. På den vänstra menyn väljer du **skapa en resurs**  >  **integrations**  >  **Data Factory** :
 
    ![Valet Data Factory i fönstret Nytt](./media/doc-common-process/new-azure-data-factory-menu.png)
 
-3. I fönstret **Ny datafabrik**, under **Namn** anger du **ADFTutorialDataFactory**.
+3. I fönstret **Ny datafabrik** , under **Namn** anger du **ADFTutorialDataFactory**.
 
    Namnet på Azure Data Factory måste vara *globalt unikt*. Ange ett annat namn för datafabriken om du får ett felmeddelande om namnvärdet. (till exempel Dittnamnadftutorialdatafactory). Se artikeln [Namnregler för Data Factory](naming-rules.md) för namnregler för Data Factory-artefakter.
 
      ![Ny datafabrik](./media/doc-common-process/name-not-available-error.png)
-4. Välj den Azure-**prenumeration** som du vill skapa den nya datafabriken i.
-5. Gör något av följande för **Resursgrupp**:
+4. Välj den Azure- **prenumeration** som du vill skapa den nya datafabriken i.
+5. Gör något av följande för **Resursgrupp** :
 
-    a. Välj **Använd befintlig**och välj en befintlig resurs grupp i den nedrullningsbara listan.
+    a. Välj **Använd befintlig** och välj en befintlig resurs grupp i den nedrullningsbara listan.
 
-    b. Välj **Skapa ny**och ange namnet på en resurs grupp. 
+    b. Välj **Skapa ny** och ange namnet på en resurs grupp. 
          
     Mer information om resursgrupper finns i [Använda resursgrupper för att hantera Azure-resurser](../azure-resource-manager/management/overview.md). 
 6. Under **Version** väljer du **V2**.
@@ -81,7 +81,7 @@ I det här steget ska du skapa en pipeline som innehåller en data flödes aktiv
 1. I fönstret **aktiviteter** expanderar du **förflyttnings-och omvandlings** draget. Dra och släpp **data flödes** aktiviteten från fönstret till pipeline-arbetsytan.
 
     ![Skärm bild som visar pipeline-arbetsytan där du kan släppa data flödes aktiviteten.](media/tutorial-data-flow/activity1.png)
-1. I popup-fönstret för **att lägga till data flöde** väljer du **Skapa nytt data flöde** och namnger sedan **TransformMovies**för data flödet. Klicka på Slutför när du är klar.
+1. I popup-fönstret för **att lägga till data flöde** väljer du **Skapa nytt data flöde** och namnger sedan **TransformMovies** för data flödet. Klicka på Slutför när du är klar.
 
     ![Skärm bild som visar var du namnger ditt data flöde när du skapar ett nytt data flöde.](media/tutorial-data-flow/activity2.png)
 
@@ -131,7 +131,7 @@ När du har skapat ditt data flöde skickas det automatiskt till data flödets a
 
     Om du har ett fel söknings kluster aktivt kan du verifiera din logik genom att klicka på **Uppdatera** för att se uttryckets utdata jämfört med de indata som används. Det finns mer än ett rätt svar på hur du kan utföra den här logiken med hjälp av Expression-språket för data flödet.
 
-    ![Filter](media/tutorial-data-flow/filter2.png)
+    ![Filtrera](media/tutorial-data-flow/filter2.png)
 
     Klicka på **Spara och slutför** när du är klar med ditt uttryck.
 
@@ -147,7 +147,7 @@ När du har skapat ditt data flöde skickas det automatiskt till data flödets a
 1. Gå till fliken **agg regeringar** . I den vänstra text rutan namnger du den sammanställda kolumnen **AverageComedyRating**. Klicka i rutan till höger uttryck för att ange det sammanställda uttrycket via uttrycks verktyget.
 
     ![Skärm bild som visar alternativet år på fliken Aggregator under aggregerade inställningar.](media/tutorial-data-flow/agg3.png)
-1. Om du vill få medelvärdet för kolumn **klassificeringen**använder du ```avg()``` mängd funktionen. Eftersom **klassificering** är en sträng och ```avg()``` tar med numeriska värden måste vi konvertera värdet till ett tal via ```toInteger()``` funktionen. Detta är ett uttryck som ser ut så här:
+1. Om du vill få medelvärdet för kolumn **klassificeringen** använder du ```avg()``` mängd funktionen. Eftersom **klassificering** är en sträng och ```avg()``` tar med numeriska värden måste vi konvertera värdet till ett tal via ```toInteger()``` funktionen. Detta är ett uttryck som ser ut så här:
 
     ```avg(toInteger(Rating))```
 

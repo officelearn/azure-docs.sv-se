@@ -1,38 +1,35 @@
 ---
-title: Träna en modell för tjänsten Custom Speech tal
+title: Träna och distribuera en Custom Speech modell med tal tjänster
 titleSuffix: Azure Cognitive Services
-description: Träna en tal-till-text-modell kan förbättra igenkännings precisionen för Microsofts bas linje modell eller en anpassad modell. En modell tränas med hjälp av välmärkta avskrifter och relaterad text.
+description: I den här artikeln får du lära dig hur du tränar och distribuerar Custom Speech modeller. Träna en tal-till-text-modell kan förbättra igenkännings precisionen för Microsofts bas linje modell eller en anpassad modell. En modell tränas med hjälp av välmärkta avskrifter och relaterad text.
 services: cognitive-services
-author: erhopf
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/06/2019
-ms.author: erhopf
-ms.openlocfilehash: bf9209e0c256412ccb06ea62a197046a7b012e00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/11/2020
+ms.author: trbye
+ms.openlocfilehash: 34c0703ee7c335ca904a21bcce6ed44abc6dc13f
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84629026"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555795"
 ---
-# <a name="train-a-model-for-custom-speech"></a>Träna en modell för Custom Speech
+# <a name="train-and-deploy-a-custom-speech-model"></a>Träna och distribuera en Custom Speech modell
 
-Träna en tal-till-text-modell kan förbättra igenkännings precisionen för Microsofts bas linje modell. En modell tränas med hjälp av välmärkta avskrifter och relaterad text. Dessa data uppsättningar tillsammans med tidigare överförda ljud data används för att förfina och träna tal-till-text-modellen.
+I den här artikeln får du lära dig hur du tränar och distribuerar Custom Speech modeller. Träna en tal-till-text-modell kan förbättra igenkännings precisionen för Microsofts bas linje modell. En modell tränas med hjälp av välmärkta avskrifter och relaterad text. Dessa data uppsättningar tillsammans med tidigare överförda ljud data används för att förfina och träna tal-till-text-modellen.
 
 ## <a name="use-training-to-resolve-accuracy-issues"></a>Använd utbildning för att lösa problem med problemlösning
 
-Om du stöter på igenkännings problem med din modell kan du förbättra precisionen med hjälp av välmärkta avskrifter och relaterade data för ytterligare utbildning. Använd den här tabellen för att avgöra vilken data mängd som ska användas för att åtgärda dina problem:
+Om du stöter på igenkännings problem med en bas modell kan du förbättra precisionen med hjälp av välmärkta avskrifter och relaterade data för att träna en anpassad modell. Använd den här tabellen för att avgöra vilken data mängd som ska användas för att åtgärda dina problem:
 
 | Användningsfall | Datatyp |
 | -------- | --------- |
 | Förbättra igenkännings precisionen för branschspecifika vokabulär och grammatik, till exempel medicinsk terminologi eller IT-jargong. | Relaterad text (meningar/yttranden) |
 | Definiera den fonetiska och visade formen av ett ord eller en term som innehåller uttal som inte är standard, t. ex. produkt namn eller akronymer. | Relaterad text (uttal) |
 | Förbättra igenkännings precisionen för tal format, accenttecken eller vissa bakgrunds brus. | Ljud + medmärkta avskrifter |
-
-> [!IMPORTANT]
-> Om du inte har överfört en data uppsättning kan du läsa [förbereda och testa dina data](how-to-custom-speech-test-data.md). Det här dokumentet innehåller instruktioner för att ladda upp data och rikt linjer för att skapa data uppsättningar med hög kvalitet.
 
 ## <a name="train-and-evaluate-a-model"></a>Träna och utvärdera en modell
 
@@ -49,22 +46,37 @@ Det första steget för att träna en modell är att överföra tränings data. 
 
 I övnings tabellen visas en ny post som motsvarar den nyligen skapade modellen. Tabellen visar också status: bearbetning, lyckades, misslyckades.
 
-## <a name="evaluate-the-accuracy-of-a-trained-model"></a>Utvärdera precisionen för en utbildad modell
+Se [hur du kan](how-to-custom-speech-evaluate-data.md) utvärdera och förbättra Custom Speech modellens precision. Om du väljer att testa noggrannhet är det viktigt att välja en akustisk data uppsättning som skiljer sig från den som du använde med din modell för att få en realistisk känsla för modellens prestanda.
 
-Du kan granska data och utvärdera modell precisionen med hjälp av dessa dokument:
+## <a name="deploy-a-custom-model"></a>Distribuera en anpassad modell
 
-- [Inspektera dina data](how-to-custom-speech-inspect-data.md)
-- [Utvärdera dina data](how-to-custom-speech-evaluate-data.md)
+När du har laddat upp och inspekterat data, utvärderat noggrannhet och tränat en anpassad modell, kan du distribuera en anpassad slut punkt för användning med dina appar, verktyg och produkter. 
 
-Om du väljer att testa noggrannhet är det viktigt att välja en akustisk data uppsättning som skiljer sig från den som du använde med din modell för att få en realistisk känsla för modellens prestanda.
+Om du vill skapa en ny anpassad slut punkt loggar du in på [Custom Speech Portal](https://speech.microsoft.com/customspeech) och väljer **distribution** på Custom Speech menyn överst på sidan. Om det här är din första körning ser du att det inte finns några slut punkter som visas i tabellen. När du har skapat en slut punkt använder du den här sidan för att spåra varje distribuerad slut punkt.
+
+Välj sedan **Lägg till slut punkt** och ange ett **namn** och en **Beskrivning** för din anpassade slut punkt. Välj sedan den anpassade modell som du vill koppla till den här slut punkten. På den här sidan kan du också aktivera loggning. Med loggning kan du övervaka slut punkts trafik. Om den är inaktive rad lagras inte trafiken.
+
+![Så här distribuerar du en modell](./media/custom-speech/custom-speech-deploy-model.png)
+
+> [!NOTE]
+> Glöm inte att acceptera villkoren för användning och pris information.
+
+Välj sedan **skapa**. Den här åtgärden återgår till **distributions** sidan. Tabellen innehåller nu en post som motsvarar din anpassade slut punkt. Slut punktens status visar dess aktuella tillstånd. Det kan ta upp till 30 minuter att instansiera en ny slut punkt med hjälp av dina anpassade modeller. När distributions statusen ändras till **slutförd** , är slut punkten redo att användas.
+
+När slut punkten har distribuerats visas slut punktens namn som en länk. Klicka på länken om du vill visa information som är speciell för din slut punkt, till exempel slut punkts nyckel, slut punkts-URL och exempel kod.
+
+## <a name="view-logging-data"></a>Visa loggnings data
+
+Loggnings data är tillgängliga för hämtning under **slut punkt > information**.
+> [!NOTE]
+>Loggnings data är tillgängliga i 30 dagar på Microsofts ägda lagring och kommer att tas bort efteråt. Om ett kundägda lagrings konto är länkat till kognitiva tjänster-prenumerationen tas loggnings data inte bort automatiskt.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Distribuera din modell](how-to-custom-speech-deploy-model.md)
+* Lär dig [hur du använder din anpassade modell](how-to-specify-source-language.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [Förbered och testa dina data](how-to-custom-speech-test-data.md)
 - [Inspektera dina data](how-to-custom-speech-inspect-data.md)
 - [Utvärdera dina data](how-to-custom-speech-evaluate-data.md)
-- [Träna modellen](how-to-custom-speech-train-model.md)

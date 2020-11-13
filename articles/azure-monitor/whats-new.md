@@ -5,17 +5,72 @@ ms.subservice: ''
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 07/08/2020
-ms.openlocfilehash: 6ed00931e8cca1febac0b9b72b53eeb7e81042ea
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.date: 11/11/2020
+ms.openlocfilehash: 18222573956f5ff3e9c617602902374b114328da
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488000"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555625"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Vad är nytt i Azure Monitor-dokumentationen?
 
 Den här artikeln innehåller listor Azure Monitor artiklar som antingen är nya eller som har uppdaterats markant. Den kommer att uppdateras den första veckan i varje månad för att inkludera artikel uppdateringar från föregående månad.
+
+## <a name="october-2020"></a>Oktober 2020
+
+### <a name="general"></a>Allmänt
+- [Azure Monitor API-Pension](platform/operationalinsights-api-retirement.md) – ny artikel.
+
+### <a name="agents"></a>Agenter
+- [Vad övervakas av Azure Monitor](monitor-reference.md) -lagt till-avsnittet på agenter.
+
+### <a name="alerts"></a>Aviseringar
+- [Skapa och hantera åtgärds grupper i avsnittet Azure Portal](platform/action-groups.md) -Added på service tag.
+- [Exempel på Resource Manager-mall för mått varningar](samples/resource-manager-alerts-metric.md) – innehålls matchnings parameter och test platser har lagts till.
+- [Felsöka Azure Metric Alerts](platform/alerts-troubleshoot-metric.md) – bästa praxis för regel konfiguration har lagts till.
+
+### <a name="application-insights"></a>Application Insights
+- [Vinkel-plugin-programmet för Application Insights JavaScript SDK](app/javascript-angular-plugin.md) – ny artikel.
+- [Azure Application insikter om ASP.net Core program](app/asp-net-core.md) – ytterligare frågor och svar om ILogger-loggar.
+- [Konfigurera övervakning av ASP.net med Azure Application insikter](app/asp-net.md) – artikel har skrivits om.
+- [Loggbaserade och föraggregerade mått i Azure Application insikter](app/pre-aggregated-metrics-log-metrics.md) – tillagda tabeller med föraggregerade mått.
+- [Övervaka tillgänglighet och svars tider för alla webbplatser som](app/monitor-web-app-availability.md) lagts till på platsens populations taggar.
+- [Övervaka Java-program överallt-Azure Monitor Application Insights](app/java-standalone-config.md) -tillagt konfigurations exempel.
+- [Övervaka Java-program var som helst Azure Monitor Application Insights](app/java-standalone-telemetry-processors.md) – ny artikel.
+- [Använd program ändrings analys i Azure Monitor för att hitta webb program problem](app/change-analysis.md) – tillagda avsnitt på virtuella datorer och aktivitets logg.
+  
+### <a name="autoscale"></a>Automatisk skalning
+- [Kom igång med autoskalning i Azure](platform/autoscale-get-started.md) -tillagt avsnitt om att flytta autoskalning till en annan region.
+
+### <a name="containers"></a>Containrar
+- [Konfigurera PV-övervakning med Azure Monitor för behållare](insights/container-insights-persistent-volumes.md) – ny artikel.
+- [Hantera Azure Monitor för behållare agent](insights/container-insights-manage-agent.md) – stöd för Azure Arc-aktiverade Kubernetes-kluster.
+- [Mått varningar från Azure Monitor för behållare](insights/container-insights-metric-alerts.md) – stöd för Azure Arc-aktiverade Kubernetes-kluster har lagts till.
+
+### <a name="insights-and-solutions"></a>Insikter och lösningar
+- [Anslutningsprogram för hantering av IT-tjänster (ITSM) säker export i avsnittet Azure Monitor](platform/it-service-management-connector-secure-webhook-connections.md) -tillägg på ServiceNow.
+
+### <a name="logs"></a>Loggar
+- [Arkivera data från Log Analytics arbets yta till Azure Storage med hjälp av Logic app](platform/logs-export-logic-app.md) – ny artikel.
+- [Log Analytics arbets ytans data export i Azure Monitor (för hands version)](platform/logs-data-export.md) – tillagd exempel text för rest-begäran för Event Hub.
+- [Hantera användning och kostnader för Azure Monitor loggar](platform/manage-cost-storage.md) – har lagt till information om relationen mellan Azure Monitor loggar och Azure Security Center fakturering. Frågan har lagts till för Node-antal om du använder pris nivån per nod. 
+- [Övervaka hälsan för Log Analytics arbets ytan i Azure Monitor](platform/monitor-workspace.md) nya artikeln.
+- [Fråga efter data i Azure monitor att använda Azure datautforskaren (för hands version)](platform/azure-data-explorer-monitor-proxy.md) – ny artikel.
+- [Fråga exporterade data från Azure monitor med Azure datautforskaren (för hands version)](platform/azure-data-explorer-query-storage.md) – ny artikel.
+
+### <a name="networks"></a>Nätverk
+- [Azure Monitor för förhands granskning av nätverk](insights/network-insights-overview.md) – tillägg av fel sökning. Avsnittet har lagts till för anslutning.
+
+### <a name="platform-logs"></a>Plattformsloggar
+- [Händelse schema för Azure aktivitets logg](platform/activity-log-schema.md) – en beskrivning av allvarlighets nivåer har lagts till.
+
+### <a name="virtual-machines"></a>Virtuella datorer
+- [Ändra analys i Azure Monitor for VMS](insights/vminsights-change-analysis.md) – ny artikel.
+- [Aktivera Azure Monitor for VMS översikt](insights/vminsights-enable-overview.md) – tillagda regioner som stöds.
+- [Så här uppdaterar du Azure Monitor för behållare för mått](insights/container-insights-update-metrics.md) – stöd har lagts till för Azure Arc-aktiverade Kubernetes-kluster.
+
+
 
 ## <a name="september-2020"></a>September 2020
 

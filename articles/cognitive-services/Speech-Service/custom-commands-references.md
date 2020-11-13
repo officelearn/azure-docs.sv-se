@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 052418924e73252a780689aea33e84d5bfdbc3f6
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 98510132b2341736664dfafa52e9567df95652be
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927659"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94561105"
 ---
 # <a name="custom-commands-concepts-and-definitions"></a>Koncept och definitioner för anpassade kommandon
 
@@ -40,7 +40,7 @@ Interaktions regler är ytterligare regler för att hantera mer detaljerade elle
 
 Parametrar är information som krävs av kommandon för att slutföra en uppgift. I komplexa scenarier kan parametrar också användas för att definiera villkor som utlöser anpassade åtgärder.
 
-### <a name="name"></a>Name
+### <a name="name"></a>Namn
 En parameter identifieras av egenskapen Name. Du bör alltid ge ett beskrivande namn till en parameter. En parameter kan refereras mellan olika avsnitt, till exempel när du skapar villkor, tal svar eller andra åtgärder.
  
 ### <a name="isglobal"></a>IsGlobal
@@ -49,20 +49,22 @@ Den här kryss rutan anger om omfånget för den här parametern delas mellan al
 ### <a name="required"></a>Obligatorisk
 Den här kryss rutan anger om ett värde för den här parametern krävs för kommando uppfyllelse eller slut för ande. Du måste konfigurera svar för att användaren ska kunna ange ett värde om en parameter har marker ATS som obligatorisk.
 
+Observera att om du har konfigurerat en **nödvändig parameter** till att ha ett **Standardvärde** kommer systemet fortfarande att fråga efter parameterns värde.
+
 ### <a name="type"></a>Typ
 Anpassade kommandon stöder följande parameter typer:
 
 * DateTime
 * Geografi
-* Antal
+* Tal
 * Sträng
 
-Alla dessa parameter typer stöder konfiguration av standardvärde, som du kan konfigurera från Azure Portal.
+Alla dessa parameter typer förutom geografi, stöder standardvärdes konfiguration, som du kan konfigurera från portalen.
 
 ### <a name="configuration"></a>Konfiguration
 Konfigurationen är en parameter egenskap som endast definierats för typ strängen. Följande värden stöds:
 
-* **Ingen** .
+* **Ingen**.
 * **Acceptera fullständig indatamängd** : när den är aktive rad accepterar en parameter alla inuttryck. Det här alternativet är användbart när användaren behöver en parameter med fullständig uttryck. Ett exempel är post adresser.
 * **Acceptera fördefinierade indatavärden från en extern katalog** : det här värdet används för att konfigurera en parameter som kan anta en mängd olika värden. Ett exempel är en försäljnings katalog. I detta fall finns katalogen på en extern webb slut punkt och kan konfigureras separat.
 * **Acceptera fördefinierade indatavärden från intern katalog** : det här värdet används för att konfigurera en parameter som kan anta några värden. I det här fallet måste värdena konfigureras i tal Studio.
@@ -72,10 +74,10 @@ Konfigurationen är en parameter egenskap som endast definierats för typ strän
 Valideringar är tillämpliga för vissa parameter typer som låter dig konfigurera begränsningar för en Parameters värde. För närvarande stöder anpassade kommandon valideringar av följande parameter typer:
 
 * DateTime
-* Antal
+* Tal
 
 ## <a name="rules-configuration"></a>Regel konfiguration
-En regel i anpassade kommandon definieras av en uppsättning *villkor* som, när de är uppfyllda, kör en uppsättning *åtgärder* . Med regler kan du också konfigurera *efter körnings tillstånd* och *förväntningar* för nästa turn.
+En regel i anpassade kommandon definieras av en uppsättning *villkor* som, när de är uppfyllda, kör en uppsättning *åtgärder*. Med regler kan du också konfigurera *efter körnings tillstånd* och *förväntningar* för nästa turn.
 
 ### <a name="types"></a>Typer
 Anpassade kommandon stöder följande regel kategorier:

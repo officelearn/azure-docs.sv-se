@@ -4,14 +4,14 @@ description: Lär dig mer om Azure Monitors partner och hur du kan komma åt dok
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: b56b2386422d9f7f2fa598ff804a2206bf4b4d83
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc33e9d8d613b9d0575da069d884e454d9930eac
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460107"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555647"
 ---
-# <a name="azure-monitor-partner-integrations"></a>Azure Monitor partner integreringar
+# <a name="azure-monitor-partner-integrations"></a>Partnerintegrering i Azure Monitor
 
 Visas i alfabetisk ordning. 
 
@@ -253,7 +253,7 @@ Minska incidenter och MTTR med AIOps-plattformen för att eliminera brus, priori
 
 ![SignalFX-logotyp](./media/partners/signalfx.png)
 
-SignalFx är ledaren i drifts information i real tid för data drivna DevOps. Tjänsten identifierar och samlar in mått över alla komponenter i molnet. Den ersätter traditionella punkt verktyg och ger real tids visning i dagens dynamiska miljöer. Med den enorma skalbara SignalFx-plattformen är SaaS-plattformen optimerad för container-och mikrotjänstbaserade arkitekturer och ger kraftfull visualisering, proaktiv avisering och samverkande prioritering funktioner i alla organisationer i alla storlekar. SignalFx integreras direkt med Azure Monitor och via anslutningar med öppen källkod, till exempel *teleympkvistar*, *statistik*och *hämt* för att ge bästa möjliga klass instrument paneler, analyser och aviseringar för Azure.
+SignalFx är ledaren i drifts information i real tid för data drivna DevOps. Tjänsten identifierar och samlar in mått över alla komponenter i molnet. Den ersätter traditionella punkt verktyg och ger real tids visning i dagens dynamiska miljöer. Med den enorma skalbara SignalFx-plattformen är SaaS-plattformen optimerad för container-och mikrotjänstbaserade arkitekturer och ger kraftfull visualisering, proaktiv avisering och samverkande prioritering funktioner i alla organisationer i alla storlekar. SignalFx integreras direkt med Azure Monitor och via anslutningar med öppen källkod, till exempel *teleympkvistar* , *statistik* och *hämt* för att ge bästa möjliga klass instrument paneler, analyser och aviseringar för Azure.
 
 [Dokumentation om signalfx](https://docs.signalfx.com/en/latest/getting-started/send-data.html#connect-to-azure)
 
@@ -300,6 +300,16 @@ Sumo Logic är en säker, molnbaserad, maskin data analys tjänst som levererar 
 Turbonomic levererar arbets belastnings automatisering för Hybrid moln genom att samtidigt optimera prestanda, kostnad och efterlevnad i real tid. Turbonomic hjälper organisationer att bli elastiska i sin Azure-fastighet genom att kontinuerligt optimera fastigheten för att säkerställa att program ständigt får de resurser som krävs för att leverera sitt service avtal och inget mer för beräkning, lagring och nätverk för IaaS-och PaaS-skiktet. Organisationer kan simulera migreringar, skala arbets belastningar på rätt sätt och dra tillbaka data Center resurser för att ett ansvarsfullt sätt migrera till Azure i tid, inom budgeten, samtidigt som de kan garantera både prestanda och efterlevnad. Turbonomic är API driven och körs som en virtuell dator utan agent i Azure och lokalt.
 
 [Introduktion till Turbonomic](https://turbonomic.com/)
+
+## <a name="bmc-helix"></a>BMC-Helix
+
+![BMC Helix-logotyp](./media/partners/BMCHelix.png)
+
+BMC Helix är en autonom Enterprise service-och Operations SaaS-plattform. Integrerat med 360-grade Intelligence, gör det möjligt för företag att proaktivt och predictively upptäcka, övervaka, underhålla, optimera och leverera Omni för IT och affärs verksamhet.
+Genom att sömlöst integrera ITSM och IT Operations Management (ITOM), kan BMC Helix göra det möjligt för IT-och företags användare att eliminera IT-silor, fatta data drivna affärs beslut och leverera branschledande kund upplevelser.
+Kunder kan distribuera BMC Helix-plattformen med moln distributionen av deras val – offentlig, privat eller hybrid. Dessutom har kunderna möjlighet att välja AI/ML-lösningar för att dra nytta av branschledande leverantörer.
+
+[Läs mer om BMC-Helix](https://www.bmc.com/it-solutions/bmc-helix.html?vu=helix)
 
 ## <a name="next-steps"></a>Nästa steg
 

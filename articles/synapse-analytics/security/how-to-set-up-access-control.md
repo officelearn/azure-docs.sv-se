@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 080e56a5b6be8ba68c901509fe87421632144643
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 79a4db1f7d4be88260ea41ce1090007bc66cc7c8
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312034"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556037"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Skydda din Synapse-arbetsyta (för hands version) 
 
@@ -31,12 +31,12 @@ För att skydda en Synapse-arbetsyta (för hands version) följer du ett mönste
   - Apache Spark för Azure Synapse Analytics-administratör
 - Åtkomst kontroll för data i Azure Data Lake Storage gen 2 (ADLSGEN2).
 - Åtkomst kontroll för Synapse SQL-och Spark-databaser
-- 
+
 ## <a name="steps-to-secure-a-synapse-workspace"></a>Steg för att skydda en Synapse-arbetsyta
 
 I det här dokumentet används standard namn för att förenkla anvisningarna. Ersätt dem med valfritt namn.
 
-|Inställningen | Exempelvärde | Beskrivning |
+|Inställning | Exempelvärde | Beskrivning |
 | :------ | :-------------- | :---------- |
 | **Synapse-arbetsyta** | WS1 |  Namnet som Synapse-arbetsytan kommer att ha. |
 | **ADLSGEN2-konto** | STG1 | ADLS-kontot som ska användas med din arbets yta. |
@@ -111,7 +111,7 @@ Nu kan du lägga till och ta bort användare i de tre säkerhets grupperna för 
 
 Användare i varje roll behöver utföra följande steg:
 
-| Antal | Steg | Arbetsytesadministratörer | Spark-administratörer | SQL-administratörer |
+| Tal | Steg | Arbetsytesadministratörer | Spark-administratörer | SQL-administratörer |
 | --- | --- | --- | --- | --- |
 | 1 | Ladda upp en Parquet-fil till CNT1 | JA | JA | JA |
 | 2 | Läs filen Parquet med Server lös SQL-pool | JA | NO | JA |

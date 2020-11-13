@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 09/16/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 050252718e4796ff20d57be3fdeac98f0cf04fdf
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d3e38de191557f0602d1b544c6590018f98405b0
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785229"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560799"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>Vad är Azure Web Application-brandvägg på Azure Application Gateway?
 
@@ -132,9 +132,9 @@ Application Gateway WAF kan konfigureras att köras i följande två lägen:
 
 OWASP har två lägen för att bestämma om du vill blockera trafik: traditionellt läge och avvikande bedömnings läge.
 
-I traditionellt läge betraktas trafik som matchar vilken regel som helst oberoende av andra regel matchningar. Det här läget är enkelt att förstå. Men avsaknad av information om hur många regler som matchar en speciell begäran är en begränsning. Därför introducerades avvikelser bedömnings läget. Det är standardinställningen för OWASP 3. *x* .
+I traditionellt läge betraktas trafik som matchar vilken regel som helst oberoende av andra regel matchningar. Det här läget är enkelt att förstå. Men avsaknad av information om hur många regler som matchar en speciell begäran är en begränsning. Därför introducerades avvikelser bedömnings läget. Det är standardinställningen för OWASP 3. *x*.
 
-I avvikande bedömnings läge blockeras inte trafik som matchar någon regel direkt när brand väggen är i förebyggande läge. Reglerna har en viss allvarlighets grad: *kritisk* , *fel* , *Varning* eller *meddelande* . Allvarlighets graden påverkar ett numeriskt värde för begäran, vilket kallas för avvikelse poängen. En *varnings* regel matchar till exempel 3 till poängen. En *kritisk* regel matchar 5.
+I avvikande bedömnings läge blockeras inte trafik som matchar någon regel direkt när brand väggen är i förebyggande läge. Reglerna har en viss allvarlighets grad: *kritisk* , *fel* , *Varning* eller *meddelande*. Allvarlighets graden påverkar ett numeriskt värde för begäran, vilket kallas för avvikelse poängen. En *varnings* regel matchar till exempel 3 till poängen. En *kritisk* regel matchar 5.
 
 |Allvarlighetsgrad  |Värde  |
 |---------|---------|
@@ -160,7 +160,7 @@ Application Gateway loggar är integrerade i [Azure Monitor](../../azure-monitor
 
 #### <a name="azure-security-center"></a>Azure Security Center
 
-[Security Center](../../security-center/security-center-intro.md) hjälper dig att förhindra, identifiera och svara på hot. Det ger ökad insyn i och kontroll över säkerheten för dina Azure-resurser. Application Gateway är [integrerat med Security Center](../../application-gateway/application-gateway-integration-security-center.md). Security Center söker igenom din miljö för att identifiera oskyddade webb program. Det kan rekommendera Application Gateway WAF för att skydda dessa sårbara resurser. Du skapar brand väggarna direkt från Security Center. Dessa WAF-instanser är integrerade med Security Center. De skickar aviseringar och hälso information till Security Center för rapportering.
+[Security Center](../../security-center/security-center-introduction.md) hjälper dig att förhindra, identifiera och svara på hot. Det ger ökad insyn i och kontroll över säkerheten för dina Azure-resurser. Application Gateway är [integrerat med Security Center](../../application-gateway/application-gateway-integration-security-center.md). Security Center söker igenom din miljö för att identifiera oskyddade webb program. Det kan rekommendera Application Gateway WAF för att skydda dessa sårbara resurser. Du skapar brand väggarna direkt från Security Center. Dessa WAF-instanser är integrerade med Security Center. De skickar aviseringar och hälso information till Security Center för rapportering.
 
 ![Fönstret Security Center översikt](../media/ag-overview/figure1.png)
 

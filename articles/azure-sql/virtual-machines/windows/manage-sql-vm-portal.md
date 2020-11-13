@@ -12,12 +12,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 467cbe91f4e516dc6facd2d30c38da1483308b77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b563e8ca93487a123f97f0bbb86624dc3be2db0
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316978"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556298"
 ---
 # <a name="manage-sql-server-vms-in-azure-by-using-the-azure-portal"></a>Hantera SQL Server virtuella datorer i Azure med hjälp av Azure Portal
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,7 +30,7 @@ I [Azure Portal](https://portal.azure.com)är resursen [**virtuella SQL-datorer*
 ## <a name="remarks"></a>Kommentarer
 
 - Vi rekommenderar att du använder resursen [**SQL Virtual Machines**](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) för att visa och hantera dina SQL Server virtuella datorer i Azure. Men för närvarande stöder inte resursen **SQL Virtual Machines** hanteringen av [support](sql-server-2008-extend-end-of-support.md) SQL Server virtuella datorer. Om du vill hantera inställningarna för support SQL Server virtuella datorer använder du fliken inaktuell [SQL Server konfiguration](#access-the-sql-server-configuration-tab) i stället. 
-- Resursen **SQL Virtual Machines** är bara tillgänglig för SQL Server virtuella datorer som har [registrerats med PROVIDERN för SQL VM-resurs](sql-vm-resource-provider-register.md). 
+- Resursen **SQL Virtual Machines** är bara tillgänglig för SQL Server virtuella datorer som har [registrerats med SQL IaaS agent-tillägget](sql-agent-extension-manually-register-single-vm.md). 
 
 
 ## <a name="access-the-sql-virtual-machines-resource"></a>Åtkomst till resursen för virtuella SQL-datorer
@@ -57,7 +57,7 @@ Gör så här för att få åtkomst till resursen för **virtuella SQL-datorer**
 > Resursen **SQL Virtual Machines** är avsedd för dedikerade SQL Server inställningar. Välj namnet på den virtuella datorn i rutan **virtuell dator** för att öppna inställningar som är unika för den virtuella datorn, men inte exklusiv för att SQL Server. 
 
 ## <a name="access-the-sql-server-configuration-tab"></a>Öppna fliken SQL Server konfiguration
-Fliken **SQL Server konfiguration** är inaktuell. För närvarande är det den enda metoden för att hantera [support](sql-server-2008-extend-end-of-support.md) SQL Server virtuella datorer och SQL Server virtuella datorer som inte har [registrerats med resurs leverantören för SQL-VM](sql-vm-resource-provider-register.md).
+Fliken **SQL Server konfiguration** är inaktuell. För närvarande är det den enda metoden för att hantera [support](sql-server-2008-extend-end-of-support.md) SQL Server virtuella datorer och SQL Server virtuella datorer som inte har [registrerats med SQL IaaS agent-tillägget](sql-agent-extension-manually-register-single-vm.md).
 
 Öppna den föråldrade **SQL Server fliken Konfiguration** genom att gå till resursen **virtuella datorer** . Gör så här:
 

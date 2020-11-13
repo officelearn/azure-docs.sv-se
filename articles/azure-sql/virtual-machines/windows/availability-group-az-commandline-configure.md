@@ -13,12 +13,12 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019, devx-track-azurecli
-ms.openlocfilehash: a85c1326501a362371d3bc961f5c5ae448e8d22e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9129d0cb44aea9b85c5569d4d939c0904c398c07
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790091"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556530"
 ---
 # <a name="use-powershell-or-az-cli-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Använd PowerShell eller AZ CLI för att konfigurera en tillgänglighets grupp för SQL Server på Azure VM 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -35,7 +35,7 @@ Om du vill konfigurera en tillgänglighets grupp som alltid är tillgänglig må
 
 - En [Azure-prenumeration](https://azure.microsoft.com/free/).
 - En resurs grupp med en domänkontrollant. 
-- En eller flera domänanslutna [virtuella datorer i Azure som kör SQL Server 2016 (eller senare) Enterprise Edition](./create-sql-vm-portal.md) i *samma* tillgänglighets uppsättning eller *olika* tillgänglighets zoner som har [registrerats med den virtuella SQL-providern för virtuella datorer](sql-vm-resource-provider-register.md).  
+- En eller flera domänanslutna [virtuella datorer i Azure som kör SQL Server 2016 (eller senare) Enterprise Edition](./create-sql-vm-portal.md) i *samma* tillgänglighets uppsättning eller *olika* tillgänglighets zoner som har [registrerats med SQL IaaS agent-tillägget](sql-agent-extension-manually-register-single-vm.md).  
 - Den senaste versionen av [PowerShell](/powershell/scripting/install/installing-powershell) eller [Azure CLI](/cli/azure/install-azure-cli). 
 - Två tillgängliga (används inte av någon entitet) IP-adresser. En är för den interna belastningsutjämnaren. Det andra är för tillgänglighets gruppens lyssnare i samma undernät som tillgänglighets gruppen. Om du använder en befintlig belastningsutjämnare behöver du bara en tillgänglig IP-adress för tillgänglighets gruppens lyssnare. 
 
@@ -423,9 +423,9 @@ Så här tar du bort en replik från tillgänglighets gruppen:
 ---
 
 ## <a name="remove-listener"></a>Ta bort lyssnare
-Om du senare behöver ta bort tillgänglighets gruppens lyssnare som kon figurer ATS med Azure CLI måste du gå igenom den virtuella SQL-adressresursen. Eftersom lyssnaren har registrerats via SQL VM Resource Provider, tar du bara bort den via SQL Server Management Studio är otillräcklig. 
+Om du senare behöver ta bort tillgänglighets gruppens lyssnare som kon figurer ATS med Azure CLI måste du gå igenom SQL IaaS agent-tillägget. Eftersom lyssnaren har registrerats via SQL IaaS agent-tillägget tar du bara bort det via SQL Server Management Studio är otillräckligt. 
 
-Den bästa metoden är att ta bort den via den virtuella SQL-providern med hjälp av följande kodfragment i Azure CLI. Om du gör det tas tillgänglighets gruppens lyssnar metadata bort från providern för SQL VM-resursen. Det tar också bort en lyssnare från tillgänglighets gruppen fysiskt. 
+Den bästa metoden är att ta bort den via SQL IaaS agent-tillägget med hjälp av följande kodfragment i Azure CLI. Om du gör det tas tillgänglighets gruppens lyssnar metadata bort från SQL IaaS agent-tillägget. Det tar också bort en lyssnare från tillgänglighets gruppen fysiskt. 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -451,7 +451,7 @@ Remove-AzAvailabilityGroupListener -Name <Listener> `
 
 ## <a name="remove-cluster"></a>Ta bort kluster
 
-Ta bort alla noder från klustret för att förstöra det och ta sedan bort de klusterdelade metadata från providern för SQL VM-resursen. Du kan göra det med hjälp av Azure CLI eller PowerShell. 
+Ta bort alla noder från klustret för att förstöra det och ta sedan bort de klustrade metadata från SQL IaaS agent-tillägget. Du kan göra det med hjälp av Azure CLI eller PowerShell. 
 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -468,7 +468,7 @@ az sql vm remove-from-group --name <VM2 name>  --resource-group <resource group 
 
 Om dessa är de enda virtuella datorerna i klustret kommer klustret att förstöras. Om det finns andra virtuella datorer i klustret, förutom SQL Server de virtuella datorer som har tagits bort, kommer de andra virtuella datorerna inte att tas bort och klustret kommer inte att förstöras. 
 
-Ta sedan bort de klusterdelade metadata från providern för SQL VM-resurs: 
+Ta sedan bort de klustrade metadatana från SQL-IaaS agent-tillägg: 
 
 ```azurecli-interactive
 # Remove the cluster from the SQL VM RP metadata
@@ -497,7 +497,7 @@ $sqlvm = Get-AzSqlVM -Name <VM Name> -ResourceGroupName <Resource Group Name>
 
 Om dessa är de enda virtuella datorerna i klustret kommer klustret att förstöras. Om det finns andra virtuella datorer i klustret, förutom SQL Server de virtuella datorer som har tagits bort, kommer de andra virtuella datorerna inte att tas bort och klustret kommer inte att förstöras. 
 
-Ta sedan bort de klusterdelade metadata från providern för SQL VM-resurs: 
+Ta sedan bort de klustrade metadatana från SQL-IaaS agent-tillägg: 
 
 ```powershell-interactive
 # Remove the cluster metadata

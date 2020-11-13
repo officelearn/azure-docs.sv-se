@@ -1,15 +1,15 @@
 ---
 title: Lås resurser för att förhindra ändringar
-description: Förhindra att användare uppdaterar eller tar bort kritiska Azure-resurser genom att använda ett lås för alla användare och roller.
+description: Förhindra att användare uppdaterar eller tar bort Azure-resurser genom att använda ett lås för alla användare och roller.
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 11/11/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 57b4fecd0293c714dfd910ae2ad4866397646ce8
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: f1073d8c4a6902ea00a9b4098ef87bc411b3e6c0
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340149"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555676"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Låsa resurser för att förhindra oväntade ändringar
 
@@ -74,19 +74,91 @@ Om du vill ta bort allt för tjänsten, inklusive resurs gruppen låst infrastru
 
 ### <a name="arm-template"></a>ARM-mall
 
-När du använder en Resource Manager-mall för att distribuera ett lås, använder du olika värden för namn och typ beroende på låsets omfång.
+När du använder en Azure Resource Manager-mall (ARM-mall) för att distribuera ett lås måste du vara medveten om omfattningen av låset och distributionens omfattning. Om du vill använda ett lås vid distributions omfånget, till exempel låsa en resurs grupp eller prenumeration, anger du inte egenskapen omfattning. När du låser en resurs i distributions omfånget anger du egenskapen omfattning.
 
-Använd följande format när du använder ett lås på en **resurs** :
+Följande mall använder ett lås till resurs gruppen som den distribueras till. Observera att det inte finns någon omfattnings egenskap på Lås resursen eftersom låset matchar omfånget för distributionen. Den här mallen har distribuerats på resurs grupps nivå.
 
-* ändrat `{resourceName}/Microsoft.Authorization/{lockName}`
-* bastyp `{resourceProviderNamespace}/{resourceType}/providers/locks`
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {  
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Authorization/locks",
+            "apiVersion": "2016-09-01",
+            "name": "rgLock",
+            "properties": {
+                "level": "CanNotDelete",
+                "notes": "Resource Group should not be deleted."
+            }
+        }
+    ]
+}
+```
 
-Använd följande format när du använder ett lås till en **resurs grupp** eller **prenumeration** :
+Om du vill skapa en resurs grupp och låsa den distribuerar du följande mall på prenumerations nivån.
 
-* ändrat `{lockName}`
-* bastyp `Microsoft.Authorization/locks`
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "rgName": {
+            "type": "string"
+        },
+        "rgLocation": {
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2019-10-01",
+            "name": "[parameters('rgName')]",
+            "location": "[parameters('rgLocation')]",
+            "properties": {}
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-06-01",
+            "name": "lockDeployment",
+            "resourceGroup": "[parameters('rgName')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Resources/resourceGroups/', parameters('rgName'))]"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.Authorization/locks",
+                            "apiVersion": "2016-09-01",
+                            "name": "rgLock",
+                            "properties": {
+                                "level": "CanNotDelete",
+                                "notes": "Resource group and its resources should not be deleted."
+                            }
+                        }
+                    ],
+                    "outputs": {}
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
 
-I följande exempel visas en mall som skapar en app service-plan, en webbplats och ett lås på webbplatsen. Resurs typen för låset är resurs typen för den resurs som ska låsas och **/providers/Locks**. Namnet på låset skapas genom att resurs namnet kombineras med **/Microsoft.Authorization/** och namnet på låset.
+När du använder ett lås på en **resurs** i resurs gruppen lägger du till egenskapen omfattning. Ange omfång till namnet på resursen som ska låsas.
+
+I följande exempel visas en mall som skapar en app service-plan, en webbplats och ett lås på webbplatsen. Låsnings området är inställt på webbplatsen.
 
 ```json
 {
@@ -95,6 +167,10 @@ I följande exempel visas en mall som skapar en app service-plan, en webbplats o
   "parameters": {
     "hostingPlanName": {
       "type": "string"
+    },
+    "location": {
+        "type": "string",
+        "defaultValue": "[resourceGroup().location]"
     }
   },
   "variables": {
@@ -103,9 +179,9 @@ I följande exempel visas en mall som skapar en app service-plan, en webbplats o
   "resources": [
     {
       "type": "Microsoft.Web/serverfarms",
-      "apiVersion": "2019-08-01",
+      "apiVersion": "2020-06-01",
       "name": "[parameters('hostingPlanName')]",
-      "location": "[resourceGroup().location]",
+      "location": "[parameters('location')]",
       "sku": {
         "tier": "Free",
         "name": "f1",
@@ -117,9 +193,9 @@ I följande exempel visas en mall som skapar en app service-plan, en webbplats o
     },
     {
       "type": "Microsoft.Web/sites",
-      "apiVersion": "2019-08-01",
+      "apiVersion": "2020-06-01",
       "name": "[variables('siteName')]",
-      "location": "[resourceGroup().location]",
+      "location": "[parameters('location')]",
       "dependsOn": [
         "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
       ],
@@ -128,9 +204,10 @@ I följande exempel visas en mall som skapar en app service-plan, en webbplats o
       }
     },
     {
-      "type": "Microsoft.Web/sites/providers/locks",
+      "type": "Microsoft.Authorization/locks",
       "apiVersion": "2016-09-01",
-      "name": "[concat(variables('siteName'), '/Microsoft.Authorization/siteLock')]",
+      "name": "siteLock",
+      "scope": "[concat('Microsoft.Web/sites/', variables('siteName'))]",
       "dependsOn": [
         "[resourceId('Microsoft.Web/sites', variables('siteName'))]"
       ],
@@ -142,8 +219,6 @@ I följande exempel visas en mall som skapar en app service-plan, en webbplats o
   ]
 }
 ```
-
-Ett exempel på att ställa in ett lås på en resurs grupp finns i [skapa en resurs grupp och låsa den](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments/create-rg-lock-role-assignment).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 

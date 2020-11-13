@@ -1,6 +1,6 @@
 ---
 title: Kopiera data stegvis med Ändringsspårning med hjälp av Azure Portal
-description: I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta data baserat på ändrings spårnings information i käll databasen i Azure SQL Database till en Azure Blob Storage.
+description: I den här självstudien skapar du en Azure Data Factory med en pipeline som läser in delta data baserat på ändrings spårnings information i käll databasen i Azure SQL Database till en Azure Blob Storage.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
-ms.openlocfilehash: 78b9d3f30ebc8f74433f04c4474121682c4a3f36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5f87e693d2592f830ec785f2163c232915544d1
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542027"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94561139"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-the-azure-portal"></a>Läs in data stegvis från Azure SQL Database till Azure Blob Storage med hjälp av ändrings spårnings information med hjälp av Azure Portal
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta data baserat på **ändrings spårnings** information i käll databasen i Azure SQL Database till en Azure Blob Storage.  
+I den här självstudien skapar du en Azure Data Factory med en pipeline som läser in delta data baserat på **ändrings spårnings** information i käll databasen i Azure SQL Database till en Azure Blob Storage.  
 
 I den här självstudiekursen får du göra följande:
 
@@ -69,13 +69,13 @@ I den här självstudien skapar du två pipelines som utför följande två åtg
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * **Azure SQL Database**. Du använder databasen som **källa** för datalagringen. Om du inte har en databas i Azure SQL Database går du till artikeln [skapa en databas i Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) för steg för att skapa en.
 * **Azure Storage konto**. Du kan använda blob-lagringen som **mottagare** för datalagringen. Om du inte har ett Azure Storage-konto kan du läsa artikeln [skapa ett lagrings konto](../storage/common/storage-account-create.md) för steg för att skapa ett. Skapa en container med namnet **adftutorial**. 
 
 ### <a name="create-a-data-source-table-in-azure-sql-database"></a>Skapa en data käll tabell i Azure SQL Database
 
-1. Starta **SQL Server Management Studio**och anslut till SQL Database.
+1. Starta **SQL Server Management Studio** och anslut till SQL Database.
 2. I **Server Explorer** högerklickar du på **databasen** och väljer **Ny fråga**.
 3. Kör följande SQL-kommando mot databasen för att skapa en tabell med namnet `data_source_table` som data käll arkiv.  
 
@@ -156,7 +156,7 @@ Installera de senaste Azure PowerShell-modulerna genom att följa anvisningarna 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
 1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
-1. På den vänstra menyn väljer du **skapa en resurs**  >  **data och analys**  >  **Data Factory**:
+1. På den vänstra menyn väljer du **skapa en resurs**  >  **data och analys**  >  **Data Factory** :
 
    ![Valet Data Factory i fönstret Nytt](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -167,11 +167,11 @@ Installera de senaste Azure PowerShell-modulerna genom att följa anvisningarna 
    Namnet på Azure Data Factory måste vara **globalt unikt**. Om följande fel returneras ändrar du namnet på datafabriken (till exempel dittnamnADFTutorialDataFactory) och provar att skapa fabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
 
    *Data fabriks namnet "ADFTutorialDataFactory" är inte tillgängligt*
-3. Välj den Azure-**prenumeration** som du vill skapa den nya datafabriken i.
+3. Välj den Azure- **prenumeration** som du vill skapa den nya datafabriken i.
 4. För **resursgruppen** utför du något av följande steg:
 
-      - Välj **Använd befintlig**och välj en befintlig resurs grupp i den nedrullningsbara listan.
-      - Välj **Skapa ny**och ange namnet på en resurs grupp.   
+      - Välj **Använd befintlig** och välj en befintlig resurs grupp i den nedrullningsbara listan.
+      - Välj **Skapa ny** och ange namnet på en resurs grupp.   
          
         Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/management/overview.md).  
 4. Välj **V2 (förhandsgranskning)** för **versionen**.
@@ -265,7 +265,7 @@ I det här steget skapar du en datamängd för att representera data som kopiera
 
     1. Välj **AzureStorageLinkedService** för **Länkad tjänst**.
     2. Ange **adftutorial/incchgtracking** för **mappdelen** i **filePath**.
-    3. Ange ** \@ concat ("stegvis", pipeline (). RunId, '. txt ')** för en fil del av **fil** **Sök vägen**.  
+    3. Ange **\@ concat ("stegvis", pipeline (). RunId, '. txt ')** för en fil del av **fil** **Sök vägen**.  
 
        ![Datauppsättning för mottagare – anslutning](./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-connection.png)
 
@@ -306,7 +306,7 @@ I det här steget skapar du en pipeline med en kopieringsaktivitet som kopierar 
     ![Skärm bild som visar data Factory med knappen publicera alla som heter ut.](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button.png)
 8. Vänta tills du ser meddelandet om att entiteterna **har publicerats**.
 
-    ![Publiceringen är klar](./media/tutorial-incremental-copy-change-tracking-feature-portal/publishing-succeeded.png)
+    ![Publiceringen lyckades](./media/tutorial-incremental-copy-change-tracking-feature-portal/publishing-succeeded.png)
 9. Du kan även se meddelanden genom att klicka på knappen **Visa meddelanden** till vänster. Stäng meddelandefönstret genom att klicka på **X**.
 
     ![Visa meddelanden](./media/tutorial-incremental-copy-change-tracking-feature-portal/show-notifications.png)
@@ -403,13 +403,13 @@ I det här steget skapar du en pipeline med följande aktiviteter och kör den m
 9. Växla till fliken **Mottagare** och markera **SinkDataset** för fältet för **datauppsättning för mottagare**.
 
     ![Kopiera aktivitet – inställningar för mottagare](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-sink-settings.png)
-10. **Ansluta båda sökningsaktiviteterna till aktiviteten Kopiera**, en i taget. Dra den **gröna** knappen som är kopplad till aktiviteten **Sökning** till aktiviteten **Kopiera**.
+10. **Ansluta båda sökningsaktiviteterna till aktiviteten Kopiera** , en i taget. Dra den **gröna** knappen som är kopplad till aktiviteten **Sökning** till aktiviteten **Kopiera**.
 
     ![Ansluta sökning- och kopieringsaktiviteter](./media/tutorial-incremental-copy-change-tracking-feature-portal/connect-lookup-and-copy.png)
 11. Dra och släpp aktiviteten **Lagrad procedur** från verktygslådan **Aktiviteter** till pipelinedesignytan. Ange aktivitetens namn som **StoredProceduretoUpdateChangeTrackingActivity**. Den här aktiviteten uppdaterar ändringsspårningsversionen i tabellen **table_store_ChangeTracking_version**.
 
     ![Lagrad proceduraktivitet – namn](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-activity-name.png)
-12. Växla till fliken *SQL-konto** och välj **AzureSqlDatabaseLinkedService** som **Länkad tjänst**.
+12. Växla till fliken *SQL-konto* * och välj **AzureSqlDatabaseLinkedService** som **Länkad tjänst**.
 
     ![Lagrad proceduraktivitet – SQL-konto](./media/tutorial-incremental-copy-change-tracking-feature-portal/sql-account-tab.png)
 13. Växla till fliken **Lagrad procedur** och gör följande:

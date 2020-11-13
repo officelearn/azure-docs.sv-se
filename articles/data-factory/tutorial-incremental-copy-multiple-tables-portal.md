@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 06/10/2020
-ms.openlocfilehash: b07c53d048d60b555c33cacf42557f5da26552cc
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 11/09/2020
+ms.openlocfilehash: 065cfe6695d7651d3cda49ad32428127633b834c
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637487"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555455"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-a-database-in-azure-sql-database-using-the-azure-portal"></a>Läs in data stegvis från flera tabeller i SQL Server till en databas i Azure SQL Database med hjälp av Azure Portal
 
@@ -42,11 +42,11 @@ I den här självstudiekursen får du göra följande:
 ## <a name="overview"></a>Översikt
 Här är några viktiga steg för att skapa den här lösningen: 
 
-1. **Markera vattenstämpelkolumnen** .
+1. **Markera vattenstämpelkolumnen**.
     
     Markera en kolumn för varje tabell i källdatalagret som går att använda för att identifiera de nya eller uppdaterade posterna för varje körning. Vanligtvis ökar data i den markerade kolumnen (till exempel last_modify_time elle ID) när rader skapas eller uppdateras. Det maximala värdet i den här kolumnen används som vattenstämpel.
 
-1. **Förbered datalagringen för att lagra värdet för vattenstämpeln** .   
+1. **Förbered datalagringen för att lagra värdet för vattenstämpeln**.   
     
     I den här självstudien lagrar du storleksgränsen i en SQL-databas.
 
@@ -68,14 +68,14 @@ Här är några viktiga steg för att skapa den här lösningen:
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
-* **SQL Server** . Du använder en SQL Server databas som käll data lager i den här självstudien. 
-* **Azure SQL Database** . Du använder en databas i Azure SQL Database som data lager för mottagare. Om du inte har en databas i SQL Database, se [skapa en databas i Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) för att skapa en. 
+* **SQL Server**. Du använder en SQL Server databas som käll data lager i den här självstudien. 
+* **Azure SQL Database**. Du använder en databas i Azure SQL Database som data lager för mottagare. Om du inte har en databas i SQL Database, se [skapa en databas i Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) för att skapa en. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Skapa källtabeller i din SQL Server-databas
 
 1. Öppna SQL Server Management Studio och anslut till din SQL Serverdatabas.
 
-1. I **Server Explorer** högerklickar du på databasen och väljer **ny fråga** .
+1. I **Server Explorer** högerklickar du på databasen och väljer **ny fråga**.
 
 1. Kör följande SQL-kommando mot databasen för att skapa tabeller med namnen `customer_table` och `project_table`:
 
@@ -115,7 +115,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 1. Öppna SQL Server Management Studio och Anslut till databasen i Azure SQL Database.
 
-1. I **Server Explorer** högerklickar du på databasen och väljer **ny fråga** .
+1. I **Server Explorer** högerklickar du på databasen och väljer **ny fråga**.
 
 1. Kör följande SQL-kommando mot databasen för att skapa tabeller med namnen `customer_table` och `project_table`:  
     
@@ -235,14 +235,14 @@ END
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome** . Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
-2. På den vänstra menyn väljer du **skapa en resurs**  >  **analys**  >  **Data Factory** : 
+1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
+2. På den vänstra menyn väljer du **skapa en resurs**  >  **integrations**  >  **Data Factory** : 
    
    ![Valet Data Factory i fönstret Nytt](./media/doc-common-process/new-azure-data-factory-menu.png)
 
-3. På sidan **Ny datafabrik** anger du **ADFMultiIncCopyTutorialDF** som **namn** . 
+3. På sidan **Ny datafabrik** anger du **ADFMultiIncCopyTutorialDF** som **namn**. 
  
-   Namnet på Azure Data Factory måste vara **globalt unikt** . Om du ser ett rött utropstecken med följande fel ändrar du namnet på datafabriken (till exempel dittnamnADFIncCopyTutorialDF) och provar att skapa fabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
+   Namnet på Azure Data Factory måste vara **globalt unikt**. Om du ser ett rött utropstecken med följande fel ändrar du namnet på datafabriken (till exempel dittnamnADFIncCopyTutorialDF) och provar att skapa fabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
   
    `Data factory name "ADFIncCopyTutorialDF" is not available`
 
@@ -252,9 +252,9 @@ END
     - Välj **Använd befintlig** och välj en befintlig resurs grupp i den nedrullningsbara listan. 
     - Välj **Skapa ny** och ange namnet på en resurs grupp.   
     Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/management/overview.md).  
-6. Välj **V2** för **versionen** .
+6. Välj **V2** för **versionen**.
 7. Välj **plats** för datafabriken. Endast platser som stöds visas i listrutan. Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
-8. Klicka på **Skapa** .      
+8. Klicka på **Skapa**.      
 9. När datafabriken har skapats visas sidan **Datafabrik** som på bilden.
    
    ![Datafabrikens startsida](./media/doc-common-process/data-factory-home-page.png)
@@ -267,22 +267,22 @@ När du flyttar data från ett datalager i ett privat nätverk (lokalt) till ett
 
    ![Knappen Hantera start sida](media/doc-common-process/get-started-page-manage-button.png)
 
-1. Välj **integrerings körningar** i den vänstra rutan och välj sedan **+ ny** .
+1. Välj **integrerings körningar** i den vänstra rutan och välj sedan **+ ny**.
 
    ![Skapa Integration Runtime](media/doc-common-process/manage-new-integration-runtime.png)
 
-1. I fönstret **integration runtime installation** väljer **du utför data flytt och skicka aktiviteter till externa beräkningar** och klickar på **Fortsätt** . 
+1. I fönstret **integration runtime installation** väljer **du utför data flytt och skicka aktiviteter till externa beräkningar** och klickar på **Fortsätt**. 
 
-1. Välj **egen värd** och klicka på **Fortsätt** . 
-1. Ange **MySelfHostedIR** som **namn** och klicka på **skapa** . 
+1. Välj **egen värd** och klicka på **Fortsätt**. 
+1. Ange **MySelfHostedIR** som **namn** och klicka på **skapa**. 
 
 1. Klicka på **Click here to launch the express setup for this computer** (Klicka här för att starta expressinstallation för den här datorn) i avsnittet **Option 1: Express setup** (Alternativ 1: Expressinstallation). 
 
    ![Klicka på länken för expressinstallation](./media/tutorial-incremental-copy-multiple-tables-portal/click-express-setup.png)
-1. Klicka på **Stäng** i fönstret **Snabbinstallation av Integration Runtime (lokal installation)** . 
+1. Klicka på **Stäng** i fönstret **Snabbinstallation av Integration Runtime (lokal installation)**. 
 
    ![Integration Runtime har installerats](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtime-setup-successful.png)
-1. Klicka på **Slutför** i webbläsaren för att stänga installationsfönstret för **Integration Runtime** . 
+1. Klicka på **Slutför** i webbläsaren för att stänga installationsfönstret för **Integration Runtime**. 
 
  
 1. Bekräfta att du ser **MySelfHostedIR** i listan över Integration Runtimes.
@@ -293,36 +293,36 @@ Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager o
 ### <a name="create-the-sql-server-linked-service"></a>Skapa länkad tjänst till SQL Server
 I det här steget länkar du SQL Server-databasen till data fabriken.
 
-1. I fönstret **Anslutningar** växlar du från fliken **Integration Runtimes** till fliken med **länkade tjänster** och klickar på **+ Ny** .
+1. I fönstret **Anslutningar** växlar du från fliken **Integration Runtimes** till fliken med **länkade tjänster** och klickar på **+ Ny**.
 
    ![Ny länkad tjänst](./media/doc-common-process/new-linked-service.png)
-1. I fönstret **New Linked Service** (Ny länkad tjänst) väljer du **SQL Server** och klickar på **Fortsätt** . 
+1. I fönstret **New Linked Service** (Ny länkad tjänst) väljer du **SQL Server** och klickar på **Fortsätt**. 
 
 1. Utför följande steg i fönstret **New Linked Service** (Ny länkad tjänst):
 
-    1. Ange **SqlServerLinkedService** som **namn** . 
+    1. Ange **SqlServerLinkedService** som **namn**. 
     1. Välj **MySelfHostedIR** för **Connect via integration runtime** (Anslut via Integration Runtime). Detta är ett **viktigt** steg. Integration Runtime i standardversionen kan inte ansluta till ett lokalt datalager. Använda den lokalt installerade Integration Runtime som du skapade tidigare. 
     1. För **Servernamn** anger du namnet på den dator som har SQL Server-databasen.
     1. För **Databasnamn** anger du namnet på databasen i SQL Server som innehåller källdata. Du skapade en tabell och infogade data i den här databasen som en del av förberedelserna. 
     1. För **Autentiseringstyp** väljer du vilken **typ av autentisering** du vill använda för att ansluta till databasen. 
     1. För **Användarnamn** anger du namnet på en användare som har åtkomst till SQL Server-databasen. Om du behöver använda ett snedstreck (`\`) i ditt användarkonto eller användarnamn använder du escape-tecknet (`\`). Ett exempel är `mydomain\\myuser`.
     1. För **lösen ord** anger du användarens **lösen ord** . 
-    1. Om du vill testa om Data Factory kan ansluta till SQL Server-databasen, klickar du på **Testa anslutning** . Åtgärda eventuella fel tills anslutningen lyckas. 
+    1. Om du vill testa om Data Factory kan ansluta till SQL Server-databasen, klickar du på **Testa anslutning**. Åtgärda eventuella fel tills anslutningen lyckas. 
     1. Klicka på **Slutför** om du vill spara den länkade tjänsten.
 
 ### <a name="create-the-azure-sql-database-linked-service"></a>Skapa länkad tjänst för Azure SQL Database
 I det sista steget skapar du en länkad tjänst för att länka SQL Server-databasen till datafabriken. I det här steget länkar du mål-/Sink-databasen till data fabriken. 
 
-1. I fönstret **Anslutningar** växlar du från fliken **Integration Runtimes** till fliken med **länkade tjänster** och klickar på **+ Ny** .
-1. I fönstret **New Linked Service** (Ny länkad tjänst) väljer du **Azure SQL Database** och klickar på **Fortsätt** . 
+1. I fönstret **Anslutningar** växlar du från fliken **Integration Runtimes** till fliken med **länkade tjänster** och klickar på **+ Ny**.
+1. I fönstret **New Linked Service** (Ny länkad tjänst) väljer du **Azure SQL Database** och klickar på **Fortsätt**. 
 1. Utför följande steg i fönstret **New Linked Service** (Ny länkad tjänst):
 
-    1. Ange **AzureSqlDatabaseLinkedService** som **namn** . 
+    1. Ange **AzureSqlDatabaseLinkedService** som **namn**. 
     1. För **Server namn** väljer du namnet på din server i list rutan. 
     1. För **databas namn** väljer du den databas i vilken du skapade customer_table och project_table som en del av förutsättningarna. 
     1. För **användar namn** anger du namnet på den användare som har åtkomst till databasen. 
     1. För **lösen ord** anger du användarens **lösen ord** . 
-    1. Om du vill testa om Data Factory kan ansluta till SQL Server-databasen, klickar du på **Testa anslutning** . Åtgärda eventuella fel tills anslutningen lyckas. 
+    1. Om du vill testa om Data Factory kan ansluta till SQL Server-databasen, klickar du på **Testa anslutning**. Åtgärda eventuella fel tills anslutningen lyckas. 
     1. Klicka på **Slutför** om du vill spara den länkade tjänsten.
 
 1. Bekräfta att du ser två länkade tjänster i listan. 
@@ -334,11 +334,11 @@ I det här steget skapar du datauppsättningar som representerar datakällan, da
 
 ### <a name="create-a-source-dataset"></a>Skapa en källdatauppsättning
 
-1. I den vänstra rutan klickar du på **+ (plus)** och sedan på **Datauppsättning** .
+1. I den vänstra rutan klickar du på **+ (plus)** och sedan på **Datauppsättning**.
 
-1. I fönstret **ny data uppsättning** väljer du **SQL Server** , klicka på **Fortsätt** . 
+1. I fönstret **ny data uppsättning** väljer du **SQL Server** , klicka på **Fortsätt**. 
 
-1. Du ser en ny flik öppnas i webbläsaren för att konfigurera datauppsättningen. Du ser också en data uppsättning i trädvyn. Längst ned på fliken **Allmänt** i fönstret Egenskaper skriver du **SourceDataset** som **namn** . 
+1. Du ser en ny flik öppnas i webbläsaren för att konfigurera datauppsättningen. Du ser också en data uppsättning i trädvyn. Längst ned på fliken **Allmänt** i fönstret Egenskaper skriver du **SourceDataset** som **namn**. 
 
 1. Byt till fliken **Connection** (Anslutning) i fönstret Egenskaper och välj **SqlServerLinkedService** för **Linked service** (Länkad tjänst). Du väljer inte en tabell här. Kopieringsaktivitet i pipelinen använder en SQL-fråga till att läsa in data, snarare än att läsa in hela tabellen.
 
@@ -346,19 +346,19 @@ I det här steget skapar du datauppsättningar som representerar datakällan, da
 
 
 ### <a name="create-a-sink-dataset"></a>Skapa en källdatauppsättning
-1. I den vänstra rutan klickar du på **+ (plus)** och sedan på **Datauppsättning** .
+1. I den vänstra rutan klickar du på **+ (plus)** och sedan på **Datauppsättning**.
 
-1. I fönstret **ny data uppsättning** väljer du **Azure SQL Database** och klickar på **Fortsätt** . 
+1. I fönstret **ny data uppsättning** väljer du **Azure SQL Database** och klickar på **Fortsätt**. 
 
-1. Du ser en ny flik öppnas i webbläsaren för att konfigurera datauppsättningen. Du ser också en data uppsättning i trädvyn. Längst ned på fliken **Allmänt** i fönstret Egenskaper skriver du **SinkDataset** som **namn** .
+1. Du ser en ny flik öppnas i webbläsaren för att konfigurera datauppsättningen. Du ser också en data uppsättning i trädvyn. Längst ned på fliken **Allmänt** i fönstret Egenskaper skriver du **SinkDataset** som **namn**.
 
 1. Växla till fliken **Parameters** (Parametrar) i fönstret Egenskaper och utför följande steg: 
 
-    1. Klicka på **+ Ny** i avsnittet för att **skapa/uppdatera parametrar** . 
-    1. Ange **SinkTableName** som **namn** , och **String** som **typ** . Den här datauppsättningen tar **SinkTableName** som en parameter. Parametern SinkTableName anges dynamiskt vid körning av pipelinen. ForEach-aktiviteten i pipelinen upprepas över en lista med tabellnamn och skickar tabellnamnet till datamängden i varje iteration.
+    1. Klicka på **+ Ny** i avsnittet för att **skapa/uppdatera parametrar**. 
+    1. Ange **SinkTableName** som **namn** , och **String** som **typ**. Den här datauppsättningen tar **SinkTableName** som en parameter. Parametern SinkTableName anges dynamiskt vid körning av pipelinen. ForEach-aktiviteten i pipelinen upprepas över en lista med tabellnamn och skickar tabellnamnet till datamängden i varje iteration.
    
         ![Mottagardatauppsättning – egenskaper](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png)
-1. Växla till fliken **anslutning** i fönstret Egenskaper och välj **AzureSqlDatabaseLinkedService** för **länkad tjänst** . För egenskapen **Table** (Tabell) klickar du på **Add dynamic content** (Lägg till dynamiskt innehåll).   
+1. Växla till fliken **anslutning** i fönstret Egenskaper och välj **AzureSqlDatabaseLinkedService** för **länkad tjänst**. För egenskapen **Table** (Tabell) klickar du på **Add dynamic content** (Lägg till dynamiskt innehåll).   
     
 1. I fönstret **Lägg till dynamiskt innehåll** väljer du **SinkTableName** i avsnittet **parametrar** . 
  
@@ -369,15 +369,15 @@ I det här steget skapar du datauppsättningar som representerar datakällan, da
 ### <a name="create-a-dataset-for-a-watermark"></a>Skapa en datauppsättning för en vattenstämpel
 I det här steget skapar du en datauppsättning för att lagra ett värde för ett högvattenmärke. 
 
-1. I den vänstra rutan klickar du på **+ (plus)** och sedan på **Datauppsättning** .
+1. I den vänstra rutan klickar du på **+ (plus)** och sedan på **Datauppsättning**.
 
-1. I fönstret **ny data uppsättning** väljer du **Azure SQL Database** och klickar på **Fortsätt** . 
+1. I fönstret **ny data uppsättning** väljer du **Azure SQL Database** och klickar på **Fortsätt**. 
 
-1. Längst ned på fliken **Allmänt** i fönstret Egenskaper skriver du **WatermarkDataset** som **namn** .
+1. Längst ned på fliken **Allmänt** i fönstret Egenskaper skriver du **WatermarkDataset** som **namn**.
 1. Välj fliken **Anslutning** och gör följande: 
 
-    1. Välj **AzureSqlDatabaseLinkedService** som **Länkad tjänst** .
-    1. Välj **[dbo].[watermarktable]** för **Tabell** .
+    1. Välj **AzureSqlDatabaseLinkedService** som **Länkad tjänst**.
+    1. Välj **[dbo].[watermarktable]** för **Tabell**.
 
         ![Vattenmärkesdatauppsättning – anslutning](./media/tutorial-incremental-copy-multiple-tables-portal/watermark-dataset-connection.png)
 
@@ -394,60 +394,60 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. ForEach-aktivit
 
 ### <a name="create-the-pipeline"></a>Skapa pipelinen
 
-1. I den vänstra rutan klickar du på **+ (plus)** och sedan på **Pipeline** .
+1. I den vänstra rutan klickar du på **+ (plus)** och sedan på **Pipeline**.
 
-1. I panelen Allmänt under **Egenskaper** anger du **IncrementalCopyPipeline** som **namn** . Komprimera sedan panelen genom att klicka på egenskaps ikonen i det övre högra hörnet.  
+1. I panelen Allmänt under **Egenskaper** anger du **IncrementalCopyPipeline** som **namn**. Komprimera sedan panelen genom att klicka på egenskaps ikonen i det övre högra hörnet.  
 
 1. Gör så här på fliken **parametrar** : 
 
-    1. Klicka på **+ Ny** . 
-    1. Ange **tableList** som parameterns **namn** . 
-    1. Välj **matris** för parameter **typen** .
+    1. Klicka på **+ Ny**. 
+    1. Ange **tableList** som parameterns **namn**. 
+    1. Välj **matris** för parameter **typen**.
 
-1. I verktygslådan **Aktiviteter** expanderar du **Iteration & Conditions** (Iteration och villkor) och drar och släpper aktiviteten **ForEach** till pipelinedesignytan. På fliken **Allmänt** i fönstret Egenskaper skriver du **IterateSQLTables** som **namn** . 
+1. I verktygslådan **Aktiviteter** expanderar du **Iteration & Conditions** (Iteration och villkor) och drar och släpper aktiviteten **ForEach** till pipelinedesignytan. På fliken **Allmänt** i fönstret Egenskaper skriver du **IterateSQLTables** som **namn**. 
 
-1. Växla till fliken **Inställningar** och ange `@pipeline().parameters.tableList` för **Objekt** . Aktiviteten ForEach upprepas över listan med tabeller och utför följande inkrementella kopieringsåtgärd. 
+1. Växla till fliken **Inställningar** och ange `@pipeline().parameters.tableList` för **Objekt**. Aktiviteten ForEach upprepas över listan med tabeller och utför följande inkrementella kopieringsåtgärd. 
 
     ![Aktiviteten ForEach – inställningar](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-settings.png)
 
 1. Markera aktiviteten **ForEach** i pipelinen om det inte redan är markerat. Klicka på knappen **Redigera (Penn ikonen)** .
 
-1. I verktygslådan **Aktiviteter** expanderar du **Allmänt** och drar och släpper **sökningen** på pipelinedesignytan. Ange **LookupOldWaterMarkActivity** som **Namn** .
+1. I verktygslådan **Aktiviteter** expanderar du **Allmänt** och drar och släpper **sökningen** på pipelinedesignytan. Ange **LookupOldWaterMarkActivity** som **Namn**.
 
 1. Växla till fliken **Settings** (Inställningar) i fönstret **Egenskaper** och utför följande steg: 
 
-    1. Markera **WatermarkDataset** för **Källdatauppsättning** .
-    1. Välj **Fråga** för **Använd fråga** . 
-    1. Ange följande SQL-fråga för **Fråga** . 
+    1. Markera **WatermarkDataset** för **Källdatauppsättning**.
+    1. Välj **Fråga** för **Använd fråga**. 
+    1. Ange följande SQL-fråga för **Fråga**. 
 
         ```sql
         select * from watermarktable where TableName  =  '@{item().TABLE_NAME}'
         ```
 
         ![Första Lookup-aktiviteten – inställningar](./media/tutorial-incremental-copy-multiple-tables-portal/first-lookup-settings.png)
-1. Dra och släpp aktiviteten **Lookup** från verktygslådan **Aktiviteter** och ange **LookupNewWaterMarkActivity** som **namn** .
+1. Dra och släpp aktiviteten **Lookup** från verktygslådan **Aktiviteter** och ange **LookupNewWaterMarkActivity** som **namn**.
         
 1. Växla till fliken **Inställningar** .
 
-    1. Markera **SourceDataset** för **Källdatauppsättning** . 
-    1. Välj **Fråga** för **Använd fråga** .
-    1. Ange följande SQL-fråga för **Fråga** .
+    1. Markera **SourceDataset** för **Källdatauppsättning**. 
+    1. Välj **Fråga** för **Använd fråga**.
+    1. Ange följande SQL-fråga för **Fråga**.
 
         ```sql    
         select MAX(@{item().WaterMark_Column}) as NewWatermarkvalue from @{item().TABLE_NAME}
         ```
     
         ![Andra Lookup-aktiviteten – inställningar](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-settings.png)
-1. Dra och släpp aktiviteten **Copy** (Kopiera) från verktygslådan **Aktiviteter** och ange **IncrementalCopyActivity** som **namn** . 
+1. Dra och släpp aktiviteten **Copy** (Kopiera) från verktygslådan **Aktiviteter** och ange **IncrementalCopyActivity** som **namn**. 
 
-1. Koppla aktiviteterna **Lookup** (Sökning) till aktiviteten **Copy** (Kopiering), en i taget. Koppla genom att börja dra den **gröna** rutan som hör till **Lookup** -aktiviteten och släpp den på **Copy** -aktiviteten. Släpp musknappen när du ser att kantlinjefärgen för kopieringsaktiviteten ändras till **blått** .
+1. Koppla aktiviteterna **Lookup** (Sökning) till aktiviteten **Copy** (Kopiering), en i taget. Koppla genom att börja dra den **gröna** rutan som hör till **Lookup** -aktiviteten och släpp den på **Copy** -aktiviteten. Släpp musknappen när du ser att kantlinjefärgen för kopieringsaktiviteten ändras till **blått**.
 
     ![Koppla sökningsaktiviteter till kopieringsaktivitet](./media/tutorial-incremental-copy-multiple-tables-portal/connect-lookup-to-copy.png)
-1. Markera **Copy** -aktiviteten i pipeline. Växla till fliken **Source** (Käll) i **egenskapsfönstret** . 
+1. Markera **Copy** -aktiviteten i pipeline. Växla till fliken **Source** (Käll) i **egenskapsfönstret**. 
 
-    1. Markera **SourceDataset** för **Källdatauppsättning** . 
-    1. Välj **Fråga** för **Använd fråga** . 
-    1. Ange följande SQL-fråga för **Fråga** .
+    1. Markera **SourceDataset** för **Källdatauppsättning**. 
+    1. Välj **Fråga** för **Använd fråga**. 
+    1. Ange följande SQL-fråga för **Fråga**.
 
         ```sql
         select * from @{item().TABLE_NAME} where @{item().WaterMark_Column} > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and @{item().WaterMark_Column} <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'        
@@ -464,17 +464,17 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. ForEach-aktivit
     1. För **tabell typ parameter namn** anger du `@{item().TABLE_NAME}` .
 
         ![Kopieringsaktiviteten – parametrar](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
-1. Dra och släpp aktiviteten **Lagrad procedur** från verktygslådan **Aktiviteter** till pipelinedesignytan. Koppla aktiviteten **Copy** (Kopiera) till aktiviteten **Lagrad procedur** . 
+1. Dra och släpp aktiviteten **Lagrad procedur** från verktygslådan **Aktiviteter** till pipelinedesignytan. Koppla aktiviteten **Copy** (Kopiera) till aktiviteten **Lagrad procedur**. 
 
-1. Välj aktiviteten **Lagrad procedur** i pipelinen och ange **StoredProceduretoWriteWatermarkActivity** för **namn** på fliken **Allmänt** i fönstret **Egenskaper** . 
+1. Välj aktiviteten **Lagrad procedur** i pipelinen och ange **StoredProceduretoWriteWatermarkActivity** för **namn** på fliken **Allmänt** i fönstret **Egenskaper**. 
 
-1. Växla till fliken **SQL-konto** och välj **AzureSqlDatabaseLinkedService** för **länkad tjänst** .
+1. Växla till fliken **SQL-konto** och välj **AzureSqlDatabaseLinkedService** för **länkad tjänst**.
 
     ![Lagrad proceduraktivitet – SQL-konto](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
 1. Växla till fliken **Lagrad procedur** och gör följande:
 
     1. Som **Namn på lagrad procedur** väljer du `[dbo].[usp_write_watermark]`. 
-    1. Välj **Importera parameter** . 
+    1. Välj **Importera parameter**. 
     1. Ange följande värden för parametrarna: 
 
         | Namn | Typ | Värde | 
@@ -485,14 +485,14 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. ForEach-aktivit
         ![Lagrad proceduraktivitet – inställningar för lagrad procedur](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
 1. Välj **publicera alla** för att publicera de entiteter som du skapade i Data Factory-tjänsten. 
 
-1. Vänta tills du ser meddelandet om att entiteterna **har publicerats** . Klicka på länken **Visa meddelanden** om du vill se dem. Stäng meddelandefönstret genom att klicka på **X** .
+1. Vänta tills du ser meddelandet om att entiteterna **har publicerats**. Klicka på länken **Visa meddelanden** om du vill se dem. Stäng meddelandefönstret genom att klicka på **X**.
 
  
 ## <a name="run-the-pipeline"></a>Köra en pipeline
 
-1. I verktygsfältet för pipelinen klickar du på **Lägg till utlösare** och klickar sedan på **Utlös nu** .     
+1. I verktygsfältet för pipelinen klickar du på **Lägg till utlösare** och klickar sedan på **Utlös nu**.     
 
-1. I fönstret **Pipelinekörning** anger du följande värde för parametern **tableList** . Klicka på **Slutför** . 
+1. I fönstret **Pipelinekörning** anger du följande värde för parametern **tableList**. Klicka på **Slutför**. 
 
     ```
     [
@@ -515,7 +515,7 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. ForEach-aktivit
 
 ## <a name="monitor-the-pipeline"></a>Övervaka pipeline
 
-1. Växla till fliken **Övervaka** till vänster. Du kan se den pipelinekörning som utlöstes av den **manuella utlösaren** . Du kan använda länkar i kolumnen **pipeline-namn** om du vill visa aktivitets information och köra pipelinen igen.
+1. Växla till fliken **Övervaka** till vänster. Du kan se den pipelinekörning som utlöstes av den **manuella utlösaren**. Du kan använda länkar i kolumnen **pipeline-namn** om du vill visa aktivitets information och köra pipelinen igen.
 
 1. Om du vill se aktivitets körningar som är associerade med pipeline-körningen väljer du länken i kolumnen **pipeline-namn** . Om du vill ha mer information om aktivitets körningarna väljer du länken **information** (glasögon ikonen) under kolumnen **aktivitets namn** . 
 
@@ -593,8 +593,8 @@ VALUES
 
 ## <a name="rerun-the-pipeline"></a>Kör pipelinen igen
 1. Växla till fliken **Redigera** till vänster i webbläsarfönstret. 
-1. I verktygsfältet för pipelinen klickar du på **Lägg till utlösare** och klickar sedan på **Utlös nu** .   
-1. I fönstret **Pipelinekörning** anger du följande värde för parametern **tableList** . Klicka på **Slutför** . 
+1. I verktygsfältet för pipelinen klickar du på **Lägg till utlösare** och klickar sedan på **Utlös nu**.   
+1. I fönstret **Pipelinekörning** anger du följande värde för parametern **tableList**. Klicka på **Slutför**. 
 
     ```
     [
@@ -615,7 +615,7 @@ VALUES
 
 ## <a name="monitor-the-pipeline-again"></a>Övervaka pipelinen igen
 
-1. Växla till fliken **Övervaka** till vänster. Du kan se den pipelinekörning som utlöstes av den **manuella utlösaren** . Du kan använda länkar i kolumnen **pipeline-namn** om du vill visa aktivitets information och köra pipelinen igen.
+1. Växla till fliken **Övervaka** till vänster. Du kan se den pipelinekörning som utlöstes av den **manuella utlösaren**. Du kan använda länkar i kolumnen **pipeline-namn** om du vill visa aktivitets information och köra pipelinen igen.
 
 1. Om du vill se aktivitets körningar som är associerade med pipeline-körningen väljer du länken i kolumnen **pipeline-namn** . Om du vill ha mer information om aktivitets körningarna väljer du länken **information** (glasögon ikonen) under kolumnen **aktivitets namn** . 
 

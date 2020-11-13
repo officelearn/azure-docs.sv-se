@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Data kryptering – på-rest | Microsoft Docs
-description: Den här artikeln innehåller en översikt över Microsoft Azure Data kryptering i vila, de övergripande funktionerna och allmänna överväganden.
+title: Azure Data Encryption – at-rest – Azure-säkerhet
+description: Den här artikeln innehåller en översikt över Azure Data Encryption, de övergripande funktionerna och allmänna överväganden.
 services: security
 documentationcenter: na
 author: msmbaldwin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: dafc55656be2d8ef2c0f52d633c7db7eeee83534
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: c9a68661a89f53c5aa27bdd046b5bc09a47db400
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412790"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556632"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure-datakryptering i vila
 
@@ -128,7 +128,7 @@ Alla Azure Storage tjänster (Blob Storage, Queue Storage, Table Storage och Azu
 
 Azure SQL Database stöder för närvarande kryptering i vila för Microsoft-hanterad tjänst sida och krypterings scenarier på klient sidan.
 
-Stöd för server kryptering tillhandahålls för närvarande genom SQL-funktionen som kallas transparent datakryptering. När en Azure SQL Database-kund aktiverar TDE-nyckeln skapas och hanteras automatiskt. Kryptering i vila kan aktive ras på databas-och server nivå. Från och med juni 2017 är [Transparent datakryptering (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) aktiverat som standard på nyligen skapade databaser. Azure SQL Database stöder RSA 2048-bitars Kundhanterade nycklar i Azure Key Vault. Mer information finns i [Transparent datakryptering med Bring Your Own Key stöd för Azure SQL Database och informations lager](/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql?view=azuresqldb-current).
+Stöd för server kryptering tillhandahålls för närvarande genom SQL-funktionen som kallas transparent datakryptering. När en Azure SQL Database-kund aktiverar TDE-nyckeln skapas och hanteras automatiskt. Kryptering i vila kan aktive ras på databas-och server nivå. Från och med juni 2017 är [Transparent datakryptering (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) aktiverat som standard på nyligen skapade databaser. Azure SQL Database stöder RSA 2048-bitars Kundhanterade nycklar i Azure Key Vault. Mer information finns i [Transparent datakryptering med Bring Your Own Key stöd för Azure SQL Database och informations lager](/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql).
 
 Kryptering på klient sidan av Azure SQL Database data stöds via funktionen [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) . Always Encrypted använder en nyckel som skapas och lagras av klienten. Kunder kan lagra huvud nyckeln i ett Windows-certifikat Arkiv, Azure Key Vault eller en lokal säkerhetsmodul för maskin vara. Med hjälp av SQL Server Management Studio väljer SQL-användare vilken nyckel de vill använda för att kryptera vilken kolumn som helst.
 
@@ -140,3 +140,4 @@ Skydd av kund information som lagras i Azure-tjänster är av största vikt för
 
 - Se [data krypterings modeller](encryption-models.md) för att lära dig mer om tjänst hanterade nycklar och Kundhanterade nycklar.
 - Lär dig hur Azure använder [Double Encryption](double-encryption.md) för att minimera hot som kommer att kryptera data.
+- Lär dig vad Microsoft gör för att säkerställa [plattforms integriteten och säkerheten](platform.md) för värdar som går igenom maskin varan och bygga upp, integrera, driftsättning och reparera pipeliner.

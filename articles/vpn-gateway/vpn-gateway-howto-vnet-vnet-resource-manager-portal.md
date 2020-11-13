@@ -7,18 +7,18 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/19/2020
 ms.author: cherylmc
-ms.openlocfilehash: e8323c5a290ee2a78e2a3a131d50883d5f8c5a28
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 723d93b9a5e986501278bdee35835cfa0c234711
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "92330996"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555868"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Konfigurera en VPN-gatewayanslutning mellan virtuella nätverk med hjälp av Azure-portalen
 
 Den här artikeln hjälper dig ansluta virtuella nätverk via VNet-till-VNet-anslutningstypen. Virtuella nätverk kan finnas i olika regioner och i samma eller olika prenumerationer. När du ansluter virtuella nätverk från olika prenumerationer, behöver inte prenumerationerna vara associerade med samma Active Directory-klient. 
 
-![v2v-diagram](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
+:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet-vnet-diagram.png" alt-text="VNet till VNet-diagram":::
 
 Anvisningarna i den här artikeln gäller för Azure Resource Manager-distributionsmodellen och användning av Azure-portalen. Du kan skapa konfigurationen med ett annat distributionsverktyg eller en annan distributionsmodell med hjälp av alternativen som beskrivs i följande artiklar:
 
@@ -65,7 +65,7 @@ Du kan vilja ansluta virtuella nätverk med en anslutning mellan virtuella nätv
 
 VNet-till-VNet-kommunikation kan kombineras med konfigurationer för flera platser. Med de här konfigurationerna kan du etablera nätverkstopologier som kombinerar anslutningar mellan olika anläggningar med virtuell nätverksanslutning enligt följande diagram:
 
-![Om anslutningar](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "Om anslutningar")
+:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections-diagram.png" alt-text="Diagram över VNet-anslutningar":::
 
 Den här artikeln visar hur du ansluter virtuella nätverk via VNet-till-VNet-anslutningstypen. När du följer dessa steg som en övning kan du använda följande exempel på inställningsvärden. I det här exemplet är de virtuella nätverken i samma prenumeration, men i olika resursgrupper. Observera att du inte skapar anslutningen i portalen om dina virtuella nätverk finns i olika prenumerationer. Använd [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) eller [CLI](vpn-gateway-howto-vnet-vnet-cli.md) istället. Mer information om anslutningar mellan virtuella nätverk finns i [Vanliga frågor om VNet-till-VNet](#vnet-to-vnet-faq).
 
@@ -87,8 +87,8 @@ Den här artikeln visar hur du ansluter virtuella nätverk via VNet-till-VNet-an
   * **Namn** : VNet1GW
   * **Resurs grupp** : USA, östra
   * **Generation** : generation 1
-  * **Gatewaytyp** : välj **VPN** .
-  * **VPN-typ** : Välj **Route * based** .
+  * **Gatewaytyp** : välj **VPN**.
+  * **VPN-typ** : Välj **Route * based**.
   * **SKU** : VpnGw1
   * **Virtuellt nätverk** : VNet1
   * **Adress intervall för Gateway-under nätet** : 10.1.255.0/27
@@ -115,8 +115,8 @@ Den här artikeln visar hur du ansluter virtuella nätverk via VNet-till-VNet-an
   * **Namn** : VNet4GW
   * **Resurs grupp** : västra USA
   * **Generation** : generation 1
-  * **Gatewaytyp** : välj **VPN** .
-  * **VPN-typ** : Välj **Route-based** .
+  * **Gatewaytyp** : välj **VPN**.
+  * **VPN-typ** : Välj **Route-based**.
   * **SKU** : VpnGw1
   * **Virtuellt nätverk** : VNet4
   * **Adress intervall för Gateway-under nätet** : 10.41.255.0/27
@@ -157,25 +157,25 @@ När du har konfigurerat VNet1 skapar du VNet4 och VNet4 Gateway genom att uppre
 
 När de virtuella Nätverksgatewayen för både VNet1 och VNet4 har slutförts kan du skapa dina anslutningar för virtuella nätverksgateway. I det här avsnittet skapar du en anslutning från VNet1 till VNet4. De här stegen fungerar endast för olika VNet i samma prenumeration. Om dina VNet finns i olika prenumerationer, måste du använda [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) för att ansluta. Om dina VNets är i olika resursgrupper i samma prenumeration kan du emellertid ansluta dem med hjälp av portalen.
 
-1. På Azure-portalen väljer du **Alla resurser** , anger *virtuell nätverksgateway* i sökrutan och går sedan till den virtuella nätverksgatewayen för ditt virtuella nätverk. Till exempel **VNet1GW** . Välj gatewayen för att öppna sidan för den **virtuella Nätverksgatewayen** .
-1. På sidan Gateway går du till **Inställningar->anslutningar** . Välj sedan **+ Lägg till** .
+1. På Azure-portalen väljer du **Alla resurser** , anger *virtuell nätverksgateway* i sökrutan och går sedan till den virtuella nätverksgatewayen för ditt virtuella nätverk. Till exempel **VNet1GW**. Välj gatewayen för att öppna sidan för den **virtuella Nätverksgatewayen** .
+1. På sidan Gateway går du till **Inställningar->anslutningar**. Välj sedan **+ Lägg till**.
 
    :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections.png" alt-text="Sidan anslutningar":::
 1. Sidan **Lägg till anslutning** öppnas.
 
-   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet1-vnet4.png" alt-text="Sidan anslutningar":::
+   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet1-vnet4.png" alt-text="Lägg till anslutning":::
 
    Fyll i värdena för anslutningen på sidan **Lägg till anslutning** :
 
-   * **Namn** : Ange ett namn för anslutningen. Till exempel *VNet1toVNet4* .
+   * **Namn** : Ange ett namn för anslutningen. Till exempel *VNet1toVNet4*.
 
    * **Anslutnings typ** : Välj **VNet-till-VNet** från List rutan.
 
    * **Första virtuella Nätverksgatewayen** : det här fältvärdet fylls i automatiskt eftersom du skapar den här anslutningen från den angivna virtuella Nätverksgatewayen.
 
-   * **Andra virtuella** nätverksgateway: det här fältet är den virtuella Nätverksgatewayen för det virtuella nätverk som du vill skapa en anslutning till. Markera **Välj en annan virtuell nätverksgateway** för att öppna sidan **Välj en virtuell nätverksgateway** .
+   * **Andra virtuella** nätverksgateway: det här fältet är den virtuella Nätverksgatewayen för det virtuella nätverk som du vill skapa en anslutning till. Markera **Välj en annan virtuell nätverksgateway** för att öppna sidan **Välj en virtuell nätverksgateway**.
 
-      :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/choose.png" alt-text="Sidan anslutningar":::
+      :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/choose.png" alt-text="Välja en gateway":::
 
      * Visa de virtuella nätverksgatewayer som anges på den här sidan. Observera att endast virtuella nätverksgatewayer som ingår i din prenumeration visas. Om du vill ansluta till en virtuell nätverksgateway som inte ingår i din prenumeration kan du använda [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
 
@@ -191,16 +191,16 @@ Skapa sedan en anslutning från VNet4 till VNet1. Leta upp den virtuella nätver
 ## <a name="verify-your-connections"></a>Verifiera dina anslutningar
 
 1. Leta rätt på den virtuella nätverksgatewayen på Azure-portalen. 
-1. På sidan för den **virtuella nätverksgatewayen** väljer du **Anslutningar** för att visa **anslutningssidan** för den virtuella nätverksgatewayen. När anslutningen har upprättats visas **status** värden till **ansluten** .
+1. På sidan för den **virtuella nätverksgatewayen** väljer du **Anslutningar** för att visa **anslutningssidan** för den virtuella nätverksgatewayen. När anslutningen har upprättats visas **status** värden till **ansluten**.
 
-   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/view-connections.png" alt-text="Sidan anslutningar":::
-1. Under kolumnen **namn** väljer du en av anslutningarna för att visa mer information. När data börjar flöda ser du värdena för **Data in** och **Data ut** .
+   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/view-connections.png" alt-text="Verifiera anslutningar":::
+1. Under kolumnen **namn** väljer du en av anslutningarna för att visa mer information. När data börjar flöda ser du värdena för **Data in** och **Data ut**.
 
-   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/status.png" alt-text="Sidan anslutningar":::
+   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/status.png" alt-text="Skärm bild som visar en resurs grupp med värden för data in och data ut":::
 
 ## <a name="add-additional-connections"></a>Lägga till ytterligare anslutningar
 
-Om du vill lägga till ytterligare anslutningar går du till den virtuella nätverksgatewayen som du vill skapa anslutningen från och väljer **Anslutningar** . Du kan skapa ytterligare en VNet-till-VNet-anslutning, eller skapa en IPsec Plats-till-plats-anslutning till en lokal plats. Se till att justera **Anslutningstyp** så att den överensstämmer med den anslutningstyp du vill skapa. Innan du skapar fler anslutningar bör du kontrollera att adressutrymmet för ditt virtuella nätverk inte överlappar med något av de andra adressutrymmena du vill ansluta till. Instruktioner om att skapa en Plats-till-plats-anslutning finns i [Skapa en plats-till-plats-anslutning](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Om du vill lägga till ytterligare anslutningar går du till den virtuella nätverksgatewayen som du vill skapa anslutningen från och väljer **Anslutningar**. Du kan skapa ytterligare en VNet-till-VNet-anslutning, eller skapa en IPsec Plats-till-plats-anslutning till en lokal plats. Se till att justera **Anslutningstyp** så att den överensstämmer med den anslutningstyp du vill skapa. Innan du skapar fler anslutningar bör du kontrollera att adressutrymmet för ditt virtuella nätverk inte överlappar med något av de andra adressutrymmena du vill ansluta till. Instruktioner om att skapa en Plats-till-plats-anslutning finns i [Skapa en plats-till-plats-anslutning](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
 ## <a name="vnet-to-vnet-faq"></a>Vanliga frågor och svar om VNet-till-VNet
 

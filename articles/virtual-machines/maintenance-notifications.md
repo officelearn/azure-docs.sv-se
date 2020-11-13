@@ -7,18 +7,18 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 8/12/2020
 ms.author: shants
-ms.openlocfilehash: 14c7c3deb60c50fe71cf52959e342a3dcf2afc94
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 53cde1178a4faae0fbd11222e4219f70be29145d
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151554"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560816"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>Hantera meddelanden om planerat underhåll
 
 Azure utför med jämna mellanrum uppdateringar för att förbättra värdinfrastrukturens tillförlitlighet, prestanda och säkerhet för virtuella datorer. Uppdateringar är ändringar som att korrigera värd miljön eller uppgradera och inaktivera maskin vara. En majoritet av dessa uppdateringar slutförs utan att det påverkar de virtuella datorer som är värdar. Det finns dock fall där uppdateringar påverkar:
 
-- Om underhållet inte kräver en omstart använder Azure migrering på plats för att pausa den virtuella datorn medan värden uppdateras. De här typerna av underhålls åtgärder tillämpas på fel domän av fel domän. Förloppet stoppas om eventuella varnings hälso signaler tas emot.
+- Om underhållet inte kräver en omstart pausar Azure den virtuella datorn i några sekunder medan värden uppdateras. De här typerna av underhålls åtgärder tillämpas på fel domän av fel domän. Förloppet stoppas om eventuella varnings hälso signaler tas emot.
 
 - Om underhåll kräver en omstart får du ett meddelande om när underhållet planeras. Du får ett tidsfönster på cirka 35 dagar där du kan starta underhållet själv när det passar dig.
 
@@ -80,7 +80,7 @@ Mer information om hög tillgänglighet finns i [tillgänglighet för virtuella 
 
 **F: Hur gör jag för att få ett meddelande om planerat underhåll?**
 
-**A:** En planerad underhålls våg börjar genom att ange ett schema för en eller flera Azure-regioner. Strax efter skickas ett e-postmeddelande till prenumerations administratören och medadministratörerna (ett e-postmeddelande per prenumeration). Ytterligare kanaler och mottagare för det här meddelandet kan konfigureras med aktivitets logg aviseringar. Om du distribuerar en virtuell dator till en region där planerat underhåll redan har schemalagts, får du inte meddelandet, utan du behöver kontrol lera underhålls statusen för den virtuella datorn.
+**A:** En planerad underhålls våg börjar genom att ange ett schema för en eller flera Azure-regioner. Strax efter skickas ett e-postmeddelande till prenumerations administratörerna, medadministratörer, ägare och deltagare (ett e-postmeddelande per prenumeration). Ytterligare kanaler och mottagare för det här meddelandet kan konfigureras med aktivitets logg aviseringar. Om du distribuerar en virtuell dator till en region där planerat underhåll redan har schemalagts, får du inte meddelandet, utan du behöver kontrol lera underhålls statusen för den virtuella datorn.
 
 **F: Jag ser inga uppgifter om planerat underhåll i portalen, PowerShell eller CLI. Vad är fel?**
 

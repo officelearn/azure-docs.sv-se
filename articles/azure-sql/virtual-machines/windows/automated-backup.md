@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 7a7d96c13b47bee9c092be926dc54555979e6c6f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 78b422cd41f4cea72b74257fe70c09471e9d2d5b
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790125"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556592"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Automatisk säkerhets kopiering v2 för Azure Virtual Machines (Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -48,7 +48,7 @@ Om du vill använda automatisk säkerhets kopiering v2 granskar du följande kra
 **Databas konfiguration** :
 
 - Mål _användar_ databaser måste använda den fullständiga återställnings modellen. System databaser behöver inte använda den fullständiga återställnings modellen. Om du kräver att logg säkerhets kopior ska vidtas för modellen eller MSDB måste du dock använda den fullständiga återställnings modellen. Mer information om effekten av den fullständiga återställnings modellen för säkerhets kopieringar finns i [säkerhets kopiering under den fullständiga återställnings modellen](/previous-versions/sql/sql-server-2008-r2/ms190217(v=sql.105)). 
-- SQL Server VM har registrerats med resurs leverantören för SQL-VM i [fullständigt hanterings läge](sql-vm-resource-provider-register.md#upgrade-to-full). 
+- SQL Server VM har registrerats med SQL IaaS agent-tillägget i [fullständigt hanterings läge](sql-agent-extension-manually-register-single-vm.md#upgrade-to-full). 
 -  Automatisk säkerhets kopiering förlitar sig på det fullständiga [SQL Server IaaS agent-tillägget](sql-server-iaas-agent-extension-automate-management.md). Automatiserad säkerhets kopiering stöds därför bara för mål databaser från standard instansen eller en namngiven instans. Om det inte finns någon standard instans och flera namngivna instanser, Miss lyckas SQL IaaS-tillägget och den automatiserade säkerhets kopieringen kommer inte att fungera. 
 
 ## <a name="settings"></a>Inställningar
@@ -117,7 +117,7 @@ Sedan, på tisdag vid 10 i 6 timmar, startar fullständiga säkerhets kopieringa
 
 Använd Azure Portal för att konfigurera automatisk säkerhets kopiering v2 När du skapar en ny SQL Server 2016-eller 2017-virtuell dator i distributions modellen för Resource Manager.
 
-På fliken **SQL Server inställningar** väljer du **Aktivera** under **Automatisk säkerhets kopiering** . Följande Azure Portal skärm bild visar inställningarna för **Automatisk säkerhets kopiering i SQL** .
+På fliken **SQL Server inställningar** väljer du **Aktivera** under **Automatisk säkerhets kopiering**. Följande Azure Portal skärm bild visar inställningarna för **Automatisk säkerhets kopiering i SQL** .
 
 ![Konfiguration av automatisk säkerhets kopiering i SQL i Azure Portal](./media/automated-backup/automated-backup-blade.png)
 

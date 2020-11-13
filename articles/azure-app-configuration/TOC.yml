@@ -106,8 +106,10 @@
           href: concept-disaster-recovery.md
 - name: Anvisningar
   items:
-    - name: Aktivera en funktion för en delmängd av användarna
+    - name: Aktivera en funktion för en procentandel av användarna
       href: howto-feature-filters-aspnet-core.md
+    - name: Aktivera en funktion för specificerade användare/grupper
+      href: howto-targetingfilter-aspnet-core.md
     - name: Använda etiketter för konfiguration per miljö
       href: howto-labels-aspnet-core.md
     - name: Importera eller exportera konfigurationsdata

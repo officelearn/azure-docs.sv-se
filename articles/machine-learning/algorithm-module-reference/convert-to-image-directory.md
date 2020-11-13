@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/09/2020
-ms.openlocfilehash: 8abcbc74506599e7896ad6d41b9444e946172283
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/12/2020
+ms.openlocfilehash: 1489ce74da2ecff5212feb5a1a2e3c9151b73424
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324904"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555591"
 ---
 # <a name="convert-to-image-directory"></a>Konvertera till bildkatalog
 
@@ -47,7 +47,8 @@ Den här artikeln beskriver hur du använder modulen konvertera till avbildnings
     
     ![Exempel data uppsättning för bild](./media/module/image-sample-dataset.png)
 
-    För poängsättning behöver bild data uppsättnings mappen bara innehålla oklassificerade avbildningar.
+    > [!NOTE]
+    > För att kunna bli mer nödvändigt behöver mappen för avbildnings data uppsättning bara innehålla oklassificerade avbildningar.
 
 1. [Registrera avbildnings data uppsättningen som en fil data uppsättning](../how-to-create-register-datasets.md) i din arbets yta, eftersom indata från Convert to image Directory-modulen måste vara en **fil data uppsättning**.
 

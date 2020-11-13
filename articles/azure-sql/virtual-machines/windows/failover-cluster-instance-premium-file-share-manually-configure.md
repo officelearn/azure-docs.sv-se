@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 1994cda9dbf22a81216408ee07d51f635e89cff4
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 56509bfcd267a590946eb750bd74ce1f67aecc00
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285269"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556411"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Skapa en FCI med en Premium-filresurs (SQL Server på virtuella Azure-datorer)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,7 +29,7 @@ Premium-filresurser är Lagringsdirigering (SSD)-backade, konsekventa fil resurs
 
 Mer information finns i Översikt över [FCI med SQL Server på Azure VM](failover-cluster-instance-overview.md) och [kluster metod tips](hadr-cluster-best-practices.md). 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du slutför instruktionerna i den här artikeln bör du redan ha:
 
@@ -41,7 +41,7 @@ Innan du slutför instruktionerna i den här artikeln bör du redan ha:
 
 ## <a name="mount-premium-file-share"></a>Montera Premium-filresurs
 
-1. Logga in på [Azure Portal](https://portal.azure.com). och gå till ditt lagrings konto.
+1. Logga in på [Azure-portalen](https://portal.azure.com). och gå till ditt lagrings konto.
 1. Gå till **fil resurser** under **fil tjänst** och välj sedan den Premium-filresurs som du vill använda för din SQL-lagring.
 1. Välj **Anslut** för att ta fram anslutnings strängen för din fil resurs.
 1. I list rutan väljer du den enhets beteckning som du vill använda och kopierar sedan båda kod blocken till anteckningar.
@@ -189,7 +189,7 @@ När du har konfigurerat klustret för växling vid fel kan du skapa SQL Server 
 
 ## <a name="register-with-the-sql-vm-rp"></a>Registrera dig för SQL VM RP
 
-Om du vill hantera din SQL Server VM från portalen registrerar du den med SQL VM Resource Provider (RP) i [läget för förenklad hantering](sql-vm-resource-provider-register.md#lightweight-management-mode), för närvarande det enda läge som stöds med FCI och SQL Server på virtuella Azure-datorer. 
+Om du vill hantera din SQL Server VM från portalen registrerar du den med SQL IaaS agent Extension (RP) i [läget för förenklad hantering](sql-agent-extension-manually-register-single-vm.md#lightweight-management-mode), för närvarande det enda läge som stöds med FCI och SQL Server på virtuella Azure-datorer. 
 
 Registrera en SQL Server VM i Lightweight-läge med PowerShell (-LicenseType kan vara `PAYG` eller `AHUB` ):
 
@@ -210,7 +210,7 @@ Om du vill dirigera trafiken korrekt till den aktuella primära noden konfigurer
 
 - Microsoft koordinator för distribuerad transaktion (MSDTC) stöds inte på Windows Server 2016 och tidigare. 
 - FILESTREAM stöds inte för ett redundanskluster med en Premium-filresurs. Om du vill använda FILESTREAM distribuerar du klustret med hjälp av [Lagringsdirigering](failover-cluster-instance-storage-spaces-direct-manually-configure.md) eller [Azure delade diskar](failover-cluster-instance-azure-shared-disks-manually-configure.md) i stället.
-- Det finns bara stöd för registrering med den virtuella SQL-resurs leverantören i [läget för förenklad hantering](sql-server-iaas-agent-extension-automate-management.md#management-modes) . 
+- Det finns bara stöd för registrering med SQL IaaS agent extension i [läget för förenklad hantering](sql-server-iaas-agent-extension-automate-management.md#management-modes) . 
 
 ## <a name="next-steps"></a>Nästa steg
 

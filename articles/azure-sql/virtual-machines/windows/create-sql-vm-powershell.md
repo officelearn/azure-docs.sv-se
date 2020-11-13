@@ -15,12 +15,12 @@ ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6bf17f85892691fe930d3d4b1e12846da8f9dc58
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c49f8b2732a1b62760cec69626d56751971e6a44
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789819"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556445"
 ---
 # <a name="how-to-use-azure-powershell-to-provision-sql-server-on-azure-virtual-machines"></a>Använda Azure PowerShell för att etablera SQL Server på Azure Virtual Machines
 
@@ -28,13 +28,13 @@ ms.locfileid: "92789819"
 
 Den här guiden beskriver alternativ för att använda PowerShell för att etablera SQL Server på Azure Virtual Machines (VM). Ett strömlinjeformat Azure PowerShell exempel som förlitar sig på standardvärden finns i snabb starten för [SQL VM Azure PowerShell](sql-vm-create-powershell-quickstart.md).
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
 ## <a name="configure-your-subscription"></a>Konfigurera din prenumeration
 
-1. Öppna PowerShell och upprätta åtkomst till ditt Azure-konto genom att köra kommandot **Connect-AzAccount** .
+1. Öppna PowerShell och upprätta åtkomst till ditt Azure-konto genom att köra kommandot **Connect-AzAccount**.
 
    ```powershell
    Connect-AzAccount
@@ -367,12 +367,17 @@ Den virtuella datorn skapas.
 
 ## <a name="install-the-sql-iaas-agent"></a>Installera SQL Iaas-agenten
 
-SQL Server virtuella datorer stöder automatiserade hanterings funktioner med [SQL Server IaaS agent-tillägget](sql-server-iaas-agent-extension-automate-management.md). Om du vill installera agenten på den nya virtuella datorn och registrera den med resurs leverantören kör du kommandot [New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm) när den virtuella datorn har skapats. Ange licens typ för din SQL Server VM, välja mellan antingen betala per användning eller hämta egen licens via [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/). Mer information om licensiering finns i [licensierings modell](licensing-model-azure-hybrid-benefit-ahb-change.md). 
+SQL Server virtuella datorer stöder automatiserade hanterings funktioner med [SQL Server IaaS agent-tillägget](sql-server-iaas-agent-extension-automate-management.md). För att registrera SQL Server med tillägget kör kommandot [New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm) när den virtuella datorn har skapats. Ange licens typ för din SQL Server VM, välja mellan antingen betala per användning eller hämta egen licens via [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/). Mer information om licensiering finns i [licensierings modell](licensing-model-azure-hybrid-benefit-ahb-change.md). 
 
 
    ```powershell
    New-AzSqlVM -ResourceGroupName $ResourceGroupName -Name $VMName -Location $Location -LicenseType <PAYG/AHUB> 
    ```
+
+Det finns tre sätt att registrera med tillägget: 
+- [Automatiskt för alla aktuella och framtida virtuella datorer i en prenumeration](sql-agent-extension-automatic-registration-all-vms.md)
+- [Manuellt för en enskild virtuell dator](sql-agent-extension-manually-register-single-vm.md)
+- [Manuellt för flera virtuella datorer i grupp](sql-agent-extension-manually-register-vms-bulk.md)
 
 
 ## <a name="stop-or-remove-a-vm"></a>Stoppa eller ta bort en virtuell dator
@@ -383,7 +388,7 @@ Om du inte behöver köra den virtuella SQL-datorn kontinuerligt kan du undvika 
 Stop-AzVM -Name $VMName -ResourceGroupName $ResourceGroupName
 ```
 
-Du kan även permanent ta bort alla resurser som är kopplade till den virtuella datorn med kommandot **Remove-AzResourceGroup** . Det här tar även permanent bort den virtuella datorn, så använd det här kommandot med försiktighet.
+Du kan även permanent ta bort alla resurser som är kopplade till den virtuella datorn med kommandot **Remove-AzResourceGroup**. Det här tar även permanent bort den virtuella datorn, så använd det här kommandot med försiktighet.
 
 ## <a name="example-script"></a>Exempelskript
 

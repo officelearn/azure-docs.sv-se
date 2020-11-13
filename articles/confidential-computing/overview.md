@@ -8,12 +8,12 @@ ms.subservice: workloads
 ms.topic: overview
 ms.date: 09/22/2020
 ms.author: JenCook
-ms.openlocfilehash: 16f45c39a329998f4b4da4ea89315683a0fab790
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 44479db6b29075e87b0d2dcef6f0d9bc1881738c
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90967587"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560833"
 ---
 # <a name="confidential-computing-on-azure"></a>Konfidentiell data behandling i Azure
 
@@ -49,11 +49,11 @@ En TEE är en miljö som tillämpar körning av enbart auktoriserad kod. Alla da
 Att köra arbets belastningar i molnet kräver förtroende. Du ger förtroendet till olika providrar som aktiverar olika komponenter i ditt program.
 
 
-Program **varu leverantörer**: lita på program vara genom att distribuera lokal, med hjälp av öppen källkod eller genom att skapa interna program program.
+Program **varu leverantörer** : lita på program vara genom att distribuera lokal, med hjälp av öppen källkod eller genom att skapa interna program program.
 
-**Maskin varu leverantörer**: betrodd maskin vara genom att använda lokal maskin vara eller intern maskin vara. 
+**Maskin varu leverantörer** : betrodd maskin vara genom att använda lokal maskin vara eller intern maskin vara. 
 
-**Infrastruktur leverantörer**: lita på moln leverantörer eller hantera dina egna lokala data Center.
+**Infrastruktur leverantörer** : lita på moln leverantörer eller hantera dina egna lokala data Center.
 
 
 Med Azures konfidentiella data behandling blir det enklare att lita på moln leverantören genom att minska behovet av förtroende mellan olika aspekter av beräknings molnets infrastruktur. Azures konfidentiella data behandling minimerar förtroende för värd operativ systemets kernel, hypervisor, VM-administratör och värd administratör.
@@ -68,13 +68,13 @@ En lägre TCB innebär högre säkerhet. Det finns mindre risk för exponering f
 
 Med Azures konfidentiella data behandling kan du utnyttja funktioner för konfidentiell användning i en virtualiserad miljö. Nu kan du använda verktyg, program och moln infrastruktur för att bygga ovanpå säker maskin vara.  
 
-**Förhindra obehörig åtkomst**: kör känsliga data i molnet. Lita på att Azure ger bästa möjliga data skydd, med liten till ingen ändring från vad som gjorts idag.
+**Förhindra obehörig åtkomst** : kör känsliga data i molnet. Lita på att Azure ger bästa möjliga data skydd, med liten till ingen ändring från vad som gjorts idag.
 
-**Regelefterlevnad: Migrera**till molnet och behåll fullständig kontroll över data för att uppfylla myndighets bestämmelser för att skydda personlig information och säkra organisations-IP.
+**Regelefterlevnad: Migrera** till molnet och behåll fullständig kontroll över data för att uppfylla myndighets bestämmelser för att skydda personlig information och säkra organisations-IP.
 
-**Säkert och ej betrott samarbete**: ta itu med problem med arbets skala genom att kamma data mellan organisationer, även konkurrenter, för att låsa upp breda data analyser och djupare insikter.
+**Säkert och ej betrott samarbete** : ta itu med problem med arbets skala genom att kamma data mellan organisationer, även konkurrenter, för att låsa upp breda data analyser och djupare insikter.
 
-**Isolerad bearbetning**: erbjud en ny våg med produkter som tar bort ansvar för privata data med blind bearbetning. Användar data kan inte till och med hämtas av tjänst leverantören. 
+**Isolerad bearbetning** : erbjud en ny våg med produkter som tar bort ansvar för privata data med blind bearbetning. Användar data kan inte till och med hämtas av tjänst leverantören. 
 
 ## <a name="get-started"></a>Kom igång
 ### <a name="azure-compute"></a>Azure Compute
@@ -84,7 +84,7 @@ Bygg program ovanpå konfidentiella Compute IaaS-erbjudanden i Azure.
 
 ### <a name="azure-security"></a>Säkerhet i Azure 
 Se till att dina arbets belastningar är säkra genom verifierings metoder och maskin vara-baserad nyckel hantering. 
-- Attestering: [Microsoft Azure attestering (förhands granskning)](https://docs.microsoft.com/azure/attestation/overview)
+- Attestering: [Microsoft Azure attestering (förhands granskning)](../attestation/overview.md)
 - Nyckel hantering: hanterad-HSM (för hands version)
 
 ### <a name="develop"></a>Utveckla
@@ -94,7 +94,7 @@ Börja använda utveckla enklaven-medvetna program och distribuera konfidentiell
 
 ## <a name="next-steps"></a>Nästa steg
 
-Distribuera en virtuell dator med DCsv2-serien och installera OE SDK på den.
+Distribuera en DCsv2-Series virtuell dator och installera OE SDK på den.
 
 > [!div class="nextstepaction"]
 > [Distribuera en konfidentiell data behandlings dator i Azure Marketplace](quick-create-marketplace.md)

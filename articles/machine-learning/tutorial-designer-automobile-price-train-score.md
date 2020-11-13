@@ -1,7 +1,7 @@
 ---
 title: 'Självstudie: förutsäga bil priser med designern'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du tränar, poängs ätter och distribuerar en maskin inlärnings modell med hjälp av ett dra-och-släpp-gränssnitt. Den här självstudien är en del av en serie i två delar om förutsägelse av bil priser med hjälp av linjär regression.
+description: Träna maskin inlärnings modell för att förutsäga bil priser med linjär regression. Den här självstudien är del ett i en serie med två delar.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: d9422cfb9bd8e5539f1a9b43d6fb7b137778f3d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0475e7a7b9bb40e77fe23362ff098350037bdd30
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91404926"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555285"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>Självstudie: förutsäga Automobile-priset med designern
 
@@ -70,7 +70,7 @@ Du kan ange ett **standard beräknings mål** för hela pipelinen, vilket anger 
 
 1. Bredvid pipelinens namn **väljer du** ![ skärm bild av kugg hjuls ikonen längst ](./media/tutorial-designer-automobile-price-train-score/gear-icon.png) upp på arbets ytan för att öppna fönstret **Inställningar** .
 
-1. I fönstret **Inställningar** till höger om arbets ytan väljer du **Välj Compute Target (Välj Compute Target**).
+1. I fönstret **Inställningar** till höger om arbets ytan väljer du **Välj Compute Target (Välj Compute Target** ).
 
     Om du redan har ett tillgängligt beräknings mål kan du välja att köra denna pipeline.
 
@@ -118,7 +118,7 @@ När du tränar en modell måste du göra något om de data som saknas. I den h�
 
 1. Dra modulen **Välj kolumner i data uppsättning** till arbets ytan. Släpp modulen under data uppsättnings modulen.
 
-1. Anslut data uppsättningen för **Automobil pris data (RAW)** till modulen **Välj kolumner i data uppsättning** . Dra från data uppsättningens utgående port, som är den lilla cirkeln längst ned i data uppsättningen på arbets ytan, till Indataporten för **Select-kolumner i data uppsättningen**, som är den lilla cirkeln överst i modulen.
+1. Anslut data uppsättningen för **Automobil pris data (RAW)** till modulen **Välj kolumner i data uppsättning** . Dra från data uppsättningens utgående port, som är den lilla cirkeln längst ned i data uppsättningen på arbets ytan, till Indataporten för **Select-kolumner i data uppsättningen** , som är den lilla cirkeln överst i modulen.
 
     > [!TIP]
     > Du skapar ett data flöde via din pipeline när du ansluter utdataporten för en modul till en annan indataport.
@@ -130,7 +130,7 @@ När du tränar en modell måste du göra något om de data som saknas. I den h�
 
 1. I informations fönstret för moduler till höger om arbets ytan väljer du **Redigera kolumn**.
 
-1. Expandera List rutan med **kolumn namn** bredvid **Inkludera**och markera  **alla kolumner**.
+1. Expandera List rutan med **kolumn namn** bredvid **Inkludera** och markera  **alla kolumner**.
 
 1. Välj **+** för att lägga till en ny regel.
 
@@ -155,7 +155,7 @@ Din data uppsättning har fortfarande värden som saknas efter att du tagit bort
 > [!TIP]
 > Att rensa saknade värden från indata är ett krav för att använda de flesta moduler i designern.
 
-1. I paletten modul till vänster om arbets ytan, expanderar du avsnittet **data omvandling**och letar reda på modulen **Rensa data som saknas** .
+1. I paletten modul till vänster om arbets ytan, expanderar du avsnittet **data omvandling** och letar reda på modulen **Rensa data som saknas** .
 
 1. Dra modulen **Rensa data som saknas** till pipeline-arbetsytan. Anslut den till modulen **Välj kolumner i data uppsättning** . 
 
@@ -210,9 +210,9 @@ Träna modellen genom att ge den en data uppsättning som inkluderar priset. Alg
     
     Med det här alternativet visas flera kategorier av moduler som du kan använda för att initiera Learning-algoritmer.
 
-1. Välj **regression**  >  **linjär regression**och dra den till pipeline-arbetsytan.
+1. Välj **regression**  >  **linjär regression** och dra den till pipeline-arbetsytan.
 
-1. I modulen modul expanderar du **träna modul-modul**och drar modulen **träna modell** till arbets ytan.
+1. I modulen modul expanderar du **träna modul-modul** och drar modulen **träna modell** till arbets ytan.
 
 1. Anslut utdata från modulen **linjär regression** till vänster indata för modulen **träna modell** .
 
@@ -221,7 +221,7 @@ Träna modellen genom att ge den en data uppsättning som inkluderar priset. Alg
     > [!IMPORTANT]
     > Se till att de vänstra Utdataportarna för **delade data** ansluter till **träna modell**. Den vänstra porten innehåller inlärnings uppsättningen. Rätt port innehåller test uppsättningen.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Select-Column":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Skärm bild som visar korrekt konfiguration av modulen träna modell. Modulen linjär regression ansluter till den vänstra porten för modulen träna modell och modulen dela data ansluts till rätt port för träna modell.":::
 
 1. Välj **träningsmodellmodulen**.
 
@@ -236,7 +236,7 @@ Träna modellen genom att ge den en data uppsättning som inkluderar priset. Alg
 
     Din pipeline bör se ut så här:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Select-Column":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Skärm bild som visar korrekt konfiguration av pipelinen efter att du lagt till modulen träna modell.":::
 
 ### <a name="add-the-score-model-module"></a>Lägg till modulen Poäng modell
 
@@ -256,13 +256,13 @@ Använd modulen **utvärdera modell** för att utvärdera hur bra din modell bev
 
     Den sista pipelinen bör se ut ungefär så här:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Select-Column":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Skärm bild som visar korrekt konfiguration av pipelinen.":::
 
 ## <a name="submit-the-pipeline"></a>Skicka pipelinen
 
 Nu när din pipeline är all konfiguration kan du skicka en pipeline-körning för att träna din Machine Learning-modell. Du kan skicka en giltig pipeline-körning när som helst, som kan användas för att granska ändringar i din pipeline under utvecklingen.
 
-1. Välj **Skicka**på arbets ytans överkant.
+1. Välj **Skicka** på arbets ytans överkant.
 
 1. I dialog rutan **Konfigurera pipeline-körning** väljer du **Skapa ny**.
 
@@ -285,7 +285,7 @@ När körningen är klar kan du visa resultatet av pipeline-körningen. Börja m
 
     Här kan du se de förutsagda priser och de faktiska priserna från test data.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Select-Column":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Skärm bild av utmatnings visualiseringen som markerar den markerade etikett kolumnen":::
 
 ### <a name="evaluate-models"></a>Utvärdera modeller
 
@@ -295,11 +295,11 @@ Använd **utvärdera modell** för att se hur väl den tränade modellen utfört
 
 Följande statistik visas för din modell:
 
-* **Medelvärde för absolut fel (Mae)**: medelvärdet av absoluta fel. Ett fel är skillnaden mellan det förväntade värdet och det faktiska värdet.
-* **Rot genomsnitts fel (rmse)**: kvadratroten ur genomsnittet av de förutsägelser som gjorts på test data uppsättningen.
-* **Relativa absoluta fel**: Medelvärdet av absoluta fel i förhållande till den absoluta skillnaden mellan faktiska värden och medelvärdet av alla faktiska värden.
-* **Relativa kvadratfel**: Medelvärdet av kvadratfel i förhållande till kvadratskillnaden mellan faktiska värden och medelvärdet av alla faktiska värden.
-* **Friktionskoefficienten**: även känt som R-kvadratvärdet anger det här statistik måttet hur väl en modell passar data.
+* **Medelvärde för absolut fel (Mae)** : medelvärdet av absoluta fel. Ett fel är skillnaden mellan det förväntade värdet och det faktiska värdet.
+* **Rot genomsnitts fel (rmse)** : kvadratroten ur genomsnittet av de förutsägelser som gjorts på test data uppsättningen.
+* **Relativa absoluta fel** : Medelvärdet av absoluta fel i förhållande till den absoluta skillnaden mellan faktiska värden och medelvärdet av alla faktiska värden.
+* **Relativa kvadratfel** : Medelvärdet av kvadratfel i förhållande till kvadratskillnaden mellan faktiska värden och medelvärdet av alla faktiska värden.
+* **Friktionskoefficienten** : även känt som R-kvadratvärdet anger det här statistik måttet hur väl en modell passar data.
 
 För all felstatistik gäller att mindre är bättre. Ett mindre värde anger att förutsägelserna är närmare de faktiska värdena. För att fastställa koefficienten är det närmare värdet en (1,0), desto bättre förutsägelser.
 

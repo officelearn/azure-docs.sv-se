@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 10/07/2020
-ms.openlocfilehash: f7b96bcebb2106e52c62426ca2b64f9305e09141
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 65d89436486940ad5239dd2c3e83401b82234a21
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94515417"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555472"
 ---
 # <a name="creating-a-synapse-workspace"></a>Skapa en Synapse-arbetsyta
 
@@ -47,14 +47,9 @@ När din Azure Synapse-arbetsyta har skapats kan du öppna Synapse Studio på tv
 ## <a name="create-a-dedicated-sql-pool"></a>Skapa en dedikerad SQL-pool
 
 1. I Synapse Studio väljer du **Hantera**  >  **SQL-pooler** i det vänstra fönstret.
-1. Välj **ny** och ange följande inställningar:
-
-    |Inställning | Föreslaget värde | 
-    |---|---|---|
-    |**SQL-poolnamn**| **SQLDB1**|
-    |**Prestanda nivå**|**DW100C**|
-    |||
-
+1. Välj **nytt**
+1. Välj **SQLDB1** för **SQL-poolnamn**
+1. Välj **DW100C** för **prestanda nivå**
 1. Välj **Granska + skapa** > **Skapa**. Din dedikerade SQL-pool är klar om några minuter. Din dedikerade SQL-pool är kopplad till en dedikerad SQL-adresspool som också kallas **SQLDB1**.
 
 En dedikerad SQL-pool förbrukar fakturerbara resurser så länge den är aktiv. Du kan pausa poolen senare för att minska kostnaderna.
@@ -62,14 +57,10 @@ En dedikerad SQL-pool förbrukar fakturerbara resurser så länge den är aktiv.
 ## <a name="create-a-serverless-apache-spark-pool"></a>Skapa en server lös Apache Spark-pool
 
 1. I Synapse Studio väljer du **Hantera**  >  **Apache Spark pooler** i det vänstra fönstret.
-1. Välj **ny** och ange följande inställningar:
-
-    |Inställning | Föreslaget värde | 
-    |---|---|---|
-    |**Namn på Apache Spark bassäng**|**Spark1**
-    |**Node-storlek**| **Liten**|
-    |**Antal noder**| Ange minst 3 och maximalt 3|
-
+1. Välj **nytt** 
+1. Ange **Spark1** som **namn på Apache Spark pool** .
+1. För **Node-storlek** anger du **liten**.
+1. För **antal noder** ställer du in minst 3 och maximalt 3
 1. Välj **Granska + skapa** > **Skapa**. Apache Spark-poolen är klar efter några sekunder.
 
 När du utför Spark-aktivitet i Azure Synapse anger du en spark-pool som ska användas. Poolen talar om för Azure Synapse hur många Spark-resurser som ska användas. Du betalar bara för de resurser du använder. När du aktivt slutar använda poolen är resurserna automatiskt utgångna och återvinns.

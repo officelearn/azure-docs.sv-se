@@ -13,19 +13,17 @@ ms.date: 09/15/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: ec0ab4601e15129ecd8917e0e750a3e1661dc558
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7ec6ab8b52d9d43d898f481a2f36310e5c0897d
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530705"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94561088"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Microsoft Enterprise SSO-plugin-program för Apple-enheter (för hands version)
 
-> [!NOTE]
-> Den här funktionen är en allmänt tillgänglig förhandsversion.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
-> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>[!IMPORTANT]
+> Den här funktionen [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 *Microsoft Enterprise SSO-plugin-programmet för Apple-enheter* tillhandahåller enkel inloggning (SSO) för Azure Active Directory (Azure AD)-konton i alla program som stöder Apples funktion [för enkel inloggning i](https://developer.apple.com/documentation/authenticationservices) Apple. Microsoft har arbetat nära med Apple för att utveckla det här plugin-programmet för att öka programmets användbarhet samtidigt som det ger bästa möjliga skydd som Apple och Microsoft kan tillhandahålla.
 
@@ -53,10 +51,10 @@ Om du vill aktivera plugin-programmet Microsoft Enterprise SSO för Apple-enhete
 
 Använd följande parametrar för att konfigurera Microsoft Enterprise SSO-plugin-programmet för Apple-enheter:
 
-- **Typ**: omdirigera
-- **Tilläggs-ID**: `com.microsoft.azureauthenticator.ssoextension`
-- **Team-ID**: (det här fältet behövs inte för iOS)
-- **URL: er**:
+- **Typ** : omdirigera
+- **Tilläggs-ID** : `com.microsoft.azureauthenticator.ssoextension`
+- **Team-ID** : (det här fältet behövs inte för iOS)
+- **URL: er** :
   - `https://login.microsoftonline.com`
   - `https://login.microsoft.com`
   - `https://sts.windows.net`
@@ -80,10 +78,10 @@ Endast appar som använder inbyggd teknik för Apple-nätverk eller webviews st�
 
 Använd följande parametrar för att konfigurera Microsoft Enterprise SSO-plugin-programmet för appar som inte använder MSAL:
 
-- **Nyckel**: `AppAllowList`
-- **Typ**: `String`
-- **Värde**: kommaavgränsad lista över programpaket-ID: n för program som tillåts delta i SSO
-- **Exempel**: `com.contoso.workapp, com.contoso.travelapp`
+- **Nyckel** : `AppAllowList`
+- **Typ** : `String`
+- **Värde** : kommaavgränsad lista över programpaket-ID: n för program som tillåts delta i SSO
+- **Exempel** : `com.contoso.workapp, com.contoso.travelapp`
 
 [Samskickade appar](./application-consent-experience.md) som tillåts av MDM-administratören för att delta i SSO kan tyst hämta en token för slutanvändaren. Därför är det viktigt att bara lägga till betrodda program i listan över tillåtna. 
 
@@ -95,9 +93,9 @@ Som standard tillhandahåller Microsoft Enterprise SSO-plugin-programmet SSO end
 
 Aktiverings `browser_sso_interaction_enabled` flaggan aktiverar icke-MSAL appar och Safari-webbläsare för att utföra den första start filen och hämta en delad autentiseringsuppgift. Om Microsoft Enterprise SSO-plugin-programmet inte har någon delad autentiseringsuppgift ännu, försöker det att hämta en när en inloggning begärs från en Azure AD-URL i Safari-webbläsare, ASWebAuthenticationSession, SafariViewController eller något annat tillåtet internt program.  
 
-- **Nyckel**: `browser_sso_interaction_enabled`
-- **Typ**: `Integer`
-- **Värde**: 1 eller 0
+- **Nyckel** : `browser_sso_interaction_enabled`
+- **Typ** : `Integer`
+- **Värde** : 1 eller 0
 
 Vi rekommenderar att du aktiverar den här flaggan för att få mer konsekvent upplevelse i alla appar. Det är inaktiverat som standard. 
 
@@ -107,9 +105,9 @@ Microsoft Enterprise SSO-plugin-programmet tillhandahåller SSO genom att bifoga
 
 Aktiverings `disable_explicit_app_prompt` flaggan begränsar möjligheten för både ursprungliga och webb program att tvinga fram en slutanvändares fråga om protokoll skiktet och kringgå SSO.
 
-- **Nyckel**: `disable_explicit_app_prompt`
-- **Typ**: `Integer`
-- **Värde**: 1 eller 0
+- **Nyckel** : `disable_explicit_app_prompt`
+- **Typ** : `Integer`
+- **Värde** : 1 eller 0
 
 Vi rekommenderar att du aktiverar den här flaggan för att få mer konsekvent upplevelse i alla appar. Det är inaktiverat som standard. 
 

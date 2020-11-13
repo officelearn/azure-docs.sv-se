@@ -3,12 +3,12 @@ title: Distribuera till Azure (knapp)
 description: Använd knappen för att distribuera Azure Resource Manager mallar från en GitHub-lagringsplats.
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: 7d002508f6b2402f8cff40fb0369896080ecbbad
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 25ec5fd7a0c5b356097412ab6f1765cb0886522a
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490907"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555274"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Använd en distributions knapp för att distribuera mallar från GitHub-lagringsplatsen
 
@@ -19,11 +19,15 @@ Distributions omfånget bestäms av schemat för mallen. Mer information finns i
 * [resurs grupper](deploy-to-resource-group.md)
 * [prenumerationer](deploy-to-subscription.md)
 * [hanterings grupper](deploy-to-management-group.md)
-* [klienter](deploy-to-tenant.md).
+* [klienter](deploy-to-tenant.md)
 
 ## <a name="use-common-image"></a>Använd gemensam avbildning
 
 Om du vill lägga till knappen på din webb sida eller lagrings plats använder du följande bild:
+
+```markdown
+![Deploy to Azure](https://aka.ms/deploytoazurebutton)
+```
 
 ```html
 <img src="https://aka.ms/deploytoazurebutton"/>
@@ -48,6 +52,7 @@ https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-st
 Konvertera sedan URL: en till ett URL-kodat värde. Du kan använda en online-kodare eller köra ett kommando. I följande PowerShell-exempel visas hur du kodar ett värde i URL-adressen.
 
 ```powershell
+$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
 [uri]::EscapeDataString($url)
 ```
 
@@ -70,6 +75,8 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
 ```
 
 Du har en fullständig URL för länken.
+
+Normalt är du värd för mallen i en offentlig lagrings platsen. Om du använder en privat lagrings platsen måste du inkludera en token för att få åtkomst till mallens rå innehåll. Den token som genereras av GitHub är endast giltig för en kort tid. Du behöver uppdatera länken ofta.
 
 Om du använder [git med Azure databaser](/azure/devops/repos/git/) i stället för en GitHub-lagrings platsen kan du fortfarande använda knappen distribuera till Azure. Kontrol lera att din lagrings platsen är offentlig. Använd [åtgärden objekt](/rest/api/azure/devops/git/items/get) för att hämta mallen. Din begäran ska ha följande format:
 

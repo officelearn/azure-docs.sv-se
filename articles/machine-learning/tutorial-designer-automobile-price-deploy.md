@@ -1,7 +1,7 @@
 ---
 title: 'Självstudie: Distribuera ML-modeller med designern'
 titleSuffix: Azure Machine Learning
-description: Den här självstudien visar hur du skapar en förutsägelse analys lösning i Azure Machine Learning designer. Träna, score och distribuera en maskin inlärnings modell med hjälp av dra-och-släpp-moduler.
+description: Bygg en förutsägelse analys lösning i Azure Machine Learning designer. Träna, score och distribuera en maskin inlärnings modell med hjälp av dra-och-släpp-moduler.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 95e5b3ac568cfa370fd1e49fad990b681aef46d9
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 31b742144bfb20af14cf6f5e95f5dfc951845ee2
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311519"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555523"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Självstudie: Distribuera en maskin inlärnings modell med designern
 
@@ -40,7 +40,7 @@ Om du vill distribuera din pipeline måste du först konvertera inlärnings pipe
 
 ### <a name="create-a-real-time-inference-pipeline"></a>Skapa en pipeline för real tids härledning
 
-1. Ovanför pipeline-arbetsytan väljer du **skapa en härlednings**pipeline i  >  **real tid**.
+1. Ovanför pipeline-arbetsytan väljer du **skapa en härlednings** pipeline i  >  **real tid**.
 
     :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png"alt-text="Skärm bild som visar var du hittar knappen Skapa pipeline":::
 
@@ -48,7 +48,7 @@ Om du vill distribuera din pipeline måste du först konvertera inlärnings pipe
 
    ![Skärm bild som visar den förväntade konfigurationen för pipelinen när den har förberedats för distribution](./media/tutorial-designer-automobile-price-deploy/real-time-inference-pipeline.png)
 
-    När du väljer **skapa en härlednings pipeline**inträffar flera saker:
+    När du väljer **skapa en härlednings pipeline** inträffar flera saker:
     
     * Den tränade modellen lagras som en **data uppsättnings** modul i modulens palett. Du kan hitta den under **mina data uppsättningar**.
     * Inlärnings moduler som **tränar modell** och **delade data** tas bort.
@@ -59,7 +59,7 @@ Om du vill distribuera din pipeline måste du först konvertera inlärnings pipe
     > Som standard förväntas samma data schema som de utbildnings data som används för att skapa den förutsägande pipeline i **webb tjänsten** . I det här scenariot ingår priset i schemat. Priset används dock inte som en faktor under förutsägelsen.
     >
 
-1. Välj **Skicka**och Använd samma beräknings mål och experiment som du använde i del ett.
+1. Välj **Skicka** och Använd samma beräknings mål och experiment som du använde i del ett.
 
     Om det här är den första körningen kan det ta upp till 20 minuter innan din pipeline har slutförts. Standard beräknings inställningarna har en minsta Node-storlek på 0, vilket innebär att Designer måste allokera resurser efter inaktivitet. Upprepade pipelines körningar tar mindre tid eftersom beräknings resurserna redan har allokerats. Dessutom använder designern cachelagrade resultat för varje modul för att ytterligare förbättra effektiviteten.
 
@@ -99,7 +99,7 @@ När din AKS-tjänst har slutfört etableringen återgår du till inferencing-pi
 
 1. Välj **Distribuera**.
     
-    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="Skärm bild som visar var du hittar knappen Skapa pipeline":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="Skärm bild som visar hur du konfigurerar en ny slut punkt för Real tid":::
 
     Ett meddelande visas ovanför arbets ytan när distributionen är klar. Det kan ta några minuter.
 

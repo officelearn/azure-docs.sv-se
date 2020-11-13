@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: kaprochi
-ms.openlocfilehash: 46bdc314e7aa0002937e808d7982f43c8e725d6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de0065abaf5669859e864186fc9a3fb88219414b
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357479"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555829"
 ---
 # <a name="cicd-for-custom-speech"></a>CI/CD för Custom Speech
 
@@ -37,7 +37,7 @@ På det här sättet bör arbets flöden namnge och lagra data, tester, testfile
 
 ### <a name="ci-workflow-for-testing-data-updates"></a>CI-arbetsflöde för att testa data uppdateringar
 
-Huvud syftet med CI/CD-arbetsflöden är att skapa en ny modell med hjälp av tränings data och testa den modellen med hjälp av test data för att fastställa om [fel frekvensen för Word](how-to-custom-speech-evaluate-data.md#what-is-word-error-rate-wer) har förbättrats jämfört med den tidigare bästa modellen ("benchmark-modellen"). Om den nya modellen fungerar bättre blir den den nya benchmark-modellen mot vilken framtida modeller jämförs.
+Huvud syftet med CI/CD-arbetsflöden är att skapa en ny modell med hjälp av tränings data och testa den modellen med hjälp av test data för att fastställa om [fel frekvensen för Word](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy) har förbättrats jämfört med den tidigare bästa modellen ("benchmark-modellen"). Om den nya modellen fungerar bättre blir den den nya benchmark-modellen mot vilken framtida modeller jämförs.
 
 CI-arbetsflödet för att testa data uppdateringar bör testa om den aktuella benchmark-modellen med uppdaterade test data för att beräkna den ändrade WER. Detta säkerställer att när WER för en ny modell jämförs med WER för benchmark, har båda modellerna testats mot samma test data och du jämför som med vad som helst.
 
@@ -84,8 +84,8 @@ För en redan implementerad DevOps-lösning för Custom Speech går du till [Dev
 
 - Kopiera mallens lagrings plats till ditt GitHub-konto och skapa sedan Azure-resurser och ett [tjänst huvud namn](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) för GitHub-åtgärdens CI/CD-arbetsflöden.
 - Gå igenom "dev-den[inre slingan](https://mitchdenny.com/the-inner-loop/)". Uppdatera utbildning och testning av data från en funktions gren, testa ändringarna med en tillfällig utvecklings modell och generera en pull-begäran om att föreslå och granska ändringarna.
-- När tränings data uppdateras i en pull-begäran till *Master*, träna modeller med GitHub Actions CI-arbetsflöde.
-- Utför automatiserad precisions testning för att upprätta en modells [ord fel frekvens](how-to-custom-speech-evaluate-data.md#what-is-word-error-rate-wer) (WER). Lagra test resultatet i Azure blob.
+- När tränings data uppdateras i en pull-begäran till *Master* , träna modeller med GitHub Actions CI-arbetsflöde.
+- Utför automatiserad precisions testning för att upprätta en modells [ord fel frekvens](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy) (WER). Lagra test resultatet i Azure blob.
 - Kör ett CD-arbetsflöde för att skapa en slut punkt när WER förbättras.
 
 ## <a name="next-steps"></a>Nästa steg

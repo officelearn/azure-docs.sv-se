@@ -13,18 +13,18 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: b171688fa4dbff8d05b3ba03e4e4bd29028983be
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 1b15330d368a93ac4ba176df129df212a259f3e2
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016152"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94561904"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Snabb start: Logga in användare och anropa Microsoft Graph API från en iOS-eller macOS-app
 
-Den här snabb starten innehåller ett kod exempel som visar hur ett inbyggt iOS-eller macOS-program kan använda Microsoft Identity Platform för att logga in på personliga konton, arbets-och skol konton, hämta en åtkomsttoken och anropa Microsoft Graph-API: et.
+I den här snabb starten laddar du ned och kör ett kod exempel som visar hur ett inbyggt iOS-eller macOS-program kan logga in användare och hämta en åtkomsttoken för att anropa Microsoft Graph-API: et.
 
-Den här snabb starten gäller både iOS-och macOS-appar. Vissa steg behövs bara för iOS-appar. De här stegen anropar att de endast är för iOS.
+Snabb starten gäller både iOS-och macOS-appar. Vissa steg behövs bara för iOS-appar och visas som sådana.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -62,9 +62,9 @@ Den här snabb starten gäller både iOS-och macOS-appar. Vissa steg behövs bar
 >      - Hoppa över andra konfigurationer på den här sidan.
 >      - Välj `Register`.
 > 1. I avsnittet **Hantera** väljer du `Authentication`  >  `Add Platform`  >  `iOS` .
->      - Ange ***paket-ID*** : t för ditt program. Paket-ID: t är bara en unik sträng som unikt identifierar ditt program, till exempel `com.<yourname>.identitysample.MSALMacOS` . Anteckna värdet du använder.
+>      - Ange * *_paket-ID_* _ för ditt program. Paket-ID: t är bara en unik sträng som unikt identifierar ditt program, till exempel `com.<yourname>.identitysample.MSALMacOS` . Anteckna värdet du använder.
 >      - Observera att iOS-konfigurationen även gäller för macOS-program.
-> 1. Välj `Configure` och spara ***konfigurations*** informationen för MSAL för senare i den här snabb starten.
+> 1. Välj `Configure` och spara _*_konfigurations_*_ informationen för MSAL för senare i den här snabb starten.
 > [!div renderon="portal" class="sxs-lookup"]
 >
 > #### <a name="step-1-configure-your-application"></a>Steg 1: Konfigurera programmet
@@ -101,7 +101,7 @@ I ett terminalfönster navigerar du till mappen med det nedladdade kod exemplet 
 >#### <a name="step-4-configure-your-project"></a>Steg 4: Konfigurera ditt projekt
 > Om du valde alternativ 1 ovan kan du hoppa över de här stegen.
 > 1. Extrahera zip-filen och öppna projektet i XCode.
-> 1. Redigera **ViewController. SWIFT** och ersätt raden som börjar med "Låt kClientID" med följande kodfragment. Kom ihåg att uppdatera värdet för `kClientID` med clientID som du sparade när du registrerade din app i portalen tidigare i den här snabb starten:
+> 1. Redigera _ *ViewController. SWIFT* * och ersätt raden som börjar med "Låt kClientID" med följande kodfragment. Kom ihåg att uppdatera värdet för `kClientID` med clientID som du sparade när du registrerade din app i portalen tidigare i den här snabb starten:
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
@@ -117,7 +117,7 @@ I ett terminalfönster navigerar du till mappen med det nedladdade kod exemplet 
 >     ```
 > 1. Öppna projekt inställningarna. I avsnittet **identitet** anger du det **paket-ID** som du angav i portalen.
 > 1. Högerklicka på **info. plist** och välj **öppna som**  >  **källkod**.
-> 1. Under noden dict root ersätter `Enter_the_bundle_Id_Here` du med det ***paket-ID*** som du använde i portalen.
+> 1. Under noden dict root ersätter `Enter_the_bundle_Id_Here` du med * *_paket-ID_* _ som du använde i portalen.
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>
@@ -179,7 +179,7 @@ self.applicationContext = try MSALPublicClientApplication(configuration: msalCon
 
 > |Där: | Beskrivning |
 > |---------|---------|
-> | `clientId` | Program-ID från den app som registrerats i *portal.azure.com* |
+> | `clientId` | Program-ID: t från programmet som är registrerat i _portal. Azure. com * |
 > | `authority` | Slut punkten för Microsoft Identity Platform. I de flesta fall är detta `https://login.microsoftonline.com/common` |
 > | `redirectUri` | Omdirigerings-URI för programmet. Du kan skicka Nil om du vill använda standardvärdet eller din anpassade omdirigerings-URI. |
 
@@ -213,7 +213,7 @@ Din app måste också ha följande i din `AppDelegate` . Detta låter MSAL SDK h
     }
  ```
 
-Slutligen måste appen ha en `LSApplicationQueriesSchemes` post i din ***info. plist*** tillsammans med `CFBundleURLTypes` . Exemplet följer med detta.
+Slutligen måste appen ha en `LSApplicationQueriesSchemes` post i * **info. plist** _ tillsammans med `CFBundleURLTypes` . Exemplet följer med detta.
 
    ```xml
    <key>LSApplicationQueriesSchemes</key>
@@ -231,7 +231,7 @@ MSAL har två metoder som används för att hämta token: `acquireToken` och `ac
 
 Vissa situationer kräver att användare interagerar med Microsoft Identity Platform. I sådana fall kan slutanvändaren behöva välja sitt konto, ange sina autentiseringsuppgifter eller godkänna appens behörigheter. Exempel:
 
-* Första gången användaren loggar in på programmet
+_ Första gången användare loggar in i programmet
 * Om en användare återställer sitt lösen ord måste de ange sina autentiseringsuppgifter
 * När ditt program begär åtkomst till en resurs för första gången
 * När MFA eller andra principer för villkorlig åtkomst krävs
@@ -274,4 +274,3 @@ Gå vidare till den stegvisa själv studie kursen där du skapar en iOS-eller ma
 
 > [!div class="nextstepaction"]
 > [Självstudie: Logga in användare och anropa Microsoft Graph från en iOS-eller macOS-app](tutorial-v2-ios.md)
-

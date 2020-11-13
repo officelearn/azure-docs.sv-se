@@ -13,12 +13,12 @@ ms.date: 01/14/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 997e867798922975757a588ef50248f0d09a96e0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 801a9a112615bd6220b5f273b51ed39248ebcd45
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789853"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556479"
 ---
 # <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Ändring på plats av SQL Server-utgåva på en virtuell Azure-dator
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,7 +34,7 @@ När utgåvan av SQL Server har ändrats internt till SQL Server VM måste du up
 Om du vill göra en direkt ändring av versionen av SQL Server behöver du följande: 
 
 - En [Azure-prenumeration](https://azure.microsoft.com/free/).
-- En [SQL Server VM på Windows](./create-sql-vm-portal.md) som har registrerats med [resurs leverantören för SQL-VM](sql-vm-resource-provider-register.md).
+- En [SQL Server VM på Windows](./create-sql-vm-portal.md) som registrerats med [SQL IaaS agent-tillägget](sql-agent-extension-manually-register-single-vm.md).
 - Konfigurera media med den **önskade versionen** av SQL Server. Kunder som har [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) kan hämta installationsmedia från [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Kunder som inte har Software Assurance kan använda installations mediet från en Azure Marketplace SQL Server VM-avbildning som har önskad utgåva (vanligt vis finns i `C:\SQLServerFull` ). 
 
 
@@ -50,7 +50,7 @@ Om du vill uppgradera versionen av SQL Server hämtar du det SQL Server installa
 
    ![Val för uppgradering av versionen av SQL Server](./media/change-sql-server-edition/edition-upgrade.png)
 
-1. Välj **Nästa** tills du kommer till sidan **redo att uppgradera Edition** och välj sedan **Uppgradera** . Installations fönstret kan sluta svara några minuter medan ändringen börjar att fungera. En **fullständig** sida bekräftar att din versions uppgradering är klar. 
+1. Välj **Nästa** tills du kommer till sidan **redo att uppgradera Edition** och välj sedan **Uppgradera**. Installations fönstret kan sluta svara några minuter medan ändringen börjar att fungera. En **fullständig** sida bekräftar att din versions uppgradering är klar. 
 
 När den SQL Server versionen har uppgraderats ändrar du egenskapen utgåva för den SQL Server virtuella datorn i Azure Portal. Detta uppdaterar de metadata och faktureringar som är associerade med den här virtuella datorn.
 
@@ -75,11 +75,11 @@ När SQL Servers versionen har nedgraderats ändrar du egenskapen utgåva för d
 
 ## <a name="change-edition-in-portal"></a>Ändrings utgåva i portalen 
 
-När du har ändrat versionen av SQL Server med hjälp av installations mediet, och du har registrerat din SQL Server VM med [providern för SQL VM-resurs](sql-vm-resource-provider-register.md), kan du sedan använda Azure Portal för att ändra egenskapen utgåva för SQL Server VM i fakturerings syfte. Det gör du på följande sätt: 
+När du har ändrat versionen av SQL Server med hjälp av installations mediet och du har registrerat din SQL Server VM med [SQL IaaS agent-tillägget](sql-agent-extension-manually-register-single-vm.md)kan du sedan använda Azure Portal för att ändra egenskapen utgåva för SQL Server VM i fakturerings syfte. Det gör du på följande sätt: 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). 
 1. Gå till din SQL Server virtuella dator resursen. 
-1. Under **Inställningar** väljer du **Konfigurera** . Välj sedan önskad version av SQL Server i list rutan under **utgåva** . 
+1. Under **Inställningar** väljer du **Konfigurera**. Välj sedan önskad version av SQL Server i list rutan under **utgåva**. 
 
    ![Metadata för ändrings version](./media/change-sql-server-edition/edition-change-in-portal.png)
 
@@ -91,7 +91,7 @@ När du har ändrat versionen av SQL Server med hjälp av installations mediet, 
 
 - Egenskapen version för SQL Server VM måste matcha versionen av SQL Server-instansen som installerats för alla SQL Server virtuella datorer, inklusive både betala per användning och hämta licenser.
 - Om du släpper SQL Server VM-resursen går du tillbaka till avbildningens hårdkodade versions inställning.
-- Möjligheten att ändra versionen är en funktion i SQL VM Resource Provider. Genom att distribuera en Azure Marketplace-avbildning via Azure Portal registreras automatiskt en SQL Server VM med resurs leverantören. Kunder som själv installerar SQL Server måste dock [registrera sina SQL Server VM](sql-vm-resource-provider-register.md)manuellt.
+- Möjligheten att ändra versionen är en funktion i SQL IaaS agent-tillägget. Genom att distribuera en Azure Marketplace-avbildning via Azure Portal registreras automatiskt en SQL Server VM med SQL IaaS agent-tillägget. Kunder som själv installerar SQL Server måste dock [registrera sina SQL Server VM](sql-agent-extension-manually-register-single-vm.md)manuellt.
 - Om du lägger till en SQL Server VM i en tillgänglighets uppsättning måste den virtuella datorn skapas på nytt. Alla virtuella datorer som läggs till i en tillgänglighets uppsättning återgår till standard utgåvan och versionen måste ändras igen.
 
 ## <a name="next-steps"></a>Nästa steg

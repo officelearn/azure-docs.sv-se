@@ -7,12 +7,12 @@ ms.custom: subject-armqs
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: virtual-machines-sql
-ms.openlocfilehash: b57303a1c9fdba2bea8637bef6c148622087a8d3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9d0dd8ee1b99ddd2abf4fad154c70315a3d33c83
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789785"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556428"
 ---
 # <a name="quickstart-create-sql-server-vm-using-an-arm-template"></a>Snabb start: skapa SQL Server VM med en ARM-mall
 
@@ -20,7 +20,7 @@ Använd den här Azure Resource Manager mallen (ARM-mallen) om du vill distribue
 
 [!INCLUDE [About Azure Resource Manager](../../../../includes/resource-manager-quickstart-introduction.md)]
 
-Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure** . Mallen öppnas på Azure-portalen.
+Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure**. Mallen öppnas på Azure-portalen.
 
 [![Distribuera till Azure](../../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-sql-vm-new-storage%2fazuredeploy.json)
 
@@ -45,14 +45,14 @@ Fem Azure-resurser definieras i mallen:
 - [Microsoft. Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups): skapar en nätverks säkerhets grupp. 
 - [Microsoft. Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces): konfigurerar nätverks gränssnittet. 
 - [Microsoft. Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines): skapar en virtuell dator i Azure. 
-- [Microsoft. SqlVirtualMachine/SqlVirtualMachines](/azure/templates/microsoft.sqlvirtualmachine/sqlvirtualmachines): registrerar den virtuella datorn med providern för SQL VM-resurs. 
+- [Microsoft. SqlVirtualMachine/SqlVirtualMachines](/azure/templates/microsoft.sqlvirtualmachine/sqlvirtualmachines): registrerar den virtuella datorn med SQL IaaS agent-tillägget. 
 
 Mer SQL Server på mallar för virtuella Azure-datorer finns i [galleriet snabb starts mall](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sqlvirtualmachine&pageNumber=1&sort=Popular).
 
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
-1. Välj följande bild för att logga in på Azure och öppna en mall. Mallen skapar en virtuell dator med den avsedda SQL Server-versionen installerad och registrerad med resurs leverantören för SQL-VM. 
+1. Välj följande bild för att logga in på Azure och öppna en mall. Mallen skapar en virtuell dator med den avsedda SQL Server-versionen installerad och har registrerats med SQL IaaS agent-tillägget. 
 
    [![Distribuera till Azure](../../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-sql-vm-new-storage%2fazuredeploy.json)
 
@@ -60,7 +60,7 @@ Mer SQL Server på mallar för virtuella Azure-datorer finns i [galleriet snabb 
 
     * **Prenumeration** : Välj en Azure-prenumeration.
     * **Resurs grupp** : den för beredda resurs gruppen för din SQL Server VM. 
-    * **Region** : Välj en region.  Välj till exempel **USA, centrala** .
+    * **Region** : Välj en region.  Välj till exempel **USA, centrala**.
     * **Namn på virtuell dator** : Ange ett namn för SQL Server virtuell dator. 
     * **Storlek på virtuell dator** : Välj lämplig storlek för den virtuella datorn i list rutan.
     * **Befintligt Virtual Network namn** : Ange namnet på det för beredda virtuella nätverket för din SQL Server VM. 
@@ -77,7 +77,7 @@ Mer SQL Server på mallar för virtuella Azure-datorer finns i [galleriet snabb 
     * **Logg Sök väg** : sökvägen till SQL Server loggfilerna. 
     * **Plats** : platsen för alla resurser, det här värdet ska vara standardvärdet `[resourceGroup().location]` . 
 
-3. Välj **Granska + skapa** . När SQL Server VM har distribuerats får du ett meddelande.
+3. Välj **Granska + skapa**. När SQL Server VM har distribuerats får du ett meddelande.
 
 Azure-portalen används för att distribuera mallen. Förutom Azure Portal kan du också använda Azure PowerShell, Azure CLI och REST API. Mer information om andra distributions metoder finns i [distribuera mallar](../../../azure-resource-manager/templates/deploy-powershell.md).
 

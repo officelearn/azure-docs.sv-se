@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 1b8dae471729b42b1c302c6c45033ddc808c7b43
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 5845a3bdc4b86fbbe44c92779e5aae95044eb6b2
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289310"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556378"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instanser av kluster för växling vid fel med SQL Server på Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -51,8 +51,8 @@ SQL Server på virtuella Azure-datorer erbjuder olika alternativ som en lösning
 |**Lägsta version av operativsystemet**| Alla |Windows Server 2012|Windows Server 2016|
 |**Lägsta SQL Server-version**|Alla|SQL Server 2012|SQL Server 2016|
 |**Tillgänglighet för VM som stöds** |Tillgänglighets uppsättningar med närhets placerings grupper |Tillgänglighets uppsättningar och tillgänglighets zoner|Tillgänglighetsuppsättningar |
-|**Stöder FileStream**|Ja|Nej|Ja |
-|**Azure Blob-cache**|Nej|Nej|Ja|
+|**Stöder FileStream**|Ja|Inga|Ja |
+|**Azure Blob-cache**|Inga|Inga|Ja|
 
 Resten av det här avsnittet visar fördelarna och begränsningarna för varje lagrings alternativ som är tillgängligt för SQL Server på virtuella Azure-datorer. 
 
@@ -148,10 +148,11 @@ Mer information om kluster anslutnings alternativ finns i [dirigera hadr-anslutn
 
 Tänk på följande begränsningar för kluster instanser för växling vid fel med SQL Server på Azure Virtual Machines. 
 
-### <a name="lightweight-resource-provider"></a>Lightweight Resource Provider   
-För närvarande stöds SQL Server redundanskluster på Azure Virtual Machines endast med [läget för förenklad hantering](sql-server-iaas-agent-extension-automate-management.md#management-modes) i [SQL Server IaaS agent-tillägget](sql-server-iaas-agent-extension-automate-management.md). Om du vill ändra från fullständigt tillägg till Lightweight tar du bort den **virtuella SQL-datorns** resurs för motsvarande virtuella datorer och registrerar dem sedan med resurs leverantören för SQL-VM i Lightweight-läge. När du tar bort den **virtuella SQL-datorns** resurs med hjälp av Azure Portal avmarkerar du kryss rutan bredvid rätt virtuell dator. 
+### <a name="lightweight-extension-support"></a>Stöd för Lightweight-tillägg   
 
-Det fullständiga tillägget har stöd för funktioner som automatisk säkerhets kopiering, uppdatering och avancerad Portal hantering. Dessa funktioner fungerar inte för SQL Server virtuella datorer när agenten har installerats om i läget för förenklad hantering.
+För närvarande stöds SQL Server redundanskluster på Azure Virtual Machines endast med [läget för förenklad hantering](sql-server-iaas-agent-extension-automate-management.md#management-modes) i SQL Server IaaS agent-tillägget. Om du vill ändra från fullständigt tilläggs läge till Lightweight tar du bort den **virtuella SQL-datorns** resurs för motsvarande virtuella datorer och registrerar dem sedan med SQL IaaS agent-tillägget i Lightweight-läge. När du tar bort den virtuella **SQL-datorns** resurs med hjälp av Azure Portal avmarkerar du kryss rutan bredvid rätt virtuell dator för att undvika att ta bort den virtuella datorn. 
+
+Det fullständiga tillägget har stöd för funktioner som automatisk säkerhets kopiering, uppdatering och avancerad Portal hantering. Dessa funktioner fungerar inte för SQL Server virtuella datorer som är registrerade i Lightweight Management mode.
 
 ### <a name="msdtc"></a>MSDTC 
 

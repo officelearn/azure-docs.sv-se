@@ -11,14 +11,28 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 01c9cbe0438ee0efeece4c7e6b17e9607db4c4cc
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 2586b3aab9d1fb8e7ae12aea540df19ff6c37556
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356696"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553666"
 ---
 # <a name="speech-service-release-notes"></a>Viktig information om Speech service
+
+## <a name="text-to-speech-2020-october-release"></a>Text till tal 2020 – utgåva från oktober
+
+**Nya funktioner**
+- Jenny har stöd för ett nytt `newscast` format. Se [hur du använder tal formatet i SSML](speech-synthesis-markup.md#adjust-speaking-styles).
+- **Neurala-röster som uppgraderats till HiFiNet vocoder, med högre ljud återgivning och snabbare syntes hastighet**. Detta fördelar kunder vars scenario förlitar sig på Hi-Fi-ljud eller långa interaktioner, inklusive video dubbing, ljud böcker eller utbildningsmaterial online. [Läs mer om artikeln och hör röst exemplen på vår Tech community-blogg](https://techcommunity.microsoft.com/t5/azure-ai/azure-neural-tts-upgraded-with-hifinet-achieving-higher-audio/ba-p/1847860)
+- **[Anpassad röst](https://speech.microsoft.com/customvoice)  &  [ljud innehålls skapande Studio](https://speech.microsoft.com/audiocontentcreation) lokaliseras till 17 språk**. Användare kan enkelt byta användar gränssnitt till ett lokalt språk för en mer användarvänlig upplevelse.   
+- **Framställning av ljud innehåll** : lade till stil grad kontroll för XiaoxiaoNeural; Förfinat funktionen för anpassad brytning som innehåller stegvisa brytningar av 50ms. 
+
+**Vanliga förbättringar av tal röst kvalitet**
+- Bättre uttal av ord nivå i `pl-PL` (fel hastighets minskning: 51%) och `fi-FI` (minskning av fel frekvens: 58%)
+- Förbättrad ord `ja-JP` läsning för ord listans scenario. Minskat uttal-fel med 80%.
+- `zh-CN-XiaoxiaoNeural`: Förbättrad sentiment/CustomerService/newscast/Cheerful/Angry format röst kvalitet.
+- `zh-CN`: Förbättrad Erhua-uttal och lätt ton och raffinerat utrymme prosody, vilket avsevärt förbättrar intelligibility. 
 
 ## <a name="speech-sdk-1140-2020-october-release"></a>Speech SDK-1.14.0:2020 – oktober utgåva
 
@@ -78,6 +92,18 @@ SPX är kommando rads gränssnittet som används för att använda Azure Speech 
 - `spx * --http header A=B` – stöder anpassade rubriker (har lagts till för Office för anpassad autentisering). 
 - `spx help` – förbättrad text-och bakgrunds textfärgad kod (blå).
 
+## <a name="text-to-speech-2020-september-release"></a>Text till tal 2020 – september version
+
+### <a name="new-features"></a>Nya funktioner
+
+* **Neurala TTS** 
+    * **Utökad för att stödja 18 nya språk/nationella inställningar.** De är bulgariska, tjeckiska, tyska (Österrike), tyska (Schweiz), grekiska, engelska (Irland), franska (Schweiz), hebreiska, kroatiska, ungerska, indonesiska, malajiska, rumänska, slovakiska, slovenska, Tamil, Telugu och vietnamesiska. 
+    * **Släppt 14 nya röster för att utöka sorten på de befintliga språken.** Se [hela språk och röst lista](language-support.md#neural-voices).
+    * **Nya tal format för `en-US` och `zh-CN` röster.** Jenny, den nya rösten på engelska (US), stöder chattrobot, kund tjänst och assistent. 10 nya tal format är tillgängliga med vår zh-CN-röst, XiaoXiao. Dessutom stöder XiaoXiao neurala-röst `StyleDegree` justering. Se [hur du använder tal formatet i SSML](speech-synthesis-markup.md#adjust-speaking-styles).
+
+* **Behållare: neurala TTS container lanserad i offentlig för hands version med 16 röster tillgängliga på 14 språk.** Läs mer om [hur du distribuerar tal behållare för NEURALA TTS](speech-container-howto.md)  
+
+Läs [hela tillkänna givandet av TTS-uppdateringarna för antändning 2020](https://techcommunity.microsoft.com/t5/azure-ai/ignite-2020-neural-tts-updates-new-language-support-more-voices/ba-p/1698544) 
 
 ## <a name="text-to-speech-2020-august-release"></a>Text till tal 2020 – augusti-utgåva
 

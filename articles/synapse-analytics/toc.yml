@@ -130,6 +130,8 @@
             - name: Felsöka anslutningsproblem med Synapse Studio
               href: troubleshoot/troubleshoot-synapse-studio-powershell.md
               displayname: powershell
+            - name: Felsök anslutning mellan Synapse Studio och lagring
+              href: troubleshoot/troubleshoot-synapse-studio-and-storage-connectivity.md
     - name: Anvisningar
       items:
         - name: Skydda

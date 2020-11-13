@@ -9,12 +9,12 @@ ms.date: 10/29/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 7b44abbbf2e7592205d5d5c291ce99d381a283f7
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: de93d96085269c2cc8fcf6c18d7e6643facfcaa4
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043276"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372718"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-the-latest-apis"></a>Skapa Azure-prenumerationer via programmering med de senaste API:erna
 
@@ -798,7 +798,15 @@ Du kan skapa prenumerationer baserat på din Azure Resource Manager-mall (ARM-ma
 
 ### <a name="prerequisites"></a>Krav
 
-För att kunna skapa prenumerationer måste du ha rollen ägare, deltagare eller skapare av Azure-prenumerationen i ett fakturaavsnitt eller rollen ägare eller deltagare i en faktureringsprofil eller ett faktureringskonto. Mer information finns i [Roller och uppgifter för prenumerationsfakturering](understand-mca-roles.md#subscription-billing-roles-and-tasks).
+Du måste ha en av följande roller för att skapa prenumerationer: 
+
+- Azure-prenumerationsägare på ett fakturaavsnitt
+- Azure-prenumerationsdeltagare på ett fakturaavsnitt
+- Azure-prenumerationsskapare på ett fakturaavsnitt
+- Azure-prenumerationsägare på en faktureringsprofil eller ett faktureringskonto
+- Rollen Azure-prenumerationsdeltagare på en faktureringsprofil eller ett faktureringskonto
+
+ Mer information finns i [Roller och uppgifter för prenumerationsfakturering](understand-mca-roles.md#subscription-billing-roles-and-tasks).
 
 Eftersom du utför en ARM-malldistribution måste du ha skrivbehörighet för rotobjektet. Det betyder att om du skapar ARM-distributionen under en hanteringsgrupp, så måste du ha skrivbehörighet för hanteringsgruppen. Observera att åtgärden bara handlar om att skapa en ARM-distribution; om en prenumeration skapas, skapas den endast i hanteringsgruppen som anges i ARM-mallen.
 

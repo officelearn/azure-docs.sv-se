@@ -451,6 +451,8 @@
           href: copy-activity-fault-tolerance.md
         - name: Verifiering av datakonsekvens
           href: copy-activity-data-consistency.md
+        - name: Kopiera aktivitetslogg
+          href: copy-activity-log.md
         - name: Stöd för format och komprimering (äldre)
           href: supported-file-formats-and-compression-codecs-legacy.md
     - name: Omvandla data

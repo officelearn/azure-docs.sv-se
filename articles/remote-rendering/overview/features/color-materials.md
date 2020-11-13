@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: ce3174516d8046df53b5290bcfeea03756937129
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 26ac1714330bba06c01d33b47105f04c600c7729
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201536"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555115"
 ---
 # <a name="color-materials"></a>Färgmaterial
 
@@ -22,7 +22,7 @@ Färg material är mer effektivt att rendera än [PBR-material](pbr-materials.md
 
 Dessa egenskaper är gemensamma för allt material:
 
-* **albedoColor:** Den här färgen multipliceras med andra färger, till exempel *albedoMap* eller * :::no-loc text="vertex"::: färger*. Om *transparens* är aktiverat på ett material används alfa kanalen för att justera opaciteten, med en `1` helt ogenomskinlig och innebörd som är `0` helt transparent. Standardvärdet är White.
+* **albedoColor:** Den här färgen multipliceras med andra färger, till exempel *albedoMap* eller *:::no-loc text="vertex"::: färger*. Om *transparens* är aktiverat på ett material används alfa kanalen för att justera opaciteten, med en `1` helt ogenomskinlig och innebörd som är `0` helt transparent. Standardvärdet är White.
 
   > [!NOTE]
   > Eftersom färg material inte återspeglar miljön blir ett helt transparent färg material osynligt. Detta skiljer sig för [PBR-material](pbr-materials.md).
@@ -38,6 +38,12 @@ Dessa egenskaper är gemensamma för allt material:
 * **isDoubleSided:** Om Double-sidedness är inställt på Sant återges trianglar med det här materialet även om kameran tittar på bak sidorna. Som standard är det här alternativet inaktiverat. Se även [ :::no-loc text="Single-sided"::: åter givning](single-sided-rendering.md).
 
 * **TransparencyWritesDepth:** Om TransparencyWritesDepth-flaggan är inställd på materialet och materialet är transparent, kommer objekt som använder det här materialet också att bidra till den slutliga djup bufferten. Se egenskapen för färg material *transparencyMode* i nästa avsnitt. Aktivering av den här funktionen rekommenderas om ditt användnings fall behöver en mer plausible av [försenad fas omprojektion](late-stage-reprojection.md) av helt transparenta scener. För blandade ogenomskinliga/transparenta scener kan den här inställningen leda till implausible eller omprojektions-artefakter. Därför är standardinställningen och den rekommenderade inställningen för allmänt användnings fall att inaktivera den här flaggan. De skrivna djupen tas från djup skiktet per bild punkt i objektet som är närmast kameran.
+
+* **FresnelEffect:** Med den här material flaggan kan additiva [Fresnel påverka](../../overview/features/fresnel-effect.md) respektive material. Utseendet på effekten styrs av de andra Fresnel-parametrarna som beskrivs i följande avsnitt. 
+
+* **FresnelEffectColor:** Fresnel färg som används för det här materialet. Endast viktigt när Fresnel Effect-biten har angetts för det här materialet (se ovan). Den här egenskapen styr bas färgen för Fresnel Skin (se [Fresnel-effekter](../../overview/features/fresnel-effect.md) för en fullständig förklaring). För närvarande är RGB-kanalens värden viktiga och alfa värdet ignoreras.
+
+* **FresnelEffectExponent:** Fresnel-exponenten som används för det här materialet. Endast viktigt när Fresnel Effect-biten har angetts för det här materialet (se ovan). Den här egenskapen styr spridningen av Fresnel Skin. Det minsta värdet 0,01 orsakar ett uppslag över hela objektet. Det maximala värdet 10,0 begränsar Skin till de mest gracing kanterna som visas.
 
 ## <a name="color-material-properties"></a>Egenskaper för färg material
 

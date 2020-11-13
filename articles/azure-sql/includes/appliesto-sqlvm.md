@@ -6,5 +6,5 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
 ms.locfileid: "90533292"
 ---
-<Token>**gäller för:** :::image type="icon" source="../media/applies-to/yes.png" border="false"::: SQL Server på virtuell Azure-dator </Token> 
+<Token>**gäller för:** :::image type="icon" source="../media/applies-to/yes.png" border="false"::: SQL Server på virtuell Azure-dator</Token> 
 

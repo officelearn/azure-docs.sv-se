@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: dd816ebcf2a40e6a0b7febcc3fe5c1006dac20bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e35c408d2e0ec2954ffdcbbce47f98ac49b16b8
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88209943"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554707"
 ---
 # <a name="tutorial-manage-feature-flags-in-azure-app-configuration"></a>Självstudie: hantera funktions flaggor i Azure App konfiguration
 
@@ -50,12 +50,13 @@ Lägga till en ny funktions flagga:
 
     ![Skapa funktions flagga](./media/azure-app-configuration-feature-flag-create.png)
 
-1. När tillståndet är *på*väljer du **+ Lägg till filter** för att ange ytterligare villkor för att kvalificera tillståndet. Ange en inbyggd eller anpassad filter nyckel och välj sedan **+ Lägg till parameter** för att associera en eller flera parametrar med filtret. Inbyggda filter är:
+1. När tillståndet är *på* väljer du **+ Lägg till filter** för att ange ytterligare villkor för att kvalificera tillståndet. Ange en inbyggd eller anpassad filter nyckel och välj sedan **+ Lägg till parameter** för att associera en eller flera parametrar med filtret. Inbyggda filter är:
 
-    | Tangent | JSON-parametrar |
+    | Nyckel | JSON-parametrar |
     |---|---|
     | Microsoft. procent | {"Värde": 0-100 procent} |
     | Microsoft. TimeWindow | {"Start": UTC-tid, "slut": UTC-tid} |
+    | Microsoft. Target | {"Mål grupp": JSON-BLOB definierar användare, grupper och distributions procent. Se ett exempel under `EnabledFor` elementet i [den här inställnings filen](https://github.com/microsoft/FeatureManagement-Dotnet/blob/master/examples/FeatureFlagDemo/appsettings.json) }
 
     ![Funktions flagg filter](./media/azure-app-configuration-feature-flag-filter.png)
 
@@ -65,7 +66,7 @@ Lägga till en ny funktions flagga:
 
 1. Välj **funktions hanterare**.
 
-1. Till höger om en funktions flagga som du vill ändra, väljer du ellipsen (**...**) och väljer sedan **Redigera**.
+1. Till höger om en funktions flagga som du vill ändra, väljer du ellipsen ( **...** ) och väljer sedan **Redigera**.
 
 1. Ange ett nytt tillstånd för funktions flaggan.
 

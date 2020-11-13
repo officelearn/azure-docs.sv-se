@@ -13,12 +13,12 @@ ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: fbfc4619e8af86a89b82f32ff3bc9a39c92b355a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1c1dd2ba5eb6ee61a0f8cf151649441cbc783166
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784872"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553541"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Utöka stödet för SQL Server 2008 och SQL Server 2008 R2 med Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -45,9 +45,9 @@ Avbildningar som distribueras via Azure Marketplace levereras med SQL IaaS-till�
 ## <a name="licensing"></a>Licensiering
 SQL Server 2008 R2-distributioner enligt principen betala per användning kan konverteras till [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
-Om du vill konvertera en Software Assurance-baserad licens för att betala per användning bör kunderna registreras med [resurs leverantören](sql-vm-resource-provider-register.md)för SQL-VM. Efter registreringen blir SQL-licensservern utbytbar mellan Azure Hybrid-förmån och betala per användning.
+Om du vill konvertera en Software Assurance-baserad licens för att betala per användning bör kunderna registreras med [SQL IaaS agent-tillägget](sql-agent-extension-manually-register-single-vm.md). Efter registreringen blir SQL-licensservern utbytbar mellan Azure Hybrid-förmån och betala per användning.
 
-Självinstallerade SQL Server 2008-eller SQL Server 2008 R2-instanser på en virtuell Azure-dator kan registreras hos resurs leverantören för SQL-VM och konvertera sin licens typ till "betala per användning".
+Självinstallerade SQL Server 2008-eller SQL Server 2008 R2-instanser på en virtuell Azure-dator kan registreras med SQL IaaS agent-tillägget och konvertera sin licens typ till "betala per användning".
 
 ## <a name="migration"></a>Migrering
 Du kan migrera EOS SQL Server instanser till en virtuell Azure-dator med manuella säkerhets kopierings-/återställnings metoder. Detta är den vanligaste migreringsprocessen från lokala datorer till en virtuell Azure-dator.
@@ -71,7 +71,8 @@ Katastrof återställnings lösningar för EOS SQL Server på en virtuell Azure-
 - **Azure Site Recovery** : du kan REPLIKERA den virtuella datorn mellan zoner och regioner via Azure Site Recovery replikering. SQL Server kräver programkonsekventa ögonblicks bilder för att garantera återställning i händelse av en katastrof. Azure Site Recovery erbjuder en lägsta återställnings period på 1 timme och en 2-timmars återställnings tid (plus SQL Server återställnings tid) RTO för EOS SQL Server haveri beredskap.
 
 ## <a name="security-patching"></a>Säkerhets korrigering
-Utökade säkerhets uppdateringar för SQL Server virtuella datorer levereras via Microsoft Update kanaler när SQL Server VM har registrerats med [resurs leverantören](sql-vm-resource-provider-register.md)för SQL-VM. Korrigeringsfiler kan hämtas manuellt eller automatiskt.
+
+Utökade säkerhets uppdateringar för SQL Server virtuella datorer levereras via Microsoft Update kanaler när SQL Server VM har registrerats med [SQL IaaS agent-tillägget](sql-agent-extension-manually-register-single-vm.md). Korrigeringsfiler kan hämtas manuellt eller automatiskt.
 
 *Automatisk uppdatering* är aktiverat som standard. Med inställningen Automatisk uppdatering kan Azure korrigera SQL Server och operativsystemet automatiskt. Du kan ange en dag i veckan, tiden och varaktigheten för ett underhålls fönster om SQL Server IaaS-tillägget har installerats. Azure utför uppdateringar under den här underhållsperioden. Den virtuella datorns lokala tid används för underhållsperiodens schema. Mer information finns i [automatiserad uppdatering för SQL Server på Azure Virtual Machines](automated-patching.md).
 

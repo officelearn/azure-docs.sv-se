@@ -76,6 +76,8 @@
       href: concepts/pricing.md
     - name: Sekretess
       href: concepts/privacy.md
+    - name: Identitetsmodell
+      href: concepts/identity-model.md
     - name: Autentisering
       href: concepts/authentication.md
     - name: Händelsehantering

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: fb1415874c42e3913d98d4a674732a4d9b98a0c5
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: ecc6e1e1a543f3190e9f73512ca0b9ae45cc3fe9
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123916"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335221"
 ---
 # <a name="tutorial-copy-data-from-azure-data-box-via-smb-preview"></a>Självstudier: Kopiera data från Azure Data Box via SMB (förhandsversion)
 
@@ -54,9 +54,9 @@ Om du använder en Windows Server-värddator följer du stegen nedan för att an
 
 2. I dialogrutan Få åtkomst till resursen och kopiera data kopierar du **användarnamnet** och **lösenordet** som motsvarar resursen. Välj **OK**.
     
-    ![Hämta resursautentiseringsuppgifter 2](media/data-box-deploy-export-copy-data/get-share-credentials-2.png)
+    ![Hämta autentiseringsuppgifter för en resurs, få åtkomst till resursen och kopiera data](media/data-box-deploy-export-copy-data/get-share-credentials-2.png)
 
-3. För att komma åt resurser som är associerade med ditt lagringskonto (*exportbvtdataset2* i följande exempel) från värddatorn öppnar du ett kommandofönster. Skriv följande i kommandotolken:
+3. För att komma åt resurser som är associerade med ditt lagringskonto ( *exportbvtdataset2* i följande exempel) från värddatorn öppnar du ett kommandofönster. Skriv följande i kommandotolken:
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
@@ -73,13 +73,13 @@ Om du använder en Windows Server-värddator följer du stegen nedan för att an
     The command completed successfully.
     ```
 
-4. Tryck på Windows + R. I fönstret **Kör** anger du `\\<device IP address>`. Öppna Utforskaren genom att välja **OK**.
+5. Tryck på Windows + R. I fönstret **Kör** anger du `\\<device IP address>`. Öppna Utforskaren genom att välja **OK**.
     
-    ![Ansluta till resurs via Utforskaren](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-1.png)
+    ![Ansluta till en resurs via Utforskaren genom att ange enhetens IP](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-1.png)
 
     Du bör nu se resurserna som mappar.
     
-    ![Ansluta till resursen via Utforskaren 2](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-2.png)
+    ![Ansluta till en resurs via Utforskaren för att se resurser](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-2.png)
 
     
 Om du använder en Linux-klient använder du följande kommando för att montera SMB-resursen. Parametern ”vers” nedan är den version av SMB din Linux-värd stödjer. Inför lämplig version i kommandot nedan. Versioner av SMB som Data Box har stöd för finns i avsnittet om [filsystem som stöds för Linux-klienter](./data-box-system-requirements.md#supported-file-transfer-protocols-for-clients) 

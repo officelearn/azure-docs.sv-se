@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 11bbc30179cc27f4799b1fd2869cb312dfa34473
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c96f2cc37c47c77b82ca86d5fd0295f0c66a896
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87093076"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553700"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Distribution utan drift avbrott för Durable Functions
 
@@ -54,7 +54,7 @@ Använd följande procedur för att konfigurera det här scenariot.
 
 1. Skapa en ny app-inställning för varje plats, till exempel `DurableManagementStorage` . Ange värdet för anslutnings strängen för olika lagrings konton. Dessa lagrings konton används av Durable Functions-tillägget för [tillförlitlig körning](./durable-functions-orchestrations.md). Använd ett separat lagrings konto för varje plats. Markera inte den här inställningen som en distributions plats inställning.
 
-1. I din Function-appens [host.jspå filens durableTask-avsnitt](durable-functions-bindings.md#hostjson-settings)anger `azureStorageConnectionStringName` du som namn på den app-inställning som du skapade i steg 3.
+1. I din Function-appens [host.jspå filens durableTask-avsnitt](durable-functions-bindings.md#hostjson-settings)anger du `connectionStringName` (tålig 2. x) eller `azureStorageConnectionStringName` (varaktig 1. x) som namn på den app-inställning som du skapade i steg 3.
 
 Följande diagram visar den beskrivna konfigurationen av distributions platser och lagrings konton. I det här scenariot för för distribution körs version 2 av en Function-app på produktions platsen, medan version 1 är kvar på mellanlagringsplatsen.
 
@@ -71,7 +71,10 @@ Följande JSON-fragment är exempel på inställningen för anslutnings stränge
   "version": 2.0,
   "extensions": {
     "durableTask": {
-      "azureStorageConnectionStringName": "DurableManagementStorage"
+      "hubName": "MyTaskHub",
+      "storageProvider": {
+        "connectionStringName": "DurableManagementStorage"
+      }
     }
   }
 }

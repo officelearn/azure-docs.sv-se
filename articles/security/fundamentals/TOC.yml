@@ -38,6 +38,21 @@
           href: infrastructure-integrity.md
         - name: Dataskydd
           href: protection-customer-data.md
+    - name: Plattformsintegritet och -säkerhet
+      href: platform.md
+      items:
+        - name: Säkerhet för inbyggd programvara
+          href: firmware.md
+        - name: Säker start
+          href: secure-boot.md
+        - name: Uppmätt start- och värdattestering
+          href: measured-boot-host-attestation.md
+        - name: Project Cerberus
+          href: project-cerberus.md
+        - name: Kryptering i vila
+          href: encryption-atrest.md
+        - name: Hypervisor-säkerhet
+          href: hypervisor.md
     - name: Isolering i Azure-molnet
       href: isolation-choices.md
 - name: Identitetshantering

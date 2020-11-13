@@ -1,7 +1,7 @@
 ---
 title: Importera data till designern
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du importerar data till Azure Machine Learning designer från olika data källor.
+description: Lär dig hur du importerar data till Azure Machine Learning designer med Azure Machine Learning data uppsättningar och modulen importera data.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: keli19
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 15fca48327c46480546764be1b2ab40c1635e874
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ce0bb2a30ec4092d0053adf2de711547595c900
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985611"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554724"
 ---
 # <a name="import-data-into-azure-machine-learning-designer"></a>Importera data till Azure Machine Learning designer
 
@@ -90,7 +90,7 @@ Designern stöder tabell data uppsättningar som skapats från följande källor
 Designern identifierar internt följande data typer:
 
 * Sträng
-* Integer
+* Heltal
 * Decimal
 * Boolesk
 * Date

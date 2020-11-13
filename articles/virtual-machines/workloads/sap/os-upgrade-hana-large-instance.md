@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8485f3474da18e052bc0eab6c053be084ef884a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7a9c8fce87b48b47f4bf82e5fd25fda12a25758
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82192424"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553513"
 ---
 # <a name="operating-system-upgrade"></a>Uppgradering av operativ system
 I det här dokumentet beskrivs information om uppgraderingar av operativ system på de stora och HANA-instanserna.
@@ -29,7 +29,7 @@ I det här dokumentet beskrivs information om uppgraderingar av operativ system 
 Under HLI enhets etablering installerar Microsoft Operations-teamet operativ systemet.
 Under tiden måste du underhålla operativ systemet (exempel: korrigering, justering, uppgradering osv.) på HLI-enheten.
 
-Innan du gör större ändringar i operativ systemet (till exempel uppgradera SP1 till SP2) måste du kontakta Microsoft Operations team genom att öppna ett support ärende för att konsultera.
+Innan du gör större ändringar i operativ systemet (till exempel uppgradera SP1 till SP2), måste du kontakta Microsoft Operations team genom att öppna ett support ärende och kontakta dig.
 
 Ta med i din biljett:
 
@@ -38,11 +38,9 @@ Ta med i din biljett:
 * Korrigerings nivån som du planerar att tillämpa.
 * Det datum då du planerar den här ändringen. 
 
-Vi rekommenderar att du öppnar den här biljetten minst en vecka före det önskvärda uppgraderings datumet på grund av att drifts teamet kontrollerar om en uppgradering av inbyggd program vara kommer att vara nödvändig på Server bladet.
-
+Vi rekommenderar att du öppnar den här biljetten minst en vecka före den önskvärda uppgraderingen, vilket gör att Opration-teamet vet om den önskade versionen av den inbyggda program varan.
 
 En support mat ris för olika SAP HANA versioner med olika Linux-versioner finns i [SAP Obs! #2235581](https://launchpad.support.sap.com/#/notes/2235581).
-
 
 ## <a name="known-issues"></a>Kända problem
 
@@ -55,16 +53,17 @@ Följande är några vanliga kända problem under uppgraderingen:
 Konfiguration av operativ system kan utföras av de rekommenderade inställningarna över tid på grund av korrigeringar, system uppgraderingar och ändringar som gjorts av kunderna. Dessutom identifierar Microsoft uppdateringar som krävs för befintliga system för att säkerställa att de är optimalt konfigurerade för bästa prestanda och återhämtning. Följande anvisningar beskriver rekommendationer som hanterar nätverks prestanda, system stabilitet och optimal HANA-prestanda.
 
 ### <a name="compatible-enicfnic-driver-versions"></a>Kompatibla driv rutins versioner för eNIC/fNIC
-  För att få korrekt nätverks prestanda och system stabilitet bör du se till att den OS-/regionsspecifika lämpliga versionen av eNIC-och fNIC-drivrutinerna installeras som beskrivs i följande kompatibilitetslista. Servrar levereras till kunder med kompatibla versioner. Observera att i vissa fall under operativ system/kernel-uppdatering kan driv rutiner återställas till standard driv rutins versionerna. Kontrol lera att rätt driv rutins version kör åtgärder för att publicera operativ system/kernel.
+  För att få korrekt nätverks prestanda och system stabilitet bör du se till att den OS-/regionsspecifika lämpliga versionen av eNIC-och fNIC-drivrutinerna installeras som beskrivs i följande kompatibilitetslista. Servrar levereras till kunder med kompatibla versioner. I vissa fall kan driv rutiner återställas till standard driv rutins versionerna under operativ system/kernel-uppdatering. Se till att driv rutins versionen körs efter uppdatering av operativ system/kernel.
        
       
   |  OS-leverantör    |  OS-paketets version     |  Version av inbyggd programvara  |  eNIC-drivrutin |  fNIC-drivrutin | 
   |---------------|-------------------------|--------------------|--------------|--------------|
   |   SuSE        |  SLES 12 SP2            |   3.1.3 h           |  2.3.0.40    |   1.6.0.34   |
   |   SuSE        |  SLES 12 SP3            |   3.1.3 h           |  2.3.0.44    |   1.6.0.36   |
-  |   SuSE        |  SLES 12 SP4            |   3.2.3 i           |  2.3.0.47    |   2.0.0.54   |
+  |   SuSE        |  SLES 12 SP4            |   3.2.3 i           |  4.0.0.6     |   2.0.0.60   |
   |   SuSE        |  SLES 12 SP2            |   3.2.3 i           |  2.3.0.45    |   1.6.0.37   |
-  |   SuSE        |  SLES 12 SP3            |   3.2.3 i           |  2.3.0.45    |   1.6.0.37   |
+  |   SuSE        |  SLES 12 SP3            |   3.2.3 i           |  2.3.0.43    |   1.6.0.36   |
+  |   SuSE        |  SLES 12 SP5            |   3.2.3 i           |  4.0.0.8     |   2.0.0.60   |
   |   Red Hat     |  RHEL 7,2               |   3.1.3 h           |  2.3.0.39    |   1.6.0.34   |
  
 
@@ -88,6 +87,15 @@ rpm -ivh <enic/fnic.rpm>
 modinfo enic
 modinfo fnic
 ```
+
+#### <a name="steps-for-enicfnic-drivers-installation-during-os-upgrade"></a>Steg för att installera eNIC/fNIC-drivrutiner under uppgraderingen av operativ systemet
+
+* Uppgradera OS-version
+* Ta bort gamla rpm-paket
+* Installera kompatibla eNIC/fNIC-drivrutiner enligt installerad OS-version
+* Starta om systemet
+* Efter omstart kontrollerar du eNIC/fNIC-versionen
+
 
 ### <a name="suse-hlis-grub-update-failure"></a>Uppdaterings problem för SuSE HLIs-GRUB
 SAP på Azure HANA stora instanser (typ I) kan vara i ett icke startbart tillstånd efter uppgraderingen. I proceduren nedan åtgärdas det här problemet.
@@ -117,7 +125,6 @@ blacklist edac_core
 ```
 En omstart krävs för att göra ändringar på plats. Kör `lsmod` kommandot och kontrol lera att modulen inte finns där i utdata.
 
-
 ### <a name="kernel-parameters"></a>Kernel-parametrar
    Kontrol lera att rätt inställning för `transparent_hugepage` , `numa_balancing` , `processor.max_cstate` `ignore_ce` och `intel_idle.max_cstate` tillämpas.
 
@@ -126,7 +133,6 @@ En omstart krävs för att göra ändringar på plats. Kör `lsmod` kommandot oc
 * transparent_hugepage = aldrig
 * numa_balancing = inaktivera
 * MCE = ignore_ce
-
 
 #### <a name="execution-steps"></a>Körnings steg
 

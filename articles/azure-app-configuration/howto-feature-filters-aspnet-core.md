@@ -1,30 +1,31 @@
 ---
-title: Använd funktions filter för att aktivera en funktion för en delmängd av användare
+title: Använd funktions filter för att aktivera villkorliga funktions flaggor
 titleSuffix: Azure App Configuration
-description: Lär dig hur du använder funktions filter för att aktivera en funktion för en delmängd av användare
+description: Lär dig hur du använder funktions filter för att aktivera villkorliga funktions flaggor
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 author: lisaguthrie
 ms.author: lcozzens
 ms.topic: conceptual
 ms.date: 3/9/2020
-ms.openlocfilehash: 5b2eb942581f6e4163012b0f767d04c02689bb7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af8df66e02dc9316311f36dec60374a7c4e649b8
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88206766"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554766"
 ---
-# <a name="use-feature-filters-to-enable-a-feature-for-a-subset-of-users"></a>Använd funktions filter för att aktivera en funktion för en delmängd av användare
+# <a name="use-feature-filters-to-enable-conditional-feature-flags"></a>Använd funktions filter för att aktivera villkorliga funktions flaggor
 
 Med funktions flaggor kan du aktivera eller inaktivera funktioner i ditt program. En enkel funktions flagga är antingen på eller av. Programmet fungerar alltid på samma sätt. Du kan till exempel distribuera en ny funktion bakom en funktions flagga. När funktions flaggan är aktive rad ser alla användare den nya funktionen. Om du inaktiverar funktions flaggan döljs den nya funktionen.
 
 En _villkorlig funktions flagga_ gör det möjligt att aktivera eller inaktivera funktions flagga dynamiskt. Programmet kan beter sig på olika sätt beroende på funktions flagg kriterier. Anta att du vill visa din nya funktion till en liten delmängd av användarna först. Med en villkorlig funktions flagga kan du aktivera funktions flaggan för vissa användare medan du inaktiverar den för andra. _Funktions filter_ bestämmer funktions flaggans status varje gången den utvärderas.
 
-`Microsoft.FeatureManagement`Biblioteket innehåller två funktions filter:
+`Microsoft.FeatureManagement`Biblioteket innehåller tre funktions filter:
 
 - `PercentageFilter` aktiverar funktions flagga baserat på en procents ATS.
 - `TimeWindowFilter` aktiverar funktions flagga under en angiven tids period.
+- `TargetingFilter` aktiverar funktions flagga för angivna användare och grupper.
 
 Du kan också skapa ett eget funktions filter som implementerar [gränssnittet Microsoft. FeatureManagement. IFeatureFilter](/dotnet/api/microsoft.featuremanagement.ifeaturefilter).
 
@@ -84,9 +85,9 @@ Du kan konfigurera de här inställningarna för funktions flaggor som definiera
 Om du vill se effekterna av den här funktions flaggan startar du programmet och klickar på **Uppdatera** i webbläsaren flera gånger. Du ser att *beta* -objektet visas i verktygsfältet om 50% av tiden. Den är dold resten av tiden, eftersom `PercentageFilter` inaktiverar *beta* funktionen för en delmängd begär Anden. Följande video visar hur det fungerar i praktiken.
 
 > [!div class="mx-imgBorder"]
-> ![PercentageFilter i praktiken](./media/feature-flags-percentagefilter.gif)
+> ![TargetingFilter i praktiken](./media/feature-flags-percentagefilter.gif)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Översikt över funktions hantering](./concept-feature-management.md)
+> [Aktivera stegvis distribution av funktioner för mål grupper](./howto-targetingfilter-aspnet-core.md)

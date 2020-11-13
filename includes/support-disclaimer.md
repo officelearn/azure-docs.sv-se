@@ -11,5 +11,5 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2020
 ms.locfileid: "67187158"
 ---
-Om ditt Azure-problem inte åtgärdas i den här artikeln kan du gå till Azure-forumen på [MSDN och Stack Overflow](https://azure.microsoft.com/support/forums/). Du kan publicera ditt problem i dessa forum eller publicera på [ @AzureSupport Twitter](https://twitter.com/AzureSupport). Du kan också skicka en support förfrågan för Azure. Om du vill skicka en supportbegäran väljer du **Hämta support**på sidan [Support för Azure](https://azure.microsoft.com/support/options/) .
+Om ditt Azure-problem inte åtgärdas i den här artikeln kan du gå till Azure-forumen på [MSDN och Stack Overflow](https://azure.microsoft.com/support/forums/). Du kan publicera ditt problem i dessa forum eller publicera på [ @AzureSupport Twitter](https://twitter.com/AzureSupport). Du kan också skicka en support förfrågan för Azure. Om du vill skicka en supportbegäran väljer du **Hämta support** på sidan [Support för Azure](https://azure.microsoft.com/support/options/) .
 

@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: 866f1c404df2de87c2b3ce58b791ceb5257fca1b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 88481346f22176b8e307b53774b42d753838f90b
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074455"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554831"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Snabb start: Lägg till funktions flaggor i en ASP.NET Core app
 
@@ -70,7 +70,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     Få åtkomst till den här hemligheten med API för .NET Core-konfiguration. Ett kolon ( `:` ) fungerar i konfigurations namnet med Konfigurations-API: et på alla plattformar som stöds. Mer information finns i [konfigurations nycklar och värden](/aspnet/core/fundamentals/configuration#configuration-keys-and-values).
 
-1. I *program.cs*uppdaterar du `CreateWebHostBuilder` metoden för att använda app-konfiguration genom att anropa `AddAzureAppConfiguration` metoden.
+1. I *program.cs* uppdaterar du `CreateWebHostBuilder` metoden för att använda app-konfiguration genom att anropa `AddAzureAppConfiguration` metoden.
 
     > [!IMPORTANT]
     > `CreateHostBuilder` ersätter `CreateWebHostBuilder` i .net Core 3. x. Välj rätt syntax baserat på din miljö.
@@ -106,9 +106,9 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     ---
 
-    Med den föregående ändringen har [konfigurations leverantören för app-konfigurationen](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration) registrerats med API för .net Core-konfiguration.
+    Med den föregående ändringen har [konfigurations leverantören för app-konfigurationen](https://go.microsoft.com/fwlink/?linkid=2074664) registrerats med API för .net Core-konfiguration.
 
-1. I *startup.cs*lägger du till en referens till .net Core Feature Manager:
+1. I *startup.cs* lägger du till en referens till .net Core Feature Manager:
 
     ```csharp
     using Microsoft.FeatureManagement;
@@ -173,7 +173,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
     }
     ```
 
-1. I *vyer/_ViewImports. cshtml*, registrera Feature Manager-taggnings hjälpen med ett `@addTagHelper` direktiv:
+1. I *vyer/_ViewImports. cshtml* , registrera Feature Manager-taggnings hjälpen med ett `@addTagHelper` direktiv:
 
     ```cshtml
     @addTagHelper *, Microsoft.FeatureManagement.AspNetCore
@@ -181,36 +181,9 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     Med föregående kod kan du `<feature>` använda etikett hjälpen i projektets *. cshtml* -filer.
 
-1. I *vyer/Shared/_Layout. cshtml*ersätter du `<nav>` streckkoden under `<body>`  >  `<header>` med följande markering:
+1. Öppna *_Layout. cshtml* i den *Views* \\ *delade* katalogen för vyer. Leta upp `<nav>` streckkoden under `<body>`  >  `<header>` . Infoga en ny `<feature>` tagg mellan *Start* -och *Sekretess* navigerings objekt, som du ser i de markerade raderna nedan.
 
-    ```cshtml
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-        <div class="container">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TestFeatureFlags</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                    </li>
-                    <feature name="Beta">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Beta" asp-action="Index">Beta</a>
-                    </li>
-                    </feature>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    ```
-
-    Lägg märke till att etikett hjälpen i föregående markering `<feature>` omger *beta* List objekt.
+    :::code language="html" source="../../includes/azure-app-configuration-navbar.md" range="15-38" highlight="13-17":::
 
 1. Skapa en *vy/beta-* katalog och en *index. cshtml* -fil som innehåller följande markering:
 
@@ -244,15 +217,17 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     :::image type="content" source="media/quickstarts/aspnet-core-feature-flag-local-before.png" alt-text="Lokal snabb starts app före ändring" border="true":::
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **alla resurser**och välj den instans av app Configuration Store som du skapade i snabb starten.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **alla resurser** och välj den instans av app Configuration Store som du skapade i snabb starten.
 
-1. Välj **funktions hanteraren**och ändra statusen för *beta* nyckeln till **på**.
+1. Välj **funktions hanterare**. 
+
+1. Aktivera *beta* -flaggan genom att markera kryss rutan under **aktive rad**.
 
 1. Återgå till kommando gränssnittet. Avbryt den pågående `dotnet` processen genom att trycka på <kbd>CTRL + C</kbd>. Starta om din app med `dotnet run` .
 
 1. Uppdatera webbläsarsidan för att visa de nya konfigurationsinställningarna.
 
-    :::image type="content" source="media/quickstarts/aspnet-core-feature-flag-local-after.png" alt-text="Lokal snabb starts app före ändring" border="true":::
+    :::image type="content" source="media/quickstarts/aspnet-core-feature-flag-local-after.png" alt-text="Lokal snabb starts app efter ändring" border="true":::
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -260,7 +235,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du skapat ett nytt konfigurations Arkiv för appar och använt det för att hantera funktioner i en ASP.NET Core-webbapp via [biblioteken för funktions hantering](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration).
+I den här snabb starten har du skapat ett nytt konfigurations Arkiv för appar och använt det för att hantera funktioner i en ASP.NET Core-webbapp via [biblioteken för funktions hantering](https://go.microsoft.com/fwlink/?linkid=2074664).
 
 * Läs mer om [funktions hantering](./concept-feature-management.md).
 * [Hantera funktions flaggor](./manage-feature-flags.md).

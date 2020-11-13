@@ -180,6 +180,21 @@
               href: app/pricing.md
             - name: Logga dataanvändning och -kostnader
               href: platform/manage-cost-storage.md
+    - name: Azure Monitor-statistik
+      items:
+        - name: Översikt
+          displayname: Metrics
+          href: platform/data-platform-metrics.md
+        - name: Måttutforskare
+          items:
+            - name: Komma igång med Metrics Explorer
+              href: platform/metrics-getting-started.md
+            - name: Avancerade funktioner i Metrics Explorer
+              href: platform/metrics-charts.md
+            - name: Exempel på måttdiagram
+              href: platform/metric-chart-samples.md
+            - name: Felsöka måttdiagram
+              href: platform/metrics-troubleshoot.md
     - name: Azure Monitor-loggar
       items:
         - name: Översikt
@@ -189,7 +204,7 @@
           items:
             - name: Skapa en arbetsyta
               items:
-                - name: Azure Portal
+                - name: Azure-portalen
                   href: learn/quick-create-workspace.md
                 - name: Azure CLI
                   href: learn/quick-create-workspace-cli.md
@@ -262,21 +277,10 @@
               href: platform/logs-export-logic-app.md
             - name: Köra frågor mot exporterade data med Datautforskaren
               href: platform/azure-data-explorer-query-storage.md
-    - name: Azure Monitor-statistik
-      items:
-        - name: Översikt
-          displayname: Metrics
-          href: platform/data-platform-metrics.md
-        - name: Måttutforskare
-          items:
-            - name: Komma igång med Metrics Explorer
-              href: platform/metrics-getting-started.md
-            - name: Avancerade funktioner i Metrics Explorer
-              href: platform/metrics-charts.md
-            - name: Exempel på måttdiagram
-              href: platform/metric-chart-samples.md
-            - name: Felsöka måttdiagram
-              href: platform/metrics-troubleshoot.md
+            - name: Skicka till Excel
+              href: log-query/log-excel.md
+            - name: Skicka till Power BI
+              href: log-query/log-powerbi.md
     - name: Plattformsloggar
       items:
         - name: Översikt
@@ -575,12 +579,16 @@
                   displayname: 'ilogger, logging, log'
                   href: app/ilogger.md
             - name: ASP.NET
-              displayname: 'ASP.NET, c#, csharp, .NET, NET, dotnet'
-              href: app/asp-net.md
-            - name: Appar som inte är HTTP-appar/Bakgrundsappar
+              items:
+                - name: ASP.NET App Monitoring
+                  displayname: 'ASP.NET, c#, csharp, .NET, NET, dotnet'
+                  href: app/asp-net.md
+                - name: Felsöka ASP.NET
+                  href: app/asp-net-troubleshoot-no-data.md
+            - name: Appar utan HTTP/Bakgrundsappar
               displayname: 'console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host'
               href: app/worker-service.md
-            - name: .NET-konsol
+            - name: ASP.NET-konsol
               displayname: 'console, .NET, dotnet console, dotnet, c#, csharp, NET'
               href: app/console.md
             - name: Java
@@ -590,18 +598,10 @@
                   href: app/java-get-started.md
                 - name: Loggspårningar
                   href: app/java-trace-logs.md
-                - name: Unix-mått
-                  href: app/java-collectd.md
                 - name: Beroenden
                   href: app/java-agent.md
                 - name: Filtrera telemetri
                   href: app/java-filter-telemetry.md
-                - name: Mått för Micrometer
-                  displayname: java
-                  href: app/micrometer-java.md
-                - name: Spring Boot-app
-                  displayname: java
-                  href: /java/azure/spring-framework/configure-spring-boot-java-applicationinsights
                 - name: Felsöka
                   href: app/java-troubleshoot.md
             - name: Node.js
@@ -637,8 +637,6 @@
             - name: Sammanfattning av Application Insights-API
               displayname: 'SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency'
               href: app/api-custom-events-metrics.md
-            - name: Felsöka ASP.NET
-              href: app/asp-net-troubleshoot-no-data.md
             - name: Ta bort Application Insights
               href: app/remove-application-insights.md
         - name: Övervakning utan kod
@@ -1241,6 +1239,8 @@
               href: app/release-notes.md
             - name: Webbappstillägg
               href: app/web-app-extension-release-notes.md
+            - name: Felsökning av ögonblicksbild
+              href: app/snapshot-collector-release-notes.md
         - name: Datamodell
           items:
             - name: Översikt
@@ -1323,6 +1323,11 @@
           href: platform/resource-logs-blob-format.md
         - name: Key Vault Analytics (inaktuellt)
           href: insights/azure-key-vault-deprecated.md
+        - name: Unix-mått
+          href: app/java-collectd.md
+        - name: Mått för Micrometer
+          displayname: java
+          href: app/micrometer-java.md
         - name: Vyer
           items:
             - name: Vydesigner

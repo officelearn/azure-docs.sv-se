@@ -11,8 +11,7 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Konfigurera Azure NetApp Files och skapa en NFS-volym – ARM-mall
-      displayName: Resource Manager
+    - name: Konfigurera Azure NetApp Files och skapa en NFS-volym
       href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
 - name: Begrepp
   items:
@@ -114,8 +113,6 @@
           href: develop-rest-api-powershell.md
         - name: 'SDK:er, CLI-verktyg och ARM-mallar'
           href: azure-netapp-files-sdk-cli.md
-        - name: Felsöka fel i resursprovidern för Azure NetApp Files
-          href: azure-netapp-files-troubleshoot-resource-provider-errors.md
     - name: Felsöka
       items:
         - name: Felsöka kapacitetspooler
@@ -126,6 +123,8 @@
           href: troubleshoot-dual-protocol-volumes.md
         - name: Felsöka policyer för ögonblicksbilder
           href: troubleshoot-snapshot-policies.md
+        - name: Felsöka fel i resursprovidern
+          href: azure-netapp-files-troubleshoot-resource-provider-errors.md
 - name: Referens
   items:
     - name: REST

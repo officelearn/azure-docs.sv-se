@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: a5a958228d79c86550604109d7aaf19e68593a57
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a9f58a9cdf8dea9631443d499548f2aee61eda69
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314915"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553683"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Använda externa tabeller med Synapse SQL
 
@@ -388,8 +388,6 @@ Med hjälp av Data Lake utforsknings funktioner kan du nu skapa och skicka fråg
 - Du måste ha åtkomst till arbets ytan med minst Storage BLOB data Contributor-åtkomst roll till ADLS Gen2 kontot
 
 - Du måste ha minst [behörighet för att skapa](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#permissions-2&preserve-view=true) och fråga externa tabeller i SQL-poolen eller SQL OD
-
-- Den länkade tjänst som är kopplad till ADLS Gen2 kontot **måste ha åtkomst till filen**. Om den länkade tjänstens autentiseringsmekanism exempelvis är hanterad identitet, måste den hanterade arbets ytans identitet ha minst behörighet för lagrings-BLOB-läsare på lagrings kontot
 
 I panelen data väljer du den fil som du vill skapa den externa tabellen från:
 > [!div class="mx-imgBorder"]

@@ -703,6 +703,8 @@
               href: migrate-java-v4-sdk.md
             - name: Migrera till .NET V3 SDK
               href: migrate-dotnet-v3.md
+            - name: Migrera till .NET V2 SDK
+              href: migrate-dotnet-v2.md
         - name: Felsökning
           items:
             - name: Vanliga fel

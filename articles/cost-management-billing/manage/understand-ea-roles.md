@@ -6,14 +6,15 @@ ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 09/23/2020
 ms.author: banders
-ms.openlocfilehash: 13b344d3f13993dc7b6acf7bfe9a0ccdea0c866b
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.custom: contperfq1
+ms.openlocfilehash: e712b44f22a8080b14a2cc2532cadf2dd4738b76
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371362"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409218"
 ---
 # <a name="managing-azure-enterprise-roles"></a>Hantera Azure Enterprise-roller
 
@@ -34,6 +35,86 @@ Den första registreringsadministratören som konfigureras under registreringset
 Om till exempel den inledande autentiseringstypen har ställts in som Blandat, läggs EA till som ett Microsoft-konto och faktureringskontakten har endast skrivskyddade EA-administratörsprivilegier. Om EA-administratören inte godkänner Microsoft-kontoauktorisering för en befintlig faktureringskontakt, kan EA-administratören ta bort användaren i fråga och be kunden att lägga till användaren igen som en skrivskyddad administratör med ett arbets- eller skolkonto som bara anges på registreringsnivå i EA-portalen.
 
 De här rollerna gäller särskilt för hantering av Azure Enterprise-avtal och används utöver de fördefinierade roller som används till att styra åtkomsten till resurser i Azure. Mer information finns i [Inbyggda roller i Azure](../../role-based-access-control/built-in-roles.md).
+
+## <a name="azure-enterprise-portal-hierarchy"></a>Hierarkin för Azure Enterprise-portalen
+
+Hierarkin för Azure Enterprise-portalen består av:
+
+- **Azure Enterprise-portalen** – en onlinehanteringsportal där du kan hantera kostnader för dina Azure EA-tjänster. Du kan:
+
+  - Skapa en Azure EA-hierarki med avdelningar, konton och prenumerationer.
+  - Stämma av kostnaderna för dina förbrukade tjänster, ladda ned användningsrapporter och visa prislistor.
+  - Skapa API-nycklar för din registrering.
+
+- **Avdelningar** hjälper dig att segmentera kostnader i logiska grupperingar. Med avdelningar kan du ange en budget eller kvot på avdelningsnivå.
+
+- **Konton** är organisationsenheter i Azure Enterprise-portalen. Du kan använda konton för att hantera prenumerationer och komma åt rapporter.
+
+- **Prenumerationer** är den minsta enheten i Azure Enterprise-portalen. De är containrar för Azure-tjänster som hanteras av tjänstadministratören.
+
+Följande diagram illustrerar enkla Azure EA-hierarkier.
+
+![Diagram över enkla Azure EA-hierarkier](./media/understand-ea-roles/ea-hierarchies.png)
+
+## <a name="enterprise-user-roles"></a>Roller för företagsanvändare
+
+Följande administrativa användarroller ingår i din företagsregistrering:
+
+- Företagsadministratör
+- Avdelningsadministratör
+- Kontoägare
+- Tjänstadministratör
+- Meddelandekontakt
+
+Roller används i två olika portaler för att slutföra uppgifter. Du använder [Azure Enterprise-portalen](https://ea.azure.com) för att hantera fakturering och kostnader samt [Azure-portalen](https://portal.azure.com) för att hantera Azure-tjänster.
+
+Användarroller är associerade med ett användarkonto. För att verifiera användarens äkthet måste varje användare ha ett giltigt arbets-, skol- eller Microsoft-konto. Se till att varje konto är associerat med en e-postadress som är aktivt övervakad. Kontomeddelanden skickas till e-postadressen.
+
+När du konfigurerar användare kan du ge flera konton rollen som företagsadministratör. Dock kan endast ett konto ha rollen som kontoinnehavare. Du kan även tilldela både rollen företagsadministratör och kontoinnehavare till ett och samma konto.
+
+### <a name="enterprise-administrator"></a>Företagsadministratör
+
+Användare med den här rollen har den högsta åtkomstnivån. De kan:
+
+- Hantera konton och kontoinnehavare.
+- Hantera andra företagsadministratörer.
+- Hantera avdelningsadministratörer.
+- Hantera meddelandekontakter.
+- Visa användning för alla konton.
+- Visa odebiterade avgifter för alla konton.
+
+Du kan ha flera företagsadministratörer i en företagsregistrering. Du kan bevilja skrivskyddad åtkomst till företagsadministratörer. De ärver alla rollen avdelningsadministratör.
+
+### <a name="department-administrator"></a>Avdelningsadministratör
+
+Användare med den här rollen kan:
+
+- Skapa och hantera avdelningar.
+- Skapa nya kontoinnehavare.
+- Visa användningsinformation för de avdelningar som de hanterar.
+- Visa kostnader om de har nödvändig behörighet.
+
+Du kan ha flera avdelningsadministratörer för varje företagsregistrering.
+
+Du kan bevilja avdelningsadministratörer skrivskyddad åtkomst när du redigerar eller skapar en ny avdelningsadministratör. Ange alternativet för skrivskydd till **Ja**.
+
+### <a name="account-owner"></a>Kontoägare
+
+Användare med den här rollen kan:
+
+- Skapa och hantera prenumerationer.
+- Hantera tjänstadministratörer.
+- Visa användning för prenumerationer.
+
+För varje konto krävs ett unikt arbets-, skol- eller Microsoft-konto. Mer information om administrativa roller i Azure Enterprise-portalen finns i [Förstå administrativa roller för Azure Enterprise-avtal i Azure](understand-ea-roles.md).
+
+### <a name="service-administrator"></a>Tjänstadministratör
+
+Rollen tjänstadministratör har behörighet att hantera tjänster i Azure-portalen och tilldela användare till rollen som medadministratör.
+
+### <a name="notification-contact"></a>Meddelandekontakt
+
+Meddelandekontakten får aviseringar om användning som gäller registreringen.
 
 I följande avsnitt beskrivs begränsningarna och funktionerna för varje roll.
 
@@ -69,7 +150,7 @@ I följande avsnitt beskrivs begränsningarna och funktionerna för varje roll.
 
 ## <a name="add-a-new-enterprise-administrator"></a>Lägga till en ny företagsadministratör
 
-Företagsadministratörer har fullständig behörighet i hanteringen av en Azure EA-registrering. Den första Azure EA-administratören skapades när EA-avtalet tecknades. Du kan dock när som helst lägga till och ta bort administratörer. Det är bara befintliga administratörer som kan lägga till nya administratörer. Du kan läsa mer om att lägga till fler företagsadministratörer i [Skapa en ny företagsadministratör](ea-portal-get-started.md#create-another-enterprise-administrator). Mer information om roller och uppgifter för faktureringsprofiler finns i [Roller och uppgifter för faktureringsprofiler](understand-mca-roles.md#billing-profile-roles-and-tasks).
+Företagsadministratörer har fullständig behörighet i hanteringen av en Azure EA-registrering. Den första Azure EA-administratören skapades när EA-avtalet tecknades. Du kan dock när som helst lägga till och ta bort administratörer. Det är bara befintliga administratörer som kan lägga till nya administratörer. Du kan läsa mer om att lägga till fler företagsadministratörer i [Skapa en ny företagsadministratör](ea-portal-administration.md#create-another-enterprise-administrator). Mer information om roller och uppgifter för faktureringsprofiler finns i [Roller och uppgifter för faktureringsprofiler](understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 ## <a name="update-account-owner-state-from-pending-to-active"></a>Uppdatera kontoinnehavares status från väntande till aktiv
 
@@ -79,7 +160,7 @@ När nya kontoinnehavare först läggs till i en Azure EA-registrering är deras
 
 När en Azure EA-administratör skapar en avdelning så kan Azure-företagsadministratören lägga till avdelningsadministratörer och koppla dem till en avdelning. En avdelningsadministratör kan skapa nya konton. Nya konton behövs till att skapa Azure EA-prenumerationer.
 
-Du kan läsa mer om att lägga till en avdelningsadministratör under [Skapa en Azure EA-avdelningsadministratör](ea-portal-get-started.md#add-a-department-administrator).
+Du kan läsa mer om att lägga till en avdelningsadministratör under [Skapa en Azure EA-avdelningsadministratör](ea-portal-administration.md#add-a-department-administrator).
 
 ## <a name="usage-and-costs-access-by-role"></a>Åtkomst till användning och kostnader per roll
 
@@ -114,12 +195,12 @@ I följande tabell visas relationen mellan administratörsrollerna för Enterpri
 |Kontoägare ELLER Avdelningsadministratör|✘ Inaktiverad |ingen|Inga priser|
 |Ingen|Inte tillämpligt |Ägare|Återförsäljarpris|
 
-Du ställer in administratörsroller för Enterprise och visar policyer för avgifter i Enterprise-portalen. Azure-rollen kan uppdateras i Azure-portalen. Mer information finns i [Lägga till eller ta bort Azure-rolltilldelningar med hjälp av Azure-portalen](../../role-based-access-control/role-assignments-portal.md).
+Du ställer in administratörsroller för Enterprise och visar policyer för avgifter i Enterprise-portalen. Azure-rollen kan uppdateras i Azure-portalen. Mer information finns i [Hantera åtkomst med hjälp av RBAC och Azure-portalen](../../role-based-access-control/role-assignments-portal.md).
 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Hantera åtkomst till faktureringsinformation för Azure](manage-billing-access.md)
-- [Lägga till eller ta bort rolltilldelningar för Azure med hjälp av Azure-portalen](../../role-based-access-control/role-assignments-portal.md)
+- [Hantera åtkomst med hjälp av RBAC och Azure-portalen](../../role-based-access-control/role-assignments-portal.md)
 - [Inbyggda roller i Azure](../../role-based-access-control/built-in-roles.md)

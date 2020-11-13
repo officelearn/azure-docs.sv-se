@@ -7,18 +7,18 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/09/2020
 ms.author: banders
-ms.openlocfilehash: 16ba70717d04c44e950ce2ed2c47e54859c4be47
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: f90d1fe22ae2f46fdc6d764ce98db8e0f48b8b35
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684889"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408030"
 ---
 # <a name="cancel-your-azure-subscription"></a>Avbryta din Azure-prenumeration
 
-Du kan avbryta din Azure-prenumeration i Azure-portalen om du inte längre behöver prenumerationen.
+Du kan avsluta din Azure-prenumeration i Microsoft Azure-portalen om du inte längre behöver den.
 
 Även om det inte krävs *rekommenderar* Microsoft att du vidtar följande åtgärder innan du avbryter din prenumeration:
 
@@ -54,7 +54,7 @@ När du har avbrutit stoppas faktureringen omedelbart. Det kan dock ta upp till 
 
 När du har avbrutit inaktiveras dina tjänster. Det innebär att dina virtuella datorer avallokeras, temporära IP-adresser frigörs och lagringen skrivskyddas.
 
-När prenumerationen har avslutats väntar Microsoft 30–90 dagar innan data tas bort permanent, om du skulle behöva komma åt dem eller om du ångrar dig. Vi debiterar dig inte för bevarade data. Mer information finns i [Microsoft Trust Center – Så hanterar vi dina data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
+När prenumerationen har avslutats väntar Microsoft 30–90 dagar innan data tas bort permanent, om du skulle behöva komma åt dem eller om du ångrar dig. Vi debiterar dig inte för att behålla dessa data. Mer information finns i [Microsoft Trust Center – Så hanterar vi dina data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 
 ## <a name="delete-free-trial-subscription"></a>Ta bort kostnadsfri utvärderingsprenumeration
 
@@ -69,11 +69,23 @@ Om du har en kostnadsfri utvärderingsprenumeration behöver du inte vänta 30 d
 
 Om du oavsiktligt avbryter prenumerationen med Betala per användning-priser kan du [återaktivera den i Kontocenter](subscription-disabled.md).
 
-Om din prenumeration inte är en prenumeration med Betala per användning-priser kontaktar du supporten inom 90 dagar efter annulleringen för att återaktivera prenumerationen.
+Om din prenumeration inte är en prenumeration med Betala per användning-priser kontaktar du supporten inom 90 dagar efter annulleringen för att återaktivera prenumerationen.
 
-## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
+## <a name="why-dont-i-see-the-cancel-subscription-option-on-the-azure-portal"></a>Varför visas inte alternativet Avsluta prenumeration i Microsoft Azure-portalen? 
 
-Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
+Du kanske inte har behörigheterna som krävs för att avsluta en prenumeration. En beskrivning av vilka som kan avsluta olika typer av prenumerationer finns i [Vem kan avsluta en prenumeration?](https://docs.microsoft.com/azure/cost-management-billing/manage/cancel-azure-subscription#who-can-cancel-a-subscription).
+
+## <a name="how-do-i-delete-my-azure-account"></a>Hur gör jag för att ta bort mitt Azure-konto?
+
+*Jag behöver ta bort mitt konto, inklusive all personlig information. Jag har redan avslutat mina aktiva prenumerationer (kostnadsfria utvärderingar). Jag har inga aktiva prenumerationer och vill ta bort mitt konto fullständigt*.
+
+* Om du har ett Azure Active Directory-konto via din organisation kan Azure AD-administratören ta bort ditt konto. Efter detta inaktiveras dina tjänster. Det innebär att dina virtuella datorer avallokeras, temporära IP-adresser frigörs och lagringen skrivskyddas. Sammanfattningsvis: när du har avslutat prenumerationen stoppas faktureringen omedelbart.
+
+* Om du inte har ett Azure AD-konto via din organisation kan du avsluta och sedan ta bort dina Azure-prenumerationer, och sedan ta bort ditt kreditkort från kontot. Även om dessa åtgärder inte tar bort kontot gör de så att kontot inte kan användas längre. Du kan gå ett steg längre och även ta bort det associerade Microsoft-kontot om det inte heller används längre.
+
+## <a name="how-do-i-cancel-a-visual-studio-professional-account"></a>Hur gör jag för att avsluta ett Visual Studio Professional-konto?
+
+Se artikeln [Förnya och avsluta](https://docs.microsoft.com/visualstudio/subscriptions/faq/admin/renewal-cancellation). Om du har några Visual Studio Azure-prenumerationer måste de också avslutas och tas bort.
 
 ## <a name="next-steps"></a>Nästa steg
 

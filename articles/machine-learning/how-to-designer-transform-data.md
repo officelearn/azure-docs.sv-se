@@ -1,7 +1,7 @@
 ---
 title: Transformera data i designern
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du omformar data i Azure Machine Learning designer för att skapa dina egna data uppsättningar.
+description: Lär dig hur du importerar och transformerar data i Azure Machine Learning designer för att skapa dina egna data uppsättningar.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: peterlu
 ms.date: 06/28/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: f08d0f1be166630d9cf4b0b9236d78228fd78aae
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: be2921f88ad2ecf88c555daf8385f1bd6733e836
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312811"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554023"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer"></a>Transformera data i Azure Machine Learning designer
 

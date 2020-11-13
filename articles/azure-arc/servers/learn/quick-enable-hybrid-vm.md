@@ -2,13 +2,13 @@
 title: Ansluta hybrid dator med Azure Arc-aktiverade servrar
 description: Lär dig hur du ansluter och registrerar en hybrid dator med Azure Arc-aktiverade servrar.
 ms.topic: quickstart
-ms.date: 09/23/2020
-ms.openlocfilehash: b57f30821a105a99041d8187716b75096116ea8e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 11/12/2020
+ms.openlocfilehash: 3779d95ac138e83b1d953f744e07ae553890a5d7
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91327892"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576834"
 ---
 # <a name="quickstart-connect-hybrid-machine-with-azure-arc-enabled-servers"></a>Snabb start: ansluta hybrid dator med Azure Arc-aktiverade servrar
 
@@ -42,34 +42,40 @@ Azure Arc-aktiverade servrar är beroende av följande Azure-resurs leverantöre
 Registrera dem med följande kommandon:
 
 ```azurecli-interactive
-az account set --subscription "{Your Subscription Name}"
-az provider register --namespace 'Microsoft.HybridCompute'
-az provider register --namespace 'Microsoft.GuestConfiguration'
+az account set --subscription "{Your Subscription Name}"
+az provider register --namespace 'Microsoft.HybridCompute'
+az provider register --namespace 'Microsoft.GuestConfiguration'
 ```
 
 ## <a name="generate-installation-script"></a>Generera installations skript
 
 Skriptet för att automatisera hämtning, installation och upprättande av anslutningen till Azure Arc är tillgängligt från Azure Portal. Slutför processen genom att göra följande:
 
-1. Starta tjänsten Azure Arc i Azure Portal genom att klicka på **alla tjänster**och sedan söka efter och välja **datorer – Azure-båge**.
+1. Starta tjänsten Azure Arc i Azure Portal genom att klicka på **alla tjänster** och sedan söka efter och välja **servrar – Azure-båge**.
 
     :::image type="content" source="./media/quick-enable-hybrid-vm/search-machines.png" alt-text="Sök efter Arc-aktiverade servrar i alla tjänster" border="false":::
 
-1. På sidan **datorer – Azure-båge** väljer du antingen **Lägg till**, längst upp till vänster eller alternativet **skapa dator-Azure-båge** längst ned i fönstret i mitten.
+1. På sidan **servrar – Azure-båge** väljer du **Lägg till** längst upp till vänster.
 
-1. På sidan **Välj en metod** markerar du rutan **Lägg till datorer med interaktiv skript** och väljer sedan **skapa skript**.
+1. På sidan **Välj en metod** väljer du panelen **Lägg till servrar med interaktiv skript** och väljer sedan **skapa skript**.
 
-1. På sidan **skapa skript** väljer du den prenumeration och resurs grupp där du vill att datorn ska hanteras i Azure. Välj en Azure-plats där datorns metadata ska lagras.
+1. På sidan **skapa skript** väljer du den prenumeration och resurs grupp där du vill att datorn ska hanteras i Azure. Välj en Azure-plats där datorns metadata ska lagras. Den här platsen kan vara samma eller olika, som resurs gruppens plats.
 
-1. På sidan **generera skript** i list rutan **operativ system** väljer du det operativ system som skriptet ska köras på.
+1. På sidan **förutsättningar** granskar du informationen och väljer sedan **Nästa: resursinformation**.
 
-1. Om datorn kommunicerar via en proxyserver för att ansluta till Internet väljer du **Nästa: proxyserver**.
+1. På sidan **Resursinformation** anger du följande:
 
-1. På fliken **proxyserver** anger du IP-adressen för proxyservern eller namnet och port numret som datorn ska använda för att kommunicera med proxyservern. Ange värdet i formatet `http://<proxyURL>:<proxyport>` .
+    1. I list rutan **resurs grupp** väljer du den resurs grupp som datorn ska hanteras från.
+    1. I list rutan **region** väljer du den Azure-region där du vill lagra metadata för servrarna.
+    1. I list rutan **operativ system** väljer du det operativ system som skriptet ska konfigureras för att köras på.
+    1. Om datorn kommunicerar via en proxyserver för att ansluta till Internet anger du IP-adressen för proxyservern eller det namn och port nummer som datorn ska använda för att kommunicera med proxyservern. Ange värdet i formatet `http://<proxyURL>:<proxyport>` .
+    1. Välj **Nästa: Taggar**.
 
-1. Välj **Granska + generera**.
+1. På sidan **taggar** granskar du standard **koderna för fysiska platser** och anger ett värde, eller så anger du en eller flera **anpassade taggar** som stöder dina standarder.
 
-1. På fliken **Granska och skapa** granskar du sammanfattnings informationen och väljer sedan **Hämta**. Om du fortfarande behöver göra ändringar väljer du **föregående**.
+1. Välj **Nästa: Ladda ned och kör skript**.
+
+1. På sidan **Ladda ned och kör skript** granskar du sammanfattnings informationen och väljer sedan **Hämta**. Om du fortfarande behöver göra ändringar väljer du **föregående**.
 
 ## <a name="install-the-agent-using-the-script"></a>Installera agenten med hjälp av skriptet
 
@@ -99,7 +105,7 @@ Skriptet för att automatisera hämtning, installation och upprättande av anslu
 
 När du har installerat agenten och konfigurerat den för att ansluta till Azure Arc-aktiverade servrar går du till Azure Portal för att kontrol lera att servern har anslutits. Visa datorn i [Azure Portal](https://aka.ms/hybridmachineportal).
 
-:::image type="content" source="./media/quick-enable-hybrid-vm/enabled-machine.png" alt-text="Sök efter Arc-aktiverade servrar i alla tjänster" border="false":::
+:::image type="content" source="./media/quick-enable-hybrid-vm/enabled-machine.png" alt-text="En lyckad dator anslutning" border="false":::
 
 ## <a name="next-steps"></a>Nästa steg
 

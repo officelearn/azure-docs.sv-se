@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/01/2020
+ms.date: 11/11/2020
 ms.author: aahi
-ms.openlocfilehash: 348fb301d1a36c8df405c641f7644889417b11ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb9b0da609169288521d21ee6d5e412a786c7549
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91545528"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94574024"
 ---
 ## <a name="azure-cognitive-services-container-security"></a>Säkerhet för Azure Cognitive Services-behållare
 
@@ -33,7 +33,7 @@ Som ett alternativ och *säkert* tillvägagångs sätt kan förbrukare av Cognit
 
 ### <a name="container-networking"></a>Nätverk för containrar
 
-Cognitive Services behållare krävs för att skicka in avläsnings information för fakturerings syfte. Det enda undantaget är *offline-behållare* när de följer en annan fakturerings metod. Det gick inte att tillåta en lista över olika nätverks kanaler som Cognitive Services behållare förlitar sig på förhindrar att behållaren fungerar.
+Cognitive Services behållare krävs för att skicka in avläsnings information för fakturerings syfte. Det gick inte att tillåta en lista över olika nätverks kanaler som Cognitive Services behållare förlitar sig på förhindrar att behållaren fungerar.
 
 #### <a name="allow-list-cognitive-services-domains-and-ports"></a>Lista över tillåtna Cognitive Services domäner och portar
 

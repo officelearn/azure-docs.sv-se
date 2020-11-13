@@ -4,12 +4,12 @@ description: 'Snabb start: Använd Azure Event Grid och Azure CLI för att publi
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e2c017b95493000b3c206aa7b2398bbf7ef464ee
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4de7aa1c111b5b21a27b155474ae10f78feba083
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87497366"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566324"
 ---
 # <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Snabb start: dirigera anpassade händelser till Azure Queue Storage med Azure CLI och Event Grid
 
@@ -17,12 +17,11 @@ Azure Event Grid är en händelsetjänst för molnet. Azure Queue Storage är en
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Om du använder Azure CLI eller Azure PowerShell på den lokala datorn istället för att använda Cloud Shell i Azure-portalen ska du kontrollera att du har följande versioner av Azure CLI och Azure PowerShell. 
+- Den här artikeln kräver version 2.0.56 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
-- Azure CLI version 2.0.56 eller senare. Anvisningar om hur du installerar den senaste versionen av Azure CLI finns i [Installera Azure CLI](/cli/azure/install-azure-cli). 
-- Azure PowerShell version 1.1.0 eller senare. Ladda ned den senaste versionen av Azure PowerShell på din Windows-dator från [Azure downloads - Command-line tools](https://azure.microsoft.com/downloads/) (Azure-nedladdningar – Kommandoradsverktyg). 
+- Om du använder Azure PowerShell på den lokala datorn i stället för att använda Cloud Shell i Azure Portal, kontrollerar du att du har Azure PowerShell version 1.1.0 eller senare. Ladda ned den senaste versionen av Azure PowerShell på din Windows-dator från [Azure downloads - Command-line tools](https://azure.microsoft.com/downloads/) (Azure-nedladdningar – Kommandoradsverktyg). 
 
 Den här artikeln innehåller kommandon för att använda Azure CLI. 
 

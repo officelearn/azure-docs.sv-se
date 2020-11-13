@@ -1,16 +1,16 @@
 ---
-title: Design kunskaps bas – QnA Maker
+title: Utforma kunskaps bas – QnA Maker koncept
 description: Lär dig hur du skapar en kunskaps bas-QnA Maker.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: b2661b61e0422f796813be0908d866028ee128a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c21c82b5fd024598da30f4ac7b1ed01e64561e3b
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776909"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576197"
 ---
 # <a name="question-and-answer-pair-concepts"></a>Begrepp för frågor och svars par
 
@@ -28,8 +28,8 @@ Varje par representeras av ett **ID**.
 De **valfria** inställningarna för ett par är:
 
 * **Andra typer av frågor** – detta hjälper QNA Maker att returnera rätt svar för en större mängd olika frågor ordföljder
-* **Metadata**: metadata är taggar som är associerade med ett QNA-par och som representeras som nyckel/värde-par. Metadata-Taggar används för att filtrera QnA-par och begränsa den mängd som frågan ska matchas över.
-* Snabb **prompter**som används för att fortsätta en konversation med flera varv
+* **Metadata** : metadata är taggar som är associerade med ett QNA-par och som representeras som nyckel/värde-par. Metadata-Taggar används för att filtrera QnA-par och begränsa den mängd som frågan ska matchas över.
+* Snabb **prompter** som används för att fortsätta en konversation med flera varv
 
 ![QnA Maker kunskaps baser](../media/qnamaker-concepts-knowledgebase/knowledgebase.png)
 

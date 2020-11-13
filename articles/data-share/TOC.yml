@@ -8,7 +8,6 @@
     - name: Datalager som stöds
       href: supported-data-stores.md
 - name: Snabbstarter
-  expanded: true
   items:
     - name: Dela data – Microsoft Azure-portalen
       href: share-your-data-portal.md
@@ -16,6 +15,7 @@
       displayName: Resource Manager
       href: share-your-data-arm.md
 - name: Självstudier
+  expanded: true
   items:
     - name: Dela data
       href: share-your-data.md

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: troubleshooting
 ms.date: 05/06/2020
-ms.openlocfilehash: 8eb37b993ee5bc3944228cba72be0557b52e3dc6
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 17b070fea422268ec12e0ccd3357ae0549a78916
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149255"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566273"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Language Understanding
 
@@ -91,11 +91,11 @@ Du får status koderna 403 och 429 när du överskrider transaktionerna per seku
 
 När du använder alla de kostnads fria 1000-slutpunkts frågorna eller om du överskrider din pris nivås kvot för månads transaktioner får du en HTTP 403-fel status kod.
 
-För att åtgärda det här felet måste du antingen [ändra pris nivån](luis-how-to-azure-subscription.md#change-pricing-tier) till en högre nivå eller [skapa en ny resurs](get-started-portal-deploy-app.md#create-the-endpoint-resource) och [tilldela den till din app](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
+För att åtgärda det här felet måste du antingen [ändra pris nivån](luis-how-to-azure-subscription.md#change-the-pricing-tier) till en högre nivå eller [skapa en ny resurs](get-started-portal-deploy-app.md#create-the-endpoint-resource) och [tilldela den till din app](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
 
 Lösningar för det här felet är:
 
-* I [Azure Portal](https://portal.azure.com)i language Understanding resurs, på **pris nivån resurs hantering->**, ändrar du pris nivån till en högre TPS-nivå. Du behöver inte göra något i Language Understanding portal om din resurs redan har tilldelats till din Language Understanding-app.
+* I [Azure Portal](https://portal.azure.com)i language Understanding resurs, på **pris nivån resurs hantering->** , ändrar du pris nivån till en högre TPS-nivå. Du behöver inte göra något i Language Understanding portal om din resurs redan har tilldelats till din Language Understanding-app.
 *  Om din användning överskrider den högsta pris nivån lägger du till fler Language Understanding resurser med en belastningsutjämnare framför dem. [Language Understanding containern](luis-container-howto.md) med Kubernetes eller Docker Compose kan hjälpa dig med detta.
 
 ### <a name="i-received-an-http-429-error-status-code-how-do-i-fix-it"></a>Jag har fått en HTTP 429-fel status kod. Vad kan jag göra?
@@ -106,7 +106,7 @@ Den här status koden returneras när transaktionerna per sekund överskrider pr
 
 Lösningarna omfattar:
 
-* Du kan [öka pris nivån](luis-how-to-azure-subscription.md#change-pricing-tier)om du inte är på den högsta nivån.
+* Du kan [öka pris nivån](luis-how-to-azure-subscription.md#change-the-pricing-tier)om du inte är på den högsta nivån.
 * Om din användning överskrider den högsta pris nivån lägger du till fler Language Understanding resurser med en belastningsutjämnare framför dem. [Language Understanding containern](luis-container-howto.md) med Kubernetes eller Docker Compose kan hjälpa dig med detta.
 * Du kan Grinda klient program begär Anden med en [princip för återförsök](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) som du implementerar själv när du får den här status koden.
 
@@ -224,7 +224,7 @@ Redigerings nycklar är tillgängliga i LUIS-portalen när [du har migrerat till
 ## <a name="app-management"></a>Apphantering
 
 ### <a name="how-do-i-download-a-log-of-user-utterances"></a>Hur gör jag för att ladda ned en logg med User yttranden?
-Som standard loggar LUIS-appen yttranden från användare. Om du vill ladda ned en logg över yttranden som användarna skickar till din LUIS-app går du till **Mina appar**och väljer appen. I kontext verktygsfältet väljer du **Exportera slut punkts loggar**. Loggen är formaterad som en fil med kommaavgränsade värden (CSV).
+Som standard loggar LUIS-appen yttranden från användare. Om du vill ladda ned en logg över yttranden som användarna skickar till din LUIS-app går du till **Mina appar** och väljer appen. I kontext verktygsfältet väljer du **Exportera slut punkts loggar**. Loggen är formaterad som en fil med kommaavgränsade värden (CSV).
 
 ### <a name="how-can-i-disable-the-logging-of-utterances"></a>Hur kan jag inaktivera loggning av yttranden?
 Du kan inaktivera loggning av användar-yttranden genom att ange `log=false` i slut punkts-URL: en som ditt klient program använder för att fråga Luis. Att stänga av loggning inaktiverar dock LUIS-appens möjlighet att föreslå yttranden eller förbättra prestandan som baseras på [aktiv inlärning](luis-concept-review-endpoint-utterances.md#what-is-active-learning). Om du anger `log=false` på grund av data sekretess problem kan du inte ladda ned en post med dessa användare yttranden från Luis eller använda dessa yttranden för att förbättra din app.
@@ -268,7 +268,7 @@ Det första problemet är att isolera om problemet är relaterat till LUIS eller
 #### <a name="resolve-issue-in-luis"></a>Lös problem i LUIS
 Skicka samma uttryck till LUIS från Luis- [slutpunkten](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint). Om du får ett fel meddelande kan du lösa problemet i LUIS tills felet inte längre returneras. Vanliga fel är:
 
-* `Out of call volume quota. Quota will be replenished in <time>.` – Det här problemet indikerar att du antingen måste ändra från en redigerings nyckel till en [slut punkts nyckel](luis-how-to-azure-subscription.md) eller ändra [tjänst nivåerna](luis-how-to-azure-subscription.md#change-pricing-tier).
+* `Out of call volume quota. Quota will be replenished in <time>.` – Det här problemet indikerar att du antingen måste ändra från en redigerings nyckel till en [slut punkts nyckel](luis-how-to-azure-subscription.md) eller ändra [tjänst nivåerna](luis-how-to-azure-subscription.md#change-the-pricing-tier).
 
 #### <a name="resolve-issue-in-azure-bot-service"></a>Lös problem i Azure Bot Service
 
@@ -278,7 +278,7 @@ Om du använder Azure Bot Service och problemet är att **testet i Web Chat** re
 1. Öppna kod redigeraren online.
 1. I det övre, blå navigerings fältet väljer du namnet på bot (det andra objektet till höger).
 1. I den resulterande List rutan väljer du **Öppna kudu-konsolen**.
-1. Välj **loggfiler**och välj sedan **program**. Granska alla loggfiler. Om du inte ser felet i programmappen granskar du alla loggfiler under **loggfiler**.
+1. Välj **loggfiler** och välj sedan **program**. Granska alla loggfiler. Om du inte ser felet i programmappen granskar du alla loggfiler under **loggfiler**.
 1. Kom ihåg att återskapa projektet om du använder ett kompilerat språk, till exempel C#.
 
 > [!Tip]

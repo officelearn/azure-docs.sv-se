@@ -1,6 +1,6 @@
 ---
 title: Kopiera flera tabeller stegvis med PowerShell
-description: I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta data från flera tabeller i en SQL Server databas till Azure SQL Database.
+description: I den här självstudien skapar du en Azure Data Factory med en pipeline som läser in delta data från flera tabeller i en SQL Server databas till Azure SQL Database.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: be98ff2a31e3216088fb9197fab477d9b1088f26
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 54dea3ba7bbc3339b7b044b476c321fd95138ac2
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92634104"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566426"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database-using-powershell"></a>Läs in data stegvis från flera tabeller i SQL Server till Azure SQL Database med PowerShell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta data från flera tabeller i en SQL Server databas till Azure SQL Database.    
+I den här självstudien skapar du en Azure Data Factory med en pipeline som läser in delta data från flera tabeller i en SQL Server databas till Azure SQL Database.    
 
 I den här självstudiekursen får du göra följande:
 
@@ -42,11 +42,11 @@ I den här självstudiekursen får du göra följande:
 ## <a name="overview"></a>Översikt
 Här är några viktiga steg för att skapa den här lösningen: 
 
-1. **Markera vattenstämpelkolumnen** .
+1. **Markera vattenstämpelkolumnen**.
 
     Välj en kolumn för varje tabell i käll data lagret, som du kan använda för att identifiera de nya eller uppdaterade posterna för varje körning. Vanligtvis ökar data i den markerade kolumnen (till exempel last_modify_time elle ID) när rader skapas eller uppdateras. Det maximala värdet i den här kolumnen används som vattenstämpel.
 
-2. **Förbered datalagringen för att lagra värdet för vattenstämpeln** .
+2. **Förbered datalagringen för att lagra värdet för vattenstämpeln**.
 
     I den här självstudien lagrar du storleksgränsen i en SQL-databas.
 
@@ -69,14 +69,14 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* **SQL Server** . Du använder en SQL Server databas som käll data lager i den här självstudien. 
-* **Azure SQL Database** . Du använder en databas i Azure SQL Database som data lager för mottagare. Om du inte har en SQL-databas kan du läsa [skapa en databas i Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) för steg för att skapa en. 
+* **SQL Server**. Du använder en SQL Server databas som käll data lager i den här självstudien. 
+* **Azure SQL Database**. Du använder en databas i Azure SQL Database som data lager för mottagare. Om du inte har en SQL-databas kan du läsa [skapa en databas i Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) för steg för att skapa en. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Skapa källtabeller i din SQL Server-databas
 
 1. Öppna [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) eller [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)och Anslut till SQL Server-databasen.
 
-2. I **Server Explorer (SSMS)** eller i **fönstret anslutningar (Azure Data Studio)** högerklickar du på databasen och väljer **ny fråga** .
+2. I **Server Explorer (SSMS)** eller i **fönstret anslutningar (Azure Data Studio)** högerklickar du på databasen och väljer **ny fråga**.
 
 3. Kör följande SQL-kommando mot databasen för att skapa tabeller med namnen `customer_table` och `project_table`:
 
@@ -115,7 +115,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 1. Öppna [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) eller [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)och Anslut till SQL Server-databasen.
 
-2. I **Server Explorer (SSMS)** eller i **fönstret anslutningar (Azure Data Studio)** högerklickar du på databasen och väljer **ny fråga** .
+2. I **Server Explorer (SSMS)** eller i **fönstret anslutningar (Azure Data Studio)** högerklickar du på databasen och väljer **ny fråga**.
 
 3. Kör följande SQL-kommando mot databasen för att skapa tabeller med namnen `customer_table` och `project_table`:  
 
@@ -814,21 +814,21 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. Den **förgrund
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-2. Välj **Alla tjänster** , sök med nyckelordet *Datafabriker* och välj **Datafabriker** . 
+2. Välj **Alla tjänster** , sök med nyckelordet *Datafabriker* och välj **Datafabriker**. 
 
-3. Sök efter din datafabrik i listan med datafabriker och välj den så att du öppnar sidan **Datafabrik** . 
+3. Sök efter din datafabrik i listan med datafabriker och välj den så att du öppnar sidan **Datafabrik**. 
 
 4. På sidan **data fabrik** väljer du **Redigera & övervakare** för att starta Azure Data Factory på en separat flik.
 
 5. På sidan **nu sätter vi igång** väljer du **övervaka** till vänster. 
 ![Skärm bild som visar sidan för att komma igång med Azure Data Factory.](media/doc-common-process/get-started-page-monitor-button.png)    
 
-6. Du kan se alla pipelinekörningar och deras status. Lägg i följande exempel märke till att statusen för pipelinekörningen är **Lyckades** . Du kan kontrollera parametrarna som skickats till pipelinen genom att klicka på länken i kolumnen **Parametrar** . Om det uppstod ett fel ser du en länk i kolumnen **Fel** .
+6. Du kan se alla pipelinekörningar och deras status. Lägg i följande exempel märke till att statusen för pipelinekörningen är **Lyckades**. Du kan kontrollera parametrarna som skickats till pipelinen genom att klicka på länken i kolumnen **Parametrar**. Om det uppstod ett fel ser du en länk i kolumnen **Fel**.
 
     ![Skärm bild som visar pipeline-körningar för en data fabrik, inklusive din pipeline.](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
 7. När du väljer länken i kolumnen **åtgärder** visas alla aktivitets körningar för pipelinen. 
 
-8. Om du vill gå tillbaka till vyn **pipeline-körningar** väljer du **alla pipeline-körningar** . 
+8. Om du vill gå tillbaka till vyn **pipeline-körningar** väljer du **alla pipeline-körningar**. 
 
 ## <a name="review-the-results"></a>Granska resultaten
 

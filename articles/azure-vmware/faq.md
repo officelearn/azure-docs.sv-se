@@ -2,14 +2,14 @@
 title: Vanliga frågor och svar
 description: Innehåller svar på några vanliga frågor om Azure VMware-lösningen.
 ms.topic: conceptual
-ms.date: 09/25/2020
+ms.date: 11/12/2020
 ms.author: dikamath
-ms.openlocfilehash: 33250b0ba9209f7806346668dac0ef308101e7c2
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 99e9e53693e42f907250331894f55ed0160f9e30
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94487800"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577523"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Vanliga frågor och svar om Azure VMware-lösningen
 
@@ -169,7 +169,7 @@ Uppgraderingarna av det privata molnet för program varu paketet görs för att 
 
 Program varan för det privata molnet uppgraderas enligt ett schema som spårar program varu paketets version från VMware. Det privata molnet kräver ingen stillestånds tid för uppgraderingar.
 
-## <a name="connectivity"></a>Anslutning
+## <a name="connectivity"></a>Anslutningar
 
 #### <a name="what-network-ip-address-planning-is-required-to-incorporate-private-clouds-with-on-premises-environments"></a>Vilken nätverks-IP-adress planering krävs för att inkludera privata moln med lokala miljöer?
 
@@ -229,9 +229,15 @@ Du kommer att ha fullständiga administratörs behörigheter på NSX-T och kan h
 
 Allmänna frågor om prissättning finns på [prissättnings](https://azure.microsoft.com/pricing/details/azure-vmware) sidan för Azure VMware-lösningen. 
 
+#### <a name="can-azure-vmware-solution-be-purchased-through-a-microsoft-csp"></a>Kan Azure VMware-lösningen köpas via en Microsoft CSP?
+
+Ja, kunderna kan distribuera Azure VMware-lösningen i en Azure-prenumeration som hanteras av en CSP.
+
 #### <a name="who-supports-azure-vmware-solution"></a>Vem stöder Azure VMware-lösningen?
 
-Microsoft ger support för Azure VMware-lösningen. Du kan skicka in en [support förfrågan](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Microsoft ger support för Azure VMware-lösningen. Du kan skicka in en [support förfrågan](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
+
+För CSP-hanterade prenumerationer tillhandahålls den första support nivån av lösnings leverantören på samma sätt som CSP gör för andra Azure-tjänster.
 
 #### <a name="what-accounts-do-i-need-to-create-an-azure-vmware-solution-private-cloud"></a>Vilka konton behöver jag för att skapa ett privat moln I Azure VMware-lösningen?
 
@@ -246,6 +252,10 @@ Microsoft och Red Hat delar ett integrerat, Samplacerat support team som tillhan
 VMware HCX Enterprise Edition (EE) är tillgänglig med Azure VMware-lösningen som en *förhands gransknings* funktion/tjänst. Även om VMware HCX EE för Azure VMware-lösningen är i för hands version, är det en kostnads fri funktion/tjänst och omfattas av förhands gransknings tjänstens allmänna villkor. När VMware HCX EE-tjänsten går till GA får du ett meddelande om 30 dagar på att faktureringen ska växlas över. Du kan stänga av eller avanmäla tjänsten.
 
 #### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>Hur gör jag för att begära en värd kvot ökning för Azure VMware-lösningen?
+
+För CSP-hanterade prenumerationer måste kunden utföra begäran till partnern och partner teamet kommer att samar beta med Microsoft för att få den ökade kvoten för prenumerationen. 
+
+För EA-prenumerationer måste kunden följa den här proceduren.
 
 * Du behöver ett [Azure-Enterprise-avtal (EA)](../cost-management-billing/manage/ea-portal-agreements.md) med Microsoft.
 * Du behöver ett Azure-konto i en Azure-prenumeration.
@@ -283,9 +293,12 @@ Innan du skapar en Azure VMware-lösnings resurs måste du skicka in ett support
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
-   `"
 
-   For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
+   For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md). 
+
+#### Are Reserved Instances available for purchasing through the Cloud Solution Provider (CSP) program?
+
+Yes. CSP can purchase reserved instances on behalf of their customers, see [Save costs with a reserved instance](reserved-instance.md) article. 
 
 
 ## Customer communication

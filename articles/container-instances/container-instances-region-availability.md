@@ -4,12 +4,12 @@ description: Tillgänglighet för beräknings-och minnes resurser för tjänsten
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: e4fbf1023863f9f4c46e6bd2266f72ff2f7d7adc
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 2a833c93c80d932305f47b6e292e5e5df4d0cb95
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93395877"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576622"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Resurs tillgänglighet för Azure Container Instances i Azure-regioner
 
@@ -55,6 +55,9 @@ Följande regioner och maximala resurser är tillgängliga för behållar gruppe
 
 Följande maximala resurser är tillgängliga för en behållar grupp som distribueras med [GPU-resurser](container-instances-gpu.md) (för hands version).
 
+> [!IMPORTANT]
+> För närvarande stöds inte distributioner med GPU-resurser i en Azure Virtual Network-distribution och är bara tillgängliga i Linux container Groups.
+
 | GPU-SKU: er | GPU-antal | Maximal CPU | Högsta mängd minne (GB) | Lagring (GB) |
 | --- | --- | --- | --- | --- |
 | K80 | 1 | 6 | 56 | 50 |
@@ -67,6 +70,9 @@ Följande maximala resurser är tillgängliga för en behållar grupp som distri
 ## <a name="windows-container-groups"></a>Grupper med Windows-behållare
 
 Följande regioner och maximalt antal resurser är tillgängliga för behållar grupper med [stödda och för hands versioner](container-instances-faq.md#what-windows-base-os-images-are-supported) av Windows Server-behållare.
+
+> [!IMPORTANT]
+> För närvarande stöds inte distributioner med grupper med Windows-behållare i en Azure Virtual Network-distribution.
 
 ###  <a name="windows-server-2016"></a>Windows Server 2016
 

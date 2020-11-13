@@ -12,12 +12,12 @@ ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c59a104796e11b15af805e34f9cd14b2ce8bd075
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 6f7888e978fd4eb19232c156ce65b6e4967d9c5a
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628855"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94575976"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrera ett SAML-program i Azure AD B2C
 
@@ -99,13 +99,13 @@ Om du inte redan har ett certifikat kan du använda ett självsignerat certifika
 Sedan laddar du upp certifikatet för SAML Assertion och svars signering till Azure AD B2C.
 
 1. Logga in på [Azure Portal](https://portal.azure.com) och bläddra till Azure AD B2C klienten.
-1. Under **principer** väljer du **identitets miljö ramverk** och sedan **princip nycklar** .
-1. Välj **Lägg till** och välj sedan **alternativ**  >  **Ladda upp** .
-1. Ange ett **namn** , till exempel *SamlIdpCert* . Prefixet *B2C_1A_* läggs automatiskt till i namnet på din nyckel.
+1. Under **principer** väljer du **identitets miljö ramverk** och sedan **princip nycklar**.
+1. Välj **Lägg till** och välj sedan **alternativ**  >  **Ladda upp**.
+1. Ange ett **namn** , till exempel *SamlIdpCert*. Prefixet *B2C_1A_* läggs automatiskt till i namnet på din nyckel.
 1. Ladda upp certifikatet med hjälp av upload File-kontrollen.
 1. Ange certifikatets lösen ord.
-1. Välj **Skapa** .
-1. Kontrol lera att nyckeln visas som förväntat. Till exempel *B2C_1A_SamlIdpCert* .
+1. Välj **Skapa**.
+1. Kontrol lera att nyckeln visas som förväntat. Till exempel *B2C_1A_SamlIdpCert*.
 
 ## <a name="2-prepare-your-policy"></a>2. Förbered principen
 
@@ -159,7 +159,7 @@ Nu när din klient organisation kan utfärda SAML-intyg måste du skapa principe
 
 ### <a name="31-create-sign-up-or-sign-in-policy"></a>3,1 Skapa registrerings-eller inloggnings princip
 
-1. Skapa en kopia av *SignUpOrSignin.xml* -filen i arbets katalogen för ditt Start paket och spara den med ett nytt namn. Till exempel *SignUpOrSigninSAML.xml* . Detta är den förlitande partens princip fil.
+1. Skapa en kopia av *SignUpOrSignin.xml* -filen i arbets katalogen för ditt Start paket och spara den med ett nytt namn. Till exempel *SignUpOrSigninSAML.xml*. Detta är den förlitande partens princip fil.
 
 1. Öppna *SignUpOrSigninSAML.xml* -filen i önskat redigerings program.
 
@@ -260,7 +260,7 @@ Den slutgiltiga förlitande partens princip fil bör se ut som följande XML-kod
 
 Spara ändringarna och ladda upp den nya princip filen. När du har laddat upp båda principerna (tillägget och förlitande part-filerna) öppnar du en webbläsare och navigerar till principens metadata.
 
-Azure AD B2Cs princip IDP metadata är information som används i SAML-protokollet för att exponera konfigurationen för en SAML-identitetsprovider. Metadata definierar platsen för tjänsterna, till exempel inloggning och utloggning, certifikat, inloggnings metod med mera. Metadata för Azure AD B2Cs principen är tillgängliga på följande URL. Ersätt `tenant-name` med namnet på din Azure AD B2C-klient och `policy-name` med namnet (ID) för principen:
+Azure AD B2Cs princip IDP metadata är information som används i SAML-protokollet för att exponera konfigurationen för en SAML-identitetsprovider. Metadata definierar platsen för tjänsterna, till exempel inloggning och utloggning, certifikat, inloggnings metod med mera. Metadata för Azure AD B2Cs principen är tillgängliga på följande URL. Ersätt `tenant-name` med namnet på din Azure AD B2C-klient och `policy-name` med namnet (ID) för principen till exempel.../B2C_1A_SAML2_signup_signin/SAMLP/metadata:
 
 `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
 
@@ -272,9 +272,9 @@ Din anpassade princip och Azure AD B2C klient är nu klara. Skapa sedan en progr
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
-1. På den vänstra menyn väljer du **Azure AD B2C** . Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C** .
-1. Välj **Appregistreringar** och välj sedan **ny registrering** .
-1. Ange ett **namn** för programmet. Till exempel *SAMLApp1* .
+1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
+1. Välj **Appregistreringar** och välj sedan **ny registrering**.
+1. Ange ett **namn** för programmet. Till exempel *SAMLApp1*.
 1. Under **konto typer som stöds** väljer du **konton endast i den här organisations katalogen**
 1. Under **omdirigerings-URI** väljer du **webb** och anger sedan `https://localhost` . Du ändrar det här värdet senare i program registreringens manifest.
 1. Välj **Register** (Registrera).
@@ -296,7 +296,7 @@ Den här egenskapen representerar tjänst leverantörens allmänt tillgängliga 
 
 Metadata är information som används i SAML-protokollet för att exponera konfigurationen av en SAML-part, till exempel en tjänst leverantör. Metadata definierar var tjänsterna finns, t. ex. inloggning och utloggning, certifikat, inloggnings metod med mera. Azure AD B2C läser metadata för tjänste leverantören och fungerar enligt detta. Metadata krävs inte. Du kan också ange vissa attribut, t. ex. svars-URI och utloggnings-URI direkt i app-manifestet.
 
-Om det finns egenskaper som anges *i URL: en för SAML* -metadata och i program registreringens manifest, **slås de samman** . Egenskaperna som anges i URL: en för metadata bearbetas först och prioriteras.
+Om det finns egenskaper som anges *i URL: en för SAML* -metadata och i program registreringens manifest, **slås de samman**. Egenskaperna som anges i URL: en för metadata bearbetas först och prioriteras.
 
 I den här självstudien, som använder SAML-testprogrammet, använder du följande värde för `samlMetadataUrl` :
 
@@ -340,7 +340,7 @@ Metadata kan konfigureras i tjänst leverantören som "statiska metadata" eller 
 En eller flera av följande är vanligt vis obligatoriska:
 
 * **Metadata** : `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
-* **Utfärdare** : SAML-begärans `issuer` värde måste matcha en av de URI: er som kon figurer ATS i `identifierUris` elementet i manifestet för program registrering. Om SAML-frågans `issuer` namn inte finns i `identifierUris` elementet, [lägger du till det i manifestet för program registreringen](#identifieruris). Till exempel `https://contoso.onmicrosoft.com/app-name`. 
+* **Utfärdare** : SAML-begärans `issuer` värde måste matcha en av de URI: er som kon figurer ATS i `identifierUris` elementet i manifestet för program registrering. Om SAML-frågans `issuer` namn inte finns i `identifierUris` elementet, [lägger du till det i manifestet för program registreringen](#identifieruris). Ett exempel är `https://contoso.onmicrosoft.com/app-name`. 
 * **Inloggnings webb adress/SAML-slut punkt/SAML-URL** : kontrol lera värdet i Azure AD B2C SAML-principens metadatafil för `<SingleSignOnService>` XML-elementet
 * **Certifikat** : det här är *B2C_1A_SamlIdpCert* , men utan den privata nyckeln. Så här hämtar du den offentliga nyckeln för certifikatet:
 

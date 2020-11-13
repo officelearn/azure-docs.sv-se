@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: 676d7c2ad18327471c6e95f3cef26185fa49b78b
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 51249c68407f6b4ca7793b2fdeceab5aa4f7bc5c
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93396897"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94575993"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Felsöka App Service problem i Application Gateway
 
@@ -93,7 +93,7 @@ App Service gör nu omdirigeringen (om det finns en sådan) på samma ursprungli
 
 Du måste äga en anpassad domän och följa den här processen:
 
-- Registrera domänen i den anpassade domän listan för App Service. Du måste ha en CNAME-post i din anpassade domän som pekar på App Services FQDN. Mer information finns i [mappa ett befintligt anpassat DNS-namn till Azure App Service](//azure/app-service/app-service-web-tutorial-custom-domain).
+- Registrera domänen i den anpassade domän listan för App Service. Du måste ha en CNAME-post i din anpassade domän som pekar på App Services FQDN. Mer information finns i [mappa ett befintligt anpassat DNS-namn till Azure App Service](/azure/app-service/app-service-web-tutorial-custom-domain).
 
     ![App Service, anpassad domän lista](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
 

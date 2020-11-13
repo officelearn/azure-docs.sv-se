@@ -1,6 +1,6 @@
 ---
 title: Språk anpassning i Azure AD-användar flöden
-description: Lär dig mer om att anpassa språk upplevelsen i dina användar flöden.
+description: Lär dig mer om att anpassa språk upplevelsen i dina användar flöden i Azure Active Directory.
 services: active-directory
 author: msmimart
 manager: celestedg
@@ -11,12 +11,12 @@ ms.date: 05/06/2020
 ms.author: mimart
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c73a5491c0ad543d57a6721f37d81ae661c0a653
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 98ead87ce2bd3b4e3ffc45763aa5151168c72078
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441444"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576520"
 ---
 # <a name="language-customization-in-azure-active-directory-preview"></a>Språk anpassning i Azure Active Directory (för hands version)
 
@@ -37,7 +37,7 @@ Som standard är språk anpassning aktive rad för användare som registrerar si
 Med språk anpassning kan du anpassa en sträng i ditt användar flöde.
 
 1. Logga in till [Azure-portalen](https://portal.azure.com) som Azure AD-administratör.
-2. Under **Azure-tjänster**väljer du **Azure Active Directory**.
+2. Under **Azure-tjänster** väljer du **Azure Active Directory**.
 3. På den vänstra menyn väljer du **externa identiteter**.
 4. Välj **användar flöden (förhands granskning)**.
 3. Välj det användar flöde som du vill aktivera för översättningar.

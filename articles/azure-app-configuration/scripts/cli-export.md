@@ -10,12 +10,12 @@ ms.topic: sample
 ms.date: 02/19/2020
 ms.author: lcozzens
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 991471f43c92b12073062db1e4e5fdb32fb4b0f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c386652ed0b026c29cb202274daba9ee6deb4cf0
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87494799"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566879"
 ---
 # <a name="export-from-an-azure-app-configuration-store"></a>Exportera från ett Azure App Configuration-arkiv
 
@@ -23,9 +23,9 @@ Det här exempelskriptet exporterar nyckelvärden från ett Azure App Configurat
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
+ - I den här självstudien krävs version 2,0 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -42,7 +42,7 @@ az appconfig kv export --name myTestAppConfigStore --file ~/Export.json
 
 Det här skriptet använder följande kommandon för att exportera från ett konfigurations lager för appar. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [AZ appconfig kv export](/cli/azure/appconfig/kv#az-appconfig-kv-export) | Exporterar från en app Configuration Store-resurs. |
 

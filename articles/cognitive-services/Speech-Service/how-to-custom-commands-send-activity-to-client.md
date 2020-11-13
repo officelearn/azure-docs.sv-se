@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: fc62c87fd12457c60d3eb26cba6814aa1df76f87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52a4dbc4ff01515af8cd7d2503877184a09f7e64
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839222"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566103"
 ---
 # <a name="send-custom-commands-activity-to-client-application"></a>Skicka anpassade kommandon-aktivitet till klient program
 
@@ -36,15 +36,17 @@ Du utför följande aktiviteter:
 ## <a name="setup-send-activity-to-client"></a>Konfigurera skicka aktivitet till klient 
 1. Öppna programmet anpassade kommandon som du skapade tidigare
 1. Välj kommandot **TurnOnOff** , Välj **ConfirmationResponse** under regel för slut för ande och välj sedan **Lägg till en åtgärd**
-1. Under **ny åtgärd-typ**väljer **du skicka aktivitet till klient**
+1. Under **ny åtgärd-typ** väljer **du skicka aktivitet till klient**
 1. Kopiera JSON nedan till **aktivitets innehåll**
    ```json
    {
-     "type": "event",
-     "name": "UpdateDeviceState",
-     "state": "{OnOff}",
-     "device": "{SubjectDevice}"
-   }
+      "type": "event",
+      "name": "UpdateDeviceState",
+      "value": {
+        "state": "{OnOff}",
+        "device": "{SubjectDevice}"
+      }
+    }
    ```
 1. Klicka på **Spara** för att skapa en ny regel med åtgärden skicka aktivitet, **träna** och **publicera** ändringen
 
@@ -55,7 +57,7 @@ Du utför följande aktiviteter:
 
 I [anvisningar: Konfigurera klient program med Speech SDK (för hands version)](./how-to-custom-commands-setup-speech-sdk.md)har du skapat ett UWP-klientprogram med tal-SDK som hanterade kommandon som `turn on the tv` , `turn off the fan` . Med vissa visuella objekt tillagda kan du se resultatet av dessa kommandon.
 
-Om du vill lägga till etiketterade rutor med text som visar **på** eller **av**, lägger du till följande XML-block med StackPanel i `MainPage.xaml` .
+Om du vill lägga till etiketterade rutor med text som visar **på** eller **av** , lägger du till följande XML-block med StackPanel i `MainPage.xaml` .
 
 ```xml
 <StackPanel Orientation="Vertical" H......>
@@ -83,8 +85,8 @@ Om du vill lägga till etiketterade rutor med text som visar **på** eller **av*
 Eftersom du har skapat en JSON-nyttolast måste du lägga till en referens i [JSON.net](https://www.newtonsoft.com/json) -biblioteket för att hantera deserialisering.
 
 1. Rätt-klient din lösning.
-1. Välj **Hantera NuGet-paket för lösningen**, Välj **Bläddra** 
-1. Om du redan har installerat **Newtonsoft.jspå**kontrollerar du att dess version är minst 12.0.3. Om inte går du till **Hantera NuGet-paket för lösning – uppdateringar**, sök efter **Newtonsoft.jspå** för att uppdatera den. Den här guiden använder version 12.0.3.
+1. Välj **Hantera NuGet-paket för lösningen** , Välj **Bläddra** 
+1. Om du redan har installerat **Newtonsoft.jspå** kontrollerar du att dess version är minst 12.0.3. Om inte går du till **Hantera NuGet-paket för lösning – uppdateringar** , sök efter **Newtonsoft.jspå** för att uppdatera den. Den här guiden använder version 12.0.3.
 
     > [!div class="mx-imgBorder"]
     > ![Skicka aktivitetens nytto Last](media/custom-commands/send-activity-to-client-json-nuget.png)
@@ -114,8 +116,8 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
     if (name.Equals("UpdateDeviceState"))
     {
         Debug.WriteLine("Here");
-        var state = activity?.device != null ? activity.state.ToString() : string.Empty;
-        var device = activity?.device != null ? activity.device.ToString() : string.Empty;
+        var state = activity?.value?.state != null ? activity.value.state.ToString() : string.Empty;
+        var device = activity?.value?.device != null ? activity.value.device.ToString() : string.Empty;
 
         if (state.Equals("on") || state.Equals("off"))
         {

@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 01/24/2020
 ms.author: lcozzens
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7b3221c55cef6207ea38ac1375202acd8b8ab4f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13b8e88d10d66f96db6b50e505d4e579cb1f2f2b
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588355"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566919"
 ---
 # <a name="create-an-azure-app-configuration-store"></a>Skapa ett Azure App Configuration-arkiv
 
@@ -22,9 +22,9 @@ Det här exempel skriptet skapar en ny instans av Azure App konfiguration i en n
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
+ - I den här självstudien krävs version 2,0 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -67,7 +67,7 @@ Anteckna det faktiska namnet som genereras för den nya resursgruppen. Du använ
 
 I det här skriptet används följande kommandon för att skapa en ny resurs grupp och ett konfigurations Arkiv för appar. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [az appconfig create](/cli/azure/appconfig#az-appconfig-create) | Skapar en resurs för konfigurations Arkiv för appar. |

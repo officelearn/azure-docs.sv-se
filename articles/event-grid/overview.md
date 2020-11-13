@@ -3,12 +3,12 @@ title: Vad är Azure Event Grid?
 description: Skicka händelsedata från en källa till hanterare med Azure Event Grid. Skapa händelsebaserade program och integrera med Azure-tjänster.
 ms.topic: overview
 ms.date: 09/24/2020
-ms.openlocfilehash: 73d218058c5f95d8c2d2324f1a0e1e77b24f1364
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a4f614a22fdfa7d2272c70751f56f19145a10fa6
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91326514"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576690"
 ---
 # <a name="what-is-azure-event-grid"></a>Vad är Azure Event Grid?
 
@@ -78,7 +78,7 @@ Här följer några viktiga funktioner i Azure Event Grid:
 * **Förgrena** – Prenumerera på flera slutpunkter till samma händelse för att kunna skicka kopior av händelsen till så många platser som det behövs.
 * **Tillförlitlighet** – 24-timmars omförsök med exponentiellt intervall för att se till att händelser levereras.
 * **Betala per händelse** – Betala endast för hur mycket du använder Event Grid.
-* **Högt dataflöde** – Skapa arbetsbelastningar med hög volym i Event Grid med stöd för miljontals händelser per sekund.
+* **Högt data flöde** – Bygg arbets belastningar med stora volymer på Event Grid.
 * **Inbyggda händelser** – Kom igång snabbt med resursdefinierade inbyggda händelser.
 * **Anpassade händelser** – Använd Event Grid för att dirigera, filtrera och på ett tillförlitligt sätt leverera anpassade händelser i din app.
 

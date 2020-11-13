@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/02/2020
-ms.openlocfilehash: 523f28cdd32c5176160587a8531aa66c0621d5a7
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 37982d1c28d445d40fa9d53a2a1eb076fbbf7f2f
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330697"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566715"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Käll kontroll i Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -29,7 +29,7 @@ Som standard redigerar Azure Data Factory användar gränssnitts upplevelsen (UX
 För att ge en bättre redigerings upplevelse kan Azure Data Factory konfigurera en git-lagringsplats med antingen Azure-databaser eller GitHub. Git är ett versions kontroll system som möjliggör enklare ändrings spårning och samarbete. Den här artikeln beskriver hur du konfigurerar och arbetar i en git-lagringsplats tillsammans med att markera bästa praxis och en fel söknings guide.
 
 > [!NOTE]
-> Git-integrering i Azure Data Factory är inte tillgänglig i Azure Government molnet.
+> Azure Data Factory git-integrering är inte tillgänglig i Azure Government molnet.
 
 Om du vill veta mer om hur Azure Data Factory integreras med git kan du läsa 15-minuters självstudie video nedan:
 
@@ -150,7 +150,7 @@ I konfigurations fönstret visas följande inställningar för GitHub-lagringspl
 |:--- |:--- |:--- |
 | **Typ av databas** | Typen av Azure databaser Code-lagringsplatsen. | GitHub |
 | **Använda GitHub Enterprise** | Kryss ruta för att välja GitHub Enterprise | omarkerat (standard) |
-| **GitHub Enterprise-URL** | GitHub Enterprise-rot-URL (måste vara HTTPS för den lokala GitHub Enterprise Server). Här är ett exempel: `https://github.mydomain.com`. Krävs endast om **Använd GitHub Enterprise** är valt | `<your GitHub enterprise url>` |                                                           
+| **GitHub Enterprise-URL** | GitHub Enterprise-rot-URL (måste vara HTTPS för den lokala GitHub Enterprise Server). Till exempel: `https://github.mydomain.com`. Krävs endast om **Använd GitHub Enterprise** är valt | `<your GitHub enterprise url>` |                                                           
 | **GitHub-konto** | Namnet på GitHub-kontot. Det här namnet kan hittas från https: \/ /GitHub.com/{account Name}/{repository Name}. Om du navigerar till den här sidan uppmanas du att ange GitHub OAuth-autentiseringsuppgifter för ditt GitHub-konto. | `<your GitHub account name>` |
 | **Namn på databas**  | Ditt GitHub kod lagrings namn. GitHub-konton innehåller git-databaser för att hantera din käll kod. Du kan skapa en ny databas eller använda en befintlig databas som redan finns i ditt konto. | `<your repository name>` |
 | **Samarbets gren** | Din GitHub Collaboration-gren som används för publicering. Som standard är originalet. Ändra den här inställningen om du vill publicera resurser från en annan gren. | `<your collaboration branch>` |

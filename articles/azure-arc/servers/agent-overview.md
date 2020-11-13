@@ -3,12 +3,12 @@ title: Översikt över den anslutna datorns Windows-agent
 description: Den här artikeln innehåller en detaljerad översikt över Azure Arc-aktiverade Server Agent som har stöd för övervakning av virtuella datorer i hybrid miljöer.
 ms.date: 09/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: f1f74ff12d007553c0c0c9b16f56a27371618bbb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8a66f99f535013b8aac52fdee43b91a8c734b10a
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370176"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577591"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Översikt över Azure Arc-aktiverade Server Agent
 
@@ -43,7 +43,7 @@ Du kan ladda ned Azure Connected Machine agent-paketet för Windows och Linux fr
 
 Azure Connected Machine agent för Windows och Linux kan uppgraderas till den senaste versionen manuellt eller automatiskt beroende på dina behov. Mer information finns [här](manage-agent.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="supported-operating-systems"></a>Operativsystem som stöds
 
@@ -60,7 +60,7 @@ Följande versioner av operativ systemet Windows och Linux stöds officiellt fö
 
 * För att publicera datorer är du medlem i rollen **Azure Connected Machine onboarding** .
 
-* Om du vill läsa, ändra, återregistrera och ta bort en dator är du medlem i rollen **resurs administratör för Azure Connected Machine** . 
+* Om du vill läsa, ändra och ta bort en dator är du medlem i rollen **resurs administratör för Azure Connected Machine** . 
 
 ### <a name="azure-subscription-and-service-limits"></a>Azure-prenumeration och tjänstbegränsningar
 
@@ -190,7 +190,7 @@ När du har installerat den anslutna dator agenten för Windows tillämpas följ
 
 * Det finns flera loggfiler tillgängliga för fel sökning. De beskrivs i följande tabell.
 
-    |Logga |Beskrivning |
+    |Loggas |Beskrivning |
     |----|------------|
     |%ProgramData%\AzureConnectedMachineAgent\Log\himds.log |Innehåller information om agenternas (HIMDS) tjänst och interaktion med Azure.|
     |%ProgramData%\AzureConnectedMachineAgent\Log\azcmagent.log |Innehåller utdata från azcmagent-verktygets kommandon när argumentet verbose (-v) används.|
@@ -234,7 +234,7 @@ När du har installerat den anslutna dator agenten för Linux tillämpas följan
 
 * Det finns flera loggfiler tillgängliga för fel sökning. De beskrivs i följande tabell.
 
-    |Logga |Beskrivning |
+    |Loggas |Beskrivning |
     |----|------------|
     |/var/opt/azcmagent/log/himds.log |Innehåller information om agenternas (HIMDS) tjänst och interaktion med Azure.|
     |/var/opt/azcmagent/log/azcmagent.log |Innehåller utdata från azcmagent-verktygets kommandon när argumentet verbose (-v) används.|

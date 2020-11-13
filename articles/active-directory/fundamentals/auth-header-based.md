@@ -1,6 +1,6 @@
 ---
 title: Huvud-baserad autentisering med Azure Active Directory
-description: Arkitektur vägledning för att uppnå detta autentiserings mönster
+description: Arkitektur vägledning för att uppnå huvud-baserad autentisering med Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f364e4e14dd1b7c60cb81f06051d9dedd94396a
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: bb54410fb314376b68d7297a3452f0990762343d
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114455"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577166"
 ---
 # <a name="header-based-authentication-with-azure-active-directory"></a>Huvud-baserad autentisering med Azure Active Directory
 
@@ -34,17 +34,17 @@ Fjärran vändare behöver enkel inloggning (SSO) i till lokala program som krä
 
 ## <a name="components-of-system"></a>System komponenter
 
-* **Användare**: åtkomst till äldre program som hanteras av Application Proxy.
+* **Användare** : åtkomst till äldre program som hanteras av Application Proxy.
 
-* **Webbläsare**: komponenten som användaren interagerar med för att få åtkomst till den externa URL: en för programmet.
+* **Webbläsare** : komponenten som användaren interagerar med för att få åtkomst till den externa URL: en för programmet.
 
-* **Azure AD**: autentiserar användaren. 
+* **Azure AD** : autentiserar användaren. 
 
-* **Application Proxy Service**: fungerar som omvänd proxy för att skicka begäran från användaren till det lokala programmet. Den finns i Azure AD och kan även tillämpa principer för villkorlig åtkomst.
+* **Application Proxy Service** : fungerar som omvänd proxy för att skicka begäran från användaren till det lokala programmet. Den finns i Azure AD och kan även tillämpa principer för villkorlig åtkomst.
 
-* **Application Proxy Connector**: installeras lokalt på Windows-servrar för att tillhandahålla anslutning till programmen. Endast utgående anslutningar används. Returnerar svaret till Azure AD.
+* **Application Proxy Connector** : installeras lokalt på Windows-servrar för att tillhandahålla anslutning till programmen. Endast utgående anslutningar används. Returnerar svaret till Azure AD.
 
-* **Äldre program**: program som tar emot användar förfrågningar från programproxyn. Det äldre programmet tar emot de HTTP-huvuden som krävs för att konfigurera en session och returnera ett svar. 
+* **Äldre program** : program som tar emot användar förfrågningar från programproxyn. Det äldre programmet tar emot de HTTP-huvuden som krävs för att konfigurera en session och returnera ett svar. 
 
 ## <a name="implement-header-based-authentication-with-azure-ad"></a>Implementera huvud-baserad autentisering med Azure AD
 

@@ -1,6 +1,6 @@
 ---
 title: Språk anpassning i Azure Active Directory B2C
-description: Lär dig mer om att anpassa språk upplevelsen i dina användar flöden.
+description: Lär dig mer om att anpassa språk upplevelsen i dina användar flöden i Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,12 +11,12 @@ ms.date: 08/13/2019
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6b3bb3648fff6bc893ea07204fad79d2830a1b47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5bfdada12229070568bb9b0556471ea5aab306f
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91355101"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94575959"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Språk anpassning i Azure Active Directory B2C
 
@@ -28,9 +28,9 @@ Du kan använda språk anpassning för att välja vilka språk som ditt använda
 
 Du kanske inte behöver den kontroll nivån över vilka språk som din kund ser. Om du inte anger en `ui_locales` parameter, styrs kundens upplevelse av webbläsarens inställningar. Du kan fortfarande styra vilka språk som ditt användar flöde ska översättas till genom att lägga till det som ett språk som stöds. Om en kunds webbläsare är inställd på att visa ett språk som du inte vill ha stöd för, visas det språk som du valde som standard i en kultur som stöds i stället.
 
-* **UI – lokala språk**: när du har aktiverat språk anpassning översätts ditt användar flöde till det språk som anges här.
-* **Webbläsare-begärt språk**: om ingen `ui_locales` parameter har angetts översätts ditt användar flöde till det begärda språket, *om språket stöds*.
-* **Standard språk för principen**: om webbläsaren inte anger något språk, eller om det anger ett språk som inte stöds, översätts användar flödet till standard språket för användar flödet.
+* **UI – lokala språk** : när du har aktiverat språk anpassning översätts ditt användar flöde till det språk som anges här.
+* **Webbläsare-begärt språk** : om ingen `ui_locales` parameter har angetts översätts ditt användar flöde till det begärda språket, *om språket stöds*.
+* **Standard språk för principen** : om webbläsaren inte anger något språk, eller om det anger ett språk som inte stöds, översätts användar flödet till standard språket för användar flödet.
 
 > [!NOTE]
 > Om du använder anpassade användarattribut måste du ange dina egna översättningar. Mer information finns i [Anpassa dina strängar](#customize-your-strings).
@@ -41,7 +41,7 @@ Principer som skapades innan den allmänna tillgängligheten för språk anpassn
 
 När du aktiverar språk anpassning för ett användar flöde kan du kontrol lera språket för användar flödet genom att lägga till `ui_locales` parametern.
 
-1. Välj **användar flöden**i Azure AD B2C klient.
+1. Välj **användar flöden** i Azure AD B2C klient.
 1. Klicka på det användar flöde som du vill aktivera för översättningar.
 1. Välj **språk**.
 1. Välj **Aktivera språk anpassning**.
@@ -65,7 +65,7 @@ Med språk anpassning kan du anpassa en sträng i ditt användar flöde.
 
 1. Se till att ditt användar flöde har aktiverat språk anpassning från föregående instruktioner.
 1. På sidan **språk** för användar flödet väljer du det språk som du vill anpassa.
-1. Under **filer på sidan filnivå – resurser**väljer du den sida som du vill redigera.
+1. Under **filer på sidan filnivå – resurser** väljer du den sida som du vill redigera.
 1. Välj **Hämta standardvärden** (eller **Hämta åsidosättningar** om du tidigare har redigerat det här språket).
 
 De här stegen ger dig en JSON-fil som du kan använda för att börja redigera dina strängar.
@@ -164,13 +164,13 @@ https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 
 Du kan också lägga till språk som Microsoft för närvarande inte tillhandahåller översättningar för. Du måste ange översättningarna för alla strängar i användar flödet. Språk-och lands koder är begränsade till dem i ISO 639-1-standarden.
 
-1. Välj **användar flöden**i Azure AD B2C klient.
+1. Välj **användar flöden** i Azure AD B2C klient.
 2. Klicka på det användar flöde där du vill lägga till anpassade språk och klicka sedan på **språk**.
 3. Välj **Lägg till anpassat språk** överst på sidan.
 4. I kontext fönstret som öppnas identifierar du vilket språk som du tillhandahåller översättningar för genom att ange en giltig språkkod.
 5. För varje sida kan du ladda ned en uppsättning åsidosättningar för engelska och arbeta med översättningarna.
 6. När du är klar med JSON-filerna kan du ladda upp dem för varje sida.
-7. Välj **Aktivera**och ditt användar flöde kan nu visa det här språket för dina användare.
+7. Välj **Aktivera** och ditt användar flöde kan nu visa det här språket för dina användare.
 8. Spara språket.
 
 >[!IMPORTANT]

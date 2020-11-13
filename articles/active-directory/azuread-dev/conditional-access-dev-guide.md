@@ -13,20 +13,23 @@ ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1075cce9b9e3bc3267756bba84691788293fa8d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 378dab95d8fb3519bb2fc5c934a760e051a18d29
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88116325"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94575891"
 ---
 # <a name="developer-guidance-for-the-azure-active-directory-conditional-access-feature"></a>Vägledning för utvecklare för funktionen Azure Active Directory villkorlig åtkomst
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
+> [!NOTE]
+> För Microsoft Identity Platform-versionen av den här artikeln, se [vägledning för utvecklare för Azure Active Directory villkorlig åtkomst](/azure/active-directory/develop/v2-conditional-access-dev-guide).
+
 Funktionen för villkorlig åtkomst i Azure Active Directory (Azure AD) erbjuder ett av flera sätt som du kan använda för att skydda din app och skydda en tjänst. Med villkorlig åtkomst kan utvecklare och företags kunder skydda tjänster på flera olika sätt:
 
-* Multifaktorautentisering
+* Multi-Factor Authentication
 * Tillåter endast att Intune-registrerade enheter får åtkomst till vissa tjänster
 * Begränsa användar platser och IP-intervall
 
@@ -40,7 +43,7 @@ Kunskaper om appar för [en och flera innehavare](../develop/howto-convert-app-t
 
 ### <a name="app-types-impacted"></a>Program typer som påverkas
 
-I de flesta vanliga fall ändrar inte villkorlig åtkomst appens beteende eller kräver ändringar från utvecklaren.Endast i vissa fall när en app indirekt eller tyst begär en token för en tjänst, kräver en app kod ändringar för att hantera utmaningarna med villkorlig åtkomst.Det kan vara så enkelt som att utföra en interaktiv inloggnings förfrågan.
+I de flesta vanliga fall ändrar inte villkorlig åtkomst appens beteende eller kräver ändringar från utvecklaren. Endast i vissa fall när en app indirekt eller tyst begär en token för en tjänst, kräver en app kod ändringar för att hantera utmaningarna med villkorlig åtkomst. Det kan vara så enkelt som att utföra en interaktiv inloggnings förfrågan.
 
 Mer specifikt kräver följande scenarier kod för att hantera utmaningarna för villkorlig åtkomst:
 

@@ -10,14 +10,17 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calui
-ms.openlocfilehash: c822aaebb2451d709f6afcdeba959f39c4d491cb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c3fcff5673f4498e92f5d66fe96d806a08527197
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964544"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576027"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Logga in för att Azure Active Directory med e-post som ett alternativt inloggnings-ID (för hands version)
+
+> [!NOTE]
+> Logga in på Azure AD med e-post som ett alternativt inloggnings-ID är en offentlig förhands gransknings funktion i Azure Active Directory. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.
 
 Många organisationer vill att användarna ska kunna logga in på Azure Active Directory (Azure AD) med samma autentiseringsuppgifter som den lokala katalog miljön. Med den här metoden, som kallas hybrid autentisering, behöver användarna bara komma ihåg en uppsättning autentiseringsuppgifter.
 
@@ -27,12 +30,12 @@ Vissa organisationer har inte flyttats till hybrid autentisering av följande an
 * Att ändra Azure AD UPN skapar en mis-matchning mellan lokal-och Azure AD-miljöer som kan orsaka problem med vissa program och tjänster.
 * På grund av affärs-eller efterföljandekrav vill inte organisationen använda det lokala UPN för att logga in på Azure AD.
 
-För att hjälpa till med att flytta till hybrid autentisering kan du nu konfigurera Azure AD så att användarna kan logga in med ett e-postmeddelande i din verifierade domän som ett alternativt inloggnings-ID. Om *contoso* till exempel har ändrats till *Fabrikam*, i stället för att fortsätta logga in med det äldre `balas@contoso.com` UPN, kan du nu använda e-post som ett alternativt inloggnings-ID. För att få åtkomst till ett program eller tjänster loggar användare in på Azure AD med sin tilldelade e-postadress, till exempel `balas@fabrikam.com` .
+För att hjälpa till med att flytta till hybrid autentisering kan du nu konfigurera Azure AD så att användarna kan logga in med ett e-postmeddelande i din verifierade domän som ett alternativt inloggnings-ID. Om *contoso* till exempel har ändrats till *Fabrikam* , i stället för att fortsätta logga in med det äldre `balas@contoso.com` UPN, kan du nu använda e-post som ett alternativt inloggnings-ID. För att få åtkomst till ett program eller tjänster loggar användare in på Azure AD med sin tilldelade e-postadress, till exempel `balas@fabrikam.com` .
 
 Den här artikeln visar hur du aktiverar och använder e-post som ett alternativt inloggnings-ID. Den här funktionen är tillgänglig i Azure AD Free Edition och högre.
 
 > [!NOTE]
-> Logga in på Azure AD med e-post som ett alternativt inloggnings-ID är en offentlig förhands gransknings funktion i Azure Active Directory. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.
+> Den här funktionen är endast för Azure-autentiserade Azure AD-användare.
 
 ## <a name="overview-of-azure-ad-sign-in-approaches"></a>Översikt över inloggnings metoder för Azure AD
 
@@ -169,13 +172,79 @@ När principen har tillämpats kan det ta upp till en timme att sprida och anvä
 
 Om du vill testa att användarna kan logga in med e-post kan du bläddra till [https://myprofile.microsoft.com][my-profile] och logga in med ett användar konto baserat på deras e-postadress, till exempel `balas@fabrikam.com` , inte deras UPN, till exempel `balas@contoso.com` . Inloggnings upplevelsen bör se ut och kännas likadan som med en UPN-baserad inloggnings händelse.
 
+## <a name="enable-staged-rollout-to-test-user-sign-in-with-an-email-address"></a>Aktivera mellanlagrad distribution för att testa användar inloggning med en e-postadress  
+
+Med [mellanlagrad][staged-rollout] distribution kan klient organisations administratörer aktivera funktioner för vissa grupper. Det rekommenderas att innehavaradministratörer använder mellanlagrad distribution för att testa användar inloggning med en e-postadress. När administratörer är redo att distribuera den här funktionen till hela klienten bör de använda en princip för identifiering av start sfär.  
+
+
+Du måste ha *klient administratörs* behörighet för att utföra följande steg:
+
+1. Öppna en PowerShell-session som administratör och installera sedan *AzureADPreview* -modulen med cmdleten [install-module][Install-Module] :
+
+    ```powershell
+    Install-Module AzureADPreview
+    ```
+
+    Om du uppmanas att göra det väljer du **Y** för att installera NuGet eller installera från en obetrodd lagrings plats.
+
+2. Logga in på din Azure AD-klient som *innehavaradministratör* med cmdleten [Connect-AzureAD][Connect-AzureAD] :
+
+    ```powershell
+    Connect-AzureAD
+    ```
+
+    Kommandot returnerar information om ditt konto, din miljö och klient-ID.
+
+3. Visa en lista över alla befintliga stegvisa distributions principer med följande cmdlet:
+   
+   ```powershell
+   Get-AzureADMSFeatureRolloutPolicy
+   ``` 
+
+4. Om det inte finns några befintliga stegvisa distributions principer för den här funktionen skapar du en ny stegvis distributions princip och noterar princip-ID:
+
+   ```powershell
+   New-AzureADMSFeatureRolloutPolicy -Feature EmailAsAlternateId -DisplayName "EmailAsAlternateId Rollout Policy" -IsEnabled $true
+   ```
+
+5. Hitta directoryObject-ID: t för gruppen som ska läggas till i den stegvisa distributions principen. Observera värdet som returneras för parametern *ID* , eftersom det kommer att användas i nästa steg.
+   
+   ```powershell
+   Get-AzureADMSGroup -SearchString "Name of group to be added to the staged rollout policy"
+   ```
+
+6. Lägg till gruppen i principen för stegvis distribution enligt följande exempel. Ersätt värdet i parametern *-ID* med det värde som returnerades för princip-ID i steg 4 och Ersätt värdet i parametern *-RefObjectId* med det *ID* som anges i steg 5. Det kan ta upp till en timme innan användarna i gruppen kan använda sina proxyservrar för att logga in.
+
+   ```powershell
+   Add-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID" -RefObjectId "GROUP_OBJECT_ID"
+   ```
+   
+För nya medlemmar som läggs till i gruppen kan det ta upp till 24 timmar innan de kan använda sina proxyadresser för att logga in.
+
+### <a name="removing-groups"></a>Tar bort grupper
+
+Om du vill ta bort en grupp från en stegvis distributions princip kör du följande kommando:
+
+```powershell
+Remove-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID" -ObjectId "GROUP_OBJECT_ID" 
+```
+
+### <a name="removing-policies"></a>Ta bort principer
+
+Om du vill ta bort en princip för stegvis distribution måste du först inaktivera principen och sedan ta bort den från systemet:
+
+```powershell
+Set-AzureADMSFeatureRolloutPolicy -Id "ROLLOUT_POLICY_ID" -IsEnabled $false 
+Remove-AzureADMSFeatureRolloutPolicy -Id "ROLLOUT_POLICY_ID"
+```
+
 ## <a name="troubleshoot"></a>Felsöka
 
 Om användarna har problem med inloggnings händelser med hjälp av e-postadressen kan du läsa följande fel söknings steg:
 
 1. Se till att användar kontot har sina e-postadresser för attributet *proxyAddresses* i AD DS-miljön för lokal.
 1. Kontrol lera att Azure AD Connect har kon figurer ATS och synkroniserar användar konton från AD DS-lokal i Azure AD.
-1. Bekräfta att Azure AD *HomeRealmDiscoveryPolicy* -principen har attributet *AlternateIdLogin* inställt på *"Enabled": true*:
+1. Bekräfta att Azure AD *HomeRealmDiscoveryPolicy* -principen har attributet *AlternateIdLogin* inställt på *"Enabled": true* :
 
     ```powershell
     Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *
@@ -202,4 +271,5 @@ För ytterligare information om hybrid identitets åtgärder, se [hur synkronise
 [Get-AzureADPolicy]: /powershell/module/azuread/get-azureadpolicy
 [New-AzureADPolicy]: /powershell/module/azuread/new-azureadpolicy
 [Set-AzureADPolicy]: /powershell/module/azuread/set-azureadpolicy
+[staged-rollout]: /powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged-rollout
 [my-profile]: https://myprofile.microsoft.com

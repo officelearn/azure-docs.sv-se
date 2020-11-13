@@ -1,15 +1,15 @@
 ---
-title: Självstudie – SAP HANA DB-säkerhetskopiering på Azure med CLI
+title: Självstudie – SAP HANA DB-säkerhetskopiering på Azure med Azure CLI
 description: I den här självstudien får du lära dig hur du säkerhetskopierar SAP HANA databaser som körs på en virtuell Azure-dator till ett Azure Backup Recovery Services valv med Azure CLI.
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f11e01c6af18cac956d58b9c692d7b57c8fe653a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2cc34ae33ad283c30bbc5ce05a31b5e35a192de
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324968"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566664"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Självstudie: säkerhetskopiera SAP HANA databaser i en virtuell Azure-dator med Azure CLI
 
@@ -26,9 +26,9 @@ Det här dokumentet förutsätter att du redan har en SAP HANA-databas installer
 
 Ta en titt på de [scenarier som vi för närvarande stöder](./sap-hana-backup-support-matrix.md#scenario-support) för SAP HANA.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Om du vill installera och använda CLI lokalt måste du köra Azure CLI version xx. xxx. x eller senare. Kör `az --version` för att hitta CLI-versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
+ - I den här självstudien krävs version xx.xx.xxx eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
 ## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 

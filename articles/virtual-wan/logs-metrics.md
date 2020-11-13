@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 78165e9c14d4a83dbc20cbccd2f31dc8ac4c79ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53b8d74d6eb35347d6ac5b27d12fa5b5eaed2582
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440867"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566375"
 ---
 # <a name="azure-virtual-wan-logs-and-metrics"></a>Azure Virtual WAN-loggar och-mått
 
@@ -66,7 +66,7 @@ Följande steg hjälper dig att hitta och visa mått:
 
 4. På sidan **mått** kan du Visa de mått som du är intresse rad av.
 
-   :::image type="content" source="./media/logs-metrics/metrics-page.png" alt-text="Skärm bild som visar en plats i fönstret V P N N med Visa i Azure Monitor valt.":::
+   :::image type="content" source="./media/logs-metrics/metrics-page.png" alt-text="Skärm bild som visar sidan &quot;mått&quot; med de kategorier som är markerade.":::
 
 ## <a name="diagnostic-logs"></a><a name="diagnostic"></a>Diagnostikloggar
 
@@ -93,15 +93,15 @@ Följande steg hjälper dig att hitta och Visa diagnostik:
 
 1. I portalen navigerar du till din virtuella WAN-resurs. I avsnittet **Översikt** på sidan virtuellt WAN-nätverk i portalen väljer du **Essentials** för att expandera vyn och hämta information om resurs gruppen. Kopiera resurs grupps informationen.
 
-   :::image type="content" source="./media/logs-metrics/3.png" alt-text="Skärm bild som visar en plats i fönstret V P N N med Visa i Azure Monitor valt.":::
+   :::image type="content" source="./media/logs-metrics/3.png" alt-text="Skärm bild som visar avsnittet &quot;Översikt&quot; med en pil som pekar på knappen &quot;Kopiera&quot;.":::
 
-2. I avsnittet övervakning, navigerar du till resurs gruppen. Välj **diagnostikinställningar**och ange sedan resurs informationen. Det här är den resursinformation som du kopierade i steg 2 från avsnittet [Visa Gateway-mått](#metrics-steps) tidigare i den här artikeln.
+2. I avsnittet övervakning, navigerar du till resurs gruppen. Välj **diagnostikinställningar** och ange sedan resurs informationen. Det här är den resursinformation som du kopierade i steg 2 från avsnittet [Visa Gateway-mått](#metrics-steps) tidigare i den här artikeln.
 
-   :::image type="content" source="./media/logs-metrics/4.png" alt-text="Skärm bild som visar en plats i fönstret V P N N med Visa i Azure Monitor valt.":::
+   :::image type="content" source="./media/logs-metrics/4.png" alt-text="Skärm bild som visar avsnittet &quot;övervakning&quot; med en pil som pekar på list rutan &quot;resurs&quot;.":::
 
-3. På sidan resultat väljer du **+ Lägg till diagnostisk inställning**och väljer sedan ett alternativ. Du kan välja att skicka till Log Analytics, strömma till en händelsehubben eller att bara arkivera till ett lagrings konto.
+3. På sidan resultat väljer du **+ Lägg till diagnostisk inställning** och väljer sedan ett alternativ. Du kan välja att skicka till Log Analytics, strömma till en händelsehubben eller att bara arkivera till ett lagrings konto.
 
-   :::image type="content" source="./media/logs-metrics/5.png" alt-text="Skärm bild som visar en plats i fönstret V P N N med Visa i Azure Monitor valt.":::
+   :::image type="content" source="./media/logs-metrics/5.png" alt-text="Sidan mått":::
 
 ### <a name="log-analytics-sample-query"></a><a name="sample-query"></a>Log Analytics exempel fråga
 
@@ -109,7 +109,7 @@ Loggarna finns i **Azure Log Analytics-arbetsytan**. Du kan ställa in en fråga
 
 ```AzureDiagnostics | where Category == "RouteDiagnosticLog"```
 
-Ersätt värdena nedan efter **= =**, efter behov.
+Ersätt värdena nedan efter **= =** , efter behov.
 
 * "GatewayDiagnosticLog"
 * "IKEDiagnosticLog"
@@ -119,9 +119,9 @@ Ersätt värdena nedan efter **= =**, efter behov.
 
 ## <a name="activity-logs"></a><a name="activity-logs"></a>Aktivitets loggar
 
-**Aktivitets logg** poster samlas in som standard och kan visas i Azure Portal. Du kan använda Azure aktivitets loggar (tidigare kallade *drift loggar* och *gransknings loggar*) för att visa alla åtgärder som skickats till din Azure-prenumeration.
+**Aktivitets logg** poster samlas in som standard och kan visas i Azure Portal. Du kan använda Azure aktivitets loggar (tidigare kallade *drift loggar* och *gransknings loggar* ) för att visa alla åtgärder som skickats till din Azure-prenumeration.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om hur du övervakar Azure Firewall-loggar och-mått finns i [självstudie: övervaka Azure Firewall-loggar](../firewall/tutorial-diagnostics.md).
+* Information om hur du övervakar Azure Firewall-loggar och-mått finns i [självstudie: övervaka Azure Firewall-loggar](../firewall/firewall-diagnostics.md).
 * Mer information om mått i Azure Monitor finns i [mått i Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).

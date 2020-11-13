@@ -6,16 +6,16 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d9a7d7db93e00b9fcccab08522b3363935badf26
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 003203ef1a25102f9fd3c50001603dbd5d33ce5a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203848"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565978"
 ---
 # <a name="tutorial-manipulating-models"></a>Självstudie: ändra modeller
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
@@ -152,7 +152,7 @@ Gränserna för en modell definieras av den ruta som innehåller hela modellen, 
     }
     ```
 
-Nu när **RemoteBounds** -skriptet läggs till i samma spel objekt som **RemoteRenderedModel**, läggs en **BoxCollider** om det behövs och när modellen når sitt `Loaded` tillstånd, kommer gränserna automatiskt att frågas och tillämpas på **BoxCollider**.
+Nu när **RemoteBounds** -skriptet läggs till i samma spel objekt som **RemoteRenderedModel** , läggs en **BoxCollider** om det behövs och när modellen når sitt `Loaded` tillstånd, kommer gränserna automatiskt att frågas och tillämpas på **BoxCollider**.
 
 1. Lägg till **RemoteBounds** -komponenten med **TestModel** -GameObject som skapades tidigare.
 1. Bekräfta att skriptet har lagts till.
@@ -167,9 +167,9 @@ Nu har vi en lokal **BoxCollider** som kon figurer ATS med korrekta gränser på
 
 ## <a name="move-rotate-and-scale"></a>Flytta, rotera och skala  
 
-Flyttning, rotation och skalning av fjärranslutna objekt fungerar på samma sätt som andra Unity-objekt. **RemoteRenderingCoordinator**anropar i dess `LateUpdate` metod `Update` den aktuella aktiva sessionen. En del av vad `Update` synkroniserar den lokala modell enheten omvandlas till sina fjärrmotparter. Om du vill flytta, rotera eller skala en fjärrrenderad modell behöver du bara flytta, rotera eller skala transformeringen för GameObject som representerar fjärrmodellen. Här ska vi ändra transformeringen för den överordnade GameObject som har **RemoteRenderedModel** -skriptet kopplat till det.
+Flyttning, rotation och skalning av fjärranslutna objekt fungerar på samma sätt som andra Unity-objekt. **RemoteRenderingCoordinator** anropar i dess `LateUpdate` metod `Update` den aktuella aktiva sessionen. En del av vad `Update` synkroniserar den lokala modell enheten omvandlas till sina fjärrmotparter. Om du vill flytta, rotera eller skala en fjärrrenderad modell behöver du bara flytta, rotera eller skala transformeringen för GameObject som representerar fjärrmodellen. Här ska vi ändra transformeringen för den överordnade GameObject som har **RemoteRenderedModel** -skriptet kopplat till det.
 
-I den här självstudien används MRTK för objekt interaktion. De flesta av de MRTK-speciella implementeringarna för att flytta, rotera och skala ett objekt ligger utanför omfånget för den här självstudien. Det finns en modell visnings hanterare som är förkonfigurerad i **AppMenu**i menyn **modell verktyg** .
+I den här självstudien används MRTK för objekt interaktion. De flesta av de MRTK-speciella implementeringarna för att flytta, rotera och skala ett objekt ligger utanför omfånget för den här självstudien. Det finns en modell visnings hanterare som är förkonfigurerad i **AppMenu** i menyn **modell verktyg** .
 
 1. Se till att **TestModel** -GameObject som skapades tidigare finns i scenen.
 1. Se till att **AppMenu** -Prefab finns i scenen.
@@ -308,9 +308,9 @@ Börja med att skapa en statisk omslutning runt mikroray-frågorna. Det här skr
 
 Sändning av begäran om Ray-databyte vid klickning är en effektiv strategi för att skicka frågor till fjärrobjekt. Det är dock inte en bra användar upplevelse eftersom markören kolliderar med rutan kolliderar, inte själva modellen.
 
-Du kan också skapa en ny MRTK-pekare som kastar om sina strålar i fjärrsessionen oftare. Även om detta är en mer komplex metod, är användar upplevelsen bättre. Den här strategin ligger utanför omfånget för den här själv studie kursen, men ett exempel på den här metoden finns i den sammanvisande appen, som finns i [lagrings platsen för arr-exempel](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/AzureRemoteRenderingShowcase).
+Du kan också skapa en ny MRTK-pekare som kastar om sina strålar i fjärrsessionen oftare. Även om detta är en mer komplex metod, är användar upplevelsen bättre. Den här strategin ligger utanför omfånget för den här själv studie kursen, men ett exempel på den här metoden finns i den sammanvisande appen, som finns i [lagrings platsen för arr-exempel](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/Showcase).
 
-När en Ray-Cast har slutförts korrekt i **RemoteRayCastPointerHandler**genereras träffen `Entity` från `OnRemoteEntityClicked` Unity-händelsen. För att svara på händelsen skapar vi ett hjälp skript som godkänner `Entity` och utför en åtgärd på den. Vi börjar med att hämta skriptet för att skriva ut namnet på `Entity` till fel söknings loggen.
+När en Ray-Cast har slutförts korrekt i **RemoteRayCastPointerHandler** genereras träffen `Entity` från `OnRemoteEntityClicked` Unity-händelsen. För att svara på händelsen skapar vi ett hjälp skript som godkänner `Entity` och utför en åtgärd på den. Vi börjar med att hämta skriptet för att skriva ut namnet på `Entity` till fel söknings loggen.
 
 1. Skapa ett nytt skript med namnet **RemoteEntityHelper** och ersätt innehållet med följande:
 

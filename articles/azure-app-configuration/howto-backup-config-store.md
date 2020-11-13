@@ -10,12 +10,12 @@ ms.custom: devx-track-dotnet, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: b48adfdfda4b3e120b2246e67a70000d25c25f3a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 04edf2eeb231ff1444c732840def2b78b1373e79
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737087"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565933"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Säkerhetskopiera konfigurations Arkiv för appar automatiskt
 
@@ -37,14 +37,17 @@ Motivation bakom att säkerhetskopiera konfigurations lager för appar är att a
 
 I den här självstudien skapar du en sekundär butik i `centralus` regionen och alla andra resurser i `westus` regionen.
 
-## <a name="prerequisites"></a>Förutsättningar
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)].
 
-- En Azure-prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/). 
+## <a name="prerequisites"></a>Förutsättningar 
+
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) med arbets belastningen Azure Development.
-- [.Net Core SDK](https://dotnet.microsoft.com/download).
-- Senaste versionen av Azure CLI (2.3.1 eller senare). Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli). Om du använder Azure CLI måste du först logga in med `az login` . Du kan välja att använda Azure Cloud Shell.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+- [.Net Core SDK](https://dotnet.microsoft.com/download).
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- I den här självstudien krävs version 2.3.1 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 

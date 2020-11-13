@@ -1,6 +1,6 @@
 ---
 title: Kerberos-begränsad delegering med Azure Active Directory
-description: Arkitektur vägledning för att uppnå detta autentiserings mönster
+description: Arkitektur vägledning för att uppnå Kerberos-begränsad delegering med Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77f90cd7aa8d972226a8f134eaa7b3abfe7bea66
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 62c8f230ca2b2d0db1170cde9b24f9e4819889bb
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114464"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577132"
 ---
 # <a name="windows-authentication---kerberos-constrained-delegation-with-azure-active-directory"></a>Windows-autentisering – Kerberos-begränsad delegering med Azure Active Directory
 
@@ -36,19 +36,19 @@ Du måste tillhandahålla fjärråtkomst, skydda med förautentisering och tillh
 
 ## <a name="components-of-system"></a>System komponenter
 
-* **Användare**: åtkomst till äldre program som hanteras av Application Proxy.
+* **Användare** : åtkomst till äldre program som hanteras av Application Proxy.
 
-* **Webbläsare**: komponenten som användaren interagerar med för att få åtkomst till den externa URL: en för programmet.
+* **Webbläsare** : komponenten som användaren interagerar med för att få åtkomst till den externa URL: en för programmet.
 
-* **Azure AD**: autentiserar användaren. 
+* **Azure AD** : autentiserar användaren. 
 
-* **Application Proxy Service**: fungerar som omvänd proxy för att skicka begäran från användaren till det lokala programmet. Den är placerad i Azure AD. Programproxyn kan också tillämpa principer för villkorlig åtkomst.
+* **Application Proxy Service** : fungerar som omvänd proxy för att skicka begäran från användaren till det lokala programmet. Den är placerad i Azure AD. Programproxyn kan också tillämpa principer för villkorlig åtkomst.
 
-* **Application Proxy Connector**: installeras lokalt på Windows-servrar för att tillhandahålla anslutning till programmet. Returnerar svaret till Azure AD. Utför KCD-förhandling med Active Directory som imiterar användaren att hämta en Kerberos-token till programmet.
+* **Application Proxy Connector** : installeras lokalt på Windows-servrar för att tillhandahålla anslutning till programmet. Returnerar svaret till Azure AD. Utför KCD-förhandling med Active Directory som imiterar användaren att hämta en Kerberos-token till programmet.
 
-* **Active Directory**: skickar Kerberos-token för programmet till Application Proxy-anslutningsprogrammet.
+* **Active Directory** : skickar Kerberos-token för programmet till Application Proxy-anslutningsprogrammet.
 
-* **Äldre program**: program som tar emot användar förfrågningar från programproxyn. De äldre programmen returnerar svaret till Application Proxy Connector.
+* **Äldre program** : program som tar emot användar förfrågningar från programproxyn. De äldre programmen returnerar svaret till Application Proxy Connector.
 
 ## <a name="implement-windows-authentication-kcd-with-azure-ad"></a>Implementera Windows-autentisering (KCD) med Azure AD
 

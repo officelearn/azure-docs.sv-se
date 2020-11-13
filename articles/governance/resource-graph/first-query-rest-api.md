@@ -3,12 +3,12 @@ title: 'Snabb start: din första REST API fråga'
 description: I den här snabb starten följer du stegen för att anropa resurs diagram slut punkten för REST API och kör din första fråga.
 ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 8be0556b6aa2fd234c0f3e25d83c0239c8f674bb
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: eafbd0b408ab50f901d52e59efcfbd5f89b46fe5
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057238"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566086"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-rest-api"></a>Snabb start: kör din första resurs diagram fråga med hjälp av REST API
 
@@ -30,7 +30,7 @@ Information om Azure Resource Graph-specifikationer finns i [Azure Resource grap
 
 ### <a name="rest-api-and-powershell"></a>REST API och PowerShell
 
-Om du inte redan har ett verktyg för att göra REST API-anrop kan du använda PowerShell för dessa anvisningar. Följande kod exempel hämtar ett huvud för autentisering med Azure. Generera ett autentiseringshuvud, även kallat en **ägartoken**, och ange REST API-URI:n som du vill ansluta till med valfria parametrar eller en **begärandetext**:
+Om du inte redan har ett verktyg för att göra REST API-anrop kan du använda PowerShell för dessa anvisningar. Följande kod exempel hämtar ett huvud för autentisering med Azure. Generera ett autentiseringshuvud, även kallat en **ägartoken** , och ange REST API-URI:n som du vill ansluta till med valfria parametrar eller en **begärandetext** :
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if not using Cloud Shell
@@ -76,7 +76,6 @@ I begär ande texten för varje REST API-anrop finns en variabel som du måste e
              "{subscriptionID}"
          ],
          "query": "Resources | project name, type | limit 5"
-         }
      }
      ```
 
@@ -99,7 +98,6 @@ I begär ande texten för varje REST API-anrop finns en variabel som du måste e
              "{subscriptionID}"
          ],
          "query": "Resources | project name, type | limit 5 | order by name asc"
-         }
      }
      ```
 
@@ -122,7 +120,6 @@ I begär ande texten för varje REST API-anrop finns en variabel som du måste e
              "{subscriptionID}"
          ],
          "query": "Resources | project name, type | order by name asc | limit 5"
-         }
      }
      ```
 

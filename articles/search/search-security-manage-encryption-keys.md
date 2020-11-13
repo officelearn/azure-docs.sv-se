@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: dfea03270dfea3699f7c3508b9f5275a2dd26372
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 7f2df005a8d3211ba53aadb16370624c4f530eb3
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287154"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94575874"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Konfigurera Kundhanterade nycklar för data kryptering i Azure Kognitiv sökning
 
@@ -41,7 +41,7 @@ För tjänster som skapats efter 1 augusti 2020 och i vissa regioner, innehålle
 
 Om du använder en annan region eller en tjänst som skapats före den 1 augusti, är din CMK-kryptering begränsad till enbart data disken, förutom de temporära diskar som används av tjänsten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande verktyg och tjänster används i det här scenariot.
 
@@ -169,9 +169,11 @@ I det här steget ska du skapa en åtkomst princip i Key Vault. Den här princip
 > [!Important]
 > Krypterat innehåll i Azure Kognitiv sökning konfigureras för att använda en speciell Azure Key Vault nyckel med en angiven **version**. Om du ändrar nyckeln eller versionen måste mappningen index eller synonymer uppdateras för att använda den nya key\version **innan** du tar bort föregående key\version. Om du inte gör det kommer index eller synonym mappning inte att kunna användas, men du kan inte dekryptera innehållet när nyckel åtkomsten har gått förlorad.
 
+<a name="encrypt-content"></a>
+
 ## <a name="5---encrypt-content"></a>5 – Kryptera innehåll
 
-Om du vill lägga till en kundhanterad nyckel på en index-eller synonym mappning använder du en REST API eller SDK för att skapa ett objekt vars definition innehåller `encryptionKey` .
+Om du vill lägga till en kundhanterad nyckel på ett index, data källa, färdigheter, indexerare eller synonym mappning måste du använda [sök REST API](https://docs.microsoft.com/rest/api/searchservice/) eller ett SDK. Portalen visar inte synonym kartor eller krypterings egenskaper. När du använder ett giltigt API-index, stöder data källor, färdighetsuppsättningar, indexerare och synonym Maps en **encryptionKey** -egenskap på högsta nivån.
 
 I det här exemplet används REST API med värden för Azure Key Vault och Azure Active Directory:
 
@@ -192,6 +194,12 @@ I det här exemplet används REST API med värden för Azure Key Vault och Azure
 > [!Note]
 > Ingen av dessa nyckel valvs uppgifter betraktas som hemliga och kan enkelt hämtas genom att bläddra till den relevanta Azure Key Vault nyckel sidan i Azure Portal.
 
+## <a name="example-index-encryption"></a>Exempel: index kryptering
+
+Skapa ett krypterat index med hjälp av [create index Azure Kognitiv sökning REST API](https://docs.microsoft.com/rest/api/searchservice/create-index). Använd `encryptionKey` egenskapen för att ange vilken krypterings nyckel som ska användas.
+> [!Note]
+> Ingen av dessa nyckel valvs uppgifter betraktas som hemliga och kan enkelt hämtas genom att bläddra till den relevanta Azure Key Vault nyckel sidan i Azure Portal.
+
 ## <a name="rest-examples"></a>REST-exempel
 
 I det här avsnittet visas en fullständig JSON för ett krypterat index och en synonym mappning
@@ -202,7 +210,7 @@ Information om hur du skapar ett nytt index via REST API finns i [create index (
 
 ```json
 {
- "name": "hotels",  
+ "name": "hotels",
  "fields": [
   {"name": "HotelId", "type": "Edm.String", "key": true, "filterable": true},
   {"name": "HotelName", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": true, "facetable": false},
@@ -231,19 +239,19 @@ Nu kan du skicka begäran om att skapa index och sedan börja använda indexet s
 
 ### <a name="synonym-map-encryption"></a>Kryptering av synonym mappning
 
-Information om hur du skapar en ny synonym mappning via REST API finns på [skapa synonym karta (REST API)](/rest/api/searchservice/create-synonym-map), där den enda skillnaden här anger krypterings nyckel informationen som en del av synonym mappnings definitionen: 
+Skapa en krypterad synonym mappning med hjälp av [create synonymer Map Azure Kognitiv sökning REST API](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Använd `encryptionKey` egenskapen för att ange vilken krypterings nyckel som ska användas.
 
 ```json
-{   
-  "name" : "synonymmap1",  
-  "format" : "solr",  
+{
+  "name" : "synonymmap1",
+  "format" : "solr",
   "synonyms" : "United States, United States of America, USA\n
   Washington, Wash. => WA",
   "encryptionKey": {
     "keyVaultUri": "https://demokeyvault.vault.azure.net",
     "keyVaultKeyName": "myEncryptionKey",
     "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
-    "activeDirectoryAccessCredentials": {
+    "accessCredentials": {
       "applicationId": "00000000-0000-0000-0000-000000000000",
       "applicationSecret": "myApplicationSecret"
     }
@@ -252,6 +260,86 @@ Information om hur du skapar en ny synonym mappning via REST API finns på [skap
 ```
 
 Nu kan du skicka en förfrågan om att skapa synonym mappning och sedan börja använda den som vanligt.
+
+## <a name="example-data-source-encryption"></a>Exempel: kryptering av data Källa
+
+Skapa en krypterad data källa med hjälp av [skapa data källa (Azure Kognitiv sökning REST API)](https://docs.microsoft.com/rest/api/searchservice/create-data-source). Använd `encryptionKey` egenskapen för att ange vilken krypterings nyckel som ska användas.
+
+```json
+{
+  "name" : "datasource1",
+  "type" : "azureblob",
+  "credentials" :
+  { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=datasource;AccountKey=accountkey;EndpointSuffix=core.windows.net"
+  },
+  "container" : { "name" : "containername" },
+  "encryptionKey": {
+    "keyVaultUri": "https://demokeyvault.vault.azure.net",
+    "keyVaultKeyName": "myEncryptionKey",
+    "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
+    "accessCredentials": {
+      "applicationId": "00000000-0000-0000-0000-000000000000",
+      "applicationSecret": "myApplicationSecret"
+    }
+  }
+}
+```
+
+Nu kan du skicka begäran om att skapa data källa och sedan börja använda den som vanligt.
+
+## <a name="example-skillset-encryption"></a>Exempel: färdigheter-kryptering
+
+Skapa en krypterad färdigheter med [REST API för att skapa färdigheter Azure kognitiv sökning](https://docs.microsoft.com/rest/api/searchservice/create-skillset). Använd `encryptionKey` egenskapen för att ange vilken krypterings nyckel som ska användas.
+
+```json
+{
+  "name" : "datasource1",
+  "type" : "azureblob",
+  "credentials" :
+  { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=datasource;AccountKey=accountkey;EndpointSuffix=core.windows.net"
+  },
+  "container" : { "name" : "containername" },
+  "encryptionKey": {
+    "keyVaultUri": "https://demokeyvault.vault.azure.net",
+    "keyVaultKeyName": "myEncryptionKey",
+    "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
+    "accessCredentials": {
+      "applicationId": "00000000-0000-0000-0000-000000000000",
+      "applicationSecret": "myApplicationSecret"
+    }
+  }
+}
+```
+
+Nu kan du skicka begäran om att skapa färdigheter och sedan börja använda den som vanligt.
+
+## <a name="example-indexer-encryption"></a>Exempel: indexerare kryptering
+
+Skapa en krypterad indexerare med hjälp av [REST API skapa indexerare Azure Kognitiv sökning](https://docs.microsoft.com/rest/api/searchservice/create-indexer). Använd `encryptionKey` egenskapen för att ange vilken krypterings nyckel som ska användas.
+
+```json
+{
+  "name": "indexer1",
+  "dataSourceName": "datasource1",
+  "skillsetName": "skillset1",
+  "parameters": {
+      "configuration": {
+          "imageAction": "generateNormalizedImages"
+      }
+  },
+  "encryptionKey": {
+    "keyVaultUri": "https://demokeyvault.vault.azure.net",
+    "keyVaultKeyName": "myEncryptionKey",
+    "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
+    "accessCredentials": {
+      "applicationId": "00000000-0000-0000-0000-000000000000",
+      "applicationSecret": "myApplicationSecret"
+    }
+  }
+}
+```
+
+Nu kan du skicka begäran om att skapa indexerare och sedan börja använda den som vanligt.
 
 >[!Important]
 > `encryptionKey`Det går inte att lägga till i befintliga Sök index eller synonym mappningar, men det kan uppdateras genom att ange olika värden för någon av de tre nyckel valvs detaljerna (till exempel uppdatering av nyckel versionen). När du ändrar till en ny Key Vault nyckel eller en ny nyckel version måste alla sökindex eller synonym mappningar som använder nyckeln först uppdateras för att använda den nya key\version **innan** du tar bort föregående key\version. Om du inte gör det kommer indexet eller synonym mappningen att bli oanvändbar, eftersom den inte kan dekryptera innehållet när nyckel åtkomsten förlorats. Även om åtkomst behörigheterna för Key Vault återställs vid ett senare tillfälle återställs innehålls åtkomsten.
@@ -265,7 +353,6 @@ Med den här metoden kan du utelämna stegen för program registrering och progr
 I allmänhet gör en hanterad identitet att Sök tjänsten kan autentisera till Azure Key Vault utan att lagra autentiseringsuppgifter (ApplicationID eller ApplicationSecret) i koden. Livs cykeln för den här typen av hanterad identitet är kopplad till livs cykeln för din Sök tjänst, som bara kan ha en hanterad identitet. Mer information om hur hanterade identiteter fungerar finns i [Vad är hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md).
 
 1. Gör din Sök tjänst till en betrodd tjänst.
-
    ![Aktivera systemtilldelad hanterad identitet](./media/search-managed-identities/turn-on-system-assigned-identity.png "Aktivera systemtilldelad hanterad identitet")
 
 1. När du konfigurerar en åtkomst princip i Azure Key Vault väljer du den betrodda Sök tjänsten som princip (i stället för det AD-registrerade programmet). Tilldela samma behörigheter (flera får, omslutning, unwrap) enligt anvisningarna i steget bevilja åtkomst nyckel behörighet.

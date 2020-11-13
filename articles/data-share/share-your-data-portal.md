@@ -5,28 +5,35 @@ author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: quickstart
-ms.date: 08/19/2020
-ms.openlocfilehash: 41598c04af78d4366435259357d8f897ac178942
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/30/2020
+ms.openlocfilehash: 1442720fdf48aaa7da76e181b168a04306ff3e33
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89489943"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577506"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-in-the-azure-portal"></a>Snabb start: dela data med Azure Data share i Azure Portal
 
-I den här snabb starten får du lära dig hur du konfigurerar en ny Azure-Dataresurs med hjälp av Azure Portal.
+I den här snabb starten får du lära dig hur du konfigurerar en ny Azure-Dataresurs för att dela data från lagrings kontot med hjälp av Azure Portal.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Azure-prenumeration: om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+* Azure-prenumeration: om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+* Mottagarens e-postadress för Azure-inloggning (med deras e-postalias fungerar inte).
+* Om käll Azure-datalagret finns i en annan Azure-prenumeration än den som du ska använda för att skapa en data resurs resurs registrerar du [Microsoft. DataShare Resource Provider](concepts-roles-permissions.md#resource-provider-registration) i prenumerationen där Azure Data Store finns. 
 
+### <a name="share-from-a-storage-account"></a>Dela från ett lagrings konto
+
+* Ett Azure Storage konto: om du inte redan har ett kan du skapa ett [Azure Storage konto](../storage/common/storage-account-create.md)
+* Behörighet att skriva till lagrings kontot som finns i *Microsoft. Storage/storageAccounts/Write*. Den här behörigheten finns i **deltagarrollen**.
+* Behörighet att lägga till roll tilldelning till lagrings kontot, som finns i *Microsoft. auktorisering/roll tilldelningar/Skriv*. Den här behörigheten finns i **ägarrollen**. 
 
 ## <a name="create-a-data-share-account"></a>Skapa ett data resurs konto
 
 Skapa en Azure Data Share-resurs i en Azure-resurs grupp.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. Välj knappen **skapa en resurs** (+) i det övre vänstra hörnet i portalen.
 
@@ -43,7 +50,7 @@ Skapa en Azure Data Share-resurs i en Azure-resurs grupp.
    | Plats | *USA, östra 2* | Välj en region för ditt data resurs konto.
    | Namn | *datashareaccount* | Ange ett namn för ditt data resurs konto. |
 
-1. Välj **Granska + skapa**och sedan **skapa** för att etablera ditt data resurs konto. Det tar vanligt vis ungefär 2 minuter att tillhandahålla ett nytt data resurs konto.
+1. Välj **Granska + skapa** och sedan **skapa** för att etablera ditt data resurs konto. Det tar vanligt vis ungefär 2 minuter att tillhandahålla ett nytt data resurs konto.
 
 1. När distributionen är klar väljer du **Gå till resurs**.
 
@@ -67,7 +74,7 @@ Skapa en Azure Data Share-resurs i en Azure-resurs grupp.
 
    ![Lägg till data uppsättningar till din resurs](./media/datasets.png "Datauppsättningar")
 
-1. Välj den data uppsättnings typ som du vill lägga till. Du ser en annan lista över data uppsättnings typer beroende på vilken resurs typ (ögonblicks bild eller på plats) som du har valt i föregående steg. Om du delar från en Azure SQL Database eller Azure Synapse Analytics uppmanas du att ange vissa SQL-autentiseringsuppgifter. Autentisera med den användare som du skapade som en del av förutsättningarna.
+1. Välj den data uppsättnings typ som du vill lägga till. Du ser en annan lista över data uppsättnings typer beroende på vilken resurs typ (ögonblicks bild eller på plats) som du har valt i föregående steg. 
 
    ![AddDatasets](./media/add-datasets.png "Lägg till data uppsättningar")    
 

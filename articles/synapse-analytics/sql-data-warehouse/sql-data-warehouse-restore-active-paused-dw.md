@@ -1,6 +1,6 @@
 ---
-title: Återställa en befintlig dedikerad SQL-pool
-description: Instruktions guide för att återställa en befintlig dedikerad SQL-pool.
+title: Återställa en befintlig dedikerad SQL-pool i Azure Synapse Analytics
+description: Instruktions guide för att återställa en befintlig dedikerad SQL-pool i Azure Synapse Analytics.
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -11,12 +11,12 @@ ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 3b5ced43e1277ffbb1c9988af08ee032ab93a15e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 0c3fd0aee0a70743db721f469d91f269b9764e5e
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313499"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577557"
 ---
 # <a name="restore-an-existing-dedicated-sql-pool-in-azure-synapse-analytics"></a>Återställa en befintlig dedikerad SQL-pool i Azure Synapse Analytics
 
@@ -91,7 +91,7 @@ $RestoredDatabase.status
 
 ## <a name="restore-an-existing-dedicated-sql-pool-through-the-azure-portal"></a>Återställa en befintlig dedikerad SQL-pool via Azure Portal
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Navigera till den dedikerade som du vill återställa från.
 3. Överst på bladet översikt väljer du **Återställ**.
 

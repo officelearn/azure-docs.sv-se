@@ -8,28 +8,28 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: philmea
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5092aa0b5b23f04af1f49933bca234815f03f454
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 857ae8d824443e9a8abdac7c4a66e2b014be2be0
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604603"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566358"
 ---
-# <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>Självstudier: Skicka e-postmeddelanden om Azure IoT Hub-händelser med Event Grid och Logic Apps
+# <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>Självstudie: Skicka e-postmeddelanden om Azure IoT Hub-händelser med Event Grid och Logic Apps
 
 Med Azure Event Grid kan du reagera på händelser i IoT Hub genom att utlösa åtgärder i underordnade företagsprogram.
 
 Den här artikeln beskriver en exempel konfiguration som använder IoT Hub och Event Grid. I slutet har du konfigurerat en Azure Logic app som skickar ett e-postmeddelande varje gång en enhet ansluts eller kopplas till din IoT-hubb. Event Grid kan användas för att få aviseringar i tid om att kritiska enheter kopplas från. Mått och diagnostik kan ta flera (t. ex. 20 eller mer – men vi vill inte placera ett tal på det) minuter att visa i loggar/varningar. Detta kan vara oacceptabelt för kritisk infrastruktur.
 
-## <a name="prerequisites"></a>Krav
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-* En aktiv Azure-prenumeration. Om du inte har någon prenumeration kan du [skapa ett kostnads fritt Azure-konto](https://azure.microsoft.com/pricing/free-trial/).
+## <a name="prerequisites"></a>Förutsättningar
 
-* Ett e-postkonto från valfri e-postleverantör som stöds av Azure Logic Apps, till exempel Office 365 Outlook eller Outlook.com. Det här e-postkontot används för att skicka händelsemeddelandena. 
+* Ett e-postkonto från valfri e-postleverantör som stöds av Azure Logic Apps, till exempel Office 365 Outlook eller Outlook.com. Det här e-postkontot används för att skicka händelsemeddelandena.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
+## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
 Du kan snabbt skapa en ny IoT-hubb med hjälp av Azure Cloud Shell terminalen i portalen.
 
@@ -59,7 +59,7 @@ Skapa sedan en Logic app och Lägg till en HTTP Event Grid-utlösare som bearbet
 
 ### <a name="create-a-logic-app-resource"></a>Skapa en resurs för en logikapp
 
-1. I [Azure Portal](https://portal.azure.com)väljer du **skapa en resurs**och skriver sedan "Logic app" i sökrutan och väljer RETUR. Välj **Logic app** från resultaten.
+1. I [Azure Portal](https://portal.azure.com)väljer du **skapa en resurs** och skriver sedan "Logic app" i sökrutan och väljer RETUR. Välj **Logic app** från resultaten.
 
    ![Skapa en logikapp](./media/publish-iot-hub-events-to-logic-apps/select-logic-app.png)
 
@@ -91,7 +91,7 @@ En utlösare är en specifik händelse som startar din logikapp. I den här sjä
 
    ![Använd exempel nytto Last](./media/publish-iot-hub-events-to-logic-apps/sample-payload.png)
 
-1. Klistra in den *anslutna händelse schema* -JSON i text rutan och välj sedan **färdig**:
+1. Klistra in den *anslutna händelse schema* -JSON i text rutan och välj sedan **färdig** :
 
    ```json
      [{  
@@ -137,11 +137,11 @@ En utlösare är en specifik händelse som startar din logikapp. I den här sjä
 
 1. Skapa din e-postmall. 
 
-   * **Till**: Ange e-postadressen som e-postaviseringarna ska skickas till. I den här självstudien använder du ett e-postkonto som du kan komma åt för testning. 
+   * **Till** : Ange e-postadressen som e-postaviseringarna ska skickas till. I den här självstudien använder du ett e-postkonto som du kan komma åt för testning. 
 
-   * **Ämne**: Fyll i ämnestexten. När du klickar på text rutan ämne kan du välja dynamiskt innehåll som ska inkluderas. I den här självstudien används till exempel `IoT Hub alert: {eventType}` . Om du inte kan se dynamiskt innehåll, väljer du hyperlänken **Lägg till dynamiskt innehåll** – detta växlar till och från.
+   * **Ämne** : Fyll i ämnestexten. När du klickar på text rutan ämne kan du välja dynamiskt innehåll som ska inkluderas. I den här självstudien används till exempel `IoT Hub alert: {eventType}` . Om du inte kan se dynamiskt innehåll, väljer du hyperlänken **Lägg till dynamiskt innehåll** – detta växlar till och från.
 
-   * **Brödtext**: Skriv texten för e-postmeddelandet. Välj JSON-egenskaper från valverktyget för att ta med dynamiskt innehåll baserat på händelsedata. Om du inte kan se det dynamiska innehållet väljer du hyperlänken **Lägg till dynamiskt innehåll** under text rutan **brödtext** . Om du inte ser de fält som du vill ha klickar du på *mer* på skärmen med dynamiskt innehåll för att ta med fälten från föregående åtgärd.
+   * **Brödtext** : Skriv texten för e-postmeddelandet. Välj JSON-egenskaper från valverktyget för att ta med dynamiskt innehåll baserat på händelsedata. Om du inte kan se det dynamiska innehållet väljer du hyperlänken **Lägg till dynamiskt innehåll** under text rutan **brödtext** . Om du inte ser de fält som du vill ha klickar du på *mer* på skärmen med dynamiskt innehåll för att ta med fälten från föregående åtgärd.
 
    Din e-postmall kanske liknar den i det här exemplet:
 
@@ -165,7 +165,7 @@ Innan du lämnar Logic Apps-designern kopierar du URL:en som används av dina lo
 
 I det här avsnittet ska du konfigurera din IoT-hubb så att den publicerar händelser när de inträffar. 
 
-1. Gå till din IoT-hubb på Azure Portal. Du kan göra detta genom att välja **resurs grupper**och sedan välja resurs gruppen för den här själv studie kursen och sedan välja din IoT Hub i listan över resurser.
+1. Gå till din IoT-hubb på Azure Portal. Du kan göra detta genom att välja **resurs grupper** och sedan välja resurs gruppen för den här själv studie kursen och sedan välja din IoT Hub i listan över resurser.
 
 1. Välj **händelser**.
 
@@ -192,7 +192,7 @@ I det här avsnittet ska du konfigurera din IoT-hubb så att den publicerar hän
    
    4. I avsnittet **information om slut punkt** : 
        1. Välj **typ av slut punkt** som **Web Hook**.
-       2. Klicka på **Välj en slut punkt**, klistra in den URL som du kopierade från din Logic app och bekräfta valet.
+       2. Klicka på **Välj en slut punkt** , klistra in den URL som du kopierade från din Logic app och bekräfta valet.
 
          ![webbadress till vald slutpunkt](./media/publish-iot-hub-events-to-logic-apps/endpoint-webhook.png)
 
@@ -232,7 +232,7 @@ I den här självstudiekursen användes resurser som medför kostnader för din 
 
 Ta bort resurs gruppen om du vill ta bort alla resurser som skapats i den här självstudien. 
 
-1. Välj **resurs grupper**och välj sedan den resurs grupp som du skapade för den här självstudien.
+1. Välj **resurs grupper** och välj sedan den resurs grupp som du skapade för den här självstudien.
 
 2. I fönstret resurs grupp väljer du **ta bort resurs grupp**. Du uppmanas att ange namnet på resurs gruppen och sedan kan du ta bort det. Alla resurser som ingår däri tas också bort.
 

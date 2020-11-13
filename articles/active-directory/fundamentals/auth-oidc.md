@@ -1,6 +1,6 @@
 ---
 title: OpenID Connect-autentisering med Azure Active Directory
-description: Arkitektur vägledning för att uppnå detta autentiserings mönster
+description: Arkitektur vägledning för att uppnå OpenID Connect-autentisering med Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6f2ad3b5e86eebfc2d6f1f42f8a2ab0520144b5
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f38da0dd2dc2adc8049e2b307c861651a55ed700
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114365"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576996"
 ---
 # <a name="openid-connect-authentication-with-azure-active-directory"></a>OpenID Connect-autentisering med Azure Active Directory
 
@@ -38,13 +38,13 @@ Det finns ett behov av användar medgivande och för webb inloggning.
 
 ## <a name="components-of-system"></a>System komponenter
 
-* **Användare**: begär en tjänst från programmet.
+* **Användare** : begär en tjänst från programmet.
 
-* **Betrodd agent**: komponenten som användaren interagerar med. Den här betrodda agenten är vanligt vis en webbläsare.
+* **Betrodd agent** : komponenten som användaren interagerar med. Den här betrodda agenten är vanligt vis en webbläsare.
 
-* **Program**: programmet eller resurs servern är den plats där resursen eller data finns. Den litar på identitets leverantören för att på ett säkert sätt autentisera och auktorisera den betrodda agenten. 
+* **Program** : programmet eller resurs servern är den plats där resursen eller data finns. Den litar på identitets leverantören för att på ett säkert sätt autentisera och auktorisera den betrodda agenten. 
 
-* **Azure AD**: OIDC-providern, som även kallas identitets leverantören, hanterar säkert vad som helst med användarens information, deras åtkomst och förtroende relationer mellan parter i ett flöde. Den autentiserar användarens identitet, beviljar och återkallar åtkomst till resurser och utfärdar token. 
+* **Azure AD** : OIDC-providern, som även kallas identitets leverantören, hanterar säkert vad som helst med användarens information, deras åtkomst och förtroende relationer mellan parter i ett flöde. Den autentiserar användarens identitet, beviljar och återkallar åtkomst till resurser och utfärdar token. 
 
 ## <a name="implement-oidc-with-azure-ad"></a>Implementera OIDC med Azure AD
 

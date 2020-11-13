@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 7a8bdd911db82a07bfcdd1596b7a8203a19a6442
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 0e2406cd35fb2d4dd99da4f5139a9f0f80697912
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341965"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566256"
 ---
 # <a name="set-up-web-endpoints"></a>Konfigurera webbslutpunkter
 
@@ -58,9 +58,9 @@ I den här artikeln får du lära dig att ställa in webbslutpunkter i programme
 
 ## <a name="call-web-endpoints"></a>Anropa webbslutpunkter
 
-1. Gå till kommandot **TurnOnOff**, välj **ConfirmationResponse** under slutföranderegeln och välj sedan **Lägg till en åtgärd**.
+1. Gå till kommandot **TurnOnOff** , välj **ConfirmationResponse** under slutföranderegeln och välj sedan **Lägg till en åtgärd**.
 1. Under **Ny åtgärdstyp** väljer du **Anropa webbslutpunkt**
-1. I **Redigera åtgärd – Slutpunkter** väljer du **UpdateDeviceState**, som är webbslutpunkten vi skapade nyss.  
+1. I **Redigera åtgärd – Slutpunkter** väljer du **UpdateDeviceState** , som är webbslutpunkten vi skapade nyss.  
 1. I **Konfiguration** anger du följande värden: 
    > [!div class="mx-imgBorder"]
    > ![Anropa åtgärdsparametrar för webbslutpunkter](media/custom-commands/setup-web-endpoint-edit-action-parameters.png)
@@ -125,14 +125,14 @@ I de flesta fall brukar man dock vanligtvis enbart vilja skicka aktiviteten till
     1. Kopiera JSON-filen nedan till **Aktivitetsinnehåll**
    ```json
    {
-     "type": "event",
-     "name": "UpdateDeviceState",
-     "state": "{OnOff}",
-     "device": "{SubjectDevice}"
-   }
+      "type": "event",
+      "name": "UpdateDeviceState",
+      "value": {
+        "state": "{OnOff}",
+        "device": "{SubjectDevice}"
+      }
+    }
    ```
-    > [!div class="mx-imgBorder"]
-    > ![Skicka aktivitet vid lyckad åtgärd](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-activity.png)
    
 Nu ska du enbart skicka aktiviteten till klienten när begärandet till webbslutpunkten lyckas.
 
@@ -207,3 +207,4 @@ Om du testade appen med `turn on tv` i föregående avsnitt, ser du att tv-progr
 
 > [!div class="nextstepaction"]
 > [Exportera anpassade kommandon program som en fjärrskicklighet](./how-to-custom-commands-integrate-remote-skills.md)
+

@@ -1,6 +1,6 @@
 ---
 title: Remote Desktop Gateway-tjänster med Azure Active Directory
-description: Arkitektur vägledning för att uppnå detta autentiserings mönster
+description: Arkitektur vägledning för att uppnå tjänster för fjärrskrivbordsgateway med Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff099d41970ad4d78d5c6035a60f448f29ab24b1
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 57466cccb71444d5711a9221c324a107757c5e82
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114353"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576803"
 ---
 # <a name="remote-desktop-gateway-services"></a>Tjänster för fjärrskrivbordsgateway
 
@@ -32,15 +32,15 @@ Du måste ge fjärråtkomst och skydda din Fjärrskrivbordstjänster-distributio
 
 ## <a name="components-of-system"></a>System komponenter
 
-* **Användare**: åtkomst till RDS som hanteras av Application Proxy.
+* **Användare** : åtkomst till RDS som hanteras av Application Proxy.
 
-* **Webbläsare**: komponenten som användaren interagerar med för att få åtkomst till den externa URL: en för programmet.
+* **Webbläsare** : komponenten som användaren interagerar med för att få åtkomst till den externa URL: en för programmet.
 
-* **Azure AD**: autentiserar användaren. 
+* **Azure AD** : autentiserar användaren. 
 
-* **Application Proxy Service**: fungerar som omvänd proxy för att vidarebefordra begäran från användaren till fjärr skrivbords tjänster. Programproxyn kan också tillämpa principer för villkorlig åtkomst. 
+* **Application Proxy Service** : fungerar som omvänd proxy för att vidarebefordra begäran från användaren till fjärr skrivbords tjänster. Programproxyn kan också tillämpa principer för villkorlig åtkomst. 
 
-* **Fjärrskrivbordstjänster**: fungerar som en plattform för enskilda virtualiserade program, vilket ger säker åtkomst till mobila och fjärr skrivbord och ger slutanvändarna möjlighet att köra sina program och skriv bord från molnet. 
+* **Fjärrskrivbordstjänster** : fungerar som en plattform för enskilda virtualiserade program, vilket ger säker åtkomst till mobila och fjärr skrivbord och ger slutanvändarna möjlighet att köra sina program och skriv bord från molnet. 
 
 ## <a name="implement-remote-desktop-gateway-services-with-azure-ad"></a>Implementera gateway-tjänster för fjärr skrivbord med Azure AD
 

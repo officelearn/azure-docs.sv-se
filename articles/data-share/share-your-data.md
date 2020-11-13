@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 08/28/2020
-ms.openlocfilehash: 232f50c05182799c93a636baa2aec8ed93419be8
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.date: 10/30/2020
+ms.openlocfilehash: 5eb374806d0bdafa7f05b001e4446b184a446b52
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489479"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577421"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Självstudier: Dela data med Azure Data Share  
 
@@ -31,21 +31,25 @@ I den här självstudien får du lära dig att:
 * Mottagarens e-postadress för Azure-inloggning (med deras e-postalias fungerar inte).
 * Om käll Azure-datalagret finns i en annan Azure-prenumeration än den som du ska använda för att skapa en data resurs resurs registrerar du [Microsoft. DataShare Resource Provider](concepts-roles-permissions.md#resource-provider-registration) i prenumerationen där Azure Data Store finns. 
 
-### <a name="share-from-a-storage-account"></a>Dela från ett lagrings konto:
+### <a name="share-from-a-storage-account"></a>Dela från ett lagrings konto
 
 * Ett Azure Storage konto: om du inte redan har ett kan du skapa ett [Azure Storage konto](../storage/common/storage-account-create.md)
-* Behörighet att skriva till lagrings kontot som finns i *Microsoft. Storage/storageAccounts/Write*. Den här behörigheten finns i deltagarrollen.
-* Behörighet att lägga till roll tilldelning till lagrings kontot, som finns i *Microsoft. auktorisering/roll tilldelningar/Skriv*. Den här behörigheten finns i ägarrollen. 
+* Behörighet att skriva till lagrings kontot som finns i *Microsoft. Storage/storageAccounts/Write*. Den här behörigheten finns i **deltagarrollen**.
+* Behörighet att lägga till roll tilldelning till lagrings kontot, som finns i *Microsoft. auktorisering/roll tilldelningar/Skriv*. Den här behörigheten finns i **ägarrollen**. 
 
 
-### <a name="share-from-a-sql-based-source"></a>Dela från en SQL-baserad Källa:
+### <a name="share-from-a-sql-based-source"></a>Dela från en SQL-baserad källa
+Nedan visas en lista över förutsättningar för att dela data från SQL-källan. 
 
-* En Azure SQL Database-eller Azure Synapse-analys (tidigare SQL Data Warehouse) med tabeller och vyer som du vill dela.
-* Behörighet att skriva till databaserna på SQL Server, som finns i *Microsoft. SQL/Servers/databaser/skriva*. Den här behörigheten finns i deltagarrollen.
-* Behörighet för data resursen för åtkomst till data lagret. Detta kan göras genom följande steg: 
-    1. Ange själv som Azure Active Directory administratör för SQL Server.
-    1. Anslut till Azure SQL Database/informations lagret med hjälp av Azure Active Directory.
-    1. Använd Frågeredigeraren (för hands version) för att köra följande skript för att lägga till den hanterade identiteten för data resurs som en db_datareader. Du måste ansluta med Active Directory och inte SQL Server autentisering. 
+#### <a name="prerequisites-for-sharing-from-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Krav för delning från Azure SQL Database eller Azure Synapse Analytics (tidigare Azure SQL DW)
+Du kan följa stegen i steg [för steg-demonstrationen](https://youtu.be/hIE-TjJD8Dc) för att konfigurera krav.
+
+* En Azure SQL Database-eller Azure Synapse-analys (tidigare Azure SQL DW) med tabeller och vyer som du vill dela.
+* Behörighet att skriva till databaserna på SQL Server, som finns i *Microsoft. SQL/Servers/databaser/skriva*. Den här behörigheten finns i **deltagarrollen**.
+* Behörighet för data resurs resursens hanterade identitet för att komma åt databasen. Detta kan göras genom följande steg: 
+    1. I Azure Portal går du till SQL-servern och anger dig själv som **Azure Active Directorys administratör**.
+    1. Anslut till Azure SQL Database/informations lagret med hjälp av [Frågeredigeraren](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) eller SQL Server Management Studio med Azure Active Directory autentisering. 
+    1. Kör följande skript för att lägga till den hanterade identiteten för data resursen som en db_datareader. Du måste ansluta med Active Directory och inte SQL Server autentisering. 
     
         ```sql
         create user "<share_acct_name>" from external provider;     
@@ -53,21 +57,44 @@ I den här självstudien får du lära dig att:
         ```                   
        Observera att *<share_acc_name>* är namnet på din data resurs resurs. Om du inte har skapat någon data resurs resurs ännu kan du gå tillbaka till det här kravet senare.  
 
-* En Azure SQL Database användare med "db_datareader"-åtkomst för att navigera och välja de tabeller och/eller vyer som du vill dela. 
+* En Azure SQL Database användare med **"db_datareader"** -åtkomst för att navigera och välja de tabeller och/eller vyer som du vill dela. 
 
-* Åtkomst till klient-IP SQL Server-brandvägg. Detta kan göras genom följande steg: 
-    1. I SQL Server i Azure Portal navigerar du till *brand väggar och virtuella nätverk*
-    1. Klicka på **Växla för** att tillåta åtkomst till Azure-tjänster.
-    1. Klicka på **+ Lägg till klient-IP** och klicka på **Spara**. Klientens IP-adress kan komma att ändras. Den här processen kan behöva upprepas nästa gång du delar SQL-data från Azure Portal. Du kan också lägga till ett IP-intervall. 
+* SQL Server brand Väggs åtkomst. Detta kan göras genom följande steg: 
+    1. I Azure Portal går du till SQL Server. Välj *brand väggar och virtuella nätverk* från vänster navigering.
+    1. Klicka på **Ja** om *du vill tillåta Azure-tjänster och-resurser åtkomst till den här servern*.
+    1. Klicka på **+ Lägg till klient-IP**. Klientens IP-adress kan komma att ändras. Den här processen kan behöva upprepas nästa gång du delar SQL-data från Azure Portal. Du kan också lägga till ett IP-intervall.
+    1. Klicka på **Spara**. 
+
+#### <a name="prerequisites-for-sharing-from-azure-synapse-analytics-workspace-sql-pool"></a>Krav för delning från SQL-poolen för Azure Synapse Analytics (arbets yta)
+
+* En SQL-pool för Azure Synapse Analytics (arbets yta) med tabeller som du vill dela. Det finns för närvarande inte stöd för att dela vyn.
+* Behörighet att skriva till SQL-poolen i Synapse-arbetsytan, som finns i *Microsoft. Synapse/arbetsytes/sqlPools/Write*. Den här behörigheten finns i **deltagarrollen**.
+* Behörighet för data resurs resursens hanterade identitet för åtkomst till Synapse-arbetsyta SQL-pool. Detta kan göras genom följande steg: 
+    1. I Azure Portal navigerar du till arbets ytan Synapse. Välj SQL Active Directory admin från vänster navigering och ange dig själv som **Azure Active Directorys administratör**.
+    1. Öppna Synapse Studio och välj *Hantera* från det vänstra navigerings fältet. Välj *åtkomst kontroll* under säkerhet. Tilldela rollen som administratör för **SQL-administratören** eller **arbets ytan** .
+    1. I Synapse Studio väljer du *utveckla* från det vänstra navigerings fältet. Kör följande skript i SQL-poolen för att lägga till den hanterade identiteten för data resurs som en db_datareader. 
+    
+        ```sql
+        create user "<share_acct_name>" from external provider;     
+        exec sp_addrolemember db_datareader, "<share_acct_name>"; 
+        ```                   
+       Observera att *<share_acc_name>* är namnet på din data resurs resurs. Om du inte har skapat någon data resurs resurs ännu kan du gå tillbaka till det här kravet senare.  
+
+* Åtkomst till brand vägg för Synapse-arbetsyta. Detta kan göras genom följande steg: 
+    1. I Azure Portal navigerar du till arbets ytan Synapse. Välj *brand väggar* från vänster navigering.
+    1. Klicka **på på** för *att tillåta Azure-tjänster och-resurser åtkomst till den här arbets ytan*.
+    1. Klicka på **+ Lägg till klient-IP**. Klientens IP-adress kan komma att ändras. Den här processen kan behöva upprepas nästa gång du delar SQL-data från Azure Portal. Du kan också lägga till ett IP-intervall.
+    1. Klicka på **Spara**. 
+
 
 ### <a name="share-from-azure-data-explorer"></a>Dela från Azure Data Explorer
 * Ett Azure Datautforskaren-kluster med databaser som du vill dela.
-* Behörighet att skriva till Azure Datautforskaren-kluster, som finns i *Microsoft. Kusto/kluster/Write*. Den här behörigheten finns i deltagarrollen.
-* Behörighet att lägga till roll tilldelning till Azure Datautforskaren-klustret, som finns i *Microsoft. auktorisering/roll tilldelningar/Skriv*. Den här behörigheten finns i ägarrollen.
+* Behörighet att skriva till Azure Datautforskaren-kluster, som finns i *Microsoft. Kusto/kluster/Write*. Den här behörigheten finns i **deltagarrollen**.
+* Behörighet att lägga till roll tilldelning till Azure Datautforskaren-klustret, som finns i *Microsoft. auktorisering/roll tilldelningar/Skriv*. Den här behörigheten finns i **ägarrollen**.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-data-share-account"></a>Skapa ett data resurs konto
 
@@ -113,7 +140,7 @@ Skapa en Azure Data Share-resurs i en Azure-resurs grupp.
 
     ![Lägg till data uppsättningar till din resurs](./media/datasets.png "Datauppsättningar")
 
-1. Välj den data uppsättnings typ som du vill lägga till. Du ser en annan lista över data uppsättnings typer beroende på vilken resurs typ (ögonblicks bild eller på plats) som du har valt i föregående steg. Om du delar från en Azure SQL Database eller Azure Synapse Analytics uppmanas du att ange vissa SQL-autentiseringsuppgifter. Autentisera med den användare som du skapade som en del av förutsättningarna.
+1. Välj den data uppsättnings typ som du vill lägga till. Du ser en annan lista över data uppsättnings typer beroende på vilken resurs typ (ögonblicks bild eller på plats) som du har valt i föregående steg. Om du delar från en Azure SQL Database eller Azure Synapse Analytics (tidigare Azure SQL DW) uppmanas du att ange SQL-autentiseringsuppgifter för att visa tabeller.
 
     ![AddDatasets](./media/add-datasets.png "Lägg till data uppsättningar")    
 

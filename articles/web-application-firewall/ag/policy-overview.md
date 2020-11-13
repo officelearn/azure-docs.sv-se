@@ -7,12 +7,12 @@ author: winthrop28
 ms.service: web-application-firewall
 ms.date: 10/14/2020
 ms.author: victorh
-ms.openlocfilehash: 789a60c80d14301c107824d178a3566d358d287f
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 0f7fec997ec6d0c73fe6d1039ab1033752e0cedf
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056403"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566579"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Översikt över principer för Azure Web Application-brandvägg (WAF)
 
@@ -57,7 +57,7 @@ I det här exemplet har du en global princip som gäller för två platser. Du h
 
 ## <a name="existing-waf-configurations"></a>Befintliga WAF-konfigurationer
 
-Alla nya WAF-inställningar för webb program brand väggen (anpassade regler, konfigurationer för hanterade regel uppsättningar, undantag och så vidare) finns i en WAF-princip. Om du har en befintlig WAF kan de här inställningarna fortfarande finnas i din WAF-konfiguration. Mer information om hur du flyttar till den nya WAF-principen genom [att MIGRERA WAF config till en WAF-princip](https://docs.microsoft.com/azure/web-application-firewall/ag/migrate-policy). 
+Alla nya WAF-inställningar för webb program brand väggen (anpassade regler, konfigurationer för hanterade regel uppsättningar, undantag och så vidare) finns i en WAF-princip. Om du har en befintlig WAF kan de här inställningarna fortfarande finnas i din WAF-konfiguration. Mer information om hur du flyttar till den nya WAF-principen genom [att MIGRERA WAF config till en WAF-princip](./migrate-policy.md). 
 
 
 ## <a name="next-steps"></a>Nästa steg

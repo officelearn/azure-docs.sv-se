@@ -1,6 +1,6 @@
 ---
 title: Skapa Azure Data Factory med .NET SDK
-description: Skapa en Azure-datafabrik och pipeline med .NET SDK för att kopiera data från en plats i Azure Blob Storage till en annan plats.
+description: Skapa en Azure Data Factory och pipeline med .NET SDK för att kopiera data från en plats i Azure Blob Storage till en annan plats.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/24/2019
 ms.author: jingwang
-ms.openlocfilehash: e8da3dff39f94d6639471a2d1d96691c9cde614d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d564b96807574dd7a275d6959aea085ad16e9e2e
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91322894"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565950"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Snabbstart: Skapa en datafabrik och pipeline med .NET SDK
 
@@ -28,7 +28,7 @@ ms.locfileid: "91322894"
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Den här snabbstarten beskriver hur du använder .NET SDK till att skapa en Azure-datafabrik. Den pipeline du skapar i den här datafabriken **kopierar** data från en mapp till en annan mapp i Azure Blob Storage. Om du vill se en självstudie som visar hur du **omvandlar** data med Azure Data Factory går du till [Tutorial: Transform data using Spark](tutorial-transform-data-spark-portal.md) (Självstudie: Omvandla data med Spark).
+I den här snabb starten beskrivs hur du använder .NET SDK för att skapa en Azure Data Factory. Den pipeline du skapar i den här datafabriken **kopierar** data från en mapp till en annan mapp i Azure Blob Storage. Om du vill se en självstudie som visar hur du **omvandlar** data med Azure Data Factory går du till [Tutorial: Transform data using Spark](tutorial-transform-data-spark-portal.md) (Självstudie: Omvandla data med Spark).
 
 > [!NOTE]
 > Den här artikeln ger inte någon detaljerad introduktion till Azure Data Factory-tjänsten. En introduktion till Azure Data Factory-tjänsten finns i [Introduktion till Azure Data Factory](introduction.md).
@@ -45,11 +45,11 @@ Ladda ned och installera [Azure .NET SDK](https://azure.microsoft.com/downloads/
 
 ## <a name="create-an-application-in-azure-active-directory"></a>Skapa ett program i Azure Active Directory
 
-Från avsnitten i *How to: Använd portalen för att skapa ett Azure AD-program och tjänstens huvud namn som kan komma åt resurser*, följer du anvisningarna för att utföra dessa uppgifter:
+Från avsnitten i *How to: Använd portalen för att skapa ett Azure AD-program och tjänstens huvud namn som kan komma åt resurser* , följer du anvisningarna för att utföra dessa uppgifter:
 
 1. Skapa ett program i [skapa ett Azure Active Directory-program](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)som representerar det .NET-program som du skapar i den här självstudien. För inloggnings-URL kan du ange en låtsas-URL enligt artikeln (`https://contoso.org/exampleapp`).
-2. I [Hämta värden för att logga in](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), hämtar du **program-ID** och **klient-ID**och noterar de här värdena som du använder senare i den här självstudien. 
-3. I [certifikat och hemligheter](../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options), Hämta **autentiseringsnyckel**och anteckna det här värdet som du använder senare i den här självstudien.
+2. I [Hämta värden för att logga in](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), hämtar du **program-ID** och **klient-ID** och noterar de här värdena som du använder senare i den här självstudien. 
+3. I [certifikat och hemligheter](../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options), Hämta **autentiseringsnyckel** och anteckna det här värdet som du använder senare i den här självstudien.
 4. I [tilldela programmet till en roll](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application)tilldelar du programmet rollen **deltagare** på prenumerations nivå så att programmet kan skapa data fabriker i prenumerationen.
 
 ## <a name="create-a-visual-studio-project"></a>Skapa ett Visual Studio-projekt
@@ -58,12 +58,12 @@ Skapa sedan ett C# .NET-konsol program i Visual Studio:
 
 1. Starta **Visual Studio**.
 2. I fönstret Starta väljer du **skapa en ny projekt**  >  **konsol app (.NET Framework)**. .NET version 4.5.2 eller senare krävs.
-3. Skriv **ADFv2QuickStart**i **projekt namn**.
+3. Skriv **ADFv2QuickStart** i **projekt namn**.
 4. Välj **Skapa** för att skapa projektet.
 
 ## <a name="install-nuget-packages"></a>Installera NuGet-paket
 
-1. Välj **verktyg**  >  **NuGet Package Manager**  >  **Package**Manager-konsolen.
+1. Välj **verktyg**  >  **NuGet Package Manager**  >  **Package** Manager-konsolen.
 2. I fönstret **Package Manager-konsol** kör du följande kommandon för att installera paket. Mer information finns i [Microsoft. Azure. Management. DataFactory NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/).
 
     ```powershell
@@ -74,7 +74,7 @@ Skapa sedan ett C# .NET-konsol program i Visual Studio:
 
 ## <a name="create-a-data-factory-client"></a>Skapa en datafabriksklient
 
-1. Öppna **Program.cs**, lägg till följande instruktioner för att lägga till referenser till namnområden.
+1. Öppna **Program.cs** , lägg till följande instruktioner för att lägga till referenser till namnområden.
 
     ```csharp
     using System;
@@ -87,7 +87,7 @@ Skapa sedan ett C# .NET-konsol program i Visual Studio:
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
 
-2. Lägg till följande kod till **Main**-metoden som anger variablerna. Ersätt plats hållarna med dina egna värden. Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/). Data lag ren (Azure Storage, Azure SQL Database och mer) och beräkningarna (HDInsight och andra) som används av Data Factory kan finnas i andra regioner.
+2. Lägg till följande kod till **Main** -metoden som anger variablerna. Ersätt plats hållarna med dina egna värden. Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory** : [Tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/). Data lag ren (Azure Storage, Azure SQL Database och mer) och beräkningarna (HDInsight och andra) som används av Data Factory kan finnas i andra regioner.
 
    ```csharp
    // Set variables
@@ -130,7 +130,7 @@ Skapa sedan ett C# .NET-konsol program i Visual Studio:
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-Lägg till följande kod som skapar en **datafabrik** till **Main**-metoden. 
+Lägg till följande kod som skapar en **datafabrik** till **Main** -metoden. 
 
 ```csharp
 // Create a data factory
@@ -153,7 +153,7 @@ while (client.Factories.Get(resourceGroup, dataFactoryName).ProvisioningState ==
 
 ## <a name="create-a-linked-service"></a>Skapa en länkad tjänst
 
-Lägg till följande kod i **Main**-metoden som skapar en **länkad Azure Storage-tjänst**.
+Lägg till följande kod i **Main** -metoden som skapar en **länkad Azure Storage-tjänst**.
 
 Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager och beräkna datafabrik-tjänster. I den här snabb starten behöver du bara skapa en Azure Storage länkad tjänst för både kopierings källan och mottagar lagret. den heter "AzureStorageLinkedService" i exemplet.
 
@@ -206,7 +206,7 @@ Console.WriteLine(
 
 ## <a name="create-a-pipeline"></a>Skapa en pipeline
 
-Lägg till följande kod som skapar och **aktiverar en pipeline** till **Main**-metoden.
+Lägg till följande kod som skapar och **aktiverar en pipeline** till **Main** -metoden.
 
 I det här exemplet innehåller den här pipelinen en aktivitet och använder två parametrar: sökväg för indata-blob och utgående BLOB-sökväg. Värdena för dessa parametrar anges när pipeline utlöses/körs. Kopieringsaktiviteten refererar till samma blobdatauppsättning som skapats i föregående steg som indata och utdata. När datauppsättningen används som indatauppsättning anges indatasökvägen. Och när datauppsättningen används som utdatauppsättning anges utdatasökvägen. 
 
@@ -258,7 +258,7 @@ Console.WriteLine(SafeJsonConvert.SerializeObject(pipeline, client.Serialization
 
 ## <a name="create-a-pipeline-run"></a>Skapa en pipelinekörning
 
-Lägg till följande kod i **Main**-metoden för att **utlösa en pipelinekörning**.
+Lägg till följande kod i **Main** -metoden för att **utlösa en pipelinekörning**.
 
 Den här koden anger också värden för parametrarna **inputPath** och **outputPath** som anges i pipelinen med de faktiska värdena för käll-och mottagar-BLOB-sökvägar.
 
@@ -278,7 +278,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 ## <a name="monitor-a-pipeline-run"></a>Övervaka en pipelinekörning
 
-1. Lägg till följande kod i **Main**-metoden för att kontinuerligt kontrollera status tills den har slutat att kopiera data.
+1. Lägg till följande kod i **Main** -metoden för att kontinuerligt kontrollera status tills den har slutat att kopiera data.
 
    ```csharp
    // Monitor the pipeline run
@@ -433,7 +433,7 @@ Press any key to exit...
 Pipelinen skapar automatiskt mappen utdata i BLOB-behållaren **adftutorial** . Sedan kopieras **emp.txt** -filen från mappen indata till mappen utdata. 
 
 1. På sidan för **adftutorial** -behållaren som du avbröt i i [Lägg till en mapp för indata och filen för BLOB-behållaren](#add-an-input-folder-and-file-for-the-blob-container) ovan väljer du **Uppdatera** för att visa mappen utdata. Azure Portal 
-2. Välj **utdata**i mapplistan.
+2. Välj **utdata** i mapplistan.
 3. Kontrollera att **emp.txt** har kopierats till utdatamappen. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser

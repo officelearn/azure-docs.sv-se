@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/16/2019
-ms.openlocfilehash: 1c08ba51b815386783c3412e9238d2e96da03ff9
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.date: 11/13/2020
+ms.openlocfilehash: 92ef5b372113d0d226335b8ec464a75a5a684bc3
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94377697"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592914"
 ---
 # <a name="one-vs-one-multiclass"></a>En-vs-en multiklass
 
@@ -31,6 +31,8 @@ Den här modulen implementerar en-till-en-metod där en binär modell skapas per
 I grunden skapar modulen en ensemble med enskilda modeller och sammanfogar sedan resultaten för att skapa en enskild modell som förutsäger alla klasser. En binär klassificerare kan användas som grund för en en-till-en-modell.  
 
 Anta till exempel att du konfigurerar en [dubbelriktad Vector Machine](two-class-support-vector-machine.md) -modell och anger den som indatamängd i modulen en-vs-en multiklass. Modulen skapar dubbelriktade stöd för vektor dator modeller för alla medlemmar i klassen output. Den använder sedan en-och-en-metod för att kombinera resultaten för alla klasser.  
+
+Modulen använder OneVsOneClassifier av sklearn och du kan lära dig mer om det [här](https://scikit-learn.org/stable/modules/generated/sklearn.multiclass.OneVsOneClassifier.html).
 
 ## <a name="how-to-configure-the-one-vs-one-multiclass-classifier"></a>Så här konfigurerar du en-vs-en multiklass-klassificerare  
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: seodec2018, devx-track-python
-ms.openlocfilehash: e5c82587eca9ac85820bda9690b54ab1879d5328
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0c7494f62f181e34e4879f1e64bf2c4ee1cf52ec
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087884"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593441"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-python"></a>Snabb start: söka efter bilder med hjälp av Bildsökning i Bing REST API och python
 
@@ -157,5 +157,5 @@ Svar från API för bildsökning i Bing returneras som JSON. Det här exempelsva
 
 * [Vad är API:et för bildsökning i Bing?](../overview.md)  
 * [Pris information för API:er för Bing-sökresultat](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) 
-* [Dokumentation om Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [API-referens för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Dokumentation om Azure Cognitive Services](../../index.yml)
+* [API-referens för bildsökning i Bing](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

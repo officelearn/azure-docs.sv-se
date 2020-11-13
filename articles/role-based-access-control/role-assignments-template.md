@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/02/2020
+ms.date: 11/13/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d65b2db9c69d006476ae1d08a1af3e60efe48930
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 563cd14d0eccdbe6d91ae09029da766dacbceb87
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280560"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616883"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Lägg till Azure-roll tilldelningar med Azure Resource Manager mallar
 
@@ -40,7 +40,7 @@ $objectid = (Get-AzADUser -DisplayName "{name}").id
 objectid=$(az ad user show --id "{email}" --query objectId --output tsv)
 ```
 
-### <a name="group"></a>Group
+### <a name="group"></a>Grupp
 
 Om du vill hämta ID för en grupp kan du använda kommandona [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup) eller [AZ AD Group show](/cli/azure/ad/group#az-ad-group-show) .
 
@@ -209,14 +209,7 @@ az deployment create --location centralus --template-file rbac-test.json --param
 
 ### <a name="resource-scope"></a>Resursomfång
 
-Om du behöver lägga till en roll tilldelning på nivån för en resurs, är formatet för roll tilldelningen annorlunda. Du anger resurs leverantörens namn område och resurs typ för den resurs som rollen ska tilldelas till. Du inkluderar också namnet på resursen i namnet på roll tilldelningen.
-
-Använd följande format för roll tilldelningens typ och namn:
-
-```json
-"type": "{resource-provider-namespace}/{resource-type}/providers/roleAssignments",
-"name": "{resource-name}/Microsoft.Authorization/{role-assign-GUID}"
-```
+Om du behöver lägga till en roll tilldelning på nivån för en resurs anger du `scope` egenskapen för roll tilldelningen till namnet på resursen.
 
 Följande mall visar:
 
@@ -230,7 +223,7 @@ Om du vill använda mallen måste du ange följande indata:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "principalId": {
@@ -248,6 +241,13 @@ Om du vill använda mallen måste du ange följande indata:
             ],
             "metadata": {
                 "description": "Built-in role to assign"
+            }
+        },
+        "roleNameGuid": {
+            "type": "string",
+            "defaultValue": "[newGuid()]",
+            "metadata": {
+                "description": "A new GUID used to identify the role assignment"
             }
         },
         "location": {
@@ -274,9 +274,10 @@ Om du vill använda mallen måste du ange följande indata:
             "properties": {}
         },
         {
-            "type": "Microsoft.Storage/storageAccounts/providers/roleAssignments",
-            "apiVersion": "2018-09-01-preview",
-            "name": "[concat(variables('storageName'), '/Microsoft.Authorization/', guid(uniqueString(variables('storageName'))))]",
+            "type": "Microsoft.Authorization/roleAssignments",
+            "apiVersion": "2020-04-01-preview",
+            "name": "[parameters('roleNameGuid')]",
+            "scope": "[concat('Microsoft.Storage/storageAccounts', '/', variables('storageName'))]",
             "dependsOn": [
                 "[variables('storageName')]"
             ],

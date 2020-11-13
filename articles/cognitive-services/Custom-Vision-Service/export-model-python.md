@@ -11,21 +11,21 @@ ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: af0e9cd66cf64366a6f563148fa6b075161151f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee9f49463e8e6749d29c810afaf7337cc99a98e8
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87875446"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616050"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>Självstudie: Köra en TensorFlow-modell i Python
 
-När du har [exporterat din TensorFlow-modell](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) från Custom Vision Service visar den här snabbstarten hur du använder den här modellen lokalt för att klassificera bilder.
+När du har [exporterat din TensorFlow-modell](./export-your-model.md) från Custom Vision Service visar den här snabbstarten hur du använder den här modellen lokalt för att klassificera bilder.
 
 > [!NOTE]
 > Den här självstudien gäller endast för modeller som exporteras från bild klassificerings projekt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 I självstudiekursen måste du göra följande:
 

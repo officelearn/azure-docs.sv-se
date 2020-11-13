@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 10/30/2020
-ms.openlocfilehash: 5eb374806d0bdafa7f05b001e4446b184a446b52
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 11/12/2020
+ms.openlocfilehash: 27d48ef8961aa0b7fde4a92195ea92a1ec20c3f0
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577421"
+ms.locfileid: "94594206"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Självstudier: Dela data med Azure Data Share  
 
@@ -67,7 +67,7 @@ Du kan följa stegen i steg [för steg-demonstrationen](https://youtu.be/hIE-TjJ
 
 #### <a name="prerequisites-for-sharing-from-azure-synapse-analytics-workspace-sql-pool"></a>Krav för delning från SQL-poolen för Azure Synapse Analytics (arbets yta)
 
-* En SQL-pool för Azure Synapse Analytics (arbets yta) med tabeller som du vill dela. Det finns för närvarande inte stöd för att dela vyn.
+* * En dedikerad SQL-pool för Azure Synapse Analytics (arbets yta) med tabeller som du vill dela. Det finns för närvarande inte stöd för att dela vyn. Det finns för närvarande inte stöd för att dela från SQL-poolen utan server.
 * Behörighet att skriva till SQL-poolen i Synapse-arbetsytan, som finns i *Microsoft. Synapse/arbetsytes/sqlPools/Write*. Den här behörigheten finns i **deltagarrollen**.
 * Behörighet för data resurs resursens hanterade identitet för åtkomst till Synapse-arbetsyta SQL-pool. Detta kan göras genom följande steg: 
     1. I Azure Portal navigerar du till arbets ytan Synapse. Välj SQL Active Directory admin från vänster navigering och ange dig själv som **Azure Active Directorys administratör**.
@@ -113,7 +113,7 @@ Skapa en Azure Data Share-resurs i en Azure-resurs grupp.
     | Prenumeration | Din prenumeration | Välj den Azure-prenumeration som du vill använda för ditt data resurs konto.|
     | Resursgrupp | *test-resurs-grupp* | Använd en befintlig resursgrupp eller skapa en ny resursgrupp. |
     | Plats | *USA, östra 2* | Välj en region för ditt data resurs konto.
-    | Namn | *datashareaccount* | Ange ett namn för ditt data resurs konto. |
+    | Name | *datashareaccount* | Ange ett namn för ditt data resurs konto. |
     | | |
 
 1. Välj **Granska + skapa** och sedan **skapa** för att etablera ditt data resurs konto. Det tar vanligt vis ungefär 2 minuter att tillhandahålla ett nytt data resurs konto. 

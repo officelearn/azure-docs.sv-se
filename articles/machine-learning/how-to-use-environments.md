@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 32748a996e0622c4b75d887aebf8a1805c5368bd
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f3056c500453c2249d66a05079334851c851df33
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319082"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616628"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Skapa & använda program varu miljöer i Azure Machine Learning
 
@@ -114,7 +114,7 @@ Som standard visas den nyligen inbyggda Docker-avbildningen i behållar registre
 
 #### <a name="use-a-prebuilt-docker-image"></a>Använd en fördefinierad Docker-avbildning
 
-Som standard använder tjänsten automatiskt en av de Ubuntu Linux-baserade [bas avbildningarna](https://github.com/Azure/AzureML-Containers), särskilt den som definieras av `azureml.core.environment.DEFAULT_CPU_IMAGE` . Sedan installeras alla angivna python-paket som definieras av den angivna Azure ML-miljön. Det är också möjligt att använda en [anpassad Docker-bas avbildning](./how-to-deploy-custom-docker-image.md#create-a-custom-base-image).
+Som standard använder tjänsten automatiskt en av de Ubuntu Linux-baserade [bas avbildningarna](https://github.com/Azure/AzureML-Containers), särskilt den som definieras av `azureml.core.environment.DEFAULT_CPU_IMAGE` . Sedan installeras alla angivna python-paket som definieras av den angivna Azure ML-miljön. Andra Azure ML-processorer och GPU-grundavbildningar är tillgängliga i behållar [lagrings platsen](https://github.com/Azure/AzureML-Containers). Det är också möjligt att använda en [anpassad Docker-bas avbildning](./how-to-deploy-custom-docker-image.md#create-a-custom-base-image).
 
 ```python
 # Specify custom Docker base image and registry, if you don't want to use the defaults

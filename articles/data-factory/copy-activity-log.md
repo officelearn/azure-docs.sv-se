@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: yexu
-ms.openlocfilehash: c54b81ca25602fa77ad66bbb818df3cd8eee39a1
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: e56a840da07a2f6e966867699506f0122a0e7956
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94519979"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593663"
 ---
 #  <a name="session-log-in-copy-activity"></a>Sessionshantering i kopierings aktivitet
 
@@ -60,9 +60,10 @@ I följande exempel visas en JSON-definition för att aktivera sessions logg i k
         },
         "logLocationSettings": {
             "linkedServiceName": {
-                "referenceName": "ADLSGen2",
+               "referenceName": "ADLSGen2",
                "type": "LinkedServiceReference"
-            }
+            },
+            "path": "sessionlog/"
         }
     }
 }
@@ -70,12 +71,12 @@ I följande exempel visas en JSON-definition för att aktivera sessions logg i k
 
 Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
 -------- | ----------- | -------------- | -------- 
-enableCopyActivityLog | När värdet är True har du möjlighet att logga kopierade filer, hoppa över filer eller överhoppade rader.  | Sant<br/>False (standard) | Inga
-logLevel | "Info" loggar alla kopierade filer, överhoppade filer och rader som hoppats över. "Varning" kommer att logga överhoppade filer och endast ignorerade rader.  | Information<br/>Varning (standard) | Inga
-enableReliableLogging | När det är sant kommer kopierings aktiviteten i tillförlitligt läge att tömma loggar direkt när varje fil kopieras till målet.  När du kopierar enorma mängder filer med tillförlitligt loggnings läge aktiverat i kopierings aktiviteten, bör du förvänta dig att kopierings data flödet skulle påverkas, eftersom dubbla Skriv åtgärder krävs för varje fil kopiering. En begäran är till mål lagringen och en annan begäran är till logg lagrings lagret.  Kopierings aktivitet i läget för bästa prestanda tömmer loggar med batch-poster inom en tids period, där kopierings data flödet blir mycket mindre påverkat. Loggning av fullständighet och tids linje är inte garanterat i det här läget eftersom det finns några möjligheter att den senaste batchen av logg händelser inte har tömts till logg filen när kopierings aktiviteten misslyckades. Nu visas några filer som kopieras till målet loggas inte.  | Sant<br/>False (standard) | Inga
-logLocationSettings | En grupp egenskaper som kan användas för att ange platsen där sessionens loggar ska lagras. | | Inga
-linkedServiceName | Den länkade tjänsten för [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) eller [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) för att lagra loggfilerna för sessionen. | Namnen på en `AzureBlobStorage` `AzureBlobFS` länkad eller typ länkad tjänst, som refererar till den instans som du använder för att lagra loggfilerna. | Inga
-path | Sökvägen till loggfilerna. | Ange den sökväg där du vill lagra loggfilerna. Om du inte anger en sökväg skapar tjänsten en behållare åt dig. | Inga
+enableCopyActivityLog | När värdet är True har du möjlighet att logga kopierade filer, hoppa över filer eller överhoppade rader.  | Sant<br/>False (standard) | Nej
+logLevel | "Info" loggar alla kopierade filer, överhoppade filer och rader som hoppats över. "Varning" kommer att logga överhoppade filer och endast ignorerade rader.  | Information<br/>Varning (standard) | Nej
+enableReliableLogging | När det är sant kommer kopierings aktiviteten i tillförlitligt läge att tömma loggar direkt när varje fil kopieras till målet.  När du kopierar enorma mängder filer med tillförlitligt loggnings läge aktiverat i kopierings aktiviteten, bör du förvänta dig att kopierings data flödet skulle påverkas, eftersom dubbla Skriv åtgärder krävs för varje fil kopiering. En begäran är till mål lagringen och en annan begäran är till logg lagrings lagret.  Kopierings aktivitet i läget för bästa prestanda tömmer loggar med batch-poster inom en tids period, där kopierings data flödet blir mycket mindre påverkat. Loggning av fullständighet och tids linje är inte garanterat i det här läget eftersom det finns några möjligheter att den senaste batchen av logg händelser inte har tömts till logg filen när kopierings aktiviteten misslyckades. Nu visas några filer som kopieras till målet loggas inte.  | Sant<br/>False (standard) | Nej
+logLocationSettings | En grupp egenskaper som kan användas för att ange platsen där sessionens loggar ska lagras. | | Nej
+linkedServiceName | Den länkade tjänsten för [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) eller [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) för att lagra loggfilerna för sessionen. | Namnen på en `AzureBlobStorage` `AzureBlobFS` länkad eller typ länkad tjänst, som refererar till den instans som du använder för att lagra loggfilerna. | Nej
+path | Sökvägen till loggfilerna. | Ange den sökväg där du vill lagra loggfilerna. Om du inte anger en sökväg skapar tjänsten en behållare åt dig. | Nej
 
 
 ## <a name="monitoring"></a>Övervakning

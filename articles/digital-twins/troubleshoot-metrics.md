@@ -5,14 +5,14 @@ description: Se hur du visar Azure Digitals dubbla mått i Azure Monitor.
 author: baanders
 ms.author: baanders
 ms.date: 8/4/2020
-ms.topic: troubleshooting
+ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7fde67ab9b9160bb89493748d09e83bd9cfcff34
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 46e053856b05f5a009eb1ae8bc6a7246dfb6167e
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091709"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616696"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Felsöka Azure Digitals dubbla: mått
 
@@ -26,20 +26,20 @@ Mått är aktiverat som standard. Du kan visa Azure Digitals dubbla mått från 
 
 2. Hitta din Azure Digital-instansen i [Azure Portal](https://portal.azure.com) (du kan öppna sidan genom att skriva dess namn i portalens Sök fält). 
 
-    Från instansens meny väljer du **mått** .
+    Från instansens meny väljer du **mått**.
    
     :::image type="content" source="media/troubleshoot-metrics/azure-digital-twins-metrics.png" alt-text="Skärm bild som visar mått sidan för Azure Digitals dubbla":::
 
     Den här sidan visar måtten för din Azure Digital-instansen. Du kan också skapa anpassade vyer av dina mått genom att välja de som du vill se i listan.
     
-3. Du kan välja att skicka Mät data till en Event Hubs-slutpunkt eller ett Azure Storage konto genom att välja **diagnostikinställningar** på menyn och sedan **lägga till diagnostikinställningar** .
+3. Du kan välja att skicka Mät data till en Event Hubs-slutpunkt eller ett Azure Storage konto genom att välja **diagnostikinställningar** på menyn och sedan **lägga till diagnostikinställningar**.
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Skärm bild som visar mått sidan för Azure Digitals dubbla":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Skärm bild som visar sidan diagnostikinställningar och knappen som ska läggas till":::
 
     Mer information om den här processen finns i [*fel sökning: Konfigurera diagnostik*](troubleshoot-diagnostics.md).
 
-4. Du kan välja att konfigurera aviseringar för dina mått data genom att välja **aviseringar** på menyn och sedan **+ ny varnings regel** .
-    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Skärm bild som visar mått sidan för Azure Digitals dubbla":::
+4. Du kan välja att konfigurera aviseringar för dina mått data genom att välja **aviseringar** på menyn och sedan **+ ny varnings regel**.
+    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Skärm bild som visar sidan aviseringar och knapp att lägga till":::
 
     Mer information om den här processen finns i [*fel sökning: Konfigurera aviseringar*](troubleshoot-alerts.md).
 

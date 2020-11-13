@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 11/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7853ac3ece01057282bc6cb421018020e15273b5
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 5bff5b341dcbdaa7ccae2b02e62e3e6bd4d115f9
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079198"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94594274"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Arbeta med NSG-åtkomst och Azure skydds
 
@@ -28,21 +28,22 @@ I det här diagrammet:
 * Ansluta integrering – RDP/SSH-session med enkel klickning i webbläsaren
 * Ingen offentlig IP-adress krävs på den virtuella Azure-datorn.
 
-## <a name="network-security-groups"></a><a name="nsg"></a>Nätverkssäkerhetsgrupper
+## <a name="network-security-groups"></a><a name="nsg"></a>Nätverks säkerhets grupper
 
 I det här avsnittet visas nätverks trafiken mellan användaren och Azure-skydds och för virtuella datorer i det virtuella nätverket:
 
 ### <a name="azurebastionsubnet"></a><a name="apply"></a>AzureBastionSubnet
 
-Azure-skydds distribueras specifikt till ***AzureBastionSubnet***.
+Azure-skydds distribueras specifikt till * **AzureBastionSubnet** _.
 
-* **Ingress trafik:**
+_ **Ingress trafik:**
 
    * **Ingress trafik från offentlig Internet:** Azure-skydds skapar en offentlig IP-adress som behöver port 443 aktiverat på den offentliga IP-adressen för inkommande trafik. Port 3389/22 behöver inte öppnas på AzureBastionSubnet.
    * **Ingress trafik från Azure skydds Control plan:** För kontroll Plans anslutning aktiverar du port 443 inkommande från **GatewayManager** service tag. Detta gör det möjligt för kontroll planet, det vill säga att Gateway Manager kan kommunicera med Azure-skydds.
+   * **Ingress trafik från Azure Loadbalancer:** För hälso avsökningar aktiverar du port 443 inkommande från **AzureLoadBalancer** service tag. Detta gör att Azure Load Balancer kan identifiera anslutnings problem med Server delen.
 
 
-   :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="NSG":::
+   :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="Skärm bild som visar inkommande säkerhets regler för Azure skydds-anslutning.":::
 
 * **Utgående trafik:**
 
@@ -50,7 +51,7 @@ Azure-skydds distribueras specifikt till ***AzureBastionSubnet***.
    * **Utgående trafik till andra offentliga slut punkter i Azure:** Azure-skydds måste kunna ansluta till olika offentliga slut punkter i Azure (till exempel för lagring av diagnostikloggar och avläsnings loggar). Av den anledningen behöver Azure skydds utgående till 443 till **AzureCloud** service tag.
 
 
-   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="NSG":::
+   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="Skärm bild som visar utgående säkerhets regler för Azure skydds-anslutning.":::
 
 ### <a name="target-vm-subnet"></a>Mål för virtuellt dator under nät
 Det här är under nätet som innehåller den virtuella mål datorn som du vill ha RDP/SSH till.

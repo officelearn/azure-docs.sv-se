@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 5fe1c3e344705b6cde9791f889b22be53a9e8c76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/13/2020
+ms.openlocfilehash: 69d27c102ca059974da87224e44f0ad7aa103fff
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372603"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592642"
 ---
 # <a name="import-data-module"></a>Importera datamodul
 
@@ -54,15 +54,23 @@ Om dina källdata ändras kan du uppdatera data uppsättningen och lägga till n
 
 1. Välj modulen för att öppna den högra rutan.
 
-1. Välj **data källa**och välj typ av data källa. Det kan vara HTTP eller data lager.
+1. Välj **data källa** och välj typ av data källa. Det kan vara HTTP eller data lager.
 
     Om du väljer data lager kan du välja befintliga data lager som redan har registrerats på din Azure Machine Learning-arbetsyta eller skapa ett nytt data lager. Definiera sedan sökvägen till de data som ska importeras i data lagret. Du kan enkelt bläddra i sökvägen genom att klicka på **Bläddra** bana- ![ skärm bild visas länken bläddra bana som öppnar dialog rutan Sök vägs val.](media/module/import-data-path.png)
+
+    > [!NOTE]
+    > **Importera** datamodulen är endast för **tabell** data.
+    > Om du vill importera flera datafiler i en tabell i taget, kräver det följande villkor, annars inträffar fel:
+    > 1. Om du vill inkludera alla datafiler i mappen måste du ange `folder_name/**` **sökväg**.
+    > 2. Alla datafiler måste vara kodade i Unicode-8.
+    > 3. Alla datafiler måste ha samma kolumn nummer och kolumn namn.
+    > 4. Resultatet av att importera flera datafiler sammanfogar alla rader från flera filer i ordning.
 
 1. Välj förhands gransknings schema för att filtrera de kolumner som du vill inkludera. Du kan också definiera avancerade inställningar som avgränsare i tolknings alternativ.
 
     ![Importera – data – för hands version](media/module/import-data.png)
 
-1. Kryss rutan **skapa utdata**igen, bestämmer om modulen ska köras för att återskapa utdata vid körning. 
+1. Kryss rutan **skapa utdata** igen, bestämmer om modulen ska köras för att återskapa utdata vid körning. 
 
     Den är som standard omarkerad, vilket innebär att om modulen har körts med samma parametrar tidigare kommer systemet att återanvända utdata från senaste körning för att minska körnings tiden. 
 
@@ -79,9 +87,9 @@ Om dina källdata ändras kan du uppdatera data uppsättningen och lägga till n
 
 ## <a name="results"></a>Resultat
 
-När importen är klar klickar du på data uppsättningen för utdata och väljer **visualisera** för att se om data har importer ATS korrekt.
+När importen är klar högerklickar du på data uppsättningen för utdata och väljer **visualisera** för att se om data har importer ATS korrekt.
 
-Om du vill spara data för åter användning i stället för att importera en ny data uppsättning varje gång pipelinen körs väljer du ikonen **registrera data uppsättning** under fliken **utdata** i den högra panelen i modulen. Välj ett namn för data uppsättningen. Den sparade data uppsättningen bevarar data vid tidpunkten för att spara. data uppsättningen uppdateras inte när pipelinen körs igen, även om data uppsättningen i pipelinen ändras. Detta kan vara användbart för att ta ögonblicks bilder av data.
+Om du vill spara data för åter användning, i stället för att importera en ny data uppsättning varje gång pipelinen körs, väljer du ikonen **registrera data uppsättning** under fliken **utdata + loggar** i den högra panelen i modulen. Välj ett namn för data uppsättningen. Den sparade data uppsättningen bevarar data vid tidpunkten för att spara. data uppsättningen uppdateras inte när pipelinen körs igen, även om data uppsättningen i pipelinen ändras. Detta kan vara användbart för att ta ögonblicks bilder av data.
 
 När du har importerat data kan det behövas ytterligare förberedelser för modellering och analys:
 

@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 11/12/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45851015dd5a845497fb2d09bf1f9fffb9e35a06
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 74be3f4218149f0cdb9f107c8aba0be76d8da27e
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377759"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593084"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Autentiseringsmetoder i Azure Active Directory telefon alternativ
 
@@ -32,7 +32,7 @@ För att fungera korrekt måste telefonnumret vara i formatet *+ CountryCode tel
 
 ## <a name="mobile-phone-verification"></a>Mobil telefon verifiering
 
-För Azure Multi-Factor Authentication eller SSPR kan användarna välja att ta emot ett SMS med en verifierings kod för att komma in i inloggnings gränssnittet eller ta emot ett telefonsamtal med en uppmaning om att ange deras definierade PIN-kod.
+För Azure Multi-Factor Authentication eller SSPR kan användarna välja att ta emot ett SMS med en verifierings kod för att ange inloggnings gränssnittet eller ta emot ett telefonsamtal.
 
 Om användarna inte vill att deras mobiltelefon nummer ska synas i katalogen, men vill använda det för lösen ords återställning, behöver inte administratörerna fylla i telefonnumret i katalogen. I stället ska användarna fylla i sina attribut för **autentisering** via den kombinerade registreringen av säkerhets information på [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo) . Administratörer kan se den här informationen i användarens profil, men den publiceras inte någon annan stans.
 
@@ -46,11 +46,11 @@ Med text meddelande verifiering under SSPR eller Azure Multi-Factor Authenticati
 
 ### <a name="phone-call-verification"></a>Verifiering av telefonsamtal
 
-Med Telefonsamtals verifiering under SSPR eller Azure Multi-Factor Authentication görs ett automatiskt röst samtal till det telefonnummer som registrerats av användaren. För att slutföra inloggnings processen uppmanas användaren att ange sina PIN-nummer följt av # på deras knapps ATS.
+Med Telefonsamtals verifiering under SSPR eller Azure Multi-Factor Authentication görs ett automatiskt röst samtal till det telefonnummer som registrerats av användaren. Användaren uppmanas att trycka på # på deras knapps ATS för att slutföra inloggnings processen.
 
 ## <a name="office-phone-verification"></a>Office Phone-verifiering
 
-Med Telefonsamtals verifiering under SSPR eller Azure Multi-Factor Authentication görs ett automatiskt röst samtal till det telefonnummer som registrerats av användaren. För att slutföra inloggnings processen uppmanas användaren att ange sina PIN-nummer följt av # på deras knapps ATS.
+Med Telefonsamtals verifiering under SSPR eller Azure Multi-Factor Authentication görs ett automatiskt röst samtal till det telefonnummer som registrerats av användaren. Användaren uppmanas att trycka på # på deras knapps ATS för att slutföra inloggnings processen.
 
 ## <a name="troubleshooting-phone-options"></a>Felsöka telefonalternativ
 
@@ -61,7 +61,7 @@ Om du har problem med autentiseringen av telefonen för Azure AD kan du läsa f�
 * Fel telefonnummer eller felaktig landskod, eller förvirring mellan personligt telefonnummer och arbets telefonnummer.
    * Felsök objektet användare och konfigurerade autentiseringsmetoder. Kontrol lera att rätt telefonnummer har registrerats.
 * Fel PIN-kod har angetts.
-   * Bekräfta att användaren har använt rätt PIN-kod som registrerad för sitt konto.
+   * Bekräfta att användaren har använt rätt PIN-kod som registrerad för sitt konto (endast MFA Server-användare).
 * Samtalet har vidarebefordrats till röst meddelanden.
    * Se till att användaren har aktiverat telefonen och att tjänsten är tillgänglig i deras Area eller Använd en annan metod.
 * Användaren har blockerats

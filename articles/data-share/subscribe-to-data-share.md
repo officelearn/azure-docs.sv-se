@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 10/30/2020
-ms.openlocfilehash: 752948d9dd6640a20963303833e7da613bc2e211
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 11/12/2020
+ms.openlocfilehash: 17c3e9ee157cedd31be39f472f619a2df9ae32a6
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577353"
+ms.locfileid: "94594189"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Självstudier: Acceptera och ta emot data med Azure Data Share  
 
@@ -67,7 +67,7 @@ Du kan följa stegen i steg [för steg-demonstrationen](https://youtu.be/aeGISgK
  
 #### <a name="prerequisites-for-receiving-data-into-azure-synapse-analytics-workspace-sql-pool"></a>Krav för att ta emot data i Azure Synapse Analytics (arbets yta) SQL-pool
 
-* En SQL-pool för Azure Synapse Analytics (arbets yta).
+* En dedikerad SQL-pool för Azure Synapse Analytics (arbets yta). Det finns för närvarande inte stöd för att ta emot data i SQL-poolen utan server.
 * Behörighet att skriva till SQL-poolen i Synapse-arbetsytan, som finns i *Microsoft. Synapse/arbetsytes/sqlPools/Write*. Den här behörigheten finns i **deltagarrollen**.
 * Behörighet för data resurs resursens hanterade identitet för åtkomst till SQL-poolen Synapse-arbetsyta. Detta kan göras genom följande steg: 
     1. I Azure Portal navigerar du till arbets ytan Synapse. Välj SQL Active Directory admin från vänster navigering och ange dig själv som **Azure Active Directorys administratör**.

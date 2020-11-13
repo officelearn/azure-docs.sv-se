@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 8e947a7db7b10746ebd01726fd2103cf3e5c8df6
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 6503955c69b8ca64678efbc0c01cea7f78509f8d
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533216"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592727"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>Snabb start: Hämta en token och anropa Microsoft Graph API från en python-konsol app med appens identitet
 
-I den här snabb starten skriver du ett python-program som hämtar en åtkomsttoken med hjälp av appens identitet och anropar sedan Microsoft Graph-API: et för att visa en [lista över användare](/graph/api/user-list) i katalogen. Det här scenariot är användbart för situationer där ett fjärradministrerat, obevakat jobb eller en Windows-tjänst måste köras med en programidentitet, istället för en användares identitet.
+I den här snabb starten laddar du ned och kör ett kod exempel som visar hur ett python-program kan få en åtkomsttoken som använder appens identitet för att anropa Microsoft Graph API och visa en [lista över användare](/graph/api/user-list) i katalogen. Kod exemplet visar hur ett obevakat jobb eller en Windows-tjänst kan köras med en program identitet, i stället för en användares identitet. 
 
 > [!div renderon="docs"]
 > ![Visar hur exempel appen som genereras av den här snabb starten fungerar](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)

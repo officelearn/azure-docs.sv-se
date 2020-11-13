@@ -13,16 +13,18 @@ ms.date: 10/05/2020
 ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: b6b02348f9d77348976f6b814c982c5250dab7aa
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d50a953c9593c9ae78889be336697686e59d965f
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896522"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592755"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Snabb start: Hämta en token och anropa Microsoft Graph-API med hjälp av appens identitet
 
-I den här snabbstarten lär dig hur du skriver en .NET Core-app som kan hämta en åtkomsttoken med hjälp av appens egen identitet och sedan anropa Microsoft Graph API för att visa en [lista över användare](/graph/api/user-list) i katalogen. Det här scenariot är användbart för situationer där ett fjärradministrerat, obevakat jobb eller en Windows-tjänst måste köras med en programidentitet, istället för en användares identitet. (Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.)
+I den här snabb starten hämtar och kör du ett kod exempel som visar hur ett .NET Core-konsolprogram kan hämta en åtkomsttoken för att anropa Microsoft Graph API och visa en [lista över användare](/graph/api/user-list) i katalogen. Kod exemplet visar också hur ett jobb eller en Windows-tjänst kan köras med en program identitet, i stället för en användares identitet. 
+
+Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -38,7 +40,7 @@ Den här snabb starten kräver [.net Core 3,1](https://www.microsoft.com/net/dow
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Alternativ 1: Registrera och konfigurera appen automatiskt och ladda sedan ned ditt kodexempel
 >
 > 1. Gå till fönstret ny [Azure Portal-Appregistreringar](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs) .
-> 1. Ange ett namn för programmet och välj **Registrera** .
+> 1. Ange ett namn för programmet och välj **Registrera**.
 > 1. Följ anvisningarna för att ladda ned och konfigurera det nya programmet automatiskt med ett enda klick.
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet
@@ -50,20 +52,20 @@ Den här snabb starten kräver [.net Core 3,1](https://www.microsoft.com/net/dow
 > 1. Logga in på [Azure Portal](https://portal.azure.com) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
 > 1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
 > 1. Gå till sidan Microsoft Identity Platform för utvecklare [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) genom att söka efter **Appregistreringar** i Sök fältet i Azure Portal.
-> 1. Välj **ny registrering** .
+> 1. Välj **ny registrering**.
 > 1. När sidan **Registrera ett program** visas anger du programmets registrerings information.
 > 1. I avsnittet **Namn** anger du ett beskrivande namn som visas för användare av appen, till exempel `Daemon-console`, och välj sedan **Registrera** för att skapa appen.
-> 1. När den har registrerats väljer du menyn **Certifikat och hemligheter** .
-> 1. Under **Klienthemligheter** väljer du **+ Ny klienthemlighet** . Ge den ett namn och välj **Lägg till** . Kopiera hemligheten på en säker plats. Du behöver den för att kunna använda den i din kod och visas inte igen i portalen.
-> 1. Välj nu menyn **API Behörigheter** , välj **+ Lägg till en behörighet** och välj **Microsoft Graph** .
-> 1. Välj **Programbehörigheter** .
+> 1. När den har registrerats väljer du menyn **Certifikat och hemligheter**.
+> 1. Under **Klienthemligheter** väljer du **+ Ny klienthemlighet**. Ge den ett namn och välj **Lägg till**. Kopiera hemligheten på en säker plats. Du behöver den för att kunna använda den i din kod och visas inte igen i portalen.
+> 1. Välj nu menyn **API Behörigheter** , välj **+ Lägg till en behörighet** och välj **Microsoft Graph**.
+> 1. Välj **Programbehörigheter**.
 > 1. Under noden **Användare** väljer du **User.Read.All** och väljer sedan **Lägg till behörigheter**
 
 > [!div class="sxs-lookup" renderon="portal"]
 > ### <a name="download-and-configure-your-quickstart-app"></a>Hämta och konfigurera din app för Snabbstart
 >
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Steg 1: Konfigurera din app i Azure-portalen
-> För att kodexemplet för den här snabbstarten ska fungera måste du skapa en klienthemlighet och lägga till Graph-API:ts programbehörighet **User.Read.All** .
+> För att kodexemplet för den här snabbstarten ska fungera måste du skapa en klienthemlighet och lägga till Graph-API:ts programbehörighet **User.Read.All**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Gör ändringarna åt mig]()
 >
@@ -90,7 +92,7 @@ Den här snabb starten kräver [.net Core 3,1](https://www.microsoft.com/net/dow
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-visual-studio-project"></a>Steg 3: Konfigurera ditt Visual Studio-projekt
 >
-> 1. Extrahera zip-filen i en lokal mapp nära diskens rot, till exempel **C:\Azure-Samples** .
+> 1. Extrahera zip-filen i en lokal mapp nära diskens rot, till exempel **C:\Azure-Samples**.
 > 1. Öppna lösningen i Visual Studio- **1-Call-MSGraph\daemon-Console.SLN** (valfritt).
 > 1. Redigera **appsettings.jspå** och ersätt värdena för fälten `ClientId` `Tenant` och `ClientSecret` med följande:
 >
@@ -106,7 +108,7 @@ Den här snabb starten kräver [.net Core 3,1](https://www.microsoft.com/net/dow
 
 > [!div renderon="docs"]
 > > [!TIP]
-> > För att hitta värdena för **program-ID (klient)** , **katalog-ID (klient)** och går du till appens **översiktssida** i Azure-portalen. Generera en ny nyckel genom att gå till sidan **Certifikat och hemligheter** .
+> > För att hitta värdena för **program-ID (klient)** , **katalog-ID (klient)** och går du till appens **översiktssida** i Azure-portalen. Generera en ny nyckel genom att gå till sidan **Certifikat och hemligheter**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-admin-consent"></a>Steg 3: administratörs medgivande
@@ -170,7 +172,7 @@ Du bör se en lista över användare i Azure AD-katalogen som resultat.
 
 ### <a name="msalnet"></a>MSAL.NET
 
-MSAL ([Microsoft. Identity. client](https://www.nuget.org/packages/Microsoft.Identity.Client)) är det bibliotek som används för att logga in användare och begära token som används för att få åtkomst till ett API som skyddas av Microsoft Identity Platform. Som beskrivs i den här snabb starten begär denna token genom att använda programmets egna identitet i stället för delegerade behörigheter. Autentiseringsflödet som används i det här fallet kallas för *[oauth-flöde för klientautentiseringsuppgifter](v2-oauth2-client-creds-grant-flow.md)* . Mer information om hur du använder MSAL.NET med flöde för klientautentiseringsuppgifter finns i [den här artikeln](https://aka.ms/msal-net-client-credentials).
+MSAL ([Microsoft. Identity. client](https://www.nuget.org/packages/Microsoft.Identity.Client)) är det bibliotek som används för att logga in användare och begära token som används för att få åtkomst till ett API som skyddas av Microsoft Identity Platform. Som beskrivs i den här snabb starten begär denna token genom att använda programmets egna identitet i stället för delegerade behörigheter. Autentiseringsflödet som används i det här fallet kallas för *[oauth-flöde för klientautentiseringsuppgifter](v2-oauth2-client-creds-grant-flow.md)*. Mer information om hur du använder MSAL.NET med flöde för klientautentiseringsuppgifter finns i [den här artikeln](https://aka.ms/msal-net-client-credentials).
 
  Du kan installera MSAL.NET genom att köra följande kommando i **Package Manager-konsolen** i Visual Studio:
 

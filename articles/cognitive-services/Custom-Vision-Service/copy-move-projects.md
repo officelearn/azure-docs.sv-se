@@ -9,12 +9,12 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: pafarley
-ms.openlocfilehash: c742240cc82035b2a9af16348eaa9f2a40a32fa3
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 548d936538a909da10796d0377f119826582c420
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900332"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616067"
 ---
 # <a name="copy-and-move-your-custom-vision-projects"></a>Kopiera och flytta dina Custom Vision-projekt
 
@@ -30,7 +30,7 @@ Om din app eller ditt företag är beroende av att ett Custom Vision-projekt anv
 
 - Två Azure Custom Vision-resurser. Om du inte har dem går du till Azure Portal och [skapar en ny Custom vision resurs](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision?azure-portal=true).
 - Utbildnings nycklar och slut punkts-URL: er för dina Custom Vision resurser. Du hittar dessa värden på resurs-fliken **Översikt** på Azure Portal.
-- Ett Custom Vision-projekt som skapats. Mer information om hur du gör detta finns i [skapa en klassificerare](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/getting-started-build-a-classifier) .
+- Ett Custom Vision-projekt som skapats. Mer information om hur du gör detta finns i [skapa en klassificerare](./getting-started-build-a-classifier.md) .
 
 ## <a name="process-overview"></a>Process översikt
 

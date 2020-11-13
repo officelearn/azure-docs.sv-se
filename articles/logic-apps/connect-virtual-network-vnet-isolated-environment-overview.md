@@ -5,19 +5,19 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 07/05/2020
-ms.openlocfilehash: 86d647a79b7babc2780cb0db904e689f3916673f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/12/2020
+ms.openlocfilehash: 19c9ec39d85bfc56b118498aba62c3752d6d771c
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89500393"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616934"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Åtkomst till Azure Virtual Network-resurser från Azure Logic Apps med hjälp av integrerings tjänst miljöer (ISEs)
 
 Ibland behöver dina Logi Kap par åtkomst till skyddade resurser, till exempel virtuella datorer och andra system eller tjänster, som finns i eller är anslutna till ett [virtuellt Azure-nätverk](../virtual-network/virtual-networks-overview.md). Om du vill konfigurera den här åtkomsten kan du [skapa en *integrerings tjänst miljö* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md). En ISE är en instans av den Logic Apps tjänst som använder dedikerade resurser och körs separat från den "globala" Multi-Tenant Logic Apps-tjänsten.
 
-Vissa Azure Virtual Network använder till exempel privata slut punkter, som du kan konfigurera via en [privat Azure-länk](../private-link/private-link-overview.md), för att ge åtkomst till Azure PaaS-tjänster, till exempel Azure Storage, Azure Cosmos DB eller Azure SQL Database, partner tjänster eller kund tjänster som finns i Azure. Om dina Logi Kap par behöver åtkomst till virtuella nätverk som använder privata slut punkter, måste du skapa, distribuera och köra dessa Logic Apps i en ISE.
+Till exempel använder vissa virtuella Azure-nätverk privata slut punkter, som du kan konfigurera via en [privat Azure-länk](../private-link/private-link-overview.md), för att ge åtkomst till Azure PaaS-tjänster, till exempel Azure Storage, Azure Cosmos DB eller Azure SQL Database, partner tjänster eller kund tjänster som finns i Azure. Om dina Logi Kap par behöver åtkomst till virtuella nätverk som använder privata slut punkter, måste du skapa, distribuera och köra dessa Logic Apps i en ISE.
 
 När du skapar en ISE *injicerar* Azure eller distribuerar detta ISE till ditt virtuella Azure-nätverk. Du kan sedan använda denna ISE som plats för de Logic Apps och integrations konton som behöver åtkomst.
 
@@ -65,9 +65,9 @@ När du skapar och kör Logi Kap par i en ISE får du samma användar upplevelse
 
   I sällsynta fall, om en ISE-anslutning är tillgänglig för ett lokalt system eller en data källa, kan du ansluta direkt utan att använda den [lokala datagatewayen](../logic-apps/logic-apps-gateway-connection.md). Mer information finns i [åtkomst till lokala system](#on-premises) senare i det här avsnittet.
 
-* Hanterade kopplingar som inte visar **ISE** -etiketten fungerar fortfarande för logi Kap par i en ISE. Dessa anslutningar *körs alltid i Logic Apps-tjänsten för flera innehavare*, inte i ISE.
+* Hanterade kopplingar som inte visar **ISE** -etiketten fungerar fortfarande för logi Kap par i en ISE. Dessa anslutningar *körs alltid i Logic Apps-tjänsten för flera innehavare* , inte i ISE.
 
-* Anpassade anslutningar som du skapar *utanför en ISE*, oavsett om de kräver den [lokala datagatewayen](../logic-apps/logic-apps-gateway-connection.md), fortsätter att fungera för logi Kap par i en ISE. Anpassade anslutningar som du skapar *i en ISE* fungerar dock inte med den lokala datagatewayen. Mer information finns i [åtkomst till lokala system](#on-premises).
+* Anpassade anslutningar som du skapar *utanför en ISE* , oavsett om de kräver den [lokala datagatewayen](../logic-apps/logic-apps-gateway-connection.md), fortsätter att fungera för logi Kap par i en ISE. Anpassade anslutningar som du skapar *i en ISE* fungerar dock inte med den lokala datagatewayen. Mer information finns i [åtkomst till lokala system](#on-premises).
 
 <a name="on-premises"></a>
 
@@ -83,11 +83,11 @@ Logic Apps som körs i en ISE kan direkt komma åt lokala system och data källo
 
 * En anpassad anslutningsapp
 
-  * Anpassade anslutningar som du skapar *utanför en ISE*, oavsett om de kräver den [lokala datagatewayen](../logic-apps/logic-apps-gateway-connection.md), fortsätter att fungera för logi Kap par i en ISE.
+  * Anpassade anslutningar som du skapar *utanför en ISE* , oavsett om de kräver den [lokala datagatewayen](../logic-apps/logic-apps-gateway-connection.md), fortsätter att fungera för logi Kap par i en ISE.
 
   * Anpassade anslutningar som du skapar *i en ISE* fungerar inte med den lokala datagatewayen. Dessa anslutningar kan dock direkt komma åt lokala system och data källor som finns i eller anslutna till det virtuella nätverk som är värd för din ISE. Därför behöver Logic Apps som ingår i en ISE vanligt vis inte datagatewayen vid åtkomst till dessa resurser.
 
-För att komma åt lokala system och data källor som inte har ISE-kopplingar, är utanför det virtuella nätverket eller inte är anslutna till ditt virtuella nätverk, måste du fortfarande använda den lokala datagatewayen. Logi Kap par i en ISE kan fortsätta använda kopplingar som saknar etiketten **Core** eller **ISE** . Dessa anslutningar körs bara i Logic Apps tjänsten för flera innehavare, i stället för i din ISE. 
+För att komma åt lokala system och data källor som inte har ISE-kopplingar, är utanför det virtuella nätverket eller inte är anslutna till ditt virtuella nätverk, måste du fortfarande använda den lokala datagatewayen. Logi Kap par i en ISE kan fortsätta använda kopplingar som saknar etiketten **Core** eller **ISE** . Dessa anslutningar körs i Logic Apps tjänsten för flera innehavare i stället för i din ISE. 
 
 <a name="ise-level"></a>
 
@@ -99,7 +99,7 @@ När du skapar din ISE kan du välja Developer SKU eller Premium SKU. Här följ
 
   Tillhandahåller en miljö med lägre kostnad som du kan använda för experimentering, utveckling och testning, men inte för produktions-eller prestanda testning. Developer SKU: n innehåller inbyggda utlösare och åtgärder, standard anslutningar, företags anslutningar och ett enda [kostnads fritt nivå](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integrations konto för ett fast månads pris. Detta SKU omfattar dock inte något service avtal (SLA), alternativ för att skala upp kapacitet eller redundans vid återvinning, vilket innebär att du kan uppleva fördröjningar eller drift stopp.
 
-* **Premium**
+* **Denaturering**
 
   Tillhandahåller en ISE som du kan använda för produktion och innehåller SLA-support, inbyggda utlösare och åtgärder, standard anslutningar, företags anslutningar, ett enda integrations konto på [Standard nivå](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) , alternativ för att skala upp kapaciteten och redundans under återvinning för ett fast månads pris.
 
@@ -117,18 +117,26 @@ När du skapar din ISE kan du välja att använda antingen interna eller externa
 > [!IMPORTANT]
 > Du kan bara välja åtkomst slut punkten under skapande av ISE och inte ändra det här alternativet senare.
 
-* **Internt**: privata slut punkter tillåter anrop till logi Kap par i din ISE där du kan visa och komma åt indata och utdata från Logic Apps körnings historiken endast inifrån *det virtuella nätverket*.
+* **Internt** : privata slut punkter tillåter anrop till logi Kap par i din ISE där du kan visa och komma åt indata och utdata från Logic Apps körnings historiken endast inifrån *det virtuella nätverket*.
 
   > [!IMPORTANT]
-  > Kontrol lera att du har nätverks anslutning mellan de privata slut punkterna och den dator där du vill komma åt körnings historiken. Annars visas ett fel meddelande som säger "oväntat fel" när du försöker visa körnings historiken för din Logic Apps. Det gick inte att hämta ".
+  > Om du behöver använda dessa webhook-baserade utlösare använder du externa slut punkter, *inte* interna slut punkter, när du skapar din ISE:
+  > 
+  > * Azure DevOps
+  > * Azure Event Grid
+  > * Common Data Service
+  > * Office 365
+  > * SAP (ISE-version)
+  > 
+  > Kontrol lera också att du har nätverks anslutning mellan privata slut punkter och den dator där du vill komma åt körnings historiken. Annars visas ett fel meddelande som säger "oväntat fel" när du försöker visa körnings historiken för din Logic Apps. Det gick inte att hämta ".
   >
   > ![Azure Storage åtgärds fel som orsakas av oförmåga att skicka trafik genom brand väggen](./media/connect-virtual-network-vnet-isolated-environment-overview/integration-service-environment-error.png)
   >
   > Klient datorn kan till exempel finnas i ISE: s virtuella nätverk eller i ett virtuellt nätverk som är anslutet till ISE: s virtuella nätverk via peering eller ett virtuellt privat nätverk. 
 
-* **Externt**: offentliga slut punkter tillåter anrop till logi Kap par i din ISE där du kan visa och komma åt indata och utdata från Logic Apps kör historik *från utanför det virtuella nätverket*. Om du använder nätverks säkerhets grupper (NSG: er) kontrollerar du att de har kon figurer ATS med regler för inkommande trafik för att tillåta åtkomst till körnings historikens indata och utdata. Mer information finns i [Aktivera åtkomst för ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
+* **Externt** : offentliga slut punkter tillåter anrop till logi Kap par i din ISE där du kan visa och komma åt indata och utdata från Logic Apps kör historik *från utanför det virtuella nätverket*. Om du använder nätverks säkerhets grupper (NSG: er) kontrollerar du att de har kon figurer ATS med regler för inkommande trafik för att tillåta åtkomst till körnings historikens indata och utdata. Mer information finns i [Aktivera åtkomst för ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
 
-Du kan ta reda på om din ISE använder en intern eller extern åtkomst slut punkt genom att välja **Egenskaper**under **Inställningar**på din ISE-meny, och sedan hitta **åtkomst slut punkts** egenskapen:
+Du kan ta reda på om din ISE använder en intern eller extern åtkomst slut punkt genom att välja **Egenskaper** under **Inställningar** på din ISE-meny, och sedan hitta **åtkomst slut punkts** egenskapen:
 
 ![Hitta åtkomst punkten för ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/find-ise-access-endpoint.png)
 

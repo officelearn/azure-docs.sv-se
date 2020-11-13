@@ -1,6 +1,6 @@
 ---
 title: Transformera data med Hive-aktivitet – Azure
-description: Lär dig hur du kan använda Hive-aktiviteten i en Azure Data Factory v1 för att köra Hive-frågor på ett eget HDInsight-kluster på begäran.
+description: Lär dig hur du kan använda Hive-aktiviteten i Azure Data Factory v1 för att köra Hive-frågor på ett eget HDInsight-kluster på begäran.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 36e0d8a0c0ee5e5202c47acdd74b869181cfaf9e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0271029814071b3a692209d3a2015cfdbe5fa941
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371689"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616781"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformera data med Hive-aktivitet i Azure Data Factory 
 > [!div class="op_single_selector" title1="Omvandlings aktiviteter"]
@@ -26,8 +26,8 @@ ms.locfileid: "92371689"
 > * [MapReduce-aktivitet](data-factory-map-reduce.md)
 > * [Hadoop streaming-aktivitet](data-factory-hadoop-streaming-activity.md)
 > * [Spark-aktivitet](data-factory-spark.md)
-> * [Azure Machine Learning Studio (klassisk) batch execution Activity](data-factory-azure-ml-batch-execution-activity.md)
-> * [Azure Machine Learning Studio (klassisk) uppdatera resurs aktivitet](data-factory-azure-ml-update-resource-activity.md)
+> * [Batch-körningsaktivitet i Azure Machine Learning Studio (klassisk)](data-factory-azure-ml-batch-execution-activity.md)
+> * [Uppdateringsresursaktivitet i Azure Machine Learning Studio (klassisk)](data-factory-azure-ml-update-resource-activity.md)
 > * [Lagrad proceduraktivitet](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL-aktivitet](data-factory-usql-activity.md)
 > * [Anpassad .NET-aktivitet](data-factory-use-custom-activities.md)
@@ -75,7 +75,7 @@ HDInsight Hive-aktiviteten i en Data Factory [pipelinen](data-factory-create-pip
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | name |Namn på aktiviteten |Ja |
-| description |Text som beskriver vad aktiviteten används för |Nej |
+| beskrivning |Text som beskriver vad aktiviteten används för |Nej |
 | typ |HDinsightHive |Ja |
 | tillför |Indata som används av Hive-aktiviteten |Nej |
 | utdata |Utdata som produceras av Hive-aktiviteten |Ja |

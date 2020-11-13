@@ -10,21 +10,21 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: c46adf9e9f5c1b2e74c1098ebf137c4556bfc58d
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: bc16dde7d3156df08b946a15012a201054cd8e0a
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147567"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592608"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Analysera data med dedikerade SQL-pooler
 
 Azure Synapse Analytics ger dig möjlighet att analysera data med en särskild SQL-pool. I den här självstudien använder du NYC taxi-data för att utforska en förväntad SQL-Pools funktioner.
 
-## <a name="load-the-nyc-taxi-data-into-sqldb1"></a>Läs in NYC taxi-data till SQLDB1
+## <a name="load-the-nyc-taxi-data-into-sqlpool1"></a>Läs in NYC taxi-data till SQLPOOL1
 
 1. I Synapse Studio navigerar du till **utveckla** hubben och skapar sedan ett nytt SQL-skript
-1. Välj poolen "SQLDB1" (pool som skapades i [steg 1](https://docs.microsoft.com/azure/synapse-analytics/get-started-create-workspace#create-a-sql-pool) i den här själv studie kursen) i avsnittet "Anslut till" i skriptet.
+1. Välj poolen "SQLPOOL1" (pool som skapades i [steg 1](https://docs.microsoft.com/azure/synapse-analytics/get-started-create-workspace#create-a-sql-pool) i den här själv studie kursen) i avsnittet "Anslut till" i skriptet.
 1. Ange följande kod:
     ```
     CREATE TABLE [dbo].[Trip]
@@ -76,10 +76,10 @@ Azure Synapse Analytics ger dig möjlighet att analysera data med en särskild S
 ## <a name="explore-the-nyc-taxi-data-in-the-dedicated-sql-pool"></a>Utforska NYC taxi-data i den dedikerade SQL-poolen
 
 1. Gå till **datahubben** i Synapse Studio.
-1. Gå till **SQLDB1**-  >  **tabeller**. Du ser att flera tabeller har lästs in.
+1. Gå till **SQLPOOL1** -  >  **tabeller**. Du ser att flera tabeller har lästs in.
 1. Högerklicka på **dbo. Rese** tabell och välj **nytt SQL-skript**  >  **Markera de 100 översta raderna**.
 1. Vänta medan ett nytt SQL-skript skapas och körs.
-1. Observera att överst i SQL-skriptet **Connect to** anges automatiskt till SQL-poolen med namnet **SQLDB1**.
+1. Observera att överst i SQL-skriptet **Connect to** anges automatiskt till SQL-poolen med namnet **SQLPOOL1**.
 1. Ersätt texten i SQL-skriptet med den här koden och kör den.
 
     ```sql

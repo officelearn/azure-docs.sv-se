@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: 34baa054104a6cf2c78864cc2827b16c1eedb084
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5cde4b539262c9e20bbcf2e7dd8c8e9de38035c3
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91613313"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94594257"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Snabb start: lägga till inloggning med OpenID Anslut till en Node.js webbapp
 
-I den här snabb starten får du lära dig hur du konfigurerar OpenID Connect-autentisering i ett webb program som skapats med hjälp av Node.js med Express. Exemplet är utformat för att köras på vilken plattform som helst.
+I den här snabb starten hämtar och kör du ett kod exempel som visar hur du konfigurerar OpenID Connect-autentisering i ett webb program som skapats med hjälp av Node.js med Express. Exemplet är utformat för att köras på vilken plattform som helst.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -55,7 +55,7 @@ I den här snabb starten får du lära dig hur du konfigurerar OpenID Connect-au
 
 1. Välj **Spara**.
 
-1. På sidan **certifikat & hemligheter** väljer du **ny klient hemlighet**i avsnittet **klient hemligheter** .
+1. På sidan **certifikat & hemligheter** väljer du **ny klient hemlighet** i avsnittet **klient hemligheter** .
     - Ange en nyckel Beskrivning (för instansens program hemlighet).
     - Välj en nyckel varaktighet på **minst ett år, i två år** eller **upphör aldrig att gälla**.
     - När du klickar på knappen **Lägg till** visas nyckelvärdet. Kopiera nyckelvärdet och spara det på en säker plats.

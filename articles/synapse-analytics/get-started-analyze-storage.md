@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 2a22174fb23a4f0f7bebd58e276a6778e986ce9e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: fabfdce72202f79e2ac5bad08d124df7ce2de542
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322929"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592591"
 ---
 # <a name="analyze-data-in-a-storage-account"></a>Analysera data i ett lagrings konto
 
@@ -36,16 +36,16 @@ Kör följande kod i en bärbar dator. Den skapar en CSV-fil och en Parquet-fil 
 %%pyspark
 df = spark.sql("SELECT * FROM nyctaxi.passengercountstats")
 df = df.repartition(1) # This ensure we'll get a single file during write()
-df.write.mode("overwrite").csv("/NYCTaxi/PassengerCountStats.csv")
-df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
+df.write.mode("overwrite").csv("/NYCTaxi/PassengerCountStats_csvformat")
+df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats_parquetformat")
 ```
 
 ### <a name="analyze-data-in-a-storage-account"></a>Analysera data i ett lagrings konto
 
 1. I Synapse Studio går du till **data** hubben och väljer sedan **länkad**.
 1. Gå till **Storage Accounts** -  >  **arbetsytan (Primary-contosolake)**.
-1. Välj **användare (primär)**. Du bör se mappen **NYCTaxi** . Inuti bör du se två mappar som heter **PassengerCountStats.csv** och **PassengerCountStats. Parquet**.
-1. Öppna mappen **PassengerCountStats. Parquet** . Inuti ser du en Parquet-fil med ett namn som `part-00000-2638e00c-0790-496b-a523-578da9a15019-c000.snappy.parquet` .
+1. Välj **användare (primär)**. Du bör se mappen **NYCTaxi** . Inuti bör du se två mappar som heter **PassengerCountStats_csvformat** och **PassengerCountStats_parquetformat**.
+1. Öppna mappen **PassengerCountStats_parquetformat** . Inuti ser du en Parquet-fil med ett namn som `part-00000-2638e00c-0790-496b-a523-578da9a15019-c000.snappy.parquet` .
 1. Högerklicka på **. Parquet** och välj sedan **ny antecknings bok**. Den skapar en antecknings bok som har en cell som den här:
 
     ```py

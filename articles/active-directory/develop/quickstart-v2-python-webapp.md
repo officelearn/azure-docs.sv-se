@@ -12,18 +12,18 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 63abbc739849a201275995c81a28ede9f9c84b5a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: eaac8bdf828d2dd9a8e2dfae0b1b2b5985d1951d
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91613347"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592710"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Snabb start: lägga till inloggning med Microsoft i en python-webbapp
 
-I den här snabb starten får du lära dig hur du integrerar ett python-webbprogram med Microsoft Identity Platform. Din app kommer att logga in en användare, hämta en åtkomsttoken för att anropa Microsoft Graph-API: et och göra en begäran till Microsoft Graph API.
+I den här snabb starten laddar du ned och kör ett kod exempel som visar hur ett python-webbprogram kan logga in användare och hämta en åtkomsttoken för att anropa Microsoft Graph-API: et. Användare med ett personligt Microsoft-konto eller ett konto i en Azure Active Directory (Azure AD) organisation kan logga in i programmet.
 
-När du har slutfört guiden kommer ditt program att godkänna inloggningar med personliga Microsoft-konton (inklusive outlook.com, live.com och andra) och arbets-eller skol konton från alla företag eller organisationer som använder Azure Active Directory. (Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.)
+Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -66,7 +66,7 @@ När du har slutfört guiden kommer ditt program att godkänna inloggningar med 
 >
 >      - Ange en nyckel Beskrivning (av instansens program hemlighet).
 >      - Välj en nyckel varaktighet på om **1 år**.
->      - När du klickar på **Lägg till**visas nyckelvärdet.
+>      - När du klickar på **Lägg till** visas nyckelvärdet.
 >      - Kopiera värdet för nyckeln. Du behöver den senare.
 > 1. Välj avsnittet **API-behörigheter**
 >
@@ -128,7 +128,7 @@ När du har slutfört guiden kommer ditt program att godkänna inloggningar med 
 > [!div renderon="docs"]
 > #### <a name="step-4-run-the-code-sample"></a>Steg 4: kör kod exemplet
 
-1. Du måste installera MSAL python Library, kolv Framework, kolv-sessioner för hantering av Server sidan och begär Anden med hjälp av pip på följande sätt:
+1. Du måste installera MSAL python Library, kolv Framework Flask-Sessions för hantering av Server sidan och begär Anden med hjälp av pip på följande sätt:
 
     ```Shell
     pip install -r requirements.txt

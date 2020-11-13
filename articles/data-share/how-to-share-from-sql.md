@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 10/15/2020
-ms.openlocfilehash: 205600e488822c5ade4b808c29c66741d28a84a7
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 11/12/2020
+ms.openlocfilehash: 87d6ca8ee69ca49cf52b61e6beddb56721658afa
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/13/2020
-ms.locfileid: "94575916"
+ms.locfileid: "94593747"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Dela och ta emot data från Azure SQL Database och Azure Synapse Analytics
 
@@ -19,7 +19,7 @@ ms.locfileid: "94575916"
 
 Azure Data Share stöder ögonblicks bilds-baserad delning Azure SQL Database och Azure Synapse Analytics. Den här artikeln förklarar hur du delar och tar emot data från dessa källor.
 
-Azure Data Share stöder delning av tabeller eller vyer från Azure SQL Database och Azure Synapse Analytics (tidigare Azure SQL DW) och delning av tabeller från SQL-poolen Azure Synapse Analytics (arbets yta). Data konsumenter kan välja att acceptera data till Azure Data Lake Storage Gen2 eller Azure-Blob Storage som CSV-eller Parquet-fil, samt till Azure SQL Database och Azure Synapse Analytics som tabeller.
+Azure Data Share stöder delning av både tabeller och vyer från Azure SQL Database och Azure Synapse Analytics (tidigare Azure SQL DW) och delning av tabeller från en dedikerad SQL-pool för Azure Synapse Analytics (arbets yta). Det finns för närvarande inte stöd för att dela från Azure Synapse Analytics (arbets yta) SQL-poolen. Data konsumenter kan välja att acceptera data till Azure Data Lake Storage Gen2 eller Azure-Blob Storage som CSV-eller Parquet-fil, samt till Azure SQL Database och Azure Synapse Analytics som tabeller.
 
 När du accepterar data i Azure Data Lake Store Gen2 eller Azure Blob Storage skrivs innehållet i mål filen över om det redan finns en fullständig ögonblicks bild.
 När data tas emot i SQL-tabellen och om mål tabellen inte redan finns skapar Azure Data Share SQL-tabellen med käll schemat. Om det redan finns en mål tabell med samma namn kommer den att tas bort och skrivas över med den senaste fullständiga ögonblicks bilden. Stegvisa ögonblicks bilder stöds inte för närvarande.
@@ -61,7 +61,7 @@ Du kan följa stegen i steg [för steg-demonstrationen](https://youtu.be/hIE-TjJ
 
 #### <a name="prerequisites-for-sharing-from-azure-synapse-analytics-workspace-sql-pool"></a>Krav för delning från SQL-poolen för Azure Synapse Analytics (arbets yta)
 
-* En SQL-pool för Azure Synapse Analytics (arbets yta) med tabeller som du vill dela. Det finns för närvarande inte stöd för att dela vyn.
+* En dedikerad SQL-pool för Azure Synapse Analytics (arbets yta) med tabeller som du vill dela. Det finns för närvarande inte stöd för att dela vyn. Det finns för närvarande inte stöd för att dela från SQL-poolen utan server.
 * Behörighet att skriva till SQL-poolen i Synapse-arbetsytan, som finns i *Microsoft. Synapse/arbetsytes/sqlPools/Write*. Den här behörigheten finns i **deltagarrollen**.
 * Behörighet för data resurs resursens hanterade identitet för åtkomst till Synapse-arbetsyta SQL-pool. Detta kan göras genom följande steg: 
     1. I Azure Portal navigerar du till arbets ytan Synapse. Välj SQL Active Directory admin från vänster navigering och ange dig själv som **Azure Active Directorys administratör**.
@@ -101,7 +101,7 @@ Skapa en Azure Data Share-resurs i en Azure-resurs grupp.
     | Prenumeration | Din prenumeration | Välj den Azure-prenumeration som du vill använda för ditt data resurs konto.|
     | Resursgrupp | *test-resurs-grupp* | Använd en befintlig resursgrupp eller skapa en ny resursgrupp. |
     | Plats | *USA, östra 2* | Välj en region för ditt data resurs konto.
-    | Namn | *datashareaccount* | Ange ett namn för ditt data resurs konto. |
+    | Name | *datashareaccount* | Ange ett namn för ditt data resurs konto. |
     | | |
 
 1. Välj **Granska + skapa** och sedan **skapa** för att etablera ditt data resurs konto. Det tar vanligt vis ungefär 2 minuter att tillhandahålla ett nytt data resurs konto. 
@@ -132,7 +132,7 @@ Skapa en Azure Data Share-resurs i en Azure-resurs grupp.
 
     ![AddDatasets](./media/add-datasets.png "Lägg till data uppsättningar")    
 
-1. Välj din SQL Server-eller Synapse-arbetsyta, ange autentiseringsuppgifter om du uppmanas att göra det och välj **Nästa** för att navigera till objektet som du vill dela och välja Lägg till data uppsättningar. 
+1. Välj din SQL Server-eller Synapse-arbetsyta, ange autentiseringsuppgifter om du uppmanas att göra det och välj **Nästa** för att navigera till objektet som du vill dela och välja Lägg till data uppsättningar. Du kan välja tabeller och vyer från Azure SQL Database och Azure Synapse Analytics (tidigare Azure SQL DW) eller tabeller från en dedikerad SQL-pool för Azure Synapse Analytics (arbets yta). 
 
     ![SelectDatasets](./media/select-datasets-sql.png "Välj data uppsättningar")    
 
@@ -201,7 +201,7 @@ Du kan följa stegen i steg [för steg-demonstrationen](https://youtu.be/aeGISgK
  
 #### <a name="prerequisites-for-receiving-data-into-azure-synapse-analytics-workspace-sql-pool"></a>Krav för att ta emot data i Azure Synapse Analytics (arbets yta) SQL-pool
 
-* En SQL-pool för Azure Synapse Analytics (arbets yta).
+* En dedikerad SQL-pool för Azure Synapse Analytics (arbets yta). Det finns för närvarande inte stöd för att ta emot data i SQL-poolen utan server.
 * Behörighet att skriva till SQL-poolen i Synapse-arbetsytan, som finns i *Microsoft. Synapse/arbetsytes/sqlPools/Write*. Den här behörigheten finns i **deltagarrollen**.
 * Behörighet för data resurs resursens hanterade identitet för åtkomst till SQL-poolen Synapse-arbetsyta. Detta kan göras genom följande steg: 
     1. I Azure Portal navigerar du till arbets ytan Synapse. Välj SQL Active Directory admin från vänster navigering och ange dig själv som **Azure Active Directorys administratör**.

@@ -7,16 +7,16 @@ ms.subservice: high-availability
 ms.custom: seo-lt-2019 sqldbrb=1
 ms.devlang: ''
 ms.topic: tutorial
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 08/27/2019
-ms.openlocfilehash: a9f5bac475fd019b294f79abf0acdfaff198f52b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cdbc44158de2f24d7d33d68311979c3b8bdda85d
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442750"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593985"
 ---
 # <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Självstudie: lägga till en Azure SQL Database elastisk pool i en failover-grupp
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -48,21 +48,21 @@ I det här steget ska du skapa en elastisk pool och lägga till din databas i de
 
 Skapa den elastiska poolen med hjälp av Azure Portal.
 
-1. Välj **Azure SQL** i den vänstra menyn i Azure Portal. Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan "Azure SQL" i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster.
+1. Välj **Azure SQL** i den vänstra menyn i Azure Portal. Om **Azure SQL** inte finns i listan väljer du **alla tjänster** och skriver sedan "Azure SQL" i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster.
 1. Välj **+ Lägg** till för att öppna **alternativ sidan Välj SQL-distribution** . Du kan visa ytterligare information om de olika databaserna genom att välja Visa information på panelen databaser.
 1. Välj **elastisk pool** i list rutan **resurs typ** i panelen SQL- **databaser** . Välj **skapa** för att skapa en elastisk pool.
 
     ![Välj elastisk pool](./media/failover-group-add-elastic-pool-tutorial/select-azure-sql-elastic-pool.png)
 
 1. Konfigurera den elastiska poolen med följande värden:
-   - **Namn**: Ange ett unikt namn för den elastiska poolen, till exempel `myElasticPool` .
-   - **Prenumeration**: Välj din prenumeration från List rutan.
-   - **ResourceGroup**: Välj `myResourceGroup` i list rutan, resurs gruppen du skapade i avsnitt 1.
-   - **Server**: Välj den server som du skapade i avsnitt 1 i list rutan.  
+   - **Namn** : Ange ett unikt namn för den elastiska poolen, till exempel `myElasticPool` .
+   - **Prenumeration** : Välj din prenumeration från List rutan.
+   - **ResourceGroup** : Välj `myResourceGroup` i list rutan, resurs gruppen du skapade i avsnitt 1.
+   - **Server** : Välj den server som du skapade i avsnitt 1 i list rutan.  
 
        ![Skapa en ny server för elastisk pool](./media/failover-group-add-elastic-pool-tutorial/use-existing-server-for-elastic-pool.png)
 
-   - **Compute + Storage**: Välj **Konfigurera elastisk pool** för att konfigurera din beräkning, lagring och lägga till din enda databas i den elastiska poolen. På fliken **Inställningar för pool** lämnar du standardvärdet Gen5, med 2 virtuella kärnor och 32 GB.
+   - **Compute + Storage** : Välj **Konfigurera elastisk pool** för att konfigurera din beräkning, lagring och lägga till din enda databas i den elastiska poolen. På fliken **Inställningar för pool** lämnar du standardvärdet Gen5, med 2 virtuella kärnor och 32 GB.
 
 1. Välj fliken **databaser** på sidan **Konfigurera** och välj sedan att **lägga till databas**. Välj den databas som du skapade i avsnitt 1 och välj sedan **tillämpa** för att lägga till den i den elastiska poolen. Välj **tillämpa** igen för att tillämpa inställningarna för elastisk pool och Stäng sidan **Konfigurera** .
 
@@ -118,7 +118,7 @@ Skapa dina elastiska pooler och den sekundära servern med hjälp av PowerShell.
 
 I den här delen av självstudien används följande PowerShell-cmdletar:
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Skapar en Elastic Database-pool för en Azure SQL Database.|
 | [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) | Anger egenskaper för en databas eller flyttar en befintlig databas till en elastisk pool. |
@@ -133,7 +133,7 @@ I det här steget ska du skapa en [redundans grupp](auto-failover-group-overview
 
 Skapa din failover-grupp med hjälp av Azure Portal.
 
-1. Välj **Azure SQL** i den vänstra menyn i [Azure Portal](https://portal.azure.com). Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan Azure SQL i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster.
+1. Välj **Azure SQL** i den vänstra menyn i [Azure Portal](https://portal.azure.com). Om **Azure SQL** inte finns i listan väljer du **alla tjänster** och skriver sedan Azure SQL i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster.
 1. Välj den elastiska pool som skapades i föregående avsnitt, till exempel `myElasticPool` .
 1. I **översikts** fönstret väljer du namnet på servern under **Server namn** för att öppna inställningarna för servern.
   
@@ -143,13 +143,13 @@ Skapa din failover-grupp med hjälp av Azure Portal.
 
     ![Lägg till ny redundans grupp](./media/failover-group-add-elastic-pool-tutorial/elastic-pool-failover-group.png)
 
-1. På sidan **redundans** anger eller väljer du följande värden och väljer sedan **skapa**:
-    - **Namn på redundans grupp**: Ange ett unikt namn på redundans grupp, till exempel `failovergrouptutorial` .
-    - **Sekundär server**: Välj alternativet för att *Konfigurera nödvändiga inställningar* och välj sedan att **skapa en ny server**. Alternativt kan du välja en redan befintlig server som den sekundära servern. När du har angett följande värden för den nya sekundära servern väljer du **Välj**.
-        - **Server namn**: Ange ett unikt namn på den sekundära servern, till exempel `mysqlsecondary` .
-        - **Inloggning för Server administratör**: typ `azureuser`
-        - **Lösen ord**: Ange ett komplext lösen ord som uppfyller lösen ords kraven.
-        - **Plats**: Välj en plats i list rutan, till exempel `East US` . Den här platsen kan inte vara samma plats som den primära servern.
+1. På sidan **redundans** anger eller väljer du följande värden och väljer sedan **skapa** :
+    - **Namn på redundans grupp** : Ange ett unikt namn på redundans grupp, till exempel `failovergrouptutorial` .
+    - **Sekundär server** : Välj alternativet för att *Konfigurera nödvändiga inställningar* och välj sedan att **skapa en ny server**. Alternativt kan du välja en redan befintlig server som den sekundära servern. När du har angett följande värden för den nya sekundära servern väljer du **Välj**.
+        - **Server namn** : Ange ett unikt namn på den sekundära servern, till exempel `mysqlsecondary` .
+        - **Inloggning för Server administratör** : typ `azureuser`
+        - **Lösen ord** : Ange ett komplext lösen ord som uppfyller lösen ords kraven.
+        - **Plats** : Välj en plats i list rutan, till exempel `East US` . Den här platsen kan inte vara samma plats som den primära servern.
 
        > [!NOTE]
        > Inställningarna för Server inloggning och brand vägg måste matcha den primära servern.
@@ -235,7 +235,7 @@ Skapa din failover-grupp med hjälp av PowerShell.
 
 I den här delen av självstudien används följande PowerShell-cmdletar:
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Skapar en server som är värd för databaser och elastiska pooler. |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Skapar en brand Väggs regel för en server. |
@@ -254,7 +254,7 @@ I det här steget kommer du inte att kunna redundansväxla gruppen till den seku
 
 Testa redundans för din failover-grupp med hjälp av Azure Portal.
 
-1. Välj **Azure SQL** i den vänstra menyn i [Azure Portal](https://portal.azure.com). Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan Azure SQL i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster.
+1. Välj **Azure SQL** i den vänstra menyn i [Azure Portal](https://portal.azure.com). Om **Azure SQL** inte finns i listan väljer du **alla tjänster** och skriver sedan Azure SQL i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster.
 1. Välj den elastiska pool som skapades i föregående avsnitt, till exempel `myElasticPool` .
 1. Välj namnet på servern under **Server namn** för att öppna inställningarna för servern.
 
@@ -341,7 +341,7 @@ Redundansväxla din redundans till den sekundära servern och växla sedan tillb
 
 I den här delen av självstudien används följande PowerShell-cmdletar:
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Hämtar eller listar Azure SQL Database redundans grupper. |
 | [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| Kör en redundansväxling av en Azure SQL Database redundans grupp. |
@@ -374,7 +374,7 @@ Rensa dina resurser med PowerShell.
 
 I den här delen av självstudien används följande PowerShell-cmdlet:
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resurs grupp |
 
@@ -391,7 +391,7 @@ I den här delen av självstudien används följande PowerShell-cmdlet:
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Skapar en server som är värd för databaser och elastiska pooler. |

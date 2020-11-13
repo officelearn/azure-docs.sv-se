@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/21/2020
-ms.openlocfilehash: 3e94172096daf5fd06549f8645d05b874948a917
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 1e71d3883b8dacefa9b501ee3a9a0533d5c7d515
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420826"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592676"
 ---
 # <a name="execute-r-script-module"></a>Kör R-skript-modul
 
@@ -121,10 +121,10 @@ När pipeline-körningen är färdig kan du förhandsgranska bilden i den högra
 
 ## <a name="access-to-registered-dataset"></a>Åtkomst till registrerad data uppsättning
 
-Du kan referera till följande exempel kod för att [få åtkomst till registrerade data uppsättningar](../how-to-create-register-datasets.md) på din arbets yta:
+Du kan referera till följande exempel kod för att få åtkomst till [registrerade data uppsättningar](../how-to-create-register-datasets.md) på din arbets yta:
 
 ```R
-        azureml_main <- function(dataframe1, dataframe2){
+    azureml_main <- function(dataframe1, dataframe2){
   print("R script run.")
   run = get_current_run()
   ws = run$experiment$workspace

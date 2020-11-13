@@ -10,22 +10,22 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: 096946a1a63c0826381875cd3ce4eaf0129a85df
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: d265b6698a87c1c651dff1413cf48dd4984cd606
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146375"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616900"
 ---
 # <a name="azure-role-based-access-control"></a>Rollbaserad Azure-åtkomstkontroll
 
-Custom Vision stöder rollbaserad åtkomst kontroll i Azure (Azure RBAC), ett auktoriserings system för att hantera individuell åtkomst till Azure-resurser. Med Azure RBAC tilldelar du olika grupp medlemmar olika behörighets nivåer för dina Custom Vision-projekt. Mer information om Azure RBAC finns i [Azure RBAC-dokumentationen](https://docs.microsoft.com/azure/role-based-access-control/).
+Custom Vision stöder rollbaserad åtkomst kontroll i Azure (Azure RBAC), ett auktoriserings system för att hantera individuell åtkomst till Azure-resurser. Med Azure RBAC tilldelar du olika grupp medlemmar olika behörighets nivåer för dina Custom Vision-projekt. Mer information om Azure RBAC finns i [Azure RBAC-dokumentationen](../../role-based-access-control/index.yml).
 
 ## <a name="add-role-assignment-to-custom-vision-resource"></a>Lägg till roll tilldelning i Custom Vision resurs
 
 Azure RBAC kan tilldelas till en Custom Vision-resurs. Om du vill bevilja åtkomst till en Azure-resurs lägger du till en roll tilldelning.
 1. I [Azure Portal](https://ms.portal.azure.com/)väljer du **alla tjänster**. 
-1. Välj sedan **Cognitive Services**och navigera till din speciella Custom vision utbildnings resurs.
+1. Välj sedan **Cognitive Services** och navigera till din speciella Custom vision utbildnings resurs.
    > [!NOTE]
    > Du kan också konfigurera Azure RBAC för hela resurs grupper, prenumerationer eller hanterings grupper. Det gör du genom att välja önskad omfattnings nivå och sedan navigera till önskat objekt (till exempel välja **resurs grupper** och sedan klicka igenom till önskad resurs grupp).
 1. Välj **åtkomst kontroll (IAM)** i det vänstra navigerings fönstret.

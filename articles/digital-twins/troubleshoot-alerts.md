@@ -5,14 +5,14 @@ description: Se hur du aktiverar aviseringar på digitala Azure-mått.
 author: baanders
 ms.author: baanders
 ms.date: 7/28/2020
-ms.topic: troubleshooting
+ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ae7e85624f5da06603ddc2675787b84203bc987b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 057a1b08095a71e2fca6119f5b63bfdc787eea88
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90087224"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616610"
 ---
 # <a name="troubleshooting-azure-digital-twins-alerts"></a>Felsöka Azure Digitals dubbla: aviseringar
 
@@ -44,17 +44,17 @@ En guidad genom gång av hur du fyller i de här fälten finns i [*Översikt öv
 
 Här är ett utdrag från *Select condition* -processen som illustrerar vilka typer av aviserings signaler som är tillgängliga för Azure Digital-meddelanden. På den här sidan kan du filtrera typ av signal och välja den signal som du vill använda i en lista.
 
-:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic.png" alt-text="Skärm bild som visar sidan Skapa aviserings regel med avsnitt för omfattning, villkor, åtgärds grupp och aviserings regel information":::
+:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic.png" alt-text="Skärm bild som visar den första sidan för att konfigurera signal logik. Det finns en markering i rutan signal typ för att välja mått eller aktivitets loggar, samt en lista över mått under som kan väljas":::
 
 När du har valt en signal uppmanas du att konfigurera logiken för aviseringen. Du kan filtrera på en dimension, ange ett tröskelvärde för aviseringen och ange frekvensen för kontrollerna för villkoret. Här är ett exempel på hur du ställer in en avisering för när måttet för den genomsnittliga routing-felfrekvensen hamnar över 5%.
 
-:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic-2.png" alt-text="Skärm bild som visar sidan Skapa aviserings regel med avsnitt för omfattning, villkor, åtgärds grupp och aviserings regel information":::
+:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic-2.png" alt-text="Skärm bild som visar den andra sidan för att konfigurera signal logik. Sidan visar mått historiken, har ett område för att filtrera på en dimension som Event Grid åtgärder och ett avsnitt för att definiera varnings logik som till exempel genomsnittet är större än 5":::
 
 ### <a name="verify-success"></a>Verifieringen lyckades
 
 När du har ställt in aviseringar visas de upp på *aviserings* sidan för din instans.
  
-:::image type="content" source="media/troubleshoot-alerts/alerts-post.png" alt-text="Skärm bild som visar sidan Skapa aviserings regel med avsnitt för omfattning, villkor, åtgärds grupp och aviserings regel information" lightbox="media/troubleshoot-alerts/alerts-post.png":::
+:::image type="content" source="media/troubleshoot-alerts/alerts-post.png" alt-text="Skärm bild som visar sidan aviseringar och knapp att lägga till. En varning har kon figurer ATS" lightbox="media/troubleshoot-alerts/alerts-post.png":::
 
 ## <a name="next-steps"></a>Nästa steg
 

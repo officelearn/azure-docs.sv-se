@@ -8,17 +8,19 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 11/10/2020
+ms.date: 11/12/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a5106e1089e2353d2db884977eb51a4fd2717b99
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 85c9111b0b16667e847aaf70d746e87fe524ef87
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506183"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592931"
 ---
 # <a name="upload-and-index-your-videos"></a>Ladda upp och indexera dina videor  
+
+När din video har laddats upp kan Video Indexer (valfritt) koda videon (beskrivs i artikeln). När du skapar ett Video Indexer-konto kan du välja ett kostnadsfritt utvärderingskonto (där du får ett visst antal kostnadsfria indexeringsminuter) eller ett betalalternativ (där du inte begränsas av kvoten). Med den kostnadsfria utvärderingen ger Video Indexer upp till 600 minuter kostnadsfri indexering för webbplatsanvändare och upp till 2 400 minuter kostnadsfri indexering för API-användare. Med betalalternativet skapar du ett Video Indexer-konto som är [anslutet till din Azure-prenumeration och ett Azure Media Services-konto](connect-to-azure.md). Du betalar för minuter indexerat, mer information finns i [Media Services prissättning](https://azure.microsoft.com/pricing/details/media-services/).
 
 När du laddar upp videor med Video Indexer-API:et har du följande uppladdningsalternativ: 
 
@@ -26,34 +28,10 @@ När du laddar upp videor med Video Indexer-API:et har du följande uppladdnings
 * skicka videofilen som en bytematris i begärandetexten,
 * använda en befintlig Azure Media Services-resurs genom att tillhandahålla [tillgångs-id:t](../latest/assets-concept.md) (stöds endast för betalkonton).
 
-När din video har laddats upp kan Video Indexer (valfritt) koda videon (beskrivs i artikeln). När du skapar ett Video Indexer-konto kan du välja ett kostnadsfritt utvärderingskonto (där du får ett visst antal kostnadsfria indexeringsminuter) eller ett betalalternativ (där du inte begränsas av kvoten). Med den kostnadsfria utvärderingen ger Video Indexer upp till 600 minuter kostnadsfri indexering för webbplatsanvändare och upp till 2 400 minuter kostnadsfri indexering för API-användare. Med betalalternativet skapar du ett Video Indexer-konto som är [anslutet till din Azure-prenumeration och ett Azure Media Services-konto](connect-to-azure.md). Du betalar för minuter indexerat, mer information finns i [Media Services prissättning](https://azure.microsoft.com/pricing/details/media-services/).
-
 Artikeln visar hur du överför och indexerar dina videor med följande alternativ:
 
-* [Video Indexer-webbplatsen](#website) 
-* [API:er för Video Indexer](#apis)
-
-## <a name="uploading-considerations-and-limitations"></a>Överväganden och begränsningar vid uppladdning
- 
-- Namnet på videon får inte vara längre än 80 tecken.
-- När du laddar upp videon baserat på en webbadress (rekommenderas) måste slutpunkten skyddas med TLS 1.2 (eller senare).
-- Uppladdningsstorleken med webbadressalternativet är begränsad till 30 GB.
-- Längden på webbadressen i förfrågan är begränsad till 6 144 tecken där frågesträngsadressen är begränsad till 4 096 tecken.
-- Uppladdningsstorleken med bytearrayalternativet är begränsad till 2 GB.
-- Det finns en tidsgräns för bytearrayalternativet på 30 min.
-- Den URL som anges i `videoURL` param måste vara kodad.
-- Indexering av Media Services-resurser har samma begränsning som vid indexering från webbadresser.
-- Video Indexer har en maximal tidsgräns på 4 timmar för en enskild fil.
-- Webbadressen måste kunna nås (till exempel vara en offentlig webbadress). 
-
-    Om det är en privat webbadress måste åtkomsttoken anges i förfrågan.
-- URL: en måste peka på en giltig mediafil och inte till en webb sida, till exempel en länk till `www.youtube.com` sidan.
-- Med ett betalkonto kan du överföra upp till 50 filmer per minut och med ett utvärderingskonto upp till 5 filmer per minut.
-
-> [!Tip]
-> Det rekommenderas att du använder .NET Framework version 4.6.2 eller senare eftersom äldre .NET Framework-versioner inte använder TLS 1.2 som standard.
->
-> Om du måste använda äldre .NET Framework lägger du till en rad i koden innan du gör REST API-anropet:  <br/> System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+* [Video Indexer-webbplatsen](#upload-and-index-a-video-using-the-video-indexer-website) 
+* [API:er för Video Indexer](#upload-and-index-with-api)
 
 ## <a name="supported-file-formats-for-video-indexer"></a>Fil format som stöds för Video Indexer
 
@@ -66,7 +44,7 @@ I artikeln om [inmatade behållare/fil format](../latest/media-encoder-standard-
 - Du kan alltid ta bort video-och ljudfiler samt alla metadata och insikter som extraheras från dem genom att Video Indexer. När du har tagit bort en fil från Video Indexer tas filen och dess metadata och insikter permanent bort från Video Indexer. Men om du har implementerat en egen lösning för säkerhets kopiering i Azure Storage finns filen kvar i din Azure-lagring.
 - Persistency för en video är identisk, oavsett om uppladdningen har utförts Video Indexer webbplats eller via överförings-API: et.
    
-## <a name="upload-and-index-a-video-using-the-video-indexer-website"></a><a name="website"></a>Ladda upp och indexera en video med hjälp av Video Indexer webbplats
+## <a name="upload-and-index-a-video-using-the-video-indexer-website"></a>Ladda upp och indexera en video med hjälp av Video Indexer webbplats
 
 > [!NOTE]
 > Namnet på videon får inte vara längre än 80 tecken.
@@ -82,7 +60,7 @@ I artikeln om [inmatade behållare/fil format](../latest/media-encoder-standard-
     > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Överförings förlopp":::
 1. När Video Indexer har analyser ATS får du ett e-postmeddelande med en länk till din video och en kort beskrivning av vad som hittades i videon. Till exempel: personer, ämnen och OCR.
 
-## <a name="upload-and-index-with-api"></a><a name="apis"></a>Ladda upp och indexera med API
+## <a name="upload-and-index-with-api"></a>Ladda upp och indexera med API
 
 Använd [Ladda upp video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) -API för att ladda upp och indexera videor baserat på en URL. Kod exemplet som följer innehåller den kommenterade koden som visar hur du överför byte-matrisen. 
 
@@ -364,6 +342,28 @@ De statuskoder som visas i följande tabell kan returneras av uppladdingsåtgär
 |409|VIDEO_INDEXING_IN_PROGRESS|Samma video håller redan på att bearbetas i det angivna kontot.|
 |400|VIDEO_ALREADY_FAILED|Samma video misslyckades med att bearbetas i det angivna kontot för mindre än 2 timmar sedan. API-klienter ska vänta minst 2 timmar innan en video laddas upp på nytt.|
 |429||Utvärderings konton tillåts 5 uppladdningar per minut. Betalade konton tillåts 50 uppladdningar per minut.|
+
+## <a name="uploading-considerations-and-limitations"></a>Överväganden och begränsningar vid uppladdning
+ 
+- Namnet på videon får inte vara längre än 80 tecken.
+- När du laddar upp videon baserat på en webbadress (rekommenderas) måste slutpunkten skyddas med TLS 1.2 (eller senare).
+- Uppladdningsstorleken med webbadressalternativet är begränsad till 30 GB.
+- Längden på webbadressen i förfrågan är begränsad till 6 144 tecken där frågesträngsadressen är begränsad till 4 096 tecken.
+- Uppladdningsstorleken med bytearrayalternativet är begränsad till 2 GB.
+- Det finns en tidsgräns för bytearrayalternativet på 30 min.
+- Den URL som anges i `videoURL` param måste vara kodad.
+- Indexering av Media Services-resurser har samma begränsning som vid indexering från webbadresser.
+- Video Indexer har en maximal tidsgräns på 4 timmar för en enskild fil.
+- Webbadressen måste kunna nås (till exempel vara en offentlig webbadress). 
+
+    Om det är en privat webbadress måste åtkomsttoken anges i förfrågan.
+- URL: en måste peka på en giltig mediafil och inte till en webb sida, till exempel en länk till `www.youtube.com` sidan.
+- Med ett betalkonto kan du överföra upp till 50 filmer per minut och med ett utvärderingskonto upp till 5 filmer per minut.
+
+> [!Tip]
+> Det rekommenderas att du använder .NET Framework version 4.6.2 eller senare eftersom äldre .NET Framework-versioner inte använder TLS 1.2 som standard.
+>
+> Om du måste använda äldre .NET Framework lägger du till en rad i koden innan du gör REST API-anropet:  <br/> System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
 
 ## <a name="next-steps"></a>Nästa steg
 

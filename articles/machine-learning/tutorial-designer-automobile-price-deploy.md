@@ -8,14 +8,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 06/28/2020
+ms.date: 11/13/2020
 ms.custom: designer
-ms.openlocfilehash: 31b742144bfb20af14cf6f5e95f5dfc951845ee2
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 5a5d166e36b2870ceb081c1c6d2635e01ab43a4d
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555523"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592557"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Självstudie: Distribuera en maskin inlärnings modell med designern
 
@@ -112,6 +112,8 @@ När distributionen är klar kan du Visa real tids slut punkten genom att gå ti
 1. På fliken **information** kan du se mer information, till exempel rest-URI, status och taggar.
 
 1. På fliken **förbrukare** kan du hitta säkerhets nycklar och ange autentiseringsmetoder.
+
+1. På fliken **distributions loggar** hittar du detaljerade distributions loggar för din real tids slut punkt. 
 
 Mer information om hur du konsumerar din webb tjänst finns i [använda en modell som distribueras som en webb tjänst](how-to-consume-web-service.md)
 

@@ -1,18 +1,18 @@
 ---
-title: Aktivera och fråga diagnostikloggar
+title: Aktivera och efterfråga diagnostikloggar
 titleSuffix: Azure Digital Twins
 description: Se hur du aktiverar loggning med diagnostikinställningar och frågar loggarna för omedelbar visning.
 author: baanders
 ms.author: baanders
 ms.date: 11/9/2020
-ms.topic: troubleshooting
+ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0d775ffa1ce063c01fc6762d77201e5a4caaad87
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: d988617fcaf7479c7bb3356e6ef6f87824ed23a7
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411773"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616662"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Felsöka Azure Digitals sammanflätade: diagnostikloggning
 
@@ -63,7 +63,7 @@ Mer detaljerad information om diagnostikinställningar och deras installations a
 
 Här är mer information om de kategorier av loggar som Azure Digitals samlar in.
 
-| Loggkategori | Description |
+| Loggkategori | Beskrivning |
 | --- | --- |
 | ADTModelsOperation | Logga alla API-anrop som rör modeller |
 | ADTQueryOperation | Logga alla API-anrop som rör frågor |
@@ -77,7 +77,7 @@ Varje logg kategori består av åtgärder av Skriv-, Läs-, borttagnings-och åt
 | Skriva | PLACERING och korrigering |
 | Läs | GET |
 | Ta bort | DELETE |
-| Action | POST |
+| Åtgärd | POST |
 
 Här är en omfattande lista över åtgärderna och motsvarande [Azure Digital-meddelanden REST API samtal](/rest/api/azure-digitaltwins/) som loggas i varje kategori. 
 

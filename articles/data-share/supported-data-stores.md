@@ -5,13 +5,13 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 10/30/2020
-ms.openlocfilehash: 47c484268573334057e6b4dd14bbae849f9ce774
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 11/12/2020
+ms.openlocfilehash: 6289395b5d508de8da3e5c8c89caebb4b0e9b817
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577229"
+ms.locfileid: "94592438"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Datalager som stöds i Azure Data Share
 
@@ -55,7 +55,7 @@ Azure data sharing stöder delning av filer, mappar och fil system från Azure D
 Mer information finns i [dela och ta emot data från Azure Blob Storage och Azure Data Lake Storage](how-to-share-from-storage.md) .
 
 ## <a name="share-from-a-sql-based-source"></a>Dela från en SQL-baserad källa
-Azure Data Share stöder delning av tabeller eller vyer från Azure SQL Database och Azure Synapse Analytics (tidigare Azure SQL DW) och delning av tabeller från SQL-poolen Azure Synapse Analytics (arbets yta). Data konsumenter kan välja att acceptera data till Azure Data Lake Storage Gen2 eller Azure-Blob Storage som CSV-eller Parquet-fil, samt till Azure SQL Database och Azure Synapse Analytics som tabeller.
+Azure Data Share stöder delning av både tabeller och vyer från Azure SQL Database och Azure Synapse Analytics (tidigare Azure SQL DW) och delning av tabeller från en dedikerad SQL-pool för Azure Synapse Analytics (arbets yta). Det finns för närvarande inte stöd för att dela från Azure Synapse Analytics (arbets yta) SQL-poolen. Data konsumenter kan välja att acceptera data till Azure Data Lake Storage Gen2 eller Azure-Blob Storage som CSV-eller Parquet-fil, samt till Azure SQL Database och Azure Synapse Analytics som tabeller.
 
 När du accepterar data i Azure Data Lake Store Gen2 eller Azure Blob Storage skrivs innehållet i mål filen över om det redan finns en fullständig ögonblicks bild.
 När data tas emot i tabellen och om mål tabellen inte redan finns, skapar Azure Data Share SQL-tabellen med käll schemat. Om det redan finns en mål tabell med samma namn kommer den att tas bort och skrivas över med den senaste fullständiga ögonblicks bilden. Stegvisa ögonblicks bilder stöds inte för närvarande.

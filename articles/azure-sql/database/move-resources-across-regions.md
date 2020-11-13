@@ -8,16 +8,16 @@ ms.subservice: data-movement
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: how-to
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 06/25/2019
-ms.openlocfilehash: 0b78419f4fb37bb96e2c71c89f740a35914ccede
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae6c87c9eabea837ba9c43676d4ca712caa385cb
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91446394"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94594172"
 ---
 # <a name="move-resources-to-new-region---azure-sql-database--azure-sql-managed-instance"></a>Flytta resurser till ny region – Azure SQL Database & Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -68,7 +68,7 @@ Den här artikeln innehåller ett allmänt arbets flöde för att flytta resurse
 
 ### <a name="monitor-the-preparation-process"></a>Övervaka förberedelse processen
 
-Du kan regelbundet anropa [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) för att övervaka replikeringen av dina databaser från källan till målet. Objektet utdata i `Get-AzSqlDatabaseFailoverGroup` innehåller en egenskap för **ReplicationState**:
+Du kan regelbundet anropa [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) för att övervaka replikeringen av dina databaser från källan till målet. Objektet utdata i `Get-AzSqlDatabaseFailoverGroup` innehåller en egenskap för **ReplicationState** :
 
 - **ReplicationState = 2** (CATCH_UP) anger att databasen är synkroniserad och kan växlas över på ett säkert sätt.
 - **ReplicationState = 0** (seeding) visar att databasen inte har dirigerats än och att ett försök att redundansväxla kommer att Miss lyckas.
@@ -122,7 +122,7 @@ När flyttningen är klar tar du bort resurserna i käll regionen för att undvi
 
 ### <a name="monitor-the-preparation-process"></a>Övervaka förberedelse processen
 
-Du kan regelbundet anropa [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) för att övervaka replikeringen av dina databaser från källan till målet. Objektet utdata i `Get-AzSqlDatabaseFailoverGroup` innehåller en egenskap för **ReplicationState**:
+Du kan regelbundet anropa [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) för att övervaka replikeringen av dina databaser från källan till målet. Objektet utdata i `Get-AzSqlDatabaseFailoverGroup` innehåller en egenskap för **ReplicationState** :
 
 - **ReplicationState = 2** (CATCH_UP) anger att databasen är synkroniserad och kan växlas över på ett säkert sätt.
 - **ReplicationState = 0** (seeding) visar att databasen inte har dirigerats än och att ett försök att redundansväxla kommer att Miss lyckas.
@@ -170,7 +170,7 @@ Replikeringen av alla databaser på varje instans kommer att initieras automatis
 
 ### <a name="monitor-the-preparation-process"></a>Övervaka förberedelse processen
 
-Du kan regelbundet anropa [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) för att övervaka replikeringen av dina databaser från källan till målet. Objektet utdata i `Get-AzSqlDatabaseFailoverGroup` innehåller en egenskap för **ReplicationState**:
+Du kan regelbundet anropa [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) för att övervaka replikeringen av dina databaser från källan till målet. Objektet utdata i `Get-AzSqlDatabaseFailoverGroup` innehåller en egenskap för **ReplicationState** :
 
 - **ReplicationState = 2** (CATCH_UP) anger att databasen är synkroniserad och kan växlas över på ett säkert sätt.
 - **ReplicationState = 0** (seeding) visar att databasen inte har dirigerats än och att ett försök att redundansväxla Miss lyckas.

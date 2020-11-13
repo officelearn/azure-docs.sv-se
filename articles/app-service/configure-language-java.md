@@ -10,12 +10,12 @@ ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 2e77d76ddae540a311655eca36c53b23c418f5e3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 9abc069c202af425970e46286d88d1c18ece5a20
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744146"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616203"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Konfigurera en Java-app för Azure App Service
 
@@ -68,11 +68,11 @@ Prestanda rapporter, trafik visualiseringar och hälso checkups är tillgänglig
 
 Mer information finns i [Stream-loggar i Cloud Shell](troubleshoot-diagnostic-logs.md#in-cloud-shell).
 
+::: zone pivot="platform-linux"
+
 ### <a name="ssh-console-access"></a>Åtkomst till SSH-konsol
 
 [!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
-
-::: zone pivot="platform-linux"
 
 ### <a name="troubleshooting-tools"></a>Fel söknings verktyg
 
@@ -330,10 +330,10 @@ Det här avsnittet visar hur du ansluter Java-program som distribuerats på Azur
 ::: zone pivot="platform-windows"
 
 1. Skapa ett NewRelic-konto på [NewRelic.com](https://newrelic.com/signup)
-2. Hämta Java-agenten från NewRelic kommer den att ha ett fil namn som liknar *newrelic-java-x.x.x.zip* .
+2. Hämta Java-agenten från NewRelic kommer den att ha ett fil namn som liknar *newrelic-java-x.x.x.zip*.
 3. Kopiera licens nyckeln, du behöver den för att konfigurera agenten senare.
-4. [Använda SSH i App Service-instansen](configure-linux-open-ssh-session.md) och skapa en ny katalog */Home/site/wwwroot/APM* .
-5. Överför de uppackade NewRelic Java agent-filerna till en katalog under */Home/site/wwwroot/APM* . Filerna för din agent ska vara i */Home/site/wwwroot/APM/newrelic* .
+4. [Använda SSH i App Service-instansen](configure-linux-open-ssh-session.md) och skapa en ny katalog */Home/site/wwwroot/APM*.
+5. Överför de uppackade NewRelic Java agent-filerna till en katalog under */Home/site/wwwroot/APM*. Filerna för din agent ska vara i */Home/site/wwwroot/APM/newrelic*.
 6. Ändra YAML-filen på */Home/site/wwwroot/APM/newrelic/newrelic.yml* och ersätt licens värdet för plats hållaren med din egen licens nyckel.
 7. I Azure Portal bläddrar du till ditt program i App Service och skapar en ny program inställning.
 
@@ -344,10 +344,10 @@ Det här avsnittet visar hur du ansluter Java-program som distribuerats på Azur
 ::: zone pivot="platform-linux"
 
 1. Skapa ett NewRelic-konto på [NewRelic.com](https://newrelic.com/signup)
-2. Hämta Java-agenten från NewRelic kommer den att ha ett fil namn som liknar *newrelic-java-x.x.x.zip* .
+2. Hämta Java-agenten från NewRelic kommer den att ha ett fil namn som liknar *newrelic-java-x.x.x.zip*.
 3. Kopiera licens nyckeln, du behöver den för att konfigurera agenten senare.
-4. [Använda SSH i App Service-instansen](configure-linux-open-ssh-session.md) och skapa en ny katalog */Home/site/wwwroot/APM* .
-5. Överför de uppackade NewRelic Java agent-filerna till en katalog under */Home/site/wwwroot/APM* . Filerna för din agent ska vara i */Home/site/wwwroot/APM/newrelic* .
+4. [Använda SSH i App Service-instansen](configure-linux-open-ssh-session.md) och skapa en ny katalog */Home/site/wwwroot/APM*.
+5. Överför de uppackade NewRelic Java agent-filerna till en katalog under */Home/site/wwwroot/APM*. Filerna för din agent ska vara i */Home/site/wwwroot/APM/newrelic*.
 6. Ändra YAML-filen på */Home/site/wwwroot/APM/newrelic/newrelic.yml* och ersätt licens värdet för plats hållaren med din egen licens nyckel.
 7. I Azure Portal bläddrar du till ditt program i App Service och skapar en ny program inställning.
    
@@ -364,8 +364,8 @@ Det här avsnittet visar hur du ansluter Java-program som distribuerats på Azur
 
 1. Skapa ett AppDynamics-konto på [AppDynamics.com](https://www.appdynamics.com/community/register/)
 2. Hämta Java-agenten från AppDynamics-webbplatsen, fil namnet ser ut ungefär som *AppServerAgent-x.x.x.xxxxx.zip*
-3. Använd [kudu-konsolen](https://github.com/projectkudu/kudu/wiki/Kudu-console) för att skapa en ny katalog- */Home/site/wwwroot/APM* .
-4. Överför Java-agentens filer till en katalog under */Home/site/wwwroot/APM* . Filerna för din agent ska vara i */Home/site/wwwroot/APM/AppDynamics* .
+3. Använd [kudu-konsolen](https://github.com/projectkudu/kudu/wiki/Kudu-console) för att skapa en ny katalog- */Home/site/wwwroot/APM*.
+4. Överför Java-agentens filer till en katalog under */Home/site/wwwroot/APM*. Filerna för din agent ska vara i */Home/site/wwwroot/APM/AppDynamics*.
 5. I Azure Portal bläddrar du till ditt program i App Service och skapar en ny program inställning.
 
    - För **Java se** -appar skapar du en miljö variabel med namnet `JAVA_OPTS` med värdet `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` där `<app-name>` är ditt App Service namn.
@@ -376,8 +376,8 @@ Det här avsnittet visar hur du ansluter Java-program som distribuerats på Azur
 
 1. Skapa ett AppDynamics-konto på [AppDynamics.com](https://www.appdynamics.com/community/register/)
 2. Hämta Java-agenten från AppDynamics-webbplatsen, fil namnet ser ut ungefär som *AppServerAgent-x.x.x.xxxxx.zip*
-3. [Använda SSH i App Service-instansen](configure-linux-open-ssh-session.md) och skapa en ny katalog */Home/site/wwwroot/APM* .
-4. Överför Java-agentens filer till en katalog under */Home/site/wwwroot/APM* . Filerna för din agent ska vara i */Home/site/wwwroot/APM/AppDynamics* .
+3. [Använda SSH i App Service-instansen](configure-linux-open-ssh-session.md) och skapa en ny katalog */Home/site/wwwroot/APM*.
+4. Överför Java-agentens filer till en katalog under */Home/site/wwwroot/APM*. Filerna för din agent ska vara i */Home/site/wwwroot/APM/AppDynamics*.
 5. I Azure Portal bläddrar du till ditt program i App Service och skapar en ny program inställning.
 
    - För **Java se** -appar skapar du en miljö variabel med namnet `JAVA_OPTS` med värdet `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` där `<app-name>` är ditt App Service namn.
@@ -541,7 +541,7 @@ Ta sedan reda på om data källan ska vara tillgänglig för ett program eller f
 
 #### <a name="shared-server-level-resources"></a>Delade resurser på server nivå
 
-Om du lägger till en delad data källa på server nivå krävs det att du redigerar Tomcat server.xml. Börja med att ladda upp ett [Start skript](faq-app-service-linux.md#built-in-images) och ange sökvägen till skriptet i **konfigurations**  >  **Start kommandot** . Du kan ladda upp start skriptet med [FTP](deploy-ftp.md).
+Om du lägger till en delad data källa på server nivå krävs det att du redigerar Tomcat server.xml. Börja med att ladda upp ett [Start skript](faq-app-service-linux.md#built-in-images) och ange sökvägen till skriptet i **konfigurations**  >  **Start kommandot**. Du kan ladda upp start skriptet med [FTP](deploy-ftp.md).
 
 Start skriptet gör en XSL- [transformering](https://www.w3schools.com/xml/xsl_intro.asp) till server.xml-filen och utdata från den resulterande XML-filen till `/usr/local/tomcat/conf/server.xml` . Start skriptet bör installera libxslt via APK. XSL-filen och start skriptet kan överföras via FTP. Nedan visas ett exempel på ett start skript.
 

@@ -7,16 +7,16 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=1
 ms.devlang: PowerShell
 ms.topic: sample
-author: mashamsft
-ms.author: mathoma
-ms.reviewer: sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: eca19c7cf8beed033ae0f11a518677c4c8744506
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fc9db7286fed71ec451ea4ccef911e344a17b80
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319383"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94594070"
 ---
 # <a name="use-powershell-to-configure-active-geo-replication-for-a-database-in-azure-sql-database"></a>Använd PowerShell för att konfigurera aktiv geo-replikering för en databas i Azure SQL Database
 
@@ -47,7 +47,7 @@ Remove-AzResourceGroup -ResourceGroupName $secondaryresourcegroupname
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Skapar en server som är värd för databaser och elastiska pooler. |

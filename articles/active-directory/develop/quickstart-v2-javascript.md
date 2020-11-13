@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 919d2989cf1d86320d89e8f263bb2a192c992fb4
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: f2a01c4e4d364494d271fa676bca5bfac2677395
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533182"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592761"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Snabb start: Logga in användare och hämta en åtkomsttoken i ett Java Script SPA
 
-I den här snabb starten använder du ett kod exempel för att lära dig hur ett Java Script-program (Single-Side Application) kan logga in användare av personliga konton, arbets konton och skol konton. En JavaScript-SPA kan också hämta en åtkomsttoken för att anropa Microsoft Graph-API: et eller något webb-API. Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.
+I den här snabb starten laddar du ned och kör ett kod exempel som visar hur ett Java Script-program (Single-Side Application) kan logga in användare och anropa Microsoft Graph. Kod exemplet visar också hur du hämtar en åtkomsttoken för att anropa Microsoft Graph API eller något webb-API.
+
+Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -267,7 +269,7 @@ myMSALObj.acquireTokenSilent(tokenRequest)
 
 #### <a name="get-a-user-token-interactively"></a>Hämta en användartoken interaktivt
 
-Det finns situationer där du måste tvinga användare att interagera med Microsoft Identity Platform-slutpunkten. Exempel:
+Det finns situationer där du måste tvinga användare att interagera med Microsoft Identity Platform-slutpunkten. Till exempel:
 * Användare kan behöva ange sina autentiseringsuppgifter på grund av att deras lösen ord har upphört att gälla.
 * Ditt program begär åtkomst till ytterligare resurs omfattningar som användaren behöver godkänna.
 * Tvåfaktorautentisering krävs.

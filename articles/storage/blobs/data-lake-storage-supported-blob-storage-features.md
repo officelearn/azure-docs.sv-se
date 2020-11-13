@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/28/2020
+ms.date: 11/12/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 8f73f2a86e97dad1d6a0b0f05c54f3f896b4b49d
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: b670ec3cee2ebd1cc98ea2e04fb2b0dfd90e4e1a
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579223"
+ms.locfileid: "94594223"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Blob Storage-funktioner som är tillgängliga i Azure Data Lake Storage Gen2
 
@@ -52,8 +52,8 @@ Följande tabell visar hur varje Blob Storage-funktion stöds med Data Lake Stor
 |Anpassade domäner|Stöds inte ännu|Stöds inte ännu|[Mappa en anpassad domän till en Azure Blob Storage-slutpunkt](storage-custom-domain-name.md)|
 |Krypteringsomfång|Stöds inte ännu|Stöds inte ännu|[Skapa och hantera krypterings omfång (förhands granskning)](encryption-scope-manage.md)|
 |Ändringsfeed|Stöds inte ännu|Stöds inte ännu|[Ändra feed-stöd i Azure Blob Storage](storage-blob-change-feed.md)|
-|Objektreplikering|Stöds inte ännu|Stöds inte ännu|[Konfigurera objekt replikering för block-blobar (för hands version)](object-replication-configure.md)|
-|BLOB-versioner|Stöds inte ännu|Stöds inte ännu|[Aktivera och hantera BLOB-versioner (för hands version)](versioning-enable.md)|
+|Objektreplikering|Stöds inte ännu|Stöds inte ännu|[Konfigurera objekt replikering för block-blobar](object-replication-configure.md)|
+|BLOB-versioner|Stöds inte ännu|Stöds inte ännu|[Aktivera och hantera BLOB-versioner](versioning-enable.md)|
 
 <div id="blob-container-ACL"><sup>1</sup> du kan ange ACL: er i rotmappen för behållaren, men inte själva behållaren.</div><br>
 

@@ -1,6 +1,6 @@
 ---
 title: Transformera data med hjälp av gris-aktivitet i Azure Data Factory
-description: Lär dig hur du kan använda aktiviteten gris i en Azure Data Factory v1 för att köra gris-skript på ett eget HDInsight-kluster på begäran.
+description: Lär dig hur du kan använda aktiviteten gris i Azure Data Factory v1 för att köra gris-skript på ett eget HDInsight-kluster på begäran.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 35990312658492e1e41b47096a43748c3a4e653e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c94d66bf98645e12a6c603f2b35d229080717734
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359908"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616866"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformera data med hjälp av gris-aktivitet i Azure Data Factory
 > [!div class="op_single_selector" title1="Omvandlings aktiviteter"]
@@ -26,8 +26,8 @@ ms.locfileid: "92359908"
 > * [MapReduce-aktivitet](data-factory-map-reduce.md)
 > * [Hadoop streaming-aktivitet](data-factory-hadoop-streaming-activity.md)
 > * [Spark-aktivitet](data-factory-spark.md)
-> * [Azure Machine Learning Studio (klassisk) batch execution Activity](data-factory-azure-ml-batch-execution-activity.md)
-> * [Azure Machine Learning Studio (klassisk) uppdatera resurs aktivitet](data-factory-azure-ml-update-resource-activity.md)
+> * [Batch-körningsaktivitet i Azure Machine Learning Studio (klassisk)](data-factory-azure-ml-batch-execution-activity.md)
+> * [Uppdateringsresursaktivitet i Azure Machine Learning Studio (klassisk)](data-factory-azure-ml-update-resource-activity.md)
 > * [Lagrad proceduraktivitet](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL-aktivitet](data-factory-usql-activity.md)
 > * [Anpassad .NET-aktivitet](data-factory-use-custom-activities.md)
@@ -85,7 +85,7 @@ HDInsight gris-aktiviteten i en Data Factory [pipeline](data-factory-create-pipe
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | name |Namn på aktiviteten |Ja |
-| description |Text som beskriver vad aktiviteten används för |Nej |
+| beskrivning |Text som beskriver vad aktiviteten används för |Nej |
 | typ |HDinsightPig |Ja |
 | tillför |En eller flera indata som används av aktiviteten gris |Nej |
 | utdata |En eller flera utdata som produceras av gris-aktiviteten |Ja |
@@ -123,7 +123,7 @@ Utför följande steg för att köra det här gris-skriptet i en Data Factory pi
 
 1. Skapa en länkad tjänst för att registrera [ditt eget HDInsight Compute-kluster](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) eller konfigurera [kluster för HDInsight-beräkning på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Vi kallar den här länkade tjänsten **HDInsightLinkedService**.
 2. Skapa en [länkad tjänst](data-factory-azure-blob-connector.md) för att konfigurera anslutningen till Azure Blob Storage som är värd för data. Vi kallar den här länkade tjänsten **StorageLinkedService**.
-3. Skapa [data uppsättningar](data-factory-create-datasets.md) som pekar på indata och utdata. Låt oss anropa indata-datauppsättningen **PigSampleIn** och **PigSampleOut**för utgående data uppsättning.
+3. Skapa [data uppsättningar](data-factory-create-datasets.md) som pekar på indata och utdata. Låt oss anropa indata-datauppsättningen **PigSampleIn** och **PigSampleOut** för utgående data uppsättning.
 4. Kopiera gris-frågan i en fil Azure-Blob Storage som kon figurer ATS i steg #2. Om Azure-lagringen som är värd för data skiljer sig från den som är värd för Frågeredigeraren skapar du en separat Azure Storage länkad tjänst. Referera till den länkade tjänsten i aktivitets konfigurationen. Använd **scriptPath** för att ange sökvägen till skript filen för gris och **scriptLinkedService**. 
    
    > [!NOTE]
@@ -210,7 +210,7 @@ Gör följande om du vill använda ett parameter Scripting gris-skript:
       }
     }
     ```
-* I gris-skriptet, referera till parametrarna med hjälp av **$parameterName**som visas i följande exempel:
+* I gris-skriptet, referera till parametrarna med hjälp av **$parameterName** som visas i följande exempel:
 
     ```
     PigSampleIn = LOAD '$Input' USING PigStorage(',') AS (ProfileID:chararray, SessionStart:chararray, Duration:int, SrcIPAddress:chararray, GameType:chararray);

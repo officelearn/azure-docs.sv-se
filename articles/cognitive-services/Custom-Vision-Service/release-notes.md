@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: pafarley
-ms.openlocfilehash: f7259fe486a473f994d7795de5926b86717bb1b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ccf742e5ff612816cae1056ef7bf0e64fc9dbb5b
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85391714"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616475"
 ---
 # <a name="custom-vision-service-release-notes"></a>Viktig information om Custom Vision Service
 
@@ -41,7 +41,7 @@ ms.locfileid: "85391714"
 
 - Custom Vision Service har angett allmän tillgänglighet för Azure!
 - Avancerad utbildning har lagts till med en ny maskin inlärnings Server del för bättre prestanda, särskilt vid utmanande data uppsättningar och detaljerade klassificeringar. Med avancerad utbildning kan du ange en budget för beräknings tid för utbildning och Custom Vision kommer att experimentellt identifiera bästa utbildning och förstärknings inställningar. För snabba iterationer kan du fortsätta att använda den befintliga snabb träningen.
-- Introducerade 3,0 API: er. Meddelad om inaktuellitet av pre-3,0-API: er den 1 oktober 2019. Se snabb starter för dokumentation för [.net](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/csharp-tutorial), [python](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/python-tutorial), [Node](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/node-tutorial), [Java](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/java-tutorial)eller [Go](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/go-tutorial) för att få exempel på hur du kommer igång.
+- Introducerade 3,0 API: er. Meddelad om inaktuellitet av pre-3,0-API: er den 1 oktober 2019. Se snabb starter för dokumentation för [.net](./quickstarts/image-classification.md), [python](./quickstarts/image-classification.md), [Node](./quickstarts/image-classification.md), [Java](./quickstarts/image-classification.md)eller [Go](./quickstarts/image-classification.md) för att få exempel på hur du kommer igång.
 - Ersatt "standard iterationer" med publicera/ta bort publicering i 3,0-API: erna.
 - Nya modell export mål har lagts till. Dockerfile-exporten har uppgraderats till stöd för ARM för Raspberry Pi 3. Export stöd har lagts till i det [vision AI dev kit.](https://visionaidevkit.com/)
 - Ökad gräns för Taggar per projekt till 500 för S0-nivån. Ökad gräns för avbildningar per projekt till 100 000 för S0-nivå.

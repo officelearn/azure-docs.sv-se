@@ -6,14 +6,14 @@ author: lgayhardt
 ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 11/01/2018
-ms.openlocfilehash: 534452d57884045f90c1d8d3ff44aadc3578cd4f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 30bd45cee962395ad6c6b87e393ea0f1b7329908
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542542"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616849"
 ---
-# <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Använda micrometer med Azure Application Insights Java SDK
+# <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk-not-recommended"></a>Använda micrometer med Azure Application Insights Java SDK (rekommenderas inte)
 
 > [!IMPORTANT]
 > Den rekommenderade metoden för att övervaka Java-program är att använda den automatiska Instrumentation utan att ändra koden. Micrometer telemetri samlas in automatiskt med Application Insights Java 3,0-agenten – Följ rikt linjerna för [Application Insights Java 3,0-agenten](./java-in-process-agent.md).

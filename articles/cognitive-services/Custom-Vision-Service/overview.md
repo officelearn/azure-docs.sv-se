@@ -12,18 +12,18 @@ ms.date: 09/14/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: bild igenkänning, bild identifierare, app för bild igenkänning, anpassad vision
-ms.openlocfilehash: 47227a60b1ed45499afdb42fbc062abc5ae51ff9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aa338bf708abaa49d65b6a817009224973f3fb29
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90605596"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616917"
 ---
 # <a name="what-is-custom-vision"></a>Vad är Custom Vision?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Azure Custom Vision är en avbildnings igenkännings tjänst som gör att du kan bygga, distribuera och förbättra dina egna avbildnings identifierare. Ett bild-ID använder etiketter (som representerar klasser eller objekt) för bilder, enligt deras visuella egenskaper. Till skillnad från [visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) tjänsten kan du Custom vision ange etiketter och träna anpassade modeller för att identifiera dem.
+Azure Custom Vision är en avbildnings igenkännings tjänst som gör att du kan bygga, distribuera och förbättra dina egna avbildnings identifierare. Ett bild-ID använder etiketter (som representerar klasser eller objekt) för bilder, enligt deras visuella egenskaper. Till skillnad från [visuellt innehåll](../computer-vision/overview.md) tjänsten kan du Custom vision ange etiketter och träna anpassade modeller för att identifiera dem.
 
 ## <a name="what-it-does"></a>Vad läget gör
 

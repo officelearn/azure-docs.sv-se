@@ -8,16 +8,16 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: how-to
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 08/14/2019
-ms.openlocfilehash: 98f2a8fb0ce48dab0e1e5f7610d73d55526969eb
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 09bb7cb2344e3e708a64842916e6e483136da3bb
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675101"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94594291"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Konfigurera en failover-grupp för Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -50,7 +50,7 @@ Skapa din grupp för redundans och Lägg till din enda databas i den med hjälp 
 
    ![Lägg till ny redundans grupp](./media/auto-failover-group-configure/sqldb-add-new-failover-group.png)
 
-1. På sidan **redundans** anger eller väljer du de värden som krävs och väljer sedan **skapa** .
+1. På sidan **redundans** anger eller väljer du de värden som krävs och väljer sedan **skapa**.
 
    - **Databaser i gruppen** : Välj den databas som du vill lägga till i gruppen för redundans. Om du lägger till databasen i gruppen för växling vid fel startas automatiskt processen för geo-replikering.
 
@@ -220,7 +220,7 @@ Skapa din failover-grupp och Lägg till den elastiska poolen i den med hjälp av
 
    ![Lägg till ny redundans grupp](./media/auto-failover-group-configure/sqldb-add-new-failover-group.png)
 
-1. På sidan **redundans** anger eller väljer du de värden som krävs och väljer sedan **skapa** . Skapa antingen en ny sekundär server eller Välj en befintlig sekundär server.
+1. På sidan **redundans** anger eller väljer du de värden som krävs och väljer sedan **skapa**. Skapa antingen en ny sekundär server eller Välj en befintlig sekundär server.
 
 1. Välj **databaser i gruppen** och välj sedan den elastiska pool som du vill lägga till i gruppen redundans. Om det inte redan finns en elastisk pool på den sekundära servern visas en varning om att du måste skapa en elastisk pool på den sekundära servern. Välj varningen och välj sedan **OK** för att skapa den elastiska poolen på den sekundära servern.
 
@@ -371,11 +371,11 @@ Om du inte har konfigurerat [ExpressRoute](../../expressroute/expressroute-howto
 Skapa den primära virtuella Nätverksgatewayen med hjälp av Azure Portal.
 
 1. I [Azure Portal](https://portal.azure.com)går du till din resurs grupp och väljer den **virtuella nätverks** resursen för din primära hanterade instans.
-1. Välj **undernät** under **Inställningar** och välj sedan för att lägga till ett nytt **Gateway-undernät** . Låt standardvärdena vara kvar.
+1. Välj **undernät** under **Inställningar** och välj sedan för att lägga till ett nytt **Gateway-undernät**. Låt standardvärdena vara kvar.
 
    ![Lägg till gateway för primär hanterad instans](./media/auto-failover-group-configure/add-subnet-gateway-primary-vnet.png)
 
-1. När du har skapat en gateway för undernät väljer du **skapa en resurs** i det vänstra navigerings fönstret och skriver sedan `Virtual network gateway` i sökrutan. Välj den **virtuella nätverks-Gateway** -resurs som publicerats av **Microsoft** .
+1. När du har skapat en gateway för undernät väljer du **skapa en resurs** i det vänstra navigerings fönstret och skriver sedan `Virtual network gateway` i sökrutan. Välj den **virtuella nätverks-Gateway** -resurs som publicerats av **Microsoft**.
 
    ![Skapa en ny virtuell nätverksgateway](./media/auto-failover-group-configure/create-virtual-network-gateway.png)
 
@@ -388,12 +388,12 @@ Skapa den primära virtuella Nätverksgatewayen med hjälp av Azure Portal.
     | **Prenumeration** |  Den prenumeration där din primära hanterade instans är. |
     | **Namn** | Namnet på den virtuella Nätverksgatewayen. |
     | **Region** | Den region där din primära hanterade instans är. |
-    | **Typ av Gateway** | Välj **VPN** . |
+    | **Typ av Gateway** | Välj **VPN**. |
     | **VPN-typ** | Välj **Route-baserad** |
     | **SKU**| Lämna standardvärdet `VpnGw1` . |
     | **Plats**| Den plats där den sekundära hanterade instansen och det sekundära virtuella nätverket är.   |
     | **Virtuellt nätverk**| Välj det virtuella nätverket för din sekundära hanterade instans. |
-    | **Offentlig IP-adress**| Välj **Skapa ny** . |
+    | **Offentlig IP-adress**| Välj **Skapa ny**. |
     | **Namn på offentlig IP-adress**| Ange ett namn för din IP-adress. |
     | &nbsp; | &nbsp; |
 
@@ -450,12 +450,12 @@ I följande tabell visas de värden som krävs för gatewayen för den sekundär
    | **Prenumeration** |  Prenumerationen där den sekundära hanterade instansen är. |
    | **Namn** | Namnet på din virtuella nätverksgateway, till exempel `secondary-mi-gateway` . |
    | **Region** | Den region där den sekundära hanterade instansen är. |
-   | **Typ av Gateway** | Välj **VPN** . |
+   | **Typ av Gateway** | Välj **VPN**. |
    | **VPN-typ** | Välj **Route-baserad** |
    | **SKU**| Lämna standardvärdet `VpnGw1` . |
    | **Plats**| Den plats där den sekundära hanterade instansen och det sekundära virtuella nätverket är.   |
    | **Virtuellt nätverk**| Välj det virtuella nätverk som skapades i avsnitt 2, till exempel `vnet-sql-mi-secondary` . |
-   | **Offentlig IP-adress**| Välj **Skapa ny** . |
+   | **Offentlig IP-adress**| Välj **Skapa ny**. |
    | **Namn på offentlig IP-adress**| Ange ett namn för din IP-adress, till exempel `secondary-gateway-IP` . |
    | &nbsp; | &nbsp; |
 
@@ -509,15 +509,15 @@ Skapa anslutningar mellan de två gatewayerna med hjälp av Azure Portal.
 1. Välj **skapa en resurs** från [Azure Portal](https://portal.azure.com).
 1. Skriv `connection` i sökrutan och tryck sedan på RETUR för att söka, som tar dig till **anslutnings** resursen som publicerats av Microsoft.
 1. Välj **skapa** för att skapa din anslutning.
-1. På fliken **grundläggande** inställningar väljer du följande värden och väljer sedan **OK** .
-    1. Välj `VNet-to-VNet` för **anslutnings typen** .
+1. På fliken **grundläggande** inställningar väljer du följande värden och väljer sedan **OK**.
+    1. Välj `VNet-to-VNet` för **anslutnings typen**.
     1. Välj din prenumeration från listrutan.
     1. Välj resurs grupp för din hanterade instans i list rutan.
     1. Välj platsen för din primära hanterade instans i list rutan.
 1. På fliken **Inställningar** väljer eller anger du följande värden och väljer sedan **OK** :
     1. Välj den primära Nätverksgatewayen för den **första virtuella Nätverksgatewayen** , till exempel `Primary-Gateway` .  
     1. Välj den sekundära Nätverksgatewayen för den **andra virtuella Nätverksgatewayen** , till exempel `Secondary-Gateway` .
-    1. Markera kryss rutan bredvid **upprätta dubbelriktad anslutning** .
+    1. Markera kryss rutan bredvid **upprätta dubbelriktad anslutning**.
     1. Lämna antingen standard namnet för primär anslutning eller Byt namn på det till önskat värde.
     1. Ange en **delad nyckel (PSK)** för anslutningen, till exempel `mi1m2psk` .
 

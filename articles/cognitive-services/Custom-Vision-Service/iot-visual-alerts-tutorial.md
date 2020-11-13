@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: ebc6ca630ea3cabb519805ae8505abf336a2a9ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 833ec0f706786ebb86a54fb3c5b13d9c6e5c6062
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604299"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616237"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>Självstudie: använda Custom Vision med en IoT-enhet för att rapportera visuella tillstånd
 
@@ -31,9 +31,9 @@ De här självstudierna visar hur du:
 > * Använd appen för att träna ditt Custom Vision-projekt.
 > * Använd appen för att räkna med nya bilder i real tid och skicka resultatet till Azure.
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services) innan du börjar. 
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services) innan du börjar. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [!INCLUDE [create-resources](includes/create-resources.md)]
     > [!IMPORTANT]
@@ -41,16 +41,16 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 * Du måste också [skapa en IoT Hub-resurs](https://ms.portal.azure.com/#create/Microsoft.IotHub) på Azure.
 * [Visual Studio 2015 eller senare](https://www.visualstudio.com/downloads/)
 * Du kan också använda en IoT-enhet som kör Windows 10 IoT Core version 17763 eller senare. Du kan också köra appen direkt från din dator.
-   * För Raspberry Pi 2 och 3 kan du konfigurera Windows 10 direkt från IoT Dashboard-appen. För andra enheter, till exempel DrangonBoard, måste du använda Flash med EMMC- [metoden](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup#flashing-with-emmc-for-dragonboard-410c-other-qualcomm-devices). Om du behöver hjälp med att konfigurera en ny enhet läser du konfigurera [din enhet](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup) i Windows IoT-dokumentationen.
+   * För Raspberry Pi 2 och 3 kan du konfigurera Windows 10 direkt från IoT Dashboard-appen. För andra enheter, till exempel DrangonBoard, måste du använda Flash med EMMC- [metoden](/windows/iot-core/tutorials/quickstarter/devicesetup#flashing-with-emmc-for-dragonboard-410c-other-qualcomm-devices). Om du behöver hjälp med att konfigurera en ny enhet läser du konfigurera [din enhet](/windows/iot-core/tutorials/quickstarter/devicesetup) i Windows IoT-dokumentationen.
 
 ## <a name="about-the-visual-alerts-app"></a>Om appen visuella aviseringar
 
 Appen IoT Visual Alerts körs i en kontinuerlig slinga och växlar mellan fyra olika tillstånd efter behov:
 
-* **Ingen modell**: status No-op. Appen försätts i vilo läge för en sekund och kontrollerar kameran.
-* **Fånga utbildnings avbildningar**: i det här läget fångar appen en bild och laddar upp den som en utbildnings avbildning till mål Custom vision projektet. Appen är sedan i vilo läge för 500 ms och upprepar åtgärden tills det angivna mål antalet bilder har fångats. Sedan utlöses utbildningen av Custom Visions modellen.
-* **Väntar på tränad modell**: i det här läget anropar appen Custom vision-API varje sekund för att kontrol lera om mål projektet innehåller en utbildad iteration. När den hittar en hämtas motsvarande ONNX-modell till en lokal fil och växlar till **poängsättnings** tillstånd.
-* **Poäng**: i det här läget använder appen Windows ml för att utvärdera en enskild RAM från kameran mot den lokala ONNX-modellen. Den resulterande bild klassificeringen visas på skärmen och skickas som ett meddelande till IoT Hub. Appen försätts sedan i vilo läge för en sekund innan en ny bild påvärderas.
+* **Ingen modell** : status No-op. Appen försätts i vilo läge för en sekund och kontrollerar kameran.
+* **Fånga utbildnings avbildningar** : i det här läget fångar appen en bild och laddar upp den som en utbildnings avbildning till mål Custom vision projektet. Appen är sedan i vilo läge för 500 ms och upprepar åtgärden tills det angivna mål antalet bilder har fångats. Sedan utlöses utbildningen av Custom Visions modellen.
+* **Väntar på tränad modell** : i det här läget anropar appen Custom vision-API varje sekund för att kontrol lera om mål projektet innehåller en utbildad iteration. När den hittar en hämtas motsvarande ONNX-modell till en lokal fil och växlar till **poängsättnings** tillstånd.
+* **Poäng** : i det här läget använder appen Windows ml för att utvärdera en enskild RAM från kameran mot den lokala ONNX-modellen. Den resulterande bild klassificeringen visas på skärmen och skickas som ett meddelande till IoT Hub. Appen försätts sedan i vilo läge för en sekund innan en ny bild påvärderas.
 
 ## <a name="examine-the-code-structure"></a>Granska kod strukturen
 
@@ -76,7 +76,7 @@ Följ de här stegen för att få appen IoT Visual Alerts att köras på din dat
     1. Uppdatera `targetCVSProjectGuid` variabeln med motsvarande ID för det Custom vision projekt som du vill använda. 
 1. Konfigurera IoT Hub resursen:
     1. I _IoTHub\IotHubWrapper.cs_ -skriptet uppdaterar du `s_connectionString` variabeln med rätt anslutnings sträng för enheten. 
-    1. På Azure Portal läser du in IoT Hub-instansen, klickar på **IoT-enheter** under **Utforskaren**, väljer på din målenhet (eller skapar en vid behov) och letar rätt på anslutnings strängen under **primär anslutnings sträng**. Strängen kommer att innehålla ditt IoT Hub namn, enhets-ID och den delade åtkomst nyckeln. Det har följande format: `{your iot hub name}.azure-devices.net;DeviceId={your device id};SharedAccessKey={your access key}` .
+    1. På Azure Portal läser du in IoT Hub-instansen, klickar på **IoT-enheter** under **Utforskaren** , väljer på din målenhet (eller skapar en vid behov) och letar rätt på anslutnings strängen under **primär anslutnings sträng**. Strängen kommer att innehålla ditt IoT Hub namn, enhets-ID och den delade åtkomst nyckeln. Det har följande format: `{your iot hub name}.azure-devices.net;DeviceId={your device id};SharedAccessKey={your access key}` .
 
 ## <a name="run-the-app"></a>Kör appen
 
@@ -107,8 +107,8 @@ Upprepa den här processen med ditt eget scenario:
 1. Logga in på [Custom vision webbplats](http://customvision.ai).
 1. Hitta mål projektet, vilket nu bör ha alla utbildnings bilder som appen har laddat upp.
 1. För varje visuellt läge som du vill identifiera väljer du lämpliga avbildningar och tillämpar sedan taggen manuellt.
-    * Om målet till exempel är att skilja mellan ett tomt rum och ett rum med personer i det rekommenderar vi att du lägger till fem eller fler bilder med personer som en ny klass, **människor**och tagga fem eller flera bilder utan personer som den **negativa** taggen. Detta hjälper modellen att skilja mellan de två tillstånden.
-    * Ett annat exempel är om målet är att uppskatta hur full hylla är, kan du använda taggar som **EmptyShelf**, **PartiallyFullShelf**och **FullShelf**.
+    * Om målet till exempel är att skilja mellan ett tomt rum och ett rum med personer i det rekommenderar vi att du lägger till fem eller fler bilder med personer som en ny klass, **människor** och tagga fem eller flera bilder utan personer som den **negativa** taggen. Detta hjälper modellen att skilja mellan de två tillstånden.
+    * Ett annat exempel är om målet är att uppskatta hur full hylla är, kan du använda taggar som **EmptyShelf** , **PartiallyFullShelf** och **FullShelf**.
 1. När du är klar väljer du knappen **träna** .
 1. När inlärningen är klar kommer appen att identifiera att en utbildad iteration är tillgänglig. Processen för att exportera den tränade modellen kommer att startas till ONNX och hämtas till enheten.
 
@@ -142,5 +142,5 @@ I den här självstudien har du skapat och kört ett program som identifierar in
 > [IoTVisualAlerts-exempel (GitHub)](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/tree/master/IoTVisualAlerts)
 
 * Lägg till en IoT Hub-metod för att växla appen direkt till **väntar på intränat modell** tillstånd. På så sätt kan du träna modellen med bilder som inte har registrerats av själva enheten och sedan skicka den nya modellen till enheten i kommandot.
-* Följ själv studie kursen [visualisera real tids sensor data](https://docs.microsoft.com/azure/iot-hub/iot-hub-live-data-visualization-in-power-bi) för att skapa en Power BI instrument panel för att visualisera de IoT Hub aviseringar som skickas av exemplet.
-* Följ själv studie kursen för [IoT-fjärrövervakningen](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps) för att skapa en logisk app som svarar på IoT Hub aviseringar när visuella tillstånd identifieras.
+* Följ själv studie kursen [visualisera real tids sensor data](../../iot-hub/iot-hub-live-data-visualization-in-power-bi.md) för att skapa en Power BI instrument panel för att visualisera de IoT Hub aviseringar som skickas av exemplet.
+* Följ själv studie kursen för [IoT-fjärrövervakningen](../../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md) för att skapa en logisk app som svarar på IoT Hub aviseringar när visuella tillstånd identifieras.

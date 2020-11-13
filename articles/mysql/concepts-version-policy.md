@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/03/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: af2a58ecb97e4c62f437d0c693ec79a4b5f618b0
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 4903f1e48eb2f33c68d62c635201474b841ed146
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579240"
+ms.locfileid: "94591520"
 ---
 # <a name="azure-database-for-mysql-versioning-policy"></a>Princip för Azure Database for MySQL versions hantering
 
@@ -30,7 +30,7 @@ Azure Database for MySQL stöder följande databas versioner.
 
 
 ## <a name="major-version-support"></a>Huvud versions stöd
-Varje huvud version av MySQL kommer att stödjas av Azure Database for MySQL från det datum då Azure börjar stödja versionen tills versionen har dragits tillbaka av MySQL-communityn, som anges i [versions principen](https://en.wikipedia.org/wiki/mysql).
+Varje huvud version av MySQL kommer att stödjas av Azure Database for MySQL från det datum då Azure börjar stödja versionen tills versionen har dragits tillbaka av MySQL-communityn, som anges i [versions principen](https://www.mysql.com/support/eol-notice.html).
 
 ## <a name="minor-version-support"></a>Lägre versions stöd
 Azure Database for MySQL utför automatiskt lägre versions uppgraderingar till den Azure Preferred MySQL-version som en del av det periodiska underhållet. 

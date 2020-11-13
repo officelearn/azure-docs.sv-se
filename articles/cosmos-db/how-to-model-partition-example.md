@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: ef999d4b452f3f31942e1fb2ddb46efe760acff0
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: c3cdc0a9fb9fa236fae37a52194f446278a42f72
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342155"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616254"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Så här modellerar och partitionerar du data i Azure Cosmos DB med ett verkligt exempel
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -21,6 +21,8 @@ ms.locfileid: "93342155"
 Den här artikeln bygger på flera Azure Cosmos DB koncept som [data modellering](modeling-data.md), [partitionering](partitioning-overview.md)och [etablerade data flöden](request-units.md) för att demonstrera hur du kan hantera en verklig data Designs övning.
 
 Om du vanligt vis arbetar med relations databaser har du förmodligen skapat vanor och intuitions om hur du skapar en data modell. På grund av de specifika begränsningarna, men även de unika fördelarna med Azure Cosmos DB, översätter de flesta av dessa metod tips inte bra och kan dra dig till underoptimala lösningar. Målet med den här artikeln är att vägleda dig genom hela processen med att modellera ett verkligt användnings fall på Azure Cosmos DB, från objekt modellering till enhetens samplacering och container partitionering.
+
+[Hämta eller Visa en community-genererad källkod](https://github.com/jwidmer/AzureCosmosDbBlogExample) som illustrerar begreppen från den här artikeln. Det här kod exemplet drogs av en community-deltagare och Azure Cosmos DB-teamet stöder inte underhållet.
 
 ## <a name="the-scenario"></a>Scenariot
 

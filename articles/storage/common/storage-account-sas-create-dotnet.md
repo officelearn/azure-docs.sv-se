@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/06/2019
+ms.date: 11/12/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d2c21d85d1b88f33ff696ba1d230d34bbd6945d1
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 1cb882ac1051c41f4d887a9ff4dd8cd64bc9f56c
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091686"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593611"
 ---
 # <a name="create-an-account-sas-with-net"></a>Skapa ett konto säkerhets associationer med .NET
 
@@ -25,6 +25,14 @@ ms.locfileid: "92091686"
 Den här artikeln visar hur du använder lagrings konto nyckeln för att skapa en konto säkerhets Association med [Azure Storage klient biblioteket för .net](/dotnet/api/overview/azure/storage).
 
 ## <a name="create-an-account-sas"></a>Skapa en konto-SAS
+
+### <a name="net-v12"></a>[\.NET-V12](#tab/dotnet)
+
+En konto säkerhets Association är signerad med konto åtkomst nyckeln. Använd [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) -klassen för att skapa de autentiseringsuppgifter som används för att signera SAS. Skapa sedan ett nytt [AccountSasBuilder](/dotnet/api/azure.storage.sas.accountsasbuilder) -objekt och anropa [ToSasQueryParameters](/dotnet/api/azure.storage.sas.accountsasbuilder.tosasqueryparameters) för att hämta SAS-token-strängen.
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetAccountSASToken":::
+
+### <a name="net-v11"></a>[\.NET-v11](#tab/dotnetv11)
 
 Om du vill skapa en konto säkerhets Association för en behållare anropar du metoden [CloudStorageAccount. GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.getsharedaccesssignature) .
 
@@ -52,9 +60,21 @@ static string GetAccountSASToken()
 }
 ```
 
+---
+
 ## <a name="use-an-account-sas-from-a-client"></a>Använda en konto säkerhets Association från en klient
 
-Om du vill använda kontots SAS för att få åtkomst till API: er för den Blob Service skapar du ett Blob Service klient objekt med SAS-och Blob Storage-slutpunkten för ditt lagrings konto. Kom ihåg att ersätta plats hållarnas värden inom vinkelparenteser med dina egna värden:
+Om du vill använda kontots SAS för att få åtkomst till API: er för den Blob Service skapar du ett Blob Service klient objekt med SAS-och Blob Storage-slutpunkten för ditt lagrings konto.
+
+### <a name="net-v12"></a>[\.NET-V12](#tab/dotnet)
+
+
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_UseAccountSAS":::
+
+### <a name="net-v11"></a>[\.NET-v11](#tab/dotnetv11)
+
+I det här kodfragmentet ersätter du `<storage-account>` plats hållaren med namnet på ditt lagrings konto.
 
 ```csharp
 static void UseAccountSAS(string sasToken)
@@ -95,6 +115,8 @@ static void UseAccountSAS(string sasToken)
     Console.WriteLine(serviceProperties.HourMetrics.Version);
 }
 ```
+
+---
 
 ## <a name="next-steps"></a>Nästa steg
 

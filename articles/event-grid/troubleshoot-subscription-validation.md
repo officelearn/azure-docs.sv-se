@@ -3,18 +3,30 @@ title: Azure Event Grid – fel sökning av prenumerations validering
 description: Den här artikeln visar hur du kan felsöka prenumerations valideringar.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 48844859013507ab684ef8879b7b85dd6b6fe8cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 857760182675d5673a3b09495c2faaf7372a4164
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86118995"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592948"
 ---
 # <a name="troubleshoot-azure-event-grid-subscription-validations"></a>Felsöka Azure Event Grid prenumerations valideringar
-Den här artikeln innehåller information om hur du felsöker händelse prenumerations valideringar. 
+Om du ser ett fel meddelande, till exempel `The attempt to validate the provided endpoint https://your-endpoint-here failed. For more details, visit https://aka.ms/esvalidation` , innebär det att det är ett fel i validerings hand skakningen när händelse prenumerationen skapas. Kontrol lera följande aspekter för att lösa det här felet:
+
+- Gör ett HTTP-inlägg till webhook-URL: en med ett [exempel på SubscriptionValidationEvent](webhook-event-delivery.md#validation-details) för begäran med Postman eller sväng eller liknande verktyg.
+- Om webhooken implementerar mekanismen för synkron verifierings hand skakning kontrollerar du att ValidationCode returneras som en del av svaret.
+- Om webhooken implementerar mekanismen för asynkron verifierings hand skakning kontrollerar du att HTTP-inlägget returnerar 200 OK.
+- Om webhooken returneras `403 (Forbidden)` i svaret kontrollerar du att webhooken ligger bakom en Azure Application Gateway eller brand vägg för webbaserade program. Om så är fallet måste du inaktivera dessa brand Väggs regler och göra ett HTTP-inlägg igen:
+    - 920300 (begäran saknas i ett accept-huvud)
+    - 942430 (begränsad SQL Character-avvikelse identifiering (argument): # av specialtecken har överskridits (12))
+    - 920230 (flera URL-kodning identifierade)
+    - 942130 (SQL-injektering: SQL-Tautology har identifierats.)
+    - 931130 (möjliga RFI-angrepp (Remote File inkludering) = av-domän referens/länk)
 
 > [!IMPORTANT]
 > Detaljerad information om slut punkts validering för Webhooks finns i avsnittet om att [leverera en webhook](webhook-event-delivery.md).
+
+I följande avsnitt visas hur du verifierar en händelse prenumeration med Postman och sväng.  
 
 ## <a name="validate-event-grid-event-subscription-using-postman"></a>Verifiera Event Grid händelse prenumeration med Postman
 Här är ett exempel på hur du använder Postman för att verifiera en webhook-prenumeration på en Event Grid händelse: 
@@ -65,14 +77,7 @@ Här är ett exempel på hur du använder Postman för att verifiera en webhook-
 
 Använd **http Options-** metoden för att verifiera med moln händelser. Mer information om validering av moln händelser för Webhooks finns i [slut punkts validering med moln händelser](webhook-event-delivery.md#endpoint-validation-with-event-grid-events).
 
-## <a name="error-code-403"></a>Felkod: 403
-Om webhooken returnerar 403 (förbjuden) i svaret kontrollerar du att webhooken ligger bakom en Azure Application Gateway eller brand vägg för webbaserade program. Om det är så måste du inaktivera följande brand Väggs regler och göra ett HTTP-inlägg igen:
-
-  - 920300 (begäran saknar ett accept-huvud, vi kan åtgärda detta)
-  - 942430 (begränsad SQL Character-avvikelse identifiering (argument): # av specialtecken har överskridits (12))
-  - 920230 (flera URL-kodning identifierade)
-  - 942130 (SQL-injektering: SQL-Tautology har identifierats.)
-  - 931130 (möjligt RFI-angrepp (Remote File inkludering) = Off-Domain referens/länk)
+## <a name="troubleshoot-event-subscription-validation"></a>Felsöka verifiering av händelse prenumeration
 
 ## <a name="next-steps"></a>Nästa steg
 Om du behöver mer hjälp kan du publicera ditt problem i [Stack Overflow-forumet](https://stackoverflow.com/questions/tagged/azure-eventgrid) eller öppna ett [support ärende](https://azure.microsoft.com/support/options/). 

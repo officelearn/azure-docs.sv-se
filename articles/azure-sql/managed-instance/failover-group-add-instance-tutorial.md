@@ -8,16 +8,16 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: tutorial
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: sashan, sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: sashan
 ms.date: 08/27/2019
-ms.openlocfilehash: df10e2b674a8e97766ee96a802e614e2bd797b7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92d1ce51306e846e2d842bef33bb9782da14019a
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617748"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94594002"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Självstudie: Lägg till SQL-hanterad instans i en failover-grupp
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -63,16 +63,16 @@ Distribuera båda hanterade instanser till [kopplade regioner](../../best-practi
 
 Skapa resurs gruppen och den primära hanterade instansen med hjälp av Azure Portal. 
 
-1. Välj **Azure SQL** i den vänstra menyn i Azure Portal. Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan `Azure SQL` i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster. 
+1. Välj **Azure SQL** i den vänstra menyn i Azure Portal. Om **Azure SQL** inte finns i listan väljer du **alla tjänster** och skriver sedan `Azure SQL` i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster. 
 1. Välj **+ Lägg** till för att öppna **alternativ sidan Välj SQL-distribution** . Du kan visa ytterligare information om de olika databaserna genom att välja **Visa information** på panelen **databaser** .
 1. Välj **skapa** på panelen **SQL Managed instances** . 
 
     ![Välj SQL-hanterad instans](./media/failover-group-add-instance-tutorial/select-managed-instance.png)
 
 1. På fliken **grundläggande** på sidan **skapa hanterad Azure SQL-instans** :
-    1. Under **projekt information**väljer du din **prenumeration** i list rutan och väljer sedan att skapa en **ny** resurs grupp. Ange ett namn för resurs gruppen, till exempel `myResourceGroup` . 
-    1. Under **SQL-hanterad instans information**anger du namnet på den hanterade instansen och den region där du vill distribuera din hanterade instans. Lämna **beräknings-och lagrings utrymme** med standardvärden. 
-    1. Under **administratörs konto**anger du en Administratörs inloggning, till exempel `azureuser` och ett komplext administratörs lösen ord. 
+    1. Under **projekt information** väljer du din **prenumeration** i list rutan och väljer sedan att skapa en **ny** resurs grupp. Ange ett namn för resurs gruppen, till exempel `myResourceGroup` . 
+    1. Under **SQL-hanterad instans information** anger du namnet på den hanterade instansen och den region där du vill distribuera din hanterade instans. Lämna **beräknings-och lagrings utrymme** med standardvärden. 
+    1. Under **administratörs konto** anger du en Administratörs inloggning, till exempel `azureuser` och ett komplext administratörs lösen ord. 
 
     ![Skapa primär hanterad instans](./media/failover-group-add-instance-tutorial/primary-sql-mi-values.png)
 
@@ -161,8 +161,8 @@ Skapa din resurs grupp och den primära hanterade instansen med PowerShell.
    # Suppress networking breaking changes warning (https://aka.ms/azps-changewarnings
    Set-Item Env:\SuppressAzurePowerShellBreakingChangeWarnings "true"
    
-   # Set the subscription context
-   Set-AzContext -SubscriptionId $subscriptionId 
+   # Set the subscription context
+   Set-AzContext -SubscriptionId $subscriptionId 
    
    # Create the resource group
    Write-host "Creating resource group..."
@@ -386,7 +386,7 @@ Skapa din resurs grupp och den primära hanterade instansen med PowerShell.
 
 I den här delen av självstudien används följande PowerShell-cmdletar:
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en Azure-resursgrupp.  |
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Skapar ett virtuellt nätverk.  |
@@ -457,7 +457,7 @@ Din andra hanterade instans måste:
 
 Skapa den sekundära hanterade instansen med hjälp av Azure Portal. 
 
-1. Välj **Azure SQL** i den vänstra menyn i Azure Portal. Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan `Azure SQL` i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster. 
+1. Välj **Azure SQL** i den vänstra menyn i Azure Portal. Om **Azure SQL** inte finns i listan väljer du **alla tjänster** och skriver sedan `Azure SQL` i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster. 
 1. Välj **+ Lägg** till för att öppna **alternativ sidan Välj SQL-distribution** . Du kan visa ytterligare information om de olika databaserna genom att välja **Visa information** på panelen **databaser** .
 1. Välj **skapa** på panelen **SQL Managed instances** . 
 
@@ -481,7 +481,7 @@ Skapa den sekundära hanterade instansen med hjälp av Azure Portal.
 
    ![Sekundärt MI-nätverk](./media/failover-group-add-instance-tutorial/networking-settings-for-secondary-mi.png)
 
-1. Under fliken **ytterligare inställningar** , för **geo-replikering**väljer du **Ja** för att _använda som sekundär redundans_. Välj den primära hanterade instansen i list rutan. 
+1. Under fliken **ytterligare inställningar** , för **geo-replikering** väljer du **Ja** för att _använda som sekundär redundans_. Välj den primära hanterade instansen i list rutan. 
     
    Se till att sorterings-och tids zonen stämmer överens med den primära hanterade instansen. Den primära hanterade instansen som skapas i den här självstudien använde standardvärdet för `SQL_Latin1_General_CP1_CI_AS` sortering och `(UTC) Coordinated Universal Time` tidszon. 
 
@@ -716,7 +716,7 @@ Skapa den sekundära hanterade instansen med PowerShell.
 
 I den här delen av självstudien används följande PowerShell-cmdletar:
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en Azure-resursgrupp.  |
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Skapar ett virtuellt nätverk.  |
@@ -820,7 +820,7 @@ Skapa gatewayen för det virtuella nätverket för den primära hanterade instan
 
 I den här delen av självstudien används följande PowerShell-cmdletar:
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | Hämtar ett virtuellt nätverk i en resursgrupp. |
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | Lägger till en under näts konfiguration i ett virtuellt nätverk. | 
@@ -900,7 +900,7 @@ Skapa gatewayen för det virtuella nätverket för den sekundära hanterade inst
 
 I den här delen av självstudien används följande PowerShell-cmdletar:
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | Hämtar ett virtuellt nätverk i en resursgrupp. |
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | Lägger till en under näts konfiguration i ett virtuellt nätverk. | 
@@ -930,9 +930,9 @@ Anslut de två gatewayerna med hjälp av Azure Portal.
     1. Välj din prenumeration från listrutan. 
     1. Välj resurs grupp för SQL-hanterad instans i list rutan. 
     1. Välj platsen för din primära hanterade instans i list rutan. 
-1. På sidan **Inställningar** väljer eller anger du följande värden och väljer sedan **OK**:
-    1. Välj den primära Nätverksgatewayen för den **första virtuella Nätverksgatewayen**, till exempel `primaryGateway` .  
-    1. Välj den sekundära Nätverksgatewayen för den **andra virtuella Nätverksgatewayen**, till exempel `secondaryGateway` . 
+1. På sidan **Inställningar** väljer eller anger du följande värden och väljer sedan **OK** :
+    1. Välj den primära Nätverksgatewayen för den **första virtuella Nätverksgatewayen** , till exempel `primaryGateway` .  
+    1. Välj den sekundära Nätverksgatewayen för den **andra virtuella Nätverksgatewayen** , till exempel `secondaryGateway` . 
     1. Markera kryss rutan bredvid **upprätta dubbelriktad anslutning**. 
     1. Lämna antingen standard namnet för primär anslutning eller Byt namn på det till önskat värde. 
     1. Ange en **delad nyckel (PSK)** för anslutningen, till exempel `mi1m2psk` . 
@@ -968,7 +968,7 @@ Anslut de två gatewayerna med PowerShell.
 
 I den här delen av självstudien används följande PowerShell-cmdlet:
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [New-AzVirtualNetworkGatewayConnection](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection) | Skapar en anslutning mellan de två virtuella Nätverksgatewayen.   |
 
@@ -983,9 +983,9 @@ I det här steget skapar du gruppen redundans och lägger till båda hanterade i
 Skapa gruppen redundans med hjälp av Azure Portal. 
 
 
-1. Välj **Azure SQL** i den vänstra menyn i [Azure Portal](https://portal.azure.com). Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan `Azure SQL` i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster. 
+1. Välj **Azure SQL** i den vänstra menyn i [Azure Portal](https://portal.azure.com). Om **Azure SQL** inte finns i listan väljer du **alla tjänster** och skriver sedan `Azure SQL` i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster. 
 1. Välj den primära hanterade instans som du skapade i det första avsnittet, till exempel `sql-mi-primary` . 
-1. Under **Inställningar**navigerar du till **instans grupper för redundans** och väljer sedan **Lägg till grupp** för att öppna sidan **instans redundans grupp** . 
+1. Under **Inställningar** navigerar du till **instans grupper för redundans** och väljer sedan **Lägg till grupp** för att öppna sidan **instans redundans grupp** . 
 
    ![Lägg till en grupp för redundans](./media/failover-group-add-instance-tutorial/add-failover-group.png)
 
@@ -1010,7 +1010,7 @@ Skapa gruppen för växling vid fel med hjälp av PowerShell.
 
 I den här delen av självstudien används följande PowerShell-cmdlet:
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup)| Skapar en ny failover-grupp för Azure SQL-hanterad instans.  |
 
@@ -1076,7 +1076,7 @@ Testa redundans med PowerShell.
 
 I den här delen av självstudien används följande PowerShell-cmdletar:
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [Get-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/get-azsqldatabaseinstancefailovergroup) | Hämtar eller listar redundans grupper för SQL-hanterade instanser.| 
 | [Switch-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) | Kör en redundansväxling av en failover-grupp med SQL-hanterad instans. | 
@@ -1093,7 +1093,7 @@ Rensa resurser genom att först ta bort de hanterade instanserna, sedan det virt
 1. Välj de hanterade instanserna och välj sedan **ta bort**. Skriv `yes` text rutan för att bekräfta att du vill ta bort resursen och välj sedan **ta bort**. Den här processen kan ta lite tid att slutföra i bakgrunden och tills den är klar kommer du inte att kunna ta bort det *virtuella klustret* eller andra beroende resurser. Övervaka borttagningen på fliken **aktivitet** för att bekräfta att den hanterade instansen har tagits bort. 
 1. När den hanterade instansen har tagits bort tar du bort det *virtuella klustret* genom att markera det i resurs gruppen och sedan välja **ta bort**. Skriv `yes` text rutan för att bekräfta att du vill ta bort resursen och välj sedan **ta bort**. 
 1. Ta bort eventuella återstående resurser. Skriv `yes` text rutan för att bekräfta att du vill ta bort resursen och välj sedan **ta bort**. 
-1. Ta bort resurs gruppen genom att välja **ta bort resurs**grupp, Skriv namnet på resurs gruppen `myResourceGroup` och välj sedan **ta bort**. 
+1. Ta bort resurs gruppen genom att välja **ta bort resurs** grupp, Skriv namnet på resurs gruppen `myResourceGroup` och välj sedan **ta bort**. 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -1108,7 +1108,7 @@ Write-host "Removing residual resources and resource group..."
 
 I den här delen av självstudien används följande PowerShell-cmdlet:
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resurs grupp. |
 
@@ -1121,7 +1121,7 @@ I den här delen av självstudien används följande PowerShell-cmdlet:
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en Azure-resursgrupp.  |
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Skapar ett virtuellt nätverk.  |

@@ -8,19 +8,19 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 10/05/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 168dc342eaf61a9ede632fb429311f6f5c1d4be4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e3d95be52215b03a30dc4b5c7f251357f163b24a
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311563"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616101"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Så här använder du din arbetsyta med en anpassad DNS-server
 
-När du använder Azure Machine Learning med ett virtuellt nätverk finns det [flera sätt att hantera DNS-namnmatchning](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). Som standard hanterar Azure automatiskt namn matchning för din arbets yta och privat slut punkt. Men __när du använder din egen anpassade DNS-Server__ måste du skapa DNS-poster för arbets ytan manuellt.
+När du använder Azure Machine Learning med ett virtuellt nätverk finns det [flera sätt att hantera DNS-namnmatchning](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). Som standard hanterar Azure automatiskt namn matchning för din arbets yta och privat slut punkt. Om du i stället _använder en egen anpassad DNS-Server_ _ måste du skapa DNS-poster för arbets ytan manuellt.
 
 > [!IMPORTANT]
 > Den här artikeln beskriver bara hur du hittar det fullständigt kvalificerade domän namnet (FQDN) och IP-adresser för dessa poster. det ger inte information om hur du konfigurerar DNS-poster för dessa objekt. I dokumentationen för DNS-programvaran finns information om hur du lägger till poster.
@@ -40,13 +40,14 @@ När du använder Azure Machine Learning med ett virtuellt nätverk finns det [f
 I följande lista visas de fullständigt kvalificerade domän namnen (FQDN) som används av din arbets yta och privat slut punkt:
 
 * `<workspace-GUID>.workspace.<region>.api.azureml.ms`
-* `<workspace-GUID>.studio.workspace.<region>.api.azureml.ms`
-* `cert-<workspace-GUID>.workspace.<region>.api.azureml.ms`
 * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
 * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
 * `<workspace-GUID>.workspace.<region>.aether.ms`
 * `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.ml`
-* Om du skapar en beräknings instans måste du också lägga till en post för `<instance-name>.<region>.instances.azureml.ms` med privat IP för arbets ytans privata slut punkt. Observera att det bara går att få åtkomst till beräknings instans i det virtuella nätverket.
+* Om du skapar en beräknings instans måste du också lägga till en post för `<instance-name>.<region>.instances.azureml.ms` med den privata IP-adressen för den privata slut punkten för arbets ytan.
+
+    > [!NOTE]
+    > Beräknings instanser kan bara nås från det virtuella nätverket.
 
 Använd någon av följande metoder för att hitta de interna IP-adresserna för FQDN i VNet:
 
@@ -82,8 +83,6 @@ Informationen som returneras från alla metoder är densamma. en lista över FQD
 | FQDN | IP-adress |
 | ----- | ----- |
 | `fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.api.azureml.ms` | `10.1.0.5` |
-| `fb7e20a0-8891-458b-b969-55ddb3382f51.studio.workspace.eastus.api.azureml.ms` | `10.1.0.5` |
-| `cert-fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.api.azureml.ms` | `10.1.0.5` |
 | `ml-myworkspace-eastus-fb7e20a0-8891-458b-b969-55ddb3382f51.notebooks.azure.net` | `10.1.0.6` |
 
 > [!IMPORTANT]

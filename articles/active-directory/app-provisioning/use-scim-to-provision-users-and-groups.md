@@ -12,12 +12,12 @@ ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperfq2
-ms.openlocfilehash: 158a82b43e573e5d34ec9a44c4a47cd1126de8ed
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 0ec70963dd7f464ae4e72c3bf79e06ebfb5238fc
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424585"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616188"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Självstudie – Bygg en SCIM-slutpunkt och konfigurera användar etablering med Azure AD
 
@@ -88,7 +88,8 @@ Det schema som definierats ovan ska representeras med JSON-nyttolasten nedan. Ob
      "location":
  "https://example.com/v2/Users/2819c223-7f76-453a-919d-413861904646"
    }
- ```
+}   
+```
 
 ### <a name="table-2-default-user-attribute-mapping"></a>Tabell 2: mappning av standardattribut för användare
 Du kan sedan använda tabellen nedan för att förstå hur attributen som programmet kräver kan mappas till ett attribut i Azure AD och SCIM RFC. Du kan [Anpassa](customize-application-attributes.md) hur attribut mappas mellan Azure AD och din scim-slutpunkt. Observera att du inte behöver stödja både användare och grupper eller alla attribut som visas nedan. De är en referens för hur attribut i Azure AD ofta mappas till egenskaper i SCIM-protokollet. 
@@ -126,7 +127,7 @@ Du kan sedan använda tabellen nedan för att förstå hur attributen som progra
 | objectId |externalId |
 | proxyAddresses |e-postmeddelanden [Type EQ "other"]. Värde |
 
-Det finns flera slut punkter definierade i SCIM RFC. Du kan komma igång med/User-slutpunkten och sedan expandera därifrån. /Schemas-slutpunkten är användbar när du använder anpassade attribut eller om schemat ändras ofta. Det gör det möjligt för en klient att hämta det mest uppdaterade schemat automatiskt. /Bulk-slutpunkten är särskilt användbar när du har stöd för grupper. Tabellen nedan beskriver de olika slut punkter som definieras i SCIM-standarden. /Schemas-slutpunkten är användbar när du använder anpassade attribut eller om schemat ändras ofta. Det gör att en klient kan hämta det mest uppdaterade schemat automatiskt. /Bulk-slutpunkten är särskilt användbar när du har stöd för grupper. Tabellen nedan beskriver de olika slut punkter som definieras i SCIM-standarden. 
+Det finns flera slut punkter definierade i SCIM RFC. Du kan komma igång med/User-slutpunkten och sedan expandera därifrån. /Schemas-slutpunkten är användbar när du använder anpassade attribut eller om schemat ändras ofta. Det gör det möjligt för en klient att hämta det mest uppdaterade schemat automatiskt. /Bulk-slutpunkten är särskilt användbar när du har stöd för grupper. Tabellen nedan beskriver de olika slut punkter som definieras i SCIM-standarden.
  
 ### <a name="table-4-determine-the-endpoints-that-you-would-like-to-develop"></a>Tabell 4: Bestäm de slut punkter som du vill utveckla
 |ENDPOINT|BESKRIVNING|
@@ -720,7 +721,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 *HTTP/1.1 204 inget innehåll*
 
-### <a name="security-requirements"></a>Säkerhets krav
+### <a name="security-requirements"></a>Säkerhetskrav
 **TLS-protokoll versioner**
 
 De enda acceptabla TLS-protokollen är TLS 1,2 och TLS 1,3. Inga andra versioner av TLS tillåts. Ingen version av SSL tillåts. 
@@ -761,7 +762,7 @@ Den öppna käll-och [referens koden](https://aka.ms/SCIMReferenceCode) för .ne
 
 Lösningen består av två projekt, _Microsoft. scim_ och _Microsoft. scim. WebHostSample_.
 
-_Microsoft. scim_ -projektet är det bibliotek som definierar komponenterna i webb tjänsten som följer scim-specifikationen. Den deklarerar gränssnittet _Microsoft. scim. IProvider_och begär Anden översätts till anrop till providerns metoder, som skulle vara programmerade att köras i ett identitets lager.
+_Microsoft. scim_ -projektet är det bibliotek som definierar komponenterna i webb tjänsten som följer scim-specifikationen. Den deklarerar gränssnittet _Microsoft. scim. IProvider_ och begär Anden översätts till anrop till providerns metoder, som skulle vara programmerade att köras i ett identitets lager.
 
 ![Detalj nivå: en begäran har översatts till anrop till providerns metoder](media/use-scim-to-provision-users-and-groups/scim-figure-3.png)
 
@@ -808,7 +809,7 @@ Om du vill ha mer information om HTTPS i ASP.NET Core använder du följande lä
 
 Begär Anden från Azure Active Directory innehåller en OAuth 2,0 Bearer-token. Alla tjänster som tar emot begäran ska autentisera utfärdaren som Azure Active Directory för den förväntade Azure Active Directory klienten.
 
-I token identifieras utfärdaren av ett ISS-anspråk, t. ex `"iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"` .. I det här exemplet är bas adressen för anspråk svärdet, `https://sts.windows.net` identifierar Azure Active Directory som utfärdare, medan det relativa adress segmentet _cbb1a5ac-f33b-45fa-9bf5-f37db0fed422_är en unik identifierare för den Azure Active Directory klient som token utfärdades för.
+I token identifieras utfärdaren av ett ISS-anspråk, t. ex `"iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"` .. I det här exemplet är bas adressen för anspråk svärdet, `https://sts.windows.net` identifierar Azure Active Directory som utfärdare, medan det relativa adress segmentet _cbb1a5ac-f33b-45fa-9bf5-f37db0fed422_ är en unik identifierare för den Azure Active Directory klient som token utfärdades för.
 
 Mål gruppen för token är programmets mall-ID för programmet i galleriet. varje program som registreras i en enskild klient kan få samma `iss` anspråk med scim-begäranden. Programmets mall-ID för alla anpassade appar är _8adf8e6e-67b2-4cf2-a259-e3dc5476c621_. Den token som genereras av Azure AD Provisioning-tjänsten bör endast användas för testning. Den bör inte användas i produktions miljöer.
 
@@ -916,7 +917,7 @@ Skicka en GET-begäran till token-styrenheten för att få en giltig Bearer-toke
 
 ### <a name="handling-provisioning-and-deprovisioning-of-users"></a>Hantera etablering och avetablering av användare
 
-***Exempel 1. Fråga tjänsten om matchande användare**_
+***Exempel 1. Fråga tjänsten om matchande användare** _
 
 Azure Active Directory skickar en fråga till tjänsten för en användare med ett `externalId` attributvärde som matchar värdet för attributet smek namn för en användare i Azure AD. Frågan uttrycks som en Hypertext Transfer Protocol (HTTP)-begäran, till exempel det här exemplet, där jyoung är ett exempel på ett smek namn för en användare i Azure Active Directory.
 
@@ -949,7 +950,7 @@ komponentparametrar. AlternateFilters. Count: 1
 * komponentparametrar. AlternateFilters. ElementAt (0). ComparisonOperator: ComparisonOperator. equals
 * komponentparametrar. AlternateFilter. ElementAt (0). ComparisonValue: "jyoung"
 
-***Exempel 2. Etablera en användare**_
+***Exempel 2. Etablera en användare** _
 
 Om svaret på en fråga till webb tjänsten för en användare med ett `externalId` attributvärde som matchar värdet för ett värde för en användare inte returnerar några användare, kommer Azure Active Directory begär Anden som tjänsten etablerar en användare som motsvarar den som finns i Azure Active Directory.  Här är ett exempel på en sådan begäran: 
 
@@ -1025,7 +1026,7 @@ I exemplet på en begäran om att hämta det aktuella status för en användare 
 _ Identifierare: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * SchemaIdentifier: "urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: User"
 
-***Exempel 4. Fråga värdet för ett referens-attribut som ska uppdateras**_ 
+***Exempel 4. Fråga värdet för ett referens-attribut som ska uppdateras** _ 
 
 Om ett referens-attribut ska uppdateras, så Azure Active Directory frågar tjänsten om det aktuella värdet för referens-attributet i identitets arkivet som är baserat på tjänsten redan matchar värdet för attributet i Azure Active Directory. För användare är det enda attributet där det aktuella värdet frågas på det här sättet är attributet Manager. Här är ett exempel på en begäran om att avgöra om attributet Manager för ett användar objekt har ett visst värde: i exempel koden översätts begäran till ett anrop till QueryAsync-metoden för tjänstens Provider. Värdet för egenskaperna för objektet som anges som värde för parameter argumentet är följande: 
   
@@ -1041,7 +1042,7 @@ komponentparametrar. AlternateFilters. Count: 2
 
 Här kan värdet för index x vara 0 och värdet för indexet y kan vara 1 eller värdet för x kan vara 1 och värdet för y kan vara 0, beroende på ordningen på uttrycken för filter fråge parametern.   
 
-***Exempel 5. Begär från Azure AD till en SCIM-tjänst för att uppdatera en användare**_ 
+***Exempel 5. Begär från Azure AD till en SCIM-tjänst för att uppdatera en användare** _ 
 
 Här är ett exempel på en begäran från Azure Active Directory till en SCIM-tjänst för att uppdatera en användare: 
 
@@ -1089,7 +1090,7 @@ _ ResourceIdentifier. Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * (PatchRequest som PatchRequest2). Operations. ElementAt (0). Value. ElementAt (0). Referens: http://.../scim/Users/2819c223-7f76-453a-919d-413861904646
 * (PatchRequest som PatchRequest2). Operations. ElementAt (0). Value. ElementAt (0). Värde: 2819c223-7f76-453A-919d-413861904646
 
-***Exempel 6. Avetablera en användare**_
+***Exempel 6. Avetablera en användare** _
 
 För att avetablera en användare från ett identitets lager med en SCIM-tjänst skickar Azure AD en begäran som:
 
@@ -1147,8 +1148,8 @@ Program som stöder SCIM-profilen som beskrivs i den här artikeln kan anslutas 
 7. I fältet **klient-URL** anger du URL: en för programmets scim-slutpunkt. Exempel: `https://api.contoso.com/scim/`
 8. Om SCIM-slutpunkten kräver en OAuth Bearer-token från en annan utfärdare än Azure AD kopierar du den obligatoriska OAuth Bearer-token till fältet valfritt **hemligt token** . Om det här fältet lämnas tomt innehåller Azure AD en OAuth Bearer-token som utfärdats från Azure AD med varje begäran. Appar som använder Azure AD som en identitetsprovider kan verifiera den här Azure AD-utfärdade token. 
    > [!NOTE]
-   > Det är **_inte_*_ rekommenderat att lämna det här fältet tomt och förlita sig på en token som genereras av Azure AD. Det här alternativet är i första hand tillgängligt i test syfte.
-9. Välj _*Testa anslutning** för att Azure Active Directory försöka ansluta till scim-slutpunkten. Om försöket Miss lyckas visas fel information.  
+   > Det är * *_inte_* _ rekommenderat att lämna det här fältet tomt och förlita sig på en token som genereras av Azure AD. Det här alternativet är i första hand tillgängligt i test syfte.
+9. Välj _ *Testa anslutning* * för att Azure Active Directory försöka ansluta till scim-slutpunkten. Om försöket Miss lyckas visas fel information.  
 
     > [!NOTE]
     > **Test anslutning** frågar scim-slutpunkten för en användare som inte finns med ett slumpmässigt GUID som den matchande egenskap som valts i Azure AD-konfigurationen. Det förväntade korrekta svaret är HTTP 200 OK med ett tomt SCIM ListResponse-meddelande.
@@ -1159,7 +1160,7 @@ Program som stöder SCIM-profilen som beskrivs i den här artikeln kan anslutas 
     > [!NOTE]
     > Du kan välja att inaktivera synkronisering av grupp objekt genom att inaktivera mappningen "grupper".
 
-12. Under **Inställningar**definierar fältet **omfattning** vilka användare och grupper som ska synkroniseras. Välj **Synkronisera endast tilldelade användare och grupper** (rekommenderas) om du bara vill synkronisera användare och grupper som tilldelats på fliken **användare och grupper** .
+12. Under **Inställningar** definierar fältet **omfattning** vilka användare och grupper som ska synkroniseras. Välj **Synkronisera endast tilldelade användare och grupper** (rekommenderas) om du bara vill synkronisera användare och grupper som tilldelats på fliken **användare och grupper** .
 13. När konfigurationen är klar ställer du in **etablerings statusen** **på på**.
 14. Välj **Spara** för att starta Azure AD Provisioning-tjänsten.
 15. Om du bara synkroniserar tilldelade användare och grupper (rekommenderas), måste du välja fliken **användare och grupper** och tilldela de användare eller grupper som du vill synkronisera.

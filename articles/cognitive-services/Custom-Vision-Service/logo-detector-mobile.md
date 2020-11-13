@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: d7d66e247c6a6240bd6fde08612b8eb770bd3b92
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b85b2d9b81e84ec6c6e09fef16c66a919aa30cd7
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737543"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616764"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Självstudie: identifiera Azure-tjänstens logo typer i kamera bilder
 
@@ -34,9 +34,9 @@ Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto]
 ## <a name="prerequisites"></a>Förutsättningar
 
 - [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/)
-- Xamarin-arbetsbelastningen för Visual Studio (se [Installera Xamarin](https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/windows))
+- Xamarin-arbetsbelastningen för Visual Studio (se [Installera Xamarin](/xamarin/cross-platform/get-started/installation/windows))
 - En iOS- eller Android-emulator för Visual Studio
-- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest) (valfritt)
+- [Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest) (valfritt)
 
 ## <a name="get-the-source-code"></a>Hämta källkoden
 
@@ -84,17 +84,17 @@ Kopiera slut punkts **-** URL: en och resultatvärdet till lämpliga fält i *So
 
 [!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/CustomVisionService.cs?name=snippet_prediction)]
 
-Resultatet får formen av en **PredictionResult** -instans, som innehåller en lista över **förutsägelseinstanser** . En **förutsägelse** innehåller en identifierad tagg och dess avgränsningsfältsplats i bilden.
+Resultatet får formen av en **PredictionResult** -instans, som innehåller en lista över **förutsägelseinstanser**. En **förutsägelse** innehåller en identifierad tagg och dess avgränsningsfältsplats i bilden.
 
 [!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/Prediction.cs?name=snippet_prediction_class)]
 
-Om du vill lära dig mer om hur appen hanterar dessa data börjar du med metoden **GetResourcesAsync** . Den här metoden definieras i filen *Source/VisualProvision/Services/Recognition/RecognitionService.cs* .  
+Om du vill lära dig mer om hur appen hanterar dessa data börjar du med metoden **GetResourcesAsync**. Den här metoden definieras i filen *Source/VisualProvision/Services/Recognition/RecognitionService.cs*.  
 
 ## <a name="add-computer-vision"></a>Lägga till Visuellt innehåll
 
 Custom Vision-delen av självstudien är klar. Om du vill att köra appen måste du integrera tjänsten Visuellt innehåll också. Appen använder textidentifieringsfunktionen i Visuellt text för att komplettera processen för logotypidentifiering. En Azure-logotyp kan identifieras utefter sitt utseende *eller* med den text som är skriven nära den. Till skillnad från Custom Vision-modeller är Visuellt innehåll tränat i förväg för att utföra vissa åtgärder på bilder eller videor.
 
-Prenumerera på tjänsten Visuellt innehåll för att hämta en nyckel och slutpunkts-URL. Hjälp om det här steget finns i [Skaffa prenumerationsnycklar](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe).
+Prenumerera på tjänsten Visuellt innehåll för att hämta en nyckel och slutpunkts-URL. Hjälp om det här steget finns i [Skaffa prenumerationsnycklar](../cognitive-services-apis-create-account.md?tabs=singleservice%2Cwindows).
 
 ![Tjänsten Visuellt innehåll i Azure Portal, med snabb starts menyn vald. En länk för nycklar samt slutpunkts-URL för API är markerade](media/azure-logo-tutorial/comvis-keys.png)
 
@@ -104,7 +104,7 @@ Nu öppnar du filen *Source\VisualProvision\AppSettings.cs* och fyller i variabl
 
 ## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
 
-Appen kräver ett Azure-konto för tjänstens huvudnamn för att distribuera tjänster till din Azure-prenumeration. Med ett huvud namn för tjänsten kan du delegera särskilda behörigheter till en app med hjälp av rollbaserad åtkomst kontroll i Azure. Mer information finns i [guiden för tjänstens huvudnamn](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals).
+Appen kräver ett Azure-konto för tjänstens huvudnamn för att distribuera tjänster till din Azure-prenumeration. Med ett huvud namn för tjänsten kan du delegera särskilda behörigheter till en app med hjälp av rollbaserad åtkomst kontroll i Azure. Mer information finns i [guiden för tjänstens huvudnamn](/azure-stack/operator/azure-stack-create-service-principals).
 
 Du kan skapa ett huvudnamn för tjänsten med hjälp av Azure Cloud Shell eller Azure CLI såsom det visas här. Börja med att logga in och välja den prenumeration som du vill använda.
 
@@ -132,7 +132,7 @@ Vid slutförande bör du se följande JSON-utdata, däribland nödvändiga auten
 }
 ```
 
-Anteckna värdena `clientId` och `tenantId`. Lägg till dem i rätt fält i filen *Source\VisualProvision\AppSettings.cs* .
+Anteckna värdena `clientId` och `tenantId`. Lägg till dem i rätt fält i filen *Source\VisualProvision\AppSettings.cs*.
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_serviceprincipal)]
 
@@ -146,12 +146,12 @@ Nu har du gett appen åtkomst till:
 
 Följ dessa steg om du vill köra appen:
 
-1. I Visual Studio Solution Explorer väljer du antingen projektet **VisualProvision.Android** eller projektet **VisualProvision.iOS** . Välj en motsvarande emulator eller ansluten mobil enhet från den nedrullningsbara menyn på huvudverktygsfältet. Kör sedan appen.
+1. I Visual Studio Solution Explorer väljer du antingen projektet **VisualProvision.Android** eller projektet **VisualProvision.iOS**. Välj en motsvarande emulator eller ansluten mobil enhet från den nedrullningsbara menyn på huvudverktygsfältet. Kör sedan appen.
 
     > [!NOTE]
     > Du behöver en MacOS-enhet för att köra en iOS-emulator.
 
-1. På den första skärmen anger du klient-ID för tjänstens huvudnamn, klientorganisations-ID och lösenord. Välj knappen **Logga in** .
+1. På den första skärmen anger du klient-ID för tjänstens huvudnamn, klientorganisations-ID och lösenord. Välj knappen **Logga in**.
 
     > [!NOTE]
     > På vissa emulatorer har knappen **Logga in** kanske inte aktiverats i det här steget. Om det här händer stoppar du appen, öppnar filen *Source/VisualProvision/Pages/LoginPage.xaml* , letar rätt på det `Button`-element som är märkt **LOGIN BUTTON** (Inloggningsknapp), tar bort följande rad och kör sedan appen igen.
@@ -176,7 +176,7 @@ Följ dessa steg om du vill köra appen:
 
 Om du har följt alla steg i det här scenariot och använt appen för att distribuera Azure-tjänster till ditt konto går du till [Azure-portalen](https://ms.portal.azure.com/). Där avbryter du de tjänster som du inte vill använda.
 
-Om du planerar att skapa egna objektidentifieringsprojekt med Custom Vision kan det vara bra att ta bort det logotypidentifieringsprojekt som du skapade i den här självstudien. En kostnads fri prenumeration på Custom Vision tillåter endast två projekt. För att ta bort logotypidentifieringsprojektet går du till [Custom Vision-webbplatsen](https://customvision.ai), öppnar **Projekt** och väljer papperskorgsikonen under **Mitt nya projekt** .
+Om du planerar att skapa egna objektidentifieringsprojekt med Custom Vision kan det vara bra att ta bort det logotypidentifieringsprojekt som du skapade i den här självstudien. En kostnads fri prenumeration på Custom Vision tillåter endast två projekt. För att ta bort logotypidentifieringsprojektet går du till [Custom Vision-webbplatsen](https://customvision.ai), öppnar **Projekt** och väljer papperskorgsikonen under **Mitt nya projekt**.
 
 ## <a name="next-steps"></a>Nästa steg
 

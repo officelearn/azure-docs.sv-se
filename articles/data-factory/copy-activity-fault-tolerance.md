@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: caec9b802bb347333dd861ebe499f72249d75aa2
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: e64f4ab31aed5c4c3e70ef10faf2049027525014
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92634785"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593656"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Feltolerans för kopieringsaktivitet i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -27,7 +27,7 @@ ms.locfileid: "92634785"
 
 När du kopierar data från käll-till mål lagret tillhandahåller Azure Data Factory kopierings aktivitet en viss nivå av fel toleranser för att förhindra avbrott från fel i mitten av data flytten. Du kan till exempel kopiera miljon tals rader från käll-till mål lager där en primär nyckel har skapats i mål databasen, men käll databasen saknar definierade primära nycklar. När du kopierar duplicerade rader från källan till målet kommer du att trycka på överträdelsen av PK-överträdelsen på mål databasen. För tillfället erbjuder kopierings aktiviteten två sätt att hantera sådana fel: 
 - Du kan avbryta kopierings aktiviteten när ett fel har påträffats. 
-- Du kan fortsätta att kopiera resten genom att aktivera fel tolerans för att hoppa över inkompatibla data. Hoppa till exempel till den duplicerade raden i det här fallet. Dessutom kan du logga överhoppade data genom att aktivera sessionsinformation i kopierings aktiviteten. 
+- Du kan fortsätta att kopiera resten genom att aktivera fel tolerans för att hoppa över inkompatibla data. Hoppa till exempel till den duplicerade raden i det här fallet. Dessutom kan du logga överhoppade data genom att aktivera sessionsinformation i kopierings aktiviteten. Du kan se [loggen för sessionen i kopierings aktiviteten](copy-activity-log.md) för mer information.
 
 ## <a name="copying-binary-files"></a>Kopiera binära filer 
 
@@ -61,22 +61,29 @@ När du kopierar binära filer mellan lagrings lager kan du aktivera fel toleran
         "dataInconsistency": true 
     }, 
     "validateDataConsistency": true, 
-    "logStorageSettings": { 
-        "linkedServiceName": { 
-            "referenceName": "ADLSGen2", 
-            "type": "LinkedServiceReference" 
-            }, 
-        "path": "sessionlog/" 
-     } 
+    "logSettings": {
+        "enableCopyActivityLog": true,
+        "copyActivityLogSettings": {            
+            "logLevel": "Warning",
+            "enableReliableLogging": false
+        },
+        "logLocationSettings": {
+            "linkedServiceName": {
+               "referenceName": "ADLSGen2",
+               "type": "LinkedServiceReference"
+            },
+            "path": "sessionlog/"
+        }
+    }
 } 
 ```
-Egenskap | Beskrivning | Tillåtna värden | Krävs
+Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
 -------- | ----------- | -------------- | -------- 
 skipErrorFile | En grupp egenskaper som anger vilka typer av försök som du vill hoppa över under data flytten. | | Nej
 fileMissing | Ett nyckel/värde-par i skipErrorFile egenskaps uppsättning för att avgöra om du vill hoppa över filer som tas bort av andra program när ADF kopieras i taget. <br/> – Sant: du vill kopiera resten genom att hoppa över de filer som tas bort av andra program. <br/> -Falskt: du vill avbryta kopierings aktiviteten när filer tas bort från käll arkivet i mitten av data förflyttningen. <br/>Tänk på att den här egenskapen har angetts till true som standard. | Sant (standard) <br/>Falskt | Nej
 fileForbidden | Ett nyckel/värde-par i skipErrorFile egenskaps uppsättning för att avgöra om du vill hoppa över de specifika filerna, när ACL: er för dessa filer eller mappar kräver högre behörighets nivå än den anslutning som kon figurer ATS i ADF. <br/> – Sant: du vill kopiera resten genom att hoppa över filerna. <br/> -Falskt: du vill avbryta kopierings aktiviteten en gång när du har problem med att få behörighet till mappar eller filer. | Sant <br/>Falskt (standard) | Nej
 dataInconsistency | Ett nyckel/värde-par i skipErrorFile egenskaps uppsättning för att avgöra om du vill hoppa över inkonsekventa data mellan käll-och mål arkivet. <br/> – Sant: du vill kopiera resten genom att hoppa över inkonsekventa data. <br/> -Falskt: du vill avbryta kopierings aktiviteten när inkonsekventa data har hittats. <br/>Tänk på att den här egenskapen endast är giltig när du anger validateDataConsistency som true. | Sant <br/>Falskt (standard) | Nej
-logStorageSettings  | En grupp egenskaper som kan anges när du vill logga de överhoppade objekt namnen. | &nbsp; | Nej
+logSettings  | En grupp egenskaper som kan anges när du vill logga de överhoppade objekt namnen. | &nbsp; | Nej
 linkedServiceName | Den länkade tjänsten för [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) eller [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) för att lagra loggfilerna för sessionen. | Namnen på en `AzureBlobStorage` eller `AzureBlobFS` typ länkad tjänst, som refererar till den instans som du använder för att lagra logg filen. | Nej
 path | Sökvägen till loggfilerna. | Ange den sökväg som du använder för att lagra loggfilerna. Om du inte anger en sökväg skapar tjänsten en behållare åt dig. | Nej
 
@@ -108,7 +115,7 @@ Du kan hämta antalet filer som läses, skrivs och hoppas över via utdata från
             "filesWritten": 1, 
             "filesSkipped": 2, 
             "throughput": 297,
-            "logPath": "https://myblobstorage.blob.core.windows.net//myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
+            "logFilePath": "myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
             "dataConsistencyVerification": 
            { 
                 "VerificationResult": "Verified", 
@@ -146,15 +153,15 @@ I ovanstående logg kan du se bigfile.csv har hoppats över på grund av att ett
 ### <a name="supported-scenarios"></a>Scenarier som stöds
 Kopierings aktiviteten stöder tre scenarier för att identifiera, hoppa över och logga inkompatibla tabell data:
 
-- **Inkompatibilitet mellan käll data typ och inbyggd typ av mottagare** . 
+- **Inkompatibilitet mellan käll data typ och inbyggd typ av mottagare**. 
 
     Exempel: kopiera data från en CSV-fil i Blob Storage till en SQL-databas med en schema definition som innehåller tre kolumner av typen INT. CSV-filrader som innehåller numeriska data, till exempel 123 456 789, kopieras till mottagar lagret. Men raderna som innehåller icke-numeriska värden, till exempel 123 456, ABC identifieras som inkompatibla och hoppas över.
 
-- **Antalet kolumner mellan källan och sinken matchar inte** .
+- **Antalet kolumner mellan källan och sinken matchar inte**.
 
     Exempel: kopiera data från en CSV-fil i Blob Storage till en SQL-databas med en schema definition som innehåller sex kolumner. CSV-filrader som innehåller sex kolumner kopieras till mottagar lagret. CSV-filrader som innehåller fler än sex kolumner identifieras som inkompatibla och hoppas över.
 
-- **Fel vid primär nyckel vid skrivning till SQL Server/Azure SQL Database/Azure Cosmos DB** .
+- **Fel vid primär nyckel vid skrivning till SQL Server/Azure SQL Database/Azure Cosmos DB**.
 
     Exempel: kopiera data från en SQL-Server till en SQL-databas. En primär nyckel definieras i Sink-SQL-databasen, men ingen sådan primär nyckel definieras i SQL Server-källan. Det går inte att kopiera de duplicerade raderna som finns i källan till mottagaren. Kopierings aktiviteten kopierar bara den första raden i data källan till mottagaren. Efterföljande käll rader som innehåller värdet för duplicerad primär nyckel identifieras som inkompatibla och hoppas över.
 
@@ -175,20 +182,27 @@ I följande exempel visas en JSON-definition som hoppar över inkompatibla rader
         "type": "AzureSqlSink" 
     }, 
     "enableSkipIncompatibleRow": true, 
-    "logStorageSettings": { 
-    "linkedServiceName": { 
-        "referenceName": "ADLSGen2", 
-        "type": "LinkedServiceReference" 
-        }, 
-    "path": "sessionlog/" 
+    "logSettings": {
+        "enableCopyActivityLog": true,
+        "copyActivityLogSettings": {            
+            "logLevel": "Warning",
+            "enableReliableLogging": false
+        },
+        "logLocationSettings": {
+            "linkedServiceName": {
+               "referenceName": "ADLSGen2",
+               "type": "LinkedServiceReference"
+            },
+            "path": "sessionlog/"
+        }
     } 
 }, 
 ```
 
-Egenskap | Beskrivning | Tillåtna värden | Krävs
+Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
 -------- | ----------- | -------------- | -------- 
 enableSkipIncompatibleRow | Anger om inkompatibla rader ska hoppas över vid kopiering eller inte. | Sant<br/>False (standard) | Nej
-logStorageSettings | En grupp egenskaper som kan anges när du vill logga de inkompatibla raderna. | &nbsp; | Nej
+logSettings | En grupp egenskaper som kan anges när du vill logga de inkompatibla raderna. | &nbsp; | Nej
 linkedServiceName | Den länkade tjänsten för [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) eller [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) för att lagra loggen som innehåller de överhoppade raderna. | Namnen på en `AzureBlobStorage` eller `AzureBlobFS` typ länkad tjänst, som refererar till den instans som du använder för att lagra logg filen. | Nej
 path | Sökvägen till de loggfiler som innehåller de överhoppade raderna. | Ange den sökväg som du vill använda för att logga inkompatibla data. Om du inte anger en sökväg skapar tjänsten en behållare åt dig. | Nej
 
@@ -203,7 +217,7 @@ När körningen av kopierings aktiviteten är klar kan du se antalet rader som h
             "rowsSkipped": 2,
             "copyDuration": 16,
             "throughput": 0.01,
-            "logPath": "https://myblobstorage.blob.core.windows.net//myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
+            "logFilePath": "myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
             "errors": []
         },
 
@@ -259,7 +273,7 @@ I följande exempel visas en JSON-definition som hoppar över inkompatibla rader
 }
 ```
 
-Egenskap | Beskrivning | Tillåtna värden | Krävs
+Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
 -------- | ----------- | -------------- | -------- 
 enableSkipIncompatibleRow | Anger om inkompatibla rader ska hoppas över vid kopiering eller inte. | Sant<br/>False (standard) | Nej
 redirectIncompatibleRowSettings | En grupp egenskaper som kan anges när du vill logga de inkompatibla raderna. | &nbsp; | Nej

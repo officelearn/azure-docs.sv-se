@@ -3,16 +3,16 @@ title: Diagnostisera prestandaproblem med hjälp av Azure Application Insights |
 description: Självstudie om att hitta och diagnostisera prestandaproblem i dina program med hjälp av Azure Application Insights.
 ms.subservice: application-insights
 ms.topic: tutorial
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 06/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 3c7185e07190895dfcc97555c6603049ed41c18c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df7cfff7d5bf1b89f88105f79c072d1d7e731b31
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322507"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592574"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Hitta och diagnostisera prestandaproblem med Azure Application Insights
 
@@ -25,7 +25,7 @@ Azure Application Insights samlar in telemetri från ditt program för att analy
 > * analysera information om sidvisningar med frågespråk.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -102,11 +102,6 @@ Precis som de data som samlas in för Server prestanda gör Application Insights
 2. Loggar öppnas med en fråga för var och en av vyerna i panelen. Den första frågan visar varaktigheten för olika sidvisningar över tid.
 
     ![Loggar fråga](media/tutorial-performance/10-page-view-logs.png)
-
-3.  Smart diagnostik är en funktion i loggar som identifierar unika mönster i data. När du klickar på punkten Smart Diagnostics i linjediagrammet körs samma fråga utan de poster som orsakade avvikelsen. Information om de posterna visas i frågans kommentarsavsnitt så att du kan identifiera egenskaperna för de sidvisningar som orsakar den långa varaktigheten.
-
-    ![Loggar med Smart diagnostik](media/tutorial-performance/11-page-view-logs-dsmart.png)
-
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har lärt dig hur du identifierar körningsundantag går du vidare till nästa självstudie, där du får lära dig hur du skapar aviseringar som skickas när fel inträffar.

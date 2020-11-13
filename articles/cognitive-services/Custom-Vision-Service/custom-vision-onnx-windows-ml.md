@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: pafarley
-ms.openlocfilehash: d6bcb5485833fbfaa3eb72191ee54b1ee69bab04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58ced0c45d66223ac3e40112126e92a4539db32d
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82594303"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616084"
 ---
 # <a name="use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>Använda en ONNX-modell från Custom Vision med Windows ML (förhandsversion)
 
@@ -23,12 +23,12 @@ Lär dig hur du använder en ONNX-modell som exporteras från Custom Vision Serv
 
 I den här guiden får du lära dig hur du använder en ONNX-fil som exporter ATS från Custom Vision Service med Windows ML. Du ska använda exemplet UWP-program med din egen utbildade bild klassificerare.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Windows 10 version 1809 eller senare
 * Windows SDK för build 17763 eller högre
 * Visual Studio 2017 version 15.7 eller senare med arbetsbelastningen för __Universal Windows Platform-utveckling__ aktiverad.
-* Utvecklarläge aktiverat på din dator. Mer information finns i [aktivera din enhet för utveckling](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development).
+* Utvecklarläge aktiverat på din dator. Mer information finns i [aktivera din enhet för utveckling](/windows/uwp/get-started/enable-your-device-for-development).
 
 ## <a name="about-the-example-app"></a>Om exempelappen
 
@@ -47,9 +47,9 @@ Exempel programmet finns på [COGNITIVE Services ONNX Custom vision Sample](http
 
 Följ dessa steg om du vill använda en egen bild klassificerings modell:
 
-1. Skapa och träna en klassificerare med Custom Vision Service. Instruktioner för hur du gör detta finns i [skapa och träna en klassificerare](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier). Använd en av de **komprimerade** domänerna, till exempel **Allmänt (komprimera)**. 
+1. Skapa och träna en klassificerare med Custom Vision Service. Instruktioner för hur du gör detta finns i [skapa och träna en klassificerare](./getting-started-build-a-classifier.md). Använd en av de **komprimerade** domänerna, till exempel **Allmänt (komprimera)**. 
    * Om du har en befintlig klassificerare som använder en annan domän kan du konvertera den till **Komprimera** i projekt inställningarna. Träna sedan projektet igen innan du fortsätter.
-1. Exportera din modell. Växla till fliken prestanda och välj en iteration som har tränats med en **komprimerad** domän. Välj knappen **Exportera** som visas. Välj sedan **ONNX**och sedan **Exportera**. När filen är klar väljer du knappen **Ladda ned**. Mer information om export alternativ finns i [exportera din modell](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model).
+1. Exportera din modell. Växla till fliken prestanda och välj en iteration som har tränats med en **komprimerad** domän. Välj knappen **Exportera** som visas. Välj sedan **ONNX** och sedan **Exportera**. När filen är klar väljer du knappen **Ladda ned**. Mer information om export alternativ finns i [exportera din modell](./export-your-model.md).
 1. Öppna den hämtade *zip* -filen och extrahera filen *Model. Onnx* från den. Den här filen innehåller din klassificerings modell.
 1. I Solution Explorer i Visual Studio högerklickar du på mappen **resurser** och väljer __Lägg till befintligt objekt__. Välj din ONNX-fil.
 1. I Solution Explorer högerklickar du på filen ONNX och väljer **Egenskaper**. Ändra följande egenskaper för filen:
@@ -63,7 +63,7 @@ Följ dessa steg om du vill använda en egen bild klassificerings modell:
 
 Om du vill upptäcka andra sätt att exportera och använda Custom Vision-modellen på, så kan du läsa följande dokument:
 
-* [Exportera din modell](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model)
+* [Exportera din modell](./export-your-model.md)
 * [Använda en exporterad Tensorflow-modell i ett Android-program](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample)
 * [Använda en exporterad CoreML-modell i ett Swift iOS-program](https://go.microsoft.com/fwlink/?linkid=857726)
 * [Använda en exporterad CoreML-modell i ett iOS-program med Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)

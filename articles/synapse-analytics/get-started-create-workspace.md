@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 10/07/2020
-ms.openlocfilehash: 5a4f3c06f53191339bf42125c0781f3ac1238b32
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 862d2a93058c63dbfad1db49346edcbfe3c02ad1
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561054"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592455"
 ---
 # <a name="creating-a-synapse-workspace"></a>Skapa en Synapse-arbetsyta
 
@@ -48,9 +48,9 @@ När din Azure Synapse-arbetsyta har skapats kan du öppna Synapse Studio på tv
 
 1. I Synapse Studio väljer du **Hantera**  >  **SQL-pooler** i det vänstra fönstret.
 1. Välj **nytt**
-1. Välj **SQLDB1** för **SQL-poolnamn**
+1. Välj **SQLPOOL1** för **SQL-poolnamn**
 1. Välj **DW100C** för **prestanda nivå**
-1. Välj **Granska + skapa** > **Skapa**. Din dedikerade SQL-pool är klar om några minuter. Din dedikerade SQL-pool är kopplad till en dedikerad SQL-adresspool som också kallas **SQLDB1**.
+1. Välj **Granska + skapa** > **Skapa**. Din dedikerade SQL-pool är klar om några minuter. Din dedikerade SQL-pool är kopplad till en dedikerad SQL-adresspool som också kallas **SQLPOOL1**.
 
 En dedikerad SQL-pool förbrukar fakturerbara resurser så länge den är aktiv. Du kan pausa poolen senare för att minska kostnaderna.
 

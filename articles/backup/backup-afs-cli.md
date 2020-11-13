@@ -3,14 +3,14 @@ title: Säkerhetskopiera Azure-filresurser med Azure CLI
 description: Lär dig hur du använder Azure CLI för att säkerhetskopiera Azure-filresurser i Recovery Services valvet
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: 12d258a3242530745cc8ce31afae18f622323488
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34eea8daa6a0a8920c842178664055838b06a78a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293296"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565899"
 ---
-# <a name="back-up-azure-file-shares-with-cli"></a>Säkerhetskopiera Azure-filresurser med CLI
+# <a name="back-up-azure-file-shares-with-azure-cli"></a>Säkerhetskopiera Azure-filresurser med Azure CLI
 
 Kommando rads gränssnittet för Azure (CLI) tillhandahåller kommando tolken för att hantera Azure-resurser. Det är ett bra verktyg för att skapa anpassad automatisering för att använda Azure-resurser. Den här artikeln beskriver hur du säkerhetskopierar Azure-filresurser med Azure CLI. Du kan också utföra de här stegen med [Azure PowerShell](./backup-azure-afs-automation.md) eller [Azure Portal](backup-afs.md).
 
@@ -20,9 +20,9 @@ I slutet av den här självstudien får du lära dig hur du utför åtgärderna 
 * Aktivera säkerhets kopiering för Azure-filresurser
 * Utlös en säkerhets kopiering på begäran för fil resurser
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Om du vill installera och använda CLI lokalt måste du köra Azure CLI version 2.0.18 eller senare. För att hitta CLI-versionen, `run az --version` . Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
+ - I den här självstudien krävs version 2.0.18 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
 ## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 

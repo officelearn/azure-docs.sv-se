@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 11/13/2018
 ms.author: zhshang
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3b0d88b548f68bc365adfa3fdb3149db9c9f43f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 673a3583b1ec80fb3ad61ec35a1786a59939f6e8
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87494748"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563332"
 ---
 # <a name="create-a-signalr-service-with-an-app-service"></a>Skapa en SignalR Service med en App Service
 
@@ -21,13 +21,13 @@ Det här exempelskriptet skapar en ny Azure SignalR Service-resurs som används 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI]( /cli/azure/install-azure-cli). 
+ - I den här självstudien krävs version 2,0 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
 ## <a name="sample-script"></a>Exempelskript
 
-Det här skriptet använder tillägget *signalr* för Azure CLI. Utför följande kommando för att installera *signalr*-tillägget för Azure CLI innan du använder det här exempelskriptet:
+Det här skriptet använder tillägget *signalr* för Azure CLI. Utför följande kommando för att installera *signalr* -tillägget för Azure CLI innan du använder det här exempelskriptet:
 
 ```azurecli-interactive
 #!/bin/bash
@@ -78,7 +78,7 @@ Anteckna det faktiska namnet som genereras för den nya resursgruppen. Det visas
 
 Varje kommando i tabellen länkar till kommandospecifik dokumentation. I det här skriptet används följande kommandon:
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [az signalr create](/cli/azure/signalr#az-signalr-create) | Skapar en Azure SignalR-tjänstresurs. |

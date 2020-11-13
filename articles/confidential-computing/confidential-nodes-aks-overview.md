@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: a009cd7763b4a4dc0c502d4c47a20d6fdffe61d7
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 1b945ac9f656a227bcc3335cb0ec995626f98f77
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125449"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564184"
 ---
 # <a name="confidential-computing-nodes-on-azure-kubernetes-service-public-preview"></a>Konfidentiella data behandlings noder i Azure Kubernetes service (offentlig för hands version)
 
@@ -55,16 +55,16 @@ Enklaven-program som utför fjärrattestering måste generera en offert. OFFERTe
 
 AKS stöder program som är programmerade att köras på konfidentiella noder och använder **särskild instruktions uppsättning som** görs tillgänglig via SDK: er och ramverk. Den här program modellen ger mest kontroll över dina program med en lägsta TCB (Trusted Computing Base). [Läs mer](enclave-aware-containers.md) om enklaven-medvetna behållare.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 [Distribuera AKS-kluster med konfidentiella databeräknings noder](./confidential-nodes-aks-get-started.md)
 
 [Snabb starts exempel för konfidentiella behållare](https://github.com/Azure-Samples/confidential-container-samples)
 
-[DCsv2 SKU-lista](https://docs.microsoft.com/azure/virtual-machines/dcv2-series)
+[DCsv2 SKU-lista](../virtual-machines/dcv2-series.md)
 
 <!-- LINKS - external -->
-[Azure Attestation]: https://docs.microsoft.com/en-us/azure/attestation/
+[Azure Attestation]: ../attestation/index.yml
 
 
 <!-- LINKS - internal -->

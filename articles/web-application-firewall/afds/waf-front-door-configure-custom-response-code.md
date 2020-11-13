@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 06/10/2020
 ms.author: victorh
 ms.reviewer: tyao
-ms.openlocfilehash: a995460793686d8293d77965e74e2cbf916925a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8fc6e71494df36cd6f823661b18e4a3d8ce2938c
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87005607"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563689"
 ---
 # <a name="configure-a-custom-response-for-azure-web-application-firewall-waf"></a>Konfigurera ett anpassat svar för brand vägg för Azure-webbprogram (WAF)
 
-Som standard när WAF blockerar en begäran på grund av en matchad regel returneras en 403-status kod med meddelandet **blockerad** . Standard meddelandet innehåller även en spårnings referens sträng som kan användas för att länka till [logg poster](https://docs.microsoft.com/azure/web-application-firewall/afds/waf-front-door-monitor) för begäran.  Du kan konfigurera en anpassad svars status kod och ett anpassat meddelande med referens sträng för ditt användnings fall. Den här artikeln beskriver hur du konfigurerar en anpassad svars sida när en begäran blockeras av WAF.
+Som standard när WAF blockerar en begäran på grund av en matchad regel returneras en 403-status kod med meddelandet **blockerad** . Standard meddelandet innehåller även en spårnings referens sträng som kan användas för att länka till [logg poster](./waf-front-door-monitor.md) för begäran.  Du kan konfigurera en anpassad svars status kod och ett anpassat meddelande med referens sträng för ditt användnings fall. Den här artikeln beskriver hur du konfigurerar en anpassad svars sida när en begäran blockeras av WAF.
 
 ## <a name="configure-custom-response-status-code-and-message-use-portal"></a>Konfigurera anpassad svars status kod och meddelande Använd Portal
 
@@ -27,7 +27,7 @@ Du kan konfigurera en anpassad svars status kod och-brödtext under "princip ins
 
 I exemplet ovan sparade vi svars koden som 403 och konfigurerade ett kort "kontakta oss"-meddelande som visas i bilden nedan:
 
-:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response.png" alt-text="Princip inställningar för WAF":::
+:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response.png" alt-text="Exempel på anpassat svar":::
 
 {{Azure-ref}} infogar den unika referens strängen i svars texten. Värdet matchar fältet TrackingReference i-och- `FrontdoorAccessLog` `FrontdoorWebApplicationFirewallLog` loggarna.
 
@@ -35,9 +35,9 @@ I exemplet ovan sparade vi svars koden som 403 och konfigurerade ett kort "konta
 
 ### <a name="set-up-your-powershell-environment"></a>Konfigurera PowerShell-miljön
 
-Azure PowerShell tillhandahåller en uppsättning cmdletar som använder [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)-modellen för att hantera dina Azure-resurser. 
+Azure PowerShell tillhandahåller en uppsättning cmdletar som använder [Azure Resource Manager](../../azure-resource-manager/management/overview.md)-modellen för att hantera dina Azure-resurser. 
 
-Du kan installera [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) på en lokal dator och använda det i alla PowerShell-sessioner. Följ anvisningarna på sidan för att logga in med dina Azure-autentiseringsuppgifter och installera AZ PowerShell-modulen.
+Du kan installera [Azure PowerShell](/powershell/azure/) på en lokal dator och använda det i alla PowerShell-sessioner. Följ anvisningarna på sidan för att logga in med dina Azure-autentiseringsuppgifter och installera AZ PowerShell-modulen.
 
 ### <a name="connect-to-azure-with-an-interactive-dialog-for-sign-in"></a>Ansluta till Azure med en interaktiv dialog ruta för inloggning
 

@@ -7,22 +7,22 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: chenyl
-ms.openlocfilehash: 04059ac1feae04cb6fa8b09f7b7077b7e11bac4c
-ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
+ms.openlocfilehash: 84b83c1dd541418c446a89a6f51be668cb41e54e
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170371"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94562652"
 ---
 # <a name="how-to-send-events-from-azure-signalr-service-to-event-grid"></a>Skicka händelser från Azure SignalR Service till Event Grid
 
 Azure Event Grid är en helt hanterad tjänst för händelse dirigering som tillhandahåller enhetlig händelse förbrukning med en pub-sub-modell. I den här guiden använder du Azure CLI för att skapa en Azure SignalR-tjänst, prenumererar på anslutnings händelser och distribuerar sedan ett exempel webb program för att ta emot händelserna. Slutligen kan du ansluta och koppla från och se händelse nytto lasten i exempel programmet.
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto][azure-account] innan du börjar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Azure CLI-kommandona i den här artikeln är formaterade för **bash** -gränssnittet. Om du använder ett annat gränssnitt som PowerShell eller kommando tolken kan du behöva justera rad fortsättnings tecken eller variabla tilldelnings rader i enlighet med detta. I den här artikeln används variabler för att minimera mängden kommando redigering som krävs.
+ - Azure CLI-kommandona i den här artikeln är formaterade för **bash** -gränssnittet. Om du använder ett annat gränssnitt som PowerShell eller kommando tolken kan du behöva justera rad fortsättnings tecken eller variabla tilldelnings rader i enlighet med detta. I den här artikeln används variabler för att minimera mängden kommando redigering som krävs.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 

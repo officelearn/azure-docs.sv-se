@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: b385d6dfb5beba481ad92403d69f5d0988f3bce3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 86db8c88fae7a5fd1ec4828d8936c6cb8172a61c
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786436"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564573"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Metod tips för klusterkonfiguration (SQL Server på virtuella Azure-datorer)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,6 +30,10 @@ Den här artikeln innehåller metod tips för kluster konfiguration för både [
 ## <a name="networking"></a>Nätverk
 
 Använd ett enda nätverkskort per server (klusternod) och ett enda undernät. Azure-nätverk har fysisk redundans, vilket gör att ytterligare nätverkskort och undernät inte behövs på ett gäst kluster i en virtuell Azure-dator. I kluster verifierings rapporten visas en varning om att noderna bara kan kommas åt i ett enda nätverk. Du kan ignorera den här varningen på Azure Virtual Machine Guest-kluster.
+
+### <a name="tuning-failover-cluster-network-thresholds"></a>Justera nätverks trösklar för redundanskluster
+
+När du kör Windows-redundanskluster i virtuella Azure-datorer med SQL Server AlwaysOn, rekommenderas att ändra kluster inställningen till ett mer avslappnad övervaknings tillstånd.  Detta gör klustret mycket mer stabilt och tillförlitligt.  Mer information om detta finns i [IaaS med SQL AlwaysOn-finjustera tröskelvärden för redundanskluster](/windows-server/troubleshoot/iaas-sql-failover-cluser).
 
 ## <a name="quorum"></a>Kvorum
 
@@ -80,7 +84,7 @@ Information om hur du kommer igång finns i [Konfigurera ett fil resurs vittne](
 
 **Operativ system som stöds** : Windows Server 2012 och senare   
 
-## <a name="connectivity"></a>Anslutningsmöjlighet
+## <a name="connectivity"></a>Anslutningar
 
 I en traditionell lokal nätverks miljö verkar en instans av en SQL Server-redundanskluster vara en enda instans av SQL Server som körs på en enda dator. Eftersom växlings kluster instansen växlar över från nod till nod, tillhandahåller det virtuella nätverks namnet (VNN) för instansen en enhetlig anslutnings punkt och gör det möjligt för program att ansluta till den SQL Server-instansen utan att veta vilken nod som för närvarande är aktiv. När en redundansväxling inträffar registreras det virtuella nätverks namnet på den nya aktiva noden när den har startats. Den här processen är transparent för den klient eller det program som ansluter till SQL Server, och detta minimerar stillestånds tiden som klienten eller program upplever vid ett haveri. På samma sätt använder tillgänglighets gruppens lyssnare en VNN för att dirigera trafik till lämplig replik. 
 

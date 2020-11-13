@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: e3a0eaeebbc0659b217051c6e98d67803896f2e1
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 59e60dadda7c0de37cfabadbc36ca53bc3c2b336
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102331"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563740"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Global överföring av nätverks arkitektur och virtuellt WAN
 
@@ -127,7 +127,7 @@ Den här flaggan visas när användaren redigerar en virtuell nätverks anslutni
 
 Azures virtuella WAN-hubbar sammankopplar alla nätverks slut punkter i hybrid nätverket och kan eventuellt se all trafik i överförings nätverket. Virtuella WAN-hubbar kan konverteras till säkra virtuella hubbar genom att distribuera Azure-brandväggen inuti VWAN-hubbar för att aktivera molnbaserad säkerhet, åtkomst och princip kontroll. Dirigering av Azure-brandväggar i virtuella WAN-hubbar kan utföras av Azure Firewall Manager.
 
-[Azure Firewall Manager](https://go.microsoft.com/fwlink/?linkid=2107683) innehåller funktioner för att hantera och skala säkerhet för globala överförings nätverk. Azure Firewall Manager ger möjlighet till central hantering av routning, global princip hantering, avancerade Internet säkerhets tjänster via tredje part tillsammans med Azure-brandväggen.
+[Azure Firewall Manager](../firewall-manager/index.yml) innehåller funktioner för att hantera och skala säkerhet för globala överförings nätverk. Azure Firewall Manager ger möjlighet till central hantering av routning, global princip hantering, avancerade Internet säkerhets tjänster via tredje part tillsammans med Azure-brandväggen.
 
 ![skyddad virtuell hubb med Azure-brandvägg](./media/virtual-wan-global-transit-network-architecture/figure5.png)
 
@@ -177,4 +177,4 @@ Skapa en anslutning med Virtual WAN och Distribuera Azure-brandväggen i VWAN Hu
 
 * [Plats-till-plats-anslutningar med hjälp av virtuellt WAN](virtual-wan-site-to-site-portal.md)
 * [ExpressRoute-anslutningar med hjälp av virtuellt WAN](virtual-wan-expressroute-portal.md)
-* [Azure Firewall Manager för att distribuera Azure VB i VWAN](https://go.microsoft.com/fwlink/?linkid=2107683)
+* [Azure Firewall Manager för att distribuera Azure VB i VWAN](../firewall-manager/index.yml)

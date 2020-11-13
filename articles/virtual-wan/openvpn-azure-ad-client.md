@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: ecebaf9384bcb0dbbb6fe36df4dd474738422149
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 8e97a2f077efd4d00eec4a91645dc1b65057ebd9
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043422"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565015"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Konfigurera en VPN-klient för P2S OpenVPN-protokollanslutningar: Azure AD-autentisering
 
@@ -32,7 +32,7 @@ Använd den här [länken](https://go.microsoft.com/fwlink/?linkid=2117554) för
 
 1. Gå till start och välj sedan inställningar > sekretess > bakgrunds program.
 2. Under huvudappar kontrollerar du att **Låt appar köras i bakgrunden** är aktiverat.
-3. Under Välj vilka appar som kan köras i bakgrunden aktiverar du inställningarna för Azure VPN-klienten till **på** .
+3. Under Välj vilka appar som kan köras i bakgrunden aktiverar du inställningarna för Azure VPN-klienten till **på**.
 
   ![permission](./media/openvpn-azure-ad-client/backgroundpermission.png)
 
@@ -54,7 +54,7 @@ När du arbetar med en certifikatbaserad profil bör du kontrol lera att rätt c
 
 När du har en fungerande profil och behöver distribuera den till andra användare kan du exportera den med hjälp av följande steg:
 
-1. Markera den VPN-klientkonfiguration som du vill exportera, Välj **...** och välj sedan **Exportera** .
+1. Markera den VPN-klientkonfiguration som du vill exportera, Välj **...** och välj sedan **Exportera**.
 
     ![Skärm bild som visar Exportera markerade från menyn.](./media/openvpn-azure-ad-client/export/export1.jpg)
 
@@ -64,15 +64,15 @@ När du har en fungerande profil och behöver distribuera den till andra använd
 
 ### <a name="to-import-a-client-profile"></a><a name="import"></a>Så här importerar du en klient profil
 
-1. På sidan väljer du **Importera** .
+1. På sidan väljer du **Importera**.
 
     ![Skärm bild som visar importera markerade från menyn plus.](./media/openvpn-azure-ad-client/import/import1.jpg)
 
-2. Bläddra till profil-XML-filen och markera den. När filen är vald väljer du **Öppna** .
+2. Bläddra till profil-XML-filen och markera den. När filen är vald väljer du **Öppna**.
 
     ![Skärm bild som visar en öppen dialog ruta där du kan välja en fil.](./media/openvpn-azure-ad-client/import/import2.jpg)
 
-3. Ange namnet på profilen och välj **Spara** .
+3. Ange namnet på profilen och välj **Spara**.
 
     ![Skärm bild som visar det tillagda anslutnings namnet och knappen Spara valt.](./media/openvpn-azure-ad-client/import/import3.jpg)
 
@@ -80,13 +80,13 @@ När du har en fungerande profil och behöver distribuera den till andra använd
 
     ![Skärm bild som visar knappen Anslut för den anslutning som du nyss skapade.](./media/openvpn-azure-ad-client/import/import4.jpg)
 
-5. När du har anslutit ikonen blir den grön och säg **ansluten** .
+5. När du har anslutit ikonen blir den grön och säg **ansluten**.
 
     ![Skärm bild som visar anslutningen i en ansluten status med alternativet att koppla från.](./media/openvpn-azure-ad-client/import/import5.jpg)
 
 ### <a name="to-delete-a-client-profile"></a><a name="delete"></a>Ta bort en klient profil
 
-1. Välj ellipserna bredvid den klient profil som du vill ta bort. Välj sedan **ta bort** .
+1. Välj ellipserna bredvid den klient profil som du vill ta bort. Välj sedan **ta bort**.
 
     ![Skärm bild som visar ta bort valda från menyn.](./media/openvpn-azure-ad-client/delete/delete1.jpg)
 
@@ -96,11 +96,11 @@ När du har en fungerande profil och behöver distribuera den till andra använd
 
 ## <a name="create-a-connection"></a><a name="connection"></a>Skapa en anslutning
 
-1. På sidan väljer du **+** och sedan **+ Lägg till** .
+1. På sidan väljer du **+** och sedan **+ Lägg till**.
 
     ![Skärm bild som visar Lägg till valda från menyn plus.](./media/openvpn-azure-ad-client/create/create1.jpg)
 
-2. Fyll i anslutnings informationen. Kontakta administratören om du är osäker på värdena. När du har fyllt i värdena väljer du **Spara** .
+2. Fyll i anslutnings informationen. Kontakta administratören om du är osäker på värdena. När du har fyllt i värdena väljer du **Spara**.
 
     ![Skärm bild som visar fönstret där du kan ange de värden som krävs.](./media/openvpn-azure-ad-client/create/create2.jpg)
 
@@ -108,11 +108,11 @@ När du har en fungerande profil och behöver distribuera den till andra använd
 
     ![Skärm bild som visar knappen Anslut för anslutningen.](./media/openvpn-azure-ad-client/create/create3.jpg)
 
-4. Välj rätt autentiseringsuppgifter och välj sedan **Fortsätt** .
+4. Välj rätt autentiseringsuppgifter och välj sedan **Fortsätt**.
 
     ![Skärm bild som visar dialog rutan logga in.](./media/openvpn-azure-ad-client/create/create4.jpg)
 
-5. När anslutningen är klar blir ikonen grön och säg **ansluten** .
+5. När anslutningen är klar blir ikonen grön och säg **ansluten**.
 
     ![Skärm bild som visar anslutningen i en ansluten status.](./media/openvpn-azure-ad-client/create/create5.jpg)
 
@@ -120,7 +120,7 @@ När du har en fungerande profil och behöver distribuera den till andra använd
 
 Dessa steg hjälper dig att konfigurera anslutningen till att ansluta automatiskt med Always On.
 
-1. På Start sidan för VPN-klienten väljer du **VPN-inställningar** .
+1. På Start sidan för VPN-klienten väljer du **VPN-inställningar**.
 
     ![Skärm bild som visar V P N-anslutningar där du kan välja V P N-inställningar.](./media/openvpn-azure-ad-client/auto/auto1.jpg)
 
@@ -138,11 +138,11 @@ Dessa steg hjälper dig att konfigurera anslutningen till att ansluta automatisk
 
 ## <a name="diagnose-connection-issues"></a><a name="diagnose"></a>Diagnostisera anslutnings problem
 
-1. För att diagnostisera anslutnings problem kan du använda verktyget **diagnostisera** . Välj **...** bredvid den VPN-anslutning som du vill diagnostisera för att Visa menyn. Välj sedan **diagnostisera** .
+1. För att diagnostisera anslutnings problem kan du använda verktyget **diagnostisera** . Välj **...** bredvid den VPN-anslutning som du vill diagnostisera för att Visa menyn. Välj sedan **diagnostisera**.
 
     ![Skärm bild som visar diagnostiserat valt i menyn.](./media/openvpn-azure-ad-client/diagnose/diagnose1.jpg)
 
-2. På sidan **anslutnings egenskaper** väljer du **Kör diagnostik** .
+2. På sidan **anslutnings egenskaper** väljer du **Kör diagnostik**.
 
     ![Skärm bild som visar knappen Kör diagnostik för en anslutning.](./media/openvpn-azure-ad-client/diagnose/diagnose2.jpg)
 
@@ -154,7 +154,7 @@ Dessa steg hjälper dig att konfigurera anslutningen till att ansluta automatisk
 
     ![Skärm bild som visar resultatet av diagnostiken.](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 ### <a name="how-do-i-add-dns-suffixes-to-the-vpn-client"></a>Hur gör jag för att lägga till DNS-suffix till VPN-klienten?
 
@@ -192,7 +192,7 @@ Du kan ändra den nedladdade profil-XML- **\<dnsservers> \<dnsserver> \</dnsserv
 ```
 
 > [!NOTE]
-> OpenVPN Azure AD-klienten använder NRPT-poster (namn matchnings princip tabell), vilket innebär att DNS-servrar inte visas under utdata från `ipconfig /all` . Om du vill bekräfta dina DNS-inställningar som du använder, se [Get-DnsClientNrptPolicy](https://docs.microsoft.com/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps) i PowerShell.
+> OpenVPN Azure AD-klienten använder NRPT-poster (namn matchnings princip tabell), vilket innebär att DNS-servrar inte visas under utdata från `ipconfig /all` . Om du vill bekräfta dina DNS-inställningar som du använder, se [Get-DnsClientNrptPolicy](/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps) i PowerShell.
 >
 
 ### <a name="how-do-i-add-custom-routes-to-the-vpn-client"></a>Hur gör jag för att lägga till anpassade vägar i VPN-klienten?

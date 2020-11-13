@@ -6,12 +6,12 @@ ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 07/17/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3ae22294d86ab65be0f09b734735885177c1cf63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c4920eaa7a5619be37d38afd763e7be416d3124
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777317"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565729"
 ---
 # <a name="tutorial-use-personalizer-in-net-chat-bot"></a>Självstudie: använda Personanpassaren i .NET Chat-robot
 
@@ -43,7 +43,7 @@ Det här är en enkel chatt-robot som gör att du kan ange text frågor.
 |--|--|--|
 |Ingen text har angetts – bot startar konversationen.|`This is a simple chatbot example that illustrates how to use Personalizer. The bot learns what coffee or tea order is preferred by customers given some context information (such as weather, temperature, and day of the week) and information about the user.`<br>`To use the bot, just follow the prompts. To try out a new imaginary context, type “Reset” and a new one will be randomly generated.`<br>`Welcome to the coffee bot, please tell me if you want to see the menu or get a coffee or tea suggestion for today. Once I’ve given you a suggestion, you can reply with ‘like’ or ‘don’t like’. It’s Tuesday today and the weather is Snowy.`|Roboten startar konversationen med instruktions text och du kan se vad kontexten är: `Tuesday` , `Snowy` .|
 |`Show menu`|`Here is our menu: Coffee: Cappuccino Espresso Latte Macchiato Mocha Tea: GreenTea Rooibos`|Bestäm avsikten med att fråga med LUIS och Visa meny val för kaffe-och te-objekt. Funktioner i åtgärderna är |
-|`What do you suggest`|`How about Latte?`|Bestäm avsikten med att fråga med hjälp av LUIS, anropa **rang-API**och visa det bästa valet som en fråga `How about {response.RewardActionId}?` . Visar också JSON-anrop och-svar för illustrations syfte.|
+|`What do you suggest`|`How about Latte?`|Bestäm avsikten med att fråga med hjälp av LUIS, anropa **rang-API** och visa det bästa valet som en fråga `How about {response.RewardActionId}?` . Visar också JSON-anrop och-svar för illustrations syfte.|
 |`I like it`|`That’s great! I’ll keep learning your preferences over time.`<br>`Would you like to get a new suggestion or reset the simulated context to a new day?`|Bestäm avsikten med en fråga med hjälp av LUIS, och anropa sedan **belönings-API: et** med belöning för `1` , visar JSON-anrop och-svar för illustration.|
 |`I don't like it`|`Oh well, maybe I’ll guess better next time.`<br>`Would you like to get a new suggestion or reset the simulated context to a new day?`|Bestäm avsikten med en fråga med hjälp av LUIS, och anropa sedan **belönings-API: et** med belöning för `0` , visar JSON-anrop och-svar för illustration.|
 |`Reset`|Returnerar instruktions text.|Bestäm avsikten med en fråga med hjälp av LUIS. sedan visas instruktions texten och kontexten återställs.|
@@ -105,9 +105,9 @@ Urvalet av funktioner är slumpmässigt i den här Chat-roboten. Använd verklig
 ### <a name="design-considerations-for-this-bot"></a>Design överväganden för den här roboten
 
 Det finns några försiktighets åtgärder att notera om den här konversationen:
-* **Bot-interaktion**: konversationen är mycket enkel eftersom den demonstrerar rankning och belöning i ett enkelt användnings fall. Den demonstrerar inte alla funktioner i bot Framework SDK eller emulatorn.
-* **Personanpassare**: funktionerna är markerade slumpmässigt för att simulera användning. Gör inte några slumpmässiga funktioner i ett scenario för tillverknings Personanpassan.
-* **Language Understanding (Luis)**: några exempel yttranden för Luis-modellen är endast avsedda för det här exemplet. Använd inte några få exempel yttranden i ditt produktions LUIS-program.
+* **Bot-interaktion** : konversationen är mycket enkel eftersom den demonstrerar rankning och belöning i ett enkelt användnings fall. Den demonstrerar inte alla funktioner i bot Framework SDK eller emulatorn.
+* **Personanpassare** : funktionerna är markerade slumpmässigt för att simulera användning. Gör inte några slumpmässiga funktioner i ett scenario för tillverknings Personanpassan.
+* **Language Understanding (Luis)** : några exempel yttranden för Luis-modellen är endast avsedda för det här exemplet. Använd inte några få exempel yttranden i ditt produktions LUIS-program.
 
 
 ## <a name="install-required-software"></a>Installera nödvändig program vara
@@ -130,7 +130,7 @@ git clone https://github.com/Azure-Samples/cognitive-services-personalizer-sampl
 
 Om du vill använda den här chatt-roboten måste du skapa Azure-resurser för Personanpassare och Language Understanding (LUIS).
 
-* [Skapa Luis-resurser](../luis/luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal). Välj **båda** i steget Skapa eftersom du behöver både författar-och förutsägelse resurser.
+* [Skapa Luis-resurser](../luis/luis-how-to-azure-subscription.md#create-luis-resources-in-the-azure-portal). Välj **båda** i steget Skapa eftersom du behöver både författar-och förutsägelse resurser.
 * [Skapa en personanpassa resurs](how-to-create-resource.md) och kopiera sedan nyckeln och slut punkten från Azure Portal. Du måste ange dessa värden i `appsettings.json` filen för .net-projektet.
 
 ### <a name="create-luis-app"></a>Skapa LUIS-app
@@ -138,12 +138,12 @@ Om du vill använda den här chatt-roboten måste du skapa Azure-resurser för P
 Om du är nybörjare på LUIS måste du [Logga](https://www.luis.ai) in och omedelbart migrera ditt konto. Du behöver inte skapa nya resurser. i stället väljer du de resurser som du skapade i föregående avsnitt i den här självstudien.
 
 1. Om du vill skapa ett nytt LUIS-program går du till [Luis-portalen](https://www.luis.ai)och väljer din prenumeration och din redigering av resurs.
-1. Sedan, fortfarande på samma sida, väljer du **+ ny app för konversation**och **importerar sedan som JSON**.
+1. Sedan, fortfarande på samma sida, väljer du **+ ny app för konversation** och **importerar sedan som JSON**.
 1. I popup-dialogrutan väljer du **Välj fil** och väljer sedan `/samples/ChatbotExample/CognitiveModels/coffeebot.json` filen. Ange namnet `Personalizer Coffee bot` .
 1. Välj knappen **träna** i det övre högra navigerings fönstret på Luis-portalen.
 1. Välj knappen **publicera** för att publicera appen på **produktions platsen** för förutsägelse körning.
-1. Välj **Hantera**och sedan **Inställningar**. Kopiera värdet för **app-ID: t**. Du måste ange det här värdet i `appsettings.json` filen för .net-projektet.
-1. Välj **Azure-resurser**fortfarande i avsnittet **Hantera** . Detta visar de associerade resurserna i appen.
+1. Välj **Hantera** och sedan **Inställningar**. Kopiera värdet för **app-ID: t**. Du måste ange det här värdet i `appsettings.json` filen för .net-projektet.
+1. Välj **Azure-resurser** fortfarande i avsnittet **Hantera** . Detta visar de associerade resurserna i appen.
 1. Välj **Lägg till förutsägelse resurs**. I popup-dialogrutan väljer du din prenumeration och den förutsägelse resurs som skapades i föregående avsnitt i den här självstudien. Välj sedan **klar**.
 1. Kopiera värdena för **primär nyckel** och **slut punkts-URL**. Du måste ange dessa värden i `appsettings.json` filen för .net-projektet.
 
@@ -178,18 +178,18 @@ Håll webbplatsen igång eftersom självstudien förklarar vad roboten gör, så
 
 1. Öppna bot Framework-emulatorn och välj **Öppna bot**.
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-startup.png" alt-text="Skärm bild av webbläsare som visar chatt robots webbplats.":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-startup.png" alt-text="Skärm bild av Start skärmen för bot-emulatorn.":::
 
 
-1. Konfigurera roboten med följande **bot-URL** och välj sedan **Anslut**:
+1. Konfigurera roboten med följande **bot-URL** och välj sedan **Anslut** :
 
     `http://localhost:3978/api/messages`
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-open-bot-settings.png" alt-text="Skärm bild av webbläsare som visar chatt robots webbplats.":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-open-bot-settings.png" alt-text="Skärm bild av robot-emulator öppna bot-inställningar.":::
 
     Emulatorn ansluter till Chat-roboten och visar instruktions texten, tillsammans med loggnings-och felsöknings information som kan vara till hjälp för lokal utveckling.
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-bot-conversation-first-turn.png" alt-text="Skärm bild av webbläsare som visar chatt robots webbplats.":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-bot-conversation-first-turn.png" alt-text="Skärm bild av robot-emulatorn i första gången konversationen.":::
 
 ## <a name="use-the-bot-in-the-bot-emulator"></a>Använd bot-roboten i bot-emulatorn
 

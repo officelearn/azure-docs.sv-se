@@ -13,19 +13,17 @@ ms.date: 03/31/2020
 ms.author: marsma
 ms.reviewer: hahamil
 ms.custom: aaddev, identitypla | Azuretformtop40
-ms.openlocfilehash: c1bf6b33176bf7942fbd76fa86ecd61b4f24e154
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: fc32b4f583aea2fa9a34ab8b235f3f99fe4def9d
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366011"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94562176"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Läge för delad enhet för Android-enheter
 
-> [!NOTE]
-> Den här funktionen är en allmänt tillgänglig förhandsversion.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
-> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>[!IMPORTANT]
+> Den här funktionen [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 Firstline-anställda som detalj handels företag, flyg besättnings medlemmar och fält tjänst arbetare använder ofta en delad mobil enhet för att utföra sitt arbete. Det är problematiskt när de börjar dela lösen ord eller PIN-nummer för att komma åt kund-och affärs data på den delade enheten.
 

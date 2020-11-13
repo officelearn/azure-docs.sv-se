@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: victorh
 ms.reviewer: tyao
-ms.openlocfilehash: a7ab7debffc8e88f385fbba6ae52af74ef98b25f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 479b1d8ed1f4238486bb78e33a6139463578dbba
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91266948"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563315"
 ---
 # <a name="set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Konfigurera en princip för geo-filtrering WAF för din front dörr
 
@@ -25,9 +25,9 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 Innan du börjar konfigurera en geo-filter-princip konfigurerar du din PowerShell-miljö och skapar en profil för en front dörr.
 ### <a name="set-up-your-powershell-environment"></a>Konfigurera PowerShell-miljön
-Azure PowerShell tillhandahåller en uppsättning cmdletar som använder [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)-modellen för att hantera dina Azure-resurser. 
+Azure PowerShell tillhandahåller en uppsättning cmdletar som använder [Azure Resource Manager](../../azure-resource-manager/management/overview.md)-modellen för att hantera dina Azure-resurser. 
 
-Du kan installera [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) på en lokal dator och använda det i alla PowerShell-sessioner. Följ anvisningarna på sidan för att logga in med dina Azure-autentiseringsuppgifter och installera AZ PowerShell-modulen.
+Du kan installera [Azure PowerShell](/powershell/azure/) på en lokal dator och använda det i alla PowerShell-sessioner. Följ anvisningarna på sidan för att logga in med dina Azure-autentiseringsuppgifter och installera AZ PowerShell-modulen.
 
 #### <a name="connect-to-azure-with-an-interactive-dialog-for-sign-in"></a>Ansluta till Azure med en interaktiv dialog ruta för inloggning
 

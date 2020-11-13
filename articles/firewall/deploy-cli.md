@@ -7,12 +7,12 @@ ms.service: firewall
 ms.date: 08/29/2019
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 7f00b57edb37cc5bb5c8340663d619e526c2eacb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7c6640b6634a017819735b9d0f7b906f8dc91d0
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89075434"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565882"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Distribuera och konfigurera Azure-brandväggen med Azure CLI
 
@@ -44,22 +44,11 @@ I den här artikeln kan du se hur du:
 
 Om du vill kan du slutföra den här proceduren med hjälp av [Azure Portal](tutorial-firewall-deploy-portal.md) eller [Azure PowerShell](deploy-ps.md).
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
-
-### <a name="azure-cli"></a>Azure CLI
-
-Om du väljer att installera och använda CLI lokalt kör du Azure CLI version 2.0.4 eller senare. Du hittar versionen genom att köra **AZ--version**. Information om att installera eller uppgradera finns i [Installera Azure CLI]( /cli/azure/install-azure-cli).
-
-Installera Azure Firewall-tillägget:
-
-```azurecli-interactive
-az extension add -n azure-firewall
-```
-
+- Den här artikeln kräver version 2.0.4 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
 ## <a name="set-up-the-network"></a>Konfigurera nätverket
 
@@ -264,7 +253,7 @@ Testa nu brand väggen för att bekräfta att den fungerar som förväntat.
 
 1. Anslut ett fjärr skrivbord till en virtuell dator med **SRV-hopp** och logga in. Därifrån öppnar du en fjärr skrivbords anslutning till den privata IP-adressen för **SRV-arbete** och loggar in.
 
-3. Öppna ett PowerShell-fönster i **SRV-arbete**och kör följande kommandon:
+3. Öppna ett PowerShell-fönster i **SRV-arbete** och kör följande kommandon:
 
    ```
    nslookup www.google.com

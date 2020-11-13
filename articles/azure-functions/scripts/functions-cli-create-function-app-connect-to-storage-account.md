@@ -4,12 +4,12 @@ description: Exempel på Azure CLI-skript – Skapa en Azure-funktion som anslut
 ms.topic: sample
 ms.date: 04/20/2017
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3eec4e22f80d1efd180dc6770a781ee14db680be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b95ec2da96e385ba4595a5552e64d6cc039c0e16
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87498556"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565338"
 ---
 # <a name="create-a-function-app-with-a-named-storage-account-connection"></a>Skapa en Function-app med en namngiven lagrings konto anslutning 
 
@@ -17,9 +17,9 @@ Det här exempelskriptet för Azure Functions skapar en funktionsapp och anslute
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Om du använder CLI lokalt kontrollerar du att du har Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli). 
+ - I den här självstudien krävs version 2,0 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -33,7 +33,7 @@ Det här exemplet skapar en Azure-funktionsapp och lägger till anslutningssträ
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Skapa en resursgrupp med en plats. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Skapa ett lagringskonto. |

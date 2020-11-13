@@ -28,8 +28,6 @@
       items:
         - name: Byta källspråk för taligenkänning
           href: how-to-specify-source-language.md
-        - name: Förbättra noggrannheten med anpassat tal
-          href: how-to-custom-speech.md
         - name: Använda komprimerade ljudindataformat
           href: how-to-use-codec-compressed-audio-input-streams.md
           displayName: 'codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk'
@@ -45,20 +43,18 @@
           href: tutorial-tenant-model.md
     - name: Anpassning
       items:
+        - name: Vad är Custom Speech?
+          href: custom-speech-overview.md
         - name: Testa en modell med hjälp av ljudfiler i Speech Studio
           href: quickstarts/speech-studio-test-model.md
         - name: Förbereda data för Custom Speech
           href: how-to-custom-speech-test-and-train.md
         - name: Inspektera Custom Speech-data
           href: how-to-custom-speech-inspect-data.md
-        - name: Utvärdera noggrannhet i Custom Speech
+        - name: Utvärdera och förbättra noggrannhet i Custom Speech
           href: how-to-custom-speech-evaluate-data.md
-        - name: Förbättra noggrannhet i Custom Speech
-          href: how-to-custom-speech-improve-accuracy.md
-        - name: Träna en modell för Custom Speech
+        - name: Träna och distribuera en Custom Speech-modell
           href: how-to-custom-speech-train-model.md
-        - name: Distribuera en anpassad modell
-          href: how-to-custom-speech-deploy-model.md
         - name: CI/CD för Custom Speech
           href: how-to-custom-speech-continuous-integration-continuous-deployment.md
         - name: Skapa transkriptioner med mänsklig etikett
@@ -391,6 +387,10 @@
                       href: how-to-custom-commands-setup-web-endpoints.md
                     - name: Exportera din Anpassade kommandon-app som en färdighet
                       href: how-to-custom-commands-integrate-remote-skills.md
+                    - name: Uppdatera ett kommando från klientappen
+                      href: how-to-custom-commands-update-command-from-client.md
+                    - name: Uppdatera ett kommando från en webbslutpunkt
+                      href: how-to-custom-commands-update-command-from-web-endpoint.md
                 - name: Distribuera
                   items:
                     - name: Kontinuerlig distribution med Azure DevOps

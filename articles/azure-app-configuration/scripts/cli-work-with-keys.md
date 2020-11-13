@@ -10,12 +10,12 @@ ms.topic: sample
 ms.date: 02/19/2020
 ms.author: lcozzens
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e3407a1da469bf4f31e5d54d83ee837bddbafffc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2610d0ee448e274b9bdeb7396393ce47e27e65ef
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87494765"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565763"
 ---
 # <a name="work-with-key-values-in-an-azure-app-configuration-store"></a>Arbeta med nyckelvärden i ett Azure App Configuration-arkiv
 
@@ -27,10 +27,9 @@ Det här exempel skriptet visar hur du:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Den här artikeln kräver Azure CLI version 2,0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli). 
-
+ - I den här självstudien krävs version 2,0 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 ## <a name="sample-script"></a>Exempelskript
 
 ```azurecli-interactive
@@ -82,7 +81,7 @@ az appconfig kv list --name $appConfigName
 
 I den här tabellen visas de kommandon som används i vårt exempel skript. 
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [az appconfig kv set](/cli/azure/appconfig/kv#az-appconfig-kv-set) | Skapa eller uppdatera ett nyckel/värde-par. |
 | [az appconfig kv list](/cli/azure/appconfig/kv#az-appconfig-kv-list) | Visa en lista med nyckel/värde-par i ett konfigurations Arkiv för appar. |

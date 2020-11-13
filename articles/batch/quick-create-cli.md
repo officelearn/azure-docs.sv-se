@@ -4,12 +4,12 @@ description: Lär dig snabbt att skapa ett batch-konto och köra ett batch-jobb 
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 8824d4485167955dd1b928bc57381b2e6b672c5d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: eb5bb4a627ff26250519651f5e6d47ddd6f5a776
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88213103"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94562312"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Snabbstart: Kör ditt första Batch-jobb med Azure CLI
 
@@ -17,13 +17,11 @@ Kom igång med Azure Batch med hjälp av Azure CLI för att skapa ett batch-kont
 
 Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. När du har slutfört den här snabbstarten kommer du att förstå huvudbegreppen för Batch-tjänsten och vara redo att testa Batch med mer realistiska arbetsbelastningar i större skala.
 
-## <a name="prerequisites"></a>Förutsättningar
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- Om du väljer att installera och använda CLI lokalt kräver den här snabb starten att du kör Azure CLI version 2.0.20 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+- Den här snabb starten kräver version 2.0.20 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -53,7 +51,7 @@ az storage account create \
 
 Skapa ett Batch-konto med kommandot [az batch account create](/cli/azure/batch/account#az-batch-account-create). Du behöver ett konto för att skapa beräkningsresurser (pooler med datornoder) och Batch-jobb.
 
-I följande exempel skapas ett batch-konto med namnet *mybatchaccount* i *QuickstartBatch-RG*och länkar det lagrings konto som du har skapat.  
+I följande exempel skapas ett batch-konto med namnet *mybatchaccount* i *QuickstartBatch-RG* och länkar det lagrings konto som du har skapat.  
 
 ```azurecli-interactive
 az batch account create \
@@ -107,7 +105,7 @@ az batch job create \
 
 Använd nu kommandot [az batch task create](/cli/azure/batch/task#az-batch-task-create) för att skapa några aktiviteter att köra i jobbet. I det här exemplet skapar du fyra identiska aktiviteter. Varje aktivitet kör en `command-line` för att visa Batch-miljövariablerna på en beräkningsnod och väntar sedan i 90 sekunder. När du använder Batch är det på den här kommandoraden som anger du din app eller ditt skript. Batch tillhandahåller ett antal sätt att distribuera appar och skript till beräkningsnoder.
 
-Följande Bash-skript skapar 4 parallella aktiviteter(*mytask1* till *mytask4*).
+Följande Bash-skript skapar 4 parallella aktiviteter( *mytask1* till *mytask4* ).
 
 ```azurecli-interactive
 for i in {1..4}
@@ -137,7 +135,7 @@ Kommandoutdata innehåller många detaljer, men observera `exitCode` på kommand
 
 ## <a name="view-task-output"></a>Visa aktivitetens utdata
 
-Om du vill visa en lista över filer som skapas av en aktivitet på en beräkningsnod ska du använda kommandot [az batch task file list](/cli/azure/batch/task). Följande kommando visar filer som skapas av *mytask1*:
+Om du vill visa en lista över filer som skapas av en aktivitet på en beräkningsnod ska du använda kommandot [az batch task file list](/cli/azure/batch/task). Följande kommando visar filer som skapas av *mytask1* :
 
 ```azurecli-interactive
 az batch task file list \
@@ -168,7 +166,7 @@ az batch task file download \
     --destination ./stdout.txt
 ```
 
-Du kan visa innehållet i `stdout.txt` i en textredigerare. Innehållet visar Azure Batch-miljövariabler som ställts in på noden. När du skapar dina egna Batch-jobb kan du referera till dessa miljövariabler i aktivitetens kommandorader och i de appar och skript som körs av kommandoraderna. Till exempel:
+Du kan visa innehållet i `stdout.txt` i en textredigerare. Innehållet visar Azure Batch-miljövariabler som ställts in på noden. När du skapar dina egna Batch-jobb kan du referera till dessa miljövariabler i aktivitetens kommandorader och i de appar och skript som körs av kommandoraderna. Exempel:
 
 ```
 AZ_BATCH_TASK_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask1

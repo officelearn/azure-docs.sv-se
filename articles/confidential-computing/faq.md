@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 4/17/2020
 ms.author: jencook
-ms.openlocfilehash: cf90ff5b94eb03f76dffc8b64dd4d92a44ac20ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9df3d9771029e6d72e9d0092a129cddc27be6cd7
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91848916"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564114"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-computing"></a>Vanliga frågor och svar om Azures konfidentiella data behandling
 
@@ -32,14 +32,14 @@ Här följer några exempel på hur du kan distribuera en virtuell DCsv2-dator:
 
 **Kommer alla OS-avbildningar att fungera med Azures konfidentiella data behandling?**
 
-Nej. De virtuella datorerna kan bara distribueras på generation 2-operativsystem med Ubuntu Server 18,04, Ubuntu Server 16,04, Windows Server 2019 Data Center och Windows Server 2016 Data Center. Läs mer om generation 2 virtuella datorer i [Linux](../virtual-machines/linux/generation-2.md) och [Windows](../virtual-machines/windows/generation-2.md)
+Nej. De virtuella datorerna kan bara distribueras på generation 2-operativsystem med Ubuntu Server 18,04, Ubuntu Server 16,04, Windows Server 2019 Data Center och Windows Server 2016 Data Center. Läs mer om generation 2 virtuella datorer i [Linux](../virtual-machines/generation-2.md) och [Windows](../virtual-machines/generation-2.md)
 
 **DCsv2 virtuella datorer är nedtonade i portalen och jag kan inte välja en**
 
 Utifrån informations bubblan bredvid den virtuella datorn finns det olika åtgärder att vidta:
-   -    **UnsupportedGeneration**: ändra avbildningen av den virtuella dator avbildningen till "Gen2".
-   -    **NotAvailableForSubscription**: regionen är inte tillgänglig ännu för din prenumeration. Välj en tillgänglig region.
-   -    **InsufficientQuota**: [skapa en support förfrågan för att öka din kvot](../azure-portal/supportability/per-vm-quota-requests.md). De kostnads fria utvärderings prenumerationerna har ingen kvot för konfidentiella datorer. 
+   -    **UnsupportedGeneration** : ändra avbildningen av den virtuella dator avbildningen till "Gen2".
+   -    **NotAvailableForSubscription** : regionen är inte tillgänglig ännu för din prenumeration. Välj en tillgänglig region.
+   -    **InsufficientQuota** : [skapa en support förfrågan för att öka din kvot](../azure-portal/supportability/per-vm-quota-requests.md). De kostnads fria utvärderings prenumerationerna har ingen kvot för konfidentiella datorer. 
 
 **DCsv2 virtuella datorer visas inte när jag försöker söka efter dem i väljaren för Portal storlek**
 

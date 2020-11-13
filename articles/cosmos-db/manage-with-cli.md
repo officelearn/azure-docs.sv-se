@@ -7,21 +7,21 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: e4b112b93a552ff62b08c102e710cd914265ba5c
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b13f5bfffced9afd80663d606e30e028e52643ac
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339333"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563846"
 ---
 # <a name="manage-azure-cosmos-core-sql-api-resources-using-azure-cli"></a>Hantera Azure Cosmos Core (SQL) API-resurser med hjälp av Azure CLI
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 I följande guide beskrivs vanliga kommandon för att automatisera hanteringen av dina Azure Cosmos DB-konton, databaser och containrar med hjälp av Azure CLI. Referens sidor för alla Azure Cosmos DB CLI-kommandon är tillgängliga i [Azure CLI-referensen](/cli/azure/cosmosdb). Du kan också hitta fler exempel i [Azure CLI-exempel för Azure Cosmos DB](cli-samples.md), inklusive hur du skapar och hanterar Cosmos DB-konton, databaser och behållare för MongoDB, Gremlin, Cassandra och tabell-API.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Om du väljer att installera och använda CLI lokalt, kräver det här avsnittet att du kör Azure CLI-version 2.12.1 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
+- Den här artikeln kräver version 2.12.1 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
 För Azure CLI-exempel för andra API: er se [CLI-exempel för Cassandra](cli-samples-cassandra.md), [CLI-exempel för MongoDB API](cli-samples-mongodb.md), CLI-exempel [för Gremlin](cli-samples-gremlin.md), [CLI-exempel för tabell](cli-samples-table.md)
 

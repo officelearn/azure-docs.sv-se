@@ -4,12 +4,12 @@ description: Lär dig hur du skalar din resurs-webbapp, moln tjänst, virtuell d
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 3662f6007049a5531e11c193adf71e8f8442dcdb
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 543ecc80abeb9a437a895224de6ade679698c4d7
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377028"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565644"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Kom igång med autoskalning i Azure
 I den här artikeln beskrivs hur du konfigurerar inställningarna för autoskalning för resursen i Microsoft Azure-portalen.
@@ -45,7 +45,7 @@ Nu ska vi gå igenom en enkel steg-för-steg-genom gång för att skapa din för
   ![Skalnings inställning för ny webbapp][5]
 1. Ange ett namn för skalnings inställningen och klicka sedan på **Lägg till en regel**. Observera de skalnings regel alternativ som öppnas som ett kontext fönster på den högra sidan. Som standard anger detta alternativet att skala antalet instanser med 1 om resursens procent andel överstiger 70 procent. Låt standardvärdena vara kvar och klicka på **Lägg till**.
   ![Skapa skalnings inställning för en webbapp][6]
-1. Nu har du skapat din första skalnings regel. Observera att UX rekommenderar bästa praxis och anger att "det rekommenderas att ha minst en skala i regeln". Gör så här:
+1. Nu har du skapat din första skalnings regel. Observera att UX rekommenderar bästa praxis och anger att "det rekommenderas att ha minst en skala i regeln". Så här gör du:
 
     a. Klicka på **Lägg till en regel**.
 
@@ -127,7 +127,7 @@ Hälso kontroll Sök vägen bör kontrol lera de kritiska komponenterna i ditt p
 
 #### <a name="security"></a>Säkerhet 
 
-Utvecklings grupper i stora företag måste ofta följa säkerhets kraven för de exponerade API: erna. För att skydda Healthcheck-slutpunkten bör du först använda funktioner som [IP-begränsningar](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules), [klient certifikat](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules)eller en Virtual Network för att begränsa åtkomsten till programmet. Du kan skydda själva Healthcheck-slutpunkten genom att kräva att den `User-Agent` inkommande begäran matchar `ReadyForRequest/1.0` . User-Agent kan inte manipuleras eftersom begäran redan var skyddad av de tidigare säkerhetsfunktionerna.
+Utvecklings grupper i stora företag måste ofta följa säkerhets kraven för de exponerade API: erna. För att skydda Healthcheck-slutpunkten bör du först använda funktioner som [IP-begränsningar](../../app-service/app-service-ip-restrictions.md#set-an-ip-address-based-rule), [klient certifikat](../../app-service/app-service-ip-restrictions.md#set-an-ip-address-based-rule)eller en Virtual Network för att begränsa åtkomsten till programmet. Du kan skydda själva Healthcheck-slutpunkten genom att kräva att den `User-Agent` inkommande begäran matchar `ReadyForRequest/1.0` . User-Agent kan inte manipuleras eftersom begäran redan var skyddad av de tidigare säkerhetsfunktionerna.
 
 ### <a name="behavior"></a>Beteende
 

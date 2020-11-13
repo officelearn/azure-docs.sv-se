@@ -6,22 +6,22 @@ ms.author: mimckitt
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: management
-ms.date: 08/20/2019
+ms.date: 11/12/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 767b5a6be9c9aaff1bfe82ebc46b3b9179e271e4
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2aa589d237a8cfeb8e0dc947896dba82e755631c
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736981"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564777"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Meddelanden för planerat underhåll för VM-skalningsuppsättningar
 
 
 Azure utför regelbundet uppdateringar för att förbättra tillförlitligheten, prestanda och säkerheten i värd infrastrukturen för virtuella datorer (VM). Uppdateringar kan omfatta en korrigering av värd miljön eller uppgradering och inaktive ring av maskin vara. De flesta uppdateringar påverkar inte de värdar som är värdar för virtuella datorer. Uppdateringar påverkar dock virtuella datorer i följande scenarier:
 
-- Om underhållet inte kräver en omstart använder Azure migrering på plats för att pausa den virtuella datorn medan värden uppdateras. Underhålls åtgärder som inte kräver en omstart tillämpas fel domän från fel domän. Förloppet stoppas om eventuella varnings hälso signaler tas emot.
+- Om underhållet inte kräver en omstart pausar Azure den virtuella datorn i några sekunder medan värden uppdateras. De här typerna av underhålls åtgärder tillämpas på fel domän av fel domän. Förloppet stoppas om eventuella varnings hälso signaler tas emot.
 
 - Om underhåll kräver en omstart får du ett meddelande om när underhållet planeras. I dessa fall får du ett tidsfönster som normalt är 35 dagar där du kan starta underhållet själv när det passar dig.
 
@@ -44,7 +44,7 @@ Följande rikt linjer kan hjälpa dig att avgöra om du vill starta underhållet
 > Självbetjänings underhåll kanske inte är tillgängligt för alla dina virtuella datorer. För att avgöra om proaktiv omdistribution är tillgängligt för den virtuella datorn, tittar du på **Starta nu** i underhålls status. För närvarande är självbetjänings underhåll inte tillgängligt för Azure Cloud Services (webb-och arbets roll) och Azure Service Fabric.
 
 
-Självbetjänings underhåll rekommenderas inte för distributioner som använder *tillgänglighets uppsättningar* . Tillgänglighets uppsättningar är hög tillgängliga inställningar där endast en uppdaterings domän påverkas när som helst. För tillgänglighets uppsättningar:
+Självbetjänings underhåll rekommenderas inte för distributioner som använder *tillgänglighets uppsättningar*. Tillgänglighets uppsättningar är hög tillgängliga inställningar där endast en uppdaterings domän påverkas när som helst. För tillgänglighets uppsättningar:
 
 - Låt Azure utlösa underhållet. För underhåll som kräver en omstart görs en uppdaterings domän av en uppdaterings domän. Uppdaterings domäner får inte nödvändigt vis underhållet sekventiellt. Det finns 30 minuters paus mellan uppdaterings domäner.
 - Om en tillfällig förlust av en del av din kapacitet (1/uppdatering av domän antal) är ett problem, kan du enkelt kompensera för förlusten genom att allokera ytterligare instanser under underhålls perioden.
@@ -73,18 +73,18 @@ Det är bäst att använda självbetjänings underhåll i följande fall:
 När du har schemalagt en planerad underhålls våg kan du Visa en lista över de skalnings uppsättningar för virtuella datorer som påverkas av den kommande underhålls vågen med hjälp av Azure Portal. 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Välj **alla tjänster** på den vänstra menyn och välj sedan **Virtual Machine Scale Sets** .
+2. Välj **alla tjänster** på den vänstra menyn och välj sedan **Virtual Machine Scale Sets**.
 3. Under **skalnings uppsättningar för virtuella datorer** väljer du **Redigera kolumner** för att öppna listan över tillgängliga kolumner.
-4. I avsnittet **tillgängliga kolumner** väljer du **självbetjänings underhåll** och flyttar det sedan till listan över **valda kolumner** . Välj **Tillämpa** .  
+4. I avsnittet **tillgängliga kolumner** väljer du **självbetjänings underhåll** och flyttar det sedan till listan över **valda kolumner** . Välj **Tillämpa**.  
 
-    Om du vill göra det lättare att hitta **självbetjänings** objekt kan du ändra List alternativet i avsnittet **tillgängliga kolumner** från **alla** till- **Egenskaper** .
+    Om du vill göra det lättare att hitta **självbetjänings** objekt kan du ändra List alternativet i avsnittet **tillgängliga kolumner** från **alla** till- **Egenskaper**.
 
 Kolumnen för självbetjänings **Underhåll** visas nu i listan över skalnings uppsättningar för virtuella datorer. Varje skalnings uppsättning för virtuella datorer kan ha något av följande värden för kolumnen självbetjänings underhåll:
 
 | Värde | Beskrivning |
 |-------|-------------|
 | Ja | Minst en virtuell dator i skalnings uppsättningen för den virtuella datorn är i ett självbetjänings fönster. Du kan starta underhåll när som helst under den här självbetjänings perioden. | 
-| Nej | Inga virtuella datorer är i ett självbetjänings fönster i den berörda skalnings uppsättningen för virtuella datorer. | 
+| Inga | Inga virtuella datorer är i ett självbetjänings fönster i den berörda skalnings uppsättningen för virtuella datorer. | 
 | - | Skalnings uppsättningar för virtuella datorer ingår inte i en planerad underhålls våg.| 
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Aviseringar och aviseringar i portalen
@@ -92,12 +92,12 @@ Kolumnen för självbetjänings **Underhåll** visas nu i listan över skalnings
 Azure kommunicerar ett schema för planerat underhåll genom att skicka ett e-postmeddelande till Prenumerationens ägare och gruppen med medägare. Du kan lägga till mottagare och kanaler i den här kommunikationen genom att skapa aktivitets logg aviseringar. Mer information finns i [övervaka prenumerations aktivitet med Azure aktivitets logg](../azure-monitor/platform/platform-logs-overview.md).
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. På den vänstra menyn väljer du **övervaka** . 
-3. I fönstret **Övervaka – aviseringar (klassisk)** väljer du **+ Lägg till aktivitets logg avisering** .
+2. På den vänstra menyn väljer du **övervaka**. 
+3. I fönstret **Övervaka – aviseringar (klassisk)** väljer du **+ Lägg till aktivitets logg avisering**.
 4. På sidan **Lägg till aktivitets logg avisering** väljer eller anger du den begärda informationen. I **villkor** , se till att du anger följande värden:
-   - **Händelse kategori** : Välj **service Health** .
-   - **Tjänster** : Välj **Virtual Machine Scale Sets och Virtual Machines** .
-   - **Typ** : Välj **planerat underhåll** . 
+   - **Händelse kategori** : Välj **service Health**.
+   - **Tjänster** : Välj **Virtual Machine Scale Sets och Virtual Machines**.
+   - **Typ** : Välj **planerat underhåll**. 
     
 Mer information om hur du konfigurerar aktivitets logg aviseringar finns i [skapa aktivitets logg aviseringar](../azure-monitor/platform/activity-log-alerts.md)
     
@@ -106,7 +106,7 @@ Mer information om hur du konfigurerar aktivitets logg aviseringar finns i [skap
 
 Du kan se mer underhålls relaterad information i översikten över skalnings uppsättningar för virtuella datorer. Om minst en virtuell dator i den virtuella datorns skalnings uppsättning ingår i den planerade underhålls vågen läggs ett nytt meddelande band till längst upp på sidan. Välj menyfliksområdet avisering för att gå till **underhålls** sidan. 
 
-På sidan **Underhåll** kan du se vilken virtuell dator instans som påverkas av planerat underhåll. Starta underhållet genom att markera kryss rutan som motsvarar den berörda virtuella datorn. Välj sedan  **Starta underhåll** .
+På sidan **Underhåll** kan du se vilken virtuell dator instans som påverkas av planerat underhåll. Starta underhållet genom att markera kryss rutan som motsvarar den berörda virtuella datorn. Välj sedan  **Starta underhåll**.
 
 När du har startat underhåll genomgår de virtuella datorerna i den virtuella datorns skalnings uppsättning underhåll och är tillfälligt otillgängliga. Om du missade fönstret för självbetjäning kan du fortfarande se tidsfönstret när din skalnings uppsättning för den virtuella datorn kommer att behållas av Azure.
  
@@ -135,7 +135,7 @@ Följande egenskaper returneras under **MaintenanceRedeployStatus** :
 
 ### <a name="start-maintenance-on-your-vm-instance-by-using-powershell"></a>Starta underhåll på VM-instansen med hjälp av PowerShell
 
-Du kan starta underhåll på en virtuell dator om **IsCustomerInitiatedMaintenanceAllowed** är inställt på **Sant** . Använd cmdleten [set-AzVmss](/powershell/module/az.compute/set-azvmss) med `-PerformMaintenance` parametern.
+Du kan starta underhåll på en virtuell dator om **IsCustomerInitiatedMaintenanceAllowed** är inställt på **Sant**. Använd cmdleten [set-AzVmss](/powershell/module/az.compute/set-azvmss) med `-PerformMaintenance` parametern.
 
 ```powershell
 Set-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -PerformMaintenance 
@@ -171,7 +171,7 @@ Följande anrop initierar underhåll av en VM-instans om `IsCustomerInitiatedMai
 az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 ```
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 **F: Varför måste du starta om mina virtuella datorer nu?**
 
@@ -185,7 +185,7 @@ Mer information om hög tillgänglighet finns i [regioner och tillgänglighet f�
 
 **F: Hur kan jag få ett meddelande om planerat underhåll?**
 
-**A:** En planerad underhålls våg börjar genom att ange ett schema för en eller flera Azure-regioner. Strax efter skickas ett e-postmeddelande till Prenumerationens ägare (ett e-postmeddelande per prenumeration). Du kan lägga till kanaler och mottagare för det här meddelandet genom att använda aktivitets logg aviseringar. Om du distribuerar en virtuell dator till en region där planerat underhåll redan har schemalagts får du inte meddelandet. Kontrol lera i stället underhålls status för den virtuella datorn.
+**A:** En planerad underhålls våg börjar genom att ange ett schema för en eller flera Azure-regioner. Strax efter skickas ett e-postmeddelande till prenumerations administratörerna, medadministratörer, ägare och deltagare (ett e-postmeddelande per prenumeration). Ytterligare kanaler och mottagare för det här meddelandet kan konfigureras med aktivitets logg aviseringar. Om du distribuerar en virtuell dator till en region där planerat underhåll redan har schemalagts visas inte meddelandet. Kontrol lera i stället underhålls status för den virtuella datorn.
 
 **F: Jag ser inga uppgifter om planerat underhåll i portalen, PowerShell eller CLI. Vad är fel?**
 
@@ -202,7 +202,7 @@ Mer information om hög tillgänglighet finns i [regioner och tillgänglighet f�
 **F: Jag ser ingen underhålls information på mina virtuella datorer. Vad gick fel?**
 
 **A:** Det finns flera orsaker till varför du kanske inte ser någon underhålls information på dina virtuella datorer:
-   - Du använder en prenumeration som marker ATS som *Microsoft Internal* .
+   - Du använder en prenumeration som marker ATS som *Microsoft Internal*.
    - De virtuella datorerna är inte schemalagda för underhåll. Det kan bero på att underhålls vågen slutade, avbröts eller ändrades så att dina virtuella datorer inte längre påverkas av den.
    - Du har inte lagt till **underhålls** kolumnen i listvyn för din VM. Även om vi har lagt till den här kolumnen i standardvyn, om du konfigurerar vyn för att se kolumner som inte är standard, måste du manuellt lägga till **underhålls** kolumnen i vyn för din VM-lista.
 

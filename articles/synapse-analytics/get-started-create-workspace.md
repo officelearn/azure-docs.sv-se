@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 10/07/2020
-ms.openlocfilehash: 65d89436486940ad5239dd2c3e83401b82234a21
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 5a4f3c06f53191339bf42125c0781f3ac1238b32
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555472"
+ms.locfileid: "94561054"
 ---
 # <a name="creating-a-synapse-workspace"></a>Skapa en Synapse-arbetsyta
 
@@ -63,10 +63,7 @@ En dedikerad SQL-pool förbrukar fakturerbara resurser så länge den är aktiv.
 1. För **antal noder** ställer du in minst 3 och maximalt 3
 1. Välj **Granska + skapa** > **Skapa**. Apache Spark-poolen är klar efter några sekunder.
 
-När du utför Spark-aktivitet i Azure Synapse anger du en spark-pool som ska användas. Poolen talar om för Azure Synapse hur många Spark-resurser som ska användas. Du betalar bara för de resurser du använder. När du aktivt slutar använda poolen är resurserna automatiskt utgångna och återvinns.
-
-> [!NOTE]
-> Spark-databaser skapas oberoende av Spark-pooler. En arbets yta har alltid en spark-databas som kallas **default**. Du kan skapa ytterligare Spark-databaser.
+Spark-poolen meddelar Azure Synapse hur många Spark-resurser som ska användas. Du betalar bara för de resurser du använder. När du aktivt slutar använda poolen är resurserna automatiskt utgångna och återvinns.
 
 ## <a name="the-serverless-sql-pool"></a>SQL-poolen utan Server
 

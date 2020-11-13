@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 9/3/2020
 ms.author: JenCook
-ms.openlocfilehash: a7e3ade66aa4ebf7584e03b75f85c48b44537d97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 565f4971fffde1cbeb2234b43aaad5cce73b5404
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997845"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564386"
 ---
 # <a name="azure-confidential-computing-virtual-machines-vms-overview"></a>Översikt över Azure konfidentiella datorer för virtuella datorer (VM)
 
@@ -29,7 +29,7 @@ I Azures konfidentiella virtuella datorer är en del av PROCESSORns maskin vara 
 
 Azures infrastruktur för konfidentiell behandling består för närvarande av en special-SKU av virtuella datorer (VM). De här virtuella datorerna körs på Intel-processorer med Software Guard-tillägget (Intel SGX). [Intel SGX](https://intel.com/sgx) är den komponent som möjliggör det ökade skyddet som vi har med konfidentiell dator användning. 
 
-Idag erbjuder Azure [DCsv2-serien](https://docs.microsoft.com/azure/virtual-machines/dcv2-series) som bygger på Intel SGX-teknik för maskinvarubaserad enklaven-skapande. Du kan skapa säkra enklaven-baserade program som ska köras i DCsv2-serien med virtuella datorer för att skydda dina program data och kod som används. 
+Idag erbjuder Azure [DCsv2-serien](../virtual-machines/dcv2-series.md) som bygger på Intel SGX-teknik för maskinvarubaserad enklaven-skapande. Du kan skapa säkra enklaven-baserade program som ska köras i DCsv2-serien med virtuella datorer för att skydda dina program data och kod som används. 
 
 [Läs mer](virtual-machine-solutions.md) om att distribuera virtuella datorer med Azure konfidentiell dator med maskinvarubaserad betrodda enclaves.
 
@@ -39,7 +39,7 @@ Enclaves är säkra delar av maskin varans processor och minne. Det finns inget 
 
 I grunden kan du tänka på en enklaven som en säker ruta. Du anger krypterad kod och data i rutan. Från utsidan av rutan kan du inte se något. Du ger enklaven en nyckel för att dekryptera data, och sedan bearbetas och krypteras data innan de skickas ut från enklaven.
 
-Varje enklaven har en uppsättning storlek på en krypterad Page cache (EPC) som avgör mängden minne som varje enklaven kan innehålla. Större virtuella DCsv2-datorer har mer EPC-minne. Läs sidan med [DCsv2-specifikationer](https://docs.microsoft.com/azure/virtual-machines/dcv2-series) för maximal EPC per virtuell dator storlek.
+Varje enklaven har en uppsättning storlek på en krypterad Page cache (EPC) som avgör mängden minne som varje enklaven kan innehålla. Större virtuella DCsv2-datorer har mer EPC-minne. Läs sidan med [DCsv2-specifikationer](../virtual-machines/dcv2-series.md) för maximal EPC per virtuell dator storlek.
 
 
 

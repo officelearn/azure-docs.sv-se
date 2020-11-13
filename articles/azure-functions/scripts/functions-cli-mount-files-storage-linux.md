@@ -4,12 +4,12 @@ description: Skapa en server lös python Function-app och montera en befintlig f
 ms.topic: sample
 ms.date: 03/01/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 63ab9ba3219dc600187e73bbf124d62d3f51317a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bdcaeaca7c063f0532167077bba63f7e52a3d491
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87498216"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565066"
 ---
 # <a name="mount-a-file-share-to-a-python-function-app-using-azure-cli"></a>Montera en fil resurs i en python Function-app med hjälp av Azure CLI
 
@@ -20,9 +20,9 @@ Den här Azure Functions exempel skriptet skapar en Function-app och skapar en r
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI]( /cli/azure/install-azure-cli). Exempel är skrivna för bash-gränssnittet och måste ändras för att köras i en kommando tolk i Windows. 
+ - I den här självstudien krävs version 2,0 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad. 
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -36,7 +36,7 @@ Det här skriptet skapar en Azure Function-app med hjälp av [förbruknings plan
 
 Varje kommando i tabellen länkar till kommandospecifik dokumentation. I det här skriptet används följande kommandon:
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Konfigurerar ett Azure Storage-konto. |

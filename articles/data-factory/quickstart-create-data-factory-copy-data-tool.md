@@ -1,6 +1,6 @@
 ---
 title: Kopiera data med hjälp av Azure Kopiera data-verktyget
-description: Skapa en Azure-datafabrik och kopiera sedan data från en plats i Azure Blob Storage till en annan plats med hjälp av verktyget för att kopiera data.
+description: Skapa en Azure Data Factory och Använd sedan Kopiera data-verktyget för att kopiera data från en plats i Azure Blob Storage till en annan plats.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: 24ebd9a89f94d062672ec7246163abb93396813f
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 282917a6bbf7edb962a87ad87810adde56206d97
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555969"
+ms.locfileid: "94564726"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Snabb start: Använd Kopiera data-verktyget för att kopiera data
 

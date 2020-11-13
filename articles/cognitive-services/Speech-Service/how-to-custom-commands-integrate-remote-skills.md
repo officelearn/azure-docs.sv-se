@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: sausin
-ms.openlocfilehash: 6ab3e1e063409832de839da26eba80efd8b3f4d5
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 8c7cb1e9f39b1de7897da29467a607953b42bb24
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92344824"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565746"
 ---
 # <a name="export-custom-commands-application-as-a-remote-skill"></a>Exportera anpassade kommandon program som en fjärrskicklighet
 
 I den här artikeln får du lära dig hur du exporterar ett program för anpassade kommandon som en fjärrkunskap.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 > [!div class="checklist"]
 > * [Förståelse för bot Framework-kunskaper](https://aka.ms/speech/cc-skill-overview)
 > * [Förståelse för kunskaps manifest](https://aka.ms/speech/cc-skill-manifest)
@@ -88,4 +88,4 @@ Som författare kanske du vill kontrol lera vilka av dina **exempel meningar** s
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Aktivera en CI/CD-process för programmet Anpassade kommandon](./how-to-custom-commands-deploy-cicd.md)
+> [Uppdatera ett kommando från klienten](./how-to-custom-commands-update-command-from-client.md)

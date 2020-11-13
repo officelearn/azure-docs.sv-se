@@ -7,12 +7,12 @@ ms.topic: article
 services: web-application-firewall
 ms.date: 02/26/2020
 ms.author: victorh
-ms.openlocfilehash: 4b8aa72c7b77da8fdde9925325587b67411de8d8
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 23b893bad591af5f1e923b68e8d30453f859792b
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506421"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563485"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Konfigurera en regel för brand Väggs begränsning för webb program med hjälp av Azure PowerShell
 Hastighets begränsnings regeln för Azure Web Application Firewall (WAF) för Azure-frontend styr antalet begär Anden som tillåts från klienter under en varaktighet på en minut.
@@ -26,9 +26,9 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 ## <a name="prerequisites"></a>Förutsättningar
 Innan du börjar konfigurera en princip för hastighets begränsning ställer du in din PowerShell-miljö och skapar en profil för en front dörr.
 ### <a name="set-up-your-powershell-environment"></a>Konfigurera PowerShell-miljön
-Azure PowerShell tillhandahåller en uppsättning cmdletar som använder [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)-modellen för att hantera dina Azure-resurser. 
+Azure PowerShell tillhandahåller en uppsättning cmdletar som använder [Azure Resource Manager](../../azure-resource-manager/management/overview.md)-modellen för att hantera dina Azure-resurser. 
 
-Du kan installera [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) på en lokal dator och använda det i alla PowerShell-sessioner. Följ anvisningarna på sidan för att logga in med dina Azure-autentiseringsuppgifter och installera AZ PowerShell-modulen.
+Du kan installera [Azure PowerShell](/powershell/azure/) på en lokal dator och använda det i alla PowerShell-sessioner. Följ anvisningarna på sidan för att logga in med dina Azure-autentiseringsuppgifter och installera AZ PowerShell-modulen.
 
 #### <a name="connect-to-azure-with-an-interactive-dialog-for-sign-in"></a>Ansluta till Azure med en interaktiv dialog ruta för inloggning
 ```
@@ -105,6 +105,4 @@ I exemplet nedan används resurs grupps namnet *myResourceGroupFD1* med antagand
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [front dörren](../../frontdoor/front-door-overview.md). 
-
-
+- Läs mer om [front dörren](../../frontdoor/front-door-overview.md).

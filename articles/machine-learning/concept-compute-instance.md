@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 7c1bfa618ea0ddddd7666698bc4fffa3ced5079d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 7d07dda7741aa075b8d853a8d06d3d3218ca901a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323082"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563825"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Vad är en Azure Machine Learning-beräkningsinstans?
 
@@ -110,7 +110,7 @@ Du kan utföra följande åtgärder:
 
 * [Skapa en beräknings instans](#create). 
 * Uppdatera fliken beräknings instanser.
-* Starta, stoppa och starta om en beräknings instans.  Du betalar för instansen när den körs. Stoppa beräknings instansen när du inte använder den för att minska kostnaderna. Att stoppa en beräknings instans frigör den. Starta den sedan igen när du behöver den.
+* Starta, stoppa och starta om en beräknings instans.  Du betalar för instansen när den körs. Stoppa beräknings instansen när du inte använder den för att minska kostnaderna. Att stoppa en beräknings instans frigör den. Starta den sedan igen när du behöver den. Obs! Om du stoppar beräknings instansen avbryts faktureringen för beräknings timmar, men du kommer fortfarande att faktureras för disk, offentlig IP och standard belastnings utjämning.
 * Ta bort en beräknings instans.
 * Filtrera listan över beräknings instanser så att endast de som du har skapat visas.
 

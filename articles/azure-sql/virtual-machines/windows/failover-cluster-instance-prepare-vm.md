@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 901c090d26959950d0ffd6a96253bdc36c9331c5
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: a9289fad6f7ae1030628bedcf1a62cacc0b1e23a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556343"
+ms.locfileid: "94564488"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Förbereda virtuella datorer för en FCI (SQL Server på virtuella Azure-datorer)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -58,6 +58,8 @@ Välj noga alternativet tillgänglighet för virtuell dator som matchar den avse
 
 När du har konfigurerat din VM-tillgänglighet är du redo att skapa virtuella datorer. Du kan välja att använda en Azure Marketplace-avbildning som inte har SQL Server redan är installerad på den. Men om du väljer en avbildning för SQL Server på virtuella Azure-datorer måste du avinstallera SQL Server från den virtuella datorn innan du konfigurerar instansen av redundanskluster. 
 
+### <a name="considerations"></a>Överväganden
+Om du har ett redundanskluster på en virtuell Azure IaaS-gästdator, rekommenderar vi ett enda nätverkskort per server (klusternod) och ett enda undernät. Azure-nätverk har fysisk redundans, vilket gör att ytterligare nätverkskort och undernät inte behövs på ett gäst kluster för en Azure IaaS-dator. Även om klustrets verifieringsrapport utfärdar en varning om att noderna endast kan nås i ett enda nätverk, kan varningen ignoreras för redundanskluster på virtuella Azure IaaS-gästdatorer.
 
 Placera båda virtuella datorerna:
 

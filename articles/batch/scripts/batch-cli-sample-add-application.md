@@ -4,20 +4,20 @@ description: Det här exempel skriptet visar hur du lägger till ett program som
 ms.topic: sample
 ms.date: 01/29/2018
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fa4f273949e59c66292f5742501be9c2ad6a9fa4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 414a401168b1b378ed33f4904607243de0267d22
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87494459"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565814"
 ---
 # <a name="cli-example-add-an-application-to-an-azure-batch-account"></a>CLI-exempel: Lägga till ett program i ett Azure Batch-konto
 
 Det här skriptet visar hur du lägger till ett program som ska användas med en pool eller uppgift i Azure Batch. Konfigurera ett program som ska läggas till i Batch-kontot genom att paketera den körbara filen tillsammans med eventuella beroenden i en zip-fil. 
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.20 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli). 
+ - I den här självstudien krävs version 2.0.20 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad. 
 
 ## <a name="example-script"></a>Exempelskript
 
@@ -36,7 +36,7 @@ az group delete --name myResourceGroup
 Det här skriptet använder följande kommandon.
 Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Skapar ett lagringskonto. |

@@ -1,15 +1,15 @@
 ---
-title: Vanliga aviserings schema för aviseringar i Azure Monitor
+title: Vanligt aviserings schema för Azure Monitor aviseringar
 description: Förstå det vanliga aviserings schemat, varför du bör använda det och hur du aktiverar det
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: bb182f88a896be436e3981ff4e361010ee2655f6
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: aa619976c8fa03b925d66e884ad03fc4e385693e
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108838"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565610"
 ---
 # <a name="common-alert-schema"></a>Vanligt aviseringsschema
 
@@ -19,9 +19,9 @@ I den här artikeln beskrivs det vanliga aviserings schemat, fördelarna med att
 
 Det vanliga aviserings schemat standardiserar användnings upplevelsen för aviserings meddelanden i Azure idag. Tidigare var de tre aviserings typerna i Azure idag (Metric, loggen och aktivitets loggen) haft egna e-postmallar, webhook-scheman osv. Med det gemensamma aviserings schemat kan du nu få aviserings meddelanden med ett konsekvent schema.
 
-Alla varnings instanser beskriver **den resurs som påverkades** och **orsaken till aviseringen**, och dessa instanser beskrivs i det gemensamma schemat i följande avsnitt:
-* **Essentials**: en uppsättning **standardiserade fält**, gemensamma för alla aviserings typer, som beskriver **vilken resurs** som aviseringen är på samt ytterligare vanliga aviserings-metadata (till exempel allvarlighets grad eller beskrivning). 
-* **Aviserings kontext**: en uppsättning fält som beskriver **orsaken till aviseringen**, med fält som varierar **beroende på aviserings typen**. Till exempel skulle en mått avisering ha fält som Metric-namn och mått värde i aviserings kontexten, medan en aktivitets logg avisering skulle ha information om händelsen som genererade aviseringen. 
+Alla varnings instanser beskriver **den resurs som påverkades** och **orsaken till aviseringen** , och dessa instanser beskrivs i det gemensamma schemat i följande avsnitt:
+* **Essentials** : en uppsättning **standardiserade fält** , gemensamma för alla aviserings typer, som beskriver **vilken resurs** som aviseringen är på samt ytterligare vanliga aviserings-metadata (till exempel allvarlighets grad eller beskrivning). 
+* **Aviserings kontext** : en uppsättning fält som beskriver **orsaken till aviseringen** , med fält som varierar **beroende på aviserings typen**. Till exempel skulle en mått avisering ha fält som Metric-namn och mått värde i aviserings kontexten, medan en aktivitets logg avisering skulle ha information om händelsen som genererade aviseringen. 
 
 De typiska integrerings scenarierna som vi hör från kunder innebär att aviserings instansen vidarebefordras till den berörda gruppen baserat på en pivot (t. ex. resurs grupp), efter vilken det ansvariga teamet börjar arbeta på den. Med det gemensamma aviserings schemat kan du ha standardiserad cirkulations logik över aviserings typer genom att använda de viktigaste fälten, lämna kontext fälten som det är för de berörda teamen att undersöka vidare.
 

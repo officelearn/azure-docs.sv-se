@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 8/12/2020
 ms.author: JenCook
-ms.openlocfilehash: 235f4eb236e144d41ffb9958b09dab0cf5c269b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2c266d31a3aacc5bc97434de2246bfb1285a1ee
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462436"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565712"
 ---
 # <a name="how-to-run-an-application-with-fortanix-enclave-manager"></a>Så här gör du: kör ett program med Fortanix enklaven Manager 
 
@@ -60,31 +60,31 @@ Den här självstudien visar hur du konverterar program avbildningen till en kon
 
 6. I den här självstudien använder vi Fortanix Docker-registret för exempel programmet. Fyll i informationen från följande information. Använd ditt privata Docker-register för att behålla avbildningen av utdata. 
  
-    - **Program namn**: python-program Server
-    - **Beskrivning**: python-mätkolv-Server
-    - **Namn på inspelnings avbildning**: fortanix/python-flaska
-    - **Namn på utdata-avbildning**: fortanx-Private/python-mätkolv-SGX
-    - **ISVPRODID**: 1
-    - **ISVSVM**: 1
-    - **Minnes storlek**: 1 GB
-    - **Antal trådar**: 128
+    - **Program namn** : python-program Server
+    - **Beskrivning** : python-mätkolv-Server
+    - **Namn på inspelnings avbildning** : fortanix/python-flaska
+    - **Namn på utdata-avbildning** : fortanx-Private/python-mätkolv-SGX
+    - **ISVPRODID** : 1
+    - **ISVSVM** : 1
+    - **Minnes storlek** : 1 GB
+    - **Antal trådar** : 128
 
-    *Valfritt*: kör programmet.
-    - **Docker-hubb**: [https://hub.docker.com/u/fortanix](https://hub.docker.com/u/fortanix)
-    - **App**: fortanix/python-flaska
+    *Valfritt* : kör programmet.
+    - **Docker-hubb** : [https://hub.docker.com/u/fortanix](https://hub.docker.com/u/fortanix)
+    - **App** : fortanix/python-flaska
 
         Kör följande kommando:
          ```bash
             sudo docker run fortanix/python-flask
          ```
 
-1. Lägg till ett certifikat. Fyll i informationen med hjälp av informationen nedan och välj sedan **Nästa**:
-    - **Domän**: MyApp. domain. dom
-    - **Typ**: certifikat utfärdat av enklaven Manager 
-    - **Nyckel Sök väg**:/appkey.pem
-    - **Nyckel typ**: RSA
-    - **Certifikat Sök väg**:/appcert.pem
-    - **RSA-nyckel storlek**: 2048 bitar
+1. Lägg till ett certifikat. Fyll i informationen med hjälp av informationen nedan och välj sedan **Nästa** :
+    - **Domän** : MyApp. domain. dom
+    - **Typ** : certifikat utfärdat av enklaven Manager 
+    - **Nyckel Sök väg** :/appkey.pem
+    - **Nyckel typ** : RSA
+    - **Certifikat Sök väg** :/appcert.pem
+    - **RSA-nyckel storlek** : 2048 bitar
     
 
 ## <a name="create-an-image"></a>Skapa en avbildning
@@ -115,12 +115,12 @@ Om du skapar en Fortanix-Node-agent distribueras en virtuell dator, ett nätverk
 1. Gå till [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) och logga in med dina Azure-autentiseringsuppgifter.
 1. I Sök fältet skriver du **Fortanix konfidentiella data behandling Node agent**. Välj den app som visas i sökrutan som heter **Fortanix konfidentiella Computing Node agent** för att navigera till erbjudandets start sida. 
      ![Sök på Marketplace](media/how-to-fortanix-enclave-manager/search-fortanix-marketplace.png)
-1. Välj **Hämta nu**, Fyll i din information om det behövs och välj **Fortsätt**. Du kommer att omdirigeras till Azure Portal. 
+1. Välj **Hämta nu** , Fyll i din information om det behövs och välj **Fortsätt**. Du kommer att omdirigeras till Azure Portal. 
 1. Välj **skapa** för att ange distributions sidan för Fortanix-konfidentiell dator hantering.
 1. På den här sidan anger du information för att distribuera en virtuell dator. Mer specifikt är den virtuella datorn en DCsv2-Series Intel SGX-aktiverad virtuell dator från Azure med Fortanix Node Agent-programvara installerad. Med Node-agenten kan den konverterade avbildningen köras säkert på Intel SGX-noder i Azure.  Välj den **prenumeration** och **resurs grupp** där du vill distribuera den virtuella datorn och de tillhör ande resurserna. 
  
     > [!NOTE]
-    > Det finns begränsningar när du distribuerar DCsv2-Series virtuella datorer i Azure. Du kan behöva begära kvot för ytterligare kärnor. Läs om [konfidentiella data behandlings lösningar på virtuella Azure-datorer](https://docs.microsoft.com/azure/confidential-computing/virtual-machine-solutions) för mer information. 
+    > Det finns begränsningar när du distribuerar DCsv2-Series virtuella datorer i Azure. Du kan behöva begära kvot för ytterligare kärnor. Läs om [konfidentiella data behandlings lösningar på virtuella Azure-datorer](./virtual-machine-solutions.md) för mer information. 
 
 1. Välj en tillgänglig region.
 1. Ange ett namn för den virtuella datorn i fältet **nodnamn** . 
@@ -174,4 +174,4 @@ I den här snabb starten använde du Fortanix-verktyg för att konvertera progra
 
 Mer information om Azures tjänster för konfidentiell behandling finns i [Översikt över Azure konfidentiell dator användning](overview.md)
 
- Lär dig hur du utför liknande uppgifter med andra tredjepartsprogram i Azure, t. ex. [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) och [Scone](https://sconedocs.github.io).  
+ Lär dig hur du utför liknande uppgifter med andra tredjepartsprogram i Azure, t. ex. [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) och [Scone](https://sconedocs.github.io).

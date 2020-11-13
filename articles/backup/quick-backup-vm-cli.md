@@ -5,22 +5,22 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 92990df3049f7fa1074d55fc34734e13d6673cd7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 27294f91fd6c79b10a85678a7acd60de56cf1ca4
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91328841"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94562346"
 ---
-# <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>Säkerhetskopiera en virtuell dator i Azure med CLI
+# <a name="back-up-a-virtual-machine-in-azure-with-the-azure-cli"></a>Säkerhetskopiera en virtuell dator i Azure med Azure CLI
 
 Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Du kan skydda dina data genom att säkerhetskopiera med jämna mellanrum. Med Azure Backup skapas återställningspunkter som kan lagras i geo-redundanta återställningsvalv. Den här artikeln beskriver hur du säkerhetskopierar en virtuell dator i Azure med Azure CLI. Du kan också utföra de här stegen med [Azure PowerShell](quick-backup-vm-powershell.md) eller [Azure Portal](quick-backup-vm-portal.md).
 
 I den här snabbstarten sker säkerhetskopieringen på en befintlig virtuell Azure-dator. Om du behöver skapa en virtuell dator kan du [skapa en virtuell dator med Azure CLI](../virtual-machines/linux/quick-create-cli.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Om du vill installera och använda CLI lokalt måste du köra Azure CLI version 2.0.18 eller senare. Kör `az --version` för att hitta CLI-versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
+ - Den här snabb starten kräver version 2.0.18 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
 ## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
@@ -28,8 +28,8 @@ Recovery Services-valvet är en logisk container som lagrar säkerhetskopierade 
 
 Skapa ett Recovery Services-valv med [az backup vault create](/cli/azure/backup/vault#az-backup-vault-create). Ange samma resursgrupp och plats som den virtuella datorn som du vill skydda. Om du har använt [snabbstarten för virtuella datorer](../virtual-machines/linux/quick-create-cli.md) har du skapat:
 
-- en resursgrupp som heter *myResourceGroup*,
-- en virtuell dator med namnet *myVM*,
+- en resursgrupp som heter *myResourceGroup* ,
+- en virtuell dator med namnet *myVM* ,
 - resurser på platsen *eastus*.
 
 ```azurecli-interactive
@@ -38,7 +38,7 @@ az backup vault create --resource-group myResourceGroup \
     --location eastus
 ```
 
-Recovery Services-valvet är som standard inställt på geo-redundant lagring. Geo-redundant lagring garanterar att dina säkerhets kopierings data replikeras till en sekundär Azure-region som är hundratals mil bort från den primära regionen. Om inställningen för lagring av lagrings utrymme behöver ändras, använder du [säkerhets kopiering av AZ säkerhets kopierings valv-egenskaper set](/cli/azure/backup/vault/backup-properties#az-backup-vault-backup-properties-set) cmdlet.
+Recovery Services-valvet är som standard inställt på geo-redundant lagring. Geo-Redundant Storage garanterar att dina säkerhets kopierings data replikeras till en sekundär Azure-region som är hundratals mil bort från den primära regionen. Om inställningen för lagring av lagrings utrymme behöver ändras, använder du [säkerhets kopiering av AZ säkerhets kopierings valv-egenskaper set](/cli/azure/backup/vault/backup-properties#az-backup-vault-backup-properties-set) cmdlet.
 
 ```azurecli
 az backup vault backup-properties set \
@@ -81,7 +81,7 @@ Följande parametrar används för att säkerhetskopiera den virtuella datorn:
 
 - `--container-name` är namnet på din virtuella dator
 - `--item-name` är namnet på din virtuella dator
-- Värdet `--retain-until` ska vara angivet till det senaste datumet, i UTC-tidsformat (**dd-mm-åååå**), som du vill att återställningspunkten ska vara tillgänglig
+- Värdet `--retain-until` ska vara angivet till det senaste datumet, i UTC-tidsformat ( **dd-mm-åååå** ), som du vill att återställningspunkten ska vara tillgänglig
 
 I följande exempel säkerhetskopieras den virtuella datorn *myVM* och utgångsdatumet för återställningspunkten är 18 oktober 2017:
 
@@ -105,7 +105,7 @@ az backup job list \
     --output table
 ```
 
-De utdata som returneras liknar dem i följande exempel, som visar att säkerhetskopieringsjobbet har status *Pågår*:
+De utdata som returneras liknar dem i följande exempel, som visar att säkerhetskopieringsjobbet har status *Pågår* :
 
 ```output
 Name      Operation        Status      Item Name    Start Time UTC       Duration

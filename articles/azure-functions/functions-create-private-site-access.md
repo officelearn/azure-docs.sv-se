@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: 6c87fcf4f56b7092436fa16658a72ead24d9fec2
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 38bc0ec546526cd0c6631b7cd5b70753c3235d18
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423036"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563995"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Självstudie: upprätta Azure Functions åtkomst till privat webbplats
 
@@ -45,7 +45,7 @@ I den här självstudien är det viktigt att du förstår IP-adressering och und
 
 ## <a name="sign-in-to-azure-portal"></a>Logga in på Azure-portalen
 
-Logga in i [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
@@ -84,7 +84,7 @@ Det första steget i den här självstudien är att skapa en ny virtuell dator i
     | ------------ | ---------------- | ---------------- |
     | _Namn_ | myResourceGroup-VNet | Du kan använda standard namnet som genereras för det virtuella nätverket. |
     | _Adressintervall_ | 10.10.0.0/16 | Använd ett enda adress intervall för det virtuella nätverket. |
-    | _Namn på undernät_ | Självstudie | Namnet på under nätet. |
+    | _Namn på undernät_ | Självstudier | Namnet på under nätet. |
     | _Adress intervall_ (undernät) | 10.10.1.0/24 | Under näts storleken definierar hur många gränssnitt som kan läggas till i under nätet. Det här under nätet används av den virtuella datorn. Ett/24-undernät tillhandahåller 254-värd adresser. |
 
 1. Välj **OK** för att skapa det virtuella nätverket.
@@ -172,7 +172,7 @@ Nästa steg är att konfigurera [åtkomst begränsningar](../app-service/app-ser
 1. Sidan _åtkomst begränsningar_ visar nu att det finns en ny begränsning. Det kan ta några sekunder innan _slut punkts status_ ändras från att inaktive ras via etableringen till aktive rad.
 
     >[!IMPORTANT]
-    > Varje Function-app har en [kudu-webbplats (Advanced Tool)](../app-service/app-service-ip-restrictions.md#scm-site) som används för att hantera Function app-distributioner. Den här webbplatsen nås från en URL som: `<FUNCTION_APP_NAME>.scm.azurewebsites.net` . Att aktivera åtkomst begränsningar på kudu-webbplatsen förhindrar att projekt koden distribueras från en lokal utvecklare och att en agent krävs inom det virtuella nätverket för att distributionen ska kunna utföras.
+    > Varje Function-app har en [kudu-webbplats (Advanced Tool)](../app-service/app-service-ip-restrictions.md#restrict-access-to-an-scm-site) som används för att hantera Function app-distributioner. Den här webbplatsen nås från en URL som: `<FUNCTION_APP_NAME>.scm.azurewebsites.net` . Att aktivera åtkomst begränsningar på kudu-webbplatsen förhindrar att projekt koden distribueras från en lokal utvecklare och att en agent krävs inom det virtuella nätverket för att distributionen ska kunna utföras.
 
 ## <a name="access-the-functions-app"></a>Öppna Functions-appen
 

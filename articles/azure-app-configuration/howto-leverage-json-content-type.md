@@ -10,12 +10,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: avgupta
-ms.openlocfilehash: 725beb50e55852e35ee4434539ff158f082059df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee262c0eb2431085e71d8ee0035bcdab9833d1cf
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88122044"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565780"
 ---
 # <a name="leverage-content-type-to-store-json-key-values-in-app-configuration"></a>Utnyttjar innehålls typ för att lagra JSON-nyckel värden i app-konfiguration
 
@@ -25,9 +25,9 @@ Data lagras i appens konfiguration som nyckel värden, där värden behandlas so
 ## <a name="overview"></a>Översikt
 
 I app-konfigurationen kan du använda JSON-medietyp som innehålls typ för dina nyckel värden till att utnyttja fördelarna som:
-- **Enklare data hantering**: att hantera nyckel värden, som matriser, blir mycket enklare i Azure Portal.
-- **Förbättrad data export**: primitiva typer, matriser och JSON-objekt kommer att bevaras under data exporten.
-- **Inbyggt stöd med app Configuration Provider**: nyckel värden med JSON Content-Type fungerar bra när de förbrukas av apparnas konfigurations leverantörs bibliotek i dina program.
+- **Enklare data hantering** : att hantera nyckel värden, som matriser, blir mycket enklare i Azure Portal.
+- **Förbättrad data export** : primitiva typer, matriser och JSON-objekt kommer att bevaras under data exporten.
+- **Inbyggt stöd med app Configuration Provider** : nyckel värden med JSON Content-Type fungerar bra när de förbrukas av apparnas konfigurations leverantörs bibliotek i dina program.
 
 #### <a name="valid-json-content-type"></a>Giltig JSON-innehålls typ
 
@@ -63,13 +63,11 @@ I den här självstudien får du lära dig att:
 > * Använda JSON-nyckel värden i dina program.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/).
-- Senaste versionen av Azure CLI (2.10.0 eller senare). Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli). Om du använder Azure CLI måste du först logga in med `az login` . Du kan också använda Azure Cloud Shell.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
+- I den här självstudien krävs version 2.10.0 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
 ## <a name="create-an-app-configuration-store"></a>Skapa ett konfigurations Arkiv för appen
 

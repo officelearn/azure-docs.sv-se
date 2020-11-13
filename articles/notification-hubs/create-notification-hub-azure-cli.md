@@ -14,12 +14,12 @@ ms.author: dbradish
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e7e140e26da79475bea032c8190ee64740370d04
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 6c565be3aea43fc4dc86fd793e0dc2dea0b08d4c
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312875"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563757"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Snabb start: skapa en Azure Notification Hub med Azure CLI
 
@@ -32,7 +32,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 > [!IMPORTANT]
-> Notification Hubs kräver version 2.0.67 eller senare av Azure CLI. Kör [AZ-versionen](/cli/azure/reference-index?#az_version) för att hitta den version och beroende bibliotek som är installerade. Uppgradera till den senaste versionen genom att köra [AZ Upgrade](/cli/azure/reference-index?#az_upgrade).
+> Notification Hubs kräver version 2.0.67 eller senare av Azure CLI. Kör [az version](/cli/azure/reference-index#az_version) om du vill hitta versionen och de beroende bibliotek som är installerade. Om du vill uppgradera till den senaste versionen kör du [az upgrade](/cli/azure/reference-index#az_upgrade).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 

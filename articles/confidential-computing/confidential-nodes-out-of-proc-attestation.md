@@ -6,12 +6,12 @@ author: agowdamsft
 ms.topic: overview
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: 90b74e51dce994c3041c15feec729ff1fae2bb00
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b79b3b40f3fbfe7d70550db3aaf7b365aa455e89
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91001073"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564165"
 ---
 # <a name="platform-software-management-with-sgx-quote-helper-daemon-set"></a>Plattforms oberoende program varu hantering med SGX-offerter hjälp programmet
 
@@ -20,13 +20,13 @@ ms.locfileid: "91001073"
 ## <a name="overview"></a>Översikt
  
 Intel stöder två attesterings lägen för att köra offert genereringen:
-- **i-proc**: är värd för de betrodda program varu komponenterna i enklaven program process
+- **i-proc** : är värd för de betrodda program varu komponenterna i enklaven program process
 
-- **utanför processen**: är värd för de betrodda program varu komponenterna utanför enklaven-programmet.
+- **utanför processen** : är värd för de betrodda program varu komponenterna utanför enklaven-programmet.
  
 SGX-program som skapats med Open enklaven SDK används som standard i proc-hälsoläge. SGX-baserade program tillåter process brist och kräver extra värd och visar de nödvändiga komponenterna, till exempel arkitektoniska enklaven Service Manager (AESM), utanför programmet.
 
-Användning av den här funktionen **rekommenderas**, eftersom den förbättrar drift tiden för dina enklaven-appar under Intel Platform updates eller DCAP driv rutins uppdateringar.
+Användning av den här funktionen **rekommenderas** , eftersom den förbättrar drift tiden för dina enklaven-appar under Intel Platform updates eller DCAP driv rutins uppdateringar.
 
 ## <a name="why-and-what-are-the-benefits-of-out-of-proc"></a>Varför och vilka är fördelarna med out-of-proc?
 
@@ -121,15 +121,15 @@ spec:
           path: /var/run/aesmd
 ```
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 [Etablera konfidentiella noder (DCsv2-serien) på AKS](./confidential-nodes-aks-get-started.md)
 
 [Snabb starts exempel konfidentiella behållare](https://github.com/Azure-Samples/confidential-container-samples)
 
-[DCsv2 SKU-lista](https://docs.microsoft.com/azure/virtual-machines/dcv2-series)
+[DCsv2 SKU-lista](../virtual-machines/dcv2-series.md)
 
 <!-- LINKS - external -->
-[Azure Attestation]: https://docs.microsoft.com/en-us/azure/attestation/
+[Azure Attestation]: ../attestation/index.yml
 
 
 <!-- LINKS - internal -->

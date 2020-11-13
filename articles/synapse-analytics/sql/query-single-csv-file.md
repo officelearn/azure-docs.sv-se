@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7e5a64a75ca6cde4172e49eb77dde42a44c06d5e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b9896b62ab347ec3b4751eb517c00222f00ddb1c
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321466"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579410"
 ---
 # <a name="query-csv-files"></a>Köra frågor mot CSV-filer
 
@@ -45,6 +45,11 @@ from openrowset(
 ```
 
 Alternativet `firstrow` används för att hoppa över den första raden i CSV-filen som representerar rubriken i det här fallet. Se till att du har åtkomst till den här filen. Om filen skyddas med SAS-nyckel eller anpassad identitet måste du konfigurera [autentiseringsuppgifter på server nivå för SQL-inloggning](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
+
+> [!IMPORTANT]
+> Om CSV-filen innehåller UTF-8-tecken, se till att du använder viss UTF-8-databas sortering (till exempel `Latin1_General_100_CI_AS_SC_UTF8` ).
+> Matchnings fel mellan text kodning i filen och sorteringen kan orsaka oväntade konverterings fel.
+> Du kan enkelt ändra standard sorteringen för den aktuella databasen med hjälp av följande T-SQL-uttryck: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 ### <a name="data-source-usage"></a>Data källans användning
 
@@ -90,6 +95,12 @@ from openrowset(
 ```
 
 Siffrorna efter en datatyp i `WITH` satsen representerar kolumn index i CSV-filen.
+
+> [!IMPORTANT]
+> Om CSV-filen innehåller UTF-8-tecken ser du till att du explicilty anger vissa UTF-8-sortering (till exempel `Latin1_General_100_CI_AS_SC_UTF8` ) för alla kolumner i- `WITH` satsen eller anger vissa UTF-8-sortering på databas nivå.
+> Matchnings fel mellan text kodning i filen och sorteringen kan orsaka oväntade konverterings fel.
+> Du kan enkelt ändra standard sorteringen för den aktuella databasen med hjälp av följande T-SQL-uttryck: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
+> Du kan enkelt ställa in sorteringen på pris-typerna med följande definition: `geo_id varchar(6) collate Latin1_General_100_CI_AI_SC_UTF8 8`
 
 I följande avsnitt kan du se hur du frågar olika typer av CSV-filer.
 

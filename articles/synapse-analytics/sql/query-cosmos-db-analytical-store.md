@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9f57d435134bffbb8e7576adffeacb92bf687124
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 087ee796fbd3c0563b8019a062acab9c7ad80bb1
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310309"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579393"
 ---
 # <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>Fråga Azure Cosmos DB data med Server lös SQL-pool i Azure Synapse Link (för hands version)
 
@@ -42,7 +42,9 @@ OPENROWSET(
 Anslutnings strängen Azure Cosmos DB anger Azure Cosmos DB konto namnet, databas namnet, databas kontots huvud nyckel och ett valfritt region namn som ska `OPENROWSET` fungera. 
 
 > [!IMPORTANT]
-> Se till att du använder alias efter `OPENROWSET` . Det finns ett [känt problem](#known-issues) som orsakar anslutnings problem till Synapse-server utan SQL-slutpunkt om du inte anger aliaset efter `OPENROWSET` funktion.
+> Kontrol lera att du använder en viss UTF-8-databas sortering (till exempel `Latin1_General_100_CI_AS_SC_UTF8` ) eftersom sträng värden i Cosmos DB analytisk lagring kodas som UTF-8-text.
+> Matchnings fel mellan text kodning i filen och sorteringen kan orsaka oväntade text konverterings fel.
+> Du kan enkelt ändra standard sorteringen för den aktuella databasen med hjälp av följande T-SQL-uttryck: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 Anslutnings strängen har följande format:
 ```sql
@@ -255,7 +257,7 @@ Azure Cosmos DB konton av SQL-API (Core) stöder JSON-egenskapsvärde av typen N
 | Azure Cosmos DB egenskaps typ | SQL-kolumn typ |
 | --- | --- |
 | Boolesk | bit |
-| Integer | bigint |
+| Heltal | bigint |
 | Decimal | flyt |
 | Sträng | varchar (UTF8-databas sortering) |
 | Datum tid (ISO-formaterad sträng) | varchar (30) |
@@ -338,8 +340,8 @@ I det här exemplet lagras antalet fall som `int32` , `int64` eller `float64` v�
 
 ## <a name="known-issues"></a>Kända problem
 
-- Alias **måste** anges efter `OPENROWSET` funktion (till exempel `OPENROWSET (...) AS function_alias` ). Att utelämna alias kan orsaka anslutnings problem och Synapse SQL-slutpunkt kan vara tillfälligt otillgängligt. Det här problemet kommer att lösas i nov 2020.
 - Frågan fungerar som en server lös SQL-pool för [Azure Cosmos DB full Fidelity schema](#full-fidelity-schema) är ett tillfälligt beteende som ändras baserat på förhands gransknings feedback. Förlita dig inte på det schema som `OPENROWSET` fungerar utan `WITH` satsen under den offentliga för hands versionen eftersom frågeresultaten kan vara justerade med väldefinierat schema baserat på kundfeedback. Kontakta [Synapse länka produkt teamet](mailto:cosmosdbsynapselink@microsoft.com) för att ge feedback.
+- SQL-poolen utan server returnerar inte kompileringsfel om `OPENROSET` kolumn sorteringen inte har UTF-8-kodning. Du kan enkelt ändra standard sortering för alla `OPENROWSET` funktioner som körs i den aktuella databasen med hjälp av följande T-SQL-uttryck: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 Möjliga fel och fel söknings åtgärder visas i följande tabell:
 

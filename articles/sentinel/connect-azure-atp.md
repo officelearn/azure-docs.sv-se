@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 64c1a7155d0cc4e80f97db138a0626d6e9fdc9e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 319e0d29ef297f2a675128d498820a2d5b8ac42e
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89657810"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579529"
 ---
 # <a name="connect-data-from-microsoft-defender-for-identity-formerly-azure-advanced-threat-protection"></a>Anslut data från Microsoft Defender för identitet (tidigare Azure Advanced Threat Protection)
 
@@ -32,7 +32,7 @@ Du kan strömma loggar från [Microsoft Defender för identitet](https://docs.mi
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Användare med behörighet som global administratör eller säkerhets administratör
-- Du måste vara en för hands version av Microsoft Defender för identitet och aktivera integrering mellan Microsoft Defender för identitets-och Microsoft Cloud App Security. Mer information finns i [Microsoft Defender för identitets integrering](https://docs.microsoft.com/cloud-app-security/aatp-integration).
+- Du måste vara en för hands version av Microsoft Defender för identitet och aktivera integrering mellan Microsoft Defender för identitets-och Microsoft Cloud App Security. Mer information finns i [Microsoft Defender för identitets integrering](https://www.microsoft.com/microsoft-365/identity/advance-threat-protection).
 
 ## <a name="connect-to-microsoft-defender-for-identity"></a>Anslut till Microsoft Defender för identitet
 
@@ -40,7 +40,7 @@ Kontrol lera att Microsoft Defender för hands version av Identity är [aktivera
 Om Microsoft Defender för identitet distribueras och data matas in kan de misstänkta aviseringarna enkelt strömmas i Azure Sentinel. Det kan ta upp till 24 timmar innan aviseringarna börjar strömma till Azure Sentinel.
 
 
-1. Om du vill ansluta Microsoft Defender för identitet till Azure Sentinel måste du först aktivera integrering mellan Microsoft Defender för identitets-och Microsoft Cloud App Security. Information om hur du gör detta finns i [Microsoft Defender för identitets integrering](https://docs.microsoft.com/cloud-app-security/aatp-integration).
+1. Om du vill ansluta Microsoft Defender för identitet till Azure Sentinel måste du först aktivera integrering mellan Microsoft Defender för identitets-och Microsoft Cloud App Security. Information om hur du gör detta finns i [Microsoft Defender för identitets integrering](https://www.microsoft.com/microsoft-365/identity/advance-threat-protection).
 
 1. I Azure Sentinel väljer du **data kopplingar** och klickar sedan på panelen **Microsoft Defender för identitet (för hands version)** .
 

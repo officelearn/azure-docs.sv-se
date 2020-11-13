@@ -67,9 +67,9 @@
       href: load-balancer-ha-ports-overview.md
     - name: Flera klienter
       href: load-balancer-multivip-overview.md
-    - name: Utgående proxy
+    - name: SNAT för utgående anslutningar till Internet
       href: load-balancer-outbound-connections.md
-    - name: Regler för utgående trafik
+    - name: Konfigurera regler för utgående trafik
       href: outbound-rules.md
     - name: TCP-återställning vid tidsgräns för inaktivitet
       href: load-balancer-tcp-reset.md

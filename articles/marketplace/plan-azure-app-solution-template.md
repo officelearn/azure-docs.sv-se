@@ -8,27 +8,27 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: c8ab076392fd9d0bb3a0c780272938918bb69d14
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 38c7072472a13d7fe3d529933ca17a51e6a86733
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94370435"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577812"
 ---
 # <a name="plan-a-solution-template-for-an-azure-application-offer"></a>Planera en lösnings mall för ett erbjudande för Azure-program
 
 I den här artikeln beskrivs kraven för att publicera en plan för lösnings mal len för ett Azure Application erbjudande. En plan för lösnings mal len är en av de två typerna av planer som stöds av Azure Application erbjudanden. Information om skillnaden mellan dessa två typer av prenumerationer finns i [typer av planer](plan-azure-application-offer.md#plans). Om du inte redan har gjort det kan du läsa [planera ett erbjudande för Azure-program](plan-azure-application-offer.md).
 
-Plan typen för lösnings mal len kräver en [Azure Resource Manager mall (arm-mall)](/azure/azure-resource-manager/templates/overview.md) för att automatiskt distribuera lösnings infrastrukturen.
+Plan typen för lösnings mal len kräver en [Azure Resource Manager mall (arm-mall)](/azure/azure-resource-manager/templates/overview) för att automatiskt distribuera lösnings infrastrukturen.
 
 ## <a name="solution-template-requirements"></a>Krav för lösnings mal len
 
 | Krav | Information |
 | ------------ | ------------- |
 | Fakturering och mätning | Lösningar för lösnings mal len är inte transactable, men de kan användas för att distribuera betalda VM-erbjudanden som debiteras via Microsofts kommersiella marknads plats. De resurser som lösningens ARM-mall distribuerar konfigureras i kundens Azure-prenumeration. Virtuella datorer som du betalar per användning samverkar med kunden via Microsoft och faktureras via kundens Azure-prenumeration. <br><br> För att få en BYOL-fakturering, även om Microsoft fakturerar infrastruktur kostnader som uppstår i kund prenumerationen, kan du använda licens avgifterna för program varan med kunden direkt. |
-| Azure-kompatibel virtuell hård disk (VHD) | Virtuella datorer måste byggas på Windows eller Linux. Mer information finns i:<ul><li>[Skapa en teknisk till gång för Azure VM](/azure/marketplace/partner-center-portal/vm-certification-issues-solutions#how-to-address-a-vulnerability-or-exploit-in-a-vm-offer.md) (för Windows-VHD: er)</li><li>[Linux-distributioner](/azure/virtual-machines/linux/endorsed-distros.md) som har godkänts på Azure (för Linux-VHD: er).</li></ul> |
+| Azure-kompatibel virtuell hård disk (VHD) | Virtuella datorer måste byggas på Windows eller Linux. Mer information finns i:<ul><li>[Skapa en teknisk till gång för Azure VM](/azure/marketplace/partner-center-portal/vm-certification-issues-solutions#how-to-address-a-vulnerability-or-exploit-in-a-vm-offer.md) (för Windows-VHD: er)</li><li>[Linux-distributioner](/azure/virtual-machines/linux/endorsed-distros) som har godkänts på Azure (för Linux-VHD: er).</li></ul> |
 | Spårning av kundanvändning | Aktivering av kund användnings behörighet krävs för alla Solution-mallar som publicerats på Azure Marketplace. Mer information om kund användnings behörighet och hur du aktiverar det finns i [Azure-partner kund användnings behörighet](azure-partner-customer-usage-attribution.md). |
-| Använd Managed disks | [Managed disks](/azure/virtual-machines/windows/managed-disks-overview.md) är standard alternativet för bestående diskar av infrastruktur som en tjänst (IaaS) virtuella datorer i Azure. Du måste använda Managed disks i Solution templates.<ul><li>Om du vill uppdatera dina Solution templates följer du rikt linjerna i [använda hanterade diskar i Azure Resource Manager mallar](/azure/virtual-machines/using-managed-disks-template-deployments.md)och använder de angivna [exemplen](https://github.com/Azure/azure-quickstart-templates).</li><li>Om du vill publicera den virtuella hård disken som en avbildning på Azure Marketplace importerar du den underliggande virtuella hård disken för de hanterade diskarna till ett lagrings konto med hjälp av antingen [Azure PowerShell](/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md) eller [Azure CLI](/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md)</ul> |
+| Använd Managed disks | [Managed disks](/azure/virtual-machines/windows/managed-disks-overview) är standard alternativet för bestående diskar av infrastruktur som en tjänst (IaaS) virtuella datorer i Azure. Du måste använda Managed disks i Solution templates.<ul><li>Om du vill uppdatera dina Solution templates följer du rikt linjerna i [använda hanterade diskar i Azure Resource Manager mallar](/azure/virtual-machines/using-managed-disks-template-deployments)och använder de angivna [exemplen](https://github.com/Azure/azure-quickstart-templates).</li><li>Om du vill publicera den virtuella hård disken som en avbildning på Azure Marketplace importerar du den underliggande virtuella hård disken för de hanterade diskarna till ett lagrings konto med hjälp av antingen [Azure PowerShell](/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd) eller [Azure CLI](/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-vhd)</ul> |
 | Distributions paket | Du behöver ett distributions paket som gör det möjligt för kunderna att distribuera planen. Om du skapar flera planer som kräver samma tekniska konfiguration kan du använda samma plan paket. Mer information finns i nästa avsnitt: distributions paket. |
 |||
 
@@ -39,7 +39,7 @@ Distributions paketet innehåller alla mallfiler som behövs för den här plane
 Alla Azure-program måste innehålla de här två filerna i rotmappen för ett zip-arkiv:
 
 - En mall för en Resource Manager-mall med namnet [mainTemplate.jspå](/azure/azure-resource-manager/managed-applications/publish-service-catalog-app?tabs=azure-powershell#create-the-arm-template.md). Den här mallen definierar de resurser som ska distribueras till kundens Azure-prenumeration. Exempel på Resource Manager-mallar finns i [galleriet för Azure snabb starts mallar](https://azure.microsoft.com/documentation/templates/) eller motsvarande [GitHub: Azure Resource Manager snabb starts mallar](https://github.com/azure/azure-quickstart-templates) lagrings platsen.
-- En definition av användar gränssnittet för att skapa Azure-program med namnet [createUiDefinition.jspå](/azure/azure-resource-manager/managed-application-createuidefinition-overview.md). I användargränssnittet anger du element som ger konsumenterna möjlighet att ange parametervärden.
+- En definition av användar gränssnittet för att skapa Azure-program med namnet [createUiDefinition.jspå](/azure/azure-resource-manager/managed-application-createuidefinition-overview). I användargränssnittet anger du element som ger konsumenterna möjlighet att ange parametervärden.
 
 Högsta antal fil storlekar som stöds är:
 
@@ -50,7 +50,7 @@ Alla nya erbjudanden för Azure-program måste också innehålla ett GUID för [
 
 ## <a name="azure-regions"></a>Azure-regioner
 
-Du kan publicera planen till den offentliga Azure-regionen, Azure Government region eller både och. Innan du publicerar till [Azure Government](/azure/azure-government/documentation-government-manage-marketplace-partners.md)ska du testa och validera planen i miljön eftersom vissa slut punkter kan skilja sig. Ställ in och testa planen genom att begära ett utvärderings konto från [Microsoft Azure Government utvärderings version](https://azure.microsoft.com/global-infrastructure/government/request/).
+Du kan publicera planen till den offentliga Azure-regionen, Azure Government region eller både och. Innan du publicerar till [Azure Government](/azure/azure-government/documentation-government-manage-marketplace-partners)ska du testa och validera planen i miljön eftersom vissa slut punkter kan skilja sig. Ställ in och testa planen genom att begära ett utvärderings konto från [Microsoft Azure Government utvärderings version](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 Du, som utgivare, är ansvariga för alla kontroller, säkerhets åtgärder och bästa praxis. Azure Government använder fysiskt isolerade Data Center och nätverk (som finns i USA).
 

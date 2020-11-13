@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: b7037804f1a0984cee2d1756adf80bfe2eec3918
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3057a118117f4f293ec5f90405a4bbd82d7a353d
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095536"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592081"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Språk-och region stöd för API för bildsökning i Bing
 
@@ -124,4 +124,4 @@ Alternativt kan du ange land/region med `cc` Frågeparametern. Om du anger ett l
 |USA|Spanska|ES – USA|
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om Nyhetssökning i Bing slut punkter finns i [nyheter bildsökning API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).
+Mer information om Nyhetssökning i Bing slut punkter finns i [nyheter bildsökning API v7 Reference](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).

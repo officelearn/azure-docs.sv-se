@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/10/2020
+ms.date: 11/12/2020
 ms.author: b-juche
-ms.openlocfilehash: e578e377e322e6b6a23f0990ca1fa0285a4ec87d
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: c64bc8bf265a8e3cc3c490827bdbd79661e3528a
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491655"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591749"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Hantera ögonblicksbilder med hjälp av Azure NetApp Files
 
@@ -144,6 +144,17 @@ Du kan ta bort en ögonblicks bilds princip som du inte längre vill behålla.
 
     ![Bekräftelse av borttagning av ögonblicks princip](../media/azure-netapp-files/snapshot-policy-delete-confirm.png) 
 
+## <a name="edit-the-hide-snapshot-path-option"></a>Redigera alternativet Dölj ögonblicks bild Sök väg
+Alternativet Dölj ögonblicks bild Sök väg styr om ögonblicks bildens sökväg för en volym är synlig. När du skapar en [NFS](azure-netapp-files-create-volumes.md#create-an-nfs-volume) -eller [SMB](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) -volym har du möjlighet att ange om ögonblicks bildens sökväg ska vara dold. Du kan sedan redigera alternativet Dölj ögonblicks bild Sök väg efter behov.  
+
+> [!NOTE]
+> För en [mål volym](cross-region-replication-create-peering.md#create-the-data-replication-volume-the-destination-volume) i replikering mellan regioner är alternativet Dölj ögonblicks bilds Sök väg aktiverat som standard och inställningen kan inte ändras. 
+
+1. Om du vill visa alternativ inställningen Dölj ögonblicks bild Sök väg för en volym väljer du volymen. Fältet **Dölj ögonblicks bild Sök väg** visar om alternativet är aktiverat.   
+    ![Skärm bild som beskriver fältet Dölj ögonblicks bilds Sök väg.](../media/azure-netapp-files/hide-snapshot-path-field.png) 
+2. Redigera alternativet Dölj ögonblicks bild Sök väg genom att klicka på **Redigera** på sidan volym och ändra alternativet för att **dölja ögonblicks bilds Sök väg** efter behov.   
+    ![Skärm bild som beskriver alternativet Redigera ögonblicks bild av volym.](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
+
 ## <a name="restore-a-snapshot-to-a-new-volume"></a>Återställa en ögonblicks bild till en ny volym
 
 För närvarande kan du bara återställa en ögonblicks bild till en ny volym. 
@@ -173,17 +184,13 @@ Om du inte vill [återställa hela ögonblicks bilden till en volym](#restore-a-
 
 Den monterade volymen innehåller en ögonblicks bilds katalog med namnet  `.snapshot` (i NFS-klienter) eller `~snapshot` (i SMB-klienter) som är tillgänglig för klienten. Katalogen för ögonblicks bilder innehåller under kataloger som motsvarar ögonblicks bilderna av volymen. Varje under katalog innehåller filerna i ögonblicks bilden. Om du av misstag tar bort eller skriver över en fil, kan du återställa filen till den överordnade katalogen för skriv skydd genom att kopiera filen från en under katalog i ögonblicks bild till katalogen för Läs-och skriv åtgärder. 
 
-Om du har markerat kryss rutan Dölj ögonblicks bilds Sök väg när du skapade volymen döljs ögonblicks bild katalogen. Du kan visa status för Dölj ögonblicks bilds Sök väg för volymen genom att välja volymen. Du kan redigera alternativet Dölj ögonblicks bild Sök väg genom att klicka på **Redigera** på volymens sida.  
-
-För en mål volym i replikering mellan regioner är Dölj ögonblicks bilds Sök väg aktiverat som standard och inställningen kan inte ändras.
-
-![Redigera alternativ för ögonblicks bild av volym](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
+Om du inte ser ögonblicks bilds katalogen kan den vara dold eftersom alternativet Dölj sökväg för ögonblicks bild är aktiverat. Du kan [Redigera alternativet Dölj ögonblicks bild Sök väg](#edit-the-hide-snapshot-path-option) om du vill inaktivera det.  
 
 ### <a name="restore-a-file-by-using-a-linux-nfs-client"></a>Återställa en fil med hjälp av en Linux NFS-klient 
 
 1. Använd `ls` Linux-kommandot för att visa en lista över filen som du vill återställa från `.snapshot` katalogen. 
 
-    Exempel:
+    Till exempel:
 
     `$ ls my.txt`   
     `ls: my.txt: No such file or directory`   
@@ -198,7 +205,7 @@ För en mål volym i replikering mellan regioner är Dölj ögonblicks bilds Sö
 
 2. Använd `cp` kommandot för att kopiera filen till den överordnade katalogen.  
 
-    Exempel: 
+    Till exempel: 
 
     `$ cp .snapshot/hourly.2020-05-15_1306/my.txt .`   
 

@@ -4,12 +4,12 @@ description: Den här artikeln innehåller en genom gång av hur du skapar ett .
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4949d68750e95e5b62b8387f03c77c082fbaf7f4
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 1c0f5a5fb45ee45cb9b7e399dc39ad29406b15dc
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329329"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579002"
 ---
 # <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-azuremessagingeventhubs"></a>Skicka händelser till och ta emot händelser från Azure Event Hubs-.NET (Azure. Messaging. EventHubs) 
 Den här snabb starten visar hur du skickar händelser till och tar emot händelser från en händelsehubben med hjälp av **Azure. Messaging. EventHubs** .net-biblioteket. 
@@ -19,7 +19,7 @@ Den här snabb starten visar hur du skickar händelser till och tar emot händel
 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du inte har använt Azure Event Hubs tidigare, se [Event Hubs översikt](event-hubs-about.md) innan du gör den här snabb starten. 
 
 För att slutföra den här snabbstarten, behöver du följande förhandskrav:
@@ -35,7 +35,7 @@ Det här avsnittet visar hur du skapar ett .NET Core-konsolprogram för att skic
 
 1. Starta Visual Studio 2019. 
 1. Välj **skapa ett nytt projekt**. 
-1. I dialog rutan **skapa ett nytt projekt** gör du följande: om du inte ser den här dialog rutan väljer du **fil** på menyn, väljer **ny**och väljer sedan **projekt**. 
+1. I dialog rutan **skapa ett nytt projekt** gör du följande: om du inte ser den här dialog rutan väljer du **fil** på menyn, väljer **ny** och väljer sedan **projekt**. 
     1. Välj **C#** som programmeringsspråk.
     1. Välj **konsol** för typen av program. 
     1. Välj **konsol program (.net Core)** i resultat listan. 
@@ -104,7 +104,7 @@ Det här avsnittet visar hur du skapar ett .NET Core-konsolprogram för att skic
     [![Verifiera att händelsehubben tog emot meddelanden](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png)](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png#lightbox)
 
     > [!NOTE]
-    > Den fullständiga käll koden med mer informations kommentarer finns i [den här filen på GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/samples/Sample03_PublishAnEventBatch.cs)
+    > Den fullständiga käll koden med mer informations kommentarer finns i [den här filen på GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/samples/Sample04_PublishingEvents.md)
 
 ## <a name="receive-events"></a>Ta emot händelser
 Det här avsnittet visar hur du skriver ett .NET Core-konsolprogram som tar emot meddelanden från en Event Hub med en händelse processor. Händelse processorn fören klar mottagandet av händelser från Event Hub genom att hantera permanenta kontroll punkter och parallella mottagningar från dessa händelse nav. En händelse processor är associerad med en speciell händelsehubben och en konsument grupp. Den tar emot händelser från flera partitioner i händelsehubben och skickar dem till en hanterare som delegeras för bearbetning med hjälp av kod som du anger. 
@@ -128,9 +128,9 @@ I den här snabb starten använder du Azure Storage som kontroll punkts arkiv. F
 
 ### <a name="create-a-project-for-the-receiver"></a>Skapa ett projekt för mottagaren
 
-1. I fönstret Solution Explorer högerklickar du på lösningen **EventHubQuickStart** , pekar på **Lägg till**och väljer **nytt projekt**. 
+1. I fönstret Solution Explorer högerklickar du på lösningen **EventHubQuickStart** , pekar på **Lägg till** och väljer **nytt projekt**. 
 1. Välj **konsol program (.net Core)** och välj **Nästa**. 
-1. Ange **EventHubsReceiver** som **projekt namn**och välj **skapa**. 
+1. Ange **EventHubsReceiver** som **projekt namn** och välj **skapa**. 
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Lägga till Event Hubs NuGet-paketet
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: jingwang
-ms.openlocfilehash: 8a84c9979bdfac1165d44d03572567ab1ea7ab1f
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: ef7f7ba659d874d4514c45e9391912f3027e2265
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995343"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592064"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Kopierings aktivitet i Azure Data Factory
 
@@ -135,12 +135,12 @@ Följande mall för en kopierings aktivitet innehåller en fullständig lista ö
 | typeProperties | Ange egenskaper för att konfigurera kopierings aktiviteten. | Ja |
 | källa | Ange typ av kopierings källa och motsvarande egenskaper för att hämta data.<br/>Mer information finns i avsnittet "Kopiera aktivitets egenskaper" i den kopplings artikel som visas i [data lager och format som stöds](#supported-data-stores-and-formats). | Ja |
 | sjönk | Ange typ av kopierings mottagare och motsvarande egenskaper för att skriva data.<br/>Mer information finns i avsnittet "Kopiera aktivitets egenskaper" i den kopplings artikel som visas i [data lager och format som stöds](#supported-data-stores-and-formats). | Ja |
-| translator | Ange explicita kolumn mappningar från källan till Sink. Den här egenskapen gäller när standard kopierings beteendet inte uppfyller dina behov.<br/>Mer information finns i [schema mappning i kopierings aktivitet](copy-activity-schema-and-type-mapping.md). | Inga |
-| dataIntegrationUnits | Ange ett mått som representerar den mängd potens som [Azure integration runtime](concepts-integration-runtime.md) använder för data kopiering. Dessa enheter kallades tidigare för moln data förflyttnings enheter (DMU). <br/>Mer information finns i [data integrerings enheter](copy-activity-performance-features.md#data-integration-units). | Inga |
-| parallelCopies | Ange den parallellitet som du vill att kopierings aktiviteten ska använda vid inläsning av data från källan och skrivning av data till mottagaren.<br/>Mer information finns i [parallell kopiering](copy-activity-performance-features.md#parallel-copy). | Inga |
-| bibehålla | Ange om du vill bevara metadata/ACL: er under data kopieringen. <br/>Mer information finns i [bevara metadata](copy-activity-preserve-metadata.md). |Inga |
-| enableStaging<br/>stagingSettings | Ange om du vill mellanlagra interims data i Blob Storage i stället för att kopiera data direkt från källa till mottagare.<br/>Information om användbara scenarier och konfigurations information finns i [mellanlagrad kopia](copy-activity-performance-features.md#staged-copy). | Inga |
-| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Välj hur du vill hantera inkompatibla rader när du kopierar data från källa till mottagare.<br/>Mer information finns i [fel tolerans](copy-activity-fault-tolerance.md). | Inga |
+| translator | Ange explicita kolumn mappningar från källan till Sink. Den här egenskapen gäller när standard kopierings beteendet inte uppfyller dina behov.<br/>Mer information finns i [schema mappning i kopierings aktivitet](copy-activity-schema-and-type-mapping.md). | Nej |
+| dataIntegrationUnits | Ange ett mått som representerar den mängd potens som [Azure integration runtime](concepts-integration-runtime.md) använder för data kopiering. Dessa enheter kallades tidigare för moln data förflyttnings enheter (DMU). <br/>Mer information finns i [data integrerings enheter](copy-activity-performance-features.md#data-integration-units). | Nej |
+| parallelCopies | Ange den parallellitet som du vill att kopierings aktiviteten ska använda vid inläsning av data från källan och skrivning av data till mottagaren.<br/>Mer information finns i [parallell kopiering](copy-activity-performance-features.md#parallel-copy). | Nej |
+| bibehålla | Ange om du vill bevara metadata/ACL: er under data kopieringen. <br/>Mer information finns i [bevara metadata](copy-activity-preserve-metadata.md). |Nej |
+| enableStaging<br/>stagingSettings | Ange om du vill mellanlagra interims data i Blob Storage i stället för att kopiera data direkt från källa till mottagare.<br/>Information om användbara scenarier och konfigurations information finns i [mellanlagrad kopia](copy-activity-performance-features.md#staged-copy). | Nej |
+| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Välj hur du vill hantera inkompatibla rader när du kopierar data från källa till mottagare.<br/>Mer information finns i [fel tolerans](copy-activity-fault-tolerance.md). | Nej |
 
 ## <a name="monitoring"></a>Övervakning
 
@@ -201,7 +201,7 @@ Om du vill konfigurera den program mässigt lägger du till `additionalColumns` 
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| additionalColumns | Lägg till ytterligare data kolumner som ska kopieras till Sink.<br><br>Varje objekt i `additionalColumns` matrisen representerar en extra kolumn. `name`Kolumnens namn definieras och `value` anger kolumnens data värde.<br><br>Tillåtna data värden är:<br>- **`$$FILEPATH`** – en reserverad variabel indikerar att lagra källfilernas relativa sökväg till den mappsökväg som anges i data uppsättningen. Tillämpa på filbaserad källa.<br>- **`$$COLUMN:<source_column_name>`** – ett reserverat variabel mönster indikerar att duplicera den angivna käll kolumnen som en annan kolumn<br>- **Uttryck**<br>- **Statiskt värde** | Inga |
+| additionalColumns | Lägg till ytterligare data kolumner som ska kopieras till Sink.<br><br>Varje objekt i `additionalColumns` matrisen representerar en extra kolumn. `name`Kolumnens namn definieras och `value` anger kolumnens data värde.<br><br>Tillåtna data värden är:<br>- **`$$FILEPATH`** – en reserverad variabel indikerar att lagra källfilernas relativa sökväg till den mappsökväg som anges i data uppsättningen. Tillämpa på filbaserad källa.<br>- **`$$COLUMN:<source_column_name>`** – ett reserverat variabel mönster indikerar att duplicera den angivna käll kolumnen som en annan kolumn<br>- **Uttryck**<br>- **Statiskt värde** | Nej |
 
 **Exempel:**
 
@@ -250,7 +250,7 @@ Om du vill konfigurera den program mässigt lägger du till `additionalColumns` 
 
 När du kopierar data till SQL Database/Azure Synapse Analytics, om mål tabellen inte finns, har kopierings aktiviteten automatiskt stöd för att skapa den baserat på källdata. Det är att hjälpa dig att snabbt komma igång med att läsa in data och utvärdera SQL Database/Azure Synapse Analytics. När data inmatningen har inhämtats kan du granska och justera tabell schema för mottagare efter dina behov.
 
-Den här funktionen stöds när du kopierar data från en källa till följande Sink-data lager. Du hittar alternativet på *ADF Authoring UI* – > *kopierings aktivitets mottagare* – > *tabell alternativ* – > *Automatisk skapande av tabell*eller `tableOption` egenskap i aktiviteten Sink-nyttolast.
+Den här funktionen stöds när du kopierar data från en källa till följande Sink-data lager. Du hittar alternativet på *ADF Authoring UI* – > *kopierings aktivitets mottagare* – > *tabell alternativ* – > *Automatisk skapande av tabell* eller `tableOption` egenskap i aktiviteten Sink-nyttolast.
 
 - [Azure SQL Database](connector-azure-sql-database.md)
 - [Hanterad Azure SQL Database-instans](connector-azure-sql-managed-instance.md)
@@ -262,6 +262,13 @@ Den här funktionen stöds när du kopierar data från en källa till följande 
 ## <a name="fault-tolerance"></a>Feltolerans
 
 Som standard slutar kopierings aktiviteten att kopiera data och returnerar ett problem när käll data rader är inkompatibla med mottagar data rader. För att kopieringen ska lyckas kan du konfigurera kopierings aktiviteten så att den hoppar över och loggar de inkompatibla raderna och bara kopierar de kompatibla data. Mer information finns i [fel tolerans för kopierings aktivitet](copy-activity-fault-tolerance.md) .
+
+## <a name="data-consistency-verification"></a>Verifiering av datakonsekvens
+
+När du flyttar data från käll-till mål lagret innehåller Azure Data Factory kopierings aktivitet ett alternativ som gör att du kan utföra ytterligare konsekvens kontroll för data för att säkerställa att data inte bara har kopierats från käll platsen till mål butiken, men också verifierade att de är konsekventa mellan käll-och mål lagret. När inkonsekventa filer har hittats under data flyttningen kan du antingen avbryta kopierings aktiviteten eller fortsätta att kopiera resten genom att aktivera fel tolerans inställningen för att hoppa över inkonsekventa filer. Du kan hämta de överhoppade fil namnen genom att aktivera logg inställningar för sessionen i kopierings aktiviteten. Mer information finns i [data konsekvens kontroll i kopierings aktiviteten](copy-activity-data-consistency.md) .
+
+## <a name="session-log"></a>Sessionsbiljett
+Du kan logga dina kopierade fil namn, vilket kan hjälpa dig att ytterligare se till att data inte bara har kopierats från käll platsen till mål butiken, utan även konsekvent mellan käll-och mål arkivet genom att granska sessionerna för kopierings aktiviteten. Mer information finns i [loggen för sessionen i kopierings aktiviteten](copy-activity-log.md) .
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande snabb starter, självstudier och exempel:

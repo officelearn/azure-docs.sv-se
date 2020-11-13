@@ -1,6 +1,6 @@
 ---
 title: Katalog-synkronisering med Azure Active Directory
-description: Arkitektur vägledning för att uppnå detta mönster för synkronisering
+description: Arkitektur vägledning för att uppnå katalog-synkronisering med Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 862d17948cb09c18f9372f8b8b981e5efa6be71b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: c340f973193f9c46735423c86112816003fecfcd
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114317"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578917"
 ---
 # <a name="directory-synchronization"></a>Katalogsynkronisering
 
@@ -40,17 +40,17 @@ Du måste synkronisera identitets data från dina lokala Active Directory miljö
 
 ## <a name="components-of-system"></a>System komponenter
 
-* **Användare**: ansluter till ett program med hjälp av Azure AD.
+* **Användare** : ansluter till ett program med hjälp av Azure AD.
 
-* **Webbläsare**: komponenten som användaren interagerar med för att få åtkomst till den externa URL: en för programmet.
+* **Webbläsare** : komponenten som användaren interagerar med för att få åtkomst till den externa URL: en för programmet.
 
-* **Program**: webbapp som förlitar sig på användningen av Azure AD för autentisering och auktorisering.
+* **Program** : webbapp som förlitar sig på användningen av Azure AD för autentisering och auktorisering.
 
-* **Azure AD**: synkroniserar identitets information från organisationens lokala katalog via Azure AD Connect. 
+* **Azure AD** : synkroniserar identitets information från organisationens lokala katalog via Azure AD Connect. 
 
-* **Azure AD Connect**: ett verktyg för att ansluta lokala identitets infrastrukturer till Microsoft Azure AD. Guiden och de guidade upplevelserna hjälper dig att distribuera och konfigurera krav och komponenter som krävs för anslutningen, inklusive synkronisering och inloggning från aktiva kataloger till Azure AD. 
+* **Azure AD Connect** : ett verktyg för att ansluta lokala identitets infrastrukturer till Microsoft Azure AD. Guiden och de guidade upplevelserna hjälper dig att distribuera och konfigurera krav och komponenter som krävs för anslutningen, inklusive synkronisering och inloggning från aktiva kataloger till Azure AD. 
 
-* **Active Directory**: Active Directory är en katalog tjänst som ingår i de flesta Windows Server-operativsystem. Servrar som kör Active Directory Domain Services (AD DS) kallas domänkontrollanter. De autentiserar och auktoriserar alla användare och datorer i domänen.
+* **Active Directory** : Active Directory är en katalog tjänst som ingår i de flesta Windows Server-operativsystem. Servrar som kör Active Directory Domain Services (AD DS) kallas domänkontrollanter. De autentiserar och auktoriserar alla användare och datorer i domänen.
 
 ## <a name="implement-directory-synchronization-with-azure-ad"></a>Implementera katalog-synkronisering med Azure AD
 

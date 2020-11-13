@@ -6,23 +6,28 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 11/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7f71cacee86edd5b3f054f0996893c2148c626eb
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 4c1284c13d1516ac4061319287adb64ab7e14ff5
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422679"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579478"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Vad är nytt i Azure Kognitiv sökning
 
 Läs om vad som är nytt i tjänsten. Skapa ett bok märke för den här sidan för att hålla dig uppdaterad med tjänsten.
 
+## <a name="november-2020"></a>November 2020
+
+|Zoomfunktionen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategori | Beskrivning | Tillgänglighet  |
+|------------------------------|----------|-------------|---------------|
+|[kundhanterad nyckel kryptering över indexerare, data källor och färdighetsuppsättningar](search-security-manage-encryption-keys.md) | Säkerhet | Detta tillägg utökar kundhanterad kryptering över hela det antal till gångar som skapas och hanteras av en Sök tjänst. Kom ihåg att CMK-support lägger till ett ytterligare krypterings lager ovanpå grundläggande kryptering som utförs och hanteras av Microsoft. | Allmänt tillgänglig med REST API-version = 2020-06-30 |  
+
 ## <a name="september-2020"></a>September 2020
 
 Skapa en identitet för en Sök tjänst i Azure Active Directory och Använd sedan Azure RBAC-behörigheter för att ge identiteten Läs behörighet till Azure-datakällor. Du kan också välja funktionen [undantag för betrodda tjänster](search-indexer-howto-access-trusted-service-exception.md) om IP-regler inte är ett alternativ.
-
 
 |Zoomfunktionen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategori | Beskrivning | Tillgänglighet  |
 |------------------------------|----------|-------------|---------------|

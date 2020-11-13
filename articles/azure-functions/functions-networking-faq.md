@@ -4,12 +4,12 @@ description: Svar på några av de vanligaste frågorna och scenarierna för nä
 ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.reviewer: glenga
-ms.openlocfilehash: d07484943f8ba85cc8e46737f3ef85b6e25d5187
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e8a992aac95b6c2688cb45aa980bf0b01883a53
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91538066"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578237"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Vanliga frågor om nätverk i Azure Functions
 
@@ -31,11 +31,9 @@ Tänk på att Azure Portals redigeraren kräver direkt åtkomst till den funktio
 
 ## <a name="how-do-i-restrict-my-function-app-to-a-virtual-network"></a>Hur gör jag för att begränsa min Function-app till ett virtuellt nätverk?
 
-Du kan begränsa **inkommande** trafik för en Function-app till ett virtuellt nätverk med hjälp av [tjänst slut punkter](./functions-networking-options.md#private-site-access). Den här konfigurationen tillåter fortfarande att Function-appen gör utgående anrop till Internet.
+Du kan begränsa **inkommande** trafik för en Function-app till ett virtuellt nätverk med hjälp av [tjänst slut punkter](./functions-networking-options.md#use-service-endpoints). Den här konfigurationen tillåter fortfarande att Function-appen gör utgående anrop till Internet.
 
-Det enda sättet att helt begränsa en funktion så att all trafik flödar genom ett virtuellt nätverk är att använda en internt belastningsutjämnad App Service-miljön. Det här alternativet distribuerar din webbplats på en dedikerad infrastruktur i ett virtuellt nätverk och skickar alla utlösare och trafik via det virtuella nätverket. 
-
-Om du vill ha mer information om hur du använder en App Service-miljön börjar du med artikeln [skapa och använder en intern belastningsutjämnare med en app service-miljön](../app-service/environment/create-ilb-ase.md).
+För att helt begränsa en funktion så att all trafik flödar genom ett virtuellt nätverk kan du använda en [privat slut punkt](./functions-networking-options.md#private-endpoint-connections) med utgående integrering av virtuella nätverk eller en app service-miljön.
 
 ## <a name="how-can-i-access-resources-in-a-virtual-network-from-a-function-app"></a>Hur kan jag få åtkomst till resurser i ett virtuellt nätverk från en Function-app?
 
@@ -47,7 +45,7 @@ Med hjälp av integrering med virtuella nätverk kan du komma åt tjänster-slut
 
 ## <a name="how-can-i-trigger-a-function-from-a-resource-in-a-virtual-network"></a>Hur kan jag utlösa en funktion från en resurs i ett virtuellt nätverk?
 
-Du kan tillåta att HTTP-utlösare anropas från ett virtuellt nätverk med hjälp av [tjänst slut punkter](./functions-networking-options.md#private-site-access). 
+Du kan tillåta att HTTP-utlösare anropas från ett virtuellt nätverk med hjälp av [tjänst slut punkter](./functions-networking-options.md#use-service-endpoints) eller [anslutningar till privata slut punkter](./functions-networking-options.md#private-endpoint-connections). 
 
 Du kan också utlösa en funktion från alla andra resurser i ett virtuellt nätverk genom att distribuera din Function-app till en Premium plan, App Service plan eller App Service-miljön. Mer information finns i [virtuella nätverks utlösare som inte är http](./functions-networking-options.md#virtual-network-triggers-non-http)
 

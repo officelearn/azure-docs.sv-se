@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/08/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: b3505f8bf31c2e700ce1cc57e106c33a13e0aa9b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: fc44dd6cf91d687f47afadf1c3378956d838bc9d
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737180"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579512"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-spring-cloud-app"></a>Självstudie: använda en hanterad identitet för att ansluta Key Vault till en Azure våren Cloud-App
 
@@ -77,9 +77,11 @@ Används `az keyvault set-policy` för att ge rätt åtkomst i Key Vault för di
 ```azurecli
 az keyvault set-policy --name "<your-keyvault-name>" --object-id ${SERVICE_IDENTITY} --secret-permissions set get list
 ```
+> [!NOTE]
+> Använd `az keyvault delete-policy --name "<your-keyvault-name>" --object-id ${SERVICE_IDENTITY}` för att ta bort åtkomsten för appen när systemtilldelad hanterad identitet har inaktiverats.
 
 ## <a name="build-a-sample-spring-boot-app-with-spring-boot-starter"></a>Bygg en exempel källa Boot-app med våren Boot starter
-Den här appen kommer att ha åtkomst till att hämta hemligheter från Azure Key Vault. Använd Start programmet: [Azure Key Vault hemligheter fjäder start starter](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-keyvault-secrets).  Azure Key Vault läggs till som en instans av våren **PropertySource** .  Hemligheter som lagras i Azure Key Vault kan användas för att komma åt och användas som en eventuell extern konfigurations egenskap, till exempel egenskaper i filer. 
+Den här appen kommer att ha åtkomst till att hämta hemligheter från Azure Key Vault. Använd Start programmet: [Azure Key Vault hemligheter fjäder start starter](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-keyvault-secrets).  Azure Key Vault läggs till som en instans av våren **PropertySource**.  Hemligheter som lagras i Azure Key Vault kan användas för att komma åt och användas som en eventuell extern konfigurations egenskap, till exempel egenskaper i filer. 
 
 1. Generera ett exempel projekt från start.spring.io med Azure Key Vault våren starter. 
     ```azurecli
@@ -184,7 +186,7 @@ Med Azure Key Vault Secrets klient bibliotek kan du lagra och kontrol lera åtko
     vim src/main/resources/application.properties
     ```
 
-    Om du vill använda hanterad identitet för Azure våren Cloud Apps lägger du till egenskaper med följande innehåll i *src/main/Resources/Application. Properties* .
+    Om du vill använda hanterad identitet för Azure våren Cloud Apps lägger du till egenskaper med följande innehåll i *src/main/Resources/Application. Properties*.
 
     ```
     azure.keyvault.enabled=true

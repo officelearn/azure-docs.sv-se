@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 author: likebupt
 ms.author: keli19
-ms.date: 09/09/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 9ce0bb2a30ec4092d0053adf2de711547595c900
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 5569b625b8f0c4ba890c0cd5b1700ca6fe83d968
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554724"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591996"
 ---
 # <a name="import-data-into-azure-machine-learning-designer"></a>Importera data till Azure Machine Learning designer
 
@@ -53,6 +53,8 @@ Om modulen utdata är i tabell format måste du välja att registrera utdata som
 ### <a name="use-a-dataset"></a>Använd en data uppsättning
 
 Du hittar dina registrerade data uppsättningar i modulen modul under **data uppsättningar**. Om du vill använda en data uppsättning drar du och släpper den på pipeline-arbetsytan. Anslut sedan utdataporten för data uppsättningen till andra moduler på arbets ytan. 
+
+Om du registrerar en fil data uppsättning är den utgående port typen för data uppsättningen **AnyDirectory**. Om du registrerar en tabell uppsättning visas utdatatypen för data uppsättningen om **DataFrameDirectory**. Observera att om du ansluter utdataporten för data uppsättningen till andra moduler i designern måste port typen för data uppsättningar och moduler justeras.
 
 ![Skärm bild som visar platsen för sparade data uppsättningar i design verktyget](media/how-to-designer-import-data/use-datasets-designer.png)
 

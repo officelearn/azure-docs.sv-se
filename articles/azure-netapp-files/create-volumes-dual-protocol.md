@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 10/12/2020
 ms.author: b-juche
-ms.openlocfilehash: 54be34b2151aa88705559ac2913db4f528ea4492
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4fa2c724906c8a6bfb294541b6616ddc7ae22df6
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963524"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591656"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Skapa en NFSv3-och SMB-volym (Dual-Protocol) för Azure NetApp Files
 
@@ -33,11 +33,11 @@ Azure NetApp Files stöder skapande av volymer med NFS (NFSv3 och NFSv 4.1), SMB
 * Ett undernät måste delegeras till Azure NetApp Files.  
     Se [delegera ett undernät till Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
 
-## <a name="considerations"></a>Att tänka på
+## <a name="considerations"></a>Överväganden
 
 * Se till att du uppfyller [kraven för Active Directory anslutningar](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections). 
 * Skapa en zon för omvänd sökning på DNS-servern och Lägg sedan till en pekare (PTR) av AD host-datorn i den zonen för omvänd sökning. Annars går det inte att skapa dubbla protokoll volymer.
-* Se till att NFS-klienten är uppdaterad och att de senaste uppdateringarna för operativ systemet körs.
+* Kontrollera att NFS-klienten är uppdaterad och att de senaste uppdateringarna för operativsystemet används.
 * Kontrol lera att LDAP-servern Active Directory (AD) är igång och körs på AD. Du kan göra det genom att installera och konfigurera rollen [Active Directory Lightweight Directory Services (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) på AD-datorn.
 * Se till att en certifikat utfärdare (CA) skapas på AD med hjälp av rollen [Active Directory certifikat tjänster (AD CS)](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) för att generera och exportera det självsignerade certifikatet för rot certifikat utfärdaren.   
 * Dubbla protokoll volymer stöder för närvarande inte Azure Active Directory Domain Services (AADDS).  
@@ -58,7 +58,7 @@ Azure NetApp Files stöder skapande av volymer med NFS (NFSv3 och NFSv 4.1), SMB
 
     ![Navigera till volymer](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png) 
 
-2.  I fönstret Skapa en volym klickar du på **skapa**och anger information för följande fält under fliken grundläggande:   
+2.  I fönstret Skapa en volym klickar du på **skapa** och anger information för följande fält under fliken grundläggande:   
     * **Volym namn**      
         Ange namnet på den volym du skapar.   
 
@@ -100,7 +100,7 @@ Azure NetApp Files stöder skapande av volymer med NFS (NFSv3 och NFSv 4.1), SMB
 
         ![Visa avancerad markering](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
-3. Klicka på **protokoll**och utför följande åtgärder:  
+3. Klicka på **protokoll** och utför följande åtgärder:  
     * Välj **Dual-Protocol (NFSv3 och SMB)** som protokoll typ för volymen.   
 
     * Välj den **Active Directory** anslutningen i list rutan.  
@@ -135,7 +135,7 @@ Azure NetApp Files stöder skapande av volymer med NFS (NFSv3 och NFSv 4.1), SMB
 
     ![Guiden Exportera certifikat](../media/azure-netapp-files/certificate-export-wizard.png)
 
-4. Gå till NetApp-kontot för den dubbla protokoll volymen, klicka på **Active Directory anslutningar**och ladda upp rot certifikat utfärdarens certifikat med hjälp av fönstret **Anslut Active Directory** :  
+4. Gå till NetApp-kontot för den dubbla protokoll volymen, klicka på **Active Directory anslutningar** och ladda upp rot certifikat utfärdarens certifikat med hjälp av fönstret **Anslut Active Directory** :  
 
     ![Serverns rot certifikat för certifikat utfärdare](../media/azure-netapp-files/server-root-ca-certificate.png)
 
@@ -161,5 +161,5 @@ Följ anvisningarna i [Konfigurera en NFS-klient för att Azure NetApp Files](co
 
 ## <a name="next-steps"></a>Nästa steg  
 
-* [Vanliga frågor och svar om dubbla protokoll](azure-netapp-files-faqs.md#dual-protocol-faqs)
 * [Konfigurera en NFS-klient för Azure NetApp Files](configure-nfs-clients.md)
+* [Felsöka volymer med dubbla protokoll](troubleshoot-dual-protocol-volumes.md)

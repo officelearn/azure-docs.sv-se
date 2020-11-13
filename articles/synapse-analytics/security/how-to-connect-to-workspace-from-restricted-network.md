@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/25/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: f2d8953ccae1057d7a7aa2d786fb7b641b3f6284
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: d94ee3145fb073dae982019fd4096cc2ceb7cd86
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93392533"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578339"
 ---
 # <a name="connect-to-synapse-studio-workspace-resources-from-a-restricted-network"></a>Ansluta till resurser i Synapse Studio-arbetsytan från ett begränsat nätverk
 
@@ -30,7 +30,7 @@ I den här artikeln får du lära dig hur du ansluter till din Azure Synapse-arb
 
 ## <a name="step-1-add-network-outbound-security-rules-to-the-restricted-network"></a>Steg 1: Lägg till nätverks utgående säkerhets regler i det begränsade nätverket
 
-Du måste lägga till fyra säkerhets regler för utgående trafik med fyra service märken. Läs mer om [service tag-översikt](/azure/virtual-network/service-tags-overview.md) 
+Du måste lägga till fyra säkerhets regler för utgående trafik med fyra service märken. Läs mer om [service tag-översikt](/azure/virtual-network/service-tags-overview) 
 * AzureResourceManager
 * AzureFrontDoor. frontend
 * AzureActiveDirectory

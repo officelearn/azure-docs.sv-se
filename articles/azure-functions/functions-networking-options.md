@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: jehollan
-ms.openlocfilehash: 691fbf3be4e39a724a8a290c3ec147a679013cba
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 6b082801a89450e34056be8be88a96fe26b7eeec
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413096"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578840"
 ---
 # <a name="azure-functions-networking-options"></a>Nätverksalternativ för Azure Functions
 
@@ -30,18 +30,36 @@ Du kan vara värd för funktions appar på ett par olika sätt:
 
 [!INCLUDE [functions-networking-features](../../includes/functions-networking-features.md)]
 
-## <a name="inbound-ip-restrictions"></a>Inkommande IP-begränsningar
+## <a name="inbound-access-restrictions"></a>Begränsningar för inkommande åtkomst
 
-Du kan använda IP-begränsningar för att definiera en prioriterad lista över IP-adresser som tillåts eller nekas åtkomst till din app. Listan kan innehålla IPv4-och IPv6-adresser. När det finns en eller flera poster finns implicit "Neka alla" i slutet av listan. IP-begränsningar fungerar med alla funktions värd alternativ.
+Du kan använda åtkomst begränsningar för att definiera en prioriterad lista över IP-adresser som tillåts eller nekas åtkomst till din app. Listan kan innehålla IPv4-och IPv6-adresser eller vissa virtuella nätverks under nät som använder [tjänst slut punkter](#use-service-endpoints). När det finns en eller flera poster finns implicit "Neka alla" i slutet av listan. IP-begränsningar fungerar med alla funktions värd alternativ.
+
+Åtkomst begränsningar är tillgängliga i [Premium](functions-premium-plan.md)-, [konsumtions](functions-scale.md#consumption-plan)-och [App Service](functions-scale.md#app-service-plan).
 
 > [!NOTE]
-> Med nätverks begränsningar på plats kan du bara använda Portal redigeraren från det virtuella nätverket eller när du har placerat IP-adressen för den dator som du använder för att komma åt Azure Portal i listan Betrodda mottagare. Men du kan fortfarande komma åt funktioner på fliken **plattforms funktioner** från vilken dator som helst.
+> Med nätverks begränsningar på plats kan du distribuera enbart från det virtuella nätverket eller när du har placerat IP-adressen för den dator som du använder för att komma åt Azure Portal på listan Betrodda mottagare. Du kan dock fortfarande hantera funktionen med hjälp av portalen.
 
 Läs mer i [Azure App Service statiska åtkomst begränsningar](../app-service/app-service-ip-restrictions.md).
 
-## <a name="private-site-access"></a>Åtkomst till privat plats
+### <a name="use-service-endpoints"></a>Använda tjänstens slutpunkter
+
+Genom att använda tjänst slut punkter kan du begränsa åtkomsten till de valda Azure-undernäten för virtuella nätverk. Om du vill begränsa åtkomsten till ett speciellt undernät skapar du en begränsnings regel med en **Virtual Network** typ. Du kan sedan välja den prenumeration, det virtuella nätverk och det undernät som du vill tillåta eller neka åtkomst till. 
+
+Om tjänst slut punkter inte redan har Aktiver ATS med Microsoft. Web för det undernät som du har valt, aktive ras de automatiskt om du inte markerar kryss rutan **Ignorera saknade Microsoft. webb tjänst slut punkter** . Scenariot där du kanske vill aktivera tjänstens slut punkter i appen, men inte under nätet beror huvudsakligen på om du har behörighet att aktivera dem i under nätet. 
+
+Om du behöver någon annan för att aktivera tjänstens slut punkter i under nätet markerar du kryss rutan **Ignorera saknade Microsoft. webb tjänst slut punkter** . Din app konfigureras för tjänst slut punkter i förväntat att de ska aktive ras senare i under nätet. 
+
+![Skärm bild av fönstret "Lägg till IP-begränsning" med Virtual Network typen vald.](../app-service/media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
+
+Du kan inte använda tjänstens slut punkter för att begränsa åtkomsten till appar som körs i en App Service-miljön. När din app är i ett App Service-miljön kan du kontrol lera åtkomsten till den genom att använda regler för IP-åtkomst. 
+
+Information om hur du konfigurerar tjänst slut punkter finns i [upprätta Azure Functions privat plats åtkomst](functions-create-private-site-access.md).
+
+## <a name="private-endpoint-connections"></a>Anslutningar för privata slut punkter
 
 [!INCLUDE [functions-private-site-access](../../includes/functions-private-site-access.md)]
+
+Om du vill anropa andra tjänster som har en privat slut punkts anslutning, t. ex. lagring eller Service Bus, måste du konfigurera appen så att [utgående anrop till privata slut punkter](#private-endpoints)görs.
 
 ## <a name="virtual-network-integration"></a>Virtual Network-integration
 
@@ -69,7 +87,7 @@ Mer information finns i [tjänst slut punkter för virtuella nätverk](../virtua
 
 ## <a name="restrict-your-storage-account-to-a-virtual-network-preview"></a>Begränsa ditt lagrings konto till ett virtuellt nätverk (för hands version)
 
-När du skapar en Function-app måste du skapa eller länka till ett allmänt Azure Storage konto som har stöd för BLOB-, Queue-och table-lagring.  Du kan ersätta det här lagrings kontot med ett som skyddas av tjänst slut punkter eller privat slut punkt.  Den här förhands gransknings funktionen fungerar för närvarande bara med Windows Premium-planer i Västeuropa.  Så här installerar du en funktion med ett lagrings konto som är begränsat till ett privat nätverk:
+När du skapar en Function-app måste du skapa eller länka till ett allmänt Azure Storage konto som har stöd för BLOB-, Queue-och table-lagring.  Du kan ersätta det här lagrings kontot med ett som skyddas av tjänst slut punkter eller privat slut punkt.  Den här förhands gransknings funktionen fungerar för närvarande bara med Windows Premium-planer i Västeuropa.  Så här konfigurerar du en funktion med ett lagrings konto som är begränsat till ett privat nätverk:
 
 > [!NOTE]
 > Begränsning av lagrings kontot fungerar för närvarande bara för Premium funktioner med hjälp av Windows i Västeuropa
@@ -80,7 +98,7 @@ När du skapar en Function-app måste du skapa eller länka till ett allmänt Az
 1. [Skapa en fil resurs](../storage/files/storage-how-to-create-file-share.md#create-file-share) på det skyddade lagrings kontot.
 1. Aktivera tjänstens slut punkter eller privata slut punkter för lagrings kontot.  
     * Se till att aktivera det undernät som är dedikerat för dina funktions program om du använder en tjänst slut punkt.
-    * Se till att skapa en DNS-post och konfigurera appen så att den [fungerar med slut punkter för privata slut](#azure-dns-private-zones) punkter om du använder privat slut punkt.  Lagrings kontot måste ha en privat slut punkt för `file` `blob` under resurserna.  Om du använder vissa funktioner som Durable Functions du också behöver `queue` och `table` kan nås via en privat slut punkts anslutning.
+    * Se till att skapa en DNS-post och konfigurera appen så att den [fungerar med slut punkter för privata slut](#azure-dns-private-zones) punkter om du använder privat slut punkt.  Lagrings kontot måste ha en privat slut punkt för-och-under `file` `blob` resurserna.  Om du använder vissa funktioner som Durable Functions, behöver du också `queue` och `table` kan nås via en privat slut punkt anslutning.
 1. Valfritt Kopiera filen och blob-innehållet från funktionen app Storage-kontot till det skyddade lagrings kontot och fil resursen.
 1. Kopiera anslutnings strängen för det här lagrings kontot.
 1. Uppdatera **program inställningarna** under **konfigurationen** för Function-appen till följande:

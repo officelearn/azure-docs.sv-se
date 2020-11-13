@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b24bd190eac9cb6c29ceab6eb597d8d1c48f2ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da1b56e3818d2d9701ecb0252328746dc39bb260
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90605098"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578322"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Utveckla branschspecifika appar för Azure Active Directory
 Den här guiden ger en översikt över hur du utvecklar branschspecifika program (LoB) för Azure Active Directory (AD). Den avsedda mål gruppen är Active Directory/Microsoft 365 globala administratörer.
@@ -27,7 +27,7 @@ Att skapa program som är integrerade med Azure AD ger användare i din organisa
 
 Registrera ditt program för att använda Azure Active Directory. Att registrera programmet innebär att utvecklarna kan använda Azure AD för att autentisera användare och begära åtkomst till användar resurser som e-post, kalender och dokument.
 
-Alla medlemmar i din katalog (inte gäster) kan registrera ett program, annars kallas att *skapa ett program objekt*.
+Alla medlemmar i din katalog (inte gäster) kan registrera ett program, annars kallas att *skapa ett program objekt*. Om du inte kan registrera ett program innebär det att den globala administratören för din katalog har begränsat den här funktionen och du kan behöva kontakta dem för att [få rätt behörighet](https://docs.microsoft.com/azure/active-directory/roles/delegate-app-roles#assign-built-in-application-admin-roles) för att kunna registrera programmet. Om du vill veta mer om hur du begränsar användarens se [delegera program registrerings behörigheter i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/roles/delegate-app-roles#restrict-who-can-create-applications).
 
 När du registrerar ett program kan alla användare göra följande:
 

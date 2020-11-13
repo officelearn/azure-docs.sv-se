@@ -11,12 +11,12 @@ ms.date: 09/17/2020
 ms.author: gopalv
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 2225ef42d8862935e5cd682a3c11a7ce687babab
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5b05891500ae5fd66e5ec2381066ccd1d26aa7ec
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325564"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578067"
 ---
 # <a name="advanced-entry-script-authoring"></a>Avancerad startskriptredigering
 
@@ -28,7 +28,10 @@ Den här artikeln förutsätter att du redan har en utbildad maskin inlärnings 
 
 ## <a name="automatically-generate-a-swagger-schema"></a>Generera ett Swagger-schema automatiskt
 
-För att automatiskt generera ett schema för webb tjänsten, ange ett exempel på indata och/eller utdata i konstruktorn för ett av de definierade typ objekten. Typen och exemplet används för att automatiskt skapa schemat. Azure Machine Learning skapar sedan en [openapi](https://swagger.io/docs/specification/about/) -specifikation (Swagger) för webb tjänsten under distributionen.
+För att automatiskt generera ett schema för webb tjänsten, ange ett exempel på indata och/eller utdata i konstruktorn för ett av de definierade typ objekten. Typen och exemplet används för att automatiskt skapa schemat. Azure Machine Learning skapar sedan en [openapi](https://swagger.io/docs/specification/about/) -specifikation (Swagger) för webb tjänsten under distributionen. 
+
+> [!WARNING]
+> Du får inte använda känsliga eller privata data för exempel på indata eller utdata. Swagger-sidan för AML-värdbaserade inferencing visar exempel data. 
 
 Dessa typer stöds för närvarande:
 

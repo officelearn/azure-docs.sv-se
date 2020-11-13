@@ -7,12 +7,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 10/15/2020
-ms.openlocfilehash: a323dec66a3077784ff85deadd4f12086648fb3a
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: e29c640494a18bb3be2125a5b53b4f943521fe6c
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220466"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579155"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Felsöka vanliga problem i Azure Data Share 
 
@@ -52,11 +52,11 @@ Det här kan bero på något av följande:
 
 "Det gick inte att lägga till Skriv behörigheter för Azure Data Share-konto till en eller flera av de valda resurserna"
 
-Om du får ovanstående fel när du skapar en ny resurs eller mappar data uppsättningar, kan det bero på otillräcklig behörighet för Azure Data Store. Se [roller och krav](concepts-roles-permissions.md) för nödvändiga behörigheter. 
+Om du får ovanstående fel när du skapar en ny resurs, lägger till data uppsättningar eller mappar data uppsättningar, kan det bero på otillräcklig behörighet för Azure Data Store. Se [roller och krav](concepts-roles-permissions.md) för nödvändiga behörigheter. 
 
-Du måste ha Skriv behörighet för att dela eller ta emot data från ett Azure-datalager, som vanligt vis finns i deltagar rollen. 
+Du måste ha Skriv behörighet för att dela eller ta emot data från ett Azure-datalager, som vanligt vis finns i **deltagar** rollen. 
 
-Om det här är första gången du delar eller tar emot data från Azure Data Store, behöver du även *Microsoft. auktorisering/roll tilldelningar/Skriv* behörighet, som vanligt vis finns i ägar rollen. Även om du har skapat Azure Data Store-resursen så blir det inte automatiskt ägaren till resursen. Med rätt behörighet ger Azure Data Share service automatiskt den hanterade identitets åtkomsten för data resursen till data lagret. Den här processen kan ta några minuter att börja gälla. Om det uppstår ett problem på grund av den här fördröjningen, försök igen om några minuter.
+Om det här är första gången du delar eller tar emot data från Azure Data Store, behöver du även *Microsoft. auktorisering/roll tilldelningar/Skriv* behörighet, som vanligt vis finns i **ägar** rollen. Även om du har skapat Azure Data Store-resursen så blir det inte automatiskt ägaren till resursen. Med rätt behörighet ger Azure Data Share service automatiskt den hanterade identitets åtkomsten för data resursen till data lagret. Den här processen kan ta några minuter att börja gälla. Om det uppstår ett problem på grund av den här fördröjningen, försök igen om några minuter.
 
 SQL-baserad delning kräver ytterligare behörigheter. Se [Dela från SQL-källor](how-to-share-from-sql.md) för detaljerad lista över krav.
 
@@ -69,7 +69,7 @@ Det gick inte att ta ögonblicks bilder på grund av olika orsaker. Du hittar et
 
 För SQL-källor är följande ytterligare orsaker till fel i ögonblicks bilder. 
 
-* Käll-eller mål-SQL-skriptet för att bevilja behörighet för data resurs körs inte eller körs med SQL-autentisering i stället för Azure Active Directory autentisering.  
+* Käll-eller mål-SQL-skriptet för att bevilja behörighet för data resurs körs inte. Eller för Azure SQL Database eller Azure Synapse Analytics (tidigare Azure SQL DW) körs den med SQL-autentisering i stället för Azure Active Directory autentisering.  
 * Käll-eller mål-SQL data lagret har pausats.
 * SQL-datatyper stöds inte av ögonblicks bild processen eller mål data lagret. Mer information finns i [Dela från SQL-källor](how-to-share-from-sql.md#supported-data-types) .
 * Käll-eller mål-SQL data lagret har låsts av andra processer. Azure Data Share tillämpar inte lås på käll-och mål-SQL data lager. Befintliga lås på käll-och mål-SQL data lagret leder dock till att ögonblicks bilder Miss lyckas.

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: 66da9124a6b46fa34d0a13c8992cd3141b095422
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 85f5beb6188b1f6987934f1c39c579d5a3028a5e
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94370490"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579495"
 ---
 # <a name="configure-a-managed-application-plan"></a>Konfigurera en hanterad program plan
 
@@ -114,7 +114,7 @@ På fliken **teknisk konfiguration** laddar du upp distributions paketet som lå
 
 ### <a name="assign-a-version-number-for-the-package"></a>Tilldela ett versions nummer för paketet
 
-I rutan **version** anger du den aktuella versionen av den tekniska konfigurationen. Öka den här versionen varje gången du publicerar en ändring på den här sidan. Versions numret måste vara i formatet: Integer. Integer. Integer. Exempelvis `1.0.2`.
+I rutan **version** anger du den aktuella versionen av den tekniska konfigurationen. Öka den här versionen varje gången du publicerar en ändring på den här sidan. Versions numret måste vara i formatet: Integer. Integer. Integer. Ett exempel är `1.0.2`.
 
 ### <a name="upload-a-package-file"></a>Ladda upp en paketfil
 
@@ -138,7 +138,7 @@ Välj antingen det **fullständiga** eller **stegvisa** distributions läget.
 - I **komplett** läge leder en omdistribution av programmet av kunden till att resurser i den hanterade resurs gruppen tas bort om resurserna inte har definierats i [mainTemplate.jspå](/azure/azure-resource-manager/managed-applications/publish-service-catalog-app?tabs=azure-powershell#create-the-arm-template.md).
 - I **stegvist** läge lämnar en omdistribution av programmet befintliga resurser oförändrade.
 
-Läs mer om distributions lägen i [Azure Resource Manager distributions lägen](/azure/azure-resource-manager/deployment-modes.md).
+Läs mer om distributions lägen i [Azure Resource Manager distributions lägen](/azure/azure-resource-manager/deployment-modes).
 
 ### <a name="provide-a-notification-endpoint-url"></a>Ange en URL för meddelande slut punkten
 

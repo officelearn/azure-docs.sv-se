@@ -11,15 +11,14 @@ ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: b4dc222ed0fc350b680d2696c1faa16d44b84a02
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 496a38e43c7bd624c42f5c7a43ad9cf16f85d166
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358345"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579580"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>Version och spårning av data uppsättningar i experiment
-
 
 I den här artikeln får du lära dig hur du använder version och spår Azure Machine Learning data uppsättningar för reproducerbarhet. Versions hantering av data uppsättningar är ett sätt att ange data uppsättningens tillstånd så att du kan använda en angiven version av data uppsättningen för framtida experiment.
 
@@ -116,11 +115,11 @@ dataset2.register(workspace = workspace,
 
 <a name="pipeline"></a>
 
-## <a name="version-a-pipeline-output-dataset"></a>Version en data uppsättning för pipeline-utdata
+## <a name="version-an-ml-pipeline-output-dataset"></a>Version en ML datauppsättning för pipeline-utdata
 
-Du kan använda en data uppsättning som indata och utdata för varje Machine Learning pipeline-steg. När du kör pipelines igen registreras utdata för varje pipeline-steg som en ny data uppsättnings version.
+Du kan använda en data uppsättning som indata och utdata för varje steg i [ml pipeline](concept-ml-pipelines.md) . När du kör pipelines igen registreras utdata för varje pipeline-steg som en ny data uppsättnings version.
 
-Eftersom Machine Learning pipelines fyller i utdata för varje steg i en ny mapp varje gång pipelinen återanvänds, är de versioner av data uppsättningarna som är i drift att återproduceras. Läs mer om [data uppsättningar i pipelines](how-to-create-your-first-pipeline.md#steps).
+ML-pipeliner fyller i resultatet för varje steg i en ny mapp varje gång pipelinen återkör. Med det här beteendet kan data uppsättningarna som skapas av data vara reproducerbara. Läs mer om [data uppsättningar i pipelines](how-to-create-your-first-pipeline.md#steps).
 
 ```Python
 from azureml.core import Dataset
@@ -154,9 +153,36 @@ prep_step = PythonScriptStep(script_name="prepare.py",
 
 <a name="track"></a>
 
-## <a name="track-datasets-in-experiments"></a>Spåra data uppsättningar i experiment
+## <a name="track-datas-in-your-experiments"></a>Spåra data i experimenten
 
-För varje Machine Learning experiment kan du enkelt spåra data uppsättningarna som används som indata via experiment- `Run` objektet.
+Azure Machine Learning spårar dina data i experimentet som indata och utdata.  
+
+Här följer några scenarier där dina data spåras som en **indata-datauppsättning**. 
+
+* Som ett `DatasetConsumptionConfig` objekt via antingen- `inputs` eller- `arguments` parametern för ditt `ScriptRunConfig` objekt när du skickar experimentet. 
+
+* När metoder som, som get_by_name () eller get_by_id () anropas i skriptet. I det här scenariot visas namnet som tilldelats data uppsättningen när du registrerade den till arbets ytan. 
+
+Här följer några scenarier där dina data spåras som en **data uppsättning för utdata**.  
+
+* Skicka ett `OutputFileDatasetConfig` objekt via antingen `outputs` parametern eller `arguments` när du skickar en experiment körning. `OutputFileDatasetConfig` objekt kan också användas för att bevara data mellan pipeline-steg. Se [Flytta data mellan ml steg för pipeline.](how-to-move-data-in-out-of-pipelines.md)
+    > [!TIP]
+    > [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) är en offentlig för hands versions klass som innehåller [experiment](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#&preserve-view=truestable-vs-experimental) för hands versions funktioner som kan ändras när som helst.
+
+* Registrera en data uppsättning i skriptet. I det här scenariot visas namnet som tilldelats data uppsättningen när du registrerade den till arbets ytan. I följande exempel `training_ds` är det namnet som skulle visas.
+
+    ```Python
+   training_ds = unregistered_ds.register(workspace = workspace,
+                                     name = 'training_ds',
+                                     description = 'training data'
+                                     )
+    ```
+
+* Skicka underordnad körning med en oregistrerad data uppsättning i skriptet. Detta resulterar i en anonym Sparad data uppsättning.
+
+### <a name="trace-datasets-in-experiment-runs"></a>Spåra data uppsättningar i experiment körningar
+
+För varje Machine Learning experiment kan du enkelt spåra data uppsättningarna som används som indata med experiment- `Run` objektet.
 
 I följande kod används [`get_details()`](/python/api/azureml-core/azureml.core.run.run?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-details--) metoden för att spåra vilka indata-datauppsättningar som användes när experimentet kördes:
 
@@ -169,7 +195,7 @@ input_dataset = inputs[0]['dataset']
 input_dataset.to_path()
 ```
 
-Du kan också hitta `input_datasets` från experiment med hjälp av https://ml.azure.com/ . 
+Du kan också hitta `input_datasets` från experiment med hjälp av [Azure Machine Learning Studio](). 
 
 Följande bild visar var du hittar indata-datauppsättningen för ett experiment på Azure Machine Learning Studio. I det här exemplet går du till fönstret **experiment** och öppnar fliken **Egenskaper** för en speciell körning av experimentet `keras-mnist` .
 
@@ -183,7 +209,7 @@ model = run.register_model(model_name='keras-mlp-mnist',
                            datasets =[('training data',train_dataset)])
 ```
 
-Efter registreringen kan du se en lista över modeller som registrerats med data uppsättningen med hjälp av python eller gå till https://ml.azure.com/ .
+Efter registreringen kan du se en lista över modeller som registrerats med data uppsättningen med hjälp av python eller gå till [Studio](https://ml.azure.com/).
 
 Följande vy är från fönstret **data uppsättningar** under **till gångar**. Välj data uppsättningen och välj sedan fliken **modeller** för en lista med de modeller som är registrerade med data uppsättningen. 
 

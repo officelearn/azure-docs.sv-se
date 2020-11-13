@@ -3,20 +3,20 @@ title: Använd käll kontroll integrering i Azure Automation
 description: Den här artikeln beskriver hur du synkroniserar Azure Automation käll kontroll med andra databaser.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/10/2019
+ms.date: 11/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: eea4de106fe566b55ae30330d4c9d101f7126bbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2ddb0143bb9cba0dc2fc48ff9b9df94dc55c29c
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86229626"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579461"
 ---
 # <a name="use-source-control-integration"></a>Använda källkontrollsintegrering
 
  Käll kontroll integrering i Azure Automation stöder synkronisering med en riktning från din lagrings plats för käll kontroll. Med käll kontroll kan du hålla dina Runbooks i ditt Automation-konto uppdaterat med skript i din GitHub-eller Azure databaser-käll kontroll lagrings plats. Den här funktionen gör det enkelt att befordra kod som har testats i utvecklings miljön till ditt produktions Automation-konto.
- 
- Med käll kontroll integrering kan du enkelt samar beta med ditt team, spåra ändringar och återställa till tidigare versioner av dina runbooks. Med käll kontroll kan du till exempel synkronisera olika grenar i käll kontrollen med dina Automation-konton för utveckling, testning och produktion. 
+
+ Med käll kontroll integrering kan du enkelt samar beta med ditt team, spåra ändringar och återställa till tidigare versioner av dina runbooks. Med käll kontroll kan du till exempel synkronisera olika grenar i käll kontrollen med dina Automation-konton för utveckling, testning och produktion.
 
 ## <a name="source-control-types"></a>Käll kontroll typer
 
@@ -26,7 +26,7 @@ Azure Automation stöder tre typer av käll kontroll:
 * Azure-databaser (git)
 * Azure-databaser (TFVC)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett lagrings lager för käll kontroll (GitHub eller Azure databaser)
 * Ett [Kör som-konto](manage-runas-account.md)
@@ -47,11 +47,11 @@ Använd den här proceduren för att konfigurera käll kontroll med Azure Portal
 
     ![Välj käll kontroll](./media/source-control-integration/select-source-control.png)
 
-2. Välj **typ av käll kontroll**och klicka sedan på **autentisera**. 
+2. Välj **typ av käll kontroll** och klicka sedan på **autentisera**.
 
 3. Ett webbläsarfönster öppnas och du blir ombedd att logga in. Följ anvisningarna för att slutföra autentiseringen.
 
-4. På sidan käll kontroll sammanfattning använder du fälten för att fylla i egenskaperna för käll kontroll som definierats nedan. Klicka på **Spara** när du är färdig. 
+4. På sidan käll kontroll sammanfattning använder du fälten för att fylla i egenskaperna för käll kontroll som definierats nedan. Klicka på **Spara** när du är färdig.
 
     |Egenskap  |Beskrivning  |
     |---------|---------|
@@ -69,13 +69,13 @@ Använd den här proceduren för att konfigurera käll kontroll med Azure Portal
    ![Översikt över käll kontroll](./media/source-control-integration/source-control-summary.png)
 
 > [!NOTE]
-> Inloggningen för käll kontrollens lagrings plats kan skilja sig från din inloggning för Azure Portal. Se till att du är inloggad med rätt konto för käll kontrollens lagrings plats när du konfigurerar käll kontroll. Om det finns en tvivel öppnar du en ny flik i webbläsaren, loggar ut från **dev.Azure.com**, **VisualStudio.com**eller **GitHub.com**och försöker återansluta till käll kontroll.
+> Inloggningen för käll kontrollens lagrings plats kan skilja sig från din inloggning för Azure Portal. Se till att du är inloggad med rätt konto för käll kontrollens lagrings plats när du konfigurerar käll kontroll. Om det finns en tvivel öppnar du en ny flik i webbläsaren, loggar ut från **dev.Azure.com** , **VisualStudio.com** eller **GitHub.com** och försöker återansluta till käll kontroll.
 
 ### <a name="configure-source-control-in-powershell"></a>Konfigurera käll kontroll i PowerShell
 
-Du kan också använda PowerShell för att konfigurera käll kontroll i Azure Automation. Om du vill använda PowerShell-cmdletar för den här åtgärden behöver du en personlig åtkomsttoken (PAT). Använd cmdleten [New-AzAutomationSourceControl](/powershell/module/az.automation/new-azautomationsourcecontrol?view=azps-3.5.0) för att skapa käll kontroll anslutningen. Denna cmdlet kräver en säker sträng för PAT. Information om hur du skapar en säker sträng finns i [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
+Du kan också använda PowerShell för att konfigurera käll kontroll i Azure Automation. Om du vill använda PowerShell-cmdletar för den här åtgärden behöver du en personlig åtkomsttoken (PAT). Använd cmdleten [New-AzAutomationSourceControl](/powershell/module/az.automation/new-azautomationsourcecontrol) för att skapa käll kontroll anslutningen. Denna cmdlet kräver en säker sträng för PAT. Information om hur du skapar en säker sträng finns i [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring).
 
-Följande underavsnitt illustrerar PowerShell-skapande av käll kontroll anslutningen för GitHub, Azure databaser (git) och Azure databaser (TFVC). 
+Följande underavsnitt illustrerar PowerShell-skapande av käll kontroll anslutningen för GitHub, Azure databaser (git) och Azure databaser (TFVC).
 
 #### <a name="create-source-control-connection-for-github"></a>Skapa käll kontroll anslutning för GitHub
 
@@ -86,7 +86,7 @@ New-AzAutomationSourceControl -Name SCGitHub -RepoUrl https://github.com/<accoun
 #### <a name="create-source-control-connection-for-azure-repos-git"></a>Skapa käll kontroll anslutning för Azure databaser (git)
 
 > [!NOTE]
-> Azure databaser (git) använder en URL som har åtkomst till **dev.Azure.com** i stället för **VisualStudio.com**, som används i tidigare format. Det äldre URL-formatet `https://<accountname>.visualstudio.com/<projectname>/_git/<repositoryname>` är inaktuellt men stöds fortfarande. Det nya formatet rekommenderas.
+> Azure databaser (git) använder en URL som har åtkomst till **dev.Azure.com** i stället för **VisualStudio.com** , som används i tidigare format. Det äldre URL-formatet `https://<accountname>.visualstudio.com/<projectname>/_git/<repositoryname>` är inaktuellt men stöds fortfarande. Det nya formatet rekommenderas.
 
 
 ```powershell-interactive
@@ -96,7 +96,7 @@ New-AzAutomationSourceControl -Name SCReposGit -RepoUrl https://dev.azure.com/<a
 #### <a name="create-source-control-connection-for-azure-repos-tfvc"></a>Skapa käll kontroll anslutning för Azure databaser (TFVC)
 
 > [!NOTE]
-> Azure-databaser (TFVC) använder en URL som har åtkomst till **dev.Azure.com** i stället för **VisualStudio.com**, som används i tidigare format. Det äldre URL-formatet `https://<accountname>.visualstudio.com/<projectname>/_versionControl` är inaktuellt men stöds fortfarande. Det nya formatet rekommenderas.
+> Azure-databaser (TFVC) använder en URL som har åtkomst till **dev.Azure.com** i stället för **VisualStudio.com** , som används i tidigare format. Det äldre URL-formatet `https://<accountname>.visualstudio.com/<projectname>/_versionControl` är inaktuellt men stöds fortfarande. Det nya formatet rekommenderas.
 
 ```powershell-interactive
 New-AzAutomationSourceControl -Name SCReposTFVC -RepoUrl https://dev.azure.com/<accountname>/<adoprojectname>/_git/<repositoryname> -SourceType VsoTfvc -AccessToken <secureStringofPAT> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName> -FolderPath "/Runbooks"
@@ -116,13 +116,15 @@ I följande tabell definieras de lägsta PAT-behörigheter som krävs för GitHu
 |`repo:status`     | Status för åtkomst genomförande         |
 |`repo_deployment`      | Åtkomst distributions status         |
 |`public_repo`     | Åtkomst till offentliga databaser         |
+|`repo:invite` | Åtkomst till databas inbjudningar |
+|`security_events` | Läs-och skriv säkerhets händelser |
 |**`admin:repo_hook`**     |         |
 |`write:repo_hook`     | Skriv databas-hookar         |
 |`read:repo_hook`|Läsa databas-hookar|
 
 ##### <a name="minimum-pat-permissions-for-azure-repos"></a>Lägsta PAT-behörigheter för Azure databaser
 
-I följande lista definieras de lägsta PAT-behörigheter som krävs för Azure databaser. Mer information om hur du skapar en PAT i Azure databaser finns i [autentisera åtkomst med personliga](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page)åtkomsttoken.
+I följande lista definieras de lägsta PAT-behörigheter som krävs för Azure databaser. Mer information om hur du skapar en PAT i Azure databaser finns i [autentisera åtkomst med personliga](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate)åtkomsttoken.
 
 | Omfång  |  Åtkomst typ  |
 |---------| ----------|
@@ -137,13 +139,13 @@ I följande lista definieras de lägsta PAT-behörigheter som krävs för Azure 
 
 ## <a name="synchronize-with-source-control"></a>Synkronisera med käll kontroll
 
-Följ dessa steg för att synkronisera med käll kontroll. 
+Följ dessa steg för att synkronisera med käll kontroll.
 
-1. Välj källan från tabellen på käll kontroll sidan. 
+1. Välj källan från tabellen på käll kontroll sidan.
 
-2. Starta synkroniseringsprocessen genom att klicka på **Starta synkronisering** . 
+2. Starta synkroniseringsprocessen genom att klicka på **Starta synkronisering** .
 
-3. Visa status för det aktuella synkroniseringsjobb eller föregående genom att klicka på fliken **synkroniseringsjobb** . 
+3. Visa status för det aktuella synkroniseringsjobb eller föregående genom att klicka på fliken **synkroniseringsjobb** .
 
 4. Välj en mekanism för käll kontroll i list Rute menyn för **käll kontroll** .
 
@@ -189,13 +191,13 @@ Så här kopplar du bort från en lagrings plats för käll kontroll:
 
 1. Kontroll med öppen **källkod** under **konto inställningar** i ditt Automation-konto.
 
-2. Välj den metod för käll kontroll som ska tas bort. 
+2. Välj den metod för käll kontroll som ska tas bort.
 
-3. Klicka på **ta bort**på sidan Översikt över käll kontroll.
+3. Klicka på **ta bort** på sidan Översikt över käll kontroll.
 
 ## <a name="handle-encoding-issues"></a>Hantera kodnings problem
 
-Om flera personer redigerar Runbooks i lagrings platsen för käll kontroll med olika redigerare kan kodnings problem uppstå. Läs mer om den här situationen i [vanliga orsaker till kodnings problem](/powershell/scripting/components/vscode/understanding-file-encoding?view=powershell-7#common-causes-of-encoding-issues).
+Om flera personer redigerar Runbooks i lagrings platsen för käll kontroll med olika redigerare kan kodnings problem uppstå. Läs mer om den här situationen i [vanliga orsaker till kodnings problem](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues).
 
 ## <a name="update-the-pat"></a>Uppdatera PAT
 

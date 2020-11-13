@@ -4,12 +4,12 @@ description: Lär dig hur du ansluter privat till ett Azure Batch-konto med hjä
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.custom: references_regions
-ms.openlocfilehash: f797dbda7888eb8ea9f5c76e3b527fb98d896ee4
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 38d92d787a8d01dd3f87e1cdcacd336982c8c910
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669022"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579563"
 ---
 # <a name="use-private-endpoints-with-azure-batch-accounts"></a>Använd privata slutpunkter med Azure Batch-konton
 
@@ -28,29 +28,34 @@ I den här artikeln beskrivs stegen för att skapa ett privat batch-konto och ko
 
 Använd följande steg för att skapa ett privat batch-konto med hjälp av Azure Portal:
 
-1. Välj **Batch-tjänst** i fönstret **skapa en resurs** och välj sedan **skapa** .
-2. Ange prenumeration, resurs grupp, region och namn på batch-konto på fliken **grundläggande** och välj sedan **Nästa: Avancerat** .
-3. På fliken **Avancerat** ställer du in **offentligt nätverks åtkomst** på **inaktive rad** .
-4. I **Inställningar** väljer du **privata slut punkts anslutningar** och väljer sedan **+ privat slut punkt** .
+1. Välj **Batch-tjänst** i fönstret **skapa en resurs** och välj sedan **skapa**.
+2. Ange prenumeration, resurs grupp, region och namn på batch-konto på fliken **grundläggande** och välj sedan **Nästa: Avancerat**.
+3. På fliken **Avancerat** ställer du in **offentligt nätverks åtkomst** på **inaktive rad**.
+4. I **Inställningar** väljer du **privata slut punkts anslutningar** och väljer sedan **+ privat slut punkt**.
    :::image type="content" source="media/private-connectivity/private-endpoint-connections.png" alt-text="Anslutningar för privata slut punkter":::
-5. I fönstret **grundläggande** anger eller väljer du prenumeration, resurs grupp, resurs namn för privat slut punkt och region information. Välj sedan **Nästa: resurs** .
-6. I fönstret **resurs** anger du **resurs typen** till **Microsoft.BatCH/batchAccounts** . Välj det privata batch-konto som du vill få åtkomst till och välj sedan **Nästa: konfiguration** .
-   :::image type="content" source="media/private-connectivity/create-private-endpoint.png" alt-text="Anslutningar för privata slut punkter":::
+5. I fönstret **grundläggande** anger eller väljer du prenumeration, resurs grupp, resurs namn för privat slut punkt och region information. Välj sedan **Nästa: resurs**.
+6. I fönstret **resurs** anger du **resurs typen** till **Microsoft.BatCH/batchAccounts**. Välj det privata batch-konto som du vill få åtkomst till och välj sedan **Nästa: konfiguration**.
+   :::image type="content" source="media/private-connectivity/create-private-endpoint.png" alt-text="Skapa en privat slut punkt – resurs fönster":::
 7. I rutan **konfiguration** anger eller väljer du den här informationen:
    - **Virtuellt nätverk** : Välj det virtuella nätverket.
    - **Undernät** : Välj ditt undernät.
-   - **Integrera med privat DNS-zon** : Välj **Ja** . För att kunna ansluta privat med din privata slut punkt behöver du en DNS-post. Vi rekommenderar att du integrerar din privata slut punkt med en privat DNS-zon. Du kan också använda dina egna DNS-servrar eller skapa DNS-poster med hjälp av värd filerna på dina virtuella datorer.
+   - **Integrera med privat DNS-zon** : Välj **Ja**. För att kunna ansluta privat med din privata slut punkt behöver du en DNS-post. Vi rekommenderar att du integrerar din privata slut punkt med en privat DNS-zon. Du kan också använda dina egna DNS-servrar eller skapa DNS-poster med hjälp av värd filerna på dina virtuella datorer.
    - **Privat DNS zon** : Välj privatelink. \<region\> . batch.azure.com. Den privata DNS-zonen fastställs automatiskt. Du kan inte ändra den med hjälp av Azure Portal.
 8. Välj **Granska + skapa** och vänta sedan på att Azure ska verifiera konfigurationen.
-9. När du ser ett meddelande som anger att **valideringen har slutförts** klickar du på **Skapa** .
+9. När du ser ett meddelande som anger att **valideringen har slutförts** klickar du på **Skapa**.
 
-När den privata slut punkten har allokerats kan du få åtkomst till batch-kontot från virtuella datorer i samma virtuella nätverk med hjälp av den privata slut punkten. Så här visar du IP-adressen från Azure Portal:
+När den privata slut punkten har allokerats kan du få åtkomst till batch-kontot från virtuella datorer i samma virtuella nätverk med hjälp av den privata slut punkten.
 
-1. Välj **Alla resurser** .
+> [!IMPORTANT]
+> Att utföra åtgärder utanför det virtuella nätverk där den privata slut punkten är etablerad leder till ett "AuthorizationFailure"-meddelande i Azure-portalen.
+
+Så här visar du IP-adressen från Azure Portal:
+
+1. Välj **Alla resurser**.
 2. Sök efter den privata slut punkt som du skapade tidigare.
 3. Välj fliken **Översikt** för att se DNS-inställningar och IP-adresser.
 
-:::image type="content" source="media/private-connectivity/access-private.png" alt-text="Anslutningar för privata slut punkter":::
+:::image type="content" source="media/private-connectivity/access-private.png" alt-text="DNS-inställningar och IP-adresser för privat slut punkt":::
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager-mall
 

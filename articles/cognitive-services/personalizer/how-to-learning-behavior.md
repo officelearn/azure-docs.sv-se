@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 05/01/2020
-ms.openlocfilehash: 10e98cd2f0ad4793aa43f9bb3316c522b44f1d2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57a03b107678f83200b11f408784f6455cbceffd
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91303547"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579299"
 ---
 # <a name="configure-the-personalizer-learning-behavior"></a>Konfigurera inlärnings beteendet för personanpassa
 
@@ -43,7 +43,7 @@ För att kunna lägga till personanpassa till ditt program måste du anropa API:
 
 1. Använd din befintliga affärs logik för att beräkna **belöningen** för den visade åtgärden. Värdet måste ligga i intervallet från 0 till 1. Skicka den här belöningen till Personanpassare med hjälp av [belönings-API: et](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward). Belöning svärdet förväntas inte omedelbart och kan förskjutas över en tids period – beroende på din affärs logik.
 
-1. Om du inte returnerar belöningen inom den konfigurerade svars **tiden för belöningen**kommer standard belöningen att användas i stället.
+1. Om du inte returnerar belöningen inom den konfigurerade svars **tiden för belöningen** kommer standard belöningen att användas i stället.
 
 ## <a name="evaluate-apprentice-mode"></a>Utvärdera lärlings läge
 
@@ -52,14 +52,10 @@ I Azure Portal går du till **utvärderings** sidan för din personanpassa resur
 > [!div class="mx-imgBorder"]
 > ![Skärm bild av granskning av inlärnings beteende i lärlings läge i Azure Portal](media/settings/evaluate-apprentice-mode.png)
 
-Lärlings läget tillhandahåller följande **utvärderings mått**:
-* **Bas linje – genomsnittlig belöning**: Genomsnittligt antal förmåner för programmets standard (bas linje).
-* **Personanpassa – genomsnittlig belöning**: genomsnitt av den totala belönings anpassningen kan ha uppnåtts.
-* **Utmärkelse för utmärkelse över de senaste 1000 händelserna**: förhållandet mellan bas linje och personanpassa belöning – normaliserade över de senaste 1000-händelserna.
-
-## <a name="evaluate-apprentice-mode-features"></a>Utvärdera lärlings läges funktioner
-
-Utvärdera funktionerna med en [offline-utvärdering](how-to-offline-evaluation.md).
+Lärlings läget tillhandahåller följande **utvärderings mått** :
+* **Bas linje – genomsnittlig belöning** : Genomsnittligt antal förmåner för programmets standard (bas linje).
+* **Personanpassa – genomsnittlig belöning** : genomsnitt av den totala belönings anpassningen kan ha uppnåtts.
+* **Utmärkelse för utmärkelse över de senaste 1000 händelserna** : förhållandet mellan bas linje och personanpassa belöning – normaliserade över de senaste 1000-händelserna.
 
 ## <a name="switch-behavior-to-online-mode"></a>Växla beteende till onlineläge
 

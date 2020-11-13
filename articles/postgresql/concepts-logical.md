@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2020
-ms.openlocfilehash: 0e9773e5c08f9d07f76a70bc4f899acf5004d3c2
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: cda305ac705b728e0d2e129d7d42d53ea0251d86
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421817"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591537"
 ---
 # <a name="logical-decoding"></a>Logisk avkodning
  
@@ -37,7 +37,6 @@ Om du vill konfigurera rätt loggnings nivå använder du parametern Azure Repli
 * **Replik** – mer utförligt än **.** Detta är den lägsta loggnings nivå som krävs för att [läsa repliker](concepts-read-replicas.md) ska fungera. Den här inställningen är standard på de flesta servrar.
 * **Logisk** – mer utförlig än **replik**. Detta är den lägsta loggnings nivån för logisk avkodning att arbeta. Läs repliker fungerar också med den här inställningen.
 
-Servern måste startas om efter en ändring av den här parametern. Internt anger den här parametern postgres-parametrarna `wal_level` , `max_replication_slots` och `max_wal_senders` .
 
 ### <a name="using-azure-cli"></a>Använda Azure CLI
 
@@ -86,7 +85,7 @@ I exemplet nedan använder vi SQL-gränssnittet med wal2json-plugin-programmet.
    SELECT * FROM pg_create_logical_replication_slot('test_slot', 'wal2json');
    ```
  
-2. Utfärda SQL-kommandon. Exempel:
+2. Utfärda SQL-kommandon. Till exempel:
    ```SQL
    CREATE TABLE a_table (
       id varchar(40) NOT NULL,

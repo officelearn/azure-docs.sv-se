@@ -1,6 +1,6 @@
 ---
 title: LDAP-synkronisering med Azure Active Directory
-description: Arkitektur vägledning för att uppnå detta mönster för synkronisering
+description: Arkitektur vägledning för att uppnå LDAP-synkronisering med Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a14149551c0fb33906ab7d1a00b387026d827911
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: e617d7ccc14e65c18eb86877b1c7fb1aeef74cd0
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114305"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578900"
 ---
 # <a name="ldap-synchronization-with-azure-active-directory"></a>LDAP-synkronisering med Azure Active Directory
 
@@ -34,21 +34,21 @@ Du måste synkronisera identitets data mellan dina lokala LDAP v3-kataloger och 
 
 ## <a name="components-of-system"></a>System komponenter
 
-* **Användare**: använder ett program som förlitar sig på användningen av en LDAP v3-katalog för att sortera användare och lösen ord.
+* **Användare** : använder ett program som förlitar sig på användningen av en LDAP v3-katalog för att sortera användare och lösen ord.
 
-* **Webbläsare**: komponenten som användaren interagerar med för att få åtkomst till den externa URL: en för programmet
+* **Webbläsare** : komponenten som användaren interagerar med för att få åtkomst till den externa URL: en för programmet
 
-* **Webbapp**: program med beroenden på LDAP v3-kataloger.
+* **Webbapp** : program med beroenden på LDAP v3-kataloger.
 
-* **Azure AD**: Azure AD synkroniserar identitets information (användare, grupper, lösen ord) från organisationens lokala LDAP-kataloger via Azure AD Connect. 
+* **Azure AD** : Azure AD synkroniserar identitets information (användare, grupper, lösen ord) från organisationens lokala LDAP-kataloger via Azure AD Connect. 
 
-* **Azure AD Connect**: är ett verktyg för att ansluta lokala identitets infrastrukturer till Microsoft Azure AD. Guiden och de guidade upplevelserna hjälper till att distribuera och konfigurera krav och komponenter som krävs för anslutningen. 
+* **Azure AD Connect** : är ett verktyg för att ansluta lokala identitets infrastrukturer till Microsoft Azure AD. Guiden och de guidade upplevelserna hjälper till att distribuera och konfigurera krav och komponenter som krävs för anslutningen. 
 
-* **Anpassad anslutning**: en allmän LDAP-anslutning gör att du kan integrera Azure AD Connect synkroniseringstjänst med en LDAP v3-Server. Den finns på Azure AD Connect.
+* **Anpassad anslutning** : en allmän LDAP-anslutning gör att du kan integrera Azure AD Connect synkroniseringstjänst med en LDAP v3-Server. Den finns på Azure AD Connect.
 
-* **Active Directory**: Active Directory är en katalog tjänst som ingår i de flesta Windows Server-operativsystem. Servrar som kör Active Directory Directory-tjänster kallas domänkontrollanter och de autentiserar och auktoriserar alla användare och datorer i en Windows-domän.
+* **Active Directory** : Active Directory är en katalog tjänst som ingår i de flesta Windows Server-operativsystem. Servrar som kör Active Directory Directory-tjänster kallas domänkontrollanter och de autentiserar och auktoriserar alla användare och datorer i en Windows-domän.
 
-* **LDAP v3-Server**: LDAP-protokoll – kompatibel katalog som lagrar företags användare och lösen ord som används för Directory Services-autentisering.
+* **LDAP v3-Server** : LDAP-protokoll – kompatibel katalog som lagrar företags användare och lösen ord som används för Directory Services-autentisering.
 
 ## <a name="implement-ldap-synchronization-with-azure-ad"></a>Implementera LDAP-synkronisering med Azure AD
 

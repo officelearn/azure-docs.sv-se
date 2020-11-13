@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 086f79239fd4f6b01f4b76d1385598bac52bb471
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 9a7c19e30c6c26d7bf7f11d6f03a0acaee160c9a
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358981"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578662"
 ---
 # <a name="tutorial-configure-alertmedia-for-automatic-user-provisioning"></a>Självstudie: Konfigurera AlertMedia för automatisk användar etablering
 
@@ -95,9 +95,9 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
     ![Fliken etablering automatiskt](common/provisioning-automatic.png)
 
 5. Under avsnittet **admin credentials** kan du mata in din AlertMedia- **klient-URL** som en av följande.
-      * (ingen anpassad domän) https://dashboard.alertmedia.com/api/scim/v3
+      * (ingen anpassad domän) `https://dashboard.alertmedia.com/api/scim/v3`
 
-      * (anpassad domän) https://subdomain.alertmedia.com/api/scim/v3
+      * (anpassad domän) `https://subdomain.alertmedia.com/api/scim/v3`
 
       Mata in den **hemliga token** som hämtades tidigare i steg 2. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till AlertMedia. Om anslutningen Miss lyckas kontrollerar du att AlertMedia-kontot har administratörs behörighet och försöker igen.
 

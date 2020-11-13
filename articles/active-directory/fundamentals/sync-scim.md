@@ -1,6 +1,6 @@
 ---
 title: SCIM-synkronisering med Azure Active Directory
-description: Arkitektur vägledning för att uppnå detta mönster för synkronisering
+description: Arkitektur vägledning för att uppnå SCIM-synkronisering med Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1dda465dd675e0f5f519f86289df2621be0b9bb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f957070ec94fc4c61089f31fe91261a2f52c4ee4
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367864"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578866"
 ---
 # <a name="scim-synchronization-with-azure-active-directory"></a>SCIM-synkronisering med Azure Active Directory
 
@@ -35,13 +35,13 @@ Du vill automatiskt etablera användar information från ett HCM-system till Azu
 
 ## <a name="components-of-system"></a>System komponenter 
 
-* **HCM system**: program och tekniker som möjliggör mänsklig kapital hanterings process och praxis som stöder och AUTOMATISERAr HR-processer under hela livs cykeln för anställda. 
+* **HCM system** : program och tekniker som möjliggör mänsklig kapital hanterings process och praxis som stöder och AUTOMATISERAr HR-processer under hela livs cykeln för anställda. 
 
-* **Azure AD Provisioning-tjänsten**: använder scim 2,0-protokollet för automatisk etablering. Tjänsten ansluter till SCIM-slutpunkten för programmet och använder SCIM för användar objekt och REST-API: er för att automatisera etablering och avetablering av användare och grupper.  
+* **Azure AD Provisioning-tjänsten** : använder scim 2,0-protokollet för automatisk etablering. Tjänsten ansluter till SCIM-slutpunkten för programmet och använder SCIM för användar objekt och REST-API: er för att automatisera etablering och avetablering av användare och grupper.  
 
-* **Azure AD**: användar lagring som används för att hantera livs cykeln för identiteter och deras rättigheter. 
+* **Azure AD** : användar lagring som används för att hantera livs cykeln för identiteter och deras rättigheter. 
 
-* **Mål system**: program eller system som har scim-slutpunkt och fungerar med Azure AD-etableringen för att aktivera automatisk etablering av användare och grupper.  
+* **Mål system** : program eller system som har scim-slutpunkt och fungerar med Azure AD-etableringen för att aktivera automatisk etablering av användare och grupper.  
 
 ## <a name="implement-scim-with-azure-ad"></a>Implementera SCIM med Azure AD 
 

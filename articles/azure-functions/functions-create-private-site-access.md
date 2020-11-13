@@ -6,16 +6,16 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: 38bc0ec546526cd0c6631b7cd5b70753c3235d18
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: e367e4f2a704d8c718551fb031164520b3ff5bb3
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94563995"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579138"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Självstudie: upprätta Azure Functions åtkomst till privat webbplats
 
-I den här självstudien får du se hur du aktiverar [åtkomst till privata platser](./functions-networking-options.md#private-site-access) med Azure Functions. Genom att använda privat plats åtkomst kan du kräva att funktions koden bara utlöses från ett speciellt virtuellt nätverk.
+I den här självstudien får du se hur du aktiverar [åtkomst till privata platser](./functions-networking-options.md#private-endpoint-connections) med Azure Functions. Genom att använda privat plats åtkomst kan du kräva att funktions koden bara utlöses från ett speciellt virtuellt nätverk.
 
 Åtkomst till privata webbplatser är användbart i scenarier när åtkomst till Function-appen måste begränsas till ett visst virtuellt nätverk. Till exempel kan Function-appen endast användas för anställda i en viss organisation eller tjänster som finns i det angivna virtuella nätverket (till exempel en annan Azure-funktion, en virtuell Azure-dator eller ett AKS-kluster).
 
@@ -159,7 +159,7 @@ Nästa steg är att skapa en Function-app i Azure med hjälp av [förbruknings p
 
 Nästa steg är att konfigurera [åtkomst begränsningar](../app-service/app-service-ip-restrictions.md) för att säkerställa att endast resurser i det virtuella nätverket kan anropa funktionen.
 
-Åtkomst till [privat webbplats](functions-networking-options.md#private-site-access) är aktiverat genom att skapa en Azure Virtual Network [service-slutpunkt](../virtual-network/virtual-network-service-endpoints-overview.md) mellan Function-appen och det angivna virtuella nätverket. Åtkomst begränsningar implementeras via tjänstens slut punkter. Tjänst slut punkter säkerställer endast trafik från det angivna virtuella nätverket som har åtkomst till den angivna resursen. I det här fallet är den angivna resursen Azure-funktionen.
+Åtkomst till [privat webbplats](functions-networking-options.md#private-endpoint-connections) är aktiverat genom att skapa en Azure Virtual Network [service-slutpunkt](../virtual-network/virtual-network-service-endpoints-overview.md) mellan Function-appen och det angivna virtuella nätverket. Åtkomst begränsningar implementeras via tjänstens slut punkter. Tjänst slut punkter säkerställer endast trafik från det angivna virtuella nätverket som har åtkomst till den angivna resursen. I det här fallet är den angivna resursen Azure-funktionen.
 
 1. I Function-appen väljer du **nätverks** länken under rubriken för avsnittet _Inställningar_ .
 1. Sidan _nätverk_ är start punkten för att konfigurera Azure-frontend, Azure CDN och även åtkomst begränsningar.

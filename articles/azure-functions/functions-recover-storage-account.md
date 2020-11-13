@@ -3,12 +3,12 @@ title: 'Fel söknings fel: Körmiljö för Azure Functions kan inte kontaktas'
 description: Lär dig hur du felsöker ett ogiltigt lagrings konto.
 ms.topic: article
 ms.date: 09/05/2018
-ms.openlocfilehash: 094f4f45be0ae4173af434be178f2eae2b21b6be
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 0b6778a08bf04367f2a0ef10f7cd4fe29a52dd61
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92054737"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579019"
 ---
 # <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>Fel söknings fel: "Körmiljö för Azure Functions kan inte kontaktas"
 
@@ -76,7 +76,7 @@ Funktions körningen kan vara oåtkomlig av någon av följande orsaker:
 
 * Din Function-app finns i ett [internt belastningsutjämnad App Service-miljön](../app-service/environment/create-ilb-ase.md) som har kon figurer ATS för att blockera inkommande Internet trafik.
 
-* Din Function-app har [inkommande IP-begränsningar](functions-networking-options.md#inbound-ip-restrictions) som är konfigurerade för att blockera Internet åtkomst. 
+* Din Function-app har [inkommande IP-begränsningar](functions-networking-options.md#inbound-access-restrictions) som är konfigurerade för att blockera Internet åtkomst. 
 
 Azure Portal gör anrop direkt till appen som körs för att hämta listan över funktioner, och det gör HTTP-anrop till kudu-slutpunkten. Inställningarna på plattforms nivå på fliken **plattforms funktioner** är fortfarande tillgängliga.
 

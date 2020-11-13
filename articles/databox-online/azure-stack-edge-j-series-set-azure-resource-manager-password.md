@@ -1,6 +1,6 @@
 ---
 title: Ange Azure Resource Manager lösen ord på din Azure Stack kant-GPU-enhet
-description: Beskriver hur du ansluter till Azure Resource Manager som körs på din Azure Stack Edge Pro-GPU med Azure PowerShell.
+description: Beskriver hur du anger Azure Resource Manager lösen ordet för din Azure Stack Edge Pro-GPU med Azure PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: df5fea8101834dae089ab97354c438363321a707
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 915146cd17b90272daea4ce57f5243baf1d49cb3
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904492"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578798"
 ---
 # <a name="set-azure-resource-manager-password-on-azure-stack-edge-pro-gpu-device"></a>Ange Azure Resource Manager lösen ord på Azure Stack Edge Pro GPU-enhet
 
@@ -21,14 +21,14 @@ ms.locfileid: "90904492"
 
 I den här artikeln beskrivs hur du ställer in Azure Resource Manager lösen ordet. Du måste ange det här lösen ordet när du ansluter till lokala enhets-API: er via Azure Resource Manager.
 
-Hur du ställer in lösen ordet kan vara olika beroende på om du använder Azure Portal eller PowerShell-cmdletar. Var och en av dessa procedurer beskrivs i följande avsnitt.
+Hur du ställer in lösenordet kan variera beroende på om du använder Azure-portalen eller PowerShell-cmdletar. Var och en av dessa procedurer beskrivs i följande avsnitt.
 
 
 ## <a name="reset-password-via-the-azure-portal"></a>Återställ lösen ord via Azure Portal
 
 1. Gå till den Azure Stack Edge-resurs som du skapade för att hantera enheten i Azure Portal. Gå till **Edge compute > kom igång**.
 
-2. I den högra rutan går du till kommando fältet och väljer **Återställ Edge arm-lösenord**. 
+2. Välj **Återställ Edge ARM-lösenord** från kommandoraden i den högra rutan. 
 
     ![Återställ EdgeARM User Password 1](media/azure-stack-edge-j-series-set-azure-resource-manager-password/set-edgearm-password-1.png)
 

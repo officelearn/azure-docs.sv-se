@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 7f9a72084cc9dd138eed58e395e009e1161c9382
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9bff35a88539241f909597df00661d7076b5bbd4
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099903"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591962"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>Snabb start: söka efter bilder med hjälp av Bildsökning i Bing REST API och PHP
 
@@ -44,7 +44,7 @@ Mer information finns i [Cognitive Services priser – Bing-sökning API](https:
 
 Följ dessa steg om du vill köra programmet:
 
-1. Kontrollera att säkert HTTP-stöd är aktiverat i din `php.ini`-fil. För Windows finns den här filen i *C:\Windows* .
+1. Kontrollera att säkert HTTP-stöd är aktiverat i din `php.ini`-fil. För Windows finns den här filen i *C:\Windows*.
 2. Skapa ett nytt PHP-projekt i valfri IDE eller redigeringsprogram.
 3. Definiera API-slutpunkten, prenumerations nyckeln och Sök termen. Slut punkten kan vara den globala slut punkten i följande kod eller den [anpassade under domän](../../../cognitive-services/cognitive-services-custom-subdomains.md) slut punkten som visas i Azure Portal för din resurs.
 
@@ -143,8 +143,8 @@ Svar från API för bildsökning i Bing returneras som JSON. Det här exempelsva
 
 ## <a name="see-also"></a>Se även
 
-* [Vad är API:et för bildsökning i Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Vad är API:et för bildsökning i Bing?](../overview.md)  
 * [Prova en interaktiv demo online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
 * [Pris information för API:er för Bing-sökresultat](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) 
-* [Dokumentation om Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [API-referens för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Dokumentation om Azure Cognitive Services](../../index.yml)
+* [API-referens för bildsökning i Bing](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

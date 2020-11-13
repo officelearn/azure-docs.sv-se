@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 11/12/2020
 ms.author: b-juche
-ms.openlocfilehash: 4c578f99e22e35871f0c52440c3b73a636ef958b
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: d4e66511ce3017749076615f081a8fb56d8b8452
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089323"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591554"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Vanliga frågor och svar om Azure NetApp Files
 
@@ -150,7 +150,7 @@ Ja, du måste skapa en Active Directory anslutning innan du distribuerar en SMB-
 
 ### <a name="how-many-active-directory-connections-are-supported"></a>Hur många Active Directory-anslutningar stöds?
 
-Azure NetApp Files har inte stöd för flera Active Directory (AD)-anslutningar i en *region*, även om AD-anslutningarna finns i olika NetApp-konton. Du kan dock ha flera AD-anslutningar i en enda *prenumeration*, förutsatt att AD-anslutningarna finns i olika regioner. Om du behöver flera AD-anslutningar i en enda region kan du använda separata prenumerationer för att göra det. 
+Azure NetApp Files har inte stöd för flera Active Directory (AD)-anslutningar i en *region* , även om AD-anslutningarna finns i olika NetApp-konton. Du kan dock ha flera AD-anslutningar i en enda *prenumeration* , förutsatt att AD-anslutningarna finns i olika regioner. Om du behöver flera AD-anslutningar i en enda region kan du använda separata prenumerationer för att göra det. 
 
 En AD-anslutning har kon figurer ATS per NetApp-konto. AD-anslutningen visas bara via det NetApp-konto som den skapas i.
 
@@ -173,16 +173,6 @@ Den volym storlek som rapporteras av SMB-klienten är den maximala storlek som A
 
 Yes, Azure NetApp Files supports LDAP signing by default. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).
 --> 
-
-## <a name="dual-protocol-faqs"></a>Vanliga frågor och svar om dubbla protokoll
-
-### <a name="i-tried-to-use-the-root-and-local-users-to-access-a-dual-protocol-volume-with-the-ntfs-security-style-on-a-unix-system-why-did-i-encounter-a-permission-denied-error"></a>Jag försökte använda "rot" och lokala användare för att få åtkomst till en dubbel protokoll volym med säkerhets formatet NTFS på ett UNIX-system. Varför påträffades felet "behörighet nekad"?   
-
-Se [Felsöka Dual-Protocol-volymer](troubleshoot-dual-protocol-volumes.md) för lösningar.
-
-### <a name="when-i-try-to-create-a-dual-protocol-volume-why-does-the-creation-process-fail-with-the-error-failed-to-validate-ldap-configuration-try-again-after-correcting-ldap-configuration"></a>När jag försöker skapa en volym med dubbla protokoll, varför processen att skapa Miss lyckas med felet "Det gick inte att verifiera LDAP-konfigurationen, försök igen efter att LDAP-konfigurationen har korrigerats"?  
-
-Se [Felsöka Dual-Protocol-volymer](troubleshoot-dual-protocol-volumes.md) för lösningar.
 
 ## <a name="capacity-management-faqs"></a>Vanliga frågor och svar om kapacitets hantering
 

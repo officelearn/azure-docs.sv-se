@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3559b3724d14be6aade07c4884190afce30c0715
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: cc2c40dd0b61f917da86d67188f4b503ca9b9298
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93306853"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579359"
 ---
 # <a name="query-parquet-files-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Fråga Parquet-filer med Server lös SQL-pool (för hands version) i Azure Synapse Analytics
 
@@ -36,6 +36,11 @@ from openrowset(
 ```
 
 Se till att du har åtkomst till den här filen. Om filen skyddas med SAS-nyckel eller anpassad Azure-identitet måste du konfigurera [autentiseringsuppgifter på server nivå för SQL-inloggning](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
+
+> [!IMPORTANT]
+> Kontrol lera att du använder en viss UTF-8-databas sortering (till exempel `Latin1_General_100_CI_AS_SC_UTF8` ) eftersom sträng värden i PARQUET-filer är kodade med UTF-8-kodning.
+> Matchnings fel mellan text kodning i PARQUET-filen och sorteringen kan orsaka oväntade konverterings fel.
+> Du kan enkelt ändra standard sorteringen för den aktuella databasen med hjälp av följande T-SQL-uttryck: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 ### <a name="data-source-usage"></a>Data källans användning
 
@@ -67,6 +72,12 @@ from openrowset(
         format = 'parquet'
     ) with ( date_rep date, cases int, geo_id varchar(6) ) as rows
 ```
+
+> [!IMPORTANT]
+> Se till att du explicilty anger vissa UTF-8-sortering (till exempel `Latin1_General_100_CI_AS_SC_UTF8` ) för alla String-kolumner i- `WITH` satsen eller ange vissa UTF-8-sortering på databas nivå.
+> Matchnings fel mellan text kodning i kolumn sortering av fil och sträng kan orsaka oväntade konverterings fel.
+> Du kan enkelt ändra standard sorteringen för den aktuella databasen med hjälp av följande T-SQL-uttryck: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
+> Du kan enkelt ställa in sorteringen på pris-typerna med följande definition: `geo_id varchar(6) collate Latin1_General_100_CI_AI_SC_UTF8`
 
 I följande avsnitt kan du se hur du frågar olika typer av PARQUET-filer.
 

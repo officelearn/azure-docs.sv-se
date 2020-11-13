@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4651d15fb765182c788733c0542480805387871
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f1730507c022d57495efa56c98215ff72d07e180
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376746"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578186"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Konfigurera hantering av självbetjänings grupper i Azure Active Directory 
 
@@ -44,15 +44,15 @@ Grupper som skapats i | Standard beteende för säkerhets grupp | Standard betee
 ## <a name="make-a-group-available-for-user-self-service"></a>Göra en grupp tillgänglig för självbetjäning av användare
 
 1. Logga in på [Azure AD administratörscenter](https://aad.portal.azure.com) med ett konto som är en global administratör för katalogen.
-1. Välj **grupper**och välj sedan **allmänna** inställningar.
+1. Välj **grupper** och välj sedan **allmänna** inställningar.
 1. Ange **ägare kan hantera begär Anden om grupp medlemskap i åtkomst panelen** till **Ja**.
 1. Ange **begränsa åtkomsten till grupper i åtkomst panelen** till **Nej**.
 1. Om du ställer in **användare kan skapa säkerhets grupper i Azure portaler** eller **användare kan skapa Microsoft 365 grupper i Azure portaler** för att
 
-    - **Ja**: alla användare i din Azure AD-organisation får skapa nya säkerhets grupper och lägga till medlemmar i dessa grupper. Dessa nya grupper visas även på åtkomstpanelen för alla andra användare. Om princip inställningen i gruppen tillåter det kan andra användare skapa förfrågningar för att ansluta till dessa grupper
-    - **Nej**: användarna kan inte skapa grupper och kan inte ändra befintliga grupper som de är ägare till. De kan dock fortfarande hantera medlemskap i dessa grupper och godkänna förfrågningar från andra användare om att ansluta till grupperna.
+    - **Ja** : alla användare i din Azure AD-organisation får skapa nya säkerhets grupper och lägga till medlemmar i dessa grupper. Dessa nya grupper visas även på åtkomstpanelen för alla andra användare. Om princip inställningen i gruppen tillåter det kan andra användare skapa förfrågningar för att ansluta till dessa grupper
+    - **Nej** : användarna kan inte skapa grupper och kan inte ändra befintliga grupper som de är ägare till. De kan dock fortfarande hantera medlemskap i dessa grupper och godkänna förfrågningar från andra användare om att ansluta till grupperna.
 
-Du kan också använda **ägare som kan tilldela medlemmar som grupp ägare i Azure portaler** och **ägare som kan tilldela medlemmar som grupp ägare i Azure portaler** för att få mer detaljerad åtkomst kontroll över självbetjänings grupp hantering för dina användare.
+Du kan också använda **ägare som kan tilldela medlemmar som grupp ägare i Azure Portal** för att få mer detaljerad åtkomst kontroll över grupp hanteringen via självbetjäning för dina användare.
 
 När användare kan skapa grupper tillåts alla användare i din organisation att skapa nya grupper och kan sedan, som standard ägare, lägga till medlemmar i dessa grupper. Du kan inte ange personer som kan skapa sina egna grupper. Du kan bara ange individer för att göra en annan grupp medlem till en grupp ägare.
 

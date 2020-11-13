@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 80b0c357bbad79a31d8b7153248b73c1231629c8
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 98d2b4ed4b0d3cef2cde156dc05ebb314edff365
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145037"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592268"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Snabb start: lägga till inloggning med Microsoft i ett ASP.NET Core-webbprogram
 
-I den här snabb starten använder du ett kod exempel för att lära dig hur en ASP.NET Core webbapp kan logga in personliga konton (hotmail.com, outlook.com, andra) och arbets-och skol konton från valfri Azure Active Directory (Azure AD)-instans. (Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.)
+I den här snabb starten laddar du ned och kör ett kod exempel som visar hur en ASP.NET Core webbapp kan logga in användare från valfri Azure Active Directory (Azure AD)-organisation.  
+
+Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.
 
 > [!div renderon="docs"]
 > ## <a name="prerequisites"></a>Förutsättningar
@@ -48,12 +50,12 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur en 
 > 1. Logga in på [Azure-portalen](https://portal.azure.com).
 > 1. Om du har åtkomst till flera klienter använder du filtret för **katalog + prenumeration** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: i den översta menyn för att välja den klient som du vill registrera ett program i.
 > 1. Sök efter och välj **Azure Active Directory**.
-> 1. Under **Hantera**väljer du **Appregistreringar**och sedan **ny registrering**.
+> 1. Under **Hantera** väljer du **Appregistreringar** och sedan **ny registrering**.
 > 1. Ange ett **namn** för programmet, till exempel `AspNetCore-Quickstart` . Användare av appen kan se det här namnet och du kan ändra det senare.
 > 1. Ange en **omdirigerings-URI** för `https://localhost:44321/`
 > 1. Välj **Register** (Registrera).
-> 1. Under **Hantera**väljer du **autentisering**.
-> 1. Under **omdirigerings-URI: er**väljer du **Lägg till URI**och anger sedan `https://localhost:44321/signin-oidc`
+> 1. Under **Hantera** väljer du **autentisering**.
+> 1. Under **omdirigerings-URI: er** väljer du **Lägg till URI** och anger sedan `https://localhost:44321/signin-oidc`
 > 1. Ange en **utloggnings-URL** för `https://localhost:44321/signout-oidc`
 > 1. Under **Implicit beviljande** väljer du **ID-token**.
 > 1. Välj **Spara**.
@@ -97,15 +99,15 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur en 
 >
 >    - Ersätt `Enter_the_Application_Id_here` med **program-ID: t (klient)** för det program som du registrerade i Azure Portal. Du kan hitta **Program-ID (klient)** på appens **översiktssida**.
 >    - Ersätt `common` med något av följande:
->       - Om ditt program bara har stöd **för konton i den här organisations katalogen**ersätter du det här värdet med **katalogen (klient) ID** (ett GUID) eller **klient namn** (till exempel `contoso.onmicrosoft.com` ). Du hittar **klient-ID: t för katalogen (klient)** på appens **översikts** sida.
+>       - Om ditt program bara har stöd **för konton i den här organisations katalogen** ersätter du det här värdet med **katalogen (klient) ID** (ett GUID) eller **klient namn** (till exempel `contoso.onmicrosoft.com` ). Du hittar **klient-ID: t för katalogen (klient)** på appens **översikts** sida.
 >       - Om ditt program stöder **Konton i valfri organisationskatalog** ersätter du värdet med `organizations`
->       - Om programmet har stöd för **alla Microsoft-konto användare**, lämna det här värdet som `common`
+>       - Om programmet har stöd för **alla Microsoft-konto användare** , lämna det här värdet som `common`
 >
 > I den här snabb starten ska du inte ändra andra värden i *appsettings.js* i filen.
 >
 > #### <a name="step-4-build-and-run-the-application"></a>Steg 4: Skapa och kör programmet
 >
-> Skapa och kör appen i Visual Studio genom att välja menyn **felsök** > **Starta fel sökning**eller genom att trycka på `F5` nyckeln.
+> Skapa och kör appen i Visual Studio genom att välja menyn **felsök** > **Starta fel sökning** eller genom att trycka på `F5` nyckeln.
 >
 > Du uppmanas att ange dina autentiseringsuppgifter och sedan uppmanas att godkänna de behörigheter som krävs för din app. Välj **Godkänn** i medgivande frågan.
 >
@@ -113,7 +115,7 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur en 
 >
 > När du har samtyckt till de begärda behörigheterna visar appen att du har loggat in med dina Azure Active Directory autentiseringsuppgifter.
 >
-> :::image type="content" source="media/quickstart-v2-aspnet-core-webapp/webapp-02-signed-in.png" alt-text="Dialog rutan medgivande som visar de behörigheter som appen begär från > användare":::
+> :::image type="content" source="media/quickstart-v2-aspnet-core-webapp/webapp-02-signed-in.png" alt-text="Webbläsaren som visar den webbapp som körs och användaren är inloggad":::
 
 ## <a name="more-information"></a>Mer information
 

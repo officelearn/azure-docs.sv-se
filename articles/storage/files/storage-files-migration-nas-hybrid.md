@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: fd8e845734169bcd73fa0e087c30c0f2fd6ef4f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d8d19256dfca21cc805c2689557099a6785f76b
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85510313"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629214"
 ---
 # <a name="migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migrera från nätverksansluten lagring (NAS) till en hybrid moln distribution med Azure File Sync
 
@@ -151,7 +151,7 @@ Lägg
       /MIR
    :::column-end:::
    :::column span="1":::
-      Tillåter att det här RoboCopy-kommandot körs flera gånger, i turordning på samma mål/mål. Den identifierar vad som har kopierats innan och utelämnar det. Endast ändringar, tillägg och*borttagningar*kommer att bearbetas, som har inträffat sedan den senaste körningen. Om kommandot inte kördes förut utelämnas inget. */Mir* -flaggan är ett utmärkt alternativ för käll platser som fortfarande används aktivt och ändras.
+      Tillåter att det här RoboCopy-kommandot körs flera gånger, i turordning på samma mål/mål. Den identifierar vad som har kopierats innan och utelämnar det. Endast ändringar, tillägg och *borttagningar* kommer att bearbetas, som har inträffat sedan den senaste körningen. Om kommandot inte kördes förut utelämnas inget. */Mir* -flaggan är ett utmärkt alternativ för käll platser som fortfarande används aktivt och ändras.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -208,13 +208,13 @@ Du har avslutat migreringen av en resurs/grupp av resurser till en gemensam rot 
 Du kan försöka att köra några av dessa kopior parallellt. Vi rekommenderar att du bearbetar omfånget för en Azure-filresurs i taget.
 
 > [!WARNING]
-> När du har flyttat alla data från NAS till Windows Server, och migreringen är slutförd: gå tillbaka till ***alla***  Sync-grupper i Azure Portal och justera moln skiktet volym ledigt utrymme i procent till något som passar bättre för användningen av cacheminnet, t. ex. 20%. 
+> När du har flyttat alla data från NAS till Windows Server, och migreringen är slutförd: återgå till * **alla** _ synkronisera grupper i Azure Portal och justera moln skiktet volym utrymme för ledigt utrymme i procent till något som passar bättre för användningen av cacheminnet, t. ex. 20%. 
 
 Lagrings principen för ledigt utrymme i molnet fungerar på en volym nivå med eventuellt flera Server slut punkter som synkroniseras från den. Om du glömmer att justera det lediga utrymmet på en server slut punkt fortsätter synkroniseringen att tillämpa den mest restriktiva regeln och försöker behålla 99% ledigt disk utrymme, vilket gör att den lokala cachen inte fungerar som förväntat. Om det inte är målet att bara ha namn området för en volym som bara innehåller data som används sällan, och du reserverar resten av lagrings utrymmet för ett annat scenario.
 
 ## <a name="troubleshoot"></a>Felsöka
 
-Det mest sannolika problemet som du kan köra i är att kommandot RoboCopy Miss lyckas med *"Volume full"* på Windows Server-sidan. Moln nivåer fungerar en gång per timme för att evakuera innehåll från den lokala Windows Server-disken som har synkroniserats. Målet är att uppnå det lediga utrymmet på 99% på volymen.
+Det mest sannolika problemet som du kan köra i är att RoboCopy-kommandot Miss lyckas med _ "Volume full" * på Windows Server-sidan. Moln nivåer fungerar en gång per timme för att evakuera innehåll från den lokala Windows Server-disken som har synkroniserats. Målet är att uppnå det lediga utrymmet på 99% på volymen.
 
 Låt synkroniseringen fortskrida och moln nivån frigör disk utrymme. Du kan titta på det i Utforskaren på Windows-servern.
 
@@ -226,6 +226,6 @@ Kontrol lera länken i följande avsnitt för att felsöka Azure File Sync probl
 
 Det finns mer att identifiera om Azure-filresurser och Azure File Sync. Följande artiklar hjälper till att förstå avancerade alternativ, bästa praxis och att även innehålla fel söknings hjälp. De här artiklarna länkar till [dokumentationen för Azure-filresursen](storage-files-introduction.md) efter behov.
 
-* [AFS-översikt](https://aka.ms/AFS)
+* [AFS-översikt](./storage-sync-files-planning.md)
 * [Distributions guide för AFS](storage-files-deployment-guide.md)
 * [AFS-felsökning](storage-sync-files-troubleshoot.md)

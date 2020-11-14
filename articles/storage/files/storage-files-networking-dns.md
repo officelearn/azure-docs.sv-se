@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 3/19/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4b5ce48cf15c890fbdb3dfd90d9d0ab922a2f4b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9abe306668a4b20e42e45c498bf85b540dfaaee5
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320276"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630200"
 ---
 # <a name="configuring-dns-forwarding-for-azure-files"></a>Konfigurera DNS-vidarebefordring för Azure Files
 Med Azure Files kan du skapa privata slut punkter för lagrings kontona som innehåller dina fil resurser. Även om det är användbart för många olika program är privata slut punkter särskilt användbara för att ansluta till dina Azure-filresurser från ditt lokala nätverk med hjälp av en VPN-eller ExpressRoute-anslutning med privat peering. 
@@ -43,7 +43,7 @@ Innan du kan konfigurera DNS-vidarebefordran till Azure Files måste du utföra 
 
 - Ett lagrings konto som innehåller en Azure-filresurs som du vill montera. Information om hur du skapar ett lagrings konto och en Azure-filresurs finns i [skapa en Azure-filresurs](storage-how-to-create-file-share.md).
 - En privat slut punkt för lagrings kontot. Information om hur du skapar en privat slut punkt för Azure Files finns i [skapa en privat slut punkt](storage-files-networking-endpoints.md#create-a-private-endpoint).
-- Den [senaste versionen](https://docs.microsoft.com/powershell/azure/install-az-ps) av Azure PowerShell-modulen.
+- Den [senaste versionen](/powershell/azure/install-az-ps) av Azure PowerShell-modulen.
 
 > [!Important]  
 > Den här guiden förutsätter att du använder DNS-servern i Windows Server i din lokala miljö. Alla steg som beskrivs i den här guiden är möjliga med alla DNS-servrar, inte bara Windows DNS-servern.

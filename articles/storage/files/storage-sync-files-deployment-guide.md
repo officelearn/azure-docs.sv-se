@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 11/05/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 128a974c41b1c09196ecab2070136d9568b08f5d
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: d39f26d86792214c1ef0300bc39404bf6581826f
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331795"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629486"
 ---
 # <a name="deploy-azure-file-sync"></a>Distribuera Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -48,7 +48,7 @@ Vi rekommenderar starkt att du läser [planering för en Azure Files distributio
     > [!Important]  
     > Om du planerar att använda användar gränssnittet för Server registrering i stället för att registrera direkt från PowerShell måste du använda PowerShell 5,1.
 
-1. Om du har valt att använda PowerShell 5,1 kontrollerar du att minst .NET 4.7.2 är installerat. Läs mer om [.NET Framework versioner och beroenden](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) i systemet.
+1. Om du har valt att använda PowerShell 5,1 kontrollerar du att minst .NET 4.7.2 är installerat. Läs mer om [.NET Framework versioner och beroenden](/dotnet/framework/migration-guide/versions-and-dependencies) i systemet.
 
     > [!Important]  
     > Om du installerar .NET 4.7.2 + på Windows Server Core måste du installera med-och- `quiet` `norestart` flaggorna eller så Miss söker installationen. Om du till exempel installerar .NET 4,8 ser kommandot ut så här:
@@ -56,7 +56,7 @@ Vi rekommenderar starkt att du läser [planering för en Azure Files distributio
     > Start-Process -FilePath "ndp48-x86-x64-allos-enu.exe" -ArgumentList "/q /norestart" -Wait
     > ```
 
-1. AZ PowerShell-modulen som kan installeras genom att följa anvisningarna här: [Installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+1. AZ PowerShell-modulen som kan installeras genom att följa anvisningarna här: [Installera och konfigurera Azure PowerShell](/powershell/azure/install-Az-ps).
      
     > [!Note]  
     > Modulen AZ. StorageSync installeras nu automatiskt när du installerar AZ PowerShell-modulen.
@@ -573,7 +573,7 @@ Om du däremot ändrar schemat på ett sätt som resulterar i en tillgänglig ö
 
 Standardvärdet för maximalt antal VSS-ögonblicksbilder per volym (64) och standardschemat som ska vidtas, resulterar i högst 45 dagar i tidigare versioner som en informations anställd kan återställa från, beroende på hur många VSS-ögonblicksbilder du kan lagra på din volym.
 
-Om max. 64 VSS-ögonblicksbilder per volym inte är rätt inställning kan du [ändra värdet via en register nyckel](https://docs.microsoft.com/windows/win32/backup/registry-keys-for-backup-and-restore#maxshadowcopies).
+Om max. 64 VSS-ögonblicksbilder per volym inte är rätt inställning kan du [ändra värdet via en register nyckel](/windows/win32/backup/registry-keys-for-backup-and-restore#maxshadowcopies).
 För att den nya gränsen ska träda i kraft måste du köra cmdleten igen för att aktivera kompatibilitet med tidigare versioner på varje volym som den tidigare var aktive rad, med flaggan-Force att ta det nya maximala antalet VSS-ögonblicksbilder per volym i kontot. Detta leder till ett nyligen beräknat antal kompatibla dagar. Observera att den här ändringen bara träder i kraft på nyligen nivåbaserade filer och skriver över eventuella anpassningar av VSS-schemat som du kan ha gjort.
 
 <a id="proactive-recall"></a>
@@ -599,7 +599,7 @@ Ett globalt distribuerat företag har avdelnings kontor i USA och i Indien. I mo
 
 # <a name="powershell"></a>[PowerShell](#tab/proactive-powershell)
 
-Du kan ändra egenskaperna för Server slut punkten i PowerShell genom cmdleten [set-AzStorageSyncServerEndpoint](https://docs.microsoft.com/powershell/module/az.storagesync/set-azstoragesyncserverendpoint) .
+Du kan ändra egenskaperna för Server slut punkten i PowerShell genom cmdleten [set-AzStorageSyncServerEndpoint](/powershell/module/az.storagesync/set-azstoragesyncserverendpoint) .
 
 ```powershell
 # Optional parameter. Default: "UpdateLocallyCachedFiles", alternative behavior: "DownloadNewAndModifiedFiles"

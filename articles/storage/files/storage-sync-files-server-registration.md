@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c457dacd947c7af8a6be94205ed135ce04a49a06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 194b0f2ff94197fe11c189e97dbc65c9d0367932
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85509514"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630591"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Hantera registrerade servrar med Azure File Sync
 Med Azure File Sync kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Det gör du genom att omvandla dina Windows-servrar till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS) och du kan ha så många cacheminnen som du behöver över hela världen.
@@ -20,9 +20,9 @@ Med Azure File Sync kan du centralisera din organisations filresurser i Azure Fi
 Följande artikel visar hur du registrerar och hanterar en server med en tjänst för synkronisering av lagring. Information om hur du distribuerar Azure File Sync slut punkt till slut punkt finns i [distribuera Azure File Sync](storage-sync-files-deployment-guide.md) .
 
 ## <a name="registerunregister-a-server-with-storage-sync-service"></a>Registrera/avregistrera en server med tjänsten Storage Sync
-När du registrerar en server med Azure File Sync upprättas en förtroende relation mellan Windows Server och Azure. Den här relationen kan sedan användas för att skapa *Server slut punkter* på servern som representerar vissa mappar som ska synkroniseras med en Azure-filresurs (kallas även för en *moln slut punkt*). 
+När du registrerar en server med Azure File Sync upprättas en förtroende relation mellan Windows Server och Azure. Den här relationen kan sedan användas för att skapa *Server slut punkter* på servern som representerar vissa mappar som ska synkroniseras med en Azure-filresurs (kallas även för en *moln slut punkt* ). 
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Om du vill registrera en server med en lagrings tjänst för synkronisering måste du först förbereda servern med nödvändiga komponenter:
 
 * Servern måste köra en version av Windows Server som stöds. Mer information finns i [Azure File Sync system krav och interoperabilitet](storage-sync-files-planning.md#windows-file-server-considerations).
@@ -32,7 +32,7 @@ Om du vill registrera en server med en lagrings tjänst för synkronisering mås
     
     ![Serverhanteraren användar gränssnitt med förbättrad säkerhets konfiguration i IE markerat](media/storage-sync-files-server-registration/server-manager-ie-config.png)
 
-* Se till att Azure PowerShell-modulen är installerad på servern. Om din server är medlem i ett redundanskluster kräver varje nod i klustret AZ-modulen. Mer information om hur du installerar AZ-modulen finns på sidan [Installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+* Se till att Azure PowerShell-modulen är installerad på servern. Om din server är medlem i ett redundanskluster kräver varje nod i klustret AZ-modulen. Mer information om hur du installerar AZ-modulen finns på sidan [Installera och konfigurera Azure PowerShell](/powershell/azure/install-Az-ps).
 
     > [!Note]  
     > Vi rekommenderar att du använder den senaste versionen av AZ PowerShell-modulen för att registrera/avregistrera en server. Om AZ-paketet redan har installerats på den här servern (och PowerShell-versionen på den här servern är 5. * eller högre) kan du använda `Update-Module` cmdleten för att uppdatera det här paketet. 
@@ -58,7 +58,7 @@ Om du vill registrera en server med en lagrings tjänst för synkronisering mås
 ```    
 
 ### <a name="register-a-server-with-storage-sync-service"></a>Registrera en server med tjänsten Storage Sync
-Innan en server kan användas som en *Server slut punkt* i en Azure File Sync *Sync-grupp*måste den registreras med en *tjänst för synkronisering av lagring*. En server kan bara registreras med en lagrings tjänst för synkronisering i taget.
+Innan en server kan användas som en *Server slut punkt* i en Azure File Sync *Sync-grupp* måste den registreras med en *tjänst för synkronisering av lagring*. En server kan bara registreras med en lagrings tjänst för synkronisering i taget.
 
 #### <a name="install-the-azure-file-sync-agent"></a>Installera Azure File Sync-agenten
 1. [Ladda ned Azure File Sync agenten](https://go.microsoft.com/fwlink/?linkid=858257).
@@ -180,7 +180,7 @@ Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -I
 ```
 
 ### <a name="use-windows-server-storage-qos"></a>Använd Windows Server Storage QoS 
-När Azure File Sync finns på en virtuell dator som körs på en Windows Server-Virtualiseringsvärd, kan du använda QoS för lagring (tjänst kvalitet för lagring) för att reglera lagring i/o-förbrukning. QoS-principen för lagring kan anges antingen som en högsta (eller begränsas, t. ex. hur StorageSyncNetwork-gränsen tillämpas ovan) eller som ett minimum (eller reservation). Om du ställer in ett minimum i stället för maximalt kan Azure File Sync till burst använda tillgänglig lagrings bandbredd om andra arbets belastningar inte använder den. Mer information finns i [tjänst kvalitet för lagring](https://docs.microsoft.com/windows-server/storage/storage-qos/storage-qos-overview).
+När Azure File Sync finns på en virtuell dator som körs på en Windows Server-Virtualiseringsvärd, kan du använda QoS för lagring (tjänst kvalitet för lagring) för att reglera lagring i/o-förbrukning. QoS-principen för lagring kan anges antingen som en högsta (eller begränsas, t. ex. hur StorageSyncNetwork-gränsen tillämpas ovan) eller som ett minimum (eller reservation). Om du ställer in ett minimum i stället för maximalt kan Azure File Sync till burst använda tillgänglig lagrings bandbredd om andra arbets belastningar inte använder den. Mer information finns i [tjänst kvalitet för lagring](/windows-server/storage/storage-qos/storage-qos-overview).
 
 ## <a name="see-also"></a>Se även
 - [Planera för distribution av Azure File Sync](storage-sync-files-planning.md)

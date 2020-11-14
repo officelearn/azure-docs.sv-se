@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: e3ecf29be94074f51ead3173f997154df6dfa88f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 995ae176a8eec58f8dc9522e6fac6fd78170014d
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785620"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628925"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migrera till Azure-filresurser
 
@@ -134,7 +134,7 @@ I det här avsnittet beskrivs verktyg som hjälper dig att planera och köra mig
 
 #### <a name="robocopy-from-microsoft-corporation"></a>RoboCopy från Microsoft Corporation
 
-RoboCopy är ett av de verktyg som är mest tillämpliga för filmigrering. Den ingår i Windows. Den huvudsakliga [Robocopy-dokumentationen](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) är en användbar resurs för det här verktygets många alternativ.
+RoboCopy är ett av de verktyg som är mest tillämpliga för filmigrering. Den ingår i Windows. Den huvudsakliga [Robocopy-dokumentationen](/windows-server/administration/windows-commands/robocopy) är en användbar resurs för det här verktygets många alternativ.
 
 #### <a name="treesize-from-jam-software-gmbh"></a>TreeSize från sylt Software GmbH
 

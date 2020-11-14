@@ -8,16 +8,16 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 5149024f8621754451520e0ae249ed61f0b07f99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 961ba457136d20fbb63ae3315fe8143cffb56be2
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568479"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629316"
 ---
 # <a name="azure-file-share-protocols"></a>Azure File Share-protokoll
 
-Azure Files erbjuder två protokoll för att ansluta och montera dina Azure-filresurser. [SMB-protokoll (Server Message Block](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) ) och [NFS-protokoll (Network File System](https://en.wikipedia.org/wiki/Network_File_System) ) (för hands version). Azure Files stöder för närvarande inte åtkomst till flera protokoll, så en resurs kan bara vara en NFS-resurs eller en SMB-resurs. På grund av detta rekommenderar vi att du bestämmer vilket protokoll som passar bäst för dina behov innan du skapar Azure-filresurser.
+Azure Files erbjuder två protokoll för att ansluta och montera dina Azure-filresurser. [SMB-protokoll (Server Message Block](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) ) och [NFS-protokoll (Network File System](https://en.wikipedia.org/wiki/Network_File_System) ) (för hands version). Azure Files stöder för närvarande inte åtkomst till flera protokoll, så en resurs kan bara vara en NFS-resurs eller en SMB-resurs. På grund av detta rekommenderar vi att du bestämmer vilket protokoll som passar bäst för dina behov innan du skapar Azure-filresurser.
 
 ## <a name="differences-at-a-glance"></a>Skillnader i en överskådlighet
 
@@ -64,7 +64,7 @@ Alla Azure Files data är krypterade i vila. För kryptering under överföring 
 - [En privat slut punkt](storage-files-networking-overview.md#private-endpoints)
 - [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
     - [VPN för punkt-till-plats (P2S)](../../vpn-gateway/point-to-site-about.md)
-    - [Plats-till-plats](https://docs.microsoft.com/azure/vpn-gateway/design#s2smulti)
+    - [Plats-till-plats](../../vpn-gateway/design.md#s2smulti)
 - [ExpressRoute](../../expressroute/expressroute-introduction.md)
 - [En begränsad offentlig slut punkt](storage-files-networking-overview.md#storage-account-firewall-settings)
 

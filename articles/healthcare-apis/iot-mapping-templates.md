@@ -8,15 +8,15 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: punagpal
-ms.openlocfilehash: 1702c17555d1d3c39a83fa16ca790d6f8f2b3344
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 63484361a6d5a331fd9dc646c53627918ce8b246
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394245"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630557"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Azure IoT-anslutningsprogram för FHIR (förhandsversion) – mappningsmall
-Den här artikeln beskriver hur du konfigurerar Azure IoT Connector för FHIR * med hjälp av mappning av mallar.
+Den här artikeln beskriver hur du konfigurerar Azure IoT Connector för resurser för snabb hälso samverkan (FHIR&#174;) * med hjälp av mappnings-mallar.
 
 Azure IoT-anslutningen för FHIR kräver två typer av JSON-baserade mappnings-mallar. Den första typen, **enhets mappningen** är ansvarig för att mappa enhetens nytto laster som skickas till `devicedata` slut punkten för Azure Event Hub. Den extraherar typer, enhets identifierare, datum/tid för mätning och mått värden. Den andra typen, **FHIR-mappning** , styr mappningen för FHIR-resursen. Det gör det möjligt att konfigurera längden på observations perioden, FHIR-datatypen som används för att lagra värdena och terminologins kod (er). 
 
@@ -362,7 +362,7 @@ Representerar data typen [SampledData](http://hl7.org/fhir/datatypes.html#Sample
 |**DefaultPeriod**|Standard perioden i millisekunder som ska användas. 
 |**Enhet**|Enheten som ska anges för SampledData ursprung. 
 
-#### <a name="quantity"></a>Kvantitet
+#### <a name="quantity"></a>Quantity
 Representerar data typen [kvantitet](http://hl7.org/fhir/datatypes.html#Quantity) FHIR. Om det finns fler än ett värde i gruppen används bara det första värdet. När det nya värdet anländer som mappar till samma observation kommer det gamla värdet att skrivas över.
 
 | Egenskap | Beskrivning 
@@ -567,6 +567,4 @@ Ta en titt på vanliga frågor om Azure IoT Connector för FHIR (för hands vers
 >[!div class="nextstepaction"]
 >[Vanliga frågor och svar om Azure IoT Connector för FHIR](fhir-faq.md)
 
-* I Azure Portal kallas Azure IoT Connector för FHIR IoT Connector (för hands version).
-
-FHIR är ett registrerat varumärke som tillhör HL7 och används med tillåtelse av HL7.
+* I Azure Portal kallas Azure IoT Connector för FHIR IoT Connector (för hands version). FHIR är ett registrerat varumärke som tillhör HL7 och används med behörigheten för HL7.

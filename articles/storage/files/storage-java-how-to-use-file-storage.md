@@ -8,12 +8,12 @@ ms.date: 09/19/2017
 ms.custom: devx-track-java
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2c80d741ca1cf0b4d66bc18488af8ef1da44fd14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 977777aff4aa32bf6876e1d573970d71ec71584e
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462606"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629775"
 ---
 # <a name="develop-for-azure-files-with-java"></a>Utveckla för Azure Files med Java
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -29,7 +29,7 @@ Den här kursen visar grunderna i hur du använder Java för att utveckla progra
 * Ladda upp, ladda ned och ta bort en fil
 
 > [!Note]  
-> Eftersom Azure Files kan nås via SMB, är det möjligt att skriva program som har åtkomst till Azure-filresursen med hjälp av Java-I/O-standardklasserna. Den här artikeln beskriver hur du skriver program som använder Azure Storage Java SDK, som använder [Azure Files REST API](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api) för att prata med Azure Files.
+> Eftersom Azure Files kan nås via SMB, är det möjligt att skriva program som har åtkomst till Azure-filresursen med hjälp av Java-I/O-standardklasserna. Den här artikeln beskriver hur du skriver program som använder Azure Storage Java SDK, som använder [Azure Files REST API](/rest/api/storageservices/file-service-rest-api) för att prata med Azure Files.
 
 ## <a name="create-a-java-application"></a>Skapa ett Java-program
 För att bygga exemplen behöver du Java Development Kit (JDK) och [Azure Storage SDK för Java](https://github.com/Azure/azure-storage-java). Du bör också ha skapat ett Azure Storage-konto.
@@ -229,7 +229,7 @@ Om du vill veta mer om andra Azure Storage-API: er, följer du dessa länkar.
 * [Azure Storage SDK för Java](https://github.com/azure/azure-storage-java)
 * [Azure Storage SDK för Android](https://github.com/azure/azure-storage-android)
 * [Azure Storage Client SDK-referens](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html)
-* [REST-API för Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Azure Storage teamets blogg](https://docs.microsoft.com/archive/blogs/windowsazurestorage/)
-* [Överföra data med kommandoradsverktyget AzCopy](../common/storage-use-azcopy.md)
+* [REST-API för Azure Storage Services](/rest/api/storageservices/)
+* [Azure Storage teamets blogg](/archive/blogs/windowsazurestorage/)
+* [Överföra data med kommandoradsverktyget AzCopy](../common/storage-use-azcopy-v10.md)
 * [Felsökning av problem i Azure Files – Windows](storage-troubleshoot-windows-file-connection-problems.md)

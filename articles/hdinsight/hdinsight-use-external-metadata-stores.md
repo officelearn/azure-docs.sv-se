@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 08/06/2020
-ms.openlocfilehash: 1c02f9de5b41d58e40001ba103191f3ef015f5c5
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: bcfd14572b632cdc455babf7b9f8d67be904406c
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534914"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629962"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Använda extern metadatalagring i Azure HDInsight
 
@@ -65,9 +65,9 @@ HDInsight har också stöd för anpassade metastores, vilket rekommenderas för 
 
 Skapa eller skapa en befintlig Azure SQL Database innan du konfigurerar en anpassad Hive-metaarkiv för ett HDInsight-kluster.  Mer information finns i [snabb start: skapa en enskild databas i Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal).
 
-När du skapar klustret måste HDInsight-tjänsten ansluta till den externa metaarkiv och verifiera dina autentiseringsuppgifter. Konfigurera Azure SQL Database brand Väggs regler så att Azure-tjänster och-resurser får åtkomst till servern. Aktivera det här alternativet i Azure Portal genom att välja **Ange server brand vägg** . Välj **ingen** under **neka offentlig nätverks åtkomst** och **Ja** under **Tillåt Azure-tjänster och-resurser för att få åtkomst till den här servern** för Azure SQL Database. Mer information finns i [skapa och hantera IP-brandväggens regler](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
+När du skapar klustret måste HDInsight-tjänsten ansluta till den externa metaarkiv och verifiera dina autentiseringsuppgifter. Konfigurera Azure SQL Database brand Väggs regler så att Azure-tjänster och-resurser får åtkomst till servern. Aktivera det här alternativet i Azure Portal genom att välja **Ange server brand vägg**. Välj **ingen** under **neka offentlig nätverks åtkomst** och **Ja** under **Tillåt Azure-tjänster och-resurser för att få åtkomst till den här servern** för Azure SQL Database. Mer information finns i [skapa och hantera IP-brandväggens regler](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
 
-Privata slut punkter för SQL-arkiv stöds inte.
+Privata slut punkter för SQL-arkiv stöds endast på kluster som skapats med `outbound` ResourceProviderConnection. Mer information finns i den här [dokumentationen](https://docs.microsoft.com/azure/hdinsight/hdinsight-private-link).
 
 ![knappen Ange server brand vägg](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall1.png)
 
@@ -75,7 +75,7 @@ Privata slut punkter för SQL-arkiv stöds inte.
 
 ### <a name="select-a-custom-metastore-during-cluster-creation"></a>Välj en anpassad metaarkiv när klustret skapas
 
-Du kan när som helst peka klustret till en tidigare skapad Azure SQL Database. För att skapa kluster via portalen anges alternativet från **lagrings > metaarkiv inställningar** .
+Du kan när som helst peka klustret till en tidigare skapad Azure SQL Database. För att skapa kluster via portalen anges alternativet från **lagrings > metaarkiv inställningar**.
 
 ![HDInsight Hive-metadatalagret Azure Portal](./media/hdinsight-use-external-metadata-stores/azure-portal-cluster-storage-metastore.png)
 

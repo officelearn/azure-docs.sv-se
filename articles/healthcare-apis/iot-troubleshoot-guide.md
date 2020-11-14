@@ -6,18 +6,18 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 11/09/2020
+ms.date: 11/13/2020
 ms.author: jasteppe
-ms.openlocfilehash: 124c3b3667e847a5ee1bb8034ef01088c629d503
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 403b6656a47f56508682dcda2438a85d513fbfb1
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540951"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630506"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>Fel söknings guide för Azure IoT Connector för FHIR (för hands version)
 
-Den här artikeln innehåller steg för att felsöka vanliga Azure IoT-anslutningar för FHIR * fel meddelanden och villkor.  
+Den här artikeln innehåller steg för fel sökning av vanliga Azure IoT-anslutningar för snabba hälso samverkans resurser (FHIR&#174;) * fel meddelanden och villkor.  
 
 Du lär dig också hur du skapar kopior av Azure IoT Connector för FHIR Conversion mappnings-JSON (till exempel: enhet och FHIR).  
 
@@ -31,7 +31,7 @@ I det här avsnittet får du lära dig om validerings processen som Azure IoT Co
 
 **Enhets mappning**
 
-|Element|Obligatorisk|
+|Element|Krävs|
 |:-------|:------|
 |Typnamn|Sant|
 |TypeMatchExpression|Sant|
@@ -47,7 +47,7 @@ I det här avsnittet får du lära dig om validerings processen som Azure IoT Co
 
 **FHIR-mappning**
 
-|Element|Obligatorisk|
+|Element|Krävs|
 |:------|:-------|
 |Typnamn|Sant|
 
@@ -191,6 +191,4 @@ Ta en titt på vanliga frågor om Azure IoT Connector för FHIR.
 >[!div class="nextstepaction"]
 >[Vanliga frågor och svar om Azure IoT Connector för FHIR](fhir-faq.md)
 
-* I Azure Portal kallas Azure IoT Connector för FHIR IoT Connector (för hands version).
-
-FHIR är ett registrerat varumärke som tillhör HL7 och används med tillåtelse av HL7.
+* I Azure Portal kallas Azure IoT Connector för FHIR IoT Connector (för hands version). FHIR är ett registrerat varumärke som tillhör HL7 och används med behörigheten för HL7.

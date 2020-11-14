@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 09/11/2020
+ms.date: 11/13/2020
 ms.author: pafarley
 ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
 keywords: visuellt innehåll, program för visuellt innehåll, dator vision
-ms.openlocfilehash: 851470971335f144ebe0f9b602a8adc7d5ee06cf
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: aeaa10870b8b40b907da1d1660e77ebf0271c300
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536225"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629758"
 ---
 # <a name="what-is-computer-vision"></a>Vad är visuellt innehåll?
 
@@ -27,19 +27,19 @@ ms.locfileid: "94536225"
 
 Azures Visuellt innehåll tjänst ger dig till gång till avancerade algoritmer som bearbetar bilder och returnerar information baserat på de visuella funktioner som du är intresse rad av. Visuellt innehåll kan till exempel avgöra om en bild innehåller innehåll som är olämpligt för barn, hitta vissa varumärken eller objekt eller hitta mänskliga ansikten.
 
-Du kan skapa Visuellt innehåll program via ett klient biblioteks-SDK eller genom att anropa REST API direkt. Den här sidan beskriver allmänt vad du kan göra med Visuellt innehåll.
+Du kan skapa Visuellt innehåll program via ett [klient biblioteks-SDK](./quickstarts-sdk/client-library.md) eller genom att anropa [REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) direkt. Den här sidan beskriver allmänt vad du kan göra med Visuellt innehåll.
+
+## <a name="optical-character-recognition-ocr"></a>Optisk teckenläsning (OCR)
+
+Visuellt innehåll innehåller [OCR-funktioner (optisk tecken läsning)](concept-recognizing-text.md) . Du kan använda den nya Read API: n för att extrahera utskrift och handskriven text från bilder och dokument. Den använder de senaste modellerna och fungerar med text på en rad olika ytor och bakgrunder. Det kan vara kvitton, affischer, visitkort, brev och whiteboardtavlor. De två OCR-API: erna stöder extrahering av utskriven text på [flera språk](./language-support.md). Kom igång genom att följa en [snabb start](./quickstarts-sdk/client-library.md) .
 
 ## <a name="computer-vision-for-digital-asset-management"></a>Visuellt innehåll för digital till gångs hantering
 
 Visuellt innehåll kan sätta många moder scenarier för Digital Asset Management (damm). DAMM är affärs processen att organisera, lagra och hämta omfattande medie till gångar och hantera digitala rättigheter och behörigheter. Ett företag kan till exempel vilja gruppera och identifiera bilder baserat på synliga logo typer, ansikten, objekt, färger och så vidare. Eller så kanske du vill [Generera bild texter automatiskt för bilder](./Tutorials/storage-lab-tutorial.md) och bifoga nyckelord så att de är sökbara. För en allt-i-ett-damm-lösning med hjälp av Cognitive Services, Azure Kognitiv sökning och intelligent rapportering, se [vägledningen för Knowledge utvinnings Accelerator](https://github.com/Azure-Samples/azure-search-knowledge-mining) på GitHub. Andra moder exempel finns i lagrings platsen för [visuellt innehåll Solution templates](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates) .
 
-## <a name="optical-character-recognition-ocr"></a>Optisk teckenläsning (OCR)
-
-Visuellt innehåll innehåller [OCR-funktioner (optisk tecken läsning)](concept-recognizing-text.md) . Du kan använda den nya Read API: n för att extrahera utskrift och handskriven text från bilder och dokument. Den använder de senaste modellerna och fungerar med text på en rad olika ytor och bakgrunder. Det kan vara kvitton, affischer, visitkort, brev och whiteboardtavlor. De två OCR-API: erna stöder extrahering av utskriven text på [flera språk](./language-support.md). Kom igång genom att följa en [snabb start](#next-steps) .
-
 ## <a name="analyze-images-for-insight"></a>Analysera bilder för att få information
 
-Du kan analysera bilder för att ge insikter om sina visuella funktioner och egenskaper. Alla funktioner i tabellen nedan tillhandahålls av [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b)-API:et. Kom igång genom att följa en [snabb start](#next-steps) .
+Du kan analysera bilder för att ge insikter om sina visuella funktioner och egenskaper. Alla funktioner i tabellen nedan tillhandahålls av [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b)-API:et. Kom igång genom att följa en [snabb start](./quickstarts-sdk/client-library.md) .
 
 
 ### <a name="tag-visual-features"></a>Tagga visuella egenskaper
@@ -113,8 +113,6 @@ Som med alla Cognitive Services bör utvecklare som använder tjänsten Visuellt
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kom igång med Visuellt innehåll genom att följa en snabbstartsguide:
+Kom igång med Visuellt innehåll genom att följa snabb starts guiden på det föredragna utvecklings språket:
 
-- [Snabb start: Visuellt innehåll .NET-klient bibliotek](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
-- [Snabb start: Visuellt innehåll python-klient bibliotek](./quickstarts-sdk/client-library.md?pivots=programming-language-python)
-- [Snabb start: Visuellt innehåll Java-klient bibliotek](./quickstarts-sdk/client-library.md?pivots=programming-language-java)
+- [Snabb start: Visuellt innehåll klient bibliotek](./quickstarts-sdk/client-library.md)

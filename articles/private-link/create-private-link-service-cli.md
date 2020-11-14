@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 2cfc746d883b565fe7a082a316ce314f385225df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2b97bcc9fe902480364ade19efdae863556ac1e
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358210"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629435"
 ---
 # <a name="create-a-private-link-service-using-azure-cli"></a>Skapa en privat länk-tjänst med Azure CLI
 Den här artikeln visar hur du skapar en privat länk-tjänst i Azure med hjälp av Azure CLI.
@@ -29,7 +29,7 @@ Innan du kan skapa ett virtuellt nätverk måste du skapa en resursgrupp som ska
 az group create --name myResourceGroup --location westcentralus
 ```
 ### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
-Skapa ett virtuellt nätverk med kommandot [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). I det här exemplet skapas ett virtuellt standard nätverk med namnet *myVirtualNetwork* med ett undernät med namnet *undernät*:
+Skapa ett virtuellt nätverk med kommandot [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). I det här exemplet skapas ett virtuellt standard nätverk med namnet *myVirtualNetwork* med ett undernät med namnet *undernät* :
 
 ```azurecli-interactive
 az network vnet create --resource-group myResourceGroup --name myVirtualNetwork --address-prefix 10.0.0.0/16  
@@ -78,7 +78,7 @@ En lastbalanseringsregel definierar klientdelens IP-konfiguration för inkommand
 ```
 ### <a name="create-backend-servers"></a>Skapa serverdelsservrar
 
-I det här exemplet ska vi inte skapa en virtuell dator. Du kan följa stegen i [skapa en intern belastningsutjämnare för att belastningsutjämna virtuella datorer med Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md#create-servers-for-the-backend-address-pool) för att skapa två virtuella datorer som ska användas som backend-servrar för belastningsutjämnaren. 
+I det här exemplet ska vi inte skapa en virtuell dator. Du kan följa stegen i [snabb start: skapa en intern belastningsutjämnare för att belastningsutjämna virtuella datorer med Azure CLI](/load-balancer/quickstart-load-balancer-standard-internal-cli#create-backend-servers) för att skapa två virtuella datorer som ska användas som backend-servrar för belastningsutjämnaren. 
 
 
 ### <a name="disable-private-link-service-network-policies-on-subnet"></a>Inaktivera nätverks principer för privata länkar i undernät 
@@ -111,7 +111,7 @@ Härnäst visar vi hur du mappar den här tjänsten till en privat slut punkt i 
 ## <a name="private-endpoints"></a>Privata slut punkter
 
 ### <a name="create-the-virtual-network"></a>Skapa det virtuella nätverket 
-Skapa ett virtuellt nätverk med [AZ Network VNet Create](/cli/azure/network/vnet#az-network-vnet-create). I det här exemplet skapas ett virtuellt nätverk med namnet *myPEVNet*   i resurs gruppen med namnet *myResourcegroup*: 
+Skapa ett virtuellt nätverk med [AZ Network VNet Create](/cli/azure/network/vnet#az-network-vnet-create). I det här exemplet skapas ett virtuellt nätverk med namnet  *myPEVNet*   i resurs gruppen med namnet *myResourcegroup* : 
 ```azurecli-interactive
 az network vnet create \
 --resource-group myResourceGroup \
@@ -119,7 +119,7 @@ az network vnet create \
 --address-prefix 10.0.0.0/16  
 ```
 ### <a name="create-the-subnet"></a>Skapa under nätet 
-Skapa ett undernät i ett virtuellt nätverk med [AZ Network VNet Subnet Create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). I det här exemplet skapas ett undernät med namnet *mitt undernät*   i det virtuella nätverket med namnet *myPEVnet* i resurs gruppen med namnet *myResourcegroup*: 
+Skapa ett undernät i ett virtuellt nätverk med [AZ Network VNet Subnet Create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). I det här exemplet skapas ett undernät med namnet  *mitt undernät*   i det virtuella nätverket med namnet *myPEVnet* i resurs gruppen med namnet *myResourcegroup* : 
 
 ```azurecli-interactive 
 az network vnet subnet create \
@@ -152,7 +152,7 @@ az network private-endpoint create \
 --location westcentralus 
 ```
 Du kan hämta *privat anslutnings-resurs-ID* med en `az network private-link-service show` privat länk-tjänst. ID: t ser ut så här:   
-/subscriptions/subID/resourceGroups/*ResourceGroupName*/providers/Microsoft.Network/privateLinkServices/**privatelinkservicename** 
+/subscriptions/subID/resourceGroups/ *ResourceGroupName* /providers/Microsoft.Network/privateLinkServices/ **privatelinkservicename** 
  
 ## <a name="show-private-link-service-connections"></a>Visa anslutningar för privata länk tjänster 
  

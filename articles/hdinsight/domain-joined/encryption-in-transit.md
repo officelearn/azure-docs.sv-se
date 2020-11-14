@@ -7,19 +7,16 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/24/2020
-ms.openlocfilehash: 6f043a1cb870d003e371d2f20d0e1f6614c9201e
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: ac210adbc29075f27739b08dcf83eeedbeea3ed5
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628991"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630370"
 ---
 # <a name="ipsec-encryption-in-transit-for-azure-hdinsight"></a>IPSec-kryptering i överföring för Azure HDInsight
 
 I den här artikeln beskrivs implementeringen av kryptering i överföring för kommunikation mellan Azure HDInsight-klusternoder.
-
-> [!Note]
-> Kryptering under överföring är för närvarande aktiverat för följande regioner: östra USA, södra centrala USA, västra 2; USA.
 
 ## <a name="background"></a>Bakgrund
 
@@ -42,7 +39,7 @@ Gör så här om du vill skapa ett nytt kluster med kryptering under överförin
 
 1. På fliken **säkerhet + nätverk** markerar du kryss rutan **Aktivera kryptering i överföring** .
 
-    :::image type="content" source="media/encryption-in-transit/enable-encryption-in-transit.png" alt-text="Fliken Skapa kluster – säkerhet och nätverk.":::
+    :::image type="content" source="media/encryption-in-transit/enable-encryption-in-transit.png" alt-text="Skapa kluster – aktivera kryptering under överföring.":::
 
 ### <a name="create-a-cluster-with-encryption-in-transit-enabled-through-the-azure-cli"></a>Skapa ett kluster med kryptering under överföring aktiverat via Azure CLI
 

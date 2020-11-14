@@ -2,13 +2,13 @@
 title: Använd Azure Application Gateway för att skydda dina webbappar på Azure VMware-lösningen
 description: Konfigurera Azure Application Gateway för att på ett säkert sätt exponera dina webbappar som körs på Azure VMware-lösningen.
 ms.topic: how-to
-ms.date: 10/13/2020
-ms.openlocfilehash: 7956ea51421f5cfa893942401c1d9a5871039689
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 11/13/2020
+ms.openlocfilehash: 02e439989c985354dbe06fa3e231d5daf7099d70
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578486"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629055"
 ---
 # <a name="use-azure-application-gateway-to-protect-your-web-apps-on-azure-vmware-solution"></a>Använd Azure Application Gateway för att skydda dina webbappar på Azure VMware-lösningen
 
@@ -21,19 +21,19 @@ Funktionerna omfattar:
 
 En fullständig lista över funktioner finns i [Azure Application Gateway-funktioner](../application-gateway/features.md). 
 
-Den här artikeln visar hur du använder Applicate-Gateway framför en webb Server grupp för att skydda en webbapp som körs på Azure VMware-lösningen. 
+Den här artikeln visar hur du använder Application Gateway framför en webb Server grupp för att skydda en webbapp som körs på Azure VMware-lösningen. 
 
 ## <a name="topology"></a>Topologi
 Diagrammet visar hur Application Gateway används för att skydda virtuella Azure IaaS-datorer (VM: ar), skalnings uppsättningar för virtuella Azure-datorer eller lokala servrar. Application Gateway hanterar virtuella datorer i Azure VMware-lösningen som lokala servrar. 
 
-![Application Gateway skyddar virtuella datorer i Azure VMware-lösningen.](media/protect-azure-vmware-solution-with-application-gateway/app-gateway-protects.png)
+![Diagram som visar hur Application Gateway skyddar virtuella Azure IaaS-datorer (VM: ar), skalnings uppsättningar för virtuella Azure-datorer eller lokala servrar.](media/protect-azure-vmware-solution-with-application-gateway/app-gateway-protects.png)
 
 > [!IMPORTANT]
 > Azure Application Gateway är för närvarande den enda metod som stöds för att exponera webb program som körs på virtuella datorer med Azure VMware-lösningar.
 
 Diagrammet visar test scenariot som används för att verifiera Application Gateway med webb program för Azure VMware-lösningar.
 
-:::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Application Gateway integrering med en Azure VMware-lösning som kör webb program" border="false":::
+:::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Diagram som visar test scenariot som används för att verifiera Application Gateway med webb program för Azure VMware-lösningar." border="false":::
 
 Application Gateway-instansen distribueras på hubben i ett dedikerat undernät. Den har en offentlig Azure-IP-adress. Det rekommenderas att du aktiverar standard DDoS-skydd för det virtuella nätverket. Webb servern finns i ett privat moln i Azure VMware-lösningen bakom NSX t0 och T1-routrar. Azure VMware-lösningen använder [ExpressRoute Global Reach](../expressroute/expressroute-global-reach.md) för att aktivera kommunikation med hubb och lokala system.
 
@@ -48,7 +48,7 @@ Application Gateway-instansen distribueras på hubben i ett dedikerat undernät.
 
 2. Ange grundläggande information som i följande bild. Välj sedan **Nästa: frontend->**. 
 
-    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/create-app-gateway.png" alt-text="Skapa Application Gateway":::
+    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/create-app-gateway.png" alt-text="Skärm bild som visar sidan Skapa Application Gateway i Azure Portal.":::
 
 3. Välj IP-adress typen frontend. För offentlig väljer du en befintlig offentlig IP-adress eller skapar en ny. Välj **Nästa:>**.
 
@@ -92,7 +92,7 @@ Den här proceduren visar hur du definierar backend-adresspooler med virtuella d
 
 1. Skapa två olika pooler för virtuella datorer i ditt privata moln. En representerar contoso och det andra Fabrikam. 
 
-    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool-avs.png" alt-text="Skapa de virtuella datorerna.":::
+    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool.png" alt-text="Skärm bild som visar en sammanfattning av en webb servers information i VSphere-klienten.":::
 
     Vi har använt Windows Server 2016 med rollen Internet Information Services (IIS) installerad för att illustrera den här självstudien. När de virtuella datorerna har installerats kör du följande PowerShell-kommandon för att konfigurera IIS på var och en av de virtuella datorerna. 
 
@@ -103,13 +103,13 @@ Den här proceduren visar hur du definierar backend-adresspooler med virtuella d
 
 2. I en befintlig Application Gateway-instans väljer du **Server dels grupper** på den vänstra menyn, väljer  **Lägg till** och anger den nya pooler. Välj **Lägg till** i den högra rutan.
 
-    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool-avs-02.png" alt-text="Lägg till backend-pooler." lightbox="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool-avs-02.png":::
+    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool-02.png" alt-text="Skärm bild av sidan för backend-pooler för att lägga till backend-pooler." lightbox="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool-02.png":::
 
 3. I avsnittet **lyssnare** skapar du en ny lyssnare för varje webbplats. Ange informationen för varje lyssnare och välj **Lägg till**.
 
 4. Välj **http-inställningar** till vänster och välj sedan **Lägg till** i den vänstra rutan. Fyll i informationen för att skapa en ny HTTP-inställning och välj **Spara**.
 
-    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool-avs-03.png" alt-text="Fyll i informationen för att skapa en ny HTTP-inställning och välj Spara." lightbox="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool-avs-03.png":::
+    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool-03.png" alt-text="Skärm bild av sidan med HTTP-inställningar för att skapa en ny HTTP-inställning." lightbox="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool-03.png":::
 
 5. Skapa reglerna i avsnittet **Rules (regler** ) på den vänstra menyn. Koppla varje regel till motsvarande lyssnare. Välj **Lägg till**.
 
@@ -117,7 +117,7 @@ Den här proceduren visar hur du definierar backend-adresspooler med virtuella d
 
 7. Testa anslutningen. Öppna din önskade webbläsare och navigera till de olika webbplatser som finns i din Azure VMware-lösnings miljö, till exempel http://www.fabrikam.com .
 
-    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool-avs-07.png" alt-text="Testa anslutningen.":::
+    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool-07.png" alt-text="Skärm bild av webb sidan som visar lyckad test av anslutningen.":::
 
 ### <a name="routing-by-url"></a>Routning efter URL
 
@@ -125,7 +125,7 @@ Den här proceduren visar hur du definierar backend-adresspooler med virtuella d
 
 1. Skapa en pool för virtuella datorer som representerar webb server gruppen i ditt privata moln. 
 
-    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-avs.png" alt-text="Skapa en pool med virtuella datorer i Azure VMware-lösningen.":::
+    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool.png" alt-text="Skärm bild av sidan i VMSphere-klienten som visar en sammanfattning av en annan virtuell dator.":::
 
     Windows Server 2016 med IIS-rollen installerad har använts för att illustrera den här självstudien. När de virtuella datorerna har installerats kör du följande PowerShell-kommandon för att konfigurera IIS för varje vägledning för virtuella datorer. 
 
@@ -160,31 +160,31 @@ Den här proceduren visar hur du definierar backend-adresspooler med virtuella d
    1. Välj **Lägg till**. 
    1. Upprepa den här processen för **contoso-images** och **contoso-video** och Lägg till en unik virtuell dator som mål. 
 
-    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-avs-02.png" alt-text="Lägg till tre nya backend-pooler." lightbox="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-avs-02.png":::
+    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-02.png" alt-text="Skärm bild av sidan Server dels pooler med tillägg av tre nya backend-pooler." lightbox="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-02.png":::
 
 3. I avsnittet **lyssnare** skapar du en ny lyssnare av typen Basic med Port 8080.
 
 4. I det vänstra navigerings fönstret väljer du **http-inställningar** och väljer **Lägg till** i den vänstra rutan. Fyll i informationen för att skapa en ny HTTP-inställning och välj **Spara**.
 
-    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-avs-04.png" alt-text="Konfiguration av HTP-inställningar.":::
+    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-04.png" alt-text="Skärm bild av sidan Lägg till HTTP-inställning med konfiguration av HTTP-inställningar.":::
 
 5. Skapa reglerna i avsnittet **Rules (regler** ) på den vänstra menyn. Koppla varje regel till den tidigare skapade lyssnaren. Konfigurera sedan huvud server delen och HTTP-inställningarna. Välj **Lägg till**.
 
-    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-avs-07.png" alt-text="Skapa reglerna i avsnittet Rules (regler) på den vänstra menyn.":::
+    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-07.png" alt-text="Skärm bild av sidan Lägg till en regel för routning för att konfigurera routningsregler till ett Server dels mål.":::
 
 6. Testa konfigurationen. Öppna programgatewayen på Azure Portal och kopiera den offentliga IP-adressen i **översikts** avsnittet. 
 
    1. Öppna ett nytt webbläsarfönster och ange URL: en `http://<app-gw-ip-address>:8080` . 
 
-      :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-avs-08.png" alt-text="Testa konfigurationen från Azure Portal.":::
+      :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-08.png" alt-text="Skärm bild av webb sidan som visar lyckade tester av konfigurationen.":::
 
    1. Ändra URL:en till `http://<app-gw-ip-address>:8080/images/test.htm`.
 
-      :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-avs-09.png" alt-text="Ändra URL: en.":::
+      :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-09.png" alt-text="Skärm bild av ett annat lyckat test med den nya URL: en.":::
 
    1. Ändra URL: en igen till `http://<app-gw-ip-address>:8080/video/test.htm` .
 
-      :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-avs-10.png" alt-text="Ändra URL: en igen.":::
+      :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-10.png" alt-text="Skärm bild av lyckad test med den sista URL: en.":::
 
 ## <a name="next-steps"></a>Nästa steg
 

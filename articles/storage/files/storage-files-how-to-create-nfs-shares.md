@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: bf75537c0baf029bc3fc63e320f6290a1f41a524
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7680e251d8411ce154e1f7dfb8af1d66514dd579
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738834"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629469"
 ---
 # <a name="how-to-create-an-nfs-share"></a>Så här skapar du en NFS-resurs
 
@@ -38,7 +38,7 @@ Azure-filresurser är fullständigt hanterade fil resurser som bor i molnet. De 
     - [Konfigurera en punkt-till-plats (P2s) VPN på Linux som ska användas med Azure Files](storage-files-configure-p2s-vpn-linux.md).
     - [Konfigurera en plats-till-plats-VPN för användning med Azure Files](storage-files-configure-s2s-vpn.md).
     - Konfigurera [ExpressRoute](../../expressroute/expressroute-introduction.md).
-- Om du tänker använda Azure CLI [installerar du den senaste versionen](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Om du tänker använda Azure CLI [installerar du den senaste versionen](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="register-the-nfs-41-protocol"></a>Registrera NFS 4,1-protokollet
 
@@ -86,17 +86,17 @@ az feature show --name AllowNfsFileShares --namespace Microsoft.Storage --subscr
 
 Nu när du har skapat ett FileStorage-konto och konfigurerat nätverket kan du skapa en NFS-filresurs. Processen påminner om hur du skapar en SMB-resurs genom att välja **NFS** i stället för **SMB** när du skapar resursen.
 
-1. Navigera till ditt lagrings konto och välj **fil resurser** .
+1. Navigera till ditt lagrings konto och välj **fil resurser**.
 1. Välj **+ fil resurs** för att skapa en ny fil resurs.
 1. Namnge fil resursen, Välj en etablerad kapacitet.
-1. För **protokoll** väljer du **NFS (för hands version)** .
+1. För **protokoll** väljer du **NFS (för hands version)**.
 1. För **rot-squash** gör du ett val.
 
     - Rot-squash (standard) – åtkomst för fjärr-superanvändare (rot) mappas till UID (65534) och GID (65534).
     - Ingen rot-squash – fjärr-superanvändare (root) får åtkomst som rot.
     - Alla squash – all användar åtkomst mappas till UID (65534) och GID (65534).
     
-1. Välj **Skapa** .
+1. Välj **Skapa**.
 
     :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/create-nfs-file-share.png" alt-text="Skärm bild av bladet för att skapa fil resurs":::
 
@@ -110,7 +110,7 @@ Nu när du har skapat ett FileStorage-konto och konfigurerat nätverket kan du s
    echo $PSVersionTable.PSVersion.ToString() 
    ```
     
-   Information om hur du uppgraderar din version av PowerShell finns i [uppgradera befintliga Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)
+   Information om hur du uppgraderar din version av PowerShell finns i [uppgradera befintliga Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)
     
 1. Installera den senaste versionen av PowershellGet-modulen.
 
@@ -120,13 +120,13 @@ Nu när du har skapat ett FileStorage-konto och konfigurerat nätverket kan du s
 
 1. Stäng och öppna sedan PowerShell-konsolen igen.
 
-1. Installera **AZ. Storage** Preview module version **2.5.2-Preview** .
+1. Installera **AZ. Storage** Preview module version **2.5.2-Preview**.
 
    ```powershell
    Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
    ```
 
-   Mer information om hur du installerar PowerShell-moduler finns i [installera modulen Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0)
+   Mer information om hur du installerar PowerShell-moduler finns i [installera modulen Azure PowerShell](/powershell/azure/install-az-ps?view=azps-3.0.0)
    
 1. Om du vill skapa en Premium-filresurs med Azure PowerShell-modulen använder du cmdleten [New-AzRmStorageShare](/powershell/module/az.storage/new-azrmstorageshare) .
 

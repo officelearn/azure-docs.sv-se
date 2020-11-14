@@ -6,18 +6,18 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: quickstart
-ms.date: 09/08/2020
+ms.date: 11/13/2020
 ms.author: punagpal
-ms.openlocfilehash: 1e3101c8abcaef52c0ae9aaafef36b23aa45b586
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: f36d842e14c91850bfeba47e9fef61d4747c33a9
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394517"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630574"
 ---
 # <a name="quickstart-deploy-azure-iot-connector-for-fhir-preview-using-azure-portal"></a>Snabb start: Distribuera Azure IoT Connector för FHIR (för hands version) med Azure Portal
 
-Azure IoT Connector för FHIR * är en valfri funktion i Azure API för FHIR som gör det möjligt att mata in data från-enheter. I förhands gransknings fasen är Azure IoT Connector för FHIR-funktionen tillgänglig kostnads fritt. I den här snabbstarten lär du dig att:
+Azure IoT Connector för snabba hälso samverkande resurser (FHIR&#174;) * är en valfri funktion i Azure API för FHIR som gör det möjligt att mata in data från-enheter (Internet of medicin ting). I förhands gransknings fasen är Azure IoT Connector för FHIR-funktionen tillgänglig kostnads fritt. I den här snabbstarten lär du dig att:
 - Distribuera och konfigurera Azure IoT Connector för FHIR med hjälp av Azure Portal
 - Använda en simulerad enhet för att skicka data till Azure IoT Connector för FHIR
 - Visa resurser som har skapats av Azure IoT Connector för FHIR i Azure API för FHIR
@@ -207,6 +207,4 @@ Lär dig hur du konfigurerar IoT Connector med hjälp av mallar för enhets-och 
 >[!div class="nextstepaction"]
 >[FHIR för Azure IoT Connector för mappning av](iot-mapping-templates.md)
 
-* I Azure Portal kallas Azure IoT Connector för FHIR IoT Connector (för hands version).
-
-FHIR är ett registrerat varumärke som tillhör HL7 och används med tillåtelse av HL7.
+* I Azure Portal kallas Azure IoT Connector för FHIR IoT Connector (för hands version). FHIR är ett registrerat varumärke som tillhör HL7 och används med behörigheten för HL7.

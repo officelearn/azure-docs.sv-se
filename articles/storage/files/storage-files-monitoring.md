@@ -10,12 +10,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: f37fc8e19025b78475f706ff96c502cc6094d54f
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 8dc99cda4128635e619afec5ed725da16bbd81ed
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358430"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629894"
 ---
 # <a name="monitoring-azure-files"></a>Övervaknings Azure Files
 
@@ -28,7 +28,7 @@ När du har viktiga program och affärs processer som förlitar sig på Azure-re
 ## <a name="what-is-azure-monitor"></a>Vad är Azure Monitor?
 Azure Files skapar övervaknings data med hjälp av [Azure Monitor](../../azure-monitor/overview.md), som är en fullständig stack övervaknings tjänst i Azure. Azure Monitor innehåller en fullständig uppsättning funktioner för att övervaka dina Azure-resurser och resurser i andra moln och lokalt. 
 
-Börja med artikeln [övervakning av Azure-resurser med Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource), vilket beskriver följande:
+Börja med artikeln [övervakning av Azure-resurser med Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md), vilket beskriver följande:
 
 - Vad är Azure Monitor?
 - Kostnader för övervakning
@@ -44,7 +44,7 @@ Azure Files samlar in samma typer av övervaknings data som andra Azure-resurser
 
 Se [data referens för Azure File Monitoring](storage-files-monitoring-reference.md) för detaljerad information om mått och loggar mått som skapats av Azure Files.
 
-Mått och loggar i Azure Monitor endast stöd för Azure Resource Manager lagrings konton. Azure Monitor stöder inte klassiska lagrings konton. Om du vill använda mått eller loggar på ett klassiskt lagrings konto måste du migrera till ett Azure Resource Manager lagrings konto. Se [migrera till Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
+Mått och loggar i Azure Monitor endast stöd för Azure Resource Manager lagrings konton. Azure Monitor stöder inte klassiska lagrings konton. Om du vill använda mått eller loggar på ett klassiskt lagrings konto måste du migrera till ett Azure Resource Manager lagrings konto. Se [migrera till Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 ## <a name="collection-and-routing"></a>Samling och routning
 
@@ -58,7 +58,7 @@ Om du vill samla in resurs loggar måste du skapa en diagnostisk inställning. N
 | StorageWrite | Skriv åtgärder för objekt. |
 | StorageDelete | Ta bort åtgärder för objekt. |
 
-Om du vill hämta en lista över SMB-och REST-åtgärder som loggas, se [lagrings loggade åtgärder och status meddelanden](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) och [Azure Files övervaknings data referens](storage-files-monitoring-reference.md).
+Om du vill hämta en lista över SMB-och REST-åtgärder som loggas, se [lagrings loggade åtgärder och status meddelanden](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) och [Azure Files övervaknings data referens](storage-files-monitoring-reference.md).
 
 ## <a name="creating-a-diagnostic-setting"></a>Skapa en diagnostisk inställning
 
@@ -104,7 +104,7 @@ Allmän vägledning finns i [skapa diagnostisk inställning för att samla in pl
 2. I list rutan **lagrings konto** väljer du det lagrings konto som du vill arkivera loggarna till, klickar på **OK** -knappen och klickar sedan på knappen **Spara** .
 
    > [!NOTE]
-   > Innan du väljer ett lagrings konto som export mål, se [arkivera Azures resurs loggar](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-storage) för att förstå krav på lagrings kontot.
+   > Innan du väljer ett lagrings konto som export mål, se [arkivera Azures resurs loggar](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) för att förstå krav på lagrings kontot.
 
 #### <a name="stream-logs-to-azure-event-hubs"></a>Strömma loggar till Azure Event Hubs
 
@@ -140,7 +140,7 @@ Allmän vägledning finns i [skapa diagnostisk inställning för att samla in pl
 
 #### <a name="archive-logs-to-a-storage-account"></a>Arkivera loggar till ett lagrings konto
 
-Aktivera loggar med hjälp av [set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell-cmdlet tillsammans med `StorageAccountId` parametern.
+Aktivera loggar med hjälp av [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell-cmdlet tillsammans med `StorageAccountId` parametern.
 
 ```powershell
 Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
@@ -154,11 +154,11 @@ Här är ett exempel:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default -StorageAccountId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount -Enabled $true -Category StorageWrite,StorageDelete`
 
-En beskrivning av varje parameter finns i [arkivera Azures resurs loggar via Azure PowerShell](https://docs.microsoft.com/azure/azure-monitor/platform/archive-diagnostic-logs#archive-diagnostic-logs-via-azure-powershell).
+En beskrivning av varje parameter finns i [arkivera Azures resurs loggar via Azure PowerShell](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
 
 #### <a name="stream-logs-to-an-event-hub"></a>Strömma loggar till en händelsehubb
 
-Aktivera loggar med hjälp av cmdleten [set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell med `EventHubAuthorizationRuleId` parametern.
+Aktivera loggar med hjälp av cmdleten [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell med `EventHubAuthorizationRuleId` parametern.
 
 ```powershell
 Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
@@ -168,11 +168,11 @@ Här är ett exempel:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default -EventHubAuthorizationRuleId /subscriptions/20884142-a14v3-4234-5450-08b10c09f4/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey -Enabled $true -Category StorageDelete`
 
-En beskrivning av varje parameter finns i [strömma data till Event Hubs via PowerShell-cmdletar](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-event-hubs#via-powershell-cmdlets).
+En beskrivning av varje parameter finns i [strömma data till Event Hubs via PowerShell-cmdletar](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
 
 #### <a name="send-logs-to-log-analytics"></a>Skicka loggar till Log Analytics
 
-Aktivera loggar med hjälp av cmdleten [set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell med `WorkspaceId` parametern.
+Aktivera loggar med hjälp av cmdleten [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell med `WorkspaceId` parametern.
 
 ```powershell
 Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
@@ -182,11 +182,11 @@ Här är ett exempel:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default -WorkspaceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace -Enabled $true -Category StorageDelete`
 
-Mer information finns i [strömma Azure resurs loggar till Log Analytics arbets ytan i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store).
+Mer information finns i [strömma Azure resurs loggar till Log Analytics arbets ytan i Azure Monitor](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-1. Öppna först [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), eller om du har [installerat](https://docs.microsoft.com/cli/azure/install-azure-cli) Azure CLI lokalt öppnar du ett kommando konsol program, till exempel Windows PowerShell.
+1. Öppna först [Azure Cloud Shell](../../cloud-shell/overview.md), eller om du har [installerat](/cli/azure/install-azure-cli) Azure CLI lokalt öppnar du ett kommando konsol program, till exempel Windows PowerShell.
 
 2. Om din identitet är associerad med fler än en prenumeration ställer du in din aktiva prenumeration på prenumerationen på det lagrings konto som du vill aktivera loggar för.
 
@@ -198,7 +198,7 @@ Mer information finns i [strömma Azure resurs loggar till Log Analytics arbets 
 
 #### <a name="archive-logs-to-a-storage-account"></a>Arkivera loggar till ett lagrings konto
 
-Aktivera loggar genom att använda kommandot [AZ Monitor Diagnostic-Settings Create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) .
+Aktivera loggar genom att använda kommandot [AZ Monitor Diagnostic-Settings Create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) .
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
@@ -212,11 +212,11 @@ Här är ett exempel:
 
 `az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true, "retentionPolicy": {"days": 90, "enabled": true}}]'`
 
-En beskrivning av varje parameter finns i [arkivera resurs loggar via Azure CLI](https://docs.microsoft.com/azure/azure-monitor/platform/archive-diagnostic-logs#archive-diagnostic-logs-via-the-azure-cli).
+En beskrivning av varje parameter finns i [arkivera resurs loggar via Azure CLI](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
 
 #### <a name="stream-logs-to-an-event-hub"></a>Strömma loggar till en händelsehubb
 
-Aktivera loggar genom att använda kommandot [AZ Monitor Diagnostic-Settings Create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) .
+Aktivera loggar genom att använda kommandot [AZ Monitor Diagnostic-Settings Create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) .
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --event-hub <event-hub-name> --event-hub-rule <event-hub-namespace-and-key-name> --resource <storage-account-resource-id> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
@@ -226,11 +226,11 @@ Här är ett exempel:
 
 `az monitor diagnostic-settings create --name setting1 --event-hub myeventhub --event-hub-rule /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --logs '[{"category": StorageDelete, "enabled": true }]'`
 
-En beskrivning av varje parameter finns i [strömma data till Event Hubs via Azure CLI](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-event-hubs#via-azure-cli).
+En beskrivning av varje parameter finns i [strömma data till Event Hubs via Azure CLI](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
 
 #### <a name="send-logs-to-log-analytics"></a>Skicka loggar till Log Analytics
 
-Aktivera loggar genom att använda kommandot [AZ Monitor Diagnostic-Settings Create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) .
+Aktivera loggar genom att använda kommandot [AZ Monitor Diagnostic-Settings Create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) .
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <storage-account-resource-id> --logs '[{"category": <category name>, "enabled": true "retentionPolicy": {"days": <days>, "enabled": <retention-bool}}]'
@@ -240,11 +240,11 @@ Här är ett exempel:
 
 `az monitor diagnostic-settings create --name setting1 --workspace /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --logs '[{"category": StorageDelete, "enabled": true ]'`
 
- Mer information finns i [strömma Azure resurs loggar till Log Analytics arbets ytan i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store).
+ Mer information finns i [strömma Azure resurs loggar till Log Analytics arbets ytan i Azure Monitor](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
 
 ### <a name="template"></a>[Mall](#tab/template)
 
-Om du vill visa en Azure Resource Manager mall som skapar en diagnostisk inställning, se [diagnostisk inställning för Azure Storage](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
+Om du vill visa en Azure Resource Manager mall som skapar en diagnostisk inställning, se [diagnostisk inställning för Azure Storage](../../azure-monitor/samples/resource-manager-diagnostic-settings.md#diagnostic-setting-for-azure-storage).
 
 ---
 
@@ -257,7 +257,7 @@ För mått som stöder dimensioner kan du filtrera måttet med det önskade dime
 - Microsoft. Storage/storageAccounts
 - Microsoft. Storage/storageAccounts/fileServices
 
-För en lista över alla Azure Monitor-support-mått, som innehåller Azure Files, se [Azure Monitor mått som stöds](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsfileservices).
+För en lista över alla Azure Monitor-support-mått, som innehåller Azure Files, se [Azure Monitor mått som stöds](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsfileservices).
 
 ### <a name="accessing-metrics"></a>Åtkomst till mått
 
@@ -268,7 +268,7 @@ För en lista över alla Azure Monitor-support-mått, som innehåller Azure File
 
 #### <a name="list-the-metric-definition"></a>Lista mått definitionen
 
-Du kan visa mått definitionen för ditt lagrings konto eller tjänsten Azure Files. Använd cmdleten [Get-AzMetricDefinition](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetricdefinition) .
+Du kan visa mått definitionen för ditt lagrings konto eller tjänsten Azure Files. Använd cmdleten [Get-AzMetricDefinition](/powershell/module/az.monitor/get-azmetricdefinition) .
 
 I det här exemplet ersätter du `<resource-ID>` plats hållaren med resurs-ID för hela lagrings kontot eller resurs-ID: t för den Azure Files tjänsten.  Du hittar dessa resurs-ID: n på **egenskaps** sidorna för ditt lagrings konto i Azure Portal.
 
@@ -279,7 +279,7 @@ I det här exemplet ersätter du `<resource-ID>` plats hållaren med resurs-ID f
 
 #### <a name="reading-metric-values"></a>Läser mått värden
 
-Du kan läsa mått värden på konto nivå för ditt lagrings konto eller tjänsten Azure Files. Använd cmdleten [Get-AzMetric](https://docs.microsoft.com/powershell/module/Az.Monitor/Get-AzMetric) .
+Du kan läsa mått värden på konto nivå för ditt lagrings konto eller tjänsten Azure Files. Använd cmdleten [Get-AzMetric](/powershell/module/Az.Monitor/Get-AzMetric) .
 
 ```powershell
    $resourceId = "<resource-ID>"
@@ -290,7 +290,7 @@ Du kan läsa mått värden på konto nivå för ditt lagrings konto eller tjäns
 
 #### <a name="list-the-account-level-metric-definition"></a>Lista mått definitionen på konto nivå
 
-Du kan visa mått definitionen för ditt lagrings konto eller tjänsten Azure Files. Använd kommandot [AZ Monitor Metric List-definitions](https://docs.microsoft.com/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions) .
+Du kan visa mått definitionen för ditt lagrings konto eller tjänsten Azure Files. Använd kommandot [AZ Monitor Metric List-definitions](/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions) .
  
 I det här exemplet ersätter du `<resource-ID>` plats hållaren med resurs-ID för hela lagrings kontot eller resurs-ID: t för den Azure Files tjänsten. Du hittar dessa resurs-ID: n på **egenskaps** sidorna för ditt lagrings konto i Azure Portal.
 
@@ -300,7 +300,7 @@ I det här exemplet ersätter du `<resource-ID>` plats hållaren med resurs-ID f
 
 #### <a name="read-account-level-metric-values"></a>Läs mått värden på konto nivå
 
-Du kan läsa mått värden för ditt lagrings konto eller tjänsten Azure Files. Använd kommandot [AZ Monitor Metric List](https://docs.microsoft.com/cli/azure/monitor/metrics#az-monitor-metrics-list) .
+Du kan läsa mått värden för ditt lagrings konto eller tjänsten Azure Files. Använd kommandot [AZ Monitor Metric List](/cli/azure/monitor/metrics#az-monitor-metrics-list) .
 
 ```azurecli-interactive
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
@@ -312,7 +312,7 @@ Azure Monitor tillhandahåller [.NET SDK](https://www.nuget.org/packages/Microso
  
 I de här exemplen ersätter du `<resource-ID>` plats hållaren med resurs-ID för hela lagrings kontot eller tjänsten Azure Files. Du hittar dessa resurs-ID: n på **egenskaps** sidorna för ditt lagrings konto i Azure Portal.
 
-Ersätt `<subscription-ID>` variabeln med ID: t för din prenumeration. Anvisningar för hur du hämtar värden för `<tenant-ID>` , `<application-ID>` och `<AccessKey>` finns i [använda portalen för att skapa ett Azure AD-program och tjänstens huvud namn som kan komma åt resurser](https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/). 
+Ersätt `<subscription-ID>` variabeln med ID: t för din prenumeration. Anvisningar för hur du hämtar värden för `<tenant-ID>` , `<application-ID>` och `<AccessKey>` finns i [använda portalen för att skapa ett Azure AD-program och tjänstens huvud namn som kan komma åt resurser](../../active-directory/develop/howto-create-service-principal-portal.md). 
 
 #### <a name="list-the-account-level-metric-definition"></a>Lista mått definitionen på konto nivå
 
@@ -456,7 +456,7 @@ Ej tillämpligt.
 
 Du kan komma åt resurs loggar antingen som en BLOB i ett lagrings konto, som händelse data eller genom att logga analys frågor.
 
-Om du vill hämta en lista över SMB-och REST-åtgärder som loggas, se [lagrings loggade åtgärder och status meddelanden](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) och [Azure Files övervaknings data referens](storage-files-monitoring-reference.md).
+Om du vill hämta en lista över SMB-och REST-åtgärder som loggas, se [lagrings loggade åtgärder och status meddelanden](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) och [Azure Files övervaknings data referens](storage-files-monitoring-reference.md).
 
 > [!NOTE]
 > Azure Storage loggar i Azure Monitor finns i offentlig för hands version och är tillgänglig för för hands testning i alla offentliga moln regioner. För att registrera dig i för hands versionen, se [den här sidan](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u). Den här för hands versionen aktiverar loggar för blobbar (som innehåller Azure Data Lake Storage Gen2), filer, köer, tabeller, Premium Storage-konton i generell användning v1 och lagrings konton för generell användning v2. Klassiska lagrings konton stöds inte.
@@ -472,7 +472,7 @@ Logg poster skapas endast om det finns begär Anden som görs mot tjänst slut p
 - Begär Anden som använder en signatur för delad åtkomst (SAS) eller OAuth, inklusive misslyckade och lyckade förfrågningar
 - Begär Anden om analys av data (klassiska loggdata i **$logs** container-och klass mått data i **$Metric** tabeller)
 
-Begär Anden som görs av själva tjänsten Azure Files, till exempel när loggen skapas eller tas bort, loggas inte. En fullständig lista över SMB-och REST-begäranden som loggas finns i [lagrings loggade åtgärder och status meddelanden](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) och [Azure Files övervaknings data referens](storage-files-monitoring-reference.md).
+Begär Anden som görs av själva tjänsten Azure Files, till exempel när loggen skapas eller tas bort, loggas inte. En fullständig lista över SMB-och REST-begäranden som loggas finns i [lagrings loggade åtgärder och status meddelanden](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) och [Azure Files övervaknings data referens](storage-files-monitoring-reference.md).
 
 ### <a name="log-anonymous-requests"></a>Logga anonyma begär Anden
 
@@ -501,20 +501,20 @@ Loggar som skickas till en Event Hub lagras inte som en fil, men du kan kontrol 
 
 ![Granskningsloggar](media/storage-files-monitoring/event-hub-log.png)
 
-Du kan komma åt och läsa loggdata som skickas till händelsehubben med hjälp av säkerhets information och verktyg för händelse hantering och övervakning. Mer information finns i [vad kan jag göra med övervaknings data som skickas till min Event Hub?](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub).
+Du kan komma åt och läsa loggdata som skickas till händelsehubben med hjälp av säkerhets information och verktyg för händelse hantering och övervakning. Mer information finns i [vad kan jag göra med övervaknings data som skickas till min Event Hub?](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 ### <a name="accessing-logs-in-a-log-analytics-workspace"></a>Komma åt loggar i en Log Analytics-arbetsyta
 
 Du kan komma åt loggar som skickas till en Log Analytics arbets yta genom att använda Azure Monitor logg frågor. Data lagras i tabellen **StorageFileLogs** . 
 
-Mer information finns i [Kom igång med Log Analytics i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
+Mer information finns i [Log Analytics själv studie kurs](../../azure-monitor/log-query/log-analytics-tutorial.md).
 
 #### <a name="sample-kusto-queries"></a>Exempel på Kusto-frågor
 
-Här följer några frågor som du kan ange i **logg Sök** fältet för att hjälpa dig att övervaka din Azure Files. Dessa frågor fungerar med det [nya språket](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+Här följer några frågor som du kan ange i **logg Sök** fältet för att hjälpa dig att övervaka din Azure Files. Dessa frågor fungerar med det [nya språket](../../azure-monitor/log-query/log-query-overview.md).
 
 > [!IMPORTANT]
-> När du väljer **loggar** från menyn resurs grupp för lagrings konto öppnas Log Analytics med fråge omfånget som är inställt på den aktuella resurs gruppen. Det innebär att logg frågor bara innehåller data från den resurs gruppen. Om du vill köra en fråga som innehåller data från andra resurser eller data från andra Azure-tjänster väljer du **loggar** på **Azure Monitor** -menyn. Mer information finns i [logg frågans omfång och tidsintervall i Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) .
+> När du väljer **loggar** från menyn resurs grupp för lagrings konto öppnas Log Analytics med fråge omfånget som är inställt på den aktuella resurs gruppen. Det innebär att logg frågor bara innehåller data från den resurs gruppen. Om du vill köra en fråga som innehåller data från andra resurser eller data från andra Azure-tjänster väljer du **loggar** på **Azure Monitor** -menyn. Mer information finns i [logg frågans omfång och tidsintervall i Azure Monitor Log Analytics](../../azure-monitor/log-query/scope.md) .
 
 Använd dessa frågor för att övervaka dina Azure-filresurser:
 
@@ -553,13 +553,13 @@ StorageFileLogs
 | render piechart
 ```
 
-Om du vill visa en lista över kolumn namn och beskrivningar för Azure Files, se [StorageFileLogs](https://docs.microsoft.com/azure/azure-monitor/reference/tables/storagefilelogs).
+Om du vill visa en lista över kolumn namn och beskrivningar för Azure Files, se [StorageFileLogs](/azure/azure-monitor/reference/tables/storagefilelogs).
 
-Mer information om hur du skriver frågor finns i [Självstudier: kom igång med Log Analytics frågor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
+Mer information om hur du skriver frågor finns i [Log Analytics själv studie kursen](../../azure-monitor/log-query/log-analytics-tutorial.md).
 
 ## <a name="alerts"></a>Aviseringar
 
-Azure Monitor aviseringar proaktivt meddela dig när viktiga villkor finns i dina övervaknings data. De gör att du kan identifiera och åtgärda problem i systemet innan kunderna märker dem. Du kan ställa in aviseringar för [mått](/azure/azure-monitor/platform/alerts-metric-overview), [loggar](/azure/azure-monitor/platform/alerts-unified-log)och [aktivitets loggen](/azure/azure-monitor/platform/activity-log-alerts). 
+Azure Monitor aviseringar proaktivt meddela dig när viktiga villkor finns i dina övervaknings data. De gör att du kan identifiera och åtgärda problem i systemet innan kunderna märker dem. Du kan ställa in aviseringar för [mått](../../azure-monitor/platform/alerts-metric-overview.md), [loggar](../../azure-monitor/platform/alerts-unified-log.md)och [aktivitets loggen](../../azure-monitor/platform/activity-log-alerts.md). 
 
 I följande tabell visas några exempel scenarier som du kan använda för att övervaka och rätt mått för aviseringen:
 
@@ -664,7 +664,7 @@ I följande tabell visas några exempel scenarier som du kan använda för att �
 - [Azure Files övervaknings data referens](storage-files-monitoring-reference.md)
 - [Övervaka Azure-resurser med Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md)
 - [Migrering av Azure Storage mått](../common/storage-metrics-migration.md)
-- [Planera för en Azure Files-distribution](https://docs.microsoft.com/azure/storage/files/storage-files-planning)
-- [Så här distribuerar du Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-deployment-guide)
-- [Felsöka Azure Files på Windows](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems)
-- [Felsöka Azure Files på Linux](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-linux-file-connection-problems)
+- [Planera för en Azure Files-distribution](./storage-files-planning.md)
+- [Så här distribuerar du Azure Files](./storage-files-deployment-guide.md)
+- [Felsöka Azure Files på Windows](./storage-troubleshoot-windows-file-connection-problems.md)
+- [Felsöka Azure Files på Linux](./storage-troubleshoot-linux-file-connection-problems.md)

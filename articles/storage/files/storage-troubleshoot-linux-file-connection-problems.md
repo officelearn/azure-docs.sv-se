@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: da60d6a2146385e1dfd0717afb1172b378e52533
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19fe6be0487772524516172bd32e0562512c4e3c
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91716001"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630183"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux-smb"></a>Felsöka Azure Files problem i Linux (SMB)
 
@@ -61,14 +61,14 @@ Lös problemet genom att använda [fel söknings verktyget för Azure Files mont
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>Orsak 1: okrypterad kommunikations kanal
 
-Av säkerhetsskäl blockeras anslutningar till Azure-filresurser om kommunikationskanalen inte är krypterad och om anslutningsförsöket inte görs från samma datacenter där Azure-filresurserna finns. Okrypterade anslutningar inom samma datacenter kan också blockeras om inställningen [Säker överföring krävs ](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) är aktiverad på lagringskontot. En krypterad kommunikationskanal tillhandahålls endast om användarens klientoperativsystem stöder SMB-kryptering.
+Av säkerhetsskäl blockeras anslutningar till Azure-filresurser om kommunikationskanalen inte är krypterad och om anslutningsförsöket inte görs från samma datacenter där Azure-filresurserna finns. Okrypterade anslutningar inom samma datacenter kan också blockeras om inställningen [Säker överföring krävs ](../common/storage-require-secure-transfer.md) är aktiverad på lagringskontot. En krypterad kommunikationskanal tillhandahålls endast om användarens klientoperativsystem stöder SMB-kryptering.
 
 Mer information finns i [Krav för att montera en Azure-filresurs med Linux och paketet cifs-utils](storage-how-to-use-files-linux.md#prerequisites). 
 
 ### <a name="solution-for-cause-1"></a>Lösning för orsak 1
 
 1. Anslut från en klient som har stöd för SMB-kryptering eller Anslut från en virtuell dator i samma data Center som det Azure Storage-konto som används för Azure-filresursen.
-2. Kontrol lera att inställningen för [säker överföring](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) är inaktive rad på lagrings kontot om klienten inte stöder SMB-kryptering.
+2. Kontrol lera att inställningen för [säker överföring](../common/storage-require-secure-transfer.md) är inaktive rad på lagrings kontot om klienten inte stöder SMB-kryptering.
 
 ### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Orsak 2: virtuella nätverk eller brand Väggs regler är aktiverade på lagrings kontot 
 
@@ -76,7 +76,7 @@ Om virtuellt nätverk (VNET) och brandväggsregler har konfigurerats på lagring
 
 ### <a name="solution-for-cause-2"></a>Lösning för orsak 2
 
-Kontrollera att det virtuella nätverket och brandväggsreglerna har konfigurerats korrekt på lagringskontot. Om du vill testa om det virtuella nätverket eller brandväggsreglerna som orsakar problemet kan du tillfälligt ändra inställningen på lagringskontot för att **tillåta åtkomst från alla nätverk**. Mer information finns i [Konfigurera Azure Storage-brandväggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Kontrollera att det virtuella nätverket och brandväggsreglerna har konfigurerats korrekt på lagringskontot. Om du vill testa om det virtuella nätverket eller brandväggsreglerna som orsakar problemet kan du tillfälligt ändra inställningen på lagringskontot för att **tillåta åtkomst från alla nätverk**. Mer information finns i [Konfigurera Azure Storage-brandväggar och virtuella nätverk](../common/storage-network-security.md).
 
 <a id="permissiondenied"></a>
 ## <a name="permission-denied-disk-quota-exceeded-when-you-try-to-open-a-file"></a>Disk kvoten "[behörighet nekad] överskreds" när du försöker öppna en fil
@@ -95,19 +95,19 @@ Det finns en kvot på 2 000 öppna referenser på en enskild fil eller katalog. 
 
 Minska antalet samtidiga öppna referenser genom att stänga några referenser och försök sedan igen.
 
-Om du vill visa öppna referenser för en fil resurs, katalog eller fil använder du PowerShell-cmdleten [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) .  
+Om du vill visa öppna referenser för en fil resurs, katalog eller fil använder du PowerShell-cmdleten [Get-AzStorageFileHandle](/powershell/module/az.storage/get-azstoragefilehandle) .  
 
-Om du vill stänga öppna referenser för en fil resurs, katalog eller fil använder du PowerShell-cmdleten [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) .
+Om du vill stänga öppna referenser för en fil resurs, katalog eller fil använder du PowerShell-cmdleten [Close-AzStorageFileHandle](/powershell/module/az.storage/close-azstoragefilehandle) .
 
 > [!Note]  
-> De Get-AzStorageFileHandle-och Close-AzStorageFileHandle-cmdletarna ingår i AZ PowerShell-modul version 2,4 eller senare. Information om hur du installerar den senaste AZ PowerShell-modulen finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps).
+> De Get-AzStorageFileHandle-och Close-AzStorageFileHandle-cmdletarna ingår i AZ PowerShell-modul version 2,4 eller senare. Information om hur du installerar den senaste AZ PowerShell-modulen finns i [installera Azure PowerShell-modulen](/powershell/azure/install-az-ps).
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Långsam fil kopiering till och från Azure Files i Linux
 
 - Om du inte har en speciell minimi krav på I/O-storlek rekommenderar vi att du använder 1 MiB som I/O-storlek för bästa prestanda.
 - Använd rätt kopierings metod:
-    - Använd [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) för överföring mellan två fil resurser.
+    - Använd [AzCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) för överföring mellan två fil resurser.
     - Genom att använda CP eller DD med parallell kan du förbättra kopierings hastigheten, antalet trådar beror på ditt användnings fall och arbets belastning. I följande exempel används sex: 
     - CP-exempel (CP använder standard block storleken för fil systemet som segment storlek): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &` .
     - DD exempel (detta kommando anger explicit segment storlek till 1 MiB): `find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
@@ -144,13 +144,13 @@ Felkod: 403
 
 ### <a name="solution-for-cause-1"></a>Lösning för orsak 1
 
-Kontrollera att det virtuella nätverket och brandväggsreglerna har konfigurerats korrekt på lagringskontot. Om du vill testa om det virtuella nätverket eller brandväggsreglerna som orsakar problemet kan du tillfälligt ändra inställningen på lagringskontot för att **tillåta åtkomst från alla nätverk**. Mer information finns i [Konfigurera Azure Storage-brandväggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Kontrollera att det virtuella nätverket och brandväggsreglerna har konfigurerats korrekt på lagringskontot. Om du vill testa om det virtuella nätverket eller brandväggsreglerna som orsakar problemet kan du tillfälligt ändra inställningen på lagringskontot för att **tillåta åtkomst från alla nätverk**. Mer information finns i [Konfigurera Azure Storage-brandväggar och virtuella nätverk](../common/storage-network-security.md).
 
 ### <a name="cause-2-your-user-account-does-not-have-access-to-the-storage-account"></a>Orsak 2: ditt användar konto har inte åtkomst till lagrings kontot
 
 ### <a name="solution-for-cause-2"></a>Lösning för orsak 2
 
-Bläddra till det lagrings konto där Azure-filresursen finns, klicka på **åtkomst kontroll (IAM)** och kontrol lera att ditt användar konto har åtkomst till lagrings kontot. Mer information finns i [så här skyddar du ditt lagrings konto med rollbaserad åtkomst kontroll i Azure (Azure RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
+Bläddra till det lagrings konto där Azure-filresursen finns, klicka på **åtkomst kontroll (IAM)** och kontrol lera att ditt användar konto har åtkomst till lagrings kontot. Mer information finns i [så här skyddar du ditt lagrings konto med rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../blobs/security-recommendations.md#data-protection).
 
 <a id="open-handles"></a>
 ## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Det går inte att ta bort en fil eller katalog i en Azure-filresurs
@@ -162,12 +162,12 @@ Det här problemet uppstår vanligt vis om filen eller katalogen har en öppen r
 
 Om SMB-klienterna har stängt alla öppna referenser och problemet fortsätter att inträffa, gör du följande:
 
-- Använd PowerShell [-cmdleten Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) för att visa öppna referenser.
+- Använd PowerShell [-cmdleten Get-AzStorageFileHandle](/powershell/module/az.storage/get-azstoragefilehandle) för att visa öppna referenser.
 
-- Använd PowerShell [-cmdleten Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) för att stänga öppna referenser. 
+- Använd PowerShell [-cmdleten Close-AzStorageFileHandle](/powershell/module/az.storage/close-azstoragefilehandle) för att stänga öppna referenser. 
 
 > [!Note]  
-> De Get-AzStorageFileHandle-och Close-AzStorageFileHandle-cmdletarna ingår i AZ PowerShell-modul version 2,4 eller senare. Information om hur du installerar den senaste AZ PowerShell-modulen finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps).
+> De Get-AzStorageFileHandle-och Close-AzStorageFileHandle-cmdletarna ingår i AZ PowerShell-modul version 2,4 eller senare. Information om hur du installerar den senaste AZ PowerShell-modulen finns i [installera Azure PowerShell-modulen](/powershell/azure/install-az-ps).
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Dåliga prestanda för en Azure-filresurs monterad i en virtuell Linux-dator
@@ -192,11 +192,11 @@ Du kan också kontrol lera om rätt alternativ används genom att köra kommando
 //azureuser.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)
 ```
 
-Om alternativet **cache = Strict** eller **serverino** inte finns kan du demontera och montera Azure Files igen genom att köra monterings kommandot från [dokumentationen](../storage-how-to-use-files-linux.md). Kontrol lera sedan att posten **/etc/fstab** har rätt alternativ.
+Om alternativet **cache = Strict** eller **serverino** inte finns kan du demontera och montera Azure Files igen genom att köra monterings kommandot från [dokumentationen](./storage-how-to-use-files-linux.md). Kontrol lera sedan att posten **/etc/fstab** har rätt alternativ.
 
 ### <a name="cause-2-throttling"></a>Orsak 2: begränsning
 
-Det är möjligt att du drabbas av begränsning och att dina förfrågningar skickas till en kö. Du kan kontrol lera detta genom att dra nytta av [Azure Storage mått i Azure Monitor](../common/storage-metrics-in-azure-monitor.md).
+Det är möjligt att du drabbas av begränsning och att dina förfrågningar skickas till en kö. Du kan kontrol lera detta genom att dra nytta av [Azure Storage mått i Azure Monitor](../blobs/monitor-blob-storage.md).
 
 ### <a name="solution-for-cause-2"></a>Lösning för orsak 2
 
@@ -294,7 +294,7 @@ Om du inte kan uppgradera till de senaste kernel-versionerna kan du lösa proble
 ## <a name="cifs-vfs-error--22-on-ioctl-to-get-interface-list-when-you-mount-an-azure-file-share-by-using-smb-30"></a>"CIFS VFS: error-22 on IOCTL to get Interface List" när du monterar en Azure-filresurs med SMB 3,0
 
 ### <a name="cause"></a>Orsak
-Det här felet loggas eftersom Azure Files [för närvarande inte stöder SMB Multichannel](https://docs.microsoft.com/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
+Det här felet loggas eftersom Azure Files [för närvarande inte stöder SMB Multichannel](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
 
 ### <a name="solution"></a>Lösning
 Detta fel kan ignoreras.

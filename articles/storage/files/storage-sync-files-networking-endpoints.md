@@ -8,12 +8,12 @@ ms.date: 5/11/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 747d03b228d41066cfc834b4a9c044b16c767622
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 026f4f36986fa5fcfad4dac5186e9dc0b0997d72
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329371"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629418"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Konfigurera nätverksslutpunkter i Azure File Sync
 Azure Files och Azure File Sync ger två huvud typer av slut punkter för åtkomst till Azure-fil resurser: 
@@ -33,15 +33,15 @@ Den här artikeln förutsätter att:
 - Du har redan skapat en tjänst för synkronisering av lagring och registrerat din Windows-filserver med den. Information om hur du distribuerar Azure File Sync finns i [distribuera Azure File Sync](storage-sync-files-deployment-guide.md).
 
 Dessutom:
-- Om du tänker använda Azure PowerShell [installerar du den senaste versionen](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- Om du tänker använda Azure CLI [installerar du den senaste versionen](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Om du tänker använda Azure PowerShell [installerar du den senaste versionen](/powershell/azure/install-az-ps).
+- Om du tänker använda Azure CLI [installerar du den senaste versionen](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="create-the-private-endpoints"></a>Skapa de privata slut punkterna
 När du skapar en privat slut punkt för en Azure-resurs distribueras följande resurser:
 
-- **En privat slut punkt**: en Azure-resurs som representerar antingen den privata slut punkten för lagrings kontot eller tjänsten för synkronisering av lagring. Du kan tänka på detta som en resurs som ansluter din Azure-resurs och ett nätverks gränssnitt.
-- **Ett nätverks gränssnitt (NIC)**: det nätverks gränssnitt som upprätthåller en privat IP-adress inom det angivna virtuella nätverket/under nätet. Det här är exakt samma resurs som distribueras när du distribuerar en virtuell dator, men i stället för att tilldelas en virtuell dator, ägs den av den privata slut punkten.
-- **En privat DNS-zon**: om du aldrig har distribuerat en privat slut punkt för det här virtuella nätverket tidigare, kommer en ny privat DNS-zon att distribueras för det virtuella nätverket. En DNS A-post skapas också för Azure-resursen i den här DNS-zonen. Om du redan har distribuerat en privat slut punkt i det här virtuella nätverket läggs en ny A-post för Azure-resurs till i den befintliga DNS-zonen. Att distribuera en DNS-zon är valfritt, men rekommenderas för att förenkla DNS-hanteringen som krävs.
+- **En privat slut punkt** : en Azure-resurs som representerar antingen den privata slut punkten för lagrings kontot eller tjänsten för synkronisering av lagring. Du kan tänka på detta som en resurs som ansluter din Azure-resurs och ett nätverks gränssnitt.
+- **Ett nätverks gränssnitt (NIC)** : det nätverks gränssnitt som upprätthåller en privat IP-adress inom det angivna virtuella nätverket/under nätet. Det här är exakt samma resurs som distribueras när du distribuerar en virtuell dator, men i stället för att tilldelas en virtuell dator, ägs den av den privata slut punkten.
+- **En privat DNS-zon** : om du aldrig har distribuerat en privat slut punkt för det här virtuella nätverket tidigare, kommer en ny privat DNS-zon att distribueras för det virtuella nätverket. En DNS A-post skapas också för Azure-resursen i den här DNS-zonen. Om du redan har distribuerat en privat slut punkt i det här virtuella nätverket läggs en ny A-post för Azure-resurs till i den befintliga DNS-zonen. Att distribuera en DNS-zon är valfritt, men rekommenderas för att förenkla DNS-hanteringen som krävs.
 
 > [!Note]  
 > I den här artikeln används DNS-suffix för Azures offentliga regioner, `core.windows.net` för lagrings konton och `afs.azure.net` för tjänster för synkronisering av lagring. Den här kommentarer gäller också för Azures suveräna moln, till exempel Azures myndigheter för amerikanska myndigheter – du behöver bara ersätta lämpliga suffix för din miljö.
@@ -130,7 +130,7 @@ Address: 192.168.0.5
 > Du måste använda Azure File Sync agent version 10,1 eller senare för att kunna använda privata slut punkter i resursens synkroniseringstjänst för lagring. Agent versioner före 10,1 stöder inte privata slut punkter på tjänsten för synkronisering av lagring. Alla tidigare agent versioner stöder privata slut punkter på lagrings konto resursen.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-Navigera till det **privata länk centret** genom att skriva in en *privat länk* i sök fältet överst i Azure Portal. I innehålls förteckningen för det privata länk centret väljer du **privata slut punkter**och sedan **+ Lägg till** för att skapa en ny privat slut punkt.
+Navigera till det **privata länk centret** genom att skriva in en *privat länk* i sök fältet överst i Azure Portal. I innehålls förteckningen för det privata länk centret väljer du **privata slut punkter** och sedan **+ Lägg till** för att skapa en ny privat slut punkt.
 
 [![En skärm bild av det privata länk centret](media/storage-sync-files-networking-endpoints/create-storage-sync-private-endpoint-0.png)](media/storage-sync-files-networking-endpoints/create-storage-sync-private-endpoint-0.png#lightbox)
 
@@ -140,7 +140,7 @@ På bladet **grundläggande** väljer du önskad resurs grupp, namn och region f
 
 ![En skärm bild av grunderna i avsnittet Skapa privat slut punkt](media/storage-sync-files-networking-endpoints/create-storage-sync-private-endpoint-1.png)
 
-På **resurs** bladet väljer du alternativ knappen för **att ansluta till en Azure-resurs i min katalog**. Under **resurs typ**väljer du **Microsoft. StorageSync/storageSyncServices** för resurs typen. 
+På **resurs** bladet väljer du alternativ knappen för **att ansluta till en Azure-resurs i min katalog**. Under **resurs typ** väljer du **Microsoft. StorageSync/storageSyncServices** för resurs typen. 
 
 På bladet **konfiguration** kan du välja det angivna virtuella nätverk och undernät som du vill lägga till din privata slut punkt till. Välj samma virtuella nätverk som det du använde för lagrings kontot ovan. Konfigurations bladet innehåller också information om hur du skapar/uppdaterar den privata DNS-zonen.
 

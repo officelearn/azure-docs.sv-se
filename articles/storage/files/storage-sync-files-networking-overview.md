@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/03/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b291bd45b4003dd2241f40c810ed9d78af9f8bc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76d97e3312c1df51193d8a881f3ee07fcd155d75
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267796"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629367"
 ---
 # <a name="azure-file-sync-networking-considerations"></a>Azure File Sync nätverks överväganden
 Du kan ansluta till en Azure-filresurs på två sätt:
@@ -55,7 +55,7 @@ Azure File Sync kräver IP-adressintervall för följande tjänster, som identif
 | Azure Resource Manager | Azure Resource Manager är hanterings gränssnittet för Azure. Alla hanterings anrop, inklusive Azure File Sync Server registrering och pågående Sync Server-aktiviteter, görs via Azure Resource Manager. | `AzureResourceManager` |
 | Azure Active Directory | Azure Active Directory eller Azure AD innehåller de användar huvud konton som krävs för att auktorisera Server registrering mot en tjänst för synkronisering av lagring och de tjänst huvud namn som krävs för att Azure File Sync ska få åtkomst till dina moln resurser. | `AzureActiveDirectory` |
 
-Om du använder Azure File Sync i Azure, även om det är en annan region, kan du använda namnet på service tag gen direkt i nätverks säkerhets gruppen för att tillåta trafik till tjänsten. Mer information om hur du gör detta finns i [nätverks säkerhets grupper](../../virtual-network/security-overview.md). 
+Om du använder Azure File Sync i Azure, även om det är en annan region, kan du använda namnet på service tag gen direkt i nätverks säkerhets gruppen för att tillåta trafik till tjänsten. Mer information om hur du gör detta finns i [nätverks säkerhets grupper](../../virtual-network/network-security-groups-overview.md). 
 
 Om du använder Azure File Sync lokalt kan du använda API: et för service tag för att hämta vissa IP-adressintervall för brand väggens lista över tillåtna. Det finns två metoder för att hämta den här informationen:
 
@@ -65,9 +65,9 @@ Om du använder Azure File Sync lokalt kan du använda API: et för service tag 
     - [Azure Kina](https://www.microsoft.com/download/details.aspx?id=57062)
     - [Azure Tyskland](https://www.microsoft.com/download/details.aspx?id=57064)
 - API: et för identifiering av service tag (för hands version) möjliggör program mässig hämtning av den aktuella listan över service märken. I för hands versionen kan service tag Discovery API returnera information som är mindre aktuell än information som returneras från JSON-dokumenten som publicerats på Microsoft Download Center. Du kan använda API-ytan baserat på inställningarna för Automation:
-    - [REST-API](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
-    - [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag)
-    - [Azure CLI](https://docs.microsoft.com/cli/azure/network#az-network-list-service-tags)
+    - [REST-API](/rest/api/virtualnetwork/servicetags/list)
+    - [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
+    - [Azure CLI](/cli/azure/network#az-network-list-service-tags)
 
 Mer information om hur du använder service tag-API: et för att hämta adresserna för dina tjänster finns i [listan över tillåtna Azure File Sync IP-adresser](storage-sync-files-firewall-and-proxy.md#allow-list-for-azure-file-sync-ip-addresses).
 

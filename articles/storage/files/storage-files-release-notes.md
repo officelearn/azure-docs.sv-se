@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/5/2020
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: e60c23ce07969a2c1f031e1981970ceffad1864e
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 0b85bbbbd69338f54f9e698d9d47058f78c32057
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330282"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630081"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Viktig information om Azure File Sync-agenten
 Med Azure File Sync kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Dina Windows Server-installationer omvandlas till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS). Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -53,8 +53,8 @@ Följande viktig information gäller version 11.1.0.0 av Azure File Sync agent (
 
 ### <a name="improvements-and-issues-that-are-fixed"></a>Förbättringar och problem som åtgärdas
 - Nya alternativ för moln skiktning för att styra inledande hämtning och proaktiv återställning
-    - Inledande nedladdnings läge: nu kan du välja hur du vill att filerna ska laddas ned till din nya server slut punkt. Vill du att alla filer ska skiktas eller så många filer som möjligt hämtas till servern med den senast ändrade tidsstämpeln? Det kan du göra! Kan du inte använda moln nivåer? Du kan nu välja att undvika nivåbaserade filer på systemet. Mer information finns i avsnittet [skapa en server slut punkt](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal%2Cproactive-portal#create-a-server-endpoint) i Deploy Azure File Sync-dokumentationen.
-    - Proaktivt återställnings läge: när en fil skapas eller ändras kan du återkalla den proaktivt till servrar som du anger i samma Sync-grupp. Detta gör filen lätt att använda på varje server som du har angett. Har du flera team i hela världen som arbetar med samma data? Aktivera proaktivt återanrop så att alla filer som uppdateras av ett team i en annan tidszon hämtas och är redo att användas när teamet kommer till nästa morgon. Mer information finns i [proaktivt återkalla nya och ändrade filer från en Azure-filresurs](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal%2Cproactive-portal#proactively-recall-new-and-changed-files-from-an-azure-file-share) i Distribuera Azure File Sync-dokumentationen.
+    - Inledande nedladdnings läge: nu kan du välja hur du vill att filerna ska laddas ned till din nya server slut punkt. Vill du att alla filer ska skiktas eller så många filer som möjligt hämtas till servern med den senast ändrade tidsstämpeln? Det kan du göra! Kan du inte använda moln nivåer? Du kan nu välja att undvika nivåbaserade filer på systemet. Mer information finns i avsnittet [skapa en server slut punkt](./storage-sync-files-deployment-guide.md?tabs=azure-portal%252cproactive-portal#create-a-server-endpoint) i Deploy Azure File Sync-dokumentationen.
+    - Proaktivt återställnings läge: när en fil skapas eller ändras kan du återkalla den proaktivt till servrar som du anger i samma Sync-grupp. Detta gör filen lätt att använda på varje server som du har angett. Har du flera team i hela världen som arbetar med samma data? Aktivera proaktivt återanrop så att alla filer som uppdateras av ett team i en annan tidszon hämtas och är redo att användas när teamet kommer till nästa morgon. Mer information finns i [proaktivt återkalla nya och ändrade filer från en Azure-filresurs](./storage-sync-files-deployment-guide.md?tabs=azure-portal%252cproactive-portal#proactively-recall-new-and-changed-files-from-an-azure-file-share) i Distribuera Azure File Sync-dokumentationen.
 
 - Uteslut program från moln nivå senaste åtkomst tid spårning du kan nu utesluta program från senaste åtkomst tid spårningen. När ett program har åtkomst till en fil uppdateras den senaste åtkomst tiden för filen i moln skikts databasen. Program som genomsöker fil systemet, t. ex. anti-virus, gör att alla filer får samma senaste åtkomst tid som påverkar när filer skiktas.
 
@@ -74,7 +74,7 @@ Följande viktig information gäller version 11.1.0.0 av Azure File Sync agent (
     - Bättre återställnings prestanda vid åtkomst till en nivå fil.
 
 ### <a name="evaluation-tool"></a>Utvärderings verktyg
-Innan du distribuerar Azure File Sync bör du utvärdera om den är kompatibel med systemet med hjälp av verktyget för Azure File Sync utvärdering. Det här verktyget är en Azure PowerShell-cmdlet som kontrollerar eventuella problem med fil systemet och data uppsättningen, till exempel tecken som inte stöds eller en operativ system version som inte stöds. Anvisningar för installation och användning finns i avsnittet [utvärderings verktyg](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet) i planerings guiden. 
+Innan du distribuerar Azure File Sync bör du utvärdera om den är kompatibel med systemet med hjälp av verktyget för Azure File Sync utvärdering. Det här verktyget är en Azure PowerShell-cmdlet som kontrollerar eventuella problem med fil systemet och data uppsättningen, till exempel tecken som inte stöds eller en operativ system version som inte stöds. Anvisningar för installation och användning finns i avsnittet [utvärderings verktyg](./storage-sync-files-planning.md#evaluation-cmdlet) i planerings guiden. 
 
 ### <a name="agent-installation-and-server-configuration"></a>Agentinstallation och serverkonfiguration
 Mer information om hur du installerar och konfigurerar Azure File Sync-agenten med Windows Server finns i [Planera för en Azure File Sync distribution](storage-sync-files-planning.md) och [Distribuera Azure File Sync](storage-sync-files-deployment-guide.md).
@@ -82,7 +82,7 @@ Mer information om hur du installerar och konfigurerar Azure File Sync-agenten m
 - Agent installations paketet måste installeras med utökade behörigheter (admin).
 - Agenten stöds inte för distributions alternativet Nano Server.
 - Agenten stöds endast på Windows Server 2019, Windows Server 2016 och Windows Server 2012 R2.
-- Agenten kräver minst 2 GiB minne. Om servern körs på en virtuell dator med dynamiskt minne aktiverat, ska den virtuella datorn konfigureras med minst 2048 MiB för minne. Se [rekommenderade system resurser](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#recommended-system-resources) för mer information.
+- Agenten kräver minst 2 GiB minne. Om servern körs på en virtuell dator med dynamiskt minne aktiverat, ska den virtuella datorn konfigureras med minst 2048 MiB för minne. Se [rekommenderade system resurser](./storage-sync-files-planning.md#recommended-system-resources) för mer information.
 - Tjänsten Storage Sync agent (FileSyncSvc) stöder inte Server slut punkter som finns på en volym som har SVI-katalogen (System Volume information) komprimerad. Den här konfigurationen leder till oväntade resultat.
 
 ### <a name="interoperability"></a>Samverkan
@@ -115,8 +115,8 @@ Följande objekt synkroniseras inte, men resten av systemet fortsätter att fung
 - Server namnet i portalen uppdateras inte om servern byter namn.
 
 ### <a name="cloud-endpoint"></a>Moln slut punkt
-- Azure File Sync har stöd för att göra ändringar i Azure-filresursen direkt. Alla ändringar som görs på Azure-filresursen måste dock först identifieras av ett Azure File Sync ändrings identifierings jobb. Ett ändrings identifierings jobb initieras för en moln slut punkt var 24: e timme. Om du vill synkronisera filer som har ändrats i Azure-filresursen direkt kan du använda PowerShell-cmdleten [Invoke-AzStorageSyncChangeDetection](https://docs.microsoft.com/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) för att manuellt initiera identifieringen av ändringar i Azure-filresursen. Ändringar som görs i en Azure-filresurs via REST-protokollet kommer dessutom inte att uppdatera tidpunkten för senaste ändring av SMB och visas inte som en ändring genom synkronisering.
-- Tjänsten Storage Sync och/eller lagrings kontot kan flyttas till en annan resurs grupp, prenumeration eller Azure AD-klient. När lagrings tjänsten för synkronisering eller lagrings kontot har flyttats måste du ge Microsoft. StorageSync-programmet åtkomst till lagrings kontot (se [Se till att Azure File Sync har åtkomst till lagrings kontot](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
+- Azure File Sync har stöd för att göra ändringar i Azure-filresursen direkt. Alla ändringar som görs på Azure-filresursen måste dock först identifieras av ett Azure File Sync ändrings identifierings jobb. Ett ändrings identifierings jobb initieras för en moln slut punkt var 24: e timme. Om du vill synkronisera filer som har ändrats i Azure-filresursen direkt kan du använda PowerShell-cmdleten [Invoke-AzStorageSyncChangeDetection](/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) för att manuellt initiera identifieringen av ändringar i Azure-filresursen. Ändringar som görs i en Azure-filresurs via REST-protokollet kommer dessutom inte att uppdatera tidpunkten för senaste ändring av SMB och visas inte som en ändring genom synkronisering.
+- Tjänsten Storage Sync och/eller lagrings kontot kan flyttas till en annan resurs grupp, prenumeration eller Azure AD-klient. När lagrings tjänsten för synkronisering eller lagrings kontot har flyttats måste du ge Microsoft. StorageSync-programmet åtkomst till lagrings kontot (se [Se till att Azure File Sync har åtkomst till lagrings kontot](./storage-sync-files-troubleshoot.md?tabs=portal1%252cportal#troubleshoot-rbac)).
 
     > [!Note]  
     > När du skapar moln slut punkten måste Storage Sync-tjänsten och lagrings kontot finnas i samma Azure AD-klient. När moln slut punkten har skapats kan tjänsten Storage Sync och lagrings kontot flyttas till olika Azure AD-klienter.
@@ -131,7 +131,7 @@ Följande versions information gäller version 10.1.0.0 av den Azure File Sync a
 ### <a name="improvements-and-issues-that-are-fixed"></a>Förbättringar och problem som åtgärdas
 
 - Stöd för privata Azure-slutpunkter
-    - Synkronisering av trafik till tjänsten Storage Sync kan nu skickas till en privat slut punkt. Detta möjliggör tunnel trafik över en ExpressRoute eller VPN-anslutning. Mer information finns i [konfigurera Azure File Sync nätverks slut punkter](https://docs.microsoft.com/azure/storage/files/storage-sync-files-networking-endpoints).
+    - Synkronisering av trafik till tjänsten Storage Sync kan nu skickas till en privat slut punkt. Detta möjliggör tunnel trafik över en ExpressRoute eller VPN-anslutning. Mer information finns i [konfigurera Azure File Sync nätverks slut punkter](./storage-sync-files-networking-endpoints.md).
 - Mått för synkroniserade filer visar nu förloppet medan en stor synkronisering körs, i stället för i slutet.
 - Diverse Tillförlitlighets förbättringar för agent installation, moln nivåer, synkronisering och telemetri
 
@@ -166,11 +166,11 @@ Följande viktiga information gäller version 10.0.0.0 av Azure File Sync agent 
 - Diverse förbättringar av prestanda och tillförlitlighet
     - Ändrings identifieringen på Azure-filresursen kan Miss lyckas om det virtuella nätverket (VNET) och brand Väggs regler har kon figurer ATS på lagrings kontot.
     - Minskad minnes användning som är kopplad till återkallning. 
-    - Bättre prestanda när du använder cmdleten [Invoke-AzStorageSyncChangeDetection](https://docs.microsoft.com/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) .
+    - Bättre prestanda när du använder cmdleten [Invoke-AzStorageSyncChangeDetection](/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) .
     - Andra förbättringar av ökad tillförlitlighet. 
     
 ### <a name="evaluation-tool"></a>Utvärderings verktyg
-Innan du distribuerar Azure File Sync bör du utvärdera om den är kompatibel med systemet med hjälp av verktyget för Azure File Sync utvärdering. Det här verktyget är en Azure PowerShell-cmdlet som kontrollerar eventuella problem med fil systemet och data uppsättningen, till exempel tecken som inte stöds eller en operativ system version som inte stöds. Anvisningar för installation och användning finns i avsnittet [utvärderings verktyg](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet) i planerings guiden. 
+Innan du distribuerar Azure File Sync bör du utvärdera om den är kompatibel med systemet med hjälp av verktyget för Azure File Sync utvärdering. Det här verktyget är en Azure PowerShell-cmdlet som kontrollerar eventuella problem med fil systemet och data uppsättningen, till exempel tecken som inte stöds eller en operativ system version som inte stöds. Anvisningar för installation och användning finns i avsnittet [utvärderings verktyg](./storage-sync-files-planning.md#evaluation-cmdlet) i planerings guiden. 
 
 ### <a name="agent-installation-and-server-configuration"></a>Agentinstallation och serverkonfiguration
 Mer information om hur du installerar och konfigurerar Azure File Sync-agenten med Windows Server finns i [Planera för en Azure File Sync distribution](storage-sync-files-planning.md) och [Distribuera Azure File Sync](storage-sync-files-deployment-guide.md).
@@ -211,8 +211,8 @@ Följande objekt synkroniseras inte, men resten av systemet fortsätter att fung
 - Server namnet i portalen uppdateras inte om servern byter namn.
 
 ### <a name="cloud-endpoint"></a>Moln slut punkt
-- Azure File Sync har stöd för att göra ändringar i Azure-filresursen direkt. Alla ändringar som görs på Azure-filresursen måste dock först identifieras av ett Azure File Sync ändrings identifierings jobb. Ett ändrings identifierings jobb initieras för en moln slut punkt var 24: e timme. Om du vill synkronisera filer som har ändrats i Azure-filresursen direkt kan du använda PowerShell-cmdleten [Invoke-AzStorageSyncChangeDetection](https://docs.microsoft.com/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) för att manuellt initiera identifieringen av ändringar i Azure-filresursen. Ändringar som görs i en Azure-filresurs via REST-protokollet kommer dessutom inte att uppdatera tidpunkten för senaste ändring av SMB och visas inte som en ändring genom synkronisering.
-- Tjänsten Storage Sync och/eller lagrings kontot kan flyttas till en annan resurs grupp, prenumeration eller Azure AD-klient. När lagrings tjänsten för synkronisering eller lagrings kontot har flyttats måste du ge Microsoft. StorageSync-programmet åtkomst till lagrings kontot (se [Se till att Azure File Sync har åtkomst till lagrings kontot](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
+- Azure File Sync har stöd för att göra ändringar i Azure-filresursen direkt. Alla ändringar som görs på Azure-filresursen måste dock först identifieras av ett Azure File Sync ändrings identifierings jobb. Ett ändrings identifierings jobb initieras för en moln slut punkt var 24: e timme. Om du vill synkronisera filer som har ändrats i Azure-filresursen direkt kan du använda PowerShell-cmdleten [Invoke-AzStorageSyncChangeDetection](/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) för att manuellt initiera identifieringen av ändringar i Azure-filresursen. Ändringar som görs i en Azure-filresurs via REST-protokollet kommer dessutom inte att uppdatera tidpunkten för senaste ändring av SMB och visas inte som en ändring genom synkronisering.
+- Tjänsten Storage Sync och/eller lagrings kontot kan flyttas till en annan resurs grupp, prenumeration eller Azure AD-klient. När lagrings tjänsten för synkronisering eller lagrings kontot har flyttats måste du ge Microsoft. StorageSync-programmet åtkomst till lagrings kontot (se [Se till att Azure File Sync har åtkomst till lagrings kontot](./storage-sync-files-troubleshoot.md?tabs=portal1%252cportal#troubleshoot-rbac)).
 
     > [!Note]  
     > När du skapar moln slut punkten måste Storage Sync-tjänsten och lagrings kontot finnas i samma Azure AD-klient. När moln slut punkten har skapats kan tjänsten Storage Sync och lagrings kontot flyttas till olika Azure AD-klienter.
@@ -237,7 +237,7 @@ Följande viktig information gäller version 9.0.0.0 av Azure File Sync agent (l
 
 - Support för självbetjänings återställning
     - Användarna kan nu återställa sina filer med hjälp av funktionen för tidigare versioner. Innan v9-versionen stöds inte den tidigare versions funktionen på volymer där moln skiktning är aktiverat. Den här funktionen måste vara aktive rad för varje volym separat, på vilken en slut punkt med aktive rad moln nivå finns. Mer information finns i  
-[Återställning via självbetjäning genom tidigare versioner och VSS (tjänsten Volume Shadow Copy)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service). 
+[Återställning via självbetjäning genom tidigare versioner och VSS (tjänsten Volume Shadow Copy)](./storage-sync-files-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service). 
  
 - Stöd för större fil resurs storlekar 
     - Azure File Sync stöder nu upp till 64TiB-och 100 000 000-filer i ett enda, syncing-namnområde.  
@@ -257,7 +257,7 @@ Följande viktig information gäller version 9.0.0.0 av Azure File Sync agent (l
         Test-StorageSyncNetworkConnectivity
  
 - Ta bort Server slut punkts förbättring när moln skiktning är aktiverat 
-    - Som tidigare resulterar det inte i att ta bort filer i Azure-filresursen om du tar bort en server slut punkt. Beteendet för referens punkter på den lokala servern har dock ändrats. Referens punkter (pekare till filer som inte är lokala på servern) tas nu bort när du tar bort en server slut punkt. De fullständigt cachelagrade filerna är kvar på servern. Den här förbättringen gjordes för att förhindra [överblivna filer på nivån](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) när en server slut punkt togs bort. Om Server slut punkten återskapas, kommer referens punkterna för de nivåbaserade filerna att återskapas på servern.  
+    - Som tidigare resulterar det inte i att ta bort filer i Azure-filresursen om du tar bort en server slut punkt. Beteendet för referens punkter på den lokala servern har dock ändrats. Referens punkter (pekare till filer som inte är lokala på servern) tas nu bort när du tar bort en server slut punkt. De fullständigt cachelagrade filerna är kvar på servern. Den här förbättringen gjordes för att förhindra [överblivna filer på nivån](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) när en server slut punkt togs bort. Om Server slut punkten återskapas, kommer referens punkterna för de nivåbaserade filerna att återskapas på servern.  
  
 - Förbättringar av prestanda och tillförlitlighet 
     - Minskat återställnings problem. Åter kallelse storleken justeras nu automatiskt baserat på nätverks bandbredden. 
@@ -266,7 +266,7 @@ Följande viktig information gäller version 9.0.0.0 av Azure File Sync agent (l
     - Filerna går inte att flytta till nivån eller återkallas i vissa fall, om Server slut punkten är en volym monterings punkt.
     
 ### <a name="evaluation-tool"></a>Utvärderings verktyg
-Innan du distribuerar Azure File Sync bör du utvärdera om den är kompatibel med systemet med hjälp av verktyget för Azure File Sync utvärdering. Det här verktyget är en Azure PowerShell-cmdlet som kontrollerar eventuella problem med fil systemet och data uppsättningen, till exempel tecken som inte stöds eller en operativ system version som inte stöds. Anvisningar för installation och användning finns i avsnittet [utvärderings verktyg](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet) i planerings guiden. 
+Innan du distribuerar Azure File Sync bör du utvärdera om den är kompatibel med systemet med hjälp av verktyget för Azure File Sync utvärdering. Det här verktyget är en Azure PowerShell-cmdlet som kontrollerar eventuella problem med fil systemet och data uppsättningen, till exempel tecken som inte stöds eller en operativ system version som inte stöds. Anvisningar för installation och användning finns i avsnittet [utvärderings verktyg](./storage-sync-files-planning.md#evaluation-cmdlet) i planerings guiden. 
 
 ### <a name="agent-installation-and-server-configuration"></a>Agentinstallation och serverkonfiguration
 Mer information om hur du installerar och konfigurerar Azure File Sync-agenten med Windows Server finns i [Planera för en Azure File Sync distribution](storage-sync-files-planning.md) och [Distribuera Azure File Sync](storage-sync-files-deployment-guide.md).
@@ -301,7 +301,7 @@ Följande objekt synkroniseras inte, men resten av systemet fortsätter att fung
  
 ### <a name="server-endpoint"></a>Server slut punkt
 - En serverslutpunkt kan endast skapas på en NTFS-volym. ReFS, FAT, FAT32 och andra filsystem stöds inte av Azure File Sync för närvarande.
-- Nivåbaserade filer blir otillgängliga om filerna inte återkallas innan Server slut punkten tas bort. Återskapar Server slut punkten för att återställa åtkomsten till filerna. Om 30 dagar har passerat sedan Server slut punkten togs bort, eller om moln slut punkten togs bort, kommer filer som inte återkallats att bli oanvändbara. Mer information finns i [skiktade filer är inte tillgängliga på servern när du har tagit bort en server slut punkt](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint).
+- Nivåbaserade filer blir otillgängliga om filerna inte återkallas innan Server slut punkten tas bort. Återskapar Server slut punkten för att återställa åtkomsten till filerna. Om 30 dagar har passerat sedan Server slut punkten togs bort, eller om moln slut punkten togs bort, kommer filer som inte återkallats att bli oanvändbara. Mer information finns i [skiktade filer är inte tillgängliga på servern när du har tagit bort en server slut punkt](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint).
 - Molnnivåindelning stöds inte på systemvolymen. Om du vill skapa en serverslutpunkt på systemvolymen inaktiverar du molnnivåindelning när du skapar serverslutpunkten.
 - Redundansklustring stöds endast med klustrade diskar, inte med klusterdelade volymer (CSV).
 - Serverslutpunkter får inte vara kapslade. De får dock finnas på samma volym parallellt med varandra.
@@ -309,8 +309,8 @@ Följande objekt synkroniseras inte, men resten av systemet fortsätter att fung
 - Server namnet i portalen uppdateras inte om servern byter namn.
 
 ### <a name="cloud-endpoint"></a>Moln slut punkt
-- Azure File Sync har stöd för att göra ändringar i Azure-filresursen direkt. Alla ändringar som görs på Azure-filresursen måste dock först identifieras av ett Azure File Sync ändrings identifierings jobb. Ett ändrings identifierings jobb initieras för en moln slut punkt var 24: e timme. Om du vill synkronisera filer som har ändrats i Azure-filresursen direkt kan du använda PowerShell-cmdleten [Invoke-AzStorageSyncChangeDetection](https://docs.microsoft.com/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) för att manuellt initiera identifieringen av ändringar i Azure-filresursen. Ändringar som görs i en Azure-filresurs via REST-protokollet kommer dessutom inte att uppdatera tidpunkten för senaste ändring av SMB och visas inte som en ändring genom synkronisering.
-- Tjänsten för synkronisering av lagring och/eller lagrings kontot kan flyttas till en annan resurs grupp eller prenumeration i den befintliga Azure AD-klienten. Om lagrings kontot har flyttats måste du ge hybrid File Sync tjänst åtkomst till lagrings kontot (se [Se till att Azure File Sync har åtkomst till lagrings kontot](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
+- Azure File Sync har stöd för att göra ändringar i Azure-filresursen direkt. Alla ändringar som görs på Azure-filresursen måste dock först identifieras av ett Azure File Sync ändrings identifierings jobb. Ett ändrings identifierings jobb initieras för en moln slut punkt var 24: e timme. Om du vill synkronisera filer som har ändrats i Azure-filresursen direkt kan du använda PowerShell-cmdleten [Invoke-AzStorageSyncChangeDetection](/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) för att manuellt initiera identifieringen av ändringar i Azure-filresursen. Ändringar som görs i en Azure-filresurs via REST-protokollet kommer dessutom inte att uppdatera tidpunkten för senaste ändring av SMB och visas inte som en ändring genom synkronisering.
+- Tjänsten för synkronisering av lagring och/eller lagrings kontot kan flyttas till en annan resurs grupp eller prenumeration i den befintliga Azure AD-klienten. Om lagrings kontot har flyttats måste du ge hybrid File Sync tjänst åtkomst till lagrings kontot (se [Se till att Azure File Sync har åtkomst till lagrings kontot](./storage-sync-files-troubleshoot.md?tabs=portal1%252cportal#troubleshoot-rbac)).
 
     > [!Note]  
     > Azure File Sync har inte stöd för att flytta prenumerationen till en annan Azure AD-klient.
@@ -334,7 +334,7 @@ Följande viktig information gäller version 8.0.0.0 av Azure File Sync agent (l
 - Diverse förbättringar av prestanda och tillförlitlighet
 
 ### <a name="evaluation-tool"></a>Utvärderings verktyg
-Innan du distribuerar Azure File Sync bör du utvärdera om den är kompatibel med systemet med hjälp av verktyget för Azure File Sync utvärdering. Det här verktyget är en Azure PowerShell-cmdlet som kontrollerar eventuella problem med fil systemet och data uppsättningen, till exempel tecken som inte stöds eller en operativ system version som inte stöds. Anvisningar för installation och användning finns i avsnittet [utvärderings verktyg](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet) i planerings guiden. 
+Innan du distribuerar Azure File Sync bör du utvärdera om den är kompatibel med systemet med hjälp av verktyget för Azure File Sync utvärdering. Det här verktyget är en Azure PowerShell-cmdlet som kontrollerar eventuella problem med fil systemet och data uppsättningen, till exempel tecken som inte stöds eller en operativ system version som inte stöds. Anvisningar för installation och användning finns i avsnittet [utvärderings verktyg](./storage-sync-files-planning.md#evaluation-cmdlet) i planerings guiden. 
 
 ### <a name="agent-installation-and-server-configuration"></a>Agentinstallation och serverkonfiguration
 Mer information om hur du installerar och konfigurerar Azure File Sync-agenten med Windows Server finns i [Planera för en Azure File Sync distribution](storage-sync-files-planning.md) och [Distribuera Azure File Sync](storage-sync-files-deployment-guide.md).
@@ -369,7 +369,7 @@ Följande objekt synkroniseras inte, men resten av systemet fortsätter att fung
  
 ### <a name="server-endpoint"></a>Server slut punkt
 - En serverslutpunkt kan endast skapas på en NTFS-volym. ReFS, FAT, FAT32 och andra filsystem stöds inte av Azure File Sync för närvarande.
-- Nivåbaserade filer blir otillgängliga om filerna inte återkallas innan Server slut punkten tas bort. Återskapar Server slut punkten för att återställa åtkomsten till filerna. Om 30 dagar har passerat sedan Server slut punkten togs bort, eller om moln slut punkten togs bort, kommer filer som inte återkallats att bli oanvändbara. Mer information finns i [skiktade filer är inte tillgängliga på servern när du har tagit bort en server slut punkt](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint).
+- Nivåbaserade filer blir otillgängliga om filerna inte återkallas innan Server slut punkten tas bort. Återskapar Server slut punkten för att återställa åtkomsten till filerna. Om 30 dagar har passerat sedan Server slut punkten togs bort, eller om moln slut punkten togs bort, kommer filer som inte återkallats att bli oanvändbara. Mer information finns i [skiktade filer är inte tillgängliga på servern när du har tagit bort en server slut punkt](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint).
 - Molnnivåindelning stöds inte på systemvolymen. Om du vill skapa en serverslutpunkt på systemvolymen inaktiverar du molnnivåindelning när du skapar serverslutpunkten.
 - Redundansklustring stöds endast med klustrade diskar, inte med klusterdelade volymer (CSV).
 - Serverslutpunkter får inte vara kapslade. De får dock finnas på samma volym parallellt med varandra.
@@ -377,8 +377,8 @@ Följande objekt synkroniseras inte, men resten av systemet fortsätter att fung
 - Server namnet i portalen uppdateras inte om servern byter namn.
 
 ### <a name="cloud-endpoint"></a>Moln slut punkt
-- Azure File Sync har stöd för att göra ändringar i Azure-filresursen direkt. Alla ändringar som görs på Azure-filresursen måste dock först identifieras av ett Azure File Sync ändrings identifierings jobb. Ett ändrings identifierings jobb initieras för en moln slut punkt var 24: e timme. Om du vill synkronisera filer som har ändrats i Azure-filresursen direkt kan du använda PowerShell-cmdleten [Invoke-AzStorageSyncChangeDetection](https://docs.microsoft.com/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) för att manuellt initiera identifieringen av ändringar i Azure-filresursen. Ändringar som görs i en Azure-filresurs via REST-protokollet kommer dessutom inte att uppdatera tidpunkten för senaste ändring av SMB och visas inte som en ändring genom synkronisering.
-- Tjänsten för synkronisering av lagring och/eller lagrings kontot kan flyttas till en annan resurs grupp eller prenumeration i den befintliga Azure AD-klienten. Om lagrings kontot har flyttats måste du ge hybrid File Sync tjänst åtkomst till lagrings kontot (se [Se till att Azure File Sync har åtkomst till lagrings kontot](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
+- Azure File Sync har stöd för att göra ändringar i Azure-filresursen direkt. Alla ändringar som görs på Azure-filresursen måste dock först identifieras av ett Azure File Sync ändrings identifierings jobb. Ett ändrings identifierings jobb initieras för en moln slut punkt var 24: e timme. Om du vill synkronisera filer som har ändrats i Azure-filresursen direkt kan du använda PowerShell-cmdleten [Invoke-AzStorageSyncChangeDetection](/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) för att manuellt initiera identifieringen av ändringar i Azure-filresursen. Ändringar som görs i en Azure-filresurs via REST-protokollet kommer dessutom inte att uppdatera tidpunkten för senaste ändring av SMB och visas inte som en ändring genom synkronisering.
+- Tjänsten för synkronisering av lagring och/eller lagrings kontot kan flyttas till en annan resurs grupp eller prenumeration i den befintliga Azure AD-klienten. Om lagrings kontot har flyttats måste du ge hybrid File Sync tjänst åtkomst till lagrings kontot (se [Se till att Azure File Sync har åtkomst till lagrings kontot](./storage-sync-files-troubleshoot.md?tabs=portal1%252cportal#troubleshoot-rbac)).
 
     > [!Note]  
     > Azure File Sync har inte stöd för att flytta prenumerationen till en annan Azure AD-klient.

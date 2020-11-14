@@ -8,16 +8,16 @@ ms.date: 04/21/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: contperfq1, devx-track-azurecli
-ms.openlocfilehash: 906ec80ecc198675fdb5b163403267be1d13de00
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 5d900f105728efc6f58c4f9f7412cea157cbfe20
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746850"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630387"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Aktivera Azure Active Directory Domain Services autentisering på Azure Files
 
-[Azure Files](storage-files-introduction.md)   stöder identitets-baserad autentisering över Server Message Block (SMB) via två typer av domän tjänster: lokala Active Directory Domain Services (AD DS) och Azure Active Directory Domain Services (Azure AD DS). Vi rekommenderar starkt att du läser [avsnittet hur det fungerar](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview#how-it-works) för att välja rätt domän tjänst för autentisering. Installationen skiljer sig beroende på vilken domän tjänst du väljer. Den här artikeln fokuserar på att aktivera och konfigurera Azure AD DS för autentisering med Azure-filresurser.
+[Azure Files](storage-files-introduction.md)   stöder identitets-baserad autentisering över Server Message Block (SMB) via två typer av domän tjänster: lokala Active Directory Domain Services (AD DS) och Azure Active Directory Domain Services (Azure AD DS). Vi rekommenderar starkt att du läser [avsnittet hur det fungerar](./storage-files-active-directory-overview.md#how-it-works) för att välja rätt domän tjänst för autentisering. Installationen skiljer sig beroende på vilken domän tjänst du väljer. Den här artikeln fokuserar på att aktivera och konfigurera Azure AD DS för autentisering med Azure-filresurser.
 
 Om du är nybörjare på Azure-filresurser rekommenderar vi att du läser vår [planerings guide](storage-files-planning.md) innan du läser följande serie artiklar.
 
@@ -33,7 +33,7 @@ Innan du aktiverar Azure AD över SMB för Azure-filresurser måste du kontrol l
 
     Du kan använda en ny eller befintlig klient för Azure AD-autentisering över SMB. Klienten och den fil resurs som du vill komma åt måste vara associerad med samma prenumeration.
 
-    Om du vill skapa en ny Azure AD-klient kan du [lägga till en Azure AD-klient och en Azure AD-prenumeration](https://docs.microsoft.com/windows/client-management/mdm/add-an-azure-ad-tenant-and-azure-ad-subscription). Om du har en befintlig Azure AD-klient men vill skapa en ny klient för användning med Azure-filresurser, se [skapa en Azure Active Directory klient](https://docs.microsoft.com/rest/api/datacatalog/create-an-azure-active-directory-tenant).
+    Om du vill skapa en ny Azure AD-klient kan du [lägga till en Azure AD-klient och en Azure AD-prenumeration](/windows/client-management/mdm/add-an-azure-ad-tenant-and-azure-ad-subscription). Om du har en befintlig Azure AD-klient men vill skapa en ny klient för användning med Azure-filresurser, se [skapa en Azure Active Directory klient](/rest/api/datacatalog/create-an-azure-active-directory-tenant).
 
 1.  **Aktivera Azure AD Domain Services på Azure AD-klienten.**
 
@@ -87,9 +87,9 @@ Tänk på att du bara kan aktivera Azure AD DS-autentisering över SMB när du h
 Följ dessa steg om du vill aktivera Azure AD DS-autentisering över SMB med [Azure Portal](https://portal.azure.com):
 
 1. I Azure Portal går du till ditt befintliga lagrings konto eller så [skapar du ett lagrings konto](../common/storage-account-create.md).
-1. I avsnittet **Inställningar** väljer du **konfiguration** .
-1. Under **identitets-baserad åtkomst för fil resurser** växlar du över växlingen för **Azure Active Directory Domain Service (AAD DS)** till **aktive rad** .
-1. Välj **Spara** .
+1. I avsnittet **Inställningar** väljer du **konfiguration**.
+1. Under **identitets-baserad åtkomst för fil resurser** växlar du över växlingen för **Azure Active Directory Domain Service (AAD DS)** till **aktive rad**.
+1. Välj **Spara**.
 
 Följande bild visar hur du aktiverar Azure AD DS-autentisering över SMB för ditt lagrings konto.
 
@@ -97,9 +97,9 @@ Följande bild visar hur du aktiverar Azure AD DS-autentisering över SMB för d
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Om du vill aktivera Azure AD DS-autentisering över SMB med Azure PowerShell installerar du den senaste AZ-modulen (2,4 eller senare) eller modulen AZ. Storage (1,5 eller senare). Mer information om hur du installerar PowerShell finns i [installera Azure PowerShell på Windows med PowerShellGet](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+Om du vill aktivera Azure AD DS-autentisering över SMB med Azure PowerShell installerar du den senaste AZ-modulen (2,4 eller senare) eller modulen AZ. Storage (1,5 eller senare). Mer information om hur du installerar PowerShell finns i [installera Azure PowerShell på Windows med PowerShellGet](/powershell/azure/install-Az-ps).
 
-Om du vill skapa ett nytt lagrings konto anropar du [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/New-azStorageAccount?view=azps-2.5.0)och anger sedan parametern **EnableAzureActiveDirectoryDomainServicesForFile** till **True** . I följande exempel ska du komma ihåg att ersätta plats hållarnas värden med dina egna värden. (Om du använde föregående Preview-modul är parametern för att aktivera funktionen **EnableAzureFilesAadIntegrationForSMB** .)
+Om du vill skapa ett nytt lagrings konto anropar du [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount?view=azps-2.5.0)och anger sedan parametern **EnableAzureActiveDirectoryDomainServicesForFile** till **True**. I följande exempel ska du komma ihåg att ersätta plats hållarnas värden med dina egna värden. (Om du använde föregående Preview-modul är parametern för att aktivera funktionen **EnableAzureFilesAadIntegrationForSMB**.)
 
 ```powershell
 # Create a new storage account
@@ -123,9 +123,9 @@ Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Om du vill aktivera Azure AD-autentisering över SMB med Azure CLI installerar du den senaste CLI-versionen (version 2.0.70 eller senare). Mer information om hur du installerar Azure CLI finns i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Om du vill aktivera Azure AD-autentisering över SMB med Azure CLI installerar du den senaste CLI-versionen (version 2.0.70 eller senare). Mer information om hur du installerar Azure CLI finns i [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-Om du vill skapa ett nytt lagrings konto anropar du [AZ lagrings konto Create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)och anger `--enable-files-aadds` egenskapen till **True** . I följande exempel ska du komma ihåg att ersätta plats hållarnas värden med dina egna värden. (Om du använde den tidigare förhands granskningen är parametern för funktions aktivering **fil-AAD** .)
+Om du vill skapa ett nytt lagrings konto anropar du [AZ lagrings konto Create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)och anger `--enable-files-aadds` egenskapen till **True**. I följande exempel ska du komma ihåg att ersätta plats hållarnas värden med dina egna värden. (Om du använde den tidigare förhands granskningen är parametern för funktions aktivering **fil-AAD**.)
 
 ```azurecli-interactive
 # Create a new storage account

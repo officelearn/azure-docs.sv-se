@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 69fdfea6768a895db1f85df4c2936936a2ffd3f5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 95139c862b82a85dbf7f50aef021ad71c5c8210f
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675779"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629452"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Inställningar för Azure File Sync-proxy och brandväggar
 Azure File Sync ansluter dina lokala servrar till Azure Files, vilket möjliggör synkronisering av flera platser och moln nivåer. En lokal server måste därför vara ansluten till Internet. En IT-administratör måste bestämma den bästa sökvägen för att servern ska kunna komma åt Azure Cloud Services.
@@ -154,7 +154,7 @@ För affärs kontinuitet och haveri beredskap (BCDR) kan du ha angett Azure-filr
 ### <a name="allow-list-for-azure-file-sync-ip-addresses"></a>Lista över tillåtna Azure File Sync IP-adresser
 Azure File Sync stöder användningen av [service märken](../../virtual-network/service-tags-overview.md)som representerar en grupp IP-adressprefix för en specifik Azure-tjänst. Du kan använda service märken för att skapa brand Väggs regler som möjliggör kommunikation med tjänsten Azure File Sync. Tjänst tag gen för Azure File Sync är `StorageSyncService` .
 
-Om du använder Azure File Sync i Azure kan du använda namnet på service tag gen direkt i nätverks säkerhets gruppen för att tillåta trafik. Mer information om hur du gör detta finns i [nätverks säkerhets grupper](../../virtual-network/security-overview.md).
+Om du använder Azure File Sync i Azure kan du använda namnet på service tag gen direkt i nätverks säkerhets gruppen för att tillåta trafik. Mer information om hur du gör detta finns i [nätverks säkerhets grupper](../../virtual-network/network-security-groups-overview.md).
 
 Om du använder Azure File Sync lokalt kan du använda API: et för service tag för att hämta vissa IP-adressintervall för brand väggens lista över tillåtna. Det finns två metoder för att hämta den här informationen:
 
@@ -164,9 +164,9 @@ Om du använder Azure File Sync lokalt kan du använda API: et för service tag 
     - [Azure Kina](https://www.microsoft.com/download/details.aspx?id=57062)
     - [Azure Tyskland](https://www.microsoft.com/download/details.aspx?id=57064)
 - API: et för identifiering av service tag (för hands version) möjliggör program mässig hämtning av den aktuella listan över service märken. I för hands versionen kan service tag Discovery API returnera information som är mindre aktuell än information som returneras från JSON-dokumenten som publicerats på Microsoft Download Center. Du kan använda API-ytan baserat på inställningarna för Automation:
-    - [REST-API](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
-    - [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag)
-    - [Azure CLI](https://docs.microsoft.com/cli/azure/network#az-network-list-service-tags)
+    - [REST-API](/rest/api/virtualnetwork/servicetags/list)
+    - [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
+    - [Azure CLI](/cli/azure/network#az-network-list-service-tags)
 
 Eftersom API för service tag-identifiering inte uppdateras så ofta som JSON-dokument som publicerats till Microsoft Download Center, rekommenderar vi att du använder JSON-dokumentet för att uppdatera din lokala brand Väggs lista över tillåtna. Detta kan göras på följande sätt:
 

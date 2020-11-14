@@ -10,12 +10,12 @@ ms.service: storage
 ms.subservice: files
 services: storage
 tags: ''
-ms.openlocfilehash: 1c50f54491e0284005c4b762b0c4b35a8460f5ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d4f10745d90ccd83e7251af40d3e92a230f2fcd
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85511975"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629690"
 ---
 # <a name="azure-file-share--failed-to-delete-files-from-azure-file-share"></a>Azure-filresurs – det gick inte att ta bort filer från en Azure-filresurs
 
@@ -34,7 +34,7 @@ Det finns inte tillräckligt med kvot utrymme för att bearbeta det här kommand
 
 ## <a name="cause"></a>Orsak
 
-Fel 1816 uppstår när du når den övre gränsen för samtidiga öppna referenser som tillåts för en fil, på den dator där fil resursen monteras. Mer information finns i [Check lista för Azure Storage prestanda och skalbarhet](https://docs.microsoft.com/azure/storage/blobs/storage-performance-checklist).
+Fel 1816 uppstår när du når den övre gränsen för samtidiga öppna referenser som tillåts för en fil, på den dator där fil resursen monteras. Mer information finns i [Check lista för Azure Storage prestanda och skalbarhet](../blobs/storage-performance-checklist.md).
 
 ## <a name="resolution"></a>Lösning
 
@@ -44,7 +44,7 @@ Minska antalet samtidiga öppna referenser genom att stänga några referenser.
 
 ### <a name="install-the-latest-azure-powershell-module"></a>Installera den senaste Azure PowerShell modulen
 
-* [Installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps)
+* [Installera Azure PowerShell-modulen](/powershell/azure/install-az-ps)
 
 ### <a name="connect-to-azure"></a>Anslut till Azure:
 

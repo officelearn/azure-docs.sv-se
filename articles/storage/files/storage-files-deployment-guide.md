@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 08bcb41dd8d9f4643b03d855960d8632b778ff84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53111ccd634c516d0db10c0e2dd41768aba43f41
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88034506"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629248"
 ---
 # <a name="how-to-deploy-azure-files"></a>Så här distribuerar du Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade fil resurser i molnet som är tillgängliga via SMB-protokollet enligt bransch standard. I den här artikeln får du se hur du praktiskt taget distribuerar Azure Files i din organisation.
@@ -22,7 +22,7 @@ Vi rekommenderar starkt att du [planerar att läsa en Azure Files distribution](
 ## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln förutsätter att du redan har slutfört följande steg:
 
-- Skapade ett Azure Storage-konto med önskade återhämtnings-och krypterings alternativ i den region som du vill använda. Se [skapa ett lagrings konto](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) för steg-för-steg-instruktioner om hur du skapar ett lagrings konto.
+- Skapade ett Azure Storage-konto med önskade återhämtnings-och krypterings alternativ i den region som du vill använda. Se [skapa ett lagrings konto](../common/storage-account-create.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) för steg-för-steg-instruktioner om hur du skapar ett lagrings konto.
 - Skapade en Azure-filresurs med önskad kvot i ditt lagrings konto. Se [skapa en fil resurs](storage-how-to-create-file-share.md) för steg-för-steg-instruktioner om hur du skapar en fil resurs.
 
 ## <a name="transfer-data-into-azure-files"></a>Överför data till Azure Files
@@ -63,7 +63,7 @@ Följande steg kommer att importera data från en lokal plats till Azure-filresu
     "F:\shares\scratch\","MyAzureFileShare/",file,rename,"None",None
     ```
 
-    Du kan ange flera resurser med ett lagrings konto. Mer information finns i [förbereda CSV-filen för data mängden](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) .
+    Du kan ange flera resurser med ett lagrings konto. Mer information finns i [förbereda CSV-filen för data mängden](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) .
 
 5. Skapa CSV-filen driveset. Driveset CSV-filen listar de diskar som är tillgängliga för den lokala export agenten. Till exempel innehåller följande driveset CSV-fil listor `X:` , `Y:` och `Z:` enheter som ska användas i det lokala export jobbet:
 
@@ -74,7 +74,7 @@ Följande steg kommer att importera data från en lokal plats till Azure-filresu
     Z,Format,SilentMode,Encrypt,
     ```
     
-    Mer information finns i [förbereda CSV-filen för driveset](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) .
+    Mer information finns i [förbereda CSV-filen för driveset](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) .
 
 6. Använd [WAImportExport-verktyget](https://www.microsoft.com/download/details.aspx?id=55280) för att kopiera dina data till en eller flera hård diskar.
 
@@ -88,7 +88,7 @@ Följande steg kommer att importera data från en lokal plats till Azure-filresu
 7. [Skapa ett import jobb](../common/storage-import-export-data-to-files.md#step-2-create-an-import-job).
     
 ### <a name="robocopy"></a>Robocopy
-Robocopy är ett välkänt kopierings verktyg som levereras med Windows och Windows Server. Robocopy kan användas för att överföra data till Azure Files genom att montera fil resursen lokalt och sedan använda den monterade platsen som mål i Robocopy-kommandot. Det är ganska enkelt att använda Robocopy:
+Robocopy är ett välkänt kopieringsverktyg som levereras med Windows och Windows Server. Robocopy kan användas för att överföra data till Azure Files genom att montera fil resursen lokalt och sedan använda den monterade platsen som mål i Robocopy-kommandot. Det är ganska enkelt att använda Robocopy:
 
 1. [Montera Azure-filresursen](storage-how-to-use-files-windows.md). För optimala prestanda rekommenderar vi att du monterar Azure-filresursen lokalt på den server som innehåller data. I vissa fall, till exempel när den fil server som hanterar data är en NAS-enhet, är det inte säkert att det är möjligt. I så fall är det perfekt att montera Azure-filresursen på en dator. I det här exemplet `net use` används på kommando raden för att montera fil resursen:
 
@@ -102,12 +102,12 @@ Robocopy är ett välkänt kopierings verktyg som levereras med Windows och Wind
     robocopy <path-to-local-share> <path-to-azure-file-share> /E /Z /MT:32
     ```
     
-    Robocopy har ett stort antal alternativ för att ändra kopierings beteendet efter behov. Mer information finns på sidan med manuella [Robocopy](https://technet.microsoft.com/library/cc733145.aspx) .
+    Robocopy har ett stort antal alternativ för att ändra kopierings beteendet efter behov. Mer information finns på sidan med manuella [Robocopy](/windows-server/administration/windows-commands/robocopy) .
 
 ### <a name="azcopy"></a>AzCopy
 AzCopy är ett kommando rads verktyg som utformats för att kopiera data till och från Azure Files, samt Azure Blob Storage med hjälp av enkla kommandon med optimala prestanda. Det är enkelt att använda AzCopy:
 
-1. Ladda ned den [senaste versionen av AzCopy på Windows](https://aka.ms/downloadazcopy) eller [Linux](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux#download-and-install-azcopy).
+1. Ladda ned den [senaste versionen av AzCopy på Windows](https://aka.ms/downloadazcopy) eller [Linux](../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json#download-azcopy).
 2. Använd `azcopy` på kommando raden för att flytta data till Azure-filresursen. Syntaxen i Windows är följande: 
 
     ```
@@ -120,7 +120,7 @@ AzCopy är ett kommando rads verktyg som utformats för att kopiera data till oc
     azcopy --source <path-to-local-share> --destination https://<storage-account>.file.core.windows.net/<file-share>/ --dest-key <storage-account-key> --recursive
     ```
 
-    AzCopy har ett stort antal alternativ för att ändra kopierings beteendet efter behov. Mer information finns i [AzCopy på Windows](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) och [AzCopy i Linux](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+    AzCopy har ett stort antal alternativ för att ändra kopierings beteendet efter behov. Mer information finns i [Kom igång med AZCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).
 
 ## <a name="automatically-mount-on-needed-pcsservers"></a>Montera automatiskt på nödvändiga datorer/servrar
 För att ersätta en lokal fil resurs är det bra att Förmontera resurserna på de datorer som ska användas. Detta kan göras automatiskt på en lista med datorer.

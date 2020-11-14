@@ -5,16 +5,16 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 11/13/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
-ms.openlocfilehash: c809a1ae525fb7fab6dceebb3241e229e8a0284e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a30fe70943c5329b36cbe10b75d47cc0ee3827fc
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781846"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630421"
 ---
 # <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Planera och hantera kostnader för Azure Blob Storage
 
@@ -39,6 +39,9 @@ Använd [pris Kalkylatorn för Azure](https://azure.microsoft.com/pricing/calcul
    När du ändrar värdet i list rutan **typ** ändras även andra alternativ som visas i det här kalkyl bladet. Använd länkarna i avsnittet **Mer information** för att lära dig mer om vad varje alternativ innebär och hur dessa alternativ påverkar priset för lagrings-relaterade åtgärder. 
 
 4. Ändra de återstående alternativen för att se hur de påverkar beräkningen.
+
+   > [!NOTE]
+   > Du kan betala för Azure Blob Storage-avgifter med din Azure Enterprise-avtal-affärsmässiga kredit. Du kan dock inte använda kredit åtagande kredit för att betala för avgifter för produkter och tjänster från tredje part, inklusive de som finns på Azure Marketplace.
 
 ## <a name="optimize-costs"></a>Optimera kostnader
 
@@ -87,11 +90,11 @@ Så här visar du Azure Storage kostnader i kostnads analys:
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. Öppna fönstret **Cost Management + fakturering** , Välj **kostnads hantering** på menyn och välj sedan **kostnads analys** . Du kan sedan ändra omfånget för en speciell prenumeration från List rutan **omfattning** .
+2. Öppna fönstret **Cost Management + fakturering** , Välj **kostnads hantering** på menyn och välj sedan **kostnads analys**. Du kan sedan ändra omfånget för en speciell prenumeration från List rutan **omfattning** .
 
    ![Skärm bild som visar omfång](./media/storage-plan-manage-costs/cost-analysis-pane.png)
 
-4. Om du bara vill visa kostnader för Azure Storage väljer du **Lägg till filter** och väljer sedan **tjänst namn** . Välj sedan **Storage (lagring** ) i listan. 
+4. Om du bara vill visa kostnader för Azure Storage väljer du **Lägg till filter** och väljer sedan **tjänst namn**. Välj sedan **Storage (lagring** ) i listan. 
 
    Här är ett exempel som visar kostnader för just Azure Storage:
 
@@ -99,11 +102,15 @@ Så här visar du Azure Storage kostnader i kostnads analys:
 
 I föregående exempel visas den aktuella kostnaden för tjänsten. Kostnader per Azure-regioner (platser) och per resurs grupp visas också. Du kan även lägga till andra filter (till exempel: ett filter om du vill visa kostnader för vissa lagrings konton).
 
+## <a name="export-cost-data"></a>Exportera kostnadsdata
+
+Du kan också [Exportera dina kostnads data](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) till ett lagrings konto. Detta är användbart när du behöver eller andra för att utföra ytterligare data analyser för kostnader. Ett ekonomi team kan till exempel analysera data med hjälp av Excel eller Power BI. Du kan exportera dina kostnader enligt ett dags-, vecko-eller månads schema och ange ett anpassat datum intervall. Att exportera kostnads data är det rekommenderade sättet att hämta kostnads data uppsättningar.
+
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om att hantera kostnader med [kostnads analys](../../cost-management-billing/costs/quick-acm-cost-analysis.md).
-
-I följande artiklar finns mer information om hur prissättningen fungerar med Azure Storage:
-
-- [Priser för Azure Storage översikt](https://azure.microsoft.com/pricing/details/storage/)
-- [Optimera kostnader för blobblagring med reserverad kapacitet](../blobs/storage-blob-reserved-capacity.md)
+- Läs mer om hur prissättningen fungerar med Azure Storage. Se [Azure Storage översikts priser](https://azure.microsoft.com/pricing/details/storage/).
+- [Optimera kostnader för Blob Storage med reserverad kapacitet](../blobs/storage-blob-reserved-capacity.md).
+- Lär dig [hur du optimerar din moln investering med Azure Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/cost-mgt-best-practices?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+- Lär dig mer om att hantera kostnader med [kostnads analys](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+- Lär dig mer om att [förhindra oväntade kostnader](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+- Ta den [Cost Management](https://docs.microsoft.com/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guidade utbildningen.

@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: rogarana
-ms.openlocfilehash: 03b569422b6ce9e74f77637a514c1c0b28011bed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02b8d72ab88f9eca2e1fac4858c14826dae57dbe
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761149"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629180"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Del tre: Konfigurera behörigheter för kataloger och filnivå över SMB 
 
@@ -44,7 +44,7 @@ Följande tabell innehåller de Azure RBAC-behörigheter som är relaterade till
 
 ## <a name="supported-permissions"></a>Behörigheter som stöds
 
-Azure Files stöder en fullständig uppsättning grundläggande och avancerade Windows-ACL: er. Du kan visa och konfigurera Windows ACL: er på kataloger och filer i en Azure-filresurs genom att montera resursen och sedan använda Windows Utforskaren, köra kommandot Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) eller kommandot [set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-acl) . 
+Azure Files stöder en fullständig uppsättning grundläggande och avancerade Windows-ACL: er. Du kan visa och konfigurera Windows ACL: er på kataloger och filer i en Azure-filresurs genom att montera resursen och sedan använda Windows Utforskaren, köra kommandot Windows [icacls](/windows-server/administration/windows-commands/icacls) eller kommandot [set-ACL](/powershell/module/microsoft.powershell.security/set-acl) . 
 
 Om du vill konfigurera ACL: er med behörighet för superanvändare måste du montera resursen med hjälp av lagrings konto nyckeln från din domänanslutna VM. Följ anvisningarna i nästa avsnitt för att montera en Azure-filresurs från kommando tolken och konfigurera Windows ACL: er.
 
@@ -85,7 +85,7 @@ else
 
 ```
 
-Om du får problem med att ansluta till Azure Files kan du läsa [fel söknings verktyget som vi publicerade för Azure Files monterings fel i Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/). Vi ger också [vägledning](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) för att lösa scenarier när port 445 är blockerad. 
+Om du får problem med att ansluta till Azure Files kan du läsa [fel söknings verktyget som vi publicerade för Azure Files monterings fel i Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/). Vi ger också [vägledning](./storage-files-faq.md#on-premises-access) för att lösa scenarier när port 445 är blockerad. 
 
 ## <a name="configure-windows-acls"></a>Konfigurera Windows ACL: er
 
@@ -104,7 +104,7 @@ Använd Utforskaren i Windows för att ge fullständig behörighet till alla kat
 1. I fönstret prompt för att lägga till nya användare anger du det användar namn som du vill bevilja behörigheter i rutan **Ange de objekt namn som ska väljas** och väljer **kontrol lera namn** för att hitta det fullständiga UPN-namnet för mål användaren.
 1.    Välj **OK**.
 1.    På fliken **säkerhet** väljer du alla behörigheter som du vill ge den nya användaren.
-1.    Välj **Använd**.
+1.    Välj **Tillämpa**.
 
 ### <a name="configure-windows-acls-with-icacls"></a>Konfigurera Windows ACL: er med icacls
 
@@ -114,7 +114,7 @@ Använd följande Windows-kommando för att ge fullständig behörighet till all
 icacls <mounted-drive-letter>: /grant <user-email>:(f)
 ```
 
-Mer information om hur du använder icacls för att ange Windows ACL: er och de olika typerna av behörigheter som stöds finns i [kommando rads referens för icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
+Mer information om hur du använder icacls för att ange Windows ACL: er och de olika typerna av behörigheter som stöds finns i [kommando rads referens för icacls](/windows-server/administration/windows-commands/icacls).
 
 ## <a name="next-steps"></a>Nästa steg
 

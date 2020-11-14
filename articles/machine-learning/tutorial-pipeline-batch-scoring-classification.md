@@ -1,7 +1,7 @@
 ---
 title: 'Självstudie: ML pipelines för batch-Poäng'
 titleSuffix: Azure Machine Learning
-description: I den här självstudien skapar du en maskin inlärnings pipeline för att utföra en batch-bedömning i en bild klassificerings modell. Azure Machine Learning kan du fokusera på maskin inlärning i stället för infrastruktur och automatisering.
+description: I den här självstudien skapar du en maskin inlärnings pipeline för att utföra batch-poäng. Fokusera på Machine Learning i stället för infrastruktur och automatisering.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: laobri
 ms.reviewer: laobri
 ms.date: 10/13/2020
 ms.custom: contperfq4, devx-track-python
-ms.openlocfilehash: f7d1cffb44914535fe218980c750270ebba14445
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 8748d6e155eb84cf948966d768dda1a992207f7e
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309459"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629639"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Självstudie: Bygg en Azure Machine Learning pipeline för batch-Poäng
 

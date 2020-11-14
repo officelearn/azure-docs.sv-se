@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 128e4d0a421fc9ad4251f24f2cb37a217eeb1e31
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 046cca4e683a8f14893bf48ac8601b138a7c28a7
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322206"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630285"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 och 8600-migrering till Azure File Sync
 
@@ -45,7 +45,7 @@ Migreringar till Azure-filresurser från StorSimple-volymer via tjänst jobb fö
 
 Azure-filresurser öppnar en helt ny värld av möjligheter att strukturera distributionen av fil tjänster. En Azure-filresurs är bara en SMB-resurs i molnet som du kan konfigurera så att användarna får åtkomst direkt över SMB-protokollet med den välkända Kerberos-autentiseringen och befintliga NTFS-behörigheter (ACL: er för filer och mappar) som fungerar internt. Läs mer om [Identity-baserad åtkomst till Azure-filresurser](storage-files-active-directory-overview.md).
 
-Ett alternativ till direkt åtkomst är [Azure File Sync](https://aka.ms/AFS). Azure File Sync är en direkt analog för StorSimple-möjligheten att cachelagra filer som används ofta lokalt.
+Ett alternativ till direkt åtkomst är [Azure File Sync](./storage-sync-files-planning.md). Azure File Sync är en direkt analog för StorSimple-möjligheten att cachelagra filer som används ofta lokalt.
 
 Azure File Sync är en moln tjänst från Microsoft, baserat på två huvud komponenter:
 
@@ -56,7 +56,7 @@ Azure-filresurser behåller viktiga fil åter givningen på lagrade filer som at
 
 Den här artikeln fokuserar på stegen för migreringen. Om du vill veta mer om Azure File Sync innan du migrerar kan du läsa följande artiklar:
 
-* [Översikt över Azure File Sync](https://aka.ms/AFS "Översikt")
+* [Översikt över Azure File Sync](./storage-sync-files-planning.md "Översikt")
 * [Azure File Sync distributions guide](storage-sync-files-deployment-guide.md)
 
 ### <a name="storsimple-service-data-encryption-key"></a>Krypterings nyckel för tjänst data för StorSimple
@@ -141,7 +141,7 @@ Du kan använda samma prenumeration som du använde för din StorSimple-distribu
 
 Resurs grupper hjälper till med organisation av resurser och administrations hanterings behörigheter. Lär dig mer om [resurs grupper i Azure](../../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group).
 
-#### <a name="storage-account-name"></a>Lagringskontonamn
+#### <a name="storage-account-name"></a>Namn på lagringskonto
 
 Namnet på ditt lagrings konto kommer att bli en del av en URL och har vissa begränsningar. I namngivnings konventionen bör du tänka på att lagrings konto namn måste vara unika i världen, tillåta bara gemena bokstäver och siffror, kräva mellan 3 och 24 tecken och Tillåt inte specialtecken som bindestreck eller under streck. Mer information finns i [namngivnings regler för Azure Storage-resurser](../../azure-resource-manager/management/resource-name-rules.md#microsoftstorage).
 
@@ -385,7 +385,7 @@ Din registrerade lokala Windows Server-instans måste vara klar och ansluten til
 * [Så här konfigurerar du en Windows P2S VPN](storage-files-configure-p2s-vpn-windows.md)
 * [Så här konfigurerar du en Linux P2S VPN](storage-files-configure-p2s-vpn-linux.md)
 * [Så här konfigurerar du DNS-vidarebefordran](storage-files-networking-dns.md)
-* [Konfigurera DFS-N](https://aka.ms/AzureFiles/Namespaces)
+* [Konfigurera DFS-N](/windows-server/storage/dfs-namespaces/dfs-overview)
    :::column-end:::
 :::row-end:::
 
@@ -535,7 +535,7 @@ Om du använder Azure File Sync måste du förmodligen skapa SMB-resurserna på 
 
 Om du har en DFS-N-distribution kan du peka DFN-Namespaces till nya mappar för servermappar. Om du inte har en DFS-N-distribution, och du framförde din 8100-eller 8600-enhet lokalt med en Windows Server-instans, kan du ta bort servern från domänen. Sedan ansluter domänen till din nya Azure File Sync-aktiverade Windows Server-instans. Under den processen ger du servern samma server namn och resurs namn som den gamla servern så att stycknings listan förblir transparent för dina användare, en grup princip och dina skript.
 
-Läs mer om [DFS-N](https://aka.ms/AzureFiles/Namespaces).
+Läs mer om [DFS-N](/windows-server/storage/dfs-namespaces/dfs-overview).
 
 ## <a name="deprovision"></a>Avetablera
 
@@ -561,7 +561,7 @@ Migreringen är klar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Bekanta dig med [Azure File Sync: aka.MS/AFS](https://aka.ms/AFS).
+* Bekanta dig med [Azure File Sync: aka.MS/AFS](./storage-sync-files-planning.md).
 * Förstå flexibiliteten i principer för [moln nivåer](storage-sync-cloud-tiering.md) .
 * [Aktivera Azure Backup](../../backup/backup-afs.md#configure-backup-from-the-file-share-pane) på dina Azure-filresurser för att schemalägga ögonblicks bilder och definiera scheman för kvarhållning av säkerhets kopior.
 * Om du ser i Azure Portal att vissa filer inte synkroniseras permanent kan du läsa [fel söknings guiden](storage-sync-files-troubleshoot.md) för steg för att lösa problemen.

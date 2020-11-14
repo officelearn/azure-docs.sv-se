@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 21b407002adce01155b37321c068fb10d2c003f6
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 0196330df01f98e216c39bcc689eac2bde2f4cd9
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319788"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629350"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Utveckla för Azure Files med .NET
 
@@ -41,7 +41,7 @@ Azure Files tillhandahåller två breda metoder för klientprogram: Server Messa
 
 API | När du ska använda detta | Anteckningar
 ----|-------------|------
-[System.IO](https://docs.microsoft.com/dotnet/api/system.io) | Ditt program: <ul><li>Behöver läsa/skriva filer med hjälp av SMB</li><li>Körs på en enhet som har åtkomst via port 445 till ditt Azure Files-konto</li><li>Behöver inte hantera några av de administrativa inställningarna för filresursen</li></ul> | Fil-I/O som implementeras med Azure Files över SMB är vanligt vis samma som I/O med nätverks fil resurs eller lokal lagrings enhet. En introduktion till ett antal funktioner i .NET, inklusive fil-I/O, finns i självstudier för [konsol programmet](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter) .
+[System.IO](/dotnet/api/system.io) | Ditt program: <ul><li>Behöver läsa/skriva filer med hjälp av SMB</li><li>Körs på en enhet som har åtkomst via port 445 till ditt Azure Files-konto</li><li>Behöver inte hantera några av de administrativa inställningarna för filresursen</li></ul> | Fil-I/O som implementeras med Azure Files över SMB är vanligt vis samma som I/O med nätverks fil resurs eller lokal lagrings enhet. En introduktion till ett antal funktioner i .NET, inklusive fil-I/O, finns i självstudier för [konsol programmet](/dotnet/csharp/tutorials/console-teleprompter) .
 [Azure. Storage. files. reshares](/dotnet/api/azure.storage.files.shares) | Ditt program: <ul><li>Det går inte att komma åt Azure Files med SMB på port 445 på grund av brand Väggs-eller Internet leverantörs begränsningar</li><li>Kräver administrativa funktioner, som möjligheten att ställa in en filresurs kvot eller skapa en signatur för delad åtkomst</li></ul> | Den här artikeln visar användningen av `Azure.Storage.Files.Shares` för fil-I/O med rest i stället för SMB och hantering av fil resursen.
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>Skapa konsolprogrammet och hämta monteringen
@@ -51,8 +51,8 @@ Du kan använda Azure Files klient biblioteket i alla typer av .NET-appar. De h�
 Skapa ett nytt Windows-konsolprogram i Visual Studio. Följande steg visar hur du skapar ett konsol program i Visual Studio 2019. Stegen är ungefär som i andra versioner av Visual Studio.
 
 1. Starta Visual Studio och välj **skapa ett nytt projekt**.
-1. I **skapa ett nytt projekt**väljer du **konsol program (.NET Framework)** för C# och väljer sedan **Nästa**.
-1. I **Konfigurera ditt nya projekt**anger du ett namn för appen och väljer **skapa**.
+1. I **skapa ett nytt projekt** väljer du **konsol program (.NET Framework)** för C# och väljer sedan **Nästa**.
+1. I **Konfigurera ditt nya projekt** anger du ett namn för appen och väljer **skapa**.
 
 Lägg till alla kod exempel i den här artikeln till- `Program` klassen i *program.cs* -filen.
 
@@ -67,10 +67,10 @@ Referera till dessa paket i projektet:
 - [Azure Storage-klient bibliotek för .net](https://www.nuget.org/packages/Azure.Storage.Files.Shares/): det här paketet ger programmatisk åtkomst till fil resurser i ditt lagrings konto.
 - [System Configuration Manager bibliotek för .net](https://www.nuget.org/packages/System.Configuration.ConfigurationManager/): det här paketet innehåller en klass som lagrar och hämtar värden i en konfigurations fil.
 
-Du kan använda NuGet för att hämta paketen. Följ de här stegen:
+Du kan använda NuGet för att hämta paketen. Gör så här:
 
-1. I **Solution Explorer**högerklickar du på projektet och väljer **Hantera NuGet-paket**.
-1. I **NuGet Package Manager**väljer du **Bläddra**. Sök sedan efter och välj **Azure. Core**och välj sedan **Installera**.
+1. I **Solution Explorer** högerklickar du på projektet och väljer **Hantera NuGet-paket**.
+1. I **NuGet Package Manager** väljer du **Bläddra**. Sök sedan efter och välj **Azure. Core** och välj sedan **Installera**.
 
    Det här steget installerar paketet och dess beroenden.
 
@@ -87,10 +87,10 @@ Du kan använda NuGet för att hämta paketen. Följ de här stegen:
 - [Microsoft Azure Storage fil bibliotek för .net](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/): det här paketet ger programmatisk åtkomst till fil resurser i ditt lagrings konto.
 - [Microsoft Azure Configuration Manager bibliotek för .net](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): det här paketet innehåller en klass för parsning av en anslutnings sträng i en konfigurations fil, oavsett var ditt program körs.
 
-Du kan använda NuGet för att hämta paketen. Följ de här stegen:
+Du kan använda NuGet för att hämta paketen. Gör så här:
 
-1. I **Solution Explorer**högerklickar du på projektet och väljer **Hantera NuGet-paket**.
-1. I **NuGet Package Manager**väljer du **Bläddra**. Sök sedan efter och välj **Microsoft. Azure. Storage. blob**och välj sedan **Installera**.
+1. I **Solution Explorer** högerklickar du på projektet och väljer **Hantera NuGet-paket**.
+1. I **NuGet Package Manager** väljer du **Bläddra**. Sök sedan efter och välj **Microsoft. Azure. Storage. blob** och välj sedan **Installera**.
 
    Det här steget installerar paketet och dess beroenden.
 1. Sök efter och installera dessa paket:
@@ -103,7 +103,7 @@ Du kan använda NuGet för att hämta paketen. Följ de här stegen:
 
 ## <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>Spara autentiseringsuppgifterna för ditt lagrings konto i App.config-filen
 
-Spara sedan dina autentiseringsuppgifter i projektets *App.config* -fil. I **Solution Explorer**dubbelklickar du på `App.config` och redigerar filen så att den liknar följande exempel.
+Spara sedan dina autentiseringsuppgifter i projektets *App.config* -fil. I **Solution Explorer** dubbelklickar du på `App.config` och redigerar filen så att den liknar följande exempel.
 
 # <a name="net-v12"></a>[\.NET-V12](#tab/dotnet)
 
@@ -135,7 +135,7 @@ Ersätt `myaccount` med ditt lagrings konto namn och `StorageAccountKeyEndingIn=
 
 ## <a name="add-using-directives"></a>Lägga till med hjälp av direktiv
 
-Öppna filen *program.cs* i **Solution Explorer**och Lägg till följande med hjälp av direktiv överst i filen.
+Öppna filen *program.cs* i **Solution Explorer** och Lägg till följande med hjälp av direktiv överst i filen.
 
 # <a name="net-v12"></a>[\.NET-V12](#tab/dotnet)
 
@@ -316,7 +316,7 @@ Mer information om hur du skapar och använder signaturer för delad åtkomst fi
 
 Från och med version 5. x av Azure Files klient biblioteket kan du kopiera en fil till en annan fil, en fil till en BLOB eller en blob till en fil.
 
-Du kan också använda AzCopy för att kopiera en fil till en annan eller kopiera en blob till en fil eller till ett annat sätt runt. Se [Kom igång med AZCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+Du kan också använda AzCopy för att kopiera en fil till en annan eller kopiera en blob till en fil eller till ett annat sätt runt. Se [Kom igång med AZCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).
 
 > [!NOTE]
 > Om du kopierar en blobb till en fil eller en fil till en blobb måste du använda en signatur för delad åtkomst (SAS) för att auktorisera åtkomst till källobjektet, även om du kopierar inom samma lagringskonto.
@@ -624,8 +624,8 @@ Mer information om Azure Files finns i följande resurser:
 
 ### <a name="tooling-support-for-file-storage"></a>Verktygsstöd för File Storage
 
-- [Kom igång med AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
-- [Felsöka Azure Files-problem i Windows](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
+- [Kom igång med AzCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json)
+- [Felsöka Azure Files-problem i Windows](./storage-troubleshoot-windows-file-connection-problems.md)
 
 ### <a name="reference"></a>Referens
 

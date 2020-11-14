@@ -6,18 +6,18 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 10/30/2020
+ms.date: 11/13/2020
 ms.author: jasteppe
-ms.openlocfilehash: 5a57b13cdb8c7c1144815543e03b970de32b4369
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 14fd5378f37ebfc20b2d7084c08f15ea8f7a00b2
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394262"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630540"
 ---
 # <a name="export-azure-iot-connector-for-fhir-preview-metrics-through-diagnostic-settings"></a>Exportera Azure IoT-anslutningsprogram för FHIR-mått (förhandsversion) via diagnostikinställningar
 
-I den här artikeln får du lära dig hur du exporterar Azure IoT Connector för FHIR * Metrics-loggar. Funktionen som aktiverar mått loggning är [**diagnostikinställningar**](../azure-monitor/platform/diagnostic-settings.md) i Azure Portal. 
+I den här artikeln får du lära dig hur du exporterar Azure IoT Connector för snabba hälso-och sjukvårds resurser (FHIR&#174;) * mått loggar. Funktionen som aktiverar mått loggning är [**diagnostikinställningar**](../azure-monitor/platform/diagnostic-settings.md) i Azure Portal. 
 
 > [!TIP]
 > Följ anvisningarna i [Aktivera diagnostisk loggning i Azure API för FHIR och Azure IoT Connector för FHIR](enable-diagnostic-logging.md#enable-diagnostic-logging-in-azure-api-for-fhir) för att konfigurera gransknings loggning.
@@ -60,6 +60,4 @@ Ta en titt på vanliga frågor om Azure IoT Connector för FHIR.
 >[!div class="nextstepaction"]
 >[Vanliga frågor och svar om Azure IoT Connector för FHIR](fhir-faq.md)
 
-* I Azure Portal kallas Azure IoT Connector för FHIR IoT Connector (för hands version).
-
-FHIR är ett registrerat varumärke som tillhör HL7 och används med tillåtelse av HL7.
+* I Azure Portal kallas Azure IoT Connector för FHIR IoT Connector (för hands version). FHIR är ett registrerat varumärke som tillhör HL7 och används med behörigheten för HL7.

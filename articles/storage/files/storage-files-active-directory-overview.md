@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: 48e9fc4c1efa3517f5de46b7198c868a22331c79
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 93dd73b5a9149474be771537f47b448c5c4d7d8f
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486397"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629333"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Översikt över Azure Files Identity-baserade autentiseringsalternativ för SMB-åtkomst
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -26,11 +26,11 @@ Det är bra att förstå vissa viktiga villkor som rör Azure AD Domain Service-
 
 -   **Kerberos-autentisering**
 
-    Kerberos är ett autentiseringsprotokoll som används för att verifiera en användares eller värds identitet. Mer information om Kerberos finns i [Översikt över Kerberos-autentisering](https://docs.microsoft.com/windows-server/security/kerberos/kerberos-authentication-overview).
+    Kerberos är ett autentiseringsprotokoll som används för att verifiera en användares eller värds identitet. Mer information om Kerberos finns i [Översikt över Kerberos-autentisering](/windows-server/security/kerberos/kerberos-authentication-overview).
 
 -  **SMB-protokoll (Server Message Block)**
 
-    SMB är ett standardiserat nätverks fil delnings protokoll. SMB kallas även common Internet File System eller CIFS. Mer information om SMB finns i [Översikt över Microsoft SMB-protokoll och CIFS-protokoll](https://docs.microsoft.com/windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview).
+    SMB är ett standardiserat nätverks fil delnings protokoll. SMB kallas även common Internet File System eller CIFS. Mer information om SMB finns i [Översikt över Microsoft SMB-protokoll och CIFS-protokoll](/windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview).
 
 -   **Azure Active Directory (Azure AD)**
 
@@ -42,7 +42,7 @@ Det är bra att förstå vissa viktiga villkor som rör Azure AD Domain Service-
 
 - **Lokala Active Directory Domain Services (AD DS)**
 
-    Den lokala Active Directory Domain Services (AD DS)-integration med Azure Files innehåller metoder för att lagra katalog data och göra dem tillgängliga för nätverks användare och administratörer. Säkerheten är integrerad med AD DS via inloggningsautentisering och åtkomst kontroll till objekt i katalogen. Med en enda nätverks inloggning kan administratörer hantera katalog data och organisationer över hela nätverket och auktoriserade nätverks användare kan komma åt resurser var som helst i nätverket. AD DS antas ofta av företag i lokala miljöer och AD DS-autentiseringsuppgifter används som identitet för åtkomst kontroll. Mer information finns i [Active Directory Domain Services översikt](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
+    Den lokala Active Directory Domain Services (AD DS)-integration med Azure Files innehåller metoder för att lagra katalog data och göra dem tillgängliga för nätverks användare och administratörer. Säkerheten är integrerad med AD DS via inloggningsautentisering och åtkomst kontroll till objekt i katalogen. Med en enda nätverks inloggning kan administratörer hantera katalog data och organisationer över hela nätverket och auktoriserade nätverks användare kan komma åt resurser var som helst i nätverket. AD DS antas ofta av företag i lokala miljöer och AD DS-autentiseringsuppgifter används som identitet för åtkomst kontroll. Mer information finns i [Active Directory Domain Services översikt](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
 
 -   **Azure RBAC (rollbaserad åtkomstkontroll)**
 
@@ -116,7 +116,7 @@ Följande diagram visar arbets flödet för Azure AD DS-autentisering till Azure
 
 - För det andra kan alla användare som finns i Azure AD autentiseras och auktoriseras. Användaren kan endast vara moln eller hybrid. Synkroniseringen från Azure AD till Azure AD DS hanteras av plattformen utan att det krävs någon användar konfiguration. Klienten måste dock vara domänansluten till Azure AD DS, den kan inte vara Azure AD-ansluten eller registrerad. 
 
-:::image type="content" source="media/storage-files-active-directory-overview/Files-Azure-AD-DS-Diagram.png" alt-text="Diagram som visar lokal AD DS-autentisering till Azure-filresurser över SMB.":::
+:::image type="content" source="media/storage-files-active-directory-overview/Files-Azure-AD-DS-Diagram.png" alt-text="Venndiagram":::
 
 ### <a name="enable-identity-based-authentication"></a>Aktivera identitets baserad autentisering
 
@@ -128,7 +128,7 @@ När antingen Azure AD DS eller lokal AD DS-autentisering har Aktiver ATS kan du
 
 ### <a name="configure-directory-or-file-level-permissions-for-azure-files"></a>Konfigurera katalog-eller fil nivå behörigheter för Azure Files
 
-Azure-filresurser tillämpar standard behörigheter för Windows-filer både på katalog-och filnivå, inklusive rot katalogen. Konfiguration av katalog-eller fil nivå behörigheter stöds över både SMB och REST. Montera mål fil resursen från den virtuella datorn och konfigurera behörigheter med Windows Utforskaren, Windows- [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls)eller kommandot [set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl?view=powershell-6) .
+Azure-filresurser tillämpar standard behörigheter för Windows-filer både på katalog-och filnivå, inklusive rot katalogen. Konfiguration av katalog-eller fil nivå behörigheter stöds över både SMB och REST. Montera mål fil resursen från den virtuella datorn och konfigurera behörigheter med Windows Utforskaren, Windows- [icacls](/windows-server/administration/windows-commands/icacls)eller kommandot [set-ACL](/powershell/module/microsoft.powershell.security/get-acl?view=powershell-6) .
 
 ### <a name="use-the-storage-account-key-for-superuser-permissions"></a>Använd lagrings konto nyckeln för behörigheter för superanvändare
 
@@ -139,7 +139,7 @@ En användare med lagrings konto nyckeln kan komma åt Azure-filresurser med beh
 
 ### <a name="preserve-directory-and-file-acls-when-importing-data-to-azure-file-shares"></a>Bevara katalog-och fil åtkomst kontrol listor när du importerar data till Azure-filresurser
 
-Azure Files stöder bevarande av katalog-eller filnivå-ACL: er vid kopiering av data till Azure-filresurser. Du kan kopiera ACL: er på en katalog eller fil till Azure-filresurser med hjälp av antingen Azure File Sync eller vanliga verktyg för fil rörelse. Du kan till exempel använda [Robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) med `/copy:s` flaggan för att kopiera data samt ACL: er till en Azure-filresurs. ACL: er bevaras som standard, du behöver inte aktivera Identity-baserad autentisering på ditt lagrings konto för att bevara ACL: er.
+Azure Files stöder bevarande av katalog-eller filnivå-ACL: er vid kopiering av data till Azure-filresurser. Du kan kopiera ACL: er på en katalog eller fil till Azure-filresurser med hjälp av antingen Azure File Sync eller vanliga verktyg för fil rörelse. Du kan till exempel använda [Robocopy](/windows-server/administration/windows-commands/robocopy) med `/copy:s` flaggan för att kopiera data samt ACL: er till en Azure-filresurs. ACL: er bevaras som standard, du behöver inte aktivera Identity-baserad autentisering på ditt lagrings konto för att bevara ACL: er.
 
 ## <a name="pricing"></a>Prissättning
 Det finns ingen ytterligare service avgift för att aktivera identitets baserad autentisering över SMB på ditt lagrings konto. Mer information om priser finns i [Azure Files priser](https://azure.microsoft.com/pricing/details/storage/files/) och [Azure AD Domain Services priser](https://azure.microsoft.com/pricing/details/active-directory-ds/).

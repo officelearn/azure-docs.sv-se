@@ -1,7 +1,7 @@
 ---
 title: Utlös ML pipelines för nya data
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du utlöser körningen av en ML-pipeline med hjälp av Azure Logic Apps.
+description: Lär dig hur du utlöser körningen av en Azure Machine Learning pipeline genom att använda Azure Logic Apps för att svara på nya data.
 services: machine-learning
 author: NilsPohlmann
 ms.author: nilsp
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.date: 02/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4
-ms.openlocfilehash: dabcf30488e45fbe6c7c5b9e5aa0c8bd57f28fd8
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 119436cbe03e619b0d09df30ab2c5dc34126b0ce
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443508"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629401"
 ---
 # <a name="trigger-a-run-of-a-machine-learning-pipeline-from-a-logic-app"></a>Utlösa en körning av en Machine Learning pipeline från en Logic app
 
 Utlös körning av Azure Machine Learning pipelinen när nya data visas. Du kanske exempelvis vill utlösa pipelinen för att träna en ny modell när nya data visas i Blob Storage-kontot. Konfigurera utlösaren med [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
@@ -67,7 +67,7 @@ När du har etablerat din Logi Kap par kan du använda de här stegen för att k
 
   Använd följande inställningar för att konfigurera din åtgärd:
 
-  | Inställningen | Värde | 
+  | Inställning | Värde | 
   |---|---|
   | HTTP-åtgärd | POST |
   | URI |slut punkten till den publicerade pipelinen som du hittade som en [förutsättning](#prerequisites) |

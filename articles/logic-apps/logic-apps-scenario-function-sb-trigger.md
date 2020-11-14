@@ -1,22 +1,22 @@
 ---
 title: Anropa Logic Apps med Azure Functions
-description: Skapa Azure Functions som anropar eller utlöser Logic Apps genom att lyssna på Azure Service Bus
+description: Anropa eller utlös Logi Kap par genom att använda Azure Functions och Azure Service Bus
 services: logic-apps
 ms.suite: integration
 ms.reviewer: jehollan, klam, logicappspm
 ms.topic: article
 ms.date: 11/08/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fcf7f1a27633c978c10f541d0a341225fbcb126d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25f761d85ebfd0ac16f182941c5b5c29636066bf
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89013783"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629741"
 ---
 # <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Anropa eller utlös Logi Kap par genom att använda Azure Functions och Azure Service Bus
 
-Du kan använda [Azure Functions](../azure-functions/functions-overview.md) för att utlösa en Logic app när du behöver distribuera en långvarig lyssnare eller uppgift. Du kan till exempel skapa en Azure-funktion som lyssnar i i en [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) -kö och direkt utlöser en Logic app som en push-utlösare.
+Du kan använda [Azure Functions](../azure-functions/functions-overview.md) för att utlösa en Logic app när du behöver distribuera en långvarig lyssnare eller uppgift. Du kan till exempel skapa en funktion som lyssnar i i en [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) kö och som omedelbart utlöser en Logic app som en push-utlösare.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -24,7 +24,7 @@ Du kan använda [Azure Functions](../azure-functions/functions-overview.md) för
 
 * Ett Azure Service Bus namn område. Om du inte har ett namn område måste du [först skapa ditt namn område](../service-bus-messaging/service-bus-create-namespace-portal.md).
 
-* En Azure Function-app, som är en behållare för Azure Functions. Om du inte har en Function-app, [skapar du först din Function-app](../azure-functions/functions-create-first-azure-function.md)och ser till att du väljer .net som körnings stack.
+* En Function-app, som är en behållare för dina funktioner. Om du inte har en Function-app, [skapar du först din Function-app](../azure-functions/functions-create-first-azure-function.md)och ser till att du väljer .net som körnings stack.
 
 * Grundläggande information om [hur du skapar Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -50,7 +50,7 @@ I det här scenariot har du en funktion som kör varje Logic-app som du vill utl
 
    1. I utlösaren för begäran väljer **du Använd exempel nytto last för att generera schemat**.
 
-   1. Under **Ange eller klistra in en exempel-JSON-nyttolast**anger du exempel nytto lasten och väljer sedan **slutförd**.
+   1. Under **Ange eller klistra in en exempel-JSON-nyttolast** anger du exempel nytto lasten och väljer sedan **slutförd**.
 
       ![Ange exempel på nytto Last](./media/logic-apps-scenario-function-sb-trigger/enter-sample-payload.png)
 
@@ -94,7 +94,7 @@ I det här scenariot har du en funktion som kör varje Logic-app som du vill utl
 
    ![Återanrops-URL skapades för utlösaren](./media/logic-apps-scenario-function-sb-trigger/callback-URL-for-trigger.png)
 
-## <a name="create-azure-function"></a>Skapa Azure Function
+## <a name="create-a-function"></a>Skapa en funktion
 
 Därefter skapar du funktionen som fungerar som utlösare och lyssnar på kön.
 

@@ -7,22 +7,22 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 609f6d5fd0bf75b1a2056c01c8d22ae9e08ab9cb
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1eddca26152f27ced20bbae66b3265639b97e64e
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746824"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629503"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor och svar om Azure Files
-[Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade fil resurser i molnet som är tillgängliga via [SMB-protokollet (Server Message Block](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) ) som är bransch standard och [NFS-protokollet (Network File System](https://en.wikipedia.org/wiki/Network_File_System) ) (för hands version). Du kan montera Azure-filresurser samtidigt i molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära var data används.
+[Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade fil resurser i molnet som är tillgängliga via [SMB-protokollet (Server Message Block](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) ) som är bransch standard och [NFS-protokollet (Network File System](https://en.wikipedia.org/wiki/Network_File_System) ) (för hands version). Du kan montera Azure-filresurser samtidigt i molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära var data används.
 
 I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funktioner, inklusive användning av Azure File Sync med Azure Files. Om du inte ser svaret på din fråga kan du kontakta oss genom följande kanaler (i eskalerad ordning):
 
 1. Avsnittet kommentarer i den här artikeln.
-2. [Sidan Microsoft Q&en fråga för Azure Storage](https://docs.microsoft.com/answers/topics/azure-file-storage.html).
+2. [Sidan Microsoft Q&en fråga för Azure Storage](/answers/topics/azure-file-storage.html).
 3. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
-4. Microsoft Support. Om du vill skapa en ny supportbegäran går du till fliken **Hjälp** i Azure Portal, väljer **Hjälp + Support** -knappen och väljer sedan **ny supportbegäran** .
+4. Microsoft Support. Om du vill skapa en ny supportbegäran går du till fliken **Hjälp** i Azure Portal, väljer **Hjälp + Support** -knappen och väljer sedan **ny supportbegäran**.
 
 ## <a name="general"></a>Allmänt
 * <a id="why-files-useful"></a>
@@ -80,7 +80,7 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
 
 * <a id="file-locking"></a>
   **Stöder Azure Files fil låsning?**  
-    Ja, Azure Files fullständigt stöd för fil låsning i SMB/Windows-format, [se information](https://docs.microsoft.com/rest/api/storageservices/managing-file-locks).
+    Ja, Azure Files fullständigt stöd för fil låsning i SMB/Windows-format, [se information](/rest/api/storageservices/managing-file-locks).
 
 * <a id="give-us-feedback"></a>
   **Jag vill verkligen se en speciell funktion som har lagts till Azure Files. Kan du lägga till det?**  
@@ -107,7 +107,7 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
     Prestandan varierar beroende på dina miljö inställningar, konfiguration och om detta är en inledande synkronisering eller en pågående synkronisering. Mer information finns i [Azure File Sync prestanda mått](storage-files-scale-targets.md#azure-file-sync-performance-metrics)
 
 * <a id="afs-conflict-resolution"></a>**Vad händer om samma fil ändras på två servrar på ungefär samma tid?**  
-    Azure File Sync använder en enkel lösning för konflikt lösning: vi behåller båda ändringarna i filer som ändras i två slut punkter på samma gång. Den senast skrivna ändringen behåller det ursprungliga fil namnet. Den äldre filen (som bestäms av LastWriteTime) har slut punkts namnet och konflikt numret som läggs till i fil namnet. För Server slut punkter är slut punktens namn namnet på servern. För moln slut punkter är slut punktens namn **moln** . Namnet följer den här taxonomin: 
+    Azure File Sync använder en enkel lösning för konflikt lösning: vi behåller båda ändringarna i filer som ändras i två slut punkter på samma gång. Den senast skrivna ändringen behåller det ursprungliga fil namnet. Den äldre filen (som bestäms av LastWriteTime) har slut punkts namnet och konflikt numret som läggs till i fil namnet. För Server slut punkter är slut punktens namn namnet på servern. För moln slut punkter är slut punktens namn **moln**. Namnet följer den här taxonomin: 
    
     \<FileNameWithoutExtension\>-\<endpointName\>\[-#\].\<ext\>  
 
@@ -158,7 +158,7 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
     
 * <a id="afs-resource-move"></a>
   **Kan jag flytta synkroniseringstjänsten för lagring och/eller lagrings konto till en annan resurs grupp, prenumeration eller Azure AD-klient?**  
-   Ja, tjänsten Storage Sync och/eller lagrings kontot kan flyttas till en annan resurs grupp, prenumeration eller Azure AD-klient. När lagrings tjänsten för synkronisering eller lagrings kontot har flyttats måste du ge Microsoft. StorageSync-programmet åtkomst till lagrings kontot (se [Se till att Azure File Sync har åtkomst till lagrings kontot](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
+   Ja, tjänsten Storage Sync och/eller lagrings kontot kan flyttas till en annan resurs grupp, prenumeration eller Azure AD-klient. När lagrings tjänsten för synkronisering eller lagrings kontot har flyttats måste du ge Microsoft. StorageSync-programmet åtkomst till lagrings kontot (se [Se till att Azure File Sync har åtkomst till lagrings kontot](./storage-sync-files-troubleshoot.md?tabs=portal1%252cportal#troubleshoot-rbac)).
 
     > [!Note]  
     > När du skapar moln slut punkten måste Storage Sync-tjänsten och lagrings kontot finnas i samma Azure AD-klient. När moln slut punkten har skapats kan tjänsten Storage Sync och lagrings kontot flyttas till olika Azure AD-klienter.
@@ -184,7 +184,7 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
 
     - Azure File Sync bevarar och replikerar alla godtyckliga ACL: er, eller DACL: er (oavsett om de är Active Directory-baserade eller lokala) till alla Server slut punkter som den synkroniserar till. 
     
-    Du kan referera till att [auktorisera åtkomst till Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) för en omfattande åter givning av alla protokoll som stöds på Azure Storage Services. 
+    Du kan referera till att [auktorisera åtkomst till Azure Storage](../common/storage-auth.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json) för en omfattande åter givning av alla protokoll som stöds på Azure Storage Services. 
     
 * <a id="encryption-at-rest"></a>
 **Hur kan jag se till att min Azure-filresurs är krypterad i vila?**  
@@ -209,14 +209,14 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
 * <a id="data-compliance-policies"></a>
 **Vilka policyer för efterlevnadsprinciper stöder Azure Files?**  
 
-   Azure Files körs ovanpå samma lagrings arkitektur som används i andra lagrings tjänster i Azure Storage. Azure Files använder samma policyer för efterlevnadsprinciper som används i andra Azure Storage-tjänster. För mer information om hur du Azure Storage data, kan du referera till [Azure Storage Compliance-erbjudanden](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings)och gå till [Microsoft Trust Center](https://microsoft.com/trustcenter/default.aspx).
+   Azure Files körs ovanpå samma lagrings arkitektur som används i andra lagrings tjänster i Azure Storage. Azure Files använder samma policyer för efterlevnadsprinciper som används i andra Azure Storage-tjänster. För mer information om hur du Azure Storage data, kan du referera till [Azure Storage Compliance-erbjudanden](../common/storage-compliance-offerings.md)och gå till [Microsoft Trust Center](https://microsoft.com/trustcenter/default.aspx).
 
 * <a id="file-auditing"></a>
 **Hur kan jag granska fil åtkomst och ändringar i Azure Files?**
 
   Det finns två alternativ som ger gransknings funktioner för Azure Files:
-  - Om användarna använder Azure-filresursen direkt, kan [Azure Storage loggar (för hands version)](https://docs.microsoft.com/azure/storage/common/monitor-storage?tabs=azure-powershell#logs-in-azure-monitor-preview) användas för att spåra fil ändringar och användar åtkomst. De här loggarna kan användas i fel söknings syfte och förfrågningarna loggas på bästa möjliga sätt.
-  - Om användarna har åtkomst till Azure-filresursen via en Windows-Server som har den Azure File Sync-agenten installerad, använder du en [gransknings princip](https://docs.microsoft.com/windows/security/threat-protection/auditing/apply-a-basic-audit-policy-on-a-file-or-folder) eller en produkt från tredje part för att spåra fil ändringar och användar åtkomst på Windows Server. 
+  - Om användarna använder Azure-filresursen direkt, kan [Azure Storage loggar (för hands version)](../blobs/monitor-blob-storage.md?tabs=azure-powershell#analyzing-logs) användas för att spåra fil ändringar och användar åtkomst. De här loggarna kan användas i fel söknings syfte och förfrågningarna loggas på bästa möjliga sätt.
+  - Om användarna har åtkomst till Azure-filresursen via en Windows-Server som har den Azure File Sync-agenten installerad, använder du en [gransknings princip](/windows/security/threat-protection/auditing/apply-a-basic-audit-policy-on-a-file-or-folder) eller en produkt från tredje part för att spåra fil ändringar och användar åtkomst på Windows Server. 
    
 ### <a name="ad-ds--azure-ad-ds-authentication"></a>AD DS & Azure AD DS-autentisering
 * <a id="ad-support-devices"></a>
@@ -247,7 +247,7 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
 * <a id="ad-aad-smb-files"></a>
 **Hur kan jag kontrol lera om jag har aktiverat AD DS-autentisering på mitt lagrings konto och hämta domän informationen?**
 
-    Mer information finns [här](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#1-enable-ad-authentication-for-your-account).
+    Mer information finns [här](./storage-files-identity-ad-ds-enable.md#confirm-the-feature-is-enabled).
 
 * <a id=""></a>
 **Har Azure Files Azure AD-autentisering stöd för virtuella Linux-datorer?**
@@ -288,19 +288,14 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
     Ja, du kan aktivera AD-autentisering på en fil resurs som hanteras av Azure File Sync. Ändringar i katalogen/filen NTFS ACL: er på lokala fil servrar kommer att nivåas till Azure Files och vice versa.
 
 * <a id="ad-aad-smb-files"></a>
-**Hur kan jag kontrol lera om jag har aktiverat AD-autentisering på mitt lagrings konto och information om AD-domänen?**
-
-    Du kan läsa anvisningarna [här](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#enable-ad-authentication-for-your-account) för att kontrol lera om Azure Files AD-autentisering har Aktiver ATS på ditt lagrings konto och hämtar information om AD-domänen.
-
-* <a id="ad-aad-smb-files"></a>
 **Finns det någon skillnad i att skapa ett dator konto eller tjänst inloggnings konto som representerar mitt lagrings konto i AD?**
 
-    Att skapa antingen ett [dator konto](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (standard) eller ett [inloggnings konto för tjänsten](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) har ingen skillnad på hur autentiseringen fungerar med Azure Files. Du kan välja hur du vill representera ett lagrings konto som en identitet i din AD-miljö. Standard DomainAccountType som angetts i Join-AzStorageAccountForAuth cmdlet är dator konto. Lösen ordets giltighets tid för lösen ord som kon figurer ATS i din AD-miljö kan dock vara olika för inloggnings kontot för datorn eller tjänsten och du måste ta hänsyn till [uppdateringen av lösen ordet för din lagrings konto identitet i AD](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#5-update-ad-account-password).
+    Att skapa antingen ett [dator konto](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (standard) eller ett [inloggnings konto för tjänsten](/windows/win32/ad/about-service-logon-accounts) har ingen skillnad på hur autentiseringen fungerar med Azure Files. Du kan välja hur du vill representera ett lagrings konto som en identitet i din AD-miljö. Standard DomainAccountType som angetts i Join-AzStorageAccountForAuth cmdlet är dator konto. Lösen ordets giltighets tid för lösen ord som kon figurer ATS i din AD-miljö kan dock vara olika för inloggnings kontot för datorn eller tjänsten och du måste ta hänsyn till [uppdateringen av lösen ordet för din lagrings konto identitet i AD](./storage-files-identity-ad-ds-update-password.md).
  
 * <a id="ad-support-rest-apis"></a>
 **Finns det REST-API: er som stöder get/set/Copy Directory/File Windows ACL: er?**
 
-    Ja, vi har stöd för REST API: er som hämtar, anger eller kopierar NTFS ACL: er för kataloger eller filer när du använder REST API [2019-07-07](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (eller senare). Vi har även stöd för att bevara Windows ACL: er i REST-baserade verktyg: [AzCopy v 10.4 +](https://github.com/Azure/azure-storage-azcopy/releases).
+    Ja, vi har stöd för REST API: er som hämtar, anger eller kopierar NTFS ACL: er för kataloger eller filer när du använder REST API [2019-07-07](/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (eller senare). Vi har även stöd för att bevara Windows ACL: er i REST-baserade verktyg: [AzCopy v 10.4 +](https://github.com/Azure/azure-storage-azcopy/releases).
 
 ## <a name="network-file-system"></a>Network File System
 
@@ -324,7 +319,7 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
 * <a id="port-445-blocked"></a>
 **Internet leverantören eller den blockerar port 445 som inte Azure Files montering. Vad ska jag göra?**
 
-    Du kan lära dig om [olika sätt att lösa den blockerade port 445 här](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked). Azure Files tillåter endast anslutningar med SMB 3,0 (med krypterings stöd) utanför regionen eller data centret. SMB 3,0-protokollet har infört många säkerhetsfunktioner, inklusive kanal kryptering som är mycket säkert att använda via Internet. Men det är möjligt att port 445 har blockerats på grund av historiska orsaker till de lägre SMB-versionerna. I det idealiska fallet bör porten blockeras endast för SMB 1,0-trafik och SMB 1,0 bör stängas av på alla klienter.
+    Du kan lära dig om [olika sätt att lösa den blockerade port 445 här](./storage-troubleshoot-windows-file-connection-problems.md#cause-1-port-445-is-blocked). Azure Files tillåter endast anslutningar med SMB 3,0 (med krypterings stöd) utanför regionen eller data centret. SMB 3,0-protokollet har infört många säkerhetsfunktioner, inklusive kanal kryptering som är mycket säkert att använda via Internet. Men det är möjligt att port 445 har blockerats på grund av historiska orsaker till de lägre SMB-versionerna. I det idealiska fallet bör porten blockeras endast för SMB 1,0-trafik och SMB 1,0 bör stängas av på alla klienter.
 
 * <a id="expressroute-not-required"></a>
 **Måste jag använda Azure ExpressRoute för att ansluta till Azure Files eller använda Azure File Sync lokalt?**  
@@ -339,7 +334,7 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
 ## <a name="backup"></a>Backup
 * <a id="backup-share"></a>
 **Hur gör jag för att säkerhetskopiera min Azure-filresurs?**  
-    Du kan använda periodiska [resurs ögonblicks bilder](storage-snapshots-files.md) för att skydda mot oavsiktlig borttagning. Du kan också använda AzCopy, Robocopy eller ett säkerhets kopierings verktyg från tredje part som kan säkerhetskopiera en monterad fil resurs. Azure Backup erbjuder säkerhets kopiering av Azure Files. Läs mer om hur du [säkerhetskopierar Azure-filresurser genom att Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-files).
+    Du kan använda periodiska [resurs ögonblicks bilder](storage-snapshots-files.md) för att skydda mot oavsiktlig borttagning. Du kan också använda AzCopy, Robocopy eller ett säkerhets kopierings verktyg från tredje part som kan säkerhetskopiera en monterad fil resurs. Azure Backup erbjuder säkerhets kopiering av Azure Files. Läs mer om hur du [säkerhetskopierar Azure-filresurser genom att Azure Backup](../../backup/backup-afs.md).
 
 ## <a name="share-snapshots"></a>Resursögonblicksbilder
 
@@ -450,11 +445,11 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
 ## <a name="features-and-interoperability-with-other-services"></a>Funktioner och samverkan med andra tjänster
 * <a id="cluster-witness"></a>
 **Kan jag använda min Azure-filresurs som ett *fil resurs vittne* för mitt Windows Server-redundanskluster?**  
-    Den här konfigurationen stöds för närvarande inte för en Azure-filresurs. Mer information om hur du konfigurerar detta för Azure Blob Storage finns i [distribuera ett moln vittne för ett redundanskluster](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness).
+    Den här konfigurationen stöds för närvarande inte för en Azure-filresurs. Mer information om hur du konfigurerar detta för Azure Blob Storage finns i [distribuera ett moln vittne för ett redundanskluster](/windows-server/failover-clustering/deploy-cloud-witness).
 
 * <a id="containers"></a>
 **Kan jag montera en Azure-filresurs på en Azure Container instance?**  
-    Ja, Azure-filresurser är ett bra alternativ när du vill spara information utanför livs längden för en behållar instans. Mer information finns i [montera en Azure-filresurs med Azure Container instances](../../container-instances/container-instances-mounting-azure-files-volume.md).
+    Ja, Azure-filresurser är ett bra alternativ när du vill spara information utanför livs längden för en behållar instans. Mer information finns i [montera en Azure-filresurs med Azure Container instances](../../container-instances/container-instances-volume-azure-files.md).
 
 * <a id="rest-rename"></a>
 **Finns det en namnbytes åtgärd i REST API?**  

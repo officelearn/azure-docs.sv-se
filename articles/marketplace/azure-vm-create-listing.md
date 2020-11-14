@@ -7,37 +7,37 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 10/19/2020
-ms.openlocfilehash: 2af96c0c2e850d8e1be67c23e71aa677773c1e03
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 7030ffeb49c0a3919894f6dcf81e7252777267c5
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284854"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629605"
 ---
 # <a name="how-to-configure-virtual-machine-offer-listing-details"></a>Så här konfigurerar du List information om erbjudanden för virtuella datorer
 
-På sidan **erbjudande lista** definierar du erbjudande information, till exempel erbjudande namn, beskrivning, länkar och kontakter.
+På sidan **erbjudande lista** (Välj från vänster-navigerings-menyn i Partner Center) definierar du erbjudande information som erbjudande namn, beskrivning, länkar och kontakter.
 
 > [!NOTE]
-> Ditt erbjudande som visar innehåll, till exempel beskrivning, dokument, skärm bilder och användnings villkor, behöver inte vara på engelska, så länge som erbjudande beskrivningen börjar med frasen, "det här programmet är endast tillgängligt i \<non-English language> ". Du kan också ange en URL för att länka till en plats som erbjuder innehåll på ett annat språk än det som används i innehålls listan för erbjudandet.
+> Ditt erbjudande som visar innehåll, till exempel beskrivning, dokument, skärm bilder och användnings villkor, behöver inte vara på engelska, så länge som erbjudande beskrivningen börjar med frasen, "det här programmet är endast tillgängligt i \<non-English language> ". Du kan också ange en webb adress för att länka till en webbplats som erbjuder innehåll på ett annat språk än det som används i list innehållet för erbjudandet.
 
 ## <a name="marketplace-details"></a>Information om Marketplace
 
 ### <a name="name"></a>Namn
 
-Namnet som du anger här visas för kunder som titel på din erbjudande lista. Det här fältet fylls i automatiskt med det namn som du angav i rutan för **erbjudet alias** när du skapade erbjudandet. Du kan ändra det här namnet senare. Namnet:
+Namnet som du anger här visas för kunder som titel på din erbjudande lista. Det här fältet fylls i automatiskt med det namn som du angav i rutan för **erbjudet alias** när du skapade erbjudandet. Namnet:
 
-- Kan vara ett varumärke. Du kan inkludera varumärkes-och Copyright-symboler.
-- Får innehålla högst 50 tecken.
+- Kan innehålla varumärkes-och Copyright-symboler.
+- Måste vara 50 tecken eller mindre.
 - Det går inte att inkludera emojis.
 
 ### <a name="search-results-summary"></a>Sammanfattning av Sök Resultat
 
-Ange en kort beskrivning av ditt erbjudande, som visas i Sök resultaten för Azure Marketplace. Det kan innehålla upp till 100 tecken.
+Ange en kort beskrivning av ditt erbjudande för visning i Azure Marketplace Sök resultat. Det kan innehålla upp till 100 tecken.
 
-### <a name="long-summary"></a>Lång Sammanfattning
+### <a name="short-description"></a>Kort beskrivning
 
-Ange en längre Beskrivning av ditt erbjudande, som visas i Sök resultaten för Azure Marketplace. Det kan innehålla upp till 256 tecken.
+Ange en längre Beskrivning av ditt erbjudande för visning i Azure Marketplace Sök resultat. Det kan innehålla upp till 256 tecken.
 
 ### <a name="description"></a>Beskrivning
 
@@ -53,10 +53,10 @@ Ange webb adressen (URL) för din organisations sekretess policy. Se till att di
 
 ## <a name="useful-links"></a>Användbara länkar
 
-Ge kompletterande online-dokument om ditt erbjudande. Om du vill lägga till en länk väljer du **Lägg till en länk**och fyller sedan i följande fält:
+Ge kompletterande online-dokument om ditt erbjudande. Om du vill lägga till en länk väljer du **Lägg till en länk** och fyller i följande fält:
 
-- **Namn**: kunder kommer att se namnet på informations sidan.
-- **Länk (URL)**: Ange en länk som kunder kan använda för att visa ditt online-dokument.
+- **Namn** : kunder kommer att se namnet på informations sidan.
+- **Länk** : Ange en webb adress som kunder kan använda för att visa ditt online-dokument.
 
 ## <a name="customer-support-links"></a>Kund support länkar
 
@@ -67,21 +67,17 @@ Ange support webbplatsen där kunderna kan kontakta support teamet.
 
 ## <a name="partner-support-contact"></a>Support kontakt för partner
 
-Ange kontakt information för Microsoft-partner som ska användas när kunderna öppnar ett support ärende. Den här informationen visas inte på Azure Marketplace.
-
-- Namn
-- E-post
-- Telefon
+Ange **namn** , **e-postadress** och **telefonnummer** för Microsoft-partner som ska användas när kunderna öppnar ett support ärende. Den här informationen visas inte på Azure Marketplace.
 
 ## <a name="engineering-contact"></a>Teknisk kontakt
 
-Ange kontakt information för Microsoft som ska användas när det finns problem med erbjudandet, inklusive problem med certifieringen. Den här informationen visas inte på Azure Marketplace.
+Ange **namn** , **e-postadress** och **telefonnummer** för Microsoft som ska användas när det finns problem med erbjudandet, inklusive problem med certifieringen. Den här informationen visas inte på Azure Marketplace.
 
-- Namn
-- E-post
-- Telefon
+## <a name="cloud-solution-provider-program-contact"></a>Program kontakt för Cloud Solution Provider
 
-## <a name="azure-marketplace-media"></a>Azure Marketplace-Media
+Ange **namn** , **e-postadress** och **telefon** för den person som hanterar ditt CSP-program (om tillämpligt). Den här informationen visas inte på Azure Marketplace. För **CSP-programmet marknadsförings material** anger du webb adressen där partner i det här programmet kan visa ditt marknadsförings material.
+
+## <a name="marketplace-media"></a>Marketplace-Media
 
 Ange logo typer och avbildningar som ska användas med ditt erbjudande. Alla bilder måste vara i PNG-format. Suddiga bilder gör att ditt bidrag avvisas.
 
@@ -90,7 +86,7 @@ Ange logo typer och avbildningar som ska användas med ditt erbjudande. Alla bil
 >[!NOTE]
 >Om du har problem med att ladda upp filer kontrollerar du att det lokala nätverket inte blockerar https://upload.xboxlive.com tjänsten som används av Partner Center.
 
-### <a name="azure-marketplace-logos"></a>Logo typer för Azure Marketplace
+### <a name="logos"></a>Typerna
 
 Ange en PNG-fil för logo typen med **stor** storlek. Partner Center använder detta för att skapa en **liten** och en **medie** logo typ. Du kan också ersätta dem med olika avbildningar senare.
 
@@ -114,8 +110,8 @@ Lägg till upp till fem videor som demonstrerar ditt erbjudande. Videor bör fin
 
 Mer information om resurser för Marketplace finns i [metod tips för Marketplace-erbjudanden](gtm-offer-listing-best-practices.md).
 
-Välj **Spara utkast** innan du fortsätter.
+Välj **Spara utkast** innan du fortsätter till nästa flik på vänster-navigerings-menyn, **förhands gransknings mål**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skapa planer](azure-vm-create-plans.md)
+- [Skapa en förhands gransknings publik](azure-vm-create-preview.md)

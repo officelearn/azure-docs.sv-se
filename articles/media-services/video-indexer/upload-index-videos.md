@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/12/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 85c9111b0b16667e847aaf70d746e87fe524ef87
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 014c9759756a1da922a5141f064991827d593208
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592931"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630268"
 ---
 # <a name="upload-and-index-your-videos"></a>Ladda upp och indexera dina videor  
 
@@ -66,7 +66,7 @@ Använd [Ladda upp video](https://api-portal.videoindexer.ai/docs/services/opera
 
 ### <a name="configurations-and-params"></a>Konfigurationer och parametrar
 
-I det här avsnittet beskrivs några av de valfria parametrarna och när du kan ange dem.
+I det här avsnittet beskrivs några av de valfria parametrarna och när du kan ange dem. Information om de mest aktuella param-uppgifterna finns i [Ladda upp video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) -API.
 
 #### <a name="externalid"></a>externalID 
 
@@ -79,7 +79,7 @@ En URL som används för att meddela kunder (med en POST-begäran) om följande 
 - Indexering av tillståndsändring: 
     - Egenskaper:    
     
-        |Name|Beskrivning|
+        |Namn|Beskrivning|
         |---|---|
         |id|Video-ID|
         |state|Videotillståndet|  
@@ -87,7 +87,7 @@ En URL som används för att meddela kunder (med en POST-begäran) om följande 
 - Person som identifierades i videon:
   - Egenskaper
     
-      |Name|Beskrivning|
+      |Namn|Beskrivning|
       |---|---|
       |id| Video-ID|
       |faceId|Ansikts-ID som visas i videoindexet|

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 17b2ab53c0154a29f9084f9dd999a53bcf477b72
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b684123068889e422080605fb9c50ef9aed0cb76
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075134"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630166"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Felsöka Azure Files problem i Windows (SMB)
 
@@ -30,14 +30,14 @@ När du försöker montera en fil resurs kan du få följande fel meddelande:
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>Orsak 1: okrypterad kommunikations kanal
 
-Av säkerhetsskäl blockeras anslutningar till Azure-filresurser om kommunikationskanalen inte är krypterad och om anslutningsförsöket inte görs från samma datacenter där Azure-filresurserna finns. Okrypterade anslutningar inom samma datacenter kan också blockeras om inställningen [Säker överföring krävs ](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) är aktiverad på lagringskontot. En krypterad kommunikationskanal tillhandahålls endast om användarens klientoperativsystem stöder SMB-kryptering.
+Av säkerhetsskäl blockeras anslutningar till Azure-filresurser om kommunikationskanalen inte är krypterad och om anslutningsförsöket inte görs från samma datacenter där Azure-filresurserna finns. Okrypterade anslutningar inom samma datacenter kan också blockeras om inställningen [Säker överföring krävs ](../common/storage-require-secure-transfer.md) är aktiverad på lagringskontot. En krypterad kommunikationskanal tillhandahålls endast om användarens klientoperativsystem stöder SMB-kryptering.
 
 Windows 8, Windows Server 2012 och senare versioner av respektive system förhandlar begäranden som innehåller SMB 3.0, som stöder kryptering.
 
 ### <a name="solution-for-cause-1"></a>Lösning för orsak 1
 
 1. Anslut från en klient som har stöd för SMB-kryptering (Windows 8, Windows Server 2012 eller senare) eller Anslut från en virtuell dator i samma data Center som det Azure Storage-konto som används för Azure-filresursen.
-2. Kontrol lera att inställningen för [säker överföring](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) är inaktive rad på lagrings kontot om klienten inte stöder SMB-kryptering.
+2. Kontrol lera att inställningen för [säker överföring](../common/storage-require-secure-transfer.md) är inaktive rad på lagrings kontot om klienten inte stöder SMB-kryptering.
 
 ### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Orsak 2: virtuella nätverk eller brand Väggs regler är aktiverade på lagrings kontot 
 
@@ -45,7 +45,7 @@ Om virtuellt nätverk (VNET) och brandväggsregler har konfigurerats på lagring
 
 ### <a name="solution-for-cause-2"></a>Lösning för orsak 2
 
-Kontrollera att det virtuella nätverket och brandväggsreglerna har konfigurerats korrekt på lagringskontot. Om du vill testa om det virtuella nätverket eller brandväggsreglerna som orsakar problemet kan du tillfälligt ändra inställningen på lagringskontot för att **tillåta åtkomst från alla nätverk** . Mer information finns i [Konfigurera Azure Storage-brandväggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Kontrollera att det virtuella nätverket och brandväggsreglerna har konfigurerats korrekt på lagringskontot. Om du vill testa om det virtuella nätverket eller brandväggsreglerna som orsakar problemet kan du tillfälligt ändra inställningen på lagringskontot för att **tillåta åtkomst från alla nätverk**. Mer information finns i [Konfigurera Azure Storage-brandväggar och virtuella nätverk](../common/storage-network-security.md).
 
 ### <a name="cause-3-share-level-permissions-are-incorrect-when-using-identity-based-authentication"></a>Orsak 3: behörigheter på resurs nivå är felaktiga vid användning av Identity-baserad autentisering
 
@@ -55,10 +55,10 @@ Om användarna har åtkomst till Azure-filresursen med hjälp av Active Director
 
 Kontrol lera att behörigheterna är korrekt konfigurerade:
 
-- **Active Directory (AD)** se [tilldela behörigheter på resurs nivå till en identitet](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-assign-permissions).
+- **Active Directory (AD)** se [tilldela behörigheter på resurs nivå till en identitet](./storage-files-identity-ad-ds-assign-permissions.md).
 
     Behörighets tilldelningar på resurs nivå stöds för grupper och användare som har synkroniserats från Active Directory (AD) till Azure Active Directory (Azure AD) med hjälp av Azure AD Connect.  Bekräfta att grupper och användare som tilldelats behörigheter på resurs nivå inte stöds av "endast" endast "endast" molnbaserade "grupper.
-- **Azure Active Directory Domain Services (Azure AD DS)** se [tilldela åtkomst behörigheter till en identitet](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable?tabs=azure-portal#assign-access-permissions-to-an-identity).
+- **Azure Active Directory Domain Services (Azure AD DS)** se [tilldela åtkomst behörigheter till en identitet](./storage-files-identity-auth-active-directory-domain-service-enable.md?tabs=azure-portal#assign-access-permissions-to-an-identity).
 
 <a id="error53-67-87"></a>
 ## <a name="error-53-error-67-or-error-87-when-you-mount-or-unmount-an-azure-file-share"></a>Fel 53, fel 67 eller fel 87 när du monterar eller demonterar en Azure-filresurs
@@ -111,7 +111,7 @@ TcpTestSucceeded : True
 ### <a name="solution-for-cause-1"></a>Lösning för orsak 1
 
 #### <a name="solution-1---use-azure-file-sync"></a>Lösning 1 – Använd Azure File Sync
-Azure File Sync kan omvandla din lokala Windows Server till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt, inklusive SMB, NFS och FTPS. Azure File Sync fungerar via port 443 och kan därför användas som en lösning för att få åtkomst till Azure Files från klienter som har port 445 blockerad. [Lär dig att konfigurera Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers).
+Azure File Sync kan omvandla din lokala Windows Server till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt, inklusive SMB, NFS och FTPS. Azure File Sync fungerar via port 443 och kan därför användas som en lösning för att få åtkomst till Azure Files från klienter som har port 445 blockerad. [Lär dig att konfigurera Azure File Sync](./storage-sync-files-extend-servers.md).
 
 #### <a name="solution-2---use-vpn"></a>Lösning 2 – Använd VPN
 Genom att konfigurera en VPN-anslutning till ditt lagrings konto går trafiken via en säker tunnel i stället för via Internet. Följ [instruktionerna för att konfigurera VPN](storage-files-configure-p2s-vpn-windows.md) för att få åtkomst till Azure Files från Windows.
@@ -120,7 +120,7 @@ Genom att konfigurera en VPN-anslutning till ditt lagrings konto går trafiken v
 Arbeta med IT-avdelningen eller Internet leverantören för att öppna port 445 utgående till [Azure IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653).
 
 #### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>Lösning 4 – Använd REST API-baserade verktyg som Storage Explorer/Powershell
-Azure Files stöder också REST utöver SMB. REST-åtkomst fungerar via port 443 (standard-TCP). Det finns olika verktyg som skrivs med REST API som möjliggör mer omfattande användargränssnittsfunktioner. [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) är en av dem. [Ladda ned och installera Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) och anslut till din filresurs som backas av Azure Files. Du kan också använda [PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell) som även användar REST API.
+Azure Files stöder också REST utöver SMB. REST-åtkomst fungerar via port 443 (standard-TCP). Det finns olika verktyg som skrivs med REST API som möjliggör mer omfattande användargränssnittsfunktioner. [Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows) är en av dem. [Ladda ned och installera Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) och anslut till din filresurs som backas av Azure Files. Du kan också använda [PowerShell](./storage-how-to-use-files-powershell.md) som även användar REST API.
 
 ### <a name="cause-2-ntlmv1-is-enabled"></a>Orsak 2: NTLMv1 har Aktiver ATS
 
@@ -130,7 +130,7 @@ Kontrollera att följande registerundernyckel är inställd på värdet 3 för a
 
 **HKLM\SYSTEM\CurrentControlSet\Control\Lsa > LmCompatibilityLevel**
 
-Mer information finns i ämnet [LmCompatibilityLevel](https://technet.microsoft.com/library/cc960646.aspx) på TechNet.
+Mer information finns i ämnet [LmCompatibilityLevel](/previous-versions/windows/it-pro/windows-2000-server/cc960646(v=technet.10)) på TechNet.
 
 ### <a name="solution-for-cause-2"></a>Lösning för orsak 2
 
@@ -143,18 +143,18 @@ Mer information finns i ämnet [LmCompatibilityLevel](https://technet.microsoft.
 
 ### <a name="cause"></a>Orsak
 
-Fel 1816 uppstår när du når den övre gränsen för samtidiga öppna referenser som tillåts för en fil eller katalog på Azure-filresursen. Läs mer i informationen om [skalningsmål för Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#azure-files-scale-targets).
+Fel 1816 uppstår när du når den övre gränsen för samtidiga öppna referenser som tillåts för en fil eller katalog på Azure-filresursen. Läs mer i informationen om [skalningsmål för Azure Files](./storage-files-scale-targets.md#azure-files-scale-targets).
 
 ### <a name="solution"></a>Lösning
 
-Minska antalet samtidiga öppna referenser genom att stänga några referenser och försök sedan igen. Mer information finns i [Check lista för Microsoft Azure Storage prestanda och skalbarhet](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+Minska antalet samtidiga öppna referenser genom att stänga några referenser och försök sedan igen. Mer information finns i [Check lista för Microsoft Azure Storage prestanda och skalbarhet](../blobs/storage-performance-checklist.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).
 
-Om du vill visa öppna referenser för en fil resurs, katalog eller fil använder du PowerShell-cmdleten [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) .  
+Om du vill visa öppna referenser för en fil resurs, katalog eller fil använder du PowerShell-cmdleten [Get-AzStorageFileHandle](/powershell/module/az.storage/get-azstoragefilehandle) .  
 
-Om du vill stänga öppna referenser för en fil resurs, katalog eller fil använder du PowerShell-cmdleten [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) .
+Om du vill stänga öppna referenser för en fil resurs, katalog eller fil använder du PowerShell-cmdleten [Close-AzStorageFileHandle](/powershell/module/az.storage/close-azstoragefilehandle) .
 
 > [!Note]  
-> De Get-AzStorageFileHandle-och Close-AzStorageFileHandle-cmdletarna ingår i AZ PowerShell-modul version 2,4 eller senare. Information om hur du installerar den senaste AZ PowerShell-modulen finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps).
+> De Get-AzStorageFileHandle-och Close-AzStorageFileHandle-cmdletarna ingår i AZ PowerShell-modul version 2,4 eller senare. Information om hur du installerar den senaste AZ PowerShell-modulen finns i [installera Azure PowerShell-modulen](/powershell/azure/install-az-ps).
 
 <a id="noaaccessfailureportal"></a>
 ## <a name="error-no-access-when-you-try-to-access-or-delete-an-azure-file-share"></a>Fel "ingen åtkomst" när du försöker komma åt eller ta bort en Azure-filresurs  
@@ -167,13 +167,13 @@ Felkod: 403
 
 ### <a name="solution-for-cause-1"></a>Lösning för orsak 1
 
-Kontrollera att det virtuella nätverket och brandväggsreglerna har konfigurerats korrekt på lagringskontot. Om du vill testa om det virtuella nätverket eller brandväggsreglerna som orsakar problemet kan du tillfälligt ändra inställningen på lagringskontot för att **tillåta åtkomst från alla nätverk** . Mer information finns i [Konfigurera Azure Storage-brandväggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Kontrollera att det virtuella nätverket och brandväggsreglerna har konfigurerats korrekt på lagringskontot. Om du vill testa om det virtuella nätverket eller brandväggsreglerna som orsakar problemet kan du tillfälligt ändra inställningen på lagringskontot för att **tillåta åtkomst från alla nätverk**. Mer information finns i [Konfigurera Azure Storage-brandväggar och virtuella nätverk](../common/storage-network-security.md).
 
 ### <a name="cause-2-your-user-account-does-not-have-access-to-the-storage-account"></a>Orsak 2: ditt användar konto har inte åtkomst till lagrings kontot
 
 ### <a name="solution-for-cause-2"></a>Lösning för orsak 2
 
-Bläddra till det lagrings konto där Azure-filresursen finns, klicka på **åtkomst kontroll (IAM)** och kontrol lera att ditt användar konto har åtkomst till lagrings kontot. Mer information finns i [så här skyddar du ditt lagrings konto med rollbaserad åtkomst kontroll i Azure (Azure RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
+Bläddra till det lagrings konto där Azure-filresursen finns, klicka på **åtkomst kontroll (IAM)** och kontrol lera att ditt användar konto har åtkomst till lagrings kontot. Mer information finns i [så här skyddar du ditt lagrings konto med rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../blobs/security-recommendations.md#data-protection).
 
 <a id="open-handles"></a>
 ## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Det går inte att ta bort en fil eller katalog i en Azure-filresurs
@@ -199,15 +199,15 @@ När du öppnar en fil från en monterad Azure-filresurs via SMB begär ditt pro
 Lösningen på det här problemet beror på om detta orsakas av en överbliven fil hantering eller ett lån. 
 
 ### <a name="cause-1"></a>Orsak 1
-En fil referens hindrar en fil/katalog från att ändras eller tas bort. Du kan använda PowerShell [-cmdleten Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) för att visa öppna referenser. 
+En fil referens hindrar en fil/katalog från att ändras eller tas bort. Du kan använda PowerShell [-cmdleten Get-AzStorageFileHandle](/powershell/module/az.storage/get-azstoragefilehandle) för att visa öppna referenser. 
 
 Om alla SMB-klienter har stängt sina öppna referenser på en fil/katalog och problemet fortsätter att inträffa, kan du tvinga en fil referens att stängas av.
 
 ### <a name="solution-1"></a>Lösning 1
-Använd PowerShell-cmdleten [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) för att tvinga en fil referens att stängas. 
+Använd PowerShell-cmdleten [Close-AzStorageFileHandle](/powershell/module/az.storage/close-azstoragefilehandle) för att tvinga en fil referens att stängas. 
 
 > [!Note]  
-> De Get-AzStorageFileHandle-och Close-AzStorageFileHandle-cmdletarna ingår i AZ PowerShell-modul version 2,4 eller senare. Information om hur du installerar den senaste AZ PowerShell-modulen finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps).
+> De Get-AzStorageFileHandle-och Close-AzStorageFileHandle-cmdletarna ingår i AZ PowerShell-modul version 2,4 eller senare. Information om hur du installerar den senaste AZ PowerShell-modulen finns i [installera Azure PowerShell-modulen](/powershell/azure/install-az-ps).
 
 ### <a name="cause-2"></a>Orsak 2
 Ett fil lån förhindrar att en fil ändras eller tas bort. Du kan kontrol lera om en fil har ett fil lån med följande PowerShell, ersätta `<resource-group>` , `<storage-account>` , `<file-share>` och `<path-to-file>` med lämpliga värden för din miljö:
@@ -262,8 +262,8 @@ Du kan se långsamma prestanda när du försöker överföra filer till Azure Fi
 - Om du inte har en speciell minimi krav på I/O-storlek rekommenderar vi att du använder 1 MiB som I/O-storlek för bästa prestanda.
 -   Om du känner till den slutliga storleken på en fil som du utökar med skrivningar, och program varan inte har kompatibilitetsproblem när den skrivna filen i filen innehåller nollor, ställer du in fil storleken i förväg i förväg i stället för att göra varje Skriv en utökad skrivning.
 -   Använd rätt kopierings metod:
-    -   Använd [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) för överföring mellan två fil resurser.
-    -   Använd [Robocopy](/azure/storage/files/storage-files-deployment-guide#robocopy) mellan fil resurser på en lokal dator.
+    -   Använd [AzCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) för överföring mellan två fil resurser.
+    -   Använd [Robocopy](./storage-files-deployment-guide.md#robocopy) mellan fil resurser på en lokal dator.
 
 ### <a name="considerations-for-windows-81-or-windows-server-2012-r2"></a>Överväganden för Windows 8,1 eller Windows Server 2012 R2
 
@@ -290,7 +290,7 @@ Om du mappar en Azure-filresurs som administratör med hjälp av net use verkar 
 Som standard körs inte Windows Utforskaren som administratör. Om du kör net use från en administrativ kommando tolk mappar du nätverks enheten som administratör. Eftersom mappade enheter är användarvänliga visar användar kontot som är inloggad inte enheterna om de monteras under ett annat användar konto.
 
 ### <a name="solution"></a>Lösning
-Montera resursen från en kommando rad som inte är administratör. Du kan också följa [det här TechNet-avsnittet](https://technet.microsoft.com/library/ee844140.aspx) om du vill konfigurera registervärdet **EnableLinkedConnections** .
+Montera resursen från en kommando rad som inte är administratör. Du kan också följa [det här TechNet-avsnittet](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee844140(v=ws.10)) om du vill konfigurera registervärdet **EnableLinkedConnections** .
 
 <a id="netuse"></a>
 ## <a name="net-use-command-fails-if-the-storage-account-contains-a-forward-slash"></a>Net use-kommandot Miss lyckas om lagrings kontot innehåller ett snedstreck
@@ -376,20 +376,20 @@ Du kan till exempel ställa in den på 0x100000 och se om prestandan blir bättr
 
 ### <a name="cause"></a>Orsak
 
-Fel AadDsTenantNotFound uppstår när du försöker [aktivera Azure Active Directory Domain Services (Azure AD DS)-autentisering på Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md) på ett lagrings konto där [Azure AD DS (Azure AD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) inte skapas på Azure AD-klienten för den associerade prenumerationen.  
+Fel AadDsTenantNotFound uppstår när du försöker [aktivera Azure Active Directory Domain Services (Azure AD DS)-autentisering på Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md) på ett lagrings konto där [Azure AD DS (Azure AD DS)](../../active-directory-domain-services/overview.md) inte skapas på Azure AD-klienten för den associerade prenumerationen.  
 
 ### <a name="solution"></a>Lösning
 
-Aktivera Azure AD DS på Azure AD-klienten för den prenumeration som ditt lagrings konto har distribuerats till. Du behöver administratörs behörighet för Azure AD-klienten för att skapa en hanterad domän. Om du inte är administratör för Azure AD-klienten kontaktar du administratören och följer steg-för-steg-vägledningen för att [aktivera Azure Active Directory Domain Services att använda Azure Portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
+Aktivera Azure AD DS på Azure AD-klienten för den prenumeration som ditt lagrings konto har distribuerats till. Du behöver administratörs behörighet för Azure AD-klienten för att skapa en hanterad domän. Om du inte är administratör för Azure AD-klienten kontaktar du administratören och följer steg-för-steg-vägledningen för att [skapa och konfigurera en Azure Active Directory Domain Services hanterad domän](../../active-directory-domain-services/tutorial-create-instance.md).
 
 [!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
 
 ## <a name="unable-to-mount-azure-files-with-ad-credentials"></a>Det gick inte att montera Azure Files med AD-autentiseringsuppgifter 
 
 ### <a name="self-diagnostics-steps"></a>Själv diagnos steg
-Kontrol lera först att du har följt alla fyra stegen för att [aktivera Azure Files AD-autentisering](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable).
+Kontrol lera först att du har följt alla fyra stegen för att [aktivera Azure Files AD-autentisering](./storage-files-identity-auth-active-directory-enable.md).
 
-Försök sedan att [montera Azure-filresursen med lagrings konto nyckeln](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows). Om du inte kunde montera hämtar du [AzFileDiagnostics.ps1](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) för att hjälpa dig att validera klienten som kör miljön, identifiera inkompatibel klient konfiguration som skulle orsaka åtkomst fel för Azure Files, ger vägledning om själv korrigering och samlar in diagnostiska spårningar.
+Försök sedan att [montera Azure-filresursen med lagrings konto nyckeln](./storage-how-to-use-files-windows.md). Om du inte kunde montera hämtar du [AzFileDiagnostics.ps1](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) för att hjälpa dig att validera klienten som kör miljön, identifiera inkompatibel klient konfiguration som skulle orsaka åtkomst fel för Azure Files, ger vägledning om själv korrigering och samlar in diagnostiska spårningar.
 
 För det tredje kan du köra cmdleten Debug-AzStorageAccountAuth för att utföra en uppsättning grundläggande kontroller på din AD-konfiguration med den inloggade AD-användaren. Den här cmdleten stöds i [versionen AzFilesHybrid v0.1.2+](https://github.com/Azure-Samples/azure-files-samples/releases). Du måste köra denna cmdlet med en AD-användare som har ägarbehörighet på mållagringskontot.  
 ```PowerShell
@@ -399,13 +399,13 @@ $StorageAccountName = "<storage-account-name-here>"
 Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
 ```
 Cmdleten utför dessa kontroller nedan i följd och ger vägledning för felen:
-1. CheckADObjectPasswordIsCorrect: kontrol lera att lösen ordet som har kon figurer ATS på den AD-identitet som representerar lagrings kontot matchar lagrings kontots kerb1-eller kerb2-nyckel. Om lösen ordet är felaktigt kan du köra [Update-AzStorageAccountADObjectPassword](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-update-password) för att återställa lösen ordet. 
+1. CheckADObjectPasswordIsCorrect: kontrol lera att lösen ordet som har kon figurer ATS på den AD-identitet som representerar lagrings kontot matchar lagrings kontots kerb1-eller kerb2-nyckel. Om lösen ordet är felaktigt kan du köra [Update-AzStorageAccountADObjectPassword](./storage-files-identity-ad-ds-update-password.md) för att återställa lösen ordet. 
 2. CheckADObject: bekräfta att det finns ett objekt i Active Directory som representerar lagrings kontot och har rätt SPN (tjänstens huvud namn). Om SPN inte har kon figurer ATS korrekt kör du cmdleten Set-AD som returnerades i fel söknings-cmdleten för att konfigurera SPN.
-3. CheckDomainJoined: kontrol lera att klient datorn är domänansluten till AD. Om datorn inte är domänansluten till AD, se den här [artikeln](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain#:~:text=To%20join%20a%20computer%20to%20a%20domain&text=Navigate%20to%20System%20and%20Security,join%2C%20and%20then%20click%20OK) för domän kopplings instruktion.
+3. CheckDomainJoined: kontrol lera att klient datorn är domänansluten till AD. Om datorn inte är domänansluten till AD, se den här [artikeln](/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain#:~:text=To%20join%20a%20computer%20to%20a%20domain&text=Navigate%20to%20System%20and%20Security,join%2C%20and%20then%20click%20OK) för domän kopplings instruktion.
 4. CheckPort445Connectivity: kontrol lera att port 445 är öppen för SMB-anslutning. Om den begärda porten inte är öppen kan du läsa fel söknings verktyget [AzFileDiagnostics.ps1](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) för anslutnings problem med Azure Files.
 5. CheckSidHasAadUser: kontrol lera att den inloggade AD-användaren är synkroniserad med Azure AD. Om du vill se om en särskild AD-användare är synkroniserad med Azure AD kan du ange parametern-UserName och-Domain i indataparametrarna. 
 6. CheckGetKerberosTicket: försöker hämta en Kerberos-biljett för att ansluta till lagrings kontot. Om det inte finns någon giltig Kerberos-token kör du cmdleten Klist get CIFS/Storage-Account-name. File. Core. Windows. net. kontrol lera felkoden för att rot orsaka att biljett hämtningen Miss lyckas.
-7. CheckStorageAccountDomainJoined: kontrol lera om AD-autentisering har Aktiver ATS och att kontots AD-egenskaper är ifyllda. Om inte, referera till den [här](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-enable) instruktionen för att aktivera AD DS-autentisering på Azure Files. 
+7. CheckStorageAccountDomainJoined: kontrol lera om AD-autentisering har Aktiver ATS och att kontots AD-egenskaper är ifyllda. Om inte, referera till den [här](./storage-files-identity-ad-ds-enable.md) instruktionen för att aktivera AD DS-autentisering på Azure Files. 
 
 ## <a name="unable-to-configure-directoryfile-level-permissions-windows-acls-with-windows-file-explorer"></a>Det gick inte att konfigurera katalog-/fil nivå behörigheter (Windows ACL: er) med Utforskaren i Windows
 
@@ -417,7 +417,7 @@ Du kan uppleva antingen symptom som beskrivs nedan när du försöker konfigurer
 
 ### <a name="solution"></a>Lösning
 
-Vi rekommenderar att du använder [icacls-verktyget](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) för att konfigurera behörigheter för katalogen/fil nivån som en lösning. 
+Vi rekommenderar att du använder [icacls-verktyget](/windows-server/administration/windows-commands/icacls) för att konfigurera behörigheter för katalogen/fil nivån som en lösning. 
 
 ## <a name="errors-when-running-join-azstorageaccountforauth-cmdlet"></a>Fel vid körning av Join-AzStorageAccountForAuth cmdlet
 
@@ -431,7 +431,7 @@ Det här felet utlöses troligen av ett syntaxfel i kommandot Join-AzStorageAcco
 
 ## <a name="azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption"></a>Azure Files lokal AD DS-autentisering stöd för AES 256 Kerberos-kryptering
 
-Vi introducerade AES 256 Kerberos-kryptering för Azure Files lokal AD DS-autentisering med [AzFilesHybrid module v 0.2.2](https://github.com/Azure-Samples/azure-files-samples/releases). Om du har aktiverat AD DS-autentisering med en version som är lägre än v-0.2.2 måste du ladda ned den senaste AzFilesHybrid-modulen (v 0.2.2 +) och köra PowerShell nedan. Om du inte har aktiverat AD DS-autentisering på ditt lagrings konto ännu kan du följa den här [vägledningen](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-enable#option-one-recommended-use-azfileshybrid-powershell-module) för aktivering. 
+Vi introducerade AES 256 Kerberos-kryptering för Azure Files lokal AD DS-autentisering med [AzFilesHybrid module v 0.2.2](https://github.com/Azure-Samples/azure-files-samples/releases). Om du har aktiverat AD DS-autentisering med en version som är lägre än v-0.2.2 måste du ladda ned den senaste AzFilesHybrid-modulen (v 0.2.2 +) och köra PowerShell nedan. Om du inte har aktiverat AD DS-autentisering på ditt lagrings konto ännu kan du följa den här [vägledningen](./storage-files-identity-ad-ds-enable.md#option-one-recommended-use-azfileshybrid-powershell-module) för aktivering. 
 
 ```PowerShell
 $ResourceGroupName = "<resource-group-name-here>"

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6b201565ae2bcadccf55cee78ade0e011e603a15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb74ab16e51fbb3a157757353d5743e889f993dd
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85515383"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629707"
 ---
 # <a name="develop-for-azure-files-with-c"></a>Utveckla för Azure Files med C++
 
@@ -32,7 +32,7 @@ I den här självstudien får du lära dig hur du utför grundläggande åtgärd
 * Skapa en signatur för delad åtkomst (SAS-nyckel) för en fil som använder en princip för delad åtkomst som definierats för resursen.
 
 > [!Note]  
-> Eftersom Azure Files kan nås via SMB, är det möjligt att skriva enkla program som har åtkomst till Azure-filresursen med hjälp av standard-I/O-klasser och-funktioner. Den här artikeln beskriver hur du skriver program som använder Azure Storage C++ SDK, som använder [filen REST API](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api) för att kommunicera med Azure Files.
+> Eftersom Azure Files kan nås via SMB, är det möjligt att skriva enkla program som har åtkomst till Azure-filresursen med hjälp av standard-I/O-klasser och-funktioner. Den här artikeln beskriver hur du skriver program som använder Azure Storage C++ SDK, som använder [filen REST API](/rest/api/storageservices/file-service-rest-api) för att kommunicera med Azure Files.
 
 ## <a name="create-a-c-application"></a>Skapa ett C++-program
 
@@ -41,7 +41,7 @@ Om du vill bygga exemplen måste du installera Azure Storage klient bibliotek 2.
 Om du vill installera Azure Storage-2.4.0 för C++ kan du använda någon av följande metoder:
 
 * **Linux:** Följ anvisningarna i README-sidan [för Azure Storage klient bibliotek för C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) .
-* **Windows:** I Visual Studio klickar du på **verktyg &gt; NuGet Package Manager &gt; Package**Manager-konsolen. Skriv följande kommando i [NuGet Package Manager-konsolen](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) och tryck på **RETUR**.
+* **Windows:** I Visual Studio klickar du på **verktyg &gt; NuGet Package Manager &gt; Package** Manager-konsolen. Skriv följande kommando i [NuGet Package Manager-konsolen](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) och tryck på **RETUR**.
   
 
 ```powershell
@@ -160,7 +160,7 @@ directory.delete_directory_if_exists();
 
 ## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Räkna upp filer och kataloger i en Azure-filresurs
 
-Att hämta en lista över filer och kataloger i en resurs görs enkelt genom att anropa **list_files_and_directories** på en **cloud_file_directory** referens. För att få åtkomst till den omfattande uppsättningen med egenskaper och metoder för en returnerad **list_file_and_directory_item**, måste du anropa metoden **list_file_and_directory_item. as _file** för att hämta ett **cloud_file** -objekt, eller **list_file_and_directory_item. as _directory** -metoden för att hämta ett **cloud_file_directory** -objekt.
+Att hämta en lista över filer och kataloger i en resurs görs enkelt genom att anropa **list_files_and_directories** på en **cloud_file_directory** referens. För att få åtkomst till den omfattande uppsättningen med egenskaper och metoder för en returnerad **list_file_and_directory_item** , måste du anropa metoden **list_file_and_directory_item. as _file** för att hämta ett **cloud_file** -objekt, eller **list_file_and_directory_item. as _directory** -metoden för att hämta ett **cloud_file_directory** -objekt.
 
 Följande kod visar hur du hämtar och matar ut URI för varje objekt i resursens rot Katalog.
 

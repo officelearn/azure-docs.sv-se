@@ -1,21 +1,21 @@
 ---
-title: Visa och konfigurera Azure IoT Connector för FHIR (för hands version) mått
+title: Visa och konfigurera Azure IoT-anslutningsprogram för FHIR-mått (förhandsversion)
 description: Den här artikeln förklarar hur du visar och konfigurerar Azure IoT Connector för FHIR (för hands version) mått.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 10/29/2020
+ms.date: 11/13/2020
 ms.author: jasteppe
-ms.openlocfilehash: 9a4e2c4dfe8a9de28688afe0dd036cecb7ce2b39
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 79a7b18986f4bed503cd5493a7d74325a13fe535
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381226"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630523"
 ---
-# <a name="display-and-configure-azure-iot-connector-for-fhir-preview-metrics"></a>Visa och konfigurera Azure IoT Connector för FHIR (för hands version) mått 
+# <a name="display-and-configure-azure-iot-connector-for-fhir-preview-metrics"></a>Visa och konfigurera Azure IoT-anslutningsprogram för FHIR-mått (förhandsversion) 
 
 I den här artikeln får du lära dig hur du visar och konfigurerar Azure IoT Connector för snabba hälso-och sjukvårds resurser (FHIR&#174;) * mått.
 
@@ -41,6 +41,9 @@ I den här artikeln får du lära dig hur du visar och konfigurerar Azure IoT Co
    :::image type="content" source="media/iot-metrics-display/iot-metrics-select-time.png" alt-text="Skärm bild av fönstret &quot;IoT Connector&quot; som visar ett linje diagram för tids perioder på 1 timme för koppling 1." lightbox="media/iot-metrics-display/iot-metrics-select-time.png"::: 
  
 ## <a name="metric-types-for-azure-iot-connector-for-fhir-preview"></a>Mått typer för Azure IoT Connector för FHIR (för hands version) 
+
+> [!TIP]
+> Om du vill lära dig mer om data flödet i Azure IoT Connector för FHIR kan du läsa mer om fel meddelanden och korrigeringar i Azure IoT Connector för [FHIR (för hands version) data flöde](./iot-data-flow.md) och [Azure IoT Connector för FHIR (för hands version)](./iot-troubleshoot-guide.md) .
 
 De IoT-kopplings mått som du kan visa visas i följande tabell:
 

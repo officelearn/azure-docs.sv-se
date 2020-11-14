@@ -1,7 +1,7 @@
 ---
 title: Schemalägg Azure Machine Learning pipelines
 titleSuffix: Azure Machine Learning
-description: Schemalägg Azure Machine Learning pipelines med hjälp av Azure Machine Learning SDK för python. Med schemalagda pipelines kan du automatisera rutinmässiga, tids krävande uppgifter, till exempel data bearbetning, utbildning och övervakning.
+description: Med schemalagda pipelines kan du automatisera rutinmässiga, tids krävande uppgifter, till exempel data bearbetning, utbildning och övervakning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 11/12/2019
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 97d0f822e63bb6eb32b1cd2f211621af8ad1c4b8
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2c931aa6cd170c72654eb9ced6813d26e21ce5d0
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313989"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630319"
 ---
 # <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Schemalägg maskin inlärnings pipeliner med Azure Machine Learning SDK för python
 

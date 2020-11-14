@@ -45,7 +45,7 @@
     - name: 13 – Övervaka virtuella datorer
       href: tutorial-monitor.md
     - name: 14 – Hantera VM-säkerhet
-      href: tutorial-azure-security.md
+      href: ../tutorial-azure-security.md
     - name: 15a – Skapa med Jenkins
       href: /azure/developer/jenkins/pipeline-with-github-and-docker
     - name: 15b – Integrera Jenkins med Azure DevOps
@@ -687,7 +687,15 @@
         - name: Tidssynkronisering
           href: time-sync.md
         - name: Tagga en virtuell dator
-          href: tag.md
+          items:
+            - name: CLI
+              href: ../tag-cli.md
+            - name: Portalen
+              href: ../tag-portal.md
+            - name: PowerShell
+              href: ../tag-powershell.md
+            - name: Mall
+              href: ../tag-template.md
         - name: Köra skript på en virtuell dator
           href: run-scripts-in-vm.md
           items:

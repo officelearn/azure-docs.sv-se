@@ -36,6 +36,10 @@
       href: front-door-quickstart-template-samples.md
 - name: Begrepp
   items:
+    - name: Säkerhet
+      items:
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
     - name: Serverdelar och serverdelspooler
       href: front-door-backend-pool.md
     - name: Cachelagring med Front Door

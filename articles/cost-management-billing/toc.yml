@@ -122,6 +122,10 @@
           href: manage/azure-plan-subscription-transfer-partners.md
         - name: Kom igång i Azure EA-portalen
           href: manage/ea-portal-get-started.md
+    - name: Säkerhet
+      items:
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
 - name: Anvisningar
   items:
     - name: Konfigurera Cost Management + Fakturering

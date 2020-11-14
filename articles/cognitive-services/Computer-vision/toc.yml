@@ -85,12 +85,14 @@
       href: Tutorials/storage-lab-tutorial.md
 - name: Begrepp
   items:
-    - name: Innehållstaggar
-      href: concept-tagging-images.md
+    - name: Optisk teckenläsning (OCR)
+      href: concept-recognizing-text.md
     - name: Objektidentifiering
       href: concept-object-detection.md
     - name: Varumärkesidentifiering
       href: concept-brand-detection.md
+    - name: Innehållstaggar
+      href: concept-tagging-images.md
     - name: Bildkategorisering
       href: concept-categorizing-images.md
     - name: Bildbeskrivningar
@@ -105,8 +107,6 @@
       href: concept-detecting-color-schemes.md
     - name: Miniatyrbilder med smart beskärning
       href: concept-generating-thumbnails.md
-    - name: Optisk teckenläsning (OCR)
-      href: concept-recognizing-text.md
     - name: Identifiering av innehåll som är olämpligt för barn
       href: concept-detecting-adult-content.md
 - name: Ansvarsfull AI

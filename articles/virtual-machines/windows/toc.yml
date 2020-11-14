@@ -46,7 +46,7 @@
     - name: 13 – Övervaka virtuella datorer
       href: tutorial-monitor.md
     - name: 14 – Hantera VM-säkerhet
-      href: tutorial-azure-security.md
+      href: ../tutorial-azure-security.md
     - name: 15 – Installera en SQL\IIS\.NET-stack
       href: tutorial-iis-sql.md
     - name: 16 – Säker webbserver med SSL
@@ -648,8 +648,16 @@
         - name: Växla OS-disk
           href: os-disk-swap.md
         - name: Tagga en virtuell dator
-          href: tag.md
-        - name: Tidssynkronisering
+          items:
+            - name: Portalen
+              href: ../tag-portal.md
+            - name: PowerShell
+              href: ../tag-powershell.md
+            - name: CLI
+              href: ../tag-cli.md
+            - name: Mall
+              href: ../tag-template.md
+            - name: Tidssynkronisering
           href: time-sync.md
         - name: Köra skript på en virtuell dator
           href: run-scripts-in-vm.md
@@ -950,7 +958,7 @@
           href: ../../virtual-network/quick-create-portal.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
         - name: Öppna portar till en virtuell dator
           items:
-            - name: Azure-portalen
+            - name: Azure Portal
               href: nsg-quickstart-portal.md
             - name: Azure PowerShell
               href: nsg-quickstart-powershell.md

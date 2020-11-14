@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: 7be326e0f01ed6a00244c0f5b9ed6a960b2b6e0b
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "86171864"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Interoperabilitet i Azures Server dels anslutnings funktioner: testa konfigurations information
@@ -23,17 +23,17 @@ I den här artikeln beskrivs konfigurations information för [test konfiguration
 
 ## <a name="spoke-vnet-connectivity-by-using-vnet-peering"></a>Eker VNet-anslutning med hjälp av VNet-peering
 
-Följande bild visar information om Virtual Network peering i Azure för ett eker-virtuellt nätverk (VNet). Information om hur du konfigurerar peering mellan två virtuella nätverk finns i [Hantera VNet-peering][VNet-Config]. Om du vill att det virtuella eker-nätverket ska använda de gatewayer som är anslutna till hubbens VNet väljer du **Använd fjärrgatewayer** .
+Följande bild visar information om Virtual Network peering i Azure för ett eker-virtuellt nätverk (VNet). Information om hur du konfigurerar peering mellan två virtuella nätverk finns i [Hantera VNet-peering][VNet-Config]. Om du vill att det virtuella eker-nätverket ska använda de gatewayer som är anslutna till hubbens VNet väljer du **Använd fjärrgatewayer**.
 
-[![81.1]][1]
+[![1]][1]
 
-Följande bild visar information om VNet-peering för hubbens VNet. Om du vill att hubbens VNet ska tillåta att det virtuella eker-nätverket använder hubbens gatewayer väljer du **Tillåt Gateway-överföring** .
+Följande bild visar information om VNet-peering för hubbens VNet. Om du vill att hubbens VNet ska tillåta att det virtuella eker-nätverket använder hubbens gatewayer väljer du **Tillåt Gateway-överföring**.
 
 [![11.2]][2]
 
 ## <a name="branch-vnet-connectivity-by-using-a-site-to-site-vpn"></a>Gren-VNet-anslutning med hjälp av en plats-till-plats-VPN
 
-Konfigurera VPN-anslutning från plats till plats mellan hubben och grenen virtuella nätverk med hjälp av VPN-gatewayer i Azure VPN Gateway. Som standard använder VPN-gatewayer och Azure ExpressRoute-gatewayer ett privat autonomt system nummer (ASN)-värde på **65515** . Du kan ändra ASN-värdet i VPN Gateway. I test installationen ändras ASN-värdet för VPN-gatewayen för gren-VNet till **65516** för att stödja eBGP-routning mellan hubben och gren virtuella nätverk.
+Konfigurera VPN-anslutning från plats till plats mellan hubben och grenen virtuella nätverk med hjälp av VPN-gatewayer i Azure VPN Gateway. Som standard använder VPN-gatewayer och Azure ExpressRoute-gatewayer ett privat autonomt system nummer (ASN)-värde på **65515**. Du kan ändra ASN-värdet i VPN Gateway. I test installationen ändras ASN-värdet för VPN-gatewayen för gren-VNet till **65516** för att stödja eBGP-routning mellan hubben och gren virtuella nätverk.
 
 
 [![3]][3]

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: aahi
-ms.openlocfilehash: 122e44da7bbf4229f932eefdae4c70dc49f43bfe
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 247aea49d60c2d953d8b6dff37d22188a5442a1f
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371296"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94625503"
 ---
 Använd den här snabb starten för att göra din första avbildnings sökning med hjälp av Bildsökning i Bing klient biblioteket. 
 
@@ -23,7 +23,7 @@ Du skapar ett C#-program som skickar en bilds öknings fråga, parsar JSON-svare
 
 Käll koden för det här exemplet finns [på GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch) med ytterligare fel hantering och anteckningar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du använder Windows, vilken version av [Visual Studio 2017 eller senare](https://visualstudio.microsoft.com/vs/whatsnew/)
 * Om du använder macOS eller Linux, [vs Code](https://code.visualstudio.com) med [.net Core installerat](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/install)
@@ -46,7 +46,7 @@ Börja med att skapa ett nytt C#-konsol program.
 1. Lägg till [kognitivt bildsökning NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch)
     1. Högerklicka på ditt projekt i **Solution Explorer**.
     1. Välj **Hantera NuGet-paket**.
-    1. Sök efter och välj *Microsoft. Azure. CognitiveServices. search. ImageSearch*och installera sedan paketet.
+    1. Sök efter och välj *Microsoft. Azure. CognitiveServices. search. ImageSearch* och installera sedan paketet.
     
 # <a name="vs-code"></a>[VS-kod](#tab/vscode)
 
@@ -129,12 +129,12 @@ if (imageResults != null)
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie om enkel app för bildsökning i Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app)
+> [Självstudie om enkel app för bildsökning i Bing](../../tutorial-bing-image-search-single-page-app.md)
 
 ## <a name="see-also"></a>Se även
 
-* [Vad är bildsökning i Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Vad är bildsökning i Bing?](../../overview.md)  
 * [Prova en interaktiv demo online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
 * [.NET-exempel för Azure Cognitive Services SDK](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
-* [Dokumentation om Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [API-referens för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Dokumentation om Azure Cognitive Services](../../../index.yml)
+* [API-referens för bildsökning i Bing](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

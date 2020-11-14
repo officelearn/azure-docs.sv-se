@@ -3,14 +3,14 @@ title: JavaScript-referens för utvecklare för Azure Functions
 description: Lär dig hur du utvecklar funktioner med hjälp av Java Script.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 11/11/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 5b9ffdec83fb613b7df0b5a3227ca66c55e54fe9
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 9b920dc8a31967c9d8e1f05a6101fdfcc7a1304e
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422560"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628840"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript-guide för utvecklare
 
@@ -201,7 +201,7 @@ module.exports = (context) => {
 
 Kontexten som skickas till funktionen exponerar en `executionContext` egenskap, som är ett objekt med följande egenskaper:
 
-| Egenskapsnamn  | Typ  | Description |
+| Egenskapsnamn  | Typ  | Beskrivning |
 |---------|---------|---------|
 | `invocationId` | Sträng | Innehåller en unik identifierare för det specifika funktions anropet. |
 | `functionName` | Sträng | Anger namnet på den aktiva funktionen |
@@ -508,12 +508,20 @@ I följande tabell visas aktuella Node.js-versioner som stöds för varje huvud 
 | Funktions version | Node-version (Windows) | Node-version (Linux) |
 |---|---| --- |
 | 1.x | 6.11.2 (låst av körningen) | saknas |
-| 2x  | ~ 8<br/>~ 10 (rekommenderas)<br/>~ 12<sup>*</sup> | ~ 8 (rekommenderas)<br/>~ 10  |
-| 3.x | ~ 10<br/>~ 12 (rekommenderas)  | ~ 10<br/>~ 12 (rekommenderas) |
+| 2x  | `~8`<br/>`~10` rekommenderas<br/>`~12` | `node|8`<br/>`node|10` rekommenderas  |
+| 3.x | `~10`<br/>`~12` rekommenderas<br/>`~14` förhandsgranskningsvyn  | `node|10`<br/>`node|12` rekommenderas<br/>`node|14` förhandsgranskningsvyn |
 
-<sup>*</sup>Noden ~ 12 är för närvarande tillåten för version 2. x av Functions-körningen. För bästa prestanda rekommenderar vi dock att du använder Functions runtime version 3. x med noden ~ 12. 
+Du kan se den aktuella versionen som körningen använder genom att logga `process.version` från vilken funktion som helst.
 
-Du kan se den aktuella versionen som körningen använder genom att kontrol lera appen ovan eller genom att skriva ut `process.version` från vilken funktion som helst. Rikta in dig på versionen i Azure genom att ange WEBSITE_NODE_DEFAULT_VERSION [app-inställningen](functions-how-to-use-azure-function-app-settings.md#settings) till en LTS-version som stöds, till exempel `~10` .
+### <a name="setting-the-node-version"></a>Ställer in Node-versionen
+
+För Windows Function-appar ska du rikta in dig på versionen i Azure genom att ange `WEBSITE_NODE_DEFAULT_VERSION` [appens inställning](functions-how-to-use-azure-function-app-settings.md#settings) till en LTS-version som stöds, till exempel `~12` .
+
+För Linux Function-appar kör du följande Azure CLI-kommando för att uppdatera Node-versionen.
+
+```bash
+az functionapp config set --linux-fx-version "node|12" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
+```
 
 ## <a name="dependency-management"></a>Beroendehantering
 För att kunna använda grupp bibliotek i JavaScript-koden, som visas i exemplet nedan, måste du se till att alla beroenden är installerade på Funktionsapp i Azure.
@@ -659,7 +667,7 @@ TypeScript-filer (. TS) är destaplade i JavaScript-filer (. js) i `dist` utdata
 
 Hur du utvecklar och distribuerar lokalt från ett TypeScript-projekt beror på ditt utvecklingsverktyg.
 
-### <a name="visual-studio-code"></a>Visuell Studio-kod
+### <a name="visual-studio-code"></a>Visual Studio-koden
 
 Med [Azure Functions för kod tillägget för Visual Studio](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) kan du utveckla dina funktioner med typescript. Kärn verktygen är ett krav i Azure Functions-tillägget.
 

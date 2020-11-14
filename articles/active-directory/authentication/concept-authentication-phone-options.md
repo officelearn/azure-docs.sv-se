@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 11/13/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74be3f4218149f0cdb9f107c8aba0be76d8da27e
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 65c8baa101df5e24780e5e68b5a21b86985608a6
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593084"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628126"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Autentiseringsmetoder i Azure Active Directory telefon alternativ
 
@@ -56,6 +56,8 @@ Med Telefonsamtals verifiering under SSPR eller Azure Multi-Factor Authenticatio
 
 Om du har problem med autentiseringen av telefonen för Azure AD kan du läsa följande fel söknings steg:
 
+* "Du har nått vår gräns för verifierings anrop" eller "du har nått vår gräns för text verifierings koder" fel meddelanden under inloggningen
+   * Använd Microsoft Authenticator-appen eller verifierings koden för att slutföra autentiseringen eller försök igen senare.
 * Blockerat anropar-ID på en enskild enhet.
    * Granska eventuella blockerade tal som kon figurer ATS på enheten.
 * Fel telefonnummer eller felaktig landskod, eller förvirring mellan personligt telefonnummer och arbets telefonnummer.

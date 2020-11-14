@@ -9,10 +9,10 @@ ms.date: 10/31/2019
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: af4ef156cccded6afe2db09628446a6ffe1ad53a
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "92204647"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verifiera ExpressRoute-anslutning
@@ -36,7 +36,7 @@ Syftet med det här dokumentet är att hjälpa användarna att identifiera om oc
 
 ## <a name="overview"></a>Översikt
 Följande diagram visar den logiska anslutningen för ett kund nätverk till Microsoft-nätverk med ExpressRoute.
-[![81.1]][1]
+[![1]][1]
 
 I föregående diagram indikerar talen viktiga nätverks punkter. Dessa nätverks platser refereras i den här artikeln vid tidpunkten med deras associerade nummer. Beroende på ExpressRoute-anslutnings modell – molnets Exchange-samplacering, punkt-till-punkt-Ethernet-anslutning eller alla-till-alla (IPVPN)--nätverks punkterna 3 och 4 kan vara växlar (skikt 2 enheter) eller routrar (Layer 3-enheter). Det finns inga nätverks punkter 3 och 4 i den direkta anslutnings modellen. i stället är CEs (2) direkt ansluten till msee via mörk fiber. De viktiga nätverks punkterna illustreras på följande sätt:
 
@@ -85,7 +85,7 @@ Genom att etablera en ExpressRoute-krets upprättas redundant Layer 2-anslutning
 
 I ExpressRoute Essentials anger *kretsen* status för kretsen på Microsoft-sidan. *Leverantörs status* anger om kretsen har *etablerats/inte etablerats* på tjänstens leverantörs sida. 
 
-För att en ExpressRoute-krets ska fungera måste *kretsens status* vara *aktive rad* och *providerns status* måste vara *etablerad* .
+För att en ExpressRoute-krets ska fungera måste *kretsens status* vara *aktive rad* och *providerns status* måste vara *etablerad*.
 
 > [!NOTE]
 > När du har konfigurerat en ExpressRoute-krets, om *krets statusen* har statusen inte aktive rad, kontaktar du [Microsoft Support][Support]. Å andra sidan, om *providerns status* har statusen inte etablerad, kontaktar du leverantören.

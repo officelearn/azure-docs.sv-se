@@ -1,6 +1,6 @@
 ---
 title: Program typer för Microsoft Identity Platform | Azure
-description: De typer av appar och scenarier som stöds av Microsoft Identity Platform (v 2.0) slut punkten.
+description: De typer av appar och scenarier som stöds av Microsoft Identity Platform-slutpunkten.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 11/13/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
-ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: d04dd0ec7c6d3166e2170001d6ff341d203c0d6b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.custom: aaddev, fasttrack-edit, contperfq2
+ms.openlocfilehash: 4c72d1b4b78c0b7ca9e7fa1f6468beb6fdd4b247
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92103160"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628092"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Program typer för Microsoft Identity Platform
 
-Slut punkten för Microsoft Identity Platform (v 2.0) stöder autentisering för en mängd moderna app-arkitekturer, som alla baseras på bransch standard protokollen [OAuth 2,0 eller OpenID Connect](active-directory-v2-protocols.md). Den här artikeln beskriver de typer av appar som du kan bygga med hjälp av Microsoft Identity Platform, oavsett vilket språk eller vilken plattform du föredrar. Informationen är utformad för att hjälpa dig att förstå scenarier på hög nivå innan du [börjar arbeta med koden](v2-overview.md#getting-started).
+Slut punkten för Microsoft Identity Platform stöder autentisering för en mängd moderna app-arkitekturer, som alla baseras på bransch standard protokollen [OAuth 2,0 eller OpenID Connect](active-directory-v2-protocols.md). Den här artikeln beskriver de typer av appar som du kan bygga med hjälp av Microsoft Identity Platform, oavsett vilket språk eller vilken plattform du föredrar. Informationen är utformad för att hjälpa dig att förstå scenarier på hög nivå innan du börjar arbeta med koden i [program scenarier](authentication-flows-app-scenarios.md#application-scenarios).
 
 ## <a name="the-basics"></a>Grunderna
 
@@ -81,10 +81,9 @@ I Web Server-appar använder inloggnings flödet följande steg på hög nivå:
 
 Du kan se till att användarens identitet genom att verifiera ID-token med en offentlig signerings nyckel som tas emot från Microsoft Identity Platform-slutpunkten. En sessions-cookie har angetts, som kan användas för att identifiera användaren på efterföljande sid begär Anden.
 
-Om du vill se det här scenariot kan du prova någon av inloggnings kod exemplen för webbappar i avsnittet [komma igång med Microsoft Identity Platform](v2-overview.md#getting-started) .
+Om du vill se hur det här scenariot fungerar kan du testa kod exemplen i [webbappen som loggar in i användar scenariot](scenario-web-app-sign-user-overview.md).
 
 Förutom enkel inloggning kan en webbapp ha åtkomst till en annan webb tjänst, till exempel en REST API. I det här fallet deltar webb Server appen i en kombinerad OpenID Connect-och OAuth 2,0-flöde genom att använda [kod flödet för oauth 2,0-auktorisering](v2-oauth2-auth-code-flow.md). Mer information om det här scenariot finns [i komma igång med webbappar och webb-API: er](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIDConnect-DotNet).
-
 
 ## <a name="web-apis"></a>Webb-API:er
 
@@ -106,7 +105,7 @@ Ett webb-API kan ta emot åtkomsttoken från alla typer av appar, inklusive Web 
 
 ![Visar autentiserings flödet för webb-API](./media/v2-app-types/convergence-scenarios-webapi.svg)
 
-Om du vill lära dig att skydda ett webb-API med hjälp av OAuth2-åtkomsttoken kan du titta närmare på webb-API-kod exemplen i avsnittet [komma igång med Microsoft Identity Platform](v2-overview.md#getting-started) .
+Om du vill lära dig att skydda ett webb-API med hjälp av OAuth2-åtkomsttoken kan du titta närmare på webb-API-kod exemplen i det [skyddade webb-API-scenariot](scenario-protected-web-api-overview.md).
 
 I många fall behöver webb-API: er också göra utgående förfrågningar till andra underordnade webb-API: er som skyddas av Microsoft Identity Platform. För att göra det kan webb-API: er dra nytta av flödet **på olika** sätt, vilket gör det möjligt för webb-API: et att utväxla en inkommande åtkomsttoken för en annan åtkomsttoken som ska användas i utgående begär Anden. Mer information finns i [Microsoft Identity Platform och OAuth 2,0 på uppdrag av Flow](v2-oauth2-on-behalf-of-flow.md).
 

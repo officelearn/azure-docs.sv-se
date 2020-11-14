@@ -8,12 +8,12 @@ ms.date: 06/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c8a1d1c0f8de742bdafa130cce6927a472efd8f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e64b7efdd430287a7a3a969c5bf62b0c0e2aec9c
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329354"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94626902"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Använda en Azure-filresurs med Windows
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan användas smidigt i Windows och Windows Server. Den här artikeln beskriver överväganden för att använda en Azure-filresurs med Windows och Windows Server.
@@ -31,8 +31,8 @@ Du kan använda Azure-filresurser i en Windows-installation som körs antingen i
 | Windows 8,1 | SMB 3.0 | Ja | Ja |
 | Windows Server 2012 R2 | SMB 3.0 | Ja | Ja |
 | Windows Server 2012 | SMB 3.0 | Ja | Ja |
-| Windows 7<sup>3</sup> | SMB 2.1 | Ja | Inga |
-| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Ja | Inga |
+| Windows 7<sup>3</sup> | SMB 2.1 | Ja | Nej |
+| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Ja | Nej |
 
 <sup>1</sup> Windows 10, version 1507, 1607, 1803, 1809, 1903, 1909 och 2004.  
 <sup>2</sup> Windows Server, version 1809, 1903, 1909, 2004.  
@@ -46,7 +46,7 @@ Du kan använda Azure-filresurser i en Windows-installation som körs antingen i
 Se till att port 445 är öppen: SMB-protokollet kräver att TCP-port 445 är öppen; anslutningar misslyckas om port 445 är blockerad. Du kan kontrol lera om brand väggen blockerar port 445 med `Test-NetConnection` cmdleten. Information om hur du kan kringgå en blockerad 445-port finns i [Orsak 1: port 445 är blockerat](storage-troubleshoot-windows-file-connection-problems.md#cause-1-port-445-is-blocked) i vår guide för Windows fel sökning.
 
 ## <a name="using-an-azure-file-share-with-windows"></a>Använda en Azure-filresurs med Windows
-Om du vill använda en Azure-filresurs med Windows måste du antingen montera den, vilket innebär att tilldela den en enhetsbeteckning eller en sökväg för monteringspunkt, eller komma åt den via dess [UNC-sökväg](https://msdn.microsoft.com/library/windows/desktop/aa365247.aspx). 
+Om du vill använda en Azure-filresurs med Windows måste du antingen montera den, vilket innebär att tilldela den en enhetsbeteckning eller en sökväg för monteringspunkt, eller komma åt den via dess [UNC-sökväg](/windows/win32/fileio/naming-a-file). 
 
 I den här artikeln används lagrings konto nyckeln för att komma åt fil resursen. En lagrings konto nyckel är en administratörs nyckel för ett lagrings konto, inklusive administratörs behörighet till alla filer och mappar i fil resursen som du ansluter till, samt för alla fil resurser och andra lagrings resurser (blobbar, köer, tabeller osv.) som finns i ditt lagrings konto. Om detta inte är tillräckligt för din arbets belastning kan [Azure File Sync](storage-sync-files-planning.md) användas, eller så kan du använda [Identity-baserad autentisering över SMB](storage-files-active-directory-overview.md).
 
@@ -67,12 +67,12 @@ Så här hämtar du skriptet:
 
 1. Välj **Anslut**.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/file-share-connect-icon.png" alt-text="exempel":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/file-share-connect-icon.png" alt-text="Skärm bild av anslutnings ikonen för din fil resurs.":::
 
 1. Välj den enhets beteckning som resursen ska monteras på.
 1. Kopiera det medföljande skriptet.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="exempel":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Exempel text":::
 
 1. Klistra in skriptet i ett gränssnitt på den värd som du vill montera fil resursen på och kör den.
 
@@ -88,7 +88,7 @@ Nu har du monterat Azure-filresursen.
     
     ![En skärmbild av den nedrullningsbara menyn "Anslut nätverksenhet"](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-1. Välj enhets bokstaven och ange UNC-sökvägen. UNC-sökvägarna är `\\<storageAccountName>.file.core.windows.net\<fileShareName>` . Exempel: `\\anexampleaccountname.file.core.windows.net\example-share-name`.
+1. Välj enhets bokstaven och ange UNC-sökvägen. UNC-sökvägarna är `\\<storageAccountName>.file.core.windows.net\<fileShareName>` . Till exempel: `\\anexampleaccountname.file.core.windows.net\example-share-name`.
     
     ![En skärmbild av dialogrutan "Anslut nätverksenhet"](./media/storage-how-to-use-files-windows/2_MountOnWindows10.png)
 
@@ -196,11 +196,11 @@ När du har skapat den här registernyckeln måste du starta om servern för att
 ### <a name="smb-resources"></a>SMB-resurser
 - [Sluta använda SMB 1](https://blogs.technet.microsoft.com/filecab/2016/09/16/stop-using-smb1/)
 - [Clearinghouse för SMB 1-produkt](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/)
-- [Identifiera SMB 1 i din miljö med DSCEA](https://blogs.technet.microsoft.com/ralphkyttle/2017/04/07/discover-smb1-in-your-environment-with-dscea/)
-- [Inaktivera SMB 1 via en grupprincip](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/)
+- [Identifiera SMB 1 i din miljö med DSCEA](/archive/blogs/ralphkyttle/discover-smb1-in-your-environment-with-dscea)
+- [Inaktivera SMB 1 via en grupprincip](/archive/blogs/secguide/disabling-smbv1-through-group-policy)
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om Azure Files finns på följande länkar:
 - [Planera för en Azure Files-distribution](storage-files-planning.md)
-- [Vanliga frågor och svar](../storage-files-faq.md)
-- [Felsökning i Windows](storage-troubleshoot-windows-file-connection-problems.md)      
+- [Vanliga frågor och svar](./storage-files-faq.md)
+- [Felsökning i Windows](storage-troubleshoot-windows-file-connection-problems.md)

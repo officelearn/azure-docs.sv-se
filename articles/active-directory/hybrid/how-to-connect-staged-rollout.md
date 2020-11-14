@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f800c11bb878ca1788c7258cde25266847e2a90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d7208b068bee4b0a4cc30adfd98d2422718bbcc
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89278589"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628908"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrera till molnbaserad autentisering med stegvis distribution (för hands version)
 
@@ -45,7 +45,7 @@ En översikt över funktionen finns i "Azure Active Directory: Vad är mellanlag
 
 -   Du har konfigurerat alla lämpliga principer för klient anpassning och villkorlig åtkomst som du behöver för användare som migreras till molnbaserad autentisering.
 
--   Om du planerar att använda Azure Multi-Factor Authentication rekommenderar vi att du använder [kombinerad registrering för självbetjäning för återställning av lösen ord (SSPR) och Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) för att användarna ska kunna registrera sina autentiseringsmetoder en gång.
+-   Om du planerar att använda Azure Multi-Factor Authentication rekommenderar vi att du använder [kombinerad registrering för självbetjäning för återställning av lösen ord (SSPR) och Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) för att användarna ska kunna registrera sina autentiseringsmetoder en gång. Obs! när du använder SSPR för att återställa lösen ordet eller ändra lösen ord med hjälp av min profil sida under den stegvisa distributionen måste Azure AD Connect synkronisera det nya lösen ordet hash som kan ta upp till 2 minuter efter en återställning.
 
 -   Om du vill använda funktionen för stegvis distribution måste du vara global administratör för din klient.
 
@@ -73,7 +73,7 @@ Följande scenarier stöds inte för stegvis distribution:
 
 - Administratörer kan distribuera molnbaserad autentisering med hjälp av säkerhets grupper. Vi rekommenderar att du använder moln säkerhets grupper för att undvika synkronisering av svars tider när du använder lokala Active Directory säkerhets grupper. Följande villkor gäller:
 
-    - Du kan använda max 10 grupper per funktion. Det innebär att du kan använda 10 grupper var och en för *lösen ords-hash-synkronisering*, *DIREKTAUTENTISERING*och *sömlös SSO*.
+    - Du kan använda max 10 grupper per funktion. Det innebär att du kan använda 10 grupper var och en för *lösen ords-hash-synkronisering* , *DIREKTAUTENTISERING* och *sömlös SSO*.
     - Kapslade grupper *stöds inte*. Denna omfattning gäller även för den offentliga för hands versionen.
     - Dynamiska grupper *stöds inte* för mellanlagrad distribution.
     - Kontakt objekt inuti gruppen kommer att blockera gruppen från att läggas till.
@@ -95,11 +95,11 @@ Information om vilka PowerShell-cmdletar som ska användas finns i för [hands v
 
 ## <a name="pre-work-for-password-hash-sync"></a>För arbete för synkronisering av lösen ords-hash
 
-1. Aktivera *hash-synkronisering av lösen ord*   från sidan [valfria funktioner](how-to-connect-install-custom.md#optional-features)   i Azure AD Connect. 
+1. Aktivera *hash-synkronisering av lösen ord* från sidan [valfria funktioner](how-to-connect-install-custom.md#optional-features) i Azure AD Connect. 
 
    ![Skärm bild av sidan med valfria funktioner i Azure Active Directory Connect](media/how-to-connect-staged-rollout/sr1.png)
 
-1. Se till att en fullständig *synkronisering av lösen ord för hash* har körts så att alla användares lösen ords-hashar har synkroniserats med Azure AD. Om du vill kontrol lera statusen för *hash-synkronisering av lösen ord*kan du använda PowerShell-diagnostik i [Felsöka lösen ords-hash-synkronisering med Azure AD Connect Sync](tshoot-connect-password-hash-synchronization.md).
+1. Se till att en fullständig *synkronisering av lösen ord för hash* har körts så att alla användares lösen ords-hashar har synkroniserats med Azure AD. Om du vill kontrol lera statusen för *hash-synkronisering av lösen ord* kan du använda PowerShell-diagnostik i [Felsöka lösen ords-hash-synkronisering med Azure AD Connect Sync](tshoot-connect-password-hash-synchronization.md).
 
    ![Skärm bild av fel söknings loggen AADConnect](./media/how-to-connect-staged-rollout/sr2.png)
 
@@ -109,37 +109,37 @@ Om du vill testa *direktautentisering* genom att använda mellanlagrad distribut
 
 1. Identifiera en server som kör Windows Server 2012 R2 eller senare och där du vill att agenten för *direkt autentisering* ska köras. 
 
-   Välj *inte* Azure AD Connect servern.Kontrol lera att servern är domänansluten, kan autentisera valda användare med Active Directory och kan kommunicera med Azure AD på utgående portar och URL: er. Mer information finns i avsnittet "steg 1: kontrol lera kraven" i [snabb start: Azure AD sömlös enkel inloggning](how-to-connect-sso-quick-start.md).
+   Välj *inte* Azure AD Connect servern. Kontrol lera att servern är domänansluten, kan autentisera valda användare med Active Directory och kan kommunicera med Azure AD på utgående portar och URL: er. Mer information finns i avsnittet "steg 1: kontrol lera kraven" i [snabb start: Azure AD sömlös enkel inloggning](how-to-connect-sso-quick-start.md).
 
-1. [Ladda ned Azure AD Connect Authentication agent](https://aka.ms/getauthagent)och installera den på servern. 
+1. [Ladda ned Azure AD Connect Authentication agent](https://aka.ms/getauthagent)och installera den på servern. 
 
-1. Om du vill aktivera [hög tillgänglighet](how-to-connect-sso-quick-start.md)installerar du ytterligare autentiseringsmetoder på andra servrar.
+1. Om du vill aktivera [hög tillgänglighet](how-to-connect-sso-quick-start.md)installerar du ytterligare autentiseringsmetoder på andra servrar.
 
 1. Kontrol lera att du har konfigurerat [inställningarna för smart utelåsning](../authentication/howto-password-smart-lockout.md) på rätt sätt. På så sätt ser du till att dina användares lokala Active Directory-konton inte blir utelåsta av felaktiga aktörer.
 
-Vi rekommenderar att du aktiverar *sömlös SSO* oberoende av inloggnings metoden (*lösen ordets hash-synkronisering* eller *direktautentisering*) som du väljer för stegvis distribution. Om du vill aktivera *sömlös SSO*följer du anvisningarna i nästa avsnitt.
+Vi rekommenderar att du aktiverar *sömlös SSO* oberoende av inloggnings metoden ( *lösen ordets hash-synkronisering* eller *direktautentisering* ) som du väljer för stegvis distribution. Om du vill aktivera *sömlös SSO* följer du anvisningarna i nästa avsnitt.
 
 ## <a name="pre-work-for-seamless-sso"></a>För hands arbete för sömlös enkel inloggning
 
-Aktivera *sömlös SSO*   på Active Directory skogar med hjälp av PowerShell. Om du har mer än en Active Directory skog aktiverar du den för varje skog individuellt.  *Sömlös SSO* utlöses endast för användare som har valts för stegvis distribution. Den befintliga Federations konfigurationen påverkas inte.
+Aktivera *sömlös SSO* på Active Directory skogar med hjälp av PowerShell. Om du har mer än en Active Directory skog aktiverar du den för varje skog individuellt. *Sömlös SSO* utlöses endast för användare som har valts för stegvis distribution. Den befintliga Federations konfigurationen påverkas inte.
 
 Aktivera *sömlös SSO* genom att göra följande:
 
 1. Logga in på Azure AD Connect-servern.
 
-2. Gå till mappen *% ProgramFiles% \\ Microsoft Azure Active Directory Connect*   .
+2. Gå till mappen *% ProgramFiles% \\ Microsoft Azure Active Directory Connect* .
 
-3. Importera den *sömlösa SSO* PowerShell-modulen genom att köra följande kommando: 
+3. Importera den *sömlösa SSO* PowerShell-modulen genom att köra följande kommando: 
 
    `Import-Module .\AzureADSSO.psd1`
 
-4. Kör PowerShell som administratör. I PowerShell anropar du  `New-AzureADSSOAuthenticationContext` . Det här kommandot öppnar ett fönster där du kan ange klient organisationens autentiseringsuppgifter för global administratör.
+4. Kör PowerShell som administratör. I PowerShell anropar du `New-AzureADSSOAuthenticationContext` . Det här kommandot öppnar ett fönster där du kan ange klient organisationens autentiseringsuppgifter för global administratör.
 
-5. Anropa  `Get-AzureADSSOStatus | ConvertFrom-Json` . Det här kommandot visar en lista över Active Directory skogar (se listan "domäner") där funktionen har Aktiver ATS. Som standard är den inställd på false på klient nivå.
+5. Anropa `Get-AzureADSSOStatus | ConvertFrom-Json` . Det här kommandot visar en lista över Active Directory skogar (se listan "domäner") där funktionen har Aktiver ATS. Som standard är den inställd på false på klient nivå.
 
    ![Exempel på Windows PowerShell-utdata](./media/how-to-connect-staged-rollout/sr3.png)
 
-6. Anropa  `$creds = Get-Credential` . Ange domän administratörs behörighet för den avsedda Active Directory skogen vid prompten.
+6. Anropa `$creds = Get-Credential` . Ange domän administratörs behörighet för den avsedda Active Directory skogen vid prompten.
 
 7. Anropa `Enable-AzureADSSOForest -OnPremCredentials $creds` . Det här kommandot skapar AZUREADSSOACC-datornamnet från den lokala domänkontrollanten för den Active Directory skog som krävs för *sömlös SSO*.
 
@@ -149,7 +149,7 @@ Aktivera *sömlös SSO* genom att göra följande:
 
 ## <a name="enable-staged-rollout"></a>Aktivera mellanlagrad distribution
 
-Om du vill distribuera en speciell funktion (*vidarekoppling*, *lösen ords-hash-synkronisering*eller *sömlös SSO*) till en Välj uppsättning användare i en grupp, följer du anvisningarna i nästa avsnitt.
+Om du vill distribuera en speciell funktion ( *vidarekoppling* , *lösen ords-hash-synkronisering* eller *sömlös SSO* ) till en Välj uppsättning användare i en grupp, följer du anvisningarna i nästa avsnitt.
 
 ### <a name="enable-a-staged-rollout-of-a-specific-feature-on-your-tenant"></a>Aktivera en stegvis distribution av en speciell funktion på din klient organisation
 
@@ -165,7 +165,7 @@ Gör följande:
 
 2. Välj länken **Aktivera mellanlagrad distribution för hanterad användare inloggning (för hands version)** .
 
-   Om du t. ex. vill aktivera *alternativ A*, drar du skjutreglaget för **hash-synkronisering av lösen ord** och **sömlöst enkel inloggning** till **på**, som du ser i följande avbildningar.
+   Om du t. ex. vill aktivera *alternativ A* , drar du skjutreglaget för **hash-synkronisering av lösen ord** och **sömlöst enkel inloggning** till **på** , som du ser i följande avbildningar.
 
    ![Sidan Azure AD Connect](./media/how-to-connect-staged-rollout/sr4.png)
 
@@ -183,7 +183,7 @@ Gör följande:
 
 Vi har aktiverat gransknings händelser för de olika åtgärder som vi utför för stegvis distribution:
 
-- Gransknings händelse när du aktiverar en mellanlagrad distribution för *lösen ords-hash-synkronisering*, *DIREKTAUTENTISERING*eller *sömlös SSO*.
+- Gransknings händelse när du aktiverar en mellanlagrad distribution för *lösen ords-hash-synkronisering* , *DIREKTAUTENTISERING* eller *sömlös SSO*.
 
   >[!NOTE]
   >En gransknings händelse loggas när *sömlös enkel inloggning* aktive ras med hjälp av mellanlagrad distribution.
@@ -192,7 +192,7 @@ Vi har aktiverat gransknings händelser för de olika åtgärder som vi utför f
 
   ![Fönstret "skapa distributions princip för funktion" – fliken ändrade egenskaper](./media/how-to-connect-staged-rollout/sr8.png)
 
-- Gransknings händelse när en grupp läggs till i *hash-synkronisering av lösen ord*, *DIREKTAUTENTISERING*eller *sömlös SSO*.
+- Gransknings händelse när en grupp läggs till i *hash-synkronisering av lösen ord* , *DIREKTAUTENTISERING* eller *sömlös SSO*.
 
   >[!NOTE]
   >En gransknings händelse loggas när en grupp läggs till i *lösen ordets hash-synkronisering* för stegvis distribution.
@@ -217,7 +217,7 @@ Om du vill testa inloggningen med *hash-synkronisering av lösen ord* eller *dir
 
 1. Kontrol lera att inloggningen visas i [rapporten inloggnings aktivitet i Azure AD](../reports-monitoring/concept-sign-ins.md) genom att filtrera med userPrincipalName.
 
-Så här testar du inloggning med *sömlös SSO*:
+Så här testar du inloggning med *sömlös SSO* :
 
 1. På intranätet går du till [sidan appar](https://myapps.microsoft.com) i en privat webbläsarsession och anger sedan USERPRINCIPALNAME (UPN) för det användar konto som har valts för stegvis distribution.
 

@@ -9,10 +9,10 @@ ms.date: 10/19/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 6bc8b6cc18f4a4bc41cabf7f8fefe78a5aaf7827
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "94427893"
 ---
 1. Från [Azure Portal](https://portal.azure.com), i **Sök efter resurser, tjänster och dokument (G +/)** typ **virtuell nätverksgateway**. Leta upp en **virtuell nätverksgateway** i Sök resultaten och markera den.

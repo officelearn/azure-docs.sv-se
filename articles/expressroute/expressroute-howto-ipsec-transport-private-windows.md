@@ -9,10 +9,10 @@ ms.date: 10/17/2018
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 2dcb8489d94b9afc3ae4df829b37dd9785383d85
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "92208251"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Konfigurera IPsec-transportläge för privat ExpressRoute-peering
@@ -43,7 +43,7 @@ Det här diagrammet visar IPsec-tunnlar i överföring i ExpressRoute privat pee
 ### <a name="working-with-ipsec-policy"></a>Arbeta med IPsec-princip
 
 I Windows är kryptering kopplad till IPsec-princip. IPsec-principen avgör vilken IP-trafik som skyddas och säkerhetsmekanismen som tillämpas på IP-paketen.
-**IPSec-principer** består av följande objekt: **filter listor** , **filter åtgärder** och **säkerhets regler** .
+**IPSec-principer** består av följande objekt: **filter listor** , **filter åtgärder** och **säkerhets regler**.
 
 När du konfigurerar IPsec-principen är det viktigt att förstå följande terminologi för IPsec-principer:
 
@@ -84,9 +84,9 @@ Se till att du uppfyller följande krav:
 ### <a name="workflow"></a>Arbetsflöde
 
 1. Skapa ett grup princip objekt och koppla det till ORGANISATIONSENHETen.
-2. Definiera en IPsec- **filter åtgärd** .
-3. Definiera en IPsec- **filterlista** .
-4. Skapa en IPsec-princip med **säkerhets regler** .
+2. Definiera en IPsec- **filter åtgärd**.
+3. Definiera en IPsec- **filterlista**.
+4. Skapa en IPsec-princip med **säkerhets regler**.
 5. Tilldela IPsec-GRUPPRINCIPOBJEKTet till ORGANISATIONSENHETen.
 
 ### <a name="example-values"></a>Exempelvärden
@@ -101,7 +101,7 @@ Se till att du uppfyller följande krav:
 
 ## <a name="1-create-a-gpo"></a><a name="creategpo"></a>1. skapa ett grup princip objekt
 
-1. Om du vill skapa ett nytt grup princip objekt som är länkat till en ORGANISATIONSENHET öppnar du snapin-modulen grupprincip hantering och letar reda på den ORGANISATIONSENHET som GRUPPRINCIPOBJEKTet ska länkas till. I exemplet heter ORGANISATIONSENHETen **IPSecOU** . 
+1. Om du vill skapa ett nytt grup princip objekt som är länkat till en ORGANISATIONSENHET öppnar du snapin-modulen grupprincip hantering och letar reda på den ORGANISATIONSENHET som GRUPPRINCIPOBJEKTet ska länkas till. I exemplet heter ORGANISATIONSENHETen **IPSecOU**. 
 
    [![9]][9]
 2. I snapin-modulen för grupprincip hantering väljer du ORGANISATIONSENHETen och högerklickar på. I list rutan klickar du på " **skapa ett grup princip objekt i den här domänen och länka det här...** ".
@@ -116,38 +116,38 @@ Se till att du uppfyller följande krav:
 Om du vill tillämpa GRUPPRINCIPOBJEKTet på ORGANISATIONSENHETen får GRUPPRINCIPOBJEKTet inte bara kopplas till ORGANISATIONSENHETen, men länken måste också vara aktive rad.
 
 1. Leta upp det grup princip objekt som du har skapat, högerklicka och välj **Redigera** i list rutan.
-2. Om du vill tillämpa GRUPPRINCIPOBJEKTet på ORGANISATIONSENHETen väljer du **länk aktiverat** .
+2. Om du vill tillämpa GRUPPRINCIPOBJEKTet på ORGANISATIONSENHETen väljer du **länk aktiverat**.
 
    [![12]][12]
 
 ## <a name="3-define-the-ip-filter-action"></a><a name="filteraction"></a>3. definiera åtgärden för IP-filter
 
-1. I list rutan högerklickar du på **IP-säkerhetsprincip på Active Directory** och klickar sedan på **Hantera IP-filterlistor och filter åtgärder.** ...
+1. I list rutan högerklickar du på **IP-säkerhetsprincip på Active Directory** och klickar sedan på **Hantera IP-filterlistor och filter åtgärder.**...
 
    [![15]][15]
-2. På fliken " **Hantera filter åtgärder** " klickar du på **Lägg till** .
+2. På fliken " **Hantera filter åtgärder** " klickar du på **Lägg till**.
 
    [![16]][16]
 
-3. I **guiden IP-säkerhetsfilter åtgärd** klickar du på **Nästa** .
+3. I **guiden IP-säkerhetsfilter åtgärd** klickar du på **Nästa**.
 
    [![17]][17]
-4. Ge filter åtgärden ett intuitivt namn så att du kan hitta den senare. I det här exemplet heter filter åtgärden **kryptering** . Du kan också lägga till en beskrivning. Klicka sedan på **Nästa** .
+4. Ge filter åtgärden ett intuitivt namn så att du kan hitta den senare. I det här exemplet heter filter åtgärden **kryptering**. Du kan också lägga till en beskrivning. Klicka sedan på **Nästa**.
 
    [![18]][18]
-5. Med **förhandlings säkerhet** kan du definiera beteendet om IPSec inte kan upprättas med en annan dator. Välj **förhandla om säkerhet** och klicka sedan på **Nästa** .
+5. Med **förhandlings säkerhet** kan du definiera beteendet om IPSec inte kan upprättas med en annan dator. Välj **förhandla om säkerhet** och klicka sedan på **Nästa**.
 
    [![19]][19]
-6. På sidan **kommunicera med datorer som inte stöder IPSec** väljer **du Tillåt inte oskyddad kommunikation** och klickar sedan på **Nästa** .
+6. På sidan **kommunicera med datorer som inte stöder IPSec** väljer **du Tillåt inte oskyddad kommunikation** och klickar sedan på **Nästa**.
 
    [![20]][20]
-7. På sidan **IP-trafik och säkerhet** väljer du **anpassad** och klickar sedan på **Inställningar.** ...
+7. På sidan **IP-trafik och säkerhet** väljer du **anpassad** och klickar sedan på **Inställningar.**...
 
    [![21]][21]
-8. På sidan **anpassade säkerhets metod inställningar** väljer du **data integritet och kryptering (ESP): SHA1, 3DES** . Klicka sedan på **OK** .
+8. På sidan **anpassade säkerhets metod inställningar** väljer du **data integritet och kryptering (ESP): SHA1, 3DES**. Klicka sedan på **OK**.
 
    [![22]][22]
-9. På sidan **Hantera filter åtgärder** kan du se att filtret för **kryptering** har lagts till. Klicka på **Stäng** .
+9. På sidan **Hantera filter åtgärder** kan du se att filtret för **kryptering** har lagts till. Klicka på **Stäng**.
 
    [![23]][23]
 
@@ -158,25 +158,25 @@ Skapa en filter lista som anger krypterad HTTP-trafik med mål porten 8080.
 1. Använd en **IP-filterlista** för att kvalificera vilka typer av trafik som måste krypteras. I fliken **Hantera IP-filterlistor** klickar du på **Lägg** till för att lägga till en ny IP-filterlista.
 
    [![24]][24]
-2. I fältet **Namn:** anger du ett namn för IP-filterlistan. Till exempel **Azure-onpremises-HTTP8080** . Klicka sedan på **Lägg till** .
+2. I fältet **Namn:** anger du ett namn för IP-filterlistan. Till exempel **Azure-onpremises-HTTP8080**. Klicka sedan på **Lägg till**.
 
    [![25]][25]
-3. På sidan **Beskrivning av IP-filter och speglad egenskap** väljer du **speglad** . Den speglade inställningen matchar paket som går i båda riktningarna, vilket möjliggör tvåvägs kommunikation. Klicka på **Nästa** .
+3. På sidan **Beskrivning av IP-filter och speglad egenskap** väljer du **speglad**. Den speglade inställningen matchar paket som går i båda riktningarna, vilket möjliggör tvåvägs kommunikation. Klicka på **Nästa**.
 
    [![26]][26]
 4. På sidan källa för **IP-trafikkälla** väljer du **en speciell IP-adress eller ett undernät** i list rutan **käll adress:** . 
 
    [![27]][27]
-5. Ange käll adressens **IP-adress eller undernät:** IP-trafik och klicka sedan på **Nästa** .
+5. Ange käll adressens **IP-adress eller undernät:** IP-trafik och klicka sedan på **Nästa**.
 
    [![28]][28]
-6. Ange **mål adress:** IP-adress eller undernät. Klicka sedan på **Nästa** .
+6. Ange **mål adress:** IP-adress eller undernät. Klicka sedan på **Nästa**.
 
    [![29]][29]
-7. På sidan **IP-protokoll typ** väljer du **TCP** . Klicka sedan på **Nästa** .
+7. På sidan **IP-protokoll typ** väljer du **TCP**. Klicka sedan på **Nästa**.
 
    [![30]][30]
-8. På sidan **IP-protokoll port** väljer du **från valfri port** och **port:** . Skriv **8080** i text rutan. De här inställningarna anger att endast HTTP-trafiken på mål porten 8080 ska krypteras. Klicka sedan på **Nästa** .
+8. På sidan **IP-protokoll port** väljer du **från valfri port** och **port:**. Skriv **8080** i text rutan. De här inställningarna anger att endast HTTP-trafiken på mål porten 8080 ska krypteras. Klicka sedan på **Nästa**.
 
    [![31]][31]
 9. Visa listan över IP-filter.  Konfigurationen av IP **-filterlistan Azure-onpremises-HTTP8080** utlöser kryptering för all trafik som matchar följande kriterier:
@@ -192,7 +192,7 @@ Skapa en filter lista som anger krypterad HTTP-trafik med mål porten 8080.
 
 För att kryptera samma typ av trafik i motsatt riktning (från den lokala värden till den virtuella Azure-datorn) behöver du ett andra IP-filter. Processen för att skapa ett nytt filter är samma process som du använde för att konfigurera det första IP-filtret. De enda skillnaderna är käll under nätet och mål under nätet.
 
-1. Om du vill lägga till ett nytt IP-filter i listan IP-filter väljer du **Redigera** .
+1. Om du vill lägga till ett nytt IP-filter i listan IP-filter väljer du **Redigera**.
 
    [![33]][33]
 2. Klicka på **Lägg till** på sidan **IP-filterlista** .
@@ -211,16 +211,16 @@ Om kryptering krävs mellan en lokal plats och ett Azure-undernät för att skyd
 
 Skapa en IPsec-princip med säkerhets regler.
 
-1. Välj de **IPSecurity-principer i Active Directory** som är kopplade till organisationsenheten. Högerklicka och välj **skapa IP-säkerhetsprincip** .
+1. Välj de **IPSecurity-principer i Active Directory** som är kopplade till organisationsenheten. Högerklicka och välj **skapa IP-säkerhetsprincip**.
 
    [![37]][37]
-2. Namnge säkerhets principen. Till exempel **princip – Azure-onpremises** . Klicka sedan på **Nästa** .
+2. Namnge säkerhets principen. Till exempel **princip – Azure-onpremises**. Klicka sedan på **Nästa**.
 
    [![38]][38]
 3. Klicka på **Nästa** utan att markera kryss rutan.
 
    [![39]][39]
-4. Kontrol lera att kryss rutan **Redigera egenskaper** är markerad och klicka sedan på **Slutför** .
+4. Kontrol lera att kryss rutan **Redigera egenskaper** är markerad och klicka sedan på **Slutför**.
 
    [![40]][40]
 
@@ -231,7 +231,7 @@ Lägg till IPsec-principen i **IP-filterlistan** och **filter åtgärden** som d
 1. Klicka på **Lägg till** på **fliken Egenskaper för** http-princip.
 
    [![41]][41]
-2. På sidan Välkommen klickar du på **Nästa** .
+2. På sidan Välkommen klickar du på **Nästa**.
 
    [![42]][42]
 3. En regel ger möjlighet att definiera IPsec-läge: tunnel läge eller transport läge.
@@ -240,22 +240,22 @@ Lägg till IPsec-principen i **IP-filterlistan** och **filter åtgärden** som d
 
    * Transport läge krypterar bara nytto lasten och ESP-trailern. det ursprungliga paketets IP-huvud är inte krypterat. I transport läge är paketets IP-källa och IP-mål oförändrade.
 
-   Välj **den här regeln anger ingen tunnel** och klickar sedan på **Nästa** .
+   Välj **den här regeln anger ingen tunnel** och klickar sedan på **Nästa**.
 
    [![43]][43]
-4. **Nätverks typ** definierar vilken nätverks anslutning som associeras med säkerhets principen. Välj **alla nätverks anslutningar** och klicka sedan på **Nästa** .
+4. **Nätverks typ** definierar vilken nätverks anslutning som associeras med säkerhets principen. Välj **alla nätverks anslutningar** och klicka sedan på **Nästa**.
 
    [![44]][44]
-5. Välj den IP-filterlista som du skapade tidigare,  **Azure-onpremises-HTTP8080** och klicka sedan på **Nästa** .
+5. Välj den IP-filterlista som du skapade tidigare,  **Azure-onpremises-HTTP8080** och klicka sedan på **Nästa**.
 
    [![45]][45]
 6. Välj den befintliga filter åtgärdens **kryptering** som du skapade tidigare.
 
    [![46]][46]
-7. Windows stöder fyra distinkta typer av autentiseringar: Kerberos, certifikat, NTLMv2 och i förväg delad nyckel. Eftersom vi arbetar med domänanslutna värdar väljer **Active Directory standard (Kerberos V5-protokoll)** och klickar sedan på **Nästa** .
+7. Windows stöder fyra distinkta typer av autentiseringar: Kerberos, certifikat, NTLMv2 och i förväg delad nyckel. Eftersom vi arbetar med domänanslutna värdar väljer **Active Directory standard (Kerberos V5-protokoll)** och klickar sedan på **Nästa**.
 
    [![47]][47]
-8. Den nya principen skapar säkerhets regeln: **Azure-onpremises-HTTP8080** . Klicka på **OK** .
+8. Den nya principen skapar säkerhets regeln: **Azure-onpremises-HTTP8080**. Klicka på **OK**.
 
    [![48]][48]
 
@@ -266,7 +266,7 @@ IPsec-principen kräver alla HTTP-anslutningar på mål porten 8080 för att anv
 1. Visa principen. Säkerhets grup principen har definierats, men ännu inte tilldelats.
 
    [![49]][49]
-2. Om du vill tilldela säkerhets grup principen till OU- **IPSecOU** högerklickar du på säkerhets principen och väljer **tilldela** .
+2. Om du vill tilldela säkerhets grup principen till OU- **IPSecOU** högerklickar du på säkerhets principen och väljer **tilldela**.
    Varje dator tht tillhör ORGANISATIONSENHETen kommer att ha tilldelats säkerhets grup principen.
 
    [![50]][50]

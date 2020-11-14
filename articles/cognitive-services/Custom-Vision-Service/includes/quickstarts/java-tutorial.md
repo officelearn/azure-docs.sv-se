@@ -4,12 +4,12 @@ ms.custom: devx-track-java
 ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 10/13/2020
-ms.openlocfilehash: ea8f56202ab62954a065428e20c97d5b7c555614
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f7c9981b4d26314965dd86994c6edaa50f355dc2
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548059"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94625369"
 ---
 Kom igång med Custom Vision klient bibliotek för Java för att skapa en bild klassificerings modell. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. Använd det här exemplet som mall för att skapa en egen bild igenkännings app.
 
@@ -25,8 +25,8 @@ Använd Custom Vision klient bibliotek för Java för att:
 * Publicera den aktuella iterationen
 * Testa förutsägelse slut punkten
 
-[Referens dokumentation](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable) | Biblioteks käll kod [(utbildning)](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-customvision-training) [(förutsägelse)](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-customvision-prediction)| Artefakt (maven) [(utbildning)](https://search.maven.org/artifact/com.azure/azure-cognitiveservices-customvision-training/1.1.0-preview.2/jar) [(förutsägelse)](https://search.maven.org/artifact/com.azure/azure-cognitiveservices-customvision-prediction/1.1.0-preview.2/jar)  | 
- [exempel](https://docs.microsoft.com/samples/browse/?products=azure&terms=custom%20vision)
+[Referens dokumentation](/java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable) | Biblioteks käll kod [(utbildning)](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-customvision-training) [(förutsägelse)](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-customvision-prediction)| Artefakt (maven) [(utbildning)](https://search.maven.org/artifact/com.azure/azure-cognitiveservices-customvision-training/1.1.0-preview.2/jar) [(förutsägelse)](https://search.maven.org/artifact/com.azure/azure-cognitiveservices-customvision-prediction/1.1.0-preview.2/jar)  | 
+ [exempel](/samples/browse/?products=azure&terms=custom%20vision)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -53,11 +53,11 @@ Kör `gradle init` kommandot från din arbets katalog. Med det här kommandot sk
 gradle init --type basic
 ```
 
-Välj en **DSL** när du uppmanas till det och välj **Kotlin** .
+Välj en **DSL** när du uppmanas till det och välj **Kotlin**.
 
 ### <a name="install-the-client-library"></a>Installera klient biblioteket
 
-Leta upp *build. gradle. KTS* och öppna den med önskad IDE-eller text redigerare. Kopiera sedan i följande build-konfiguration. Den här konfigurationen definierar projektet som ett Java-program vars start punkt är klassen **CustomVisionQuickstart** . Custom Vision bibliotek importeras.
+Leta upp *build. gradle. KTS* och öppna den med önskad IDE-eller text redigerare. Kopiera sedan i följande build-konfiguration. Den här konfigurationen definierar projektet som ett Java-program vars start punkt är klassen **CustomVisionQuickstart**. Custom Vision bibliotek importeras.
 
 ```kotlin
 plugins {
@@ -85,7 +85,7 @@ Kör följande kommando från din arbets katalog för att skapa en mapp för pro
 mkdir -p src/main/java
 ```
 
-Navigera till den nya mappen och skapa en fil med namnet *CustomVisionQuickstart. java* . Öppna det i önskat redigerings program eller IDE och Lägg till följande- `import` uttryck:
+Navigera till den nya mappen och skapa en fil med namnet *CustomVisionQuickstart. java*. Öppna det i önskat redigerings program eller IDE och Lägg till följande- `import` uttryck:
 
 [!code-java[](~/cognitive-services-quickstart-code/java/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_imports)]
 
@@ -99,9 +99,9 @@ I programmets **CustomVisionQuickstart** -klass skapar du variabler för resurse
 
 
 > [!IMPORTANT]
-> Gå till Azure-portalen. Om resursen [produkt namn] som du skapade i avsnittet **krav** har distribuerats, klickar du på knappen **gå till resurs** under **Nästa steg** . Du hittar din nyckel och slut punkt i resursens **nyckel och slut punkts** sida under **resurs hantering** . 
+> Gå till Azure-portalen. Om resursen [produkt namn] som du skapade i avsnittet **krav** har distribuerats, klickar du på knappen **gå till resurs** under **Nästa steg**. Du hittar din nyckel och slut punkt i resursens **nyckel och slut punkts** sida under **resurs hantering**. 
 >
-> Kom ihåg att ta bort nyckeln från koden när du är klar och publicera den aldrig offentligt. För produktion bör du överväga att använda ett säkert sätt att lagra och komma åt dina autentiseringsuppgifter. Mer information finns i [säkerhets](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) artikeln Cognitive Services.
+> Kom ihåg att ta bort nyckeln från koden när du är klar och publicera den aldrig offentligt. För produktion bör du överväga att använda ett säkert sätt att lagra och komma åt dina autentiseringsuppgifter. Mer information finns i [säkerhets](../../../cognitive-services-security.md) artikeln Cognitive Services.
 
 I programmets **main** -metod lägger du till anrop för de metoder som används i den här snabb starten. Du definierar dessa senare.
 
@@ -113,9 +113,9 @@ Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna 
 
 |Namn|Beskrivning|
 |---|---|
-|[CustomVisionTrainingClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient?view=azure-java-stable) | Den här klassen hanterar skapandet, utbildningen och publiceringen av dina modeller. |
-|[CustomVisionPredictionClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-java-stable)| Den här klassen hanterar frågekörning för modeller för bild klassificerings förutsägelser.|
-|[ImagePrediction](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.prediction.models.imageprediction?view=azure-java-stable)| Den här klassen definierar en enstaka förutsägelse för en enda avbildning. Den innehåller egenskaper för objekt-ID och namn och en förtroende poäng.|
+|[CustomVisionTrainingClient](/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient?view=azure-java-stable) | Den här klassen hanterar skapandet, utbildningen och publiceringen av dina modeller. |
+|[CustomVisionPredictionClient](/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-java-stable)| Den här klassen hanterar frågekörning för modeller för bild klassificerings förutsägelser.|
+|[ImagePrediction](/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.prediction.models.imageprediction?view=azure-java-stable)| Den här klassen definierar en enstaka förutsägelse för en enda avbildning. Den innehåller egenskaper för objekt-ID och namn och en förtroende poäng.|
 
 ## <a name="code-examples"></a>Kodexempel
 
@@ -140,7 +140,7 @@ I **huvud** metoden instansierar du inlärnings-och förutsägelse klienter med 
 
 T # # skapa ett nytt Custom Vision-projekt
 
-Nästa metod skapar ett bild klassificerings projekt. Det skapade projektet visas på den [Custom Vision-webbplats](https://customvision.ai/) som du besökte tidigare. Se [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_&preserve-view=true) -metoden för att ange andra alternativ när du skapar ditt projekt (förklaras i guiden [skapa en identifierings](../../get-started-build-detector.md) webb Portal).
+Nästa metod skapar ett bild klassificerings projekt. Det skapade projektet visas på den [Custom Vision-webbplats](https://customvision.ai/) som du besökte tidigare. Se [CreateProject](/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_&preserve-view=true) -metoden för att ange andra alternativ när du skapar ditt projekt (förklaras i guiden [skapa en identifierings](../../get-started-build-detector.md) webb Portal).
 
 [!code-java[](~/cognitive-services-quickstart-code/java/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_create)]
 
@@ -169,7 +169,7 @@ Den här metoden skapar den första inlärningen iteration i projektet. Tjänste
 
 ## <a name="publish-the-current-iteration"></a>Publicera den aktuella iterationen
 
-Den här metoden gör den aktuella iterationen av modellen tillgänglig för frågor. Du kan använda modell namnet som referens för att skicka förutsägelse begär Anden. Du måste ange ett eget värde för `predictionResourceId` . Du hittar resurs-ID för förutsägelse på fliken **Översikt** i Azure Portal, som **prenumerations-ID** .
+Den här metoden gör den aktuella iterationen av modellen tillgänglig för frågor. Du kan använda modell namnet som referens för att skicka förutsägelse begär Anden. Du måste ange ett eget värde för `predictionResourceId` . Du hittar resurs-ID för förutsägelse på fliken **Översikt** i Azure Portal, som **prenumerations-ID**.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_publish)]
 
@@ -180,9 +180,9 @@ Den här metoden läser in test avbildningen, frågar modell slut punkten och ma
 [!code-java[](~/cognitive-services-quickstart-code/java/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_predict)]
 
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 
 Du kan bygga appen med:
 

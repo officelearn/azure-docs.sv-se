@@ -8,16 +8,18 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: 429d0b9c3a118061d713484a7db3aca376a24d04
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: aaf716b4ac4c49f1d852e917ba818a10ecb541c4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873191"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628041"
 ---
 # <a name="tutorial-create-a-blazor-server-app-that-uses-the-microsoft-identity-platform-for-authentication"></a>Självstudie: skapa en snabb server app som använder Microsoft Identity Platform för autentisering
 
-Med den här tjänsten kan du ha stöd för att vara värd för kniv-komponenter på servern i en ASP.NET Core app. I den här självstudien får du lära dig hur du implementerar autentisering och hämtar data från Microsoft Graph i en blixt Server-App med Microsoft Identity Platform.
+Med den här tjänsten kan du ha stöd för att vara värd för kniv-komponenter på servern i en ASP.NET Core app. I den här självstudien får du lära dig hur du implementerar autentisering och hämtar data från Microsoft Graph i en blixt Server-App med hjälp av Microsoft Identity Platform och registrerar din app i Azure Active Directory (Azure AD).
+
+Vi har också en själv studie kurs om [blixt WASM](tutorial-blazor-webassembly.md).
 
 I den här guiden får du lära dig att:
 
@@ -35,14 +37,14 @@ I den här guiden får du lära dig att:
 
 Varje app som använder Azure Active Directory (Azure AD) för autentisering måste registreras med Azure AD. Följ instruktionerna i [Registrera ett program](quickstart-register-app.md) med följande tillägg:
 
-- För **konto typer som stöds**väljer du **konton endast i den här organisations katalogen**.
+- För **konto typer som stöds** väljer du **konton endast i den här organisations katalogen**.
 - Lämna List rutan **omdirigerings-URI** inställd på **webben** och ange `https://localhost:5001/signin-oidc` . Standard porten för en app som körs på Kestrel är 5001. Om appen är tillgänglig på en annan port anger du Port numret i stället för `5001` .
 
-Under **autentisering**  >  **implicit tilldelning**markerar du kryss rutorna för **åtkomsttoken** och **ID-token**och väljer sedan knappen **Spara** .
+Under **autentisering**  >  **implicit tilldelning** markerar du kryss rutorna för **åtkomsttoken** och **ID-token** och väljer sedan knappen **Spara** .
 
 Slutligen, eftersom appen anropar ett skyddat API (i det här fallet Microsoft Graph), behöver den en klient hemlighet för att verifiera identiteten när den begär en åtkomsttoken för att anropa detta API.
 
-1. I samma app-registrering under **Hantera**väljer du **certifikat & hemligheter**.
+1. I samma app-registrering under **Hantera** väljer du **certifikat & hemligheter**.
 2. Skapa en **ny klient hemlighet** som aldrig upphör att gälla.
 3. Anteckna hemlighetens **värde** eftersom du kommer att använda det i nästa steg. Du kan inte komma åt den igen när du har navigerat bort från det här fönstret. Du kan dock återskapa den efter behov.
 
@@ -91,9 +93,9 @@ Innan du börjar kan du logga ut från din app eftersom du kommer att göra änd
 Nu ska du uppdatera appens registrering och kod för att hämta en användares e-post och visa meddelandena i appen. För att åstadkomma detta måste du först utöka appens registrerings behörigheter i Azure AD för att ge åtkomst till e-postdata. Sedan kan du lägga till kod i den blixt appen för att hämta och visa dessa data på en av sidorna.
 
 1. I Azure Portal väljer du din app i **Appregistreringar**.
-1. Under **Hantera**, Välj **API-behörigheter**.
+1. Under **Hantera** , Välj **API-behörigheter**.
 1. Välj **Lägg till en behörighets**  >  **Microsoft Graph**.
-1. Välj **delegerade behörigheter**och Sök sedan efter och välj **e-post. Läs** behörighet.
+1. Välj **delegerade behörigheter** och Sök sedan efter och välj **e-post. Läs** behörighet.
 1. Välj **Lägg till behörigheter**.
 
 I *appsettings.js* filen uppdaterar du koden så att den hämtar rätt token med rätt behörigheter. Lägg till "e-post. Read" efter omfattningen "User. Read" under "DownstreamAPI". Detta anger vilka omfattningar (eller behörigheter) som appen ska begära åtkomst till.

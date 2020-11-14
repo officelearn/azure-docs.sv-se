@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 202f7fd065641f9921df5237fb83e7900819c8f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46bcfd48d8fdfb228670b87df166c1ad8de61e52
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563513"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94626358"
 ---
 # <a name="migrate-from-linux-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migrera från Linux till en hybrid moln distribution med Azure File Sync
 
@@ -219,6 +219,6 @@ Kontrol lera länken i följande avsnitt för att felsöka Azure File Sync probl
 
 Det finns mer att identifiera om Azure-filresurser och Azure File Sync. Följande artiklar innehåller avancerade alternativ, metod tips och fel söknings hjälp. De här artiklarna länkar till [dokumentationen för Azure-filresursen](storage-files-introduction.md) efter behov.
 
-* [Översikt över Azure File Sync](https://aka.ms/AFS)
+* [Översikt över Azure File Sync](./storage-sync-files-planning.md)
 * [Azure File Sync distributions guide](storage-files-deployment-guide.md)
 * [Felsöka Azure File Sync](storage-sync-files-troubleshoot.md)

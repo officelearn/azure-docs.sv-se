@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: sample
 ms.workload: identity
-ms.date: 10/21/2020
+ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: e56748df2fb69ace4e9b8d9f6908bc8013176a19
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: b3ea370a686e272a1d8ea201dd953fc09c1098ee
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287811"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628194"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Kod exempel för Microsoft Identity Platform (v 2.0-slut punkt)
 
@@ -60,6 +60,8 @@ Följande exempel illustrerar webb program som loggar in användare. Några exem
 | ![Den här bilden visar ASP.NET Framework-logotypen](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [Snabb start för ASP.NET](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotNet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotNet-admin-restricted-scope – v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p> |[msgraph – utbildning – aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
 | ![Den här bilden visar Java-logotypen](media/sample-v2-code/logo_java.png)  |                   | [MS-Identity-Java-webapp](https://github.com/Azure-Samples/ms-identity-java-webapp) |
 | ![Den här bilden visar python-logotypen](media/sample-v2-code/logo_python.png)  | [MS-Identity-python-kolv-webapp-Authentication](https://github.com/Azure-Samples/ms-identity-python-flask-webapp-authentication) | [MS-Identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp) |
+| ![Den här bilden visar python-logotypen](media/sample-v2-code/logo_python.png)  | Själv studie kurs om python flaska – Användar handbok för [webb program](https://github.com/Azure-Samples/ms-identity-python-flask-tutorial/blob/main/README.md) loggar                   | Självstudie för [webb program](https://github.com/Azure-Samples/ms-identity-python-flask-tutorial/blob/main/README.md) loggar för python-flaska – användare och samtals diagram |
+| ![Den här bilden visar python-logotypen](media/sample-v2-code/logo_python.png)  | [Python flaska](https://github.com/Azure-Samples/ms-identity-b2c-python-flask-webapp-authentication/blob/main/README.md) – inloggnings användare med B2C                    |  |
 | ![Den här bilden visar ruby-logotypen](media/sample-v2-code/logo_ruby.png) |                   | [msgraph – utbildning – rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp) |
 
 ## <a name="desktop-and-mobile-public-client-apps"></a>Desktop och mobila offentliga klient program

@@ -3,12 +3,12 @@ author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 10/25/2020
-ms.openlocfilehash: 0072f0ae862e6484649179626a34e6b28da7d3bd
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: b35b383eb93b0c451fcb98c66538a4335480a649
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94341101"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94625289"
 ---
 Kom igång med Custom Vision klient biblioteket för python. Följ de här stegen för att installera paketet och prova exempel koden för att skapa en modell för objekt identifiering. Du skapar ett projekt, lägger till taggar, tränar projektet och använder projektets förutsäga slut punkts-URL för att program mässigt testa det. Använd det här exemplet som mall för att skapa en egen bild igenkännings app.
 
@@ -24,7 +24,7 @@ Använd Custom Vision klient bibliotek för python för att:
 * Publicera den aktuella iterationen
 * Testa förutsägelse slut punkten
 
-[Referens dokumentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customvision?view=azure-python)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-customvision/azure/cognitiveservices/vision/customvision)  |  [Paket (pypi)](https://pypi.org/project/azure-cognitiveservices-vision-customvision/)  |  [Exempel](https://docs.microsoft.com/samples/browse/?products=azure&term=vision&terms=vision&languages=python)
+[Referens dokumentation](/python/api/overview/azure/cognitiveservices/customvision?view=azure-python)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-customvision/azure/cognitiveservices/vision/customvision)  |  [Paket (pypi)](https://pypi.org/project/azure-cognitiveservices-vision-customvision/)  |  [Exempel](/samples/browse/?languages=python&products=azure&term=vision&terms=vision)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -63,15 +63,15 @@ Skapa variabler för resursens Azure-slut punkts-och prenumerations nycklar.
 >
 > Du hittar värdet för förutsägelse resurs-ID på resursens flik **Översikt** , listad som **prenumerations-ID**.
 >
-> Kom ihåg att ta bort nycklarna från koden när du är klar och publicera dem aldrig offentligt. För produktion bör du överväga att använda ett säkert sätt att lagra och komma åt dina autentiseringsuppgifter. Mer information finns i [säkerhets](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) artikeln Cognitive Services.
+> Kom ihåg att ta bort nycklarna från koden när du är klar och publicera dem aldrig offentligt. För produktion bör du överväga att använda ett säkert sätt att lagra och komma åt dina autentiseringsuppgifter. Mer information finns i [säkerhets](../../../../cognitive-services/cognitive-services-security.md) artikeln Cognitive Services.
 
 ## <a name="object-model"></a>Objekt modell
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
-|[CustomVisionTrainingClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient?view=azure-python) | Den här klassen hanterar skapandet, utbildningen och publiceringen av dina modeller. |
-|[CustomVisionPredictionClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-python)| Den här klassen hanterar frågekörning för modeller för objekt identifierings förutsägelser.|
-|[ImagePrediction](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.prediction.models.imageprediction?view=azure-python)| Den här klassen definierar en enda objekt förutsägelse på en enda avbildning. Den innehåller egenskaper för objekt-ID och namn, objektets plats för objektets placering och en säkerhets poäng.|
+|[CustomVisionTrainingClient](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient?view=azure-python) | Den här klassen hanterar skapandet, utbildningen och publiceringen av dina modeller. |
+|[CustomVisionPredictionClient](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-python)| Den här klassen hanterar frågekörning för modeller för objekt identifierings förutsägelser.|
+|[ImagePrediction](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.prediction.models.imageprediction?view=azure-python)| Den här klassen definierar en enda objekt förutsägelse på en enda avbildning. Den innehåller egenskaper för objekt-ID och namn, objektets plats för objektets placering och en säkerhets poäng.|
 
 ## <a name="code-examples"></a>Kodexempel
 
@@ -87,7 +87,7 @@ De här kodfragmenten visar hur du gör följande med Custom Vision klient bibli
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
-Instansiera en Training-och förutsägelse klient med din slut punkt och nycklar. Skapa **ApiKeyServiceClientCredentials** -objekt med dina nycklar och Använd dem med slut punkten för att skapa ett [CustomVisionTrainingClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient?view=azure-python) -och [CustomVisionPredictionClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-python) -objekt.
+Instansiera en Training-och förutsägelse klient med din slut punkt och nycklar. Skapa **ApiKeyServiceClientCredentials** -objekt med dina nycklar och Använd dem med slut punkten för att skapa ett [CustomVisionTrainingClient](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient?view=azure-python) -och [CustomVisionPredictionClient](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-python) -objekt.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ObjectDetection/CustomVisionQuickstart.py?name=snippet_auth)]
 
@@ -96,7 +96,7 @@ Instansiera en Training-och förutsägelse klient med din slut punkt och nycklar
 
 Lägg till följande kod i skriptet för att skapa ett nytt Custom Vision Service-projekt. 
 
-Se [create_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config-&preserve-view=true) -metoden för att ange andra alternativ när du skapar ditt projekt (förklaras i guiden [skapa en detektor](../../get-started-build-detector.md) i webb Portal).  
+Se [create_project](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config-&preserve-view=true) -metoden för att ange andra alternativ när du skapar ditt projekt (förklaras i guiden [skapa en detektor](../../get-started-build-detector.md) i webb Portal).  
 
 [!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ObjectDetection/CustomVisionQuickstart.py?name=snippet_create)]
 
@@ -136,7 +136,7 @@ Den här koden skapar den första iterationen av förutsägelse modellen.
 > [!TIP]
 > Träna med valda Taggar
 >
-> Du kan välja att bara träna på en delmängd av dina använda taggar. Du kanske vill göra detta om du inte har använt tillräckligt med vissa Taggar ännu, men du har tillräckligt med andra. I **[train_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#train-project-project-id--training-type-none--reserved-budget-in-hours-0--force-train-false--notification-email-address-none--selected-tags-none--custom-headers-none--raw-false----operation-config-&preserve-view=true)** -anropet ställer du in den valfria parametern *selected_tags* till en lista över ID-strängarna för de taggar som du vill använda. Modellen kommer att träna att bara identifiera taggarna i listan.
+> Du kan välja att bara träna på en delmängd av dina använda taggar. Du kanske vill göra detta om du inte har använt tillräckligt med vissa Taggar ännu, men du har tillräckligt med andra. I **[train_project](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#train-project-project-id--training-type-none--reserved-budget-in-hours-0--force-train-false--notification-email-address-none--selected-tags-none--custom-headers-none--raw-false----operation-config-&preserve-view=true)** -anropet ställer du in den valfria parametern *selected_tags* till en lista över ID-strängarna för de taggar som du vill använda. Modellen kommer att träna att bara identifiera taggarna i listan.
 
 ## <a name="publish-the-current-iteration"></a>Publicera den aktuella iterationen
 
@@ -172,4 +172,4 @@ Nu har du gjort varje steg i processen för objekt identifiering i kod. Det här
 
 * [Vad är Custom Vision?](../../overview.md)
 * Du hittar käll koden för det här exemplet på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/CustomVision/ObjectDetection/CustomVisionQuickstart.py)
-* [Referensdokumentation för SDK](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customvision?view=azure-python)
+* [Referensdokumentation för SDK](/python/api/overview/azure/cognitiveservices/customvision?view=azure-python)

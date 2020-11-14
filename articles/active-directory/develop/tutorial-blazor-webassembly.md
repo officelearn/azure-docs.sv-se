@@ -1,25 +1,27 @@
 ---
 title: Självstudie – logga in användare och anropa ett skyddat API från en Blixts WebAssembly-app
 titleSuffix: Microsoft identity platform
-description: I den här självstudien loggar du in användare och anropar ett skyddat API med hjälp av Microsoft Identity Platform i en dator med en blixt-websammansättning.
+description: I den här självstudien loggar du in användare och anropar ett skyddat API med hjälp av Microsoft Identity Platform i en WASM-app.
 author: knicholasa
 ms.author: nichola
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: ba3607c522191644ec0cc63db118de285d297c48
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: f967b10d729c9c5486bbca9b643f48aaf558687c
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92223105"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628075"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>Självstudie: Logga in användare och anropa ett skyddat API från en blixt WebAssembly-app
 
-Den [snabba webb sammansättningen](/aspnet/core/blazor#blazor-webassembly) är en app med en enda sida för att skapa interaktiva webbappar på klient sidan med .net. I den här självstudien skapar du en app som loggar in användare och hämtar data från ett skyddat API från en Windows-app med en blixt websammansättning (WASM) med [Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/).
+Den här WASM-webbsammansättningen är ett program ramverk med en enda sida för att skapa interaktiva webbappar på klient sidan med .NET. I den här självstudien får du lära dig att implementera autentisering och hämta data från Microsoft Graph i en WASM-app med hjälp av Microsoft Identity Platform och registrera din app i Azure Active Directory (Azure AD).
 
-I den här självstudien kommer vi att:
+Vi har också en [själv studie kurs för](tutorial-blazor-server.md)den här guiden. 
+
+I de här självstudierna får du:
 
 > [!div class="checklist"]
 >
@@ -35,10 +37,10 @@ I den här självstudien kommer vi att:
 
 Varje app som använder Azure Active Directory (Azure AD) för autentisering måste registreras med Azure AD. Följ instruktionerna i [Registrera ett program](quickstart-register-app.md) med följande specifikationer:
 
-- För **konto typer som stöds**väljer du **konton endast i den här organisations katalogen**.
+- För **konto typer som stöds** väljer du **konton endast i den här organisations katalogen**.
 - Lämna List rutan **omdirigerings-URI** inställd på **webben** och ange `https://localhost:5001/authentication/login-callback` . Standard porten för en app som körs på Kestrel är 5001. Om appen är tillgänglig på en annan port anger du Port numret i stället för `5001` .
 
-När du har registrerat, i **autentisering**  >  **implicit beviljande**, markerar du kryss **Access tokens** rutorna för åtkomsttoken och **ID-token**och väljer sedan knappen **Spara** .
+När du har registrerat, i **autentisering**  >  **implicit beviljande** , markerar du kryss **Access tokens** rutorna för åtkomsttoken och **ID-token** och väljer sedan knappen **Spara** .
 
 ## <a name="create-the-app-using-the-net-core-cli"></a>Skapa appen med hjälp av .NET Core CLI
 
@@ -83,9 +85,9 @@ Nu ska du uppdatera appens registrering och kod för att hämta en användares e
 Lägg först till `Mail.Read` API-behörighet till appens registrering så att Azure AD är medveten om att appen kommer att begära åtkomst till användarnas e-post.
 
 1. I Azure Portal väljer du din app i **Appregistreringar**.
-1. Under **Hantera**, Välj **API-behörigheter**.
+1. Under **Hantera** , Välj **API-behörigheter**.
 1. Välj **Lägg till en behörighets**  >  **Microsoft Graph**.
-1. Välj **delegerade behörigheter**och Sök sedan efter och välj **e-post. Läs** behörighet.
+1. Välj **delegerade behörigheter** och Sök sedan efter och välj **e-post. Läs** behörighet.
 1. Välj **Lägg till behörigheter**.
 
 Lägg sedan till följande i projektets *. CSPROJ* -fil i netstandard 2.1- **ItemGroup**. Det gör att du kan skapa anpassade HttpClient i nästa steg.
@@ -239,5 +241,5 @@ När du har beviljat godkännande navigerar du till sidan "Hämta data" för att
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Metod tips och rekommendationer för Microsoft Identity Platform](./identity-platform-integration-checklist.md)
-- [Introduktion till ASP.NET Core Blazor](/aspnet/core/blazor)
+> [!div class="nextstepaction"]
+> [Metod tips och rekommendationer för Microsoft Identity Platform](./identity-platform-integration-checklist.md)

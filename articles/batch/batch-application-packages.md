@@ -8,10 +8,10 @@ ms.custom:
 - devx-track-csharp
 - contperfq1
 ms.openlocfilehash: 1bacb0c71c05aeb983bfa9ebf71873a22fea39a1
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "91277707"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Distribuera program till Compute-noder med batch-programpaket
@@ -77,7 +77,7 @@ Batch-tjänsten använder Azure Storage för att lagra dina programpaket som blo
 
 Om du vill visa programmen i batch-kontot väljer du **program** i den vänstra navigerings menyn.
 
-:::image type="content" source="media/batch-application-packages/app_pkg_02.png" alt-text="Diagram som visar en övergripande vy över program och programpaket.":::
+:::image type="content" source="media/batch-application-packages/app_pkg_02.png" alt-text="Skärm bild av meny alternativet program i Azure Portal.":::
 
 När du väljer det här meny alternativet öppnas fönstret **program** . I det här fönstret visas ID: t för varje program i ditt konto och följande egenskaper:
 
@@ -85,13 +85,13 @@ När du väljer det här meny alternativet öppnas fönstret **program** . I det
 - **Standard version** : om det är tillämpligt den program version som ska installeras om ingen version anges när programmet distribueras.
 - **Tillåt uppdateringar** : anger om paket uppdateringar och borttagningar tillåts.
 
-Om du vill se [fil strukturen](files-and-directories.md) för programpaketet på en Compute-nod går du till batch-kontot i Azure Portal. Välj **pooler** . Välj sedan den pool som innehåller Compute-noden. Välj den Compute-nod där programpaketet är installerat och öppna mappen **program** .
+Om du vill se [fil strukturen](files-and-directories.md) för programpaketet på en Compute-nod går du till batch-kontot i Azure Portal. Välj **pooler**. Välj sedan den pool som innehåller Compute-noden. Välj den Compute-nod där programpaketet är installerat och öppna mappen **program** .
 
 ### <a name="view-application-details"></a>Visa programinformation
 
 Om du vill se information om ett program väljer du det i fönstret **program** . Du kan konfigurera följande inställningar för ditt program.
 
-- **Tillåt uppdateringar** : anger om programpaket kan [uppdateras eller tas bort](#update-or-delete-an-application-package). Standardvärdet är **Ja** . Om det är inställt på **Nej** kan befintliga programpaket inte uppdateras eller tas bort, men nya programpaket versioner kan fortfarande läggas till.
+- **Tillåt uppdateringar** : anger om programpaket kan [uppdateras eller tas bort](#update-or-delete-an-application-package). Standardvärdet är **Ja**. Om det är inställt på **Nej** kan befintliga programpaket inte uppdateras eller tas bort, men nya programpaket versioner kan fortfarande läggas till.
 - **Standard version** : det standard program paket som ska användas när programmet distribueras, om ingen version har angetts.
 - **Visnings namn** : ett eget namn som din batch-lösning kan använda när den visar information om programmet. Namnet kan till exempel användas i användar gränssnittet för en tjänst som du tillhandahåller till dina kunder via batch.
 
@@ -99,9 +99,9 @@ Om du vill se information om ett program väljer du det i fönstret **program** 
 
 Om du vill skapa ett nytt program lägger du till ett programpaket och anger ett unikt program-ID.
 
-Välj **program** i batch-kontot och välj sedan **Lägg till** .
+Välj **program** i batch-kontot och välj sedan **Lägg till**.
 
-:::image type="content" source="media/batch-application-packages/app_pkg_05.png" alt-text="Diagram som visar en övergripande vy över program och programpaket.":::
+:::image type="content" source="media/batch-application-packages/app_pkg_05.png" alt-text="Skärm bild av den nya processen för att skapa program i Azure Portal.":::
 
 Ange följande information:
 
@@ -116,19 +116,19 @@ Det **program-ID** och den **version** som du anger måste följa dessa krav:
 - Måste vara unikt inom batch-kontot.
 - ID: n är Skift läges känsliga och Skift läges okänsliga.
 
-När du är klar väljer du **Skicka** . När zip-filen har överförts till ditt Azure Storage-konto visas ett meddelande i portalen. Detta kan ta lite tid beroende på storleken på den fil som du överför och nätverks anslutningens hastighet.
+När du är klar väljer du **Skicka**. När zip-filen har överförts till ditt Azure Storage-konto visas ett meddelande i portalen. Detta kan ta lite tid beroende på storleken på den fil som du överför och nätverks anslutningens hastighet.
 
 ### <a name="add-a-new-application-package"></a>Lägg till ett nytt programpaket
 
-Om du vill lägga till en programpaket version för ett befintligt program väljer du programmet i avsnittet **program** i batch-kontot och väljer sedan **Lägg till** .
+Om du vill lägga till en programpaket version för ett befintligt program väljer du programmet i avsnittet **program** i batch-kontot och väljer sedan **Lägg till**.
 
-Som du gjorde för det nya programmet anger du **versionen** för det nya paketet, laddar upp. zip-filen i fältet **programpaket** och väljer sedan **Skicka** .
+Som du gjorde för det nya programmet anger du **versionen** för det nya paketet, laddar upp. zip-filen i fältet **programpaket** och väljer sedan **Skicka**.
 
 ### <a name="update-or-delete-an-application-package"></a>Uppdatera eller ta bort ett programpaket
 
 Om du vill uppdatera eller ta bort ett befintligt programpaket väljer du programmet i avsnittet **program** i batch-kontot. Välj ellipsen på raden i det programpaket som du vill ändra och välj sedan den åtgärd som du vill utföra.
 
-:::image type="content" source="media/batch-application-packages/app_pkg_07.png" alt-text="Diagram som visar en övergripande vy över program och programpaket.":::
+:::image type="content" source="media/batch-application-packages/app_pkg_07.png" alt-text="Skärm bild som visar uppdaterings-och borttagnings alternativen för programpaket i Azure Portal.":::
 
 Om du väljer **Uppdatera** kan du ladda upp en ny. zip-fil. Då ersätts den tidigare. zip-filen som du laddade upp för den versionen.
 

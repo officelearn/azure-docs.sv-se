@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 11/03/2017
 ms.author: ghogen
 ms.openlocfilehash: bdc03e8c136606ab7768705b0c8dbcc97782966f
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "87088401"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publicera en ASP.NET-webbapp till en virtuell Azure-dator från Visual Studio
@@ -33,11 +33,11 @@ I följande avsnitt beskrivs hur du publicerar ett befintligt ASP.NET-webbprogra
 
 1. Öppna din Web App-lösning i Visual Studio 2019.
 2. Högerklicka på projektet i Solution Explorer och välj **publicera...**
-3. Använd pilen till höger på sidan för att bläddra igenom publicerings alternativen tills du hittar **Microsoft Azure Virtual Machines** .  
+3. Använd pilen till höger på sidan för att bläddra igenom publicerings alternativen tills du hittar **Microsoft Azure Virtual Machines**.  
 
    ![Publicera sida-HÖGERPIL]
 
-4. Välj ikonen **Microsoft Azure Virtual Machines** och välj **publicera** .
+4. Välj ikonen **Microsoft Azure Virtual Machines** och välj **publicera**.
 
    ![Sidan publicera – Microsoft Azure ikon för virtuell dator]
 
@@ -69,7 +69,7 @@ I följande avsnitt beskrivs hur du publicerar ett befintligt ASP.NET-webbprogra
 
 11. Om publiceringen lyckas startas en webbläsare för att öppna URL: en för den nyligen publicerade platsen.
 
-**Resultatet!**
+**Det lyckades!**
 
 Nu har du publicerat din webbapp på en virtuell Azure-dator.
 
@@ -87,7 +87,7 @@ Om du vill publicera uppdateringar i ditt webb program väljer du knappen **publ
 
 ### <a name="modify-publish-profile-settings"></a>Ändra inställningar för publicerings profil
 
-Om du vill visa och ändra inställningarna för publicerings profilen väljer du **Inställningar...** .  
+Om du vill visa och ändra inställningarna för publicerings profilen väljer du **Inställningar...**.  
 
 ![Sidan publicera – knappen Inställningar]
 

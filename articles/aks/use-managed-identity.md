@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 07/17/2020
 ms.author: thomasge
-ms.openlocfilehash: 20e255958cbd90aaddf060e42d7627c1e1ebec88
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1f8cb98ea36fdad9a67eca26c6fbea7ede1f811a
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371468"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94627888"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Använda hanterade identiteter i Azure Kubernetes-tjänsten
 
@@ -27,7 +27,6 @@ Du måste ha följande resurs installerad:
 ## <a name="limitations"></a>Begränsningar
 
 * AKS-kluster med hanterade identiteter kan bara aktive ras när klustret skapas.
-* Befintliga AKS-kluster kan inte migreras till hanterade identiteter.
 * Under kluster **uppgraderings** åtgärder är den hanterade identiteten tillfälligt otillgänglig.
 * Klienterna flyttar/migrerar för hanterade identitets aktiverade kluster stöds inte.
 * Om klustret har `aad-pod-identity` Aktiver ATS ändrar NMI-poddar noderna program varan iptables för att avlyssna anrop till Azure instance metadata-slutpunkten. Den här konfigurationen innebär att alla begär Anden som görs till metadata-slutpunkten fångas upp av NMI även om Pod inte använder `aad-pod-identity` . AzurePodIdentityException CRD kan konfigureras för att informera om `aad-pod-identity` att förfrågningar till slut punkten för metadata från en pod som matchar etiketter som definierats i CRD ska vara proxy utan bearbetning i NMI. Systemets poddar med `kubernetes.azure.com/managedby: aks` etikett i _Kube-systemets_ namnrymd ska undantas i `aad-pod-identity` genom att konfigurera AzurePodIdentityException-CRD. Mer information finns i [inaktivera AAD-Pod-Identity för en specifik POD eller ett program](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
@@ -41,17 +40,17 @@ AKS använder flera hanterade identiteter för inbyggda tjänster och tillägg.
 |----------------------------|-----------|----------|
 | Kontrollplan | inte synlig | Används av AKS för hanterade nätverks resurser inklusive ingångs utjämning och AKS offentliga IP-adresser | Deltagar roll för nod resurs grupp | Förhandsgranskning
 | Kubelet | AKS-kluster namn – agentpoolegenskap | Autentisering med Azure Container Registry (ACR) | NA (för Kubernetes v 1.15 +) | Stöds för närvarande inte
-| Tillägg | AzureNPM | Ingen identitet krävs | Ej tillämpligt | Nej
-| Tillägg | AzureCNI nätverks övervakning | Ingen identitet krävs | Ej tillämpligt | Nej
-| Tillägg | azurepolicy (Gatekeeper) | Ingen identitet krävs | Ej tillämpligt | Nej
-| Tillägg | azurepolicy | Ingen identitet krävs | Ej tillämpligt | Nej
-| Tillägg | Calico | Ingen identitet krävs | Ej tillämpligt | Nej
-| Tillägg | Instrumentpanel | Ingen identitet krävs | Ej tillämpligt | Nej
+| Tillägg | AzureNPM | Ingen identitet krävs | NA | Nej
+| Tillägg | AzureCNI nätverks övervakning | Ingen identitet krävs | NA | Nej
+| Tillägg | azurepolicy (Gatekeeper) | Ingen identitet krävs | NA | Nej
+| Tillägg | azurepolicy | Ingen identitet krävs | NA | Nej
+| Tillägg | Calico | Ingen identitet krävs | NA | Nej
+| Tillägg | Instrumentpanel | Ingen identitet krävs | NA | Nej
 | Tillägg | HTTPApplicationRouting | Hanterar nödvändiga nätverks resurser | Läsar roll för nod resurs grupp, deltagar roll för DNS-zon | Nej
 | Tillägg | Ingress Application Gateway | Hanterar nödvändiga nätverks resurser| Deltagar roll för nod resurs grupp | Nej
 | Tillägg | omsagent | Används för att skicka AKS-mått till Azure Monitor | Övervaknings mått utgivar rollen | Nej
 | Tillägg | Virtual-Node (ACIConnector) | Hanterar nödvändiga nätverks resurser för Azure Container Instances (ACI) | Deltagar roll för nod resurs grupp | Nej
-| OSS-projekt | AAD-Pod – identitet | Gör det möjligt för program att komma åt moln resurser på ett säkert sätt med Azure Active Directory (AAD) | Ej tillämpligt | Steg för att bevilja behörighet på https://github.com/Azure/aad-pod-identity#role-assignment .
+| OSS-projekt | AAD-Pod – identitet | Gör det möjligt för program att komma åt moln resurser på ett säkert sätt med Azure Active Directory (AAD) | NA | Steg för att bevilja behörighet på https://github.com/Azure/aad-pod-identity#role-assignment .
 
 ## <a name="create-an-aks-cluster-with-managed-identities"></a>Skapa ett AKS-kluster med hanterade identiteter
 
@@ -106,6 +105,23 @@ Slutligen kan du hämta autentiseringsuppgifter för att få åtkomst till klust
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ```
+## <a name="update-an-existing-service-principal-based-aks-cluster-to-managed-identities"></a>Uppdatera ett befintligt tjänst objekt baserat AKS-kluster till hanterade identiteter
+
+Nu kan du uppdatera ett AKS-kluster med hanterade identiteter med hjälp av följande CLI-kommandon.
+
+Börja med att uppdatera tilldelad identitet:
+
+```azurecli-interactive
+az aks update -g <RGName> -n <AKSName> --enable-managed-identity
+```
+
+Uppdatera sedan den tilldelade användaren identiteten:
+
+```azurecli-interactive
+az aks update -g <RGName> -n <AKSName> --enable-managed-identity --assign-identity <UserAssignedIdentityResourceID> 
+```
+> [!NOTE]
+> När systemtilldelade eller tilldelade identiteter har uppdaterats till hanterad identitet, utför du en `az nodepool upgrade --node-image-only` på noderna för att slutföra uppdateringen av den hanterade identiteten.
 
 ## <a name="bring-your-own-control-plane-mi-preview"></a>Ta med ditt eget kontroll plan MI (för hands version)
 En anpassad kontroll plan identitet ger åtkomst till den befintliga identiteten innan klustret skapas. Detta möjliggör scenarier som att använda en anpassad VNET eller outboundType av UDR med en hanterad identitet.

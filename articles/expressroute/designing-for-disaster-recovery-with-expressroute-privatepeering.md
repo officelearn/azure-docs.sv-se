@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/25/2019
 ms.author: duau
 ms.openlocfilehash: 2a5730cd75ccb76d25897e9109555113f7355c2f
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "92202421"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Design för haveri beredskap med ExpressRoute privat peering
@@ -45,7 +45,7 @@ Men om du belastningsutjämna trafik över geo-redundanta parallella sökvägar,
 
 Nu ska vi titta på exempel nätverket som illustreras i följande diagram. I exemplet upprättas Geo-redundant ExpressRoute-anslutning mellan en lokal plats i Contoso och Contosos VNet i en Azure-region. I diagrammet indikerar heldragen grön linje önskad sökväg (via ExpressRoute 1) och den prickade en representerar en behållen väg (via ExpressRoute 2).
 
-[![81.1]][1]
+[![1]][1]
 
 När du utformar ExpressRoute-anslutningen för haveri beredskap måste du tänka på följande:
 

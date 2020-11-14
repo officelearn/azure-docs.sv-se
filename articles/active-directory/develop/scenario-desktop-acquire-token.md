@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/18/2020
+ms.date: 11/04/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 8608da33c747f76452a0106e4e2737849e06a75c
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: cdda14bb579fc94414f9da89b8b1f1aa04ec3bf5
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443236"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628109"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Skriv bords app som anropar webb-API: er: Hämta en token
 
@@ -183,7 +183,7 @@ På Android måste du också ange den överordnade aktiviteten genom `.WithParen
 
 #### <a name="withparentactivityorwindow"></a>WithParentActivityOrWindow
 
-Användar gränssnittet är viktigt eftersom det är interaktivt. `AcquireTokenInteractive` har en speciell valfri parameter som kan ange, för plattformar som stöder den, det överordnade användar gränssnittet. När det används i ett Skriv bords program, `.WithParentActivityOrWindow` har en annan typ, som är beroende av plattformen. Alternativt kan du utelämna den valfria parametern för överordnad fönster för att skapa ett fönster, om du inte vill styra var inloggnings dialog rutan visas på skärmen. Detta gäller för program som är kommando radsbaserade, som används för att skicka anrop till en annan server dels tjänst och som inte behöver några Windows för användar interaktion. 
+Användar gränssnittet är viktigt eftersom det är interaktivt. `AcquireTokenInteractive` har en speciell valfri parameter som kan ange, för plattformar som stöder den, det överordnade användar gränssnittet. När det används i ett Skriv bords program, `.WithParentActivityOrWindow` har en annan typ, som är beroende av plattformen. Alternativt kan du utelämna den valfria parametern för överordnad fönster för att skapa ett fönster, om du inte vill styra var inloggnings dialog rutan visas på skärmen. Detta gäller för program som är kommando radsbaserade, som används för att skicka anrop till en annan server dels tjänst och som inte behöver några Windows för användar interaktion.
 
 ```csharp
 // net45
@@ -278,7 +278,7 @@ MSAL.NET-teamet har skrivit om UI-testerna för att använda den här utöknings
 
 ##### <a name="provide-a-great-experience-with-systemwebviewoptions"></a>Få en bra upplevelse med SystemWebViewOptions
 
-Från MSAL.NET 4,1 [`SystemWebViewOptions`](/dotnet/api/microsoft.identity.client.systemwebviewoptions?view=azure-dotnet) kan du ange:
+Från MSAL.NET 4,1 [`SystemWebViewOptions`](/dotnet/api/microsoft.identity.client.systemwebviewoptions) kan du ange:
 
 - URI: n för att gå till ( `BrowserRedirectError` ) eller det HTML-fragment som ska visas ( `HtmlMessageError` ) vid inloggnings-eller medgivande fel i system webbläsare.
 - URI: n för att gå till ( `BrowserRedirectSuccess` ) eller det HTML-fragment som ska visas ( `HtmlMessageSuccess` ) i händelse av lyckat inloggnings försök eller medgivande.
@@ -304,7 +304,7 @@ var result = app.AcquireTokenInteractive(scopes)
 
 #### <a name="other-optional-parameters"></a>Andra valfria parametrar
 
-Mer information om alla andra valfria parametrar för `AcquireTokenInteractive` finns i [AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods).
+Mer information om alla andra valfria parametrar för `AcquireTokenInteractive` finns i [AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder#methods).
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -532,7 +532,7 @@ static async Task GetATokenForGraph()
 }
 ```
 
-Listan över möjliga modifierare på AcquireTokenByIntegratedWindowsAuthentication finns i [AcquireTokenByIntegratedWindowsAuthParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyintegratedwindowsauthparameterbuilder?view=azure-dotnet-preview#methods).
+Listan över möjliga modifierare på AcquireTokenByIntegratedWindowsAuthentication finns i [AcquireTokenByIntegratedWindowsAuthParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyintegratedwindowsauthparameterbuilder#methods).
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -832,7 +832,7 @@ static async Task GetATokenForGraph()
 }
 ```
 
-Mer information om alla modifierare som kan tillämpas på `AcquireTokenByUsernamePassword` finns i [AcquireTokenByUsernamePasswordParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyusernamepasswordparameterbuilder?view=azure-dotnet-preview#methods).
+Mer information om alla modifierare som kan tillämpas på `AcquireTokenByUsernamePassword` finns i [AcquireTokenByUsernamePasswordParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyusernamepasswordparameterbuilder#methods).
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -1387,6 +1387,10 @@ namespace CommonCacheMsalV3
  }
 }
 ```
+
+## <a name="advanced-accessing-the-users-cached-tokens-in-background-apps-and-services"></a>Erfar Åtkomst till användarens cachelagrade token i appar och tjänster i bakgrunden
+
+[!INCLUDE [advanced-token-caching](../../../includes/advanced-token-cache.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

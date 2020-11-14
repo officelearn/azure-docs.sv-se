@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: fe703b9589dcd49298ac45d5a14032ca7e556bfd
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: e396cfa032a3030467b2e2318d61393713894cd4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408421"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628228"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Support policy för Azure Red Hat OpenShift
 
@@ -23,6 +23,7 @@ Vissa konfigurationer för Azure Red Hat OpenShift 4-kluster kan påverka klustr
 ## <a name="cluster-configuration-requirements"></a>Krav för kluster konfiguration
 
 * Alla kluster operatörer för OpenShift måste vara i ett hanterat tillstånd. Listan över kluster operatörer kan returneras genom att köra `oc get clusteroperators` .
+* Klustret måste ha minst en arbets nod. Skala inte kluster arbetarna till noll.
 * Ta inte bort eller ändra klustrets Prometheus-och Alertmanager-tjänster.
 * Ta inte bort Alertmanager-regler för tjänsten.
 * Ta inte bort eller ändra Azure Red Hat OpenShift service Logging (mdsd poddar).

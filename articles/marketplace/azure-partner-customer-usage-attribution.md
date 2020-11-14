@@ -3,17 +3,17 @@ title: Marknads plats partner och kund användnings behörighet
 description: Få en översikt över att spåra kund användning för Azure Marketplace-lösningar.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 11/4/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 95ac1abc1f286330bc5e7036f01faa6cf1b22d70
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 2c2b7de65e7ac22ebe648ce98633d5ae88818324
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337907"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628415"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Marknads plats partner och kund användnings behörighet
 
@@ -74,9 +74,9 @@ När du har lagt till ett GUID i mallen eller i användar agenten och registrera
    * Partner kan registrera flera GUID.
    * Partner kan registrera GUID för mallar och erbjudanden för icke-Marketplace-lösningar.
 
-1. I det övre högra hörnet väljer du kugg hjuls ikonen Inställningar och väljer sedan **Inställningar för utvecklare**.
+1. Välj **Inställningar** (kugg hjuls ikonen) i det övre högra hörnet > **konto inställningar**.
 
-1. På **sidan konto inställningar** väljer du **Lägg till spårnings-GUID.**
+1. I **organisations profil**  >  **identifierare** väljer du **Lägg till spårnings-GUID**.
 
 1. I rutan **GUID** anger du ditt spårnings-GUID. Ange bara GUID utan `pid-` prefixet. I rutan **Beskrivning** anger du namnet eller beskrivningen för erbjudandet.
 
@@ -183,9 +183,10 @@ Om du distribuerar resurser via Azure PowerShell lägger du till ditt GUID med h
 
 När du använder Azure CLI för att lägga till ditt GUID, anger du **AZURE_HTTP_USER_AGENT** -miljövariabeln. Du kan ange den här variabeln inom omfånget för ett skript. Du kan också ställa in variabeln globalt för Shell-omfång:
 
-```
+```powershell
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
+
 Mer information finns i [Azure SDK för go](/azure/developer/go/).
 
 ## <a name="use-terraform"></a>Använd terraform
@@ -206,7 +207,6 @@ Partner som vill få sin distribution via terraform som spåras av kund användn
 
 * Skapa ett GUID (GUID ska läggas till för varje erbjudande eller SKU)
 * Uppdatera Azure-providern för att ange värdet för *partner_id* till GUID (korrigera inte GUID med "PID-", och Ställ in det på det faktiska GUID)
-
 
 ## <a name="verify-the-guid-deployment"></a>Verifiera GUID-distributionen
 
@@ -263,11 +263,11 @@ Partner bör informera sina kunder om distributioner som använder sig av kund a
 
 ### <a name="notification-for-resource-manager-template-deployments"></a>Meddelande för distributioner av Resource Manager-mallar
 
-När du distribuerar den här mallen kan Microsoft identifiera installationen av \<PARTNER> program vara med de Azure-resurser som distribueras. Microsoft kan korrelera de Azure-resurser som används för att stödja program varan. Microsoft samlar in den här informationen för att ge bästa möjliga upplevelse av sina produkter och för att driva verksamheten. Data samlas in och regleras av Microsofts sekretess principer, som du hittar på https://www.microsoft.com/trustcenter .
+När du distribuerar den här mallen kan Microsoft identifiera installationen av \<PARTNER> program vara med de Azure-resurser som distribueras. Microsoft kan korrelera de Azure-resurser som används för att stödja program varan. Microsoft samlar in den här informationen för att ge bästa möjliga upplevelse av sina produkter och för att driva verksamheten. Data samlas in och regleras av Microsofts sekretess principer, som du hittar på [https://www.microsoft.com/trustcenter](https://www.microsoft.com/trustcenter) .
 
 ### <a name="notification-for-sdk-or-api-deployments"></a>Meddelande om SDK-eller API-distributioner
 
-När du distribuerar \<PARTNER> program vara kan Microsoft identifiera installationen av \<PARTNER> program vara med de Azure-resurser som distribueras. Microsoft kan korrelera de Azure-resurser som används för att stödja program varan. Microsoft samlar in den här informationen för att ge bästa möjliga upplevelse av sina produkter och för att driva verksamheten. Data samlas in och regleras av Microsofts sekretess principer, som du hittar på https://www.microsoft.com/trustcenter .
+När du distribuerar \<PARTNER> program vara kan Microsoft identifiera installationen av \<PARTNER> program vara med de Azure-resurser som distribueras. Microsoft kan korrelera de Azure-resurser som används för att stödja program varan. Microsoft samlar in den här informationen för att ge bästa möjliga upplevelse av sina produkter och för att driva verksamheten. Data samlas in och regleras av Microsofts sekretess principer, som du hittar på [https://www.microsoft.com/trustcenter](https://www.microsoft.com/trustcenter) .
 
 ## <a name="get-support"></a>Få support
 
@@ -282,6 +282,7 @@ Lär dig mer om support alternativen i den kommersiella Marketplace [för suppor
     * Slutför/granska kontakt uppgifterna.
     * Information om konsultationen kan vara ifylld eller väljas i list rutan.
     * Ange en rubrik och en beskrivning av problemet (ange så mycket information som möjligt).
+
 1. Klicka på Skicka
 
 Visa steg-för-steg-instruktioner med skärm dum par med [tekniska försäljnings-och distributions tjänster](https://aka.ms/TechConsultInstructions).

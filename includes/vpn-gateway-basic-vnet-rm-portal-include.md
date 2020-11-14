@@ -9,20 +9,20 @@ ms.date: 10/20/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: a66596ecb926c1bf3c6b61cc99e1eb1b56e99158
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "92328460"
 ---
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. I **Sök efter resurser, tjänst och dokument (G +/)** skriver du *virtuellt nätverk* .
+1. I **Sök efter resurser, tjänst och dokument (G +/)** skriver du *virtuellt nätverk*.
 
    ![Hitta Virtual Network resurs Sidan](./media/vpn-gateway-basic-vnet-rm-portal-include/marketplace.png "Hitta resurs sidan för virtuella nätverk")
 1. Välj **Virtual Network** från **Marketplace** -resultatet.
 
    ![Välj virtuellt nätverk](./media/vpn-gateway-basic-vnet-rm-portal-include/marketplace-results.png "Hitta resurs sidan för virtuella nätverk")
-1. På sidan **Virtual Network** väljer du **skapa** .
+1. På sidan **Virtual Network** väljer du **skapa**.
 
    ![Sidan virtuellt nätverk](./media/vpn-gateway-basic-vnet-rm-portal-include/vnet-click-create.png "Välj Skapa")
 1. När du har valt **skapa** öppnas sidan **Skapa virtuellt nätverk** .
@@ -48,4 +48,4 @@ ms.locfileid: "92328460"
    - **DDoS-skydd** : grundläggande
    - **Brand vägg** : inaktive rad
 1. Välj **Granska + skapa** för att verifiera inställningarna för det virtuella nätverket.
-1. När inställningarna har verifierats väljer du **skapa** .
+1. När inställningarna har verifierats väljer du **skapa**.

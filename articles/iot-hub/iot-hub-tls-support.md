@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 11/13/2020
 ms.author: jlian
-ms.openlocfilehash: 08ecb766a1a9bd7ff75bf97647be811577212eb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9dd66fe9d71f0a857e4b0821190bceb5d6d4680
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90006048"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628806"
 ---
 # <a name="tls-support-in-iot-hub"></a>TLS-stöd i IoT Hub
 
@@ -107,4 +107,4 @@ IoT Edge enheter kan konfigureras för att använda TLS 1,2 vid kommunikation me
 
 ## <a name="device-authentication"></a>Enhetsautentisering
 
-Efter en lyckad TLS-handskakning kan IoT Hub autentisera en enhet med hjälp av en symmetrisk nyckel eller ett X. 509-certifikat. För certifikatbaserad autentisering kan detta vara alla X. 509-certifikat, inklusive ECC. IoT Hub validerar certifikatet mot det tumavtryck eller den certifikat utfärdare (CA) som du anger. IoT Hub stöder inte X. 509-baserad ömsesidig autentisering ännu (mTLS). Mer information finns i [X. 509-certifikat som stöds](iot-hub-devguide-security.md#supported-x509-certificates).
+Efter en lyckad TLS-handskakning kan IoT Hub autentisera en enhet med hjälp av en symmetrisk nyckel eller ett X. 509-certifikat. För certifikatbaserad autentisering kan detta vara alla X. 509-certifikat, inklusive ECC. IoT Hub validerar certifikatet mot det tumavtryck eller den certifikat utfärdare (CA) som du anger. Mer information finns i [X. 509-certifikat som stöds](iot-hub-devguide-security.md#supported-x509-certificates).

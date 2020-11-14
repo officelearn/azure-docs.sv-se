@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 5fea0cb8c6ac3f706cfef5e4a153fbbf4ff465b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09af5d9af749d43f9d15f42daee6b562a877397b
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91451439"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94633398"
 ---
 *Uppvärmning av cacheminnet*  
 Disken med ReadOnly-värd-cachelagring kan ge högre IOPS än disk gränsen. För att få den här maximala Läs prestandan från värd-cachen måste du först värma upp cacheminnet för den här disken. Detta säkerställer att den Läs IOs som benchmarking-verktyget kommer att köra på CacheReads volym, träffar i själva cacheminnet och inte på disken direkt. Cacheträffar resulterar i ytterligare IOPS från den enkla cache-aktiverade disken.
@@ -21,24 +21,22 @@ Disken med ReadOnly-värd-cachelagring kan ge högre IOPS än disk gränsen. Fö
 > [!IMPORTANT]
 > Du måste värma upp cachen innan du kör benchmarking, varje gång en virtuell dator startas om.
 
-## <a name="tools"></a>Verktyg
-
-### <a name="iometer"></a>Iometer
+## <a name="iometer"></a>Iometer
 
 [Hämta verktyget IOMeter](http://sourceforge.net/projects/iometer/files/iometer-stable/1.1.0/iometer-1.1.0-win64.x86_64-bin.zip/download) på den virtuella datorn.
 
-#### <a name="test-file"></a>Testa fil
+### <a name="test-file"></a>Testa fil
 
 IOMeter använder en test fil som är lagrad på den volym där du kör benchmarking-testet. IT-enheter läser och skriver på den här test filen för att mäta disken IOPS och data flödet. IOMeter skapar den här test filen om du inte har angett någon. Skapa en test fil på 200 GB med namnet iobw. TST på CacheReads-och NoCacheWrites-volymerna.
 
-#### <a name="access-specifications"></a>Åtkomst specifikation
+### <a name="access-specifications"></a>Åtkomst specifikation
 
 Specifikationer, begär IO-storlek,% Läs/skriv,% slumpmässig/sekventiella konfigureras med hjälp av fliken "åtkomst specifikationer" i IOMeter. Skapa en åtkomst specifikation för var och en av de scenarier som beskrivs nedan. Skapa åtkomst specifikationen och spara med ett lämpligt namn som – RandomWrites \_ 8K, RandomReads \_ 8K. Välj motsvarande specifikation när du kör test scenariot.
 
 Ett exempel på åtkomst till specifikationer för maximalt Skriv-IOPS-scenario visas nedan.  
     ![Exempel på åtkomst specifikation för maximalt Skriv-IOPS](../articles/virtual-machines/linux/media/premium-storage-performance/image8.png)
 
-#### <a name="maximum-iops-test-specifications"></a>Högsta antal IOPS-testspecifikationer
+### <a name="maximum-iops-test-specifications"></a>Högsta antal IOPS-testspecifikationer
 
 Använd mindre storlek för begäran för att demonstrera högsta IOPs. Använd 8K begär storlek och skapa specifikationer för slumpmässiga skrivningar och läsningar.
 
@@ -47,7 +45,7 @@ Använd mindre storlek för begäran för att demonstrera högsta IOPs. Använd 
 | RandomWrites \_ 8K |8K |100 |0 |
 | RandomReads \_ 8K |8K |100 |100 |
 
-#### <a name="maximum-throughput-test-specifications"></a>Maximala krav för data flödes test
+### <a name="maximum-throughput-test-specifications"></a>Maximala krav för data flödes test
 
 Använd större storlek för begäran för att demonstrera maximalt data flöde. Använd 64 K-storlek för begäran och skapa specifikationer för slumpmässiga skrivningar och läsningar.
 
@@ -56,7 +54,7 @@ Använd större storlek för begäran för att demonstrera maximalt data flöde.
 | RandomWrites \_ 64 KB |64 KB |100 |0 |
 | RandomReads \_ 64 KB |64 KB |100 |100 |
 
-#### <a name="run-the-iometer-test"></a>Kör IOMeter-testet
+### <a name="run-the-iometer-test"></a>Kör IOMeter-testet
 
 Utför stegen nedan för att värma upp cachen
 
@@ -92,15 +90,15 @@ När du har värmt upp cache-disken fortsätter du med de test scenarier som ang
 
 Nedan visas skärm bilder av IOMeter test resultat för kombinerade IOPS-och data flödes scenarier.
 
-#### <a name="combined-reads-and-writes-maximum-iops"></a>Kombinerade läsningar och skrivningar högsta IOPS
+### <a name="combined-reads-and-writes-maximum-iops"></a>Kombinerade läsningar och skrivningar högsta IOPS
 
 ![Kombinerade läsningar och skrivningar högsta IOPS](../articles/virtual-machines/linux/media/premium-storage-performance/image9.png)
 
-#### <a name="combined-reads-and-writes-maximum-throughput"></a>Kombinerade läsningar och skrivningar maximalt data flöde
+### <a name="combined-reads-and-writes-maximum-throughput"></a>Kombinerade läsningar och skrivningar maximalt data flöde
 
 ![Kombinerade läsningar och skrivningar maximalt data flöde](../articles/virtual-machines/linux/media/premium-storage-performance/image10.png)
 
-### <a name="fio"></a>FIO
+## <a name="fio"></a>FIO
 
 FIO är ett populärt verktyg för benchmark-lagring på virtuella Linux-datorer. Det har flexibiliteten att välja olika IO-storlekar, sekventiella eller slumpmässiga läsningar och skrivningar. Den skapar arbets trådar eller processer för att utföra angivna I/O-åtgärder. Du kan ange vilken typ av I/O-åtgärder som varje arbets tråd måste utföra med hjälp av projektfiler. Vi har skapat en jobb fil per scenario som illustreras i exemplen nedan. Du kan ändra specifikationerna i dessa projektfiler till att mäta olika arbets belastningar som körs på Premium Storage. I exemplen använder vi en standard VM 14-baserad virtuell dator som kör **Ubuntu**. Använd samma installations program som beskrivs i början av avsnittet benchmarking och Värm upp cacheminnet innan du kör testerna för benchmarking.
 
@@ -114,7 +112,7 @@ apt-get install fio
 
 Vi använder fyra arbets trådar för att köra Skriv åtgärder och fyra arbets trådar för att köra Läs åtgärder på diskarna. Skriv personalen driver trafik på volymen "NoCache", som har 10 diskar med cache satt till "ingen". Läs arbetare driver trafik på "readcache"-volymen, som har en disk med cache satt till "ReadOnly".
 
-#### <a name="maximum-write-iops"></a>Maximalt Skriv-IOPS
+### <a name="maximum-write-iops"></a>Maximalt Skriv-IOPS
 
 Skapa jobb filen med följande specifikationer för att få maximal Skriv-IOPS. Ge den namnet "fiowrite.ini".
 
@@ -155,7 +153,7 @@ sudo fio --runtime 30 fiowrite.ini
 Medan testet körs kan du se antalet skrivnings-IOPS som den virtuella datorn och Premium-diskarna levererar. Som du ser i exemplet nedan levereras den virtuella DS14-datorn till den maximala Skriv-IOPS-gränsen på 50 000 IOPS.  
     ![Antalet skriv IOPS VM och Premium-diskar levereras.](../articles/virtual-machines/linux/media/premium-storage-performance/image11.png)
 
-#### <a name="maximum-read-iops"></a>Högsta Läs-IOPS
+### <a name="maximum-read-iops"></a>Högsta Läs-IOPS
 
 Skapa jobb filen med följande specifikationer för att få maximal Läs-IOPS. Ge den namnet "fioread.ini".
 
@@ -196,7 +194,7 @@ sudo fio --runtime 30 fioread.ini
 Medan testet körs kan du se antalet Läs-IOPS som den virtuella datorn och Premium-diskarna levererar. Som du ser i exemplet nedan levererar den virtuella DS14-datorn mer än 64 000 Läs-IOPS. Detta är en kombination av disk-och cache-prestanda.  
     ![Skärm bild av antalet skriv IOPS VM och Premium-diskar som levereras.](../articles/virtual-machines/linux/media/premium-storage-performance/image12.png)
 
-#### <a name="maximum-read-and-write-iops"></a>Maximal Läs-och skriv-IOPS
+### <a name="maximum-read-and-write-iops"></a>Maximal Läs-och skriv-IOPS
 
 Skapa jobb filen med följande specifikationer för att få maximalt kombinerat Läs-och skriv-IOPS. Ge den namnet "fioreadwrite.ini".
 
@@ -254,6 +252,6 @@ sudo fio --runtime 30 fioreadwrite.ini
 Medan testet körs kan du se antalet kombinerade Läs-och skriv-IOPS som den virtuella datorn och Premium-diskarna levererar. Som du ser i exemplet nedan levererar den virtuella DS14-datorn mer än 100 000 kombinerat Läs-och skriv-IOPS. Detta är en kombination av disk-och cache-prestanda.  
     ![Kombinerad läsning och skrivning av IOPS](../articles/virtual-machines/linux/media/premium-storage-performance/image13.png)
 
-#### <a name="maximum-combined-throughput"></a>Maximalt kombinerat data flöde
+### <a name="maximum-combined-throughput"></a>Maximalt kombinerat data flöde
 
 Om du vill hämta maximalt kombinerat Läs-och Skriv data flöde använder du en större block storlek och ett stort ködjup med flera trådar som utför läsningar och skrivningar. Du kan använda en block storlek på 64 KB och ködjup på 128.

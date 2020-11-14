@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5bff5b341dcbdaa7ccae2b02e62e3e6bd4d115f9
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 822a90aa2bd3a19cf3459924e6b577cc416aa3a5
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/13/2020
-ms.locfileid: "94594274"
+ms.locfileid: "94616832"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Arbeta med NSG-åtkomst och Azure skydds
 
@@ -40,7 +40,7 @@ _ **Ingress trafik:**
 
    * **Ingress trafik från offentlig Internet:** Azure-skydds skapar en offentlig IP-adress som behöver port 443 aktiverat på den offentliga IP-adressen för inkommande trafik. Port 3389/22 behöver inte öppnas på AzureBastionSubnet.
    * **Ingress trafik från Azure skydds Control plan:** För kontroll Plans anslutning aktiverar du port 443 inkommande från **GatewayManager** service tag. Detta gör det möjligt för kontroll planet, det vill säga att Gateway Manager kan kommunicera med Azure-skydds.
-   * **Ingress trafik från Azure Loadbalancer:** För hälso avsökningar aktiverar du port 443 inkommande från **AzureLoadBalancer** service tag. Detta gör att Azure Load Balancer kan identifiera anslutnings problem med Server delen.
+   * **Ingress trafik från Azure Load Balancer:** För hälso avsökningar aktiverar du port 443 inkommande från **AzureLoadBalancer** -tjänst tag gen. Detta gör att Azure Load Balancer kan identifiera anslutningen 
 
 
    :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="Skärm bild som visar inkommande säkerhets regler för Azure skydds-anslutning.":::

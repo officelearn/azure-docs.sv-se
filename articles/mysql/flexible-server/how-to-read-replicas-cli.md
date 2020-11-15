@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 10/23/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: acbb0d5b643919d7fa1bf3966532ebd83129fc2a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 151b72eb11600713b115d45e5927d8170a519ad1
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92795413"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635780"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-flexible-server-using-the-azure-cli"></a>Skapa och hantera Läs repliker i Azure Database for MySQL flexibel server med hjälp av Azure CLI
 
@@ -29,7 +29,7 @@ Du kan skapa och hantera Läs repliker med hjälp av Azure CLI.
 
 ### <a name="prerequisites"></a>Förutsättningar
 
-- [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Installera Azure CLI 2.0](/cli/azure/install-azure-cli)
 - En [Azure Database for MySQL flexibel Server](quickstart-create-server-cli.md) som ska användas som käll Server.
 
 ### <a name="create-a-read-replica"></a>Skapa en skrivskyddad replik

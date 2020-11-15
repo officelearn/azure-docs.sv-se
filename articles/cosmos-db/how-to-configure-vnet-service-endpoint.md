@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2bbdbc7a0ed71634522bd68dbf0807264a409525
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1d63d21f4c49e3c7aef035208477ac9fc79f2e51
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101739"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637191"
 ---
 # <a name="configure-access-to-azure-cosmos-db-from-virtual-networks-vnet"></a>Konfigurera åtkomst till Azure Cosmos DB från virtuella nätverk (VNet)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -40,17 +40,17 @@ I följande avsnitt beskrivs hur du konfigurerar en tjänst slut punkt för virt
 
 1. Från bladet **alla resurser** letar du upp det Azure Cosmos DB konto som du vill skydda.
 
-1. Välj **brand väggar och virtuella nätverk** på menyn Inställningar och välj att tillåta åtkomst från **valda nätverk** .
+1. Välj **brand väggar och virtuella nätverk** på menyn Inställningar och välj att tillåta åtkomst från **valda nätverk**.
 
-1. Om du vill bevilja åtkomst till ett befintligt virtuellt nätverks undernät går du till **virtuella nätverk** och väljer **Lägg till befintligt virtuellt Azure-nätverk** .
+1. Om du vill bevilja åtkomst till ett befintligt virtuellt nätverks undernät går du till **virtuella nätverk** och väljer **Lägg till befintligt virtuellt Azure-nätverk**.
 
-1. Välj den **prenumeration** som du vill lägga till ett virtuellt Azure-nätverk från. Välj de virtuella Azure- **nätverk** och **undernät** som du vill ge åtkomst till ditt Azure Cosmos DB-konto. Välj sedan **Aktivera** för att aktivera valda nätverk med tjänst slut punkter för "Microsoft. AzureCosmosDB". När den är klar väljer du **Lägg till** .
+1. Välj den **prenumeration** som du vill lägga till ett virtuellt Azure-nätverk från. Välj de virtuella Azure- **nätverk** och **undernät** som du vill ge åtkomst till ditt Azure Cosmos DB-konto. Välj sedan **Aktivera** för att aktivera valda nätverk med tjänst slut punkter för "Microsoft. AzureCosmosDB". När den är klar väljer du **Lägg till**.
 
    :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet.png" alt-text="Välj virtuellt nätverk och undernät":::
 
 1. När Azure Cosmos DB-kontot har Aktiver ATS för åtkomst från ett virtuellt nätverk kommer det att tillåta trafik från endast det valda under nätet. Det virtuella nätverk och undernät som du har lagt till ska visas som visas på följande skärm bild:
 
-   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/vnet-and-subnet-configured-successfully.png" alt-text="Välj virtuellt nätverk och undernät":::
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/vnet-and-subnet-configured-successfully.png" alt-text="Virtuellt nätverk och undernät har kon figurer ATS":::
 
 > [!NOTE]
 > Om du vill aktivera tjänst slut punkter för virtuella nätverk måste du ha följande prenumerations behörigheter:
@@ -64,15 +64,15 @@ Här följer anvisningar för att registrera prenumeration med Resource Provider
 
 1. Från bladet **alla resurser** letar du upp det Azure Cosmos DB konto som du vill skydda.  
 
-1. Välj **brand väggar och virtuella Azure-nätverk** på menyn Inställningar och välj att tillåta åtkomst från **valda nätverk** .  
+1. Välj **brand väggar och virtuella Azure-nätverk** på menyn Inställningar och välj att tillåta åtkomst från **valda nätverk**.  
 
-1. Om du vill bevilja åtkomst till ett nytt virtuellt Azure-nätverk går du till **virtuella nätverk** och väljer **Lägg till nytt virtuellt nätverk** .  
+1. Om du vill bevilja åtkomst till ett nytt virtuellt Azure-nätverk går du till **virtuella nätverk** och väljer **Lägg till nytt virtuellt nätverk**.  
 
-1. Ange den information som krävs för att skapa ett nytt virtuellt nätverk och välj sedan **skapa** . Under nätet skapas med en tjänst slut punkt för "Microsoft. AzureCosmosDB" aktive rad.
+1. Ange den information som krävs för att skapa ett nytt virtuellt nätverk och välj sedan **skapa**. Under nätet skapas med en tjänst slut punkt för "Microsoft. AzureCosmosDB" aktive rad.
 
-   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png" alt-text="Välj virtuellt nätverk och undernät":::
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png" alt-text="Välj ett virtuellt nätverk och undernät för ett nytt virtuellt nätverk":::
 
-Om ditt Azure Cosmos DB-konto används av andra Azure-tjänster som Azure Kognitiv sökning eller nås från Stream Analytics eller Power BI kan du tillåta åtkomst genom att välja **acceptera anslutningar från globala Azure-datacenter** .
+Om ditt Azure Cosmos DB-konto används av andra Azure-tjänster som Azure Kognitiv sökning eller nås från Stream Analytics eller Power BI kan du tillåta åtkomst genom att välja **acceptera anslutningar från globala Azure-datacenter**.
 
 För att se till att du har åtkomst till Azure Cosmos DB mått från portalen måste du aktivera **Tillåt åtkomst från Azure Portal** alternativ. Mer information om de här alternativen finns i artikeln [Konfigurera en IP-brandvägg](how-to-configure-firewall.md) . När du har aktiverat åtkomst väljer du **Spara** för att spara inställningarna.
 
@@ -82,9 +82,9 @@ För att se till att du har åtkomst till Azure Cosmos DB mått från portalen m
 
 1. Välj **brand väggar och virtuella nätverk** på menyn Inställningar.  
 
-1. Om du vill ta bort ett virtuellt nätverk eller en under näts regel väljer du **...** bredvid det virtuella nätverket eller under nätet och väljer **ta bort** .
+1. Om du vill ta bort ett virtuellt nätverk eller en under näts regel väljer du **...** bredvid det virtuella nätverket eller under nätet och väljer **ta bort**.
 
-   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/remove-a-vnet.png" alt-text="Välj virtuellt nätverk och undernät":::
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/remove-a-vnet.png" alt-text="Ta bort ett virtuellt nätverk":::
 
 1. Klicka på **Spara** för att tillämpa dina ändringar.
 
@@ -322,7 +322,7 @@ För närvarande stöds inte [Mongo Shell](https://devblogs.microsoft.com/cosmos
 
 ### <a name="can-i-specify-both-virtual-network-service-endpoint-and-ip-access-control-policy-on-an-azure-cosmos-account"></a>Kan jag ange både Virtual Network Service-slutpunkt och princip för IP-åtkomstkontroll på ett Azure Cosmos-konto? 
 
-Du kan aktivera både Virtual Network Service-slutpunkten och en kontroll princip för IP-aka på ditt Azure Cosmos-konto. Dessa två funktioner är kompletterande och säkerställer gemensamt isolering och säkerhet för ditt Azure Cosmos-konto. Att använda IP-brandvägg säkerställer att statiska IP-adresser kan komma åt ditt konto. 
+Du kan aktivera både Virtual Network Service-slutpunkten och en princip för IP-åtkomstkontroll (kallas även brand vägg) på ditt Azure Cosmos-konto. Dessa två funktioner är kompletterande och säkerställer gemensamt isolering och säkerhet för ditt Azure Cosmos-konto. Att använda IP-brandvägg säkerställer att statiska IP-adresser kan komma åt ditt konto. 
 
 ### <a name="how-do-i-limit-access-to-subnet-within-a-virtual-network"></a>Hur gör jag för att begränsa åtkomsten till undernät i ett virtuellt nätverk? 
 
@@ -336,7 +336,7 @@ När IP-brandvägg eller åtkomst regler för virtuella nätverk läggs till få
 
 När tjänstens slut punkt för Azure Cosmos DB har Aktiver ATS på ett undernät når trafiken till konto växlarna från offentlig IP-adress till virtuellt nätverk och undernät. Om ditt Azure Cosmos-konto har en IP-baserad brand vägg, skulle trafik från tjänstens aktiverade undernät inte längre matcha IP-brandväggens regler och därför avvisas. Gå igenom stegen för att sömlöst migrera från IP-baserad brand vägg till virtuell nätverks baserad åtkomst kontroll.
 
-### <a name="are-additional-rbac-permissions-needed-for-azure-cosmos-accounts-with-vnet-service-endpoints"></a>Krävs ytterligare RBAC-behörigheter för Azure Cosmos-konton med VNET-tjänstens slut punkter?
+### <a name="are-additional-azure-rbac-permissions-needed-for-azure-cosmos-accounts-with-vnet-service-endpoints"></a>Krävs ytterligare Azure RBAC-behörigheter för Azure Cosmos-konton med VNET-tjänstens slut punkter?
 
 När du har lagt till tjänst slut punkterna för VNet i ett Azure Cosmos-konto måste du ha åtkomst till `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` åtgärden för alla virtuella nätverk som kon figurer ATS på ditt Azure Cosmos-konto för att göra ändringar i konto inställningarna. Den här behörigheten krävs eftersom verifierings processen validerar åtkomst till resurser (till exempel databas och virtuella nätverks resurser) innan du utvärderar några egenskaper.
  

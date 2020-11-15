@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: 596303223554589ef26938486ccfd2281ccd46f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f83a1820eb931fa075681da7a9661b304059cd2a
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86999113"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635713"
 ---
 # <a name="troubleshoot-os-start-up--windows-update-installation-capacity"></a>Felsöka OS-start – Windows Update installations kapacitet
 
@@ -62,8 +62,6 @@ Så här löser du problemet:
 
 1. Kontrol lera att disken är full. Om disk storleken är under 1 TB expanderar du upp till maximalt 1 TB [med hjälp av PowerShell](../windows/expand-os-disk.md).
 1. Om disken redan är 1 TB måste du utföra en disk rensning.
-   1. Koppla bort data disken [från den brutna virtuella datorn](../windows/detach-disk.md).
-   1. Koppla data disken [till en fungerande virtuell dator](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).
    1. Använd [disk rensnings verktyget](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) för att frigöra utrymme.
 1. När storleks ändringen och rensningen är klar, defragmenteras enheten med följande kommando:
 
@@ -75,12 +73,12 @@ Det kan ta flera timmar beroende på Fragmenteringens nivå.
 
 ### <a name="enable-the-serial-console-and-memory-dump-collection"></a>Aktivera samlings konsolen och minnes dumpnings samlingen
 
-**Rekommenderas**: innan du återskapar den virtuella datorn aktiverar du samlings konsolen och samlings dumpningen genom att köra följande skript:
+**Rekommenderas** : innan du återskapar den virtuella datorn aktiverar du samlings konsolen och samlings dumpningen genom att köra följande skript:
 
 1. Öppna en upphöjd kommando tolks session som administratör.
 1. Kör följande kommandon:
 
-   **Aktivera serie konsolen**:
+   **Aktivera serie konsolen** :
    
    ```
    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON 
@@ -89,7 +87,7 @@ Det kan ta flera timmar beroende på Fragmenteringens nivå.
 
 1. Kontrol lera att det lediga utrymmet på OS-disken är större än minnes storleken (RAM) på den virtuella datorn.
 
-   Om det inte finns tillräckligt med utrymme på OS-disken, ändrar du den plats där minnesdumpen skapas och kontrollerar platsen till alla data diskar som är anslutna till den virtuella datorn med tillräckligt med ledigt utrymme. Om du vill ändra platsen ersätter du **% systemroot%** med enhets bokstaven för data disken, t. ex. **F:**, i följande kommandon.
+   Om det inte finns tillräckligt med utrymme på OS-disken, ändrar du den plats där minnesdumpen skapas och kontrollerar platsen till alla data diskar som är anslutna till den virtuella datorn med tillräckligt med ledigt utrymme. Om du vill ändra platsen ersätter du **% systemroot%** med enhets bokstaven för data disken, t. ex. **F:** , i följande kommandon.
 
    Föreslagen konfiguration för att aktivera OS-dump:
 
@@ -99,7 +97,7 @@ Det kan ta flera timmar beroende på Fragmenteringens nivå.
    REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM 
    ```
    
-   **Aktivera på ControlSet001**:
+   **Aktivera på ControlSet001** :
 
    ```
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
@@ -107,7 +105,7 @@ Det kan ta flera timmar beroende på Fragmenteringens nivå.
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
    ```
    
-   **Aktivera på ControlSet002**:
+   **Aktivera på ControlSet002** :
 
    ```
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
@@ -115,7 +113,7 @@ Det kan ta flera timmar beroende på Fragmenteringens nivå.
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
    ```
    
-   **Ta bort skadad OS-disk**:
+   **Ta bort skadad OS-disk** :
 
    ```
    REG UNLOAD HKLM\BROKENSYSTEM

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 556aec071ccb59a0223bc07d134f3427755117f3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b29f4034b12ce43e6c051e454601f196365469f3
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745795"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636988"
 ---
 # <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Använda CSI-drivrutiner (Azure Files container Storage Interface) i Azure Kubernetes service (AKS) (för hands version)
 
@@ -212,7 +212,7 @@ Registrera `AllowNfsFileShares` funktions flaggan med hjälp av kommandot [AZ Fe
 az feature register --namespace "Microsoft.Storage" --name "AllowNfsFileShares"
 ```
 
-Det tar några minuter för statusen att visa *registrerad* . Verifiera registrerings statusen med hjälp av kommandot [AZ feature list][az-feature-list] :
+Det tar några minuter för statusen att visa *registrerad*. Verifiera registrerings statusen med hjälp av kommandot [AZ feature list][az-feature-list] :
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.Storage/AllowNfsFileShares')].{Name:name,State:properties.state}"
@@ -229,7 +229,7 @@ az provider register --namespace Microsoft.Storage
 [Skapa en `Premium_LRS` Azure Storage-konto](../storage/files/storage-how-to-create-premium-fileshare.md) med följande konfigurationer för att stödja NFS-resurser:
 - konto typ: FileStorage
 - säker överföring krävs (Aktivera endast HTTPS-trafik): falskt
-- Välj det virtuella nätverket för dina agent-noder i brand väggar och virtuella nätverk
+- Välj det virtuella nätverket för dina agent-noder i brand väggar och virtuella nätverk – så du kanske föredrar att skapa lagrings kontot i MC_ resurs gruppen.
 
 ### <a name="create-nfs-file-share-storage-class"></a>Skapa fil resurs lagrings klass för NFS
 
@@ -239,7 +239,7 @@ Spara en `nfs-sc.yaml` fil med manifestet nedan redigera respektive plats hålla
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: azurefile-csi
+  name: azurefile-csi-nfs
 provisioner: file.csi.azure.com
 parameters:
   resourceGroup: EXISTING_RESOURCE_GROUP_NAME  # optional, required only when storage account is not in the same resource group as your agent nodes
@@ -275,6 +275,10 @@ Filesystem      Size  Used Avail Use% Mounted on
 accountname.file.core.windows.net:/accountname/pvc-fa72ec43-ae64-42e4-a8a2-556606f5da38  100G     0  100G   0% /mnt/azurefile
 ...
 ```
+
+>[!NOTE]
+> Observera att eftersom NFS-filresursen är i Premium-kontot är den minsta fil resurs storleken 100 GB. Om du skapar en PVC med en liten lagrings storlek kan du stöta på ett fel som "Det gick inte att skapa fil resursen... storlek (5)... ".
+
 
 ## <a name="windows-containers"></a>Windows-containrar
 

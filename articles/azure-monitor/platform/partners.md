@@ -4,12 +4,12 @@ description: Lär dig mer om Azure Monitors partner och hur du kan komma åt dok
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: dc33e9d8d613b9d0575da069d884e454d9930eac
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: d603e130d4e65667edb34121a4c89b7b0e02b819
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555647"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636749"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Partnerintegrering i Azure Monitor
 
@@ -46,6 +46,16 @@ AppDynamics Application Performance Management (APM) gör det möjligt för prog
 Du kan skapa JIRA-biljetter på Azure Monitor aviseringar.
 
 [Atlassian-dokumentation för Azure Monitor](https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/)
+
+## <a name="bmc-helix"></a>BMC-Helix
+
+![BMC Helix-logotyp](./media/partners/BMCHelix.png)
+
+BMC Helix är en autonom Enterprise service-och Operations SaaS-plattform. Integrerat med 360-grade Intelligence, gör det möjligt för företag att proaktivt och predictively upptäcka, övervaka, underhålla, optimera och leverera Omni för IT och affärs verksamhet.
+Genom att sömlöst integrera ITSM och IT Operations Management (ITOM), kan BMC Helix göra det möjligt för IT-och företags användare att eliminera IT-silor, fatta data drivna affärs beslut och leverera branschledande kund upplevelser.
+Kunder kan distribuera BMC Helix-plattformen med moln distributionen av deras val – offentlig, privat eller hybrid. Dessutom har kunderna möjlighet att välja AI/ML-lösningar för att dra nytta av branschledande leverantörer.
+
+[Läs mer om BMC-Helix](https://www.bmc.com/it-solutions/bmc-helix.html?vu=helix)
 
 ## <a name="botmetric"></a>Botmetric
 
@@ -301,15 +311,6 @@ Turbonomic levererar arbets belastnings automatisering för Hybrid moln genom at
 
 [Introduktion till Turbonomic](https://turbonomic.com/)
 
-## <a name="bmc-helix"></a>BMC-Helix
-
-![BMC Helix-logotyp](./media/partners/BMCHelix.png)
-
-BMC Helix är en autonom Enterprise service-och Operations SaaS-plattform. Integrerat med 360-grade Intelligence, gör det möjligt för företag att proaktivt och predictively upptäcka, övervaka, underhålla, optimera och leverera Omni för IT och affärs verksamhet.
-Genom att sömlöst integrera ITSM och IT Operations Management (ITOM), kan BMC Helix göra det möjligt för IT-och företags användare att eliminera IT-silor, fatta data drivna affärs beslut och leverera branschledande kund upplevelser.
-Kunder kan distribuera BMC Helix-plattformen med moln distributionen av deras val – offentlig, privat eller hybrid. Dessutom har kunderna möjlighet att välja AI/ML-lösningar för att dra nytta av branschledande leverantörer.
-
-[Läs mer om BMC-Helix](https://www.bmc.com/it-solutions/bmc-helix.html?vu=helix)
 
 ## <a name="next-steps"></a>Nästa steg
 

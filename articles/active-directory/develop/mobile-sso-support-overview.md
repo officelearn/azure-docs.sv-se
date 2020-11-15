@@ -1,7 +1,7 @@
 ---
 title: Stöd för enkel inloggning och skydds principer för appar i mobilappar som du utvecklar | Azure
 titleSuffix: Microsoft identity platform
-description: Förklaring och översikt över hur du skapar mobila program som stöder enkel inloggning och skydds principer för appar
+description: Förklaring och översikt över att skapa mobila program som stöder enkel inloggning och appars skydds principer med hjälp av Microsoft Identity Platform och integrering med Azure Active Directory.
 services: active-directory
 author: knicholasa
 manager: CelesteDG
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: 09fc29b54951d2f33acc725c734e01e3d3364ff0
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 4a9282882d23ecbdc3c03ca158ea3de5566143e7
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331614"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94634862"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>Stöd för enkel inloggning och skydds principer för appar i mobilappar som du utvecklar
 
-Enkel inloggning (SSO) ger enkel och säker inloggning för användare av din app. App Protection-principer (APP) möjliggör stöd för de nyckel säkerhets principer som skyddar användarens data. Tillsammans möjliggör de här funktionerna säkra användar inloggningar och hantering av appens data.
+Enkel inloggning (SSO) är ett viktigt utbud av Microsoft Identity Platform och Azure Active Directory och ger enkel och säker inloggning för användare av din app. Dessutom möjliggör app Protection-principer (APP) stöd för de nyckel säkerhets principer som skyddar användarens data. Tillsammans möjliggör de här funktionerna säkra användar inloggningar och hantering av appens data.
 
 I den här artikeln förklaras varför SSO och APP är viktiga och ger vägledning på hög nivå för att skapa mobila program som stöder dessa funktioner. Detta gäller för både telefon-och surfplattor. Om du är IT-administratör som vill distribuera SSO över din organisations Azure Active Directory klient kan du läsa vår [vägledning för att planera en distribution med enkel inloggning](../manage-apps/plan-sso-deployment.md)
 

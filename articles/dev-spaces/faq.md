@@ -5,12 +5,12 @@ ms.date: 01/28/2020
 ms.topic: conceptual
 description: Hitta svar på några vanliga frågor om Azure dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
-ms.openlocfilehash: 9870ba52424f6f59cc908e4d70bf1560f7d69165
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a25ebd88d022ff278b3e3d9cc9cbf4d8b9b670cd
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970307"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636103"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Vanliga frågor och svar om Azure dev Spaces
 
@@ -72,9 +72,9 @@ Ja, du kan använda Azure dev Spaces på AKS-kluster med [autentiserade IP-adres
 
 Ja, du kan använda Azure dev Spaces på AKS-kluster med [begränsad utgående trafik för klusternoder][aks-restrict-egress-traffic] aktiverade när rätt fullständiga domän namn har tillåtits. Mer information om hur du använder ett AKS-kluster med begränsad utgående trafik för klusternoder som är aktiverade med Azure dev Spaces finns [här](configure-networking.md#ingress-and-egress-network-traffic-requirements).
 
-## <a name="can-i-use-azure-dev-spaces-on-rbac-enabled-aks-clusters"></a>Kan jag använda Azure dev Spaces på RBAC-aktiverade AKS-kluster?
+## <a name="can-i-use-azure-dev-spaces-on-kubernetes-rbac-enabled-aks-clusters"></a>Kan jag använda Azure dev Spaces på Kubernetes RBAC-aktiverade AKS-kluster?
 
-Ja, du kan använda Azure dev Spaces på AKS-kluster med eller utan RBAC-aktiverat.
+Ja, du kan använda Azure dev Spaces på AKS-kluster med eller utan Kubernetes-rollbaserad åtkomst kontroll (Kubernetes RBAC) aktive rad.
 
 ## <a name="what-happens-when-i-enable-ingress-for-project-in-visual-studio"></a>Vad händer när jag aktiverar ingress för projekt i Visual Studio?
 

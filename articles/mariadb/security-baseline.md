@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f6071a3675b1ad6aa5d49395fb9050c941af9be0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 043a2481647076abb5a6e242ffa2ea8b3f282c4d
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92532755"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637174"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mariadb"></a>Azures säkerhets bas linje för Azure Database for MariaDB
 
@@ -818,9 +818,9 @@ Förstå Azure Policys effekter: https://docs.microsoft.com/azure/governance/pol
 
 **Vägledning** : om du använder anpassade Azure policys definitioner för dina Azure Database for MariaDB-servrar och relaterade resurser använder du Azure-databaser för att lagra och hantera din kod på ett säkert sätt.
 
-Så här lagrar du kod i Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true
+[Så här lagrar du kod i Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
 
-Dokumentation om Azure databaser: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops&preserve-view=true
+[Dokumentation om Azure databaser](/azure/devops/repos/index?view=azure-devops&preserve-view=true)
 
 **Azure Security Center övervakning** : inte tillämpligt
 

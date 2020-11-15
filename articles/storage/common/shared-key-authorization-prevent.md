@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 7679c613c4804f7df315918ee5d6946c07eb8b4f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 49a89228afd3b46f38afafb8ff16bc63a40dd35b
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787745"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635219"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Förhindra auktorisering av delad nyckel för ett Azure Storage konto (förhands granskning)
 
@@ -47,12 +47,12 @@ Om du vill spåra hur förfrågningar till ett lagrings konto auktoriseras anvä
 
 Följ dessa steg om du vill skapa ett mått som spårar begär Anden som görs med delad nyckel eller SAS:
 
-1. Navigera till ditt lagringskonto i Azure-portalen. Under avsnittet **övervakning** väljer du **mått** .
-1. Välj **Lägg till mått** . I dialog rutan **mått** anger du följande värden:
+1. Navigera till ditt lagringskonto i Azure-portalen. Under avsnittet **övervakning** väljer du **mått**.
+1. Välj **Lägg till mått**. I dialog rutan **mått** anger du följande värden:
     1. Lämna fältet **scope** inställt på namnet på lagrings kontot.
-    1. Ange **mått namn området** till *konto* . Detta mått kommer att rapportera om alla begär Anden mot lagrings kontot.
-    1. Ange fältet **mått** till *transaktioner* .
-    1. Ange **agg regerings** fältet som ska *summeras* .
+    1. Ange **mått namn området** till *konto*. Detta mått kommer att rapportera om alla begär Anden mot lagrings kontot.
+    1. Ange fältet **mått** till *transaktioner*.
+    1. Ange **agg regerings** fältet som ska *summeras*.
 
     Det nya måttet visar summan av antalet transaktioner mot lagrings kontot under ett angivet tidsintervall. Det resulterande måttet visas som det visas i följande bild:
 
@@ -60,14 +60,14 @@ Följ dessa steg om du vill skapa ett mått som spårar begär Anden som görs m
 
 1. Välj sedan knappen **Lägg till filter** för att skapa ett filter för måttet för typen av auktorisering.
 1. I dialog rutan **filter** anger du följande värden:
-    1. Ange **egenskap** svärdet till *autentisering* .
+    1. Ange **egenskap** svärdet till *autentisering*.
     1. Ställ in **operator** -fältet på likhets tecknet (=).
-    1. I fältet **värden** väljer du *konto nyckel* och *SAS* .
+    1. I fältet **värden** väljer du *konto nyckel* och *SAS*.
 1. I det övre högra hörnet väljer du det tidsintervall som du vill visa måttet för. Du kan också ange hur detaljerad agg regeringen av förfrågningar ska vara genom att ange intervall var som helst från 1 minut till 1 månad. Ange till exempel **tidsintervallet** till 30 dagar och **tids kornig het** till 1 dag för att se begär Anden som sammanställs per dag under de senaste 30 dagarna.
 
 När du har konfigurerat måttet kommer förfrågningar till ditt lagrings konto att visas i grafen. Följande bild visar begär Anden som har auktoriserats med delad nyckel eller gjorts med en SAS-token. Förfrågningarna sammanställs per dag under de senaste 30 dagarna.
 
-:::image type="content" source="media/shared-key-authorization-prevent/metric-shared-key-requests.png" alt-text="Skärm bild som visar hur du konfigurerar måttet till att summera transaktioner som görs med delad nyckel eller SAS":::
+:::image type="content" source="media/shared-key-authorization-prevent/metric-shared-key-requests.png" alt-text="Skärm bild som visar sammanställda begär Anden som har auktoriserats med delad nyckel":::
 
 Du kan också konfigurera en varnings regel för att meddela dig när ett visst antal begär Anden som är auktoriserade med delad nyckel görs mot ditt lagrings konto. Mer information finns i [skapa, Visa och hantera mått aviseringar med hjälp av Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
 
@@ -86,14 +86,14 @@ Om du vill logga Azure Storage data med Azure Monitor och analysera dem med Azur
 1. Registrera dig för för [hands versionen av Azure Storage i Azure Monitor](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u).
 1. Skapa en ny Log Analytics-arbetsyta i prenumerationen som innehåller ditt Azure Storage-konto eller Använd en befintlig Log Analytics-arbetsyta. När du har konfigurerat loggning för ditt lagrings konto är loggarna tillgängliga i Log Analytics arbets ytan. Mer information finns i [skapa en Log Analytics arbets yta i Azure Portal](../../azure-monitor/learn/quick-create-workspace.md).
 1. Navigera till ditt lagringskonto i Azure-portalen.
-1. I avsnittet övervakning väljer du **diagnostikinställningar (för hands version)** .
+1. I avsnittet övervakning väljer du **diagnostikinställningar (för hands version)**.
 1. Välj den Azure Storage tjänst som du vill logga förfrågningar för. Välj till exempel **BLOB** för att logga förfrågningar till Blob Storage.
-1. Välj **Lägg till diagnostisk inställning** .
+1. Välj **Lägg till diagnostisk inställning**.
 1. Ange ett namn för den diagnostiska inställningen.
 1. Under **kategori information** i avsnittet **logg** väljer du **StorageRead** , **StorageWrite** och **StorageDelete** för att logga alla data begär anden till den valda tjänsten.
-1. Under **mål information** väljer **du skicka till Log Analytics** . Välj din prenumeration och Log Analytics arbets ytan som du skapade tidigare, som du ser i följande bild.
+1. Under **mål information** väljer **du skicka till Log Analytics**. Välj din prenumeration och Log Analytics arbets ytan som du skapade tidigare, som du ser i följande bild.
 
-    :::image type="content" source="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png" alt-text="Skärm bild som visar hur du konfigurerar måttet till att summera transaktioner som görs med delad nyckel eller SAS":::
+    :::image type="content" source="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png" alt-text="Skärm bild som visar hur du skapar en diagnostisk inställning för loggnings begär Anden":::
 
 Du kan skapa en diagnostisk inställning för varje typ av Azure Storage resurs i ditt lagrings konto.
 
@@ -118,9 +118,9 @@ Du kan också konfigurera en varnings regel baserat på den här frågan för at
 
 När du har analyserat hur begär anden till ditt lagrings konto har auktoriserats kan du vidta åtgärder för att förhindra åtkomst via delad nyckel. Men först måste du uppdatera alla program som använder autentisering med delad nyckel för att använda Azure AD i stället. Du kan övervaka loggar och mått enligt beskrivningen i [identifiera vilken typ av auktorisering som används av klient program](#detect-the-type-of-authorization-used-by-client-applications) för att spåra över gången. Mer information om hur du använder Azure AD med blob-och Queue-data finns i [bevilja åtkomst till blobbar och köer med hjälp av Azure Active Directory](storage-auth-aad.md).
 
-När du är säker på att du kan avvisa begär Anden som är auktoriserade med delad nyckel kan du ange egenskapen **AllowSharedKeyAccess** för lagrings kontot till **false** .
+När du är säker på att du kan avvisa begär Anden som är auktoriserade med delad nyckel kan du ange egenskapen **AllowSharedKeyAccess** för lagrings kontot till **false**.
 
-Egenskapen **AllowSharedKeyAccess** har inte angetts som standard och returnerar inte något värde förrän du uttryckligen anger det. Lagrings kontot tillåter begär Anden som är auktoriserade med delad nyckel när egenskap svärdet är **Null** eller när det är **Sant** .
+Egenskapen **AllowSharedKeyAccess** har inte angetts som standard och returnerar inte något värde förrän du uttryckligen anger det. Lagrings kontot tillåter begär Anden som är auktoriserade med delad nyckel när egenskap svärdet är **Null** eller när det är **Sant**.
 
 > [!WARNING]
 > Om alla klienter för närvarande har åtkomst till data i ditt lagrings konto med delad nyckel rekommenderar Microsoft att du migrerar dessa klienter till Azure AD innan du nekar åtkomst till den delade nyckeln till lagrings kontot.
@@ -130,10 +130,10 @@ Egenskapen **AllowSharedKeyAccess** har inte angetts som standard och returnerar
 Följ de här stegen för att förhindra autentisering av delad nyckel för ett lagrings konto i Azure Portal:
 
 1. Navigera till ditt lagringskonto i Azure-portalen.
-1. Leta upp **konfigurations** inställningen under **Inställningar** .
-1. Ange **Tillåt delad nyckel åtkomst** till **inaktive rad** .
+1. Leta upp **konfigurations** inställningen under **Inställningar**.
+1. Ange **Tillåt delad nyckel åtkomst** till **inaktive rad**.
 
-    :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Skärm bild som visar hur du konfigurerar måttet till att summera transaktioner som görs med delad nyckel eller SAS":::
+    :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Skärm bild som visar hur du tillåter åtkomst till delade nycklar för kontot":::
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -195,7 +195,7 @@ resources
 
 ## <a name="understand-how-disallowing-shared-key-affects-sas-tokens"></a>Förstå hur otillåten delad nyckel påverkar SAS-token
 
-När den delade nyckeln inte är tillåten för lagrings kontot Azure Storage hanterar SAS-token baserat på typen av SAS och tjänsten som begäran riktas mot. Följande tabell visar hur varje typ av SAS är auktoriserad och hur Azure Storage kommer att hantera säkerhets associationen när **AllowSharedKeyAccess** -egenskapen för lagrings kontot är **false** .
+När den delade nyckeln inte är tillåten för lagrings kontot Azure Storage hanterar SAS-token baserat på typen av SAS och tjänsten som begäran riktas mot. Följande tabell visar hur varje typ av SAS är auktoriserad och hur Azure Storage kommer att hantera säkerhets associationen när **AllowSharedKeyAccess** -egenskapen för lagrings kontot är **false**.
 
 | Typ av SAS | Typ av auktorisering | Beteende när AllowSharedKeyAccess är falskt |
 |-|-|-|
@@ -213,10 +213,10 @@ Vissa Azure-verktyg ger dig möjlighet att använda Azure AD-auktorisering för 
 
 | Azure-verktyg | Azure AD-auktorisering till Azure Storage |
 |-|-|
-| Azure Portal | Stöds. Information om hur du auktoriserar med ditt Azure AD-konto från Azure Portal finns i [Välj hur du godkänner åtkomst till BLOB-data i Azure Portal](../blobs/authorize-blob-access-portal.md). |
+| Azure Portal | Stöds. Information om hur du auktoriserar med ditt Azure AD-konto från Azure Portal finns i [Välj hur du godkänner åtkomst till BLOB-data i Azure Portal](../blobs/authorize-data-operations-portal.md). |
 | AzCopy | Stöds för Blob Storage. Information om hur du auktoriserar AzCopy-åtgärder finns i [Välj hur du ska ange autentiseringsuppgifter för auktorisering](storage-use-azcopy-v10.md#choose-how-youll-provide-authorization-credentials) i AzCopy-dokumentationen. |
-| Azure Lagringsutforskaren | Stöds endast för Blob Storage och Azure Data Lake Storage Gen2. Azure AD-åtkomst till Queue Storage stöds inte. Se till att välja rätt Azure AD-klient. Mer information finns i [Kom igång med Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) |
-| Azure PowerShell | Stöds. Information om hur du auktoriserar PowerShell-kommandon för BLOB-eller Queue-åtgärder med Azure AD finns i [köra PowerShell-kommandon med Azure AD-autentiseringsuppgifter för att få åtkomst till BLOB-data](../blobs/authorize-active-directory-powershell.md) eller [köra PowerShell-kommandon med Azure AD-autentiseringsuppgifter för att komma åt köa data](../queues/authorize-active-directory-powershell.md) |
+| Azure Storage Explorer | Stöds endast för Blob Storage och Azure Data Lake Storage Gen2. Azure AD-åtkomst till Queue Storage stöds inte. Se till att välja rätt Azure AD-klient. Mer information finns i [Kom igång med Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) |
+| Azure PowerShell | Stöds. Information om hur du auktoriserar PowerShell-kommandon för BLOB-eller Queue-åtgärder med Azure AD finns i [köra PowerShell-kommandon med Azure AD-autentiseringsuppgifter för att få åtkomst till BLOB-data](../blobs/authorize-data-operations-powershell.md) eller [köra PowerShell-kommandon med Azure AD-autentiseringsuppgifter för att komma åt köa data](../queues/authorize-data-operations-powershell.md) |
 | Azure CLI | Stöds. Information om hur du auktoriserar Azure CLI-kommandon med Azure AD för åtkomst till blob-och Queue-data finns i [köra Azure CLI-kommandon med Azure AD-autentiseringsuppgifter för att få åtkomst till BLOB-eller Queue-data](authorize-data-operations-cli.md). |
 | Azure IoT Hub | Stöds. Mer information finns i [IoT Hub stöd för virtuella nätverk](../../iot-hub/virtual-network-support.md). |
 | Azure Cloud Shell | Azure Cloud Shell är ett integrerat gränssnitt i Azure Portal. Azure Cloud Shell Hosts-filer för persistence i en Azure-filresurs i ett lagrings konto. De här filerna blir otillgängliga om inte auktorisering av den delade nyckeln är tillåtet för det lagrings kontot. Mer information finns i [Anslut lagringen för Microsoft Azure filer](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage). <br /><br /> Om du vill köra kommandon i Azure Cloud Shell för att hantera lagrings konton för vilka åtkomst till delad nyckel inte tillåts, kontrollerar du först att du har beviljats de behörigheter som krävs för dessa konton via rollbaserad åtkomst kontroll i Azure (Azure RBAC). Mer information finns i [Vad är Azure rollbaserad åtkomst kontroll (Azure RBAC)?](../../role-based-access-control/overview.md). |
@@ -236,8 +236,8 @@ Förhands granskningen innehåller de begränsningar som beskrivs i följande av
 
 Azures mått och inloggnings Azure Monitor skiljer inte mellan olika typer av signaturer för delad åtkomst i förhands granskningen. **SAS** -filtret i Azure Metrics Explorer och fältet **SAS** i Azure Storage inloggning Azure Monitor båda rapport begär Anden som har behörighet till alla typer av SAS. Olika typer av signaturer för delad åtkomst tillåts dock annorlunda och beter sig annorlunda när åtkomsten till delad nyckel inte tillåts:
 
-- En SAS-token för tjänsten eller en SAS-token för ett konto är auktoriserad med en delad nyckel och kommer inte att tillåtas på en begäran till Blob Storage när **AllowSharedKeyAccess** -egenskapen har angetts till **false** .
-- En användar Delegerings-SAS är auktoriserad med Azure AD och kommer att tillåtas på en begäran till Blob Storage när **AllowSharedKeyAccess** -egenskapen har angetts till **false** .
+- En SAS-token för tjänsten eller en SAS-token för ett konto är auktoriserad med en delad nyckel och kommer inte att tillåtas på en begäran till Blob Storage när **AllowSharedKeyAccess** -egenskapen har angetts till **false**.
+- En användar Delegerings-SAS är auktoriserad med Azure AD och kommer att tillåtas på en begäran till Blob Storage när **AllowSharedKeyAccess** -egenskapen har angetts till **false**.
 
 När du utvärderar trafik till ditt lagrings konto bör du tänka på att mått och loggar enligt beskrivningen i [identifiera vilken typ av auktorisering som används av klient program](#detect-the-type-of-authorization-used-by-client-applications) kan innehålla begär Anden som görs med en användar Delegerings-SAS. Mer information om hur Azure Storage svarar på en SAS när egenskapen **AllowSharedKeyAccess** är inställd på **false** finns i [förstå hur otillåten delad nyckel påverkar SAS-token](#understand-how-disallowing-shared-key-affects-sas-tokens).
 

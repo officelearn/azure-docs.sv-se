@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: jehollan
-ms.openlocfilehash: 6b082801a89450e34056be8be88a96fe26b7eeec
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: bed76a6f3a17332f9a1e411ff1d4efb52703f3e1
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578840"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636477"
 ---
 # <a name="azure-functions-networking-options"></a>Nätverksalternativ för Azure Functions
 
@@ -97,8 +97,8 @@ När du skapar en Function-app måste du skapa eller länka till ett allmänt Az
 1. Skapa eller konfigurera ett annat lagrings konto.  Det här är lagrings kontot som vi skyddar med tjänstens slut punkter och ansluter vår funktion.
 1. [Skapa en fil resurs](../storage/files/storage-how-to-create-file-share.md#create-file-share) på det skyddade lagrings kontot.
 1. Aktivera tjänstens slut punkter eller privata slut punkter för lagrings kontot.  
-    * Se till att aktivera det undernät som är dedikerat för dina funktions program om du använder en tjänst slut punkt.
-    * Se till att skapa en DNS-post och konfigurera appen så att den [fungerar med slut punkter för privata slut](#azure-dns-private-zones) punkter om du använder privat slut punkt.  Lagrings kontot måste ha en privat slut punkt för-och-under `file` `blob` resurserna.  Om du använder vissa funktioner som Durable Functions, behöver du också `queue` och `table` kan nås via en privat slut punkt anslutning.
+    * Om du använder privata slut punkts anslutningar behöver lagrings kontot en privat slut punkt för-och-under `file` `blob` resurserna.  Om du använder vissa funktioner som Durable Functions, behöver du också `queue` och `table` kan nås via en privat slut punkt anslutning.
+    * Om du använder tjänst slut punkter aktiverar du det undernät som är dedikerat för dina funktions program för lagrings konton.
 1. Valfritt Kopiera filen och blob-innehållet från funktionen app Storage-kontot till det skyddade lagrings kontot och fil resursen.
 1. Kopiera anslutnings strängen för det här lagrings kontot.
 1. Uppdatera **program inställningarna** under **konfigurationen** för Function-appen till följande:
@@ -106,6 +106,9 @@ När du skapar en Function-app måste du skapa eller länka till ett allmänt Az
     - `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` till anslutnings strängen för det skyddade lagrings kontot.
     - `WEBSITE_CONTENTSHARE` till namnet på fil resursen som skapats i det skyddade lagrings kontot.
     - Skapa en ny inställning med namnet `WEBSITE_CONTENTOVERVNET` och värdet för `1` .
+    - Om lagrings kontot använder anslutningar för privata slut punkter, verifiera eller Lägg till följande inställningar
+        - `WEBSITE_VNET_ROUTE_ALL` med värdet `1` .
+        - `WEBSITE_DNS_SERVER` med värdet `168.63.129.16` 
 1. Spara program inställningarna.  
 
 Function-appen startas om och kommer nu att anslutas till ett skyddat lagrings konto.

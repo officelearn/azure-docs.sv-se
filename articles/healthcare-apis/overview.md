@@ -6,14 +6,14 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 08/03/2020
+ms.date: 11/13/2020
 ms.author: matjazl
-ms.openlocfilehash: 12635979d90dcc4be5b45bf7d64ceb602119faf7
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 3bb168cf3f642d22096c54b3f35c7833afaff769
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394772"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635151"
 ---
 # <a name="what-is-azure-api-for-fhirreg"></a>Vad är Azure API för FHIR &reg; ?
 
@@ -84,7 +84,7 @@ För användnings fall som kräver utökning eller anpassning av FHIR-servern el
 
 ## <a name="azure-iot-connector-for-fhir-preview"></a>Azure IoT Connector för FHIR (för hands version)
 
-Azure IoT Connector för FHIR * är en valfri funktion i Azure API för FHIR som gör det möjligt att mata in data från-enheter. Internet av medicinska saker är en kategori av IoT-enheter som fångar och utbyter hälso & Wellness data med andra hälso vårds IT-system över nätverket. Några exempel på IoMT-enheter är lämplighet och klinisk wearables, övervakning av sensorer, aktivitets Spårare, skötsel av karriär platser eller till och med en smart Pill. Med funktionen Azure IoT Connector för FHIR kan du snabbt konfigurera en tjänst för att mata in IoMT-data i Azure API för FHIR på ett skalbart, säkert och kompatibelt sätt.
+Azure IoT Connector för snabba hälso samverkande resurser (FHIR&#174;) * är en valfri funktion i Azure API för FHIR som gör det möjligt att mata in data från-enheter (Internet of medicin ting). Internet av medicinska saker är en kategori av IoT-enheter som fångar och utbyter hälso & Wellness data med andra hälso vårds IT-system över nätverket. Några exempel på IoMT-enheter är lämplighet och klinisk wearables, övervakning av sensorer, aktivitets Spårare, skötsel av karriär platser eller till och med en smart Pill. Med funktionen Azure IoT Connector för FHIR kan du snabbt konfigurera en tjänst för att mata in IoMT-data i Azure API för FHIR på ett skalbart, säkert och kompatibelt sätt.
 
 Azure IoT Connector för FHIR kan acceptera alla JSON-baserade meddelanden som skickas ut av en IoMT-enhet. Dessa data omvandlas först till lämpliga FHIR [observations](https://www.hl7.org/fhir/observation.html) resurser och sparas sedan i Azure API för FHIR. Data omvandlings logiken definieras genom ett par mappnings-mallar som du konfigurerar baserat på ditt meddelande schema och FHIR krav. Enhets data kan push-överföras direkt till Azure IoT Connector för FHIR eller sömlöst använt i samförstånd med andra Azure IoT-lösningar ([azure IoT Hub](../iot-hub/index.yml) och [Azure IoT Central](../iot-central/index.yml)). Azure IoT Connector för FHIR ger en säker datapipeline och gör det möjligt för Azure IoT-lösningar att hantera etablering och underhåll av de fysiska enheterna.
 
@@ -108,6 +108,4 @@ Om du vill testa funktionen Azure IoT Connector för FHIR kan du kolla in snabb 
 >[!div class="nextstepaction"]
 >[Distribuera Azure IoT Connector för FHIR](iot-fhir-portal-quickstart.md)
 
-* I Azure Portal kallas Azure IoT Connector för FHIR IoT Connector (för hands version).
-
-FHIR är ett registrerat varumärke som tillhör HL7 och används med tillåtelse av HL7.
+* I Azure Portal kallas Azure IoT Connector för FHIR IoT Connector (för hands version). FHIR är ett registrerat varumärke som tillhör HL7 och används med behörigheten för HL7. 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/23/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 852589e7ba1896ad493c5b8c300240490a516b64
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 51f02d9f059ef87f7c1627102508b8b2aa7f537a
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94518251"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636307"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Snabb start: skapa en intern belastningsutjämnare för att belastningsutjämna virtuella datorer med Azure CLI
 
@@ -122,6 +122,14 @@ Skapa en regel för nätverks säkerhets grupp med [AZ Network NSG Rule Create](
     --priority 200
 ```
 
+## <a name="create-backend-servers"></a>Skapa serverdelsservrar
+
+I det här avsnittet skapar du:
+
+* Nätverks gränssnitt för backend-servrarna.
+* En moln konfigurations fil med namnet **cloud-init.txt** för Server konfigurationen.
+* Två virtuella datorer som ska användas som backend-servrar för belastningsutjämnaren.
+
 ### <a name="create-network-interfaces-for-the-virtual-machines"></a>Skapa nätverks gränssnitt för virtuella datorer
 
 Skapa två nätverks gränssnitt med [AZ Network NIC Create](https://docs.microsoft.com/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create):
@@ -158,13 +166,6 @@ Skapa två nätverks gränssnitt med [AZ Network NIC Create](https://docs.micros
     --subnet myBackEndSubnet \
     --network-security-group myNSG
 ```
-
-## <a name="create-backend-servers"></a>Skapa serverdelsservrar
-
-I det här avsnittet skapar du:
-
-* En moln konfigurations fil med namnet **cloud-init.txt** för Server konfigurationen.
-* Två virtuella datorer som ska användas som backend-servrar för belastningsutjämnaren.
 
 ### <a name="create-cloud-init-configuration-file"></a>Skapa konfigurations fil för Cloud-Init
 

@@ -10,12 +10,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 7128a11ae9d5c9844353404309f8ad40cba53972
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9d03496634c5d30d30b23a76b5b47b1e810af288
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787592"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635406"
 ---
 # <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Ge åtkomst till blobbar och köer med hjälp av Azure Active Directory
 
@@ -75,15 +75,15 @@ Mer information om de behörigheter som krävs för att anropa vissa BLOB-eller 
 
 Azure Portal kan använda antingen ditt Azure AD-konto eller konto åtkomst nycklar för att få åtkomst till blob-och Queue-data i ett Azure Storage-konto. Vilket autentiseringsschema som Azure Portal använder beror på vilka Azure-roller som har tilldelats dig.
 
-När du försöker komma åt BLOB-eller Queue-data kontrollerar Azure Portal först om du har tilldelats en Azure-roll med **Microsoft. Storage/storageAccounts/listnycklar/Action** . Om du har tilldelats en roll med den här åtgärden använder Azure Portal konto nyckeln för att komma åt blob-och Queue-data via autentisering med delad nyckel. Om du inte har tilldelats en roll med den här åtgärden försöker Azure Portal komma åt data med ditt Azure AD-konto.
+När du försöker komma åt BLOB-eller Queue-data kontrollerar Azure Portal först om du har tilldelats en Azure-roll med **Microsoft. Storage/storageAccounts/listnycklar/Action**. Om du har tilldelats en roll med den här åtgärden använder Azure Portal konto nyckeln för att komma åt blob-och Queue-data via autentisering med delad nyckel. Om du inte har tilldelats en roll med den här åtgärden försöker Azure Portal komma åt data med ditt Azure AD-konto.
 
 För att få åtkomst till BLOB-eller Queue-data från Azure Portal med ditt Azure AD-konto måste du ha behörighet att komma åt blob-och Queue-data och du måste också ha behörighet att navigera genom lagrings konto resurserna i Azure Portal. De inbyggda roller som tillhandahålls av Azure Storage bevilja åtkomst till blob-och Queue-resurser, men de beviljar inte behörigheter till lagrings konto resurser. Av den anledningen kräver åtkomst till portalen också tilldelningen av en Azure Resource Manager roll, till exempel rollen [läsare](../../role-based-access-control/built-in-roles.md#reader) , som är begränsad till lagrings kontots nivå eller högre. Rollen **läsare** ger mest begränsade behörigheter, men en annan Azure Resource Manager roll som beviljar åtkomst till lagrings kontots hanterings resurser är också acceptabel. Mer information om hur du tilldelar behörigheter till användare för data åtkomst i Azure Portal med ett Azure AD-konto finns i [använda Azure Portal för att tilldela en Azure-roll för åtkomst till blob-och Queue-data](storage-auth-aad-rbac-portal.md).
 
-Azure Portal anger vilket Authorization Scheme som används när du navigerar till en behållare eller kö. Mer information om data åtkomst i portalen finns i [Välj hur du vill ge åtkomst till BLOB-data i Azure Portal](../blobs/authorize-blob-access-portal.md) och [välja hur du vill ge åtkomst till köa data i Azure Portal](../queues/authorize-queue-access-portal.md).
+Azure Portal anger vilket Authorization Scheme som används när du navigerar till en behållare eller kö. Mer information om data åtkomst i portalen finns i [Välj hur du vill ge åtkomst till BLOB-data i Azure Portal](../blobs/authorize-data-operations-portal.md) och [välja hur du vill ge åtkomst till köa data i Azure Portal](../queues/authorize-data-operations-portal.md).
 
 ### <a name="data-access-from-powershell-or-azure-cli"></a>Data åtkomst från PowerShell eller Azure CLI
 
-Azure CLI och PowerShell-stöd för att logga in med autentiseringsuppgifter för Azure AD. När du har loggat in körs sessionen under dessa autentiseringsuppgifter. Läs mer i [köra Azure CLI-eller PowerShell-kommandon med Azure AD-autentiseringsuppgifter för att få åtkomst till BLOB-eller Queue-data](../blobs/authorize-active-directory-powershell.md).
+Azure CLI och PowerShell-stöd för att logga in med autentiseringsuppgifter för Azure AD. När du har loggat in körs sessionen under dessa autentiseringsuppgifter. Läs mer i [köra Azure CLI-eller PowerShell-kommandon med Azure AD-autentiseringsuppgifter för att få åtkomst till BLOB-eller Queue-data](../blobs/authorize-data-operations-powershell.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

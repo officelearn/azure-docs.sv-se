@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7af824d7cdf0c668e4513cd450a1815b88568b3e
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 43d1b7700395bd06960737eae4f318d61aa03717
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540917"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635254"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-using-azure-cli"></a>Skapa och hantera Azure Database for MariaDB VNet-tjänstens slut punkter med Azure CLI
 
@@ -32,9 +32,9 @@ VNet-tjänstslutpunkter och regler utökar det privata adressutrymmet för ett v
 
 ## <a name="configure-vnet-service-endpoints"></a>Konfigurera VNet-tjänstens slut punkter
 
-[AZ Network VNet](/cli/azure/network/vnet?view=azure-cli-latest) -kommandon används för att konfigurera virtuella nätverk.
+[AZ Network VNet](/cli/azure/network/vnet) -kommandon används för att konfigurera virtuella nätverk.
 
-Om du har flera prenumerationer ska du välja lämplig prenumeration där resursen ska debiteras. Välj det specifika prenumerations-ID:t under ditt konto med hjälp av kommandot [az account set](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set). Ersätt egenskapen **ID** från **az login** -utdata för din prenumeration i platshållaren för prenumerations-ID.
+Om du har flera prenumerationer ska du välja lämplig prenumeration där resursen ska debiteras. Välj det specifika prenumerations-ID:t under ditt konto med hjälp av kommandot [az account set](/cli/azure/account#az-account-set). Ersätt egenskapen **ID** från **az login** -utdata för din prenumeration i platshållaren för prenumerations-ID.
 
 - Kontot måste ha nödvändiga behörigheter för att skapa ett virtuellt nätverk och tjänstslutpunkten.
 

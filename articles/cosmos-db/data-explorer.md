@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: dech
-ms.openlocfilehash: d5958ea947f6b786e9fbc6c44ab914ea895d6e08
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 691a2e56230d312416aed3d68bffd361f1d63558
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096809"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637123"
 ---
 # <a name="work-with-data-using-azure-cosmos-explorer"></a>Arbeta med data med hjälp av Azure Cosmos Explorer 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,21 +26,21 @@ Azure Cosmos DB Explorer är ett fristående webbaserat gränssnitt som gör att
 
 ## <a name="access-azure-cosmos-db-explorer"></a>Åtkomst till Azure Cosmos DB Explorer
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/). 
+1. Logga in på [Azure Portal](https://portal.azure.com/). 
 
-2. Från **alla resurser** , leta upp och navigera till ditt Azure Cosmos DB konto, Välj nycklar och kopiera den **primära anslutnings strängen** .  
+2. Från **alla resurser** , leta upp och navigera till ditt Azure Cosmos DB konto, Välj nycklar och kopiera den **primära anslutnings strängen**.  
 
-3. Gå till https://cosmos.azure.com/ , klistra in anslutnings strängen och välj **Anslut** . Genom att använda anslutnings strängen kan du komma åt Azure Cosmos DB Explorer utan några tids gränser.  
+3. Gå till https://cosmos.azure.com/ , klistra in anslutnings strängen och välj **Anslut**. Genom att använda anslutnings strängen kan du komma åt Azure Cosmos DB Explorer utan några tids gränser.  
 
    Om du vill ge andra användare tillfällig åtkomst till ditt Azure Cosmos DB-konto kan du göra det med URL: erna Läs-och Läs behörighet. 
 
-4. Öppna bladet **datautforskaren** och välj **Öppna hel skärms läge** . I popup-dialogrutan kan du Visa två åtkomst webb adresser – **Läs-och skriv-** och **Läs** behörighet. Med dessa URL: er kan du dela ditt Azure Cosmos DB-konto tillfälligt med andra användare. Åtkomst till kontot upphör att gälla om 24 timmar efter vilken du kan återansluta med hjälp av en ny åtkomst-URL eller anslutnings strängen. 
+4. Öppna bladet **datautforskaren** och välj **Öppna hel skärms läge**. I popup-dialogrutan kan du Visa två åtkomst webb adresser – **Läs-och skriv-** och **Läs** behörighet. Med dessa URL: er kan du dela ditt Azure Cosmos DB-konto tillfälligt med andra användare. Åtkomst till kontot upphör att gälla om 24 timmar efter vilken du kan återansluta med hjälp av en ny åtkomst-URL eller anslutnings strängen. 
 
    **Läs-och skriv** åtgärder – när du delar Read-Write URL med andra användare kan de Visa och ändra databaser, samlingar, frågor och andra resurser som är kopplade till det aktuella kontot.
 
    **Läs** – när du delar den skrivskyddade URL: en med andra användare kan de se databaser, samlingar, frågor och andra resurser som är kopplade till det aktuella kontot. Om du till exempel vill dela resultatet av en fråga med dina grupp medlemmar som inte har åtkomst till Azure Portal eller ditt Azure Cosmos DB-konto kan du ange dem med denna URL.
 
-   Välj den typ av åtkomst du vill öppna kontot med och klicka på **Öppna** . När du har öppnat Utforskaren är det samma sak som du hade med fliken Datautforskaren i Azure Portal.
+   Välj den typ av åtkomst du vill öppna kontot med och klicka på **Öppna**. När du har öppnat Utforskaren är det samma sak som du hade med fliken Datautforskaren i Azure Portal.
 
    :::image type="content" source="./media/data-explorer/open-data-explorer-with-access-url.png" alt-text="Öppna Azure Cosmos DB Explorer":::
 
@@ -50,7 +50,7 @@ För närvarande är den **Öppna hel skärms** upplevelsen som gör att du kan 
 
 För närvarande stöds inte visning av dokument som innehåller ett UUID i Datautforskaren. Detta påverkar inte inläsning av samlingar, endast enskilda dokument eller frågor som innehåller dessa dokument. För att kunna visa och hantera dessa dokument bör användarna fortsätta att använda verktyget som ursprungligen användes för att skapa dessa dokument.
 
-Kunder som tar emot HTTP-401-fel kan bero på otillräckliga RBAC-behörigheter för kundens Azure-konto, särskilt om kontot har en anpassad RBAC-roll. Alla anpassade roller måste ha `Microsoft.DocumentDB/databaseAccounts/listKeys/*` åtgärd för att kunna använda datautforskaren om du loggar in med sina Azure Active Directory autentiseringsuppgifter.
+Kunder som tar emot HTTP-401-fel kan bero på otillräckliga Azure RBAC-behörigheter för kundens Azure-konto, särskilt om kontot har en anpassad roll. Alla anpassade roller måste ha `Microsoft.DocumentDB/databaseAccounts/listKeys/*` åtgärd för att kunna använda datautforskaren om du loggar in med sina Azure Active Directory autentiseringsuppgifter.
 
 ## <a name="next-steps"></a>Nästa steg
 

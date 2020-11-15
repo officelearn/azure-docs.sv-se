@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-java
 - devx-track-azurecli
-ms.openlocfilehash: 449f0a59cc8428ce8e19535d5cf0417bf4cf7ad0
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 5c8993bdf892ceb7d9886d0d2b97063dedec720c
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93425228"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635559"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>Snabb start: skapa en Java-funktion i Azure från kommando raden
 
@@ -163,11 +163,23 @@ En Function-app och relaterade resurser skapas i Azure när du först distribuer
 > [!TIP]
 > Om du vill skapa en Function-app som körs på Linux i stället för Windows, ändrar du `runtime.os` elementet i pom.xml-filen från `windows` till `linux` . Att köra Linux i en förbruknings plan stöds i [dessa regioner](https://github.com/Azure/azure-functions-host/wiki/Linux-Consumption-Regions). Du kan inte ha appar som körs på Linux och appar som körs i Windows i samma resurs grupp.
 
-1. Innan du kan distribuera använder du kommandot [AZ login](/cli/azure/authenticate-azure-cli) Azure CLI för att logga in på din Azure-prenumeration. 
+1. Innan du kan distribuera loggar du in på Azure-prenumerationen med hjälp av antingen Azure CLI eller Azure PowerShell. 
 
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
     ```azurecli
     az login
     ```
+
+    Kommandot [AZ login](/cli/azure/reference-index#az-login) loggar in dig på ditt Azure-konto.
+
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell) 
+    ```azurepowershell
+    Connect-AzAccount
+    ```
+
+    Cmdleten [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) loggar in dig på ditt Azure-konto.
+
+    ---
 
 1. Använd följande kommando för att distribuera projektet till en ny function-app.
 

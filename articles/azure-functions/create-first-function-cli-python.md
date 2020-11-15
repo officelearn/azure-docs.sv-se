@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 17edd0a402fc6db2b3690074bdc0c652b107c7d0
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: b4c14417a31f28ea5d6475b3f84ee079d990dd6b
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541393"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637072"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>Snabb start: skapa en python-funktion i Azure från kommando raden
 
@@ -250,7 +250,8 @@ Använd följande kommandon för att skapa dessa objekt. Både Azure CLI och Pow
     New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -FunctionsVersion 3 -RuntimeVersion 3.8 -Runtime python -Location 'West Europe'
     ```
     
-    <a name="the-new-azfunctionapp-cmdlet-creates-the-function-app-in-azure-if-youre-using-python-37-or-36-change--runtimeversion-to-37-or-36-respectively"></a>Cmdlet: en [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) skapar Function-appen i Azure. Om du använder python 3,7 eller 3,6 ändrar `-RuntimeVersion` du till `3.7` `3.6` respektive.
+    Cmdlet: en [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) skapar Function-appen i Azure. Om du använder python 3,7 eller 3,6 ändrar `-RuntimeVersion` du till `3.7` `3.6` respektive.
+
     ---
     
     I föregående exempel ersätter `<STORAGE_NAME>` du med namnet på det konto som du använde i föregående steg och ersätter `<APP_NAME>` med ett globalt unikt namn som passar dig.  `<APP_NAME>` är även DNS-standarddomänen för funktionsappen. 

@@ -1,6 +1,6 @@
 ---
-title: Anslut till resursen för Synapse Studio-arbetsytan från ett begränsat nätverk
-description: I den här artikeln får du lära dig hur du ansluter till dina resurser i Azure Synapse Studio-arbetsytan från ett begränsat nätverk
+title: Ansluta till arbets ytans resurser i Azure Synapse Analytics Studio från ett begränsat nätverk
+description: I den här artikeln får du lära dig hur du ansluter till dina arbets ytans resurser från ett begränsat nätverk
 author: xujxu
 ms.service: synapse-analytics
 ms.topic: how-to
@@ -8,112 +8,119 @@ ms.subservice: security
 ms.date: 10/25/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: d94ee3145fb073dae982019fd4096cc2ceb7cd86
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 7cff2d8245095489fbba3b7af24b416885995e4d
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578339"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637140"
 ---
-# <a name="connect-to-synapse-studio-workspace-resources-from-a-restricted-network"></a>Ansluta till resurser i Synapse Studio-arbetsytan från ett begränsat nätverk
+# <a name="connect-to-workspace-resources-from-a-restricted-network"></a>Ansluta till arbets ytans resurser från ett begränsat nätverk
 
-Den här artikelns mål läsare är den företags IT-administratör som hanterar företagets begränsade nätverk. IT-administratören är på väg att aktivera nätverks anslutningen mellan Azure Synapse Studio och arbets stationen i det här begränsade nätverket.
-
-I den här artikeln får du lära dig hur du ansluter till din Azure Synapse-arbetsyta från en begränsad nätverks miljö. 
+Anta att du är IT-administratör som hanterar organisationens begränsade nätverk. Du vill aktivera nätverks anslutningen mellan Azure Synapse Analytics Studio och en arbets station inom det här begränsade nätverket. Den här artikeln visar hur du gör.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * **Azure-prenumeration** : om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
-* **Azure Synapse-arbetsyta** : om du inte har någon Synapse Studio skapar du en Synapse-arbetsyta från Azure Synapse Analytics. Namnet på arbets ytan kommer att krävas i följande steg 4.
-* **Ett begränsat nätverk** : det begränsade nätverket underhålls av företagets IT-administratör. IT-administratören har behörighet att konfigurera nätverks principen. Det virtuella nätverks namnet och dess undernät kommer att behövas i följande steg 3.
+* **Azure Synapse Analytics-arbetsyta** : du kan skapa en från Azure Synapse Analytics. Du behöver namnet på arbets ytan i steg 4.
+* **Ett begränsat nätverk** : IT-administratören hanterar det begränsade nätverket för organisationen och har behörighet att konfigurera nätverks principen. Du behöver det virtuella nätverks namnet och dess undernät i steg 3.
 
 
 ## <a name="step-1-add-network-outbound-security-rules-to-the-restricted-network"></a>Steg 1: Lägg till nätverks utgående säkerhets regler i det begränsade nätverket
 
-Du måste lägga till fyra säkerhets regler för utgående trafik med fyra service märken. Läs mer om [service tag-översikt](/azure/virtual-network/service-tags-overview) 
+Du måste lägga till fyra säkerhets regler för utgående trafik med fyra service märken. 
 * AzureResourceManager
 * AzureFrontDoor. frontend
 * AzureActiveDirectory
-* AzureMonitor (valfritt. Lägg endast till den här typen av regel när du vill dela data till Microsoft.)
+* AzureMonitor (den här typen av regel är valfri. Lägg bara till den när du vill dela data med Microsoft.)
 
-**Azure Resource Manager** utgående regel Detaljer enligt nedan. När du skapar de andra tre reglerna ersätter du värdet för " **mål service tag** " med att välja service tag-namnet " **AzureFrontDoor. frontend** ", " **AzureActiveDirectory** ", " **AzureMonitor** " från List rutan.
+Följande skärm bild visar information om den Azure Resource Manager utgående regeln.
 
-![AzureResourceManager](./media/how-to-connect-to-workspace-from-restricted-network/arm-servicetag.png)
+![Skärm bild av Azure Resource Manager service tag-information.](./media/how-to-connect-to-workspace-from-restricted-network/arm-servicetag.png)
 
+När du skapar de andra tre reglerna ersätter du värdet för **mål service tag gen** med **AzureFrontDoor. frontend** , **AzureActiveDirectory** eller **AzureMonitor** från listan.
 
-## <a name="step-2-create-azure-synapse-analytics-private-link-hubs"></a>Steg 2: Skapa Azure Synapse Analytics (privata länk hubbar)
+Mer information finns i [Översikt över tjänst etiketter](/azure/virtual-network/service-tags-overview.md).
 
-Du måste skapa en Azure Synapse Analytics-tjänst (Private Link Hub) från Azure Portal. Sök efter " **Azure Synapse Analytics (Private Link Hub)** " via Azure Portal och fyll sedan i det nödvändiga fältet och skapa det. 
+## <a name="step-2-create-private-link-hubs"></a>Steg 2: skapa privata länk hubbar
 
-> [!Note]
-> Regionen måste vara samma som den där din Synapse-arbetsyta är.
-
-![Skapa privata länk hubbar för Synapse Analytics](./media/how-to-connect-to-workspace-from-restricted-network/private-links.png)
-
-## <a name="step-3-create-private-endpoint-for-synapse-studio-gateway"></a>Steg 3: skapa en privat slut punkt för Synapse Studio-Gateway
-
-För att få åtkomst till Synapse Studio-gatewayen måste du skapa en privat slut punkt från Azure Portal. Sök efter " **privat länk** " via Azure Portal. Välj " **skapa privat slut punkt** " i " **privat länk Center** " och fyll sedan i det nödvändiga fältet och skapa det. 
+Skapa sedan privata länk hubbar från Azure Portal. Du hittar det här i portalen genom att söka efter *Azure Synapse Analytics (privata länk hubbar)* och sedan fylla i den information som krävs för att skapa den. 
 
 > [!Note]
-> Regionen måste vara samma som den där din Synapse-arbetsyta är.
+> Se till att **region** svärdet är samma som det där din Azure Synapse Analytics-arbetsyta är.
 
-![Skapar privat slut punkt för Synapse Studio 1](./media/how-to-connect-to-workspace-from-restricted-network/plink-endpoint-1.png)
+![Skärm bild av skapa Synapse Private Link Hub.](./media/how-to-connect-to-workspace-from-restricted-network/private-links.png)
 
-På nästa flik i " **resurs** " väljer du den privata länk hubben som skapades i steg 2 ovan.
+## <a name="step-3-create-a-private-endpoint-for-your-gateway"></a>Steg 3: skapa en privat slut punkt för din gateway
 
-![Skapar privat slut punkt för Synapse Studio 2](./media/how-to-connect-to-workspace-from-restricted-network/plink-endpoint-2.png)
+För att få åtkomst till Azure Synapse Analytics Studio-gatewayen måste du skapa en privat slut punkt från Azure Portal. Sök efter *privat länk* för att hitta det här i portalen. I det **privata länk centret** väljer du **skapa privat slut punkt** och fyller sedan i den information som krävs för att skapa den. 
 
-På nästa flik i " **konfiguration** ", 
-* Välj det begränsade virtuella nätverks namn du har för " **virtuellt nätverk** ".
-* Välj under nätet för det begränsade virtuella nätverket för " **undernät** ". 
-* Välj " **Ja** " om du vill **integrera med privat DNS-zon**.
+> [!Note]
+> Se till att **region** svärdet är samma som det där din Azure Synapse Analytics-arbetsyta är.
 
-![Skapar privat slut punkt för Synapse Studio 3](./media/how-to-connect-to-workspace-from-restricted-network/plink-endpoint-3.png)
+![Skärm bild av fliken Skapa en privat slut punkt, grundläggande information.](./media/how-to-connect-to-workspace-from-restricted-network/plink-endpoint-1.png)
 
-När du har skapat den privata länk slut punkten kan du komma åt inloggnings sidan för Synapse Studio-webbverktyget. Men du kommer inte att kunna komma åt resurserna inuti din Synapse-arbetsyta förrän du måste slutföra nästa steg.
+På fliken **resurs** väljer du den privata länk hubben som du skapade i steg 2.
 
-## <a name="step-4-create-private-endpoints-for-synapse-studio-workspace-resource"></a>Steg 4: skapa privata slut punkter för Synapse Studio-arbetsytans resurs
+![Skärm bild av fliken Skapa en privat slut punkt, resurs.](./media/how-to-connect-to-workspace-from-restricted-network/plink-endpoint-2.png)
 
-För att få åtkomst till resurserna inuti din resurs för Synapse Studio-arbetsytan måste du skapa minst en privat länk-slutpunkt med " **dev** "-typen " **mål under resurs** " och två andra valfria privata länk slut punkter med typerna " **SQL** " eller " **SqlOnDemand** " beroende på vilka resurser i Synapse Studio-arbetsytan som du vill ha åtkomst till. Den här slut punkten för att skapa en privat länk för Synapse Studio-arbetsytan liknar att skapa en slut punkt.  
+På fliken **konfiguration** : 
+* För **virtuellt nätverk** väljer du det begränsade virtuella nätverks namnet.
+* För **undernät** väljer du under nätet för det begränsade virtuella nätverket. 
+* Välj **Ja** om du vill **integrera med en privat DNS-zon**.
 
-Observera följande områden på fliken " **resurs** ":
-* Välj " **Microsoft. Synapse/arbetsytes** " till " **resurs typ** ".
-* Välj " **YourWorkSpaceName** " till " **resurs** " som du har skapat tidigare.
-* Välj typ av slut punkt i " **mål under resurs** ":
-  * **SQL** : gäller SQL-FRÅGEKÖRNINGEN i SQL-poolen.
-  * **SqlOnDemand** : är för inbyggd SQL-fråga.
-  * **Dev** : är till för att få åtkomst till allt annat i Synapse Studio-arbetsytor. Du måste skapa minst den privata länk slut punkten för med den här typen.
+![Skärm bild av fliken Skapa en privat slut punkt, konfiguration.](./media/how-to-connect-to-workspace-from-restricted-network/plink-endpoint-3.png)
 
-![Skapar privat slut punkt för Synapse Studio-arbetsytan](./media/how-to-connect-to-workspace-from-restricted-network/plinks-endpoint-ws-1.png)
+När den privata länk slut punkten har skapats kan du komma åt inloggnings sidan i webb verktyget för Azure Synapse Analytics Studio. Men du kan inte komma åt resurserna i din arbets yta ännu. För det måste du slutföra nästa steg.
+
+## <a name="step-4-create-private-endpoints-for-your-workspace-resource"></a>Steg 4: skapa privata slut punkter för arbets ytans resurs
+
+Du måste skapa följande för att få åtkomst till resurserna i Azure Synapse Analytics Studio-arbetsytans resurs:
+
+- Minst en privat länk slut punkt med en **dev** -typ för **mål under resurs**.
+- Två andra valfria privata länk slut punkter med typer av **SQL** eller **SqlOnDemand** , beroende på vilka resurser i arbets ytan som du vill få åtkomst till.
+
+Att skapa dessa liknar hur du skapar slut punkten i föregående steg.  
+
+På fliken **resurs** :
+
+* För **resurs typ** väljer du **Microsoft. Synapse/arbetsytes**.
+* För **resurs** väljer du namnet på arbets ytan som du skapade tidigare.
+* För **mål under resurs** väljer du typ av slut punkt:
+  * **SQL** är för SQL-FRÅGEKÖRNINGEN i SQL-poolen.
+  * **SqlOnDemand** är för inbyggd SQL-körning av frågor.
+  * **Dev** är till för att få åtkomst till allt annat i Azure Synapse Analytics Studio-arbetsytor. Du måste skapa minst en privat länk slut punkt av den här typen.
+
+![Skärm bild av skapa en privat slut punkt, fliken resurs, arbets yta.](./media/how-to-connect-to-workspace-from-restricted-network/plinks-endpoint-ws-1.png)
 
 
-## <a name="step-5-create-private-endpoints-for-synapse-studio-workspace-linked-storage"></a>Steg 5: skapa privata slut punkter för den länkade lagringen i Synapse Studio-arbetsytan
+## <a name="step-5-create-private-endpoints-for-workspace-linked-storage"></a>Steg 5: skapa privata slut punkter för den länkade lagrings platsen
 
-För att få åtkomst till den länkade lagrings platsen med lagrings Utforskaren i Synapse Studio-arbetsytan måste du skapa en privat slut punkt med liknande steg i steg 3. 
+Du måste skapa en privat slut punkt för att få åtkomst till den länkade lagringen med lagrings Utforskaren i Azure Synapse Analytics Studio-arbetsytan. Stegen för detta liknar dem i steg 3. 
 
-Observera följande områden på fliken " **resurs** ":
-* Välj " **Microsoft. Synapse/storageAccounts** " som " **resurs typ** ".
-* Välj " **YourWorkSpaceName** " till " **resurs** " som du har skapat tidigare.
-* Välj typ av slut punkt i " **mål under resurs** ":
-  * **BLOB** : är för Azure Blob Storage.
-  * **DFS** : är för Azure Data Lake Storage Gen2.
+På fliken **resurs** :
+* För **resurs typ** väljer du **Microsoft. Synapse/storageAccounts**.
+* För **resurs** väljer du det lagrings konto namn som du skapade tidigare.
+* För **mål under resurs** väljer du typ av slut punkt:
+  * **BLOB** är för Azure Blob Storage.
+  * **DFS** är för Azure Data Lake Storage Gen2.
 
-![Skapar privat slut punkt för länkad lagring i Synapse Studio-arbetsytan](./media/how-to-connect-to-workspace-from-restricted-network/plink-endpoint-storage.png)
+![Skärm bild av skapa en privat slut punkt, fliken resurs, lagring.](./media/how-to-connect-to-workspace-from-restricted-network/plink-endpoint-storage.png)
 
-Nu kan du komma åt den länkade lagrings resursen från Storage Explorer på din Synapse Studio-arbetsyta i vNet.
+Nu kan du komma åt den länkade lagrings resursen. I ditt virtuella nätverk kan du använda lagrings Utforskaren i Azure Synapse Analytics Studio-arbetsytan för att få åtkomst till den länkade lagrings resursen.
 
-Om din arbets yta har " **Aktivera hanterat virtuellt nätverk** " när arbets ytan skapas enligt nedan,
+Du kan aktivera ett hanterat virtuellt nätverk för din arbets yta, som visas i den här skärm bilden:
 
-![Skapar privat slut punkt för länkad lagring i Synapse Studio-arbetsytan 1](./media/how-to-connect-to-workspace-from-restricted-network/ws-network-config.png)
+![Skärm bild av alternativet Skapa Synapse-arbetsyta med alternativet Aktivera hanterat virtuellt nätverk markerat.](./media/how-to-connect-to-workspace-from-restricted-network/ws-network-config.png)
 
-Och du vill att din bärbara dator ska ha åtkomst till de länkade lagrings resurserna under ett visst lagrings konto, måste du lägga till en " **hanterad privat slut punkt** " under Synapse Studio. " **Lagrings konto namnet** " ska vara det som din bärbara dator behöver åtkomst till. Lär dig mer om hur du [skapar en hanterad privat slut punkt för data källan](./how-to-create-managed-private-endpoints.md).
+Om du vill att din bärbara dator ska ha åtkomst till de länkade lagrings resurserna under ett visst lagrings konto lägger du till hanterade privata slut punkter under Azure Synapse Analytics Studio. Lagrings kontots namn bör vara det som din bärbara dator behöver åtkomst till. Mer information finns i [skapa en hanterad privat slut punkt för din data källa](./how-to-create-managed-private-endpoints.md).
 
-När den här slut punkten har skapats blir " **godkännande tillstånd** " " **väntar** ", du måste begära att det här lagrings kontots ägare ska godkänna det på fliken " **anslutningar för privata slut punkter** " i det här lagrings kontot i Azure Portal. När den har godkänts kommer din bärbara dator kunna komma åt de länkade lagrings resurserna under det här lagrings kontot.
+När du har skapat den här slut punkten visar godkännande tillståndet status **väntar**. Begär godkännande från ägaren av det här lagrings kontot, på fliken **anslutningar för privata slut punkter** för det här lagrings kontot i Azure Portal. När den har godkänts kan din bärbara dator komma åt de länkade lagrings resurserna under det här lagrings kontot.
 
-Nu är all uppsättning. Du kan komma åt din resurs för Synapse Studio-arbetsytan.
+Nu är all uppsättning. Du kan komma åt din resurs för Azure Synapse Analytics Studio-arbetsytan.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [hanterad arbets yta Virtual Network](./synapse-workspace-managed-vnet.md)
+Läs mer om det [virtuella nätverket för hanterade arbets ytor](./synapse-workspace-managed-vnet.md).
 
-Läs mer om [hanterade privata slut punkter](./synapse-workspace-managed-private-endpoints.md)
+Läs mer om [hanterade privata slut punkter](./synapse-workspace-managed-private-endpoints.md).

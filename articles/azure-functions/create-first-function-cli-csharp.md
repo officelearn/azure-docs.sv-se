@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-csharp
 - devx-track-azurecli
-ms.openlocfilehash: 036629bd72f8219c2d7b1877dd1672291ed3d98a
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: b87408669dbb9268d6e3cd47b410b888ef1a19c2
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93425229"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637157"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-from-the-command-line"></a>Snabb start: skapa en C#-funktion i Azure från kommando raden
 
@@ -28,6 +28,8 @@ Det finns också en [Visual Studio Code-baserad version](create-first-function-v
 Innan du börjar måste du ha följande:
 
 + Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+
++ [.NET Core SDK 3,1](https://www.microsoft.com/net/download)
 
 + [Azure Functions Core tools](functions-run-local.md#v2) version 3. x.
 
@@ -49,6 +51,8 @@ Verifiera dina krav, beroende på om du använder Azure CLI eller Azure PowerShe
 
 + Kör `az login` för att logga in på Azure och verifiera en aktiv prenumeration.
 
++ Kör `dotnet --list-sdks` för att kontrol lera att .net Core SDK version 3.1. x har installerats
+
 # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 + I ett terminalfönster eller kommando fönster, kör `func --version` för att kontrol lera att Azure Functions Core Tools är version 3. x.
@@ -56,6 +60,8 @@ Verifiera dina krav, beroende på om du använder Azure CLI eller Azure PowerShe
 + Kör `(Get-Module -ListAvailable Az).Version` och verifiera version 5,0 eller senare. 
 
 + Kör `Connect-AzAccount` för att logga in på Azure och verifiera en aktiv prenumeration.
+
++ Kör `dotnet --list-sdks` för att kontrol lera att .net Core SDK version 3.1. x har installerats
 
 ---
 

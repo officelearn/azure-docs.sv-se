@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: omafnan
-ms.openlocfilehash: 3618ba28403882ee1f949a2bbc97e586674b3772
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3f3009799889bd6b118f586676e22338d821d37c
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317523"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635317"
 ---
 # <a name="using-sql-scripts-in-azure-synapse-studio-preview"></a>Använda SQL-skript i Azure Synapse Studio (för hands version)
 
@@ -73,6 +73,18 @@ Genom att välja menyn **åtgärder** under data kan du välja flera åtgärder,
 Utforska den tillgängliga gesten genom att högerklicka på noderna i SQL-databaser.
  
 ![ny skript databas](media/author-sql-script/new-script-database.png)
+
+## <a name="create-folders-and-move-sql-scripts-into-a-folder"></a>Skapa mappar och flytta SQL-skript till en mapp
+
+Från menyn åtgärder under utveckla SQL-skript väljer du "ny mapp" på menyn "åtgärder" under utveckla SQL-skript. Och skriv namnet på den nya mappen i popup-fönstret. 
+
+> [!div class="mx-imgBorder"] 
+> ![newsqlscript](./media/author-sql-script/new-sql-script-create-folder.png)
+
+Om du vill flytta ett SQL-skript till en mapp kan du välja SQL-skriptet och välja "flytta till" på menyn åtgärder. Leta sedan rätt på målmappen i det nya fönstret och flytta SQL-skriptet till den valda mappen. Du kan också snabbt dra SQL-skriptet och släppa det i en mapp.  
+
+> [!div class="mx-imgBorder"] 
+> ![newsqlscript](./media/author-sql-script/new-sql-script-move-folder.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

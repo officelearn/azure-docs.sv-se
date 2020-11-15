@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: cb783e5da7364f38944ce31ce49a6a6529658fe3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f6d2b126cd9a0acbbbdb8d17ce7345bbf17b556
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903206"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635916"
 ---
 # <a name="connect-to-and-manage-a-kubernetes-cluster-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Ansluta till och hantera ett Kubernetes-kluster via kubectl på din Azure Stack Edge Pro GPU-enhet
 
@@ -44,7 +44,7 @@ När Kubernetes-klustret har skapats kan du komma åt det här klustret för att
 [!INCLUDE [Connect to admin runspace](../../includes/azure-stack-edge-gateway-connect-minishell.md)]
 
 
-## <a name="configure-cluster-access-via-rbac"></a>Konfigurera kluster åtkomst via RBAC
+## <a name="configure-cluster-access-via-kubernetes-rbac"></a>Konfigurera kluster åtkomst via Kubernetes RBAC
 
 När Kubernetes-klustret har skapats kan du använda kommandot *kubectl* via cmdline för att få åtkomst till klustret. 
 
@@ -125,7 +125,7 @@ I den här metoden skapar du ett namn område och en användare. Sedan kopplar d
     Om till exempel Kubernetes-huvudnoden körde v 1.15.2, installerar du v 1.15.2 på klienten.
 
     > [!IMPORTANT]
-    > Ladda ned en klient som inte har fler än en del version från huvud servern. Klient versionen men kan leda till att huvud servern får en lägre version. Till exempel bör en v 1.3-huvud fungera med v 1.1-, v 1.2-och v 1.3-noder och bör fungera med v 1.2-, v 1.3-och v 1.4-klienter. Mer information om Kubernetes-klientens version finns i [support policy för Kubernetes version och versions förvrängning](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-version-skew). Mer information om Kubernetes Server-versionen på Azure Stack Edge Pro finns i Hämta Kubernetes Server version.<!-- insert link-->
+    > Ladda ned en klient som inte skiljer sig mer än en mindre version från huvudversionen. Klient versionen men kan leda till att huvud servern får en lägre version. Till exempel bör en v 1.3-huvud fungera med v 1.1-, v 1.2-och v 1.3-noder och bör fungera med v 1.2-, v 1.3-och v 1.4-klienter. Mer information om Kubernetes-klientens version finns i [support policy för Kubernetes version och versions förvrängning](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-version-skew). Mer information om Kubernetes Server-versionen på Azure Stack Edge Pro finns i Hämta Kubernetes Server version.<!-- insert link-->
     > Ibland `kubectl` är det förinstallerat i systemet om du kör Docker för Windows eller andra verktyg. Det är viktigt att ladda ned den aktuella versionen av `kubectl` som anges i det här avsnittet för att arbeta med det här Kubernetes-klustret. 
 
     Det tar flera minuter att installera installationen.
@@ -160,7 +160,7 @@ I den här metoden skapar du ett namn område och en användare. Sedan kopplar d
 Nu kan du distribuera dina program i namn området och sedan Visa dessa program och deras loggar.
 
 > [!IMPORTANT]   
-> Det finns många kommandon som du inte kan köra, till exempel de kommandon som kräver administratörs åtkomst. Du kan bara utföra åtgärder som tillåts i namn området.
+> Det finns många kommandon som du inte kan köra, till exempel de kommandon som kräver administratörs åtkomst. Du kan bara utföra åtgärder som är tillåtna för namnområdet.
 
 
 ## <a name="remove-kubernetes-cluster"></a>Ta bort Kubernetes-kluster

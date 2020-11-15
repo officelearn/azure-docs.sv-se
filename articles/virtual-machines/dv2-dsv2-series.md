@@ -1,5 +1,5 @@
 ---
-title: Dv2 och Dsv2-serien – Azure Virtual Machines
+title: Dv2 och DSv2-serien – Azure Virtual Machines
 description: Specifikationer för virtuella datorer med Dv2 och Dsv2-serien.
 author: joelpelley
 ms.service: virtual-machines
@@ -7,16 +7,16 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 785e72a47d68bf368e160b1f3bf2a6d762d1f100
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1bd2e0360b064a71dd91241d40513d8c37447bb
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91649702"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635644"
 ---
 # <a name="dv2-and-dsv2-series"></a>Dv2- och DSv2-serien
 
-Dv2 och Dsv2-serien, som är en uppföljning av den ursprungliga D-serien, har en mer kraftfull processor och optimal processor-till-minnes-konfiguration som gör dem lämpliga för de flesta produktions arbets belastningar. Dv2-serien är cirka 35% snabbare än D-serien. Dv2-serien körs på Intel® Xeon® platina 8272CL (överlappar sjö), Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz-processorer (Haswell) med Intel Turbo Boost Technology 2,0. Dv2-serien har samma minnes- och diskkonfigurationer som D-serien.
+Dv2 och DSv2-serien, som är en uppföljning av den ursprungliga D-serien, har en mer kraftfull processor och optimal processor-till-minnes-konfiguration som gör dem lämpliga för de flesta produktions arbets belastningar. Dv2-serien är cirka 35% snabbare än D-serien. Dv2-serien körs på Intel® Xeon® platina 8272CL (överlappar sjö), Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz-processorer (Haswell) med Intel Turbo Boost Technology 2,0. Dv2-serien har samma minnes- och diskkonfigurationer som D-serien.
 
 ## <a name="dv2-series"></a>Dv2-serien
 

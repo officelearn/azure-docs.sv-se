@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: 375dff1dacc949dd4373bbf26908feb504750224
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: c0333f9faeae99ee83beda381f77f4f95b0a9192
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372359"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636128"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Vad är nytt i Azure Security Center?
 
@@ -37,7 +37,8 @@ Uppdateringarna i november omfattar:
 
 - [29 Preview-rekommendationer har lagts till för att öka täckningen av Azures säkerhets benchmark](#29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
 - [NIST SP 800 171 R2 har lagts till Security Center kontroll panelen för regelefterlevnad](#nist-sp-800-171-r2-added-to-security-centers-regulatory-compliance-dashboard)
-
+- [Listan rekommendationer innehåller nu filter](#recommendations-list-now-includes-filters)
+- [Förbättrad och utökad automatisk etablerings upplevelse](#auto-provisioning-experience-improved-and-expanded)
 
 ### <a name="29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>29 Preview-rekommendationer har lagts till för att öka täckningen av Azures säkerhets benchmark
 
@@ -78,6 +79,30 @@ Om du vill använda standarderna för dina prenumerationer och kontinuerligt öv
 Mer information om den här standarden för efterlevnad finns i [NIST SP 800-171 R2](https://csrc.nist.gov/publications/detail/sp/800-171/rev-2/final).
 
 
+### <a name="recommendations-list-now-includes-filters"></a>Listan rekommendationer innehåller nu filter
+
+Nu kan du filtrera listan över säkerhets rekommendationer enligt ett villkors intervall. I följande exempel har listan rekommendationer filtrerats för att Visa rekommendationer som:
+
+- är **allmänt tillgängliga** (dvs. inte för hands version)
+- är för **lagrings konton**
+- stöd för **snabb korrigerings** reparation
+
+:::image type="content" source="media/release-notes/recommendations-filters.png" alt-text="Filter för listan rekommendationer":::
+
+
+### <a name="auto-provisioning-experience-improved-and-expanded"></a>Förbättrad och utökad automatisk etablerings upplevelse
+
+Funktionen automatisk etablering hjälper till att minska hanterings kostnaderna genom att installera de nödvändiga tilläggen på nya och befintliga virtuella Azure-datorer så att de kan dra nytta av Security Centers skydd. 
+
+När Azure Security Center växer har fler tillägg utvecklats och Security Center kan övervaka en större lista med resurs typer. De automatiska etablerings verktygen har nu utökats för att stödja ytterligare tillägg och resurs typer genom att använda funktionerna i Azure Policy.
+
+Nu kan du konfigurera automatisk etablering av:
+
+- Log Analytics-agent
+- Nyårs Azure Policy tillägg för Kubernetes
+- Nyårs Microsoft-beroende agent
+
+Läs mer i [automatiska etablerings agenter och tillägg från Azure Security Center](security-center-enable-data-collection.md).
 
 ## <a name="october-2020"></a>Oktober 2020
 

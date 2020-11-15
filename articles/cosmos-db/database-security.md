@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: mjbrown
-ms.openlocfilehash: 5b2457018daf716052b81a8b99c21e3248f185eb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 19b4c8466e88159839ce1f43a5ba282b1bb3ec9e
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096792"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636936"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Säkerhet i Azure Cosmos DB – översikt
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -63,7 +63,7 @@ Låt oss titta närmare på var och en.
 |Nätverkssäkerhet|Att använda en IP-brandvägg är det första skydds lagret som skyddar din databas. Azure Cosmos DB stöder princip drivna IP-baserade åtkomst kontroller för inkommande brand Väggs stöd. IP-baserade åtkomst kontroller liknar de brand Väggs regler som används av traditionella databas system, men de expanderas så att ett Azure Cosmos Database-konto endast är tillgängligt från en godkänd uppsättning datorer eller moln tjänster. Läs mer i artikeln om [stöd för Azure Cosmos DB-brandvägg](how-to-configure-firewall.md) .<br><br>Med Azure Cosmos DB kan du aktivera en speciell IP-adress (168.61.48.0), ett IP-intervall (168.61.48.0/8) och kombinationer av IP-adresser och intervall. <br><br>Alla begär Anden som kommer från datorer utanför den här tillåtna listan blockeras av Azure Cosmos DB. Begär Anden från godkända datorer och moln tjänster måste sedan slutföra autentiseringsprocessen för att få åtkomst kontroll till resurserna.<br><br> Du kan använda [taggar för virtuella nätverks tjänster](../virtual-network/service-tags-overview.md) för att uppnå nätverks isolering och skydda dina Azure Cosmos DB resurser från det allmänna Internet. Använd tjänst Taggar i stället för vissa IP-adresser när du skapar säkerhets regler. Genom att ange service tag-namnet (till exempel AzureCosmosDB) i lämpligt käll-eller mål fält för en regel kan du tillåta eller neka trafiken för motsvarande tjänst.|
 |Auktorisering|Azure Cosmos DB använder hash-baserad meddelande authentication code (HMAC) för auktorisering. <br><br>Varje begäran hashas med den hemliga konto nyckeln och den efterföljande bas-64-kodade hashen skickas med varje anrop till Azure Cosmos DB. För att verifiera begäran använder tjänsten Azure Cosmos DB rätt hemliga nyckel och egenskaper för att generera en hash. Därefter jämförs värdet med det som finns i begäran. Om de två värdena matchar, godkänns åtgärden korrekt och begäran bearbetas, annars uppstår ett auktoriseringsfel och begäran avvisas.<br><br>Du kan antingen använda en [primär nyckel](#primary-keys)eller en [resurs-token](secure-access-to-data.md#resource-tokens) som ger detaljerad åtkomst till en resurs, till exempel ett dokument.<br><br>Läs mer om hur [du skyddar åtkomsten till Azure Cosmos DB resurser](secure-access-to-data.md).|
 |Användare och behörigheter|Med hjälp av den primära nyckeln för kontot kan du skapa användar resurser och behörighets resurser per databas. En Resource-token är associerad med en behörighet i en databas och avgör om användaren har åtkomst (Read-Write, skrivskyddad eller ingen åtkomst) till en program resurs i databasen. Program resurser omfattar behållare, dokument, bilagor, lagrade procedurer, utlösare och UDF: er. Resurs-token används sedan vid autentisering för att ge eller neka åtkomst till resursen.<br><br>Läs mer om hur [du skyddar åtkomsten till Azure Cosmos DB resurser](secure-access-to-data.md).|
-|Active Directory-integrering (RBAC)| Du kan också ange eller begränsa åtkomsten till Cosmos-kontot, databasen, behållaren och erbjudandena (genom strömning) med åtkomst kontroll (IAM) i Azure Portal. IAM tillhandahåller rollbaserad åtkomst kontroll och kan integreras med Active Directory. Du kan använda inbyggda roller eller anpassade roller för enskilda användare och grupper. Mer information finns i [Active Directory integrations](role-based-access-control.md) artikeln.|
+|Active Directory-integrering (Azure RBAC)| Du kan också ange eller begränsa åtkomsten till Cosmos-kontot, databasen, behållaren och erbjudandena (genom strömning) med åtkomst kontroll (IAM) i Azure Portal. IAM tillhandahåller rollbaserad åtkomst kontroll och kan integreras med Active Directory. Du kan använda inbyggda roller eller anpassade roller för enskilda användare och grupper. Mer information finns i [Active Directory integrations](role-based-access-control.md) artikeln.|
 |Global replikering|Azure Cosmos DB erbjuder nyckel färdig global distribution, vilket gör att du kan replikera dina data till någon av Azures världs omfattande data Center med ett klick på en knapp. Med global replikering kan du skala globalt och ge låg latens åtkomst till dina data runtom i världen.<br><br>I säkerhets kontexten säkerställer global replikering data skydd mot regionala haverier.<br><br>Läs mer i [Distribuera data globalt](distribute-data-globally.md).|
 |Regionala redundanstestningar|Om du har replikerat dina data i mer än ett Data Center, kan Azure Cosmos DB automatiskt gå över dina åtgärder om ett regionalt Data Center är offline. Du kan skapa en prioriterad lista över växlings regioner med hjälp av de regioner där dina data replikeras. <br><br>Läs mer i [regional redundans i Azure Cosmos DB](high-availability.md).|
 |Lokal replikering|I ett enda data Center replikerar Azure Cosmos DB automatiskt data för hög tillgänglighet och ger dig möjlighet att välja [konsekvens nivåer](consistency-levels.md). Den här replikeringen garanterar ett [service avtal](https://azure.microsoft.com/support/legal/sla/cosmos-db) på 99,99% tillgänglighet för alla enkla region konton och alla konton med flera regioner med avslappnad konsekvens och 99,999% Läs tillgänglighet för alla databas konton i flera regioner.|
@@ -80,7 +80,7 @@ Låt oss titta närmare på var och en.
 |Administrativa konton med starka lösen ord|Det är svårt att tro att vi ens behöver nämna detta krav, men till skillnad från några av våra konkurrenter är det omöjligt att ha ett administrativt konto utan lösen ord i Azure Cosmos DB.<br><br> Säkerhet via TLS och HMAC-baserad autentisering är bakade i som standard.|
 |Säkerhets-och data skydds certifieringar| Den senaste listan över certifieringar finns i den övergripande [Azure Compliance-webbplatsen](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) samt det senaste [Azure Compliance-dokumentet](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) med alla certifieringar (Sök efter Cosmos). För en mer fokuserad läsning kolla den 25 april 2018 post [Azure #CosmosDB: säker, privat, kompatibel med SOCS 1/2 typ 2, HITRUST, PCI DSS nivå 1, ISO 27001, HIPAA, FedRAMP hög och många andra.
 
-Följande skärm bild visar hur du kan använda gransknings loggning och aktivitets loggar för att övervaka ditt konto: :::image type="content" source="./media/database-security/nosql-database-security-application-logging.png" alt-text="Kund-och databas leverantörs ansvar":::
+Följande skärm bild visar hur du kan använda gransknings loggning och aktivitets loggar för att övervaka ditt konto: :::image type="content" source="./media/database-security/nosql-database-security-application-logging.png" alt-text="aktivitets loggar för Azure Cosmos DB":::
 
 <a id="primary-keys"></a>
 
@@ -99,7 +99,7 @@ Förutom de två primära nycklarna för det Cosmos DB kontot finns det två skr
 
 Primära, sekundära, skrivskyddade och Läs-och skriv-och skrivbara primär nycklar kan hämtas och återskapas med hjälp av Azure Portal. Instruktioner finns i [Visa, kopiera och återskapa åtkomst nycklar](manage-with-cli.md#regenerate-account-key).
 
-:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Kund-och databas leverantörs ansvar":::
+:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Åtkomst kontroll (IAM) i Azure Portal – demonstrera NoSQL Database-säkerhet":::
 
 ## <a name="next-steps"></a>Nästa steg
 

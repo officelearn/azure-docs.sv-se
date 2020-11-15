@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 21e69cf8d90f004d397778c2eeb6b5f774196574
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 99cad2a4218995ad10488d97ce19eeef36b642ae
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098747"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637004"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Azures säkerhets bas linje för Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -138,7 +138,7 @@ Mer information om att använda service märken: https://docs.microsoft.com/azur
 
 - Cosmos DB bör använda en tjänst slut punkt för virtuellt nätverk
 
-Du kan också använda Azure-ritningar för att förenkla storskaliga Azure-distributioner genom att paketera viktiga miljö artefakter, till exempel Azure Resource Manager mallar, rollbaserad åtkomst kontroll (RBAC) och principer i en enda skiss definition. Du kan enkelt använda skissen för nya prenumerationer, miljöer och finjustera kontroll och hantering genom versions hantering.
+Du kan också använda Azure-ritningar för att förenkla storskaliga Azure-distributioner genom att paketera viktiga miljö artefakter, till exempel Azure Resource Manager mallar, rollbaserad åtkomst kontroll i Azure (Azure RBAC) och principer i en enda skiss definition. Du kan enkelt använda skissen för nya prenumerationer, miljöer och finjustera kontroll och hantering genom versions hantering.
 
 Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -285,15 +285,15 @@ Skapa, Visa och hantera logg aviseringar med Azure Monitor: https://docs.microso
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3,1: underhåll en inventering av administrativa konton
 
-**Vägledning** : du kan använda fönstret identitets-och åtkomst kontroll (IAM) i Azure Portal för att konfigurera rollbaserad åtkomst kontroll (RBAC) och underhålla inventeringen på Azure Cosmos DB resurser. Rollerna tillämpas på användare, grupper, tjänstens huvud namn och hanterade identiteter i Active Directory. Du kan använda inbyggda roller eller anpassade roller för enskilda användare och grupper.
+**Vägledning** : du kan använda fönstret identitets-och åtkomst kontroll (IAM) i Azure Portal för att konfigurera rollbaserad åtkomst kontroll i Azure (Azure RBAC) och underhålla inventeringen på Azure Cosmos DB resurser. Rollerna tillämpas på användare, grupper, tjänstens huvud namn och hanterade identiteter i Active Directory. Du kan använda inbyggda roller eller anpassade roller för enskilda användare och grupper.
 
-Azure Cosmos DB tillhandahåller inbyggd RBAC för vanliga hanterings scenarier i Azure Cosmos DB. En person som har en profil i Azure Active Directory (AD) kan tilldela dessa Azure-roller till användare, grupper, tjänstens huvud namn eller hanterade identiteter för att bevilja eller neka åtkomst till resurser och åtgärder på Azure Cosmos DB resurser.
+Azure Cosmos DB tillhandahåller inbyggd Azure RBAC för vanliga hanterings scenarier i Azure Cosmos DB. En person som har en profil i Azure Active Directory (AD) kan tilldela dessa Azure-roller till användare, grupper, tjänstens huvud namn eller hanterade identiteter för att bevilja eller neka åtkomst till resurser och åtgärder på Azure Cosmos DB resurser.
 
 Du kan också använda Azure AD PowerShell-modulen för att utföra adhoc-frågor för att identifiera konton som är medlemmar i administrativa grupper. 
 
 Dessutom kan vissa åtgärder i Azure Cosmos DB styras med Azure Active Directory och konto-/regionsspecifika primär nycklar.  Använd konto inställningen ' disableKeyBasedMetadataWriteAccess ' för att kontrol lera åtkomst till nyckeln.
 
-Förstå rollbaserad åtkomst kontroll i Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
+Lär dig mer om rollbaserad åtkomst kontroll i Azure i Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
 
 Bygg egna anpassade roller med hjälp av Azure Cosmos DB åtgärder (Microsoft.DocumentDB-namnrymd): https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftdocumentdb
 
@@ -529,9 +529,9 @@ Förstå kundens data skydd i Azure: https://docs.microsoft.com/azure/security/f
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: Använd Azure RBAC för att kontrol lera åtkomsten till resurser
 
-**Vägledning** : Azure Cosmos DB tillhandahåller inbyggd rollbaserad åtkomst kontroll (RBAC) för vanliga hanterings scenarier i Azure Cosmos dB. En person som har en profil i Azure Active Directory kan tilldela dessa Azure-roller till användare, grupper, tjänstens huvud namn eller hanterade identiteter för att bevilja eller neka åtkomst till resurser och åtgärder på Azure Cosmos DB resurser. Roll tilldelningar är begränsade till kontroll – endast plan åtkomst, vilket omfattar åtkomst till Azure Cosmos-konton, databaser, behållare och erbjudanden (data flöde).
+**Vägledning** : Azure Cosmos DB tillhandahåller inbyggd rollbaserad åtkomst kontroll i Azure (Azure RBAC) för vanliga hanterings scenarier i Azure Cosmos dB. En person som har en profil i Azure Active Directory kan tilldela dessa Azure-roller till användare, grupper, tjänstens huvud namn eller hanterade identiteter för att bevilja eller neka åtkomst till resurser och åtgärder på Azure Cosmos DB resurser. Roll tilldelningar är begränsade till kontroll – endast plan åtkomst, vilket omfattar åtkomst till Azure Cosmos-konton, databaser, behållare och erbjudanden (data flöde).
 
-Implementera RBAC i Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
+Implementera Azure RBAC i Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
 
 **Azure Security Center övervakning** : inte tillämpligt
 

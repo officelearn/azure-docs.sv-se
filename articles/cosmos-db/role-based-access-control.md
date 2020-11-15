@@ -1,22 +1,22 @@
 ---
-title: Rollbaserad åtkomstkontroll i Azure Cosmos DB
-description: Lär dig hur Azure Cosmos DB tillhandahåller databas skydd med RBAC (Active Directory integration).
+title: Rollbaserad åtkomst kontroll i Azure i Azure Cosmos DB
+description: Lär dig hur Azure Cosmos DB skyddar databas skydd med Active Directory-integrering (Azure RBAC).
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: mjbrown
-ms.openlocfilehash: 9f0d42e2e3dfb7e11d3c74ad1280bb867a85e2f8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 950a3c03d5c2c76ad417634833c473ee65adb9b9
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085480"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636647"
 ---
-# <a name="role-based-access-control-in-azure-cosmos-db"></a>Rollbaserad åtkomstkontroll i Azure Cosmos DB
+# <a name="azure-role-based-access-control-in-azure-cosmos-db"></a>Rollbaserad åtkomst kontroll i Azure i Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB tillhandahåller inbyggd rollbaserad åtkomst kontroll (RBAC) för vanliga hanterings scenarier i Azure Cosmos DB. En person som har en profil i Azure Active Directory kan tilldela dessa Azure-roller till användare, grupper, tjänstens huvud namn eller hanterade identiteter för att bevilja eller neka åtkomst till resurser och åtgärder på Azure Cosmos DB resurser. Roll tilldelningar är begränsade till kontroll – endast plan åtkomst, vilket omfattar åtkomst till Azure Cosmos-konton, databaser, behållare och erbjudanden (data flöde).
+Azure Cosmos DB tillhandahåller inbyggd rollbaserad åtkomst kontroll i Azure (Azure RBAC) för vanliga hanterings scenarier i Azure Cosmos DB. En person som har en profil i Azure Active Directory kan tilldela dessa Azure-roller till användare, grupper, tjänstens huvud namn eller hanterade identiteter för att bevilja eller neka åtkomst till resurser och åtgärder på Azure Cosmos DB resurser. Roll tilldelningar är begränsade till kontroll – endast plan åtkomst, vilket omfattar åtkomst till Azure Cosmos-konton, databaser, behållare och erbjudanden (data flöde).
 
 ## <a name="built-in-roles"></a>Inbyggda roller
 
@@ -30,11 +30,11 @@ Följande är de inbyggda roller som stöds av Azure Cosmos DB:
 |[Cosmos DB operatör](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|Kan etablera Azure Cosmos-konton, databaser och behållare. Det går inte att komma åt data eller använda Datautforskaren.|
 
 > [!IMPORTANT]
-> RBAC-stöd i Azure Cosmos DB gäller endast för kontroll Plans åtgärder. Data Plans åtgärder skyddas med hjälp av primära nycklar eller resurs-token. Mer information finns i [säker åtkomst till data i Azure Cosmos DB](secure-access-to-data.md)
+> Azure RBAC-stöd i Azure Cosmos DB gäller endast för kontroll Plans åtgärder. Data Plans åtgärder skyddas med hjälp av primära nycklar eller resurs-token. Mer information finns i [säker åtkomst till data i Azure Cosmos DB](secure-access-to-data.md)
 
 ## <a name="identity-and-access-management-iam"></a>Identitets-och åtkomst hantering (IAM)
 
-Fönstret **åtkomst kontroll (IAM)** i Azure Portal används för att konfigurera rollbaserad åtkomst kontroll på Azure Cosmos-resurser. Rollerna tillämpas på användare, grupper, tjänstens huvud namn och hanterade identiteter i Active Directory. Du kan använda inbyggda roller eller anpassade roller för enskilda användare och grupper. Följande skärm bild visar Active Directory integration (RBAC) med åtkomst kontroll (IAM) i Azure Portal:
+Fönstret **åtkomst kontroll (IAM)** i Azure Portal används för att konfigurera rollbaserad åtkomst kontroll i Azure Cosmos-resurser. Rollerna tillämpas på användare, grupper, tjänstens huvud namn och hanterade identiteter i Active Directory. Du kan använda inbyggda roller eller anpassade roller för enskilda användare och grupper. Följande skärm bild visar Active Directory integration (Azure RBAC) med åtkomst kontroll (IAM) i Azure Portal:
 
 :::image type="content" source="./media/role-based-access-control/database-security-identity-access-management-rbac.png" alt-text="Åtkomst kontroll (IAM) i Azure Portal – demonstrera databas säkerhet":::
 

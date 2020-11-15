@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 089476980ff3e8b2d3b72cb2d229934cf7850c03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f67a36ac4ccb27d7b955158b7e4a9cf4f5185d0
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899258"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636927"
 ---
 # <a name="kubernetes-on-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes på din Azure Stack Edge Pro GPU-enhet
 
@@ -67,7 +67,7 @@ När nya Kubernetes-versioner blir tillgängliga kan klustret uppgraderas med de
 
 ## <a name="access-monitoring"></a>Åtkomst, övervakning
 
-Kubernetes-klustret på din Azure Stack Edge Pro-enhet tillåter rollbaserad åtkomst kontroll (RBAC). Mer information finns i [rollbaserad åtkomst kontroll för Kubernetes-kluster på din Azure Stack Edge Pro-enhet](azure-stack-edge-gpu-kubernetes-rbac.md).
+Kubernetes-klustret på din Azure Stack Edge Pro-enhet tillåter Kubernetes rollbaserad åtkomst kontroll (Kubernetes RBAC). Mer information finns i [Kubernetes-rollbaserad åtkomst kontroll på din Azure Stack Edge Pro GPU-enhet](azure-stack-edge-gpu-kubernetes-rbac.md).
 
 Du kan också övervaka hälso tillståndet för klustret och resurserna via Kubernetes-instrumentpanelen. Behållar loggar är också tillgängliga. Mer information finns i [använda Kubernetes-instrumentpanelen för att övervaka Kubernetes-klustrets hälso tillstånd på din Azure Stack Edge Pro-enhet](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).
 

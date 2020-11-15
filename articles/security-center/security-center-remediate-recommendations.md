@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/08/2020
 ms.author: memildin
-ms.openlocfilehash: 4bad3227e08c0fbe0d280967e45bbef9d477e1b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d4b968d0d5e091d72cf718d58b11ade68ddf8c6
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89569143"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637096"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Reparationsrekommendationer i Azure Security Center
 
@@ -38,9 +38,16 @@ När du har granskat alla rekommendationer, Bestäm vilken av dem som ska åtgä
 
 ## <a name="quick-fix-remediation"></a>Snabb korrigerings reparation<a name="one-click"></a>
 
-Med snabb korrigering kan du snabbt åtgärda en rekommendation om flera resurser. Den är endast tillgänglig för vissa rekommendationer. Snabb korrigering fören klar reparationen och gör att du snabbt kan öka dina säkra poäng och förbättra din miljös säkerhet.
+Snabb korrigering fören klar reparationen och gör att du snabbt kan öka dina säkra poäng och förbättra din miljös säkerhet.
 
-Implementera snabb korrigerings reparation:
+Med snabb korrigering kan du snabbt åtgärda en rekommendation om flera resurser. 
+
+> [!TIP]
+> Snabb korrigering är bara tillgänglig för vissa rekommendationer. Om du vill hitta de rekommendationer som har alternativet snabb korrigering använder du det dedikerade filtret längst upp i listan över rekommendationer:
+> 
+> :::image type="content" source="media/security-center-remediate-recommendations/quick-fix-filter.png" alt-text="Använd filtren ovanför listan rekommendationer för att hitta rekommendationer som har alternativet snabb korrigering":::
+
+Så här implementerar du en snabb korrigering:
 
 1. I listan över rekommendationer som har **snabb korrigering!** etikett klickar du på rekommendationen.
 

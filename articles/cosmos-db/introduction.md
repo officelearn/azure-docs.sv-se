@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2020
-ms.openlocfilehash: eb2212d618d45187779b328c7ba164bbacc980a4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 012df825f38d292d0b0549701ad90334e3e30bb0
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088700"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637021"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Välkommen till Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -55,7 +55,7 @@ Garantera affärs kontinuitet, 99,999% tillgänglighet och säkerhet på företa
 - Azure Cosmos DB erbjuder en omfattande uppsättning [service avtal](https://azure.microsoft.com/support/legal/sla/cosmos-db) , inklusive branschledande tillgänglighet över hela världen.
 - Distribuera enkelt data till alla Azure-regioner med automatisk datareplikering. Njut av noll stillestånd med skrivningar i flera regioner eller återställnings punkt 0 när du använder stark konsekvens.
 - Njut av kryptering i företags klass med självhanterade nycklar.
-- Rollbaserad åtkomst kontroll skyddar dina data och erbjuder fin justerad kontroll.
+- Rollbaserad åtkomst kontroll i Azure skyddar dina data och erbjuder fin justerad kontroll.
 
 ### <a name="fully-managed-and-cost-effective"></a>Fullständigt hanterad och kostnads effektiv
 

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: mjbrown
-ms.openlocfilehash: 5243419d8e2c4780708e9bdee0d57f2734fe78b2
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 1c8c766208132aec115e1fbeb15af3a057c3de3e
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341968"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636715"
 ---
 # <a name="prevent-azure-cosmos-db-resources-from-being-deleted-or-changed"></a>Förhindra att Azure Cosmos DB resurser tas bort eller ändras
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -26,7 +26,7 @@ Som administratör kan du behöva låsa ett Azure Cosmos-konto, en databas eller
 
 När du använder ett lås vid en överordnad omfattning ärver alla resurser inom den omfattningen samma lås. Även resurser som du lägger till senare ärver låset från det överordnade objektet. Det mest restriktiva låset i arv prioriteras.
 
-Till skillnad från rollbaserad åtkomstkontroll använder du hanteringslås för att tillämpa en begränsning för alla användare och roller. Om du vill veta mer om RBAC för Azure Cosmos DB se [rollbaserad åtkomst kontroll i Azure Cosmos DB](role-based-access-control.md).
+Till skillnad från rollbaserad åtkomst kontroll i Azure använder du hanterings lås för att tillämpa en begränsning för alla användare och roller. För att lära dig mer om Azure RBAC för Azure Cosmos DB se [rollbaserad åtkomst kontroll i Azure i Azure Cosmos DB](role-based-access-control.md).
 
 Resource Manager-lås gäller endast för åtgärder som sker i hanteringsplanet, som består av åtgärder som skickas till https://management.azure.com. Låsen begränsar inte hur resurser utför sina egna funktioner. Resursändringar är begränsade, men resursåtgärder är inte begränsade. Ett skrivskyddat lås på en Azure Cosmos-behållare förhindrar till exempel att du tar bort eller ändrar behållaren. Det hindrar dig inte från att skapa, uppdatera eller ta bort data i behållaren. Datatransaktioner tillåts eftersom dessa åtgärder inte skickas till https://management.azure.com.
 

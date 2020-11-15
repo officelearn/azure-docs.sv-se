@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 45f5a7e66c80dff5e78e575463becd95bcc7fca1
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: b8aaebdd37f835201ef549e3f97e0c0b657e4fe9
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242219"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636222"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>Skapa och hantera en privat länk för Azure Database for PostgreSQL-enskild server med CLI
 
@@ -67,6 +67,7 @@ az vm create \
   --name myVm \
   --image Win2019Datacenter
 ```
+
  Observera den offentliga IP-adressen för den virtuella datorn. Du kommer att använda den här adressen när du ansluter till den virtuella datorn från Internet i nästa steg.
 
 ## <a name="create-an-azure-database-for-postgresql---single-server"></a>Skapa en Azure Database for PostgreSQL-enskild server 
@@ -99,6 +100,7 @@ az network private-endpoint create \
 
 ## <a name="configure-the-private-dns-zone"></a>Konfigurera Privat DNS zon 
 Skapa en Privat DNS zon för PostgreSQL-Server domän och skapa en kopplings länk med Virtual Network. 
+
 ```azurecli-interactive
 az network private-dns zone create --resource-group myResourceGroup \ 
    --name  "privatelink.postgres.database.azure.com" 
@@ -126,7 +128,7 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 
 > [!NOTE]
 > I vissa fall finns Azure Database for PostgreSQL och VNet-under nätet i olika prenumerationer. I dessa fall måste du se till att följande konfigurationer:
-> - Se till att båda prenumerations resurs leverantören för **Microsoft. DBforPostgreSQL** är registrerad. Mer information hittar du i [Resource Manager-Registration][resource-manager-portal]
+> - Se till att båda prenumerations resurs leverantören för **Microsoft. DBforPostgreSQL** är registrerad. Mer information finns i [Resource providers](../azure-resource-manager/management/resource-providers-and-types.md).
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Ansluta till en virtuell dator från Internet
 
@@ -159,27 +161,28 @@ Anslut till VM- *myVm* från Internet på följande sätt:
 
 2. Ange  `nslookup mydemopostgresserver.privatelink.postgres.database.azure.com`. 
 
-    Du får ett meddelande som liknar detta:
-    ```azurepowershell
-    Server:  UnKnown
-    Address:  168.63.129.16
-    Non-authoritative answer:
-    Name:    mydemopostgresserver.privatelink.postgres.database.azure.com
-    Address:  10.1.3.4
-    ```
+   Du får ett meddelande som liknar detta:
 
-3. Testa anslutningen till den privata länken för PostgreSQL-servern med valfri tillgänglig klient. I exemplet nedan har jag använt [Azure Data Studio](/sql/azure-data-studio/download?view=sql-server-ver15) för att utföra åtgärden.
+   ```azurepowershell
+   Server:  UnKnown
+   Address:  168.63.129.16
+   Non-authoritative answer:
+   Name:    mydemopostgresserver.privatelink.postgres.database.azure.com
+   Address:  10.1.3.4
+   ```
+
+3. Testa anslutningen till den privata länken för PostgreSQL-servern med valfri tillgänglig klient. I följande exempel används [Azure Data Studio](/sql/azure-data-studio/download?view=sql-server-ver15&preserve-view=true) för att utföra åtgärden.
 
 4. I **ny anslutning** anger eller väljer du den här informationen:
 
-    | Inställning | Värde |
-    | ------- | ----- |
-    | Servertyp| Välj **postgresql**.|
-    | Servernamn| Välj *mydemopostgresserver.privatelink.postgres.Database.Azure.com* |
-    | Användarnamn | Ange användar namn som username@servername anges när postgresql-servern skapas. |
-    |Lösenord |Ange ett lösen ord som angavs när PostgreSQL-servern skapades. |
-    |SSL|Välj **obligatoriskt**.|
-    ||
+   | Inställning | Värde |
+   | ------- | ----- |
+   | Servertyp| Välj **postgresql**.|
+   | Servernamn| Välj *mydemopostgresserver.privatelink.postgres.Database.Azure.com* |
+   | Användarnamn | Ange användar namn som username@servername anges när postgresql-servern skapas. |
+   |Lösenord |Ange ett lösen ord som angavs när PostgreSQL-servern skapades. |
+   |SSL|Välj **obligatoriskt**.|
+   ||
 
 5. Välj Anslut.
 
@@ -198,6 +201,3 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om [vad som är en privat Azure-slutpunkt](../private-link/private-endpoint-overview.md)
-
-<!-- Link references, to text, Within this same GitHub repo. -->
-[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

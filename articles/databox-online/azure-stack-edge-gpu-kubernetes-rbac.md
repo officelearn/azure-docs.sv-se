@@ -1,6 +1,6 @@
 ---
-title: Förstå Kubernetes-rollbaserade Access Control på Azure Stack Edge Pro-enhet | Microsoft Docs
-description: Beskriver hur Kubernetes-rollbaserad Access Control sker på en Azure Stack Edge Pro-enhet.
+title: Förstå Kubernetes-rollbaserad åtkomst kontroll på Azure Stack Edge Pro-enhet | Microsoft Docs
+description: Beskriver hur Kubernetes-rollbaserad åtkomst kontroll sker på en Azure Stack Edge Pro-enhet.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,21 +8,21 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: alkohli
-ms.openlocfilehash: 0880ae64520997fc6b41ba4a7e8508d927235a8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a9625dcf40ae7d11e1154fc89b7f04652c8ca16
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320820"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635848"
 ---
-# <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes-rollbaserad Access Control på din Azure Stack Edge Pro GPU-enhet
+# <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes-rollbaserad åtkomst kontroll på din Azure Stack Edge Pro GPU-enhet
 
 
-När du konfigurerar Compute-rollen på din Azure Stack Edge Pro-enhet skapas ett Kubernetes-kluster. Du kan använda Kubernetes rollbaserad åtkomst kontroll (RBAC) för att begränsa åtkomsten till kluster resurserna på enheten.
+När du konfigurerar Compute-rollen på din Azure Stack Edge Pro-enhet skapas ett Kubernetes-kluster. Du kan använda Kubernetes-rollbaserad åtkomst kontroll (Kubernetes RBAC) om du vill begränsa åtkomsten till kluster resurserna på enheten.
 
-De här artiklarna ger en översikt över RBAC-systemet som tillhandahålls av Kubernetes, och hur är Kubernetes RBAC implementerad på din Azure Stack Edge Pro-enhet. 
+Den här artikeln innehåller en översikt över det Kubernetes RBAC-system som tillhandahålls av Kubernetes, och hur är Kubernetes RBAC implementerad på din Azure Stack Edge Pro-enhet. 
 
-## <a name="rbac-for-kubernetes"></a>RBAC för Kubernetes
+## <a name="kubernetes-rbac"></a>Kubernetes RBAC
 
 Med Kubernetes RBAC kan du tilldela användare eller grupper av användare behörighet att göra saker som att skapa eller ändra resurser, eller Visa loggar från att köra program arbets belastningar. Dessa behörigheter kan begränsas till ett enda namn område eller beviljas i hela klustret. 
 
@@ -61,21 +61,21 @@ Din Azure Stack Edge Pro-enhet har följande namn rymder:
 
 I den verkliga världen är det viktigt att dela upp klustret i flera namn områden. 
 
-- **Flera användare**: om du har flera användare kommer flera namn områden att tillåta dessa användare att distribuera sina program och tjänster i sina egna namn rymder i isoleringen från varandra. 
-- **Enskild användare**: även om det finns en enskild användare, tillåter flera namn områden att användaren kör flera versioner av programmen i samma Kubernetes-kluster.
+- **Flera användare** : om du har flera användare kommer flera namn områden att tillåta dessa användare att distribuera sina program och tjänster i sina egna namn rymder i isoleringen från varandra. 
+- **Enskild användare** : även om det finns en enskild användare, tillåter flera namn områden att användaren kör flera versioner av programmen i samma Kubernetes-kluster.
 
 ### <a name="roles-and-rolebindings"></a>Roller och RoleBindings
 
 Kubernetes har begreppet roll-och roll bindning som gör att du kan ge behörigheter till användare eller resurser på en namn områdes nivå och på kluster nivå. 
 
-- **Roller**: du kan definiera behörigheter till användare som en **roll** och sedan använda **roller** för att bevilja behörigheter inom ett namn område. 
-- **RoleBindings**: när du har definierat rollerna kan du använda **RoleBindings** för att tilldela roller för en viss namnrymd. 
+- **Roller** : du kan definiera behörigheter till användare som en **roll** och sedan använda **roller** för att bevilja behörigheter inom ett namn område. 
+- **RoleBindings** : när du har definierat rollerna kan du använda **RoleBindings** för att tilldela roller för en viss namnrymd. 
 
 Med den här metoden kan du logiskt särskilja ett enda Kubernetes-kluster, där användare bara kan komma åt program resurserna i sitt tilldelade namn område. 
 
-## <a name="rbac-on-azure-stack-edge-pro"></a>RBAC på Azure Stack Edge Pro
+## <a name="kubernetes-rbac-on-azure-stack-edge-pro"></a>Kubernetes RBAC på Azure Stack Edge Pro
 
-I den aktuella implementeringen av RBAC gör Azure Stack Edge Pro att du kan vidta följande åtgärder från en begränsad PowerShell-körnings utrymme:
+I den aktuella implementeringen av Kubernetes RBAC kan du med Azure Stack Edge Pro vidta följande åtgärder från en begränsad PowerShell-körnings utrymme:
 
 - Skapa namn områden.  
 - Skapa ytterligare användare.
@@ -85,9 +85,9 @@ I den aktuella implementeringen av RBAC gör Azure Stack Edge Pro att du kan vid
 
 Azure Stack Edge Pro-enheten har flera system namn rymder och du kan skapa användar namn områden med `kubeconfig` filer för att komma åt dessa namn områden. Användarna har fullständig kontroll över dessa namn områden och kan skapa eller ändra användare eller bevilja användare åtkomst. Endast kluster administratören har fullständig åtkomst till system namn rymder och resurser i hela klustret. En `aseuser` har skrivskyddad åtkomst till system namn rymder.
 
-Här är ett diagram som illustrerar implementeringen av RBAC på Azure Stack Edge Pro-enhet.
+Här är ett diagram som illustrerar implementeringen av Kubernetes RBAC på Azure Stack Edge Pro-enhet.
 
-![RBAC på Azure Stack Edge Pro-enhet](./media/azure-stack-edge-gpu-kubernetes-rbac/rbac-view-1.png)
+![Kubernetes RBAC på Azure Stack Edge Pro-enhet](./media/azure-stack-edge-gpu-kubernetes-rbac/rbac-view-1.png)
 
 I det här diagrammet har Alice, Bob och Klas endast åtkomst till tilldelade användar namn områden, som i det här fallet är `ns1` , `ns2` `ns3` respektive. I dessa namn områden har de administratörs åtkomst. Kluster administratören å andra sidan har administratörs behörighet för system namn rymder och resurser i hela klustret.
 

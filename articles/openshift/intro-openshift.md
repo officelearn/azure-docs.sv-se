@@ -5,14 +5,14 @@ author: jimzim
 ms.author: jzim
 ms.service: container-service
 ms.topic: overview
-ms.date: 04/24/2020
+ms.date: 11/13/2020
 ms.custom: mvc
-ms.openlocfilehash: a3bdc3673474b778aa7c1003e48e215bac6d05bf
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: dbc0f34e57297b9879a865511f6e7b4ed7ca2a3c
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82628528"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636902"
 ---
 # <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
 
@@ -33,6 +33,10 @@ För förbättrad säkerhet och hantering kan du med hjälp av Azure Red Hat Ope
 ## <a name="cluster-and-node"></a>Kluster och nod
 
 Azure Red Hat OpenShift-noder körs på virtuella Azure-datorer. Du kan ansluta lagring till noder och poddar och uppgradera kluster komponenter.
+
+## <a name="service-level-agreement"></a>Serviceavtal
+
+Azure Red Hat OpenShift erbjuder en Serviceavtal som garanterar att tjänsten är tillgänglig 99,95% av tiden. Mer information om SLA finns i SLA för [Azure Red Hat OpenShift](https://azure.microsoft.com/en-au/support/legal/sla/openshift/v1_0/).
 
 ## <a name="next-steps"></a>Nästa steg
 

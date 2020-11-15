@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 06/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 414ae3b2adb60b9442a69e3ebcc8b13b29c67cb7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 51cb79e942b9d92876bd4d0e2cc27bb5ee0337bf
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070511"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94634879"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Använda en offentlig Standard Load Balancer i Azure Kubernetes service (AKS)
 
-Azure Load Balancer är en L4 av OSI-modellen (Open Systems Interconnection) som stöder både inkommande och utgående scenarier. Den distribuerar inkommande flöden som anländer till belastningsutjämnarens klient del till instanserna för Server delens pool.
+Azure Load Balancer finns på L4 av OSI-modellen (Open Systems Interconnection) som stöder både inkommande och utgående scenarier. Den distribuerar inkommande flöden som anländer till belastningsutjämnarens klient del till instanserna för Server delens pool.
 
 En **offentlig** Load Balancer när det är integrerat med AKS i två syfte:
 
@@ -93,13 +93,13 @@ Azure Load Balancer tillhandahåller utgående anslutning från ett virtuellt n�
 
 Precis som alla Load Balancer regler följer utgående regler samma välkända syntax som belastnings utjämning och inkommande NAT-regler:
 
-***klient del IP + parametrar + backend-pool***
+***klient del IP + parametrar + backend-pool** _
 
 En utgående regel konfigurerar utgående NAT för alla virtuella datorer som identifieras av backend-poolen som ska översättas till klient delen. Parametrarna och ger ytterligare detaljerad kontroll över den utgående NAT-algoritmen.
 
 Även om en utgående regel kan användas med bara en enda offentlig IP-adress, underlättar utgående regler konfigurations bördan för skalning av utgående NAT. Du kan använda flera IP-adresser för att planera för storskaliga scenarier och du kan använda utgående regler för att minska mönstren för SNAT-överbelastningar. Varje ytterligare IP-adress som tillhandahållits av en frontend tillhandahåller 64 KB tillfälliga portar för Load Balancer som ska användas som SNAT-portar. 
 
-När du använder en *standard* -SKU för belastningsutjämnare med hanterade utgående offentliga IP-adresser, som skapas som standard, kan du skala antalet hanterade utgående offentliga IP-adresser med hjälp av **`load-balancer-managed-ip-count`** parametern.
+När du använder en _Standard * SKU-belastningsutjämnare med hanterade utgående offentliga IP-adresser, som skapas som standard, kan du skala antalet hanterade utgående offentliga IP-adresser med hjälp av **`load-balancer-managed-ip-count`** parametern.
 
 Kör följande kommando för att uppdatera ett befintligt kluster. Den här parametern kan också ställas in i klustret Create-Time för att ha flera hanterade utgående offentliga IP-adresser.
 
@@ -266,7 +266,7 @@ Om du förväntar dig att ha flera kort periodiska anslutningar, och det inte fi
  
 *outboundIPs* \* 64 000 \> *nodeVMs* \* *desiredAllocatedOutboundPorts*.
  
-Om du till exempel har 3 *nodeVMs*och 50 000 *desiredAllocatedOutboundPorts*måste du ha minst 3 *outboundIPs*. Vi rekommenderar att du införlivar ytterligare utgående IP-kapacitet utöver det du behöver. Dessutom måste du ha ett konto för den automatiska skalnings tjänsten för klustret och möjligheten att uppgradera noder i noden när du beräknar utgående IP-kapacitet. Granska antalet aktuella noder och maximalt antal noder och Använd det högre värdet för klustrets autoskalning. För att uppgradera måste du konto för en ytterligare virtuell nod för varje nod som tillåter uppgradering.
+Om du till exempel har 3 *nodeVMs* och 50 000 *desiredAllocatedOutboundPorts* måste du ha minst 3 *outboundIPs*. Vi rekommenderar att du införlivar ytterligare utgående IP-kapacitet utöver det du behöver. Dessutom måste du ha ett konto för den automatiska skalnings tjänsten för klustret och möjligheten att uppgradera noder i noden när du beräknar utgående IP-kapacitet. Granska antalet aktuella noder och maximalt antal noder och Använd det högre värdet för klustrets autoskalning. För att uppgradera måste du konto för en ytterligare virtuell nod för varje nod som tillåter uppgradering.
 
 - När du anger *IdleTimeoutInMinutes* till ett annat värde än standardvärdet på 30 minuter bör du fundera på hur länge dina arbets belastningar behöver en utgående anslutning. Tänk också på att standardvärdet för timeout för en *standard* -SKU-belastningsutjämnare som används utanför AKS är 4 minuter. Ett *IdleTimeoutInMinutes* -värde som bättre återspeglar din speciella AKS-arbetsbelastning kan minska SNAT-belastningen som orsakas av att de kopplings anslutningar som inte längre används.
 

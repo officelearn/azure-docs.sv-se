@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/25/2020
+ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 315183040515110a6a21afcd00e12d1b12313170
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 2ea9fdcb11bd88755c0972fa166d1d94068ce60e
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341846"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94638826"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Vanliga frågor och svar om data insamling, agenter och arbets ytor
 
@@ -91,7 +91,7 @@ Platsen för standard arbets ytan beror på din Azure-region:
 En fullständig lista över de program och tjänster som övervakas av agenten finns i [vad övervakas av Azure Monitor?](../azure-monitor/monitor-reference.md#azure-services).
 
 > [!IMPORTANT]
-> Observera att för vissa tjänster, t. ex. Azure-brandvägg, om du har aktiverat loggning och valt en chatt-resurs som ska loggas (till exempel genom att ange loggen som *utförlig*) kan du se betydande påverkan på din Log Analytics lagrings plats behov. 
+> Observera att för vissa tjänster, t. ex. Azure-brandvägg, om du har aktiverat loggning och valt en chatt-resurs som ska loggas (till exempel genom att ange loggen som *utförlig* ) kan du se betydande påverkan på din Log Analytics lagrings plats behov. 
 
 
 ## <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>Kan jag ta bort standard arbets ytor som skapats av Security Center?
@@ -109,14 +109,19 @@ Du kan välja en befintlig Log Analytics-arbetsyta för att lagra data som samla
 
 Så här väljer du en befintlig Log Analytics arbets yta:
 
-1. Under **säkerhets princip – data insamling**väljer du **Använd en annan arbets yta**.
+1. Från Security Center menyn väljer du **pris & inställningar**.
+1. Välj relevant prenumeration.
+1. Öppna sidan för **Automatisk etablering** , s
+1. För Log Analytics agent väljer du **Redigera konfiguration**. 
 
-    ![Använd en annan arbets yta][4]
+    :::image type="content" source="./media/security-center-enable-data-collection/edit-configuration-auto-deploy-agent.png" alt-text="Konfigurationen för den Log Analytics agent som ska användas när automatisk distribution används" lightbox="./media/security-center-enable-data-collection/edit-configuration-auto-deploy-agent.png":::
 
-1. I den nedrullningsbara menyn väljer du en arbets yta där insamlade data ska lagras.
+1. Välj **Anslut virtuella Azure-datorer till en annan arbets yta** och välj din befintliga arbets yta.
 
-    > [!NOTE]
-    > I den nedrullningsbara menyn visas endast arbets ytor som du har åtkomst till och som finns i din Azure-prenumeration.
+    :::image type="content" source="./media/security-center-enable-data-collection/choose-workspace.png" alt-text="Välja en arbets yta som inte är standard för din Log Analytics agent att rapportera till" lightbox="./media/security-center-enable-data-collection/choose-workspace.png":::
+
+    > [!TIP]
+    > Listan innehåller bara arbets ytor som du har åtkomst till och som finns i din Azure-prenumeration.
 
 1. Välj **Spara**. Du får en fråga om du vill konfigurera om övervakade virtuella datorer.
 
@@ -124,9 +129,8 @@ Så här väljer du en befintlig Log Analytics arbets yta:
     - Välj **Ja** om du vill att de nya inställningarna för arbets ytan ska **tillämpas på alla virtuella datorer**. Dessutom återansluts varje virtuell dator som är ansluten till en Security Center skapad arbets yta till den nya mål arbets ytan.
 
     > [!NOTE]
-    > Om du väljer **Ja**tar du inte bort några arbets ytor som skapats av Security Center tills alla virtuella datorer har återanslutits till den nya mål arbets ytan. Den här åtgärden Miss lyckas om en arbets yta tas bort för tidigt.
+    > Om du väljer **Ja** tar du inte bort några arbets ytor som skapats av Security Center tills alla virtuella datorer har återanslutits till den nya mål arbets ytan. Den här åtgärden Miss lyckas om en arbets yta tas bort för tidigt.
 
-    - Välj **Avbryt**om du vill avbryta åtgärden.
 
 ## <a name="what-if-the-log-analytics-agent-was-already-installed-as-an-extension-on-the-vm"></a>Vad händer om Log Analytics agent redan har installerats som ett tillägg på den virtuella datorn?<a name="mmaextensioninstalled"></a>
 
@@ -162,14 +166,19 @@ Om du tar bort Microsoft Monitoring Extension kan Security Center inte samla in 
 
 ## <a name="how-do-i-stop-the-automatic-agent-installation-and-workspace-creation"></a>Vill du Hur gör jag för att stoppa den automatiska Agent installationen och arbets ytan?
 
-Du kan inaktivera automatisk etablering för dina prenumerationer i säkerhets principen, men detta rekommenderas inte. Inaktivera automatiska etablerings gränser Security Center rekommendationer och aviseringar. Så här inaktiverar du automatisk etablering:
+Du kan inaktivera automatisk etablering för dina prenumerationer i säkerhets principen, men detta rekommenderas inte. Stänga av de automatiska etablerings gränserna Security Center rekommendationer och aviseringar. Så här inaktiverar du automatisk etablering:
 
-1. Om din prenumeration har aktiverat Azure Defender öppnar du säkerhets principen för den prenumerationen och väljer **Azure Defender av**.
+1. Från Security Center menyn väljer du **pris & inställningar**.
+1. Välj relevant prenumeration.
+1. Om din prenumeration har aktiverat Azure Defender öppnar du **Azure Defender-planer** och väljer **Azure Defender av**.
 
     :::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Aktivera eller inaktivera Azure Defender":::
 
-1. Stäng sedan av automatisk etablering genom att välja **av** på sidan **säkerhets princip – data insamling** .
-   ![Datainsamling][2]
+1. På sidan **Automatisk etablering** väljer du penna och inaktiverar automatisk etablering i  **säkerhets principen – data insamlings** sidan.
+
+    :::image type="content" source="./media/security-center-enable-data-collection/agent-toggles.png" alt-text="Aktivera automatisk distribution för Log Analytics agent":::
+
+1. Välj **Spara**.
 
 
 ## <a name="should-i-opt-out-of-the-automatic-agent-installation-and-workspace-creation"></a>Bör jag inte välja att skapa en automatisk agent installation och skapa arbets ytor?
@@ -214,7 +223,7 @@ Du kan ta bort den Log Analytics agenten manuellt. Detta rekommenderas inte efte
 
 Ta bort agenten manuellt:
 
-1.    Öppna **Log Analytics**på portalen.
+1.    Öppna **Log Analytics** på portalen.
 
 1.    På sidan Log Analytics väljer du en arbets yta:
 
@@ -232,18 +241,16 @@ Automatisk etablering rekommenderas för att få säkerhets aviseringar och reko
 
 Om du har aktiverat den, men nu vill inaktivera den:
 
-1. Öppna **Security Center** på [Azure Portal](https://portal.azure.com)och välj **säkerhets princip**.
+1. Öppna **Security Center** på [Azure Portal](https://portal.azure.com)och välj **priser och inställningar**.
 
 1. Välj den prenumeration där du vill inaktivera automatisk etablering.
 
-    **Säkerhets princip – data insamling** öppnas.
-
-1. Under **Automatisk etablering**, väljer du **av**.
+1. Inaktivera växlingen för Log Analytics-agenten under **Automatisk etablering**.
 
 
 ## <a name="how-do-i-enable-data-collection"></a>Hur gör jag för att aktivera data insamling?
 
-Du kan aktivera data insamling för din Azure-prenumeration i säkerhets principen. För att aktivera data insamling. [Logga](https://portal.azure.com)in på Azure Portal, Välj **bläddra**, Välj **Security Center**och välj **säkerhets princip**. Välj den prenumeration som du vill aktivera automatisk etablering för. När du väljer en prenumerations **säkerhets princip öppnas data insamling** . Under **Automatisk etablering**väljer du **på**.
+Du kan aktivera data insamling för din Azure-prenumeration i säkerhets principen. För att aktivera data insamling. [Logga](https://portal.azure.com)in på Azure Portal, Välj **bläddra** , Välj **Security Center** och välj **säkerhets princip**. Välj den prenumeration som du vill aktivera automatisk etablering för. När du väljer en prenumerations **säkerhets princip öppnas data insamling** . Under **Automatisk etablering** väljer du **på**.
 
 
 ## <a name="what-happens-when-data-collection-is-enabled"></a>Vad händer när data insamlingen är aktive rad?

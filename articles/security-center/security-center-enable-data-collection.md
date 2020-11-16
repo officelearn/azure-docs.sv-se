@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 11/12/2020
+ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: e25b8af3dd56078a3febe436b74af8f94cdcc485
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 7d96b03598f90b45b7ecf88027be7408d8f161ea
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636060"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94638775"
 ---
 # <a name="auto-provisioning-agents-and-extensions-from-azure-security-center"></a>Automatiska etablerings agenter och tillägg från Azure Security Center
 
@@ -24,7 +24,7 @@ Data insamling krävs för att ge insyn i saknade uppdateringar, felkonfigurerad
 Data samlas in med:
 
 - **Log Analytics agenten** läser olika säkerhetsrelaterade konfigurationer och händelse loggar från datorn och kopierar data till din arbets yta för analys. Exempel på sådana data är: operativ systemets typ och version, operativ system loggar (Windows-händelseloggar), processer som körs, dator namn, IP-adresser och inloggad användare.
-- **Tillägg för virtuella datorer** , till exempel [Azure policy-tillägg för Kubernetes](../governance/policy/concepts/policy-for-kubernetes.md), som också kan tillhandahålla data för att Security Center om specialiserade resurs typer.
+- **Säkerhets tillägg** , till exempel [Azure policy-tillägg för Kubernetes](../governance/policy/concepts/policy-for-kubernetes.md), som också kan tillhandahålla data för att Security Center om specialiserade resurs typer.
 
 > [!TIP]
 > Som Security Center har växt, har de typer av resurser som kan övervakas också växt. Antalet tillägg har också växt. Automatisk etablering har utökats för att stödja ytterligare resurs typer genom att använda funktionerna i Azure Policy.

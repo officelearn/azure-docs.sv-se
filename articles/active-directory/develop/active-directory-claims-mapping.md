@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: c300faf33f57518d26f82234bdff94a37235cd66
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 2d65889a841655fe27994d3855f30f7a7e20e1ed
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275799"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647604"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Gör så här: anpassa anspråk som skickas i token för en angiven app i en klient (för hands version)
 
@@ -44,7 +44,7 @@ En princip för anspråks mappning är en typ av **princip** objekt som ändrar 
 
 Det finns vissa uppsättningar med anspråk som definierar hur och när de används i tokens.
 
-| Anspråks uppsättning | Beskrivning |
+| Anspråks uppsättning | Description |
 |---|---|
 | Uppsättning Core-anspråk | Förekommer i varje token oavsett principen. Dessa anspråk anses också vara begränsade och kan inte ändras. |
 | Grundläggande anspråks uppsättning | Innehåller de anspråk som genereras som standard för token (utöver uppsättningen med kärn anspråk). Du kan utelämna eller ändra grundläggande anspråk genom att använda anspråks mappnings principerna. |
@@ -239,6 +239,9 @@ Det finns vissa uppsättningar med anspråk som definierar hur och när de anvä
 
 Du styr vilka anspråk som ska genereras och var data kommer från genom att använda egenskaperna för en princip för anspråks mappning. Om en princip inte har angetts utfärdar systemet token som innehåller den kärn anspråks uppsättningen, den grundläggande anspråks uppsättningen och eventuella [valfria anspråk](active-directory-optional-claims.md) som programmet har valt att ta emot.
 
+> [!NOTE]
+> Anspråk i den kärn anspråks uppsättningen finns i varje token, oavsett vad den här egenskapen är inställd på.
+
 ### <a name="include-basic-claim-set"></a>Inkludera grundläggande anspråks uppsättning
 
 **Sträng:** IncludeBasicClaimSet
@@ -250,8 +253,7 @@ Du styr vilka anspråk som ska genereras och var data kommer från genom att anv
 - Om värdet är true genereras alla anspråk i den grundläggande anspråks uppsättningen i tokens som påverkas av principen.
 - Om värdet är false är anspråk i den grundläggande anspråks uppsättningen inte i tokens, om de inte individuellt läggs till i egenskapen anspråk schema för samma princip.
 
-> [!NOTE]
-> Anspråk i den kärn anspråks uppsättningen finns i varje token, oavsett vad den här egenskapen är inställd på.
+
 
 ### <a name="claims-schema"></a>Anspråks schema
 
@@ -260,7 +262,7 @@ Du styr vilka anspråk som ska genereras och var data kommer från genom att anv
 **Datatyp:** JSON-BLOB med en eller flera anspråks schema poster
 
 **Sammanfattning:** Den här egenskapen definierar vilka anspråk som finns i de token som påverkas av principen, förutom den grundläggande anspråks uppsättningen och kärn anspråks uppsättningen.
-För varje anspråks schema post som definieras i den här egenskapen krävs viss information. Ange var data kommer från (**värde**, **käll-ID-par**eller **käll-ExtensionID-par**) och vilka anspråks data som angivits som (**anspråks typ**).
+För varje anspråks schema post som definieras i den här egenskapen krävs viss information. Ange var data kommer från (**värde**, **käll-ID-par** eller **käll-ExtensionID-par**) och vilka anspråks data som angivits som (**anspråks typ**).
 
 ### <a name="claim-schema-entry-elements"></a>Poster för anspråks schema poster
 
@@ -285,7 +287,7 @@ ID-elementet identifierar vilken egenskap på källan som innehåller värdet f�
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabell 3: giltiga ID-värden per källa
 
-| Källa | ID | Beskrivning |
+| Källa | ID | Description |
 |-----|-----|-----|
 | Användare | surname | Familje namn |
 | Användare | givenname | Förnamn |
@@ -362,7 +364,7 @@ Baserat på den valda metoden förväntas en uppsättning indata och utdata. Def
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabell 4: omvandlings metoder och förväntade indata och utdata
 
-|TransformationMethod|Förväntad Indatatyp|Förväntad utdata|Beskrivning|
+|TransformationMethod|Förväntad Indatatyp|Förväntad utdata|Description|
 |-----|-----|-----|-----|
 |Slå ihop|sträng1, sträng2, avgränsare|outputClaim|Kopplar ihop inmatade strängar med hjälp av en avgränsare mellan. Till exempel: sträng1: " foo@bar.com ", sträng2: "sandbox", avgränsare: "." resulterar i outputClaim: " foo@bar.com.sandbox "|
 |ExtractMailPrefix|E-post eller UPN|extraherad sträng|ExtensionAttributes 1-15 eller andra schema tillägg som lagrar ett UPN-eller e-postadress värde för användaren, t. ex. johndoe@contoso.com . Extraherar den lokala delen av en e-postadress. Exempel: mail: " foo@bar.com " resulterar i outputClaim: "foo". Om det inte finns något \@ tecken returneras den ursprungliga Indatasträngen som den är.|
@@ -388,7 +390,7 @@ Baserat på den valda metoden förväntas en uppsättning indata och utdata. Def
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabell 5: attribut som tillåts som data källa för SAML-NameID
 
-|Källa|ID|Beskrivning|
+|Källa|ID|Description|
 |-----|-----|-----|
 | Användare | e-post|E-postadress|
 | Användare | userPrincipalName|UPN (User Principal Name)|
@@ -439,8 +441,7 @@ Principer för anspråks mappning kan bara tilldelas till tjänstens huvud objek
 
 I Azure AD är många scenarier möjliga när du kan anpassa anspråk som skickas i tokens för särskilda tjänst huvud namn. I det här avsnittet går vi igenom några vanliga scenarier som hjälper dig att grepp hur du använder princip typen för anspråks mappning.
 
-> [!NOTE]
-> När du skapar en princip för anspråks mappning kan du också skapa ett anspråk från ett attribut för katalog schema tillägg i tokens. Använd *ExtensionID* för attributet extension i stället för *ID* i `ClaimsSchema` elementet.  Mer information om attribut för tillägg finns i [använda attribut för katalog schema tillägg](active-directory-schema-extensions.md).
+När du skapar en princip för anspråks mappning kan du också skapa ett anspråk från ett attribut för katalog schema tillägg i tokens. Använd *ExtensionID* för attributet extension i stället för *ID* i `ClaimsSchema` elementet.  Mer information om attribut för tillägg finns i [använda attribut för katalog schema tillägg](active-directory-schema-extensions.md).
 
 #### <a name="prerequisites"></a>Förutsättningar
 

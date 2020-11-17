@@ -12,12 +12,12 @@ ms.date: 08/03/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8132eb72b3e448d7ae830b29ccb7dc51528c1250
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a9323cc92567d681ee8c73a62e0b89c17c22b1e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87921409"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647621"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Hantera Azure AD B2C användar konton med Microsoft Graph
 
@@ -60,7 +60,7 @@ En användare med ett kund konto kan logga in med flera identiteter. Till exempe
 
 I Microsoft Graph API lagras både lokala och federerade identiteter i `identities` attributet User, som är av typen [objectIdentity][graph-objectIdentity]. `identities`Samlingen representerar en uppsättning identiteter som används för att logga in på ett användar konto. Den här samlingen gör att användaren kan logga in på användar kontot med någon av dess associerade identiteter.
 
-| Egenskap   | Typ |Beskrivning|
+| Egenskap   | Typ |Description|
 |:---------------|:--------|:----------|
 |signInType|sträng| Anger användarnas inloggnings typer i din katalog. För lokalt konto:,,,,  `emailAddress` `emailAddress1` `emailAddress2` `emailAddress3`  `userName` eller någon annan typ som du vill ha. Socialt konto måste anges till  `federated` .|
 |utfärdare|sträng|Anger utfärdarens identitet. För lokala konton (där **signInType** inte är `federated` det) är den här egenskapen namnet på den lokala B2C-klientens standard domän, till exempel `contoso.onmicrosoft.com` . För sociala identiteter (där **signInType** är  `federated` ) är värdet namnet på utfärdaren, till exempel `facebook.com`|
@@ -145,7 +145,7 @@ När du har fått kod exemplet konfigurerar du det för din miljö och skapar se
 1. Kör programmet med `dotnet` kommandot:
 
     ```console
-    dotnet bin/Debug/netcoreapp3.0/b2c-ms-graph.dll
+    dotnet bin/Debug/netcoreapp3.1/b2c-ms-graph.dll
     ```
 
 Programmet visar en lista över kommandon som du kan köra. Du kan till exempel hämta alla användare, hämta en enskild användare, ta bort en användare, uppdatera en användares lösen ord och Mass import.

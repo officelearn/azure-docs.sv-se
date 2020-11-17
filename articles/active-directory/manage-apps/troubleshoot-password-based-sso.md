@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: 0534c85548b1d8b6203aaac4911dc851dd49d81a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1823de88597756ba3db9aee0dc29501b1ba914a4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460362"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646244"
 ---
 # <a name="troubleshoot-password-based-single-sign-on-in-azure-ad"></a>Felsöka lösenordsbaserad enkel inloggning i Azure AD
 
@@ -36,7 +36,7 @@ Det här problemet uppstår vanligt vis om program leverantören har ändrat sin
 
 Microsoft har teknik för att automatiskt identifiera när integreringen bryts, men det kanske inte går att hitta problemen direkt, eller så tar det en stund att åtgärda problemet. Om någon av dessa integreringar inte fungerar som den ska kan du öppna ett support ärende så att det kan åtgärdas så snabbt som möjligt.
 
-**Om du är kontakt med den här appens leverantör kan du** skicka dem på vårt sätt så att Microsoft kan samar beta med dem för att internt integrera sina program med Azure Active Directory. Du kan skicka leverantören till [listan över ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md) för att komma igång.
+**Om du är kontakt med den här appens leverantör kan du** skicka dem på vårt sätt så att Microsoft kan samar beta med dem för att internt integrera sina program med Azure Active Directory. Du kan skicka leverantören till [listan över ditt program i Azure Active Directory program galleriet](../develop/v2-howto-app-gallery-listing.md) för att komma igång.
 
 ## <a name="credentials-are-filled-in-and-submitted-but-the-page-indicates-the-credentials-are-incorrect"></a>Autentiseringsuppgifterna fylls i och skickas, men sidan indikerar att autentiseringsuppgifterna är felaktiga
 
@@ -62,7 +62,7 @@ Om de tidigare förslagen inte fungerar, kan det vara fallet att en ändring har
 
 Microsoft har teknik för att automatiskt identifiera när program integreringen bryts, men det kanske inte går att hitta problemen direkt, eller så kan det ta lite tid att åtgärda problemet. När en integrering inte fungerar som den ska kan du öppna ett support ärende för att få den åtgärdad så snabbt som möjligt. 
 
-Förutom detta, **om du är i kontakt med den här appens leverantör, skickar du** **dem på vårt sätt** så att vi kan samar beta med dem för att internt integrera sina program med Azure Active Directory. Du kan skicka leverantören till [listan över ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md) för att komma igång.
+Förutom detta, **om du är i kontakt med den här appens leverantör, skickar du** **dem på vårt sätt** så att vi kan samar beta med dem för att internt integrera sina program med Azure Active Directory. Du kan skicka leverantören till [listan över ditt program i Azure Active Directory program galleriet](../develop/v2-howto-app-gallery-listing.md) för att komma igång.
 
 ## <a name="check-if-the-applications-login-page-has-changed-recently-or-requires-an-additional-field"></a>Kontrol lera om programmets inloggnings sida har ändrats nyligen eller kräver ett ytterligare fält
 
@@ -70,7 +70,7 @@ Om programmets inloggnings sida har ändrats drastiskt gör det ibland att våra
 
 Microsoft har teknik för att automatiskt identifiera när program integreringen bryts, men det kanske inte går att hitta problemen direkt, eller så kan det ta lite tid att åtgärda problemet. När en integrering inte fungerar som den ska kan du öppna ett support ärende för att få den åtgärdad så snabbt som möjligt. 
 
-Förutom detta, **om du är i kontakt med den här appens leverantör, skickar du** **dem på vårt sätt** så att vi kan samar beta med dem för att internt integrera sina program med Azure Active Directory. Du kan skicka leverantören till [listan över ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md) för att komma igång.
+Förutom detta, **om du är i kontakt med den här appens leverantör, skickar du** **dem på vårt sätt** så att vi kan samar beta med dem för att internt integrera sina program med Azure Active Directory. Du kan skicka leverantören till [listan över ditt program i Azure Active Directory program galleriet](../develop/v2-howto-app-gallery-listing.md) för att komma igång.
 
 ## <a name="capture-sign-in-fields-for-an-app"></a>Avbilda inloggnings fält för en app
 
@@ -117,7 +117,7 @@ Följ dessa steg om du vill konfigurera lösenordsbaserad SSO för en app med hj
 7. När appen har lästs in väljer du **enkel inloggning** i navigerings fönstret till vänster.
 8. Välj **lösenordsbaserad inloggnings** läge.
 9. Ange **inloggnings-URL**, som är sidan där användarna anger användar namn och lösen ord för att logga in. *Kontrol lera att inloggnings fälten är synliga på sidan för den URL som du anger*.
-10. Välj **Konfigurera inställningar för lösen ord för enkel inloggning för * &lt; APPNAME &gt; * **.
+10. Välj **Konfigurera inställningar för lösen ord för enkel inloggning för *&lt; APPNAME &gt;***.
 11. Välj **identifiera inloggnings fält manuellt**.
 14. Välj **OK**.
 15. Välj **Spara**.
@@ -146,10 +146,10 @@ Du kan observera följande beteenden när manuell identifiering inte fungerar:
 
 Om du upplever något av dessa problem kan du göra följande:
 - Kontrol lera att du har den senaste versionen av webb läsar tillägget My Apps *installerat och aktiverat*.
-- Kontrol lera att din webbläsare inte är i *Incognito*, *InPrivate*eller *privat* läge under insamlings processen. Tillägget Mina appar stöds inte i de här lägena.
-- Se till att användarna inte försöker logga in i appen från Mina appar i *Incognito*, *InPrivate*eller *privat läge*.
+- Kontrol lera att din webbläsare inte är i *Incognito*, *InPrivate* eller *privat* läge under insamlings processen. Tillägget Mina appar stöds inte i de här lägena.
+- Se till att användarna inte försöker logga in i appen från Mina appar i *Incognito*, *InPrivate* eller *privat läge*.
 - Försök att utföra manuell inhämtning igen. Se till att de röda markeringarna är över rätt fält.
-- Om den manuella hämtningen verkar sluta svara eller om inloggnings sidan inte svarar, kan du försöka att utföra den manuella insamlingen igen. Men den här gången har du slutfört processen genom att trycka på F12-tangenten för att öppna webbläsarens utvecklarverktyg. Välj fliken **konsol** . Skriv **window. location = "* &lt; den inloggnings-URL som du angav när du konfigurerade &gt; appen*"** och tryck sedan på RETUR. Detta innebär en omdirigering av sidan som avslutar insamlings processen och lagrar de fält som har registrerats.
+- Om den manuella hämtningen verkar sluta svara eller om inloggnings sidan inte svarar, kan du försöka att utföra den manuella insamlingen igen. Men den här gången har du slutfört processen genom att trycka på F12-tangenten för att öppna webbläsarens utvecklarverktyg. Välj fliken **konsol** . Skriv **window. location = "*&lt; den inloggnings-URL som du angav när du konfigurerade &gt; appen*"** och tryck sedan på RETUR. Detta innebär en omdirigering av sidan som avslutar insamlings processen och lagrar de fält som har registrerats.
 
 ## <a name="request-support"></a>Support för begäran 
 Om du får ett fel meddelande när du konfigurerar SSO och tilldelar användare, öppnar du ett support ärende. Inkludera så mycket som möjligt av följande information:
@@ -195,7 +195,7 @@ Följande information förklarar vad varje meddelande objekt innebär och inneh�
 
     Exempel: *302fd775-3329-4670-a9f3-bea37004f0bc*
 
-- Tidstämpel **UTC: tidsstämpeln**för när meddelandet inträffade, i UTC.
+- Tidstämpel **UTC: tidsstämpeln** för när meddelandet inträffade, i UTC.
 
     Exempel: *2017-03-23T19:50:43.7583681 z*
 

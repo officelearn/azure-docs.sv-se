@@ -8,19 +8,19 @@ manager: daveba
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 10/23/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0e2ce094b792d6f3f7e5f8fe1920d87a9cceea2
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: d0136f7677aa722e578ac54c4f7d34338e47b0f7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517183"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646618"
 ---
 # <a name="user-management-enhancements-preview-in-azure-active-directory"></a>Förbättringar av användar hantering (för hands version) i Azure Active Directory
 
@@ -88,7 +88,7 @@ Vissa kolumner visas som standard. Om du vill lägga till andra kolumner väljer
 Välj en post i kolumnen **identitets utfärdare** för en användare om du vill visa mer information om utfärdaren, inklusive inloggnings typ och tilldelat ID för utfärdaren. Posterna i kolumnen **identitets utfärdare** kan vara flera värden. Om det finns flera utfärdare av användarens identitet, visas ordet Multiple i kolumnen **identitets utfärdare** på sidorna **alla användare** och **borttagna användare** , och i informations fönstret visas alla utfärdare.
 
 > [!NOTE]
-> **Käll** kolumnen ersätts av flera kolumner, inklusive **skapande typ**, **katalog som synkroniseras**och **identitets utfärdare** för mer detaljerad filtrering.
+> **Käll** kolumnen ersätts av flera kolumner, inklusive **skapande typ**, **katalog som synkroniseras** och **identitets utfärdare** för mer detaljerad filtrering.
 
 ## <a name="user-list-search"></a>Sök efter användar lista
 

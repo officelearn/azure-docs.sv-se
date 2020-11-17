@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/21/2020
 ms.author: cherylmc
-ms.openlocfilehash: e39884f6d62fc43943f892aed0dac650a01d6c40
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: cd25c7638bd7e178cdb963ba528cccefde6b9eca
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92463014"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646516"
 ---
 # <a name="reset-a-vpn-gateway"></a>Återställ VPN Gateway
 
@@ -52,7 +52,7 @@ Du kan återställa en VPN-gateway för Resource Manager med hjälp av Azure Por
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Cmdleten för att återställa en gateway **återställs-AzVirtualNetworkGateway**. Kontrol lera att du har den senaste versionen av [PowerShell AZ-cmdlet: ar](https://docs.microsoft.com/powershell/module/az.network)innan du utför en återställning. I följande exempel återställs en virtuell nätverksgateway som heter VNet1GW i resurs gruppen TestRG1:
+Cmdleten för att återställa en gateway **återställs-AzVirtualNetworkGateway**. Kontrol lera att du har den senaste versionen av [PowerShell AZ-cmdlet: ar](/powershell/module/az.network)innan du utför en återställning. I följande exempel återställs en virtuell nätverksgateway som heter VNet1GW i resurs gruppen TestRG1:
 
 ```powershell
 $gw = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
@@ -65,7 +65,7 @@ När du får ett retur resultat kan du anta att Gateway-återställningen lyckad
 
 ### <a name="classic-deployment-model"></a><a name="resetclassic"></a>Klassisk distributionsmodell
 
-Cmdleten för att återställa en gateway **återställs-AzureVNetGateway**. Azure PowerShell-cmdletar för Service Management måste installeras lokalt på Skriv bordet. Du kan inte använda Azure Cloud Shell. Innan du utför en återställning kontrollerar du att du har den senaste versionen av [PowerShell-cmdletarna för Service Management (SM)](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps#azure-service-management-cmdlets). När du använder det här kommandot kontrollerar du att du använder det fullständiga namnet på det virtuella nätverket. En klassisk virtuella nätverk som skapats med portalen har ett långt namn som krävs för PowerShell. Du kan visa det långa namnet med hjälp av "Get-AzureVNetConfig-ExportToFile C:\Myfoldername\NetworkConfig.xml".
+Cmdleten för att återställa en gateway **återställs-AzureVNetGateway**. Azure PowerShell-cmdletar för Service Management måste installeras lokalt på Skriv bordet. Du kan inte använda Azure Cloud Shell. Innan du utför en återställning kontrollerar du att du har den senaste versionen av [PowerShell-cmdletarna för Service Management (SM)](/powershell/azure/servicemanagement/install-azure-ps#azure-service-management-cmdlets). När du använder det här kommandot kontrollerar du att du använder det fullständiga namnet på det virtuella nätverket. En klassisk virtuella nätverk som skapats med portalen har ett långt namn som krävs för PowerShell. Du kan visa det långa namnet med hjälp av "Get-AzureVNetConfig-ExportToFile C:\Myfoldername\NetworkConfig.xml".
 
 I följande exempel återställs gatewayen för ett virtuellt nätverk med namnet "Group TestRG1 TestVNet1" (som visar som bara "TestVNet1" i portalen):
 
@@ -86,7 +86,7 @@ StatusCode     : OK
 
 ## <a name="azure-cli"></a><a name="cli"></a>Azure CLI
 
-För att återställa gatewayen använder du kommandot [AZ Network VNet-Gateway reset](https://docs.microsoft.com/cli/azure/network/vnet-gateway) . I följande exempel återställs en virtuell nätverksgateway som heter VNet5GW i resurs gruppen TestRG5:
+För att återställa gatewayen använder du kommandot [AZ Network VNet-Gateway reset](/cli/azure/network/vnet-gateway) . I följande exempel återställs en virtuell nätverksgateway som heter VNet5GW i resurs gruppen TestRG5:
 
 ```azurecli
 az network vnet-gateway reset -n VNet5GW -g TestRG5

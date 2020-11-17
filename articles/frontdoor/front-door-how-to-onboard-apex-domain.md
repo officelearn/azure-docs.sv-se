@@ -5,21 +5,21 @@ services: front-door
 author: duongau
 ms.service: frontdoor
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 11/13/2020
 ms.author: duau
-ms.openlocfilehash: 44813a7662420ab4dedcd0bf99cc1eec7e9d9d2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55eefe7a7490df050aa7ebc2bb41fbadcc8d8279
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819076"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646346"
 ---
 # <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Registrera en rotdomän eller basdomän på din Front Door
 Azures front dörr använder CNAME-poster för att verifiera domän ägarskap för onboarding av anpassade domäner. Front dörren exponerar inte klient delens IP-adress som är kopplad till din profil för din front dörr. Så du kan inte mappa din Apex-domän till en IP-adress om avsikten är att publicera den till Azures front dörr.
 
 DNS-protokollet förhindrar att CNAME-poster tilldelas i zonens Apex. Om din domän exempelvis är `contoso.com` , kan du skapa CNAME-poster för `somelabel.contoso.com` , men du kan inte skapa CNAME för `contoso.com` sig själv. Den här begränsningen utgör ett problem för program ägare som har belastningsutjämnade program bakom Azures front dörr. Eftersom du måste skapa en CNAME-post när du använder en profil för en frontend-dörr är det inte möjligt att peka på profilen för den främre dörren från zonens Apex.
 
-Det här problemet kan lösas genom att använda Ali Asets poster i Azure DNS. Till skillnad från CNAME-poster skapas Ali-poster i zonens Apex. Program ägare kan använda den för att peka sin zon Apex-post till en profil för en front dörr som har offentliga slut punkter. Program ägare pekar på samma profil för front dörren som används för alla andra domäner i DNS-zonen. Till exempel `contoso.com` och `www.contoso.com` kan peka på samma profil för front dörren. 
+Det här problemet kan lösas med hjälp av Ali Aset-poster i Azure DNS. Till skillnad från CNAME-poster skapas Ali-poster i zonens Apex. Program ägare kan använda den för att peka sin zon Apex-post till en profil för en front dörr som har offentliga slut punkter. Program ägare pekar på samma profil för front dörren som används för alla andra domäner i DNS-zonen. Till exempel `contoso.com` och `www.contoso.com` kan peka på samma profil för front dörren. 
 
 Att mappa din Apex eller rot domän till din profil för din klient organisation kräver i princip CNAME-förenkling eller DNS-jaga. En mekanism där DNS-providern rekursivt löser CNAME-posten tills den når en IP-adress. Den här funktionen stöds av Azure DNS för slut punkter i front dörren. 
 
@@ -40,9 +40,9 @@ Du kan använda Azure Portal för att publicera en Apex-domän på din front dö
 
 1. Välj **OK** för att skicka ändringarna.
 
-    :::image type="content" source="./media/front-door-apex-domain/front-door-apex-alias-record.png" alt-text="Aliasresurspost för Zone Apex&quot;:::
+    :::image type="content" source="./media/front-door-apex-domain/front-door-apex-alias-record.png" alt-text="Aliasresurspost för Zone Apex":::
 
-1. Steget ovan skapar en zon Apex-post som pekar på din frontend-resurs och även en CNAME-Postmappning &quot;afdverify" (exempel- `afdverify.contosonews.com` ) till den som ska användas för att registrera domänen på din profil för din front dörr.
+1. Steget ovan skapar en zon Apex-post som pekar på din frontend-resurs och även en CNAME-Postmappning "afdverify" (exempel- `afdverify.contosonews.com` ) till den som ska användas för att registrera domänen på din profil för din front dörr.
 
 ## <a name="onboard-the-custom-domain-on-your-front-door"></a>Publicera den anpassade domänen på din front dörr
 
@@ -54,19 +54,15 @@ Du kan använda Azure Portal för att publicera en Apex-domän på din front dö
 
 1. Klicka på **Spara** för att skicka ändringarna.
 
-   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-domain.png" alt-text="Aliasresurspost för Zone Apex&quot;:::
-
-1. Steget ovan skapar en zon Apex-post som pekar på din frontend-resurs och även en CNAME-Postmappning &quot;afdverify":::
+   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-domain.png" alt-text="Meny för anpassad domän":::
 
 ## <a name="enable-https-on-your-custom-domain"></a>Aktivera HTTPS på din anpassade domän
 
-1. Välj den anpassade domän som lades till och under avsnittet **anpassad https för domän**ändra status till **aktive rad**.
+1. Välj den anpassade domän som lades till och under avsnittet **anpassad https för domän** ändra status till **aktive rad**.
 
 1. Välj  **certifikat hanterings typ** att *"Använd mitt eget certifikat"*.
 
-   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-custom-domain.png" alt-text="Aliasresurspost för Zone Apex&quot;:::
-
-1. Steget ovan skapar en zon Apex-post som pekar på din frontend-resurs och även en CNAME-Postmappning &quot;afdverify":::    
+   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-custom-domain.png" alt-text="HTTPS-inställningar för anpassad domän":::    
 
    > [!WARNING]
    > Hanterings typen för hanterade certifikat från Front dörren stöds för närvarande inte för spets-eller rot domäner. Det enda alternativet som är tillgängligt för att aktivera HTTPS på en Apex eller rotdomän för front dörr använder ditt eget anpassade TLS/SSL-certifikat på Azure Key Vault.

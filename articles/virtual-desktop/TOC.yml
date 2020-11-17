@@ -112,12 +112,22 @@
   items:
     - name: Autentisering
       href: authentication.md
-    - name: Lista över säkra webbadresser
-      href: safe-url-list.md
     - name: Windows Virtual Desktop-miljö
       href: environment-setup.md
-    - name: Fastställa svarstid för användare
-      href: connection-latency.md
+    - name: Nätverksanslutningar
+      items:
+        - name: Förstå nätverksanslutningar
+          href: network-connectivity.md
+        - name: RDP Shortpath
+          href: shortpath.md
+        - name: Implementera tjänstkvalitet (QoS)
+          href: rdp-quality-of-service-qos.md
+        - name: Lista över säkra webbadresser
+          href: safe-url-list.md
+        - name: Att tänka på när det gäller bandbredden
+          href: rdp-bandwidth.md
+        - name: Fastställa svarstid för användare
+          href: connection-latency.md
     - name: Delegerad åtkomst i Windows Virtual Desktop
       href: delegated-access-virtual-desktop.md
     - name: Belastningsutjämningsmetoder för värdpool
@@ -168,8 +178,6 @@
       href: linux-overview.md
     - name: RDP-filinställningar som stöds
       href: /windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context
-    - name: Nätverksvägledning
-      href: /windows-server/remote/remote-desktop-services/network-guidance?context=/azure/virtual-desktop/context/context
     - name: Storleksvägledning för virtuella datorer
       href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
     - name: Azures kommandoradsgränssnitt (CLI)

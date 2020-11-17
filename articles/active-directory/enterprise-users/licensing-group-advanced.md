@@ -9,18 +9,18 @@ manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.subservice: users-groups-roles
-ms.date: 08/13/2020
+ms.subservice: enterprise-users
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56f16dea1f81f7f6a35409d8481550fd000864b1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c4f298cf7487e00f6ee6a8aa8913fd32f8c6beee
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376698"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647111"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenarier, begränsningar och kända problem med grupper för att hantera licensiering i Azure Active Directory
 

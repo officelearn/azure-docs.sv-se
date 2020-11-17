@@ -5,20 +5,20 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 09/04/2020
+ms.date: 11/15/2020
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8fdeefab150a2992edf40076a44c936d35b14dc
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: cac88e57ce0135295ac4b7078111102fa69e6838
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376407"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646601"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Begränsa åtkomst behörigheter för gäst (för hands version) i Azure Active Directory
 
@@ -42,7 +42,7 @@ Vi har gjort ändringar i befintliga Azure Portal-kontroller för gäst använda
 
 1. Logga in på [administrations Center för Azure AD](https://aad.portal.azure.com) med globala administratörs behörigheter.
 1. På sidan **Azure Active Directory** översikt för din organisation väljer du **användar inställningar**.
-1. Under **externa användare**väljer du **Hantera inställningar för externt samarbete**.
+1. Under **externa användare** väljer du **Hantera inställningar för externt samarbete**.
 1. På sidan **Inställningar för externt samarbete** väljer du **åtkomst till gäst användare är begränsad till egenskaper och medlemskap för de egna katalog objekt** alternativen.
 
     ![Sidan för externa samarbets inställningar i Azure AD](./media/users-restrict-guest-permissions/external-collaboration-settings.png)
@@ -150,7 +150,7 @@ Tjänsten utan aktuellt stöd kan ha kompatibilitetsproblem med den nya inställ
 - Project
 - Yammer
 
-## <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ)
+## <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar
 
 Fråga | Svar
 -------- | ------

@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: 9c0ed50cc0f7ef3580d1441fe2f361065e6f8524
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: b6c879d126b0c16f2dc6ceb41a1dfcc3ecf6a2d5
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92886761"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94639635"
 ---
 <a name="HOLTop"></a>
 
@@ -25,7 +25,7 @@ ms.locfileid: "92886761"
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
 * Den aktuella versionen av [Node.js](https://nodejs.org/)
-* När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" skapar du en visuellt innehåll resurs "  target="_blank"> skapa en visuellt innehåll resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs** .
+* När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" skapar du en visuellt innehåll resurs "  target="_blank"> skapa en visuellt innehåll resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
     * Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till Visuellt innehåll-tjänsten. Du klistrar in nyckeln och slut punkten i koden nedan i snabb starten.
     * Du kan använda den kostnads fria pris nivån ( `F0` ) för att testa tjänsten och senare uppgradera till en betald nivå för produktion.
 
@@ -68,7 +68,7 @@ Skapa variabler för resursens Azure-slutpunkt och nyckel.
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_vars)]
 
 > [!IMPORTANT]
-> Gå till Azure-portalen. Om resursen [produkt namn] som du skapade i avsnittet **krav** har distribuerats, klickar du på knappen **gå till resurs** under **Nästa steg** . Du hittar din nyckel och slut punkt i resursens **nyckel och slut punkts** sida under **resurs hantering** . 
+> Gå till Azure-portalen. Om resursen [produkt namn] som du skapade i avsnittet **krav** har distribuerats, klickar du på knappen **gå till resurs** under **Nästa steg**. Du hittar din nyckel och slut punkt i resursens **nyckel och slut punkts** sida under **resurs hantering**. 
 >
 > Kom ihåg att ta bort nyckeln från koden när du är klar och publicera den aldrig offentligt. För produktion bör du överväga att använda ett säkert sätt att lagra och komma åt dina autentiseringsuppgifter. Mer information finns i [säkerhets](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) artikeln Cognitive Services.
 
@@ -76,7 +76,7 @@ Skapa variabler för resursens Azure-slutpunkt och nyckel.
 
 Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna i Visuellt innehåll Node.js SDK.
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 | [ComputerVisionClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/computervisionclient?view=azure-node-latest) | Den här klassen krävs för alla Visuellt innehåll-funktioner. Du instansierar det med din prenumerations information och använder den för att utföra de flesta avbildnings åtgärder.|
 |[VisualFeatureTypes](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/visualfeaturetypes?view=azure-node-latest)| Den här uppräkningen definierar de olika typerna av bild analys som kan göras i en standard analys åtgärd. Du anger en uppsättning **VisualFeatureTypes** -värden beroende på dina behov. |
@@ -107,7 +107,7 @@ Definiera sedan en funktion `computerVision` och deklarera en async-serie med fu
 Koden i det här avsnittet analyserar fjärravbildningar för att extrahera olika visuella funktioner. Du kan utföra dessa åtgärder som en del av **analyzeImage** -metoden för klient objekt, eller så kan du anropa dem med hjälp av enskilda metoder. Mer information finns i [referens dokumentationen](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest) .
 
 > [!NOTE]
-> Du kan också analysera en lokal avbildning. Se [ComputerVisionClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/computervisionclient?view=azure-node-latest) -metoderna, till exempel **analyzeImageInStream** . Eller, se exempel koden på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) för scenarier som involverar lokala avbildningar.
+> Du kan också analysera en lokal avbildning. Se [ComputerVisionClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/computervisionclient?view=azure-node-latest) -metoderna, till exempel **analyzeImageInStream**. Eller, se exempel koden på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) för scenarier som involverar lokala avbildningar.
 
 ### <a name="get-image-description"></a>Beskrivning av Hämta avbildning
 
@@ -215,7 +215,7 @@ Definiera hjälp funktionen `describeType` :
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_imagetype_describe)]
 
-## <a name="extract-text-ocr-with-read"></a>Extrahera text (OCR) med Read
+## <a name="read-printed-and-handwritten-text"></a>Skriv ut och handskriven text
 
 Visuellt innehåll kan extrahera synlig text i en bild och konvertera den till en tecken ström. I det här exemplet används Läs åtgärder.
 
@@ -226,7 +226,7 @@ Spara en referens till URL: en för de avbildningar som du vill extrahera text f
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_images)]
 
 > [!NOTE]
-> Du kan också läsa text från en lokal avbildning. Se [ComputerVisionClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/computervisionclient?view=azure-node-latest) -metoderna, till exempel **readInStream** . Eller, se exempel koden på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) för scenarier som involverar lokala avbildningar.
+> Du kan också läsa text från en lokal avbildning. Se [ComputerVisionClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/computervisionclient?view=azure-node-latest) -metoderna, till exempel **readInStream**. Eller, se exempel koden på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) för scenarier som involverar lokala avbildningar.
 
 ### <a name="call-the-read-api"></a>Anropa Read API
 

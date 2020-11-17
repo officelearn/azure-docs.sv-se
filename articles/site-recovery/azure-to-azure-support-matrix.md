@@ -4,12 +4,12 @@ description: Sammanfattar stöd för haveri beredskap för virtuella Azure-dator
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: b73a6b8c024cfa5ed7188bbf3fed2bbb7142a2a0
-ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
+ms.openlocfilehash: c54c4608f04c8f98e21309ca531452ae0a34fdf2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93186645"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646380"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Supportmatris för haveriberedskap för virtuella Azure-datorer mellan Azure-regioner
 
@@ -131,7 +131,7 @@ Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5,
 18,04 LTS | [9,36](https://support.microsoft.com/help/4578241/) | 4.15.0-20-Generic to 4.15.0-112-generic </br> 4.18.0-13-Generic to 4.18.0-25-genered </br> 5.0.0-15-genered to 5.0.0-58-generic </br> 5.3.0-19-genered to 5.3.0-65-generic </br> 5.4.0 – 37-generisk till 5.4.0-42-generic</br> 4.15.0-1009 – Azure till 4.15.0-1092 – Azure </br> 4.18.0-1006 – Azure till 4.18.0 – 1025 – Azure </br> 5.0.0-1012 – Azure till 5.0.0-1036 – Azure </br> 5.3.0-1007-Azure till 5.3.0-1032 – Azure </br> 5.4.0-1020 – Azure till 5.4.0 – 1022 – Azure </br> 5.0.0-60-genered & 5.3.0-1035 – Azure till 9,36 snabb korrigerings korrigering * *|
 18,04 LTS | [9,34](https://support.microsoft.com/help/4570609), [9,35](https://support.microsoft.com/help/4573888/) | 4.15.0-20-Generic to 4.15.0-108-generic </br> 4.18.0-13-Generic to 4.18.0-25-genered </br> 5.0.0-15-Generic to 5.0.0-52-generic </br> 5.3.0-19-genered to 5.3.0-61-generic </br> 4.15.0-1009 – Azure till 4.15.0-1089 – Azure </br> 4.18.0-1006 – Azure till 4.18.0 – 1025 – Azure </br> 5.0.0-1012 – Azure till 5.0.0-1036 – Azure </br> 5.3.0-1007-Azure till 5.3.0-1031-Azure </br> 4.15.0-109-Generic, 5.0.0-53-Generic, 5.3.0-62-Generic, 4.15.0-1091-Azure & 5.3.0-1032-Azure till 9,35 snabb korrigerings korrigering * *|
 |||
-20,04 LTS |[9,38](https://support.microsoft.com/help/4590304/) | 5.4.0 – 26-Generic to 5.4.0-48 </br> -Generic 5.4.0-1010-Azure till 5.4.0-tjänsteoch Azure </br> 5.4.0-51-genered, 5.4.0-52-Generic, 5.8.0-23-genered, 5.4.0-1031-Azure till 9,38 snabb korrigering * *
+20,04 LTS |[9,38](https://support.microsoft.com/help/4590304/) | 5.4.0 – 26-Generic to 5.4.0-48 </br> -Generic 5.4.0-1010-Azure till 5.4.0-tjänsteoch Azure </br> 5.4.0-51-Generic, 5.4.0-52-Generic, 5.8.0-23-genered, 5.8.0-25-genered, 5.4.0-1031-Azure till 9,38 snabb korrigerings korrigering * *
 20,04 LTS |[9,37](https://support.microsoft.com/help/4582666/) | 5.4.0 – 26-Generic to 5.4.0-45 </br> -Generic 5.4.0-1010 – Azure till 5.4.0-1023 – Azure </br> 5.4.0-47-Generic, 5.4.0-48-genered, 5.4.0-1025-Azure, 5.4.0-– Azure till 9,37 snabb korrigerings korrigering * *
 20,04 LTS |[9,36](https://support.microsoft.com/help/4578241/) | 5.4.0-26-genered to 5.4.0-42 </br> -Generic 5.4.0-1010 – Azure till 5.4.0-1022 – Azure
 
@@ -146,7 +146,7 @@ Debian 7 |  [9,34](https://support.microsoft.com/help/4570609), [9,35](https://s
 Debian 8 | [9,35](https://support.microsoft.com/help/4573888/, ), [9,36](https://support.microsoft.com/help/4578241/), [9,37](https://support.microsoft.com/help/4582666/), [9,38](https://support.microsoft.com/help/4590304/) | 3.16.0 – 4-amd64 till 3.16.0-11-amd64, 4.9.0 -0. bpo. 4-amd64 till 4.9.0 -0. bpo. 11-amd64 |
 Debian 8 | [9,34](https://support.microsoft.com/help/4570609) | 3.16.0 – 4-amd64 till 3.16.0-10-amd64, 4.9.0 -0. bpo. 4-amd64 till 4.9.0 -0. bpo. 11-amd64 |
 |||
-Debian 9,1 | [9,38](https://support.microsoft.com/help/4590304/) | 4.9.0-1-amd64 till 4.9.0-13-amd64 </br> 4.19.0 -0. bpo. 1-amd64 till 4.19.0 -0. bpo. 11-amd64 </br> 4.19.0 -0. bpo. 1 – Cloud-amd64 till 4.19.0 -0. bpo. 11-Cloud-amd64 </br> 
+Debian 9,1 | [9,38](https://support.microsoft.com/help/4590304/) | 4.9.0-1-amd64 till 4.9.0-13-amd64 </br> 4.19.0 -0. bpo. 1-amd64 till 4.19.0 -0. bpo. 11-amd64 </br> 4.19.0 -0. bpo. 1 – Cloud-amd64 till 4.19.0 -0. bpo. 11-Cloud-amd64 </br> 4.9.0-14-amd64, 4.19.0 -0. bpo. 12-amd64, 4.19.0 -0. bpo. 12-Cloud-amd64 till 9,38 snabb korrigering * *
 Debian 9,1 | [9,37](https://support.microsoft.com/help/4582666/) | 4.9.0-3-amd64 till 4.9.0-13-amd64, 4.19.0 -0. bpo. 6-amd64 till 4.19.0 -0. bpo. 10-amd64, 4.19.0 -0. bpo. 6 – Cloud-amd64 till 4.19.0 -0. bpo. 10 – Cloud-amd64
 
 #### <a name="supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines"></a>Stöd för SUSE Linux Enterprise Server 12 kernel-versioner för Azure Virtual Machines
@@ -280,7 +280,7 @@ Intern belastningsutjämnare | Stöds | Koppla den förkonfigurerade belastnings
 Offentlig IP-adress | Stöds | Koppla en befintlig offentlig IP-adress till NÄTVERKSKORTet. Du kan också skapa en offentlig IP-adress och associera den med NÄTVERKSKORTet med hjälp av ett Azure Automation-skript i en återställnings plan.
 NSG på nätverkskort | Stöds | Koppla NSG till NÄTVERKSKORTet med hjälp av ett Azure Automation-skript i en återställnings plan.
 NSG i undernät | Stöds | Koppla NSG till under nätet med hjälp av ett Azure Automation-skript i en återställnings plan.
-Reserverad (statisk) IP-adress | Stöds | Om NÄTVERKSKORTet på den virtuella käll datorn har en statisk IP-adress, och mål under nätet har samma IP-adress, tilldelas den misslyckade över VM.<br/><br/> Om mål under nätet inte har samma IP-adress är en av de tillgängliga IP-adresserna i under nätet reserverad för den virtuella datorn.<br/><br/> Du kan också ange en fast IP-adress och undernät i inställningar för **replikerade objekt** ,  >  **Settings**  >  **beräknings-och nätverks**  >  **nätverks gränssnitt** .
+Reserverad (statisk) IP-adress | Stöds | Om NÄTVERKSKORTet på den virtuella käll datorn har en statisk IP-adress, och mål under nätet har samma IP-adress, tilldelas den misslyckade över VM.<br/><br/> Om mål under nätet inte har samma IP-adress är en av de tillgängliga IP-adresserna i under nätet reserverad för den virtuella datorn.<br/><br/> Du kan också ange en fast IP-adress och undernät i inställningar för **replikerade objekt**,  >  **Settings**  >  **beräknings-och nätverks**  >  **nätverks gränssnitt**.
 Dynamisk IP-adress | Stöds | Om NÄTVERKSKORTet på källan har dynamisk IP-adressering, är NÄTVERKSKORTet på den misslyckade virtuella datorn också dynamiskt som standard.<br/><br/> Du kan ändra detta till en fast IP-adress om det behövs.
 Flera IP-adresser | Stöds inte | När du växlar över en virtuell dator som har ett nätverkskort med flera IP-adresser behålls bara den primära IP-adressen för NÄTVERKSKORTet i käll regionen. Om du vill tilldela flera IP-adresser kan du lägga till virtuella datorer i en [återställnings plan](recovery-plan-overview.md) och bifoga ett skript för att tilldela ytterligare IP-adresser till planen, eller så kan du göra ändringen manuellt eller med ett skript efter redundansväxlingen.
 Traffic Manager     | Stöds | Du kan förkonfigurera Traffic Manager så att trafiken dirigeras till slut punkten i käll regionen regelbundet och till slut punkten i mål regionen i händelse av redundans.

@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d7208b068bee4b0a4cc30adfd98d2422718bbcc
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 24eb7ac7c4490c8d27d141f6417ae157a7a9c65b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628908"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646584"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrera till molnbaserad autentisering med stegvis distribution (för hands version)
 
@@ -73,7 +73,7 @@ Följande scenarier stöds inte för stegvis distribution:
 
 - Administratörer kan distribuera molnbaserad autentisering med hjälp av säkerhets grupper. Vi rekommenderar att du använder moln säkerhets grupper för att undvika synkronisering av svars tider när du använder lokala Active Directory säkerhets grupper. Följande villkor gäller:
 
-    - Du kan använda max 10 grupper per funktion. Det innebär att du kan använda 10 grupper var och en för *lösen ords-hash-synkronisering* , *DIREKTAUTENTISERING* och *sömlös SSO*.
+    - Du kan använda max 10 grupper per funktion. Det innebär att du kan använda 10 grupper var och en för *lösen ords-hash-synkronisering*, *DIREKTAUTENTISERING* och *sömlös SSO*.
     - Kapslade grupper *stöds inte*. Denna omfattning gäller även för den offentliga för hands versionen.
     - Dynamiska grupper *stöds inte* för mellanlagrad distribution.
     - Kontakt objekt inuti gruppen kommer att blockera gruppen från att läggas till.
@@ -117,7 +117,7 @@ Om du vill testa *direktautentisering* genom att använda mellanlagrad distribut
 
 1. Kontrol lera att du har konfigurerat [inställningarna för smart utelåsning](../authentication/howto-password-smart-lockout.md) på rätt sätt. På så sätt ser du till att dina användares lokala Active Directory-konton inte blir utelåsta av felaktiga aktörer.
 
-Vi rekommenderar att du aktiverar *sömlös SSO* oberoende av inloggnings metoden ( *lösen ordets hash-synkronisering* eller *direktautentisering* ) som du väljer för stegvis distribution. Om du vill aktivera *sömlös SSO* följer du anvisningarna i nästa avsnitt.
+Vi rekommenderar att du aktiverar *sömlös SSO* oberoende av inloggnings metoden (*lösen ordets hash-synkronisering* eller *direktautentisering*) som du väljer för stegvis distribution. Om du vill aktivera *sömlös SSO* följer du anvisningarna i nästa avsnitt.
 
 ## <a name="pre-work-for-seamless-sso"></a>För hands arbete för sömlös enkel inloggning
 
@@ -149,7 +149,7 @@ Aktivera *sömlös SSO* genom att göra följande:
 
 ## <a name="enable-staged-rollout"></a>Aktivera mellanlagrad distribution
 
-Om du vill distribuera en speciell funktion ( *vidarekoppling* , *lösen ords-hash-synkronisering* eller *sömlös SSO* ) till en Välj uppsättning användare i en grupp, följer du anvisningarna i nästa avsnitt.
+Om du vill distribuera en speciell funktion (*vidarekoppling*, *lösen ords-hash-synkronisering* eller *sömlös SSO*) till en Välj uppsättning användare i en grupp, följer du anvisningarna i nästa avsnitt.
 
 ### <a name="enable-a-staged-rollout-of-a-specific-feature-on-your-tenant"></a>Aktivera en stegvis distribution av en speciell funktion på din klient organisation
 
@@ -165,7 +165,7 @@ Gör följande:
 
 2. Välj länken **Aktivera mellanlagrad distribution för hanterad användare inloggning (för hands version)** .
 
-   Om du t. ex. vill aktivera *alternativ A* , drar du skjutreglaget för **hash-synkronisering av lösen ord** och **sömlöst enkel inloggning** till **på** , som du ser i följande avbildningar.
+   Om du t. ex. vill aktivera *alternativ A*, drar du skjutreglaget för **hash-synkronisering av lösen ord** och **sömlöst enkel inloggning** till **på**, som du ser i följande avbildningar.
 
    ![Sidan Azure AD Connect](./media/how-to-connect-staged-rollout/sr4.png)
 
@@ -178,12 +178,13 @@ Gör följande:
    >[!NOTE]
    >Medlemmarna i en grupp aktive ras automatiskt för mellanlagrad distribution. Kapslade och dynamiska grupper stöds inte för mellanlagrad distribution.
    >När du lägger till en ny grupp kommer användare i gruppen (upp till 200 användare för en ny grupp) att uppdateras för att använda Managed auth immidiatly. Genom att redigera en grupp (lägga till eller ta bort användare) kan det ta upp till 24 timmar innan ändringarna börjar gälla.
+   >Sömlös SSO gäller endast om användarna finns i den sömlösa SSO-gruppen och även i antingen en PTA-eller PHS-grupp.
 
 ## <a name="auditing"></a>Granskning
 
 Vi har aktiverat gransknings händelser för de olika åtgärder som vi utför för stegvis distribution:
 
-- Gransknings händelse när du aktiverar en mellanlagrad distribution för *lösen ords-hash-synkronisering* , *DIREKTAUTENTISERING* eller *sömlös SSO*.
+- Gransknings händelse när du aktiverar en mellanlagrad distribution för *lösen ords-hash-synkronisering*, *DIREKTAUTENTISERING* eller *sömlös SSO*.
 
   >[!NOTE]
   >En gransknings händelse loggas när *sömlös enkel inloggning* aktive ras med hjälp av mellanlagrad distribution.
@@ -192,7 +193,7 @@ Vi har aktiverat gransknings händelser för de olika åtgärder som vi utför f
 
   ![Fönstret "skapa distributions princip för funktion" – fliken ändrade egenskaper](./media/how-to-connect-staged-rollout/sr8.png)
 
-- Gransknings händelse när en grupp läggs till i *hash-synkronisering av lösen ord* , *DIREKTAUTENTISERING* eller *sömlös SSO*.
+- Gransknings händelse när en grupp läggs till i *hash-synkronisering av lösen ord*, *DIREKTAUTENTISERING* eller *sömlös SSO*.
 
   >[!NOTE]
   >En gransknings händelse loggas när en grupp läggs till i *lösen ordets hash-synkronisering* för stegvis distribution.
@@ -217,7 +218,7 @@ Om du vill testa inloggningen med *hash-synkronisering av lösen ord* eller *dir
 
 1. Kontrol lera att inloggningen visas i [rapporten inloggnings aktivitet i Azure AD](../reports-monitoring/concept-sign-ins.md) genom att filtrera med userPrincipalName.
 
-Så här testar du inloggning med *sömlös SSO* :
+Så här testar du inloggning med *sömlös SSO*:
 
 1. På intranätet går du till [sidan appar](https://myapps.microsoft.com) i en privat webbläsarsession och anger sedan USERPRINCIPALNAME (UPN) för det användar konto som har valts för stegvis distribution.
 
@@ -239,7 +240,7 @@ A: Ja, du kan använda den här funktionen i din produktions klient, men vi reko
 
 **F: kan funktionen användas för att upprätthålla en permanent "samexistens" där vissa användare använder federerad autentisering och andra använder molnbaserad autentisering?**
 
-A: Nej, den här funktionen är utformad för att migrera från federerad till molnbaserad autentisering i steg och sedan till sist klippa över till molnbaserad autentisering. Vi rekommenderar inte att du använder ett permanent blandat läge, eftersom den här metoden kan leda till oväntade autentiserings flöden.
+A: Nej, den här funktionen är utformad för att testa molnbaserad autentisering. När du har testat några få grupper av användare bör du klippa över till molnbaserad autentisering. Vi rekommenderar inte att du använder ett permanent blandat läge, eftersom den här metoden kan leda till oväntade autentiserings flöden.
 
 **F: kan jag använda PowerShell för att utföra stegvis distribution?**
 

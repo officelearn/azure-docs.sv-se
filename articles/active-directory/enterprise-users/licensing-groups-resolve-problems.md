@@ -7,20 +7,20 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/08/2019
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7529d72c3d94e3c7bef58c6a26af62b97ac92d9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: bd61a33bdcc0d18dee7dba651f097f7cd49e7149
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376554"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647043"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identifiera och lösa licens tilldelnings problem för en grupp i Azure Active Directory
 
@@ -42,7 +42,7 @@ När du använder gruppbaserad licensiering kan samma fel inträffa, men de intr
 
    ![lista över användare i grupp licensierings fel tillstånd](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
 
-1. Om du vill hitta alla grupper som innehåller minst ett fel klickar du på bladet **Azure Active Directory** väljer **licenser**och väljer sedan **Översikt**. En informations ruta visas när grupper kräver din uppmärksamhet.
+1. Om du vill hitta alla grupper som innehåller minst ett fel klickar du på bladet **Azure Active Directory** väljer **licenser** och väljer sedan **Översikt**. En informations ruta visas när grupper kräver din uppmärksamhet.
 
    ![Översikt och information om grupper med fel tillstånd](./media/licensing-groups-resolve-problems/group-errors-widget.png)
 
@@ -58,7 +58,7 @@ I följande avsnitt får du en beskrivning av varje möjligt problem och hur du 
 
 Om du vill se hur många licenser som är tillgängliga går du till **Azure Active Directory**  >  **licenser**  >  **alla produkter**.
 
-Om du vill se vilka användare och grupper som använder licenser väljer du en produkt. Under **licensierade användare**visas en lista över alla användare som har haft licenser som tilldelats direkt eller via en eller flera grupper. Under **licensierade grupper**visas alla grupper som har tilldelats dessa produkter.
+Om du vill se vilka användare och grupper som använder licenser väljer du en produkt. Under **licensierade användare** visas en lista över alla användare som har haft licenser som tilldelats direkt eller via en eller flera grupper. Under **licensierade grupper** visas alla grupper som har tilldelats dessa produkter.
 
 **PowerShell:** PowerShell-cmdlets rapporterar felet som _CountViolation_.
 
@@ -165,13 +165,13 @@ Från och med nu förbrukar alla användare som läggs till i den här gruppen e
 
 Beroende på vilka steg du har vidtagit för att lösa felen kan det vara nödvändigt att utlösa bearbetningen av en grupp manuellt för att uppdatera användar statusen.
 
-Om du till exempel frigör några licenser genom att ta bort direkta licens tilldelningar från användarna, måste du utlösa bearbetningen av grupper som tidigare inte har kunnat få fullständig licens för alla användar medlemmar. Om du vill bearbeta om en grupp går du till fönstret grupp, öppnar **licenser**och väljer sedan knappen **bearbeta** i verktygsfältet.
+Om du till exempel frigör några licenser genom att ta bort direkta licens tilldelningar från användarna, måste du utlösa bearbetningen av grupper som tidigare inte har kunnat få fullständig licens för alla användar medlemmar. Om du vill bearbeta om en grupp går du till fönstret grupp, öppnar **licenser** och väljer sedan knappen **bearbeta** i verktygsfältet.
 
 ## <a name="force-user-license-processing-to-resolve-errors"></a>Tvinga användar licens bearbetning för att lösa fel
 
 Beroende på vilka steg du har vidtagit för att lösa felen kan det vara nödvändigt att utlösa bearbetningen av en användare manuellt för att uppdatera användarens tillstånd.
 
-När du till exempel har löst problemet med dubblerad proxy-adress för en berörd användare måste du utlösa bearbetningen av användaren. Om du vill bearbeta om en användare går du till fönstret användare, öppnar **licenser**och väljer sedan knappen **bearbeta** i verktygsfältet.
+När du till exempel har löst problemet med dubblerad proxy-adress för en berörd användare måste du utlösa bearbetningen av användaren. Om du vill bearbeta om en användare går du till fönstret användare, öppnar **licenser** och väljer sedan knappen **bearbeta** i verktygsfältet.
 
 ## <a name="next-steps"></a>Nästa steg
 

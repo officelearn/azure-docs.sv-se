@@ -4,21 +4,21 @@ description: Lägg till användare i grupp i Azure AD administrations Center i A
 services: active-directory
 author: curtand
 ms.author: curtand
-manager: mtillman
-ms.date: 08/11/2020
+manager: daveba
+ms.date: 11/15/2020
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8e6ab8fd726eaba309f0949020139901dd3712f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 42e26e9b1e3548d3caeff58079ec489c2d282a63
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376530"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646890"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>Massredigera användare i Azure Active Directory
 
@@ -51,7 +51,7 @@ Raderna i en Hämtad CSV-mall är följande:
 - De obligatoriska kolumnerna visas först.
 - Vi rekommenderar inte att du lägger till nya kolumner i mallen. Eventuella ytterligare kolumner som du lägger till ignoreras och bearbetas inte.
 - Vi rekommenderar att du laddar ned den senaste versionen av CSV-mallen så ofta som möjligt.
-- Kontrol lera att det inte finns något oavsiktligt blank steg före/efter ett fält. För **användarens huvud namn**skulle ett sådant blank steg orsaka import fel.
+- Kontrol lera att det inte finns något oavsiktligt blank steg före/efter ett fält. För **användarens huvud namn** skulle ett sådant blank steg orsaka import fel.
 
 ## <a name="to-create-users-in-bulk"></a>Så här skapar du användare i grupp
 

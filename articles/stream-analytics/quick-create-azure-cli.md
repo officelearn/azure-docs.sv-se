@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 07/01/2020
-ms.openlocfilehash: 8c2e7b6a02c0a0fea32fb1effb30b682971c3f6f
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: fa7919f54663387ddef811d02137da6d3ffb9d9b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348822"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646635"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>Snabb start: skapa ett Azure Stream Analytics jobb med hjälp av Azure CLI
 
@@ -23,41 +23,11 @@ I den här snabb starten använder du Azure CLI för att definiera ett Stream An
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-* Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-## <a name="prepare-your-environment"></a>Förbered din miljö
-
-1. Logga in.
-
-   Logga in med kommandot [az login](/cli/azure/reference-index#az-login) om du använder en lokal CLI-installation.
-
-    ```azurecli
-    az login
-    ```
-
-    Slutför autentiseringsprocessen genom att följa anvisningarna i terminalen.
-
-2. Installera Azure CLI-tillägget.
-
-   När du arbetar med tilläggsreferenser för Azure CLI måste du först installera tillägget.  Med Azure CLI-tillägg får du tillgång till experimentella kommandon som inte finns med i standardversionen av CLI:t ännu.  Läs mer om tillägg, bland annat hur du uppdaterar och avinstallerar dem, i [Använda tillägg med Azure CLI](/cli/azure/azure-cli-extensions-overview).
-
-   Installera [tillägget för Stream Analytics](/cli/azure/ext/stream-analytics/stream-analytics) genom att köra följande kommando:
-
-    ```azurecli
-    az extension add --name stream-analytics
-    ```
-
-   Installera [tillägget för Azure IoT](/cli/azure/ext/azure-iot) genom att köra följande kommando:
-
-    ```azurecli
-    az extension add --name azure-iot
-    ```
-
-3. Skapa en resursgrupp.
-
-   Alla Azure-resurser måste distribueras till en resurs grupp. Resursgrupper gör det enkelt att organisera och hantera relaterade Azure-resurser.
+- Skapa en resursgrupp. Alla Azure-resurser måste distribueras till en resurs grupp. Resursgrupper gör det enkelt att organisera och hantera relaterade Azure-resurser.
 
    I den här snabb starten skapar du en resurs grupp med namnet *streamanalyticsrg* på den *östra* platsen med följande [AZ Group Create](/cli/azure/group#az-group-create) -kommando:
 
@@ -270,7 +240,7 @@ az stream-analytics job start
 
 Ta bort resursgruppen, strömningsjobbet och alla relaterade resurser när de inte längre behövs. Om du tar bort jobbet undviker du att bli fakturerad för de strömmande enheter som används av jobbet. Om du planerar att använda jobbet i framtiden kan du låta bli att ta bort det och stoppa det just nu. Om du inte planerar att fortsätta använda det här jobbet tar du bort alla resurser som skapades i snabbstarten genom att köra följande cmdlet:
 
-```powershell
+```azurecli
 az group delete \
     --name streamanalyticsrg \
     --no-wait

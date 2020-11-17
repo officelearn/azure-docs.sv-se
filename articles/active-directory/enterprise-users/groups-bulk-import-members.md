@@ -4,8 +4,8 @@ description: Lägg till grupp medlemmar i grupp i Azure Active Directory adminis
 services: active-directory
 author: curtand
 ms.author: curtand
-manager: mtillman
-ms.date: 04/27/2020
+manager: daveba
+ms.date: 11/15/2020
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d2a6e0a5459fbf53698b4204b8ae1f47a6a17bc
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 227a8261aef7953c07bcc12f7754a56dd8e7fafa
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376851"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647434"
 ---
 # <a name="bulk-add-group-members-in-azure-active-directory"></a>Mass tillägg av grupp medlemmar i Azure Active Directory
 
@@ -71,7 +71,7 @@ Du kan se statusen för alla väntande Mass förfrågningar på resultat sidan f
 
 [![Kontrol lera status på sidan med Mass åtgärds resultat.](./media/groups-bulk-import-members/bulk-center.png)](./media/groups-bulk-import-members/bulk-center.png#lightbox)
 
-Om du vill ha mer information om varje rad objekt i Mass åtgärden väljer du värdena under kolumnerna **# lyckades**, **# Failure**eller **Totalt antal förfrågningar** . Om fel inträffar visas orsaken till felet.
+Om du vill ha mer information om varje rad objekt i Mass åtgärden väljer du värdena under kolumnerna **# lyckades**, **# Failure** eller **Totalt antal förfrågningar** . Om fel inträffar visas orsaken till felet.
 
 ## <a name="bulk-import-service-limits"></a>Begränsningar för Mass import av tjänster
 

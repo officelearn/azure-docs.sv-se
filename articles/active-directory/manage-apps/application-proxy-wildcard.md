@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b566081459b0bab0aae9831e128ffbee0efaf4e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b2563b238bae310d662220d2c244e863249c9c4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85367741"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651948"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Program med jokertecken i Azure Active Directory Application Proxy
 
@@ -45,13 +45,13 @@ Du kan publicera program med jokertecken om båda, de interna och externa URL: e
 
 > http (s)://*.\<domain\>
 
-Exempel: `http(s)://*.adventure-works.com`.
+Till exempel: `http(s)://*.adventure-works.com`.
 
 Även om interna och externa URL: er kan använda olika domäner, bör de vara desamma. När du publicerar programmet visas ett fel om en av URL: erna inte har ett jokertecken.
 
 Att skapa ett program med jokertecken baseras på samma [program publicerings flöde](application-proxy-add-on-premises-application.md) som är tillgängligt för alla andra program. Den enda skillnaden är att du inkluderar ett jokertecken i URL: erna och eventuellt SSO-konfigurationen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Kom igång genom att se till att du uppfyller dessa krav.
 
@@ -72,7 +72,7 @@ När du använder anpassade domäner måste du skapa en DNS-post med en CNAME-po
 
 > `<yourAADTenantId>.tenant.runtime.msappproxy.net`
 
-För att bekräfta att du har konfigurerat din CNAME korrekt kan du använda [nslookup](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup) på en av mål slut punkterna, till exempel `expenses.adventure-works.com` .  Ditt svar bör innehålla det alias som redan nämnts ( `<yourAADTenantId>.tenant.runtime.msappproxy.net` ).
+För att bekräfta att du har konfigurerat din CNAME korrekt kan du använda [nslookup](/windows-server/administration/windows-commands/nslookup) på en av mål slut punkterna, till exempel `expenses.adventure-works.com` .  Ditt svar bör innehålla det alias som redan nämnts ( `<yourAADTenantId>.tenant.runtime.msappproxy.net` ).
 
 ## <a name="considerations"></a>Överväganden
 
@@ -84,7 +84,7 @@ För jokertecken måste den **interna webb adressen** formateras som `http(s)://
 
 ![Använd formatet http (s)://* för intern URL. \< domän>](./media/application-proxy-wildcard/22.png)
 
-När du konfigurerar en **extern URL**måste du använda följande format: `https://*.<custom domain>`
+När du konfigurerar en **extern URL** måste du använda följande format: `https://*.<custom domain>`
 
 ![För extern URL använder du formatet https://*. \< anpassad domän>](./media/application-proxy-wildcard/21.png)
 
@@ -156,7 +156,7 @@ Konfigurationen implementerar följande struktur:
 
 ![Visar den struktur som implementeras i exempel konfigurationen](./media/application-proxy-wildcard/05.png)
 
-| Färg | Beskrivning |
+| Color (Färg) | Description |
 | ---   | ---         |
 | Blå  | Program som uttryckligen publiceras och visas i Azure Portal. |
 | Mörkgrå  | Program som du kan komma åt via det överordnade programmet. |
@@ -169,11 +169,11 @@ Du måste se till att det finns en CNAME-post som pekar på `finance.adventure-w
 
 Efter de [dokumenterade stegen](application-proxy-add-on-premises-application.md)kräver det här scenariot följande inställningar:
 
-- I den **interna webb adressen**ställer du in **ekonomi** i stället för jokertecken.
+- I den **interna webb adressen** ställer du in **ekonomi** i stället för jokertecken.
 
     ![Exempel: Ange ekonomi i stället för ett jokertecken i en intern URL](./media/application-proxy-wildcard/52.png)
 
-- I den **externa webb adressen**ställer du in **ekonomi** i stället för jokertecken.
+- I den **externa webb adressen** ställer du in **ekonomi** i stället för jokertecken.
 
     ![Exempel: Ange ekonomi i stället för ett jokertecken i en extern URL](./media/application-proxy-wildcard/53.png)
 
@@ -191,5 +191,5 @@ Om du har flera program publicerade för finansiering och du har `finance.advent
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om **anpassade domäner**finns [i arbeta med anpassade domäner i Azure AD-programproxy](application-proxy-configure-custom-domain.md).
-- Mer information om hur du **publicerar program**finns i [Publicera program med hjälp av Azure AD-programproxy](application-proxy-add-on-premises-application.md)
+- Mer information om **anpassade domäner** finns [i arbeta med anpassade domäner i Azure AD-programproxy](application-proxy-configure-custom-domain.md).
+- Mer information om hur du **publicerar program** finns i [Publicera program med hjälp av Azure AD-programproxy](application-proxy-add-on-premises-application.md)

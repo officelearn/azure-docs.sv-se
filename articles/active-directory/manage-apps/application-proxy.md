@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 65e1b1b5e84c3344a082b73b7768935d788a3394
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 668976e9777b35e514746070f0f4039a12b4e02b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90707415"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651727"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-ad-application-proxy"></a>Fjärråtkomst till lokala program via Azure AD-programproxy
 
@@ -36,7 +36,7 @@ Application Proxy är en funktion i Azure AD som gör det möjligt för använda
 Application Proxy fungerar med:
 
 * Webb program som använder [integrerad Windows-autentisering](application-proxy-configure-single-sign-on-with-kcd.md) för autentisering
-* Webb program som använder form-baserad eller [rubrik baserad](application-proxy-configure-single-sign-on-with-ping-access.md) åtkomst
+* Webb program som använder form-baserad eller [rubrik baserad](/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-headers) åtkomst
 * Webb-API: er som du vill exponera för rika program på olika enheter
 * Program som finns bakom en [fjärr skrivbords-Gateway](application-proxy-integrate-with-remote-desktop-services.md)
 * Rika klient program som är integrerade med Microsoft Authentication Library (MSAL)
@@ -74,4 +74,3 @@ Följande diagram visar hur Azure AD och Application Proxy arbetar tillsammans f
 
 ## <a name="next-steps"></a>Nästa steg
 Information om hur du börjar använda Application Proxy finns i [Självstudier: Lägg till ett lokalt program för fjärråtkomst via programproxy](application-proxy-add-on-premises-application.md).
-

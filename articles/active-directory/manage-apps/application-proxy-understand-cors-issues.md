@@ -11,18 +11,18 @@ ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 2019802725e36c2400f57952fedf7af40877c8c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8836295e9f54260c4e9ff6c1da333ef2a86d58fb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84759937"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651863"
 ---
 # <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>Förstå och lösa Azure Active Directory-programproxy CORS-problem
 
-[Resurs delning mellan ursprung (CORS)](https://www.w3.org/TR/cors/)   kan ibland innebära utmaningar för appar och API: er som du publicerar via Azure Active Directory-programproxy. I den här artikeln beskrivs problem och lösningar för Azure AD-programproxy CORS.
+[Resurs delning mellan ursprung (CORS)](https://www.w3.org/TR/cors/) kan ibland innebära utmaningar för appar och API: er som du publicerar via Azure Active Directory-programproxy. I den här artikeln beskrivs problem och lösningar för Azure AD-programproxy CORS.
 
-Webb läsar säkerhet förhindrar vanligt vis en webb sida från att göra AJAX-begäranden till en annan domän. Den här begränsningen kallas *samma ursprungs princip*och förhindrar att en skadlig webbplats läser känsliga data från en annan plats. Men ibland kanske du vill låta andra platser anropa ditt webb-API. CORS är en W3C-standard som gör det möjligt för en server att öka principen för samma ursprung och tillåta vissa frågor om flera ursprung medan andra nekas.
+Webb läsar säkerhet förhindrar vanligt vis en webb sida från att göra AJAX-begäranden till en annan domän. Den här begränsningen kallas *samma ursprungs princip* och förhindrar att en skadlig webbplats läser känsliga data från en annan plats. Men ibland kanske du vill låta andra platser anropa ditt webb-API. CORS är en W3C-standard som gör det möjligt för en server att öka principen för samma ursprung och tillåta vissa frågor om flera ursprung medan andra nekas.
 
 ## <a name="understand-and-identify-cors-issues"></a>Förstå och identifiera CORS-problem
 
@@ -66,13 +66,13 @@ Du kan lösa föregående CORS-problem på något av flera sätt.
 
 ### <a name="option-1-set-up-a-custom-domain"></a>Alternativ 1: Konfigurera en anpassad domän
 
-Använd en anpassad Azure AD-programproxy- [domän](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) för att publicera från samma ursprung, utan att behöva göra några ändringar i appens ursprung, kod eller rubriker. 
+Använd en anpassad Azure AD-programproxy- [domän](./application-proxy-configure-custom-domain.md) för att publicera från samma ursprung, utan att behöva göra några ändringar i appens ursprung, kod eller rubriker. 
 
 ### <a name="option-2-publish-the-parent-directory"></a>Alternativ 2: publicera den överordnade katalogen
 
 Publicera den överordnade katalogen för båda apparna. Den här lösningen fungerar särskilt bra om du bara har två appar på webb servern. I stället för att publicera varje app separat kan du publicera den gemensamma överordnade katalogen, vilket resulterar i samma ursprung.
 
-I följande exempel visas portalens Azure AD-programproxy-sida för CORSWebClient-appen.  När den **interna URL:** en är inställd på *contoso.com/CORSWebClient*kan appen inte göra lyckade förfrågningar till *contoso.com/CORSWebService* -katalogen, eftersom de är mellan ursprung. 
+I följande exempel visas portalens Azure AD-programproxy-sida för CORSWebClient-appen.  När den **interna URL:** en är inställd på *contoso.com/CORSWebClient* kan appen inte göra lyckade förfrågningar till *contoso.com/CORSWebService* -katalogen, eftersom de är mellan ursprung. 
 
 ![Publicera app individuellt](./media/application-proxy-understand-cors-issues/image4.png)
 
@@ -117,4 +117,4 @@ Vissa CORS-problem kan inte lösas, till exempel när appen omdirigeras till *lo
 ## <a name="see-also"></a>Se även
 - [Självstudie: Lägg till ett lokalt program för fjärråtkomst via Application Proxy i Azure Active Directory](application-proxy-add-on-premises-application.md) 
 - [Planera en distribution av Azure AD-programproxy](application-proxy-deployment-plan.md) 
-- [Fjärråtkomst till lokala program via Azure Active Directory-programproxy](application-proxy.md) 
+- [Fjärråtkomst till lokala program via Azure Active Directory-programproxy](application-proxy.md)

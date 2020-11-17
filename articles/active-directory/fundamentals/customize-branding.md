@@ -13,18 +13,18 @@ ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04e1d35ab17a49dd1c4e9bd2bd19289de2b8658a
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: bb138ade0f579a7545c0910646b6adfb7d5ac02a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "89565862"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650231"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Lägg till anpassning till din organisations Azure Active Directory inloggnings sida
 Använd organisationens logo typ och egna färg scheman för att ge ett enhetligt utseende på dina Azure Active Directory-inloggnings sidor (Azure AD). Dina inloggnings sidor visas när användarna loggar in i din organisations webbaserade appar, till exempel Microsoft 365, som använder Azure AD som identitets leverantör.
 
 >[!NOTE]
->Om du lägger till anpassad anpassning måste du använda Azure Active Directory Premium 1, Premium 2 eller Basic-versioner, eller ha en Microsoft 365 licens. Mer information om licenser och versioner finns i [Registrera dig för Azure AD Premium](active-directory-get-started-premium.md).<br><br>Azure AD Premium och Basic är tillgängliga för kunder i Kina genom den globala instansen av Azure Active Directory. Azure AD Premium och Basic stöds inte för närvarande i den Azure-tjänst som drivs av 21Vianet i Kina. Om du vill ha mer information kontaktar du oss via [Azure Active Directory-forumet](https://feedback.azure.com/forums/169401-azure-active-directory/).
+>Om du lägger till anpassad anpassning måste du ha Azure Active Directory Premium 1-eller Premium 2-licenser. Mer information om licenser och versioner finns i [Registrera dig för Azure AD Premium](active-directory-get-started-premium.md).<br><br>Azure AD Premium-versioner är tillgängliga för kunder i Kina som använder den globala instansen av Azure Active Directory. Azure AD Premium-versioner stöds för närvarande inte i Azure-tjänsten som drivs av 21Vianet i Kina. Om du vill ha mer information kontaktar du oss via [Azure Active Directory-forumet](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Anpassa din inloggnings sida för Azure AD
 Du kan anpassa dina inloggnings sidor för Azure AD, som visas när användarna loggar in till din organisations klientbaserade appar, till exempel `https://outlook.com/contoso.com` eller när de skickar en domän variabel, till exempel `https://passwordreset.microsoftonline.com/?whr=contoso.com` .

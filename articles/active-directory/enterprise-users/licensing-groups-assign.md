@@ -9,18 +9,18 @@ manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.subservice: users-groups-roles
-ms.date: 04/29/2020
+ms.subservice: enterprise-users
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e1b61ca00b83d4c6b43fb5ade68dfb1228f0e0d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 732a92aea321bac0bc9cea4d3eee5a3979a469b1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376599"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650588"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Tilldela licenser till användare efter grupp medlemskap i Azure Active Directory
 
@@ -39,7 +39,7 @@ I det här exemplet innehåller Azure AD-organisationen en säkerhets grupp med 
 
 1. Välj **licenser** för att öppna en sida där du kan se och hantera alla licensierbart-produkter i organisationen.
 
-1. Under **alla produkter**väljer du både Office 365 Enterprise E5 och Enterprise Mobility + Security E3 genom att välja produkt namnen. Om du vill starta tilldelningen väljer du **tilldela** högst upp på sidan.
+1. Under **alla produkter** väljer du både Office 365 Enterprise E5 och Enterprise Mobility + Security E3 genom att välja produkt namnen. Om du vill starta tilldelningen väljer du **tilldela** högst upp på sidan.
 
    ![Välj produkter för att tilldela licenser](./media/licensing-groups-assign/licenses-all-products-assign.png)
   
@@ -61,7 +61,7 @@ När du tilldelar licenser till en grupp bearbetar Azure AD alla befintliga medl
 
 1. Gå till **Azure Active Directory**  >  **grupper**. Välj den grupp som licenserna tilldelades.
 
-1. Välj **licenser**på sidan grupp. På så sätt kan du snabbt bekräfta om licenserna har tilldelats fullständigt till användare och om det finns fel som du behöver titta på. Följande information är tillgänglig:
+1. Välj **licenser** på sidan grupp. På så sätt kan du snabbt bekräfta om licenserna har tilldelats fullständigt till användare och om det finns fel som du behöver titta på. Följande information är tillgänglig:
 
    - Tjänst licenser som är tilldelade till gruppen. Välj en post för att visa de enskilda tjänster som har Aktiver ATS och att göra ändringar.
 
@@ -81,8 +81,8 @@ När du tilldelar licenser till en grupp bearbetar Azure AD alla befintliga medl
 
 ## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Steg 3: Sök efter licens problem och lös dem
 
-1. Gå till **Azure Active Directory**  >  **grupper**och Sök efter den grupp som licenser har tilldelats.
-1. Välj **licenser**på sidan grupp. Meddelandet överst på sidan visar att det finns 10 användare som det inte gick att tilldela licenser till. Öppna den för att se en lista över alla användare i ett licensierings fel tillstånd för den här gruppen.
+1. Gå till **Azure Active Directory**  >  **grupper** och Sök efter den grupp som licenser har tilldelats.
+1. Välj **licenser** på sidan grupp. Meddelandet överst på sidan visar att det finns 10 användare som det inte gick att tilldela licenser till. Öppna den för att se en lista över alla användare i ett licensierings fel tillstånd för den här gruppen.
 1. Kolumnen **misslyckade tilldelningar** visar att det inte gick att tilldela båda produkt licenserna till användarna. Den **vanligaste orsaken till fel** -kolumnen innehåller orsaken till felet. I det här fallet är **tjänst planer i konflikt**.
 
    ![licenser som inte kunde tilldelas](./media/licensing-groups-assign/failed-assignments.png)

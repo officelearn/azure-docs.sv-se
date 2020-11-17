@@ -7,31 +7,27 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/06/2019
+ms.date: 11/16/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cf072ae9544cd479aeca02d9b9fcd670b8eb5fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74754c973dbe11d954a1714e9a98d99de639acd4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89226904"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651149"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Krav för Azure AD Connect-molnetablering
 Den här artikeln innehåller rikt linjer för hur du väljer och använder Azure Active Directory (Azure AD) Anslut moln etablering som din identitets lösning.
-
-
 
 ## <a name="cloud-provisioning-agent-requirements"></a>Krav för moln etablerings agent
 Du behöver följande för att kunna använda Azure AD Connect Cloud-etablering:
     
 - Ett administratörs konto med hybrid identitet för din Azure AD-klient som inte är en gäst användare.
 - En lokal server för etablerings agenten med Windows 2012 R2 eller senare.  Den här servern måste vara en nivå 0-server som baseras på [Active Directory administratörs nivå modell](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
+- Domän administratörs-eller företags administratörs behörighet för att skapa Azure AD Connect Cloud Sync-gMSA (grupphanterat tjänst konto) för att köra Agent tjänsten.
 - Konfigurationer för lokala brand väggar.
-
->[!NOTE]
->Etablerings agenten kan för närvarande bara installeras på engelska språk servrar. Att installera ett engelskt språk paket på en icke-engelsk server är inte en giltig lösning och leder till att agenten inte kan installeras. 
 
 Resten av dokumentet innehåller steg-för-steg-instruktioner för dessa krav.
 
@@ -57,7 +53,9 @@ Kör [IdFix-verktyget](/office365/enterprise/prepare-directory-attributes-for-sy
         | --- | --- |
         | **80** | Hämtar listor över återkallade certifikat (CRL) När TLS/SSL-certifikatet verifierades.  |
         | **443** | Hanterar all utgående kommunikation med tjänsten. |
+        |**8082**|Krävs för installation och om du vill konfigurera hans administrations-API.  Den här porten kan tas bort när agenten har installerats och om du inte planerar att använda API: et.   |
         | **8080** (valfritt) | Agenter rapporterar sin status var 10: e minut via port 8080, om port 443 inte är tillgänglig. Den här statusen visas i Azure AD-portalen. |
+   
      
    - Om brand väggen tillämpar regler enligt de ursprungliga användarna öppnar du portarna för trafik från Windows-tjänster som körs som en nätverks tjänst.
    - Om din brand vägg eller proxy låter dig ange säkra suffix lägger du till anslutningar till \* . msappproxy.net och \* . ServiceBus.Windows.net. Om inte, Tillåt åtkomst till [Azure datacenter IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653)som uppdateras varje vecka.
@@ -66,6 +64,17 @@ Kör [IdFix-verktyget](/office365/enterprise/prepare-directory-attributes-for-sy
 
 >[!NOTE]
 > Det finns inte stöd för att installera moln etablerings agenten på Windows Server Core.
+
+## <a name="group-managed-service-accounts"></a>Grupphanterade tjänstkonton
+Ett grupphanterat tjänst konto är ett hanterat domän konto som tillhandahåller automatisk lösen ords hantering, förenklad hantering av tjänst huvud namn (SPN), möjlighet att delegera hanteringen till andra administratörer och även utöka den här funktionaliteten över flera servrar.  Azure AD Connect Cloud Sync stöder och använder en gMSA för att köra agenten.  Du uppmanas att ange administratörs behörighet under installationen för att kunna skapa det här kontot.  Kontot visas som (domain\provAgentgMSA $).  Mer information om en gMSA finns i [gruppera hanterade tjänst konton](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
+
+### <a name="prerequisites-for-gmsa"></a>Krav för gMSA:
+1.  Active Directory-schemat i gMSA-domänens skog måste uppdateras till Windows Server 2012
+2.  [PowerShell-moduler för RSAT](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools) på en domänkontrollant
+3.  Minst en domänkontrollant i domänen måste köra Windows Server 2012.
+4.  En domänansluten server där agenten installeras måste vara antingen Windows Server 2012 eller senare.
+
+Anvisningar för hur du uppgraderar en befintlig agent för att använda ett gMSA-konto finns i [gruppera hanterade tjänst konton](how-to-install.md#group-managed-service-accounts).
 
 
 ### <a name="additional-requirements"></a>Ytterligare krav
@@ -90,6 +99,8 @@ Följ dessa steg om du vill aktivera TLS 1,2.
     ```
 
 1. Starta om servern.
+
+
 
 
 ## <a name="next-steps"></a>Nästa steg 

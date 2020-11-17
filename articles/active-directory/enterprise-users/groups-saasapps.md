@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c78b61798e72d87ec245082a5822bcfc58a1b61
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 58d5cc64b21207efbdefdafe020248212eed7efe
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377115"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650571"
 ---
 # <a name="using-a-group-to-manage-access-to-saas-applications"></a>Använd en grupp för att hantera åtkomst till SaaS-program
 
@@ -32,10 +32,10 @@ Med hjälp av Azure Active Directory (Azure AD) med en Azure AD Premium licens p
 
 ## <a name="to-assign-access-for-a-user-or-group-to-a-saas-application"></a>Tilldela åtkomst för en användare eller grupp till ett SaaS-program
 
-1. Välj **företags program**i [administrations centret för Azure AD](https://aad.portal.azure.com).
+1. Välj **företags program** i [administrations centret för Azure AD](https://aad.portal.azure.com).
 2. Välj ett program som du har lagt till i program galleriet för att öppna det.
-3. Välj **användare och grupper**och välj sedan **Lägg till användare**.
-4. I **Lägg till tilldelning**väljer du **användare och grupper** för att öppna urvals listan **användare och grupper** .
+3. Välj **användare och grupper** och välj sedan **Lägg till användare**.
+4. I **Lägg till tilldelning** väljer du **användare och grupper** för att öppna urvals listan **användare och grupper** .
 6. Välj så många grupper eller användare som du vill, klicka eller tryck sedan på **Välj** för att lägga till dem i listan **Lägg till tilldelning** . Du kan också tilldela en roll till en användare i det här skedet.
 7. Välj **tilldela** för att tilldela användare eller grupper till det valda företags programmet.
 

@@ -12,20 +12,20 @@ ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.custom: contperfq2
-ms.openlocfilehash: 12b11d6283bbed4e43daf52a65c0c259c476e73f
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: e75669c70c67d55c94642a0f6dbe3c9dbc3376e6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357920"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651557"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>Problem med att logga in till SAML-baserade enkel inloggning konfigurerade appar
 För att felsöka inloggnings problemen nedan rekommenderar vi följande för att bättre diagnostisera och automatisera lösnings stegen:
 
-- Installera [tillägget Mina appar säker webbläsare](access-panel-extension-problem-installing.md) för att hjälpa Azure Active Directory (Azure AD) för att ge bättre diagnos och lösningar när du använder test miljön i Azure Portal.
-- Återskapa felet med hjälp av test upplevelsen på sidan konfiguration av app i Azure Portal. Läs mer om [Debug SAML-baserade enkla inloggnings program](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+- Installera [tillägget Mina appar säker webbläsare](./access-panel-deployment-plan.md) för att hjälpa Azure Active Directory (Azure AD) för att ge bättre diagnos och lösningar när du använder test miljön i Azure Portal.
+- Återskapa felet med hjälp av test upplevelsen på sidan konfiguration av app i Azure Portal. Läs mer om [Debug SAML-baserade enkla inloggnings program](./debug-saml-sso-issues.md)
 
-Om du använder [test upplevelsen](../azuread-dev/howto-v1-debug-saml-sso-issues.md) i Azure Portal med tillägget mina appars säkra webbläsare, behöver du inte manuellt följa stegen nedan för att öppna konfigurations sidan för SAML-baserad enkel inloggning.
+Om du använder [test upplevelsen](./debug-saml-sso-issues.md) i Azure Portal med tillägget mina appars säkra webbläsare, behöver du inte manuellt följa stegen nedan för att öppna konfigurations sidan för SAML-baserad enkel inloggning.
 
 Öppna konfigurations sidan för SAML-baserad enkel inloggning:
 1.  Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör** eller **administratör**.
@@ -88,7 +88,7 @@ Azure AD stöder inte den SAML-begäran som skickas av programmet för enkel inl
 
 **Lösning**
 
-1. Avbilda SAML-begäran. Följ självstudien [för att FELSÖKA SAML-baserad enkel inloggning till program i Azure AD](../azuread-dev/howto-v1-debug-saml-sso-issues.md) för att lära dig hur du samlar in SAML-begäran.
+1. Avbilda SAML-begäran. Följ självstudien [för att FELSÖKA SAML-baserad enkel inloggning till program i Azure AD](./debug-saml-sso-issues.md) för att lära dig hur du samlar in SAML-begäran.
 1. Kontakta programvaruleverantören och dela följande information:
     - SAML-begäran
     - [Krav för SAML-protokoll för enkel inloggning i Azure AD](../develop/single-sign-on-saml-protocol.md)
@@ -174,5 +174,5 @@ Jämför resursen som du begär åtkomst till i kod med de konfigurerade behöri
 
 ## <a name="next-steps"></a>Nästa steg
 - [Snabb starts serie för program hantering](add-application-portal-assign-users.md)
-- [Felsöka SAML-baserad enkel inloggning till program i Azure AD](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
-- [Krav för SAML-protokoll för enkel inloggning i Azure AD](../develop/active-directory-single-sign-on-protocol-reference.md)
+- [Felsöka SAML-baserad enkel inloggning till program i Azure AD](./debug-saml-sso-issues.md)
+- [Krav för SAML-protokoll för enkel inloggning i Azure AD](../develop/single-sign-on-saml-protocol.md)

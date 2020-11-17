@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Lär dig hur du skapar och använder en statisk IP-adress med AKS-belastningsutjämnaren (Azure Kubernetes service).
 services: container-service
 ms.topic: article
-ms.date: 03/09/2020
-ms.openlocfilehash: 3055b5d32055d0ed0e3870f16f6af95407a68cd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/14/2020
+ms.openlocfilehash: 22fd099633556fa9ddce575c2ac238b4950667cb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86243944"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651897"
 ---
 # <a name="use-a-static-public-ip-address-and-dns-label-with-the-azure-kubernetes-service-aks-load-balancer"></a>Använd en statisk offentlig IP-adress och DNS-etikett med belastningsutjämnaren för Azure Kubernetes service (AKS)
 
@@ -22,7 +22,7 @@ Den här artikeln visar hur du skapar en statisk offentlig IP-adress och tilldel
 
 Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster kan du läsa snabb starten för AKS [med hjälp av Azure CLI][aks-quickstart-cli] eller [Azure Portal][aks-quickstart-portal].
 
-Du måste också ha Azure CLI-versionen 2.0.59 eller senare installerad och konfigurerad. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
+Du måste också ha Azure CLI-versionen 2.0.59 eller senare installerad och konfigurerad. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
 
 Den här artikeln beskriver hur du använder en *standard* -SKU-IP med en *standard* -SKU-belastningsutjämnare. Mer information finns i [IP-diagramtyper och autentiseringsmetoder i Azure][ip-sku].
 
@@ -73,6 +73,9 @@ az role assignment create \
 ```
 
 Du kan också använda systemtilldelad hanterad identitet för behörigheter i stället för tjänstens huvud namn. Mer information finns i [använda hanterade identiteter](use-managed-identity.md).
+
+> [!IMPORTANT]
+> Om du har anpassat den utgående IP-adressen kontrollerar du att din kluster identitet har behörighet till både den utgående offentliga IP-adressen och den inkommande offentliga IP-adressen.
 
 Om du vill skapa en *Loadbalancer* -tjänst med den statiska offentliga IP-adressen lägger du till `loadBalancerIP` egenskapen och värdet för den statiska offentliga IP-adressen i yaml-manifestet. Skapa en fil med namnet `load-balancer-service.yaml` och kopiera i följande yaml. Ange din egen offentliga IP-adress som skapades i föregående steg. I följande exempel anges även anteckningen till resurs gruppen med namnet *myResourceGroup*. Ange ett eget namn på din resurs grupp.
 

@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c826a679c1c64e113beb6b2cc5ffd29f82b55a3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 779286a43f8b20ce9a9a528e14eaa930763d82b4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84759546"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651591"
 ---
 # <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>En app-sida visar ett fel meddelande när användaren loggar in
 
@@ -29,7 +29,7 @@ I det här scenariot signerar Azure Active Directory (Azure AD) användaren i. M
 
 Det finns flera möjliga orsaker till varför appen inte accepterade svaret från Azure AD. Om fel meddelandet inte tydligt identifierar vad som saknas i svaret kan du prova följande:
 
--   Om appen är Azure AD-galleriet kontrollerar du att du har följt stegen i [FELSÖKA SAML-baserad enkel inloggning till program i Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
+-   Om appen är Azure AD-galleriet kontrollerar du att du har följt stegen i [FELSÖKA SAML-baserad enkel inloggning till program i Azure AD](./debug-saml-sso-issues.md).
 
 -   Använd ett verktyg som [Fiddler](https://www.telerik.com/fiddler) för att avbilda SAML-begäran, svar och token.
 
@@ -56,11 +56,11 @@ Följ dessa steg om du vill lägga till ett attribut i Azure AD-konfigurationen 
 
 7. När appen har lästs in väljer du **enkel inloggning** i navigerings fönstret.
 
-8. I avsnittet **användarattribut** väljer du **Visa och redigera alla andra**användarattribut. Här kan du ändra vilka attribut som ska skickas till appen i SAML-token när användarna loggar in.
+8. I avsnittet **användarattribut** väljer du **Visa och redigera alla andra** användarattribut. Här kan du ändra vilka attribut som ska skickas till appen i SAML-token när användarna loggar in.
 
    Så här lägger du till ett attribut:
 
-   1. Välj **Lägg till attribut**. Ange **namnet**och välj **värdet** i list rutan.
+   1. Välj **Lägg till attribut**. Ange **namnet** och välj **värdet** i list rutan.
 
    1.  Välj **Spara**. Du ser det nya attributet i tabellen.
 
@@ -72,7 +72,7 @@ Följ dessa steg om du vill lägga till ett attribut i Azure AD-konfigurationen 
 
 Det går inte att logga in på appen eftersom SAML-svaret saknar attribut, till exempel en roll. Eller också Miss lyckas det eftersom appen förväntar sig ett annat format eller värde för attributet **NameID** (användar-ID).
 
-Om du använder [automatiserad användar etablering i Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) för att skapa, underhålla och ta bort användare i appen, kontrollerar du att användaren har etablerats till SaaS-appen. Mer information finns i [inga användare som tillhandahålls till ett Azure AD Gallery-program](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md).
+Om du använder [automatiserad användar etablering i Azure AD](../app-provisioning/user-provisioning.md) för att skapa, underhålla och ta bort användare i appen, kontrollerar du att användaren har etablerats till SaaS-appen. Mer information finns i [inga användare som tillhandahålls till ett Azure AD Gallery-program](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md).
 
 ## <a name="add-an-attribute-to-the-azure-ad-app-configuration"></a>Lägg till ett attribut i Azure AD-appens konfiguration
 
@@ -95,13 +95,13 @@ Följ dessa steg om du vill ändra värdet för användar-ID:
 
 7. När appen har lästs in väljer du **enkel inloggning** i navigerings fönstret.
 
-8. Under **användarattribut**väljer du den unika identifieraren för användaren i list rutan **användar identifierare** .
+8. Under **användarattribut** väljer du den unika identifieraren för användaren i list rutan **användar identifierare** .
 
 ## <a name="change-the-nameid-format"></a>Ändra NameID-formatet
 
-Om programmet förväntar sig ett annat format för attributet **NameID** (användar identifierare) läser du [Redigera NameID](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization#editing-nameid) för att ändra NameID-formatet.
+Om programmet förväntar sig ett annat format för attributet **NameID** (användar identifierare) läser du [Redigera NameID](../develop/active-directory-saml-claims-customization.md#editing-nameid) för att ändra NameID-formatet.
 
-Azure AD väljer formatet för attributet **NameID** (användar-ID) baserat på det värde som är markerat eller det format som har begärts av appen i SAML-AuthRequest. Mer information finns i avsnittet "NameIDPolicy" i [SAML-protokoll för enkel inloggning](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol#nameidpolicy).
+Azure AD väljer formatet för attributet **NameID** (användar-ID) baserat på det värde som är markerat eller det format som har begärts av appen i SAML-AuthRequest. Mer information finns i avsnittet "NameIDPolicy" i [SAML-protokoll för enkel inloggning](../develop/single-sign-on-saml-protocol.md#nameidpolicy).
 
 ## <a name="the-app-expects-a-different-signature-method-for-the-saml-response"></a>Appen förväntar sig en annan Signaturtyp för SAML-svaret
 
@@ -124,7 +124,7 @@ Följ dessa steg om du vill ändra vilka delar av SAML-token som signerats digit
 
 7. När programmet har lästs in väljer du **enkel inloggning** i navigerings fönstret.
 
-8. Under **SAML-signerings certifikat**väljer du  **Visa avancerade inställningar för certifikat signering**.
+8. Under **SAML-signerings certifikat** väljer du  **Visa avancerade inställningar för certifikat signering**.
 
 9. Välj det **signerings alternativ** som appen förväntar sig bland dessa alternativ:
 
@@ -157,11 +157,11 @@ Följ dessa steg om du vill ändra signeringsalgoritmen:
 
 7. När appen har lästs in väljer du **enkel inloggning** från navigerings fönstret till vänster i appen.
 
-8. Under **SAML-signerings certifikat**väljer du **Visa avancerade inställningar för certifikat signering**.
+8. Under **SAML-signerings certifikat** väljer du **Visa avancerade inställningar för certifikat signering**.
 
 9. Välj **SHA-1** som **Signeringsalgoritm**.
 
    Nästa gången användaren loggar in i appen signerar Azure AD SAML-token med hjälp av SHA-1-algoritmen.
 
 ## <a name="next-steps"></a>Nästa steg
-[FELSÖKA SAML-baserad enkel inloggning till program i Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
+[FELSÖKA SAML-baserad enkel inloggning till program i Azure AD](./debug-saml-sso-issues.md).

@@ -3,22 +3,22 @@ title: Stäng ett arbets-eller skol konto i en ohanterad Azure AD-organisation
 description: Hur du stänger ditt arbets-eller skol konto i en ohanterad Azure Active Directory.
 services: active-directory
 author: rolyon
-manager: mtillman
+manager: daveba
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/20/2019
+ms.date: 11/20/2020
 ms.author: rolyon
 ms.reviewer: ''
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87e03214e2a00a16064763f35f38bdd3ea0e6123
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 142143f96314539051ea44c00c6ff95cb2650566
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376410"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650214"
 ---
 # <a name="close-your-work-or-school-account-in-an-unmanaged-azure-ad-organization"></a>Stäng ditt arbets-eller skol konto i en ohanterad Azure AD-organisation
 
@@ -45,7 +45,7 @@ Följ dessa steg om du vill stänga ett ohanterat arbets-eller skol konto:
 
 1. Logga in för att [stänga ditt konto](https://go.microsoft.com/fwlink/?linkid=873123)med det konto som du vill stänga.
 
-1. På **mina data förfrågningar**väljer du **Stäng konto**.
+1. På **mina data förfrågningar** väljer du **Stäng konto**.
 
     ![Mina data förfrågningar – Stäng konto](./media/users-close-account/close-account.png)
 

@@ -12,12 +12,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperfq2
-ms.openlocfilehash: e03598ab53a9061a59e18041b2f3f4dc04e1b110
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 8cbc683f06b809ec4d9c63a61d73a0c731a92cd7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424545"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651626"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Felsöka problem med att logga in till ett program från Azure AD Mina appar
 
@@ -100,8 +100,8 @@ Följ dessa steg om du vill återställa en användares lösen ord:
 
 ### <a name="enable-self-service-password-reset"></a>Aktivera lösenordsåterställning via självbetjäning
 Följ dessa distributions steg för att aktivera självbetjäning för återställning av lösen ord:
--   [Gör det möjligt för användare att återställa sina Azure Active Directory lösen ord](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
--   [Gör det möjligt för användare att återställa eller ändra sina Active Directory lokala lösen ord](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+-   [Gör det möjligt för användare att återställa sina Azure Active Directory lösen ord](../authentication/tutorial-enable-sspr.md)
+-   [Gör det möjligt för användare att återställa eller ändra sina Active Directory lokala lösen ord](../authentication/tutorial-enable-sspr.md)
 
 ### <a name="check-a-users-multi-factor-authentication-status"></a>Kontrol lera en användares Multi-Factor Authentication-status
 Följ dessa steg om du vill kontrol lera en användares Multi-Factor Authentication-status:
@@ -113,7 +113,7 @@ Följ dessa steg om du vill kontrol lera en användares Multi-Factor Authenticat
 6. Välj knappen **Multi-Factor Authentication** överst i fönstret.
 7. Se till att du är på fliken **användare** när **Multi-Factor Authentication administrations Portal** har lästs in.
 8. Hitta användaren i listan med användare genom att söka, filtrera eller sortera.
-9. Välj användaren i listan med användare och **Aktivera**, **inaktivera**eller **tillämpa** Multi-Factor Authentication som önskade.
+9. Välj användaren i listan med användare och **Aktivera**, **inaktivera** eller **tillämpa** Multi-Factor Authentication som önskade.
    >[!NOTE]
    >Om en användare är i **tvingande** tillstånd kan du ange att de tillfälligt **inaktive ras** för att låta dem gå tillbaka till sitt konto. När du har loggat in igen kan du ändra deras status till **aktive rad** för att kräva att de registrerar sin kontakt information igen under nästa inloggning. Du kan också följa stegen i [kontakt informationen för en användares autentisering](#check-a-users-authentication-contact-info) för att verifiera eller ange data för dem.
 

@@ -4,8 +4,8 @@ description: Ta bort användare i grupp i Azure administrations centret i Azure 
 services: active-directory
 author: curtand
 ms.author: curtand
-manager: mtillman
-ms.date: 04/27/2020
+manager: daveba
+ms.date: 11/15/2020
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4146fb6bfe6c06e699df1f563e1f26e0716b023
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b312ef8735477e0921bcb9cdec541f97ba3003eb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376518"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650282"
 ---
 # <a name="bulk-delete-users-in-azure-active-directory"></a>Mass borttagning av användare i Azure Active Directory
 
@@ -77,7 +77,7 @@ Sedan kan du kontrol lera att de användare som du har tagit bort finns i Azure 
 1. Logga in på Azure Portal med ett konto som är en användar administratör i organisationen.
 1. I navigerings fönstret väljer du **Azure Active Directory**.
 1. Under **Hantera** väljer du **Användare**.
-1. Under **Visa**väljer du **alla användare** och kontrollerar att de användare som du har tagit bort inte längre visas.
+1. Under **Visa** väljer du **alla användare** och kontrollerar att de användare som du har tagit bort inte längre visas.
 
 ### <a name="verify-deleted-users-with-powershell"></a>Verifiera borttagna användare med PowerShell
 

@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 10/24/2019
-ms.openlocfilehash: eacc104bf7157732f91507f631bcda2cd166bfb3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e3b6802bab2c5fae97be8e55c8d5c11ff570f78
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77588696"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651320"
 ---
 # <a name="keep-track-of-data-during-hunting-with-azure-sentinel"></a>Håll koll på data under jakt med Azure Sentinel
 
@@ -56,12 +56,12 @@ I för hands versionen kan du också visualisera dina data bok märken genom att
 
 6. Till höger, i fönstret **Lägg till bok märke** , kan du också uppdatera bok märkes namnet, lägga till taggar och kommentarer som hjälper dig att identifiera vad som var intressant för objektet.
 
-7. I avsnittet **information om frågor** använder du List rutorna för att extrahera information från frågeresultaten för entitetstyper för **konto**, **värd**och **IP-adress** . Den här åtgärden mappar den valda entitetstypen till en viss kolumn från frågeresultatet. Exempel:
+7. I avsnittet **information om frågor** använder du List rutorna för att extrahera information från frågeresultaten för entitetstyper för **konto**, **värd** och **IP-adress** . Den här åtgärden mappar den valda entitetstypen till en viss kolumn från frågeresultatet. Exempel:
     
     > [!div class="mx-imgBorder"]
     > ![Mappa entitetstyper för jakt bok märken](./media/bookmarks/map-entity-types-bookmark.png)
     
-    Om du vill visa bok märket i undersöknings diagrammet (för närvarande i för hands version) måste du mappa minst en entitetstyp som antingen är **konto**, **värd**eller **IP-adress**. 
+    Om du vill visa bok märket i undersöknings diagrammet (för närvarande i för hands version) måste du mappa minst en entitetstyp som antingen är **konto**, **värd** eller **IP-adress**. 
 
 5. Klicka på **Spara** för att genomföra ändringarna och lägga till bok märket. Alla data som har bok märken delas med andra Utforskare, och är ett första steg mot en gemensam gransknings upplevelse.
 
@@ -90,7 +90,7 @@ I för hands versionen kan du också visualisera dina data bok märken genom att
 
 1. I Azure Portal navigerar du till fliken **Sentinel**  >  **Threat Management**  >  **jakt**  >  **bok märken** och väljer det bok märke eller bok märken som du vill undersöka.
 
-2. I bok märkes detaljerna ser du till att minst en entitet är mappad. För **entiteter**visas till exempel poster för **IP**, **dator**eller **konto**.
+2. I bok märkes detaljerna ser du till att minst en entitet är mappad. För **entiteter** visas till exempel poster för **IP**, **dator** eller **konto**.
 
 3. Klicka på **Undersök** för att Visa bok märket i undersöknings diagrammet.
 
@@ -110,15 +110,15 @@ Anvisningar om hur du använder undersöknings diagrammet finns i [använda unde
     > [!div class="mx-imgBorder"]
     > ![Lägg till bok märken i incidenten](./media/bookmarks/incident-actions.png)
 
-3. Välj antingen **Skapa ny incident** eller **Lägg till i befintlig incident, om**det behövs. Efter det:
+3. Välj antingen **Skapa ny incident** eller **Lägg till i befintlig incident, om** det behövs. Efter det:
     
     - För en ny incident: kan du uppdatera informationen om incidenten och sedan välja **skapa**.
     - För att lägga till ett bok märke till en befintlig incident: Välj en incident och välj sedan **Lägg till**. 
 
-Så här visar du bok märket i incidenten: gå till **kontroll**  >  **Threat Management**-  >  **incidenter** och välj incidenten med ditt bok märke. Välj **Visa fullständig information**och välj sedan fliken **bok märken** .
+Så här visar du bok märket i incidenten: gå till **kontroll**  >  **Threat Management**-  >  **incidenter** och välj incidenten med ditt bok märke. Välj **Visa fullständig information** och välj sedan fliken **bok märken** .
 
 > [!TIP]
-> Som ett alternativ till alternativet **incident åtgärder (förhands granskning)** i kommando fältet kan du använda snabb menyn (**...**) för en eller flera bok märken för att välja alternativ för att **skapa en ny incident**, **lägga till i befintlig incident**och **ta bort från incidenten**. 
+> Som ett alternativ till alternativet **incident åtgärder (förhands granskning)** i kommando fältet kan du använda snabb menyn (**...**) för en eller flera bok märken för att välja alternativ för att **skapa en ny incident**, **lägga till i befintlig incident** och **ta bort från incidenten**. 
 
 ## <a name="view-bookmarked-data-in-logs"></a>Visa bok märkes data i loggar
 
@@ -133,7 +133,7 @@ Du kan också Visa rå data bok märken för alla bok märken genom att välja *
 > [!div class="mx-imgBorder"]
 > ![Bok märkes loggar](./media/bookmarks/bookmark-logs.png)
 
-I den här vyn visas alla dina bok märken med tillhör ande metadata. Du kan använda KQL-frågor ( [Keyword Query Language](https://docs.microsoft.com/sharepoint/dev/general-development/keyword-query-language-kql-syntax-reference) ) för att filtrera ned till den senaste versionen av det specifika bok märke som du letar efter.
+I den här vyn visas alla dina bok märken med tillhör ande metadata. Du kan använda KQL-frågor ( [Keyword Query Language](/sharepoint/dev/general-development/keyword-query-language-kql-syntax-reference) ) för att filtrera ned till den senaste versionen av det specifika bok märke som du letar efter.
 
 > [!NOTE]
 > Det kan finnas en betydande fördröjning (mätt i minuter) mellan den tidpunkt då du skapar ett bok märke och när det visas på fliken **bok märken** .

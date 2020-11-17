@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 5511ad5a517bbd320ce3d66de90a8aec084c7e15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc6fdadbdfdbdd1d32f640e356a67841187a83c9
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87290736"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651812"
 ---
 # <a name="set-up-a-lab-for-engineering-classes-using-solidworks"></a>Konfigurera ett labb för teknik klasser med hjälp av SOLIDWORKs
 
@@ -24,18 +24,18 @@ I den här artikeln visar vi hur du konfigurerar en klass som använder SOLIDWOR
 
 SOLIDWORKs-nätverks licensiering kräver att du har SolidNetWork License Manager installerat och aktiverat på licens servern.  Den här licens servern finns vanligt vis antingen i ditt lokala nätverk eller i ett privat nätverk i Azure.  Mer information om hur du konfigurerar SolidNetWork licens hanteraren på servern finns i installera [och aktivera en licens hanterare](https://help.solidworks.com/2019/English/Installation/install_guide/t_installing_snl_lic_mgr.htm) i installations guiden för SolidWorks.  När du ställer in detta måste du komma ihåg **port numret** och [**serie numret**](https://help.solidworks.com/2019/english/installation/install_guide/r_hid_state_serial_number.htm) som används eftersom de behövs i senare steg.
 
-När licens servern har kon figurer ATS måste du koppla det [virtuella nätverket (VNet)](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network) till ditt [labb konto](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account).  Nätverks-peering måste göras innan du skapar labbet så att virtuella labb datorer kan komma åt licens servern och det andra sättet.
+När licens servern har kon figurer ATS måste du koppla det [virtuella nätverket (VNet)](./how-to-connect-peer-virtual-network.md) till ditt [labb konto](./tutorial-setup-lab-account.md).  Nätverks-peering måste göras innan du skapar labbet så att virtuella labb datorer kan komma åt licens servern och det andra sättet.
 
 > [!NOTE]
-> Kontrol lera att rätt portar är öppna i brand väggarna för att tillåta kommunikation mellan virtuella labb datorer och licens servern.  Se till exempel instruktionerna för att [ändra licens hanterarens dator portar för Windows-brandväggen](http://help.solidworks.com/2019/english/installation/install_guide/t_mod_ports_on_lic_mgr_for_firewall.htm) som visar hur du lägger till inkommande och utgående regler i licens serverns brand vägg.  Du kan också behöva öppna portar till virtuella labb datorer.  Följ stegen i artikeln om [brand Väggs inställningar för labb](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-firewall-settings) för mer information om detta, inklusive hur du hämtar Labbets offentliga IP-adress.
+> Kontrol lera att rätt portar är öppna i brand väggarna för att tillåta kommunikation mellan virtuella labb datorer och licens servern.  Se till exempel instruktionerna för att [ändra licens hanterarens dator portar för Windows-brandväggen](http://help.solidworks.com/2019/english/installation/install_guide/t_mod_ports_on_lic_mgr_for_firewall.htm) som visar hur du lägger till inkommande och utgående regler i licens serverns brand vägg.  Du kan också behöva öppna portar till virtuella labb datorer.  Följ stegen i artikeln om [brand Väggs inställningar för labb](./how-to-configure-firewall-settings.md) för mer information om detta, inklusive hur du hämtar Labbets offentliga IP-adress.
 
 ## <a name="lab-configuration"></a>Labb konfiguration
 
-För att kunna konfigurera det här labbet behöver du ett Azure-prenumerations-och labb konto för att komma igång. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. När du har skaffat en Azure-prenumeration kan du skapa ett nytt labb konto i Azure Lab Services. Mer information om hur du skapar ett nytt labb konto finns i självstudien om [hur du ställer in ett labb konto](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account). Du kan också använda ett befintligt labb konto.
+För att kunna konfigurera det här labbet behöver du ett Azure-prenumerations-och labb konto för att komma igång. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. När du har skaffat en Azure-prenumeration kan du skapa ett nytt labb konto i Azure Lab Services. Mer information om hur du skapar ett nytt labb konto finns i självstudien om [hur du ställer in ett labb konto](./tutorial-setup-lab-account.md). Du kan också använda ett befintligt labb konto.
 
 ### <a name="lab-account-settings"></a>Labb konto inställningar
 
-Aktivera inställningarna som beskrivs i tabellen nedan för labb kontot. Mer information om hur du aktiverar Marketplace-avbildningar finns i artikeln om [hur du anger Marketplace-avbildningar som är tillgängliga för labb skapare](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images).
+Aktivera inställningarna som beskrivs i tabellen nedan för labb kontot. Mer information om hur du aktiverar Marketplace-avbildningar finns i artikeln om [hur du anger Marketplace-avbildningar som är tillgängliga för labb skapare](./specify-marketplace-images.md).
 
 | Inställning för labb konto | Instruktioner |
 | ------------------- | ------------ |
@@ -76,7 +76,7 @@ Stegen i det här avsnittet visar hur du konfigurerar en mall för virtuella dat
     > [!NOTE]
     > I dialog rutan **Lägg till Server** uppmanas du att ange det **port nummer** som används för licens servern och namnet eller IP-adressen för licens servern.
 
-## <a name="cost"></a>Kostnad
+## <a name="cost"></a>Cost (Kostnad)
 
 Vi ska se en möjlig kostnads uppskattning för den här klassen. Den här beräkningen omfattar inte kostnaden för att köra licens servern. Vi använder en klass av 25 studenter. Det finns 20 timmar med den schemalagda klass tiden. Dessutom får varje student en kvot på 10 timmar för läxor eller tilldelningar utanför schemalagda klass tider. Storleken på den virtuella datorn som vi valde var **liten GPU (visualisering)**, som är 160 lab-enheter.
 

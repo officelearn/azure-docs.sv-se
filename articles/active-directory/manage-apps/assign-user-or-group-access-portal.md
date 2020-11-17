@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
-ms.openlocfilehash: f49377743521e27c2312e95491762ca48d8448c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55934e8c33b74740b7398be1ae18a3ef899aee74
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604333"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651285"
 ---
 # <a name="manage-user-assignment-for-an-app-in-azure-active-directory"></a>Hantera användar tilldelning för en app i Azure Active Directory
 
@@ -58,7 +58,7 @@ Så här kräver du användar tilldelning för ett program:
 Information om hur du tilldelar eller tar bort en användare eller grupp med hjälp av Azure Portal finns i [snabb starts serien för program hantering](add-application-portal-assign-users.md).
 
 ## <a name="assign-or-unassign-users-and-groups-for-an-app-using-the-graph-api"></a>Tilldela eller ta bort tilldelning av användare och grupper för en app med hjälp av Graph API
-Du kan använda Graph API för att tilldela eller ta bort tilldelning av användare och grupper för en app. Mer information finns i [roll tilldelningar för appar](https://docs.microsoft.com/graph/api/resources/approleassignment).
+Du kan använda Graph API för att tilldela eller ta bort tilldelning av användare och grupper för en app. Mer information finns i [roll tilldelningar för appar](/graph/api/resources/approleassignment).
 
 ## <a name="assign-users-and-groups-to-an-app-using-powershell"></a>Tilldela användare och grupper till en app med hjälp av PowerShell
 1. Öppna en upphöjd kommando tolk i Windows PowerShell.
@@ -81,11 +81,11 @@ Du kan använda Graph API för att tilldela eller ta bort tilldelning av använd
     # Assign the user to the app role
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
     ```
-Mer information om hur du tilldelar en användare till en program roll finns i dokumentationen för [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0).
+Mer information om hur du tilldelar en användare till en program roll finns i dokumentationen för [New-AzureADUserAppRoleAssignment](/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0).
 
 Om du vill tilldela en grupp till en företags app måste du ersätta `Get-AzureADUser` med `Get-AzureADGroup` och ersätta `New-AzureADUserAppRoleAssignment` med `New-AzureADGroupAppRoleAssignment` .
 
-Mer information om hur du tilldelar en grupp till en program roll finns i dokumentationen för [New-AzureADGroupAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureadgroupapproleassignment?view=azureadps-2.0).
+Mer information om hur du tilldelar en grupp till en program roll finns i dokumentationen för [New-AzureADGroupAppRoleAssignment](/powershell/module/azuread/new-azureadgroupapproleassignment?view=azureadps-2.0).
 
 ### <a name="example"></a>Exempel
 
@@ -154,6 +154,6 @@ I det här exemplet tilldelas användaren Britta Simon till Microsoft-programmet
 ## <a name="next-steps"></a>Nästa steg
 
 - [Visa alla mina grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [Ta bort en användare eller grupp tilldelning från en företags app](remove-user-or-group-access-portal.md)
+- [Ta bort en användare eller grupp tilldelning från en företags app]()
 - [Inaktivera användar inloggningar för en företags app](disable-user-sign-in-portal.md)
-- [Ändra namn eller logo typ för en företags app](change-name-or-logo-portal.md)
+- [Ändra namn eller logo typ för en företags app](./add-application-portal-configure.md)

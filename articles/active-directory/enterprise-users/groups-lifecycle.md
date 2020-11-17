@@ -8,19 +8,19 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 08/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb51f402cd7032358e6a9d2f9fad9aa64316b809
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f3544d81059cd4c25c584d8af1b6fcd45a41b8bb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377163"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650724"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Konfigurera förfallo principen för Microsoft 365 grupper
 
@@ -73,7 +73,7 @@ Mer information om behörigheter för att återställa en borttagen grupp finns 
 
 1. Öppna [administrations centret för Azure AD](https://aad.portal.azure.com) med ett konto som är en global administratör i din Azure AD-organisation.
 
-2. Välj **grupper**och välj sedan **förfallo datum** för att öppna inställningarna för förfallo datum.
+2. Välj **grupper** och välj sedan **förfallo datum** för att öppna inställningarna för förfallo datum.
   
    ![Förfallo inställningar för grupper](./media/groups-lifecycle/expiration-settings.png)
 

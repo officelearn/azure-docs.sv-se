@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: troubleshooting
-ms.date: 11/08/2019
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8730ac8aa6a6056db67613f2ac8decf11740c467
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d114896319929a0506f0201905d72d081b6408a4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376695"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650535"
 ---
 # <a name="troubleshoot-and-resolve-groups-issues"></a>Felsöka och lösa problem med grupper
 
@@ -43,7 +43,7 @@ Så här inaktiverar du grupp skapande för användare som inte är administrat�
    ```
 
 <br/>**Jag har fått ett fel av högsta antal grupper som tillåts när du försökte skapa en dynamisk grupp i PowerShell**<br/>
-Om du får ett meddelande i PowerShell som anger att det _maximala antalet tillåtna grupper för dynamiska grup principer har nåtts_innebär det att du har nått Max gränsen för dynamiska grupper i din organisation. Det maximala antalet dynamiska grupper per organisation är 5 000.
+Om du får ett meddelande i PowerShell som anger att det _maximala antalet tillåtna grupper för dynamiska grup principer har nåtts_ innebär det att du har nått Max gränsen för dynamiska grupper i din organisation. Det maximala antalet dynamiska grupper per organisation är 5 000.
 
 Om du vill skapa nya dynamiska grupper måste du först ta bort vissa befintliga dynamiska grupper. Det finns inget sätt att öka gränsen.
 

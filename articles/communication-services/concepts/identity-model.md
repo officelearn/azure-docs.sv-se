@@ -1,5 +1,5 @@
 ---
-title: Identitets modell
+title: Identitetsmodell
 titleSuffix: An Azure Communication Services concept
 description: Lär dig mer om identiteter och åtkomsttoken
 author: tomaschladek
@@ -9,59 +9,80 @@ ms.author: tchladek
 ms.date: 10/26/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 996f138a14923319381738e7a55cd7ba4e8c4320
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: f172bfcb6e4f11520eb9082052968626efe6fecb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517775"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651251"
 ---
-# <a name="identity-model"></a>Identitets modell
+# <a name="identity-model"></a>Identitetsmodell
 
-Azure Communication Services är Identity oberoende-tjänsten. Den här designen har flera fördelar:
+Azure Communication Services är en oberoende tjänst. Den här designen ger flera fördelar:
+
 - Återanvänd befintliga identiteter från ditt identitets hanterings system
-- Flexibilitet för integrerings scenarier
-- Håller dina identiteter privata för Azure Communication Services
+- Ger flexibilitet för integrerings scenarier
+- Håller dina identiteter privata i Azure Communication Services
 
-I stället för att duplicera befintlig information i systemet, kommer du att underhålla mappnings förhållandet som är specifika för affärs ärendet. Exempel: mappning av identiteter 1:1, 1: N, N:1, N:M. Externa identifierare (till exempel telefonnummer, användare, enheter, program och GUID) kan inte användas som Azure-kommunikations identitet. Åtkomsttoken som genereras för Azure Communication Service-identitet används för att få åtkomst till primitiver som chatt eller samtal. 
+I stället för att duplicera information i systemet, kommer du att underhålla mappnings relationen som affärs ärendet kräver. Du kan till exempel mappa identiteter 1:1, 1: N, N:1, N:M. Externa identifierare som telefonnummer, användare, enheter, program och GUID kan inte användas för identitet i Azure Communication Services. Åtkomsttoken som skapas för en Azure Communication Services-identitet används för att få åtkomst till primitiver som chatt eller samtal.
 
 ## <a name="identity"></a>Identitet
 
-Identiteter skapas med administrations biblioteket för Azure Communication Service. Identiteten fungerar som identifierare i konversationerna och används för att skapa åtkomsttoken. Samma identitet kan ingå i flera samtidiga sessioner över flera enheter. Identiteten kan ha flera aktiva åtkomsttoken på samma gång. Om du tar bort identitet, resurs eller prenumeration får du ogiltig ogiltighet av alla dess åtkomsttoken och borttagning av alla data som lagras för den här identiteten. Borttagen identitet kan inte utfärda nya åtkomsttoken, varken komma åt tidigare lagrade data (till exempel chat-meddelanden). 
+Du kan skapa identiteter med hjälp av administrations biblioteket för Azure Communication Services. En identitet fungerar som en identifierare i konversationer. Den används för att skapa åtkomsttoken. Samma identitet kan ingå i flera samtidiga sessioner över flera enheter. En identitet kan ha flera aktiva åtkomsttoken på samma gång. 
 
-Du debiteras inte med antalet identiteter som du har, men med användning av primitiver. Antalet identiteter behöver inte begränsas, hur du mappar appens identiteter till Azure Communication Services-identiteter. Med kopplings friheten tillkommer ansvar i sekretess avtalet. När ditt programs användare vill tas bort från systemet måste du ta bort alla identiteter som har associerats med den användaren.
+Borttagningen av en identitet, resurs eller prenumeration invaliderar alla åtkomsttoken. Den här åtgärden tar också bort alla data som lagras för identiteten. En borttagen identitet kan inte skapa nya åtkomsttoken eller komma åt tidigare lagrade data (till exempel chat-meddelanden). 
 
-Azure Communication Services tillhandahåller inte särskilda identiteter för anonyma användare. Den behåller inte mappningen mellan användare och identiteter, men den förstår inte om identiteten är anonym. Du kan utforma konceptet så att det passar dina behov. Vi rekommenderar att du skapar en ny identitet för varje programs anonyma användare. Med den giltiga åtkomsttoken kan vem som helst få åtkomst till identitetens innehåll som inte har tagits bort. Till exempel chat-meddelanden som skickas av användaren. Åtkomsten är begränsad enbart till omfattningar, som är en del av åtkomsttoken. Mer information om omfattningar finns i avsnittet åtkomst- *token*.
+Du debiteras inte för antalet identiteter som du har. I stället debiteras du för användning av primitiver. Antalet identiteter behöver inte begränsa hur du mappar appens identiteter till Azure Communication Services-identiteter. 
 
-### <a name="mapping-of-identities"></a>Mappning av identiteter
+Med en kopplings frihet får du sekretess ansvar. Om en användare vill tas bort från systemet måste du ta bort alla identiteter som är associerade med den användaren.
 
-Azure Communication Services replikerar inte funktionerna i IMS. Det ger inte kunderna möjlighet att använda kundspecifika identiteter. Till exempel telefonnummer eller e-postadress. I stället innehåller den unika identifierare som du kan tilldela dina program identiteter. Azure Communication Services lagrar ingen typ av information som kan avslöja användarnas verkliga identitet.
+Azure Communication Services tillhandahåller inte särskilda identiteter för anonyma användare. Den behåller inte mappningen mellan användare och identiteter och kan inte avgöra om en identitet är anonym. Du kan utforma identitets begreppet så att det passar dina behov. Vi rekommenderar att du skapar en ny identitet för varje anonym användare i varje program. 
 
-I stället för duplicering rekommenderar vi att du utformar, hur användare från din identitets domän kommer att mappas till Azure Communication Service-identiteter. Du kan följa alla typer av mönster 1:1, 1: N, N:1 eller M:N. Du kan bestämma om en enskild användare ska mappas till en enskild identitet eller till flera identiteter. När en ny identitet skapas, uppmanas du att lagra mappningen av den här identiteten till programmets användare eller användare. Eftersom identiteter kräver åtkomst-token för användning av primitiver måste identiteten vara känd för programmets användare eller användare.
+Alla som har en giltig åtkomsttoken kan komma åt aktuellt identitets innehåll. Användarna kan till exempel komma åt chatt meddelanden som skickas. Åtkomsten är begränsad enbart till omfattningar som ingår i åtkomsttoken. Mer information [finns i avsnittet om åtkomsttoken](#access-tokens) i den här artikeln.
 
-Om du använder Relations databas för lagring av användare kan implementeringen variera beroende på ditt mappnings scenario. För scenarier med mappning 1:1 eller N:1 kan du lägga till en *CommunicationServicesId* -kolumn i tabellen för att lagra din Azure Communication Services-identitet. I scenarier med relation 1: N eller N:M kan du överväga att skapa en separat tabell i Relations databasen.
+### <a name="identity-mapping"></a>Identitets mappning
 
-## <a name="access-token"></a>Åtkomsttoken
+Azure Communication Services replikerar inte funktionerna i Azure Identity Management-systemet. Det ger inte kunderna möjlighet att använda kundspecifika identiteter. Kunder kan till exempel inte använda ett telefonnummer eller en e-postadress. Azure Communication Services innehåller i stället unika identifierare. Du kan tilldela dessa unika identifierare till programmets identiteter. Azure Communication Services lagrar inte någon typ av information som kan avslöja användarnas verkliga identitet.
 
-Åtkomsttoken är en JWT-token som kan användas för att få åtkomst till Azure Communication Service-primitiver. Utfärdad åtkomsttoken har integritets skydd, dess anspråk kan inte ändras efter utfärdande. Det vill säga att den manuella ändringen av egenskaper, till exempel identitet, förfallo datum eller omfång, blir åtkomsttoken ogiltig. Användningen av primitiver med ogiltiga token leder till att åtkomsten till primitiven nekas. 
+Du kan undvika att duplicera information i systemet genom att planera hur du mappar användare från din identitets domän till Azure Communication Services-identiteter. Du kan följa alla typer av mönster. Du kan till exempel använda 1:1, 1: N, N:1 eller M:N. Bestäm om en enskild användare mappas till en enda identitet eller till flera identiteter. 
 
-Egenskaperna för åtkomsttoken är: *identitet, förfallo datum* och *omfång*. Åtkomsttoken är alltid giltig i 24 timmar. Efter den här tiden är åtkomsttoken ogiltig och kan inte användas för att få åtkomst till någon primitiv. Identiteten måste ha ett sätt, så här begär du en ny åtkomsttoken från Server sidan. Parameter *omfånget* definierar en icke-tom uppsättning primitiver som kan användas. Azure Communication Services stöder följande omfång för åtkomsttoken:
+När en ny identitet skapas lagrar du dess mappning till programmets användare eller användare. Eftersom identiteter kräver åtkomst-token för att använda primitiver måste identiteten vara känd för programmets användare eller användare.
 
-|Namn|Beskrivning|
+Om du använder en Relations databas för att lagra användar information kan du justera designen utifrån ditt mappnings scenario. För scenarier som mappar 1:1 eller N:1 kanske du vill lägga till en `CommunicationServicesId` kolumn i tabellen för att lagra din Azure Communication Services-identitet. I scenarier där relationen 1: N eller N:M används kan du överväga att skapa en separat tabell i Relations databasen.
+
+## <a name="access-tokens"></a>Åtkomsttokens
+
+En åtkomsttoken är en JSON Web Token (JWT) som kan användas för att få åtkomst till Azure Communication Service-primitiver. En åtkomsttoken som utfärdas har integritets skydd. Det innebär att dess anspråk inte kan ändras efter att den har utfärdats. Så en manuell ändring av egenskaper som identitet, förfallo datum eller omfång kommer att ogiltig förklara åtkomsttoken. Om primitiver används med ogiltiga token kommer åtkomsten att nekas till de primitiva. 
+
+Egenskaperna för en åtkomsttoken är:
+* Autentiseringsidentitet.
+* Dag.
+* Omfattningar.
+
+En åtkomsttoken är alltid giltig i 24 timmar. När den har gått ut är åtkomsttoken ogiltig och kan inte användas för att få åtkomst till någon primitiv. 
+
+En identitet behöver ett sätt att begära en ny åtkomsttoken från en server-side-tjänst. *Omfattnings* parametern definierar en uppsättning primitiver som kan användas. Azure Communication Services stöder följande omfattningar för åtkomsttoken.
+
+|Name|Beskrivning|
 |---|---|
 |Chatt|  Ger möjlighet att delta i en chatt|
 |VoIP|  Ger möjlighet att anropa identiteter och telefonnummer|
 
 
-Om du vill återkalla åtkomst-token innan det går ut kan du göra det med hjälp av Azure Communication Service administrations bibliotek. Återkallande av token inte omedelbart och tar upp till 15 minuter att sprida. Borttagning av identitet, resurs eller prenumeration kommer att orsaka åter kallelse av alla åtkomsttoken. Om du vill ta bort en användares möjlighet att få åtkomst till vissa funktioner kan du återkalla alla åtkomsttoken. Utfärda sedan en ny åtkomsttoken med en mer begränsad uppsättning omfång.
-Rotationen av åtkomst nycklar för Azure Communication Service kommer att orsaka återkallande av alla aktiva åtkomsttoken som skapats med tidigare åtkomst nyckel. Alla identiteter kommer att förlora åtkomst till Azure Communication service och krävs för att utfärda nya åtkomsttoken. 
+Om du vill återkalla en åtkomsttoken innan dess upphör ande tid använder du administrations biblioteket för Azure Communication Services. Åter kallelse av token är inte omedelbart. Det tar upp till 15 minuter att sprida. Borttagning av en identitet, resurs eller prenumeration återkallar alla åtkomsttoken. 
 
-Vi rekommenderar att du utfärdar åtkomsttoken på Server sidan och inte i klient programmet. Anledningen är att den utfärdande nyckeln kräver åtkomst nyckel eller som ska hanteras av identiteten. Det rekommenderas inte av säkerhets skäl att dela åtkomst nycklarna med klient programmet. Klient programmet bör använda den betrodda tjänst slut punkten som kan autentisera dina klienter och utfärda åtkomsttoken för deras räkning. Mer information om arkitekturen hittar du [här](./client-and-server-architecture.md).
+Om du vill ta bort en användares möjlighet att få åtkomst till vissa funktioner kan du återkalla alla åtkomsttoken. Utfärda sedan en ny åtkomsttoken som har en mer begränsad uppsättning omfång.
 
-Om du cachelagrar åtkomsttoken till en lagrings plats rekommenderar vi att du använder kryptering. Åtkomsttoken är känsliga data och kan användas för skadlig aktivitet om den inte är skyddad. Med hjälp av åtkomsttoken kan du initiera SDK och få åtkomst till API: et. Det tillgängliga API: t är endast begränsat baserat på omfattningar, som åtkomsttoken har. Vi rekommenderar att du endast utfärdar åtkomsttoken med omfattningar, som krävs.
+I Azure Communication Services återkallar sig en rotation av åtkomst nycklar alla aktiva åtkomsttoken som skapats med hjälp av en tidigare åtkomst nyckel. Alla identiteter förlorar åtkomst till Azure Communication Services och de måste utfärda nya åtkomsttoken. 
+
+Vi rekommenderar att du utfärdar åtkomsttoken på Server sidan och inte i klient programmet. Anledningen är att det krävs en åtkomst nyckel eller en hanterad identitet för att utfärda. Av säkerhets skäl rekommenderas inte delning av åtkomst nycklar med klient programmet. 
+
+Klient programmet bör använda en betrodd tjänst slut punkt som kan autentisera dina klienter. Slut punkten ska utfärda åtkomsttoken för deras räkning. Mer information finns i [klient-och server arkitektur](./client-and-server-architecture.md).
+
+Om du cachelagrar åtkomsttoken till en lagrings plats rekommenderar vi att du använder kryptering. En åtkomsttoken är känsliga data. Den kan användas för skadlig aktivitet om den inte är skyddad. Någon som har en åtkomsttoken kan starta SDK och få åtkomst till API: et. Det tillgängliga API: t är endast begränsat baserat på de omfattningar som åtkomsttoken har. Vi rekommenderar att du utfärdar åtkomsttoken som bara har de nödvändiga omfattningarna.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till hantering av åtkomst till token finns i [skapa och hantera åtkomsttoken](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens)
-* En introduktion till autentisering finns i [autentisera till Azure Communication Services](https://docs.microsoft.com/azure/communication-services/concepts/authentication)
-* En introduktion till data placering och sekretess finns i [region tillgänglighet och data placering](https://docs.microsoft.com/azure/communication-services/concepts/privacy)
+* En introduktion till hantering av åtkomst till token finns i [skapa och hantera åtkomsttoken](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens).
+* En introduktion till autentisering finns i [autentisera till Azure Communication Services](https://docs.microsoft.com/azure/communication-services/concepts/authentication).
+* En introduktion till data placering och sekretess finns i [region tillgänglighet och data placering](https://docs.microsoft.com/azure/communication-services/concepts/privacy).

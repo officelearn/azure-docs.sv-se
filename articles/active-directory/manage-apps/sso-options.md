@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
-ms.openlocfilehash: 5c02733167db5071b1f2a9c5e04dc05a069fda3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7ec8a913634322be5a1eb854972cfa2a0217381
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604214"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651931"
 ---
 # <a name="single-sign-on-options-in-azure-ad"></a>Alternativ för enkel inloggning i Azure AD
 
 Enkel inloggning ger många fördelar jämfört med traditionella inloggnings metoder.
 
-- **Med enkel inloggning**loggar användare in en gång med ett konto för att komma åt domänanslutna enheter, företags resurser, SaaS-program (program vara som en tjänst) och webb program. När du har loggat in kan användaren starta program från Office 365-portalen eller Mina appar. Administratörer kan centralisera hanteringen av användar konton och automatiskt lägga till eller ta bort användar åtkomst till program baserat på grupp medlemskap.
+- **Med enkel inloggning** loggar användare in en gång med ett konto för att komma åt domänanslutna enheter, företags resurser, SaaS-program (program vara som en tjänst) och webb program. När du har loggat in kan användaren starta program från Office 365-portalen eller Mina appar. Administratörer kan centralisera hanteringen av användar konton och automatiskt lägga till eller ta bort användar åtkomst till program baserat på grupp medlemskap.
 
-- **Utan enkel inloggning**måste användare komma ihåg programspecifika lösen ord och logga in på varje program. IT-personalen måste skapa och uppdatera användar konton för varje program, till exempel Microsoft 365, ruta och Salesforce. Användarna måste komma ihåg sina lösen ord, samt ägna tid åt att logga in på varje program.
+- **Utan enkel inloggning** måste användare komma ihåg programspecifika lösen ord och logga in på varje program. IT-personalen måste skapa och uppdatera användar konton för varje program, till exempel Microsoft 365, ruta och Salesforce. Användarna måste komma ihåg sina lösen ord, samt ägna tid åt att logga in på varje program.
 
 Mer information om enkel inloggning finns i [Vad är enkel inloggning?](what-is-single-sign-on.md).
 
@@ -49,7 +49,7 @@ I följande tabell sammanfattas de enkla inloggnings metoderna och länkar till 
 | [Länkade](#linked-sign-on) | molnet och lokalt | Välj länkad inloggning när programmet har kon figurer ATS för enkel inloggning i en annan Identity Provider-tjänst. Med det här alternativet läggs inte enkel inloggning till i programmet. Programmet kan dock redan ha enkel inloggning implementerad med hjälp av en annan tjänst, till exempel Active Directory Federation Services (AD FS).|
 | [Inaktiverad](#disabled-sso) | molnet och lokalt | Välj inaktive rad enkel inloggning när appen inte är redo att konfigureras för enkel inloggning. Det här läget är standard när du skapar appen.|
 | [Integrerad Windows-autentisering (IWA)](#integrated-windows-authentication-iwa-sso) | endast lokalt | Välj IWA enkel inloggning för program som använder [integrerad Windows-autentisering (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication)eller anspråks känsliga program. För IWA använder Application Proxy-kopplingarna Kerberos-begränsad delegering (KCD) för att autentisera användare till programmet. |
-| [Rubrik baserad](#header-based-sso) | endast lokalt | Använd sidhuvud-baserad enkel inloggning när programmet använder rubriker för autentisering. För rubrik-baserad enkel inloggning krävs PingAccess för Azure AD. Programproxyn använder Azure AD för att autentisera användaren och sedan vidarebefordra trafik via anslutnings tjänsten.  |
+| [Rubrik baserad](#header-based-sso) | endast lokalt | Använd sidhuvud-baserad enkel inloggning när programmet använder rubriker för autentisering. Programproxyn använder Azure AD för att autentisera användaren och sedan vidarebefordra trafik via anslutnings tjänsten.  |
 
 ## <a name="openid-connect-and-oauth"></a>OpenID Connect och OAuth
 
@@ -59,11 +59,11 @@ Mer information finns i:
 
 - [OAuth 2.0](../develop/v2-oauth2-auth-code-flow.md)
 - [OpenID Connect 1.0](../develop/v2-protocols-oidc.md)
-- [Microsoft Identity Platform Developer-Guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
+- [Microsoft Identity Platform Developer-Guide](../develop/index.yml).
 
 ## <a name="saml-sso"></a>SAML SSO
 
-Med **enkel inloggning i SAML**autentiserar Azure AD programmet med hjälp av användarens Azure AD-konto. Azure AD kommunicerar inloggnings informationen till programmet via ett anslutnings protokoll. Med SAML-baserad enkel inloggning kan du mappa användare till specifika program roller baserat på regler som du definierar i dina SAML-anspråk.
+Med **enkel inloggning i SAML** autentiserar Azure AD programmet med hjälp av användarens Azure AD-konto. Azure AD kommunicerar inloggnings informationen till programmet via ett anslutnings protokoll. Med SAML-baserad enkel inloggning kan du mappa användare till specifika program roller baserat på regler som du definierar i dina SAML-anspråk.
 
 Välj SAML-baserad enkel inloggning när programmet har stöd för det.
 
@@ -137,7 +137,7 @@ Länkad inloggning gör det möjligt för Azure AD att tillhandahålla enkel inl
 
 ### <a name="linked-sign-on-for-application-migration"></a>Länkad inloggning för programmigrering
 
-Länkad inloggning kan ge en konsekvent användar upplevelse när du migrerar program under en viss tids period. Om du migrerar program till Azure Active Directory kan du använda länkad inloggning för att snabbt publicera länkar till alla program som du vill migrera.  Användarna kan hitta alla länkar i portalen för mina [appar](../user-help/active-directory-saas-access-panel-introduction.md) eller i [Microsoft 365 Application starta](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Användare vet inte att de har åtkomst till ett länkat program eller ett migrerat program.  
+Länkad inloggning kan ge en konsekvent användar upplevelse när du migrerar program under en viss tids period. Om du migrerar program till Azure Active Directory kan du använda länkad inloggning för att snabbt publicera länkar till alla program som du vill migrera.  Användarna kan hitta alla länkar i portalen för mina [appar](../user-help/my-apps-portal-end-user-access.md) eller i [Microsoft 365 Application starta](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Användare vet inte att de har åtkomst till ett länkat program eller ett migrerat program.  
 
 När en användare har autentiserats med ett länkat program måste en konto post skapas innan slutanvändaren ges åtkomst till enkel inloggning. Etableringen av den här konto posten kan antingen ske automatiskt, eller så kan den utföras manuellt av en administratör.
 
@@ -180,24 +180,14 @@ Det här diagrammet förklarar flödet när en användare får åtkomst till ett
 
 ## <a name="header-based-sso"></a>Rubrik-baserad SSO
 
-Rubrik-baserad enkel inloggning fungerar för program som använder HTTP-huvuden för autentisering. Den här inloggnings metoden använder en tredjeparts autentiseringstjänst som kallas PingAccess. En användare behöver bara autentisera till Azure AD.
+Rubrik-baserad enkel inloggning fungerar för program som använder HTTP-huvuden för autentisering.
 
-Välj sidhuvud-baserad enkel inloggning när programproxyn och PingAccess har kon figurer ATS för programmet.
+Välj sidhuvud-baserad enkel inloggning när programproxyn har kon figurer ATS för det lokala programmet.
 
-Om du vill konfigurera en huvud-baserad autentisering, se [rubrikbaserade autentisering för enkel inloggning med programproxy](application-proxy-configure-single-sign-on-with-ping-access.md).
+Mer information om huvudbaserad autentisering finns i [sidhuvud-baserad SSO](application-proxy-configure-single-sign-on-with-headers.md).
 
-### <a name="what-is-pingaccess-for-azure-ad"></a>Vad är PingAccess för Azure AD?
-
-Med PingAccess för Azure AD kan användare komma åt och använda enkel inloggning till program som använder rubriker för autentisering. Application Proxy behandlar dessa program på samma sätt som andra, med hjälp av Azure AD för att autentisera åtkomst och sedan skicka trafik via anslutnings tjänsten. När autentiseringen utförs översätter PingAccess-tjänsten Azure AD-åtkomsttoken till ett huvud format som skickas till programmet.
-
-Användarna märker inte något annorlunda när de loggar in för att använda dina företags program. De kan fortfarande arbeta var som helst på valfri enhet. Application Proxy-anslutningarna dirigerar fjärrtrafik till alla program och fortsätter att belastningsutjämna automatiskt.
-
-### <a name="how-do-i-get-a-license-for-pingaccess"></a>Hur gör jag för att skaffa en licens för PingAccess?
-
-Eftersom det här scenariot erbjuds via ett partnerskap mellan Azure AD och PingAccess, behöver du licenser för båda tjänsterna. Azure AD Premium prenumerationer innehåller dock en grundläggande PingAccess-licens som omfattar upp till 20 program. Om du behöver publicera fler än 20 huvudbaserade program kan du skaffa ytterligare en licens från PingAccess.
-
-Mer information finns i [Azure Active Directory-versioner](../fundamentals/active-directory-whatis.md).
 
 ## <a name="next-steps"></a>Nästa steg
 * [Snabb starts serie för program hantering](view-applications-portal.md)
 * [Planera en distribution för enkel inloggning](plan-sso-deployment.md)
+* [Enkel inloggning med lokala appar](application-proxy-config-sso-how-to.md)

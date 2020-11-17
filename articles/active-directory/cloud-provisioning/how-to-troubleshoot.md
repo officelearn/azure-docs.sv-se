@@ -8,12 +8,12 @@ ms.date: 12/02/2019
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 34796a435536a48100b7434ed5267802cd2d549f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94cf1f34db590abeb084c5e95367781e50c85efc
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89226955"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650125"
 ---
 # <a name="cloud-provisioning-troubleshooting"></a>Fel sökning av moln etablering
 
@@ -22,7 +22,7 @@ Moln etablering vidrör många olika saker och har många olika beroenden. Detta
 
 ## <a name="common-troubleshooting-areas"></a>Vanliga fel söknings områden
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |-----|-----|
 |[Agent problem](#agent-problems)|Kontrol lera att agenten har installerats korrekt och att den kommunicerar med Azure Active Directory (Azure AD).|
 |[Problem med synkronisering av objekt](#object-synchronization-problems)|Använd etablerings loggar för att felsöka problem med synkronisering av objekt.|
@@ -43,15 +43,15 @@ Dessa objekt kan verifieras i Azure Portal och på den lokala server som kör-ag
 
 Följ dessa steg för att kontrol lera att agenten visas av Azure och är felfri.
 
-1. Logga in på Azure Portal.
-1. Välj **Azure Active Directory**  >  **Azure AD Connect**till vänster. I mitten väljer du **Hantera etablering (för hands version)**.
+1. Logga in på Azure-portalen.
+1. Välj **Azure Active Directory**  >  **Azure AD Connect** till vänster. I mitten väljer du **Hantera etablering (för hands version)**.
 1. På skärmen **Azure AD Provisioning (för hands version)** väljer du **Granska alla agenter**.
 
-   ![Granska alla agenter](media/how-to-install/install7.png)</br>
+   ![Granska alla agenter](media/how-to-install/install-7.png)</br>
  
 1. På skärmen **lokala etablerings agenter** visas de agenter som du har installerat. Kontrol lera att agenten i fråga finns där och har marker ATS som *felfri*.
 
-   ![Skärmen lokala etablerings agenter](media/how-to-install/install8.png)</br>
+   ![Skärmen lokala etablerings agenter](media/how-to-install/install-8.png)</br>
 
 ### <a name="verify-the-port"></a>Verifiera porten
 
@@ -59,14 +59,14 @@ Kontrol lera att Azure lyssnar på port 443 och att agenten kan kommunicera med 
 
 Det här testet kontrollerar att dina agenter kan kommunicera med Azure via port 443. Öppna en webbläsare och gå till föregående URL från servern där agenten är installerad.
 
-![Verifiering av portens tillgänglighet](media/how-to-install/verify2.png)
+![Verifiering av portens tillgänglighet](media/how-to-install/verify-2.png)
 
 ### <a name="on-the-local-server"></a>På den lokala servern
 
 Kontrol lera att agenten körs genom att följa dessa steg.
 
 1. På servern där agenten är installerad öppnar du **tjänster** genom att antingen navigera till den eller **Starta**  >  **köra**  >  **Services. msc**.
-1. Under **tjänster**kontrollerar du att **Microsoft Azure AD ansluter agent uppdaterings** **agenten och Microsoft Azure AD ansluta etablerings agenten** är där och att deras status är *igång*.
+1. Under **tjänster** kontrollerar du att **Microsoft Azure AD ansluter agent uppdaterings** **agenten och Microsoft Azure AD ansluta etablerings agenten** är där och att deras status är *igång*.
 
    ![Sidan tjänster](media/how-to-troubleshoot/troubleshoot1.png)
 
@@ -86,7 +86,7 @@ Följ dessa steg för att lösa problemet.
 
 1. Logga in på servern med ett administratörs konto.
 1. Öppna **tjänster** genom att antingen navigera till den eller genom att **Starta**  >  **köra**  >  **Services. msc**.
-1. Under **tjänster**dubbelklickar du på **Microsoft Azure AD ansluta etablerings agent**.
+1. Under **tjänster** dubbelklickar du på **Microsoft Azure AD ansluta etablerings agent**.
 1. På fliken **Logga in** ändrar du **det här kontot** till en domän administratör. Starta sedan om tjänsten. 
 
    ![Fliken Logga in](media/how-to-troubleshoot/troubleshoot3.png)
@@ -120,7 +120,7 @@ Du kan få ett fel meddelande när du installerar Cloud Provisioning-agenten.
 
 Det här problemet orsakas vanligt vis av att agenten inte kan köra PowerShell-registrerings skripten på grund av lokala PowerShell-körnings principer.
 
-Lös problemet genom att ändra körnings principerna för PowerShell på-servern. Du måste ha dator-och användar principer inställda som *odefinierade* eller *RemoteSigned*. Om de är inställda som *obegränsade*visas det här felet. Mer information finns i [körnings principer för PowerShell](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6). 
+Lös problemet genom att ändra körnings principerna för PowerShell på-servern. Du måste ha dator-och användar principer inställda som *odefinierade* eller *RemoteSigned*. Om de är inställda som *obegränsade* visas det här felet. Mer information finns i [körnings principer för PowerShell](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6). 
 
 ### <a name="log-files"></a>Loggfiler
 

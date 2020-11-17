@@ -204,7 +204,7 @@
           items:
             - name: Skapa en arbetsyta
               items:
-                - name: Azure-portalen
+                - name: Azure Portal
                   href: learn/quick-create-workspace.md
                 - name: Azure CLI
                   href: learn/quick-create-workspace-cli.md
@@ -275,7 +275,7 @@
               href: platform/logs-data-export.md
             - name: Exportera med Logic Apps
               href: platform/logs-export-logic-app.md
-            - name: Köra frågor mot exporterade data med Datautforskaren
+            - name: Fråga data med Azure Data Explorer
               href: platform/azure-data-explorer-query-storage.md
             - name: Skicka till Excel
               href: log-query/log-excel.md

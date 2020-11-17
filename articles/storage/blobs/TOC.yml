@@ -328,11 +328,11 @@
             - name: Auktoriseringsalternativ för användare
               items:
                 - name: Portalen
-                  href: authorize-blob-access-portal.md
+                  href: authorize-data-operations-portal.md
                 - name: PowerShell
-                  href: authorize-active-directory-powershell.md
+                  href: authorize-data-operations-powershell.md
                 - name: Azure CLI
-                  href: ../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                  href: authorize-data-operations-cli.md
             - name: Hantera åtkomstbehörighet med Azure RBAC
               items:
                 - name: Portalen

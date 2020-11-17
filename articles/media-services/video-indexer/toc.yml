@@ -47,8 +47,6 @@
           href: customize-person-model-overview.md
 - name: Guider
   items:
-    - name: Anslut till Azure
-      href: connect-to-azure.md
     - name: Hantera konto som är anslutet till Azure
       href: manage-account-connected-to-azure.md
     - name: Ladda upp och indexera videor

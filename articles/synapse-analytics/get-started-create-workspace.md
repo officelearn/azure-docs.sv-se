@@ -30,7 +30,7 @@ För att slutföra den här själv studie kursen måste du ha åtkomst till en r
 1. Öppna [Azure Portal](https://portal.azure.com)och högst upp i Sök efter **Synapse**.
 1. I Sök resultaten under **tjänster** väljer du **Azure Synapse Analytics (för hands versioner av arbets ytor)**.
 1. Välj **Lägg till** för att skapa en arbets yta.
-1. I **grunderna** anger du önskad **prenumeration** , **resurs grupp** , **region** och väljer sedan ett namn på arbets ytan. I den här självstudien använder vi min **arbets yta**.
+1. I **grunderna** anger du önskad **prenumeration**, **resurs grupp**, **region** och väljer sedan ett namn på arbets ytan. I den här självstudien använder vi min **arbets yta**.
 1. Gå till **välj Data Lake Storage gen 2**. 
 1. Klicka på **Skapa nytt** och ge den namnet **contosolake**.
 1. Klicka på **fil system** och ge den namnet **användare**. Då skapas en behållare med namnet **användare**

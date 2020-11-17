@@ -143,10 +143,12 @@
               href: azure-vm-create-properties.md
             - name: Konfigurera visning av VM-erbjudande
               href: azure-vm-create-listing.md
-            - name: Skapa VM-planer
-              href: azure-vm-create-plans.md
             - name: Lägg till en målgrupp för förhandsversionen
               href: azure-vm-create-preview.md
+            - name: Skapa VM-planer
+              href: azure-vm-create-plans.md
+            - name: Sälja via CSP-partner
+              href: azure-vm-create-resell-csp.md
             - name: Skapa tekniska tillgångar för virtuella datorer
               items:
                 - name: Skapa virtuell dator från en godkänd bas

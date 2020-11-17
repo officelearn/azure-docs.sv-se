@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: ed34bf755023ab866e95c51aca6d1bfb1dd7bf71
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c0bd2f6a021baae80dafcc3d544e1062d8e022e8
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099461"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94653342"
 ---
 # <a name="fqdn-tags-overview"></a>Översikt över FQDN-Taggar
 
@@ -28,10 +28,10 @@ I följande tabell visas de aktuella FQDN-taggar som du kan använda. Microsoft 
 
 ## <a name="current-fqdn-tags"></a>Aktuella FQDN-Taggar
 
-|FQDN-tagg  |Beskrivning  |
+|FQDN-tagg  |Description  |
 |---------|---------|
-|Windows Update     |Tillåt utgående åtkomst till Microsoft Update enligt beskrivningen i [så här konfigurerar du en brand vägg för program uppdateringar](https://docs.microsoft.com/mem/configmgr/sum/get-started/install-a-software-update-point).|
-|Windows-diagnostik|Tillåt utgående åtkomst till alla [slut punkter för Windows-diagnostik](https://docs.microsoft.com/windows/privacy/configure-windows-diagnostic-data-in-your-organization#endpoints).|
+|Windows Update     |Tillåt utgående åtkomst till Microsoft Update enligt beskrivningen i [så här konfigurerar du en brand vägg för program uppdateringar](/mem/configmgr/sum/get-started/install-a-software-update-point).|
+|Windows-diagnostik|Tillåt utgående åtkomst till alla [slut punkter för Windows-diagnostik](/windows/privacy/configure-windows-diagnostic-data-in-your-organization#endpoints).|
 |Microsoft Active Protection Service (MAPS)|Tillåt utgående åtkomst till [Maps](https://cloudblogs.microsoft.com/enterprisemobility/2016/05/31/important-changes-to-microsoft-active-protection-service-maps-endpoint/).|
 |App Service-miljön (ASE)|Tillåt utgående åtkomst till ASE-plattformstrafik. Den här taggen avser inte kundspecifik lagring och SQL-slutpunkter som skapats av ASE. De bör aktive ras via [tjänst slut punkter](../virtual-network/tutorial-restrict-network-access-to-resources.md) eller läggas till manuellt.<br><br>Mer information om hur du integrerar Azure-brandväggen med ASE finns i [låsa en app service-miljön](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).|
 |Azure Backup|Tillåter utgående åtkomst till Azure Backup-tjänsterna.|
@@ -40,7 +40,7 @@ I följande tabell visas de aktuella FQDN-taggar som du kan använda. Microsoft 
 |Azure Kubernetes Service (AKS)|Tillåter utgående åtkomst till AKS. Mer information finns i [använda Azure-brandväggen för att skydda AKS-distributioner (Azure Kubernetes service)](protect-azure-kubernetes-service.md).|
 
 > [!NOTE]
-> När du väljer FQDN-tagg i en program regel måste fältet protokoll: port anges till **https** .
+> När du väljer FQDN-tagg i en program regel måste fältet protokoll: port anges till **https**.
 
 ## <a name="next-steps"></a>Nästa steg
 

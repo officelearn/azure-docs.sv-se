@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 09/25/2020
 ms.author: victorh
-ms.openlocfilehash: 3bde4c11e9dc34be13efb25864fe75054d22bddb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b8fbc47b46f8be6e4ad7636a1d7552445501f0f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91363111"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94653172"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Integrera Azure Firewall med Azure Standard Load Balancer
 
@@ -53,7 +53,7 @@ I följande exempel översätter en NAT-regel RDP-trafik till brand väggen vid 
 > [!div class="mx-imgBorder"]
 > ![NAT-regel](media/integrate-lb/nat-rule-02.png)
 
-### <a name="health-probes"></a>Hälsotillståndsavsökningar
+### <a name="health-probes"></a>Hälsoavsökningar
 
 Kom ihåg att du behöver en webb tjänst som körs på värdarna i belastningsutjämnaren om du använder TCP-hälsosökningar till port 80 eller HTTP/HTTPS-avsökningar.
 
@@ -77,7 +77,7 @@ Du kan till exempel skapa en NSG i backend-undernätet där de belastningsutjäm
 
 ![Nätverkssäkerhetsgrupp](media/integrate-lb/nsg-01.png)
 
-Mer information om NSG: er finns i [säkerhets grupper](../virtual-network/security-overview.md).
+Mer information om NSG: er finns i [säkerhets grupper](../virtual-network/network-security-groups-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

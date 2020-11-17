@@ -16,12 +16,12 @@ ms.date: 07/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a602405065a41cb26b2ae5303d12c45ed21616f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 224ccaeace91288171db42d2b8b8cf8c21a352e0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91741201"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94652526"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Felsöka Azure Active Directory-direktautentisering
 
@@ -34,7 +34,7 @@ Den här artikeln hjälper dig att hitta felsöknings information om vanliga pro
 
 ### <a name="check-status-of-the-feature-and-authentication-agents"></a>Kontrol lera status för funktionen och autentiserings agenter
 
-Se till att funktionen för direkt autentisering fortfarande är **aktive rad** på din klient och statusen för Autentiseringstjänsten visar **aktiv**och inte **inaktiv**. Du kan kontrol lera status genom att gå till bladet **Azure AD Connect** på [Azure Active Directory administrations Center](https://aad.portal.azure.com/).
+Se till att funktionen för direkt autentisering fortfarande är **aktive rad** på din klient och statusen för Autentiseringstjänsten visar **aktiv** och inte **inaktiv**. Du kan kontrol lera status genom att gå till bladet **Azure AD Connect** på [Azure Active Directory administrations Center](https://aad.portal.azure.com/).
 
 ![Azure Active Directory administrations Center – Azure AD Connect bladet](./media/tshoot-connect-pass-through-authentication/pta7.png)
 
@@ -157,9 +157,11 @@ Om du har fel som rör Autentiseringstjänsten öppnar du Loggboken-programmet p
 
 För detaljerad analys aktiverar du loggen "session" (Högerklicka i Loggboken programmet för att hitta det här alternativet). Kör inte Authentication agent med den här loggen aktive rad under normal drift; Använd endast för fel sökning. Logg innehållet visas bara när loggen har inaktiverats igen.
 
+PTA agent-händelseloggen hittar du [här](https://msazure.visualstudio.com/One/_git/AD-AppProxy?path=%2Fsrc%2FProduct%2FMUC%2FPTADiagnosticsResource%2FPTADiagnosticsResource%2FPTAConnectorDiagnosticsResource%2FPTAConnectorEventManifest.man&_a=contents&version=GBmaster).
+
 ### <a name="detailed-trace-logs"></a>Detaljerade spårnings loggar
 
-Felsök användar inloggnings fel genom att leta efter spårnings loggar på **%programdata%\MICROSOFT\AZURE AD Connect Authentication Agent\Trace \\ **. Dessa loggar innehåller orsaker till varför en speciell användar inloggning misslyckades med hjälp av funktionen för direkt autentisering. De här felen mappas också till de inloggnings fel orsaker som visas i tabellen närmast föregående fel orsaken till inloggningen. Följande är en exempel logg post:
+Felsök användar inloggnings fel genom att leta efter spårnings loggar på **%programdata%\MICROSOFT\AZURE AD Connect Authentication Agent\Trace \\**. Dessa loggar innehåller orsaker till varför en speciell användar inloggning misslyckades med hjälp av funktionen för direkt autentisering. De här felen mappas också till de inloggnings fel orsaker som visas i tabellen närmast föregående fel orsaken till inloggningen. Följande är en exempel logg post:
 
 ```
     AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.

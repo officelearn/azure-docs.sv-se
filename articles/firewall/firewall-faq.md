@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: victorh
-ms.openlocfilehash: 8b94b71993285a61042be3c6cd9e4708315fab9f
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 3e6ea6692a81a06bbf3180904dfb465a88b105d1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413011"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94653427"
 ---
 # <a name="azure-firewall-faq"></a>Vanliga frågor och svar om Azure Firewall
 
@@ -40,9 +40,9 @@ Azure-brandväggen stöder regler och regel samlingar. En regel samling är en u
 
 Det finns tre typer av regel samlingar:
 
-* *Program regler* : Konfigurera fullständigt kvalificerade domän namn (FQDN) som kan nås från ett undernät.
-* *Nätverks regler* : Konfigurera regler som innehåller käll adresser, protokoll, mål portar och mål adresser.
-* *NAT-regler* : Konfigurera DNAt-regler för att tillåta inkommande Internet anslutningar.
+* *Program regler*: Konfigurera fullständigt kvalificerade domän namn (FQDN) som kan nås från ett undernät.
+* *Nätverks regler*: Konfigurera regler som innehåller käll adresser, protokoll, mål portar och mål adresser.
+* *NAT-regler*: Konfigurera DNAt-regler för att tillåta inkommande Internet anslutningar.
 
 ## <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>Stöder Azure-brandväggen inkommande trafik filtrering?
 
@@ -50,7 +50,7 @@ Azure-brandväggen stöder inkommande och utgående filtrering. Inkommande skydd
 
 ## <a name="which-logging-and-analytics-services-are-supported-by-the-azure-firewall"></a>Vilka loggnings-och analys tjänster stöds av Azure-brandväggen?
 
-Azure-brandväggen är integrerad med Azure Monitor för att visa och analysera brand Väggs loggar. Loggar kan skickas till Log Analytics, Azure Storage eller Event Hubs. De kan analyseras i Log Analytics eller av olika verktyg som Excel och Power BI. Mer information finns i [Självstudier: övervaka Azure Firewall-loggar](tutorial-diagnostics.md).
+Azure-brandväggen är integrerad med Azure Monitor för att visa och analysera brand Väggs loggar. Loggar kan skickas till Log Analytics, Azure Storage eller Event Hubs. De kan analyseras i Log Analytics eller av olika verktyg som Excel och Power BI. Mer information finns i [Självstudier: övervaka Azure Firewall-loggar](./firewall-diagnostics.md).
 
 ## <a name="how-does-azure-firewall-work-differently-from-existing-services-such-as-nvas-in-the-marketplace"></a>Hur fungerar Azure Firewall annorlunda jämfört med befintliga tjänster som NVA på Marketplace?
 
@@ -80,7 +80,7 @@ Se [priser för Azure-brandvägg](https://azure.microsoft.com/pricing/details/az
 
 Du kan använda Azure PowerShell *frigör* och *allokera* metoder.
 
-Till exempel:
+Exempel:
 
 ```azurepowershell
 # Stop an existing firewall
@@ -139,9 +139,9 @@ Nej. NAT-regler lägger implicit till en motsvarande nätverks regel för att ti
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>Hur fungerar jokertecken i en program regels mål-FQDN?
 
-Jokertecken kan för närvarande endast användas på vänster sida av FQDN. Till exempel * *_. contoso.com_* och * *_contoso.com_*.
+Jokertecken kan för närvarande endast användas på vänster sida av FQDN. Till exempel **_. contoso.com_* och **_contoso.com_*.
 
-Om du konfigurerar * *_. contoso.com_* tillåts *anyvalue*. contoso.com, men inte contoso.com (domän Apex). Om du vill tillåta domän Apex måste du uttryckligen konfigurera den som en mål-FQDN.
+Om du konfigurerar **_. contoso.com_* tillåts *anyvalue*. contoso.com, men inte contoso.com (domän Apex). Om du vill tillåta domän Apex måste du uttryckligen konfigurera den som en mål-FQDN.
 
 ## <a name="what-does-provisioning-state-failed-mean"></a>Vad är *etablerings status: misslyckades,* betyder?
 
@@ -217,7 +217,7 @@ Nej, det finns för närvarande inte stöd för att flytta en IP-grupp till en a
 
 ## <a name="what-is-the-tcp-idle-timeout-for-azure-firewall"></a>Vad är timeout för TCP-inaktivitet för Azure-brandväggen?
 
-Ett standard beteende för en nätverks brand vägg är att se till att TCP-anslutningar hålls aktiva och att du snabbt ska stänga dem om det inte finns någon aktivitet. Timeout för TCP-inaktivitet i Azure Firewall är fyra minuter. Den här inställningen kan inte konfigureras. Om en period av inaktivitet är längre än timeout-värdet finns det ingen garanti för att TCP-eller HTTP-sessionen upprätthålls. En vanlig metod är att använda en TCP Keep-Alive. Den här metoden håller anslutningen aktiv under en längre period. Mer information finns i .net- [exemplen](https://docs.microsoft.com/dotnet/api/system.net.servicepoint.settcpkeepalive?redirectedfrom=MSDN&view=netcore-3.1#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_).
+Ett standard beteende för en nätverks brand vägg är att se till att TCP-anslutningar hålls aktiva och att du snabbt ska stänga dem om det inte finns någon aktivitet. Timeout för TCP-inaktivitet i Azure Firewall är fyra minuter. Den här inställningen kan inte konfigureras. Om en period av inaktivitet är längre än timeout-värdet finns det ingen garanti för att TCP-eller HTTP-sessionen upprätthålls. En vanlig metod är att använda en TCP Keep-Alive. Den här metoden håller anslutningen aktiv under en längre period. Mer information finns i .net- [exemplen](/dotnet/api/system.net.servicepoint.settcpkeepalive?view=netcore-3.1#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_).
 
 ## <a name="can-i-deploy-azure-firewall-without-a-public-ip-address"></a>Kan jag Distribuera Azure-brandväggen utan en offentlig IP-adress?
 

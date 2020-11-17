@@ -3,12 +3,12 @@ title: Ändra kluster inställningar för Azure Service Fabric
 description: I den här artikeln beskrivs de infrastruktur inställningar och de uppgraderings principer för infrastruktur resurser som du kan anpassa.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: fbd6c9503e409473a87c58202eb88d77716441f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a83d24b4badd78750756a3cb4564b1e53fd30593
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89055128"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648233"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Anpassa Service Fabric-klusterinställningar
 I den här artikeln beskrivs de olika infrastruktur inställningarna för ditt Service Fabric-kluster som du kan anpassa. För kluster som finns i Azure kan du anpassa inställningarna via [Azure Portal](https://portal.azure.com) eller genom att använda en Azure Resource Manager mall. Mer information finns i [Uppgradera konfigurationen av ett Azure-kluster](service-fabric-cluster-config-upgrade-azure.md). För fristående kluster anpassar du inställningarna genom att uppdatera *ClusterConfig.jspå* filen och utföra en konfigurations uppgradering i klustret. Mer information finns i [Uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -243,7 +243,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |QuorumLossWaitDuration | Tid i sekunder, standard är MaxValue |Statisk|Ange TimeSpan i sekunder. QuorumLossWaitDuration för FaultAnalysisService. |
 |ReplicaDropWaitDurationInSeconds|int, standard är 600|Statisk|Den här parametern används när API: et för data förlust anropas. Den styr hur länge systemet väntar på att en replik ska tas bort efter att borttagning av repliken har anropats internt. |
 |ReplicaRestartWaitDuration |Tid i sekunder, standardvärdet är 60 minuter|Statisk|Ange TimeSpan i sekunder. ReplicaRestartWaitDuration för FaultAnalysisService. |
-|StandByReplicaKeepDuration| Tid i sekunder, standard är (60*24*7) minuter |Statisk|Ange TimeSpan i sekunder. StandByReplicaKeepDuration för FaultAnalysisService. |
+|StandByReplicaKeepDuration| Tid i sekunder, standard är (60 *24* 7) minuter |Statisk|Ange TimeSpan i sekunder. StandByReplicaKeepDuration för FaultAnalysisService. |
 |StoredActionCleanupIntervalInSeconds | Int, standard är 3600 |Statisk|Detta är hur ofta butiken ska rensas. Endast åtgärder i Terminal State; och som slutförde minst CompletedActionKeepDurationInSeconds sedan tas bort. |
 |StoredChaosEventCleanupIntervalInSeconds | Int, standard är 3600 |Statisk|Detta är hur ofta butiken ska granskas för rensning. om antalet händelser är fler än 30000; rensningen används. |
 |TargetReplicaSetSize |Int, standardvärdet är 0 |Statisk|NOT_PLATFORM_UNIX_START TargetReplicaSetSize för FaultAnalysisService. |
@@ -423,14 +423,14 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |AzureStorageMaxConnections | Int, standard är 5000 |Dynamisk|Maximalt antal samtidiga anslutningar till Azure Storage. |
 |AzureStorageMaxWorkerThreads | Int, standard är 25 |Dynamisk|Det maximala antalet arbets trådar parallellt. |
 |AzureStorageOperationTimeout | Tid i sekunder, standard är 6000 |Dynamisk|Ange TimeSpan i sekunder. Tids gränsen för xstore-åtgärden slutfördes. |
-|CleanupApplicationPackageOnProvisionSuccess|bool, standard är falskt |Dynamisk|Aktiverar eller inaktiverar automatisk rensning av programpaketet vid lyckad etablering.
-
-*Bästa praxis är att använda `true` .* | | CleanupUnusedApplicationTypes | Bool, standard är falskt | Dynamisk | Den här konfigurationen om den är aktive rad, tillåter att automatiskt avregistrera oanvända program typ versioner som hoppar över de senaste tre oanvända versionerna, vilket frigör det disk utrymme som upptas av avbildnings arkivet. Den automatiska rensningen aktive ras i slutet av lyckad etablering för den specifika typen av app och körs regelbundet en gång per dag för alla program typer. Antalet oanvända versioner att hoppa över kan konfigureras med parametern "MaxUnusedAppTypeVersionsToKeep". 
-
-*Bästa praxis är att använda `true` .*
-| | DisableChecksumValidation | Bool, standard är falskt | Statisk | Med den här konfigurationen kan vi aktivera eller inaktivera verifiering av kontroll Summa under applikations etablering. | | DisableServerSideCopy | Bool, standard är falskt | Statisk | Den här konfigurationen aktiverar eller inaktiverar kopia av programpaket på Server sidan på avbildnings Arkiv under applikations etablering. | | ImageCachingEnabled | Bool, standard är sant | Statisk | Med den här konfigurationen kan vi aktivera eller inaktivera cachelagring. | | ImageStoreConnectionString | SecureString | Statisk | Anslutnings sträng till roten för avbildnings arkiv. | | ImageStoreMinimumTransferBPS | Int, standard är 1024 | Dynamisk | Den minsta överföringshastigheten mellan klustret och avbildnings arkiv. Det här värdet används för att fastställa tids gränsen vid åtkomst till den externa avbildnings arkiv. Ändra bara det här värdet om svars tiden mellan klustret och avbildnings arkiv är hög för att det ska gå att ladda ned klustret från den externa avbildnings arkiv. | | MaxUnusedAppTypeVersionsToKeep | Int, standard är 3 | Dynamisk | Den här konfigurationen definierar antalet oanvända program typ versioner som ska hoppas över vid rensning. Den här parametern kan bara användas om parametern CleanupUnusedApplicationTypes har Aktiver ATS.
-
-*Den allmänna rekommenderade metoden är att använda standardvärdet ( `3` ).*|
+|CleanupApplicationPackageOnProvisionSuccess|bool, standard är falskt |Dynamisk|Aktiverar eller inaktiverar automatisk rensning av programpaketet vid lyckad etablering.<br/> *Bästa praxis är att använda `true` .*
+|CleanupUnusedApplicationTypes|Bool, standard är falskt |Dynamisk|Den här konfigurationen om den är aktive rad, tillåter att automatiskt avregistrera oanvända program typ versioner som hoppar över de senaste tre oanvända versionerna, vilket frigör det disk utrymme som upptas av avbildnings arkivet. Den automatiska rensningen aktive ras i slutet av lyckad etablering för den specifika typen av app och körs regelbundet en gång per dag för alla program typer. Antalet oanvända versioner att hoppa över kan konfigureras med parametern "MaxUnusedAppTypeVersionsToKeep". <br/> *Bästa praxis är att använda `true` .*
+|DisableChecksumValidation | Bool, standard är falskt |Statisk| Med den här konfigurationen kan vi aktivera eller inaktivera verifiering av kontroll Summa under applikations etablering. |
+|DisableServerSideCopy | Bool, standard är falskt |Statisk|Den här konfigurationen aktiverar eller inaktiverar kopia av programpaket på Server sidan på avbildnings Arkiv under applikations etablering. |
+|ImageCachingEnabled | Bool, standard är sant |Statisk|Med den här konfigurationen kan vi aktivera eller inaktivera cachelagring. |
+|ImageStoreConnectionString |SecureString |Statisk|Anslutnings sträng till roten för avbildnings arkiv. |
+|ImageStoreMinimumTransferBPS | Int, standard är 1024 |Dynamisk|Den minsta överföringshastigheten mellan klustret och avbildnings arkiv. Det här värdet används för att fastställa tids gränsen vid åtkomst till den externa avbildnings arkiv. Ändra bara det här värdet om svars tiden mellan klustret och avbildnings arkiv är hög för att det ska gå att ladda ned klustret från den externa avbildnings arkiv. |
+|MaxUnusedAppTypeVersionsToKeep | Int, standard är 3 |Dynamisk|Den här konfigurationen definierar antalet oanvända program typ versioner som ska hoppas över vid rensning. Den här parametern kan bara användas om parametern CleanupUnusedApplicationTypes har Aktiver ATS. <br/>*Den allmänna rekommenderade metoden är att använda standardvärdet ( `3` ). Värden som är mindre än 1 är ogiltiga.*|
 
 
 ## <a name="metricactivitythresholds"></a>MetricActivityThresholds
@@ -890,7 +890,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |PlacementConstraints | sträng, standard är "" |Statisk| PlacementConstraints för UpgradeOrchestrationService. |
 |QuorumLossWaitDuration | Tid i sekunder, standard är MaxValue |Statisk| Ange TimeSpan i sekunder. QuorumLossWaitDuration för UpgradeOrchestrationService. |
 |ReplicaRestartWaitDuration | Tid i sekunder, standardvärdet är 60 minuter|Statisk| Ange TimeSpan i sekunder. ReplicaRestartWaitDuration för UpgradeOrchestrationService. |
-|StandByReplicaKeepDuration | Tid i sekunder, standard är 60*24*7 minuter |Statisk| Ange TimeSpan i sekunder. StandByReplicaKeepDuration för UpgradeOrchestrationService. |
+|StandByReplicaKeepDuration | Tid i sekunder, standard är 60 *24* 7 minuter |Statisk| Ange TimeSpan i sekunder. StandByReplicaKeepDuration för UpgradeOrchestrationService. |
 |TargetReplicaSetSize |Int, standardvärdet är 0 |Statisk |TargetReplicaSetSize för UpgradeOrchestrationService. |
 |UpgradeApprovalRequired | Bool, standard är falskt | Statisk|Inställningen för att göra kod uppgraderingen kräver administratörs godkännande innan du fortsätter. |
 

@@ -16,18 +16,18 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: a891830d876bfa99d29087278dd5b870ae7e2866
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 846e1a83f3cba5f87210ae4f825b5fac4f1569c6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368391"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648386"
 ---
 # <a name="add-or-remove-azure-role-assignments-for-external-guest-users-using-the-azure-portal"></a>Lägg till eller ta bort Azure Role-tilldelningar för externa gäst användare med hjälp av Azure Portal
 
-[Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](overview.md) ger bättre säkerhets hantering för stora organisationer och för små och medel stora företag som arbetar med externa medarbetare, leverantörer eller Freelancer som behöver åtkomst till vissa resurser i din miljö, men inte nödvändigt vis till hela infrastrukturen eller någon fakturerings knuten omfattning. Du kan använda funktionerna i [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md) för att samar beta med externa gäst användare och du kan använda Azure RBAC för att ge bara de behörigheter som gäst användare behöver i din miljö.
+[Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](overview.md) ger bättre säkerhets hantering för stora organisationer och för små och medel stora företag som arbetar med externa medarbetare, leverantörer eller Freelancer som behöver åtkomst till vissa resurser i din miljö, men inte nödvändigt vis till hela infrastrukturen eller någon fakturerings knuten omfattning. Du kan använda funktionerna i [Azure Active Directory B2B](../active-directory/external-identities/what-is-b2b.md) för att samar beta med externa gäst användare och du kan använda Azure RBAC för att ge bara de behörigheter som gäst användare behöver i din miljö.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill lägga till eller ta bort roll tilldelningar måste du ha:
 
@@ -49,13 +49,13 @@ Interna medlemmar i en katalog (medlems användare) har olika behörigheter än 
 
 Följ dessa steg om du vill lägga till en gäst användare till din katalog med hjälp av Azure Active Directory sidan.
 
-1. Kontrol lera att organisationens inställningar för externt samarbete är konfigurerade så att du får bjuda in gäster. Mer information finns i [Aktivera externt samarbete i B2B och hantera vem som kan bjuda in gäster](../active-directory/b2b/delegate-invitations.md).
+1. Kontrol lera att organisationens inställningar för externt samarbete är konfigurerade så att du får bjuda in gäster. Mer information finns i [Aktivera externt samarbete i B2B och hantera vem som kan bjuda in gäster](../active-directory/external-identities/delegate-invitations.md).
 
-1. Klicka på **Azure Active Directory**  >  **användare**  >  **nya gäst användare**i Azure Portal.
+1. Klicka på **Azure Active Directory**  >  **användare**  >  **nya gäst användare** i Azure Portal.
 
     ![Ny gäst användar funktion i Azure Portal](./media/role-assignments-external-users/invite-guest-user.png)
 
-1. Följ stegen för att lägga till en ny gäst användare. Mer information finns i [Lägg till Azure Active Directory B2B-samarbets användare i Azure Portal](../active-directory/b2b/add-users-administrator.md#add-guest-users-to-the-directory).
+1. Följ stegen för att lägga till en ny gäst användare. Mer information finns i [Lägg till Azure Active Directory B2B-samarbets användare i Azure Portal](../active-directory/external-identities/add-users-administrator.md#add-guest-users-to-the-directory).
 
 När du har lagt till en gäst användare i katalogen kan du antingen skicka gäst användaren en direkt länk till en delad app, eller gäst användaren kan klicka på inlösnings-URL: en i inbjudan via e-post.
 
@@ -65,7 +65,7 @@ För att gäst användaren ska kunna komma åt din katalog måste de slutföra I
 
 ![Gäst användar inbjudan granska behörigheter](./media/role-assignments-external-users/invite-review-permissions.png)
 
-Mer information om Inbjudnings processen finns i [Azure Active Directory B2B-samverkan med inbjudan](../active-directory/b2b/redemption-experience.md).
+Mer information om Inbjudnings processen finns i [Azure Active Directory B2B-samverkan med inbjudan](../active-directory/external-identities/redemption-experience.md).
 
 ## <a name="add-a-role-assignment-for-a-guest-user"></a>Lägg till en roll tilldelning för en gäst användare
 
@@ -73,7 +73,7 @@ I Azure RBAC, för att bevilja åtkomst, tilldelar du en roll. Om du vill lägga
 
 1. Klicka på **Alla tjänster** i Azure-portalen.
 
-1.  Välj den uppsättning resurser som åtkomsten gäller för, även kallat omfånget. Du kan till exempel välja **hanterings grupper**, **prenumerationer**, **resurs grupper**eller en resurs.
+1.  Välj den uppsättning resurser som åtkomsten gäller för, även kallat omfånget. Du kan till exempel välja **hanterings grupper**, **prenumerationer**, **resurs grupper** eller en resurs.
 
 1. Klicka på den aktuella resursen.
 
@@ -111,7 +111,7 @@ Om gäst användaren inte finns i din katalog än kan du bjuda in användaren di
 
 1. Klicka på **Alla tjänster** i Azure-portalen.
 
-1.  Välj den uppsättning resurser som åtkomsten gäller för, även kallat omfånget. Du kan till exempel välja **hanterings grupper**, **prenumerationer**, **resurs grupper**eller en resurs.
+1.  Välj den uppsättning resurser som åtkomsten gäller för, även kallat omfånget. Du kan till exempel välja **hanterings grupper**, **prenumerationer**, **resurs grupper** eller en resurs.
 
 1. Klicka på den aktuella resursen.
 
@@ -145,7 +145,7 @@ Om gäst användaren inte finns i din katalog än kan du bjuda in användaren di
 
 1. Slutför Inbjudnings processen genom att skicka inbjudan till gäst användaren.
 
-    Mer information om Inbjudnings processen finns i [Azure Active Directory B2B-samverkan med inbjudan](../active-directory/b2b/redemption-experience.md).
+    Mer information om Inbjudnings processen finns i [Azure Active Directory B2B-samverkan med inbjudan](../active-directory/external-identities/redemption-experience.md).
 
 ## <a name="remove-a-guest-user-from-your-directory"></a>Ta bort en gäst användare från din katalog
 
@@ -165,7 +165,7 @@ Innan du tar bort en gäst användare från en katalog bör du först ta bort al
 
 1. I meddelandet om att ta bort rolltilldelningen klickar du på **Ja**.
 
-1. Klicka på **Azure Active Directory**användare i det vänstra navigerings fältet  >  **Users**.
+1. Klicka på **Azure Active Directory** användare i det vänstra navigerings fältet  >  **Users**.
 
 1. Klicka på den gäst användare som du vill ta bort.
 
@@ -173,7 +173,7 @@ Innan du tar bort en gäst användare från en katalog bör du först ta bort al
 
    ![Ta bort gäst användare](./media/role-assignments-external-users/delete-guest-user.png)
 
-1. Klicka på **Ja**i det borttagnings meddelande som visas.
+1. Klicka på **Ja** i det borttagnings meddelande som visas.
 
 ## <a name="troubleshoot"></a>Felsöka
 
@@ -183,7 +183,7 @@ Gäst användare har begränsad katalog behörighet. Gäst användare kan till e
 
 ![Gäst användare kan inte bläddra i användare i en katalog](./media/role-assignments-external-users/directory-no-users.png)
 
-Om en gäst användare behöver ytterligare behörighet i katalogen kan du tilldela gäst användaren en katalog roll. Om du verkligen vill att en gäst användare ska ha fullständig Läs behörighet till din katalog kan du lägga till gäst användaren i rollen [katalog läsare](../active-directory/roles/permissions-reference.md) i Azure AD. Mer information finns i [bevilja behörigheter till användare från partner organisationer i din Azure Active Directory klient](../active-directory/b2b/add-guest-to-role.md).
+Om en gäst användare behöver ytterligare behörighet i katalogen kan du tilldela gäst användaren en katalog roll. Om du verkligen vill att en gäst användare ska ha fullständig Läs behörighet till din katalog kan du lägga till gäst användaren i rollen [katalog läsare](../active-directory/roles/permissions-reference.md) i Azure AD. Mer information finns i [bevilja behörigheter till användare från partner organisationer i din Azure Active Directory klient](../active-directory/external-identities/add-guest-to-role.md).
 
 ![Tilldela rollen katalog läsare](./media/role-assignments-external-users/directory-roles.png)
 
@@ -193,27 +193,27 @@ Gäst användare har begränsad katalog behörighet. Även om en gäst användar
 
 ![Gäst användare kan inte bläddra i säkerhets objekt för att tilldela roller](./media/role-assignments-external-users/directory-no-browse.png)
 
-Om gäst användaren känner till någons exakta inloggnings namn i katalogen kan de bevilja åtkomst. Om du verkligen vill att en gäst användare ska ha fullständig Läs behörighet till din katalog kan du lägga till gäst användaren i rollen [katalog läsare](../active-directory/roles/permissions-reference.md) i Azure AD. Mer information finns i [bevilja behörigheter till användare från partner organisationer i din Azure Active Directory klient](../active-directory/b2b/add-guest-to-role.md).
+Om gäst användaren känner till någons exakta inloggnings namn i katalogen kan de bevilja åtkomst. Om du verkligen vill att en gäst användare ska ha fullständig Läs behörighet till din katalog kan du lägga till gäst användaren i rollen [katalog läsare](../active-directory/roles/permissions-reference.md) i Azure AD. Mer information finns i [bevilja behörigheter till användare från partner organisationer i din Azure Active Directory klient](../active-directory/external-identities/add-guest-to-role.md).
 
 ### <a name="guest-user-cannot-register-applications-or-create-service-principals"></a>Gäst användare kan inte registrera program eller skapa tjänstens huvud namn
 
-Gäst användare har begränsad katalog behörighet. Om en gäst användare behöver kunna registrera program eller skapa tjänstens huvud namn kan du lägga till gäst användaren i rollen [programutvecklare](../active-directory/roles/permissions-reference.md) i Azure AD. Mer information finns i [bevilja behörigheter till användare från partner organisationer i din Azure Active Directory klient](../active-directory/b2b/add-guest-to-role.md).
+Gäst användare har begränsad katalog behörighet. Om en gäst användare behöver kunna registrera program eller skapa tjänstens huvud namn kan du lägga till gäst användaren i rollen [programutvecklare](../active-directory/roles/permissions-reference.md) i Azure AD. Mer information finns i [bevilja behörigheter till användare från partner organisationer i din Azure Active Directory klient](../active-directory/external-identities/add-guest-to-role.md).
 
 ![Gäst användare kan inte registrera program](./media/role-assignments-external-users/directory-access-denied.png)
 
 ### <a name="guest-user-does-not-see-the-new-directory"></a>Gäst användare ser inte den nya katalogen
 
-Om en gäst användare har beviljats åtkomst till en katalog, men de inte ser den nya katalogen som listas i Azure Portal när de försöker växla i katalog-och **prenumerations** fönstret, se till att gäst användaren har slutfört inbjudan. Mer information om Inbjudnings processen finns i [Azure Active Directory B2B-samverkan med inbjudan](../active-directory/b2b/redemption-experience.md).
+Om en gäst användare har beviljats åtkomst till en katalog, men de inte ser den nya katalogen som listas i Azure Portal när de försöker växla i katalog-och **prenumerations** fönstret, se till att gäst användaren har slutfört inbjudan. Mer information om Inbjudnings processen finns i [Azure Active Directory B2B-samverkan med inbjudan](../active-directory/external-identities/redemption-experience.md).
 
 ### <a name="guest-user-does-not-see-resources"></a>Gäst användare ser inte resurser
 
-Om en gäst användare har beviljats åtkomst till en katalog, men de inte ser de resurser som de har beviljats åtkomst till i Azure Portal, se till att gäst användaren har valt rätt katalog. En gäst användare kan ha åtkomst till flera kataloger. För att växla kataloger, i det övre vänstra hörnet, klickar du på **katalog + prenumeration**och sedan på lämplig katalog.
+Om en gäst användare har beviljats åtkomst till en katalog, men de inte ser de resurser som de har beviljats åtkomst till i Azure Portal, se till att gäst användaren har valt rätt katalog. En gäst användare kan ha åtkomst till flera kataloger. För att växla kataloger, i det övre vänstra hörnet, klickar du på **katalog + prenumeration** och sedan på lämplig katalog.
 
 ![Fönstret kataloger + prenumerationer i Azure Portal](./media/role-assignments-external-users/directory-subscription.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Lägg till Azure Active Directory B2B-samarbets användare i Azure Portal](../active-directory/b2b/add-users-administrator.md)
-- [Egenskaper för en Azure Active Directory B2B-samarbets användare](../active-directory/b2b/user-properties.md)
-- [Elementen i e-postinbjudanen B2B – Azure Active Directory](../active-directory/b2b/invitation-email-elements.md)
+- [Lägg till Azure Active Directory B2B-samarbets användare i Azure Portal](../active-directory/external-identities/add-users-administrator.md)
+- [Egenskaper för en Azure Active Directory B2B-samarbets användare](../active-directory/external-identities/user-properties.md)
+- [Elementen i e-postinbjudanen B2B – Azure Active Directory](../active-directory/external-identities/invitation-email-elements.md)
 - [Lägg till en gäst användare som en medadministratör](classic-administrators.md#add-a-guest-user-as-a-co-administrator)

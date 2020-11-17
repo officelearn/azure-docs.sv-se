@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 12/27/2019
 ms.author: kenwith
 ms.reviewer: phsignor
-ms.openlocfilehash: 3d95d2551f8e078f4252a19dc850345793c040d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4664bdd515c815dbd742c0d4e05f1e5c03978526
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89420463"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649202"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>Hantera medgivande till program och utvärdera medgivande begär Anden
 
-Microsoft [rekommenderar](https://docs.microsoft.com/azure/security/fundamentals/steps-secure-identity#restrict-user-consent-operations) att du inaktiverar slut användar medgivande till program. Detta kommer att centralisera processen för besluts fattande med din organisations administratörs-och identitets administratörs grupp.
+Microsoft [rekommenderar](../../security/fundamentals/steps-secure-identity.md#restrict-user-consent-operations) att du inaktiverar slut användar medgivande till program. Detta kommer att centralisera processen för besluts fattande med din organisations administratörs-och identitets administratörs grupp.
 
 När slut användar medgivande är inaktiverat eller begränsat finns det flera viktiga överväganden för att se till att din organisation förblir säker samtidigt som du fortfarande tillåter att affärs kritiska program används. De här stegen är viktiga för att minimera påverkan på organisationens support team och IT-administratörer, samtidigt som du förhindrar användning av ohanterade konton i program från tredje part.
 
@@ -35,13 +35,13 @@ När slut användar medgivande är inaktiverat eller begränsat finns det flera 
 
 ## <a name="auditing-and-monitoring"></a>Granskning och övervakning
 
-1. [Granska appar och beviljade behörigheter](https://docs.microsoft.com/azure/security/fundamentals/steps-secure-identity#audit-apps-and-consented-permissions) i din organisation för att säkerställa att inga oberättigade eller misstänkta program tidigare har beviljats åtkomst till data.
+1. [Granska appar och beviljade behörigheter](../../security/fundamentals/steps-secure-identity.md#audit-apps-and-consented-permissions) i din organisation för att säkerställa att inga oberättigade eller misstänkta program tidigare har beviljats åtkomst till data.
 
-2. Granska [identifiera och åtgärda illegala medgivande bidrag i Office 365](https://docs.microsoft.com/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants) för ytterligare bästa praxis och skydd mot misstänkta program som begär OAuth-medgivande.
+2. Granska [identifiera och åtgärda illegala medgivande bidrag i Office 365](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants) för ytterligare bästa praxis och skydd mot misstänkta program som begär OAuth-medgivande.
 
 3. Om din organisation har lämplig licens:
 
-    * Använd ytterligare [gransknings funktioner för OAuth-program i Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth).
+    * Använd ytterligare [gransknings funktioner för OAuth-program i Microsoft Cloud App Security](/cloud-app-security/investigate-risky-oauth).
     * Använd [Azure Monitor arbets böcker för att övervaka behörigheter och medgivande](../reports-monitoring/howto-use-azure-monitor-workbooks.md) relaterad aktivitet. I arbets boken med *medgivande insikter* får du en vy över appar efter antal misslyckade medgivande begär Anden. Detta kan vara till hjälp för att prioritera program som administratörer kan granska och bestämma om de vill ge dem administratörs medgivande.
 
 ### <a name="additional-considerations-for-reducing-friction"></a>Ytterligare överväganden för att minska friktionen
@@ -75,7 +75,7 @@ I följande lista finns några rekommendationer att tänka på när du utvärder
 
 * **Förstå de behörigheter som begärs.**
 
-   Behörigheterna som begärs av programmet visas i [frågan om medgivande](../develop/application-consent-experience.md). Om behörighets rubriken expanderas visas behörighetens beskrivning. Beskrivningen för program behörigheter upphör vanligt vis i "utan en inloggad användare". Beskrivningen för delegerade behörigheter upphör vanligt vis med "för den inloggade användarens räkning." Behörigheter för Microsoft Graph API beskrivs i referens för [Microsoft Graph behörigheter](https://docs.microsoft.com/graph/permissions-reference) – Läs dokumentationen för andra API: er för att förstå de behörigheter som de visar.
+   Behörigheterna som begärs av programmet visas i [frågan om medgivande](../develop/application-consent-experience.md). Om behörighets rubriken expanderas visas behörighetens beskrivning. Beskrivningen för program behörigheter upphör vanligt vis i "utan en inloggad användare". Beskrivningen för delegerade behörigheter upphör vanligt vis med "för den inloggade användarens räkning." Behörigheter för Microsoft Graph API beskrivs i referens för [Microsoft Graph behörigheter](/graph/permissions-reference) – Läs dokumentationen för andra API: er för att förstå de behörigheter som de visar.
 
    Om du inte förstår att en behörighet begärs ska du *inte bevilja medgivande*.
 
@@ -97,15 +97,15 @@ I följande lista finns några rekommendationer att tänka på när du utvärder
 Se [bevilja klient organisations medgivande till ett program](grant-admin-consent.md) med stegvisa instruktioner för att bevilja administratörs behörighet för hela klienten från Azure Portal, med hjälp av Azure AD PowerShell eller från själva frågan om medgivande.
 
 ### <a name="granting-consent-on-behalf-of-a-specific-user"></a>Bevilja medgivande för en speciell användares räkning
-I stället för att bevilja medgivande för hela organisationen kan en administratör också använda [Microsoft Graph-API: et](https://docs.microsoft.com/graph/use-the-api) för att bevilja medgivande till delegerade behörigheter för en enskild användares räkning. Mer information finns i [få åtkomst för en användares räkning](https://docs.microsoft.com/graph/auth-v2-user).
+I stället för att bevilja medgivande för hela organisationen kan en administratör också använda [Microsoft Graph-API: et](/graph/use-the-api) för att bevilja medgivande till delegerade behörigheter för en enskild användares räkning. Mer information finns i [få åtkomst för en användares räkning](/graph/auth-v2-user).
 
 ## <a name="limiting-user-access-to-applications"></a>Begränsa användar åtkomsten till program
-Användares åtkomst till program kan fortfarande begränsas även när klient organisationens administratörs medgivande har beviljats. Mer information om hur du kräver användar tilldelning till ett program finns i [metoder för att tilldela användare och grupper](methods-for-assigning-users-and-groups.md).
+Användares åtkomst till program kan fortfarande begränsas även när klient organisationens administratörs medgivande har beviljats. Mer information om hur du kräver användar tilldelning till ett program finns i [metoder för att tilldela användare och grupper](./assign-user-or-group-access-portal.md).
 
 Mer en bredare översikt, inklusive hur du hanterar ytterligare komplexa scenarier, finns i [använda Azure AD för program åtkomst hantering](what-is-access-management.md).
 
 ## <a name="disable-all-future-user-consent-operations-to-any-application"></a>Inaktivera alla framtida användar medgivande åtgärder för alla program
-Om du inaktiverar användar medgivande för hela katalogen kan slutanvändarna inte godkänna något program. Administratörer kan fortfarande godkänna användarens räkning. Om du vill veta mer om program medgivande och varför du kanske inte vill godkänna, Läs [förstå användar-och administratörs medgivande](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
+Om du inaktiverar användar medgivande för hela katalogen kan slutanvändarna inte godkänna något program. Administratörer kan fortfarande godkänna användarens räkning. Om du vill veta mer om program medgivande och varför du kanske inte vill godkänna, Läs [förstå användar-och administratörs medgivande](../develop/howto-convert-app-to-be-multi-tenant.md).
 
 Följ dessa steg om du vill inaktivera alla framtida användar medgivande åtgärder i hela katalogen:
 1.  Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör.**
@@ -116,7 +116,7 @@ Följ dessa steg om du vill inaktivera alla framtida användar medgivande åtgä
 6.  Inaktivera alla framtida medgivande åtgärder genom att ange att **användarna ska kunna tillåta att appar kommer åt sina data** genom att växla till **Nej** och klicka på knappen **Spara** .
 
 ## <a name="next-steps"></a>Nästa steg
-* [Fem steg för att skydda din identitets infrastruktur](https://docs.microsoft.com/azure/security/fundamentals/steps-secure-identity#before-you-begin-protect-privileged-accounts-with-mfa)
+* [Fem steg för att skydda din identitets infrastruktur](../../security/fundamentals/steps-secure-identity.md#before-you-begin-protect-privileged-accounts-with-mfa)
 * [Konfigurera arbets flödet för administratörs medgivande](configure-admin-consent-workflow.md)
 * [Konfigurera hur slutanvändare godkänner program](configure-user-consent.md)
-* [Behörigheter och medgivande i Microsoft Identity Platform](../develop/active-directory-v2-scopes.md)
+* [Behörigheter och medgivande i Microsoft Identity Platform](../develop/v2-permissions-and-consent.md)

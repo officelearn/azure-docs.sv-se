@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperfq2
-ms.openlocfilehash: c1c0c3038c687b7f91d3c75d8c4c9589c5e245a3
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 1617015d6d4a026d5dadda667dcd03447a20c288
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427627"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649508"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Konfigurera hur slutanvändare godkänner program
 
@@ -49,15 +49,15 @@ Genom att välja vilka principer för utfärdande av appar som gäller för alla
 Konfigurera användar medgivande inställningar via Azure Portal:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som [Global administratör](../roles/permissions-reference.md#global-administrator--company-administrator).
-1. Välj **Azure Active Directory**  >  **företags program**  >  **medgivande-och**  >  **användar**tillstånds inställningar.
-1. Under **användar medgivande för program**väljer du vilken godkännande inställning som du vill konfigurera för alla användare.
+1. Välj **Azure Active Directory**  >  **företags program**  >  **medgivande-och**  >  **användar** tillstånds inställningar.
+1. Under **användar medgivande för program** väljer du vilken godkännande inställning som du vill konfigurera för alla användare.
 1. Spara inställningarna genom att välja **Spara** .
 
 :::image type="content" source="media/configure-user-consent/setting-for-all-users.png" alt-text="Inställningar för godkännande av användare":::
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Du kan använda den senaste Azure AD PowerShell Preview-modulen, [AzureADPreview](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true), för att välja vilken app medgivande policy som styr användar medgivande för program.
+Du kan använda den senaste Azure AD PowerShell Preview-modulen, [AzureADPreview](/powershell/azure/active-directory/install-adv2?preserve-view=true&view=azureadps-2.0-preview), för att välja vilken app medgivande policy som styr användar medgivande för program.
 
 #### <a name="disable-user-consent"></a>Inaktivera användar medgivande
 
@@ -101,7 +101,7 @@ Set-AzureADMSAuthorizationPolicy `
 
 ## <a name="risk-based-step-up-consent"></a>Riskfylldt steg-för-steg-godkännande
 
-Riskfylldt steg-för-steg-godkännande bidrar till att minska användar exponeringen för skadliga appar som gör [illegala medgivande begär Anden](https://docs.microsoft.com/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants). Om Microsoft identifierar en riskfylld begäran om godkännande av slutanvändare kräver begäran ett "steg-för-steg" för administratörs medgivande i stället. Den här funktionen är aktive rad som standard, men den kommer bara att resultera i en funktion som ändras när slutanvändaren har Aktiver ATS.
+Riskfylldt steg-för-steg-godkännande bidrar till att minska användar exponeringen för skadliga appar som gör [illegala medgivande begär Anden](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants). Om Microsoft identifierar en riskfylld begäran om godkännande av slutanvändare kräver begäran ett "steg-för-steg" för administratörs medgivande i stället. Den här funktionen är aktive rad som standard, men den kommer bara att resultera i en funktion som ändras när slutanvändaren har Aktiver ATS.
 
 När en riskfylld begäran identifieras visar medgivande frågan ett meddelande som anger att administratörs godkännande krävs. Om [arbets flödet för administratörs medgivande](configure-admin-consent-workflow.md) är aktiverat kan användaren skicka begäran till en administratör för ytterligare granskning direkt från medgivande frågan. Om den inte är aktive rad visas följande meddelande:
 
@@ -114,9 +114,9 @@ I det här fallet loggas även en gransknings händelse med en kategori av typen
 
 ### <a name="disable-or-re-enable-risk-based-step-up-consent-using-powershell"></a>Inaktivera eller återaktivera riskfylldt Step-based-godkännande med PowerShell
 
-Du kan använda Azure AD PowerShell Preview-modulen, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true), för att inaktivera steget-upp till administratörs medgivande som krävs i de fall där Microsoft identifierar risker eller aktiverar det igen om det tidigare har inaktiverats.
+Du kan använda Azure AD PowerShell Preview-modulen, [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview), för att inaktivera steget-upp till administratörs medgivande som krävs i de fall där Microsoft identifierar risker eller aktiverar det igen om det tidigare har inaktiverats.
 
-1. Kontrol lera att du använder [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) -modulen. Det här steget är viktigt om du har installerat både [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) -modulen och [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) -modulen.
+1. Kontrol lera att du använder [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) -modulen. Det här steget är viktigt om du har installerat både [AzureAD](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) -modulen och [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) -modulen.
 
     ```powershell
     Remove-Module AzureAD
@@ -182,7 +182,7 @@ Mer information:
 * [Konfigurera arbets flödet för administratörs medgivande](configure-admin-consent-workflow.md)
 * [Lär dig hur du hanterar medgivande till program och att utvärdera medgivande begär Anden](manage-consent-requests.md)
 * [Bevilja administratörsmedgivande för hela klientorganisationen till ett program](grant-admin-consent.md)
-* [Behörigheter och medgivande i Microsoft Identity Platform](../develop/active-directory-v2-scopes.md)
+* [Behörigheter och medgivande i Microsoft Identity Platform](../develop/v2-permissions-and-consent.md)
 
 För att få hjälp eller hitta svar på dina frågor:
 * [Azure AD på StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

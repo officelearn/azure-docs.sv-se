@@ -5,12 +5,12 @@ author: EMaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: cf1b9db8de2c0f2c852a41d1e30343c5cef1b20b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 216dc843b31eac355e1d818014f3d70b2ef83132
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396696"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647910"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Guide för att konfigurera en Windows-mall i Azure Lab Services
 
@@ -47,7 +47,7 @@ Write-Host "Installing OneDrive..."
 
 ### <a name="onedrive-customizations"></a>OneDrive-anpassningar
 
-Det finns många [anpassningar som kan göras i OneDrive](https://docs.microsoft.com/onedrive/use-group-policy). Nu ska vi gå igenom några av de vanligaste anpassningarna.
+Det finns många [anpassningar som kan göras i OneDrive](/onedrive/use-group-policy). Nu ska vi gå igenom några av de vanligaste anpassningarna.
 
 #### <a name="silently-move-windows-known-folders-to-onedrive"></a>Flytta Windows-kända mappar i bakgrunden till OneDrive
 
@@ -61,7 +61,7 @@ Om du använder en dator som inte använder Active Directory kan användare manu
 
 Om den virtuella datorn är ansluten till Active Directory kan du ställa in mallen så att dina studenter automatiskt kan flytta de kända mapparna till OneDrive.  
 
-Du måste först hämta ditt organisations-ID.  Mer information finns i [hitta Microsoft 365 organisations-ID](https://docs.microsoft.com/onedrive/find-your-office-365-tenant-id).  Du kan också hämta organisations-ID med hjälp av följande PowerShell.
+Du måste först hämta ditt organisations-ID.  Mer information finns i [hitta Microsoft 365 organisations-ID](/onedrive/find-your-office-365-tenant-id).  Du kan också hämta organisations-ID med hjälp av följande PowerShell.
 
 ```powershell
 Install-Module MSOnline -Confirm
@@ -137,7 +137,7 @@ Om din dator behöver Office rekommenderar vi att du installerar Office via [Off
 
 ### <a name="change-the-microsoft-365-update-channel"></a>Ändra Microsoft 365 uppdaterings kanal
 
-Med hjälp av konfigurations verktyget för Office kan du ange hur ofta Office ska ta emot uppdateringar. Men om du behöver ändra hur ofta Office tar emot uppdateringar efter installationen kan du ändra uppdaterings kanalens URL. Uppdaterings kanalens URL-adresser finns i [ändra Microsoft 365 Apps uppdaterings kanal för enheter i din organisation](https://docs.microsoft.com/deployoffice/change-update-channels). Exemplet nedan visar hur du ställer in Microsoft 365 att använda månads uppdaterings kanalen.
+Med hjälp av konfigurations verktyget för Office kan du ange hur ofta Office ska ta emot uppdateringar. Men om du behöver ändra hur ofta Office tar emot uppdateringar efter installationen kan du ändra uppdaterings kanalens URL. Uppdaterings kanalens URL-adresser finns i [ändra Microsoft 365 Apps uppdaterings kanal för enheter i din organisation](/deployoffice/change-update-channels). Exemplet nedan visar hur du ställer in Microsoft 365 att använda månads uppdaterings kanalen.
 
 ```powershell
 # Update to the Microsoft 365 Monthly Channel
@@ -188,7 +188,7 @@ Du kan också använda PowerShell för att uppdatera Microsoft Store program som
 
 ### <a name="stop-automatic-windows-updates"></a>Stoppa automatiska Windows-uppdateringar
 
-När du har uppdaterat Windows till den senaste versionen kan du välja att stoppa Windows-uppdateringar.  Automatiska uppdateringar kan eventuellt störa den schemalagda klass tiden.  Om din kurs är en längre igång kan du be eleverna att manuellt söka efter uppdateringar eller ställa in automatiska uppdateringar för en tid utanför de schemalagda klass timmarna.  Mer information om anpassnings alternativ för Windows Update finns i [hantera ytterligare Windows Update inställningar](https://docs.microsoft.com/windows/deployment/update/waas-wu-settings).
+När du har uppdaterat Windows till den senaste versionen kan du välja att stoppa Windows-uppdateringar.  Automatiska uppdateringar kan eventuellt störa den schemalagda klass tiden.  Om din kurs är en längre igång kan du be eleverna att manuellt söka efter uppdateringar eller ställa in automatiska uppdateringar för en tid utanför de schemalagda klass timmarna.  Mer information om anpassnings alternativ för Windows Update finns i [hantera ytterligare Windows Update inställningar](/windows/deployment/update/waas-wu-settings).
 
 Automatiska Windows-uppdateringar kan stoppas med hjälp av följande PowerShell-skript.
 

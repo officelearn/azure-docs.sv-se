@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: ad92862c78260e7385168faf794c013e85f66b82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8135e11fb7b7ddb588ab3a8ed01227712072fd2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85445737"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647927"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services-manually"></a>Aktivera kapslad virtualisering på en virtuell mall i Azure Lab Services manuellt
 
@@ -25,14 +25,14 @@ Den här artikeln beskriver hur du konfigurerar kapslad virtualisering på en ma
 
 Följande steg beskriver åtgärder som krävs för att aktivera Hyper-V på Windows Server med hjälp av antingen Serverhanteraren.  När installationen är klar är Hyper-V Manager tillgänglig för att lägga till, ändra och ta bort virtuella klient datorer.
 
-1. I **Serverhanteraren**klickar du på **Lägg till roller och funktioner**på instrument panelens sida.
+1. I **Serverhanteraren** klickar du på **Lägg till roller och funktioner** på instrument panelens sida.
 2. Klicka på **Nästa** på sidan **Innan du börjar**.
 3. På sidan **Välj Installations typ** behåller du standard valet av rollbaserad eller funktions baserad installation och klickar sedan på **Nästa**.
 4. På sidan **Välj mål server** väljer du Välj en server från serverpoolen.   Den aktuella servern är redan markerad.  Klicka på Nästa.
 5. På sidan **Välj Server roller** väljer du **Hyper-V**.  
 6. Popup-fönstret **guiden Lägg till roller och funktioner** visas.  Välj **ta med hanterings verktyg (om tillämpligt)**.  Klicka på knappen **Lägg till funktioner** .
 7. På sidan **Välj serverroller**, klickar du på **Nästa**.
-8. På **sidan Välj funktioner**klickar du på **Nästa**.
+8. På **sidan Välj funktioner** klickar du på **Nästa**.
 9. På sidan **Hyper-V** klickar du på **Nästa**.
 10. På sidan **skapa virtuella växlar** godkänner du standardinställningarna och klickar på **Nästa**.
 11. På sidan **migrera virtuell dator** accepterar du standardinställningarna och klickar på **Nästa**.
@@ -47,7 +47,7 @@ Följande steg beskriver åtgärder som krävs för att aktivera Hyper-V på Win
 
 Alla virtuella Hyper-V-klienter som skapas, behöver en IP-adress i NAT-nätverket.  Vi kommer att skapa NAT-nätverket senare.  Ett sätt att tilldela IP-adresser är att konfigurera värden, i det här fallet mallen för virtuella labb datorer som en DHCP-server.  Nedan visas de steg som krävs för att aktivera DHCP-rollen.
 
-1. I **Serverhanteraren**klickar du på **Lägg till roller och funktioner**på **instrument panelens** sida.
+1. I **Serverhanteraren** klickar du på **Lägg till roller och funktioner** på **instrument panelens** sida.
 2. Klicka på **Nästa** på sidan **Innan du börjar**.
 3. På sidan **Välj Installations typ** väljer du **rollbaserad eller funktions baserad installation** och klickar sedan på **Nästa**.
 4. På sidan **Välj mål server** väljer du den aktuella servern från serverpoolen och klickar sedan på **Nästa**.
@@ -66,7 +66,7 @@ Alla virtuella Hyper-V-klienter som skapas, behöver en IP-adress i NAT-nätverk
 
 ## <a name="enable-routing-and-remote-access-role"></a>Aktivera rollen Routning och fjärråtkomst
 
-1. I **Serverhanteraren**klickar du på **Lägg till roller och funktioner**på **instrument panelens** sida.
+1. I **Serverhanteraren** klickar du på **Lägg till roller och funktioner** på **instrument panelens** sida.
 2. Klicka på **Nästa** på sidan **Innan du börjar**.
 3. På sidan **Välj Installations typ** väljer du **rollbaserad eller funktions baserad installation** och klickar sedan på **Nästa**.
 4. På sidan **Välj mål server** väljer du den aktuella servern från serverpoolen och klickar sedan på **Nästa**.
@@ -93,14 +93,14 @@ Nu när alla nödvändiga roller har installerats, är det dags att skapa NAT-n�
 3. Klicka på **hanteraren för virtuella växlar...** från menyn **åtgärder** på höger sida av **Hyper-V Manager**.
 4. Välj **intern** för den typ av växel som ska skapas på popup-fönstret för **hanteraren för virtuella växlar** .  Klicka på **Skapa virtuell växel**.
 5. För den nya virtuella växeln ställer du in namnet på något minnes värt.  I det här exemplet ska vi använda ' LabServicesSwitch '.  Klicka på **OK**.
-6. Ett nytt nätverkskort kommer att skapas.  Namnet kommer att likna "vEthernet (LabServicesSwitch)".  Verifiera att öppna **kontroll panelen**genom att klicka på **nätverk och Internet**, klicka på **Visa nätverks status och uppgifter**.  Klicka på **ändra inställningar för nätverkskort**till vänster.
+6. Ett nytt nätverkskort kommer att skapas.  Namnet kommer att likna "vEthernet (LabServicesSwitch)".  Verifiera att öppna **kontroll panelen** genom att klicka på **nätverk och Internet**, klicka på **Visa nätverks status och uppgifter**.  Klicka på **ändra inställningar för nätverkskort** till vänster.
 
 ### <a name="create-a-nat-network"></a>Skapa ett NAT-nätverk
 
 1. Öppna verktyget **Routning och fjärråtkomst** från administrativa verktyg i Windows.
 2. Välj den lokala servern på den vänstra navigerings sidan.
 3. Välj **åtgärd**  ->  **Konfigurera och aktivera Routning och fjärråtkomst**.
-4. Klicka på **Nästa**när **guiden Konfigurera server för Routning och fjärråtkomst** visas.
+4. Klicka på **Nästa** när **guiden Konfigurera server för Routning och fjärråtkomst** visas.
 5. På sidan **konfiguration** väljer du **NAT-konfiguration (Network Address Translation)** .  Klicka på **Nästa**.
 
     >[!WARNING]
@@ -116,7 +116,7 @@ Nu när alla nödvändiga roller har installerats, är det dags att skapa NAT-n�
 Nätverkskortet kommer att associeras med den IP-adress som används för standardgateway-IP för det NAT-nätverk som skapades tidigare.  I det här exemplet skapar vi en IP-adress för 192.168.0.1 med nät masken 255.255.255.0.  Vi kommer att använda den virtuella växel som skapades tidigare.
 
 1. Öppna **kontroll panelen**, klicka på **nätverk och Internet**, klicka på **Visa nätverks status och aktiviteter**.
-2. Klicka på **ändra inställningar för nätverkskort**till vänster.  
+2. Klicka på **ändra inställningar för nätverkskort** till vänster.  
 3. I fönstret **nätverks anslutningar** dubbelklickar du på "VEthernet (LabServicesSwitch)" för att Visa dialog rutan **status information för vEthernet (LabServicesSwitch)** .
 4. Klicka på knappen **Egenskaper** .
 5. Välj **Internet Protocol version 4 (TCP/IPv4)** och klicka på knappen **Egenskaper** .
@@ -152,11 +152,11 @@ Följande steg är instruktioner för att lägga till DHCP-scope.  I den här ar
 13. På sidan **domän namn och DNS-servrar** lägger du till 168.63.129.16 som en IP-adress för DNS-server, om du inte redan gjort det.  168.63.129.16 är IP-adressen för en statisk Azure-DNS-server. Klicka på **Nästa**.
 14. På sidan **WINS-servrar** klickar du på **Nästa**.
 15. På sidan **Aktivera omfattning** väljer du **Ja, jag vill aktivera det här omfånget nu**.  Klicka på **Nästa**.
-16. Klicka på **Slutför**på sidan **Slutför guiden Nytt scope** .
+16. Klicka på **Slutför** på sidan **Slutför guiden Nytt scope** .
 
 ## <a name="conclusion"></a>Slutsats
 
-Nu är din mall maskin redo att skapa virtuella Hyper-V-datorer.   Instruktioner om hur du skapar virtuella Hyper-V-datorer finns i [skapa en virtuell dator i Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v) .  Se även [Microsoft Evaluation Center](https://www.microsoft.com/evalcenter/) för att ta en titt på tillgängliga operativ system och program.
+Nu är din mall maskin redo att skapa virtuella Hyper-V-datorer.   Instruktioner om hur du skapar virtuella Hyper-V-datorer finns i [skapa en virtuell dator i Hyper-V](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v) .  Se även [Microsoft Evaluation Center](https://www.microsoft.com/evalcenter/) för att ta en titt på tillgängliga operativ system och program.
 
 ## <a name="next-steps"></a>Nästa steg
 

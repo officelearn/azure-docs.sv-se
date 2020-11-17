@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 11/03/2020
 ms.custom: generated
-ms.openlocfilehash: e337cef9121dc5992f87b9996cfd01d16d9cc188
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: cf8c8e7d56f4eff351361edd148f91e81a07bfbb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309368"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649151"
 ---
 # <a name="azure-resource-provider-operations"></a>Azure Resource Provider-åtgärder
 
@@ -792,7 +792,7 @@ Azure-tjänst: klassisk virtuell nätverks distributions modell
 
 ### <a name="microsoftnetwork"></a>Microsoft.Network
 
-Azure-tjänst: [Application Gateway](../application-gateway/index.yml), [azure skydds](../bastion/index.yml), [Azure DDoS Protection](../virtual-network/ddos-protection-overview.md), [Azure DNS](../dns/index.yml), [Azure ExpressRoute](../expressroute/index.yml), [Azure Firewall](../firewall/index.yml), [azure-frontend-tjänst](../frontdoor/index.yml), [privat azure-länk](../private-link/index.yml), [Load Balancer](../load-balancer/index.yml), [Network Watcher](../network-watcher/index.yml), [Traffic Manager](../traffic-manager/index.yml), [Virtual Network](../virtual-network/index.yml), [virtuellt WAN](../virtual-wan/index.yml), [VPN gateway](../vpn-gateway/index.yml)
+Azure-tjänst: [Application Gateway](../application-gateway/index.yml), [azure skydds](../bastion/index.yml), [Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md), [Azure DNS](../dns/index.yml), [Azure ExpressRoute](../expressroute/index.yml), [Azure Firewall](../firewall/index.yml), [azure-frontend-tjänst](../frontdoor/index.yml), [privat azure-länk](../private-link/index.yml), [Load Balancer](../load-balancer/index.yml), [Network Watcher](../network-watcher/index.yml), [Traffic Manager](../traffic-manager/index.yml), [Virtual Network](../virtual-network/index.yml), [virtuellt WAN](../virtual-wan/index.yml), [VPN gateway](../vpn-gateway/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Åtgärd | Beskrivning |
@@ -3850,7 +3850,7 @@ Azure-tjänst: [Azure Cosmos DB](../cosmos-db/index.yml)
 
 ### <a name="microsoftsql"></a>Microsoft.Sql
 
-Azure-tjänst: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQL-hanterad instans](../azure-sql/managed-instance/index.yml), [azure Synapse Analytics (tidigare SQL Data Warehouse)](../sql-data-warehouse/index.yml)
+Azure-tjänst: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQL-hanterad instans](../azure-sql/managed-instance/index.yml), [azure Synapse Analytics (tidigare SQL Data Warehouse)](../synapse-analytics/sql-data-warehouse/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Åtgärd | Beskrivning |
@@ -4331,7 +4331,7 @@ Azure-tjänst: [Azure Analysis Services](../analysis-services/index.yml)
 
 ### <a name="microsoftdatabricks"></a>Microsoft. Databricks
 
-Azure-tjänst: [Azure Databricks](https://docs.microsoft.com/azure/databricks/)
+Azure-tjänst: [Azure Databricks](/azure/databricks/)
 
 > [!div class="mx-tableFixed"]
 > | Åtgärd | Beskrivning |
@@ -4619,7 +4619,7 @@ Azure-tjänst: [azure datautforskaren](/azure/data-explorer/)
 
 ### <a name="microsoftpowerbidedicated"></a>Microsoft. PowerBIDedicated
 
-Azure-tjänst: [Power BI Embedded](https://docs.microsoft.com/azure/power-bi-embedded/)
+Azure-tjänst: [Power BI Embedded](/azure/power-bi-embedded/)
 
 > [!div class="mx-tableFixed"]
 > | Åtgärd | Beskrivning |
@@ -4712,7 +4712,7 @@ Azure-tjänst: [Azure blockchain-tjänsten](../blockchain/workbench/index.yml)
 
 ### <a name="microsoftbotservice"></a>Microsoft. BotService
 
-Azure-tjänst: [Azure bot service](https://docs.microsoft.com/azure/bot-service/)
+Azure-tjänst: [Azure bot service](/azure/bot-service/)
 
 > [!div class="mx-tableFixed"]
 > | Åtgärd | Beskrivning |
@@ -6187,7 +6187,7 @@ Azure-tjänst: [Logic Apps](../logic-apps/index.yml)
 
 ### <a name="microsoftrelay"></a>Microsoft. Relay
 
-Azure-tjänst: [Azure Relay](../service-bus-relay/relay-what-is-it.md)
+Azure-tjänst: [Azure Relay](../azure-relay/relay-what-is-it.md)
 
 > [!div class="mx-tableFixed"]
 > | Åtgärd | Beskrivning |
@@ -6257,7 +6257,7 @@ Azure-tjänst: [Azure Relay](../service-bus-relay/relay-what-is-it.md)
 
 ### <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
-Azure-tjänst: [Service Bus](../service-bus/index.md)
+Azure-tjänst: [Service Bus](../service-bus-messaging/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Åtgärd | Beskrivning |
@@ -6957,7 +6957,7 @@ Azure-tjänst: [Azure Lab Services](../lab-services/index.yml)
 
 ### <a name="microsoftvisualstudio"></a>Microsoft. VisualStudio
 
-Azure-tjänst: [Azure DevOps](https://docs.microsoft.com/azure/devops/)
+Azure-tjänst: [Azure DevOps](/azure/devops/)
 
 > [!div class="mx-tableFixed"]
 > | Åtgärd | Beskrivning |
@@ -7436,7 +7436,7 @@ Azure-tjänst: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft. OffAzure/VMwareSites/vCenter/Read | Hämtar egenskaperna för en VMware vCenter |
 > | Microsoft. OffAzure/VMwareSites/vCenter/Write | Skapar eller uppdaterar VMware vCenter |
 
-## <a name="monitor"></a>Övervaka
+## <a name="monitor"></a>Monitor
 
 ### <a name="microsoftalertsmanagement"></a>Microsoft. AlertsManagement
 
@@ -8924,7 +8924,7 @@ Azure-tjänst: [Azure-båge](../azure-arc/index.yml)
 
 ### <a name="microsoftkubernetes"></a>Microsoft. Kubernetes
 
-Azure-tjänst: [Azure Arc-aktiverad Kubernetes](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview)
+Azure-tjänst: [Azure Arc-aktiverad Kubernetes](../azure-arc/kubernetes/overview.md)
 
 > [!div class="mx-tableFixed"]
 > | Åtgärd | Beskrivning |
@@ -9677,7 +9677,7 @@ Azure-tjänst: Microsoft Monitoring Insights
 
 ### <a name="microsoftbingmaps"></a>Microsoft. Bingkartssökning
 
-Azure-tjänst: [Bing Maps](https://docs.microsoft.com/BingMaps/)
+Azure-tjänst: [Bing Maps](/BingMaps/)
 
 > [!div class="mx-tableFixed"]
 > | Åtgärd | Beskrivning |

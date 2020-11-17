@@ -3,12 +3,12 @@ title: Aktivera grafiskt fjärr skrivbord för Linux i Azure Lab Services | Micr
 description: Lär dig hur du aktiverar fjärr skrivbord för virtuella Linux-datorer i ett labb i Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: b8db01ca57d90739a57cd9bbb3caf63ada5f26fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34c940fec388bb0e79ab5e1db9be6d52fb223873
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91251617"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647961"
 ---
 # <a name="enable-graphical-remote-desktop-for-linux-virtual-machines-in-azure-lab-services"></a>Aktivera grafiskt fjärr skrivbord för virtuella Linux-datorer i Azure Lab Services
 Den här artikeln visar hur du utför följande uppgifter:
@@ -38,7 +38,7 @@ X2Go använder samma port som redan är aktive rad för SSH.  Därför krävs in
 > I vissa fall, till exempel med Ubuntu LTS 18,04, ger X2Go bättre prestanda.  Om du använder RDP och meddelande fördröjning när du interagerar med den grafiska Skriv bords miljön kan du försöka med att testa X2Go eftersom det kan förbättra prestandan.
 
 > [!IMPORTANT]
->  Vissa Marketplace-avbildningar har redan en grafisk Skriv bords miljö och fjärr skrivbords server installerad.  Till exempel har [data science Virtual Machine för Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) redan xfce- [och X2Go-servern installerad och kon figurer ATS för att acceptera klient anslutningar](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro#x2go).
+>  Vissa Marketplace-avbildningar har redan en grafisk Skriv bords miljö och fjärr skrivbords server installerad.  Till exempel har [data science Virtual Machine för Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) redan xfce- [och X2Go-servern installerad och kon figurer ATS för att acceptera klient anslutningar](../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md#x2go).
 
 ## <a name="enable-remote-desktop-connection-for-rdp"></a>Aktivera fjärr skrivbords anslutning för RDP
 
@@ -73,7 +73,7 @@ Följ stegen nedan för att konfigurera mallen VM:
     ![SSH-anslutningssträng](./media/how-to-enable-remote-desktop-linux/ssh-connection-string.png)
 
 4. Installera antingen RDP eller X2Go tillsammans med den grafiska Skriv bords miljö som du föredrar.  Se följande instruktioner:
-    - [Installera och konfigurera RDP](https://docs.microsoft.com/azure/virtual-machines/linux/use-remote-desktop)
+    - [Installera och konfigurera RDP](../virtual-machines/linux/use-remote-desktop.md)
     - [Installera och konfigurera X2Go](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/X2GoRemoteDesktop)
 
 ## <a name="connect-to-the-template-vm-via-the-gui"></a>Ansluta till mallen VM via det grafiska användar gränssnittet
@@ -82,7 +82,7 @@ När mallen VM har kon figurer ATS kan instruktören ansluta via det grafiska an
 
 ### <a name="microsoft-remote-desktop-rdp-client"></a>Microsoft Fjärrskrivbord-klient (RDP)
 
-Microsoft Fjärrskrivbord-klienten (RDP) används för att ansluta till en mall för virtuella datorer som har RDP konfigurerat.  Fjärr skrivbords klienten kan användas på Windows, Chromebooks, Mac med mera.  Mer information finns i artikeln om [fjärr skrivbords klienter](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients) .
+Microsoft Fjärrskrivbord-klienten (RDP) används för att ansluta till en mall för virtuella datorer som har RDP konfigurerat.  Fjärr skrivbords klienten kan användas på Windows, Chromebooks, Mac med mera.  Mer information finns i artikeln om [fjärr skrivbords klienter](/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients) .
 
 Följ stegen nedan beroende på vilken typ av dator som används för att ansluta till mallen VM:
 

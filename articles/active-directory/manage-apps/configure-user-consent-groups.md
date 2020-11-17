@@ -12,16 +12,16 @@ ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperfq2
-ms.openlocfilehash: df50231b03f71008f967c4f09ce09c5b5890802f
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: d5c42675b182fbc34354c75778214463adfe491f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427656"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648148"
 ---
 # <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>Konfigurera grupp ägare medgivande till appar som har åtkomst till grupp data
 
-Grupp-och team ägare kan auktorisera program, till exempel program som publiceras av tredjepartsleverantörer, för att komma åt din organisations data som är associerade med en grupp. Till exempel kan en grupp ägare i Microsoft-team tillåta att en app läser alla team meddelanden i teamet eller listar grund profilen för en grupps medlemmar. Mer information finns i [Resource-Specific medgivande i Microsoft Teams](https://docs.microsoft.com/microsoftteams/resource-specific-consent) .
+Grupp-och team ägare kan auktorisera program, till exempel program som publiceras av tredjepartsleverantörer, för att komma åt din organisations data som är associerade med en grupp. Till exempel kan en grupp ägare i Microsoft-team tillåta att en app läser alla team meddelanden i teamet eller listar grund profilen för en grupps medlemmar. Mer information finns i [Resource-Specific medgivande i Microsoft Teams](/microsoftteams/resource-specific-consent) .
 
 ## <a name="manage-group-owner-consent-to-apps"></a>Hantera grupp ägarens medgivande till appar
 
@@ -32,7 +32,7 @@ Du kan konfigurera vilka användare som tillåts att godkänna appar som har åt
 Följ de här stegen för att hantera grupp ägarens medgivande till appar som har åtkomst till grupp data:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som [Global administratör](../roles/permissions-reference.md#global-administrator--company-administrator).
-2. Välj **Azure Active Directory**  >  **företags program**  >  **medgivande-och**  >  **användar**tillstånds inställningar.
+2. Välj **Azure Active Directory**  >  **företags program**  >  **medgivande-och**  >  **användar** tillstånds inställningar.
 3. Under **grupp ägarens medgivande för appar som har åtkomst till data** väljer du det alternativ som du vill aktivera.
 4. Spara inställningarna genom att välja **Spara** .
 
@@ -42,9 +42,9 @@ I det här exemplet har alla grupp ägare tillåtelse att tillåta appar som har
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Du kan använda Azure AD PowerShell Preview-modulen, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true), för att aktivera eller inaktivera grupp ägarens möjlighet att godkänna program som har åtkomst till organisationens data för de grupper som de äger.
+Du kan använda Azure AD PowerShell Preview-modulen, [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview), för att aktivera eller inaktivera grupp ägarens möjlighet att godkänna program som har åtkomst till organisationens data för de grupper som de äger.
 
-1. Kontrol lera att du använder [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) -modulen. Det här steget är viktigt om du har installerat både [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) -modulen och [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) -modulen.
+1. Kontrol lera att du använder [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) -modulen. Det här steget är viktigt om du har installerat både [AzureAD](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) -modulen och [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) -modulen.
 
     ```powershell
     Remove-Module AzureAD
@@ -121,7 +121,7 @@ Mer information:
 * [Konfigurera arbets flödet för administratörs medgivande](configure-admin-consent-workflow.md)
 * [Lär dig hur du hanterar medgivande till program och att utvärdera medgivande begär Anden](manage-consent-requests.md)
 * [Bevilja administratörsmedgivande för hela klientorganisationen till ett program](grant-admin-consent.md)
-* [Behörigheter och medgivande i Microsoft Identity Platform](../develop/active-directory-v2-scopes.md)
+* [Behörigheter och medgivande i Microsoft Identity Platform](../develop/v2-permissions-and-consent.md)
 
 För att få hjälp eller hitta svar på dina frågor:
 * [Azure AD på StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

@@ -3,19 +3,19 @@ title: Guide för att styra beteendet för Windows-avstängning i Azure Lab Serv
 description: Steg för att automatiskt stänga av en virtuell Windows-dator som är inaktiv och ta bort Windows shutdown-kommandot.
 ms.topic: article
 ms.date: 09/29/2020
-ms.openlocfilehash: c6021131787dde4fe23ec4caad107bda2e20158a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 248bbeabaf704ba636e2f82c7a93d0ee90a09f22
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541568"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647706"
 ---
 # <a name="guide-to-controlling-windows-shutdown-behavior"></a>Guide för att styra avstängnings beteendet i Windows
 
 Azure Lab Services tillhandahåller flera kostnads kontroller för att säkerställa att virtuella Windows-datorer (VM) inte körs utan förvarning:
- - [Ange ett schema](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#set-a-schedule-for-the-lab)
- - [Ange kvoter för användare](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-quotas-for-users)
- - [Aktivera automatisk avstängning vid frånkoppling](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect)
+ - [Ange ett schema](./tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
+ - [Ange kvoter för användare](./how-to-configure-student-usage.md#set-quotas-for-users)
+ - [Aktivera automatisk avstängning vid frånkoppling](./how-to-enable-shutdown-disconnect.md)
 
 Även med dessa kostnads kontroller finns det situationer där en virtuell Windows-dator kan fortsätta att köras. Det innebär att dra av student kvoten:
 
@@ -25,7 +25,7 @@ Azure Lab Services tillhandahåller flera kostnads kontroller för att säkerst�
 
 - **Windows shutdown-kommandot används för att stänga av den virtuella datorn**
   
-    En student kan använda Windows avstängnings kommando eller andra avstängnings metoder som finns i Windows för att stänga av den virtuella datorn i stället för att använda [Azure Lab Services stopp-knappen](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-use-classroom-lab#start-or-stop-the-vm).  När detta inträffar kommer den virtuella datorn fortfarande att användas från Azure Lab Services perspektiv.
+    En student kan använda Windows avstängnings kommando eller andra avstängnings metoder som finns i Windows för att stänga av den virtuella datorn i stället för att använda [Azure Lab Services stopp-knappen](./how-to-use-classroom-lab.md#start-or-stop-the-vm).  När detta inträffar kommer den virtuella datorn fortfarande att användas från Azure Lab Services perspektiv.
     
 För att hjälpa dig att förhindra dessa situationer, innehåller den här guiden steg för att automatiskt stänga av en inaktiv virtuell Windows-dator och ta bort Windows shutdown-kommandot från **Start** menyn.  
 
@@ -44,13 +44,13 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 
 Eller så kan du välja att följa dessa manuella steg med mallen VM:
 
-1. Tryck på Windows-tangenten, Skriv **gpedit**och välj sedan **Redigera grup princip (kontroll panelen)**.
+1. Tryck på Windows-tangenten, Skriv **gpedit** och välj sedan **Redigera grup princip (kontroll panelen)**.
 
 1. Gå till **dator konfiguration > Administrativa mallar > Start-menyn och aktivitets fältet**.  
 
     ![Redigeraren för lokala grupprinciper](./media/how-to-windows-shutdown/group-policy-shutdown.png)
 
-1. Högerklicka på **ta bort och förhindra åtkomst till kommandona Stäng av, starta om, ström spar läge och vilo läge**och klicka på **Redigera**.
+1. Högerklicka på **ta bort och förhindra åtkomst till kommandona Stäng av, starta om, ström spar läge och vilo läge** och klicka på **Redigera**.
 
 1. Välj den **aktiverade** inställningen och klicka sedan på **OK**:
  

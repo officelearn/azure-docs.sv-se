@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 09/28/2020
 ms.author: rolyon
 ms.custom: contperfq1
-ms.openlocfilehash: 16ead03af14da70b5aaedc21118488c6dd3012c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75f2eb90e2418b57e5e0a358fbd6282b20ddc9e7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597648"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648369"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-azure-cli"></a>Lägga till eller ta bort Azure-rolltilldelningar med hjälp av Azure CLI
 
@@ -26,7 +26,7 @@ ms.locfileid: "91597648"
 Om du vill lägga till eller ta bort roll tilldelningar måste du ha:
 
 - `Microsoft.Authorization/roleAssignments/write` och `Microsoft.Authorization/roleAssignments/delete` behörigheter, till exempel [administratör för användar åtkomst](built-in-roles.md#user-access-administrator) eller [ägare](built-in-roles.md#owner)
-- [Bash i Azure Cloud Shell](/azure/cloud-shell/overview) eller [Azure CLI](/cli/azure)
+- [Bash i Azure Cloud Shell](../cloud-shell/overview.md) eller [Azure CLI](/cli/azure)
 
 ## <a name="steps-to-add-a-role-assignment"></a>Steg för tillägg av en rolltilldelning
 
@@ -52,7 +52,7 @@ För en Azure AD-grupp behöver du grupp objekt-ID: t. För att hämta objekt-ID
 az ad group show --group "{groupName}" --query "objectId" --output tsv
 ```
 
-**Tjänstens huvud namn**
+**Tjänstens huvudnamn**
 
 För ett Azure AD-tjänstens huvud namn (identitet som används av ett program) behöver du ett objekt-ID för tjänstens huvud namn. Du kan hämta objekt-ID genom att använda [AZ AD SP List](/cli/azure/ad/sp#az_ad_sp_list). För ett huvud namn för tjänsten använder du objekt-ID: t och **inte** program-ID: t.
 
@@ -362,4 +362,4 @@ az role assignment delete --assignee "alain@example.com" \
 ## <a name="next-steps"></a>Nästa steg
 
 - [Visa en lista med Azures roll tilldelningar med Azure CLI](role-assignments-list-cli.md)
-- [Använd Azure CLI för att hantera Azure-resurser och resurs grupper](../azure-resource-manager/cli-azure-resource-manager.md)
+- [Använd Azure CLI för att hantera Azure-resurser och resurs grupper](../azure-resource-manager/management/manage-resources-cli.md)

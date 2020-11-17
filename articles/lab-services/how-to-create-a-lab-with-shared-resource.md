@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: 2d6610a2f69b6da34972510a5619c6d16a605289
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4bf4127dc163bb5f034e077b84664828374ba87
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776450"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647978"
 ---
 # <a name="how-to-create-a-lab-with-a-shared-resource-in-azure-lab-services"></a>Så här skapar du ett labb med en delad resurs i Azure Lab Services
 
@@ -38,12 +38,12 @@ En av de vanligaste delade resurserna är en licens Server, här är några tips
 Licens servern måste vara ansluten till det virtuella nätverket som peer-kopplas till labbet, så att licens servern måste finnas i samma region som labb kontot.
 
 #### <a name="static-private-ip-and-mac-address"></a>Statisk privat IP-adress och MAC-adress
-Som standard har virtuella datorer en dynamisk privat IP-adress, [innan du ställer in program varan på den privata IP-adressen som statisk](https://docs.microsoft.com/azure/virtual-network/virtual-networks-static-private-ip-arm-pportal). Detta anger den privata IP-adressen och MAC-adressen som ska vara statisk.  
+Som standard har virtuella datorer en dynamisk privat IP-adress, [innan du ställer in program varan på den privata IP-adressen som statisk](../virtual-network/virtual-networks-static-private-ip-arm-pportal.md). Detta anger den privata IP-adressen och MAC-adressen som ska vara statisk.  
 
 #### <a name="control-access"></a>Styr åtkomsten
 Kontroll av åtkomst till licens servern är nyckel.  När den virtuella datorn har kon figurer ATS krävs fortfarande åtkomst till underhåll, fel sökning och uppdatering.  Här är några olika sätt att göra detta på.
-- [Konfigurera just-in-Time (JIT-åtkomst) i Azure Security Center.](https://docs.microsoft.com/azure/security-center/security-center-just-in-time?tabs=jit-config-asc%2Cjit-request-asc)
-- [Konfigurera en nätverks säkerhets grupp för att begränsa åtkomsten.](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview)
+- [Konfigurera just-in-Time (JIT-åtkomst) i Azure Security Center.](../security-center/security-center-just-in-time.md?tabs=jit-config-asc%252cjit-request-asc)
+- [Konfigurera en nätverks säkerhets grupp för att begränsa åtkomsten.](../virtual-network/network-security-groups-overview.md)
 - [Konfigurera skydds för att tillåta säker åtkomst till licens servern.](https://azure.microsoft.com/services/azure-bastion/)
 
 ## <a name="lab-account"></a>Labb konto

@@ -3,12 +3,12 @@ title: Säkerhetskopiera en SAP HANA-databas till Azure med Azure Backup
 description: I den här artikeln lär du dig hur du säkerhetskopierar en SAP HANA-databas till virtuella Azure-datorer med tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: a0a03a0d126845b1beba6d247f82950b0a9a35ab
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 28c9716bfb2dd0a6ac380d9ffd6dcd7fd5eb4978
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172994"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649447"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Säkerhetskopiera SAP HANA-databaser i virtuella Azure-datorer
 
@@ -59,7 +59,7 @@ Med privata slut punkter kan du ansluta säkert från servrar i ett virtuellt n�
 
 Om du använder nätverks säkerhets grupper (NSG) använder du tjänst tag gen *AzureBackup* för att tillåta utgående åtkomst till Azure Backup. Förutom taggen Azure Backup måste du också tillåta anslutning för autentisering och data överföring genom att skapa liknande [NSG-regler](../virtual-network/network-security-groups-overview.md#service-tags) för Azure AD (*AzureActiveDirectory*) och Azure Storage (*lagring*).  Följande steg beskriver processen för att skapa en regel för taggen Azure Backup:
 
-1. I **alla tjänster**går du till **nätverks säkerhets grupper** och väljer Nätverks säkerhets gruppen.
+1. I **alla tjänster** går du till **nätverks säkerhets grupper** och väljer Nätverks säkerhets gruppen.
 
 1. Välj **utgående säkerhets regler** under **Inställningar**.
 
@@ -95,14 +95,14 @@ När du säkerhetskopierar en SAP HANA databas som körs på en virtuell Azure-d
 
 ## <a name="discover-the-databases"></a>Identifiera databaserna
 
-1. I valvet i **komma igång**väljer du **säkerhets kopiering**. I **var kör din arbets belastning?** väljer du **SAP HANA i virtuell Azure-dator**.
+1. I valvet i **komma igång** väljer du **säkerhets kopiering**. I **var kör din arbets belastning?** väljer du **SAP HANA i virtuell Azure-dator**.
 2. Välj **Starta identifiering**. Detta initierar identifiering av oskyddade virtuella Linux-datorer i valv regionen.
 
    * Efter identifieringen visas oskyddade virtuella datorer i portalen, listade efter namn och resurs grupp.
    * Om en virtuell dator inte visas som förväntat kontrollerar du om den redan har säkerhetskopierats i ett valv.
    * Flera virtuella datorer kan ha samma namn, men de tillhör olika resurs grupper.
 
-3. I **välj Virtual Machines**väljer du länken för att ladda ned skriptet som ger behörighet till tjänsten Azure Backup för att få åtkomst till de SAP HANA virtuella datorerna för databas identifiering.
+3. I **välj Virtual Machines** väljer du länken för att ladda ned skriptet som ger behörighet till tjänsten Azure Backup för att få åtkomst till de SAP HANA virtuella datorerna för databas identifiering.
 4. Kör skriptet på varje virtuell dator som är värd för SAP HANA databaser som du vill säkerhetskopiera.
 5. När skriptet har körts på de virtuella datorerna väljer du de virtuella datorerna i **välj Virtual Machines**. Välj sedan **identifiera databaser**.
 6. Azure Backup identifierar alla SAP HANA-databaser på den virtuella datorn. Under identifieringen registrerar Azure Backup den virtuella datorn med valvet och installerar ett tillägg på den virtuella datorn. Ingen agent är installerad på databasen.
@@ -116,13 +116,13 @@ Aktivera nu säkerhets kopiering.
 1. I steg 2 väljer du **Konfigurera säkerhets kopiering**.
 
     ![Konfigurera säkerhetskopiering](./media/backup-azure-sap-hana-database/configure-backup.png)
-2. I **Välj objekt att säkerhetskopiera**väljer du alla databaser som du vill skydda > **OK**.
+2. I **Välj objekt att säkerhetskopiera** väljer du alla databaser som du vill skydda > **OK**.
 
     ![Välj objekt som ska säkerhets kopie ras](./media/backup-azure-sap-hana-database/select-items.png)
 3. I **säkerhets kopierings policy**  >  **väljer du säkerhets kopierings princip**, skapar en ny säkerhets kopierings princip för databaserna enligt anvisningarna nedan.
 
     ![Välj säkerhets kopierings princip](./media/backup-azure-sap-hana-database/backup-policy.png)
-4. När du har skapat principen väljer du **Aktivera säkerhets kopiering**på menyn **säkerhets kopiering** .
+4. När du har skapat principen väljer du **Aktivera säkerhets kopiering** på menyn **säkerhets kopiering** .
 
     ![Aktivera säkerhets kopiering](./media/backup-azure-sap-hana-database/enable-backup.png)
 5. Spåra förloppet för säkerhets kopierings konfigurationen i området **meddelanden** i portalen.
@@ -169,11 +169,16 @@ Ange princip inställningarna enligt följande:
     ![Princip för differentiell säkerhets kopiering](./media/backup-azure-sap-hana-database/differential-backup-policy.png)
 
     > [!NOTE]
-    > Stegvisa säkerhets kopieringar stöds inte för närvarande.
+    > Stegvisa säkerhets kopieringar stöds nu i offentlig för hands version. Du kan välja antingen en differentiell eller en ökning som en daglig säkerhets kopia, men inte båda.
+7. I **principen för stegvis säkerhets kopiering** väljer du **Aktivera** för att öppna kontrollerna frekvens och kvarhållning.
+    * Högst kan du utlösa en stegvis säkerhets kopiering per dag.
+    * Stegvisa säkerhets kopieringar kan behållas i högst 180 dagar. Om du behöver längre kvarhållning måste du använda fullständiga säkerhetskopior.
+
+    ![Princip för stegvis säkerhets kopiering](./media/backup-azure-sap-hana-database/incremental-backup-policy.png)
 
 7. Välj **OK** för att spara policyn och återgå till huvudmenyn **Säkerhetskopieringspolicy**.
 8. Välj **logg säkerhets kopiering** för att lägga till en transaktions logg princip för säkerhets kopiering
-    * I **logg säkerhets kopiering**väljer du **Aktivera**.  Detta kan inte inaktive ras eftersom SAP HANA hanterar alla logg säkerhets kopior.
+    * I **logg säkerhets kopiering** väljer du **Aktivera**.  Detta kan inte inaktive ras eftersom SAP HANA hanterar alla logg säkerhets kopior.
     * Ange frekvens och bevarande kontroller.
 
     > [!NOTE]
@@ -190,8 +195,8 @@ Ange princip inställningarna enligt följande:
 Säkerhets kopieringar körs enligt princip schemat. Du kan köra en säkerhets kopiering på begäran på följande sätt:
 
 1. I menyn valv väljer du **säkerhets kopierings objekt**.
-2. I **säkerhets kopierings objekt**väljer du den virtuella dator som kör SAP HANA databasen och väljer sedan **Säkerhetskopiera nu**.
-3. I **Säkerhetskopiera nu**väljer du vilken typ av säkerhets kopiering du vill utföra. Välj sedan **OK**. Den här säkerhets kopian kommer att behållas enligt principen som är kopplad till det här säkerhets kopierings objektet.
+2. I **säkerhets kopierings objekt** väljer du den virtuella dator som kör SAP HANA databasen och väljer sedan **Säkerhetskopiera nu**.
+3. I **Säkerhetskopiera nu** väljer du vilken typ av säkerhets kopiering du vill utföra. Välj sedan **OK**. Den här säkerhets kopian kommer att behållas enligt principen som är kopplad till det här säkerhets kopierings objektet.
 4. Övervaka Portal meddelanden. Du kan övervaka jobb förloppet i valv instrument panelen > **säkerhets kopierings jobb**  >  **pågår**. Det kan ta en stund att skapa den första säkerhets kopieringen, beroende på databasens storlek.
 
 Som standard är kvarhållning av säkerhets kopior på begäran 45 dagar.

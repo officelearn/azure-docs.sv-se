@@ -15,16 +15,16 @@ ms.topic: how-to
 ms.date: 04/20/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bd6ddf58b3a6e8eb8c618ded335c699fc93328c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: dfa7530617830de99d752edcf4545300525ddbe8
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362373"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649219"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Så här konfigurerar du självbetjäning för program tilldelning
 
-Innan användarna kan själv identifiera program från sina appar måste du aktivera självbetjänings **program åtkomst** till alla program som du vill ge användare möjlighet att själv identifiera och begära åtkomst till. Den här funktionen är tillgänglig för program som har lagts till från [Azure AD-galleriet](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app), [Azure AD-programproxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) eller lades till via [användare eller administrativa medgivande](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience). 
+Innan användarna kan själv identifiera program från sina appar måste du aktivera självbetjänings **program åtkomst** till alla program som du vill ge användare möjlighet att själv identifiera och begära åtkomst till. Den här funktionen är tillgänglig för program som har lagts till från [Azure AD-galleriet](./add-application-portal.md), [Azure AD-programproxy](./application-proxy.md) eller lades till via [användare eller administrativa medgivande](../develop/application-consent-experience.md). 
 
 Den här funktionen är ett bra sätt att spara tid och pengar som en IT-grupp och är starkt rekommenderat som en del av en modern program distribution med Azure Active Directory.
 
@@ -61,7 +61,7 @@ Följ stegen nedan om du vill aktivera självbetjänings program åtkomst till e
 
 5. Aktivera självbetjäning för program åtkomst för det här programmet genom att aktivera alternativet **Tillåt användare att begära åtkomst till det här programmet?** växla till **Ja.**
 
-6. Klicka på **Välj grupp**bredvid **till vilken grupp användare ska läggas till?** Välj en grupp och klicka sedan på **Välj**. När en användares begäran godkänns läggs de till i den här gruppen. När du visar medlemskapet för den här gruppen kan du se vem som har beviljats åtkomst till programmet via självbetjänings åtkomst.
+6. Klicka på **Välj grupp** bredvid **till vilken grupp användare ska läggas till?** Välj en grupp och klicka sedan på **Välj**. När en användares begäran godkänns läggs de till i den här gruppen. När du visar medlemskapet för den här gruppen kan du se vem som har beviljats åtkomst till programmet via självbetjänings åtkomst.
   
     > [!NOTE]
     > Den här inställningen stöder inte grupper som synkroniseras lokalt.
@@ -70,12 +70,12 @@ Följ stegen nedan om du vill aktivera självbetjänings program åtkomst till e
 
 8. **Valfritt: endast för program som använder enkel inloggning** för att tillåta affärs god kännare att ange lösen ord som skickas till det här programmet för godkända användare, ställer du in alternativet **Tillåt god kännare att ange användarens lösen ord för det här programmet?** växla till **Ja**.
 
-9. **Valfritt:** Om du vill ange de affärs god kännare som tillåts att godkänna åtkomst till det här programmet, klickar du på **Välj god kännare**bredvid **vem som tillåts att godkänna åtkomst till programmet?** och väljer sedan upp till 10 enskilda affärs god kännare. Klicka sedan på **Välj**.
+9. **Valfritt:** Om du vill ange de affärs god kännare som tillåts att godkänna åtkomst till det här programmet, klickar du på **Välj god kännare** bredvid **vem som tillåts att godkänna åtkomst till programmet?** och väljer sedan upp till 10 enskilda affärs god kännare. Klicka sedan på **Välj**.
 
     >[!NOTE]
     >Grupper stöds inte. Du kan välja upp till 10 enskilda affärs god kännare. Om du anger flera god kännare kan en enskild god kännare godkänna en åtkomstbegäran.
 
-10. **Valfritt:** **för program som visar roller**, för att tilldela självbetjänings godkända användare till en roll, klickar du på Välj roll bredvid **rollen till vilken du vill att användare ska tilldelas i det här programmet?**, klicka på **Välj roll**och välj sedan rollen som dessa användare ska tilldelas till. Klicka sedan på **Välj**.
+10. **Valfritt:** **för program som visar roller**, för att tilldela självbetjänings godkända användare till en roll, klickar du på Välj roll bredvid **rollen till vilken du vill att användare ska tilldelas i det här programmet?**, klicka på **Välj roll** och välj sedan rollen som dessa användare ska tilldelas till. Klicka sedan på **Välj**.
 
 11. Klicka på knappen **Spara** längst upp i fönstret för att avsluta.
 

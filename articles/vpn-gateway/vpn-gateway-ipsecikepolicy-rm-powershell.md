@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 6039eeed2e1bcb348920be986e72089164c614ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96931d2dd94a8a31021ebe62caaefc54f643b007
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89392658"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649270"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Konfigurera IPsec-/IKE-princip för S2S VPN-anslutningar eller VNet-till-VNet-anslutningar
 
@@ -34,9 +34,8 @@ Den här artikeln innehåller anvisningar för att skapa och konfigurera en IPse
 
 > [!IMPORTANT]
 > 1. Observera att IPsec/IKE-principen endast fungerar på följande Gateway-SKU: er:
->    * ***VpnGw1, VpnGw2, VpnGw3*** (Route-based)
->    * ***Standard*** och ***HighPerformance*** (Route-based)
-> 2. Du kan bara ange ***en*** principkombination för en viss anslutning.
+>    * ***VpnGw1, VpnGw2, VpnGw3** _ (Route-based) _ ***standard** _ och _*_HighPerformance_*_ (Route-based)
+> 2. Du kan bara ange _*_en_*_ princip kombination för en specifik anslutning.
 > 3. Du måste ange alla algoritmer och parametrar för både IKE (huvud läge) och IPsec (snabb läge). Partiell principspecifikationen tillåts inte.
 > 4. Kontakta din VPN-enhets specifikationer för att se till att principen stöds på dina lokala VPN-enheter. S2S-eller VNet-till-VNet-anslutningar kan inte upprätta om principerna är inkompatibla.
 
@@ -56,7 +55,7 @@ Anvisningarna i den här artikeln hjälper dig att konfigurera och konfigurera I
 
 I följande tabell visas de kryptografiska algoritmer som stöds och viktiga fördelar som kan konfigureras av kunderna:
 
-| **IPsec/IKEv2**  | **Alternativ**    |
+| _ *IPSec/IKEv2**  | **Alternativ**    |
 | ---  | --- 
 | IKEv2-kryptering | AES256, AES192, AES128, DES3, DES  
 | IKEv2 Integrity  | SHA384, SHA256, SHA1, MD5  |
@@ -153,7 +152,7 @@ $LNGIP6        = "131.107.72.22"
 
 #### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2. Anslut till din prenumeration och skapa en ny resurs grupp
 
-Se till att växla till PowerShell-läget för att kunna använda Resource Manager-cmdletarna. Mer information finns i [Använda Windows PowerShell med Resource Manager](../powershell-azure-resource-manager.md).
+Se till att växla till PowerShell-läget för att kunna använda Resource Manager-cmdletarna. Mer information finns i [Använda Windows PowerShell med Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md).
 
 Öppna PowerShell-konsolen och anslut till ditt konto. Använd följande exempel för att ansluta:
 

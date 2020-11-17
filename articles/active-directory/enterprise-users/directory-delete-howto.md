@@ -7,19 +7,19 @@ author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 05/21/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf8eeb2d1f19ca0848ae5c608ba9f0d8e9526e05
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 189eaf3a08ce0e8411ce67170fdf1a895cbc56d2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377285"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647723"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Ta bort en klient i Azure Active Directory
 
@@ -73,7 +73,7 @@ Du kan lägga till en prenumeration i **avetablerat** tillstånd för borttagnin
 
    ![Förhandsgranska den nya M365 administrations Center-upplevelsen](./media/directory-delete-howto/preview-toggle.png)
 
-3. När det nya administrations centret har Aktiver ATS måste du avbryta en prenumeration innan du kan ta bort den. Välj **fakturerings** -och välj **produkter & tjänster**och välj sedan **Avbryt prenumerationen** för den prenumeration som du vill avbryta. Du kommer till en feedback-sida.
+3. När det nya administrations centret har Aktiver ATS måste du avbryta en prenumeration innan du kan ta bort den. Välj **fakturerings** -och välj **produkter & tjänster** och välj sedan **Avbryt prenumerationen** för den prenumeration som du vill avbryta. Du kommer till en feedback-sida.
 
    ![Välj en prenumeration för att avbryta](./media/directory-delete-howto/cancel-choose-subscription.png)
 
@@ -121,7 +121,7 @@ Du kan publicera en självbetjänings registrerings produkt som Microsoft Power 
 
 1. Logga in på [administrations centret för Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) med ett konto som är en global administratör i organisationen. Om du försöker ta bort organisationen "contoso" som har den inledande standard domänen contoso.onmicrosoft.com loggar du in med ett UPN, till exempel admin@contoso.onmicrosoft.com .
 
-2. Välj **licenser**och välj sedan **självbetjänings registrerings produkter**. Du kan se alla självbetjänings registrerings produkter separat från de platsbaserade prenumerationerna. Välj den produkt som du vill ta bort permanent. Här är ett exempel i Microsoft Power BI:
+2. Välj **licenser** och välj sedan **självbetjänings registrerings produkter**. Du kan se alla självbetjänings registrerings produkter separat från de platsbaserade prenumerationerna. Välj den produkt som du vill ta bort permanent. Här är ett exempel i Microsoft Power BI:
 
     ![Skärm bild som visar sidan licenser – självbetjänings registrering.](./media/directory-delete-howto/licenses-page.png)
 
@@ -129,7 +129,7 @@ Du kan publicera en självbetjänings registrerings produkt som Microsoft Power 
 
     ![Skärm bild som visar sidan "licenser – självbetjänings registrering" med fönstret "ta bort självbetjänings registrering Product" öppen.](./media/directory-delete-howto/delete-product.png)
 
-4. När du väljer **Ja**kommer borttagning av självbetjänings produkten att initieras. Det finns ett meddelande som talar om att borttagning pågår.  
+4. När du väljer **Ja** kommer borttagning av självbetjänings produkten att initieras. Det finns ett meddelande som talar om att borttagning pågår.  
 
     ![Skärm bild som visar sidan "licenser – självbetjänings registrering" där meddelandet "borttagning pågår" visas.](./media/directory-delete-howto/progress-message.png)
 

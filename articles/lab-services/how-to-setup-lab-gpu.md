@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: abd182339719f19a521feed95f7cfbed6942b3e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cbca82ba88baf5ddda2a6d7a6cdd35b62f28b8e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91404790"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647944"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>Konfigurera ett labb med virtuella GPU-datorer
 
@@ -28,16 +28,16 @@ I den här processen har du möjlighet att välja antingen **visualisering** ell
 
 Som det beskrivs i följande tabell är *beräkningens* GPU-storlek avsedd för beräknings intensiva program.  Den [djup inlärningen i bearbetnings klass typen för naturligt språk](./class-type-deep-learning-natural-language-processing.md) använder till exempel den **små GPU-storleken (Compute)** .  Compute-GPU är lämplig för den här typen av klass eftersom studenter använder djup inlärnings ramverk och verktyg som tillhandahålls av [data science Virtual Machine-avbildningen](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) för att träna djup inlärnings modeller med stora data uppsättningar.
 
-| Storlek | Kärnor | RAM | Beskrivning | 
+| Storlek | Kärnor | RAM | Description | 
 | ---- | ----- | --- | ----------- | 
-| Liten GPU (Compute) | -&nbsp;6 &nbsp; kärnor<br>-&nbsp;56 &nbsp; GB &nbsp; ram  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Den här storleken passar bäst för beräknings intensiva program, till exempel artificiell intelligens (AI) och djup inlärning. |
+| Liten GPU (Compute) | -&nbsp;6 &nbsp; kärnor<br>-&nbsp;56 &nbsp; GB &nbsp; ram  | [Standard_NC6](../virtual-machines/nc-series.md) |Den här storleken passar bäst för beräknings intensiva program, till exempel artificiell intelligens (AI) och djup inlärning. |
 
 GPU-storlekarna för *visualisering* är avsedda för grafik intensiva program.  [Klass typen solidworker Engineering](./class-type-solidworks.md) visar till exempel användningen av den **små GPU-storleken (visualisering)** .  GPU för visualisering är lämplig för den här typen av klass eftersom eleverna interagerar med SOLIDWORKs-miljön 3D Computer-Aided Design (CAD) för att modellera och visualisera solida objekt.
 
-| Storlek | Kärnor | RAM | Beskrivning | 
+| Storlek | Kärnor | RAM | Description | 
 | ---- | ----- | --- | ----------- | 
-| Liten GPU (visualisering) | -&nbsp;6 &nbsp; kärnor<br>-&nbsp;56 &nbsp; GB &nbsp; ram  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | Den här storleken passar bäst för fjärrvisualisering, strömning, spel och kodning som använder ramverk som OpenGL och DirectX. |
-| Medelhög GPU (visualisering) | -&nbsp;12 &nbsp; kärnor<br>-&nbsp;112 &nbsp; GB &nbsp; ram  | [Standard_NV12](https://docs.microsoft.com/azure/virtual-machines/nv-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Den här storleken passar bäst för fjärrvisualisering, strömning, spel och kodning som använder ramverk som OpenGL och DirectX. |
+| Liten GPU (visualisering) | -&nbsp;6 &nbsp; kärnor<br>-&nbsp;56 &nbsp; GB &nbsp; ram  | [Standard_NV6](../virtual-machines/nv-series.md) | Den här storleken passar bäst för fjärrvisualisering, strömning, spel och kodning som använder ramverk som OpenGL och DirectX. |
+| Medelhög GPU (visualisering) | -&nbsp;12 &nbsp; kärnor<br>-&nbsp;112 &nbsp; GB &nbsp; ram  | [Standard_NV12](../virtual-machines/nv-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Den här storleken passar bäst för fjärrvisualisering, strömning, spel och kodning som använder ramverk som OpenGL och DirectX. |
 
 > [!NOTE]
 > Du kanske inte ser några av de här VM-storlekarna i listan när du skapar ett klass rums labb. Listan fylls i baserat på den aktuella kapaciteten för labbets plats. Om skaparen av labb kontot [gör det möjligt för labb skapare att välja en plats för labbet](allow-lab-creator-pick-lab-location.md)kan du prova att välja en annan plats för labbet och se om storleken på den virtuella datorn är tillgänglig. Tillgängligheten för virtuella datorer finns i [produkt tillgänglighet per region](https://azure.microsoft.com/regions/services/?products=virtual-machines).
@@ -76,7 +76,7 @@ Om du vill installera driv rutiner manuellt för beräknings-GPU-storleken gör 
 1. När du har installerat driv rutinerna och annan program vara som krävs för din klass väljer du **publicera** för att skapa dina studenters virtuella datorer.
 
 > [!NOTE]
-> Om du använder en Linux-avbildning, efter att du har hämtat installations programmet, installerar du driv rutinerna genom att följa anvisningarna i [Installera CUDA-drivrutiner på Linux](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup?toc=/azure/virtual-machines/linux/toc.json#install-cuda-drivers-on-n-series-vms).
+> Om du använder en Linux-avbildning, efter att du har hämtat installations programmet, installerar du driv rutinerna genom att följa anvisningarna i [Installera CUDA-drivrutiner på Linux](../virtual-machines/linux/n-series-driver-setup.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#install-cuda-drivers-on-n-series-vms).
 
 #### <a name="install-the-visualization-gpu-drivers"></a>Installera GPU-drivrutinerna för visualisering
 
@@ -85,8 +85,8 @@ Så här installerar du driv rutiner för GPU-storleken för visualiseringen man
 1. I guiden Skapa labb, när du [skapar ditt labb](./how-to-manage-classroom-labs.md), inaktiverar du inställningen **Installera GPU-drivrutiner** .
 1. När ditt labb har skapats ansluter du till mallen VM för att installera lämpliga driv rutiner.
 1. Installera de RUTNÄTs driv rutiner som tillhandahålls av Microsoft på mallen VM genom att följa anvisningarna för ditt operativ system:
-   -  [Windows NVIDIA GRID-drivrutiner](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers)
-   -  [Linux NVIDIA GRID-drivrutiner](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup?toc=/azure/virtual-machines/linux/toc.json#nvidia-grid-drivers)
+   -  [Windows NVIDIA GRID-drivrutiner](../virtual-machines/windows/n-series-driver-setup.md#nvidia-grid-drivers)
+   -  [Linux NVIDIA GRID-drivrutiner](../virtual-machines/linux/n-series-driver-setup.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#nvidia-grid-drivers)
   
 1. Starta om mallen VM.
 1. Kontrol lera att driv rutinerna har installerats korrekt genom att följa anvisningarna i avsnittet [validera installerade driv rutiner](how-to-setup-lab-gpu.md#validate-the-installed-drivers) .
@@ -96,9 +96,9 @@ Så här installerar du driv rutiner för GPU-storleken för visualiseringen man
 I det här avsnittet beskrivs hur du verifierar att GPU-drivrutinerna är korrekt installerade.
 
 #### <a name="windows-images"></a>Windows-avbildningar
-1.  Följ anvisningarna i avsnittet "verifiera driv rutins installation" i [Installera nVidia GPU-drivrutiner på virtuella datorer i N-serien som kör Windows](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation).
+1.  Följ anvisningarna i avsnittet "verifiera driv rutins installation" i [Installera nVidia GPU-drivrutiner på virtuella datorer i N-serien som kör Windows](../virtual-machines/windows/n-series-driver-setup.md#verify-driver-installation).
 1.  Om du använder en *visualiserings* -GPU kan du också:
-    - Visa och justera dina GPU-inställningar på kontroll panelen i NVIDIA. Det gör du genom att välja **maskin vara**på **kontroll panelen i Windows**och sedan välja **NVIDIA kontroll panel**.
+    - Visa och justera dina GPU-inställningar på kontroll panelen i NVIDIA. Det gör du genom att välja **maskin vara** på **kontroll panelen i Windows** och sedan välja **NVIDIA kontroll panel**.
 
       ![Skärm bild av kontroll panelen i Windows med länken NVIDIA-Kontrollpanelen](./media/how-to-setup-gpu/control-panel-nvidia-settings.png) 
 
@@ -110,7 +110,7 @@ I det här avsnittet beskrivs hur du verifierar att GPU-drivrutinerna är korrek
       > Inställningarna för NVIDIA-Kontrollpanelen kan bara användas för *visualiserings* -GPU: er.  Om du försöker öppna NVIDIA-Kontrollpanelen för en beräknings-GPU får du följande fel meddelande: "NVIDIA-bildskärms inställningar är inte tillgängliga.  Du använder för närvarande inte en bildskärm som är ansluten till en NVIDIA-GPU. "  På samma sätt tillhandahålls GPU-prestanda informationen i aktivitets hanteraren endast för visualiserings-GPU: er.
 
 #### <a name="linux-images"></a>Linux-avbildningar
-Följ anvisningarna i avsnittet "verifiera driv rutins installation" i [Installera nVidia GPU-drivrutiner på virtuella datorer i N-serien som kör Linux](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#verify-driver-installation).
+Följ anvisningarna i avsnittet "verifiera driv rutins installation" i [Installera nVidia GPU-drivrutiner på virtuella datorer i N-serien som kör Linux](../virtual-machines/linux/n-series-driver-setup.md#verify-driver-installation).
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar:
@@ -118,6 +118,3 @@ Se följande artiklar:
 - [Skapa och hantera klassrumslabb](how-to-manage-classroom-labs.md)
 - [SOLIDWORKs-klass typ för Computer-Aided Design (CAD)](class-type-solidworks.md)
 - [Klass typ för MATLAB (mat ris labb)](class-type-matlab.md)
-
-
-

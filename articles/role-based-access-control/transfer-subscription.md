@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 10/06/2020
 ms.author: rolyon
-ms.openlocfilehash: 3289f8a22e5601552ec6d44c7d37195b06913fde
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ad0ba3c63f6f0ef6e7e02051031cf215c2e72cce
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545352"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648250"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Överföra en Azure-prenumeration till en annan Azure AD-katalog
 
@@ -69,15 +69,15 @@ Flera Azure-resurser är beroende av en prenumeration eller en katalog. Beroende
 | Systemtilldelade hanterade identiteter | Ja | Ja | [Visa lista över hanterade identiteter](#list-role-assignments-for-managed-identities) | Du måste inaktivera och återaktivera hanterade identiteter. Du måste återskapa roll tilldelningarna. |
 | Användare som tilldelats hanterade identiteter | Ja | Ja | [Visa lista över hanterade identiteter](#list-role-assignments-for-managed-identities) | Du måste ta bort, återskapa och bifoga de hanterade identiteterna till lämplig resurs. Du måste återskapa roll tilldelningarna. |
 | Azure Key Vault | Ja | Ja | [Visa lista Key Vault åtkomst principer](#list-key-vaults) | Du måste uppdatera klient-ID: t som är associerat med nyckel valvena. Du måste ta bort och lägga till nya åtkomst principer. |
-| Azure SQL-databaser med integrering med Azure AD-autentisering aktive rad | Ja | Nej | [Kontrol lera Azure SQL-databaser med Azure AD-autentisering](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
+| Azure SQL-databaser med integrering med Azure AD-autentisering aktive rad | Ja | Inga | [Kontrol lera Azure SQL-databaser med Azure AD-autentisering](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
 | Azure Storage och Azure Data Lake Storage Gen2 | Ja | Ja |  | Du måste återskapa alla ACL: er. |
 | Azure Data Lake Storage Gen1 | Ja | Ja |  | Du måste återskapa alla ACL: er. |
 | Azure Files | Ja | Ja |  | Du måste återskapa alla ACL: er. |
 | Azure File Sync | Ja | Ja |  |  |
 | Azure Managed Disks | Ja | Ja |  |  Om du använder disk krypterings uppsättningar för att kryptera Managed Disks med Kundhanterade nycklar, måste du inaktivera och återaktivera systemtilldelade identiteter som är kopplade till disk krypterings uppsättningar. Och du måste skapa roll tilldelningarna igen, vilket innebär att de behörigheter som krävs för disk krypterings uppsättningar i nyckel valvet beviljas igen. |
 | Azure Kubernetes Service | Ja | Ja |  |  |
-| Azure Policy | Ja | Nej | Alla Azure Policy objekt, inklusive anpassade definitioner, tilldelningar, undantag och efterlevnadsprinciper. | Du måste [Exportera](../governance/policy/how-to/export-resources.md), importera och tilldela om definitioner. Skapa sedan nya princip tilldelningar och eventuella [princip undantag](../governance/policy/concepts/exemption-structure.md)som behövs. |
-| Azure Active Directory Domain Services | Ja | Nej |  |  |
+| Azure Policy | Ja | Inga | Alla Azure Policy objekt, inklusive anpassade definitioner, tilldelningar, undantag och efterlevnadsprinciper. | Du måste [Exportera](../governance/policy/how-to/export-resources.md), importera och tilldela om definitioner. Skapa sedan nya princip tilldelningar och eventuella [princip undantag](../governance/policy/concepts/exemption-structure.md)som behövs. |
+| Azure Active Directory Domain Services | Ja | Inga |  |  |
 | Appregistreringar | Ja | Ja |  |  |
 
 > [!WARNING]
@@ -87,7 +87,7 @@ Flera Azure-resurser är beroende av en prenumeration eller en katalog. Beroende
 
 Du behöver följande för att slutföra de här stegen:
 
-- [Bash i Azure Cloud Shell](/azure/cloud-shell/overview) eller [Azure CLI](/cli/azure)
+- [Bash i Azure Cloud Shell](../cloud-shell/overview.md) eller [Azure CLI](/cli/azure)
 - Konto administratör för den prenumeration som du vill överföra i käll katalogen
 - [Ägar](built-in-roles.md#owner) roll i mål katalogen
 
@@ -111,7 +111,7 @@ Du behöver följande för att slutföra de här stegen:
 
 ### <a name="install-the-azure-resource-graph-extension"></a>Installera Azure Resource Graph-tillägget
 
- Azure CLI-tillägget för [Azure Resource Graph](../governance/resource-graph/index.yml), *resurs diagram* , gör att du kan använda [AZ Graph](/cli/azure/ext/resource-graph/graph) -kommandot för att söka efter resurser som hanteras av Azure Resource Manager. Du kommer att använda det här kommandot i senare steg.
+ Azure CLI-tillägget för [Azure Resource Graph](../governance/resource-graph/index.yml), *resurs diagram*, gör att du kan använda [AZ Graph](/cli/azure/ext/resource-graph/graph) -kommandot för att söka efter resurser som hanteras av Azure Resource Manager. Du kommer att använda det här kommandot i senare steg.
 
 1. Använd [listan med AZ-tillägg](/cli/azure/extension#az_extension_list) för att se om du har installerat *resurs diagram* tillägget.
 

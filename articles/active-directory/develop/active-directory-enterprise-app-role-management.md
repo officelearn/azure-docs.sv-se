@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 8ec87a8d78f73af48b662c5971dfe1803717f88a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 376086d0fc84e04645215b26ba896cf22f3f9c57
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91704556"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647893"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Gör så här: konfigurera det roll anspråk som utfärdats i SAML-token för företags program
 
@@ -62,16 +62,16 @@ Om programmet förväntar sig att anpassade roller ska skickas i ett SAML-svar, 
 
       ![Knappen "ändra behörigheter"](./media/active-directory-enterprise-app-role-management/graph-explorer-new9.png)
 
+    >[!NOTE]
+    >Rollen som Cloud App-administratör och app-administratör fungerar inte i det här scenariot eftersom vi behöver den globala administratörs behörighet för katalog läsning och skrivning.
+
     c. Välj följande behörigheter i listan (om du inte redan har dem) och välj **ändra behörigheter**.
 
       ![Lista över behörigheter och knappen "ändra behörigheter"](./media/active-directory-enterprise-app-role-management/graph-explorer-new10.png)
 
-    > [!Note]
-    > Rollen som Cloud App-administratör och app-administratör fungerar inte i det här scenariot eftersom vi behöver den globala administratörs behörighet för katalog läsning och skrivning.
-
     d. Godkänn godkännandet. Du är inloggad på systemet igen.
 
-    e. Ändra versionen till **beta**och hämta listan över tjänstens huvud namn från din klient med hjälp av följande fråga:
+    e. Ändra versionen till **beta** och hämta listan över tjänstens huvud namn från din klient med hjälp av följande fråga:
 
      `https://graph.microsoft.com/beta/servicePrincipals`
 
@@ -79,9 +79,7 @@ Om programmet förväntar sig att anpassade roller ska skickas i ett SAML-svar, 
 
       ![Dialog rutan Graph Explorer med frågan för att hämta tjänstens huvud namn](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
-      > [!Note]
-      > Vi håller redan på att uppgradera API: erna så att kunderna kan se störningar i tjänsten.
-
+      
     f. I listan med hämtade tjänst huvud namn, hämtar du det du behöver ändra. Du kan också använda Ctrl + F för att söka i programmet från alla angivna tjänst huvud namn. Sök efter det objekt-ID som du kopierade från sidan **Egenskaper** och Använd följande fråga för att komma till tjänstens huvud namn:
 
       `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
@@ -92,8 +90,8 @@ Om programmet förväntar sig att anpassade roller ska skickas i ett SAML-svar, 
 
       ![Information om egenskapen appRoles](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
 
-      > [!Note]
-      > Om du använder den anpassade appen (inte Azure Marketplace-appen) visas två standard roller: användar-och msiam_access. Msiam_access är den enda standard rollen för Marketplace-appen. Du behöver inte göra några ändringar i standard rollerna.
+      
+      Om du använder den anpassade appen (inte Azure Marketplace-appen) visas två standard roller: användar-och msiam_access. Msiam_access är den enda standard rollen för Marketplace-appen. Du behöver inte göra några ändringar i standard rollerna.
 
     h. Skapa nya roller för ditt program.
 
@@ -128,8 +126,8 @@ Om programmet förväntar sig att anpassade roller ska skickas i ett SAML-svar, 
       }
       ```
 
-      > [!Note]
-      > Du kan bara lägga till nya roller efter msiam_access för korrigerings åtgärden. Du kan också lägga till så många roller som din organisation behöver. Azure AD skickar värdet för dessa roller som anspråks värde i SAML-svaret. Om du vill generera GUID-värden för ID för nya roller använder du webb verktyg som [det här](https://www.guidgenerator.com/)
+      
+      Du kan bara lägga till nya roller efter msiam_access för korrigerings åtgärden. Du kan också lägga till så många roller som din organisation behöver. Azure AD skickar värdet för dessa roller som anspråks värde i SAML-svaret. Om du vill generera GUID-värden för ID för nya roller använder du webb verktyg som [det här](https://www.guidgenerator.com/)
 
     i. Gå tillbaka till Graph Explorer och ändra-metoden från **Hämta** till **patch**. Korrigera tjänstens huvud namns objekt så att de fungerar som de ska genom att uppdatera egenskapen **appRoles** som den som visas i föregående exempel. Välj **Kör fråga** för att köra korrigerings åtgärden. Ett meddelande om att rollen har skapats bekräftas.
 
@@ -143,8 +141,8 @@ Om programmet förväntar sig att anpassade roller ska skickas i ett SAML-svar, 
 
     ![Fönstret "Redigera tilldelning" och "Välj roll"](./media/active-directory-enterprise-app-role-management/graph-explorer-new6.png)
 
-    > [!Note]
-    > Du måste uppdatera sessionen i Azure Portal för att se nya roller.
+    
+    Du måste uppdatera sessionen i Azure Portal för att se nya roller.
 
 8. Uppdatera **attribut** -tabellen för att definiera en anpassad mappning av roll anspråket.
 
@@ -154,8 +152,8 @@ Om programmet förväntar sig att anpassade roller ska skickas i ett SAML-svar, 
     | -------------- | ----------------|
     | Rollnamn  | user.assignedroles |
 
-    >[!NOTE]
-    >Om roll anspråkets värde är null skickar Azure AD inte det här värdet i token och detta är standard enligt design.
+    
+    Om roll anspråkets värde är null skickar Azure AD inte det här värdet i token och detta är standard enligt design.
 
     a. Klicka på ikonen **Redigera** för att öppna dialog rutan **användarattribut & anspråk** .
 
@@ -185,7 +183,7 @@ Utför följande steg för att uppdatera en befintlig roll:
 
 2. Logga in på Graph Explorer-webbplatsen med hjälp av den globala administratörs-eller medadministratörens autentiseringsuppgifter för din klient organisation.
 
-3. Ändra versionen till **beta**och hämta listan över tjänstens huvud namn från din klient med hjälp av följande fråga:
+3. Ändra versionen till **beta** och hämta listan över tjänstens huvud namn från din klient med hjälp av följande fråga:
 
     `https://graph.microsoft.com/beta/servicePrincipals`
 
@@ -223,7 +221,7 @@ Utför följande steg för att ta bort en befintlig roll:
 
 2. Logga in på Graph Explorer-webbplatsen med hjälp av den globala administratörs-eller medadministratörens autentiseringsuppgifter för din klient organisation.
 
-3. Ändra versionen till **beta**och hämta listan över tjänstens huvud namn från din klient med hjälp av följande fråga:
+3. Ändra versionen till **beta** och hämta listan över tjänstens huvud namn från din klient med hjälp av följande fråga:
 
     `https://graph.microsoft.com/beta/servicePrincipals`
 
@@ -253,15 +251,15 @@ Utför följande steg för att ta bort en befintlig roll:
 
     d. Välj **Kör fråga**.
 
-    > [!NOTE]
-    > Kontrol lera att du har msiam_accesss rollen och att ID: t matchar i den genererade rollen.
+    
+    Kontrol lera att du har msiam_accesss rollen och att ID: t matchar i den genererade rollen.
 
-7. När rollen har inaktiverats tar du bort roll blocket från **appRoles** -avsnittet. Behåll metoden som **korrigering**och välj **Kör fråga**.
+7. När rollen har inaktiverats tar du bort roll blocket från **appRoles** -avsnittet. Behåll metoden som **korrigering** och välj **Kör fråga**.
 
 8. När du har kört frågan tas rollen bort.
 
-    > [!NOTE]
-    > Rollen måste inaktive ras innan den kan tas bort.
+    
+    Rollen måste inaktive ras innan den kan tas bort.
 
 ## <a name="next-steps"></a>Nästa steg
 

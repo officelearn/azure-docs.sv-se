@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8051621cf05b0f8c387c41cf0b95bb32e15e667
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 794c4e1a0859fc8a36b0abf4fcc9d5243c8bd308
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825906"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649576"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Säkerhets överväganden för att få åtkomst till appar via fjärr anslutning med Azure AD-programproxy
 
@@ -49,7 +49,7 @@ Använd bättre princip kontroller innan anslutningar till nätverket upprättas
 
 Med [villkorlig åtkomst](../conditional-access/concept-conditional-access-cloud-apps.md)kan du definiera begränsningar för hur användare får åtkomst till dina program. Du kan skapa principer som begränsar inloggningar baserat på plats, styrkan för autentisering och användar risk profil.
 
-Du kan också använda villkorlig åtkomst för att konfigurera Multi-Factor Authentication-principer och lägga till ytterligare ett säkerhets lager till dina användarautentisering. Dessutom kan dina program dirigeras till Microsoft Cloud App Security via villkorlig åtkomst i Azure AD för att tillhandahålla övervakning och kontroller i real tid via [åtkomst](https://docs.microsoft.com/cloud-app-security/access-policy-aad) [och arbetsköprinciper](https://docs.microsoft.com/cloud-app-security/session-policy-aad)
+Du kan också använda villkorlig åtkomst för att konfigurera Multi-Factor Authentication-principer och lägga till ytterligare ett säkerhets lager till dina användarautentisering. Dessutom kan dina program dirigeras till Microsoft Cloud App Security via villkorlig åtkomst i Azure AD för att tillhandahålla övervakning och kontroller i real tid via [åtkomst](/cloud-app-security/access-policy-aad) [och arbetsköprinciper](/cloud-app-security/session-policy-aad)
 
 ### <a name="traffic-termination"></a>Trafik terminering
 
@@ -61,7 +61,7 @@ Eftersom Azure AD-programproxy är en omvänd proxy avslutas all trafik till bac
 
 Du behöver inte öppna inkommande anslutningar till företags nätverket.
 
-Application Proxy-kopplingar använder bara utgående anslutningar till Azure AD-programproxy-tjänsten, vilket innebär att du inte behöver öppna brand Väggs portar för inkommande anslutningar. Traditionella proxyservrar krävde ett perimeternätverk (även kallat *DMZ*, *demilitariserad Zone*eller *skärmat undernät*) och tillåten åtkomst till oautentiserade anslutningar vid nätverks kanten. Det här scenariot kräver investeringar i brand Väggs produkter för webb program för att analysera trafik och skydda miljön. Med Application Proxy behöver du inte ett perimeternätverk eftersom alla anslutningar är utgående och sker över en säker kanal.
+Application Proxy-kopplingar använder bara utgående anslutningar till Azure AD-programproxy-tjänsten, vilket innebär att du inte behöver öppna brand Väggs portar för inkommande anslutningar. Traditionella proxyservrar krävde ett perimeternätverk (även kallat *DMZ*, *demilitariserad Zone* eller *skärmat undernät*) och tillåten åtkomst till oautentiserade anslutningar vid nätverks kanten. Det här scenariot kräver investeringar i brand Väggs produkter för webb program för att analysera trafik och skydda miljön. Med Application Proxy behöver du inte ett perimeternätverk eftersom alla anslutningar är utgående och sker över en säker kanal.
 
 Mer information om anslutningar finns i [förstå Azure AD-programproxy-kopplingar](application-proxy-connectors.md).
 
@@ -69,7 +69,7 @@ Mer information om anslutningar finns i [förstå Azure AD-programproxy-koppling
 
 Få säkerhets skydd i den senaste säkerheten.
 
-Eftersom den är en del av Azure Active Directory kan programproxyn utnyttja [Azure AD Identity Protection](../active-directory-identityprotection.md), med data från Microsoft Security Response Center och digital brottslighet Unit. Tillsammans identifierar vi på ett proaktivt sätt komprometterade konton och ger skydd mot högrisk inloggningar. Vi tar hänsyn till flera faktorer för att avgöra vilka inloggnings försök som är hög risk. De här faktorerna omfattar flagga infekterade enheter, maskera-nätverk och ovanlig eller platser som inte är osannolika.
+Eftersom den är en del av Azure Active Directory kan programproxyn utnyttja [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md), med data från Microsoft Security Response Center och digital brottslighet Unit. Tillsammans identifierar vi på ett proaktivt sätt komprometterade konton och ger skydd mot högrisk inloggningar. Vi tar hänsyn till flera faktorer för att avgöra vilka inloggnings försök som är hög risk. De här faktorerna omfattar flagga infekterade enheter, maskera-nätverk och ovanlig eller platser som inte är osannolika.
 
 Många av dessa rapporter och händelser är redan tillgängliga via ett API för integrering med dina SIEM-system (Security information and Event Management).
 
@@ -107,8 +107,8 @@ Anslutningen använder ett klient certifikat för att autentisera till Applicati
 
 När anslutningen först konfigureras sker följande flödes händelser:
 
-1. Anslutnings registreringen till tjänsten görs som en del av installationen av anslutnings programmet. Användarna uppmanas att ange sina autentiseringsuppgifter för Azure AD-administratören.Den token som har hämtats från den här autentiseringen visas sedan för Azure AD-programproxy-tjänsten.
-2. Application Proxy-tjänsten utvärderar token. Den kontrollerar om användaren är företags administratör i klienten.Om användaren inte är administratör avbryts processen.
+1. Anslutnings registreringen till tjänsten görs som en del av installationen av anslutnings programmet. Användarna uppmanas att ange sina autentiseringsuppgifter för Azure AD-administratören. Den token som har hämtats från den här autentiseringen visas sedan för Azure AD-programproxy-tjänsten.
+2. Application Proxy-tjänsten utvärderar token. Den kontrollerar om användaren är företags administratör i klienten. Om användaren inte är administratör avbryts processen.
 3. Anslutningen genererar en begäran om klient certifikat och skickar den, tillsammans med token, till Application Proxy-tjänsten. Tjänsten i sin tur verifierar token och signerar begäran om klient certifikat.
 4. Anslutnings programmet använder klient certifikatet för framtida kommunikation med Application Proxy-tjänsten.
 5. Anslutningen utför en första hämtning av system konfigurations data från tjänsten med hjälp av dess klient certifikat och är nu redo att vidta begär Anden.
@@ -173,7 +173,7 @@ När begäran och överföring av allt innehåll till Server delen har slutfört
 
 När den får ett svar gör anslutningen en utgående anslutning till Application Proxy-tjänsten för att returnera rubrik informationen och börja strömma retur data.
 
-#### <a name="5-the-service-streams-data-to-the-user"></a>5. tjänsten strömmar data till användaren. 
+#### <a name="5-the-service-streams-data-to-the-user"></a>5. tjänsten strömmar data till användaren. 
 
 En del bearbetning av programmet kan inträffa här. Om du konfigurerade programproxyn för att översätta sidhuvuden eller URL: er i ditt program sker bearbetningen vid behov under det här steget.
 

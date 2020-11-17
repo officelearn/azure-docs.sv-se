@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9559e22a8396de93bbe46f20b76855d9ff00f753
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa74424dddd7577eb942f72f038f5bd56854abac
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763728"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648199"
 ---
 # <a name="unexpected-consent-prompt-when-signing-in-to-an-application"></a>Oväntad varning vid inloggning till ett program
 
@@ -39,7 +39,7 @@ Ytterligare prompter kan förväntas i olika scenarier:
 
 * Användaren som ursprungligen godkände till programmet var en administratör, men de fick inget medgivande för hela organisationen.
 
-* Programmet använder ett [stegvist och dynamiskt medgivande](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent) för att begära ytterligare behörigheter när godkännandet ursprungligen beviljades. Detta används ofta när valfria funktioner i ett program ytterligare kräver behörigheter utöver de som krävs för bas linje funktionerna.
+* Programmet använder ett [stegvist och dynamiskt medgivande](../azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent) för att begära ytterligare behörigheter när godkännandet ursprungligen beviljades. Detta används ofta när valfria funktioner i ett program ytterligare kräver behörigheter utöver de som krävs för bas linje funktionerna.
 
 * Godkännandet återkallades efter att det har beviljats till en början.
 
@@ -47,8 +47,6 @@ Ytterligare prompter kan förväntas i olika scenarier:
 
 ## <a name="next-steps"></a>Nästa steg
 
--   [Appar, behörigheter och medgivande i Azure Active Directory (v 1.0-slutpunkt)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)
+-   [Appar, behörigheter och medgivande i Azure Active Directory (v 1.0-slutpunkt)](../develop/quickstart-register-app.md)
 
--   [Omfång, behörigheter och medgivande i Azure Active Directory (v 2.0-slutpunkt)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)
-
-
+-   [Omfång, behörigheter och medgivande i Azure Active Directory (v 2.0-slutpunkt)](../develop/v2-permissions-and-consent.md)

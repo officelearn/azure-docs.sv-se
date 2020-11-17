@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: v-erkel
-ms.openlocfilehash: 19950ca215abbac3a56bdb901448c9d92ad369be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 067b12d4dcfd5ba2b730204ef680b900d79f1b72
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613071"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648080"
 ---
 # <a name="manage-your-cache"></a>Hantera din cache
 
@@ -58,7 +58,7 @@ Om du vill återaktivera en stoppad cache klickar du på knappen **Starta** . In
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Konfigurera Azure CLI för Azure HPC-cache](./az-cli-prerequisites.md).
 
 Pausa tillfälligt en cache med kommandot [AZ HPC-cache Stop](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-stop) . Den här åtgärden är endast giltig när statusen för en cache är **felfri** eller **försämrad**.
 
@@ -113,7 +113,7 @@ Om du vill tömma cachen klickar du på knappen **Flush** och sedan på **Ja** f
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Konfigurera Azure CLI för Azure HPC-cache](./az-cli-prerequisites.md).
 
 Använd [AZ HPC-cache Flush](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-flush) för att tvinga cacheminnet att skriva alla ändrade data till lagrings målen.
 
@@ -161,7 +161,7 @@ Klicka på **Uppgradera** om du vill starta program uppdateringen. Cachens statu
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Konfigurera Azure CLI för Azure HPC-cache](./az-cli-prerequisites.md).
 
 I Azure CLI ingår ny program varu information i slutet av rapporten om cache-status. (Använd [AZ HPC-cache show](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-show) för att kontrol lera.) Leta efter strängen "upgradeStatus" i meddelandet.
 
@@ -225,7 +225,7 @@ När du har stoppat cacheminnet klickar du på knappen **ta bort** för att ta b
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Konfigurera Azure CLI för Azure HPC-cache](./az-cli-prerequisites.md).
 
 Använd Azure CLI-kommandot [AZ HPC-cache Delete](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-delete) för att ta bort cacheminnet permanent.
 

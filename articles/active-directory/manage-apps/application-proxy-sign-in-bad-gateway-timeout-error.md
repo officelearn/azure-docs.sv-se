@@ -16,12 +16,12 @@ ms.date: 05/21/2019
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18c3b0397a0ad3e9e368d1a14e20a999ced5545b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0339e9f7688555b4d99c2d3255461b5675f642ff
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88690280"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649559"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Fel meddelandet "det går inte att komma åt det här företags programmet" visas när ett program för programproxy används
 
@@ -33,7 +33,7 @@ När du ser det här felet hittar du status koden på fel sidan. Koden är förm
 
 - **Gateway-timeout**: tjänsten Application Proxy kan inte ansluta till anslutnings tjänsten. Det här felet indikerar vanligt vis ett problem med kopplings tilldelningen, själva kopplingen eller nätverks reglerna runt anslutnings tjänsten.
 - **Felaktig Gateway**: anslutningen kan inte komma åt backend-programmet. Det här felet kan tyda på en felaktig konfiguration av programmet.
-- **Tillåts**inte: användaren har inte behörighet att komma åt programmet. Felet kan inträffa när användaren inte är tilldelad till programmet i Azure Active Directory, eller om användaren inte har behörighet att komma åt programmet.
+- **Tillåts** inte: användaren har inte behörighet att komma åt programmet. Felet kan inträffa när användaren inte är tilldelad till programmet i Azure Active Directory, eller om användaren inte har behörighet att komma åt programmet.
 
 Du hittar koden genom att titta på texten längst ned till vänster i fel meddelandet för fältet status kod. Leta också efter ytterligare tips längst ned på sidan.
 
@@ -64,13 +64,13 @@ Om du bekräftar att användaren är tilldelad till programmet i Azure, kontroll
 
 ## <a name="check-the-applications-internal-url"></a>Kontrol lera programmets interna URL
 
-Som första snabb steg, dubbelklicka och korrigera den interna URL: en genom att öppna programmet via **företags program**och sedan välja menyn **Application Proxy** . Kontrol lera att den interna URL: en används från ditt lokala nätverk för att få åtkomst till programmet.
+Som första snabb steg, dubbelklicka och korrigera den interna URL: en genom att öppna programmet via **företags program** och sedan välja menyn **Application Proxy** . Kontrol lera att den interna URL: en används från ditt lokala nätverk för att få åtkomst till programmet.
 
 ## <a name="check-the-application-is-assigned-to-a-working-connector-group"></a>Kontrol lera att programmet är tilldelat en fungerande kopplings grupp
 
 Så här kontrollerar du att programmet är kopplat till en fungerande kopplings grupp:
 
-1. Öppna programmet i portalen genom att gå till **Azure Active Directory**, klicka på **företags program**och sedan på **alla program.** Öppna programmet och välj sedan **Application Proxy** på den vänstra menyn.
+1. Öppna programmet i portalen genom att gå till **Azure Active Directory**, klicka på **företags program** och sedan på **alla program.** Öppna programmet och välj sedan **Application Proxy** på den vänstra menyn.
 1. Titta på fältet kopplings grupp. Om det inte finns några aktiva kopplingar i gruppen visas en varning. Om du inte ser några varningar kan du gå vidare för att kontrol lera att alla [nödvändiga portar](application-proxy-add-on-premises-application.md) är tillåtna.
 1. Om fel kopplings grupp visas använder du List rutan för att välja rätt grupp och bekräftar att du inte längre ser några varningar. Om den avsedda anslutnings gruppen visas klickar du på varnings meddelandet för att öppna sidan med anslutnings hantering.
 1. Härifrån finns det några sätt att gå vidare:
@@ -87,7 +87,7 @@ Kontrol lera att alla nödvändiga portar är öppna. Information om vilka porta
 
 ## <a name="check-for-other-connector-errors"></a>Sök efter andra anslutnings fel
 
-Om inget av ovanstående löser problemet, är nästa steg att leta efter problem eller fel med själva kopplingen. Du kan se några vanliga fel i [fel söknings dokumentet](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#connector-errors).
+Om inget av ovanstående löser problemet, är nästa steg att leta efter problem eller fel med själva kopplingen. Du kan se några vanliga fel i [fel söknings dokumentet](./application-proxy-troubleshoot.md#connector-errors).
 
 Du kan också gå direkt till kopplings loggarna för att identifiera eventuella fel. Många av fel meddelandena delar vissa rekommendationer för korrigeringar. Information om hur du visar loggarna finns i [anslutnings dokumentationen](application-proxy-connectors.md#under-the-hood).
 

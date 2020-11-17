@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: kenwith
-ms.openlocfilehash: 5229b123986149903d562bc0b3d6902c0136f647
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d83b69ea7c2a4459d30c4ceb90f62ab6a1a10cc2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90707891"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648182"
 ---
 # <a name="viewing-apps-using-your-azure-ad-tenant-for-identity-management"></a>Visa appar med hjälp av din Azure AD-klient för identitets hantering
 [Snabb starts serien i program hantering](view-applications-portal.md) guidar dig grunderna. I det här avsnittet får du lära dig hur du visar alla appar som använder Azure AD-klienten för identitets hantering. Den här artikeln dykningar en bit djupare i de typer av appar som du hittar.
@@ -28,15 +28,15 @@ När de filtreras till **alla program**, visar **listan** **alla program** alla 
    - Program för **programproxy** – ett program som körs i din lokala miljö som du vill tillhandahålla säker enkel inloggning till externt
 - När du registrerar dig för eller loggar in på, är program från tredje part integrerad med Azure Active Directory. Ett exempel är [Smartsheet](https://app.smartsheet.com/b/home) eller [DocuSign](https://www.docusign.net/member/MemberLogin.aspx).
 - Microsoft-appar som Microsoft 365.
-- När du lägger till en ny program registrering genom att skapa ett anpassat program som har utvecklats med [program registret](https://docs.microsoft.com/azure/active-directory/active-directory-app-registration)
-- När du lägger till en ny program registrering genom att skapa ett anpassat program som har utvecklats med [v 2.0-program registrerings portalen](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration)
+- När du lägger till en ny program registrering genom att skapa ett anpassat program som har utvecklats med [program registret](../develop/quickstart-register-app.md)
+- När du lägger till en ny program registrering genom att skapa ett anpassat program som har utvecklats med [v 2.0-program registrerings portalen](../develop/quickstart-register-app.md)
 - När du lägger till ett program utvecklar du med hjälp av Visual Studios [ASP.net-autentiseringsmetoder](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) eller [anslutna tjänster](https://devblogs.microsoft.com/visualstudio/connecting-to-cloud-services/)
 - När du skapar ett huvud namns objekt för tjänsten med hjälp av [Azure AD PowerShell-modulen](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
-- När du [samtycker till ett program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) som administratör för att använda data i din klient organisation
-- När en [användare samtycker till ett program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) för att använda data i din klient organisation
+- När du [samtycker till ett program](../develop/howto-convert-app-to-be-multi-tenant.md) som administratör för att använda data i din klient organisation
+- När en [användare samtycker till ett program](../develop/howto-convert-app-to-be-multi-tenant.md) för att använda data i din klient organisation
 - När du aktiverar vissa tjänster som lagrar data i din klient organisation. Ett exempel är lösen ords återställning, som modelleras som tjänstens huvud namn för att lagra din princip för lösen ords återställning på ett säkert sätt.
 
-Läs mer om hur och varför program läggs till i din katalog, se [hur program läggs till i Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added).
+Läs mer om hur och varför program läggs till i din katalog, se [hur program läggs till i Azure AD](../develop/active-directory-how-applications-are-added.md).
 
 ## <a name="next-steps"></a>Nästa steg
 [Hantera program med Azure Active Directory](what-is-application-management.md)

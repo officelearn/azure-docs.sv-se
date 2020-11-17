@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
 ms.reviewer: arvindh
-ms.openlocfilehash: 8968fd54968f3115641d2315a534ba61a247a06d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9bcf45cdfbadbf16f48f8f2ac3bd0c6320a2803f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90605132"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649236"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Slut användar upplevelse för program i Azure Active Directory
 
@@ -37,13 +37,13 @@ Som standard visas alla program på en enda sida. Men du kan använda samlingar 
 
 Mina appar är åtskilda från Azure Portal och kräver inte att användare har en Azure-prenumeration eller Microsoft 365 prenumeration.
 
-Mer information om Mina appar i Azure AD finns i [introduktionen till Mina appar](../user-help/active-directory-saas-access-panel-introduction.md).
+Mer information om Mina appar i Azure AD finns i [introduktionen till Mina appar](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="microsoft-365-application-launcher"></a>Microsoft 365 program start
 
 För organisationer som har distribuerat Microsoft 365 kommer program som tilldelas till användare via Azure AD också att visas i Office 365-portalen på [https://portal.office.com/myapps](https://portal.office.com/myapps) . Detta gör det enkelt och bekvämt för användare i en organisation att starta sina appar utan att behöva använda en andra Portal, och är den rekommenderade app-lansering för organisationer som använder Microsoft 365.
 
-Mer information om Office 365 Application starta finns i se till att [din app visas i Office 365-appens start](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
+Mer information om Office 365 Application starta finns i se till att [din app visas i Office 365-appens start](/previous-versions/office/office-365-api/).
 
 ## <a name="direct-sign-on-to-federated-apps"></a>Direkt inloggning till federerade appar
 

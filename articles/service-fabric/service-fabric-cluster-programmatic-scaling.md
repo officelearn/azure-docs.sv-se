@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: mikerou
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bd47e5e39684bd4b684cd1e12dd9a3d420640ee2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f39bd874c1f5a1be42ca1c88e6ea2fe8df22f87
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89005844"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648216"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Skala ett Service Fabric kluster program mässigt 
 
@@ -121,5 +121,5 @@ await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 Kom igång med att implementera din egen logik för automatisk skalning, och bekanta dig med följande begrepp och användbara API: er:
 
 - [Skalning manuellt eller med regler för automatisk skalning](./service-fabric-cluster-scale-in-out.md)
-- [Fluent Azures hanterings bibliotek för .net](https://github.com/Azure/azure-sdk-for-net/tree/Fluent) (användbart för att interagera med ett Service Fabric klusters underliggande skalnings uppsättningar för virtuella datorer)
+- [Azures hanterings bibliotek för .net](https://github.com/Azure/azure-libraries-for-net) (användbart för att interagera med ett Service Fabric klusters underliggande skalnings uppsättningar för virtuella datorer)
 - [System. Fabric. FabricClient](/dotnet/api/system.fabric.fabricclient) (användbart för att interagera med ett Service Fabric kluster och dess noder)

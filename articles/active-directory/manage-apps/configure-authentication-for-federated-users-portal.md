@@ -15,12 +15,12 @@ ms.date: 04/08/2019
 ms.author: kenwith
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16af484e77787ee1d729ce97eec8c666bf925837
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 873a87ed2c75d41e0a249bde4b6a29921b7e5ce5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763592"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648063"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Konfigurera Azure Active Directory inloggnings beteende för ett program med hjälp av en princip för identifiering av start sfär
 
@@ -150,7 +150,7 @@ Vi använder Azure AD PowerShell-cmdlets för att gå igenom några scenarier, b
 - Visar en lista över de program för vilka en princip har kon figurer ATS.
 
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 I följande exempel kan du skapa, uppdatera, länka och ta bort principer för program tjänstens huvud namn i Azure AD.
 
 1.  Börja med att hämta den senaste för hands versionen av Azure AD PowerShell-cmdleten. 
@@ -207,7 +207,7 @@ Om du vill tillämpa HRD-principen när du har skapat den kan du tilldela den ti
 #### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Steg 2: hitta det tjänst huvud namn som principen ska tilldelas till  
 Du behöver **ObjectID** för de tjänst huvud namn som du vill tilldela principen till. Det finns flera sätt att hitta **ObjectID** för tjänstens huvud namn.    
 
-Du kan använda portalen, eller så kan du fråga [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta). Du kan också gå till [Graph Explorer-verktyget](https://developer.microsoft.com/graph/graph-explorer) och logga in på ditt Azure AD-konto för att se alla företagets tjänst huvud namn. 
+Du kan använda portalen, eller så kan du fråga [Microsoft Graph](/graph/api/resources/serviceprincipal?view=graph-rest-beta). Du kan också gå till [Graph Explorer-verktyget](https://developer.microsoft.com/graph/graph-explorer) och logga in på ditt Azure AD-konto för att se alla företagets tjänst huvud namn. 
 
 Eftersom du använder PowerShell kan du använda följande cmdlet för att visa en lista över tjänstens huvud namn och deras ID.
 
@@ -267,6 +267,6 @@ Remove-AzureADServicePrincipalPolicy -id <ObjectId of the Service Principal>  -P
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 ## <a name="next-steps"></a>Nästa steg
-- Mer information om hur autentisering fungerar i Azure AD finns i [autentiserings scenarier för Azure AD](../develop/authentication-scenarios.md).
+- Mer information om hur autentisering fungerar i Azure AD finns i [autentiserings scenarier för Azure AD](../develop/authentication-vs-authorization.md).
 - Mer information om enkel inloggning med användare finns i [enkel inloggning till program i Azure Active Directory](what-is-single-sign-on.md).
 - Besök [Microsofts identitets plattform](../develop/v2-overview.md) och se om det finns en översikt över allt innehåll i utvecklare.

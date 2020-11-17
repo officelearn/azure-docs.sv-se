@@ -3,22 +3,22 @@ title: Återkalla användar åtkomst i nödfall i Azure Active Directory | Micro
 description: Så här återkallar du all åtkomst till en användare i Azure Active Directory
 services: active-directory
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
 author: curtand
 ms.author: curtand
 manager: daveba
 ms.reviewer: krbain
-ms.date: 07/15/2020
+ms.date: 11/15/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16577c3509c9d3d9b02ead5e69832bacc7d083bb
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: e12d08acdd9fc869ed766a1bbd78f35eb371cc8a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92376398"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649695"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Återkalla användar åtkomst i Azure Active Directory
 
@@ -113,9 +113,9 @@ Som administratör i Azure Active Directory öppnar du PowerShell, kör ``Connec
 
 När administratörer har vidtagit stegen ovan kan användaren inte få nya token för program som är kopplade till Azure Active Directory. Tiden som förflutit mellan återkallning och användaren förlorar åtkomsten beror på hur programmet beviljar åtkomst:
 
-- För **program som använder**åtkomsttoken förlorar användaren åtkomst när åtkomsttoken upphör att gälla.
+- För **program som använder** åtkomsttoken förlorar användaren åtkomst när åtkomsttoken upphör att gälla.
 
-- För **program som använder sessionstoken**avslutas de befintliga sessionerna så snart token upphör att gälla. Om användarens inaktiverade tillstånd är synkroniserat med programmet kan programmet automatiskt återkalla användarens befintliga sessioner om den är konfigurerad att göra det.  Hur lång tid det tar beror på hur ofta synkroniseringen mellan programmet och Azure AD är.
+- För **program som använder sessionstoken** avslutas de befintliga sessionerna så snart token upphör att gälla. Om användarens inaktiverade tillstånd är synkroniserat med programmet kan programmet automatiskt återkalla användarens befintliga sessioner om den är konfigurerad att göra det.  Hur lång tid det tar beror på hur ofta synkroniseringen mellan programmet och Azure AD är.
 
 ## <a name="next-steps"></a>Nästa steg
 

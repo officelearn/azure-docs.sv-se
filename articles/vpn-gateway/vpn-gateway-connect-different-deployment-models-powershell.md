@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2c9b8a769dec1a2aa461a34203c98a228cf71d16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63505f470410234f720dd28c29e87c4a2a6d123f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082060"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661145"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Anslut virtuella nätverk från olika distributionsmodeller med hjälp av PowerShell
 
@@ -35,7 +35,7 @@ Följande steg vägleder dig genom de inställningar som krävs för att konfigu
 
 ### <a name="prerequisites"></a><a name="pre"></a>Förutsättningar
 
-* Båda virtuella nätverk har redan skapats. Om du behöver skapa ett virtuellt Resource Manager-nätverk kan du läsa [skapa en resurs grupp och ett virtuellt nätverk](../virtual-network/quick-create-powershell.md#create-a-resource-group-and-a-virtual-network). Information om hur du skapar ett klassiskt virtuellt nätverk finns i [skapa ett klassiskt VNet](https://docs.microsoft.com/azure/virtual-network/create-virtual-network-classic).
+* Båda virtuella nätverk har redan skapats. Om du behöver skapa ett virtuellt Resource Manager-nätverk kan du läsa [skapa en resurs grupp och ett virtuellt nätverk](../virtual-network/quick-create-powershell.md#create-a-resource-group-and-a-virtual-network). Information om hur du skapar ett klassiskt virtuellt nätverk finns i [skapa ett klassiskt VNet](/previous-versions/azure/virtual-network/create-virtual-network-classic).
 * Adress intervallen för virtuella nätverk överlappar inte varandra eller överlappar något av intervallen för andra anslutningar som gatewayerna kan vara anslutna till.
 * Du har installerat de senaste PowerShell-cmdletarna. Mer information finns i [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/) . Se till att du installerar både Service Management-och Resource Manager-cmdlets (RM). 
 
@@ -90,7 +90,7 @@ Gateway-IP-adresskonfiguration = gwipconfig
    ```azurepowershell
    Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
    ```
-3. Öppna XML-filen som du laddade ned för att redigera den. Ett exempel på nätverks konfigurations filen finns i schemat för [nätverks konfiguration](https://msdn.microsoft.com/library/jj157100.aspx).
+3. Öppna XML-filen som du laddade ned för att redigera den. Ett exempel på nätverks konfigurations filen finns i schemat för [nätverks konfiguration](/previous-versions/azure/reference/jj157100(v=azure.100)).
 
 ### <a name="2-verify-the-gateway-subnet"></a>2. kontrol lera Gateway-undernätet
 I **VirtualNetworkSites** -elementet lägger du till ett Gateway-undernät till ditt VNet om det inte redan har skapats. När du arbetar med nätverks konfigurations filen måste Gateway-undernätet heta "GatewaySubnet" eller Azure kan inte identifiera och använda det som ett Gateway-undernät.

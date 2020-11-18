@@ -7,12 +7,12 @@ author: seanmck
 ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: 2b0078f1aff3ef81ee270f67de0fffddec3abab9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7730146f30487eb5d20f0d3138e9e5ba799daa99
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86255259"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681533"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Söka efter Kubernetes metodtips i ditt kluster
 
@@ -29,7 +29,7 @@ Kube-verktyget kan rapportera om resurs begär Anden och gränser som saknas i P
 
 ## <a name="running-kube-advisor"></a>Köra Kube-Advisor
 
-För att köra verktyget på ett kluster som har kon figurer ATS för [rollbaserad åtkomst kontroll (RBAC)](./azure-ad-integration-cli.md), använder du följande kommandon. Det första kommandot skapar ett Kubernetes-tjänstkonto. Det andra kommandot kör verktyget i en POD med det tjänst kontot och konfigurerar Pod för borttagning när det har avslut ATS. 
+För att köra verktyget på ett kluster som är konfigurerat för [Kubernetes-rollbaserad åtkomst kontroll (KUBERNETES RBAC)](./azure-ad-integration-cli.md), med hjälp av följande kommandon. Det första kommandot skapar ett Kubernetes-tjänstkonto. Det andra kommandot kör verktyget i en POD med det tjänst kontot och konfigurerar Pod för borttagning när det har avslut ATS. 
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml
@@ -37,7 +37,7 @@ kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.
 kubectl run --rm -i -t kubeadvisor --image=mcr.microsoft.com/aks/kubeadvisor --restart=Never --overrides="{ \"apiVersion\": \"v1\", \"spec\": { \"serviceAccountName\": \"kube-advisor\" } }" --namespace default
 ```
 
-Om du inte använder RBAC kan du köra kommandot på följande sätt:
+Om du inte använder Kubernetes RBAC kan du köra kommandot på följande sätt:
 
 ```bash
 kubectl run --rm -i -t kubeadvisor --image=mcr.microsoft.com/aks/kubeadvisor --restart=Never
@@ -59,13 +59,13 @@ Som standard anges inga förfrågningar eller gränser för Pod-specifikationer.
 
 ## <a name="cleaning-up"></a>Rensning
 
-Om klustret har RBAC aktiverat kan du rensa `ClusterRoleBinding` efter att du har kört verktyget med följande kommando:
+Om klustret har Kubernetes RBAC aktiverat kan du rensa `ClusterRoleBinding` efter att du har kört verktyget med följande kommando:
 
 ```bash
 kubectl delete -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml
 ```
 
-Om du kör verktyget mot ett kluster som inte är RBAC-aktiverat krävs ingen rensning.
+Om du kör verktyget mot ett kluster som inte är Kubernetes RBAC-aktiverat krävs ingen rensning.
 
 ## <a name="next-steps"></a>Nästa steg
 

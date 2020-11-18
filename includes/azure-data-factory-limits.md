@@ -5,15 +5,15 @@ services: data-factory
 author: chez-charlie
 ms.service: data-factory
 ms.topic: include
-ms.date: 10/28/2020
+ms.date: 11/16/2020
 ms.author: chez
 ms.custom: include file
-ms.openlocfilehash: 4cbe179d015c71094e6813666a6fd0cee3e5e3c2
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 1e8d13e7cf302c486bab291ef6482216122b62a3
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92909092"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94680864"
 ---
 Azure Data Factory är en tjänst för flera innehavare som har följande standard gränser på plats för att se till att kund prenumerationer skyddas från var and ras arbets belastningar. Kontakta supporten om du vill höja gränserna upp till max gränsen för din prenumeration.
 
@@ -40,6 +40,7 @@ Azure Data Factory är en tjänst för flera innehavare som har följande standa
 | Maximal tids gräns för körning av pipeline-aktiviteter | 7 dagar | 7 dagar |
 | Byte per objekt för pipeline-objekt<sup>3</sup> | 200 KB | 200 KB |
 | Byte per objekt för data uppsättning och länkade tjänst objekt<sup>3</sup> | 100 kB | 2 000 KB |
+| Byte per nytto last för varje aktivitets körning<sup>4</sup> | 896 KB | 896 KB |
 | Data integrerings enheter<sup>1</sup> per kopierings aktivitets körning | 256 | 256 |
 | Skriv API-anrop | 1200/h | 1200/h<br/><br/> Denna gräns införs av Azure Resource Manager, inte Azure Data Factory. |
 | Läs API-anrop | 12500/h | 12500/h<br/><br/> Denna gräns införs av Azure Resource Manager, inte Azure Data Factory. |
@@ -60,6 +61,8 @@ Azure Data Factory är en tjänst för flera innehavare som har följande standa
 | Region grupp 3 | Centrala Kanada, Asien, östra, centrala Frankrike, centrala Korea, Storbritannien, södra |
 
 <sup>3</sup> pipeline, data uppsättning och länkade tjänst objekt representerar en logisk gruppering av arbets belastningen. Gränserna för de här objekten relaterar inte till mängden data som du kan flytta och bearbeta med Azure Data Factory. Data Factory är utformad för att skalas för att hantera petabyte av data.
+
+<sup>4</sup> nytto lasten för varje aktivitets körning inkluderar aktivitets konfigurationen, de associerade data uppsättningarna och de länkade tjänst (s)-konfigurationerna, och en liten del av system egenskaper som genereras per aktivitets typ. Gränsen för den här nytto Last storleken relaterar inte till mängden data som du kan flytta och bearbeta med Azure Data Factory. Läs om [symptomen och rekommendationen](../articles/data-factory/data-factory-troubleshoot-guide.md#payload-is-too-large) om du når den här gränsen.
 
 ### <a name="version-1"></a>Version 1
 

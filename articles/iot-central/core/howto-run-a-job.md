@@ -7,12 +7,12 @@ author: philmea
 ms.author: philmea
 ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: 2b5fc349ae7d92bf36cfe9b1f3272cc1f4f7446b
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b8106c154a91d1e823a124a90f7571b7f52ae8cb
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017955"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682209"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Skapa och köra ett jobb i ditt Azure IoT Central-program
 
@@ -30,7 +30,7 @@ I följande exempel visas hur du skapar och kör ett jobb för att ställa in et
 
 1. Välj den mål enhets grupp som du vill att jobbet ska gälla för. Du kan se hur många enheter din jobb konfiguration gäller under valet av **enhets grupp** .
 
-1. Välj **moln egenskap**, **egenskap**eller **kommando** som **jobb typ**:
+1. Välj **moln egenskap**, **egenskap** eller **kommando** som **jobb typ**:
 
     Om du vill konfigurera ett **egenskaps** jobb väljer du en egenskap och anger dess nya värde. Om du vill konfigurera ett **kommando** jobb väljer du kommandot som ska köras. Ett egenskaps jobb kan ange flera egenskaper.
 
@@ -38,23 +38,52 @@ I följande exempel visas hur du skapar och kör ett jobb för att ställa in et
 
     Välj **Spara och avsluta** för att lägga till jobbet i listan över sparade jobb på sidan **jobb** . Du kan senare återgå till ett jobb från listan över sparade jobb.
 
-    Välj **Nästa** för att gå till sidan **leverans alternativ** . På sidan **leverans alternativ** kan du ange leverans alternativ för det här jobbet: **batchar** och **avbrotts tröskel**.
+1. Välj **Nästa** för att gå till sidan **leverans alternativ** . På sidan **leverans alternativ** kan du ange leverans alternativ för det här jobbet: **batchar** och **avbrotts tröskel**.
 
     Med batchar kan du sprida jobb för ett stort antal enheter. Jobbet är uppdelat i flera batchar och varje batch innehåller en delmängd av enheterna. Batcharna placeras i kö och körs i följd.
 
     Med tröskelvärdet för annullering kan du automatiskt avbryta ett jobb om antalet fel överstiger din angivna gräns. Tröskelvärdet kan gälla för alla enheter i jobbet, eller för enskilda batchar.
 
-    :::image type="content" source="media/howto-run-a-job/job-wizard-delivery-options.png" alt-text="Skärm bild som visar val för att skapa ett egenskaps jobb med namnet set Light Threshold":::
+    :::image type="content" source="media/howto-run-a-job/job-wizard-delivery-options.png" alt-text="Skärm bild av sidan leverans alternativ för jobb guiden":::
 
-    Välj **Nästa** för att gå till **gransknings** sidan. På sidan **Granska** visas information om jobb konfigurationen. Välj **Kör** för att skicka jobbet.
+1. Välj **Nästa** för att gå till sidan **schema** . På sidan **schema** kan du aktivera ett schema för att köra jobbet i framtiden:
 
-    :::image type="content" source="media/howto-run-a-job/job-wizard-review.png" alt-text="Skärm bild som visar val för att skapa ett egenskaps jobb med namnet set Light Threshold":::
+    Välj ett upprepnings alternativ för schemat. Du kan konfigurera ett jobb som ska köras:
 
-1. Ett jobb går genom *väntande*, *pågående*och *slutförda* faser. Informationen om jobb körningen innehåller resultat statistik, varaktighets information och ett rutnät i enhets listan.
+    * Engångshändelse
+    * Varje dag
+    * Varje vecka
+
+    Ange start datum och-tid för ett schemalagt jobb. Datum och tid är bara för din tidszon och inte till enhetens lokala tid.
+
+    Om du vill avsluta ett återkommande schema väljer du:
+
+    * Ange ett slutdatum för schemat **på den här dagen** .
+    * **När** du har angett hur många gånger jobbet ska köras.
+
+    Schemalagda jobb körs alltid på enheterna i en enhets grupp, även om enhets gruppens medlemskap ändras över tid.
+
+    :::image type="content" source="media/howto-run-a-job/job-wizard-schedule.png" alt-text="Skärm bild av sidan schema alternativ i jobb guiden":::
+
+1. Välj **Nästa** för att gå till **gransknings** sidan. På sidan **Granska** visas information om jobb konfigurationen. Välj **schema** för att schemalägga jobbet:
+
+    :::image type="content" source="media/howto-run-a-job/job-wizard-schedule-review.png" alt-text="Skärm bild av guiden för schemalagda jobb gransknings Sidan":::
+
+1. Sidan jobb information visar information om schemalagda jobb. När det schemalagda jobbet körs visas en lista över jobb instanserna. Den schemalagda jobb körningen är också en del av den **senaste 30-dagars** jobb listan.
+
+    På den här sidan kan du **Schemalägga** jobbet eller **Redigera** det schemalagda jobbet. Du kan återgå till ett schemalagt jobb från listan över schemalagda jobb.
+
+    :::image type="content" source="media/howto-run-a-job/job-schedule-details.png" alt-text="Skärm bild av sidan information om schemalagt jobb":::
+
+1. I jobb guiden kan du välja att inte schemalägga ett jobb och köra det direkt. Följande skärm bild visar ett jobb utan ett schema som är redo att köras omedelbart. Välj **Kör** för att köra jobbet:
+
+    :::image type="content" source="media/howto-run-a-job/job-wizard-schedule-immediate.png" alt-text="Skärm bild av sidan granskning av jobb guiden":::
+
+1. Ett jobb går genom *väntande*, *pågående* och *slutförda* faser. Informationen om jobb körningen innehåller resultat statistik, varaktighets information och ett rutnät i enhets listan.
 
     När jobbet har slutförts kan du välja **resultat logg** för att ladda ned en CSV-fil med jobb information, inklusive enheterna och deras status värden. Den här informationen kan vara användbar vid fel sökning.
 
-    :::image type="content" source="media/howto-run-a-job/download-details.png" alt-text="Skärm bild som visar val för att skapa ett egenskaps jobb med namnet set Light Threshold":::
+    :::image type="content" source="media/howto-run-a-job/download-details.png" alt-text="Skärm bild som visar enhets status":::
 
 1. Jobbet visas nu i listan **senaste 30 dagar** på sidan **jobb** . Den här sidan visar jobb som körs och historik för tidigare körningar eller sparade jobb.
 
@@ -65,17 +94,17 @@ I följande exempel visas hur du skapar och kör ett jobb för att ställa in et
 
 Om du vill stoppa ett pågående jobb öppnar du det och väljer **stoppa**. Jobbets status ändras för att visa att jobbet har stoppats. I **sammanfattnings** avsnittet visas vilka enheter som har slutförts, som har misslyckats eller som fortfarande väntar.
 
-:::image type="content" source="media/howto-run-a-job/manage-job.png" alt-text="Skärm bild som visar val för att skapa ett egenskaps jobb med namnet set Light Threshold":::
+:::image type="content" source="media/howto-run-a-job/manage-job.png" alt-text="Skärm bild som visar ett jobb som körs och knappen för att stoppa ett jobb":::
 
 När ett jobb är i stoppat läge kan du välja **Fortsätt** för att återuppta körningen av jobbet. Jobbets status ändras för att visa att jobbet nu körs igen. Avsnittet **Sammanfattning** fortsätter att uppdateras med den senaste förloppet.
 
-:::image type="content" source="media/howto-run-a-job/stopped-job.png" alt-text="Skärm bild som visar val för att skapa ett egenskaps jobb med namnet set Light Threshold":::
+:::image type="content" source="media/howto-run-a-job/stopped-job.png" alt-text="Skärm bild som visar ett stoppat jobb och en knapp för att fortsätta ett jobb":::
 
 ## <a name="copy-a-job"></a>Kopiera ett jobb
 
 Om du vill kopiera ett befintligt jobb väljer du ett jobb som körs. Välj **Kopiera** på sidan jobb resultat sidan eller jobb informations sidan:
 
-:::image type="content" source="media/howto-run-a-job/job-details-copy.png" alt-text="Skärm bild som visar val för att skapa ett egenskaps jobb med namnet set Light Threshold":::
+:::image type="content" source="media/howto-run-a-job/job-details-copy.png" alt-text="Skärm bild som visar knappen Kopiera":::
 
 En kopia av jobb konfigurationen öppnas och du kan redigera den och **Kopiera** den till jobb namnet.
 
@@ -86,7 +115,7 @@ När ett jobb har skapats uppdateras **status** kolumnen med det senaste jobb st
 | Statusmeddelande       | Status betydelse                                          |
 | -------------------- | ------------------------------------------------------- |
 | Slutförd            | Det här jobbet kördes på alla enheter.              |
-| Misslyckades               | Jobbet kunde inte köras och kunde inte köras helt på enheterna.  |
+| Misslyckad               | Jobbet kunde inte köras och kunde inte köras helt på enheterna.  |
 | Väntar              | Det här jobbet har ännu inte börjat köras på enheter.         |
 | Körs              | Det här jobbet körs för närvarande på enheter.             |
 | Stoppad              | En användare har stoppat det här jobbet manuellt.           |
@@ -97,14 +126,14 @@ Status meddelandet följs av en översikt över enheterna i jobbet. I följande 
 | Statusmeddelande       | Status betydelse                                                     |
 | -------------------- | ------------------------------------------------------------------ |
 | Lyckades            | Antalet enheter som jobbet har körts på.       |
-| Misslyckades               | Antalet enheter som jobbet inte kunde köras på.       |
+| Misslyckad               | Antalet enheter som jobbet inte kunde köras på.       |
 
 Om du vill visa status för jobbet och alla berörda enheter öppnar du jobbet. Bredvid varje enhets namn ser du något av följande status meddelanden:
 
 | Statusmeddelande       | Status betydelse                                                                |
 | -------------------- | ----------------------------------------------------------------------------- |
 | Slutförd            | Jobbet kördes på den här enheten.                                     |
-| Misslyckades               | Det gick inte att köra jobbet på den här enheten. I fel meddelandet visas mer information.  |
+| Misslyckad               | Det gick inte att köra jobbet på den här enheten. I fel meddelandet visas mer information.  |
 | Väntar              | Jobbet har ännu inte körts på den här enheten.                                   |
 
 Om du vill ladda ned en CSV-fil som innehåller jobb information och listan över enheter och deras status värden väljer du **resultat logg**.
@@ -113,15 +142,15 @@ Om du vill ladda ned en CSV-fil som innehåller jobb information och listan öve
 
 Du kan filtrera enhets listan på **jobb informations** sidan genom att välja filter ikonen. Du kan filtrera efter **enhets-ID** eller **status** fältet:
 
-:::image type="content" source="media/howto-run-a-job/filter.png" alt-text="Skärm bild som visar val för att skapa ett egenskaps jobb med namnet set Light Threshold":::
+:::image type="content" source="media/howto-run-a-job/filter.png" alt-text="Skärm bild som visar val för att filtrera en enhets lista.":::
 
 ## <a name="customize-columns-in-the-device-list"></a>Anpassa kolumner i enhets listan
 
 Du kan lägga till kolumner i enhets listan genom att välja ikonen för kolumn alternativ:
 
-:::image type="content" source="media/howto-run-a-job/column-options.png" alt-text="Skärm bild som visar val för att skapa ett egenskaps jobb med namnet set Light Threshold":::
+:::image type="content" source="media/howto-run-a-job/column-options.png" alt-text="Skärm bild som visar ikonen för kolumn alternativ.":::
 
-Använd dialog rutan **kolumn alternativ** om du vill välja kolumnerna i enhets listan. Markera de kolumner som du vill visa, Välj högerpilen och välj sedan **OK**. Välj **Markera**alla om du vill markera alla tillgängliga kolumner. De markerade kolumnerna visas i enhets listan.
+Använd dialog rutan **kolumn alternativ** om du vill välja kolumnerna i enhets listan. Markera de kolumner som du vill visa, Välj högerpilen och välj sedan **OK**. Välj **Markera** alla om du vill markera alla tillgängliga kolumner. De markerade kolumnerna visas i enhets listan.
 
 De markerade kolumnerna behålls i en användarsession eller mellan användarsessioner som har åtkomst till programmet.
 
@@ -129,7 +158,7 @@ De markerade kolumnerna behålls i en användarsession eller mellan användarses
 
 Du kan köra om ett jobb som har fel enheter. Select **Kör igen misslyckades**:
 
-:::image type="content" source="media/howto-run-a-job/rerun.png" alt-text="Skärm bild som visar val för att skapa ett egenskaps jobb med namnet set Light Threshold":::
+:::image type="content" source="media/howto-run-a-job/rerun.png" alt-text="Skärm bild som visar knappen för att köra om ett jobb på misslyckade enheter.":::
 
 Ange ett jobb namn och en beskrivning och välj sedan **Kör om jobb**. Ett nytt jobb skickas för att försöka utföra åtgärden på misslyckade enheter igen.
 

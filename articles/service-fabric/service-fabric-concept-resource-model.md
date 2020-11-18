@@ -4,12 +4,12 @@ description: Den här artikeln innehåller en översikt över hur du hanterar et
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: sfrev
-ms.openlocfilehash: 7ad0d4f6d92ba8d85383df281bd14681f43bb6d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3968fde0222dcee8047e7490dba78879ab6110e2
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258732"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681694"
 ---
 # <a name="service-fabric-application-resource-model"></a>Service Fabric program resurs modell
 
@@ -55,7 +55,7 @@ När lagrings kontot har skapats skapar du en BLOB-behållare där programmen ka
 Resurser i klustret kan skyddas genom att ange den offentliga åtkomst nivån till **privat**. Du kan bevilja åtkomst på flera sätt:
 
 * Ge åtkomst till blobbar och köer med hjälp av [Azure Active Directory](../storage/common/storage-auth-aad-app.md).
-* Bevilja åtkomst till Azure blob-och Queue-data genom [att använda RBAC i Azure Portal](../storage/common/storage-auth-aad-rbac-portal.md).
+* Bevilja åtkomst till Azure blob-och Queue-data med hjälp av [Azure RBAC i Azure Portal](../storage/common/storage-auth-aad-rbac-portal.md).
 * Delegera åtkomst med hjälp av en [signatur för delad åtkomst](/rest/api/storageservices/delegate-access-with-shared-access-signature).
 
 I exemplet på följande skärm bild används anonym Läs åtkomst för blobbar.
@@ -76,7 +76,7 @@ I den här självstudien använder vi [röstnings exempel programmet](https://gi
    ![Zip-program][ZipApplication]  
 1. Byt namn på filen för att ändra tillägget från. zip till *. sfpkg*.
 
-1. I Azure Portal, i behållaren **appar** för ditt lagrings konto, väljer du **Ladda upp**och laddar upp **röstning. sfpkg**. 
+1. I Azure Portal, i behållaren **appar** för ditt lagrings konto, väljer du **Ladda upp** och laddar upp **röstning. sfpkg**. 
 
    ![Ladda upp appaket][UploadAppPkg]
 

@@ -7,15 +7,15 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 532ada430e7ff2ae76eb0cfbc389792bb0d98209
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 0897ca35dd5ae1b7209a36aee4bd5335d4ea4d25
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322660"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681541"
 ---
 # <a name="connect-to-synapse-sql"></a>Anslut till Synapse SQL
 Anslut till SQL-funktionen Synapse i Azure Synapse Analytics.
@@ -46,7 +46,7 @@ För att hitta det fullständigt kvalificerade servernamnet:
 
 ![Fullständigt servernamn](./media/connect-overview/server-connect-example.png)
 
-## <a name="serverless-sql-pool"></a>**SQL-pool utan Server**
+## <a name="serverless-sql-pool"></a>**serverlös SQL-pool**
 
 ![Fullständigt Server namn utan server utan SQL-pool](./media/connect-overview/server-connect-example-sqlod.png)
 

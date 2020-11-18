@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: a0fbcab194b90bbe89948fee1efb604266dbbb0f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 7c6de17e4ed4f5666554908e9b13fb9e299b027a
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311754"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682068"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Hantera åtkomst till arbets ytor, data och pipelines
 
@@ -102,7 +102,7 @@ När du etablerade arbets ytan var du tvungen att välja ett [Azure Data Lake St
 > [!TIP]
 > Stegen nedan måste köras för **varje** SQL-databas för att ge användarna åtkomst till alla SQL-databaser, förutom i avsnittet [Server nivå behörighet](#server-level-permission) där du kan tilldela användare en sysadmin-roll.
 
-### <a name="serverless-sql-pool"></a>SQL-pool utan Server
+### <a name="serverless-sql-pool"></a>Serverlös SQL-pool
 
 I det här avsnittet hittar du exempel på hur du ger användaren behörighet till en viss databas eller fullständiga Server behörigheter.
 

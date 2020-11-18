@@ -5,12 +5,12 @@ description: Lär dig hur du installerar och konfigurerar en NGINX ingress Contr
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 50e3e052915b6bcc1f6dee89f5ed5e2acf13dd78
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: eb58bbe127349aaebed3b1eb00281cf2938c1933
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124364"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681592"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Skapa en ingångs kontroll enhet med en statisk offentlig IP-adress i Azure Kubernetes service (AKS)
 
@@ -50,7 +50,7 @@ az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eas
 ```
 
 > [!NOTE]
-> Kommandona ovan skapar en IP-adress som tas bort om du tar bort ditt AKS-kluster. Du kan också skapa en IP-adress i en annan resurs grupp som kan hanteras separat från ditt AKS-kluster. Om du skapar en IP-adress i en annan resurs grupp ser du till att tjänstens huvud namn som används av AKS-klustret har delegerade behörigheter till den andra resurs gruppen, t. ex. *nätverks deltagare* . Mer information finns i [använda en statisk offentlig IP-adress och en DNS-etikett med AKS-belastningsutjämnaren][aks-static-ip].
+> Kommandona ovan skapar en IP-adress som tas bort om du tar bort ditt AKS-kluster. Du kan också skapa en IP-adress i en annan resurs grupp som kan hanteras separat från ditt AKS-kluster. Om du skapar en IP-adress i en annan resurs grupp ser du till att tjänstens huvud namn som används av AKS-klustret har delegerade behörigheter till den andra resurs gruppen, t. ex. *nätverks deltagare*. Mer information finns i [använda en statisk offentlig IP-adress och en DNS-etikett med AKS-belastningsutjämnaren][aks-static-ip].
 
 Distribuera nu *nginx-ingress-* diagrammet med Helm. För ytterligare redundans distribueras två repliker av NGINX-ingresskontrollanterna med parametern `--set controller.replicaCount`. Se till att det finns fler än en nod i ditt AKS-kluster för att få full nytta av att köra repliker av ingångs styrenheten.
 
@@ -62,10 +62,10 @@ Du måste skicka två ytterligare parametrar till Helm-versionen så att ingång
 Ingresskontrollanten måste också schemaläggas på en Linux-nod. Windows Server-noder bör inte köra ingresskontrollanten. En nodväljare anges med parametern `--set nodeSelector` för att instruera Kubernetes-schemaläggaren att köra NGINX-ingresskontrollanten på en Linux-baserad nod.
 
 > [!TIP]
-> I följande exempel skapas ett Kubernetes-namnområde för de ingress-resurser som heter *ingress-Basic* . Ange ett namn område för din egen miljö efter behov. Om ditt AKS-kluster inte är RBAC-aktiverat lägger du till dem `--set rbac.create=false` i Helm-kommandona.
+> I följande exempel skapas ett Kubernetes-namnområde för de ingress-resurser som heter *ingress-Basic*. Ange ett namn område för din egen miljö efter behov. Om ditt AKS-kluster inte Kubernetes RBAC är aktiverat lägger `--set rbac.create=false` du till Helm-kommandona.
 
 > [!TIP]
-> Om du vill aktivera [IP-konservering för klient källa][client-source-ip] för förfrågningar till behållare i klustret, lägger `--set controller.service.externalTrafficPolicy=Local` du till det i Helm install-kommandot. Klientens käll-IP lagras i begär ande huvudet under *X-forwarded – for* . TLS-vidarekoppling fungerar inte när du använder en ingångs kontroll för att aktivera IP-konservering i klient källan.
+> Om du vill aktivera [IP-konservering för klient källa][client-source-ip] för förfrågningar till behållare i klustret, lägger `--set controller.service.externalTrafficPolicy=Local` du till det i Helm install-kommandot. Klientens käll-IP lagras i begär ande huvudet under *X-forwarded – for*. TLS-vidarekoppling fungerar inte när du använder en ingångs kontroll för att aktivera IP-konservering i klient källan.
 
 Uppdatera följande skript med **IP-adressen** för din ingångs kontroll och ett **unikt namn** som du vill använda för FQDN-prefixet.
 
@@ -115,7 +115,7 @@ NGINX-ingresskontrollanten stöder TLS-avslutning. Det finns flera sätt att hä
 > [!NOTE]
 > I den här artikeln används `staging` miljön för att kryptera. I produktions distributioner använder du `letsencrypt-prod` och `https://acme-v02.api.letsencrypt.org/directory` i resurs definitionerna och när du installerar Helm-diagrammet.
 
-Om du vill installera certifikat hanterarens kontrollant i ett RBAC-aktiverat kluster, använder du följande `helm install` kommando:
+Om du vill installera cert Manager-kontrollanten i ett Kubernetes RBAC-aktiverat kluster, använder du följande `helm install` kommando:
 
 ```console
 # Label the cert-manager namespace to disable resource validation
@@ -435,7 +435,7 @@ Ta bort det egna namn området. Använd `kubectl delete` kommandot och ange namn
 kubectl delete namespace ingress-basic
 ```
 
-Slutligen tar du bort den statiska offentliga IP-adressen som skapats för ingångs styrenheten. Ange namnet på din *MC_* kluster resurs grupp som hämtades i det första steget i den här artikeln, till exempel *MC_myResourceGroup_myAKSCluster_eastus* :
+Slutligen tar du bort den statiska offentliga IP-adressen som skapats för ingångs styrenheten. Ange namnet på din *MC_* kluster resurs grupp som hämtades i det första steget i den här artikeln, till exempel *MC_myResourceGroup_myAKSCluster_eastus*:
 
 ```azurecli-interactive
 az network public-ip delete --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP

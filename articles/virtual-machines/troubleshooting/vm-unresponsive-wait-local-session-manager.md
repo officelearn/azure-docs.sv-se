@@ -1,6 +1,6 @@
 ---
-title: Den virtuella datorn svarar inte på den lokala sessionshanteraren
-description: Den här artikeln innehåller steg för att lösa problem där gäst operativ systemet fastnar i väntan på att den lokala sessionshanteraren ska slutföra bearbetningen när en virtuell Azure-dator startas.
+title: Den virtuella datorn svarar inte under väntan på att tjänsten Local session Manager
+description: Den här artikeln innehåller steg för att lösa problem där gäst operativ systemet fastnar i väntan på att den lokala sessionshanteraren ska slutföra bearbetningen när den startar en virtuell Azure-dator.
 services: virtual-machines-windows
 documentationcenter: ''
 author: mibufo
@@ -12,47 +12,43 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/22/2020
 ms.author: v-mibufo
-ms.openlocfilehash: f2f0177b5fe8bb97773d297319f6c9196d8178d2
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 8af8d7695c48c6ac682109bb38935e98921fa9e4
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536242"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681915"
 ---
-# <a name="vm-is-unresponsive-while-waiting-for-the-local-session-manager"></a>Den virtuella datorn svarar inte på den lokala sessionshanteraren
+# <a name="vm-is-unresponsive-while-waiting-for-the-local-session-manager-service"></a>Den virtuella datorn svarar inte under väntan på att tjänsten Local session Manager
 
-Den här artikeln innehåller steg för att lösa problem där gäst operativ systemet fastnar i väntan på att den lokala sessionshanteraren ska slutföra bearbetningen när en virtuell Azure-dator startas.
+Den här artikeln innehåller steg för att lösa problem där gäst operativ systemet (gäst operativ system) är fastnat i väntan på att den lokala sessionshanteraren ska slutföra bearbetningen när en virtuell Azure-dator startas.
 
 ## <a name="symptoms"></a>Symtom
 
-När du använder [startdiagnostik](./boot-diagnostics.md) för att Visa skärm bilden för den virtuella datorn ser du att skärm bilden visar en fråga med meddelandet: " *vänta på den lokala sessionshanteraren* "
+När du använder [startdiagnostik](./boot-diagnostics.md) för att visa en skärm bild av den virtuella datorns utdata, ser du att skärm bilden visar en prompt med meddelandet "vänta på den lokala sessionshanteraren".
 
-![Skärm bilden visar gäst operativ systemet som fastnat i meddelandet "vänta på den lokala sessionshanteraren" i Windows Server 2012 R2.](media/vm-unresponsive-wait-local-session-manager/vm-unresponsive-wait-local-session-manager-1.png)
+![Skärm bild som visar det låsta gäst operativ systemet i Windows Server 2012 R2 med meddelandet "vänta på den lokala sessionshanteraren".](media/vm-unresponsive-wait-local-session-manager/vm-unresponsive-wait-local-session-manager-1.png)
 
 ## <a name="cause"></a>Orsak
 
-Det kan finnas flera orsaker till att en virtuell dator fastnar i väntan på den lokala sessionshanteraren. Om du väntar på att den lokala sessionshanteraren är ett beständigt problem måste du samla in en minnesdump för analys.
+Det kan finnas flera orsaker till att en virtuell dator har fastnat i väntan på hanteraren för lokala sessioner. Om det här problemet kvarstår måste du samla in en minnesdump för analys.
 
 ## <a name="solution"></a>Lösning
 
-I vissa fall behöver du bara vänta tillräckligt länge för att processen ska slutföras för att lösa problemet. Om din virtuella dator inte svarar och är kvar på skärmen vänta i mer än en timme, ska du samla in en minnesdump och sedan kontakta Microsoft support.
+I vissa fall behöver du bara vänta tills processen har slutförts för att lösa problemet. Om den virtuella datorn inte svarar och finns kvar på skärmen vänta i mer än en timme, ska du samla in en minnesdump och sedan kontakta Microsoft support.
 
-### <a name="collect-the-memory-dump-file"></a>Samla in minnesdumpen
+### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>Koppla OS-disken till en ny virtuell reparations dator
 
-För att lösa det här problemet måste du först samla in minnesdumpen för kraschen och sedan kontakta supporten med minnesdumpen. Samla in dumpfilen genom att följa dessa steg:
+1. Om du vill förbereda en virtuell reparations dator följer du steg 1-3 i [reparations kommandon för virtuella datorer](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md).
+1. Anslut till den virtuella reparations datorn med hjälp av Anslutning till fjärrskrivbord.
 
-#### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>Koppla OS-disken till en ny virtuell reparations dator
+### <a name="locate-the-dump-file-and-submit-a-support-ticket"></a>Leta upp dumpfilen och skicka in ett support ärende
 
-1. Förbered en virtuell reparations dator genom att följa [steg 1-3 i reparations kommandona för virtuella datorer](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) .
-2. Anslut till den reparerade virtuella datorn med Anslutning till fjärrskrivbord.
+1. På den virtuella reparations datorn går du till Windows-mappen på den anslutna OS-disken. Till exempel, om enhets beteckningen som är tilldelad till den anslutna OS-disken heter *F*, går du till `F:\Windows` .
+1. Leta efter *Memory. dmp* -filen och skicka sedan [ett support ärende](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) med minnes dumpnings filen ansluten.
+1. Om du har problem med att hitta *Memory. dmp* -filen följer du guiden för att [Generera en kraschdumpfil med ett icke-maskbart avbrotts anrop (NMI)](/windows/client-management/generate-kernel-or-complete-crash-dump).
 
-#### <a name="locate-the-dump-file-and-submit-a-support-ticket"></a>Leta upp dumpfilen och skicka in ett support ärende
-
-1. På den virtuella reparations datorn går du till Windows-mappen på den anslutna OS-disken. Om den driv rutins beteckning som tilldelas till den anslutna OS-disken är märkt som *F* måste du gå till `F:\Windows` .
-2. Leta upp filen **Memory. dmp** och skicka sedan [ett support ärende](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) med minnesdumpen.
-3. Om du har problem med att hitta **Memory. dmp** -filen följer du guiden för att [Generera en kraschdumpfil med hjälp av NMI-anrop (non-maskbart Interrupt)](/windows/client-management/generate-kernel-or-complete-crash-dump).
-
-För ytterligare information om NMI-anrop, se [anropen för icke-maskerade avbrott (NMI) i serie konsolens](./serial-console-windows.md#use-the-serial-console-for-nmi-calls) Användar handbok.
+Mer information om NMI-anrop finns i NMI-anrop i användar handboken för [Azures serie konsol](./serial-console-windows.md#use-the-serial-console-for-nmi-calls) .
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: a89ff56eb9e0f0a29b5b1fed7543c5f718425e51
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: a56922c972efeb21c188413522bd05f83b74ca12
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92326040"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681830"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Ta med din egen nyckel (Kundhanterade nycklar) med Media Services
 
@@ -37,9 +37,11 @@ Du kan ange ett nyckel namn och en nyckel version, eller bara ett nyckel namn. O
 > [!WARNING]
 > Media Services övervakar åtkomsten till kund nyckeln. Om kund nyckeln blir otillgänglig (t. ex. om nyckeln har tagits bort eller om Key Vault har tagits bort eller om åtkomst tilldelningen har tagits bort), kommer Media Services att överföra kontot till status för kund nyckel otillgängligt (inaktive ring av kontot). Kontot kan dock tas bort i det här läget. De enda åtgärder som stöds är kontona GET, LIST och DELETE. alla andra begär Anden (kodning, direkt uppspelning och så vidare) kommer inte att fungera förrän åtkomst till konto nyckeln har återställts.
 
-## <a name="tutorial"></a>Självstudier
-Prova själv studie kursen [Använd Kundhanterade nycklar eller ta med din egen nyckel (BYOK) med Media Services](tutorial-byok.md) för att lära dig hur du konfigurerar och använder Kundhanterade nycklar med Postman och Azure REST API.
+## <a name="tutorials"></a>Självstudier
+
+- [Använd Azure Portal för att använda Kundhanterade nycklar eller BYOK med Media Services](tutorial-byok-portal.md)
+- [Använd kund hanterade nycklar eller BYOK med Media Services REST API](tutorial-byok-postman.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Självstudie: Använd kundens hanterade nycklar eller ta med din egen nyckel (BYOK) med Media Services](tutorial-byok.md)
+[Skydda ditt innehåll med Media Services dynamisk kryptering](content-protection-overview.md)

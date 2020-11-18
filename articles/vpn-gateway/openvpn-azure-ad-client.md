@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/15/2020
 ms.author: alzam
-ms.openlocfilehash: 09d39acc867124acfd5c3c38d5c26053218972e7
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 7c2c1930b8f801db7f70baa5b713a641606be644
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92109110"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661179"
 ---
 # <a name="azure-active-directory-authentication-configure-a-vpn-client-for-p2s-openvpn-protocol-connections"></a>Azure Active Directory autentisering: Konfigurera en VPN-klient för P2S OpenVPN-protokoll anslutningar
 
@@ -152,7 +152,7 @@ Dessa steg hjälper dig att konfigurera anslutningen till att ansluta automatisk
 
     ![diagnostisera](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 ### <a name="is-the-azure-vpn-client-supported-with-windows-fips-mode"></a>Stöds Azure VPN-klienten med Windows FIPS-läge?
 
@@ -160,7 +160,7 @@ Ja, med snabb korrigeringen [KB4577063](https://support.microsoft.com/help/45770
 
 ### <a name="how-do-i-add-dns-suffixes-to-the-vpn-client"></a>Hur gör jag för att lägga till DNS-suffix till VPN-klienten?
 
-Du kan ändra den nedladdade profil-XML- ** \<dnssuffixes> \<dnssufix> \</dnssufix> \</dnssuffixes> ** filen och lägga till taggarna
+Du kan ändra den nedladdade profil-XML- **\<dnssuffixes> \<dnssufix> \</dnssufix> \</dnssuffixes>** filen och lägga till taggarna
 
 ```
 <azvpnprofile>
@@ -178,7 +178,7 @@ Du kan ändra den nedladdade profil-XML- ** \<dnssuffixes> \<dnssufix> \</dnssuf
 
 ### <a name="how-do-i-add-custom-dns-servers-to-the-vpn-client"></a>Hur gör jag för att lägga till anpassade DNS-servrar i VPN-klienten?
 
-Du kan ändra den nedladdade profil-XML- ** \<dnsservers> \<dnsserver> \</dnsserver> \</dnsservers> ** filen och lägga till taggarna
+Du kan ändra den nedladdade profil-XML- **\<dnsservers> \<dnsserver> \</dnsserver> \</dnsservers>** filen och lägga till taggarna
 
 ```
 <azvpnprofile>
@@ -194,12 +194,12 @@ Du kan ändra den nedladdade profil-XML- ** \<dnsservers> \<dnsserver> \</dnsser
 ```
 
 > [!NOTE]
-> OpenVPN Azure AD-klienten använder NRPT-poster (namn matchnings princip tabell), vilket innebär att DNS-servrar inte visas under utdata från `ipconfig /all` . Om du vill bekräfta dina DNS-inställningar som du använder, se [Get-DnsClientNrptPolicy](https://docs.microsoft.com/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps&preserve-view=true) i PowerShell.
+> OpenVPN Azure AD-klienten använder NRPT-poster (namn matchnings princip tabell), vilket innebär att DNS-servrar inte visas under utdata från `ipconfig /all` . Om du vill bekräfta dina DNS-inställningar som du använder, se [Get-DnsClientNrptPolicy](/powershell/module/dnsclient/get-dnsclientnrptpolicy?preserve-view=true&view=win10-ps) i PowerShell.
 >
 
 ### <a name="how-do-i-add-custom-routes-to-the-vpn-client"></a>Hur gör jag för att lägga till anpassade vägar i VPN-klienten?
 
-Du kan ändra den nedladdade profil-XML- ** \<includeroutes> \<route> \<destination> \<mask> \</destination> \</mask> \</route> \</includeroutes> ** filen och lägga till taggarna
+Du kan ändra den nedladdade profil-XML- **\<includeroutes> \<route> \<destination> \<mask> \</destination> \</mask> \</route> \</includeroutes>** filen och lägga till taggarna
 
 ```
 <azvpnprofile>
@@ -217,7 +217,7 @@ Du kan ändra den nedladdade profil-XML- ** \<includeroutes> \<route> \<destinat
 
 ### <a name="how-do-i-block-exclude-routes-from-the-vpn-client"></a>Vill du Hur gör jag för att blockera vägar (undanta) från VPN-klienten?
 
-Du kan ändra den nedladdade profil-XML- ** \<excluderoutes> \<route> \<destination> \<mask> \</destination> \</mask> \</route> \</excluderoutes> ** filen och lägga till taggarna
+Du kan ändra den nedladdade profil-XML- **\<excluderoutes> \<route> \<destination> \<mask> \</destination> \</mask> \</route> \</excluderoutes>** filen och lägga till taggarna
 
 ```
 <azvpnprofile>

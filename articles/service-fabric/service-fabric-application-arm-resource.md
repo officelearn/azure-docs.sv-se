@@ -3,12 +3,12 @@ title: Distribuera och uppgradera med Azure Resource Manager
 description: Lär dig hur du distribuerar program och tjänster till ett Service Fabric kluster med en Azure Resource Manager-mall.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.openlocfilehash: a849bdff0d2719f02b6b5f2d7159b87ce664c13f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb866eb24fb1b286f496bad9845d1ee557baa221
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86256517"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681677"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Hantera program och tjänster som Azure Resource Manager resurser
 
@@ -18,7 +18,7 @@ Detta är det rekommenderade sättet att distribuera konfigurations-, styrnings-
 
 Vid behov hanterar du dina program som Resource Manager-resurser för att förbättra:
 * Gransknings logg: resurs hanteraren granskar varje åtgärd och bevarar en detaljerad *aktivitets logg* som kan hjälpa dig att spåra ändringar som gjorts i dessa program och klustret.
-* Rollbaserad åtkomst kontroll (RBAC): hantering av åtkomst till kluster och program som distribueras i klustret kan göras via samma Resource Manager-mall.
+* Rollbaserad åtkomst kontroll i Azure (Azure RBAC): hantering av åtkomst till kluster och program som distribueras i klustret kan göras via samma Resource Manager-mall.
 * Azure Resource Manager (via Azure Portal) blir en One-avsluta-shoppa för hantering av kluster och kritiska program distributioner.
 
 I följande kodfragment visas olika typer av resurser som kan hanteras via en mall:

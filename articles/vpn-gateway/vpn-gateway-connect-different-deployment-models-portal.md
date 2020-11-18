@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: 2bcd919629eb03581c35a2090d53e451141d94a4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f307ff9e7d609628bc22374fc5874dcbf993e4c2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487105"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661196"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Anslut virtuella nätverk från olika distributions modeller med hjälp av portalen
 
@@ -86,7 +86,7 @@ I det här avsnittet skapar du det klassiska VNet, det lokala nätverket (lokal 
 
 ### <a name="1-create-a-classic-vnet"></a>1. <a name="classicvnet"></a> skapa ett klassiskt VNet
 
-Om du inte har ett klassiskt VNet och kör dessa steg som en övning, kan du skapa ett VNet med hjälp av [den här artikeln](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) och [exemplet](#values) inställnings värden ovan.
+Om du inte har ett klassiskt VNet och kör dessa steg som en övning, kan du skapa ett VNet med hjälp av [den här artikeln](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal) och [exemplet](#values) inställnings värden ovan.
 
 Om du redan har ett VNet med en VPN-gateway kontrollerar du att gatewayen är dynamisk. Om den är statisk måste du först ta bort VPN-gatewayen innan du fortsätter att [Konfigurera den lokala platsen](#local).
 
@@ -101,11 +101,11 @@ Om du redan har ett VNet med en VPN-gateway kontrollerar du att gatewayen är dy
 1. Navigera till **alla resurser** och leta upp **ClassicVNet** i listan.
 2. Klicka på **Gateway** i avsnittet **Inställningar** på menyn och klicka sedan på banderollen för att skapa en gateway.
   ![Konfigurera en VPN gateway](./media/vpn-gateway-connect-different-deployment-models-portal/gatewaygraphic.png "Konfigurera en VPN gateway")
-3. På sidan **ny VPN-anslutning** väljer du **plats-till-plats**för **Anslutnings typ**.
-4. För **lokal plats**klickar du på **Konfigurera nödvändiga inställningar**. Då öppnas sidan **lokal webbplats** .
+3. På sidan **ny VPN-anslutning** väljer du **plats-till-plats** för **Anslutnings typ**.
+4. För **lokal plats** klickar du på **Konfigurera nödvändiga inställningar**. Då öppnas sidan **lokal webbplats** .
 5. På sidan **lokal plats** skapar du ett namn som refererar till Resource Manager VNet. Till exempel "RMVNetLocal".
 6. Om VPN-gatewayen för Resource Manager VNet redan har en offentlig IP-adress, använder du värdet för fältet **VPN gateway IP-adress** . Om du utför dessa steg som en övning, eller ännu inte har en virtuell nätverksgateway för ditt Resource Manager VNet, kan du skapa en IP-adress för plats hållaren. Kontrol lera att IP-adressen för plats hållaren har ett giltigt format. Senare ersätter du IP-adressen för plats hållaren med den offentliga IP-adressen för den virtuella Nätverksgatewayen i Resource Manager.
-7. För **klient adress utrymme**använder du [värdena](#connectoverview) för det virtuella nätverkets IP-adressutrymme för Resource Manager VNet. Den här inställningen används för att ange de adress utrymmen som ska vidarebefordras till det virtuella Resource Manager-nätverket. I exemplet använder vi 192.168.0.0/16 adress intervallet för RMVNet.
+7. För **klient adress utrymme** använder du [värdena](#connectoverview) för det virtuella nätverkets IP-adressutrymme för Resource Manager VNet. Den här inställningen används för att ange de adress utrymmen som ska vidarebefordras till det virtuella Resource Manager-nätverket. I exemplet använder vi 192.168.0.0/16 adress intervallet för RMVNet.
 8. Spara värdena och gå tillbaka till sidan **ny VPN-anslutning** genom att klicka på **OK** .
 
 ### <a name="3-create-the-virtual-network-gateway"></a><a name="classicgw"></a>3. skapa den virtuella Nätverksgatewayen
@@ -117,7 +117,7 @@ Om du redan har ett VNet med en VPN-gateway kontrollerar du att gatewayen är dy
 3. Klicka på **undernät – konfigurera nödvändiga inställningar** för att öppna sidan **Lägg till undernät** . **Namnet** har redan kon figurer ATS med det obligatoriska värdet: **GatewaySubnet**.
 4. **Adress intervallet** avser intervallet för gateway-undernätet. Även om du kan skapa ett Gateway-undernät med ett/29-adressintervall (3 adresser) rekommenderar vi att du skapar ett Gateway-undernät som innehåller fler IP-adresser. Detta kommer att hantera framtida konfigurationer som kan kräva fler tillgängliga IP-adresser. Använd om möjligt/27 eller/28. Om du använder dessa steg som en övning kan du referera till [exempel värden](#values). I det här exemplet använder vi "10.0.0.32/28". Klicka på **OK** för att skapa Gateway-undernätet.
 5. På sidan **gateway-konfiguration** refererar **storleken** till gateway-SKU: n. Välj Gateway-SKU: n för din VPN-gateway.
-6. Kontrol lera att **Dirigerings typen** är **dynamisk**och klicka sedan på **OK** för att återgå till sidan **ny VPN-anslutning** .
+6. Kontrol lera att **Dirigerings typen** är **dynamisk** och klicka sedan på **OK** för att återgå till sidan **ny VPN-anslutning** .
 7. På sidan **ny VPN-anslutning** klickar du på **OK** för att börja skapa din VPN-gateway. Det kan ta upp till 45 minuter att skapa en VPN-gateway.
 
 ### <a name="4-copy-the-virtual-network-gateway-public-ip-address"></a><a name="ip"></a>4. kopiera den virtuella nätverks-gatewayens offentliga IP-adress
@@ -184,7 +184,7 @@ Den lokala Nätverksgatewayen anger adress intervallet och den offentliga IP-adr
 I det här avsnittet ersätter du IP-adressen för den plats hållare som du använde när du angett inställningarna för den lokala platsen, med IP-adressen till Resource Manager VPN gateway. I det här avsnittet används PowerShell-cmdlet: arna (SM).
 
 1. I Azure Portal navigerar du till det klassiska virtuella nätverket.
-2. Klicka på **Översikt**på sidan för ditt virtuella nätverk.
+2. Klicka på **Översikt** på sidan för ditt virtuella nätverk.
 3. I avsnittet **VPN-anslutningar** klickar du på namnet på din lokala plats i bilden.
 
    ![VPN-anslutningar](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "VPN-anslutningar")
@@ -205,7 +205,7 @@ I de här stegen konfigurerar du anslutningen från Resource Manager VNet till d
 
 1. Leta upp den lokala Nätverksgatewayen i **alla resurser**. I vårt exempel är den lokala Nätverksgatewayen **ClassicVNetLocal**.
 2. Klicka på **konfiguration** och kontrol lera att IP-värdet är VPN-gatewayen för det klassiska VNet. Uppdatera vid behov och klicka sedan på **Spara**. Stäng sidan.
-3. I **alla resurser**klickar du på den lokala Nätverksgatewayen.
+3. I **alla resurser** klickar du på den lokala Nätverksgatewayen.
 4. Klicka på **anslutningar** för att öppna sidan anslutningar.
 5. På sidan **anslutningar** klickar **+** du för att lägga till en anslutning.
 6. På sidan **Lägg till anslutning** namnger du anslutningen. Till exempel "RMtoClassic".

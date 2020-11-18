@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/23/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: a0903a1da02b1f187e6f12e35fcb4bc05cd82939
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 4da232569a0f490b7fd6c2e50b81be6508ac5933
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94516789"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682102"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>Snabbstart: Skapa en offentlig lastbalanserare som lastbalanserar virtuella datorer med Azure CLI
 
@@ -336,7 +336,7 @@ I det här avsnittet beskrivs hur du gör för att skapa och konfigurera följan
 Skapa en offentlig belastningsutjämnare med [AZ Network lb Create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#az-network-lb-create):
 
 * Med namnet **myLoadBalancer**.
-* En frontend-pool med namnet ' **frontend** '.
+* En frontend-pool med namnet ' **frontend**'.
 * En backend-pool med namnet **myBackEndPool**.
 * Kopplad till den offentliga IP- **myPublicIP** som du skapade i föregående steg. 
 
@@ -467,7 +467,7 @@ Använd [AZ Network Public-IP Create](https://docs.microsoft.com/cli/azure/netwo
 
 Använd [AZ Network Public-IP prefix Create](https://docs.microsoft.com/cli/azure/network/public-ip/prefix?view=azure-cli-latest#az-network-public-ip-prefix-create) för att skapa ett offentligt IP-prefix för den utgående anslutningen.
 
-Mer information om skalning av utgående NAT och utgående anslutningar finns i [skala utgående NAT med flera IP-adresser](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#scale).
+Mer information om skalning av utgående NAT och utgående anslutningar finns i [skala utgående NAT med flera IP-adresser](load-balancer-outbound-connections.md).
 
 #### <a name="public-ip"></a>Offentlig IP-adress
 
@@ -934,7 +934,7 @@ I det här avsnittet beskrivs hur du gör för att skapa och konfigurera följan
 Skapa en offentlig belastningsutjämnare med [AZ Network lb Create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#az-network-lb-create):
 
 * Med namnet **myLoadBalancer**.
-* En frontend-pool med namnet ' **frontend** '.
+* En frontend-pool med namnet ' **frontend**'.
 * En backend-pool med namnet **myBackEndPool**.
 * Kopplad till den offentliga IP- **myPublicIP** som du skapade i föregående steg. 
 

@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 0e74b540610d3b6520f4c8e25ca2df7bf628706f
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 3520cbafc0e9eebfd6057fe92579a45873b25734
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410342"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698773"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Översikt över Azure Security Management och Monitoring
 Den här artikeln innehåller en översikt över de säkerhetsfunktioner och tjänster som Azure tillhandahåller för att hjälpa till med hantering och övervakning av Azure Cloud Services och Virtual Machines.
 
-## <a name="role-based-access-control"></a>Rollbaserad Access Control
+## <a name="azure-role-based-access-control"></a>Rollbaserad Azure-åtkomstkontroll
 
-Role-Based Access Control (RBAC) ger detaljerad åtkomst hantering för Azure-resurser. Genom att använda RBAC kan du endast bevilja användare den mängd åtkomst som de behöver för att utföra sina jobb. RBAC kan också hjälpa dig att se till att när personer lämnar organisationen förlorar de åtkomst till resurser i molnet.
+Azure rollbaserad åtkomst kontroll (Azure RBAC) ger detaljerad åtkomst hantering för Azure-resurser. Genom att använda Azure RBAC kan du endast bevilja användare den mängd åtkomst som de behöver för att utföra sina jobb. Azure RBAC kan också hjälpa dig att se till att när personer lämnar organisationen förlorar de åtkomst till resurser i molnet.
 
 Läs mer:
 
-* [Active Directory Team blogg på RBAC](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
+* [Active Directory Team blogg på Azure RBAC](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
 * [Azure RBAC (rollbaserad åtkomstkontroll)](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="antimalware"></a>Programvara mot skadlig kod

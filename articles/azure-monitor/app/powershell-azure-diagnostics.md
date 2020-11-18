@@ -3,12 +3,12 @@ title: Ställa in Application Insights i en Azure med hjälp av PowerShell | Mic
 description: Automatisera konfiguration av Azure-diagnostik för att skicka pipe-data till Application Insights.
 ms.topic: conceptual
 ms.date: 08/06/2019
-ms.openlocfilehash: 3d0b7d1e8d4a164d517834eae877844d85b9a256
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0fd69b90ce6329041f96b8e3173f1f17270f68ee
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87320365"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699737"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-azure-cloud-services"></a>Konfigurera Application Insights för Azure-Cloud Services med hjälp av PowerShell
 
@@ -126,5 +126,5 @@ Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService" -Role "WebRole"
 ## <a name="see-also"></a>Se även
 * [Övervaka Azure Cloud Services-appar med Application Insights](./cloudservices.md)
 * [Skicka Azure Diagnostics-data till Application Insights](../platform/diagnostics-extension-to-application-insights.md)
-* [Automatisera konfigurationen av aviseringar](powershell-alerts.md)
+
 

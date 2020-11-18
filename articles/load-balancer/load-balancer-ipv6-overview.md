@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
-ms.openlocfilehash: 443e8c09ea46c0c20b557d77d6ed7bd63db00085
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4061a3dbf4dc92d6d412528115d46edc36d20d5e
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90058758"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700699"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Översikt över IPv6 för Azure Load Balancer
 
 
 >[!NOTE] 
->Det här innehållet har ersatts av [IPv6 för Azure VNet-översikt](https://docs.microsoft.com/azure/virtual-network/ipv6-overview). Azure rekommenderar nya IPv6-distributioner med hjälp av de nya funktionerna för IPv6 för virtuella Azure-nätverk.
+>Det här innehållet har ersatts av [IPv6 för Azure VNet-översikt](../virtual-network/ipv6-overview.md). Azure rekommenderar nya IPv6-distributioner med hjälp av de nya funktionerna för IPv6 för virtuella Azure-nätverk.
 
 >[!NOTE]
->Azures Load Balancer stöder två typer: grundläggande och standard. Den här artikeln beskriver den grundläggande lastbalanseraren. Mer information om Standard Load Balancer finns i [standard Load Balancer översikt](load-balancer-standard-overview.md).
+>Azures Load Balancer stöder två typer: grundläggande och standard. Den här artikeln beskriver den grundläggande lastbalanseraren. Mer information om Standard Load Balancer finns i [standard Load Balancer översikt](./load-balancer-overview.md).
 
 Grundläggande SKU: er för Internet-belastnings utjämning kan distribueras med en IPv6-adress. Förutom IPv4-anslutning möjliggör detta följande funktioner:
 
@@ -77,11 +77,11 @@ Begränsningar
 * Virtuella Azure-datorer kan inte ansluta via IPv6 till andra virtuella datorer, andra Azure-tjänster eller lokala enheter. De kan bara kommunicera med Azure Load Balancer via IPv6. De kan dock kommunicera med de här andra resurserna med hjälp av IPv4.
 * Skydd för nätverks säkerhets gruppen (NSG) för IPv4 stöds i distributioner med dubbla stackar (IPv4 + IPv6). NSG: er gäller inte för IPv6-slutpunkterna.
 * IPv6-slutpunkten på den virtuella datorn exponeras inte direkt för Internet. Det ligger bakom en belastningsutjämnare. Endast de portar som anges i belastnings Utjämnings reglerna är tillgängliga via IPv6.
-* Det finns **för närvarande inte stöd**för att ändra idleTimeout-parametern för IPv6. Standardvärdet är fyra minuter.
-* Det finns **för närvarande inte stöd**för att ändra parametern LoadDistributionMethod för IPv6.
+* Det finns **för närvarande inte stöd** för att ändra idleTimeout-parametern för IPv6. Standardvärdet är fyra minuter.
+* Det finns **för närvarande inte stöd** för att ändra parametern LoadDistributionMethod för IPv6.
 * IPv6 för grundläggande Load Balancer är låst till en **dynamisk** SKU.  IPv6 för en Standard Load Balancer är låst till en **statisk** SKU.
 * NAT64 (översättning av IPv6 till IPv4) stöds inte.
-* Det finns **för närvarande inte stöd för**att ansluta ett sekundärt nätverkskort som refererar till ett IPv6-undernät till en backend-pool.
+* Det finns **för närvarande inte stöd för** att ansluta ett sekundärt nätverkskort som refererar till ett IPv6-undernät till en backend-pool.
 
 ## <a name="next-steps"></a>Nästa steg
 

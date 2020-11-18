@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2020
 ms.author: allensu
-ms.openlocfilehash: e15aab3ebfe82fa97f5716769b5ff9675b4b3dc4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01cca2f2233ed5cdfb3003bb44c40f481bcf9bda
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91637442"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699414"
 ---
 # <a name="azure-load-balancer-floating-ip-configuration"></a>Azure Load Balancer flytande IP-konfiguration
 
@@ -34,7 +34,7 @@ Vissa program scenarier föredrar eller kräver samma port som används av flera
 På en plattforms nivå körs Azure Load Balancer alltid i en hög DSR-flödes topologi oavsett om flytande IP är aktiverat eller inte. Det innebär att den utgående delen av ett flöde alltid skrivs om korrekt för att flöda direkt tillbaka till ursprunget.
 Utan flytande IP exponerar Azure ett traditionellt mappnings schema för IP-adresser för belastnings utjämning för enkel användning (VM-instansernas IP). Att aktivera flytande IP ändrar IP-adress mappningen till belastningsutjämnaren för klient delen för att möjliggöra ytterligare flexibilitet. Läs mer [här](load-balancer-multivip-overview.md).
 
-## <a name="limitations"></a><a name = "limitations"></a>Begränsningar
+## <a name="limitations"></a><a name = "limitations"></a>Hos
 
 - Flytande IP stöds för närvarande inte på sekundära IP-konfigurationer för belastnings Utjämnings scenarier
 
@@ -45,4 +45,4 @@ Utan flytande IP exponerar Azure ett traditionellt mappnings schema för IP-adre
 - Läs mer om [Azure Load Balancer](load-balancer-overview.md).
 - Läs mer om [hälso avsökningar](load-balancer-custom-probe-overview.md).
 - Lär dig mer om [standard Load Balancer Diagnostics](load-balancer-standard-diagnostics.md).
-- Läs mer om [nätverks säkerhets grupper](../virtual-network/security-overview.md).
+- Läs mer om [nätverks säkerhets grupper](../virtual-network/network-security-groups-overview.md).

@@ -1,7 +1,7 @@
 ---
 title: Modell tolkning i Azure Machine Learning (för hands version)
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du förklarar varför din modell gör förutsägelser med hjälp av Azure Machine Learning SDK. Den kan användas under utbildning och härledning för att förstå hur din modell gör förutsägelser.
+description: Lär dig hur du förstår & förklara hur din Machine Learning-modell gör förutsägelser under utbildningen & inferencing med Azure Machine Learning python SDK.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ ms.custom: how-to
 ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
-ms.date: 07/09/2020
-ms.openlocfilehash: f98e18abb8ba06ea632ee9c63c1a726879e825d2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/16/2020
+ms.openlocfilehash: dff0aeaf84ce87ed728d333cb68aee3a349bc111
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311508"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699397"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Modell tolkning i Azure Machine Learning (för hands version)
 
@@ -66,7 +66,7 @@ Lär dig mer om tolknings tekniker som stöds, maskin inlärnings modeller som s
 |--|--|--------------------|
 |SHAP Tree-förklaring| [SHAP](https://github.com/slundberg/shap): s träd förklaring, som fokuserar på polynomed Time fast SHAP för värde uppskattning som är speciell för träd **och ensembler för träd**.|Modell-/regionsspecifika|
 |SHAP djup förklaring| Baserat på förklaringen från SHAP är djupgående förklaring en algoritm för hög hastighet för SHAP värden i djup inlärnings modeller som bygger på en anslutning med DeepLIFT som beskrivs i [SHAP Nips-papper](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions). **TensorFlow** -modeller och **keras** -modeller med TensorFlow-backend stöds (det finns även stöd för PyTorch) ".|Modell-/regionsspecifika|
-|SHAP linjär förklara| SHAP är en linjär uppskattning som beräknar SHAP-värden för en **linjär modell** , vilket kan vara att redovisa mellan funktions korrelationer.|Modell-/regionsspecifika|
+|SHAP linjär förklara| SHAP är en linjär uppskattning som beräknar SHAP-värden för en **linjär modell**, vilket kan vara att redovisa mellan funktions korrelationer.|Modell-/regionsspecifika|
 |SHAP kernel-förklaring| SHAPs kernel-förklaring använder en särskilt viktad lokal linjär regression för att beräkna SHAP-värden för **alla modeller**.|Modell – oberoende|
 |Imitera förklaring (globalt surrogat)| Härma förklarar vad som är baserat på idén med [globala surrogat modeller](https://christophm.github.io/interpretable-ml-book/global.html) för att efterlikna blackbox-modeller. En global surrogat modell är en modell med en inbyggd tolkning som är utbildad för att approximera förutsägelserna för **en svart Box-modell** så exakt som möjligt. Data forskare kan tolka surrogat modellen för att rita slut satser om den svarta Box-modellen. Du kan använda någon av följande tolknings bara modeller som surrogat modell: LightGBM (LGBMExplainableModel), linjär regression (LinearExplainableModel), Stochastic gradient brantaste-förklarande modell (SGDExplainableModel) och besluts träd (DecisionTreeExplainableModel).|Modell – oberoende|
 |Förklaring av permutations-funktions prioritet (PFI)| Permutations funktionens betydelse är en teknik som används för att förklara klassificerings-och Regressions modeller som inspireras av [Breiman-bladet för slumpmässiga skogar](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (se avsnitt 10). På en hög nivå är det sättet som det fungerar genom att slumpmässigt blandning data en funktion i taget för hela data uppsättningen och att beräkna hur mycket prestanda måtten för räntan förändras. Ju större ändringen är, desto viktigare är funktionen. PFI kan förklara det övergripande beteendet för **en underliggande modell** men förklarar inte enskilda förutsägelser. |Modell – oberoende|

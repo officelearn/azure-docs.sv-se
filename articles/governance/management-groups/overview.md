@@ -1,15 +1,15 @@
 ---
 title: Organisera dina resurser med hanterings grupper – Azure-styrning
 description: Läs om hanteringsgrupperna, hur behörigheterna fungerar och hur du använder dem.
-ms.date: 09/22/2020
+ms.date: 11/17/2020
 ms.topic: overview
 ms.custom: contperfq1
-ms.openlocfilehash: be3369369f28930fd1ecad295a4dad4d14e75cd3
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: c48361e7f3d67c6d3eec40d5acb47917f7835db5
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951884"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699601"
 ---
 # <a name="what-are-azure-management-groups"></a>Vad är hanteringsgrupper i Azure?
 
@@ -150,7 +150,7 @@ Roll definitioner är tilldelnings bara omfång var som helst inom hanterings gr
 
 Låt oss till exempel titta på en liten del av en hierarki för ett visuellt objekt.
 
-:::image type="complex" source="./media/subtree.png" alt-text="Diagram över en hierarki för exempel hanterings grupper." border="false":::
+:::image type="complex" source="./media/subtree.png" alt-text="Diagram över en delmängd av hierarkin för exempel hanterings grupper." border="false":::
    Diagrammet fokuserar på rot hanterings gruppen med underordnade IT-och marknadsförings grupper. Hanterings gruppen I T har en enda underordnad hanterings grupp med namnet produktion medan marknadsförings hanterings gruppen har två kostnads fria underordnade prenumerationer.
 :::image-end:::
 
@@ -171,7 +171,11 @@ Det finns begränsningar som finns när du använder anpassade roller i hanterin
  - Du kan bara definiera en hanterings grupp i de tilldelnings bara omfånget för en ny roll. Den här begränsningen är på plats för att minska antalet situationer där roll definitioner och roll tilldelningar är frånkopplade. Den här situationen inträffar när en prenumeration eller hanterings grupp med en roll tilldelning flyttas till en annan överordnad som inte har roll definitionen.  
  - Det går inte att definiera data Plans åtgärder för resurs leverantörer i anpassade roller för hanterings grupper. Den här begränsningen är på plats när det finns ett problem med att uppdatera data Plans resurs leverantörerna.
    Den här svars tids frågan bearbetas och de här åtgärderna inaktive ras från roll definitionen för att minska riskerna.
- - Azure Resource Manager validerar inte hanterings gruppens existens i roll definitionens tilldelnings omfång. Om det finns ett skrivfel eller felaktigt ID för hanterings grupp i listan, kommer roll definitionen fortfarande att skapas.  
+ - Azure Resource Manager validerar inte hanterings gruppens existens i roll definitionens tilldelnings omfång. Om det finns ett skrivfel eller felaktigt ID för hanterings grupp i listan, kommer roll definitionen fortfarande att skapas.
+
+> [!IMPORTANT]
+> Att lägga till en hanterings grupp i `AssignableScopes` är för närvarande en för hands version. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar.
+> Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="moving-management-groups-and-subscriptions"></a>Flytta hanterings grupper och prenumerationer 
 
@@ -194,7 +198,7 @@ Om ägar rollen för prenumerationen ärvs från den aktuella hanterings gruppen
 
 Hanteringsgrupper kan användas i [Azure-aktivitetsloggar](../../azure-monitor/platform/platform-logs-overview.md). Du kan söka efter alla händelser i en hanteringsgrupp från samma centrala plats som andra Azure-resurser. Du kan till exempel se alla ändringar för rolltilldelningar eller principtilldelningar som gjorts i en viss hanteringsgrupp.
 
-:::image type="content" source="./media/al-mg.png" alt-text="Diagram över en hierarki för exempel hanterings grupper." border="false":::
+:::image type="content" source="./media/al-mg.png" alt-text="Skärm bild av aktivitets loggar och åtgärder relaterade till den valda hanterings gruppen." border="false":::
 
 När du vill fråga hanteringsgrupper utanför Microsoft Azure-portalen är målområdet för hanteringsgrupper: **"/providers/Microsoft.Management/managementGroups/{yourMgID}"**.
 

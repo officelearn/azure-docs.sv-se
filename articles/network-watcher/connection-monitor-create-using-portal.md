@@ -1,7 +1,7 @@
 ---
-title: Skapa för hands version av anslutnings övervakare – Azure Portal
+title: Skapa anslutnings övervakare – Azure Portal
 titleSuffix: Azure Network Watcher
-description: Den här artikeln beskriver hur du skapar en övervakare i för hands versionen av anslutnings övervakaren med hjälp av Azure Portal.
+description: I den här artikeln beskrivs hur du skapar en övervakare i anslutnings övervakaren med hjälp av Azure Portal.
 services: network-watcher
 documentationcenter: na
 author: vinigam
@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: 97d20f2b6b7b355ea5c810ad46b084f42b9bd6d1
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 8c4df64334957a78fcf05c11625335214f8e032a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447855"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699380"
 ---
-# <a name="create-a-monitor-in-connection-monitor-preview-by-using-the-azure-portal"></a>Skapa en övervakare i för hands versionen av anslutnings övervakaren med hjälp av Azure Portal
+# <a name="create-a-monitor-in-connection-monitor-by-using-the-azure-portal"></a>Skapa en övervakare i anslutnings övervakaren med hjälp av Azure Portal
 
-Lär dig hur du använder för hands versionen av anslutnings övervakaren för att övervaka kommunikationen mellan dina resurser. I den här artikeln beskrivs hur du skapar en övervakare med hjälp av Azure Portal. Anslutnings övervakaren stöder hybrid-och Azure Cloud-distributioner.
+Lär dig hur du använder anslutnings övervakaren för att övervaka kommunikationen mellan dina resurser. I den här artikeln beskrivs hur du skapar en övervakare med hjälp av Azure Portal. Anslutnings övervakaren stöder hybrid-och Azure Cloud-distributioner.
 
 ## <a name="before-you-begin"></a>Innan du börjar 
 
-I anslutnings Övervakare som du skapar med hjälp av för hands versionen av anslutnings övervakaren kan du lägga till både lokala datorer och virtuella Azure-datorer som källor. Dessa anslutnings övervakare kan också övervaka anslutningar till slut punkter. Slut punkterna kan vara på Azure eller på någon annan URL eller IP-adress.
+I anslutnings Övervakare som du skapar med anslutnings övervakaren kan du lägga till både lokala datorer och virtuella Azure-datorer som källor. Dessa anslutnings övervakare kan också övervaka anslutningar till slut punkter. Slut punkterna kan vara på Azure eller på någon annan URL eller IP-adress.
 
 Här följer några definitioner för att komma igång:
 
@@ -47,25 +47,25 @@ Här följer några definitioner för att komma igång:
 
 ## <a name="create-a-connection-monitor"></a>Skapa en anslutningsövervakare
 
-Skapa en övervakare i för hands versionen av anslutnings övervakaren med hjälp av Azure Portal:
+Så här skapar du en övervakare i anslutnings övervakaren med hjälp av Azure Portal:
 
 1. På Azure Portal start sida går du till **Network Watcher**.
-1. I det vänstra fönstret i avsnittet **övervakning** väljer du **anslutnings övervakare (för hands version)**.
+1. I det vänstra fönstret i avsnittet **övervakning** väljer du **anslutnings övervakare**.
 
-   Du ser alla anslutnings Övervakare som skapades i för hands versionen av anslutnings övervakaren. Om du vill se de anslutnings Övervakare som skapades i den klassiska anslutnings övervakaren går du till fliken **anslutnings övervakare** .
+   Du ser alla anslutnings Övervakare som skapades i anslutnings övervakaren. Om du vill se de anslutnings Övervakare som skapades i den klassiska anslutnings övervakaren går du till fliken **anslutnings övervakare** .
 
-   :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="Skärm bild som visar anslutnings Övervakare som skapats i för hands versionen av anslutnings övervakaren.":::
+   :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="Skärm bild som visar anslutnings Övervakare som skapats i anslutnings övervakaren.":::
    
     
-1. I det övre vänstra hörnet på instrument panelen för **anslutnings övervakaren (förhands granskning)** väljer du **skapa**.
+1. På instrument panelen för **anslutnings övervakaren** , i det övre vänstra hörnet, väljer du **skapa**.
 
    
 
 1. På fliken **grundläggande** anger du information för anslutnings övervakaren: 
-   * **Namn på anslutnings övervakare** : Ange ett namn för anslutnings övervakaren. Använd standard namngivnings reglerna för Azure-resurser.
-   * **Prenumeration** : Välj en prenumeration för anslutnings övervakaren.
-   * **Region** : Välj en region för anslutnings övervakaren. Du kan bara välja de virtuella käll datorer som skapas i den här regionen.
-   * **Arbets ytans konfiguration** : Välj en anpassad arbets yta eller standard arbets ytan. Din arbets yta innehåller dina övervaknings data.
+   * **Namn på anslutnings övervakare**: Ange ett namn för anslutnings övervakaren. Använd standard namngivnings reglerna för Azure-resurser.
+   * **Prenumeration**: Välj en prenumeration för anslutnings övervakaren.
+   * **Region**: Välj en region för anslutnings övervakaren. Du kan bara välja de virtuella käll datorer som skapas i den här regionen.
+   * **Arbets ytans konfiguration**: Välj en anpassad arbets yta eller standard arbets ytan. Din arbets yta innehåller dina övervaknings data.
        * Markera kryss rutan om du vill använda standard arbets ytan. 
        * Om du vill välja en anpassad arbets yta avmarkerar du kryss rutan. Välj sedan prenumeration och region för din anpassade arbets yta. 
 
@@ -86,13 +86,13 @@ Skapa en övervakare i för hands versionen av anslutnings övervakaren med hjä
 1. På fliken **Granska + skapa** granskar du grundläggande information och test grupper innan du skapar anslutnings övervakaren. Om du behöver redigera anslutnings övervakaren kan du göra det genom att gå tillbaka till respektive flik. 
    :::image type="content" source="./media/connection-monitor-2-preview/review-create-cm.png" alt-text="Skärm bild som visar fliken Granska + skapa i anslutnings övervakaren.":::
    > [!NOTE] 
-   > På fliken **Granska + skapa** visas kostnaden per månad under förhands gransknings fasen för anslutnings övervakaren. För närvarande visar kolumnen **aktuell kostnad/månad** ingen avgift. När anslutnings övervakaren blir allmänt tillgänglig visas en månatlig avgift i den här kolumnen. 
+   > På fliken **Granska + skapa** visas kostnaden per månad under steget för anslutnings övervakning. För närvarande visar kolumnen **aktuell kostnad/månad** ingen avgift. När anslutnings övervakaren blir allmänt tillgänglig visas en månatlig avgift i den här kolumnen. 
    > 
-   > Även under för hands versionen av anslutnings övervakaren gäller Log Analytics avgifter för inmatning.
+   > Även under fasen anslutnings övervakare gäller Log Analytics inmatnings avgifter.
 
 1. När du är redo att skapa anslutnings övervakaren väljer du **skapa** längst ned på fliken **Granska + skapa** .
 
-I för hands versionen av anslutnings övervakaren skapas anslutnings övervaknings resursen i bakgrunden.
+Anslutnings övervakaren skapar anslutnings övervaknings resursen i bakgrunden.
 
 ## <a name="create-test-groups-in-a-connection-monitor"></a>Skapa test grupper i en anslutnings övervakare
 
@@ -100,9 +100,9 @@ Varje test grupp i en anslutnings övervakare innehåller källor och mål som t
 
 Skapa en test grupp i en anslutnings övervakare genom att ange värden för följande fält i Azure Portal:
 
-* **Inaktivera test grupp** : du kan markera den här kryss rutan om du vill inaktivera övervakning för alla källor och mål som test gruppen anger. Detta val rensas som standard.
-* **Namn** : ge test gruppen ett namn.
-* **Källor** : du kan ange både virtuella Azure-datorer och lokala datorer som källor om agenter är installerade på dem. Information om hur du installerar en agent för din källa finns i [Installera övervaknings agenter](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#install-monitoring-agents).
+* **Inaktivera test grupp**: du kan markera den här kryss rutan om du vill inaktivera övervakning för alla källor och mål som test gruppen anger. Detta val rensas som standard.
+* **Namn**: ge test gruppen ett namn.
+* **Källor**: du kan ange både virtuella Azure-datorer och lokala datorer som källor om agenter är installerade på dem. Information om hur du installerar en agent för din källa finns i [Installera övervaknings agenter](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#install-monitoring-agents).
    * Välj Azure-agenter genom att välja fliken **Azure-slutpunkter** . Här ser du bara virtuella datorer som är kopplade till den region som du angav när du skapade anslutnings övervakaren. Som standard grupperas de virtuella datorerna i den prenumeration som de tillhör. De här grupperna är komprimerade. 
    
        Du kan öka detalj nivån från **prenumerations** nivån till andra nivåer i hierarkin:
@@ -127,7 +127,7 @@ Skapa en test grupp i en anslutnings övervakare genom att ange värden för fö
    
    * När du har konfigurerat källorna väljer du **klar** längst ned på fliken. Du kan fortfarande redigera grundläggande egenskaper som slut punkts namn genom att välja slut punkten i vyn **skapa test grupp** . 
 
-* **Mål** : du kan övervaka anslutningen till en virtuell Azure-dator, en lokal dator eller en slut punkt (en offentlig IP-adress, URL eller FQDN) genom att ange den som mål. I en enda test grupp kan du lägga till virtuella Azure-datorer, lokala datorer, Office 365-URL: er, Dynamics 365-URL: er och anpassade slut punkter.
+* **Mål**: du kan övervaka anslutningen till en virtuell Azure-dator, en lokal dator eller en slut punkt (en offentlig IP-adress, URL eller FQDN) genom att ange den som mål. I en enda test grupp kan du lägga till virtuella Azure-datorer, lokala datorer, Office 365-URL: er, Dynamics 365-URL: er och anpassade slut punkter.
 
     * Välj fliken **Azure-slutpunkter** om du vill välja virtuella Azure-datorer som mål. Som standard grupperas de virtuella Azure-datorerna i en prenumerationsbegäran i den region som du valde under **skapa anslutnings övervakare** på fliken **grundläggande** . Du kan ändra region och välja virtuella Azure-datorer från den nya regionen. Sedan kan du öka detalj nivån från **prenumerations** nivån till andra nivåer i hierarkin, precis som när du ställer in käll-Azure-slutpunkter.
 
@@ -155,18 +155,18 @@ Skapa en test grupp i en anslutnings övervakare genom att ange värden för fö
     * Om du vill välja nyligen använda slut punkter går du till fliken **senaste slut punkt**   .
     * När du är klar med att välja mål väljer du **klar**. Du kan fortfarande redigera grundläggande egenskaper som slut punkts namn genom att välja slut punkten i vyn **skapa test grupp** . 
 
-* **Testa konfigurationer** : du kan lägga till en eller flera testkonfigurationer i en test grupp. Skapa en ny test konfiguration med hjälp av fliken **ny konfiguration** . Eller Lägg till en test konfiguration från en annan test grupp i samma anslutnings övervakare från fliken **Välj befintlig** .
+* **Testa konfigurationer**: du kan lägga till en eller flera testkonfigurationer i en test grupp. Skapa en ny test konfiguration med hjälp av fliken **ny konfiguration** . Eller Lägg till en test konfiguration från en annan test grupp i samma anslutnings övervakare från fliken **Välj befintlig** .
 
-    * **Test konfigurations namn** : ge test konfigurationen ett namn.
-    * **Protokoll** : Välj **TCP** , **ICMP** eller **http**. Om du vill ändra HTTP till HTTPS väljer du **http** som protokoll och väljer sedan **443** som port.
-        * **Skapa konfiguration för TCP-Test** : den här kryss rutan visas bara om du väljer **http** i listan **protokoll** . Markera den här kryss rutan om du vill skapa en annan test konfiguration som använder samma källor och mål som du har angett någon annan stans i konfigurationen. Den nya test konfigurationen heter **\<name of test configuration> _networkTestConfig**.
-        * **Inaktivera traceroute** : den här kryss rutan gäller när protokollet är TCP eller ICMP. Markera den här rutan om du vill stoppa källor från att upptäcka topologi och hitta hopp efter hopp.
-    * **Målport** : du kan ange en valfri mål Port.
-        * **Lyssna på port** : den här kryss rutan gäller när protokollet är TCP. Markera den här kryss rutan om du vill öppna den valda TCP-porten om den inte redan är öppen. 
-    * **Test frekvens** : i den här listan anger du hur ofta källor ska pinga mål för det protokoll och den port som du har angett. Du kan välja 30 sekunder, 1 minut, 5 minuter, 15 minuter eller 30 minuter. Välj **anpassad** om du vill ange en annan frekvens än 30 sekunder och 30 minuter. Källorna kommer att testa anslutningen till destinationer utifrån det värde som du väljer. Om du till exempel väljer 30 sekunder kommer källorna att kontrol lera anslutningen till målet minst en gång var 30: e sekund.
-    * **Tröskelvärde för lyckade** : du kan ange tröskelvärden för följande nätverks parametrar:
-       * **Misslyckade kontroller** : Ange procent andelen kontroller som kan Miss lyckas när källor kontrollerar anslutningen till destinationer med de villkor som du har angett. I TCP-eller ICMP-protokollet kan procent andelen misslyckade kontroller likställas med procent andelen av paket förlusten. För HTTP-protokoll representerar det här värdet den procent andel av HTTP-begäranden som inte fick något svar.
-       * **Tur och retur-tid** : Ange önskad sökperiod i millisekunder för hur lång tid det tar att ansluta till målet via test konfigurationen.
+    * **Test konfigurations namn**: ge test konfigurationen ett namn.
+    * **Protokoll**: Välj **TCP**, **ICMP** eller **http**. Om du vill ändra HTTP till HTTPS väljer du **http** som protokoll och väljer sedan **443** som port.
+        * **Skapa konfiguration för TCP-Test**: den här kryss rutan visas bara om du väljer **http** i listan **protokoll** . Markera den här kryss rutan om du vill skapa en annan test konfiguration som använder samma källor och mål som du har angett någon annan stans i konfigurationen. Den nya test konfigurationen heter **\<name of test configuration> _networkTestConfig**.
+        * **Inaktivera traceroute**: den här kryss rutan gäller när protokollet är TCP eller ICMP. Markera den här rutan om du vill stoppa källor från att upptäcka topologi och hitta hopp efter hopp.
+    * **Målport**: du kan ange en valfri mål Port.
+        * **Lyssna på port**: den här kryss rutan gäller när protokollet är TCP. Markera den här kryss rutan om du vill öppna den valda TCP-porten om den inte redan är öppen. 
+    * **Test frekvens**: i den här listan anger du hur ofta källor ska pinga mål för det protokoll och den port som du har angett. Du kan välja 30 sekunder, 1 minut, 5 minuter, 15 minuter eller 30 minuter. Välj **anpassad** om du vill ange en annan frekvens än 30 sekunder och 30 minuter. Källorna kommer att testa anslutningen till destinationer utifrån det värde som du väljer. Om du till exempel väljer 30 sekunder kommer källorna att kontrol lera anslutningen till målet minst en gång var 30: e sekund.
+    * **Tröskelvärde för lyckade**: du kan ange tröskelvärden för följande nätverks parametrar:
+       * **Misslyckade kontroller**: Ange procent andelen kontroller som kan Miss lyckas när källor kontrollerar anslutningen till destinationer med de villkor som du har angett. I TCP-eller ICMP-protokollet kan procent andelen misslyckade kontroller likställas med procent andelen av paket förlusten. För HTTP-protokoll representerar det här värdet den procent andel av HTTP-begäranden som inte fick något svar.
+       * **Tur och retur-tid**: Ange önskad sökperiod i millisekunder för hur lång tid det tar att ansluta till målet via test konfigurationen.
        
    :::image type="content" source="./media/connection-monitor-2-preview/add-test-config.png" alt-text="Skärm bild som visar var du konfigurerar en test konfiguration i anslutnings övervakaren.":::
        
@@ -176,17 +176,17 @@ Du kan ställa in aviseringar om test som inte fungerar baserat på de tröskelv
 
 I Azure Portal för att skapa aviseringar för en anslutnings övervakare anger du värden för dessa fält: 
 
-- **Skapa avisering** : du kan markera den här kryss rutan om du vill skapa en mått avisering i Azure Monitor. När du markerar den här kryss rutan aktive ras de andra fälten för redigering. Ytterligare avgifter för aviseringen gäller, baserat på [prissättningen för aviseringar](https://azure.microsoft.com/pricing/details/monitor/). 
+- **Skapa avisering**: du kan markera den här kryss rutan om du vill skapa en mått avisering i Azure Monitor. När du markerar den här kryss rutan aktive ras de andra fälten för redigering. Ytterligare avgifter för aviseringen gäller, baserat på [prissättningen för aviseringar](https://azure.microsoft.com/pricing/details/monitor/). 
 
-- **Omfång**  >  **Resurs**  >  **Hierarki** : de här värdena fylls i automatiskt baserat på de värden som anges på fliken **grundläggande** .
+- **Omfång**  >  **Resurs**  >  **Hierarki**: de här värdena fylls i automatiskt baserat på de värden som anges på fliken **grundläggande** .
 
-- **Villkors namn** : aviseringen skapas på `Test Result(preview)` måttet. När resultatet av anslutnings övervaknings testet är ett misslyckat resultat, utlöses varnings regeln. 
+- **Villkors namn**: aviseringen skapas på `Test Result(preview)` måttet. När resultatet av anslutnings övervaknings testet är ett misslyckat resultat, utlöses varnings regeln. 
 
-- **Namn på åtgärds grupp** : du kan ange din e-postadress direkt eller så kan du skapa aviseringar via åtgärds grupper. Om du anger din e-postadress direkt skapas en åtgärds grupp med namnet **NPM e-ActionGroup** . E-post-ID: t läggs till i den åtgärds gruppen. Om du väljer att använda åtgärds grupper måste du välja en tidigare skapad åtgärds grupp. Information om hur du skapar en åtgärds grupp finns [i skapa åtgärds grupper i Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups). När aviseringen har skapats kan du [Hantera dina aviseringar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric#view-and-manage-with-azure-portal). 
+- **Namn på åtgärds grupp**: du kan ange din e-postadress direkt eller så kan du skapa aviseringar via åtgärds grupper. Om du anger din e-postadress direkt skapas en åtgärds grupp med namnet **NPM e-ActionGroup** . E-post-ID: t läggs till i den åtgärds gruppen. Om du väljer att använda åtgärds grupper måste du välja en tidigare skapad åtgärds grupp. Information om hur du skapar en åtgärds grupp finns [i skapa åtgärds grupper i Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups). När aviseringen har skapats kan du [Hantera dina aviseringar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric#view-and-manage-with-azure-portal). 
 
-- **Varnings regel namn** : namnet på anslutnings övervakaren.
+- **Varnings regel namn**: namnet på anslutnings övervakaren.
 
-- **Aktivera regel vid skapande** : Markera den här kryss rutan om du vill aktivera varnings regeln baserat på villkoret. Inaktivera den här kryss rutan om du vill skapa regeln utan att aktivera den. 
+- **Aktivera regel vid skapande**: Markera den här kryss rutan om du vill aktivera varnings regeln baserat på villkoret. Inaktivera den här kryss rutan om du vill skapa regeln utan att aktivera den. 
 
 :::image type="content" source="./media/connection-monitor-2-preview/create-alert-filled.png" alt-text="Skärm bild som visar fliken Skapa avisering i anslutnings övervakaren.":::
 

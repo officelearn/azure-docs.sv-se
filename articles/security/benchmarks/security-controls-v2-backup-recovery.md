@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: c3812cef9b90a15870733441c9e830daf32e0b18
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 1ed477c6cf069dbb402e5bda9c1f48f7bc208f18
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408948"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698809"
 ---
 # <a name="security-control-v2-backup-and-recovery"></a>Säkerhets kontroll v2: säkerhets kopiering och återställning
 
@@ -36,9 +36,9 @@ För en högre skydds nivå kan du aktivera alternativ för Geo-redundant lagrin
 
 - [Aktivera återställning mellan regioner](../../backup/backup-azure-arm-restore-vms.md#cross-region-restore)
 
-**Ansvar** : kund
+**Ansvar**: kund
 
-**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Principer och standarder](/azure/cloud-adoption-framework/organize/cloud-security-policy-standards)
 
@@ -58,7 +58,7 @@ Se till att säkerhets kopiorna skyddas mot attacker. Detta bör innefatta krypt
 
 För lokala säkerhets kopieringar med Azure Backup anges kryptering vid vila med hjälp av den lösen fras som du anger. För vanliga säkerhets kopieringar av Azure-tjänster krypteras säkerhetskopierade data automatiskt med hjälp av Azure Platform-hanterade nycklar. Du kan välja att kryptera säkerhets kopiorna med hjälp av kund Managed Key. I det här fallet ser du till att den här Kundhanterade nyckeln i nyckel valvet också finns i säkerhets kopierings omfånget. 
 
-Använd rollbaserad åtkomst kontroll i Azure Backup, Azure Key Vault eller andra resurser för att skydda säkerhets kopior och kund hanterade nycklar. Dessutom kan du aktivera avancerade säkerhetsfunktioner så att du kan kräva MFA innan du kan ändra eller ta bort säkerhets kopior.
+Använd rollbaserad åtkomst kontroll i Azure i Azure Backup, Azure Key Vault eller andra resurser för att skydda säkerhets kopior och Kundhanterade nycklar. Dessutom kan du aktivera avancerade säkerhetsfunktioner så att du kan kräva MFA innan du kan ändra eller ta bort säkerhets kopior.
 
 - [Översikt över säkerhetsfunktioner i Azure Backup](../../backup/security-overview.md)
 
@@ -68,9 +68,9 @@ Använd rollbaserad åtkomst kontroll i Azure Backup, Azure Key Vault eller andr
 
 - [Säkerhetsfunktioner som hjälper till att skydda hybrid säkerhets kopieringar från attacker](../../backup/backup-azure-security-feature.md#prevent-attacks)
 
-**Ansvar** : kund
+**Ansvar**: kund
 
-**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Säkerhetsarkitektur](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -90,9 +90,9 @@ Regelbundet utföra Data återställning av säkerhets kopian. Se till att du ka
 
 - [Så här återställer du Key Vault nycklar i Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
-**Ansvar** : kund
+**Ansvar**: kund
 
-**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Incidentberedskap](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -108,9 +108,9 @@ Se till att du har mått på plats för att förhindra och återställa från f�
 
 - [Så här aktiverar du mjuk borttagning och tömning av skydd i Key Vault](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
-**Ansvar** : kund
+**Ansvar**: kund
 
-**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Säkerhetsarkitektur](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 

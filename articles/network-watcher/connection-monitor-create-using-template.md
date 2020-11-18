@@ -1,7 +1,7 @@
 ---
-title: Skapa för hands version av anslutnings övervakaren – ARMClient
+title: Skapa anslutnings övervakare – ARMClient
 titleSuffix: Azure Network Watcher
-description: Lär dig hur du skapar anslutnings övervakaren (för hands version) med hjälp av ARMClient.
+description: Lär dig hur du skapar anslutnings övervakaren med hjälp av ARMClient.
 services: network-watcher
 documentationcenter: na
 author: vinigam
@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: 5a351e550cac9edcc8ce1c54fbe5c57d012ee607
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 929a2feeb53e8903d675644dcb72b422eceb2858
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447800"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699108"
 ---
-# <a name="create-a-connection-monitor-preview-using-the-armclient"></a>Skapa en anslutnings övervakare (för hands version) med hjälp av ARMClient
+# <a name="create-a-connection-monitor-using-the-armclient"></a>Skapa en anslutnings övervakare med hjälp av ARMClient
 
-Lär dig hur du skapar anslutnings övervakaren (för hands version) för att övervaka kommunikation mellan dina resurser med hjälp av ARMClient. Det stöder hybrid-och Azure Cloud-distributioner.
+Lär dig hur du skapar anslutnings övervakaren för att övervaka kommunikationen mellan dina resurser med hjälp av ARMClient. Det stöder hybrid-och Azure Cloud-distributioner.
 
 ## <a name="before-you-begin"></a>Innan du börjar 
 
-I anslutnings Övervakare som du skapar i anslutnings övervakaren (för hands version) kan du lägga till både lokala datorer och virtuella Azure-datorer som källor. Dessa anslutnings övervakare kan också övervaka anslutningar till slut punkter. Slut punkterna kan vara på Azure eller någon annan URL eller IP-adress.
+I anslutnings Övervakare som du skapar i anslutnings övervakaren kan du lägga till både lokala datorer och virtuella Azure-datorer som källor. Dessa anslutnings övervakare kan också övervaka anslutningar till slut punkter. Slut punkterna kan vara på Azure eller någon annan URL eller IP-adress.
 
-Anslutnings övervakaren (för hands version) innehåller följande entiteter:
+Anslutnings övervakaren innehåller följande entiteter:
 
 * **Anslutnings övervaknings resurs** – en regions-/regionsspecifika Azure-resurs. Alla följande entiteter är egenskaper för en anslutnings övervaknings resurs.
 * **Slut punkt** – en källa eller ett mål som deltar i anslutnings kontroller. Exempel på slut punkter är virtuella Azure-datorer, lokala agenter, URL: er och IP-adresser.
@@ -359,7 +359,7 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
 
 * Slutpunkter
     * namn – unikt namn för varje slut punkt
-    * resourceId – för Azure-slutpunkter refererar resurs-ID till Azure Resource Manager-resurs-ID: t för virtuella datorer. För icke-Azure-slutpunkter refererar resurs-ID till Azure Resource Manager-resurs-ID: t för den Log Analytics arbets ytan som är länkad till icke-Azure-agenter.
+    * resourceId – för Azure-slutpunkter refererar resurs-ID till Azure Resource Manager resurs-ID för virtuella datorer. För icke-Azure-slutpunkter refererar resurs-ID till Azure Resource Manager resurs-ID för arbets ytan Log Analytics som är länkad till icke-Azure-agenter.
     * adress – endast tillämpligt när inget resurs-ID har angetts eller om resurs-ID: t är Log Analytics arbets ytan. Om det används med Log Analytics resurs-ID, refererar detta till det fullständiga domän namnet för den agent som kan användas för övervakning. Om det används utan resurs-ID kan detta vara webb adressen eller IP-adressen för en offentlig slut punkt.
     * Filtrera – för icke-Azure-slutpunkter använder du filter för att välja agenter från Log Analytics arbets ytan som ska användas för övervakning i anslutnings övervaknings resursen. Om inga filter anges kan alla agenter som hör till Log Analytics arbets ytan användas för övervakning
         * typ – ange typ som "agent adress"

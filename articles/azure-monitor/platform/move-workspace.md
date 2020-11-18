@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/12/2020
-ms.openlocfilehash: 04da4d6466d450d04d7008332e32ea3d59cd0252
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 8d7fde6661a4a133f689016559f010767c662417
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555540"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699754"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Flytta en Log Analytics arbets yta till en annan prenumeration eller resurs grupp
 
@@ -30,7 +30,7 @@ Käll-och mål prenumerationer måste finnas i samma Azure Active Directory-klie
 
 ## <a name="workspace-move-considerations"></a>Överväganden vid arbets ytans flyttning
 - Hanterade lösningar som är installerade på arbets ytan flyttas med flytt åtgärden Log Analytics-arbetsyta. 
-- Nycklar för arbets ytor återskapas med flytt av arbets ytan (primär och sekundär). Om du har nyckeln till din arbets yta är ett valv uppdaterar du dem med de nya genererade nycklarna. 
+- Nycklar för arbets ytor (både primära och sekundära) återskapas med flytt av arbets ytan. Om du behåller en kopia av dina arbets ytans nycklar i Key Vault uppdaterar du dem med de nya nycklarna som skapas när arbets ytan flyttas. 
 - Anslutna agenter förblir anslutna och fortsätter att skicka data till arbets ytan efter flytten. 
 - Eftersom flytt åtgärden kräver att det inte finns några länkade tjänster från arbets ytan, måste lösningar som förlitar sig på den länken tas bort så att arbets ytan flyttas. Lösningar som måste tas bort innan du kan ta bort länken till ditt Automation-konto:
   - Uppdateringshantering
@@ -98,7 +98,7 @@ Använd följande procedur för att ta bort länken till Automation-kontot från
 
 ## <a name="move-your-workspace"></a>Flytta din arbets yta
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 Använd följande procedur för att flytta din arbets yta med Azure Portal:
 
 1. Öppna menyn **Log Analytics arbets ytor** och välj sedan din arbets yta.

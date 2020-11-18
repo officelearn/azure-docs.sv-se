@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 5935bc3f59585b19fc3b45bdfd567bb1f9404234
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 0e209e8114d8f1791a00e87894fa12206edcf34e
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675579"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700230"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Skapa och hantera API-nycklar för en Azure Kognitiv sökning-tjänst
 
 Alla begär anden till en Sök tjänst behöver en skrivskyddad tjänst `api-key` som har skapats specifikt för din tjänst. `api-key`Är den enda mekanismen för att autentisera åtkomsten till din Sök tjänst slut punkt och måste inkluderas på varje begäran. 
 
-+ I [rest-lösningar](search-get-started-postman.md)anges vanligt vis API-nyckeln i ett begär ande huvud
++ I [rest-lösningar](search-get-started-rest.md)anges vanligt vis API-nyckeln i ett begär ande huvud
 
 + I [.net-lösningar](search-howto-dotnet-sdk.md)anges en nyckel ofta som en konfigurations inställning och skickas sedan som en [AzureKeyCredential](/dotnet/api/azure.azurekeycredential)
 
@@ -51,7 +51,7 @@ Du kan hämta åtkomst nycklar i portalen eller via [hanterings REST API](/rest/
 2. Visa en lista över [Sök tjänsterna](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)  för din prenumeration.
 3. Välj tjänsten och på sidan Översikt klickar du på **Inställningar**  > **nycklar** för att Visa administratörs-och frågeinställningar.
 
-   :::image type="content" source="media/search-security-overview/settings-keys.png" alt-text="Portal sida, Hämta inställningar, nycklar avsnitt" border="false":::
+   :::image type="content" source="media/search-security-overview/settings-keys.png" alt-text="Portal sidan, Visa inställningar, avsnittet nycklar" border="false":::
 
 ## <a name="create-query-keys"></a>Skapa frågeinställningar
 
@@ -61,11 +61,11 @@ Att begränsa åtkomsten och åtgärderna i klient program är viktigt för att 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Visa en lista över [Sök tjänsterna](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)  för din prenumeration.
-3. Välj tjänsten och på sidan Översikt klickar du på **Inställningar**  > **nycklar** .
-4. Klicka på **Hantera frågeinställningar** .
+3. Välj tjänsten och på sidan Översikt klickar du på **Inställningar**  > **nycklar**.
+4. Klicka på **Hantera frågeinställningar**.
 5. Använd den frågenamn som redan har genererats för din tjänst eller skapa upp till 50 nya frågeinställningar. Standard nyckeln har inte namnet, men ytterligare frågeinställningar kan namnges för hanterbarhet.
 
-   :::image type="content" source="media/search-security-overview/create-query-key.png" alt-text="Portal sida, Hämta inställningar, nycklar avsnitt" border="false":::
+   :::image type="content" source="media/search-security-overview/create-query-key.png" alt-text="Skapa eller Använd en frågegrupp" border="false":::
 
 > [!Note]
 > Ett kod exempel som visar användning av nyckel användningen finns i [fråga ett Azure kognitiv sökning-index i C#](./search-get-started-dotnet.md).

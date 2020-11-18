@@ -8,12 +8,12 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/19/2020
-ms.openlocfilehash: bbbc79a129ec3140ea6d286cbdce0165e2f6ae7b
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 043020abd44bc1f8e671cf386149d6a818136de9
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280396"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700162"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Skapa en privat slut punkt för en säker anslutning till Azure Kognitiv sökning
 
@@ -42,10 +42,10 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och ett undernät som �
 
 1. I **Skapa virtuellt nätverk** anger eller väljer du följande information:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | Prenumeration | Välj din prenumeration|
-    | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup*och välj sedan **OK** |
+    | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup* och välj sedan **OK** |
     | Namn | Ange *MyVirtualNetwork* |
     | Region | Välj önskad region |
     |||
@@ -58,9 +58,9 @@ I det här avsnittet ska du skapa en ny Azure Kognitiv sökning-tjänst med en p
 
 1. På den övre vänstra sidan av skärmen i Azure Portal väljer du **skapa en resurs**  >  **Web**  >  **Azure-kognitiv sökning**.
 
-1. I **nya search service – grunderna**anger eller väljer du den här informationen:
+1. I **nya search service – grunderna** anger eller väljer du den här informationen:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | **PROJEKT INFORMATION** | |
     | Prenumeration | Välj din prenumeration. |
@@ -75,13 +75,13 @@ I det här avsnittet ska du skapa en ny Azure Kognitiv sökning-tjänst med en p
 
 1. Lämna värdena som standard och välj **Nästa: nätverk**.
 
-1. I **ny search service-nätverk**väljer du **privat** för **slut punkts anslutning (data)**.
+1. I **ny search service-nätverk** väljer du **privat** för **slut punkts anslutning (data)**.
 
-1. I **ny search service-nätverk**väljer du **+ Lägg till** under **privat slut punkt**. 
+1. I **ny search service-nätverk** väljer du **+ Lägg till** under **privat slut punkt**. 
 
-1. I **skapa privat slut punkt**anger eller väljer du den här informationen:
+1. I **skapa privat slut punkt** anger eller väljer du den här informationen:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.|
@@ -114,7 +114,7 @@ I det här avsnittet ska du skapa en ny Azure Kognitiv sökning-tjänst med en p
 
 1. I **Skapa en virtuell dator – grunder** anger eller väljer du följande information:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | **PROJEKT INFORMATION** | |
     | Prenumeration | Välj din prenumeration. |
@@ -124,7 +124,7 @@ I det här avsnittet ska du skapa en ny Azure Kognitiv sökning-tjänst med en p
     | Region | Välj **USA, västra** eller vilken region du använder. |
     | Alternativ för tillgänglighet | Lämna standard **ingen redundans för infrastruktur krävs**. |
     | Bild | Välj **Windows Server 2019 Data Center**. |
-    | Storlek | Lämna standard **ds1 v2**som standard. |
+    | Storlek | Lämna standard **ds1 v2** som standard. |
     | **ADMINISTRATÖRSKONTO** |  |
     | Användarnamn | Ange ett användar namn som du väljer. |
     | Lösenord | Ange ett valfritt lösenord. Lösen ordet måste vara minst 12 tecken långt och uppfylla de [definierade komplexitets kraven](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
@@ -142,7 +142,7 @@ I det här avsnittet ska du skapa en ny Azure Kognitiv sökning-tjänst med en p
 
 1. I **Skapa en virtuell dator – Nätverk** väljer du följande information:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | Virtuellt nätverk | Lämna standard **MyVirtualNetwork**.  |
     | Adressutrymme | Lämna standard **10.1.0.0/24**.|
@@ -180,7 +180,7 @@ Ladda ned och Anslut till VM- *myVm* på följande sätt:
     1. Ange det användar namn och lösen ord som du angav när du skapade den virtuella datorn.
 
         > [!NOTE]
-        > Du kan behöva välja **fler alternativ**  >  **Använd ett annat konto**för att ange de autentiseringsuppgifter du angav när du skapade den virtuella datorn.
+        > Du kan behöva välja **fler alternativ**  >  **Använd ett annat konto** för att ange de autentiseringsuppgifter du angav när du skapade den virtuella datorn.
 
 1. Välj **OK**.
 
@@ -208,7 +208,7 @@ När Sök tjänstens slut punkt är privat är vissa Portal funktioner inaktiver
     Aliases:  [search service name].search.windows.net
     ```
 
-1. Från den virtuella datorn ansluter du till Sök tjänsten och skapar ett index. Du kan följa den här [snabb](search-get-started-postman.md) starten för att skapa ett nytt Sök index i din tjänst i Postman med hjälp av REST API. Att ställa in begär Anden från Postman kräver Sök tjänstens slut punkt (https://[Sök tjänstens namn]. search. Windows. net) och den Admin API-nyckel som du kopierade i föregående steg.
+1. Från den virtuella datorn ansluter du till Sök tjänsten och skapar ett index. Du kan följa den här [snabb](search-get-started-rest.md) starten för att skapa ett nytt Sök index i tjänsten med hjälp av REST API. Om du ställer in begär Anden från ett webb-API-testverktyg krävs Sök tjänstens slut punkt (https://[Sök tjänstens namn]. search. Windows. net) och den Admin-API-nyckel som du kopierade i föregående steg.
 
 1. Att slutföra snabb starten från den virtuella datorn är din bekräftelse på att tjänsten är fullt fungerande.
 
@@ -218,9 +218,9 @@ När Sök tjänstens slut punkt är privat är vissa Portal funktioner inaktiver
 
 ## <a name="clean-up-resources"></a>Rensa resurser 
 När du är klar med den privata slut punkten, Sök tjänsten och den virtuella datorn tar du bort resurs gruppen och alla resurser den innehåller:
-1. Skriv *myResourceGroup*   i sökrutan längst upp i portalen och välj **Search**  *myResourceGroup*   från Sök resultaten. 
+1. Skriv  *myResourceGroup*   i sökrutan längst upp i portalen och välj **Search**  *myResourceGroup*   från Sök resultaten. 
 1. Välj **Ta bort resursgrupp**. 
-1. Ange *myResourceGroup*   för **Skriv resurs gruppens namn** och välj **ta bort**.
+1. Ange  *myResourceGroup*   för **Skriv resurs gruppens namn** och välj **ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du skapat en virtuell dator i ett virtuellt nätverk och en Sök tjänst med en privat slut punkt. Du har anslutit till den virtuella datorn från Internet och kommunicerat på ett säkert sätt till Sök tjänsten med hjälp av en privat länk. Mer information om privata slut punkter finns i [Vad är Azures privata slut punkt?](../private-link/private-endpoint-overview.md).

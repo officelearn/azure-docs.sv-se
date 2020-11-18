@@ -3,12 +3,12 @@ title: Så här skapar du gästkonfigurationsprinciper för Windows
 description: Lär dig hur du skapar en princip för Azure Policy gäst konfiguration för Windows.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 325b00ac1cc747555d38b4c250709638f5e74d95
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: ea9b40006deefbac2c253082eda4ef2da12149a4
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348890"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700695"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Så här skapar du gästkonfigurationsprinciper för Windows
 
@@ -169,7 +169,7 @@ Exempel är GitHub-databaser, Azure-lagrings platsen eller Azure Storage. Om du 
 
 ## <a name="step-by-step-creating-a-custom-guest-configuration-audit-policy-for-windows"></a>Steg för steg, skapa en anpassad princip för gäst konfigurations granskning för Windows
 
-Skapa en DSC-konfiguration för att granska inställningar. Följande exempel på PowerShell-skript skapar en konfiguration med namnet **AuditBitLocker** , importerar modulen **PsDscResources** och använder `Service` resursen för att granska för en tjänst som körs. Konfigurations skriptet kan köras från en Windows-eller macOS-dator.
+Skapa en DSC-konfiguration för att granska inställningar. Följande exempel på PowerShell-skript skapar en konfiguration med namnet **AuditBitLocker**, importerar modulen **PsDscResources** och använder `Service` resursen för att granska för en tjänst som körs. Konfigurations skriptet kan köras från en Windows-eller macOS-dator.
 
 ```powershell
 # Add PSDscResources module to environment
@@ -202,9 +202,9 @@ När MOF-filen kompileras måste de stödfiler paketeras tillsammans. Det slutf�
 
 `New-GuestConfigurationPackage`Cmdleten skapar paketet. Moduler som krävs av konfigurationen måste vara tillgängliga i `$Env:PSModulePath` . Parametrar för `New-GuestConfigurationPackage` cmdleten när Windows-innehåll skapas:
 
-- **Namn** : namn på gäst konfigurations paket.
-- **Konfiguration** : den fullständiga sökvägen till det kompilerade DSC-konfigurationsobjektet.
-- **Sökväg** : sökväg till utmatnings katalog. Den här parametern är valfri. Om det inte anges skapas paketet i den aktuella katalogen.
+- **Namn**: namn på gäst konfigurations paket.
+- **Konfiguration**: den fullständiga sökvägen till det kompilerade DSC-konfigurationsobjektet.
+- **Sökväg**: sökväg till utmatnings katalog. Den här parametern är valfri. Om det inte anges skapas paketet i den aktuella katalogen.
 
 Kör följande kommando för att skapa ett paket med den konfiguration som angavs i föregående steg:
 
@@ -220,9 +220,9 @@ Eftersom agenten faktiskt utvärderar den lokala miljön måste du, i de flesta 
 
 Parametrar för `Test-GuestConfigurationPackage` cmdleten:
 
-- **Namn** : princip namn för gäst konfiguration.
-- **Parameter** : princip parametrar har angetts i hash-format.
-- **Sökväg** : fullständig sökväg till gäst konfigurations paketet.
+- **Namn**: princip namn för gäst konfiguration.
+- **Parameter**: princip parametrar har angetts i hash-format.
+- **Sökväg**: fullständig sökväg till gäst konfigurations paketet.
 
 Kör följande kommando för att testa paketet som skapades i föregående steg:
 
@@ -247,13 +247,13 @@ När ett anpassat princip paket för gäst konfiguration har skapats och överf�
 
 Parametrar för `New-GuestConfigurationPolicy` cmdleten:
 
-- **ContentUri** : offentlig http (s) URI för innehålls paketet för gäst konfiguration.
-- **DisplayName** : principens visnings namn.
-- **Beskrivning** : princip beskrivning.
-- **Parameter** : princip parametrar har angetts i hash-format.
-- **Version** : princip version.
-- **Sökväg** : mål Sök väg där princip definitioner skapas.
-- **Plattform** : mål plattform (Windows/Linux) för gäst konfigurations princip och innehålls paket.
+- **ContentUri**: offentlig http (s) URI för innehålls paketet för gäst konfiguration.
+- **DisplayName**: principens visnings namn.
+- **Beskrivning**: princip beskrivning.
+- **Parameter**: princip parametrar har angetts i hash-format.
+- **Version**: princip version.
+- **Sökväg**: mål Sök väg där princip definitioner skapas.
+- **Plattform**: mål plattform (Windows/Linux) för gäst konfigurations princip och innehålls paket.
 - **Tag** lägger till ett eller flera märkes filter i princip definitionen
 - **Kategori** anger fältet Kategori metadata i princip definitionen
 
@@ -474,10 +474,10 @@ De stödfiler som krävs måste paketeras tillsammans. Det slutförda paketet an
 
 `New-GuestConfigurationPackage`Cmdleten skapar paketet. För innehåll från tredje part använder du parametern **FilesToInclude** för att lägga till INSPEC-innehåll i paketet. Du behöver inte ange **ChefProfilePath** som för Linux-paket.
 
-- **Namn** : namn på gäst konfigurations paket.
-- **Konfiguration** : kompilerad fullständig sökväg till konfigurations dokument.
-- **Sökväg** : sökväg till utmatnings katalog. Den här parametern är valfri. Om det inte anges skapas paketet i den aktuella katalogen.
-- **FilesoInclude** : fullständig sökväg till INSPEC-profil.
+- **Namn**: namn på gäst konfigurations paket.
+- **Konfiguration**: kompilerad fullständig sökväg till konfigurations dokument.
+- **Sökväg**: sökväg till utmatnings katalog. Den här parametern är valfri. Om det inte anges skapas paketet i den aktuella katalogen.
+- **FilesoInclude**: fullständig sökväg till INSPEC-profil.
 
 Kör följande kommando för att skapa ett paket med den konfiguration som angavs i föregående steg:
 
@@ -496,9 +496,9 @@ Om du vill släppa en uppdatering av principen finns det tre fält som kräver �
 > [!NOTE]
 > `version`Egenskapen för gäst konfigurations tilldelningen påverkar bara paket som är värd för Microsoft. Den bästa metoden för att konfigurera anpassade innehålls versioner är att inkludera versionen i fil namnet.
 
-- **Version** : när du kör `New-GuestConfigurationPolicy` cmdleten måste du ange ett versions nummer som är större än det som för närvarande är publicerat.
-- **contentUri** : när du kör `New-GuestConfigurationPolicy` cmdleten måste du ange en URI till paketets plats. Genom att inkludera en paket version i fil namnet ser du till att värdet för egenskapen ändras i varje version.
-- **contentHash** : den här egenskapen uppdateras automatiskt av `New-GuestConfigurationPolicy` cmdleten. Det är ett hash-värde för det paket som skapats av `New-GuestConfigurationPackage` . Egenskapen måste vara korrekt för den `.zip` fil som du publicerar. Om endast egenskapen **contentUri** uppdateras, accepterar inte tillägget innehålls paketet.
+- **Version**: när du kör `New-GuestConfigurationPolicy` cmdleten måste du ange ett versions nummer som är större än det som för närvarande är publicerat.
+- **contentUri**: när du kör `New-GuestConfigurationPolicy` cmdleten måste du ange en URI till paketets plats. Genom att inkludera en paket version i fil namnet ser du till att värdet för egenskapen ändras i varje version.
+- **contentHash**: den här egenskapen uppdateras automatiskt av `New-GuestConfigurationPolicy` cmdleten. Det är ett hash-värde för det paket som skapats av `New-GuestConfigurationPackage` . Egenskapen måste vara korrekt för den `.zip` fil som du publicerar. Om endast egenskapen **contentUri** uppdateras, accepterar inte tillägget innehålls paketet.
 
 Det enklaste sättet att frigöra ett uppdaterat paket är att upprepa processen som beskrivs i den här artikeln och ange ett uppdaterat versions nummer. Den processen garanterar att alla egenskaper har uppdaterats korrekt.
 
@@ -518,8 +518,8 @@ Protect-GuestConfigurationPackage -Path .\package\AuditWindowsService\AuditWindo
 
 Parametrar för `Protect-GuestConfigurationPackage` cmdleten:
 
-- **Sökväg** : fullständig sökväg till gäst konfigurations paketet.
-- **Certifikat** : kod signerings certifikat för att signera paketet. Den här parametern stöds bara vid signering av innehåll för Windows.
+- **Sökväg**: fullständig sökväg till gäst konfigurations paketet.
+- **Certifikat**: kod signerings certifikat för att signera paketet. Den här parametern stöds bara vid signering av innehåll för Windows.
 
 GuestConfiguration-agenten förväntar sig att certifikatets offentliga nyckel finns i "betrodda rot certifikat utfärdare" på Windows-datorer och i sökvägen `/usr/local/share/ca-certificates/extra` på Linux-datorer. För noden för att verifiera signerat innehåll installerar du certifikatets offentliga nyckel på datorn innan du tillämpar den anpassade principen. Den här processen kan utföras med hjälp av valfri teknik i den virtuella datorn eller med hjälp av Azure Policy. [Här](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows)finns en exempel mall.
 Principen för Key Vault åtkomst måste tillåta att beräknings resurs leverantören får åtkomst till certifikat under distributioner. Detaljerade anvisningar finns i [konfigurera Key Vault för virtuella datorer i Azure Resource Manager](../../../virtual-machines/windows/key-vault-setup.md#use-templates-to-set-up-key-vault).
@@ -532,12 +532,6 @@ $Cert | Export-Certificate -FilePath "$env:temp\DscPublicKey.cer" -Force
 ```
 
 När innehållet har publicerats lägger du till en tagg med namn `GuestConfigPolicyCertificateValidation` och värde `enabled` för alla virtuella datorer där kod signering ska krävas. Se [taggens exempel](../samples/built-in-policies.md#tags) för hur taggar kan levereras i skala med hjälp av Azure policy. När den här taggen är på plats kan princip definitionen som genereras med hjälp av cmdlet: en `New-GuestConfigurationPolicy` Aktivera kravet via gäst konfigurations tillägget.
-
-## <a name="troubleshooting-guest-configuration-policy-assignments-preview"></a>Fel sökning av princip tilldelningar för gäst konfiguration (för hands version)
-
-Ett verktyg är tillgängligt i för hands versionen för att hjälpa till med fel sökning Azure Policy gäst konfigurations tilldelningar. Verktyget är i för hands version och har publicerats till PowerShell-galleriet som Modulnamn [fel sökning av gäst konfiguration](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/).
-
-Om du vill ha mer information om cmdletar i det här verktyget använder du kommandot Get-Help i PowerShell för att visa den inbyggda vägledningen. När verktyget uppdateras ofta är det bästa sättet att hämta den senaste informationen.
 
 ## <a name="next-steps"></a>Nästa steg
 

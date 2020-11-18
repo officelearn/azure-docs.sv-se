@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 336f58635465f77c60d04c53bb1893cb60f5f35f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2ab87dfdeb18f97265c3bb2f34616c942a345c1e
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791230"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698955"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i Java med hjälp av REST API: er
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ ms.locfileid: "92791230"
 > * [Portal](search-get-started-portal.md)
 > * [PowerShell](./search-get-started-powershell.md)
 > * [Python](search-get-started-python.md)
-> * [Postman](search-get-started-postman.md)
+> * [REST](search-get-started-rest.md)
 
 Skapa ett Java-konsolprogram som skapar, läser in och skickar frågor till ett Sök index med hjälp av [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/)och [Azure kognitiv sökning REST API](/rest/api/searchservice/). Den här artikeln innehåller stegvisa instruktioner för att skapa programmet. Du kan också [Hämta och köra hela programmet](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
 
@@ -35,7 +35,7 @@ Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto]
 
 Vi använde följande program och tjänster för att bygga och testa den här snabb starten:
 
-+ [IntelliJ IDEA](https://www.jetbrains.com/idea/)
++ [IntelliJ idé](https://www.jetbrains.com/idea/)
 
 + [Java 11 SDK](/java/azure/jdk/)
 
@@ -49,7 +49,7 @@ Anrop till tjänsten kräver en URL-slutpunkt och en åtkomst nyckel på varje b
 
 1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta URL: en på sidan **Översikt över** Sök tjänsten. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
 
-2. I **Inställningar**  >  **nycklar** , hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
+2. I **Inställningar**  >  **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
 
    Skapa även en sessionsnyckel. Det är en bra idé att utfärda förfrågningar med skrivskyddad åtkomst.
 
@@ -63,22 +63,22 @@ Börja med att öppna IntelliJ-idén och skapa ett nytt projekt.
 
 ### <a name="create-the-project"></a>Skapa projektet
 
-1. Öppna IntelliJ idé och välj **Skapa nytt projekt** .
-1. Välj **maven** .
+1. Öppna IntelliJ idé och välj **Skapa nytt projekt**.
+1. Välj **maven**.
 1. I listan **Project SDK** väljer du Java 11 SDK.
 
-    :::image type="content" source="media/search-get-started-java/java-quickstart-create-new-maven-project.png" alt-text="Hämta tjänstens namn och administratör och fråge nycklar" border="false":::
+    :::image type="content" source="media/search-get-started-java/java-quickstart-create-new-maven-project.png" alt-text="Skapa ett Maven-projekt" border="false":::
 
 1. Ange **för** **ArtifactId** `AzureSearchQuickstart` .
 1. Godkänn de återstående standardvärdena för att öppna projektet.
 
 ### <a name="specify-maven-dependencies"></a>Ange maven-beroenden
 
-1. Välj **fil**  >  **Inställningar** .
-1. I fönstret **Inställningar** väljer du **build, Execution, Deployment**  >  **build tools**  >  **maven**  >  **Importing** .
+1. Välj **fil**  >  **Inställningar**.
+1. I fönstret **Inställningar** väljer du **build, Execution, Deployment**  >  **build tools**  >  **maven**  >  **Importing**.
 1. Markera kryss rutan  **Importera Maven projekt automatiskt** och Stäng fönstret genom att klicka på **OK** . Maven-plugin-program och andra beroenden kommer nu att synkroniseras automatiskt när du uppdaterar pom.xml-filen i nästa steg.
 
-    :::image type="content" source="media/search-get-started-java/java-quickstart-settings-import-maven-auto.png" alt-text="Hämta tjänstens namn och administratör och fråge nycklar" border="false":::
+    :::image type="content" source="media/search-get-started-java/java-quickstart-settings-import-maven-auto.png" alt-text="Maven som importerar alternativ i IntelliJ-inställningar" border="false":::
 
 1. Öppna pom.xml-filen och ersätt innehållet med följande konfigurations information för maven. Dessa inkluderar referenser till [exec maven-plugin-programmet](https://www.mojohaus.org/exec-maven-plugin/) och ett JSON- [GRÄNSSNITTs-API](https://javadoc.io/doc/org.glassfish/javax.json/1.0.2)
 
@@ -133,16 +133,16 @@ Börja med att öppna IntelliJ-idén och skapa ett nytt projekt.
 
 ### <a name="set-up-the-project-structure"></a>Konfigurera projekt strukturen
 
-1. Välj **fil**  >  **projekt struktur** .
+1. Välj **fil**  >  **projekt struktur**.
 1. Välj **moduler** och expandera käll trädet för att få åtkomst till innehållet i `src`  >   `main` mappen.
 1. I `src`  >   `main`  >  `java` mappen lägger du till `app` och `service` mappar. Det gör du genom att markera `java` mappen, trycka på ALT + INSERT och ange sedan mappnamnet.
 1. I `src`  >   `main`  > `resources` mappen lägger du till `app` och `service` mappar.
 
     När du är klar bör projekt trädet se ut som på följande bild.
 
-    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree.png" alt-text="Hämta tjänstens namn och administratör och fråge nycklar" border="false":::
+    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree.png" alt-text="Projekt katalog struktur" border="false":::
 
-1. Stäng fönstret genom att klicka på **OK** .
+1. Stäng fönstret genom att klicka på **OK**.
 
 ### <a name="add-azure-cognitive-search-service-information"></a>Lägg till information om Azure Kognitiv sökning-tjänsten
 
@@ -373,10 +373,10 @@ Börja med att öppna IntelliJ-idén och skapa ett nytt projekt.
 
 1. Kontrol lera att projektet har följande struktur.
 
-    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png" alt-text="Hämta tjänstens namn och administratör och fråge nycklar" border="false":::
+    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png" alt-text="Projekt katalog struktur och klasser" border="false":::
 
 1. Öppna fönstret **maven** -verktyg och kör det här maven-målet: `verify exec:java` 
- :::image type="content" source="media/search-get-started-java/java-quickstart-execute-maven-goal.png" alt-text="Hämta tjänstens namn och administratör och fråge nycklar" border="false":::
+ :::image type="content" source="media/search-get-started-java/java-quickstart-execute-maven-goal.png" alt-text="Kör maven-mål: verifiera exec: Java" border="false":::
 
 När bearbetningen är klar söker du efter ett meddelande om att BYGGet lyckades följt av noll (0) avslutnings kod.
 
@@ -820,7 +820,7 @@ Nu när du har läst in hotell dokumenten kan du skapa Sök frågor för att få
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som fortsätter att köras kostar pengar. Du kan ta bort enstaka resurser eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
+När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som fortsätter att köras kostar pengar. Du kan ta bort resurser individuellt eller ta bort resursgruppen om du vill ta bort hela uppsättningen resurser.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken **alla resurser** eller **resurs grupper** i det vänstra navigerings fönstret.
 

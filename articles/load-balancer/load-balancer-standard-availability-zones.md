@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: 541aa7da3e804931c1793e455bcbfca83c809dae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fca6b40f4bd871041d14d119eb44e8366d8562ee
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89669179"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700468"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Standard Load Balancer och tillgänglighetszoner
 
@@ -93,7 +93,7 @@ Utgående anslutning SNAT port tilldelningar överleva zon haverier och scenario
 
 Algoritmen för Förallokering av SNAT-port är densamma i eller utan tillgänglighets zoner.
 
-## <a name="health-probes"></a>Hälsotillståndsavsökningar
+## <a name="health-probes"></a>Hälsoavsökningar
 
 Dina befintliga definitioner av hälso avsökningen förblir som de är utan tillgänglighets zoner. Vi har dock expanderat hälso modellen på en infrastruktur nivå. 
 
@@ -151,11 +151,11 @@ Dina resurser i zoner som inte påverkas av ett haveri är tillgängliga. Din tj
   - När en zon Miss lyckas, kan din tjänst förstå felet och om status förloras, hur kommer du att återställa?
   - Kan programmet förstå hur man konvergerar på ett säkert sätt när en zon returnerar?
 
-Gå igenom [design mönster för molnet i molnet](https://docs.microsoft.com/azure/architecture/patterns/) för att förbättra återhämtningen hos ditt program till haveri situationer.
+Gå igenom [design mönster för molnet i molnet](/azure/architecture/patterns/) för att förbättra återhämtningen hos ditt program till haveri situationer.
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om [Tillgänglighetszoner](../availability-zones/az-overview.md)
-- Läs mer om [standard Load Balancer](load-balancer-standard-overview.md)
-- Lär dig att [belastningsutjämna virtuella datorer inom en zon med hjälp av en standard Load Balancer med en zonindelade-frontend](load-balancer-standard-public-zonal-cli.md)
-- Lär dig att [belastningsutjämna virtuella datorer över zoner med hjälp av en standard Load Balancer med en zon-redundant klient](load-balancer-standard-public-zone-redundant-cli.md) del
-- Lär dig mer om [moln design mönster i Azure](https://docs.microsoft.com/azure/architecture/patterns/) för att förbättra programmets återhämtnings förmåga till haveri situationer.
+- Läs mer om [standard Load Balancer](./load-balancer-overview.md)
+- Lär dig att [belastningsutjämna virtuella datorer inom en zon med hjälp av en standard Load Balancer med en zonindelade-frontend](./quickstart-load-balancer-standard-public-cli.md)
+- Lär dig att [belastningsutjämna virtuella datorer över zoner med hjälp av en standard Load Balancer med en zon-redundant klient](./quickstart-load-balancer-standard-public-cli.md) del
+- Lär dig mer om [moln design mönster i Azure](/azure/architecture/patterns/) för att förbättra programmets återhämtnings förmåga till haveri situationer.

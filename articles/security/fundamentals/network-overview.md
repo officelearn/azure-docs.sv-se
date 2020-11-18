@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: a26228b33a7d90df558de2ecdf4686910e606a54
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 526947c4d2db9fd87727fdd60c33bcaa9e75c6ff
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413300"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699873"
 ---
 # <a name="azure-network-security-overview"></a>Översikt över Azure Network Security
 
@@ -81,7 +81,7 @@ Läs mer:
 
 #### <a name="asc-just-in-time-vm-access"></a>ASC precis i tid för VM-åtkomst
 
-[Azure Security Center](../../security-center/security-center-introduction.md) kan hantera NSG: er på virtuella datorer och låsa åtkomsten till den virtuella datorn tills en användare med lämpliga rollbaserade åtkomst kontrolls [RBAC](../../role-based-access-control/overview.md) -behörigheter begär åtkomst. När användaren har behörigheten ASC gör ändringar i NSG: er att tillåta åtkomst till valda portar under den angivna tiden. När tiden går ut återställs NSG: er till tidigare skyddat tillstånd.
+[Azure Security Center](../../security-center/security-center-introduction.md) kan hantera NSG: er på virtuella datorer och låsa åtkomsten till den virtuella datorn tills en användare med [rätt Azure-rollbaserad åtkomst kontroll begär](../../role-based-access-control/overview.md) åtkomst. När användaren har behörigheten ASC gör ändringar i NSG: er att tillåta åtkomst till valda portar under den angivna tiden. När tiden går ut återställs NSG: er till tidigare skyddat tillstånd.
 
 Läs mer:
 

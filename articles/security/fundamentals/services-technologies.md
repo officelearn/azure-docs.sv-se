@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
-ms.openlocfilehash: 46b1cbbd620cf2de8d875927f5745e91fcf608c5
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 553cfe0c1a5e7d569c127f23a11f25f4d150b0bc
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410053"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700767"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Säkerhets tjänster och tekniker som är tillgängliga i Azure
 
@@ -67,7 +67,7 @@ Med tiden kommer den här listan att ändras och växa, precis som Azure gör. S
 ## <a name="identity-and-access-management"></a>Identitets- och åtkomsthantering
 |Tjänst|Beskrivning|
 |------|--------|
-| [Azure- &nbsp; roll &nbsp; baserad &nbsp; Access Control](../../role-based-access-control/role-assignments-portal.md)|En åtkomst kontroll funktion som är utformad för att tillåta användare att få åtkomst till de resurser som krävs för att få åtkomst baserat på deras roller i organisationen.  |
+| [&nbsp;Rollbaserad &nbsp; åtkomst kontroll i Azure](../../role-based-access-control/role-assignments-portal.md)|En åtkomst kontroll funktion som är utformad för att tillåta användare att få åtkomst till de resurser som krävs för att få åtkomst baserat på deras roller i organisationen.  |
 | [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)|En molnbaserad databas för autentisering som stöder en molnbaserad katalog med flera klienter och flera identitets hanterings tjänster i Azure.  |
 | [Azure Active Directory B2C](../../active-directory-b2c/overview.md)|En identitets hanterings tjänst som gör det möjligt att styra hur kunder registrerar, loggar in och hanterar sina profiler när de använder Azure-baserade program.   |
 | [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md)| En molnbaserad och hanterad version av Active Directory Domain Services. |

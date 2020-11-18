@@ -1,6 +1,6 @@
 ---
-title: Anslutnings övervakare (för hands version) | Microsoft Docs
-description: Lär dig hur du använder anslutnings övervakaren (för hands version) för att övervaka nätverkskommunikation i en distribuerad miljö.
+title: Anslutnings övervakare | Microsoft Docs
+description: Lär dig hur du använder anslutnings övervakaren för att övervaka nätverkskommunikation i en distribuerad miljö.
 services: network-watcher
 documentationcenter: na
 author: vinynigam
@@ -15,18 +15,18 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 80934dca73d7f8a205c62a49c418828cab1820e7
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 5dbb8d508fe824d0264043625c988f43092f3f78
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447824"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699244"
 ---
-# <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>Övervakning av nätverks anslutning med anslutnings övervakare (för hands version)
+# <a name="network-connectivity-monitoring-with-connection-monitor"></a>Övervakning av nätverks anslutning med anslutnings övervakaren
 
-Anslutnings övervakaren (för hands version) tillhandahåller enhetlig anslutnings övervakning från slut punkt till slut punkt i Azure Network Watcher. Funktionen anslutnings övervakare (för hands version) stöder hybrid-och Azure Cloud-distributioner. Network Watcher innehåller verktyg för att övervaka, diagnostisera och Visa anslutnings relaterade mått för dina Azure-distributioner.
+Anslutnings övervakaren tillhandahåller enhetlig anslutnings övervakning från slut punkt till slut punkt i Azure Network Watcher. Funktionen anslutnings övervakare stöder hybrid-och Azure Cloud-distributioner. Network Watcher innehåller verktyg för att övervaka, diagnostisera och Visa anslutnings relaterade mått för dina Azure-distributioner.
 
-Här är några användnings fall för anslutnings övervakaren (för hands version):
+Här är några användnings fall för anslutnings övervakaren:
 
 - Din frontend-webbserver för webb servern kommunicerar med en virtuell databas Server-dator i ett program med flera nivåer. Du vill kontrol lera nätverks anslutningen mellan de två virtuella datorerna.
 - Du vill att virtuella datorer i regionen USA, östra, ska pinga virtuella datorer i den centrala regionen och du vill jämföra nätverks fördröjningar i flera regioner.
@@ -34,9 +34,9 @@ Här är några användnings fall för anslutnings övervakaren (för hands vers
 - Ditt hybrid program behöver anslutning till en Azure Storage-slutpunkt. Din lokala plats och ditt Azure-program ansluter till samma Azure Storage slut punkt. Du vill jämföra fördröjningen för den lokala platsen med fördröjningen i Azure-programmet.
 - Du vill kontrol lera anslutningen mellan dina lokala installationer och de virtuella Azure-datorer som är värdar för moln programmet.
 
-I förhands gransknings fasen kombinerar anslutnings övervakaren det bästa av två funktioner: funktionen Network Watcher [anslutnings övervakare](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) och tjänsten övervakare av NÄTVERKSPRESTANDA (NPM) [tjänst anslutnings övervakare](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity), [ExpressRoute övervakning](https://docs.microsoft.com/azure/expressroute/how-to-npm)och [prestanda övervakning](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-performance-monitor) .
+Anslutnings övervakaren kombinerar det bästa av två funktioner: funktionen Network Watcher [anslutnings övervakare (klassisk)](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) och tjänsten övervakare av NÄTVERKSPRESTANDA (NPM) [tjänst anslutnings övervakare](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity), [ExpressRoute övervakning](https://docs.microsoft.com/azure/expressroute/how-to-npm)och [prestanda övervakning](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-performance-monitor) .
 
-Här följer några fördelar med anslutnings övervakaren (för hands version):
+Här följer några fördelar med anslutnings övervakaren:
 
 * Enhetlig, intuitiv upplevelse för Azure och hybrid övervaknings behov
 * Övervakning över flera regioner och anslutningar mellan arbets ytor
@@ -47,7 +47,7 @@ Här följer några fördelar med anslutnings övervakaren (för hands version):
 
 ![Diagram över hur anslutnings övervakaren interagerar med virtuella Azure-datorer, icke-Azure-värdar, slut punkter och data lagrings platser](./media/connection-monitor-2-preview/hero-graphic.png)
 
-Börja använda anslutnings övervakaren (för hands version) för övervakning genom att följa dessa steg: 
+Följ dessa steg om du vill börja använda anslutnings övervakaren för övervakning: 
 
 1. Installera övervaknings agenter.
 1. Aktivera Network Watcher på din prenumeration.
@@ -59,7 +59,7 @@ I följande avsnitt finns information om de här stegen.
 
 ## <a name="install-monitoring-agents"></a>Installera övervaknings agenter
 
-Anslutnings övervakaren förlitar sig på enkla körbara filer för att köra anslutnings kontroller.  Det stöder anslutnings kontroller från både Azure-miljöer och lokala miljöer. Vilken körbar fil du använder beror på om din virtuella dator finns på Azure eller lokalt.
+Anslutnings övervakaren förlitar sig på enkla körbara filer för att köra anslutnings kontroller. Det stöder anslutnings kontroller från både Azure-miljöer och lokala miljöer. Vilken körbar fil du använder beror på om din virtuella dator finns på Azure eller lokalt.
 
 ### <a name="agents-for-azure-virtual-machines"></a>Agenter för virtuella Azure-datorer
 
@@ -89,19 +89,19 @@ Anslutnings övervakaren övervakar kommunikation med jämna mellanrum. Du infor
 
 Källor kan vara virtuella Azure-datorer eller lokala datorer som har en installerad övervaknings agent. Mål slut punkter kan vara Microsoft 365 webb adresser, Dynamics 365-URL: er, anpassade URL: er, resurs-ID: n för virtuella Azure-datorer, IPv4, IPv6, FQDN eller domän namn.
 
-### <a name="access-connection-monitor-preview"></a>Övervakaren åtkomst anslutning (för hands version)
+### <a name="access-connection-monitor"></a>Övervakaren åtkomst anslutning
 
 1. På Azure Portal start sida går du till **Network Watcher**.
-1. Till vänster i avsnittet **övervakning** väljer du **anslutnings övervakare (för hands version)**.
-1. Du ser alla anslutnings Övervakare som skapades i anslutnings övervakaren (förhands granskning). Om du vill se de anslutnings Övervakare som skapades i den klassiska upplevelsen av anslutnings övervakaren går du till fliken **anslutnings övervakare** .
+1. Till vänster i avsnittet **övervakning** väljer du **anslutnings övervakare**.
+1. Du ser alla anslutnings Övervakare som skapades i anslutnings övervakaren. Om du vill se de anslutnings Övervakare som skapades i den klassiska upplevelsen av anslutnings övervakaren går du till fliken **anslutnings övervakare** .
     
-  :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="Skärm bild som visar anslutnings Övervakare som har skapats i anslutnings övervakaren (förhands granskning)" lightbox="./media/connection-monitor-2-preview/cm-resource-view.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="Skärm bild som visar anslutnings Övervakare som har skapats i anslutnings övervakaren" lightbox="./media/connection-monitor-2-preview/cm-resource-view.png":::
 
 ### <a name="create-a-connection-monitor"></a>Skapa en anslutningsövervakare
 
-I anslutnings Övervakare som du skapar i anslutnings övervakaren (för hands version) kan du lägga till både lokala datorer och virtuella Azure-datorer som källor. Dessa anslutnings övervakare kan också övervaka anslutningar till slut punkter. Slut punkterna kan vara på Azure eller någon annan URL eller IP-adress.
+I anslutnings Övervakare som du skapar i anslutnings övervakaren kan du lägga till både lokala datorer och virtuella Azure-datorer som källor. Dessa anslutnings övervakare kan också övervaka anslutningar till slut punkter. Slut punkterna kan vara på Azure eller någon annan URL eller IP-adress.
 
-Anslutnings övervakaren (för hands version) innehåller följande entiteter:
+Anslutnings övervakaren innehåller följande entiteter:
 
 * **Anslutnings övervaknings resurs** – en regions-/regionsspecifika Azure-resurs. Alla följande entiteter är egenskaper för en anslutnings övervaknings resurs.
 * **Slut punkt** – en källa eller ett mål som deltar i anslutnings kontroller. Exempel på slut punkter är virtuella Azure-datorer, lokala agenter, URL: er och IP-adresser.
@@ -111,7 +111,7 @@ Anslutnings övervakaren (för hands version) innehåller följande entiteter:
 
  ![Diagram som visar en anslutnings Övervakare som definierar relationen mellan test grupper och tester](./media/connection-monitor-2-preview/cm-tg-2.png)
 
-Du kan skapa en för hands version av anslutnings övervakaren med [Azure Portal](connection-monitor-preview-create-using-portal.md) eller [ARMClient](connection-monitor-preview-create-using-arm-client.md)
+Du kan skapa en anslutnings övervakare med hjälp av [Azure Portal](connection-monitor-preview-create-using-portal.md) eller [ARMClient](connection-monitor-preview-create-using-arm-client.md)
 
 Alla källor, destinationer och testkonfigurationer som du lägger till i en test grupp får delats upp till enskilda tester. Här är ett exempel på hur källor och mål är uppdelade:
 
@@ -151,7 +151,7 @@ När du har skapat en anslutnings övervakare kontrollerar källorna anslutninge
 
 ### <a name="checks-in-a-test"></a>Checkar in ett test
 
-Baserat på det protokoll som du valde i test konfigurationen kör anslutnings övervakaren (för hands version) en serie kontroller för käll mål paret. Kontrollerna körs enligt den test frekvens som du har valt.
+Baserat på det protokoll som du valde i test konfigurationen kör anslutnings övervakaren en serie kontroller för käll mål paret. Kontrollerna körs enligt den test frekvens som du har valt.
 
 Om du använder HTTP beräknar tjänsten antalet HTTP-svar som returnerade en giltig svarskod. Giltiga svars koder kan anges med PowerShell och CLI. Resultatet bestämmer procent andelen misslyckade kontroller. För att kunna beräkna en sökperiod mäter tjänsten tiden mellan ett HTTP-anrop och svaret.
 
@@ -164,14 +164,14 @@ Beroende på vilka data som kontrollerna returnerar kan testerna ha följande ti
 * **Pass** – faktiska värden för procent andelen misslyckade kontroller och efter frågan inom de angivna tröskelvärdena.
 * **Misslyckades** – faktiska värden för procent andelen misslyckade kontroller eller söksöker överskred de angivna tröskelvärdena. Om inget tröskelvärde anges, kommer ett test att nå fel tillstånd när procent andelen misslyckade kontroller är 100.
 * **Varning** – 
-     * Om tröskelvärdet anges och anslutnings övervakaren (för hands version) kontrollerar att kontrollerna misslyckades procent över 80% av tröskelvärdet markeras testet som varning.
-     * I avsaknad av angivna tröskelvärden tilldelar anslutnings övervakaren (för hands version) automatiskt ett tröskelvärde. När tröskelvärdet överskrids ändras test statusen till varning.För tur och retur-tid i TCP-eller ICMP-test är tröskelvärdet 750msec. För kontrollerna misslyckades procent är tröskelvärdet 10%. 
+     * Om tröskelvärdet har angetts och anslutnings övervakaren söker efter misslyckade procent över 80% av tröskelvärdet markeras testet som varning.
+     * I avsaknad av angivna tröskelvärden tilldelar anslutnings övervakaren automatiskt ett tröskelvärde. När tröskelvärdet överskrids ändras test statusen till varning.För tur och retur-tid i TCP-eller ICMP-test är tröskelvärdet 750msec. För kontrollerna misslyckades procent är tröskelvärdet 10%. 
 * **Obestämd**   – Inga data i Log Analytics-arbetsytan.Kontrol lera mått. 
 * **Körs inte**   – Inaktiverat genom att inaktivera test gruppen  
 
 ### <a name="data-collection-analysis-and-alerts"></a>Data insamling, analys och aviseringar
 
-De data som anslutnings övervakaren (för hands version) samlar in lagras på arbets ytan Log Analytics. Du konfigurerar den här arbets ytan när du skapade anslutnings övervakaren. 
+De data som anslutnings övervakaren samlar in lagras i arbets ytan Log Analytics. Du konfigurerar den här arbets ytan när du skapade anslutnings övervakaren. 
 
 Övervaknings data finns också i Azure Monitor Mät värden. Du kan använda Log Analytics för att behålla dina övervaknings data så länge du vill. Azure Monitor lagrar mått för endast 30 dagar som standard. 
 
@@ -181,7 +181,7 @@ Du kan [ställa in Metric-baserade aviseringar för data](https://azure.microsof
 
 På instrument panelen för övervakning visas en lista över de anslutnings Övervakare som du har åtkomst till för dina prenumerationer, regioner, tidsstämplar, källor och mål typer.
 
-När du går till anslutnings övervakaren (förhands granskning) från Network Watcher kan du visa data genom att:
+När du går till anslutnings övervakaren från Network Watcher kan du visa data genom att:
 
 * **Anslutnings övervakare** – lista över alla anslutnings Övervakare som skapats för prenumerationer, regioner, tidsstämplar, källor och mål typer. Den här vyn är standard.
 * **Test grupper** – lista över alla test grupper som har skapats för dina prenumerationer, regioner, tidsstämplar, källor och mål typer. Dessa test grupper filtreras inte efter anslutnings övervakare.
@@ -197,20 +197,20 @@ Du kan filtrera en lista baserat på:
 * **Tillstånds baserade filter** – filtrera efter tillstånd för anslutnings övervakaren, test gruppen eller testet. Se ruta 2 i följande bild.
 * **Varnings baserat filter** – filtrera efter aviseringar som utlösts på anslutnings övervaknings resursen. Se fält 3 i följande bild.
 
-  :::image type="content" source="./media/connection-monitor-2-preview/cm-view.png" alt-text="Skärm bild som visar hur du filtrerar vyer för anslutnings övervakare, test grupper och tester i anslutnings övervakaren (för hands version)" lightbox="./media/connection-monitor-2-preview/cm-view.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-view.png" alt-text="Skärm bild som visar hur du filtrerar vyer för anslutnings övervakare, test grupper och tester i anslutnings övervakaren " lightbox="./media/connection-monitor-2-preview/cm-view.png":::
     
-Om du till exempel vill titta på alla tester i anslutnings övervakaren (för hands version) där käll-IP: en är 10.192.64.56:
+Om du till exempel vill titta på alla tester i anslutnings övervakaren där käll-IP: en är 10.192.64.56:
 1. Ändra vyn för att **testa**.
 1. I Sök fältet skriver du *10.192.64.56*
 1. I **omfång** i högsta nivå filter väljer du **källor**.
 
-Om du bara vill visa misslyckade tester i anslutnings övervakaren (för hands version) där käll-IP: en är 10.192.64.56:
+Om du bara vill visa misslyckade tester i anslutnings övervakaren där käll-IP: en är 10.192.64.56:
 1. Ändra vyn för att **testa**.
 1. För det tillståndbaserade filtret väljer du **fungerar inte**.
 1. I Sök fältet skriver du *10.192.64.56*
 1. I **omfång** i högsta nivå filter väljer du **källor**.
 
-Visa endast misslyckade tester i anslutnings övervakaren (för hands version) där målet är outlook.office365.com:
+Visa endast misslyckade tester i anslutnings övervakaren där målet är outlook.office365.com:
 1. Ändra vy att **testa**.
 1. För det tillståndbaserade filtret väljer du **fungerar inte**.
 1. Skriv *Outlook.Office365.com* i Sök fältet
@@ -265,9 +265,9 @@ Använd Log Analytics för att skapa anpassade vyer för dina övervaknings data
 
 #### <a name="metrics-in-azure-monitor"></a>Mått i Azure Monitor
 
-I anslutnings Övervakare som har skapats före anslutnings övervakaren (förhands granskning) är alla fyra mått tillgängliga:% avsökningar misslyckades, AverageRoundtripMs, ChecksFailedPercent (för hands version) och RoundTripTimeMs (för hands version). I anslutnings Övervakare som skapades i anslutnings övervakaren (förhands granskning) är data endast tillgängliga för mått som är taggade med (för *hands version)*.
+I anslutnings Övervakare som skapades före anslutnings övervakaren, är alla fyra mått tillgängliga:% avsökningar misslyckades, AverageRoundtripMs, ChecksFailedPercent (för hands version) och RoundTripTimeMs (för hands version). I anslutnings Övervakare som skapades i anslutnings övervakaren är data bara tillgängliga för mått som är taggade med *(för hands version)*.
 
-  :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="Skärm bild som visar mått i anslutnings övervakaren (förhands granskning)" lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="Skärm bild som visar mått i anslutnings övervakaren" lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
 
 När du använder mått anger du resurs typen som Microsoft. Network/networkWatchers/connectionMonitors
 
@@ -282,18 +282,18 @@ När du använder mått anger du resurs typen som Microsoft. Network/networkWatc
 
 Du kan skapa mått aviseringar för anslutnings övervakare med hjälp av metoderna nedan 
 
-1. Från anslutnings övervakaren (förhands granskning) när anslutnings övervakaren skapas [med Azure Portal](connection-monitor-preview-create-using-portal.md#) 
-1. Från anslutnings övervakaren (för hands version), med "Konfigurera aviseringar" i instrument panelen 
+1. Från anslutnings övervakaren vid skapande av anslutnings övervakare [med hjälp av Azure Portal](connection-monitor-preview-create-using-portal.md#) 
+1. Från anslutnings övervakaren med "Konfigurera aviseringar" i instrument panelen 
 1. Från Azure Monitor – för att skapa en avisering i Azure Monitor: 
-    1. Välj den anslutnings övervaknings resurs som du skapade i anslutnings övervakaren (för hands version).
+    1. Välj den anslutnings övervaknings resurs som du skapade i anslutnings övervakaren.
     1. Se till att **måttet** visas som signal typ för anslutnings övervakaren.
-    1. I **Lägg till villkor** , för **signal namnet** , väljer du **ChecksFailedPercent (för hands version)** eller **RoundTripTimeMs (för hands version)**.
+    1. I **Lägg till villkor**, för **signal namnet**, väljer du **ChecksFailedPercent (för hands version)** eller **RoundTripTimeMs (för hands version)**.
     1. Välj **mått** för **signal typ**. Välj till exempel **ChecksFailedPercent (för hands version)**.
     1. Alla mått för måttet visas. Välj dimensions namn och dimensions värde. Välj till exempel **käll adress** och ange IP-adressen för vilken källa som helst i anslutnings övervakaren.
-    1. Fyll i följande information i **aviserings logik** :
-        * **Villkors typ** : **statisk**.
+    1. Fyll i följande information i **aviserings logik**:
+        * **Villkors typ**: **statisk**.
         * **Villkor** och **tröskel**.
-        * **Sammansättnings precision och utvärderings frekvens** : anslutnings övervakaren uppdaterar data varje minut.
+        * **Sammansättnings precision och utvärderings frekvens**: anslutnings övervakaren uppdaterar data varje minut.
     1. I **åtgärder** väljer du din åtgärds grupp.
     1. Ange aviserings information.
     1. Skapa varnings regeln.
@@ -302,7 +302,7 @@ Du kan skapa mått aviseringar för anslutnings övervakare med hjälp av metode
 
 ## <a name="diagnose-issues-in-your-network"></a>Diagnostisera problem i nätverket
 
-Anslutnings övervakaren (för hands version) hjälper dig att diagnostisera problem i anslutnings övervakaren och nätverket. Problem i ditt hybrid nätverk identifieras av de Log Analyticss agenter som du installerade tidigare. Problem i Azure identifieras av Network Watcher-tillägget. 
+Anslutnings övervakaren hjälper dig att diagnostisera problem i anslutnings övervakaren och nätverket. Problem i ditt hybrid nätverk identifieras av de Log Analyticss agenter som du installerade tidigare. Problem i Azure identifieras av Network Watcher-tillägget. 
 
 Du kan visa problem i Azure-nätverket i nätverk sto pol Ogin.
 
@@ -348,5 +348,5 @@ Följande problem kan identifieras för nätverk vars källor är virtuella Azur
 
 ## <a name="next-steps"></a>Nästa steg
     
-   * Lär dig [hur du skapar anslutnings övervakaren (för hands version) med Azure Portal](connection-monitor-preview-create-using-portal.md)  
-   * Lär dig [hur du skapar anslutnings övervakaren (för hands version) med ARMClient](connection-monitor-preview-create-using-arm-client.md)  
+   * Lär dig [hur du skapar anslutnings övervakare med hjälp av Azure Portal](connection-monitor-preview-create-using-portal.md)  
+   * Lär dig [hur du skapar anslutnings övervakaren med ARMClient](connection-monitor-preview-create-using-arm-client.md)  

@@ -10,22 +10,22 @@ ms.custom: REST, seodec18
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: allensu
-ms.openlocfilehash: 3b5aedb20bc7a8d2aa6f3aa3d8691a71af4cd3a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eeca560989c174bcb654116eb13da40d6ec79e60
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84808377"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700519"
 ---
 # <a name="get-load-balancer-usage-metrics-using-the-rest-api"></a>Hämta användnings statistik för Load Balancer med hjälp av REST API
 
-Samla in antalet byte som bearbetats av en [standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview) under ett tidsintervall med hjälp av [Azure REST API](/rest/api/azure/).
+Samla in antalet byte som bearbetats av en [standard Load Balancer](./load-balancer-overview.md) under ett tidsintervall med hjälp av [Azure REST API](/rest/api/azure/).
 
 Fullständig referens dokumentation och ytterligare exempel för REST API finns i [Azure Monitor rest-referensen](/rest/api/monitor). 
 
 ## <a name="build-the-request"></a>Skapa begäran
 
-Använd följande GET-begäran för att samla in [ByteCount-måttet](/azure/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics) från en standard Load Balancer. 
+Använd följande GET-begäran för att samla in [ByteCount-måttet](./load-balancer-standard-diagnostics.md#multi-dimensional-metrics) från en standard Load Balancer. 
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=ByteCount&timespan=2018-06-05T03:00:00Z/2018-06-07T03:00:00Z
@@ -42,12 +42,12 @@ Följande huvuden krävs:
 
 ### <a name="uri-parameters"></a>URI-parametrar
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 | :--- | :---------- |
-| subscriptionId | Det prenumerations-ID som identifierar en Azure-prenumeration. Om du har flera prenumerationer kan du läsa mer i [arbeta med flera prenumerationer](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
+| subscriptionId | Det prenumerations-ID som identifierar en Azure-prenumeration. Om du har flera prenumerationer kan du läsa mer i [arbeta med flera prenumerationer](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | resourceGroupName | Namnet på den resurs grupp som innehåller resursen. Du kan hämta det här värdet från Azure Resource Manager API, CLI eller portalen. |
 | loadBalancerName | Namnet på Azure Load Balancer. |
-| mått namn | Kommaavgränsad lista över giltiga  [load BALANCERS mått](/azure/load-balancer/load-balancer-standard-diagnostics). |
+| mått namn | Kommaavgränsad lista över giltiga  [load BALANCERS mått](./load-balancer-standard-diagnostics.md). |
 | api-version | Den API-version som ska användas för begäran.<br /><br /> Det här dokumentet beskriver API-versionen `2018-01-01` , som ingår i ovanstående URL.  |
 | tidsintervall | Frågans TimeSpan. Det är en sträng med följande format `startDateTime_ISO/endDateTime_ISO` . Den här valfria parametern är inställd på att returnera en dags värde i exemplet. |
 | &nbsp; | &nbsp; |

@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: 133e6b533a3d87ef519d0f586ea59db1bbce28b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c96be79a349478db7d0452cae1ff07ee1c48aaa3
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83744488"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700111"
 ---
 # <a name="set-up-the-microsoft-authenticator-app-as-your-verification-method"></a>Konfigurera Microsoft Authenticator-appen som din verifierings metod
 
@@ -45,6 +45,11 @@ Metoder för säkerhets information används för både dubbelriktad säkerhets 
 ## <a name="set-up-the-microsoft-authenticator-app-from-the-security-info-page"></a>Konfigurera Microsoft Authenticator-appen från sidan säkerhets information
 
 Beroende på din organisations inställningar kan du kanske använda en app för autentisering som en av dina metoder för säkerhets information. Du behöver inte använda Microsoft Authenticator-appen, och du kan välja en annan app under installationen. Den här artikeln använder dock Microsoft Authenticator-appen.
+
+>[!Important]
+> Om du har installations program för Microsoft Authenticator på 5 olika enheter eller 5-maskinvaru-token kan du inte konfigurera en sjätte, och kan se följande fel meddelande.
+> 
+> **Det går inte att konfigurera Microsoft Authenticator eftersom du redan har fem Authenticator-appar eller maskinvaru-token. Kontakta administratören om du vill ta bort en av dina Authenticator-appar eller maskinvaru-token.**
 
 ### <a name="to-set-up-the-microsoft-authenticator-app"></a>Konfigurera Microsoft Authenticator-appen
 
@@ -117,7 +122,7 @@ Om du inte längre vill använda din Authenticator-app som säkerhets informatio
 
 2. Välj **Ja** i bekräftelse rutan om du vill ta bort Authenticator-appen. När du har tagit bort Authenticator-appen tas den bort från din säkerhets information och den försvinner från sidan **säkerhets information** . Om Authenticator-appen är din standard metod ändras standardinställningen till en annan tillgänglig metod.
 
-3. Öppna appen autentiserare på din mobila enhet, Välj **Redigera konton**och ta sedan bort ditt arbets-eller skol konto från Authenticator-appen.
+3. Öppna appen autentiserare på din mobila enhet, Välj **Redigera konton** och ta sedan bort ditt arbets-eller skol konto från Authenticator-appen.
 
     Ditt konto tas bort helt från Authenticator-appen för tvåstegsverifiering och begär Anden om lösen ords återställning.
 

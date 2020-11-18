@@ -1,34 +1,29 @@
 ---
-title: Så här konfigurerar du enkel inloggning till en Application Proxy-app
-description: Hur du snabbt kan konfigurera enkel inloggning till programmet för programproxy
+title: Förstå enkel inloggning med en lokal app med hjälp av Application Proxy
+description: Förstå enkel inloggning med en lokal app med hjälp av Application Proxy.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: troubleshooting
-ms.date: 03/12/2019
+ms.topic: conceptual
+ms.date: 10/07/2020
 ms.author: kenwith
 ms.reviewer: japere, asteen
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54673e0018f83024d1c01599d0096c71b6b1d0ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7df16a797fe0d7a0fd9a0b3857b1b1c32ba07ed
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88642137"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656300"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Så här konfigurerar du enkel inloggning till ett program program för programproxy
 
 Enkel inloggning (SSO) gör att användarna kan komma åt ett program utan att autentisera flera gånger. Den gör det möjligt att utföra en enskild autentisering i molnet, mot Azure Active Directory, och tillåter att tjänsten eller anslutningen imiterar användaren att slutföra eventuella ytterligare autentiseringsbegäranden från programmet.
 
 ## <a name="how-to-configure-single-sign-on"></a>Så här konfigurerar du enkel inloggning
-Om du vill konfigurera SSO måste du först se till att programmet är konfigurerat för förautentisering genom att Azure Active Directory. För att utföra den här konfigurationen går du till **Azure Active Directory**  - &gt; **företags program**  - &gt; **alla program** program-  - &gt; ** - &gt; proxyn**. På den här sidan kan du se fältet "förautentisering" och se till att är inställt på "Azure Active Directory. 
+Om du vill konfigurera SSO måste du först se till att programmet är konfigurerat för förautentisering genom att Azure Active Directory. För att utföra den här konfigurationen går du till **Azure Active Directory**  - &gt; **företags program**  - &gt; **alla program** program-  - &gt; **- &gt; proxyn**. På den här sidan kan du se fältet "förautentisering" och se till att är inställt på "Azure Active Directory. 
 
 Mer information om metoderna för autentisering finns i steg 4 i [appens publicerings dokument](application-proxy-add-on-premises-application.md).
 
@@ -41,7 +36,7 @@ Konfigurera den speciella typen av enkel inloggning. Inloggnings metoderna klass
 
 -   **Integrerad Windows-autentisering**: för program som använder integrerad Windows-autentisering (IWA) aktive ras enkel inloggning via Kerberos-begränsad delegering (KCD). Den här metoden ger Application Proxy-anslutningar behörighet i Active Directory för att personifiera användare och för att skicka och ta emot token för deras räkning. Information om hur du konfigurerar KCD finns i den [enskilda Sign-On med KCD-dokumentationen](application-proxy-configure-single-sign-on-with-kcd.md).
 
--   **Rubrik-baserad inloggning**: en rubrik baserad inloggning har Aktiver ATS via ett partnerskap och kräver ytterligare konfiguration. Mer information om partnerskap och stegvisa anvisningar för att konfigurera enkel inloggning till ett program som använder rubriker för autentisering finns i [PingAccess för Azure AD-dokumentationen](application-proxy-configure-single-sign-on-with-ping-access.md).
+-   **Rubrikbaserade inloggningar**: en rubrik baserad inloggning används för att tillhandahålla funktioner för enkel inloggning med HTTP-huvuden. Mer information finns i [sidhuvud-baserad enkel inloggning](application-proxy-configure-single-sign-on-with-headers.md).
 
 -   **SAML enkel inloggning**: med enkel inloggning med SAML, autentiserar Azure AD programmet med hjälp av användarens Azure AD-konto. Azure AD kommunicerar inloggnings informationen till programmet via ett anslutnings protokoll. Med SAML-baserad enkel inloggning kan du mappa användare till specifika program roller baserat på regler som du definierar i dina SAML-anspråk. Information om hur du konfigurerar SAML enkel inloggning finns i [SAML för enkel inloggning med Application Proxy](application-proxy-configure-single-sign-on-on-premises-apps.md).
 
@@ -54,5 +49,5 @@ Med det här alternativet kan en administratör skapa en länk till ett program 
 ## <a name="next-steps"></a>Nästa steg
 - [Lösen ords valv för enkel inloggning med programproxy](application-proxy-configure-single-sign-on-password-vaulting.md)
 - [Kerberos-begränsad delegering för enkel inloggning med Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md)
-- [Huvud-baserad autentisering för enkel inloggning med Application Proxy](application-proxy-configure-single-sign-on-with-ping-access.md) 
+- [Huvud-baserad autentisering för enkel inloggning med Application Proxy](application-proxy-configure-single-sign-on-with-headers.md) 
 - [SAML för enkel inloggning med programproxy](application-proxy-configure-single-sign-on-on-premises-apps.md).

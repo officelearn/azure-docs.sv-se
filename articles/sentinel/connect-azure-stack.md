@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 9ff70e7c05ca8de49f560fba3d59f0609785b8c4
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 9ac4aa9e93ac296913d7a62e83b182d673015bae
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636783"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655977"
 ---
 # <a name="connect-azure-stack-hub-virtual-machines-to-azure-sentinel"></a>Anslut Azure Stack hubb virtuella datorer till Azure Sentinel
 
@@ -34,8 +34,8 @@ När du har anslutit Azure Stack Hub-datorer väljer du från ett galleri med in
 
 Lägg till tillägget **Azure Monitor, uppdatering och konfigurations hantering** för virtuell dator på de virtuella datorerna som körs på Azure Stack Hub. 
 
-1. Logga in på din [Azure Stack Hub-Portal](https://docs.microsoft.com/azure-stack/user/azure-stack-use-portal#access-the-portal)på en ny flik i webbläsaren.
-2. Gå till sidan **virtuella datorer** och välj den virtuella dator som du vill skydda med Azure Sentinel. Information om hur du skapar en virtuell dator på Azure Stack hubb finns i [skapa en virtuell Windows Server-dator med Azure Stack Hub-portalen](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-windows-portal) eller [skapa en virtuell Linux-server med hjälp av Azure Stack Hub-portalen](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-linux-portal).
+1. Logga in på din [Azure Stack Hub-Portal](/azure-stack/user/azure-stack-use-portal#access-the-portal)på en ny flik i webbläsaren.
+2. Gå till sidan **virtuella datorer** och välj den virtuella dator som du vill skydda med Azure Sentinel. Information om hur du skapar en virtuell dator på Azure Stack hubb finns i [skapa en virtuell Windows Server-dator med Azure Stack Hub-portalen](/azure-stack/user/azure-stack-quick-windows-portal) eller [skapa en virtuell Linux-server med hjälp av Azure Stack Hub-portalen](/azure-stack/user/azure-stack-quick-linux-portal).
 3. Välj **Tillägg**. Listan över virtuella dator tillägg som är installerade på den här virtuella datorn visas.
 4. Klicka på fliken **Lägg till** . Bladet **Ny resurs** öppnas och visar en lista över tillgängliga tillägg för virtuella datorer. 
 5. Välj tillägget **Azure Monitor, uppdatering och konfigurations hantering** och klicka på **skapa**. Fönstret **Installera tilläggs** konfiguration öppnas.
@@ -53,7 +53,7 @@ Mer information om hur du installerar och konfigurerar agenten för Windows finn
 
 Information om Linux-felsökning av agent problem finns i [Felsöka Azure Log Analytics Linux-agenten](../azure-monitor/platform/agent-linux-troubleshoot.md).
 
-I Azure Sentinel-portalen på Azure, under **Virtual Machines** , har du en översikt över alla virtuella datorer och datorer tillsammans med deras status. 
+I Azure Sentinel-portalen på Azure, under **Virtual Machines**, har du en översikt över alla virtuella datorer och datorer tillsammans med deras status. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 När det inte längre behövs kan du ta bort tillägget från den virtuella datorn via Azure Stack Hub-portalen.
@@ -62,7 +62,7 @@ Ta bort tillägget:
 
 1. Öppna **Azure Stack Hub-portalen**.
 2. Gå till sidan **virtuella datorer** och välj den virtuella dator som du vill ta bort tillägget från.
-3. Välj **tillägg** , Välj tillägget **Microsoft. EnterpriseCloud. Monitoring**.
+3. Välj **tillägg**, Välj tillägget **Microsoft. EnterpriseCloud. Monitoring**.
 4. Klicka på **Avinstallera** och bekräfta valet.
 
 ## <a name="next-steps"></a>Nästa steg

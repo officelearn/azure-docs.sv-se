@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: 0c6129a24e6ed083114971df5f254eca54924400
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9d2cd48e3b686614f7361d2007f6f8183c2361e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90941820"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657031"
 ---
 # <a name="normalization-in-azure-sentinel"></a>Normalisering i Azure Sentinel
 
@@ -97,7 +97,7 @@ De tillgängliga parsarna för frågeintervall är tillgängliga i den [officiel
 
     1. **Kategori**: du kan välja en befintlig kategori eller skapa en ny kategori (till exempel *NormalizedNetworkSessionsParsers*)
     
-        :::image type="content" source="./media/normalization/save-new-parser.png" alt-text="Installera en ny parser":::
+        :::image type="content" source="./media/normalization/save-new-parser.png" alt-text="Spara parsern":::
 
 För att kunna använda parsern korrekt måste du också installera den tomma nätverks schema parsern (som skapar en tom tabellvy av alla schema fält för nätverks sessioner) och nätverkets meta-parser (som sammanställer alla aktiverade tolkare för att skapa en enskild vy av data från olika källor i nätverks schemat). Installation av de här två parsarna görs på samma sätt som i ovanstående steg.
 
@@ -107,13 +107,15 @@ När du sparar en fråge funktion kan du behöva stänga Query Explorer och öpp
 
 När den är aktive rad kan du använda meta-parsern för att fråga en enhetlig vy för alla aktiverade parser. Det gör du genom att gå till sidan kontroll loggar och fråga meta-parser:
 
-:::image type="content" source="./media/normalization/query-parser.png" alt-text="Installera en ny parser":::
+:::image type="content" source="./media/normalization/query-parser.png" alt-text="Fråga parsern":::
  
 Du kan också komma åt meta-parsern eller enskilda Parsers med Query Explorer på sidan kontroll loggar genom att klicka på "fråga Utforskaren":
 
-:::image type="content" source="./media/normalization/query-explorer.png" alt-text="Installera en ny parser" (eller kategori namnet som du har valt när du skapade parsarna):
+:::image type="content" source="./media/normalization/query-explorer.png" alt-text="Query Explorer":::
 
-:::image type="content" source="./media/normalization/find-parser.png" alt-text="Installera en ny parser":::
+I fönstret till höger expanderar du avsnittet "sparade frågor" och letar reda på mappen "NormalizedNetworkParsers" (eller kategori namnet som du har valt när du skapade parsarna):
+
+:::image type="content" source="./media/normalization/find-parser.png" alt-text="Hitta din parser":::
 
 Du kan klicka på varje enskild parser och se den underliggande funktionen den använder och köra den (eller komma åt den direkt via dess alias, enligt beskrivningen ovan). Observera att vissa tolkare kan behålla de ursprungliga fälten sida vid sida till de normaliserade fälten för bekvämlighet. Detta kan enkelt redige ras i parser-frågans fråga.
 
@@ -122,15 +124,15 @@ Du kan klicka på varje enskild parser och se den underliggande funktionen den a
 Du kan upprepa stegen ovan (hitta parsern i Query Explorer), klicka på relevant parser och se dess funktions implementering.
 Du kan till exempel välja att redigera meta-parsern för att lägga till/ta bort enskilda tolkare.
 
-:::image type="content" source="./media/normalization/customize-parser.png" alt-text="Installera en ny parser":::
+:::image type="content" source="./media/normalization/customize-parser.png" alt-text="Anpassa din parser":::
  
 När funktionen har ändrats klickar du på Spara igen och använder samma namn, alias och kategori. En dialog ruta för åsidosättning öppnas – tryck på OK:
 
-:::image type="content" source="./media/normalization/are-you-sure.png" alt-text="Installera en ny parser":::
+:::image type="content" source="./media/normalization/are-you-sure.png" alt-text="Är du säker":::
 
 #### <a name="additional-information"></a>Ytterligare information
 
-Läs mer om [sparade frågor](../azure-monitor/log-query/saved-queries.md) (implementeringen av fråge tids parser) i Log Analytics.
+Läs mer om [sparade frågor](../azure-monitor/log-query/example-queries.md) (implementeringen av fråge tids parser) i Log Analytics.
 
 
 ## <a name="next-steps"></a>Nästa steg

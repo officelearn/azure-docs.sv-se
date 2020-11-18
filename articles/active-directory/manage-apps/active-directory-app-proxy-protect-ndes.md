@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 01/17/2020
 ms.author: kenwith
 ms.reviewer: mimart
-ms.openlocfilehash: a385a339122197b7055ef6f54b8e37edea8eae4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0682115727068c928418d97fbf92ed32897c39d4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88078945"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656759"
 ---
 # <a name="integrate-with-azure-ad-application-proxy-on-a-network-device-enrollment-service-ndes-server"></a>Integrera med Azure AD-programproxy på en server för registrerings tjänsten för nätverks enheter (NDES)
 
@@ -26,7 +26,7 @@ Med Azure Active Directory (AD) Application Proxy kan du publicera program i nä
 
 Om du är nybörjare på Azure AD-programproxy och vill veta mer, se [fjärråtkomst till lokala program via Azure AD-programproxy](application-proxy.md).
 
-Azure AD-programproxy bygger på Azure. Det ger en enorm mängd nätverks bandbredd och Server infrastruktur för bättre skydd mot distribuerade DDOS-attacker (Denial-of-Service) och utmärkt tillgänglighet. Dessutom behöver du inte öppna externa brand Väggs portar till ditt lokala nätverk och ingen DMZ-server krävs. All trafik har sitt ursprung. En fullständig lista över utgående portar finns i [Självstudier: Lägg till ett lokalt program för fjärråtkomst via Application Proxy i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment).
+Azure AD-programproxy bygger på Azure. Det ger en enorm mängd nätverks bandbredd och Server infrastruktur för bättre skydd mot distribuerade DDOS-attacker (Denial-of-Service) och utmärkt tillgänglighet. Dessutom behöver du inte öppna externa brand Väggs portar till ditt lokala nätverk och ingen DMZ-server krävs. All trafik har sitt ursprung. En fullständig lista över utgående portar finns i [Självstudier: Lägg till ett lokalt program för fjärråtkomst via Application Proxy i Azure Active Directory](./application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
 > Azure AD-programproxy är en funktion som bara är tillgänglig om du använder Premium-eller Basic-versionerna av Azure Active Directory. Mer information finns i [Azure Active Directory prissättning](https://azure.microsoft.com/pricing/details/active-directory/). 
 > Om du har licens för Enterprise Mobility Suite (EMS) är du berättigad till att använda den här lösningen.
@@ -37,7 +37,7 @@ Azure AD-programproxy bygger på Azure. Det ger en enorm mängd nätverks bandbr
 1. Logga in på [Azure-portalen](https://portal.azure.com/) som programadministratör för den katalog som använder programproxy. Om klientdomänen exempelvis är contoso.com ska administratören vara admin@contoso.com eller något annat administratörsalias på den domänen.
 1. Välj ditt användar namn i det övre högra hörnet. Kontrol lera att du är inloggad på en katalog som använder programproxy. Om du behöver ändra kataloger väljer du **Växla katalog** och väljer en katalog som använder Application Proxy.
 1. I den vänstra navigerings panelen väljer du **Azure Active Directory**.
-1. Under **Hantera**väljer du **programproxy**.
+1. Under **Hantera** väljer du **programproxy**.
 1. Välj **Hämta anslutnings tjänst**.
 
     ![Hämta kopplings tjänsten om du vill se villkoren för tjänsten](./media/active-directory-app-proxy-protect-ndes/application-proxy-download-connector-service.png)
@@ -52,7 +52,7 @@ Azure AD-programproxy bygger på Azure. Det ger en enorm mängd nätverks bandbr
         > [!NOTE]
         > Det globala kontot eller det program administratörs konto som används för att registrera anslutningen måste tillhöra samma katalog som du aktiverar tjänsten Application Proxy.
         >
-        > Om till exempel Azure AD-domänen är *contoso.com*ska global/program administratören vara `admin@contoso.com` eller ett annat giltigt alias i domänen.
+        > Om till exempel Azure AD-domänen är *contoso.com* ska global/program administratören vara `admin@contoso.com` eller ett annat giltigt alias i domänen.
 
    * Om förbättrad säkerhets konfiguration i Internet Explorer är aktive rad för den server där du installerar anslutningen, kan registrerings skärmen blockeras. Om du vill tillåta åtkomst följer du anvisningarna i fel meddelandet eller stänger av förbättrad säkerhet i Internet Explorer under installationen.
    * Om anslutnings registreringen Miss lyckas, se [Felsöka programproxyn](application-proxy-troubleshoot.md).
@@ -70,9 +70,9 @@ Azure AD-programproxy bygger på Azure. Det ger en enorm mängd nätverks bandbr
 
    ![Se till att du är intressant för rätt intressenter](./media/active-directory-app-proxy-protect-ndes/azure-active-directory-enterprise-applications.png)
 
-1. Välj **+ nytt program**och välj sedan **lokalt program**. 
+1. Välj **+ nytt program** och välj sedan **lokalt program**. 
 
-1. På sidan **Lägg till ett eget lokalt program**konfigurerar du följande fält:
+1. På sidan **Lägg till ett eget lokalt program** konfigurerar du följande fält:
 
    * **Namn**: Ange ett namn för programmet.
    * **Intern URL**: Ange den interna URL: en/FQDN för den NDES-server som du installerade anslutningen på.
@@ -96,4 +96,4 @@ Azure AD-programproxy bygger på Azure. Det ger en enorm mängd nätverks bandbr
 
 ## <a name="next-steps"></a>Nästa steg
 
-Med Azure AD-programproxy integrerat med NDES kan du publicera program som användare kan komma åt. Mer information finns i [Publicera program med hjälp av Azure AD-programproxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application).
+Med Azure AD-programproxy integrerat med NDES kan du publicera program som användare kan komma åt. Mer information finns i [Publicera program med hjälp av Azure AD-programproxy](./application-proxy-add-on-premises-application.md).

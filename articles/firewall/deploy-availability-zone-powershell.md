@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: e051f57d27c0eea585c63dca5e124e0846752be5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46ecc4754a064e26e61365ed6ca167606bef9d81
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85602490"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656113"
 ---
 # <a name="deploy-an-azure-firewall-with-availability-zones-using-azure-powershell"></a>Distribuera en Azure Firewall med Tillgänglighetszoner med Azure PowerShell
 
@@ -60,4 +60,4 @@ New-AzFirewall `
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Självstudie: Övervaka Azure Firewall-loggar](./tutorial-diagnostics.md)
+- [Självstudie: Övervaka Azure Firewall-loggar](./firewall-diagnostics.md)

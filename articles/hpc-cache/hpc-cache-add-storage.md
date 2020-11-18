@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: c1edbaf394a4abd36e47843a6f419eb9d62f08d7
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: b2497a49703ab675bde50c7845995c92de32f376
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340316"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657184"
 ---
 # <a name="add-storage-targets"></a>Lägga till lagringsmål
 
@@ -103,9 +103,9 @@ Steg för att lägga till Azure-roller:
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
-
 ### <a name="prerequisite-storage-account-access"></a>Förutsättning: åtkomst till lagrings konto
+
+[Konfigurera Azure CLI för Azure HPC-cache](./az-cli-prerequisites.md).
 
 Innan du lägger till ett Blob Storage-mål kontrollerar du att cachen har rätt roller för att komma åt lagrings kontot och att brand Väggs inställningarna tillåter skapande av lagrings mål.
 
@@ -186,7 +186,7 @@ I den här tabellen sammanfattas skillnaderna mellan användnings modeller:
 | Användnings modell                   | Cacheläge | Verifiering på Server Sidan | Maximal Skriv åtgärds fördröjning |
 |-------------------------------|--------------|-----------------------|--------------------------|
 | Läs tung, sällan skrivna skrivningar | Läs         | Aldrig                 | Inget                     |
-| Större än 15% skrivningar       | Läsa/skriva   | Aldrig                 | 1 timme                   |
+| Större än 15% skrivningar       | Läsning/skrivning   | Aldrig                 | 1 timme                   |
 | Klienterna kringgår cachen      | Läs         | 30 sekunder            | Inget                     |
 
 ### <a name="create-an-nfs-storage-target"></a>Skapa ett NFS-lagrings mål
@@ -217,7 +217,7 @@ När du är färdig klickar du på **OK** för att lägga till lagrings målet.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Konfigurera Azure CLI för Azure HPC-cache](./az-cli-prerequisites.md).
 
 Använd Azure CLI-kommandot [AZ HPC-cache NFS-Storage-Target Add](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target#ext-hpc-cache-az-hpc-cache-nfs-storage-target-add) för att skapa lagrings målet.
 
@@ -301,7 +301,7 @@ Läs [Redigera lagrings mål](hpc-cache-edit-storage.md) för mer information.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Konfigurera Azure CLI för Azure HPC-cache](./az-cli-prerequisites.md).
 
 Använd alternativet [AZ HPC-cache Storage-Target List](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) för att visa befintliga lagrings mål för en cache. Ange cache-namn och resurs grupp (om du inte har angett det globalt).
 

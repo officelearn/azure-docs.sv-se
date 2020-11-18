@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: yushwang
-ms.openlocfilehash: 499d184d373b896ba7bffcf990693ef5e6ac466b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a77ee3c4301d278f98b571402514663dcfc9ca52
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88032432"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657932"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>Om kryptografiska krav och Azure VPN-gatewayer
 
@@ -20,7 +20,7 @@ Den här artikeln beskriver hur du kan konfigurera Azure VPN-gatewayer för att 
 
 ## <a name="about-ikev1-and-ikev2-for-azure-vpn-connections"></a>Om IKEv1 och IKEv2 för Azure VPN-anslutningar
 
-Traditionellt tillåtna endast IKEv1-anslutningar för grundläggande SKU: er och tillåtna IKEv2-anslutningar för alla VPN gateway-SKU: er som inte är grundläggande. De grundläggande SKU: erna tillåter endast 1 anslutning och tillsammans med andra begränsningar, till exempel prestanda, kunder som använder äldre enheter som endast stöder IKEv1-protokoll har begränsad erfarenhet. För att förbättra upplevelsen av kunder med IKEv1-protokoll tillåter vi nu IKEv1-anslutningar för alla VPN gateway-SKU: er, förutom Basic SKU. Mer information finns i [VPN gateway SKU: er](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku).
+Traditionellt tillåtna endast IKEv1-anslutningar för grundläggande SKU: er och tillåtna IKEv2-anslutningar för alla VPN gateway-SKU: er som inte är grundläggande. De grundläggande SKU: erna tillåter endast 1 anslutning och tillsammans med andra begränsningar, till exempel prestanda, kunder som använder äldre enheter som endast stöder IKEv1-protokoll har begränsad erfarenhet. För att förbättra upplevelsen av kunder med IKEv1-protokoll tillåter vi nu IKEv1-anslutningar för alla VPN gateway-SKU: er, förutom Basic SKU. Mer information finns i [VPN gateway SKU: er](./vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 ![Azure VPN Gateway IKEv1-och IKEv2-anslutningar](./media/vpn-gateway-about-compliance-crypto/ikev1-ikev2-connections.png)
 

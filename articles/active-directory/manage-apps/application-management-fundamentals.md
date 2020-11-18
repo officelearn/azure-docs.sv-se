@@ -16,12 +16,12 @@ ms.date: 11/13/2019
 ms.subservice: app-mgmt
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d32728c1f388e9013b922d1f60d30e65d350bbc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f5aaf4bbff4c093872228d647d3850667fb9777
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88642443"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656415"
 ---
 # <a name="application-management-best-practices"></a>Metod tips för program hantering
 
@@ -30,7 +30,7 @@ Den här artikeln innehåller rekommendationer och metod tips för att hantera p
 ## <a name="cloud-app-and-single-sign-on-recommendations"></a>Rekommendationer för Cloud App och enkel inloggning
 | Rekommendation | Kommentarer |
 | --- | --- |
-| Kontrol lera appar i Azure AD-programgalleriet  | Azure AD har ett galleri som innehåller tusentals förintegrerade program som är aktiverade med enkel inloggning (SSO) för företag. Information om enhetsspecifika installations anvisningar finns i [listan med självstudier för SaaS-appar](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/).  | 
+| Kontrol lera appar i Azure AD-programgalleriet  | Azure AD har ett galleri som innehåller tusentals förintegrerade program som är aktiverade med enkel inloggning (SSO) för företag. Information om enhetsspecifika installations anvisningar finns i [listan med självstudier för SaaS-appar](../saas-apps/tutorial-list.md).  | 
 | Använda federerad SAML-baserad SSO  | När ett program stöder det använder du federerad, SAML-baserad SSO med Azure AD i stället för lösenordsbaserad SSO och ADFS.  | 
 | Använd SHA-256 för certifikat signering  | Azure AD använder SHA-256-algoritmen som standard för att signera SAML-svaret. Använd SHA-256 om inte programmet kräver SHA-1 (se [alternativ för certifikat signering](certificate-signing-options.md) och [program inloggnings problem](application-sign-in-problem-application-error.md).)  | 
 | Kräv användar tilldelning  | Som standard kan användarna få åtkomst till dina företags program utan att de har tilldelats dem. Men om programmet visar roller, eller om du vill att programmet ska visas i användarens Mina appar, kräver du användar tilldelning. (Mer information finns i utvecklings [vägledning för att integrera program](developer-guidance-for-integrating-applications.md).)  | 
@@ -41,7 +41,7 @@ Den här artikeln innehåller rekommendationer och metod tips för att hantera p
 ## <a name="provisioning-recommendations"></a>Etablerings rekommendationer
 | Rekommendation | Kommentarer |
 | --- | --- |
-| Använd Självstudier för att konfigurera etablering med molnappar | Se [listan över SaaS-självstudier](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) för att få stegvisa anvisningar om hur du konfigurerar etablering för den Galleri app som du vill lägga till. |
+| Använd Självstudier för att konfigurera etablering med molnappar | Se [listan över SaaS-självstudier](../saas-apps/tutorial-list.md) för att få stegvisa anvisningar om hur du konfigurerar etablering för den Galleri app som du vill lägga till. |
 | Använd etablerings loggar (för hands version) för att övervaka status | [Etablerings loggarna](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) ger information om alla åtgärder som utförs av etablerings tjänsten, inklusive status för enskilda användare. |
 | Tilldela en distributions grupp till e-postmeddelandet för etablering | Om du vill öka synligheten för kritiska aviseringar som skickas av etablerings tjänsten tilldelar du en distributions grupp till inställningen e-postaviseringar. |
 

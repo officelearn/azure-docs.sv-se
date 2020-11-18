@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: a66b76350da6f3b3804dac73a7aeb9f54d2e34eb
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 42b0945de55775f55f20cefdeb547cb5d6492c06
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91938380"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657082"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Konfigurera en punkt-till-plats-anslutning med hjälp av certifikatautentisering (klassisk)
 
@@ -22,7 +22,7 @@ ms.locfileid: "91938380"
 Den här artikeln beskriver hur du skapar ett virtuellt nätverk med en punkt-till-plats-anslutning. Du skapar detta VNet med den klassiska distributions modellen med hjälp av Azure Portal. Den här konfigurationen använder certifikat för att autentisera den anslutande klienten, antingen självsignerade eller från en certifikatutfärdare. Du kan också skapa konfigurationen med ett annat distributionsverktyg eller en annan distributionsmodell med hjälp av alternativen som beskrivs i följande artiklar:
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Azure-portalen](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 > * [Azure Portal (klassisk)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
@@ -114,7 +114,7 @@ Om du använder självsignerade certifikat måste de skapas med specifika parame
 När gatewayen har skapats laddar du upp CER-filen (som innehåller informationen om den offentliga nyckeln) för ett betrott rotcertifikat till Azure-servern. Ladda inte upp den privata nyckeln för rotcertifikatet. När du har laddat upp certifikatet använder Azure det för att autentisera klienter som har installerat ett klientcertifikat som har genererats från det betrodda rotcertifikatet. Du kan ladda upp ytterligare betrodda rotcertifikatfiler (upp till 20) senare om det behövs.
 
 1. Navigera till det virtuella nätverk som du har skapat.
-1. Under **Inställningar**väljer **du punkt-till-plats-anslutningar**.
+1. Under **Inställningar** väljer **du punkt-till-plats-anslutningar**.
 1. Välj **Hantera certifikat**.
 1. Välj **Överför**.
 1. I fönstret **Ladda upp ett certifikat** väljer du mappikonen och navigerar till det certifikat som du vill ladda upp.
@@ -137,7 +137,7 @@ Du kan använda samma VPN-klientkonfigurationspaket på varje klientdator, föru
 
 1. Azure skapar ett paket med de angivna inställningar som klienten behöver. Varje gången du gör ändringar i VNet eller gatewayen måste du hämta ett nytt klient konfigurations paket och installera dem på klient datorerna.
 1. När paketet har genererats väljer du **Hämta**.
-1. Installera klient konfigurations paketet på klient datorn. Om du ser ett SmartScreen-fönster när du installerar, väljer du **Mer information**och väljer **kör ändå**om du ser ett SmartScreen-fönster. Du kan också spara paketet om du vill installera det på andra klientdatorer.
+1. Installera klient konfigurations paketet på klient datorn. Om du ser ett SmartScreen-fönster när du installerar, väljer du **Mer information** och väljer **kör ändå** om du ser ett SmartScreen-fönster. Du kan också spara paketet om du vill installera det på andra klientdatorer.
 
 ### <a name="install-a-client-certificate"></a>Installera ett klientcertifikat
 
@@ -202,23 +202,23 @@ Den vanligaste metoden är att använda rotcertifikatet för att hantera åtkoms
 
 Du kan återkalla ett klientcertifikat genom att lägga till tumavtrycket i listan över återkallade certifikat.
 
-1. Hämta klientcertifikatets tumavtryck. Mer information finns i [How to: Hämta tumavtrycket för ett certifikat](https://msdn.microsoft.com/library/ms734695.aspx).
+1. Hämta klientcertifikatets tumavtryck. Mer information finns i [How to: Hämta tumavtrycket för ett certifikat](/dotnet/framework/wcf/feature-details/how-to-retrieve-the-thumbprint-of-a-certificate).
 1. Kopiera informationen till en textredigerare och ta bort alla blanksteg så att strängen är i ett stycke.
-1. Navigera till **punkt-till-plats-VPN-anslutning**och välj sedan **Hantera certifikat**.
+1. Navigera till **punkt-till-plats-VPN-anslutning** och välj sedan **Hantera certifikat**.
 1. Öppna sidan **Lista över återkallade certifikat** genom att välja **Lista över återkallade certifikat**.
 1. I **Tumavtryck** klistrar du in certifikattumavtrycket som en kontinuerlig textrad, utan blanksteg.
 1. Välj **+ Lägg till i listan** om du vill lägga till tumavtrycket i listan över återkallade certifikat (CRL).
 
 När uppdateringen har slutförts kan certifikatet inte längre användas för att ansluta. Klienter som försöker ansluta med det här certifikatet får ett meddelande om att certifikatet inte längre är giltigt.
 
-## <a name="faq"></a><a name="faq"></a>ASSURANCE
+## <a name="faq"></a><a name="faq"></a>Vanliga frågor
 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-point-to-site-classic-include.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-* När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Mer information finns i [Virtuella datorer](https://docs.microsoft.com/azure/).
+* När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Mer information finns i [Virtuella datorer](../index.yml).
 
-* Mer information om nätverk och virtuella Linux-datorer finns i [Azure and Linux VM network overview](../virtual-machines/linux/network-overview.md) (Översikt över nätverk för virtuella Azure- och Linux-datorer).
+* Mer information om nätverk och virtuella Linux-datorer finns i [Azure and Linux VM network overview](../virtual-machines/network-overview.md) (Översikt över nätverk för virtuella Azure- och Linux-datorer).
 
 * Information om P2S-felsökning finns i [Felsöka punkt-till-plats-anslutningar i Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

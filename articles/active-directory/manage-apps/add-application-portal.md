@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: 2946590cbb4c5e8f495a1f6ee4aac65929cd4d0e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fd81e5f87aaf4a28676b79863df60b71707849e9
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91305773"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656521"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-azure-ad-tenant"></a>Snabb start: lägga till ett program till din Azure Active Directory-klient (Azure AD)
 
@@ -42,11 +42,11 @@ Om du vill lägga till ett program i Azure AD-klienten behöver du:
 
 Så här lägger du till ett program i Azure AD-klienten:
 
-1. Välj **Azure Active Directory**på den vänstra navigerings panelen i [Azure Portal](https://portal.azure.com).
+1. Välj **Azure Active Directory** på den vänstra navigerings panelen i [Azure Portal](https://portal.azure.com).
 2. I fönstret **Azure Active Directory** väljer du **företags program**. Fönstret **alla program** öppnas och visar ett slumpmässigt exempel på programmen i din Azure AD-klient.
 3. I fönstret **företags program** väljer du **nytt program**. 
     ![Välj nytt program för att lägga till en Galleri-app till din klient organisation](media/add-application-portal/new-application.png)
-4. Växla till den nya Galleri förhands granskningen: i banderollen högst upp på **sidan Lägg till ett program**väljer du den länk som visas **Klicka här för att prova det nya och förbättrade app-galleriet**.
+4. Växla till den nya Galleri förhands granskningen: i banderollen högst upp på **sidan Lägg till ett program** väljer du den länk som visas **Klicka här för att prova det nya och förbättrade app-galleriet**.
 5. Fönstret **Bläddra i Azure AD-galleriet (förhands granskning)** öppnas och visar paneler för moln plattformar, lokala program och aktuella program. Program som listas i avsnittet **aktuella program** innehåller ikoner som visar om de stöder federerad enkel inloggning (SSO) och etablering. 
     ![Sök efter en app efter namn eller kategori](media/add-application-portal/browse-gallery.png)
 6. Du kan bläddra i galleriet för det program som du vill lägga till eller söka efter programmet genom att ange dess namn i sökrutan. Välj sedan programmet från resultaten. 
@@ -55,10 +55,10 @@ Så här lägger du till ett program i Azure AD-klienten:
     :::image type="content" source="media/add-application-portal/sso-types.png" alt-text="Skärm bild som visar väljaren för SSO-typer." lightbox="media/add-application-portal/sso-types.png":::
 
     - Om utvecklaren av appen använde OIDC- **standarden** för SSO väljer du **Registrera dig**. En installations sida visas. Gå sedan till snabb starten för att konfigurera OIDC-baserad enkel inloggning.
-    :::image type="content" source="media/add-application-portal/sign-up-oidc-sso.png" alt-text="Skärm bild som visar väljaren för SSO-typer.":::
+    :::image type="content" source="media/add-application-portal/sign-up-oidc-sso.png" alt-text="Skärm bild som visar hur du lägger till en OIDC-baserad SSO-app.":::
 
     - Om utvecklaren av appen använde SAML- **standarden** för SSO väljer du **skapa**. En komma igång-sida visas med alternativ för att konfigurera programmet för din organisation. I formuläret kan du redigera namnet på programmet så att det matchar organisationens behov. Gå sedan till snabb starten för att konfigurera SAML-baserad enkel inloggning.
-    :::image type="content" source="media/add-application-portal/create-application.png" alt-text="Skärm bild som visar väljaren för SSO-typer.":::
+    :::image type="content" source="media/add-application-portal/create-application.png" alt-text="Skärm bild som visar hur du lägger till en SAML-baserad SSO-app.":::
 
 
 > [!IMPORTANT]
@@ -69,7 +69,7 @@ Om det program som du söker efter inte finns i galleriet kan du välja länken 
 Du har lagt till ett program. Nästa snabb start visar hur du ändrar logo typen och redigerar andra egenskaper för programmet.
 
 > [!TIP]
-> Du kan automatisera hantering av appar med hjälp av Graph API, se [Automatisera program hantering med Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+> Du kan automatisera hantering av appar med hjälp av Graph API, se [Automatisera program hantering med Microsoft Graph API](/graph/application-saml-sso-configure-api).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

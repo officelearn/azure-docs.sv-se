@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 04/23/2019
 ms.author: kenwith
 ms.reviewer: asteen, japere
-ms.openlocfilehash: b18eb0f8d57c06e82d243c10bf038a861bcf88d1
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: c28e79c9a6f8c489a97d360c4fe142d431b5ab5d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042698"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656555"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Felsöka konfigurationer med Kerberos-begränsad delegering för programproxy
 
@@ -81,16 +81,16 @@ Som tidigare nämnts innehåller webbläsarens fel meddelanden några användbar
 
 ![Exempel: felaktigt konfigurations fel för KCD](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic3.png)
 
-Motsvarande poster som visas i händelse loggen visas som händelser 13019 eller 12027. Sök efter anslutnings händelse loggar i **program och tjänster loggar** &gt; **Microsoft** &gt; **AadApplicationProxy** &gt; **Connector** &gt; **admin** .
+Motsvarande poster som visas i händelse loggen visas som händelser 13019 eller 12027. Sök efter anslutnings händelse loggar i **program och tjänster loggar** &gt; **Microsoft** &gt; **AadApplicationProxy** &gt; **Connector** &gt; **admin**.
 
 ![Händelse 13019 från händelse loggen för programproxy](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic4.png)
 
 ![Händelse 12027 från händelse loggen för programproxy](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic5.png)
 
-1. Använd en **A** -post i din interna DNS för programmets adress, inte en **CNAME** .
+1. Använd en **A** -post i din interna DNS för programmets adress, inte en **CNAME**.
 1. Bekräfta att kopplings värden har beviljats behörighet att delegera till det angivna mål kontots SPN. Bekräfta att **Använd valfritt autentiseringsprotokoll** är markerat. Mer information finns i [artikeln SSO Configuration](application-proxy-configure-single-sign-on-with-kcd.md).
 1. Kontrol lera att det bara finns en instans av SPN i Azure AD. Problem `setspn -x` från en kommando tolk på en domän medlems värd.
-1. Kontrol lera att en domän princip tillämpas som begränsar den [maximala storleken på utfärdade Kerberos-token](https://blogs.technet.microsoft.com/askds/2012/09/12/maxtokensize-and-windows-8-and-windows-server-2012/). Den här principen stoppar anslutningen från att hämta en token om den är för hög.
+1. Kontrol lera att en domän princip tillämpas som begränsar den [maximala storleken på utfärdade Kerberos-token](/archive/blogs/askds/maxtokensize-and-windows-8-and-windows-server-2012). Den här principen stoppar anslutningen från att hämta en token om den är för hög.
 
 En nätverks spårning som samlar in utbyten mellan kopplings värden och en domän-KDC är nästa bästa steg för att få mer detaljerad information om problemen. Mer information finns i [fel söknings bladet för djupet](https://aka.ms/proxytshootpaper).
 
@@ -102,20 +102,20 @@ Konsumenten av Kerberos-biljetten som tillhandahålls av anslutningen. I det hä
 
 1. När du använder programmets interna URL som definierats i portalen kontrollerar du att programmet är tillgängligt direkt från webbläsaren på kopplings värden. Sedan kan du logga in korrekt. Information finns på sidan **för fel sökning** av anslutning.
 1. Kontrol lera att autentiseringen mellan webbläsaren och programmet använder Kerberos fortfarande på kopplings värden. Välj en av följande åtgärder:
-1. Kör DevTools ( **F12** ) i Internet Explorer eller Använd [Fiddler](https://blogs.msdn.microsoft.com/crminthefield/2012/10/10/using-fiddler-to-check-for-kerberos-auth/) från anslutnings värden. Gå till programmet genom att använda den interna URL: en. Kontrol lera att de erbjudna WWW Authorization-huvudena som returneras i svaret från programmet för att säkerställa att antingen Negotiate eller Kerberos finns.
+1. Kör DevTools (**F12**) i Internet Explorer eller Använd [Fiddler](https://blogs.msdn.microsoft.com/crminthefield/2012/10/10/using-fiddler-to-check-for-kerberos-auth/) från anslutnings värden. Gå till programmet genom att använda den interna URL: en. Kontrol lera att de erbjudna WWW Authorization-huvudena som returneras i svaret från programmet för att säkerställa att antingen Negotiate eller Kerberos finns.
 
-   - Nästa Kerberos-blob som returneras i svaret från webbläsaren till programmet börjar med **YII** . Dessa bokstäver anger att Kerberos körs. Microsoft NT LAN Manager (NTLM), å andra sidan, börjar alltid med **TlRMTVNTUAAB** , som läser NTLM Security Support Provider (NTLMSSP) när den avkodas från base64. Om du ser **TlRMTVNTUAAB** i början av blobben är Kerberos inte tillgängligt. Om du inte ser **TlRMTVNTUAAB** är Kerberos troligt vis tillgängligt.
+   - Nästa Kerberos-blob som returneras i svaret från webbläsaren till programmet börjar med **YII**. Dessa bokstäver anger att Kerberos körs. Microsoft NT LAN Manager (NTLM), å andra sidan, börjar alltid med **TlRMTVNTUAAB**, som läser NTLM Security Support Provider (NTLMSSP) när den avkodas från base64. Om du ser **TlRMTVNTUAAB** i början av blobben är Kerberos inte tillgängligt. Om du inte ser **TlRMTVNTUAAB** är Kerberos troligt vis tillgängligt.
 
       > [!NOTE]
       > Om du använder Fiddler kräver den här metoden att du tillfälligt inaktiverar utökat skydd för programmets konfiguration i IIS.
 
       ![Kontroll fönster för webb läsar nätverk](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic6.png)
 
-   - Blobben i den här bilden startar inte med **TIRMTVNTUAAB** . I det här exemplet är Kerberos tillgängligt och Kerberos-blobben börjar inte med **YII** .
+   - Blobben i den här bilden startar inte med **TIRMTVNTUAAB**. I det här exemplet är Kerberos tillgängligt och Kerberos-blobben börjar inte med **YII**.
 
 1. Ta tillfälligt bort NTLM från providers-listan på IIS-webbplatsen. Öppna appen direkt från Internet Explorer på anslutnings värden. NTLM finns inte längre i listan med providers. Du kan bara komma åt programmet med hjälp av Kerberos. Om åtkomsten Miss lyckas kan det bero på ett problem med programmets konfiguration. Kerberos-autentisering fungerar inte.
 
-   - Om Kerberos inte är tillgängligt kontrollerar du programmets autentiseringsinställningar i IIS. Se till att **Negotiate** visas överst, med enbart NTLM under det. Om du **inte ser Negotiate** , **Kerberos eller Negotiate** eller **PKU2U** fortsätter du bara om Kerberos fungerar.
+   - Om Kerberos inte är tillgängligt kontrollerar du programmets autentiseringsinställningar i IIS. Se till att **Negotiate** visas överst, med enbart NTLM under det. Om du **inte ser Negotiate**, **Kerberos eller Negotiate** eller **PKU2U** fortsätter du bara om Kerberos fungerar.
 
      ![Windows-autentiseringsproviders](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic7.png)
 
@@ -138,11 +138,11 @@ Konsumenten av Kerberos-biljetten som tillhandahålls av anslutningen. I det hä
 
       ![SPN-konfiguration i Azure Portal](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic11.png)
 
-   - Gå till IIS och välj alternativet **konfigurations redigerare** för programmet. Gå till **system. webserver/Security/Authentication/windowsAuthentication** . Kontrol lera att värdet **UseAppPoolCredentials** är **Sant** .
+   - Gå till IIS och välj alternativet **konfigurations redigerare** för programmet. Gå till **system. webserver/Security/Authentication/windowsAuthentication**. Kontrol lera att värdet **UseAppPoolCredentials** är **Sant**.
 
       ![Inloggnings alternativ för IIS-konfiguration för programpooler](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic12.png)
 
-      Ändra värdet till **Sant** . Ta bort alla cachelagrade Kerberos-biljetter från backend-servern genom att köra följande kommando:
+      Ändra värdet till **Sant**. Ta bort alla cachelagrade Kerberos-biljetter från backend-servern genom att köra följande kommando:
 
       ```powershell
       Get-WmiObject Win32_LogonSession | Where-Object {$_.AuthenticationPackage -ne 'NTLM'} | ForEach-Object {klist.exe purge -li ([Convert]::ToString($_.LogonId, 16))}
@@ -152,7 +152,7 @@ Mer information finns i [Rensa Kerberos-klientens biljett-cache för alla sessio
 
 Om du låter kernelläge vara aktiverat förbättrar det prestandan för Kerberos-åtgärder. Men det gör också att biljetten för den begärda tjänsten dekrypteras med hjälp av dator kontot. Det här kontot kallas även för det lokala systemet. Ange värdet **Sant** om du vill bryta KCD när programmet finns på fler än en server i en Server grupp.
 
-- Ytterligare kontroll är att inaktivera **utökat** skydd. I vissa scenarier är **utökat** skydd KCD när det aktiverades i vissa konfigurationer. I dessa fall publicerades ett program som en undermapp till standard webbplatsen. Det här programmet är endast konfigurerat för anonym autentisering. Alla dialog rutor är nedtonade, vilket innebär att underordnade objekt inte ärver några aktiva inställningar. Vi rekommenderar att du testar, men inte glömmer att återställa värdet till **aktive rad** , där det är möjligt.
+- Ytterligare kontroll är att inaktivera **utökat** skydd. I vissa scenarier är **utökat** skydd KCD när det aktiverades i vissa konfigurationer. I dessa fall publicerades ett program som en undermapp till standard webbplatsen. Det här programmet är endast konfigurerat för anonym autentisering. Alla dialog rutor är nedtonade, vilket innebär att underordnade objekt inte ärver några aktiva inställningar. Vi rekommenderar att du testar, men inte glömmer att återställa värdet till **aktive rad**, där det är möjligt.
 
   Med den här ytterligare kontrollen går du vidare till spåret och använder ditt publicerade program. Du kan sätta upp ytterligare anslutningar som också är konfigurerade att delegera. Mer information finns i mer djupgående teknisk genom gång, [fel sökning av Azure-AD-programproxy](https://aka.ms/proxytshootpaper).
 

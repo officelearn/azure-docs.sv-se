@@ -12,27 +12,27 @@ ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57efd88b9d194442920496107d4c37ba2baf94d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: efe71fd77e9e4edb7fc7df4c633ae8f81177097b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85554991"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657828"
 ---
 # <a name="azure-ad-powershell-examples-for-azure-ad-application-proxy"></a>Azure AD PowerShell-exempel för Azure AD-programproxy
 
-Följande tabell innehåller länkar till exempel på PowerShell-skript för Azure AD-programproxy. De här exemplen kräver antingen [AzureAD v2 PowerShell för Graph-modulen](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) eller [AzureAD v2 PowerShell för för hands versionen av Graph module](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview), om inget annat anges.
+Följande tabell innehåller länkar till exempel på PowerShell-skript för Azure AD-programproxy. De här exemplen kräver antingen [AzureAD v2 PowerShell för Graph-modulen](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) eller [AzureAD v2 PowerShell för för hands versionen av Graph module](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview), om inget annat anges.
 
 
-Mer information om de cmdlets som används i de här exemplen finns i [Application Management](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management) och Application [proxy Connector Management](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management).
+Mer information om de cmdlets som används i de här exemplen finns i [Application Management](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management) och Application [proxy Connector Management](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management).
 
-| Länk | Beskrivning |
+| Länk | Description |
 |---|---|
 |**Application Proxy-appar**||
 | [Visa en lista med grundläggande information om alla Application Proxy-appar](scripts/powershell-get-all-app-proxy-apps-basic.md) | Visar grundläggande information (AppId, DisplayName, ObjId) om alla Application Proxy-appar i din katalog. |
 | [Visa utökad information för alla Application Proxy-appar](scripts/powershell-get-all-app-proxy-apps-extended.md) | Visar utökad information (AppId, DisplayName, ExternalUrl, InternalUrl, ExternalAuthenticationType) om alla Application Proxy-appar i din katalog.  |
 | [Visa en lista över alla Application Proxy-appar per anslutnings grupp](scripts/powershell-get-all-app-proxy-apps-by-connector-group.md) | Visar information om alla Application Proxy-appar i din katalog och vilka anslutnings grupper som apparna är tilldelade till. |
-| [Hämta alla Application Proxy-appar med en livs längd princip för token](scripts/powershell-get-all-app-proxy-apps-with-policy.md) | Visar en lista över alla Application Proxy-appar i din katalog med en livs längd princip för token och dess information. Det här exemplet kräver [för hands versionen av AzureAD v2 PowerShell för Graph-modulen](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview). |
+| [Hämta alla Application Proxy-appar med en livs längd princip för token](scripts/powershell-get-all-app-proxy-apps-with-policy.md) | Visar en lista över alla Application Proxy-appar i din katalog med en livs längd princip för token och dess information. Det här exemplet kräver [för hands versionen av AzureAD v2 PowerShell för Graph-modulen](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview). |
 |**Anslutningsgrupper**||
 | [Hämta alla kopplings grupper och anslutningar i katalogen](scripts/powershell-get-all-connectors.md) | Visar en lista över alla kopplings grupper och anslutningar i din katalog. |
 | [Flytta alla appar som är kopplade till en anslutnings grupp till en annan anslutnings grupp](scripts/powershell-move-all-apps-to-connector-group.md) | Flyttar alla program som är kopplade till en kopplings grupp till en annan kopplings grupp. |

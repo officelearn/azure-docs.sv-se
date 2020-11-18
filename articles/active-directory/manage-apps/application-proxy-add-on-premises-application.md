@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 8b66a8ea3fcc6af62c872a6df6196b97ece2f55a
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 41955475f32fe674bcb3ef2d1b6e59c71a008b6b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93240927"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656453"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Självstudie: Lägg till ett lokalt program för fjärråtkomst via Application Proxy i Azure Active Directory
 
@@ -92,7 +92,7 @@ Aktivera TLS 1.2:
 Börja med att aktivera kommunikation till Azure-datacenter för att förbereda din miljö för Azure AD-programproxy. Om det finns en brand vägg i sökvägen ser du till att den är öppen. En öppen brand vägg gör det möjligt för anslutningen att göra HTTPS-förfrågningar (TCP) till programproxyn.
 
 > [!IMPORTANT]
-> Om du installerar anslutningen för Azure Government Cloud följer du [krav](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#allow-access-to-urls) och [installations anvisningar](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#install-the-agent-for-the-azure-government-cloud). Detta kräver att du aktiverar åtkomst till en annan uppsättning URL: er och ytterligare en parameter för att köra installationen.
+> Om du installerar anslutningen för Azure Government Cloud följer du [krav](../hybrid/reference-connect-government-cloud.md#allow-access-to-urls) och [installations anvisningar](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud). Detta kräver att du aktiverar åtkomst till en annan uppsättning URL: er och ytterligare en parameter för att köra installationen.
 
 ### <a name="open-ports"></a>Öppna portar
 
@@ -175,7 +175,7 @@ Så här bekräftar du att anslutningsprogrammet installerats och registrerats p
 
      ![Application Proxy Connector-tjänster – skärmbild](./media/application-proxy-add-on-premises-application/app_proxy_services.png)
 
-1. Om statusen för tjänsterna inte **körs** , högerklickar du på varje tjänst och väljer **Starta**.
+1. Om statusen för tjänsterna inte **körs**, högerklickar du på varje tjänst och väljer **Starta**.
 
 ## <a name="add-an-on-premises-app-to-azure-ad"></a>Lägg till ett lokalt program till Azure Active Directory
 
@@ -202,7 +202,7 @@ Nu när du har förberett din miljö och installerat ett anslutningsprogram är 
     | **Tidsgränsen för serverdels-programmet** | Ställ endast in värdet på **Lång** om programmet autentiserar och ansluter långsamt. Som standard har backend-programmets tids gräns en längd på 85 sekunder. När värdet är Long ökas Server dels tids gränsen till 180 sekunder. |
     | **Använd endast HTTP-cookie** | Ställ in värdet på **Ja** för att programproxycookies ska inkluderas i HTTPOnly-flaggan i HTTP-svarsrubriken. Ställ in värdet på **Nej** om du använder fjärrskrivbordstjänster.|
     | **Använd säker cookie**| Ställ in värdet på **Ja** för att skicka cookies via en säker kanal, som en krypterad HTTPS-begäran.
-    | **Använd beständig cookie**| Behåll det här värdet inställt på **Nej**. Använd endast den här inställningen för program som inte kan dela cookies mellan processer. Mer information om cookie-inställningar finns i [cookie-inställningar för att komma åt lokala program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings).
+    | **Använd beständig cookie**| Behåll det här värdet inställt på **Nej**. Använd endast den här inställningen för program som inte kan dela cookies mellan processer. Mer information om cookie-inställningar finns i [cookie-inställningar för att komma åt lokala program i Azure Active Directory](./application-proxy-configure-cookie-settings.md).
     | **Översätt webbadresser i rubriker** | Behåll det här värdet som **Ja** såvida inte programmets ursprungliga värdrubrik krävs i autentiseringsbegäran. |
     | **Översätt webbadresser i brödtext för program** | Behåll detta värde som **Nej** om du inte har hårdkodad HTML-länkar till andra lokala program och inte använder anpassade domäner. Mer information finns i [Länka översättning med programproxy](application-proxy-configure-hard-coded-link-translation.md).<br><br>Ställ in det här värdet på **Ja** om du planerar att övervaka programmet med Microsoft Cloud App Security (MCAS). Mer information finns i [Konfigurera övervakning av program åtkomst i real tid med Microsoft Cloud App Security och Azure Active Directory](application-proxy-integrate-with-microsoft-cloud-application-security.md). |
 

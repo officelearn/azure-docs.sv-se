@@ -9,12 +9,12 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: yelevin
-ms.openlocfilehash: e8e44f69965af1987bd5f023644d966b3caf1c77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5d98a834ed4f87fb95a13e666967a7b2d80975d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89505876"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656062"
 ---
 # <a name="connect-data-from-azure-ddos-protection"></a>Anslut data från Azure DDoS Protection
 
@@ -22,19 +22,19 @@ ms.locfileid: "89505876"
 > Azure DDoS Protection data Connector i Azure Sentinel är för närvarande en offentlig för hands version.
 > Den här funktionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-DDoS-attacker (distributed denial of Service) försöker avsluta ett programs resurser, vilket gör programmet otillgängligt för legitima användare. DDoS-attacker kan riktas mot valfri slutpunkt som kan nås offentligt via Internet. [Azure DDoS Protection](../virtual-network/ddos-protection-overview.md), kombinerat med bästa praxis för program design, ger ett robust försvar mot DDoS-attacker. Du kan ansluta Azure DDoS Protection loggar till Azure Sentinel, så att du kan visa loggdata i arbets böcker, använda den för att skapa anpassade aviseringar och införliva den för att förbättra dina undersökningar. 
+DDoS-attacker (distributed denial of Service) försöker avsluta ett programs resurser, vilket gör programmet otillgängligt för legitima användare. DDoS-attacker kan riktas mot valfri slutpunkt som kan nås offentligt via Internet. [Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md), kombinerat med bästa praxis för program design, ger ett robust försvar mot DDoS-attacker. Du kan ansluta Azure DDoS Protection loggar till Azure Sentinel, så att du kan visa loggdata i arbets böcker, använda den för att skapa anpassade aviseringar och införliva den för att förbättra dina undersökningar. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste ha läs-och Skriv behörighet på Azure Sentinel-arbetsytan.
 
-- Du måste ha en konfigurerad [Azure DDoS standard Protection-Plan](../virtual-network/manage-ddos-protection.md#create-a-ddos-protection-plan).
+- Du måste ha en konfigurerad [Azure DDoS standard Protection-Plan](../ddos-protection/manage-ddos-protection.md#create-a-ddos-protection-plan).
 
-- Du måste ha ett konfigurerat [virtuellt nätverk med Azure DDoS standard aktiverat](../virtual-network/manage-ddos-protection.md#enable-ddos-for-a-new-virtual-network).
+- Du måste ha ett konfigurerat [virtuellt nätverk med Azure DDoS standard aktiverat](../ddos-protection/manage-ddos-protection.md#enable-ddos-protection-for-a-new-virtual-network).
 
 ## <a name="connect-to-azure-ddos-protection"></a>Anslut till Azure DDoS Protection
     
-1. Välj **data kopplingar**på navigerings menyn i Azure Sentinel.
+1. Välj **data kopplingar** på navigerings menyn i Azure Sentinel.
 
 1. Välj **Azure DDoS Protection** i data kopplings galleriet och välj sedan **Öppna kopplings sida** i förhands gransknings fönstret.
 
@@ -49,7 +49,7 @@ DDoS-attacker (distributed denial of Service) försöker avsluta ett programs re
 
        - Markera kryss rutan **Skicka till Log Analytics** . Två nya fält kommer att visas under det. Välj relevant **prenumeration** och **Log Analytics arbets yta** (där Azure Sentinel finns).
 
-       - Markera kryss rutorna för de regel typer vars loggar du vill mata in. Vi rekommenderar **DDoSProtectionNotifications**, **DDoSMitigationFlowLogs**och **DDoSMitigationReports**.
+       - Markera kryss rutorna för de regel typer vars loggar du vill mata in. Vi rekommenderar **DDoSProtectionNotifications**, **DDoSMitigationFlowLogs** och **DDoSMitigationReports**.
 
     1. Klicka på **Spara** längst upp på skärmen. Upprepa den här processen för eventuella ytterligare brand väggar (offentliga IP-adresser) som du har aktiverat DDoS-skydd för.
 

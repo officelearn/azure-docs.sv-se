@@ -11,22 +11,22 @@ ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 6688875385d34fcbece964d43827c6d62ae7ced4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bef120e754c84798b2d1b48f4f00fbb8f5fb3c1d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88587777"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656385"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Konfigurera anpassade domäner med Azure AD-programproxy
 
-När du publicerar ett program via Azure Active Directory-programproxy skapar du en extern URL för dina användare. Den här URL: en hämtar standard domänen *yourtenant.msappproxy.net*. Om du till exempel publicerar en app med namnet *utgifter* i din klient med namnet *contoso*, är den externa webb adressen *https: \/ /expenses-contoso.msappproxy.net*. Om du vill använda ditt eget domän namn i stället för *msappproxy.net*kan du konfigurera en anpassad domän för ditt program. 
+När du publicerar ett program via Azure Active Directory-programproxy skapar du en extern URL för dina användare. Den här URL: en hämtar standard domänen *yourtenant.msappproxy.net*. Om du till exempel publicerar en app med namnet *utgifter* i din klient med namnet *contoso*, är den externa webb adressen *https: \/ /expenses-contoso.msappproxy.net*. Om du vill använda ditt eget domän namn i stället för *msappproxy.net* kan du konfigurera en anpassad domän för ditt program. 
 
 ## <a name="benefits-of-custom-domains"></a>Förmåner för anpassade domäner
 
 Det är en bra idé att konfigurera anpassade domäner för dina appar närhelst det är möjligt. Några skäl till att använda anpassade domäner är:
 
-- Länkar mellan appar fungerar även utanför företags nätverket. Utan en anpassad domän, om din app har hårdkodade interna länkar till mål utanför programproxyn, och länkarna inte kan matchas externt, kommer de att brytas. När dina interna och externa URL: er är desamma, undviker du det här problemet. Om du inte kan använda anpassade domäner, se [omdirigera hårdkodad-Länkar för appar som publicerats med Azure AD-programproxy](../application-proxy-link-translation.md) för andra sätt att åtgärda problemet. 
+- Länkar mellan appar fungerar även utanför företags nätverket. Utan en anpassad domän, om din app har hårdkodade interna länkar till mål utanför programproxyn, och länkarna inte kan matchas externt, kommer de att brytas. När dina interna och externa URL: er är desamma, undviker du det här problemet. Om du inte kan använda anpassade domäner, se [omdirigera hårdkodad-Länkar för appar som publicerats med Azure AD-programproxy](./application-proxy-configure-hard-coded-link-translation.md) för andra sätt att åtgärda problemet. 
   
 - Användarna får en enklare upplevelse eftersom de kan komma åt appen med samma URL inifrån eller utanför nätverket. De behöver inte lära sig olika interna och externa URL: er eller spåra deras nuvarande plats. 
 
@@ -64,7 +64,7 @@ Skapa och verifiera en anpassad domän:
 1. Ange ditt anpassade domän namn och välj **Lägg till domän**. 
 1. På sidan domän kopierar du TXT-postinformationen för din domän. 
 1. Gå till din domän registrator och skapa en ny TXT-post för din domän, baserat på din kopierade DNS-information.
-1. När du har registrerat domänen väljer du **Verifiera**på domän sidan i Azure Active Directory. När domänens status har **verifierats**kan du använda domänen över alla dina Azure AD-konfigurationer, inklusive Application Proxy. 
+1. När du har registrerat domänen väljer du **Verifiera** på domän sidan i Azure Active Directory. När domänens status har **verifierats** kan du använda domänen över alla dina Azure AD-konfigurationer, inklusive Application Proxy. 
 
 Mer detaljerade instruktioner finns i [lägga till ditt anpassade domän namn med hjälp av Azure Active Directory portalen](../fundamentals/add-custom-domain.md).
 
@@ -74,7 +74,7 @@ Publicera din app via Application Proxy med en anpassad domän:
 
 1. För en ny app väljer du **företags program** i Azure Active Directory i det vänstra navigerings fältet. Välj **Nytt program**. I avsnittet **lokala program** väljer du **Lägg till ett lokalt program**. 
    
-   För en app som redan finns i **företags program**markerar du den i listan och väljer sedan **Application Proxy** i det vänstra navigerings fältet. 
+   För en app som redan finns i **företags program** markerar du den i listan och väljer sedan **Application Proxy** i det vänstra navigerings fältet. 
 
 2. På sidan Inställningar för programproxy anger du ett **namn** om du vill lägga till ett eget lokalt program.
 
@@ -123,7 +123,7 @@ Du måste använda ett PFX-certifikat för att se till att alla nödvändiga mel
 
 De vanligaste metoderna för certifikat signering stöds, till exempel ett alternativt namn för certifikat mottagare (SAN). 
 
-Du kan använda certifikat med jokertecken så länge jokertecknet matchar den externa URL: en. Du måste använda certifikat med jokertecken för [program med jokertecken](application-proxy-wildcard.md). Om du vill använda certifikatet till att även komma åt under domäner måste du lägga till jokertecken för underdomäner som alternativa namn i samma certifikat. Till exempel fungerar inte ett certifikat för * \* . Adventure-Works.com* för * \* . Apps.Adventure-Works.com* om du inte lägger till * \* . Apps.Adventure-Works.com* som alternativt namn för certifikat mottagare. 
+Du kan använda certifikat med jokertecken så länge jokertecknet matchar den externa URL: en. Du måste använda certifikat med jokertecken för [program med jokertecken](application-proxy-wildcard.md). Om du vill använda certifikatet till att även komma åt under domäner måste du lägga till jokertecken för underdomäner som alternativa namn i samma certifikat. Till exempel fungerar inte ett certifikat för *\* . Adventure-Works.com* för *\* . Apps.Adventure-Works.com* om du inte lägger till *\* . Apps.Adventure-Works.com* som alternativt namn för certifikat mottagare. 
 
 Du kan använda certifikat som utfärdats av din egen infrastruktur för offentliga nycklar (PKI) om certifikat kedjan är installerad på klient enheterna. Intune kan distribuera dessa certifikat till hanterade enheter. För icke-hanterade enheter måste du installera dessa certifikat manuellt. 
 
@@ -135,7 +135,7 @@ All certifikat hantering sker via enskilda program sidor. Gå till programmets *
 
 När ett certifikat har överförts till ett program kommer det också att appliceras automatiskt på **nya** appar som kon figurer ATS som använder samma certifikat. Du måste ladda upp certifikatet för befintliga appar i din klient organisation igen.
 
-När ett certifikat går ut får du en varning om att ladda upp ett annat certifikat. Om certifikatet har återkallats kan användarna se en säkerhets varning vid åtkomst till appen. Om du vill uppdatera certifikatet för en app går du till sidan **Application Proxy** för appen, väljer **certifikat**och laddar upp ett nytt certifikat. Om det gamla certifikatet inte används av andra appar tas det bort automatiskt. 
+När ett certifikat går ut får du en varning om att ladda upp ett annat certifikat. Om certifikatet har återkallats kan användarna se en säkerhets varning vid åtkomst till appen. Om du vill uppdatera certifikatet för en app går du till sidan **Application Proxy** för appen, väljer **certifikat** och laddar upp ett nytt certifikat. Om det gamla certifikatet inte används av andra appar tas det bort automatiskt. 
 
 ## <a name="next-steps"></a>Nästa steg
 

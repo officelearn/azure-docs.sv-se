@@ -12,12 +12,12 @@ ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperfq2
-ms.openlocfilehash: 81a735966b2a0ebdd7c8fcd9e9aa467d68aac354
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2d041782e8df795acb120ba1357cec5ef204dc28
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792760"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656348"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Arbeta med befintliga lokala proxyservrar
 
@@ -179,7 +179,7 @@ Utför följande steg för inledande fel sökning:
    ![Azure AD-programproxy Connector-tjänsten i Services. msc](./media/application-proxy-configure-connectors-with-proxy-servers/services-local.png)
 
 1. Kör Message Analyzer som administratör.
-1. Välj **Starta lokal spårning** .
+1. Välj **Starta lokal spårning**.
 1. Starta tjänsten Azure AD-programproxy Connector.
 1. Stoppa nätverks avbildningen.
 
@@ -189,7 +189,7 @@ Utför följande steg för inledande fel sökning:
 
 Om du har konfigurerat din Application Proxy-anslutning för att kringgå proxyservrarna och ansluta direkt till Application Proxy-tjänsten, vill du söka i nätverks avbildningen efter misslyckade TCP-anslutnings försök.
 
-Använd Message Analyzer-filtret för att identifiera de här försöken. Ange `property.TCPSynRetransmit` i rutan Filter och välj **Använd** .
+Använd Message Analyzer-filtret för att identifiera de här försöken. Ange `property.TCPSynRetransmit` i rutan Filter och välj **Använd**.
 
 Ett SYN paket är det första paket som skickas för att upprätta en TCP-anslutning. Om det här paketet inte returnerar ett svar görs ett nytt försök med tillståndet. Du kan använda föregående filter för att se alla SYNs som har skickats om. Sedan kan du kontrol lera om dessa SYNs motsvarar den kopplings-relaterade trafiken.
 
@@ -208,4 +208,4 @@ Om du ser andra svars koder, till exempel 407 eller 502, innebär det att proxyn
 ## <a name="next-steps"></a>Nästa steg
 
 * [Förstå Azure AD-programproxy-kopplingar](application-proxy-connectors.md)
-* Om du har problem med anslutnings problem kan du ställa din fråga på [sidan Microsoft Q&en fråga för att Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html) eller skapa en biljett med vårt support team.
+* Om du har problem med anslutnings problem kan du ställa din fråga på [sidan Microsoft Q&en fråga för att Azure Active Directory](/answers/topics/azure-active-directory.html) eller skapa en biljett med vårt support team.

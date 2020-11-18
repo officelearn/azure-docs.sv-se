@@ -12,12 +12,12 @@ ms.date: 08/13/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperfq2
-ms.openlocfilehash: 860d29d3fff2187e770a5ff00b7145fc188a497c
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: e43ad9dedf4212e9b30a08f0c978cb8d1a86776c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426499"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657422"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-sso-to-your-apps-with-application-proxy"></a>Kerberos-begränsad delegering för enkel inloggning (SSO) till dina appar med Application Proxy
 
@@ -39,12 +39,12 @@ Det här diagrammet förklarar flödet när en användare försöker komma åt e
 7. Anslutningen skickar den ursprungliga begäran till program servern med hjälp av Kerberos-token som den fick från AD.
 8. Programmet skickar svaret till anslutningen, som sedan returneras till Application Proxy-tjänsten och slutligen till användaren.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du börjar med enkel inloggning för IWA-program kontrollerar du att din miljö är klar med följande inställningar och konfigurationer:
 
-* Dina appar, t. ex. SharePoint-webbappar, är inställda på att använda integrerad Windows-autentisering. Mer information finns i [Aktivera stöd för Kerberos-autentisering](https://technet.microsoft.com/library/dd759186.aspx), eller för SharePoint se [plan för Kerberos-autentisering i SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
+* Dina appar, t. ex. SharePoint-webbappar, är inställda på att använda integrerad Windows-autentisering. Mer information finns i [Aktivera stöd för Kerberos-autentisering](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd759186(v=ws.11)), eller för SharePoint se [plan för Kerberos-autentisering i SharePoint 2013](/SharePoint/security-for-sharepoint-server/kerberos-authentication-planning).
 * Alla dina appar har SPN [-namn](https://social.technet.microsoft.com/wiki/contents/articles/717.service-principal-names-spns-setspn-syntax-setspn-exe.aspx).
-* Servern som kör anslutningen och servern som kör appen är domänanslutna och delar av samma domän eller domäner med förtroende. Mer information om domän anslutning finns i [ansluta en dator till en domän](https://technet.microsoft.com/library/dd807102.aspx).
+* Servern som kör anslutningen och servern som kör appen är domänanslutna och delar av samma domän eller domäner med förtroende. Mer information om domän anslutning finns i [ansluta en dator till en domän](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dd807102(v=ws.11)).
 * Servern som kör anslutningen har åtkomst att läsa TokenGroupsGlobalAndUniversal-attributet för användare. Den här standardinställningen kan ha påverkats av säkerhets härdning av miljön.
 
 ### <a name="configure-active-directory"></a>Konfigurera Active Directory
@@ -61,7 +61,7 @@ Active Directory-konfigurationen varierar beroende på om din Application Proxy 
    ![Koppling – Server instanser Fönstret Egenskaper skärm bild](./media/application-proxy-configure-single-sign-on-with-kcd/properties.jpg)
 
 #### <a name="connector-and-application-server-in-different-domains"></a>Anslutnings-och program server i olika domäner
-1. En lista över krav för att arbeta med KCD över domäner finns i Kerberos- [begränsad delegering över domäner](https://technet.microsoft.com/library/hh831477.aspx).
+1. En lista över krav för att arbeta med KCD över domäner finns i Kerberos- [begränsad delegering över domäner](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831477(v=ws.11)).
 2. Använd `principalsallowedtodelegateto` egenskapen för tjänst kontot (dator eller dedikerat domän användar konto) för webb programmet för att aktivera delegering av Kerberos-autentisering från programproxyn (anslutnings programmet). Program servern körs i kontexten `webserviceaccount` och den delegerande servern är `connectorcomputeraccount` . Kör kommandona nedan på en domänkontrollant (som kör Windows Server 2012 R2 eller senare) i domänen för `webserviceaccount` . Använd fasta namn (icke-UPN) för båda kontona.
 
    Om `webserviceaccount` är ett dator konto använder du följande kommandon:
@@ -153,4 +153,3 @@ Men i vissa fall skickas begäran till Server dels programmet medan det här pro
 
 * [Så här konfigurerar du ett Application Proxy-program för att använda Kerberos-begränsad delegering](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 * [Felsöka problem med Application Proxy](application-proxy-troubleshoot.md)
-

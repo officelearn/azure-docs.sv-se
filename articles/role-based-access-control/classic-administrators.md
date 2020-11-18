@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: dc8a23d8cdb923f86d581d1af2967112d226c847
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d61d49fdd90f1f916141ca636e2c2a4dbe0b9bcd
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370635"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657759"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Klassiska Azure-prenumerationsadministratörer
 
@@ -44,7 +44,7 @@ Den här artikeln beskriver hur du lägger till eller ändrar rollen Co-Administ
 
     ![Skärm bild som öppnar klassiska administratörer](./media/classic-administrators/classic-administrators.png)
 
-1. Klicka på **Lägg**till  >  **Lägg till gemensam administratör** för att öppna fönstret Lägg till samadministratörer.
+1. Klicka på **Lägg** till  >  **Lägg till gemensam administratör** för att öppna fönstret Lägg till samadministratörer.
 
     Om alternativet Lägg till samadministratör är inaktiverat har du inte behörighet.
 
@@ -58,7 +58,7 @@ Om du vill lägga till en gäst användare som en medadministratör följer du s
 
 - Gäst användaren måste ha en närvaro i din katalog. Det innebär att användaren har bjudits in till din katalog och accepterat inbjudan.
 
-Mer information om hur du lägger till en gäst användare i din katalog finns i [lägga till Azure Active Directory B2B-samarbets användare i Azure Portal](../active-directory/b2b/add-users-administrator.md).
+Mer information om hur du lägger till en gäst användare i din katalog finns i [lägga till Azure Active Directory B2B-samarbets användare i Azure Portal](../active-directory/external-identities/add-users-administrator.md).
 
 ### <a name="differences-for-guest-users"></a>Skillnader för gäst användare
 
@@ -91,7 +91,7 @@ Information som jämför medlems användare och gäst användare finns i [Vad ä
 
 1. Klicka på **Ta bort**.
 
-1. Klicka på **Ja**i meddelande rutan som visas.
+1. Klicka på **Ja** i meddelande rutan som visas.
 
     ![Skärm bild som tar bort gemensam administratör](./media/classic-administrators/remove-coadmin.png)
 
@@ -109,7 +109,7 @@ Följ dessa steg om du vill ändra tjänst administratören i **konto Center**.
 
 1. Klicka på en prenumeration.
 
-1. Klicka på **Redigera prenumerations information**på höger sida.
+1. Klicka på **Redigera prenumerations information** på höger sida.
 
     ![Skärm bild som visar knappen Redigera prenumeration i konto Center](./media/classic-administrators/editsub.png)
 
@@ -125,8 +125,8 @@ Det kan bara finnas en tjänst administratör per Azure-prenumeration. Att ändr
 
 | Konto administratörs konto | Kan du ändra tjänst administratör till en annan Microsoft-konto? | Kan du ändra tjänst administratör till ett Azure AD-konto i samma katalog? | Kan du ändra tjänst administratör till ett Azure AD-konto i en annan katalog? |
 | --- | --- | --- | --- |
-| Microsoft-konto | Ja | Nej | Nej |
-| Azure AD-konto | Ja | Ja | Nej |
+| Microsoft-konto | Ja | Inga | Inga |
+| Azure AD-konto | Ja | Ja | Inga |
 
 Om konto administratören är ett Azure AD-konto kan du ändra tjänst administratören till ett Azure AD-konto i samma katalog, men inte i en annan katalog. Kan till exempel abby@contoso.com ändra tjänst administratören till bob@contoso.com , men kan inte ändra tjänst administratören till john@notcontoso.com om den inte john@notcontoso.com har en närvaro i contoso.com-katalogen.
 

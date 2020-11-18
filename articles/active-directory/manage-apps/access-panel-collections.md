@@ -14,19 +14,19 @@ ms.date: 02/10/2020
 ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f520141d36726e94dc8d49d7e5aa95bb35d5484
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 967ac34ddb736f58f66639181cdf10e4aaa8ffab
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85956244"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656793"
 ---
 # <a name="create-collections-on-the-my-apps-portal"></a>Skapa samlingar i portalen Mina appar
 
 Användarna kan använda portalen Mina appar för att visa och starta de molnbaserade program som de har åtkomst till. Som standard visas alla program som en användare har åtkomst till tillsammans på en enda sida. För att bättre organisera den här sidan för dina användare, om du har en Azure AD Premium P1-eller P2-licens kan du konfigurera samlingar. Med en samling kan du gruppera program som är relaterade (till exempel efter jobb roll, uppgift eller projekt) och visa dem på en separat flik. En samling tillämpar i princip ett filter på de program som en användare redan har åtkomst till, så att användaren bara ser de programmen i samlingen som har tilldelats dem.
 
 > [!NOTE]
-> Den här artikeln beskriver hur en administratör kan aktivera och skapa samlingar. Information för slutanvändaren om hur du använder portalen för Mina appar och samlingar finns i [åtkomst-och användnings samlingar](https://docs.microsoft.com/azure/active-directory/user-help/my-applications-portal-workspaces).
+> Den här artikeln beskriver hur en administratör kan aktivera och skapa samlingar. Information för slutanvändaren om hur du använder portalen för Mina appar och samlingar finns i [åtkomst-och användnings samlingar](../user-help/my-applications-portal-workspaces.md).
 
 ## <a name="enable-the-latest-my-apps-features"></a>Aktivera de senaste Mina Apps-funktionerna
 
@@ -34,9 +34,9 @@ Användarna kan använda portalen Mina appar för att visa och starta de molnbas
 
 2. Gå till **Azure Active Directory**  >  **användar inställningar**.
 
-3. Under förhands **granskningar av användar funktioner**väljer du **Hantera för hands versions inställningar för användar funktionen**.
+3. Under förhands **granskningar av användar funktioner** väljer du **Hantera för hands versions inställningar för användar funktionen**.
 
-4. Under **användare kan använda för hands versions funktioner för Mina appar**väljer du något av följande alternativ:
+4. Under **användare kan använda för hands versions funktioner för Mina appar** väljer du något av följande alternativ:
    * **Markerat** – aktiverar funktioner för en viss grupp. Använd alternativet **Välj en grupp** för att välja den grupp som du vill aktivera funktionerna för.  
    * **Alla** – aktiverar funktionerna för alla användare.
 
@@ -51,13 +51,13 @@ Om du vill skapa en samling måste du ha en Azure AD Premium P1-eller P2-licens.
 
 2. Gå till **Azure Active Directory**  >  **företags program**.
 
-3. Under **Hantera**väljer du **samlingar**.
+3. Under **Hantera** väljer du **samlingar**.
 
 4. Välj **ny samling**. På sidan **ny samling** anger du ett **namn** för samlingen (vi rekommenderar att du inte använder "samling" i namnet. Ange sedan en **Beskrivning**.
 
    ![Sidan ny samling](media/acces-panel-collections/new-collection.png)
 
-5. Välj fliken **program** . Välj **+ Lägg till program**och välj sedan alla program som du vill lägga till i samlingen på sidan **Lägg till program** , eller Använd **sökrutan för** att hitta program.
+5. Välj fliken **program** . Välj **+ Lägg till program** och välj sedan alla program som du vill lägga till i samlingen på sidan **Lägg till program** , eller Använd **sökrutan för** att hitta program.
 
    ![Lägg till ett program i samlingen](media/acces-panel-collections/add-applications.png)
 
@@ -83,7 +83,7 @@ I gransknings loggarna registreras mina program samlingar, inklusive åtgärder 
 * Lägg till självbetjänings program (slutanvändare)
 * Borttagning av självbetjänings program (slutanvändare)
 
-Du kan komma åt gransknings loggar i [Azure Portal](https://portal.azure.com) genom att välja **Azure Active Directory**  >  **Enterprise Applications**  >  **gransknings loggar** för företags program i avsnittet aktivitet. För **tjänst**väljer du **Mina appar**.
+Du kan komma åt gransknings loggar i [Azure Portal](https://portal.azure.com) genom att välja **Azure Active Directory**  >  **Enterprise Applications**  >  **gransknings loggar** för företags program i avsnittet aktivitet. För **tjänst** väljer du **Mina appar**.
 
 ## <a name="get-support-for-my-account-pages"></a>Få support för mina konto sidor
 

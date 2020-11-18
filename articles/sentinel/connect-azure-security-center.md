@@ -9,16 +9,16 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: yelevin
-ms.openlocfilehash: b1188e533039b0137cebb22652d9921418c41deb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b37675d46d501fc43446eafc83d6c0a02f238177
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89659656"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655960"
 ---
 # <a name="connect-azure-defender-alert-data-from-azure-security-center"></a>Anslut Azure Defender-aviserings data från Azure Security Center
 
-Använd Azure Defender Alert Connector för att mata in Azure Defender-aviseringar från [Azure Security Center](../security-center/security-center-intro.md) och strömma dem till Azure Sentinel. 
+Använd Azure Defender Alert Connector för att mata in Azure Defender-aviseringar från [Azure Security Center](../security-center/security-center-introduction.md) och strömma dem till Azure Sentinel. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -32,9 +32,9 @@ Använd Azure Defender Alert Connector för att mata in Azure Defender-avisering
 
 1. I galleriet data anslutningar väljer du **Azure Defender-aviseringar från ASC** (kan fortfarande anropas Azure Security Center) och klickar på knappen **Öppna kopplings sidan** .
 
-1. Under **konfiguration**klickar du på **Anslut** bredvid varje prenumeration vars aviseringar du vill strömma till Azure Sentinel. Knappen Anslut är bara tillgänglig om du har de behörigheter som krävs.
+1. Under **konfiguration** klickar du på **Anslut** bredvid varje prenumeration vars aviseringar du vill strömma till Azure Sentinel. Knappen Anslut är bara tillgänglig om du har de behörigheter som krävs.
 
-1. Du kan välja om du vill att aviseringarna från Azure Defender automatiskt ska generera incidenter i Azure Sentinel. Under **skapa incidenter**väljer du **aktive rad** för att aktivera standard analys regeln som automatiskt skapar incidenter från aviseringar. Du kan sedan redigera regeln under **analys**på fliken  **aktiva regler** .
+1. Du kan välja om du vill att aviseringarna från Azure Defender automatiskt ska generera incidenter i Azure Sentinel. Under **skapa incidenter** väljer du **aktive rad** för att aktivera standard analys regeln som automatiskt skapar incidenter från aviseringar. Du kan sedan redigera regeln under **analys** på fliken  **aktiva regler** .
 
 1. Om du vill använda det relevanta schemat i Log Analytics för Azure Defender-aviseringar söker du efter **SecurityAlert**.
 

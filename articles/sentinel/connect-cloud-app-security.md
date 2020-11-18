@@ -1,6 +1,6 @@
 ---
 title: Anslut Cloud App Security data till Azure Sentinel | Microsoft Docs
-description: Lär dig att använda Microsoft Cloud App Security-anslutningen (MCAS) för att strömma aviseringar och Cloud Discovery loggar från MCAS till Azure Sentinel. 
+description: Lär dig att använda Microsoft Cloud App Security-anslutningen (MCAS) för att strömma aviseringar och Cloud Discovery loggar från MCAS till Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2020
 ms.author: yelevin
-ms.openlocfilehash: 5c67f517ffd3704644fbe8041f3ac1e7b0d1f09c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9827e93f793ef47a835aa0a5fb2005e2830a0824
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904549"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655722"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Anslut data från Microsoft Cloud App Security 
 
-Med [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) -anslutaren (MCAS) kan du strömma aviseringar och [Cloud Discovery loggar](https://docs.microsoft.com/cloud-app-security/tutorial-shadow-it) från MCAS till Azure Sentinel. På så sätt kan du få insyn i dina molnappar, få avancerade analyser för att identifiera och bekämpa cyberhot och styra hur dina data överförs.
+Med [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) -anslutaren (MCAS) kan du strömma aviseringar och [Cloud Discovery loggar](/cloud-app-security/tutorial-shadow-it) från MCAS till Azure Sentinel. På så sätt kan du få insyn i dina molnappar, få avancerade analyser för att identifiera och bekämpa cyberhot och styra hur dina data överförs.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Användaren måste ha läs-och Skriv behörighet på arbets ytan.
 - Användaren måste ha behörighet som global administratör eller säkerhets administratör på arbets ytans klient organisation.
-- Om du vill strömma Cloud Discovery loggar till Azure Sentinel [aktiverar du Azure Sentinel som Siem i Microsoft Cloud App Security](https://aka.ms/AzureSentinelMCAS).
+- Om du vill strömma Cloud Discovery loggar till Azure Sentinel [aktiverar du Azure Sentinel som Siem i Microsoft Cloud App Security](/cloud-app-security/siem-sentinel).
 
 > [!IMPORTANT]
 > Inmatning av Cloud Discovery loggar är för närvarande en offentlig för hands version.
@@ -38,17 +38,17 @@ Med [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security
  
 ## <a name="connect-to-cloud-app-security"></a>Anslut till Cloud App Security
 
-Om du redan har Cloud App Security kontrollerar du att den är [aktive rad i nätverket](https://docs.microsoft.com/cloud-app-security/getting-started-with-cloud-app-security).
+Om du redan har Cloud App Security kontrollerar du att den är [aktive rad i nätverket](/cloud-app-security/getting-started-with-cloud-app-security).
 Om Cloud App Security distribueras och matas in med dina data kan aviserings informationen enkelt strömmas i Azure Sentinel.
 
 
-1. Välj **data kopplingar**på navigerings menyn i Azure Sentinel. I listan över kopplingar klickar du på panelen **Microsoft Cloud App Security** och sedan på knappen **Öppna kopplings sida** längst ned till höger.
+1. Välj **data kopplingar** på navigerings menyn i Azure Sentinel. I listan över kopplingar klickar du på panelen **Microsoft Cloud App Security** och sedan på knappen **Öppna kopplings sida** längst ned till höger.
 
 1. Välj vilka loggar du vill strömma till i Azure Sentinel; Du kan välja **aviseringar** och **Cloud Discovery loggar** (för hands version). 
 
 1. Klicka på **tillämpa ändringar**.
 
-1. Du kan välja om du vill att Azure Defender-aviseringar från Azure Security Center automatiskt ska generera incidenter i Azure Sentinel. Under **skapa incidenter**väljer du **aktive rad** för att aktivera standard analys regeln som automatiskt skapar incidenter från aviseringar. Du kan sedan redigera regeln under **analys**på fliken  **aktiva regler** .
+1. Du kan välja om du vill att Azure Defender-aviseringar från Azure Security Center automatiskt ska generera incidenter i Azure Sentinel. Under **skapa incidenter** väljer du **aktive rad** för att aktivera standard analys regeln som automatiskt skapar incidenter från aviseringar. Du kan sedan redigera regeln under **analys** på fliken  **aktiva regler** .
 
 1. Om du vill använda det relevanta schemat i Log Analytics för Cloud App Security aviseringar skriver `SecurityAlert` du i frågefönstret. För schemat för Cloud Discovery loggar skriver du `McasShadowItReporting` .
 
@@ -60,4 +60,4 @@ Om Cloud App Security distribueras och matas in med dina data kan aviserings inf
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet har du lärt dig hur du ansluter Microsoft Cloud App Security till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
 - Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
-- Kom igång med att identifiera hot med Azure Sentinel, med [inbyggda](tutorial-detect-threats.md) eller [anpassade](tutorial-detect-threats-custom.md) regler.
+- Kom igång med att identifiera hot med Azure Sentinel, med [inbyggda](./tutorial-detect-threats-built-in.md) eller [anpassade](tutorial-detect-threats-custom.md) regler.

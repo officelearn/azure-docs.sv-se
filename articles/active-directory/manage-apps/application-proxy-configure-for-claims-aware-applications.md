@@ -15,15 +15,15 @@ ms.date: 11/08/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97def0608251f65aa222e13760877d4287135d08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5c840722ae6b03a0b8a7fa44e5999e14730d4f3
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87386987"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656283"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Arbeta med anspråks medveten appar i Application Proxy
-[Anspråksmedvetna appar](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) utför en omdirigering till säkerhetstokentjänsten (Security Token Service). STS begär autentiseringsuppgifter från användaren i Exchange för en token och omdirigerar sedan användaren till programmet. Det finns några sätt att aktivera Application Proxy för att arbeta med dessa omdirigeringar. Använd den här artikeln för att konfigurera distributionen för anspråksmedvetna appar. 
+[Anspråksmedvetna appar](/previous-versions/windows/desktop/legacy/bb736227(v=vs.85)) utför en omdirigering till säkerhetstokentjänsten (Security Token Service). STS begär autentiseringsuppgifter från användaren i Exchange för en token och omdirigerar sedan användaren till programmet. Det finns några sätt att aktivera Application Proxy för att arbeta med dessa omdirigeringar. Använd den här artikeln för att konfigurera distributionen för anspråksmedvetna appar. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 Se till att STS som anspråks medveten app omdirigerar till är tillgängligt utanför ditt lokala nätverk. Du kan göra STS tillgängligt genom att exponera det via en proxyserver eller genom att tillåta externa anslutningar. 
@@ -32,7 +32,7 @@ Se till att STS som anspråks medveten app omdirigerar till är tillgängligt ut
 
 1. Publicera programmet enligt instruktionerna som beskrivs i [Publicera program med programproxy](application-proxy-add-on-premises-application.md).
 2. Gå till program sidan i portalen och välj **enkel inloggning**.
-3. Om du valde **Azure Active Directory** som **Förautentiserings metod**väljer du **enkel inloggning för Azure AD inaktiverat** som din **interna autentiseringsmetod**. Om du väljer **genom strömning** som **metod för förautentisering**behöver du inte ändra något.
+3. Om du valde **Azure Active Directory** som **Förautentiserings metod** väljer du **enkel inloggning för Azure AD inaktiverat** som din **interna autentiseringsmetod**. Om du väljer **genom strömning** som **metod för förautentisering** behöver du inte ändra något.
 
 ## <a name="configure-adfs"></a>Konfigurera ADFS
 
@@ -49,12 +49,10 @@ Om alla interna URL: er för dina program är fullständigt kvalificerade domän
 
    ![Förtroenden för förlitande part högerklickar på appens namn – skärm bild](./media/application-proxy-configure-for-claims-aware-applications/appproxyrelyingpartytrust.png)  
 
-3. På fliken **slut punkter** under typ av **slut punkt**väljer du **WS-Federation**.
-4. Under **betrodd URL**anger du den URL som du angav i Application Proxy under **extern URL** och klickar på **OK**.  
+3. På fliken **slut punkter** under typ av **slut punkt** väljer du **WS-Federation**.
+4. Under **betrodd URL** anger du den URL som du angav i Application Proxy under **extern URL** och klickar på **OK**.  
 
    ![Lägg till ett slut punkts värde för betrodd URL-skärm bild](./media/application-proxy-configure-for-claims-aware-applications/appproxyendpointtrustedurl.png)  
 
 ## <a name="next-steps"></a>Nästa steg
 * [Aktivera inbyggda klient program för att interagera med proxy-program](application-proxy-configure-native-client-application.md)
-
-

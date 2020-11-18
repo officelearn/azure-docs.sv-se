@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: a88696ba69fdf53f5c7e15d174b126d69f4230ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7701fc6d90fd9ebc7ec29f0ffdd7d050c58c036c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85555424"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655671"
 ---
 # <a name="connect-your-domain-name-server"></a>Anslut din domän namns Server
 
@@ -43,14 +43,14 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 
 | **Ansluten källa** | **Support** | **Beskrivning** |
 | --- | --- | --- |
-| [Windows-agenter](../azure-monitor/platform/agent-windows.md) | Ja | Lösningen samlar in DNS-information från Windows-agenter. |
-| [Linux-agenter](../azure-monitor/learn/quick-collect-linux-computer.md) | Inga | Lösningen samlar inte in DNS-information från Direct Linux-agenter. |
-| [System Center Operations Manager-hanteringsgrupp](../azure-monitor/platform/om-agents.md) | Ja | Lösningen samlar in DNS-information från agenter i en ansluten Operations Manager hanterings grupp. En direkt anslutning från Operations Manager agent till Azure Monitor krävs inte. Data vidarebefordras från hanterings gruppen till Log Analytics-arbetsytan. |
-| [Azure Storage-konto](../azure-monitor/platform/collect-azure-metrics-logs.md) | Inga | Azure Storage används inte av lösningen. |
+| [Windows-agenter](../azure-monitor/platform/agent-windows.md) | Yes | Lösningen samlar in DNS-information från Windows-agenter. |
+| [Linux-agenter](../azure-monitor/learn/quick-collect-linux-computer.md) | No | Lösningen samlar inte in DNS-information från Direct Linux-agenter. |
+| [System Center Operations Manager-hanteringsgrupp](../azure-monitor/platform/om-agents.md) | Yes | Lösningen samlar in DNS-information från agenter i en ansluten Operations Manager hanterings grupp. En direkt anslutning från Operations Manager agent till Azure Monitor krävs inte. Data vidarebefordras från hanterings gruppen till Log Analytics-arbetsytan. |
+| [Azure Storage-konto](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) | No | Azure Storage används inte av lösningen. |
 
 ### <a name="data-collection-details"></a>Information om data insamling
 
-Lösningen samlar in DNS-inventering och DNS-säkerhetsrelaterade data från DNS-servrarna där en Log Analytics-agent är installerad. Lagerrelaterade data, till exempel antalet DNS-servrar, zoner och resurs poster, samlas in genom att köra DNS PowerShell-cmdletar. Data uppdateras var två: e dag. Händelse-relaterade data samlas in nära real tid från de [analytiska och gransknings loggar](https://technet.microsoft.com/library/dn800669.aspx#enhanc) som tillhandahålls av förbättrad DNS-loggning och diagnostik i Windows Server 2012 R2.
+Lösningen samlar in DNS-inventering och DNS-säkerhetsrelaterade data från DNS-servrarna där en Log Analytics-agent är installerad. Lagerrelaterade data, till exempel antalet DNS-servrar, zoner och resurs poster, samlas in genom att köra DNS PowerShell-cmdletar. Data uppdateras var två: e dag. Händelse-relaterade data samlas in nära real tid från de [analytiska och gransknings loggar](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11)#enhanc) som tillhandahålls av förbättrad DNS-loggning och diagnostik i Windows Server 2012 R2.
 
 
 ## <a name="connect-your-dns-appliance"></a>Anslut din DNS-installation
@@ -65,7 +65,7 @@ Lösningen samlar in DNS-inventering och DNS-säkerhetsrelaterade data från DNS
 2. Om din DNS-dator inte är en virtuell Azure-dator:
     1. Klicka på **Installera agent på datorer som inte är Azure-datorer**.
     1. I fönstret **direkt agent** väljer du antingen **Ladda ned Windows-agent (64 bitar)** eller **ladda ned Windows agent (32 bitar)**.
-    1. Installera agenten på din DNS-dator. Kopiera **arbetsyte-ID**, **primär nyckel**och **sekundär nyckel** och Använd dem när du uppmanas att göra det under installationen.
+    1. Installera agenten på din DNS-dator. Kopiera **arbetsyte-ID**, **primär nyckel** och **sekundär nyckel** och Använd dem när du uppmanas att göra det under installationen.
 
 3. Om du vill använda det relevanta schemat i Log Analytics för DNS-loggarna söker du efter **DnsEvents**.
 
@@ -76,7 +76,7 @@ Sök efter schemat **DnsEvents** i Log Analytics och se till att det finns händ
 ## <a name="troubleshooting"></a>Felsökning
 
 Om Sök frågor inte visas i Azure Sentinel följer du dessa steg så att frågorna visas korrekt:
-1. Aktivera [DNS-analys loggar på dina servrar](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11)).
+1. Aktivera [DNS-analys loggar på dina servrar](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11)).
 2. Kontrol lera att DNSEvents visas i listan Log Analytics samling.
 3. Aktivera [Azure DNS Analytics](../azure-monitor/insights/dns-analytics.md).
 4. I Azure DNS Analytics, under **konfiguration**, ändra inställningarna, spara den och ändra den sedan igen, och spara den sedan igen.

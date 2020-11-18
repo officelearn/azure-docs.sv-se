@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 05/21/2018
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 7babe23426cafe01cadc7a5557f91896aa9bbae4
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 0b7fee330f93097b561714ecc938eaf3fee8f2b5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108209"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657337"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problem med att installera anslutningsappen för programproxyagenten
 
@@ -39,7 +39,7 @@ När installationen av en anslutning Miss lyckas är rotor saken vanligt vis nå
 
 **Mål:** Kontrol lera att anslutnings datorn kan ansluta till registrerings slut punkten för programproxyn och sidan Microsoft-inloggning.
 
-1.  På kopplings servern kör du ett port test genom att använda [telnet](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) eller något annat port test verktyg för att kontrol lera att portarna 443 och 80 är öppna.
+1.  På kopplings servern kör du ett port test genom att använda [telnet](/windows-server/administration/windows-commands/telnet) eller något annat port test verktyg för att kontrol lera att portarna 443 och 80 är öppna.
 
 2.  Om någon av dessa portar inte lyckas kontrollerar du att brand väggen eller backend-proxyn har åtkomst till de nödvändiga domänerna och portarna i, [förbereder din lokala miljö](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
@@ -76,14 +76,14 @@ Verifiera tumavtrycket för det aktuella klient certifikatet. Du hittar certifik
 
 De möjliga **IsInUserStore** -värdena är **True** och **false**. Värdet **True** betyder att det automatiskt förnyade certifikatet lagras i den personliga behållaren i användar certifikat arkivet för nätverks tjänsten. Värdet **false** betyder att klient certifikatet skapades under installationen eller registreringen som initierades av Register-AppProxyConnector kommandot och lagras i den personliga behållaren i certifikat arkivet på den lokala datorn.
 
-Om värdet är **Sant**följer du dessa steg för att verifiera certifikatet:
-1. Ladda ned [PsTools.zip](https://docs.microsoft.com/sysinternals/downloads/pstools)
-2. Extrahera [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) från paketet och kör **PsExec-i-u "NT authority\network service" cmd.exe** från en upphöjd kommando tolk.
+Om värdet är **Sant** följer du dessa steg för att verifiera certifikatet:
+1. Ladda ned [PsTools.zip](/sysinternals/downloads/pstools)
+2. Extrahera [PsExec](/sysinternals/downloads/psexec) från paketet och kör **PsExec-i-u "NT authority\network service" cmd.exe** från en upphöjd kommando tolk.
 3. Kör **certmgr. msc** i den nyligen visade kommando tolken
 4. Expandera den personliga behållaren i hanterings konsolen och klicka på certifikat
 5. Leta upp certifikatet som utfärdats av **connectorregistrationca.msappproxy.net**
 
-Om värdet är **false**följer du dessa steg för att verifiera certifikatet:
+Om värdet är **false** följer du dessa steg för att verifiera certifikatet:
 1. Kör **certlm. msc**
 2. Expandera den personliga behållaren i hanterings konsolen och klicka på certifikat
 3. Leta upp certifikatet som utfärdats av **connectorregistrationca.msappproxy.net**
@@ -101,7 +101,7 @@ Import-module AppProxyPSModule
 Register-AppProxyConnector
 ```
 
-Om du vill veta mer om kommandot Register-AppProxyConnector kan du läsa [skapa ett skript för obevakad installation för Azure AD-programproxy-anslutningen](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-register-connector-powershell)
+Om du vill veta mer om kommandot Register-AppProxyConnector kan du läsa [skapa ett skript för obevakad installation för Azure AD-programproxy-anslutningen](./application-proxy-register-connector-powershell.md)
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>Verifiera att administratören används för att installera anslutningen
 

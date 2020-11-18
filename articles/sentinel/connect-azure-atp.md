@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 319e0d29ef297f2a675128d498820a2d5b8ac42e
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: b0cafcbc9fa6f0fcb31f44b44dfbe4fc3e10c17d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579529"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656079"
 ---
 # <a name="connect-data-from-microsoft-defender-for-identity-formerly-azure-advanced-threat-protection"></a>Anslut data från Microsoft Defender för identitet (tidigare Azure Advanced Threat Protection)
 
@@ -27,7 +27,7 @@ ms.locfileid: "94579529"
 > Microsoft Defender för identitets data Connector i Azure Sentinel är för närvarande en offentlig för hands version.
 > Den här funktionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Du kan strömma loggar från [Microsoft Defender för identitet](https://docs.microsoft.com/azure-advanced-threat-protection/what-is-atp) i Azure Sentinel med ett enda klick.
+Du kan strömma loggar från [Microsoft Defender för identitet](/azure-advanced-threat-protection/what-is-atp) i Azure Sentinel med ett enda klick.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -36,7 +36,7 @@ Du kan strömma loggar från [Microsoft Defender för identitet](https://docs.mi
 
 ## <a name="connect-to-microsoft-defender-for-identity"></a>Anslut till Microsoft Defender för identitet
 
-Kontrol lera att Microsoft Defender för hands version av Identity är [aktiverat i nätverket](https://docs.microsoft.com/azure-advanced-threat-protection/install-atp-step1).
+Kontrol lera att Microsoft Defender för hands version av Identity är [aktiverat i nätverket](/azure-advanced-threat-protection/install-atp-step1).
 Om Microsoft Defender för identitet distribueras och data matas in kan de misstänkta aviseringarna enkelt strömmas i Azure Sentinel. Det kan ta upp till 24 timmar innan aviseringarna börjar strömma till Azure Sentinel.
 
 
@@ -57,4 +57,3 @@ Om Microsoft Defender för identitet distribueras och data matas in kan de misst
 I det här dokumentet har du lärt dig hur du ansluter Microsoft Defender för identitet till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
 - Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
 - Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats-built-in.md).
-

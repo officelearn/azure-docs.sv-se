@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2020
 ms.author: yelevin
-ms.openlocfilehash: 161e2d424611661619b99ecac3515aac6a8464e0
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 7d52b76601a617f62ae5b10fa38841ef2608bf49
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94428771"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656998"
 ---
 # <a name="monitor-the-health-of-your-data-connectors-with-this-azure-sentinel-workbook"></a>Övervaka hälso tillståndet för dina data anslutningar med den här Azure Sentinel-arbetsboken
 
@@ -42,12 +42,12 @@ Det finns tre avsnitt med flikar i den här arbets boken:
 
 1. På fliken **Översikt** visas allmän status för data inmatning på den valda arbets ytan: volym mått, EPS-priser och tid då den senaste loggen togs emot.
 
-1. På fliken **avvikelser för data insamling** kan du identifiera avvikelser i data insamlings processen, efter tabell och data källa. Varje flik visar avvikelser för en viss tabell (fliken **Allmänt** innehåller en samling tabeller). Avvikelserna beräknas med hjälp av funktionen **series_decompose_anomalies ()** som returnerar ett **avvikelse resultat**. [Läs mer om den här funktionen](https://docs.microsoft.com/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction?WT.mc_id=Portal-fx). Ange följande parametrar för funktionen för att utvärdera:
+1. På fliken **avvikelser för data insamling** kan du identifiera avvikelser i data insamlings processen, efter tabell och data källa. Varje flik visar avvikelser för en viss tabell (fliken **Allmänt** innehåller en samling tabeller). Avvikelserna beräknas med hjälp av funktionen **series_decompose_anomalies ()** som returnerar ett **avvikelse resultat**. [Läs mer om den här funktionen](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction?WT.mc_id=Portal-fx). Ange följande parametrar för funktionen för att utvärdera:
 
-    - **AnomaliesTimeRange** : den här tids väljaren gäller endast för vyn data insamlings avvikelser.
-    - **SampleInterval** : det tidsintervall inom vilket data insamplas inom det aktuella tidsintervallet. Avvikelse poängen beräknas endast för det sista intervallets data.
-    - **PositiveAlertThreshold** : det här värdet definierar tröskelvärdet för positiva avvikelser. Det accepterar decimal värden.
-    - **NegativeAlertThreshold** : det här värdet definierar tröskelvärdet för negativt avvikelse poäng. Det accepterar decimal värden.
+    - **AnomaliesTimeRange**: Den här tidväljaren gäller endast för vyn för datainsamlingsavvikelser.
+    - **SampleInterval**: Det tidsintervall som data samplas inom. Avvikelsepoängen beräknas endast för det sista intervallets data.
+    - **PositiveAlertThreshold**: Det här värdet definierar tröskelvärdet för positiv avvikelsepoäng. Det accepterar decimal värden.
+    - **NegativeAlertThreshold**: Det här värdet definierar tröskelvärdet för negativ avvikelsepoäng. Det accepterar decimal värden.
 
         :::image type="content" source="media/monitor-data-connector-health/data-health-workbook-2.png" alt-text="Sidan avvikelser vid övervakning av data kopplings arbets bok" lightbox="media/monitor-data-connector-health/data-health-workbook-2.png":::
 

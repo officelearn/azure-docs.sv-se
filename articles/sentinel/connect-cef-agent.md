@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 2f90a7c954fc8930f69dfee3e7b56b394225405a
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 512e5e0140038b27b7ffc9f2affb4a0e5b28b41b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94516745"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655841"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>Steg 1: Distribuera logg vidarebefordraren
 
@@ -48,7 +48,7 @@ I det här steget ska du ange och konfigurera Linux-datorn som kommer att vidare
  
 1. Klicka på **data kopplingar** på navigerings menyn i Azure Sentinel. I listan över anslutningar klickar du på panelen **common Event format (CEF)** och sedan på knappen **Öppna kopplings sida** längst ned till höger. 
 
-1. Under **1,2 installerar du CEF-insamlaren på Linux-datorn** , kopierar länken som anges under **Kör följande skript för att installera och tillämpa CEF-insamlaren** , eller från texten nedan (Använd arbetsyte-ID och primär nyckel i plats för plats hållarna):
+1. Under **1,2 installerar du CEF-insamlaren på Linux-datorn**, kopierar länken som anges under **Kör följande skript för att installera och tillämpa CEF-insamlaren**, eller från texten nedan (Använd arbetsyte-ID och primär nyckel i plats för plats hållarna):
 
     ```bash
     sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]`
@@ -212,5 +212,4 @@ Välj en syslog-daemon för att se lämplig beskrivning.
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet har du lärt dig hur du distribuerar Log Analytics agent för att ansluta CEF-enheter till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
 - Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
-- Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats.md).
-
+- Kom igång [med att identifiera hot med Azure Sentinel](./tutorial-detect-threats-built-in.md).

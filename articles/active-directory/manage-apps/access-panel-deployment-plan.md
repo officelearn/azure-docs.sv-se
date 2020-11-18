@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: cc36fccf84807621b8b3a186979ccfd000fe48f3
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8e345b27fdb2604c0c3264d6935cb9cff8aeec9c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372488"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656742"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Planera distribution av en Azure Active Directory Mina appar
 
@@ -54,10 +54,10 @@ Azure AD Mina appar fördelar företag på följande sätt:
 
 Mina appar är kostnads fria och kräver inga licenser för användning på en grundläggande nivå. Antalet objekt i din katalog och de ytterligare funktioner som du vill distribuera kan dock kräva ytterligare licenser. Några vanliga Azure AD-scenarier som har licensierings krav omfattar följande säkerhetsfunktioner:
 
-* [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works)
-* [Grupp-baserat medlemskap](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
-* [Återställning av lösenord för självbetjäning](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
-* [Identitetsskydd för Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
+* [Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
+* [Grupp-baserat medlemskap](../fundamentals/active-directory-manage-groups.md)
+* [Återställning av lösenord för självbetjäning](../authentication/tutorial-enable-sspr.md)
+* [Identitetsskydd för Azure Active Directory](../identity-protection/overview-identity-protection.md)
 
 Se den [fullständiga licens guiden för Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -65,8 +65,8 @@ Se den [fullständiga licens guiden för Azure AD](https://azure.microsoft.com/p
 
 Slutför följande krav innan du påbörjar det här projektet:
 
-* [Integrera Application SSO](https://docs.microsoft.com/azure/active-directory/manage-apps/plan-sso-deployment)
-* [Hantera Azure AD-användare och-grupp-infrastruktur](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
+* [Integrera Application SSO](./plan-sso-deployment.md)
+* [Hantera Azure AD-användare och-grupp-infrastruktur](../fundamentals/active-directory-manage-groups.md)
 
 ## <a name="plan-azure-ad-my-apps-deployment"></a>Planera distributionen av Azure AD Mina appar
 
@@ -122,11 +122,11 @@ I följande tabell visas flera viktiga konfigurationer för Mina appar och de ty
 | Fastställa pilot grupper| Identifiera Azure AD-säkerhetsgruppen som ska användas och se till att alla pilot medlemmar ingår i gruppen. |
 | Bestäm vilka grupper eller grupper som ska aktive ras för produktion.| Identifiera Azure AD-säkerhetsgrupper, eller de Active Directory grupper som synkroniserats till Azure AD, som ska användas. Se till att alla pilot medlemmar är en del av gruppen. |
 | Tillåt användare att använda SSO för vissa typer av program| Federerad SSO, OAuth, lösen ords inloggning, App-proxy |
-| Tillåt användare att använda självbetjäning för återställning av lösen ord | Ja |
-| Tillåt användare att använda Multi-Factor Authentication| Ja |
+| Tillåt användare att använda självbetjäning för återställning av lösen ord | Yes |
+| Tillåt användare att använda Multi-Factor Authentication| Yes |
 | Tillåt användare att använda självbetjänings grupp hantering för vissa typer av grupper| Säkerhets grupper, Microsoft 365 grupper |
-| Tillåt användare att använda självbetjänings program hantering| Ja |
-| Tillåt användare att använda åtkomst granskningar| Ja |
+| Tillåt användare att använda självbetjänings program hantering| Yes |
+| Tillåt användare att använda åtkomst granskningar| Yes |
 
 ### <a name="plan-consent-strategy"></a>Planera godkännande strategin
 
@@ -166,23 +166,23 @@ För bästa möjliga upplevelse med sidan Mina appar börjar du med integrering 
 
 Använd federerad enkel inloggning med Azure AD (OpenID Connect/SAML) när ett program stöder det, i stället för lösenordsbaserad SSO och ADFS.
 
-Mer information om hur du distribuerar och konfigurerar dina SaaS-program finns i [distributions planen SaaS SSO](https://aka.ms/deploymentplans/sso).
+Mer information om hur du distribuerar och konfigurerar dina SaaS-program finns i [distributions planen SaaS SSO](./plan-sso-deployment.md).
 
 #### <a name="plan-to-deploy-the-my-apps-browser-extension"></a>Planera för att distribuera webb läsar tillägget Mina appar
 
-När användarna loggar in på lösenordsbaserade SSO-program måste de installera och använda säkra inloggnings tillägg för Mina appar. Tillägget kör ett skript som skickar lösen ordet till programmets inloggnings formulär. Användarna uppmanas att installera tillägget när de först startar det lösenordsbaserade SSO-programmet. Mer information om tillägget finns i den här dokumentationen om [installation av webb läsar tillägget Mina appar](access-panel-extension-problem-installing.md).
+När användarna loggar in på lösenordsbaserade SSO-program måste de installera och använda säkra inloggnings tillägg för Mina appar. Tillägget kör ett skript som skickar lösen ordet till programmets inloggnings formulär. Användarna uppmanas att installera tillägget när de först startar det lösenordsbaserade SSO-programmet. Mer information om tillägget finns i den här dokumentationen om [installation av webb läsar tillägget Mina appar]().
 
-Om du måste integrera lösenordsbaserade SSO-program bör du definiera en mekanism för att distribuera tillägget i skala med webbläsare som [stöds](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Alternativen är:
+Om du måste integrera lösenordsbaserade SSO-program bör du definiera en mekanism för att distribuera tillägget i skala med webbläsare som [stöds](../user-help/my-apps-portal-end-user-access.md). Alternativen är:
 
-* [grupprincip för Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
-* [Configuration Manager för Internet Explorer](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
-* [Användar driven nedladdning och konfiguration för Chrome, Firefox, Microsoft Edge eller IE](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* [grupprincip för Internet Explorer]()
+* [Configuration Manager för Internet Explorer](/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
+* [Användar driven nedladdning och konfiguration för Chrome, Firefox, Microsoft Edge eller IE](../user-help/my-apps-portal-end-user-access.md)
 
 Användare som inte använder lösenordsbaserade SSO-program drar också nytta av tillägget. De här fördelarna är möjligheten att starta alla appar från Sök fältet, hitta åtkomst till nyligen använda program och att ha en länk till sidan Mina appar.
 
 #### <a name="plan-for-mobile-access"></a>Planera för mobil åtkomst
 
-En webbläsare som skyddas med Intune-principer (Microsoft Edge eller Intune Managed Browser) krävs för att mobila användare ska kunna starta lösenordsbaserade SSO-program. En princip – skyddad webbläsare möjliggör överföring av lösen ordet som sparats för programmet. Microsoft Edge eller Managed Browser innehåller en uppsättning funktioner för webb data skydd. Du kan också använda Microsoft Edge för företags scenarier på iOS-och Android-enheter. Microsoft Edge stöder samma hanterings scenarier som Intune Managed Browser och förbättrar användar upplevelsen. Läs mer: [Hantera webb åtkomst med hjälp av en Microsoft Intune-princip-skyddad webbläsare](https://docs.microsoft.com/intune/app-configuration-managed-browser).
+En webbläsare som skyddas med Intune-principer (Microsoft Edge eller Intune Managed Browser) krävs för att mobila användare ska kunna starta lösenordsbaserade SSO-program. En princip – skyddad webbläsare möjliggör överföring av lösen ordet som sparats för programmet. Microsoft Edge eller Managed Browser innehåller en uppsättning funktioner för webb data skydd. Du kan också använda Microsoft Edge för företags scenarier på iOS-och Android-enheter. Microsoft Edge stöder samma hanterings scenarier som Intune Managed Browser och förbättrar användar upplevelsen. Läs mer: [Hantera webb åtkomst med hjälp av en Microsoft Intune-princip-skyddad webbläsare](/intune/app-configuration-managed-browser).
 
 ## <a name="plan-your-my-apps-deployment"></a>Planera distributionen av mina appar
 
@@ -248,7 +248,7 @@ För säkerhets kopiering, rapportering och haveri beredskap, dokumentera den n�
 
 När ett program har kon figurer ATS för SSO tilldelas grupper åtkomst. Användare i de tilldelade grupperna har åtkomst, och de kommer att se programmet i sina appar och i den Microsoft 365 App-starta.
 
-Se [tilldela användare och grupper till ett program i Active Directory](methods-for-assigning-users-and-groups.md).
+Se [tilldela användare och grupper till ett program i Active Directory](./assign-user-or-group-access-portal.md).
 
 Om du under testning eller distribution vill lägga till grupperna, men ännu inte tillåta att programmen visas i Mina appar, se [Dölj ett program från användarens upplevelse i Azure Active Directory](hide-application-from-user-portal.md).
 
@@ -294,7 +294,7 @@ Följande tester bör utföras med både företagsägda enheter och personliga e
 
 ### <a name="rollback-steps"></a>Återställnings steg
 
-Det är viktigt att planera vad som ska göras om distributionen inte fungerar som planerat. Om SSO-konfigurationen Miss lyckas under distributionen måste du förstå hur du [felsöker SSO-problem](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sso) och minskar påverkan på användarna. I extrema fall kan du behöva [återställa SSO](../manage-apps/plan-sso-deployment.md#rollback-process).
+Det är viktigt att planera vad som ska göras om distributionen inte fungerar som planerat. Om SSO-konfigurationen Miss lyckas under distributionen måste du förstå hur du [felsöker SSO-problem](../hybrid/tshoot-connect-sso.md) och minskar påverkan på användarna. I extrema fall kan du behöva [återställa SSO](../manage-apps/plan-sso-deployment.md#rollback-process).
 
 
 ## <a name="manage-your-implementation"></a>Hantera din implementering
@@ -312,4 +312,4 @@ Använd den minst privilegierade rollen för att utföra en obligatorisk uppgift
 Du kan använda [Privileged Identity Management](../privileged-identity-management/pim-configure.md) för att hantera roller för att ge ytterligare gransknings-, kontroll-och åtkomst granskning för användare med katalog behörigheter.
 
 ## <a name="next-steps"></a>Nästa steg
-[Planera en distribution av Azure Multi-Factor Authentication](https://aka.ms/deploymentplans/mfa)
+[Planera en distribution av Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

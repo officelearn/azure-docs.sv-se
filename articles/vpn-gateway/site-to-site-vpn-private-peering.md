@@ -5,16 +5,16 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/06/2020
+ms.date: 11/16/2020
 ms.author: cherylmc
-ms.openlocfilehash: 016741606bad5536985a38b0e0664b39006e1df5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62ceafad0210065700e5c9734cfe9a055208ef35
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776569"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657898"
 ---
-# <a name="configure-a-site-to-site-vpn-connection-over-expressroute-private-peering-preview"></a>Konfigurera en plats-till-plats-VPN-anslutning via ExpressRoute privat peering (för hands version)
+# <a name="configure-a-site-to-site-vpn-connection-over-expressroute-private-peering"></a>Konfigurera en plats-till-plats-VPN-anslutning via privat ExpressRoute-peering
 
 Du kan konfigurera en plats-till-plats-VPN-anslutning till en virtuell nätverksgateway via en ExpressRoute privat peering med hjälp av en RFC 1918-IP-adress. Den här konfigurationen ger följande fördelar:
 
@@ -32,7 +32,7 @@ För att slutföra den här konfigurationen kontrollerar du att du uppfyller fö
 
 * Du kan komma åt resurser över RFC1918 (privat) IP i VNet över ExpressRoute-kretsen.
 
-## <a name="routing"></a><a name="routing"></a>Routning
+## <a name="routing"></a><a name="routing"></a>Operationsföljdslänkar
 
 **Bild 1** visar ett exempel på en VPN-anslutning via privat ExpressRoute-peering. I det här exemplet visas ett nätverk i det lokala nätverket som är anslutet till Azure Hub VPN-gateway över ExpressRoute-privat peering. En viktig aspekt av den här konfigurationen är routningen mellan de lokala nätverken och Azure över både ExpressRoute-och VPN-sökvägar.
 
@@ -76,14 +76,14 @@ I båda dessa exempel skickar Azure trafik till 10.0.1.0/24 via VPN-anslutningen
 
    Zoner – redundanta SKU: er har "AZ" i slutet av SKU: n. Till exempel **VpnGw1AZ**. Zon-redundanta gatewayer är bara tillgängliga i regioner där tillgänglighets zon tjänsten är tillgänglig. Information om de regioner där vi stöder tillgänglighets zoner finns i [regioner som har stöd för tillgänglighets zoner](../availability-zones/az-region.md).
 
-   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway.png" alt-text="Bild 1":::
-1. Aktivera privata IP-adresser på gatewayen. Välj **konfiguration**och ställ sedan in **Gateway privata IP-adresser** till **aktive rad**. Välj **Spara** för att spara ändringarna.
+   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway.png" alt-text="Gateway privata IP-adresser":::
+1. Aktivera privata IP-adresser på gatewayen. Välj **konfiguration** och ställ sedan in **Gateway privata IP-adresser** till **aktive rad**. Välj **Spara** för att spara ändringarna.
 1. På sidan **Översikt** väljer du **Visa mer** om du vill visa den privata IP-adressen. Anteckna informationen och Använd den senare i konfigurations stegen.
 
-   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway-overview.png" alt-text="Bild 1" lightbox="media/site-to-site-vpn-private-peering/gateway-overview.png":::
-1. Om du vill aktivera **Använd Azures privata IP-adress** på anslutningen väljer du  **konfiguration**. Ange **Använd Azures privata IP-adress** till **aktive rad**och välj sedan **Spara**.
+   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway-overview.png" alt-text="Översikts sida" lightbox="media/site-to-site-vpn-private-peering/gateway-overview.png":::
+1. Om du vill aktivera **Använd Azures privata IP-adress** på anslutningen väljer du  **konfiguration**. Ange **Använd Azures privata IP-adress** till **aktive rad** och välj sedan **Spara**.
 
-   :::image type="content" source="media/site-to-site-vpn-private-peering/connection.png" alt-text="Bild 1":::
+   :::image type="content" source="media/site-to-site-vpn-private-peering/connection.png" alt-text="Gateway privat IP-aktive rad":::
 1. Pinga den privata IP-adress som du skrev ned i steg 3 i brand väggen. Den privata IP-adressen ska kunna kontaktas via ExpressRoute privata peering.
 1. Använd den här privata IP-adressen som fjärr-IP i den lokala brand väggen för att upprätta plats-till-plats-tunneln över ExpressRoute privata peering.
 

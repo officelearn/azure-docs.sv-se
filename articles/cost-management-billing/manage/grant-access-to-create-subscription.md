@@ -8,12 +8,12 @@ ms.reviewer: amberb
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: banders
-ms.openlocfilehash: 02919cf2e35fdd4d981f3fde53085c2174f11bd1
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: c13670df26e5d0f7774b5a2aac81f656de94c960
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132575"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844718"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Bevilja behörighet att skapa Azure Enterprise-prenumerationer (förhandsversion)
 
@@ -23,7 +23,7 @@ Som Azure-kund med [Enterprise-avtal (EA)](https://azure.microsoft.com/pricing/e
 
 ## <a name="grant-access"></a>Bevilja åtkomst
 
-För att kunna [skapa prenumerationer under ett registreringskonto](programmatically-create-subscription.md) måste användarna ha rollen [Azure RBAC-ägare](../../role-based-access-control/built-in-roles.md#owner) för det kontot. Så här ger du en användare eller en grupp av användare rollen Azure RBAC-ägare för ett registreringskonto:
+För att kunna [skapa prenumerationer under ett registreringskonto](programmatically-create-subscription-enterprise-agreement.md) måste användarna ha rollen [Azure RBAC-ägare](../../role-based-access-control/built-in-roles.md#owner) för det kontot. Så här ger du en användare eller en grupp av användare rollen Azure RBAC-ägare för ett registreringskonto:
 
 1. Hämta objekt-ID:t för det registreringskonto som du vill bevilja åtkomst till
 
@@ -174,7 +174,7 @@ För att kunna [skapa prenumerationer under ett registreringskonto](programmatic
     az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
     ```
 
-    När användare blir Azure RBAC-ägare för ditt registreringskonto kan de [skapa prenumerationer programmatiskt](programmatically-create-subscription.md) under kontot. När en prenumeration har skapats av en delegerad användare är den ursprungliga kontoägaren fortfarande tjänstadministratör, men som standard har även den delegerade användaren rollen Azure RBAC-ägare.
+    När användare blir Azure RBAC-ägare för ditt registreringskonto kan de [skapa prenumerationer programmatiskt](programmatically-create-subscription-enterprise-agreement.md) under kontot. När en prenumeration har skapats av en delegerad användare är den ursprungliga kontoägaren fortfarande tjänstadministratör, men som standard har även den delegerade användaren rollen Azure RBAC-ägare.
 
     ---
 
@@ -193,7 +193,7 @@ Du kan anropa det här API:et från kommandoraden med hjälp av [ARMClient](http
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Nu när användaren eller tjänsthuvudnamnet har behörighet att skapa en prenumeration kan du använda den identiteten för att [skapa Azure Enterprise-prenumerationer programmatiskt](programmatically-create-subscription.md).
+* Nu när användaren eller tjänsthuvudnamnet har behörighet att skapa en prenumeration kan du använda den identiteten för att [skapa Azure Enterprise-prenumerationer programmatiskt](programmatically-create-subscription-enterprise-agreement.md).
 * Ett exempel på hur du skapar prenumerationer med .NET finns i [exempelkod på GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
 * Mer information om Azure Resource Manager och dess API:er finns i [översikten över Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 * Mer information om hur du hanterar ett stort antal prenumerationer med hanteringsgrupper finns i [Ordna resurser med hanteringsgrupper i Azure](../../governance/management-groups/overview.md)

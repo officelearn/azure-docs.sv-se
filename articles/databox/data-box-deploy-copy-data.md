@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/20/2020
+ms.date: 11/11/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 7ecccd64921b2d95155318fe91c897725e340b7e
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: c68f76e56f49f055466f7332d7751ac468e034d8
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94334677"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616747"
 ---
 ::: zone target="docs"
 
@@ -74,11 +74,11 @@ Om du använder en Windows Server-värddator följer du stegen nedan för att an
 
     ![Hämta resursautentiseringsuppgifter för SMB-resurser](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
-2. I dialogrutan Få åtkomst till resursen och kopiera data kopierar du **användarnamnet** och **lösenordet** som motsvarar resursen. Om lösenordet innehåller specialtecken måste du lägga till dubbla citattecken före och efter det. Välj sedan **OK**.
+2. I dialogrutan Få åtkomst till resursen och kopiera data kopierar du **användarnamnet** och **lösenordet** som motsvarar resursen. Välj sedan **OK**.
     
     ![Hämta användarnamn och lösenord för en resurs](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
-3. För att komma åt resurser som är associerade med ditt lagringskonto ( *utsac1* i följande exempel) från värddatorn öppnar du ett kommandofönster. Skriv följande i kommandotolken:
+3. För att komma åt resurser som är associerade med ditt lagringskonto (*utsac1* i följande exempel) från värddatorn öppnar du ett kommandofönster. Skriv följande i kommandotolken:
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
@@ -87,11 +87,11 @@ Om du använder en Windows Server-värddator följer du stegen nedan för att an
     - Azure-sidblob – `\\10.126.76.138\utSAC1_202006051000_PageBlob`
     - Azure Files – `\\10.126.76.138\utSAC1_202006051000_AzFile`
 
-4. Ange lösenordet för resursen när du tillfrågas. Följande exempel visar hur du ansluter till en resurs via kommandot ovan.
+4. Ange lösenordet för resursen när du tillfrågas. Om lösenordet innehåller specialtecken måste du lägga till dubbla citattecken före och efter det. Följande exempel visar hur du ansluter till en resurs via kommandot ovan.
 
     ```
     C:\Users\Databoxuser>net use \\10.126.76.138\utSAC1_202006051000_BlockBlob /u:testuser1
-    Enter the password for 'testuser1' to connect to '10.126.76.138':
+    Enter the password for 'testuser1' to connect to '10.126.76.138': "ab1c2def$3g45%6h7i&j8kl9012345"
     The command completed successfully.
     ```
 
@@ -103,7 +103,7 @@ Om du använder en Windows Server-värddator följer du stegen nedan för att an
     
     ![Resurser som visas i Utforskaren](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)
 
-    **Skapa alltid en mapp för de filer som du vill kopiera under resursen och kopiera sedan filerna till den mappen**. Mappen som skapas under blockblob- och sidblobresurser representerar en container som data laddas upp som blobar till. Du kan inte kopiera filer direkt till *root* -mappen i lagringskontot.
+    **Skapa alltid en mapp för de filer som du vill kopiera under resursen och kopiera sedan filerna till den mappen**. Mappen som skapas under blockblob- och sidblobresurser representerar en container som data laddas upp som blobar till. Du kan inte kopiera filer direkt till *root*-mappen i lagringskontot.
     
 Om du använder en Linux-klient använder du följande kommando för att montera SMB-resursen. Parametern ”vers” nedan är den version av SMB din Linux-värd stödjer. Inför lämplig version i kommandot nedan. Versioner av SMB som Data Box har stöd för finns i avsnittet om [filsystem som stöds för Linux-klienter](./data-box-system-requirements.md#supported-file-transfer-protocols-for-clients) 
 
@@ -116,7 +116,7 @@ sudo mount -t nfs -o vers=2.1 10.126.76.138:/utSAC1_202006051000_BlockBlob /home
 När du är ansluten till Data Box-resurser är nästa steg att kopiera data. Granska följande innan du kopierar data:
 
 * Se till att du kopierar data till resurser som motsvarar lämplig dataformat. Kopiera exempelvis blockblobdata till resursen för blockblobobjekt. Kopiera de virtuella hårddiskarna till en sidblob. Om dataformatet inte matchar lämplig resurstyp misslyckas datauppladdningen till Azure i ett senare skede.
-* Skapa alltid en mapp under resursen för de filer som du vill kopiera och kopiera sedan filerna till den mappen. Mappen som skapas under blockblob- och sidblobresurser representerar en container som data laddas upp som blobar till. Du kan inte kopiera filer direkt till *root* -mappen i lagringskontot.
+* Skapa alltid en mapp under resursen för de filer som du vill kopiera och kopiera sedan filerna till den mappen. Mappen som skapas under blockblob- och sidblobresurser representerar en container som data laddas upp som blobar till. Du kan inte kopiera filer direkt till *root*-mappen i lagringskontot.
 * När du kopierar data ska du se till att datastorleken följer de storleksbegränsningar som beskrivs i [Storleksgränser för Azure-lagringskonto](data-box-limits.md#azure-storage-account-size-limits).
 * Om du vill bevara metadata (ACL:er, tidsstämplar och filattribut) när du överför data till Azure Files följer du anvisningarna i [Bevara fil-ACL:er, attribut och tidsstämplar med Azure Data Box](data-box-file-acls-preservation.md)  
 * Om data som laddas upp av Data Box samtidigt laddas upp av ett annat program, utanför Data Box, kan det leda till uppladdningsfel och skadade data.

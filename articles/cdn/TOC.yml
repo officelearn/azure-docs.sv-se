@@ -35,6 +35,10 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=cdn'
 - name: Begrepp
   items:
+    - name: Säkerhet
+      items:
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
     - name: Så här fungerar cachelagring
       href: cdn-how-caching-works.md
     - name: 'Innehållsleverans, Kina'

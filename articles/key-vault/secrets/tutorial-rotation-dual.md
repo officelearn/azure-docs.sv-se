@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: 5da31d45e068f414c8afa38bcb46cdf1f790a9e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a061cf493fba99c518448acd9c4bf4bd5949eb98
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843285"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831822"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-with-two-sets-of-authentication-credentials"></a>Automatisera rotationen av en hemlighet för resurser med två uppsättningar autentiseringsuppgifter för autentisering
 
@@ -35,7 +35,7 @@ I ovanstående lösning lagrar Azure Key Vault lagrings konto enskilda åtkomst 
 1. Function-appen identifierar en alternativ nyckel (förutom senaste) och anropar lagrings kontot för att återskapa det
 1. Function-appen lägger till ny återskapad nyckel till Azure Key Vault som ny version av hemligheten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Azure Key Vault
 * Två Azure Storage konton
@@ -44,7 +44,7 @@ Nedan kan du använda distributions länken, om du inte har befintliga nyckel va
 
 [![Bild som visar en knapp med etiketten "distribuera till Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json)
 
-1. Under **resurs grupp**väljer du **Skapa ny**. Namnge gruppen **akvrotation** och klicka på **OK**.
+1. Under **resurs grupp** väljer du **Skapa ny**. Namnge gruppen **akvrotation** och klicka på **OK**.
 1. Välj **Granska + skapa**.
 1. Välj **Skapa**
 
@@ -67,8 +67,6 @@ akvrotationstorage2    akvrotation      eastus      Microsoft.Storage/storageAcc
 ```
 
 ## <a name="create-and-deploy-storage-account-key-rotation-function"></a>Skapa och distribuera lagrings kontots nyckel rotations funktion
-> [!IMPORTANT]
-> Mallen nedan kräver Key Vault, Azure Storage kontot och Azure-funktionen är i samma resurs grupp
 
 Skapa sedan en Function-app med en Systemhanterad identitet, förutom de andra nödvändiga komponenterna, och distribuera nyckel rotations funktioner för lagrings konto
 
@@ -85,13 +83,15 @@ Funktionen appens rotations funktioner kräver dessa komponenter och konfigurati
    [![Bild som visar en knapp med etiketten "distribuera till Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FFunction%2Fazuredeploy.json)
 
 1. I listan **resurs grupp** väljer du **akvrotation**.
-1. I **lagrings kontots namn**skriver du namnet på lagrings kontot med åtkomst nycklar som ska roteras
-1. I **Key Vault namn**skriver du namnet på nyckel valvet
-1. I **Funktionsapp namn**skriver du namnet på appens funktion
-1. I **hemligt namn**skriver du ett hemligt namn där åtkomst nycklar ska lagras
-1. I **lagrings platsen-URL**skriver du funktions kod GitHub Location ( **https://github.com/jlichwa/KeyVault-Rotation-StorageAccountKey-PowerShell.git** )
+1. I **lagrings kontots RG** anger du namnet på den resurs grupp där ditt lagrings konto finns. Behåll standardvärdet **[resourceGroup (). name]** om ditt lagrings konto redan finns i samma resurs grupp där du distribuerar nyckel rotations funktionen.
+1. I **lagrings konto namn** anger du namnet på lagrings kontot med åtkomst nycklar som ska roteras.
+1. I **Key Vault RG** anger du namnet på den resurs grupp där nyckel valvet finns. Behåll standardvärdet **[resourceGroup (). name]** om det redan finns ett nyckel valv i samma resurs grupp där du distribuerar nyckel rotations funktionen.
+1. I **Key Vault namn** anger du namnet på nyckel valvet.
+1. I **Funktionsapp namn** anger du namnet på Function-appen.
+1. I **hemligt namn** anger du ett hemligt namn där åtkomst nycklar ska lagras.
+1. I **lagrings platsen-URL** anger du funktions koden GitHub Location ( **https://github.com/jlichwa/KeyVault-Rotation-StorageAccountKey-PowerShell.git** ).
 1. Välj **Granska + skapa**.
-1. Välj **Skapa**
+1. Välj **Skapa**.
 
    ![Granska och skapa det första lagrings kontot](../media/secrets/rotation-dual/dual-rotation-2.png)
 
@@ -159,10 +159,10 @@ Att lägga till ytterligare lagrings konto nycklar för rotering till befintlig 
    [![Bild som visar en knapp med etiketten "distribuera till Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FAdd-Event-Subscription%2Fazuredeploy.json)
 
 1. I listan **resurs grupp** väljer du **akvrotation**.
-1. I **lagrings kontots namn**skriver du namnet på lagrings kontot med åtkomst nycklar som ska roteras
-1. I **Key Vault namn**skriver du namnet på nyckel valvet
-1. I **Funktionsapp namn**skriver du namnet på appens funktion
-1. I **hemligt namn**skriver du ett hemligt namn där åtkomst nycklar ska lagras
+1. I **lagrings kontots namn** skriver du namnet på lagrings kontot med åtkomst nycklar som ska roteras
+1. I **Key Vault namn** skriver du namnet på nyckel valvet
+1. I **Funktionsapp namn** skriver du namnet på appens funktion
+1. I **hemligt namn** skriver du ett hemligt namn där åtkomst nycklar ska lagras
 1. Välj **Granska + skapa**.
 1. Välj **Skapa**
 
@@ -202,7 +202,7 @@ az storage account keys list -n akvrotationstorage
 
 ## <a name="available-key-vault-dual-credential-rotation-functions"></a>Tillgängliga Key Vaults rotations funktioner för dubbla autentiseringsuppgifter
 
-- [Lagrings konto](https://github.com/jlichwa/KeyVault-Rotation-StorageAccountKey-PowerShell)
+- [Lagringskonto](https://github.com/jlichwa/KeyVault-Rotation-StorageAccountKey-PowerShell)
 - [Redis Cache](https://github.com/jlichwa/KeyVault-Rotation-RedisCacheKey-PowerShell)
 
 ## <a name="learn-more"></a>Läs mer

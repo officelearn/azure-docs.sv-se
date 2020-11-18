@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 886597e5490acb94f43d840dc5a3d22092e45849
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 94cb40522a9e463fea2efae329daf910b5386cdd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698774"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832610"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Rekommenderade säkerhets metoder för Azure Identity Management och åtkomst kontroll
 
@@ -157,7 +157,7 @@ Om du har flera klienter eller om du vill att användarna ska kunna [återställ
 
 Vi rekommenderar att du kräver tvåstegsverifiering för alla dina användare. Detta inkluderar administratörer och andra i din organisation som kan ha en betydande inverkan om deras konto komprometteras (t. ex. ekonomi personal).
 
-Det finns flera alternativ för att kräva tvåstegsverifiering. Det bästa alternativet för dig beror på dina mål, den Azure AD-version som du kör och ditt licensierings program. Se [hur du kräver tvåstegsverifiering för en användare](../../active-directory/authentication/howto-mfa-userstates.md) för att fastställa det bästa alternativet för dig. Mer information om licenser och priser finns på sidan med priser för [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/) och [Azure Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) .
+Det finns flera alternativ för att kräva tvåstegsverifiering. Det bästa alternativet för dig beror på dina mål, den Azure AD-version som du kör och ditt licensierings program. Se [hur du kräver tvåstegsverifiering för en användare](../../active-directory/authentication/howto-mfa-userstates.md) för att fastställa det bästa alternativet för dig. Mer information om licenser och priser finns på sidan med priser för [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/) och [Azure AD Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) .
 
 Följande är alternativ och fördelar med att aktivera tvåstegsverifiering:
 
@@ -170,14 +170,14 @@ Följande är alternativ och fördelar med att aktivera tvåstegsverifiering:
 Den här metoden är tillgänglig för alla licensierings nivåer men kan inte blandas med befintliga principer för villkorlig åtkomst. Du hittar mer information i [säkerhets inställningarna för Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md)
 
 **Alternativ 2**: [Aktivera Multi-Factor Authentication genom att ändra användar tillstånd](../../active-directory/authentication/howto-mfa-userstates.md).   
-**Förmån**: det här är den traditionella metoden för att kräva tvåstegsverifiering. Det fungerar med både [Azure-Multi-Factor Authentication i molnet och Azure Multi-Factor Authentication-Server](../../active-directory/authentication/concept-mfa-howitworks.md). Om du använder den här metoden måste användarna utföra tvåstegsverifiering varje gång de loggar in och åsidosätter principer för villkorlig åtkomst.
+**Förmån**: det här är den traditionella metoden för att kräva tvåstegsverifiering. Det fungerar med både [Azure AD-Multi-Factor Authentication i molnet och Azure Multi-Factor Authentication-Server](../../active-directory/authentication/concept-mfa-howitworks.md). Om du använder den här metoden måste användarna utföra tvåstegsverifiering varje gång de loggar in och åsidosätter principer för villkorlig åtkomst.
 
-För att avgöra var Multi-Factor Authentication behöver aktive ras, se [vilken version av Azure MFA som passar min organisation?](../../active-directory/authentication/concept-mfa-howitworks.md).
+För att avgöra var Multi-Factor Authentication behöver aktive ras, se [vilken version av Azure AD MFA som passar min organisation?](../../active-directory/authentication/concept-mfa-howitworks.md).
 
 **Alternativ 3**: [Aktivera Multi-Factor Authentication med princip för villkorlig åtkomst](../../active-directory/authentication/howto-mfa-getstarted.md).
 **Förmån**: med det här alternativet kan du begära tvåstegsverifiering under vissa villkor genom [att använda villkorlig åtkomst](../../active-directory/conditional-access/concept-conditional-access-policy-common.md). Vissa villkor kan vara användar inloggningar från olika platser, ej betrodda enheter eller program som du anser vara riskfyllda. Genom att definiera vissa villkor där du kräver tvåstegsverifiering kan du undvika en konstant uppskrivning för dina användare, vilket kan vara en krångligt användar upplevelse.
 
-Detta är det mest flexibla sättet att aktivera tvåstegsverifiering för dina användare. Att aktivera en princip för villkorlig åtkomst fungerar bara för Azure Multi-Factor Authentication i molnet och är en Premium funktion i Azure AD. Du hittar mer information om den här metoden i [distribuera molnbaserad Azure-Multi-Factor Authentication](../../active-directory/authentication/howto-mfa-getstarted.md).
+Detta är det mest flexibla sättet att aktivera tvåstegsverifiering för dina användare. Att aktivera en princip för villkorlig åtkomst fungerar bara för Azure AD Multi-Factor Authentication i molnet och är en Premium funktion i Azure AD. Du hittar mer information om den här metoden i [distribuera molnbaserad Azure AD-Multi-Factor Authentication](../../active-directory/authentication/howto-mfa-getstarted.md).
 
 **Alternativ 4**: Aktivera Multi-Factor Authentication med principer för villkorlig åtkomst genom att utvärdera [riskfyllda principer för villkorlig åtkomst](../../active-directory/conditional-access/howto-conditional-access-policy-risk.md).   
 **Förmån**: med det här alternativet kan du:
@@ -269,7 +269,7 @@ Utvärdera de konton som är tilldelade eller berättigade till den globala admi
 **Bästa praxis**: Kräv att alla kritiska administratörs konton är lösen ords lösa (önskade) eller kräver Multi-Factor Authentication.
 **Information**: Använd [Microsoft Authenticator-appen](../../active-directory/authentication/howto-authentication-passwordless-phone.md) för att logga in på ett Azure AD-konto utan att använda ett lösen ord. Precis som [Windows Hello för företag](/windows/security/identity-protection/hello-for-business/hello-identity-verification), använder Microsoft Authenticator nyckelbaserad autentisering för att aktivera autentiseringsuppgifter som är knutna till en enhet och använder bio metrisk autentisering eller PIN-kod.
 
-Kräv Azure Multi-Factor Authentication vid inloggning för alla enskilda användare som är permanent tilldelade till en eller flera av administratörs rollerna för Azure AD: global administratör, privilegie rad roll administratör, Exchange Online-administratör och SharePoint Online-administratör. Aktivera [Multi-Factor Authentication för dina administratörs konton](../../active-directory/authentication/howto-mfa-userstates.md) och se till att administratörs kontots användare har registrerat sig.
+Kräv Azure AD Multi-Factor Authentication vid inloggning för alla enskilda användare som är permanent tilldelade till en eller flera av administratörs rollerna för Azure AD: global administratör, privilegie rad roll administratör, Exchange Online-administratör och SharePoint Online-administratör. Aktivera [Multi-Factor Authentication för dina administratörs konton](../../active-directory/authentication/howto-mfa-userstates.md) och se till att administratörs kontots användare har registrerat sig.
 
 **Bästa praxis**: för kritiska administratörs konton har du en administratörs arbets station där produktions aktiviteter inte är tillåtna (till exempel bläddring och e-post). Detta skyddar dina administratörs konton mot angrepps vektorer som använder bläddring och e-post och minskar risken för en större incident.
 **Information**: Använd en administratörs arbets Station. Välj en säkerhets nivå för arbets stationen:

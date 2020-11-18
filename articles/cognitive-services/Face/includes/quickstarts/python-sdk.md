@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 11/10/2020
 ms.author: pafarley
-ms.openlocfilehash: cf7b82ec1da660ac68c6031434c0e0748ee67b3d
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 7141ebe4e7894c975ba2ee6fb39d5bfd4483ed41
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94523696"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94816753"
 ---
 Kom igång med ansikts igenkänning med ansikts klient biblioteket för python. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. Ansikts tjänsten ger dig till gång till avancerade algoritmer för att identifiera och identifiera mänskliga ansikten i bilder.
 
@@ -48,7 +48,7 @@ pip install --upgrade azure-cognitiveservices-vision-face
 
 ### <a name="create-a-new-python-application"></a>Skapa ett nytt Python-program
 
-Skapa ett nytt Python-skript &mdash; *QuickStart-File.py* , till exempel. Öppna den sedan i önskat redigerings program eller IDE och importera följande bibliotek.
+Skapa ett nytt Python-skript &mdash; *QuickStart-File.py*, till exempel. Öppna den sedan i önskat redigerings program eller IDE och importera följande bibliotek.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_imports)]
 
@@ -165,9 +165,12 @@ När du har tilldelat ansikten måste du träna **PersonGroup** så att den kan 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroup_train)]
 
+> [!TIP]
+> Ansikts-API körs på en uppsättning fördefinierade modeller som är statiska efter typ (modellens prestanda kommer inte att regress eller förbättras när tjänsten körs). Resultaten som modellen genererar kan ändras om Microsoft uppdaterar modellens Server del utan att migrera till en helt ny modell version. Om du vill dra nytta av en nyare version av en modell kan du träna om din **PersonGroup**, ange den nya modellen som en parameter med samma registrerings avbildningar.
+
 ## <a name="identify-a-face"></a>Identifiera ett ansikte
 
-Identifiera-åtgärden tar en bild av en person (eller flera personer) och söker efter identiteten för varje ansikte i bilden (ansikts igenkännings sökning). Den jämför alla identifierade ansikte till en **PersonGroup** , en databas med olika **person** objekt vars ansikts funktioner är kända.
+Identifiera-åtgärden tar en bild av en person (eller flera personer) och söker efter identiteten för varje ansikte i bilden (ansikts igenkännings sökning). Den jämför alla identifierade ansikte till en **PersonGroup**, en databas med olika **person** objekt vars ansikts funktioner är kända.
 
 > [!IMPORTANT]
 > Om du ska kunna köra det här exemplet måste du först köra koden i [skapa och träna en person grupp](#create-and-train-a-person-group).

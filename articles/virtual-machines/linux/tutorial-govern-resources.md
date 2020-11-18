@@ -1,6 +1,6 @@
 ---
 title: Självstudie – hantera virtuella datorer med CLI
-description: I den här självstudien får du lära dig hur du använder Azure CLI för att hantera virtuella Azure-datorer genom att använda RBAC, principer, lås och taggar.
+description: I den här självstudien får du lära dig hur du använder Azure CLI för att hantera virtuella Azure-datorer genom att använda Azure RBAC, principer, lås och taggar.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/30/2019
 ms.author: tomfitz
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 867349a321f2909d8e568be7e482a5517ddb50b9
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 565315ad78a2994f44973c4fdcd4519ab9e03ea8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517962"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831794"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-management-with-azure-cli"></a>Självstudie: Lär dig mer om hantering av virtuella Linux-datorer med Azure CLI
 
@@ -41,7 +41,7 @@ az group create --name myResourceGroup --location "East US"
 
 Resursgruppen är tom för närvarande.
 
-## <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
+## <a name="azure-role-based-access-control"></a>Rollbaserad Azure-åtkomstkontroll
 
 Du vill kontrollera att användarna i din organisation har rätt åtkomstnivå till dessa resurser. Du vill inte bevilja obegränsad åtkomst till användare, men du måste också försäkra dig om att de kan utföra sitt arbete. Med [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/overview.md) kan du hantera vilka användare som har behörighet att utföra vissa åtgärder i ett omfång.
 

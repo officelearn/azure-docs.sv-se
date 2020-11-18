@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 9827f79f8407bd04468f1b4456aec9d6a8793a6f
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: a7bdc1ee22d3672160122cad65b18de99f743cc7
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506302"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94747697"
 ---
 # <a name="configure-log-analytics-workspace-for-azure-monitor-for-vms"></a>Konfigurera Log Analytics arbets yta för Azure Monitor for VMs
 Azure Monitor for VMs samlar in data från en eller flera Log Analytics arbets ytor i Azure Monitor. Innan du onboarding agents måste du skapa och konfigurera en arbets yta. I den här artikeln beskrivs kraven för arbets ytan och för att konfigurera den för Azure Monitor for VMs.
@@ -78,7 +78,7 @@ Innan en Log Analytics arbets yta kan användas med Azure Monitor for VMs måste
 > När du lägger till *VMInsights* -lösningen i arbets ytan börjar alla befintliga virtuella datorer som är anslutna till arbets ytan att skicka data till InsightsMetrics. Data för de andra data typerna samlas inte in förrän du lägger till Dependency Agent till de befintliga virtuella datorerna som är anslutna till arbets ytan.
 
 ### <a name="azure-portal"></a>Azure Portal
-Det finns tre alternativ för att konfigurera en befintlig arbets yta från Azure Portal.
+Det finns tre alternativ för att konfigurera en befintlig arbets yta med hjälp av Azure Portal. Var och en beskrivs nedan.
 
 Om du vill konfigurera en enskild arbets yta väljer du **andra onboarding-alternativ** och **konfigurerar sedan en arbets yta**. Välj en prenumeration och en arbets yta och klicka sedan på **Konfigurera**.
 

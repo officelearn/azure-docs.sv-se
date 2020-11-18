@@ -4,12 +4,12 @@ description: Övervakning av program prestanda för Azure App Services. Diagramm
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: c78a43f9efb263c08dad21218636f21121b9732c
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: f46d00f97dab18b0c7c1d4a5742a87308f814e9e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377810"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832906"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Övervaka Azure App Service-prestanda
 
@@ -36,7 +36,7 @@ Det finns två sätt att aktivera program övervakning för Azure App Services-v
 
 ## <a name="enable-agent-based-monitoring"></a>Aktivera agent-baserad övervakning
 
-# <a name="net"></a>[.NET](#tab/net)
+# <a name="aspnet"></a>[ASP.NET](#tab/net)
 
 > [!NOTE]
 > Kombinationen av APPINSIGHTS_JAVASCRIPT_ENABLED och urlCompression stöds inte. Mer information finns i förklaringen i [fel söknings avsnittet](#troubleshooting).
@@ -59,13 +59,13 @@ Det finns två sätt att aktivera program övervakning för Azure App Services-v
  
  Nedan visas en sammanfattning av data som samlas in för varje väg:
         
-| Data | .NET Basic-samling | Rekommenderad .NET-samling |
+| Data | ASP.NET Basic-samling | ASP.NET-rekommenderad samling |
 | --- | --- | --- |
 | Lägger till trender för processor-, minnes- och I/O-användning |Ja |Ja |
 | Samlar in användningstrender och aktiverar korrelation från tillgänglighetsresultat till transaktioner | Ja |Ja |
 | Samlar in undantag som hanteras av värdprocessen | Ja |Ja |
 | Förbättrar precisionen för APM-mått under belastning när sampling används | Ja |Ja |
-| Korrelerar mikrotjänster över begärande-/beroendegränser | Inga (endast Single-Instance APM-funktioner) |Yes |
+| Korrelerar mikrotjänster över begärande-/beroendegränser | Inga (endast Single-Instance APM-funktioner) |Ja |
 
 3. Om du vill konfigurera inställningar som sampling, som du tidigare kan kontrol lera via applicationinsights.config-filen kan du nu interagera med samma inställningar via program inställningar med ett motsvarande prefix. 
 
@@ -73,11 +73,11 @@ Det finns två sätt att aktivera program övervakning för Azure App Services-v
 
     * Om du vill visa en lista över stödda alternativ för adaptiva typer av telemetri för telemetri, kan du läsa igenom [koden](https://github.com/microsoft/ApplicationInsights-dotnet/blob/master/BASE/Test/ServerTelemetryChannel.Test/TelemetryChannel.Tests/AdaptiveSamplingTelemetryProcessorTest.cs) och [tillhör ande dokumentation](./sampling.md).
 
-# <a name="net-core"></a>[.NET Core](#tab/netcore)
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/netcore)
 
-Följande versioner av .NET Core stöds: ASP.NET Core 2,1, ASP.NET Core 2,2, ASP.NET Core 3,0, ASP.NET Core 3,1
+Följande versioner av ASP.NET Core stöds: ASP.NET Core 2,1, ASP.NET Core 2,2, ASP.NET Core 3,0, ASP.NET Core 3,1
 
-Det finns för närvarande **inte stöd** för att rikta in hela ramverket från .net Core, fristående distribution och Linux-baserade program med agent/tillägg-baserad övervakning. ([Manuell instrumentering](./asp-net-core.md) via kod fungerar i alla tidigare scenarier.)
+Det finns för närvarande **inte stöd** för att rikta in hela framework från ASP.net Core, fristående distribution och Linux-baserade program med hjälp av agent/tillägg-baserad övervakning. ([Manuell instrumentering](./asp-net-core.md) via kod fungerar i alla tidigare scenarier.)
 
 1. **Välj Application Insights** på kontroll panelen i Azure för din app service.
 
@@ -90,7 +90,7 @@ Det finns för närvarande **inte stöd** för att rikta in hela ramverket från
 
      ![Instrumentera din webbapp](./media/azure-web-apps/create-resource-01.png)
 
-2. När du har angett vilken resurs som ska användas kan du välja hur du vill Application Insights Samla in data per plattform för ditt program. .NET Core erbjuder **rekommenderad samling** eller **inaktive rad** för ASP.net Core 2,1, 2,2, 3,0 och 3,1.
+2. När du har angett vilken resurs som ska användas kan du välja hur du vill Application Insights Samla in data per plattform för ditt program. ASP.NET Core erbjuder **rekommenderad samling** eller **inaktive rad** för ASP.net Core 2,1, 2,2, 3,0 och 3,1.
 
     ![Välj alternativ per plattform](./media/azure-web-apps/choose-options-new-net-core.png)
 
@@ -111,12 +111,12 @@ Python App Service-baserade webb program stöder för närvarande inte automatis
 
 ## <a name="enable-client-side-monitoring"></a>Aktivera övervakning på klient Sidan
 
-# <a name="net"></a>[.NET](#tab/net)
+# <a name="aspnet"></a>[ASP.NET](#tab/net)
 
 Övervakning på klient sidan är valbar för ASP.NET. Aktivera övervakning på klient sidan:
 
 * **Inställningar** **>** **Konfiguration**
-   * Under program inställningar skapar du en **ny program inställning** :
+   * Under program inställningar skapar du en **ny program inställning**:
 
      Namn: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
@@ -126,14 +126,14 @@ Python App Service-baserade webb program stöder för närvarande inte automatis
 
 Om du vill inaktivera övervakning på klient sidan tar du antingen bort det associerade nyckel värdes paret från program inställningarna eller anger värdet till falskt.
 
-# <a name="net-core"></a>[.NET Core](#tab/netcore)
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/netcore)
 
-Övervakning på klient sidan är **aktiverat som standard** för .net Core-appar med den **rekommenderade samlingen** , oavsett om app-inställningen APPINSIGHTS_JAVASCRIPT_ENABLED finns.
+Övervakning på klient sidan är **aktiverat som standard** för ASP.net Core appar med den **rekommenderade samlingen**, oavsett om app-inställningen APPINSIGHTS_JAVASCRIPT_ENABLED finns.
 
 Om du av någon anledning vill inaktivera övervakning på klient sidan:
 
 * **Inställningar** **>** **Konfiguration**
-   * Under program inställningar skapar du en **ny program inställning** :
+   * Under program inställningar skapar du en **ny program inställning**:
 
      Namn: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
@@ -348,7 +348,7 @@ Om uppgraderingen görs från en version före 2.5.1 kontrollerar du att DLL-fil
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Nedan visas vår stegvisa fel söknings guide för tillägg/agent-baserad övervakning av .NET-och .NET Core-baserade program som körs på Azure App Services.
+Nedan finns vår stegvisa fel söknings guide för tillägg/agent-baserad övervakning av ASP.NET och ASP.NET Core baserade program som körs på Azure App Services.
 
 > [!NOTE]
 > Den rekommenderade metoden för att övervaka Java-program är att använda den automatiska Instrumentation utan att ändra koden. Följ rikt linjerna för [Application Insights Java 3,0-agenten](./java-in-process-agent.md).
@@ -372,16 +372,31 @@ Nedan visas vår stegvisa fel söknings guide för tillägg/agent-baserad överv
 
     * Bekräfta att det inte finns några poster för `AppAlreadyInstrumented` , `AppContainsDiagnosticSourceAssembly` , och `AppContainsAspNetTelemetryCorrelationAssembly` .
         * Om någon av dessa poster finns tar du bort följande paket från programmet: `Microsoft.ApplicationInsights` , `System.Diagnostics.DiagnosticSource` och `Microsoft.AspNet.TelemetryCorrelation` .
+        * För ASP.NET Core endast appar: om ditt program refererar till ett Application Insights paket, till exempel om du tidigare har instrumenterat (eller försökt att instrumentera) din app med [ASP.net Core SDK](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core), kan det vara möjligt att aktivera App Service-integrering och data kanske inte visas i Application Insights. Åtgärda problemet genom att aktivera "interop with Application Insights SDK" i portalen och du kommer att börja se data i Application Insights 
+        > [!IMPORTANT]
+        > Den här funktionen är i för hands version 
+
+        ![Aktivera inställningen för den befintliga appen](./media/azure-web-apps/netcore-sdk-interop.png)
+
+        Data skickas nu med hjälp av kod metoden även om Application Insights SDK ursprungligen användes eller försökte användas.
+
+        > [!IMPORTANT]
+        > Om programmet som används Application Insights SDK för att skicka telemetri, kommer sådan telemetri att inaktive ras – med andra ord, anpassad telemetri – om några, t. ex. alla spår * ()-metoder, och eventuella anpassade inställningar, till exempel sampling, kommer att inaktive ras. 
+
+
+### <a name="php-and-wordpress-are-not-supported"></a>PHP och WordPress stöds inte
+
+PHP-och WordPress-platser stöds inte. Det finns för närvarande inget officiellt stöd för SDK/agent för övervakning på Server sidan av dessa arbets belastningar. Du kan dock utföra manuell instrumentering av transaktioner på klient sidan på en PHP-eller WordPress-webbplats genom att lägga till Java Script på klient sidan på dina webb sidor med hjälp av [Java Script SDK](./javascript.md).
 
 Tabellen nedan innehåller en mer detaljerad förklaring av vad dessa värden innebär, deras underliggande orsaker och rekommenderade korrigeringar:
 
 |Problem värde|Förklaring|Åtgärda
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | Det här värdet anger att tillägget har identifierat att en aspekt av SDK: n redan finns i programmet och kommer att stängas av. Det kan bero på en referens till `System.Diagnostics.DiagnosticSource` ,  `Microsoft.AspNet.TelemetryCorrelation` eller `Microsoft.ApplicationInsights`  | Ta bort referenserna. Vissa av dessa referenser läggs till som standard från vissa Visual Studio-mallar och äldre versioner av Visual Studio kan lägga till referenser till `Microsoft.ApplicationInsights` .
-|`AppAlreadyInstrumented:true` | Om programmet är riktat mot .NET Core 2,1 eller 2,2, och refererar till [Microsoft. AspNetCore. all](https://www.nuget.org/packages/Microsoft.AspNetCore.All) meta-paket, kommer det att finnas i Application Insights och tillägget kommer att återställas. | Kunder på .NET Core 2.1, 2.2 [rekommenderar](https://github.com/aspnet/Announcements/issues/287) att du använder Microsoft. AspNetCore. app-meta-paketet i stället.|
+|`AppAlreadyInstrumented:true` | Om programmet är riktat ASP.NET Core 2,1 eller 2,2, anger det här värdet att tillägget har identifierat att en viss aspekt av SDK: n redan finns i programmet och kommer att återställas | Kunder på .NET Core 2.1, 2.2 [rekommenderar](https://github.com/aspnet/Announcements/issues/287) att du använder Microsoft. AspNetCore. app-meta-paketet i stället. Aktivera dessutom "interop with Application Insights SDK" i portalen (se anvisningarna ovan).|
 |`AppAlreadyInstrumented:true` | Det här värdet kan också orsakas av förekomsten av ovanstående DLL-filer i mappen app från en tidigare distribution. | Rensa mappen app för att se till att dessa DLL-filer tas bort. Kontrol lera både den lokala appens bin-katalog och katalogen wwwroot på App Service. (Om du vill kontrol lera katalogen wwwroot i App Service webbappen: avancerade verktyg (kudu) > fel söknings konsolen > CMD > home\site\wwwroot).
 |`AppContainsAspNetTelemetryCorrelationAssembly: true` | Det här värdet anger att tillägget har identifierat referenser till `Microsoft.AspNet.TelemetryCorrelation` i programmet och kommer att återställas. | Ta bort referensen.
-|`AppContainsDiagnosticSourceAssembly**:true`|Det här värdet anger att tillägget har identifierat referenser till `System.Diagnostics.DiagnosticSource` i programmet och kommer att återställas.| Ta bort referensen.
+|`AppContainsDiagnosticSourceAssembly**:true`|Det här värdet anger att tillägget har identifierat referenser till `System.Diagnostics.DiagnosticSource` i programmet och kommer att återställas.| Ta bort referensen för ASP.NET. 
 |`IKeyExists:false`|Det här värdet anger att Instrumentation-nyckeln inte finns i AppSetting `APPINSIGHTS_INSTRUMENTATIONKEY` . Möjliga orsaker: värdena kan ha tagits bort av misstag och har glömt att ange värden i Automation-skriptet osv. | Kontrol lera att inställningen finns i App Service programmets inställningar.
 
 ### <a name="appinsights_javascript_enabled-and-urlcompression-is-not-supported"></a>APPINSIGHTS_JAVASCRIPT_ENABLED-och urlCompression stöds inte
@@ -397,13 +412,9 @@ Den senaste informationen om Application Insights agent/tillägg finns i [viktig
 
 ### <a name="default-website-deployed-with-web-apps-does-not-support-automatic-client-side-monitoring"></a>Standard webbplatsen som distribueras med Web Apps stöder inte automatisk övervakning på klient Sidan
 
-När du skapar en webbapp med- `ASP.NET` eller- `.NET Core` körningarna i Azure App-tjänster distribuerar den en statisk HTML-sida som en start webbplats. Den statiska webb sidan läser också in en .NET-hanterad webbdel i IIS. Detta möjliggör testning av kod lös övervakning på Server sidan, men stöder inte automatisk övervakning på klient sidan.
+När du skapar en webbapp med- `ASP.NET` eller- `ASP.NET Core` körningarna i Azure App-tjänster distribuerar den en statisk HTML-sida som en start webbplats. Den statiska webb sidan läser också in en ASP.NET-hanterad webbdel i IIS. Detta möjliggör testning av kod lös övervakning på Server sidan, men stöder inte automatisk övervakning på klient sidan.
 
 Om du vill testa en kod lös Server och övervakning på klient sidan för ASP.NET eller ASP.NET Core i en Azure App Services-webbapp rekommenderar vi att du följer de officiella guiderna för att [skapa en ASP.net Core webbapp](../../app-service/quickstart-dotnetcore.md) och [skapar en ASP.NET Framework-webbapp](../../app-service/quickstart-dotnet-framework.md) och använder sedan instruktionerna i den aktuella artikeln för att aktivera övervakning.
-
-### <a name="php-and-wordpress-are-not-supported"></a>PHP och WordPress stöds inte
-
-PHP-och WordPress-platser stöds inte. Det finns för närvarande inget officiellt stöd för SDK/agent för övervakning på Server sidan av dessa arbets belastningar. Du kan dock utföra manuell instrumentering av transaktioner på klient sidan på en PHP-eller WordPress-webbplats genom att lägga till Java Script på klient sidan på dina webb sidor med hjälp av [Java Script SDK](./javascript.md).
 
 ### <a name="connection-string-and-instrumentation-key"></a>Anslutnings sträng och Instrumentation-nyckel
 

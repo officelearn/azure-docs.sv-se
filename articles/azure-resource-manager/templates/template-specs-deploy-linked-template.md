@@ -2,13 +2,13 @@
 title: Distribuera en mall specifikation som en länkad mall
 description: Lär dig hur du distribuerar en befintlig mall-specifikation i en länkad distribution.
 ms.topic: conceptual
-ms.date: 11/03/2020
-ms.openlocfilehash: 9755774f79ee4901c8aa691054da749f37756742
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/17/2020
+ms.openlocfilehash: 65ad5767817457133d0fbc34c7735cf52ff2c3f3
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321583"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94747476"
 ---
 # <a name="tutorial-deploy-a-template-spec-as-a-linked-template-preview"></a>Självstudie: Distribuera en mall specifikation som en länkad mall (förhands granskning)
 
@@ -19,7 +19,7 @@ Lär dig hur du distribuerar en befintlig [mall-specifikation](template-specs.md
 Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> Mallens specifikationer är för närvarande en för hands version. Du måste [Registrera dig för för hands versionen för](https://aka.ms/templateSpecOnboarding)att kunna använda den.
+> Mallens specifikationer är för närvarande en för hands version. Om du vill använda den måste du installera den senaste versionen av PowerShell eller Azure CLI. För Azure PowerShell använder du [version 5.0.0 eller senare](/powershell/azure/install-az-ps). För Azure CLI använder du [version 2.14.2 eller senare](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-template-spec"></a>Skapa en mall specifikation
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 35c120b6d7715ac6fefe0e8712040108568ee8de
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 037ff64f4811515e7ce64d66a36e08e71de54058
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747429"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831998"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Snabb start: Aktivera SSH och RDP över en IoT Hub enhets ström med hjälp av ett C proxy-program (för hands version)
 
@@ -46,9 +46,7 @@ Följande bild illustrerar hur enhets-och tjänst lokala proxy-program möjligg�
 > [!NOTE]
 > SSH-trafik som skickas över en enhets ström tunnlas via IoT Hub: s strömnings slut punkt i stället för att skickas direkt mellan tjänsten och enheten. Mer information finns i [fördelarna med att använda enhets strömmar för IoT Hub](iot-hub-device-streams-overview.md#benefits). Dessutom illustrerar bilden SSH-daemon som körs på samma enhet (eller dator) som enhetens lokala proxy. I den här snabb starten tillhandahåller IP-adressen för SSH-daemon en enhets lokal Proxy och daemon att köras på olika datorer också.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -62,11 +60,7 @@ Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto]
 * Installera [Visual Studio 2019](https://www.visualstudio.com/vs/) med [Desktop-utveckling med](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) arbets belastningen C++ aktiverat.
 * Installera den senaste versionen av [Git](https://git-scm.com/download/).
 
-* Kör följande kommando för att lägga till Azure IoT-tillägget för Azure CLI till din Cloud Shell-instans. IOT-tillägget lägger till IoT Hub, IoT Edge och IoT-kommandon (Device Provisioning service) i Azure CLI.
-
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 

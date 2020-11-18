@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 3e53937122b8721aff5db435ac447b686ea16643
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: adf0f42b34a4bd7e5df2d2994408dbc175c5e01b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748684"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831930"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Snabb start: Aktivera SSH och RDP över en IoT Hub enhets ström med hjälp av ett C#-proxyprogram (för hands version)
 
@@ -43,9 +43,7 @@ Följande bild illustrerar hur enhets lokala och lokala proxy-program i det här
 > [!NOTE]
 > SSH-trafik som skickas över en enhets ström tunnlas via IoT Hub: s strömnings slut punkt i stället för att skickas direkt mellan tjänsten och enheten. Mer information finns i [fördelarna med att använda enhets strömmar för IoT Hub](iot-hub-device-streams-overview.md#benefits).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -58,28 +56,21 @@ Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto]
 
 * De två exempel programmen som du kör i den här snabb starten skrivs i C#. Du behöver .NET Core SDK 2.1.0 eller senare på din utvecklings dator.
 
-  Du kan hämta [.net Core SDK för flera plattformar från .net](https://www.microsoft.com/net/download/all).
+    Du kan hämta [.net Core SDK för flera plattformar från .net](https://www.microsoft.com/net/download/all).
 
-* Kontrol lera den aktuella versionen av C# på utvecklings datorn med hjälp av följande kommando:
+    Kontrol lera den aktuella versionen av C# på utvecklings datorn med hjälp av följande kommando:
 
     ```
     dotnet --version
     ```
 
-* Kör följande kommando för att lägga till Azure IoT-tillägget för Azure CLI till din Cloud Shell-instans. IOT-tillägget lägger till IoT Hub, IoT Edge och IoT-kommandon (Device Provisioning service) i Azure CLI.
-
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
-
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
-
 * [Ladda ned Azure IoT C#-exempel](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)och extrahera zip-arkivet.
 
 * Ett giltigt användar konto och autentiseringsuppgifter på enheten (Windows eller Linux) som används för att autentisera användaren.
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
@@ -195,7 +186,7 @@ Konsol utmatning på tjänst sidan (tjänstens lokala proxy-program lyssnar på 
 
 ![Utdata från tjänst-lokalt proxy-program](./media/quickstart-device-streams-proxy-csharp/service-console-output.png)
 
-Konsol utdata i programmet för enhets lokalt proxy, som ansluter till SSH-daemonen på *ip_address: 22* :
+Konsol utdata i programmet för enhets lokalt proxy, som ansluter till SSH-daemonen på *ip_address: 22*:
 
 ![Enhet – lokalt proxyprogram utdata](./media/quickstart-device-streams-proxy-csharp/device-console-output.png)
 

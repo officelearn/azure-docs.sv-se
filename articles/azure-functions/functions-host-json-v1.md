@@ -3,12 +3,12 @@ title: host.jssom referens för Azure Functions 1. x
 description: Referens dokumentation för Azure Functions host.jspå filen med v1-körningsmiljön.
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.openlocfilehash: 32848c725d5c99e3814e86447d604839502054c0
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 588ab6723015f34d15e4a46ec4f7324302b13b81
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167736"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832831"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>host.jssom referens för Azure Functions 1. x
 
@@ -93,7 +93,8 @@ Följande exempel *host.jspå* filer har alla möjliga alternativ angivna.
     "serviceBus": {
       "maxConcurrentCalls": 16,
       "prefetchCount": 100,
-      "autoRenewTimeout": "00:05:00"
+      "autoRenewTimeout": "00:05:00",
+      "autoComplete": true
     },
     "singleton": {
       "lockPeriod": "00:00:15",
@@ -136,11 +137,11 @@ Konfigurations inställningar för [Azure Cosmos DB utlösare och bindningar](fu
 }
 ```
 
-|Egenskap  |Standard | Beskrivning |
+|Egenskap  |Standardvärde | Beskrivning |
 |---------|---------|---------|
 |GatewayMode|Gateway|Anslutnings läget som används av funktionen vid anslutning till Azure Cosmos DBs tjänsten. Alternativen är `Direct` och `Gateway`|
 |Protokoll|Https|Anslutnings protokollet som används av funktionen vid anslutning till Azure Cosmos DBs tjänsten.  Läs [här om du vill ha en förklaring av båda lägena](../cosmos-db/performance-tips.md#networking)|
-|leasePrefix|Saknas|Lease-prefix som ska användas för alla funktioner i en app.|
+|leasePrefix|saknas|Lease-prefix som ska användas för alla funktioner i en app.|
 
 ## <a name="durabletask"></a>durableTask
 
@@ -186,7 +187,7 @@ Konfigurations inställningar för [övervakaren av värd hälsa](https://github
 }
 ```
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standardvärde | Beskrivning |
 |---------|---------|---------| 
 |enabled|true|Anger om funktionen är aktive rad. | 
 |healthCheckInterval|10 sekunder|Tidsintervallet mellan de regelbundna hälso kontrollerna i bakgrunden. | 
@@ -209,7 +210,7 @@ Konfigurations inställningar för [http-utlösare och bindningar](functions-bin
 }
 ```
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standardvärde | Beskrivning |
 |---------|---------|---------| 
 |dynamicThrottlesEnabled|falskt|När den här inställningen är aktive rad kommer pipelinen för bearbetning av begär Anden att regelbundet kontrol lera system prestanda räknare som anslutningar/trådar/processer/minne/processor/osv. om någon av dessa räknare är över en inbyggd hög tröskel (80%), avvisas begär Anden med en 429 "upptagen"-svar tills räknarna återgår till normala nivåer.|
 |maxConcurrentRequests|obunden ( `-1` )|Maximalt antal HTTP-funktioner som ska köras parallellt. På så sätt kan du kontrol lera samtidighet, vilket kan hjälpa dig att hantera resursutnyttjande. Du kan till exempel ha en HTTP-funktion som använder många system resurser (minne/processor/Sockets) så att den orsakar problem när samtidigheten är för hög. Eller så kanske du har en funktion som gör utgående begär anden till en tjänst från tredje part, och dessa anrop måste vara begränsade. I dessa fall kan det hjälpa att tillämpa en begränsning.|
@@ -247,11 +248,11 @@ Styr filtrering av loggar som skrivits av ett [ILogger](functions-dotnet-class-l
 }
 ```
 
-|Egenskap  |Standard | Beskrivning |
+|Egenskap  |Standardvärde | Beskrivning |
 |---------|---------|---------| 
-|categoryFilter|Saknas|Anger filtrering efter kategori| 
+|categoryFilter|saknas|Anger filtrering efter kategori| 
 |defaultLevel|Information|För alla kategorier som inte anges i `categoryLevels` matrisen skickar du loggar på denna nivå och över till Application Insights.| 
-|categoryLevels|Saknas|En matris med kategorier som anger den minsta logg nivå som ska skickas till Application Insights för varje kategori. Den kategori som anges här styr alla kategorier som börjar med samma värde och värden som är längre prioriterade. I föregående exempel *host.jspå* fil, alla kategorier som börjar med "Host. aggregator"-logg på `Information` nivå. Alla andra kategorier som börjar med "Host", till exempel "Host.Executor", log på `Error` nivå.| 
+|categoryLevels|saknas|En matris med kategorier som anger den minsta logg nivå som ska skickas till Application Insights för varje kategori. Den kategori som anges här styr alla kategorier som börjar med samma värde och värden som är längre prioriterade. I föregående exempel *host.jspå* fil, alla kategorier som börjar med "Host. aggregator"-logg på `Information` nivå. Alla andra kategorier som börjar med "Host", till exempel "Host.Executor", log på `Error` nivå.| 
 
 ## <a name="queues"></a>kön
 
@@ -269,7 +270,7 @@ Konfigurations inställningar för [utlösare och bindningar i lagrings kön](fu
 }
 ```
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standardvärde | Beskrivning |
 |---------|---------|---------| 
 |maxPollingInterval|60000|Det maximala intervallet i millisekunder mellan Queue-avsökningar.| 
 |visibilityTimeout|0|Tidsintervall mellan återförsök vid bearbetning av ett meddelande Miss lyckas.| 
@@ -286,11 +287,12 @@ Konfigurations inställning för [SendGrind utgående bindning](functions-bindin
     "sendGrid": {
         "from": "Contoso Group <admin@contoso.com>"
     }
+}    
 ```
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standardvärde | Beskrivning |
 |---------|---------|---------| 
-|Från|Saknas|Avsändarens e-postadress för alla funktioner.| 
+|Från|saknas|Avsändarens e-postadress för alla funktioner.| 
 
 ## <a name="servicebus"></a>Service Bus
 
@@ -301,16 +303,18 @@ Konfigurations inställning för [Service Bus utlösare och bindningar](function
     "serviceBus": {
       "maxConcurrentCalls": 16,
       "prefetchCount": 100,
-      "autoRenewTimeout": "00:05:00"
+      "autoRenewTimeout": "00:05:00",
+      "autoComplete": true
     }
 }
 ```
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standardvärde | Beskrivning |
 |---------|---------|---------| 
 |maxConcurrentCalls|16|Det maximala antalet samtidiga anrop till motringning som meddelande pumpen ska initiera. Som standard bearbetar Functions-körningen flera meddelanden samtidigt. Om du vill dirigera körningen så att den bara behandlar en enskild kö eller ett ämnes meddelande i taget, anger `maxConcurrentCalls` du 1. | 
-|prefetchCount|Saknas|Standard-PrefetchCount som ska användas av den underliggande MessageReceiver.| 
-|autoRenewTimeout|00:05:00|Den längsta tid som meddelande låset ska förnyas automatiskt.| 
+|prefetchCount|saknas|Standard-PrefetchCount som ska användas av den underliggande MessageReceiver.| 
+|autoRenewTimeout|00:05:00|Den längsta tid som meddelande låset ska förnyas automatiskt.|
+|Automatisk|true|Om värdet är true Slutför utlösaren meddelande bearbetningen automatiskt vid lyckad körning av åtgärden. Om det är falskt är det ansvaret för funktionen att slutföra meddelandet innan det returneras.|
 
 ## <a name="singleton"></a>Singleton
 
@@ -328,13 +332,13 @@ Konfigurations inställningar för beteendet singleton lock. Mer information fin
 }
 ```
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standardvärde | Beskrivning |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|Den period som funktions nivå lås utförs för. Lås automatisk förnyelse.| 
 |listenerLockPeriod|00:01:00|Den period som lyssnarens lås tas för.| 
 |listenerLockRecoveryPollingInterval|00:01:00|Det tidsintervall som används för återställning av lyssnar lås om det inte gick att hämta ett lyssnar lås vid start.| 
 |lockAcquisitionTimeout|00:01:00|Den maximala tid som körningen kommer att försöka hämta ett lås.| 
-|lockAcquisitionPollingInterval|Saknas|Intervallet mellan lås försök.| 
+|lockAcquisitionPollingInterval|saknas|Intervallet mellan lås försök.| 
 
 ## <a name="tracing"></a>spårning
 
@@ -351,7 +355,7 @@ Konfigurations inställningar för loggar som du skapar med hjälp av ett `Trace
 }
 ```
 
-|Egenskap  |Standard | Beskrivning |
+|Egenskap  |Standardvärde | Beskrivning |
 |---------|---------|---------| 
 |consoleLevel|information|Spårnings nivån för konsol loggning. Alternativen är: `off` , `error` , `warning` , `info` och `verbose` .|
 |fileLoggingMode|debugOnly|Spårnings nivån för fil loggning. Alternativen är `never` , `always` , `debugOnly` .| 

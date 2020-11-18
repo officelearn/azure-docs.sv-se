@@ -4,17 +4,16 @@ description: Lär dig hur du konfigurerar en Sink-omvandling i mappnings data fl
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/02/2020
-ms.openlocfilehash: 2e26028c47e8c96f8c1adabc468ee6f03e3cb19c
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.date: 11/17/2020
+ms.openlocfilehash: d45f5d5d1d61372ed959334519aa865c22d70748
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427317"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832542"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Omvandling av mottagare i data flöde för mappning
 
@@ -65,13 +64,9 @@ I följande videoklipp förklaras ett antal olika Sink-alternativ för text avgr
 
 ![Skärm bild som visar inställningar för mottagare.](media/data-flow/sink-settings.png "Skärm bild som visar inställningar för mottagare.")
 
-**Schema avvikelse** : [schema avvikelse](concepts-data-flow-schema-drift.md) är möjligheten att Data Factory att internt hantera flexibla scheman i dina data flöden utan att uttryckligen definiera kolumn ändringar. Aktivera **Tillåt schema avvikelse** om du vill skriva ytterligare kolumner ovanpå vad som definieras i Datasink-dataschemat.
+**Schema avvikelse**: [schema avvikelse](concepts-data-flow-schema-drift.md) är möjligheten att Data Factory att internt hantera flexibla scheman i dina data flöden utan att uttryckligen definiera kolumn ändringar. Aktivera **Tillåt schema avvikelse** om du vill skriva ytterligare kolumner ovanpå vad som definieras i Datasink-dataschemat.
 
-**Verifiera schema** : om alternativet Validera schema är markerat Miss varnas data flödet om en kolumn i det inkommande käll schemat inte hittas i käll projektionen, eller om data typerna inte matchar. Använd den här inställningen för att genomdriva att källdata uppfyller kontraktet för din definierade projektion. Det är användbart i scenarier med databas källor för att signalera att kolumn namn eller typer har ändrats.
-
-**Använd tempdb:** Som standard använder Data Factory en global temporär tabell för att lagra data som en del av inläsnings processen. Du kan också avmarkera alternativet "Använd TempDB" och be i stället Data Factory att lagra den tillfälliga tabellen i en användar databas som finns i den databas som används för den här mottagaren.
-
-![Använd Temp DB](media/data-flow/tempdb.png "Använd Temp DB")
+**Verifiera schema**: om alternativet Validera schema är markerat Miss varnas data flödet om en kolumn i det inkommande käll schemat inte hittas i käll projektionen, eller om data typerna inte matchar. Använd den här inställningen för att genomdriva att källdata uppfyller kontraktet för din definierade projektion. Det är användbart i scenarier med databas källor för att signalera att kolumn namn eller typer har ändrats.
 
 ## <a name="cache-sink"></a>Cacheuppdatering
 
@@ -109,9 +104,14 @@ Som standard skrivs data till flera handfat i en icke deterministisk ordning. K�
 
 ![Beställning av anpassad mottagare](media/data-flow/cache-2.png "Beställning av anpassad mottagare")
 
+## <a name="error-row-handling"></a>Felhantering av poster
+
+När du skriver till databaser kan vissa rader med data Miss lyckas på grund av begränsningar som anges av målet. En data flödes körning fungerar som standard för det första fel som det får. I vissa anslutningar kan du välja att **fortsätta vid fel** som gör att ditt data flöde kan slutföras även om enskilda rader har fel. Den här funktionen är för närvarande bara tillgänglig i Azure SQL Database. Mer information finns i [fel rad hantering i Azure SQL DB](connector-azure-sql-database.md#error-row-handling).
+
 ## <a name="data-preview-in-sink"></a>Förhands granskning av data i mottagare
 
 När du hämtar en data förhands granskning i ett fel söknings kluster kommer inga data att skrivas till din mottagare. En ögonblicks bild av hur data ser ut kommer att returneras, men inget skrivs till ditt mål. Om du vill testa att skriva data i din mottagare kan du köra en pipeline-felsökning från pipeline-arbetsytan.
 
 ## <a name="next-steps"></a>Nästa steg
+
 Nu när du har skapat ditt data flöde lägger du till en [data flödes aktivitet i din pipeline](concepts-data-flow-overview.md).

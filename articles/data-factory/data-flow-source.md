@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/15/2020
-ms.openlocfilehash: a8890db90fa9f76b676a5fb944f74a773b00c8cd
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 80280702748040e12d1d3d048644e6a16c926256
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737509"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832389"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>Käll omvandling i data flöde för mappning
 
@@ -41,7 +41,7 @@ Om du vill använda en infogad data uppsättning väljer du det format som du vi
 
 Genom att mappa data flödet följer du en metod för att extrahera, läsa in och transformera (ELT) och fungerar med *mellanlagring* av data uppsättningar som är alla i Azure. För närvarande kan följande data uppsättningar användas i en käll omvandling.
 
-| Anslutningsprogram | Format | Data uppsättning/intern |
+| Anslutning | Format | Data uppsättning/intern |
 | --------- | ------ | -------------- |
 | [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties)<br>[Avgränsad text](format-delimited-text.md#mapping-data-flow-properties)<br>[Delta (för hands version)](format-delta.md)<br>[Excel](format-excel.md#mapping-data-flow-properties)<br>[JSON](format-json.md#mapping-data-flow-properties) <br>[ORC](format-orc.md#mapping-data-flow-properties)<br/>[Parquet](format-parquet.md#mapping-data-flow-properties)<br>[XML](format-xml.md#mapping-data-flow-properties) | ✓/-<br>✓/-<br>-/✓<br>✓/✓<br/>✓/-<br>✓/✓<br/>✓/-<br>✓/✓ |
 | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties)<br>[Avgränsad text](format-delimited-text.md#mapping-data-flow-properties)<br>[Excel](format-excel.md#mapping-data-flow-properties)<br>[JSON](format-json.md#mapping-data-flow-properties)<br>[ORC](format-orc.md#mapping-data-flow-properties)<br/>[Parquet](format-parquet.md#mapping-data-flow-properties)<br>[XML](format-xml.md#mapping-data-flow-properties) | ✓/-<br>✓/-<br>✓/✓<br/>✓/-<br>✓/✓<br/>✓/-<br>✓/✓ |
@@ -50,6 +50,7 @@ Genom att mappa data flödet följer du en metod för att extrahera, läsa in oc
 | [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure SQL-hanterad instans (för hands version)](connector-azure-sql-managed-instance.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure Cosmos DB (SQL API)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
+| [Hive](connector-hive.md#mapping-data-flow-properties) | | -/✓ | 
 | [Snowflake](connector-snowflake.md) | | ✓/✓ |
 
 Inställningar som är aktuella för dessa anslutningar finns på fliken **käll alternativ** . Skript exempel för information och data flöde i dessa inställningar finns i anslutnings dokumentationen.
@@ -64,13 +65,13 @@ Utvecklings värden för data uppsättnings parametrar kan konfigureras i [fel s
 
 ![Skärm bild som visar fliken käll inställningar.](media/data-flow/source1.png "Skärm bild som visar fliken käll inställningar.")
 
-**Namn på utdataström** : namnet på käll omvandlingen.
+**Namn på utdataström**: namnet på käll omvandlingen.
 
-**Typ av källa** : Välj om du vill använda en infogad data uppsättning eller ett befintligt data uppsättnings objekt.
+**Typ av källa**: Välj om du vill använda en infogad data uppsättning eller ett befintligt data uppsättnings objekt.
 
-**Testa anslutning** : testa om data flödets Spark-tjänst kan ansluta till den länkade tjänsten som används i din käll data uppsättning. Fel söknings läge måste vara aktiverat för att den här funktionen ska vara aktive rad.
+**Testa anslutning**: testa om data flödets Spark-tjänst kan ansluta till den länkade tjänsten som används i din käll data uppsättning. Fel söknings läge måste vara aktiverat för att den här funktionen ska vara aktive rad.
 
-**Schema avvikelse** : [schema avvikelse](concepts-data-flow-schema-drift.md) är möjligheten att Data Factory att internt hantera flexibla scheman i dina data flöden utan att uttryckligen definiera kolumn ändringar.
+**Schema avvikelse**: [schema avvikelse](concepts-data-flow-schema-drift.md) är möjligheten att Data Factory att internt hantera flexibla scheman i dina data flöden utan att uttryckligen definiera kolumn ändringar.
 
 * Markera kryss rutan **Tillåt schema avvikelse** om käll kolumnerna ska ändras ofta. Med den här inställningen kan alla inkommande källfält flöda genom omvandlingarna till mottagaren.
 
@@ -78,9 +79,9 @@ Utvecklings värden för data uppsättnings parametrar kan konfigureras i [fel s
 
 **Verifiera schema:** Om **Verifiera schema** har valts kan data flödet inte köras om inkommande källdata inte matchar det definierade schemat för data uppsättningen.
 
-**Hoppa över linje antal** : fältet **slopa rad antal** anger hur många rader som ska ignoreras i början av data uppsättningen.
+**Hoppa över linje antal**: fältet **slopa rad antal** anger hur många rader som ska ignoreras i början av data uppsättningen.
 
-**Sampling** : aktivera **sampling** för att begränsa antalet rader från källan. Använd den här inställningen när du testar eller samplar data från källan för fel sökning.
+**Sampling**: aktivera **sampling** för att begränsa antalet rader från källan. Använd den här inställningen när du testar eller samplar data från källan för fel sökning.
 
 Verifiera att källan är korrekt konfigurerad genom att aktivera fel söknings läge och hämta en data förhands granskning. Mer information finns i [fel söknings läge](concepts-data-flow-debug-mode.md).
 

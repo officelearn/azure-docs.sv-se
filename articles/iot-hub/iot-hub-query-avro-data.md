@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: 1eed12593168975b1dfda6e51b07b256cbd0c246
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: f01cd6cd8c5f89206888f5123f7b14a524c9f40f
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "92145812"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94748490"
 ---
 # <a name="query-avro-data-by-using-azure-data-lake-analytics"></a>Fråga Avro data med hjälp av Azure Data Lake Analytics
 
@@ -56,7 +56,7 @@ I det här avsnittet frågar du Avro-data och exporterar dem till en CSV-fil i A
 
 6. Skapa ett U-SQL-projekt i Visual Studio.
 
-   ! Skapa ett U-SQL-projekt] (./Media/IoT-Hub-Query-Avro-data/query-avro-data-6.png)
+   ![Skapa ett U-SQL-projekt](./media/iot-hub-query-avro-data/query-avro-data-6.png)
 
 7. Klistra in innehållet i följande skript i den nya filen. Ändra de tre markerade avsnitten: ditt Data Lake Analytics-konto, de tillhör ande Sök vägarna för DLL-filen och rätt sökväg för ditt lagrings konto.
 

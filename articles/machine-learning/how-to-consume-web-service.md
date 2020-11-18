@@ -10,18 +10,18 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 10/12/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, devx-track-csharp
-ms.openlocfilehash: 4fb62ec8d3a6fa97fe6db5b146ba58d3ad66b1b4
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.custom: how-to, devx-track-python, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: fa1b19ef4ece3011c97c3158d54edd1d39efc09d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441995"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832644"
 ---
-# <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Konsumera en Azure Machine Learning-modell som distribuerats som en webbtjänst
+# <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Använda en Azure Machine Learning modell som distribueras som en webb tjänst
 
 
-Om du distribuerar en Azure Machine Learning modell som en webb tjänst skapas en REST API-slutpunkt. Du kan skicka data till den här slutpunkten så returnerar modellen förutsägelsen. I det här dokumentet får du lära dig hur du skapar klienter för webb tjänsten med hjälp av C#, go, Java och python.
+Om du distribuerar en Azure Machine Learning-modell som en webbtjänst skapas en REST API-slutpunkt. Du kan skicka data till den här slutpunkten så returnerar modellen förutsägelsen. I det här dokumentet får du lära dig hur du skapar klienter för webb tjänsten med hjälp av C#, go, Java och python.
 
 Du skapar en webb tjänst när du distribuerar en modell till din lokala miljö, Azure Container Instances, Azure Kubernetes-tjänsten eller FPGA (Field-programmerbara grind mat ris). Du hämtar den URI som används för att få åtkomst till webb tjänsten med hjälp av [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). Om autentisering är aktive rad kan du också använda SDK: n för att hämta nycklar eller tokens för autentisering.
 
@@ -85,7 +85,7 @@ az ml service show -n <service-name>
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Från Azure Machine Learning Studio väljer du __slut punkter__ , __slut punkter i real tid__ och sedan slut punktens namn. I information om slut punkten innehåller __rest-slutpunkts__ fältet poängsättnings-URI. __Swagger-URI__ : n innehåller Swagger-URI: n.
+Från Azure Machine Learning Studio väljer du __slut punkter__, __slut punkter i real tid__ och sedan slut punktens namn. I information om slut punkten innehåller __rest-slutpunkts__ fältet poängsättnings-URI. __Swagger-URI__ : n innehåller Swagger-URI: n.
 
 ---
 
@@ -119,7 +119,7 @@ Azure Machine Learning ger dig möjlighet att styra åtkomsten till dina webb tj
 
 När du skickar en begäran till en tjänst som skyddas med en nyckel eller token ska du använda __Authorization__ -huvudet för att skicka nyckeln eller token. Nyckeln eller token måste formateras som `Bearer <key-or-token>` , där `<key-or-token>` är nyckel-eller token-värdet.
 
-Den primära skillnaden mellan nycklar och tokens är att **nycklarna är statiska och kan återskapas manuellt** , och **tokens måste uppdateras när de upphör att gälla**. Nyckelbaserad autentisering stöds för Azure Container instance och Azure Kubernetes-tjänsten distribuerade webb tjänster, och tokenbaserad autentisering är **bara** tillgängligt för Azure Kubernetes service-distributioner. Mer information om hur du konfigurerar autentisering finns i [Konfigurera autentisering för modeller som distribueras som webb tjänster](how-to-authenticate-web-service.md).
+Den primära skillnaden mellan nycklar och tokens är att **nycklarna är statiska och kan återskapas manuellt**, och **tokens måste uppdateras när de upphör att gälla**. Nyckelbaserad autentisering stöds för Azure Container instance och Azure Kubernetes-tjänsten distribuerade webb tjänster, och tokenbaserad autentisering är **bara** tillgängligt för Azure Kubernetes service-distributioner. Mer information om hur du konfigurerar autentisering finns i [Konfigurera autentisering för modeller som distribueras som webb tjänster](how-to-authenticate-web-service.md).
 
 
 #### <a name="authentication-with-keys"></a>Autentisering med nycklar

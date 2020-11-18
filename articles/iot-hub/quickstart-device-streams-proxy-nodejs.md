@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-js, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 86b5c1dc396a755d898f0c3c332ab59933236afe
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 0d98f3c61191d5d5b333072682abe740761901f0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747450"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831896"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-nodejs-proxy-application-preview"></a>Snabb start: Aktivera SSH och RDP över en IoT Hub enhets ström med hjälp av ett Node.js proxy-program (för hands version)
 
@@ -30,13 +30,15 @@ I den här snabb starten aktiverar du en säker gränssnitts trafik (SSH) och Re
 
 * [Node.js 10 +](https://nodejs.org).
 
+    Du kan kontrol lera den aktuella versionen av Node.js på din utvecklings dator med hjälp av följande kommando:
+
+    ```cmd/sh
+    node --version
+    ```
+
 * [Ett exempel på ett Node.js projekt](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip).
 
-Du kan kontrol lera den aktuella versionen av Node.js på din utvecklings dator med hjälp av följande kommando:
-
-```cmd/sh
-node --version
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 Microsoft Azure IoT Hub stöder för närvarande enhets strömmar som en [förhands gransknings funktion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -47,8 +49,6 @@ Microsoft Azure IoT Hub stöder för närvarande enhets strömmar som en [förha
 > * Centrala USA-EUAP
 > * Norra Europa
 > * Sydostasien
-  
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ### <a name="add-azure-iot-extension"></a>Lägg till Azure IoT-tillägg
 
@@ -82,7 +82,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I det h
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
-1. Om du vill aktivera backend-programmet för att ansluta till din IoT-hubb och hämta meddelandena måste du också ha en *anslutnings sträng för tjänsten* . Följande kommando hämtar strängen för din IoT-hubb:
+1. Om du vill aktivera backend-programmet för att ansluta till din IoT-hubb och hämta meddelandena måste du också ha en *anslutnings sträng för tjänsten*. Följande kommando hämtar strängen för din IoT-hubb:
 
    > [!NOTE]
    > Ersätt plats hållaren *YourIoTHubName* med det namn du valt för din IoT Hub.

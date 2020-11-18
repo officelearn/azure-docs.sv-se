@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 67e1f1dff43939ce7ef279db57bee4b18bd12dc8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45393f116149f6cf16763d2d7033f8425df235bf
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88213944"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833001"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Azure Blob Storage-utlösare för Azure Functions
 
@@ -20,6 +20,16 @@ Blob Storage-utlösaren startar en funktion när en ny eller uppdaterad BLOB ide
 Azure Blob Storage-utlösaren kräver ett allmänt lagrings konto. Storage v2-konton med [hierarkiska namn rymder](../storage/blobs/data-lake-storage-namespace.md) stöds också. Om du vill använda ett enbart BLOB-konto, eller om ditt program har särskilda behov, granskar du alternativen för att använda den här utlösaren.
 
 Information om konfiguration och konfigurations information finns i [översikten](./functions-bindings-storage-blob.md).
+
+## <a name="polling"></a>Avsökning
+
+Avsökning fungerar som en hybrid mellan att inspektera loggar och köra regelbundna behållar genomsökningar. Blobbar genomsöks i grupper om 10 000 i taget med en fortsättnings-token som används mellan intervall.
+
+> [!WARNING]
+> Dessutom [skapas lagrings loggar på grund av "bästa prestanda"](/rest/api/storageservices/About-Storage-Analytics-Logging) . Det finns ingen garanti för att alla händelser har registrerats. Under vissa omständigheter kan loggarna missas.
+> 
+> Om du behöver en snabbare eller mer tillförlitlig BLOB-bearbetning bör du överväga att skapa ett [Queue-meddelande](../storage/queues/storage-dotnet-how-to-use-queues.md) när du skapar blobben. Använd sedan en [Queue-utlösare](functions-bindings-storage-queue.md) i stället för en BLOB-utlösare för att bearbeta blobben. Ett annat alternativ är att använda Event Grid; i självstudien får du [automatiskt ändra storlek på överförda bilder med hjälp av event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
+>
 
 ## <a name="alternatives"></a>Alternativ
 
@@ -277,9 +287,9 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 |function.jspå egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**bastyp** | Saknas | Måste anges till `blobTrigger` . Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal.|
-|**position** | Saknas | Måste anges till `in` . Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal. Undantag anges i [användnings](#usage) avsnittet. |
-|**Namn** | Saknas | Namnet på variabeln som representerar blobben i funktions koden. |
+|**bastyp** | saknas | Måste anges till `blobTrigger` . Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal.|
+|**position** | saknas | Måste anges till `in` . Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal. Undantag anges i [användnings](#usage) avsnittet. |
+|**Namn** | saknas | Namnet på variabeln som representerar blobben i funktions koden. |
 |**sökväg** | **BlobPath** |Den [behållare](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) som ska övervakas.  Kan vara ett [BLOB Name-mönster](#blob-name-patterns). |
 |**anslutningen** | **Anslutning** | Namnet på en app-inställning som innehåller den lagrings anslutnings sträng som ska användas för den här bindningen. Om appens inställnings namn börjar med "AzureWebJobs" kan du bara ange resten av namnet här. Om du till exempel anger `connection` "unstorage" söker funktions körningen efter en app-inställning med namnet "AzureWebJobsMyStorage". Om du lämnar `connection` tomt använder Functions-körningen standard anslutnings strängen för lagring i den angivna app-inställningen `AzureWebJobsStorage` .<br><br>Anslutnings strängen måste vara för ett allmänt lagrings konto, inte ett [Blob Storage-konto](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 
@@ -331,7 +341,7 @@ Följande exempel utlöser bara blobar i `input` behållaren som börjar med str
 "path": "input/original-{name}",
 ```
 
-Om BLOB-namnet är *original-Blob1.txt*är värdet för `name` variabeln i funktions koden `Blob1.txt` .
+Om BLOB-namnet är *original-Blob1.txt* är värdet för `name` variabeln i funktions koden `Blob1.txt` .
 
 ### <a name="filter-on-file-type"></a>Filtrera efter filtyp
 
@@ -349,7 +359,7 @@ Om du vill söka efter klammerparenteser i fil namn, escapea klammerparenteser m
 "path": "images/{{20140101}}-{name}",
 ```
 
-Om blobben heter * {20140101}-soundfile.mp3*, `name` är variabelvärdet i funktions koden *soundfile.mp3*.
+Om blobben heter *{20140101}-soundfile.mp3*, `name` är variabelvärdet i funktions koden *soundfile.mp3*.
 
 ## <a name="metadata"></a>Metadata
 
@@ -386,7 +396,7 @@ Azure Functions runtime ser till att ingen BLOB-utlösnings funktion anropas mer
 
 Azure Functions lagrar BLOB-kvitton i en behållare med namnet *Azure-WebJobs-hosts* i Azure Storage-kontot för din Function-app (definieras av appens inställning `AzureWebJobsStorage` ). Ett BLOB-kvitto har följande information:
 
-* Funktionen triggerd ("* &lt; Function app Name>*. Funktionen. * &lt; funktions namn>*", till exempel:" MyFunctionApp. functions. CopyBlob ")
+* Funktionen triggerd ("*&lt; Function app Name>*. Funktionen. *&lt; funktions namn>*", till exempel:" MyFunctionApp. functions. CopyBlob ")
 * Behållarens namn
 * Blob-typ ("BlockBlob" eller "PageBlob")
 * BLOB-namnet
@@ -400,7 +410,7 @@ När en BLOB-utlösare Miss lyckas för en specifik BLOB, Azure Functions förs�
 
 Om alla fem försöken inte fungerar lägger Azure Functions till ett meddelande i en lagrings kö med namnet *WebJobs-en-Poison*. Det maximala antalet återförsök kan konfigureras. Samma MaxDequeueCount-inställning används för hantering av skadlig blob och meddelande hantering för hantering av skadlig kö. Queue-meddelandet för Poison-blobbar är ett JSON-objekt som innehåller följande egenskaper:
 
-* FunctionId (i format * &lt; funktionens program namn>*. Funktionen. * &lt; funktions namn>*)
+* FunctionId (i format *&lt; funktionens program namn>*. Funktionen. *&lt; funktions namn>*)
 * BlobType ("BlockBlob" eller "PageBlob")
 * ContainerName
 * BlobName
@@ -413,16 +423,6 @@ BLOB-utlösaren använder en kö internt, så det maximala antalet samtidiga fun
 [Förbruknings planen](functions-scale.md#how-the-consumption-and-premium-plans-work) begränsar en Function-app på en virtuell dator (VM) till 1,5 GB minne. Minne används av varje intern körning av funktions instansen och av Functions-körningen. Om en BLOB-utlöst funktion läser in hela blobben i minnet är den maximala mängd minne som används av den funktionen bara för blobbar 24 * maximal BLOB-storlek. Till exempel skulle en Function-app med tre BLOB-utlöst funktioner och standardinställningarna ha ett maximalt antal per VM-concurrency på 3 * 24 = 72 funktions anrop.
 
 Java Script-och Java-funktioner läser in hela blobben i minnet och C#-funktioner gör att om du binder till `string` eller `Byte[]` .
-
-## <a name="polling"></a>Avsökning
-
-Avsökning fungerar som en hybrid mellan att inspektera loggar och köra regelbundna behållar genomsökningar. Blobbar genomsöks i grupper om 10 000 i taget med en fortsättnings-token som används mellan intervall.
-
-> [!WARNING]
-> Dessutom [skapas lagrings loggar på grund av "bästa prestanda"](/rest/api/storageservices/About-Storage-Analytics-Logging) . Det finns ingen garanti för att alla händelser har registrerats. Under vissa omständigheter kan loggarna missas.
-> 
-> Om du behöver en snabbare eller mer tillförlitlig BLOB-bearbetning bör du överväga att skapa ett [Queue-meddelande](../storage/queues/storage-dotnet-how-to-use-queues.md) när du skapar blobben. Använd sedan en [Queue-utlösare](functions-bindings-storage-queue.md) i stället för en BLOB-utlösare för att bearbeta blobben. Ett annat alternativ är att använda Event Grid; i självstudien får du [automatiskt ändra storlek på överförda bilder med hjälp av event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
->
 
 ## <a name="next-steps"></a>Nästa steg
 

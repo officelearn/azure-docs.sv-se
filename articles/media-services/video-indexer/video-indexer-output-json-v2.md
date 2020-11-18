@@ -8,18 +8,18 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 08/27/2020
+ms.date: 11/16/2020
 ms.author: juliako
-ms.openlocfilehash: 6eecaaff836d3253d382fdf0280f9a15c3a7b00b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf48f873127a12c3cabb28da33d34cedcda2793b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89050870"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831574"
 ---
 # <a name="examine-the-video-indexer-output"></a>Granska Video Indexer utdata
 
-När en video indexeras Video Indexer poduces JSON-innehållet som innehåller information om de angivna video insikterna. Insikterna omfattar: avskrifter, OCRs, ansikten, ämnen, block osv. Varje Insight-typ innehåller instanser av tidsintervall som visas när insikten visas i videon. 
+När en video indexeras skapar Video Indexer JSON-innehållet som innehåller information om de angivna video insikterna. Insikterna omfattar: avskrifter, OCRs, ansikten, ämnen, block osv. Varje Insight-typ innehåller instanser av tidsintervall som visas när insikten visas i videon. 
 
 Du kan granska videons sammanfattade insikter visuellt genom att trycka på **uppspelnings** knappen på videon på [video Indexer](https://www.videoindexer.ai/) webbplats. 
 
@@ -58,7 +58,7 @@ Mer information finns i [Visa och redigera video insikter](video-indexer-view-ed
 |accountId|Spel listans konto-ID.|
 |id|Spelnings listans ID.|
 |name|Spel listans namn.|
-|description|Spelnings listans beskrivning.|
+|beskrivning|Spelnings listans beskrivning.|
 |userName|Namnet på den användare som skapade spelnings listan.|
 |Create|Tid för skapande av spelnings lista.|
 |privacyMode|Spelnings listans sekretess läge (privat/offentlig).|
@@ -187,6 +187,7 @@ En ansikte kan ha ett ID, ett namn, en miniatyr bild, andra metadata och en list
 |textualContentModeration|[TextualContentModeration](#textualcontentmoderation) Insight.|
 |känslor| [Känslor](#emotions) Insight.|
 |avsnitt|[Ämnena](#topics) insikter.|
+|högtalare|Insikter om [talare](#speakers) .|
 
 Exempel:
 
@@ -222,36 +223,45 @@ pipe|En lista över tidsintervallen för det här blocket.|
 |---|---|
 |id|Rad-ID.|
 |text|Själva avskriften.|
+|konfidensbedömning|Avskrifts noggrannhet.|
+|speakerId|ID för högtalaren.|
 |language|Avskrifts språket. Avsett att stödja avskrifter där varje rad kan ha ett annat språk.|
 |pipe|En lista med tidsintervaller där denna rad visades. Om instansen avskrifts har den bara en instans.|
 
 Exempel:
 
 ```json
-"transcript": [
+"transcript":[
 {
-    "id": 0,
-    "text": "Hi I'm Doug from office.",
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:00.5100000",
-        "end": "00:00:02.7200000"
-    }
-    ]
+  "id":1,
+  "text":"Well, good morning everyone and welcome to",
+  "confidence":0.8839,
+  "speakerId":1,
+  "language":"en-US",
+  "instances":[
+     {
+    "adjustedStart":"0:00:10.21",
+    "adjustedEnd":"0:00:12.81",
+    "start":"0:00:10.21",
+    "end":"0:00:12.81"
+     }
+  ]
 },
 {
-    "id": 1,
-    "text": "I have a guest. It's Michelle.",
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:02.7200000",
-        "end": "00:00:03.9600000"
-    }
-    ]
-}
-] 
+  "id":2,
+  "text":"ignite 2016. Your mission at Microsoft is to empower every",
+  "confidence":0.8944,
+  "speakerId":2,
+  "language":"en-US",
+  "instances":[
+     {
+    "adjustedStart":"0:00:12.81",
+    "adjustedEnd":"0:00:17.03",
+    "start":"0:00:12.81",
+    "end":"0:00:17.03"
+     }
+  ]
+},
 ```
 
 #### <a name="ocr"></a>stöd
@@ -331,7 +341,7 @@ Om det finns ansikten (inte animerade tecken) använder Video Indexer Ansikts-AP
 |id|Ansikts-ID.|
 |name|Namnet på FACET. Det kan vara okänt #0, en identifierad kändis eller en kundutbildad person.|
 |konfidensbedömning|Förtroende för ansikts identifiering.|
-|description|En beskrivning av kändis. |
+|beskrivning|En beskrivning av kändis. |
 |thumbnailId|ID för miniatyr bilden för den aktuella ytan.|
 |knownPersonId|Om det är en känd person, dess interna ID.|
 |referenceId|Om det är en Bing-kändis, dess Bing-ID.|
@@ -519,7 +529,7 @@ Företags-och produkt märkes namn identifieras i tal till text avskrift och/ell
 |name|Namn på varumärken.|
 |referenceId | Suffixet för varumärkes Wikipedia-URL: en. Till exempel är "Target_Corporation" suffixet till [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation) .
 |referenceUrl | Varumärkets Wikipedia-URL, om sådan finns. Till exempel [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
-|description|Beskrivningen av varumärkena.|
+|beskrivning|Beskrivningen av varumärkena.|
 |tags|En lista med fördefinierade taggar som har associerats med det här varumärket.|
 |konfidensbedömning|Konfidens värdet för Video Indexer varumärkes detektor (0-1).|
 |pipe|En lista med tidsintervall för det här varumärket. Varje instans har en brandType, som anger om detta varumärke visas i avskriften eller i OCR.|
@@ -827,6 +837,42 @@ Video Indexer gör det lättare att utföra huvud ämnena i avskrifter. När det
 . . .
 ```
 
+#### <a name="speakers"></a>högtalare
+
+|Namn|Beskrivning|
+|---|---|
+|id|Högtalar-ID.|
+|name|Högtalar namnet i formatet "talare # *<number>* ", till exempel: "talare #1".|
+|pipe |En lista med tidsintervaller där denna talare visades.|
+
+```json
+"speakers":[
+{
+  "id":1,
+  "name":"Speaker #1",
+  "instances":[
+     {
+    "adjustedStart":"0:00:10.21",
+    "adjustedEnd":"0:00:12.81",
+    "start":"0:00:10.21",
+    "end":"0:00:12.81"
+     }
+  ]
+},
+{
+  "id":2,
+  "name":"Speaker #2",
+  "instances":[
+     {
+    "adjustedStart":"0:00:12.81",
+    "adjustedEnd":"0:00:17.03",
+    "start":"0:00:12.81",
+    "end":"0:00:17.03"
+     }
+  ]
+},
+` ` `
+```
 ## <a name="next-steps"></a>Nästa steg
 
 [Video Indexer Developer-portalen](https://api-portal.videoindexer.ai)

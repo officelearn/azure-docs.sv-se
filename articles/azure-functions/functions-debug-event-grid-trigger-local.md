@@ -1,16 +1,16 @@
 ---
 title: Azure Functions Event Grid lokal fel sökning
-description: Lär dig att lokalt felsöka Azure-funktioner som utlöses av en Event Grid-händelse
+description: Lär dig att lokalt felsöka Azure Functions som utlöses av en Event Grid-händelse
 author: craigshoemaker
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cshoe
-ms.openlocfilehash: fdd046a855c4e2114e96e7911a928165f808710c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be05d237d2799404c3fd8b5733464e23eeb49aa3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530552"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833069"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Lokal felsökning av Event Grid-utlösare i Azure Functions
 
@@ -79,7 +79,7 @@ Följande skärm bild visar hur den sista URL: en ska se ut:
 När du har angett rätt värde klickar du på **Bekräfta markering**.
 
 > [!IMPORTANT]
-> Varje gång du startar *ngrok*återskapas HTTPS-URL: en och värdet ändras. Därför måste du skapa en ny händelse prenumeration varje gången du exponerar din funktion för Azure via *ngrok*.
+> Varje gång du startar *ngrok* återskapas HTTPS-URL: en och värdet ändras. Därför måste du skapa en ny händelse prenumeration varje gången du exponerar din funktion för Azure via *ngrok*.
 
 ## <a name="upload-a-file"></a>Ladda upp en fil
 

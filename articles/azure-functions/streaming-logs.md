@@ -3,13 +3,13 @@ title: Strömma körnings loggar i Azure Functions
 description: 115-145 tecken inklusive blank steg. Den här sammanfattningen visas i sökresultatet.
 ms.date: 9/1/2020
 ms.topic: how-to
-ms.custom: contperfq2
-ms.openlocfilehash: 61756afb5111da3d5573e967a6ca13f25354aef5
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.custom: contperfq2, devx-track-azurecli
+ms.openlocfilehash: 68b9d567fe0f2959c809a25c3669b9529cf093b8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216104"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832887"
 ---
 # <a name="enable-streaming-execution-logs-in-azure-functions"></a>Aktivera strömnings körnings loggar i Azure Functions
 
@@ -29,7 +29,7 @@ Du kan visa båda typerna av logg strömmar i portalen.
 
 ### <a name="built-in-log-streaming"></a>Inbyggd logg strömning
 
-Om du vill visa strömmande loggar i portalen väljer du fliken **plattforms funktioner** i din Function-app. Välj sedan **logg strömning**under **övervakning**.
+Om du vill visa strömmande loggar i portalen väljer du fliken **plattforms funktioner** i din Function-app. Välj sedan **logg strömning** under **övervakning**.
 
 ![Aktivera strömmande loggar i portalen](./media/functions-monitoring/enable-streaming-logs-portal.png)
 
@@ -45,7 +45,7 @@ I Application Insights väljer du **Live Metrics Stream**. [Exempel logg poster]
 
 ![Visa Live Metrics Stream i portalen](./media/functions-monitoring/live-metrics-stream.png) 
 
-## <a name="visual-studio-code"></a>Visual Studio-koden
+## <a name="visual-studio-code"></a>Visuell Studio-kod
 
 [!INCLUDE [functions-enable-log-stream-vs-code](../../includes/functions-enable-log-stream-vs-code.md)]
 

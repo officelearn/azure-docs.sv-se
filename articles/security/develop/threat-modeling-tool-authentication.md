@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: has-adal-ref, devx-track-js, devx-track-csharp
-ms.openlocfilehash: e9a1afd1d998fcb3ba715c890cc4deac1f0a7da5
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: ee4dd70faab9ed44b1aa6ca8ca0ec517c7746f66
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517724"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832538"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Säkerhets ram: autentisering | Åtgärder
 
@@ -30,7 +30,7 @@ ms.locfileid: "94517724"
 | **Webb program**    | <ul><li>[Överväg att använda en standardmekanism för autentisering för att autentisera till webb program](#standard-authn-web-app)</li><li>[Program måste hantera misslyckade verifierings scenarier på ett säkert sätt](#handle-failed-authn)</li><li>[Aktivera steg-till-eller anpassad autentisering](#step-up-adaptive-authn)</li><li>[Se till att de administrativa gränssnitten är korrekt låsta](#admin-interface-lockdown)</li><li>[Implementera glömt lösen ords funktioner på ett säkert sätt](#forgot-pword-fxn)</li><li>[Kontrol lera att lösen ordet och konto principen implementeras](#pword-account-policy)</li><li>[Implementera kontroller för att förhindra uppräkning av användar namn](#controls-username-enum)</li></ul> |
 | **Databas** | <ul><li>[Använd Windows-autentisering när det är möjligt för att ansluta till SQL Server](#win-authn-sql)</li><li>[När det är möjligt använder Azure Active Directory autentisering för att ansluta till SQL Database](#aad-authn-sql)</li><li>[När SQL-autentiseringsläge används, se till att konto-och lösen ords principen tillämpas på SQL Server](#authn-account-pword)</li><li>[Använd inte SQL-autentisering i inneslutna databaser](#autn-contained-db)</li></ul> |
 | **Azure Event Hub** | <ul><li>[Använd autentiseringsuppgifter för autentisering per enhet med SaS-token](#authn-sas-tokens)</li></ul> |
-| **Azure Trust-gränser** | <ul><li>[Aktivera Azure-Multi-Factor Authentication för Azure-administratörer](#multi-factor-azure-admin)</li></ul> |
+| **Azure Trust-gränser** | <ul><li>[Aktivera Azure AD Multi-Factor Authentication för Azure-administratörer](#multi-factor-azure-admin)</li></ul> |
 | **Service Fabric förtroende gränser** | <ul><li>[Begränsa anonym åtkomst till Service Fabric kluster](#anon-access-cluster)</li><li>[Se till att Service Fabric klient-till-nod-certifikat skiljer sig från nod-till-nod-certifikat](#fabric-cn-nn)</li><li>[Använd AAD för att autentisera klienter för Service Fabric-kluster](#aad-client-fabric)</li><li>[Se till att Service Fabric-certifikat hämtas från en godkänd certifikat utfärdare (CA)](#fabric-cert-ca)</li></ul> |
 | **Identitets Server** | <ul><li>[Använd standard scenarier för autentisering som stöds av identitets servern](#standard-authn-id)</li><li>[Åsidosätt standardvärdet för Identity Server-token med ett skalbart alternativ](#override-token)</li></ul> |
 | **Datorns förtroende gränser** | <ul><li>[Kontrol lera att de distribuerade programmets binärfiler är digitalt signerade](#binaries-signed)</li></ul> |
@@ -173,7 +173,7 @@ ms.locfileid: "94517724"
 | **Referenser**              | [Översikt över Event Hubs autentisering och säkerhets modell](../../event-hubs/authenticate-shared-access-signature.md) |
 | **Steg** | <p>Event Hubs säkerhets modellen baseras på en kombination av SAS-token (signatur för delad åtkomst) och händelse utgivare. Utgivar namnet representerar den DeviceID som tar emot token. På så sätt kan du associera de token som genereras med respektive enheter.</p><p>Alla meddelanden är taggade med upphovs man på tjänst sidan som gör det möjligt att identifiera inbetalnings försök med ursprung i nytto Last. När du autentiserar enheter genererar du en SaS-token per enhet som är begränsad till en unik utgivare.</p>|
 
-## <a name="enable-azure-multi-factor-authentication-for-azure-administrators"></a><a id="multi-factor-azure-admin"></a>Aktivera Azure-Multi-Factor Authentication för Azure-administratörer
+## <a name="enable-azure-ad-multi-factor-authentication-for-azure-administrators"></a><a id="multi-factor-azure-admin"></a>Aktivera Azure AD Multi-Factor Authentication för Azure-administratörer
 
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
@@ -181,7 +181,7 @@ ms.locfileid: "94517724"
 | **SDL-fas**               | Distribution |
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [Vad är Azure Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md) |
+| **Referenser**              | [Vad är Azure AD Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md) |
 | **Steg** | <p>Multi-Factor Authentication (MFA) är en autentiseringsmetod som kräver mer än en verifieringsmetod och lägger till ett kritiskt andra säkerhets lager för användar inloggningar och transaktioner. Det fungerar genom att kräva två eller flera av följande verifierings metoder:</p><ul><li>Något som du känner till (vanligt vis ett lösen ord)</li><li>Något du har (en betrodd enhet som inte enkelt dupliceras, till exempel en telefon)</li><li>Något som du är (biometrik)</li><ul>|
 
 ## <a name="restrict-anonymous-access-to-service-fabric-cluster"></a><a id="anon-access-cluster"></a>Begränsa anonym åtkomst till Service Fabric kluster

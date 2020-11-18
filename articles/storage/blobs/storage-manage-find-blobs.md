@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions
-ms.openlocfilehash: 8f1ea67605be3aee6257c293aea3db617d885645
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 3174dbd36d9bb39ce606ec12f88397f795e91526
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370261"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832440"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a>Hantera och hitta Azure blob-data med blobb index Taggar (för hands version)
 
@@ -149,7 +149,7 @@ I tabellen nedan visas giltiga operatorer för villkorliga åtgärder:
 |     <      |  Mindre än   | `"Age" < '32'` |
 |     <=     |  Mindre än eller lika med  | `"Company" <= 'Contoso'` |
 |    AND     |  Logiska och  | `"Rank" >= '010' AND "Rank" < '100'` |
-|     OR     | Logiska eller   | `"Status" = 'Done' OR "Priority" >= '05'` |
+|     ELLER     | Logiska eller   | `"Status" = 'Done' OR "Priority" >= '05'` |
 
 > [!NOTE]
 > Det finns två ytterligare operatorer, inte lika med eller logiska eller, som tillåts i villkors `x-ms-if-tags` huvudet för BLOB-åtgärder, men som inte finns i `Find Blobs by Tags` åtgärden.
@@ -267,7 +267,7 @@ I följande tabell sammanfattas skillnaderna mellan metadata och blob-index Tagg
 
 |              |   Metadata   |   BLOB index-Taggar  |
 |--------------|--------------|--------------------|
-| **Begränsningar**      | Ingen numerisk gräns, 8 KB totalt, SKIFT läges okänsligt | 10 Taggar per BLOB Max, 768 byte per tagg, SKIFT läges känslig |
+| **Gränser**      | Ingen numerisk gräns, 8 KB totalt, SKIFT läges okänsligt | 10 Taggar per BLOB Max, 768 byte per tagg, SKIFT läges känslig |
 | **Uppdateringar**    | Tillåts inte på Arkiv nivå, `Set Blob Metadata` ersätter alla befintliga metadata, `Set Blob Metadata` ändrar blobens senaste ändrings tid | Tillåts för alla åtkomst nivåer, `Set Blob Tags` ersätter alla befintliga taggar, `Set Blob Tags` ändrar inte blobens senaste ändrings tid |
 | **Storage**     | Lagrad med BLOB-data | Under resurs för BLOB-data |
 | **Indexerar & frågor** | Måste använda en separat tjänst, till exempel Azure Search | Indexering och frågor om funktioner som är inbyggda i Blob Storage |
@@ -327,13 +327,14 @@ I det här avsnittet beskrivs kända problem och villkor i den offentliga för h
 - När filtreringen är begränsad till en enda behållare kan det `@container` bara skickas om alla index Taggar i filter uttrycket är likhets kontroller (nyckel = värde).
 - När du använder intervall operatorn med `AND` villkoret kan du bara ange samma index etikett nyckel namn ( `"Age" > '013' AND "Age" < '100'` ).
 - Versions-och blob-index stöds inte. BLOB index-taggar bevaras för versioner, men skickas inte till BLOB-databasmotorn.
+- Det finns inget API för att avgöra om index taggar är indexerade.
 - Redundansväxling av kontot stöds inte. BLOB-indexet kanske inte uppdateras korrekt efter redundansväxlingen.
 - Livs cykel hantering stöder bara likhets kontroller med BLOB-index matchning.
 - `Copy Blob` kopierar inte BLOB-index-taggar från käll-bloben till den nya mål-bloben. Du kan ange de taggar som du vill använda för mål-bloben under kopierings åtgärden.
 - `Copy Blob` (Asynkron kopia) från ett annat lagrings konto med tillämpade taggar på mål-bloben gör att BLOB-index motorn inte returnerar blobben och dess Taggar i filter uppsättningen. Använd `Copy Blob` från URL (synkronisera kopia).
 - Taggarna sparas när ögonblicks bilder skapas. Att befordra en ögonblicks bild stöds dock inte och kan resultera i en tom tag-uppsättning.
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 **Kan du använda BLOB-index för att filtrera och fråga efter innehåll i mina blobbar?**
 

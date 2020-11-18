@@ -1,18 +1,18 @@
 ---
 title: Inbyggda princip definitioner för Azure Database for MySQL
 description: Visar Azure Policy inbyggda princip definitioner för Azure Database for MySQL. Dessa inbyggda princip definitioner tillhandahåller vanliga metoder för att hantera dina Azure-resurser.
-ms.date: 10/20/2020
+ms.date: 11/17/2020
 ms.topic: reference
 author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 75a3112875d6d4c610315c02151281a511f72322
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: c6f7c540d73dea3f3a9336c0a43e464fdae19d26
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534440"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94748099"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-database-for-mysql"></a>Azure Policy inbyggda definitioner för Azure Database for MySQL
 

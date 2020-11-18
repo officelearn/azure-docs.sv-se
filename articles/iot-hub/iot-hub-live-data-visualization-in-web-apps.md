@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 35df99d0a30b0952521281fa0d6bb95ce0509695
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 8f7baca94d653d9851c506068ccf7ecf84063641
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740994"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832185"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualisera real tids sensor data från din Azure IoT Hub i ett webb program
 
@@ -51,13 +51,7 @@ I den här självstudien får du lära dig att visualisera real tids sensor data
 
 * I den här artikeln förutsätter vi en Windows-utvecklings dator. Du kan dock enkelt utföra dessa steg på ett Linux-system i önskat gränssnitt.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för Azure CLI till Cloud Shell-instansen. IOT-tillägget lägger till IoT Hub-, IoT Edge-och IoT Device Provisioning-tjänst (DPS)-kommandon i Azure CLI.
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="add-a-consumer-group-to-your-iot-hub"></a>Lägga till en konsument grupp i IoT Hub
 
@@ -253,7 +247,7 @@ Om du kommer över eventuella problem med det här exemplet kan du prova stegen 
 
 ### <a name="azure-app-service-issues"></a>Azure App Service problem
 
-* I Azure Portal går du till din webbapp. Under **övervakning** i den vänstra rutan väljer du **App Service loggar** . Aktivera **program loggning (fil system)** till på, ange **nivå** till fel och välj sedan **Spara** . Öppna sedan **logg strömmen** (under **övervakning** ).
+* I Azure Portal går du till din webbapp. Under **övervakning** i den vänstra rutan väljer du **App Service loggar**. Aktivera **program loggning (fil system)** till på, ange **nivå** till fel och välj sedan **Spara**. Öppna sedan **logg strömmen** (under **övervakning**).
 
 * Från din webbapp i Azure Portal under **utvecklingsverktyg**  väljer du  **konsol** och validerar Node-och NPM-versioner med `node -v` och `npm -v` .
 

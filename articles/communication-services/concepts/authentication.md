@@ -9,12 +9,12 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 939c36cd62dab4362232aef0da8701b34a88c6ff
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 96e10bc19d59b60824a908c67816a21ca80326d0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202964"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832814"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>Autentisera till Azure Communication Services
 
@@ -72,11 +72,11 @@ Om du inte använder ett klient bibliotek för att göra HTTP-förfrågningar ti
 
 Token för användar åtkomst gör att klient programmen autentiseras direkt mot Azure Communication Services. För att uppnå detta bör du ställa in en betrodd tjänst som autentiserar dina program användare och utfärdar användar åtkomst-token med administrations klient biblioteket. Gå till dokumentationen för [klient-och server arkitektur](./client-and-server-architecture.md) och lär dig mer om våra arkitektur överväganden.
 
-`CommunicationClientCredential`Klassen innehåller logiken för att tillhandahålla autentiseringsuppgifter för användarens åtkomsttoken till klient biblioteken och hantera deras livs cykel.
+`CommunicationUserCredential`Klassen innehåller logiken för att tillhandahålla autentiseringsuppgifter för användarens åtkomsttoken till klient biblioteken och hantera deras livs cykel.
 
 ### <a name="initialize-the-client-libraries"></a>Initiera klient biblioteken
 
-Om du vill initiera klient bibliotek för Azure Communication Services som kräver autentisering med användar åtkomst-token skapar du först en instans av `CommunicationClientCredential` klassen och använder den för att initiera en API-klient.
+Om du vill initiera klient bibliotek för Azure Communication Services som kräver autentisering med användar åtkomst-token skapar du först en instans av `CommunicationUserCredential` klassen och använder den för att initiera en API-klient.
 
 Följande kodfragment visar hur du initierar klient biblioteket för chatten med en åtkomsttoken för användare:
 

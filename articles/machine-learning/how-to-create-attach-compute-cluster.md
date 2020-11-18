@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, devx-track-azurecli
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: ce80c6bbd3e4a5154e80317c3918776c771e67fb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 0bbf70016dc9b93120b3158e8954c336095ea211
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318205"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832695"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Skapa ett Azure Machine Learning beräknings kluster
 
@@ -60,7 +60,7 @@ Compute-kluster kan köra jobb säkert i en [virtuell nätverks miljö](how-to-s
 
 ## <a name="create"></a>Skapa
 
-**Tids uppskattning** : cirka 5 minuter.
+**Tids uppskattning**: cirka 5 minuter.
 
 Azure Machine Learning Compute kan återanvändas över körningar. Beräkningen kan delas med andra användare på arbets ytan och bevaras mellan körningar och automatiskt skalar noderna uppåt eller nedåt baserat på antalet körningar som skickats och max_nodes som angetts i klustret. Inställningen min_nodes styr de minsta tillgängliga noderna.
 
@@ -74,8 +74,8 @@ Beräkningen skalas ned till noll noder när den inte används.   Dedikerade vir
 
 Om du vill skapa en beständig Azure Machine Learning beräknings resurs i python anger du **vm_size** och **max_nodes** egenskaper. Azure Machine Learning använder sedan smarta standardinställningar för de andra egenskaperna. 
     
-* **vm_size** : VM-serien för noderna som skapats av Azure Machine Learning Compute.
-* **max_nodes** : det högsta antalet noder som autoskalar upp till när du kör ett jobb på Azure Machine Learning beräkning.
+* **vm_size**: VM-serien för noderna som skapats av Azure Machine Learning Compute.
+* **max_nodes**: det högsta antalet noder som autoskalar upp till när du kör ett jobb på Azure Machine Learning beräkning.
 
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]

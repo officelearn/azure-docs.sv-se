@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: 32ff5a73494bac2cabcb9488f946673435173dd0
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 517de5c4003655c5fea2f2e7949fb513b1a3c381
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489446"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842438"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Skapa diagnostikinställningar för att skicka plattformsloggar och mått till olika målplatser
 [Plattforms loggar](platform-logs-overview.md) i Azure, inklusive Azure aktivitets logg och resurs loggar, ger detaljerad diagnostik och gransknings information för Azure-resurser och Azure-plattformen som de är beroende av. [Plattforms mått](data-platform-metrics.md) samlas in som standard och lagras vanligt vis i Azure Monitor Metrics-databasen. Den här artikeln innehåller information om hur du skapar och konfigurerar diagnostikinställningar för att skicka plattforms mått och plattforms loggar till olika mål.
@@ -99,7 +99,7 @@ Du kan konfigurera diagnostikinställningar i Azure Portal antingen från Azure 
 
 4. **Kategori information (vad vill du dirigera)** – Markera kryss rutan för varje kategori av data som du vill skicka till destinationer som du har angett senare. Listan över kategorier varierar för varje Azure-tjänst.
 
-     - **AllMetrics** dirigerar en resurss plattforms mått till Azure logs Store, men i logg formuläret. De här måtten skickas vanligt vis endast till Azure Monitor Metrics Time-Series-databas. Skickar dem till Azure Monitor loggar Store (som är sökbart via Log Analytics) du integrerar dem i frågor som söker i andra loggar. Det här alternativet kanske inte är tillgängligt för alla resurs typer. När det stöds visas [Azure Monitor mått som stöds](metrics-supported.md) för vilka mått som samlas in för de olika resurs typerna.
+     - **AllMetrics** dirigerar en resurss plattforms mått till Azure logs Store, men i logg formuläret. De här måtten skickas vanligt vis endast till Azure Monitor Metrics Time-Series-databas. Genom att skicka dem till Azure Monitor loggar Store (som är sökbart via Log Analytics) kan du integrera dem i frågor som söker i andra loggar. Det här alternativet kanske inte är tillgängligt för alla resurs typer. När det stöds visas [Azure Monitor mått som stöds](metrics-supported.md) för vilka mått som samlas in för de olika resurs typerna.
 
        > [!NOTE]
        > Se begränsning av routnings mått för att Azure Monitor loggar tidigare i den här artikeln.  

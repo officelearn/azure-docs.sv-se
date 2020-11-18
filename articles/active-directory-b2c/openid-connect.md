@@ -11,12 +11,12 @@ ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e1e300f2e18d7103cde374c5eba6877602ac3721
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: dbfeefc14059785ba82cbf245a60e5e72759db76
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961229"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840414"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Webb inloggning med OpenID Connect i Azure Active Directory B2C
 
@@ -124,7 +124,7 @@ Det finns också flera fler verifieringar som du bör utföra. Valideringarna be
 
 - Se till att användaren/organisationen har registrerat sig för programmet.
 - Se till att användaren har rätt behörighet/privilegier.
-- Se till att en viss styrka autentisering har inträffat, till exempel Azure Multi-Factor Authentication.
+- Se till att en viss styrka autentisering har inträffat, till exempel Azure AD Multi-Factor Authentication.
 
 När du har validerat ID-token kan du starta en session med användaren. Du kan använda anspråken i ID-token för att hämta information om användaren i ditt program. Användningen av den här informationen omfattar visning, poster och auktorisering.
 

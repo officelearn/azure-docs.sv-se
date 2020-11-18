@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 71a4fba177f5bbbaf9f8d991222b071d0da66d4d
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: b66d0f20959d196fddeb8356d8171573f1243b58
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660397"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842285"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Hantera användning och kostnader med Azure Monitor-loggar    
 
@@ -627,7 +627,7 @@ När du får en avisering använder du stegen i ovanstående avsnitt om hur du f
 
 ## <a name="data-transfer-charges-using-log-analytics"></a>Avgifter för data överföring med Log Analytics
 
-Att skicka data till Log Analytics kan medföra avgifter för data bandbredd. Som det beskrivs i [prissättnings sidan för Azure bandbredd](https://azure.microsoft.com/pricing/details/bandwidth/)är data överföringen mellan Azure-tjänster som finns i två regioner debiterad som utgående data överföring enligt normal taxa. Inkommande data överföring är kostnads fri. Den här avgiften är dock väldigt liten (några%) jämfört med kostnaderna för Log Analytics data inmatning. Därför bör du kontrol lera kostnaderna för Log Analytics behöver fokusera på din inmatade [data volym](#understanding-ingested-data-volume). 
+Att skicka data till Log Analytics kan medföra kostnader för data bandbredd, men de är begränsade till Virtual Machines där en Log Analytics agent är installerad och inte gäller när du använder diagnostikinställningar eller med andra anslutningar som är inbyggda i Azure Sentinel. Som det beskrivs i [prissättnings sidan för Azure bandbredd](https://azure.microsoft.com/pricing/details/bandwidth/)är data överföringen mellan Azure-tjänster som finns i två regioner debiterad som utgående data överföring enligt normal taxa. Inkommande data överföring är kostnads fri. Den här avgiften är dock väldigt liten (några%) jämfört med kostnaderna för Log Analytics data inmatning. Därför bör du kontrol lera kostnaderna för Log Analytics behöver fokusera på din inmatade [data volym](#understanding-ingested-data-volume). 
 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Felsöka varför Log Analytics inte längre samla in data

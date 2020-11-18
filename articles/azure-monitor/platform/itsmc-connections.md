@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: a75dd24769a4f1af018981ffcec279afc2a88b5a
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: f7980ca7bc6f23c383ea013c2b017b3bd61e2d25
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682426"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842304"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Ansluta ITSM-produkter/-tjänster med anslutningsprogrammet för hantering av IT-tjänster (ITSM)
 Den här artikeln innehåller information om hur du konfigurerar anslutningen mellan din ITSM-produkt/-tjänst och Anslutningsprogram för hantering av IT-tjänster (ITSM) (ITSMC) i Log Analytics för att centralt hantera dina arbets uppgifter. Mer information om ITSMC finns i [Översikt](./itsmc-overview.md).
@@ -32,7 +32,7 @@ Följande ITSM-produkter/-tjänster stöds. Välj produkten om du vill visa deta
 
 I följande avsnitt finns information om hur du ansluter System Center Service Manager-produkten till ITSMC i Azure.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Se till att följande krav är uppfyllda:
 
@@ -41,6 +41,7 @@ Se till att följande krav är uppfyllda:
 - Hybrid anslutning har skapats och kon figurer ATS. Mer information: [Konfigurera hybrid anslutningen](#configure-the-hybrid-connection).
 - Versioner av Service Manager som stöds: 2012 R2 eller 2016.
 - Användar roll:  [Avancerad operatör](/previous-versions/system-center/service-manager-2010-sp1/ff461054(v=technet.10)).
+- I dag kan aviseringarna som skickas från Azure Monitor skapas i System Center Service Manager incidenter.
 
 > [!NOTE]
 > 
@@ -182,11 +183,11 @@ Följande exempel bild visar information om en lyckad anslutning:
 
 Följande avsnitt innehåller information om hur du ansluter din ServiceNow-produkt till ITSMC i Azure.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Se till att följande krav är uppfyllda:
 - ITSMC installerad. Mer information: [Lägg till anslutningsprogram för hantering av IT-tjänster (ITSM)-lösningen](./itsmc-overview.md#add-it-service-management-connector).
 - ServiceNow-versioner som stöds: Orlando, New York, Madrid, London, Kingston, Jakarta, Istanbul, Helsingfors, Genève.
-- I dag kan aviseringarna som skickas från Azure Monitor skapas i ServiceNow något av följande element: Events, Incedents eller Alerts.
+- I dag kan aviseringarna som skickas från Azure Monitor skapa i ServiceNow något av följande element: händelser, incidenter eller aviseringar.
 > [!NOTE]
 > ITSMC stöder bara det officiella SaaS-erbjudandet från tjänsten nu. Privata distributioner av service stöds nu inte. 
 
@@ -312,7 +313,7 @@ Följande avsnitt innehåller information om hur du ansluter din bestyrkande pro
 > Från och med 1 – okt-2020-ITSM-integrering med Azure-avisering kommer inte längre att vara aktive rad för nya kunder. Det går inte att använda nya ITSM-anslutningar. 
 > Befintliga ITSM-anslutningar kommer att stödjas.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Se till att följande krav är uppfyllda:
 
@@ -370,7 +371,7 @@ Följande avsnitt innehåller information om hur du ansluter din Cherwell-produk
 > Från och med 1 – okt-2020 Cherwell ITSM-integrering med Azure-avisering kommer inte längre att aktive ras för nya kunder. Det går inte att använda nya ITSM-anslutningar. 
 > Befintliga ITSM-anslutningar kommer att stödjas.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Se till att följande krav är uppfyllda:
 

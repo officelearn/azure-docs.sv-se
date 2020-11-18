@@ -4,27 +4,30 @@ description: I den här artikeln lär du dig hur du återställer filer och mapp
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 654ed7467410743e0db1abc2e51f1304b4f91a5d
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: b9d5c90634dac3229e756ad93c10db91b268080c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093726"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841170"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från säkerhets kopiering av virtuella Azure-datorer
 
 Azure Backup ger möjlighet att återställa [virtuella Azure-datorer (VM) och diskar](./backup-azure-arm-restore-vms.md) från virtuella Azure-säkerhetskopieringar, även kallade återställnings punkter. Den här artikeln förklarar hur du återställer filer och mappar från en virtuell Azure-säkerhetskopiering. Det går bara att återställa filer och mappar för virtuella Azure-datorer som distribueras med Resource Manager-modellen och skyddas till ett Recovery Services-valv.
+
 
 > [!NOTE]
 > Den här funktionen är tillgänglig för virtuella Azure-datorer som distribueras med Resource Manager-modellen och skyddas till ett Recovery Services-valv.
 > Fil återställning från en krypterad VM-säkerhetskopiering stöds inte.
 >
 
-## <a name="mount-the-volume-and-copy-files"></a>Montera volymen och kopiera filer
+![Arbets flöde för återställning av filmapp](./media/backup-azure-restore-files-from-vm/file-recovery-1.png)
 
-Om du vill återställa filer eller mappar från återställnings punkten går du till den virtuella datorn och väljer önskad återställnings punkt.
+## <a name="step-1-generate-and-download-script-to-browse-and-recover-files"></a>Steg 1: generera och ladda ned skript för att bläddra och återställa filer
 
-1. Logga in på [Azure Portal](https://portal.Azure.com) och välj **virtuella datorer**i det vänstra fönstret. I listan över virtuella datorer väljer du den virtuella datorn för att öppna den virtuella datorns instrument panel.
+Om du vill återställa filer eller mappar från återställnings punkten går du till den virtuella datorn och utför följande steg:
+
+1. Logga in på [Azure Portal](https://portal.Azure.com) och välj **virtuella datorer** i det vänstra fönstret. I listan över virtuella datorer väljer du den virtuella datorn för att öppna den virtuella datorns instrument panel.
 
 2. I den virtuella datorns meny väljer du **säkerhets kopiering** för att öppna instrument panelen för säkerhets kopiering.
 
@@ -40,7 +43,7 @@ Om du vill återställa filer eller mappar från återställnings punkten går d
 
 4. I list rutan **Välj återställnings punkt** väljer du den återställnings punkt som innehåller de filer som du vill använda. Som standard är den senaste återställnings punkten redan vald.
 
-5. Om du vill ladda ned program varan som används för att kopiera filer från återställnings punkten väljer du **Hämta körbar fil** (för virtuella Windows Azure-datorer) eller **Ladda ned skript** (för virtuella Linux Azure-datorer genereras ett Python-skript).
+5. Välj **Hämta körbar fil** (för virtuella Windows Azure-datorer) eller **Ladda ned skript** (för virtuella Linux Azure-datorer genereras ett Python-skript) för att ladda ned program varan som används för att kopiera filer från återställnings punkten.
 
     ![Ladda ned körbar fil](./media/backup-azure-restore-files-from-vm/download-executable.png)
 
@@ -54,79 +57,145 @@ Om du vill återställa filer eller mappar från återställnings punkten går d
 
     ![Genererat lösen ord](./media/backup-azure-restore-files-from-vm/generated-pswd.png)
 
-7. Kontrol lera att [du har rätt dator](#selecting-the-right-machine-to-run-the-script) för att köra skriptet. Om rätt dator är samma dator som du laddade ned skriptet på, kan du fortsätta till nedladdnings avsnittet. Från nedladdnings platsen (vanligt vis mappen *hämtade filer* ) högerklickar du på den körbara filen eller skriptet och kör det med administratörs behörighet. När du uppmanas till det anger du lösen ordet eller klistrar in lösen ordet från minnet och trycker på **RETUR**. När du har angett ett giltigt lösen ord ansluter skriptet till återställnings punkten.
 
-    ![Körbara utdata](./media/backup-azure-restore-files-from-vm/executable-output.png)
+## <a name="step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script"></a>Steg 2: kontrol lera att datorn uppfyller kraven innan du kör skriptet
 
-8. För Linux-datorer genereras ett Python-skript. En måste ladda ned skriptet och kopiera det till den relevanta/kompatibla Linux-servern. Du kan behöva ändra behörigheterna för att köra den med ```chmod +x <python file name>``` . Kör sedan python-filen med ```./<python file name>``` .
+När skriptet har hämtats kontrollerar du att du har rätt dator för att köra det här skriptet. Den virtuella datorn där du planerar att köra skriptet bör inte ha någon av följande konfigurationer som inte stöds. Om så är fallet väljer du en annan dator helst från samma region som uppfyller kraven.  
 
-Se avsnittet [åtkomst krav](#access-requirements) för att kontrol lera att skriptet körs.
+### <a name="dynamic-disks"></a>Dynamiska diskar
 
-### <a name="identifying-volumes"></a>Identifiera volymer
+Du kan inte köra det körbara skriptet på den virtuella datorn med någon av följande egenskaper:
 
-#### <a name="for-windows"></a>För Windows
+- Volymer som sträcker sig över flera diskar (utsträckta och stripade volymer).
+- Feltoleranta volymer (speglade volymer och RAID-5-volymer) på dynamiska diskar.
+
+### <a name="windows-storage-spaces"></a>Windows Storage Spaces
+
+Det går inte att köra den nedladdade körbara filen på den virtuella datorn som är konfigurerad för Windows lagrings utrymmen.
+
+### <a name="virtual-machine-backups-having-large-disks"></a>Säkerhets kopiering av virtuella datorer med stora diskar
+
+Om den säkerhetskopierade datorn har ett stort antal diskar (>16) eller stora diskar (> 4 TB var) rekommenderar vi inte att du kör skriptet på samma dator för återställning, eftersom det kommer att ha en betydande inverkan på den virtuella datorn. I stället rekommenderar vi att du bara har en separat virtuell dator för fil återställning (virtuella Azure VM D2v3-datorer) och sedan stänger ned den när det inte behövs. 
+
+## <a name="step-3-os-requirements-to-successfully-run-the-script"></a>Steg 3: operativ system krav för att köra skriptet
+
+Den virtuella dator som du vill köra det nedladdade skriptet på måste uppfylla följande krav.
+
+### <a name="for-windows-os"></a>För Windows OS
+
+I följande tabell visas kompatibiliteten mellan server-och dator operativ system. När du återställer filer kan du inte återställa filer till en tidigare eller framtida version av operativ systemet. Du kan till exempel inte återställa en fil från en virtuell Windows Server 2016-dator till Windows Server 2012 eller en dator med Windows 8. Du kan återställa filer från en virtuell dator till samma serveroperativ system eller till kompatibelt klient operativ system.
+
+|Server-OS | Kompatibelt klient operativ system  |
+| --------------- | ---- |
+| Windows Server 2019    | Windows 10 |
+| Windows Server 2016    | Windows 10 |
+| Windows Server 2012 R2 | Windows 8,1 |
+| Windows Server 2012    | Windows 8  |
+| Windows Server 2008 R2 | Windows 7   |
+
+### <a name="for-linux-os"></a>För Linux OS
+
+I Linux måste operativ systemet på datorn som används för att återställa filer ha stöd för fil systemet på den skyddade virtuella datorn. När du väljer en dator för att köra skriptet, se till att datorn har ett kompatibelt operativ system och använder en av de versioner som anges i följande tabell:
+
+|Linux-operativsystem | Versioner  |
+| --------------- | ---- |
+| Ubuntu | 12,04 och uppåt |
+| CentOS | 6,5 och uppåt  |
+| RHEL | 6,7 och uppåt |
+| Debian | 7 och senare |
+| Oracle Linux | 6,4 och uppåt |
+| SLES | 12 och över |
+| openSUSE | 42,2 och uppåt |
+
+> [!NOTE]
+> Vi har hittat några problem med att köra fil återställnings skriptet på datorer med SLES 12 SP4 OS och vi undersöker med SLES-teamet.
+> För närvarande fungerar det att köra fil återställnings skriptet på datorer med SLES 12 SP2 och SP3 OS-versioner.
+>
+
+Skriptet kräver också python-och bash-komponenter för att kunna köra och ansluta säkert till återställnings punkten.
+
+|Komponent | Version  |
+| --------------- | ---- |
+| bash | 4 och senare |
+| python | 2.6.6 och senare  |
+| TLS | 1,2 bör stödjas  |
+
+## <a name="step-4-access-requirements-to-successfully-run-the-script"></a>Steg 4: åtkomst krav för att köra skriptet
+
+Om du kör skriptet på en dator med begränsad åtkomst kontrollerar du att det finns åtkomst till:
+
+- `download.microsoft.com`
+- URL: er för återställnings tjänsten (GEO-NAME refererar till den region där Recovery Services valvet finns)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.com` (För offentliga Azure-regioner)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.cn` (För Azure Kina-21Vianet)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.us` (För Azure amerikanska myndigheter)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.de` (För Azure Germany)
+- Utgående portar 53 (DNS), 443, 3260
+
+> [!NOTE]
+>
+> Skript filen som du laddade ned i steg 1 [ovan](#step-1-generate-and-download-script-to-browse-and-recover-files) kommer att ha **geo-namnet** i namnet på filen. Använd detta **geo-namn** för att fylla i URL: en. Det nedladdade skript namnet kommer att börja med: \' VMName- \' \_ \' attributnamnet \' _ \' GUID \' .<br><br>
+> Om exempelvis skriptets fil namn är *ContosoVM_wcus_12345678*, är **geo-namnet** *wcus* och URL: en skulle vara:<br> <https://pod01-rec2.wcus.backup.windowsazure.com>
+>
+
+För Linux kräver skriptet "Open-iSCSI"-och ' lshw '-komponenter för att ansluta till återställnings punkten. Om komponenterna inte finns på den dator där skriptet körs, ställer skriptet efter behörighet att installera komponenterna. Ange medgivande för att installera de nödvändiga komponenterna.
+
+Åtkomst till `download.microsoft.com` krävs för att ladda ned komponenter som används för att skapa en säker kanal mellan den dator där skriptet körs och data i återställnings punkten.
+
+
+## <a name="step-5-running-the-script-and-identifying-volumes"></a>Steg 5: köra skriptet och identifiera volymer
+
+### <a name="for-windows"></a>För Windows
+
+När du har uppfyllt alla krav som anges i steg 2, steg 3 och steg 4 kopierar du skriptet från den hämtade platsen (vanligt vis mappen Hämtade filer), högerklickar på den körbara filen eller skriptet och kör den med administratörs behörighet. När du uppmanas till det anger du lösen ordet eller klistrar in lösen ordet från minnet och trycker på RETUR. När du har angett ett giltigt lösen ord ansluter skriptet till återställnings punkten.
+
+  ![Körbara utdata](./media/backup-azure-restore-files-from-vm/executable-output.png)
+
 
 När du kör den körbara filen monterar operativ systemet de nya volymerna och tilldelar enhets beteckningar. Du kan använda Utforskaren eller Utforskaren för att bläddra bland enheterna. De enhets beteckningar som tilldelats volymerna får inte ha samma bokstäver som den ursprungliga virtuella datorn. Volym namnet bevaras dock. Om volymen på den ursprungliga virtuella datorn exempelvis var "datadisk (E: `\` )" kan den volymen anslutas på den lokala datorn som "data disk (" valfri bokstav ": `\` ). Bläddra igenom alla volymer som anges i skriptets utdata tills du hittar dina filer eller mappar.  
 
    ![Anslutna återställnings volymer](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
 
-#### <a name="for-linux"></a>För Linux
+**För säkerhetskopierade virtuella datorer med stora diskar (Windows)**
+
+Om fil återställnings processen låser sig efter att du kört fil återställnings skriptet (till exempel om diskarna aldrig monteras eller om de är monterade men volymerna inte visas) utför du följande steg:
+  
+1. Se till att operativ systemet är WS 2012 eller högre.
+2. Se till att register nycklarna är inställda enligt rekommendationerna nedan i återställnings servern och var noga med att starta om servern. Antalet bredvid GUID kan vara mellan 0001-0005. I följande exempel är det 0004. Navigera genom sökvägen till register nyckeln tills avsnittet parametrar.
+
+    ![Register nyckel ändringar](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
+
+```registry
+- HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Disk\TimeOutValue – change this from 60 to 1200
+- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\SrbTimeoutDelta – change this from 15 to 1200
+- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\EnableNOPOut – change this from 0 to 1
+- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\MaxRequestHoldTime - change this from 60 to 1200
+```
+
+### <a name="for-linux"></a>För Linux
+
+För Linux-datorer genereras ett Python-skript. Hämta skriptet och kopiera det till den relevanta/kompatibla Linux-servern. Du kan behöva ändra behörigheterna för att köra den med ```chmod +x <python file name>``` . Kör sedan python-filen med ```./<python file name>``` .
+
 
 I Linux monteras volymerna för återställnings punkten på den mapp där skriptet körs. De anslutna diskarna, volymerna och motsvarande monterings Sök vägar visas i enlighet med detta. Dessa monterings Sök vägar visas för användare som har åtkomst till rot nivå. Bläddra igenom de volymer som anges i utdata för skriptet.
 
   ![Fil återställnings meny för Linux](./media/backup-azure-restore-files-from-vm/linux-mount-paths.png)
 
-## <a name="closing-the-connection"></a>Stänger anslutningen
 
-När du har identifierat filerna och kopierat dem till en lokal lagrings plats, ta bort (eller demontera) de ytterligare enheterna. Om du vill demontera enheterna går du till **fil återställnings** menyn i Azure Portal och väljer **demontera diskar**.
+**För säkerhetskopierade virtuella datorer med stora diskar (Linux)**
 
-![Demontera diskar](./media/backup-azure-restore-files-from-vm/unmount-disks3.png)
+Om fil återställnings processen låser sig efter att du kört fil återställnings skriptet (till exempel om diskarna aldrig monteras eller om de är monterade men volymerna inte visas) utför du följande steg:
 
-När diskarna har demonterats visas ett meddelande. Det kan ta några minuter innan anslutningen har uppdaterats så att du kan ta bort diskarna.
+1. I filen/etc/iSCSI/iscsid.conf ändrar du inställningen från:
+    - `node.conn[0].timeo.noop_out_timeout = 5`  att `node.conn[0].timeo.noop_out_timeout = 30`
+2. Kör skriptet igen när du har gjort ändringarna ovan. Om det finns tillfälliga haverier, se till att det finns ett mellanrum på 20 till 30 minuter mellan återförsök för att undvika efterföljande burst-överföring av begär Anden som påverkar mål förberedelsen. Intervallet mellan omkörningar ser till att målet är klart för anslutning från skriptet.
+3. Efter fil återställning kontrollerar du att du går tillbaka till portalen och väljer **demontera diskar** för återställnings punkter där du inte kunde montera volymerna. I stort sett rensar det här steget eventuella befintliga processer/sessioner och ökar chansen att återställa.
 
-I Linux tar operativ systemet inte bort motsvarande monterings Sök vägar automatiskt när anslutningen till återställnings punkten har brutits. Monterings Sök vägarna finns som "föräldralösa" volymer och är synliga, men genererar ett fel när du öppnar/skriver filerna. De kan tas bort manuellt. Skriptet, vid körning, identifierar eventuella sådana volymer som är befintliga från alla tidigare återställnings punkter och rensar dem vid medgivande.
 
-> [!NOTE]
-> Kontrol lera att anslutningen är stängd när de filer som krävs har återställts. Detta är viktigt, särskilt i scenariot där den dator där skriptet körs också har kon figurer ATS för säkerhets kopiering. Om anslutningen fortfarande är öppen kan den efterföljande säkerhets kopieringen Miss förväntar sig med felet "UserErrorUnableToOpenMount". Detta beror på att de monterade enheterna/volymerna antas vara tillgängliga och när de kan komma åt dem kan Miss lyckas eftersom den underliggande lagringen, det vill säga, inte är tillgänglig. Om du rensar anslutningen tas dessa enheter/volymer bort, så de kommer inte att vara tillgängliga under säkerhets kopieringen.
+#### <a name="lvmraid-arrays-for-linux-vms"></a>LVM/RAID-matriser (för virtuella Linux-datorer)
 
-## <a name="selecting-the-right-machine-to-run-the-script"></a>Välja rätt dator för att köra skriptet
-
-Om skriptet har hämtats, är nästa steg att kontrol lera om den dator där du planerar att köra skriptet är rätt dator. Följande är de krav som måste uppfyllas på datorn.
-
-### <a name="original-backed-up-machine-versus-another-machine"></a>Ursprunglig säkerhetskopierad dator jämfört med en annan dator
-
-1. Om den säkerhetskopierade datorn är en stor disk med stor disk – det vill säga antalet diskar är större än 16 diskar eller om varje disk är större än 4 TB **måste skriptet köras på en annan dator** och [kraven](#file-recovery-from-virtual-machine-backups-having-large-disks) måste vara uppfyllda.
-1. Även om den säkerhetskopierade datorn inte är en stor virtuell disk, kan skriptet i [dessa scenarier](#special-configurations) inte köras på samma säkerhetskopierade virtuella dator.
-
-### <a name="os-requirements-on-the-machine"></a>OS-krav på datorn
-
-Datorn där skriptet måste köras måste uppfylla [de här operativ system kraven](#system-requirements).
-
-### <a name="access-requirements-for-the-machine"></a>Åtkomst krav för datorn
-
-Den dator där skriptet måste köras måste uppfylla [dessa åtkomst krav](#access-requirements).
-
-## <a name="special-configurations"></a>Särskilda konfigurationer
-
-### <a name="dynamic-disks"></a>Dynamiska diskar
-
-Om den skyddade virtuella Azure-datorn har volymer med en eller båda av följande egenskaper kan du inte köra det körbara skriptet på samma virtuella dator.
-
-- Volymer som sträcker sig över flera diskar (utsträckta och stripade volymer)
-- Feltoleranta volymer (speglade volymer och RAID-5-volymer) på dynamiska diskar
-
-Kör i stället det körbara skriptet på en annan dator med ett kompatibelt operativ system.
-
-### <a name="windows-storage-spaces"></a>Windows Storage Spaces
-
-Windows Storage Spaces är en Windows-teknik som gör det möjligt att virtualisera lagring. Med Windows lagrings utrymmen kan du gruppera bransch standard diskar i lagringspooler. Sedan använder du det tillgängliga utrymmet i dessa lagringspooler för att skapa virtuella diskar, som kallas lagrings utrymmen.
-
-Om den skyddade virtuella Azure-datorn använder Windows lagrings utrymmen kan du inte köra det körbara skriptet på samma virtuella dator. Kör i stället det körbara skriptet på en annan dator med ett kompatibelt operativ system.
-
-### <a name="lvmraid-arrays"></a>LVM/RAID-matriser
-
-I Linux används Logical Volume Manager (LVM) och/eller programvaru-RAID-matriser för att hantera logiska volymer över flera diskar. Om den skyddade virtuella Linux-datorn använder LVM-och/eller RAID-matriser kan du inte köra skriptet på samma virtuella dator. Kör i stället skriptet på en annan dator med ett kompatibelt operativ system och som stöder fil systemet på den skyddade virtuella datorn.
-
+I Linux används Logical Volume Manager (LVM) och/eller programvaru-RAID-matriser för att hantera logiska volymer över flera diskar. Om den skyddade virtuella Linux-datorn använder LVM-och/eller RAID-matriser kan du inte köra skriptet på samma virtuella dator.<br>
+Kör i stället skriptet på en annan dator med ett kompatibelt operativ system och som stöder fil systemet på den skyddade virtuella datorn.<br>
 Följande skript utdata visar diskarna LVM och/eller RAID-matriser och volymerna med partitionstypen.
 
    ![Menyn för Linux LVM-utdata](./media/backup-azure-restore-files-from-vm/linux-LVMOutput.png)
@@ -256,111 +325,18 @@ mount [RAID Disk Path] [/mountpath]
 
 Om RAID-disken har en annan LVM som kon figurer ATS i den, använder du den föregående proceduren för LVM-partitioner men använder volym namnet i stället för RAID-diskens namn.
 
-## <a name="system-requirements"></a>Systemkrav
+## <a name="step-6-closing-the-connection"></a>Steg 6: stänger anslutningen
 
-### <a name="for-windows-os"></a>För Windows OS
+När du har identifierat filerna och kopierat dem till en lokal lagrings plats, ta bort (eller demontera) de ytterligare enheterna. Om du vill demontera enheterna går du till **fil återställnings** menyn i Azure Portal och väljer **demontera diskar**.
 
-I följande tabell visas kompatibiliteten mellan server-och dator operativ system. När du återställer filer kan du inte återställa filer till en tidigare eller framtida version av operativ systemet. Du kan till exempel inte återställa en fil från en virtuell Windows Server 2016-dator till Windows Server 2012 eller en dator med Windows 8. Du kan återställa filer från en virtuell dator till samma serveroperativ system eller till kompatibelt klient operativ system.
+![Demontera diskar](./media/backup-azure-restore-files-from-vm/unmount-disks3.png)
 
-|Server-OS | Kompatibelt klient operativ system  |
-| --------------- | ---- |
-| Windows Server 2019    | Windows 10 |
-| Windows Server 2016    | Windows 10 |
-| Windows Server 2012 R2 | Windows 8.1 |
-| Windows Server 2012    | Windows 8  |
-| Windows Server 2008 R2 | Windows 7   |
+När diskarna har demonterats får du ett meddelande. Det kan ta några minuter innan anslutningen har uppdaterats så att du kan ta bort diskarna.
 
-### <a name="for-linux-os"></a>För Linux OS
-
-I Linux måste operativ systemet på datorn som används för att återställa filer ha stöd för fil systemet på den skyddade virtuella datorn. När du väljer en dator för att köra skriptet, se till att datorn har ett kompatibelt operativ system och använder en av de versioner som anges i följande tabell:
-
-|Linux-operativsystem | Versioner  |
-| --------------- | ---- |
-| Ubuntu | 12,04 och uppåt |
-| CentOS | 6,5 och uppåt  |
-| RHEL | 6,7 och uppåt |
-| Debian | 7 och senare |
-| Oracle Linux | 6,4 och uppåt |
-| SLES | 12 och över |
-| openSUSE | 42,2 och uppåt |
+I Linux tar operativ systemet inte bort motsvarande monterings Sök vägar automatiskt när anslutningen till återställnings punkten har brutits. Monterings Sök vägarna finns som "föräldralösa" volymer och är synliga, men genererar ett fel när du öppnar/skriver filerna. De kan tas bort manuellt. Skriptet, vid körning, identifierar eventuella sådana volymer som är befintliga från alla tidigare återställnings punkter och rensar dem vid medgivande.
 
 > [!NOTE]
-> Vi har hittat några problem med att köra fil återställnings skriptet på datorer med SLES 12 SP4 OS och vi undersöker med SLES-teamet.
-> För närvarande fungerar det att köra fil återställnings skriptet på datorer med SLES 12 SP2 och SP3 OS-versioner.
->
-
-Skriptet kräver också python-och bash-komponenter för att kunna köra och ansluta säkert till återställnings punkten.
-
-|Komponent | Version  |
-| --------------- | ---- |
-| bash | 4 och senare |
-| python | 2.6.6 och senare  |
-| TLS | 1,2 bör stödjas  |
-
-## <a name="access-requirements"></a>Åtkomstkrav
-
-Om du kör skriptet på en dator med begränsad åtkomst kontrollerar du att det finns åtkomst till:
-
-- `download.microsoft.com`
-- URL: er för återställnings tjänsten (GEO-NAME refererar till den region där Recovery Services valvet finns)
-  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.com` (För offentliga Azure-regioner)
-  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.cn` (För Azure Kina-21Vianet)
-  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.us` (För Azure amerikanska myndigheter)
-  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.de` (För Azure Germany)
-- Utgående portar 53 (DNS), 443, 3260
-
-> [!NOTE]
->
-> Skript filen som du laddade ned i steg 5 [ovan](#mount-the-volume-and-copy-files) kommer att ha **geo-namnet** i namnet på filen. Använd detta **geo-namn** för att fylla i URL: en. Det nedladdade skript namnet kommer att börja med: \' VMName- \' \_ \' attributnamnet \' _ \' GUID \' .<br><br>
-> Om exempelvis skriptets fil namn är *ContosoVM_wcus_12345678*, är **geo-namnet** *wcus* och URL: en skulle vara:<br> <https://pod01-rec2.wcus.backup.windowsazure.com>
->
-
-För Linux kräver skriptet "Open-iSCSI"-och ' lshw '-komponenter för att ansluta till återställnings punkten. Om komponenterna inte finns på den dator där skriptet körs, ställer skriptet efter behörighet att installera komponenterna. Ange medgivande för att installera de nödvändiga komponenterna.
-
-Åtkomst till `download.microsoft.com` krävs för att ladda ned komponenter som används för att skapa en säker kanal mellan den dator där skriptet körs och data i återställnings punkten.
-
-## <a name="file-recovery-from-virtual-machine-backups-having-large-disks"></a>Fil återställning från säkerhets kopior av virtuella datorer med stora diskar
-
-I det här avsnittet beskrivs hur du utför fil återställning från säkerhets kopior av virtuella Azure-datorer med fler än 16 diskar eller disk storleken är större än 4 TB.
-
-Eftersom fil återställnings processen kopplar alla diskar från säkerhets kopian, när ett stort antal diskar (>16) eller stora diskar (> 4 TB varje) används, rekommenderas följande åtgärds punkter:
-
-- Behåll en separat Restore Server (virtuella Azure VM D2v3-datorer) för fil återställning. Du kan använda det bara för fil återställning och sedan stänga ned det när det inte behövs. Det rekommenderas inte att återställas på den ursprungliga datorn eftersom den har betydande påverkan på den virtuella datorn.
-- Kör skriptet en gång för att kontrol lera om fil återställningen lyckas.
-- Om fil återställnings processen låser sig (diskarna aldrig monteras eller om de är monterade men volymerna inte visas) utför du följande steg.
-  - Om återställnings servern är en virtuell Windows-dator:
-    - Se till att operativ systemet är WS 2012 eller högre.
-    - Se till att register nycklarna är inställda enligt rekommendationerna nedan i återställnings servern och var noga med att starta om servern. Antalet bredvid GUID kan vara mellan 0001-0005. I följande exempel är det 0004. Navigera genom sökvägen till register nyckeln tills avsnittet parametrar.
-
-    ![Register nyckel ändringar](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
-
-```registry
-- HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Disk\TimeOutValue – change this from 60 to 1200
-- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\SrbTimeoutDelta – change this from 15 to 1200
-- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\EnableNOPOut – change this from 0 to 1
-- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\MaxRequestHoldTime - change this from 60 to 1200
-```
-
-- Om återställnings servern är en virtuell Linux-dator:
-  - I filen/etc/iSCSI/iscsid.conf ändrar du inställningen från:
-    - `node.conn[0].timeo.noop_out_timeout = 5`  att `node.conn[0].timeo.noop_out_timeout = 30`
-- När du har gjort ändringen ovan kör du skriptet igen. Med de här ändringarna är det mycket troligt att fil återställningen kommer att lyckas.
-- Varje gång användaren laddar ned ett skript initierar Azure Backup processen för att förbereda återställnings punkten för hämtning. Med stora diskar tar det lång tid att utföra den här processen. Om det finns successiva burst-anrop, kommer mål förberedelsen att ingå i en nedladdnings spiral. Därför rekommenderar vi att du laddar ned ett skript från portalen/PowerShell/CLI, väntar i 20-30 minuter (en tumregel) och kör det. Vid den här tidpunkten förväntas målet vara klart för anslutning från skript.
-- Efter fil återställning kontrollerar du att du går tillbaka till portalen och väljer **demontera diskar** för återställnings punkter där du inte kunde montera volymerna. I stort sett rensar det här steget eventuella befintliga processer/sessioner och ökar chansen att återställa.
-
-## <a name="troubleshooting"></a>Felsökning
-
-Om du har problem när du återställer filer från de virtuella datorerna kan du läsa följande tabell för ytterligare information.
-
-| Fel meddelande/scenario | Trolig orsak | Rekommenderad åtgärd |
-| ------------------------ | -------------- | ------------------ |
-| Exe-utdata: *undantag inträffade vid anslutning till målet* | Skriptet kan inte komma åt återställnings punkten    | Kontrol lera om datorn uppfyller de [tidigare åtkomst kraven](#access-requirements). |  
-| Exe-utdata: *målet har redan loggats in via en iSCSI-session.* | Skriptet har redan körts på samma dator och enheterna har anslutits | Volymerna för återställnings punkten har redan bifogats. De kan inte monteras med samma enhets beteckning på den ursprungliga virtuella datorn. Bläddra igenom alla tillgängliga volymer i Utforskaren för filen. |
-| Exe-utdata: *det här skriptet är ogiltigt eftersom diskarna har demonterats via portalen/överskridit gränsen på 12 timmar. Ladda ned ett nytt skript från portalen.* |    Diskarna har demonterats från portalen eller så överskreds gränsen på 12 timmar | Denna specifika exe är nu ogiltig och kan inte köras. Om du vill komma åt filerna för återställnings punkten-in-Time går du till portalen för en ny exe.|
-| På den dator där exe körs: de nya volymerna demonteras inte när du klickar på knappen demontera | ISCSI-initieraren på datorn svarar inte/uppdaterar anslutningen till målet och upprätthåller cachen. |  När du har klickat på **demontera**väntar du några minuter. Om de nya volymerna inte är demonterade kan du bläddra igenom alla volymer. Om du bläddrar bland alla volymer så tvingas initieraren att uppdatera anslutningen och volymen demonteras med ett fel meddelande om att disken inte är tillgänglig.|
-| Exe-utdata: skriptet körs korrekt men "nya volymer anslutna" visas inte i skriptets utdata |    Detta är ett tillfälligt fel    | Volymerna har redan bifogats. Öppna Utforskaren för att bläddra. Om du använder samma dator för att köra skript varje gång, bör du överväga att starta om datorn och listan bör visas i efterföljande exe-körningar. |
-| Linux-information: det går inte att Visa önskade volymer | Operativ systemet på datorn där skriptet körs kanske inte känner igen det underliggande fil systemet för den skyddade virtuella datorn | Kontrol lera om återställnings punkten är krasch-konsekvent eller fil konsekvent. Om filen är konsekvent kör du skriptet på en annan dator vars operativ system identifierar den skyddade virtuella datorns fil system. |
-| Windows-information: det går inte att Visa önskade volymer | Diskarna kan ha anslutits men volymerna har inte kon figurer ATS | På skärmen disk hantering identifierar du ytterligare diskar som är relaterade till återställnings punkten. Om någon av dessa diskar är i offline-tillstånd kan du försöka att ta dem online genom att högerklicka på disken och välja **online**.|
+> Kontrol lera att anslutningen är stängd när de filer som krävs har återställts. Detta är viktigt, särskilt i scenariot där den dator där skriptet körs också har kon figurer ATS för säkerhets kopiering. Om anslutningen fortfarande är öppen kan den efterföljande säkerhets kopieringen Miss förväntar sig med felet "UserErrorUnableToOpenMount". Detta beror på att de monterade enheterna/volymerna antas vara tillgängliga och när de kan komma åt dem kan Miss lyckas eftersom den underliggande lagringen, det vill säga, inte är tillgänglig. Om du rensar anslutningen tas dessa enheter/volymer bort, så de kommer inte att vara tillgängliga under säkerhets kopieringen.
 
 ## <a name="security"></a>Säkerhet
 
@@ -394,15 +370,15 @@ För att bläddra bland filer och mappar använder skriptet iSCSI-initieraren p�
 
 Vi använder en metod för ömsesidig CHAP-autentisering så att varje komponent autentiserar den andra. Det innebär att det är mycket svårt för en falsk initierare att ansluta till iSCSI-målet och att ett förfalskat mål måste vara anslutet till den dator där skriptet körs.
 
-Data flödet mellan återställnings tjänsten och datorn skyddas genom att skapa en säker TLS-tunnel över TCP ([TLS 1,2 bör stödjas](#system-requirements) på den dator där skriptet körs).
+Data flödet mellan återställnings tjänsten och datorn skyddas genom att skapa en säker TLS-tunnel över TCP ([TLS 1,2 bör stödjas](#step-3-os-requirements-to-successfully-run-the-script) på den dator där skriptet körs).
 
 Alla fil Access Control List (ACL) som finns i den överordnade/säkerhetskopierade virtuella datorn bevaras även i det monterade fil systemet.
 
 Skriptet ger skrivskyddad åtkomst till en återställnings punkt och är bara giltig i 12 timmar. Om du vill ta bort åtkomsten tidigare loggar du in på Azure Portal/PowerShell/CLI och utför **demontera diskar** för den specifika återställnings punkten. Skriptet kommer att ogiltig förklaras.
 
+
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs [fel söknings](#troubleshooting) avsnittet om du har problem med att återställa filer
 - Lär dig hur du [återställer filer via PowerShell](./backup-azure-vms-automation.md#restore-files-from-an-azure-vm-backup)
 - Lär dig hur du [återställer filer via Azure CLI](./tutorial-restore-files.md)
 - När den virtuella datorn har återställts kan du läsa mer om hur du [hanterar säkerhets kopior](./backup-azure-manage-vms.md)

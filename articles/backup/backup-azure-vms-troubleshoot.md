@@ -4,12 +4,12 @@ description: I den här artikeln får du lära dig hur du felsöker fel som påt
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 6da91248c197eae12fbc59f2da8c5294d95117b6
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 343ad80a6b68de352424fa8f16686fcece921954
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173839"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840924"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Felsöka säkerhets kopierings fel på virtuella Azure-datorer
 
@@ -62,7 +62,7 @@ Fel meddelande: den virtuella datorn är inte i ett tillstånd som tillåter sä
 
 Säkerhets kopierings åtgärden misslyckades eftersom den virtuella datorn är i ett felaktigt tillstånd. För att säkerhetskopieringen ska lyckas måste tillståndet för den virtuella datorn vara Körs, Stoppad eller Stoppad (frigjord).
 
-* Om den virtuella datorn är i ett tillfälligt tillstånd mellan att **köra** och **stänga**av, väntar du tills status har ändrats. Utlös sedan säkerhets kopierings jobbet.
+* Om den virtuella datorn är i ett tillfälligt tillstånd mellan att **köra** och **stänga** av, väntar du tills status har ändrats. Utlös sedan säkerhets kopierings jobbet.
 * Om den virtuella datorn är en virtuell Linux-dator och använder modulen Security-Enhanced Linux-kernel, utelämnar du sökvägen **/var/lib/waagent** för Azure Linux-agenten från säkerhets principen och kontrollerar att säkerhets kopierings tillägget är installerat.
 
 ### <a name="usererrorfsfreezefailed---failed-to-freeze-one-or-more-mount-points-of-the-vm-to-take-a-file-system-consistent-snapshot"></a>UserErrorFsFreezeFailed – det gick inte att låsa en eller flera monterings punkter för den virtuella datorn för att ta en konsekvent fil system ögonblicks bild
@@ -124,8 +124,8 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThre
 
 Steg 3: om det inte gick att lösa problemet med steg 1 och 2 kan felet bero på att tids gränsen för VSS-skrivare orsakade timeout på grund av begränsade IOPS.<br>
 
-Kontrol lera genom att gå till ***system-och Loggboken program loggar*** och kontrol lera följande fel meddelande:<br>
-*Tids gränsen nåddes för skuggkopieprovidern vid lagring av skrivningar till den volym som skugg kopie ras. Detta beror troligen på överdriven aktivitet på volymen av ett program eller en system tjänst. Försök igen senare när aktivitet på volymen minskas.*<br>
+Kontrol lera genom att gå till ***system och Loggboken program loggar** _ och kontrol lera följande fel meddelande:<br>
+Tids gränsen nåddes för _The Shadow Copy Provider vid lagring av skrivning till volymen som skugg kopie ras. Detta beror troligen på överdriven aktivitet på volymen av ett program eller en system tjänst. Försök igen senare när aktivitet på volymen minskar. *<br>
 
 Lösning:
 
@@ -196,7 +196,7 @@ Om du ser behörigheter i **MachineKeys** -katalogen som skiljer sig från stand
 2. Ta bort alla certifikat som har **utfärdats till** är den klassiska distributions modellen eller **Windows Azure CRP Certificate Generator**:
 
    * [Öppna certifikat på en lokal dator konsol](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in).
-   * Under **personliga**  >  **certifikat**kan du ta bort alla certifikat som har **utfärdats till** är den klassiska distributions modellen eller **Windows Azure CRP Certificate Generator**.
+   * Under **personliga**  >  **certifikat** kan du ta bort alla certifikat som har **utfärdats till** är den klassiska distributions modellen eller **Windows Azure CRP Certificate Generator**.
 3. Utlös ett jobb för säkerhets kopiering av virtuella datorer.
 
 ### <a name="extensionstuckindeletionstate---extension-state-is-not-supportive-to-backup-operation"></a>ExtensionStuckInDeletionState-Extension-tillstånd stöds inte för säkerhets kopiering
@@ -244,7 +244,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 
 Detta säkerställer att ögonblicksbilderna tas via värden i stället för gästen. Försök att utföra säkerhetskopieringsåtgärden igen.
 
-**Steg 2**: försök att ändra schemat för säkerhets kopiering till en tidpunkt då den virtuella datorn är under mindre belastning (t. ex. mindre processor eller IOps)
+**Steg 2**: försök att ändra schemat för säkerhets kopiering till en tidpunkt då den virtuella datorn är under mindre belastning (t. ex. mindre processor eller IOPS)
 
 **Steg 3**: försök att [öka storleken på den virtuella datorn](https://docs.microsoft.com/azure/virtual-machines/windows/resize-vm) och försök igen
 
@@ -280,10 +280,10 @@ Inaktivera BitLocker för alla enheter på den virtuella datorn och kontrol lera
 
 Felkod: VmNotInDesirableState <br/> Fel meddelande: den virtuella datorn är inte i ett tillstånd som tillåter säkerhets kopieringar.
 
-* Om den virtuella datorn är i ett tillfälligt tillstånd mellan att **köra** och **stänga**av, väntar du tills status har ändrats. Utlös sedan säkerhets kopierings jobbet.
+* Om den virtuella datorn är i ett tillfälligt tillstånd mellan att **köra** och **stänga** av, väntar du tills status har ändrats. Utlös sedan säkerhets kopierings jobbet.
 * Om den virtuella datorn är en virtuell Linux-dator och använder modulen Security-Enhanced Linux-kernel, utelämnar du sökvägen **/var/lib/waagent** för Azure Linux-agenten från säkerhets principen och kontrollerar att säkerhets kopierings tillägget är installerat.
 
-* VM-agenten finns inte på den virtuella datorn: <br>Installera eventuella nödvändiga komponenter och VM-agenten. Starta sedan om åtgärden. | Läs mer om [installation av VM-agenten och hur du verifierar installationen av VM-agenten](#vm-agent).
+* VM-agenten finns inte på den virtuella datorn: <br>Installera eventuella nödvändiga komponenter och VM-agenten. Starta sedan om åtgärden. | Läs mer om [installation av VM-agenten och hur du verifierar installation av VM-agenten](#vm-agent).
 
 ### <a name="extensionsnapshotfailednosecurenetwork---the-snapshot-operation-failed-because-of-failure-to-create-a-secure-network-communication-channel"></a>ExtensionSnapshotFailedNoSecureNetwork-ögonblicks bild åtgärden misslyckades på grund av att det inte gick att skapa en säker kanal för nätverks kommunikation
 
@@ -310,10 +310,10 @@ Om du har en Azure Policy som [styr Taggar i din miljö](../governance/policy/tu
 
 | Felinformation | Lösning |
 | --- | --- |
-| Annullering stöds inte för den här jobb typen: <br>Vänta tills jobbet har slutförts. |Inget |
+| Annullering stöds inte för den här jobb typen: <br>Vänta tills jobbet har slutförts. |Inga |
 | Jobbet är inte i ett cancelable-tillstånd: <br>Vänta tills jobbet har slutförts. <br>**eller**<br> Det valda jobbet är inte i ett cancelable-tillstånd: <br>Vänta tills jobbet har slutförts. |Det är troligt att jobbet är nästan klart. Vänta tills jobbet är klart.|
 | Säkerhets kopieringen kan inte avbryta jobbet eftersom det inte pågår: <br>Annullering stöds bara för pågående jobb. Försök att avbryta ett pågående jobb. |Felet beror på ett överförings tillstånd. Vänta en minut och försök att avbryta åtgärden igen. |
-| Säkerhets kopieringen kunde inte avbryta jobbet: <br>Vänta tills jobbet har slutförts. |Inget |
+| Säkerhets kopieringen kunde inte avbryta jobbet: <br>Vänta tills jobbet har slutförts. |Inga |
 
 ## <a name="restore"></a>Återställ
 
@@ -321,8 +321,8 @@ Om du har en Azure Policy som [styr Taggar i din miljö](../governance/policy/tu
 
 Om du efter att ha återställt ser du till att diskarna är offline.
 
-* Kontrol lera att datorn där skriptet körs uppfyller operativ system kraven. [Läs mer](./backup-azure-restore-files-from-vm.md#system-requirements).  
-* Se till att du inte återställer till samma källa, [Läs mer](./backup-azure-restore-files-from-vm.md#original-backed-up-machine-versus-another-machine).
+* Kontrol lera att datorn där skriptet körs uppfyller operativ system kraven. [Läs mer](./backup-azure-restore-files-from-vm.md#step-3-os-requirements-to-successfully-run-the-script).  
+* Se till att du inte återställer till samma källa, [Läs mer](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
 ### <a name="usererrorinstantrpnotfound---restore-failed-because-the-snapshot-of-the-vm-was-not-found"></a>UserErrorInstantRpNotFound-återställningen misslyckades eftersom ögonblicks bilden av den virtuella datorn inte hittades
 
@@ -336,16 +336,16 @@ Försök att återställa den virtuella datorn från en annan återställnings p
 #### <a name="common-errors"></a>Vanliga fel 
 | Felinformation | Lösning |
 | --- | --- |
-| Återställningen misslyckades med ett internt moln fel. |<ol><li>Den moln tjänst som du försöker återställa till har kon figurer ATS med DNS-inställningar. Du kan kontrol lera följande: <br>**$Deployment = Get-AzureDeployment-ServiceName "ServiceName"-plats "produktion" Get-AzureDns-DnsSettings $Deployment. DnsSettings**.<br>Om **adress** har kon figurer ATS konfigureras DNS-inställningarna.<br> <li>Den moln tjänst som du försöker återställa till har kon figurer ATS med **reservedip**och befintliga virtuella datorer i moln tjänsten är i stoppat läge. Du kan kontrol lera att en moln tjänst har reserverat en IP-adress med hjälp av följande PowerShell-cmdlets: **$Deployment = Get-AzureDeployment-ServiceName "ServiceName"-plats "produktion" $DEP. ReservedIPName**. <br><li>Du försöker återställa en virtuell dator med följande särskilda nätverkskonfigurationer i samma moln tjänst: <ul><li>Virtuella datorer under belastnings Utjämnings konfiguration, intern och extern.<li>Virtuella datorer med flera reserverade IP-adresser. <li>Virtuella datorer med flera nätverkskort. </ul><li>Välj en ny moln tjänst i användar gränssnittet eller se [återställnings överväganden](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) för virtuella datorer med särskilda nätverkskonfigurationer.</ol> |
+| Återställningen misslyckades med ett internt moln fel. |<ol><li>Den moln tjänst som du försöker återställa till har kon figurer ATS med DNS-inställningar. Du kan kontrol lera följande: <br>**$Deployment = Get-AzureDeployment-ServiceName "ServiceName"-plats "produktion" Get-AzureDns-DnsSettings $Deployment. DnsSettings**.<br>Om **adress** har kon figurer ATS konfigureras DNS-inställningarna.<br> <li>Den moln tjänst som du försöker återställa till har kon figurer ATS med **reservedip** och befintliga virtuella datorer i moln tjänsten är i stoppat läge. Du kan kontrol lera att en moln tjänst har reserverat en IP-adress med hjälp av följande PowerShell-cmdlets: **$Deployment = Get-AzureDeployment-ServiceName "ServiceName"-plats "produktion" $DEP. ReservedIPName**. <br><li>Du försöker återställa en virtuell dator med följande särskilda nätverkskonfigurationer i samma moln tjänst: <ul><li>Virtuella datorer under belastnings Utjämnings konfiguration, intern och extern.<li>Virtuella datorer med flera reserverade IP-adresser. <li>Virtuella datorer med flera nätverkskort. </ul><li>Välj en ny moln tjänst i användar gränssnittet eller se [återställnings överväganden](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) för virtuella datorer med särskilda nätverkskonfigurationer.</ol> |
 | Det valda DNS-namnet har redan tagits: <br>Ange ett annat DNS-namn och försök igen. |Det här DNS-namnet refererar till moln tjänstens namn, vanligt vis slutar med **. cloudapp.net**. Det här namnet måste vara unikt. Om du får det här felet måste du välja ett annat namn för virtuell dator under återställningen. <br><br> Det här felet visas endast för användare av Azure Portal. Återställnings åtgärden via PowerShell slutförs eftersom den återställer endast diskarna och inte skapar den virtuella datorn. Felet kommer att visas när den virtuella datorn skapas explicit av dig efter disk återställnings åtgärden. |
-| Den angivna konfigurationen för virtuellt nätverk är felaktig: <br>Ange en annan konfiguration för virtuellt nätverk och försök igen. |Inget |
-| Den angivna moln tjänsten använder en reserverad IP-adress som inte matchar konfigurationen för den virtuella dator som återställs: <br>Ange en annan moln tjänst som inte använder en reserverad IP-adress. Eller Välj en annan återställnings punkt att återställa från. |Inget |
-| Moln tjänsten har nått gränsen för antalet ingångs slut punkter: <br>Försök igen genom att ange en annan moln tjänst eller genom att använda en befintlig slut punkt. |Inget |
-| Recovery Services valvet och mål lagrings kontot finns i två olika regioner: <br>Se till att det lagrings konto som anges i återställnings åtgärden finns i samma Azure-region som Recovery Services-valvet. |Inget |
-| Det lagrings konto som har angetts för återställnings åtgärden stöds inte: <br>Endast Basic-eller standard-lagrings konton med lokalt redundanta eller geo-redundanta replikeringsinställningar stöds. Välj ett lagrings konto som stöds. |Inget |
+| Den angivna konfigurationen för virtuellt nätverk är felaktig: <br>Ange en annan konfiguration för virtuellt nätverk och försök igen. |Inga |
+| Den angivna moln tjänsten använder en reserverad IP-adress som inte matchar konfigurationen för den virtuella dator som återställs: <br>Ange en annan moln tjänst som inte använder en reserverad IP-adress. Eller Välj en annan återställnings punkt att återställa från. |Inga |
+| Moln tjänsten har nått gränsen för antalet ingångs slut punkter: <br>Försök igen genom att ange en annan moln tjänst eller genom att använda en befintlig slut punkt. |Inga |
+| Recovery Services valvet och mål lagrings kontot finns i två olika regioner: <br>Se till att det lagrings konto som anges i återställnings åtgärden finns i samma Azure-region som Recovery Services-valvet. |Inga |
+| Det lagrings konto som har angetts för återställnings åtgärden stöds inte: <br>Endast Basic-eller standard-lagrings konton med lokalt redundanta eller geo-redundanta replikeringsinställningar stöds. Välj ett lagrings konto som stöds. |Inga |
 | Den angivna lagrings konto typen för återställnings åtgärden är inte online: <br>Kontrol lera att lagrings kontot som angetts i återställnings åtgärden är online. |Det här felet kan inträffa på grund av ett tillfälligt fel i Azure Storage eller på grund av ett avbrott. Välj ett annat lagrings konto. |
-| Resurs grupps kvoten har uppnåtts: <br>Ta bort några resurs grupper från Azure Portal eller kontakta Azure-supporten för att öka gränserna. |Inget |
-| Det valda under nätet finns inte: <br>Välj ett undernät som finns. |Inget |
+| Resurs grupps kvoten har uppnåtts: <br>Ta bort några resurs grupper från Azure Portal eller kontakta Azure-supporten för att öka gränserna. |Inga |
+| Det valda under nätet finns inte: <br>Välj ett undernät som finns. |Inga |
 | Säkerhets kopierings tjänsten har inte behörighet att komma åt resurser i din prenumeration. |Lös problemet genom att först återställa diskarna genom att följa stegen i [återställa säkerhetskopierade diskar](backup-azure-arm-restore-vms.md#restore-disks). Använd sedan PowerShell-stegen i [skapa en virtuell dator från återställda diskar](backup-azure-vms-automation.md#restore-an-azure-vm). |
 
 ## <a name="backup-or-restore-takes-time"></a>Säkerhets kopiering eller återställning tar tid

@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e2ebc0033f2d2d55571ba45a38b5e0061716673d
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 04852e3081807930ced9fdacc75c956d9a15ff23
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94532485"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840737"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Developer-kommentarer för anpassade principer i Azure Active Directory B2C
 
@@ -98,7 +98,7 @@ Funktioner för anpassad princip/identitets upplevelse Framework är under konst
 | Funktion | Utveckling | Förhandsgranskning | Allmän tillgänglighet (GA) | Kommentarer |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [Autentisering av mobil faktor](phone-factor-technical-profile.md) |  |  | X |  |
-| [Azure MFA-autentisering](multi-factor-auth-technical-profile.md) |  | X |  |  |
+| [Azure AD MFA-autentisering](multi-factor-auth-technical-profile.md) |  | X |  |  |
 | [Engångslösenord](one-time-password-technical-profile.md) |  | X |  |  |
 | [Azure Active Directory](active-directory-technical-profile.md) som lokal katalog |  |  | X |  |
 | Azure e-mail Subsystem för e-postverifiering |  |  | X |  |

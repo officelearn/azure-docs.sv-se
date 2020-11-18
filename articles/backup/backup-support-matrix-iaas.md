@@ -4,12 +4,12 @@ description: Innehåller en översikt över support inställningar och begränsn
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: 5988cc7bdc34521bfa75e9f179f88bfbe881b882
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 650c239423db23bcd4329ab38080b82809fa4f09
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92925653"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842183"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Supportmatris för säkerhetskopiering av virtuella Azure-datorer
 
@@ -27,7 +27,7 @@ Så här kan du säkerhetskopiera och återställa virtuella Azure-datorer med t
 
 **Scenario** | **Säkerhetskopiering** | **Agent** |**Återställa**
 --- | --- | --- | ---
-Direkt säkerhets kopiering av virtuella Azure-datorer  | Säkerhetskopiera hela den virtuella datorn.  | Ingen ytterligare agent krävs på den virtuella Azure-datorn. Azure Backup installerar och använder ett tillägg till [Azure VM-agenten](../virtual-machines/extensions/agent-windows.md) som körs på den virtuella datorn. | Återställ enligt följande:<br/><br/> - **Skapa en grundläggande virtuell dator** . Detta är användbart om den virtuella datorn inte har någon särskild konfiguration, till exempel flera IP-adresser.<br/><br/> - **Återställa den virtuella dator disken** . Återställa disken. Koppla den sedan till en befintlig virtuell dator eller skapa en ny virtuell dator från disken med hjälp av PowerShell.<br/><br/> - **Ersätt VM-disk** . Om en virtuell dator finns och den använder hanterade diskar (okrypterade), kan du återställa en disk och använda den för att ersätta en befintlig disk på den virtuella datorn.<br/><br/> - **Återställa vissa filer/mappar** . Du kan återställa filer/mappar från en virtuell dator i stället för från hela den virtuella datorn.
+Direkt säkerhets kopiering av virtuella Azure-datorer  | Säkerhetskopiera hela den virtuella datorn.  | Ingen ytterligare agent krävs på den virtuella Azure-datorn. Azure Backup installerar och använder ett tillägg till [Azure VM-agenten](../virtual-machines/extensions/agent-windows.md) som körs på den virtuella datorn. | Återställ enligt följande:<br/><br/> - **Skapa en grundläggande virtuell dator**. Detta är användbart om den virtuella datorn inte har någon särskild konfiguration, till exempel flera IP-adresser.<br/><br/> - **Återställa den virtuella dator disken**. Återställa disken. Koppla den sedan till en befintlig virtuell dator eller skapa en ny virtuell dator från disken med hjälp av PowerShell.<br/><br/> - **Ersätt VM-disk**. Om en virtuell dator finns och den använder hanterade diskar (okrypterade), kan du återställa en disk och använda den för att ersätta en befintlig disk på den virtuella datorn.<br/><br/> - **Återställa vissa filer/mappar**. Du kan återställa filer/mappar från en virtuell dator i stället för från hela den virtuella datorn.
 Direkt säkerhets kopiering av virtuella Azure-datorer (endast Windows)  | Säkerhetskopiera vissa filer/mappar/volym. | Installera [Azure Recovery Services-agenten](backup-azure-file-folder-backup-faq.md).<br/><br/> Du kan köra MARS-agenten tillsammans med säkerhets kopierings tillägget för den virtuella Azure-agenten för att säkerhetskopiera den virtuella datorn på fil/mapp-nivå. | Återställa vissa mappar/filer.
 Säkerhetskopiera virtuell Azure-dator till säkerhets kopierings Server  | Säkerhetskopiera filer/mappar/volymer. system tillstånd/Bare Metal-filer; AppData till System Center DPM eller till Microsoft Azure Backup Server (MABS).<br/><br/> DPM/MABS säkerhetskopierar sedan till säkerhets kopierings valvet. | Installera DPM/MABS-skyddsagenten på den virtuella datorn. MARS-agenten installeras på DPM/MABS.| Återställ filer/mappar/volymer; system tillstånd/Bare Metal-filer; AppData.
 
@@ -107,9 +107,9 @@ Högsta kvarhållningsperiod | Beror på säkerhetskopieringsfrekvensen.
 
 ## <a name="support-for-file-level-restore"></a>Stöd för återställning på filnivå
 
-**Återställa** | **Stöds**
+**Återställa** | **Tillåtna**
 --- | ---
-Återställa filer över operativ system | Du kan återställa filer på alla datorer som har samma (eller kompatibla) OS som den säkerhetskopierade virtuella datorn. Se den [kompatibla OS-tabellen](backup-azure-restore-files-from-vm.md#system-requirements).
+Återställa filer över operativ system | Du kan återställa filer på alla datorer som har samma (eller kompatibla) OS som den säkerhetskopierade virtuella datorn. Se den [kompatibla OS-tabellen](backup-azure-restore-files-from-vm.md#step-3-os-requirements-to-successfully-run-the-script).
 Återställa filer från krypterade virtuella datorer | Stöds inte.
 Återställa filer från nätverk-begränsade lagrings konton | Stöds inte.
 Återställa filer på virtuella datorer med Windows lagrings utrymmen | Återställning stöds inte på samma virtuella dator.<br/><br/> Återställ i stället filerna på en kompatibel virtuell dator.
@@ -120,7 +120,7 @@ Högsta kvarhållningsperiod | Beror på säkerhetskopieringsfrekvensen.
 
 I följande tabell sammanfattas stödet för säkerhets kopiering under aktiviteter för hantering av virtuella datorer, till exempel att lägga till eller ersätta VM-diskar.
 
-**Återställa** | **Stöds**
+**Återställa** | **Tillåtna**
 --- | ---
 Återställ över prenumeration/region/zon. | Stöds inte.
 Återställa till en befintlig virtuell dator | Använd alternativet Ersätt disk.
@@ -160,7 +160,7 @@ Data disk storlek | Enskild disk storlek kan vara upp till 32 TB och högst 256 
 Lagringstyp | Standard HDD Standard SSD Premium SSD.
 Hanterade diskar | Stöds.
 Krypterade diskar | Stöds.<br/><br/> Virtuella Azure-datorer med Azure Disk Encryption kan säkerhets kopie ras (med eller utan Azure AD-appen).<br/><br/> Det går inte att återställa krypterade virtuella datorer på nivån fil/mapp. Du måste återställa hela den virtuella datorn.<br/><br/> Du kan aktivera kryptering på virtuella datorer som redan skyddas av Azure Backup.
-Diskar med Skrivningsaccelerator aktiverat | Stöds inte.<br/><br/> Azure Backup utesluter automatiskt diskarna med Skrivningsaccelerator (WA) aktiverade under säkerhets kopieringen. Eftersom de inte har säkerhetskopierats kan du inte återställa diskarna från återställnings punkter på den virtuella datorn. <br><br> **Viktigt meddelande** : virtuella datorer med WA-diskar behöver Internet anslutning för att det ska gå att säkerhetskopiera (även om diskarna exkluderas från säkerhets kopian.)
+Diskar med Skrivningsaccelerator aktiverat | Stöds inte.<br/><br/> Azure Backup utesluter automatiskt diskarna med Skrivningsaccelerator (WA) aktiverade under säkerhets kopieringen. Eftersom de inte har säkerhetskopierats kan du inte återställa diskarna från återställnings punkter på den virtuella datorn. <br><br> **Viktigt meddelande**: virtuella datorer med WA-diskar behöver Internet anslutning för att det ska gå att säkerhetskopiera (även om diskarna exkluderas från säkerhets kopian.)
 Säkerhetskopiera & återställa deduplicerade virtuella datorer/diskar | Azure Backup har inte stöd för deduplicering. Mer information finns i den här [artikeln](./backup-support-matrix.md#disk-deduplication-support) <br/> <br/>  -Azure Backup deduplicerar inte mellan virtuella datorer i Recovery Services-valvet <br/> <br/>  – Om det finns virtuella datorer i Deduplicerings tillstånd under återställningen kan filerna inte återställas eftersom valvet inte förstår formatet. Du kan dock utföra fullständig återställning av virtuella datorer.
 Lägg till disk i skyddad virtuell dator | Stöds.
 Ändra storlek på disk på skyddad virtuell dator | Stöds.
@@ -223,7 +223,7 @@ Säkerhets kopiering stöder komprimering av säkerhets kopierings trafik, som s
 **Dator** | **Komprimera till MABS/DPM (TCP)** | **Komprimera till valv (HTTPS)**
 --- | --- | ---
 Lokala Windows-datorer utan DPM/MABS | Ej tillämpligt | ![Ja][green]
-Virtuella Azure-datorer | NA | Ej tillämpligt
+Virtuella Azure-datorer | NA | NA
 Lokala/virtuella Azure-datorer med DPM | ![Ja][green] | ![Ja][green]
 Lokala/virtuella Azure-datorer med MABS | ![Ja][green] | ![Ja][green]
 

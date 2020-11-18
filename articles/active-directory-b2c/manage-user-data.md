@@ -11,12 +11,12 @@ ms.date: 05/06/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b7cc772e2a2e44a72af5e47a794c8b0f36aa9786
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48c79306d376c2faa1089886881a7b5e9a792c86
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85387651"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840567"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Hantera användar data i Azure Active Directory B2C
 
@@ -52,7 +52,7 @@ Azure AD B2C användar data är begränsade till:
 
 I följande exempel av ett data flöde för export kan de steg som beskrivs som utförs av programmet också utföras av en server dels process eller en användare med en administratörs roll i katalogen:
 
-1. Användaren loggar in i programmet. Azure AD B2C tvingar autentisering med Azure Multi-Factor Authentication vid behov.
+1. Användaren loggar in i programmet. Azure AD B2C tvingar autentisering med Azure AD Multi-Factor Authentication vid behov.
 2. Programmet använder användarautentiseringsuppgifter för att anropa en Microsoft Graph-API-åtgärd för att hämta användarattribut. Microsoft Graph-API: et tillhandahåller attributets data i JSON-format. Beroende på schemat kan du ange innehållet i ID-token så att det inkluderar all personlig information om en användare.
 3. Programmet hämtar användar gransknings aktiviteten. Microsoft Graph-API: et tillhandahåller händelse data till programmet.
 4. Programmet samlar in data och gör dem tillgängliga för användaren.

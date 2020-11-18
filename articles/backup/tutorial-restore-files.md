@@ -4,12 +4,12 @@ description: Lär dig att utföra återställningar på filnivå på en virtuell
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: cf55b9d64d7d716aee9862b0e1e3e24966629286
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 236b2c2c7799ef6a0df1da2ddded0e689349e222
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746701"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842217"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Återställa filer till en virtuell dator i Azure
 
@@ -77,7 +77,7 @@ Om du av misstag tar bort eller gör ändringar i en fil kan du återställa ens
 
 För att återställa filerna tillhandahåller Azure Backup ett skript som ska köras på den virtuella datorn, som ansluter återställningspunkten som en lokal enhet. Du kan bläddra i den här lokala enheten, återställa filer till den virtuella datorn och sedan koppla bort återställningspunkten. Azure Backup fortsätter att säkerhetskopiera dina data baserat på den angivna principen för schema och kvarhållning.
 
-1. Visa en lista med återställningspunkterna för den virtuella datorn med [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list). I det här exemplet väljer vi den senaste återställnings punkten för den virtuella datorn med namnet *myVM* som skyddas i *myRecoveryServicesVault* :
+1. Visa en lista med återställningspunkterna för den virtuella datorn med [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list). I det här exemplet väljer vi den senaste återställnings punkten för den virtuella datorn med namnet *myVM* som skyddas i *myRecoveryServicesVault*:
 
     ```azurecli-interactive
     az backup recoverypoint list \
@@ -89,7 +89,7 @@ För att återställa filerna tillhandahåller Azure Backup ett skript som ska k
         --output tsv
     ```
 
-2. Hämta skriptet som ansluter, eller monterar, återställningspunkten till den virtuella datorn med [az backup restore files mount-rp](/cli/azure/backup/restore/files#az-backup-restore-files-mount-rp). I följande exempel hämtas skriptet för den virtuella datorn med namnet *myVM* som är skyddad i *myRecoveryServicesVault* .
+2. Hämta skriptet som ansluter, eller monterar, återställningspunkten till den virtuella datorn med [az backup restore files mount-rp](/cli/azure/backup/restore/files#az-backup-restore-files-mount-rp). I följande exempel hämtas skriptet för den virtuella datorn med namnet *myVM* som är skyddad i *myRecoveryServicesVault*.
 
     Ersätt *myRecoveryPointName* med namnet på den återställningspunkt som du fick med det tidigare kommandot:
 
@@ -119,7 +119,7 @@ För att återställa filerna tillhandahåller Azure Backup ett skript som ska k
 När återställningsskriptet har kopierats till den virtuella datorn kan du nu ansluta återställningspunkten och återställa filer.
 
 >[!NOTE]
-> Se [efter om](backup-azure-restore-files-from-vm.md#selecting-the-right-machine-to-run-the-script) du kan köra skriptet på den virtuella datorn innan du fortsätter.
+> Se [efter om](backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script) du kan köra skriptet på den virtuella datorn innan du fortsätter.
 
 1. Anslut till den virtuella datorn med SSH. Ersätt *publicIPAddress* med den virtuella datorns offentliga IP-adress enligt följande:
 
@@ -141,7 +141,7 @@ När återställningsskriptet har kopierats till den virtuella datorn kan du nu 
 
     När skriptet körs uppmanas du att ange ett lösen ord för att få åtkomst till återställnings punkten. Ange lösenordet som visas i utdata från det tidigare kommandot [az backup restore files mount-rp](/cli/azure/backup/restore/files#az-backup-restore-files-mount-rp) som genererade återställningsskriptet.
 
-    Utdata från skriptet ger dig sökvägen till återställningspunkten. Följande exempel visar att återställningspunkten är monterad på */home/azureuser/myVM-20170919213536/Volume1* :
+    Utdata från skriptet ger dig sökvägen till återställningspunkten. Följande exempel visar att återställningspunkten är monterad på */home/azureuser/myVM-20170919213536/Volume1*:
 
     ```output
     Microsoft Azure VM Backup - File Recovery
@@ -179,7 +179,7 @@ När återställningsskriptet har kopierats till den virtuella datorn kan du nu 
     exit
     ```
 
-7. Demontera återställningspunkten från den virtuella datorn med [az backup restore files unmount-rp](/cli/azure/backup/restore/files#az-backup-restore-files-unmount-rp). I följande exempel demonteras återställningspunkten från den virtuella datorn med namnet *myVM* i *myRecoveryServicesVault* .
+7. Demontera återställningspunkten från den virtuella datorn med [az backup restore files unmount-rp](/cli/azure/backup/restore/files#az-backup-restore-files-unmount-rp). I följande exempel demonteras återställningspunkten från den virtuella datorn med namnet *myVM* i *myRecoveryServicesVault*.
 
     Ersätt *myRecoveryPointName* med namnet på din återställningspunkt som du fick i tidigare kommandon:
 

@@ -13,12 +13,12 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 09/28/2020
 tags: azure-synapse
-ms.openlocfilehash: 3b81572266f6ee5bd90662a98988d41479f399cc
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 9afad44bcf67478a81e75c17d0ff8ffc6d8c65aa
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674997"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841141"
 ---
 # <a name="using-multi-factor-azure-active-directory-authentication"></a>Använda Multi-Factor Azure Active Directory-autentisering
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -41,13 +41,13 @@ Det finns två icke-interaktiva autentiserings modeller för Azure AD, som kan a
 - `Azure Active Directory - Password`
 - `Azure Active Directory - Integrated`
 
-Den interaktiva metoden som också stöder Azure Multi-Factor Authentication (MFA) är: 
+Den interaktiva metoden som också stöder Azure AD Multi-Factor Authentication (MFA) är: 
 
 - `Azure Active Directory - Universal with MFA`
 
-Azure MFA bidrar till att skydda åtkomsten till data och program och tillgodoser samtidigt användarens önskemål om en enkel inloggningsprocess. Den ger stark autentisering med en rad enkla verifierings alternativ (telefonsamtal, textmeddelande, smartkort med PIN-kod eller meddelande för mobilapp), så att användarna kan välja den metod de föredrar. Interaktiv MFA med Azure AD kan resultera i en popup-dialogruta för verifiering.
+Azure AD MFA hjälper till att skydda åtkomsten till data och program samtidigt som du kan möta användarnas behov av en enkel inloggnings process. Den ger stark autentisering med en rad enkla verifierings alternativ (telefonsamtal, textmeddelande, smartkort med PIN-kod eller meddelande för mobilapp), så att användarna kan välja den metod de föredrar. Interaktiv MFA med Azure AD kan resultera i en popup-dialogruta för verifiering.
 
-En beskrivning av Azure Multi-Factor Authentication finns i [Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
+En beskrivning av Azure AD Multi-Factor Authentication finns [Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
 Konfigurations steg finns i [konfigurera Azure SQL Database Multi-Factor Authentication för SQL Server Management Studio](authentication-mfa-ssms-configure.md).
 
 ### <a name="azure-ad-domain-name-or-tenant-id-parameter"></a>Azure AD-domän namn eller klient-ID-parameter
@@ -58,7 +58,7 @@ Alla gäst användare som vill autentiseras med Universal Authentication måste 
 
 
 1. Öppna en anslutning i SSMS. Ange Server namnet och välj **Azure Active Directory-Universal med MFA** -autentisering. Lägg till det **användar namn** som du vill logga in med.
-1. Välj rutan **alternativ** och gå över till fliken **anslutnings egenskaper** . I dialog rutan **Anslut till databas** fyller du i dialog rutan för din databas. Kontrol lera rutan **AD-domännamn eller klient-ID** och tillhandahålla autentiserings utfärdare, till exempel domän namnet ( **CONTOSOTEST.ONMICROSOFT.com** ) eller GUID för klient-ID: t. 
+1. Välj rutan **alternativ** och gå över till fliken **anslutnings egenskaper** . I dialog rutan **Anslut till databas** fyller du i dialog rutan för din databas. Kontrol lera rutan **AD-domännamn eller klient-ID** och tillhandahålla autentiserings utfärdare, till exempel domän namnet (**CONTOSOTEST.ONMICROSOFT.com**) eller GUID för klient-ID: t. 
 
    ![Skärm bild av fliken anslutnings egenskaper som markerar inställningarna för Anslut till databas-och AD-domännamn eller klient-ID.](./media/authentication-mfa-ssms-overview/mfa-tenant-ssms.png)
 
@@ -69,7 +69,7 @@ Om du kör SSMS 18. x eller senare behövs inte längre AD-domännamnet eller kl
 ### <a name="azure-ad-business-to-business-support"></a>Support för Azure AD Business till företag
 
 > [!IMPORTANT]
-> Stöd för gäst användare att ansluta till Azure SQL Database, SQL-hanterad instans och Azure Synapse utan att behöva ingå i en grupp är för närvarande en **offentlig för hands version** . Mer information finns i [Skapa Azure AD-gäst användare och ange som en Azure AD-administratör](authentication-aad-guest-users.md).
+> Stöd för gäst användare att ansluta till Azure SQL Database, SQL-hanterad instans och Azure Synapse utan att behöva ingå i en grupp är för närvarande en **offentlig för hands version**. Mer information finns i [Skapa Azure AD-gäst användare och ange som en Azure AD-administratör](authentication-aad-guest-users.md).
 
 Azure AD-användare som stöds för Azure AD B2B-scenarier som gäst användare (se [Vad är Azure B2B-samarbete](../../active-directory/external-identities/what-is-b2b.md)) kan ansluta till SQL Database och Azure Synapse endast som en del av medlemmarna i en grupp som skapats i den associerade Azure AD och mappas manuellt med instruktionen [create User (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql) i en specifik databas. Om `steve@gmail.com` till exempel är inbjuden till Azure AD `contosotest` (med Azure AD-domänen `contosotest.onmicrosoft.com` ) måste en Azure AD-grupp, till exempel, `usergroup` skapas i Azure AD som innehåller `steve@gmail.com` medlemmen. Sedan måste den här gruppen skapas för en särskild databas (till exempel `MyDatabase` ) av en Azure AD SQL-administratör eller Azure AD dbo genom att köra Transact-SQL- `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` instruktionen. 
 
@@ -100,4 +100,4 @@ När databas användaren har skapats `steve@gmail.com` kan användaren logga in 
 - [Importera en BACPAC-fil till en ny databas](database-import.md)  
 - [Exportera en databas till en BACPAC-fil](database-export.md)  
 - C# interface [IUniversalAuthProvider-gränssnitt](/dotnet/api/microsoft.sqlserver.dac.iuniversalauthprovider)  
-- När du använder **Azure Active Directory-universell med MFA-** autentisering, är ADAL-spårning tillgängligt från och med [SSMS 17,3](/sql/ssms/download-sql-server-management-studio-ssms). Av som standard kan du aktivera ADAL-spårning genom att använda menyn **verktyg** , **alternativ** , under Azure- **tjänster** , **Azure Cloud** , **ADAL fönstret utmatning spårnings nivå** , och sedan aktivera **utdata**  i menyn **Visa** . Spårningarna är tillgängliga i fönstret utdata när du väljer **Azure Active Directory alternativ** .
+- När du använder **Azure Active Directory-universell med MFA-** autentisering, är ADAL-spårning tillgängligt från och med [SSMS 17,3](/sql/ssms/download-sql-server-management-studio-ssms). Av som standard kan du aktivera ADAL-spårning genom att använda menyn **verktyg**, **alternativ** , under Azure- **tjänster**, **Azure Cloud**, **ADAL fönstret utmatning spårnings nivå**, och sedan aktivera **utdata**  i menyn **Visa** . Spårningarna är tillgängliga i fönstret utdata när du väljer **Azure Active Directory alternativ**.

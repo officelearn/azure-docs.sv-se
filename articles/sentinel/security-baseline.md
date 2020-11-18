@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ab28c7c592c270cb7b5ba6afa6145bdcfed89099
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: bf249046a30e023a2d7b596fb6424c7005c2a875
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658935"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841945"
 ---
 # <a name="azure-security-baseline-for-azure-sentinel"></a>Azures säkerhets bas linje för Azure Sentinel
 
@@ -163,11 +163,11 @@ För att hjälpa dig att hålla koll på dedikerade administrativa konton kan du
 
 ### <a name="36-use-secure-azure-managed-workstations-for-administrative-tasks"></a>3,6: Använd säkra, Azure-hanterade arbets stationer för administrativa uppgifter
 
-**Vägledning**: Använd en privilegie rad åtkomst arbets Station (Paw) med Azure Multi-Factor Authentication (MFA) aktiverat för att logga in på och konfigurera dina Azure Sentinel-relaterade resurser. 
+**Vägledning**: Använd en privilegie rad åtkomst arbets Station (Paw) med Azure AD Multi-Factor Authentication (MFA) aktiverat för att logga in på och konfigurera dina Azure Sentinel-relaterade resurser. 
 
 - [Arbetsstationer för privilegierad åtkomst (PAW)](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [Planera en molnbaserad distribution av Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Planera en molnbaserad Azure AD Multi-Factor Authentication-distribution](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d3d044be923e5d7a621b72a926db0b4ce9a09b72
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 096d771cbf6e02a67903da7d5ce495890cc6828d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93122732"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840499"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Konfigurera telefonin loggning och inloggning med anpassade principer i Azure AD B2C
 
@@ -35,7 +35,7 @@ Med telefonin loggning och inloggning kan användaren registrera sig för appen 
 > [!NOTE]
 > Vi föreslår starkt att du inkluderar medgivande information i din registrering och inloggnings upplevelse som liknar exempel texten nedan. Den här exempel texten är endast i informations syfte. I den korta koden för övervakning av program vara på [webbplatsen för CTIA](https://www.ctia.org/programs) kan du läsa mer om din slutgiltiga text och funktions konfiguration för att uppfylla dina krav:
 >
-> *Genom att ange ditt telefonnummer, godkänner du att du får ett eng ång slö sen ord som skickas av SMS så att du kan logga in för att *&lt; infoga &gt; : ditt program namn* . Standard meddelande och data hastigheter kan tillkomma.*
+> *Genom att ange ditt telefonnummer, godkänner du att du får ett eng ång slö sen ord som skickas av SMS så att du kan logga in för att *&lt; infoga &gt; : ditt program namn*. Standard meddelande och data hastigheter kan tillkomma.*
 >
 > *&lt;Infoga: en länk till din sekretess policy&gt;*<br/>*&lt;Infoga: en länk till dina användnings villkor&gt;*
 
@@ -56,27 +56,27 @@ För att lägga till din egen medgivande information, anpassa följande exempel 
 
 ### <a name="phone-sign-up-experience"></a>Telefon registrerings upplevelse
 
-Om användaren inte redan har ett konto för ditt program kan de skapa ett genom att välja länken **Registrera dig nu** . En registrerings sida visas där användaren väljer **land** , anger deras telefonnummer och väljer **Skicka kod** .
+Om användaren inte redan har ett konto för ditt program kan de skapa ett genom att välja länken **Registrera dig nu** . En registrerings sida visas där användaren väljer **land**, anger deras telefonnummer och väljer **Skicka kod**.
 
 ![Användaren startar telefon registrering](media/phone-authentication/phone-signup-start.png)
 
-En verifierings kod vid enstaka tidpunkt skickas till användarens telefonnummer. Användaren anger **verifierings koden** på registrerings sidan och väljer sedan **verifiera kod** . (Om användaren inte kunde hämta koden kan han eller hon välja **Skicka ny kod** .)
+En verifierings kod vid enstaka tidpunkt skickas till användarens telefonnummer. Användaren anger **verifierings koden** på registrerings sidan och väljer sedan **verifiera kod**. (Om användaren inte kunde hämta koden kan han eller hon välja **Skicka ny kod**.)
 
 ![Användaren verifierar kod under telefon registreringen](media/phone-authentication/phone-signup-verify-code.png)
 
- Användaren anger en annan information som begärs på registrerings sidan, till exempel **visnings namn** , **tilldelat namn** och efter **namn** (land och telefonnummer förblir ifyllda). Om användaren vill använda ett annat telefonnummer kan de välja **ändra nummer** för att starta om registreringen. När du är färdig väljer användaren **Fortsätt** .
+ Användaren anger en annan information som begärs på registrerings sidan, till exempel **visnings namn**, **tilldelat namn** och efter **namn** (land och telefonnummer förblir ifyllda). Om användaren vill använda ett annat telefonnummer kan de välja **ändra nummer** för att starta om registreringen. När du är färdig väljer användaren **Fortsätt**.
 
 ![Användaren har ytterligare information](media/phone-authentication/phone-signup-additional-info.png)
 
-Sedan uppmanas användaren att ange ett återställnings-e-postmeddelande. Användaren anger sin e-postadress och väljer sedan **Skicka verifierings kod** . En kod skickas till användarens inkorg för e-post, som de kan hämta och ange i rutan **verifierings kod** . Sedan väljer användaren **verifiera kod** . 
+Sedan uppmanas användaren att ange ett återställnings-e-postmeddelande. Användaren anger sin e-postadress och väljer sedan **Skicka verifierings kod**. En kod skickas till användarens inkorg för e-post, som de kan hämta och ange i rutan **verifierings kod** . Sedan väljer användaren **verifiera kod**. 
 
-När koden har verifierats väljer användaren **skapa** för att skapa sitt konto. Eller om användaren vill använda en annan e-postadress kan han eller hon välja **ändra e-post** .
+När koden har verifierats väljer användaren **skapa** för att skapa sitt konto. Eller om användaren vill använda en annan e-postadress kan han eller hon välja **ändra e-post**.
 
 ![Användaren skapar konto](media/phone-authentication/email-verification.png)
 
 ### <a name="phone-sign-in-experience"></a>Telefonin loggning
 
-Om användaren har ett befintligt konto med telefonnumret som identifierare, anger användaren sitt telefonnummer och väljer **Fortsätt** . De bekräftar land och telefonnummer genom att välja **Fortsätt** och en verifierings kod för eng ång slö tiden skickas till sin telefon. Användaren anger verifierings koden och väljer **Fortsätt** för att logga in.
+Om användaren har ett befintligt konto med telefonnumret som identifierare, anger användaren sitt telefonnummer och väljer **Fortsätt**. De bekräftar land och telefonnummer genom att välja **Fortsätt** och en verifierings kod för eng ång slö tiden skickas till sin telefon. Användaren anger verifierings koden och väljer **Fortsätt** för att logga in.
 
 ![Användar upplevelse för telefon inloggning](media/phone-authentication/phone-signin-screens.png)
 
@@ -106,15 +106,15 @@ Följande steg förutsätter att du har slutfört [kraven](#prerequisites) och r
 
     `active-directory-b2c-custom-policy-starterpack/scenarios/`**`phone-number-passwordless`**
 
-1. Ersätt strängen `yourtenant` med namnet på din Azure AD B2C-klient i varje fil. Om namnet på din B2C-klient till exempel är *contosob2c* , blir alla instanser av `yourtenant.onmicrosoft.com` `contosob2c.onmicrosoft.com` .
+1. Ersätt strängen `yourtenant` med namnet på din Azure AD B2C-klient i varje fil. Om namnet på din B2C-klient till exempel är *contosob2c*, blir alla instanser av `yourtenant.onmicrosoft.com` `contosob2c.onmicrosoft.com` .
 
-1. Slutför stegen i avsnittet [Lägg till program-ID: n i avsnittet anpassad princip](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) i [komma igång med anpassade principer i Azure Active Directory B2C](custom-policy-get-started.md). I det här fallet uppdaterar `/phone-number-passwordless/` **`Phone_Email_Base.xml`** du med **program-ID: n** för de två program som du registrerade när du slutförde kraven, *IdentityExperienceFramework* och *ProxyIdentityExperienceFramework* .
+1. Slutför stegen i avsnittet [Lägg till program-ID: n i avsnittet anpassad princip](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) i [komma igång med anpassade principer i Azure Active Directory B2C](custom-policy-get-started.md). I det här fallet uppdaterar `/phone-number-passwordless/` **`Phone_Email_Base.xml`** du med **program-ID: n** för de två program som du registrerade när du slutförde kraven, *IdentityExperienceFramework* och *ProxyIdentityExperienceFramework*.
 
 ## <a name="upload-the-policy-files"></a>Ladda upp principfiler
 
 1. Logga in på [Azure Portal](https://portal.azure.com) och navigera till Azure AD B2C-klienten.
-1. Under **principer** väljer du **Identity Experience Framework** .
-1. Välj **överför anpassad princip** .
+1. Under **principer** väljer du **Identity Experience Framework**.
+1. Välj **överför anpassad princip**.
 1. Ladda upp principfiler i följande ordning:
     1. *Phone_Email_Base.xml*
     1. *SignUpOrSignInWithPhone.xml*
@@ -128,7 +128,7 @@ När du överför varje fil lägger Azure till prefixet `B2C_1A_` .
 
 ## <a name="test-the-custom-policy"></a>Testa den anpassade principen
 
-1. Under **anpassade principer** väljer du **B2C_1A_SignUpOrSignInWithPhone** .
+1. Under **anpassade principer** väljer du **B2C_1A_SignUpOrSignInWithPhone**.
 1. Under **Välj program** väljer du det *webapp1* -program som du registrerade när du slutförde kraven.
 1. För **Välj svars-URL** väljer du `https://jwt.ms` .
 1. Välj **Kör nu** och registrera dig med en e-postadress eller ett telefonnummer.
@@ -153,7 +153,7 @@ GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssi
 ## <a name="next-steps"></a>Nästa steg
 
 Du kan hitta registrerings-och inloggnings paket för anpassad princip för registrering och inloggning på GitHub: [Azure-samples/Active-Directory-B2C-Custom-policy-starterpack/scenarios/Phone-Number-passwordable][starter-pack-phone] princip filen för Startpaketen använder tekniska profiler för Multi-Factor Authentication och anspråks krav för telefonnummer:
-* [Definiera en teknisk profil för Azure Multi-Factor Authentication](multi-factor-auth-technical-profile.md)
+* [Definiera en Azure AD Multi-Factor Authentication teknisk profil](multi-factor-auth-technical-profile.md)
 * [Definiera anspråks omvandlingar för telefonnummer](phone-number-claims-transformations.md)
 
 <!-- LINKS - External -->

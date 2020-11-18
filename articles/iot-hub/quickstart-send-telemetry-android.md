@@ -14,12 +14,12 @@ ms.custom:
 - devx-track-azurecli
 ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: ad9c64f2846b59fcc833ad56c4da378f7819dae3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ef5f81090f4d06f15f1a7263699961cd360e12e5
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747402"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842200"
 ---
 # <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>Snabbstart: Skicka IoT-telemetri från en Android-enhet
 
@@ -37,15 +37,7 @@ I den här snabb starten skickar du telemetri till en Azure-IoT Hub från ett An
 
 * Port 8883 öppna i brand väggen. Enhets exemplet i den här snabb starten använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-### <a name="add-azure-iot-extension"></a>Lägg till Azure IoT-tillägg
-
-Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för Azure CLI till Cloud Shell-instansen. IOT-tillägget lägger till IoT Hub-, IoT Edge-och IoT Device Provisioning-tjänst (DPS)-kommandon i Azure CLI.
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -59,9 +51,9 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
 1. Kör följande kommando i Azure Cloud Shell för att skapa enhets identiteten.
 
-   **YourIoTHubName** : Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
+   **YourIoTHubName**: Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
 
-   **MyAndroidDevice** : det här är namnet på enheten som du registrerar. Vi rekommenderar att du använder **MyAndroidDevice** som det visas. Om du väljer ett annat namn på din enhet måste du också använda det namnet i den här artikeln och uppdatera enhets namnet i exempel programmen innan du kör dem.
+   **MyAndroidDevice**: det här är namnet på enheten som du registrerar. Vi rekommenderar att du använder **MyAndroidDevice** som det visas. Om du väljer ett annat namn på din enhet måste du också använda det namnet i den här artikeln och uppdatera enhets namnet i exempel programmen innan du kör dem.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyAndroidDevice
@@ -69,7 +61,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
 2. Kör följande kommando i Azure Cloud Shell för att hämta _enhets anslutnings strängen_ för enheten som du nyss registrerade:
 
-    **YourIoTHubName** : Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
+    **YourIoTHubName**: Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyAndroidDevice --output table
@@ -83,7 +75,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
 ## <a name="send-simulated-telemetry"></a>Skicka simulerad telemetri
 
-1. Öppna Android-exempelprojektet från GitHub i Android Studio. Projektet finns i följande katalog i din klonade eller hämtade kopia av [Azure-IoT-Sample-Java](https://github.com/Azure-Samples/azure-iot-samples-java) -lagringsplatsen: *\azure-IoT-samples-java\iot-hub\Samples\device\AndroidSample* .
+1. Öppna Android-exempelprojektet från GitHub i Android Studio. Projektet finns i följande katalog i din klonade eller hämtade kopia av [Azure-IoT-Sample-Java](https://github.com/Azure-Samples/azure-iot-samples-java) -lagringsplatsen: *\azure-IoT-samples-java\iot-hub\Samples\device\AndroidSample*.
 
 2. I Android Studio öppnar du *gradle. Properties* för exempelprojektet och ersätter plats hållaren **Device_Connection_String** med enhets anslutnings strängen som du antecknade tidigare.
 
@@ -91,7 +83,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
     DeviceConnectionString=HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyAndroidDevice;SharedAccessKey={YourSharedAccessKey}
     ```
 
-3. I Android Studio klickar du **på**  >  **Synkronisera projekt med Gradle-filer** . Kontrollera att bygget slutförs.
+3. I Android Studio klickar du **på**  >  **Synkronisera projekt med Gradle-filer**. Kontrollera att bygget slutförs.
 
    > [!NOTE]
    > Om Project-synkroniseringen Miss lyckas kan det bero på någon av följande orsaker:
@@ -99,7 +91,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
    > * De versioner av Android Gradle-plugin-programmet och Gradle som refereras i projektet är inaktuella för din version av Android Studio. Följ [dessa instruktioner](https://developer.android.com/studio/releases/gradle-plugin) om du vill referera till och installera rätt versioner av plugin-och Gradle för din installation.
    > * Licens avtalet för Android SDK har inte signerats. Följ instruktionerna i build-utdata för att signera licens avtalet och Hämta SDK: n.
 
-4. När versionen har slutförts klickar du på **Kör**  >  **Kör "app"** . Konfigurera appen att köras på en fysisk Android-enhet eller en Android-emulator. Mer information om att köra en Android-app på en fysisk enhet eller emulator finns i [Köra appen](https://developer.android.com/training/basics/firstapp/running-app).
+4. När versionen har slutförts klickar du på **Kör**  >  **Kör "app"**. Konfigurera appen att köras på en fysisk Android-enhet eller en Android-emulator. Mer information om att köra en Android-app på en fysisk enhet eller emulator finns i [Köra appen](https://developer.android.com/training/basics/firstapp/running-app).
 
 5. När appen har lästs in klickar du på knappen **Starta** för att börja skicka telemetri till din IoT-hubb:
 
@@ -112,7 +104,7 @@ I det här avsnittet använder du Azure Cloud Shell med [IoT-tillägget](/cli/az
 
 1. Med Azure Cloud Shell kör du följande kommando för att ansluta och läsa meddelanden från IoT-hubben:
 
-   **YourIoTHubName** : Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
+   **YourIoTHubName**: Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
 
     ```azurecli-interactive
     az iot hub monitor-events --hub-name {YourIoTHubName} --output table

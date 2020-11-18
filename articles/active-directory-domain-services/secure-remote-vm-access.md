@@ -1,6 +1,6 @@
 ---
 title: Skydda VM-fjärråtkomst i Azure AD Domain Services | Microsoft Docs
-description: Lär dig hur du skyddar fjärråtkomst till virtuella datorer med hjälp av nätverks princip Server (NPS) och Azure Multi-Factor Authentication med en Fjärrskrivbordstjänster distribution i en Azure Active Directory Domain Services hanterad domän.
+description: Lär dig hur du skyddar fjärråtkomst till virtuella datorer med hjälp av nätverks princip Server (NPS) och Azure AD Multi-Factor Authentication med en Fjärrskrivbordstjänster distribution i en Azure Active Directory Domain Services hanterad domän.
 services: active-directory-ds
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: joflore
-ms.openlocfilehash: 2964ca74a05ccbc61646f8a289fc950b46cdad47
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a08b5bf4fb575f0cd2098b3ef180860bb8fbd6e0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967791"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840244"
 ---
 # <a name="secure-remote-access-to-virtual-machines-in-azure-active-directory-domain-services"></a>Säker fjärråtkomst till virtuella datorer i Azure Active Directory Domain Services
 
-Om du vill skydda fjärråtkomst till virtuella datorer (VM) som körs i en Azure Active Directory Domain Services (Azure AD DS)-hanterad domän, kan du använda Fjärrskrivbordstjänster (RDS) och nätverks princip servern (NPS). Azure AD DS autentiserar användare när de begär åtkomst via RDS-miljön. För ökad säkerhet kan du integrera Azure-Multi-Factor Authentication för att tillhandahålla en ytterligare autentiserings-prompt under inloggnings händelser. Azure Multi-Factor Authentication använder ett tillägg för NPS för att tillhandahålla den här funktionen.
+Om du vill skydda fjärråtkomst till virtuella datorer (VM) som körs i en Azure Active Directory Domain Services (Azure AD DS)-hanterad domän, kan du använda Fjärrskrivbordstjänster (RDS) och nätverks princip servern (NPS). Azure AD DS autentiserar användare när de begär åtkomst via RDS-miljön. För ökad säkerhet kan du integrera Azure AD-Multi-Factor Authentication för att tillhandahålla en ytterligare autentiserings-prompt under inloggnings händelser. Azure AD Multi-Factor Authentication använder ett tillägg för NPS för att tillhandahålla den här funktionen.
 
 > [!IMPORTANT]
 > Det rekommenderade sättet att ansluta till dina virtuella datorer på ett säkert sätt i en Azure AD DS-hanterad domän är att använda Azure-skydds, en fullständigt plattforms hanterad PaaS-tjänst som du etablerar i det virtuella nätverket. En skydds-värd ger säker och smidig Remote Desktop Protocol (RDP)-anslutning till dina virtuella datorer direkt i Azure Portal via SSL. När du ansluter via en skydds-värd behöver inte de virtuella datorerna någon offentlig IP-adress, och du behöver inte använda nätverks säkerhets grupper för att exponera åtkomst till RDP på TCP-port 3389.
@@ -28,7 +28,7 @@ Om du vill skydda fjärråtkomst till virtuella datorer (VM) som körs i en Azur
 >
 > Mer information finns i [Vad är Azure skydds?][bastion-overview].
 
-Den här artikeln visar hur du konfigurerar fjärr skrivbords tjänster i Azure AD DS och kan använda Azure Multi-Factor Authentication NPS-tillägget.
+Den här artikeln visar hur du konfigurerar RDS i Azure AD DS och kan använda Azure AD Multi-Factor Authentication NPS-tillägget.
 
 ![Översikt över Fjärrskrivbordstjänster (RDS)](./media/enable-network-policy-server/remote-desktop-services-overview.png)
 
@@ -66,32 +66,32 @@ Distributionen av fjärr skrivbords miljön innehåller ett antal steg. Den befi
 
 Med RD distribuerad till den hanterade domänen kan du hantera och använda tjänsten på samma sätt som med en lokal AD DS-domän.
 
-## <a name="deploy-and-configure-nps-and-the-azure-mfa-nps-extension"></a>Distribuera och konfigurera NPS och Azure MFA NPS-tillägget
+## <a name="deploy-and-configure-nps-and-the-azure-ad-mfa-nps-extension"></a>Distribuera och konfigurera NPS och Azure AD MFA NPS-tillägget
 
-Om du vill öka säkerheten för användar inloggningen kan du välja att integrera RD-miljön med Azure Multi-Factor Authentication. Med den här konfigurationen får användarna en extra fråga under inloggningen för att bekräfta sin identitet.
+Om du vill öka säkerheten för användar inloggningen kan du välja att integrera RD-miljön med Azure AD Multi-Factor Authentication. Med den här konfigurationen får användarna en extra fråga under inloggningen för att bekräfta sin identitet.
 
-För att tillhandahålla den här funktionen installeras en ytterligare nätverks princip Server (NPS) i din miljö tillsammans med Azure Multi-Factor Authentication NPS-tillägget. Det här tillägget integreras med Azure AD för att begära och returnera statusen för Multi-Factor Authentication-prompter.
+För att tillhandahålla den här funktionen installeras en ytterligare nätverks princip Server (NPS) i din miljö tillsammans med Azure AD Multi-Factor Authentication NPS-tillägget. Det här tillägget integreras med Azure AD för att begära och returnera statusen för Multi-Factor Authentication-prompter.
 
-Användare måste vara [registrerade för att använda azure Multi-Factor Authentication][user-mfa-registration], vilket kan kräva ytterligare Azure AD-licenser.
+Användare måste vara [registrerade för att använda Azure ad Multi-Factor Authentication][user-mfa-registration], vilket kan kräva ytterligare Azure AD-licenser.
 
-Om du vill integrera Azure Multi-Factor Authentication i din Azure AD DS-fjärr skrivbords miljö skapar du en NPS-server och installerar tillägget:
+Om du vill integrera Azure AD Multi-Factor Authentication i din Azure AD DS-fjärr skrivbords miljö skapar du en NPS-server och installerar tillägget:
 
 1. Skapa ytterligare en virtuell Windows Server 2016-eller 2019-dator, till exempel *NPSVM01*, som är ansluten till ett under nätverk för *arbets belastningar* i ditt virtuella Azure AD DS-nätverk. Anslut den virtuella datorn till den hanterade domänen.
 1. Logga in på NPS VM som-konto som är en del av gruppen *Azure AD DC-administratörer* , till exempel *contosoadmin*.
-1. Från **Serverhanteraren**väljer du **Lägg till roller och funktioner**och installerar sedan rollen *nätverks policy och åtkomst tjänster* .
-1. Använd den befintliga instruktions artikeln för att [Installera och konfigurera Azure MFA NPS-tillägget][nps-extension].
+1. Från **Serverhanteraren** väljer du **Lägg till roller och funktioner** och installerar sedan rollen *nätverks policy och åtkomst tjänster* .
+1. Använd den befintliga instruktions artikeln för att [Installera och konfigurera Azure AD MFA NPS-tillägget][nps-extension].
 
-När NPS-servern och Azure-Multi-Factor Authentication NPS-tillägget är installerade, slutför du nästa avsnitt för att konfigurera det för användning med RD-miljön.
+När NPS-servern och Azure AD Multi-Factor Authentication NPS-tillägget är installerade, slutför du nästa avsnitt för att konfigurera det för användning med RD-miljön.
 
-## <a name="integrate-remote-desktop-gateway-and-azure-multi-factor-authentication"></a>Integrera Fjärrskrivbordsgateway och Azure Multi-Factor Authentication
+## <a name="integrate-remote-desktop-gateway-and-azure-ad-multi-factor-authentication"></a>Integrera Fjärrskrivbordsgateway och Azure AD Multi-Factor Authentication
 
-Om du vill integrera Azure Multi-Factor Authentication NPS-tillägget använder du den befintliga instruktions artikeln för att [integrera din infrastruktur för fjärr skrivbords-Gateway med hjälp av NPS-tillägget (Network Policy Server) och Azure AD][azure-mfa-nps-integration].
+Om du vill integrera Azure AD Multi-Factor Authentication NPS-tillägget använder du den befintliga instruktions artikeln för att [integrera din infrastruktur för fjärr skrivbords anslutning med hjälp av NPS-tillägget (Network Policy Server) och Azure AD][azure-mfa-nps-integration].
 
 Följande ytterligare konfigurations alternativ krävs för att integrera med en hanterad domän:
 
 1. [Registrera inte NPS-servern i Active Directory][register-nps-ad]. Det här steget fungerar inte i en hanterad domän.
 1. I [steg 4 konfigurerar du nätverks principen][create-nps-policy], markerar kryss rutan för att **Ignorera egenskaper för användar kontots uppringning**.
-1. Om du använder Windows Server 2019 för NPS-servern och Azure Multi-Factor Authentication NPS-tillägget kör du följande kommando för att uppdatera den säkra kanalen så att NPS-servern kan kommunicera korrekt:
+1. Om du använder Windows Server 2019 för NPS-servern och Azure AD Multi-Factor Authentication NPS-tillägget kör du följande kommando för att uppdatera den säkra kanalen så att NPS-servern kan kommunicera korrekt:
 
     ```powershell
     sc sidtype IAS unrestricted
@@ -103,7 +103,7 @@ Användarna uppmanas nu att ange ytterligare en autentiseringsnivå när de logg
 
 Mer information om hur du kan förbättra återhämtningen av distributionen finns i [Fjärrskrivbordstjänster-hög tillgänglighet][rds-high-availability].
 
-Mer information om hur du skyddar användar inloggning finns i så här [fungerar det: Azure Multi-Factor Authentication][concepts-mfa].
+Mer information om hur du skyddar användar inloggning finns i så här [fungerar det: Azure AD Multi-Factor Authentication][concepts-mfa].
 
 <!-- INTERNAL LINKS -->
 [bastion-overview]: ../bastion/bastion-overview.md

@@ -3,13 +3,13 @@ title: Distribuera Resource Manager-mallar med GitHub-åtgärder
 description: Beskriver hur du distribuerar Azure Resource Manager-mallar med hjälp av GitHub-åtgärder.
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.custom: github-actions-azure
-ms.openlocfilehash: 69974a8db30f12b255a4bab57ebfa32ba78f67ed
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: github-actions-azure, devx-track-azurecli
+ms.openlocfilehash: adb0b9d9a7da19c45904a5d222573e1880915b12
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746107"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841690"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Distribuera Azure Resource Manager-mallar med GitHub-åtgärder
 
@@ -30,7 +30,7 @@ Ett arbets flöde definieras av en YAML-fil (. yml) i `/.github/workflows/` sök
 
 Filen har två avsnitt:
 
-|Section  |Aktiviteter  |
+|Section  |Uppgifter  |
 |---------|---------|
 |**Autentisering** | 1. definiera ett huvud namn för tjänsten. <br /> 2. skapa en GitHub-hemlighet. |
 |**Distribuera** | 1. distribuera Resource Manager-mallen. |
@@ -75,7 +75,7 @@ Du måste skapa hemligheter för dina Azure-autentiseringsuppgifter, resurs grup
 
 1. I [GitHub](https://github.com/)bläddrar du till din lagrings plats.
 
-1. Välj **inställningar > hemligheter > ny hemlighet** .
+1. Välj **inställningar > hemligheter > ny hemlighet**.
 
 1. Klistra in hela JSON-utdata från Azure CLI-kommandot i fältet hemligt värde. Ge hemligheten namnet `AZURE_CREDENTIALS` .
 
@@ -95,12 +95,12 @@ Du kan lagra filen var som helst på lagrings platsen. Arbets flödes exemplet i
 
 ## <a name="create-workflow"></a>Skapa arbetsflöde
 
-Arbets flödes filen måste lagras i mappen **. GitHub/arbets flöden** i roten på din lagrings plats. Arbets flödets fil namns tillägg kan vara antingen **. yml** eller **. yaml** .
+Arbets flödes filen måste lagras i mappen **. GitHub/arbets flöden** i roten på din lagrings plats. Arbets flödets fil namns tillägg kan vara antingen **. yml** eller **. yaml**.
 
 1. Från din GitHub-lagringsplats väljer du **åtgärder** på den översta menyn.
-1. Välj **nytt arbets flöde** .
-1. Välj **Konfigurera ett arbets flöde själv** .
-1. Byt namn på arbets flödes filen om du vill ha ett annat namn än **main. yml** . Till exempel: **deployStorageAccount. yml** .
+1. Välj **nytt arbets flöde**.
+1. Välj **Konfigurera ett arbets flöde själv**.
+1. Byt namn på arbets flödes filen om du vill ha ett annat namn än **main. yml**. Till exempel: **deployStorageAccount. yml**.
 1. Ersätt innehållet i YML-filen med följande:
 
     ```yml
@@ -136,12 +136,12 @@ Arbets flödes filen måste lagras i mappen **. GitHub/arbets flöden** i roten 
 
     Det första avsnittet i arbets flödes filen innehåller:
 
-    - **namn** : namnet på arbets flödet.
-    - **på** : namnet på de GitHub-händelser som utlöser arbets flödet. Arbets flödet utlöses när det finns en push-händelse på huvud grenen, vilket ändrar minst en av de angivna två filerna. De två filerna är arbets flödes filen och mallfilen.
+    - **namn**: namnet på arbets flödet.
+    - **på**: namnet på de GitHub-händelser som utlöser arbets flödet. Arbets flödet utlöses när det finns en push-händelse på huvud grenen, vilket ändrar minst en av de angivna två filerna. De två filerna är arbets flödes filen och mallfilen.
 
-1. Välj **Starta genomförande** .
-1. Välj **genomför direkt på huvud grenen** .
-1. Välj **genomför ny fil** (eller **genomför ändringar** ).
+1. Välj **Start commit** (Starta incheckning).
+1. Välj **genomför direkt på huvud grenen**.
+1. Välj **genomför ny fil** (eller **genomför ändringar**).
 
 Eftersom arbets flödet har kon figurer ATS för att utlösas av antingen arbets flödes filen eller mallfilen som uppdateras, startar arbets flödet direkt efter att du har bekräftat ändringarna.
 

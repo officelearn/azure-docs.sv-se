@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 10/30/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 53033226702ea1033fe4ae94f60c62cacbae6596
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 65a60425f09e9cd7a3e06ca1624621ed8b9fdcbd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124976"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842081"
 ---
 # <a name="create-a-blockblobstorage-account"></a>Skapa ett BlockBlobStorage-konto
 
@@ -88,13 +88,13 @@ az login
 ## <a name="portal"></a>[Portal](#tab/azure-portal)
 Följ dessa steg om du vill skapa ett BlockBlobStorage-konto i Azure Portal:
 
-1. I Azure Portal väljer du **alla tjänster** > **lagrings** kategorin > **lagrings konton** .
+1. I Azure Portal väljer du **alla tjänster** > **lagrings** kategorin > **lagrings konton**.
 
-2. Under **lagrings konton** väljer du **Lägg till** .
+2. Under **lagrings konton** väljer du **Lägg till**.
 
 3. I fältet **prenumeration** väljer du den prenumeration där du vill skapa lagrings kontot.
 
-4. I fältet **resurs grupp** väljer du en befintlig resurs grupp eller väljer **Skapa ny** , och anger ett namn för den nya resurs gruppen.
+4. I fältet **resurs grupp** väljer du en befintlig resurs grupp eller väljer **Skapa ny**, och anger ett namn för den nya resurs gruppen.
 
 5. I fältet **namn på lagrings konto** anger du ett namn för kontot. Observera följande rikt linjer:
 
@@ -108,19 +108,19 @@ Följ dessa steg om du vill skapa ett BlockBlobStorage-konto i Azure Portal:
 
    |Fält     |Värde  |
    |---------|---------|
-   |**Prestanda**    |  Välj **Premium** .   |
-   |**Typ av konto**    | Välj **BlockBlobStorage** .      |
-   |**Replikering**    |  Lämna standardinställningen för **Lokalt Redundant lagring (LRS)** .      |
+   |**Prestanda**    |  Välj **Premium**.   |
+   |**Typ av konto**    | Välj **BlockBlobStorage**.      |
+   |**Replikering**    |  Lämna standardinställningen för **Lokalt Redundant lagring (LRS)**.      |
 
    ![Visar Portal gränssnittet för att skapa ett Block Blob Storage-konto](media/storage-blob-create-account-block-blob/create-block-blob-storage-account.png)
 
 8. Välj fliken **Avancerat** .
 
-9. Om du vill optimera ditt lagrings konto för data analys ska du ange **hierarkiskt namn område** till **aktiverat** . Annars lämnar du det här alternativet inställt på standardvärdet. Om du aktiverar den här inställningen med ditt BlockBlobStorage-konto får du [Premium-nivån för data Lake Storage](premium-tier-for-data-lake-storage.md).  Mer information om Data Lake Storage finns i [Introduktion till Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
+9. Om du vill optimera ditt lagrings konto för data analys ska du ange **hierarkiskt namn område** till **aktiverat**. Annars lämnar du det här alternativet inställt på standardvärdet. Om du aktiverar den här inställningen med ditt BlockBlobStorage-konto får du [Premium-nivån för data Lake Storage](premium-tier-for-data-lake-storage.md).  Mer information om Data Lake Storage finns i [Introduktion till Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
 
 8. Välj **Granska + skapa** för att granska inställningarna för lagrings kontot.
 
-9. Välj **Skapa** .
+9. Välj **Skapa**.
 
 ## <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 

@@ -1,7 +1,7 @@
 ---
-title: Tekniska profiler för Azure MFA i anpassade principer
+title: Tekniska profiler för Azure AD MFA i anpassade principer
 titleSuffix: Azure AD B2C
-description: Anpassad princip referens för Azure Multi-Factor Authentication (MFA) tekniska profiler i Azure AD B2C.
+description: Anpassad princip referens för Azure AD Multi-Factor Authentication (MFA) tekniska profiler i Azure AD B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,23 +11,23 @@ ms.topic: reference
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 71040f831ed7a64f2bc7be7f3a75218976fc2559
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e81ac35555e6653cecb602e5af2f19aa3e2f05e9
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85385951"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840601"
 ---
-# <a name="define-an-azure-mfa-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definiera en Azure MFA Technical-profil i en Azure AD B2C anpassad princip
+# <a name="define-an-azure-ad-mfa-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definiera en Azure AD MFA Technical-profil i en Azure AD B2C anpassad princip
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) ger stöd för att verifiera ett telefonnummer med hjälp av Azure Multi-Factor Authentication (MFA). Använd den här tekniska profilen för att skapa och skicka en kod till ett telefonnummer och verifiera sedan koden. Azure MFA Technical-profilen kan också returnera ett fel meddelande.  Den tekniska verifierings profilen verifierar de data som anges av användaren innan användar resan fortsätter. Med den tekniska profilen för validering visas ett fel meddelande på en egen kontrollerad sida.
+Azure Active Directory B2C (Azure AD B2C) ger stöd för att verifiera ett telefonnummer med hjälp av Azure AD Multi-Factor Authentication (MFA). Använd den här tekniska profilen för att skapa och skicka en kod till ett telefonnummer och verifiera sedan koden. Azure AD MFA Technical-profilen kan också returnera ett fel meddelande.  Den tekniska verifierings profilen verifierar de data som anges av användaren innan användar resan fortsätter. Med den tekniska profilen för validering visas ett fel meddelande på en egen kontrollerad sida.
 
 Den här tekniska profilen:
 
 - Tillhandahåller inte ett gränssnitt för att interagera med användaren. I stället anropas användar gränssnittet från en [självkontrollerad](self-asserted-technical-profile.md) teknisk profil, eller en [visnings kontroll](display-controls.md) som en [teknisk validerings profil](validation-technical-profile.md).
-- Använder Azure MFA-tjänsten för att skapa och skicka en kod till ett telefonnummer och sedan verifiera koden.  
+- Använder Azure AD MFA-tjänsten för att skapa och skicka en kod till ett telefonnummer och sedan verifiera koden.  
 - Verifierar ett telefonnummer via textmeddelanden.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
@@ -40,7 +40,7 @@ Namnattributet **för** **protokoll** elementet måste anges till `Proprietary` 
 Web.TPEngine.Providers.AzureMfaProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 ```
 
-I följande exempel visas en teknisk profil för Azure MFA:
+I följande exempel visas en teknisk profil för Azure AD MFA:
 
 ```xml
 <TechnicalProfile Id="AzureMfa-SendSms">
@@ -55,20 +55,20 @@ Det första läget i den här tekniska profilen är att generera en kod och skic
 
 ### <a name="input-claims"></a>Inmatade anspråk
 
-**InputClaims** -elementet innehåller en lista över anspråk att skicka till Azure MFA. Du kan också mappa namnet på ditt anspråk till namnet som definierats i den tekniska profilen för MFA.
+**InputClaims** -elementet innehåller en lista över anspråk att skicka till Azure AD MFA. Du kan också mappa namnet på ditt anspråk till namnet som definierats i den tekniska profilen för MFA.
 
 | ClaimReferenceId | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | userPrincipalName | Ja | Identifieraren för den användare som äger telefonnumret. |
 | phoneNumber | Ja | Telefonnumret som en SMS-kod ska skickas till. |
-| companyName | Inga |Företags namnet i SMS. Om inget namn anges används namnet på programmet. |
-| locale | Inga | Språk inställningen för SMS. Om den inte anges används webbläsarens nationella inställningar. |
+| companyName | Nej |Företags namnet i SMS. Om inget namn anges används namnet på programmet. |
+| locale | Nej | Språk inställningen för SMS. Om den inte anges används webbläsarens nationella inställningar. |
 
-**InputClaimsTransformations** -elementet kan innehålla en samling av **InputClaimsTransformation** -element som används för att ändra de inloggade anspråken eller generera nya innan de skickas till Azure MFA-tjänsten.
+**InputClaimsTransformations** -elementet kan innehålla en samling av **InputClaimsTransformation** -element som används för att ändra de inloggade anspråken eller generera nya innan de skickas till Azure AD MFA-tjänsten.
 
 ### <a name="output-claims"></a>Utgående anspråk
 
-Azure MFA Protocol-providern returnerar inga **OutputClaims**, därför behöver du inte ange några utgående anspråk. Du kan dock inkludera anspråk som inte returneras av Azure MFA Identity-providern så länge du ställer in `DefaultValue` attributet.
+Azure AD MFA-providern returnerar inga **OutputClaims**, därför behöver du inte ange några utgående anspråk. Du kan dock ta med anspråk som inte returneras av Azure AD MFA Identity-providern så länge du ställer in `DefaultValue` attributet.
 
 **OutputClaimsTransformations** -elementet kan innehålla en samling av **OutputClaimsTransformation** -element som används för att ändra de utgående anspråken eller skapa nya.
 
@@ -80,18 +80,18 @@ Azure MFA Protocol-providern returnerar inga **OutputClaims**, därför behöver
 
 #### <a name="ui-elements"></a>Element för användargränssnitt
 
-Följande metadata kan användas för att konfigurera fel meddelanden som visas vid sändning av SMS-fel. Metadata bör konfigureras i den [självkontrollerade](self-asserted-technical-profile.md) tekniska profilen. Fel meddelandena kan [lokaliseras](localization-string-ids.md#azure-mfa-error-messages).
+Följande metadata kan användas för att konfigurera fel meddelanden som visas vid sändning av SMS-fel. Metadata bör konfigureras i den [självkontrollerade](self-asserted-technical-profile.md) tekniska profilen. Fel meddelandena kan [lokaliseras](localization-string-ids.md#azure-ad-mfa-error-messages).
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| UserMessageIfCouldntSendSms | Inga | Användar fel meddelande om det angivna telefonnumret inte accepterar SMS. |
-| UserMessageIfInvalidFormat | Inga | Användar fel meddelande om det angivna telefonnumret inte är ett giltigt telefonnummer. |
-| UserMessageIfServerError | Inga | Användar fel meddelande om ett internt fel inträffar på servern. |
-| UserMessageIfThrottled| Inga | Användar fel meddelande om en begäran har begränsats.|
+| UserMessageIfCouldntSendSms | Nej | Användar fel meddelande om det angivna telefonnumret inte accepterar SMS. |
+| UserMessageIfInvalidFormat | Nej | Användar fel meddelande om det angivna telefonnumret inte är ett giltigt telefonnummer. |
+| UserMessageIfServerError | Nej | Användar fel meddelande om ett internt fel inträffar på servern. |
+| UserMessageIfThrottled| Nej | Användar fel meddelande om en begäran har begränsats.|
 
 ### <a name="example-send-an-sms"></a>Exempel: Skicka ett SMS
 
-I följande exempel visas en teknisk Azure MFA-profil som används för att skicka en kod via SMS.
+I följande exempel visas en Azure AD MFA-teknisk profil som används för att skicka en kod via SMS.
 
 ```xml
 <TechnicalProfile Id="AzureMfa-SendSms">
@@ -117,18 +117,18 @@ Det andra läget i den här tekniska profilen är att verifiera en kod. Följand
 
 ### <a name="input-claims"></a>Inmatade anspråk
 
-**InputClaims** -elementet innehåller en lista över anspråk att skicka till Azure MFA. Du kan också mappa namnet på ditt anspråk till namnet som definierats i den tekniska profilen för MFA.
+**InputClaims** -elementet innehåller en lista över anspråk att skicka till Azure AD MFA. Du kan också mappa namnet på ditt anspråk till namnet som definierats i den tekniska profilen för MFA.
 
 | ClaimReferenceId | Krävs | Beskrivning |
 | --------- | -------- | ----------- | ----------- |
 | phoneNumber| Ja | Samma telefonnummer som tidigare användes för att skicka en kod. Den används också för att hitta en fjärrstyrningssession. |
 | verificationCode  | Ja | Verifierings koden som anges av användaren som ska verifieras |
 
-**InputClaimsTransformations** -elementet kan innehålla en samling av **InputClaimsTransformation** -element som används för att ändra de inloggade anspråken eller generera nya innan du anropar tjänsten Azure MFA.
+**InputClaimsTransformations** -elementet kan innehålla en samling av **InputClaimsTransformation** -element som används för att ändra de inloggade anspråken eller generera nya innan du anropar tjänsten Azure AD MFA.
 
 ### <a name="output-claims"></a>Utgående anspråk
 
-Azure MFA Protocol-providern returnerar inga **OutputClaims**, därför behöver du inte ange några utgående anspråk. Du kan dock inkludera anspråk som inte returneras av Azure MFA Identity-providern så länge du ställer in `DefaultValue` attributet.
+Azure AD MFA-providern returnerar inga **OutputClaims**, därför behöver du inte ange några utgående anspråk. Du kan dock ta med anspråk som inte returneras av Azure AD MFA Identity-providern så länge du ställer in `DefaultValue` attributet.
 
 **OutputClaimsTransformations** -elementet kan innehålla en samling av **OutputClaimsTransformation** -element som används för att ändra de utgående anspråken eller skapa nya.
 
@@ -140,18 +140,18 @@ Azure MFA Protocol-providern returnerar inga **OutputClaims**, därför behöver
 
 #### <a name="ui-elements"></a>Element för användargränssnitt
 
-Följande metadata kan användas för att konfigurera fel meddelanden som visas vid kod verifierings fel. Metadata bör konfigureras i den [självkontrollerade](self-asserted-technical-profile.md) tekniska profilen. Fel meddelandena kan [lokaliseras](localization-string-ids.md#azure-mfa-error-messages).
+Följande metadata kan användas för att konfigurera fel meddelanden som visas vid kod verifierings fel. Metadata bör konfigureras i den [självkontrollerade](self-asserted-technical-profile.md) tekniska profilen. Fel meddelandena kan [lokaliseras](localization-string-ids.md#azure-ad-mfa-error-messages).
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| UserMessageIfMaxAllowedCodeRetryReached| Inga | Användar fel meddelande om användaren försökte utföra en verifierings kod för många gånger. |
-| UserMessageIfServerError | Inga | Användar fel meddelande om ett internt fel inträffar på servern. |
-| UserMessageIfThrottled| Inga | Användar fel meddelande om begäran är begränsad.|
-| UserMessageIfWrongCodeEntered| Inga| Användar fel meddelande om den kod som angetts för verifiering är felaktig.|
+| UserMessageIfMaxAllowedCodeRetryReached| Nej | Användar fel meddelande om användaren försökte utföra en verifierings kod för många gånger. |
+| UserMessageIfServerError | Nej | Användar fel meddelande om ett internt fel inträffar på servern. |
+| UserMessageIfThrottled| Nej | Användar fel meddelande om begäran är begränsad.|
+| UserMessageIfWrongCodeEntered| Nej| Användar fel meddelande om den kod som angetts för verifiering är felaktig.|
 
 ### <a name="example-verify-a-code"></a>Exempel: verifiera en kod
 
-I följande exempel visas en teknisk Azure MFA-profil som används för att verifiera koden.
+I följande exempel visas en Azure AD MFA Technical-profil som används för att verifiera koden.
 
 ```xml
 <TechnicalProfile Id="AzureMfa-VerifySms">

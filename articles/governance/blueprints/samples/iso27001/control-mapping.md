@@ -3,12 +3,12 @@ title: ISO 27001-skiss exempel kontroller
 description: Kontroll mappning av ISO 27001-skiss exemplet. Varje kontroll mappas till en eller flera Azure Policy definitioner som hjälper till med utvärderingen.
 ms.date: 11/05/2020
 ms.topic: sample
-ms.openlocfilehash: 04e9863cd52c272cf74e2656df207f4ced7b4286
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 0c1c20ae8b740ce019441dbee880f883947af160
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420248"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842506"
 ---
 # <a name="control-mapping-of-the-iso-27001-blueprint-sample"></a>Kontroll mappning av ISO 27001-skiss exemplet
 
@@ -84,7 +84,7 @@ Den här skissen tilldelar tre [Azure policy](../../../policy/overview.md) defin
 
 ## <a name="a942-secure-log-on-procedures"></a>9.4.2 säkra inloggnings procedurer
 
-Den här skissen tilldelar tre Azure Policy definitioner för granskning av konton som inte har Multi-Factor Authentication aktiverat. Azure Multi-Factor Authentication ger ytterligare säkerhet genom att kräva en andra form av autentisering och ger stark autentisering. Genom att övervaka konton utan att Multi-Factor Authentication har Aktiver ATS kan du identifiera konton som kan vara sannolikare.
+Den här skissen tilldelar tre Azure Policy definitioner för granskning av konton som inte har Multi-Factor Authentication aktiverat. Azure AD Multi-Factor Authentication ger ytterligare säkerhet genom att kräva en andra form av autentisering och ger stark autentisering. Genom att övervaka konton utan att Multi-Factor Authentication har Aktiver ATS kan du identifiera konton som kan vara sannolikare.
 
 - MFA ska vara aktiverat på konton med ägar behörigheter för din prenumeration
 - MFA ska vara aktiverat på konton med Läs behörighet för din prenumeration

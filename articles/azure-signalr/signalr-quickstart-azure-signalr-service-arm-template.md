@@ -4,15 +4,15 @@ description: I den här snabb starten får du lära dig hur du skapar en Azure S
 author: sffamily
 ms.service: signalr
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 ms.author: zhshang
 ms.date: 10/02/2020
-ms.openlocfilehash: a7e8183f21ab49fe4662470d30e52977dd89153a
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 4ab029048b37a4dcb44ef405249dcb9e20de70cf
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289914"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841640"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-signalr-service"></a>Snabb start: Använd en ARM-mall för att distribuera Azure SignalR-tjänsten
 
@@ -24,7 +24,7 @@ Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar v
 
 [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="För att distribuera Azure SignalR service till Azure med en ARM-mall i Azure Portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-signalr%2fazuredeploy.json)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -66,13 +66,13 @@ På sidan **distribuera en Azure SignalR-tjänst** :
 
 1. Om du vill kan du ändra **prenumerationen** från standardvärdet.
 
-2. För **resurs grupp** väljer du **Skapa ny** , anger ett namn för den nya resurs gruppen och väljer **OK**.
+2. För **resurs grupp** väljer du **Skapa ny**, anger ett namn för den nya resurs gruppen och väljer **OK**.
 
 3. Om du har skapat en ny resurs grupp väljer du en **region** för resurs gruppen.
 
-4. Om du vill kan du ange ett nytt **namn** och en annan **plats** (till exempel **eastus2** ) för Azure SignalR-tjänsten. Om du inte anger något namn genereras det automatiskt. Platsen för Azure SignalR-tjänsten kan vara samma som eller en annan från den region där resurs gruppen finns. Om du inte anger en plats har den angetts till samma region som resurs gruppen.
+4. Om du vill kan du ange ett nytt **namn** och en annan **plats** (till exempel **eastus2**) för Azure SignalR-tjänsten. Om du inte anger något namn genereras det automatiskt. Platsen för Azure SignalR-tjänsten kan vara samma som eller en annan från den region där resurs gruppen finns. Om du inte anger en plats har den angetts till samma region som resurs gruppen.
 
-5. Välj **pris nivå** ( **Free_F1** eller **Standard_S1** ), ange **kapaciteten** (antal signal enheter) och välj ett **tjänst läge** som **standard** (kräver Hub-servern), utan **Server** (tillåter inte någon server anslutning) eller **klassisk** (dirigerad till NAV Server endast om hubben har server anslutning). Välj sedan om du vill **Aktivera anslutnings loggar** eller **Aktivera meddelande loggar**.
+5. Välj **pris nivå** (**Free_F1** eller **Standard_S1**), ange **kapaciteten** (antal signal enheter) och välj ett **tjänst läge** som **standard** (kräver Hub-servern), utan **Server** (tillåter inte någon server anslutning) eller **klassisk** (dirigerad till NAV Server endast om hubben har server anslutning). Välj sedan om du vill **Aktivera anslutnings loggar** eller **Aktivera meddelande loggar**.
 
     > [!NOTE]
     > För **Free_F1** pris nivån är kapaciteten begränsad till 1 enhet.
@@ -92,12 +92,12 @@ Använd följande kod för att distribuera Azure SignalR-tjänsten med ARM-malle
 
 * Namn och region för den nya Azure SignalR-tjänsten
 * Namn och region för en ny resurs grupp
-* Pris nivån för Azure ( **Free_F1** eller **Standard_S1** )
+* Pris nivån för Azure (**Free_F1** eller **Standard_S1**)
 * Signal enhetens kapacitet (1, 2, 5, 10, 20, 50 eller 100)
   > [!NOTE]
   > För **Free_F1** pris nivån är kapaciteten begränsad till 1 enhet.
 * Tjänst läge: **standard** för att kräva en NAV Server, **Server** lös för att inte tillåta någon server anslutning eller **klassisk** att endast dirigera till en NAV Server om navet har en server anslutning
-* Om du vill aktivera loggar för anslutning eller meddelanden ( **Sant** eller **falskt** )
+* Om du vill aktivera loggar för anslutning eller meddelanden (**Sant** eller **falskt**)
 
 ```azurepowershell-interactive
 $serviceName = Read-Host -Prompt "Enter a name for the new Azure SignalR Service"
@@ -137,12 +137,12 @@ Använd följande kod för att distribuera Azure SignalR-tjänsten med ARM-malle
 
 * Namn och region för den nya Azure SignalR-tjänsten
 * Namn och region för en ny resurs grupp
-* Pris nivån för Azure ( **Free_F1** eller **Standard_S1** )
+* Pris nivån för Azure (**Free_F1** eller **Standard_S1**)
 * Signal enhetens kapacitet (1, 2, 5, 10, 20, 50 eller 100)
     > [!NOTE]
     > För **Free_F1** pris nivån är kapaciteten begränsad till 1 enhet.
 * Tjänst läge: **standard** för att kräva en NAV Server, **Server** lös för att inte tillåta någon server anslutning eller **klassisk** att endast dirigera till en NAV Server om navet har en server anslutning
-* Om du vill aktivera loggar för anslutning eller meddelanden ( **Sant** eller **falskt** )
+* Om du vill aktivera loggar för anslutning eller meddelanden (**Sant** eller **falskt**)
 
 ```azurecli-interactive
 read -p "Enter a name for the new Azure SignalR Service: " serviceName &&

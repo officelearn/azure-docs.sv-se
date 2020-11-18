@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 11/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 45357092784bd9c8821a81b07ce3c381c4ce7989
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 7819c934ab97d597d52d4809c11e5c59fb87c89a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410512"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840676"
 ---
 # <a name="localization-string-ids"></a>Sträng-ID för lokalisering
 
@@ -27,33 +27,44 @@ ms.locfileid: "94410512"
 
 Följande ID: n används för en innehålls definition med ID `api.signuporsignin` och [självkontrollerad teknisk profil](self-asserted-technical-profile.md).
 
-| ID | Standardvärde |
-| -- | ------------- |
-| **local_intro_email** | Logga in med ditt befintliga konto |
-| **logonIdentifier_email** | E-postadress |
-| **requiredField_email** | Ange din e-postadress |
-| **invalid_email** | Ange en giltig e-postadress |
-| **email_pattern** | ^ [a-zA-Z0-9.! # $% & ' ' *+/=? ^ _ \` { \| } ~-] + @ [a-za-Z0-9-] + (?: \\ . [ a-zA-Z0-9-] +)*$ |
-| **local_intro_username** | Logga in med ditt användar namn |
-| **logonIdentifier_username** | Användarnamn |
-| **requiredField_username** | Ange ditt användar namn |
-| **lösenord** | Lösenord |
-| **requiredField_password** | Ange ditt lösen ord |
-| **invalid_password** | Det angivna lösen ordet har inte det förväntade formatet. |
-| **forgotpassword_link** | Glömt ditt lösenord? |
-| **createaccount_intro** | Har du inte något konto? |
-| **createaccount_link** | Registrera dig nu |
-| **divider_title** | ELLER |
-| **cancel_message** | Användaren har glömt sitt lösen ord |
-| **button_signin** | Logga in |
-| **social_intro** | Logga in med ditt sociala konto |
-  **remember_me** |Håll mig inloggad. |
-| **unknown_error** | Vi har problem med att logga in dig. Försök igen senare. |
+| ID | Standardvärde | Sidlayout version |
+| -- | ------------- | ------ |
+| **forgotpassword_link** | Glömt ditt lösenord? | `All` |
+| **createaccount_intro** | Har du inte något konto? | `All` |
+| **button_signin** | Logga in | `All` |
+| **social_intro** | Logga in med ditt sociala konto | `All` |
+| **remember_me** |Håll mig inloggad. | `All` |
+| **unknown_error** | Vi har problem med att logga in dig. Försök igen senare. | `All` |
+| **divider_title** | ELLER | `All` |
+| **local_intro_email** | Logga in med ditt befintliga konto | `< 2.0.0` |
+| **logonIdentifier_email** | E-postadress | `< 2.0.0` |
+| **requiredField_email** | Ange din e-postadress | `< 2.0.0` |
+| **invalid_email** | Ange en giltig e-postadress | `< 2.0.0` |
+| **email_pattern** | ^ [a-zA-Z0-9.! # $% & ' ' \* +/=? ^ \_ \` { \| } ~-] + @ [a-za-Z0-9-] + (?: \\ . [ a-zA-Z0-9-] +) \* $ |`< 2.0.0` |
+| **local_intro_username** | Logga in med ditt användar namn | `< 2.0.0` |
+| **logonIdentifier_username** | Användarnamn | `< 2.0.0` |
+| **requiredField_username** | Ange ditt användar namn | `< 2.0.0` |
+| **lösenord** | Lösenord | `< 2.0.0` |
+| **requiredField_password** | Ange ditt lösen ord | `< 2.0.0` |
+| **createaccount_link** | Registrera dig nu | `< 2.0.0` |
+| **cancel_message** | Användaren har glömt sitt lösen ord | `< 2.0.0` |
+| **invalid_password** | Det angivna lösen ordet har inte det förväntade formatet. | `< 2.0.0` |
+| **createaccount_one_link** | Registrera dig nu | `>= 2.0.0` |
+| **createaccount_two_links** | Registrera dig med {0} eller {1} | `>= 2.0.0` |
+| **createaccount_three_links** | Registrera dig med {0} , {1} eller {2} | `>= 2.0.0` |
+| **local_intro_generic** | Logga in med din {0} | `>= 2.1.0` |
+| **requiredField_generic** | Ange din {0} | `>= 2.1.0` |
+| **invalid_generic** | Ange ett giltigt {0} | `>= 2.1.1` |
+| **post** | Logga in | `>= 2.1.1` |
+
+
+> [!NOTE]
+> * Plats hållare som {0} fylls i automatiskt med `DisplayName` värdet för `ClaimType` . 
+> * Om du vill veta mer om lokalisering `ClaimType` , se [registrering eller inloggnings exempel](#signupsigninexample).
 
 I följande exempel visas användningen av några av användar gränssnitts elementen på sidan för registrering eller inloggning:
 
-![Registrerings-eller inloggnings sidans UX-element](./media/localization-string-ids/localization-susi.png)
-
+![Registrerings-eller inloggnings sidans UX-element](./media/localization-string-ids/localization-susi-2.png)
 
 ### <a name="sign-up-or-sign-in-identity-providers"></a>Registrerings-eller inloggnings identitets leverantörer
 
@@ -95,32 +106,28 @@ I följande exempel lokaliserar Facebook Identity Provider till arabiska:
 | **UserMessageIfUserAccountLocked** | Ditt konto är tillfälligt låst för att förhindra obehörig användning. Försök igen senare. |
 | **AADRequestsThrottled** | Det finns för många begär Anden just nu. Vänta en stund och försök igen. |
 
+<a name="signupsigninexample"></a>
 ### <a name="sign-up-or-sign-in-example"></a>Registrerings-eller inloggnings exempel
 
 ```xml
 <LocalizedResources Id="api.signuporsignin.en">
   <LocalizedStrings>
-    <LocalizedString ElementType="UxElement" StringId="logonIdentifier_email">Email Address</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="requiredField_email">Please enter your email</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="logonIdentifier_username">Username</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="password">Password</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="createaccount_link">Sign up now</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="requiredField_username">Please enter your user name</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="createaccount_intro">Don't have an account?</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="forgotpassword_link">Forgot your password?</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="divider_title">OR</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="cancel_message">The user has forgotten their password</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="button_signin">Sign in</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email Address</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="heading">Sign in</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="social_intro">Sign in with your social account</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="local_intro_generic">Sign in with your {0}</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="requiredField_password">Please enter your password</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="invalid_password">The password you entered is not in the expected format.</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="local_intro_username">Sign in with your user name</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="local_intro_email">Sign in with your existing account</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="invalid_email">Please enter a valid email address</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="requiredField_generic">Please enter your {0}</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="invalid_generic">Please enter a valid {0}</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="createaccount_one_link">Sign up now</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="createaccount_two_links">Sign up with {0} or {1}</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="createaccount_three_links">Sign up with {0}, {1}, or {2}</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="forgotpassword_link">Forgot your password?</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="button_signin">Sign in</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="divider_title">OR</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="unknown_error">We are having trouble signing you in. Please try again later.</LocalizedString>
     <!-- Uncomment the remember_me only if the keep me signed in is activated. 
     <LocalizedString ElementType="UxElement" StringId="remember_me">Keep me signed in</LocalizedString> -->
-    <LocalizedString ElementType="UxElement" StringId="email_pattern">^[a-zA-Z0-9.!#$%&amp;’'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$</LocalizedString>
     <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">Facebook</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Your password is incorrect.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfPasswordExpired">Your password has expired.</LocalizedString>
@@ -141,11 +148,11 @@ Följande är ID: n för en innehålls definition med ID för `api.localaccounts
 | ID | Standardvärde |
 | -- | ------------- |
 | **ver_sent** | Verifierings koden har skickats till: |
-| **ver_but_default** | Standard |
+| **ver_but_default** | Standardvärde |
 | **cancel_message** | Användaren har avbrutit registrering av självkontrollerad information |
 | **preloader_alt** | Vänta |
 | **ver_but_send** | Skicka verifierings kod |
-| **alert_yes** | Yes |
+| **alert_yes** | Ja |
 | **error_fieldIncorrect** | Ett eller flera fält har fyllts i felaktigt. Kontrol lera dina poster och försök igen. |
 | **år** | Year |
 | **verifying_blurb** | Vänta medan vi bearbetar din information. |
@@ -163,7 +170,7 @@ Följande är ID: n för en innehålls definition med ID för `api.localaccounts
 | **ver_incorrect_format** | Felaktigt format. |
 | **ver_but_edit** | Ändra e-post |
 | **ver_but_verify** | Verifiera koden |
-| **alert_no** | No |
+| **alert_no** | Nej |
 | **ver_info_msg** | Verifierings koden har skickats till din inkorg. Kopiera den till inmatade rutan nedan. |
 | **dagen** | Dag |
 | **ver_fail_throttled** | Det finns för många begär Anden att verifiera den här e-postadressen. Vänta en stund och försök sedan igen. |
@@ -433,9 +440,9 @@ Följande är ID: n för [RESTful-tjänstens tekniska profil](restful-technical-
 </LocalizedResources>
 ```
 
-## <a name="azure-mfa-error-messages"></a>Fel meddelanden i Azure MFA
+## <a name="azure-ad-mfa-error-messages"></a>Fel meddelanden i Azure AD MFA
 
-Följande är ID: n för fel meddelanden i [Azure MFA Technical Profile](multi-factor-auth-technical-profile.md) :
+Följande är ID: n för fel meddelanden i [Azure AD MFA Technical Profile](multi-factor-auth-technical-profile.md) :
 
 | ID | Standardvärde |
 | -- | ------------- |
@@ -446,7 +453,7 @@ Följande är ID: n för fel meddelanden i [Azure MFA Technical Profile](multi-f
 |UserMessageIfThrottled | Din begäran har begränsats, försök igen senare.|
 |UserMessageIfWrongCodeEntered|Fel kod angavs, försök igen.|
 
-### <a name="azure-mfa-example"></a>Azure MFA-exempel
+### <a name="azure-ad-mfa-example"></a>Exempel på Azure AD MFA
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">

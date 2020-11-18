@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 078b24e7fc3668e9b5832f0bfa46024db9b33848
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c154952d41db742c4d33899094a49a65fae72f26
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965564"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840108"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>Vanliga frågor och svar om lösen ords återställning via självbetjäning
 
@@ -36,12 +36,12 @@ Vanliga frågor och svar är indelade i följande avsnitt:
 
 * **F: kan mina användare registrera sina egna lösen ords återställnings data?**
 
-  > **S:** Ja. Så länge lösen ords återställning är aktiverat och de är licensierade kan användare gå till registrerings portalen för lösen ords återställning ( https://aka.ms/ssprsetup) för att registrera deras autentiseringsinformation). Användare kan även registrera sig via åtkomst panelen ( https://myapps.microsoft.com) . Om du vill registrera dig via åtkomst panelen måste du välja profil bilden, välja **profil**och sedan välja alternativet **Registrera för lösen ords återställning** .
+  > **S:** Ja. Så länge lösen ords återställning är aktiverat och de är licensierade kan användare gå till registrerings portalen för lösen ords återställning ( https://aka.ms/ssprsetup) för att registrera deras autentiseringsinformation). Användare kan även registrera sig via åtkomst panelen ( https://myapps.microsoft.com) . Om du vill registrera dig via åtkomst panelen måste du välja profil bilden, välja **profil** och sedan välja alternativet **Registrera för lösen ords återställning** .
   >
-  > Om du aktiverar [kombinerad registrering](concept-registration-mfa-sspr-combined.md)kan användarna registrera sig för både SSPR och Azure Multi-Factor Authentication samtidigt.
+  > Om du aktiverar [kombinerad registrering](concept-registration-mfa-sspr-combined.md)kan användarna registrera sig för både SSPR och Azure AD Multi-Factor Authentication samtidigt.
 * **F: om jag aktiverar lösen ords återställning för en grupp och sedan bestämmer dig för att aktivera den för alla, måste mina användare omregistrera sig?**
 
-  > **S:** Nej. Användare som har fyllt i diagnostikdata behöver inte registreras igen.
+  > **A:** Nej. Användare som har fyllt i diagnostikdata behöver inte registreras igen.
   >
   >
 * **F: kan jag definiera lösen ords återställnings data för mina användares räkning?**
@@ -61,7 +61,7 @@ Vanliga frågor och svar är indelade i följande avsnitt:
   >
 * **F: måste mina användare registreras innan de kan använda lösen ords återställning?**
 
-  > **S:** Nej. Om du definierar tillräckligt autentiseringsinformation för deras räkning behöver användarna inte registrera sig. Lösen ords återställning fungerar så länge du har formaterat data som lagras i lämpliga fält i katalogen.
+  > **A:** Nej. Om du definierar tillräckligt autentiseringsinformation för deras räkning behöver användarna inte registrera sig. Lösen ords återställning fungerar så länge du har formaterat data som lagras i lämpliga fält i katalogen.
   >
   >
 * **F: kan jag synkronisera eller ställa in telefon för autentisering, e-postautentisering eller alternativa inloggnings telefon fält för mina användares räkning?**
@@ -159,7 +159,7 @@ Vanliga frågor och svar är indelade i följande avsnitt:
   >
 * **F: kan en användare registrera samma säkerhets fråga mer än en gång?**
 
-  > **S:** Nej. När en användare registrerar en viss fråga kan de inte registrera sig för den frågan en gång i sekunden.
+  > **A:** Nej. När en användare registrerar en viss fråga kan de inte registrera sig för den frågan en gång i sekunden.
   >
   >
 * **F: är det möjligt att ange en minsta gräns för säkerhets frågor för registrering och återställning?**

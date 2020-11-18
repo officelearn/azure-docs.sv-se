@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: ba6ae9262fb0e55c53e1b1421c075e555fae8d98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55e5ff2af62c903efeab5c4932eae0c9dc9b535c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87328368"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842319"
 ---
 # <a name="enable-azure-monitor-for-single-virtual-machine-or-virtual-machine-scale-set-in-the-azure-portal"></a>Aktivera Azure Monitor för en virtuell dator eller skalnings uppsättning för virtuell dator i Azure Portal
 I den här artikeln beskrivs hur du aktiverar Azure Monitor for VMs för en virtuell dator eller skalnings uppsättning för virtuella datorer med hjälp av Azure Portal. Den här proceduren kan användas för följande:
@@ -27,7 +27,7 @@ I den här artikeln beskrivs hur du aktiverar Azure Monitor for VMs för en virt
 
 ## <a name="enable-azure-monitor-for-vms"></a>Aktivera Azure Monitor for VMs
 
-Från Azure Portal väljer du **virtuella datorer**, **skalnings uppsättningar för virtuella**datorer eller **datorer – Azure-båge** och väljer en resurs i listan. I avsnittet **övervakning** på menyn väljer du **insikter** och **aktiverar**sedan. I följande exempel visas en virtuell Azure-dator, men menyn liknar skalnings uppsättningen för virtuella Azure-datorer eller Azure-bågen.
+Från Azure Portal väljer du **virtuella datorer**, **skalnings uppsättningar för virtuella** datorer eller **servrar – Azure-båge** och väljer en resurs i listan. I avsnittet **övervakning** på menyn väljer du **insikter** och **aktiverar** sedan. I följande exempel visas en virtuell Azure-dator, men menyn liknar skalnings uppsättningen för virtuella Azure-datorer eller Azure-bågen.
 
 ![Aktivera Azure Monitor for VMs för en virtuell dator](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: fcc0538dfef1581a244ae5fd9a3515be3470026c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09a5632f969117e69e68bbe0df2bfbab9a8a102b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850939"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842143"
 ---
 # <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Skapa en Azure Batch-pool utan offentliga IP-adresser
 
@@ -34,7 +34,7 @@ Om du vill begränsa åtkomsten till dessa noder och minska identifieringen av d
 - **Ett Azure VNet**. Om du skapar poolen i ett [virtuellt nätverk](batch-virtual-network.md)följer du dessa krav och konfigurationer. För att förbereda ett VNet med ett eller flera undernät i förväg, kan du använda Azure Portal, Azure PowerShell, gränssnittet i Azure Command-Line-gränssnittet (CLI) eller andra metoder.
   - Det virtuella nätverket måste vara i samma prenumeration och region som det Batch-konto som du använder för att skapa din pool.
   - Det undernät som anges för poolen måste ha tillräckliga otilldelade IP-adresser för det antal virtuella datorer som är mål för poolen. Summan av egenskaperna `targetDedicatedNodes` och `targetLowPriorityNodes` för poolen. Om undernätet inte har tillräckligt med lediga IP-adresser, allokerar poolen datornoderna partiellt och ett storleksändringsfel inträffar.
-  - Du måste inaktivera tjänsten för privata länkar och nätverks principer för slut punkten. Detta kan göras med hjälp av Azure CLI: ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
+  - Du måste inaktivera tjänsten för privata länkar och nätverks principer för slut punkten. Detta kan göras med hjälp av Azure CLI: ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --resouce-group <resourcegroup> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
 
 > [!IMPORTANT]
 > För varje 100-dedikerad eller låg prioritets nod allokerar batch en privat länk tjänst och en belastningsutjämnare. Dessa resurser begränsas av prenumerationens [resurskvoter](../azure-resource-manager/management/azure-subscription-service-limits.md). För stora pooler kan du behöva [begära en kvot ökning](batch-quota-limit.md#increase-a-quota) för en eller flera av dessa resurser. Dessutom bör inga resurs lås användas för någon resurs som skapats av batch, eftersom detta förhindrar att resurser rensas till följd av användar initierade åtgärder som att ta bort en pool eller ändra storlek till noll.
@@ -52,9 +52,9 @@ Om du vill begränsa åtkomsten till dessa noder och minska identifieringen av d
 1. I fönstret **pooler** väljer du **Lägg till**.
 1. I fönstret **Lägg till pool** väljer du det alternativ som du vill använda från List rutan **Bildtyp** .
 1. Välj rätt **utgivare/erbjudande/SKU** för din avbildning.
-1. Ange de återstående nödvändiga inställningarna, inklusive **nodens storlek**, **dedikerade noder**och **noder med låg prioritet**samt önskade valfria inställningar.
+1. Ange de återstående nödvändiga inställningarna, inklusive **nodens storlek**, **dedikerade noder** och **noder med låg prioritet** samt önskade valfria inställningar.
 1. Du kan också välja ett virtuellt nätverk och undernät som du vill använda. Det här virtuella nätverket måste finnas i samma resurs grupp som den pool som du skapar.
-1. I **etablerings typ för IP-adress**väljer du **NoPublicIPAddresses**.
+1. I **etablerings typ för IP-adress** väljer du **NoPublicIPAddresses**.
 
 ![Skärm bild av skärmen Lägg till pool med NoPublicIPAddresses valt.](./media/batch-pool-no-public-ip-address/create-pool-without-public-ip-address.png)
 

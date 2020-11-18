@@ -12,12 +12,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: f0f9d2affe39eaf74d4c0a537658d655a0c150d7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: fe49dce276a15d9d7bc8ddaa5618c0e43dec62e9
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789581"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841231"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Ny DBA i molnet – Hantera Azure SQL Database efter migrering
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -38,18 +38,18 @@ I den här artikeln beskrivs några av kärn egenskaperna för Azure SQL Databas
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>Övervaka databaser med Azure-portalen
 
-I [Azure Portal](https://portal.azure.com/)kan du övervaka en enskild Databass användning genom att välja din databas och klicka på **övervaknings** diagrammet. Det öppnar **Mått** -fönstret, vilket du kan ändra genom att klicka på **Redigera diagram** -knappen. Lägg till följande mått:
+I [Azure Portal](https://portal.azure.com/)kan du övervaka en enskild Databass användning genom att välja din databas och klicka på **övervaknings** diagrammet. Det öppnar **Mått**-fönstret, vilket du kan ändra genom att klicka på **Redigera diagram**-knappen. Lägg till följande mått:
 
 - CPU-procent
 - DTU-procent
 - Data IO-procent
 - Databasstorlek i procent
 
-När du har lagt till dessa mått kan du fortsätta att visa dem i **övervaknings** diagrammet med mer information i **mått** fönstret. Alla fyra mätvärdena visar ett snittvärde för utnyttjandeprocent i förhållande till din databas **DTU:er** . Se den [DTU-baserade inköps modellen](service-tiers-dtu.md) och [vCore inköps modell](service-tiers-vcore.md) artiklar för mer information om tjänst nivåer.  
+När du har lagt till dessa mått kan du fortsätta att visa dem i **övervaknings** diagrammet med mer information i **mått** fönstret. Alla fyra mätvärdena visar ett snittvärde för utnyttjandeprocent i förhållande till din databas **DTU:er**. Se den [DTU-baserade inköps modellen](service-tiers-dtu.md) och [vCore inköps modell](service-tiers-vcore.md) artiklar för mer information om tjänst nivåer.  
 
 ![Tjänstnivå-övervakning av databasprestanda.](./media/manage-data-after-migrating-to-database/sqldb_service_tier_monitoring.png)
 
-Du kan också konfigurera aviseringar på prestandamåtten. Klicka på knappen **Lägg till avisering** i **mått** -fönstret. Följ guiden för att konfigurera aviseringen. Du har möjlighet att avisera om måttet överskrider ett visst tröskelvärde eller om måttet faller under ett visst tröskelvärde.
+Du kan också konfigurera aviseringar på prestandamåtten. Klicka på knappen **Lägg till avisering** i **mått**-fönstret. Följ guiden för att konfigurera aviseringen. Du har möjlighet att avisera om måttet överskrider ett visst tröskelvärde eller om måttet faller under ett visst tröskelvärde.
 
 Om du exempelvis förväntar dig att arbetsbelastningen på din databas kommer att öka, kan du välja att konfigurera en e-postavisering när din databas kommer upp i 80 % för något av prestandamåtten. Du kan använda detta som en tidig varning för att ta reda på när du kanske måste växla till nästa högsta beräknings storlek.
 
@@ -65,7 +65,7 @@ Du skapar inga säkerhets kopior på Azure SQL Database och det beror på att du
 
 |Tjänstnivå|Kvarhållningsperiod i dagar|
 |---|:---:|
-|Basic|7|
+|Grundläggande|7|
 |Standard|35|
 |Premium|35|
 |||
@@ -101,12 +101,12 @@ SQL Database tar säkerhet och sekretess mycket allvarligt. Säkerhet i SQL Data
 
 Det finns två autentiseringsmetoder som erbjuds i SQL Database:
 
-- [Azure Active Directory-autentisering](authentication-aad-overview.md)
+- [Azure Active Directory autentisering](authentication-aad-overview.md)
 - [SQL-autentisering](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
 
 Den traditionella Windows-autentiseringen stöds inte. Azure Active Directory (Azure AD) är en centraliserad tjänst för identitets-och åtkomst hantering. Med det här kan du enkelt tillhandahålla enkel inloggning (SSO) till all personal i din organisation. Det innebär att autentiseringsuppgifterna delas mellan alla Azure-tjänster för enklare autentisering. 
 
-Azure AD har stöd för [azure Multi-Factor Authentication](authentication-mfa-ssms-overview.md) och med [några klick](../../active-directory/hybrid/how-to-connect-install-express.md) kan Azure AD integreras med Windows Server Active Directory. SQL-autentisering fungerar på samma sätt som du har använt den tidigare. Du anger ett användar namn/lösen ord och du kan autentisera användare till valfri databas på en specifik server. Detta gör det också möjligt SQL Database och Azure Synapse Analytics (tidigare SQL Data Warehouse) att erbjuda Multi-Factor Authentication-och gäst användar konton i en Azure AD-domän. Om du redan har ett Active Directory lokalt kan du federera katalogen med Azure Active Directory för att utöka din katalog till Azure.
+Azure AD har stöd för [Azure ad Multi-Factor Authentication](authentication-mfa-ssms-overview.md) och med [några klick](../../active-directory/hybrid/how-to-connect-install-express.md) kan Azure AD integreras med Windows Server Active Directory. SQL-autentisering fungerar på samma sätt som du har använt den tidigare. Du anger ett användar namn/lösen ord och du kan autentisera användare till valfri databas på en specifik server. Detta gör det också möjligt SQL Database och Azure Synapse Analytics (tidigare SQL Data Warehouse) att erbjuda Multi-Factor Authentication-och gäst användar konton i en Azure AD-domän. Om du redan har ett Active Directory lokalt kan du federera katalogen med Azure Active Directory för att utöka din katalog till Azure.
 
 |**Om du...**|**SQL Database/Azure Synapse Analytics**|
 |---|---|
@@ -320,11 +320,11 @@ SQL Database använder vissa smarta tekniker som gör det möjligt för IT att h
 
 ### <a name="how-do-i-export-and-import-data-as-bacpac-files-from-sql-database-using-the-azure-portal"></a>Hur gör jag för att exportera och importera data som BACPAC-filer från SQL Database med hjälp av Azure Portal
 
-- **Exportera** : du kan exportera databasen i Azure SQL Database som en BACPAC-fil från Azure Portal
+- **Exportera**: du kan exportera databasen i Azure SQL Database som en BACPAC-fil från Azure Portal
 
    ![databas export](./media/manage-data-after-migrating-to-database/database-export1.png)
 
-- **Importera** : du kan också importera data som en BACPAC-fil till databasen i Azure SQL Database att använda Azure Portal.
+- **Importera**: du kan också importera data som en BACPAC-fil till databasen i Azure SQL Database att använda Azure Portal.
 
    ![databas import](./media/manage-data-after-migrating-to-database/import1.png)
 

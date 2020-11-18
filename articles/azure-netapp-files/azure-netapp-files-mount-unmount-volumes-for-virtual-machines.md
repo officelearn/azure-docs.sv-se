@@ -6,13 +6,13 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 09/22/2020
-ms.openlocfilehash: eebb0a8dc23a6a442a170dcc6e19495f96ce2921
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.date: 11/17/2020
+ms.openlocfilehash: 83d6e051f520737e750e6c46c192eb698e7bf0e3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930602"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842265"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Montera eller demontera en volym för virtuella Windows- eller Linux-datorer 
 
@@ -22,11 +22,11 @@ Du kan montera eller demontera en volym för virtuella Windows-eller Linux-dator
 
 * Du måste ha minst en export princip för att kunna komma åt en NFS-volym.
 * För att montera en NFS-volym ser du till att följande NFS-portar är öppna mellan klienten och NFS-volymerna:
-    * 111 = `RPCBIND/Portmapper`
-    * 635 = `mountd`
-    * 2049 = `nfs`
-    * 4045 = `nlockmgr` (endast NFSv3)
-    * 4046 = `status` (endast NFSv3)
+    * 111 TCP/UDP = `RPCBIND/Portmapper`
+    * 635 TCP/UDP = `mountd`
+    * 2049 TCP/UDP = `nfs`
+    * 4045 TCP/UDP = `nlockmgr` (endast NFSv3)
+    * 4046 TCP/UDP = `status` (endast NFSv3)
 
 ## <a name="steps"></a>Steg
 

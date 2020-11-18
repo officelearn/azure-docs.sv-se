@@ -11,16 +11,16 @@ ms.date: 10/15/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e328caa80a0e63f68f2563bc91a6405341ad064e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: c0ab4d367d2ca9fd59c26ce8d36b5f80dcb832c8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102076"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840635"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Aktivera Multi-Factor Authentication i Azure Active Directory B2C
 
-Azure Active Directory B2C (Azure AD B2C) integreras direkt med [Azure-Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) så att du kan lägga till ett andra säkerhets lager till inloggnings-och inloggnings upplevelser i dina program. Du aktiverar Multi-Factor Authentication utan att skriva en enda rad kod. Om du redan har skapat inloggnings-och inloggnings användar flöden kan du fortfarande aktivera Multi-Factor Authentication.
+Azure Active Directory B2C (Azure AD B2C) integreras direkt med [Azure AD Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) så att du kan lägga till ett andra säkerhets lager för att registrera dig och logga in i dina program. Du aktiverar Multi-Factor Authentication utan att skriva en enda rad kod. Om du redan har skapat inloggnings-och inloggnings användar flöden kan du fortfarande aktivera Multi-Factor Authentication.
 
 Den här funktionen hjälper program att hantera scenarier som:
 
@@ -35,7 +35,7 @@ Den här funktionen hjälper program att hantera scenarier som:
 1. Välj **användar flöden**.
 1. Välj det användar flöde som du vill aktivera MFA för. Till exempel *B2C_1_signinsignup*.
 1. Välj **Egenskaper**.
-1. I avsnittet **multifaktorautentisering** väljer du önskad **MFA-metod**och under **MFA tvång** väljer du **Always on**, eller ** [villkorlig](conditional-access-user-flow.md) (rekommenderas)**. För villkorligt, skapa en [princip för villkorlig åtkomst](conditional-access-identity-protection-setup.md) och ange de appar som du vill att principen ska tillämpas på. 
+1. I avsnittet **multifaktorautentisering** väljer du önskad **MFA-metod** och under **MFA tvång** väljer du **Always on**, eller **[villkorlig](conditional-access-user-flow.md) (rekommenderas)**. För villkorligt, skapa en [princip för villkorlig åtkomst](conditional-access-identity-protection-setup.md) och ange de appar som du vill att principen ska tillämpas på. 
 1. Välj Spara MFA har nu Aktiver ATS för det här användar flödet.
 
 Du kan använda **Kör användar flöde** för att verifiera upplevelsen. Bekräfta följande scenario:

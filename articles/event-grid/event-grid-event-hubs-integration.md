@@ -3,13 +3,13 @@ title: 'Självstudie: Skicka Event Hubs data till data lagret – Event Grid'
 description: 'Självstudie: beskriver hur du använder Azure Event Grid och Event Hubs för att migrera data till en Azure Synapse-analys. Den använder en Azure-funktion för att hämta en Capture-fil.'
 ms.topic: tutorial
 ms.date: 07/07/2020
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 4fb26bf92e6af1fd9e97f3b9434b4ab5e76316b3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: e6dfcac17d79edd417af07179224fdf922906c4e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305268"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841384"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Självstudie: strömma Big data till ett informations lager
 Azure [Event Grid](overview.md) är en intelligent tjänst för händelsedirigering som innebär att du kan agera på aviseringar (händelser) från appar och tjänster. Tjänsten kan till exempel utlösa en Azure-funktion som bearbetar Event Hubs-data som har hämtats till en Azure-blobblagring eller Azure Data Lake Storage och som migrerar datan till andra lagringsplatser. Det här [Event Hubs och event Grid integrations exempel](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) visar hur du använder Event Hubs med event Grid för att sömlöst migrera insamlade Event Hubs data från Blob Storage till en Azure Synapse Analytics (tidigare SQL Data Warehouse).
@@ -56,14 +56,14 @@ I det här steget distribuerar du den infrastruktur som krävs med en [Resource 
 
 ### <a name="launch-azure-cloud-shell-in-azure-portal"></a>Starta Azure Cloud Shell i Azure Portal
 
-1. Logga in på [Azure Portal](https://portal.azure.com). 
-2. Välj **Cloud Shell** -knappen överst.
+1. Logga in på [Azure-portalen](https://portal.azure.com). 
+2. Välj **Cloud Shell**-knappen överst.
 
     ![Azure Portal](media/event-grid-event-hubs-integration/azure-portal.png)
 3. Du ser att Cloud Shell öppnas längst ned i webbläsaren.
 
     ![Cloud Shell](media/event-grid-event-hubs-integration/launch-cloud-shell.png) 
-4. Om du i Cloud Shell ser ett alternativ för att välja mellan **Bash** och **PowerShell** , väljer du **Bash**. 
+4. Om du i Cloud Shell ser ett alternativ för att välja mellan **Bash** och **PowerShell**, väljer du **Bash**. 
 5. Om du använder Cloud Shell för första gången, skapar du ett lagringskonto genom att välja **Skapa lagring**. Det måste finnas ett Azure-lagringskonto i Azure Cloud Shell för att vissa filer ska kunna lagras. 
 
     ![Skärm bild som visar dialog rutan "du har ingen lagrings monterad" med knappen "skapa lagring" vald.](media/event-grid-event-hubs-integration/create-storage-cloud-shell.png)
@@ -245,7 +245,7 @@ När du har publicerat funktionen är du redo att prenumerera på händelsen.
 7. Välj **Lägg till Event Grid-prenumeration** i verktygsfältet. 
 
     ![Välj Azure-funktion](media/event-grid-event-hubs-integration/select-function-add-button.png)
-8. Gör följande på sidan **Skapa en Event Grid-prenumeration** : 
+8. Gör följande på sidan **Skapa en Event Grid-prenumeration**: 
     1. På sidan **INFORMATION OM HÄNDELSEPRENUMERATION** anger du ett namn för prenumerationen (till exempel: captureEventSub). Välj sedan **Skapa**. 
     2. I avsnittet **INFORMATION OM ÄMNE** gör du följande:
         1. Välj **Event Hubs namnrum** för **ämnes typer**. 

@@ -6,13 +6,13 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/16/2020
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c64e01253652ea3b49ad6221f161bb78f499b6ed
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: c38fa77951aaeb5559dc2030f1401a896d7c238d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150532"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841928"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Övervaknings lösningar i Azure Monitor
 
@@ -20,7 +20,7 @@ ms.locfileid: "92150532"
 
 ## <a name="use-monitoring-solutions"></a>Använda övervakningslösningar
 
-Sidan lösnings **Översikt** i Azure Monitor visar en panel för varje lösning som är installerad på en Log Analytics arbets yta. Om du vill öppna den här sidan går du till **Azure Monitor** i [Azure Portal](https://ms.portal.azure.com). Under menyn **insikter** väljer du **mer** för att öppna **Insights-hubben**och klickar sedan på **Log Analytics arbets ytor**.
+Sidan lösnings **Översikt** i Azure Monitor visar en panel för varje lösning som är installerad på en Log Analytics arbets yta. Om du vill öppna den här sidan går du till **Azure Monitor** i [Azure Portal](https://ms.portal.azure.com). Under menyn **insikter** väljer du **mer** för att öppna **Insights-hubben** och klickar sedan på **Log Analytics arbets ytor**.
 
 [![Insights-hubb](media/solutions/insights-hub.png)](media/solutions/insights-hub.png#lightbox)
 

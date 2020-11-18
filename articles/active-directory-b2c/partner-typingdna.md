@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 06/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: f7d89942ad5209b854b8df486ad3e59a3976edfc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edbc944e77d2483d32574f8044c72fc3d1292e2a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259059"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840442"
 ---
 # <a name="tutorial-for-configuring-typingdna-with-azure-active-directory-b2c"></a>Självstudie för att konfigurera TypingDNA med Azure Active Directory B2C
 
 I den här genom gången lär du dig att integrera en exempel-app för online-betalning i Azure Active Directory B2C med TypingDNA-appen. Med hjälp av TypingDNA-appen kan Azure AD B2C kunder följa PSD2 ( [Payment Services direktiv 2](https://www.typingdna.com/use-cases/sca-strong-customer-authentication) ) transaktions krav med hjälp av tangenttryckning och stark kundautentisering. Mer information om TypingDNA finns [här](https://www.typingdna.com/).
 
- Azure AD B2C använder TypingDNA-teknikerna för att avbilda användarnas Skriv egenskaper och de registreras och analyseras för att känna sig på varje autentisering. Detta lägger till ett skydds lager som är relaterat till riskiness för en autentisering och utvärderar risk nivåerna. Azure AD B2C kan anropa andra metoder för att ge ytterligare säkerhet som användaren är som han eller hon utger sig för att aktivera Azure MFA, framtvinga e-postverifiering eller någon annan anpassad logik för ditt scenario.
+ Azure AD B2C använder TypingDNA-teknikerna för att avbilda användarnas Skriv egenskaper och de registreras och analyseras för att känna sig på varje autentisering. Detta lägger till ett skydds lager som är relaterat till riskiness för en autentisering och utvärderar risk nivåerna. Azure AD B2C kan anropa andra metoder för att ge ytterligare säkerhet som användaren är som han eller hon utger sig för att aktivera Azure AD MFA, framtvinga e-postverifiering eller någon annan anpassad logik för ditt scenario.
 
 >[!NOTE]
 > Den här exempel principen baseras på [SocialAndLocalAccountsWithMfa](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccountsWithMfa) start paket.
@@ -113,7 +113,7 @@ Dessa tröskelvärden bör justeras i användnings fallet.
 
 - När ditt API har utvärderat `net_score` ska det returnera ett booleskt anspråk till B2C- `promptMFA` .
 
-- `promptMFA`Anspråket används inom ett för villkor för att villkorligt köra Azure MFA.
+- `promptMFA`Anspråket används inom ett för villkor för att villkorligt köra Azure AD MFA.
 
 ```xml
 

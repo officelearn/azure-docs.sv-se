@@ -10,16 +10,16 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c8fe6c7ead587d58775984854260bd071215e42
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: eab1a3f81666cd3bddea9954f210e5825a538356
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965581"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840125"
 ---
 # <a name="authentication-methods-in-azure-active-directory---microsoft-authenticator-app"></a>Autentiseringsmetoder i Azure Active Directory-Microsoft Authenticator-appen
 
-Microsoft Authenticator-appen ger dig ytterligare en säkerhets nivå för ditt Azure AD-arbets-eller skol konto eller din Microsoft-konto och är tillgänglig för [Android](https://go.microsoft.com/fwlink/?linkid=866594) och [iOS](https://go.microsoft.com/fwlink/?linkid=866594). Med Microsoft Authenticator-appen kan användare autentiseras på ett lösen ords effektivt sätt under inloggningen eller som ett ytterligare verifierings alternativ under självbetjäning för återställning av lösen ord (SSPR) eller Azure Multi-Factor Authentication-händelser.
+Microsoft Authenticator-appen ger dig ytterligare en säkerhets nivå för ditt Azure AD-arbets-eller skol konto eller din Microsoft-konto och är tillgänglig för [Android](https://go.microsoft.com/fwlink/?linkid=866594) och [iOS](https://go.microsoft.com/fwlink/?linkid=866594). Med Microsoft Authenticator-appen kan användare autentiseras på ett lösen ords effektivt sätt under inloggningen eller som ett ytterligare verifierings alternativ under självbetjäning för återställning av lösen ord (SSPR) eller Azure AD Multi-Factor Authentication-händelser.
 
 Användare kan få ett meddelande via mobilappen för att godkänna eller neka eller använda Authenticator-appen för att generera en OATH-verifierings kod som kan anges i ett inloggnings gränssnitt. Om du aktiverar både en meddelande-och verifierings kod kan användare som registrerar Authenticator-appen använda någon av metoderna för att verifiera sin identitet.
 

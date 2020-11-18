@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 09066d9e51f12923772758b3aebcebd347a59380
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 5e688fbf653646fcdd500f36930fd6b46bebeefa
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174134"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842166"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Azures säkerhets bas linje för säkerhets kopiering
 
@@ -298,11 +298,11 @@ För att hjälpa dig att hålla koll på dedikerade administrativa konton kan du
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3,5: Använd Multi-Factor Authentication för all Azure Active Directory baserad åtkomst
 
-**Vägledning**: när du utför kritiska åtgärder i Azure Backup måste du ange en säkerhets kod som är tillgänglig på Azure Portal. Genom att aktivera Azure Multi-Factor Authentication lägger du till ett säkerhets lager. Endast auktoriserade användare med giltiga autentiseringsuppgifter för Azure och autentiserade från en andra enhet kan komma åt Azure Portal.
+**Vägledning**: när du utför kritiska åtgärder i Azure Backup måste du ange en säkerhets kod som är tillgänglig på Azure Portal. Genom att aktivera Azure AD Multi-Factor Authentication lägger du till ett säkerhets lager. Endast auktoriserade användare med giltiga autentiseringsuppgifter för Azure och autentiserade från en andra enhet kan komma åt Azure Portal.
 
 - [Multi-Factor Authentication i Azure Backup](./backup-azure-security-feature.md)
 
-- [Planera en molnbaserad distribution av Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Planera en molnbaserad Azure AD Multi-Factor Authentication-distribution](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -310,11 +310,11 @@ För att hjälpa dig att hålla koll på dedikerade administrativa konton kan du
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3,6: Använd dedikerade datorer (arbets stationer med privilegie rad åtkomst) för alla administrativa uppgifter
 
-**Vägledning**: Använd en privilegie rad åtkomst arbets Station (Paw) med Azure Multi-Factor Authentication (MFA) konfigurerat för att logga in på och konfigurera dina Azure Backup-aktiverade resurser.
+**Vägledning**: Använd en privilegie rad åtkomst arbets Station (Paw) med Azure AD Multi-Factor Authentication (MFA) konfigurerat för att logga in på och konfigurera dina Azure Backup-aktiverade resurser.
 
 - [Arbetsstationer för privilegierad åtkomst (PAW)](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [Planera en molnbaserad distribution av Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Planera en molnbaserad Azure AD Multi-Factor Authentication-distribution](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 

@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - devx-track-azurecli
 ms.date: 06/16/2020
-ms.openlocfilehash: ad7fb6098d3fb347f6bb31264fdc72dc7650c1a7
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1261f54739d4689878dcb8657361582164a1a23e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748560"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842098"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>Snabb start: skicka telemetri från en enhet till en IoT-hubb och Läs den med Server dels program (python)
 
@@ -38,15 +38,7 @@ I den här snabb starten skickar du telemetri från ett simulerat enhets program
 
 * Port 8883 öppna i brand väggen. Enhets exemplet i den här snabb starten använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-### <a name="add-azure-iot-extension"></a>Lägg till Azure IoT-tillägg
-
-Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för Azure CLI till Cloud Shell-instansen. IoT-tillägget lägger till kommandon specifika för IoT Hub, IoT Edge och IoT Device Provisioning Service (DPS) i Azure CLI.
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -60,9 +52,9 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
 1. Kör följande kommando i Azure Cloud Shell för att skapa enhets identiteten.
 
-    **YourIoTHubName** : Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
+    **YourIoTHubName**: Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
 
-    **MyPythonDevice** : det här är namnet på enheten som du registrerar. Vi rekommenderar att du använder **MyPythonDevice** som det visas. Om du väljer ett annat namn på din enhet måste du också använda det namnet i den här artikeln och uppdatera enhets namnet i exempel programmen innan du kör dem.
+    **MyPythonDevice**: det här är namnet på enheten som du registrerar. Vi rekommenderar att du använder **MyPythonDevice** som det visas. Om du väljer ett annat namn på din enhet måste du också använda det namnet i den här artikeln och uppdatera enhets namnet i exempel programmen innan du kör dem.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyPythonDevice
@@ -70,7 +62,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
 1. Kör följande kommando i Azure Cloud Shell för att hämta _enhets anslutnings strängen_ för den enhet som du har registrerat:
 
-    **YourIoTHubName** : Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
+    **YourIoTHubName**: Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyPythonDevice --output table
@@ -82,7 +74,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
     Du kommer att använda det här värdet senare i snabb starten.
 
-1. Du behöver också _Event Hubs-kompatibel slut punkt_ , _Event Hubs-kompatibel sökväg_ och _tjänstens primära nyckel_ från din IoT Hub för att aktivera backend-programmet för att ansluta till din IoT-hubb och hämta meddelandena. Följande kommandon hämtar dessa värden för din IoT-hubb:
+1. Du behöver också _Event Hubs-kompatibel slut punkt_, _Event Hubs-kompatibel sökväg_ och _tjänstens primära nyckel_ från din IoT Hub för att aktivera backend-programmet för att ansluta till din IoT-hubb och hämta meddelandena. Följande kommandon hämtar dessa värden för din IoT-hubb:
 
    **YourIoTHubName** : Ersätt platshållaren nedan med det namn du väljer för din IoT-hubb.
 
@@ -100,11 +92,11 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
 Det simulerade enhetsprogrammet ansluter till en enhetsspecifik slutpunkt på din IoT-hubb och skickar simulerad telemetri om temperatur och luftfuktighet.
 
-1. Navigera till Python-exempelprojektets rotmapp i ett lokalt terminalfönster. Gå sedan till mappen **iot-hub\Quickstarts\simulated-device** .
+1. Navigera till Python-exempelprojektets rotmapp i ett lokalt terminalfönster. Gå sedan till mappen **iot-hub\Quickstarts\simulated-device**.
 
 1. Öppna filen **SimulatedDevice.py** i en valfri textredigerare.
 
-    Ersätt värdet för `CONNECTION_STRING` variabeln med enhets anslutnings strängen som du antecknade tidigare. Spara sedan ändringarna i **SimulatedDevice.py** .
+    Ersätt värdet för `CONNECTION_STRING` variabeln med enhets anslutnings strängen som du antecknade tidigare. Spara sedan ändringarna i **SimulatedDevice.py**.
 
 1. Installera de bibliotek som krävs för det simulerade enhetsprogrammet genom att köra följande kommandon i det lokala terminalfönstret:
 
@@ -124,12 +116,12 @@ Det simulerade enhetsprogrammet ansluter till en enhetsspecifik slutpunkt på di
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Läs telemetrin från din hubb
 
-Serverdelsprogrammet ansluter till **Events** -slutpunkten för tjänstsidan på din IoT-hubb. Programmet tar emot enhet-till-moln-meddelanden som skickats från din simulerade enhet. Ett IoT Hub-serverprogram körs normalt i molnet för att ta emot och bearbeta enhet-till-molnet-meddelanden.
+Serverdelsprogrammet ansluter till **Events**-slutpunkten för tjänstsidan på din IoT-hubb. Programmet tar emot enhet-till-moln-meddelanden som skickats från din simulerade enhet. Ett IoT Hub-serverprogram körs normalt i molnet för att ta emot och bearbeta enhet-till-molnet-meddelanden.
 
 > [!NOTE]
-> I följande steg används det synkrona exemplet **read_device_to_cloud_messages_sync. py** . Du kan utföra samma steg med det asynkrona exemplet **read_device_to_cloud_messages_async. py** .
+> I följande steg används det synkrona exemplet **read_device_to_cloud_messages_sync. py**. Du kan utföra samma steg med det asynkrona exemplet **read_device_to_cloud_messages_async. py**.
 
-1. Navigera till Python-exempelprojektets rotmapp i ett annat lokalt terminalfönster. Gå sedan till mappen **iot-hub\Quickstarts\read-d2c-messages** .
+1. Navigera till Python-exempelprojektets rotmapp i ett annat lokalt terminalfönster. Gå sedan till mappen **iot-hub\Quickstarts\read-d2c-messages**.
 
 2. Öppna filen **read_device_to_cloud_messages_sync. py** i valfri text redigerare. Uppdatera följande variabler och spara ändringarna i filen.
 

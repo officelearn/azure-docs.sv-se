@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
-ms.custom: subject-armqs
-ms.openlocfilehash: 9ca92bf81acd72260d89404051f941b317ee3e1d
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.custom: subject-armqs, devx-track-azurecli
+ms.openlocfilehash: 4afaad77fdff7a1ba80a385e9f2c3d8ddef8ab96
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363399"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842115"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>Snabb start: skapa en Cognitive Services resurs med en ARM-mall
 
@@ -60,7 +60,7 @@ En Azure-resurs har definierats i mallen:
     |Värde  |Beskrivning  |
     |---------|---------|
     | **Prenumeration** | Välj en Azure-prenumeration. |
-    | **Resursgrupp** | Välj **Skapa ny** , ange ett unikt namn för resurs gruppen och klicka sedan på **OK**. |
+    | **Resursgrupp** | Välj **Skapa ny**, ange ett unikt namn för resurs gruppen och klicka sedan på **OK**. |
     | **Region** | Välj en region.  Till exempel **USA, östra** |
     | **Kognitivt tjänst namn** | Ersätt med ett unikt namn för din resurs. Du kommer att behöva namnet i nästa avsnitt när du validerar distributionen. |
     | **Plats** | Ersätt med den region som används ovan. |

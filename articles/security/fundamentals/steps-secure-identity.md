@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: 4fa5ba935e77055936b2abc4faab49b5d10cb5c0
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 4703a76ff0a0b55a438f9f0d164cd7f2d3242a02
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410070"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842030"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Fem steg för att skydda din identitets infrastruktur
 
@@ -48,7 +48,7 @@ Rekommendationerna i det här dokumentet är justerade med [identitetens säkra 
 
 Innan du börjar check listan, se till att du inte blir komprometterad när du läser den här check listan. Du måste först skydda dina privilegierade konton.
 
-Angripare som får kontroll över privilegierade konton kan orsaka mycket allvarliga skador, så det är viktigt att skydda kontona först. Aktivera och Kräv [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (MFA) för alla administratörer i din organisation med hjälp av [säkerhets inställningar i Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md) eller [villkorlig åtkomst](../../active-directory/conditional-access/plan-conditional-access.md). Om du inte har implementerat MFA kan du göra det nu! Det är viktigt.
+Angripare som får kontroll över privilegierade konton kan orsaka mycket allvarliga skador, så det är viktigt att skydda kontona först. Aktivera och Kräv [Azure ad Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (MFA) för alla administratörer i din organisation med hjälp av [standardinställningar för Azure AD-säkerhet](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md) eller [villkorlig åtkomst](../../active-directory/conditional-access/plan-conditional-access.md). Om du inte har implementerat MFA kan du göra det nu! Det är viktigt.
 
 Har du angett? Vi börjar med check listan.
 
@@ -59,9 +59,9 @@ De flesta säkerhets överträdelser i företaget kommer att ha ett konto som ha
 
 ### <a name="make-sure-your-organization-uses-strong-authentication"></a>Kontrol lera att din organisation använder stark autentisering
 
-Med hänsyn till frekvensen av lösen ord som gissas, phished, blir stulen med skadlig kod eller återanvänds, är det viktigt att du säkerhetskopierar lösen ordet med någon form av stark autentiseringsuppgift – Läs mer om [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
+Med hänsyn till frekvensen av lösen ord som gissas, phished, blir stulen med skadlig kod eller återanvänds, är det viktigt att du säkerhetskopierar lösen ordet med någon form av stark autentiseringsuppgift – Läs mer om [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
 
-Om du vill aktivera den grundläggande säkerhets nivån för identiteter kan du använda det här alternativet för att aktivera med [Azure AD-säkerhetsinställningarna](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md). Säkerhets standarder upprätthåller Azure MFA för alla användare i en klient organisation och blockerar inloggningar från äldre protokoll för hela klienten.
+Om du vill aktivera den grundläggande säkerhets nivån för identiteter kan du använda det här alternativet för att aktivera med [Azure AD-säkerhetsinställningarna](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md). Säkerhets standarder upprätthåller Azure AD MFA för alla användare i en klient organisation och blockerar inloggningar från äldre protokoll för hela klienten.
 
 ### <a name="start-banning-commonly-attacked-passwords-and-turn-off-traditional-complexity-and-expiration-rules"></a>Starta förbjuda ofta angrepp av lösen ord och inaktivera traditionell komplexitet och utgångs regler.
 

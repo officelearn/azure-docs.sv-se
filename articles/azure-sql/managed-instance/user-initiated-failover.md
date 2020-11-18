@@ -3,19 +3,19 @@ title: Starta en redundansväxling manuellt på SQL-hanterad instans
 description: Lär dig hur du manuellt växlar mellan primära och sekundära repliker på Azure SQL Managed instance.
 services: sql-database
 ms.service: sql-managed-instance
-ms.custom: seo-lt-2019, sqldbrb=1
+ms.custom: seo-lt-2019, sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
 ms.date: 08/31/2020
-ms.openlocfilehash: ebf36c99e6c4dd636c41086d4c72fd6761f6d5ca
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 7bcdabdb4e49d198b9acb7a1c57312b31a5b4fff
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791638"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842234"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Användarinitierade manuell redundans på SQL-hanterad instans
 
@@ -140,7 +140,7 @@ Du kommer inte att kunna se samma utdata med GP-tjänstens nivå som den som ang
 
 > [!IMPORTANT]
 > Funktionella begränsningar för manuell redundansväxling i användaren är:
-> - En (1) redundansväxling kan initieras på samma hanterade instans var **30: e minut** .
+> - En (1) redundansväxling kan initieras på samma hanterade instans var **30: e minut**.
 > - För BC-instanser måste det finnas kvorum med repliker för att redundansväxlingen ska godkännas.
 > - För BC-instanser går det inte att ange vilken läsbar sekundär replik som ska initiera redundansväxlingen.
 

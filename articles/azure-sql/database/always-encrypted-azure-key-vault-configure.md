@@ -5,19 +5,19 @@ keywords: data kryptering, krypterings nyckel, moln kryptering
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 11/02/2020
-ms.openlocfilehash: 45aca00adab8ef5b33a376af34642261c5e73255
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 257abf03994c7006b1c3789174f550515dcd309a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321626"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841469"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>Konfigurera Always Encrypted med Azure Key Vault 
 
@@ -55,7 +55,7 @@ Hämta *program-ID* och *nyckel* genom att följa stegen i [skapa ett Azure Acti
 
 ## <a name="create-a-key-vault-to-store-your-keys"></a>Skapa ett nyckel valv för att lagra dina nycklar
 
-Nu när din klient app har kon figurer ATS och du har ditt program-ID, är det dags att skapa ett nyckel valv och konfigurera dess åtkomst princip så att du och ditt program kan komma åt valvets hemligheter (Always Encrypted nycklar). Behörigheterna *skapa* , *Hämta* , *lista* , *signera* , *Verifiera* , *wrapKey* och *unwrapKey* krävs för att skapa en ny kolumn huvud nyckel och för att konfigurera kryptering med SQL Server Management Studio.
+Nu när din klient app har kon figurer ATS och du har ditt program-ID, är det dags att skapa ett nyckel valv och konfigurera dess åtkomst princip så att du och ditt program kan komma åt valvets hemligheter (Always Encrypted nycklar). Behörigheterna *skapa*, *Hämta*, *lista*, *signera*, *Verifiera*, *wrapKey* och *unwrapKey* krävs för att skapa en ny kolumn huvud nyckel och för att konfigurera kryptering med SQL Server Management Studio.
 
 Du kan snabbt skapa ett nyckel valv genom att köra följande skript. En detaljerad förklaring av dessa kommandon och mer information om hur du skapar och konfigurerar ett nyckel valv finns i [Azure Key Vault?](../../key-vault/general/overview.md).
 
@@ -146,12 +146,12 @@ GO
 
 SSMS innehåller en guide som hjälper dig att enkelt konfigurera Always Encrypted genom att ställa in kolumnens huvud nyckel, kolumn krypterings nyckel och krypterade kolumner åt dig.
 
-1. Expandera **Databases**  >  **klinik** -  >  **tabeller** för databaser.
+1. Expandera **Databases**  >  **klinik**-  >  **tabeller** för databaser.
 2. Högerklicka på tabellen **patienter** och välj **kryptera kolumner** för att öppna guiden Always Encrypted:
 
     ![Skärm bild som visar krypterade kolumner... meny alternativ.](./media/always-encrypted-azure-key-vault-configure/encrypt-columns.png)
 
-Guiden Always Encrypted innehåller följande avsnitt: **kolumn val** , **huvud nyckel konfiguration** , **verifiering** och **Sammanfattning**.
+Guiden Always Encrypted innehåller följande avsnitt: **kolumn val**, **huvud nyckel konfiguration**, **verifiering** och **Sammanfattning**.
 
 ### <a name="column-selection"></a>Kolumn val
 
@@ -266,7 +266,7 @@ Det här exemplet visar hur du:
 - Infoga data i de krypterade kolumnerna.
 - Välj en post genom att filtrera efter ett särskilt värde i en krypterad kolumn.
 
-Ersätt innehållet i *Program.cs* med följande kod. Ersätt anslutnings strängen för den globala connectionString-variabeln på raden som direkt föregår huvud metoden med en giltig anslutnings sträng från Azure Portal. Detta är den enda ändringen du behöver göra i den här koden.
+Ersätt innehållet i *program.cs* med följande kod. Ersätt anslutnings strängen för den globala connectionString-variabeln på raden som direkt föregår huvud metoden med en giltig anslutnings sträng från Azure Portal. Detta är den enda ändringen du behöver göra i den här koden.
 
 Kör appen för att se Always Encrypted i praktiken.
 
@@ -576,7 +576,7 @@ Du kan se att de krypterade kolumnerna inte innehåller några oformaterade data
 
    ![Skärm bild som visar att de krypterade kolumnerna inte innehåller några oformaterade data.](./media/always-encrypted-azure-key-vault-configure/ssms-encrypted.png)
 
-Om du vill använda SSMS för att komma åt data i klartext måste du först se till att användaren har rätt behörighet till Azure Key Vault: *Get* , *unwrapKey* och *verify*. Detaljerad information finns i [skapa och lagra kolumn huvud nycklar (Always Encrypted)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted).
+Om du vill använda SSMS för att komma åt data i klartext måste du först se till att användaren har rätt behörighet till Azure Key Vault: *Get*, *unwrapKey* och *verify*. Detaljerad information finns i [skapa och lagra kolumn huvud nycklar (Always Encrypted)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted).
 
 Lägg sedan till *kolumn krypterings inställningen = aktive rad* parameter under anslutningen.
 

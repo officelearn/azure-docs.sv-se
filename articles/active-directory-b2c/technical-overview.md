@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 80ae79f73a55d5feb1aede7ccc7d3b2b64682a24
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 519e2da902e1121220bcbb28c4cb18a68001293b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364090"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840565"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Teknisk och funktions översikt över Azure Active Directory B2C
 
@@ -101,7 +101,7 @@ Du kan konfigurera inställningar för användar flöden så att de kan styra id
 
 * Konto typer som används för inloggning, till exempel sociala konton som en Facebook eller lokala konton som använder en e-postadress och ett lösen ord för inloggning
 * Attribut som ska samlas in från konsumenten, till exempel förnamn, post nummer eller land/region för placering
-* Azure Multi-Factor Authentication (MFA)
+* Azure AD-Multi-Factor Authentication (MFA)
 * Anpassning av användar gränssnittet
 * Uppsättning anspråk i en token som programmet tar emot när användaren har slutfört användar flödet
 * Sessionshantering

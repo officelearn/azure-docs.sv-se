@@ -11,12 +11,12 @@ ms.date: 08/13/2019
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a5bfdada12229070568bb9b0556471ea5aab306f
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: a2c39d9809204328a6eba30c073b1fa81795924a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94575959"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840295"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Språk anpassning i Azure Active Directory B2C
 
@@ -28,9 +28,9 @@ Du kan använda språk anpassning för att välja vilka språk som ditt använda
 
 Du kanske inte behöver den kontroll nivån över vilka språk som din kund ser. Om du inte anger en `ui_locales` parameter, styrs kundens upplevelse av webbläsarens inställningar. Du kan fortfarande styra vilka språk som ditt användar flöde ska översättas till genom att lägga till det som ett språk som stöds. Om en kunds webbläsare är inställd på att visa ett språk som du inte vill ha stöd för, visas det språk som du valde som standard i en kultur som stöds i stället.
 
-* **UI – lokala språk** : när du har aktiverat språk anpassning översätts ditt användar flöde till det språk som anges här.
-* **Webbläsare-begärt språk** : om ingen `ui_locales` parameter har angetts översätts ditt användar flöde till det begärda språket, *om språket stöds*.
-* **Standard språk för principen** : om webbläsaren inte anger något språk, eller om det anger ett språk som inte stöds, översätts användar flödet till standard språket för användar flödet.
+* **UI – lokala språk**: när du har aktiverat språk anpassning översätts ditt användar flöde till det språk som anges här.
+* **Webbläsare-begärt språk**: om ingen `ui_locales` parameter har angetts översätts ditt användar flöde till det begärda språket, *om språket stöds*.
+* **Standard språk för principen**: om webbläsaren inte anger något språk, eller om det anger ett språk som inte stöds, översätts användar flödet till standard språket för användar flödet.
 
 > [!NOTE]
 > Om du använder anpassade användarattribut måste du ange dina egna översättningar. Mer information finns i [Anpassa dina strängar](#customize-your-strings).
@@ -200,7 +200,7 @@ Chrome och Firefox båda förfrågningarna om deras inställda språk. Om det ä
 
 ## <a name="supported-languages"></a>Språk som stöds
 
-Azure AD B2C har stöd för följande språk. Användar flödes språk tillhandahålls av Azure AD B2C. Meddelande språken för Multi-Factor Authentication (MFA) tillhandahålls av [Azure MFA](../active-directory/authentication/concept-mfa-howitworks.md).
+Azure AD B2C har stöd för följande språk. Användar flödes språk tillhandahålls av Azure AD B2C. Meddelande språken för Multi-Factor Authentication (MFA) tillhandahålls av [Azure AD MFA](../active-directory/authentication/concept-mfa-howitworks.md).
 
 | Språk              | Språkkod | Användarflöden         | MFA-meddelanden  |
 |-----------------------| :-----------: | :----------------: | :----------------: |

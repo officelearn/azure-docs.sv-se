@@ -4,12 +4,12 @@ description: Lär dig hur du använder säkerhetsfunktioner i Azure Backup för 
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: 5a408dc07e83e790a63f8a252d4ed3f84bf66be4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c671b1b54b937f518f7179bb6940f31a28a78d4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89181688"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841026"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Säkerhetsfunktioner som hjälper till att skydda hybrid säkerhets kopieringar som använder Azure Backup
 
@@ -35,23 +35,23 @@ Problem med säkerhets problem, t. ex. skadlig kod, utpressnings program vara oc
 Om du skapar ett Recovery Services valv kan du använda alla säkerhetsfunktioner. Om du arbetar med ett befintligt valv aktiverar du säkerhetsfunktioner genom att följa dessa steg:
 
 1. Logga in på Azure Portal med dina Azure-autentiseringsuppgifter.
-2. Välj **Bläddra**och skriv **Recovery Services**.
+2. Välj **Bläddra** och skriv **Recovery Services**.
 
     ![Skärm bild av Azure Portal Browse-alternativ](./media/backup-azure-security-feature/browse-to-rs-vaults.png) <br/>
 
     Listan över Recovery Services-valv visas. Välj ett valv i listan. Instrumentpanelen för det valda valvet öppnas.
-3. I listan med objekt som visas under valvet väljer du **Egenskaper**under **Inställningar**.
+3. I listan med objekt som visas under valvet väljer du **Egenskaper** under **Inställningar**.
 
     ![Skärm bild av Recovery Services valv alternativ](./media/backup-azure-security-feature/vault-list-properties.png)
-4. Under **säkerhets inställningar**väljer du **Uppdatera**.
+4. Under **säkerhets inställningar** väljer du **Uppdatera**.
 
     ![Skärm bild av Recovery Services valv egenskaper](./media/backup-azure-security-feature/security-settings-update.png)
 
     Uppdaterings länken öppnar fönstret **säkerhets inställningar** , som innehåller en sammanfattning av funktionerna och låter dig aktivera dem.
-5. I list rutan **har du konfigurerat Azure-Multi-Factor Authentication?**, väljer du ett värde för att bekräfta om du har aktiverat [Azure Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md). Om den är aktive rad uppmanas du att autentisera från en annan enhet (till exempel en mobil telefon) när du loggar in på Azure Portal.
+5. I list rutan **har du konfigurerat Azure AD-Multi-Factor Authentication?** väljer du ett värde för att bekräfta om du har aktiverat [Azure AD Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md). Om den är aktive rad uppmanas du att autentisera från en annan enhet (till exempel en mobil telefon) när du loggar in på Azure Portal.
 
-   När du utför kritiska åtgärder i säkerhets kopiering måste du ange en säkerhets kod som är tillgänglig på Azure Portal. Genom att aktivera Azure Multi-Factor Authentication lägger du till ett säkerhets lager. Endast auktoriserade användare med giltiga autentiseringsuppgifter för Azure och autentiserade från en andra enhet kan komma åt Azure Portal.
-6. Om du vill spara säkerhets inställningar väljer du **Aktivera** och sedan **Spara**. Du kan bara välja **Aktivera** när du har valt ett värde från listan **har du konfigurerat Azure Multi-Factor Authentication?** i föregående steg.
+   När du utför kritiska åtgärder i säkerhets kopiering måste du ange en säkerhets kod som är tillgänglig på Azure Portal. Genom att aktivera Azure AD Multi-Factor Authentication lägger du till ett säkerhets lager. Endast auktoriserade användare med giltiga autentiseringsuppgifter för Azure och autentiserade från en andra enhet kan komma åt Azure Portal.
+6. Om du vill spara säkerhets inställningar väljer du **Aktivera** och sedan **Spara**. Du kan bara välja **Aktivera** när du har valt ett värde i listan **har du konfigurerat Azure AD-Multi-Factor Authentication?** i föregående steg.
 
     ![Skärm bild av säkerhets inställningar](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
 
@@ -88,9 +88,9 @@ Som en del av att lägga till ett extra lager av autentisering för kritiska åt
 
 För att ta emot den här PIN-koden:
 
-1. Logga in på Azure Portal.
+1. Logga in på Azure-portalen.
 2. Bläddra till **Recovery Services egenskaper för valv**  >  **Inställningar**  >  **Properties**.
-3. Under **säkerhets-PIN**väljer du **generera**. Då öppnas ett fönster som innehåller den PIN-kod som ska anges i användar gränssnittet för Azure Recovery Services-agenten.
+3. Under **säkerhets-PIN** väljer du **generera**. Då öppnas ett fönster som innehåller den PIN-kod som ska anges i användar gränssnittet för Azure Recovery Services-agenten.
     Den här PIN-koden är bara giltig i fem minuter och genereras automatiskt efter den perioden.
 
 ### <a name="maintain-a-minimum-retention-range"></a>Behåll ett minsta kvarhållningsintervall

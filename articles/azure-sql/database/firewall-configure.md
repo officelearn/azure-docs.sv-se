@@ -5,27 +5,27 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 titleSuffix: Azure SQL Database and Azure Synapse Analytics
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 06/17/2020
-ms.openlocfilehash: 802c126548a6fa7062a262e2f939c9a214480794
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 72af066cbff809521c34bb8db88ab0b3e5092fc4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789649"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841146"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Regler för Azure SQL Database-och Azure Synapse-IP-brandvägg
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-När du skapar en ny server i Azure SQL Database-eller Azure Synapse-analys med namnet min *SQLServer* , blockerar en brand vägg på server nivå all åtkomst till den offentliga slut punkten för servern (som är tillgänglig på *MySQLServer.Database.Windows.net* ). För enkelhetens skull används *SQL Database* för att referera till både SQL Database och Azure Synapse Analytics (tidigare SQL Data Warehouse).
+När du skapar en ny server i Azure SQL Database-eller Azure Synapse-analys med namnet min *SQLServer*, blockerar en brand vägg på server nivå all åtkomst till den offentliga slut punkten för servern (som är tillgänglig på *MySQLServer.Database.Windows.net*). För enkelhetens skull används *SQL Database* för att referera till både SQL Database och Azure Synapse Analytics (tidigare SQL Data Warehouse).
 
 > [!IMPORTANT]
-> Den här artikeln gäller *inte* för *Azure SQL-hanterade instanser* . Information om nätverks konfiguration finns i [ansluta ditt program till en Azure SQL-hanterad instans](../managed-instance/connect-application-instance.md).
+> Den här artikeln gäller *inte* för *Azure SQL-hanterade instanser*. Information om nätverks konfiguration finns i [ansluta ditt program till en Azure SQL-hanterad instans](../managed-instance/connect-application-instance.md).
 >
 > Azure-Synapse har endast stöd för IP-brandväggs regler på server nivå. Den har inte stöd för IP-brandväggs regler på databas nivå.
 
@@ -63,11 +63,11 @@ Vi rekommenderar att du använder IP brand Väggs regler på databas nivå när 
 
 *Ska användare av en databas vara fullständigt isolerade från en annan databas?*
 
-Om *Ja* , Använd regler för IP-brandvägg på databas nivå för att bevilja åtkomst. Med den här metoden undviker du att använda regler för IP-brandvägg på server nivå, som tillåter åtkomst genom brand väggen till alla databaser. Det skulle minska djupet i dina försvar.
+Om *Ja*, Använd regler för IP-brandvägg på databas nivå för att bevilja åtkomst. Med den här metoden undviker du att använda regler för IP-brandvägg på server nivå, som tillåter åtkomst genom brand väggen till alla databaser. Det skulle minska djupet i dina försvar.
 
 *Behöver användare på IP-adresserna åtkomst till alla databaser?*
 
-Om *Ja* , Använd IP brand Väggs regler på server nivå för att minska antalet gånger som du måste konfigurera IP-brandväggens regler.
+Om *Ja*, Använd IP brand Väggs regler på server nivå för att minska antalet gånger som du måste konfigurera IP-brandväggens regler.
 
 *Har den person eller det team som konfigurerar IP-brandväggens regler bara åtkomst via Azure Portal, PowerShell eller REST API?*
 
@@ -138,17 +138,17 @@ Om du vill ange en regel för IP-brandvägg på server nivå i Azure Portal går
 
     Sidan **brand Väggs inställningar** för servern öppnas.
 
-2. Välj **Lägg till klient-IP** i verktygsfältet för att lägga till IP-adressen för den dator som du använder och välj sedan **Spara** . En regel för IP-brandvägg på server nivå skapas för din aktuella IP-adress.
+2. Välj **Lägg till klient-IP** i verktygsfältet för att lägga till IP-adressen för den dator som du använder och välj sedan **Spara**. En regel för IP-brandvägg på server nivå skapas för din aktuella IP-adress.
 
     ![Ange regel för IP-brandvägg på server nivå](./media/firewall-configure/sql-database-server-firewall-settings.png)
 
 #### <a name="from-the-server-overview-page"></a>På sidan Server översikt
 
-Sidan översikt för servern öppnas. Det visar det fullständigt kvalificerade Server namnet (till exempel *mynewserver20170403.Database.Windows.net* ) och innehåller alternativ för ytterligare konfiguration.
+Sidan översikt för servern öppnas. Det visar det fullständigt kvalificerade Server namnet (till exempel *mynewserver20170403.Database.Windows.net*) och innehåller alternativ för ytterligare konfiguration.
 
 1. Om du vill ange en regel på server nivå från den här sidan väljer du **brand vägg** på menyn **Inställningar** på vänster sida.
 
-2. Välj **Lägg till klient-IP** i verktygsfältet för att lägga till IP-adressen för den dator som du använder och välj sedan **Spara** . En regel för IP-brandvägg på server nivå skapas för din aktuella IP-adress.
+2. Välj **Lägg till klient-IP** i verktygsfältet för att lägga till IP-adressen för den dator som du använder och välj sedan **Spara**. En regel för IP-brandvägg på server nivå skapas för din aktuella IP-adress.
 
 ### <a name="use-transact-sql-to-manage-ip-firewall-rules"></a>Använd Transact-SQL för att hantera IP-brandväggens regler
 
@@ -174,7 +174,7 @@ EXECUTE sp_set_firewall_rule @name = N'ContosoFirewallRule',
    @start_ip_address = '192.168.1.1', @end_ip_address = '192.168.1.10'
 ```
 
-Om du vill ta bort en regel för IP-brandvägg på server nivå kör du den *sp_delete_firewall_rule* lagrade proceduren. I följande exempel tar bort regeln *ContosoFirewallRule* :
+Om du vill ta bort en regel för IP-brandvägg på server nivå kör du den *sp_delete_firewall_rule* lagrade proceduren. I följande exempel tar bort regeln *ContosoFirewallRule*:
 
 ```sql
 EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 11/16/2020
-ms.openlocfilehash: 6dd855695a155e924f7c46bdb17449c5e6504ca6
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 4e3f31442c5fa645e27a640d8facf86aed20aa75
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/18/2020
-ms.locfileid: "94745368"
+ms.locfileid: "94842489"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics och Power BI: en real tids analys instrument panel för strömmande data
 
@@ -221,7 +221,7 @@ Med den här konfigurationen kan du ändra den ursprungliga frågan till följan
 ```
 
 ### <a name="renew-authorization"></a>Förnya auktorisering
-Om lösen ordet har ändrats sedan jobbet skapades eller senast autentiserades måste du autentisera ditt Power BI-konto. Om Azure Multi-Factor Authentication har kon figurer ATS på din Azure Active Directory (Azure AD)-klient måste du också förnya Power BI auktorisering varannan vecka. Om du inte förnyar kan du se symptom som brist på utdata från jobb eller en `Authenticate user error` i åtgärds loggarna.
+Om lösen ordet har ändrats sedan jobbet skapades eller senast autentiserades måste du autentisera ditt Power BI-konto. Om Azure AD Multi-Factor Authentication har kon figurer ATS på din Azure Active Directory-klient (Azure AD) måste du också förnya Power BI auktorisering varannan vecka. Om du inte förnyar kan du se symptom som brist på utdata från jobb eller en `Authenticate user error` i åtgärds loggarna.
 
 Om ett jobb startar efter att token har gått ut, uppstår ett fel och jobbet Miss lyckas. Lös problemet genom att stoppa jobbet som körs och gå till Power BI utdata. För att undvika data förlust väljer du länken **förnya auktorisering** och startar sedan om jobbet från den **senaste stopp tiden**.
 

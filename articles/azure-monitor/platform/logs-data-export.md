@@ -3,16 +3,16 @@ title: Log Analytics arbets ytans data export i Azure Monitor (förhands granskn
 description: Med Log Analytics data export kan du kontinuerligt exportera data för markerade tabeller från din Log Analytics arbets yta till ett Azure Storage-konto eller Azure-Event Hubs som det samlas in.
 ms.subservice: logs
 ms.topic: conceptual
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 19d464f0148572f30ecd0c3ab1dcee7bd0315b87
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: adac986cfa1a975ced7ef579c088ed2739778bf5
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427810"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841815"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics arbets ytans data export i Azure Monitor (förhands granskning)
 Med Log Analytics data export för arbets yta i Azure Monitor kan du kontinuerligt exportera data från valda tabeller i din Log Analytics arbets yta till ett Azure Storage-konto eller Azure-Event Hubs som det samlas in. Den här artikeln innehåller information om den här funktionen och hur du konfigurerar data export i dina arbets ytor.
@@ -75,7 +75,7 @@ Data formatet lagrings konto är [JSON-linjer](diagnostic-logs-append-blobs.md).
 Log Analytics data export kan skriva till att lägga till blobar till oföränderliga lagrings konton när tidsbaserade bevarande principer har inställningen *allowProtectedAppendWrites* aktive rad. Detta gör det möjligt att skriva nya block till en append-BLOB, samtidigt som oföränderlighets skydd och efterlevnad upprätthålls. Se [Tillåt skyddade bifogade BLOB-skrivningar](../../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes).
 
 ### <a name="event-hub"></a>Händelsehubb
-Data skickas till händelsehubben i nära real tid när den når Azure Monitor. En Event Hub skapas för varje datatyp som du exporterar med namnet *am –* följt av namnet på tabellen. Tabellen *SecurityEvent* skulle till exempel skickas till en Event Hub med namnet ' *am-SecurityEvent* '. Om du vill att exporterade data ska uppnå en viss händelsehubben, eller om du har en tabell med ett namn som överskrider tecken gränsen på 47, kan du ange ett eget namn på händelsehubben och exportera alla data för definierade tabeller till den.
+Data skickas till händelsehubben i nära real tid när den når Azure Monitor. En Event Hub skapas för varje datatyp som du exporterar med namnet *am –* följt av namnet på tabellen. Tabellen *SecurityEvent* skulle till exempel skickas till en Event Hub med namnet ' *am-SecurityEvent*'. Om du vill att exporterade data ska uppnå en viss händelsehubben, eller om du har en tabell med ett namn som överskrider tecken gränsen på 47, kan du ange ett eget namn på händelsehubben och exportera alla data för definierade tabeller till den.
 
 Överväganden:
 1. Den grundläggande Event Hub-SKU: n stöder lägre storleks [gräns](https://docs.microsoft.com/azure/event-hubs/event-hubs-quotas#basic-vs-standard-tiers) för händelser och vissa loggar på din arbets yta kan överstiga den och tas bort. Vi rekommenderar att du använder "standard" eller "dedikerad" händelsehubben som export mål.
@@ -271,7 +271,7 @@ Om data export regeln innehåller en tabell som inte finns, kommer den inte att 
 Tabeller som stöds är för närvarande begränsade till dem som anges nedan. Alla data från tabellen exporteras om inte begränsningar anges. Den här listan kommer att uppdateras när stöd för ytterligare tabeller läggs till.
 
 
-| Tabeller | Begränsningar |
+| Tabell | Begränsningar |
 |:---|:---|
 | AADDomainServicesAccountLogon | |
 | AADDomainServicesAccountManagement | |

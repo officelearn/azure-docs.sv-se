@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 0812716ab9d952969ccfc14fc0a1e833fae1c9e1
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: b52cc38c40d8b6a39961ab28d9f0600ea7ee2201
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94653801"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841911"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Monitor
 
@@ -81,7 +81,7 @@ Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för
 
 ### <a name="how-do-i-retrieve-log-data"></a>Hur gör jag för att hämta logg data?
 Alla data hämtas från en Log Analytics-arbetsyta med hjälp av en logg fråga som skrivits med hjälp av KQL (Kusto Query Language). Du kan skriva egna frågor eller använda lösningar och insikter som innehåller logg frågor för ett visst program eller en viss tjänst. Se [Översikt över logg frågor i Azure Monitor](log-query/log-query-overview.md).
-
+P
 ### <a name="can-i-delete-data-from-a-log-analytics-workspace"></a>Kan jag ta bort data från en Log Analytics arbets yta?
 Data tas bort från en arbets yta enligt kvarhållningsperioden [.](platform/manage-cost-storage.md#change-the-data-retention-period) Du kan ta bort vissa data för sekretess eller efterlevnad. Mer information finns i [Exportera och ta bort privata data](platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) .
 
@@ -594,10 +594,6 @@ Insamlaren opentelemetri beskrivs i [Readme-filen för GitHub](https://github.co
 
 
 ## <a name="azure-monitor-for-containers"></a>Azure Monitor för containrar
-
-### <a name="health-feature-is-in-private-preview"></a>Hälso funktionen finns i privat förhands granskning
-
-Vi planerar att göra en serie ändringar för att lägga till funktioner och adressera din feedback. Hälso funktionen kommer att övergå till en privat för hands version i slutet av juni 2020 och ytterligare information finns i följande [Azure updates-meddelande](https://azure.microsoft.com/updates/ci-health-limited-preview/).
 
 ### <a name="what-does-other-processes-represent-under-the-node-view"></a>Vad representerar *andra processer* under vyn Node?
 

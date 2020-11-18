@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 08/13/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c1b51792c86cfce15fa718040dfcbcc13997ee26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87ea77540e5fcaac0c4231403473d25ebae46aac
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85384965"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840261"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Felsöka Azure AD B2C anpassade principer och identitets miljö ramverk
 
@@ -43,7 +43,7 @@ Vanliga verifierings fel inkluderar följande:
 
 * Värdet för ClaimType kan vara felstavat eller så finns det inte i schemat.
 * ClaimType-värden måste definieras i minst en av filerna i principen.
-    Exempelvis: `<ClaimType Id="issuerUserId">`
+    Exempel: `<ClaimType Id="issuerUserId">`
 * Om ClaimType definieras i tilläggs filen, men den också används i ett TechnicalProfile-värde i bas filen, resulterar det i ett fel när bas filen laddas upp.
 
 > Fel kodfragment: `...makes a reference to a ClaimsTransformation with id...`
@@ -64,7 +64,7 @@ Vanliga verifierings fel inkluderar följande:
 
 * Använd [Fiddler](https://www.telerik.com/fiddler)om du vill spåra utbytet av meddelanden mellan klientens webbläsare och Azure AD B2C. Det kan hjälpa dig att få en indikation på var din användar resa inte fungerar i ditt Dirigerings steg.
 
-* I **utvecklings läge**använder du [Application Insights](troubleshoot-with-application-insights.md) för att spåra aktiviteten i användar resan för ditt användar gränssnitt i identiteter. I **utvecklings läget**kan du observera utbytet av anspråk mellan identitets miljö ramverket och de olika anspråks leverantörer som definieras av tekniska profiler, till exempel identitets leverantörer, API-baserade tjänster, Azure AD B2C användar katalog och andra tjänster, till exempel Azure Multi-Factor Authentication.
+* I **utvecklings läge** använder du [Application Insights](troubleshoot-with-application-insights.md) för att spåra aktiviteten i användar resan för ditt användar gränssnitt i identiteter. I **utvecklings läget** kan du observera utbytet av anspråk mellan identitets miljö ramverket och de olika anspråks leverantörer som definieras av tekniska profiler, till exempel identitets leverantörer, API-baserade tjänster, Azure AD B2C användar katalog och andra tjänster, t. ex. Azure AD Multi-Factor Authentication.
 
 ## <a name="recommended-practices"></a>Rekommenderade metoder
 

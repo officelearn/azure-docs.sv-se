@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: 578f3244381c94552a159589478781640629271f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c7a94a24bd825249859ff699ab82ce4d3ae8fce1
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788646"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842268"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Spelbok för att lösa vanliga säkerhets krav med Azure SQL Database och Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -80,11 +80,11 @@ Central identitets hantering ger följande fördelar:
 - Förenklad och flexibel behörighets hantering.
 - Hantering av program i stor skala.
 
-**Implementera** :
+**Implementera**:
 
 - Använd Azure Active Directory (Azure AD)-autentisering för centraliserad identitets hantering.
 
-**Bästa praxis** :
+**Bästa praxis**:
 
 - Skapa en Azure AD-klient och [skapa användare](../../active-directory/fundamentals/add-users-azure-active-directory.md) för att representera användare och skapa [tjänstens huvud namn](../../active-directory/develop/app-objects-and-service-principals.md) för att representera appar, tjänster och automatiserings verktyg. Tjänstens huvud namn motsvarar tjänst konton i Windows och Linux.
 
@@ -112,19 +112,19 @@ Central identitets hantering ger följande fördelar:
 > - Azure AD-åtkomsttoken cachelagras på klient sidan och dess livs längd beror på token-konfigurationen. Se artikeln, [konfigurerbara livstider för token i Azure Active Directory](../../active-directory/develop/active-directory-configurable-token-lifetimes.md)
 > - Råd om hur du felsöker problem med Azure AD-autentisering finns i följande blogg: [Felsöka Azure AD](https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991).
 
-### <a name="azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication
+### <a name="azure-ad-multi-factor-authentication"></a>Azure AD-Multi-Factor Authentication
 
 > Som nämns i: OSA-metoden #2, ISO Access Control (AC)
 
-Azure Multi-Factor Authentication ger ytterligare säkerhet genom att kräva mer än en form av autentisering.
+Azure AD Multi-Factor Authentication ger ytterligare säkerhet genom att kräva mer än en form av autentisering.
 
-**Implementera** :
+**Implementera**:
 
 - [Aktivera Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) i Azure AD med villkorlig åtkomst och Använd interaktiv autentisering.
 
 - Alternativet är att aktivera Multi-Factor Authentication för hela Azure AD-eller AD-domänen.
 
-**Bästa praxis** :
+**Bästa praxis**:
 
 - Aktivera villkorlig åtkomst i Azure AD (kräver Premium-prenumeration).
   - Se artikeln [villkorlig åtkomst i Azure AD](../../active-directory/conditional-access/overview.md).  
@@ -144,7 +144,7 @@ Azure Multi-Factor Authentication ger ytterligare säkerhet genom att kräva mer
     - [BCP-verktyg](/sql/tools/bcp-utility): alternativ-G (interaktiv)
 
 - Implementera dina program för att ansluta till Azure SQL Database eller Azure SQL-hanterad instans med interaktiv autentisering med stöd för Multi-Factor Authentication.
-  - Se artikeln [Anslut till Azure SQL Database med Azure Multi-Factor Authentication](active-directory-interactive-connect-azure-sql-db.md).
+  - Se artikeln [Anslut till Azure SQL Database med Azure AD Multi-Factor Authentication](active-directory-interactive-connect-azure-sql-db.md).
   > [!NOTE]
   > Detta autentiseringsläge kräver användarspecifika identiteter. I de fall där en betrodd identitets modell används som kringgår individuell Azure AD-användarautentisering (t. ex. genom att använda hanterad identitet för Azure-resurser) gäller inte Multi-Factor Authentication.
 
@@ -154,11 +154,11 @@ Azure Multi-Factor Authentication ger ytterligare säkerhet genom att kräva mer
 
 Lösenordsbaserade autentiseringsmetoder är en svagare form av autentisering. Autentiseringsuppgifter kan komprometteras eller av misstag tas bort.
 
-**Implementera** :
+**Implementera**:
 
 - Använd en Azure AD-integrerad autentisering som eliminerar användningen av lösen ord.
 
-**Bästa praxis** :
+**Bästa praxis**:
 
 - Använd autentisering med enkel inloggning med Windows-autentiseringsuppgifter. Federera den lokala AD-domänen med Azure AD och Använd integrerad Windows-autentisering (för domänanslutna datorer med Azure AD).
   - Se artikeln SSMS- [stöd för Azure AD-integrerad autentisering](authentication-aad-configure.md#active-directory-integrated-authentication).
@@ -167,11 +167,11 @@ Lösenordsbaserade autentiseringsmetoder är en svagare form av autentisering. A
 
 > Som nämns i: OSA-metoden #4, ISO Access Control (AC)
 
-**Implementera** :
+**Implementera**:
 
 - Aktivera Azure-hanterad identitet. Du kan också använda integrerad eller certifikatbaserad autentisering.
 
-**Bästa praxis** :
+**Bästa praxis**:
 
 - Använd [hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md).
   - [Systemtilldelad hanterad identitet](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql.md)
@@ -188,11 +188,11 @@ Lösenordsbaserade autentiseringsmetoder är en svagare form av autentisering. A
 
 Om det inte går att undvika lösen ord, se till att de är skyddade.
 
-**Implementera** :
+**Implementera**:
 
 - Använd Azure Key Vault för att lagra lösen ord och hemligheter. Använd Multi-Factor Authentication för Azure SQL Database med Azure AD-användare när det är tillämpligt.
 
-**Bästa praxis** :
+**Bästa praxis**:
 
 - Om du inte kan undvika lösen ord eller hemligheter kan du lagra användar lösen ord och program hemligheter i Azure Key Vault och hantera åtkomst via Key Vault åtkomst principer.
 
@@ -202,11 +202,11 @@ Om det inte går att undvika lösen ord, se till att de är skyddade.
 
 SQL-autentisering syftar på autentiseringen av en användare vid anslutning till Azure SQL Database eller SQL-hanterad instans med hjälp av användar namn och lösen ord. En inloggning måste skapas på varje server eller hanterad instans och en användare som skapats i varje databas.
 
-**Implementera** :
+**Implementera**:
 
 - Använd SQL-autentisering.
 
-**Bästa praxis** :
+**Bästa praxis**:
 
 - Skapa inloggningar och användare som en server eller instans administratör. Om du inte använder inneslutna databas användare med lösen ord lagras alla lösen ord i Master-databasen.
   - Se artikeln, [styra och beviljar databas åtkomst till SQL Database, SQL-hanterad instans och Azure Synapse Analytics](logins-create-manage.md).
@@ -221,7 +221,7 @@ SQL-autentisering syftar på autentiseringen av en användare vid anslutning til
 
 Principen om minsta behörighet anger att användarna inte bör ha fler privilegier än vad som behövs för att slutföra sina uppgifter. Mer information finns i artikeln [endast tillräckligt med administration](/powershell/scripting/learn/remoting/jea/overview).
 
-**Implementera** :
+**Implementera**:
 
 Tilldela endast de [behörigheter](/sql/relational-databases/security/permissions-database-engine) som krävs för att slutföra de uppgifter som krävs:
 
@@ -236,7 +236,7 @@ Tilldela endast de [behörigheter](/sql/relational-databases/security/permission
        - [ÄNDRA ROLL](/sql/t-sql/statements/alter-role-transact-sql)
        - [ÄNDRA SERVER ROLL](/sql/t-sql/statements/alter-server-role-transact-sql)
     1. Tilldela sedan behörigheter till roller.
-       - [ÖMSESIDIGT](/sql/t-sql/statements/grant-transact-sql)
+       - [GRANT](/sql/t-sql/statements/grant-transact-sql)
   - Se till att inte tilldela användare till onödiga roller.
 
 - I Azure Resource Manager:
@@ -244,7 +244,7 @@ Tilldela endast de [behörigheter](/sql/relational-databases/security/permission
     - [Inbyggda roller i Azure](../../role-based-access-control/built-in-roles.md)
     - [Anpassade roller i Azure](../../role-based-access-control/custom-roles.md)
 
-**Bästa praxis** :
+**Bästa praxis**:
 
 Följande metod tips är valfria men ger bättre hanterbarhet och support för din säkerhets strategi:
 
@@ -281,7 +281,7 @@ Följande metod tips är valfria men ger bättre hanterbarhet och support för d
 
 Separering av uppgifter, även kallat ansvars fördelning, beskriver kravet på att dela upp känsliga uppgifter i flera uppgifter som tilldelas till olika användare. Separering av uppgifter förhindrar data intrång.
 
-**Implementera** :
+**Implementera**:
 
 - Identifiera den nivå som krävs för att åtskilja uppgifter. Exempel:
   - Mellan utvecklings-/test-och produktions miljöer
@@ -308,7 +308,7 @@ Separering av uppgifter, även kallat ansvars fördelning, beskriver kravet på 
   - Mänsklig inblandning i processer.
   - Gransknings historik – mer information om granskning finns i, [Granska kritiska säkerhets händelser](#audit-critical-security-events).
 
-**Bästa praxis** :
+**Bästa praxis**:
 
 - Se till att olika konton används för utvecklings-/test-och produktions miljöer. Olika konton hjälper till att uppfylla separationen av test-och produktions system.
 
@@ -352,7 +352,7 @@ För läsarna som vill gå djupare till SoD rekommenderar vi följande resurser:
 
 Separering av uppgifter är inte begränsat till data i en databas, men innehåller program kod. Skadlig kod kan eventuellt kringgå säkerhets kontroller. Innan du distribuerar anpassad kod till produktion är det viktigt att granska vad som distribueras.
 
-**Implementera** :
+**Implementera**:
 
 - Använd ett databas verktyg som Azure Data Studio som har stöd för käll kontroll.
 
@@ -360,7 +360,7 @@ Separering av uppgifter är inte begränsat till data i en databas, men innehål
 
 - Innan du genomför till huvud grenen, måste en person (förutom själva författaren av själva koden) kontrol lera koden för potentiell höjning av privilegierade risker och skadliga data ändringar för att skydda mot bedrägerier och falsk åtkomst. Detta kan göras med hjälp av mekanismer för käll kontroll.
 
-**Bästa praxis** :
+**Bästa praxis**:
 
 - Standardisering: den hjälper till att implementera en standard procedur som ska följas för kod uppdateringar.
 
@@ -395,12 +395,12 @@ Skyddar dina data medan data flyttas mellan klienten och servern. Se [nätverks 
 
 Kryptering i vila är ett kryptografiskt skydd av data när de sparas i databas-, logg-och säkerhets kopior.
 
-**Implementera** :
+**Implementera**:
 
 - [Transparent databas kryptering (TDE)](transparent-data-encryption-tde-overview.md) med tjänst hanterade nycklar är aktiverade som standard för alla databaser som skapats efter 2017 i Azure SQL Database-och SQL-hanterad instans.
 - I en hanterad instans, om databasen skapas från en återställnings åtgärd med en lokal server, kommer TDE-inställningen för den ursprungliga databasen att följas. Om den ursprungliga databasen inte har TDE aktiverat, rekommenderar vi att TDE aktive ras manuellt för den hanterade instansen.
 
-**Bästa praxis** :
+**Bästa praxis**:
 
 - Lagra inte data som kräver kryptering vid vila i huvud databasen. Huvud databasen kan inte krypteras med TDE.
 
@@ -414,11 +414,11 @@ Data som används är de data som lagras i minnet för databas systemet under k�
 
 De principer som avgör vilka data som är känsliga och om känsliga data måste krypteras i minnet och inte är tillgängliga för administratörer i klartext, är de som är speciella för din organisation och de regler för efterlevnad som du måste följa. Se det relaterade kravet: [identifiera och tagga känsliga data](#identify-and-tag-sensitive-data).
 
-**Implementera** :
+**Implementera**:
 
 - Använd [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) för att säkerställa att känsliga data inte visas i klartext i Azure SQL Database eller SQL-hanterad instans, även i minnes-/användnings läge. Always Encrypted skyddar data från databas administratörer (databas administratörer) och moln administratörer (eller dåliga aktörer som kan personifiera hög privilegierade och obehöriga användare) och ger dig större kontroll över vem som har åtkomst till dina data.
 
-**Bästa praxis** :
+**Bästa praxis**:
 
 - Always Encrypted är inte en ersättning för att kryptera data i vila (TDE) eller under överföring (SSL/TLS). Always Encrypted bör inte användas för icke-känsliga data för att minimera prestanda-och funktions påverkan. Att använda Always Encrypted tillsammans med TDE och Transport Layer Security (TLS) rekommenderas för omfattande skydd av data i vila, under överföring och används.
 
@@ -446,7 +446,7 @@ De principer som avgör vilka data som är känsliga och om känsliga data måst
 
 Kryptering kan användas som ett sätt för att säkerställa att endast specifika program användare som har åtkomst till kryptografiska nycklar kan visa eller uppdatera data.
 
-**Implementera** :
+**Implementera**:
 
 - Använd kryptering på cell nivå (CLE). Mer information finns i artikeln [kryptera en data kolumn](/sql/relational-databases/security/encryption/encrypt-a-column-of-data) .
 - Använd Always Encrypted, men var medveten om dess begränsning. Begränsningarna visas nedan.
@@ -472,14 +472,14 @@ Tänk på att Always Encrypted främst har utformats för att skydda känsliga d
 
 En annan metod för att förhindra obehöriga användare från att visa data är att obfuscate eller maskera data samtidigt som data typerna och formaten bevaras så att användar programmen kan fortsätta hantera och visa data.
 
-**Implementera** :
+**Implementera**:
 
 - Använd [dynamisk data maskning](/sql/relational-databases/security/dynamic-data-masking) för att obfuscate tabell kolumner.
 
 > [!NOTE]
 > Always Encrypted fungerar inte med dynamisk data maskning. Det går inte att kryptera och maskera samma kolumn, vilket innebär att du måste prioritera att skydda data som används jämfört med att maskera data för dina App-användare via dynamisk data maskning.
 
-**Bästa praxis** :
+**Bästa praxis**:
 
 > [!NOTE]
 > Dynamisk data maskning kan inte användas för att skydda data från användare med hög behörighet. Maskering av principer gäller inte för användare med administrativ åtkomst som db_owner.
@@ -499,11 +499,11 @@ Nätverks säkerhet avser åtkomst kontroller och bästa metoder för att skydda
 
 Bästa praxis för att förhindra klient datorer och program med välkända sårbarheter (till exempel att använda äldre TLS-protokoll och chiffersviter) från att ansluta till Azure SQL Database-och SQL-hanterad instans.
 
-**Implementera** :
+**Implementera**:
 
 - Se till att klient datorer som ansluter till Azure SQL Database och SQL-hanterad instans använder  [Transport Layer Security (TLS)](security-overview.md#transport-layer-security-encryption-in-transit).
 
-**Bästa praxis** :
+**Bästa praxis**:
 
 - Konfigurera alla dina appar och verktyg för att ansluta till SQL Database med kryptering aktiverat
   - Kryptera = på, TrustServerCertificate = av (eller motsvarande driv rutiner som inte kommer från Microsoft).
@@ -524,7 +524,7 @@ Minimera antalet funktioner som kan angripas av en obehörig användare. Impleme
 
 > Nämns i: OSA-praxis #5
 
-**Implementera** :
+**Implementera**:
 
 I SQL Database:
 
@@ -536,7 +536,7 @@ I SQL-hanterad instans:
 
 - Följ rikt linjerna i [nätverks kraven](../managed-instance/connectivity-architecture-overview.md#network-requirements).
 
-**Bästa praxis** :
+**Bästa praxis**:
 
 - Begränsa åtkomsten till Azure SQL Database-och SQL-hanterad instans genom att ansluta på en privat slut punkt (till exempel med en privat data Sök väg):
   - En hanterad instans kan isoleras i ett virtuellt nätverk för att förhindra extern åtkomst. Program och verktyg som finns i samma eller peer-kopplat virtuella nätverk i samma region kan komma åt det direkt. Program och verktyg som finns i olika regioner kan använda virtuell-nätverks-till-virtuell-nätverks anslutning eller ExpressRoute krets-peering för att upprätta anslutning. Kunden bör använda nätverks säkerhets grupper (NSG) för att begränsa åtkomsten över port 1433 till resurser som kräver åtkomst till en hanterad instans.
@@ -560,7 +560,7 @@ I SQL-hanterad instans:
 
 ### <a name="configure-power-bi-for-secure-connections-to-sql-databasesql-managed-instance"></a>Konfigurera Power BI för säkra anslutningar till SQL Database/SQL-hanterad instans
 
-**Bästa praxis** :
+**Bästa praxis**:
 
 - För Power BI Desktop använder du en privat data Sök väg när det är möjligt.
 
@@ -572,7 +572,7 @@ I SQL-hanterad instans:
 
 ### <a name="configure-app-service-for-secure-connections-to-sql-databasesql-managed-instance"></a>Konfigurera App Service för säkra anslutningar till SQL Database/SQL-hanterad instans
 
-**Bästa praxis** :
+**Bästa praxis**:
 
 - För en enkel webbapp kräver anslutning via offentlig slut punkt att **Azure-tjänster** ställs in på.
 
@@ -586,7 +586,7 @@ I SQL-hanterad instans:
 
 ### <a name="configure-azure-virtual-machine-hosting-for-secure-connections-to-sql-databasesql-managed-instance"></a>Konfigurera värd för virtuella Azure-datorer för säkra anslutningar till SQL Database/SQL-hanterad instans
 
-**Bästa praxis** :
+**Bästa praxis**:
 
 - Använd en kombination av reglerna för att tillåta och neka på NSG: er i Azure Virtual Machines för att styra vilka regioner som kan nås från den virtuella datorn.
 
@@ -610,7 +610,7 @@ DDoS-attacker (distributed denial of Service) försöker av en obehörig använd
 
 > Nämns i: OSA-praxis #9
 
-**Implementera** :
+**Implementera**:
 
 DDoS Protection aktive ras automatiskt som en del av Azure-plattformen. Det omfattar alltid trafik övervakning och real tids minskning av attacker på nätverks nivå på offentliga slut punkter.
 
@@ -618,7 +618,7 @@ DDoS Protection aktive ras automatiskt som en del av Azure-plattformen. Det omfa
 
 - Använd [Avancerat skydd för Azure SQL Database](threat-detection-overview.md) för att identifiera DOS-attacker (Denial of Service) mot databaser.
 
-**Bästa praxis** :
+**Bästa praxis**:
 
 - Följ de metoder som beskrivs i [minimera attack ytan](#minimize-attack-surface) för att minimera risken för DDoS-attacker.
 
@@ -637,7 +637,7 @@ Det här avsnittet handlar om funktioner som hjälper dig att identifiera avvika
 
 Med avancerat skydd kan du identifiera och svara på potentiella hot när de inträffar genom att tillhandahålla säkerhets aviseringar om avvikande aktiviteter.
 
-**Implementera** :
+**Implementera**:
 
 - Använd [Avancerat skydd mot SQL för](threat-detection-overview.md#alerts) att identifiera ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser, inklusive:
   - SQL-inmatning-attack.
@@ -645,7 +645,7 @@ Med avancerat skydd kan du identifiera och svara på potentiella hot när de int
   - Missbruk av behörighet.
   - Data exfiltrering.
 
-**Bästa praxis** :
+**Bästa praxis**:
 
 - Konfigurera [Azure Defender för SQL](azure-defender-for-sql.md)   för en bestämd Server eller en hanterad instans. Du kan också konfigurera Azure Defender för SQL för alla servrar och hanterade instanser i en prenumeration genom att växla till [Azure Security Center standard nivån](../../security-center/security-center-pricing.md).
 
@@ -655,13 +655,13 @@ Med avancerat skydd kan du identifiera och svara på potentiella hot när de int
 
 Spårning av databas händelser hjälper dig att förstå databas aktiviteter. Du kan få insyn i avvikelser och avvikelser som kan tyda på affärs problem eller misstänkta säkerhets överträdelser. Den gör det också möjligt och underlättar efterlevnaden av efterlevnaden av standarder.
 
-**Implementera** :
+**Implementera**:
 
 - Aktivera [SQL Database granskning](../../azure-sql/database/auditing-overview.md) eller [hanterad instans granskning](../managed-instance/auditing-configure.md) för att spåra databas händelser och skriva dem till en Gransknings logg i ditt Azure Storage-konto, Log Analytics arbets yta (för hands version) eller Event Hubs (för hands version).
 
 - Gransknings loggar kan skrivas till ett Azure Storage konto, till en Log Analytics arbets yta för användning med hjälp av Azure Monitor loggar eller till händelsehubben för användning med Event Hub. Du kan konfigurera valfri kombination av dessa alternativ och gransknings loggarna skrivs till var och en.
 
-**Bästa praxis** :
+**Bästa praxis**:
 
 - Genom att konfigurera [SQL Database granskning](../../azure-sql/database/auditing-overview.md) på servern eller [hanterad instans granskning](../managed-instance/auditing-configure.md) till gransknings händelser, granskas alla befintliga och nyligen skapade databaser på den servern.
 - Som standard innehåller gransknings principen alla åtgärder (frågor, lagrade procedurer och lyckade och misslyckade inloggningar) mot databaserna, vilket kan resultera i stora gransknings loggar. Vi rekommenderar att kunderna [konfigurerar granskning för olika typer av åtgärder och åtgärds grupper med hjälp av PowerShell](./auditing-overview.md#manage-auditing). Genom att konfigurera detta kan du kontrol lera antalet granskade åtgärder och minimera risken för händelse förlust. Med anpassade gransknings konfigurationer kan kunder bara fånga de gransknings data som behövs.
@@ -670,7 +670,7 @@ Spårning av databas händelser hjälper dig att förstå databas aktiviteter. D
 > [!NOTE]
 > Om du aktiverar granskning till Log Analytics debiteras kostnaden baserat på inmatnings taxan. Var medveten om den associerade kostnaden med hjälp av det här [alternativet](https://azure.microsoft.com/pricing/details/monitor/)eller Överväg att lagra gransknings loggarna i ett Azure Storage-konto.
 
-**Ytterligare resurser** :
+**Ytterligare resurser**:
 
 - [SQL Database granskning](../../azure-sql/database/auditing-overview.md)
 - [SQL Server granskning](/sql/relational-databases/security/auditing/sql-server-audit-database-engine)
@@ -679,12 +679,12 @@ Spårning av databas händelser hjälper dig att förstå databas aktiviteter. D
 
 Begränsa åtkomsten till lagrings kontot för att stödja separering av uppgifter och separera DBA från granskare.
 
-**Implementera** :
+**Implementera**:
 
 - När du sparar gransknings loggar till Azure Storage bör du se till att åtkomsten till lagrings kontot är begränsad till de lägsta säkerhets principerna. Kontrol lera vem som har åtkomst till lagrings kontot.
 - Mer information finns i [auktorisera åtkomst till Azure Storage](../../storage/common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-**Bästa praxis** :
+**Bästa praxis**:
 
 - Att kontrol lera åtkomsten till gransknings målet är ett viktigt begrepp i att separera DBA från granskare.
 
@@ -698,11 +698,11 @@ I det här avsnittet beskrivs olika aspekter och bästa praxis för att hantera 
 
 Förbättra databas säkerheten proaktivt genom att identifiera och åtgärda potentiella databas sårbarheter.
 
-**Implementera** :
+**Implementera**:
 
 - Aktivera [SQL sårbarhet Assessment](/sql/relational-databases/security/sql-vulnerability-assessment) (va) för att söka igenom din databas efter säkerhets problem och för att automatiskt köra regelbundet på dina databaser.
 
-**Bästa praxis** :
+**Bästa praxis**:
 
 - Börja med att köra VA på dina databaser och iterera genom att åtgärda misslyckade kontroller som motsätter sig säkerhets metod tips. Konfigurera bas linjer för acceptabla konfigurationer tills genomsökningen är _felfri_ eller alla kontroller har slutförts.  
 
@@ -712,7 +712,7 @@ Förbättra databas säkerheten proaktivt genom att identifiera och åtgärda po
 
 - Lös checkar och uppdatera bas linjer där det är relevant. Skapa biljett objekt för att lösa åtgärder och spåra dessa tills de har lösts.
 
-**Ytterligare resurser** :
+**Ytterligare resurser**:
 
 - [Sårbarhetsbedömning för SQL](/sql/relational-databases/security/sql-vulnerability-assessment)
 - [Tjänsten SQL sårbarhet Assessment hjälper dig att identifiera databas sårbarheter](sql-vulnerability-assessment.md)
@@ -721,14 +721,14 @@ Förbättra databas säkerheten proaktivt genom att identifiera och åtgärda po
 
 Identifiera kolumner som potentiellt innehåller känsliga data. Vad som anses vara känsligt beror på kunder, efterlevnads förordningen osv. och måste utvärderas av de användare som ansvarar för dessa data. Klassificera kolumnerna för att använda avancerade känslighets beroende-baserade gransknings-och skydds scenarier.
 
-**Implementera** :
+**Implementera**:
 
 - Använd [identifiering och klassificering av SQL-data](data-discovery-and-classification-overview.md) för att identifiera, klassificera, märka och skydda känsliga data i dina databaser.
   - Visa klassificerings rekommendationerna som skapas av den automatiserade identifieringen på instrument panelen för SQL data identifiering och klassificering. Godkänn de relevanta klassificeringarna, så att känsliga data är beständigt märkta med klassificerings etiketter.
   - Lägg till klassificeringar manuellt för ytterligare känsliga data fält som inte har identifierats av den automatiserade mekanismen.
 - Mer information finns i [identifiering och klassificering av SQL-data](/sql/relational-databases/security/sql-data-discovery-and-classification).
 
-**Bästa praxis** :
+**Bästa praxis**:
 
 - Övervaka klassificerings instrument panelen regelbundet för en korrekt utvärdering av databasens klassificerings tillstånd. En rapport om databas klassificerings status kan exporteras eller skrivas ut för att dela för efterlevnads-och gransknings syfte.
 
@@ -740,12 +740,12 @@ Identifiera kolumner som potentiellt innehåller känsliga data. Vad som anses v
 
 Övervaka vem som har åtkomst till känsliga data och fånga frågor om känsliga data i gransknings loggar.
 
-**Implementera** :
+**Implementera**:
 
 - Använd SQL Audit och dataklassificering i kombination.
   - I [SQL Database gransknings](../../azure-sql/database/auditing-overview.md) loggen kan du spåra åtkomst specifikt till känsliga data. Du kan också visa information, till exempel de data som har öppnats, samt dess känslighets etikett. Mer information finns i [data identifiering och klassificering](data-discovery-and-classification-overview.md) och [granskning av åtkomst till känsliga data](data-discovery-and-classification-overview.md#audit-sensitive-data).
 
-**Bästa praxis** :
+**Bästa praxis**:
 
 - Se metod tips för avsnitten granskning och data klassificering:
   - [Granska kritiska säkerhets händelser](#audit-critical-security-events)
@@ -755,7 +755,7 @@ Identifiera kolumner som potentiellt innehåller känsliga data. Vad som anses v
 
 Använd ett enhetligt infrastruktur säkerhets hanterings system som stärker säkerhets position för dina data Center (inklusive databaser i SQL Database). Visa en lista över rekommendationer om säkerheten för dina databaser och kompatibilitetsstatus.
 
-**Implementera** :
+**Implementera**:
 
 - Övervaka SQL-relaterade säkerhets rekommendationer och aktiva hot i [Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/).
 
@@ -769,11 +769,11 @@ Data exfiltrering är otillåten kopiering, överföring eller hämtning av data
 
 Anslutning till server över en offentlig slut punkt visar en data exfiltrering risk eftersom kunden måste öppna sina brand väggar till offentliga IP-adresser.  
 
-**Scenario 1** : ett program på en virtuell Azure-dator ansluter till en databas i Azure SQL Database. En falsk aktör får åtkomst till den virtuella datorn och komprometterar den. I det här scenariot innebär data exfiltrering att en extern entitet som använder den falska virtuella datorn ansluter till databasen, kopierar personliga data och lagrar den i en blob-lagring eller en annan SQL Database i en annan prenumeration.
+**Scenario 1**: ett program på en virtuell Azure-dator ansluter till en databas i Azure SQL Database. En falsk aktör får åtkomst till den virtuella datorn och komprometterar den. I det här scenariot innebär data exfiltrering att en extern entitet som använder den falska virtuella datorn ansluter till databasen, kopierar personliga data och lagrar den i en blob-lagring eller en annan SQL Database i en annan prenumeration.
 
-**Scenario 2** : en rouge DBA. Det här scenariot höjs ofta av säkerhets känsliga kunder från reglerade branscher. I det här scenariot kan en användare med hög behörighet kopiera data från Azure SQL Database till en annan prenumeration som inte styrs av data ägaren.
+**Scenario 2**: en rouge DBA. Det här scenariot höjs ofta av säkerhets känsliga kunder från reglerade branscher. I det här scenariot kan en användare med hög behörighet kopiera data från Azure SQL Database till en annan prenumeration som inte styrs av data ägaren.
 
-**Potentiella begränsningar** :
+**Potentiella begränsningar**:
 
 I dag har Azure SQL Database och SQL-hanterad instans följande tekniker för att undvika data exfiltrering hot:
 

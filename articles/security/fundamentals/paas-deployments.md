@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 0429eec2a84c22f3d998baa4dde4f543d4927f16
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 77a2a32b9a6358c39a14cfe37eeb44f7cb90af0a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695341"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841996"
 ---
 # <a name="securing-paas-deployments"></a>Skydda PaaS-distributioner
 
@@ -82,14 +82,14 @@ Följande är metod tips för att hantera identitets omkretsen.
 **Bästa praxis**: skydda dina hanterings gränssnitt för virtuella datorer på Hybrid PaaS-och IaaS-tjänster med hjälp av ett hanterings gränssnitt som gör att du kan fjärrhantera de virtuella datorerna direkt.   
 **Information**: fjärrhanterings protokoll som [SSH](https://en.wikipedia.org/wiki/Secure_Shell)-, [RDP](https://support.microsoft.com/kb/186607)-och [PowerShell-fjärrkommunikation](/powershell/module/microsoft.powershell.core/enable-psremoting) kan användas. I allmänhet rekommenderar vi att du inte aktiverar direkt fjärråtkomst till virtuella datorer från Internet.
 
-Använd om möjligt alternativa metoder som att använda virtuella privata nätverk i ett virtuellt Azure-nätverk. Om alternativa metoder inte är tillgängliga kontrollerar du att du använder komplexa lösen fraser och tvåfaktorautentisering (till exempel [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)).
+Använd om möjligt alternativa metoder som att använda virtuella privata nätverk i ett virtuellt Azure-nätverk. Om alternativa metoder inte är tillgängliga, se till att du använder komplexa lösen fraser och tvåfaktorautentisering (till exempel [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)).
 
 **Bästa praxis**: Använd kraftfulla plattformar för autentisering och auktorisering.   
 **Information**: Använd federerade identiteter i Azure AD i stället för anpassade användar lager. När du använder federerade identiteter, drar du nytta av en plattforms beroende metod och du delegerar hanteringen av auktoriserade identiteter till dina partner. En federerad identitets metod är särskilt viktig när de anställda avslutas och informationen måste avspeglas genom flera identitets-och auktoriserings system.
 
 Använd de mekanismer för autentisering och auktorisering som tillhandahålls av plattformen i stället för anpassad kod. Orsaken är att utveckla anpassad kod kan vara fel känsligt. De flesta av dina utvecklare är inte säkerhets experter och är inte medvetna om nyanser och den senaste utvecklingen av autentisering och auktorisering. Kommersiell kod (till exempel från Microsoft) är ofta en omfattande säkerhets granskning.
 
-Använd tvåfaktorautentisering. Tvåfaktorautentisering är den aktuella standarden för autentisering och auktorisering eftersom den undviker säkerhets svagheter som finns i användar namn och lösen ords typer för autentisering. Åtkomst till både Azure-hanterings gränssnitten (portal/fjärr-PowerShell) och kundinriktade tjänster bör utformas och konfigureras för användning av [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
+Använd tvåfaktorautentisering. Tvåfaktorautentisering är den aktuella standarden för autentisering och auktorisering eftersom den undviker säkerhets svagheter som finns i användar namn och lösen ords typer för autentisering. Åtkomst till både Azure-hanterings gränssnitten (portal/fjärr-PowerShell) och kundinriktade tjänster bör utformas och konfigureras för användning av [Azure AD-Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
 
 Använd standard protokoll för autentisering, till exempel OAuth2 och Kerberos. Dessa protokoll har bearbetats i stor utsträckning och implementeras förmodligen som en del av plattforms biblioteken för autentisering och auktorisering.
 

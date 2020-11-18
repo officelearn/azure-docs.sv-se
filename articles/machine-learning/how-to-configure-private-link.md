@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, devx-track-azurecli
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/30/2020
-ms.openlocfilehash: cfa6dcb0b1fc173bdf3612308227b8309491e9fa
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2953f85a5c21cdd670d6e133d09ffacf06f178ef
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312735"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842710"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Konfigurera en privat Azure-länk för en Azure Machine Learning-arbetsyta
 
@@ -39,7 +39,7 @@ Det går inte att använda en Azure Machine Learning arbets yta med privat länk
 
 ## <a name="create-a-workspace-that-uses-a-private-endpoint"></a>Skapa en arbets yta som använder en privat slut punkt
 
-Använd någon av följande metoder för att skapa en arbets yta med en privat slut punkt. Var och en av dessa metoder __kräver ett befintligt virtuellt nätverk__ :
+Använd någon av följande metoder för att skapa en arbets yta med en privat slut punkt. Var och en av dessa metoder __kräver ett befintligt virtuellt nätverk__:
 
 > [!TIP]
 > Om du vill skapa en arbets yta, en privat slut punkt och ett virtuellt nätverk samtidigt, se [Använd en Azure Resource Manager-mall för att skapa en arbets yta för Azure Machine Learning](how-to-create-workspace-template.md).

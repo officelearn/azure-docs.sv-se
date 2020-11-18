@@ -3,13 +3,13 @@ title: Skala ett Service Fabric-kluster i Azure
 description: I den här självstudien får du lära dig hur du skalar ett Service Fabric kluster i Azure ut och i och hur du rensar överblivna resurser.
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.custom: mvc
-ms.openlocfilehash: d9699103f5e13301cce408d2e54f0e15780e0a35
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 7f92ca28afd9d1894867aaa2c18df3a02ee0bd79
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88716902"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842693"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Självstudie: Skala ut ett Service Fabric-kluster i Azure
 
@@ -33,7 +33,7 @@ I den här självstudieserien får du lära du dig att:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar den här självstudien:
 
@@ -66,9 +66,9 @@ Mer information finns i [kluster kapacitets vägledning](service-fabric-cluster-
 
 När du har skapat ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) och konfigurerat resurs gruppen, exporterar du Resource Manager-mallen för resurs gruppen. Genom att exportera mallen kan du automatisera framtida distributioner av klustret och dess resurser, eftersom mallen innehåller all fullständig infrastruktur.  Mer information om hur du exporterar mallar finns i [hantera Azure Resource Manager resurs grupper med hjälp av Azure Portal](../azure-resource-manager/management/manage-resource-groups-portal.md).
 
-1. I [Azure Portal](https://portal.azure.com)går du till resurs gruppen som innehåller klustret (**sfclustertutorialgroup**om du följer den här självstudien). 
+1. I [Azure Portal](https://portal.azure.com)går du till resurs gruppen som innehåller klustret (**sfclustertutorialgroup** om du följer den här självstudien). 
 
-2. I det vänstra fönstret väljer du **distributioner**eller så väljer du länken under **distributioner**. 
+2. I det vänstra fönstret väljer du **distributioner** eller så väljer du länken under **distributioner**. 
 
 3. Välj den senaste lyckade distributionen i listan.
 
@@ -80,7 +80,7 @@ Att skala in och ut eller vågrät skalning ändrar antalet noder i klustret. N�
 
 ### <a name="update-the-template"></a>Uppdatera mallen
 
-[Exportera en mall och parameter fil](#export-the-template-for-the-resource-group) från resurs gruppen för den senaste distributionen.  Öppna filen *parameters.js* .  Om du har distribuerat klustret med hjälp av [exempel mal len][template] i den här självstudien finns det tre olika nodtyper i klustret och tre parametrar som anger antalet noder för varje nodtyp: *nt0InstanceCount*, *nt1InstanceCount*och *nt2InstanceCount*.  Parametern *nt1InstanceCount* anger till exempel antalet instanser för den andra nodtypen och anger antalet virtuella datorer i den associerade skalnings uppsättningen för den virtuella datorn.
+[Exportera en mall och parameter fil](#export-the-template-for-the-resource-group) från resurs gruppen för den senaste distributionen.  Öppna filen *parameters.js* .  Om du har distribuerat klustret med hjälp av [exempel mal len][template] i den här självstudien finns det tre olika nodtyper i klustret och tre parametrar som anger antalet noder för varje nodtyp: *nt0InstanceCount*, *nt1InstanceCount* och *nt2InstanceCount*.  Parametern *nt1InstanceCount* anger till exempel antalet instanser för den andra nodtypen och anger antalet virtuella datorer i den associerade skalnings uppsättningen för den virtuella datorn.
 
 Så genom att uppdatera värdet för *nt1InstanceCount* ändrar du antalet noder i den andra nodtypen.  Kom ihåg att du inte kan skala upp en nodtyp till fler än 100 noder.  Icke-primära nodtyper som kör tillstånds känsliga produktions arbets belastningar bör alltid ha fem eller fler noder. Icke-primära nodtyper som kör tillstånds lösa produktions arbets belastningar bör alltid ha två eller flera noder.
 

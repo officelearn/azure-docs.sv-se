@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
-ms.openlocfilehash: 553cfe0c1a5e7d569c127f23a11f25f4d150b0bc
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: a4cc6e31e49243af8fa52ac568bcbba660bcde7e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94700767"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842744"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Säkerhets tjänster och tekniker som är tillgängliga i Azure
 
@@ -71,7 +71,7 @@ Med tiden kommer den här listan att ändras och växa, precis som Azure gör. S
 | [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)|En molnbaserad databas för autentisering som stöder en molnbaserad katalog med flera klienter och flera identitets hanterings tjänster i Azure.  |
 | [Azure Active Directory B2C](../../active-directory-b2c/overview.md)|En identitets hanterings tjänst som gör det möjligt att styra hur kunder registrerar, loggar in och hanterar sina profiler när de använder Azure-baserade program.   |
 | [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md)| En molnbaserad och hanterad version av Active Directory Domain Services. |
-| [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)| En säkerhets bestämmelse som använder flera olika former av autentisering och verifiering innan åtkomst till skyddad information tillåts. |
+| [Azure AD-Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)| En säkerhets bestämmelse som använder flera olika former av autentisering och verifiering innan åtkomst till skyddad information tillåts. |
 
 ## <a name="backup-and-disaster-recovery"></a>Säkerhets kopiering och haveri beredskap
 |Tjänst|Beskrivning|

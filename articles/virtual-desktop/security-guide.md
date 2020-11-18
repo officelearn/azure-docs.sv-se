@@ -6,14 +6,14 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a194074b75a404e5a28e86015b0d0bcea2619fc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc39c1e43580c5cf302e85664783dba4509889af
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88002287"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842642"
 ---
-# <a name="security-best-practices"></a>Rekommenderade säkerhetsmetoder
+# <a name="security-best-practices"></a>Metodtips för säkerhet
 
 Windows Virtual Desktop är en hanterad virtuell Skriv bords tjänst som innehåller många säkerhetsfunktioner för att hålla organisationen säker. I en distribution av virtuella Windows-datorer hanterar Microsoft delar av tjänsterna för kundens räkning. Tjänsten har många inbyggda avancerade säkerhetsfunktioner, till exempel omvänd anslutning, vilket minskar risken för att fjärrskrivbord är åtkomligt från var som helst.
 
@@ -35,10 +35,10 @@ Här är de säkerhets behov som du är ansvarig för i distributionen av Window
 |Sessionens värd operativ system|Ja|
 |Distributions konfiguration|Ja|
 |Nätverkskontroller|Ja|
-|Kontroll plan för nätverksvirtualisering|Inga|
-|Fysiska värdar|Inga|
-|Fysiskt nätverk|Inga|
-|Fysiskt Data Center|Inga|
+|Kontroll plan för nätverksvirtualisering|Nej|
+|Fysiska värdar|Nej|
+|Fysiskt nätverk|Nej|
+|Fysiskt Data Center|Nej|
 
 Säkerheten behöver kunden är inte ansvarig för hanteras av Microsoft.
 
@@ -70,7 +70,7 @@ Virtuella Windows-datorer har många inbyggda säkerhets kontroller. I det här 
 
 ### <a name="require-multi-factor-authentication"></a>Kräv Multi-Factor Authentication
 
-Att kräva Multi-Factor Authentication för alla användare och administratörer i den virtuella Windows-skrivbordet förbättrar säkerheten för hela distributionen. Mer information finns i [Aktivera Azure Multi-Factor Authentication för Windows Virtual Desktop](set-up-mfa.md).
+Att kräva Multi-Factor Authentication för alla användare och administratörer i den virtuella Windows-skrivbordet förbättrar säkerheten för hela distributionen. Mer information finns i [Aktivera Azure AD Multi-Factor Authentication för virtuellt Windows-skrivbord](set-up-mfa.md).
 
 ### <a name="enable-conditional-access"></a>Aktivera villkorlig åtkomst
 
@@ -80,7 +80,7 @@ Genom att aktivera [villkorlig åtkomst](../active-directory/conditional-access/
 
 Genom att aktivera Gransknings logg samling kan du Visa användar-och administratörs aktivitet som är relaterad till Windows Virtual Desktop. Några exempel på nyckel gransknings loggar är:
 
--   [Azure aktivitets logg](../azure-monitor/platform/activity-log-collect.md)
+-   [Azure-aktivitetslogg](../azure-monitor/platform/activity-log-collect.md)
 -   [Azure Active Directory aktivitets logg](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
 -   [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
 -   [Värdar för sessioner](../azure-monitor/platform/agent-windows.md)

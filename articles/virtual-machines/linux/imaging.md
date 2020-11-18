@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 61c21aed76cfaac5621b234b32c90877ef6faa9f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e364578cdec8696688cf19e14fd0529f1ca3fbb3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966329"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842625"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Skapa och skapa Linux-avbildningar i Azure
 
@@ -83,7 +83,7 @@ Hanterade avbildningar kan användas för utvecklings-och test miljöer där du 
 - Global replikering av avbildningar.
 - Versions hantering och gruppering av avbildningar för enklare hantering.
 - Bilder med hög tillgänglighet med zon redundant lagring (ZRS) i regioner som stöder Tillgänglighetszoner. ZRS erbjuder bättre återhämtning mot zonindelade-problem.
-- Dela över prenumerationer och till och med mellan Active Directory (AD)-klienter med RBAC.
+- Dela över prenumerationer och till och med mellan Active Directory (AD)-klienter med hjälp av Azure RBAC.
 - Skala dina distributioner med avbildnings repliker i varje region.
 
 På hög nivå skapar du en SIG, och den består av:

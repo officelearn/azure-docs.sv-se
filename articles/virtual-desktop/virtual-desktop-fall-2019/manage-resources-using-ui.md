@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 09e0b3bbac0bdc1d268aa7f24741aeb12a7d366d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f96365bcdf64d19dc0b894f2f1230233b3137bc7
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462589"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842659"
 ---
 # <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-an-azure-resource-manager-template"></a>Distribuera ett hanterings verktyg för Windows Virtual Desktop (klassiskt) med en Azure Resource Manager mall
 
@@ -36,7 +36,7 @@ Följande webbläsare är kompatibla med hanterings verktyget:
 
 Innan du distribuerar hanterings verktyget behöver du en Azure Active Directory (Azure AD)-användare för att skapa en app-registrering och distribuera hanterings gränssnittet. Den här användaren måste:
 
-- Ha Azure Multi-Factor Authentication (MFA) inaktiverat
+- Ha Azure AD Multi-Factor Authentication (MFA) inaktiverat
 - Har behörighet att skapa resurser i din Azure-prenumeration
 - Har behörighet att skapa ett Azure AD-program. Följ de här stegen för att kontrol lera om användaren har de behörigheter som krävs genom att följa instruktionerna i de [behörigheter som krävs](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
@@ -52,7 +52,7 @@ Följ de här anvisningarna för att distribuera Azure-resurs hanterings mal len
 2. Distribuera mallen till Azure.
     - Om du distribuerar i en Enterprise-prenumeration kan du rulla nedåt och välja **distribuera till Azure**.
     - Om du distribuerar i en prenumeration på Cloud Solution Provider följer du de här anvisningarna för att distribuera till Azure:
-        1. Rulla nedåt och högerklicka på **distribuera till Azure**och välj sedan **Kopiera länk plats**.
+        1. Rulla nedåt och högerklicka på **distribuera till Azure** och välj sedan **Kopiera länk plats**.
         2. Öppna en text redigerare som anteckningar och klistra in länken där.
         3. Direkt efter <https://portal.azure.com/> och före hashtagg (#), ange ett snabel-sign (@) följt av innehavarens domän namn. Här är ett exempel på formatet: <https://portal.azure.com/@Contoso.onmicrosoft.com#create/> .
         4. Logga in på Azure Portal som en användare med administratörs-/deltagar behörighet för Cloud Solution Provider-prenumerationen.
@@ -60,7 +60,7 @@ Följ de här anvisningarna för att distribuera Azure-resurs hanterings mal len
 3. När du anger parametrarna gör du följande:
     - För parametern **isServicePrincipal** väljer du **falskt**.
     - Ange dina autentiseringsuppgifter för Azure AD med Multi-Factor Authentication inaktiverat för autentiseringsuppgifterna. Dessa autentiseringsuppgifter används för att skapa Azure AD-program och Azure-resurser. Mer information finns i [vad du behöver för att distribuera hanterings verktyget](#what-you-need-to-deploy-the-management-tool).
-    - För **applicationName**använder du ett unikt namn för din app som ska registreras i din Azure Active Directory. Det här namnet används också för webbappens webb adress. Du kan till exempel använda ett namn som "Apr3UX".
+    - För **applicationName** använder du ett unikt namn för din app som ska registreras i din Azure Active Directory. Det här namnet används också för webbappens webb adress. Du kan till exempel använda ett namn som "Apr3UX".
 4. När du har angett parametrarna accepterar du villkoren och väljer **köp**.
 
 ## <a name="provide-consent-for-the-management-tool"></a>Tillhandahåll medgivande för hanterings verktyget
@@ -77,7 +77,7 @@ För att avgöra vilken användare du kan använda för att logga in på verktyg
 > [!div class="mx-imgBorder"]
 > ![En skärm bild som visar om användarna kan ge tillåtelse till program enbart för användare.](../media/management-ui-user-consent-allowed.png)
 
-- Om värdet är inställt på **Ja**kan du logga in med ett användar konto i Azure Active Directory och bara ge användaren tillåtelse. Men om du loggar in på hanterings verktyget med en annan användare senare, måste du utföra samma medgivande igen.
+- Om värdet är inställt på **Ja** kan du logga in med ett användar konto i Azure Active Directory och bara ge användaren tillåtelse. Men om du loggar in på hanterings verktyget med en annan användare senare, måste du utföra samma medgivande igen.
 - Om värdet är inställt på **Nej**, måste du logga in som global administratör i Azure Active Directory och ge administratörs tillåtelse för alla användare i katalogen. Inga andra användare får ett medgivande.
 
 
@@ -101,7 +101,7 @@ Följ dessa instruktioner för att starta verktyget:
 1. Välj resursen Azure App tjänster med det namn som du angav i mallen (till exempel Apr3UX) och navigera till den URL som är kopplad till den. till exempel  `https://rdmimgmtweb-210520190304.azurewebsites.net` .
 2. Logga in med dina Windows-autentiseringsuppgifter för virtuella skriv bord.
 3. När du uppmanas att välja en klient grupp väljer du **standard grupp för klient organisation** i list rutan.
-4. När du väljer **standard klient grupp**visas en meny på vänster sida i fönstret. I den här menyn letar du reda på namnet på din klient grupp och väljer den.
+4. När du väljer **standard klient grupp** visas en meny på vänster sida i fönstret. I den här menyn letar du reda på namnet på din klient grupp och väljer den.
 
   > [!NOTE]
   > Om du har en anpassad klient grupp anger du namnet manuellt i stället för att välja i list rutan.

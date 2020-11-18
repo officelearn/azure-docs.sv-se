@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 82220a63cfe470344951e4276bc9eaccd9600428
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 8bfe6f07fead700ae71bba1c28ccb13aa700513c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677344"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842778"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Optimera Azure Data Lake Storage Gen2 för prestanda
 
@@ -57,7 +57,7 @@ När data lagras i Data Lake Storage Gen2 kan fil storleken, antalet filer och m
 
 Vanligt vis har analys motorer som HDInsight och Azure Data Lake Analytics en per fil-omkostnader per fil. Om du lagrar dina data som många små filer kan detta påverka prestanda negativt. I allmänhet ordnar du dina data i större filer för att få bättre prestanda (256 MB till 100 GB i storlek). Vissa motorer och program kan ha problem effektivt att bearbeta filer som är större än 100 GB.
 
-Ibland har data pipelines begränsad kontroll över rå data som har många små filer. Vi rekommenderar att du har en "matlagning"-process som genererar större filer som kan användas för underordnade program.
+Ibland har data pipelines begränsad kontroll över rå data som har många små filer. I allmänhet rekommenderar vi att systemet har en viss typ av process för att sammanställa små filer i större mängder för användning av underordnade program.
 
 ### <a name="organizing-time-series-data-in-folders"></a>Organisera Time Series-data i mappar
 

@@ -4,12 +4,12 @@ description: Lär dig mer om kryptering – resten av ditt Azure Container Regis
 ms.topic: article
 ms.date: 09/30/2020
 ms.custom: ''
-ms.openlocfilehash: 6eaae5266277a6a65c7cecaa761b75e3a41ebe87
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: ad81a94910cb1ed09634801f8706182e17947225
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940675"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842574"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Kryptera registret med en kundhanterad nyckel
 
@@ -104,7 +104,7 @@ keyvaultID=$(az keyvault show --resource-group <resource-group-name> --name <key
 
 ### <a name="enable-key-vault-access"></a>Aktivera åtkomst till nyckel valv
 
-Konfigurera en princip för nyckel valvet så att identiteten kan komma åt den. I följande AZ för nyckel [valv anger][az-keyvault-set-policy] du huvud-ID: t för den hanterade identitet som du har skapat, lagrad tidigare i en miljö variabel. Ange nyckel behörigheter för att **Hämta**, **unwrapKey**och **wrapKey**.  
+Konfigurera en princip för nyckel valvet så att identiteten kan komma åt den. I följande AZ för nyckel [valv anger][az-keyvault-set-policy] du huvud-ID: t för den hanterade identitet som du har skapat, lagrad tidigare i en miljö variabel. Ange nyckel behörigheter för att **Hämta**, **unwrapKey** och **wrapKey**.  
 
 ```azurecli
 az keyvault set-policy \
@@ -210,7 +210,7 @@ Du kan använda identitetens namn i senare steg.
 
 ### <a name="create-a-key-vault"></a>Skapa ett nyckelvalv
 
-Anvisningar för hur du skapar ett nyckel valv finns i [snabb start: Ange och hämta en hemlighet från Azure Key Vault med hjälp av Azure Portal](../key-vault/secrets/quick-create-portal.md).
+Anvisningar för hur du skapar ett nyckel valv finns i [snabb start: skapa en Azure Key Vault med Azure Portal](../key-vault/general/quick-create-portal.md).
 
 När du skapar ett nyckel valv för en kundhanterad nyckel, på fliken **grundläggande** , aktiverar du följande skydds inställningar: **mjuk borttagning** och **tömning av skydd**. De här inställningarna hjälper till att förhindra data förlust som orsakas av oavsiktlig nyckel eller nyckel valv borttagningar.
 
@@ -222,16 +222,16 @@ Konfigurera en princip för nyckel valvet så att identiteten kan komma åt den.
 
 1. Navigera till ditt nyckel valv.
 1. Välj **Inställningar**  >  **åtkomst principer > + Lägg till åtkomst princip**.
-1. Välj **nyckel behörigheter**och välj **Hämta**, **unwrap Key**och **wrap Key**.
+1. Välj **nyckel behörigheter** och välj **Hämta**, **unwrap Key** och **wrap Key**.
 1. Välj **Välj huvud** namn och Välj resurs namnet för den hanterade identiteten som tilldelats av användaren.  
-1. Välj **Lägg till**och välj sedan **Spara**.
+1. Välj **Lägg till** och välj sedan **Spara**.
 
 ![Skapa åtkomst princip för nyckel valv](./media/container-registry-customer-managed-keys/add-key-vault-access-policy.png)
 
  Du kan också använda [Azure RBAC för Key Vault](../key-vault/general/rbac-guide.md) (för hands version) för att tilldela behörigheter till identiteten för att få åtkomst till nyckel valvet. Tilldela till exempel krypterings rollen Key Vault krypterings tjänst till identiteten.
 
 1. Navigera till ditt nyckel valv.
-1. Välj **åtkomst kontroll (IAM)**  >  **+ Lägg**till  >  **Lägg till roll tilldelning**.
+1. Välj **åtkomst kontroll (IAM)**  >  **+ Lägg** till  >  **Lägg till roll tilldelning**.
 1. I fönstret **Lägg till roll tilldelning** :
     1. Välj Key Vault rollen kryptering av krypterings **tjänst (för hands version)** . 
     1. Tilldela åtkomst till **användare som tilldelats en hanterad identitet**.
@@ -248,17 +248,17 @@ Konfigurera en princip för nyckel valvet så att identiteten kan komma åt den.
 ### <a name="create-azure-container-registry"></a>Skapa Azure Container Registry
 
 1. Välj **skapa en resurs**  >  **behållare**  >  **container Registry**.
-1. På fliken **grundläggande** , Välj eller skapa en resurs grupp och ange ett register namn. I **SKU**väljer du **Premium**.
-1. På fliken **kryptering** i **kundhanterad nyckel**väljer du **aktive rad**.
-1. I **identitet**väljer du den hanterade identitet som du skapade.
-1. I **kryptering**väljer du **Välj från Key Vault**.
+1. På fliken **grundläggande** , Välj eller skapa en resurs grupp och ange ett register namn. I **SKU** väljer du **Premium**.
+1. På fliken **kryptering** i **kundhanterad nyckel** väljer du **aktive rad**.
+1. I **identitet** väljer du den hanterade identitet som du skapade.
+1. I **kryptering** väljer du **Välj från Key Vault**.
 1. I fönstret **Välj nyckel från Azure Key Vault** väljer du nyckel valvet, nyckeln och versionen som du skapade i föregående avsnitt.
 1. På fliken **kryptering** väljer du **Granska + skapa**.
 1. Välj **skapa** för att distribuera register instansen.
 
 ![Skapa ett containerregister med Azure-portalen](./media/container-registry-customer-managed-keys/create-encrypted-registry.png)
 
-Om du vill se krypterings status för registret i portalen går du till registret. Under **Inställningar**väljer du  **kryptering**.
+Om du vill se krypterings status för registret i portalen går du till registret. Under **Inställningar** väljer du  **kryptering**.
 
 ## <a name="enable-customer-managed-key---template"></a>Aktivera kundhanterad nyckel-mall
 
@@ -448,12 +448,12 @@ Använd registrets **krypterings** inställningar för att uppdatera nyckel vers
 Till exempel för att skapa och konfigurera en ny nyckel version:
 
 1. I portalen navigerar du till ditt register.
-1. Under **Inställningar**väljer du **krypterings**  >  **ändrings nyckel**.
+1. Under **Inställningar** väljer du **krypterings**  >  **ändrings nyckel**.
 1. Välj **Välj nyckel**
 
     ![Rotera nyckel i Azure Portal](./media/container-registry-customer-managed-keys/rotate-key.png)
-1. I fönstret **Välj nyckel från Azure Key Vault** väljer du nyckel valvet och nyckeln som du konfigurerade tidigare och i **version**väljer du **Skapa ny**.
-1. I fönstret **skapa en nyckel** väljer du **generera**och sedan **skapa**.
+1. I fönstret **Välj nyckel från Azure Key Vault** väljer du nyckel valvet och nyckeln som du konfigurerade tidigare och i **version** väljer du **Skapa ny**.
+1. I fönstret **skapa en nyckel** väljer du **generera** och sedan **skapa**.
 1. Slutför valet av nyckel och välj **Spara**.
 
 ## <a name="revoke-key"></a>Återkalla nyckel
@@ -492,15 +492,15 @@ Så här ger du identitets åtkomst till ditt nyckel valv:
 
 1. Navigera till ditt nyckel valv.
 1. Välj **Inställningar**  >  **åtkomst principer > + Lägg till åtkomst princip**.
-1. Välj **nyckel behörigheter**och välj **Hämta**, **unwrap Key**och **wrap Key**.
+1. Välj **nyckel behörigheter** och välj **Hämta**, **unwrap Key** och **wrap Key**.
 1. Välj **Välj huvud namn** och Sök efter objekt-ID: t för den systemtilldelade hanterade identiteten eller namnet på registret.  
-1. Välj **Lägg till**och välj sedan **Spara**.
+1. Välj **Lägg till** och välj sedan **Spara**.
 
 Så här uppdaterar du registrets krypterings inställningar för att använda identiteten:
 
 1. I portalen navigerar du till ditt register.
-1. Under **Inställningar**väljer du **krypterings**  >  **ändrings nyckel**.
-1. I **identitet**väljer du **tilldelat system**och väljer **Spara**.
+1. Under **Inställningar** väljer du **krypterings**  >  **ändrings nyckel**.
+1. I **identitet** väljer du **tilldelat system** och väljer **Spara**.
 
 ### <a name="enable-key-vault-bypass"></a>Aktivera kringgå nyckel valv
 
@@ -525,7 +525,7 @@ Om du försöker ta bort en tilldelad identitet från ett register som används 
 Azure resource '/subscriptions/xxxx/resourcegroups/myGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry' does not have access to identity 'xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx' Try forcibly adding the identity to the registry <registry name>. For more information on bring your own key, please visit 'https://aka.ms/acr/cmk'.
 ```
  
-Du kan inte heller ändra krypterings nyckeln (rotera). Om det här problemet uppstår måste du först tilldela om identiteten med hjälp av det GUID som visas i fel meddelandet. Till exempel:
+Du kan inte heller ändra krypterings nyckeln (rotera). Om det här problemet uppstår måste du först tilldela om identiteten med hjälp av det GUID som visas i fel meddelandet. Exempel:
 
 ```azurecli
 az acr identity assign -n myRegistry --identities xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx

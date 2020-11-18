@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d90384644c58938bfc8a37ec1231b0d12fd60057
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 788c52490a97bb5d5aee0656bbdd09731d767d85
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90058708"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842608"
 ---
 # <a name="azure-security-baseline-for-azure-public-ip"></a>Azures säkerhets bas linje för offentlig Azure-IP
 
@@ -148,11 +148,11 @@ Aktiverade just-in-Time-åtkomst med hjälp av Azure Active Directory (Azure AD)
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3,6: Använd dedikerade datorer (arbets stationer med privilegie rad åtkomst) för alla administrativa uppgifter
 
-**Vägledning**: Använd en privilegie rad åtkomst arbets Station (Paw) med Azure Multi-Factor Authentication (MFA) aktiverat för att logga in på och konfigurera dina Azure Sentinel-relaterade resurser.
+**Vägledning**: Använd en privilegie rad åtkomst arbets Station (Paw) med Azure AD Multi-Factor Authentication (MFA) aktiverat för att logga in på och konfigurera dina Azure Sentinel-relaterade resurser.
 
 - [Arbetsstationer för privilegierad åtkomst (PAW)](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [Planera en molnbaserad distribution av Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Planera en molnbaserad Azure AD Multi-Factor Authentication-distribution](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -408,7 +408,7 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 - [Säkerhetsaviseringar i Azure Security Center](../security-center/security-center-alerts-overview.md) 
 
-- [Använd taggar till att organisera dina Azure-resurser](/azure/azure-resource-manager/resource-group-using-tags)
+- [Använda taggar för att organisera dina Azure-resurser](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center övervakning**: Ja
 

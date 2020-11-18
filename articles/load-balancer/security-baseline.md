@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 2786a45ef779b9c66edda4c765a1cf2140f1bf9f
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 37db72b2b5dadfba930ca003121140fd99c4736d
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425283"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686080"
 ---
 # <a name="azure-security-baseline-for-azure-load-balancer"></a>Azures säkerhets bas linje för Azure Load Balancer
 
@@ -30,7 +30,7 @@ Azure erbjuder två typer av Load Balancer erbjudanden, standard och Basic. Anv�
 
 Användning av en Standard Load Balancer rekommenderas för produktions arbets belastningar och vanligt vis används Basic-Load Balancer endast för testning eftersom Basic-typen är öppen för anslutningar från Internet som standard, och inte kräver nätverks säkerhets grupper för åtgärden. 
 
-- [Utgående anslutningar i Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#outboundrule)
+- [Utgående anslutningar i Azure](load-balancer-outbound-connections.md)
 
 - [Uppgradera offentliga Azure-Load Balancer](https://docs.microsoft.com/azure/load-balancer/upgrade-basic-standard)
 

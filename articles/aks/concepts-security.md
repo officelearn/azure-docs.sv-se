@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: mlearned
-ms.openlocfilehash: b81b592cf35d0ca13d1c7bd2281ce35cce827a3c
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 1adf8370f55a0f6131eb4140c58fa4618e08127b
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057866"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686029"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Säkerhetsbegrepp för program och kluster i AKS (Azure Kubernetes Service)
 
@@ -25,7 +25,7 @@ Den här artikeln beskriver de viktigaste begreppen som skyddar dina program i A
     - [Beräknings isolering](#compute-isolation)
   - [Kluster uppgraderingar](#cluster-upgrades)
     - [Cordon och dränering](#cordon-and-drain)
-  - [Nätverks säkerhet](#network-security)
+  - [Nätverkssäkerhet](#network-security)
     - [Azure-nätverkssäkerhetsgrupper](#azure-network-security-groups)
   - [Kubernetes hemligheter](#kubernetes-secrets)
   - [Nästa steg](#next-steps)
@@ -36,7 +36,7 @@ I AKS är Kubernetes Master-komponenterna en del av den hanterade tjänst som ti
 
 Som standard använder Kubernetes-API-servern en offentlig IP-adress och ett fullständigt kvalificerat domän namn (FQDN). Du kan begränsa åtkomsten till API-serverns slut punkt med hjälp av [auktoriserade IP-intervall][authorized-ip-ranges]. Du kan också skapa ett helt [privat kluster][private-clusters] om du vill begränsa åtkomsten till API-servern till ditt virtuella nätverk.
 
-Du kan kontrol lera åtkomsten till API-servern med Kubernetes-rollbaserad åtkomst kontroll (RBAC) och Azure Active Directory. Mer information finns i [Azure AD-integrering med AKS][aks-aad].
+Du kan styra åtkomsten till API-servern med hjälp av Kubernetes-rollbaserad åtkomst kontroll (Kubernetes RBAC) och Azure RBAC. Mer information finns i [Azure AD-integrering med AKS][aks-aad].
 
 ## <a name="node-security"></a>Nods säkerhet
 
@@ -50,7 +50,7 @@ Noder distribueras till ett privat virtuellt nätverk under nät, utan att någr
 
 Noderna använder Azure Managed Disks för att tillhandahålla lagring. För de flesta VM-storlekar är dessa Premium diskar som backas upp av SSD med höga prestanda. Data som lagras på hanterade diskar krypteras automatiskt i vila på Azure-plattformen. För att förbättra redundans replikeras även dessa diskar på ett säkert sätt i Azure-datacentret.
 
-Kubernetes-miljöer, i AKS eller någon annan stans, är för närvarande inte helt säkra för att skydda användningen av flera klienter. Ytterligare säkerhetsfunktioner som *Pod säkerhets principer*, eller mer detaljerad rollbaserad åtkomst kontroll (RBAC) för noder, gör det svårare att utnyttja dem. Men för verklig säkerhet när du kör en skydds arbets belastning med flera innehavare, är en hypervisor den enda säkerhets nivå som du bör lita på. Säkerhets domänen för Kubernetes blir hela klustret, inte en enskild nod. För dessa typer av farliga arbets belastningar med flera klienter bör du använda fysiskt isolerade kluster. Mer information om hur du isolerar arbets belastningar finns i [metod tips för kluster isolering i AKS][cluster-isolation].
+Kubernetes-miljöer, i AKS eller någon annan stans, är för närvarande inte helt säkra för att skydda användningen av flera klienter. Ytterligare säkerhetsfunktioner, t. ex. *Pod säkerhets principer*, eller mer detaljerad Kubernetes för rollbaserad åtkomst kontroll (Kubernetes RBAC) för noder, gör det svårare att utnyttja dem. Men för verklig säkerhet när du kör en skydds arbets belastning med flera innehavare, är en hypervisor den enda säkerhets nivå som du bör lita på. Säkerhets domänen för Kubernetes blir hela klustret, inte en enskild nod. För dessa typer av farliga arbets belastningar med flera klienter bör du använda fysiskt isolerade kluster. Mer information om hur du isolerar arbets belastningar finns i [metod tips för kluster isolering i AKS][cluster-isolation].
 
 ### <a name="compute-isolation"></a>Beräknings isolering
 

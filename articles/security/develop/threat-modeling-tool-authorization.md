@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4d99295fbb355b3efa22a64c9adc04311508e474
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: b2ad38e518fa4b924992355990ea3eb06a338ebe
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517571"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693166"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Säkerhets ram: auktorisering | Åtgärder 
 | Produkt/tjänst | Artikel |
@@ -32,11 +32,11 @@ ms.locfileid: "94517571"
 | **IoT Cloud Gateway** | <ul><li>[Ansluta till en molnbaserad Gateway med hjälp av minst privilegierade token](#cloud-least-privileged)</li></ul> |
 | **Azure Event Hub** | <ul><li>[Använd en SAS-nyckel för endast skicka-behörighet för att skapa enhets-token](#sendonly-sas)</li><li>[Använd inte åtkomsttoken som ger direkt åtkomst till Händelsehubben](#access-tokens-hub)</li><li>[Anslut till Händelsehubben med SAS-nycklar som har de lägsta behörigheter som krävs](#sas-minimum-permissions)</li></ul> |
 | **Azure Document DB** | <ul><li>[Använd Resource tokens för att ansluta till Azure Cosmos DB närhelst det är möjligt](#resource-docdb)</li></ul> |
-| **Azure Trust-gränser** | <ul><li>[Aktivera detaljerad åtkomst hantering för Azure-prenumeration med RBAC](#grained-rbac)</li></ul> |
-| **Service Fabric förtroende gränser** | <ul><li>[Begränsa klientens åtkomst till kluster åtgärder med RBAC](#cluster-rbac)</li></ul> |
+| **Azure Trust-gränser** | <ul><li>[Aktivera detaljerad åtkomst hantering för Azure-prenumerationen med hjälp av Azure RBAC](#grained-rbac)</li></ul> |
+| **Service Fabric förtroende gränser** | <ul><li>[Begränsa klientens åtkomst till kluster åtgärder med hjälp av Azure RBAC](#cluster-rbac)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Utför säkerhets modellering och Använd säkerhet på fält nivå där det behövs](#modeling-field)</li></ul> |
 | **Dynamics CRM-Portal** | <ul><li>[Utför säkerhets modellering av Portal konton i åtanke att säkerhets modellen för portalen skiljer sig från resten av CRM](#portal-security)</li></ul> |
-| **Azure Storage** | <ul><li>[Ge detaljerad behörighet för en serie entiteter i Azure Table Storage](#permission-entities)</li><li>[Aktivera Role-Based Access Control (RBAC) till Azure Storage-kontot med Azure Resource Manager](#rbac-azure-manager)</li></ul> |
+| **Azure Storage** | <ul><li>[Ge detaljerad behörighet för en serie entiteter i Azure Table Storage](#permission-entities)</li><li>[Aktivera Azure-rollbaserad åtkomst kontroll (Azure RBAC) till Azure Storage-konto med hjälp av Azure Resource Manager](#rbac-azure-manager)</li></ul> |
 | **Mobil klient** | <ul><li>[Implementera implicit upplåsning eller identifiering av rottips](#rooting-detection)</li></ul> |
 | **WCF** | <ul><li>[Svag klass referens i WCF](#weak-class-wcf)</li><li>[WCF – implementera Authorization-kontroll](#wcf-authz)</li></ul> |
 | **Webb-API** | <ul><li>[Implementera rätt mekanism för auktorisering i ASP.NET webb-API](#authz-aspnet)</li></ul> |
@@ -229,7 +229,7 @@ Observera att RLS som en out-of-Box-databas-funktion bara kan användas för att
 | **Referenser**              | E.t.  |
 | **Steg** | En resurs-token är kopplad till en Azure Cosmos DB behörighets resurs och fångar upp relationen mellan användaren av en databas och den behörighet som användaren har för en specifik Azure Cosmos DB program resurs (t. ex. samling, dokument). Använd alltid en Resource-token för att få åtkomst till Azure Cosmos DB om klienten inte är betrodd med hantering av Master-eller skrivskyddade nycklar – som ett program för slutanvändare som en mobil-eller Skriv bords klient. Använd huvud nyckel eller skrivskyddade nycklar från backend-program som kan lagra nycklarna på ett säkert sätt.|
 
-## <a name="enable-fine-grained-access-management-to-azure-subscription-using-rbac"></a><a id="grained-rbac"></a>Aktivera detaljerad åtkomst hantering för Azure-prenumeration med RBAC
+## <a name="enable-fine-grained-access-management-to-azure-subscription-using-azure-rbac"></a><a id="grained-rbac"></a>Aktivera detaljerad åtkomst hantering för Azure-prenumerationen med hjälp av Azure RBAC
 
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
@@ -237,10 +237,10 @@ Observera att RLS som en out-of-Box-databas-funktion bara kan användas för att
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [Använda rolltilldelningar för att hantera åtkomsten till dina Azure-prenumerationsresurser](../../role-based-access-control/role-assignments-portal.md)  |
-| **Steg** | Rollbaserad åtkomst kontroll i Azure (Azure RBAC) möjliggör detaljerad åtkomst hantering för Azure. Med RBAC kan du bevilja exakt den åtkomstnivå som användarna behöver för att kunna utföra sitt arbete.|
+| **Referenser**              | [Lägg till eller ta bort Azure Role-tilldelningar för att hantera åtkomst till dina Azure-prenumerations resurser](../../role-based-access-control/role-assignments-portal.md)  |
+| **Steg** | Rollbaserad åtkomst kontroll i Azure (Azure RBAC) möjliggör detaljerad åtkomst hantering för Azure. Med Azure RBAC kan du endast bevilja den mängd åtkomst som användarna behöver för att utföra sina jobb.|
 
-## <a name="restrict-clients-access-to-cluster-operations-using-rbac"></a><a id="cluster-rbac"></a>Begränsa klientens åtkomst till kluster åtgärder med RBAC
+## <a name="restrict-clients-access-to-cluster-operations-using-service-fabric-rbac"></a><a id="cluster-rbac"></a>Begränsa klientens åtkomst till kluster åtgärder med Service Fabric RBAC
 
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
@@ -248,7 +248,7 @@ Observera att RLS som en out-of-Box-databas-funktion bara kan användas för att
 | **SDL-fas**               | Distribution |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Miljö – Azure |
-| **Referenser**              | [Rollbaserad åtkomst kontroll för Service Fabric klienter](../../service-fabric/service-fabric-cluster-security-roles.md) |
+| **Referenser**              | [Service Fabric rollbaserad åtkomst kontroll för Service Fabric klienter](../../service-fabric/service-fabric-cluster-security-roles.md) |
 | **Steg** | <p>Azure Service Fabric har stöd för två olika åtkomst kontroll typer för klienter som är anslutna till ett Service Fabric-kluster: administratör och användare. Med åtkomst kontroll kan kluster administratören begränsa åtkomsten till vissa kluster åtgärder för olika grupper av användare, vilket gör klustret säkrare.</p><p>Administratörer har fullständig åtkomst till hanterings funktioner (inklusive Läs-och skriv funktioner). Användare har som standard endast Läs behörighet till hanterings funktioner (till exempel fråge funktioner) och möjligheten att lösa program och tjänster.</p><p>Du anger de två klient rollerna (administratör och klient) när klustret skapas genom att tillhandahålla separata certifikat för var och en.</p>|
 
 ## <a name="perform-security-modeling-and-use-field-level-security-where-required"></a><a id="modeling-field"></a>Utför säkerhets modellering och Använd säkerhet på fält nivå där det behövs
@@ -284,7 +284,7 @@ Observera att RLS som en out-of-Box-databas-funktion bara kan användas för att
 | **Referenser**              | [Så här delegerar du åtkomst till objekt i ditt Azure Storage-konto med hjälp av SAS](../../storage/blobs/security-recommendations.md#identity-and-access-management) |
 | **Steg** | I vissa affärs scenarier kan Azure Table Storage krävas för att lagra känsliga data som består till olika parter. T. ex. känsliga data som rör olika länder/regioner. I sådana fall kan SAS-signaturer skapas genom att ange nyckel intervall för partition och rad, så att en användare kan komma åt data som är specifika för ett visst land/en viss region.| 
 
-## <a name="enable-role-based-access-control-rbac-to-azure-storage-account-using-azure-resource-manager"></a><a id="rbac-azure-manager"></a>Aktivera Role-Based Access Control (RBAC) till Azure Storage-kontot med Azure Resource Manager
+## <a name="enable-azure-role-based-access-control-azure-rbac-to-azure-storage-account-using-azure-resource-manager"></a><a id="rbac-azure-manager"></a>Aktivera Azure-rollbaserad åtkomst kontroll (Azure RBAC) till Azure Storage-konto med hjälp av Azure Resource Manager
 
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
@@ -292,7 +292,7 @@ Observera att RLS som en out-of-Box-databas-funktion bara kan användas för att
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [Skydda ditt lagrings konto med Role-Based Access Control (RBAC)](../../storage/blobs/security-recommendations.md) |
+| **Referenser**              | [Skydda ditt lagrings konto med rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../storage/blobs/security-recommendations.md) |
 | **Steg** | <p>När du skapar ett nytt lagrings konto väljer du en distributions modell av klassisk eller Azure Resource Manager. Den klassiska modellen för att skapa resurser i Azure tillåter bara all-eller-ingen åtkomst till prenumerationen, och i sin tur är lagrings kontot.</p><p>Med Azure Resource Manager-modellen ska du lagra lagrings kontot i en resurs grupp och kontrol lera åtkomsten till hanterings planet för det angivna lagrings kontot med hjälp av Azure Active Directory. Du kan till exempel ge vissa användare möjlighet att komma åt lagrings konto nycklarna, medan andra användare kan visa information om lagrings kontot, men inte åtkomst till lagrings konto nycklarna.</p>|
 
 ## <a name="implement-implicit-jailbreak-or-rooting-detection"></a><a id="rooting-detection"></a>Implementera implicit upplåsning eller identifiering av rottips

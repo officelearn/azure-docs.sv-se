@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: fb4c7f8ba49cf701ef13cb57ab2b323a94c928cc
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3af28ef575f770a5b8c3fb73ade1f9c53be66843
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323833"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685757"
 ---
 # <a name="connect-to-synapse-sql-with-azure-data-studio-preview"></a>Ansluta till Synapse SQL med Azure Data Studio (för hands version)
 
@@ -50,7 +50,7 @@ Anslutningen kräver följande parametrar:
 >
 > - `<Azure Synapse workspace name>`. sql.azuresynapse.net
 
-Välj **Windows-autentisering** , **Azure Active Directory** eller **SQL-inloggning** som **Autentiseringstyp**.
+Välj **Windows-autentisering**, **Azure Active Directory** eller **SQL-inloggning** som **Autentiseringstyp**.
 
 Om du vill använda **SQL-inloggning** som autentiseringstyp lägger du till användar namn/lösen ord-parametrar:
 
@@ -61,11 +61,11 @@ Om du vill använda Azure Active Directory måste du välja autentiseringstypen 
 
 ![AAD-autentisering](./media/get-started-azure-data-studio/3-aad-auth.png)
 
-Följande skärm bild visar **anslutnings information** för **Windows-autentisering** :
+Följande skärm bild visar **anslutnings information** för **Windows-autentisering**:
 
 ![Windows-autentisering](./media/get-started-azure-data-studio/3-windows-auth.png)
 
-Följande skärm bild visar **anslutnings information** med **SQL-inloggning** :
+Följande skärm bild visar **anslutnings information** med **SQL-inloggning**:
 
 ![SQL-inloggning](./media/get-started-azure-data-studio/2-database-details.png)
 

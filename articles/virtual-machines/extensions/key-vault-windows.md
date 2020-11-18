@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f06c5f2b2938505380ea668a7c4113015c852b1d
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 7c5c536b95360c536998a5de87e9307918b15630
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913967"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685995"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Key Vault tillägg för virtuell dator för Windows
 
@@ -27,7 +27,7 @@ Key Vault VM-tillägget stöder följande versioner av Windows:
 - Windows Server 2016
 - Windows Server 2012
 
-Key Vault VM-extensio stöds också på den anpassade lokala virtuella datorn som överförs och konverteras till en specialiserad avbildning för användning i Azure med Windows Server 2019 Core install.
+Key Vault VM-tillägget stöds också på den anpassade lokala virtuella datorn som överförs och konverteras till en specialiserad avbildning för användning i Azure med Windows Server 2019 Core install.
 
 ### <a name="supported-certificate-content-types"></a>Innehålls typer för certifikat som stöds
 
@@ -81,7 +81,7 @@ Följande JSON visar schemat för Key Vault VM-tillägget. Tillägget kräver in
 > Detta beror på att `/secrets` sökvägen returnerar det fullständiga certifikatet, inklusive den privata nyckeln, medan `/certificates` sökvägen inte fungerar. Mer information om certifikat hittar du här: [Key Vault certifikat](../../key-vault/general/about-keys-secrets-certificates.md)
 
 > [!IMPORTANT]
-> Egenskapen "authenticationSettings" **krävs** bara för virtuella datorer med **användare tilldelade identiteter** .
+> Egenskapen "authenticationSettings" **krävs** bara för virtuella datorer med **användare tilldelade identiteter**.
 > Den anger identitet som ska användas för autentisering till Key Vault.
 
 
@@ -89,7 +89,7 @@ Följande JSON visar schemat för Key Vault VM-tillägget. Tillägget kräver in
 
 | Namn | Värde/exempel | Datatyp |
 | ---- | ---- | ---- |
-| apiVersion | 2019-07-01 | date |
+| apiVersion | 2019-07-01 | datum |
 | utgivare | Microsoft.Azure.KeyVault | sträng |
 | typ | KeyVaultForWindows | sträng |
 | typeHandlerVersion | 1,0 | int |

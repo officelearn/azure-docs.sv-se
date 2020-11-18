@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 11/03/2020
 ms.custom: generated
-ms.openlocfilehash: 2ffa5d65675b8fe6eeecbcc71c49d7aa8ebb7eaf
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: a48a13fa18025254ee31344868d10181ae87c65e
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657779"
+ms.locfileid: "94685485"
 ---
 # <a name="azure-built-in-roles"></a>Inbyggda roller i Azure
 
@@ -27,7 +27,7 @@ Följande tabell innehåller en kort beskrivning och det unika ID: t för varje 
 ## <a name="all"></a>Alla
 
 > [!div class="mx-tableFixed"]
-> | Inbyggd roll | Description | ID |
+> | Inbyggd roll | Beskrivning | ID |
 > | --- | --- | --- |
 > | **Allmänt** |  |  |
 > | [Deltagare](#contributor) | Ger fullständig åtkomst för att hantera alla resurser, men tillåter inte att du tilldelar roller i Azure RBAC. | b24988ac-6180-42a0-ab88-20f7382dd24c |
@@ -7618,7 +7618,7 @@ Gör att du kan skapa nya labb under dina Azure Lab-konton. [Läs mer](../lab-se
 }
 ```
 
-## <a name="monitor"></a>Monitor
+## <a name="monitor"></a>Övervaka
 
 
 ### <a name="application-insights-component-contributor"></a>Application Insights komponent deltagare
@@ -7760,8 +7760,7 @@ Kan läsa alla övervaknings data och redigera övervaknings inställningar. Se 
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/sharedKeys/Action | Hämtar de delade nycklarna för arbets ytan. Dessa nycklar används för att ansluta Microsoft Operational Insights-agenter till arbets ytan. |
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/storageinsightconfigs/* | Läsa/skriva/ta bort insikter för Log Analytics-lagring. |
 > | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Skapa och uppdatera ett support ärende |
-> | [Microsoft. WorkloadMonitor](resource-provider-operations.md#microsoftworkloadmonitor)/monitors/* |  |
-> | [Microsoft. WorkloadMonitor](resource-provider-operations.md#microsoftworkloadmonitor)/notificationSettings/* |  |
+> | [Microsoft. WorkloadMonitor](resource-provider-operations.md#microsoftworkloadmonitor)/monitors/* | Hämta information om hälso Övervakare för virtuella gäst datorer.  |
 > | [Microsoft. AlertsManagement](resource-provider-operations.md#microsoftalertsmanagement)/smartDetectorAlertRules/* |  |
 > | [Microsoft. AlertsManagement](resource-provider-operations.md#microsoftalertsmanagement)/actionRules/* |  |
 > | [Microsoft. AlertsManagement](resource-provider-operations.md#microsoftalertsmanagement)/smartGroups/* |  |
@@ -7812,7 +7811,6 @@ Kan läsa alla övervaknings data och redigera övervaknings inställningar. Se 
         "Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*",
         "Microsoft.Support/*",
         "Microsoft.WorkloadMonitor/monitors/*",
-        "Microsoft.WorkloadMonitor/notificationSettings/*",
         "Microsoft.AlertsManagement/smartDetectorAlertRules/*",
         "Microsoft.AlertsManagement/actionRules/*",
         "Microsoft.AlertsManagement/smartGroups/*"

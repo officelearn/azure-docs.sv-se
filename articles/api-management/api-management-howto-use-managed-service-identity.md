@@ -9,14 +9,14 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 06/12/2020
+ms.date: 11/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 8a7fa295bdc8881c0c1ba58c95872a9380231b81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db1a8238cf9ddae57d73438d43daa54294ce6860
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85558034"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686233"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Använda hanterade identiteter i Azure API Management
 
@@ -35,7 +35,7 @@ Om du vill konfigurera en hanterad identitet i Azure Portal skapar du först en 
 
 1. Skapa en API Management-instans i portalen på vanligt sätt. Bläddra till den i portalen.
 2. Välj **hanterade identiteter**.
-3. Växla **status** till **på**på fliken **systemtilldelad** . Välj **Spara**.
+3. Växla **status** till **på** på fliken **systemtilldelad** . Välj **Spara**.
 
     :::image type="content" source="./media/api-management-msi/enable-system-msi.png" alt-text="Alternativ för att aktivera en systemtilldelad hanterad identitet" border="true":::
 
@@ -123,9 +123,9 @@ När instansen skapas har den följande ytterligare egenskaper:
 > [!NOTE]
 > En API Management instans kan ha både tilldelade och användarspecifika identiteter på samma gång. I det här fallet är `type` egenskapen `SystemAssigned,UserAssigned` .
 
-### <a name="supported-scenarios"></a>Scenarier som stöds
+## <a name="supported-scenarios-using-system-assigned-identity"></a>Scenarier som stöds med hjälp av systemtilldelad identitet
 
-#### <a name="obtain-a-custom-tlsssl-certificate-for-the-api-management-instance-from-azure-key-vault"></a><a name="use-ssl-tls-certificate-from-azure-key-vault"></a>Hämta ett anpassat TLS/SSL-certifikat för API Management-instansen från Azure Key Vault
+### <a name="obtain-a-custom-tlsssl-certificate-for-the-api-management-instance-from-azure-key-vault"></a><a name="use-ssl-tls-certificate-from-azure-key-vault"></a>Hämta ett anpassat TLS/SSL-certifikat för API Management-instansen från Azure Key Vault
 Du kan använda den systemtilldelade identiteten för en API Management instans för att hämta anpassade TLS/SSL-certifikat som lagras i Azure Key Vault. Du kan sedan tilldela dessa certifikat till anpassade domäner i API Management-instansen. Tänk på följande:
 
 - Innehålls typen för hemligheten måste vara *Application/x-PKCS12*.
@@ -262,7 +262,7 @@ I följande exempel visas en Azure Resource Manager mall som innehåller följan
 }
 ```
 
-#### <a name="authenticate-to-the-back-end-by-using-an-api-management-identity"></a>Autentisera till Server delen med hjälp av en API Management identitet
+### <a name="authenticate-to-the-back-end-by-using-an-api-management-identity"></a>Autentisera till Server delen med hjälp av en API Management identitet
 
 Du kan använda den systemtilldelade identiteten för att autentisera till Server delen via principen för [autentisering som hanteras av identitet](api-management-authentication-policies.md#ManagedIdentity) .
 
@@ -281,7 +281,7 @@ Om du vill konfigurera en hanterad identitet i portalen skapar du först en API 
 3. På fliken **användare tilldelad** väljer du **Lägg till**.
 4. Sök efter den identitet som du skapade tidigare och markera den. Välj **Lägg till**.
 
-   :::image type="content" source="./media/api-management-msi/enable-user-assigned-msi.png" alt-text="Alternativ för att aktivera en systemtilldelad hanterad identitet" border="true":::
+   :::image type="content" source="./media/api-management-msi/enable-user-assigned-msi.png" alt-text="Alternativ för att aktivera en användardefinierad hanterad identitet" border="true":::
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -387,9 +387,32 @@ När tjänsten skapas har den följande ytterligare egenskaper:
 > [!NOTE]
 > En API Management instans kan ha både tilldelade och användarspecifika identiteter på samma gång. I det här fallet är `type` egenskapen `SystemAssigned,UserAssigned` .
 
-### <a name="supported-scenarios"></a>Scenarier som stöds
+## <a name="supported-scenarios-using-user-assigned-managed-identity"></a>Scenarier som stöds med hjälp av användare tilldelad hanterad identitet
 
-#### <a name="authenticate-to-the-back-end-by-using-a-user-assigned-identity"></a>Autentisera till Server delen med hjälp av en användardefinierad identitet
+### <a name="obtain-a-custom-tlsssl-certificate-for-the-api-management-instance-from-azure-key-vault"></a><a name="use-ssl-tls-certificate-from-azure-key-vault-ua"></a>Hämta ett anpassat TLS/SSL-certifikat för API Management-instansen från Azure Key Vault
+Du kan använda valfri användardefinierad identitet för att upprätta förtroende mellan en API Management-instans och ett nyckel valv. Förtroendet kan sedan användas för att hämta anpassade TLS/SSL-certifikat som lagras i Azure Key Vault. Du kan sedan tilldela dessa certifikat till anpassade domäner i API Management-instansen. 
+
+Tänk på följande:
+
+- Innehålls typen för hemligheten måste vara *Application/x-PKCS12*.
+- Använd slut punkten för Key Vault certifikatets hemlighet, som innehåller hemligheten.
+
+> [!Important]
+> Om du inte anger objekt versionen av certifikatet får API Management automatiskt en nyare version av certifikatet inom fyra timmar efter det att det har uppdaterats i Key Vault.
+
+Den fullständiga mallen finns i [API Management med nyckel valv baserat SSL med hjälp av användarens tilldelade identitet](https://github.com/Azure/azure-quickstart-templates/blob/master/101-api-management-key-vault-create/azuredeploy.json).
+
+I den här mallen kommer du att distribuera:
+
+* Azure API Management
+* Azure-hanterad användare tilldelad identitet
+* Azure-nyckel valv för att lagra SSL/TLS-certifikat
+
+Klicka på följande knapp för att köra distributionen automatiskt:
+
+[![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-api-management-key-vault-create%2Fazuredeploy.json)
+
+### <a name="authenticate-to-the-back-end-by-using-a-user-assigned-identity"></a>Autentisera till Server delen med hjälp av en användardefinierad identitet
 
 Du kan använda den användare-tilldelade identiteten för att autentisera till Server delen via principen för autentisering av den [autentiserade identiteten](api-management-authentication-policies.md#ManagedIdentity) .
 

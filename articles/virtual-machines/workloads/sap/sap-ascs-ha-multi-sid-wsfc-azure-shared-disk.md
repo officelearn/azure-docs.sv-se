@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c8116f3e00d13c0bd1e5f075a7fbe3264f337079
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: df611e01fefacd22f4dc026a819d4c71ede6e7e3
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970409"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686097"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-azure-shared-disk"></a>SAP ASCS/SCS-instans multi-SID hög tillgänglighet med Windows Server-redundanskluster och Azure-delad disk
 
@@ -35,12 +35,12 @@ Den här artikeln fokuserar på hur du flyttar från en enda ASCS/SCS-installati
 För närvarande kan du använda Azure Premium SSD-diskar som en Azure-delad disk för SAP ASCS/SCS-instansen. Följande begränsningar är på plats:
 
 -  [Azure Ultra disk](../../disks-types.md#ultra-disk) stöds inte som Azure-delad disk för SAP-arbetsbelastningar. För närvarande går det inte att placera virtuella Azure-datorer med Azure Ultra disk i tillgänglighets uppsättning
--  [Azure Shared disk](../../windows/disks-shared.md) med Premium SSD-diskar stöds bara med virtuella datorer i tillgänglighets uppsättningen. Det stöds inte i Tillgänglighetszoner-distribution. 
+-  [Azure Shared disk](../../disks-shared.md) med Premium SSD-diskar stöds bara med virtuella datorer i tillgänglighets uppsättningen. Det stöds inte i Tillgänglighetszoner-distribution. 
 -  Värdet för Azure-delad disk [maxShares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes) avgör hur många klusternoder som kan använda den delade disken. Normalt för SAP ASCS/SCS-instans konfigurerar du två noder i Windows-redundanskluster, och därför måste värdet för `maxShares` vara inställt på två.
 -  Alla virtuella SAP ASCS/SCS-kluster måste distribueras i samma [placerings grupp för Azure närhet](../../windows/proximity-placement-groups.md).   
    Även om du kan distribuera virtuella Windows-kluster i tillgänglighets uppsättning med Azure delad disk utan PPG, ser PPG till att det går nära fysiskt nära Azure-delade diskar och de virtuella datorerna i klustret, vilket ger kortare latens mellan de virtuella datorerna och lagrings skiktet.    
 
-Mer information om begränsningar för Azure Shared disk finns i avsnittet [begränsningar](../../linux/disks-shared.md#limitations) i dokumentationen för Azure Shared disk.  
+Mer information om begränsningar för Azure Shared disk finns i avsnittet [begränsningar](../../disks-shared.md#limitations) i dokumentationen för Azure Shared disk.  
 
 > [!IMPORTANT]
 > När du distribuerar SAP ASCS/SCS Windows-redundanskluster med Azure Shared disk bör du vara medveten om att distributionen kommer att fungera med en enda delad disk i ett lagrings kluster. Din SAP ASCS/SCS-instans påverkas, i händelse av problem med lagrings klustret, där den Azure-delade disken distribueras.  
@@ -56,7 +56,7 @@ Mer information om begränsningar för Azure Shared disk finns i avsnittet [begr
 
 Både Windows Server 2016 och Windows Server 2019 stöds (Använd de senaste data Center avbildningarna).
 
-Vi rekommenderar starkt att du använder **Windows Server 2019 Data Center**som:
+Vi rekommenderar starkt att du använder **Windows Server 2019 Data Center** som:
 - Windows 2019-kluster för växling vid fel är Azure medveten
 - Vi har lagt till integrering och medvetenhet om underhåll av Azure-värd och bättre erfarenhet genom övervakning av Azure Schedule-händelser.
 - Det går att använda det distribuerade nätverks namnet (det är standard alternativet). Det finns därför inget behov av att ha en dedikerad IP-adress för klustrets nätverks namn. Du behöver inte heller konfigurera den här IP-adressen på intern Azure-Load Balancer. 
@@ -103,11 +103,11 @@ Vi installerar en ny SAP SID- **PR2**, förutom den **befintliga klustrade** SAP
 | --- | --- | --- |---| ---|
 | första klusternoden ASCS/SCS-kluster |PR1-ASCs-10 |10.0.0.4 |PR1-ASCs-avset |PR1PPG |
 | andra klusternoder ASCS/SCS-kluster |PR1-ASCs-11 |10.0.0.5 |PR1-ASCs-avset |PR1PPG |
-| Kluster nätverks namn | pr1clust |10.0.0.42 (**endast** för Win 2016-kluster) | Saknas | Saknas |
-| **SID1** Nätverks namn för ASCS-kluster | pr1-ascscl |10.0.0.43 | Saknas | Saknas |
-| **SID1** ERS kluster nätverks namn (**endast** för ERS2) | pr1-erscl |10.0.0.44 | Saknas | Saknas |
-| **SID2** Nätverks namn för ASCS-kluster | pr2-ascscl |10.0.0.45 | Saknas | Saknas |
-| **SID2** ERS kluster nätverks namn (**endast** för ERS2) | pr1-erscl |10.0.0.46 | Saknas | Saknas |
+| Kluster nätverks namn | pr1clust |10.0.0.42 (**endast** för Win 2016-kluster) | saknas | saknas |
+| **SID1** Nätverks namn för ASCS-kluster | pr1-ascscl |10.0.0.43 | saknas | saknas |
+| **SID1** ERS kluster nätverks namn (**endast** för ERS2) | pr1-erscl |10.0.0.44 | saknas | saknas |
+| **SID2** Nätverks namn för ASCS-kluster | pr2-ascscl |10.0.0.45 | saknas | saknas |
+| **SID2** ERS kluster nätverks namn (**endast** för ERS2) | pr1-erscl |10.0.0.46 | saknas | saknas |
 
 ### <a name="create-azure-internal-load-balancer"></a>Skapa intern Azure-belastningsutjämnare
 
@@ -121,17 +121,17 @@ Du måste lägga till konfigurationen till den befintliga belastningsutjämnaren
 - Server dels konfiguration  
     Redan på plats – de virtuella datorerna har redan lagts till i backend-poolen, medan du konfigurerade för SAP SID- **PR1**
 - Avsöknings port
-    - Port 620**nr** [**62002**] lämna standard alternativet för protokoll (TCP), intervall (5), tröskelvärde för fel (2)
+    - Port 620 **nr** [**62002**] lämna standard alternativet för protokoll (TCP), intervall (5), tröskelvärde för fel (2)
 - Belastnings Utjämnings regler
     - Om du använder Standard Load Balancer väljer du HA-portar
     - Om du använder grundläggande Load Balancer skapa belastnings Utjämnings regler för följande portar
-        - 32**nr** TCP [**3202**]
-        - 36**nr** TCP [**3602**]
-        - 39**nr** TCP [**3902**]
-        - 81**nr** TCP [**8102**]
-        - 5**nr**13 TCP [**50213**]
-        - 5**nr**14 TCP [**50214**]
-        - 5**nr**16 TCP [**50216**]
+        - 32 **nr** TCP [**3202**]
+        - 36 **nr** TCP [**3602**]
+        - 39 **nr** TCP [**3902**]
+        - 81 **nr** TCP [**8102**]
+        - 5 **nr** 13 TCP [**50213**]
+        - 5 **nr** 14 TCP [**50214**]
+        - 5 **nr** 16 TCP [**50216**]
         - Associera med **PR2** ASCS-frontend-IP, hälso avsökning och befintlig backend-pool.  
 
     - Kontrol lera att tids gränsen för inaktivitet (minuter) är inställd på max värdet 30 och att den flytande IP-adressen (direkt Server retur) är aktive rad.
@@ -146,16 +146,16 @@ Eftersom ERS2 (Queue server 2) också är klustrad måste ERS2 virtuell IP-adres
   De virtuella datorerna har redan lagts till i ILB-adresspoolen.  
 
 - Ny avsöknings port
-    - Port 621**nr**  [**62112**] lämna standard alternativet för protokoll (TCP), intervall (5), tröskelvärde för fel (2)
+    - Port 621 **nr**  [**62112**] lämna standard alternativet för protokoll (TCP), intervall (5), tröskelvärde för fel (2)
 
 - Nya regler för belastnings utjämning
     - Om du använder Standard Load Balancer väljer du HA-portar
     - Om du använder grundläggande Load Balancer skapa belastnings Utjämnings regler för följande portar
-        - 32**nr** TCP [**3212**]
-        - 33**nr** TCP [**3312**]
-        - 5**nr**13 TCP [**51212**]
-        - 5**nr**14 TCP [**51212**]
-        - 5**nr**16 TCP [**51212**]
+        - 32 **nr** TCP [**3212**]
+        - 33 **nr** TCP [**3312**]
+        - 5 **nr** 13 TCP [**51212**]
+        - 5 **nr** 14 TCP [**51212**]
+        - 5 **nr** 16 TCP [**51212**]
         - Associera med **PR2** ERS2-frontend-IP, hälso avsökning och befintlig backend-pool.  
 
     - Se till att tids gränsen för inaktivitet (minuter) är inställd på Max värde, t. ex. 30, och att flytande IP (direkt Server retur) är aktiverat.
@@ -293,7 +293,7 @@ Använd den interna belastningsutjämnaren för att göra så att hela kluster k
 Detta fungerar dock inte i vissa klusterkonfigurationer eftersom endast en instans är aktiv. Den andra instansen är passiv och kan inte acceptera någon av arbets belastningarna. En avsöknings funktion hjälper när den interna Azure-belastningsutjämnaren identifierar vilken instans som är aktiv och endast är riktad mot den aktiva instansen.  
 
 > [!IMPORTANT]
-> I den här exempel konfigurationen är **ProbePort** inställd på 620**nr**. För SAP ASCS-instans med Number **02** är 620**02**.
+> I den här exempel konfigurationen är **ProbePort** inställd på 620 **nr**. För SAP ASCS-instans med Number **02** är 620 **02**.
 > Du måste ändra konfigurationen så att den matchar dina SAP-instansnamn och SAP SID.
 
 För att lägga till en avsöknings port kör den här PowerShell-modulen på en av de virtuella kluster datorerna:

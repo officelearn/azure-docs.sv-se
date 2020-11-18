@@ -3,12 +3,12 @@ title: Vanliga frågor och svar – Säkerhetskopiera SAP HANA-databaser på vir
 description: I den här artikeln hittar du svar på vanliga frågor om hur du säkerhetskopierar SAP HANA databaser med hjälp av tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: a1d6012ec064b5ec582896ac3484161a6e25f2bf
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 24eb4abaaabe166ceb3e6bdb99f9446d398d03a1
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659972"
+ms.locfileid: "94686114"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Vanliga frågor och svar – säkerhetskopiera SAP HANA databaser på virtuella Azure-datorer
 
@@ -26,7 +26,7 @@ Nej. Lyckade säkerhetskopieringsjobb genererar inte aviseringar. Aviseringar sk
 
 ### <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>Kan jag se schemalagda säkerhets kopierings jobb på menyn säkerhets kopierings jobb?
 
-Menyn säkerhets kopierings jobb visar bara ad hoc-säkerhetskopierade jobb. För schemalagda jobb använder du [Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
+Menyn säkerhets kopierings jobb visar bara säkerhets kopierings jobb på begäran. För schemalagda jobb använder du [Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
 
 ### <a name="are-future-databases-automatically-added-for-backup"></a>Läggs framtida databaser automatiskt till för säkerhetskopiering?
 
@@ -39,7 +39,7 @@ Det korrekta sättet att sluta skydda den här databasen är att **stoppa säker
 
 ### <a name="if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-the-behavior-be"></a>Vad händer om jag ändrar namnet på databasen efter att det har skyddats?
 
-En döpt databas behandlas som en ny databas. Tjänsten kommer därför att behandla den här situationen som om databasen inte hittades och att säkerhets kopieringen Miss lyckas. Den omdöpta databasen visas som en ny databas och måste konfigureras för skydd.
+En döpt databas behandlas som en ny databas. Tjänsten kommer därför att behandla den här situationen som om databasen inte hittades och kommer att Miss lyckas med säkerhets kopiorna. Den omdöpta databasen visas som en ny databas och måste konfigureras för skydd.
 
 ### <a name="what-are-the-prerequisites-to-back-up-sap-hana-databases-on-an-azure-vm"></a>Vilka är kraven för att säkerhetskopiera SAP HANA databaser på en virtuell Azure-dator?
 
@@ -47,7 +47,7 @@ Se [kraven](tutorial-backup-sap-hana-db.md#prerequisites) och [Vad skriptet gör
 
 ### <a name="what-permissions-should-be-set-so-azure-can-back-up-sap-hana-databases"></a>Vilka behörigheter ska ställas in så att Azure kan säkerhetskopiera SAP HANA databaser?
 
-Genom att köra skriptet före registreringen anger du de behörigheter som krävs för att Azure ska kunna säkerhetskopiera SAP HANA-databaser. Du hittar mer information om skriptet för för [registrering.](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does)
+Genom att köra skriptet före registreringen anger du de behörigheter som krävs för att Azure ska kunna säkerhetskopiera SAP HANA-databaser. Du hittar mer information om vad skriptet för för registrering gör [här](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does).
 
 ### <a name="will-backups-work-after-migrating-sap-hana-from-sdc-to-mdc"></a>Kommer säkerhets kopieringar att fungera efter migrering av SAP HANA från SDC till MDC?
 
@@ -62,13 +62,13 @@ För närvarande har vi inte möjlighet att konfigurera lösningen mot enbart en
 1. Vänta tills den pågående säkerhets kopieringen har slutförts för den önskade databasen (kontrol lera att Studio är klar).
 1. Inaktivera logg säkerhets kopior och ange katalog säkerhets kopian till **fil systemet** för den önskade databasen med hjälp av följande steg:
 1. Dubbelklicka på **SYSTEMDB**  ->  **konfiguration**  ->  **Välj databas**  ->  **filter (logg)**
-    1. Ange enable_auto_log_backup till **Nej**
-    1. Ange catalog_backup_using_backint till **falskt**
+    1. Ange enable_auto_log_backup till **Nej**.
+    1. Ange catalog_backup_using_backint till **false**.
 1. Ta en säkerhets kopia på begäran (fullständig/differentiell/stegvis) på önskad databas och vänta tills säkerhets kopieringen och katalogen har slutförts.
-1. Om du även vill flytta logg säkerhets kopiorna till fil systemet anger du enable_auto_log_backup till **Ja**
+1. Om du även vill flytta logg säkerhets kopiorna till fil systemet anger du enable_auto_log_backup till **Ja**.
 1. Återgå till de tidigare inställningarna så att säkerhets kopieringar kan flöda till Azure-valvet:
-    1. Ange enable_auto_log_backup till **Ja**
-    1. Ange catalog_backup_using_backint till **Sant**
+    1. Ange enable_auto_log_backup till **Ja**.
+    1. Ange catalog_backup_using_backint till **Sant**.
 
 >[!NOTE]
 >Om du flyttar säkerhets kopior till det lokala fil systemet och växlar tillbaka till Azure-valvet kan logg kedjan brytas över logg säkerhets kopiorna i valvet. Detta utlöser en fullständig säkerhets kopiering, vilket innebär att när du har slutfört säkerhets kopieringen av loggarna.
@@ -77,7 +77,7 @@ För närvarande har vi inte möjlighet att konfigurera lösningen mot enbart en
 
 För närvarande har Azure Backup inte möjlighet att förstå en HSR-konfiguration. Det innebär att de primära och sekundära noderna i HSR kommer att behandlas som två enskilda, icke-relaterade virtuella datorer. Du måste först konfigurera säkerhets kopiering på den primära noden. När ett misslyckande inträffar måste säkerhets kopieringen konfigureras på den sekundära noden (som nu blir den primära noden). Det finns ingen automatisk redundans av säkerhets kopiering till den andra noden.
 
-Om du vill säkerhetskopiera data från den aktiva (primära) noden vid en viss tidpunkt kan du **Växla skydd**  till den sekundära noden, som nu är primärt efter redundans.
+Om du vill säkerhetskopiera data från den aktiva (primära) noden vid en viss tidpunkt kan du **Växla skydd** till den sekundära noden, som nu är primärt efter redundans.
 
 Följ dessa steg om du vill utföra det här **växel skyddet**:
 
@@ -129,36 +129,36 @@ Ja, du kan använda strömmande säkerhets kopieringar som har utlösts på en H
 
 ### <a name="different-options-available-during-creation-of-a-new-policy-for-sap-hana-backup"></a>Olika alternativ som är tillgängliga när du skapar en ny princip för SAP HANA säkerhets kopiering
 
-Innan du skapar en princip bör det vara klart om kraven för återställnings-och RTO och dess relevanta kostnads konsekvenser.
+Innan du skapar en princip bör du vara klar med kraven för återställnings-och RTO och dess relevanta kostnads konsekvenser.
 
-Återställnings punkt mål anger hur mycket data förlust som är OK för användaren/kunden. Detta avgörs av logg säkerhets kopierings frekvensen. Flera frekventa logg säkerhets kopieringar anger lägre återställnings nivå och det minsta värde som stöds av Azure Backup tjänsten är 15 minuter, vilket innebär att logg säkerhets kopierings frekvensen kan vara 15 minuter eller högre.
+Återställnings punkt mål anger hur mycket data förlust som är acceptabel för användaren/kunden. Detta avgörs av logg säkerhets kopierings frekvensen. Mer frekventa logg säkerhets kopieringar visar lägre drift och det minsta värde som stöds av Azure Backup tjänsten är 15 minuter. Logg säkerhets kopierings frekvensen kan vara 15 minuter eller mer.
 
-RTO (återställnings tid-mål) anger hur snabbt data ska återställas till den senaste tillgängliga tidpunkten efter ett data förlust scenario. Detta beror på återställnings strategin som används av HANA, vilket vanligt vis är beroende av hur många filer som krävs för återställning. Detta är både kostnads konsekvenser och följande tabell bör vara till hjälp vid förståelsen av alla scenarier och deras konsekvenser.
+RTO (återställnings tid-mål) anger hur snabbt data ska återställas till den senaste tillgängliga tidpunkten efter ett data förlust scenario. Detta beror på återställnings strategin som används av HANA, som vanligt vis är beroende av hur många filer som krävs för återställning. Detta har också kostnads konsekvenser och följande tabell bör vara till hjälp vid förståelsen av alla scenarier och deras konsekvenser.
 
-|Säkerhets kopierings princip  |RTO  |Cost (Kostnad)  |
+|Säkerhetskopieringsprincip  |RTO  |Cost (Kostnad)  |
 |---------|---------|---------|
 |Dagliga fullständiga + loggar     |   Snabbast eftersom vi bara behöver en fullständig kopia + krävs loggar för återställning av tidpunkter      |    Alternativet Costliest eftersom en fullständig kopia tas dagligen och så att fler och fler data samlas in i Server delen tills Retentions tiden   |
-|Veckovis full + daglig differential + loggar     |   Långsammare än över ovan alternativ men snabbare än tidigare eftersom vi kräver en fullständig kopia + en differentiell kopia + loggar för återställning vid tidpunkter      |    Billigare alternativ eftersom den dagliga differentialen vanligt vis är mindre än fullständig och en fullständig kopia bara görs en gång i veckan      |
+|Veckovis full + daglig differential + loggar     |   Långsammare än alternativet ovan, men snabbare än nästa alternativ eftersom vi kräver en fullständig kopia + en differentiell kopia + loggar för återställning vid tidpunkter      |    Billigare alternativ eftersom den dagliga differentialen vanligt vis är mindre än fullständig och en fullständig kopia bara görs en gång i veckan      |
 |Varje veckas fullständiga + dagliga steg + loggar     |  Långsammast eftersom vi behöver en fullständig kopia + ' n ' steg-för-steg + loggar för tidpunkts återställning       |     Minst kostsamt alternativ eftersom den dagliga ökningen blir mindre än differentiell och en fullständig kopia bara tas varje vecka    |
 
 > [!NOTE]
-> Alternativen ovan är de vanligaste men inte alternativen. En kan till exempel ha en fullständig fullständig säkerhets kopiering + differentiella två gånger i veckan + loggar.
+> Ovanstående alternativ är de vanligaste, men inte de enda alternativen. Du kan till exempel ha en fullständig fullständig säkerhets kopiering + differentiella två gånger i veckan + loggar.
 
-Därför kan en välja princip-varianten baserat på återställnings-och RTO mål och kostnads överväganden.
+Därför kan du välja princip-varianten baserat på återställnings-och RTO mål och kostnads överväganden.
 
 ### <a name="impact-of-modifying-a-policy"></a>Effekt av att ändra en princip
 
-Några principer bör tänka på när du bestämmer effekten av att ändra ett säkerhets kopierings objekts princip från princip 1 (P1) till princip 2 (P2) eller för att redigera princip 1 (P1).
+Några principer bör vara i åtanke när du fastställer effekten av att ändra ett säkerhets kopierings objekts princip från princip 1 (P1) till princip 2 (P2) eller för att redigera princip 1 (P1).
 
 - Alla ändringar tillämpas också retroaktivt. Den senaste säkerhets kopierings principen tillämpas på de återställnings punkter som har tagits tidigare. Anta till exempel att den dagliga fullständiga kvarhållning är 30 dagar och att 10 återställnings punkter togs enligt den aktuella aktiva principen. Om den dagliga lagrings tiden ändras till 10 dagar, beräknas den föregående periodens förfallo tid också som start tid + 10 dagar och tas bort om de har upphört att gälla.
-- Ändrings omfånget omfattar även dag för säkerhets kopiering, typ av säkerhets kopiering tillsammans med kvarhållning. Till exempel: om en princip ändras från daglig full till varje vecka på söndagar, markeras alla tidigare fullständiga poster som inte är på söndagar för borttagning.
-- En överordnad tas inte bort förrän den underordnade är aktiv/inte-utgången. Varje säkerhets kopierings typ har en förfallo tid som finns enligt den aktiva principen. Men en fullständig typ av säkerhets kopiering betraktas som överordnad till efterföljande "differentieller", "stegvisa" och "loggar". En ' differentiell ' och ' log ' är inte överordnad till någon annan. En "stegvis" kan vara överordnad efterföljande "stegvis". Även om en överordnad har marker ATS för borttagning, tas de egentligen inte bort om underordnade ' differentialer ' eller ' loggar ' inte har upphört att gälla. Om en princip till exempel ändras från daglig full till varje vecka på söndagar, markeras alla tidigare fullständiga poster som inte är på söndagar för borttagning. Men de tas inte bort förrän loggarna som togs dagligen tidigare har upphört att gälla. Med andra ord behålls de enligt den senaste logg tiden. När loggarna upphör att gälla tas både loggarna och dessa fullständiga bort.
+- Ändrings omfånget omfattar även dag för säkerhets kopiering, typ av säkerhets kopiering tillsammans med kvarhållning. Exempel: om en princip ändras från daglig full till varje vecka på söndagar, markeras alla tidigare fulla fullständiga poster som inte finns på söndagar för borttagning.
+- En överordnad tas inte bort förrän den underordnade är aktiv/inte-upphört. Varje säkerhets kopierings typ har en förfallo tid enligt den aktuella aktiva principen. Men en fullständig typ av säkerhets kopiering betraktas som överordnad till efterföljande "differentieller", "stegvisa" och "loggar". En ' differentiell ' och ' log ' är inte överordnade till någon annan. En "stegvis" kan vara överordnad efterföljande "stegvis". Även om en överordnad har marker ATS för borttagning, tas den inte bort om underordnade ' differentialer ' eller ' loggar ' inte har upphört att gälla. Om en princip t. ex. ändras från daglig full till varje vecka på söndagar, markeras alla tidigare fulla poster som inte är på söndagar för borttagning. Men de tas inte bort förrän loggarna som togs dagligen tidigare har upphört att gälla. De är med andra ord bevarade enligt den senaste logg tiden. När loggarna upphör att gälla tas både loggarna och dessa fullständiga bort.
 
-Med dessa principer kan en läsa följande tabell för att förstå konsekvenserna av en princip ändring.
+Med dessa principer kan du läsa följande tabell för att förstå konsekvenserna av en princip ändring.
 
 |Gammal princip/ny princip  |Daglig fulls + loggar  | Veckovis fulla och dagliga differentialer + loggar  |Veckovis fulla + dagliga steg + loggar  |
 |---------|---------|---------|---------|
-|Daglig fulls + loggar     |   -      |    De tidigare fullständiga fullständig som inte finns på samma dag i veckan markeras för borttagning, men hålls kvar tills logg perioden kvarhålls     |    De tidigare fullständiga fullständig som inte finns på samma dag i veckan markeras för borttagning, men hålls kvar tills logg perioden kvarhålls     |
+|Daglig fulls + loggar     |   -      |    De tidigare fullständiga fullständiga filerna som inte är samma dag i veckan markeras för borttagning, men hålls kvar tills logg perioden kvarhålls     |    De tidigare fullständiga fullständiga filerna som inte är samma dag i veckan markeras för borttagning, men hålls kvar tills logg perioden kvarhålls     |
 |Veckovis fulla och dagliga differentialer + loggar     |   Föregående veckovis fulla kvarhållning räknas om enligt den senaste principen. De tidigare skillnaderna raderas omedelbart      |    -     |    De tidigare skillnaderna raderas omedelbart     |
 |Veckovis fulla + dagliga steg + loggar     |     Föregående veckovis fulla kvarhållning räknas om enligt den senaste principen. De tidigare stegen raderas omedelbart    |     De tidigare stegen raderas omedelbart    |    -     |
 

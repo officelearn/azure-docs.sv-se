@@ -4,12 +4,12 @@ description: Lär dig mer om skalning i Azure Kubernetes service (AKS), inklusiv
 services: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: 1a14615e96d5be4fbc8994073d66677997281131
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b72ed7cefc6a16eb484e1337dbd64e5f069a2201
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86499893"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686046"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Skalningsalternativ för program i Azure Kubernetes Service
 
@@ -50,7 +50,7 @@ För närvarande kan du inte finjustera dessa cooldown-värden från standardvä
 
 ## <a name="cluster-autoscaler"></a>Autoskalning av kluster
 
-För att svara på ändring av Pod-krav har Kubernetes en kluster autoskalning som justerar antalet noder baserat på de begärda beräknings resurserna i Node-poolen. Som standard kontrollerar kluster autoskalning den metriska API-servern var 10: e sekund för alla nödvändiga ändringar i antalet noder. Om klustrets autoskalning avgör att en ändring krävs, ökar eller minskar du antalet noder i ditt AKS-kluster. Kluster autoskalning fungerar med RBAC-aktiverade AKS-kluster som kör Kubernetes 1.10. x eller senare.
+För att svara på ändring av Pod-krav har Kubernetes en kluster autoskalning som justerar antalet noder baserat på de begärda beräknings resurserna i Node-poolen. Som standard kontrollerar kluster autoskalning den metriska API-servern var 10: e sekund för alla nödvändiga ändringar i antalet noder. Om klustrets autoskalning avgör att en ändring krävs, ökar eller minskar du antalet noder i ditt AKS-kluster. Kluster autoskalning fungerar med Kubernetes RBAC-aktiverade AKS-kluster som kör Kubernetes 1.10. x eller senare.
 
 ![Kubernetes-kluster autoskalning](media/concepts-scale/cluster-autoscaler.png)
 

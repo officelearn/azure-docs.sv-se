@@ -6,14 +6,14 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/22/2020
-ms.openlocfilehash: 5c3cb13d0b2da9370f402083d82397679f2c9343
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5eaf2d7075ca09aeb3cfaa2dfea81fd0f8d65ad
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022504"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685315"
 ---
-# <a name="what-is-azure-monitor-for-vms"></a>Vad är Azure Monitor for VMs?
+# <a name="overview-of-azure-monitor-for-vms"></a>Översikt över Azure Monitor for VMs
 
 Azure Monitor for VMs övervakar de virtuella datorernas prestanda och hälsa och skalnings uppsättningar för virtuella datorer, inklusive processer som körs och beroenden på andra resurser. Det kan hjälpa till att leverera förutsägbar prestanda och tillgänglighet för viktiga program genom att identifiera Flask halsar och nätverks problem och kan också hjälpa dig att förstå om ett problem är relaterat till andra beroenden.
 
@@ -26,8 +26,6 @@ Azure Monitor for VMs stöder Windows-och Linux-operativ system på följande:
 - Virtuella datorer som finns i en annan moln miljö
   
 
-
-
 Azure Monitor for VMs lagrar data i Azure Monitor loggar som gör det möjligt att leverera kraftfull agg regering och filtrering och analysera data trender över tid. Du kan visa dessa data i en enda virtuell dator från den virtuella datorn direkt, eller så kan du använda Azure Monitor för att leverera en sammanställd vy över flera virtuella datorer.
 
 ![Den virtuella datorns insikter perspektiv i Azure Portal](media/vminsights-overview/vminsights-azmon-directvm.png)
@@ -37,6 +35,7 @@ Azure Monitor for VMs lagrar data i Azure Monitor loggar som gör det möjligt a
 Det finns ingen direkt kostnad för Azure Monitor for VMs, men du debiteras för aktiviteten på arbets ytan Log Analytics. Baserat på prissättningen som publiceras på [sidan Azure Monitor prissättning](https://azure.microsoft.com/pricing/details/monitor/)faktureras Azure Monitor for VMS för:
 
 - Data som matats in från agenter och lagras i arbets ytan.
+- Hälso tillstånds data som samlats in från gäst hälsa (för hands version)
 - Aviserings regler baserade på logg-och hälso data.
 - Meddelanden som skickas från varnings regler.
 

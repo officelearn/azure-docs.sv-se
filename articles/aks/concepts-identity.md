@@ -1,25 +1,25 @@
 ---
 title: Koncept – åtkomst och identitet i Azure Kubernetes Services (AKS)
-description: Lär dig mer om åtkomst och identitet i Azure Kubernetes service (AKS), inklusive Azure Active Directory-integrering, Kubernetes rollbaserad åtkomst kontroll (RBAC) och roller och bindningar.
+description: Lär dig mer om åtkomst och identitet i Azure Kubernetes service (AKS), inklusive Azure Active Directory-integrering, Kubernetes rollbaserad åtkomst kontroll (Kubernetes RBAC) och roller och bindningar.
 services: container-service
 ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 5013f8b7dd88340e397fd3d4d4cd93d4b911fbbb
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: ca167a2ae313c29581d40fe921a8742b9b6b61fe
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378235"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686063"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Åtkomst och identitetsalternativ för Azure Kubernetes Service (AKS)
 
-Det finns olika sätt att autentisera, kontrol lera åtkomst/auktorisera och säkra Kubernetes-kluster. Med hjälp av Kubernetes rollbaserad åtkomst kontroll (RBAC) kan du ge användare, grupper och tjänst konton åtkomst till enbart de resurser de behöver. Med Azure Kubernetes service (AKS) kan du ytterligare förbättra strukturen för säkerhet och behörighet genom att använda Azure Active Directory och Azure RBAC. De här metoderna hjälper dig att skydda kluster åtkomsten och ger endast de behörigheter som krävs för utvecklare och operatörer.
+Det finns olika sätt att autentisera, kontrol lera åtkomst/auktorisera och säkra Kubernetes-kluster. Med Kubernetes-rollbaserad åtkomst kontroll (Kubernetes RBAC) kan du ge användare, grupper och tjänst konton åtkomst till enbart de resurser de behöver. Med Azure Kubernetes service (AKS) kan du ytterligare förbättra strukturen för säkerhet och behörighet genom att använda Azure Active Directory och Azure RBAC. De här metoderna hjälper dig att skydda kluster åtkomsten och ger endast de behörigheter som krävs för utvecklare och operatörer.
 
 Den här artikeln beskriver de viktigaste begreppen som hjälper dig att autentisera och tilldela behörigheter i AKS:
 
-- [Kubernetes-rollbaserad åtkomst kontroll (RBAC)](#kubernetes-role-based-access-control-rbac)
+- [Kubernetes-rollbaserad åtkomst kontroll (Kubernetes RBAC)](#kubernetes-role-based-access-control-kubernetes-rbac)
   - [Roller och ClusterRoles](#roles-and-clusterroles)
   - [RoleBindings och ClusterRoleBindings](#rolebindings-and-clusterrolebindings) 
   - [Kubernetes tjänst konton](#kubernetes-service-accounts)
@@ -29,11 +29,11 @@ Den här artikeln beskriver de viktigaste begreppen som hjälper dig att autenti
   - [Azure RBAC för Kubernetes-auktorisering (för hands version)](#azure-rbac-for-kubernetes-authorization-preview)
 
 
-## <a name="kubernetes-role-based-access-control-rbac"></a>Kubernetes-rollbaserad åtkomst kontroll (RBAC)
+## <a name="kubernetes-role-based-access-control-kubernetes-rbac"></a>Kubernetes-rollbaserad åtkomst kontroll (Kubernetes RBAC)
 
-För att ge detaljerad filtrering av de åtgärder som användarna kan utföra, använder Kubernetes rollbaserad åtkomst kontroll (RBAC). Med den här kontrollen kan du tilldela användare eller grupper av användare behörighet att göra saker som att skapa eller ändra resurser, eller Visa loggar från att köra program arbets belastningar. Dessa behörigheter kan begränsas till ett enda namn område eller beviljas i hela AKS-klustret. Med Kubernetes RBAC skapar du *roller* för att definiera behörigheter och tilldelar sedan rollerna till användare med *roll bindningar*.
+För att ge detaljerad filtrering av de åtgärder som användarna kan utföra använder Kubernetes Kubernetes-rollbaserad åtkomst kontroll (Kubernetes RBAC). Med den här kontrollen kan du tilldela användare eller grupper av användare behörighet att göra saker som att skapa eller ändra resurser, eller Visa loggar från att köra program arbets belastningar. Dessa behörigheter kan begränsas till ett enda namn område eller beviljas i hela AKS-klustret. Med Kubernetes RBAC skapar du *roller* för att definiera behörigheter och tilldelar sedan rollerna till användare med *roll bindningar*.
 
-Mer information finns i [använda RBAC-auktorisering][kubernetes-rbac].
+Mer information finns i [använda KUBERNETES RBAC-auktorisering][kubernetes-rbac].
 
 
 ### <a name="roles-and-clusterroles"></a>Roller och ClusterRoles
@@ -46,7 +46,7 @@ En ClusterRole fungerar på samma sätt för att bevilja behörigheter till resu
 
 ### <a name="rolebindings-and-clusterrolebindings"></a>RoleBindings och ClusterRoleBindings
 
-När rollerna har definierats för att ge behörigheter till resurser tilldelar du dessa Kubernetes RBAC-behörigheter till en *RoleBinding*. Om ditt AKS-kluster [integreras med Azure Active Directory](#azure-active-directory-integration), är bindningar hur de Azure AD-användare beviljar behörigheter att utföra åtgärder i klustret, se så [här kontrollerar du åtkomsten till kluster resurser med hjälp av rollbaserad åtkomst kontroll och Azure Active Directory identiteter](azure-ad-rbac.md).
+När rollerna har definierats för att ge behörigheter till resurser tilldelar du dessa Kubernetes RBAC-behörigheter till en *RoleBinding*. Om ditt AKS-kluster [integreras med Azure Active Directory](#azure-active-directory-integration), är bindningar hur de Azure AD-användare beviljar behörigheter att utföra åtgärder i klustret, se så [här kontrollerar du åtkomsten till kluster resurser med hjälp av Kubernetes-rollbaserad åtkomst kontroll och Azure Active Directory identiteter](azure-ad-rbac.md).
 
 Roll bindningar används för att tilldela roller för en specifik namnrymd. Med den här metoden kan du logiskt särskilja ett enda AKS-kluster, där användare bara kan komma åt program resurserna i sitt tilldelade namn område. Om du behöver binda roller över hela klustret, eller till kluster resurser utanför ett angivet namn område, kan du i stället använda *ClusterRoleBindings*.
 
@@ -101,13 +101,13 @@ Azure RBAC är ett auktoriserings system som bygger på [Azure Resource Manager]
 
  Azure RBAC är utformat för att fungera med resurser i din Azure-prenumeration medan Kubernetes RBAC är utformad för att fungera med Kubernetes-resurser i ditt AKS-kluster. 
 
-Med Azure RBAC skapar du en *roll definition* som beskriver de behörigheter som ska tillämpas. En användare eller grupp tilldelas sedan den här roll definitionen via en *roll tilldelning* för ett visst *omfång* , som kan vara en enskild resurs, en resurs grupp eller över prenumerationen.
+Med Azure RBAC skapar du en *roll definition* som beskriver de behörigheter som ska tillämpas. En användare eller grupp tilldelas sedan den här roll definitionen via en *roll tilldelning* för ett visst *omfång*, som kan vara en enskild resurs, en resurs grupp eller över prenumerationen.
 
 Mer information finns i [Vad är Azures rollbaserad åtkomst kontroll (Azure RBAC)?][azure-rbac]
 
 Det finns två åtkomst nivåer som krävs för att fullständigt kunna använda ett AKS-kluster: 
 1. [Få åtkomst till AKS-resursen i din Azure-prenumeration](#azure-rbac-to-authorize-access-to-the-aks-resource). Med den här processen kan du styra sakernas skalning eller uppgradera klustret med hjälp av AKS-API: er samt hämta din kubeconfig.
-2. Åtkomst till Kubernetes-API: et. Den här åtkomsten styrs antingen av [KUBERNETES RBAC](#kubernetes-role-based-access-control-rbac) (traditionellt) eller genom att [integrera Azure RBAC med AKS för Kubernetes-auktorisering](#azure-rbac-for-kubernetes-authorization-preview)
+2. Åtkomst till Kubernetes-API: et. Den här åtkomsten styrs antingen av [KUBERNETES RBAC](#kubernetes-role-based-access-control-kubernetes-rbac) (traditionellt) eller genom att [integrera Azure RBAC med AKS för Kubernetes-auktorisering](#azure-rbac-for-kubernetes-authorization-preview)
 
 ### <a name="azure-rbac-to-authorize-access-to-the-aks-resource"></a>Azure RBAC för att ge åtkomst till AKS-resursen
 

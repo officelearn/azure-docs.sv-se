@@ -3,17 +3,17 @@ title: Azure Defender för SQL – fördelar och funktioner
 description: Lär dig mer om fördelarna och funktionerna i Azure Defender för SQL.
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 11/17/2020
 ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 220f9fffd6c0f9b959230964a9ec79f4e209bd54
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: b4f046339c027a5ae66f7f7510d8d2b311abd6df
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372549"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693468"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Introduktion till Azure Defender för SQL
 
@@ -25,8 +25,8 @@ Azure Defender för SQL innehåller två Azure Defender-planer som utökar Azure
 |----|:----|
 |Versions tillstånd:|**Azure Defender för Azure SQL Database-servrar** – allmänt tillgängliga (ga)<br>**Azure Defender för SQL-servrar på datorer – för** hands version<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Priset|De två planer som utgör **Azure Defender för SQL** debiteras enligt [pris sidan](security-center-pricing.md)|
-|Skyddade SQL-versioner:|Azure SQL Database <br>Hanterad Azure SQL-instans<br>Azure Synapse Analytics (tidigare SQL DW)<br>SQL Server (alla versioner som stöds)|
-|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Kina gov, andra gov|
+|Skyddade SQL-versioner:|Azure SQL Database <br>Hanterad Azure SQL-instans<br>Dedikerad SQL-pool i Azure Synapse (tidigare SQL DW)<br>SQL Server (alla versioner som stöds)|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) US Gov<br>![Nej](./media/icons/no-icon.png) Kina gov, andra gov|
 |||
 
 ## <a name="what-does-azure-defender-for-sql-protect"></a>Vad skyddar Azure Defender för SQL?
@@ -36,7 +36,7 @@ Azure Defender för SQL innehåller två Azure Defender-planer som utökar Azure
 - **Azure Defender för Azure SQL Database-servrar** skyddar:
   - [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md)
   - [Hanterad Azure SQL-instans](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)
-  - [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+  - [Dedikerad SQL-pool i Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse)
 
 - **Azure Defender för SQL-servrar på datorer (för hands version)** utökar skydds inställningarna för dina Azure-inhemska SQL-servrar för att fullständigt stödja hybrid miljöer och skydda SQL-servrar (all version som stöds) som finns i Azure, andra moln miljöer och även lokala datorer
 

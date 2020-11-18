@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 11/13/2020
 ms.custom: mvc
-ms.openlocfilehash: dbc0f34e57297b9879a865511f6e7b4ed7ca2a3c
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 1bf3141876ee56ee1361f19a67689ca3b2f4f89a
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636902"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685298"
 ---
 # <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
 
@@ -28,7 +28,7 @@ Kom igång genom att slutföra själv studie kursen [skapa en Azure Red Hat Open
 
 ## <a name="access-security-and-monitoring"></a>Åtkomst, säkerhet och övervakning
 
-För förbättrad säkerhet och hantering kan du med hjälp av Azure Red Hat OpenShift integrera med Azure Active Directory (Azure AD) och använda Kubernetes-rollbaserad åtkomst kontroll (RBAC). Du kan också övervaka hälsotillståndet för ditt kluster och dina resurser.
+För förbättrad säkerhet och hantering kan du med hjälp av Azure Red Hat OpenShift integrera med Azure Active Directory (Azure AD) och använda Kubernetes-rollbaserad åtkomst kontroll (Kubernetes RBAC). Du kan också övervaka hälsotillståndet för ditt kluster och dina resurser.
 
 ## <a name="cluster-and-node"></a>Kluster och nod
 

@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 098256c3174f5a737bec4f6a62cb1d2af99e6f4f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a284e453a621860c0aebf68bef13d30e77971f88
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311076"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686165"
 ---
 # <a name="connect-to-synapse-sql-with-visual-studio-and-ssdt"></a>Ansluta till Synapse SQL med Visual Studio och SSDT
 
@@ -32,7 +32,7 @@ Använd Visual Studio för att fråga en dedikerad SQL-pool med Azure Synapse An
 > [!NOTE]
 > SQL-poolen utan server (för hands version) stöds inte av SSDT.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill använda den här självstudien måste du ha följande komponenter:
 
@@ -52,9 +52,9 @@ Om du vill använda den här självstudien måste du ha följande komponenter:
    
     ![Anslut till server](./media/get-started-visual-studio/connection-dialog.png)
    
-   * **Server namn** : Ange det **Server namn** som du identifierade tidigare.
-   * **Autentisering** : Välj **SQL Server autentisering** eller **Active Directory integrerad autentisering** :
-   * **Användar namn** och **lösen ord** : Ange ditt användar namn och lösen ord om SQL Server autentisering valdes ovan.
+   * **Server namn**: Ange det **Server namn** som du identifierade tidigare.
+   * **Autentisering**: Välj **SQL Server autentisering** eller **Active Directory integrerad autentisering**:
+   * **Användar namn** och **lösen ord**: Ange ditt användar namn och lösen ord om SQL Server autentisering valdes ovan.
    * Klicka på **Anslut**.
 5. Expandera din Azure SQL-server för att utforska. Du kan se de databaser som är associerade med servern. Expandera AdventureWorksDW för att se tabellerna i din exempeldatabas.
    

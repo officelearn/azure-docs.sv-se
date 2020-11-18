@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: db7d9e99de8a4ee67e49f8b7568700fc07b1e2fd
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 749c32091ed10d5bb39d7b67c8b737e002fc9909
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536539"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693740"
 ---
 # <a name="introduction-to-azure-security"></a>Introduktion till Azure-säkerhet
 ## <a name="overview"></a>Översikt
@@ -141,8 +141,8 @@ I Programdiagnostik kan du gruppera händelser på följande vis:
 ## <a name="storage"></a>Storage
 Avsnittet innehåller ytterligare information om viktiga funktioner i Azure Storage Security och sammanfattnings information om dessa funktioner.
 
-### <a name="role-based-access-control-rbac"></a>Rollbaserad åtkomstkontroll (RBAC)
-Du kan skydda ditt lagrings konto med Role-Based Access Control (RBAC). Att begränsa åtkomsten baserat på [behovet av att känna till](https://en.wikipedia.org/wiki/Need_to_know) och [minsta behörighets](https://en.wikipedia.org/wiki/Principle_of_least_privilege) säkerhets principer är att det är absolut nödvändigt för organisationer som vill tillämpa säkerhets principer för data åtkomst. Dessa behörigheter beviljas genom att tilldela lämplig Azure-roll till grupper och program i ett visst omfång. Du kan använda [inbyggda Azure-roller](../../role-based-access-control/built-in-roles.md), till exempel lagrings konto deltagare, för att tilldela behörigheter till användare. Åtkomst till lagrings nycklarna för ett lagrings konto med hjälp av [Azure Resource Manager](../../storage/blobs/security-recommendations.md) modellen kan styras via Role-Based Access Control (RBAC).
+### <a name="azure-role-based-access-control-azure-rbac"></a>Azure RBAC (rollbaserad åtkomstkontroll)
+Du kan skydda ditt lagrings konto med rollbaserad åtkomst kontroll i Azure (Azure RBAC). Att begränsa åtkomsten baserat på [behovet av att känna till](https://en.wikipedia.org/wiki/Need_to_know) och [minsta behörighets](https://en.wikipedia.org/wiki/Principle_of_least_privilege) säkerhets principer är att det är absolut nödvändigt för organisationer som vill tillämpa säkerhets principer för data åtkomst. Dessa behörigheter beviljas genom att tilldela lämplig Azure-roll till grupper och program i ett visst omfång. Du kan använda [inbyggda Azure-roller](../../role-based-access-control/built-in-roles.md), till exempel lagrings konto deltagare, för att tilldela behörigheter till användare. Åtkomst till lagrings nycklarna för ett lagrings konto med hjälp av [Azure Resource Manager](../../storage/blobs/security-recommendations.md) modellen kan styras via Azure RBAC.
 
 ### <a name="shared-access-signature"></a>Signatur för delad åtkomst
 En [signatur för delad åtkomst (Shared Access Signature, SAS)](../../storage/common/storage-sas-overview.md) ger delegerad åtkomst till resurser på ditt lagringskonto. SAS innebär att du kan bevilja en klient begränsad behörighet till objekt i ditt lagrings konto under en angiven period och med en angiven uppsättning behörigheter. Du kan bevilja dessa begränsade behörigheter utan att behöva dela dina konto åtkomst nycklar.
@@ -336,7 +336,7 @@ Microsoft använder flera säkerhets metoder och tekniker för sina produkter oc
 
 -   [Tokenbaserad autentisering](../../active-directory/develop/authentication-vs-authorization.md) möjliggör autentisering via Azure Active Directory.
 
--   Med [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/built-in-roles.md) kan du bevilja åtkomst baserat på användarens tilldelade roll, vilket gör det enkelt att ge användare bara den mängd åtkomst de behöver för att utföra sina jobb uppgifter. Du kan anpassa RBAC enligt organisationens affärs modell och risk tolerans.
+-   Med [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/built-in-roles.md) kan du bevilja åtkomst baserat på användarens tilldelade roll, vilket gör det enkelt att ge användare bara den mängd åtkomst de behöver för att utföra sina jobb uppgifter. Du kan anpassa Azure RBAC enligt organisationens affärs modell och risk tolerans.
 
 -   Med [integrerad identitets hantering (hybrid identitet)](../../active-directory/hybrid/plan-hybrid-identity-design-considerations-overview.md) kan du behålla kontrollen över användarnas åtkomst till interna Data Center och moln plattformar, vilket skapar en enda användar identitet för autentisering och auktorisering till alla resurser.
 

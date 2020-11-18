@@ -4,12 +4,12 @@ description: Samling av kluster operatör och bästa metoder för utvecklare fö
 services: container-service
 ms.topic: article
 ms.date: 12/07/2018
-ms.openlocfilehash: 1278a03d3ffc7ccb11b0e3c4c84f6c213648440b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e8f9c1946567ac3c3ea1045a216d6b0486fd959a
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88008788"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686267"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>Kluster operatör och bästa metoder för utvecklare för att bygga och hantera program i Azure Kubernetes service (AKS)
 
@@ -30,7 +30,7 @@ Som kluster operatör arbetar tillsammans med program ägare och utvecklare för
 * [Metodtips för avancerade schemaläggningsfunktioner](operator-best-practices-advanced-scheduler.md)
     * Inkluderar användning av utsmakar och tolererar, Node Selector och tillhörighet och Pod tillhörighet och skydds tilldelning.
 * [Metodtips för autentisering och auktorisering](operator-best-practices-identity.md)
-    * Inkluderar integrering med Azure Active Directory, med rollbaserad åtkomst kontroll (RBAC) och Pod identiteter.
+    * Inkluderar integrering med Azure Active Directory med hjälp av Kubernetes-rollbaserad åtkomst kontroll (Kubernetes RBAC), med Azure RBAC-och Pod-identiteter.
 
 **Säkerhet**
 

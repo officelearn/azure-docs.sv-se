@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 10/12/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 13825422358fdddf6742353fbabaac0303b0c82e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d22ff5c863617a3feb2a08d4b1889d0a7c10cd3a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973452"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693407"
 ---
 # <a name="tutorial-optimize-indexing-with-the-push-api"></a>Självstudie: optimera indexering med push-API
 
@@ -31,7 +31,7 @@ I den här självstudien används C# och [.NET SDK](/dotnet/api/overview/azure/s
 > * Använd flera trådar för att öka indexerings hastigheten
 > * Använd en exponentiell backoff-strategi för återförsök för att försöka använda misslyckade dokument
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -54,7 +54,7 @@ När du skickar data till ett index finns det flera viktiga överväganden som p
 Sex viktiga faktorer att överväga är:
 
 + **Tjänst nivån och antalet partitioner/repliker** – om du lägger till partitioner och ökar nivån ökar indexerings hastigheten.
-+ **Index schema** – lägga till fält och lägga till ytterligare egenskaper till fält (till exempel sökbar, *aspektable*eller *filtrerings* *bara*) sänker både indexerings hastigheten.
++ **Index schema** – lägga till fält och lägga till ytterligare egenskaper till fält (till exempel sökbar, *aspektable* eller *filtrerings* *bara*) sänker både indexerings hastigheten.
 + **Batchstorlek** – den optimala batchstorleken varierar beroende på ditt index schema och data uppsättning.
 + **Antal trådar/arbetare** – en enda tråd drar inte full nytta av indexerings hastigheter
 + **Återförsöks strategi** – en exponentiell backoff-strategi för återförsök bör användas för att optimera indexeringen.
@@ -73,7 +73,7 @@ API-anrop kräver tjänst-URL och en åtkomst nyckel. En Sök tjänst skapas med
 
 1. I **Inställningar**  >  **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
 
-   ![Hämta en HTTP-slutpunkt och åtkomst nyckel](media/search-get-started-postman/get-url-key.png "Hämta en HTTP-slutpunkt och åtkomst nyckel")
+   ![Hämta en HTTP-slutpunkt och åtkomst nyckel](media/search-get-started-rest/get-url-key.png "Hämta en HTTP-slutpunkt och åtkomst nyckel")
 
 ## <a name="2---set-up-your-environment"></a>2 – Konfigurera din miljö
 
@@ -162,7 +162,7 @@ Schemat för ditt index kan ha en betydande inverkan på indexerings hastigheten
 Azure Kognitiv sökning stöder följande API: er för att läsa in enstaka eller flera dokument i ett index:
 
 + [Lägg till, uppdatera eller ta bort dokument (REST API)](/rest/api/searchservice/AddUpdate-or-Delete-Documents)
-+ [IndexDocumentsAction-klass](/dotnet/api/azure.search.documents.models.indexdocumentsaction?view=azure-dotnet) eller [IndexDocumentsBatch-klass](/dotnet/api/azure.search.documents.models.indexdocumentsbatch?view=azure-dotnet)
++ [IndexDocumentsAction-klass](/dotnet/api/azure.search.documents.models.indexdocumentsaction) eller [IndexDocumentsBatch-klass](/dotnet/api/azure.search.documents.models.indexdocumentsbatch)
 
 Indexering av dokument i batchar kan förbättra indexerings prestanda avsevärt. Dessa batchar kan vara upp till 1000 dokument eller upp till ungefär 16 MB per batch.
 

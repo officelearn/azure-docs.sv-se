@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: 97b872c5fe0a155bb6e474f327f8d0c65e22b21f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: d2cd05251e7bf1a0b0ebcd24e6d3d0202f277969
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317451"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685519"
 ---
 # <a name="azure-load-balancer-components"></a>Azure Load Balancer-komponenter
 
@@ -54,7 +54,7 @@ Belastnings utjämning konfigurerar genast om sig själv via automatisk omkonfig
 
 När du överväger att utforma en backend-pool bör du utforma för det minsta antalet enskilda resurser för Server dels poolen för att optimera längden på hanterings åtgärder. Det finns ingen skillnad i prestanda eller skalning för data planet.
 
-## <a name="health-probes"></a>Hälsotillståndsavsökningar
+## <a name="health-probes"></a>Hälsoavsökningar
 
 En hälso avsökning används för att fastställa hälso status för instanserna i backend-poolen. Under skapandet av belastningsutjämnare konfigurerar du en hälso avsökning för belastningsutjämnaren som ska användas.  Den här hälso avsökningen avgör om en instans är felfri och kan ta emot trafik.
 
@@ -141,7 +141,7 @@ Den grundläggande belastningsutjämnaren stöder inte utgående regler.
 - Se [skapa en offentlig standard Load Balancer](quickstart-load-balancer-standard-public-portal.md) för att komma igång med att använda en Load Balancer.
 - Läs mer om [Azure Load Balancer](load-balancer-overview.md).
 - Lär dig mer om den [offentliga IP-adressen](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)
-- Läs mer om [privat IP-adress](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses)
+- Läs mer om [privat IP-adress](../virtual-network/private-ip-addresses.md)
 - Lär dig mer om att använda [standard Load Balancer och Tillgänglighetszoner](load-balancer-standard-availability-zones.md).
 - Lär dig mer om [standard Load Balancer Diagnostics](load-balancer-standard-diagnostics.md).
 - Läs mer om [TCP-återställning vid inaktivitet](load-balancer-tcp-reset.md).

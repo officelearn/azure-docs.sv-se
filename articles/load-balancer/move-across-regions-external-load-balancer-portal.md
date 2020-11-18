@@ -6,21 +6,21 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 0598f21cddbaeef6b3cd10cd77250eeae8bd34bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f83ff3d1d03354daef3466c1f48eaa505e378634
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84808713"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693757"
 ---
 # <a name="move-an-external-load-balancer-to-another-region-by-using-the-azure-portal"></a>Flytta en extern belastningsutjämnare till en annan region med hjälp av Azure Portal
 
 Det finns olika scenarier där du vill flytta en extern belastningsutjämnare från en region till en annan. Du kanske till exempel vill skapa en annan extern belastningsutjämnare med samma konfiguration för testning. Du kanske också vill flytta en extern belastningsutjämnare till en annan region som en del av Disaster Recovery-planeringen.
 
-I en litteral mening kan du inte flytta en extern Azure-belastningsutjämnare från en region till en annan. Men du kan använda en Azure Resource Manager mall för att exportera den befintliga konfigurationen och den offentliga IP-adressen till en extern belastningsutjämnare. Du kan sedan mellanlagra resursen i en annan region genom att exportera belastningsutjämnaren och offentliga IP-adresser till en mall, ändra parametrarna för att matcha mål regionen och sedan distribuera mallen till den nya regionen. Mer information om Resource Manager och mallar finns i [Exportera resurs grupper till mallar](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates).
+I en litteral mening kan du inte flytta en extern Azure-belastningsutjämnare från en region till en annan. Men du kan använda en Azure Resource Manager mall för att exportera den befintliga konfigurationen och den offentliga IP-adressen till en extern belastningsutjämnare. Du kan sedan mellanlagra resursen i en annan region genom att exportera belastningsutjämnaren och offentliga IP-adresser till en mall, ändra parametrarna för att matcha mål regionen och sedan distribuera mallen till den nya regionen. Mer information om Resource Manager och mallar finns i [Exportera resurs grupper till mallar](../azure-resource-manager/management/manage-resource-groups-powershell.md#export-resource-groups-to-templates).
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Se till att den externa Azure-belastningsutjämnaren finns i den Azure-region som du vill flytta.
 
@@ -32,7 +32,7 @@ I en litteral mening kan du inte flytta en extern Azure-belastningsutjämnare fr
 
 - Kontrol lera att din Azure-prenumeration låter dig skapa externa belastningsutjämnare i mål regionen. Kontakta supporten och aktivera den kvot som krävs.
 
-- Kontrol lera att din prenumeration har tillräckligt med resurser för att lägga till belastnings utjämning. Läs mer i [Azure-prenumeration och tjänstbegränsningar, kvoter och krav](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
+- Kontrol lera att din prenumeration har tillräckligt med resurser för att lägga till belastnings utjämning. Läs mer i [Azure-prenumeration och tjänstbegränsningar, kvoter och krav](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
 ## <a name="prepare-and-move"></a>Förbered och flytta
 Följande procedurer visar hur du förbereder den externa belastningsutjämnaren för flytt med hjälp av en Resource Manager-mall och flyttar den externa belastnings Utjämnings konfigurationen till mål regionen med hjälp av Azure Portal. Du måste först exportera den offentliga IP-konfigurationen för den externa belastningsutjämnaren.
@@ -110,7 +110,7 @@ Följande procedurer visar hur du förbereder den externa belastningsutjämnaren
             },
         ```
 
-        Information om skillnaderna mellan grundläggande och standard-SKU: er i offentliga IP-adresser finns i [skapa, ändra eller ta bort en offentlig IP-adress](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
+        Information om skillnaderna mellan grundläggande och standard-SKU: er i offentliga IP-adresser finns i [skapa, ändra eller ta bort en offentlig IP-adress](../virtual-network/virtual-network-public-ip-address.md).
 
     * **Tilldelnings metod för offentlig IP** och **tids gräns för inaktivitet**. Du kan ändra metoden för offentlig IP-tilldelning genom att ändra egenskapen **publicIPAllocationMethod** från **dynamisk** till **statisk** eller från **statisk** till **dynamisk**. Du kan ändra tids gränsen för inaktivitet genom att ändra egenskapen **idleTimeoutInMinutes** till önskat värde. Standardvärdet är **4**.
 
@@ -136,7 +136,7 @@ Följande procedurer visar hur du förbereder den externa belastningsutjämnaren
 
         ```
 
-        Information om tilldelnings metoder och tids gräns värden för inaktivitet finns i [skapa, ändra eller ta bort en offentlig IP-adress](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
+        Information om tilldelnings metoder och tids gräns värden för inaktivitet finns i [skapa, ändra eller ta bort en offentlig IP-adress](../virtual-network/virtual-network-public-ip-address.md).
 
  
 13. Välj **Spara** i redigeraren online.
@@ -147,7 +147,7 @@ Följande procedurer visar hur du förbereder den externa belastningsutjämnaren
 
 16. Kontrol lera att **grundläggande**  >  **platser** är inställt på den mål plats där du vill att den offentliga IP-adressen ska distribueras.
 
-17. Under **Inställningar**kontrollerar du att namnet matchar namnet som du angav tidigare i parameter redigeraren.
+17. Under **Inställningar** kontrollerar du att namnet matchar namnet som du angav tidigare i parameter redigeraren.
 
 18. Markera kryss rutan **allmänna** villkor.
 
@@ -257,7 +257,7 @@ Följande procedurer visar hur du förbereder den externa belastningsutjämnaren
                 "tier": "Regional"
             },
         ```
-      Information om skillnaderna mellan Basic-och standard-SKU-belastningsutjämnare finns i [Översikt över Azure standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
+      Information om skillnaderna mellan Basic-och standard-SKU-belastningsutjämnare finns i [Översikt över Azure standard Load Balancer](./load-balancer-overview.md).
 
     * **Belastnings Utjämnings regler**. Du kan lägga till eller ta bort belastnings Utjämnings regler i konfigurationen genom att lägga till eller ta bort poster i **loadBalancingRules** -avsnittet i template.jspå filen:
 
@@ -385,7 +385,7 @@ Följande procedurer visar hur du förbereder den externa belastningsutjämnaren
                 ]
         ```
 
-         Mer information finns i [Load Balancer utgående regler](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview).
+         Mer information finns i [Load Balancer utgående regler](./load-balancer-outbound-connections.md#outboundrules).
 
 12. Välj **Spara** i redigeraren online.
 
@@ -395,7 +395,7 @@ Följande procedurer visar hur du förbereder den externa belastningsutjämnaren
 
 16. Kontrol lera att **grundläggande**  >  **platser** är inställt på den mål plats där du vill att den externa belastningsutjämnaren ska distribueras.
 
-17. Under **Inställningar**kontrollerar du att namnet stämmer överens med det namn som du angav tidigare i parameter redigeraren. Kontrol lera att resurs-ID: n är ifyllda för alla offentliga IP-adresser i konfigurationen.
+17. Under **Inställningar** kontrollerar du att namnet stämmer överens med det namn som du angav tidigare i parameter redigeraren. Kontrol lera att resurs-ID: n är ifyllda för alla offentliga IP-adresser i konfigurationen.
 
 18. Markera kryss rutan **allmänna** villkor.
 
@@ -414,5 +414,5 @@ Om du vill genomföra ändringarna och slutföra flyttningen av den offentliga I
 I den här självstudien flyttade du en extern Azure-belastningsutjämnare från en region till en annan och rensade käll resurserna. Mer information om hur du flyttar resurser mellan regioner och haveri beredskap i Azure finns i:
 
 
-- [Flytta resurser till en ny resursgrupp eller prenumeration](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Migrera virtuella Azure-datorer till en annan region](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Flytta resurser till en ny resursgrupp eller prenumeration](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Migrera virtuella Azure-datorer till en annan region](../site-recovery/azure-to-azure-tutorial-migrate.md)

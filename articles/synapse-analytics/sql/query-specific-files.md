@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3b4755d1d2e14b8ce3b05cfef6d30d7f6102905d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e3f0a9f0b7fdef26cf1ef2b145ede1826fda6ebd
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318830"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685604"
 ---
 # <a name="use-file-metadata-in-serverless-sql-pool-queries"></a>Använda fil-metadata i SQL-pooler utan Server
 
@@ -24,11 +24,11 @@ Ibland kan du behöva veta vilken fil eller mapp källa som motsvarar en speciel
 
 Du kan använda funktionen `filepath` och `filename` för att returnera fil namn och/eller sökvägen i resultat uppsättningen. Eller så kan du använda dem för att filtrera data baserat på fil namnet och/eller mappsökvägen. Dessa funktioner beskrivs i funktionen syntax i avsnittet [filename](query-data-storage.md#filename-function) och funktionen fil [Sök väg](query-data-storage.md#filepath-function). I följande avsnitt hittar du korta beskrivningar utmed exempel.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Ditt första steg är att **skapa en databas** med en data källa som refererar till ett lagrings konto. Initiera sedan objekten genom att köra [installations skriptet](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) för den databasen. Det här installations skriptet skapar data källorna, autentiseringsuppgifterna för databasen och de externa fil formaten som används i de här exemplen.
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>Funktioner
 
 ### <a name="filename"></a>Sökväg
 

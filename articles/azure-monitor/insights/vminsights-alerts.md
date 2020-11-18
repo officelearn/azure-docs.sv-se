@@ -5,16 +5,19 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/23/2020
-ms.openlocfilehash: be469ab3b05c54ebc5afa6bd6d129efd8d4ba692
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/10/2020
+ms.openlocfilehash: f582f0dc7547a607351fcfc4ff9d39e8c5a077df
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91254813"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686185"
 ---
 # <a name="how-to-create-alerts-from-azure-monitor-for-vms"></a>Så här skapar du aviseringar från Azure Monitor for VMs
 [Aviseringar i Azure Monitor](../platform/alerts-overview.md) proaktivt meddela dig om intressanta data och mönster i dina övervaknings data. Azure Monitor for VMs innehåller inte förkonfigurerade aviserings regler, men du kan skapa egna baserat på de data som samlas in. Den här artikeln innehåller vägledning om hur du skapar aviserings regler, inklusive en uppsättning exempel frågor.
+
+> [!IMPORTANT]
+> De aviseringar som beskrivs i den här artikeln baseras på logg frågor från insamlade data Azure Monitor for VMs. Detta skiljer sig från de aviseringar som skapats av [Azure Monitor för gäst hälsa för virtuella datorer](vminsights-health-overview.md) som är en funktion som för närvarande finns i en offentlig för hands version När den här funktionen närmar sig allmän tillgänglighet konsol IDE ras vägledning för aviseringar.
 
 
 ## <a name="alert-rule-types"></a>Typer av varnings regler
@@ -29,11 +32,11 @@ Det finns två typer av logg aviseringar i Azure Monitor:
 ## <a name="alert-rule-walkthrough"></a>Genom gång av varnings regel
 Det här avsnittet beskriver hur du skapar en mått mätnings aviserings regel med hjälp av prestanda data från Azure Monitor for VMs. Du kan använda den här grundläggande processen med en mängd olika logg frågor för att få aviseringar om olika prestanda räknare.
 
-Börja med att skapa en ny aviserings regel genom att följa stegen i [skapa, Visa och hantera logg aviseringar med hjälp av Azure Monitor](../platform/alerts-log.md). För **resursen**väljer du Log Analytics arbets ytan som Azure Monitor virtuella datorer ska använda i din prenumeration. Eftersom mål resursen för logg aviserings regler alltid är en Log Analytics arbets yta måste logg frågan innehålla alla filter för specifika virtuella datorer eller skalnings uppsättningar för virtuella datorer. 
+Börja med att skapa en ny aviserings regel genom att följa stegen i [skapa, Visa och hantera logg aviseringar med hjälp av Azure Monitor](../platform/alerts-log.md). För **resursen** väljer du Log Analytics arbets ytan som Azure Monitor virtuella datorer ska använda i din prenumeration. Eftersom mål resursen för logg aviserings regler alltid är en Log Analytics arbets yta måste logg frågan innehålla alla filter för specifika virtuella datorer eller skalnings uppsättningar för virtuella datorer. 
 
-Använd någon av frågorna i [avsnittet nedan](#sample-alert-queries) som **Sök fråga**för **villkoret** för varnings regeln. Frågan måste returnera en numerisk egenskap med namnet *AggregatedValue*. Den bör sammanfatta data efter dator så att du kan skapa en separat avisering för varje virtuell dator som överskrider tröskelvärdet.
+Använd någon av frågorna i [avsnittet nedan](#sample-alert-queries) som **Sök fråga** för **villkoret** för varnings regeln. Frågan måste returnera en numerisk egenskap med namnet *AggregatedValue*. Den bör sammanfatta data efter dator så att du kan skapa en separat avisering för varje virtuell dator som överskrider tröskelvärdet.
 
-Välj **mått mått** i **aviserings logiken**och ange sedan ett **tröskelvärde**. I **Utlös avisering baserat på**anger du hur många gånger tröskelvärdet måste överskridas innan en avisering skapas. Till exempel är du förmodligen inte bekymrad om processorn överskrider ett tröskelvärde en gång och sedan återgår till normal, men du är försiktig om den fortsätter att överskrida tröskelvärdet för flera efterföljande mätningar.
+Välj **mått mått** i **aviserings logiken** och ange sedan ett **tröskelvärde**. I **Utlös avisering baserat på** anger du hur många gånger tröskelvärdet måste överskridas innan en avisering skapas. Till exempel är du förmodligen inte bekymrad om processorn överskrider ett tröskelvärde en gång och sedan återgår till normal, men du är försiktig om den fortsätter att överskrida tröskelvärdet för flera efterföljande mätningar.
 
 Avsnittet **utvärdera baserat på** definierar hur ofta frågan ska köras och tids perioden för frågan. I exemplet nedan kommer frågan att köras var 15: e minut och utvärdera prestanda värden som samlats in under de senaste 15 minuterna.
 

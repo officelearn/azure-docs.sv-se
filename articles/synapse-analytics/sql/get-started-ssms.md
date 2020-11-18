@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4337d6bb108042a909250b3d87d13ab60357cfec
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 4239b5400e919621dfff001ca7e6cb9de1626658
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311128"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686216"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>Ansluta till Synapse-SQL med SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ Du kan använda [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-ser
 > [!NOTE]
 > Om AAD-inloggningen har öppen anslutning i mer än 1 timme vid frågekörningen, kommer alla frågor som förlitar sig på AAD att Miss förväntas. Detta omfattar att fråga lagring med AAD-vidarekoppling och-instruktioner som interagerar med AAD (t. ex. skapa extern PROVIDER). Detta påverkar alla verktyg som håller anslutningen öppen, som i Frågeredigeraren i SSMS och ADS. Verktyg som öppnar ny anslutning för att köra frågor påverkas inte, till exempel Synapse Studio.
 > Du kan åtgärda problemet genom att starta om SSMS eller ansluta och frånkoppla i ADS. .
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar måste du kontrol lera att du har följande krav:  
 
@@ -50,13 +50,13 @@ Innan du börjar måste du kontrol lera att du har följande krav:
 Följ dessa steg om du vill ansluta till Synapse SQL med dedikerad SQL-pool: 
 
 1. Öppna SQL Server Management Studio (SSMS). 
-1. Fyll i fälten i dialog rutan **Anslut till Server** och välj sedan **Anslut** : 
+1. Fyll i fälten i dialog rutan **Anslut till Server** och välj sedan **Anslut**: 
   
     ![Anslut till Server 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/connect-object-explorer1.png)
    
-   * **Server namn** : Ange det **Server namn** som du identifierade tidigare.
-   * **Autentisering** : Välj en autentiseringstyp, till exempel **SQL Server autentisering** eller **Active Directory integrerad autentisering**.
-   * **Användar namn** och **lösen ord** : Ange ditt användar namn och lösen ord om SQL Server autentisering valdes ovan.
+   * **Server namn**: Ange det **Server namn** som du identifierade tidigare.
+   * **Autentisering**: Välj en autentiseringstyp, till exempel **SQL Server autentisering** eller **Active Directory integrerad autentisering**.
+   * **Användar namn** och **lösen ord**: Ange ditt användar namn och lösen ord om SQL Server autentisering valdes ovan.
 
 1. Expandera Azure-SQL Server i **Object Explorer**. Du kan visa databaserna som är kopplade till servern, till exempel AdventureWorksDW-databasen. Du kan expandera databasen för att se tabellerna:
    
@@ -68,13 +68,13 @@ Följ dessa steg om du vill ansluta till Synapse SQL med dedikerad SQL-pool:
 Följ dessa steg om du vill ansluta till Synapse SQL med en server lös SQL-pool: 
 
 1. Öppna SQL Server Management Studio (SSMS).
-1. Fyll i fälten i dialog rutan **Anslut till Server** och välj sedan **Anslut** : 
+1. Fyll i fälten i dialog rutan **Anslut till Server** och välj sedan **Anslut**: 
    
     ![Anslut till Server 2](./media/get-started-ssms/connect-object-explorer1.png)
    
-   * **Server namn** : Ange det **Server namn** som du identifierade tidigare.
-   * **Autentisering** : Välj en autentiseringstyp, till exempel **SQL Server autentisering** eller **Active Directory integrerad autentisering** :
-   * **Användar namn** och **lösen ord** : Ange ditt användar namn och lösen ord om SQL Server autentisering valdes ovan.
+   * **Server namn**: Ange det **Server namn** som du identifierade tidigare.
+   * **Autentisering**: Välj en autentiseringstyp, till exempel **SQL Server autentisering** eller **Active Directory integrerad autentisering**:
+   * **Användar namn** och **lösen ord**: Ange ditt användar namn och lösen ord om SQL Server autentisering valdes ovan.
    * Välj **Anslut**.
 
 4. Expandera din Azure SQL-server för att utforska. Du kan se de databaser som är associerade med servern. Expandera *demonstration* för att se innehållet i exempel databasen.
@@ -104,7 +104,7 @@ Nu när en databas anslutning har upprättats kan du fråga efter data.
    
     ![Frågeresultat 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/results.png)
 
-### <a name="serverless-sql-pool"></a>SQL-pool utan Server
+### <a name="serverless-sql-pool"></a>Serverlös SQL-pool
 
 Nu när du har upprättat en databas anslutning kan du fråga efter data.
 

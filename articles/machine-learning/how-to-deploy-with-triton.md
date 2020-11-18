@@ -11,12 +11,12 @@ ms.date: 09/23/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 3a7d750caed297dfa364e2f1ef176ee19ad35480
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: eed1a3d403a6012e2010a6b9a47a60f815044565
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654215"
+ms.locfileid: "94685910"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Högpresterande tjänster med Triton-Härlednings Server (för hands version) 
 
@@ -32,7 +32,7 @@ Triton är ett ramverk som är *optimerat för en härledning*. Den ger bättre 
 > [!TIP]
 > Kodfragmenten i det här dokumentet är i exempel syfte och kanske inte visar en komplett lösning. Information om hur du använder exempel kod finns i [Azure Machine Learning från slut punkt till slut punkt för Triton i](https://github.com/Azure/azureml-examples/tree/main/tutorials).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En **Azure-prenumeration**. Om du inte har en sådan kan du prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 * Bekanta dig med [hur och var du distribuerar en modell](how-to-deploy-and-where.md) med Azure Machine Learning.
@@ -50,6 +50,17 @@ Innan du försöker använda Triton för din egen modell är det viktigt att du 
 * Härlednings begär Anden använder __poängsättnings-URI__. Exempelvis `https://myserevice.azureml.net/score`.
 
 :::image type="content" source="./media/how-to-deploy-with-triton/normal-deploy.png" alt-text="Normalt, icke-Triton, distributions arkitektur diagram":::
+
+### <a name="setting-the-number-of-workers"></a>Ange antalet arbetare
+
+Ställ in miljövariabeln för att ange antalet arbetare i distributionen `WORKER_COUNT` . Med tanke på att du har ett [miljö](https://docs.microsoft.compython/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) objekt `env` som kallas kan du göra följande:
+
+```{py}
+env.environment_variables["WORKER_COUNT"] = "1"
+```
+
+På så sätt kan Azure ML öka antalet arbets tagare som du anger.
+
 
 **Distribution av konfigurations härledning med Triton**
 

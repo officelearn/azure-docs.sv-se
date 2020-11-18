@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: errobin
-ms.openlocfilehash: 2168ee05ab93655cc0ad87221bff29c1b6b1035d
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d57dfd0a496e71c1f0e6ddea839723da35bc5f76
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897609"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686250"
 ---
 # <a name="using-insights-to-monitor-and-configure-your-azure-load-balancer"></a>Använda insikter för att övervaka och konfigurera din Azure Load Balancer
 
-Med hjälp av [Azure Monitor för nätverk](https://docs.microsoft.com/azure/azure-monitor/insights/insights-overview#azure-monitor-for-networks-preview)får du funktionella beroende visualiseringar och förkonfigurerade mått instrument paneler för dina belastningsutjämnare. Med dessa visuella objekt får du hjälp att fatta välgrundade beslut om design och snabbt lokalisera, diagnostisera och åtgärda eventuella fel.
+Med hjälp av Azure Monitor för nätverk får du funktionella beroende visualiseringar och förkonfigurerade mått instrument paneler för dina belastningsutjämnare. Med dessa visuella objekt får du hjälp att fatta välgrundade beslut om design och snabbt lokalisera, diagnostisera och åtgärda eventuella fel.
 
 >[!NOTE] 
 >Observera att den här funktionen är en för hands version och att den förinställda beroende vyn och den förkonfigurerade instrument panelen kan ändras för att förbättra den här upplevelsen

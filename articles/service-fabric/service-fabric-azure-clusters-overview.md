@@ -5,12 +5,12 @@ services: service-fabric
 documentationcenter: .net
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 7c5e6fe92ce5ac118de204e43eb443b4aab3b698
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 25e6854491f35dd0aa46b5de218d312f57854760
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320512"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685825"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Översikt över Service Fabric kluster i Azure
 Ett Service Fabric kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras i. En dator eller en virtuell dator som ingår i ett kluster kallas för en klusternod. Kluster kan skalas till tusentals noder. Om du lägger till nya noder i klustret, Service Fabric balanseringen av tjänste partitionens repliker och instanser över det ökade antalet noder. Övergripande program prestanda förbättras och konkurrens för åtkomst till minnes minskningar. Om noderna i klustret inte används effektivt kan du minska antalet noder i klustret. Service Fabric åter balanserar partitionens repliker och instanser över det minskade antalet noder för att bättre kunna använda maskin varan på varje nod.
@@ -46,9 +46,9 @@ Du kan använda skalnings uppsättningar för att distribuera och hantera en sam
 Mer information finns i [Service Fabric nodtyper och skalnings uppsättningar för virtuella datorer](service-fabric-cluster-nodetypes.md).
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
-Virtuella dator instanser är anslutna bakom en [Azure-belastningsutjämnare](../load-balancer/load-balancer-overview.md), som är associerad med en [offentlig IP-adress](../virtual-network/public-ip-addresses.md) och en DNS-etikett.  När du etablerar ett kluster * &lt; med &gt; kluster*namn, DNS-namnet, * &lt; kluster namn &gt; . &lt; Location &gt; . cloudapp.Azure.com* är DNS-etiketten som är associerad med belastningsutjämnaren framför skalnings uppsättningen.
+Virtuella dator instanser är anslutna bakom en [Azure-belastningsutjämnare](../load-balancer/load-balancer-overview.md), som är associerad med en [offentlig IP-adress](../virtual-network/public-ip-addresses.md) och en DNS-etikett.  När du etablerar ett kluster *&lt; med &gt; kluster* namn, DNS-namnet, *&lt; kluster namn &gt; . &lt; Location &gt; . cloudapp.Azure.com* är DNS-etiketten som är associerad med belastningsutjämnaren framför skalnings uppsättningen.
 
-Virtuella datorer i ett kluster har bara [privata IP-adresser](../virtual-network/private-ip-addresses.md).  Hanterings trafik och tjänst trafik dirigeras via den offentliga belastningsutjämnaren.  Nätverks trafik dirigeras till dessa datorer via NAT-regler (klienter ansluter till vissa noder/instanser) eller regler för belastnings utjämning (trafik går till resursallokeringar med resursallokering).  En belastningsutjämnare har en associerad offentlig IP-adress med ett DNS-namn i formatet: * &lt; kluster namn &gt; . &lt; Location &gt; . cloudapp.Azure.com*.  En offentlig IP-adress är en annan Azure-resurs i resurs gruppen.  Om du definierar flera nodtyper i ett kluster skapas en belastningsutjämnare för varje nodtyp/skalnings uppsättning. Eller så kan du konfigurera en enskild belastningsutjämnare för flera nodtyper.  Den primära nodtypen har DNS-etiketten * &lt; kluster namn &gt; . &lt; Location &gt; . cloudapp.Azure.com*, andra nodtyper har DNS-etiketten * &lt; kluster- &gt; - &lt; NodeType &gt; . &lt; Location &gt; . cloudapp.Azure.com*.
+Virtuella datorer i ett kluster har bara [privata IP-adresser](../virtual-network/private-ip-addresses.md).  Hanterings trafik och tjänst trafik dirigeras via den offentliga belastningsutjämnaren.  Nätverks trafik dirigeras till dessa datorer via NAT-regler (klienter ansluter till vissa noder/instanser) eller regler för belastnings utjämning (trafik går till resursallokeringar med resursallokering).  En belastningsutjämnare har en associerad offentlig IP-adress med ett DNS-namn i formatet: *&lt; kluster namn &gt; . &lt; Location &gt; . cloudapp.Azure.com*.  En offentlig IP-adress är en annan Azure-resurs i resurs gruppen.  Om du definierar flera nodtyper i ett kluster skapas en belastningsutjämnare för varje nodtyp/skalnings uppsättning. Eller så kan du konfigurera en enskild belastningsutjämnare för flera nodtyper.  Den primära nodtypen har DNS-etiketten *&lt; kluster namn &gt; . &lt; Location &gt; . cloudapp.Azure.com*, andra nodtyper har DNS-etiketten *&lt; kluster- &gt; - &lt; NodeType &gt; . &lt; Location &gt; . cloudapp.Azure.com*.
 
 ### <a name="storage-accounts"></a>Lagringskonton
 Varje typ av klusternod stöds av ett [Azure Storage-konto](../storage/common/storage-introduction.md) och hanterade diskar.
@@ -68,12 +68,12 @@ Förutom klient certifikat kan Azure Active Directory också konfigureras för a
 
 Mer information finns i [klient-till-nod-säkerhet](service-fabric-cluster-security.md#client-to-node-security)
 
-### <a name="role-based-access-control"></a>Rollbaserad Access Control
-Med Role-Based Access Control (RBAC) kan du tilldela detaljerade åtkomst kontroller på Azure-resurser.  Du kan tilldela olika åtkomst regler till prenumerationer, resurs grupper och resurser.  RBAC-regler ärvs längs resursens hierarki om den inte åsidosätts på en lägre nivå.  Du kan tilldela alla användar grupper eller användar grupper i AAD med RBAC-regler så att angivna användare och grupper kan ändra klustret.  Mer information finns i [Översikt över Azure RBAC](../role-based-access-control/overview.md).
+### <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
+Med rollbaserad åtkomst kontroll i Azure (Azure RBAC) kan du tilldela detaljerade åtkomst kontroller på Azure-resurser.  Du kan tilldela olika åtkomst regler till prenumerationer, resurs grupper och resurser.  Azure RBAC-regler ärvs längs resurs-hierarkin om den inte åsidosätts på en lägre nivå.  Du kan tilldela alla användar grupper eller användar grupper i AAD med Azure RBAC-regler så att angivna användare och grupper kan ändra klustret.  Mer information finns i [Översikt över Azure RBAC](../role-based-access-control/overview.md).
 
 Service Fabric stöder också åtkomst kontroll för att begränsa åtkomsten till vissa kluster åtgärder för olika användar grupper. Detta gör klustret säkrare. Två åtkomst kontroll typer stöds för klienter som ansluter till ett kluster: administratörs roll och användar roll.  
 
-Mer information finns i [Service Fabric Role-Based Access Control (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac).
+Mer information finns i [Service Fabric rollbaserad åtkomst kontroll](service-fabric-cluster-security.md#service-fabric-role-based-access-control).
 
 ### <a name="network-security-groups"></a>Nätverkssäkerhetsgrupper 
 Nätverks säkerhets grupper (NSG: er) kontrollerar inkommande och utgående trafik för ett undernät, en virtuell dator eller ett särskilt nätverkskort.  När flera virtuella datorer placeras i samma virtuella nätverk kan de kommunicera med varandra via vilken port som helst.  Om du vill begränsa kommunikationen mellan datorerna kan du definiera NSG: er för att segmentera nätverket eller isolera virtuella datorer från varandra.  Om du har flera nodtyper i ett kluster kan du tillämpa NSG: er på undernät för att förhindra att datorer som tillhör olika nodtyper från att kommunicera med varandra.  

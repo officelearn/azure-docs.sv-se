@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 5845a3bdc4b86fbbe44c92779e5aae95044eb6b2
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: d5bd2fc150ee1d35127eeb9dbf3dc1eeffdc9659
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556378"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685944"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instanser av kluster för växling vid fel med SQL Server på Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -46,24 +46,24 @@ I traditionella lokala klustrade miljöer använder ett Windows-redundanskluster
 
 SQL Server på virtuella Azure-datorer erbjuder olika alternativ som en lösning för delad lagring för en distribution av SQL Server kluster instanser för växling vid fel: 
 
-||[Delade diskar i Azure](../../../virtual-machines/windows/disks-shared.md)|[Premium fil resurser](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Lagringsdirigering (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
+||[Delade diskar i Azure](../../../virtual-machines/disks-shared.md)|[Premium fil resurser](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Lagringsdirigering (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
 |**Lägsta version av operativsystemet**| Alla |Windows Server 2012|Windows Server 2016|
 |**Lägsta SQL Server-version**|Alla|SQL Server 2012|SQL Server 2016|
 |**Tillgänglighet för VM som stöds** |Tillgänglighets uppsättningar med närhets placerings grupper |Tillgänglighets uppsättningar och tillgänglighets zoner|Tillgänglighetsuppsättningar |
-|**Stöder FileStream**|Ja|Inga|Ja |
-|**Azure Blob-cache**|Inga|Inga|Ja|
+|**Stöder FileStream**|Ja|Nej|Ja |
+|**Azure Blob-cache**|Nej|Nej|Ja|
 
 Resten av det här avsnittet visar fördelarna och begränsningarna för varje lagrings alternativ som är tillgängligt för SQL Server på virtuella Azure-datorer. 
 
 ### <a name="azure-shared-disks"></a>Delade diskar i Azure
 
-[Azure delade diskar](../../../virtual-machines/windows/disks-shared.md) är en funktion i [Azure Managed disks](../../../virtual-machines/managed-disks-overview.md). Windows Server-redundanskluster stöder användning av Azure delade diskar med en instans av redundanskluster. 
+[Azure delade diskar](../../../virtual-machines/disks-shared.md) är en funktion i [Azure Managed disks](../../../virtual-machines/managed-disks-overview.md). Windows Server-redundanskluster stöder användning av Azure delade diskar med en instans av redundanskluster. 
 
-**Operativ system som stöds** : alla   
-**SQL-version som stöds** : alla     
+**Operativ system som stöds**: alla   
+**SQL-version som stöds**: alla     
 
-**Fördelar** : 
+**Fördelar**: 
 - Användbart för program som vill migrera till Azure samtidigt som du behåller HADR-arkitekturen (hög tillgänglighet och haveri beredskap) som är. 
 - Kan migrera klustrade program till Azure på grund av stödet för SCSI-PR (SCSI persistent reservation). 
 - Har stöd för delade Azure-Premium SSD och Azure Ultra disk Storage.
@@ -71,7 +71,7 @@ Resten av det här avsnittet visar fördelarna och begränsningarna för varje l
 - Stöder FILESTREAM.
 
 
-**Begränsningar** : 
+**Begränsningar**: 
 - Virtuella datorer måste placeras i samma tillgänglighets uppsättning och närhets placerings grupp.
 - Tillgänglighets zoner stöds inte.
 - Premium SSD diskcachelagring stöds inte.
@@ -82,8 +82,8 @@ Information om hur du kommer igång finns [SQL Server kluster instans med Azure 
 
 [Lagringsdirigering](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) är en Windows Server-funktion som stöds med kluster för växling vid fel i Azure Virtual Machines. Den innehåller en programvarubaserad virtuell SAN-server.
 
-**Operativ system som stöds** : Windows Server 2016 och senare   
-**SQL-version som stöds** : SQL Server 2016 och senare   
+**Operativ system som stöds**: Windows Server 2016 och senare   
+**SQL-version som stöds**: SQL Server 2016 och senare   
 
 
 **Funktioner** 
@@ -104,8 +104,8 @@ Information om hur du kommer igång finns [SQL Server kluster instans med Lagrin
 
 [Premium File-resurser](../../../storage/files/storage-how-to-create-premium-fileshare.md) är en funktion i [Azure Files](../../../storage/files/index.yml). Premium-filresurserna är SSD-baserade och har en konsekvent låg latens. De stöds fullt ut för användning med kluster instanser för växling vid fel för SQL Server 2012 eller senare på Windows Server 2012 eller senare. Premium-filresurser ger dig större flexibilitet eftersom du kan ändra storlek och skala en fil resurs utan drift avbrott.
 
-**Operativ system som stöds** : Windows Server 2012 och senare   
-**SQL-version som stöds** : SQL Server 2012 och senare   
+**Operativ system som stöds**: Windows Server 2012 och senare   
+**SQL-version som stöds**: SQL Server 2012 och senare   
 
 **Funktioner** 
 - Endast delad lagrings lösning för virtuella datorer sprids över flera tillgänglighets zoner. 
@@ -122,8 +122,8 @@ Information om hur du kommer igång finns [SQL Server kluster instans för växl
 
 Det finns partner kluster lösningar med stöd för lagring. 
 
-**Operativ system som stöds** : alla   
-**SQL-version som stöds** : alla   
+**Operativ system som stöds**: alla   
+**SQL-version som stöds**: alla   
 
 I ett exempel används SIOS DataKeeper som lagrings plats. Mer information finns i blogg inlägget failover- [kluster och SIOS-DataKeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/).
 
@@ -131,14 +131,14 @@ I ett exempel används SIOS DataKeeper som lagrings plats. Mer information finns
 
 Du kan också exponera ett iSCSI-mål delat block lagrings utrymme via Azure ExpressRoute. 
 
-**Operativ system som stöds** : alla   
-**SQL-version som stöds** : alla   
+**Operativ system som stöds**: alla   
+**SQL-version som stöds**: alla   
 
 NetApp Private Storage (NPS) visar till exempel ett iSCSI-mål via ExpressRoute med Equinix till virtuella Azure-datorer.
 
 För delade lösningar för lagring och datareplikering från Microsoft-partners kontaktar du leverantören för eventuella problem som rör åtkomst till data vid redundans.
 
-## <a name="connectivity"></a>Anslutningar
+## <a name="connectivity"></a>Anslutning
 
 Instanser av kluster för växling vid fel med SQL Server på Azure Virtual Machines använda ett [distribuerat nätverks namn (DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md) eller ett [virtuellt nätverks namn (VNN) med Azure Load Balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) för att dirigera trafik till SQL Server-instansen, oavsett vilken nod som för närvarande äger de klustrade resurserna. Det finns ytterligare överväganden när du använder vissa funktioner och DNN med en SQL Server-FCI. Mer information finns i [DNN-interoperabilitet med SQL Server FCI](failover-cluster-instance-dnn-interoperability.md) . 
 

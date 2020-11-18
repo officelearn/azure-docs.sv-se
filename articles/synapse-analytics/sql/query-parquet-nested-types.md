@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3463e4dfc423a3f12ce7a42cb0def36574bcb2d3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 426c95638422fa4260508aa81bb47a7c9565e6eb
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312013"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685723"
 ---
 # <a name="query-nested-types-in-parquet-and-json-files-by-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Fråga kapslade typer i Parquet-och JSON-filer med hjälp av Server lös SQL-pool (för hands version) i Azure Synapse Analytics
 
@@ -47,7 +47,7 @@ FROM
 > [!IMPORTANT]
 > I det här exemplet används en fil från COVID-19 Open Research-datauppsättningen. [Se licensen och data strukturen här](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det första steget är att skapa en databas där data källan kommer att skapas. Sedan initierar du objekten genom att köra ett [installations skript](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) i databasen. Installations skriptet skapar data källorna, autentiseringsuppgifterna för databasen och de externa fil formaten som används i exemplen.
 

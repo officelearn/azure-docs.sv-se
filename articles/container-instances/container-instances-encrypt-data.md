@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: macolso
 ms.author: macolso
-ms.openlocfilehash: d2cad98267ef1654c4f2d9ad2db75f769dbc0780
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1b73ce5c994231a1c7b2f26ad702f2ad5880ba44
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091363"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686284"
 ---
 # <a name="encrypt-deployment-data"></a>Kryptera distributionsdata
 
@@ -59,7 +59,7 @@ Om du inte kan skapa tjänstens huvud namn:
 
 ### <a name="create-a-key-vault-resource"></a>Skapa en Key Vault resurs
 
-Skapa en Azure Key Vault med [Azure Portal](../key-vault/secrets/quick-create-portal.md#create-a-vault), [CLI](../key-vault/secrets/quick-create-cli.md)eller [PowerShell](../key-vault/secrets/quick-create-powershell.md). 
+Skapa en Azure Key Vault med hjälp av [Azure Portal](../key-vault/general/quick-create-portal.md), [Azure CLI](../key-vault/general/quick-create-cli.md)eller [Azure PowerShell](../key-vault/general/quick-create-powershell.md).
 
 Använd följande rikt linjer för egenskaperna för nyckel valvet: 
 * Namn: Ett unikt namn krävs. 
@@ -73,7 +73,7 @@ Använd följande rikt linjer för egenskaperna för nyckel valvet:
 
 ### <a name="generate-a-new-key"></a>Generera en ny nyckel 
 
-När du har skapat nyckel valvet navigerar du till resursen i Azure Portal. På den vänstra navigerings menyn på resurs bladet, under Inställningar, klickar du på **nycklar** . Klicka på generera/importera i vyn för "nycklar" för att generera en ny nyckel. Använd ett unikt namn för den här nyckeln och andra inställningar som baseras på dina krav. 
+När du har skapat nyckel valvet navigerar du till resursen i Azure Portal. På den vänstra navigerings menyn på resurs bladet, under Inställningar, klickar du på **nycklar**. Klicka på generera/importera i vyn för "nycklar" för att generera en ny nyckel. Använd ett unikt namn för den här nyckeln och andra inställningar som baseras på dina krav. 
 
 ![Generera en ny nyckel](./media/container-instances-encrypt-data/generate-key.png)
 
@@ -81,8 +81,8 @@ När du har skapat nyckel valvet navigerar du till resursen i Azure Portal. På 
 
 Skapa en ny åtkomst princip som gör att ACI-tjänsten kan komma åt din nyckel.
 
-* När din nyckel har skapats går du tillbaka till resurs bladet för nyckel valv under Inställningar och klickar på **åtkomst principer** .
-* På sidan "åtkomst principer" för ditt nyckel valv klickar du på **Lägg till åtkomst princip** .
+* När din nyckel har skapats går du tillbaka till resurs bladet för nyckel valv under Inställningar och klickar på **åtkomst principer**.
+* På sidan "åtkomst principer" för ditt nyckel valv klickar du på **Lägg till åtkomst princip**.
 * Ange *nyckel behörigheter* för att inkludera nyckel behörigheter för Hämta **och ta** **fram** nyckel ![ uppsättning](./media/container-instances-encrypt-data/set-key-permissions.png)
 * För *Välj huvud konto* väljer du **Azure Container instance service**
 * Klicka på **Lägg till** längst ned 

@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 8e7d5d4b730ef1669bd9bb7d74e35924061f5580
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 0aff55810508fedcf354fba3d9fca9f7a402029b
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146219"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685842"
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>Översikt över kluster Resource Manager-arkitektur
 Service Fabric Cluster Resource Manager är en central tjänst som körs i klustret. Den hanterar det önskade läget för tjänsterna i klustret, särskilt vad gäller resursförbrukning och eventuella placerings regler. 
@@ -43,7 +43,7 @@ Nu ska vi titta på följande diagram:
 
 <center>
 
-![Diagram som visar thow för kluster resurs hanteraren sammanställer all information från de lokala agenterna och reagerar utifrån dess aktuella konfiguration.][Image1]
+![Diagram som visar klustret Resource Manager-tjänsten aggregerar all information från de lokala agenterna och reagerar utifrån dess aktuella konfiguration.][Image1]
 </center>
 
 Under körningen finns det många ändringar som kan uppstå. Anta till exempel mängden resurser som vissa tjänster förbrukar förändringar, vissa tjänster inte fungerar och vissa noder ansluter till och lämnar klustret. Alla ändringar på en nod sammanställs och skickas regelbundet till kluster resurs hanterings tjänsten (1, 2) där de aggregeras igen, analyseras och lagras. Några sekunder som tjänsten tittar på ändringarna och avgör om några åtgärder krävs (3). Det kan till exempel hända att vissa tomma noder har lagts till i klustret. Det innebär att du kan flytta några tjänster till dessa noder. Kluster resurs hanteraren kan också märka att en viss nod är överbelastad eller att vissa tjänster har misslyckats eller tagits bort, vilket frigör resurser någon annan stans.

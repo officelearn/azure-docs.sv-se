@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 785a63d695f7c615ce21fa5714b76988b5e281c4
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 59c489fac8bf02263cc51833675af414d5de6a52
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629384"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686012"
 ---
 # <a name="monitor-azure-file-sync"></a>Övervaka Azure File Sync
 
@@ -67,7 +67,7 @@ Aviseringar proaktivt meddela dig när viktiga villkor finns i dina övervakning
     - **Dimensions namn**
     - **Aviserings logik**
 4. Klicka på **Välj åtgärds grupp** och Lägg till en åtgärds grupp (e-post, SMS osv.) till aviseringen antingen genom att välja en befintlig åtgärds grupp eller skapa en ny åtgärds grupp.
-5. Fyll i **aviserings informationen** som **aviserings regelns namn** , **Beskrivning** och **allvarlighets grad**.
+5. Fyll i **aviserings informationen** som **aviserings regelns namn**, **Beskrivning** och **allvarlighets grad**.
 6. Klicka på **skapa aviserings regel** för att skapa aviseringen.  
 
 I följande tabell visas några exempel scenarier som du kan använda för att övervaka och rätt mått för aviseringen:
@@ -100,7 +100,7 @@ Om du vill visa den **registrerade serverns hälso tillstånd** i portalen navig
 
 ![Skärm bild av hälsa för registrerade servrar](media/storage-sync-files-troubleshoot/file-sync-registered-servers.png)
 
-- Om det **registrerade Server** läget är **online** , kommunicerar servern med tjänsten.
+- Om det **registrerade Server** läget är **online**, kommunicerar servern med tjänsten.
 - Om det **registrerade Server** läget **visas offline** körs inte övervaknings processen för synkronisering av lagring (AzureStorageSyncMonitor.exe) eller så går det inte att få åtkomst till tjänsten Azure File Sync. Se [fel söknings dokumentationen](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#server-endpoint-noactivity) för vägledning.
 
 ### <a name="server-endpoint-health"></a>Server slut punkts hälsa
@@ -109,7 +109,7 @@ Om du vill visa hälso tillståndet för en **Server slut punkt** i portalen gå
 
 ![Skärm bild av Server slut punktens hälso tillstånd](media/storage-sync-files-troubleshoot/file-sync-server-endpoint-health.png)
 
-- **Server slut punktens hälso** -och **synkroniserings aktivitet** i portalen baseras på de synkroniserings händelser som loggas i händelse loggen för TELEMETRI på servern (ID 9102 och 9302). Om en Sync-session Miss lyckas på grund av ett tillfälligt fel, till exempel fel som avbrutits, visas Server slut punkten fortfarande som **felfri** i portalen så länge den aktuella synkroniseringen gör förlopp (filer tillämpas). Händelse-ID 9302 är synkroniseringens förlopps händelse och händelse-ID 9102 loggas när en Sync-session har slutförts.  Mer information finns i [synkronisering av hälso tillstånd](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#broken-sync) och [synkronisering](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session). Om Server slut punkt hälsan visar ett **fel** eller **Ingen aktivitet** , se [fel söknings dokumentationen](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#common-sync-errors) för vägledning.
+- **Server slut punktens hälso** -och **synkroniserings aktivitet** i portalen baseras på de synkroniserings händelser som loggas i händelse loggen för TELEMETRI på servern (ID 9102 och 9302). Om en Sync-session Miss lyckas på grund av ett tillfälligt fel, till exempel fel som avbrutits, visas Server slut punkten fortfarande som **felfri** i portalen så länge den aktuella synkroniseringen gör förlopp (filer tillämpas). Händelse-ID 9302 är synkroniseringens förlopps händelse och händelse-ID 9102 loggas när en Sync-session har slutförts.  Mer information finns i [synkronisering av hälso tillstånd](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#broken-sync) och [synkronisering](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session). Om Server slut punkt hälsan visar ett **fel** eller **Ingen aktivitet**, se [fel söknings dokumentationen](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#common-sync-errors) för vägledning.
 - **Filerna som inte synkroniserar** antalet i portalen baseras på händelse-ID 9121 som har loggats i händelse loggen för telemetri på servern. Den här händelsen loggas för varje per objekt-fel när synkroniseringstjänsten har slutförts. Information om hur du löser fel per objekt finns i [Hur gör jag för att se om det finns specifika filer eller mappar som inte synkroniseras?](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
 - Om du vill visa **moln nivå effektiviteten** i portalen går du till **serverns slut punkts egenskaper** och navigerar till avsnittet **moln nivå** . De data som tillhandahålls för att effektivisera moln nivån baseras på händelse-ID 9071 som loggas i händelse loggen för telemetri på servern. Mer information finns i [Översikt över moln nivåer](./storage-sync-cloud-tiering.md).
 - Om du vill visa **filer som inte** är på nivå av och **återkalla fel** i portalen går du till **serverns slut punkts egenskaper** och navigerar till avsnittet **moln nivå** . **Filer som inte skiktas** baseras på händelse-ID 9003 som loggas i händelse loggen för telemetri på servern och **återställnings fel** baseras på händelse-ID 9006. Information om hur du undersöker filer som inte går att gå till nivån eller återkalla finns i [Felsöka filer som inte är på nivå](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#how-to-troubleshoot-files-that-fail-to-tier) och [fel sökning av filer som inte kan återkallas](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#how-to-troubleshoot-files-that-fail-to-be-recalled).
@@ -141,18 +141,18 @@ Använd händelse loggen för telemetri på-servern för att övervaka registrer
 
 Sync-hälsa
 
-- Händelse-ID 9102 loggas när en Sync-session har slutförts. Använd den här händelsen för att avgöra om Sync-sessioner lyckas ( **HResult = 0** ) och om det finns synkroniseringsfel per objekt ( **PerItemErrorCount** ). Mer information finns i dokumentationen om [synkronisering av hälso tillstånd](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#broken-sync) och  [meddelanden per objekt](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) .
+- Händelse-ID 9102 loggas när en Sync-session har slutförts. Använd den här händelsen för att avgöra om Sync-sessioner lyckas (**HResult = 0**) och om det finns synkroniseringsfel per objekt (**PerItemErrorCount**). Mer information finns i dokumentationen om [synkronisering av hälso tillstånd](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#broken-sync) och  [meddelanden per objekt](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) .
 
   > [!Note]  
   > Synkronisering av sessioner fungerar ibland inte generellt eller har en PerItemErrorCount som inte är noll. De kommer dock fortfarande att fortsätta och vissa filer synkroniseras. Du kan se detta i de använda fälten, till exempel AppliedFileCount, AppliedDirCount, AppliedTombstoneCount och AppliedSizeBytes. Dessa fält visar hur mycket av sessionen som har lyckats. Om flera Sync-sessioner visas på en rad och de har ett ökande antal tillämpade, kan du ange att synkroniseringen ska göras innan du öppnar ett support ärende.
 
-- Händelse-ID 9121 loggas för varje objekt per objekt när Sync-sessionen har slutförts. Använd den här händelsen för att avgöra hur många filer som inte kan synkroniseras med det här felet ( **PersistentCount** och **TransientCount** ). Beständiga fel per objekt bör undersökas, se [Hur gör jag för att se om det finns specifika filer eller mappar som inte synkroniseras?](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
+- Händelse-ID 9121 loggas för varje objekt per objekt när Sync-sessionen har slutförts. Använd den här händelsen för att avgöra hur många filer som inte kan synkroniseras med det här felet (**PersistentCount** och **TransientCount**). Beständiga fel per objekt bör undersökas, se [Hur gör jag för att se om det finns specifika filer eller mappar som inte synkroniseras?](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
 
-- Händelse-ID 9302 loggas var 5 till 10 minuter om det finns en aktiv Sync-session. Använd den här händelsen för att avgöra hur många objekt som ska synkroniseras ( **TotalItemCount** ), antalet objekt som har synkroniserats hittills ( **AppliedItemCount** ) och antalet objekt som inte kunde synkroniseras på grund av ett fel per objekt ( **PerItemErrorCount** ). Om synkronisering inte sker ( **AppliedItemCount = 0** ), kommer Sync-sessionen att Miss Miss klar och händelse-ID 9102 kommer att loggas med felet. Mer information finns i dokumentationen för [Sync-förloppet](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
+- Händelse-ID 9302 loggas var 5 till 10 minuter om det finns en aktiv Sync-session. Använd den här händelsen för att avgöra hur många objekt som ska synkroniseras (**TotalItemCount**), antalet objekt som har synkroniserats hittills (**AppliedItemCount**) och antalet objekt som inte kunde synkroniseras på grund av ett fel per objekt (**PerItemErrorCount**). Om synkronisering inte sker (**AppliedItemCount = 0**), kommer Sync-sessionen att Miss Miss klar och händelse-ID 9102 kommer att loggas med felet. Mer information finns i dokumentationen för [Sync-förloppet](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
 Registrerad Server hälsa
 
-- Händelse-ID 9301 loggas var 30: e sekund när en server frågar tjänsten efter jobb. Om GetNextJob slutförs med **status = 0** , kan servern kommunicera med tjänsten. Om GetNextJob har slutförts med ett fel kan du läsa mer i [fel söknings dokumentationen](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#server-endpoint-noactivity) .
+- Händelse-ID 9301 loggas var 30: e sekund när en server frågar tjänsten efter jobb. Om GetNextJob slutförs med **status = 0**, kan servern kommunicera med tjänsten. Om GetNextJob har slutförts med ett fel kan du läsa mer i [fel söknings dokumentationen](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#server-endpoint-noactivity) .
 
 Hälso tillstånd för moln nivåer
 
@@ -212,7 +212,7 @@ Det här avsnittet innehåller några exempel på aviseringar för Azure File Sy
     - Utvärderas baserat på: agg regerings kornig het = **24 timmar** | Utvärderings frekvens = **varje timme** 
     - Klicka på **Slutför.** 
 8. Klicka på **Välj åtgärds grupp** för att lägga till en åtgärds grupp (e-post, SMS osv.) till aviseringen antingen genom att välja en befintlig åtgärds grupp eller skapa en ny åtgärds grupp.
-9. Fyll i **aviserings informationen** som **aviserings regelns namn** , **Beskrivning** och **allvarlighets grad**.
+9. Fyll i **aviserings informationen** som **aviserings regelns namn**, **Beskrivning** och **allvarlighets grad**.
 10. Klicka på **Skapa aviseringsregel**. 
 
 ### <a name="how-to-create-an-alert-if-files-are-failing-to-sync-to-a-server-or-cloud-endpoint"></a>Så här skapar du en avisering om filer inte kan synkroniseras till en server eller moln slut punkt
@@ -229,12 +229,12 @@ Det här avsnittet innehåller några exempel på aviseringar för Azure File Sy
 7. Navigera till **aviserings logiken** och Slutför följande: 
      - Tröskelvärdet har angetts till **statisk** 
      - Operator: **större än** 
-     - Sammansättnings typ: **totalt**  
+     - Sammansättnings typ: **genomsnitt**  
      - Tröskelvärde: **100** 
      - Utvärderas baserat på: agg regerings granularitet = **5 minuter** | Utvärderings frekvens = **var 5: e minut** 
      - Klicka på **Slutför.** 
 8. Klicka på **Välj åtgärds grupp** för att lägga till en åtgärds grupp (e-post, SMS osv.) till aviseringen antingen genom att välja en befintlig åtgärds grupp eller skapa en ny åtgärds grupp.
-9. Fyll i **aviserings informationen** som **aviserings regelns namn** , **Beskrivning** och **allvarlighets grad**.
+9. Fyll i **aviserings informationen** som **aviserings regelns namn**, **Beskrivning** och **allvarlighets grad**.
 10. Klicka på **Skapa aviseringsregel**. 
 
 ### <a name="how-to-create-an-alert-if-a-registered-server-is-failing-to-communicate-with-the-storage-sync-service"></a>Så här skapar du en avisering om en registrerad Server inte kan kommunicera med lagrings tjänsten för synkronisering
@@ -257,7 +257,7 @@ Det här avsnittet innehåller några exempel på aviseringar för Azure File Sy
         - Observera att måtten skickas till Azure Monitor var 15 till 20 minuter. Ange inte **utvärderings frekvensen** till mindre än 30 minuter (kommer att generera falska aviseringar).
      - Klicka på **Slutför.** 
 8. Klicka på **Välj åtgärds grupp** för att lägga till en åtgärds grupp (e-post, SMS osv.) till aviseringen antingen genom att välja en befintlig åtgärds grupp eller skapa en ny åtgärds grupp.
-9. Fyll i **aviserings informationen** som **aviserings regelns namn** , **Beskrivning** och **allvarlighets grad**.
+9. Fyll i **aviserings informationen** som **aviserings regelns namn**, **Beskrivning** och **allvarlighets grad**.
 10. Klicka på **Skapa aviseringsregel**. 
 
 ### <a name="how-to-create-an-alert-if-the-cloud-tiering-recall-size-has-exceeded-500gib-in-a-day"></a>Så här skapar du en avisering om återställnings storleken för moln skiktet har överskridit 500GiB under en dag
@@ -279,7 +279,7 @@ Det här avsnittet innehåller några exempel på aviseringar för Azure File Sy
      - Utvärderas baserat på: agg regerings kornig het = **24 timmar** | Utvärderings frekvens = **varje timme** 
     - Klicka på **Slutför.** 
 8. Klicka på **Välj åtgärds grupp** för att lägga till en åtgärds grupp (e-post, SMS osv.) till aviseringen antingen genom att välja en befintlig åtgärds grupp eller skapa en ny åtgärds grupp.
-9. Fyll i **aviserings informationen** som **aviserings regelns namn** , **Beskrivning** och **allvarlighets grad**.
+9. Fyll i **aviserings informationen** som **aviserings regelns namn**, **Beskrivning** och **allvarlighets grad**.
 10. Klicka på **Skapa aviseringsregel**. 
 
 ## <a name="next-steps"></a>Nästa steg

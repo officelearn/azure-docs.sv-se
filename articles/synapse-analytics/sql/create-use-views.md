@@ -7,20 +7,20 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 05/20/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: d578529839afb5393dd013cb10f48c755f08addd
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 302cf97db7c1d2ba489a84b6be912816d20f6091
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316238"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685570"
 ---
 # <a name="create-and-use-views-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Skapa och Använd vyer med Server lös SQL-pool (för hands version) i Azure Synapse Analytics
 
 I det här avsnittet får du lära dig hur du skapar och använder vyer för att figursätta frågor om server utan SQL-pool (för hands version). Med vyer kan du återanvända dessa frågor. Vyer behövs också om du vill använda verktyg, till exempel Power BI, tillsammans med SQL-poolen utan server.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Ditt första steg är att skapa en databas där vyn kommer att skapas och initiera de objekt som behövs för att autentisera i Azure Storage genom att köra [installations skriptet](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) på den databasen. Alla frågor i den här artikeln utförs i exempel databasen.
 

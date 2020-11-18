@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 263509ce7d348e51bf4a2a1d7ad83fb5dfdb5e29
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: b6ec9d7035194efc471fc06befad9822c8684a5d
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489445"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685587"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Träna med data uppsättningar i Azure Machine Learning
 
@@ -26,7 +26,7 @@ I den här artikeln får du lära dig hur du arbetar med [Azure Machine Learning
 
 Azure Machine Learning data uppsättningar ger en sömlös integrering med Azure Machine Learning inlärnings funktioner som [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py), [HyperDrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) och [Azure Machine Learning pipelines](how-to-create-your-first-pipeline.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att skapa och träna med data uppsättningar behöver du:
 
@@ -104,7 +104,7 @@ from azureml.core import ScriptRunConfig
 src = ScriptRunConfig(source_directory=script_folder,
                       script='train_titanic.py',
                       # pass dataset as an input with friendly name 'titanic'
-                      arguments=['--input-dataset', titanic_ds],
+                      arguments=['--input-data', titanic_ds.as_named_input('titanic')],
                       compute_target=compute_target,
                       environment=myenv)
                              

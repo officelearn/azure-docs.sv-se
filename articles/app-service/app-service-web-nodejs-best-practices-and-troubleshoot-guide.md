@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 3b4a9547a1bd62b7464b4a79fe68720572630f3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d826b80c11b700d753acc18f8d4c626a65510f93
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961898"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833817"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Metod tips och fel söknings guide för Node-program i Azure App Service Windows
 
@@ -121,13 +121,13 @@ Läs [fel sökning node.js program i Windows](https://tomasz.janczuk.org/2011/11
 
 Många program vill göra utgående anslutningar som en del av deras vanliga åtgärd. Till exempel, när en förfrågan kommer i, vill du kontakta en REST API någon annan stans och hämta information för att bearbeta begäran. Du vill använda en Keep Alive-agent när du gör http-eller https-anrop. Du kan använda agentkeepalive-modulen som din Keep Alive-agent när du gör dessa utgående anrop.
 
-Agentkeepalive-modulen säkerställer att socketar återanvänds på den virtuella Azure webapp-datorn. Om du skapar en ny socket på varje utgående begäran läggs resurser till i ditt program. Om du har program åter användnings platser för utgående begär Anden ser du till att programmet inte överskrider maxSockets som allokeras per virtuell dator. Rekommendationen Azure App Service är att ange värdet för agentKeepAlive maxSockets till totalt (4 instanser av node.exe \* 40 maxSockets/instans) 160 Sockets per virtuell dator.
+Agentkeepalive-modulen säkerställer att socketar återanvänds på den virtuella Azure webapp-datorn. Om du skapar en ny socket på varje utgående begäran läggs resurser till i ditt program. Om du har program åter användnings platser för utgående begär Anden ser du till att programmet inte överskrider maxSockets som allokeras per virtuell dator. Rekommendationen Azure App Service är att ange värdet för agentKeepAlive maxSockets till totalt (4 instanser av node.exe \* 32 maxSockets/instans) 128 Sockets per virtuell dator.
 
 Exempel på [agentKeepALive](https://www.npmjs.com/package/agentkeepalive) -konfiguration:
 
 ```nodejs
 let keepaliveAgent = new Agent({
-    maxSockets: 40,
+    maxSockets: 32,
     maxFreeSockets: 10,
     timeout: 60000,
     keepAliveTimeout: 300000

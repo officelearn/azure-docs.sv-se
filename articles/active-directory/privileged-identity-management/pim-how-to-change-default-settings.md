@@ -14,12 +14,12 @@ ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 391d4d6cb925eec0ea7be19eb6fa6849aa38985e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0fadcf3f5aefa76ab03d6313643fc18df71f6c3b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369751"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835245"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Konfigurera inställningar för Azure AD-roller i Privileged Identity Management
 
@@ -81,7 +81,7 @@ Och du kan välja något av dessa alternativ för varaktighet för **aktiv** til
 
 ## <a name="require-multi-factor-authentication"></a>Kräv Multi-Factor Authentication
 
-Privileged Identity Management tillhandahåller en valfri tillämpning av Azure Multi-Factor Authentication för två olika scenarier.
+Privileged Identity Management tillhandahåller en valfri tillämpning av Azure AD Multi-Factor Authentication för två olika scenarier.
 
 ### <a name="require-multi-factor-authentication-on-active-assignment"></a>Kräv Multi-Factor Authentication för aktiv tilldelning
 
@@ -91,7 +91,7 @@ För att säkerställa att administratören som uppfyller tilldelningen är den 
 
 ### <a name="require-multi-factor-authentication-on-activation"></a>Kräv Multi-Factor Authentication vid aktivering
 
-Du kan kräva att användare som är berättigade till en roll för att bevisa vem de använder Azure Multi-Factor Authentication innan de kan aktivera. Multi-Factor Authentication säkerställer att användaren är den som har rimlig säkerhet. Att framtvinga det här alternativet skyddar viktiga resurser i situationer när användar kontot kan ha komprometterats.
+Du kan kräva att användare som är berättigade till en roll för att bevisa vem de använder Azure AD Multi-Factor Authentication innan de kan aktivera. Multi-Factor Authentication säkerställer att användaren är den som har rimlig säkerhet. Att framtvinga det här alternativet skyddar viktiga resurser i situationer när användar kontot kan ha komprometterats.
 
 Om du vill kräva Multi-Factor Authentication före aktiveringen markerar du rutan **kräv Multi-Factor Authentication på aktivering** på fliken tilldelning i **inställningen redigera roll**.
 
@@ -151,7 +151,7 @@ Använd skjutreglaget **aktiveringar** för att ange den maximala tiden, i timma
 
 Använd växeln **meddelanden** för att ange om administratörer ska få e-postaviseringar när roller aktive ras. Det här meddelandet kan vara användbart för att upptäcka otillåtna eller illegitimatea aktiveringar.
 
-När inställningen är **aktive**rad skickas meddelanden till:
+När inställningen är **aktive** rad skickas meddelanden till:
 
 - Privilegie rad roll administratör
 - Säkerhetsadministratör
@@ -167,8 +167,8 @@ Använd växeln **incident/begär biljett** för att kräva att berättigade adm
 
 Använd växeln **Multi-Factor Authentication** för att ange om du vill kräva att användarna verifierar sin identitet med MFA innan de kan aktivera sina roller. De behöver bara verifiera sin identitet en gång per session, inte varje gång de aktiverar en roll. Det finns två tips att tänka på när du aktiverar MFA:
 
-- Användare som har Microsoft-konton för sina e-postadresser (vanligt vis @outlook.com , men inte alltid) kan inte registreras för Azure Multi-Factor Authentication. Om du vill tilldela roller till användare med Microsoft-konton bör du antingen göra dem permanenta administratörer eller inaktivera Multi-Factor Authentication för rollen.
-- Det går inte att inaktivera Azure Multi-Factor Authentication för mycket privilegierade roller för Azure AD och Microsoft 365. Den här säkerhetsfunktionen hjälper till att skydda följande roller:  
+- Användare som har Microsoft-konton för sina e-postadresser (vanligt vis @outlook.com , men inte alltid) kan inte registreras för Azure AD-Multi-Factor Authentication. Om du vill tilldela roller till användare med Microsoft-konton bör du antingen göra dem permanenta administratörer eller inaktivera Multi-Factor Authentication för rollen.
+- Det går inte att inaktivera Azure AD Multi-Factor Authentication för mycket privilegierade roller för Azure AD och Microsoft 365. Den här säkerhetsfunktionen hjälper till att skydda följande roller:  
   
   - Azure Information Protection administratör
   - Faktureringsadministratör
@@ -200,7 +200,7 @@ Följ dessa steg om du vill delegera det godkännande som krävs för att aktive
 
     Om du inte anger några god kännare blir den privilegierade roll administratören som standard god kännare och krävs sedan för att godkänna alla aktiverings begär Anden för den här rollen.
 
-1. Klicka på **Välj god kännare**om du vill lägga till god kännare.
+1. Klicka på **Välj god kännare** om du vill lägga till god kännare.
 
     ![Azure AD-roller – inställningar – Kräv godkännande](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval-select-approvers.png)
 

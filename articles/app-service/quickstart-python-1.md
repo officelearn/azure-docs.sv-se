@@ -3,15 +3,15 @@ title: 'Snabb start: skapa en python-app för Linux'
 description: Kom igång med Azure App Service genom att distribuera en python-app till en Linux-behållare i App Service.
 ms.topic: quickstart
 ms.date: 09/22/2020
-ms.custom: seo-python-october2019, cli-validate, devx-track-python
+ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
 zone_pivot_groups: python-frameworks-01
 adobe-target: true
-ms.openlocfilehash: 8fa349d719f93c8efda14556280da9d9b438f630
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: dc4c67437d6cc6d5eea87bf414058a676d7cd8a4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579121"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833698"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-for-linux"></a>Snabb start: skapa en python-app i Azure App Service för Linux
 
@@ -100,7 +100,7 @@ Exemplet innehåller en Framework-speciell kod som Azure App Service känner ige
 
 ## <a name="deploy-the-sample"></a>Distribuera exemplet
 
-Distribuera koden i din lokala mapp ( *python-dok-Hello-World* ) med hjälp av `az webapp up` kommandot:
+Distribuera koden i din lokala mapp (*python-dok-Hello-World*) med hjälp av `az webapp up` kommandot:
 
 ```azurecli
 az webapp up --sku F1 --name <app-name>
@@ -108,7 +108,7 @@ az webapp up --sku F1 --name <app-name>
 
 - Om `az` kommandot inte känns igen kontrollerar du att Azure CLI är installerat enligt beskrivningen i [Konfigurera din första miljö](#set-up-your-initial-environment).
 - Om `webapp` kommandot inte känns igen, eftersom din Azure CLI-version är 2.0.80 eller högre. Om inte, [installerar du den senaste versionen](/cli/azure/install-azure-cli).
-- Ersätt `<app_name>` med ett namn som är unikt för alla Azure ( *giltiga tecken är `a-z` , `0-9` och `-`* ). Ett utmärkt mönster är att använda en kombination av företagets namn och en app-ID.
+- Ersätt `<app_name>` med ett namn som är unikt för alla Azure (*giltiga tecken är `a-z` , `0-9` och `-`*). Ett utmärkt mönster är att använda en kombination av företagets namn och en app-ID.
 - `--sku F1`Argumentet skapar webb programmet på den kostnads fria pris nivån. Utelämna det här argumentet om du vill använda en snabbare Premium-nivå, vilket innebär en timkostnad.
 - Du kan också inkludera argumentet `--location <location-name>` där `<location_name>` är en tillgänglig Azure-region. Du kan hämta en lista över tillåtna regioner för ditt Azure-konto genom att köra [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations) kommandot.
 - Om du ser felet "Det gick inte att automatiskt identifiera körnings stacken för appen" måste du kontrol lera att du kör kommandot i mappen *python-dok-Hello-World* (kolv) eller *python-django-Hello-* folder (django) som innehåller *requirements.txt* -filen. (Mer information finns i [Felsöka problem med automatisk identifiering med AZ webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md) (GitHub).)
@@ -150,7 +150,7 @@ Python-exempel koden kör en Linux-behållare i App Service med hjälp av en inb
     flask run
     ```
     
-    Som standard förutsätter servern att appens inmatnings modul är i *app.py* , som används i exemplet. (Om du använder ett annat Modulnamn anger du `FLASK_APP` miljövariabeln till det namnet.)
+    Som standard förutsätter servern att appens inmatnings modul är i *app.py*, som används i exemplet. (Om du använder ett annat Modulnamn anger du `FLASK_APP` miljövariabeln till det namnet.)
 
 1. Öppna en webbläsare och gå till exempel appen på `http://localhost:5000/` . Appen visar meddelandet **Hej, World!**.
 

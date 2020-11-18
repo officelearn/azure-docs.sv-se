@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.custom: devx-track-python, github-actions-azure
-ms.openlocfilehash: 6c768df964d46364a8ca501c078dbecaf1aaa21f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: devx-track-python, github-actions-azure, devx-track-azurecli
+ms.openlocfilehash: e2432ca4cecb3c36d2fae19907c1ad17d9ef2505
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095568"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833511"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Distribuera till App Service med GitHub-åtgärder
 
@@ -35,7 +35,7 @@ Ett arbets flöde definieras av en YAML-fil (. yml) i `/.github/workflows/` sök
 
 Filen har tre delar:
 
-|Section  |Aktiviteter  |
+|Section  |Uppgifter  |
 |---------|---------|
 |**Autentisering** | 1. definiera ett huvud namn för tjänsten eller en publicerings profil. <br /> 2. skapa en GitHub-hemlighet. |
 |**Skapa** | 1. Konfigurera miljön. <br /> 2. Bygg webb programmet. |
@@ -71,12 +71,12 @@ En publicerings profil är en autentiseringsuppgift på program nivå. Konfigure
 
 1. Gå till App Service i Azure Portal. 
 
-1. På sidan **Översikt** väljer du **Hämta publicerings profil** .
+1. På sidan **Översikt** väljer du **Hämta publicerings profil**.
 
 1. Spara den hämtade filen. Du använder filens innehåll för att skapa en GitHub-hemlighet.
 
 > [!NOTE]
-> Från och med oktober 2020 behöver Linux-webbapparna appens inställning `WEBSITE_WEBDEPLOY_USE_SCM` inställt på `true` **innan publicerings profilen laddas ned** . Detta krav kommer att tas bort i framtiden.
+> Från och med oktober 2020 behöver Linux-webbapparna appens inställning `WEBSITE_WEBDEPLOY_USE_SCM` inställt på `true` **innan publicerings profilen laddas ned**. Detta krav kommer att tas bort i framtiden.
 
 # <a name="service-principal"></a>[Tjänstens huvudnamn](#tab/userlevel)
 
@@ -110,7 +110,7 @@ I exemplet ovan ersätter du plats hållarna med ditt prenumerations-ID, resurs 
 
 # <a name="publish-profile"></a>[Publicera profil](#tab/applevel)
 
-I [GitHub](https://github.com/), bläddra i din lagrings plats, välj **inställningar > hemligheter > Lägg till en ny hemlighet** .
+I [GitHub](https://github.com/), bläddra i din lagrings plats, välj **inställningar > hemligheter > Lägg till en ny hemlighet**.
 
 Om du vill använda [autentiseringsuppgifter för program nivå](#generate-deployment-credentials)klistrar du in innehållet i den hämtade publicerings profil filen i fältet hemligt värde. Namnge hemligheten `AZURE_WEBAPP_PUBLISH_PROFILE` .
 
@@ -124,7 +124,7 @@ När du konfigurerar ditt GitHub-arbetsflöde använder du `AZURE_WEBAPP_PUBLISH
 
 # <a name="service-principal"></a>[Tjänstens huvudnamn](#tab/userlevel)
 
-I [GitHub](https://github.com/), bläddra i din lagrings plats, välj **inställningar > hemligheter > Lägg till en ny hemlighet** .
+I [GitHub](https://github.com/), bläddra i din lagrings plats, välj **inställningar > hemligheter > Lägg till en ny hemlighet**.
 
 Om du vill använda [autentiseringsuppgifter för användar nivå](#generate-deployment-credentials)klistrar du in hela JSON-utdata från Azure CLI-kommandot till fältet hemligt värde. Ge hemligheten namnet `AZURE_CREDENTIALS` .
 

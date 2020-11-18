@@ -5,13 +5,13 @@ keywords: Azure App Service, webbapp, app-inställningar, miljövariabler
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
-ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 86f9f227c0ea92b7b52a3037759426cc87f6d937
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
+ms.openlocfilehash: 1ab6f5e9c7b602ce124116c02584c5a48a3f597f
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152051"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833664"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Konfigurera en App Service-app i Azure Portal
 
@@ -21,7 +21,7 @@ I det här avsnittet beskrivs hur du konfigurerar vanliga inställningar för we
 
 I App Service är app-inställningar variabler som skickas som miljövariabler till program koden. För Linux-appar och anpassade behållare skickar App Service appinställningar till behållaren med hjälp av `--env` flaggan för att ställa in miljövariabeln i behållaren.
 
-I [Azure Portal]söker du efter och väljer **app Services**och väljer sedan din app. 
+I [Azure Portal]söker du efter och väljer **app Services** och väljer sedan din app. 
 
 ![Sök efter App Services](./media/configure-common/search-for-app-services.png)
 
@@ -56,7 +56,7 @@ Om du vill lägga till en ny app-inställning klickar du på **ny program instä
 
 Om du vill redigera en inställning klickar du på knappen **Redigera** på höger sida.
 
-Klicka på **Uppdatera**när du är färdig. Glöm inte att klicka på **Spara** tillbaka på sidan **konfiguration** .
+Klicka på **Uppdatera** när du är färdig. Glöm inte att klicka på **Spara** tillbaka på sidan **konfiguration** .
 
 > [!NOTE]
 > I en standard-Linux-behållare eller en anpassad Linux-behållare, som en kapslad JSON-nyckel struktur i inställnings namnet för appen, som `ApplicationInsights:InstrumentationKey` måste konfigureras i App Service som `ApplicationInsights__InstrumentationKey` för nyckel namnet. Med andra ord ska alla `:` ersättas av `__` (dubbla under streck).
@@ -64,7 +64,7 @@ Klicka på **Uppdatera**när du är färdig. Glöm inte att klicka på **Spara**
 
 ### <a name="edit-in-bulk"></a>Redigera i bulk
 
-Klicka på knappen **Avancerad redigering** om du vill lägga till eller redigera appinställningar i grupp. Klicka på **Uppdatera**när du är färdig. Glöm inte att klicka på **Spara** tillbaka på sidan **konfiguration** .
+Klicka på knappen **Avancerad redigering** om du vill lägga till eller redigera appinställningar i grupp. Klicka på **Uppdatera** när du är färdig. Glöm inte att klicka på **Spara** tillbaka på sidan **konfiguration** .
 
 Appinställningar har följande JSON-formatering:
 
@@ -112,7 +112,7 @@ Du kan använda Azure CLI för att skapa och hantera inställningar från komman
 
 ## <a name="configure-connection-strings"></a>Konfigurera anslutningssträngar
 
-I [Azure Portal]söker du efter och väljer **app Services**och väljer sedan din app. I appens vänstra meny väljer du **konfigurations**  >  **program inställningar**.
+I [Azure Portal]söker du efter och väljer **app Services** och väljer sedan din app. I appens vänstra meny väljer du **konfigurations**  >  **program inställningar**.
 
 ![Programinställningar](./media/configure-common/open-ui.png)
 
@@ -149,15 +149,15 @@ Som standard är värden för anslutnings strängar dolda i portalen för säker
 
 ### <a name="add-or-edit"></a>Lägg till eller redigera
 
-Klicka på **ny anslutnings sträng**för att lägga till en ny anslutnings sträng. I dialog rutan kan du [fästa anslutnings strängen till den aktuella platsen](deploy-staging-slots.md#which-settings-are-swapped).
+Klicka på **ny anslutnings sträng** för att lägga till en ny anslutnings sträng. I dialog rutan kan du [fästa anslutnings strängen till den aktuella platsen](deploy-staging-slots.md#which-settings-are-swapped).
 
 Om du vill redigera en inställning klickar du på knappen **Redigera** på höger sida.
 
-Klicka på **Uppdatera**när du är färdig. Glöm inte att klicka på **Spara** tillbaka på sidan **konfiguration** .
+Klicka på **Uppdatera** när du är färdig. Glöm inte att klicka på **Spara** tillbaka på sidan **konfiguration** .
 
 ### <a name="edit-in-bulk"></a>Redigera i bulk
 
-Om du vill lägga till eller redigera anslutnings strängar i bulk klickar du på knappen **Avancerad redigering** . Klicka på **Uppdatera**när du är färdig. Glöm inte att klicka på **Spara** tillbaka på sidan **konfiguration** .
+Om du vill lägga till eller redigera anslutnings strängar i bulk klickar du på knappen **Avancerad redigering** . Klicka på **Uppdatera** när du är färdig. Glöm inte att klicka på **Spara** tillbaka på sidan **konfiguration** .
 
 Anslutnings strängar har följande JSON-formatering:
 
@@ -184,7 +184,7 @@ Anslutnings strängar har följande JSON-formatering:
 
 ## <a name="configure-general-settings"></a>Konfigurera allmänna inställningar
 
-I [Azure Portal]söker du efter och väljer **app Services**och väljer sedan din app. I appens vänstra meny väljer du **konfiguration**  >  **allmänna inställningar**.
+I [Azure Portal]söker du efter och väljer **app Services** och väljer sedan din app. I appens vänstra meny väljer du **konfiguration**  >  **allmänna inställningar**.
 
 ![Allmänna inställningar](./media/configure-common/open-general.png)
 
@@ -214,7 +214,7 @@ Här kan du konfigurera några vanliga inställningar för appen. Vissa inställ
 
 Den här inställningen gäller endast för Windows-appar.
 
-I [Azure Portal]söker du efter och väljer **app Services**och väljer sedan din app. I appens vänstra meny väljer du **konfiguration**av  >  **standard dokument**.
+I [Azure Portal]söker du efter och väljer **app Services** och väljer sedan din app. I appens vänstra meny väljer du **konfiguration** av  >  **standard dokument**.
 
 ![Standard dokument](./media/configure-common/open-documents.png)
 
@@ -224,7 +224,7 @@ Om appen använder moduler som dirigerar baserat på URL i stället för att bet
 
 ## <a name="configure-path-mappings"></a>Konfigurera Sök vägs mappningar
 
-I [Azure Portal]söker du efter och väljer **app Services**och väljer sedan din app. I appens vänstra meny väljer du **konfiguration**  >  **Sök vägs mappningar**.
+I [Azure Portal]söker du efter och väljer **app Services** och väljer sedan din app. I appens vänstra meny väljer du **konfiguration**  >  **Sök vägs mappningar**.
 
 ![Sök vägs mappningar](./media/configure-common/open-path.png)
 
@@ -236,7 +236,7 @@ För Windows-appar kan du anpassa mappningar för IIS-hanteraren och virtuella p
 
 Med mappningar för hanterare kan du lägga till anpassade skript processorer för att hantera begär Anden för vissa fil namns tillägg. Om du vill lägga till en anpassad hanterare klickar du på **ny hanterare**. Konfigurera hanteraren på följande sätt:
 
-- **Tillägg**. Det fil namns tillägg som du vill hantera, till exempel * \* . php* eller *hanterare. FCGI*.
+- **Tillägg**. Det fil namns tillägg som du vill hantera, till exempel *\* . php* eller *hanterare. FCGI*.
 - **Skript processor**. Den absoluta sökvägen till skript processorn till dig. Begär anden till filer som matchar fil namns tillägget bearbetas av skript processorn. Använd sökvägen `D:\home\site\wwwroot` för att referera till appens rot Katalog.
 - **Argument**. Valfria kommando rads argument för skript processorn.
 

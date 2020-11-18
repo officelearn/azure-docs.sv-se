@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: 889972f7d94ab960354982275d45bdc5d5726d6e
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 528003ac482da6f254bf437321c70c389d23844b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94356832"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835092"
 ---
 # <a name="tutorial-configure-looop-for-automatic-user-provisioning"></a>Självstudie: Konfigurera LOOOP för automatisk användar etablering
 
@@ -85,11 +85,11 @@ Om du vill konfigurera LOOOP för automatisk användar etablering med Azure AD m
 
     ![LOOOP i resultat listan](common/search-new-app.png)
 
-5. Välj knappen **Registrera dig för LOOOP** som kommer att omdirigera dig till inloggnings sidan för LOOOP. 
+5. Välj knappen **Registrera dig för LOOOP** , som kommer att omdirigera dig till inloggnings sidan för LOOOP. 
 
     ![LOOOP OIDC Lägg till](media/looop-provisioning-tutorial/signup.png)
 
-6. Som looop är en OpenIDConnect-app väljer du att logga in på LOOOP med ditt Microsoft Work-konto.
+6. När looop är en OpenIDConnect-app väljer du att logga in på LOOOP med ditt Microsoft Work-konto.
 
     ![LOOOP OIDC-inloggning](media/looop-provisioning-tutorial/msftlogin.png)
 
@@ -119,7 +119,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Skärm bild av list rutan etablerings läge med det automatiska alternativet inringat.](common/provisioning-automatic.png)
 
-5. Under avsnittet **admin credentials** , inmatat `https://<organisation_domain>.looop.co/scim/v2` i **klient-URL**. Till exempel `https://demo.looop.co/scim/v2`. Mata in det värde som du hämtade och sparade tidigare från LOOOP i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till LOOOP. Om anslutningen Miss lyckas kontrollerar du att LOOOP-kontot har administratörs behörighet och försöker igen.
+5. Under avsnittet **admin credentials** , inmatat `https://<organisation_domain>.looop.co/scim/v2` i **klient-URL**. Exempelvis `https://demo.looop.co/scim/v2`. Mata in det värde som du hämtade och sparade tidigare från LOOOP i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till LOOOP. Om anslutningen Miss lyckas kontrollerar du att LOOOP-kontot har administratörs behörighet och försöker igen.
 
     ![Klient-URL + token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -135,7 +135,23 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 9. Granska de användarattribut som synkroniseras från Azure AD till LOOOP i avsnittet **Mappning av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i LOOOP för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
-    ![LOOOP-användarattribut](media/looop-provisioning-tutorial/userattributes.png)
+   |Attribut|Typ|Stöds för filtrering|
+   |---|---|---|
+   |userName|Sträng|&check;|
+   |aktiv|Boolesk|
+   |emails[type eq "work"].value|Sträng|
+   |name.givenName|Sträng|
+   |name.familyName|Sträng|
+   |externalId|Sträng|
+   |urn: IETF: params: scim: schemas: tillägg: LOOOP: 2.0: användare: Area|Sträng|
+   |urn: IETF: params: scim: schemas: tillägg: LOOOP: 2.0: användare: custom_1|Sträng|
+   |urn: IETF: params: scim: schemas: tillägg: LOOOP: 2.0: användare: custom_2|Sträng|
+   |urn: IETF: params: scim: schemas: tillägg: LOOOP: 2.0: användare: custom_3|Sträng|
+   |urn: IETF: params: scim: schemas: tillägg: LOOOP: 2.0: användare: avdelning|Sträng|
+   |urn: IETF: params: scim: schemas: tillägg: LOOOP: 2.0: användare: employee_id|Sträng|
+   |urn: IETF: params: scim: schemas: tillägg: LOOOP: 2.0: användare: plats|Sträng|
+   |urn: IETF: params: scim: schemas: tillägg: LOOOP: 2.0: användare: position|Sträng|
+   |urn: IETF: params: scim: schemas: tillägg: LOOOP: 2.0: användare: startAt|Sträng|
 
 10. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory grupper till meta Networks Connector**.
 
@@ -143,7 +159,12 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 11. Granska gruppattributen som synkroniseras från Azure AD till meta Networks Connector i avsnittet **Mappning av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha grupperna i meta Networks-anslutningen för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
-    ![LOOOP grupp-attribut](media/looop-provisioning-tutorial/groupattributes.png)
+    |Attribut|Typ|Stöds för filtrering|
+    |---|---|---|
+    |displayName|Sträng|&check;|
+    |medlemmar|Referens|
+    |externalId|Sträng|
+
 
 10. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudien för omfångsfilter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

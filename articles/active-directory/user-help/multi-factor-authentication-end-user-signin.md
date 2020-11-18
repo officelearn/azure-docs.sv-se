@@ -13,17 +13,17 @@ ms.date: 04/02/2017
 ms.author: curtand
 ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
-ms.openlocfilehash: 51cfe2c448fde8c50f8b846979a4b35fa4be5ec1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f27dd7daf310e425b09db7905ad2f7c37fcff81
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056036"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94834174"
 ---
 # <a name="sign-in-to-your-work-or-school-account-using-your-two-factor-verification-method"></a>Logga in på ditt arbets-eller skol konto med hjälp av en metod för tvåstegsverifiering
 
 > [!NOTE]
-> Syftet med den här artikeln är att gå igenom en typisk inloggnings upplevelse. Om du behöver hjälp med att logga in, eller om du vill felsöka problem, kan du läsa få [problem med Azure Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
+> Syftet med den här artikeln är att gå igenom en typisk inloggnings upplevelse. Om du behöver hjälp med att logga in, eller om du vill felsöka problem, kan du läsa få [problem med Azure AD Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
 
 ## <a name="what-will-your-sign-in-experience-be"></a>Vad är inloggnings upplevelsen?
 Inloggnings upplevelsen varierar beroende på vad du väljer att använda som den andra faktorn: ett telefonsamtal, en webbapp eller text. Välj det alternativ som bäst beskriver vad du gör:
@@ -83,7 +83,7 @@ Ibland har du inte den telefon eller enhet som du har angett som önskad verifie
    ![Använd alternativ metod](./media/multi-factor-authentication-end-user-signin/alt.png)
 
 ## <a name="next-steps"></a>Nästa steg
-- Om du har problem med att logga in med tvåstegsverifiering kan du få mer information om hur du får [problem med Azure Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
+- Om du har problem med att logga in med tvåstegsverifiering kan du få mer information om att [ha problem med Azure AD-Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
 
 - Lär dig hur du [hanterar dina verifierings inställningar i två steg](multi-factor-authentication-end-user-manage-settings.md).
 

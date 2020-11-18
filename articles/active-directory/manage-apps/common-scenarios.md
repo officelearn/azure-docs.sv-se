@@ -15,12 +15,12 @@ ms.date: 03/02/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9699f425b296f1c88162c78b8f86de74303747be
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 2b78562bc3590bdf5b15e4061ba23e1284b07c16
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658340"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835500"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Centralisera program hantering med Azure AD
 
@@ -62,7 +62,7 @@ Identiteten är grundbult för säkerhet. Om en identitet blir komprometterad ä
 
 |Funktion  |Beskrivning| Rekommendation |
 |---------|---------| ---------|
-|Azure MFA|Azure Multi-Factor Authentication (MFA) är Microsofts verifieringslösning i två steg. Med hjälp av godkända autentiseringsmetoder bidrar Azure MFA till att skydda åtkomsten till dina data och program samtidigt som du kan uppfylla behovet av en enkel inloggnings process.| [Aktivera MFA](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124) för dina användare.  |
+|Azure AD MFA|Azure AD Multi-Factor Authentication (MFA) är Microsofts lösning för verifiering av två steg. Med hjälp av godkända autentiseringsmetoder hjälper Azure AD MFA till att skydda åtkomsten till dina data och program samtidigt som du kan uppfylla behovet av en enkel inloggnings process.| [Aktivera MFA](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124) för dina användare.  |
 |Villkorlig åtkomst|Med villkorlig åtkomst kan du implementera automatiska åtkomst kontroll beslut för vilka som kan komma åt dina molnappar, baserat på villkor.| Granska [säkerhets inställningarna](../fundamentals/concept-fundamentals-security-defaults.md) och de [vanliga principerna](../conditional-access/concept-conditional-access-policy-common.md) som kunderna använder. | 
 |Identity Protection|Identitets skydd använder den information som Microsoft har förvärvat från sin ståndpunkt i organisationer med Azure AD, konsument utrymmet med Microsoft-konton och i spel med Xbox för att skydda dina användare. Microsoft analyserar 6 500 000 000 000-signaler per dag för att identifiera och skydda kunder mot hot.|Aktivera [standard principerna för identitets skydd](../identity-protection/concept-identity-protection-policies.md) som tillhandahålls av vår tjänst. | 
 

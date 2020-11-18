@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 08/03/2020
 ms.author: curtand
-ms.openlocfilehash: d9023579b6627e9dab9feac8dfaccd94dc9f5c12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a002254995e42fc586b707e3cb373dac66e678ee
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798133"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94834157"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-page"></a>Visa och Sök efter din senaste inloggnings aktivitet från sidan mina inloggningar
 
@@ -46,7 +46,7 @@ Innan du fastställer något är felaktigt kontrollerar du att du inte ser ett f
 
 ### <a name="if-you-see-an-unsuccessful-sign-in"></a>Om du ser en misslyckad inloggning
 
-Om du ser en misslyckad inloggning, kan det betyda att du felskrivit dina autentiseringsuppgifter. Det kan också betyda att en angripare försökte gissa ditt lösen ord. För att svara på den här risken behöver du inte ändra ditt lösen ord, men vi rekommenderar att du registrerar dig för Azure Multi-Factor Authentication (MFA). Med Multi-Factor Authentication, även om hackaren gissar ditt lösen ord, räcker det inte att komma åt kontot.
+Om du ser en misslyckad inloggning, kan det betyda att du felskrivit dina autentiseringsuppgifter. Det kan också betyda att en angripare försökte gissa ditt lösen ord. För att svara på den här risken behöver du inte ändra ditt lösen ord, men vi rekommenderar att du registrerar dig för Azure AD Multi-Factor Authentication (MFA). Med Multi-Factor Authentication, även om hackaren gissar ditt lösen ord, räcker det inte att komma åt kontot.
 
 ![Inloggnings panelen misslyckades](media/my-account-portal-sign-ins-page/unsuccessful.png)
 

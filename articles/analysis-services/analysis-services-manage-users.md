@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 032b63700f2842826de916a8f077975689d56911
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b40be802f30bac8438f10c4ab60e1c196c9f7164
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014910"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833800"
 ---
 # <a name="authentication-and-user-permissions"></a>Autentisering och användarbehörigheter
 
@@ -32,7 +32,7 @@ Klient program som Excel och Power BI Desktop och verktyg som SSMS och Analysis 
 
 Beroende på vilket klient program eller verktyg du använder kan typen av autentisering och hur du loggar in vara annorlunda. Varje program kan ha stöd för olika funktioner för att ansluta till moln tjänster som Azure Analysis Services.
 
-Power BI Desktop-, Visual Studio-och SSMS-support Active Directory Universal Authentication, en interaktiv metod som också stöder Azure-Multi-Factor Authentication (MFA). Azure MFA hjälper till att skydda åtkomsten till data och program samtidigt som du ger en enkel inloggnings process. Den ger stark autentisering med flera verifierings alternativ (telefonsamtal, textmeddelande, smartkort med PIN-kod eller meddelande om mobilapp). Interaktiv MFA med Azure AD kan resultera i en popup-dialogruta för verifiering. **Universal Authentication rekommenderas**.
+Power BI Desktop-, Visual Studio-och SSMS-support Active Directory Universal Authentication, en interaktiv metod som också stöder Azure AD Multi-Factor Authentication (MFA). Azure AD MFA hjälper till att skydda åtkomsten till data och program samtidigt som du ger en enkel inloggnings process. Den ger stark autentisering med flera verifierings alternativ (telefonsamtal, textmeddelande, smartkort med PIN-kod eller meddelande om mobilapp). Interaktiv MFA med Azure AD kan resultera i en popup-dialogruta för verifiering. **Universal Authentication rekommenderas**.
 
 Om du loggar in på Azure med hjälp av ett Windows-konto och universell autentisering inte är markerat eller tillgängligt (Excel) krävs [Active Directory Federation Services (AD FS) (AD FS)](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs) . Med Federation autentiseras Azure AD-och Microsoft 365-användare med lokala autentiseringsuppgifter och kan komma åt Azure-resurser.
 
@@ -44,7 +44,7 @@ Azure Analysis Services-servrar stöder anslutningar från [SSMS v 17.1](/sql/ss
 
 *  Stöder Azure B2B-gäst användare som bjuds in till Azure som klient organisation. När du ansluter till en server måste gäst användare välja Active Directory Universal-autentisering när de ansluter till servern.
 
-*  Stöder Multi-Factor Authentication (MFA). Azure MFA hjälper till att skydda åtkomsten till data och program med ett antal verifierings alternativ: telefonsamtal, textmeddelande, smartkort med PIN-kod eller meddelande om mobilapp. Interaktiv MFA med Azure AD kan resultera i en popup-dialogruta för verifiering.
+*  Stöder Multi-Factor Authentication (MFA). Azure AD MFA hjälper till att skydda åtkomsten till data och program med ett antal verifierings alternativ: telefonsamtal, textmeddelande, smartkort med PIN-kod eller meddelande om mobilapp. Interaktiv MFA med Azure AD kan resultera i en popup-dialogruta för verifiering.
 
 ### <a name="visual-studio"></a>Visual Studio
 

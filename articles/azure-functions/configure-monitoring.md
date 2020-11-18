@@ -3,13 +3,13 @@ title: Konfigurera övervakning för Azure Functions
 description: Lär dig hur du ansluter din Function-app för att Application Insights övervakning och hur du konfigurerar data insamling.
 ms.date: 8/31/2020
 ms.topic: how-to
-ms.custom: contperfq2
-ms.openlocfilehash: 50705eeedf9c985a053600a8c0b27c823231e9a3
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.custom: contperfq2, devx-track-azurecli
+ms.openlocfilehash: f5b1b00c534abf1e7f82d2aca69dd4763b40d5ad
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217192"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833086"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Så här konfigurerar du övervakning för Azure Functions
 
@@ -238,14 +238,14 @@ Om du vill granska Application Insights resurs som skapas väljer du den för at
 
 ![Aktivera Application Insights när du skapar en Function-app](media/functions-monitoring/enable-ai-new-function-app.png)
 
-När du väljer **skapa**skapas en Application Insights resurs med din Function-app, som har `APPINSIGHTS_INSTRUMENTATIONKEY` inställningen ange i program inställningar. Allt är klart att sätta igång.
+När du väljer **skapa** skapas en Application Insights resurs med din Function-app, som har `APPINSIGHTS_INSTRUMENTATIONKEY` inställningen ange i program inställningar. Allt är klart att sätta igång.
 
 <a id="manually-connect-an-app-insights-resource"></a>
 ### <a name="add-to-an-existing-function-app"></a>Lägg till i en befintlig Function-app 
 
 Om det inte gick att skapa en Application Insights-resurs med din Function-app, kan du använda följande steg för att skapa resursen. Du kan sedan lägga till Instrumentation-nyckeln från resursen som en [program inställning](functions-how-to-use-azure-function-app-settings.md#settings) i din Function-app.
 
-1. I [Azure Portal](https://portal.azure.com)söker du efter och väljer **Function-appen**och väljer sedan din Function-app. 
+1. I [Azure Portal](https://portal.azure.com)söker du efter och väljer **Function-appen** och väljer sedan din Function-app. 
 
 1. Välj **Application Insights inte har kon figurer ATS** överst i fönstret. Om du inte ser den här banderollen kanske din app redan har Application Insights aktive rad.
 
@@ -258,13 +258,13 @@ Om det inte gick att skapa en Application Insights-resurs med din Function-app, 
     | **Nytt resursnamn** | Unikt namn på App | Det är enklast att använda samma namn som din Function-app, vilket måste vara unikt i din prenumeration. | 
     | **Plats** | Europa, västra | Använd om möjligt samma [region](https://azure.microsoft.com/regions/) som din Function-app eller en som är nära den regionen. |
 
-    :::image type="content" source="media/configure-monitoring/ai-general.png" alt-text="Aktivera Application Insights från portalen":::
+    :::image type="content" source="media/configure-monitoring/ai-general.png" alt-text="Skapa en Application Insights resurs":::
 
 1. Välj **Tillämpa**. 
 
    Application Insights resursen skapas i samma resurs grupp och prenumeration som din Function-app. När resursen har skapats stänger du Application Insightss fönstret.
 
-1. I din Function-app väljer du **konfiguration** under **Inställningar**och väljer sedan **program inställningar**. Om du ser en inställning med namnet `APPINSIGHTS_INSTRUMENTATIONKEY` är Application Insights integration aktive rad för din Function-app som körs i Azure. Om den här inställningen inte finns kan du lägga till den med hjälp av din Application Insights Instrumentation-nyckel som värde.
+1. I din Function-app väljer du **konfiguration** under **Inställningar** och väljer sedan **program inställningar**. Om du ser en inställning med namnet `APPINSIGHTS_INSTRUMENTATIONKEY` är Application Insights integration aktive rad för din Function-app som körs i Azure. Om den här inställningen inte finns kan du lägga till den med hjälp av din Application Insights Instrumentation-nyckel som värde.
 
 > [!NOTE]
 > Tidiga versioner av Functions använde inbyggd övervakning, som inte längre rekommenderas. När du aktiverar Application Insights-integrering för en sådan Function-app måste du också [inaktivera inbyggd loggning](#disable-built-in-logging).  

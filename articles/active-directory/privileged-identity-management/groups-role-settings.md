@@ -15,12 +15,12 @@ ms.date: 07/27/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c3cd91fb2a878567dc4b09fbddfcf448ec95edd
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: abb7f93437cd45914d3824e9f557241ba0d71162
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368544"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835398"
 ---
 # <a name="configure-privileged-access-group-settings-preview-in-privileged-identity-management"></a>Konfigurera inställningar för privilegierad åtkomst grupp (för hands version) i Privileged Identity Management
 
@@ -92,7 +92,7 @@ Och du kan välja något av dessa alternativ för varaktighet för **aktiv** til
 
 ## <a name="require-multi-factor-authentication"></a>Kräv Multi-Factor Authentication
 
-Privileged Identity Management tillhandahåller en valfri tillämpning av Azure Multi-Factor Authentication för två olika scenarier.
+Privileged Identity Management tillhandahåller en valfri tillämpning av Azure AD Multi-Factor Authentication för två olika scenarier.
 
 ### <a name="require-multi-factor-authentication-on-active-assignment"></a>Kräv Multi-Factor Authentication för aktiv tilldelning
 
@@ -102,7 +102,7 @@ För att säkerställa att resurs administratören som uppfyller tilldelningen �
 
 ### <a name="require-multi-factor-authentication-on-activation"></a>Kräv Multi-Factor Authentication vid aktivering
 
-Du kan kräva att användare som är berättigade till en roll för att bevisa vem de använder Azure Multi-Factor Authentication innan de kan aktivera. Multi-Factor Authentication säkerställer att användaren är den som har rimlig säkerhet. Att framtvinga det här alternativet skyddar viktiga resurser i situationer när användar kontot kan ha komprometterats.
+Du kan kräva att användare som är berättigade till en roll för att bevisa vem de använder Azure AD Multi-Factor Authentication innan de kan aktivera. Multi-Factor Authentication säkerställer att användaren är den som har rimlig säkerhet. Att framtvinga det här alternativet skyddar viktiga resurser i situationer när användar kontot kan ha komprometterats.
 
 Om du vill kräva Multi-Factor Authentication innan aktiveringen, markerar du kryss rutan **kräv Multi-Factor Authentication vid aktivering** .
 

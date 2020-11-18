@@ -13,12 +13,12 @@ ms.subservice: pim
 ms.date: 09/16/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69884b9e07172e9b25f4c14884be8713da23cbdb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e0e230a975748fe2f737c4b8fe8491887351d387
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369836"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835381"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Tilldela Azure AD-roller i Privileged Identity Management
 
@@ -137,7 +137,7 @@ Följ dessa steg om du vill göra en användare tillgänglig för en administrat
 
     ![Välj en användare eller grupp som ska tilldelas](./media/pim-how-to-add-role-to-user/pim-select-members.png)
 
-1. I **Lägg till hanterade medlemmar**väljer du **OK** för att lägga till användaren i rollen.
+1. I **Lägg till hanterade medlemmar** väljer du **OK** för att lägga till användaren i rollen.
 
 1. I listan över roller väljer du den roll som du just har tilldelat för att visa listan över medlemmar.
 
@@ -147,7 +147,7 @@ Följ dessa steg om du vill göra en användare tillgänglig för en administrat
 
 1. Nu när användaren är berättigad till rollen kan de se att de kan aktivera den enligt anvisningarna i [Aktivera mina Azure AD-roller i Privileged Identity Management](pim-how-to-activate-role.md).
 
-    Berättigade administratörer uppmanas att registrera sig för Azure Multi-Factor Authentication under aktiveringen. Om en användare inte kan registrera sig för MFA, eller använder en Microsoft-konto (till exempel @outlook.com ), måste du göra dem permanenta i alla sina roller.
+    Berättigade administratörer uppmanas att registrera sig för Azure AD Multi-Factor Authentication under aktiveringen. Om en användare inte kan registrera sig för MFA, eller använder en Microsoft-konto (till exempel @outlook.com ), måste du göra dem permanenta i alla sina roller.
 
 ## <a name="make-a-role-assignment-permanent"></a>Gör en roll tilldelning permanent
 
@@ -163,7 +163,7 @@ Som standard är nya användare endast *berättigade* till en administratörs ro
 
 1. Välj en **berättigad** roll som du vill göra permanent.
 
-1. Välj **mer** och välj sedan **skapa**behörighet.
+1. Välj **mer** och välj sedan **skapa** behörighet.
 
     ![Gör roll tilldelning permanent](./media/pim-how-to-add-role-to-user/pim-make-perm.png)
 

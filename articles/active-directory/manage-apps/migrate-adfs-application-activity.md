@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/14/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ee1734e61ffe59fccf3ad35c1f0c607882f7f40
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 1245010ae0b21c5bb8e3ebd93a9fe851d48c858b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659205"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835517"
 ---
 # <a name="use-the-ad-fs-application-activity-report-preview-to-migrate-applications-to-azure-ad"></a>Använda rapporten AD FS program aktivitet (för hands version) för att migrera program till Azure AD
 
@@ -74,9 +74,9 @@ Rapporten AD FS program aktivitet är tillgänglig i Azure Portal under Azure AD
 
 I följande tabell visas alla konfigurations test som utförs på AD FS program.
 
-|Resultat  |Pass/varning/fel  |Description  |
+|Resultat  |Pass/varning/fel  |Beskrivning  |
 |---------|---------|---------|
-|Test-ADFSRPAdditionalAuthenticationRules <br> Minst en icke-går migrera regel identifierades för AdditionalAuthentication.       | Pass/varning          | Den förlitande parten har regler för att begära Multi-Factor Authentication (MFA). Om du vill flytta till Azure AD översätter du reglerna till principer för villkorlig åtkomst. Om du använder en lokal MFA-MFA rekommenderar vi att du flyttar till Azure MFA. [Läs mer om villkorlig åtkomst](../authentication/concept-mfa-howitworks.md).        |
+|Test-ADFSRPAdditionalAuthenticationRules <br> Minst en icke-går migrera regel identifierades för AdditionalAuthentication.       | Pass/varning          | Den förlitande parten har regler för att begära Multi-Factor Authentication (MFA). Om du vill flytta till Azure AD översätter du reglerna till principer för villkorlig åtkomst. Om du använder en lokal MFA-MFA rekommenderar vi att du flyttar till Azure AD MFA. [Läs mer om villkorlig åtkomst](../authentication/concept-mfa-howitworks.md).        |
 |Test-ADFSRPAdditionalWSFedEndpoint <br> Förlitande part har AdditionalWSFedEndpoint inställt på sant.       | Godkänn/Underkänn          | Den förlitande parten i AD FS tillåter flera WS-Fed försäkrade slut punkter.Azure AD har för närvarande endast stöd för en.Om du har ett scenario där det här resultatet blockerar migreringen kan du berätta för [oss](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695621-allow-multiple-ws-fed-assertion-endpoints).     |
 |Test-ADFSRPAllowedAuthenticationClassReferences <br> Förlitande part har angett AllowedAuthenticationClassReferences.       | Godkänn/Underkänn          | Med den här inställningen i AD FS kan du ange om programmet har kon figurer ATS för att endast tillåta vissa typer av autentisering. Vi rekommenderar att du använder villkorlig åtkomst för att uppnå den här funktionen. Om du har ett scenario där det här resultatet blockerar migreringen kan du berätta för [oss](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695672-allow-in-azure-ad-to-specify-certain-authentication).  [Läs mer om villkorlig åtkomst](../authentication/concept-mfa-howitworks.md).          |
 |Test-ADFSRPAlwaysRequireAuthentication <br> AlwaysRequireAuthenticationCheckResult      | Godkänn/Underkänn          | Med den här inställningen i AD FS kan du ange om programmet är konfigurerat att ignorera SSO-cookies och **alltid fråga efter autentisering**. I Azure AD kan du hantera Autentiseringstjänsten med hjälp av principer för villkorlig åtkomst för att uppnå liknande beteende. [Läs mer om hur du konfigurerar hantering av autentisering med villkorlig åtkomst](../conditional-access/howto-conditional-access-session-lifetime.md).          |

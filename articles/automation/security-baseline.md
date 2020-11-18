@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 2d3f04777983d24d5219c55c5309b7d12c214594
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 2d0157f3e7ab0ef373235fcc6e188f9caa36eff4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070698"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833307"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Azures säkerhets bas linje för Automation
 
@@ -886,7 +886,7 @@ Du kan också använda rekommendationer från Azure Security Center som en säke
 
 * [Exportera en och flera resurser till en mall i Azure Portal](../azure-resource-manager/templates/export-template-portal.md)
 
-* [Säkerhets rekommendationer – en referens guide](../security-center/recommendations-reference.md)
+* [Säkerhetsrekommendationer – en referensguide](../security-center/recommendations-reference.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1040,7 +1040,7 @@ När du använder funktionen Hybrid Runbook Worker använder du Azure Automation
 
 * [Använd Runbook-autentisering med hanterade identiteter](./automation-hrw-run-runbooks.md#runbook-auth-managed-identities)
 
-* [Så här skapar du en Key Vault](../key-vault/secrets/quick-create-portal.md)
+* [Så här skapar du en Key Vault](../key-vault/general/quick-create-portal.md)
 
 * [Så här autentiserar du till Key Vault](../key-vault/general/authentication.md)
 
@@ -1226,7 +1226,7 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 * [Säkerhetsaviseringar i Azure Security Center](../security-center/security-center-alerts-overview.md)
 
-* [Använd taggar till att organisera dina Azure-resurser](../azure-resource-manager/management/tag-resources.md)
+* [Använda taggar för att organisera dina Azure-resurser](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center övervakning**: Ja
 

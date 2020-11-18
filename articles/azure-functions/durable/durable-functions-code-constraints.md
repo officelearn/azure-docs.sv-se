@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ee1561e85e769bf8a82ce96d5ce010eece92a0fa
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: dc301cf7149ad9fcd5bd5c02226afedc4df5e3ee
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93392624"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833103"
 ---
 # <a name="orchestrator-function-code-constraints"></a>Begränsningar för Orchestrator-funktions kod
 
@@ -18,7 +18,7 @@ Durable Functions är en utökning av [Azure Functions](../functions-overview.md
 
 ## <a name="orchestrator-code-constraints"></a>Begränsningar för orkestrerarkod
 
-Orchestrator-funktioner använder [händelse källor](/azure/architecture/patterns/event-sourcing) för att säkerställa tillförlitlig körning och upprätthålla lokal variabel status. [Repetitions beteendet](durable-functions-orchestrations.md#reliability) i Orchestrator Code skapar begränsningar för den typ av kod som du kan skriva i en Orchestrator-funktion. Till exempel måste Orchestrator-funktioner vara *deterministiska* : en Orchestrator-funktion kommer att spelas upp flera gånger och det måste ge samma resultat varje gång.
+Orchestrator-funktioner använder [händelse källor](/azure/architecture/patterns/event-sourcing) för att säkerställa tillförlitlig körning och upprätthålla lokal variabel status. [Repetitions beteendet](durable-functions-orchestrations.md#reliability) i Orchestrator Code skapar begränsningar för den typ av kod som du kan skriva i en Orchestrator-funktion. Till exempel måste Orchestrator-funktioner vara *deterministiska*: en Orchestrator-funktion kommer att spelas upp flera gånger och det måste ge samma resultat varje gång.
 
 ### <a name="using-deterministic-apis"></a>Använda deterministiska API: er
 
@@ -30,8 +30,8 @@ I följande tabell visas exempel på API: er som du bör undvika eftersom de *in
 
 | API-kategori | Orsak | Lösning |
 | ------------ | ------ | ---------- |
-| Datum och tider  | API: er som returnerar aktuellt datum eller tid är icke-deterministiska eftersom det returnerade värdet är olika för varje omuppspelning. | Använd `CurrentUtcDateTime` API: t i .net, `currentUtcDateTime` API: et i Java Script eller `current_utc_datetime` API i python, som är säkra för uppspelning. |
-| GUID och UUID: er  | API: er som returnerar ett slumpmässigt GUID eller UUID är icke deterministiska eftersom det genererade värdet är olika för varje omuppspelning. | Använd `NewGuid` i .net eller `newGuid` i Java Script för att på ett säkert sätt generera slumpmässiga GUID. |
+| Datum och tider  | API: er som returnerar aktuellt datum eller tid är icke-deterministiska eftersom det returnerade värdet är olika för varje omuppspelning. | Använd egenskapen [CurrentUtcDateTime](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.currentutcdatetime) i .net, `currentUtcDateTime` API: et i Java Script eller `current_utc_datetime` API i python, som är säkert för uppspelning. |
+| GUID och UUID: er  | API: er som returnerar ett slumpmässigt GUID eller UUID är icke deterministiska eftersom det genererade värdet är olika för varje omuppspelning. | Använd [NewGuid](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.newguid) i .net eller `newGuid` i Java Script för att på ett säkert sätt generera slumpmässiga GUID. |
 | Slumpmässiga siffror | API: er som returnerar slumpmässiga tal är icke-deterministiska eftersom det genererade värdet är olika för varje omuppspelning. | Använd en aktivitets funktion för att returnera slumptal till ett Orchestration-tal. De returnerade värdena för aktivitets funktioner är alltid säkra för uppspelning. |
 | Bindningar | Både indata och utdata-bindningar är I/O och är icke-deterministiska. En Orchestrator-funktion får inte använda direkt ens [Dirigerings klienten](durable-functions-bindings.md#orchestration-client) och [enhets klient](durable-functions-bindings.md#entity-client) bindningarna. | Använda indata och utgående bindningar i klient-eller aktivitets funktioner. |
 | Nätverk | Nätverks anrop omfattar externa system och är icke-deterministiska. | Använd aktivitets funktioner för att göra nätverks anrop. Om du behöver göra ett HTTP-anrop från din Orchestrator-funktion kan du också använda de [bestående HTTP-API: erna](durable-functions-http-features.md#consuming-http-apis). |
@@ -57,7 +57,7 @@ En varaktig dirigering kan köras kontinuerligt i dagar, månader, år eller til
 > [!NOTE]
 > I det här avsnittet beskrivs interna implementerings Detaljer för det varaktiga aktivitets ramverket. Du kan använda varaktiga funktioner utan att känna till den här informationen. Den är endast avsedd för att hjälpa dig att förstå repetitions beteendet.
 
-Aktiviteter som på ett säkert sätt kan vänta i Orchestrator-funktioner kallas ibland för *varaktiga aktiviteter*. Det varaktiga aktivitets ramverket skapar och hanterar dessa uppgifter. Exempel är de uppgifter som returneras av **CallActivityAsync** , **WaitForExternalEvent** och **CreateTimer** i .net Orchestrator-funktioner.
+Aktiviteter som på ett säkert sätt kan vänta i Orchestrator-funktioner kallas ibland för *varaktiga aktiviteter*. Det varaktiga aktivitets ramverket skapar och hanterar dessa uppgifter. Exempel är de uppgifter som returneras av **CallActivityAsync**, **WaitForExternalEvent** och **CreateTimer** i .net Orchestrator-funktioner.
 
 Dessa varaktiga uppgifter hanteras internt av en lista med `TaskCompletionSource` objekt i .net. Under uppspelningen skapas dessa uppgifter som en del av Orchestrator-kod körningen. De är klara eftersom Dispatchern räknar upp motsvarande historik händelser.
 

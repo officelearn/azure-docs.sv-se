@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 966d264cc338487dd1a8c04f2efd0825dfccdef0
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 10d93b92f3bb0adfe734ad439079afdfcaa6270e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378762"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94834446"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Hantera konton för nöd åtkomst i Azure AD
 
@@ -33,7 +33,7 @@ Den här artikeln innehåller rikt linjer för att hantera konton för nöd åtk
 En organisation kan behöva använda ett konto för nöd åtkomst i följande situationer:
 
 - Användar kontona är federerade och federationen är för närvarande inte tillgänglig på grund av ett avbrott i ett cell nätverk eller ett strömavbrott i identiteten. Om till exempel värd för identitetsprovider i din miljö inte är igång kan användarna inte logga in när Azure AD omdirigeras till sin identitets leverantör.
-- Administratörerna registreras via Azure Multi-Factor Authentication och alla deras enskilda enheter är inte tillgängliga eller så är tjänsten inte tillgänglig. Användare kanske inte kan slutföra Multi-Factor Authentication för att aktivera en roll. Till exempel förhindrar ett cell nätverks avbrott att de svarar på telefonsamtal eller tar emot SMS, de enda två autentiseringsmekanismer som de har registrerat för enheten.
+- Administratörerna registreras via Azure AD Multi-Factor Authentication och alla deras enskilda enheter är inte tillgängliga eller så är tjänsten inte tillgänglig. Användare kanske inte kan slutföra Multi-Factor Authentication för att aktivera en roll. Till exempel förhindrar ett cell nätverks avbrott att de svarar på telefonsamtal eller tar emot SMS, de enda två autentiseringsmekanismer som de har registrerat för enheten.
 - Den person som har den senaste globala administratörs åtkomsten har lämnat organisationen. Azure AD förhindrar att det senaste globala administratörs kontot tas bort, men det förhindrar inte att kontot tas bort eller inaktive ras lokalt. En situation kan göra att organisationen inte kan återställa kontot.
 - Oförutsedda omständigheter, t. ex. katastrof katastrof, under vilken en mobil telefon eller andra nätverk kanske inte är tillgänglig. 
 
@@ -44,7 +44,7 @@ Skapa två eller fler konton för nöd åtkomst. Dessa konton ska vara molnbaser
 När du konfigurerar de här kontona måste följande krav uppfyllas:
 
 - Kontona för nöd åtkomst ska inte vara kopplade till någon enskild användare i organisationen. Se till att dina konton inte är anslutna till några mobila mobil telefoner, maskinvaru-token som reser med enskilda anställda eller andra autentiseringsuppgifter som är specifika för anställda. Den här försiktighets tjänsten omfattar instanser där en enskild medarbetare inte kan kontaktas när autentiseringsuppgiften behövs. Det är viktigt att se till att alla registrerade enheter hålls på en känd, säker plats som har flera sätt att kommunicera med Azure AD.
-- Den autentiseringsmekanism som används för ett konto för nöd åtkomst bör skilja sig från det som används av andra administrativa konton, inklusive andra konton för nöd åtkomst.  Om till exempel din normala Administratörs inloggning är via lokal MFA, är Azure MFA en annan mekanism.  Men om Azure MFA är din primära del av autentiseringen för dina administrativa konton, kan du överväga att använda olika metoder för dessa, till exempel att använda villkorlig åtkomst med en tredjepartsleverantör-Provider via anpassade kontroller.
+- Den autentiseringsmekanism som används för ett konto för nöd åtkomst bör skilja sig från det som används av andra administrativa konton, inklusive andra konton för nöd åtkomst.  Om t. ex. din normala Administratörs inloggning är via lokal MFA, skulle Azure AD MFA vara en annan mekanism.  Men om Azure AD MFA är din primära del av autentiseringen för dina administrativa konton, kan du överväga att använda olika metoder för dessa, till exempel att använda villkorlig åtkomst med en tredjepartsleverantör-provider från tredje part via anpassade kontroller.
 - Enheten eller autentiseringsuppgiften får inte förfalla eller vara i omfånget för automatisk rensning på grund av bristande användning.  
 - Du bör göra roll tilldelningen global administratör permanent för dina konto för nöd åtkomst. 
 
@@ -87,7 +87,7 @@ Organisationer bör övervaka inloggnings-och gransknings loggs aktiviteter frå
 ### <a name="create-an-alert-rule"></a>Skapa en varningsregel
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som tilldelats rollen övervaknings deltagare i Azure Monitor.
-1. Välj **alla tjänster** ", ange" Log Analytics "i sökningen och välj sedan **Log Analytics arbets ytor**.
+1. Välj **alla tjänster**", ange" Log Analytics "i sökningen och välj sedan **Log Analytics arbets ytor**.
 1. Välj en arbetsyta.
 1. I arbets ytan väljer du **aviseringar**  >  **ny aviserings regel**.
     1. Under **resurs** kontrollerar du att prenumerationen är den som du vill associera varnings regeln med.
@@ -114,7 +114,7 @@ Organisationer bör övervaka inloggnings-och gransknings loggs aktiviteter frå
 1. Om du vill anpassa e-postmeddelandet som skickas till medlemmarna i åtgärds gruppen väljer du åtgärder under **Anpassa åtgärder**.
 1. Under **aviserings information** anger du namnet på varnings regeln och lägger till en valfri beskrivning.
 1. Ange händelsens **allvarlighets grad** . Vi rekommenderar att du ställer in det på **kritiskt (allvarlighets grad 0)**.
-1. Under **Aktivera regel vid skapande** , låt den vara **Ja**.
+1. Under **Aktivera regel vid skapande**, låt den vara **Ja**.
 1. Om du vill inaktivera aviseringar för en stund markerar du kryss rutan **Ignorera aviseringar** och anger vänte tiden innan aviseringen görs igen och väljer sedan **Spara**.
 1. Klicka på **Skapa aviseringsregel**.
 

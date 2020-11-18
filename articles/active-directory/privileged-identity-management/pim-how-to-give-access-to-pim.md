@@ -14,19 +14,19 @@ ms.date: 08/06/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95f8991d5ba9efb8e3223dd44a8d037acf2de849
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fba46ee5632f7411c433e4bba29201c59c552f21
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88009570"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835211"
 ---
 # <a name="delegate-access-to-privileged-identity-management"></a>Delegera åtkomst till Privileged Identity Management
 
 För att kunna delegera åtkomst till Privileged Identity Management (PIM) kan en global administratör tilldela andra användare till rollen privilegie rad roll administratör. Som standard har säkerhets administratörer och säkerhets läsare skrivskyddad åtkomst till Privileged Identity Management. För att bevilja åtkomst till Privileged Identity Management kan den första användaren tilldela andra till rollen **administratör för privilegie rad roll** . Rollen administratör för privilegie rad roll krävs endast för hantering av Azure AD-roller. Administratörs behörighet för privilegierade roller krävs inte för att hantera inställningar för Azure-resurser.
 
 > [!NOTE]
-> Hantering av Privileged Identity Management kräver Azure Multi-Factor Authentication. Eftersom Microsoft-konton inte kan registreras för Azure Multi-Factor Authentication kan en användare som loggar in med ett Microsoft-konto inte komma åt Privileged Identity Management.
+> Hantering av Privileged Identity Management kräver Azure AD Multi-Factor Authentication. Eftersom Microsoft-konton inte kan registreras för Azure AD Multi-Factor Authentication, kan en användare som loggar in med ett Microsoft-konto inte komma åt Privileged Identity Management.
 
 Se till att det alltid finns minst två användare i rollen administratör för privilegierad roll, om en användare är utelåst eller om kontot har tagits bort.
 
@@ -34,7 +34,7 @@ Se till att det alltid finns minst två användare i rollen administratör för 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-1. Öppna **Privileged Identity Management**i Azure AD.
+1. Öppna **Privileged Identity Management** i Azure AD.
 
 1. Välj **Azure AD-roller**.
 

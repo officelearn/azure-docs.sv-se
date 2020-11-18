@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69428898ca123bf5b5fa96cf041818cc15f5ac40
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: b0a62aafd8073b5f1a35ba340c48c80f498be2c2
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378643"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94834463"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Skydda privilegierad åtkomst för hybrid- och molndistributioner i Azure AD
 
@@ -114,7 +114,7 @@ Utvärdera de konton som är tilldelade eller berättigade till den globala admi
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Aktivera Multi-Factor Authentication och registrera alla andra icke-federerade administratörs konton med hög behörighet
 
-Kräv Azure Multi-Factor Authentication (MFA) vid inloggning för alla enskilda användare som permanent tilldelas till en eller flera av administratörs rollerna för Azure AD: global administratör, administratör för privilegie rad roll, Exchange-administratör och SharePoint-administratör. Använd guiden för att aktivera [Multi-Factor Authentication (MFA) för dina administratörs konton](../authentication/howto-mfa-userstates.md) och se till att alla användare har registrerat sig på [https://aka.ms/mfasetup](https://aka.ms/mfasetup) . Mer information finns under steg 2 och steg 3 i guiden [Skydda åtkomsten till data och tjänster i Microsoft 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Kräv Azure AD Multi-Factor Authentication (MFA) vid inloggning för alla enskilda användare som är permanent kopplade till en eller flera av administratörs rollerna för Azure AD: global administratör, privilegie rad roll administratör, Exchange-administratör och SharePoint-administratör. Använd guiden för att aktivera [Multi-Factor Authentication (MFA) för dina administratörs konton](../authentication/howto-mfa-userstates.md) och se till att alla användare har registrerat sig på [https://aka.ms/mfasetup](https://aka.ms/mfasetup) . Mer information finns under steg 2 och steg 3 i guiden [Skydda åtkomsten till data och tjänster i Microsoft 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## <a name="stage-2-mitigate-frequently-used-attacks"></a>Steg 2: minimera ofta använda attacker
 
@@ -135,7 +135,7 @@ Steg 2 i översikten fokuserar på att begränsa de mest använda angrepps tekni
 * Se till att dina konton som används i administrations syfte:
 
   * Ha fungerande e-postadresser kopplade till sig
-  * Har registrerats för Azure Multi-Factor Authentication eller Använd MFA lokalt
+  * Har registrerats för Azure AD Multi-Factor Authentication eller Använd MFA lokalt
 * Be användarna om sin affärs motivering för administrativ åtkomst.
 * Ta bort administratörs åtkomsten för de individer och tjänster som inte behöver det.
 
@@ -240,7 +240,7 @@ Vi rekommenderar att du gör följande:
 
 #### <a name="continue-rollout-of-stronger-authentication-for-all-users"></a>Fortsätt distributionen av starkare autentisering för alla användare
 
-Kräv mycket utsatta användare att ha modern, stark autentisering, till exempel Azure MFA eller Windows Hello. Exempel på mycket utsatta användare är:
+Kräv mycket utsatta användare att ha modern, stark autentisering, till exempel Azure AD MFA eller Windows Hello. Exempel på mycket utsatta användare är:
 
 * C-Suite-chefer
 * Hög nivå hanterare

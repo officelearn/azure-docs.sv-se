@@ -16,12 +16,12 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39e483c5cdb7e5acc0677b0d0cf2b41c390eef0b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: fb23e60539c704dac457ab6e8706ec0cfe350ed9
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371570"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835330"
 ---
 # <a name="configure-azure-ad-custom-roles-in-privileged-identity-management"></a>Konfigurera anpassade Azure AD-roller i Privileged Identity Management
 
@@ -64,9 +64,9 @@ Du kan också välja något av dessa alternativ för varaktighet för *aktiv* ti
 - **Tillåt permanent aktiv tilldelning**: administratörer kan tilldela permanenta aktiva medlemskap.
 - Den **aktiva tilldelningen upphör att gälla efter**: administratörer kan kräva att alla aktiva tilldelningar har ett angivet start-och slutdatum.
 
-### <a name="require-azure-multi-factor-authentication"></a>Kräv Azure Multi-Factor Authentication
+### <a name="require-azure-ad-multi-factor-authentication"></a>Kräv Azure AD-Multi-Factor Authentication
 
-Privileged Identity Management tillhandahåller en valfri tillämpning av Azure Multi-Factor Authentication för två olika scenarier.
+Privileged Identity Management tillhandahåller en valfri tillämpning av Azure AD Multi-Factor Authentication för två olika scenarier.
 
 - **Kräv Multi-Factor Authentication för aktiv tilldelning**
 
@@ -74,7 +74,7 @@ Privileged Identity Management tillhandahåller en valfri tillämpning av Azure 
 
 - **Kräv Multi-Factor Authentication vid aktivering**
 
-  Du kan kräva att berättigade användare har tilldelats en roll för att registreras i Azure Multi-Factor Authentication innan de kan aktive ras. Den här processen säkerställer att användaren som begär aktiveringen är vem de säger att de är i rimlig säkerhet. Att framtvinga det här alternativet skyddar viktiga roller i situationer när användar kontot kan ha komprometterats. Om du vill att en berättigad medlem ska kunna köra Azure Multi-Factor Authentication före aktiveringen väljer du kryss rutan **kräv Multi-Factor Authentication vid aktivering** .
+  Du kan kräva att berättigade användare har tilldelats en roll för att registreras i Azure AD Multi-Factor Authentication innan de kan aktive ras. Den här processen säkerställer att användaren som begär aktiveringen är vem de säger att de är i rimlig säkerhet. Att framtvinga det här alternativet skyddar viktiga roller i situationer när användar kontot kan ha komprometterats. Om du behöver en berättigad medlem för att köra Azure AD Multi-Factor Authentication innan aktiveringen, väljer du kryss rutan **kräv Multi-Factor Authentication vid aktivering** .
 
 Mer information finns i [Multi-Factor Authentication och Privileged Identity Management](pim-how-to-require-mfa.md).
 

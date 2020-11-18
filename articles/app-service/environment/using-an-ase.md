@@ -6,19 +6,19 @@ ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
 ms.date: 5/10/2020
 ms.author: ccompy
-ms.custom: seodec18
-ms.openlocfilehash: 1e6bace9652ff68bb4cc28d482016b7e7510154b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 86d0569d95df18924ed47682b75d7491c71d4483
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150187"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833562"
 ---
 # <a name="use-an-app-service-environment"></a>Använd App Service Environment
 
 En App Service-miljön (ASE) är en distribution av Azure App Service till ett undernät i en kunds Azure Virtual Network-instans. En ASE består av:
 
-- **Klient**delar: där http eller https slutar i en app service-miljön
+- **Klient** delar: där http eller https slutar i en app service-miljön
 - **Arbetare**: de resurser som är värdar för dina appar
 - **Databas**: innehåller information som definierar miljön
 - **Lagring**: används som värd för kundens publicerade appar
@@ -139,7 +139,7 @@ Så här konfigurerar du DNS i Azure DNS privata zoner:
 1. skapa en A-post i den zonen som pekar @ på ILB IP-adress
 1. skapa en A-post i den zonen som pekar *. scm till ILB-IP-adressen
 
-DNS-inställningarna för ditt ASE standard-domänsuffix begränsar inte dina appar till att endast vara tillgängliga för dessa namn. Du kan ange ett anpassat domän namn utan att verifiera dina appar i en ILB-ASE. Om du sedan vill skapa en zon med namnet *contoso.net*kan du göra det och peka den mot ILB IP-adressen. Det anpassade domän namnet fungerar för app-begäranden, men inte för SCM-platsen. SCM-webbplatsen är bara tillgänglig på * &lt; APPNAME &gt; . scm. &lt; asename &gt; . appserviceenvironment.net*. 
+DNS-inställningarna för ditt ASE standard-domänsuffix begränsar inte dina appar till att endast vara tillgängliga för dessa namn. Du kan ange ett anpassat domän namn utan att verifiera dina appar i en ILB-ASE. Om du sedan vill skapa en zon med namnet *contoso.net* kan du göra det och peka den mot ILB IP-adressen. Det anpassade domän namnet fungerar för app-begäranden, men inte för SCM-platsen. SCM-webbplatsen är bara tillgänglig på *&lt; APPNAME &gt; . scm. &lt; asename &gt; . appserviceenvironment.net*. 
 
 Zonen med namnet *. &lt; asename &gt; . appserviceenvironment.net* är globalt unikt. Innan maj 2019 kunde kunderna ange domänsuffix för ILB-ASE. Om du vill använda *. contoso.com* för domänsuffix kan du göra det och inkludera SCM-webbplatsen. Det fanns utmaningar med denna modell, inklusive; hantera SSL-standardcertifikatet, avsaknad av enkel inloggning med SCM-platsen och kravet på att använda ett jokertecken. ILB ASE-processen för standard certifikats uppgradering avbröts också och det gjorde att programmet startades om. För att lösa dessa problem ändrades beteendet för ILB ASE till att använda ett domänsuffix baserat på namnet på ASE och med ett Microsoft-ägda suffix. Ändringen av ILB ASE-beteendet påverkar bara ILB ASE som gjorts efter maj 2019. Befintliga ILB-ASE måste fortfarande hantera standard certifikatet för ASE och deras DNS-konfiguration.
 
@@ -159,7 +159,7 @@ Med en ILB-ASE är publicerings slut punkterna bara tillgängliga via ILB. ILB f
 
 Utan ytterligare ändringar fungerar inte Internet-baserade CI-system som GitHub och Azure DevOps med en ILB-ASE eftersom publicerings slut punkten inte är tillgänglig för Internet. Du kan aktivera publicering till en ILB-ASE från Azure DevOps genom att installera en lokal versions agent i det virtuella nätverket som innehåller ILB ASE. Du kan också använda ett CI-system som använder en pull-modell, till exempel Dropbox.
 
-Publiceringsslutpunkterna för appar i en ILB ASE använder domänen som ILB ASE skapades med. Du kan se den i appens publicerings profil och i appens Portal fönster (i **översikts**information  >  **Essentials** och i **Egenskaper**).
+Publiceringsslutpunkterna för appar i en ILB ASE använder domänen som ILB ASE skapades med. Du kan se den i appens publicerings profil och i appens Portal fönster (i **översikts** information  >  **Essentials** och i **Egenskaper**).
 
 ## <a name="storage"></a>Storage
 
@@ -209,7 +209,7 @@ Om du vill skapa en avisering mot loggarna följer du anvisningarna i [skapa, Vi
 
 Om du har flera ASE kanske du vill att vissa ASE ska uppgraderas före andra. I ASE **HostingEnvironment Resource Manager** -objektet kan du ange ett värde för **upgradePreference**. Inställningen **upgradePreference** kan konfigureras med hjälp av en mall, ARMClient eller https://resources.azure.com . De tre möjliga värdena är:
 
-- **Ingen**: Azure kommer att uppgradera din ASE utan någon särskild batch. Det här är standardvärdet.
+- **Ingen**: Azure kommer att uppgradera din ASE utan någon särskild batch. Detta värde är standard.
 - **Tidigt**: din ASE kommer att uppgraderas i den första hälften av App Service uppgraderingar.
 - **Sent**: din ASE kommer att uppgraderas i den andra halvan av App Service uppgraderingar.
 

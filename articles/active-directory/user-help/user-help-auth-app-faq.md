@@ -12,18 +12,18 @@ ms.topic: end-user-help
 ms.date: 10/20/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 017898249f1ad32a37b7ccd6bce17fe3d32843f3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 65bd5a89d132a575817480d0609109a3f379e969
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480317"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833970"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Vanliga frågor och svar om Microsoft Authenticator-appen
 
 I den här artikeln besvaras vanliga frågor om Microsoft Authenticator-appen. Om du inte ser något svar på din fråga går du till [Microsoft Authenticator app-forumet](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp).
 
-Microsoft Authenticator-appen ersatte Azure Authenticator-appen och det är den rekommenderade appen när du använder Azure-Multi-Factor Authentication. Microsoft Authenticator-appen finns för [Android](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator) och [iOS](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
+Microsoft Authenticator-appen ersatte Azure Authenticator-appen och det är den rekommenderade appen när du använder Azure AD-Multi-Factor Authentication. Microsoft Authenticator-appen finns för [Android](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator) och [iOS](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
@@ -31,7 +31,7 @@ Microsoft Authenticator-appen ersatte Azure Authenticator-appen och det är den 
 
 **F**: registreras en enhet som kan ge företaget eller tjänst åtkomst till min enhet?
 
-S **: när**du registrerar en enhet får enheten åtkomst till din organisations tjänster och ger inte din organisation åtkomst till din enhet.
+S **: när** du registrerar en enhet får enheten åtkomst till din organisations tjänster och ger inte din organisation åtkomst till din enhet.
 
 ### <a name="legacy-apns-support-deprecated"></a>Äldre APN-stöd är inaktuellt
 
@@ -73,7 +73,7 @@ S **: när**du registrerar en enhet får enheten åtkomst till din organisations
 
 **F**: Varför ska talet bredvid koden fortsätta att räknas ned?
 
-S **: det**kan hända att du ser en 30-sekunds uppräknings intervall bredvid din aktiva verifierings kod. Den här timern är så att du aldrig loggar in med samma kod två gånger. Till skillnad från ett lösen ord vill vi inte att du kommer ihåg det här numret. Idén är att bara någon med åtkomst till din telefon känner till din kod.
+S **: det** kan hända att du ser en 30-sekunds uppräknings intervall bredvid din aktiva verifierings kod. Den här timern är så att du aldrig loggar in med samma kod två gånger. Till skillnad från ett lösen ord vill vi inte att du kommer ihåg det här numret. Idén är att bara någon med åtkomst till din telefon känner till din kod.
 
 ### <a name="grayed-account-tile"></a>Panel för grått konto
 
@@ -96,13 +96,13 @@ S **: det**kan hända att du ser en 30-sekunds uppräknings intervall bredvid di
 
 **F**: Varför får jag bara meddelanden när appen är öppen? När appen är stängd får jag inga meddelanden.
 
-**A**: om du får meddelanden, men inte en avisering, även om du har ringt på, bör du kontrol lera inställningarna för appen. Kontrol lera att appen är aktive rad för att använda ljud eller för att vibrera meddelanden. Om du inte får meddelanden alls bör du kontrol lera följande villkor:<ul><li>Är din telefon i stör inte eller tyst läge? Dessa lägen kan förhindra att appar skickar meddelanden.</li><li>Kan du få meddelanden från andra appar? Om inte, kan det vara problem med nätverks anslutningarna på din telefon, eller meddelande kanalen från Android eller Apple. Du kan försöka lösa dina nätverks anslutningar via dina telefon inställningar. Du kan behöva prata med din tjänst leverantör för att hjälpa till med Android-eller Apple Notifications-kanalen.</li><li>Kan du få aviseringar för vissa konton i appen, men inte andra? Om ja, ta bort det problematiska kontot från appen, Lägg till det igen och se om det löser problemet.</li></ul>Om du har provat alla dessa steg och fortfarande har problem, rekommenderar vi att du skickar dina loggfiler för diagnostik. Öppna appen, gå till **Hjälp**och välj sedan **skicka loggar**. Därefter går du till [Microsoft Authenticator app-forumet](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) och meddelar oss det problem du ser och de steg du har provat.
+**A**: om du får meddelanden, men inte en avisering, även om du har ringt på, bör du kontrol lera inställningarna för appen. Kontrol lera att appen är aktive rad för att använda ljud eller för att vibrera meddelanden. Om du inte får meddelanden alls bör du kontrol lera följande villkor:<ul><li>Är din telefon i stör inte eller tyst läge? Dessa lägen kan förhindra att appar skickar meddelanden.</li><li>Kan du få meddelanden från andra appar? Om inte, kan det vara problem med nätverks anslutningarna på din telefon, eller meddelande kanalen från Android eller Apple. Du kan försöka lösa dina nätverks anslutningar via dina telefon inställningar. Du kan behöva prata med din tjänst leverantör för att hjälpa till med Android-eller Apple Notifications-kanalen.</li><li>Kan du få aviseringar för vissa konton i appen, men inte andra? Om ja, ta bort det problematiska kontot från appen, Lägg till det igen och se om det löser problemet.</li></ul>Om du har provat alla dessa steg och fortfarande har problem, rekommenderar vi att du skickar dina loggfiler för diagnostik. Öppna appen, gå till **Hjälp** och välj sedan **skicka loggar**. Därefter går du till [Microsoft Authenticator app-forumet](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) och meddelar oss det problem du ser och de steg du har provat.
 
 ### <a name="switch-to-push-notifications"></a>Växla till push-meddelanden
 
 **F**: Jag använder verifierings koderna i appen, men hur växlar jag till push-meddelanden?
 
-**A**: du kan ställa in aviseringar för ditt arbets-eller skol konto (om det tillåts av administratören) eller för din personliga Microsoft-konto. Aviseringar fungerar inte för konton från tredje part, som Google eller Facebook.<br>Om du vill växla ditt personliga konto till aviseringar måste du registrera enheten på nytt med kontot. Gå till **Lägg till konto**, Välj **personligt Microsoft-konto**och logga sedan in med ditt användar namn och lösen ord.<br>För ditt arbets-eller skol konto bestämmer din organisation om du vill tillåta ett meddelande med en klickning.
+**A**: du kan ställa in aviseringar för ditt arbets-eller skol konto (om det tillåts av administratören) eller för din personliga Microsoft-konto. Aviseringar fungerar inte för konton från tredje part, som Google eller Facebook.<br>Om du vill växla ditt personliga konto till aviseringar måste du registrera enheten på nytt med kontot. Gå till **Lägg till konto**, Välj **personligt Microsoft-konto** och logga sedan in med ditt användar namn och lösen ord.<br>För ditt arbets-eller skol konto bestämmer din organisation om du vill tillåta ett meddelande med en klickning.
 
 ### <a name="notifications-for-other-accounts"></a>Aviseringar för andra konton
 
@@ -126,7 +126,7 @@ S **: det**kan hända att du ser en 30-sekunds uppräknings intervall bredvid di
 
 **F**: Hur gör jag för att ta bort ett konto från appen?
 
-S **: Tryck**på konto panelen för det konto som du vill ta bort från appen för att Visa kontots fulla skärm. Tryck på **ta bort konto** för att ta bort kontot från appen.<br>Om du har en enhet som har registrerats i din organisation kan du behöva ett extra steg för att ta bort ditt konto. På dessa enheter registreras autentiseraren automatiskt som enhets administratör. Om du vill avinstallera appen fullständigt måste du först avregistrera appen i appens inställningar.
+S **: Tryck** på konto panelen för det konto som du vill ta bort från appen för att Visa kontots fulla skärm. Tryck på **ta bort konto** för att ta bort kontot från appen.<br>Om du har en enhet som har registrerats i din organisation kan du behöva ett extra steg för att ta bort ditt konto. På dessa enheter registreras autentiseraren automatiskt som enhets administratör. Om du vill avinstallera appen fullständigt måste du först avregistrera appen i appens inställningar.
 
 ### <a name="too-many-permissions"></a>För många behörigheter
 
@@ -198,7 +198,7 @@ S **: Tryck**på konto panelen för det konto som du vill ta bort från appen f�
 
 **F**: min Apple Watch Companion-app kraschade. Kan jag skicka mina krasch loggar så att du kan undersöka?
 
-S **: du**måste först se till att du har valt att dela din analys med oss. Om du är en TestFlight-användare är du redan registrerad. Annars kan du gå till **inställningar > sekretess > analys** och välja båda alternativen **dela iPhone-& se analys** och **dela med Apps** .<br>När du har registrerat dig kan du försöka återskapa din krasch så att dina krasch loggar skickas automatiskt till oss för att undersöka detta. Men om du inte kan återskapa din krasch kan du manuellt kopiera dina loggfiler och skicka dem till oss.<ol><li>Öppna appen titta på din telefon, gå till **inställningar > allmänt**och klicka sedan på **Kopiera bevaknings analys**.</li><li>Hitta motsvarande krasch under **inställningar > sekretess > analys > analys data**och kopiera sedan hela texten manuellt.</li><li>Öppna autentiseraren på din telefon och klistra in den kopierade texten i text rutan **dela med app-utvecklare** på sidan **skicka loggar** .</li></ol>
+S **: du** måste först se till att du har valt att dela din analys med oss. Om du är en TestFlight-användare är du redan registrerad. Annars kan du gå till **inställningar > sekretess > analys** och välja båda alternativen **dela iPhone-& se analys** och **dela med Apps** .<br>När du har registrerat dig kan du försöka återskapa din krasch så att dina krasch loggar skickas automatiskt till oss för att undersöka detta. Men om du inte kan återskapa din krasch kan du manuellt kopiera dina loggfiler och skicka dem till oss.<ol><li>Öppna appen titta på din telefon, gå till **inställningar > allmänt** och klicka sedan på **Kopiera bevaknings analys**.</li><li>Hitta motsvarande krasch under **inställningar > sekretess > analys > analys data** och kopiera sedan hela texten manuellt.</li><li>Öppna autentiseraren på din telefon och klistra in den kopierade texten i text rutan **dela med app-utvecklare** på sidan **skicka loggar** .</li></ol>
 
 ## <a name="next-steps"></a>Nästa steg
 

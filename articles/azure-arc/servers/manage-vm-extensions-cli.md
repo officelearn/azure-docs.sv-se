@@ -4,18 +4,26 @@ description: Den här artikeln beskriver hur du distribuerar tillägg för virtu
 ms.date: 11/06/2020
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 59c984f4adaec2261d1b08748aa5a91c8246418d
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: bf0a3e0940efc7e79adbe9f763ffdf34ea690fac
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359123"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833273"
 ---
 # <a name="enable-azure-vm-extensions-using-the-azure-cli"></a>Aktivera Azure VM-tillägg med hjälp av Azure CLI
 
 Den här artikeln visar hur du distribuerar och avinstallerar virtuella Azure-tillägg, som stöds av Azure Arc-aktiverade servrar, till en Linux-eller Windows hybrid-dator med hjälp av Azure CLI.
 
 [!INCLUDE [Azure CLI Prepare your environment](../../../includes/azure-cli-prepare-your-environment.md)]
+
+## <a name="install-the-azure-cli-extension"></a>Installera Azure CLI-tillägget
+
+ConnectedMachine-kommandona levereras inte som en del av Azure CLI. Innan du använder Azure CLI för att hantera VM-tillägg på hybrid servern som hanteras av Arc-aktiverade servrar måste du läsa in ConnectedMachine-tillägget. Kör följande kommando för att hämta det:
+
+```azurecli
+az extension add --name connectedmachine
+```
 
 ## <a name="enable-extension"></a>Aktivera tillägg
 

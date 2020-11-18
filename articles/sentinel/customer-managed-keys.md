@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2020
 ms.author: yelevin
-ms.openlocfilehash: ecb4203c822f5b72068e11d0ad4b988d294aab0d
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: bd85936c86656a8ae59a04ccdf53a62bd852368f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427062"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655280"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Konfigurera Azure Sentinel – kundhanterad nyckel
 
@@ -59,7 +59,7 @@ Följ dessa steg om du vill etablera CMK:
 
 ### <a name="step-1-create-an-azure-key-vault-and-storing-key"></a>STEG 1: skapa en Azure Key Vault och lagra nyckel
 
-1.  [Skapa Azure Key Vault resurs](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-manage-portal)och generera eller importera sedan en nyckel som ska användas för data kryptering.
+1.  [Skapa Azure Key Vault resurs](/azure-stack/user/azure-stack-key-vault-manage-portal)och generera eller importera sedan en nyckel som ska användas för data kryptering.
     > [!NOTE]
     >  Azure Key Vault måste konfigureras som återställnings Bart för att skydda nyckeln och åtkomsten.
 
@@ -132,6 +132,5 @@ Om du använder samma nyckel i Azure Sentinel och i Log Analytics är det nödv�
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet har du lärt dig hur du konfigurerar en kundhanterad nyckel i Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
 - Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
-- Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats.md).
+- Kom igång [med att identifiera hot med Azure Sentinel](./tutorial-detect-threats-built-in.md).
 - [Använd arbets böcker](tutorial-monitor-your-data.md) för att övervaka dina data.
-

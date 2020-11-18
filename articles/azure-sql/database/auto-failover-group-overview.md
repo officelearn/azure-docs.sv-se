@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
-ms.date: 08/28/2020
-ms.openlocfilehash: c64112e30bdaf0da2218177bd2737c3ebe688b0c
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/16/2020
+ms.openlocfilehash: 35856a0d414e288fcd184164733e9430a6bee296
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675286"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94653750"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använd grupper för automatisk redundans för att aktivera transparent och samordnad redundansväxling av flera databaser
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -97,14 +97,17 @@ För att uppnå verklig affärs kontinuitet är det bara en del av lösningen at
 
 - **Princip för automatisk redundansväxling**
 
-  Som standard konfigureras en failover-grupp med en princip för automatisk redundansväxling. Azure utlöser redundans när ett fel har upptäckts och Grace-perioden har löpt ut. Systemet måste kontrol lera att avbrottet inte kan begränsas av den inbyggda [infrastrukturen för hög tillgänglighet](high-availability-sla.md) på grund av effektens omfattning. Om du vill kontrol lera arbets flödet för redundans från programmet kan du inaktivera automatisk redundans.
+  Som standard konfigureras en failover-grupp med en princip för automatisk redundansväxling. Azure utlöser redundans när ett fel har upptäckts och Grace-perioden har löpt ut. Systemet måste kontrol lera att avbrottet inte kan begränsas av den inbyggda [infrastrukturen för hög tillgänglighet](high-availability-sla.md) på grund av effektens omfattning. Om du vill kontrol lera arbets flödet för redundans från programmet eller manuellt kan du inaktivera automatisk redundans.
   
   > [!NOTE]
   > Eftersom verifieringen av skalningen av avbrottet och hur snabbt det kan lösas innebär att de mänskliga åtgärderna i drifts teamet kan utföras, kan respitperioden inte anges under en timme. Den här begränsningen gäller för alla databaser i gruppen redundans oavsett datasynkroniseringens status.
 
 - **Princip för skrivskyddad redundans**
 
-  Som standard är redundansväxlingen av den skrivskyddade lyssnaren inaktive rad. Det garanterar att den primära prestandan inte påverkas när den sekundära är offline. Det innebär dock också att skrivskyddade sessioner inte kan ansluta förrän den sekundära återställningen har återställts. Om du inte kan tolerera stillestånds tiden för skrivskyddade sessioner och är OK att tillfälligt använda den primära för både skrivskyddad och Läs-och Skriv trafik på kostnaderna för den potentiella prestanda försämringen av den primära, kan du aktivera redundans för den skrivskyddade lyssnaren genom att konfigurera `AllowReadOnlyFailoverToPrimary` egenskapen. I så fall omdirigeras den skrivskyddade trafiken automatiskt till den primära om den sekundära inte är tillgänglig.
+  Som standard är redundansväxlingen av den skrivskyddade lyssnaren inaktive rad. Det garanterar att den primära prestandan inte påverkas när den sekundära är offline. Det innebär dock också att skrivskyddade sessioner inte kan ansluta förrän den sekundära återställningen har återställts. Om du inte kan tolerera nedtid för skrivskyddade sessioner och kan använda den primära för både skrivskyddad och Läs-och Skriv trafik på kostnaderna för den potentiella prestanda försämringen av den primära, kan du aktivera redundans för den skrivskyddade lyssnaren genom att konfigurera `AllowReadOnlyFailoverToPrimary` egenskapen. I så fall omdirigeras den skrivskyddade trafiken automatiskt till den primära om den sekundära inte är tillgänglig.
+
+  > [!NOTE]
+  > `AllowReadOnlyFailoverToPrimary`Egenskapen har bara betydelse om principen för automatisk redundansväxling är aktive rad och en automatisk redundans har utlösts av Azure. I så fall, om egenskapen har angetts till true, kommer den nya primära servern att betjäna både Read-Write-och skrivskyddade sessioner.
 
 - **Planerad redundans**
 
@@ -120,7 +123,7 @@ För att uppnå verklig affärs kontinuitet är det bara en del av lösningen at
 
 - **Manuell redundans**
 
-  Du kan starta redundans manuellt när som helst oavsett konfigurationen för automatisk redundans. Om principen för automatisk redundansväxling inte har kon figurer ATS krävs manuell redundans för att återställa databaser i gruppen redundans till den sekundära. Du kan initiera Tvingad eller läsvänlig redundans (med fullständig datasynkronisering). Den senare kan användas för att flytta den primära till den sekundära regionen. När redundansväxlingen är klar uppdateras DNS-posterna automatiskt för att säkerställa anslutning till den nya primära
+  Du kan starta redundans manuellt när som helst oavsett konfigurationen för automatisk redundans. Om principen för automatisk redundansväxling inte har kon figurer ATS krävs manuell redundans för att återställa databaser i gruppen redundans till den sekundära. Du kan initiera Tvingad eller läsvänlig redundans (med fullständig datasynkronisering). Den senare kan användas för att flytta den primära till den sekundära regionen. När redundansväxlingen är klar uppdateras DNS-posterna automatiskt för att säkerställa anslutning till den nya primära.
 
 - **Respitperiod med data förlust**
 
@@ -128,7 +131,7 @@ För att uppnå verklig affärs kontinuitet är det bara en del av lösningen at
 
 - **Flera failover-grupper**
 
-  Du kan konfigurera flera grupper för växling vid fel för samma server par för att kontrol lera skalningen av redundans. Varje grupp växlar över oberoende. Om ditt program för flera klienter använder elastiska pooler kan du använda den här funktionen för att blanda primära och sekundära databaser i varje pool. På så sätt kan du minska effekten av ett avbrott till endast hälften av klienterna.
+  Du kan konfigurera flera grupper för växling vid fel för samma server par för att styra omfattningen av redundans. Varje grupp växlar över oberoende. Om ditt program för flera klienter använder elastiska pooler kan du använda den här funktionen för att blanda primära och sekundära databaser i varje pool. På så sätt kan du minska effekten av ett avbrott till endast hälften av klienterna.
 
   > [!NOTE]
   > SQL-hanterad instans har inte stöd för flera grupper för växling vid fel.
@@ -173,7 +176,7 @@ När du utför OLTP-åtgärder ska du använda `<fog-name>.database.windows.net`
 
 ### <a name="using-read-only-listener-for-read-only-workload"></a>Använda skrivskyddad lyssnare för skrivskyddad arbets belastning
 
-Om du har en logiskt isolerad skrivskyddad arbets belastning som är tolerant till viss föråldrade data kan du använda den sekundära databasen i programmet. För skrivskyddade sessioner använder du `<fog-name>.secondary.database.windows.net` som server-URL och anslutningen dirigeras automatiskt till den sekundära. Vi rekommenderar också att du anger i anslutnings strängens läsnings avsikt med `ApplicationIntent=ReadOnly` . Om du vill kontrol lera att den skrivskyddade arbets belastningen kan återansluta efter en redundansväxling eller om den sekundära servern kopplas från, måste du konfigurera `AllowReadOnlyFailoverToPrimary` egenskapen för redundansväxlingen.
+Om du har en logiskt isolerad skrivskyddad arbets belastning som är tolerant till viss föråldrade data kan du använda den sekundära databasen i programmet. För skrivskyddade sessioner använder du `<fog-name>.secondary.database.windows.net` som server-URL och anslutningen dirigeras automatiskt till den sekundära. Vi rekommenderar också att du anger i anslutnings strängens läsnings avsikt med `ApplicationIntent=ReadOnly` .
 
 ### <a name="preparing-for-performance-degradation"></a>Prestanda försämring förbereds
 
@@ -264,20 +267,20 @@ När du utför OLTP-åtgärder ska du använda `<fog-name>.zone_id.database.wind
 Om du har en logiskt isolerad skrivskyddad arbets belastning som är tolerant till viss föråldrade data kan du använda den sekundära databasen i programmet. Om du vill ansluta direkt till den geo-replikerade sekundära använder du `<fog-name>.secondary.<zone_id>.database.windows.net` som server-URL och anslutningen görs direkt till den geo-replikerade sekundära.
 
 > [!NOTE]
-> I vissa tjänst nivåer SQL Database stöder användning av [skrivskyddade repliker](read-scale-out.md) för att belastningsutjämna skrivskyddade arbets belastningar med en skrivskyddad repliks kapacitet och med hjälp av `ApplicationIntent=ReadOnly` parametern i anslutnings strängen. När du har konfigurerat en geo-replikerad sekundär instans kan du använda den här funktionen till att ansluta till antingen en skrivskyddad replik på den primära platsen eller på den geo-replikerade platsen.
+> På Premium-, Affärskritisk-och storskaliga tjänste nivåer kan SQL Database använda [skrivskyddade repliker](read-scale-out.md) för att köra skrivskyddade arbets belastningar med hjälp av kapaciteten hos en eller flera skrivskyddade repliker med hjälp av `ApplicationIntent=ReadOnly` parametern i anslutnings strängen. När du har konfigurerat en geo-replikerad sekundär instans kan du använda den här funktionen till att ansluta till antingen en skrivskyddad replik på den primära platsen eller på den geo-replikerade platsen.
 >
-> - Använd om du vill ansluta till en skrivskyddad replik på den primära platsen `<fog-name>.<zone_id>.database.windows.net` .
-> - Använd om du vill ansluta till en skrivskyddad replik på den sekundära platsen `<fog-name>.secondary.<zone_id>.database.windows.net` .
+> - Om du vill ansluta till en skrivskyddad replik på den primära platsen använder du `ApplicationIntent=ReadOnly` och `<fog-name>.<zone_id>.database.windows.net` .
+> - Använd och för att ansluta till en skrivskyddad replik på den sekundära platsen `ApplicationIntent=ReadOnly` `<fog-name>.secondary.<zone_id>.database.windows.net` .
 
 ### <a name="preparing-for-performance-degradation"></a>Prestanda försämring förbereds
 
-Ett typiskt Azure-program använder flera Azure-tjänster och består av flera komponenter. Den automatiserade redundansväxlingen av gruppen redundans utlöses baserat på tillstånd för enbart Azure SQL-komponenter. Andra Azure-tjänster i den primära regionen kanske inte påverkas av avbrottet och komponenterna kan fortfarande vara tillgängliga i den regionen. När de primära databaserna växlar till DR-regionen kan fördröjningen mellan beroende komponenter öka. För att undvika påverkan på högre latens för programmets prestanda, se till att alla programmets komponenter är i DR-regionen och följ dessa [rikt linjer för nätverks säkerhet](#failover-groups-and-network-security).
+Ett typiskt Azure-program använder flera Azure-tjänster och består av flera komponenter. Den automatiserade redundansväxlingen av gruppen redundans utlöses baserat på tillstånd för enbart Azure SQL-komponenter. Andra Azure-tjänster i den primära regionen kanske inte påverkas av avbrottet och komponenterna kan fortfarande vara tillgängliga i den regionen. När de primära databaserna växlar till den sekundära regionen kan fördröjningen mellan de beroende komponenterna öka. För att undvika effekten av högre latens för programmets prestanda, se till att alla programmets komponenter är i den sekundära regionen och att de växlar över program komponenterna tillsammans med databasen. Vid konfigurations tiden följer du [rikt linjerna för nätverks säkerhet](#failover-groups-and-network-security) för att säkerställa anslutningen till databasen i den sekundära regionen.
 
 ### <a name="preparing-for-data-loss"></a>Förbereder för data förlust
 
-Om ett avbrott upptäcks utlöses en Read-Write-redundans om det inte finns någon data förlust till det bästa av vår kunskap. Annars är det en väntan på den period som du har angett. Annars väntar den på den period som du har angett `GracePeriodWithDataLossHours` . Om du har angett `GracePeriodWithDataLossHours` ska du förbereda för data förlust. I allmänhet prioriterar Azure tillgänglighet under drifts störningar. Om du inte kan erbjuda data förlust, se till att ange GracePeriodWithDataLossHours till ett tillräckligt stort antal, till exempel 24 timmar.
+Om ett avbrott upptäcks utlöses en Read-Write-redundans om det inte finns någon data förlust till det bästa av vår kunskap. Annars uppskjuts redundansväxlingen för den period som du anger med hjälp av `GracePeriodWithDataLossHours` . Om du har angett `GracePeriodWithDataLossHours` ska du förbereda för data förlust. I allmänhet prioriterar Azure tillgänglighet under drifts störningar. Om du inte kan erbjuda data förlust, se till att ange GracePeriodWithDataLossHours till ett tillräckligt stort antal, till exempel 24 timmar eller inaktivera automatisk redundans.
 
-DNS-uppdateringen av Läs-och skriv lyssnaren sker omedelbart efter det att redundansväxlingen initierats. Den här åtgärden kommer inte att resultera i data förlust. Processen med att växla databas roller kan dock ta upp till 5 minuter under normala förhållanden. När den är klar är vissa databaser i den nya primära instansen fortfarande skrivskyddade. Om redundansväxlingen initieras med hjälp av PowerShell, är hela åtgärden synkron. Om den initieras med hjälp av Azure Portal, visar användar gränssnittet slut för ande status. Om den är initierad med REST API använder du standard Azure Resource Managers avsöknings funktion för att övervaka slut för ande.
+DNS-uppdateringen av Läs-och skriv lyssnaren sker omedelbart efter det att redundansväxlingen initierats. Den här åtgärden kommer inte att resultera i data förlust. Processen med att växla databas roller kan dock ta upp till 5 minuter under normala förhållanden. När den är klar är vissa databaser i den nya primära instansen fortfarande skrivskyddade. Om en redundansväxling initieras med hjälp av PowerShell är åtgärden för att växla den primära replik rollen synkron. Om den initieras med hjälp av Azure Portal, visar användar gränssnittet slut för ande status. Om den är initierad med REST API använder du standard Azure Resource Managers avsöknings funktion för att övervaka slut för ande.
 
 > [!IMPORTANT]
 > Använd manuell gruppredundans för att flytta presidentval tillbaka till den ursprungliga platsen. När det avbrott som orsakade redundansväxlingen minskas kan du flytta dina primära databaser till den ursprungliga platsen. Om du vill göra det ska du initiera den manuella redundansväxlingen av gruppen.

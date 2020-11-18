@@ -1,5 +1,5 @@
 ---
-title: Uppdatera ett kommando från klient programmet
+title: Uppdatera ett kommando från klientappen
 titleSuffix: Azure Cognitive Services
 description: uppdatera ett kommando från klient programmet
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/20/2020
 ms.author: encorona
-ms.openlocfilehash: 290f9ee9c23071ac56b1ff0c65ddc03decbc7344
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 1bffb09d0f49bbd0059e8a528d67bfe215f0650d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94571279"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654375"
 ---
 # <a name="update-a-command-from-the-client"></a>Uppdatera ett kommando från klienten
 
@@ -121,19 +121,32 @@ Tänk dig till exempel om det scenario där du vill skicka ID och namn på enhet
 För att testa det här scenariot ska vi skapa ett nytt kommando i vårt aktuella program.
 1. Skapa ett nytt kommando med namnet GetDeviceInfo.
 1. Lägg till en exempel mening med "Hämta enhets information".
-1. I slut för ande regeln "klar" lägger du till en skicka röst svars åtgärd.
+1. I slut för ande regeln "klar" lägger du till en skicka röst svars åtgärd som innehåller attributen för clientContext.
     > ![Skicka tal svar med kontext](media/custom-commands/send-speech-response-context.png)
-1. Spara och träna ditt program.
-1. Testa ditt program.
+1. Spara, träna och testa ditt program.
+1. När du är i test fönstret skickar du en aktivitet för att uppdatera klient kontexten.
+    > ```json
+    >{
+    >   "type": "event",
+    >   "name": "RemoteUpdate",
+    >   "value": {
+    >     "clientContext": {
+    >       "deviceId": "12345",
+    >       "deviceName": "My device"
+    >     },
+    >     "processTurn": false
+    >   }
+    >}
+    > ```
+1. Skicka texten "Hämta enhets information".
     > ![Skicka klient kontext aktivitet](media/custom-commands/send-client-context-activity.png)
 
 Observera några saker.
 1. Du behöver bara skicka den här aktiviteten en gång (helst direkt efter att du har startat en anslutning).
-1. Du kan använda komplexa objekt för ClientContext.
-1. Du kan använda ClientContext i tal svar för att skicka aktiviteter och när du anropar webb slut punkter.
-
+1. Du kan använda komplexa objekt för clientContext.
+1. Du kan använda clientContext i tal svar för att skicka aktiviteter och när du anropar webb slut punkter.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Uppdatera ett kommando från en webb slut punkt](./how-to-custom-commands-update-command-from-web-endpoint.md)
+> [Uppdatera ett kommando från en webbslutpunkt](./how-to-custom-commands-update-command-from-web-endpoint.md)

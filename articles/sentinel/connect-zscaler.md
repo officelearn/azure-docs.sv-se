@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: ef6677b6f1103c26bd719a3585800765a029f7fb
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: d788219e36ac94b1d13b2f4819c3e546622ddff1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056846"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655263"
 ---
 # <a name="connect-zscaler-internet-access-to-azure-sentinel"></a>Anslut Zscaler Internet åtkomst till Azure Sentinel
 
@@ -46,7 +46,5 @@ Den här artikeln förklarar hur du ansluter din Zscaler-enhet med Internet åtk
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet har du lärt dig hur du ansluter Zscaler Internet åtkomst till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
 - Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
-- Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats.md).
+- Kom igång [med att identifiera hot med Azure Sentinel](./tutorial-detect-threats-built-in.md).
 - [Använd arbets böcker](tutorial-monitor-your-data.md) för att övervaka dina data.
-
-

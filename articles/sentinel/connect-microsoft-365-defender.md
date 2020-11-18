@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
 ms.author: yelevin
-ms.openlocfilehash: e9e892ae08c65ee5c5008bbdc1b419d8dec30183
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 756c245fe06ae81545a125dd98f30fb27fdff2dd
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90941305"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655587"
 ---
 # <a name="connect-data-from-microsoft-365-defender-to-azure-sentinel"></a>Anslut data från Microsoft 365 Defender till Azure Sentinel
 
@@ -33,9 +33,9 @@ ms.locfileid: "90941305"
 
 ## <a name="background"></a>Bakgrund
 
-Med den nya [Microsoft 365 Defender](https://docs.microsoft.com/microsoft-365/security/mtp/microsoft-threat-protection) -anslutaren kan du strömma **avancerade jakt** loggar – en typ av rå händelse data – från Microsoft 365 Defender till Azure Sentinel. 
+Med den nya [Microsoft 365 Defender](/microsoft-365/security/mtp/microsoft-threat-protection) -anslutaren kan du strömma **avancerade jakt** loggar – en typ av rå händelse data – från Microsoft 365 Defender till Azure Sentinel. 
 
-Med integreringen av [Microsoft Defender för slut punkt (MDATP)](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) i säkerhets paraplyen för Microsoft 365 Defender kan du nu samla in dina Microsoft Defender för slut punkts [avancerade jakt](https://aka.ms/mdatpAH) händelser med hjälp av Microsoft 365 Defender-anslutningen och strömma dem direkt i nya syfte-skapade tabeller i Azure Sentinel-arbetsytan. Tabellerna bygger på samma schema som används i Microsoft 365 Defender-portalen, vilket ger dig fullständig åtkomst till hela uppsättningen med avancerade jakt loggar och gör att du kan göra följande:
+Med integreringen av [Microsoft Defender för slut punkt (MDATP)](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) i säkerhets paraplyen för Microsoft 365 Defender kan du nu samla in dina Microsoft Defender för slut punkts [avancerade jakt](/windows/security/threat-protection/microsoft-defender-atp/advanced-hunting-overview) händelser med hjälp av Microsoft 365 Defender-anslutningen och strömma dem direkt i nya syfte-skapade tabeller i Azure Sentinel-arbetsytan. Tabellerna bygger på samma schema som används i Microsoft 365 Defender-portalen, vilket ger dig fullständig åtkomst till hela uppsättningen med avancerade jakt loggar och gör att du kan göra följande:
 
 - Kopiera enkelt dina befintliga Microsoft Defender ATP-frågor för avancerad jakt till Azure Sentinel.
 
@@ -49,7 +49,7 @@ Med integreringen av [Microsoft Defender för slut punkt (MDATP)](https://docs.m
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Du måste ha en giltig licens för Microsoft Defender för slut punkt enligt beskrivningen i [Konfigurera Microsoft Defender för slut punkts distribution](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/licensing). 
+- Du måste ha en giltig licens för Microsoft Defender för slut punkt enligt beskrivningen i [Konfigurera Microsoft Defender för slut punkts distribution](/windows/security/threat-protection/microsoft-defender-atp/licensing). 
 
 - Användaren måste tilldelas rollen global administratör på klienten (i Azure Active Directory).
 
@@ -101,4 +101,4 @@ På fliken **Nästa steg** hittar du några exempel frågor som har inkluderats.
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet har du lärt dig hur du hämtar rå data från Microsoft Defender för slut punkt till Azure Sentinel med hjälp av Microsoft 365 Defender-anslutaren. Mer information om Azure Sentinel finns i följande artiklar:
 - Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
-- Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats.md).
+- Kom igång [med att identifiera hot med Azure Sentinel](./tutorial-detect-threats-built-in.md).

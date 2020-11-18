@@ -3,12 +3,12 @@ title: Azure Lab Services Ladda upp en anpassad avbildning till ett delat avbild
 description: Beskriver hur du överför en anpassad avbildning till ett delat avbildnings Galleri. Vår IT-avdelning för universitet söker efter att importera bilder särskilt fördelaktiga.
 ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: cd701215eb375b7f9b867ba05082afc7ed348ff7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93b4141636b629168e9bb7a73e71a9fe4bfc39f5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91712416"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654651"
 ---
 # <a name="upload-a-custom-image-to-shared-image-gallery"></a>Ladda upp en anpassad bild till Shared Image Gallery
 
@@ -35,31 +35,36 @@ Det finns många alternativ för att skapa en virtuell hård disk från en fysis
        
         :::image type="content" source="./media/upload-custom-image-shared-image-gallery/connect-virtual-hard-disk.png" alt-text="Anslut virtuell hård disk":::   
     1. Avbildning av den virtuella datorn som vanligt.
-1. [Anslut till den virtuella datorn och Förbered den för Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
-    1. [Ange Windows-konfigurationer för Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#set-windows-configurations-for-azure)
-    1. [Kontrol lera de Windows-tjänster som krävs för att säkerställa VM-anslutningen](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#check-the-windows-services)
-    1. [Uppdatera inställningar för fjärr skrivbords register](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#update-remote-desktop-registry-settings)
-    1. [Konfigurera regler för Windows-brandväggen](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#configure-windows-firewall-rules)
+1. [Anslut till den virtuella datorn och Förbered den för Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md).
+    1. [Ange Windows-konfigurationer för Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md#set-windows-configurations-for-azure)
+    1. [Kontrol lera de Windows-tjänster som krävs för att säkerställa VM-anslutningen](../virtual-machines/windows/prepare-for-upload-vhd-image.md#check-the-windows-services)
+    1. [Uppdatera inställningar för fjärr skrivbords register](../virtual-machines/windows/prepare-for-upload-vhd-image.md#update-remote-desktop-registry-settings)
+    1. [Konfigurera regler för Windows-brandväggen](../virtual-machines/windows/prepare-for-upload-vhd-image.md#configure-windows-firewall-rules)
     1. Installera Windows-uppdateringar
-    1. [Installera Azure VM-agenten och ytterligare konfiguration som visas här](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#complete-the-recommended-configurations) 
+    1. [Installera Azure VM-agenten och ytterligare konfiguration som visas här](../virtual-machines/windows/prepare-for-upload-vhd-image.md#complete-the-recommended-configurations) 
     
-    Genom att följa stegen skapas en specialiserad avbildning. Om du skapar en generaliserad avbildning måste du också köra [Sysprep](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#determine-when-to-use-sysprep). <br/>
+    Genom att följa stegen skapas en specialiserad avbildning. Om du skapar en generaliserad avbildning måste du också köra [Sysprep](../virtual-machines/windows/prepare-for-upload-vhd-image.md#determine-when-to-use-sysprep). <br/>
         Du bör skapa en specialiserad avbildning om du vill underhålla användar katalogen (som kan innehålla filer, användar konto information osv.) som krävs av program varan som ingår i avbildningen.
 1. Eftersom **Hyper-V** skapar en **VHDX** -fil som standard måste du konvertera den till en VHD-fil.
-    1. Navigera till **Hyper-V Manager**  ->  **åtgärden**  ->  **Redigera disk**för Hyper-V Manager.
+    1. Navigera till **Hyper-V Manager**  ->  **åtgärden**  ->  **Redigera disk** för Hyper-V Manager.
     1. Här kan du välja att **konvertera** disken från en VHDX till en virtuell hård disk
     1. Se till att inte överstiga 128 GB när du försöker expandera disk storleken.        
-        :::image type="content" source="./media/upload-custom-image-shared-image-gallery/choose-action.png" alt-text="Anslut virtuell hård disk" i Azure Portal för att välja disk storlek. Som tidigare nämnts måste storleken vara > 128 GB.
+        :::image type="content" source="./media/upload-custom-image-shared-image-gallery/choose-action.png" alt-text="Välj åtgärd":::   
+1. Skapa en hanterad disk genom att ladda upp VHD till Azure.
+    1. Du kan använda antingen Storage Explorer eller AzCopy från kommando raden, enligt beskrivningen i [Ladda upp en virtuell hård disk till Azure eller kopiera en hanterad disk till en annan region](../virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md).        
+    Om datorn försätts i ström spar läge eller lås kan uppladdnings processen bli avbruten och Miss lyckas.
+    1. Resultatet av det här steget är att du nu har en hanterad disk som du kan se i Azure Portal. 
+        Du kan använda fliken "Size\Performance" i Azure Portal för att välja disk storlek. Som tidigare nämnts måste storleken vara > 128 GB.
 1. Ta en ögonblicks bild av den hanterade disken.
-    Detta kan göras antingen från PowerShell, med hjälp av Azure Portal eller från Storage Explorer, enligt beskrivningen i [skapa en ögonblicks bild med hjälp av portalen eller PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk).
+    Detta kan göras antingen från PowerShell, med hjälp av Azure Portal eller från Storage Explorer, enligt beskrivningen i [skapa en ögonblicks bild med hjälp av portalen eller PowerShell](../virtual-machines/windows/snapshot-copy-managed-disk.md).
 1. Skapa en avbildnings definition och-version i galleriet för delade avbildningar:
-    1. [Skapa en avbildnings definition](https://docs.microsoft.com/azure/virtual-machines/windows/shared-images-portal#create-an-image-definition).
+    1. [Skapa en avbildnings definition](../virtual-machines/windows/shared-images-portal.md#create-an-image-definition).
     1. Du måste också ange detta om du skapar en specialiserad/generaliserad avbildning.
 1. Skapa labbet i Azure Lab Services och välj den anpassade avbildningen från galleriet för delade avbildningar.
 
-    Om du expanderade disk efter att operativ systemet har installerats på den ursprungliga virtuella Hyper-V-datorn måste du också utöka C-enheten i Windows för att använda det oallokerade disk utrymmet. Om du vill göra det loggar du in på mallen VM när labbet har skapats och följer sedan stegen som liknar vad som visas i [utöka en enkel volym](https://docs.microsoft.com/windows-server/storage/disk-management/extend-a-basic-volume). Det finns alternativ för att göra detta via användar gränssnittet samt med PowerShell.
+    Om du expanderade disk efter att operativ systemet har installerats på den ursprungliga virtuella Hyper-V-datorn måste du också utöka C-enheten i Windows för att använda det oallokerade disk utrymmet. Om du vill göra det loggar du in på mallen VM när labbet har skapats och följer sedan stegen som liknar vad som visas i [utöka en enkel volym](/windows-server/storage/disk-management/extend-a-basic-volume). Det finns alternativ för att göra detta via användar gränssnittet samt med PowerShell.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Översikt över delade avbildnings Galleri](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries)
+* [Översikt över delade avbildnings Galleri](../virtual-machines/windows/shared-image-galleries.md)
 * [Använda delade avbildnings Galleri](how-to-use-shared-image-gallery.md)

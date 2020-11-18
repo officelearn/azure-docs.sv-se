@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2020
 ms.author: yelevin
-ms.openlocfilehash: 5ac72c9861e06773ffab87dcbf4e730562b798fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5140bcd85606213f00185d4ba1f50dbe70dba63
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91346598"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655502"
 ---
 # <a name="connect-alerts-from-microsoft-defender-for-office-365"></a>Ansluta aviseringar från Microsoft Defender för Office 365 
 
@@ -31,7 +31,7 @@ ms.locfileid: "91346598"
 >
 > - Inmatningen av aviseringar från Microsoft Defender för Office 365 är för närvarande en offentlig för hands version. Den här funktionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
-[Microsoft Defender för Office 365](https://docs.microsoft.com/office365/servicedescriptions/office-365-advanced-threat-protection-service-description) skyddar din organisation mot noll dagar och andra avancerade hot som är av okänd skadlig kod i e-postmeddelanden, skadliga URL-länkar och samarbets verktyg. Genom att mata in Microsoft Defender för Office 365-aviseringar i Azure Sentinel kan du använda information om e-post, fildelning-och URL-baserade hot i dina säkerhets åtgärder. Du kan sedan mer utförligt analysera säkerhets händelser i organisationen och bygga spel böcker för effektiva och omedelbara svar.
+[Microsoft Defender för Office 365](/office365/servicedescriptions/office-365-advanced-threat-protection-service-description) skyddar din organisation mot noll dagar och andra avancerade hot som är av okänd skadlig kod i e-postmeddelanden, skadliga URL-länkar och samarbets verktyg. Genom att mata in Microsoft Defender för Office 365-aviseringar i Azure Sentinel kan du använda information om e-post, fildelning-och URL-baserade hot i dina säkerhets åtgärder. Du kan sedan mer utförligt analysera säkerhets händelser i organisationen och bygga spel böcker för effektiva och omedelbara svar.
 
 Anslutningen importerar följande aviseringar:
 
@@ -55,7 +55,7 @@ De här aviseringarna kan ses av Office-kunder i **Office Security and Complianc
 
 - Du måste vara global administratör eller en säkerhets administratör på Azure Sentinel-arbetsytans klient.
 
-- Du måste ha en giltig licens för [office 365 ATP-plan 2](https://docs.microsoft.com/microsoft-365/security/office-365-security/office-365-atp#office-365-atp-plan-1-and-plan-2) (ingår i Office 365 E5, Office 365 A5 och Microsoft 365 E5-licenser och kan köpas separat). 
+- Du måste ha en giltig licens för [office 365 ATP-plan 2](/microsoft-365/security/office-365-security/office-365-atp#office-365-atp-plan-1-and-plan-2) (ingår i Office 365 E5, Office 365 A5 och Microsoft 365 E5-licenser och kan köpas separat). 
 
 ## <a name="connect-to-microsoft-defender-for-office-365"></a>Ansluta till Microsoft Defender för Office 365
 
@@ -77,4 +77,4 @@ Om Microsoft Defender för Office 365 distribueras och om principer har kon figu
 
 I det här dokumentet har du lärt dig hur du ansluter Microsoft Defender för Office 365 till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
 - Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
-- Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats.md).
+- Kom igång [med att identifiera hot med Azure Sentinel](./tutorial-detect-threats-built-in.md).

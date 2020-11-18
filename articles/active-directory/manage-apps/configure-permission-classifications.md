@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: phsignor
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperfq2
-ms.openlocfilehash: d23ef7b78f5e97ee8a82f46794f37f3baf05ca49
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: b72530868b2b12e5f95e79be6ad5a2d7ce170b62
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427669"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654685"
 ---
 # <a name="configure-permission-classifications"></a>Konfigurera behörighetsklassificeringar
 
@@ -45,7 +45,7 @@ I det här exemplet har vi klassificerat den minsta behörighets uppsättningen 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Du kan använda den senaste Azure AD PowerShell Preview-modulen, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true), för att klassificera behörigheter. Behörighets klassificeringar konfigureras på **ServicePrincipal** -objektet för API: et som publicerar behörigheterna.
+Du kan använda den senaste Azure AD PowerShell Preview-modulen, [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview), för att klassificera behörigheter. Behörighets klassificeringar konfigureras på **ServicePrincipal** -objektet för API: et som publicerar behörigheterna.
 
 #### <a name="list-the-current-permission-classifications-for-an-api"></a>Lista de aktuella behörighets klassificeringarna för ett API
 
@@ -123,7 +123,7 @@ Mer information:
 * [Konfigurera arbets flödet för administratörs medgivande](configure-admin-consent-workflow.md)
 * [Lär dig hur du hanterar medgivande till program och att utvärdera medgivande begär Anden](manage-consent-requests.md)
 * [Bevilja administratörsmedgivande för hela klientorganisationen till ett program](grant-admin-consent.md)
-* [Behörigheter och medgivande i Microsoft Identity Platform](../develop/active-directory-v2-scopes.md)
+* [Behörigheter och medgivande i Microsoft Identity Platform](../develop/v2-permissions-and-consent.md)
 
 För att få hjälp eller hitta svar på dina frågor:
 * [Azure AD på StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

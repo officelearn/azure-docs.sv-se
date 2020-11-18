@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8942a55d880132313e1cdac6bfc025e0b153b410
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57deed9d7fb178ba1cdc8d6e954d751752532de4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90707959"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654413"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problem med att logga in till ett Microsoft-program
 
@@ -63,7 +63,7 @@ Här följer några vanliga problem som folk kan köras i när deras användare 
 
   * Kontrol lera att användar kontot är **aktiverat** för inloggningar. [Kontrol lera en användares konto status](#problems-with-the-users-account)
 
-  * Kontrol lera att användarens **lösen ord inte har upphört att gälla eller är bortglömt.** [Återställa en användares lösen ord](#reset-a-users-password) eller [Aktivera återställning av lösen ord för självbetjäning](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+  * Kontrol lera att användarens **lösen ord inte har upphört att gälla eller är bortglömt.** [Återställa en användares lösen ord](#reset-a-users-password) eller [Aktivera återställning av lösen ord för självbetjäning](../authentication/tutorial-enable-sspr.md)
 
   * Kontrol lera att **Multi-Factor Authentication** inte blockerar användar åtkomsten. [Kontrol lera en användares Multi-Factor Authentication-status](#check-a-users-multi-factor-authentication-status) eller [kontrol lera användarens kontakt information för autentisering](#check-a-users-authentication-contact-info)
 
@@ -75,17 +75,17 @@ Här följer några vanliga problem som folk kan köras i när deras användare 
 
   * Se till att användaren eller har en **tilldelad licens.** [Kontrol lera en användares tilldelade licenser](#check-a-users-assigned-licenses) eller [kontrol lera en grupps tilldelade licenser](#check-a-groups-assigned-licenses)
 
-  * Om licensen är **tilldelad en** **statisk grupp**kontrollerar du att **användaren är medlem** i den gruppen. [Kontrol lera en användares grupp medlemskap](#check-a-users-group-memberships)
+  * Om licensen är **tilldelad en** **statisk grupp** kontrollerar du att **användaren är medlem** i den gruppen. [Kontrol lera en användares grupp medlemskap](#check-a-users-group-memberships)
 
-  * Om licensen är **tilldelad en** **dynamisk grupp**kontrollerar du att **regeln för dynamisk grupp är korrekt inställd**. [Kontrol lera medlemskaps villkoren för en dynamisk grupp](#check-a-dynamic-groups-membership-criteria)
+  * Om licensen är **tilldelad en** **dynamisk grupp** kontrollerar du att **regeln för dynamisk grupp är korrekt inställd**. [Kontrol lera medlemskaps villkoren för en dynamisk grupp](#check-a-dynamic-groups-membership-criteria)
 
-  * Om licensen är **tilldelad en** **dynamisk grupp**kontrollerar du att den dynamiska gruppen har **avslutat bearbetningen** av sitt medlemskap och att **användaren är medlem** (detta kan ta lite tid). [Kontrol lera en användares grupp medlemskap](#check-a-users-group-memberships)
+  * Om licensen är **tilldelad en** **dynamisk grupp** kontrollerar du att den dynamiska gruppen har **avslutat bearbetningen** av sitt medlemskap och att **användaren är medlem** (detta kan ta lite tid). [Kontrol lera en användares grupp medlemskap](#check-a-users-group-memberships)
 
   *  När du ser till att licensen har tilldelats kontrollerar du att licensen inte har **upphört att gälla**.
 
   *  Kontrol lera att licensen är **för programmet** som de har åtkomst till.
 
-- För **Microsoft** - **program som inte kräver en licens**finns här några saker att kontrol lera:
+- För **Microsoft** - **program som inte kräver en licens** finns här några saker att kontrol lera:
 
   * Om programmet begär behörigheter på **användar nivå** (till exempel "åtkomst till den här användarens post låda"), se till att användaren har loggat in i programmet och har utfört en **åtgärd på användar nivå** för att ge programmet åtkomst till sina data.
 
@@ -179,9 +179,9 @@ Följ dessa steg om du vill återställa en användares lösen ord:
 
 Aktivera självbetjäning för återställning av lösen ord genom att följa distributions stegen nedan:
 
--   [Gör det möjligt för användare att återställa sina Azure Active Directory lösen ord](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+-   [Gör det möjligt för användare att återställa sina Azure Active Directory lösen ord](../authentication/tutorial-enable-sspr.md)
 
--   [Gör det möjligt för användare att återställa eller ändra sina Active Directory lokala lösen ord](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+-   [Gör det möjligt för användare att återställa eller ändra sina Active Directory lokala lösen ord](../authentication/tutorial-enable-sspr.md)
 
 ### <a name="check-a-users-multi-factor-authentication-status"></a>Kontrol lera en användares Multi-Factor Authentication-status
 
@@ -203,7 +203,7 @@ Följ dessa steg om du vill kontrol lera en användares Multi-Factor Authenticat
 
 8. Hitta användaren i listan med användare genom att söka, filtrera eller sortera.
 
-9. Välj användaren i listan med användare och **Aktivera**, **inaktivera**eller **tillämpa** Multi-Factor Authentication som önskade.
+9. Välj användaren i listan med användare och **Aktivera**, **inaktivera** eller **tillämpa** Multi-Factor Authentication som önskade.
 
    * **Obs!** om en användare är i **tvingande** tillstånd kan du ange att de tillfälligt **inaktive ras** för att låta dem gå tillbaka till sitt konto. När du har loggat in igen kan du ändra deras status till **aktive rad** för att kräva att de registrerar sin kontakt information igen under nästa inloggning. Du kan också följa stegen i [kontakt informationen för en användares autentisering](#check-a-users-authentication-contact-info) för att verifiera eller ange data för dem.
 
@@ -508,26 +508,25 @@ Så här kontrollerar eller validerar du en enskild princip för villkorlig åtk
 
 -   För alla öppna ID Connect-aktiverade program som begär behörigheter kan du gå till programmets inloggnings skärm för att göra en användar nivå godkänd för programmet för den inloggade användaren.
 
--   Om du vill göra detta program mässigt kan du läsa mer i [begära individuell användar medgivande](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#requesting-individual-user-consent).
+-   Om du vill göra detta program mässigt kan du läsa mer i [begära individuell användar medgivande](../develop/v2-permissions-and-consent.md#requesting-individual-user-consent).
 
 ### <a name="perform-administrator-level-consent-operation-for-any-application"></a>Utför en åtgärd på administratörs nivå för alla program
 
--   För att endast få program som har **utvecklats med v1-programmodellen**kan du tvinga den här administratörs behörigheten att ske genom att lägga till "**? prompt = admin \_ medgivande**" i slutet av programmets inloggnings-URL.
+-   För att endast få program som har **utvecklats med v1-programmodellen** kan du tvinga den här administratörs behörigheten att ske genom att lägga till "**? prompt = admin \_ medgivande**" i slutet av programmets inloggnings-URL.
 
--   För **alla program som har utvecklats med v2-programmodellen**kan du tvinga detta medgivande på administratörs nivå genom att följa anvisningarna i avsnittet **be behörigheterna från en katalog administratör** i att [använda den administrativa medgivande slut punkten](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+-   För **alla program som har utvecklats med v2-programmodellen** kan du tvinga detta medgivande på administratörs nivå genom att följa anvisningarna i avsnittet **be behörigheterna från en katalog administratör** i att [använda den administrativa medgivande slut punkten](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
 
 ### <a name="perform-administrator-level-consent-for-a-single-tenant-application"></a>Utföra ett godkännande på administratörs nivå för ett program med en klient
 
 -   För **program med en enda klient** som begär behörigheter (t. ex. de som du utvecklar eller äger i din organisation) kan du utföra en godkännande åtgärd på **Administratörs nivå** för alla användare genom att logga in som global administratör och klicka på knappen **bevilja behörigheter** överst i **program registret – &gt; alla program – &gt; Välj en app- &gt; nödvändig behörighets** ruta.
 
--   För **alla program som har utvecklats med v1-eller v2-programmodellen**kan du tvinga detta medgivande på administratörs nivå genom att följa anvisningarna i avsnittet **be behörigheterna från en katalog administratör** i att [använda den administrativa medgivande slut punkten](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+-   För **alla program som har utvecklats med v1-eller v2-programmodellen** kan du tvinga detta medgivande på administratörs nivå genom att följa anvisningarna i avsnittet **be behörigheterna från en katalog administratör** i att [använda den administrativa medgivande slut punkten](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
 
 ### <a name="perform-administrator-level-consent-for-a-multi-tenant-application"></a>Utföra ett godkännande på administratörs nivå för ett program med flera klienter
 
 -   För **program med flera klienter** som begär behörigheter (t. ex. ett program från tredje part eller Microsoft utvecklar) kan du utföra en **medgivande åtgärd på administrativ nivå** . Logga in som global administratör och klicka på knappen **bevilja behörigheter** under **företags program – &gt; alla program – &gt; Välj en app- &gt; Permissions** -fönster (tillgänglig snart).
 
--   Du kan också tvinga detta medgivande på administratörs nivå genom att följa anvisningarna i avsnittet **be behörigheterna från en katalog administratör** i [att använda den administrativa medgivande slut punkten](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+-   Du kan också tvinga detta medgivande på administratörs nivå genom att följa anvisningarna i avsnittet **be behörigheterna från en katalog administratör** i [att använda den administrativa medgivande slut punkten](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
 
 ## <a name="next-steps"></a>Nästa steg
-[Använda slut punkten för administratörs medgivande](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint)
-
+[Använda slut punkten för administratörs medgivande](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint)

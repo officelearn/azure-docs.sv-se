@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/24/2020
+ms.date: 11/12/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b13a6944290f58f5ede239dee60610d67fff8b1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e4a6d9180d2a9949cebc40cf30edffac73ef9d0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88918476"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94653546"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Vanliga frågor och svar om tjänsten för tal tjänst behållare
 
@@ -43,7 +43,7 @@ Dessutom förpaketerar vi körbara filer för datorer med instruktions uppsättn
 Cannot find Scan4_llvm__mcpu_skylake_avx512 in cache, using JIT...
 ```
 
-Slutligen kan du ange antalet avkodare som du vill ha i en *enda* behållare med hjälp av `DECODER MAX_COUNT` variabeln. Vi bör därför börja med SKU (CPU/minne) och vi kan föreslå hur du får ut så mycket som möjligt. En bra utgångs punkt refererar till de rekommenderade värd datorernas resurs specifikationer.
+Du kan ange antalet avkodare som du vill ha i en *enda* behållare med hjälp av `DECODER MAX_COUNT` variabeln. Vi bör därför börja med SKU (CPU/minne) och vi kan föreslå hur du får ut så mycket som möjligt. En bra utgångs punkt refererar till de rekommenderade värd datorernas resurs specifikationer.
 
 <br>
 </details>
@@ -290,9 +290,9 @@ Koldioxid som korrigeras detta i version 1,8.
 
 Kan du fylla i följande test mått, inklusive vilka funktioner som ska testas och hur du testar SDK och REST-API: er? Särskilt skillnader i "interaktiva" och "konversation", som jag inte ser från ett befintligt dokument/exempel.
 
-| Slutpunkt                                                | Funktionellt test                                                   | SDK | REST-API |
+| Slutpunkt                                                | Funktionellt test                                                   | SDK | REST API |
 |---------------------------------------------------------|-------------------------------------------------------------------|-----|----------|
-| `/speech/synthesize/cognitiveservices/v1`               | Syntetisera text (text till tal)                                  |     | Ja      |
+| `/speech/synthesize/cognitiveservices/v1`               | Syntetisera text (text till tal)                                  |     | Yes      |
 | `/speech/recognition/dictation/cognitiveservices/v1`    | Cognitive Services lokal Diktering v1 WebSocket-slutpunkt        | Ja | Inga       |
 | `/speech/recognition/interactive/cognitiveservices/v1`  | Den Cognitive Services lokal interaktiva v1 WebSocket-slutpunkten  |     |          |
 | `/speech/recognition/conversation/cognitiveservices/v1` | Kognitiva tjänster på lokal-konversation v1 WebSocket-slutpunkt |     |          |
@@ -419,7 +419,7 @@ Hur många samtidiga begär Anden kommer 4 kärnor, 4 GB RAM-referens? Om vi til
 |-----------------------|---------------------|---------------------|
 | Anpassad text till tal | 1 kärna, 2 GB minne | 2 kärnor, 3 GB minne |
 
-***
+**_
 
 - Varje kärna måste vara minst 2,6 GHz eller snabbare.
 - För filer är begränsningen i talet SDK, i 2x (de första 5 sekunderna ljudet är inte begränsat).
@@ -438,7 +438,7 @@ Som exempel, för att hantera 1000 timmar/24 timmar, har vi försökt konfigurer
 <b>Stöder tal containern skiljetecken?</b>
 </summary>
 
-**Svar:** Vi har versaler (REDUNDANSVÄXLINGAR) tillgängliga i lokal-behållaren. Interpunktion är språk beroende och stöds inte för vissa språk, inklusive kinesiska och japanska.
+_ *Svar:** vi har en redundansväxlingar som är tillgänglig i lokal-behållaren. Interpunktion är språk beroende och stöds inte för vissa språk, inklusive kinesiska och japanska.
 
 Vi *har* stöd för implicit och grundläggande interpunktion för befintliga behållare, men är `off` som standard. Det innebär att du kan hämta `.` specialtecknet i ditt exempel, men inte på- `。` tecknen. För att aktivera den här implicita logiken är här ett exempel på hur du gör i python med vårt tal-SDK (det skulle vara detsamma på andra språk):
 
@@ -480,6 +480,16 @@ Content-Length: 0
 
 **Svar:** Vi stöder inte REST API i en "tal-till-text"-behållare, vi har bara stöd för WebSockets via talet SDK. Läs alltid den officiella dokumentationen i [fråga förutsägelse-slutpunkter](speech-container-howto.md#query-the-containers-prediction-endpoint).
 
+<br>
+</details>
+
+
+<details>
+<summary>
+<b> Varför körs behållaren som en användare som inte är en rot? Vilka problem kan uppstå på grund av detta?</b>
+</summary>
+
+**Svar:** Observera att standard användaren i behållaren är en icke-rot användare. Detta ger skydd mot processer som hoppar över behållaren och hämtar eskalerade behörigheter på noden värd. Som standard gör vissa plattformar som OpenShift container Platform redan detta genom att köra behållare med ett godtyckligt tilldelat användar-ID. För dessa plattformar måste den icke-rot användaren ha behörighet att skriva till en externt mappad volym som kräver skrivningar. Till exempel en mapp för loggning eller en anpassad modell hämtnings mapp.
 <br>
 </details>
 

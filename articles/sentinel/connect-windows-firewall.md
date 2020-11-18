@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/05/2020
 ms.author: yelevin
-ms.openlocfilehash: 5518da7d22d14de105c07e88b14e94d4b184269b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf7e389fc4a8a8dfa88691dc034611cae3471731
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883808"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655348"
 ---
 # <a name="connect-windows-defender-firewall-with-advanced-security-to-azure-sentinel"></a>Anslut Windows Defender-brandväggen med avancerad säkerhet till Azure Sentinel
 
-[Med Windows Defender-brandväggen med avancerad säkerhets](https://docs.microsoft.com/windows/security/threat-protection/windows-firewall/windows-firewall-with-advanced-security) anslutning kan Azure Sentinel enkelt mata in Windows Defender-brandväggen med avancerade säkerhets loggar från alla Windows-datorer i din arbets yta. Med den här anslutningen kan du Visa och analysera händelser i Windows-brandväggen i dina arbets böcker, för att använda dem för att skapa anpassade aviseringar och för att lägga till dem i dina säkerhets undersökningar, vilket ger dig mer information om din organisations nätverk och förbättra dina säkerhets funktioner. 
+[Med Windows Defender-brandväggen med avancerad säkerhets](/windows/security/threat-protection/windows-firewall/windows-firewall-with-advanced-security) anslutning kan Azure Sentinel enkelt mata in Windows Defender-brandväggen med avancerade säkerhets loggar från alla Windows-datorer i din arbets yta. Med den här anslutningen kan du Visa och analysera händelser i Windows-brandväggen i dina arbets böcker, för att använda dem för att skapa anpassade aviseringar och för att lägga till dem i dina säkerhets undersökningar, vilket ger dig mer information om din organisations nätverk och förbättra dina säkerhets funktioner. 
 
 Lösningen samlar in händelser i Windows-brandväggen från Windows-datorer där en Log Analytics-agent är installerad. 
 
@@ -67,7 +67,7 @@ Lösningen samlar in händelser i Windows-brandväggen från Windows-datorer dä
 
     1. I fönstret **hantering av agenter** väljer du antingen **Ladda ned Windows-agent (64 bitar)** eller **ladda ned Windows agent (32 bitar)** efter behov.
 
-    1. Kopiera **arbetsyte-ID**, **primär nyckel**och **sekundär nyckel** strängar till en textfil. Kopiera filen och den nedladdade installations filen till din Windows-dator. Kör installations filen och ange ID och nyckel strängar i text filen under installationen när du uppmanas till det.
+    1. Kopiera **arbetsyte-ID**, **primär nyckel** och **sekundär nyckel** strängar till en textfil. Kopiera filen och den nedladdade installations filen till din Windows-dator. Kör installations filen och ange ID och nyckel strängar i text filen under installationen när du uppmanas till det.
 
     1. Gå tillbaka till fönstret **Windows-brandväggen** .
 
@@ -77,14 +77,13 @@ Lösningen samlar in händelser i Windows-brandväggen från Windows-datorer dä
 
 - Se tillgängliga rekommenderade arbets böcker och fråge exempel som paketerats med **Windows-brandväggen** data Connector för att få information om loggdata i Windows-brandväggen.
 
-- Om du vill fråga efter data i Windows-brandväggen i **loggar**skriver du **WindowsFirewall** i frågefönstret.
+- Om du vill fråga efter data i Windows-brandväggen i **loggar** skriver du **WindowsFirewall** i frågefönstret.
 
 ## <a name="validate-connectivity"></a>Verifiera anslutning
  
-Eftersom Windows-brandväggens loggar bara skickas till Azure-kontroll när den lokala logg filen når kapacitet, lämnar loggen på standard storleken 4096 KB troligen på hög latens. Du kan minska svars tiden genom att minska storleken på logg filen. Se anvisningarna för att [Konfigurera loggen för Windows-brandväggen](https://docs.microsoft.com/windows/security/threat-protection/windows-firewall/configure-the-windows-firewall-log). Observera att när du definierar den minsta möjliga logg storleken (1 KB) kommer det i princip att ta bort en samlings fördröjning. det kan också påverka den lokala datorns prestanda negativt. 
+Eftersom Windows-brandväggens loggar bara skickas till Azure-kontroll när den lokala logg filen når kapacitet, lämnar loggen på standard storleken 4096 KB troligen på hög latens. Du kan minska svars tiden genom att minska storleken på logg filen. Se anvisningarna för att [Konfigurera loggen för Windows-brandväggen](/windows/security/threat-protection/windows-firewall/configure-the-windows-firewall-log). Observera att när du definierar den minsta möjliga logg storleken (1 KB) kommer det i princip att ta bort en samlings fördröjning. det kan också påverka den lokala datorns prestanda negativt. 
 
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet har du lärt dig hur du ansluter Windows-brandväggen till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
 - Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
 - Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats-built-in.md).
-

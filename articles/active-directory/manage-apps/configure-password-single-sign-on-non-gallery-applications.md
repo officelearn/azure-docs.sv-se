@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: kenwith
-ms.openlocfilehash: 9b48bc62fc0548c0c4f431e71598fdfa6850de13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b647e15d3fc99a7f15fbc24e2b6050fdfdc6e93
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598328"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654719"
 ---
 # <a name="understand-password-based-single-sign-on"></a>Förstå lösenordsbaserad enkel inloggning
 
@@ -29,11 +29,11 @@ Lösenordsbaserad SSO är ett bra sätt att komma igång med att integrera progr
 
 - Stöd för program som kräver flera inloggnings fält för program som kräver mer än bara användar namn och lösen ords fält för att logga in
 
-- Anpassa etiketterna för fälten användar namn och lösen ord som användarna ser i [Mina appar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) när de anger sina autentiseringsuppgifter
+- Anpassa etiketterna för fälten användar namn och lösen ord som användarna ser i [Mina appar](../user-help/my-apps-portal-end-user-access.md) när de anger sina autentiseringsuppgifter
 
 - Tillåt användarna att ange sina egna användar namn och lösen ord för alla befintliga program konton som de skriver i manuellt.
 
-- Tillåt en medlem i företags gruppen att ange användar namn och lösen ord som tilldelats en användare med hjälp av funktionen för [självbetjänings åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access)
+- Tillåt en medlem i företags gruppen att ange användar namn och lösen ord som tilldelats en användare med hjälp av funktionen för [självbetjänings åtkomst](./manage-self-service-access.md)
 
 -   Tillåt en administratör att ange ett användar namn och lösen ord som ska användas av personer eller grupper när de loggar in i programmet med funktionen uppdatera autentiseringsuppgifter 
 
@@ -44,7 +44,7 @@ Att använda Azure AD som identitets leverantör (IdP) och konfigurera enkel inl
 > [!IMPORTANT] 
 > Det finns vissa scenarier där alternativet för **enkel inloggning** inte kommer att ingå i navigeringen för ett program i **företags program**. 
 >
-> Om programmet registrerades med **Appregistreringar** konfigureras funktionen för enkel inloggning för att använda OIDC OAuth som standard. I det här fallet visas inte alternativet för **enkel inloggning** i navigeringen under **företags program**. När du använder **Appregistreringar** för att lägga till din anpassade app konfigurerar du alternativ i manifest filen. Mer information om manifest filen finns i [Azure Active Directory app manifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest). Mer information om SSO-standarder finns i [autentisering och auktorisering med Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform). 
+> Om programmet registrerades med **Appregistreringar** konfigureras funktionen för enkel inloggning för att använda OIDC OAuth som standard. I det här fallet visas inte alternativet för **enkel inloggning** i navigeringen under **företags program**. När du använder **Appregistreringar** för att lägga till din anpassade app konfigurerar du alternativ i manifest filen. Mer information om manifest filen finns i [Azure Active Directory app manifest](../develop/reference-app-manifest.md). Mer information om SSO-standarder finns i [autentisering och auktorisering med Microsoft Identity Platform](../develop/authentication-vs-authorization.md#authentication-and-authorization-using-microsoft-identity-platform). 
 >
 > Andra scenarier där **enkel inloggning** kommer att saknas i navigeringen är när ett program finns i en annan klient organisation eller om ditt konto inte har de behörigheter som krävs (global administratör, moln program administratör, program administratör eller ägare till tjänstens huvud namn). Behörigheter kan också orsaka ett scenario där du kan öppna **enkel inloggning** men inte kan spara. Mer information om administrativa roller i Azure AD finns i ( https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) .
 
@@ -60,14 +60,14 @@ Konfigurations sidan för lösenordsbaserad enkel inloggning är enkel. Den inne
 
 När du har angett URL: en väljer du **Spara**. Azure AD parsar HTML-koden för inloggnings sidan för fälten användar namn och lösen ord. Om försöket lyckas är du klar.
  
-Nästa steg är att [tilldela användare eller grupper till programmet](methods-for-assigning-users-and-groups.md). När du har tilldelat användare och grupper kan du ange autentiseringsuppgifter som ska användas för en användare när de loggar in i programmet. Välj **användare och grupper**, markera kryss rutan för användarens eller gruppens rad och välj sedan **uppdatera autentiseringsuppgifter**. Ange slutligen det användar namn och lösen ord som ska användas för användaren eller gruppen. Om du inte gör det uppmanas användarna att ange autentiseringsuppgifterna vid start.
+Nästa steg är att [tilldela användare eller grupper till programmet](./assign-user-or-group-access-portal.md). När du har tilldelat användare och grupper kan du ange autentiseringsuppgifter som ska användas för en användare när de loggar in i programmet. Välj **användare och grupper**, markera kryss rutan för användarens eller gruppens rad och välj sedan **uppdatera autentiseringsuppgifter**. Ange slutligen det användar namn och lösen ord som ska användas för användaren eller gruppen. Om du inte gör det uppmanas användarna att ange autentiseringsuppgifterna vid start.
  
 
 ## <a name="manual-configuration"></a>Manuell konfiguration
 
 Om Azure AD parsing-försöket Miss lyckas kan du konfigurera inloggning manuellt.
 
-1. Under ** \<application name> konfiguration**väljer du **Konfigurera \<application name> Inställningar för enkel inloggning med lösen ord** för att visa sidan **Konfigurera inloggning** . 
+1. Under **\<application name> konfiguration** väljer du **Konfigurera \<application name> Inställningar för enkel inloggning med lösen ord** för att visa sidan **Konfigurera inloggning** . 
 
 2. Välj **identifiera inloggnings fält manuellt**. Ytterligare instruktioner som beskriver manuell identifiering av inloggnings fält visas.
 
@@ -88,5 +88,5 @@ Om Azure AD parsing-försöket Miss lyckas kan du konfigurera inloggning manuell
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Tilldela användare eller grupper till programmet](methods-for-assigning-users-and-groups.md)
+- [Tilldela användare eller grupper till programmet](./assign-user-or-group-access-portal.md)
 - [Konfigurera automatisk etablering av användar konto](../app-provisioning/configure-automatic-user-provisioning-portal.md)

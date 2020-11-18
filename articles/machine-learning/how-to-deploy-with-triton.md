@@ -11,12 +11,12 @@ ms.date: 09/23/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: afa1d958e054a769ea0f19b82afdf55a94c3d0cf
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3a7d750caed297dfa364e2f1ef176ee19ad35480
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309717"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654215"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Högpresterande tjänster med Triton-Härlednings Server (för hands version) 
 
@@ -66,7 +66,11 @@ Arbets flödet för att använda Triton för din modell distribution är:
 1. Verifiera att du kan skicka förfrågningar till din Triton-distribuerade modell.
 1. Inkludera din Triton kod i din AML-distribution.
 
-## <a name="optional-define-a-model-config-file"></a>Valfritt Definiera en modell konfigurations fil
+## <a name="verify-that-triton-can-serve-your-model"></a>Kontrol lera att Triton kan hantera din modell
+
+Börja med att följa stegen nedan för att kontrol lera att Triton-servern kan hantera din modell.
+
+### <a name="optional-define-a-model-config-file"></a>Valfritt Definiera en modell konfigurations fil
 
 Modell konfigurations filen anger Triton hur många indata som ska förväntas och vilka dimensioner dessa indata kommer att vara. Mer information om hur du skapar konfigurations filen finns i [modell konfiguration](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/model_configuration.html) i NVIDIA-dokumentationen.
 
@@ -75,7 +79,7 @@ Modell konfigurations filen anger Triton hur många indata som ska förväntas o
 > 
 > Mer information om det här alternativet finns i [genererad modell konfiguration](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/model_configuration.html#generated-model-configuration) i NVIDIA-dokumentationen.
 
-## <a name="directory-structure"></a>Katalog struktur
+### <a name="use-the-correct-directory-structure"></a>Använd rätt katalog struktur
 
 När du registrerar en modell med Azure Machine Learning kan du registrera antingen enskilda filer eller en katalog struktur. För att kunna använda Triton måste modell registreringen vara för en katalog struktur som innehåller en katalog med namnet `triton` . Den allmänna strukturen för den här katalogen är:
 
@@ -93,7 +97,7 @@ models
 > [!IMPORTANT]
 > Den här katalog strukturen är en Triton modell databas som krävs för att din eller dina modeller ska fungera med Triton. Mer information finns i [Triton-modell Arkiv](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/model_repository.html) i NVIDIA-dokumentationen.
 
-## <a name="test-with-triton-and-docker"></a>Testa med Triton och Docker
+### <a name="test-with-triton-and-docker"></a>Testa med Triton och Docker
 
 Om du vill testa din modell för att kontrol lera att den körs med Triton kan du använda Docker. Följande kommandon hämtar behållaren Triton till den lokala datorn och startar sedan Triton-servern:
 
@@ -146,7 +150,7 @@ Utöver en grundläggande hälso kontroll kan du skapa en-klient för att skicka
 
 Mer information om hur du kör Triton med Docker finns i [köra Triton på ett system med en GPU](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/run.html#running-triton-on-a-system-with-a-gpu) och [köra Triton på ett system utan GPU](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/run.html#running-triton-on-a-system-without-a-gpu).
 
-## <a name="register-your-model"></a>Registrera din modell
+### <a name="register-your-model"></a>Registrera din modell
 
 Nu när du har kontrollerat att modellen fungerar med Triton kan du registrera den med Azure Machine Learning. Modell registreringen lagrar dina modellvariabler i Azure Machine Learning-arbetsytan och används när du distribuerar med python SDK och Azure CLI.
 
@@ -176,9 +180,9 @@ az ml model register --model-path='triton' \
 
 <a id="processing"></a>
 
-## <a name="add-pre-and-post-processing"></a>Lägg till för-och efter bearbetning
+## <a name="verify-you-can-call-into-your-model"></a>Verifiera att du kan anropa din modell
 
-När du har verifierat att webb tjänsten fungerar kan du lägga till för-och efter bearbetnings kod genom att definiera ett _Entry-skript_. Den här filen heter `score.py` . Mer information om Entry-skript finns i [definiera ett post skript](how-to-deploy-and-where.md#define-an-entry-script).
+När du har verifierat att Triton kan hantera din modell kan du lägga till för-och efter bearbetnings kod genom att definiera ett _Entry-skript_. Den här filen heter `score.py` . Mer information om Entry-skript finns i [definiera ett post skript](how-to-deploy-and-where.md#define-an-entry-script).
 
 De två huvudsakliga stegen är att initiera en Triton HTTP-klient i din `init()` metod och för att anropa klienten i din `run()` funktion.
 

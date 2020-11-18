@@ -8,16 +8,16 @@ ms.author: nibaccam
 author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: a80559761c8a3eba6045db5cd99a7719dd041fa8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b9357c0fcf414c2575ca6966e8e5a3716015058
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91704403"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654923"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Skapa Azure Machine Learning data uppsättningar från Azure Open data uppsättningar
 
-I den här artikeln får du lära dig hur du kan använda granskade berikade data i dina lokala eller fjärranslutna Machine Learning-experiment med [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md) data uppsättningar och [Azure Open-datauppsättningar](https://docs.microsoft.com/azure/open-datasets/). 
+I den här artikeln får du lära dig hur du kan använda granskade berikade data i dina lokala eller fjärranslutna Machine Learning-experiment med [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md) data uppsättningar och [Azure Open-datauppsättningar](./index.yml). 
 
 Genom att skapa en [Azure Machine Learning data uppsättning](../machine-learning/how-to-create-register-datasets.md)skapar du en referens till data källans plats, tillsammans med en kopia av dess metadata. Eftersom data uppsättningar är Lazy utvärderas och data finns kvar på sin befintliga plats,
 * Det kostar ingen extra lagrings kostnad.
@@ -45,20 +45,20 @@ I den här artikeln behöver du:
 
 * En [Azure Machine Learning-arbetsyta](../machine-learning/how-to-manage-workspace.md).
 
-* [Azure Machine Learning SDK för python installerat](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true ), som innehåller `azureml-datasets` paketet.
+* [Azure Machine Learning SDK för python installerat](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py), som innehåller `azureml-datasets` paketet.
 
     * Skapa en [Azure Machine Learning beräknings instans](../machine-learning/how-to-create-manage-compute-instance.md), som är en helt konfigurerad och hanterad utvecklings miljö som innehåller integrerade antecknings böcker och SDK redan har installerats.
 
     **OR**
 
-    * Arbeta i din egen python-miljö och installera SDK: n själv med [de här anvisningarna](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true ).
+    * Arbeta i din egen python-miljö och installera SDK: n själv med [de här anvisningarna](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
 
 > [!NOTE]
-> Vissa data uppsättnings klasser är beroende av [azureml-nu-](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) paketet, som endast är kompatibelt med 64-bitars python. För Linux-användare stöds dessa klasser endast för följande distributioner: Red Hat Enterprise Linux (7, 8), Ubuntu (14,04, 16,04, 18,04), Fedora (27, 28), Debian (8, 9) och CentOS (7).
+> Vissa data uppsättnings klasser är beroende av [azureml-nu-](/python/api/azureml-dataprep/) paketet, som endast är kompatibelt med 64-bitars python. För Linux-användare stöds dessa klasser endast för följande distributioner: Red Hat Enterprise Linux (7, 8), Ubuntu (14,04, 16,04, 18,04), Fedora (27, 28), Debian (8, 9) och CentOS (7).
 
 ## <a name="create-datasets-with-the-sdk"></a>Skapa data uppsättningar med SDK
 
-Om du vill skapa Azure Machine Learning data uppsättningar via Azure Open dataset-klasser i python SDK, kontrollerar du att du har installerat paketet med `pip install azureml-opendatasets` . Varje diskret data uppsättning representeras av sin egen klass i SDK och vissa klasser är tillgängliga som antingen en Azure Machine Learning [ `TabularDataset` , `FileDataset` ](../machine-learning/how-to-create-register-datasets.md#dataset-types)eller båda. En fullständig lista över klasser finns i [referens dokumentationen](https://docs.microsoft.com/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py&preserve-view=true ) `opendatasets` .
+Om du vill skapa Azure Machine Learning data uppsättningar via Azure Open dataset-klasser i python SDK, kontrollerar du att du har installerat paketet med `pip install azureml-opendatasets` . Varje diskret data uppsättning representeras av sin egen klass i SDK och vissa klasser är tillgängliga som antingen en Azure Machine Learning [ `TabularDataset` , `FileDataset` ](../machine-learning/how-to-create-register-datasets.md#dataset-types)eller båda. En fullständig lista över klasser finns i [referens dokumentationen](/python/api/azureml-opendatasets/azureml.opendatasets?preserve-view=true&view=azure-ml-py) `opendatasets` .
 
 Du kan hämta vissa `opendatasets` klasser som antingen en `TabularDataset` eller `FileDataset` , vilket gör att du kan manipulera och/eller ladda ned filerna direkt. Andra klasser kan **bara** hämta en data uppsättning genom att använda- `get_tabular_dataset()` eller- `get_file_dataset()` funktionerna från- `Dataset` klassen i python SDK.
 
@@ -88,7 +88,7 @@ diabetes_tabular = Diabetes.get_tabular_dataset()
 
 Registrera en Azure Machine Learning data uppsättning med din arbets yta, så att du kan dela dem med andra och återanvända dem för experiment i din arbets yta. När du registrerar en Azure Machine Learning data uppsättning som skapats från öppna data uppsättningar hämtas inga data direkt, men data kommer att kommas åt senare när de begärs (under utbildning, till exempel) från en central lagrings plats.
 
-Om du vill registrera dina data uppsättningar med en arbets yta använder du- [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--create-new-version-false-&preserve-view=true ) metoden. 
+Om du vill registrera dina data uppsättningar med en arbets yta använder du- [`register()`](/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--create-new-version-false-&preserve-view=true ) metoden. 
 ```Python
 titanic_ds = titanic_ds.register(workspace=workspace,
                                  name='titanic_ds',
@@ -102,7 +102,7 @@ Du kan också skapa Azure Machine Learning data uppsättningar från Azure Open 
 > [!Note]
 > Data uppsättningar som skapats med Azure Machine Learning Studio registreras automatiskt på arbets ytan.
 
-1. I arbets ytan väljer du fliken **data uppsättningar** under **till gångar**. Välj **från öppna data uppsättningar**på list menyn **skapa data uppsättning** .
+1. I arbets ytan väljer du fliken **data uppsättningar** under **till gångar**. Välj **från öppna data uppsättningar** på list menyn **skapa data uppsättning** .
 
     ![Öppna data uppsättning med användar gränssnittet](./media/how-to-create-dataset-from-open-dataset/open-datasets-1.png)
 
@@ -132,6 +132,3 @@ Exempel och demonstrationer av funktioner för öppen data uppsättningar finns 
 * [Träna med data uppsättningar](../machine-learning/how-to-train-with-datasets.md).
 
 * [Skapa en Azure Machine Learning-datauppsättning](../machine-learning/how-to-create-register-datasets.md).
-
-
-

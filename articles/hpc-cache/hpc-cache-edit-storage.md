@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 70f350204796099e02f7afe829a6e2e1fdf653c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b7bc87f83925baed15bc6a411f5b4e4f78df6cc
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613129"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654515"
 ---
 # <a name="edit-storage-targets"></a>Redigera lagringsmål
 
@@ -40,7 +40,7 @@ Om du vill ta bort ett lagrings mål öppnar du sidan **lagrings mål** . Välj 
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Konfigurera Azure CLI för Azure HPC-cache](./az-cli-prerequisites.md).
 
 Använd [AZ HPC-cache Storage – Target Remove](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-remove) för att ta bort ett lagrings mål från cachen.
 
@@ -79,7 +79,7 @@ När du har gjort ändringarna klickar du på **OK** för att uppdatera lagrings
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Konfigurera Azure CLI för Azure HPC-cache](./az-cli-prerequisites.md).
 
 Om du vill ändra ett Blob Storage Target-namnområde med Azure CLI använder du kommandot [AZ HPC-cache Blob-Storage-Target Update](/cli/azure/ext/hpc-cache/hpc-cache/blob-storage-target#ext-hpc-cache-az-hpc-cache-blob-storage-target-update). Endast `--virtual-namespace-path` värdet kan ändras.
 
@@ -117,7 +117,7 @@ Använd **namn områdes** sidan för Azure HPC-cachen för att uppdatera namn om
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Konfigurera Azure CLI för Azure HPC-cache](./az-cli-prerequisites.md).
 
 Använd ``--junction`` alternativet i kommandot [AZ HPC-cache-NFS-Storage-Target Update](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target) för att ändra namn områdets sökväg, NFS-export eller exportera under katalog.
 
@@ -133,7 +133,7 @@ Du måste ange alla tre värdena för varje sökväg i ``--junction`` instruktio
 
 Cache-namn, lagrings mål namn och resurs grupp krävs även i alla uppdaterings kommandon.
 
-Exempelkommando:
+Exempel kommando:
 
 ```azurecli
 az hpc-cache nfs-storage-target update --cache-name mycache \
@@ -159,7 +159,7 @@ Använd List rutan för att välja en ny användnings modell. Klicka på **OK** 
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Konfigurera Azure CLI för Azure HPC-cache](./az-cli-prerequisites.md).
 
 Använd kommandot [AZ HPC-cache-NFS-Storage-Target Update](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target?view=azure-cli-latest#ext-hpc-cache-az-hpc-cache-nfs-storage-target-update) .
 

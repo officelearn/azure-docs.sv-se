@@ -7,12 +7,12 @@ services: firewall
 ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: victorh
-ms.openlocfilehash: ae33d763bda49756e9f90a05feda5089b63ef28b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad4f42d0e33f6d70c75abfcd1daab4f5aa9a515f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400170"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654991"
 ---
 # <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Använd Azure Firewall för att skydda distributioner av Window Virtual Desktop
 
@@ -36,7 +36,7 @@ Mer information om Windows Virtual Desktop-miljöer finns i [Windows Virtual Des
 De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste ha åtkomst till flera fullständigt kvalificerade domän namn (FQDN) för att fungera korrekt. Azure-brandväggen tillhandahåller en Windows Virtual Desktop FQDN-tagg för att förenkla den här konfigurationen. Använd följande steg för att tillåta utgående plattforms trafik för virtuella Windows-datorer:
 
 - Distribuera Azure-brandväggen och konfigurera din Windows-UDR (User Defined Route) för virtuella Skriv bords värd för att dirigera all trafik via Azure-brandväggen. Din standard väg pekar nu på brand väggen.
-- Skapa en regel samling för program och Lägg till en regel för att aktivera *WindowsVirtualDesktop* FQDN-taggen. Käll-IP-adressintervallet är det virtuella nätverk som är värd för poolen, protokollet är **https**och målet är **WindowsVirtualDesktop**.
+- Skapa en regel samling för program och Lägg till en regel för att aktivera *WindowsVirtualDesktop* FQDN-taggen. Käll-IP-adressintervallet är det virtuella nätverk som är värd för poolen, protokollet är **https** och målet är **WindowsVirtualDesktop**.
 
 - Uppsättningen med nödvändiga lagrings-och Service Bus-konton för Windows-poolen för virtuella skriv bord är distributions bestämd, så den har ännu inte registrerats i WindowsVirtualDesktop FQDN-taggen. Du kan åtgärda detta på något av följande sätt:
 
@@ -63,7 +63,7 @@ De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste h
 
 Beroende på organisationens behov kanske du vill aktivera säker utgående Internet åtkomst för slutanvändarna. I de fall där listan över tillåtna mål är väldefinierad (till exempel [Microsoft 365 åtkomst](/microsoft-365/enterprise/microsoft-365-ip-web-service)) kan du använda Azures brand Väggs program och nätverks regler för att konfigurera den nödvändiga åtkomsten. Detta dirigerar slut användar trafik direkt till Internet för bästa möjliga prestanda.
 
-Om du vill filtrera utgående användares Internet trafik med en befintlig lokal säker webbgateway kan du konfigurera webbläsare eller andra program som körs på Windows-poolen för virtuella skriv bord med en explicit proxykonfiguration. Se till exempel att [använda kommando rads alternativ från Microsoft Edge för att konfigurera proxyinställningar](https://docs.microsoft.com/deployedge/edge-learnmore-cmdline-options-proxy-settings). Dessa proxyinställningar påverkar bara din slutanvändares Internet-åtkomst, vilket tillåter att utgående trafik i Windows Virtual Desktop Platform direkt via Azure-brandväggen.
+Om du vill filtrera utgående användares Internet trafik med en befintlig lokal säker webbgateway kan du konfigurera webbläsare eller andra program som körs på Windows-poolen för virtuella skriv bord med en explicit proxykonfiguration. Se till exempel att [använda kommando rads alternativ från Microsoft Edge för att konfigurera proxyinställningar](/deployedge/edge-learnmore-cmdline-options-proxy-settings). Dessa proxyinställningar påverkar bara din slutanvändares Internet-åtkomst, vilket tillåter att utgående trafik i Windows Virtual Desktop Platform direkt via Azure-brandväggen.
 
 ## <a name="additional-considerations"></a>Annat som är bra att tänka på
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2019
 ms.author: yelevin
-ms.openlocfilehash: d794b0a33eabedd3e6e309f291543ba23bc40f79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 223f3e45f25e3aed3ed6fa15e5b9ea04b17f6c59
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362754"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655331"
 ---
 # <a name="connect-data-from-threat-intelligence-providers"></a>Anslut data från hot Intelligence-leverantörer
 
@@ -36,7 +36,7 @@ Med Azure Sentinel kan du importera de hot indikatorer som din organisation anv�
 
 - **Antecknings böcker** kan använda hot indikatorer när du undersöker avvikelser och söker efter skadliga beteenden.
 
-Du kan strömma hot indikatorer till Azure Sentinel genom att använda en av de "TIP-produkter (Integrated Threat Intelligence Platform) som anges i nästa avsnitt, ansluta till TAXIbaserade servrar eller genom Microsoft Graph att använda direkt integrering med [tiIndicators-API: et för säkerhet](https://aka.ms/graphsecuritytiindicators).
+Du kan strömma hot indikatorer till Azure Sentinel genom att använda en av de "TIP-produkter (Integrated Threat Intelligence Platform) som anges i nästa avsnitt, ansluta till TAXIbaserade servrar eller genom Microsoft Graph att använda direkt integrering med [tiIndicators-API: et för säkerhet](/graph/api/resources/tiindicator).
 
 ## <a name="integrated-threat-intelligence-platform-products"></a>Integrerade hot Intelligence Platform-produkter
 
@@ -71,7 +71,7 @@ Du kan strömma hot indikatorer till Azure Sentinel genom att använda en av de 
 
 2. [Konfigurera API-behörigheter](/graph/auth-v2-service#2-configure-permissions-for-microsoft-graph) för det registrerade programmet: Lägg till behörigheten Microsoft Graph Application **ThreatIndicators. readwrite. OwnedBy** i det registrerade programmet.
 
-3. Be din Azure Active Directory klient administratör att bevilja administrativt medgivande till det registrerade programmet för din organisation. Från Azure Portal: **Azure Active Directory**  >  **Appregistreringar**  >  **\<_app name_>**  >  **Visa API-behörigheter**  >  **bevilja administrativt medgivande för \<_tenant name_> **.
+3. Be din Azure Active Directory klient administratör att bevilja administrativt medgivande till det registrerade programmet för din organisation. Från Azure Portal: **Azure Active Directory**  >  **Appregistreringar**  >  **\<_app name_>**  >  **Visa API-behörigheter**  >  **bevilja administrativt medgivande för \<_tenant name_>**.
 
 4. Konfigurera TIP-produkten eller appen som använder direkt integrering med Microsoft Graph Security tiIndicators API för att skicka indikatorer till Azure Sentinel genom att ange följande:
     
@@ -83,9 +83,9 @@ Du kan strömma hot indikatorer till Azure Sentinel genom att använda en av de 
 
 5. I Azure Portal går du till **Azure Sentinel**  >  **data Connectors** och väljer sedan **Hot information Platforms (för hands version)** Connector.
 
-6. Välj **Öppna anslutnings sidan**och **Anslut**sedan.
+6. Välj **Öppna anslutnings sidan** och **Anslut** sedan.
 
-7. Om du vill visa de hot indikatorer som importeras till Azure Sentinel går du till **Azure Sentinel-logs**  >  **SecurityInsights**och expanderar sedan **ThreatIntelligenceIndicator**.
+7. Om du vill visa de hot indikatorer som importeras till Azure Sentinel går du till **Azure Sentinel-logs**  >  **SecurityInsights** och expanderar sedan **ThreatIntelligenceIndicator**.
 
 ## <a name="connect-azure-sentinel-to-taxii-servers"></a>Anslut Azure Sentinel till TAXIi-servrar
 
@@ -107,11 +107,11 @@ Du kan strömma hot indikatorer till Azure Sentinel genom att använda en av de 
 
 5. Om du har ytterligare TAXI 2,0-servrar: Upprepa steg 3 och 4.
 
-6. Om du vill visa de hot indikatorer som importeras till Azure Sentinel går du till **Azure Sentinel-logs**  >  **SecurityInsights**och expanderar sedan **ThreatIntelligenceIndicator**.
+6. Om du vill visa de hot indikatorer som importeras till Azure Sentinel går du till **Azure Sentinel-logs**  >  **SecurityInsights** och expanderar sedan **ThreatIntelligenceIndicator**.
 
 ## <a name="next-steps"></a>Nästa steg
 
 I det här dokumentet har du lärt dig hur du ansluter din Threat Intelligence-Provider till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar.
 
 - Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
-- Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats.md).
+- Kom igång [med att identifiera hot med Azure Sentinel](./tutorial-detect-threats-built-in.md).

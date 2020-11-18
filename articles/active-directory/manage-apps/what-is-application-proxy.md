@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/31/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: dbfe18c84217c741f8dd64481901747d068fcdd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc3352dd57a76cbb0b38455adfa11987ec93781a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604146"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654141"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Använda Azure AD-programproxy för att publicera lokala appar för fjärranslutna användare
 
@@ -57,7 +57,7 @@ I dagens moln – första världen är Azure AD bäst lämpad att styra vem och 
 
 ## <a name="the-future-of-remote-access"></a>Framtiden för fjärråtkomst
 
-I dagens digitala arbets plats fungerar användarna var som helst med flera enheter och appar. Den enda konstanten är användar identitet. Det är därför som det första steget i ett säkert nätverk idag är att använda [Azure Ads hanterings funktioner för identiteter](https://docs.microsoft.com/azure/security/security-identity-management-overview) som ditt säkerhets kontroll plan. En modell som använder identitet som ditt kontroll plan består vanligt vis av följande komponenter:
+I dagens digitala arbets plats fungerar användarna var som helst med flera enheter och appar. Den enda konstanten är användar identitet. Det är därför som det första steget i ett säkert nätverk idag är att använda [Azure Ads hanterings funktioner för identiteter](../../security/fundamentals/identity-management-overview.md) som ditt säkerhets kontroll plan. En modell som använder identitet som ditt kontroll plan består vanligt vis av följande komponenter:
 
 * En identitets leverantör för att hålla reda på användare och användar relaterad information.
 * Enhets katalog för att underhålla en lista över enheter som har åtkomst till företags resurser. Den här katalogen innehåller motsvarande enhets information (till exempel typ av enhet, integritet osv.).
@@ -76,7 +76,7 @@ Application Proxy är en Azure AD-tjänst som du konfigurerar i Azure Portal. Du
 
 Komponenterna i den här funktionen inkluderar Application Proxy-tjänsten som körs i molnet, Application Proxy Connector, som är en Lightweight-agent som körs på en lokal server och Azure AD, som är identitets leverantören. Alla tre komponenterna fungerar tillsammans för att ge användaren en enkel inloggnings upplevelse för att komma åt lokala webb program.
 
-När du har loggat in kan externa användare komma åt lokala webb program genom att använda en välbekant URL eller [Mina appar](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access) från sina Desktop-eller iOS/Mac-enheter. Till exempel kan App proxy tillhandahålla fjärråtkomst och enkel inloggning till fjärr skrivbord, SharePoint-webbplatser, Tableau, Qlik, Outlook på webben och branschspecifika program (LOB).
+När du har loggat in kan externa användare komma åt lokala webb program genom att använda en välbekant URL eller [Mina appar](../user-help/my-apps-portal-end-user-access.md) från sina Desktop-eller iOS/Mac-enheter. Till exempel kan App proxy tillhandahålla fjärråtkomst och enkel inloggning till fjärr skrivbord, SharePoint-webbplatser, Tableau, Qlik, Outlook på webben och branschspecifika program (LOB).
 
 ![Azure AD-programproxy-arkitektur](media/what-is-application-proxy/azure-ad-application-proxy-architecture.png)
 
@@ -87,7 +87,7 @@ Det finns flera sätt att konfigurera ett program för enkel inloggning och den 
 * Webbprogram
 * Webb-API: er som du vill exponera för rika program på olika enheter
 * Program som finns bakom en fjärr skrivbords-Gateway
-* Rika klient program som är integrerade med [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)
+* Rika klient program som är integrerade med [Microsoft Authentication Library (MSAL)](../develop/v2-overview.md)
 
 App proxy fungerar med appar som använder följande interna autentiseringsprotokoll:
 
@@ -95,7 +95,7 @@ App proxy fungerar med appar som använder följande interna autentiseringsproto
 
 App proxy stöder även följande autentiseringsprotokoll med integration från tredje part eller i vissa konfigurations scenarier:
 
-* [**Rubrik baserad autentisering**](application-proxy-configure-single-sign-on-with-ping-access.md). Den här inloggnings metoden använder en tredjeparts autentiseringstjänst som kallas PingAccess och används när programmet använder rubriker för autentisering. I det här scenariot hanteras autentiseringen av PingAccess.
+* [**Rubrik baserad autentisering**](/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-headers). Den här inloggnings metoden använder en tredjeparts autentiseringstjänst som kallas PingAccess och används när programmet använder rubriker för autentisering. I det här scenariot hanteras autentiseringen av PingAccess.
 * [**Formulär-eller lösenordsbaserad autentisering**](application-proxy-configure-single-sign-on-password-vaulting.md). Med den här autentiseringsmetoden loggar användare in på programmet med ett användar namn och lösen ord första gången de använder den. Efter den första inloggningen skickar Azure AD användar namn och lösen ord till programmet. I det här scenariot hanteras autentiseringen av Azure AD.
 * [**SAML-autentisering**](application-proxy-configure-single-sign-on-on-premises-apps.md). SAML-baserad enkel inloggning stöds för program som använder antingen SAML 2,0 eller WS-Federation protokoll. Med enkel inloggning i SAML autentiserar Azure AD programmet med hjälp av användarens Azure AD-konto.
 
@@ -109,11 +109,11 @@ Lösningen för fjärråtkomst som erbjuds av programproxy och Azure AD stöder 
 * **Villkorlig åtkomst**. Bättre princip kontroller kan tillämpas innan anslutningar till nätverket upprättas. Med villkorlig åtkomst kan du definiera begränsningar för den trafik som du tillåter för att nå Server dels programmet. Du skapar principer som begränsar inloggningar baserat på plats, styrkan för autentisering och användar risk profil. Allteftersom villkorlig åtkomst utvecklas läggs fler kontroller till för att ge ytterligare säkerhet, till exempel integrering med Microsoft Cloud App Security (MCAS). Med MCAS-integrering kan du konfigurera ett lokalt program för [övervakning i real tid](application-proxy-integrate-with-microsoft-cloud-application-security.md) genom att använda villkorlig åtkomst för att övervaka och kontrol lera sessioner i real tid baserat på principer för villkorlig åtkomst.
 * **Trafik terminering**. All trafik till Server dels programmet avslutas vid Application Proxy-tjänsten i molnet medan sessionen återupprättas med backend-servern. Den här anslutnings strategin innebär att backend-servrarna inte exponeras för direkt HTTP-trafik. De är bättre skyddade mot riktade DoS-attacker (Denial-of-Service) eftersom brand väggen inte är utsatt för angrepp.
 * **All åtkomst är utgående**. Application Proxy-kopplingar använder bara utgående anslutningar till Application Proxy-tjänsten i molnet över portarna 80 och 443. Utan några inkommande anslutningar behöver du inte öppna brand Väggs portar för inkommande anslutningar eller komponenter i DMZ. Alla anslutningar är utgående och via en säker kanal.
-* **Security Analytics och Machine Learning (ml) baserad intelligens**. Eftersom den är en del av Azure Active Directory kan programproxyn utnyttja [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview) (kräver [Premium P2-licensiering](https://azure.microsoft.com/pricing/details/active-directory/)). Azure AD Identity Protection kombinerar säkerhets information för maskin inlärning med datafeeds från Microsofts [digitala brottslighet-enhet](https://news.microsoft.com/stories/cybercrime/index.html) och [Microsoft Security Response Center](https://www.microsoft.com/msrc) för att proaktivt identifiera komprometterade konton. Identitets skydd ger real tids skydd från högrisk inloggningar. Det tar hänsyn till faktorer som åtkomst från infekterade enheter, via maskera-nätverk eller från ovanlig och osannolika platser för att öka risk profilen för en session. Den här risk profilen används för real tids skydd. Många av dessa rapporter och händelser är redan tillgängliga via ett API för integrering med dina SIEM-system.
+* **Security Analytics och Machine Learning (ml) baserad intelligens**. Eftersom den är en del av Azure Active Directory kan programproxyn utnyttja [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md) (kräver [Premium P2-licensiering](https://azure.microsoft.com/pricing/details/active-directory/)). Azure AD Identity Protection kombinerar säkerhets information för maskin inlärning med datafeeds från Microsofts [digitala brottslighet-enhet](https://news.microsoft.com/stories/cybercrime/index.html) och [Microsoft Security Response Center](https://www.microsoft.com/msrc) för att proaktivt identifiera komprometterade konton. Identitets skydd ger real tids skydd från högrisk inloggningar. Det tar hänsyn till faktorer som åtkomst från infekterade enheter, via maskera-nätverk eller från ovanlig och osannolika platser för att öka risk profilen för en session. Den här risk profilen används för real tids skydd. Många av dessa rapporter och händelser är redan tillgängliga via ett API för integrering med dina SIEM-system.
 
 * **Fjärråtkomst som en tjänst**. Du behöver inte bekymra dig om att underhålla och uppdatera lokala servrar för att aktivera fjärråtkomst. Application Proxy är en Internet skalnings tjänst som Microsoft äger, så att du alltid får de senaste säkerhets korrigeringarna och-uppgraderingar. Program vara som inte har uppdaterats har fortfarande konton för ett stort antal attacker. Enligt Homeland-säkerhetsavdelningen är det så många som [85 procent av riktade angrepp som kan förhindras](https://www.us-cert.gov/ncas/alerts/TA15-119A). Med den här tjänst modellen behöver du inte ha den stora belastningen på att hantera dina Edge-servrar längre och du kan koda för att korrigera dem efter behov.
 
-* **Intune-integrering**. Med Intune dirigeras företags trafiken separat från personlig trafik. Application Proxy säkerställer att företags trafiken autentiseras. [Programproxyn och Intune Managed browsers](https://docs.microsoft.com/intune/app-configuration-managed-browser#how-to-configure-application-proxy-settings-for-protected-browsers) förmågan kan också användas tillsammans för att ge fjärran vändare åtkomst till interna webbplatser från iOS-och Android-enheter på ett säkert sätt.
+* **Intune-integrering**. Med Intune dirigeras företags trafiken separat från personlig trafik. Application Proxy säkerställer att företags trafiken autentiseras. [Programproxyn och Intune Managed browsers](/intune/app-configuration-managed-browser#how-to-configure-application-proxy-settings-for-protected-browsers) förmågan kan också användas tillsammans för att ge fjärran vändare åtkomst till interna webbplatser från iOS-och Android-enheter på ett säkert sätt.
 
 ### <a name="roadmap-to-the-cloud"></a>Översikt över molnet
 
@@ -137,10 +137,10 @@ Följande diagram illustrerar i allmänhet hur Azure AD Authentication Services 
 
 |**Komponent**|**Beskrivning**|
 |:-|:-|
-|Slutpunkt|Slut punkten är en URL eller en [slut användar Portal](end-user-experiences.md). Användare kan nå program utanför nätverket genom att ha åtkomst till en extern URL. Användare i nätverket kan komma åt programmet via en URL eller en slut användar Portal. När användarna går till någon av dessa slut punkter, autentiseras de i Azure AD och dirigeras sedan via anslutningen till det lokala programmet.|
+|Slutpunkt|Slut punkten är en URL eller en [slut användar Portal](end-user-experiences.md). Användare kan nå program utanför nätverket genom att ha åtkomst till en extern URL. Användare i nätverket kan komma åt programmet via en URL eller en slut användar Portal. När användarna går till någon av dessa slut punkter, autentiseras de i Azure AD och dirigeras sedan via anslutningen till det lokala programmet.|
 |Azure AD|Azure AD utför autentiseringen med hjälp av klient katalogen som lagras i molnet.|
 |Application Proxy-tjänst|Tjänsten Application Proxy körs i molnet som en del av Azure AD. Den skickar inloggnings-token från användaren till Application Proxy Connector. Programproxyn vidarebefordrar eventuella tillgängliga huvuden på begäran och anger huvudena enligt dess protokoll till klientens IP-adress. Om den inkommande begäran till proxyn redan har den rubriken, läggs klientens IP-adress till i slutet av den kommaseparerade listan som är värdet för rubriken.|
-|Application Proxy Connector|Anslutningen är en Lightweight-agent som körs på en Windows-Server i nätverket. Anslutningen hanterar kommunikationen mellan Application Proxy-tjänsten i molnet och det lokala programmet. Anslutningen använder bara utgående anslutningar, så du behöver inte öppna några inkommande portar eller publicera något i DMZ. Anslutningarna är tillstånds lösa och hämtar information från molnet om det behövs. Mer information om anslutningar, t. ex. hur de kan belastningsutjämna och autentiseras, finns i [förstå Azure AD-programproxy-kopplingar](application-proxy-connectors.md).|
+|Application Proxy Connector|Anslutningen är en Lightweight-agent som körs på en Windows-Server i nätverket. Anslutningen hanterar kommunikationen mellan Application Proxy-tjänsten i molnet och det lokala programmet. Anslutningen använder bara utgående anslutningar, så du behöver inte öppna några inkommande portar eller publicera något i DMZ. Anslutningarna är tillstånds lösa och hämtar information från molnet om det behövs. Mer information om anslutningar, t. ex. hur de kan belastningsutjämna och autentiseras, finns i [förstå Azure AD-programproxy-kopplingar](application-proxy-connectors.md).|
 |Active Directory (AD)|Active Directory körs lokalt för att utföra autentisering för domän konton. När enkel inloggning har kon figurer ATS kommunicerar anslutningen med AD för att utföra ytterligare autentisering krävs.|
 |Lokalt program|Slutligen kan användaren komma åt ett lokalt program.|
 
@@ -181,7 +181,7 @@ Mer information om hur du väljer var du vill installera dina anslutningar och h
 
 Hittills har vi fokuserat på att använda Application Proxy för att publicera lokala appar externt samtidigt som du aktiverar enkel inloggning till alla molnbaserade och lokala appar. Det finns dock andra användnings fall för App proxy som är värda att nämna. De omfattar:
 
-* **Publicera REST-API: er på ett säkert sätt**. När du har affärs logik eller API: er som körs lokalt eller som finns på virtuella datorer i molnet, tillhandahåller Application Proxy en offentlig slut punkt för API-åtkomst. Åtkomst till API-slutpunkt gör att du kan styra autentisering och auktorisering utan att kräva inkommande portar. Den ger ytterligare säkerhet genom Azure AD Premium funktioner som Multi-Factor Authentication och enhets villkorliga åtkomst för Station ära datorer, iOS-, Mac-och Android-enheter med hjälp av Intune. Mer information finns i [så här aktiverar du interna klient program för att interagera med proxy-program](application-proxy-configure-native-client-application.md) och [skydda ett API med hjälp av OAuth 2,0 med Azure Active Directory och API Management](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad).
+* **Publicera REST-API: er på ett säkert sätt**. När du har affärs logik eller API: er som körs lokalt eller som finns på virtuella datorer i molnet, tillhandahåller Application Proxy en offentlig slut punkt för API-åtkomst. Åtkomst till API-slutpunkt gör att du kan styra autentisering och auktorisering utan att kräva inkommande portar. Den ger ytterligare säkerhet genom Azure AD Premium funktioner som Multi-Factor Authentication och enhets villkorliga åtkomst för Station ära datorer, iOS-, Mac-och Android-enheter med hjälp av Intune. Mer information finns i [så här aktiverar du interna klient program för att interagera med proxy-program](application-proxy-configure-native-client-application.md) och [skydda ett API med hjälp av OAuth 2,0 med Azure Active Directory och API Management](../../api-management/api-management-howto-protect-backend-with-aad.md).
 * **Fjärrskrivbordstjänster** **(RDS)**. Standard-RDS-distributioner kräver öppna inkommande anslutningar. Dock har [RDS-distributionen med Application Proxy](application-proxy-integrate-with-remote-desktop-services.md) en permanent utgående anslutning från servern som kör anslutnings tjänsten. På så sätt kan du erbjuda fler program till slutanvändare genom att publicera lokala program via Fjärrskrivbordstjänster. Du kan också minska angrepps ytan för distributionen med en begränsad uppsättning tvåstegsverifiering och villkorliga åtkomst kontroller till fjärr skrivbords tjänster.
 * **Publicera program som ansluter med WebSockets**. Support med [Qlik Sense](application-proxy-qlik.md) är i offentlig för hands version och kommer att utökas till andra appar i framtiden.
 * **Aktivera interna klient program för att interagera med proxyprogram**. Du kan använda Azure-AD-programproxy för att publicera webbappar, men det kan också användas för att publicera [interna klient program](application-proxy-configure-native-client-application.md) som har kon figurer ATS med Azure AD Authentication Library (ADAL). Interna klient program skiljer sig från webbappar eftersom de är installerade på en enhet, medan webb program nås via en webbläsare.

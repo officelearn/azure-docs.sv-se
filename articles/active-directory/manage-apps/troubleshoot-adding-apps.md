@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/11/2018
 ms.author: kenwith
-ms.openlocfilehash: e9e97aec66d99d149320938540c48b9ad68eaf0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 714cbb06506cc3e0dffe74007712d9cbad072284
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90068038"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655076"
 ---
 # <a name="troubleshoot-common-problem-adding-or-removing-an-application-to-azure-active-directory"></a>Felsök vanliga problem med att lägga till eller ta bort ett program i Azure Active Directory
 Den här artikeln hjälper dig att förstå vanliga problem när man lägger till eller tar bort en app för att Azure Active Directory.
@@ -31,9 +31,9 @@ Ibland kan det hända att det inte går att lägga till ett program på grund av
 Om du stöter på ett fel när du klickar på knappen **Lägg till** visas ett **meddelande** i **fel** tillstånd. Om du vill ha mer information om felet för att lära dig mer eller dela med en support tekniker kan du se mer information om felet genom att följa stegen i avsnittet [om att se information om ett Portal meddelande](#how-to-see-the-details-of-a-portal-notification) .
 
 ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>Jag vet inte hur jag ska konfigurera mitt program när jag har lagt till det
-Om du behöver hjälp med att lära dig om program är [listan med självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) artikel ett bra ställe att börja.
+Om du behöver hjälp med att lära dig om program är [listan med självstudier om hur du integrerar SaaS-appar med Azure Active Directory](../saas-apps/tutorial-list.md) artikel ett bra ställe att börja.
 
-Förutom detta kan [Azure AD-programbiblioteket för program](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) hjälpa dig att lära dig mer om enkel inloggning med Azure AD och hur det fungerar.
+Förutom detta kan [Azure AD-programbiblioteket för program](./what-is-application-management.md) hjälpa dig att lära dig mer om enkel inloggning med Azure AD och hur det fungerar.
 
 ## <a name="i-want-to-delete-an-application-but-the-delete-button-is-disabled"></a>Jag vill ta bort ett program, men knappen Ta bort är inaktive rad
 
@@ -43,7 +43,7 @@ Knappen Ta bort kommer att inaktive ras i följande scenarier:
 
 - För Microsoft-program kan du inte ta bort dem från användar gränssnittet oavsett vilken roll du har.
 
-- För service princip ALS som motsvarar en hanterad identitet. Tjänstens huvud namn för hanterade identiteter kan inte tas bort i bladet företags appar. Du måste gå till Azure-resursen för att hantera den. Radera mer om [hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+- För service princip ALS som motsvarar en hanterad identitet. Tjänstens huvud namn för hanterade identiteter kan inte tas bort i bladet företags appar. Du måste gå till Azure-resursen för att hantera den. Radera mer om [hanterad identitet](../managed-identities-azure-resources/overview.md)
 
 ## <a name="how-to-see-the-details-of-a-portal-notification"></a>Så här visar du information om ett Portal meddelande
 Du kan se information om alla Portal meddelanden genom att följa stegen nedan:
@@ -56,7 +56,7 @@ Du kan se information om alla Portal meddelanden genom att följa stegen nedan:
 6.  Välj **kopierings ikonen** till höger om text rutan **Kopiera fel** om du vill kopiera all meddelande information för att dela med en support-eller produkt grupps tekniker.
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Så här får du hjälp genom att skicka meddelande information till en support tekniker
-Det är viktigt att du delar **all information som listas nedan** med en support tekniker om du behöver hjälp, så att de kan hjälpa dig snabbt. **Ta en skärm bild** eller Välj **ikonen Kopiera fel**som finns till höger om text rutan **Kopiera fel** .
+Det är viktigt att du delar **all information som listas nedan** med en support tekniker om du behöver hjälp, så att de kan hjälpa dig snabbt. **Ta en skärm bild** eller Välj **ikonen Kopiera fel** som finns till höger om text rutan **Kopiera fel** .
 
 ## <a name="notification-details-explained"></a>Förklarad meddelande information
 Se följande beskrivningar för mer information om aviseringarna.

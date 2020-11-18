@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 68ccd21af585d853592ab8cce24f251d810a4160
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 773cf5cc6755a4f094eb676992364eea07a795ea
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90889208"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654668"
 ---
 # <a name="what-is-azure-sentinel"></a>Vad är Azure Sentinel?
 
@@ -29,11 +29,11 @@ Microsoft Azure Sentinel är en skalbar, molnbaserad, molnbaserad, **Siem (Secur
 
 Azure Sentinel är din fåglar – ögon visning i hela företaget, vilket minskar belastningen på alltmer sofistikerade attacker, ökande volymer av aviseringar och tids ramar med lång upplösning.
 
-- **Samla in data i moln skala** över alla användare, enheter, program och infrastruktur, både lokalt och i flera moln. 
+- **Samla in data i moln skala** över alla användare, enheter, program och infrastruktur, både lokalt och i flera moln. 
 
-- **Identifiera tidigare oidentifierade hot**och minimera falska positiva identifieringar med Microsofts analys och oöverträffad Hot information. 
+- **Identifiera tidigare oidentifierade hot** och minimera falska positiva identifieringar med Microsofts analys och oöverträffad Hot information. 
 
-- **Undersök hot med artificiell intelligens och söka**efter misstänkta aktiviteter i stor skala, och utnyttja cyberhot säkerhets arbete på Microsoft. 
+- **Undersök hot med artificiell intelligens och söka** efter misstänkta aktiviteter i stor skala, och utnyttja cyberhot säkerhets arbete på Microsoft. 
 
 - **Svara på incidenter snabbt** med inbyggd samordning och automatisering av vanliga uppgifter.
 
@@ -51,11 +51,11 @@ För att kunna använda Azure Sentinel måste du först [ansluta till dina säke
 
 ## <a name="workbooks"></a>Arbetsböcker
 
-När du har [anslutit dina data källor](quickstart-onboard.md)   till Azure Sentinel kan du övervaka data med hjälp av Azure Sentinel-integrering med Azure Monitor arbets böcker, vilket ger mångsidighet i att skapa anpassade arbets böcker. Även om arbets böcker visas på olika sätt i Azure Sentinel, kan det vara praktiskt att se hur du [skapar interaktiva rapporter med Azure Monitor arbets böcker](../azure-monitor/platform/workbooks-overview.md). Med Azure Sentinel kan du skapa anpassade arbets böcker i dina data och även med inbyggda mallar för arbets böcker så att du snabbt kan få insikter om dina data så snart du ansluter en data källa.
+När du har [anslutit dina data källor](quickstart-onboard.md) till Azure Sentinel kan du övervaka data med hjälp av Azure Sentinel-integrering med Azure Monitor arbets böcker, vilket ger mångsidighet i att skapa anpassade arbets böcker. Även om arbets böcker visas på olika sätt i Azure Sentinel, kan det vara praktiskt att se hur du [skapar interaktiva rapporter med Azure Monitor arbets böcker](../azure-monitor/platform/workbooks-overview.md). Med Azure Sentinel kan du skapa anpassade arbets böcker i dina data och även med inbyggda mallar för arbets böcker så att du snabbt kan få insikter om dina data så snart du ansluter en data källa.
 
 ![Instrumentpaneler](./media/tutorial-monitor-data/access-workbooks.png)
 
-## <a name="analytics"></a>Analytics
+## <a name="analytics"></a>Analys
 
 För att hjälpa dig att minska bruset och minimera antalet aviseringar som du måste granska och undersöka, använder Azure Sentinel [analyser för att korrelera aviseringar till incidenter](tutorial-detect-threats-built-in.md). **Incidenter** är grupper med relaterade aviseringar som tillsammans skapar ett åtgärds möjligt hot som du kan undersöka och lösa. Använd de inbyggda korrelations reglerna som de är, eller Använd dem som start punkt för att skapa en egen. Azure Sentinel tillhandahåller också maskin inlärnings regler som mappar ditt nätverks beteende och letar efter avvikelser i dina resurser. Dessa analyser ansluter punkterna, genom att kombinera aviseringar med låg kvalitet på olika enheter i potentiella säkerhets incidenter med hög kvalitet.
 
@@ -64,7 +64,7 @@ För att hjälpa dig att minska bruset och minimera antalet aviseringar som du m
 
 ## <a name="security-automation--orchestration"></a>Säkerhets automatisering & dirigering
 
-Automatisera dina vanliga uppgifter och [förenkla säkerhets dirigering med spel böcker](tutorial-respond-threats-playbook.md) som integrerar med Azure-tjänster samt dina befintliga verktyg. Azure Sentinel-lösningen bygger på Azure Logic Apps, Azure-kontrollens automatiserings-och Orchestration-lösning ger en mycket utöknings bar arkitektur som möjliggör skalbara automatiseringar som nya tekniker och hot. Om du vill skapa spel böcker med Azure Logic Apps kan du välja från ett växande galleri med inbyggda spel böcker. Detta omfattar [200 + anslutningar](https://docs.microsoft.com/azure/connectors/apis-list) för tjänster som Azure Functions. Med kopplingarna kan du använda anpassad logik i kod, ServiceNow, JIRA, Zendesk, HTTP-begäranden, Microsoft Teams, slack, Windows Defender ATP och Cloud App Security.
+Automatisera dina vanliga uppgifter och [förenkla säkerhets dirigering med spel böcker](tutorial-respond-threats-playbook.md) som integrerar med Azure-tjänster samt dina befintliga verktyg. Azure Sentinel-lösningen bygger på Azure Logic Apps, Azure-kontrollens automatiserings-och Orchestration-lösning ger en mycket utöknings bar arkitektur som möjliggör skalbara automatiseringar som nya tekniker och hot. Om du vill skapa spel böcker med Azure Logic Apps kan du välja från ett växande galleri med inbyggda spel böcker. Detta omfattar [200 + anslutningar](../connectors/apis-list.md) för tjänster som Azure Functions. Med kopplingarna kan du använda anpassad logik i kod, ServiceNow, JIRA, Zendesk, HTTP-begäranden, Microsoft Teams, slack, Windows Defender ATP och Cloud App Security.
 
 Om du till exempel använder ServiceNow Ticket-systemet kan du använda de verktyg som finns för att använda Azure Logic Apps för att automatisera dina arbets flöden och öppna en biljett i ServiceNow varje gång en viss händelse identifieras.
 

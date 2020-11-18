@@ -7,12 +7,12 @@ ms.topic: overview
 author: cjgronlund
 ms.author: cgronlun
 ms.date: 05/06/2020
-ms.openlocfilehash: 24f5a671076a44db382ac37e2f6532e5f0f2a3ae
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2ab713da87bd67053505289f5c9c8e7b747fd6bd
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82930394"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654855"
 ---
 # <a name="what-are-azure-open-datasets-and-how-can-you-use-them"></a>Vad är Azure Open-datauppsättningar och hur kan du använda dem?
 
@@ -35,14 +35,14 @@ Följande är exempel på data uppsättningar som är tillgängliga.
 
 ### <a name="weather-data"></a>Väder data
  
-|Datamängd         | Notebooks     | Beskrivning                                    |
+|Datamängd         | Notebooks     | Description                                    |
 |----------------|---------------|------------------------------------------------|
 |[NOAA-integrerade Surface-data (ISD)](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/) | [Azure Notebooks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/?tab=data-access#AzureNotebooks) <br> [Azure Databricks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/?tab=data-access#AzureDatabricks) | Worldwide varje timmes väder data från NOAA med den bästa spatiala täckningen i Nordamerika, Europa, Australien och delar av Asien. Uppdateras varje dag. |
 |[NOAA global Forecast system (GFS)](https://azure.microsoft.com/services/open-datasets/catalog/noaa-global-forecast-system/) | [Azure Notebooks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-global-forecast-system/?tab=data-access#AzureNotebooks) <br> [Azure Databricks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-global-forecast-system/?tab=data-access#AzureDatabricks) | 15 dagars amerikanska väder prognoser från NOAA. Uppdateras varje dag. |
 
 ### <a name="calendar-data"></a>Kalender data
 
-|Datamängd         | Notebooks     | Beskrivning                                    |
+|Datamängd         | Notebooks     | Description                                    |
 |----------------|---------------|------------------------------------------------|
 |[Offentliga helgdagar](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/) | [Azure Notebooks](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/?tab=data-access#AzureNotebooks) <br> [Azure Databricks](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/?tab=data-access#AzureDatabricks) | Världs omfattande offentliga helgdags data som täcker 41 länder eller regioner från 1970 till 2099. Inkluderar land och om de flesta har betalat tids gräns. |
 
@@ -59,5 +59,5 @@ Om du inte kan hitta de data som du vill ha, kan du skicka e-post till [en data 
 
 ## <a name="next-steps"></a>Nästa steg
 * [Exempel på Notebook](samples.md)
-* [Självstudie: Regressions modellering med NY taxi data](/azure/machine-learning/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context)
-* [Python SDK för öppna data uppsättningar](/python/api/azureml-opendatasets/?view=azure-ml-py)
+* [Självstudie: Regressions modellering med NY taxi data](../machine-learning/tutorial-auto-train-models.md?context=azure%252fopen-datasets%252fcontext%252fopen-datasets-context)
+* [Python SDK för öppna data uppsättningar](/python/api/azureml-opendatasets/)

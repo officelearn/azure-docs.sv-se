@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: f034cd07b481f9d72cb3f753b30e1779bf672ac2
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: a8180088e5a0db613d5f04106fe102f58594bf72
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491944"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655059"
 ---
 # <a name="azure-spring-cloud-faq"></a>Vanliga frågor och svar om Azure våren Cloud
 
@@ -93,6 +93,21 @@ Tre tjänster stöds för närvarande:
 ### <a name="can-i-view-add-or-move-persistent-volumes-from-inside-my-applications"></a>Kan jag visa, lägga till eller flytta beständiga volymer inifrån mina program?
 
 Ja.
+
+### <a name="how-many-outbound-public-ip-addresses-does-an-azure-spring-cloud-instance-have"></a>Hur många utgående offentliga IP-adresser har en Azure våren-moln instans?
+
+Antalet utgående offentliga IP-adresser kan variera beroende på nivåerna och andra faktorer. 
+
+| Instans typ för Azure våren Cloud | Standard antal utgående offentliga IP-adresser |
+| -------------------------------- | ---------------------------------------------- |
+| Basic-nivå instanser             | 1                                              |
+| Instans på standard nivå          | 2                                              |
+| Instanser av VNet-injektering         | 1                                              |
+
+
+### <a name="can-i-increase-the-number-of-outbound-public-ip-addresses"></a>Kan jag öka antalet utgående offentliga IP-adresser?
+
+Ja, du kan öppna ett [support ärende](https://azure.microsoft.com/support/faq/)  för att begära fler utgående offentliga IP-adresser.
 
 ### <a name="when-i-deletemove-an-azure-spring-cloud-service-instance-will-its-extension-resources-be-deletedmoved-as-well"></a>När jag tar bort/flyttar en Azure våren Cloud-tjänstinstans, kommer dess tilläggs resurser att tas bort/flyttas också?
 

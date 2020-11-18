@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: a41c1f634c030106dd6936676010fea32da8d436
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe2d444bbdc09ed5ab0205d4139591e3288e3358
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86084026"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94734573"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Starten av virtuella Azure-datorer fastnar på Windows Update
 
@@ -80,4 +80,4 @@ Uppdaterings processen kan ta en stund beroende på hur många uppdateringar som
     > [!NOTE] 
     > Beroende på paketets storlek tar DISM-verktyget en stund att bearbeta avinstallationen. Normalt utförs processen inom 16 minuter.
 
-7. [Koppla från OS-disken och återskapa den virtuella datorn](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-original-virtual-hard-disk). Kontrol lera sedan om problemet är löst.
+7. [Koppla från OS-disken och återskapa den virtuella datorn](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-the-original-virtual-hard-disk). Kontrol lera sedan om problemet är löst.

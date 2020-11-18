@@ -9,12 +9,12 @@ ms.date: 11/16/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0bd2b295e5e4d4d5ea6e25869c8c109ff8bbbf38
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 906df01587201561fbbfea0661d0885864042925
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660771"
+ms.locfileid: "94701321"
 ---
 # <a name="list-blobs-with-net"></a>Lista blobbar med .NET
 
@@ -64,6 +64,10 @@ Du kan returnera BLOB-metadata med resultaten.
 - Om du använder .NET V12 SDK anger du **metadata** -värdet för [BlobTraits](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models.blobtraits) -uppräkningen.
 
 - Om du använder .NET V11 SDK anger du **metadata** -värdet för [BlobListingDetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails) -uppräkningen. Azure Storage innehåller metadata med varje blob som returneras, så du behöver inte anropa någon av **FetchAttributes** -metoderna i den här kontexten för att hämta BLOB-metadata.
+
+### <a name="list-blob-versions-or-snapshots"></a>Visa lista över BLOB-versioner eller ögonblicks bilder
+
+Om du vill visa BLOB-versioner eller ögonblicks bilder med klient biblioteket för .NET-V12 anger du parametern [BlobStates](/dotnet/api/azure.storage.blobs.models.blobstates) med fältet **version** eller **ögonblicks bild** . Versioner och ögonblicks bilder visas från äldsta till nyaste. Mer information om List versioner finns i [list BLOB-versioner](versioning-enable.md#list-blob-versions).
 
 ### <a name="flat-listing-versus-hierarchical-listing"></a>Platt lista jämfört med hierarkisk lista
 

@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 43b28c9f2efc8ffe17e0bf21b1c395d64e89b6a8
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 6e2df9168b880e565ea9b70c82c2c0c1b55b4db8
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660023"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94737251"
 ---
 # <a name="tutorial-deploy-azure-spring-cloud-in-azure-virtual-network-vnet-injection"></a>Självstudie: Distribuera Azure våren Cloud i Azure Virtual Network (VNet-insprutning)
 
@@ -31,6 +31,7 @@ Du måste registrera Azure våren Cloud Resource Provider *Microsoft. AppPlatfor
 
 ```azurecli
 az provider register --namespace Microsoft.AppPlatform
+az provider register --namespace Microsoft.ContainerService
 ```
 ## <a name="virtual-network-requirements"></a>Krav för virtuellt nätverk
 Det virtuella nätverk som du distribuerar din Azure våren moln tjänst instans till måste uppfylla följande krav:
@@ -53,11 +54,11 @@ Om du redan har ett virtuellt nätverk som värd för Azure våren Cloud Service
 
 1. I dialog rutan **Skapa virtuellt nätverk** anger eller väljer du följande information:
 
-    |Inställning          |Värde                                             |
+    |Inställningen          |Värde                                             |
     |-----------------|--------------------------------------------------|
     |Prenumeration     |Välj din prenumeration.                         |
     |Resursgrupp   |Välj en resurs grupp eller skapa en ny.  |
-    |Name             |Ange *Azure-våren-Cloud-VNet*                   |
+    |Namn             |Ange *Azure-våren-Cloud-VNet*                   |
     |Plats         |Välj **USA, östra**                                |
 
 1. Klicka på **Nästa: IP-adresser >**. 
@@ -80,7 +81,7 @@ Välj det virtuella nätverket *Azure-våren-Cloud-VNet* som du skapade tidigare
 
 2. I dialog rutan **Lägg till roll tilldelning** anger eller väljer du den här informationen:
 
-    |Inställning  |Värde                                             |
+    |Inställningen  |Värde                                             |
     |---------|--------------------------------------------------|
     |Roll     |Välj **ägare**                                  |
     |Välj   |Ange *Azure våren Cloud Resource Provider*      |
@@ -120,7 +121,7 @@ az role assignment create \
 
 1. Välj fliken **nätverk** och välj följande:
 
-    |Inställning                                |Värde                                             |
+    |Inställningen                                |Värde                                             |
     |---------------------------------------|--------------------------------------------------|
     |Distribuera i ditt eget virtuella nätverk     |Välj **Ja**                                    |
     |Virtuellt nätverk                        |Välj *Azure-våren-Cloud-VNet*                  |

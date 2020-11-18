@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/15/2020
-ms.openlocfilehash: 3aa4a1917711f8997c282ba577c33e7a7f94472b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa7c06c3bad59bad11fa288631042cca86109706
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88932890"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701141"
 ---
 # <a name="create-a-basic-search-index-in-azure-cognitive-search"></a>Skapa ett Basic Search-index i Azure Kognitiv sökning
 
@@ -37,7 +37,7 @@ Den slutliga index designen är en iterativ process. Det är vanligt att börja 
 
 1. Bestäm om du kan använda [**Importera data**](search-import-data-portal.md). Guiden utför allt-i-ett indexerare-baserat index om käll informationen kommer från en [typ av data källa som stöds i Azure](search-indexer-overview.md#supported-data-sources).
 
-1. Om du inte kan använda **Importera data**börjar du med **Lägg till index** för att definiera schemat.
+1. Om du inte kan använda **Importera data** börjar du med **Lägg till index** för att definiera schemat.
 
    ![Lägg till index kommando](media/search-what-is-an-index/add-index.png "Lägg till index kommando")
 
@@ -59,7 +59,7 @@ Den slutliga index designen är en iterativ process. Det är vanligt att börja 
 
    ![Sidan Lägg till index som visar attribut efter datatyp](media/search-what-is-an-index//field-definitions.png "Sidan Lägg till index som visar attribut efter datatyp")
 
-1. Hämta index schema med [Get index (REST API)](/rest/api/searchservice/get-index) och ett webbtest-verktyg som [Postman](search-get-started-postman.md). Nu har du en JSON-representation av indexet som du kan anpassa efter kod.
+1. Hämta index schema med [Get index (REST API)](/rest/api/searchservice/get-index) och ett webbtest-verktyg som [Postman](search-get-started-rest.md). Nu har du en JSON-representation av indexet som du kan anpassa efter kod.
 
 1. [Läs in ditt index med data](search-what-is-data-import.md). Azure Kognitiv sökning accepterar JSON-dokument. Om du vill läsa in dina data program mässigt kan du använda Postman med JSON-dokument i nytto lasten för begäran. Om dina data inte är enkla att uttryckas som JSON, är det här steget det mest arbets krävande. 
 
@@ -70,7 +70,7 @@ Den slutliga index designen är en iterativ process. Det är vanligt att börja 
 Under utvecklingen bör du planera om frekventa återuppbyggnadar. Eftersom fysiska strukturer skapas i tjänsten är det nödvändigt att [släppa och återskapa index](search-howto-reindex.md) för de flesta ändringar i en befintlig fält definition. Du kan överväga att arbeta med en delmängd av dina data för att göra återskapandet snabbare. 
 
 > [!Tip]
-> Kod i stället för en portal metod rekommenderas för att arbeta med index design och data import samtidigt. Som ett alternativ är verktyg som [Postman och REST API](search-get-started-postman.md) användbara för koncept bevis testning när utvecklings projekt fortfarande är i tidiga faser. Du kan göra stegvisa ändringar i en index definition i en begär ande text och sedan skicka begäran till tjänsten för att återskapa ett index med ett uppdaterat schema.
+> Kod i stället för en portal metod rekommenderas för att arbeta med index design och data import samtidigt. Som ett alternativ är verktyg som [Postman och Visual Studio Code](search-get-started-rest.md) användbara för koncept bevis testning när utvecklings projekt fortfarande är i tidiga faser. Du kan göra stegvisa ändringar i en index definition i en begär ande text och sedan skicka begäran till tjänsten för att återskapa ett index med ett uppdaterat schema.
 
 ## <a name="index-schema"></a>Index schema
 

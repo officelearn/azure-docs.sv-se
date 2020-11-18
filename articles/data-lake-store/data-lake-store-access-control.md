@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 11629338a808ae0f83ac513b6475dce7a53814da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d889c82142cda60b920f7b29bd91755cbc34f525
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88190166"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701457"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Åtkomstkontroll i Azure Data Lake Storage Gen1
 
@@ -53,7 +53,7 @@ Behörigheter för ett objekt i filsystemet är **Läsa**, **Skriva** och **Kör
 
 ### <a name="short-forms-for-permissions"></a>Kortformat för behörigheter
 
-**RWX**används för att ange **läsa + skriva + köra**. Ett numeriskt mer komprimerat format finns där **Läsa = 4**, **skriva = 2** och **Köra = 1** och deras summa representerar behörigheterna. Här följer några exempel.
+**RWX** används för att ange **läsa + skriva + köra**. Ett numeriskt mer komprimerat format finns där **Läsa = 4**, **skriva = 2** och **Köra = 1** och deras summa representerar behörigheterna. Här följer några exempel.
 
 | Numeriskt format | Kortformat |      Vad det innebär     |
 |--------------|------------|------------------------|
@@ -144,7 +144,7 @@ Den ägande gruppen kan ändras av:
 > [!NOTE]
 > Den ägande gruppen *kan inte* ändra ACL:er för en fil eller mapp.
 >
-> För konton som skapats på eller före september 2018 var den ägande gruppen inställd på den användare som skapade kontot i fallet med rotmappen för **fall 1**ovan.  Ett enda användar konto är inte giltigt för att ge behörigheter via den ägande gruppen, så ingen behörighet beviljas av den här standardinställningen. Du kan tilldela den här behörigheten till en giltig användar grupp.
+> För konton som skapats på eller före september 2018 var den ägande gruppen inställd på den användare som skapade kontot i fallet med rotmappen för **fall 1** ovan.  Ett enda användar konto är inte giltigt för att ge behörigheter via den ägande gruppen, så ingen behörighet beviljas av den här standardinställningen. Du kan tilldela den här behörigheten till en giltig användar grupp.
 
 
 ## <a name="access-check-algorithm"></a>Algoritm för åtkomstkontroll
@@ -194,7 +194,7 @@ def access_check( user, desired_perms, path ) :
 
 ### <a name="the-mask"></a>Masken
 
-Som illustreras i algoritmen för åtkomst kontroll begränsar masken åtkomsten för **namngivna användare**, **ägande grupp**och **namngivna grupper**.  
+Som illustreras i algoritmen för åtkomst kontroll begränsar masken åtkomsten för **namngivna användare**, **ägande grupp** och **namngivna grupper**.  
 
 > [!NOTE]
 > För ett nytt Data Lake Storage Gen1-konto är masken för åtkomst-ACL: en för rotmappen ("/") som standard RWX.
@@ -216,7 +216,7 @@ När en ny fil eller mapp skapas under en befintlig mapp, anger standard-ACL:en 
 
 ### <a name="umask"></a>umask
 
-När du skapar en fil eller mapp används umask för att ändra hur standard-ACL: erna anges för det underordnade objektet. umask är ett 9-bitars värde för överordnade mappar som innehåller ett RWX-värde för **ägande användare**, **ägande grupp**och **annat**.
+När du skapar en fil eller mapp används umask för att ändra hur standard-ACL: erna anges för det underordnade objektet. umask är ett 9-bitars värde för överordnade mappar som innehåller ett RWX-värde för **ägande användare**, **ägande grupp** och **annat**.
 
 Umask för Azure Data Lake Storage Gen1 är ett konstant värde som är inställt på 007. Det här värdet översätts till
 
@@ -280,7 +280,11 @@ Posterna i ACL lagras som GUID:er som motsvarar användare i Azure AD. API:erna 
 
 ### <a name="why-do-i-sometimes-see-guids-in-the-acls-when-im-using-the-azure-portal"></a>Varför visas ibland GUID:er i ACL:er när jag använder Azure-portalen?
 
-En GUID visas när användaren inte finns i Azure AD längre. Detta inträffar vanligtvis när användaren har lämnat företaget eller om kontot har tagits bort i Azure AD.
+En GUID visas när användaren inte finns i Azure AD längre. Detta inträffar vanligtvis när användaren har lämnat företaget eller om kontot har tagits bort i Azure AD. Se också till att du använder rätt ID för att ställa in ACL: er (information i fråga nedan).
+
+### <a name="when-using-service-principal-what-id-should-i-use-to-set-acls"></a>När du använder tjänstens huvud namn, vilket ID ska jag använda för att ange ACL: er?
+
+På Azure Portal går du till **Azure Active Directory-> företags program** och väljer ditt program. På fliken **Översikt** visas ett objekt-ID och det här är vad som ska användas när du lägger till ACL: er för data åtkomst (och inte program-ID).
 
 ### <a name="does-data-lake-storage-gen1-support-inheritance-of-acls"></a>Stöder Data Lake Storage Gen1 arv av ACL: er?
 

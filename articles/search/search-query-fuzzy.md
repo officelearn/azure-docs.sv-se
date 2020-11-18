@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: faa98f1c52cfe2dd0e19f085f4d33dedb6f01851
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac2690a5f18bb58c29b433f4a07e52096bbd268b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934896"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701593"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>Fuzzy-sökning för att korrigera fel stavningar och skrivfel
 
@@ -73,7 +73,7 @@ I Azure Kognitiv sökning, förutom termen och avståndet (högst 2), finns det 
 
 ## <a name="testing-fuzzy-search"></a>Testa fuzzy-sökning
 
-För enkel testning rekommenderar vi [Sök Utforskaren](search-explorer.md) eller [Postman](search-get-started-postman.md) för att iterera över ett frågeuttryck. Båda verktygen är interaktiva, vilket innebär att du snabbt kan stega igenom flera varianter av en term och utvärdera svaren som kommer tillbaka.
+För enkel testning rekommenderar vi [Sök Utforskaren](search-explorer.md) eller [Postman](search-get-started-rest.md) för att iterera över ett frågeuttryck. Båda verktygen är interaktiva, vilket innebär att du snabbt kan stega igenom flera varianter av en term och utvärdera svaren som kommer tillbaka.
 
 När resultatet är tvetydigt kan [träff markerings](search-pagination-page-layout.md#hit-highlighting) funktionen hjälpa dig att identifiera matchningen i svaret. 
 

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: fe8f4229a2bc967f1368e263d2c055b153c3717d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: bb1f4b5e37cecc33cef115f26c44ad6375c7e327
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369972"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94734386"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>DNS-konfiguration för privat slutpunkt i Azure
 
@@ -25,9 +25,11 @@ Du kan använda följande alternativ för att konfigurera dina DNS-inställninga
 - **Använd värd filen (rekommenderas endast för testning)**. Du kan använda värd filen på en virtuell dator för att åsidosätta DNS.  
 - **Använd en privat DNS-zon**. Du kan använda [privata DNS-zoner](../dns/private-dns-privatednszone.md) för att åsidosätta DNS-matchningen för en viss privat slut punkt. En privat DNS-zon kan länkas till det virtuella nätverket för att lösa vissa domäner.
 - **Använd DNS-vidarebefordraren (valfritt)**. Du kan använda DNS-vidarebefordraren för att åsidosätta DNS-matchningen för en viss privat länk resurs. Om din [DNS-Server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) finns i ett virtuellt nätverk kan du skapa en regel för vidarebefordran av DNS för att använda en privat DNS-zon för att förenkla konfigurationen för alla privata länk resurser.
- 
+
 > [!IMPORTANT]
 > Rekommenderas inte för att åsidosätta en zon som används aktivt för att lösa offentliga slut punkter. Anslutningar till resurser kan inte lösas korrekt utan DNS-vidarebefordran till den offentliga DNS-tjänsten. Du kan undvika problem genom att skapa ett annat domän namn eller följa det föreslagna namnet för varje tjänst nedan. 
+
+
 
 ## <a name="azure-services-dns-zone-configuration"></a>Konfiguration av DNS-zon för Azure-tjänster
 Azure-tjänster skapar en DNS-post för kanoniskt namn (CNAME) på den offentliga DNS-tjänsten för att omdirigera matchningen till det föreslagna privata domän namnet. Du kan åsidosätta upplösningen med den privata IP-adressen för dina privata slut punkter. 
@@ -93,6 +95,8 @@ Beroende på dina inställningar finns följande scenarier med DNS-matchning int
 - [Lokala arbets belastningar med en DNS-vidarebefordrare](#on-premises-workloads-using-a-dns-forwarder)
 - [Virtuella nätverk och lokala arbets belastningar med en DNS-vidarebefordrare](#virtual-network-and-on-premises-workloads-using-a-dns-forwarder)
 
+> [!NOTE]
+> [Azure Firewall DNS-proxy](../firewall/dns-settings.md#dns-proxy) kan användas som DNS-vidarebefordrare för [lokala arbets belastningar](#on-premises-workloads-using-a-dns-forwarder) och [virtuella nätverks arbets belastningar med en DNS-vidarebefordrare](#virtual-network-and-on-premises-workloads-using-a-dns-forwarder).
 
 ## <a name="virtual-network-workloads-without-custom-dns-server"></a>Arbets belastningar för virtuella nätverk utan anpassad DNS-Server
 
@@ -123,7 +127,7 @@ Den här modellen kan utökas till flera peer-kopplade virtuella nätverk som ä
 
 I det här scenariot finns en topologi för [nav och ekrar](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) med ekrar som delar en gemensam privat slut punkt och alla eker-virtuella nätverk är länkade till samma privata DNS-zon. 
 
-:::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="Ett enda virtuellt nätverk och Azure-tillhandahållen DNS":::
+:::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="Hubb och eker med Azure-tillhandahållen DNS":::
 
 ## <a name="on-premises-workloads-using-a-dns-forwarder"></a>Lokala arbets belastningar med en DNS-vidarebefordrare
 
@@ -144,7 +148,7 @@ För att konfigurera korrekt behöver du följande resurser:
 
 Följande diagram illustrerar DNS-matchningsfel från ett lokalt nätverk som använder en DNS-vidarebefordrare som distribueras i Azure, där upplösningen görs av en privat DNS-zon som är [länkad till ett virtuellt nätverk](../dns/private-dns-virtual-network-links.md):
 
-:::image type="content" source="media/private-endpoint-dns/on-premises-using-azure-dns.png" alt-text="Ett enda virtuellt nätverk och Azure-tillhandahållen DNS":::
+:::image type="content" source="media/private-endpoint-dns/on-premises-using-azure-dns.png" alt-text="Lokalt med Azure DNS":::
 
 Den här konfigurationen kan utökas för ett lokalt nätverk som redan har en DNS-lösning på plats. Den lokala DNS-lösningen måste konfigureras för att vidarebefordra DNS-trafik till Azure DNS via en [villkorlig vidarebefordrare](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) som refererar till den DNS-vidarebefordrare som har distribuerats i Azure.
 
@@ -164,7 +168,7 @@ Följande diagram illustrerar DNS-matchningsfel från ett lokalt nätverk som vi
 > [!IMPORTANT]
 > Den villkorliga vidarebefordran måste göras till den rekommenderade [offentliga DNS-zonen vidarebefordrare](#azure-services-dns-zone-configuration). Exempel: `database.windows.net` i stället för **privatelink**. Database.Windows.net.
 
-:::image type="content" source="media/private-endpoint-dns/on-premises-forwarding-to-azure.png" alt-text="Ett enda virtuellt nätverk och Azure-tillhandahållen DNS":::
+:::image type="content" source="media/private-endpoint-dns/on-premises-forwarding-to-azure.png" alt-text="Lokal vidarebefordran till Azure DNS":::
 
 ## <a name="virtual-network-and-on-premises-workloads-using-a-dns-forwarder"></a>Virtuella nätverk och lokala arbets belastningar med en DNS-vidarebefordrare
 
@@ -191,7 +195,7 @@ För att konfigurera korrekt behöver du följande resurser:
 
 Följande diagram illustrerar DNS-matchningsfel från ett lokalt och virtuellt nätverk som använder en DNS-vidarebefordrare som distribueras i Azure, där upplösningen görs av en privat DNS-zon som är [länkad till ett virtuellt nätverk](../dns/private-dns-virtual-network-links.md):
 
-:::image type="content" source="media/private-endpoint-dns/hybrid-scenario.png" alt-text="Ett enda virtuellt nätverk och Azure-tillhandahållen DNS":::
+:::image type="content" source="media/private-endpoint-dns/hybrid-scenario.png" alt-text="Hybrid scenario":::
 
 ## <a name="next-steps"></a>Nästa steg
 - [Lär dig om privata slut punkter](private-endpoint-overview.md)

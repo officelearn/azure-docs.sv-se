@@ -1,26 +1,24 @@
 ---
 title: Utvärdera ML-modeller skälighet i python (för hands version)
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du kan utvärdera skälighet i dina modeller i Azure Machine Learning
+description: Lär dig hur du bedömer och minimerar skälighet för dina maskin inlärnings modeller med Fairlearn och Azure Machine Learning python SDK.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: mesameki
 author: mesameki
 ms.reviewer: luquinta
-ms.date: 09/01/2020
+ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: bf819e5cff8c6ef008b0e55e156ba3531936b489
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 3fbd4990fd330960bb8dbce2e2a8d1bcb578cf2a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337890"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701192"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Använd Azure Machine Learning med Fairlearn-paketet med öppen källkod för att utvärdera skälighet för ML-modeller (för hands version)
-
-
 
 I den här instruktions guiden får du lära dig att använda python-paketet [Fairlearn](https://fairlearn.github.io/) med öppen källkod med Azure Machine Learning för att utföra följande uppgifter:
 
@@ -306,7 +304,7 @@ Om du är intresse rad av att jämföra flera modeller och se hur deras skäligh
     ```
 
 
-    Precis som i föregående avsnitt kan du följa en av Sök vägarna som beskrivs ovan (via **experiment** eller **modeller** ) i Azure Machine Learning Studio för att få åtkomst till visualiserings instrument panelen och jämföra de två modellerna med skälighet och prestanda.
+    Precis som i föregående avsnitt kan du följa en av Sök vägarna som beskrivs ovan (via **experiment** eller **modeller**) i Azure Machine Learning Studio för att få åtkomst till visualiserings instrument panelen och jämföra de två modellerna med skälighet och prestanda.
 
 
 ## <a name="upload-unmitigated-and-mitigated-fairness-insights"></a>Ladda upp minimerade och minimerade skälighet-insikter

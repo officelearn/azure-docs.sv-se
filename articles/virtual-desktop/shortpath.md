@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: aee3f5602d0bd1ff12717d903d662ce4605de61d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: ee37ab90910058378172223a3435047346f5fe7c
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683768"
+ms.locfileid: "94701797"
 ---
 # <a name="windows-virtual-desktop-rdp-shortpath-preview"></a>RDP-Shortpath för Windows Virtual Desktop (för hands version)
 
@@ -176,7 +176,7 @@ Kontrol lera att anslutningarna använder RDP-Shortpath genom att öppna dialog 
 Så här kontrollerar du att sessionen använder RDP Shortpath-transport:
 
 1. Anslut till den virtuella datorns Station ära dator med hjälp av Windows Virtual Desktop-klienten.
-2. Starta Loggboken och navigera till följande nod: program- **och tjänst loggar > Microsoft > Windows > RemoteDesktopServices-RdpCoreCDV > drift**
+2. Starta Loggboken och navigera till följande nod: program- **och tjänst loggar > Microsoft > Windows > RemoteDesktopServices-RdpCoreCDV > Microsoft-Windows-RemoteDesktopServices-RdpCoreCDV/Operational**
 3. Ta reda på om RDP Shortpath transport används genom att leta efter händelse-ID 131.
 
 ### <a name="using-log-analytics-to-verify-shortpath-connectivity"></a>Använda Log Analytics för att verifiera Shortpath-anslutningen

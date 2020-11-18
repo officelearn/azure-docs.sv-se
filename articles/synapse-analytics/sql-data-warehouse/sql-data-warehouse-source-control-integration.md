@@ -10,16 +10,16 @@ ms.subservice: sql-dw
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 4751f3cf213098873b0c53b15df82f57d155787a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 766837cacb4ef2acf874c2872b347b6d35633faa
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313293"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701005"
 ---
 # <a name="source-control-integration-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Käll kontrolls integrering för dedikerad SQL-pool i Azure Synapse Analytics
 
-I den här självstudien beskrivs hur du integrerar ditt SSDT-databas projekt (SQL Server data verktyg) med käll kontroll.  Käll kontroll integrering är det första steget i att skapa en kontinuerlig integrerings-och distributions-pipeline med den dedikerade SQL-poolen i Azure Synapse Analytics.
+I den här självstudien beskrivs hur du integrerar ditt SQL Server Data Tools (SSDT)-databas projekt med käll kontroll.  Käll kontroll integrering är det första steget i att skapa en kontinuerlig integrerings-och distributions-pipeline med den dedikerade SQL-poolen i Azure Synapse Analytics.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -85,7 +85,7 @@ Mer information om hur du ansluter projekt med Visual Studio finns i avsnittet [
 
    ![Verifiera](./media/sql-data-warehouse-source-control-integration/10-verify-column-change-pushed.png "Verifiera ändringarna")
 
-4. ( **Valfritt** ) Använd schema jämför och uppdatera ändringarna i mål informations lagret med hjälp av SSDT för att se till att objekt definitionerna i Azure lagrings platsen-lagringsplatsen och den lokala lagrings platsen återspeglar ditt informations lager.
+4. (**Valfritt**) Använd schema jämför och uppdatera ändringarna i mål informations lagret med hjälp av SSDT för att se till att objekt definitionerna i Azure lagrings platsen-lagringsplatsen och den lokala lagrings platsen återspeglar ditt informations lager.
 
 ## <a name="next-steps"></a>Nästa steg
 

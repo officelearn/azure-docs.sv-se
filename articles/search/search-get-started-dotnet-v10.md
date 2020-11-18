@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c6dd64ae8b7b7307d7dcd510d1fdb877365c6f36
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 8dc2eb898c12e374bc503c5a05f00eb20667443b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675961"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701848"
 ---
 # <a name="quickstart-create-a-search-index-using-the-legacy-microsoftazuresearch-v10-client-library"></a>Snabb start: skapa ett Sök index med hjälp av det äldre klient biblioteket Microsoft. Azure. search v10
 
@@ -51,11 +51,11 @@ Anrop till tjänsten kräver en URL-slutpunkt och en åtkomst nyckel på varje b
 
 1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta URL: en på sidan **Översikt över** Sök tjänsten. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
 
-2. I **Inställningar**  >  **nycklar** , hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
+2. I **Inställningar**  >  **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
 
    Hämta även frågans nyckel. Det är en bra idé att utfärda förfrågningar med skrivskyddad åtkomst.
 
-![Hämta en HTTP-slutpunkt och åtkomst nyckel](media/search-get-started-postman/get-url-key.png "Hämta en HTTP-slutpunkt och åtkomst nyckel")
+![Hämta en HTTP-slutpunkt och åtkomst nyckel](media/search-get-started-rest/get-url-key.png "Hämta en HTTP-slutpunkt och åtkomst nyckel")
 
 Alla begär Anden kräver en API-nyckel på varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
@@ -69,7 +69,7 @@ Börja med att öppna Visual Studio och skapa ett nytt konsol program som kan k�
 
 För det här projektet använder du version 10 av `Microsoft.Azure.Search` NuGet-paketet och det senaste `Microsoft.Extensions.Configuration.Json` NuGet-paketet.
 
-1. I **verktyg**  >  **NuGet Package Manager** väljer du **Hantera NuGet-paket för lösning.** ... 
+1. I **verktyg**  >  **NuGet Package Manager** väljer du **Hantera NuGet-paket för lösning.**... 
 
 1. Klicka på **Browse** (Bläddra).
 
@@ -86,9 +86,9 @@ För det här projektet använder du version 10 av `Microsoft.Azure.Search` NuGe
 
 1. I Lägg till nytt objekt söker du efter "JSON" för att returnera en JSON-relaterad lista med objekt typer.
 
-1. Välj **JSON-fil** , ge filen namnet "appsettings.jspå" och klicka på **Lägg till** . 
+1. Välj **JSON-fil**, ge filen namnet "appsettings.jspå" och klicka på **Lägg till**. 
 
-1. Lägg till filen i utmatnings katalogen. Högerklicka på appsettings.jspå och välj **Egenskaper** . I **Kopiera till utdata-katalogen väljer du** **Kopiera om nyare** .
+1. Lägg till filen i utmatnings katalogen. Högerklicka på appsettings.jspå och välj **Egenskaper**. I **Kopiera till utdata-katalogen väljer du** **Kopiera om nyare**.
 
 1. Kopiera följande JSON till din nya JSON-fil. 
 
@@ -553,7 +553,7 @@ I det här avsnittet läggs två delar av funktionalitet: fråga efter logik och
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kostar pengar. Du kan ta bort enstaka resurser eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
+När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kostar pengar. Du kan ta bort resurser individuellt eller ta bort resursgruppen om du vill ta bort hela uppsättningen resurser.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken **alla resurser** eller **resurs grupper** i det vänstra navigerings fönstret.
 

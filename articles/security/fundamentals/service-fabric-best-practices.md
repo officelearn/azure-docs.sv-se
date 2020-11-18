@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 93b25e65914ce603b4a969eda7fd7c048704e466
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: a7396c9a29c7d9f69dbe6a9cc5cd085c72ebafde
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410020"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700954"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Metodtips för Azure Service Fabric-säkerhet
 Att distribuera ett program på Azure är snabbt, enkelt och kostnads effektivt. Innan du distribuerar moln programmet till produktion bör du gå igenom vår lista över viktiga och rekommenderade metod tips för att implementera säkra kluster i ditt program.
@@ -60,7 +60,7 @@ Det finns tre [scenarier](../../service-fabric/service-fabric-cluster-security.m
 -   Säkerhet från nod till nod: det här scenariot skyddar kommunikationen mellan de virtuella datorerna och datorerna i klustret. Den här typen av säkerhet garanterar att endast de datorer som har behörighet att ansluta till klustret kan vara värdar för program och tjänster i klustret.
 I det här scenariot kan kluster som körs på Azure eller fristående kluster som körs i Windows använda antingen [certifikat säkerhet](../../service-fabric/service-fabric-windows-cluster-x509-security.md) eller [Windows-säkerhet](../../service-fabric/service-fabric-windows-cluster-windows-security.md) för Windows Server-datorer.
 -   Säkerhet från klient till nod: det här scenariot skyddar kommunikationen mellan en Service Fabric-klient och de enskilda noderna i klustret.
--   Role-Based Access Control (RBAC): det här scenariot använder separata identiteter (certifikat, Azure AD och så vidare) för varje administratör och användar klient roll som har åtkomst till klustret. Du anger roll identiteter när du skapar klustret.
+-   Service Fabric rollbaserad åtkomst kontroll (Service Fabric RBAC): det här scenariot använder separata identiteter (certifikat, Azure AD och så vidare) för varje administratör och användar klient roll som har åtkomst till klustret. Du anger roll identiteter när du skapar klustret.
 
 >[!NOTE]
 >**Säkerhets rekommendationer för Azure-kluster:** Använd Azure AD-säkerhet för att autentisera klienter och certifikat för nod-till-nod-säkerhet.
@@ -132,7 +132,7 @@ Certifikatet måste uppfylla följande krav för SSL/TLS-certifikat i Azure:
 -   Certifikatets ämnes namn måste matcha domän namnet som används för att komma åt din moln tjänst.
 
     - Hämta ett anpassat domän namn som ska användas för åtkomst till din moln tjänst.
-    - Begär ett certifikat från en certifikat utfärdare med ett ämnes namn som matchar tjänstens anpassade domän namn. Om ditt anpassade domän namn till exempel är __contoso__**. com** , ska certifikatet från din certifikat utfärdare ha ämnes namnet **. contoso.com** eller __www__**. contoso.com**.
+    - Begär ett certifikat från en certifikat utfärdare med ett ämnes namn som matchar tjänstens anpassade domän namn. Om ditt anpassade domän namn till exempel är __contoso__**. com**, ska certifikatet från din certifikat utfärdare ha ämnes namnet **. contoso.com** eller __www__**. contoso.com**.
 
     >[!NOTE]
     >Du kan inte hämta ett SSL/TLS-certifikat från en certifikat utfärdare för __cloudapp__**.net** -domänen.
@@ -172,7 +172,7 @@ Läs mer om hur du konfigurerar ett nyckel valv i [Vad är Azure Key Vault?](../
 När du har skapat programmen som ska representera ditt kluster tilldelar du användarna de roller som stöds av Service Fabric: skrivskyddad och administratör. Du kan tilldela dessa roller med hjälp av Azure Portal.
 
 >[!NOTE]
-> Mer information om hur du använder roller i Service Fabric finns i [rollbaserade Access Control för Service Fabric klienter](../../service-fabric/service-fabric-cluster-security-roles.md).
+> Mer information om hur du använder roller i Service Fabric finns [Service Fabric rollbaserad åtkomst kontroll för Service Fabric klienter](../../service-fabric/service-fabric-cluster-security-roles.md).
 
 Azure Service Fabric stöder två åtkomst kontroll typer för klienter som är anslutna till ett [Service Fabric-kluster](../../service-fabric/service-fabric-cluster-creation-via-arm.md): administratör och användare. Kluster administratören kan använda åtkomst kontroll för att begränsa åtkomsten till vissa kluster åtgärder för olika användar grupper. Åtkomst kontroll gör klustret säkrare.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 84db7f58c292cf0a9d01cf90da4b847691f601fb
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 0c1e84695ce40b489fb1005325d501ea241cdaf1
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491638"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94738109"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Övervaka virtuella Azure-datorer med Azure Monitor
 Den här artikeln beskriver hur du använder Azure Monitor för att samla in och analysera övervaknings data från virtuella Azure-datorer för att upprätthålla deras hälsa. Virtuella datorer kan övervakas för tillgänglighet och prestanda med Azure Monitor som [andra Azure](monitor-azure-resource.md)-resurser, men de är unika för andra resurser eftersom du också behöver övervaka gäst operativ systemet och de arbets belastningar som körs i den. 
@@ -207,7 +207,7 @@ Om du till exempel vill skapa en avisering som kontrollerar om några virtuella 
 
 ```kusto
 Heartbeat
-| where TimeGenerated < ago(10m)
+| where TimeGenerated > ago(10m)
 | where ResourceGroup == "my-resource-group"
 | summarize max(TimeGenerated) by Computer
 ```
@@ -218,7 +218,7 @@ Om du vill skapa en avisering om ett alltför stort antal misslyckade inloggning
 
 ```kusto
 Event
-| where TimeGenerated < ago(1hr)
+| where TimeGenerated > ago(1hr)
 | where EventID == 4625
 ```
 

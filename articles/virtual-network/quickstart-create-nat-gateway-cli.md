@@ -15,23 +15,22 @@ ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a44a3af7be214aa2ed000eb824b63c0bf7a95aee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a4d034aefe59a661bfb0694feba36a669aa274ac
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88054035"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94737939"
 ---
 # <a name="create-a-nat-gateway-using-azure-cli"></a>Skapa en NAT-gateway med Azure CLI
 
 Den här självstudien visar hur du använder Azure Virtual Network NAT-tjänsten. Du skapar en NAT-gateway för att tillhandahålla utgående anslutning för en virtuell dator i Azure. 
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Du kan slutföra den här självstudien med Azure Cloud Shell eller köra respektive kommandon lokalt.  Om du aldrig har använt Azure Cloud Shell loggar du in [nu](https://shell.azure.com) för att gå igenom den första installationen.
-Om du väljer att köra dessa kommandon lokalt måste du installera CLI.  I den här självstudien krävs att du kör en version av Azure CLI-versionen 2.0.71 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
-
+- Den här artikeln kräver version 2.0.71 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 

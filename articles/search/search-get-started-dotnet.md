@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/05/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 53deb7dc853de969ad6b6679ee728a3f132b6309
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: f3e43a6b72d8de25de3220a9a6ac4e0b3986a467
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91759108"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701814"
 ---
 # <a name="quickstart-create-a-search-index-using-the-azuresearchdocuments-client-library"></a>Snabb start: skapa ett sökindex med hjälp av klient biblioteket för Azure.Search.Documents
 
@@ -26,7 +26,7 @@ Använd det nya [ klient biblioteket förAzure.Search.Documents (version 11)](/d
 > [!NOTE]
 > Letar du efter en tidigare version? Se [skapa ett sökindex med hjälp av Microsoft. Azure. search v10](search-get-started-dotnet-v10.md) i stället.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar har du följande verktyg och tjänster:
 
@@ -52,7 +52,7 @@ Anrop till tjänsten kräver en URL-slutpunkt och en åtkomst nyckel på varje b
 
 2. I **Inställningar**  >  **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten, som krävs om du skapar eller tar bort objekt. Det finns två utbytbara primär-och sekundär nycklar. Du kan använda något av alternativen.
 
-   ![Hämta en HTTP-slutpunkt och åtkomst nyckel](media/search-get-started-postman/get-url-key.png "Hämta en HTTP-slutpunkt och åtkomst nyckel")
+   ![Hämta en HTTP-slutpunkt och åtkomst nyckel](media/search-get-started-rest/get-url-key.png "Hämta en HTTP-slutpunkt och åtkomst nyckel")
 
 Alla begär Anden kräver en API-nyckel på varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
@@ -60,7 +60,7 @@ Alla begär Anden kräver en API-nyckel på varje begäran som skickas till din 
 
 När projektet har skapats lägger du till klient biblioteket. [Azure.Search.Documents-paketet](https://www.nuget.org/packages/Azure.Search.Documents/) består av ett klient bibliotek som innehåller alla API: er som används för att arbeta med en Sök tjänst i .net.
 
-1. I **verktyg**  >  **NuGet Package Manager**väljer du **Hantera NuGet-paket för lösning.**... 
+1. I **verktyg**  >  **NuGet Package Manager** väljer du **Hantera NuGet-paket för lösning.**... 
 
 1. Klicka på **Browse** (Bläddra).
 
@@ -70,7 +70,7 @@ När projektet har skapats lägger du till klient biblioteket. [Azure.Search.Doc
 
 ### <a name="create-a-search-client"></a>Skapa en sökklient
 
-1. I **program.cs**ändrar du namn området till `AzureSearch.SDK.Quickstart.v11` och lägger sedan till följande `using` direktiv.
+1. I **program.cs** ändrar du namn området till `AzureSearch.SDK.Quickstart.v11` och lägger sedan till följande `using` direktiv.
 
    ```csharp
    using Azure;
@@ -134,7 +134,7 @@ I det här exemplet används synkrona metoder för Azure.Search.Documents-biblio
     }
     ```
 
-1. I **program.cs**skapar du ett [SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex) -objekt och anropar sedan [CreateIndex](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex) -metoden för att uttrycka indexet i din Sök tjänst.
+1. I **program.cs** skapar du ett [SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex) -objekt och anropar sedan [CreateIndex](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex) -metoden för att uttrycka indexet i din Sök tjänst.
 
    ```csharp
     // Define an index schema using SearchIndex
@@ -175,7 +175,7 @@ I Azure Kognitiv sökning är Sök dokument data strukturer som båda är indata
 
 När du överför dokument måste du använda ett [IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1) -objekt. Ett `IndexDocumentsBatch` -objekt innehåller en samling [åtgärder](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1.actions)som innehåller ett dokument och en egenskap som talar om för Azure kognitiv sökning vilken åtgärd som ska utföras ([Ladda upp, sammanfoga, ta bort och mergeOrUpload](search-what-is-data-import.md#indexing-actions)).
 
-1. I **program.cs**skapar du en matris med dokument-och index åtgärder och skickar sedan matrisen till `IndexDocumentsBatch` . Dokumenten nedan följer V11-indexet Hotels-snabb start, som definieras av hotellet-klassen.
+1. I **program.cs** skapar du en matris med dokument-och index åtgärder och skickar sedan matrisen till `IndexDocumentsBatch` . Dokumenten nedan följer V11-indexet Hotels-snabb start, som definieras av hotellet-klassen.
 
     ```csharp
     // Load documents (using a subset of fields for brevity)
@@ -212,7 +212,7 @@ I det här avsnittet läggs två delar av funktionalitet: fråga efter logik och
 
 [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) -klassen representerar resultatet.
 
-1. I **program.cs**skapar du en WriteDocuments-metod som skriver ut Sök resultat till-konsolen.
+1. I **program.cs** skapar du en WriteDocuments-metod som skriver ut Sök resultat till-konsolen.
 
     ```csharp
     private static void WriteDocuments(SearchResults<Hotel> searchResults)

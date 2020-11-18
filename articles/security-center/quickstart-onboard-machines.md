@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: 88c34be45a832f8944217630568927bc7d52fd88
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 572c657dd44db73b1401c72f0750fe8e000985ac
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660210"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94734362"
 ---
 # <a name="connect-your-non-azure-machines-to-security-center"></a>Anslut dina datorer som inte är Azure-datorer till Security Center
 
@@ -21,7 +21,7 @@ Security Center kan övervaka säkerhets position för datorer som inte är Azur
 
 Du kan ansluta datorer som inte är Azure-datorer på något av följande sätt:
 
-- Använda [Azure Arc-aktiverade servrar (**rekommenderas**)
+- Använda Azure Arc-aktiverade servrar (**rekommenderas**)
 - Från Security Center sidor i Azure Portal (**komma igång** och **inventering**)
 
 Var och en av dem beskrivs på den här sidan.

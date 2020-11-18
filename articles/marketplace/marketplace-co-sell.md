@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 11/13/2020
-ms.openlocfilehash: ac56aab233c9d07ea7e82a4eefc4918746e3bdbe
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.date: 11/17/2020
+ms.openlocfilehash: 730178d974ba95db968332ac669f701486b513bd
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592523"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94738534"
 ---
 # <a name="co-sell-partner-engagement"></a>Deltagande i partnersäljsamarbete
 
@@ -30,7 +30,7 @@ Programmet för samförsäljning är tillgängligt för **program vara som skapa
 
 Erbjudanden som når **Azure IP Co-Sälj motiverade-** status ger följande ytterligare marknads förmåner:
 
-- Service avgiften för Marketplace minskas från 20 till 10%. Rabatten gäller för ditt IaaS-eller SaaS-erbjudande som säljs via den kommersiella marknads platsen. Mer information finns i [minskad service avgift](marketplace-commercial-transaction-capabilities-and-considerations.md#reduced-service-fee) för mer information.
+- Service avgiften för Marketplace minskas från 20 till 10%. Rabatten gäller för ditt IaaS-eller SaaS-erbjudande som säljs via den kommersiella marknads platsen. Mer information finns i [avgifter för kommersiella Marketplace-tjänster](marketplace-commercial-transaction-capabilities-and-considerations.md#commercial-marketplace-service-fees) .
 - Leverantörer av moln lösnings leverantörer (CSP) får 10% incitament att sälja ditt IaaS-eller SaaS-erbjudande. Läs mer om CSP-programmet i [Cloud Solution Provider-programmet](cloud-solution-providers.md).
 - Försäljning av ditt erbjudande via handels Marketplace bidrar till kundernas Azure-förbruknings åtaganden. Berättigade kunder ser erbjudandet som har marker ATS som **"Azure-förmåns berättigande"** i Azure Portal. Mer information finns i [Azures bidrag för konsumtions åtagande](azure-consumption-commitment-benefit.md).
 - Erbjudanden som ger **Azure IP Co-Sälj-motiverade** eller **Business Applications Co-försäljning motiverade** -status kommer att få märket **"prioriterade lösningar"** i butiker. Aktivitets ikonen främjar ett erbjudandes kvalitet, prestanda och möjlighet att adressera kund behov i ett visst bransch lodrätt eller lösnings utrymme. Lär dig mer [om önskade lösningar i Microsoft AppSource och Azure Marketplace](preferred-solutions.md).
@@ -54,7 +54,7 @@ I tabellen nedan visas de steg och krav som finns för att hämta ditt erbjudand
 Starta din co-försäljnings resa direkt i Partner Center genom att följa stegen nedan. Mer information finns i [Co-Sälj alternativet i Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md).
 
 1. Logga in på [partner Center](https://partner.microsoft.com/dashboard/home).
-1. I den vänstra rutan väljer du **extern Marketplace**  >  - **Översikt** och väljer sedan det erbjudande som du vill samsälja.
+1. I den vänstra rutan väljer du **extern Marketplace**  >  -**Översikt** och väljer sedan det erbjudande som du vill samsälja.
 
     > [!NOTE]
     > Du kan gå med i samförsäljnings programmet med ett nytt erbjudande som ännu inte har publicerats eller med ett erbjudande som redan har publicerats.
@@ -63,15 +63,15 @@ Starta din co-försäljnings resa direkt i Partner Center genom att följa stege
 
     :::image type="content" source="media/co-sell/co-sell-with-microsoft-tab.png" alt-text="Den här bilden visar platsen för samförsäljnings platsen med Microsoft-fliken.":::
 
-1. Ange grundläggande registrerings information för att hjälpa Microsoft-säljare att snabbt sortera och identifiera ditt erbjudande i **list** avsnittet. ( *Obligatoriskt: alla fält.* )
+1. Ange grundläggande registrerings information för att hjälpa Microsoft-säljare att snabbt sortera och identifiera ditt erbjudande i **list** avsnittet. (*Obligatoriskt: alla fält.*)
 
     :::image type="content" source="media/co-sell/co-sell-listing-section.png" alt-text="I den här bilden visas List avsnittet på fliken Co-försäljning.":::  
 
-1. Ange information om ditt erbjudande och din överföring av säkerhet i avsnittet **dokument** . Microsoft-säljarna kommer att använda den här informationen för att rekommendera och sälja ditt erbjudande. ( *Krävs: kundens ett-personsökare och en kund presentations kortlek.* )
+1. Ange information om ditt erbjudande och din överföring av säkerhet i avsnittet **dokument** . Microsoft-säljarna kommer att använda den här informationen för att rekommendera och sälja ditt erbjudande. (*Krävs: kundens ett-personsökare och en kund presentations kortlek.*)
 
     :::image type="content" source="media/co-sell/co-sell-documents-section.png" alt-text="I den här bilden visas avsnittet dokument på fliken Co-försäljning.":::
 
-1. Överför Sälj kontakt information i avsnittet **kontakter** . Microsoft-säljare kan kontakta dessa kontakter för att begära ytterligare information om ditt erbjudande. ( *Krävs: en kontakt för varje geografi där ditt erbjudande görs tillgängligt.* )
+1. Överför Sälj kontakt information i avsnittet **kontakter** . Microsoft-säljare kan kontakta dessa kontakter för att begära ytterligare information om ditt erbjudande. (*Krävs: en kontakt för varje geografi där ditt erbjudande görs tillgängligt.*)
 
     :::image type="content" source="media/co-sell/co-sell-contacts-section.png" alt-text="I den här bilden visas avsnittet kontakter på fliken Co-försäljning.":::
 

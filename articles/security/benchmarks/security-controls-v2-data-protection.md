@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: bde95006865a2aab2da4a5d6d27ccccc14d74d12
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 8e12a74ee689ba7b013b1c4a6881deac78680be0
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408930"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701056"
 ---
 # <a name="security-control-v2-data-protection"></a>Säkerhets kontroll v2: data skydd
 
@@ -34,9 +34,9 @@ Du kan använda Azure SQL-Information Protection för att hjälpa till med klass
 
 - [Implementera identifiering av Azure SQL-data](../../azure-sql/database/data-discovery-and-classification-overview.md)
 
-**Ansvars område** : delat
+**Ansvars område**: delat
 
-**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Program säkerhet och DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)  
 
@@ -50,19 +50,19 @@ Du kan använda Azure SQL-Information Protection för att hjälpa till med klass
 |--|--|--|--|
 | DP-2 | 13,2, 2,10 | SC-7, AC-4 |
 
-Skydda känsliga data genom att begränsa åtkomsten med hjälp av Azure Role-baserad Access Control (Azure RBAC), nätverksbaserade åtkomst kontroller och vissa kontroller i Azure-tjänster (till exempel kryptering i SQL och andra databaser). 
+Skydda känsliga data genom att begränsa åtkomsten med hjälp av rollbaserad åtkomst kontroll i Azure (Azure RBAC), nätverksbaserade åtkomst kontroller och vissa kontroller i Azure-tjänster (till exempel kryptering i SQL och andra databaser). 
 
 För att säkerställa konsekvent åtkomst kontroll bör alla typer av åtkomst kontroll justeras mot din strategi för företags segmentering. Strategin för företags segmentering bör också informeras om platsen för känsliga eller affärs kritiska data och system.
 
 För den underliggande plattformen, som hanteras av Microsoft, behandlar Microsoft allt kund innehåll som känsligt och skyddar mot kund data förlust och exponering. För att säkerställa att kunddata i Azure förblir skyddade har Microsoft implementerat vissa standard kontroller och funktioner för data skydd.
 
-- [Rollbaserad Access Control i Azure (RBAC)](../../role-based-access-control/overview.md)
+- [Azure RBAC (rollbaserad åtkomstkontroll)](../../role-based-access-control/overview.md)
 
 - [Förstå kundens data skydd i Azure](../fundamentals/protection-customer-data.md)
 
-**Ansvars område** : delat
+**Ansvars område**: delat
 
-**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Program säkerhet och DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -88,9 +88,9 @@ Om det krävs för att förhindra data förlust skydd (DLP) kan du använda en v
 
 - [Aktivera Azure Storage ATP](../../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center)
 
-**Ansvars område** : delat
+**Ansvars område**: delat
 
-**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Säkerhets åtgärder](/azure/cloud-adoption-framework/organize/cloud-security) 
 
@@ -116,9 +116,9 @@ Som standard tillhandahåller Azure kryptering för data i överföring mellan A
 
 - [Double Encryption för Azure-data under överföring](../fundamentals/double-encryption.md#data-in-transit)
 
-**Ansvars område** : delat
+**Ansvars område**: delat
 
-**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Säkerhetsarkitektur](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -146,9 +146,9 @@ Azure tillhandahåller kryptering för data i vila som standard. För mycket kä
 
 - [Data i vila dubbel kryptering i Azure](../fundamentals/double-encryption.md#data-at-rest)
 
-**Ansvars område** : delat
+**Ansvars område**: delat
 
-**Kund säkerhets intressenter** ( [Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Säkerhetsarkitektur](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 

@@ -1,5 +1,5 @@
 ---
-title: Vad är team data science-processen?
+title: Vad är TDSP (Team Data Science Process)?
 description: Tillhandahåller en data vetenskaps metod för att leverera lösningar för förutsägelse analys och intelligenta program.
 services: machine-learning
 author: marktab
@@ -8,17 +8,17 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: overview
-ms.date: 1/10/2020
+ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: fc9a5e604e6ac52eb0e853725123272ca924fa36
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4a341d33c957af8fe7423bda80f1d34a7f59cdd6
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91362239"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94738007"
 ---
-# <a name="what-is-the-team-data-science-process"></a>Vad är team data science-processen?
+# <a name="what-is-the-team-data-science-process"></a>Vad är TDSP (Team Data Science Process)?
 
 TDSP (Team data science process) är en smidig, iterativ data vetenskaps metod för att leverera lösningar för förutsägelse analys och intelligenta program effektivt. TDSP hjälper till att förbättra grupp samarbete och inlärning genom att föreslå hur grupp roller fungerar bäst tillsammans. TDSP innehåller bästa praxis och strukturer från Microsoft och andra bransch ledare för att hjälpa till med lyckad implementering av data vetenskaps initiativ. Målet är att hjälpa företag att dra nytta av sina analysprogram fullt ut.
 
@@ -100,7 +100,7 @@ Här är ett exempel på ett team som arbetar på flera projekt och delar olika 
 
 ## <a name="tools-and-utilities-for-project-execution"></a>Verktyg och verktyg för projekt körning
 
-Det är svårt att introducera processer i de flesta organisationer. Verktyg som tillhandahålls för att implementera data vetenskaps processen och livs cykeln bidrar till att minska barriärerna till och öka konsekvensen av deras införande. TDSP innehåller en första uppsättning verktyg och skript som du kan använda för att komma igång med att använda TDSP i ett team. Du kan också automatisera några av de vanliga uppgifterna i livs cykeln för data vetenskap, till exempel data utforskning och bas linje modellering. Det finns en väldefinierad struktur som ger enskilda personer möjlighet att bidra med delade verktyg och verktyg till sitt Teams delade kod lagrings plats. Dessa resurser kan sedan utnyttjas av andra projekt i teamet eller organisationen. TDSP planerar också att aktivera bidrag från verktyg och verktyg till hela communityn. TDSP-verktygen kan klonas från [GitHub](https://github.com/Azure/Azure-TDSP-Utilities).
+Det är svårt att introducera processer i de flesta organisationer. Verktyg som tillhandahålls för att implementera data vetenskaps processen och livs cykeln bidrar till att minska barriärerna till och öka konsekvensen av deras införande. TDSP innehåller en första uppsättning verktyg och skript som du kan använda för att komma igång med att använda TDSP i ett team. Du kan också automatisera några av de vanliga uppgifterna i livs cykeln för data vetenskap, till exempel data utforskning och bas linje modellering. Det finns en väldefinierad struktur som ger enskilda personer möjlighet att bidra med delade verktyg och verktyg till sitt Teams delade kod lagrings plats. Dessa resurser kan sedan utnyttjas av andra projekt i teamet eller organisationen.  Microsoft tillhandahåller omfattande verktyg i [Azure Machine Learning](../index.yml) som stöder både öppen källkod (python, R, ONNX och vanliga ramverk för djup inlärning) och även Microsofts egna verktyg (AutoML).
 
 
 ## <a name="next-steps"></a>Nästa steg

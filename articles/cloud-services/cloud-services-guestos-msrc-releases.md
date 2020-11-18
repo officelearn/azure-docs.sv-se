@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/13/2020
+ms.date: 11/17/2020
 ms.author: yohaddad
-ms.openlocfilehash: 8919ae8f43cd699b0ff79afc7ac39cbb39d2798e
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 5a5e448660583204d424358e571c4bfb74890e8d
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94626766"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94737837"
 ---
 # <a name="azure-guest-os"></a>Azure gäst operativ system
 Följande tabeller visar de uppdateringar av Microsoft Security Response Center (MSRC) som tillämpas på Azures gäst operativ system. Sök i den här artikeln för att avgöra om en viss uppdatering gäller det gäst operativ system som du använder. Uppdateringar överför alltid den specifika [familj][family-explain] som de introducerades i.
@@ -78,34 +78,31 @@ Följande tabeller visar de uppdateringar av Microsoft Security Response Center 
 
 
 ## <a name="october-2020-guest-os"></a>Oktober 2020 gäst operativ system
->[!NOTE] 
-
->Gäst operativ systemet i oktober distribueras för närvarande till virtuella datorer i moln tjänsten som är konfigurerade för automatiska uppdateringar. När distributionen är klar görs den här versionen tillgänglig för manuella uppdateringar via Azure Portal-och konfigurationsfiler. Följande korrigeringar ingår i oktober-gäst operativ systemet. Den här listan kan ändras. 
 
 | Produktkategori | Överordnad KB-artikel | Beskrivning av sårbarhet | Gästoperativsystem | Datum för första gången |
 | --- | --- | --- | --- | --- |
-|  Rel 20-10 |  [4577010]  |  Kumulativ uppdatering för IE | 2,103, 3,90, 4,83 | Sep 8, 2020 |
-|  Rel 20-10 |  [4580325]  |  Uppdatera Flash | 3,90, 4,83, 5,48, 6,24 | 13 oktober 2020 |
-|  Rel 20-10 |  [4577668]  |  Senaste kumulativa uppdateringen | 6,24 | 13 oktober 2020 |
-|  Rel 20-10 |  [4580346]  |  Senaste kumulativa uppdateringen | 5,48 | 13 oktober 2020 |
-|  Rel 20-10 |  [4580970]  |  Uppdatering av underhålls stack | 2,103 | 13 oktober 2020 |
-|  Rel 20-10 |  [4580345]  |  Månatlig sammanställning | 2,103 | 13 oktober 2020 |
-|  Rel 20-10 |  [4578952]  |  .NET Framework 3.5.1-säkerhet och kvalitets sammanslagning | 2,103 | 13 oktober 2020 |
-|  Rel 20-10 |  [4578955]  |  .NET Framework 4.5.2 säkerhet och kvalitet | 2,103 | 13 oktober 2020 |
-|  Rel 20-10 |  [4566426]  |  Uppdatering av underhålls stack | 3,90 | Jul 14, 2020 |
-|  Rel 20-10 |  [4580382]  |  Månatlig sammanställning | 3,90 | 13 oktober 2020 |
-|  Rel 20-10 |  [4578950]  |  .NET Framework 3,5 säkerhets-och kvalitets sammanslagning | 3,90 | 13 oktober 2020 |
-|  Rel 20-10 |  [4578954]  |  .NET Framework 4.5.2 säkerhet och kvalitet | 3,90 | 13 oktober 2020 |
-|  Rel 20-10 |  [4566425]  |  Uppdatering av underhålls stack | 4,83 | Jul 14, 2020 |
-|  Rel 20-10 |  [4580347]  |  Månatlig sammanställning | 4,83 | 13 oktober 2020 |
-|  Rel 20-10 |  [4578953]  |  .NET Framework 3,5 säkerhets-och kvalitets sammanslagning | 4,83 | 13 oktober 2020 |
-|  Rel 20-10 |  [4578956]  |  .NET Framework 4.5.2 säkerhet och kvalitet | 4,83 | 13 oktober 2020 |
-|  Rel 20-10 |  [4578013]  |  Fristående säkerhets uppdatering | 4,83 | Aug 19, 2020 |
-|  Rel 20-10 |  [4576750]  |  Uppdatering av underhålls stack | 5,48 | Sep 8, 2020 |
-|  Rel 20-10 |  [4494175]  |  Microcode | 5,48 | Sep 1, 2020 |
-|  Rel 20-10 |  [4577667]  |  Uppdatering av underhålls stack | 6,24 | 13 oktober 2020 |
-|  Rel 20-10 |  [4578966]  |  .NET Framework 3,5 och 4.7.2-ackumulerad uppdatering | 6,24 | 13 oktober 2020 |
-|  Rel 20-10 |  [4494174]  |  Microcode | 6,24 | Sep 3, 2020 |
+|  Rel 20-10 |  [4577010]  |  Kumulativ uppdatering för IE | [2,103], [3,90], [4,83] | Sep 8, 2020 |
+|  Rel 20-10 |  [4580325]  |  Uppdatera Flash | [3,90], [4,83], [5,48], [6,24] | 13 oktober 2020 |
+|  Rel 20-10 |  [4577668]  |  Senaste kumulativa uppdateringen | [6,24] | 13 oktober 2020 |
+|  Rel 20-10 |  [4580346]  |  Senaste kumulativa uppdateringen | [5,48] | 13 oktober 2020 |
+|  Rel 20-10 |  [4580970]  |  Uppdatering av underhålls stack | [2,103] | 13 oktober 2020 |
+|  Rel 20-10 |  [4580345]  |  Månatlig sammanställning | [2,103] | 13 oktober 2020 |
+|  Rel 20-10 |  [4578952]  |  .NET Framework 3.5.1-säkerhet och kvalitets sammanslagning | [2,103] | 13 oktober 2020 |
+|  Rel 20-10 |  [4578955]  |  .NET Framework 4.5.2 säkerhet och kvalitet | [2,103] | 13 oktober 2020 |
+|  Rel 20-10 |  [4566426]  |  Uppdatering av underhålls stack | [3,90] | Jul 14, 2020 |
+|  Rel 20-10 |  [4580382]  |  Månatlig sammanställning | [3,90] | 13 oktober 2020 |
+|  Rel 20-10 |  [4578950]  |  .NET Framework 3,5 säkerhets-och kvalitets sammanslagning | [3,90] | 13 oktober 2020 |
+|  Rel 20-10 |  [4578954]  |  .NET Framework 4.5.2 säkerhet och kvalitet | [3,90] | 13 oktober 2020 |
+|  Rel 20-10 |  [4566425]  |  Uppdatering av underhålls stack | [4,83] | Jul 14, 2020 |
+|  Rel 20-10 |  [4580347]  |  Månatlig sammanställning | [4,83] | 13 oktober 2020 |
+|  Rel 20-10 |  [4578953]  |  .NET Framework 3,5 säkerhets-och kvalitets sammanslagning | [4,83] | 13 oktober 2020 |
+|  Rel 20-10 |  [4578956]  |  .NET Framework 4.5.2 säkerhet och kvalitet | [4,83] | 13 oktober 2020 |
+|  Rel 20-10 |  [4578013]  |  Fristående säkerhets uppdatering | [4,83] | Aug 19, 2020 |
+|  Rel 20-10 |  [4576750]  |  Uppdatering av underhålls stack | [5,48] | Sep 8, 2020 |
+|  Rel 20-10 |  [4494175]  |  Microcode | [5,48] | Sep 1, 2020 |
+|  Rel 20-10 |  [4577667]  |  Uppdatering av underhålls stack | [6,24] | 13 oktober 2020 |
+|  Rel 20-10 |  [4578966]  |  .NET Framework 3,5 och 4.7.2-ackumulerad uppdatering | [6,24] | 13 oktober 2020 |
+|  Rel 20-10 |  [4494174]  |  Microcode | [6,24] | Sep 3, 2020 |
 
 
 [4577010]: https://support.microsoft.com/kb/4577010
@@ -130,6 +127,11 @@ Följande tabeller visar de uppdateringar av Microsoft Security Response Center 
 [4577667]: https://support.microsoft.com/kb/4577667
 [4578966]: https://support.microsoft.com/kb/4578966
 [4494174]: https://support.microsoft.com/kb/4494174
+[2,103]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[3,90]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[4,83]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[5,48]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[6,24]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
 
 
 ## <a name="september-2020-guest-os"></a>September 2020-gäst operativ system

@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 10/19/2020
+ms.date: 11/17/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 89a6239a28c66ab24f423c19baf0d329f87b38d5
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 78e934a90b8d4e8feccf18a5cada3ec4920e1642
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658612"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94734461"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Självstudie: Distribuera och konfigurera Azure-brandväggen i ett hybrid nätverk med hjälp av Azure Portal
 
@@ -88,16 +88,17 @@ Skapa nu VNet:
 
 1. På Start sidan Azure Portal väljer du **skapa en resurs**.
 2. Välj **virtuellt nätverk** under **nätverk**.
-7. För **resurs grupp** väljer du **VB-hybrid-test**.
+1. Välj **Skapa**.
+1. För **resurs grupp** väljer du **VB-hybrid-test**.
 1. I **namn** skriver du **VNet-Hub**.
-2. Välj **Nästa: IP-adresser**.
-3. För **IPv4-adress utrymme** skriver du **10.5.0.0/16**.
-6. Under **undernäts namn** väljer du **standard**.
-7. för **namn** typen **AzureFirewallSubnet**. Brandväggen kommer att ligga i det här undernätet, och namnet på undernätet **måste** vara AzureFirewallSubnet.
-8. För **adress intervall** skriver du **10.5.0.0/26**. 
-9. Välj **Spara**.
-10. Välj **Granska + skapa**.
-11. Välj **Skapa**.
+1. Välj **Nästa: IP-adresser**.
+1. Ta bort standard adressen och skriv **10.5.0.0/16** för **IPv4-adress utrymme**.
+1. Under **under näts namn** väljer du **Lägg till undernät**.
+1. För **under näts namn** skriver du **AzureFirewallSubnet**. Brandväggen kommer att ligga i det här undernätet, och namnet på undernätet **måste** vara AzureFirewallSubnet.
+1. Skriv **10.5.0.0/26** för **under nätets adress intervall**. 
+1. Välj **Lägg till**.
+1. Välj **Granska + skapa**.
+1. Välj **Skapa**.
 
 ## <a name="create-the-spoke-virtual-network"></a>Skapa det virtuella ekernätverket
 
@@ -107,11 +108,11 @@ Skapa nu VNet:
 1. För **namn** skriver du **VNet-eker**.
 2. För **region** väljer du **(US) USA, östra**.
 3. Välj **Nästa: IP-adresser**.
-4. För **IPv4-adress utrymme** skriver du **10.6.0.0/16**.
-6. Under **undernäts namn** väljer du **standard**.
-7. för **namn** skriver du **SN-arbets belastning**.
-8. För **adress intervall** skriver du **10.6.0.0/24**. 
-9. Välj **Spara**.
+4. Ta bort standard adressen och skriv **10.6.0.0/16** för **IPv4-adress utrymme**.
+6. Under **under näts namn** väljer du **Lägg till undernät**.
+7. För **under näts namn** skriver du **SN-arbets belastning**.
+8. Skriv **10.6.0.0/24** för **under nätets adress intervall**. 
+9. Välj **Lägg till**.
 10. Välj **Granska + skapa**.
 11. Välj **Skapa**.
 
@@ -123,11 +124,11 @@ Skapa nu VNet:
 1. För **namn** skriver du **VNet-OnPrem**.
 2. För **region** väljer du **(US) USA, östra**.
 3. Välj **Nästa: IP-adresser**
-4. För **IPv4-adress utrymme** skriver du **192.168.0.0/16**.
-5. Under **undernäts namn** väljer du **standard**.
-7. för **namn** skriver du **SN-Corp**.
-8. I fältet **Adressintervall** skriver du **192.168.1.0/24**. 
-9. Välj **Spara**.
+4. Ta bort standard adressen för **IPv4-adress utrymmet** och skriv **192.168.0.0/16**.
+5. Under **under näts namn** väljer du **Lägg till undernät**.
+7. För **under näts namn** skriver du **SN-Corp**.
+8. Skriv **192.168.1.0/24** för **under nätets adress intervall**. 
+9. Välj **Lägg till**.
 10. Välj **Granska + skapa**.
 11. Välj **Skapa**.
 
@@ -147,11 +148,11 @@ Distribuera nu brand väggen i brand Väggs hubbens virtuella nätverk.
 2. Välj **nätverk** i den vänstra kolumnen och Sök efter och välj sedan **brand vägg**.
 4. På sidan **Skapa en brandvägg** använder du följande tabell till att konfigurera brandväggen:
 
-   |Inställning  |Värde  |
+   |Inställningen  |Värde  |
    |---------|---------|
    |Prenumeration     |\<your subscription\>|
    |Resursgrupp     |**VB-hybrid-test** |
-   |Name     |**AzFW01**|
+   |Namn     |**AzFW01**|
    |Region     |**East US**|
    |Välj ett virtuellt nätverk     |**Använd befintlig**:<br> **VNet-hubb**|
    |Offentlig IP-adress     |Lägg till ny: <br>**VB-pip**. |
@@ -272,21 +273,31 @@ Peera nu de virtuella hubb- och ekernätverken.
 1. Öppna resurs gruppen **VB-hybrid-test** och välj det virtuella nätverk för **VNet-hubb** .
 2. Välj **peering** i den vänstra kolumnen.
 3. Välj **Lägg till**.
-4. I **namn** skriver du **HubtoSpoke**.
-5. För det **virtuella nätverket** väljer du **VNet-eker**
-6. Som namn på peer koppling från VNetSpoke till VNet-hubb, skriver du **SpoketoHub**.
-7. Välj **Tillåt Gateway-överföring**.
-8. Välj **OK**.
+4. Under **det här virtuella nätverket**:
+ 
+   
+   |Inställningsnamn  |Värde  |
+   |---------|---------|
+   |Namn på peering-länk| HubtoSpoke|
+   |Trafik till fjärranslutet virtuellt nätverk|   Tillåt (standard)      |
+   |Trafik vidarebefordrad från fjärran slutet virtuellt nätverk    |   Tillåt (standard)      |
+   |Virtuell nätverksgateway     |  Använd det här virtuella nätverkets gateway       |
+    
+5. Under **fjärran slutet virtuellt nätverk**:
 
-### <a name="configure-additional-settings-for-the-spoketohub-peering"></a>Konfigurera ytterligare inställningar för SpoketoHub-peering
+   |Inställningsnamn  |Värde  |
+   |---------|---------|
+   |Namn på peering-länk | SpoketoHub|
+   |Distributions modell för virtuellt nätverk| Resource manager|
+   |Prenumeration|\<your subscription\>|
+   |Virtuellt nätverk| VNet-Spoke
+   |Trafik till fjärranslutet virtuellt nätverk     |   Tillåt (standard)      |
+   |Trafik vidarebefordrad från fjärran slutet virtuellt nätverk    |   Tillåt (standard)      |
+   |Virtuell nätverksgateway     |  Använda det virtuella fjärrnätverkets Gateway       |
 
-Du måste aktivera den **Tillåt vidarebefordrade trafiken** på SpoketoHub-peering.
+5. Välj **Lägg till**.
 
-1. Öppna resurs gruppen **VB-hybrid-test** och välj det virtuella nätverket för **VNet-ekrar** .
-2. Välj **peering** i den vänstra kolumnen.
-3. Välj **SpoketoHub** -peering.
-4. Under **Tillåt vidarebefordrad trafik från VNet-hubb till VNet-eker** väljer du **aktive rad**.
-5. Välj **Spara**.
+   :::image type="content" source="media/tutorial-hybrid-portal/firewall-peering.png" alt-text="VNet-peering":::
 
 ## <a name="create-the-routes"></a>Skapa vägarna
 

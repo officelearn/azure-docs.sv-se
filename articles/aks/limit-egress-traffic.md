@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: jpalma
 ms.date: 11/09/2020
 author: palma21
-ms.openlocfilehash: e3b755ca3ca5338acfc1918bd2085d9fba18b8ac
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: a1d045e66771026d2b4cf7ad44fd6943d2d407f4
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380219"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701610"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Styra utgående trafik för klusternoder i Azure Kubernetes service (AKS)
 
@@ -209,8 +209,10 @@ Följande FQDN/program-regler krävs för AKS-kluster som har Azure Policy aktiv
 
 | FQDN                                          | Port      | Användning      |
 |-----------------------------------------------|-----------|----------|
-| **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | Adressen används för att Azure Policy ska fungera korrekt. (för närvarande i för hands version i AKS) |
-| **`raw.githubusercontent.com`**               | **`HTTPS:443`** | Den här adressen används för att hämta de inbyggda principerna från GitHub för att säkerställa korrekt drift av Azure Policy. (för närvarande i för hands version i AKS) |
+| **`data.policy.core.windows.net`** | **`HTTPS:443`** | Den här adressen används för att hämta Kubernetes-principerna och rapportera klustrets kompatibilitetsstatus till princip tjänsten. |
+| **`store.policy.core.windows.net`** | **`HTTPS:443`** | Den här adressen används för att hämta Gatekeeper-artefakter för inbyggda principer. |
+| **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | Adressen används för att Azure Policy ska fungera korrekt.  |
+| **`raw.githubusercontent.com`**               | **`HTTPS:443`** | Den här adressen används för att hämta de inbyggda principerna från GitHub för att säkerställa korrekt drift av Azure Policy. |
 | **`dc.services.visualstudio.com`**            | **`HTTPS:443`** | Azure Policy tillägg som skickar telemetridata till program insikter-slutpunkten. |
 
 ## <a name="restrict-egress-traffic-using-azure-firewall"></a>Begränsa utgående trafik med hjälp av Azure-brandvägg

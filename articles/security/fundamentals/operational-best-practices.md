@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: a0e4e0de15348f4f52d7f0f68bad728a27f6387e
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 98ba7c63e057e1f6b1f37a6529b6e94e2f514d6d
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413028"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701039"
 ---
 # <a name="azure-operational-security-best-practices"></a>Metod tips för Azure drift säkerhet
 Den här artikeln innehåller en uppsättning metod tips för att skydda dina data, program och andra till gångar i Azure.
@@ -34,14 +34,14 @@ Azures drift säkerhet syftar på tjänster, kontroller och funktioner som är t
 ## <a name="manage-and-monitor-user-passwords"></a>Hantera och övervaka användar lösen ord
 I följande tabell visas några metod tips för att hantera användar lösen ord:
 
-**Bästa praxis** : kontrol lera att du har rätt skydds nivå för lösen ord i molnet.   
-**Information** : Följ rikt linjerna i [Microsoft Password guide](https://www.microsoft.com/research/publication/password-guidance/), som är begränsade till användare av Microsoft identity-plattformar (Azure Active Directory, Active Directory och Microsoft-konto).
+**Bästa praxis**: kontrol lera att du har rätt skydds nivå för lösen ord i molnet.   
+**Information**: Följ rikt linjerna i [Microsoft Password guide](https://www.microsoft.com/research/publication/password-guidance/), som är begränsade till användare av Microsoft identity-plattformar (Azure Active Directory, Active Directory och Microsoft-konto).
 
-**Bästa praxis** : övervaka för misstänkta åtgärder relaterade till dina användar konton.   
-**Information** : övervaka för [användare i risk](../../active-directory/identity-protection/overview-identity-protection.md) [-och riskfyllda inloggningar](../../active-directory/identity-protection/overview-identity-protection.md) med hjälp av Azure AD-säkerhetsrapporter.
+**Bästa praxis**: övervaka för misstänkta åtgärder relaterade till dina användar konton.   
+**Information**: övervaka för [användare i risk](../../active-directory/identity-protection/overview-identity-protection.md) [-och riskfyllda inloggningar](../../active-directory/identity-protection/overview-identity-protection.md) med hjälp av Azure AD-säkerhetsrapporter.
 
-**Bästa praxis** : automatisk identifiering och reparation av lösen ord med hög risk.   
-**Information** : [Azure AD Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md) är en funktion i Azure AD Premium P2-versionen som gör att du kan:
+**Bästa praxis**: automatisk identifiering och reparation av lösen ord med hög risk.   
+**Information**: [Azure AD Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md) är en funktion i Azure AD Premium P2-versionen som gör att du kan:
 
 - Identifiera potentiella sårbarheter som påverkar organisationens identiteter
 - Konfigurera automatiska svar på identifierade misstänkta åtgärder som är relaterade till din organisations identiteter
@@ -59,25 +59,25 @@ Du kan bygga en flexibel struktur av hanterings grupper och prenumerationer i en
 
 Här följer några metod tips för att använda hanterings grupper:
 
-**Bästa praxis** : se till att nya prenumerationer tillämpar styrnings element som principer och behörigheter när de läggs till.   
-**Information** : Använd rot hanterings gruppen för att tilldela företagsomfattande säkerhets element som gäller för alla Azure-tillgångar. Principer och behörigheter är exempel på element.
+**Bästa praxis**: se till att nya prenumerationer tillämpar styrnings element som principer och behörigheter när de läggs till.   
+**Information**: Använd rot hanterings gruppen för att tilldela företagsomfattande säkerhets element som gäller för alla Azure-tillgångar. Principer och behörigheter är exempel på element.
 
-**Bästa praxis** : justera de högsta nivåerna i hanterings grupper med segmenterings strategi för att tillhandahålla en punkt för kontroll och princip konsekvens i varje segment.   
-**Information** : skapa en enda hanterings grupp för varje segment under rot hanterings gruppen. Skapa inte några andra hanterings grupper under roten.
+**Bästa praxis**: justera de högsta nivåerna i hanterings grupper med segmenterings strategi för att tillhandahålla en punkt för kontroll och princip konsekvens i varje segment.   
+**Information**: skapa en enda hanterings grupp för varje segment under rot hanterings gruppen. Skapa inte några andra hanterings grupper under roten.
 
-**Bästa praxis** : begränsa hanterings gruppens djup för att undvika förvirring som hindrar både drift och säkerhet.   
-**Information** : begränsa hierarkin till tre nivåer, inklusive roten.
+**Bästa praxis**: begränsa hanterings gruppens djup för att undvika förvirring som hindrar både drift och säkerhet.   
+**Information**: begränsa hierarkin till tre nivåer, inklusive roten.
 
-**Bästa praxis** : Välj noggrant vilka objekt som ska användas för hela företaget med rot hanterings gruppen.   
-**Information** : kontrol lera att rot hanterings gruppens element har en tydlig effekt som måste tillämpas på alla resurser och att de har låg påverkan.
+**Bästa praxis**: Välj noggrant vilka objekt som ska användas för hela företaget med rot hanterings gruppen.   
+**Information**: kontrol lera att rot hanterings gruppens element har en tydlig effekt som måste tillämpas på alla resurser och att de har låg påverkan.
 
 Bra kandidater är:
 
 - Reglerande krav som har en tydlig inverkan på verksamheten (till exempel begränsningar som rör data suveränitet)
-- Krav med ett nära noll potentiellt negativt påverkan på åtgärder, till exempel princip med gransknings effekt eller RBAC-behörighet som har granskats noggrant
+- Krav med ett nära noll potentiellt negativt påverkan på åtgärder, till exempel princip med gransknings effekt eller Azure RBAC-behörighet som har granskats noggrant
 
-**Bästa praxis** : planera och testa alla företagsomfattande ändringar i rot hanterings gruppen innan du tillämpar dem (princip, RBAC-modell osv.).   
-**Information** : ändringar i rot hanterings gruppen kan påverka alla resurser i Azure. Även om de ger ett kraftfullt sätt att garantera konsekvens i företaget kan fel eller felaktig användning påverka produktions åtgärderna negativt. Testa alla ändringar i rot hanterings gruppen i ett test labb eller produktions pilot.
+**Bästa praxis**: planera och testa alla företagsomfattande ändringar i rot hanterings gruppen innan du tillämpar dem (princip, Azure RBAC-modell och så vidare).   
+**Information**: ändringar i rot hanterings gruppen kan påverka alla resurser i Azure. Även om de ger ett kraftfullt sätt att garantera konsekvens i företaget kan fel eller felaktig användning påverka produktions åtgärderna negativt. Testa alla ändringar i rot hanterings gruppen i ett test labb eller produktions pilot.
 
 ## <a name="streamline-environment-creation-with-blueprints"></a>Effektivisera miljö skapandet med skisser
 [Azure](../../governance/blueprints/overview.md) Forms-tjänsten gör det möjligt för moln arkitekter och Central informations teknik grupper att definiera en upprepnings bar uppsättning Azure-resurser som implementerar och följer en organisations standarder, mönster och krav. Azure-ritningar gör det möjligt för utvecklings grupper att snabbt bygga och sätta igång nya miljöer med en uppsättning inbyggda komponenter och det är säkert att de skapar dessa miljöer inom organisationens efterlevnad.
@@ -104,25 +104,25 @@ Nästan alla företags organisationer har ett SIEM-system (Security information 
 
 Här följer några metod tips för att förebygga, upptäcka och svara på hot:
 
-**Bästa praxis** : öka hastigheten och skalbarheten för din SIEM-lösning med hjälp av en molnbaserad Siem.   
-**Information** : Undersök funktionerna i [Azure Sentinel](../../sentinel/overview.md) och jämför dem med funktionerna i vad du använder lokalt. Överväg att införa Azure Sentinel om det uppfyller organisationens krav på SIEM.
+**Bästa praxis**: öka hastigheten och skalbarheten för din SIEM-lösning med hjälp av en molnbaserad Siem.   
+**Information**: Undersök funktionerna i [Azure Sentinel](../../sentinel/overview.md) och jämför dem med funktionerna i vad du använder lokalt. Överväg att införa Azure Sentinel om det uppfyller organisationens krav på SIEM.
 
-**Bästa praxis** : hitta de allvarliga säkerhets sårbarheterna så att du kan prioritera undersökningen.   
-**Information** : granska dina [Azures säkra Poäng](../../security-center/secure-score-security-controls.md) för att se rekommendationerna från de Azure-principer och-initiativ som är inbyggda i Azure Security Center. Dessa rekommendationer hjälper dig att lösa de vanligaste riskerna som säkerhets uppdateringar, Endpoint Protection, kryptering, säkerhetskonfigurationer, saknade WAF, Internet-anslutna virtuella datorer och många fler.
+**Bästa praxis**: hitta de allvarliga säkerhets sårbarheterna så att du kan prioritera undersökningen.   
+**Information**: granska dina [Azures säkra Poäng](../../security-center/secure-score-security-controls.md) för att se rekommendationerna från de Azure-principer och-initiativ som är inbyggda i Azure Security Center. Dessa rekommendationer hjälper dig att lösa de vanligaste riskerna som säkerhets uppdateringar, Endpoint Protection, kryptering, säkerhetskonfigurationer, saknade WAF, Internet-anslutna virtuella datorer och många fler.
 
 De säkra poängen, som baseras på CIS-kontroller (Center for Internet Security), gör det möjligt att mäta organisationens Azure-säkerhet mot externa källor. Extern verifiering hjälper till att validera och utöka ditt teams säkerhets strategi.
 
-**Bästa praxis** : övervaka säkerhets position för datorer, nätverk, lagrings-och data tjänster och program för att identifiera och prioritera potentiella säkerhets problem.  
-**Information** : Följ [säkerhets rekommendationerna](../../security-center/security-center-recommendations.md) i Security Center som startar med högst prioritets objekt.
+**Bästa praxis**: övervaka säkerhets position för datorer, nätverk, lagrings-och data tjänster och program för att identifiera och prioritera potentiella säkerhets problem.  
+**Information**: Följ [säkerhets rekommendationerna](../../security-center/security-center-recommendations.md) i Security Center som startar med högst prioritets objekt.
 
-**Bästa praxis** : integrera Security Center aviseringar i din lösning för säkerhets information och händelse hantering (Siem).   
-**Information** : de flesta organisationer med en Siem använder den som en central Clearinghouse för säkerhets aviseringar som kräver en analytikers svar. Bearbetade händelser som genereras av Security Center publiceras i Azure aktivitets loggen, en av loggarna som är tillgängliga via Azure Monitor. Azure Monitor erbjuder en konsol IDE rad pipeline för att vidarebefordra dina övervaknings data till ett SIEM-verktyg. Instruktioner finns i [Stream-aviseringar till en Siem, Soar eller IT Service Management-lösning](../../security-center/export-to-siem.md) . Om du använder Azure Sentinel, se [anslut Azure Security Center](../../sentinel/connect-azure-security-center.md).
+**Bästa praxis**: integrera Security Center aviseringar i din lösning för säkerhets information och händelse hantering (Siem).   
+**Information**: de flesta organisationer med en Siem använder den som en central Clearinghouse för säkerhets aviseringar som kräver en analytikers svar. Bearbetade händelser som genereras av Security Center publiceras i Azure aktivitets loggen, en av loggarna som är tillgängliga via Azure Monitor. Azure Monitor erbjuder en konsol IDE rad pipeline för att vidarebefordra dina övervaknings data till ett SIEM-verktyg. Instruktioner finns i [Stream-aviseringar till en Siem, Soar eller IT Service Management-lösning](../../security-center/export-to-siem.md) . Om du använder Azure Sentinel, se [anslut Azure Security Center](../../sentinel/connect-azure-security-center.md).
 
-**Bästa praxis** : integrera Azure-loggar med din Siem.   
-**Information** : Använd [Azure Monitor för att samla in och exportera data](../../azure-monitor/overview.md#integrate-and-export-data). Den här metoden är viktig för att aktivera undersökningen av säkerhets incidenter och logg kvarhållning online är begränsad. Om du använder Azure Sentinel, se [Anslut data källor](../../sentinel/connect-data-sources.md).
+**Bästa praxis**: integrera Azure-loggar med din Siem.   
+**Information**: Använd [Azure Monitor för att samla in och exportera data](../../azure-monitor/overview.md#integrate-and-export-data). Den här metoden är viktig för att aktivera undersökningen av säkerhets incidenter och logg kvarhållning online är begränsad. Om du använder Azure Sentinel, se [Anslut data källor](../../sentinel/connect-data-sources.md).
 
-**Bästa praxis** : påskynda dina undersökningar och jakt processer och minska antalet falska positiva identifieringar genom att integrera funktionerna för slut punkts identifiering och-svar (EDR) i angrepps undersökningen.   
-**Information** : [aktivera Microsoft Defender för slut punkts integrering](../../security-center/security-center-wdatp.md#enabling-the-microsoft-defender-for-endpoint-integration) via din Security Center säkerhets princip. Överväg att använda Azure Sentinel för hotets jakt och incident svar.
+**Bästa praxis**: påskynda dina undersökningar och jakt processer och minska antalet falska positiva identifieringar genom att integrera funktionerna för slut punkts identifiering och-svar (EDR) i angrepps undersökningen.   
+**Information**: [aktivera Microsoft Defender för slut punkts integrering](../../security-center/security-center-wdatp.md#enabling-the-microsoft-defender-for-endpoint-integration) via din Security Center säkerhets princip. Överväg att använda Azure Sentinel för hotets jakt och incident svar.
 
 ## <a name="monitor-end-to-end-scenario-based-network-monitoring"></a>Övervaka övervakning från slut punkt till slut punkt för scenario baserad nätverks övervakning
 Kunderna skapar ett nätverk från slut punkt till slut punkt i Azure genom att kombinera nätverks resurser som ett virtuellt nätverk, ExpressRoute, Application Gateway och belastningsutjämnare. Övervakning är tillgängligt på varje nätverks resurs.
@@ -131,31 +131,31 @@ Kunderna skapar ett nätverk från slut punkt till slut punkt i Azure genom att 
 
 Följande är metod tips för nätverks övervakning och tillgängliga verktyg.
 
-**Bästa praxis** : automatisera övervakning av fjärrnätverk med paket fångst.  
-**Information** : övervaka och diagnostisera nätverks problem utan att logga in på dina virtuella datorer med hjälp av Network Watcher. Utlös [paket insamling](../../network-watcher/network-watcher-alert-triggered-packet-capture.md) genom att ställa in aviseringar och få till gång till prestanda information i real tid på paket nivå. När du ser ett problem kan du undersöka i detalj för bättre diagnostisering.
+**Bästa praxis**: automatisera övervakning av fjärrnätverk med paket fångst.  
+**Information**: övervaka och diagnostisera nätverks problem utan att logga in på dina virtuella datorer med hjälp av Network Watcher. Utlös [paket insamling](../../network-watcher/network-watcher-alert-triggered-packet-capture.md) genom att ställa in aviseringar och få till gång till prestanda information i real tid på paket nivå. När du ser ett problem kan du undersöka i detalj för bättre diagnostisering.
 
-**Bästa praxis** : få insikt i din nätverks trafik genom att använda flödes loggar.  
-**Information** : Bygg en djupare förståelse av dina nätverks trafik mönster genom att använda [flödes loggar för nätverks säkerhets grupper](../../network-watcher/network-watcher-nsg-flow-logging-overview.md). Information i flödes loggar hjälper dig att samla in data för efterlevnad, granskning och övervakning av nätverks säkerhets profilen.
+**Bästa praxis**: få insikt i din nätverks trafik genom att använda flödes loggar.  
+**Information**: Bygg en djupare förståelse av dina nätverks trafik mönster genom att använda [flödes loggar för nätverks säkerhets grupper](../../network-watcher/network-watcher-nsg-flow-logging-overview.md). Information i flödes loggar hjälper dig att samla in data för efterlevnad, granskning och övervakning av nätverks säkerhets profilen.
 
-**Bästa praxis** : diagnostisera problem med VPN-anslutningen.  
-**Information** : Använd Network Watcher för att [diagnostisera dina vanligaste VPN gateway-och anslutnings problem](../../network-watcher/network-watcher-diagnose-on-premises-connectivity.md). Du kan inte bara identifiera problemet utan också använda detaljerade loggar för ytterligare undersökning.
+**Bästa praxis**: diagnostisera problem med VPN-anslutningen.  
+**Information**: Använd Network Watcher för att [diagnostisera dina vanligaste VPN gateway-och anslutnings problem](../../network-watcher/network-watcher-diagnose-on-premises-connectivity.md). Du kan inte bara identifiera problemet utan också använda detaljerade loggar för ytterligare undersökning.
 
 ## <a name="secure-deployment-by-using-proven-devops-tools"></a>Säker distribution med hjälp av beprövade DevOps-verktyg
 Använd följande metod tips för DevOps för att se till att ditt företag och dina team är produktiva och effektiva.
 
-**Bästa praxis** : automatisera bygge och distribution av tjänster.  
-**Information** : [infrastruktur som kod](/azure/devops/learn/what-is-infrastructure-as-code) är en uppsättning tekniker och metoder som hjälper IT-tekniker att ta bort belastningen på den dagliga utvecklaren och hanteringen av modulär infrastruktur. Det gör det möjligt för IT-proffs att bygga och underhålla sin moderna Server miljö på ett sätt som liknar hur programutvecklare bygger och underhåller program koden.
+**Bästa praxis**: automatisera bygge och distribution av tjänster.  
+**Information**: [infrastruktur som kod](/azure/devops/learn/what-is-infrastructure-as-code) är en uppsättning tekniker och metoder som hjälper IT-tekniker att ta bort belastningen på den dagliga utvecklaren och hanteringen av modulär infrastruktur. Det gör det möjligt för IT-proffs att bygga och underhålla sin moderna Server miljö på ett sätt som liknar hur programutvecklare bygger och underhåller program koden.
 
 Du kan använda [Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) för att etablera dina program med hjälp av en deklarativ mall. I samma mall kan du distribuera flera tjänster tillsammans med deras beroenden. Du använder samma mall för att distribuera programmet flera gånger i varje skede av programmets livs cykel.
 
-**Bästa praxis** : att bygga och distribuera automatiskt till Azure-webbappar eller moln tjänster.  
-**Information** : du kan konfigurera Azure DevOps Projects att  [automatiskt bygga och distribuera](/azure/devops/pipelines/index) till Azure-webbappar eller moln tjänster. Azure DevOps distribuerar automatiskt binärfilerna när du har gjort en build till Azure efter varje kod incheckning. Paket Bygg processen motsvarar paket kommandot i Visual Studio och publicerings stegen motsvarar kommandot Publicera i Visual Studio.
+**Bästa praxis**: att bygga och distribuera automatiskt till Azure-webbappar eller moln tjänster.  
+**Information**: du kan konfigurera Azure DevOps Projects att  [automatiskt bygga och distribuera](/azure/devops/pipelines/index) till Azure-webbappar eller moln tjänster. Azure DevOps distribuerar automatiskt binärfilerna när du har gjort en build till Azure efter varje kod incheckning. Paket Bygg processen motsvarar paket kommandot i Visual Studio och publicerings stegen motsvarar kommandot Publicera i Visual Studio.
 
-**Bästa praxis** : automatiserad versions hantering.  
-**Information** : [Azure-pipeline](/azure/devops/pipelines/index) är en lösning för automatisering av distribution av flera steg och hantering av versions processen. Skapa hanterade pipeliner för kontinuerlig distribution för att få ut snabbt, enkelt och ofta. Med Azure-pipelines kan du automatisera din versions process och du kan ha fördefinierade arbets flöden för godkännande. Distribuera lokalt och i molnet, utöka och anpassa efter behov.
+**Bästa praxis**: automatiserad versions hantering.  
+**Information**: [Azure-pipeline](/azure/devops/pipelines/index) är en lösning för automatisering av distribution av flera steg och hantering av versions processen. Skapa hanterade pipeliner för kontinuerlig distribution för att få ut snabbt, enkelt och ofta. Med Azure-pipelines kan du automatisera din versions process och du kan ha fördefinierade arbets flöden för godkännande. Distribuera lokalt och i molnet, utöka och anpassa efter behov.
 
-**Bästa praxis** : kontrol lera appens prestanda innan du startar den eller distribuerar uppdateringar till produktion.  
-**Information** : kör molnbaserad [belastnings test](/azure/devops/test/load-test/overview#alternatives) för att:
+**Bästa praxis**: kontrol lera appens prestanda innan du startar den eller distribuerar uppdateringar till produktion.  
+**Information**: kör molnbaserad [belastnings test](/azure/devops/test/load-test/overview#alternatives) för att:
 
 - Hitta prestanda problem i din app.
 - Förbättra distributions kvaliteten.
@@ -164,28 +164,28 @@ Du kan använda [Azure Resource Manager](../../azure-resource-manager/templates/
 
 [Apache jmeter](https://jmeter.apache.org/) är ett kostnads fritt, populärt verktyg för öppen källkod med en stark community-återställning.
 
-**Bästa praxis** : övervaka program prestanda.  
-**Information** : [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) är en utöknings bar APM-tjänst (Application Performance Management) för webbutvecklare på flera plattformar. Använd Application Insights för att övervaka ditt Live-webbprogram. Prestanda avvikelser identifieras automatiskt. Den innehåller analys verktyg som hjälper dig att diagnostisera problem och förstå vad användare faktiskt gör med din app. Den är avsedd för utvecklare och för att hjälpa dig att kontinuerligt förbättra prestanda och användbarhet.
+**Bästa praxis**: övervaka program prestanda.  
+**Information**: [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) är en utöknings bar APM-tjänst (Application Performance Management) för webbutvecklare på flera plattformar. Använd Application Insights för att övervaka ditt Live-webbprogram. Prestanda avvikelser identifieras automatiskt. Den innehåller analys verktyg som hjälper dig att diagnostisera problem och förstå vad användare faktiskt gör med din app. Den är avsedd för utvecklare och för att hjälpa dig att kontinuerligt förbättra prestanda och användbarhet.
 
 ## <a name="mitigate-and-protect-against-ddos"></a>Minimera och skydda mot DDoS
 Distributed denial of service (DDoS) är en typ av attack som försöker leverera program resurser. Målet är att påverka programmets tillgänglighet och dess förmåga att hantera legitima begär Anden. Dessa attacker blir mer sofistikerade och större i storlek och påverkan. De kan riktas mot vilken slut punkt som helst som är offentligt tillgänglig via Internet.
 
 Design och byggnad för DDoS-återhämtning kräver planering och design för en mängd olika fellägen. Nedan följer metod tips för att skapa DDoS-elastiska tjänster på Azure.
 
-**Bästa praxis** : se till att säkerheten är en prioritet under hela livs cykeln för ett program, från design och implementering till distribution och drift. Program kan ha buggar som tillåter en relativt låg mängd begär Anden att använda mycket resurser, vilket resulterar i ett avbrott i tjänsten.  
-**Information** : för att skydda en tjänst som körs på Microsoft Azure bör du ha en god förståelse för din program arkitektur och fokusera på de [fem pelaren för program kvalitet](/azure/architecture/guide/pillars). Du bör känna till vanliga trafik volymer, anslutnings modellen mellan programmet och andra program och de tjänst slut punkter som exponeras för det offentliga Internet.
+**Bästa praxis**: se till att säkerheten är en prioritet under hela livs cykeln för ett program, från design och implementering till distribution och drift. Program kan ha buggar som tillåter en relativt låg mängd begär Anden att använda mycket resurser, vilket resulterar i ett avbrott i tjänsten.  
+**Information**: för att skydda en tjänst som körs på Microsoft Azure bör du ha en god förståelse för din program arkitektur och fokusera på de [fem pelaren för program kvalitet](/azure/architecture/guide/pillars). Du bör känna till vanliga trafik volymer, anslutnings modellen mellan programmet och andra program och de tjänst slut punkter som exponeras för det offentliga Internet.
 
 Att se till att ett program är tillräckligt flexibelt för att hantera en denial of service som är riktad mot själva programmet är viktigast. Säkerhet och sekretess är inbyggda i Azure-plattformen, från och med [säkerhets utvecklings livs cykeln (SDL)](https://www.microsoft.com/sdl). SDL adresserar säkerheten i varje utvecklings fas och säkerställer att Azure uppdateras kontinuerligt för att göra det ännu säkrare.
 
-**Bästa praxis** : utforma dina program så att de kan [skalas horisontellt](/azure/architecture/guide/design-principles/scale-out) för att möta efter frågan på en förstärkt belastning, särskilt i händelse av en DDoS-attack. Om ditt program är beroende av en enda instans av en tjänst skapas en enskild felpunkt. Genom att tillhandahålla flera instanser blir systemet mer flexibelt och mer skalbart.  
-**Information** : för [Azure App Service](../../app-service/overview.md)väljer du en [App Service plan](../../app-service/overview-hosting-plans.md) som erbjuder flera instanser.
+**Bästa praxis**: utforma dina program så att de kan [skalas horisontellt](/azure/architecture/guide/design-principles/scale-out) för att möta efter frågan på en förstärkt belastning, särskilt i händelse av en DDoS-attack. Om ditt program är beroende av en enda instans av en tjänst skapas en enskild felpunkt. Genom att tillhandahålla flera instanser blir systemet mer flexibelt och mer skalbart.  
+**Information**: för [Azure App Service](../../app-service/overview.md)väljer du en [App Service plan](../../app-service/overview-hosting-plans.md) som erbjuder flera instanser.
 
 För Azure Cloud Services konfigurerar du var och en av dina roller så att de använder [flera instanser](../../cloud-services/cloud-services-choose-me.md).
 
 För [Azure Virtual Machines](../../virtual-machines/windows/overview.md)kontrollerar du att din virtuella dator arkitektur innehåller fler än en virtuell dator och att varje virtuell dator ingår i en [tillgänglighets uppsättning](../../virtual-machines/windows/tutorial-availability-sets.md). Vi rekommenderar att du använder skalnings uppsättningar för virtuella datorer för funktioner för automatisk skalning.
 
-**Bästa praxis** : säkerhets försvars nivåer i ett program minskar risken för en lyckad attack. Implementera säkra utformningar för dina program med hjälp av de inbyggda funktionerna i Azure-plattformen.  
-**Detaljer** : risken för attacker ökar med programmets storlek (arean). Du kan minska arean genom att använda en godkännande lista för att stänga det exponerade IP-adressutrymmet och lyssnande portar som inte behövs på belastningsutjämnaren ([Azure Load Balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) och [Azure Application Gateway](../../application-gateway/application-gateway-create-probe-portal.md)).
+**Bästa praxis**: säkerhets försvars nivåer i ett program minskar risken för en lyckad attack. Implementera säkra utformningar för dina program med hjälp av de inbyggda funktionerna i Azure-plattformen.  
+**Detaljer**: risken för attacker ökar med programmets storlek (arean). Du kan minska arean genom att använda en godkännande lista för att stänga det exponerade IP-adressutrymmet och lyssnande portar som inte behövs på belastningsutjämnaren ([Azure Load Balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) och [Azure Application Gateway](../../application-gateway/application-gateway-create-probe-portal.md)).
 
 [Nätverks säkerhets grupper](../../virtual-network/network-security-groups-overview.md) är ett annat sätt att minska angrepps ytan. Du kan använda [tjänst Taggar](../../virtual-network/network-security-groups-overview.md#service-tags) och [program säkerhets grupper](../../virtual-network/network-security-groups-overview.md#application-security-groups) för att minimera komplexiteten för att skapa säkerhets regler och konfigurera nätverks säkerhet som ett naturligt tillägg till ett programs struktur.
 
@@ -207,16 +207,16 @@ Aktivera Azure Policy för att övervaka och upprätthålla din organisations sk
 
 Här följer några rekommenderade säkerhets metoder när du har infört Azure Policy:
 
-**Bästa praxis** : principen stöder flera typer av effekter. Du kan läsa om dem i [Azure policy definitions struktur](../../governance/policy/concepts/definition-structure.md#policy-rule). Affärs åtgärder kan påverkas negativt av återställnings **effekten och** den **åtgärd** som tillämpas, så börja med **gransknings** effekten för att begränsa risken för negativ påverkan från principen.   
-**Information** : [Starta princip distributioner i gransknings läge](../../governance/policy/concepts/definition-structure.md#policy-rule) och fortsätt sedan till **neka** eller **Reparera**. Testa och granska resultatet av gransknings effekterna innan du går vidare till **neka** eller **åtgärda**.
+**Bästa praxis**: principen stöder flera typer av effekter. Du kan läsa om dem i [Azure policy definitions struktur](../../governance/policy/concepts/definition-structure.md#policy-rule). Affärs åtgärder kan påverkas negativt av återställnings **effekten och** den **åtgärd** som tillämpas, så börja med **gransknings** effekten för att begränsa risken för negativ påverkan från principen.   
+**Information**: [Starta princip distributioner i gransknings läge](../../governance/policy/concepts/definition-structure.md#policy-rule) och fortsätt sedan till **neka** eller **Reparera**. Testa och granska resultatet av gransknings effekterna innan du går vidare till **neka** eller **åtgärda**.
 
 Mer information finns i [skapa och hantera principer för att genomdriva efterlevnad](../../governance/policy/tutorials/create-and-manage.md).
 
-**Bästa praxis** : identifiera de roller som ansvarar för övervakning av princip överträdelser och se till att rätt reparations åtgärd vidtas snabbt.   
-**Information** : ha den tilldelade rollen övervaka efterlevnaden via [Azure Portal](../../governance/policy/how-to/get-compliance-data.md#portal) eller via [kommando raden](../../governance/policy/how-to/get-compliance-data.md#command-line).
+**Bästa praxis**: identifiera de roller som ansvarar för övervakning av princip överträdelser och se till att rätt reparations åtgärd vidtas snabbt.   
+**Information**: ha den tilldelade rollen övervaka efterlevnaden via [Azure Portal](../../governance/policy/how-to/get-compliance-data.md#portal) eller via [kommando raden](../../governance/policy/how-to/get-compliance-data.md#command-line).
 
-**Bästa praxis** : Azure policy är en teknisk åter givning av en organisations skriftliga principer. Mappa alla Azure Policys definitioner till organisations principer för att minska förvirring och öka konsekvens.   
-**Information** : dokument mappning i din organisations dokumentation eller i själva Azure policy definitionen genom att lägga till en referens till organisations principen i [princip definitionen](../../governance/policy/concepts/definition-structure.md#display-name-and-description) eller beskrivningen av [initiativ definitionen](../../governance/policy/concepts/initiative-definition-structure.md#metadata) .
+**Bästa praxis**: Azure policy är en teknisk åter givning av en organisations skriftliga principer. Mappa alla Azure Policys definitioner till organisations principer för att minska förvirring och öka konsekvens.   
+**Information**: dokument mappning i din organisations dokumentation eller i själva Azure policy definitionen genom att lägga till en referens till organisations principen i [princip definitionen](../../governance/policy/concepts/definition-structure.md#display-name-and-description) eller beskrivningen av [initiativ definitionen](../../governance/policy/concepts/initiative-definition-structure.md#metadata) .
 
 ## <a name="monitor-azure-ad-risk-reports"></a>Övervaka Azure AD-riskfyllda rapporter
 De flesta säkerhets överträdelser sker när angripare får åtkomst till en miljö genom att stjäla en användares identitet. Det är ingen enkel uppgift att identifiera komprometterade identiteter. Azure AD använder anpassningsbara algoritmer för maskin inlärning och heuristik för att identifiera misstänkta åtgärder som är relaterade till dina användar konton. Varje misstänkt misstänkt åtgärd lagras i en post som kallas för [identifiering av risker](../../active-directory/identity-protection/overview-identity-protection.md). Identifieringar av risker registreras i Azure AD-säkerhetsrapporter. Mer information finns i artikeln om säkerhets [rapporter för användare](../../active-directory/identity-protection/overview-identity-protection.md) och [riskfyllda inloggningar](../../active-directory/identity-protection/overview-identity-protection.md).

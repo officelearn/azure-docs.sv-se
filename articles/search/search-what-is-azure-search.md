@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 10/22/2020
 ms.custom: contperfq1
-ms.openlocfilehash: f9a5197b982958fe0a0ff21c4b442142beb38882
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 0062caff7d8d25b263a9b1202f61691c056469af
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422475"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701090"
 ---
 # <a name="what-is-azure-cognitive-search"></a>Vad är Azure Cognitive Search?
 
@@ -28,7 +28,7 @@ En Sök tjänst är arkitekturad mellan de externa data lager som innehåller di
 
 De två primära arbets belastningarna i en Sök tjänst är att *Indexera* och *fråga*.
 
-+ Indexeringen ger text till Sök tjänsten och gör den sökbar. Internt bearbetas inkommande text till tokens och lagras i inverterade index för snabba sökningar. Under indexeringen har du möjlighet att lägga till *kognitiva kunskaper* , antingen fördefinierade från Microsoft eller anpassade kunskaper som du skapar. Den efterföljande analysen och transformeringar kan leda till ny information och strukturer som inte tidigare fanns, vilket ger ett högt verktyg för många Sök-och kunskaps utvinnings scenarier.
++ Indexeringen ger text till Sök tjänsten och gör den sökbar. Internt bearbetas inkommande text till tokens och lagras i inverterade index för snabba sökningar. Under indexeringen har du möjlighet att lägga till *kognitiva kunskaper*, antingen fördefinierade från Microsoft eller anpassade kunskaper som du skapar. Den efterföljande analysen och transformeringar kan leda till ny information och strukturer som inte tidigare fanns, vilket ger ett högt verktyg för många Sök-och kunskaps utvinnings scenarier.
 
 + När ett index har fyllts med sökbara data skickar klient programmet förfrågningar till en Sök tjänst och hanterar svar. All frågekörningen är över ett Sök index som du skapar, äger och lagrar i din tjänst. I din klient app definieras Sök funktionen med hjälp av API: er från Azure Kognitiv sökning, och det kan ta med relevans-justering, komplettering, synonym matchning, fuzzy-matchning, mönster matchning, filter och sortering.
 
@@ -80,7 +80,7 @@ Pull-modellen hämtar data från källor på Azure och skickar dem till ett sök
 
 När du har fyllt i ett index kan du [utfärda Sök frågor](search-query-overview.md) till tjänstens slut punkt med hjälp av enkla HTTP-begäranden med [REST API](/rest/api/searchservice/Search-Documents) eller [.NET SDK](/dotnet/api/azure.search.documents.searchclient.search).
 
-Stega genom att [skapa din första Sökapp](tutorial-csharp-create-first-app.md) för att skapa och utöka en webb sida som samlar in användarindata och hanterar resultat. Du kan också använda [Postman för interaktiva rest](search-get-started-postman.md) -anrop eller den inbyggda [sök Utforskaren](search-explorer.md) i Azure Portal om du vill fråga ett befintligt index.
+Stega genom att [skapa din första Sökapp](tutorial-csharp-create-first-app.md) för att skapa och utöka en webb sida som samlar in användarindata och hanterar resultat. Du kan också använda [Postman eller Visual Studio Code](search-get-started-rest.md)  för interaktiva rest-anrop eller den inbyggda [sök Utforskaren](search-explorer.md) i Azure Portal om du vill fråga ett befintligt index.
 
 ## <a name="how-it-compares"></a>Jämförelse
 

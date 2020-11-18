@@ -1,18 +1,18 @@
 ---
 title: Inbyggda princip definitioner för Azure Virtual Network
 description: Visar Azure Policy inbyggda princip definitioner för Azure Virtual Network. Dessa inbyggda princip definitioner tillhandahåller vanliga metoder för att hantera dina Azure-resurser.
-ms.date: 10/20/2020
+ms.date: 11/17/2020
 ms.topic: reference
 author: KumudD
 ms.author: kumud
 ms.service: virtual-network
 ms.custom: subject-policy-reference
-ms.openlocfilehash: c843c2dad444bf3e764d54125b224d2ca41de7fa
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 269749ae517c8207357ae3a073285fd0db026730
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331625"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94734525"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-virtual-network"></a>Azure Policy inbyggda definitioner för Azure Virtual Network
 
@@ -20,7 +20,7 @@ Den här sidan är ett index över [Azure policy](../governance/policy/overview.
 
 Namnet på varje inbyggd princip definition länkar till princip definitionen i Azure Portal. Använd länken i kolumnen **version** om du vill visa källan på [Azure policy GitHub-lagrings platsen](https://github.com/Azure/azure-policy).
 
-## <a name="azure-virtual-network"></a>Azure Virtual Network
+## <a name="azure-virtual-network"></a>Virtuellt Azure-nätverk
 
 [!INCLUDE [azure-policy-reference-policies-network](../../includes/policy/reference/bycat/policies-network.md)]
 

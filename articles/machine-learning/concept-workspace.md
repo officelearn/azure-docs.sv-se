@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/22/2020
-ms.openlocfilehash: 65cdf444386d1b10cf225010c55170e5b47b3eb4
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 7acb555ddde20d6512119af85a8db055bcd9eeed
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541359"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701661"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Vad är en Azure Machine Learning-arbetsyta?
 
@@ -89,7 +89,7 @@ Du kan också utföra följande hanterings uppgifter för arbets ytan:
 Det finns flera sätt att skapa en arbets yta:  
 
 * Använd [Azure Portal](how-to-manage-workspace.md?tabs=azure-portal#create-a-workspace) för ett punkt-och-klick-gränssnitt för att vägleda dig genom varje steg.
-* Använd [Azure Machine Learning SDK för python](how-to-manage-workspace.md?tabs=python#create-a-workspace) för att skapa en arbets yta i farten från Python-skript eller Jupiter-anteckningsböcker
+* Använd [Azure Machine Learning SDK för python](how-to-manage-workspace.md?tabs=python#create-a-workspace) för att skapa en arbets yta i farten från Python-skript eller Jupyter-anteckningsböcker
 * Använd en [Azure Resource Manager mall](how-to-create-workspace-template.md) eller [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) när du behöver automatisera eller anpassa skapandet med företags säkerhets standarder.
 * Använd [vs Code-tillägget](how-to-manage-resources-vscode.md#create-a-workspace)om du arbetar i Visual Studio Code.
 

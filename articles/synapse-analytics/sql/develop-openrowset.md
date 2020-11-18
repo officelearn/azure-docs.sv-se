@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: b08e834233e1ce12392d940cb0ccc0bef7e96158
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 20003a91726e5ccee7f73d85b7c9a9389801e0ad
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337754"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701763"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Använda OpenRowSet med Server lös SQL-pool (för hands version) i Azure Synapse Analytics
 
@@ -84,7 +84,7 @@ OPENROWSET
     FORMAT = 'CSV'
     [ <bulk_options> ] }  
 )  
-WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })  
+WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })  
 [AS] table_alias(column_alias,...n)
  
 <bulk_options> ::=  
@@ -129,7 +129,7 @@ Nedan hittar du relevanta <storage account path> värden som länkar till din sp
 Anger en sökväg i lagrings utrymmet som pekar på den mapp eller fil som du vill läsa. Om sökvägen pekar på en behållare eller mapp kommer alla filer att läsas från den aktuella behållaren eller mappen. Filer i undermappar tas inte med. 
 
 Du kan använda jokertecken för att rikta in flera filer eller mappar. Användning av flera jokertecken som inte är i följd tillåts.
-Nedan visas ett exempel som läser alla *CSV* -filer som börjar med *ifyllning* från alla mappar som börjar med */CSV/population* :  
+Nedan visas ett exempel som läser alla *CSV* -filer som börjar med *ifyllning* från alla mappar som börjar med */CSV/population*:  
 `https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv`
 
 Om du anger att unstructured_data_path ska vara en mapp, kommer en server lös SQL-pool fråga att hämta filer från den mappen. 
@@ -156,7 +156,7 @@ MED WITH-satsen kan du ange kolumner som du vill läsa från filer.
     > Kolumn namn i Parquet-filer är Skift läges känsliga. Om du anger ett kolumn namn med versaler som skiljer sig från kolumnens namn Skift läge i Parquet-filen returneras NULL-värden för den kolumnen.
 
 
-column_name = namn för kolumnen utdata. Om det här namnet anges åsidosätts kolumn namnet i käll filen.
+column_name = namn för kolumnen utdata. Om det här namnet anges åsidosätts kolumn namnet i käll filen och kolumn namnet som anges i JSON-sökväg om det finns ett. Om json_path inte anges kommer den automatiskt att läggas till som $ .column_name. Kontrol lera json_path argumentet för beteende.
 
 column_type = datatyp för kolumnen utdata. Konvertering av implicit datatyp sker här.
 
@@ -171,11 +171,16 @@ WITH (
 )
 ```
 
+json_path = [JSON Path-uttryck](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15) till kolumn-eller kapslad egenskap. Standard [Sök vägs läget](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15#PATHMODE) är lax.
+
+> [!NOTE]
+> Frågan i strikt läge Miss fungerar med ett fel om den angivna sökvägen inte finns. Frågan kommer att lyckas i lax-läge och uttryck för JSON-sökväg kommer att utvärderas till NULL.
+
 **\<bulk_options>**
 
 FIELDTERMINATOR = field_terminator
 
-Anger vilken fält avslutning som ska användas. Standard fält avslutning är ett kommatecken (" **,** ").
+Anger vilken fält avslutning som ska användas. Standard fält avslutning är ett kommatecken ("**,**").
 
 ROWTERMINATOR = row_terminator
 
@@ -273,7 +278,7 @@ Parquet-filer innehåller typ beskrivningar för varje kolumn. I följande tabel
 | INT32 |INT (8, falskt) |tinyint |
 | INT32 |INT (16, falskt) |int |
 | INT32 |INT (32, falskt) |bigint |
-| INT32 |DATE |date |
+| INT32 |DATE |datum |
 | INT32 |DECIMAL |decimal |
 | INT32 |TID (MILLIS)|time |
 | INT64 |INT (64, sant) |bigint |
@@ -359,6 +364,32 @@ WITH (
     [stateName] VARCHAR (50),
     [population] bigint
 ) AS [r]
+```
+
+### <a name="specify-columns-using-json-paths"></a>Ange kolumner med JSON-sökvägar
+
+I följande exempel visas hur du kan använda [uttryck för JSON-sökvägar](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15) i With-satsen och visa skillnaden mellan strikt och lax Sök vägs lägen: 
+
+```sql
+SELECT 
+    TOP 1 *
+FROM  
+    OPENROWSET(
+        BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet',
+        FORMAT='PARQUET'
+    )
+WITH (
+    --lax path mode samples
+    [stateName] VARCHAR (50), -- this one works as column name casing is valid - it targets the same column as the next one
+    [stateName_explicit_path] VARCHAR (50) '$.stateName', -- this one works as column name casing is valid
+    [COUNTYNAME] VARCHAR (50), -- STATEname column will contain NULLs only because of wrong casing - it targets the same column as the next one
+    [countyName_explicit_path] VARCHAR (50) '$.COUNTYNAME', -- STATEname column will contain NULLS only because of wrong casing and default path mode being lax
+
+    --strict path mode samples
+    [population] bigint 'strict $.population' -- this one works as column name casing is valid
+    --,[population2] bigint 'strict $.POPULATION' -- this one fails because of wrong casing and strict path mode
+)
+AS [r]
 ```
 
 ## <a name="next-steps"></a>Nästa steg

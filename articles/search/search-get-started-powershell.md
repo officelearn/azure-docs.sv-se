@@ -10,18 +10,18 @@ ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 08/17/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8ad5c73fee93d935ad050cea8feca2754649a61f
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 476a2cf0d5886ffa677461a5a8156cdfa4a168a3
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058513"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701795"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-powershell-using-rest-apis"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i PowerShell med REST API: er
 > [!div class="op_single_selector"]
 > * [PowerShell (REST)]()
 > * [C#](./search-get-started-dotnet.md)
-> * [Postman (REST)](search-get-started-postman.md)
+> * [REST](search-get-started-rest.md)
 > * [Python](search-get-started-python.md)
 > * [Portal](search-get-started-portal.md)
 > 
@@ -46,7 +46,7 @@ För att kunna göra REST-anrop behöver du tjänstens webbadress och en åtkoms
 
 2. I **Inställningar**  >  **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
 
-![Hämta en HTTP-slutpunkt och åtkomst nyckel](media/search-get-started-postman/get-url-key.png "Hämta en HTTP-slutpunkt och åtkomst nyckel")
+![Hämta en HTTP-slutpunkt och åtkomst nyckel](media/search-get-started-rest/get-url-key.png "Hämta en HTTP-slutpunkt och åtkomst nyckel")
 
 Alla begär Anden kräver en API-nyckel på varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
@@ -127,7 +127,7 @@ Det här indexet heter "Hotels-snabb start" och innehåller fält definitionerna
     $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart?api-version=2020-06-30"
     ```
 
-3. Kör kommandot med **$URL**, **$headers**och **$Body** för att skapa indexet för tjänsten. 
+3. Kör kommandot med **$URL**, **$headers** och **$Body** för att skapa indexet för tjänsten. 
 
     ```powershell
     Invoke-RestMethod -Uri $url -Headers $headers -Method Put -Body $body | ConvertTo-Json
@@ -277,7 +277,7 @@ Om du vill skicka dokument använder du en HTTP POST-begäran till indexets URL-
     $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2020-06-30"
     ```
 
-1. Kör kommandot med **$URL**, **$headers**och **$Body** för att läsa in dokument till hotell-snabb starts indexet.
+1. Kör kommandot med **$URL**, **$headers** och **$Body** för att läsa in dokument till hotell-snabb starts indexet.
 
     ```powershell
     Invoke-RestMethod -Uri $url -Headers $headers -Method Post -Body $body | ConvertTo-Json

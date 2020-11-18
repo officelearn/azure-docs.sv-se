@@ -1,6 +1,6 @@
 ---
-title: En snabb start för att läsa in data i SQL-pool med kopierings aktivitet
-description: Använd Azure Synapse Analytics för att läsa in data i SQL-poolen
+title: 'Snabb start: så här läser du in data i en dedikerad SQL-pool med kopierings aktiviteten'
+description: Använd pipeline kopierings aktiviteten i Azure Synapse Analytics för att läsa in data i en dedikerad SQL-pool.
 services: synapse-analytics
 ms.author: jingwang
 author: linda33wj
@@ -10,32 +10,32 @@ ms.service: synapse-analytics
 ms.topic: quickstart
 ms.custom: seo-lt-2019
 ms.date: 11/02/2020
-ms.openlocfilehash: 12b5530ccf154220b11f9d1286d629caf2209475
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 542fde3ac951bf60d999361dc114491515fb9528
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280925"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94735253"
 ---
-# <a name="quickstart-load-data-into-sql-pool-using-copy-activity"></a>Snabb start: Läs in data i SQL-pool med kopierings aktivitet
+# <a name="quickstart-load-data-into-dedicated-sql-pool-using-the-copy-activity"></a>Snabb start: Läs in data i dedikerad SQL-pool med kopierings aktiviteten
 
-Azure Synapse Analytics erbjuder olika analys verktyg som hjälper dig att mata in, transformera, modellera och analysera dina data. En SQL-pool ger T-SQL-baserade funktioner för beräkning och lagring. När du har skapat en SQL-pool på din Synapse-arbetsyta kan data läsas in, modelleras, bearbetas och levereras för snabbare analytiska insikter.
+Azure Synapse Analytics erbjuder olika analys verktyg som hjälper dig att mata in, transformera, modellera och analysera dina data. En dedikerad SQL-pool ger T-SQL-baserade beräknings-och lagrings funktioner. När du har skapat en dedikerad SQL-pool på din Synapse-arbetsyta kan data läsas in, modelleras, bearbetas och levereras för snabbare analytiska insikter.
 
-I den här snabb starten får du lära dig hur du *läser in data från Azure SQL Database i Azure Synapse Analytics*. Du kan följa liknande steg för att kopiera data från andra typer av data lager. Och det liknande flödet gäller även för data kopiering mellan andra källor och mottagare.
+I den här snabb starten får du lära dig hur du *läser in data från Azure SQL Database i Azure Synapse Analytics*. Du kan följa liknande steg för att kopiera data från andra typer av data lager. Detta liknande flöde gäller även för data kopiering för andra källor och mottagare.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration: om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 * Azure Synapse-arbetsyta: skapa en Synapse-arbetsyta med hjälp av Azure Portal följa anvisningarna i [snabb start: skapa en Synapse-arbetsyta](quickstart-create-workspace.md).
 * Azure SQL Database: den här självstudien kopierar data från Adventure Works LT exempel data uppsättning i Azure SQL Database. Du kan skapa den här exempel databasen i SQL Database genom att följa anvisningarna i [skapa en exempel databas i Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md). Eller så kan du använda andra data lager genom att följa liknande steg.
 * Azure Storage-konto: Azure Storage används som *mellanlagringsområdet* i kopierings åtgärden. Om du inte har något Azure-lagringskonto finns det anvisningar i [Skapa ett lagringskonto](../storage/common/storage-account-create.md).
-* Azure Synapse Analytics: du använder en SQL-pool som data lager för mottagare. Om du inte har en Azure Synapse Analytics-instans går du till [skapa en SQL-pool](quickstart-create-sql-pool-portal.md) för steg för att skapa en.
+* Azure Synapse Analytics: du använder en dedikerad SQL-pool som data lager för mottagare. Om du inte har en Azure Synapse Analytics-instans kan du läsa [skapa en dedikerad SQL-pool](quickstart-create-sql-pool-portal.md) för steg för att skapa en.
 
 ### <a name="navigate-to-the-synapse-studio"></a>Navigera till Synapse Studio
 
-När din Azure Synapse-arbetsyta har skapats kan du öppna Synapse Studio på två sätt:
+När din Synapse-arbetsyta har skapats kan du öppna Synapse Studio på två sätt:
 
-* Öppna din Synapse-arbetsyta i [Azure Portal](https://ms.portal.azure.com/#home). Överst i översikts avsnittet väljer du **Starta Synapse Studio**.
+* Öppna din Synapse-arbetsyta i [Azure Portal](https://ms.portal.azure.com/#home). Välj **Öppna** på kortet Open Synapse Studio under komma igång.
 * Öppna [Azure Synapse Analytics](https://web.azuresynapse.net/) och logga in på din arbets yta.
 
 I den här snabb starten använder vi arbets ytan med namnet "adftest2020" som exempel. Den kommer automatiskt att gå till start sidan för Synapse Studio.
@@ -44,7 +44,7 @@ I den här snabb starten använder vi arbets ytan med namnet "adftest2020" som e
 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
 
-I Azure Synapse Analytics är en länkad tjänst där du definierar din anslutnings information till andra tjänster. I det här avsnittet skapar du följande två typer av länkade tjänster: Azure SQL Database och Azure Data Lake Storage Gen2 länkade tjänster.
+I Azure Synapse Analytics är en länkad tjänst där du definierar din anslutnings information till andra tjänster. I det här avsnittet skapar du följande två typer av länkade tjänster: Azure SQL Database och Azure Data Lake Storage Gen2 (ADLS Gen2) länkade tjänster.
 
 1. På Start sidan för Synapse Studio väljer du fliken **Hantera** i det vänstra navigerings fältet.
 1. Under externa anslutningar väljer du länkade tjänster.
@@ -66,7 +66,7 @@ I Azure Synapse Analytics är en länkad tjänst där du definierar din anslutni
  
 ## <a name="create-a-pipeline"></a>Skapa en pipeline
 
-En pipeline innehåller det logiska flödet för en körning av en uppsättning aktiviteter. I det här avsnittet ska du skapa en pipeline som innehåller en kopierings aktivitet som matar in data från Azure SQL Database i en SQL-pool.
+En pipeline innehåller det logiska flödet för en körning av en uppsättning aktiviteter. I det här avsnittet ska du skapa en pipeline som innehåller en kopierings aktivitet som matar in data från Azure SQL Database i en dedikerad SQL-pool.
 
 1. Gå till fliken **integrera** . Välj på plus ikonen bredvid pipelinens huvud och välj pipeline.
 
@@ -83,8 +83,8 @@ En pipeline innehåller det logiska flödet för en körning av en uppsättning 
 
    ![Konfigurera käll data uppsättnings egenskaper](media/quickstart-copy-activity-load-sql-pool/source-dataset-properties.png)
 1. Välj **OK** när du är färdig.
-1. Välj på kopierings aktiviteten och gå till fliken mottagare. Välj **ny** för att skapa en ny data uppsättning för mottagare.
-1. Välj **SQL Analytics-pool** som data lager och välj **Fortsätt**.
+1. Välj kopierings aktiviteten och gå till fliken mottagare. Välj **ny** för att skapa en ny data uppsättning för mottagare.
+1. Välj **Azure Synapse Dedicated SQL-pool** som data lager och välj **Fortsätt**.
 1. I rutan  **Ange egenskaper** väljer du den SQL Analytics-pool som du skapade i föregående steg. Om du skriver till en befintlig tabell väljer du den i list rutan under *tabell namn* . Annars kan du kontrol lera "redigera" och ange det nya tabell namnet. Välj **OK** när du är färdig.
 1. För inställningar för data uppsättning för mottagare aktiverar du **Skapa tabell automatiskt** i fältet tabell alternativ.
 
@@ -122,7 +122,7 @@ I det här avsnittet aktiverar du pipelinen som publicerades i föregående steg
    ![Aktivitetsinformation](media/quickstart-copy-activity-load-sql-pool/activity-details.png)
 
 1. Om du vill växla tillbaka till vyn pipelines körs väljer du länken **alla pipeline-körningar** överst. Om du vill uppdatera listan väljer du **Refresh** (Uppdatera).
-1. Kontrol lera att dina data är korrekt skrivna i SQL-poolen.
+1. Kontrol lera att dina data är korrekt skrivna i den dedikerade SQL-poolen.
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: e8eab3a1054541b1ef7fc6d2e65089f01f0df3c0
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: ad3980db6348867e92664e314326d23b4274abcc
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517163"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701576"
 ---
 # <a name="design-secure-applications-on-azure"></a>Utforma säkra program på Azure
 I den här artikeln presenterar vi säkerhets aktiviteter och kontroller som du bör tänka på när du utformar program för molnet. Utbildnings resurser tillsammans med säkerhets frågor och koncept som du bör tänka på under krav och design faser i Microsoft [Security Development Lifecycle (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) omfattas. Målet är att hjälpa dig att definiera aktiviteter och Azure-tjänster som du kan använda för att utforma ett säkrare program.
@@ -217,7 +217,7 @@ Använd de mekanismer för autentisering och auktorisering som tillhandahålls a
 
 Begreppet [minsta behörighet](https://en.wikipedia.org/wiki/Principle_of_least_privilege) innebär att ge användarna den exakta nivån av åtkomst och kontroll de behöver för att utföra sina jobb och inget mer.
 
-Skulle en program varu utvecklare behöva domän administratörs rättigheter? Skulle en administrativ assistent ha åtkomst till administrativa kontroller på sin personliga dator? Att utvärdera åtkomsten till program varan är ingen annan. Om du använder [rollbaserad åtkomst kontroll (RBAC)](../../role-based-access-control/overview.md) för att ge användarna olika förmågor och behörigheter i ditt program ger du inte alla åtkomst till allt. Genom att begränsa åtkomsten till vad som krävs för varje roll begränsar du risken för ett säkerhets problem som uppstår.
+Skulle en program varu utvecklare behöva domän administratörs rättigheter? Skulle en administrativ assistent ha åtkomst till administrativa kontroller på sin personliga dator? Att utvärdera åtkomsten till program varan är ingen annan. Om du använder [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/overview.md) för att ge användarna olika förmågor och auktoriteter i ditt program ger du inte alla åtkomst till allt. Genom att begränsa åtkomsten till vad som krävs för varje roll begränsar du risken för ett säkerhets problem som uppstår.
 
 Se till att ditt program har [minst behörighet](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models#in-applications) över sina åtkomst mönster.
 
@@ -233,7 +233,7 @@ Implementera JIT-åtkomst ( *just-in-Time* ) för att ytterligare minska exponer
 
 ### <a name="require-re-authentication-for-important-transactions"></a>Kräv ny autentisering för viktiga transaktioner
 
-[Förfalskning av begäran mellan webbplatser](/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (även kallat *XSRF* eller *CSRF* ) är en attack mot webb värdbaserade appar där en skadlig webbapp påverkar interaktionen mellan en klient webbläsare och en webbapp som litar på webbläsaren. Förfalsknings angrepp mellan webbplatser är möjligt eftersom webbläsare skickar vissa typer av autentiseringstoken automatiskt till varje begäran till en webbplats.
+[Förfalskning av begäran mellan webbplatser](/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (även kallat *XSRF* eller *CSRF*) är en attack mot webb värdbaserade appar där en skadlig webbapp påverkar interaktionen mellan en klient webbläsare och en webbapp som litar på webbläsaren. Förfalsknings angrepp mellan webbplatser är möjligt eftersom webbläsare skickar vissa typer av autentiseringstoken automatiskt till varje begäran till en webbplats.
 Den här typen av exploatering kallas även för ett *angrepp* eller en *session* som kan utföras på grund av att angreppet utnyttjar användarens tidigare autentiserade session.
 
 Det bästa sättet att skydda mot den här typen av angrepp är att fråga användaren om något som bara användaren kan ange före varje viktig transaktion, till exempel ett köp, konto inaktive ring eller en lösen ords ändring. Du kan be användaren att ange sitt lösen ord på nytt, slutföra en captcha eller skicka en hemlig token som bara användaren skulle ha. Den vanligaste metoden är den hemliga token.
@@ -244,7 +244,7 @@ Att förlora nycklar och autentiseringsuppgifter är ett vanligt problem. Det en
 
 Lägg alltid till nycklar, certifikat, hemligheter och anslutnings strängar i en nyckel hanterings lösning. Du kan använda en centraliserad lösning där nycklar och hemligheter lagras i HSM: er (Hardware Security modules). Azure ger dig en HSM i molnet med [Azure Key Vault](../../key-vault/general/overview.md).
 
-Key Vault är ett *hemligt Arkiv* : det är en centraliserad moln tjänst för att lagra program hemligheter. Key Vault skyddar dina konfidentiella data genom att spara program hemligheter på en enda, central plats och tillhandahålla säker åtkomst, behörighets kontroll och åtkomst loggning.
+Key Vault är ett *hemligt Arkiv*: det är en centraliserad moln tjänst för att lagra program hemligheter. Key Vault skyddar dina konfidentiella data genom att spara program hemligheter på en enda, central plats och tillhandahålla säker åtkomst, behörighets kontroll och åtkomst loggning.
 
 Hemligheter lagras i enskilda *valv*. Varje valv har sina egna konfigurations-och säkerhets principer för att kontrol lera åtkomst. Du kommer till dina data via en REST API eller via en klient-SDK som är tillgänglig för de flesta programmeringsspråk.
 

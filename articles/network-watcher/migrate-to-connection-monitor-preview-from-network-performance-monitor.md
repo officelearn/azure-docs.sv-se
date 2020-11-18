@@ -1,7 +1,7 @@
 ---
-title: Migrera till anslutnings övervakaren (förhands granskning) från Övervakare av nätverksprestanda
+title: Migrera till anslutnings övervakaren från Övervakare av nätverksprestanda
 titleSuffix: Azure Network Watcher
-description: Lär dig hur du migrerar till anslutnings övervakaren (för hands version) från Övervakare av nätverksprestanda.
+description: Lär dig hur du migrerar till anslutnings övervakaren från Övervakare av nätverksprestanda.
 services: network-watcher
 documentationcenter: na
 author: vinynigam
@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/2020
 ms.author: vinigam
-ms.openlocfilehash: dcbb82c1315e6150ddcfadbb52b2976447329b87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07194348e6f9f75953f33ffea95dece5f3831355
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441841"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701627"
 ---
-# <a name="migrate-to-connection-monitor-preview-from-network-performance-monitor"></a>Migrera till anslutnings övervakaren (förhands granskning) från Övervakare av nätverksprestanda
+# <a name="migrate-to-connection-monitor-from-network-performance-monitor"></a>Migrera till anslutnings övervakaren från Övervakare av nätverksprestanda
 
-Du kan migrera tester från Övervakare av nätverksprestanda (NPM) till ny, förbättrad anslutnings övervakare (för hands version) med ett enda klick och med noll stillestånds tid. Läs mer om fördelarna i [anslutnings övervakaren (för hands version)](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview).
+Du kan migrera tester från Övervakare av nätverksprestanda (NPM) till ny, förbättrad anslutnings övervakare med ett enda klick och med noll stillestånds tid. Läs mer om fördelarna i [anslutnings övervakaren](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview).
 
 >[!NOTE]
-> Endast tester från övervakaren för tjänst anslutning kan migreras till anslutnings övervakaren (för hands version).
+> Endast tester från övervakaren för tjänst anslutning kan migreras till anslutnings övervakaren.
 >
 
 ## <a name="key-points-to-note"></a>Viktiga punkter att Observera
@@ -32,11 +32,11 @@ Du kan migrera tester från Övervakare av nätverksprestanda (NPM) till ny, fö
 Migreringen hjälper till att producera följande resultat:
 
 * Lokala agenter och brand Väggs inställningar fungerar som de är. Inga ändringar krävs. Log Analytics agenter som är installerade på virtuella Azure-datorer måste ersättas med Network Watcher-tillägget.
-* Befintliga tester mappas till anslutnings övervakaren (förhands granskning) > test grupp > test format. Genom att välja **Redigera**kan du Visa och ändra egenskaperna för den nya anslutnings övervakaren (för hands version), hämta en mall för att göra ändringar i den och skicka mallen via Azure Resource Manager.
+* Befintliga tester mappas till anslutnings övervakaren > test grupp > test format. Genom att välja **Redigera** kan du Visa och ändra egenskaperna för den nya anslutnings övervakaren, hämta en mall för att göra ändringar i den och skicka mallen via Azure Resource Manager.
 * Agenter skickar data till både arbets ytan Log Analytics och måtten.
 * Data övervakning:
    * **Data i Log Analytics**: innan migreringen finns data kvar i arbets ytan där NPM har kon figurer ATS i NetworkMonitoring-tabellen. Efter migreringen går data till NetworkMonitoring-tabellen och ConnectionMonitor_CL tabellen i samma arbets yta. När testerna har inaktiverats i NPM lagras data endast i ConnectionMonitor_CLs tabellen.
-   * **Loggbaserade aviseringar, instrument paneler och integreringar**: du måste redigera frågorna manuellt baserat på den nya ConnectionMonitor_CLs tabellen. Information om hur du återskapar aviseringarna i mått finns i [övervakning av nätverks anslutning med anslutnings övervakare (för hands version)](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#metrics-in-azure-monitor).
+   * **Loggbaserade aviseringar, instrument paneler och integreringar**: du måste redigera frågorna manuellt baserat på den nya ConnectionMonitor_CLs tabellen. Information om hur du återskapar aviseringarna i mått finns i [övervakning av nätverks anslutning med anslutnings övervakaren](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#metrics-in-azure-monitor).
     
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -45,11 +45,11 @@ Migreringen hjälper till att producera följande resultat:
 
 ## <a name="migrate-the-tests"></a>Migrera testerna
 
-Om du vill migrera testerna från Övervakare av nätverksprestanda till anslutnings övervakaren (för hands version) gör du följande:
+Om du vill migrera testerna från Övervakare av nätverksprestanda till anslutnings övervakaren gör du följande:
 
-1. I Network Watcher väljer du **anslutnings övervakare**och väljer sedan fliken **MIGRERA tester från NPM** . 
+1. I Network Watcher väljer du **anslutnings övervakare** och väljer sedan fliken **MIGRERA tester från NPM** . 
 
-    ![Skärm bild som visar fönstret "migrera test från NPM" i Network Watcher | Anslutnings övervakare (för hands version).](./media/connection-monitor-2-preview/migrate-npm-to-cm-preview.png)
+    ![Skärm bild som visar fönstret "migrera test från NPM" i Network Watcher | Anslutnings övervakare.](./media/connection-monitor-2-preview/migrate-npm-to-cm-preview.png)
     
 1. I list rutorna väljer du din prenumeration och arbets yta och väljer sedan den NPM-funktion som du vill migrera. För närvarande kan du endast migrera tester från övervakaren för tjänst anslutning.  
 1. Klicka på **Importera** för att migrera testerna.
@@ -60,9 +60,9 @@ När migreringen har påbörjats sker följande ändringar:
    * Övervaknings data lagras nu i samma Log Analytics arbets yta där NPM har Aktiver ATS, i en ny tabell med namnet Connectionmonitor_CL. 
    * Test namnet överförs som test gruppens namn. Test beskrivningen har inte migrerats.
    * Käll-och mål slut punkter skapas och används i den nya test gruppen. För lokala agenter formateras slut punkterna som `<workspaceName>_"endpoint"_<FQDN of on-premises machine>` . För Azure, om migreringen innehåller agenter som inte körs, måste du aktivera agenterna och migrera igen.
-   * Mål porten och söknings intervallet flyttas till en test konfiguration med namnet *TC_ \<testname> * och *TC_ \<testname> _AppThresholds*. Protokollet anges baserat på port värden. Tröskelvärden för lyckade och andra valfria egenskaper lämnas tomma.
+   * Mål porten och söknings intervallet flyttas till en test konfiguration med namnet *TC_ \<testname>* och *TC_ \<testname> _AppThresholds*. Protokollet anges baserat på port värden. Tröskelvärden för lyckade och andra valfria egenskaper lämnas tomma.
 * NPM är inte inaktiverat, så de migrerade testerna kan fortsätta att skicka data till NetworkMonitoring och ConnectionMonitor_CL tabeller. Den här metoden säkerställer att befintliga loggbaserade aviseringar och integreringar inte påverkas.
-* Den nyligen skapade anslutnings övervakaren visas i anslutnings övervakaren (för hands version).
+* Den nyligen skapade anslutnings övervakaren visas i anslutnings övervakaren.
 
 Efter migreringen, se till att:
 * Inaktivera testerna manuellt i NPM. Innan du gör det kan du fortsätta att betala för dem. 
@@ -72,6 +72,6 @@ Efter migreringen, se till att:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om anslutnings övervakaren (för hands version) finns i:
-* [Migrera från anslutnings övervakaren till anslutnings övervakaren (för hands version)](migrate-to-connection-monitor-preview-from-connection-monitor.md)
-* [Skapa anslutnings övervakare (för hands version) med hjälp av Azure Portal](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview-create-using-portal)
+Mer information om anslutnings övervakaren finns i:
+* [Migrera från anslutnings övervakaren till anslutnings övervakaren](migrate-to-connection-monitor-preview-from-connection-monitor.md)
+* [Skapa anslutnings övervakare med hjälp av Azure Portal](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview-create-using-portal)

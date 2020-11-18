@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: aad953483749d676844221f7e519f50c50b63ad4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8f1fa07b94072d37cf83320b6c8956d3b412f12
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88948648"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701124"
 ---
 # <a name="synonyms-in-azure-cognitive-search"></a>Synonymer i Azure Kognitiv sökning
 
@@ -23,7 +23,7 @@ I Azure Kognitiv sökning görs synonym expansion vid tidpunkten för frågan. D
 
 ## <a name="create-synonyms"></a>Skapa synonymer
 
-Det finns inget Portal stöd för att skapa synonymer, men du kan använda REST API eller .NET SDK. För att komma igång med REST rekommenderar vi att du [använder Postman](search-get-started-postman.md) och formulering av begär Anden med följande API: [skapa synonym Maps](/rest/api/searchservice/create-synonym-map). För C#-utvecklare kan du komma igång med att [lägga till synonymer i Azure kognitiv sökning med C#](search-synonyms-tutorial-sdk.md).
+Det finns inget Portal stöd för att skapa synonymer, men du kan använda REST API eller .NET SDK. För att komma igång med REST rekommenderar vi [Postman eller Visual Studio Code](search-get-started-rest.md) och formulering av förfrågningar som använder detta API: [skapa synonym Maps](/rest/api/searchservice/create-synonym-map). För C#-utvecklare kan du komma igång med att [lägga till synonymer i Azure kognitiv sökning med C#](search-synonyms-tutorial-sdk.md).
 
 Om du använder [Kundhanterade nycklar](search-security-manage-encryption-keys.md) för tjänstens kryptering på plats kan du tillämpa det skyddet på innehållet i synonym kartan.
 

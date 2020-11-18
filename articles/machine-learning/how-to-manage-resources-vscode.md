@@ -1,7 +1,7 @@
 ---
 title: Skapa och hantera resurser VS Code Extension (för hands version)
 titleSuffix: Azure Machine Learning
-description: Skapa och hantera resurser med VS Code-tillägget
+description: Lär dig hur du skapar och hanterar Azure Machine Learning-resurser med hjälp av Azure Machine Learning kod tillägget för Visual Studio.
 services: machine-learning
 author: luisquintanilla
 ms.author: luquinta
@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.date: 09/30/2020
-ms.openlocfilehash: 2e410cbc7813031929ea040b2cc4fb2967b99c1b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/16/2020
+ms.openlocfilehash: f8eb18b190b72381f1a93575eb39b3d19d8d431b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319344"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701423"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Hantera Azure Machine Learning-resurser med VS Code-tillägget (förhands granskning)
 
@@ -56,8 +56,8 @@ Alternativa metoder för att skapa en arbets yta är:
 1. Expandera noden prenumeration som innehåller din arbets yta.
 1. Högerklicka på arbets ytan som du vill ta bort.
 1. Välj om du vill ta bort:
-    - *Endast arbets ytan* : det här alternativet tar **bara** bort arbets ytans Azure-resurs. Resurs gruppen, lagrings kontona och alla andra resurser som arbets ytan var kopplad till är fortfarande i Azure.
-    - *Med associerade resurser* : det här alternativet tar bort arbets ytan **och** alla resurser som är kopplade till den.
+    - *Endast arbets ytan*: det här alternativet tar **bara** bort arbets ytans Azure-resurs. Resurs gruppen, lagrings kontona och alla andra resurser som arbets ytan var kopplad till är fortfarande i Azure.
+    - *Med associerade resurser*: det här alternativet tar bort arbets ytan **och** alla resurser som är kopplade till den.
 
 ## <a name="datastores"></a>Datalager
 
@@ -80,7 +80,7 @@ Mer information finns i [data lager](concept-data.md#datastores).
     1. Välj typ av data lager.
     1. Välj din lagrings resurs. Du kan antingen välja en lagrings resurs som är kopplad till din arbets yta eller välja från en giltig lagrings resurs i dina Azure-prenumerationer.
     1. Välj den behållare där dina data finns i den tidigare valda lagrings resursen.
-1. En konfigurations fil visas i VS Code. Om du är nöjd med konfigurations filen väljer du **Spara och fortsätter** eller öppnar kommando paletten vs Code ( **Visa > kommando palett** ) och skriver **Azure ml: Spara och fortsätt**.
+1. En konfigurations fil visas i VS Code. Om du är nöjd med konfigurations filen väljer du **Spara och fortsätter** eller öppnar kommando paletten vs Code (**Visa > kommando palett**) och skriver **Azure ml: Spara och fortsätt**.
 
 ### <a name="manage-a-datastore"></a>Hantera ett data lager
 
@@ -96,8 +96,8 @@ Mer information finns i [data lager](concept-data.md#datastores).
 
 Tillägget stöder för närvarande följande typer av data uppsättningar:
 
-- *Tabell* : låter dig materialisera data till en DataFrame (Pandas eller PySpark).
-- *Fil* : en fil eller samling av filer. Gör att du kan hämta eller montera filer till din beräkning.
+- *Tabell*: låter dig materialisera data till en DataFrame (Pandas eller PySpark).
+- *Fil*: en fil eller samling av filer. Gör att du kan hämta eller montera filer till din beräkning.
 
 Mer information finns i [data uppsättningar](concept-data.md#datasets)
 
@@ -159,12 +159,12 @@ Mer information finns i [miljöer](concept-environments.md).
 1. I prompten:
     1. Ange ett namn för din miljö
     1. Definiera din miljö konfiguration:
-        - *Granskade miljöer* : förkonfigurerade miljöer i Azure Machine Learning. Du kan anpassa miljön ytterligare genom att ändra `dependencies` egenskapen i JSON-filen. Läs mer om [granskade miljöer](resource-curated-environments.md).
-        - *Conda-beroende fil* : för Anaconda-miljöer kan filen som innehåller din miljö definition tillhandahållas.
-        - *Pip-krav fil* : för pip-miljöer kan filen som innehåller din miljö definition tillhandahållas.
-        - *Befintlig Conda-miljö* : det här alternativet söker efter Conda-miljöer i din lokala dator och försöker bygga en miljö från den valda miljön.
-        - *Anpassad* : definiera egna kanaler och beroenden
-    1. En konfigurations fil öppnas i redigeraren. Om du är nöjd med konfigurationen väljer du **Spara och fortsätt** eller öppnar kommando paletten vs Code ( **Visa > kommando palett** ) och skriver **Azure ml: Spara och fortsätt**.
+        - *Granskade miljöer*: förkonfigurerade miljöer i Azure Machine Learning. Du kan anpassa miljön ytterligare genom att ändra `dependencies` egenskapen i JSON-filen. Läs mer om [granskade miljöer](resource-curated-environments.md).
+        - *Conda-beroende fil*: för Anaconda-miljöer kan filen som innehåller din miljö definition tillhandahållas.
+        - *Pip-krav fil*: för pip-miljöer kan filen som innehåller din miljö definition tillhandahållas.
+        - *Befintlig Conda-miljö*: det här alternativet söker efter Conda-miljöer i din lokala dator och försöker bygga en miljö från den valda miljön.
+        - *Anpassad*: definiera egna kanaler och beroenden
+    1. En konfigurations fil öppnas i redigeraren. Om du är nöjd med konfigurationen väljer du **Spara och fortsätt** eller öppnar kommando paletten vs Code (**Visa > kommando palett**) och skriver **Azure ml: Spara och fortsätt**.
 
 ### <a name="view-environment-configurations"></a>Visa miljö konfigurationer
 
@@ -182,7 +182,7 @@ Redigera beroenden och konfigurationer för en speciell miljö i tillägget:
 1. Expandera noden prenumeration som innehåller din arbets yta.
 1. Expandera noden **miljöer** i din arbets yta.
 1. Högerklicka på den miljö som du vill visa och välj **Redigera miljö**.
-1. När du har gjort ändringarna, om du är nöjd med konfigurationen, väljer du **Spara och fortsätt** eller öppnar kommando paletten vs Code ( **Visa > kommando palett** ) och skriver **Azure ml: Spara och fortsätt**.
+1. När du har gjort ändringarna, om du är nöjd med konfigurationen, väljer du **Spara och fortsätt** eller öppnar kommando paletten vs Code (**Visa > kommando palett**) och skriver **Azure ml: Spara och fortsätt**.
 
 ## <a name="experiments"></a>Experiment
 
@@ -307,7 +307,7 @@ Mer information finns i [Compute-mål](concept-compute-target.md#train).
 1. Expandera noden prenumeration som innehåller din arbets yta.
 1. Expandera noden **Compute Clusters** i din arbets yta.
 1. Högerklicka på den beräkning som du vill redigera och välj **Redigera beräkning**.
-1. En konfigurations fil för beräkningen öppnas i redigeraren. Om du är nöjd med konfigurationen väljer du **Spara och fortsätt** eller öppnar kommando paletten vs Code ( **Visa > kommando palett** ) och skriver **Azure ml: Spara och fortsätt**.
+1. En konfigurations fil för beräkningen öppnas i redigeraren. Om du är nöjd med konfigurationen väljer du **Spara och fortsätt** eller öppnar kommando paletten vs Code (**Visa > kommando palett**) och skriver **Azure ml: Spara och fortsätt**.
 
 ### <a name="delete-compute"></a>Ta bort beräkning
 
@@ -327,15 +327,15 @@ Så här skapar du en körnings konfiguration i tillägget:
     1. Välj eller skapa en ny miljö.
     1. Skriv namnet på skriptet som du vill köra eller tryck på **RETUR** för att läsa in skriptet på den lokala datorn.
     1. Valfritt Välj om du vill skapa en data referens för din utbildnings körning. Då uppmanas du att definiera en data uppsättning i din körnings konfiguration.
-        1. Välj någon av dina registrerade data uppsättningar för att länka till körnings konfigurationen en konfigurations fil för din data uppsättning öppnas i redigeraren. Om du är nöjd med konfigurationen väljer du **Spara och fortsätt** eller öppnar kommando paletten vs Code ( **Visa > kommando palett** ) och skriver **Azure ml: Spara och fortsätt**.
-    1. Om du är nöjd med konfigurationen väljer du **Spara och fortsätt** eller öppnar kommando paletten vs Code ( **Visa > kommando palett** ) och skriver **Azure ml: Spara och fortsätt**.
+        1. Välj någon av dina registrerade data uppsättningar för att länka till körnings konfigurationen en konfigurations fil för din data uppsättning öppnas i redigeraren. Om du är nöjd med konfigurationen väljer du **Spara och fortsätt** eller öppnar kommando paletten vs Code (**Visa > kommando palett**) och skriver **Azure ml: Spara och fortsätt**.
+    1. Om du är nöjd med konfigurationen väljer du **Spara och fortsätt** eller öppnar kommando paletten vs Code (**Visa > kommando palett**) och skriver **Azure ml: Spara och fortsätt**.
 
 ### <a name="edit-run-configuration"></a>Redigera körnings konfiguration
 
 1. Expandera noden prenumeration som innehåller din arbets yta.
 1. Expandera din Compute Cluster-nod i noden **Compute Clusters** i din arbets yta.
 1. Högerklicka på den körnings konfiguration som du vill redigera och välj **Redigera kör konfiguration**.
-1. En konfigurations fil för din körnings konfiguration öppnas i redigeraren. Om du är nöjd med konfigurationen väljer du **Spara och fortsätt** eller öppnar kommando paletten vs Code ( **Visa > kommando palett** ) och skriver **Azure ml: Spara och fortsätt**.
+1. En konfigurations fil för din körnings konfiguration öppnas i redigeraren. Om du är nöjd med konfigurationen väljer du **Spara och fortsätt** eller öppnar kommando paletten vs Code (**Visa > kommando palett**) och skriver **Azure ml: Spara och fortsätt**.
 
 ### <a name="delete-run-configuration"></a>Ta bort körnings konfiguration
 
@@ -357,7 +357,7 @@ Mer information finns i [modeller](concept-azure-machine-learning-architecture.m
     1. Ange ett namn för din modell
     1. Välj om din modell är en fil eller mapp.
     1. Hitta modellen i din lokala dator.
-    1. En konfigurations fil för din modell i redigeraren. Om du är nöjd med konfigurationen väljer du **Spara och fortsätt** eller öppnar kommando paletten vs Code ( **Visa > kommando palett** ) och skriver **Azure ml: Spara och fortsätt**.
+    1. En konfigurations fil för din modell i redigeraren. Om du är nöjd med konfigurationen väljer du **Spara och fortsätt** eller öppnar kommando paletten vs Code (**Visa > kommando palett**) och skriver **Azure ml: Spara och fortsätt**.
 
 ### <a name="view-model-properties"></a>Visa modell egenskaper
 
@@ -401,7 +401,7 @@ Mer information finns i [webb tjänst slut punkter](concept-azure-machine-learni
     1. Ange ett namn för din modell.
     1. Ange det skript som ska köras vid beräkning av modellen.
     1. Ange en Conda-beroende fil.
-    1. En konfigurations fil för distributionen visas i redigeraren. Om du är nöjd med konfigurationen väljer du **Spara och fortsätt** eller öppnar kommando paletten vs Code ( **Visa > kommando palett** ) och skriver **Azure ml: Spara och fortsätt**.
+    1. En konfigurations fil för distributionen visas i redigeraren. Om du är nöjd med konfigurationen väljer du **Spara och fortsätt** eller öppnar kommando paletten vs Code (**Visa > kommando palett**) och skriver **Azure ml: Spara och fortsätt**.
 
 > [!NOTE]
 > Du kan också högerklicka på en registrerad modell i noden *modeller* och välja **distribuera tjänst från registrerad modell**.
@@ -421,7 +421,7 @@ Förutom att skapa och ta bort distributioner kan du Visa och redigera inställn
 1. Expandera noden **slut punkter** i din arbets yta.
 1. Högerklicka på den distribution som du vill hantera:
     - Om du vill redigera inställningarna väljer du **Redigera tjänst**.
-        - En konfigurations fil för distributionen visas i redigeraren. Om du är nöjd med konfigurationen väljer du **Spara och fortsätt** eller öppnar kommando paletten vs Code ( **Visa > kommando palett** ) och skriver **Azure ml: Spara och fortsätt**.
+        - En konfigurations fil för distributionen visas i redigeraren. Om du är nöjd med konfigurationen väljer du **Spara och fortsätt** eller öppnar kommando paletten vs Code (**Visa > kommando palett**) och skriver **Azure ml: Spara och fortsätt**.
     - Om du vill visa distributions konfigurations inställningarna väljer du **Visa tjänst egenskaper**.
 
 ## <a name="next-steps"></a>Nästa steg

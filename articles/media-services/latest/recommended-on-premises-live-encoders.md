@@ -6,15 +6,15 @@ keywords: Encoding; encoders; Media
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 08/31/2020
+ms.date: 11/10/2020
 ms.topic: conceptual
 ms.service: media-services
-ms.openlocfilehash: 3532032f8fd3ac6e673d3913fd13f7f83ae7759e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88de41ae62e3a81fdb51981afe42135649bf34b4
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89295367"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94734318"
 ---
 # <a name="verified-on-premises-live-streaming-encoders"></a>Verifierade lokala direkt uppspelnings kodare
 
@@ -50,6 +50,7 @@ Vid direktuppspelning via RTMPS ska du kontrollera inställningarna för brandv�
 > Kodare måste ha stöd för TLS 1,2 när de använder RTMP-protokollen.
 
 - Adobe Flash Media Live Encoder 3.2
+- [ANTIX Digital](http://www.antixdigital.com/) StreamZ Live (tidigare Tänk på kommunikation SelenioFlex Live)
 - [Blackmagic ATEM Mini-och ATEM-mini PRO](https://www.blackmagicdesign.com/products/atemmini)
 - [Cambria Live 4,3](https://www.capellasystems.net/products/cambria-live/)
 - Grundämne Live (version 2.14.15 och senare)
@@ -78,11 +79,11 @@ Media Services rekommenderar att du använder någon av följande Live-kodare me
 > Kodare måste ha stöd för TLS 1,2 när de använder HTTPS-protokoll.
 
 - Ateme TITAN Live
+- [ANTIX Digital](http://www.antixdigital.com/) StreamZ Live (tidigare Tänk på kommunikation SelenioFlex Live)
 - Cisco Digital Media Encoder 2200
 - Grundämne Live (version 2.14.15 och högre på grund av kraven för TLS 1,2)
 - Envivio 4Caster C4 Gen III 
 - [Ffmpeg](https://www.ffmpeg.org)
-- Föreställ dig Selenio-MCP3
 - Media Excel Hero Live och Hero 4K (UHD/HEVC)
 
 > [!TIP]

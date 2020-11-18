@@ -15,24 +15,22 @@ ms.workload: infrastructure-services
 ms.date: 06/11/2020
 ms.author: allensu
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7d4467e557105100fc32940c05fa349722689867
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ec054d55432ad2680314b4ff91a067d37b629d4
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88054383"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94734340"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-cli-and-test-the-nat-service"></a>Självstudie: skapa en NAT-gateway med Azure CLI och testa NAT-tjänsten
 
 I den här självstudien skapar du en NAT-gateway för att tillhandahålla utgående anslutning för virtuella datorer i Azure. Om du vill testa NAT-gatewayen distribuerar du en virtuell käll-och mål dator. Du testar NAT-gatewayen genom att göra utgående anslutningar till en offentlig IP-adress. Anslutningarna kommer från källan till den virtuella mål datorn. I den här självstudien distribueras källa och mål i två olika virtuella nätverk i samma resurs grupp för enkelhetens skull.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Du kan slutföra den här självstudien med Azure Cloud Shell eller köra respektive kommandon lokalt.  Om du inte har använt Azure Cloud Shell bör du [Logga in nu](https://shell.azure.com).
-
-Om du väljer att köra dessa kommandon lokalt måste du installera CLI.  I den här självstudien krävs att du kör en version av Azure CLI-versionen 2.0.71 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
-
+- Den här artikeln kräver version 2.0.71 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 

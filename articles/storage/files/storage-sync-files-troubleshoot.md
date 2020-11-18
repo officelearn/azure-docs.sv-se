@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: dd9e67b8cea88421986d4ca9e3545c6dce618672
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: c7405ada800bd5fb9161e9d96bd4c8b0484be620
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94626409"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94737021"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -1004,7 +1004,7 @@ if ($fileShare -eq $null) {
 <a id="troubleshoot-rbac"></a>**Se till att Azure File Sync har åtkomst till lagrings kontot.**  
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 1. Klicka på **åtkomst kontroll (IAM)** i den vänstra innehålls förteckningen.
-1. Klicka på fliken **roll tilldelningar** i listan över användare och program ( *tjänstens huvud namn* ) som har åtkomst till ditt lagrings konto.
+1. Klicka på fliken **roll tilldelningar** i listan över användare och program (*tjänstens huvud namn*) som har åtkomst till ditt lagrings konto.
 1. Kontrol lera att **Microsoft. StorageSync** eller **hybrid File syncs tjänsten** (gammalt program namn) visas i listan med rollen **läsare och data åtkomst** . 
 
     ![En skärm bild av tjänsten hybrid File Sync tjänstens huvud namn på fliken åtkomst kontroll för lagrings kontot](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
@@ -1013,7 +1013,7 @@ if ($fileShare -eq $null) {
 
     - Klicka på **Lägg till**.
     - I fältet **roll** väljer du **läsare och data åtkomst**.
-    - I fältet **Välj** skriver du **Microsoft. StorageSync** , väljer rollen och klickar på **Spara**.
+    - I fältet **Välj** skriver du **Microsoft. StorageSync**, väljer rollen och klickar på **Spara**.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell    
@@ -1266,7 +1266,24 @@ Om du stöter på problem med Azure File Sync på en server börjar du med att u
 
 Om problemet inte är löst kör du AFSDiag-verktyget och skickar dess zip-fil till support teknikern som har tilldelats ditt ärende för ytterligare diagnos.
 
-Utför följande steg för att köra AFSDiag:
+Utför stegen nedan för att köra AFSDiag.
+
+För agent version V11 och senare:
+1. Öppna ett upphöjt PowerShell-fönster och kör sedan följande kommandon (tryck på RETUR efter varje kommando):
+
+    > [!NOTE]
+    >AFSDiag skapar utdata-katalogen och en tillfällig mapp i den innan loggar samlas in och tar bort Temp-mappen efter körning. Ange en utmatnings plats som inte innehåller data.
+    
+    ```powershell
+    cd "c:\Program Files\Azure\StorageSyncAgent"
+    Import-Module .\afsdiag.ps1
+    Debug-AFS -OutputDirectory C:\output -KernelModeTraceLevel Verbose -UserModeTraceLevel Verbose
+    ```
+
+2. Återskapa problemet. När du är klar anger du **D**.
+3. En. zip-fil som innehåller loggar och spårningsfiler sparas i den utgående katalogen som du har angett. 
+
+För agent version v10 och tidigare:
 1. Skapa en katalog där AFSDiag-utdata ska sparas (till exempel C:\Output).
     > [!NOTE]
     >AFSDiag tar bort allt innehåll i utdatakatalogen innan loggar samlas in. Ange en utmatnings plats som inte innehåller data.
@@ -1282,6 +1299,7 @@ Utför följande steg för att köra AFSDiag:
 4. För spårnings nivån i Azure File Sync-användarläge anger du **1** (om inget annat anges för att skapa mer utförliga spår) och trycker sedan på RETUR.
 5. Återskapa problemet. När du är klar anger du **D**.
 6. En. zip-fil som innehåller loggar och spårningsfiler sparas i den utgående katalogen som du har angett.
+
 
 ## <a name="see-also"></a>Se även
 - [Övervaka Azure File Sync](storage-sync-files-monitoring.md)

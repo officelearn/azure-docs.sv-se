@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: c066931cece60d14767b86254020ea5ba4bad1be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b563fac9044dccd832aa42c0193eed24cad26754
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88854504"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94737922"
 ---
 # <a name="support-lifecycle-for-azure-red-hat-openshift-4"></a>Supportlivscykel för Azure Red Hat OpenShift 4
 
@@ -97,14 +97,12 @@ Se följande guide för den [tidigare versionen av Red Hat OpenShift container P
 
 |OCP-version|Överordnad version|Azure Red Hat OpenShift allmän tillgänglighet|Uttjänta|
 |-|-|-|-|
-|4.3|Februari 2020|Maj 2020|Augusti 2020|
-|4.4|Maj 2020|Augusti 2020|4,6 GA|
-|4,5|Juli 2020|Oktober 2020|4,7 GA
-|4,6|* Tidigt i Q4, 2020|* Sent i Q4, 2020|4,8 GA|
+|4.3|Januari 2020|April 2020| Augusti 2020|
+|4.4|Maj 2020|Juli 2020|4,6 GA|
+|4,5|Juli 2020| November 2020|4,7 GA
+|4,6|Oktober 2020| December 2020|4,8 GA|
 
-\*_Datum bekräftelse för väntande lansering av uppladdning._
-
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 **Vad händer när en användare uppgraderar ett OpenShift-kluster med en lägre version som inte stöds?**
 

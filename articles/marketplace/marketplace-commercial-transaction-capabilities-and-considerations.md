@@ -4,27 +4,27 @@ description: Den här artikeln beskriver pris-, fakturerings-, fakturerings-och 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/18/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: c6ce256db907589ace7e77157397257732564fb6
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9a975ee863e81a9f542e717d734f12db850f749e
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130331"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94738330"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Transact-funktioner för kommersiella Marketplace
 
-Den här artikeln beskriver pris-, fakturerings-, fakturerings-och utbetalnings överväganden för Microsofts kommersiella Marketplace. 
+Den här artikeln beskriver pris-, fakturerings-, fakturerings-och utbetalnings överväganden för Microsofts kommersiella Marketplace.
 
 ## <a name="transactions-by-listing-option"></a>Alternativ för transaktioner per lista
 
-Antingen utgivaren eller Microsoft ansvarar för att hantera program licens transaktioner för erbjudanden på den kommersiella marknaden. Det List alternativ som du väljer för ditt erbjudande avgör vem som hanterar transaktionen. Se [Välj ett List alternativ](./determine-your-listing-type.md#choose-a-listing-option) för tillgänglighet och förklaringar för varje publicerings alternativ.
+Antingen utgivaren eller Microsoft ansvarar för att hantera program licens transaktioner för erbjudanden på den kommersiella marknaden. Det List alternativ som du väljer för ditt erbjudande avgör vem som hanterar transaktionen. Tillgänglighet och förklaringar för varje publicerings alternativ finns i [Introduktion till List alternativ](determine-your-listing-type.md)
 
 ### <a name="contact-me-free-trial-and-byol-options"></a>Kontakta mig, kostnads fri utvärdering och BYOL-alternativ
 
-Utgivare kan välja _kontakten mig_ och den _kostnads fria utvärderings versionen_ , alternativ för kampanj-och användar förvärv. För vissa erbjudande typer kan utgivare välja alternativet ta med din egen licens (BYOL) för att göra det möjligt för kunder att köpa en prenumeration på ditt erbjudande med en licens som de har köpt direkt från dig. Med dessa alternativ deltar inte Microsoft direkt i utgivarens program licens transaktioner och det finns ingen kopplad transaktions avgift. 
+Utgivare kan välja _kontakten mig_ och den _kostnads fria utvärderings versionen_, alternativ för kampanj-och användar förvärv. För vissa erbjudande typer kan utgivare välja alternativet ta med din egen licens (BYOL) för att göra det möjligt för kunder att köpa en prenumeration på ditt erbjudande med en licens som de har köpt direkt från dig. Med dessa alternativ deltar inte Microsoft direkt i utgivarens program licens transaktioner och det finns ingen kopplad transaktions avgift.
 
 Utgivare ansvarar för att stödja alla aspekter av program licens transaktionen. Detta omfattar men är inte begränsat till order, uppfyllelse, avläsning, fakturering, fakturering, betalning och insamling. Med alternativet kontakta mig List behåller utgivaren 100% av licens avgifterna för Publisher-programvaran som samlas in från kunden.
 
@@ -84,7 +84,15 @@ För scenario publicerings scenarier kan du göra en program varu licens kostnad
 
 Förutom att använda erbjudande typer och fakturerings modeller för att betala ett erbjudande kan du använda Transact ett privat erbjudande, komplett med förhandlad, detaljerad prissättning eller anpassade konfigurationer. Privata erbjudanden stöds av alla tre alternativ för Transact-publicering.
 
-Det här alternativet tillåter högre eller lägre priser än det offentligt tillgängliga erbjudandet. Privata erbjudanden kan användas för att rabattera eller lägga till ett bidrag till ett erbjudande. Privata erbjudanden kan göras tillgängliga för en eller flera kunder genom att du får en lista över Azure-prenumerationer på erbjudande nivån.
+Det här alternativet tillåter högre eller lägre priser än det offentligt tillgängliga erbjudandet. Du kan använda privata erbjudanden för rabatt eller lägga till en Premium till ett erbjudande. Du kan göra privata erbjudanden tillgängliga för en eller flera kunder genom att teckna en Azure-prenumeration på erbjudande nivån.
+
+### <a name="commercial-marketplace-service-fees"></a>Service avgifter för handels platser
+
+Vi debiterar en 20% standard avgift för Store-tjänster när kunderna köper ditt Transact-erbjudande från den kommersiella marknads platsen. Mer information om den här avgiften finns i avsnitt 5c i [Microsoft Publisher-avtalet](https://go.microsoft.com/fwlink/?LinkID=699560).
+
+För vissa Transact-erbjudanden som du publicerar till den kommersiella marknads platsen kan du kvalificera dig för en minskad lagrings avgift på 10%. För att ett erbjudande ska kvalificeras måste det ha utsetts av Microsoft som Azure IP Co-Sälj-motiverade. Berättigande måste uppfyllas minst fem arbets dagar före slutet av varje kalender månad för att ta emot den minskade service avgiften för Marketplace för månaden.
+
+Den minskade service avgiften för Marketplace gäller för Azure IP Co-Sälj motiverade SaaS, VM, hanterade appar och andra kvalificerade IaaS-lösningar som görs tillgängliga via den kommersiella Marketplace. Betalda SaaS-erbjudanden som är kopplade till en Microsoft Teams-app eller minst två Microsoft 365-tillägg (Excel, PowerPoint, Word, Outlook och SharePoint) och som publiceras till Microsoft AppSource också få rabatten.
 
 ### <a name="examples"></a>Exempel
 
@@ -143,10 +151,6 @@ I det här scenariot fakturerar Microsoft $100,00 för din program varu licens o
 |---------|---------|
 |Microsoft betalar 80% av din licens kostnad <br> \* Microsoft betalar 90% av din licens kostnad för kvalificerade SaaS-appar   |   $80,00 per månad <br> \* $90,00 per månad    |
 |Microsoft behåller 20% av din licens kostnad <br> \* Microsoft behåller 10% av din licens kostnad för alla kvalificerade SaaS-appar.  |  $20,00 per månad <br> \* $10,00     |
-
-### <a name="reduced-service-fee"></a>Minskad tjänste avgift
-
-För vissa erbjudanden som du publicerar på den kommersiella marknaden kommer Microsoft att minska sin service avgift för Marketplace från 20% (enligt beskrivningen i [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560)) till 10%. För dina erbjudanden som ska kvalificeras måste ditt erbjudande ha utsetts av Microsoft som Azure IP Co-Sälj-motiverade. Berättigande måste uppfyllas minst fem arbets dagar före slutet av varje kalender månad för att ta emot den minskade service avgiften för Marketplace för månaden. Den minskade service avgiften för Marketplace gäller för Azure IP Co-Sälj motiverade-SaaS, virtuella datorer, hanterade appar och andra kvalificerade IaaS-erbjudanden som görs tillgängliga via den kommersiella Marketplace. Betalda SaaS-erbjudanden som är kopplade till en Microsoft Teams-app eller minst två Microsoft 365-tillägg (Excel, PowerPoint, Word, Outlook och SharePoint) och publicerat på AppSource får också denna rabatt.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>Kund fakturering, betalning, fakturering och samlingar
 

@@ -7,28 +7,34 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 07/15/2020
-ms.openlocfilehash: e9d438349f3a080f52050f22a0f991140b3e6b4d
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.date: 11/17/2020
+ms.openlocfilehash: 21f0d141567f17c470732088c6a93a2ae7ed3c67
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699153"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94738058"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Självstudie: Använd REST och AI för att generera sökbart innehåll från Azure-blobbar
 
-Om du har ostrukturerad text eller avbildningar i Azure Blob Storage kan en [AI-pipeline](cognitive-search-concept-intro.md) utvinna information och skapa nytt innehåll som är användbart för full texts ökning eller kunskaps utvinnings scenarier. Även om en pipeline kan bearbeta bilder, fokuserar denna REST-guide på text, använder språk identifiering och bearbetning av naturligt språk för att skapa nya fält som du kan använda i frågor, ansikts och filter.
+Om du har ostrukturerad text eller avbildningar i Azure Blob Storage kan en [AI](cognitive-search-concept-intro.md) -utöknings pipeline extrahera information och skapa nytt innehåll från blobbar som är användbara för full texts ökning eller kunskaps utvinnings scenarier. Även om en pipeline kan bearbeta bilder, fokuserar denna REST-guide på text, använder språk identifiering och bearbetning av naturligt språk för att skapa nya fält som du kan använda i frågor, ansikts och filter.
 
 I den här självstudien används Postman och [Sök REST-API: er](/rest/api/searchservice/) för att utföra följande uppgifter:
 
 > [!div class="checklist"]
-> * Börja med hela dokument (ostrukturerad text) som PDF, HTML, DOCX och PPTX i Azure Blob Storage.
-> * Definiera en pipeline som extraherar text, identifierar språk, identifierar entiteter och identifierar viktiga fraser.
-> * Definiera ett index för att lagra utdata (RAW-innehåll, plus pipeline-genererade namn-värdepar).
-> * Kör pipelinen för att starta omvandlingar och analys och för att skapa och läsa in indexet.
+> * Konfigurera tjänster och en Postman-samling.
+> * Skapa en pipeline för anrikning som extraherar text, identifierar språk, identifierar entiteter och identifierar viktiga fraser.
+> * Skapa ett index för att lagra utdata (RAW-innehåll, plus pipeline-genererade namn-värdepar).
+> * Kör pipelinen för att utföra omvandlingar och analyser och för att läsa in indexet.
 > * Utforska resultat med fullständig texts ökning och en omfattande frågesyntax.
 
 Om du inte har någon Azure-prenumeration kan du öppna ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+
+## <a name="overview"></a>Översikt
+
+I den här självstudien används C# och Azure Kognitiv sökning REST-API: er för att skapa en data källa, index, indexerare och färdigheter. Du börjar med hela dokument (ostrukturerad text) som PDF, HTML, DOCX och PPTX i Azure Blob Storage, och kör dem sedan via en färdigheter för att extrahera entiteter, nyckel fraser och annan text i innehållsfilerna.
+
+I den här färdigheter används inbyggda kunskaper baserat på API:er för Cognitive Services. Stegen i pipelinen inkluderar språk identifiering på text, extrahering av nyckel fraser och enhets igenkänning (organisationer). Ny information lagras i nya fält som kan utnyttjas i frågor, ansikts och filter.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -44,6 +50,8 @@ Om du inte har någon Azure-prenumeration kan du öppna ett [kostnads fritt kont
 1. Öppna den här [OneDrive-mappen](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) och klicka på **Ladda ned** i det övre vänstra hörnet för att kopiera filerna till datorn. 
 
 1. Högerklicka på zip-filen och välj **extrahera alla**. Det finns 14 filer av olika typer. Du använder 7 för den här övningen.
+
+Alternativt kan du också ladda ned käll koden, en Postman-samlings fil, för den här självstudien. Du hittar käll koden på [https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Tutorial](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Tutorial) .
 
 ## <a name="1---create-services"></a>1 – skapa tjänster
 
@@ -107,7 +115,7 @@ Den tredje komponenten är Azure-Kognitiv sökning, som du kan [skapa i portalen
 
 Som med Azure Blob Storage kan du ägna en stund åt att samla in åtkomst nyckeln. Vidare måste du, när du börjar strukturera förfrågningar, ange slut punkt och Admin-API-nyckel som används för att autentisera varje begäran.
 
-### <a name="get-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Hämta en Admin API-nyckel och URL för Azure Kognitiv sökning
+### <a name="copy-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Kopiera en Admin API-nyckel och URL för Azure Kognitiv sökning
 
 1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta namnet på din Sök tjänst på sidan **Översikt över** Sök tjänsten. Du kan bekräfta tjänst namnet genom att granska slut punkts-URL: en. Om slut punkts-URL: en var `https://mydemo.search.windows.net` , är tjänstens namn `mydemo` .
 
@@ -131,7 +139,7 @@ I sidhuvud anger du "Content-Type" till `application/json` och anger `api-key` a
 
 ## <a name="3---create-the-pipeline"></a>3 – skapa pipelinen
 
-I Azure Kognitiv sökning sker AI-bearbetning under indexering (eller data inmatning). I den här delen av genom gången skapas fyra objekt: data källa, index definition, färdigheter, indexerare. 
+I Azure Kognitiv sökning sker berikning under indexering (eller data inmatning). I den här delen av genom gången skapas fyra objekt: data källa, index definition, färdigheter, indexerare. 
 
 ### <a name="step-1-create-a-data-source"></a>Steg 1: Skapa en datakälla
 
@@ -350,7 +358,7 @@ En [indexerare](/rest/api/searchservice/create-indexer) driver pipelinen. De tre
 
     ```json
     {
-      "name":"cog-search-demo-idxr",    
+      "name":"cog-search-demo-idxr",
       "dataSourceName" : "cog-search-demo-ds",
       "targetIndexName" : "cog-search-demo-idx",
       "skillsetName" : "cog-search-demo-ss",

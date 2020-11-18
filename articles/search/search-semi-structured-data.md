@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: f501b9f4215b9eeb48aa8bc80d492d55cf940404
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c88aea6aff942cdcf5cbc022df8f07cfe0d4cce
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397393"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701287"
 ---
 # <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>Självstudie: indexera JSON-blobbar från Azure Storage med REST
 
@@ -27,9 +27,9 @@ I den här självstudien används Postman och [Sök REST-API: er](/rest/api/sear
 > * Konfigurera och kör en indexerare för att läsa behållaren och extrahera sökbart innehåll från Azure Blob Storage
 > * Söka i indexet som du precis skapade
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + [Azure Storage](../storage/common/storage-account-create.md)
 + [Skrivbordsappen Postman](https://www.getpostman.com/)
@@ -76,11 +76,11 @@ Skapa om möjligt både i samma region och resurs grupp för närhet och hanterb
 
 1. När behållaren har skapats öppnar du den och väljer **Ladda upp** i kommando fältet.
 
-   :::image type="content" source="media/search-semi-structured-data/upload-command-bar.png" alt-text="Skapa lagrings konto" border="false":::
+   :::image type="content" source="media/search-semi-structured-data/upload-command-bar.png" alt-text="Ladda upp i kommando fältet" border="false":::
 
 1. Navigera till mappen som innehåller exempelfilerna. Markera alla och klicka sedan på **överför**.
 
-   :::image type="content" source="media/search-semi-structured-data/clinicalupload.png" alt-text="Skapa lagrings konto" border="false":::
+   :::image type="content" source="media/search-semi-structured-data/clinicalupload.png" alt-text="Ladda upp filer" border="false":::
 
 När överföringen är klar ska filerna visas i en egen undermapp i datacontainern.
 
@@ -98,19 +98,19 @@ För att kunna göra REST-anrop behöver du tjänstens webbadress och en åtkoms
 
 1. I **Inställningar**  >  **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
 
-:::image type="content" source="media/search-get-started-postman/get-url-key.png" alt-text="Skapa lagrings konto" border="false":::
+:::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Hämta en HTTP-slutpunkt och åtkomst nyckel" border="false":::
 
 Alla begär Anden kräver en API-nyckel på varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
 ## <a name="2---set-up-postman"></a>2 – Konfigurera PostMan
 
-Starta Postman och konfigurera en HTTP-begäran. Om du inte känner till det här verktyget kan du läsa [utforska Azure KOGNITIV sökning REST-API: er med Postman](search-get-started-postman.md).
+Starta Postman och konfigurera en HTTP-begäran. Om du inte känner till det här verktyget kan du läsa mer i [utforska Azure KOGNITIV sökning REST-API: er](search-get-started-rest.md).
 
 Metoderna för begäran för varje anrop i den här självstudien är **post** och **Get**. Du gör tre API-anrop till din Sök tjänst för att skapa en data källa, ett index och en indexerare. Datakällan innehåller en pekare till ditt lagringskonto och dina JSON-data. Din söktjänst gör anslutningen vid inläsning av data.
 
 I sidhuvud anger du "Content-Type" till `application/json` och anger `api-key` admin-API-nyckeln för din Azure kognitiv sökning-tjänst. När du har angett rubrikerna kan du använda dem för varje begäran i den här övningen.
 
-  :::image type="content" source="media/search-get-started-postman/postman-url.png" alt-text="Skapa lagrings konto" border="false":::
+  :::image type="content" source="media/search-get-started-rest/postman-url.png" alt-text="URL och rubrik för Postman-begäran" border="false":::
 
 URI: er måste ange en API-version och varje anrop ska returnera en **201 som skapats**. Den allmänt tillgängliga API-versionen för att använda JSON-matriser är `2020-06-30` .
 
@@ -315,11 +315,11 @@ Du kan börja söka så snart det första dokumentet har lästs in.
 
 1. Lägg till `$select` Frågeparametern för att begränsa resultatet till färre fält: `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2020-06-30&$count=true` .  För den här frågan matchar 100 dokument, men som standard returnerar Azure Kognitiv sökning bara 50 i resultaten.
 
-   :::image type="content" source="media/search-semi-structured-data/lastquery.png" alt-text="Skapa lagrings konto" border="false":::
+   :::image type="content" source="media/search-semi-structured-data/lastquery.png" alt-text="Parametriserad fråga" border="false":::
 
 1. Ett exempel på en mer komplex fråga skulle innehålla `$filter=MinimumAge ge 30 and MaximumAge lt 75` , som endast returnerar resultat där parametrarna minimum är större än eller lika med 30 och Max värdet är mindre än 75. Ersätt `$select` uttrycket med `$filter` uttrycket.
 
-   :::image type="content" source="media/search-semi-structured-data/metadatashort.png" alt-text="Skapa lagrings konto" border="false":::
+   :::image type="content" source="media/search-semi-structured-data/metadatashort.png" alt-text="Halvstrukturerad sökning" border="false":::
 
 Du kan också använda logiska operatorer (och, eller, inte) och jämförelse operatorer (EQ, Ne, gt, lt, ge, Le). Strängjämförelser är skiftlägeskänsliga. Mer information och exempel finns i [skapa en enkel fråga](search-query-simple-examples.md).
 

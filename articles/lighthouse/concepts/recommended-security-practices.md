@@ -3,12 +3,12 @@ title: Rekommenderade säkerhetsmetoder
 description: När du använder Azure Lighthouse är det viktigt att tänka på säkerhets-och åtkomst kontroll.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 097611837e3bba2d1a44ec521862e03cc467d707
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef2c41cf052e5f79ecf4abf01c8f3fab3dd1de14
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399388"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843731"
 ---
 # <a name="recommended-security-practices"></a>Rekommenderade säkerhetsmetoder
 
@@ -17,11 +17,11 @@ När du använder [Azure Lighthouse](../overview.md)är det viktigt att tänka p
 > [!TIP]
 > Dessa rekommendationer gäller även för [företag som hanterar flera klienter](enterprise.md) med Azure Lighthouse.
 
-## <a name="require-azure-multi-factor-authentication"></a>Kräv Azure Multi-Factor Authentication
+## <a name="require-azure-ad-multi-factor-authentication"></a>Kräv Azure AD-Multi-Factor Authentication
 
-[Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (även kallat tvåstegsverifiering) hjälper till att förhindra angripare från att få åtkomst till ett konto genom att kräva flera steg för autentisering. Du bör kräva Multi-Factor Authentication för alla användare i hanterings klienten, inklusive användare som kommer att ha åtkomst till delegerade kund resurser.
+[Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (även kallat tvåstegsverifiering) hjälper till att förhindra angripare från att få åtkomst till ett konto genom att kräva flera steg för autentisering. Du bör kräva Multi-Factor Authentication för alla användare i hanterings klienten, inklusive användare som kommer att ha åtkomst till delegerade kund resurser.
 
-Vi rekommenderar att du ber dina kunder att implementera Azure-Multi-Factor Authentication även i sina klienter.
+Vi rekommenderar att du ber dina kunder att implementera Azure AD-Multi-Factor Authentication även i sina klienter.
 
 ## <a name="assign-permissions-to-groups-using-the-principle-of-least-privilege"></a>Tilldela behörigheter till grupper med principen om minsta behörighet
 
@@ -47,5 +47,5 @@ Tänk på att när du registrerar [kunder via ett offentligt hanterat tjänst er
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Distribuera Azure Multi-Factor Authentication](../../active-directory/authentication/howto-mfa-getstarted.md).
+- [Distribuera Azure AD-Multi-Factor Authentication](../../active-directory/authentication/howto-mfa-getstarted.md).
 - Lär dig mer om [hanterings upplevelser mellan flera innehavare](cross-tenant-management-experience.md).

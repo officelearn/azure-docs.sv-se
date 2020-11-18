@@ -8,12 +8,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 9afab87e0d7f0e7a9e5c05b36ace1dfc09c9aa9f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a9a90fbb2eedd6db2873d4ac2a5fea94c05c7eed
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548038"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844752"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Azure HDInsight Double Encryption för vilande data
 
@@ -71,17 +71,17 @@ Se [skapa en användardefinierad hanterad identitet](../active-directory/managed
 
 ### <a name="create-azure-key-vault"></a>Skapa Azure Key Vault
 
-Skapa ett nyckelvalv. Se [skapa Azure Key Vault](../key-vault/secrets/quick-create-portal.md) för vissa steg.
+Skapa ett nyckelvalv. Se [skapa Azure Key Vault](../key-vault/general/quick-create-portal.md) för vissa steg.
 
 HDInsight har endast stöd för Azure Key Vault. Om du har ett eget nyckel valv kan du importera dina nycklar till Azure Key Vault. Kom ihåg att nyckel valvet måste ha **mjuk borttagning** aktiverat. Mer information om hur du importerar befintliga nycklar finns på [nycklar, hemligheter och certifikat](../key-vault/general/about-keys-secrets-certificates.md).
 
 ### <a name="create-key"></a>Skapa nyckel
 
-1. Från det nya nyckel valvet navigerar du till **Inställningar**  >  **nycklar**  >  **+ generera/importera** .
+1. Från det nya nyckel valvet navigerar du till **Inställningar**  >  **nycklar**  >  **+ generera/importera**.
 
     ![Generera en ny nyckel i Azure Key Vault](./media/disk-encryption/create-new-key.png "Generera en ny nyckel i Azure Key Vault")
 
-1. Ange ett namn och välj sedan **skapa** . Behåll standard **nyckel typen** för **RSA** .
+1. Ange ett namn och välj sedan **skapa**. Behåll standard **nyckel typen** för **RSA**.
 
     ![genererar nyckel namn](./media/disk-encryption/create-key.png "Generera nyckel namn")
 
@@ -95,7 +95,7 @@ HDInsight har endast stöd för Azure Key Vault. Om du har ett eget nyckel valv 
 
 ### <a name="create-access-policy"></a>Skapa åtkomst princip
 
-1. Från det nya nyckel valvet navigerar du till **Inställningar**  >  **åtkomst principer**  >  **+ Lägg till åtkomst princip** .
+1. Från det nya nyckel valvet navigerar du till **Inställningar**  >  **åtkomst principer**  >  **+ Lägg till åtkomst princip**.
 
     ![Skapa ny princip för Azure Key Vault åtkomst](./media/disk-encryption/key-vault-access-policy.png)
 
@@ -103,15 +103,15 @@ HDInsight har endast stöd för Azure Key Vault. Om du har ett eget nyckel valv 
 
     |Egenskap |Beskrivning|
     |---|---|
-    |Nyckel behörigheter|Välj **Hämta** , **packa upp nyckel** och **Radbryt nyckel** .|
-    |Hemliga behörigheter|Välj **Hämta** , **Ange** och **ta bort** .|
+    |Nyckel behörigheter|Välj **Hämta**, **packa upp nyckel** och **Radbryt nyckel**.|
+    |Hemliga behörigheter|Välj **Hämta**, **Ange** och **ta bort**.|
     |Välj huvud konto|Välj den användare som tilldelats den hanterade identitet som du skapade tidigare.|
 
     ![Ange Välj huvud konto för Azure Key Vault åtkomst princip](./media/disk-encryption/azure-portal-add-access-policy.png)
 
-1. Välj **Lägg till** .
+1. Välj **Lägg till**.
 
-1. Välj **Spara** .
+1. Välj **Spara**.
 
     ![Spara Azure Key Vault åtkomst princip](./media/disk-encryption/add-key-vault-access-policy-save.png)
 
@@ -121,7 +121,7 @@ Nu är du redo att skapa ett nytt HDInsight-kluster. Kundhanterade nycklar kan b
 
 #### <a name="using-the-azure-portal"></a>Använda Azure-portalen
 
-Ange den fullständiga **nyckel identifieraren** , inklusive nyckel versionen, när klustret skapas. Till exempel `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Du måste också tilldela den hanterade identiteten till klustret och ange nyckel-URI: n.
+Ange den fullständiga **nyckel identifieraren**, inklusive nyckel versionen, när klustret skapas. Exempelvis `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Du måste också tilldela den hanterade identiteten till klustret och ange nyckel-URI: n.
 
 ![Skapa nytt kluster](./media/disk-encryption/create-cluster-portal.png)
 
@@ -359,7 +359,7 @@ Det kan finnas scenarier där du kanske vill ändra de krypterings nycklar som a
 
 #### <a name="using-the-azure-portal"></a>Använda Azure-portalen
 
-Om du vill rotera nyckeln behöver du URI för bas nyckel valvet. När du har gjort det går du till avsnittet HDInsight-kluster egenskaper i portalen och klickar på **ändra nyckel** under **URL för disk krypterings nyckel** . Ange den nya nyckel-URL: en och skicka för att rotera nyckeln.
+Om du vill rotera nyckeln behöver du URI för bas nyckel valvet. När du har gjort det går du till avsnittet HDInsight-kluster egenskaper i portalen och klickar på **ändra nyckel** under **URL för disk krypterings nyckel**. Ange den nya nyckel-URL: en och skicka för att rotera nyckeln.
 
 ![rotera disk krypterings nyckel](./media/disk-encryption/change-key.png)
 

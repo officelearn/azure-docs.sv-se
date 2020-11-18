@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 11/17/2020
 ms.author: inhenkel
 ms.custom: has-adal-ref, devx-track-csharp
-ms.openlocfilehash: b9b72e8340722f8ddc97b3769ce22e607974a508
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d4f232d87209a3a5676cac22e67a38b17af6917
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297407"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844327"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Ansluta till Media Services v3 API-.NET
 
@@ -43,7 +43,7 @@ Den här artikeln visar hur du ansluter till Azure Media Services v3 .NET SDK me
 
 Exempel programmet i det här avsnittet är mål `netcoreapp2.0` . Koden använder async Main, som är tillgänglig från och med C# 7,1. Mer information finns i den här [bloggen](/archive/blogs/benwilli/async-main-is-available-but-hidden) .
 
-## <a name="add-required-nuget-packages"></a>Lägg till nödvändiga NuGet-paket
+## <a name="add-required-nuget-packagesassemblies"></a>Lägg till nödvändiga NuGet-paket/sammansättningar
 
 1. I Visual Studio väljer du **verktyg**  >  **NuGet Package Manager**  >  **NuGet Manager Console**.
 2. I fönstret **Package Manager-konsol** använder `Install-Package` du kommandot för att lägga till följande NuGet-paket. Exempelvis `Install-Package Microsoft.Azure.Management.Media`.
@@ -51,10 +51,14 @@ Exempel programmet i det här avsnittet är mål `netcoreapp2.0` . Koden använd
 |Paket|Beskrivning|
 |---|---|
 |`Microsoft.Azure.Management.Media`|Azure Media Services SDK. <br/>Kontrol lera att du använder det senaste Azure Media Services paketet genom att kontrol lera [Microsoft. Azure. Management. Media](https://www.nuget.org/packages/Microsoft.Azure.Management.Media).|
-|`Microsoft.Rest.ClientRuntime.Azure.Authentication`|ADAL för Azure SDK för NET|
-|`Microsoft.Extensions.Configuration.EnvironmentVariables`|Läsa konfigurations värden från miljövariabler och lokala JSON-filer|
-|`Microsoft.Extensions.Configuration.Json`|Läsa konfigurations värden från miljövariabler och lokala JSON-filer
-|`WindowsAzure.Storage`|Storage SDK|
+
+### <a name="other-required-assemblies"></a>Andra nödvändiga sammansättningar
+
+- Azure. Storage. blobar
+- Microsoft.Extensions.Configuration
+- Microsoft.Extensions.Configuration. EnvironmentVariables
+- Microsoft.Extensions.Configuration.Jspå
+- Microsoft. rest. ClientRuntime. Azure. Authentication
 
 ## <a name="create-and-configure-the-app-settings-file"></a>Skapa och konfigurera appens inställnings fil
 
@@ -136,9 +140,9 @@ namespace ConsoleApp1
             get { return new Uri(_config["ArmEndpoint"]); }
         }
 
-        public string Region
+        public string Location
         {
-            get { return _config["Region"]; }
+            get { return _config["Location"]; }
         }
     }
 }
@@ -245,5 +249,5 @@ namespace ConsoleApp1
 
 ## <a name="see-also"></a>Se även
 
-* [.NET-referens](/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
+* [.NET-referens](/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet&preserve-view=true)
 * Fler kod exempel finns i [.NET SDK-exempel](https://github.com/Azure-Samples/media-services-v3-dotnet) lagrings platsen.

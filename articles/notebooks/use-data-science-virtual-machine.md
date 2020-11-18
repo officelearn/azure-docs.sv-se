@@ -6,12 +6,12 @@ manager: andneil
 ms.author: getroyer
 ms.topic: how-to
 ms.date: 06/13/2019
-ms.openlocfilehash: 291f1ac093568f50ad6146b70fa1ef69263b7b5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d65a39c1a1d302e565b59db1644af2c08befb6b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85830322"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843170"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Använd Azure Data Science Virtual Machines
 
@@ -24,7 +24,7 @@ Som standard körs projekt på den **kostnads fria beräknings** nivån, som är
 
 ## <a name="create-a-dsvm-instance"></a>Skapa en DSVM-instans
 
-Följ instruktionerna för att [skapa en Ubuntu data science VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)för att skapa en ny DSVM-instans. Mer information, inklusive pris information, finns i [Virtual Machines för data vetenskap](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
+Följ instruktionerna för att [skapa en Ubuntu data science VM](../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md)för att skapa en ny DSVM-instans. Mer information, inklusive pris information, finns i [Virtual Machines för data vetenskap](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
 
 ## <a name="connect-to-the-dsvm"></a>Anslut till DSVM
 
@@ -62,10 +62,10 @@ När ett projekt körs på en virtuell dator monteras filerna på Jupyter-server
 Om flera användare delar en DSVM kan du undvika att blockera varandra genom att skapa och använda en DSVM-användare för varje Notebook-användare:
 
 1. På [Azure Portal](https://portal.azure.com)navigerar du till den virtuella datorn.
-1. Välj **Återställ lösen ord**under **support + fel sökning** i vänstermarginalen.
+1. Välj **Återställ lösen ord** under **support + fel sökning** i vänstermarginalen.
 1. Ange ett nytt **användar namn**. Användar namnet måste vara i gemener för att kunna användas med JupyterHub. Ange ett lösen ord. Välj sedan **Uppdatera**. (Befintliga användar namn påverkas inte.)
 1. Upprepa föregående steg för ytterligare användare.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om Dsvm för [Introduktion till Azure Data Science Virtual Machines](/azure/machine-learning/data-science-virtual-machine/overview).
+Lär dig mer om Dsvm för [Introduktion till Azure Data Science Virtual Machines](../machine-learning/data-science-virtual-machine/overview.md).

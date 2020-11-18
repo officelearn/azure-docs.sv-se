@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seodec18,seoapr2020, contperfq2
 ms.date: 10/30/2020
-ms.openlocfilehash: ed2ce13ab10c09dc738e522566742078819e8341
-ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
+ms.openlocfilehash: 4c0d12e4c37476b9ae71962251105ef92aa39120
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93148396"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845211"
 ---
 # <a name="configure-hdinsight-clusters-for-active-directory-integration-with-enterprise-security-package"></a>Konfigurera HDInsight-kluster för Active Directory integrering med Enterprise Security Package
 
@@ -48,7 +48,7 @@ När Azure AD DS är aktive rad börjar alla användare och objekt att synkronis
 
 Domän namnet som du använder med Azure AD DS måste innehålla 39 tecken eller färre för att fungera med HDInsight.
 
-Du kan välja att bara synkronisera de grupper som behöver åtkomst till HDInsight-kluster. Det här alternativet för att synkronisera endast vissa grupper kallas *omsynkronisering av omfång* . Instruktioner finns i [Konfigurera omfångs synkronisering från Azure AD till din hanterade domän](../../active-directory-domain-services/scoped-synchronization.md).
+Du kan välja att bara synkronisera de grupper som behöver åtkomst till HDInsight-kluster. Det här alternativet för att synkronisera endast vissa grupper kallas *omsynkronisering av omfång*. Instruktioner finns i [Konfigurera omfångs synkronisering från Azure AD till din hanterade domän](../../active-directory-domain-services/scoped-synchronization.md).
 
 När du aktiverar säker LDAP ska du lägga till domän namnet i ämnes namnet. Och alternativt namn för certifikat mottagare i certifikatet. Om ditt domän namn är *contoso100.onmicrosoft.com* kontrollerar du att det exakta namnet finns i certifikatets ämnes namn och alternativt namn för certifikat mottagare. Mer information finns i [Konfigurera säker LDAP för en Azure AD DS-hanterad domän](../../active-directory-domain-services/tutorial-configure-ldaps.md).
 
@@ -62,7 +62,7 @@ New-SelfSignedCertificate -Subject contoso100.onmicrosoft.com `
 ```
 
 > [!NOTE]  
-> Endast klient organisations administratörer har behörighet att aktivera Azure AD DS. Om kluster lagringen är Azure Data Lake Storage Gen1 eller Gen2, måste du inaktivera Azure Multi-Factor Authentication endast för användare som behöver åtkomst till klustret med hjälp av grundläggande Kerberos-autentisering.
+> Endast klient organisations administratörer har behörighet att aktivera Azure AD DS. Om kluster lagringen är Azure Data Lake Storage Gen1 eller Gen2, måste du inaktivera Azure AD Multi-Factor Authentication bara för användare som behöver åtkomst till klustret med hjälp av grundläggande Kerberos-autentisering.
 >
 > Du kan använda [betrodda IP-adresser](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) eller [villkorlig åtkomst](../../active-directory/conditional-access/overview.md) för att inaktivera Multi-Factor Authentication *endast* för vissa användare när de använder IP-intervallet för HDInsight-klustrets virtuella nätverk. Om du använder villkorlig åtkomst ser du till att den Active Directory tjänstens slut punkt är aktive rad i det virtuella HDInsight-nätverket.
 >
@@ -88,7 +88,7 @@ Tilldela sedan rollen **HDInsight Domain Services Contributor** till den hantera
 
 Genom att tilldela rollen **HDInsight Domain Services Contributor** ser du till att den här identiteten har rätt ( `on behalf of` ) åtkomst till Domain Services-åtgärder på Azure AD DS-domänen. Dessa åtgärder omfattar att skapa och ta bort organisationsenheter.
 
-När den hanterade identiteten har fått rollen hanterar Azure AD DS-administratören vem som använder den. Först väljer administratören den hanterade identiteten i portalen. Väljer sedan **Access Control (IAM)** under **Översikt** . Administratören tilldelar rollen **hanterad identitets operatör** till användare eller grupper som vill skapa ESP-kluster.
+När den hanterade identiteten har fått rollen hanterar Azure AD DS-administratören vem som använder den. Först väljer administratören den hanterade identiteten i portalen. Väljer sedan **Access Control (IAM)** under **Översikt**. Administratören tilldelar rollen **hanterad identitets operatör** till användare eller grupper som vill skapa ESP-kluster.
 
 Azure AD DS-administratören kan till exempel tilldela den här rollen till **MarketingTeam** -gruppen för **sjmsi** -hanterad identitet. Ett exempel visas i följande bild. Den här tilldelningen säkerställer att rätt personer i organisationen kan använda den hanterade identiteten för att skapa ESP-kluster.
 
@@ -99,11 +99,11 @@ Azure AD DS-administratören kan till exempel tilldela den här rollen till **Ma
 > [!NOTE]  
 > Azure AD DS måste distribueras i ett Azure Resource Manager-baserat virtuellt nätverk. Klassiska virtuella nätverk stöds inte för Azure AD DS. Mer information finns i [aktivera Azure Active Directory Domain Services med hjälp av Azure Portal](../../active-directory-domain-services/tutorial-create-instance-advanced.md#create-and-configure-the-virtual-network).
 
-Aktivera Azure AD DS. Sedan körs en lokal Domain Name System-Server (DNS) på Active Directory virtuella datorerna (VM). Konfigurera det virtuella Azure AD DS-nätverket så att det använder dessa anpassade DNS-servrar. Du hittar rätt IP-adresser genom att välja **Egenskaper** i kategorin **Hantera** och titta under **IP-adress på virtuellt nätverk** .
+Aktivera Azure AD DS. Sedan körs en lokal Domain Name System-Server (DNS) på Active Directory virtuella datorerna (VM). Konfigurera det virtuella Azure AD DS-nätverket så att det använder dessa anpassade DNS-servrar. Du hittar rätt IP-adresser genom att välja **Egenskaper** i kategorin **Hantera** och titta under **IP-adress på virtuellt nätverk**.
 
 ![Hitta IP-adresser för lokala DNS-servrar](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-dns1.png)
 
-Ändra konfigurationen för DNS-servrarna i det virtuella Azure AD DS-nätverket. Om du vill använda de här anpassade IP-adresserna väljer du **DNS-servrar** i kategorin **Inställningar** . Välj sedan det **anpassade** alternativet, ange den första IP-adressen i text rutan och välj **Spara** . Lägg till fler IP-adresser med hjälp av samma steg.
+Ändra konfigurationen för DNS-servrarna i det virtuella Azure AD DS-nätverket. Om du vill använda de här anpassade IP-adresserna väljer du **DNS-servrar** i kategorin **Inställningar** . Välj sedan det **anpassade** alternativet, ange den första IP-adressen i text rutan och välj **Spara**. Lägg till fler IP-adresser med hjälp av samma steg.
 
 ![Uppdaterar det virtuella nätverkets DNS-konfiguration](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-vnet-configuration.png)
 
@@ -136,11 +136,11 @@ När du har aktiverat ESP identifieras och verifieras vanliga felkonfigurationer
 
 När du skapar ett HDInsight-kluster med ESP måste du ange följande parametrar:
 
-* **Kluster administratörs användare** : Välj en administratör för klustret från den synkroniserade Azure AD DS-instansen. Det här domän kontot måste redan vara synkroniserat och tillgängligt i Azure AD DS.
+* **Kluster administratörs användare**: Välj en administratör för klustret från den synkroniserade Azure AD DS-instansen. Det här domän kontot måste redan vara synkroniserat och tillgängligt i Azure AD DS.
 
-* **Kluster åtkomst grupper** : de säkerhets grupper vars användare du vill synkronisera och har åtkomst till klustret ska vara tillgängliga i Azure AD DS. Ett exempel är HiveUsers-gruppen. Mer information finns i [skapa en grupp och lägga till medlemmar i Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+* **Kluster åtkomst grupper**: de säkerhets grupper vars användare du vill synkronisera och har åtkomst till klustret ska vara tillgängliga i Azure AD DS. Ett exempel är HiveUsers-gruppen. Mer information finns i [skapa en grupp och lägga till medlemmar i Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-* **LDAPS-URL** : ett exempel är `ldaps://contoso.com:636` .
+* **LDAPS-URL**: ett exempel är `ldaps://contoso.com:636` .
 
 Den hanterade identitet som du har skapat kan väljas från List rutan **användarens tilldelade hanterade identitet** när du skapar ett nytt kluster.
 

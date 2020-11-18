@@ -3,12 +3,12 @@ title: Översikt över Azure Notebooks för hands version
 description: Kör Jupyter Notebooks i molnet med den kostnads fria Azure Notebooks för hands versions tjänsten, där ingen konfiguration eller konfiguration krävs.
 ms.topic: overview
 ms.date: 04/05/2019
-ms.openlocfilehash: d229e48e5c49a9a672c533fb24231e9329e524c0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d59faaf85a1fdbad776e954e974bafa300f93d85
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85831411"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845143"
 ---
 # <a name="overview-of-azure-notebooks-preview"></a>Översikt över Azure Notebooks för hands version
 
@@ -111,4 +111,4 @@ Om du vill diskutera frågor om Azure Notebooks kan du rapportera ett problem p�
   - [Presentera ett bildspel](present-jupyter-notebooks-slideshow.md)
   - [Arbeta med datafiler](work-with-project-data-files.md)
   - [Få åtkomst till dataresurser](access-data-resources-jupyter-notebooks.md)
-  - [Använd Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)
+  - [Använd Azure Machine Learning](../machine-learning/samples-notebooks.md)

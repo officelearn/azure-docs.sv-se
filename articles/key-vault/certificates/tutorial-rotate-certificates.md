@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: 2d981e902f829eb0fa8283b6a38ae376a780bcc9
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 591d71e8cd6af2801540f5a1a41ad88b1f538e81
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289747"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844496"
 ---
 # <a name="tutorial-configure-certificate-auto-rotation-in-key-vault"></a>Självstudie: Konfigurera automatisk rotation av certifikat i Key Vault
 
@@ -41,7 +41,7 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="create-a-vault"></a>Skapa ett valv
 
-Skapa ett nyckel valv eller Välj ditt befintliga valv för att utföra åtgärder (se [steg för att skapa ett nyckel valv](../secrets/quick-create-portal.md)). I exemplet är Key Vault **-namnet exempel-valv**.
+Skapa en Azure Key Vault med hjälp av [Azure Portal](../general/quick-create-portal.md), [Azure CLI](../general/quick-create-cli.md)eller [Azure PowerShell](../general/quick-create-powershell.md). I exemplet är Key Vault **-namnet exempel-valv**.
 
 ![Utdata efter att nyckel valvet har skapats](../media/certificates/tutorial-import-cert/vault-properties.png)
 
@@ -77,8 +77,8 @@ Key Vault automatiskt roterar certifikat genom upprättade partnerskap med ca: e
 1. Välj **generera/importera**.
 1. På skärmen **skapa ett certifikat** uppdaterar du följande värden:
 
-   - **Giltighets period** : Ange värdet (i månader). Att skapa kortsiktiga certifikat är en rekommenderad säkerhets rutin. Som standard är giltighets värdet för ett nyligen skapat certifikat 12 månader.
-   - **Typ av livs längd** : Välj certifikatets automatiska förnyelse-och aviserings åtgärd och uppdatera sedan **livs längden för procent** eller **antal dagar innan det går ut**. Som standard anges ett certifikats automatiska förnyelse till 80 procent av sin livs längd. Välj något av följande alternativ på den nedrullningsbara menyn.
+   - **Giltighets period**: Ange värdet (i månader). Att skapa kortsiktiga certifikat är en rekommenderad säkerhets rutin. Som standard är giltighets värdet för ett nyligen skapat certifikat 12 månader.
+   - **Typ av livs längd**: Välj certifikatets automatiska förnyelse-och aviserings åtgärd och uppdatera sedan **livs längden för procent** eller **antal dagar innan det går ut**. Som standard anges ett certifikats automatiska förnyelse till 80 procent av sin livs längd. Välj något av följande alternativ på den nedrullningsbara menyn.
 
         |  Förnya automatiskt vid en specifik tidpunkt| Skicka e-post till alla kontakter vid en specifik tidpunkt |
         |-----------|------|
@@ -99,8 +99,8 @@ Key Vault automatiskt roterar certifikat genom upprättade partnerskap med ca: e
 
 1. På skärmen **utgivnings princip** uppdaterar du följande värden:
 
-   - **Giltighets period** : uppdatera värdet (i månader).
-   - **Typ av livs längd** : Välj certifikatets automatiska förnyelse-och aviserings åtgärd och uppdatera sedan **livs längden för procent** eller **antal dagar innan det går ut**.
+   - **Giltighets period**: uppdatera värdet (i månader).
+   - **Typ av livs längd**: Välj certifikatets automatiska förnyelse-och aviserings åtgärd och uppdatera sedan **livs längden för procent** eller **antal dagar innan det går ut**.
 
    ![Certifikategenskaper](../media/certificates/tutorial-rotate-cert/cert-policy-change.png)
 

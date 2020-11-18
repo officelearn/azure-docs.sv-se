@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 5/11/2020
 ms.author: rogarana
 ms.subservice: files
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 026f4f36986fa5fcfad4dac5186e9dc0b0997d72
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 02d9e65f5422b7b12900d051f01c1d6f55e8685b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629418"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844684"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Konfigurera nätverksslutpunkter i Azure File Sync
 Azure Files och Azure File Sync ger två huvud typer av slut punkter för åtkomst till Azure-fil resurser: 
@@ -39,9 +39,9 @@ Dessutom:
 ## <a name="create-the-private-endpoints"></a>Skapa de privata slut punkterna
 När du skapar en privat slut punkt för en Azure-resurs distribueras följande resurser:
 
-- **En privat slut punkt** : en Azure-resurs som representerar antingen den privata slut punkten för lagrings kontot eller tjänsten för synkronisering av lagring. Du kan tänka på detta som en resurs som ansluter din Azure-resurs och ett nätverks gränssnitt.
-- **Ett nätverks gränssnitt (NIC)** : det nätverks gränssnitt som upprätthåller en privat IP-adress inom det angivna virtuella nätverket/under nätet. Det här är exakt samma resurs som distribueras när du distribuerar en virtuell dator, men i stället för att tilldelas en virtuell dator, ägs den av den privata slut punkten.
-- **En privat DNS-zon** : om du aldrig har distribuerat en privat slut punkt för det här virtuella nätverket tidigare, kommer en ny privat DNS-zon att distribueras för det virtuella nätverket. En DNS A-post skapas också för Azure-resursen i den här DNS-zonen. Om du redan har distribuerat en privat slut punkt i det här virtuella nätverket läggs en ny A-post för Azure-resurs till i den befintliga DNS-zonen. Att distribuera en DNS-zon är valfritt, men rekommenderas för att förenkla DNS-hanteringen som krävs.
+- **En privat slut punkt**: en Azure-resurs som representerar antingen den privata slut punkten för lagrings kontot eller tjänsten för synkronisering av lagring. Du kan tänka på detta som en resurs som ansluter din Azure-resurs och ett nätverks gränssnitt.
+- **Ett nätverks gränssnitt (NIC)**: det nätverks gränssnitt som upprätthåller en privat IP-adress inom det angivna virtuella nätverket/under nätet. Det här är exakt samma resurs som distribueras när du distribuerar en virtuell dator, men i stället för att tilldelas en virtuell dator, ägs den av den privata slut punkten.
+- **En privat DNS-zon**: om du aldrig har distribuerat en privat slut punkt för det här virtuella nätverket tidigare, kommer en ny privat DNS-zon att distribueras för det virtuella nätverket. En DNS A-post skapas också för Azure-resursen i den här DNS-zonen. Om du redan har distribuerat en privat slut punkt i det här virtuella nätverket läggs en ny A-post för Azure-resurs till i den befintliga DNS-zonen. Att distribuera en DNS-zon är valfritt, men rekommenderas för att förenkla DNS-hanteringen som krävs.
 
 > [!Note]  
 > I den här artikeln används DNS-suffix för Azures offentliga regioner, `core.windows.net` för lagrings konton och `afs.azure.net` för tjänster för synkronisering av lagring. Den här kommentarer gäller också för Azures suveräna moln, till exempel Azures myndigheter för amerikanska myndigheter – du behöver bara ersätta lämpliga suffix för din miljö.

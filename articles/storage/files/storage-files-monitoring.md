@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
-ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 8dc99cda4128635e619afec5ed725da16bbd81ed
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 5357a1f2d1f042f9dab01edf205926992e4225d0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629894"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843833"
 ---
 # <a name="monitoring-azure-files"></a>Övervaknings Azure Files
 
@@ -575,7 +575,7 @@ I följande tabell visas några exempel scenarier som du kan använda för att �
 
 2. Klicka på **aviseringar** och klicka sedan på **+ ny varnings regel**.
 
-3. Klicka på **Redigera resurs** , Välj **fil resurs typ** och klicka sedan på **färdig**. 
+3. Klicka på **Redigera resurs**, Välj **fil resurs typ** och klicka sedan på **färdig**. 
 
 4. Klicka på **Välj villkor** och ange följande information för aviseringen: 
 
@@ -585,7 +585,7 @@ I följande tabell visas några exempel scenarier som du kan använda för att �
 
 5. Klicka på **Välj åtgärds grupp** och Lägg till en åtgärds grupp (e-post, SMS osv.) till aviseringen antingen genom att välja en befintlig åtgärds grupp eller skapa en ny åtgärds grupp.
 
-6. Fyll i **aviserings informationen** som **aviserings regelns namn** , **Beskrivning** och **allvarlighets grad**.
+6. Fyll i **aviserings informationen** som **aviserings regelns namn**, **Beskrivning** och **allvarlighets grad**.
 
 7. Klicka på **skapa aviserings regel** för att skapa aviseringen.
 
@@ -596,14 +596,14 @@ I följande tabell visas några exempel scenarier som du kan använda för att �
 
 1. Gå till ditt **lagrings konto** i **Azure Portal**.
 2. I avsnittet **övervakning** klickar du på **aviseringar** och klickar sedan på **+ ny varnings regel**.
-3. Klicka på **Redigera resurs** , Välj **fil resurs typ** för lagrings kontot och klicka sedan på **färdig**. Om lagrings kontots namn till exempel är `contoso` väljer du `contoso/file` resursen.
+3. Klicka på **Redigera resurs**, Välj **fil resurs typ** för lagrings kontot och klicka sedan på **färdig**. Om lagrings kontots namn till exempel är `contoso` väljer du `contoso/file` resursen.
 4. Klicka på **Välj villkor** för att lägga till ett villkor.
 5. Du kommer att se en lista över signaler som stöds för lagrings kontot. Välj måttet **transaktioner** .
 6. På bladet **Konfigurera signal logik** klickar du på list rutan **Dimensions namn** och väljer **svarstyp**.
 7. Klicka på list rutan **Dimensions värden** och välj **SUCCESSWITHTHROTTLING** (för SMB) eller **ClientThrottlingError** (för rest).
 
    > [!NOTE]
-   > Om dimension svärdet SuccessWithThrottling eller ClientThrottlingError inte visas innebär det att resursen inte har begränsats. Lägg till dimension svärdet genom att klicka på **Lägg till anpassat värde** bredvid List rutan **Dimensions värden** , Skriv **SuccessWithThrottling** eller **ClientThrottlingError** , klicka på **OK** och upprepa steg #7.
+   > Om dimension svärdet SuccessWithThrottling eller ClientThrottlingError inte visas innebär det att resursen inte har begränsats. Lägg till dimension svärdet genom att klicka på **Lägg till anpassat värde** bredvid List rutan **Dimensions värden** , Skriv **SuccessWithThrottling** eller **ClientThrottlingError**, klicka på **OK** och upprepa steg #7.
 
 8. Klicka på list rutan **Dimensions namn** och välj **fil resurs**.
 9. Klicka på list rutan **Dimensions värden** och välj den eller de fil resurser som du vill Avisera om.
@@ -617,14 +617,14 @@ I följande tabell visas några exempel scenarier som du kan använda för att �
     > Om du använder ett statiskt tröskelvärde kan mått diagrammet hjälpa till att fastställa ett rimligt tröskelvärde om fil resursen för närvarande begränsas. Om du använder ett dynamiskt tröskelvärde visar mått diagrammet de beräknade tröskelvärdena baserat på aktuella data.
 
 11. Klicka på **Välj åtgärds grupp** för att lägga till en **Åtgärds grupp** (e-post, SMS osv.) till aviseringen antingen genom att välja en befintlig åtgärds grupp eller skapa en ny åtgärds grupp.
-12. Fyll i **aviserings informationen** som **aviserings regelns namn** , * * beskrivning och **allvarlighets grad**.
+12. Fyll i **aviserings informationen** som **aviserings regelns namn**, * * beskrivning och **allvarlighets grad**.
 13. Klicka på **skapa aviserings regel** för att skapa aviseringen.
 
 ### <a name="how-to-create-an-alert-if-the-azure-file-share-size-is-80-of-capacity"></a>Så här skapar du en avisering om storleken på Azure-filresursen är 80% av kapaciteten
 
 1. Gå till ditt **lagrings konto** i **Azure Portal**.
 2. I avsnittet **övervakning** klickar du på **aviseringar** och klickar sedan på **+ ny varnings regel**.
-3. Klicka på **Redigera resurs** , Välj **fil resurs typ** för lagrings kontot och klicka sedan på **färdig**. Om lagrings kontots namn till exempel är `contoso` väljer du `contoso/file` resursen.
+3. Klicka på **Redigera resurs**, Välj **fil resurs typ** för lagrings kontot och klicka sedan på **färdig**. Om lagrings kontots namn till exempel är `contoso` väljer du `contoso/file` resursen.
 4. Klicka på **Välj villkor** för att lägga till ett villkor.
 5. Du ser en lista över signaler som stöds för lagrings kontot genom att välja **fil kapacitets** mått.
 6. På bladet **Konfigurera signal logik** klickar du på list rutan **Dimensions namn** och väljer **fil resurs**.
@@ -636,14 +636,14 @@ I följande tabell visas några exempel scenarier som du kan använda för att �
 8. Ange **tröskelvärdet** i byte. Om fil resursens storlek exempelvis är 100 TiB och du vill få en avisering när fil resurs storleken är 80% av kapaciteten, är tröskelvärdet i byte 87960930222080.
 9. Definiera resten av **aviserings parametrarna** (sammansättnings precision och utvärderings frekvens) och klicka på **Slutför**.
 10. Klicka på Välj åtgärds grupp för att lägga till en åtgärds grupp (e-post, SMS osv.) till aviseringen antingen genom att välja en befintlig åtgärds grupp eller skapa en ny åtgärds grupp.
-11. Fyll i **aviserings informationen** som **aviserings regelns namn** , * * beskrivning och **allvarlighets grad**.
+11. Fyll i **aviserings informationen** som **aviserings regelns namn**, * * beskrivning och **allvarlighets grad**.
 12. Klicka på **skapa aviserings regel** för att skapa aviseringen.
 
 ### <a name="how-to-create-an-alert-if-the-azure-file-share-egress-has-exceeded-500-gib-in-a-day"></a>Så här skapar du en avisering om utgående Azure-filresurs har överskridit 500 GiB per dag
 
 1. Gå till ditt **lagrings konto** i **Azure Portal**.
 2. I avsnittet övervakning klickar du på **aviseringar** och klickar sedan på **+ ny varnings regel**.
-3. Klicka på **Redigera resurs** , Välj **fil resurs typ** för lagrings kontot och klicka sedan på **färdig**. Om lagrings konto namnet till exempel är contoso väljer du Contoso/File-resursen.
+3. Klicka på **Redigera resurs**, Välj **fil resurs typ** för lagrings kontot och klicka sedan på **färdig**. Om lagrings konto namnet till exempel är contoso väljer du Contoso/File-resursen.
 4. Klicka på **Välj villkor** för att lägga till ett villkor.
 5. Du kommer att se en lista över signaler som stöds för lagrings kontot och välja **utgående** mått.
 6. På bladet **Konfigurera signal logik** klickar du på list rutan **Dimensions namn** och väljer **fil resurs**.
@@ -656,7 +656,7 @@ I följande tabell visas några exempel scenarier som du kan använda för att �
 9. Klicka på list rutan **agg regerings granularitet** och välj **24 timmar**.
 10. Välj **utvärderings frekvens** och **Klicka på Slutför**.
 11. Klicka på **Välj åtgärds grupp** för att lägga till en **Åtgärds grupp** (e-post, SMS osv.) till aviseringen antingen genom att välja en befintlig åtgärds grupp eller skapa en ny åtgärds grupp.
-12. Fyll i **aviserings informationen** som **aviserings regelns namn** , * * beskrivning och **allvarlighets grad**.
+12. Fyll i **aviserings informationen** som **aviserings regelns namn**, * * beskrivning och **allvarlighets grad**.
 13. Klicka på **skapa aviserings regel** för att skapa aviseringen.
 
 ## <a name="next-steps"></a>Nästa steg

@@ -3,13 +3,13 @@ title: Distribuera behållar instansen per GitHub-åtgärd
 description: Konfigurera en GitHub-åtgärd som automatiserar stegen för att bygga, skicka och distribuera en behållar avbildning till Azure Container Instances
 ms.topic: article
 ms.date: 08/20/2020
-ms.custom: github-actions-azure
-ms.openlocfilehash: c01075bcb64aa9b91869daba2e995957da74daf4
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.custom: github-actions-azure, devx-track-azurecli
+ms.openlocfilehash: 221ecbe5fbe2cdea4105362c43a5765bcc298d46
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019196"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843663"
 ---
 # <a name="configure-a-github-action-to-create-a-container-instance"></a>Konfigurera en GitHub-åtgärd för att skapa en containerinstans
 
@@ -45,7 +45,7 @@ Den här artikeln visar två sätt att konfigurera arbets flödet:
 
   ![Skärmbild av knappen Förgrening (markerad) i GitHub](../container-registry/media/container-registry-tutorial-quick-build/quick-build-01-fork.png)
 
-* Se till att åtgärder är aktiverade för din lagrings plats. Navigera till din förgrenade lagrings plats och välj **Inställningar**  >  **åtgärder**. I **Åtgärds behörigheter**kontrollerar du att **Aktivera lokala och tredje parts åtgärder för den här lagrings platsen** är markerade.
+* Se till att åtgärder är aktiverade för din lagrings plats. Navigera till din förgrenade lagrings plats och välj **Inställningar**  >  **åtgärder**. I **Åtgärds behörigheter** kontrollerar du att **Aktivera lokala och tredje parts åtgärder för den här lagrings platsen** är markerade.
 
 ## <a name="configure-github-workflow"></a>Konfigurera GitHub-arbetsflöde
 
@@ -128,8 +128,8 @@ az role assignment create \
 
 1. I GitHub-användargränssnittet väljer du **åtgärder**  >  **nytt arbets flöde**.
 1. Välj **Konfigurera ett arbets flöde själv**.
-1. I **Redigera ny fil**klistrar du in följande yaml-innehåll för att skriva över exempel koden. Godkänn standard namnet `main.yml` eller ange ett fil namn som du väljer.
-1. Välj **Start commit (om**du vill, ange korta och utökade beskrivningar av ditt genomförande) och välj sedan **genomför ny fil**.
+1. I **Redigera ny fil** klistrar du in följande yaml-innehåll för att skriva över exempel koden. Godkänn standard namnet `main.yml` eller ange ett fil namn som du väljer.
+1. Välj **Start commit (om** du vill, ange korta och utökade beskrivningar av ditt genomförande) och välj sedan **genomför ny fil**.
 
 ```yml
 on: [push]
@@ -173,7 +173,7 @@ jobs:
 
 ### <a name="validate-workflow"></a>Verifiera arbets flöde
 
-När du har bekräftat arbets flödes filen utlöses arbets flödet. Gå till **Åtgärds**  >  **arbets flöden**för att granska arbets flödets förlopp. 
+När du har bekräftat arbets flödes filen utlöses arbets flödet. Gå till **Åtgärds**  >  **arbets flöden** för att granska arbets flödets förlopp. 
 
 ![Visa arbets flödes förlopp](./media/container-instances-github-action/github-action-progress.png)
 

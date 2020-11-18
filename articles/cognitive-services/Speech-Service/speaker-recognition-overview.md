@@ -12,14 +12,14 @@ ms.date: 09/02/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: högtalar igenkänning, röst biometry
-ms.openlocfilehash: 2c5b73b93c22ef27d7b68455f5e1e5108f25c984
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5001ac166b37f3a3852bc14261a5b5d199d778cd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89397267"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844581"
 ---
-# <a name="what-is-speaker-recognition"></a>Vad är talarigenkänning?
+# <a name="what-is-speaker-recognition-preview"></a>Vad är Talarigenkänning (för hands version)?
 
 Tjänsten Talarigenkänning tillhandahåller algoritmer som verifierar och identifierar högtalare genom sina unika röst egenskaper med röst biometry. Talarigenkänning används för att besvara frågan "Vem talar?". Du ger ljudutbildnings data för en enskild talare, vilket skapar en registrerings profil baserat på högtalar röstens unika egenskaper. Du kan sedan stryka ljud röst exempel mot den här profilen för att kontrol lera att högtalaren är samma person (högtalar verifiering) eller kors kontroll ljud röst exempel mot en *grupp* med registrerade högtalar profiler, för att se om den matchar någon profil i gruppen (högtalar identifiering). Som kontrast Diarization grupperar [högtalare](batch-transcription.md#speaker-separation-diarization) segment av ljud efter talare i en batch-åtgärd.
 
@@ -67,7 +67,7 @@ Precis som med alla Cognitive Services-resurser måste utvecklare som använder 
 | Vad är skillnaden mellan text beroende och text oberoende verifiering? | Text beroende verifiering kräver en speciell pass fras för både registrering och igenkänning. För text oberoende verifiering krävs ett längre röst exempel för registrering, men allt kan ses, inklusive under igenkänning.|
 | Vilka språk stöds? | Engelska, franska, spanska, kinesiska, tyska, italienska, japanska och portugisiska |
 | Vilka Azure-regioner stöds? | Talarigenkänning är en för hands versions tjänst och är för närvarande endast tillgänglig i regionen USA, västra.|
-| Vilka ljud format stöds? | Mono 16-bitars, 16kHz PCM-kodad WAV |
+| Vilka ljudformat stöds? | Mono 16-bitars, 16kHz PCM-kodad WAV |
 | Att **acceptera** och **avvisa** svar är inte korrekt, Hur justerar du tröskelvärdet? | Eftersom det optimala tröskelvärdet varierar mycket med scenarier, bestämmer API: et om du vill acceptera eller avvisa genom att bara baseras på ett standard tröskelvärde på 0,5. Avancerade användare uppmanas att åsidosätta standard beslutet och finjustera resultatet baserat på ditt eget scenario. |
 | Kan du registrera en talare flera gånger? | Ja, för text beroende verifiering kan du registrera en högtalare upp till 50 gånger. För text oberoende verifiering eller högtalar identifiering kan du registrera dig med upp till 300 sekunders ljud. |
 | Vilka data lagras i Azure? | Ljud för registrering lagras i tjänsten tills röst profilen [tas bort](speaker-recognition-basics.md#deleting-voice-profile-enrollments). Igenkänning av ljud exempel behålls inte eller lagras inte. |

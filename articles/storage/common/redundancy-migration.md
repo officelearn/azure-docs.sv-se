@@ -10,13 +10,13 @@ ms.date: 09/24/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6f5eab8f53fb4c9e15606223707292261b4615e0
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 228595bf633ef0545a13abe19308e49da82cf75a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330299"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844020"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Ändra hur ett lagringskonto replikeras
 
@@ -125,16 +125,16 @@ Du kan begära en Direktmigrering via [Azure-support portalen](https://ms.portal
 
 1. Välj **ny supportbegäran**.
 2. Slutför **grunderna** baserat på din konto information: 
-    - **Typ av problem** : Välj **teknisk**.
-    - **Tjänst** : Välj **Mina tjänster** och **lagrings konto hantering**.
-    - **Resurs** : Välj den resurs som du vill konvertera till ZRS.
+    - **Typ av problem**: Välj **teknisk**.
+    - **Tjänst**: Välj **Mina tjänster** och **lagrings konto hantering**.
+    - **Resurs**: Välj den resurs som du vill konvertera till ZRS.
 3. Välj **Nästa**.
 4. Ange följande värden i avsnittet **problem** :
-    - **Allvarlighets grad** : låt standardvärdet vara.
-    - **Problem typ** : Välj **datamigrering**.
-    - **Kategori** : Välj **migrera till ZRS**.
-    - **Title** : Ange en beskrivande rubrik, till exempel **ZRS-kontots migrering**.
-    - **Information** : Skriv ytterligare information i **informations** rutan, till exempel om jag vill migrera till ZRS från [LRS, GRS] i \_ \_ regionen.
+    - **Allvarlighets grad**: låt standardvärdet vara.
+    - **Problem typ**: Välj **datamigrering**.
+    - **Kategori**: Välj **migrera till ZRS**.
+    - **Title**: Ange en beskrivande rubrik, till exempel **ZRS-kontots migrering**.
+    - **Information**: Skriv ytterligare information i **informations** rutan, till exempel om jag vill migrera till ZRS från [LRS, GRS] i \_ \_ regionen.
 5. Välj **Nästa**.
 6. Kontrol lera att kontakt informationen är korrekt på bladet med **kontakt information** .
 7. Välj **Skapa**.
@@ -165,7 +165,7 @@ Du kan också uppgradera ditt ZRS klassiska lagrings konto till ZRS med hjälp a
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
-Om du vill uppgradera till ZRS i Azure Portal navigerar du till **konfigurations** inställningarna för kontot och väljer **uppgradering** :
+Om du vill uppgradera till ZRS i Azure Portal navigerar du till **konfigurations** inställningarna för kontot och väljer **uppgradering**:
 
 ![Uppgradera ZRS Classic till ZRS i portalen](media/redundancy-migration/portal-zrs-classic-upgrade.png)
 

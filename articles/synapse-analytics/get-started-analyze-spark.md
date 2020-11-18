@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: a33b702209bf2724098b7a0db907b1b7237ceccf
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 07537e26b169414e3f8ec35cc32945c20f7eb7ce
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592625"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843289"
 ---
 # <a name="analyze-with-apache-spark"></a>Analysera med Apache Spark
 
@@ -23,7 +23,7 @@ ms.locfileid: "94592625"
 
 I den här självstudien får du lära dig de grundläggande stegen för att läsa in och analysera data med Apache Spark för Azure-Synapse.
 
-1. I **data** hubben klickar du på **Lägg till en ny resurs** (plus knappen ovanför **länkad** )  >> **Bläddra bland exempel**. 
+1. I **data** hubben klickar du på **Lägg till en ny resurs**(plus knappen ovanför **länkad**)  >> **Bläddra bland exempel**. 
 1. Hitta **NYC taxi & limousine provision-Yellow taxi resor** och klicka på den. 
 1. Längst ned på sidan klickar du på **Fortsätt** och sedan på **Lägg till data uppsättning**. 
 1. Nu i **data** hubb under **länkad** högerklickning på **Azure Blob Storage >> exempel data uppsättningar >> nyc_tlc_yellow** och välj **ny antecknings bok**
@@ -60,8 +60,8 @@ Det finns data som är tillgängliga i en tabell i **SQLPOOL1**. Läs in den i e
 
 1. Gå till **data** hubben, högerklicka på **databaser** och välj sedan **Uppdatera**. Du bör se dessa databaser:
 
-    - **SQLPOOL1** (dedikerad SQL-pool)
-    - **nyctaxi** (server lös Apache Spark pool)
+    - **SQLPOOL1 (SQL)**
+    - **nyctaxi (Spark)**
 
 ## <a name="analyze-the-nyc-taxi-data-using-spark-and-notebooks"></a>Analysera NYC taxi-data med Spark och Notebooks
 

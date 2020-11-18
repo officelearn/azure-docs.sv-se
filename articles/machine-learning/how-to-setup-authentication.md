@@ -11,28 +11,28 @@ ms.subservice: core
 ms.date: 11/05/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli, contperfq2
-ms.openlocfilehash: adc0547e36e9cf996a87c2683b4830541b8cd360
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 7fa6beacf4456145e312494a72dad321dfef3754
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442114"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843935"
 ---
-# <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Konfigurera autentisering för Azure Machine Learning resurser och arbets flöden
+# <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Konfigurera autentisering för Azure Machine Learning-resurser och -arbetsflöden
 
 
 Lär dig hur du konfigurerar autentisering till din Azure Machine Learning-arbetsyta. Autentisering till din Azure Machine Learning-arbetsyta baseras på __Azure Active Directory__ (Azure AD) för de flesta saker. I allmänhet finns tre arbets flöden för autentisering som du kan använda när du ansluter till arbets ytan:
 
-* __Interaktiv__ : du använder ditt konto i Azure Active Directory för att antingen autentisera dig direkt eller hämta en token som används för autentisering. Interaktiv autentisering används vid _experimentering och iterativ utveckling_. Med interaktiv autentisering kan du kontrol lera åtkomsten till resurser (till exempel en webb tjänst) per användare.
+* __Interaktiv__: du använder ditt konto i Azure Active Directory för att antingen autentisera dig direkt eller hämta en token som används för autentisering. Interaktiv autentisering används vid _experimentering och iterativ utveckling_. Med interaktiv autentisering kan du kontrol lera åtkomsten till resurser (till exempel en webb tjänst) per användare.
 
-* __Tjänstens huvud namn__ : du skapar ett tjänst huvud namns konto i Azure Active Directory och använder det för att autentisera eller hämta en token. Ett huvud namn för tjänsten används när du behöver en _automatiserad process för att autentisera_ till tjänsten utan att det krävs några åtgärder från användaren. Till exempel ett kontinuerligt integrerings-och distributions skript som tågen och testar en modell varje gång inlärnings koden ändras.
+* __Tjänstens huvud namn__: du skapar ett tjänst huvud namns konto i Azure Active Directory och använder det för att autentisera eller hämta en token. Ett huvud namn för tjänsten används när du behöver en _automatiserad process för att autentisera_ till tjänsten utan att det krävs några åtgärder från användaren. Till exempel ett kontinuerligt integrerings-och distributions skript som tågen och testar en modell varje gång inlärnings koden ändras.
 
-* __Hanterad identitet__ : när du använder Azure Machine Learning SDK _på en virtuell Azure-dator_ kan du hanterade identiteter för Azure. Det här arbets flödet gör att den virtuella datorn kan ansluta till arbets ytan med hjälp av den hanterade identiteten, utan att lagra autentiseringsuppgifter i python-kod eller fråga användaren om att autentisera. Azure Machine Learning beräknings kluster kan också konfigureras för att använda en hanterad identitet för att komma åt arbets ytan när du _tränar modeller_.
+* __Hanterad identitet__: när du använder Azure Machine Learning SDK _på en virtuell Azure-dator_ kan du hanterade identiteter för Azure. Det här arbets flödet gör att den virtuella datorn kan ansluta till arbets ytan med hjälp av den hanterade identiteten, utan att lagra autentiseringsuppgifter i python-kod eller fråga användaren om att autentisera. Azure Machine Learning beräknings kluster kan också konfigureras för att använda en hanterad identitet för att komma åt arbets ytan när du _tränar modeller_.
 
 > [!IMPORTANT]
 > Oavsett vilket arbets flöde för autentisering som används, används Azures rollbaserade åtkomst kontroll (Azure RBAC) för att begränsa den åtkomst nivå som tillåts för resurserna. En administratörs-eller Automation-process kan till exempel ha åtkomst för att skapa en beräknings instans, men inte använda den, medan en data expert kan använda den, men inte ta bort eller skapa den. Mer information finns i [Hantera åtkomst till Azure Machine Learning-arbetsyta](how-to-assign-roles.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Skapa en [Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 * [Konfigurera utvecklings miljön](how-to-configure-environment.md) för att installera Azure Machine Learning SDK eller använd en [Azure Machine Learning beräknings instans](concept-azure-machine-learning-architecture.md#compute-instance) med SDK redan installerad.
@@ -141,7 +141,7 @@ Det enklaste sättet att skapa en SP-och bevilja åtkomst till din arbets yta ä
 
 1. Aktivera en [systemtilldelad hanterad identitet för Azure-resurser på den virtuella datorn](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity).
 
-1. Från [Azure Portal](https://portal.azure.com)väljer du din arbets yta och väljer sedan __Access Control (IAM)__ , __Lägg till roll tilldelning__ och välj __virtuell dator__ i list rutan __tilldela åtkomst till__ . Slutligen väljer du den virtuella datorns identitet.
+1. Från [Azure Portal](https://portal.azure.com)väljer du din arbets yta och väljer sedan __Access Control (IAM)__, __Lägg till roll tilldelning__ och välj __virtuell dator__ i list rutan __tilldela åtkomst till__ . Slutligen väljer du den virtuella datorns identitet.
 
 1. Välj den roll som du vill tilldela den här identiteten. Till exempel deltagare eller en anpassad roll. Mer information finns i [kontrol lera åtkomst till resurser](how-to-assign-roles.md).
 
@@ -154,7 +154,7 @@ Mer information finns i [Konfigurera hanterad identitet för beräknings kluster
 ## <a name="use-interactive-authentication"></a>Använd interaktiv autentisering
 
 > [!IMPORTANT]
-> Interaktiv autentisering använder webbläsaren och kräver cookies (inklusive cookies från tredje part). Om du har inaktiverat cookies kan du få ett fel meddelande som "vi kunde inte logga in dig". Det här felet kan också inträffa om du har aktiverat [Azure Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md).
+> Interaktiv autentisering använder webbläsaren och kräver cookies (inklusive cookies från tredje part). Om du har inaktiverat cookies kan du få ett fel meddelande som "vi kunde inte logga in dig". Det här felet kan också inträffa om du har aktiverat [Azure AD Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md).
 
 De flesta exempel i dokumentationen och exemplen använder interaktiv autentisering. Om du exempelvis använder SDK finns det två funktions anrop som automatiskt kommer att fråga dig om ett UI-baserat autentiseringspaket:
 
@@ -403,4 +403,4 @@ ws = Workspace(subscription_id="your-sub-id",
 
 * [Hur du använder hemligheter i träning](how-to-use-secrets-in-runs.md).
 * [Konfigurera autentisering för modeller som distribueras som en webb tjänst](how-to-authenticate-web-service.md).
-* [Använda en Azure Machine Learning modell som distribueras som en webb tjänst](how-to-consume-web-service.md).
+* [Konsumera en Azure Machine Learning-modell som distribuerats som en webbtjänst](how-to-consume-web-service.md).

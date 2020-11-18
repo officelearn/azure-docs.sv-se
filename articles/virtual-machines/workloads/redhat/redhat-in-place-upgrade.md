@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: beede74134affeb3ee0d4bdd20d5da3b4c5e6eda
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 1160bc43db0dc9ec1714b1766c8cadf09660e291
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566630"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844580"
 ---
 # <a name="red-hat-enterprise-linux-in-place-upgrades"></a>Red Hat Enterprise Linux uppgraderingar på plats
 
@@ -124,8 +124,8 @@ Consult the pre-upgrade report for details and possible remediation.
 ============================================================
 ```
 **Lösning**\
-Aktivera rot åtkomst i `/etc/sshd_conf` .
-Detta beror på att inte aktivera åtkomst till rot-ssh i `/etc/sshd_conf` som i avsnittet "[förberedelser för uppgradering](#preparations-for-the-upgrade)". 
+Aktivera rot åtkomst i `/etc/sshd_config` .
+Detta beror på att inte aktivera åtkomst till rot-ssh i `/etc/sshd_config` som i avsnittet "[förberedelser för uppgradering](#preparations-for-the-upgrade)". 
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer om [Red Hat-avbildningarna i Azure](./redhat-images.md).

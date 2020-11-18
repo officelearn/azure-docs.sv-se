@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 48d0483247f610a1e8c7491e13ea86883bf8f341
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 2c7d51da361816841ff556c1da696a48d2ce6a06
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410376"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843697"
 ---
 # <a name="azure-identity-management-security-overview"></a>Översikt över Azure Identity Management-säkerhet
 
@@ -79,13 +79,13 @@ Läs mer:
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-Azure Multi-Factor Authentication är en autentiseringsmetod som kräver användning av mer än en verifieringsmetod och lägger till ett kritiskt andra säkerhets lager för användar inloggningar och transaktioner. Multi-Factor Authentication hjälper till att skydda åtkomsten till data och program samtidigt som du kan möta användarnas behov av en enkel inloggnings process. Den ger stark autentisering via en mängd verifierings alternativ: telefonsamtal, textmeddelanden eller aviseringar för mobilappar eller verifierings koder och OAuth-token från tredje part.
+Azure AD Multi-Factor Authentication är en autentiseringsmetod som kräver användning av mer än en verifieringsmetod och lägger till ett kritiskt andra säkerhets lager för användar inloggningar och transaktioner. Multi-Factor Authentication hjälper till att skydda åtkomsten till data och program samtidigt som du kan möta användarnas behov av en enkel inloggnings process. Den ger stark autentisering via en mängd verifierings alternativ: telefonsamtal, textmeddelanden eller aviseringar för mobilappar eller verifierings koder och OAuth-token från tredje part.
 
 Läs mer:
 
 * [Multifaktorautentisering](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [Vad är Azure Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md)
-* [Så fungerar Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [Vad är Azure AD Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [Så här fungerar Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="azure-rbac"></a>Azure RBAC
 
@@ -107,11 +107,11 @@ Säkerhetsövervakning, varningar och Machine Learning-baserade rapporter som id
 
 I den Azure Portal, hamnar rapporter i följande kategorier:
 
-* **Avvikelse rapporter** : innehåller inloggnings händelser som vi har identifierat som avvikande. Målet är att du ska känna till sådan aktivitet och göra det möjligt för dig att avgöra om en händelse är misstänkt.
-* **Integrerade program rapporter** : ger insikter om hur moln program används i din organisation. Azure AD erbjuder integrering med tusentals moln program.
-* **Fel rapporter** : ange fel som kan uppstå när du etablerar konton till externa program.
-* **Användarspecifika rapporter** : Visa information om enhets inloggnings aktiviteter för en speciell användare.
-* **Aktivitets loggar** : innehåller en lista över alla granskade händelser under de senaste 24 timmarna, senaste 7 dagarna eller de senaste 30 dagarna samt grupp aktivitets ändringar och registrering av lösen ord.
+* **Avvikelse rapporter**: innehåller inloggnings händelser som vi har identifierat som avvikande. Målet är att du ska känna till sådan aktivitet och göra det möjligt för dig att avgöra om en händelse är misstänkt.
+* **Integrerade program rapporter**: ger insikter om hur moln program används i din organisation. Azure AD erbjuder integrering med tusentals moln program.
+* **Fel rapporter**: ange fel som kan uppstå när du etablerar konton till externa program.
+* **Användarspecifika rapporter**: Visa information om enhets inloggnings aktiviteter för en speciell användare.
+* **Aktivitets loggar**: innehåller en lista över alla granskade händelser under de senaste 24 timmarna, senaste 7 dagarna eller de senaste 30 dagarna samt grupp aktivitets ändringar och registrering av lösen ord.
 
 Läs mer:
 

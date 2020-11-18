@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9630919b71afd0219a2e82a86e0f89106e8a0ac2
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: ccfc290df64417bf0504849a83dbe68efcbddefe
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424064"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843714"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Azures säkerhets bas linje för Logic Apps
 
@@ -384,7 +384,7 @@ Om du använder infrastruktur som kod bör du undvika att lagra lösen ord i kod
 
 - [Skydda och komma åt data i Logic Apps](logic-apps-securing-a-logic-app.md)
 
-- [Så här ställer du in och hämtar en hemlighet från Azure Key Vault](../key-vault/secrets/quick-create-portal.md)
+- [Så här ställer du in och hämtar en hemlighet från Azure Key Vault](../key-vault/general/quick-create-portal.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -486,7 +486,7 @@ Dessutom har varje begär ande slut punkt i en Logic app en signatur för delad 
 
 Om det finns stöd i Logic Apps kan du använda en hanterad identitet för att enkelt komma åt andra resurser som skyddas av Azure Active Directory (Azure AD) och autentisera din identitet utan att logga in, snarare än autentiseringsuppgifter eller hemligheter. Azure hanterar den här identiteten åt dig och hjälper till att skydda dina autentiseringsuppgifter eftersom du inte måste ange eller rotera hemligheter.
 
-Azure Logic Apps stöder både systemtilldelade och användarspecifika hanterade identiteter. Logikappen kan använda antingen den systemtilldelade identiteten eller en enskild användartilldelad identitet, som du kan dela i en grupp av logikappar, men inte båda. För närvarande har endast vissa inbyggda utlösare och åtgärder stöd för hanterade identiteter, inte hanterade anslutningar eller anslutningar, till exempel:
+Azure Logic Apps stöder både system- och användartilldelade hanterade identiteter. Logikappen kan använda antingen den systemtilldelade identiteten eller en enskild användartilldelad identitet, som du kan dela i en grupp av logikappar, men inte båda. För närvarande stöder bara specifika inbyggda utlösare och åtgärder hanterade identiteter, inte hanterade anslutningsprogram eller anslutningar. Till exempel:
 
 -  HTTP
 
@@ -1057,7 +1057,7 @@ När du skapar en integrerings tjänst miljö (ISE) som är värd för dina Logi
 
 **Vägledning**: för att enkelt komma åt andra resurser som skyddas av Azure Active Directory (Azure AD) och autentisera din identitet utan att logga in, kan din Logic app använda en hanterad identitet (tidigare HANTERAD TJÄNSTIDENTITET eller MSI) i stället för autentiseringsuppgifter eller hemligheter. Azure hanterar den här identiteten åt dig och hjälper till att skydda dina autentiseringsuppgifter eftersom du inte måste ange eller rotera hemligheter.
 
-För närvarande har endast vissa inbyggda utlösare och åtgärder stöd för hanterade identiteter, inte hanterade anslutningar eller anslutningar, till exempel:
+För närvarande stöder bara specifika inbyggda utlösare och åtgärder hanterade identiteter, inte hanterade anslutningsprogram eller anslutningar. Till exempel:
 
 - HTTP
 - Azure Functions

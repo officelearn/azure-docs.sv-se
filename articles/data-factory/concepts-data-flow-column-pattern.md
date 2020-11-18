@@ -6,28 +6,28 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/16/2020
-ms.openlocfilehash: dab065f4d2b025fa15966d81b66b41acb12c54b3
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.date: 11/17/2020
+ms.openlocfilehash: 68c211608cfceedaa9d13a595be6d1e5de17f1d5
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027150"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845014"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>Använda kolumn mönster i mappnings data flödet
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Med flera mappnings data flödes omvandlingar kan du referera till mall-kolumner baserat på mönster i stället för hårdkodade kolumn namn. Den här matchningen kallas för *kolumn mönster* . Du kan definiera mönster för att matcha kolumner baserat på namn, datatyp, ström, ursprung eller position i stället för att kräva exakta fält namn. Det finns två scenarier där kolumn mönster är användbara:
+Med flera mappnings data flödes omvandlingar kan du referera till mall-kolumner baserat på mönster i stället för hårdkodade kolumn namn. Den här matchningen kallas för *kolumn mönster*. Du kan definiera mönster för att matcha kolumner baserat på namn, datatyp, ström, ursprung eller position i stället för att kräva exakta fält namn. Det finns två scenarier där kolumn mönster är användbara:
 
 * Om inkommande käll fält ändras ofta, till exempel vid ändring av kolumner i textfiler eller NoSQL-databaser. Det här scenariot kallas [schema avvikelse](concepts-data-flow-schema-drift.md).
 * Om du vill göra en gemensam åtgärd i en stor grupp kolumner. Om du till exempel vill omvandla varje kolumn som har "total" i dess kolumn namn till ett dubbelt värde.
 
-Kolumn mönster är för närvarande tillgängliga i omvandlingarna härledd kolumn, mängd, Välj och mottagare.
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4Iui1]
 
 ## <a name="column-patterns-in-derived-column-and-aggregate"></a>Kolumn mönster i härledd kolumn och mängd
 
-Om du vill lägga till ett kolumn mönster i en härledd kolumn-, samlings-eller fönster omvandling klickar du på **Lägg till** ovanför kolumn listan eller plus ikonen bredvid en befintlig härledd kolumn. Välj **Lägg till kolumn mönster** .
+Om du vill lägga till ett kolumn mönster i en härledd kolumn-, samlings-eller fönster omvandling klickar du på **Lägg till** ovanför kolumn listan eller plus ikonen bredvid en befintlig härledd kolumn. Välj **Lägg till kolumn mönster**.
 
 ![Skärm bild som visar plus ikonen för att lägga till ett kolumn mönster.](media/data-flow/add-column-pattern.png "Kolumnmönster")
 
@@ -43,11 +43,17 @@ För att kontrol lera att ditt matchnings villkor är korrekt kan du validera sc
 
 ![Skärm bild som visar fliken utdata schema.](media/data-flow/columnpattern3.png "Kolumnmönster")
 
+### <a name="hierarchical-pattern-matching"></a>Hierarkiskt mönster matchning
+
+Du kan också bygga mönster matchning i komplexa hierarkiska strukturer. Expandera avsnittet `Each MoviesStruct that matches` där du kommer att uppmanas att ange varje hierarki i data strömmen. Du kan sedan bygga matchande mönster för egenskaper inom den valda hierarkin.
+
+![Skärm bild som visar hierarkiskt kolumn mönster.](media/data-flow/patterns-hierarchy.png "Kolumn mönster i hierarkier")
+
 ## <a name="rule-based-mapping-in-select-and-sink"></a>Regel baserad mappning i SELECT och Sink
 
 När du mappar kolumner i källa och väljer omvandlingar kan du lägga till antingen fast mappning eller regelbaserade mappningar. Matchning baserat på `name` `type` kolumnerna,, `stream` , `origin` och `position` . Du kan ha en kombination av fasta och regelbaserade mappningar. Som standard är alla projektioner med fler än 50 kolumner som standard en regelbaserade mappning som matchar i varje kolumn och som utvärderar det angivna namnet. 
 
-Om du vill lägga till en regelbaserade mappning klickar du på **Lägg till mappning** och väljer **regel baserad mappning** .
+Om du vill lägga till en regelbaserade mappning klickar du på **Lägg till mappning** och väljer **regel baserad mappning**.
 
 ![Skärm bild som visar regel baserad mappning som valts från Lägg till mappning.](media/data-flow/rule2.png "Regel baserad mappning")
 
@@ -77,7 +83,7 @@ Ovanstående exempel matchar på alla under kolumner i komplex kolumn `a` . `a` 
 
 ## <a name="pattern-matching-expression-values"></a>Mönster matchnings uttrycks värden.
 
-* `$$` översätts till namnet eller värdet för varje matchning vid körning
+* `$$` översätts till namnet eller värdet för varje matchning vid körning. Tänk på `$$` som likvärdigt med `this` .
 * `name` representerar namnet på varje inkommande kolumn
 * `type` representerar data typen för varje inkommande kolumn
 * `stream` representerar namnet som är kopplat till varje data ström eller omvandling i ditt flöde

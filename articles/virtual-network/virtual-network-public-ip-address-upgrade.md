@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/07/2020
 ms.author: blehr
-ms.custom: references_regions
-ms.openlocfilehash: a1bd303390626eaea71e588e325fedbd2d8fa4b9
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.custom: references_regions , devx-track-azurecli
+ms.openlocfilehash: 0c248149694c2bf66b8c94e9c0a29a8f7da9f4e4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94353364"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843748"
 ---
 # <a name="upgrade-public-ip-addresses"></a>Uppgradera offentliga IP-adresser
 
@@ -100,7 +100,7 @@ Om du vill dra nytta av de nya funktionerna i Azure Resource Manager kan du migr
 
 I följande exempel förutsätter vi att du skapade en klassisk Azure Reserverad IP- **myReservedIP** i **myResourceGroup**. En annan förutsättning för migrering är att se till att Azure Resource Manager prenumerationen har registrerats för migrering. Detta beskrivs närmare i steg 3 och 4 på [den här sidan](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-ps).
 
-För att migrera Reserverad IP kör du kommandona nedan med hjälp av PowerShell.  Observera att om IP-adressen inte är associerad med någon tjänst (nedan finns det en tjänst med namnet **unservice** ) kan du hoppa över det steget.
+För att migrera Reserverad IP kör du kommandona nedan med hjälp av PowerShell.  Observera att om IP-adressen inte är associerad med någon tjänst (nedan finns det en tjänst med namnet **unservice**) kan du hoppa över det steget.
 
 ```azurepowershell-interactive
 ## Variables for the command ##
@@ -118,7 +118,7 @@ Föregående kommando visar eventuella varningar och fel som blockerar migrering
 Move-AzureReservedIP -ReservedIPName $name -Prepare
 Move-AzureReservedIP -ReservedIPName $name -Commit
 ```
-En ny resurs grupp i Azure Resource Manager skapas med namnet på den migrerade Reserverad IP (i exemplet ovan blir det resurs gruppen **myReservedIP-migrated** ).
+En ny resurs grupp i Azure Resource Manager skapas med namnet på den migrerade Reserverad IP (i exemplet ovan blir det resurs gruppen **myReservedIP-migrated**).
 
 # <a name="reserved-to-basic---cli"></a>[**Reserverat till Basic-CLI**](#tab/option-migrate-cli)
 
@@ -142,30 +142,20 @@ Föregående kommando visar eventuella varningar och fel som blockerar migrering
 azure network reserved-ip prepare-migration $name
 azure network reserved-ip commit-migration $name
 ```
-En ny resurs grupp i Azure Resource Manager skapas med namnet på den migrerade Reserverad IP (i exemplet ovan blir det resurs gruppen **myReservedIP-migrated** ).
+En ny resurs grupp i Azure Resource Manager skapas med namnet på den migrerade Reserverad IP (i exemplet ovan blir det resurs gruppen **myReservedIP-migrated**).
 
 ---
 
 ## <a name="limitations"></a>Begränsningar
 
-* Den här funktionen är för närvarande endast tillgänglig i följande regioner:<br>
-USA, västra centrala<br>
-USA, norra centrala<br>
-USA, västra<br>
-USA, västra 2<br>
-Östra Norge<br>
-Sydafrika, norra<br>
-East US<br>
-Norra Europa<br>
-Sydkorea, centrala<br>
-Indiska centrala<br>
-USA, östra 2<br>
-Schweiz, norra<br>
-Indien, västra<br>
-Tyskland, norra<br>
-Kanada, centrala<br>
-Frankrike, södra<br>
-Indien, västra
+* Den här funktionen är för närvarande inte tillgänglig i följande regioner:<br>
+US Gov, Virginia<br>
+USA DoD, östra<br>
+USA DoD, centrala<br>
+Kina, östra<br>
+Kina, östra 2<br>
+Kina, norra<br>
+Kina, norra 2
 
 * För att kunna uppgradera en grundläggande offentlig IP-adress kan den inte kopplas till någon Azure-resurs.  Läs [den här sidan](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address) om du vill ha mer information om hur du avassocierar offentliga IP-adresser.  På samma sätt kan det inte vara kopplat till någon moln tjänst för att migrera en Reserverad IP.  Läs [den här sidan](https://docs.microsoft.com/azure/virtual-network/remove-public-ip-address-vm) om du vill ha mer information om hur du avassocierar reserverade IP-adresser.  
 * Offentliga IP-adresser som uppgraderas från Basic till standard-SKU: n fortsätter att ha inga [tillgänglighets zoner](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones) och kan därför inte kopplas till en Azure-resurs som är antingen en zon-redundant eller zonindelade.  Observera att detta endast gäller för regioner som erbjuder tillgänglighets zoner.

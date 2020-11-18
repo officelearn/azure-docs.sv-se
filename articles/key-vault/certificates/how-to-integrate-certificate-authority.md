@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: d36c6e8ebbb86f9027a4822daa4481b5481523c2
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 50f2515cee92ead8018ffaaf4b4574905f8007d5
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289548"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844513"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Integrera nyckelvalv med DigiCert-certifikatutfärdare
 
@@ -27,13 +27,13 @@ Mer allmän information om certifikat finns i [Azure Key Vault certifikat](./abo
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här guiden måste du ha följande resurser.
 * Ett nyckel valv. Du kan använda ett befintligt nyckel valv eller skapa ett nytt genom att följa stegen i någon av följande snabb starter:
-   - [Skapa ett nyckel valv med Azure CLI](../secrets/quick-create-cli.md)
-   - [Skapa ett nyckel valv med Azure PowerShell](../secrets/quick-create-powershell.md)
-   - [Skapa ett nyckel valv med Azure Portal](../secrets/quick-create-portal.md).
+   - [Skapa ett nyckel valv med Azure CLI](../general/quick-create-cli.md)
+   - [Skapa ett nyckel valv med Azure PowerShell](../general/quick-create-powershell.md)
+   - [Skapa ett nyckel valv med Azure Portal](../general/quick-create-portal.md).
 *   Du måste aktivera DigiCert CertCentral-kontot. [Registrera dig](https://www.digicert.com/account/signup/) för ditt CertCentral-konto.
 *   Behörigheter på administratörs nivå i dina konton.
 
@@ -56,11 +56,11 @@ När du har samlat in information från DigiCert CertCentral-kontot kan du nu l�
 4.  Välj **Lägg till** alternativ.
  ![Lägg till certifikat utfärdare](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
 5.  På skärmen **skapa en certifikat utfärdare** väljer du följande värden:
-    -   **Namn** : Lägg till ett identifierbart Issuer-namn. Exempel DigicertCA
-    -   **Provider** : Välj DigiCert på menyn.
-    -   **Konto-ID** : Ange ditt DigiCert CertCentral-konto-ID
-    -   **Konto lösen ord** : Ange den API-nyckel som du genererade i ditt DigiCert CertCentral-konto
-    -   **Organisations-ID** : Ange OrgID som samlats in från DigiCert CertCentral-kontot 
+    -   **Namn**: Lägg till ett identifierbart Issuer-namn. Exempel DigicertCA
+    -   **Provider**: Välj DigiCert på menyn.
+    -   **Konto-ID**: Ange ditt DigiCert CertCentral-konto-ID
+    -   **Konto lösen ord**: Ange den API-nyckel som du genererade i ditt DigiCert CertCentral-konto
+    -   **Organisations-ID**: Ange OrgID som samlats in från DigiCert CertCentral-kontot 
     -   Klicka på **Skapa**.
    
 6.  Du kommer att se att DigicertCA nu har lagts till i listan certifikat utfärdare.

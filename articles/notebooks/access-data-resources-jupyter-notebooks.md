@@ -4,12 +4,12 @@ description: 'Lär dig hur du kommer åt filer, REST-API: er, databaser och andr
 ms.topic: how-to
 ms.date: 12/04/2018
 ms.custom: devx-track-python
-ms.openlocfilehash: b2254e6d966ca3281cd9c8b0771cb77fb6dede33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a833ff914c1ee53f024147371977ac1caa3800dc
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87846623"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842880"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Komma åt molndata i en notebook-fil
 
@@ -46,7 +46,7 @@ if response.status_code == 200:
 
 Du kan komma åt databaser i SQL Database eller SQL-hanterad instans med hjälp av pyodbc-eller pymssql-biblioteken.
 
-[Använd python för att fråga en Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python) ger dig instruktioner om hur du skapar en databas i SQL Database som innehåller AdventureWorks data och hur du frågar efter data. Samma kod visas i exempel antecknings boken för den här artikeln.
+[Använd python för att fråga en Azure SQL Database](../azure-sql/database/connect-query-python.md) ger dig instruktioner om hur du skapar en databas i SQL Database som innehåller AdventureWorks data och hur du frågar efter data. Samma kod visas i exempel antecknings boken för den här artikeln.
 
 ## <a name="azure-storage"></a>Azure Storage
 
@@ -61,11 +61,11 @@ Exempel antecknings boken visar hur du arbetar med både tabeller och blobbar, i
 
 Azure Cosmos DB tillhandahåller en fullständigt indexerad NoSQL-lagring för JSON-dokument. Följande artiklar innehåller ett antal olika sätt att arbeta med Cosmos DB från python:
 
-- [Bygg en SQL API-app med python](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-python)
-- [Bygg en kolv-app med Azure Cosmos DBs API för MongoDB](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
-- [Skapa en graf-databas med python och Gremlin-API: et](https://docs.microsoft.com/azure/cosmos-db/create-graph-python)
-- [Skapa en Cassandra-app med Python och Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cassandra-python)
-- [Skapa en tabell-API-app med Python och Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-table-python)
+- [Bygg en SQL API-app med python](../cosmos-db/create-sql-api-python.md)
+- [Bygg en kolv-app med Azure Cosmos DBs API för MongoDB](../cosmos-db/create-mongodb-flask.md)
+- [Skapa en graf-databas med python och Gremlin-API: et](../cosmos-db/create-graph-python.md)
+- [Skapa en Cassandra-app med Python och Azure Cosmos DB](../cosmos-db/create-cassandra-python.md)
+- [Skapa en tabell-API-app med Python och Azure Cosmos DB](../cosmos-db/table-storage-how-to-use-python.md)
 
 När du arbetar med Cosmos DB kan du använda [Azure-cosmosdb-Table-](https://pypi.org/project/azure-cosmosdb-table/) biblioteket.
 
@@ -73,9 +73,9 @@ När du arbetar med Cosmos DB kan du använda [Azure-cosmosdb-Table-](https://py
 
 Azure tillhandahåller ett antal andra databas typer som du kan använda. Artiklarna nedan ger vägledning om hur du kommer åt dessa databaser från python:
 
-- [Azure Database för PostgreSQL: Använda Python för att ansluta och fråga efter data](https://docs.microsoft.com/azure/postgresql/connect-python)
-- [Snabbstart: Så här använder du Azure Redis Cache med Python](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
-- [Azure Database för MySQL: Använda Python för att ansluta och fråga efter data](https://docs.microsoft.com/azure/mysql/connect-python)
+- [Azure Database för PostgreSQL: Använda Python för att ansluta och fråga efter data](../postgresql/connect-python.md)
+- [Snabbstart: Så här använder du Azure Redis Cache med Python](../azure-cache-for-redis/cache-python-get-started.md)
+- [Azure Database för MySQL: Använda Python för att ansluta och fråga efter data](../mysql/connect-python.md)
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
   - [Guiden Kopiera för Azure Data Factory](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
 

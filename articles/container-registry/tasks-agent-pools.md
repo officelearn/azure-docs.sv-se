@@ -3,13 +3,13 @@ title: Använd dedikerad pool för att köra uppgifts uppgifter
 description: Konfigurera en dedikerad Compute-pool (lagringspool) i registret för att köra en Azure Container Registry aktivitet.
 ms.topic: article
 ms.date: 10/12/2020
-ms.custom: references_regions
-ms.openlocfilehash: 86c539c3b34ca0e54d65f15c4d9d01a99f9b31c6
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 94956af14aad2b62e6455f443329bcd3232095c0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91997368"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844922"
 ---
 # <a name="run-an-acr-task-on-a-dedicated-agent-pool"></a>Köra en ACR-uppgift i en dedikerad agent
 
@@ -93,13 +93,13 @@ az acr agentpool update \
 
 Task agent-pooler kräver åtkomst till följande Azure-tjänster. Följande brand Väggs regler måste läggas till i alla befintliga nätverks säkerhets grupper eller användardefinierade vägar.
 
-| Riktning | Protokoll | Källa         | Källport | Mål          | Mål Port | Används    |
+| Riktning | Protokoll | Källa         | Källport | Mål          | Mål Port | Använt    |
 |-----------|----------|----------------|-------------|----------------------|-----------|---------|
-| Outbound (Utgående)  | TCP      | VirtualNetwork | Alla         | AzureKeyVault        | 443       | Default |
-| Outbound (Utgående)  | TCP      | VirtualNetwork | Alla         | Storage              | 443       | Default |
-| Outbound (Utgående)  | TCP      | VirtualNetwork | Alla         | EventHub             | 443       | Default |
-| Outbound (Utgående)  | TCP      | VirtualNetwork | Alla         | AzureActiveDirectory | 443       | Standard |
-| Outbound (Utgående)  | TCP      | VirtualNetwork | Alla         | AzureMonitor         | 443       | Standard |
+| Utgående  | TCP      | VirtualNetwork | Valfri         | AzureKeyVault        | 443       | Standardvärde |
+| Utgående  | TCP      | VirtualNetwork | Valfri         | Storage              | 443       | Standardvärde |
+| Utgående  | TCP      | VirtualNetwork | Valfri         | EventHub             | 443       | Standardvärde |
+| Utgående  | TCP      | VirtualNetwork | Valfri         | AzureActiveDirectory | 443       | Standardvärde |
+| Utgående  | TCP      | VirtualNetwork | Valfri         | AzureMonitor         | 443       | Standardvärde |
 
 > [!NOTE]
 > Om aktiviteterna kräver ytterligare resurser från det offentliga Internet lägger du till motsvarande regler. Till exempel krävs ytterligare regler för att köra en Docker-build-uppgift som hämtar bas avbildningarna från Docker Hub, eller återställer ett NuGet-paket.

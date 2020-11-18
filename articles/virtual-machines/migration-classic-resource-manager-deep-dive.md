@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 233ba17e1ae1b554eff092151ad9f05fd660beb3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e9476b7278cbe64bf90911c3b85a09922a1afbf1
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970018"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843952"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>En teknisk djupdykning i plattformsstödd migrering från klassisk distribution till Azure Resource Manager
 
@@ -48,7 +48,7 @@ Innan du påbörjar migreringen:
 * Lägg migreringen utanför kontorstid för att lättare kunna hantera eventuella fel som kan uppstå.
 * Ladda ned den aktuella konfigurationen av dina virtuella datorer med hjälp av PowerShell, CLI-kommandon (kommandoradsgränssnitt) eller REST-API:er för att underlätta verifieringen när förberedelsesteget är klart.
 * Uppdatera Automation-och driftsättning-skripten för att hantera distributions modellen för Resource Manager innan du påbörjar migreringen. Du kan också utföra GET-åtgärder när resurserna är i förberedelsefasen.
-* Utvärdera principerna för Role-Based Access Control (RBAC) som är konfigurerade på IaaS-resurserna i den klassiska distributions modellen och planera för när migreringen är klar.
+* Utvärdera de principer för Azure-rollbaserad åtkomst kontroll (Azure RBAC) som är konfigurerade på IaaS-resurserna i den klassiska distributions modellen och planera för när migreringen är klar.
 
 Arbets flödet för migrering ser ut så här:
 
@@ -150,7 +150,7 @@ Här är ett flödes schema som visar hur du fortsätter med migreringen:
 ## <a name="translation-of-the-classic-deployment-model-to-resource-manager-resources"></a>Översättning av den klassiska distributions modellen till Resource Manager-resurser
 Du hittar den klassiska distributions modellen och resurs hanterarens representationer av resurserna i följande tabell. Andra funktioner och resurser stöds för närvarande inte.
 
-| Klassiskt läge | Resource Manager-läge | Anteckningar |
+| Klassiskt läge | Resource Manager-läge | Kommentarer |
 | --- | --- | --- |
 | Molntjänstens namn |DNS-namn |Under migreringen skapas en ny resursgrupp för varje molntjänst med namngivningsmönstret `<cloudservicename>-migrated`. Den här resursgruppen innehåller alla dina resurser. Namnet på molntjänsten blir ett DNS-namn som kopplas till den offentliga ip-adressen. |
 | Virtuell dator |Virtuell dator |Egenskaper för virtuella datorer migreras oförändrade. Vissa osProfile-uppgifter, t. ex. dator namn, lagras inte i den klassiska distributions modellen och förblir tomma efter migreringen. |

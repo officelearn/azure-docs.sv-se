@@ -5,14 +5,14 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 10/29/2020
+ms.date: 11/17/2020
 ms.author: lle
-ms.openlocfilehash: ca8d359638d97f77377f02d47d824fa216acdcc8
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: e3a517497a480995b8ce63d36d0427e3bfadfe43
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92928118"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844143"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Felsöka integration runtime med egen värd
 
@@ -48,11 +48,26 @@ Azure Data Factory stöder visning och överföring av fel loggar för misslycka
 
 ## <a name="self-hosted-ir-general-failure-or-error"></a>Allmänt fel eller fel i lokalt installerad IR
 
+### <a name="out-of-memory-issue"></a>Slut på minnes problem
+
+#### <a name="symptoms"></a>Symtom
+
+Problemet "OutOfMemoryException" inträffar när du försöker köra en söknings aktivitet med länkad IR eller lokal IR.
+
+#### <a name="cause"></a>Orsak
+
+Ny aktivitet kan mötas med OOM-problemet (OutOfMemory) om IR-datorn har en hög minnes användning för tillfället. Problemet kan orsakas av en stor skala för körning av samtidiga aktiviteter och felet är avsiktligt.
+
+#### <a name="resolution"></a>Lösning
+
+Kontrol lera resursanvändningen och körningen av samtidiga aktiviteter på IR-noden. Justera den interna och Utlös ande tiden för aktivitets körningar för att undvika för mycket körning på samma IR-nod på samma tid.
+
+
 ### <a name="tlsssl-certificate-issue"></a>TLS/SSL-certifikatproblem
 
 #### <a name="symptoms"></a>Symtom
 
-När du försöker aktivera TLS/SSL-certifikat (avancerat) från **Konfigurationshanterare för lokalt installerad IR** -> **Fjärråtkomst från intranät** , efter att ha valt TLS/SSL-certifikat, visas följande fel:
+När du försöker aktivera TLS/SSL-certifikat (avancerat) från **Konfigurationshanterare för lokalt installerad IR** -> **Fjärråtkomst från intranät**, efter att ha valt TLS/SSL-certifikat, visas följande fel:
 
 `Remote access settings are invalid. Identity check failed for outgoing message. The expected DNS identity of the remote endpoint was ‘abc.microsoft.com’ but the remote endpoint provided DNS claim ‘microsoft.com’. If this is a legitimate remote endpoint, you can fix the problem by explicitly specifying DNS identity ‘microsoft.com’ as the Identity property of EndpointAddress when creating channel proxy.`
 
@@ -65,7 +80,7 @@ Det här är ett känt problem i WCF: WCF TLS/SSL-valideringen kontrollerar enda
 #### <a name="resolution"></a>Lösning
 
 Jokerteckencertifikat stöds i Azure Data Factory v2 – lokalt installerad IR. Det här problemet beror vanligtvis på att SSL-certifikatet inte är korrekt. Senaste DNSName i SAN ska vara giltigt. Följ stegen nedan för att kontrollera det. 
-1.  Öppna hanterings konsolen, markera både *ämne* och *alternativt ämnes namn* i certifikat informationen. I ovanstående fall är till exempel det sista objektet i *Alternativt namn för certifikat mottagare* , som är "DNS-namn = Microsoft.com.com", inte giltigt.
+1.  Öppna hanterings konsolen, markera både *ämne* och *alternativt ämnes namn* i certifikat informationen. I ovanstående fall är till exempel det sista objektet i *Alternativt namn för certifikat mottagare*, som är "DNS-namn = Microsoft.com.com", inte giltigt.
 2.  Kontakta företaget för certifikat utfärdare för att ta bort fel DNS-namn.
 
 ### <a name="concurrent-jobs-limit-issue"></a>Problem med gräns för samtidiga jobb
@@ -102,7 +117,7 @@ När vi hanterar fall som rör SSL/TLS-handskakning kan vi stöta på problem so
 
 - Här är ett snabbt och intuitivt sätt att felsöka X. 509-certifikat kedjans build-fel.
  
-    1. Exportera certifikatet, som måste verifieras. Gå till Hantera datorcertifikat och leta upp det certifikat som du vill kontrollera och högerklicka på **Alla uppgifter** -> **Exportera** .
+    1. Exportera certifikatet, som måste verifieras. Gå till Hantera datorcertifikat och leta upp det certifikat som du vill kontrollera och högerklicka på **Alla uppgifter** -> **Exportera**.
     
         ![Exportera uppgifter](media/self-hosted-integration-runtime-troubleshoot-guide/export-tasks.png)
 
@@ -138,7 +153,7 @@ När vi hanterar fall som rör SSL/TLS-handskakning kan vi stöta på problem so
         ```
           Certutil   -URL    <certificate path> 
         ```
-    1. Därefter öppnas **URL-hämtningsverktyget** . Du kan verifiera certifikat från AIA, CDP och OCSP genom att klicka på knappen **Hämta** .
+    1. Därefter öppnas **URL-hämtningsverktyget**. Du kan verifiera certifikat från AIA, CDP och OCSP genom att klicka på knappen **Hämta**.
 
         ![Hämtnings knapp](media/self-hosted-integration-runtime-troubleshoot-guide/retrieval-button.png)
  
@@ -165,7 +180,7 @@ Om du tar Process Monitor kan du se följande resultat:
 > [!TIP] 
 > Du kan ange filter så som visas i skärm bilden nedan.
 > Det meddelar oss att dll- **systemet. ValueTuple** inte finns i GAC-relaterade mappar, eller i *C:\Program Files\Microsoft integration Runtime\4.0\Gateway* eller i *c:\Program Files\Microsoft integration Runtime\4.0\Shared* Folder.
-> I princip kommer den att läsa in dll-filen från *GAC* -mappen först och sedan från *Delas* och slutligen från mappen *Gateway* . Därför kan du placera dll-filen på valfri sökväg som kan vara till hjälp.
+> I princip kommer den att läsa in dll-filen från *GAC*-mappen först och sedan från *Delas* och slutligen från mappen *Gateway*. Därför kan du placera dll-filen på valfri sökväg som kan vara till hjälp.
 
 ![Konfigurera filter](media/self-hosted-integration-runtime-troubleshoot-guide/set-filters.png)
 
@@ -179,7 +194,7 @@ Du kan använda samma metod för att lösa andra problem med en saknad fil eller
 
 Anledningen till att du ser System.ValueTuple.dll under *%windir%\Microsoft.NET\assembly* och *%windir%\assembly* är att det är ett .net-beteende. 
 
-Från felet nedan kan du tydligt se sammansättnings *systemet ValueTuple.* Det här problemet uppstår när programmet försöker kontrol lera sammansättnings *System.ValueTuple.dll* .
+Från felet nedan kan du tydligt se sammansättnings *systemet ValueTuple.* Det här problemet uppstår när programmet försöker kontrol lera sammansättnings *System.ValueTuple.dll*.
  
 `<LogProperties><ErrorInfo>[{"Code":0,"Message":"The type initializer for 'Npgsql.PoolManager' threw an exception.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Code":0,"Message":"Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]</ErrorInfo></LogProperties>`
  
@@ -210,7 +225,7 @@ Om inget av ovanstående orsaker gäller kan du gå till mappen: *%programdata%\
 
 #### <a name="symptoms"></a>Symtom
 
-När du har skapat lokalt installerad IR för både käll- och måldatalager, behöver du ansluta dina två IR för att slutföra en kopia. Om data butikerna har kon figurer ATS i olika virtuella nätverk, eller om de inte kan förstå Gateway-mekanismen, kommer du att trycka på fel som: *det går inte att hitta driv rutinen för källan i målet IR* . *källan kan inte nås av mål-IR* .
+När du har skapat lokalt installerad IR för både käll- och måldatalager, behöver du ansluta dina två IR för att slutföra en kopia. Om data butikerna har kon figurer ATS i olika virtuella nätverk, eller om de inte kan förstå Gateway-mekanismen, kommer du att trycka på fel som: *det går inte att hitta driv rutinen för källan i målet IR*. *källan kan inte nås av mål-IR*.
  
 #### <a name="cause"></a>Orsak
 
@@ -295,7 +310,7 @@ Om felet visas som ovan *UnauthorizedAccessException* följer du anvisningarna n
 
     ![Konto för inloggnings tjänst](media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png)
 
-2. Kontrol lera om kontot för inloggnings tjänsten har behörigheten R/W för mappen: *%programdata%\Microsoft\DataTransfer\DataManagementGateway* .
+2. Kontrol lera om kontot för inloggnings tjänsten har behörigheten R/W för mappen: *%programdata%\Microsoft\DataTransfer\DataManagementGateway*.
 
     - Om tjänst inloggnings kontot inte har ändrats bör som standard ha behörigheten R/W.
 
@@ -305,7 +320,7 @@ Om felet visas som ovan *UnauthorizedAccessException* följer du anvisningarna n
         1. Rensa den aktuella IR-filen med egen värd.
         1. Installera IR-BITS med egen värd.
         1. Följ anvisningarna nedan om du vill ändra tjänst kontot: 
-            1. Gå till selfhosted IR: s installationsmapp, växla till mappen: *Microsoft integration Runtime\4.0\Shared* .
+            1. Gå till selfhosted IR: s installationsmapp, växla till mappen: *Microsoft integration Runtime\4.0\Shared*.
             1. Starta en kommando rad med utökade privilegier. Ersätt *\<user>* och *\<password>* med ditt eget användar namn och lösen ord och kör sedan följande kommando:
                        
                 ```
@@ -325,7 +340,7 @@ Om felet visas som ovan *UnauthorizedAccessException* följer du anvisningarna n
             1. Du kan använda en lokal/domän användare för inloggnings kontot för IR-tjänsten.            
         1. Registrera Integration Runtime.
 
-Om felet visas som: *Det gick inte att starta tjänsten integration runtime tjänsten (dia Host service). Kontrol lera att du har behörighet att starta system tjänster* , följ instruktionerna nedan:
+Om felet visas som: *Det gick inte att starta tjänsten integration runtime tjänsten (dia Host service). Kontrol lera att du har behörighet att starta system tjänster*, följ instruktionerna nedan:
 
 1. Kontrol lera inloggnings tjänst kontot för *dia Host service* på panelen Windows-tjänst.
    
@@ -404,6 +419,47 @@ Installationen beror på Windows Installer tjänsten. Det finns varianter av ors
 - Vissa systemfiler eller register har berörings av oavsiktligt
 
 
+### <a name="ir-service-account-failed-to-fetch-certificate-access"></a>Kontot för IR-tjänsten kunde inte hämta certifikat åtkomst
+
+#### <a name="symptoms"></a>Symtom
+
+När du installerar IR med egen värd via Microsoft Integration Runtime Configuration Manager genereras ett certifikat med en betrodd certifikat utfärdare. Certifikatet kunde inte användas för att kryptera kommunikationen mellan två noder. 
+
+Fel informationen visas som nedan: 
+
+`Failed to change Intranet communication encryption mode: Failed to grant Integration Runtime service account the access of to the certificate 'XXXXXXXXXX'. Error code 103`
+
+![Det gick inte att bevilja åtkomst till IR-tjänstkontot](media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-account-certificate-error.png)
+
+#### <a name="cause"></a>Orsak
+
+Certifikatet använder KSP (Key Storage Provider), vilket inte stöds ännu. SHIR har bara stöd för CSP-certifikat (Cryptographic Service Provider) hittills.
+
+#### <a name="resolution"></a>Lösning
+
+CSP-certifikat rekommenderas för det här fallet.
+
+**Lösning 1:** Använd kommandot nedan för att importera certifikatet:
+
+```
+Certutil.exe -CSP "CSP or KSP" -ImportPFX FILENAME.pfx 
+```
+
+![Använd certutil](media/self-hosted-integration-runtime-troubleshoot-guide/use-certutil.png)
+
+**Lösning 2:** Konvertering av certifikat:
+
+openssl PKCS12-in .\xxxx.pfx. \ xxxx_new. pem-Password pass:*\<EnterPassword>*
+
+openssl PKCS12-export-in. \ xxxx_new. pem-out xxxx_new. pfx
+
+Före och efter konvertering:
+
+![Innan certifikat ändringen](media/self-hosted-integration-runtime-troubleshoot-guide/before-certificate-change.png)
+
+![Efter ändring av certifikat](media/self-hosted-integration-runtime-troubleshoot-guide/after-certificate-change.png)
+
+
 ## <a name="self-hosted-ir-connectivity-issues"></a>Problem med IR-anslutning via egen värd
 
 ### <a name="self-hosted-integration-runtime-cant-connect-to-cloud-service"></a>Integration runtime med egen värd kan inte ansluta till moln tjänsten
@@ -431,7 +487,7 @@ Den egna värdbaserade integrerings körningen kan inte ansluta till Data Factor
     ```
         
    > [!NOTE]     
-   > URL: en för tjänsten kan variera beroende på din Data Factory plats. Du hittar tjänst-URL: en **ADF UI** under  >  **Connections**  >  **integrerings körningar** i ADF UI  >  **-anslutningar redigera egen värd för IR**  >  **Nodes**  >  **-noder Visa tjänst-URL: er** .
+   > URL: en för tjänsten kan variera beroende på din Data Factory plats. Du hittar tjänst-URL: en **ADF UI** under  >  **Connections**  >  **integrerings körningar** i ADF UI  >  **-anslutningar redigera egen värd för IR**  >  **Nodes**  >  **-noder Visa tjänst-URL: er**.
             
     Följande är det förväntade svaret:
             
@@ -569,7 +625,7 @@ Ta Netmon-spårningen och analysera vidare.
  
     *Nätverks paket från Linux system A med TTL 64-> B TTL 64 minus 1 = 63-> C TTL 63 minus 1 = 62-> TTL 62 minus 1 = 61 lokal IR*
 
-- I ideal fallet är TTL 128, vilket innebär att Windows system kör vår Data Factory. Som du ser i exemplet nedan, *128 – 107 = 21 hopp* , vilket innebär att 21 hopp för paketet har skickats från Data Factory till IR med egen värd under TCP 3-handskakningen.
+- I ideal fallet är TTL 128, vilket innebär att Windows system kör vår Data Factory. Som du ser i exemplet nedan, *128 – 107 = 21 hopp*, vilket innebär att 21 hopp för paketet har skickats från Data Factory till IR med egen värd under TCP 3-handskakningen.
  
     ![TTL 107](media/self-hosted-integration-runtime-troubleshoot-guide/ttl-107.png)
 
@@ -587,11 +643,11 @@ När du försöker använda Telnet **8.8.8.8 888** med Netmon-spårningen, ska d
 ![Netmon spårning 2](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-2.png)
  
 
-Det innebär att du inte kan göra TCP-anslutning till **8.8.8.8** -Server sidan baserat på port **888** , så att du ser två **SynReTransmit** ytterligare paket där. Eftersom källan **Self-HOST2** inte kunde ansluta till **8.8.8.8** i det första paketet, kommer den att fortsätta att upprätta anslutningen.
+Det innebär att du inte kan göra TCP-anslutning till **8.8.8.8** -Server sidan baserat på port **888**, så att du ser två **SynReTransmit** ytterligare paket där. Eftersom källan **Self-HOST2** inte kunde ansluta till **8.8.8.8** i det första paketet, kommer den att fortsätta att upprätta anslutningen.
 
 > [!TIP]
-> - Du kan klicka på **load filter**  ->  **standard filter**  ->  **adresser**  ->  **IPv4-adresser** .
-> - Ange **IPv4. address = = 8.8.8.8** som filter och klicka på **tillämpa** . Därefter kan du bara se kommunikationen från den lokala datorn till mål- **8.8.8.8** .
+> - Du kan klicka på **load filter**  ->  **standard filter**  ->  **adresser**  ->  **IPv4-adresser**.
+> - Ange **IPv4. address = = 8.8.8.8** som filter och klicka på **tillämpa**. Därefter kan du bara se kommunikationen från den lokala datorn till mål- **8.8.8.8**.
 
 ![Filtrera adresser 1](media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-1.png)
         

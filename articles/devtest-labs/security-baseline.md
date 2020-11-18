@@ -3,12 +3,12 @@ title: Azures säkerhets bas linje för Azure DevTest Labs
 description: Azures säkerhets bas linje för Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 98f6ce7eee799b1baf29782d7eca11d62cf62353
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 64e5ac46fbeb71706f7b1ae2d3682260e3cbc651
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207299"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843204"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Azures säkerhets bas linje för Azure DevTest Labs
 
@@ -62,7 +62,7 @@ Mer information finns i följande artiklar:
 **Ansvar:** Kund
 
 ### <a name="25-configure-security-log-storage-retention"></a>2,5: Konfigurera säkerhets logg lagrings kvarhållning
-***Vägledning:** I Azure Monitor anger du logg kvarhållningsperiod för Log Analytics arbets ytor som är kopplade till dina Azure DevTest Labs instanser enligt organisationens regler för efterlevnad.
+**_Vägledning:_* I Azure Monitor anger du logg kvarhållningsperiod för Log Analytics arbets ytor som är kopplade till dina Azure DevTest Labs instanser enligt organisationens regler för efterlevnad.
 
 Mer information finns i följande artikel: [så här anger du parametrar för logg bevarande](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
@@ -175,9 +175,9 @@ För att hjälpa dig att hålla koll på dedikerade administrativa konton kan du
 - [Så här aktiverar du MFA i Azure](../active-directory/authentication/howto-mfa-getstarted.md)  
 - [Övervaka identitet och åtkomst i Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Azure Security Center övervakning:*** Ja
+**Azure Security Center övervakning:** _ Ja
 
-**Ansvar:** Kund
+_ *Ansvar:** kund
 
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3,6: Använd dedikerade datorer (arbets stationer med privilegie rad åtkomst) för alla administrativa uppgifter
@@ -387,7 +387,7 @@ Microsoft utför sårbarhets hantering på de underliggande resurser som har st�
 **Ansvar:** Kund
 
 ### <a name="53-deploy-automated-third-party-software-patch-management-solution"></a>5,3: Distribuera automatisk hanterings lösning för program uppdatering från tredje part
-***Vägledning:*** Som labb administratör kan du använda [DevTest Labs-artefakter](add-artifact-vm.md) för att automatisera uppdateringar av anpassade labb bilder, inklusive säkerhets korrigeringar och andra uppdateringar. 
+**_Vägledning:_* _ som labb administratör kan du använda [DevTest Labs-artefakter](add-artifact-vm.md) för att automatisera uppdateringar av anpassade labb bilder, inklusive säkerhets korrigeringar och andra uppdateringar. 
 
 Lär dig mer om [DevTest Labs image Factory](image-factory-create.md), som är en konfigurations-som-kod-lösning som skapar och distribuerar bilder automatiskt regelbundet med alla önskade konfigurationer. 
 
@@ -396,7 +396,7 @@ Som prenumerations administratör kan du också använda Azure Uppdateringshante
 - [Uppdateringshantering lösning i Azure](../automation/update-management/update-mgmt-overview.md)
 - [Hantera uppdateringar och korrigeringar för dina virtuella datorer](../automation/update-management/update-mgmt-overview.md)
 
-**Azure Security Center övervakning:** Ej tillämpligt
+_ *Azure Security Center övervakning:** ej tillämpligt
 
 **Ansvar:** Kund
 
@@ -692,7 +692,7 @@ Dessutom hanteras och underhålls avbildningar av virtuella Azure Marketplace-da
 
 - [Konfigurera hanterad identitet för att distribuera Azure Resource Manager miljöer i DevTest Labs](use-managed-identities-environments.md)
 - [Konfigurera hanterad identitet för att distribuera virtuella datorer i DevTest Labs](enable-managed-identities-lab-vms.md)
-- [Så här skapar du ett nyckel valv](../key-vault/secrets/quick-create-portal.md)
+- [Så här skapar du ett nyckel valv](../key-vault/general/quick-create-portal.md)
 - [Så här autentiserar du till Key Vault](../key-vault/general/authentication.md)
 - [Så här tilldelar du en Key Vault åtkomst princip](../key-vault/general/assign-access-policy-portal.md)
 

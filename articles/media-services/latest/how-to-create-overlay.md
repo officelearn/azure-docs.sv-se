@@ -6,18 +6,19 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 08/31/2020
-ms.openlocfilehash: 6c93408bce8da9f8cd0e4a0d0bab615e2bd362dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 743fe146042c7b52394cc4ee8ced49a0f540e79c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89267334"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844292"
 ---
 # <a name="how-to-create-an-overlay-with-media-encoder-standard"></a>Så här skapar du ett överlägg med Media Encoder Standard
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Med Media Encoder Standard kan du täcka över en bild till en befintlig video. För närvarande stöds följande format: PNG, jpg, GIF och BMP.
+Med Media Encoder Standard kan du täcka över en bild, ljudfil eller en annan video till en annan video. Indata måste ange exakt en fil. Du kan ange en bildfil i JPG-, PNG-, GIF-eller BMP-format eller en ljudfil (till exempel WAV-, MP3-, WMA-eller M4A-fil) eller en videofil.
+
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -32,7 +33,7 @@ Med Media Encoder Standard kan du täcka över en bild till en befintlig video. 
     "AccountName": "",
     "ArmAadAudience": "https://management.core.windows.net/",
     "ArmEndpoint": "https://management.azure.com/",
-    "Region": "",
+    "Location": "",
     "ResourceGroup": "",
     "SubscriptionId": ""
     }

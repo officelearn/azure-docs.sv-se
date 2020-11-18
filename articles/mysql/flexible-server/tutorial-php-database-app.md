@@ -7,13 +7,13 @@ ms.service: mysql
 ms.topic: tutorial
 ms.devlang: php
 ms.date: 9/21/2020
-ms.custom: mvc
-ms.openlocfilehash: 38665cdf42450b09d14211f7ed44d62e4adb75b1
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 426cf59c9fb9d88039231ed441b2ffc7246716c7
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537940"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844445"
 ---
 # <a name="tutorial-build-a-php-laravel-and-mysql-flexible-server-preview-app-in-azure-app-service"></a>Självstudie: bygga en PHP-app (Laravel) och MySQL-flexibel Server (för hands version) i Azure App Service
 
@@ -96,7 +96,7 @@ composer install
 
 ### <a name="configure-mysql-connection"></a>Konfigurera MySQL-anslutningen
 
-Skapa en fil med namnet *.env* i lagringsplatsens rot. Kopiera in följande variabler i *.env* -filen. Ersätt plats hållaren för _&lt; root_password>_ med MySQL-rot användarens lösen ord.
+Skapa en fil med namnet *.env* i lagringsplatsens rot. Kopiera in följande variabler i *.env*-filen. Ersätt plats hållaren för _&lt; root_password>_ med MySQL-rot användarens lösen ord.
 
 ```txt
 APP_ENV=local
@@ -110,7 +110,7 @@ DB_USERNAME=root
 DB_PASSWORD=<root_password>
 ```
 
-Mer information om hur Laravel använder _.env_ -filen finns i [Laravel Environment Configuration](https://laravel.com/docs/5.4/configuration#environment-configuration) (Konfiguration av Laravel-miljö).
+Mer information om hur Laravel använder _.env_-filen finns i [Laravel Environment Configuration](https://laravel.com/docs/5.4/configuration#environment-configuration) (Konfiguration av Laravel-miljö).
 
 ### <a name="run-the-sample-locally"></a>Köra exemplet lokalt
 
@@ -134,7 +134,7 @@ php artisan serve
 
 Gå till `http://localhost:8000` i en webbläsare. Lägg till några uppgifter på sidan.
 
-:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="PHP-webbapp i Azure med flexibel Server":::
+:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="PHP ansluter till MySQL":::
 
 Om du vill stoppa PHP skriver du `Ctrl + C` i terminalen.
 
@@ -196,7 +196,7 @@ I det här steget ansluter du PHP-programmet till MySQL-databasen som du skapade
 
 ### <a name="configure-the-database-connection"></a>Konfigurera databasanslutningen
 
-Skapa en _.env.production_ -fil i lagringsplatsens rot och kopiera in följande variabler i filen. Ersätt plats hållaren _&lt; MySQL-Server-Name>_ både i *DB_HOST* och *DB_USERNAME* .
+Skapa en _.env.production_-fil i lagringsplatsens rot och kopiera in följande variabler i filen. Ersätt plats hållaren _&lt; MySQL-Server-Name>_ både i *DB_HOST* och *DB_USERNAME*.
 
 ```
 APP_ENV=production
@@ -214,7 +214,7 @@ MYSQL_SSL=true
 Spara ändringarna.
 
 > [!TIP]
-> För att skydda din MySQL-anslutningsinformation är den här filen redan undantagen från Git-lagringsplatsen (se _.gitignore_ i lagringsplatsens rot). Senare får du lära dig hur du konfigurerar miljövariabler i App Service för att ansluta till din databas i Azure Database for MySQL. När du använder miljövariabler behöver du inte *.env* -filen i App Service.
+> För att skydda din MySQL-anslutningsinformation är den här filen redan undantagen från Git-lagringsplatsen (se _.gitignore_ i lagringsplatsens rot). Senare får du lära dig hur du konfigurerar miljövariabler i App Service för att ansluta till din databas i Azure Database for MySQL. När du använder miljövariabler behöver du inte *.env*-filen i App Service.
 >
 
 ### <a name="configure-tlsssl-certificate"></a>Konfigurera TLS/SSL-certifikat
@@ -235,7 +235,7 @@ Som standard tvingar MySQL-flexibla servrar TLS-anslutningar från klienter. Om 
 
 ### <a name="test-the-application-locally"></a>Testa appen lokalt
 
-Kör Laravel-databasmigreringar med _.env.production_ som miljöfil för att skapa tabellerna i din MySQL-databas i Azure Database for MySQL. Tänk på att anslutningsinformationen till din MySQL-databas i Azure finns i _.env.production_ .
+Kör Laravel-databasmigreringar med _.env.production_ som miljöfil för att skapa tabellerna i din MySQL-databas i Azure Database for MySQL. Tänk på att anslutningsinformationen till din MySQL-databas i Azure finns i _.env.production_.
 
 ```bash
 php artisan migrate --env=production --force
@@ -257,7 +257,7 @@ Navigera till `http://localhost:8000`. Om sidan läses in utan fel ansluter PHP-
 
 Lägg till några uppgifter på sidan.
 
-:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="PHP-webbapp i Azure med flexibel Server":::
+:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="PHP har anslutits till Azure Database for MySQL":::
 
 Om du vill stoppa PHP skriver du `Ctrl + C` i terminalen.
 
@@ -336,7 +336,7 @@ Du har skapat en tom ny webbapp med git-distribution aktiverad.
 
 I App Service ställer du in miljövariabler som _appinställningar_ med kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set).
 
-Följande kommando konfigurerar appinställningarna `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` och `DB_PASSWORD`. Ersätt plats hållarnas _&lt; namn>_ och _&lt; mysql-Server-Name>_ .
+Följande kommando konfigurerar appinställningarna `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` och `DB_PASSWORD`. Ersätt plats hållarnas _&lt; namn>_ och _&lt; mysql-Server-Name>_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DB_HOST="<mysql-server-name>.mysql.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="phpappuser" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
@@ -359,13 +359,13 @@ Du kan komma åt inställningarna med PHP-metoden [getenv](https://www.php.net/m
 
 Laravel måste ha en programnyckel i App Service. Du kan konfigurera den med appinställningar.
 
-Gå till det lokala terminalfönstret och använd `php artisan` för att generera en ny programnyckel utan att spara den i _.env_ .
+Gå till det lokala terminalfönstret och använd `php artisan` för att generera en ny programnyckel utan att spara den i _.env_.
 
 ```bash
 php artisan key:generate --show
 ```
 
-I Cloud Shell anger du program nyckeln i App Service-appen med hjälp av [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) kommandot. Ersätt plats hållarna _&lt; App-Name>_ och _&lt; outputofphpartisankey: generate>_ .
+I Cloud Shell anger du program nyckeln i App Service-appen med hjälp av [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) kommandot. Ersätt plats hållarna _&lt; App-Name>_ och _&lt; outputofphpartisankey: generate>_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
@@ -387,7 +387,7 @@ I det lokala terminalfönstret kan du lägga till en Azure-fjärrdatabas till di
 git remote add azure <deploymentLocalGitUrl-from-create-step>
 ```
 
-Skicka till Azure-fjärrdatabasen för att distribuera appen med följande kommando. När git Credential Manager uppmanas att ange autentiseringsuppgifter, se till att du anger de autentiseringsuppgifter som du skapade i **Konfigurera en distributions användare** , inte de autentiseringsuppgifter som du använder för att logga in på Azure Portal.
+Skicka till Azure-fjärrdatabasen för att distribuera appen med följande kommando. När git Credential Manager uppmanas att ange autentiseringsuppgifter, se till att du anger de autentiseringsuppgifter som du skapade i **Konfigurera en distributions användare**, inte de autentiseringsuppgifter som du använder för att logga in på Azure Portal.
 
 ```bash
 git push azure master
@@ -414,7 +414,7 @@ remote: Running deployment command...
 
 Bläddra till `http://<app-name>.azurewebsites.net` och lägg till några uppgifter i listan.
 
-:::image type="content" source="media/tutorial-php-database-app/php-mysql-in-azure.png" alt-text="PHP-webbapp i Azure med flexibel Server":::
+:::image type="content" source="media/tutorial-php-database-app/php-mysql-in-azure.png" alt-text="PHP-webbapp i Azure":::
 
 Grattis! Du kör en datadriven PHP-app i Azure App Service.
 
@@ -466,11 +466,11 @@ Visa det lokala terminalfönstret och kör Laravel-databasemigreringar för att 
 php artisan migrate
 ```
 
-Modellen `Task` (se _app/Task.php_ ) mappar till `tasks`-tabellen som standard, baserat på [Laravel-namngivningskonventionen](https://laravel.com/docs/5.4/eloquent#defining-models).
+Modellen `Task` (se _app/Task.php_) mappar till `tasks`-tabellen som standard, baserat på [Laravel-namngivningskonventionen](https://laravel.com/docs/5.4/eloquent#defining-models).
 
 ### <a name="update-application-logic"></a>Uppdatera programlogik
 
-Öppna filen *routes/web.php* . Här definieras programmets vägar och affärslogik.
+Öppna filen *routes/web.php*. Här definieras programmets vägar och affärslogik.
 
 I slutet av filen lägger du till en väg med följande kod:
 
@@ -493,7 +493,7 @@ Föregående kod gör en enkel uppdatering till datamodellen genom att ändra v�
 
 ### <a name="update-the-view"></a>Uppdatera vyn
 
-Öppna filen *resources/views/tasks.blade.php* . Leta reda på starttaggen `<tr>` och ersätt den med:
+Öppna filen *resources/views/tasks.blade.php*. Leta reda på starttaggen `<tr>` och ersätt den med:
 
 ```html
 <tr class="{{ $task->complete ? 'success' : 'active' }}" >
@@ -534,7 +534,7 @@ php artisan serve
 
 Om du vill se ändringen i uppgiftsstatusen går du till `http://localhost:8000` och markerar kryssrutan.
 
-:::image type="content" source="media/tutorial-php-database-app/complete-checkbox.png" alt-text="PHP-webbapp i Azure med flexibel Server":::
+:::image type="content" source="media/tutorial-php-database-app/complete-checkbox.png" alt-text="Kryssruta lades till för uppgift":::
 
 Om du vill stoppa PHP skriver du `Ctrl + C` i terminalen.
 
@@ -556,7 +556,7 @@ git push azure master
 
 När `git push` har slutförts så kan du gå till Azure-appen och prova de nya funktionerna.
 
-:::image type="content" source="media/tutorial-php-database-app/complete-checkbox-published.png" alt-text="PHP-webbapp i Azure med flexibel Server":::
+:::image type="content" source="media/tutorial-php-database-app/complete-checkbox-published.png" alt-text="Modell- och databasändringar som är publicerade i Azure":::
 
 Om du har lagt till några uppgifter finns de kvar i databasen. Uppdateringar i dataschemat påverkar inte befintliga data.
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 4362b579b7f01570a2b5fd072bf53ad495797cd8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: fb91a490083629101470565a630b659c090e071b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783784"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843374"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Använda Kundhanterade nycklar i Azure Key Vault för import/export-tjänsten
 
@@ -33,7 +33,7 @@ Innan du börjar ska du kontrollera att:
     - [Skapa ett import jobb för filer](storage-import-export-data-to-files.md).
     - [Skapa ett export jobb för blobbar](storage-import-export-data-from-blobs.md)
 
-2. Du har en befintlig Azure Key Vault med en nyckel som du kan använda för att skydda din BitLocker-nyckel. Information om hur du skapar ett nyckel valv med hjälp av Azure Portal finns i [snabb start: Ange och hämta en hemlighet från Azure Key Vault med hjälp av Azure Portal](../../key-vault/secrets/quick-create-portal.md).
+2. Du har en befintlig Azure Key Vault med en nyckel som du kan använda för att skydda din BitLocker-nyckel. Information om hur du skapar ett nyckel valv med hjälp av Azure Portal finns i [snabb start: skapa ett Azure Key Vault med hjälp av Azure Portal](../../key-vault/general/quick-create-portal.md).
 
     - **Mjuk borttagning** och **Rensa inte** är inställda på din befintliga Key Vault. De här egenskaperna är inte aktiverade som standard. Om du vill aktivera dessa egenskaper kan du läsa avsnitten med rubriken **Aktivera mjuk borttagning** och **Aktivera rensnings skydd** i någon av följande artiklar:
 
@@ -48,7 +48,7 @@ Innan du börjar ska du kontrollera att:
 Det är valfritt att konfigurera kundhanterad nyckel för import/export-tjänsten. Som standard använder tjänsten import/export en Microsoft-hanterad nyckel för att skydda din BitLocker-nyckel. Följ dessa steg om du vill aktivera Kundhanterade nycklar i Azure Portal:
 
 1. Gå till **översikts** bladet för ditt import jobb.
-2. I den högra rutan väljer du **Välj hur dina BitLocker-nycklar ska krypteras** .
+2. I den högra rutan väljer du **Välj hur dina BitLocker-nycklar ska krypteras**.
 
     ![Välj krypterings alternativ](./media/storage-import-export-encryption-key-portal/encryption-key-1.png)
 
@@ -56,7 +56,7 @@ Det är valfritt att konfigurera kundhanterad nyckel för import/export-tjänste
 
     ![Visa BitLocker-nyckel](./media/storage-import-export-encryption-key-portal/encryption-key-2.png)
 
-4. Du kan välja att ange en kund hanterad nyckel. När du har valt kundens hanterade nyckel **väljer du Key Vault och en nyckel** .
+4. Du kan välja att ange en kund hanterad nyckel. När du har valt kundens hanterade nyckel **väljer du Key Vault och en nyckel**.
 
     ![Välj kund hanterad nyckel](./media/storage-import-export-encryption-key-portal/encryption-key-3.png)
 
@@ -64,11 +64,11 @@ Det är valfritt att konfigurera kundhanterad nyckel för import/export-tjänste
 
     ![Välj eller skapa Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-4.png)
 
-6. Du kan också välja **Skapa nytt** för att skapa ett nytt nyckel valv. På **bladet skapa nyckel valv** anger du resurs gruppen och namnet på nyckel valvet. Acceptera alla andra standardvärden. Välj **Granska + skapa** .
+6. Du kan också välja **Skapa nytt** för att skapa ett nytt nyckel valv. På **bladet skapa nyckel valv** anger du resurs gruppen och namnet på nyckel valvet. Acceptera alla andra standardvärden. Välj **Granska + skapa**.
 
     ![Skapa nytt Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-5.png)
 
-7. Granska informationen som är kopplad till ditt nyckel valv och välj **skapa** . Vänta några minuter tills nyckel valvet har skapats.
+7. Granska informationen som är kopplad till ditt nyckel valv och välj **skapa**. Vänta några minuter tills nyckel valvet har skapats.
 
     ![Skapa Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-6.png)
 
@@ -80,11 +80,11 @@ Det är valfritt att konfigurera kundhanterad nyckel för import/export-tjänste
 
     Om det mjuka borttagnings-och rensnings skyddet inte är aktiverat när du skapar nyckel valvet, uppdateras nyckel valvet för att aktivera mjuk borttagning och tömnings skydd.
 
-10. Ange namnet på nyckeln, acceptera de andra standardinställningarna och välj **skapa** .
+10. Ange namnet på nyckeln, acceptera de andra standardinställningarna och välj **skapa**.
 
     ![Skapa ny nyckel](./media/storage-import-export-encryption-key-portal/encryption-key-8.png)
 
-11. Välj **version** och välj sedan **Välj** . Du får ett meddelande om att en nyckel har skapats i ditt nyckel valv.
+11. Välj **version** och välj sedan **Välj**. Du får ett meddelande om att en nyckel har skapats i ditt nyckel valv.
 
     ![Ny nyckel har skapats i Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-9.png)
 

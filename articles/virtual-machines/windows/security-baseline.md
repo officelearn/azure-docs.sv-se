@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5e52c09e6fc3d5e3d4210e213e0eb6af4e473559
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 385f747999bbdb408dd1c5d2f5f12717834e94da
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205038"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844224"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Azures säkerhets bas linje för Virtuella Windows-datorer
 
@@ -596,7 +596,7 @@ Microsoft använder TLS-protokollet (Transport Layer Security) för att skydda d
 
 * [Så här skapar du aviseringar för Azure aktivitets logg händelser](../../azure-monitor/platform/alerts-activity-log.md)
 
-* [Loggning med Azure-lagringsanalys](../../storage/common/storage-analytics-logging.md)
+* [Analysloggning i Azure Storage](../../storage/common/storage-analytics-logging.md)
 
 **Azure Security Center övervakning**: inte tillgänglig
 
@@ -971,7 +971,7 @@ I de flesta fall kan de virtuella bas-VM-mallarna tillsammans med Azure Automati
 
 * [Integrera med Azure-Managed identiteter](../../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-* [Så här skapar du en Key Vault](../../key-vault/secrets/quick-create-portal.md)
+* [Så här skapar du en Key Vault](../../key-vault/general/quick-create-portal.md)
 
 * [Så här autentiserar du till Key Vault](../../key-vault/general/authentication.md)
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 11/06/2019
 ms.author: cynthn
-ms.openlocfilehash: e10b1955d50450e43d1dbb180f4d533b6b6ae8b9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 57cebed8ac229ed54945d75786b84b3cd2a36252
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978062"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844207"
 ---
 # <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>Skapa ett galleri för Azure-delad avbildning med hjälp av portalen
 
@@ -21,7 +21,7 @@ Ett [delat bild galleri](shared-image-galleries.md) fören klar en anpassad bild
 
 Med galleriet för delade avbildningar kan du dela dina anpassade VM-avbildningar med andra i din organisation, inom eller mellan regioner, inom en AAD-klient. Välj vilka bilder du vill dela, vilka regioner du vill göra tillgängliga i och vilka du vill dela dem med. Du kan skapa flera gallerier så att du kan gruppera delade avbildningar logiskt. 
 
-Galleriet är en resurs på den översta nivån som ger fullständig rollbaserad åtkomst kontroll (RBAC). Avbildningar kan vara versioner och du kan välja att replikera varje avbildnings version till en annan uppsättning Azure-regioner. Galleriet fungerar bara med hanterade bilder.
+Galleriet är en resurs på den översta nivån som ger fullständig Azure-rollbaserad åtkomst kontroll (Azure RBAC). Avbildningar kan vara versioner och du kan välja att replikera varje avbildnings version till en annan uppsättning Azure-regioner. Galleriet fungerar bara med hanterade bilder.
 
 Funktionen för delad bild galleri har flera resurs typer. Vi kommer att använda eller skapa dessa i den här artikeln:
 
@@ -38,18 +38,18 @@ När du arbetar med den här artikeln ersätter du resurs gruppen och VM-namnen 
  
 ## <a name="create-vms"></a>Skapa VM:ar
 
-Nu kan du skapa en eller flera nya virtuella datorer. I det här exemplet skapas en virtuell dator med namnet *myVM*i *myResourceGroup*i data centret *USA, östra* .
+Nu kan du skapa en eller flera nya virtuella datorer. I det här exemplet skapas en virtuell dator med namnet *myVM* i *myResourceGroup* i data centret *USA, östra* .
 
 1. Gå till din avbildnings definition. Du kan använda resurs filtret för att visa alla tillgängliga avbildnings definitioner.
 1. På sidan för din avbildnings definition väljer du **Skapa virtuell dator** på menyn längst upp på sidan.
-1. För **resurs grupp**väljer du **Skapa ny** och skriver *myResourceGroup* som namn.
-1. Skriv *myVM*i **namn på virtuell dator**.
-1. För **region**väljer du *östra USA*.
-1. För **tillgänglighets alternativ**lämnar du standardvärdet *ingen redundans krävs*.
+1. För **resurs grupp** väljer du **Skapa ny** och skriver *myResourceGroup* som namn.
+1. Skriv *myVM* i **namn på virtuell dator**.
+1. För **region** väljer du *östra USA*.
+1. För **tillgänglighets alternativ** lämnar du standardvärdet *ingen redundans krävs*.
 1. Värdet för **bild** fylls automatiskt med `latest` bild versionen om du startade från sidan för avbildnings definitionen.
-1. I **storlek**väljer du en storlek på virtuell dator i listan över tillgängliga storlekar och väljer sedan **Välj**.
+1. I **storlek** väljer du en storlek på virtuell dator i listan över tillgängliga storlekar och väljer sedan **Välj**.
 1. Om avbildningen generaliseras måste du ange ett användar namn, till exempel *azureuser* och ett lösen ord, under **Administratörs kontot**. Lösen ordet måste vara minst 12 tecken långt och uppfylla de [definierade komplexitets kraven](faq.md#what-are-the-password-requirements-when-creating-a-vm). Om din avbildning var specialiserad kommer fälten användar namn och lösen ord att tonas ut eftersom användar namnet och lösen ordet för den virtuella käll datorn används.
-1. Om du vill tillåta fjärråtkomst till den virtuella datorn under **offentliga inkommande portar**väljer du **Tillåt valda portar** och väljer sedan **RDP (3389)** i list rutan. Om du inte vill tillåta fjärråtkomst till den virtuella datorn lämnar du **inget** markerat för **offentliga inkommande portar**.
+1. Om du vill tillåta fjärråtkomst till den virtuella datorn under **offentliga inkommande portar** väljer du **Tillåt valda portar** och väljer sedan **RDP (3389)** i list rutan. Om du inte vill tillåta fjärråtkomst till den virtuella datorn lämnar du **inget** markerat för **offentliga inkommande portar**.
 1. När du är färdig väljer du knappen **Granska + skapa** längst ned på sidan.
 1. När den virtuella datorn har godkänts för validering väljer du **skapa** längst ned på sidan för att starta distributionen.
 

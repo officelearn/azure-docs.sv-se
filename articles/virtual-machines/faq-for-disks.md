@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 3d199ae202cbe99176f3ca5d0ae82ecdeec84ca4
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: d6cf0ba06293a073fc8fbe26e2386f1852429002
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684516"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844003"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om virtuella Azure IaaS-datorer och hanterade och ohanterade premiumdiskar
 
@@ -76,7 +76,7 @@ Beroende på i vilken region den tillgänglighets uppsättning som använder Man
 
 Du konfigurerar ett privat lagrings konto för VM-diagnostik.
 
-**Vilken typ av Role-Based Access Control support är tillgängligt för Managed Disks?**
+**Vilken typ av stöd för Azure rollbaserad åtkomst kontroll är tillgänglig för Managed Disks?**
 
 Managed Disks stöder tre nyckel standard roller:
 

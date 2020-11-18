@@ -3,13 +3,13 @@ title: Arbeta med stora datamängder
 description: Lär dig hur du hämtar, formaterar, visar och hoppar över poster i stora data mängder när du arbetar med Azures resurs diagram.
 ms.date: 09/30/2020
 ms.topic: conceptual
-ms.custom: devx-track-csharp
-ms.openlocfilehash: ee552908696aa652931bf3555391adcfec0fc6d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 6054d2cd2cf012c21f451ece87db672897fa0398
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578503"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843357"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Arbeta med stora Azure-resurs data uppsättningar
 
@@ -22,7 +22,7 @@ Vägledning om hur du arbetar med frågor med hög frekvens finns i [rikt linjer
 Som standard begränsar resurs diagram alla frågor till att bara returnera **100** poster. Den här kontrollen skyddar både användaren och tjänsten från oavsiktliga frågor som leder till stora data mängder. Den här händelsen inträffar oftast när en kund experimenterar med frågor för att hitta och filtrera resurser på det sätt som passar deras specifika behov. Den här kontrollen skiljer sig från att använda [Top](/azure/kusto/query/topoperator) -eller [limit](/azure/kusto/query/limitoperator) -språkDatautforskarens språk operatörer för att begränsa resultaten.
 
 > [!NOTE]
-> När du använder **första gången**rekommenderar vi att du sorterar resultaten efter minst en kolumn med `asc` eller `desc` . Utan sortering är de resultat som returneras slumpmässiga och inte repeterbara.
+> När du använder **första gången** rekommenderar vi att du sorterar resultaten efter minst en kolumn med `asc` eller `desc` . Utan sortering är de resultat som returneras slumpmässiga och inte repeterbara.
 
 Standard gränsen kan åsidosättas genom alla metoder för att interagera med resurs diagram. I följande exempel visas hur du ändrar storleks gränsen för data uppsättningen till _200_:
 
@@ -48,7 +48,7 @@ För **närvarande har** det högsta tillåtna värdet _5000_, som det uppnår g
 Nästa alternativ för att arbeta med stora data mängder är **Skip** -kontrollen. Den här kontrollen tillåter att din fråga hoppar över eller hoppar över det definierade antalet poster innan resultatet returneras. **Skip** är användbart för frågor som sorterar resultat på ett meningsfullt sätt där avsikten är att hämta poster någonstans mitt i resultat uppsättningen. Om de resultat som behövs finns i slutet av den returnerade data uppsättningen, är det mer effektivt att använda en annan sorterings konfiguration och hämta resultaten från data uppsättningens överkant i stället.
 
 > [!NOTE]
-> När du använder **Skip**rekommenderar vi att du sorterar resultaten efter minst en kolumn med `asc` eller `desc` . Utan sortering är de resultat som returneras slumpmässiga och inte repeterbara. Om `limit` eller `take` används i frågan ignoreras **hoppa över** .
+> När du använder **Skip** rekommenderar vi att du sorterar resultaten efter minst en kolumn med `asc` eller `desc` . Utan sortering är de resultat som returneras slumpmässiga och inte repeterbara. Om `limit` eller `take` används i frågan ignoreras **hoppa över** .
 
 I följande exempel visas hur du hoppar över de första _10_ posterna som en fråga resulterar i, i stället för att starta den returnerade resultat uppsättningen med den elfte posten:
 
@@ -67,7 +67,7 @@ I [REST API](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/re
 När det är nödvändigt att dela upp en resultat uppsättning i mindre mängder poster för bearbetning eller eftersom en resultat uppsättning skulle överskrida det högsta tillåtna värdet för _1000_ returnerade poster, använder du sid indelning. [REST API](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources) 
  **QueryResponse** innehåller värden för att indikera en resultat uppsättning har delats upp: **resultTruncated** och **$skipToken**. **resultTruncated** är ett booleskt värde som informerar konsumenten om det finns ytterligare poster som inte returneras i svaret. Det här villkoret kan också identifieras när **Count** -egenskapen är mindre än egenskapen **totalRecords** . **totalRecords** definierar hur många poster som matchar frågan.
 
- **resultTruncated** är **Sant** när växlingen är inaktive rad eller inte möjlig eftersom ingen `id` kolumn eller om det finns mindre resurser som är tillgängliga än en fråga begär. När **resultTruncated** är **True**anges inte egenskapen **$skipToken** .
+ **resultTruncated** är **Sant** när växlingen är inaktive rad eller inte möjlig eftersom ingen `id` kolumn eller om det finns mindre resurser som är tillgängliga än en fråga begär. När **resultTruncated** är **True** anges inte egenskapen **$skipToken** .
 
 I följande exempel visas hur du **hoppar över** de första 3000 posterna och returnerar de **första** 1000 posterna när posterna hoppades över med Azure CLI och Azure PowerShell:
 

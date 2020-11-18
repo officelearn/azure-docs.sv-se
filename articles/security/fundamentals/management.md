@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/08/2020
 ms.author: terrylan
-ms.openlocfilehash: 779330d7881040026f45a031f95f44d770f39a56
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: e9eabc73c244526f0ea15b9c72b5377545f662b2
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412773"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844871"
 ---
 # <a name="security-management-in-azure"></a>Säkerhetshantering i Azure
 Azure-prenumeranter kan hantera sina molnmiljöer från flera enheter, inklusive hantering av arbetsstationer, utvecklardatorer och även privilegierade slutanvändarens enheter som har uppgiftsspecifika behörigheter. I vissa fall kan administrativa funktioner utförs via webbaserade konsoler som [Azure-portalen](https://azure.microsoft.com/features/azure-portal/). I andra fall kan det finnas direkta anslutningar till Azure från lokala system över virtuella privata nätverk (VPN), Terminal Services, klientprotokoll för program eller (programmässigt) Azure Service Management API (SMAPI). Dessutom kan klientslutpunkter vara antingen domänanslutna eller isolerade och ohanterade, till exempel surfplattor eller smartphones.
@@ -112,7 +112,7 @@ En  fjärrskrivbordsgateway  är en principbaserad RDP-proxytjänst som tillämp
 * Koppla RD Gateway till samma [hanteringsdomän](/previous-versions/windows/it-pro/windows-2000-server/bb727085(v=technet.10)) som administratörsdatorerna. Detta är nödvändigt när du använder plats-till-plats IPsec VPN eller ExpressRoute i en domän som har ett enkelriktat förtroende till Azure AD, eller om du federerar autentiseringsuppgifter mellan din lokala AD DS-instans och Azure AD.
 * Konfigurera en [auktoriseringsprincip för klientanslutning](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753324(v=ws.11)) så att RD Gateway kan verifiera att klientdatorns namn är giltigt (domänanslutet) och har tillgång till Azure Portal.
 * Skydda hanteringstrafiken ytterligare från tjuvlyssnande och token-stöld med IPsec för [Azure VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/). Du kan även överväga en isolerad Internet-anslutning via [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
-* Aktivera multifaktorautentisering (via [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)) eller smartkortsautentisering för administratörer som loggar in via RD Gateway.
+* Aktivera Multi-Factor Authentication (via [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)) eller Smart-Card-autentisering för administratörer som loggar in via RD Gateway.
 * Minimera antalet tillåtna hanteringsslutpunkter genom att konfigurera [begränsningar för IP-adress](https://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) eller [nätverkssäkerhetsgrupper](../../virtual-network/network-security-groups-overview.md) i Azure.
 
 ## <a name="security-guidelines"></a>Riktlinjer för säkerhet
@@ -123,7 +123,7 @@ Du kan använda inloggningsbegränsningar för Azure om du vill begränsa källa
 
 Vissa program eller tjänster som du distribuerar i Azure kan ha sina egna autentiseringsmekanismer för både slutanvändare och administratörer, medan andra utnyttjar Azure AD fullt ut. Beroende på om du federerar autentiseringsuppgifter via AD FS (Active Directory Federation Services), via katalogsynkronisering eller genom underhåll av användarkonton enbart i molnet kan du med hjälp av [Microsoft Identity Manager](/microsoft-identity-manager/) (del av Azure AD Premium) hantera identitetslivscykler mellan resurserna.
 
-### <a name="connectivity"></a>Anslutningsmöjlighet
+### <a name="connectivity"></a>Anslutning
 Du kan säkra klientanslutningar till dina virtuella Azure-nätverk med hjälp av andra tillgängliga mekanismer. Med två av dessa mekanismer, [plats-till-plats-VPN](https://channel9.msdn.com/series/Azure-Site-to-Site-VPN) (S2S) och [punkt-till-plats-VPN](../../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md) (P2S) kan du aktivera användning av branschstandarden IPsec (S2S) eller [Secure Socket Tunneling Protocol](/previous-versions/technet-magazine/cc162322(v=msdn.10)) (SSTP) (P2S) för kryptering och tunnlar. När Azure ansluter till offentliga Azure-tjänster för hantering, till exempel Azure Portal, kräver Azure Hypertext Transfer Protocol Secure (HTTPS).
 
 En fristående förstärkt dator som inte ansluter till Azure via en RD Gateway ska använda det SSTP-baserade punkt-till-plats-VPN-nätverket för den första anslutningen till det virtuella Azure-nätverket. Därefter ska RDP-anslutning upprättas till enskilda virtuella datorer från VPN-tunneln.
@@ -168,7 +168,7 @@ Du kan undvika flera säkerhetsrisker som kan uppstå när du använder en dator
 
 Företagets virtuella dator körs i ett skyddat utrymme och tillhandahåller användarprogram. Värden är en ”ren källa” och tillämpar strikta nätverksprinciper i rotoperativsystemet (till exempel att blockera RDP-åtkomst från den virtuella datorn).
 
-## <a name="best-practices"></a>Rekommenderade metoder
+## <a name="best-practices"></a>Bästa praxis
 Tänk även på följande riktlinjer när du hanterar program och data i Azure.
 
 ### <a name="dos-and-donts"></a>Att tänka på

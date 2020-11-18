@@ -4,12 +4,12 @@ description: Lär dig hur du skapar och kör en Jupyter Notebook i Azure Noteboo
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: cb8be1618de7e95a7096e4ea9dec78bf4aa277f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47e9a07c7b8abffc06bfd30a792af46ba04adf5c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589287"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844479"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Självstudie: skapa och köra en Jupyter Notebook med python
 
@@ -56,7 +56,7 @@ Den linjära Regressions modell som du skapar i antecknings boken hämtar data f
 ### <a name="upload-the-data-file"></a>Ladda upp data filen
 
 1. På instrument panelen för projektet i Azure Notebooks väljer du **Ladda upp**  >  **från URL**
-1. I popup-fönstret anger du följande URL i **fil-URL** och *cricket_chirps.csv* i **fil namn**och väljer sedan **färdig**.
+1. I popup-fönstret anger du följande URL i **fil-URL** och *cricket_chirps.csv* i **fil namn** och väljer sedan **färdig**.
 
     ```url
     https://raw.githubusercontent.com/Microsoft/AzureNotebooks/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps/cricket_chirps.csv
@@ -111,7 +111,7 @@ I en bärbar dator kan du alltid använda kommandon som `!pip install` i en kod 
 
 1. På instrument panelen för projektet väljer du **projekt inställningar**.
 1. I popup-fönstret som visas väljer du fliken **miljö** och väljer sedan **+ Lägg till**.
-1. I den första List rutan (åtgärden) under **miljö konfigurations steg**väljer du **Requirements.txt**.
+1. I den första List rutan (åtgärden) under **miljö konfigurations steg** väljer du **Requirements.txt**.
 1. I den andra List rutan (fil namnet) väljer du *requirements.txt* (filen som du skapade).
 1. I den tredje List rutan (python-versionen) väljer du **python version 3,6**.
 1. Välj **Spara**.
@@ -134,7 +134,7 @@ Med data filen Ready och projekt miljö uppsättningen kan du nu skapa och öppn
 
 ## <a name="tour-the-notebook-interface"></a>Upptäck Notebook-gränssnittet
 
-Med den bärbara datorn som kör kan du lägga till kod-och markdown-celler, köra cellerna och hantera antecknings bokens funktion. Det är dock värt att ta några minuter att bekanta dig med gränssnittet. Om du vill ha fullständig dokumentation väljer du **Hjälp**  >  meny kommandot hjälp för**Notebook** .
+Med den bärbara datorn som kör kan du lägga till kod-och markdown-celler, köra cellerna och hantera antecknings bokens funktion. Det är dock värt att ta några minuter att bekanta dig med gränssnittet. Om du vill ha fullständig dokumentation väljer du **Hjälp**  >  meny kommandot hjälp för **Notebook** .
 
 Längst upp i fönstret ser du följande objekt:
 
@@ -158,7 +158,7 @@ Grupper med Meny kommandon är följande:
 | Redigera | Vanliga kommandon för att klippa ut, kopiera och klistra in celler, söka efter och ersätta värden, hantera cell bilagor och infoga bilder.  |
 | Visa | Kommandon för att kontrol lera visningen av olika delar av Jupyter-ANVÄNDARGRÄNSSNITTET. |
 | Infogning | Kommandon för att infoga en ny cell ovanför eller under den aktuella cellen. Du använder dessa kommandon ofta när du skapar en antecknings bok. |
-| Mobiltelefon | De olika **körnings** kommandona kör en eller flera celler i olika kombinationer. Kommandona **cell typ** ändrar typ av cell mellan **kod**, **markdown**och **rå NBConvert** (oformaterad text). Kommandona **aktuella utdata** och **alla utdata** styr hur utdata från körnings kod visas och innehåller ett kommando för att rensa alla utdata. |
+| Mobiltelefon | De olika **körnings** kommandona kör en eller flera celler i olika kombinationer. Kommandona **cell typ** ändrar typ av cell mellan **kod**, **markdown** och **rå NBConvert** (oformaterad text). Kommandona **aktuella utdata** och **alla utdata** styr hur utdata från körnings kod visas och innehåller ett kommando för att rensa alla utdata. |
 | Kernel | Kommandon för att hantera hur kod körs i kerneln, tillsammans med **ändrings kärnan** för att ändra språket eller python-versionen som används för att köra antecknings boken. |
 | Data | Kommandon för att ladda upp och ladda ned filer från projektet eller sessionen. Se [arbeta med Project-datafiler](work-with-project-data-files.md) |
 | Widgets | Kommandon för att hantera [Jupyter-widgetar](https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20Basics.html), som ger ytterligare funktioner för visualisering, mappning och ritning.|
@@ -174,7 +174,7 @@ Du använder ett antal kommandon när du fyller i antecknings boken i de avsnitt
 
     ![List rutan cell typs verktygsfält](media/tutorial/tutorial-cell-type-drop-down.png)
 
-1. Ändra cell typen till **markdown** med hjälp av verktygsfältet listruta; Alternativt använder du Meny kommandot **cell**  >  **typ**för cell  >  **markdown** :
+1. Ändra cell typen till **markdown** med hjälp av verktygsfältet listruta; Alternativt använder du Meny kommandot **cell**  >  **typ** för cell  >  **markdown** :
 
     ![Meny kommandot cell typ](media/tutorial/tutorial-cell-type-menu.png)
 
@@ -259,7 +259,7 @@ För att fylla resten av antecknings boken kan du sedan skapa en serie med markd
 
 Även om du kan vänta med att köra antecknings boken när du har skapat varje cell, är det intressant att köra varje cell när du skapar den. Alla celler visar inte utdata. Om du inte ser några fel antar du att cellen kördes normalt.
 
-Varje kod cell är beroende av den kod som har körts i föregående celler, och om du inte kan köra någon av cellerna kan senare celler generera fel. Om du upptäcker att du har glömt att köra en cell kan du prova att använda **cellen**som  >  **körs ovan** innan du kör den aktuella cellen.
+Varje kod cell är beroende av den kod som har körts i föregående celler, och om du inte kan köra någon av cellerna kan senare celler generera fel. Om du upptäcker att du har glömt att köra en cell kan du prova att använda **cellen** som  >  **körs ovan** innan du kör den aktuella cellen.
 
 Om du ser oväntade resultat (som du förmodligen kommer!) kontrollerar du att varje cell är inställd på "kod" eller "markdown" vid behov. Till exempel uppstår fel meddelandet "Ogiltig syntax" när du har angett markdown i kod cellen.
 
@@ -405,11 +405,11 @@ Prova att köra hela antecknings boken nu:
 
 ## <a name="save-halt-and-close-the-notebook"></a>Spara, stoppa och Stäng antecknings boken
 
-Under den tid som du redigerar en antecknings bok kan du **Spara det aktuella**läget med  >  kommandot**Spara och Checkpoint** eller knappen Spara i verktygsfältet. En "kontroll punkt" skapar en ögonblicks bild som du kan återställa till när som helst under sessionen. Med kontroll punkter kan du göra en serie experiment ändringar och om dessa ändringar inte fungerar kan du bara återställa till en kontroll punkt med **File**  >  kommandot**Återställ till kontroll punkt** . En annan metod är att skapa extra celler och kommentera ut all kod som du inte vill köra. båda sätten fungerar.
+Under den tid som du redigerar en antecknings bok kan du **Spara det aktuella** läget med  >  kommandot **Spara och Checkpoint** eller knappen Spara i verktygsfältet. En "kontroll punkt" skapar en ögonblicks bild som du kan återställa till när som helst under sessionen. Med kontroll punkter kan du göra en serie experiment ändringar och om dessa ändringar inte fungerar kan du bara återställa till en kontroll punkt med **File**  >  kommandot **Återställ till kontroll punkt** . En annan metod är att skapa extra celler och kommentera ut all kod som du inte vill köra. båda sätten fungerar.
 
 Du kan också använda **filen**  >  **gör ett kopierings** kommando när som helst för att göra en kopia av den aktuella statusen för antecknings boken till en ny fil i projektet. Kopian öppnas automatiskt i en ny webbläsare-flik.
 
-När du är klar med en antecknings bok **använder du**  >  kommandot**Stäng och stoppa** , som stänger antecknings boken och stänger av den kernel som har körts. Azure Notebooks stänger sedan fliken webbläsare automatiskt.
+När du är klar med en antecknings bok **använder du**  >  kommandot **Stäng och stoppa** , som stänger antecknings boken och stänger av den kernel som har körts. Azure Notebooks stänger sedan fliken webbläsare automatiskt.
 
 ## <a name="debug-notebooks-using-visual-studio-code"></a>Felsöka antecknings böcker med Visual Studio Code
 
@@ -433,4 +433,4 @@ Instruktionsartiklar:
 - [Presentera ett bildspel](present-jupyter-notebooks-slideshow.md)
 - [Arbeta med datafiler](work-with-project-data-files.md)
 - [Få åtkomst till dataresurser](access-data-resources-jupyter-notebooks.md)
-- [Använd Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)
+- [Använd Azure Machine Learning](../machine-learning/samples-notebooks.md)

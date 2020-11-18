@@ -3,12 +3,12 @@ title: Vanliga frågor och svar – Azure Event Hubs | Microsoft Docs
 description: Den här artikeln innehåller en lista med vanliga frågor och svar (FAQ) för Azure Event Hubs och deras svar.
 ms.topic: article
 ms.date: 10/27/2020
-ms.openlocfilehash: 3b55521c9f90192891b450e3e161607a334c3a00
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 41b010315adaf5a0eca2939b1d42fe4d7c159628
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92909717"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843051"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Vanliga frågor och svar om Event Hubs
 
@@ -59,10 +59,10 @@ Event Hubs utvärderar uttömmande Mät värden som ger resursernas tillstånd a
 Azure Event Hubs lagrar kund information. Dessa data lagras automatiskt av Event Hubs i en enda region, så den här tjänsten uppfyller automatiskt placering-kraven för region, inklusive de som anges i [säkerhets Center](https://azuredatacentermap.azurewebsites.net/).
 
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Vilka portar måste jag öppna i brand väggen? 
-Du kan använda följande protokoll med Azure Service Bus för att skicka och ta emot meddelanden:
+Du kan använda följande protokoll med Azure Event Hubs för att skicka och ta emot händelser:
 
-- AMQP
-- HTTP
+- Advanced Message Queueing Protocol 1,0 (AMQP)
+- Hypertext Transfer Protocol 1,1 med TLS (HTTPS)
 - Apache Kafka
 
 Se följande tabell för utgående portar som du måste öppna för att kunna använda dessa protokoll för att kommunicera med Azure Event Hubs. 
@@ -70,8 +70,21 @@ Se följande tabell för utgående portar som du måste öppna för att kunna an
 | Protokoll | Portar | Information | 
 | -------- | ----- | ------- | 
 | AMQP | 5671 och 5672 | Se [AMQP-protokoll guide](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
-| HTTP, HTTPS | 80, 443 |  |
+| HTTPS | 443 | Den här porten används för HTTP/REST API och för AMQP. |
 | Kafka | 9093 | Se [använda Event Hubs från Kafka-program](event-hubs-for-kafka-ecosystem-overview.md)
+
+HTTPS-porten krävs för utgående kommunikation även när AMQP används över Port 5671, eftersom flera hanterings åtgärder som utförs av klient-SDK: er och förvärv av tokens från Azure Active Directory (när de används) körs över HTTPS. 
+
+De officiella Azure-SDK: erna använder vanligt vis AMQP-protokollet för att skicka och ta emot händelser från Event Hubs. Protokoll alternativet AMQP-över-WebSockets körs via port TCP 443 precis som HTTP API, men är i övrigt identiskt med enkel AMQP. Det här alternativet har högre första anslutnings latens på grund av extra handskakningar i tur och upp till något mer som kompromisser för att dela HTTPS-porten. Om det här läget är valt räcker TCP-port 443 för kommunikation. Med följande alternativ kan du välja läget för enkel AMQP eller AMQP WebSockets:
+
+| Språk | Alternativ   |
+| -------- | ----- |
+| .NET     | [EventHubConnectionOptions. TransportType](/dotnet/api/azure.messaging.eventhubs.eventhubconnectionoptions.transporttype?view=azure-dotnet&preserve-view=true) -egenskapen med [EventHubsTransportType. AmqpTcp](/dotnet/api/azure.messaging.eventhubs.eventhubstransporttype?view=azure-dotnet&preserve-view=true) eller [EventHubsTransportType. AmqpWebSockets](/dotnet/api/azure.messaging.eventhubs.eventhubstransporttype?view=azure-dotnet&preserve-view=true) |
+| Java     | [com. Microsoft. Azure. eventhubs. EventProcessorClientBuilder. transporttype](/java/api/com.azure.messaging.eventhubs.eventprocessorclientbuilder.transporttype?view=azure-java-stable&preserve-view=true) med [AmqpTransportType. AMQP](/java/api/com.azure.core.amqp.amqptransporttype?view=azure-java-stable&preserve-view=true) eller [AmqpTransportType.AMQP_WEB_SOCKETS](/java/api/com.azure.core.amqp.amqptransporttype?view=azure-java-stable&preserve-view=true) |
+| Node  | [EventHubConsumerClientOptions](/javascript/api/@azure/event-hubs/eventhubconsumerclientoptions?view=azure-node-latest&preserve-view=true) har en- `webSocketOptions` egenskap. |
+| Python | [EventHubConsumerClient.transport_type](/python/api/azure-eventhub/azure.eventhub.eventhubconsumerclient?view=azure-python&preserve-view=true) med [TransportType. AMQP](/python/api/azure-eventhub/azure.eventhub.transporttype?view=azure-python) eller [TransportType. AmqpOverWebSocket](/python/api/azure-eventhub/azure.eventhub.transporttype?view=azure-python&preserve-view=true) |
+
+
 
 ### <a name="what-ip-addresses-do-i-need-to-allow"></a>Vilka IP-adresser måste jag tillåta?
 Följ dessa steg om du vill hitta rätt IP-adresser som ska läggas till i listan över tillåtna anslutningar för dina anslutningar:
@@ -193,9 +206,9 @@ När du skapar ett Basic-eller standard-nivå namn område i Azure Portal kan du
 
 1. På sidan **Event Bus-namnrymd** väljer du **ny support förfrågan** på den vänstra menyn. 
 1. Följ dessa steg på sidan **ny support förfrågan** :
-    1. Beskriv problemet med några få ord för **Sammanfattning** . 
-    1. Välj **kvot** för **typ av problem** . 
-    1. Välj **begäran om ökning eller minskning av data flödes enhet** för **problem under typ** . 
+    1. Beskriv problemet med några få ord för **Sammanfattning**. 
+    1. Välj **kvot** för **typ av problem**. 
+    1. Välj **begäran om ökning eller minskning av data flödes enhet** för **problem under typ**. 
     
         :::image type="content" source="./media/event-hubs-faq/support-request-throughput-units.png" alt-text="Supportbegäran sida":::
 
@@ -229,11 +242,11 @@ Du kan begära att antalet partitioner ska höjas till 40 (exakt) genom att skic
 
 1. På sidan **Event Bus-namnrymd** väljer du **ny support förfrågan** på den vänstra menyn. 
 1. Följ dessa steg på sidan **ny support förfrågan** :
-    1. Beskriv problemet med några få ord för **Sammanfattning** . 
-    1. Välj **kvot** för **typ av problem** . 
-    1. Under **typ av problem** väljer du **begäran om ändrad partition** . 
+    1. Beskriv problemet med några få ord för **Sammanfattning**. 
+    1. Välj **kvot** för **typ av problem**. 
+    1. Under **typ av problem** väljer du **begäran om ändrad partition**. 
     
-        :::image type="content" source="./media/event-hubs-faq/support-request-increase-partitions.png" alt-text="Supportbegäran sida":::
+        :::image type="content" source="./media/event-hubs-faq/support-request-increase-partitions.png" alt-text="Öka antalet partitioner":::
 
 Antalet partitioner kan ökas till exakt 40. I det här fallet måste antalet antal också ökas till 40. Om du senare bestämmer dig för att sänka gränsen för data flödes enheter till <= 20, minskas även gränsen för högsta tillåtna partitioner till 32. 
 
@@ -257,7 +270,7 @@ Den totala storleken på alla lagrade händelser, inklusive eventuell intern kos
 
 Varje händelse som skickas till en Event Hub räknas som ett fakturerbart meddelande. En *ingress-händelse* definieras som en enhet med data som är mindre än eller lika med 64 kB. En händelse som är mindre än eller lika med 64 KB anses vara en fakturerbar händelse. Om händelsen är större än 64 KB beräknas antalet fakturerbara händelser enligt händelse storleken i multipler av 64 KB. En 8 KB-händelse som skickas till händelsehubben faktureras exempelvis som en händelse, men ett meddelande på 96 KB som skickas till händelsehubben faktureras som två händelser.
 
-Händelser som konsumeras från en händelsehubben, samt hanterings-och kontroll anrop, till exempel kontroll punkter, räknas inte som fakturerbara ingångs händelser, men påförs till tilldelningen av data flödes enheten.
+Händelser som konsumeras från en Event Hub, och hanterings åtgärder och kontroll anrop, till exempel kontroll punkter, räknas inte som fakturerbara ingångs händelser, men påförs upp till enhets tilldelningen för data flödet.
 
 ### <a name="do-brokered-connection-charges-apply-to-event-hubs"></a>Gäller Brokered Connection-avgifter för Event Hubs?
 
@@ -299,7 +312,7 @@ Mer information om service avtal finns på sidan [service nivå avtal](https://a
 ## <a name="azure-stack-hub"></a>Azure Stack Hub
 
 ### <a name="how-can-i-target-a-specific-version-of-azure-storage-sdk-when-using-azure-blob-storage-as-a-checkpoint-store"></a>Hur kan jag rikta en speciell version av Azure Storage SDK när du använder Azure Blob Storage som en kontroll punkts lagring?
-Om du kör den här koden på Azure Stack hubb får du körnings fel om du inte riktar in dig på en viss lagrings-API-version. Det beror på att Event Hubs SDK använder det senaste tillgängliga Azure Storage API som är tillgängligt i Azure och som kanske inte är tillgängligt på din Azure Stack Hub-plattform. Azure Stack Hub kan stödja en annan version av Storage BLOB SDK än vad som normalt är tillgängligt på Azure. Om du använder Azure blogg Storage som kontroll punkts Arkiv, kontrollerar du [Azure Storage API-versionen som stöds för din Azure Stack Hub](/azure-stack/user/azure-stack-acs-differences?#api-version) -version och aktiverar den versionen i din kod. 
+Om du kör den här koden på Azure Stack Hub får du Körfel om du inte riktar in dig på en viss lagrings-API-version. Det beror på att Event Hubs SDK använder det senaste tillgängliga Azure Storage API som är tillgängligt i Azure och som kanske inte är tillgängligt på din Azure Stack Hub-plattform. Azure Stack Hub kan stödja en annan version av Storage BLOB SDK än vad som normalt är tillgängligt på Azure. Om du använder Azure blogg lagring som kontroll punkts Arkiv, kontrollerar du [Azure Storage API-versionen som stöds för din Azure Stack Hub](/azure-stack/user/azure-stack-acs-differences?#api-version) -version och aktiverar den versionen i din kod. 
 
 Om du till exempel kör på Azure Stack Hub version 2005 är den högsta tillgängliga versionen för lagrings tjänsten version 2019-02-02. Som standard använder klient biblioteket för Event Hubs SDK den senaste tillgängliga versionen på Azure (2019-07-07 vid tidpunkten för lanseringen av SDK: n). I det här fallet, förutom följande steg i det här avsnittet, måste du också lägga till kod som mål för Storage Service API-versionen 2019-02-02. Ett exempel på hur du kan rikta en speciell Storage API-version finns i följande exempel för C#, Java, python och Java Script/TypeScript.  
 

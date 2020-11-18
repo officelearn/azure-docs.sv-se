@@ -3,12 +3,12 @@ title: Exportera ett Jupyter Notebook-projekt från Azure Notebooks för hands v
 description: Exportera snabbt ett Jupyter Notebook-projekt.
 ms.topic: quickstart
 ms.date: 06/29/2020
-ms.openlocfilehash: 3153247b9d15167ab437d6c46142bbd41f8e4b23
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ea16bd61b542217fb6f2d5ba1d926a0bc19d4cce
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90030454"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844428"
 ---
 # <a name="quickstart-export-a-jupyter-notebook-project-in-azure-notebooks-preview"></a>Snabb start: exportera ett Jupyter Notebook projekt i Azure Notebooks för hands version
 
@@ -76,10 +76,10 @@ Azure Machine Learning tillhandahåller en maskin inlärnings plattform från sl
    ![Skapar en arbetsyta](../machine-learning/media/how-to-manage-workspace/create-workspace.gif)
  
 1. Öppna [Azure Studio (för hands version)](https://ml.azure.com/).
-1. Välj **antecknings böcker**i navigerings fältet på vänster sida.
+1. Välj **antecknings böcker** i navigerings fältet på vänster sida.
 1. Klicka på knappen **överför filer** och överför projektfilerna som du laddade ned från Azure Notebooks.
 
-Om du vill ha mer information om Azure ML och köra Jupyter-anteckningsböcker kan du läsa [dokumentationen](../machine-learning/how-to-run-jupyter-notebooks.md) eller testa [introduktionen för att Machine Learning](https://docs.microsoft.com/learn/modules/intro-to-azure-machine-learning-service/) modul på Microsoft Learn.
+Om du vill ha mer information om Azure ML och köra Jupyter-anteckningsböcker kan du läsa [dokumentationen](../machine-learning/how-to-run-jupyter-notebooks.md) eller testa [introduktionen för att Machine Learning](/learn/modules/intro-to-azure-machine-learning-service/) modul på Microsoft Learn.
 
 
 ## <a name="use-azure-lab-services"></a>Använd Azure Lab Services

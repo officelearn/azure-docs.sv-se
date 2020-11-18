@@ -6,13 +6,13 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
-ms.custom: devx-track-java
-ms.openlocfilehash: ea0887dd1d28bb958b27813df7f4c7a221470bac
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: d06a6eb8b504f2c5dd09de70d79f50a3ed5d89a3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088762"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844735"
 ---
 # <a name="map-an-existing-custom-domain-to-azure-spring-cloud"></a>Mappa en befintlig anpassad domän till Azure våren Cloud
 
@@ -62,7 +62,7 @@ Skapa en fil för det sammanfogade certifikatet med namnet _mergedcertificate.cr
 
 Exportera det kopplade TLS/SSL-certifikatet med den privata nyckel som din certifikatbegäran genererades med.
 
-Om du genererade din certifikatbegäran med hjälp av OpenSSL, har du skapat en privat nyckelfil. Kör följande kommando för att exportera certifikatet till PFX. Ersätt plats hållarna för den _ &lt; privata nyckel filen>_ och _ &lt; sammanfogade certifikat fil>_ med Sök vägarna till din privata nyckel och den sammanslagna certifikat filen.
+Om du genererade din certifikatbegäran med hjälp av OpenSSL, har du skapat en privat nyckelfil. Kör följande kommando för att exportera certifikatet till PFX. Ersätt plats hållarna för den _&lt; privata nyckel filen>_ och _&lt; sammanfogade certifikat fil>_ med Sök vägarna till din privata nyckel och den sammanslagna certifikat filen.
 
 ```bash
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>
@@ -78,10 +78,10 @@ Proceduren för att importera ett certifikat kräver att PEM-eller PFX-filen fin
 Så här överför du ditt certifikat till nyckel valvet:
 1. Gå till din Key Vault-instans.
 1. I det vänstra navigerings fönstret klickar du på **certifikat**.
-1. Klicka på **generera/importera**på den övre menyn.
-1. I dialog rutan **skapa ett certifikat** under **metoden för att skapa certifikat**väljer du `Import` .
+1. Klicka på **generera/importera** på den övre menyn.
+1. I dialog rutan **skapa ett certifikat** under **metoden för att skapa certifikat** väljer du `Import` .
 1. Under **överför certifikat fil**, navigerar du till certifikat plats och väljer den.
-1. Under **lösen ord**anger du den privata nyckeln för certifikatet.
+1. Under **lösen ord** anger du den privata nyckeln för certifikatet.
 1. Klicka på **Skapa**.
 
     ![Importera certifikat 1](./media/custom-dns-tutorial/import-certificate-a.png)
@@ -98,7 +98,7 @@ az keyvault certificate import --file <path to .pfx file> --name <certificate na
 Du måste ge Azure våren Cloud åtkomst till ditt nyckel valv innan du importerar certifikat:
 #### <a name="portal"></a>[Portal](#tab/Azure-portal)
 1. Gå till din Key Vault-instans.
-1. Klicka på **åtkomst principer**i det vänstra navigerings fönstret.
+1. Klicka på **åtkomst principer** i det vänstra navigerings fönstret.
 1. I den övre menyn klickar du på **Lägg till åtkomst princip**.
 1. Fyll i informationen och klicka på knappen **Lägg till** och **Spara** sedan åtkomst principer.
 
@@ -212,7 +212,7 @@ När du har lagt till SSL-bindningen är domän tillståndet säker: **felfri**.
 ## <a name="enforce-https"></a>Använda HTTPS
 Som standard kan alla fortfarande komma åt din app med HTTP, men du kan omdirigera alla HTTP-förfrågningar till HTTPS-porten.
 #### <a name="portal"></a>[Portal](#tab/Azure-portal)
-På din app-sida väljer du **anpassad domän**i det vänstra navigerings fältet. Ange sedan **https**till *True*.
+På din app-sida väljer du **anpassad domän** i det vänstra navigerings fältet. Ange sedan **https** till *True*.
 
 ![Lägg till SSL-bindning 3](./media/custom-dns-tutorial/enforce-http.png)
 

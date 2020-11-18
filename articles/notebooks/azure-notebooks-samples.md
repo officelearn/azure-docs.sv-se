@@ -3,12 +3,12 @@ title: Exempel på Jupyter Notebooks för Azure Notebooks för hands version
 description: Exempel är ett bra sätt att uppleva Jupyter Notebooks som körs i kostnads fria Azure Notebooks moln tjänster.
 ms.topic: sample
 ms.date: 01/11/2019
-ms.openlocfilehash: 397e40f628e6e935fef74d2225d2e477aac7b276
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8282a4047ede7d1344551a052ccf1b0143dae66
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85834003"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845065"
 ---
 # <a name="discover-and-use-sample-notebooks-in-azure-notebooks-preview"></a>Identifiera och Använd exempel antecknings böcker i Azure Notebooks för hands version
 
@@ -36,4 +36,4 @@ När du har identifierat en antecknings bok som du vill utforska finns det någr
 - [Gör så här: Konfigurera och hantera projekt](configure-manage-azure-notebooks-projects.md)
 - [Gör så här: arbeta med datafiler](work-with-project-data-files.md)
 - [Så här gör du: åtkomst till data resurser](access-data-resources-jupyter-notebooks.md)
-- [Gör så här: använda Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)
+- [Gör så här: använda Azure Machine Learning](../machine-learning/samples-notebooks.md)

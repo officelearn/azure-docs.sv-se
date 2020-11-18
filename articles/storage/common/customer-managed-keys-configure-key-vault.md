@@ -1,5 +1,5 @@
 ---
-title: Konfigurera kryptering med Kundhanterade nycklar som lagras i Azure Key Vault
+title: Konfigurera kryptering med kundhanterade nycklar som lagras i Azure Key Vault
 titleSuffix: Azure Storage
 description: Lär dig hur du konfigurerar Azure Storage kryptering med Kundhanterade nycklar som lagras i Azure Key Vault med hjälp av Azure Portal, PowerShell eller Azure CLI.
 services: storage
@@ -10,15 +10,15 @@ ms.date: 09/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 219fe82f16dd9bbc887c9b17b067c706230c63dd
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 02661c9c2a581ab21a2ae9dc31e5da95426c0edd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782390"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843391"
 ---
-# <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault"></a>Konfigurera kryptering med Kundhanterade nycklar som lagras i Azure Key Vault
+# <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault"></a>Konfigurera kryptering med kundhanterade nycklar som lagras i Azure Key Vault
 
 Azure Storage krypterar alla data i ett lagrings konto i vila. Som standard krypteras data med Microsoft-hanterade nycklar. Om du vill ha ytterligare kontroll över krypterings nycklarna kan du hantera dina egna nycklar. Kundhanterade nycklar måste lagras i Azure Key Vault eller Key Vault-hanterad maskin varu säkerhets modell (HSM) (för hands version).
 
@@ -35,15 +35,15 @@ Om du använder Kundhanterade nycklar med Azure Storage kryptering måste både 
 
 # <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
 
-Information om hur du skapar ett nyckel valv med Azure Portal finns i [snabb start: skapa ett nyckel valv med hjälp av Azure Portal](../../key-vault/general/quick-create-portal.md). När du skapar nyckel valvet väljer du **Aktivera rensnings skydd** , som du ser i följande bild.
+Information om hur du skapar ett nyckel valv med Azure Portal finns i [snabb start: skapa ett nyckel valv med hjälp av Azure Portal](../../key-vault/general/quick-create-portal.md). När du skapar nyckel valvet väljer du **Aktivera rensnings skydd**, som du ser i följande bild.
 
 :::image type="content" source="media/customer-managed-keys-configure-key-vault/configure-key-vault-portal.png" alt-text="Skärm bild som visar hur du aktiverar rensnings skyddet när du skapar ett nyckel valv":::
 
 Följ dessa steg om du vill aktivera rensnings skyddet för ett befintligt nyckel valv:
 
 1. Navigera till ditt nyckel valv i Azure Portal.
-1. Under **Inställningar** väljer du **Egenskaper** .
-1. I avsnittet **Rensa skydd** väljer du **Aktivera rensnings skydd** .
+1. Under **Inställningar** väljer du **Egenskaper**.
+1. I avsnittet **Rensa skydd** väljer du **Aktivera rensnings skydd**.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -175,12 +175,12 @@ Azure Storage kan automatiskt uppdatera den Kundhanterade nyckel som används f�
 Följ dessa steg om du vill konfigurera Kundhanterade nycklar med automatisk uppdatering av nyckel versionen i Azure Portal:
 
 1. Navigera till ditt lagringskonto.
-1. På bladet **Inställningar** för lagrings kontot klickar du på **kryptering** . Välj alternativet **Kundhanterade nycklar** , som du ser i följande bild.
+1. På bladet **Inställningar** för lagrings kontot klickar du på **kryptering**. Välj alternativet **Kundhanterade nycklar** , som du ser i följande bild.
 
     ![Portal skärm bild som visar krypterings alternativ](./media/customer-managed-keys-configure-key-vault/portal-configure-encryption-keys.png)
 
 1. Välj alternativet **Välj från Key Vault** .
-1. Välj **Välj ett nyckel valv och nyckel** .
+1. Välj **Välj ett nyckel valv och nyckel**.
 1. Välj det nyckel valv som innehåller den nyckel som du vill använda.
 1. Välj nyckeln från nyckel valvet.
 
@@ -190,7 +190,7 @@ Följ dessa steg om du vill konfigurera Kundhanterade nycklar med automatisk upp
 
 När du har angett nyckeln anger Azure Portal att automatisk uppdatering av nyckel versionen är aktive rad och visar den nyckel version som används för kryptering.
 
-:::image type="content" source="media/customer-managed-keys-configure-key-vault/portal-auto-rotation-enabled.png" alt-text="Skärm bild som visar hur du aktiverar rensnings skyddet när du skapar ett nyckel valv":::
+:::image type="content" source="media/customer-managed-keys-configure-key-vault/portal-auto-rotation-enabled.png" alt-text="Skärm bild som visar automatisk uppdatering av den nyckel version som är aktive rad":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

@@ -7,12 +7,12 @@ ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 07/01/2020
-ms.openlocfilehash: 0bb5dccfc99a693ec89ed08ac31b77eb16442f73
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 5396845e13e94b4d957f42618baaf19c408f559d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129974"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843782"
 ---
 # <a name="private-offers-in-the-microsoft-commercial-marketplace"></a>Privata erbjudanden på Microsofts kommersiella marknads plats
 
@@ -51,6 +51,9 @@ För *nya erbjudanden som bara omfattar privata planer* kan utgivare skapa sina 
 För både nya och befintliga privata erbjudanden kan utgivare rikta kunder med prenumerations-ID. Utgivare som använder en virtuell dator eller Azure Application erbjudande kan begränsa tillgängligheten för en privat plan till ett enskilt Azure-prenumerations-ID eller ladda upp en CSV med upp till 20 000 Azure-prenumerations-ID. När du använder ett privat erbjudande i SaaS-appen kan utgivare associera antingen ett klient-ID för att begränsa tillgängligheten för en privat plan med hjälp av antingen manuell eller CSV-överföring.
 
 När ett erbjudande har certifierats och publicerats kan kunder uppdateras eller tas bort från planen inom några minuter med hjälp av funktionen synkronisera privata prenumerationer. Den här funktionen gör det möjligt för utgivare att snabbt och enkelt uppdatera listan över kunder som den privata planen presenteras i utan att du behöver certifiera eller publicera erbjudandet igen.
+
+>[!NOTE]
+>Tillämplighet i Azure gov: privata erbjudanden (eller mer korrekt: privata planer) är tillgängliga för gov-moln som alla andra erbjudanden. En plan kan också byta status från privat till offentlig och vice versa. Den kontroll på vilken moln erbjudandet kommer att vara tillgängligt finns i partnerns händer och kan konfigureras via partner Center. 
 
 ## <a name="deploying-private-offers"></a>Distribuera privata erbjudanden
 

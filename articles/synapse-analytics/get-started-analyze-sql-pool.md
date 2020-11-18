@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
-ms.date: 07/20/2020
-ms.openlocfilehash: bc16dde7d3156df08b946a15012a201054cd8e0a
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.date: 11/17/2020
+ms.openlocfilehash: ae7b15bf2e2efd72184110a105f68815516569ab
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592608"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843918"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Analysera data med dedikerade SQL-pooler
 
@@ -71,12 +71,12 @@ Azure Synapse Analytics ger dig möjlighet att analysera data med en särskild S
     )
     OPTION (LABEL = 'COPY : Load [dbo].[Trip] - Taxi dataset');
     ```
-1. Skriptet tar ungefär 1 minut att köra. Den läser in 2 000 000 rader av NYC taxi-data i en tabell med namnet **dbo. Resa**
+1. Detta skript slutförs inom cirka 60 sekunder. Den läser in 2 000 000 rader av NYC taxi-data i en tabell med namnet **dbo. Resa**
 
 ## <a name="explore-the-nyc-taxi-data-in-the-dedicated-sql-pool"></a>Utforska NYC taxi-data i den dedikerade SQL-poolen
 
 1. Gå till **datahubben** i Synapse Studio.
-1. Gå till **SQLPOOL1** -  >  **tabeller**. Du ser att flera tabeller har lästs in.
+1. Gå till **SQLPOOL1**-  >  **tabeller**. Du ser att flera tabeller har lästs in.
 1. Högerklicka på **dbo. Rese** tabell och välj **nytt SQL-skript**  >  **Markera de 100 översta raderna**.
 1. Vänta medan ett nytt SQL-skript skapas och körs.
 1. Observera att överst i SQL-skriptet **Connect to** anges automatiskt till SQL-poolen med namnet **SQLPOOL1**.

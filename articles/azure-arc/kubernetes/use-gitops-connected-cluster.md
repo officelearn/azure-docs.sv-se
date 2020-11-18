@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Använda GitOps för en Azure Arc-aktiverad kluster konfiguration (förhands granskning)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes service, containers
-ms.openlocfilehash: 1a8839c2463494ba0e165bf9e1a5d22245fac8df
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ce6c754c308d2979db9b1b8eb36e7858e8a91c3c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371264"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659802"
 ---
 # <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Distribuera konfigurationer med GitOps på Arc-aktiverade Kubernetes-kluster (för hands version)
 
@@ -96,14 +96,14 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 Här följer de scenarier som stöds för värdet av--URL-parametern-URL.
 
-| Scenario | Format | Beskrivning |
+| Scenario | Format | Description |
 | ------------- | ------------- | ------------- |
 | Offentlig git-lagrings platsen | http [s]://Server/repo.git eller git://server/repo.git   | Offentlig git-lagrings platsen  |
-| Privata git-lagrings platsen – SSH – flöden-skapade nycklar | SSH://[user@] Server/lagrings platsen. git eller [user@] Server: lagrings platsen. git | Den offentliga nyckeln som genereras av flöde måste läggas till i användar kontot eller lagrings platsen i din git-tjänstleverantör. [Här](#apply-configuration-from-a-private-git-repository) hittar du mer information |
+| Privata git-lagrings platsen – SSH – flöden-skapade nycklar | SSH://[user@] Server/lagrings platsen. git eller [user@] Server: lagrings platsen. git | Den offentliga nyckeln som genereras av flöde måste läggas till i användar kontot i git-tjänstprovidern. Om distributions nyckeln läggs till i lagrings platsen i stället för användar kontot använder du `git@` i stället för `user@` . [Här](#apply-configuration-from-a-private-git-repository) hittar du mer information |
 
 Dessa scenarier stöds av flöde, men ännu inte av sourceControlConfiguration.
 
-| Scenario | Format | Beskrivning |
+| Scenario | Format | Description |
 | ------------- | ------------- | ------------- |
 | Privat git lagrings platsen-HTTPS | https://server/repo.git | Kommer snart (stöd för användar namn/lösen ord, användar namn/token, certifikat) |
 | Privata git-lagrings platsen – SSH – användarspecifika nycklar | SSH://[user@] Server/lagrings platsen. git eller [user@] Server: lagrings platsen. git | Kommer snart |
@@ -222,16 +222,26 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 3. Välj den konfiguration som använder den privata git-lagringsplatsen.
 4. I kontext fönstret som öppnas längst ned i fönstret kopierar du **lagrings platsens offentliga nyckel**.
 
-**Lägg till den offentliga nyckeln som en distributions nyckel till git-lagrings platsen**
+Om du använder GitHub kan du använda något av följande två alternativ:
 
-1. Öppna GitHub, navigera till lagrings platsen, klicka på **Inställningar**och **distribuera nycklar**
-2. Klicka på  **Lägg till distributions nyckel**
+**Alternativ 1: Lägg till den offentliga nyckeln till ditt användar konto**
+
+1. Öppna GitHub, klicka på din profil ikon i det övre högra hörnet på sidan.
+2. Klicka på **Inställningar**
+3. Klicka på **SSH-och GPG-nycklar**
+4. Klicka på **ny SSH-nyckel**
+5. Ange en rubrik
+6. Klistra in den offentliga nyckeln (minus omgivande citat tecken)
+7. Klicka på **Lägg till SSH-nyckel**
+
+**Alternativ 2: Lägg till den offentliga nyckeln som en distributions nyckel till git-lagrings platsen**
+
+1. Öppna GitHub, navigera till lagrings platsen, klicka på **Inställningar** och **distribuera nycklar**
+2. Klicka på **Lägg till distributions nyckel**
 3. Ange en rubrik
 4. Kontrol lera **Tillåt skriv åtkomst**
 5. Klistra in den offentliga nyckeln (minus omgivande citat tecken)
 6. Klicka på **Lägg till nyckel**
-
-Mer information om hur du hanterar dessa nycklar finns i GitHub-dokumenten.
 
 **Om du använder en Azure DevOps-lagringsplats lägger du till nyckeln till dina SSH-nycklar**
 

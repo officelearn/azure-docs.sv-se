@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 087ee796fbd3c0563b8019a062acab9c7ad80bb1
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 2ffc524c14b9ba281d7e386f7f8c726093f11dbf
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579393"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661026"
 ---
 # <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>Fråga Azure Cosmos DB data med Server lös SQL-pool i Azure Synapse Link (för hands version)
 
@@ -25,7 +25,7 @@ För att skicka frågor till Azure Cosmos DB stöds det fullständiga [Select](/
 I den här artikeln får du lära dig hur du skriver en fråga med en server lös SQL-pool som kommer att fråga efter data från Azure Cosmos DB behållare som är Synapse-länk aktiverade. Du kan sedan lära dig mer om hur du skapar SQL-pooler utan server över Azure Cosmos DB behållare och ansluter dem till Power BI modeller i [den här](./tutorial-data-analyst.md) självstudien. 
 
 > [!IMPORTANT]
-> I den här självstudien används en behållare med [Azure Cosmos DB väldefinierat schema](../../cosmos-db/analytical-store-introduction.md#schema-representation). Frågan som server lös SQL-poolen tillhandahåller för [Azure Cosmos DB full Fidelity schema](#full-fidelity-schema) är ett tillfälligt beteende som ändras baserat på förhands granskningen. Förlita dig inte på schemat för resultat uppsättningen för `OPENROWSET` Function utan `WITH` sats som läser data från en behållare med fullständigt åter användnings schema eftersom frågekörning kan ändras och justeras med väldefinierat schema. Publicera feedback om [Azure Synapse Analytics feedback-forumet](https://feedback.azure.com/forums/307516-azure-synapse-analytics) eller kontakta [Synapse länka produkt teamet](mailto:cosmosdbsynapselink@microsoft.com) för att ge feedback.
+> I den här självstudien används en behållare med ett [väldefinierat schema för Azure Cosmos DB](../../cosmos-db/analytical-store-introduction.md#schema-representation). Frågan om att SQL-poolen utan server ger ett [Azure Cosmos DB full Fidelity schema](#full-fidelity-schema) är tillfälligt beteende som ändras baserat på förhands granskningen. Förlita dig inte på schemats resultat uppsättning `OPENROWSET` utan den `WITH` sats som läser data från en behållare med ett fullständigt åter användnings schema eftersom frågan kan justeras med och ändras baserat på det väldefinierade schemat. Publicera feedback i [Azure Synapse Analytics-forumet](https://feedback.azure.com/forums/307516-azure-synapse-analytics) eller kontakta [produkt gruppen Synapse-länk](mailto:cosmosdbsynapselink@microsoft.com) för att ge feedback.
 
 ## <a name="overview"></a>Översikt
 

@@ -7,12 +7,12 @@ ms.service: firewall
 ms.date: 11/12/2020
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 62640aa02c76c13b2c49b2e33aea742f6b8a09e4
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 18a7da6402d7835be8dbad0551973a262ab335c8
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628377"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660244"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Distribuera och konfigurera Azure-brandväggen med Azure PowerShell
 
@@ -25,7 +25,7 @@ Med Azure Firewall kan du kontrollera åtkomsten till utgående nätverk från e
 
 Nätverkstrafiken måste följa konfigurerade brandväggsregler när du vidarebefordrar den till brandväggen som standardgateway för undernätet.
 
-I den här artikeln skapar du ett förenklat enda VNet med tre undernät för enkel distribution. För produktions distributioner rekommenderas en [nav-och eker-modell](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) , där brand väggen finns i ett eget VNet. Arbets belastnings servrarna finns i peer-virtuella nätverk i samma region med ett eller flera undernät.
+I den här artikeln skapar du ett förenklat enda VNet med tre undernät för enkel distribution. För produktions distributioner rekommenderas en [nav-och eker-modell](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) , där brand väggen finns i ett eget VNet. Arbets belastnings servrarna finns i peer-virtuella nätverk i samma region med ett eller flera undernät.
 
 * **AzureFirewallSubnet** – brandväggen ligger i det här undernätet.
 * **Workload-SN** – arbetsbelastningsservern ligger i det här undernätet. Det här undernätets nätverkstrafik går genom brandväggen.
@@ -49,7 +49,7 @@ Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den här proceduren kräver att du kör PowerShell lokalt. Du måste ha installerat Azure PowerShell-modulen. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). När du har verifierat PowerShell-versionen kör du `Connect-AzAccount` för att skapa en anslutning till Azure.
+Den här proceduren kräver att du kör PowerShell lokalt. Du måste ha installerat Azure PowerShell-modulen. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). När du har verifierat PowerShell-versionen kör du `Connect-AzAccount` för att skapa en anslutning till Azure.
 
 ## <a name="set-up-the-network"></a>Konfigurera nätverket
 
@@ -253,4 +253,4 @@ Remove-AzResourceGroup -Name Test-FW-RG
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Självstudie: Övervaka Azure Firewall-loggar](./tutorial-diagnostics.md)
+* [Självstudie: Övervaka Azure Firewall-loggar](./firewall-diagnostics.md)

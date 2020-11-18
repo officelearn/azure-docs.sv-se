@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: c8b4102968e4b6b633216e29d5e993a1c98fa1c6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 478f3454a728871040cdbbf9f817394cffe6b82f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89071728"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660261"
 ---
 # <a name="quickstart-deploy-azure-firewall-with-availability-zones---arm-template"></a>Snabb start: Distribuera Azure-brandväggen med Tillgänglighetszoner ARM-mall
 
@@ -21,7 +21,7 @@ I den här snabb starten använder du en Azure Resource Manager mall (ARM-mall) 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Mallen skapar en test nätverks miljö med en brand vägg. Nätverket har ett virtuellt nätverk (VNet) med tre undernät: *AzureFirewallSubnet*, *ServersSubnet*och *JumpboxSubnet*. *ServersSubnet* -och *JumpboxSubnet* -undernätet har en enda virtuell Windows Server-dator med två kärnor.
+Mallen skapar en test nätverks miljö med en brand vägg. Nätverket har ett virtuellt nätverk (VNet) med tre undernät: *AzureFirewallSubnet*, *ServersSubnet* och *JumpboxSubnet*. *ServersSubnet* -och *JumpboxSubnet* -undernätet har en enda virtuell Windows Server-dator med två kärnor.
 
 Brand väggen finns i *AzureFirewallSubnet* -undernätet och har en samling med program regler med en enda regel som tillåter åtkomst till `www.microsoft.com` .
 
@@ -80,7 +80,7 @@ Information om JSON-syntaxen och egenskaperna för en brand vägg i en mall finn
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du inte längre behöver dem kan du ta bort resurs gruppen, brand väggen och alla relaterade resurser genom att köra `Remove-AzResourceGroup` PowerShell-kommandot. Om du vill ta bort en resurs grupp med namnet *MyResourceGroup*kör du:
+När du inte längre behöver dem kan du ta bort resurs gruppen, brand väggen och alla relaterade resurser genom att köra `Remove-AzResourceGroup` PowerShell-kommandot. Om du vill ta bort en resurs grupp med namnet *MyResourceGroup* kör du:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name MyResourceGroup
@@ -93,4 +93,4 @@ Ta inte bort resurs gruppen och brand väggen om du planerar att fortsätta till
 Därefter kan du övervaka Azure Firewall-loggarna.
 
 > [!div class="nextstepaction"]
-> [Självstudie: Övervaka Azure Firewall-loggar](tutorial-diagnostics.md)
+> [Självstudie: Övervaka Azure Firewall-loggar](./firewall-diagnostics.md)

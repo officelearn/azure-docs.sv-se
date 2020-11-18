@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: yelevin
-ms.openlocfilehash: cceeb1fc9715dfd7b1ac714c424421c51d292757
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca483d993290e4d66ba257d4cb5de7fc3c952405
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85552293"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660839"
 ---
 # <a name="hunt-for-threats-with-azure-sentinel"></a>Söker efter hot med Azure Sentinel
 
@@ -45,7 +45,7 @@ Med Azure Sentinel-jakt kan du dra nytta av följande funktioner:
  
 ## <a name="get-started-hunting"></a>Kom igång med jakt
 
-1. Klicka på **jakt**i Azure Sentinel-portalen.
+1. Klicka på **jakt** i Azure Sentinel-portalen.
   ![Azure Sentinel startar jakt](media/tutorial-hunting/hunting-start.png)
 
 2. När du öppnar sidan **jakt** visas alla jakt frågor i en enda tabell. I tabellen visas alla frågor som har skrivits av Microsofts team med säkerhetsanalytiker och ytterligare frågor som du har skapat eller ändrat. Varje fråga innehåller en beskrivning av vad den söker efter och vilken typ av data som den körs på. De här mallarna grupperas efter deras olika taktiker – ikonerna till höger klassificerar typ av hot, till exempel initial åtkomst, persistence och exfiltrering. Du kan filtrera dessa jakt-fråge mallar med något av fälten. Du kan spara alla frågor till dina favoriter. Genom att spara en fråga till dina favoriter körs frågan automatiskt varje gång **jakt** sidan nås. Du kan skapa en egen jakt fråga eller klona och anpassa en befintlig jakt-frågegrupp. 
@@ -66,7 +66,7 @@ Med Azure Sentinel-jakt kan du dra nytta av följande funktioner:
 
 ## <a name="query-language"></a>Frågespråk 
 
-Jakt i Azure Sentinel baseras på Kusto frågespråk. Mer information om frågespråket och operatörer som stöds finns i [frågespråk](/azure/azure-monitor/log-query/get-started-queries).
+Jakt i Azure Sentinel baseras på Kusto frågespråk. Mer information om frågespråket och operatörer som stöds finns i [frågespråk](../azure-monitor/log-query/get-started-queries.md).
 
 ## <a name="public-hunting-query-github-repository"></a>Offentlig jakt fråga GitHub-lagringsplats
 

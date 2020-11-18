@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: 548393353d38082c175cde20eef1e93017cdd31a
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: eef78ffefe8fe13e6f160e38a05405a80d6e46f8
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94639392"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660958"
 ---
 # <a name="windows-virtual-desktop-rdp-shortpath-preview"></a>RDP-Shortpath för Windows Virtual Desktop (för hands version)
 
@@ -151,6 +151,7 @@ Följ [dokumentationen för nätverks säkerhets gruppen](../virtual-machines/wi
 
 * **Källa**  -  **Valfritt** eller IP-intervallet där klienterna är bosatta
 * **Käll ports intervall** -* *\** _ _ **mål**  -  **alla**
+* **Mål ports intervall**  -  **3390**
 * **Protokoll**  -  **UDP**
 * **Åtgärd**  -  **Tillåt**
 * Du kan också ändra **prioriteten**. Prioriteten påverkar ordningen i vilken reglerna tillämpas: det lägre numeriska värdet, som är det tidigare regeln tillämpas.
@@ -245,6 +246,11 @@ Om du vill inaktivera RDP-Shortpath för en angiven sessionsnyckel kan du inakti
 1. På sessionsvärdservern kör **gpedit. msc**.
 2. Gå till **dator konfiguration > administrations mallar > Windows-komponenter > Fjärrskrivbordstjänster > anslutning till fjärrskrivbord värd > anslutningar**.
 3. Ange inställningen **"Välj RDP transport Protocols** till **TCP**
+
+## <a name="feedback"></a>Feedback
+
+Vi vill gärna höra om dina upplevelser med den här offentliga för hands versionen!
+* [Använd det här formuläret](https://aka.ms/RDPShortpathFeedback)för frågor, förfrågningar, kommentarer och annan feedback.
 
 ## <a name="next-steps"></a>Nästa steg
 

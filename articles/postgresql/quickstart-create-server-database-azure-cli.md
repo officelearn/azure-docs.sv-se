@@ -8,38 +8,33 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 1ddc8c2b9531dd78c1c6746e28b8ff5864af563e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: d174e410aaef876dfe97af62750322641de95fd3
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93331989"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659462"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-cli"></a>Snabb start: skapa en Azure Database for PostgreSQL-server med hjälp av Azure CLI
 
 Den här snabb starten visar hur du använder [Azure CLI](/cli/azure/get-started-with-azure-cli) -kommandon i [Azure Cloud Shell](https://shell.azure.com) för att skapa en enda Azure Database for postgresql server på fem minuter. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-> [!TIP]
-> Överväg att använda det enklare [AZ postgres](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI-kommandot som för närvarande finns som för hands version. Prova [snabb](./quickstart-create-server-up-azure-cli.md)starten.
+- Den här artikeln kräver version 2,0 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
-## <a name="prerequisites"></a>Krav
-Den här artikeln kräver att du kör Azure CLI version 2,0 eller senare lokalt. Kör kommandot `az --version` om du vill se vilken version som är installerad. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
+    > [!TIP]
+    >  Överväg att använda det enklare [AZ postgres](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI-kommandot som för närvarande finns som för hands version. Prova [snabb](./quickstart-create-server-up-azure-cli.md)starten.
 
-Du måste logga in på ditt konto med hjälp av kommandot [AZ login](/cli/azure/reference-index#az-login) . Observera egenskapen **ID** som refererar till **prenumerations-ID** för ditt Azure-konto. 
+- Välj det aktuella prenumerations-ID: t under ditt konto med hjälp av kommandot  [AZ Account set](/cli/azure/account) .
 
-```azurecli-interactive
-az login
-```
+    - Anteckna **ID-** värdet från **AZ-inloggnings** resultatet som ska användas som värde för **prenumerations** argumentet i kommandot. 
 
-Välj det aktuella prenumerations-ID: t under ditt konto med hjälp av kommandot  [AZ Account set](/cli/azure/account) . Anteckna **ID-** värdet från **AZ-inloggnings** resultatet som ska användas som värde för **prenumerations** argumentet i kommandot. 
+        ```azurecli
+        az account set --subscription <subscription id>
+        ```
 
-```azurecli
-az account set --subscription <subscription id>
-```
-
-Om du har flera prenumerationer ska du välja lämplig prenumeration där resursen ska debiteras. Använd [AZ Account List](/cli/azure/account#az-account-list)för att hämta alla dina prenumerationer.
+    - Om du har flera prenumerationer ska du välja lämplig prenumeration där resursen ska debiteras. Använd [AZ Account List](/cli/azure/account#az-account-list)för att hämta alla dina prenumerationer.
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Skapa en Azure Database for PostgreSQL-server
 
@@ -61,9 +56,9 @@ Här följer information om föregående argument:
 name | mydemoserver | Unikt namn som identifierar din Azure Database for PostgreSQL-Server. Ditt servernamn får bara innehålla gemener, siffror och bindestreck. Det måste innehålla mellan 3 och 63 tecken. Mer information finns i [Azure Database for PostgreSQL namngivnings regler](../azure-resource-manager/management/resource-name-rules.md#microsoftdbforpostgresql).
 resource-group | myresourcegroup | Namnet på Azure-resurs gruppen.
 location | westus | Azure-plats för servern.
-admin-user | myadmin | Användar namn för Administratörs inloggning. Det kan inte vara **azure_superuser** , **administratör** , **administratör** , **rot** , **gäst** eller **offentlig**.
+admin-user | myadmin | Användar namn för Administratörs inloggning. Det kan inte vara **azure_superuser**, **administratör**, **administratör**, **rot**, **gäst** eller **offentlig**.
 admin-password | *säkert lösenord* | Lösen ordet för administratörs användaren. Det måste innehålla 8 till 128 tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror och icke-alfanumeriska tecken.
-sku-name|GP_Gen5_2| Namnet på pris nivån och beräknings konfigurationen. Följ konventionen {pris nivå} _{Compute generation}_ {virtuella kärnor} i korthet. Mer information finns i [Azure Database for PostgreSQL prissättning](https://azure.microsoft.com/pricing/details/postgresql/server/).
+sku-name|GP_Gen5_2| Namnet på pris nivån och beräknings konfigurationen. Följ konventionen {pris nivå}_{Compute generation}_{virtuella kärnor} i korthet. Mer information finns i [Azure Database for PostgreSQL prissättning](https://azure.microsoft.com/pricing/details/postgresql/server/).
 
 >[!IMPORTANT] 
 >- Standard versionen av PostgreSQL på servern är 9,6. Om du vill se alla versioner som stöds, se [postgresql-versioner som stöds](./concepts-supported-versions.md).
@@ -123,7 +118,7 @@ Resultatet är i JSON-format. Anteckna värdena för **administratorLogin** och 
 ```
 
 ## <a name="connect-to-the-azure-database-for-postgresql-server-by-using-psql"></a>Ansluta till den Azure Database for PostgreSQL servern med hjälp av psql
-[Psql](https://www.postgresql.org/docs/current/static/app-psql.html) -klienten är ett populärt alternativ för att ansluta till postgresql-servrar. Du kan ansluta till servern med hjälp av psql med [Azure Cloud Shell](../cloud-shell/overview.md). Du kan också använda psql i din lokala miljö om du har den tillgänglig. En tom databas, **postgres** , skapas automatiskt med en ny postgresql-server. Du kan använda databasen för att ansluta till psql, som du ser i följande kod. 
+[Psql](https://www.postgresql.org/docs/current/static/app-psql.html) -klienten är ett populärt alternativ för att ansluta till postgresql-servrar. Du kan ansluta till servern med hjälp av psql med [Azure Cloud Shell](../cloud-shell/overview.md). Du kan också använda psql i din lokala miljö om du har den tillgänglig. En tom databas, **postgres**, skapas automatiskt med en ny postgresql-server. Du kan använda databasen för att ansluta till psql, som du ser i följande kod. 
 
    ```bash
  psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres

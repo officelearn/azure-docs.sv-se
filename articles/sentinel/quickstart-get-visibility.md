@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: affefb302d602e9069a903fa5f6a0fbae78992b9
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 26a29524e0bf329a368b3cd2281dd9b070b42a14
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516961"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660822"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Snabbstart: Kom igång med Azure Sentinel
 
@@ -54,7 +54,7 @@ Huvud delen av översikts sidan ger en överblick över en överskådlig säkerh
 
 Inbyggda arbets böcker ger integrerade data från dina anslutna data källor så att du kan få en djup inblick i de händelser som genereras i dessa tjänster. De inbyggda arbets böckerna omfattar Azure AD, Azure Activity events och on-premises, som kan vara data från Windows-händelser från servrar, från första part-aviseringar från alla utomstående, inklusive brand Väggs trafik loggar, Office 365 och oskyddade protokoll baserade på Windows-händelser. Arbets böckerna baseras på Azure Monitor arbets böcker för att ge dig bättre anpassningsbarhet och flexibilitet i utformningen av din egen arbets bok. Mer information finns i [arbets böcker](../azure-monitor/platform/workbooks-overview.md).
 
-1. Under **Inställningar**väljer du **arbets böcker**. Under **installerad**kan du se all din installerade arbets bok. Under **alla**kan du se hela galleriet med inbyggda arbets böcker som är tillgängliga för installation. 
+1. Under **Inställningar** väljer du **arbets böcker**. Under **installerad** kan du se all din installerade arbets bok. Under **alla** kan du se hela galleriet med inbyggda arbets böcker som är tillgängliga för installation. 
 2. Sök efter en speciell arbets bok för att se hela listan och en beskrivning av vad varje erbjudande har. 
 3. Förutsatt att du använder Azure AD för att komma igång med Azure Sentinel rekommenderar vi att du installerar minst följande arbets böcker:
    - **Azure AD**: Använd antingen eller båda av följande:
@@ -66,7 +66,7 @@ Inbyggda arbets böcker ger integrerade data från dina anslutna data källor s�
       ![Palo-instrument panel](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-Du kan anpassa arbets böckerna antingen genom att redigera huvud knappen fråga ![ ](./media/qs-get-visibility/edit-query-button.png) . Du kan klicka på knappen ![ Log Analytics ](./media/qs-get-visibility/go-to-la-button.png) för att gå till [Log Analytics för att redigera frågan där](../azure-monitor/log-query/get-started-portal.md), och du kan välja ellipsen (...) och välja **Anpassa panel data**, vilket gör att du kan redigera huvud tids filtret, eller ta bort de enskilda panelerna från arbets boken.
+Du kan anpassa arbets böckerna antingen genom att redigera huvud knappen fråga ![ ](./media/qs-get-visibility/edit-query-button.png) . Du kan klicka på knappen ![ Log Analytics ](./media/qs-get-visibility/go-to-la-button.png) för att gå till [Log Analytics för att redigera frågan där](../azure-monitor/log-query/log-analytics-tutorial.md), och du kan välja ellipsen (...) och välja **Anpassa panel data**, vilket gör att du kan redigera huvud tids filtret, eller ta bort de enskilda panelerna från arbets boken.
 
 Mer information om hur du arbetar med frågor finns i [Självstudier: visuella data i Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 
@@ -129,4 +129,3 @@ Mer information om hur du hämtar välkomst identifieringar finns i [Självstudi
 I den här snabb starten har du lärt dig hur du kommer igång med Azure Sentinel. Fortsätt till självstudien för [att identifiera hot](tutorial-detect-threats-built-in.md).
 > [!div class="nextstepaction"]
 > [Skapa anpassade hot identifierings regler](tutorial-detect-threats-custom.md) som automatiserar dina svar på hot.
-

@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/06/2020
+ms.date: 11/16/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 04c532ceb5f40e9a5b7fa5fd5b75f60182f54580
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 71a4fba177f5bbbaf9f8d991222b071d0da66d4d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427793"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660397"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Hantera användning och kostnader med Azure Monitor-loggar    
 
@@ -52,9 +52,9 @@ Reservations nivån för kluster kapaciteten konfigureras via programmering med 
 
 Det finns två fakturerings lägen för användning i ett kluster. Dessa kan anges av- `billingType` parametern när [du konfigurerar klustret](customer-managed-keys.md#customer-managed-key-operations). De två lägena är: 
 
-1. **Kluster** : i det här fallet (som är standard) görs faktureringen för inmatade data på kluster nivå. De inmatade data mängderna från varje arbets yta som är kopplad till ett kluster sammanställs för att beräkna den dagliga fakturan för klustret. Observera att tilldelningar per nod från [Azure Security Center](../../security-center/index.yml) tillämpas på arbets ytans nivå före denna agg regering av sammanställda data för alla arbets ytor i klustret. 
+1. **Kluster**: i det här fallet (som är standard) görs faktureringen för inmatade data på kluster nivå. De inmatade data mängderna från varje arbets yta som är kopplad till ett kluster sammanställs för att beräkna den dagliga fakturan för klustret. Observera att tilldelningar per nod från [Azure Security Center](../../security-center/index.yml) tillämpas på arbets ytans nivå före denna agg regering av sammanställda data för alla arbets ytor i klustret. 
 
-2. **Arbets ytor** : kostnaderna för kapacitets reservationen för klustret anges i proportion till arbets ytorna i klustret (efter redovisningen av tilldelningar per nod från [Azure Security Center](../../security-center/index.yml) för varje arbets yta.) Om den totala data volymen som matas in i en arbets yta för en dag är lägre än kapacitets reservationen debiteras varje arbets yta för sina inmatade data med den effektiva reservations taxan per GB som faktureras en bråkdel av kapacitets reservationen och den oanvända delen av kapacitets reservationen debiteras till kluster resursen. Om den totala data volymen som matas in på en arbets yta för en dag är mer än kapacitets reservationen debiteras varje arbets yta för en bråkdel av kapacitets reservationen baserat på den inmatade data dagen och varje arbets yta för en bråkdel av inmatade data ovanför kapacitets reservationen. Det finns inget debiteras för kluster resursen om den totala data volymen som matas in på en arbets yta för en dag är över kapacitets reservationen.
+2. **Arbets ytor**: kostnaderna för kapacitets reservationen för klustret anges i proportion till arbets ytorna i klustret (efter redovisningen av tilldelningar per nod från [Azure Security Center](../../security-center/index.yml) för varje arbets yta.) Om den totala data volymen som matas in i en arbets yta för en dag är lägre än kapacitets reservationen debiteras varje arbets yta för sina inmatade data med den effektiva reservations taxan per GB som faktureras en bråkdel av kapacitets reservationen och den oanvända delen av kapacitets reservationen debiteras till kluster resursen. Om den totala data volymen som matas in på en arbets yta för en dag är mer än kapacitets reservationen debiteras varje arbets yta för en bråkdel av kapacitets reservationen baserat på den inmatade data dagen och varje arbets yta för en bråkdel av inmatade data ovanför kapacitets reservationen. Det finns inget debiteras för kluster resursen om den totala data volymen som matas in på en arbets yta för en dag är över kapacitets reservationen.
 
 I kluster fakturerings alternativ faktureras data kvarhållning per arbets yta. Observera att kluster faktureringen startar när klustret skapas, oavsett om arbets ytorna har kopplats till klustret. Observera också att arbets ytor som är kopplade till ett kluster inte längre har en pris nivå.
 
@@ -98,7 +98,7 @@ Du kan också [ställa in pris nivån via Azure Resource Manager](../samples/res
 
 ## <a name="legacy-pricing-tiers"></a>Äldre prisnivåer
 
-Prenumerationer som hade en Log Analytics arbets yta eller Application Insights resurs i den 2 april 2018, eller som är kopplade till en Enterprise-avtal som startades före den 1 februari 2019, fortsätter att ha åtkomst till de äldre pris nivåerna: **kostnads fri** , **fristående (per GB)** och **per nod (OMS)**.  Arbets ytor i den kostnads fria pris nivån har en daglig data inmatning som är begränsad till 500 MB (förutom säkerhets data typer som samlas in av [Azure Security Center](../../security-center/index.yml)) och datakvarhållning är begränsad till 7 dagar. Den kostnads fria pris nivån är endast avsedd för utvärderings ändamål. Arbets ytorna i de fristående eller per-nodens pris nivåer har användar konfigurerbar kvarhållning från 30 till 730 dagar.
+Prenumerationer som hade en Log Analytics arbets yta eller Application Insights resurs i den 2 april 2018, eller som är kopplade till en Enterprise-avtal som startades före den 1 februari 2019, fortsätter att ha åtkomst till de äldre pris nivåerna: **kostnads fri**, **fristående (per GB)** och **per nod (OMS)**.  Arbets ytor i den kostnads fria pris nivån har en daglig data inmatning som är begränsad till 500 MB (förutom säkerhets data typer som samlas in av [Azure Security Center](../../security-center/index.yml)) och datakvarhållning är begränsad till 7 dagar. Den kostnads fria pris nivån är endast avsedd för utvärderings ändamål. Arbets ytorna i de fristående eller per-nodens pris nivåer har användar konfigurerbar kvarhållning från 30 till 730 dagar.
 
 Användningen på den fristående pris nivån debiteras av den inmatade data volymen. Den rapporteras i **log Analyticss** tjänsten och mätaren heter "data analysed". 
 
@@ -210,10 +210,10 @@ Du kan konfigurera en daglig begränsning och begränsa den dagliga inmatningen 
 
 Varje arbets yta har en daglig begränsning på en annan timme på dagen. Återställnings tiden visas på sidan för **dagligt tak** (se nedan). Det går inte att konfigurera den här återställnings timmen. 
 
-Snart när den dagliga gränsen har uppnåtts stoppas insamlingen av fakturerbara data typer för resten av dagen. Svars tiden som används för att tillämpa den dagliga begränsningen innebär att höljet inte appliceras på exakt den angivna nivån för dagligt tak. En varnings banderoll visas överst på sidan för den valda Log Analytics-arbetsytan och en åtgärds händelse skickas till *Åtgärds* tabellen under kategorin **LogManagement** . Data insamlingen återupptas efter det att återställnings tiden som definierats under den *dagliga gränsen ställs in på*. Vi rekommenderar att du definierar en varnings regel baserat på den här åtgärds händelsen som är konfigurerad för att meddela när den dagliga data gränsen har uppnåtts. 
+Snart när den dagliga gränsen har uppnåtts stoppas insamlingen av fakturerbara data typer för resten av dagen. Svars tiden som används för att tillämpa den dagliga begränsningen innebär att höljet inte appliceras på exakt den angivna nivån för dagligt tak. En varnings banderoll visas överst på sidan för den valda Log Analytics-arbetsytan och en åtgärds händelse skickas till *Åtgärds* tabellen under kategorin **LogManagement** . Data insamlingen återupptas efter det att återställnings tiden som definierats under den *dagliga gränsen ställs in på*. Vi rekommenderar att du definierar en varnings regel baserat på den här åtgärds händelsen, konfigurerat för att meddela när den dagliga data gränsen har nåtts (se [nedan](#alert-when-daily-cap-reached)). 
 
 > [!NOTE]
-> Den dagliga gränsen kan inte stoppa data insamlingen så exakt som den angivna gräns nivån och vissa överflödiga data förväntas, särskilt om arbets ytan tar emot stora mängder data.  
+> Den dagliga gränsen kan inte stoppa data insamlingen så exakt som den angivna gräns nivån och vissa överflödiga data förväntas, särskilt om arbets ytan tar emot stora mängder data. Se [nedan](#view-the-effect-of-the-daily-cap) för en fråga som är till hjälp när du ska studera det dagliga höljet. 
 
 > [!WARNING]
 > Den dagliga gränsen stoppar inte insamling av data från Azure Sentinal eller Azure Security Center, förutom för arbets ytor där Azure Security Center installerades före den 19 juni 2017. 
@@ -233,6 +233,20 @@ Följande steg beskriver hur du konfigurerar en gräns för att hantera den data
     ![Log Analytics konfigurera data gräns](media/manage-cost-storage/set-daily-volume-cap-01.png)
     
 Den dagliga begränsningen kan konfigureras via ARM genom att ange `dailyQuotaGb` parametern under `WorkspaceCapping` som beskrivs på [arbets ytor – skapa eller uppdatera](/rest/api/loganalytics/workspaces/createorupdate#workspacecapping). 
+
+### <a name="view-the-effect-of-the-daily-cap"></a>Visa resultatet av den dagliga begränsningen
+
+Om du vill visa resultatet av den dagliga gränsen är det viktigt att kontona för säkerhets data typerna inte ingår i den dagliga gränsen och återställnings tiden för din arbets yta. Den dagliga återställnings timmen visas på sidan för **dagliga tak** .  Följande fråga kan användas för att spåra data volymer som omfattas av den dagliga begränsningen mellan dagliga återställningar. I det här exemplet är arbets ytans återställnings timme 14:00.  Du måste uppdatera den för din arbets yta.
+
+```kusto
+let DailyCapResetHour=14;
+Usage
+| where Type !in ("SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent")
+| extend TimeGenerated=datetime_add("hour",-1*DailyCapResetHour,TimeGenerated)
+| where TimeGenerated > startofday(ago(31d))
+| where IsBillable
+| summarize IngestedGbBetweenDailyCapResets=sum(_BilledSize)/1000. by day=bin(TimeGenerated, 1d) | render areachart  
+```
 
 ### <a name="alert-when-daily-cap-reached"></a>Avisering när dagligt hölje uppnås
 
@@ -393,7 +407,7 @@ find where TimeGenerated > ago(24h) project _IsBillable, Computer
 
 ### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Data volym per Azure-resurs, resurs grupp eller prenumeration
 
-För data från noder som finns i Azure kan du hämta **storleken** på inmatade data __per dator__ , använda [egenskapen](./log-standard-columns.md#_resourceid)_ResourceId som ger den fullständiga sökvägen till resursen:
+För data från noder som finns i Azure kan du hämta **storleken** på inmatade data __per dator__, använda [egenskapen](./log-standard-columns.md#_resourceid)_ResourceId som ger den fullständiga sökvägen till resursen:
 
 ```kusto
 find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
@@ -401,7 +415,7 @@ find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillabl
 | summarize BillableDataBytes = sum(_BilledSize) by _ResourceId | sort by BillableDataBytes nulls last
 ```
 
-För data från noder som finns i Azure kan du hämta **storleken** på inmatade data __per Azure-prenumeration__ , Hämta prenumerations-ID `_ResourceId` egenskapen som:
+För data från noder som finns i Azure kan du hämta **storleken** på inmatade data __per Azure-prenumeration__, Hämta prenumerations-ID `_ResourceId` egenskapen som:
 
 ```kusto
 find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
@@ -432,7 +446,7 @@ Du kan också tolka det `_ResourceId` mer fullständigt om det behövs och anvä
 > Använd dessa `find` frågor sparsamt eftersom genomsökningar över data typer är [resurs krävande](../log-query/query-optimization.md#query-performance-pane) att köra. Om du inte behöver resultat per prenumeration, kan du ändra resurs grupp eller resurs namn och sedan fråga efter typen användnings data.
 
 > [!WARNING]
-> Några av fälten i användnings data typen, men fortfarande i schemat, är inaktuella och de kommer inte längre att fyllas i. Dessa är både **datorer** och fält som rör inmatning ( **TotalBatches** , **BatchesWithinSla** , **BatchesOutsideSla** , **BatchesCapped** och **AverageProcessingTimeMs**.
+> Några av fälten i användnings data typen, men fortfarande i schemat, är inaktuella och de kommer inte längre att fyllas i. Dessa är både **datorer** och fält som rör inmatning (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** och **AverageProcessingTimeMs**.
 
 
 ### <a name="querying-for-common-data-types"></a>Fråga efter vanliga data typer
@@ -441,17 +455,17 @@ Här är några användbara exempel frågor för att gå djupare i data källan 
 
 + **Arbets yta-baserade Application Insights** resurser
   - Läs mer i [Hantera användning och kostnader för Application Insights](../app/pricing.md#data-volume-for-workspace-based-application-insights-resources)
-+ **Security** -lösningen
++ **Security**-lösningen
   - `SecurityEvent | summarize AggregatedValue = count() by EventID`
-+ **Log Management** -lösningen
++ **Log Management**-lösningen
   - `Usage | where Solution == "LogManagement" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | summarize AggregatedValue = count() by DataType`
-+ **Perf** -datatypen
++ **Perf**-datatypen
   - `Perf | summarize AggregatedValue = count() by CounterPath`
   - `Perf | summarize AggregatedValue = count() by CounterName`
-+ **Event** -datatypen
++ **Event**-datatypen
   - `Event | summarize AggregatedValue = count() by EventID`
   - `Event | summarize AggregatedValue = count() by EventLog, EventLevelName`
-+ **Syslog** -datatypen
++ **Syslog**-datatypen
   - `Syslog | summarize AggregatedValue = count() by Facility, SeverityLevel`
   - `Syslog | summarize AggregatedValue = count() by ProcessName`
 + Datatypen **AzureDiagnostics**

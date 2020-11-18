@@ -4,15 +4,15 @@ titleSuffix: Azure Kubernetes Service
 description: Lär dig hur du använder en offentlig belastningsutjämnare med en standard-SKU för att exponera dina tjänster med Azure Kubernetes service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 06/14/2020
+ms.date: 11/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 51cb79e942b9d92876bd4d0e2cc27bb5ee0337bf
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: b42a952b096f533f916879a11fdb6b6583fa8592
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94634879"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660363"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Använda en offentlig Standard Load Balancer i Azure Kubernetes service (AKS)
 
@@ -87,6 +87,9 @@ När du använder standard-SKU: s offentliga belastningsutjämnare finns det en 
 * Anpassa antalet allokerade utgående portar till varje nod i klustret
 * Konfigurera tids gräns inställningen för inaktiva anslutningar
 
+> [!IMPORTANT]
+> Endast ett utgående IP-alternativ (hanterade IP-adresser, ta med din egen IP-adress eller IP-prefix) kan användas vid en specifik tidpunkt.
+
 ### <a name="scale-the-number-of-managed-outbound-public-ips"></a>Skala antalet hanterade utgående offentliga IP-adresser
 
 Azure Load Balancer tillhandahåller utgående anslutning från ett virtuellt nätverk utöver inkommande. Utgående regler gör det enkelt att konfigurera offentliga Standard Load Balancers utgående Network Address Translation.
@@ -120,10 +123,11 @@ När du använder en *standard* -SKU-BELASTNINGSUTJÄMNARE skapar AKS-klustret a
 
 En offentlig IP-adress som skapats av AKS betraktas som en AKS-hanterad resurs. Det innebär att livs cykeln för den offentliga IP-adressen är avsedd att hanteras av AKS och kräver ingen användar åtgärd direkt på den offentliga IP-resursen. Du kan också tilldela egna offentliga IP-adresser eller offentliga IP-prefix när klustret skapas. Dina anpassade IP-adresser kan också uppdateras på ett befintligt klusters egenskaper för belastningsutjämnare.
 
-> [!NOTE]
-> Anpassade offentliga IP-adresser måste skapas och ägas av användaren. Hanterade offentliga IP-adresser som skapats av AKS kan inte återanvändas som en egen anpassad IP-adress eftersom det kan orsaka hanterings konflikter.
+Krav för att använda din egen offentliga IP-adress eller prefix:
 
-Innan du utför den här åtgärden måste du kontrol lera att du uppfyller de [krav och begränsningar](../virtual-network/public-ip-address-prefix.md#constraints) som krävs för att konfigurera utgående IP-adresser eller utgående IP-prefix.
+- Anpassade offentliga IP-adresser måste skapas och ägas av användaren. Hanterade offentliga IP-adresser som skapats av AKS kan inte återanvändas som en egen anpassad IP-adress eftersom det kan orsaka hanterings konflikter.
+- Du måste se till att AKS-kluster identiteten (tjänstens huvud namn eller hanterad identitet) har behörighet att komma åt den utgående IP-adressen. Enligt [listan över nödvändiga offentliga IP-behörigheter](kubernetes-service-principal.md#networking).
+- Kontrol lera att du uppfyller de [krav och begränsningar](../virtual-network/public-ip-address-prefix.md#constraints) som krävs för att konfigurera utgående IP-adresser eller utgående IP-prefix.
 
 #### <a name="update-the-cluster-with-your-own-outbound-public-ip"></a>Uppdatera klustret med din egen utgående offentliga IP-adress
 

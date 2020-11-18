@@ -3,25 +3,25 @@ title: Anslut dina datorer som inte är Azure-datorer till Azure Security Center
 description: Lär dig hur du ansluter datorer som inte är Azure-datorer till Security Center
 author: memildin
 ms.author: memildin
-ms.date: 10/01/2020
+ms.date: 11/16/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: 8fa72dcd857977474cf76eada500214bf8129aca
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 88c34be45a832f8944217630568927bc7d52fd88
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340877"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660210"
 ---
-#  <a name="connect-your-non-azure-machines-to-security-center"></a>Anslut dina datorer som inte är Azure-datorer till Security Center
+# <a name="connect-your-non-azure-machines-to-security-center"></a>Anslut dina datorer som inte är Azure-datorer till Security Center
 
-Security Center kan övervaka säkerhets position för datorer som inte är Azure-datorer, men först måste du ansluta dem till Azure. 
+Security Center kan övervaka säkerhets position för datorer som inte är Azure-datorer, men först måste du ansluta dem till Azure.
 
 Du kan ansluta datorer som inte är Azure-datorer på något av följande sätt:
 
-- Använda Azure-båge (**rekommenderas**)
+- Använda [Azure Arc-aktiverade servrar (**rekommenderas**)
 - Från Security Center sidor i Azure Portal (**komma igång** och **inventering**)
 
 Var och en av dem beskrivs på den här sidan.
@@ -30,21 +30,21 @@ Var och en av dem beskrivs på den här sidan.
 
 ## <a name="add-non-azure-machines-with-azure-arc"></a>Lägg till datorer som inte är Azure-datorer med Azure Arc
 
-Azure-bågen är det bästa sättet att lägga till icke-Azure-datorer till Azure Security Center.
+Azure Arc-aktiverade servrar är det bästa sättet att lägga till icke-Azure-datorer till Azure Security Center.
 
-En dator med Azure Arc aktive rad blir en Azure-resurs och visas i Security Center med rekommendationer som dina andra Azure-resurser. 
+En dator med Azure Arc-aktiverade servrar blir en Azure-resurs och visas i Security Center med rekommendationer som dina andra Azure-resurser.
 
-Dessutom tillhandahåller Azure Arc förbättrade funktioner, till exempel möjligheten att aktivera principer på datorn, distribuera Log Analytics agenten som ett tillägg, förenkla distribution med andra Azure-tjänster med mera. En översikt över fördelarna finns i scenarier som [stöds](../azure-arc/servers/overview.md#supported-scenarios).
+Dessutom tillhandahåller Azure Arc-aktiverade servrar förbättrade funktioner, till exempel möjligheten att aktivera principer för gäst konfiguration på datorn, distribuera Log Analytics-agenten som ett tillägg, förenkla distribution med andra Azure-tjänster med mera. En översikt över fördelarna finns i scenarier som [stöds](../azure-arc/servers/overview.md#supported-scenarios).
+
+Läs mer om [Azure Arc-aktiverade servrar](../azure-arc/servers/overview.md).
 
 **Så här distribuerar du Azure-bågen:**
 
 - Följ anvisningarna i [snabb start: Anslut hybrid dator med Azure Arc-aktiverade servrar](../azure-arc/servers/learn/quick-enable-hybrid-vm.md)för en dator.
-- Om du vill distribuera Azure Arc i skala, se [ansluta hybrid datorer till Azure i stor skala](../azure-arc/servers/onboard-service-principal.md)
-
-Läs mer om [Azure-bågen](../azure-arc/servers/overview.md).
+- Om du vill ansluta flera datorer till en skala till Arc-aktiverade servrar, se [ansluta hybrid datorer till Azure i stor skala](../azure-arc/servers/onboard-service-principal.md)
 
 > [!TIP]
-> Om du registrerar AWS-datorer kan Security Centerns koppling för AWS transparent Hantera Azure Arc-distributionen åt dig. Läs mer i [ansluta dina AWS-konton till Azure Security Center](quickstart-onboard-aws.md).
+> Om du registrerar datorer som körs på AWS hanterar Security Centers anslutningen för AWS transparent Azure Arc-distributionen åt dig. Läs mer i [ansluta dina AWS-konton till Azure Security Center](quickstart-onboard-aws.md).
 
 ::: zone-end
 
@@ -57,16 +57,16 @@ Läs mer om [Azure-bågen](../azure-arc/servers/overview.md).
 
     :::image type="content" source="./media/security-center-onboarding/onboarding-get-started-tab.png" alt-text="Fliken kom igång på sidan komma igång" lightbox="./media/security-center-onboarding/onboarding-get-started-tab.png":::
 
-1. Under **Lägg till icke-Azure-servrar**väljer du **Konfigurera** .
+1. Under **Lägg till icke-Azure-servrar** väljer du **Konfigurera** .
 
     > [!TIP]
     > Du kan också öppna Lägg till datorer från sidan för att **lägga till icke-Azure-servrar** på sidan **lager** .
     > 
-    > :::image type="content" source="./media/security-center-onboarding/onboard-inventory.png" alt-text="Fliken kom igång på sidan komma igång":::
+    > :::image type="content" source="./media/security-center-onboarding/onboard-inventory.png" alt-text="Lägga till icke-Azure-datorer från sidan till gångs inventering":::
 
     En lista över dina Log Analytics-arbetsytor visas. Om det är tillämpligt innehåller listan standardarbetsytan som har skapats för dig av Security Center när automatisk etablering aktiverades. Välj den här arbetsytan eller någon annan arbetsyta som du vill använda.
 
-    Du kan lägga till datorer till en befintlig arbets yta eller skapa en ny arbets yta. 
+    Du kan lägga till datorer till en befintlig arbets yta eller skapa en ny arbets yta.
 
 1. Du kan också skapa en ny arbets yta genom att välja  **Skapa ny arbets yta**.
 
@@ -79,9 +79,10 @@ Läs mer om [Azure-bågen](../azure-arc/servers/overview.md).
     - [Publicera dina Linux-datorer](#onboard-your-linux-machines)
     - [Publicera dina Windows-datorer](#onboard-your-windows-machines)
 
-
 ### <a name="onboard-your-azure-stack-vms"></a>Publicera dina Azure Stack virtuella datorer
+
 Om du vill lägga till Azure Stack virtuella datorer behöver du informationen på sidan **hantering av agenter** och konfigurera **Azure Monitor, uppdatering och konfigurations hantering** för virtuella datorer på de virtuella datorer som körs på din Azure Stack.
+
 1. På sidan **hantering av agenter** kopierar du **arbets ytans ID** och **primär nyckel** till anteckningar.
 1. Logga in på **Azure Stack** Portal och öppna sidan **virtuella datorer** .
 1. Välj den virtuella dator som du vill skydda med Security Center.
@@ -95,16 +96,17 @@ Om du vill lägga till Azure Stack virtuella datorer behöver du informationen p
 1. På sidan **installera tillägg** -konfiguration klistrar du in **arbets ytans ID** och den **arbets ytans nyckel (primär nyckel)** som du kopierade i anteckningar i föregående steg.
 1. När du har slutfört konfigurationen väljer du **OK**. Tilläggets status visas som **etableringen har slutförts**. Det kan ta upp till en timme innan den virtuella datorn visas i Security Center.
 
-
 ### <a name="onboard-your-linux-machines"></a>Publicera dina Linux-datorer
+
 Om du vill lägga till Linux-datorer behöver du kommandot WGET från **hanterings** sidan för agenter.
+
 1. På sidan **hantering av agenter** kopierar du kommandot **WGET** till Notepad. Spara den här filen på en plats som kan nås från din Linux-dator.
 1. På Linux-datorn öppnar du filen med kommandot WGET. Markera hela innehållet och kopiera och klistra in det i en Terminal-konsol.
 1. När installationen är klar kan du kontrol lera att *omsagent* har installerats genom att köra kommandot *pgrep* . Kommandot returnerar *omsagent* PID.
     Loggarna för agenten finns på: */var/opt/Microsoft/omsagent/ \<workspace id> /log/* det kan ta upp till 30 minuter innan den nya Linux-datorn visas i Security Center.
 
-
 ### <a name="onboard-your-windows-machines"></a>Publicera dina Windows-datorer
+
 Om du vill lägga till Windows-datorer behöver du informationen på sidan **hantering av agenter** och för att ladda ned lämplig agent fil (32/64-bitars).
 1. Välj den länk för att **ladda ned Windows-agent** som gäller för din typ av processor, så att du kan ladda ned installationsfilen.
 1. På sidan **hantering av agenter** kopierar du **arbets ytans ID** och **primär nyckel** till anteckningar.
@@ -117,20 +119,21 @@ Om du vill lägga till Windows-datorer behöver du informationen på sidan **han
     1. På sidan **klar att installera** granskar du de inställningar som ska tillämpas och väljer **Installera**.
     1. På sidan **konfigurationen har slutförts** väljer du **Slutför**.
 
-När du är klar visas **Log Analytics agenten** på **kontroll panelen**. Du kan granska konfigurationen där och bekräfta att agenten är ansluten.
+När du är klar visas **Microsoft Monitoring Agent** på **kontroll panelen**. Du kan granska konfigurationen där och bekräfta att agenten är ansluten.
 
 Mer information om hur du installerar och konfigurerar agenten finns i [ansluta Windows-datorer](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
 
 ::: zone-end
 
 ## <a name="verifying"></a>Verifiera
+
 Grattis! Nu kan du se dina Azure-och icke-Azure-datorer tillsammans på en och samma plats. Öppna [sidan Asset Inventory](asset-inventory.md) och filtrera till relevanta resurs typer. Dessa ikoner särskiljer typerna:
 
   ![ASC-ikon för icke-Azure-dator](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) Icke-Azure-dator
 
   ![ASC-ikon för Azure Machine](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Azure VM
 
-  ![ASC-ikon för Azure Arc-datorn](./media/quick-onboard-linux-computer/arc-enabled-machine-icon.png) Azure Arc-aktiverad dator
+  ![ASC-ikon för Azure båg Server](./media/quick-onboard-linux-computer/arc-enabled-machine-icon.png) Azure Arc-aktiverad server
 
 ## <a name="next-steps"></a>Nästa steg
 

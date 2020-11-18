@@ -5,12 +5,12 @@ author: rbest
 ms.author: rbest
 ms.date: 08/16/2020
 ms.topic: article
-ms.openlocfilehash: 98e04ba6bb1310935c4893a3616dfd68c2e99a55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29f6be5319c5a142ad3ea0d73deb2f95d8cb0d7a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797640"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659734"
 ---
 # <a name="cost-management-for-azure-lab-services"></a>Kostnads hantering för Azure Lab Services
 
@@ -31,7 +31,7 @@ Den här uppskattningen kanske inte visar alla möjliga kostnader. Några resurs
 
 ## <a name="analyze-the-previous-months-usage"></a>Analysera föregående månads användning
 
-Kostnads analysen är att granska föregående månads användning för att hjälpa dig att fastställa eventuella justeringar för labbet. Du kan se fördelningen av tidigare kostnader i [prenumerations kostnads analysen](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis). I Azure Portal kan du ange **prenumerationer** i sökrutan och sedan välja alternativet **prenumerationer** . 
+Kostnads analysen är att granska föregående månads användning för att hjälpa dig att fastställa eventuella justeringar för labbet. Du kan se fördelningen av tidigare kostnader i [prenumerations kostnads analysen](../cost-management-billing/costs/quick-acm-cost-analysis.md). I Azure Portal kan du ange **prenumerationer** i sökrutan och sedan välja alternativet **prenumerationer** . 
 
 > [!div class="mx-imgBorder"]
 > ![Skärm bild som visar sökrutan och alternativet prenumerationer.](./media/cost-management-guide/subscription-search.png)
@@ -46,7 +46,7 @@ Välj **kostnads analys** i den vänstra rutan under **Cost Management**.
 > [!div class="mx-imgBorder"]
 > ![Skärm bild som visar en prenumerations kostnads analys i ett diagram.](./media/cost-management-guide/subscription-cost-analysis.png)
 
-Den här instrument panelen möjliggör djupgående kostnads analys, inklusive möjligheten att exportera till olika filtyper enligt ett schema. Mer information finns i [Cost Management + fakturerings översikt](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview).
+Den här instrument panelen möjliggör djupgående kostnads analys, inklusive möjligheten att exportera till olika filtyper enligt ett schema. Mer information finns i [Cost Management + fakturerings översikt](../cost-management-billing/cost-management-billing-overview.md).
 
 Du kan filtrera efter resurs typ. Med hjälp av `microsoft.labservices/labaccounts` visas endast den kostnad som är associerad med labb tjänsterna.
 
@@ -57,7 +57,7 @@ Följande skärm bild är ett exempel på en kostnads analys.
 > [!div class="mx-imgBorder"]
 > ![Skärm bild som visar ett exempel på kostnads analys för en prenumeration.](./media/cost-management-guide/cost-analysis.png)
 
-Som standard finns det sex kolumner: **resurs**, **resurs typ**, **plats**, **resurs grupp namn**, **taggar**och **kostnad**. **Resurs** kolumnen innehåller information om labb kontot, labb namnet och den virtuella datorn. De rader som visar labb kontot, labb namnet och standard (andra och tredje raderna) är kostnaden för labbet. De virtuella datorerna som används har en kostnad som du kan se för de rader som visar labb kontot, labb namn, standard namn och VM-namn. 
+Som standard finns det sex kolumner: **resurs**, **resurs typ**, **plats**, **resurs grupp namn**, **taggar** och **kostnad**. **Resurs** kolumnen innehåller information om labb kontot, labb namnet och den virtuella datorn. De rader som visar labb kontot, labb namnet och standard (andra och tredje raderna) är kostnaden för labbet. De virtuella datorerna som används har en kostnad som du kan se för de rader som visar labb kontot, labb namn, standard namn och VM-namn. 
 
 I det här exemplet kommer du att lägga till den första och andra raden (både från och med **aaalab/dockerlab**) som ger den totala kostnaden för labbet "dockerlab" i labb kontot "aaalab".
 
@@ -70,7 +70,7 @@ I det här exemplet kommer du att lägga till den första och andra raden (både
 
 Vissa universitet har använt labb kontot och resurs gruppen som olika sätt att avgränsa klasserna. Varje klass har sitt eget labb konto och en annan resurs grupp. 
 
-I fönstret kostnads analys lägger du till ett filter baserat på resurs gruppens namn med lämpligt resurs grupp namn för klassen. Sedan visas bara kostnaderna för den klassen. På så sätt kan du göra en tydligare delinjärhet mellan klasserna när du visar kostnaderna. Du kan använda den [schemalagda export](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data) funktionen i kostnads analysen för att ladda ned kostnaderna för varje klass i separata filer.
+I fönstret kostnads analys lägger du till ett filter baserat på resurs gruppens namn med lämpligt resurs grupp namn för klassen. Sedan visas bara kostnaderna för den klassen. På så sätt kan du göra en tydligare delinjärhet mellan klasserna när du visar kostnaderna. Du kan använda den [schemalagda export](../cost-management-billing/costs/tutorial-export-acm-data.md) funktionen i kostnads analysen för att ladda ned kostnaderna för varje klass i separata filer.
 
 ## <a name="manage-costs"></a>Hantera kostnader
 
@@ -90,7 +90,7 @@ Du kan konfigurera dessa inställningar på både labb konto nivå och labb niv�
 > [!NOTE]
 > Den här inställningen är endast tillgänglig för virtuella Windows-datorer.
 
-När inställningen **Koppla från användare när virtuella datorer är inaktiv** är aktive rad kopplas användaren från alla datorer i labbet när Windows-operativsystemet bedömer att sessionen är inaktiv (inklusive mallens virtuella datorer). [Windows OS-definitionen för Idle](https://docs.microsoft.com/windows/win32/taskschd/task-idle-conditions#detecting-the-idle-state) använder två villkor: 
+När inställningen **Koppla från användare när virtuella datorer är inaktiv** är aktive rad kopplas användaren från alla datorer i labbet när Windows-operativsystemet bedömer att sessionen är inaktiv (inklusive mallens virtuella datorer). [Windows OS-definitionen för Idle](/windows/win32/taskschd/task-idle-conditions#detecting-the-idle-state) använder två villkor: 
 
 * Användar frånvaro: inget tangent bord eller mus indata.
 * Brist på resursförbrukning: alla processorer och alla diskar var inaktiva under en viss procent andel av tiden.
@@ -122,7 +122,7 @@ Inställningen **Stäng av virtuella datorer när användare kopplar från** , s
 * För Linux är en SSH-anslutning frånkopplad.
  
 > [!NOTE]
-> Endast [vissa distributioner och versioner av Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux#supported-linux-distributions) stöds.
+> Endast [vissa distributioner och versioner av Linux](../virtual-machines/extensions/diagnostics-linux.md#supported-linux-distributions) stöds.
  
 Du kan ange hur länge de virtuella datorerna ska vänta tills användaren ansluter igen innan den stängs av automatiskt. 
 

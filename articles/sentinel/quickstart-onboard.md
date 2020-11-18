@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 10/14/2020
 ms.custom: references_regions
-ms.openlocfilehash: b33f3e58f82d52e77437c29f7e5219926b2578c3
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 21e0cfd56a37304d1ec333f8713894504282541f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92106985"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660669"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Snabbstart: Registrera Azure Sentinel
 
@@ -32,7 +32,7 @@ När du har anslutit dina data källor väljer du från ett galleri med arbets b
 
 - Aktiv Azure-prenumeration, om du inte har en, kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-- Log Analytics arbets yta. Lär dig hur du [skapar en arbets yta för Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md). Mer information om Log Analytics-arbetsytor finns i [utforma distributioner av Azure Monitors loggar](../azure-monitor/platform/design-logs-deployment.md).
+- Log Analytics arbets yta. Lär dig hur du [skapar en arbets yta för Log Analytics](../azure-monitor/learn/quick-create-workspace.md). Mer information om Log Analytics-arbetsytor finns i [utforma distributioner av Azure Monitors loggar](../azure-monitor/platform/design-logs-deployment.md).
 
 - Om du vill aktivera Azure Sentinel måste du ha deltagar behörighet till den prenumeration där Azure Sentinel-arbetsytan finns. 
 - Om du vill använda Azure Sentinel behöver du antingen deltagar-eller läsar behörighet för resurs gruppen som arbets ytan tillhör.
@@ -57,7 +57,7 @@ När du har anslutit dina data källor väljer du från ett galleri med arbets b
 
 ## <a name="enable-azure-sentinel"></a>Aktivera Azure Sentinel <a name="enable"></a>
 
-1. Logga in på Azure Portal. Kontrol lera att den prenumeration där Azure Sentinel har skapats har valts.
+1. Logga in på Azure-portalen. Kontrol lera att den prenumeration där Azure Sentinel har skapats har valts.
 
 1. Sök efter och välj **Azure Sentinel**.
 
@@ -85,7 +85,7 @@ När du har anslutit dina data källor väljer du från ett galleri med arbets b
 
 Azure Sentinel matar in data från tjänster och appar genom att ansluta till tjänsten och vidarebefordra händelser och loggar till Azure Sentinel. För fysiska och virtuella datorer kan du installera Log Analytics-agenten som samlar in loggarna och vidarebefordrar dem till Azure Sentinel. För brand väggar och proxyservrar installerar Azure Sentinel Log Analytics-agenten på en Linux Syslog-server som agenten samlar in loggfilerna och vidarebefordrar dem till Azure Sentinel. 
  
-1. Välj **data kopplingar**på huvud menyn. Då öppnas galleriet data anslutningar.
+1. Välj **data kopplingar** på huvud menyn. Då öppnas galleriet data anslutningar.
 
 1. Galleriet är en lista över alla data källor som du kan ansluta. Välj en data källa och sedan knappen **Öppna kopplings sida** .
 

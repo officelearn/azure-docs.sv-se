@@ -5,24 +5,26 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 11/16/2020
 ms.author: victorh
-ms.openlocfilehash: 272f5b747efbc3776b1b2ba7c3546ade717c2452
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 858343b6c5081b52d9e93909f9d52eaccd88a584
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89231375"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660278"
 ---
 # <a name="azure-firewall-snat-private-ip-address-ranges"></a>Azure Firewall SNAT privata IP-adressintervall
 
-Azure-brandväggen tillhandahåller automatisk SNAT för all utgående trafik till offentliga IP-adresser. Som standard har Azure-brandväggen inte SNAT med nätverks regler när mål-IP-adressen är i ett privat IP-adressintervall per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). Program regler tillämpas alltid med en [transparent proxy](https://wikipedia.org/wiki/Proxy_server#Transparent_proxy) oavsett mål-IP-adress.
+Azure-brandväggen tillhandahåller automatisk SNAT för all utgående trafik till offentliga IP-adresser. Som standard har Azure-brandväggen inte SNAT med nätverks regler när mål-IP-adressen är i ett privat IP-adressintervall per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). Program regler tillämpas alltid med en [transparent proxy](https://wikipedia.org/wiki/Proxy_server#Transparent_proxy) , oavsett mål-IP-adress.
 
 Den här logiken fungerar bra när du dirigerar trafik direkt till Internet. Men om du har aktiverat [Tvingad tunnel](forced-tunneling.md)trafik är Internet-baserad trafik SNATed till en av brand väggens privata IP-adresser i AzureFirewallSubnet, vilket döljer källan från den lokala brand väggen.
 
 Om din organisation använder ett offentligt IP-adressintervall för privata nätverk SNATs trafiken till någon av brand väggens privata IP-adresser i AzureFirewallSubnet med Azure-brandväggen. Du kan dock konfigurera Azure-brandväggen så att den **inte** bevarar ditt offentliga IP-adressintervall. Om du till exempel vill ange en enskild IP-adress kan du ange den så här: `192.168.1.10` . Om du vill ange ett intervall med IP-adresser kan du ange det så här: `192.168.1.0/24` .
 
-Om du vill konfigurera Azure-brandväggen till att aldrig SNAT, oavsett mål-IP-adress, använder du **0.0.0.0/0** som ditt privata IP-adressintervall. Med den här konfigurationen kan Azure-brandväggen aldrig dirigera trafik direkt till Internet. Om du vill konfigurera brand väggen så att den alltid är SNAT oavsett mål adress använder du **255.255.255.255/32** som ditt privata IP-adressintervall.
+- Om du vill konfigurera Azure-brandväggen till att **aldrig** SNAT, oavsett mål-IP-adress, använder du **0.0.0.0/0** som ditt privata IP-adressintervall. Med den här konfigurationen kan Azure-brandväggen aldrig dirigera trafik direkt till Internet. 
+
+- Om du vill konfigurera brand väggen så att den **alltid** är SNAT oavsett mål adress använder du **255.255.255.255/32** som ditt privata IP-adressintervall.
 
 > [!IMPORTANT]
 > Om du vill ange egna privata IP-adressintervall och behålla standardvärdena för IANA RFC 1918 kontrollerar du att din anpassade lista fortfarande innehåller IANA RFC 1918-intervallet. 
@@ -40,7 +42,7 @@ För en ny brand vägg är Azure PowerShell kommandot:
 > [!NOTE]
 > IANAPrivateRanges utökas till aktuella standardinställningar i Azure-brandväggen medan de andra intervallen läggs till i den. För att behålla IANAPrivateRanges-standardvärdet i ditt privata intervall, måste det finnas i din `PrivateRange` specifikation, som du ser i följande exempel.
 
-Mer information finns i [New-AzFirewall](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall?view=azps-3.3.0).
+Mer information finns i [New-AzFirewall](/powershell/module/az.network/new-azfirewall?view=azps-3.3.0).
 
 ### <a name="existing-firewall"></a>Befintlig brand vägg
 
@@ -67,7 +69,7 @@ Du kan lägga till följande i `additionalProperties` avsnittet:
 Du kan använda Azure Portal för att ange privata IP-adressintervall för brand väggen.
 
 1. Välj din resurs grupp och välj sedan brand väggen.
-2. På sidan **Översikt** , **privata IP-intervall**väljer du standardvärdet **IANA RFC 1918**.
+2. På sidan **Översikt** , **privata IP-intervall** väljer du standardvärdet **IANA RFC 1918**.
 
    Sidan **Redigera privata IP-prefix** öppnas:
 

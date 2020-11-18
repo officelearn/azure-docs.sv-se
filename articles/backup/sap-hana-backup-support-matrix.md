@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig om de scenarier och begränsningar 
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.custom: references_regions
-ms.openlocfilehash: 641bba6b947731e0f55bc79828101f84d5b780fd
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 181d006d0d1f0e5c2f099507be493ced2ce9280b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515788"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659751"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Supportmatris för säkerhetskopiering av SAP HANA-databaser på virtuella Azure-datorer
 
@@ -30,7 +30,7 @@ Azure Backup stöder säkerhets kopiering av SAP HANA-databaser till Azure. Den 
 | **HANA-instanser**         | En enda SAP HANA instans på en enda virtuell Azure-dator – skala upp | Flera SAP HANA-instanser på en enskild virtuell dator                  |
 | **HANA-databas typer**    | Enkel databas container (SDC) på 1. x, MDC (Multi-Database container) på 2. x | MDC i HANA 1. x                                              |
 | **HANA-databasens storlek**     | HANA-databaser med storlek <= 2 TB (detta är inte minnes storleken för HANA-systemet)               |                                                              |
-| **Säkerhets kopierings typer**           | Fullständiga, differentiella och logg säkerhets kopior                          | Stegvisa ögonblicks bilder                                       |
+| **Säkerhets kopierings typer**           | Fullständiga, differentiella, stegvisa (för hands version) och logg säkerhets kopior                          |  Ögonblicksbilder                                       |
 | **Återställningstyper**          | Läs SAP HANA anmärkning [1642148](https://launchpad.support.sap.com/#/notes/1642148) om du vill veta mer om vilka återställnings typer som stöds |                                                              |
 | **Säkerhets kopierings gränser**          | Upp till 2 TB fullständig säkerhets kopierings storlek per SAP HANA instans (mjuk gräns)         |                                                              |
 | **Särskilda konfigurationer** |                                                              | SAP HANA + dynamisk nivå <br>  Kloning via LaMa        |

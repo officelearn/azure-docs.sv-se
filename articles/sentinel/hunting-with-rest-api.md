@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2020
 ms.author: yelevin
-ms.openlocfilehash: ca60b9350171cee55462c9df28915c811e1cfd25
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: cd52f22004bf72f3328d1e6a0d1ec988c2406317
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94377707"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660856"
 ---
 # <a name="manage-hunting-and-livestream-queries-in-azure-sentinel-using-rest-api"></a>Hantera jakt-och liveström-frågor i Azure Sentinel med hjälp av REST API
 
 Azure Sentinel, som bygger delvis på Azure Monitor Log Analytics, gör att du kan använda Log Analytics REST API för att hantera jakt-och liveström-frågor. Det här dokumentet visar hur du skapar och hanterar frågor om jakt med hjälp av REST API.  Frågor som skapas på det här sättet kommer att visas i användar gränssnittet för Azure Sentinel.
 
-Se den slutgiltiga REST API referensen för mer information om [API: et för sparade sökningar](https://docs.microsoft.com/rest/api/loganalytics/savedsearches).
+Se den slutgiltiga REST API referensen för mer information om [API: et för sparade sökningar](/rest/api/loganalytics/savedsearches).
 
 ## <a name="api-examples"></a>API-exempel
 
@@ -46,7 +46,7 @@ I följande exempel ersätter du plats hållarna med den ersättning som föresk
 
 ### <a name="example-1"></a>Exempel 1
 
-Det här exemplet visar hur du skapar eller uppdaterar en jakt fråga för en specifik Azure Sentinel-arbetsyta.  För en liveström-fråga ersätter du *"Category": "jakt frågor"* med *"Category": "liveström-frågor"* i **begär ande texten** : 
+Det här exemplet visar hur du skapar eller uppdaterar en jakt fråga för en specifik Azure Sentinel-arbetsyta.  För en liveström-fråga ersätter du *"Category": "jakt frågor"* med *"Category": "liveström-frågor"* i **begär ande texten**: 
 
 #### <a name="request-header"></a>Begärandehuvud
 

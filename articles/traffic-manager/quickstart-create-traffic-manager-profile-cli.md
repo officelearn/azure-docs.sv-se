@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/09/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b2f25eec3a8a992e9fce0191700775968854a0c2
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 7dabf94c711972f9fe543edac0d7b95469fc2d35
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939166"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661111"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-cli"></a>Snabb start: skapa en Traffic Manager profil för ett webb program med hög tillgänglighet med hjälp av Azure CLI
 
@@ -26,14 +26,11 @@ I den här snabbstarten beskrivs hur du skapar en Traffic Manager-profil som ger
 
 I den här snabb starten skapar du två instanser av ett webb program. Var och en av dem körs i olika Azure-regioner. Du skapar Traffic Manager-profil baserat på [slutpunktsprioritet](traffic-manager-routing-methods.md#priority-traffic-routing-method). Profilen dirigerar användartrafik till den primära plats som kör webbappen. Traffic Manager övervakar kontinuerligt webbappen. Om den primära platsen inte är tillgänglig ger den automatisk redundans till säkerhetskopieringsplatsen.
 
-## <a name="prerequisites"></a>Förutsättningar
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Azure CLI installerat lokalt eller Azure Cloud Shell
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Om du väljer att installera och använda CLI lokalt så kräver den här självstudiekursen att du kör Azure CLI version 2.0.28 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
+- Den här artikeln kräver version 2.0.28 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 Skapa en resursgrupp med [az group create](https://docs.microsoft.com/cli/azure/group). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
@@ -96,7 +93,7 @@ az appservice plan create \
 ### <a name="create-a-web-app-in-the-app-service-plan"></a>Skapa en webbapp i App Service-planen
 Skapa två instanser webb programmet med [AZ webapp skapa](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) i App Service-planer i Azure-regionerna *USA, östra* *och Västeuropa.*
 
-I följande exempel ersätter du **<app1name_eastus>** och **<app2name_westeurope>** med ett unikt namn på appen och ersätter **<appspname_eastus **>och<** appspname_westeurope>med ** det namn som användes för att skapa app Services planer i föregående avsnitt.
+I följande exempel ersätter du **<app1name_eastus>** och **<app2name_westeurope>** med ett unikt namn på appen och ersätter **<appspname_eastus**>och<**appspname_westeurope>med** det namn som användes för att skapa app Services planer i föregående avsnitt.
 
 ```azurecli-interactive
 

@@ -3,12 +3,12 @@ title: Hantera certifikat i ett Azure Service Fabric-kluster
 description: Beskriver hur du lägger till nya certifikat, förnyar certifikat och tar bort certifikat till eller från ett Service Fabric kluster.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: b1ccf83e666f9106a31809ff41d55062826be78c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dd4440d76bed9d110c13baab9f4e67b3a5c64c0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88869770"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660924"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Lägga till eller ta bort certifikat för ett Service Fabric-kluster i Azure
 Vi rekommenderar att du bekantar dig med hur Service Fabric använder X. 509-certifikat och känner till [kluster säkerhets scenarier](service-fabric-cluster-security.md). Du måste förstå vad ett kluster certifikat är och vad som används för, innan du fortsätter.
@@ -18,7 +18,7 @@ Azure Service Fabric SDK: s standard beteende för certifikat inläsning är att
 Med Service Fabric kan du ange två kluster certifikat, en primär och en sekundär, när du konfigurerar certifikat säkerhet när klustret skapas, förutom klient certifikat. Se hur du [skapar ett Azure-kluster via portalen](service-fabric-cluster-creation-via-portal.md) eller [skapar ett Azure-kluster via Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) för information om hur du konfigurerar dem i Create Time. Om du bara anger ett kluster certifikat vid skapande tillfället används det som primärt certifikat. När klustret har skapats kan du lägga till ett nytt certifikat som sekundärt.
 
 > [!NOTE]
-> För ett säkert kluster behöver du alltid minst ett giltigt kluster certifikat (inte återkallat och inte förfallet) (primär eller sekundär) distribuerat (om inte klustret slutar fungera). 90 dagar innan alla giltiga certifikat når förfallo datum, genererar systemet en varnings spårning och även en varnings hälso händelse på noden. Det finns för närvarande inget e-postmeddelande eller något annat meddelande som Service Fabric skickar ut den här artikeln. 
+> För ett säkert kluster behöver du alltid minst ett giltigt kluster certifikat (inte återkallat och inte förfallet) (primär eller sekundär) distribuerat (om inte klustret slutar fungera). 90 dagar innan alla giltiga certifikat når förfallo datum, genererar systemet en varnings spårning och en varnings hälso händelse på noden. Dessa är för närvarande de enda aviseringarna Service Fabric skickas angående förfallo datum för certifikat.
 > 
 > 
 
@@ -26,7 +26,7 @@ Med Service Fabric kan du ange två kluster certifikat, en primär och en sekund
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="add-a-secondary-cluster-certificate-using-the-portal"></a>Lägga till ett sekundärt kluster certifikat med hjälp av portalen
-Det går inte att lägga till ett sekundärt kluster certifikat via Azure Portal. Använd Azure PowerShell. Processen beskrivs senare i det här dokumentet.
+Det går inte att lägga till ett sekundärt kluster certifikat via Azure Portal; Använd Azure PowerShell. Processen beskrivs senare i det här dokumentet.
 
 ## <a name="remove-a-cluster-certificate-using-the-portal"></a>Ta bort ett kluster certifikat med hjälp av portalen
 För ett säkert kluster behöver du alltid minst ett giltigt certifikat (inte återkallat och inte förfallet). Det certifikat som distribueras med det sista datumet för förfallo datumet används och om du tar bort det kommer klustret att sluta fungera. Se till att endast ta bort certifikatet som har upphört att gälla, eller ett oanvänt certifikat som upphör att gälla närmast.
@@ -93,7 +93,7 @@ För att under lätta för följande, kan exempel 5-VM-1-NodeTypes-Secure_Step2.
          }
     ``` 
 
-    Om du vill **rulla över certifikatet**anger du det nya certifikatet som primärt och flyttar den aktuella primära som sekundär. Detta leder till att det aktuella primära certifikatet överförs till det nya certifikatet i ett distributions steg.
+    Om du vill **rulla över certifikatet** anger du det nya certifikatet som primärt och flyttar den aktuella primära som sekundär. Detta leder till att det aktuella primära certifikatet överförs till det nya certifikatet i ett distributions steg.
     
     ```JSON
           "properties": {
@@ -125,7 +125,7 @@ För att under lätta för följande, kan exempel 5-VM-1-NodeTypes-Secure_Step2.
     
     ![Json_Pub_Setting2][Json_Pub_Setting2]
     
-    Om du vill **rulla över certifikatet**anger du det nya certifikatet som primärt och flyttar den aktuella primära som sekundär. Detta resulterar i förnyelsen av det aktuella certifikatet till det nya certifikatet i ett distributions steg.     
+    Om du vill **rulla över certifikatet** anger du det nya certifikatet som primärt och flyttar den aktuella primära som sekundär. Detta resulterar i förnyelsen av det aktuella certifikatet till det nya certifikatet i ett distributions steg.     
 
     ```json
                    "certificate": {
@@ -197,7 +197,7 @@ Test-AzResourceGroupDeployment -ResourceGroupName <Resource Group that your clus
 
 ```
 
-Distribuera mallen till resurs gruppen. Använd samma resurs grupp som ditt kluster för närvarande är distribuerat till. Kör kommandot New-AzResourceGroupDeployment. Du behöver inte ange läget eftersom standardvärdet är ett **stegvist**värde.
+Distribuera mallen till resurs gruppen. Använd samma resurs grupp som ditt kluster för närvarande är distribuerat till. Kör kommandot New-AzResourceGroupDeployment. Du behöver inte ange läget eftersom standardvärdet är ett **stegvist** värde.
 
 > [!NOTE]
 > Om du anger att läget ska slutföras, kan du oavsiktligt ta bort resurser som inte finns i mallen. Använd den inte i det här scenariot.

@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: 49f1528f1bb8b422374050512a9ae642ad129fac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bed43e586beff890f0aa8947140ae7d8e50439f3
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85444020"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659836"
 ---
 # <a name="set-up-a-lab-to-teach-database-management-for-relational-databases"></a>Konfigurera ett labb för att lära databas hantering för Relations databaser
 
@@ -20,11 +20,11 @@ I den här artikeln visar vi hur du konfigurerar en mall för virtuella datorer 
 
 ## <a name="lab-configuration"></a>Labb konfiguration
 
-För att kunna konfigurera det här labbet behöver du ett Azure-prenumerations-och labb konto för att komma igång. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. När du har skaffat en Azure-prenumeration kan du skapa ett nytt labb konto i Azure Lab Services. Mer information om hur du skapar ett nytt labb konto finns i [självstudier för att konfigurera ett labb konto](tutorial-setup-lab-account.md).  Du kan också använda ett befintligt labb konto.
+För att kunna konfigurera det här labbet behöver du ett Azure-prenumerations-och labb konto för att komma igång. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. När du har skaffat en Azure-prenumeration kan du skapa ett nytt labb konto i Azure Lab Services. Mer information om hur du skapar ett nytt labb konto finns i [självstudier för att konfigurera ett labb konto](tutorial-setup-lab-account.md).  Du kan också använda ett befintligt labb konto.
 
 ### <a name="lab-account-settings"></a>Labb konto inställningar
 
-Aktivera inställningarna som beskrivs i tabellen nedan för labb kontot. Mer information om hur du aktiverar Marketplace-avbildningar finns i [Ange Marketplace-avbildningar som är tillgängliga för labb skapare](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images).
+Aktivera inställningarna som beskrivs i tabellen nedan för labb kontot. Mer information om hur du aktiverar Marketplace-avbildningar finns i [Ange Marketplace-avbildningar som är tillgängliga för labb skapare](./specify-marketplace-images.md).
 
 | Inställning för labb konto | Instruktioner |
 | ------------------- | ------------ |
@@ -36,12 +36,12 @@ Använd inställningarna i tabellen nedan när du konfigurerar ett klass rums la
 
 | Labb inställningar | Värde/anvisningar |
 | ------------ | ------------------ |
-|Storlek på virtuell dator| Medel. Den här storleken passar bäst för Relations databaser, minnes intern cachelagring och analys.|
+|Storlek på virtuell dator| Medium. Den här storleken passar bäst för Relations databaser, minnes intern cachelagring och analys.|
 |Avbildning av virtuell dator| SQL Server 2019 standard på Windows Server 2019|
 
 ## <a name="template-machine-configuration"></a>Mall dator konfiguration
 
-Om du vill installera MySQL på Windows Server 2019 kan du följa stegen i [Installera och köra MySQL Community Server på en virtuell dator](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fclassic%2Ftoc.json#install-and-run-mysql-community-server-on-the-virtual-machine).
+Om du vill installera MySQL på Windows Server 2019 kan du följa stegen i [Installera och köra MySQL Community Server på en virtuell dator](/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%252fazure%252fvirtual-machines%252fwindows%252fclassic%252ftoc.json#install-and-run-mysql-community-server-on-the-virtual-machine).
 
 SQL Server 2019 är förinstallerat i den virtuella dator avbildningen som du valde när du skapade det nya labbet.
 

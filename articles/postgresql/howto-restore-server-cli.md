@@ -8,27 +8,25 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 10/25/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c7e8f0fc3a90a0811d38840004f7ae12a9a225ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef397eb67c1f60c14fb36bf455236d84b730f611
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708517"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659581"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Säkerhetskopiera och återställa en server i Azure Database for PostgreSQL-enskild server med hjälp av Azure CLI
 
 Azure Database for PostgreSQL servrar säkerhets kopie ras regelbundet för att aktivera återställnings funktioner. Med den här funktionen kan du återställa servern och alla dess databaser till en tidigare tidpunkt på en ny server.
 
 ## <a name="prerequisites"></a>Förutsättningar
-För att slutföra den här instruktions guiden behöver du:
-- En [Azure Database for postgresql-server och-databas](quickstart-create-server-database-azure-cli.md)
+För att slutföra den här instruktions guiden:
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+- Du behöver en [Azure Database for postgresql-server och-databas](quickstart-create-server-database-azure-cli.md).
 
- 
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-> [!IMPORTANT]
-> Den här instruktions guiden kräver att du använder Azure CLI version 2,0 eller senare. Bekräfta versionen genom att ange i kommando tolken för Azure CLI `az --version` . Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
+ - Den här artikeln kräver version 2,0 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
 ## <a name="set-backup-configuration"></a>Ange konfiguration för säkerhets kopiering
 
@@ -69,9 +67,9 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 
 `az postgres server restore`Kommandot kräver följande parametrar:
 
-| Inställning | Föreslaget värde | Beskrivning  |
+| Inställning | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Resurs gruppen där käll servern finns.  |
+| resource-group |  myresourcegroup |  Resurs gruppen där käll servern finns.  |
 | name | mydemoserver-restored | Namnet på den nya server som skapas med kommandot restore. |
 | restore-point-in-time | 2018-03-13T13:59:00Z | Välj en tidpunkt då du vill återställa till. Datumet och tiden måste finnas inom källserverns kvarhållningsperiod för säkerhetskopiering. Använd ISO8601 datum-och tids format. Du kan till exempel använda din egen lokala tidszon, till exempel `2018-03-13T05:59:00-08:00` . Du kan också använda formatet UTC-Zulu, till exempel `2018-03-13T13:59:00Z` . |
 | source-server | mydemoserver | Namn eller ID på källservern som återställningen görs från. |
@@ -109,12 +107,12 @@ az postgres server georestore --resource-group newresourcegroup --name mydemoser
 
 `az postgres server georestore`Kommandot kräver följande parametrar:
 
-| Inställning | Föreslaget värde | Beskrivning  |
+| Inställning | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | Namnet på den resurs grupp som den nya servern ska tillhöra.|
 |name | mydemoserver – omåterställd | Namnet på den nya servern. |
 |source-server | mydemoserver | Namnet på den befintliga server vars geo-redundanta säkerhets kopieringar används. |
-|location | eastus | Platsen för den nya servern. |
+|location | USA, östra | Platsen för den nya servern. |
 |sku-name| GP_Gen4_8 | Den här parametern anger pris nivån, beräknings genereringen och antalet virtuella kärnor för den nya servern. GP_Gen4_8 mappar till en Generell användning, gen 4-Server med 8 virtuella kärnor.|
 
 När du skapar en ny server med en geo-återställning ärver den samma lagrings storlek och pris nivå som käll servern. Dessa värden kan inte ändras när de skapas. När den nya servern har skapats kan dess lagrings storlek skalas upp.

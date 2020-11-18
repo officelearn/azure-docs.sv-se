@@ -8,26 +8,18 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: matjazl
-ms.openlocfilehash: 7528f9d4e3b3043af1e4790c063eb6ddc6d9a828
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d1c4cfcb15d97a2c54a04344f0bd098f65c1392
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87849054"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660380"
 ---
 # <a name="get-access-token-for-azure-api-for-fhir-using-azure-cli"></a>Hämta åtkomsttoken för Azure API för FHIR med Azure CLI
 
 I den här artikeln får du lära dig hur du skaffar en åtkomsttoken för Azure API för FHIR med hjälp av Azure CLI. När du [etablerar Azure API för FHIR](fhir-paas-portal-quickstart.md)konfigurerar du en uppsättning användare eller tjänst huvud namn som har åtkomst till tjänsten. Om ditt användar objekt-ID finns i listan över tillåtna objekt-ID: er kan du komma åt tjänsten med hjälp av en token som erhållits med Azure CLI.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## <a name="sign-in-with-azure-cli"></a>Logga in med Azure CLI
-
-Innan du kan hämta en token måste du logga in med den användare som du vill hämta en token för:
-
-```azurecli-interactive
-az login
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## <a name="obtain-a-token"></a>Hämta en token
 

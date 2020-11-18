@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: robinsh
-ms.openlocfilehash: 6daed4f5f1871d76da707edec00010cd27dfa8db
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: e9757b94330f889869080a0e961ab2728cee86f6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92142329"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659938"
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Skapa en IoT-hubb med Azure CLI
 
@@ -20,23 +20,9 @@ ms.locfileid: "92142329"
 
 Den här artikeln visar hur du skapar en IoT Hub med Azure CLI.
 
-## <a name="prerequisites"></a>Förutsättningar
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-För att slutföra den här instruktionen behöver du en Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## <a name="sign-in-and-set-your-azure-account"></a>Logga in och ange ditt Azure-konto
-
-Om du kör Azure CLI lokalt i stället för att använda Cloud Shell måste du logga in på ditt Azure-konto.
-
-I kommandotolken kör du [inloggningskommandot](/cli/azure/get-started-with-azure-cli):
-
-   ```azurecli
-   az login
-   ```
-
-Följ instruktionerna för att autentisera med hjälp av koden och logga in på ditt Azure-konto via en webbläsare.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: radwiv
-ms.openlocfilehash: 3be01f6d8e1fb1f6ba541f8d1cb0c92d2a43b0da
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c6aa2b63344ef629d55f5a4efb66e4ee0e55975e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073112"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661043"
 ---
 # <a name="configure-packet-capture-for-vpn-gateways"></a>Konfigurera paket fångst för VPN-gatewayer
 
@@ -318,7 +318,7 @@ Följande exempel på JSON och ett JSON-schema innehåller förklaringar av varj
 
 ## <a name="set-up-packet-capture-by-using-powershell"></a>Konfigurera paket avbildning med hjälp av PowerShell
 
-I följande exempel visas PowerShell-kommandon som startar och stoppar paket fångster. Mer information om parameter alternativ finns i [Start-AzVirtualnetworkGatewayPacketCapture](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
+I följande exempel visas PowerShell-kommandon som startar och stoppar paket fångster. Mer information om parameter alternativ finns i [Start-AzVirtualnetworkGatewayPacketCapture](/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
 
 ### <a name="start-packet-capture-for-a-vpn-gateway"></a>Starta paket fångst för en VPN-gateway
 
@@ -354,7 +354,7 @@ Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourReso
 - Föreslagen minsta paket hämtnings tid är 600 sekunder. På grund av synkroniseringsproblem mellan flera komponenter på sökvägen kanske inte kortare paket insamlingar ger fullständiga data.
 - Paket insamlings data genereras i PCAP-format. Använd wireshark eller andra program som ofta är tillgängliga för att öppna PCAP-filer.
 - Paket fångster stöds inte på principbaserad gatewayer.
-- Om `SASurl` parametern inte är korrekt konfigurerad, kan det hända att spårningen Miss känner till lagrings fel. Exempel på hur du skapar en parameter på rätt sätt `SASurl` finns i [Stop-AzVirtualNetworkGatewayPacketCapture](https://docs.microsoft.com/powershell/module/az.network/stop-azvirtualnetworkgatewaypacketcapture).
+- Om `SASurl` parametern inte är korrekt konfigurerad, kan det hända att spårningen Miss känner till lagrings fel. Exempel på hur du skapar en parameter på rätt sätt `SASurl` finns i [Stop-AzVirtualNetworkGatewayPacketCapture](/powershell/module/az.network/stop-azvirtualnetworkgatewaypacketcapture).
 
 
 

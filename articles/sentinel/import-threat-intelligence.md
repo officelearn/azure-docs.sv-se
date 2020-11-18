@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2020
 ms.author: yelevin
-ms.openlocfilehash: 19ad45eec78d53261bf1781808339152c69a0136
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: bde11c8e06891025be96810acf6d87952a3d8d2f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638843"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660788"
 ---
 # <a name="import-threat-intelligence-into-azure-sentinel"></a>Importera hotinformation till Azure Sentinel
 
@@ -36,7 +36,7 @@ Du kan integrera Hot information (TI) i Azure Sentinel genom följande aktivitet
 - Använd de inbyggda **analys** regel mallarna för att generera säkerhets aviseringar och incidenter med hjälp av din importerade Hot information.
 - Visualisera nyckelinformation om din Hot information i Azure Sentinel med **arbets boken Hot information**.
 
-Hot information ger också användbar kontext inom andra Azure Sentinel-upplevelser, till exempel **jakt** och **bärbara datorer** , och även om de inte beskrivs i den här artikeln, behandlas dessa erfarenheter i [det här fantastiska blogg inlägget av Ian Hellen på Jupyter Notebooks i Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/using-threat-intelligence-in-your-jupyter-notebooks/ba-p/860239), som täcker användningen av CTI i antecknings böcker.
+Hot information ger också användbar kontext inom andra Azure Sentinel-upplevelser, till exempel **jakt** och **bärbara datorer**, och även om de inte beskrivs i den här artikeln, behandlas dessa erfarenheter i [det här fantastiska blogg inlägget av Ian Hellen på Jupyter Notebooks i Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/using-threat-intelligence-in-your-jupyter-notebooks/ba-p/860239), som täcker användningen av CTI i antecknings böcker.
 
 ## <a name="azure-sentinel-data-connectors-for-threat-intelligence"></a>Azure Sentinel data Connectors för hot information
 
@@ -44,7 +44,7 @@ Precis som alla andra händelse data i Azure Sentinel importeras hot indikatorer
 
 ### <a name="adding-threat-indicators-to-azure-sentinel-with-the-threat-intelligence-platforms-data-connector"></a>Lägga till hot indikatorer i Azure Sentinel med hot Intelligence Platforms data koppling
 
-Många organisationer använder TIP-lösningar (Threat Intelligence Platform) för att samla in hot indikator flöden från olika källor, för att granska data i plattformen och sedan välja vilka hot indikatorer som ska gälla för olika säkerhetslösningar som nätverks enheter, avancerade hot skydds lösningar eller Siem, till exempel Azure Sentinel. Om din organisation använder en integrerad tips lösning, till exempel MISP, Avvikelsei ThreatStream, ThreatConnect, EclecticIQ-plattform, ThreatQ Threat intelligence-plattform eller Palo RJ-nätverk "MineMeld, **kan du** använda ditt tips för att importera hot indikatorer till Azure Sentinel. Eftersom anslutningen fungerar [Microsoft Graph med tiIndicators-API: et](https://docs.microsoft.com/graph/api/resources/tiindicator) för att åstadkomma detta kan anslutningen också användas av en anpassad Threat intelligence-plattform för att dra nytta av tiIndicators-API: et för att skicka indikatorer till Azure Sentinel (och till andra Microsoft-säkerhetslösningar som Defender ATP).
+Många organisationer använder TIP-lösningar (Threat Intelligence Platform) för att samla in hot indikator flöden från olika källor, för att granska data i plattformen och sedan välja vilka hot indikatorer som ska gälla för olika säkerhetslösningar som nätverks enheter, avancerade hot skydds lösningar eller Siem, till exempel Azure Sentinel. Om din organisation använder en integrerad tips lösning, till exempel MISP, Avvikelsei ThreatStream, ThreatConnect, EclecticIQ-plattform, ThreatQ Threat intelligence-plattform eller Palo RJ-nätverk "MineMeld, **kan du** använda ditt tips för att importera hot indikatorer till Azure Sentinel. Eftersom anslutningen fungerar [Microsoft Graph med tiIndicators-API: et](/graph/api/resources/tiindicator) för att åstadkomma detta kan anslutningen också användas av en anpassad Threat intelligence-plattform för att dra nytta av tiIndicators-API: et för att skicka indikatorer till Azure Sentinel (och till andra Microsoft-säkerhetslösningar som Defender ATP).
 
 :::image type="content" source="media/import-threat-intelligence/threat-intel-import-path.png" alt-text="Import Sök väg för hot information":::
 
@@ -116,7 +116,7 @@ Nu när din app har registrerats och behörigheter har beviljats kan du få den 
 
     :::image type="content" source="media/import-threat-intelligence/threat-intel-client-secret.png" alt-text="Hämta klient hemlighet":::
 
-1. Klicka på knappen **Lägg till** och **Se till att kopiera klient hemligheten** , eftersom du inte kan hämta den här hemligheten igen om du lämnar den här sidan. Du behöver det här värdet när du konfigurerar ditt tips eller en anpassad lösning.
+1. Klicka på knappen **Lägg till** och **Se till att kopiera klient hemligheten**, eftersom du inte kan hämta den här hemligheten igen om du lämnar den här sidan. Du behöver det här värdet när du konfigurerar ditt tips eller en anpassad lösning.
 
 #### <a name="input-this-information-into-your-tip-solution-or-custom-application"></a>Mata in den här informationen i din tips lösning eller ett anpassat program
 
@@ -285,7 +285,7 @@ Följ dessa steg om du vill importera hot indikatorer till Azure Sentinel från 
 
 1. Välj **data kopplingar** på menyn, Välj **Hot information-taxii** i anslutnings galleriet och klicka på knappen **Öppna kopplings sidan** .
 
-1. Skriv ett **namn** på den här taxii Server-samlingen, **API-rot-URL** , **samlings-ID** , **användar namn** (om det behövs) och **lösen ord** (om det behövs) och klicka på knappen **Lägg till** .
+1. Skriv ett **namn** på den här taxii Server-samlingen, **API-rot-URL**, **samlings-ID**, **användar namn** (om det behövs) och **lösen ord** (om det behövs) och klicka på knappen **Lägg till** .
 
     :::image type="content" source="media/import-threat-intelligence/threat-intel-configure-taxii-servers.png" alt-text="Konfigurera TAXIi-servrar":::
  
@@ -336,7 +336,7 @@ Att tagga hot indikatorer är ett enkelt sätt att gruppera dem så att de blir 
 
 Du har fått dina hot indikatorer inmatade i Azure Sentinel; du har sett hur du kan visa och hantera dem. nu kan du se vad de kan göra åt dig. Det viktigaste användnings fallet för hot indikatorer i SIEM-lösningar som Azure Sentinel är till Power Analytics-regler.  Dessa indikatorbaserade regler jämför rå händelser från dina data källor mot dina hot indikatorer för att identifiera säkerhetshot i din organisation. I Azure Sentinel **Analytics** skapar du analys regler som körs regelbundet och genererar säkerhets aviseringar. Reglerna styrs av frågor, tillsammans med konfigurationer som bestämmer hur ofta regeln ska köras, vilken typ av frågeresultat som ska generera säkerhets aviseringar och eventuella automatiserade svar som ska utlösas när aviseringar genereras.
 
-Även om du alltid kan skapa nya analys regler från grunden tillhandahåller Azure Sentinel en uppsättning inbyggda regelmallar, som skapats av Microsoft-säkerhetstekniker, som du kan använda som-är eller ändra för att uppfylla dina behov. Du kan enkelt identifiera de regelmallar som använder hot indikatorer, eftersom de är titlarna från " **ti Map**...". Alla dessa regelmallar fungerar på samma sätt, med den enda skillnaden att typ av hot indikatorer används (domän, e-post, filhash, IP-adress eller URL) och vilken händelse typ som ska matchas mot. Varje mall visar en lista över nödvändiga data källor som krävs för att regeln ska fungera, så att du snabbt kan se om du har de nödvändiga händelserna som redan har importer ATS i Azure Sentinel.
+Även om du alltid kan skapa nya analys regler från grunden tillhandahåller Azure Sentinel en uppsättning inbyggda regelmallar, som skapats av Microsoft-säkerhetstekniker, som du kan använda som-är eller ändra för att uppfylla dina behov. Du kan enkelt identifiera de regelmallar som använder hot indikatorer, eftersom de är titlarna från "**ti Map**...". Alla dessa regelmallar fungerar på samma sätt, med den enda skillnaden att typ av hot indikatorer används (domän, e-post, filhash, IP-adress eller URL) och vilken händelse typ som ska matchas mot. Varje mall visar en lista över nödvändiga data källor som krävs för att regeln ska fungera, så att du snabbt kan se om du har de nödvändiga händelserna som redan har importer ATS i Azure Sentinel.
 
 Låt oss ta en titt på någon av dessa regelmallar och gå igenom hur du aktiverar och konfigurerar regeln för att generera säkerhets aviseringar med hjälp av de hot indikatorer som du har importerat till Azure Sentinel. I det här exemplet ska vi använda regel mal len för **att mappa IP-entiteten ti-mapp till AzureActivity**. Den här regeln matchar eventuella hot indikator för IP-typ med alla dina Azure Activity events. När en matchning hittas genereras en **avisering** , samt en motsvarande **incident** för undersökning av ditt team för säkerhets åtgärder. Den här analys regeln fungerar bara om du har aktiverat en eller båda av **Threat Intelligence** -dataanslutningarna (för att importera hot indikatorer) och **Azure Activity** data Connector (för att importera Azures händelser på prenumerations nivå).
 
@@ -374,7 +374,7 @@ Låt oss ta en titt på någon av dessa regelmallar och gå igenom hur du aktive
 
 Du kan lämna standardinställningarna eller ändra någon av dessa så att den uppfyller dina krav. När du är färdig väljer du knappen **Nästa: automatiserat svar >**
 
-1. I det här steget i guiden kan du konfigurera en automatisering som du vill utlösa när en säkerhets avisering genereras från den här analys regeln. Automatisering i Azure Sentinel görs med **spel böcker** , som drivs av Azure Logic Apps. Mer information finns i den här [självstudien: Konfigurera automatiska hot svar i Azure Sentinel](./tutorial-respond-threats-playbook.md). I det här exemplet väljer vi bara **Nästa: granska >** om du vill fortsätta.
+1. I det här steget i guiden kan du konfigurera en automatisering som du vill utlösa när en säkerhets avisering genereras från den här analys regeln. Automatisering i Azure Sentinel görs med **spel böcker**, som drivs av Azure Logic Apps. Mer information finns i den här [självstudien: Konfigurera automatiska hot svar i Azure Sentinel](./tutorial-respond-threats-playbook.md). I det här exemplet väljer vi bara **Nästa: granska >** om du vill fortsätta.
 
 1. Det sista steget validerar inställningarna i regeln. När du är redo att aktivera regeln väljer du knappen **skapa** och du är klar.
 

@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: b6df7aa919721576aad10d6a476be976ef81df7d
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: ed0a60c88c33af70b7d780d6c4735c5f8e65b35b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145879"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660414"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Konfigurera en punkt-till-plats-VPN-anslutning till ett VNet med intern Azure-certifikatautentisering: PowerShell
 
@@ -69,7 +69,7 @@ $DNS = "10.2.1.4"
    New-AzResourceGroup -Name $RG -Location $Location
    ```
 
-1. Skapa under näts konfigurationerna för det virtuella nätverket och namnge dem som *FrontEnd* -och *GatewaySubnet* . Dessa prefix måste vara en del av VNet-adressutrymmet som du deklarerade.
+1. Skapa under näts konfigurationerna för det virtuella nätverket och namnge dem som *FrontEnd* -och *GatewaySubnet*. Dessa prefix måste vara en del av VNet-adressutrymmet som du deklarerade.
 
    ```azurepowershell-interactive
    $fesub = New-AzVirtualNetworkSubnetConfig -Name $FESubName -AddressPrefix $FESubPrefix
@@ -110,8 +110,8 @@ $DNS = "10.2.1.4"
 
 I det här steget konfigurerar och skapar du den virtuella Nätverksgatewayen för ditt VNet.
 
-* -GatewayType måste vara **Vpn** och -VpnType måste vara **RouteBased** .
-* -VpnClientProtocol används för att ange vilka typer av tunnlar som ska aktiveras. Tunnel alternativen är **OpenVPN, SSTP** och **IKEv2** . Du kan välja att aktivera en av dem eller en kombination som stöds. Om du vill aktivera flera typer anger du namnen avgränsade med kommatecken. Det går inte att aktivera OpenVPN och SSTP tillsammans. StrongSwan-klienten i Android och Linux och den inbyggda IKEv2 VPN-klienten i iOS och OSX använder endast IKEv2-tunnlar för att ansluta. Windows-klienter provar IKEv2 först, och går över till SSTP om det inte går att ansluta. Du kan använda OpenVPN-klienten för att ansluta till OpenVPN-tunnel typen.
+* -GatewayType måste vara **Vpn** och -VpnType måste vara **RouteBased**.
+* -VpnClientProtocol används för att ange vilka typer av tunnlar som ska aktiveras. Tunnel alternativen är **OpenVPN, SSTP** och **IKEv2**. Du kan välja att aktivera en av dem eller en kombination som stöds. Om du vill aktivera flera typer anger du namnen avgränsade med kommatecken. Det går inte att aktivera OpenVPN och SSTP tillsammans. StrongSwan-klienten i Android och Linux och den inbyggda IKEv2 VPN-klienten i iOS och OSX använder endast IKEv2-tunnlar för att ansluta. Windows-klienter provar IKEv2 först, och går över till SSTP om det inte går att ansluta. Du kan använda OpenVPN-klienten för att ansluta till OpenVPN-tunnel typen.
 * Den virtuella Nätverksgatewayen ' Basic '-SKU: n stöder inte IKEv2, OpenVPN eller RADIUS-autentisering. Om du planerar att låta Mac-klienter ansluta till ditt virtuella nätverk ska du inte använda den grundläggande SKU: n.
 * Det kan ta upp till 45 minuter innan en VPN-gateway är klar, beroende på vilken [gateway-sku](vpn-gateway-about-vpn-gateway-settings.md) du väljer. I det här exemplet används IKEv2.
 
@@ -228,8 +228,8 @@ $profile.VPNProfileSASUrl
 
 ### <a name="mac-vpn-client"></a>Mac VPN-klient
 
-Från dialogrutan Nätverk letar du upp den klientprofil som du vill använda och klickar sedan på **Anslut** .
-Mer information finns i [install-Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) . Om du har problem med att ansluta kontrollerar du att den virtuella Nätverksgatewayen inte använder en grundläggande SKU. Basic SKU stöds inte för Mac-klienter.
+Från dialogrutan Nätverk letar du upp den klientprofil som du vill använda och klickar sedan på **Anslut**.
+Mer information finns i [install-Mac (OS X)](./point-to-site-vpn-client-configuration-azure-cert.md#installmac) . Om du har problem med att ansluta kontrollerar du att den virtuella Nätverksgatewayen inte använder en grundläggande SKU. Basic SKU stöds inte för Mac-klienter.
 
   ![Mac-anslutning](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 
@@ -237,7 +237,7 @@ Mer information finns i [install-Mac (OS X)](https://docs.microsoft.com/azure/vp
 
 Dessa anvisningar gäller för Windows-klienter.
 
-1. Verifiera att VPN-anslutningen är aktiv genom att öppna en upphöjd kommandotolk och köra *ipconfig/all* .
+1. Verifiera att VPN-anslutningen är aktiv genom att öppna en upphöjd kommandotolk och köra *ipconfig/all*.
 2. Granska resultaten. Observera att IP-adressen som du fick är en av adresserna i den punkt-till-plats-VPN-klient som du angav i konfigurationen. Resultatet är ungefär som i det här exemplet:
 
    ```
@@ -324,7 +324,7 @@ Den vanligaste metoden är att använda rotcertifikatet för att hantera åtkoms
 
 **Återkalla:**
 
-1. Hämta klientcertifikatets tumavtryck. Mer information finns i [Gör så här: Hämta tumavtrycket för ett certifikat](https://msdn.microsoft.com/library/ms734695.aspx).
+1. Hämta klientcertifikatets tumavtryck. Mer information finns i [Gör så här: Hämta tumavtrycket för ett certifikat](/dotnet/framework/wcf/feature-details/how-to-retrieve-the-thumbprint-of-a-certificate).
 
 1. Kopiera informationen till en textredigerare och ta bort alla blanksteg så att strängen är i ett stycke. Den här strängen deklareras som en variabel i nästa steg.
 
@@ -385,6 +385,6 @@ Mer information om punkt-till-plats finns i [vanliga frågor och svar om VPN gat
 
 ## <a name="next-steps"></a>Nästa steg
 
-När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Mer information finns i [Virtuella datorer](https://docs.microsoft.com/azure/). Mer information om virtuella datorer och nätverk finns i [Azure and Linux VM network overview](../virtual-machines/linux/azure-vm-network-overview.md) (Översikt över nätverk för virtuella Azure- och Linux-datorer).
+När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Mer information finns i [Virtuella datorer](../index.yml). Mer information om virtuella datorer och nätverk finns i [Azure and Linux VM network overview](../virtual-machines/network-overview.md) (Översikt över nätverk för virtuella Azure- och Linux-datorer).
 
 Information om P2S-felsökning finns i [Felsökning: Problem med punkt-till-plats-anslutningar i Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

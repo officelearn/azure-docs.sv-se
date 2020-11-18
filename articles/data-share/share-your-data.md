@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 11/12/2020
-ms.openlocfilehash: 27d48ef8961aa0b7fde4a92195ea92a1ec20c3f0
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 89c2a725b853b5a2a7578dccc1fd503917e12962
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94594206"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659632"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Självstudier: Dela data med Azure Data Share  
 
@@ -98,6 +98,8 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-data-share-account"></a>Skapa ett data resurs konto
 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 Skapa en Azure Data Share-resurs i en Azure-resurs grupp.
 
 1. Välj Meny knappen i det övre vänstra hörnet i portalen och välj sedan **skapa en resurs** (+).
@@ -111,7 +113,7 @@ Skapa en Azure Data Share-resurs i en Azure-resurs grupp.
      **Inställning** | **Föreslaget värde** | **Fältbeskrivning**
     |---|---|---|
     | Prenumeration | Din prenumeration | Välj den Azure-prenumeration som du vill använda för ditt data resurs konto.|
-    | Resursgrupp | *test-resurs-grupp* | Använd en befintlig resursgrupp eller skapa en ny resursgrupp. |
+    | Resursgrupp | *testresourcegroup* | Använd en befintlig resursgrupp eller skapa en ny resursgrupp. |
     | Plats | *USA, östra 2* | Välj en region för ditt data resurs konto.
     | Name | *datashareaccount* | Ange ett namn för ditt data resurs konto. |
     | | |
@@ -120,7 +122,51 @@ Skapa en Azure Data Share-resurs i en Azure-resurs grupp.
 
 1. När distributionen är klar väljer du **Gå till resurs**.
 
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Skapa en Azure Data Share-resurs i en Azure-resurs grupp.
+
+Börja med att förbereda din miljö för Azure CLI:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Använd följande kommandon för att skapa resursen:
+
+1. Använd kommandot [AZ Account set](/cli/azure/account#az_account_set) för att ställa in din prenumeration som den aktuella standard prenumerationen:
+
+   ```azurecli
+   az account set --subscription 00000000-0000-0000-0000-000000000000
+   ```
+
+1. Kör [AZ Provider register](/cli/azure/provider#az_provider_register) -kommandot för att registrera resurs leverantören:
+
+   ```azurecli
+   az provider register --name "Microsoft.DataShare"
+   ```
+
+1. Kör kommandot [az group create](/cli/azure/group#az_group_create) om du vill skapa en resursgrupp eller använda en befintlig resursgrupp:
+
+   ```azurecli
+   az group create --name testresourcegroup --location "East US 2"
+   ```
+
+1. Kör kommandot [AZ datashare Account Create](/cli/azure/ext/datashare/datashare/account#ext_datashare_az_datashare_account_create) för att skapa ett data resurs konto:
+
+   ```azurecli
+   az datashare account create --resource-group testresourcegroup --name datashareaccount --location "East US 2" 
+   ```
+
+   Kör kommandot [AZ datashare Account List](/cli/azure/ext/datashare/datashare/account#ext_datashare_az_datashare_account_list) för att se dina data resurs konton:
+
+   ```azurecli
+   az datashare account list --resource-group testresourcegroup
+   ```
+
+---
+
 ## <a name="create-a-share"></a>Skapa en resurs
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Gå till översikts sidan för data delning.
 
@@ -163,6 +209,38 @@ Skapa en Azure Data Share-resurs i en Azure-resurs grupp.
 1. Välj **Fortsätt**.
 
 1. På fliken Granska + skapa granskar du paket innehåll, inställningar, mottagare och synkroniseringsinställningar. Välj **Skapa**.
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+1. Kör kommandot [AZ Storage Account Create](/cli/azure/storage/account#az_storage_account_create) för att skapa en data resurs:
+
+   ```azurecli
+   az storage account create --resource-group testresourcegroup --name ContosoMarketplaceAccount
+   ```
+
+1. Använd kommandot [AZ Storage container Create](/cli/azure/storage/container#az_storage_container_create) för att skapa en behållare för resursen i föregående kommando:
+
+   ```azurecli
+   az storage container create --name ContosoMarketplaceContainer --account-name ContosoMarketplaceAccount
+   ```
+
+1. Kör kommandot [AZ datashare Create](/cli/azure/ext/datashare/datashare#ext_datashare_az_datashare_create) för att skapa din data resurs:
+
+   ```azurecli
+   az datashare create --resource-group testresourcegroup \
+     --name ContosoMarketplaceDataShare --account-name ContosoMarketplaceAccount \
+     --description "Data Share" --share-kind "CopyBased" --terms "Confidential"
+   ```
+
+1. Använd kommandot [AZ datashare inbjudan Create](/cli/azure/ext/datashare/datashare/invitation#ext_datashare_az_datashare_invitation_create) för att skapa en inbjudan till den angivna adressen:
+
+   ```azurecli
+   az datashare invitation create --resource-group testresourcegroup \
+     --name DataShareInvite --share-name ContosoMarketplaceDataShare \
+     --account-name ContosoMarketplaceAccount --target-email "jacob@fabrikam"
+   ```
+
+---
 
 Din Azure Data-resurs har nu skapats och mottagaren av din data resurs är nu klar att acceptera din inbjudan.
 

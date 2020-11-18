@@ -9,18 +9,18 @@ ms.date: 11/03/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ff86b95f9d6a02c9ea24837b782ce729cdcacded
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 2ab554f45de30bb676d2933a4a1268b6831ae4f5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577149"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659928"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Ange åtkomst kontrol listor (ACL) rekursivt för Azure Data Lake Storage Gen2
 
 ACL-arv är redan tillgängligt för nya underordnade objekt som skapas under en överordnad katalog. Nu kan du lägga till, uppdatera och ta bort ACL rekursivt för befintliga underordnade objekt i en överordnad katalog utan att behöva göra dessa ändringar individuellt för varje underordnat objekt.
 
-[Bibliotek](#libraries)  |  [Exempel](#code-samples)  |  [Metod tips](#best-practice-guidelines)  |  [Ge feedback](#provide-feedback)
+[Bibliotek](#libraries)  |  [Exempel](#code-samples)  |  [Metod tips](#best-practice-guidelines)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -619,7 +619,7 @@ az storage fs access update-recursive --acl "user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxx
 ```
 
 > [!NOTE]
-> Om du vill uppdatera en **standard** -ACL-post lägger du till prefixet `default:` i varje post. Ett exempel är `default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:r-x`.
+> Om du vill uppdatera en **standard** -ACL-post lägger du till prefixet `default:` i varje post. Exempelvis `default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:r-x`.
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -760,7 +760,7 @@ az storage fs access remove-recursive --acl "user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxx
 ```
 
 > [!NOTE]
-> Om du vill ta bort en **standard** -ACL-post lägger du till prefixet `default:` i varje post. Ett exempel är `default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
+> Om du vill ta bort en **standard** -ACL-post lägger du till prefixet `default:` i varje post. Exempelvis `default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -1152,12 +1152,6 @@ För att minska svars tiden rekommenderar vi att du kör den rekursiva ACL-proce
 #### <a name="acl-limits"></a>ACL-gränser
 
 Det maximala antalet ACL: er som du kan tillämpa på en katalog eller fil är 32 åtkomst-ACL: er och 32 standard-ACL: er. Mer information finns i [åtkomst kontroll i Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
-
-<a id="provide-feedback"></a>
-
-### <a name="provide-feedback-or-report-issues"></a>Ge feedback eller rapportera problem
-
-Du kan ge din feedback eller rapportera ett problem på  [recursiveACLfeedback@microsoft.com](mailto:recursiveACLfeedback@microsoft.com) .
 
 ## <a name="see-also"></a>Se även
 

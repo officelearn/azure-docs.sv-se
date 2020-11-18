@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: d2347c0688ca58698831019a193d03fe2c6721e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d5b51e8cfbfcb5f771e9da524231f8ddfc40a9e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89398516"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660941"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Verifiera VPN-dataflöde till ett virtuellt nätverk
 
@@ -119,7 +119,7 @@ Ladda ned [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Me
 1. När du har slutfört de föregående stegen kör du samma steg med de roller som har återförts, så att-noden kommer nu att vara klient-noden och vice versa.
 
 > [!Note]
-> Iperf är inte det enda verktyget. [NTTTCP är en alternativ lösning för testning](https://docs.microsoft.com/azure/virtual-network/virtual-network-bandwidth-testing).
+> Iperf är inte det enda verktyget. [NTTTCP är en alternativ lösning för testning](../virtual-network/virtual-network-bandwidth-testing.md).
 
 ## <a name="test-vms-running-windows"></a>Testa virtuella datorer som kör Windows
 
@@ -225,7 +225,7 @@ I synnerhet kan analyser av paket fångst spår (wireshark/Network Monitor) som 
 
 Även om det totala data flödet som utvärderas med föregående steg (iPERF/NTTTCP/osv.) var korrekt, kan det hända att du får långsamma fil Kopiera när du antingen använder Utforskaren eller drar och släpper den via en RDP-session. Det här problemet beror vanligt vis på en eller båda av följande faktorer:
 
-* Fil kopierings program, till exempel Utforskaren och RDP, använder inte flera trådar vid kopiering av filer. Använd ett program med flera trådar som [RichCopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx) för att kopiera filer med hjälp av 16 eller 32 trådar för bättre prestanda. Om du vill ändra tråd numret för fil kopiering i RichCopy klickar **du på**  >  **alternativet**  >  **Kopiera fil**kopia.
+* Fil kopierings program, till exempel Utforskaren och RDP, använder inte flera trådar vid kopiering av filer. Använd ett program med flera trådar som [RichCopy](/previous-versions/technet-magazine/dd547088(v=msdn.10)) för att kopiera filer med hjälp av 16 eller 32 trådar för bättre prestanda. Om du vill ändra tråd numret för fil kopiering i RichCopy klickar **du på**  >  **alternativet**  >  **Kopiera fil** kopia.
 
    ![Problem med långsam fil kopiering](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 
@@ -233,7 +233,7 @@ I synnerhet kan analyser av paket fångst spår (wireshark/Network Monitor) som 
    > Alla program fungerar inte, och alla program/processer använder inte alla trådar. Om du kör testet kan du se att vissa trådar är tomma och inte ger korrekta data flödes resultat.
    > Om du vill kontrol lera program filens överförings prestanda använder du flera trådar genom att öka antalet trådar i följd eller minskning för att hitta det optimala genomflödet i programmet eller fil överföringen.
 
-* Det finns inte tillräckligt med Läs/skriv hastighet för virtuella datorer. Mer information finns i [Azure Storage fel sökning](../storage/common/storage-e2e-troubleshooting.md).
+* Det finns inte tillräckligt med Läs/skriv hastighet för virtuella datorer. Mer information finns i [Azure Storage fel sökning](/previous-versions/azure/storage/common/storage-e2e-troubleshooting).
 
 ## <a name="on-premises-device-external-facing-interface"></a>Externt gränssnitt för lokalt enhet
 

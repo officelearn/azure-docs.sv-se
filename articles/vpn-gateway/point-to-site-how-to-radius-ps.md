@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: bce381ba4916bc58d2c7acf8d69b323dbdf972aa
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 64a4eb1b473c8944dadea4e1ee4323dfe4e9bcde
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544791"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661128"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Konfigurera en punkt-till-plats-anslutning till ett VNet med RADIUS-autentisering: PowerShell
 
@@ -119,7 +119,7 @@ Följande steg skapar en resurs grupp och ett virtuellt nätverk i resurs gruppe
    ```azurepowershell-interactive
    New-AzResourceGroup -Name "TestRG" -Location "East US"
    ```
-2. Skapa undernätskonfigurationerna för det virtuella nätverket och ge dem namnen *FrontEnd* , *BackEnd* och *GatewaySubnet* . Dessa prefix måste vara en del av VNet-adressutrymmet som du deklarerade.
+2. Skapa undernätskonfigurationerna för det virtuella nätverket och ge dem namnen *FrontEnd*, *BackEnd* och *GatewaySubnet*. Dessa prefix måste vara en del av VNet-adressutrymmet som du deklarerade.
 
    ```azurepowershell-interactive
    $fesub = New-AzVirtualNetworkSubnetConfig -Name "FrontEnd" -AddressPrefix "192.168.1.0/24"  
@@ -152,7 +152,7 @@ Innan du skapar och konfigurerar den virtuella Nätverksgatewayen bör RADIUS-se
 2. Konfigurera VPN-gatewayen som en RADIUS-klient på RADIUS. När du lägger till den här RADIUS-klienten anger du det virtuella nätverks GatewaySubnet som du skapade. 
 3. När RADIUS-servern har kon figurer ATS hämtar du RADIUS-serverns IP-adress och den delade hemlighet som RADIUS-klienter ska använda för att kommunicera med RADIUS-servern. Om RADIUS-servern finns i Azure VNet använder du CA-IP för den virtuella RADIUS-servern.
 
-Artikeln [nätverks princip Server (NPS)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) ger vägledning om hur du konfigurerar en Windows RADIUS-server (NPS) för AD-domänautentisering.
+Artikeln [nätverks princip Server (NPS)](/windows-server/networking/technologies/nps/nps-top) ger vägledning om hur du konfigurerar en Windows RADIUS-server (NPS) för AD-domänautentisering.
 
 ## <a name="4-create-the-vpn-gateway"></a>4. <a name="creategw"></a> skapa VPN-gatewayen
 
@@ -252,13 +252,13 @@ Konfigurationen av VPN-klienten gör att enheter kan ansluta till ett VNet via e
 
 ### <a name="connect-from-a-mac-vpn-client"></a>Ansluta från en Mac VPN-klient
 
-Från dialogrutan Nätverk letar du upp den klientprofil som du vill använda och klickar sedan på **Anslut** .
+Från dialogrutan Nätverk letar du upp den klientprofil som du vill använda och klickar sedan på **Anslut**.
 
   ![Mac-anslutning](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 
 ## <a name="to-verify-your-connection"></a><a name="verify"></a>Så här verifierar du anslutningen
 
-1. Verifiera att VPN-anslutningen är aktiv genom att öppna en upphöjd kommandotolk och köra *ipconfig/all* .
+1. Verifiera att VPN-anslutningen är aktiv genom att öppna en upphöjd kommandotolk och köra *ipconfig/all*.
 2. Granska resultaten. Observera att IP-adressen som du fick är en av adresserna i klientadresspoolen för VPN för punkt-till-plats som du angav i konfigurationen. Resultatet är ungefär som i det här exemplet:
 
    ```
@@ -292,4 +292,4 @@ Detta vanliga frågor och svar gäller för P2S med RADIUS-autentisering
 
 ## <a name="next-steps"></a>Nästa steg
 
-När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Mer information finns i [Virtuella datorer](https://docs.microsoft.com/azure/). Mer information om virtuella datorer och nätverk finns i [Azure and Linux VM network overview](../virtual-machines/linux/azure-vm-network-overview.md) (Översikt över nätverk för virtuella Azure- och Linux-datorer).
+När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Mer information finns i [Virtuella datorer](../index.yml). Mer information om virtuella datorer och nätverk finns i [Azure and Linux VM network overview](../virtual-machines/network-overview.md) (Översikt över nätverk för virtuella Azure- och Linux-datorer).

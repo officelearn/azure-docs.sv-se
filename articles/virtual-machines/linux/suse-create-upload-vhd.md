@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: guybo
-ms.openlocfilehash: 73e07c612486d5f48b1ad3eca8044a561549092b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f35adcc797e903bb44852e9ba52e1a023f51a0d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87292122"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659530"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Förbereda en virtuell SLES- eller openSUSE-dator för Azure
 
@@ -32,7 +32,7 @@ Den här artikeln förutsätter att du redan har installerat ett SUSEt eller ope
 
 Som ett alternativ till att skapa en egen virtuell hård disk publicerar SUSE också BYOS-avbildningar (ta med din egen prenumeration) för SLES på [VMDepot](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/04/using-and-contributing-vms-to-vm-depot.pdf).
 
-## <a name="prepare-suse-linux-enterprise-server-11-sp4"></a>Förbered SUSE Linux Enterprise Server 11 SP4
+## <a name="prepare-suse-linux-enterprise-server-for-azure"></a>Förbered SUSE Linux Enterprise Server för Azure
 1. I mittenfönstret i Hyper-V Manager väljer du den virtuella datorn.
 2. Klicka på **Anslut** för att öppna fönstret för den virtuella datorn.
 3. Registrera ditt SUSE Linux Enterprise-system så att det kan ladda ned uppdateringar och installera paket.
@@ -41,57 +41,53 @@ Som ett alternativ till att skapa en egen virtuell hård disk publicerar SUSE oc
     ```console
     # sudo zypper update
     ```
-
-1. Installera Azure Linux-agenten från SLES-lagringsplatsen (SLE11-Public-Cloud-Module):
+    
+5. Installera Azure Linux-agenten och Cloud-Init
 
     ```console
+    # SUSEConnect -p sle-module-public-cloud/15.2/x86_64  (SLES 15 SP2)
     # sudo zypper install python-azure-agent
+    # sudo zypper install cloud-init
     ```
 
-1. Kontrol lera om waagent är inställt på "on" i chkconfig och aktivera det för Autostart:
+6. Aktivera waagent & Cloud-Init för att starta vid start
 
     ```console
     # sudo chkconfig waagent on
+    # systemctl enable cloud-init-local.service
+    # systemctl enable cloud-init.service
+    # systemctl enable cloud-config.service
+    # systemctl enable cloud-final.service
+    # systemctl daemon-reload
+    # cloud-init clean
     ```
 
-7. Kontrol lera om waagent-tjänsten körs och starta annars den: 
+7. Uppdatera waagent och Cloud-Init-konfiguration
 
     ```console
-    # sudo service waagent start
+    # sudo sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
+    # sudo sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
+
+    # sudo sh -c 'printf "datasource:\n  Azure:" > /etc/cloud/cloud.cfg.d/91-azure_datasource.cfg'
+    # sudo sh -c 'printf "reporting:\n  logging:\n    type: log\n  telemetry:\n    type: hyperv" > /etc/cloud/cloud.cfg.d/10-azure-kvp.cfg'
     ```
 
-8. Ändra start raden för kernel i grub-konfigurationen för att inkludera ytterligare kernel-parametrar för Azure. Det gör du genom att öppna "/boot/grub/menu.lst" i en text redigerare och se till att standard kärnan innehåller följande parametrar:
+8. Redigera/etc/default/grub-filen för att se till att konsol loggar skickas till en seriell port och uppdatera sedan huvud konfigurations filen med grub2-mkconfig-o/Boot/grub2/grub.cfg
 
     ```config-grub
     console=ttyS0 earlyprintk=ttyS0 rootdelay=300
     ```
-
     Detta säkerställer att alla konsol meddelanden skickas till den första serie porten, vilket kan hjälpa Azure-support med fel söknings problem.
-9. Bekräfta att både/boot/grub/menu.lst och/etc/fstab refererar till disken med dess UUID (by-UUID) i stället för disk-ID (med-ID). 
-   
-    Hämta disk-UUID
-
-    ```console
-    # ls /dev/disk/by-uuid/
-    ```
-
-    Om/dev/disk/by-ID/används uppdaterar du både/boot/grub/menu.lst och/etc/fstab med rätt by-UUID-värde
-   
-    Före ändring
-   
-    `root=/dev/disk/by-id/SCSI-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx-part1`
-   
-    Efter ändring
-   
-    `root=/dev/disk/by-uuid/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
-
+    
+9. Se till att/etc/fstab-filen refererar till disken med dess UUID (med-UUID)
+         
 10. Ändra udev-regler för att undvika att skapa statiska regler för Ethernet-gränssnitten. Dessa regler kan orsaka problem när du klonar en virtuell dator i Microsoft Azure eller Hyper-V:
 
     ```console
     # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
     # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
     ```
-
+   
 11. Vi rekommenderar att du redigerar filen "/etc/sysconfig/Network/DHCP" och ändrar `DHCLIENT_SET_HOSTNAME` parametern till följande:
 
     ```config
@@ -105,7 +101,8 @@ Som ett alternativ till att skapa en egen virtuell hård disk publicerar SUSE oc
     ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
     ```
 
-13. Se till att SSH-servern är installerad och konfigurerad för start vid start.  Detta är vanligt vis standardvärdet.
+13. Se till att SSH-servern är installerad och konfigurerad för start vid start. Detta är vanligt vis standardvärdet.
+
 14. Skapa inte växlings utrymme på OS-disken.
     
     Azure Linux-agenten kan automatiskt konfigurera växlings utrymme med hjälp av den lokala resurs disk som är kopplad till den virtuella datorn efter etableringen på Azure. Observera att den lokala resurs disken är en *temporär* disk och kan tömmas när den virtuella datorn avetableras. När du har installerat Azure Linux-agenten (se föregående steg) ändrar du följande parametrar i/etc/waagent.conf på lämpligt sätt:
@@ -133,7 +130,7 @@ Som ett alternativ till att skapa en egen virtuell hård disk publicerar SUSE oc
 2. Klicka på **Anslut** för att öppna fönstret för den virtuella datorn.
 3. Kör kommandot på gränssnittet `zypper lr` . Om det här kommandot returnerar utdata som liknar följande, konfigureras databaserna som förväntat – inga justeringar krävs (Observera att versions numren kan variera):
 
-   | # | Alias                 | Namn                  | Enabled | Uppdatera
+   | # | Alias                 | Name                  | Enabled | Uppdatera
    | - | :-------------------- | :-------------------- | :------ | :------
    | 1 | Moln: Tools_13.1      | Moln: Tools_13.1      | Ja     | Ja
    | 2 | openSUSE_13 openSUSE_13.1_OSS     | openSUSE_13 openSUSE_13.1_OSS     | Ja     | Ja

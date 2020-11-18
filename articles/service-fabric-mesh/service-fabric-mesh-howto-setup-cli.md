@@ -5,19 +5,19 @@ author: georgewallace
 ms.author: gwallace
 ms.date: 11/28/2018
 ms.topic: conceptual
-ms.openlocfilehash: fb059fe5dc4e64df104e026983e51f799236f916
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea4a7764cf1ede1cfaf53b1097034c5894660376
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842809"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660686"
 ---
 # <a name="set-up-service-fabric-mesh-cli"></a>Konfigurera Service Fabric Mesh CLI
 Service Fabric Mesh-kommandoradsgränssnittet (CLI) krävs för att distribuera och hantera resurser lokalt och i Azure Service Fabric Mesh. Så här konfigurerar du det.
 
 Det finns tre typer av CLI som kan användas och de sammanfattas i tabellen nedan.
 
-| CLI-modul | Målmiljö |  Beskrivning | 
+| CLI-modul | Målmiljö |  Description | 
 |---|---|---|
 | az mesh | Azure Service Fabric Mesh | Primärt CLI som gör att du kan distribuera dina program och hantera resurser mot Azure Service Fabric Mesh-miljön. 
 | sfctl | Lokala kluster | Service Fabric-CLI som möjliggör distribution och testning av Service Fabric-resurser mot lokala kluster.  
@@ -25,22 +25,23 @@ Det finns tre typer av CLI som kan användas och de sammanfattas i tabellen neda
 
 För förhandsversionen är Azure Service Fabric Mesh CLI skrivet som ett tillägg till Azure CLI. Du kan installera det i Azure Cloud Shell eller en lokal installation av Azure CLI. 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+- Den här artikeln kräver version 2.0.67 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
 ## <a name="install-the-azure-service-fabric-mesh-cli"></a>Installera Azure Service Fabric Mesh CLI
-1. Du måste installera Azure CLI-versionen 2.0.67 eller senare. Kör `az --version` för att hitta versionen. Om du vill installera eller uppgradera till den senaste versionen av CLI kan du läsa [Installera Azure CLI][azure-cli-install].
 
-2. Installera Azure Service Fabric Mesh CLI-tilläggsmodulen med hjälp av följande kommando. 
+Om du inte redan har gjort det installerar du modulen Azure Service Fabrics mask CLI-tillägg med följande kommando: 
+ 
+```azurecli-interactive
+az extension add --name mesh
+```
 
-    ```azurecli-interactive
-    az extension add --name mesh
-    ```
+Om den redan är installerad uppdaterar du din befintliga Azure Service Fabric nät CLI-modul med följande kommando:
 
-3. Uppdatera en befintlig Azure Service Fabric Mesh CLI-modul med hjälp av följande kommando.
-
-    ```azurecli-interactive
-    az extension update --name mesh
-    ```
+```azurecli-interactive
+az extension update --name mesh
+```
 
 ## <a name="install-the-service-fabric-cli-sfctl"></a>Installera Service Fabric CLI (sfctl) 
 

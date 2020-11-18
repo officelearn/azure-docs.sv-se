@@ -8,24 +8,24 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 157bd0a0a40ce6a935d13bb10a84c814ba1018bf
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 611068fa020321be88be6e1d6da663266029c658
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91330255"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660193"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>Snabb start: Konfigurera IoT Hub Device Provisioning Service med Azure CLI
 
 Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här snabb starten beskriver hur du använder Azure CLI för att skapa en IoT-hubb och en IoT Hub Device Provisioning Service och för att länka samman de två tjänsterna. 
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 > [!IMPORTANT]
 > Både IoT-hubben och etablerings tjänsten som du skapar i den här snabb starten kommer att vara offentligt identifierade som DNS-slutpunkter. Undvik känslig information om du vill ändra de namn som används för dessa resurser.
 >
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
@@ -43,7 +43,7 @@ az group create --name my-sample-resource-group --location westus
 >
 >
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
+## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
 Skapa en IoT-hubb med kommandot [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create).
 

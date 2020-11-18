@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: yelevin
-ms.openlocfilehash: 17c0ba7306ab4cc51fe8bbe3709d5b6bc85fa487
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a891a301d5869603a7d90d28bb9063d7d5bdb1d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91347510"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660584"
 ---
 # <a name="bring-your-own-machine-learning-ml-into-azure-sentinel"></a>Ta med din egen Machine Learning (ML) till Azure Sentinel
 
@@ -32,7 +32,7 @@ ML-identifierings modeller kan anpassas till enskilda miljöer och ändringar i 
 
 ## <a name="what-is-the-bring-your-own-machine-learning-byo-ml-platform"></a>Vad är en egen Machine Learning-plattform (BYOD-ML)?
 
-För organisationer som har ML-resurser och vill bygga anpassade ML-modeller för sina unika affärs behov erbjuder vi **BYOD-ml-plattformen**. Plattformen använder [Azure Databricks](https://docs.microsoft.com/azure/databricks/scenarios/what-is-azure-databricks) / [Apache Spark](http://spark.apache.org/) miljö och Jupyter-anteckningsböcker för att skapa en ml-miljö. Den innehåller följande komponenter:
+För organisationer som har ML-resurser och vill bygga anpassade ML-modeller för sina unika affärs behov erbjuder vi **BYOD-ml-plattformen**. Plattformen använder [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) / [Apache Spark](http://spark.apache.org/) miljö och Jupyter-anteckningsböcker för att skapa en ml-miljö. Den innehåller följande komponenter:
 
 - ett BYOD-ML-paket, som innehåller bibliotek som hjälper dig att komma åt data och skicka tillbaka resultaten till Log Analytics (LA), så att du kan integrera resultaten med din identifiering, undersökning och jakt. 
 
@@ -79,7 +79,7 @@ Om du redan har Databricks eller någon annan Spark-miljö, och föredrar att an
 
 BYOD ML-paketet innehåller bästa praxis och forskning från Microsoft i den första delen av ML för säkerhet. I det här paketet innehåller vi följande lista över verktyg, mallar för bärbara datorer och algoritmer för säkerhets problem.
 
-| Filnamn | Beskrivning |
+| Filnamn | Description |
 | --------- | ----------- |
 | azure_sentinel_utilities. WHL | Innehåller verktyg för att läsa blobbar från Azure och skriva till Log Analytics. |
 | AnomalousRASampleData | Antecknings boken demonstrerar användningen av avvikande resurs åtkomst modell i Sentinel med genererad utbildning och testning av exempel data. |
@@ -95,7 +95,7 @@ Nu när du har bekantat dig med de viktigaste komponenterna i BYOD-ML-plattforme
 
 ### <a name="setup-the-databricksspark-environment"></a>Konfigurera Databricks/Spark-miljön
 
-Du måste konfigurera din egen Databricks-miljö om du inte redan har en. Instruktioner hittar du i [Databricks snabb starts](https://docs.microsoft.com/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal) dokument.
+Du måste konfigurera din egen Databricks-miljö om du inte redan har en. Instruktioner hittar du i [Databricks snabb starts](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal) dokument.
 
 ### <a name="auto-export-instruction"></a>Automatiskt exportera-instruktion
 
@@ -103,7 +103,7 @@ Om du vill bygga anpassade ML-modeller baserat på dina egna data i Sentinel må
 
 I det här exemplet måste du ha dina utbildnings data för fil resursens åtkomst logg i Azure Blob Storage. Formatet på data dokumenteras i antecknings boken och biblioteken.
 
-Du kan automatiskt exportera dina data från Log Analytics med hjälp av [kommando rads gränssnittet för Azure (CLI)](https://docs.microsoft.com/cli/azure/monitor/log-analytics). 
+Du kan automatiskt exportera dina data från Log Analytics med hjälp av [kommando rads gränssnittet för Azure (CLI)](/cli/azure/monitor/log-analytics). 
 
 Du måste tilldelas **deltagar** rollen i din Log Analytics-arbetsyta, ditt lagrings konto och din EventHub-resurs för att kunna köra kommandona. 
 
@@ -159,13 +159,13 @@ När du har fått den schemalagda poängen kan du använda modulen i antecknings
 
 Gå tillbaka till Azure Sentinel-portalen för att se resultatet av dina resultat tillsammans med relaterad logg information. I **loggar** > anpassade loggar visas resultaten i **AnomalousResourceAccessResult_CLs** tabellen (eller ditt eget anpassade tabell namn). Du kan använda dessa resultat för att förbättra dina undersökningar och jakt upplevelser.
 
-:::image type="content" source="./media/bring-your-own-ml/anomalous-resource-access-logs.png" alt-text="ramverk för Machine Learning":::
+:::image type="content" source="./media/bring-your-own-ml/anomalous-resource-access-logs.png" alt-text="avvikande resurs åtkomst loggar":::
 
 ### <a name="build-custom-analytics-rule-with-ml-results"></a>Bygg en anpassad analys regel med ML-resultat
 
 När du har bekräftat att ML-resultaten finns i tabellen anpassade loggar och du är nöjd med resultatet av poängen kan du skapa en identifiering baserat på resultaten. Gå till **analyser** från Azure Sentinel-portalen och [skapa en ny identifierings regel](tutorial-detect-threats-custom.md). Nedan visas ett exempel som visar frågan som används för att skapa identifieringen.
 
-:::image type="content" source="./media/bring-your-own-ml/create-byo-ml-analytics-rule.png" alt-text="ramverk för Machine Learning":::
+:::image type="content" source="./media/bring-your-own-ml/create-byo-ml-analytics-rule.png" alt-text="Skapa anpassad analys regel för B Y O M L-identifieringar":::
 
 ### <a name="view-and-respond-to-incidents"></a>Visa och svara på incidenter
 När du har konfigurerat analys regeln baserat på ML-resultatet, om det finns resultat ovanför tröskelvärdet som du ställer in i frågan, genereras en incident som visas på sidan **incidenter** på Azure Sentinel. 

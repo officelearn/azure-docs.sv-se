@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 10/01/2020
+ms.date: 11/16/2020
 ms.author: alkohli
-ms.openlocfilehash: b193247fee843796da0cb2fcfc1a874b1a1b72fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00ba711661d69bbaf53ff51fb2cb833d9b1c1ae2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91660929"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660431"
 ---
 # <a name="azure-data-box-limits"></a>Azure Data Box gränser
 
@@ -28,7 +28,7 @@ Tänk på följande begränsningar när du distribuerar och använder Microsoft 
 - Data Box-enhet kan lagra högst 500 000 000 filer för både import och export.
 - Data Box-enhet stöder högst 512 behållare eller resurser i molnet. Katalogerna på den översta nivån i användar resursen blir behållare eller Azure-filresurser i molnet. 
 - Data Box-enhet användnings kapaciteten kan vara mindre än 80 TB på grund av användningen av ReFS-metadatalagret.
-- Data Box-enhet stöder högst 5 klient anslutningar i taget på en NFS-resurs. 
+- Data Box-enhet stöder högst 10 klient anslutningar i taget på en NFS-resurs.
 
 ## <a name="azure-storage-limits"></a>Azure Storage-gränser
 

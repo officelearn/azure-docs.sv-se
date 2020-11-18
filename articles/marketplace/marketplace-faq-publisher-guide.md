@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 09/11/2020
-ms.openlocfilehash: e72acb532a33d0b3751bb8ad5051b1a3df4d7514
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 584e1e943f215aa4a69368fb71cb3053b1444a01
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491485"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660227"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Vanliga frågor om Microsofts kommersiella marknads plats
 
@@ -87,7 +87,7 @@ Den kommersiella marknads platsen fungerar med en byrå modell. Kunden loggar et
 
 Som utgivare anger du användnings villkoren för din program varu lösning, som kunder måste godkänna som en del av inköps flödet. För att förenkla och påskynda arbetet tillhandahåller vi ett standard kontrakt som du kan välja att inkludera i dina villkor. Detta gör att kunderna kan granska standard kontraktet en gång, få godkännande från juridiska och inköps grupper och sedan fokusera på ändringar för varje erbjudande.
 
-Du kan skapa ändringar som gäller för alla kunder, eller så kan du göra ändringarna specifika för vissa kunder. Du kan också helt anpassa dina villkor, som kan anges i en text ruta eller som finns på en webbplats som visas som en webb adress.
+Du kan skapa ändringar som gäller för alla kunder, eller så kan du göra ändringarna specifika för vissa kunder. Du kan också helt anpassa dina villkor, som kan anges i en text ruta i Partner Center.
 
 Mer information finns i [standard kontrakt för Microsoft Commercial Marketplace](standard-contract.md).
 
@@ -99,10 +99,10 @@ Ja, Azure Government Marketplace är tillgänglig i Azure Government regioner oc
 
 Det finns fyra relevanta roller som reglerar åtkomst till Partner Center.
 
-- *Manager* : ger behörighet att hantera Partner Center-användare i katalogen och skapa och uppdatera erbjudanden.
-- *Utvecklare* : tillåter att en användare skapar och uppdaterar erbjudanden.
-- *Finansiell bidrags givare* : ger behörighet att Visa utbetalnings rapportering.
-- *Ägare* : kan ställa in konto för utbetalning och skatte profil. Den användare som har godkänt utgivar avtalet blir ägare som standard.
+- *Manager*: ger behörighet att hantera Partner Center-användare i katalogen och skapa och uppdatera erbjudanden.
+- *Utvecklare*: tillåter att en användare skapar och uppdaterar erbjudanden.
+- *Finansiell bidrags givare*: ger behörighet att Visa utbetalnings rapportering.
+- *Ägare*: kan ställa in konto för utbetalning och skatte profil. Den användare som har godkänt utgivar avtalet blir ägare som standard.
 
 Azure Active Directory (Azure AD) *globala administratörs* behörigheter krävs för att skapa nya användar konton eller bjuda in gäst konton i den underliggande katalogen. Partner Center använder Azure AD till identitets modellen och en organisations Azure AD-instans hanteras ofta och styrs ofta av IT-eller säkerhets teamen.
 

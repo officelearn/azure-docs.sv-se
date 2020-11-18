@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: aeb43f1b9f53a9f57cc436ced1db1bc3feed02d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8573d9e55299382392927b532966a6e6fdd8c439
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843268"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659768"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>Så här konfigurerar du BGP på Azure VPN-gatewayer med PowerShell
 Den här artikeln vägleder dig genom stegen för att aktivera BGP på en plats-till-plats-VPN-anslutning (S2S) och en VNet-till-VNet-anslutning med hjälp av distributions modellen för Resource Manager och PowerShell.
@@ -75,7 +75,7 @@ $Connection15 = "VNet1toSite5"
 ```
 
 #### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2. Anslut till din prenumeration och skapa en ny resurs grupp
-Om du vill använda Resource Manager-cmdlets, se till att växla till PowerShell-läge. Mer information finns i [Använda Windows PowerShell med Resource Manager](../powershell-azure-resource-manager.md).
+Om du vill använda Resource Manager-cmdlets, se till att växla till PowerShell-läge. Mer information finns i [Använda Windows PowerShell med Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md).
 
 Öppna PowerShell-konsolen och anslut till ditt konto. Använd följande exempel för att ansluta:
 

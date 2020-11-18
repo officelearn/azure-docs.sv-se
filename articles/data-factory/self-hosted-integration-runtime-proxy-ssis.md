@@ -11,13 +11,13 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 09/09/2020
-ms.openlocfilehash: 867f12b026a56b7cab8530ef30c4a2f2c325f6b1
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 11/15/2020
+ms.openlocfilehash: 48bd32569b7eb7fa09f83f81190bf96baa42fae0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637793"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659989"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Konfigurera en egen värd-IR som en proxy för en Azure-SSIS IR i Azure Data Factory
 
@@ -28,8 +28,8 @@ Den här artikeln beskriver hur du kör SQL Server Integration Services-paket (S
 Med den här funktionen kan du komma åt data lokalt utan att behöva [ansluta dina Azure-SSIS IR till ett virtuellt nätverk](./join-azure-ssis-integration-runtime-virtual-network.md). Funktionen är användbar när företags nätverket har en konfiguration för komplex eller en princip som är för begränsad så att du kan mata in Azure-SSIS IR i den.
 
 Den här funktionen delar upp din SSIS Data Flow-uppgift i två mellanlagrings uppgifter när så är tillämpligt: 
-* **Lokal mellanlagrings uppgift** : den här aktiviteten kör data flödes komponenten som ansluter till ett lokalt data lager på din egen värd-IR. Den flyttar data från det lokala data lagret till ett mellanlagringsområde i Azure Blob Storage eller vice versa.
-* **Cloud Staging-aktivitet** : den här aktiviteten kör data flödes komponenten som inte ansluter till ett lokalt data lager på din Azure-SSIS IR. Den flyttar data från mellanlagringsområdet i Azure Blob Storage till ett moln data lager eller vice versa.
+* **Lokal mellanlagrings uppgift**: den här aktiviteten kör data flödes komponenten som ansluter till ett lokalt data lager på din egen värd-IR. Den flyttar data från det lokala data lagret till ett mellanlagringsområde i Azure Blob Storage eller vice versa.
+* **Cloud Staging-aktivitet**: den här aktiviteten kör data flödes komponenten som inte ansluter till ett lokalt data lager på din Azure-SSIS IR. Den flyttar data från mellanlagringsområdet i Azure Blob Storage till ett moln data lager eller vice versa.
 
 Om din data flödes uppgift flyttar data från lokalt till molnet, kommer de första och andra mellanlagrings aktiviteterna att vara både lokala och mellanlagrings aktiviteter. Om din data flödes uppgift flyttar data från molnet till lokalt, kommer de första och andra mellanlagrings aktiviteterna att vara moln och de lokala mellanlagrings aktiviteterna. Om din data flödes uppgift flyttar data från lokalt till lokalt, kommer de första och andra mellanlagrings aktiviteterna att vara både lokala mellanlagrings aktiviteter. Om din data flödes uppgift flyttar data från molnet till molnet gäller inte den här funktionen.
 
@@ -43,24 +43,34 @@ Sedan konfigurerar du din egen värd-IR i samma data fabrik där Azure-SSIS IR h
 
 Slutligen kan du hämta och installera den senaste versionen av den lokala IR-versionen, samt ytterligare driv rutiner och körnings program, på din lokala dator eller virtuella Azure-dator (VM) enligt följande:
 - Hämta och installera den senaste versionen av [IR med egen värd](https://www.microsoft.com/download/details.aspx?id=39717).
-- Om du använder objekt Länknings-och Inbäddnings databas (OLEDB)/Open för databas anslutning i dina paket kan du hämta och installera relevanta driv rutiner på samma dator där din egen värd-IR installeras, om du inte redan har gjort det.  
+- Om du använder Object Linking and Embedding Database (OLEDB), Open Database Connectivity (ODBC) eller ADO.NET-anslutningar i dina paket kan du ladda ned och installera de relevanta driv rutinerna på samma dator där din egen värd-IR är installerad, om du inte redan har gjort det.  
 
   Om du använder den tidigare versionen av OLEDB-drivrutinen för SQL Server (SQL Server Native Client [SQLNCLI]) [hämtar du 64-bitars versionen](https://www.microsoft.com/download/details.aspx?id=50402).  
 
   Om du använder den senaste versionen av OLEDB-drivrutinen för SQL Server (MSOLEDBSQL) [hämtar du 64-bitars versionen](https://www.microsoft.com/download/details.aspx?id=56730).  
   
-  Om du använder OLEDB/ODBC-drivrutiner för andra databas system, till exempel PostgreSQL, MySQL, Oracle och så vidare, kan du hämta 64-bitars versionerna från sina webbplatser.
+  Om du använder OLEDB/ODBC/ADO. NET-drivrutiner för andra databas system, till exempel PostgreSQL, MySQL, Oracle och så vidare, kan du hämta 64-bitars versionerna från sina webbplatser.
 - Om du inte redan har gjort det kan du [Hämta och installera 64-bitars versionen av Visual C++ (VC) runtime](https://www.microsoft.com/download/details.aspx?id=40784) på samma dator där din egen värd för IR är installerad.
 
-## <a name="prepare-the-azure-blob-storage-linked-service-for-staging"></a>Förbereda Azure Blob Storage-länkad tjänst för mellanlagring
+### <a name="enable-windows-authentication-for-on-premises-staging-tasks"></a>Aktivera Windows-autentisering för lokala mellanlagrings uppgifter
 
-Om du inte redan har gjort det skapar du en Azure Blob Storage-länkad tjänst i samma data fabrik där Azure-SSIS IR har kon figurer ATS. Det gör du i [skapa en Azure Data Factory-länkad tjänst](./quickstart-create-data-factory-portal.md#create-a-linked-service). Se till att göra följande:
-- För **data lager** väljer du **Azure Blob Storage** .  
+Om lokala mellanlagrings uppgifter på din egen värd-IR kräver Windows-autentisering [konfigurerar du SSIS-paketen så att de använder samma Windows-autentisering](/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth?view=sql-server-ver15). 
+
+Dina lokala mellanlagrings uppgifter kommer att anropas med det lokala IR-tjänstkontot (*NT SERVICE\DIAHostService*, som standard) och dina data lager kommer att få åtkomst till Windows Authentication-kontot. Båda kontona kräver att vissa säkerhets principer tilldelas till dem. På den lokala IR-datorn går du till lokala **säkerhets principer**  >  **lokala principer**  >  **tilldelning av användar rättigheter** och gör sedan följande:
+
+1. Tilldela de *Justera minnes kvoterna för en process* och *Ersätt en token för processnivå* till det egna IR-tjänstkontot. Detta bör ske automatiskt när du installerar din egen värd-IR med standard tjänst kontot. Om den inte gör det tilldelar du dessa principer manuellt. Om du använder ett annat tjänst konto tilldelar du samma principer.
+
+1. Tilldela Windows Authentication *-kontot inloggningen logga in som en tjänst* princip.
+
+## <a name="prepare-the-azure-blob-storage-linked-service-for-staging"></a>Förbereda Azure Blob Storage länkade tjänsten för mellanlagring
+
+Om du inte redan har gjort det skapar du en länkad Azure Blob Storage-tjänst i samma data fabrik där Azure-SSIS IR har kon figurer ATS. Det gör du i [skapa en Azure Data Factory-länkad tjänst](./quickstart-create-data-factory-portal.md#create-a-linked-service). Se till att göra följande:
+- För **data lager** väljer du **Azure Blob Storage**.  
 - För **Anslut via integration runtime** väljer du **AutoResolveIntegrationRuntime** (inte din Azure-SSIS IR eller din egen IR-anslutning), eftersom vi använder standard Azure IR för att hämta autentiseringsuppgifter för Azure-Blob Storage.
-- För **autentiseringsmetod** väljer du **konto nyckel** , **SAS-URI** eller **tjänstens huvud namn** .  
+- För **autentiseringsmetod** väljer du **konto nyckel**, **SAS-URI**, **tjänstens huvud namn** eller **hanterad identitet**.  
 
-    >[!TIP]
-    >Om du väljer **tjänstens huvud namns** metod ger du tjänstens huvud namn minst en roll för *Storage BLOB data Contributor* . Mer information finns i [Azure Blob Storage Connector](connector-azure-blob-storage.md#linked-service-properties).
+>[!TIP]
+>Om du väljer **tjänstens huvud namns** metod ger du tjänstens huvud namn minst en roll för *Storage BLOB data Contributor* . Mer information finns i [Azure Blob Storage Connector](connector-azure-blob-storage.md#linked-service-properties). Om du väljer metoden för **hanterad identitet** ger du rätt roller för din ADM-hanterade identitet för att få åtkomst till Azure Blob Storage. Mer information finns i [komma åt Azure-Blob Storage att använda Azure Active Directory autentisering med ADM-hanterad identitet](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-storage-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication).
 
 ![Förbereda Azure Blob Storage-länkad tjänst för mellanlagring](media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png)
 
@@ -68,7 +78,7 @@ Om du inte redan har gjort det skapar du en Azure Blob Storage-länkad tjänst i
 
 När du har för berett din egen värd för IR och Azure Blob Storage-länkad tjänst för mellanlagring kan du nu konfigurera nya eller befintliga Azure-SSIS IR med den infraröda IR som en proxy i Data Factory-portalen eller-appen. Innan du gör det, om det befintliga Azure-SSIS IR redan körs, stoppar du det och startar sedan om det.
 
-1. I installations fönstret för **integration runtime** hoppar du över avsnitten **allmänna inställningar** och **SQL-inställningar** genom att välja **Nästa** . 
+1. I installations fönstret för **integration runtime** hoppar du över avsnitten **allmänna inställningar** och **SQL-inställningar** genom att välja **Nästa**. 
 
 1. I avsnittet **Avancerade inställningar** gör du följande:
 
@@ -80,7 +90,7 @@ När du har för berett din egen värd för IR och Azure Blob Storage-länkad tj
 
    1. I rutan **mellanlagringsplats** anger du en BLOB-behållare i det valda Azure Blob Storage-kontot eller låter det vara tomt om du vill använda en standard för mellanlagring.
 
-   1. Välj **Fortsätt** .
+   1. Välj **Fortsätt**.
 
    ![Avancerade inställningar med en egen värd-IR](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-shir.png)
 
@@ -129,7 +139,7 @@ När du skapar nya paket som innehåller data flödes aktiviteter med komponente
 ![Aktivera egenskapen ConnectByProxy](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-manager-properties.png)
 
 Du kan också aktivera den här egenskapen när du kör befintliga paket, utan att behöva ändra dem manuellt en i taget.  Det finns två alternativ:
-- **Alternativ A** : öppna, återskapa och distribuera om projektet som innehåller paketen med de senaste SSDT som ska köras på din Azure-SSIS IR. Du kan sedan aktivera egenskapen genom att ange den som *True* för relevanta anslutnings hanterare. När du kör paket från SSMS visas dessa anslutnings hanterare på fliken **anslutnings hanterare** i popup-fönstret **Kör paket** .
+- **Alternativ A**: öppna, återskapa och distribuera om projektet som innehåller paketen med de senaste SSDT som ska köras på din Azure-SSIS IR. Du kan sedan aktivera egenskapen genom att ange den som *True* för relevanta anslutnings hanterare. När du kör paket från SSMS visas dessa anslutnings hanterare på fliken **anslutnings hanterare** i popup-fönstret **Kör paket** .
 
   ![Aktivera ConnectByProxy Egenskap2](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssms.png)
 
@@ -147,19 +157,11 @@ Du kan också aktivera den här egenskapen när du kör befintliga paket, utan a
 
 ## <a name="debug-the-on-premises-and-cloud-staging-tasks"></a>Felsöka de lokala och molnbaserade mellanlagrings uppgifterna
 
-På din egen värd-IR kan du hitta körnings loggarna i mappen *C:\ProgramData\SSISTelemetry* och körnings loggarna för lokala mellanlagrings uppgifter i mappen *C:\ProgramData\SSISTelemetry\ExecutionLog* .  Du kan hitta körnings loggarna för mellanlagringsplatsen för molnet i dina SSISDB eller angivna loggnings Sök vägar, beroende på om du lagrar dina paket i SSISDB eller inte. Du kan också hitta unika ID: n för lokala mellanlagrings uppgifter i körnings loggarna för aktiviteter i molnet. 
+På din egen värd-IR kan du hitta körnings loggarna i mappen *C:\ProgramData\SSISTelemetry* och körnings loggarna för lokala mellanlagrings uppgifter i mappen *C:\ProgramData\SSISTelemetry\ExecutionLog* .  Du hittar körnings loggarna för mellanlagrings aktiviteter i din SSISDB, angivna sökvägar för loggning eller Azure Monitor beroende på om du lagrar dina paket i SSISDB, aktiverar [Azure Monitor-integrering](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#monitor-ssis-operations-with-azure-monitor)osv. Du kan också hitta unika ID: n för lokala mellanlagrings uppgifter i körnings loggarna för aktiviteter i molnet. 
 
 ![Unikt ID för den första mellanlagrings uppgiften](media/self-hosted-integration-runtime-proxy-ssis/shir-first-staging-task-guid.png)
 
-## <a name="use-windows-authentication-in-on-premises-staging-tasks"></a>Använd Windows-autentisering i lokala mellanlagrings uppgifter
-
-Om lokala mellanlagrings uppgifter på din egen värd-IR kräver Windows-autentisering [konfigurerar du SSIS-paketen så att de använder samma Windows-autentisering](/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth?view=sql-server-ver15). 
-
-Dina lokala mellanlagrings uppgifter kommer att anropas med det lokala IR-tjänstkontot ( *NT SERVICE\DIAHostService* , som standard) och dina data lager kommer att få åtkomst till Windows Authentication-kontot. Båda kontona kräver att vissa säkerhets principer tilldelas till dem. På den lokala IR-datorn går du till lokala **säkerhets principer**  >  **lokala principer**  >  **tilldelning av användar rättigheter** och gör sedan följande:
-
-1. Tilldela de *Justera minnes kvoterna för en process* och *Ersätt en token för processnivå* till det egna IR-tjänstkontot. Detta bör ske automatiskt när du installerar din egen värd-IR med standard tjänst kontot. Om den inte gör det tilldelar du dessa principer manuellt. Om du använder ett annat tjänst konto tilldelar du samma principer.
-
-1. Tilldela Windows Authentication *-kontot inloggningen logga in som en tjänst* princip.
+Om du har höjt kund support ärenden kan du välja knappen **skicka loggar** på fliken **diagnostik** i **Microsoft integration runtime Configuration Manager** som är installerad på din egen värd-IR för att skicka de senaste drift-och körnings loggarna för oss att undersöka.
 
 ## <a name="billing-for-the-on-premises-and-cloud-staging-tasks"></a>Fakturering för aktiviteter för lokal och molnbaserad mellanlagring
 
@@ -167,7 +169,25 @@ De lokala mellanlagrings aktiviteter som körs på din lokala IR-överföring fa
 
 De mellanlagrings aktiviteter som körs på dina Azure-SSIS IR faktureras inte separat, utan att Azure-SSIS IR som körs faktureras enligt vad som anges i artikeln om [Azure-SSIS IR prissättning](https://azure.microsoft.com/pricing/details/data-factory/ssis/) .
 
-## <a name="enabling-tls-12"></a>Aktivera TLS 1.2
+## <a name="enable-custom3rd-party-components"></a>Aktivera komponenter för anpassade/tredje parter 
+
+Följ dessa anvisningar om du vill aktivera dina anpassade/tredje parts komponenter för att komma åt data lokalt med hjälp av IR som proxy för Azure-SSIS IR:
+
+1. Installera dina anpassade/tredje parts komponenter som riktar SQL Server 2017 på Azure-SSIS IR via [standard-/Express-inställningar](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup).
+
+1. Skapa följande register nycklar för DTSPath på egen värd-IR om de inte redan finns: `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath` och `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath` .
+ 
+1. Installera dina anpassade/tredje parts komponenter riktade mot SQL Server 2017 på egen värd-IR under DTSPath ovan och kontrol lera att installations processen:
+
+   1. Skapar `<DTSPath>` , `<DTSPath>/Connections` , `<DTSPath>/PipelineComponents` och `<DTSPath>/UpgradeMappings` mappar om de inte redan finns.
+   
+   1. Skapar en egen XML-fil för tilläggs mappningar i `<DTSPath>/UpgradeMappings` mappen.
+   
+   1. Installerar alla sammansättningar som refereras av dina komponenter för anpassade/tredje parts komponenter i Global Assembly Cache (GAC).
+
+Här är ett [exempel på en komponent från tredje part](https://www.aecorsoft.com/blog/2020/11/8/using-azure-data-factory-to-bring-sap-data-to-azure-via-self-hosted-ir-and-ssis-ir) som använder en Express anpassad installation och egen värd-IR som proxy för Azure-SSIS IR.
+
+## <a name="enforce-tls-12"></a>Aktivera TLS 1.2
 
 Om du behöver använda starkt kryptografiskt/mer säkert nätverks protokoll (TLS 1,2) och inaktivera äldre SSL/TLS-versioner på din egen värd-IR kan du hämta och köra det *main. cmd* -skript som finns i mappen *CustomSetupScript/UserScenarios/TLS 1,2* i vår offentliga för hands versions behållare.  Med hjälp av [Azure Storage Explorer](https://storageexplorer.com/)kan du ansluta till vår offentliga för hands versions behållare genom att ange följande SAS-URI:
 
@@ -175,8 +195,10 @@ Om du behöver använda starkt kryptografiskt/mer säkert nätverks protokoll (T
 
 ## <a name="current-limitations"></a>Aktuella begränsningar
 
-- För närvarande stöds endast data flödes aktiviteter med OLEDB/ODBC/flata fil källor eller OLEDB-mål.
-- Det finns för närvarande stöd för Azure Blob Storage – länkade tjänster som är konfigurerade med *konto nyckel* , *signatur för delad åtkomst (SAS)* eller *tjänstens huvud namn* .
+- Endast data flödes komponenter som är inbyggda/förinstallerade på Azure-SSIS IR Standard Edition, förutom Hadoop/HDFS/DQS-komponenter, stöds för närvarande, se [alla inbyggda/förinstallerade komponenter på Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/built-in-preinstalled-components-ssis-integration-runtime).
+- Endast anpassade/tredje parts data flödes komponenter som är skrivna i förvaltad kod (.NET Framework) stöds för närvarande – de som skrivs i intern kod (C++) stöds inte för närvarande.
+- Det finns för närvarande inte stöd för att ändra variabel värden i både lokala och molnbaserade mellanlagrings uppgifter.
+- Att ändra variabel värden av typen Object i lokala mellanlagringsplatser visas inte i andra aktiviteter.
 - *ParameterMapping* i OLEDB-källan stöds inte för tillfället. Som en lösning kan du använda *SQL-kommandot från variabeln* som *AccessMode* och använda *uttrycket* för att infoga variabler/parametrar i ett SQL-kommando. Som en illustration kan du se paketet *ParameterMappingSample. dtsx* som finns i mappen *SelfHostedIRProxy/begränsningar* i vår offentliga för hands versions behållare. Med hjälp av Azure Storage Explorer kan du ansluta till vår offentliga för hands versions behållare genom att ange SAS-URI: t ovan.
 
 ## <a name="next-steps"></a>Nästa steg

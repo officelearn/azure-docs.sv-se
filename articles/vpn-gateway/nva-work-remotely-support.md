@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: scottnap
-ms.openlocfilehash: 4783016e472907392f2d379efa0fed2d90ed21bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: beb59674d678ed9c61c9ee0b425da7032794ca64
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595367"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660618"
 ---
 # <a name="working-remotely-network-virtual-appliance-nva-considerations-for-remote-work"></a>Arbeta fjärran slutet: NVA (Network Virtual installation) för fjärrarbete
 
@@ -30,7 +30,7 @@ Alla större NVA-leverantörer i Azure Marketplace bör ha rekommendationer om s
 
 - **Kapacitet och antal samtidiga användare** – det här talet är särskilt viktigt för punkt-till-plats-VPN-användare som varje ansluten användare skapar en krypterad (IPSec-eller SSL VPN)-tunnel.  
 - **Sammanställd genom strömning** – vilken mängd bandbredd du behöver för att hantera antalet användare du behöver för att kunna tillhandahålla fjärråtkomst.
-- **Den VM-storlek du behöver** – du bör alltid använda VM-storlekar som rekommenderas av NVA-leverantören.  Om du har ett stort antal samtidiga användar anslutningar för punkt-till-plats-VPN bör du använda större VM-storlekar som [Dv2 och DSv2-seriens](https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series "Dv2 och Dsv2-serien") virtuella datorer. De här virtuella datorerna tenderar att ha fler virtuella processorer och kan hantera fler samtidiga VPN-sessioner.  Förutom att ha fler virtuella kärnor har större VM-storlekar i Azure mer sammanställd bandbredds kapacitet än mindre VM-storlekar.
+- **Den VM-storlek du behöver** – du bör alltid använda VM-storlekar som rekommenderas av NVA-leverantören.  Om du har ett stort antal samtidiga användar anslutningar för punkt-till-plats-VPN bör du använda större VM-storlekar som [Dv2 och DSv2-seriens](../virtual-machines/dv2-dsv2-series.md "Dv2 och Dsv2-serien") virtuella datorer. De här virtuella datorerna tenderar att ha fler virtuella processorer och kan hantera fler samtidiga VPN-sessioner.  Förutom att ha fler virtuella kärnor har större VM-storlekar i Azure mer sammanställd bandbredds kapacitet än mindre VM-storlekar.
     > **Viktigt:** Varje leverantör använder resurser på olika sätt.  Om det är oklart vilka instans storlekar du ska använda för att hantera den uppskattade användar belastningen bör du kontakta program leverantören direkt och be dem om en rekommendation.
 - **Antal instanser** – om du förväntar dig att ha ett stort antal användare och anslutningar, finns det gränser för hur stora NVA-instanser kan uppnå.  Överväg att distribuera flera virtuella dator instanser.
 - **IPSec VPN vs SSL VPN** -i allmänna IPSec-implementeringar av IPSec fungerar bättre än SSL VPN-implementeringar.  

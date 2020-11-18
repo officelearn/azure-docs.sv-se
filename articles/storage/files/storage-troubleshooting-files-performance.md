@@ -4,15 +4,15 @@ description: Felsök kända prestanda problem med Azure-filresurser. Identifiera
 author: gunjanj
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 09/15/2020
+ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 3e6490babb5a4e68c1ecd931251ea4eb99d6c3f5
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 6e4eb37477a335ae93b9982692c238d05c81000b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630149"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660295"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Felsöka prestanda problem i Azure-filresurser
 
@@ -35,8 +35,8 @@ Du kan kontrol lera om din resurs har begränsats genom att komma åt och använ
 1. Välj **transaktioner** som mått.
 
 1. Lägg till ett filter för **svars typ** och kontrol lera om det finns några begär Anden som har någon av följande svars koder:
-   * **SuccessWithThrottling** : för SMB (Server Message Block)
-   * **ClientThrottlingError** : för rest
+   * **SuccessWithThrottling**: för SMB (Server Message Block)
+   * **ClientThrottlingError**: för rest
 
    ![Skärm bild av mått alternativen för Premium-filresurser som visar egenskaps filtret "svars typ".](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
@@ -52,7 +52,7 @@ Du kan kontrol lera om din resurs har begränsats genom att komma åt och använ
 
 Om de flesta av dina begär Anden är metadata-centrerade (till exempel CreateFile, OpenFile, closefile, queryinfo eller querydirectory), kommer svars tiden att bli sämre än för Läs-och skriv åtgärder.
 
-För att avgöra om de flesta av dina begär Anden är metadata-centrerade, börja genom att följa steg 1-4 som tidigare beskrivs i orsak 1. I steg 5, i stället för att lägga till ett filter för **svars typ** , lägger du till ett egenskaps filter för **API-namn**.
+För att avgöra om de flesta av dina begär Anden är metadata-centrerade, börja genom att följa steg 1-4 som tidigare beskrivs i orsak 1. I steg 5, i stället för att lägga till ett filter för **svars typ**, lägger du till ett egenskaps filter för **API-namn**.
 
 ![Skärm bild av mått alternativen för Premium-filresurser som visar egenskaps filtret "API-namn".](media/storage-troubleshooting-premium-fileshares/MetadataMetrics.png)
 
@@ -83,10 +83,11 @@ Det gick inte att hitta den virtuella datorn för klienten (VM) i en annan regio
 ## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>Klienten kunde inte uppnå maximalt data flöde som stöds av nätverket
 
 ### <a name="cause"></a>Orsak
-En möjlig orsak till brist på SMB-stöd för flera kanaler. För närvarande har Azure Files endast stöd för en enda kanal, så det finns bara en anslutning från den virtuella klient datorn till servern. Den här enskilda anslutningen peggas till en enda kärna på den virtuella klient datorn, så det maximala data flödet som kan nås från en virtuell dator binds till en enda kärna.
+En möjlig orsak till brist på SMB-stöd för flera kanaler för standard fil resurser. För närvarande har Azure Files endast stöd för en enda kanal, så det finns bara en anslutning från den virtuella klient datorn till servern. Den här enskilda anslutningen peggas till en enda kärna på den virtuella klient datorn, så det maximala data flödet som kan nås från en virtuell dator binds till en enda kärna.
 
 ### <a name="workaround"></a>Lösning
 
+- För Premium-filresurser [aktiverar du SMB Multichannel på ett FileStorage-konto](storage-files-enable-smb-multichannel.md).
 - Att hämta en virtuell dator med en större kärna kan hjälpa till att förbättra data flödet.
 - Genom att köra klient programmet från flera virtuella datorer ökar du data flödet.
 - Använd REST-API: er där det är möjligt.
@@ -101,7 +102,7 @@ Detta är ett känt problem med implementeringen av SMB-klienten i Linux.
 
 - Sprida belastningen över flera virtuella datorer.
 - Använd flera monterings punkter med ett **nosharesock** -alternativ på samma virtuella dator och sprid belastningen över dessa monterings punkter.
-- På Linux kan du prova att montera med ett **nostrictsync** -alternativ för att undvika en SMB-tömning på varje **fsync** -anrop. För Azure Files stör inte det här alternativet data konsekvens, men det kan resultera i inaktuella fil-metadata på katalog listor ( **ls-l-** kommando). Om du direkt frågar efter fil-metadata med hjälp av **stat** kommandot returneras de senaste aktuella fil-metadata.
+- På Linux kan du prova att montera med ett **nostrictsync** -alternativ för att undvika en SMB-tömning på varje **fsync** -anrop. För Azure Files stör inte det här alternativet data konsekvens, men det kan resultera i inaktuella fil-metadata på katalog listor (**ls-l-** kommando). Om du direkt frågar efter fil-metadata med hjälp av **stat** kommandot returneras de senaste aktuella fil-metadata.
 
 ## <a name="high-latencies-for-metadata-heavy-workloads-involving-extensive-openclose-operations"></a>Hög fördröjning för metadata – tungt arbets belastningar som involverar omfattande öppna/stäng-åtgärder
 
@@ -170,18 +171,65 @@ Högre än förväntad fördröjning vid åtkomst till Azure-filresurser för I/
 
 - Installera den tillgängliga [snabb korrigeringen](https://support.microsoft.com/help/3114025/slow-performance-when-you-access-azure-files-storage-from-windows-8-1).
 
+## <a name="smb-multichannel-option-not-visible-under-file-share-settings"></a>Alternativet SMB Multichannel är inte synligt under fil resurs inställningar. 
+
+### <a name="cause"></a>Orsak
+
+Antingen har prenumerationen inte registrerats för funktionen, eller så stöds inte regionen och konto typen.
+
+### <a name="solution"></a>Lösning
+
+Se till att din prenumeration är registrerad för SMB Multichannel-funktionen. Se [komma igång](storage-files-enable-smb-multichannel.md#getting-started) se till att konto typen är FileStorage (Premium File Account) på konto översikts sidan. 
+
+## <a name="smb-multichannel-is-not-being-triggered"></a>SMB Multichannel utlöses inte.
+
+### <a name="cause"></a>Orsak
+
+Nya ändringar av SMB Multichannel Config-inställningar utan ommontering.
+
+### <a name="solution"></a>Lösning
+ 
+-   Efter ändringar i Windows SMB-klienten eller kontot SMB Multichannel konfigurations inställningar måste du demontera resursen, vänta i 60 sekunder och montera om resursen för att utlösa Multichannel.
+-   För Windows Client OS genererar du IO-belastning med hög ködjup, till exempel KÖDJUP = 8, till exempel att kopiera en fil för att utlösa SMB Multichannel.  För server-OS utlöses SMB Multichannel med KÖDJUP = 1, vilket innebär att så snart som du startar i/o till resursen.
+
+## <a name="high-latency-on-web-sites-hosted-on-file-shares"></a>Hög latens på webbplatser som finns på fil resurser 
+
+### <a name="cause"></a>Orsak  
+
+Hög antal fil ändrings meddelanden på fil resurser kan resultera i avsevärd hög fördröjning. Detta inträffar vanligt vis med webbplatser som finns på fil resurser med en djup kapslad katalog struktur. Ett typiskt scenario är IIS-värdbaserade webb program där fil ändrings meddelanden installeras för varje katalog i standard konfigurationen. Varje ändring (ReadDirectoryChangesW) på den resurs som SMB-klienten är registrerad för skickar ett ändrings meddelande från fil tjänsten till klienten, som tar system resurser, och utfärdar förvärrade med antalet ändringar. Detta kan orsaka resurs begränsning och därmed resultera i högre svars tid på klient sidan. 
+
+För att bekräfta kan du använda Azure-mått i portalen – 
+
+1. I Azure Portal går du till ditt lagrings konto. 
+1. Välj mått i den vänstra menyn under övervakning. 
+1. Välj fil som mått namn område för ditt lagrings konto omfång. 
+1. Välj transaktioner som mått. 
+1. Lägg till ett filter för ResponseType och kontrol lera om det finns några begär Anden som har svars koden SuccessWithThrottling (för SMB) eller ClientThrottlingError (för REST).
+
+### <a name="solution"></a>Lösning 
+
+- Om fil ändrings meddelandet inte används inaktiverar du fil ändrings aviseringen (önskad).
+    - [Inaktivera fil ändrings meddelande](https://support.microsoft.com/help/911272/fix-asp-net-2-0-connected-applications-on-a-web-site-may-appear-to-sto) genom att uppdatera FCNMode. 
+    - Uppdatera IIS-arbetsprocessens (W3WP) avsöknings intervall till 0 genom att ange `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\W3SVC\Parameters\ConfigPollMilliSeconds ` i registret och starta om W3wp-processen. Mer information om den här inställningen finns i [vanliga register nycklar som används av många delar av IIS](/troubleshoot/iis/use-registry-keys#registry-keys-that-apply-to-iis-worker-process-w3wp).
+- Ökar frekvensen för avsöknings intervallet för fil ändrings meddelanden för att minska volymen.
+    - Uppdatera W3WP arbets process avsöknings intervall till ett högre värde (t. ex. 10mins eller 30mins) baserat på ditt krav. Ange `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\W3SVC\Parameters\ConfigPollMilliSeconds ` [i registret](/troubleshoot/iis/use-registry-keys#registry-keys-that-apply-to-iis-worker-process-w3wp) och starta om W3wp-processen.
+- Om webbplatsens mappade fysiska katalog har en kapslad katalog struktur kan du försöka begränsa omfattningen av fil ändrings meddelanden för att minska meddelande volymen.
+    - Som standard använder IIS konfiguration från Web.config filer i den fysiska katalogen som den virtuella katalogen mappas till, samt i alla underordnade kataloger i den fysiska katalogen. Om du inte vill använda Web.config filer i underordnade kataloger anger du falskt för attributet allowSubDirConfig i den virtuella katalogen. Mer information hittar du [här](/iis/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis#virtual-directories). 
+
+Ange inställningen för IIS virtuell katalog "allowSubDirConfig" i Web.Config till false för att undanta mappade fysiska underordnade kataloger från omfånget.  
+
 ## <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>Så här skapar du en avisering om en fil resurs är begränsad
 
 1. I Azure Portal går du till ditt lagrings konto.
 1. I avsnittet **övervakning** väljer du **aviseringar** och väljer sedan **ny aviserings regel**.
-1. Välj **Redigera resurs** , Välj **fil resurs typ** för lagrings kontot och välj sedan **Slutför**. Om lagrings konto namnet till exempel är *contoso* väljer du Contoso/File-resursen.
+1. Välj **Redigera resurs**, Välj **fil resurs typ** för lagrings kontot och välj sedan **Slutför**. Om lagrings konto namnet till exempel är *contoso* väljer du Contoso/File-resursen.
 1. Klicka på **Välj villkor** för att lägga till ett villkor.
 1. I listan över signaler som stöds för lagrings kontot väljer du **transaktions** måttet.
 1. I list rutan **Dimensions namn** i rutan **Konfigurera signal logik** väljer du **svarstyp**.
 1. I list rutan **Dimensions värden** väljer du **SUCCESSWITHTHROTTLING** (för SMB) eller **ClientThrottlingError** (för rest).
 
    > [!NOTE]
-   > Om varken **SuccessWithThrottling** eller **ClientThrottlingError** -dimension svärdet visas innebär det att resursen inte har begränsats. Lägg till dimension svärdet genom att klicka på **Lägg till anpassat värde** bredvid List rutan **Dimensions värden** , ange **SuccessWithThrottling** eller **ClientThrottlingError** , Välj **OK** och upprepa sedan steg 7.
+   > Om varken **SuccessWithThrottling** eller **ClientThrottlingError** -dimension svärdet visas innebär det att resursen inte har begränsats. Lägg till dimension svärdet genom att klicka på **Lägg till anpassat värde** bredvid List rutan **Dimensions värden** , ange **SuccessWithThrottling** eller **ClientThrottlingError**, Välj **OK** och upprepa sedan steg 7.
 
 1. I list rutan **Dimensions namn** väljer du **fil resurs**.
 1. I list rutan **Dimensions värden** väljer du den fil resurs eller de resurser som du vill Avisera om.
@@ -189,7 +237,7 @@ Högre än förväntad fördröjning vid åtkomst till Azure-filresurser för I/
    > [!NOTE]
    > Om fil resursen är en standard fil resurs väljer du **alla aktuella och framtida värden**. List rutan med dimensions värden listar inte fil resurserna, eftersom det inte finns några mått per resurs som är tillgängliga för standard fil resurser. Begränsnings aviseringar för standard fil resurser utlöses om någon fil resurs inom lagrings kontot är begränsad och aviseringen inte identifierar vilken fil resurs som har begränsats. Eftersom per resurs-mått inte är tillgängliga för standard fil resurser, rekommenderar vi att du använder en fil resurs per lagrings konto.
 
-1. Definiera aviserings parametrar genom att ange **tröskelvärde** , **operator** , **agg regerings kornig het** och **utvärderings frekvens** och välj sedan **klar**.
+1. Definiera aviserings parametrar genom att ange **tröskelvärde**, **operator**, **agg regerings kornig het** och **utvärderings frekvens** och välj sedan **klar**.
 
     > [!TIP]
     > Om du använder ett statiskt tröskelvärde kan mått diagrammet hjälpa dig att fastställa ett rimligt tröskelvärde om fil resursen för närvarande begränsas. Om du använder ett dynamiskt tröskelvärde visar mått diagrammet de beräknade tröskelvärdena baserat på senaste data.
@@ -204,7 +252,7 @@ Mer information om hur du konfigurerar aviseringar i Azure Monitor finns i [Öve
 
 1. I Azure Portal går du till ditt lagrings konto.
 1. I avsnittet **övervakning** väljer du **aviseringar** och väljer sedan **ny aviserings regel**.
-1. Välj **Redigera resurs** , Välj **fil resurs typ** för lagrings kontot och välj sedan **Slutför**. Om lagrings konto namnet till exempel är *contoso* väljer du Contoso/File-resursen.
+1. Välj **Redigera resurs**, Välj **fil resurs typ** för lagrings kontot och välj sedan **Slutför**. Om lagrings konto namnet till exempel är *contoso* väljer du Contoso/File-resursen.
 1. Klicka på **Välj villkor** för att lägga till ett villkor.
 1. Välj **utgående** mått i listan över signaler som stöds för lagrings kontot.
 
@@ -213,16 +261,16 @@ Mer information om hur du konfigurerar aviseringar i Azure Monitor finns i [Öve
 
 1. Rulla nedåt. I list rutan **Dimensions namn** väljer du **fil resurs**.
 1. I list rutan **Dimensions värden** väljer du den fil resurs eller de resurser som du vill Avisera om.
-1. Definiera aviserings parametrar genom att välja värden i **operatorn** , **tröskelvärdet** , **agg regerings precisionen** och **frekvensen för utvärderings** List rutorna och välj sedan **Slutför**.
+1. Definiera aviserings parametrar genom att välja värden i **operatorn**, **tröskelvärdet**, **agg regerings precisionen** och **frekvensen för utvärderings** List rutorna och välj sedan **Slutför**.
 
    Utgångs-, ingångs-och transaktions mått uttrycks per minut, även om du är etablerad, ingående och I/O per sekund. Om till exempel din tillhandahållna utgång är 90 &nbsp; mebibytes per sekund (MIB/s) och du vill att ditt tröskelvärde ska vara 80 &nbsp; procent av etableringen, väljer du följande aviserings parametrar: 
-   - För **tröskel värde** : *75497472* 
-   - För **operatorn** : *större än eller lika* med
-   - För **sammansättnings typ** : *genomsnitt*
+   - För **tröskel värde**: *75497472* 
+   - För **operatorn**: *större än eller lika* med
+   - För **sammansättnings typ**: *genomsnitt*
    
    Beroende på hur mycket brus du vill att din avisering ska vara, kan du också välja värden för **agg regerings precision** och **utvärderings frekvens**. Om du till exempel vill att din avisering ska titta på det genomsnittliga ingångs intervallet under en viss tids period på 1 timme, och om du vill att varnings regeln ska köras varje timme, väljer du följande:
-   - För **agg regerings granularitet** : *1 timme*
-   - För **utvärderings frekvens** : *1 timme*
+   - För **agg regerings granularitet**: *1 timme*
+   - För **utvärderings frekvens**: *1 timme*
 
 1. Välj **Välj åtgärds grupp** och Lägg sedan till en åtgärds grupp (till exempel e-post eller SMS) till aviseringen antingen genom att välja en befintlig åtgärds grupp eller genom att skapa en ny.
 1. Ange aviserings information, till exempel namn, **Beskrivning** och **allvarlighets grad** för **aviserings regel**.
@@ -234,7 +282,7 @@ Mer information om hur du konfigurerar aviseringar i Azure Monitor finns i [Öve
     >
     > - Om du vill få ett meddelande om att Premium-filresursen är nära begränsad till begränsning *på grund av etablerade IOPS* följer du anvisningarna ovan, men med följande ändringar:
     >    - I steg 5 väljer du **transaktions** måttet i stället för **utgående**.
-    >    - I steg 10 är det enda alternativet för **agg regerings typ** *Total*. Därför beror tröskelvärdet på din valda agg regerings kornig het. Om du till exempel vill att tröskelvärdet ska vara 80 &nbsp; procent av etablerade bas linje IOPS och du väljer *1 timme* för **agg regerings precision** , skulle ditt **tröskelvärde** vara din bas linje IOPS (i byte) &times; &nbsp; 0,8 &times; &nbsp; 3600. 
+    >    - I steg 10 är det enda alternativet för **agg regerings typ** *Total*. Därför beror tröskelvärdet på din valda agg regerings kornig het. Om du till exempel vill att tröskelvärdet ska vara 80 &nbsp; procent av etablerade bas linje IOPS och du väljer *1 timme* för **agg regerings precision**, skulle ditt **tröskelvärde** vara din bas linje IOPS (i byte) &times; &nbsp; 0,8 &times; &nbsp; 3600. 
 
 Mer information om hur du konfigurerar aviseringar i Azure Monitor finns i [Översikt över aviseringar i Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 

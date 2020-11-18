@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 979ed3d21986ad43d805446a520a59333a6798ed
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 78600b7b57a7c30fc609434a700f13fa21e079ce
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149334"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659649"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Ansluta en underordnad enhet till en Azure IoT Edge-gateway
 
@@ -168,11 +168,15 @@ Det här avsnittet introducerar ett exempel program för att ansluta en Azure Io
 3. Uppdatera **ConnectionString** -och **edge_ca_cert_path** -variablerna i filen iotedge_downstream_device_sample. c.
 4. I SDK-dokumentationen hittar du instruktioner för hur du kör exemplet på enheten.
 
+
 Azure IoT-enhetens SDK för C innehåller ett alternativ för att registrera ett CA-certifikat när klienten konfigureras. Den här åtgärden installerar inte certifikatet var som helst, utan använder i stället ett sträng format för certifikatet i minnet. Det sparade certifikatet tillhandahålls till den underliggande TLS-stacken när en anslutning upprättas.
 
 ```C
 (void)IoTHubDeviceClient_SetOption(device_handle, OPTION_TRUSTED_CERT, cert_string);
 ```
+
+>[!NOTE]
+> Metoden för att registrera ett CA-certifikat när du konfigurerar klienten kan ändras om du använder ett [hanterat](https://github.com/Azure/azure-iot-sdk-c#packages-and-libraries) paket eller bibliotek. Till exempel måste [ARDUINO IDE-baserade bibliotek](https://github.com/azure/azure-iot-arduino) lägga till ca-certifikatet till en certifikat mat ris som definierats i en global [certifikats. c](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c) -fil i stället för att använda `IoTHubDeviceClient_LL_SetOption` åtgärden.  
 
 Om du inte använder OpenSSL eller något annat TLS-bibliotek på Windows-värdar, använder SDK: n som standard för att använda Schannel. För att Schannel ska fungera bör IoT Edge rot certifikat utfärdare installeras i Windows certifikat Arkiv och inte anges med `IoTHubDeviceClient_SetOption` åtgärden.
 

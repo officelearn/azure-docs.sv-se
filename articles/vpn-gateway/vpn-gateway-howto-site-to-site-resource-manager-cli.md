@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/23/2020
 ms.author: cherylmc
-ms.openlocfilehash: 83ae4185d22a6578130ca96c06ac1e5d0c25b375
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2c5afbaa9ee9d531c6995fdeeab7bf38bf1e2d55
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541374"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660975"
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Skapa ett virtuellt nätverk med en VPN-anslutning från plats till plats med CLI
 
@@ -141,7 +141,7 @@ Skapa den virtuella VPN-nätverksgatewayen. Det kan ta upp till 45 minuter att s
 
 Använd följande värden:
 
-* *--gateway-type* för en plats-till-plats-konfiguration är *Vpn* . Gateway-typen gäller alltid den konfiguration som du implementerar. Se [Gatewaytyper](vpn-gateway-about-vpn-gateway-settings.md#gwtype) för mer information.
+* *--gateway-type* för en plats-till-plats-konfiguration är *Vpn*. Gateway-typen gäller alltid den konfiguration som du implementerar. Se [Gatewaytyper](vpn-gateway-about-vpn-gateway-settings.md#gwtype) för mer information.
 * *--VPN-typen* kan vara *routningsbaserad* (kallas en dynamisk gateway i viss dokumentation) eller *Principbaserad* (kallas en statisk gateway i viss dokumentation). Inställningen gäller krav på den enhet som du ansluter till. Mer information om VPN Gateway-typer finns i [Om konfigurationsinställningar för VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md#vpntype).
 * Markera den gateway SKU som du vill använda. Det finns konfigurationsbegränsningar för vissa SKU:er. Se [Gateway SKU:er](vpn-gateway-about-vpn-gateway-settings.md#gwsku) för mer information.
 
@@ -196,10 +196,10 @@ Det här avsnittet tar upp vanliga kommandon som är användbara när du arbetar
 
 ## <a name="next-steps"></a>Nästa steg
 
-* När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Mer information finns i [Virtuella datorer](https://docs.microsoft.com/azure/).
+* När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Mer information finns i [Virtuella datorer](../index.yml).
 * Information om BGP finns i [BGP-översikt](vpn-gateway-bgp-overview.md) och [Så här konfigurerar du BGP](vpn-gateway-bgp-resource-manager-ps.md).
 * Information om Tvingad tunnel trafik finns i [om Tvingad tunnel trafik](vpn-gateway-forced-tunneling-rm.md).
 * Mer information om aktiv-aktiv-anslutningar med hög tillgänglighet finns i [Anslutning med hög tillgänglighet på flera platser och VNet-till-VNet-anslutning](vpn-gateway-highlyavailable.md).
-* Om du vill ha en lista över Azure CLI-nätverkskommandon finns det i [Azure CLI](https://docs.microsoft.com/cli/azure/network).
+* Om du vill ha en lista över Azure CLI-nätverkskommandon finns det i [Azure CLI](/cli/azure/network).
 * Information om hur du skapar en VPN-anslutning från plats till plats med hjälp av Azure Resource Manager-mall finns i [skapa en plats-till-plats-VPN-anslutning](https://azure.microsoft.com/resources/templates/101-site-to-site-vpn-create/).
 * Information om hur du skapar en VPN-anslutning mellan virtuella nätverk med hjälp av Azure Resource Manager mall finns i [distribuera HBase geo-replikering](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/).

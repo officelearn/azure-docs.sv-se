@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: genli
-ms.openlocfilehash: dbf0d096827ec1af16e6d38d405709e48175ae89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 908602dff3be2f392bc595f0074db7f95b8936a9
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88035961"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660992"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Fel sökning: problem med Azure punkt-till-plats-anslutning
 
@@ -35,7 +35,7 @@ Det här problemet uppstår om klient certifikatet saknas i **certifikat – akt
 
 Följ dessa steg för att lösa problemet:
 
-1. Öppna certifikat hanteraren: Klicka på **Start**, Skriv **Hantera dator certifikat**och klicka sedan på **Hantera dator certifikat** i Sök resultatet.
+1. Öppna certifikat hanteraren: Klicka på **Start**, Skriv **Hantera dator certifikat** och klicka sedan på **Hantera dator certifikat** i Sök resultatet.
 
 2. Kontrol lera att följande certifikat finns på rätt plats:
 
@@ -71,7 +71,7 @@ Förbereda Windows 10 eller Server 2016 för IKEv2:
 
 1. Installera uppdateringen.
 
-   | OS-version | Date | Antal/länk |
+   | OS-version | Datum | Antal/länk |
    |---|---|---|---|
    | Windows Server 2016<br>Windows 10, version 1607 | 17 januari 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
    | Windows 10, version 1703 | 17 januari 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
@@ -137,7 +137,7 @@ Det här problemet beror på en felaktig Gateway-typ.
 
 ### <a name="solution"></a>Lösning
 
-VPN-gatewayens typ måste vara **VPN**och VPN-typen måste vara **routningsbaserad**.
+VPN-gatewayens typ måste vara **VPN** och VPN-typen måste vara **routningsbaserad**.
 
 ## <a name="vpn-client-error-azure-vpn-custom-script-failed"></a>VPN-klient fel: det gick inte att anpassa Azure VPN-skriptet 
 
@@ -168,7 +168,7 @@ Extrahera konfigurations paketet för VPN-klienten och leta upp CER-filen. Följ
 1. Öppna mmc.exe.
 2. Lägg till snapin-modulen **certifikat** .
 3. Välj **dator** kontot för den lokala datorn.
-4. Högerklicka på noden **betrodda rot certifikat utfärdare** . Klicka på Importera **alla aktiviteter**  >  **Import**och bläddra till. CER-filen som du extraherade från konfigurations paketet för VPN-klienten.
+4. Högerklicka på noden **betrodda rot certifikat utfärdare** . Klicka på Importera **alla aktiviteter**  >  **Import** och bläddra till. CER-filen som du extraherade från konfigurations paketet för VPN-klienten.
 5. Starta om datorn. 
 6. Försök att installera VPN-klienten.
 
@@ -274,7 +274,7 @@ Du tar bort punkt-till-plats-VPN-anslutningen och installerar sedan om VPN-klien
 
 ### <a name="solution"></a>Lösning
 
-Lös problemet genom att ta bort de gamla konfigurationsfilerna för VPN-klienten **från \<VirtualNetworkId> C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections**och kör sedan installations programmet för VPN-klienten igen.
+Lös problemet genom att ta bort de gamla konfigurationsfilerna för VPN-klienten **från \<VirtualNetworkId> C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections** och kör sedan installations programmet för VPN-klienten igen.
 
 ## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>Punkt-till-plats-VPN-klienten kan inte matcha det fullständiga domän namnet för resurserna i den lokala domänen
 
@@ -298,7 +298,7 @@ Det här problemet kan inträffa om VPN-klienten inte hämtar vägarna från Azu
 
 ### <a name="solution"></a>Lösning
 
-Lös problemet genom att [återställa Azure VPN gateway](vpn-gateway-resetgw-classic.md). För att se till att de nya vägarna används, måste punkt-till-plats-VPN-klienterna laddas ned igen efter att det har kon figurer ATS för virtuella nätverks-peering.
+Lös problemet genom att [återställa Azure VPN gateway](./reset-gateway.md). För att se till att de nya vägarna används, måste punkt-till-plats-VPN-klienterna laddas ned igen efter att det har kon figurer ATS för virtuella nätverks-peering.
 
 ## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Fel: "återkallnings funktionen kunde inte kontrol lera återkallning eftersom åter kallelse servern var offline. (Fel 0x80092013) "
 
@@ -335,7 +335,7 @@ NÄTVERKSKORT driv rutinen är inaktuell.
 
 Uppdatera NIC-drivrutinen:
 
-1. Klicka på **Start**, Skriv **Enhetshanteraren**och välj den i listan över resultat. Om du uppmanas att ange ett administratörs lösen ord eller en bekräftelse anger du lösen ordet eller anger en bekräftelse.
+1. Klicka på **Start**, Skriv **Enhetshanteraren** och välj den i listan över resultat. Om du uppmanas att ange ett administratörs lösen ord eller en bekräftelse anger du lösen ordet eller anger en bekräftelse.
 2. Leta upp det nätverkskort som du vill uppdatera i kategorierna **nätverkskort** .  
 3. Dubbelklicka på enhetens namn, Välj **Uppdatera driv rutin**, Välj **Sök automatiskt efter uppdaterad driv rutins program vara**.
 4.  Om Windows inte hittar någon kan du söka efter en drivrutin på enhetstillverkarens webbplats och installera den enligt deras instruktioner.
@@ -372,7 +372,7 @@ Det här problemet kan orsakas av de tidigare installationerna av VPN-klienten.
 
 ### <a name="solution"></a>Lösning
 
-Ta bort de gamla konfigurationsfilerna för VPN-klienten från **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections \<VirtualNetworkId> ** och kör installations programmet för VPN-klienten igen. 
+Ta bort de gamla konfigurationsfilerna för VPN-klienten från **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections \<VirtualNetworkId>** och kör installations programmet för VPN-klienten igen. 
 
 ## <a name="the-vpn-client-hibernates-or-sleep-after-some-time"></a>VPN-klienten försätts i vilo läge eller ström spar läge efter en stund
 

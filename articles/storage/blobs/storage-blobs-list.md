@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/16/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2ebf383c1a904027d3ff5a1864ea9f50e87a5fa8
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 0bd2b295e5e4d4d5ea6e25869c8c109ff8bbbf38
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093301"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660771"
 ---
 # <a name="list-blobs-with-net"></a>Lista blobbar med .NET
 
@@ -51,11 +51,7 @@ Om du vill visa en lista över blobarna i en behållare, anropa någon av följa
 
 ### <a name="manage-how-many-results-are-returned"></a>Hantera hur många resultat som returneras
 
-Som standard returnerar en List åtgärd upp till 5000 resultat i taget, men du kan ange antalet resultat som du vill att varje List åtgärd ska returnera. I exemplen som visas i den här artikeln visas hur du gör detta.
-
-Om en List åtgärd returnerar mer än 5000 blobbar, eller om antalet blobbar som är tillgängliga överstiger det antal som du angav, returnerar Azure Storage en *fortsättnings-token* med listan över blobbar. En fortsättnings-token är ett ogenomskinligt värde som du kan använda för att hämta nästa uppsättning resultat från Azure Storage.
-
-I din kod kontrollerar du värdet för fortsättnings-token för att avgöra om det är null. När tilläggs-token är null slutförs uppsättningen av resultat. Om tilläggs-token inte är null anropar du List åtgärden igen och skickar i fortsättnings-token för att hämta nästa uppsättning resultat, tills den fortsatta token är null.
+Som standard returnerar en List åtgärd upp till 5000 resultat i taget, men du kan ange antalet resultat som du vill att varje List åtgärd ska returnera. I exemplen som visas i den här artikeln visas hur du returnerar resultat på sidor.
 
 ### <a name="filter-results-with-a-prefix"></a>Filtrera resultat med ett prefix
 
@@ -63,7 +59,7 @@ Om du vill filtrera listan över blobbar anger du en sträng för `prefix` param
 
 ### <a name="return-metadata"></a>Returnera metadata
 
-Du kan returnera BLOB-metadata med resultaten. 
+Du kan returnera BLOB-metadata med resultaten.
 
 - Om du använder .NET V12 SDK anger du **metadata** -värdet för [BlobTraits](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models.blobtraits) -uppräkningen.
 
@@ -90,6 +86,10 @@ Om du har aktiverat funktionen för hierarkiskt namn område på ditt konto är 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsFlatListing":::
 
 # <a name="net-v11"></a>[.NET-v11](#tab/dotnet11)
+
+Om en List åtgärd returnerar mer än 5000 blobbar, eller om antalet blobbar som är tillgängliga överstiger det antal som du angav, returnerar Azure Storage en *fortsättnings-token* med listan över blobbar. En fortsättnings-token är ett ogenomskinligt värde som du kan använda för att hämta nästa uppsättning resultat från Azure Storage.
+
+I din kod kontrollerar du värdet för fortsättnings-token för att avgöra om det är null. När tilläggs-token är null slutförs uppsättningen av resultat. Om tilläggs-token inte är null anropar du List åtgärden igen och skickar i fortsättnings-token för att hämta nästa uppsättning resultat, tills den fortsatta token är null.
 
 ```csharp
 private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container, int? segmentSize)

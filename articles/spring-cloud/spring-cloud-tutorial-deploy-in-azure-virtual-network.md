@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: e0fc50647e926ea919f70b888f3efc303713fe1e
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 43b28c9f2efc8ffe17e0bf21b1c395d64e89b6a8
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631197"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660023"
 ---
 # <a name="tutorial-deploy-azure-spring-cloud-in-azure-virtual-network-vnet-injection"></a>Självstudie: Distribuera Azure våren Cloud i Azure Virtual Network (VNet-insprutning)
 
@@ -27,7 +27,7 @@ Distributionen gör det möjligt att:
 * Bemyndiga kunder att kontrol lera inkommande och utgående nätverkskommunikation för Azure våren Cloud
 
 ## <a name="prerequisites"></a>Förutsättningar
-Du måste registrera Azure våren Cloud Resource Provider `Microsoft.AppPlatform` enligt anvisningarna [Registrera resurs leverantören på Azure Portal](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) eller genom att köra följande AZ CLI-kommando:
+Du måste registrera Azure våren Cloud Resource Provider *Microsoft. AppPlatform* och *Microsoft. container service* enligt anvisningarna [Registrera resurs leverantören på Azure Portal](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) eller genom att köra följande AZ CLI-kommando:
 
 ```azurecli
 az provider register --namespace Microsoft.AppPlatform
@@ -35,21 +35,21 @@ az provider register --namespace Microsoft.AppPlatform
 ## <a name="virtual-network-requirements"></a>Krav för virtuellt nätverk
 Det virtuella nätverk som du distribuerar din Azure våren moln tjänst instans till måste uppfylla följande krav:
 
-* **Plats** : det virtuella nätverket måste finnas på samma plats som Azure våren Cloud Service-instansen.
-* **Prenumeration** : det virtuella nätverket måste finnas i samma prenumeration som Azure våren Cloud Service-instansen.
-* **Undernät** : det virtuella nätverket måste innehålla två undernät som är dedikerade till en Azure våren Cloud Service-instans: 
+* **Plats**: det virtuella nätverket måste finnas på samma plats som Azure våren Cloud Service-instansen.
+* **Prenumeration**: det virtuella nätverket måste finnas i samma prenumeration som Azure våren Cloud Service-instansen.
+* **Undernät**: det virtuella nätverket måste innehålla två undernät som är dedikerade till en Azure våren Cloud Service-instans: 
     * En för service runtime
     * En för dina våren Boot-mikrotjänstprogram. 
     * Det finns en 1-till-1-relation mellan dessa undernät och en Azure våren Cloud Service-instans. Du måste använda ett nytt undernät för varje tjänst instans som du distribuerar och varje undernät kan bara innehålla en enda tjänst instans.
-* **Adress utrymme** : ett CIDR-block upp till/28 för service runtime-undernätet och ett annat CIDR-block upp till/24 för våren Boot Boot mikroservice Applications-undernät.
-* **Routningstabell** : under näten får inte ha någon befintlig routningstabell kopplad.
+* **Adress utrymme**: ett CIDR-block upp till/28 för service runtime-undernätet och ett annat CIDR-block upp till/24 för våren Boot Boot mikroservice Applications-undernät.
+* **Routningstabell**: under näten får inte ha någon befintlig routningstabell kopplad.
 
 Följande procedurer beskriver hur du installerar det virtuella nätverket som innehåller instansen av Azure våren Cloud.
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 Om du redan har ett virtuellt nätverk som värd för Azure våren Cloud Service-instansen hoppar du över steg 1, 2 och 3. Du kan börja från steg 4 för att förbereda undernät för det virtuella nätverket.
 
-1. I menyn i Azure-portalen väljer du **Skapa en resurs** . På Azure Marketplace väljer du **nätverk**  >  **virtuellt nätverk** .
+1. I menyn i Azure-portalen väljer du **Skapa en resurs**. På Azure Marketplace väljer du **nätverk**  >  **virtuellt nätverk**.
 
 1. I dialog rutan **Skapa virtuellt nätverk** anger eller väljer du följande information:
 
@@ -57,24 +57,24 @@ Om du redan har ett virtuellt nätverk som värd för Azure våren Cloud Service
     |-----------------|--------------------------------------------------|
     |Prenumeration     |Välj din prenumeration.                         |
     |Resursgrupp   |Välj en resurs grupp eller skapa en ny.  |
-    |Namn             |Ange *Azure-våren-Cloud-VNet*                   |
+    |Name             |Ange *Azure-våren-Cloud-VNet*                   |
     |Plats         |Välj **USA, östra**                                |
 
-1. Klicka på **Nästa: IP-adresser >** . 
+1. Klicka på **Nästa: IP-adresser >**. 
  
 1. För IPv4-adress utrymme anger du 10.1.0.0/16.
 
-1. Välj **Lägg till undernät** och ange sedan *service-runtime-Subnet* för **under nätets namn** och 10.1.0.0/24 för **under nätets adress intervall** . Klicka sedan på **Lägg till** .
+1. Välj **Lägg till undernät** och ange sedan *service-runtime-Subnet* för **under nätets namn** och 10.1.0.0/24 för **under nätets adress intervall**. Klicka sedan på **Lägg till**.
 
-1. Välj **Lägg till undernät** igen och ange **under nätets namn** och **under nätets adress intervall** , till exempel *appar – undernät* och 10.1.1.0/24.  Klicka på **Lägg till** .
+1. Välj **Lägg till undernät** igen och ange **under nätets namn** och **under nätets adress intervall**, till exempel *appar – undernät* och 10.1.1.0/24.  Klicka på **Lägg till**.
 
-1. Klicka på **Granska + skapa** . Lämna resten som standard och klicka på **skapa** .
+1. Klicka på **Granska + skapa**. Lämna resten som standard och klicka på **skapa**.
 
 ## <a name="grant-service-permission-to-the-virtual-network"></a>Bevilja tjänst behörighet till det virtuella nätverket
 
 Välj det virtuella nätverket *Azure-våren-Cloud-VNet* som du skapade tidigare.
 
-1. Välj **åtkomst kontroll (IAM)** och välj sedan **Lägg till > Lägg till roll tilldelning** .
+1. Välj **åtkomst kontroll (IAM)** och välj sedan **Lägg till > Lägg till roll tilldelning**.
 
     ![Åtkomst kontroll för v-net](./media/spring-cloud-v-net-injection/access-control.png)
 
@@ -85,7 +85,7 @@ Välj det virtuella nätverket *Azure-våren-Cloud-VNet* som du skapade tidigare
     |Roll     |Välj **ägare**                                  |
     |Välj   |Ange *Azure våren Cloud Resource Provider*      |
 
-    Välj sedan *Azure våren Cloud Resource Provider* och klicka på **Spara** .
+    Välj sedan *Azure våren Cloud Resource Provider* och klicka på **Spara**.
 
     ![Tilldela Azures moln resurs leverantör till v-net](./media/spring-cloud-v-net-injection/grant-azure-spring-cloud-resource-provider-to-vnet.png)
 
@@ -110,13 +110,13 @@ az role assignment create \
 
 1. Sök efter **Azure våren Cloud** i den översta sökrutan och välj **Azure våren Cloud** från resultatet.
 
-1. På sidan **Azure våren Cloud** väljer du **+ Lägg till** .
+1. På sidan **Azure våren Cloud** väljer du **+ Lägg till**.
 
 1. Fyll i formuläret på sidan Azure våren Cloud **create** . 
 
 1. Välj samma resurs grupp och region som det virtuella nätverket.
 
-1. Som **namn** under **tjänst information** väljer du *Azure-våren-Cloud-VNet* .
+1. Som **namn** under **tjänst information** väljer du *Azure-våren-Cloud-VNet*.
 
 1. Välj fliken **nätverk** och välj följande:
 
@@ -129,9 +129,9 @@ az role assignment create \
 
     ![Fliken skapa nätverk](./media/spring-cloud-v-net-injection/creation-blade-networking-tab.png)
 
-1. Klicka på **Granska och skapa** .
+1. Klicka på **Granska och skapa**.
 
-1. Kontrol lera dina specifikationer och klicka på **skapa** .
+1. Kontrol lera dina specifikationer och klicka på **skapa**.
 
 Efter distributionen skapas två ytterligare resurs grupper i din prenumeration som värd för nätverks resurserna för Azure våren Cloud Service-instansen.  Gå till **Start** och välj **resurs grupper** från de översta meny alternativen för att hitta följande nya resurs grupper.
 

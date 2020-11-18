@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: c7f71d24ab516044a0ce48ad40f78bc659268866
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59aa6f5560917651d8f60c667145b0953bf72ef5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442170"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660873"
 ---
 # <a name="transition-to-openvpn-protocol-or-ikev2-from-sstp"></a>Över gång till OpenVPN-protokoll eller IKEv2 från SSTP
 
@@ -58,9 +58,9 @@ Du kan aktivera OpenVPN längs sidan med IKEv2 om du vill. OpenVPN är TLS-baser
 
 ![punkt-till-plats](./media/ikev2-openvpn-from-sstp/sstptoopenvpn.png "OpenVPN")
 
-När gatewayen har kon figurer ATS kommer befintliga klienter inte att kunna ansluta förrän du [distribuerar och konfigurerar OpenVPN-klienterna](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-openvpn-clients).
+När gatewayen har kon figurer ATS kommer befintliga klienter inte att kunna ansluta förrän du [distribuerar och konfigurerar OpenVPN-klienterna](./vpn-gateway-howto-openvpn-clients.md).
 
-Om du använder Windows 10 kan du också använda [Azure VPN-klienten för Windows](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-client#to-download-the-azure-vpn-client)
+Om du använder Windows 10 kan du också använda [Azure VPN-klienten för Windows](./openvpn-azure-ad-client.md#to-download-the-azure-vpn-client)
 
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/15/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4d1488d6dd2e5d08ae774ca88b7ab41b2020efe5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2726c8d416bee209f864f7e299403f589a767840
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91000994"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659598"
 ---
 # <a name="quickstart-create-an-key-vault-managed-hsm-using-an-azure-resource-manager-template"></a>Snabb start: skapa en Key Vault hanterad HSM med en Azure Resource Manager-mall
 
@@ -23,7 +23,7 @@ Hanterad HSM är en fullständigt hanterad moln tjänst med hög tillgänglighet
 
 Den här snabb starten fokuserar på processen att distribuera en Resource Manager-mall för att skapa en hanterad HSM.  En [Resource Manager-mall](../../azure-resource-manager/templates/overview.md) är en JSON-fil (JavaScript Object Notation) som definierar infrastrukturen och konfigurationen för ditt projekt. Mallen använder deklarativ syntax, som låter dig ange vad du vill distribuera utan att du behöver skriva sekvensen med programmeringskommandon för att skapa det. Om du vill veta mer om hur du utvecklar Resource Manager-mallar kan du läsa mer i [Resource Manager-dokumentationen](../../azure-resource-manager/index.yml) och [mallreferensen](/azure/templates/microsoft.keyvault/allversions).
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -79,7 +79,6 @@ Du kan också behöva ditt klient-ID. För att hitta det använder du kommandot 
     - **Resurs grupp**: Välj **Skapa ny**, ange ett unikt namn för resurs gruppen och klicka sedan på **OK**.
     - **Plats**: Välj en plats. Till exempel **södra centrala USA**.
     - **managedHSMName**: Ange ett namn för din hanterade HSM.
-    - **SKU**: Ange namn och familj för den hanterade HSM som du vill skapa.  I den här snabb starten anger du "Standard_B1" som namn och "B" för familjen.
     - **Klient-ID**: funktionen mall hämtar automatiskt klient-ID: t. Ändra inte standardvärdet.  Om det inte finns något värde anger du det klient-ID som du hämtade i [krav](#prerequisites).
     * **initialAdminObjectIds**: Ange det objekt-ID som du hämtade i [krav](#prerequisites).
 

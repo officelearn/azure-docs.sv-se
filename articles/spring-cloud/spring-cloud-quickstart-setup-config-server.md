@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 55e47b09ac4a6256a125a75c8a0f856e867e7c0e
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 906aeaf87bfd71202064fae856a86985637985eb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337827"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659547"
 ---
 # <a name="quickstart-set-up-azure-spring-cloud-configuration-server"></a>Snabb start: Konfigurera Azure våren Cloud Configuration Server
 
@@ -57,9 +57,19 @@ Följande procedur konfigurerar konfigurations servern med hjälp av Azure Porta
 
 2. I avsnittet **standard plats** ställer du in **URI** till " https://github.com/Azure-Samples/piggymetrics-config ".
 
-3. Tryck på **Apply** (Verkställ) för att spara ändringarna.
+3. Klicka på **validera**.
 
-    ![Skärm bild av ASC-portalen](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+    ![Gå till konfigurations Server](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+
+4. När verifieringen är klar klickar du på **tillämpa** för att spara ändringarna.
+
+    ![Verifierar konfigurations Server](media/spring-cloud-quickstart-launch-app-portal/validate-complete.png)
+
+5. Det kan ta några minuter att uppdatera konfigurationen.
+ 
+    ![Uppdaterar konfigurations Server](media/spring-cloud-quickstart-launch-app-portal/updating-config.png) 
+
+6. Du bör få ett meddelande när konfigurationen är klar.
 
 #### <a name="cli"></a>[CLI](#tab/Azure-CLI)
 
@@ -78,7 +88,7 @@ az spring-cloud config-server git set -n <service instance name> --uri https://g
 I följande procedur beskrivs hur du felsöker konfigurations Server inställningar.
 
 1. I Azure Portal går du till sidan tjänst **Översikt** och väljer **loggar**. 
-1. Välj **frågor** och **Visa de program loggar som innehåller villkoren "Error" eller "Exception** ". 
+1. Välj **frågor** och **Visa de program loggar som innehåller villkoren "Error" eller "Exception**". 
 1. Klicka på **Kör**. 
 1. Om du hittar felet **Java. lang. illegalStateException** i loggar, betyder det att våren Cloud service inte kan hitta egenskaper från konfigurations servern.
 

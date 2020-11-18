@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: tutorial
 ms.date: 10/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: 91004b9cb545275746f75dbd6ad46981fe4b04d5
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b70a3fe4884ef209e57fbb954c27aa83486b5c98
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461166"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661009"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Självstudie: skapa och hantera en VPN-gateway med PowerShell
 
@@ -28,7 +28,7 @@ Följande diagram visar det virtuella nätverket och den VPN-gateway som skapats
 
 :::image type="content" source="./media/vpn-gateway-tutorial-create-gateway-powershell/gateway-diagram.png" alt-text="Diagram över VNet-och VPN-gateway":::
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [working with cloud shell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
@@ -133,7 +133,7 @@ När gatewayen har skapats kan du skapa en anslutning mellan ditt virtuella nät
 
 ## <a name="view-the-gateway-public-ip-address"></a>Se den offentliga IP-adressen för gatewayen
 
-Om du känner till namnet på den offentliga IP-adressen kan du använda [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) till att visa den offentliga IP-adress som är tilldelad till gatewayen.
+Om du känner till namnet på den offentliga IP-adressen kan du använda [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) till att visa den offentliga IP-adress som är tilldelad till gatewayen.
 
 Om tidsgränsen för sessionen har uppnåtts, kopierar du de gemensamma nätverksparametrarna från början av den här självstudien i den nya sessionen och går vidare och fortsätter.
 
@@ -162,11 +162,11 @@ $gateway = Get-AzVirtualNetworkGateway -Name $Gw1 -ResourceGroup $RG1
 Reset-AzVirtualNetworkGateway -VirtualNetworkGateway $gateway
 ```
 
-Mer information finns i [Återställa en VPN-gateway](vpn-gateway-resetgw-classic.md).
+Mer information finns i [Återställa en VPN-gateway](./reset-gateway.md).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du går [vidare till nästa självstudie](vpn-gateway-tutorial-vpnconnection-powershell.md)ska du behålla dessa resurser eftersom de är nödvändiga.
+Om du går [vidare till nästa självstudie](./vpn-gateway-create-site-to-site-rm-powershell.md)ska du behålla dessa resurser eftersom de är nödvändiga.
 
 Men om gatewayen ingår i en prototyp-, ett test- eller en Proof of Concept-distribution, kan du använda kommandot [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) till att ta bort resursgruppen, VPN-gatewayen och alla relaterade resurser.
 

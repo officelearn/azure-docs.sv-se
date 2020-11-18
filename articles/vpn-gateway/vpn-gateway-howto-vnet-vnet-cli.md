@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 428c24236aad9a57a9d52eb0a6ff3a7aeb9fe541
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9502f3fbd50aad756e15daa4db1badda2abf9ab
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442161"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660074"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Konfigurera en VPN-gatewayanslutning mellan virtuella nätverk med hjälp av Azure CLI
 
@@ -23,7 +23,7 @@ Den här artikeln hjälper dig ansluta virtuella nätverk via VNet-till-VNet-ans
 Anvisningarna i den här artikeln gäller för Resource Manager-distributionsmodellen och användning av Azure CLI. Du kan också skapa den här konfigurationen med ett annat distributionsverktyg eller en annan distributionsmodell genom att välja ett annat alternativ i listan nedan:
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Azure-portalen](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Azure Portal (klassisk)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
@@ -134,7 +134,7 @@ Vi använder följande värden i exemplen:
    ```azurecli
    az network vnet create -n TestVNet1 -g TestRG1 --address-prefix 10.11.0.0/16 -l eastus --subnet-name FrontEnd --subnet-prefix 10.11.0.0/24
    ```
-3. Skapa ytterligare ett adressutrymme för ett backend-undernät. Observera att i det här steget ska vi ange såväl adressutrymmet som vi skapade tidigare som ytterligare adressutrymme ett som vi vill lägga till. Detta beror på att kommandot [az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet) skriver över de tidigare inställningarna. Se till att ange alla adressprefixen när du använder det här kommandot.
+3. Skapa ytterligare ett adressutrymme för ett backend-undernät. Observera att i det här steget ska vi ange såväl adressutrymmet som vi skapade tidigare som ytterligare adressutrymme ett som vi vill lägga till. Detta beror på att kommandot [az network vnet update](/cli/azure/network/vnet) skriver över de tidigare inställningarna. Se till att ange alla adressprefixen när du använder det här kommandot.
 
    ```azurecli
    az network vnet update -n TestVNet1 --address-prefixes 10.11.0.0/16 10.12.0.0/16 -g TestRG1
@@ -214,10 +214,10 @@ Nu har du två VNets med VPN-gatewayer. Nästa steg är att skapa VPN-gateway-an
    ```
    "activeActive": false, 
    "bgpSettings": { 
-    "asn": 65515, 
-    "bgpPeeringAddress": "10.12.255.30", 
-    "peerWeight": 0 
-   }, 
+    "asn": 65515, 
+    "bgpPeeringAddress": "10.12.255.30", 
+    "peerWeight": 0 
+   }, 
    "enableBgp": false, 
    "etag": "W/\"ecb42bc5-c176-44e1-802f-b0ce2962ac04\"", 
    "gatewayDefaultSite": null, 
@@ -356,7 +356,7 @@ Vi har delat upp steget i två CLI-sessioner som kallas för **[Prenumeration 1]
 
    Kopiera utdata för ”id:”. Skicka ID och namn på den VNet-gatewayen (VNet5GW) till prenumeration 1-administratören via e-post eller någon annan metod.
 
-3. **[Prenumeration 1]** I det här steget ska du skapa anslutningen från TestVNet1 till TestVNet5. Du kan använda egna värden för den delade nyckeln, men den delade nyckeln måste matcha för både anslutningar. Att skapa en anslutning kan ta en stund att slutföra.Kontrollera att du ansluter till Prenumeration 1.
+3. **[Prenumeration 1]** I det här steget ska du skapa anslutningen från TestVNet1 till TestVNet5. Du kan använda egna värden för den delade nyckeln, men den delade nyckeln måste matcha för både anslutningar. Att skapa en anslutning kan ta en stund att slutföra. Kontrollera att du ansluter till Prenumeration 1.
 
    ```azurecli
    az network vpn-connection create -n VNet1ToVNet5 -g TestRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW -l eastus --shared-key "eeffgg" --vnet-gateway2 /subscriptions/e7e33b39-fe28-4822-b65c-a4db8bbff7cb/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW
@@ -378,5 +378,5 @@ Vi har delat upp steget i två CLI-sessioner som kallas för **[Prenumeration 1]
 
 ## <a name="next-steps"></a>Nästa steg
 
-* När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Mer information finns i [Dokumentationen för virtuella datorer](https://docs.microsoft.com/azure/).
+* När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Mer information finns i [Dokumentationen för virtuella datorer](../index.yml).
 * Information om BGP finns i [BGP-översikt](vpn-gateway-bgp-overview.md) och [Så här konfigurerar du BGP](vpn-gateway-bgp-resource-manager-ps.md).

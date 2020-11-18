@@ -3,12 +3,12 @@ title: Azure Lab Services-administratörs guide | Microsoft Docs
 description: Den här guiden hjälper administratörer som skapar och hanterar labb konton med Azure Lab Services.
 ms.topic: article
 ms.date: 10/20/2020
-ms.openlocfilehash: 8670a9d56575dbfb6d3e565ec97191581dc612a8
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: b1fadc58926b00c75ab888dad86e45b181059a38
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491043"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659853"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services-administratörs guide
 IT-administratörer som hanterar ett universitets moln resurser är vanligt vis ansvariga för att ställa in labb kontot för sin skola. När ett labb konto har kon figurer ATS kan administratörer eller lärare skapa labb som finns i labb kontot. Den här artikeln innehåller en översikt över de Azure-resurser som ingår och vägledningen för att skapa dem.
@@ -19,7 +19,7 @@ IT-administratörer som hanterar ett universitets moln resurser är vanligt vis 
 - Labb konton, delade avbildnings gallerier och avbildnings versioner finns i din prenumeration.
 - Du kan ha ditt labb konto och det delade avbildnings galleriet i samma resurs grupp. I det här diagrammet finns de i olika resurs grupper.
 
-Mer information om arkitekturen finns i artikeln: [labb arkitektur grunderna](https://docs.microsoft.com/azure/lab-services/classroom-labs-fundamentals)
+Mer information om arkitekturen finns i artikeln: [labb arkitektur grunderna](./classroom-labs-fundamentals.md)
 
 ## <a name="subscription"></a>Prenumeration
 Ditt universitet har en eller flera Azure-prenumerationer. En prenumeration används för att hantera fakturering och säkerhet för alla Azure-resources\services som används i den, inklusive Lab-konton.
@@ -58,7 +58,7 @@ I följande lista beskrivs scenarier där mer än ett labb konto kan vara förde
 
 - **Separat budget efter labb konto**
   
-    I stället för att rapportera alla labb kostnader via ett enda labb konto kan du behöva en tydligare budget. Du kan till exempel skapa labb konton för ditt universitets matematik avdelning, dator vetenskaps avdelning och så vidare, för att avgränsa budgeten mellan olika avdelningar.  Du kan sedan Visa kostnaden för varje enskilt labb konto med [Azure Cost Management](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview).
+    I stället för att rapportera alla labb kostnader via ett enda labb konto kan du behöva en tydligare budget. Du kan till exempel skapa labb konton för ditt universitets matematik avdelning, dator vetenskaps avdelning och så vidare, för att avgränsa budgeten mellan olika avdelningar.  Du kan sedan Visa kostnaden för varje enskilt labb konto med [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md).
 
 - **Isolera pilot labb från active\production Labs**
   
@@ -141,18 +141,18 @@ Den plats som ett labb finns i varierar beroende på följande faktorer:
 
   - **Labb kontot är peer-kopplat till ett virtuellt nätverk (VNet)**
   
-    Ett labb konto kan peer-kopplas [med ett VNet](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network) när de befinner sig i samma region.  När ett labb konto är peer-kopplat med ett VNet skapas labb automatiskt i samma region som både labb kontot och VNet.
+    Ett labb konto kan peer-kopplas [med ett VNet](./how-to-connect-peer-virtual-network.md) när de befinner sig i samma region.  När ett labb konto är peer-kopplat med ett VNet skapas labb automatiskt i samma region som både labb kontot och VNet.
 
     > [!NOTE]
-    > När ett labb konto är peer-kopplat med ett VNet inaktive ras inställningen för att **tillåta labb skapare att välja labb plats** . Ytterligare information finns i artikeln: [Tillåt labb skapare att välja plats för labbet](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location).
+    > När ett labb konto är peer-kopplat med ett VNet inaktive ras inställningen för att **tillåta labb skapare att välja labb plats** . Ytterligare information finns i artikeln: [Tillåt labb skapare att välja plats för labbet](./allow-lab-creator-pick-lab-location.md).
     
-  - * * Inget VNet är peer-kopplat * *_och_* _ labb skapare tillåts inte att välja labb location_ *
+  - * * Inget VNet är peer-kopplat **_och_* _ labb skapare tillåts inte att välja labb location_ *
   
-    Om **ingen** VNet är peer-kopplad med labb kontot *och* [labb skapare **inte** tillåts att välja labb platsen](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location), skapas labb automatiskt i en region som har tillgänglig VM-kapacitet.  Mer specifikt Azure Lab Services letar efter tillgänglighet i [regioner som ligger inom samma geografi som labb kontot](https://azure.microsoft.com/global-infrastructure/regions).
+    Om **ingen** VNet är peer-kopplad med labb kontot *och* [labb skapare **inte** tillåts att välja labb platsen](./allow-lab-creator-pick-lab-location.md), skapas labb automatiskt i en region som har tillgänglig VM-kapacitet.  Mer specifikt Azure Lab Services letar efter tillgänglighet i [regioner som ligger inom samma geografi som labb kontot](https://azure.microsoft.com/global-infrastructure/regions).
 
-  - * * Inget VNet är peer-kopplat * *_och_* _ labb skapare kan välja labb location_ *
+  - * * Inget VNet är peer-kopplat **_och_* _ labb skapare kan välja labb location_ *
        
-    När det **inte finns något** virtuellt nätverk och [labb skapare tillåts att välja labb platsen](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location), baseras de platser som kan väljas av Labbets skapare på tillgänglig kapacitet.
+    När det **inte finns något** virtuellt nätverk och [labb skapare tillåts att välja labb platsen](./allow-lab-creator-pick-lab-location.md), baseras de platser som kan väljas av Labbets skapare på tillgänglig kapacitet.
 
 > [!NOTE]
 > För att säkerställa att det finns tillräckligt med VM-kapacitet för en region är det viktigt att du först begär kapacitet genom att använda labb kontot eller när du skapar labbet.
@@ -169,18 +169,18 @@ När administratörer eller labb skapare skapar ett labb kan de välja mellan f�
 
 | Storlek | Specifikationer | Serie | Föreslagen användning |
 | ---- | ----- | ------ | ------------- |
-| Liten| <ul><li>2 kärnor</li><li>3,5 GB RAM</li> | [Standard_A2_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Den här storleken passar bäst för kommando rad, öppna webbläsare, webb servrar med låg trafik, små till medel stora databaser. |
-| Medium | <ul><li>4 kärnor</li><li>7 GB RAM</li> | [Standard_A4_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Den här storleken passar bäst för Relations databaser, minnes intern cachelagring och analys. |
-| Medium (kapslad virtualisering) | <ul><li>4 kärnor</li><li>16 GB RAM</li></ul> | [Standard_D4s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | Den här storleken passar bäst för Relations databaser, minnes intern cachelagring och analys.
-| Stor | <ul><li>8 kärnor</li><li>16 GB RAM</li></ul>  | [Standard_A8_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series) | Den här storleken lämpar sig bäst för program som behöver snabbare processorer, bättre prestanda för lokala diskar, stora databaser, stora cacheminnen.  Den här storleken stöder även kapslad virtualisering. |
-| Stor (kapslad virtualisering) | <ul><li>8 kärnor</li><li>32 GB RAM</li></ul>  | [Standard_D8s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | Den här storleken lämpar sig bäst för program som behöver snabbare processorer, bättre prestanda för lokala diskar, stora databaser, stora cacheminnen. |
-| Liten GPU (visualisering) | <ul><li>6 kärnor</li><li>56 GB RAM</li>  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | Den här storleken passar bäst för fjärrvisualisering, strömning, spel, kodning med hjälp av ramverk som OpenGL och DirectX. |
-| Liten GPU (Compute) | <ul><li>6 kärnor</li><li>56 GB RAM</li></ul>  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Den här storleken passar bäst för dator intensiva program som artificiell intelligens och djup inlärning. |
-| Medelhög GPU (visualisering) | <ul><li>12 kärnor</li><li>112 GB RAM</li></ul>  | [Standard_NV12](https://docs.microsoft.com/azure/virtual-machines/nv-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Den här storleken passar bäst för fjärrvisualisering, strömning, spel, kodning med hjälp av ramverk som OpenGL och DirectX. |
+| Liten| <ul><li>2 kärnor</li><li>3,5 GB RAM</li> | [Standard_A2_v2](../virtual-machines/av2-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Den här storleken passar bäst för kommando rad, öppna webbläsare, webb servrar med låg trafik, små till medel stora databaser. |
+| Medium | <ul><li>4 kärnor</li><li>7 GB RAM</li> | [Standard_A4_v2](../virtual-machines/av2-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Den här storleken passar bäst för Relations databaser, minnes intern cachelagring och analys. |
+| Medium (kapslad virtualisering) | <ul><li>4 kärnor</li><li>16 GB RAM</li></ul> | [Standard_D4s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#dsv3-series) | Den här storleken passar bäst för Relations databaser, minnes intern cachelagring och analys.
+| Stor | <ul><li>8 kärnor</li><li>16 GB RAM</li></ul>  | [Standard_A8_v2](../virtual-machines/av2-series.md) | Den här storleken lämpar sig bäst för program som behöver snabbare processorer, bättre prestanda för lokala diskar, stora databaser, stora cacheminnen.  Den här storleken stöder även kapslad virtualisering. |
+| Stor (kapslad virtualisering) | <ul><li>8 kärnor</li><li>32 GB RAM</li></ul>  | [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#dsv3-series) | Den här storleken lämpar sig bäst för program som behöver snabbare processorer, bättre prestanda för lokala diskar, stora databaser, stora cacheminnen. |
+| Liten GPU (visualisering) | <ul><li>6 kärnor</li><li>56 GB RAM</li>  | [Standard_NV6](../virtual-machines/nv-series.md) | Den här storleken passar bäst för fjärrvisualisering, strömning, spel, kodning med hjälp av ramverk som OpenGL och DirectX. |
+| Liten GPU (Compute) | <ul><li>6 kärnor</li><li>56 GB RAM</li></ul>  | [Standard_NC6](../virtual-machines/nc-series.md) |Den här storleken passar bäst för dator intensiva program som artificiell intelligens och djup inlärning. |
+| Medelhög GPU (visualisering) | <ul><li>12 kärnor</li><li>112 GB RAM</li></ul>  | [Standard_NV12](../virtual-machines/nv-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Den här storleken passar bäst för fjärrvisualisering, strömning, spel, kodning med hjälp av ramverk som OpenGL och DirectX. |
 
 ## <a name="manage-identity"></a>Hantera identitet
 
-Med hjälp av [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)kan följande roller tilldelas för att ge åtkomst till labb konton och labb:
+Med hjälp av [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md)kan följande roller tilldelas för att ge åtkomst till labb konton och labb:
 
 - **Labbkontoägare**
 
@@ -200,7 +200,7 @@ Med hjälp av [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](https://docs.
 
 - **Labbskapare**
 
-    För att skapa labb i ett labb konto måste en lärare vara medlem i rollen **labb skapare** .  När en lärare skapar ett labb läggs de automatiskt till som en ägare till labbet.  Läs självstudien om hur du [lägger till en användare i rollen **labb skapare**](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#add-a-user-to-the-lab-creator-role). 
+    För att skapa labb i ett labb konto måste en lärare vara medlem i rollen **labb skapare** .  När en lärare skapar ett labb läggs de automatiskt till som en ägare till labbet.  Läs självstudien om hur du [lägger till en användare i rollen **labb skapare**](./tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role). 
 
 - **Labb owner\contributor**
   
@@ -217,7 +217,7 @@ Med hjälp av [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](https://docs.
 Här följer några tips på hur du tilldelar roller:
    - Normalt bör endast administratörer vara medlemmar i ett labb kontos **ägare** eller **deltagar** roller. Du kan ha mer än en owner\contributor.
    - För att ge en lärare möjlighet att skapa nya labb och hantera de labb som de skapar. du behöver bara tilldela åtkomst till rollen **labb skapare** .
-   - För att ge en lärare möjlighet att hantera vissa labb, men *inte* möjligheten att skapa nya labb. Du bör tilldela åtkomst till antingen rollen **ägare** eller **deltagare** för varje labb som de ska hantera.  Du kanske till exempel vill tillåta både en lärare och en undervisnings assistent att samar beta med ett labb.  Läs guiden om hur du [lägger till en användare som ägare till ett labb](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-add-user-lab-owner).
+   - För att ge en lärare möjlighet att hantera vissa labb, men *inte* möjligheten att skapa nya labb. Du bör tilldela åtkomst till antingen rollen **ägare** eller **deltagare** för varje labb som de ska hantera.  Du kanske till exempel vill tillåta både en lärare och en undervisnings assistent att samar beta med ett labb.  Läs guiden om hur du [lägger till en användare som ägare till ett labb](./how-to-add-user-lab-owner.md).
 
 ## <a name="pricing"></a>Prissättning
 
@@ -274,4 +274,3 @@ Nästa steg är vanligt för att ställa in en labb miljö.
 - [Installations guide för labb](setup-guide.md)
 - [Kostnadshantering för labb](cost-management-guide.md)
 - [Använda Azure Lab Services i Teams](lab-services-within-teams-overview.md)
-

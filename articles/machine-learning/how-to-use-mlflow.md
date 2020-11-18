@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 09/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: cf0817ad1e9fae901bfe2b4a174d95a4f673e4c0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 33ee8944aec043bf2b103ac3958a923b9876b749
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319012"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660142"
 ---
 # <a name="track-experiment-runs-and-deploy-ml-models-with-mlflow-and-azure-machine-learning-preview"></a>Spåra experiment körningar och distribuera ML-modeller med MLflow och Azure Machine Learning (för hands version)
 
@@ -64,7 +64,7 @@ Följande diagram illustrerar att med MLflow spårning spårar du ett Experiment
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Installera `azureml-mlflow`-paketet. 
+* Installera paketet `azureml-mlflow`. 
     * Det här paketet kommer automatiskt in i `azureml-core` [Azure Machine Learning python SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py), som ger anslutningen för MLflow åtkomst till din arbets yta.
 * [Skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
@@ -206,7 +206,6 @@ Måtten och artefakterna från MLflow-loggning behålls i din arbets yta. Om du 
 
 ```python
 run.get_metrics()
-ws.get_details()
 ```
 
 ## <a name="manage-models"></a>Hantera modeller 

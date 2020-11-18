@@ -208,7 +208,7 @@
 - name: Referens (ny!)
   items:
     - name: 'REST API:er'
-      href: 'https://docs.microsoft.com/rest/api/securityinsights/'
+      href: /rest/api/securityinsights/
     - name: Schema för nätverksnormalisering
       href: normalization-schema.md
 - name: Resurser
@@ -218,7 +218,7 @@
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/updates/?updateType=security&category=security&query=sentinel'
     - name: 'Blogg om säkerhet, sekretess och efterlevnad i Azure'
-      href: 'https://docs.microsoft.com/archive/blogs/azuresecurity/'
+      href: /archive/blogs/azuresecurity/
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel'
     - name: Prissättning

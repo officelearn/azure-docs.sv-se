@@ -8,17 +8,17 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: punagpal
-ms.openlocfilehash: 63484361a6d5a331fd9dc646c53627918ce8b246
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: f348a8d8755402d6426f19eabc432f54e3fb8e42
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630557"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659666"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Azure IoT-anslutningsprogram för FHIR (förhandsversion) – mappningsmall
 Den här artikeln beskriver hur du konfigurerar Azure IoT Connector för resurser för snabb hälso samverkan (FHIR&#174;) * med hjälp av mappnings-mallar.
 
-Azure IoT-anslutningen för FHIR kräver två typer av JSON-baserade mappnings-mallar. Den första typen, **enhets mappningen** är ansvarig för att mappa enhetens nytto laster som skickas till `devicedata` slut punkten för Azure Event Hub. Den extraherar typer, enhets identifierare, datum/tid för mätning och mått värden. Den andra typen, **FHIR-mappning** , styr mappningen för FHIR-resursen. Det gör det möjligt att konfigurera längden på observations perioden, FHIR-datatypen som används för att lagra värdena och terminologins kod (er). 
+Azure IoT-anslutningen för FHIR kräver två typer av JSON-baserade mappnings-mallar. Den första typen, **enhets mappningen** är ansvarig för att mappa enhetens nytto laster som skickas till `devicedata` slut punkten för Azure Event Hub. Den extraherar typer, enhets identifierare, datum/tid för mätning och mått värden. Den andra typen, **FHIR-mappning**, styr mappningen för FHIR-resursen. Det gör det möjligt att konfigurera längden på observations perioden, FHIR-datatypen som används för att lagra värdena och terminologins kod (er). 
 
 Mappnings mallarna består av ett JSON-dokument baserat på deras typ. Dessa JSON-dokument läggs sedan till i din Azure IoT-anslutning för FHIR via Azure Portal. Enhets mappnings dokumentet läggs till via sidan **Konfigurera enhets mappning** och FHIR mappnings dokument via sidan **Konfigurera FHIR-mappning** .
 
@@ -60,7 +60,7 @@ Innehålls nytto lasten är ett Azure Event Hub-meddelande, som består av tre d
 ```
 
 ### <a name="mapping-with-json-path"></a>Mappning med JSON-sökväg
-De två mallarna för enhets innehåll som stöds idag förlitar sig på JSON-sökväg för att både matcha den nödvändiga mallen och extraherade värden. Mer information om JSON-sökvägen hittar du [här](https://goessner.net/articles/JsonPath/). Båda typerna av mallar använder [JSON .net-implementering](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) för att matcha JSON Path-uttryck.
+De tre mallarna för enhets innehåll som stöds idag förlitar sig på JSON-sökväg för att både matcha den nödvändiga mallen och extraherade värden. Mer information om JSON-sökvägen hittar du [här](https://goessner.net/articles/JsonPath/). Alla tre mallarna använder [JSON .net-implementering](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) för att matcha JSON Path-uttryck.
 
 #### <a name="jsonpathcontenttemplate"></a>JsonPathContentTemplate
 JsonPathContentTemplate tillåter matchning av och extrahering av värden från ett Event Hub-meddelande med hjälp av JSON-sökväg.
@@ -71,8 +71,8 @@ JsonPathContentTemplate tillåter matchning av och extrahering av värden från 
 |**TypeMatchExpression**|JSON-sökvägar som utvärderas mot händelsens nytto Last. Om det finns en matchande JToken, betraktas mallen som en matchning. Alla efterföljande uttryck utvärderas mot den extraherade JToken som matchas här.|`$..[?(@heartRate)]`
 |**TimestampExpression**|JSON-sökvägar för att extrahera tidsstämpel-värdet för mätningens OccurenceTimeUtc.|`$.endDate`
 |**DeviceIdExpression**|JSON Path-uttryck för att extrahera enhets identifieraren.|`$.deviceId`
-|**PatientIdExpression**|*Valfritt* : JSON-sökvägar för att extrahera patient-ID.|`$.patientId`
-|**EncounterIdExpression**|*Valfritt* : JSON-sökvägar för att extrahera identifieraren.|`$.encounterId`
+|**PatientIdExpression**|*Valfritt*: JSON-sökvägar för att extrahera patient-ID.|`$.patientId`
+|**EncounterIdExpression**|*Valfritt*: JSON-sökvägar för att extrahera identifieraren.|`$.encounterId`
 |**Värden []. Värdets namn**|Namnet som ska associeras med värdet som extraheras av det efterföljande uttrycket. Används för att binda det obligatoriska värdet/komponenten i mappnings mal len för FHIR. |`hr`
 |**Värden []. ValueExpression**|JSON Path-uttrycket som krävs för att extrahera det nödvändiga värdet.|`$.heartRate`
 |**Värden []. Kunna**|Kräver att värdet finns i nytto lasten.  Om inget värde hittas genereras inte en mätning och en InvalidOperationException kommer att genereras.|`true`
@@ -251,10 +251,12 @@ JsonPathContentTemplate tillåter matchning av och extrahering av värden från 
     }
 }
 ```
+
 #### <a name="iotjsonpathcontenttemplate"></a>IotJsonPathContentTemplate
+
 IotJsonPathContentTemplate liknar JsonPathContentTemplate, förutom att DeviceIdExpression och TimestampExpression inte krävs.
 
-När du använder den här mallen skickas meddelanden som utvärderas med hjälp av [Azure IoT Hub enhets-SDK](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks): er. När du använder dessa SDK: er är enhets identiteten (förutsatt att enhets identifieraren från Azure IoT Hub/Central har registrerats som en identifierare för en enhets resurs på mål FHIR-servern) och tidsstämpeln för meddelandet är känd. Om du använder Azure IoT Hub-enhets-SDK: er men använder anpassade egenskaper i meddelande texten för enhets identiteten eller tidsstämpeln för mätning, kan du fortfarande använda JsonPathContentTemplate.
+Antagande när du använder den här mallen är de meddelanden som utvärderas med hjälp av [azure IoT Hub enhets-SDK](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) : er eller  [Exportera data (bakåtkompatibelt)](../iot-central/core/howto-export-data-legacy.md) funktionen i [Azure IoT Central](../iot-central/core/overview-iot-central.md). När du använder dessa SDK: er är enhets identiteten (förutsatt att enhets identifieraren från Azure IoT Hub/Central har registrerats som en identifierare för en enhets resurs på mål FHIR-servern) och tidsstämpeln för meddelandet är känd. Om du använder Azure IoT Hub-enhets-SDK: er men använder anpassade egenskaper i meddelande texten för enhets identiteten eller tidsstämpeln för mätning, kan du fortfarande använda JsonPathContentTemplate.
 
 *Obs: när du använder IotJsonPathContentTemplate bör TypeMatchExpression matcha hela meddelandet som en JToken. Se exemplen nedan.* 
 ##### <a name="examples"></a>Exempel
@@ -329,6 +331,101 @@ När du använder den här mallen skickas meddelanden som utvärderas med hjälp
             "valueName": "diastolic"
         }
     ]
+}
+```
+
+#### <a name="iotcentraljsonpathcontenttemplate"></a>IotCentralJsonPathContentTemplate
+
+IotCentralJsonPathContentTemplate kräver inte heller DeviceIdExpression och TimestampExpression, och används när meddelanden som utvärderas skickas via funktionen [Exportera data](../iot-central/core/howto-export-data.md) i [Azure IoT Central](../iot-central/core/overview-iot-central.md). När du använder den här funktionen registreras enhets identiteten (förutsatt att enhets identifieraren från Azure IoT Central är registrerad som en identifierare för en enhets resurs på mål FHIR-servern) och tidsstämpeln för meddelandet är känd. Om du använder Azure IoT Centrals data export funktion men använder anpassade egenskaper i meddelande texten för enhets identiteten eller tidsstämpeln för mätning, kan du fortfarande använda JsonPathContentTemplate.
+
+*Obs: när du använder IotCentralJsonPathContentTemplate bör TypeMatchExpression matcha hela meddelandet som en JToken. Se exemplen nedan.* 
+##### <a name="examples"></a>Exempel
+---
+**Puls pris**
+
+*Meddelande*
+```json
+{
+    "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
+    "messageSource": "telemetry",
+    "deviceId": "1vzb5ghlsg1",
+    "schema": "default@v1",
+    "templateId": "urn:qugj6vbw5:___qbj_27r",
+    "enqueuedTime": "2020-08-05T22:26:55.455Z",
+    "telemetry": {
+        "HeartRate": "88",
+    },
+    "enrichments": {
+      "userSpecifiedKey": "sampleValue"
+    },
+    "messageProperties": {
+      "messageProp": "value"
+    }
+}
+```
+*Mall*
+```json
+{
+    "templateType": "IotCentralJsonPathContent",
+    "template": {
+        "typeName": "heartrate",
+        "typeMatchExpression": "$..[?(@telemetry.HeartRate)]",
+        "values": [
+            {
+                "required": "true",
+                "valueExpression": "$.telemetry.HeartRate",
+                "valueName": "hr"
+            }
+        ]
+    }
+}
+```
+---
+**Blod tryck**
+
+*Meddelande*
+```json
+{
+    "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
+    "messageSource": "telemetry",
+    "deviceId": "1vzb5ghlsg1",
+    "schema": "default@v1",
+    "templateId": "urn:qugj6vbw5:___qbj_27r",
+    "enqueuedTime": "2020-08-05T22:26:55.455Z",
+    "telemetry": {
+        "BloodPressure": {
+            "Diastolic": "87",
+            "Systolic": "123"
+        }
+    },
+    "enrichments": {
+      "userSpecifiedKey": "sampleValue"
+    },
+    "messageProperties": {
+      "messageProp": "value"
+    }
+}
+```
+*Mall*
+```json
+{
+    "templateType": "IotCentralJsonPathContent",
+    "template": {
+        "typeName": "bloodPressure",
+        "typeMatchExpression": "$..[?(@telemetry.BloodPressure.Diastolic && @telemetry.BloodPressure.Systolic)]",
+        "values": [
+            {
+                "required": "true",
+                "valueExpression": "$.telemetry.BloodPressure.Diastolic",
+                "valueName": "bp_diastolic"
+            },
+            {
+                "required": "true",
+                "valueExpression": "$.telemetry.BloodPressure.Systolic",
+                "valueName": "bp_systolic"
+            }
+        ]
+    }
 }
 ```
 

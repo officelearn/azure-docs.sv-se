@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 9d8d0fc46a463bda31595988d807854ef146d333
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 408913fed864ee5f966b96c81afbfee4b2dc8678
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88761736"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660737"
 ---
 # <a name="manage-your-soc-better-with-incident-metrics"></a>Hantera SOC bättre med incidentmått
 
@@ -39,7 +39,7 @@ Som SOC-ansvarig (Security Operations Center) måste du ha övergripande effekti
 
 Varje gång du skapar eller uppdaterar en incident läggs en ny logg post till i tabellen. Detta gör att du kan spåra ändringar som gjorts i incidenter och tillåter ännu mer kraftfulla SOC-mått, men du måste mindful detta när du skapar frågor för den här tabellen eftersom du kan behöva ta bort dubblettposter för en incident (beroende på vilken fråga du kör). 
 
-Om du till exempel vill returnera en lista över alla incidenter sorterade efter deras incident nummer men bara ville returnera den senaste loggen per incident, kan du göra detta med hjälp av KQL [sammanfattnings operatorn](https://docs.microsoft.com/azure/data-explorer/kusto/query/summarizeoperator) med `arg_max()` [agg regerings funktionen](https://docs.microsoft.com/azure/data-explorer/kusto/query/arg-max-aggfunction):
+Om du till exempel vill returnera en lista över alla incidenter sorterade efter deras incident nummer men bara ville returnera den senaste loggen per incident, kan du göra detta med hjälp av KQL [sammanfattnings operatorn](/azure/data-explorer/kusto/query/summarizeoperator) med `arg_max()` [agg regerings funktionen](/azure/data-explorer/kusto/query/arg-max-aggfunction):
 
 
 ```Kusto
@@ -82,9 +82,9 @@ För att komplettera **SecurityIncidents** -tabellen har vi tillhandahållit dig
 
 Du hittar den här nya arbets boks mal len genom att välja **arbets böcker** på navigerings menyn i Azure Sentinel och välja fliken **mallar** . Välj **effektivitet för säkerhets åtgärder** i galleriet och klicka på någon av knapparna **Visa sparade arbets böcker** och **Visa mallar** .
 
-:::image type="content" source="./media/manage-soc-with-incident-metrics/security-incidents-workbooks-gallery.png" alt-text="Säkerhets incident tabell":::
+:::image type="content" source="./media/manage-soc-with-incident-metrics/security-incidents-workbooks-gallery.png" alt-text="Arbets boks Galleri för säkerhets incidenter":::
 
-:::image type="content" source="./media/manage-soc-with-incident-metrics/security-operations-workbook-1.png" alt-text="Säkerhets incident tabell":::
+:::image type="content" source="./media/manage-soc-with-incident-metrics/security-operations-workbook-1.png" alt-text="Arbets boken säkerhets incidenter slutförd":::
 
 Du kan använda mallen för att skapa egna anpassade arbets böcker som är anpassade efter dina specifika behov.
 

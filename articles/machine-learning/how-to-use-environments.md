@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: f3056c500453c2249d66a05079334851c851df33
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: 67b2dacb9debae1990d51be8ca47c76b7342cf67
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616628"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660125"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Skapa & använda program varu miljöer i Azure Machine Learning
 
@@ -95,7 +95,7 @@ myenv = Environment.from_conda_specification(name = "myenv",
                                              file_path = "path-to-conda-specification-file")
 
 # From a pip requirements file
-myenv = Environment.from_pip_requirements(name = "myenv"
+myenv = Environment.from_pip_requirements(name = "myenv",
                                           file_path = "path-to-pip-requirements-file")                                          
 ```
 
@@ -110,7 +110,7 @@ När du aktiverar Docker skapar Azure Machine Learning en Docker-avbildning och 
 myenv.docker.enabled = True
 ```
 
-Som standard visas den nyligen inbyggda Docker-avbildningen i behållar registret som är kopplat till arbets ytan.  Databas namnet har formatet *azureml/azureml_ \<uuid\>*. Den unika identifieraren ( *UUID* ) i namnet motsvarar en hash som beräknas från miljö konfigurationen. Den här korrespondensen gör att tjänsten kan avgöra om det redan finns en avbildning för den aktuella miljön för åter användning.
+Som standard visas den nyligen inbyggda Docker-avbildningen i behållar registret som är kopplat till arbets ytan.  Databas namnet har formatet *azureml/azureml_ \<uuid\>*. Den unika identifieraren (*UUID*) i namnet motsvarar en hash som beräknas från miljö konfigurationen. Den här korrespondensen gör att tjänsten kan avgöra om det redan finns en avbildning för den aktuella miljön för åter användning.
 
 #### <a name="use-a-prebuilt-docker-image"></a>Använd en fördefinierad Docker-avbildning
 

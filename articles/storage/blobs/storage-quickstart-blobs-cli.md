@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 08/17/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 55cbf0a304bbf13d47fefad0981c0143c101bbb0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c9797024315a8fdc744d08863a42fba0b0b16420
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88520778"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660346"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Snabb start: skapa, ladda ned och lista blobar med Azure CLI
 
@@ -27,19 +27,9 @@ Azure CLI är Azures kommandoradsmiljö för att hantera Azure-resurser. Du kan 
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
 
-## <a name="install-the-azure-cli-locally"></a>Installera Azure CLI lokalt
-
-Om du väljer att installera och använda Azure CLI lokalt kräver den här snabb starten att du kör Azure CLI-version 2.0.46 eller senare. Kör `az --version` för att fastställa din version. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
-
-Om du kör Azure CLI lokalt måste du logga in och autentisera. Det här steget är inte nödvändigt om du använder Azure Cloud Shell. Logga in på Azure CLI genom att köra `az login` och autentisera i webbläsarfönstret:
-
-```azurecli
-az login
-```
-
-Mer information om autentisering med Azure CLI finns i [Logga in med Azure CLI](/cli/azure/authenticate-azure-cli).
+- Den här artikeln kräver version 2.0.46 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
 ## <a name="authorize-access-to-blob-storage"></a>Auktorisera åtkomst till Blob Storage
 
@@ -111,7 +101,7 @@ Börja med att skapa en fil som ska laddas upp till en Block-Blob. Om du använd
 vi helloworld
 ```
 
-När filen öppnas trycker du på **Infoga**. Skriv *Hej världen*och tryck sedan på **ESC**. Skriv sedan *: x*och tryck på **RETUR**.
+När filen öppnas trycker du på **Infoga**. Skriv *Hej världen* och tryck sedan på **ESC**. Skriv sedan *: x* och tryck på **RETUR**.
 
 I det här exemplet laddar vi upp en blob till den container som vi skapade i det senaste steget med kommandot [az storage blob upload](/cli/azure/storage/blob). Det är inte nödvändigt att ange en fil Sök väg eftersom filen skapades i rot katalogen. Kom ihåg att ersätta plats hållarnas värden inom vinkelparenteser med dina egna värden:
 

@@ -8,19 +8,19 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: yushwang
-ms.openlocfilehash: 93916bb1eb92447da45ebae7ccb2e61c5af1dd9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 168bb9e06c73ec27ec1304813023889c9549b8e6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441586"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660703"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Lägga till en plats-till-plats-anslutning till ett VNet med en befintlig VPN gateway-anslutning (klassisk)
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [Azure-portalen](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell (klassisk)](vpn-gateway-multi-site.md)
 >
 >
@@ -71,8 +71,8 @@ Om du redan har en plats-till-plats-VPN med en dynamisk routning Gateway, är de
 2. Konfigurera din nya gateway och skapa din VPN-tunnel. Anvisningar finns i [Ange SKU och VPN-typ](vpn-gateway-howto-site-to-site-classic-portal.md#sku). Se till att du anger typ av routning som dynamisk.
 
 ### <a name="if-you-dont-have-a-site-to-site-virtual-network"></a>Om du inte har ett plats-till-plats-virtuellt nätverk:
-1. Skapa ett plats-till-plats-virtuellt nätverk med hjälp av följande anvisningar: [skapa en Virtual Network med en plats-till-plats-VPN-anslutning](vpn-gateway-site-to-site-create.md).  
-2. Konfigurera en dynamisk routning Gateway med hjälp av följande anvisningar: [Konfigurera en VPN gateway](vpn-gateway-configure-vpn-gateway-mp.md). Se till att välja **dynamisk routning** för din gateway-typ.
+1. Skapa ett plats-till-plats-virtuellt nätverk med hjälp av följande anvisningar: [skapa en Virtual Network med en plats-till-plats-VPN-anslutning](./vpn-gateway-howto-site-to-site-classic-portal.md).  
+2. Konfigurera en dynamisk routning Gateway med hjälp av följande anvisningar: [Konfigurera en VPN gateway](./vpn-gateway-howto-site-to-site-classic-portal.md). Se till att välja **dynamisk routning** för din gateway-typ.
 
 ## <a name="2-export-the-network-configuration-file"></a><a name="export"></a>2. exportera nätverks konfigurations filen
 

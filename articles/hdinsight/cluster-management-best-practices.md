@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: fc2f9e5408dd760b48fc63c4021230446fe40de9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3a96a7116c83bf9ea2c3798c335c6cefcbdbc36d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542326"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659496"
 ---
 # <a name="hdinsight-cluster-management-best-practices"></a>Metod tips för HDInsight-kluster hantering
 
@@ -49,7 +49,7 @@ Lär dig metod tips för att hantera HDInsight-kluster.
 
 | Fel | Mer information |
 |---|---|
-| Ingen kvot | Det finns kvoter för antalet kvoter som du kan skapa för din prenumeration i varje region. Mer information finns i [kapacitets planering: kvoter](./hdinsight-capacity-planning.md). |
+| Ingen kvot | Det finns kvoter för antalet kärnor som du kan skapa i din prenumeration i varje region. Mer information finns i [kapacitets planering: kvoter](./hdinsight-capacity-planning.md). |
 | Inga fler IP-adresser är tillgängliga | Varje VNet har ett begränsat antal IP-adresser. När du skapar ett HDInsight-kluster använder varje nod (inklusive Zookeeper och gateway-noder) vissa av dessa tilldelade IP-adresser. När alla IP-adresser används kommer du att upptäcka det här felet.  |
 | Regler för nätverks säkerhets grupper (NSG) tillåter inte kommunikation med HDInsight-resurs leverantörer | Om du använder NSG: er eller användardefinierade vägar (UDR) för att styra inkommande trafik till ditt HDInsight-kluster, måste du se till att klustret kan kommunicera med kritiska Azure-tjänster för hälso tillstånd och hantering. Mer information finns i [tjänst taggar för nätverks säkerhets grupper (NSG) för Azure HDInsight](./hdinsight-service-tags.md) |
 | Åter användning av kluster namn | När du använder ett kluster namn som du har använt tidigare måste du vänta X antal minuter innan du skapar klustret igen. Annars visas ett meddelande om att resursen redan finns. |

@@ -1,6 +1,6 @@
 ---
-title: VPN med Azure MFA med NPS-tillägget-Azure Active Directory
-description: Integrera din VPN-infrastruktur med Azure MFA genom att använda nätverks princip Server tillägget för Microsoft Azure.
+title: VPN med Azure AD MFA med NPS-tillägget-Azure Active Directory
+description: Integrera din VPN-infrastruktur med Azure AD MFA genom att använda nätverks princip Server tillägget för Microsoft Azure.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7243857db9a3726bb42815ac4c9eef661f52e47
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 73fa82c3f162b546517ce40ef1447c002351d5b4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964731"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839547"
 ---
-# <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrera din VPN-infrastruktur med Azure MFA genom att använda nätverks princip Server tillägget för Azure
+# <a name="integrate-your-vpn-infrastructure-with-azure-ad-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrera din VPN-infrastruktur med Azure AD MFA genom att använda nätverks princip Server tillägget för Azure
 
-Nätverks princip Server (NPS)-tillägget för Azure gör det möjligt för organisationer att skydda Remote Authentication Dial-In User Service (RADIUS) klientautentisering med hjälp av molnbaserad [Azure-Multi-Factor Authentication (MFA)](howto-mfaserver-nps-rdg.md), vilket ger tvåstegsverifiering.
+Nätverks princip Server (NPS)-tillägget för Azure gör att organisationer kan skydda Remote Authentication Dial-In User Service (RADIUS) klientautentisering med hjälp av molnbaserad [Azure AD-Multi-Factor Authentication (MFA)](howto-mfaserver-nps-rdg.md), vilket ger tvåstegsverifiering.
 
 Den här artikeln innehåller instruktioner för att integrera NPS-infrastrukturen med MFA med hjälp av NPS-tillägget för Azure. Den här processen möjliggör säker tvåstegsverifiering för användare som försöker ansluta till nätverket med hjälp av en VPN-anslutning.
 
@@ -43,7 +43,7 @@ Nätverks princip-och nätverks åtkomst tjänster ger organisationer möjlighet
 * Tillhandahålla ett sätt att genomdriva autentisering och auktorisering för åtkomst till 802.1 x-kompatibla trådlösa åtkomst punkter och Ethernet-växlar.
   Mer information finns i [nätverks Policy Server](/windows-server/networking/technologies/nps/nps-top).
 
-För att förbättra säkerheten och tillhandahålla en hög nivå av efterlevnad kan organisationer integrera NPS med Azure Multi-Factor Authentication för att säkerställa att användarna använder tvåstegsverifiering för att ansluta till den virtuella porten på VPN-servern. För att användare ska beviljas åtkomst måste de ange kombinationen av användar namn och lösen ord och annan information som de kontrollerar. Den här informationen måste vara betrodd och inte lätt att duplicera. Den kan innehålla ett mobiltelefon nummer, ett Landline nummer eller ett program på en mobil enhet.
+För att förbättra säkerheten och tillhandahålla en hög nivå av efterlevnad kan organisationer integrera NPS med Azure AD Multi-Factor Authentication för att säkerställa att användarna använder tvåstegsverifiering för att ansluta till den virtuella porten på VPN-servern. För att användare ska beviljas åtkomst måste de ange kombinationen av användar namn och lösen ord och annan information som de kontrollerar. Den här informationen måste vara betrodd och inte lätt att duplicera. Den kan innehålla ett mobiltelefon nummer, ett Landline nummer eller ett program på en mobil enhet.
 
 Innan Azure-tillägget är tillgängligt för Azure måste kunder som vill implementera tvåstegsverifiering för integrerade NPS-och MFA-miljöer konfigurera och underhålla en separat MFA-server i en lokal miljö. Den här typen av autentisering erbjuds av Fjärrskrivbordsgateway och Azure Multi-Factor Authentication-server med RADIUS.
 
@@ -66,9 +66,9 @@ När NPS-tillägget för Azure är integrerat med NPS är ett lyckat resultat f�
 1. VPN-servern tar emot en autentiseringsbegäran från en VPN-användare som innehåller användar namnet och lösen ordet för att ansluta till en resurs, till exempel en fjärrskrivbordssession.
 2. VPN-servern fungerar som en RADIUS-klient och konverterar begäran till ett meddelande om RADIUS- *åtkomstbegäran* och skickar det (med ett krypterat lösen ord) till RADIUS-servern där NPS-tillägget är installerat.
 3. Kombinationen av användar namn och lösen ord verifieras i Active Directory. Om användar namnet eller lösen ordet är felaktigt skickar RADIUS-servern ett meddelande om *nekad åtkomst* .
-4. Om alla villkor, enligt vad som anges i NPS-anslutningsbegäran och nätverks principer, är uppfyllda (till exempel tid på dag eller grupp medlemskaps begränsningar), utlöser NPS-tillägget en begäran om sekundär autentisering med Azure Multi-Factor Authentication.
-5. Azure Multi-Factor Authentication kommunicerar med Azure Active Directory, hämtar användarens information och utför den sekundära autentiseringen med hjälp av den metod som har kon figurer ATS av användaren (mobil samtal, textmeddelande eller mobilapp).
-6. När MFA-utmaningen lyckas, kommunicerar Azure-Multi-Factor Authentication resultatet till NPS-tillägget.
+4. Om alla villkor, enligt vad som anges i NPS-anslutningsbegäran och nätverks principer, är uppfyllda (till exempel tid på dag eller grupp medlemskaps begränsningar), utlöser NPS-tillägget en begäran om sekundär autentisering med Azure AD Multi-Factor Authentication.
+5. Azure AD Multi-Factor Authentication kommunicerar med Azure Active Directory, hämtar användarens information och utför den sekundära autentiseringen med hjälp av metoden som kon figurer ATS av användaren (mobil telefon, textmeddelande eller mobilapp).
+6. När MFA-utmaningen lyckas, kommunicerar Azure AD-Multi-Factor Authentication resultatet till NPS-tillägget.
 7. När anslutnings försöket är både autentiserat och auktoriserat skickas *ett meddelande om RADIUS-åtkomstaccepterande till* VPN-servern (RADIUS-klienten) när tillägget är installerat.
 8. Användaren beviljas åtkomst till den virtuella porten på VPN-servern och upprättar en krypterad VPN-tunnel.
 
@@ -78,7 +78,7 @@ Det här avsnittet innehåller information om de förutsättningar som måste sl
 
 * VPN-infrastruktur
 * Rollen nätverks policy och åtkomst tjänster
-* Azure Multi-Factor Authentication-licens
+* Azure AD Multi-Factor Authentication-licens
 * Windows Server-programvara
 * Bibliotek
 * Azure Active Directory (Azure AD) har synkroniserats med lokal Active Directory
@@ -96,9 +96,9 @@ Nätverks princip-och nätverks åtkomst tjänster tillhandahåller funktioner f
 
 Information om hur du installerar roll tjänsten nätverks policy och åtkomst tjänster Windows Server 2012 eller senare finns i [installera en NAP-hälsopolicy Server](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd296890(v=ws.10)). NAP är inaktuellt i Windows Server 2016. En beskrivning av metod tips för NPS, inklusive rekommendationer för att installera NPS på en domänkontrollant finns i [metod tips för NPS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771746(v=ws.10)).
 
-### <a name="azure-mfa-license"></a>Azure MFA-licens
+### <a name="azure-ad-mfa-license"></a>Azure AD MFA-licens
 
-Det krävs en licens för Azure Multi-Factor Authentication och den är tillgänglig via en Azure AD Premium, Enterprise Mobility + Security eller en Multi-Factor Authentication fristående licens. Användnings licenser för Azure MFA, till exempel per användare eller per autentisering, är inte kompatibla med NPS-tillägget. Mer information finns i [så här skaffar du Azure-Multi-Factor Authentication](concept-mfa-licensing.md). I test syfte kan du använda en utvärderings prenumeration.
+En licens krävs för Azure AD-Multi-Factor Authentication och den är tillgänglig via en Azure AD Premium, Enterprise Mobility + Security eller en Multi-Factor Authentication fristående licens. Användnings licenser för Azure AD MFA, till exempel per användare eller per autentisering, är inte kompatibla med NPS-tillägget. Mer information finns i [så här skaffar du Azure AD-Multi-Factor Authentication](concept-mfa-licensing.md). I test syfte kan du använda en utvärderings prenumeration.
 
 ### <a name="windows-server-software"></a>Windows Server-programvara
 
@@ -139,7 +139,7 @@ För att fungera korrekt i det här scenariot måste NPS-servern registreras i A
 
 1. Öppna Serverhanteraren.
 
-2. I Serverhanteraren väljer du **verktyg**och sedan **nätverks princip Server**.
+2. I Serverhanteraren väljer du **verktyg** och sedan **nätverks princip Server**.
 
 3. Högerklicka på **NPS (lokal)** i konsolen nätverks princip Server och välj sedan **registrera server i Active Directory**. Välj **OK** två gånger.
 
@@ -153,11 +153,11 @@ Du kan använda ett standard konfigurations alternativ (guide-baserad) eller Ava
 
 1. I konsolen nätverks princip server väljer du **NPS (lokal)**.
 
-2. Under **standard konfiguration**väljer du **RADIUS-server för fjärr anslutningar eller VPN-anslutningar**och väljer sedan **Konfigurera VPN eller fjärr anslutning**.
+2. Under **standard konfiguration** väljer du **RADIUS-server för fjärr anslutningar eller VPN-anslutningar** och väljer sedan **Konfigurera VPN eller fjärr anslutning**.
 
     ![Konfigurera RADIUS-server för fjärr anslutningar eller VPN-anslutningar](./media/howto-mfa-nps-extension-vpn/image3.png)
 
-3. I fönstret **Välj anslutning för fjärr anslutning eller virtuellt privat nätverk** väljer du anslutningar för **virtuella privata nätverk**och väljer sedan **Nästa**.
+3. I fönstret **Välj anslutning för fjärr anslutning eller virtuellt privat nätverk** väljer du anslutningar för **virtuella privata nätverk** och väljer sedan **Nästa**.
 
     ![Konfigurera anslutningar för virtuella privata nätverk](./media/howto-mfa-nps-extension-vpn/image4.png)
 
@@ -167,14 +167,14 @@ Du kan använda ett standard konfigurations alternativ (guide-baserad) eller Ava
 
     ![Skapa ett nytt fönster för en RADIUS-klient](./media/howto-mfa-nps-extension-vpn/image5.png)
 
-6. Välj **OK**och välj sedan **Nästa**.
+6. Välj **OK** och välj sedan **Nästa**.
 
 7. I fönstret **Konfigurera autentiseringsmetoder** godkänner du standard valet (**Microsoft Encrypted Authentication version 2 [MS-CHAPv2])** eller väljer ett annat alternativ och väljer **Nästa**.
 
     > [!NOTE]
     > Om du konfigurerar EAP (Extensible Authentication Protocol) måste du använda antingen Microsoft Challenge-Handshake Authentication Protocol (CHAPv2) eller PEAP (Protected Extensible Authentication Protocol). Ingen annan EAP stöds.
 
-8. I fönstret **Ange användar grupper** väljer du **Lägg till**och väljer sedan en lämplig grupp. Lämna alternativet tomt om det inte finns någon grupp för att bevilja åtkomst till alla användare.
+8. I fönstret **Ange användar grupper** väljer du **Lägg till** och väljer sedan en lämplig grupp. Lämna alternativet tomt om det inte finns någon grupp för att bevilja åtkomst till alla användare.
 
     ![Fönstret Ange användar grupper för att tillåta eller neka åtkomst](./media/howto-mfa-nps-extension-vpn/image7.png)
 
@@ -198,7 +198,7 @@ Du kan använda ett standard konfigurations alternativ (guide-baserad) eller Ava
 
 I det här avsnittet beskrivs konfigurationen som du skapade med hjälp av guiden.
 
-1. På nätverks princip servern, i NPS-konsolen (lokal), expanderar du **RADIUS-klienter**och väljer sedan **RADIUS-klienter**.
+1. På nätverks princip servern, i NPS-konsolen (lokal), expanderar du **RADIUS-klienter** och väljer sedan **RADIUS-klienter**.
 
 2. I informations fönstret högerklickar du på RADIUS-klienten som du skapade och väljer sedan **Egenskaper**. Egenskaperna för RADIUS-klienten (VPN-servern) bör vara som de som visas här:
 
@@ -206,11 +206,11 @@ I det här avsnittet beskrivs konfigurationen som du skapade med hjälp av guide
 
 3. Välj **Avbryt**.
 
-4. På nätverks princip servern, i NPS-konsolen (lokal), expanderar du **principer**och väljer sedan **principer för anslutningsbegäran**. Principen för VPN-anslutningar visas på det sätt som visas i följande bild:
+4. På nätverks princip servern, i NPS-konsolen (lokal), expanderar du **principer** och väljer sedan **principer för anslutningsbegäran**. Principen för VPN-anslutningar visas på det sätt som visas i följande bild:
 
     ![Princip för anslutningsbegäran som visar princip för VPN-anslutning](./media/howto-mfa-nps-extension-vpn/image12.png)
 
-5. Under **principer**väljer du **nätverks principer**. Du bör se en anslutning för virtuella privata nätverk (VPN) som liknar principen som visas i följande bild:
+5. Under **principer** väljer du **nätverks principer**. Du bör se en anslutning för virtuella privata nätverk (VPN) som liknar principen som visas i följande bild:
 
     ![Nätverks principer som visar princip för anslutningar för virtuella privata nätverk](./media/howto-mfa-nps-extension-vpn/image13.png)
 
@@ -226,13 +226,13 @@ I det här avsnittet konfigurerar du VPN-servern för att använda RADIUS-autent
 
 1. Öppna Serverhanteraren på VPN-servern.
 
-2. I Serverhanteraren väljer du **verktyg**och sedan **Routning och fjärråtkomst**.
+2. I Serverhanteraren väljer du **verktyg** och sedan **Routning och fjärråtkomst**.
 
-3. I fönstret **Routning och fjärråtkomst** högerklickar du på ** \<server name> (lokalt)** och väljer sedan **Egenskaper**.
+3. I fönstret **Routning och fjärråtkomst** högerklickar du på **\<server name> (lokalt)** och väljer sedan **Egenskaper**.
 
-4. I fönstret ** \<server name> egenskaper (lokal)** väljer du fliken **säkerhet** .
+4. I fönstret **\<server name> egenskaper (lokal)** väljer du fliken **säkerhet** .
 
-5. På fliken **säkerhet** under **autentiseringsprovider**väljer du **RADIUS-autentisering**och väljer sedan **Konfigurera**.
+5. På fliken **säkerhet** under **autentiseringsprovider** väljer du **RADIUS-autentisering** och väljer sedan **Konfigurera**.
 
     ![Konfigurera Provider för RADIUS-autentisering](./media/howto-mfa-nps-extension-vpn/image15.png)
 
@@ -242,7 +242,7 @@ I det här avsnittet konfigurerar du VPN-servern för att använda RADIUS-autent
 
     a. I rutan **Server namn** anger du namnet eller IP-adressen för RADIUS-servern som du konfigurerade i föregående avsnitt.
 
-    b. För den **delade hemligheten**väljer du **ändra**och anger sedan det delade hemliga lösen ord som du skapade och registrerade tidigare.
+    b. För den **delade hemligheten** väljer du **ändra** och anger sedan det delade hemliga lösen ord som du skapade och registrerade tidigare.
 
     c. I rutan **tids gräns (sekunder)** anger du ett värde på **30**.  
     Timeout-värdet är nödvändigt för att tillåta tillräckligt med tid för att slutföra den andra autentiserings faktorn. Vissa VPN eller regioner kräver timeout-inställningar som är längre än 30 sekunder för att förhindra att användare tar emot flera telefonsamtal. Om användarna upplever det här problemet ökar du timeout-värdet **(sekunder)** i steg om 30 sekunder tills problemet inte återkommer.
@@ -271,7 +271,7 @@ I det här avsnittet bekräftar du att VPN-klienten autentiseras och auktorisera
 
     ![Fönstret "Lägg till en VPN-anslutning"](./media/howto-mfa-nps-extension-vpn/image17.png)
 
-6. Gå till **kontroll panelen**och välj nätverks- **och delnings Center**.
+6. Gå till **kontroll panelen** och välj nätverks- **och delnings Center**.
 
 7. Välj **ändra inställningar för nätverkskort**.
 
@@ -302,7 +302,7 @@ För att felsöka problemen är det en bra plats att börja med att granska säk
 
 ## <a name="configure-multi-factor-authentication"></a>Konfigurera Multi-Factor Authentication
 
-Om du behöver hjälp med att konfigurera användare för Multi-Factor Authentication se artiklarna [Planera en molnbaserad Azure-Multi-Factor Authentication distribution](howto-mfa-getstarted.md#create-conditional-access-policy) och [Konfigurera mitt konto för tvåstegsverifiering](../user-help/multi-factor-authentication-end-user-first-time.md)
+Om du behöver hjälp med att konfigurera användare för Multi-Factor Authentication se artiklarna [Planera en molnbaserad Azure AD Multi-Factor Authentication-distribution](howto-mfa-getstarted.md#create-conditional-access-policy) och [Konfigurera mitt konto för tvåstegsverifiering](../user-help/multi-factor-authentication-end-user-first-time.md)
 
 ## <a name="install-and-configure-the-nps-extension"></a>Installera och konfigurera NPS-tillägget
 
@@ -312,17 +312,17 @@ Det här avsnittet innehåller instruktioner för hur du konfigurerar VPN att an
 > Register nyckeln REQUIRE_USER_MATCH är Skift läges känslig. Alla värden måste anges i versal format.
 >
 
-När du har installerat och konfigurerat NPS-tillägget krävs all RADIUS-baserad klientautentisering som bearbetas av den här servern för att använda MFA. Om alla VPN-användare inte har registrerats i Azure Multi-Factor Authentication kan du göra något av följande:
+När du har installerat och konfigurerat NPS-tillägget krävs all RADIUS-baserad klientautentisering som bearbetas av den här servern för att använda MFA. Om alla VPN-användare inte har registrerats i Azure AD Multi-Factor Authentication kan du göra något av följande:
 
 * Konfigurera en annan RADIUS-server för att autentisera användare som inte är konfigurerade att använda MFA.
 
-* Skapa en register post som gör det möjligt för användaren att ange en andra autentiseringsmetod om de registreras i Azure Multi-Factor Authentication.
+* Skapa en register post som gör det möjligt för användaren att ange en andra autentiseringsmetod om de registreras i Azure AD Multi-Factor Authentication.
 
-Skapa ett nytt sträng värde med namnet _REQUIRE_USER_MATCH i HKLM\SOFTWARE\Microsoft\AzureMfa_och ange värdet *True* eller *false*.
+Skapa ett nytt sträng värde med namnet _REQUIRE_USER_MATCH i HKLM\SOFTWARE\Microsoft\AzureMfa_ och ange värdet *True* eller *false*.
 
 ![Inställningen Kräv användar matchning](./media/howto-mfa-nps-extension-vpn/image34.png)
 
-Om värdet är inställt på *Sant* eller tomt, omfattas alla autentiseringsbegäranden till en MFA-utmaning. Om värdet är *false*utfärdas MFA-utmaningarna endast till användare som är registrerade i Azure Multi-Factor Authentication. Använd inställningen *falskt* endast vid testning eller i produktions miljöer under en onboarding-period.
+Om värdet är inställt på *Sant* eller tomt, omfattas alla autentiseringsbegäranden till en MFA-utmaning. Om värdet är *false* utfärdas MFA-utmaningarna endast till användare som har registrerats i Azure AD Multi-Factor Authentication. Använd inställningen *falskt* endast vid testning eller i produktions miljöer under en onboarding-period.
 
 
 
@@ -331,8 +331,8 @@ Om värdet är inställt på *Sant* eller tomt, omfattas alla autentiseringsbeg�
 Som en del av konfigurationen av NPS-tillägget måste du ange administratörsautentiseringsuppgifter och ID för din Azure AD-klient. Utför följande steg för att hämta klient-ID: t:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som global administratör för Azure-klienten.
-1. I Azure Portal-menyn väljer du **Azure Active Directory**eller söker efter och väljer **Azure Active Directory** från vilken sida som helst.
-1. På sidan **Översikt** visas *klient informationen* . Bredvid *klient-ID: t*väljer du **kopierings** ikonen, som du ser i följande exempel skärm bild:
+1. I Azure Portal-menyn väljer du **Azure Active Directory** eller söker efter och väljer **Azure Active Directory** från vilken sida som helst.
+1. På sidan **Översikt** visas *klient informationen* . Bredvid *klient-ID: t* väljer du **kopierings** ikonen, som du ser i följande exempel skärm bild:
 
    ![Hämtar klient-ID: t från Azure Portal](./media/howto-mfa-nps-extension-vpn/azure-active-directory-tenant-id-portal.png)
 
@@ -344,13 +344,13 @@ NPS-tillägget måste vara installerat på en server som har rollen nätverks po
 
 2. Kopiera installations programmets körbara fil (*NpsExtnForAzureMfaInstaller.exe*) till NPS-servern.
 
-3. På NPS-servern dubbelklickar du på **NpsExtnForAzureMfaInstaller.exe** och väljer **Kör**om du uppmanas att göra det.
+3. På NPS-servern dubbelklickar du på **NpsExtnForAzureMfaInstaller.exe** och väljer **Kör** om du uppmanas att göra det.
 
-4. I fönstret **NPS-tillägg för Azure MFA-installationsprogrammet** granskar du licens villkoren för program vara, markerar kryss rutan **Jag godkänner licens villkoren och** väljer sedan **Installera**.
+4. I fönstret **NPS-tillägg för Azure AD MFA-installationsprogrammet** granskar du licens villkoren för program vara, markerar kryss rutan **Jag godkänner licens villkoren och** väljer sedan **Installera**.
 
-    ![Fönstret "NPS-tillägg för Azure MFA-installation"](./media/howto-mfa-nps-extension-vpn/image36.png)
+    ![Fönstret "NPS-tillägg för Azure AD MFA-installation"](./media/howto-mfa-nps-extension-vpn/image36.png)
 
-5. I fönstret **NPS-tillägg för Azure MFA-installationen** väljer du **Stäng**.  
+5. I fönstret **NPS-tillägg för installationen av Azure AD MFA** väljer du **Stäng**.  
 
     ![Bekräftelse fönstret "installationen lyckades"](./media/howto-mfa-nps-extension-vpn/image37.png)
 
@@ -374,7 +374,7 @@ Om du vill använda skriptet anger du fil namns tillägget med Azure Active Dire
 
 2. I PowerShell-kommandotolken skriver du **CD "C:\Program Files\Microsoft\AzureMfa\Config"** och väljer sedan Retur.
 
-3. I nästa kommando tolk skriver du **.\AzureMfaNpsExtnConfigSetup.ps1**och väljer sedan Retur. Skriptet kontrollerar om Azure AD PowerShell-modulen är installerad. Om den inte är installerad, installerar skriptet modulen åt dig.
+3. I nästa kommando tolk skriver du **.\AzureMfaNpsExtnConfigSetup.ps1** och väljer sedan Retur. Skriptet kontrollerar om Azure AD PowerShell-modulen är installerad. Om den inte är installerad, installerar skriptet modulen åt dig.
 
     ![Köra konfigurations skriptet för AzureMfsNpsExtnConfigSetup.ps1](./media/howto-mfa-nps-extension-vpn/image38.png)
 
@@ -382,7 +382,7 @@ Om du vill använda skriptet anger du fil namns tillägget med Azure Active Dire
     
     När skriptet har verifierat installationen av PowerShell-modulen visas Azure Active Directory PowerShell-modulens inloggnings fönster.
 
-4. Ange dina autentiseringsuppgifter och lösen ord för Azure AD-administratören och välj sedan **Logga**in.
+4. Ange dina autentiseringsuppgifter och lösen ord för Azure AD-administratören och välj sedan **Logga** in.
 
     ![Autentisera till Azure AD PowerShell](./media/howto-mfa-nps-extension-vpn/image39.png)
 
@@ -402,7 +402,7 @@ För att verifiera konfigurationen måste du upprätta en ny VPN-anslutning till
 
 ![Windows inställningar VPN-fönstret](./media/howto-mfa-nps-extension-vpn/image42.png)
 
-Om du har autentiserat dig med den sekundära verifierings metoden som du tidigare har konfigurerat i Azure MFA är du ansluten till resursen. Men om den sekundära autentiseringen Miss lyckas nekas du åtkomst till resursen.
+Om du har autentiserat dig med den sekundära verifierings metoden som du tidigare har konfigurerat i Azure AD MFA är du ansluten till resursen. Men om den sekundära autentiseringen Miss lyckas nekas du åtkomst till resursen.
 
 I följande exempel tillhandahåller Microsoft Authenticator-appen på en Windows Phone den sekundära autentiseringen:
 
@@ -424,7 +424,7 @@ Du kan också Visa säkerhets loggen eller den anpassade vyn nätverks policy oc
 
 ![Exempel på nätverks princip Server logg](./media/howto-mfa-nps-extension-vpn/image45.png)
 
-På den server där du installerade NPS-tillägget för Azure Multi-Factor Authentication kan du hitta Loggboken program loggar som är specifika för tillägget på program- *och tjänst Logs\Microsoft\AzureMfa*.
+På den server där du installerade NPS-tillägget för Azure AD Multi-Factor Authentication kan du hitta Loggboken program loggar som är specifika för tillägget på program- *och tjänst Logs\Microsoft\AzureMfa*.
 
 ```powershell
 Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL
@@ -436,15 +436,15 @@ Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL
 
 Om konfigurationen inte fungerar som förväntat startar du fel sökningen genom att verifiera att användaren är konfigurerad att använda MFA. Be användaren att ansluta till [Azure Portal](https://portal.azure.com). Om användaren uppmanas att använda den sekundära autentiseringen och kan autentiseras kan du eliminera en felaktig konfiguration av MFA som ett problem.
 
-Om MFA arbetar för användaren granskar du relevanta Loggboken loggar. Loggarna omfattar säkerhets händelsen, gatewayen och Azure Multi-Factor Authentication loggar som beskrivs i föregående avsnitt.
+Om MFA arbetar för användaren granskar du relevanta Loggboken loggar. Loggarna omfattar säkerhets händelsen, gatewayen och Azure AD Multi-Factor Authentication loggar som beskrivs i föregående avsnitt.
 
 Ett exempel på en säkerhets logg som visar en misslyckad inloggnings händelse (händelse-ID 6273) visas här:
 
 ![Säkerhets loggen visar en misslyckad inloggnings händelse](./media/howto-mfa-nps-extension-vpn/image47.png)
 
-En relaterad händelse från Azure Multi-Factor Authentication loggen visas här:
+En relaterad händelse från Azure AD Multi-Factor Authentication-loggen visas här:
 
-![Azure Multi-Factor Authentication-loggar](./media/howto-mfa-nps-extension-vpn/image48.png)
+![Azure AD Multi-Factor Authentication-loggar](./media/howto-mfa-nps-extension-vpn/image48.png)
 
 Information om hur du utför avancerad fel sökning finns i loggfilerna för NPS-databasfilen där NPS-tjänsten är installerad. Loggfilerna skapas i mappen _%systemroot%\System32\Logs_ som kommaavgränsade textfiler. En beskrivning av loggfilerna finns i [tolka loggfiler för NPS-databasnamn](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771748(v=ws.10)).
 
@@ -456,11 +456,11 @@ Om du vill göra ytterligare fel sökning kan du använda en protokoll analys so
 
 ![Microsoft Message Analyzer visar filtrerad trafik](./media/howto-mfa-nps-extension-vpn/image50.png)
 
-Mer information finns i [integrera din befintliga NPS-infrastruktur med Azure Multi-Factor Authentication](howto-mfa-nps-extension.md).
+Mer information finns i [integrera din befintliga NPS-infrastruktur med Azure AD Multi-Factor Authentication](howto-mfa-nps-extension.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Skaffa Azure-Multi-Factor Authentication](concept-mfa-licensing.md)
+[Skaffa Azure AD-Multi-Factor Authentication](concept-mfa-licensing.md)
 
 [Fjärrskrivbordsgateway och Azure Multi-Factor Authentication Server med RADIUS](howto-mfaserver-nps-rdg.md)
 

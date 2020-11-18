@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05f3d422c9a504a0089290f3c2e1e68d809366ac
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 9da0c00bd8498e3f43d5f8258308fbc010a6a274
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592965"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839530"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Aktivera lösen ords utan lösen ord med Microsoft Authenticator-appen (förhands granskning)
 
@@ -36,7 +36,7 @@ Användare som har aktiverat telefonin loggning från Microsoft Authenticator ap
 
 Om du vill använda lösen ords lös inloggning med Microsoft Authenticator-appen måste följande krav vara uppfyllda:
 
-- Azure Multi-Factor Authentication, med push-meddelanden som är tillåtna som en verifieringsmetod.
+- Azure AD Multi-Factor Authentication, med push-meddelanden som är tillåtna som en verifieringsmetod.
 - Den senaste versionen av Microsoft Authenticator installerad på enheter som kör iOS 8,0 eller senare, eller Android 6,0 eller senare.
 
 > [!NOTE]
@@ -141,4 +141,4 @@ Information om Azure AD-autentisering och lösen ords lös metoder finns i följ
 
 - [Lär dig hur lösen ords ingen autentisering fungerar](concept-authentication-passwordless.md)
 - [Läs mer om enhets registrering](../devices/overview.md#getting-devices-in-azure-ad)
-- [Lär dig mer om Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+- [Lär dig mer om Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

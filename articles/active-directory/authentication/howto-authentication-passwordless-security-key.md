@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f99d57e084a6a765b8598ba7f8eebbd7ddb34d74
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 7d9c4dff1e4a3ba7c7a2b11311e97eb5e66a1585
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964646"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839309"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Aktivera inloggning med lösen ords skydd (för hands version)
 
@@ -29,7 +29,7 @@ Det här dokumentet fokuserar på att aktivera säkerhets nyckel baserad lösen 
 
 ## <a name="requirements"></a>Krav
 
-- [Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
+- [Azure AD-Multi-Factor Authentication](howto-mfa-getstarted.md)
 - Aktivera [kombinerad för hands version av säkerhets informations registrering](concept-registration-mfa-sspr-combined.md)
 - Kompatibla [säkerhets nycklar för FIDO2](concept-authentication-passwordless.md#fido2-security-keys)
 - Webauthn kräver Windows 10 version 1903 eller högre * *
@@ -51,8 +51,8 @@ Registrerings funktioner för metoder för lösen ords skydd förlitar sig på d
 ### <a name="enable-fido2-security-key-method"></a>Aktivera FIDO2 säkerhets nyckel metod
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Bläddra till **Azure Active Directory**  >  **säkerhets**  >  **autentiseringsmetoder**metod  >  **(för hands version)**.
-1. Under metod **FIDO2 säkerhets nyckel**väljer du följande alternativ:
+1. Bläddra till **Azure Active Directory**  >  **säkerhets**  >  **autentiseringsmetoder** metod  >  **(för hands version)**.
+1. Under metod **FIDO2 säkerhets nyckel** väljer du följande alternativ:
    1. **Aktivera** – Ja eller Nej
    1. **Mål** – alla användare eller Välj användare
 1. **Spara** konfigurationen.
@@ -62,8 +62,8 @@ Registrerings funktioner för metoder för lösen ords skydd förlitar sig på d
 1. Bläddra till [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
 1. Logga in om du inte redan gjort det.
 1. Klicka på **säkerhets information**.
-   1. Om användaren redan har minst en registrerad Azure-Multi-Factor Authentication kan de omedelbart registrera en säkerhets nyckel för FIDO2.
-   1. Om de inte har minst en registrerad Azure-Multi-Factor Authentication måste de lägga till en.
+   1. Om användaren redan har minst en Azure AD-Multi-Factor Authentication-metod registrerad, kan de omedelbart registrera en säkerhets nyckel för FIDO2.
+   1. Om de inte har minst en Azure AD-Multi-Factor Authentication-metod registrerad måste de lägga till en.
 1. Lägg till en säkerhets nyckel för FIDO2 genom att klicka på **Lägg till metod** och välja **säkerhets nyckel**.
 1. Välj **USB-enhet** eller **NFC-enhet**.
 1. Låt nyckeln vara klar och välj **Nästa**.
@@ -105,4 +105,4 @@ Vi arbetar med att stödja en funktion som tillåter UPN-ändring på Hybrid Azu
 
 [Läs mer om enhets registrering](../devices/overview.md)
 
-[Läs mer om Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+[Läs mer om Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

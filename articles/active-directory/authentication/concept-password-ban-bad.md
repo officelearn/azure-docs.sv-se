@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4da1066166a3384ffb5f0f94599452829faed1b
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 026f45e715f6d442b27cdd0274f029a68330f7ee
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356594"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839836"
 ---
 # <a name="eliminate-bad-passwords-using-azure-active-directory-password-protection"></a>Eliminera Felaktiga lösen ord med Azure Active Directory lösen ords skydd
 
@@ -24,7 +24,7 @@ Många säkerhets guider rekommenderar att du inte använder samma lösen ord p�
 
 Med Azure AD Password Protection tillämpas standard globala förbjudna lösen ords listor automatiskt på alla användare i en Azure AD-klient. För att stödja dina egna affärs-och säkerhets behov kan du definiera poster i en anpassad lista över blockerade lösen ord. När användare ändrar eller återställer sina lösen ord, kontrol leras dessa förbjudna lösen ords listor för att tvinga användningen av starka lösen ord.
 
-Du bör använda ytterligare funktioner som [azure Multi-Factor Authentication](concept-mfa-howitworks.md), inte bara förlitar sig på starka lösen ord som tillämpas av lösen ords skydd i Azure AD. Mer information om hur du använder flera säkerhets nivåer för dina inloggnings händelser finns i [din pa $ $Word spelar ingen roll](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
+Du bör använda ytterligare funktioner som [Azure ad Multi-Factor Authentication](concept-mfa-howitworks.md), inte bara förlitar dig på starka lösen ord som tillämpas av lösen ords skydd i Azure AD. Mer information om hur du använder flera säkerhets nivåer för dina inloggnings händelser finns i [din pa $ $Word spelar ingen roll](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
 
 > [!IMPORTANT]
 > I den här konceptuella artikeln beskrivs en administratör Hur lösen ords skydd i Azure fungerar. Om du är en slutanvändare som redan är registrerad för lösen ords återställning via självbetjäning och behöver gå tillbaka till ditt konto, går du till [https://aka.ms/sspr](https://aka.ms/sspr) .

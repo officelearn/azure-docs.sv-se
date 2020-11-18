@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f0c19e33ab6f91e69f9c7dbc5bc29fef1fd53bb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0143da9c1961b4123467120210135f7db2c582c8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964884"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839581"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planera distribution av lösenordsskyddad autentisering i Azure Active Directory
 
@@ -67,9 +67,9 @@ Organisationer måste uppfylla följande krav innan en lösenordsskyddad distrib
 
 | Förutsättning | Autentiseringsapp | FIDO2 säkerhets nycklar |
 | --- | --- | --- |
-| [Kombinerad registrering för Azure Multi-Factor Authentication och återställning av lösen ord för självbetjäning (SSPR)](howto-registration-mfa-sspr-combined.md) är aktiverat | √ | √ |
-| [Användare kan utföra Azure Multi-Factor Authentication](howto-mfa-getstarted.md) | √ | √ |
-| [Användare har registrerat sig för Azure Multi-Factor Authentication och SSPR](howto-registration-mfa-sspr-combined.md) | √ | √ |
+| [Kombinerad registrering för Azure AD Multi-Factor Authentication och återställning av lösen ord för självbetjäning (SSPR)](howto-registration-mfa-sspr-combined.md) är aktiverat | √ | √ |
+| [Användare kan utföra Azure AD-Multi-Factor Authentication](howto-mfa-getstarted.md) | √ | √ |
+| [Användare har registrerat sig för Azure AD Multi-Factor Authentication och SSPR](howto-registration-mfa-sspr-combined.md) | √ | √ |
 | [Användare har registrerat sina mobila enheter på Azure Active Directory](../devices/overview.md) | √ |   |
 | Windows 10 version 1809 eller senare med en webbläsare som stöds, t. ex. Microsoft Edge eller Mozilla Firefox <br> (version 67 eller senare). <br> *Microsoft rekommenderar version 1903 eller senare för intern support*. |   | √ |
 | Kompatibla säkerhets nycklar för FIDO2. Se till att du använder en [Microsoft-testad och verifierad](./concept-authentication-passwordless.md) FIDO2-säkerhetsenhet eller annan kompatibel FIDO2-säkerhetsenhet. |   | √ |
@@ -78,9 +78,9 @@ Organisationer måste uppfylla följande krav innan en lösenordsskyddad distrib
 
 Kraven för Windows Hello är mycket beroende av om du distribuerar i en lokal, hybrid eller molnbaserad konfiguration. Mer information finns i [fullständig lista över krav för Windows Hello för företag](/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 
-### <a name="azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication
+### <a name="azure-ad-multi-factor-authentication"></a>Azure AD-Multi-Factor Authentication
 
-Användarna registrerar sin metod för lösen ords begränsning som en del av registrerings flödet för Azure Multi-Factor Authentication. Multi-Factor Authentication med ett användar namn och lösen ord tillsammans med en annan registrerad metod kan användas som en reserv om de inte kan använda sin telefon-eller säkerhets nyckel i vissa situationer.
+Användarna registrerar sin metod för lösen ords begränsning som en del av registrerings flödet för Azure AD-Multi-Factor Authentication. Multi-Factor Authentication med ett användar namn och lösen ord tillsammans med en annan registrerad metod kan användas som en reserv om de inte kan använda sin telefon-eller säkerhets nyckel i vissa situationer.
 
 ### <a name="licensing"></a>Licensiering 
 Det finns ingen ytterligare kostnad för lösen ords lösa autentisering, även om vissa krav kan kräva en Premium-prenumeration. För detaljerad information om funktioner och licensiering på [sidan Azure Active Directory licensiering](https://azure.microsoft.com/pricing/details/active-directory/). 
@@ -140,7 +140,7 @@ Det sätter en iOS-eller Android-telefon till en stark, lösen ords rik autentis
 
 **AD FS-integration** – när en användare aktiverar Microsoft Authenticator lösen ords lös autentiseringsuppgifter, kommer autentiseringen för den användaren att skicka ett meddelande för godkännande. Användare i en hybrid klient hindras från att dirigeras till ADFS för inloggning om de inte väljer Använd lösen ordet i stället. Den här processen kringgår också alla lokala principer för villkorlig åtkomst och genom strömnings flöden. Men om en *login_hint* anges vidarebefordras användaren till ADFS och alternativet att använda lösen ords lös autentiseringsuppgifter kringgås.
 
-**Azure Multi-Factor Authentication Server** – slutanvändare som är aktiverade för Multi-Factor Authentication genom en organisations lokala Azure MFA-Server kan skapa och använda en enkel inloggnings inloggning för lösen ord. Om användaren försöker uppgradera flera installationer (minst 5) av Microsoft Authenticator med autentiseringsuppgifterna, kan den här ändringen resultera i ett fel.
+**Azure AD Multi-Factor Authentication Server** -slutanvändare som har Aktiver ATS för Multi-Factor Authentication genom en organisations lokala Azure MFA-Server kan skapa och använda en enda inloggnings inloggning för lösen ord. Om användaren försöker uppgradera flera installationer (minst 5) av Microsoft Authenticator med autentiseringsuppgifterna, kan den här ändringen resultera i ett fel.
 
 **Enhets registrering** – om du vill använda Authenticator-appen för lösen ords lös autentisering måste enheten vara registrerad i Azure AD-klienten och kan inte vara en delad enhet. En enhet kan bara registreras i en enda klient. Den här gränsen innebär att endast ett arbets-eller skol konto stöds för telefonin loggning med hjälp av Authenticator-appen.
 

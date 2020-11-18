@@ -1,6 +1,6 @@
 ---
-title: Konfigurera applösenord för Azure Multi-Factor Authentication – Azure Active Directory
-description: Lär dig hur du konfigurerar och använder applösenord för äldre program i Azure Multi-Factor Authentication
+title: Konfigurera applösenord för Azure AD Multi-Factor Authentication – Azure Active Directory
+description: Lär dig hur du konfigurerar och använder applösenord för äldre program i Azure AD Multi-Factor Authentication
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85031896a196dd742868466243dd401345b0bc97
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 282bf6a30d8ff70440999ff3763c0d5544ef428d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964510"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839275"
 ---
-# <a name="enable-and-use-azure-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Aktivera och Använd Azure Multi-Factor Authentication med äldre program med applösenord
+# <a name="enable-and-use-azure-ad-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Aktivera och använda Azure AD Multi-Factor Authentication med äldre program med hjälp av applösenord
 
-Vissa äldre appar än webb läsar program, t. ex. Office 2010 eller tidigare och Apple Mail före iOS 11, förstår inte pauser eller avbrott i autentiseringsprocessen. Om en användare är aktive rad för Azure Multi-Factor Authentication och försöker använda en av dessa äldre appar, som inte är webbläsarbaserade, kan de inte autentisera sig. Om du vill använda dessa program på ett säkert sätt med Azure Multi-Factor Authentication aktiverat för användar konton kan du använda applösenord. Dessa applösenord ersatte ditt traditionella lösen ord för att tillåta att en app kringgår Multi-Factor Authentication och fungerar som den ska.
+Vissa äldre appar än webb läsar program, t. ex. Office 2010 eller tidigare och Apple Mail före iOS 11, förstår inte pauser eller avbrott i autentiseringsprocessen. Om en användare är aktive rad för Azure AD Multi-Factor Authentication och försöker använda en av dessa äldre appar, som inte är webbläsarbaserade, kan de inte autentiseras. Om du vill använda dessa program på ett säkert sätt med Azure AD Multi-Factor Authentication aktiverat för användar konton kan du använda applösenord. Dessa applösenord ersatte ditt traditionella lösen ord för att tillåta att en app kringgår Multi-Factor Authentication och fungerar som den ska.
 
 Modern autentisering stöds för Microsoft Office 2013-klienter och senare. Office 2013-klienter, inklusive Outlook, stöder moderna autentiseringsprotokoll och kan aktive ras för att fungera med tvåstegsverifiering. När klienten har Aktiver ATS krävs inte applösenord för klienten.
 
@@ -31,7 +31,7 @@ Den här artikeln visar hur du aktiverar och använder applösenord för äldre 
 
 ## <a name="overview-and-considerations"></a>Översikt och överväganden
 
-När ett användar konto är aktiverat för Azure Multi-Factor Authentication avbryts den vanliga inloggnings frågan av en begäran om ytterligare verifiering. Vissa äldre program förstår inte den här rasten i inloggnings processen, så autentiseringen Miss lyckas. Om du vill upprätthålla säkerhet för användar konton och låta Azure Multi-Factor Authentication aktive rad kan du använda applösenord i stället för användarens vanliga användar namn och lösen ord. När ett applösenord används under inloggningen finns det ingen ytterligare verifierings fråga, så autentiseringen lyckades.
+När ett användar konto är aktiverat för Azure AD Multi-Factor Authentication avbryts den vanliga inloggnings frågan med en begäran om ytterligare verifiering. Vissa äldre program förstår inte den här rasten i inloggnings processen, så autentiseringen Miss lyckas. Om du vill upprätthålla säkerhet för användar konton och låta Azure AD Multi-Factor Authentication aktive rad kan du använda applösenord i stället för användarens vanliga användar namn och lösen ord. När ett applösenord används under inloggningen finns det ingen ytterligare verifierings fråga, så autentiseringen lyckades.
 
 Applösenord genereras automatiskt och anges inte av användaren. Detta automatiskt genererade lösen ord gör det svårare för en angripare att gissa, vilket är säkrare. Användarna behöver inte hålla reda på lösen orden eller ange dem varje gång som applösenord bara anges en gång per program.
 
@@ -39,7 +39,7 @@ När du använder applösenord gäller följande saker:
 
 * Det finns en gräns på 40 app-lösenord per användare.
 * Program som cachelagrar lösen ord och använder dem i lokala scenarier kan inte köras på grund av att appens lösen ord inte är känt utanför arbets-eller skol kontot. Ett exempel på det här scenariot är Exchange-e-post som är lokalt, men det arkiverade e-postmeddelandet finns i molnet. I det här scenariot fungerar inte samma lösen ord.
-* När Azure Multi-Factor Authentication har Aktiver ATS på ett användar konto kan applösenord användas med de flesta klienter som inte är webbläsare, t. ex. Outlook och Microsoft Skype för företag. Administrativa åtgärder kan dock inte utföras med hjälp av applösenord via appar som inte är webb läsar program, t. ex. Windows PowerShell. Det går inte att utföra åtgärderna även om användaren har ett administratörs konto.
+* När Azure AD Multi-Factor Authentication har Aktiver ATS på ett användar konto kan applösenord användas med de flesta klienter som inte är webbläsare, till exempel Outlook och Microsoft Skype för företag. Administrativa åtgärder kan dock inte utföras med hjälp av applösenord via appar som inte är webb läsar program, t. ex. Windows PowerShell. Det går inte att utföra åtgärderna även om användaren har ett administratörs konto.
     * Om du vill köra PowerShell-skript skapar du ett tjänst konto med ett starkt lösen ord och aktiverar inte kontot för tvåstegsverifiering.
 * Om du misstänker att ett användar konto har komprometterats och återkallar lösen ordet för kontot bör även applösenord uppdateras. Applösenord återkallas inte automatiskt när ett användar konto lösen ord återkallas/återställs. Användaren bör ta bort befintliga applösenord och skapa nya.
    * Mer information finns i [skapa och ta bort applösenord från sidan ytterligare säkerhets verifiering](../user-help/multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-from-the-additional-security-verification-page).
@@ -55,7 +55,7 @@ Vi rekommenderar att du skapar ett applösenord per enhet, i stället för ett a
 
 ## <a name="federated-or-single-sign-on-app-passwords"></a>Applösenord för federerad eller enkel inloggning
 
-Azure AD stöder Federation eller enkel inloggning (SSO) med lokala Active Directory Domain Services (AD DS). Om din organisation är federerad med Azure AD och du använder Azure Multi-Factor Authentication gäller följande lösen ords överväganden för appen:
+Azure AD stöder Federation eller enkel inloggning (SSO) med lokala Active Directory Domain Services (AD DS). Om din organisation är federerad med Azure AD och du använder Azure AD Multi-Factor Authentication, gäller följande lösen ords överväganden för appen:
 
 >[!NOTE]
 > Följande punkter gäller endast för federerade (SSO)-kunder.
@@ -72,7 +72,7 @@ Anta till exempel att du har följande arkitektur:
 * Din lokala instans av Active Directory är federerad med Azure AD.
 * Du använder Exchange Online.
 * Du använder Skype för företag lokalt.
-* Du använder Azure Multi-Factor Authentication.
+* Du använder Azure AD Multi-Factor Authentication.
 
 I det här scenariot använder du följande autentiseringsuppgifter:
 
@@ -84,7 +84,7 @@ I det här scenariot använder du följande autentiseringsuppgifter:
 Som standard kan användarna inte skapa applösenord. Funktionen applösenord måste vara aktive rad innan användarna kan använda dem. För att ge användarna möjlighet att skapa applösenord, utför följande steg:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Sök efter och välj **Azure Active Directory**och välj sedan **användare**.
+2. Sök efter och välj **Azure Active Directory** och välj sedan **användare**.
 3. Välj **Multi-Factor Authentication** i navigerings fältet högst upp i fönstret *användare* .
 4. Under Multi-Factor Authentication väljer du **tjänst inställningar**.
 5. På sidan **tjänst inställningar** väljer du alternativet **Tillåt användare att skapa applösenord för att logga in på icke-webbläsarbaserade appar** .
@@ -99,10 +99,10 @@ Som standard kan användarna inte skapa applösenord. Funktionen applösenord m�
 
 ## <a name="create-an-app-password"></a>Skapa ett applösenord
 
-När användarna har slutfört den första registreringen för Azure Multi-Factor Authentication finns det ett alternativ för att skapa applösenord i slutet av registrerings processen.
+När användarna har slutfört den första registreringen för Azure AD Multi-Factor Authentication finns det ett alternativ för att skapa applösenord i slutet av registrerings processen.
 
-Användare kan också skapa applösenord efter registreringen. Mer information och detaljerade anvisningar för dina användare finns i [Vad är app-lösenord i Azure Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
+Användare kan också skapa applösenord efter registreringen. Mer information och detaljerade anvisningar för dina användare finns i [Vad är app-lösenord i Azure AD Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du gör det möjligt för användare att snabbt registrera sig för Azure Multi-Factor Authentication finns i [Översikt över kombinerade säkerhets informations registrering](concept-registration-mfa-sspr-combined.md).
+Mer information om hur du gör det möjligt för användare att snabbt registrera för Azure AD Multi-Factor Authentication finns i [Översikt över kombinerade säkerhets informations registrering](concept-registration-mfa-sspr-combined.md).

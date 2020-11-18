@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: c5ae0e0d312aa9a959b114d576f887bfa5072f49
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a166a451c405c2321453e02751baad91c2a14c60
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965513"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840025"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Vilka autentiserings- och verifieringsmetoder är tillgängliga i Azure Active Directory?
 
@@ -26,13 +26,13 @@ Som en del av inloggnings upplevelsen för konton i Azure Active Directory (Azur
 
 Metoder för lösen ords kryptering som Windows Hello, FIDO2 säkerhets nycklar och Microsoft Authenticator-appen tillhandahåller de säkraste inloggnings händelserna.
 
-Azure Multi-Factor Authentication lägger till ytterligare säkerhet över med ett lösen ord när en användare loggar in. Användaren kan uppmanas att ange ytterligare typer av autentisering, t. ex. för att svara på ett push-meddelande, ange en kod från en program vara eller maskinvarubaserad token eller svara på ett SMS eller telefonsamtal.
+Azure AD Multi-Factor Authentication lägger till ytterligare säkerhet över med ett lösen ord när en användare loggar in. Användaren kan uppmanas att ange ytterligare typer av autentisering, t. ex. för att svara på ett push-meddelande, ange en kod från en program vara eller maskinvarubaserad token eller svara på ett SMS eller telefonsamtal.
 
 För att förenkla användar upplevelsen och registrera dig för både MFA och SSPR rekommenderar vi att du [aktiverar kombinerad registrering av säkerhets information](howto-registration-mfa-sspr-combined.md). För återhämtning rekommenderar vi att du kräver att användarna registrerar flera autentiseringsmetoder. När en metod inte är tillgänglig för en användare under inloggnings-eller SSPR kan de välja att autentisera med en annan metod. Mer information finns i [skapa en elastisk åtkomst kontroll hanterings strategi i Azure AD](concept-resilient-controls.md).
 
 ## <a name="authentication-method-strength-and-security"></a>Autentisering av autentiseringsmetod och säkerhet
 
-När du distribuerar funktioner som Azure Multi-Factor Authentication i din organisation, granskar du tillgängliga autentiseringsmetoder. Välj de metoder som uppfyller eller överskrider dina krav när det gäller säkerhet, användbarhet och tillgänglighet. Använd om möjligt autentiseringsmetoder med den högsta säkerhets nivån.
+När du distribuerar funktioner som Azure AD Multi-Factor Authentication i din organisation, granskar du tillgängliga autentiseringsmetoder. Välj de metoder som uppfyller eller överskrider dina krav när det gäller säkerhet, användbarhet och tillgänglighet. Använd om möjligt autentiseringsmetoder med den högsta säkerhets nivån.
 
 Följande tabell beskriver säkerhets överväganden för tillgängliga autentiseringsmetoder. Tillgänglighet är en indikation på att användaren kan använda autentiseringsmetoden, inte av tjänstens tillgänglighet i Azure AD:
 
@@ -45,7 +45,7 @@ Följande tabell beskriver säkerhets överväganden för tillgängliga autentis
 | OATH-programvaru-token           | Medel   | Medel    | Hög         |
 | SMS                            | Medium   | Högt      | Medel       |
 | Röst                          | Medel   | Medel    | Medel       |
-| lösenordsinställning                       | Lågt      | Högt      | Hög         |
+| Lösenord                       | Lågt      | Högt      | Hög         |
 
 Mer information om säkerhet finns i [sårbarheter och angrepps vektorer för autentisering](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124).
 
@@ -54,7 +54,7 @@ Mer information om säkerhet finns i [sårbarheter och angrepps vektorer för au
 
 ## <a name="how-each-authentication-method-works"></a>Så här fungerar varje autentiseringsmetod
 
-Vissa autentiseringsmetoder kan användas som primär faktor när du loggar in på ett program eller en enhet, till exempel att använda en FIDO2 säkerhets nyckel eller ett lösen ord. Andra autentiseringsmetoder är bara tillgängliga som en sekundär faktor när du använder Azure Multi-Factor Authentication eller SSPR.
+Vissa autentiseringsmetoder kan användas som primär faktor när du loggar in på ett program eller en enhet, till exempel att använda en FIDO2 säkerhets nyckel eller ett lösen ord. Andra autentiseringsmetoder är bara tillgängliga som en sekundär faktor när du använder Azure AD Multi-Factor Authentication eller SSPR.
 
 Följande tabell beskriver när du kan använda en autentiseringsmetod under en inloggnings händelse:
 
@@ -67,7 +67,7 @@ Följande tabell beskriver när du kan använda en autentiseringsmetod under en 
 | OATH-programvaru-token           | Nej                     | Multifaktorautentisering                       |
 | SMS                            | Ja (för hands version)          | MFA och SSPR              |
 | Röstsamtal                     | Nej                     | MFA och SSPR              |
-| lösenordsinställning                       | Ja                    |                           |
+| Lösenord                       | Ja                    |                           |
 
 Alla dessa autentiseringsmetoder kan konfigureras i Azure Portal och i allt större användning av [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
 
@@ -80,28 +80,28 @@ Mer information om hur varje autentiseringsmetod fungerar finns i följande arti
 * [OATH-programvaru-token](concept-authentication-oath-tokens.md#oath-software-tokens)
 * SMS- [inloggning (för hands version)](howto-authentication-sms-signin.md) och [verifiering](concept-authentication-phone-options.md#mobile-phone-verification)
 * [Verifiering av röst samtal](concept-authentication-phone-options.md)
-* lösenordsinställning
+* Lösenord
 
 > [!NOTE]
-> I Azure AD är ett lösen ord ofta en av de primära autentiseringsmetoderna. Du kan inte inaktivera autentiseringsmetoden för lösen ord. Om du använder ett lösen ord som primär autentiserings faktor ökar du säkerheten för inloggnings händelser med hjälp av Azure Multi-Factor Authentication.
+> I Azure AD är ett lösen ord ofta en av de primära autentiseringsmetoderna. Du kan inte inaktivera autentiseringsmetoden för lösen ord. Om du använder ett lösen ord som primär autentiserings faktor ökar du säkerheten för inloggnings händelser med hjälp av Azure AD Multi-Factor Authentication.
 
 Följande ytterligare verifierings metoder kan användas i vissa scenarier:
 
-* [Applösenord](howto-mfa-app-passwords.md) – används för gamla program som inte stöder modern autentisering och som kan konfigureras för Azure-Multi-Factor Authentication per användare.
+* [Applösenord](howto-mfa-app-passwords.md) – används för gamla program som inte stöder modern autentisering och som kan konfigureras för Azure AD-Multi-Factor Authentication per användare.
 * [Säkerhets frågor](concept-authentication-security-questions.md) – används endast för SSPR
 * [E-postadress](concept-sspr-howitworks.md#authentication-methods) – används endast för SSPR
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du kommer igång finns i [självstudien för självbetjäning för återställning av lösen ord (SSPR)][tutorial-sspr] och [Azure Multi-Factor Authentication][tutorial-azure-mfa].
+Information om hur du kommer igång finns i [självstudien för självbetjäning för återställning av lösen ord (SSPR)][tutorial-sspr] och [Azure AD Multi-Factor Authentication][tutorial-azure-mfa].
 
 Mer information om SSPR-koncept finns i [hur Azure AD självbetjäning för återställning av lösen ord fungerar][concept-sspr].
 
-Mer information om MFA-koncept finns i [hur Azure Multi-Factor Authentication fungerar][concept-mfa].
+Mer information om MFA-koncept finns i [hur Azure AD Multi-Factor Authentication fungerar][concept-mfa].
 
 Läs mer om hur du konfigurerar autentiseringsmetoder med hjälp av [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
 
-Om du vill se vilka autentiseringsmetoder som används kan du läsa mer i [Azure Multi-Factor Authentication Authentication Method Analysis med PowerShell](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
+Om du vill se vilka autentiseringsmetoder som används kan du läsa mer i [Azure AD Multi-Factor Authentication Authentication Method Analysis med PowerShell](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md

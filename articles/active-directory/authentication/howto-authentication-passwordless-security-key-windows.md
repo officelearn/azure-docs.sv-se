@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b88b2ca0a420295a7a53608f02923e72045e1c44
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8fba2610b3343744c448e390bc2d713b38da481d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964748"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839479"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Aktivera inloggning med lösen ord utan lösen ord till Windows 10-enheter med Azure Active Directory (för hands version)
 
@@ -29,7 +29,7 @@ Det här dokumentet fokuserar på att aktivera FIDO2-säkerhetsnyckel baserad l�
 
 | Enhetstyp | Azure AD-ansluten | Hybrid Azure AD-ansluten |
 | --- | --- | --- |
-| [Azure Multi-Factor Authentication](howto-mfa-getstarted.md) | X | X |
+| [Azure AD-Multi-Factor Authentication](howto-mfa-getstarted.md) | X | X |
 | [Kombinerad för hands version av säkerhets informations registrering](concept-registration-mfa-sspr-combined.md) | X | X |
 | Kompatibla [säkerhets nycklar för FIDO2](concept-authentication-passwordless.md#fido2-security-keys) | X | X |
 | Webauthn kräver Windows 10 version 1903 eller senare | X | X |
@@ -80,7 +80,7 @@ Utför följande steg för att aktivera användning av säkerhets nycklar med In
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Bläddra till **Microsoft Intune**  >  **enhets registrering**  >  **Windows-registrering**  >  **Egenskaper för Windows Hello för företag**  >  **Properties**.
-1. Under **Inställningar**anger du **Använd säkerhets nycklar för inloggning** till **aktive rad**.
+1. Under **Inställningar** anger du **Använd säkerhets nycklar för inloggning** till **aktive rad**.
 
 Konfiguration av säkerhets nycklar för inloggning är inte beroende av att konfigurera Windows Hello för företag.
 
@@ -112,12 +112,12 @@ För enheter som inte hanteras av Intune kan ett konfigurations paket installera
 1. Välj **Arkiv**  >  **nytt projekt**.
 1. Ge projektet ett namn och anteckna sökvägen där projektet skapas och välj sedan **Nästa**.
 1. Lämna *etablerings paketet* valt som det **valda projekt arbets flödet** och välj **Nästa**.
-1. Välj *alla versioner av Windows-skrivbordet* under **Välj vilka inställningar du vill visa och konfigurera**och välj sedan **Nästa**.
+1. Välj *alla versioner av Windows-skrivbordet* under **Välj vilka inställningar du vill visa och konfigurera** och välj sedan **Nästa**.
 1. Välj **Slutför**.
 1. I det nyskapade projektet bläddrar du till **körnings inställningar**  >  **WindowsHelloForBusiness**  >  **SecurityKeys**  >  **UseSecurityKeyForSignIn**.
 1. Ange **UseSecurityKeyForSignIn** till *aktive rad*.
 1. Välj **Exportera**  >  **etablerings paket**
-1. Lämna standardvärdena i fönstret **build** under **Beskriv etablerings paketet**och välj sedan **Nästa**.
+1. Lämna standardvärdena i fönstret **build** under **Beskriv etablerings paketet** och välj sedan **Nästa**.
 1. Lämna standardvärdena i fönstret **build** under **Välj säkerhets information för etablerings paketet** och välj **Nästa**.
 1. Anteckna eller ändra sökvägen i **build** Windows under **Välj var du vill spara etablerings paketet** och välj **Nästa**.
 1. Välj **build** på sidan **bygga etablerings paket** .
@@ -129,7 +129,7 @@ För enheter som inte hanteras av Intune kan ett konfigurations paket installera
 
 ### <a name="enable-with-group-policy"></a>Aktivera med grupprincip
 
-För **hybrid Azure AD-anslutna enheter**kan organisationer konfigurera följande grupprincip inställning för att aktivera Fido-inloggning för säkerhets nycklar. Inställningen finns under **dator konfiguration**  >  **administrativa mallar**  >  **system**  >  **inloggning**  >  **Aktivera inloggning med säkerhets nyckel**:
+För **hybrid Azure AD-anslutna enheter** kan organisationer konfigurera följande grupprincip inställning för att aktivera Fido-inloggning för säkerhets nycklar. Inställningen finns under **dator konfiguration**  >  **administrativa mallar**  >  **system**  >  **inloggning**  >  **Aktivera inloggning med säkerhets nyckel**:
 
 - När den här principen **är aktive rad** kan användarna logga in med säkerhets nycklar.
 - Om du ställer in principen på **inaktive rad** eller **inte konfigurerad** stoppas användare från att logga in med säkerhets nycklar.
@@ -164,4 +164,4 @@ Om du vill dela feedback eller om du har problem med att för hands Visa den hä
 
 [Läs mer om enhets registrering](../devices/overview.md)
 
-[Läs mer om Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+[Läs mer om Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

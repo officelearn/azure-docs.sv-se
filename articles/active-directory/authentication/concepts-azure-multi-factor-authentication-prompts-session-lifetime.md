@@ -1,6 +1,6 @@
 ---
-title: Azure Multi-Factor Authentication-prompter och sessionens livs längd
-description: Läs om den rekommenderade konfigurationen för omautentiserings-prompter med Azure Multi-Factor Authentication och hur sessionens livs längd används.
+title: Azure AD-Multi-Factor Authentication-prompter och sessionens livs längd
+description: Läs om den rekommenderade konfigurationen för omautentiserings-prompter med Azure AD Multi-Factor Authentication och hur sessionens livs längd används.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a759d4e686f43133716cc1c40237db74a015210
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 87b30b12e75a583ccee9780f97a6492961365cca
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964952"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839683"
 ---
-# <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-multi-factor-authentication"></a>Optimera omautentiserings-prompter och förstå sessionens livs längd för Azure Multi-Factor Authentication
+# <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-ad-multi-factor-authentication"></a>Optimera omautentiserings-prompter och förstå sessionens livs längd för Azure AD Multi-Factor Authentication
 
 Azure Active Directory (Azure AD) har flera inställningar som avgör hur ofta användare behöver autentiseras igen. Denna omautentisering kan vara en första faktor, till exempel lösen ord, FIDO eller lösen ords lös Microsoft Authenticator, eller för att utföra Multi-Factor Authentication (MFA). Du kan konfigurera de här inställningarna för autentisering efter behov för din egen miljö och den användar upplevelse som du vill använda.
 
@@ -41,7 +41,7 @@ För att ge användarna rätt balans mellan säkerhet och enkel användning geno
     * Se till att alternativet *förbli inloggat* är aktiverat och hjälper användarna att godkänna det.
 * För scenarier med mobila enheter kontrollerar du att användarna använder appen Microsoft Authenticator. Den här appen används som en Broker för andra Azure AD-federerade appar och minskar autentiseringen på enheten.
 
-Vår forskning visar att de här inställningarna är rätt för de flesta klienter. Vissa kombinationer av dessa inställningar, t. ex. att *komma ihåg MFA* och *förbli*inbyggda, kan leda till att användarna autentiseras för ofta. Vanliga omautentiserings-prompter är felaktiga för användar produktivitet och kan göra dem mer sårbara för attacker.
+Vår forskning visar att de här inställningarna är rätt för de flesta klienter. Vissa kombinationer av dessa inställningar, t. ex. att *komma ihåg MFA* och *förbli* inbyggda, kan leda till att användarna autentiseras för ofta. Vanliga omautentiserings-prompter är felaktiga för användar produktivitet och kan göra dem mer sårbara för attacker.
 
 ## <a name="azure-ad-session-lifetime-configuration-settings"></a>Konfigurations inställningar för Azure AD-sessionens livs längd
 
@@ -106,19 +106,19 @@ Utför följande steg för att konfigurera eller granska alternativet för *fort
 
 1. I Azure AD-portalen söker du efter och väljer *Azure Active Directory*.
 1. Välj **företags anpassning**, välj sedan Visa alternativ för varje språk version **som är inloggad**.
-1. Välj *Ja*och välj sedan **Spara**.
+1. Välj *Ja* och välj sedan **Spara**.
 
 Utför följande steg för att komma ihåg inställningarna för Multi-Factor Authentication:
 
 1. I Azure AD-portalen söker du efter och väljer *Azure Active Directory*.
-1. Välj **säkerhet**och sedan **MFA**.
-1. Under **Konfigurera**väljer du **ytterligare Cloud-baserade MFA-inställningar**.
+1. Välj **säkerhet** och sedan **MFA**.
+1. Under **Konfigurera** väljer du **ytterligare Cloud-baserade MFA-inställningar**.
 1. På sidan *Inställningar för Multi-Factor Authentication Service* bläddrar du för att **komma ihåg inställningarna för Multi-Factor Authentication**. Inaktivera inställningen genom att avmarkera kryss rutan.
 
 Utför följande steg för att konfigurera principer för villkorlig åtkomst för inloggnings frekvens och beständig webbläsarsession:
 
 1. I Azure AD-portalen söker du efter och väljer *Azure Active Directory*.
-1. Välj **säkerhet**och sedan **villkorlig åtkomst**.
+1. Välj **säkerhet** och sedan **villkorlig åtkomst**.
 1. Konfigurera en princip med hjälp av rekommenderade alternativ för hantering av sessioner som beskrivs i den här artikeln.
 
 Om du vill granska livs längd för token [använder du Azure AD PowerShell för att skicka frågor till alla Azure AD-principer](../develop/configure-token-lifetimes.md#prerequisites). Inaktivera eventuella principer som du har på plats.
@@ -136,4 +136,4 @@ I följande tabell sammanfattas rekommendationerna baserat på licenser:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kom igång genom att slutföra självstudien för att [skydda användar inloggnings händelser med Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md) eller [Använd risk identifieringar för användar inloggningar för att utlösa Azure Multi-Factor Authentication](tutorial-risk-based-sspr-mfa.md).
+Kom igång genom att slutföra självstudien för att [skydda användar inloggnings händelser med Azure ad Multi-Factor Authentication](tutorial-enable-azure-mfa.md) eller [Använd risk identifieringar för användar inloggningar för att utlösa Azure AD-Multi-Factor Authentication](tutorial-risk-based-sspr-mfa.md).

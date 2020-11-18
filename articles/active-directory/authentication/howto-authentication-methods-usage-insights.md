@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03989e37ac05228dade2fdcda43856e8a5240865
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: fe8a916f4c3ce8869b6b487e33dcdecc061f8cbf
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964918"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839598"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Användning av autentiseringsmetoder & insikter (för hands version)
 
-Med hjälp & insikter kan du förstå hur autentiseringsmetoder för funktioner som Azure Multi-Factor Authentication och lösen ords återställning via självbetjäning fungerar i din organisation. Den här rapporterings funktionen ger din organisation möjlighet att förstå vilka metoder som registreras och hur de används.
+Med användning & insikter kan du förstå hur autentiseringsmetoder för funktioner som Azure AD Multi-Factor Authentication och lösen ords återställning via självbetjäning fungerar i din organisation. Den här rapporterings funktionen ger din organisation möjlighet att förstå vilka metoder som registreras och hur de används.
 
 ## <a name="permissions-and-licenses"></a>Behörigheter och licenser
 
@@ -29,16 +29,16 @@ Följande roller kan komma åt användning och insikter:
 - Global administratör
 - Säkerhetsläsare
 - Säkerhetsadministratör
-- Rapport läsare
+- Rapportläsare
 
-Ingen ytterligare licens krävs för att komma åt användning och insikter. Azure Multi-Factor Authentication och SSPR-licensierings information (Self-Service Password rereset) finns på [webbplatsen för Azure Active Directory prissättning](https://azure.microsoft.com/pricing/details/active-directory/).
+Ingen ytterligare licens krävs för att komma åt användning och insikter. Azure AD Multi-Factor Authentication och SSPR-licensierings information (Self-Service Password rereset) finns på [Azure Active Directory prissättnings webbplats](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="how-it-works"></a>Så här fungerar det
 
 Åtkomst till användning av autentiseringsmetoder och insikter:
 
 1. Bläddra till [Azure Portal](https://portal.azure.com).
-1. Bläddra till **Azure Active Directory**  >  användning av**lösen ords återställning**  >  **& insikter**.
+1. Bläddra till **Azure Active Directory**  >  användning av **lösen ords återställning**  >  **& insikter**.
 1. Från **registreringen** eller **användnings** översikterna kan du välja att öppna de för filtrerade rapporterna för att filtrera efter dina behov.
 
 ![Översikt över användning & Insights](./media/howto-authentication-methods-usage-insights/usage-insights-overview.png)
@@ -61,7 +61,7 @@ Med hjälp av kontrollen i det övre högra hörnet kan du ändra datum interval
 
 ### <a name="registration-details"></a>Registrerings information
 
-Om du klickar på de användare som är **registrerade**, **användare aktiverade**eller **användare som stöder** paneler eller insikter kommer du till registrerings informationen.
+Om du klickar på de användare som är **registrerade**, **användare aktiverade** eller **användare som stöder** paneler eller insikter kommer du till registrerings informationen.
 
 Rapporten registrerings information visar följande information för varje användare:
 
@@ -92,7 +92,7 @@ Med hjälp av kontrollerna överst i listan kan du söka efter en användare och
 
 De data som visas i dessa rapporter kommer att fördröjas med upp till 60 minuter. Fältet "senast uppdaterat" finns i Azure Portal för att identifiera hur senaste dina data är.
 
-Användnings-och insikts data är inte en ersättning för Azure Multi-Factor Authentication aktivitets rapporter eller information som finns i rapporten Azure AD-inloggningar.
+Användnings-och insikts data är inte en ersättning för Azure AD Multi-Factor Authentication aktivitets rapporter eller information som finns i rapporten Azure AD-inloggningar.
 
 Rapporten kan för närvarande inte filtreras för att undanta externa användare.
 

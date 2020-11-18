@@ -1,6 +1,6 @@
 ---
-title: Kombinerad registrering för SSPR och Azure Multi-Factor Authentication-Azure Active Directory
-description: Lär dig mer om den kombinerade registrerings upplevelsen för Azure Active Directory att låta användare registrera sig för både Azure-Multi-Factor Authentication och återställning av lösen ord för självbetjäning
+title: Kombinerad registrering för SSPR och Azure AD Multi-Factor Authentication-Azure Active Directory
+description: Lär dig mer om den kombinerade registrerings upplevelsen för Azure Active Directory att låta användare registrera sig för både Azure AD-Multi-Factor Authentication och återställning av lösen ord för självbetjäning
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e1036e63b4fdef241350786fa3a246946a9223c
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 22f43c5f9848670b9df4b061c5abb6cc30912172
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378014"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839802"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Kombinerad säkerhets informations registrering för Azure Active Directory översikt
 
-Innan en kombinerad registrering har användare registrerat autentiseringsmetoder för Azure Multi-Factor Authentication och lösen ords återställning via självbetjäning (SSPR) separat. Personer har förvirrat att liknande metoder användes för Multi-Factor Authentication och SSPR, men de var tvungna att registrera sig för båda funktionerna. Med kombinerad registrering kan användarna registrera sig en gång och få fördelarna med både Multi-Factor Authentication-och SSPR.
+Före kombinerad registrering har användare registrerat autentiseringsmetoder för Azure AD Multi-Factor Authentication och återställning av lösen ord för självbetjäning (SSPR) separat. Personer har förvirrat att liknande metoder användes för Multi-Factor Authentication och SSPR, men de var tvungna att registrera sig för båda funktionerna. Med kombinerad registrering kan användarna registrera sig en gång och få fördelarna med både Multi-Factor Authentication-och SSPR.
 
 > [!NOTE]
 > Från den 15 augusti 2020 aktive ras alla nya Azure AD-klienter automatiskt för kombinerad registrering.
@@ -142,8 +142,8 @@ En användare som tidigare har konfigurerat minst en metod som kan användas fö
 
 ## <a name="next-steps"></a>Nästa steg
 
-För att komma igång, se självstudierna för att [Aktivera självbetjäning för återställning av lösen ord](tutorial-enable-sspr.md) och [Aktivera Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+För att komma igång, se självstudierna för att [Aktivera självbetjäning för återställning av lösen ord](tutorial-enable-sspr.md) och [aktivera Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 
 Lär dig hur du [aktiverar kombinerad registrering i din klient organisation](howto-registration-mfa-sspr-combined.md) eller [tvinga användare att registrera autentiseringsmetoder på nytt](howto-mfa-userdevicesettings.md#manage-user-authentication-options).
 
-Du kan också gå igenom [tillgängliga metoder för Azure Multi-Factor Authentication och SSPR](concept-authentication-methods.md).
+Du kan också granska de [tillgängliga metoderna för Azure AD Multi-Factor Authentication och SSPR](concept-authentication-methods.md).

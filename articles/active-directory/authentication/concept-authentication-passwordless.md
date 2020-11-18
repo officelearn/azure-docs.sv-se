@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b308b47ff813237bdf90637334f20ac6b5490a19
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: dbe22a1af8fbf61629fa9df1267416ca3822884b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992829"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840091"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Lösen ords verifierings alternativ för Azure Active Directory
 
@@ -62,7 +62,7 @@ Du kan också låta din personals telefon bli en metod för lösen ords lös aut
 
 Authenticator-appen förvandlar en iOS-eller Android-telefon till en stark, lösen ords rik autentiseringsuppgift. Användare kan logga in på vilken plattform eller webbläsare som helst genom att få ett meddelande till sin telefon, matcha ett nummer som visas på skärmen till det som visas på telefonen och sedan använda sina bio mått (touch eller FACET) eller PIN-kod för att bekräfta. Se [Hämta och installera Microsoft Authenticator-appen](../user-help/user-help-auth-app-download-install.md) för installations information.
 
-Lösen ords lös inloggning med Microsoft Authenticator-appen till Azure AD är för närvarande en för hands version. Användning av Microsoft Authenticator-appen för sekundär autentisering för Azure Multi-Factor Authentication, självbetjäning för återställning av lösen ord (SSPR) eller OATH-token för program vara GA. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.
+Lösen ords lös inloggning med Microsoft Authenticator-appen till Azure AD är för närvarande en för hands version. Användning av Microsoft Authenticator-appen för sekundär autentisering för Azure AD Multi-Factor Authentication, självbetjäning för återställning av lösen ord (SSPR) eller OATH-programvaru-token är GA. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.
 
 Lösenordsautentisering som använder Authenticator-appen följer samma grundläggande mönster som Windows Hello för företag. Det är lite mer komplicerat eftersom användaren måste identifieras så att Azure AD kan hitta den Microsoft Authenticator app-version som används:
 

@@ -1,6 +1,6 @@
 ---
-title: Konfigurera Azure Multi-Factor Authentication-Azure Active Directory
-description: Lär dig hur du konfigurerar inställningar för Azure-Multi-Factor Authentication i Azure Portal
+title: Konfigurera Azure AD-Multi-Factor Authentication – Azure Active Directory
+description: Lär dig hur du konfigurerar inställningar för Azure AD-Multi-Factor Authentication i Azure Portal
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,26 +12,26 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 17fbba605f6f20fa384d59a8c89ee536a9b121bf
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: adca22b3a8d9b93dfbc62202106127a5833a4c38
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964443"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839207"
 ---
-# <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurera inställningar för Azure Multi-Factor Authentication
+# <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Konfigurera inställningar för Azure AD-Multi-Factor Authentication
 
-Om du vill anpassa slutanvändarens upplevelse för Azure Multi-Factor Authentication kan du konfigurera alternativ för inställningar som tröskelvärden för konto utelåsning eller bedrägerier och aviseringar. Vissa inställningar är direkt i Azure Portal för Azure Active Directory (Azure AD) och vissa i en separat Azure Multi-Factor Authentication-Portal.
+Om du vill anpassa slutanvändarens upplevelse för Azure AD Multi-Factor Authentication kan du konfigurera alternativ för inställningar som tröskelvärden för konto utelåsning eller bedrägerier och aviseringar. Vissa inställningar är direkt i Azure Portal för Azure Active Directory (Azure AD) och vissa i en separat Azure AD Multi-Factor Authentication-Portal.
 
-Följande Azure Multi-Factor Authentication-inställningar är tillgängliga i Azure Portal:
+Följande Azure AD Multi-Factor Authentication-inställningar finns i Azure Portal:
 
 | Funktion | Beskrivning |
 | ------- | ----------- |
-| [Konto utelåsning](#account-lockout) | Lås tillfälligt konton från att använda Azure Multi-Factor Authentication om det finns alltför många nekade autentiseringsförsök i en rad. Den här funktionen gäller endast för användare som anger en PIN-kod för autentisering. (MFA-Server) |
-| [Blockera/avblockera användare](#block-and-unblock-users) | Blockera vissa användare från att kunna ta emot Azure Multi-Factor Authentication-begäranden. Alla autentiseringsförsök för blockerade användare nekas automatiskt. Användarna är fortfarande blockerade i 90 dagar från den tid som de är blockerade eller har avblockerats manuellt. |
+| [Konto utelåsning](#account-lockout) | Lås tillfälligt konton från att använda Azure AD Multi-Factor Authentication om det finns alltför många nekade autentiseringsförsök i en rad. Den här funktionen gäller endast för användare som anger en PIN-kod för autentisering. (MFA-Server) |
+| [Blockera/avblockera användare](#block-and-unblock-users) | Blockera vissa användare från att kunna ta emot Azure AD Multi-Factor Authentication-begäranden. Alla autentiseringsförsök för blockerade användare nekas automatiskt. Användarna är fortfarande blockerade i 90 dagar från den tid som de är blockerade eller har avblockerats manuellt. |
 | [Bedrägerivarning](#fraud-alert) | Konfigurera inställningar som tillåter att användare rapporterar falska verifierings begär Anden. |
 | [Aviseringar](#notifications) | Aktivera meddelanden om händelser från MFA Server. |
-| [OATH-token](concept-authentication-oath-tokens.md) | Används i Cloud-baserade Azure MFA-miljöer för att hantera OATH-token för användare. |
+| [OATH-token](concept-authentication-oath-tokens.md) | Används i Cloud-baserade Azure AD MFA-miljöer för att hantera OATH-token för användare. |
 | [Telefonsamtals inställningar](#phone-call-settings) | Konfigurera inställningar för telefonsamtal och hälsningar för moln miljöer och lokala miljöer. |
 | Leverantörer | Då visas befintliga autentiseringsproviders som du kan ha associerat med ditt konto. Nya autentiseringsproviders får inte skapas från den 1 september 2018 |
 
@@ -50,14 +50,14 @@ Följande inställningar är tillgängliga:
 Konfigurera utelåsnings inställningarna för kontot genom att utföra följande inställningar:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
-1. Bläddra till **Azure Active Directory**  >  **säkerhets**  >  **MFA**  >  **konto utelåsning**för MFA.
+1. Bläddra till **Azure Active Directory**  >  **säkerhets**  >  **MFA**  >  **konto utelåsning** för MFA.
 1. Ange de krävda värdena för din miljö och välj sedan **Spara**.
 
     ![Skärm bild av inställningarna för konto utelåsning i Azure Portal](./media/howto-mfa-mfasettings/account-lockout-settings.png)
 
 ## <a name="block-and-unblock-users"></a>Blockera och avblockera användare
 
-Om en användares enhet har tappats bort eller blivit stulen kan du blockera Azure Multi-Factor Authentication-försök för det associerade kontot. Alla Azure Multi-Factor Authentication-försök för blockerade användare nekas automatiskt. Användarna är blockerade i 90 dagar från blockeringens starttid.
+Om en användares enhet har tappats bort eller blivit stulen kan du blockera Azure AD Multi-Factor Authentication-försök för det associerade kontot. Alla Azure AD Multi-Factor Authentication-försök för blockerade användare nekas automatiskt. Användarna är blockerade i 90 dagar från blockeringens starttid.
 
 ### <a name="block-a-user"></a>Blockera en användare
 
@@ -65,7 +65,7 @@ Utför följande steg för att blockera en användare:
 
 1. Bläddra till **Azure Active Directory**  >  **säkerhets**  >  **MFA**  >  **blockera/avblockera användare**.
 1. Välj **Lägg till** för att blockera en användare.
-1. Välj **replik gruppen**och välj sedan *Azure default*.
+1. Välj **replik gruppen** och välj sedan *Azure default*.
 
     Ange användar namnet för den blockerade användaren som `username\@domain.com` och ange sedan en kommentar i fältet *orsak* .
 1. När du är klar väljer du **OK** för att blockera användaren.
@@ -85,7 +85,7 @@ Med funktionen bedrägeri avisering kan användare rapportera falska försök at
 
 Följande konfigurations alternativ för bedrägeri avisering är tillgängliga:
 
-* **Blockera användare som rapporterar bedrägerier**: om en användare rapporterar bedrägerier, blockeras Azure MFA-autentiseringsförsök för användar kontot i 90 dagar eller tills en administratör avblockerar sitt konto. En administratör kan granska inloggningar med hjälp av inloggnings rapporten och vidta lämpliga åtgärder för att förhindra framtida bedrägerier. En administratör kan sedan [avblockera](#unblock-a-user) användarens konto.
+* **Blockera användare som rapporterar bedrägerier**: om en användare rapporterar bedrägerier, blockeras Azure AD MFA-autentiseringen för användar kontot i 90 dagar eller tills en administratör avblockerar sitt konto. En administratör kan granska inloggningar med hjälp av inloggnings rapporten och vidta lämpliga åtgärder för att förhindra framtida bedrägerier. En administratör kan sedan [avblockera](#unblock-a-user) användarens konto.
 * **Kod för att rapportera bedrägeri under inledande hälsning**: När användarna får ett telefonsamtal för att utföra Multi-Factor Authentication, trycks vanligt vis **#** för att bekräfta inloggningen. Användaren kan rapportera bedrägerier genom att ange en kod innan du trycker på **#** . Den här koden är **0** som standard, men du kan anpassa den.
 
    > [!NOTE]
@@ -100,7 +100,7 @@ Utför följande steg för att aktivera och konfigurera bedrägeri aviseringar:
 
 ### <a name="view-fraud-reports"></a>Visa bedrägerier-rapporter
 
-Välj **Azure Active Directory**  >  **Sign-ins**  >  **information om**Azure Active Directory inloggningar. Bedrägeri rapporten är nu en del av standard rapporten för Azure AD-inloggningar och visas i **"resultat information"** som MFA nekad, bedrägeri kod angiven.
+Välj **Azure Active Directory**  >  **Sign-ins**  >  **information om** Azure Active Directory inloggningar. Bedrägeri rapporten är nu en del av standard rapporten för Azure AD-inloggningar och visas i **"resultat information"** som MFA nekad, bedrägeri kod angiven.
  
 ## <a name="notifications"></a>Meddelanden
 
@@ -119,7 +119,7 @@ Konfigurera bedrägeri aviserings aviseringar genom att slutföra följande inst
 
 Azure AD stöder användningen av OATH-TOTP mobilapp SHA-1-token som uppdaterar koder var 30: e sekund eller 60 sekunder. Kunder kan köpa dessa token från den leverantör de väljer.
 
-OATH TOTP mobilapp-token levereras vanligt vis med en hemlig nyckel eller dirigeras, förprogrammeras i token. De här nycklarna måste vara inmatade i Azure AD enligt beskrivningen i följande steg. Hemliga nycklar är begränsade till 128 tecken, som kanske inte är kompatibla med alla tokens. Den hemliga nyckeln får bara innehålla tecknen *a-z* eller *a-z* och siffror *1-7*och måste kodas i *Base32*.
+OATH TOTP mobilapp-token levereras vanligt vis med en hemlig nyckel eller dirigeras, förprogrammeras i token. De här nycklarna måste vara inmatade i Azure AD enligt beskrivningen i följande steg. Hemliga nycklar är begränsade till 128 tecken, som kanske inte är kompatibla med alla tokens. Den hemliga nyckeln får bara innehålla tecknen *a-z* eller *a-z* och siffror *1-7* och måste kodas i *Base32*.
 
 Programmerbara OATH TOTP mobilapp-maskinvaru-token som kan dirigeras om kan också konfigureras med Azure AD i installations flödet för programtoken.
 
@@ -137,7 +137,7 @@ Helga@contoso.com,1234567,1234567abcdef1234567abcdef,60,Contoso,HardwareKey
 > [!NOTE]
 > Se till att du inkluderar rubrik raden i CSV-filen.
 
-När den är korrekt formaterad som en CSV-fil kan en administratör logga in på Azure Portal, navigera till **Azure Active Directory > säkerhet > MFA > Oath-token**och ladda upp den resulterande CSV-filen.
+När den är korrekt formaterad som en CSV-fil kan en administratör logga in på Azure Portal, navigera till **Azure Active Directory > säkerhet > MFA > Oath-token** och ladda upp den resulterande CSV-filen.
 
 Beroende på storleken på CSV-filen kan det ta några minuter att bearbeta. Välj knappen **Uppdatera** för att hämta aktuell status. Om det finns fel i filen kan du ladda ned en CSV-fil som visar eventuella fel som du kan lösa. Fält namnen i den hämtade CSV-filen skiljer sig från den överförda versionen.
 
@@ -156,17 +156,17 @@ Om du inte har konfigurerat MFA-uppringarens ID i USA, kommer röst samtal från
 * *+ 1 (877) 668 6536*
 
 > [!NOTE]
-> När Azure Multi-Factor Authentication-anrop görs via det offentliga telefonnätet dirigeras ibland anropen via en operatör som inte har stöd för uppringarens ID. Därför är det inte säkert att anropar-ID: t, även om Azure Multi-Factor Authentication alltid skickar det. Detta gäller både telefonsamtal och SMS-meddelanden från Azure Multi-Factor Authentication. Om du behöver verifiera att ett textmeddelande kommer från Azure Multi-Factor Authentication, se [vilka SMS-koder som används för att skicka meddelanden?](multi-factor-authentication-faq.md#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users)
+> När Azure AD Multi-Factor Authentication-anrop placeras via det offentliga telefonnätet dirigeras ibland anropen via en bärvåg som inte stöder ID för uppringarens ID. Därför är det inte säkert att anropar-ID: t, även om Azure AD Multi-Factor Authentication alltid skickar det. Detta gäller både telefonsamtal och SMS-meddelanden från Azure AD Multi-Factor Authentication. Om du behöver verifiera att ett textmeddelande kommer från Azure AD Multi-Factor Authentication, se [vilka SMS-koder som används för att skicka meddelanden?](multi-factor-authentication-faq.md#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users)
 
 Följ stegen nedan om du vill konfigurera ett eget nummer för anroparens ID:
 
-1. Bläddra till **Azure Active Directory**  >  **säkerhets**  >  Inställningar för**MFA**-  >  **telefonsamtal**.
+1. Bläddra till **Azure Active Directory**  >  **säkerhets**  >  Inställningar för **MFA**-  >  **telefonsamtal**.
 1. Ange **ID-numret för MFA-anroparen** till det nummer som du vill att användarna ska se på sin telefon. Endast amerikanska-baserade tal är tillåtna.
 1. När du är klar väljer du **Spara**.
 
 ### <a name="custom-voice-messages"></a>Anpassade röst meddelanden
 
-Du kan använda dina egna inspelningar eller hälsningar för Azure Multi-Factor Authentication med funktionen för anpassade röst meddelanden. Dessa meddelanden kan användas utöver eller för att ersätta Microsofts standard inspelningar.
+Du kan använda dina egna inspelningar eller hälsningar för Azure AD Multi-Factor Authentication med funktionen för anpassade röst meddelanden. Dessa meddelanden kan användas utöver eller för att ersätta Microsofts standard inspelningar.
 
 Innan du börjar bör du vara medveten om följande begränsningar:
 
@@ -218,25 +218,25 @@ Följande exempel skript kan användas för att skapa egna anpassade meddelanden
 
 Utför följande steg för att använda dina egna anpassade meddelanden:
 
-1. Bläddra till **Azure Active Directory**  >  **säkerhets**  >  Inställningar för**MFA**-  >  **telefonsamtal**.
+1. Bläddra till **Azure Active Directory**  >  **säkerhets**  >  Inställningar för **MFA**-  >  **telefonsamtal**.
 1. Välj **Lägg till hälsning**.
 1. Välj **typ** av hälsning, till exempel *hälsning (standard)* eller  *autentiseringen lyckades*.
 1. Välj **språk**, baserat på föregående avsnitt om funktioner för [anpassat meddelande språk](#custom-message-language-behavior).
 1. Bläddra efter och välj en *. mp3* -eller *. wav* -ljudfil som ska överföras.
-1. När du är klar väljer du **Lägg till**och sedan **Spara**.
+1. När du är klar väljer du **Lägg till** och sedan **Spara**.
 
 ## <a name="mfa-service-settings"></a>Inställningar för MFA-tjänsten
 
-Inställningar för applösenord, tillförlitliga IP-adresser, verifierings alternativ och kom ihåg Multi-Factor Authentication för Azure Multi-Factor Authentication finns i tjänst inställningar. Detta är mer av en äldre Portal och ingår inte i den vanliga Azure AD-portalen.
+Inställningar för applösenord, tillförlitliga IP-adresser, verifierings alternativ och kom ihåg Multi-Factor Authentication för Azure AD Multi-Factor Authentication finns i tjänst inställningar. Detta är mer av en äldre Portal och ingår inte i den vanliga Azure AD-portalen.
 
 Du kan komma åt tjänst inställningar från Azure Portal genom att bläddra till **Azure Active Directory**  >  **Security**  >  **säkerhetsmfa**  >  **komma igång**  >  **Konfigurera**  >  **ytterligare molnbaserade MFA-inställningar**. Ett nytt fönster eller en ny flik öppnas med ytterligare alternativ för *tjänst inställningar* .
 
 ## <a name="trusted-ips"></a>Tillförlitliga IP-adresser
 
-Funktionen _betrodda_ IP-adresser i Azure Multi-Factor Authentication kringgår Multi-Factor Authentication-prompter för användare som loggar in från ett definierat IP-adressintervall. Du kan ange betrodda IP-intervall för dina lokala miljöer när användarna är på någon av dessa platser. det finns ingen Azure Multi-Factor Authentication-prompt.
+Funktionen _betrodda IP-adresser_ i Azure AD Multi-Factor Authentication kringgår Multi-Factor Authentication-prompter för användare som loggar in från ett definierat IP-adressintervall. Du kan ange betrodda IP-intervall för dina lokala miljöer när användarna är på någon av dessa platser, så finns det ingen Azure AD-Multi-Factor Authentication-prompt.
 
 > [!NOTE]
-> De betrodda IP-adresserna kan bara innehålla privata IP-adressintervall när du använder MFA Server. För molnbaserad Azure-Multi-Factor Authentication kan du bara använda offentliga IP-adressintervall.
+> De betrodda IP-adresserna kan bara innehålla privata IP-adressintervall när du använder MFA Server. För molnbaserad Azure AD-Multi-Factor Authentication kan du bara använda offentliga IP-adressintervall.
 >
 > IPv6-intervall stöds bara i gränssnittet för den [namngivna platsen (för hands version)](../conditional-access/location-condition.md#preview-features) .
 
@@ -263,7 +263,7 @@ Oavsett om betrodd IP definieras krävs Multi-Factor Authentication för webb l�
 
 Du kan använda regler för villkorlig åtkomst för att definiera namngivna platser med hjälp av följande steg:
 
-1. I Azure Portal söker du efter och väljer **Azure Active Directory**och bläddrar sedan till **Security**  >  **Conditional Access**  >  **namngivna platser**för säkerhets villkorlig åtkomst.
+1. I Azure Portal söker du efter och väljer **Azure Active Directory** och bläddrar sedan till **Security**  >  **Conditional Access**  >  **namngivna platser** för säkerhets villkorlig åtkomst.
 1. Välj **ny plats**.
 1. Ange ett namn på platsen.
 1. Välj **Markera som betrodd plats**.
@@ -274,9 +274,9 @@ Du kan använda regler för villkorlig åtkomst för att definiera namngivna pla
 
 Utför följande steg för att aktivera betrodda IP-adresser med villkorliga åtkomst principer:
 
-1. I Azure Portal söker du efter och väljer **Azure Active Directory**och bläddrar sedan till **Security**  >   **Conditional Access**  >  **namngivna platser**för säkerhets villkorlig åtkomst.
+1. I Azure Portal söker du efter och väljer **Azure Active Directory** och bläddrar sedan till **Security**  >   **Conditional Access**  >  **namngivna platser** för säkerhets villkorlig åtkomst.
 1. Välj **Konfigurera MFA-betrodda IP-adresser**.
-1. På sidan **tjänst inställningar** under **betrodda IP-adresser**väljer du något av följande två alternativ:
+1. På sidan **tjänst inställningar** under **betrodda IP-adresser** väljer du något av följande två alternativ:
 
    * **För förfrågningar från federerade användare som kommer från mitt intranät**: Markera kryss rutan om du vill välja det här alternativet. Alla federerade användare som loggar in från företags nätverket kringgår Multi-Factor Authentication genom att använda ett anspråk som utfärdas av AD FS. Se till att AD FS har en regel för att lägga till intranät anspråk till lämplig trafik. Om regeln inte finns skapar du följande regel i AD FS:
 
@@ -284,19 +284,19 @@ Utför följande steg för att aktivera betrodda IP-adresser med villkorliga åt
 
    * **För förfrågningar från ett särskilt utbud av offentliga IP-adresser**: om du vill välja det här alternativet anger du IP-adresserna i text rutan med CIDR-notering.
       * För IP-adresser som ligger inom intervallet xxx. xxx. xxx. 1 till xxx. xxx. xxx. 254 använder du notation som **xxx. xxx. xxx. 0/24**.
-      * Använd notation som **xxx.xxx.xxx.xxx/32**för en enskild IP-adress.
+      * Använd notation som **xxx.xxx.xxx.xxx/32** för en enskild IP-adress.
       * Ange upp till 50 IP-adressintervall. Användare som loggar in från dessa IP-adresser kringgår Multi-Factor Authentication.
 
 1. Välj **Spara**.
 
 ### <a name="enable-the-trusted-ips-feature-by-using-service-settings"></a>Aktivera funktionen för betrodda IP-adresser med hjälp av tjänst inställningar
 
-Om du inte vill använda principer för villkorlig åtkomst för att aktivera betrodda IP-adresser kan du konfigurera *tjänst inställningarna* för Azure-Multi-Factor Authentication med hjälp av följande steg:
+Om du inte vill använda principer för villkorlig åtkomst för att aktivera betrodda IP-adresser kan du konfigurera *tjänst inställningarna* för Azure AD Multi-Factor Authentication med hjälp av följande steg:
 
-1. I Azure Portal söker du efter och väljer **Azure Active Directory**och väljer sedan **användare**.
+1. I Azure Portal söker du efter och väljer **Azure Active Directory** och väljer sedan **användare**.
 1. Välj **Multi-Factor Authentication**.
 1. Under Multi-Factor Authentication väljer du **tjänst inställningar**.
-1. På sidan **tjänst inställningar** under **betrodda IP-adresser**väljer du ett (eller båda) av följande två alternativ:
+1. På sidan **tjänst inställningar** under **betrodda IP-adresser** väljer du ett (eller båda) av följande två alternativ:
 
    * **För förfrågningar från federerade användare i mitt intranät**: om du vill välja det här alternativet markerar du kryss rutan. Alla federerade användare som loggar in från företags nätverket kringgår Multi-Factor Authentication genom att använda ett anspråk som utfärdas av AD FS. Se till att AD FS har en regel för att lägga till intranät anspråk till lämplig trafik. Om regeln inte finns skapar du följande regel i AD FS:
 
@@ -304,14 +304,14 @@ Om du inte vill använda principer för villkorlig åtkomst för att aktivera be
 
    * **För förfrågningar från ett angivet intervall IP-adressundernät**: om du vill välja det här alternativet anger du IP-adresserna i text rutan med CIDR-notering.
       * För IP-adresser som ligger inom intervallet xxx. xxx. xxx. 1 till xxx. xxx. xxx. 254 använder du notation som **xxx. xxx. xxx. 0/24**.
-      * Använd notation som **xxx.xxx.xxx.xxx/32**för en enskild IP-adress.
+      * Använd notation som **xxx.xxx.xxx.xxx/32** för en enskild IP-adress.
       * Ange upp till 50 IP-adressintervall. Användare som loggar in från dessa IP-adresser kringgår Multi-Factor Authentication.
 
 1. Välj **Spara**.
 
 ## <a name="verification-methods"></a>Verifierings metoder
 
-Du kan välja de verifierings metoder som är tillgängliga för dina användare i tjänst inställnings portalen. När dina användare registrerar sina konton för Azure Multi-Factor Authentication väljer de den önskade verifierings metoden från de alternativ som du har aktiverat. Vägledning för användar registrerings processen finns i [Konfigurera mitt konto för Multi-Factor Authentication](../user-help/multi-factor-authentication-end-user-first-time.md).
+Du kan välja de verifierings metoder som är tillgängliga för dina användare i tjänst inställnings portalen. När dina användare registrerar sina konton för Azure AD Multi-Factor Authentication väljer de den önskade verifierings metoden från de alternativ som du har aktiverat. Vägledning för användar registrerings processen finns i [Konfigurera mitt konto för Multi-Factor Authentication](../user-help/multi-factor-authentication-end-user-first-time.md).
 
 Följande verifierings metoder är tillgängliga:
 
@@ -328,10 +328,10 @@ Mer information finns i [vilka autentiserings-och verifierings metoder är tillg
 
 Utför följande steg för att aktivera eller inaktivera verifierings metoder:
 
-1. I Azure Portal söker du efter och väljer **Azure Active Directory**och väljer sedan **användare**.
+1. I Azure Portal söker du efter och väljer **Azure Active Directory** och väljer sedan **användare**.
 1. Välj **Multi-Factor Authentication**.
 1. Under Multi-Factor Authentication väljer du **tjänst inställningar**.
-1. På sidan **tjänst inställningar** under **verifierings alternativ**väljer/avmarkerar du de metoder som du vill använda för dina användare.
+1. På sidan **tjänst inställningar** under **verifierings alternativ** väljer/avmarkerar du de metoder som du vill använda för dina användare.
 1. Klicka på **Spara**.
 
 ## <a name="remember-multi-factor-authentication"></a>Kom ihåg Multi-Factor Authentication
@@ -363,10 +363,10 @@ Funktionen minskar antalet autentiseringar i Web Apps, som normalt frågas varje
 
 Gör så här för att aktivera och konfigurera alternativet för användarna att komma ihåg MFA-status och kringgå prompter:
 
-1. I Azure Portal söker du efter och väljer **Azure Active Directory**och väljer sedan **användare**.
+1. I Azure Portal söker du efter och väljer **Azure Active Directory** och väljer sedan **användare**.
 1. Välj **Multi-Factor Authentication**.
 1. Under Multi-Factor Authentication väljer du **tjänst inställningar**.
-1. På sidan **tjänst inställningar** under **kom ihåg Multi-Factor Authentication**väljer du alternativet **Tillåt användare att komma ihåg Multi-Factor Authentication på enheter som de litar på** .
+1. På sidan **tjänst inställningar** under **kom ihåg Multi-Factor Authentication** väljer du alternativet **Tillåt användare att komma ihåg Multi-Factor Authentication på enheter som de litar på** .
 1. Ange antalet dagar att tillåta att betrodda enheter kringgår Multi-Factor Authentication. För den bästa användar upplevelsen kan du förlänga varaktigheten till *90* eller flera dagar.
 1. Välj **Spara**.
 
@@ -376,4 +376,4 @@ När du har aktiverat funktionen kom ihåg Multi-Factor Authentication kan anvä
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om tillgängliga metoder för användning i Azure Multi-Factor Authentication finns i [vilka autentiserings-och verifierings metoder är tillgängliga i Azure Active Directory?](concept-authentication-methods.md)
+Mer information om tillgängliga metoder för användning i Azure AD Multi-Factor Authentication finns i [vilka autentiserings-och verifierings metoder är tillgängliga i Azure Active Directory?](concept-authentication-methods.md)

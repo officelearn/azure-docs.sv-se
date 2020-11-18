@@ -1,6 +1,6 @@
 ---
-title: Skydda resurser med Azure MFA och ADFS-Azure Active Directory
-description: Det här är sidan om Azure Multi-Factor Authentication som beskriver hur du kommer igång med Azure MFA och AD FS i molnet.
+title: Skydda resurser med Azure AD MFA och ADFS-Azure Active Directory
+description: Det här är Azure AD Multi-Factor Authentication-sidan som beskriver hur du kommer igång med Azure AD MFA och AD FS i molnet.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,23 +11,23 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5167d9041e8edfd6e829bdd1a78f826f73eea4d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 999fb350aaa5f11510db0d4ecc036e188d76e20f
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964595"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839343"
 ---
-# <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Skydda molnresurser med Azure Multi-Factor Authentication och AD FS
+# <a name="securing-cloud-resources-with-azure-ad-multi-factor-authentication-and-ad-fs"></a>Skydda moln resurser med Azure AD Multi-Factor Authentication och AD FS
 
-Om din organisation är federerad med Azure Active Directory använder du Azure Multi-Factor Authentication eller Active Directory Federation Services (AD FS) för att skydda dessa resurser. Skydda dina resurser i Azure Active Directory med Azure Multi-Factor Authentication eller Active Directory Federation Services genom att använda följa steg.
+Om din organisation är federerad med Azure Active Directory använder du Azure AD Multi-Factor Authentication eller Active Directory Federation Services (AD FS) (AD FS) för att skydda resurser som nås av Azure AD. Använd följande procedurer för att skydda Azure Active Directory-resurser med antingen Azure AD Multi-Factor Authentication eller Active Directory Federation Services (AD FS).
 
 ## <a name="secure-azure-ad-resources-using-ad-fs"></a>Skydda Azure AD-resurser med hjälp av AD FS
 
 Ställ in en anspråksregel så att Active Directory Federation Services genererar multipleauthn-kravet när en användare utför tvåstegsverifiering om du vill skydda din molnresurs. Det här anspråket överförs till Azure AD. Följ dessa steg:
 
 1. Öppna AD FS-hantering.
-2. Välj **förlitande parts förtroenden**till vänster.
+2. Välj **förlitande parts förtroenden** till vänster.
 3. Högerklicka på **Microsoft Office 365 Identity Platform** och välj **Redigera anspråksregler**.
 
    ![ADFS-konsol-förtroende för förlitande part](./media/howto-mfa-adfs/trustedip1.png)
@@ -48,7 +48,7 @@ Ställ in en anspråksregel så att Active Directory Federation Services generer
 
 ## <a name="trusted-ips-for-federated-users"></a>Tillförlitliga IP-adresser för federerade användare
 
-Tillförlitliga IP-adresser gör att administratörer kan kringgå tvåstegsverifiering för specifika IP-adresser eller federerade användare som har förfrågningar som kommer inifrån det egna intranätet. Följande avsnitt beskriver hur du konfigurerar tillförlitliga IP-adresser för Azure Multi-Factor Authentication med federerade användare och hur du kringgår tvåstegsverifiering när en begäran kommer inifrån en federerad användares intranät. Du gör detta genom att konfigurera AD FS att släppa igenom eller filtrera en mall för inkommande anspråk med anspråkstypen I företagsnätverket.
+Tillförlitliga IP-adresser gör att administratörer kan kringgå tvåstegsverifiering för specifika IP-adresser eller federerade användare som har förfrågningar som kommer inifrån det egna intranätet. I följande avsnitt beskrivs hur du konfigurerar Azure AD Multi-Factor Authentication betrodda IP-adresser med federerade användare och genom att skicka tvåstegsverifiering när en begäran kommer från ett intranät med federerade användare. Du gör detta genom att konfigurera AD FS att släppa igenom eller filtrera en mall för inkommande anspråk med anspråkstypen I företagsnätverket.
 
 I det här exemplet används Microsoft 365 för våra förlitande parts förtroenden.
 
@@ -57,7 +57,7 @@ I det här exemplet används Microsoft 365 för våra förlitande parts förtroe
 Det första vi måste göra är att konfigurera AD FS-anspråken. Skapa två anspråksregler, en för anspråkstypen inom företagsnätverket och ytterligare en som gör att våra användare förblir inloggade.
 
 1. Öppna AD FS-hantering.
-2. Välj **förlitande parts förtroenden**till vänster.
+2. Välj **förlitande parts förtroenden** till vänster.
 3. Högerklicka på **Microsoft Office 365 identitets plattform** och välj **Redigera anspråks regler...** 
     ![ ADFS-konsol – redigera anspråks regler](./media/howto-mfa-adfs/trustedip1.png)
 4. Klicka på **Lägg till regel** på regler för utfärdande av utfärdande. 
@@ -80,16 +80,16 @@ Det första vi måste göra är att konfigurera AD FS-anspråken. Skapa två ans
 ```
 
 13. Klicka på **Finish**.
-14. Klicka på **Applicera**.
+14. Klicka på **Använd**.
 15. Klicka på **OK**.
 16. Stäng AD FS-hantering.
 
-### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>Konfigurera tillförlitliga IP-adresser med federerade användare i Azure Multi-Factor Authentication
+### <a name="configure-azure-ad-multi-factor-authentication-trusted-ips-with-federated-users"></a>Konfigurera Azure AD Multi-Factor Authentication betrodda IP-adresser med federerade användare
 
 När nu anspråken är på plats kan vi konfigurera tillförlitliga IP-adresser.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Välj **Azure Active Directory**  >  **Security**  >  platser för**villkorlig åtkomst**  >  **med**säkerhet
+2. Välj **Azure Active Directory**  >  **Security**  >  platser för **villkorlig åtkomst**  >  **med** säkerhet
 3. Från bladet **villkorlig åtkomst – namngivna platser** väljer du **Konfigurera MFA-betrodda IP-adresser**
 
    ![Namngivna platser för villkorlig åtkomst i Azure AD Konfigurera MFA-betrodda IP-adresser](./media/howto-mfa-adfs/trustedip6.png)
@@ -97,4 +97,4 @@ När nu anspråken är på plats kan vi konfigurera tillförlitliga IP-adresser.
 4. På sidan Tjänstinställningar, under **Tillförlitliga IP-adresser** väljer du **Hoppa över multi-factor authentication för förfrågningar från federerade användare som kommer från mitt intranät**.  
 5. Klicka på **Spara**.
 
-Det är allt. I det här läget bör federerade Microsoft 365 användare bara behöva använda MFA när ett anspråk härstammar från utanför företags intranätet.
+Klart! I det här läget bör federerade Microsoft 365 användare bara behöva använda MFA när ett anspråk härstammar från utanför företags intranätet.

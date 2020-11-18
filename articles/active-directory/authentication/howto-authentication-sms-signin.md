@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdc0dea825cb32275a2ada3a49d7d622180aa468
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: a1da460933269a21afaf8ec7d805ec6f43fce926
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166647"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839413"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory-preview"></a>Konfigurera och aktivera användare för SMS-baserad autentisering med hjälp av Azure Active Directory (för hands version)
 
@@ -45,7 +45,7 @@ För att slutföra den här artikeln behöver du följande resurser och behörig
 
 Under den offentliga för hands versionen av SMS-baserad autentisering gäller följande begränsningar:
 
-* SMS-baserad autentisering är för närvarande inte kompatibel med Azure Multi-Factor Authentication.
+* SMS-baserad autentisering är för närvarande inte kompatibel med Azure AD Multi-Factor Authentication.
 * Med undantag för team är SMS-baserad autentisering för närvarande inte kompatibel med inbyggda Office-program.
 * SMS-baserad autentisering rekommenderas inte för B2B-konton.
 * Federerade användare autentiseras inte i hem klienten. De autentiseras bara i molnet.
@@ -79,28 +79,28 @@ Först ska vi aktivera SMS-baserad autentisering för Azure AD-klienten.
 Med SMS-baserad autentisering aktive rad i din Azure AD-klient väljer du nu vissa användare eller grupper som ska kunna använda den här autentiseringsmetoden.
 
 1. I fönstret princip för SMS-autentisering anger du **mål** för *utvalda användare*.
-1. Välj att **lägga till användare eller grupper**och välj sedan en test användare eller grupp, till exempel *contoso-användare* eller *contoso SMS-användare*.
+1. Välj att **lägga till användare eller grupper** och välj sedan en test användare eller grupp, till exempel *contoso-användare* eller *contoso SMS-användare*.
 
     [![Välj användare eller grupper som ska aktive ras för SMS-baserad autentisering i Azure Portal.](media/howto-authentication-sms-signin/add-users-or-groups-cropped.png)](media/howto-authentication-sms-signin/add-users-or-groups.png#lightbox)
 
-1. När du har valt användare eller grupper väljer du **Välj**och sedan **Spara** den uppdaterade principen för autentisering.
+1. När du har valt användare eller grupper väljer du **Välj** och sedan **Spara** den uppdaterade principen för autentisering.
 
 Varje användare som är aktive rad i principen för autentiseringsmetoden för SMS måste vara licensierad, även om de inte använder den. Kontrol lera att du har rätt licenser för de användare som du aktiverar i principen för autentiseringsmetod, särskilt när du aktiverar funktionen för stora grupper av användare.
 
 ## <a name="set-a-phone-number-for-user-accounts"></a>Ange ett telefonnummer för användar konton
 
-Användare är nu aktiverade för SMS-baserad autentisering, men deras telefonnummer måste kopplas till användar profilen i Azure AD innan de kan logga in. Användaren kan [Ange själva telefonnumret](../user-help/sms-sign-in-explainer.md) i *min profil*, eller så kan du tilldela telefonnumret med hjälp av Azure Portal. Telefonnummer kan ställas in av *globala administratörer*, *autentisera administratörer*eller *privilegierade autentiserings administratörer*.
+Användare är nu aktiverade för SMS-baserad autentisering, men deras telefonnummer måste kopplas till användar profilen i Azure AD innan de kan logga in. Användaren kan [Ange själva telefonnumret](../user-help/sms-sign-in-explainer.md) i *min profil*, eller så kan du tilldela telefonnumret med hjälp av Azure Portal. Telefonnummer kan ställas in av *globala administratörer*, *autentisera administratörer* eller *privilegierade autentiserings administratörer*.
 
-När ett telefonnummer anges för SMS-signera, är det också tillgängligt för användning med [Azure Multi-Factor Authentication][tutorial-azure-mfa] och [lösen ords återställning via självbetjäning][tutorial-sspr].
+När ett telefonnummer anges för SMS-signera, är det också tillgängligt för användning med [Azure AD Multi-Factor Authentication][tutorial-azure-mfa] och [lösen ords återställning][tutorial-sspr]via självbetjäning.
 
 1. Sök efter och välj **Azure Active Directory**.
 1. I navigerings menyn till vänster i fönstret Azure Active Directory väljer **du användare**.
 1. Välj den användare som du har aktiverat för SMS-baserad autentisering i föregående avsnitt, till exempel *contoso-användare*, och välj **autentiseringsmetoder**.
-1. Välj **+ Lägg till autentiseringsmetod**och välj sedan **telefonnummer**i den nedrullningsbara menyn *Välj metod* .
+1. Välj **+ Lägg till autentiseringsmetod** och välj sedan **telefonnummer** i den nedrullningsbara menyn *Välj metod* .
 
     Ange användarens telefonnummer, inklusive lands koden, t. ex. *+ 1 xxxxxxxxx*. Azure Portal verifierar att telefonnumret har rätt format.
 
-    Gå sedan till List rutan *telefon typ* och välj *mobil*, *alternativ mobil*eller *annan* efter behov.
+    Gå sedan till List rutan *telefon typ* och välj *mobil*, *alternativ mobil* eller *annan* efter behov.
 
     :::image type="content" source="media/howto-authentication-sms-signin/set-user-phone-number.png" alt-text="Ange ett telefonnummer för en användare i Azure Portal som ska användas med SMS-baserad autentisering":::
 
@@ -115,7 +115,7 @@ När registreringen är klar visas en bock för att SMS- *inloggningen ska vara 
 Utför följande steg för att testa det användar konto som nu är aktiverat för SMS-baserad inloggning:
 
 1. Öppna ett nytt InPrivate-eller Incognito-webbläsarfönster för att [https://www.office.com][office]
-1. Välj **Logga**in i det övre högra hörnet.
+1. Välj **Logga** in i det övre högra hörnet.
 1. I inloggnings meddelandet anger du det telefonnummer som är associerat med användaren i föregående avsnitt och väljer sedan **Nästa**.
 
     ![Ange ett telefonnummer vid inloggnings frågan för test användaren](./media/howto-authentication-sms-signin/sign-in-with-phone-number.png)
@@ -132,9 +132,9 @@ Följande scenarier och fel söknings steg kan användas om du har problem med a
 
 ### <a name="phone-number-already-set-for-a-user-account"></a>Telefonnumret har redan angetts för ett användar konto
 
-Om en användare redan har registrerat sig för Azure Multi-Factor Authentication och/eller självbetjäning för återställning av lösen ord (SSPR) har de redan ett telefonnummer som är kopplat till sitt konto. Det här telefonnumret kan inte automatiskt användas med SMS-baserad inloggning.
+Om en användare redan har registrerat sig för Azure AD Multi-Factor Authentication och/eller självbetjäning för återställning av lösen ord (SSPR) har de redan ett telefonnummer som är kopplat till sitt konto. Det här telefonnumret kan inte automatiskt användas med SMS-baserad inloggning.
 
-En användare som har ett telefonnummer som redan har angetts för sitt konto visas en knapp för att *Aktivera SMS-inloggning* på **min profil** sida. Välj den här knappen så är kontot aktiverat för användning med SMS-baserad inloggning och föregående Azure Multi-Factor Authentication-eller SSPR-registrering.
+En användare som har ett telefonnummer som redan har angetts för sitt konto visas en knapp för att *Aktivera SMS-inloggning* på **min profil** sida. Välj den här knappen så är kontot aktiverat för användning med SMS-baserad inloggning och föregående Azure AD Multi-Factor Authentication-eller SSPR-registrering.
 
 Mer information om slut användar upplevelsen finns i SMS- [inloggning användar upplevelse för telefonnummer (för hands version)](../user-help/sms-sign-in-explainer.md).
 

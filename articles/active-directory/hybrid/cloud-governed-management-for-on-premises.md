@@ -13,12 +13,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f717e14e5abe62aafffdeef841889ea2458fa8b
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 5374dc2ef4c736535b218d8cd67521e83a24a40b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413453"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836469"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Hur Azure AD levererar hantering av moln styrning för lokala arbets belastningar
 
@@ -39,7 +39,7 @@ Det här dokumentet beskriver Microsofts strategi för Hybrid IDaaS och beskrive
 
 ## <a name="the-azure-ad-approach-to-cloud-governed-identity-management"></a>Azure AD-metoden för Cloud-styrd identitets hantering
 
-När organisationer övergår till molnet måste de se till att de har kontroller över hela miljön – mer säkerhet och mer insyn i aktiviteter, stöd för automatisering och proaktiva insikter. " **Cloud styrd Management** " beskriver hur organisationer hanterar och styr sina användare, program, grupper och enheter från molnet.
+När organisationer övergår till molnet måste de se till att de har kontroller över hela miljön – mer säkerhet och mer insyn i aktiviteter, stöd för automatisering och proaktiva insikter. "**Cloud styrd Management**" beskriver hur organisationer hanterar och styr sina användare, program, grupper och enheter från molnet.
 
 I den här moderna världen behöver organisationer kunna hantera effektivt i skala på grund av spridningen av SaaS-program och den ökande rollen för samarbete och externa identiteter. Det nya riskkapitalet i molnet innebär att en organisation måste vara mer besvarad – en obehörig aktör som äventyrar en moln användare kan påverka molnet och lokala program.
 
@@ -89,7 +89,7 @@ När en organisation är redo att flytta ett AD-integrerat program till molnet g
 
 ## <a name="cloud-governed-management-for-on-premises-federation-based-applications"></a>Moln hanterings hantering för lokala Federations program
 
-För en organisation som redan använder en lokal identitetsprovider, ger flytt av program till Azure AD säkrare åtkomst och en enklare administrativ upplevelse för Federations hantering. Med Azure AD kan du konfigurera detaljerad åtkomst kontroll per program, inklusive Azure Multi-Factor Authentication, genom att använda villkorlig åtkomst för Azure AD. Azure AD har stöd för fler funktioner, inklusive programspecifika token signerings certifikat och konfigurerbara förfallo datum för certifikat. Dessa funktioner, verktyg och vägledning gör det möjligt för organisationer att dra tillbaka sina lokala identitets leverantörer. Microsofts egen IT-organisation har flyttat 17 987-program från Microsofts interna Active Directory Federation Services (AD FS) (AD FS) till Azure AD.
+För en organisation som redan använder en lokal identitetsprovider, ger flytt av program till Azure AD säkrare åtkomst och en enklare administrativ upplevelse för Federations hantering. Med Azure AD kan du konfigurera detaljerade åtkomst kontroller per program, inklusive Azure AD Multi-Factor Authentication, genom att använda villkorlig åtkomst för Azure AD. Azure AD har stöd för fler funktioner, inklusive programspecifika token signerings certifikat och konfigurerbara förfallo datum för certifikat. Dessa funktioner, verktyg och vägledning gör det möjligt för organisationer att dra tillbaka sina lokala identitets leverantörer. Microsofts egen IT-organisation har flyttat 17 987-program från Microsofts interna Active Directory Federation Services (AD FS) (AD FS) till Azure AD.
 
 ![Azure AD-utveckling](media/cloud-governed-management-for-on-premises/image5.png)
 
@@ -111,7 +111,7 @@ Organisationer kan automatisera livs cykel processen för Access genom tekniker 
 
 ## <a name="future-directions"></a>Framtida anvisningar
 
-I hybrid miljöer är Microsofts strategi att aktivera distributioner där **molnet är kontroll planet för identitet** , och lokala kataloger och andra identitets system, till exempel Active Directory och andra lokala program, är målet för etablering av användare med åtkomst. Den här strategin kommer att fortsätta att säkerställa rättigheter, identiteter och åtkomst i de program och arbets belastningar som förlitar sig på dem. I det här läget kommer organisationer att kunna driva slutanvändarens produktivitet helt från molnet.
+I hybrid miljöer är Microsofts strategi att aktivera distributioner där **molnet är kontroll planet för identitet**, och lokala kataloger och andra identitets system, till exempel Active Directory och andra lokala program, är målet för etablering av användare med åtkomst. Den här strategin kommer att fortsätta att säkerställa rättigheter, identiteter och åtkomst i de program och arbets belastningar som förlitar sig på dem. I det här läget kommer organisationer att kunna driva slutanvändarens produktivitet helt från molnet.
 
 ![Azure AD-arkitekturen](media/cloud-governed-management-for-on-premises/image6.png)
 

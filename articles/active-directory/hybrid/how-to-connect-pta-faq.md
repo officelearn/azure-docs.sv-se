@@ -16,12 +16,12 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6db477a288ef41c2946cd550af6ff87999eff2f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bb9d9e7c60344a2a4c538c6d3bf59e337e4569c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91461282"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836333"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory direktautentisering: vanliga frågor och svar
 
@@ -37,7 +37,7 @@ Direktautentisering är en kostnads fri funktion. Du behöver inte några betald
 
 ## <a name="does-conditional-access-work-with-pass-through-authentication"></a>Fungerar [villkorlig åtkomst](../conditional-access/overview.md) med direktautentisering?
 
-Ja. Alla funktioner för villkorlig åtkomst, inklusive Azure Multi-Factor Authentication, fungerar med direktautentisering.
+Ja. Alla funktioner för villkorlig åtkomst, inklusive Azure AD Multi-Factor Authentication, fungerar med direktautentisering.
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>Stöder direkt autentisering "alternativ-ID" som användar namn, i stället för "userPrincipalName"?
 Ja, inloggning med ett icke-UPN-värde, till exempel ett alternativt e-postmeddelande, stöds för både direktautentisering (PTA) och PHS (Password hash Sync). För ytterligare information om [alternativt inloggnings-ID](../authentication/howto-authentication-use-email-signin.md).

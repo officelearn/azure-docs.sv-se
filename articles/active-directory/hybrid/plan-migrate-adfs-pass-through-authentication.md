@@ -12,12 +12,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0edda2a01d6b17aebba3fbe4dbf039bf1d2f2c5
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 1257c783ffeae68bf338b21a5d2f6bba72ea25b3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411124"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836435"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migrera från Federation till direktautentisering för Azure Active Directory
 
@@ -79,7 +79,7 @@ För att förstå vilken metod du ska använda, slutför stegen i följande avsn
 2. På sidan **Ytterligare aktiviteter** väljer du **Visa aktuell konfiguration** och väljer sedan **Nästa**.<br />
  
    ![Skärm bild av alternativet Visa nuvarande konfiguration på sidan Ytterligare aktiviteter](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image2.png)<br />
-3. Under **Ytterligare aktiviteter > hanterar federationen** , bläddrar du till **Active Directory Federation Services (AD FS) (AD FS)**.<br />
+3. Under **Ytterligare aktiviteter > hanterar federationen**, bläddrar du till **Active Directory Federation Services (AD FS) (AD FS)**.<br />
 
    * Om AD FS-konfigurationen visas i det här avsnittet kan du på ett säkert sätt anta att AD FS ursprungligen konfigurerades med hjälp av Azure AD Connect. Du kan konvertera dina domäner från federerad identitet till hanterad identitet med hjälp av alternativet Azure AD Connect **ändra användar inloggning** . Mer information om processen finns i avsnittet **A: Konfigurera direktautentisering genom att använda Azure AD Connect**.
    * Om AD FS inte visas i de aktuella inställningarna måste du manuellt konvertera dina domäner från federerad identitet till hanterad identitet med hjälp av PowerShell. Mer information om den här processen finns i avsnittet **alternativ B: växla från Federation till direktautentisering genom att använda Azure AD Connect och PowerShell**.
@@ -98,7 +98,7 @@ Exempel:
 Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
 ```
 
-Kontrol lera alla inställningar som kan ha anpassats för din dokumentation om Federations design och distribution. Mer specifikt kan du söka efter anpassningar i **PreferredAuthenticationProtocol** , **SupportsMfa** och **PromptLoginBehavior**.
+Kontrol lera alla inställningar som kan ha anpassats för din dokumentation om Federations design och distribution. Mer specifikt kan du söka efter anpassningar i **PreferredAuthenticationProtocol**, **SupportsMfa** och **PromptLoginBehavior**.
 
 Mer information finns i de här artiklarna:
 
@@ -108,7 +108,7 @@ Mer information finns i de här artiklarna:
 > [!NOTE]
 > Om **SupportsMfa** är inställt på **Sant** använder du en lokal Multi-Factor Authentication-lösning för att mata in en andra faktor i flödet för användarautentisering. Den här installationen fungerar inte längre för Azure AD-autentiserings scenarier. 
 >
-> Använd i stället den molnbaserade Azure Multi-Factor Authentication-tjänsten för att utföra samma funktion. Utvärdera dina Multi-Factor Authentication-krav noggrant innan du fortsätter. Innan du konverterar domänerna bör du se till att du förstår hur du använder Azure Multi-Factor Authentication, licens konsekvenserna och användar registrerings processen.
+> Använd i stället den molnbaserade Azure AD Multi-Factor Authentication-baserade tjänsten för att utföra samma funktion. Utvärdera dina Multi-Factor Authentication-krav noggrant innan du fortsätter. Innan du konverterar domänerna bör du se till att du förstår hur du använder Azure AD Multi-Factor Authentication, licens konsekvenserna och användar registrerings processen.
 
 #### <a name="back-up-federation-settings"></a>Säkerhetskopiera Federations inställningar
 
@@ -133,7 +133,7 @@ Innan du konverterar från federerad identitet till hanterad identitet kan du ti
 | Du planerar att fortsätta använda AD FS med andra program (andra än Azure AD och Microsoft 365). | När du har konverterat dina domäner använder du både AD FS och Azure AD. Överväg användar upplevelsen. I vissa fall kan användare behöva autentisera två gånger: en gång till Azure AD (där en användare får SSO-åtkomst till andra program, t. ex. Microsoft 365), och igen för program som fortfarande är kopplade till AD FS som förtroende för en förlitande part. |
 | AD FS-instansen är kraftigt anpassad och förlitar sig på särskilda anpassnings inställningar i onload.js-filen (till exempel om du ändrade inloggnings upplevelsen så att användarna endast använder ett **sAMAccountName** -format för sitt användar namn i stället för ett UPN-format eller om din organisation har stor varumärkes inloggnings upplevelsen). onload.js-filen kan inte dupliceras i Azure AD. | Innan du fortsätter måste du kontrol lera att Azure AD kan uppfylla dina aktuella anpassnings krav. Mer information och anvisningar finns i avsnitten om AD FS anpassning och AD FS anpassning.|
 | Du använder AD FS för att blockera tidigare versioner av autentiseringsbegäranden.| Överväg att ersätta AD FS kontroller som blockerar tidigare versioner av autentiseringsbegäranden genom att använda en kombination av [villkorliga åtkomst kontroller](../conditional-access/concept-conditional-access-conditions.md) och [åtkomst regler för Exchange Online-klienter](/exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules). |
-| Du kräver att användare utför Multi-Factor Authentication mot en lokal Multi-Factor Authentication Server-lösning när användare autentiserar till AD FS.| I en hanterad identitets domän kan du inte mata in en Multi-Factor Authentication-utmaning via den lokala Multi-Factor Authentication-lösningen i autentiseringsschemat. Du kan dock använda Azure Multi-Factor Authentication-tjänsten för Multi-Factor Authentication när domänen har konverterats.<br /><br /> Om användarna inte använder Azure Multi-Factor Authentication krävs ett registrerings steg för databasmigrering-användare. Du måste förbereda för och förmedla den planerade registreringen till dina användare. |
+| Du kräver att användare utför Multi-Factor Authentication mot en lokal Multi-Factor Authentication Server-lösning när användare autentiserar till AD FS.| I en hanterad identitets domän kan du inte mata in en Multi-Factor Authentication-utmaning via den lokala Multi-Factor Authentication-lösningen i autentiseringsschemat. Du kan dock använda Azure AD Multi-Factor Authentication-tjänsten för Multi-Factor Authentication när domänen har konverterats.<br /><br /> Om användarna inte använder Azure AD Multi-Factor Authentication krävs ett steg för att registrera Databasmigrering-användare. Du måste förbereda för och förmedla den planerade registreringen till dina användare. |
 | Du använder för närvarande principer för åtkomst kontroll (AuthZ-regler) i AD FS för att kontrol lera åtkomsten till Microsoft 365.| Överväg att ersätta principerna med motsvarande [principer för villkorlig åtkomst](../conditional-access/overview.md) för Azure AD och [åtkomst regler för Exchange Online-klienter](/exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules).|
 
 ### <a name="common-ad-fs-customizations"></a>Vanliga AD FS anpassningar
@@ -316,7 +316,7 @@ Börja med att aktivera direktautentisering:
 6. På sidan **klar att konfigurera** kontrollerar du att kryss rutan **starta synkroniseringen När konfigurationen är klar** är markerad. Välj sedan **Konfigurera**.<br />
 
    ![Skärm bild som visar sidan klar att konfigurera och knappen Konfigurera](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image18.png)<br />
-   Följande steg inträffar när du väljer **Konfigurera** :
+   Följande steg inträffar när du väljer **Konfigurera**:
 
    1. Den första genom strömnings verifierings agenten är installerad.
    2. Direkt lagrings funktionen är aktive rad.

@@ -12,12 +12,12 @@ ms.date: 08/20/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acd2f49f009a8bd71d8cfc9f442e579bb1ad396b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c2a7c2813919321227bfcdc4ee43ca15186b89df
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371893"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836826"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory-distributionsplaner
 Letar du efter slut punkt till slut punkt om hur du distribuerar Azure Active Directory (Azure AD)-funktioner? Distributions planer för Azure AD vägleder dig genom affärs värde, planerings överväganden och operativa procedurer som krävs för att distribuera vanliga funktioner i Azure AD.
@@ -36,17 +36,17 @@ Roller kan innehålla följande
 |Identitets arkitekt eller Global Azure-administratör|Identitets hanterings team som är ansvarig för att definiera hur den här ändringen justeras med infrastrukturen för kärn identitets hantering i din organisation.|
 |Programmets företags ägare |Den övergripande företags ägaren av de berörda programmen, som kan innehålla hanterings åtkomst.Kan även ge indata om användar upplevelsen och användbarheten för den här ändringen från slutanvändarens perspektiv.
 |Säkerhets ägare|En representant från säkerhets teamet som kan godkänna att planen uppfyller organisationens säkerhets krav.|
-|Efterlevnadshanteraren|Den person i organisationen som ansvarar för att säkerställa efterlevnaden av företags-, bransch-eller myndighets krav.|
+|Compliance Manager (Efterlevnadshanteraren)|Den person i organisationen som ansvarar för att säkerställa efterlevnaden av företags-, bransch-eller myndighets krav.|
 
 **Inblandning nivåer kan vara:**
 
 - **R**-esponsible för implementering av projekt plan och resultat 
 
-- **En**pproval av projekt plan och resultat 
+- **En** pproval av projekt plan och resultat 
 
 - **C**-ontributor till projekt plan och resultat 
 
-- **I**nformed för projekt plan och resultat
+- **I** nformed för projekt plan och resultat
 
 
 ## <a name="best-practices-for-a-pilot"></a>Metod tips för en pilot
@@ -61,7 +61,7 @@ Att utöka distributionen till större grupper av användare bör utföras genom
 
 | Funktion | Beskrivning|
 | -| -|
-| [Multifaktorautentisering](../authentication/howto-mfa-getstarted.md)| Azure Multi-Factor Authentication (MFA) är Microsofts verifieringslösning i två steg. Med hjälp av godkända autentiseringsmetoder bidrar Azure MFA till att skydda åtkomsten till dina data och program samtidigt som du kan uppfylla behovet av en enkel inloggnings process. |
+| [Multifaktorautentisering](../authentication/howto-mfa-getstarted.md)| Azure AD Multi-Factor Authentication (MFA) är Microsofts lösning för verifiering av två steg. Med hjälp av godkända autentiseringsmetoder hjälper Azure AD MFA till att skydda åtkomsten till dina data och program samtidigt som du kan uppfylla behovet av en enkel inloggnings process. |
 | [Villkorlig åtkomst](../conditional-access/plan-conditional-access.md)| Med villkorlig åtkomst kan du implementera automatiska åtkomst kontroll beslut för vilka som kan komma åt dina molnappar, baserat på villkor. |
 | [Återställning av lösenord för självbetjäning](../authentication/howto-sspr-deployment.md)| Lösen ords återställning via självbetjäning hjälper dina användare att återställa sina lösen ord utan att administratören behöver göra det, när och var de behöver. |
 | [Lösenordsfri](../authentication/howto-authentication-passwordless-deployment.md) | Implementera lösenordsbaserad autentisering med hjälp av Microsoft Authenticator-appen eller FIDO2 säkerhets nycklar i din organisation |

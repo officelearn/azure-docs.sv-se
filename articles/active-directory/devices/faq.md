@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8d03b8f13a016dc21e37b82f66abc8050ef17d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77ecc23e2969ce4ce26eef7b9a3a485389d08ce0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266790"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837115"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Vanliga frågor och svar om Azure Active Directory enhets hantering
 
@@ -198,7 +198,7 @@ UPN-ändringar stöds med Windows 10 2004 Update. Användare på enheter med den
 
 ---
 
-### <a name="q-why-dont-some-of-my-users-get-azure-multi-factor-authentication-prompts-on-azure-ad-joined-devices"></a>F: Varför får inte några av mina användare några Azure Multi-Factor Authentication-frågor på Azure AD-anslutna enheter?
+### <a name="q-why-dont-some-of-my-users-get-azure-ad-multi-factor-authentication-prompts-on-azure-ad-joined-devices"></a>F: Varför får inte några av mina användare några Azure AD Multi-Factor Authentication-frågor på Azure AD-anslutna enheter?
 
 **A:** En användare kan ansluta till eller registrera en enhet med Azure AD med hjälp av Multi-Factor Authentication. Sedan blir själva enheten en betrodd andra faktor för den användaren. När samma användare loggar in på enheten och använder ett program, anser Azure AD enheten som en andra faktor. Den gör det möjligt för användaren att sömlöst komma åt program utan ytterligare Multi-Factor Authentication-prompter. 
 

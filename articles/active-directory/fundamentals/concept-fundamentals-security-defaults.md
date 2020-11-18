@@ -12,18 +12,18 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 2c056bd4d5fa9037ce00588269c0da2937ff57ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c26cbf55c1e3883605d4c65659511af20cf02c7f
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705341"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836775"
 ---
 # <a name="what-are-security-defaults"></a>Vad är säkerhets inställningar?
 
 Det kan vara svårt att hantera säkerhet med vanliga identitetsbaserade attacker, t. ex. Spray, uppspelning och nätfiske som blir mer populära. Säkerhets standarder gör det lättare att skydda din organisation från dessa attacker med förkonfigurerade säkerhets inställningar:
 
-- Kräver att alla användare registreras för Azure Multi-Factor Authentication.
+- Kräver att alla användare registreras för Azure AD Multi-Factor Authentication.
 - Kräver att administratörer utför Multi-Factor Authentication.
 - Blockerar bakåtkompatibla autentiseringsprotokoll.
 - Kräver att användarna utför Multi-Factor Authentication vid behov.
@@ -52,13 +52,13 @@ Microsoft skapar säkerhets inställningar som är tillgängliga för alla. Mål
 
 ### <a name="unified-multi-factor-authentication-registration"></a>Enhetlig Multi-Factor Authentication registrering
 
-Alla användare i din klient organisation måste registrera sig för Multi-Factor Authentication (MFA) i form av Azure-Multi-Factor Authentication. Användare har 14 dagar på sig att registrera sig för Azure Multi-Factor Authentication med hjälp av Microsoft Authenticator-appen. När 14 dagar har passerat kan användaren inte logga in förrän registreringen är klar. En användares 14-dagars period börjar efter sin första lyckade interaktiva inloggning efter att ha aktiverat säkerhets inställningarna.
+Alla användare i din klient organisation måste registrera sig för Multi-Factor Authentication (MFA) i form av Azure AD-Multi-Factor Authentication. Användare har 14 dagar på sig att registrera sig för Azure AD Multi-Factor Authentication med hjälp av Microsoft Authenticator-appen. När 14 dagar har passerat kan användaren inte logga in förrän registreringen är klar. En användares 14-dagars period börjar efter sin första lyckade interaktiva inloggning efter att ha aktiverat säkerhets inställningarna.
 
 ### <a name="protecting-administrators"></a>Skydda administratörer
 
 Användare med privilegie rad åtkomst har ökat åtkomst till din miljö. På grund av den kraft de här kontona har måste du behandla dem med särskild omsorg. En gemensam metod för att förbättra skyddet av privilegierade konton är att kräva en starkare form av konto verifiering för inloggning. I Azure AD kan du få en bättre konto verifiering genom att kräva Multi-Factor Authentication.
 
-När registreringen med Azure Multi-Factor Authentication är färdig krävs följande nio Azure AD-administratörs roller för att utföra ytterligare autentisering varje gång de loggar in:
+När registreringen med Azure AD Multi-Factor Authentication är färdig krävs följande nio Azure AD-administratörs roller för att utföra ytterligare autentisering varje gång de loggar in:
 
 - Global administratör
 - SharePoint-administratör
@@ -120,7 +120,7 @@ Följande ytterligare överväganden är relaterade till distribution av säkerh
 
 ### <a name="authentication-methods"></a>Autentiseringsmetoder
 
-Dessa kostnads fria säkerhets standardvärden tillåter registrering och användning av Azure-Multi-Factor Authentication att **bara använda Microsoft Authenticator-appen med hjälp av meddelanden**. Villkorlig åtkomst tillåter användning av alla autentiseringsmetoder som administratören väljer att aktivera.
+Dessa kostnads fria säkerhets standarder tillåter registrering och användning av Azure AD Multi-Factor Authentication att **endast använda Microsoft Authenticator-appen med hjälp av meddelanden**. Villkorlig åtkomst tillåter användning av alla autentiseringsmetoder som administratören väljer att aktivera.
 
 | Metod | Standardinställningar för säkerhet | Villkorlig åtkomst |
 | --- | --- | --- |
@@ -128,14 +128,14 @@ Dessa kostnads fria säkerhets standardvärden tillåter registrering och använ
 | Verifierings kod från mobilapp eller maskinvaru-token | X * * | X |
 | Textmeddelande till telefon |   | X |
 | Ring till telefon |   | X |
-| Applösenord |   | X * * * |
+| Applösenord |   | X * * _ |
 
-- * * Användare kan använda verifierings koder från Microsoft Authenticator-appen, men kan bara registreras med meddelande alternativet.
-- Applösenord är bara tillgängliga i MFA per användare med äldre autentiseringar endast om de aktive ras av administratörer.
+- _ * Användare kan använda verifierings koder från Microsoft Authenticator-appen, men kan bara registreras med meddelande alternativet.
+- * * _ Applösenord är bara tillgängliga i MFA per användare med äldre autentiseringar endast om de aktive ras av administratörer.
 
 ### <a name="disabled-mfa-status"></a>Inaktiverat MFA-status
 
-Om din organisation är en tidigare användare av per användare baserad Azure-Multi-Factor Authentication ska du inte varnas för att inte se användare i en **aktive rad** eller **framtvingad** status om du tittar på sidan Multi-factor auth-status. **Inaktive rad** är rätt status för användare som använder säkerhets standarder eller villkorlig åtkomst baserat Azure Multi-Factor Authentication.
+Om din organisation är en tidigare användare av per-baserad Azure AD-Multi-Factor Authentication ska du inte varnas för att inte se användare i a _ *Enabled** eller **framtvingad** status om du tittar på sidan Multi-factor auth-status. **Disabled** är rätt status för användare som använder säkerhets standarder eller villkorlig åtkomst baserat Azure AD Multi-Factor Authentication.
 
 ### <a name="conditional-access"></a>Villkorlig åtkomst
 
@@ -149,7 +149,7 @@ Här följer stegvisa guider om hur du kan använda villkorlig åtkomst för att
 - [Kräv MFA för Azure-hantering](../conditional-access/howto-conditional-access-policy-azure-management.md)
 - [Blockera äldre autentisering](../conditional-access/howto-conditional-access-policy-block-legacy.md)
 - [Kräv MFA för alla användare](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)
-- [Kräv Azure MFA-registrering](../identity-protection/howto-identity-protection-configure-mfa-policy.md) – kräver Azure AD Identity Protection del av Azure AD Premium P2.
+- [Kräv Azure AD MFA-registrering](../identity-protection/howto-identity-protection-configure-mfa-policy.md) – kräver Azure AD Identity Protection del av Azure AD Premium P2.
 
 ## <a name="enabling-security-defaults"></a>Aktivera säkerhets inställningar
 

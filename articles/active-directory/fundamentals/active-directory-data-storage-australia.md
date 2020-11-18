@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7ed1d4c49c46673f1a1c2b5cb08b2467490acae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 498b75a6541da97e57e23465ae6eb23a6c854727
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565130"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836962"
 ---
 # <a name="identity-data-storage-for-australian-and-new-zealand-customers-in-azure-active-directory"></a>Identitets data lagring för australiska och nya Zeeland-kunder i Azure Active Directory
 
@@ -32,9 +32,9 @@ För kunder som tillhandahöll en adress i Australien eller nya Zeeland behålle
 
 Alla andra Azure AD-tjänster lagrar kund information i globala data Center. Information om hur du hittar data centret för en tjänst finns i [Azure Active Directory – var finns dina data?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located)
 
-## <a name="microsoft-azure-multi-factor-authentication-mfa"></a>Microsoft Azure Multi-Factor Authentication (MFA)
+## <a name="microsoft-azure-ad-multi-factor-authentication-mfa"></a>Microsoft Azure AD Multi-Factor Authentication (MFA)
 
-MFA lagrar identitets kund information i globala data Center. Mer information om den användar information som samlas in och lagras av molnbaserad Azure MFA-och Azure MFA-Server finns i [Azure Multi-Factor Authentication User Data Collection](../authentication/concept-mfa-data-residency.md).
+MFA lagrar identitets kund information i globala data Center. Mer information om den användar information som samlas in och lagras av molnbaserad Azure AD MFA-och Azure MFA-Server finns i [azure Multi-Factor Authentication User Data Collection](../authentication/concept-mfa-data-residency.md).
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om de funktioner och funktioner som beskrivs ovan finns i följande artiklar:

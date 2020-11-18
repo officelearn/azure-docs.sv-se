@@ -10,16 +10,16 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24eb7ac7c4490c8d27d141f6417ae157a7a9c65b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 2a79ec9a54ae597bc7e9795029dc4292c2c82345
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94646584"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836401"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrera till molnbaserad autentisering med stegvis distribution (för hands version)
 
-Med mellanlagrad distribution kan du selektivt testa grupper av användare med funktioner för molnbaserad autentisering, till exempel Azure Multi-Factor Authentication (MFA), villkorlig åtkomst, identitets skydd för läckta autentiseringsuppgifter, identitets styrning och andra, innan du klipper över dina domäner.  Den här artikeln beskriver hur du gör-växeln. Innan du påbörjar den mellanlagrade distributionen bör du ta hänsyn till konsekvenserna om ett eller flera av följande villkor är uppfyllda:
+Med mellanlagrad distribution kan du selektivt testa grupper av användare med funktioner för molnbaserad autentisering, t. ex. Azure AD Multi-Factor Authentication (MFA), villkorlig åtkomst, identitets skydd för läckta autentiseringsuppgifter, identitets styrning och andra, innan du klipper över dina domäner.  Den här artikeln beskriver hur du gör-växeln. Innan du påbörjar den mellanlagrade distributionen bör du ta hänsyn till konsekvenserna om ett eller flera av följande villkor är uppfyllda:
     
 -  Du använder för närvarande en lokal Multi-Factor Authentication-Server. 
 -  Du använder smartkort för autentisering. 
@@ -45,7 +45,7 @@ En översikt över funktionen finns i "Azure Active Directory: Vad är mellanlag
 
 -   Du har konfigurerat alla lämpliga principer för klient anpassning och villkorlig åtkomst som du behöver för användare som migreras till molnbaserad autentisering.
 
--   Om du planerar att använda Azure Multi-Factor Authentication rekommenderar vi att du använder [kombinerad registrering för självbetjäning för återställning av lösen ord (SSPR) och Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) för att användarna ska kunna registrera sina autentiseringsmetoder en gång. Obs! när du använder SSPR för att återställa lösen ordet eller ändra lösen ord med hjälp av min profil sida under den stegvisa distributionen måste Azure AD Connect synkronisera det nya lösen ordet hash som kan ta upp till 2 minuter efter en återställning.
+-   Om du planerar att använda Azure AD Multi-Factor Authentication rekommenderar vi att du använder [kombinerad registrering för självbetjäning för återställning av lösen ord (SSPR) och Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) för att användarna ska kunna registrera sina autentiseringsmetoder en gång. Obs! när du använder SSPR för att återställa lösen ordet eller ändra lösen ord med hjälp av min profil sida under den stegvisa distributionen måste Azure AD Connect synkronisera det nya lösen ordet hash som kan ta upp till 2 minuter efter en återställning.
 
 -   Om du vill använda funktionen för stegvis distribution måste du vara global administratör för din klient.
 

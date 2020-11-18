@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: f91928812dd2f9f850b5e4c3af16ce5c82608e05
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: baa0aa01c94c4deb35db8a59f7b4f81224ae1fd3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371060"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836996"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Referens guide för Azure Active Directory hanterings åtgärder för autentisering
 
@@ -95,7 +95,7 @@ Lösen orden själva är inte tillräckligt säkra för att förhindra att dåli
 
 ### <a name="on-premises-outage-authentication-resiliency"></a>Återhämtnings förmåga för autentisering på lokalt avbrott
 
-Förutom fördelarna med enkelhet och aktivering av läcka autentiseringsuppgifter för identifiering av autentiseringsuppgifter, tillåter Azure AD Password hash Sync (PHS) och Azure MFA att användare kan komma åt SaaS-program och Microsoft 365 trots lokala avbrott på grund av cyberattacker, till exempel [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/). Det är också möjligt att aktivera PHS i samband med Federation. Genom att aktivera PHS får du en återställning av autentisering när Federations tjänsterna inte är tillgängliga.
+Förutom fördelarna med enkelhet och aktivering av läckta autentiseringsuppgifter för identifiering av autentiseringsuppgifter kan Azure AD-PHS (Password hash Sync) och Azure AD MFA tillåta användare att komma åt SaaS-program och Microsoft 365 trots lokala avbrott på grund av cyberattacker, till exempel [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/). Det är också möjligt att aktivera PHS i samband med Federation. Genom att aktivera PHS får du en återställning av autentisering när Federations tjänsterna inte är tillgängliga.
 
 Om din lokala organisation saknar återhämtnings strategi för avbrott eller har en som inte är integrerad med Azure AD, bör du Distribuera Azure AD PHS och definiera en katastrof återställnings plan som innehåller PHS. Genom att aktivera Azure AD PHS kan användare autentisera sig mot Azure AD om din lokala Active Directory inte är tillgänglig.
 

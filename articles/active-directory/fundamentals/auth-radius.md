@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 155b359c109de948ab9b9d6862ef7507ee76f619
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 7ec8062eb864c877b0f3659ca2dd8f103e935071
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576820"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836792"
 ---
 # <a name="radius-authentication-with-azure-active-directory"></a>RADIUS-autentisering med Azure Active Directory
 
@@ -26,7 +26,7 @@ Remote Authentication Dial-In User Service (RADIUS) är ett nätverks protokoll 
 
 Microsoft Windows Server har en roll som kallas nätverks princip Server (NPS), som kan fungera som en RADIUS-server och stöd för RADIUS-autentisering.
 
-Azure Active Directory (Azure AD) möjliggör Multi-Factor Authentication med RADIUS-baserade system. Om en kund vill tillämpa Azure-Multi-Factor Authentication på någon av de tidigare nämnda RADIUS-arbetsbelastningarna kan de installera Azure Multi-Factor Authentication NPS-tillägget på sin Windows NPS-server. 
+Azure Active Directory (Azure AD) möjliggör Multi-Factor Authentication med RADIUS-baserade system. Om en kund vill tillämpa Azure AD Multi-Factor Authentication på någon av de tidigare nämnda RADIUS-arbetsbelastningarna kan de installera Azure AD Multi-Factor Authentication NPS-tillägget på sin Windows NPS-server. 
 
 Windows NPS-servern autentiserar en användares autentiseringsuppgifter mot Active Directory och skickar sedan Multi-Factor Authentication begäran till Azure. Användaren får sedan en utmaning på sin mobila autentiserare. När åtgärden har slutförts tillåts klient programmet att ansluta till tjänsten. 
 
@@ -40,30 +40,30 @@ Du måste lägga till Multi-Factor Authentication till program som
 * Andra som är beroende av RADIUS-protokollet för att autentisera användare i tjänsten. 
 
 > [!NOTE]
-> I stället för att förlita dig på RADIUS och Azure Multi-Factor Authentication NPS-tillägget för att använda Azure Multi-Factor Authentication till VPN-arbetsbelastningar, rekommenderar vi att du uppgraderar VPN-till-SAML och direkt federerer ditt VPN med Azure AD. Detta ger ditt VPN en hel bredd av Azure AD-skydd, inklusive villkorlig åtkomst, Multi-Factor Authentication, enhetskompatibilitet och identitets skydd.
+> I stället för att förlita dig på RADIUS och Azure AD Multi-Factor Authentication NPS-tillägget för att använda Azure AD Multi-Factor Authentication till VPN-arbetsbelastningar, rekommenderar vi att du uppgraderar VPN-till-SAML och direkt federering av VPN med Azure AD. Detta ger ditt VPN en hel bredd av Azure AD-skydd, inklusive villkorlig åtkomst, Multi-Factor Authentication, enhetskompatibilitet och identitets skydd.
 
 ![arkitektur diagram](./media/authentication-patterns/radius-auth.png)
 
 
 ## <a name="components-of-the-system"></a>Systemets komponenter 
 
-* **Klient program (VPN-klient)** : skickar autentiseringsbegäran till RADIUS-klienten.
+* **Klient program (VPN-klient)**: skickar autentiseringsbegäran till RADIUS-klienten.
 
-* **RADIUS-klient** : konverterar förfrågningar från klient program och skickar dem till RADIUS-servern som har NPS-tillägget installerat.
+* **RADIUS-klient**: konverterar förfrågningar från klient program och skickar dem till RADIUS-servern som har NPS-tillägget installerat.
 
-* **RADIUS-server** : ansluter med Active Directory för att utföra den primära autentiseringen för RADIUS-begäran. Vid lyckad överföring skickas begäran till Azure Multi-Factor Authentication NPS-tillägget.
+* **RADIUS-server**: ansluter med Active Directory för att utföra den primära autentiseringen för RADIUS-begäran. Vid lyckad överföring skickas begäran till Azure AD Multi-Factor Authentication NPS-tillägget.
 
-* **NPS-tillägg** : utlöser en begäran till Azure-Multi-Factor Authentication för en sekundär autentisering. Om det lyckas Slutför NPS-tillägget autentiseringsbegäran genom att tillhandahålla RADIUS-servern med säkerhetstoken som omfattar Multi-Factor Authentication-anspråk, utfärdat av Azures säkerhetstokentjänst.
+* **NPS-tillägg**: utlöser en begäran till Azure AD Multi-Factor Authentication för en sekundär autentisering. Om det lyckas Slutför NPS-tillägget autentiseringsbegäran genom att tillhandahålla RADIUS-servern med säkerhetstoken som omfattar Multi-Factor Authentication-anspråk, utfärdat av Azures säkerhetstokentjänst.
 
-* **Azure Multi-Factor Authentication** : kommunicerar med Azure AD för att hämta användarens information och utför en sekundär autentisering med hjälp av en verifieringsmetod som kon figurer ATS av användaren.
+* **Azure ad Multi-Factor Authentication**: kommunicerar med Azure AD för att hämta användarens information och utför en sekundär autentisering med hjälp av en verifieringsmetod som kon figurer ATS av användaren.
 
 ## <a name="implement-radius-with-azure-ad"></a>Implementera RADIUS med Azure AD 
 
-* [Tillhandahåll Azure Multi-Factor Authentication-funktioner med NPS](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension) 
+* [Tillhandahåll Azure AD Multi-Factor Authentication-funktioner med NPS](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension) 
 
-* [Konfigurera Azure Multi-Factor Authentication NPS-tillägget](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension-advanced) 
+* [Konfigurera Azure AD Multi-Factor Authentication NPS-tillägget](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension-advanced) 
 
-* [VPN med Azure Multi-Factor Authentication att använda NPS-tillägget](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension-vpn) 
+* [VPN med Azure AD Multi-Factor Authentication att använda NPS-tillägget](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension-vpn) 
 
   
 ‎ 

@@ -1,6 +1,6 @@
 ---
-title: Azure Multi-Factor Authentication för din organisation – Azure Active Directory
-description: Lär dig mer om de tillgängliga funktionerna i Azure Multi-Factor Authentication för din organisation baserat på din licens modell
+title: Azure AD Multi-Factor Authentication för din organisation – Azure Active Directory
+description: Lär dig mer om de tillgängliga funktionerna i Azure AD Multi-Factor Authentication för din organisation baserat på din licens modell
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,16 +11,16 @@ author: daveba
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 093d9fdd75b8a4a581faa0708cf97ea67774d734
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 85e7f02f8cbda6218396bf4a9a4654a113b7817c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241726"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836750"
 ---
-# <a name="overview-of-azure-multi-factor-authentication-for-your-organization"></a>Översikt över Azure Multi-Factor Authentication för din organisation
+# <a name="overview-of-azure-ad-multi-factor-authentication-for-your-organization"></a>Översikt över Azure AD Multi-Factor Authentication för din organisation
 
-Det finns flera sätt att aktivera Azure Multi-Factor Authentication för dina Azure Active Directory (AD)-användare baserat på de licenser som organisationen äger. 
+Det finns flera sätt att aktivera Azure AD Multi-Factor Authentication för dina Azure Active Directory (AD)-användare baserat på de licenser som organisationen äger. 
 
 ![Undersök signaler och Använd MFA vid behov](./media/concept-fundamentals-mfa-get-started/verify-signals-and-perform-mfa-if-required.png)
 
@@ -36,7 +36,7 @@ Kunder som utnyttjar de kostnads fria fördelarna med Azure AD kan använda [sä
 
 För kunder med Microsoft 365 finns det två alternativ:
 
-* Azure Multi-Factor Authentication antingen aktive ras eller inaktive ras för alla användare, för alla inloggnings händelser. Det finns ingen möjlighet att endast aktivera Multi-Factor Authentication för en delmängd av användare eller endast i vissa scenarier. Hanteringen sker via Office 365-portalen. 
+* Azure AD Multi-Factor Authentication antingen aktive ras eller inaktive ras för alla användare, för alla inloggnings händelser. Det finns ingen möjlighet att endast aktivera Multi-Factor Authentication för en delmängd av användare eller endast i vissa scenarier. Hanteringen sker via Office 365-portalen. 
 * Uppgradera till Azure AD Premium P1 eller P2 och Använd villkorlig åtkomst för att få en bättre användar upplevelse. Mer information finns i skydda Microsoft 365 resurser med Multi-Factor Authentication.
 
 ## <a name="azure-ad-premium-p1"></a>Azure AD Premium P1
@@ -62,6 +62,6 @@ Ger den starkaste säkerhets positionen och förbättrad användar upplevelse. L
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du kommer igång finns i självstudien för att [skydda användar inloggnings händelser med Azure Multi-Factor Authentication](../authentication/tutorial-enable-azure-mfa.md).
+Information om hur du kommer igång finns i självstudien för att [skydda användar inloggnings händelser med Azure AD Multi-Factor Authentication](../authentication/tutorial-enable-azure-mfa.md).
 
-Mer information om licensiering finns i [funktioner och licenser för Azure Multi-Factor Authentication](../authentication/concept-mfa-licensing.md).
+Mer information om licensiering finns i [funktioner och licenser för Azure AD Multi-Factor Authentication](../authentication/concept-mfa-licensing.md).

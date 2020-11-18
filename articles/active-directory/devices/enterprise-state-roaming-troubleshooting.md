@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tanning
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e427a68751cc348a7b0024fb01402bd15ca87d2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df70891ef090d44769aadbc235273e3193bc780e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705732"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837217"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Felsöka Enterprise State Roaming inställningar i Azure Active Directory
 
@@ -76,7 +76,7 @@ Enterprise State Roaming kräver att enheten registreras med Azure AD. Även om 
 
 ## <a name="enterprise-state-roaming-and-multi-factor-authentication"></a>Enterprise State Roaming och Multi-Factor Authentication 
 
-Under vissa omständigheter kan Enterprise State Roaming inte synkronisera data om Azure Multi-Factor Authentication har kon figurer ATS. Mer information om dessa problem finns i support dokumentet [KB3193683](https://support.microsoft.com/kb/3193683). 
+Under vissa omständigheter kan Enterprise State Roaming inte synkronisera data om Azure AD Multi-Factor Authentication har kon figurer ATS. Mer information om dessa problem finns i support dokumentet [KB3193683](https://support.microsoft.com/kb/3193683). 
 
 **Möjligt problem**: om enheten har kon figurer ATS för att kräva Multi-Factor Authentication på Azure Active Directory-portalen kan du inte synkronisera inställningarna när du loggar in på en Windows 10-enhet med ett lösen ord. Den här typen av Multi-Factor Authentication konfiguration är avsedd att skydda ett Azure-administratörskonto. Administratörs användare kan fortfarande synkronisera genom att logga in på sina Windows 10-enheter med sin Microsoft Passport for Work PIN-kod eller genom att slutföra Multi-Factor Authentication vid åtkomst till andra Azure-tjänster som Microsoft 365.
 

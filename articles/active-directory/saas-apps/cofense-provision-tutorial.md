@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/11/2020
 ms.author: Zhchia
-ms.openlocfilehash: 69a9b9401f25893ec94b282f52730d92d372268d
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: b12a595c9b59b40ee6982f123baddaa818dd87ef
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94355710"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836299"
 ---
 # <a name="tutorial-configure-cofense-recipient-sync-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Cofense för automatisk användar etablering
 
@@ -107,10 +107,10 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 9. Granska de användarattribut som synkroniseras från Azure AD till Cofense-synkronisering av mottagare i avsnittet **attribut-mappning** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i Cofense för uppdaterings åtgärder.  Välj knappen **Spara** för att spara ändringarna.
 
-   |Attribut|Typ|
-   |---|---|
+   |Attribut|Typ|Stöds för filtrering|
+   |---|---|---|
+   |externalId|Sträng|&check;|
    |userName|Sträng|
-   |externalId|Sträng|
    |aktiv|Boolesk|
    |displayName|Sträng|
    |namn. formaterad|Sträng|

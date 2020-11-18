@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: davidspo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43b883cac7b970488a30116bc06efc8663766629
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5c4301a61a79ab2351c18af0c76cccc3d07dd202
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370210"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836690"
 ---
 # <a name="rapidly-respond-to-secure-identities-with-azure-ad"></a>Svara säkra identiteter snabbt med Azure AD
 
@@ -34,7 +34,7 @@ Den här check listan hjälper dig att snabbt distribuera kritiska rekommenderad
 - Använd Cloud Intelligence.
 - Aktivera självbetjäning för slutanvändare.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här guiden förutsätter att endast ditt moln eller Hybrid identiteter har skapats i Azure AD. Om du behöver hjälp med att välja din identitets typ läser du artikeln och [väljer rätt autentiseringsmetod för din Azure Active Directory hybrid identitets lösning](../hybrid/choose-ad-authn.md) 
 
@@ -75,7 +75,7 @@ Följande tabell är avsedd att markera viktiga åtgärder för följande licens
 
 | Rekommenderad åtgärd | Detalj |
 | --- | --- |
-| [Aktivera kombinerad registrerings upplevelse för Azure MFA och SSPR för att förenkla användar registrerings upplevelsen](../authentication/howto-registration-mfa-sspr-combined.md) | Tillåt att användarna registrerar sig från en vanlig upplevelse för både Azure-Multi-Factor Authentication och lösen ords återställning via självbetjäning. |
+| [Aktivera kombinerad registrerings upplevelse för Azure AD MFA och SSPR för att förenkla användar registrerings upplevelsen](../authentication/howto-registration-mfa-sspr-combined.md) | Tillåt att användarna registrerar sig från en vanlig upplevelse för både Azure AD-Multi-Factor Authentication och lösen ords återställning via självbetjäning. |
 | [Konfigurera MFA-inställningar för din organisation](../authentication/howto-mfa-getstarted.md) | Se till att konton skyddas från att bli komprometterade med Multi-Factor Authentication |
 | [Aktivera lösenordsåterställning via självbetjäning](../authentication/tutorial-enable-sspr.md) | Detta minskar risken för support och produktivitets förlust när en användare inte kan logga in på sin enhet eller ett program |
 | [Implementera tillbakaskrivning av lösen ord](../authentication/tutorial-enable-sspr-writeback.md) (om Hybrid identiteter används) | Tillåt att lösen ords ändringar i molnet skrivs tillbaka till en lokal Windows Server Active Directory-miljö. |
@@ -105,11 +105,11 @@ Följande tabell är avsedd att markera viktiga åtgärder för följande licens
 
 | Rekommenderad åtgärd | Detalj |
 | --- | --- |
-| [Aktivera kombinerad registrerings upplevelse för Azure MFA och SSPR för att förenkla användar registrerings upplevelsen](../authentication/howto-registration-mfa-sspr-combined.md) | Tillåt att användarna registrerar sig från en vanlig upplevelse för både Azure-Multi-Factor Authentication och lösen ords återställning via självbetjäning. |
+| [Aktivera kombinerad registrerings upplevelse för Azure AD MFA och SSPR för att förenkla användar registrerings upplevelsen](../authentication/howto-registration-mfa-sspr-combined.md) | Tillåt att användarna registrerar sig från en vanlig upplevelse för både Azure AD-Multi-Factor Authentication och lösen ords återställning via självbetjäning. |
 | [Konfigurera MFA-inställningar för din organisation](../authentication/howto-mfa-getstarted.md) | Se till att konton skyddas från att bli komprometterade med Multi-Factor Authentication |
 | [Aktivera lösenordsåterställning via självbetjäning](../authentication/tutorial-enable-sspr.md) | Detta minskar risken för support och produktivitets förlust när en användare inte kan logga in på sin enhet eller ett program |
 | [Implementera tillbakaskrivning av lösen ord](../authentication/tutorial-enable-sspr-writeback.md) (om Hybrid identiteter används) | Tillåt att lösen ords ändringar i molnet skrivs tillbaka till en lokal Windows Server Active Directory-miljö. |
-| [Aktivera identitets skydds principer för att genomdriva MFA-registrering](../identity-protection/howto-identity-protection-configure-mfa-policy.md) | Hantera distributionen av Azure Multi-Factor Authentication (MFA). |
+| [Aktivera identitets skydds principer för att genomdriva MFA-registrering](../identity-protection/howto-identity-protection-configure-mfa-policy.md) | Hantera distributionen av Azure AD Multi-Factor Authentication (MFA). |
 | [Aktivera identitets skydds användare och inloggnings risk principer](../identity-protection/howto-identity-protection-configure-risk-policies.md) | Aktivera identitets skydds användare och inloggnings principer. Den rekommenderade inloggnings principen är riktad mot inloggnings program för medelhög risk och kräver MFA. För användar principer bör den vara riktad mot användare med hög risk som kräver åtgärden för lösen ords ändring. |
 | Skapa och aktivera principer för villkorlig åtkomst | [MFA för administratörer för att skydda konton som har tilldelats administrativa rättigheter.](../conditional-access/howto-conditional-access-policy-admin-mfa.md) <br><br> [Blockera bakåtkompatibla autentiseringsprotokoll på grund av den ökade risken som är associerad med bakåtkompatibla autentiseringsprotokoll.](../conditional-access/howto-conditional-access-policy-block-legacy.md) <br><br> [Kräv MFA för Azure-hantering för att skydda dina privilegierade resurser genom att kräva Multi-Factor Authentication för alla användare som kommer åt Azure-resurser.](../conditional-access/howto-conditional-access-policy-azure-management.md) |
 | [Aktivera hash-synkronisering av lösen ord](../hybrid/how-to-connect-password-hash-synchronization.md) (om Hybrid identiteter används) | Ge redundans för autentisering och förbättra säkerheten (inklusive Smart utelåsning, IP-utelåsning och möjligheten att identifiera läckta autentiseringsuppgifter.) |

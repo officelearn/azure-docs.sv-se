@@ -16,12 +16,12 @@ ms.date: 07/19/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e794b66341d4e7c478fd526107cc35c7c745fa7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe92f761ac0b16da7c3cc3c69c1fa4b00f4e7579
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85358335"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836367"
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Azure Active Directory direktautentisering: teknisk djupgående
 Den här artikeln är en översikt över hur Azure Active Directory (Azure AD) passerar autentisering fungerar. Detaljerad teknisk information och säkerhets information finns i artikeln om [säkerhets djupet](how-to-connect-pta-security-deep-dive.md) .
@@ -43,7 +43,7 @@ När en användare försöker logga in i ett program som skyddas av Azure AD, oc
 8. Agenten verifierar användar namnet och lösen ordet mot Active Directory med hjälp av vanliga Windows-API: er, vilket är en liknande mekanism som Active Directory Federation Services (AD FS) (AD FS) använder. Användar namnet kan antingen vara det lokala standard användar namnet, vanligt vis `userPrincipalName` eller något annat attribut som kon figurer ATS i Azure AD Connect (kallas `Alternate ID` ).
 9. Den lokala Active Directory domänkontrollanten (DC) utvärderar begäran och returnerar lämpligt svar (lyckades, misslyckat, lösen ordet har upphört att gälla eller användaren utelåst) till agenten.
 10. Authentication-agenten returnerar i sin tur det här svaret tillbaka till Azure AD.
-11. Azure AD utvärderar svaret och svarar på användaren efter behov. Azure AD signerar till exempel antingen användaren direkt eller begär Anden om Azure Multi-Factor Authentication.
+11. Azure AD utvärderar svaret och svarar på användaren efter behov. Exempelvis signerar Azure AD användaren direkt eller begär Anden om Azure AD Multi-Factor Authentication.
 12. Om användar inloggningen lyckas kan användaren komma åt programmet.
 
 Följande diagram illustrerar alla komponenter och de steg som ingår:

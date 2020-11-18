@@ -12,21 +12,21 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06900483598e1c03bd56cd8ac8c905f885012f08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a8b013723707c4a3a087a90674227c3d41c5108
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91395897"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836945"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Identitets data lagring för Europeiska kunder i Azure Active Directory
 Identitets data lagras av Azure AD på en geografisk plats baserat på den adress som tillhandahålls av din organisation när du prenumererar på en Microsoft Online-tjänst, till exempel Microsoft 365 och Azure. Information om var dina identitets data lagras, kan du använda avsnittet var finns [dina data?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) i Microsoft säkerhets Center.
 
 För kunder som tillhandahöll en adress i Europa, behåller Azure AD de flesta identitets data inom de europeiska data centren. Det här dokumentet innehåller information om alla data som lagras utanför Europa av Azure AD-tjänster.
 
-## <a name="microsoft-azure-multi-factor-authentication"></a>Microsoft Azure Multi-Factor Authentication
+## <a name="microsoft-azure-ad-multi-factor-authentication"></a>Microsoft Azure AD Multi-Factor Authentication
 
-För molnbaserad Azure-Multi-Factor Authentication slutförs autentiseringen i det närmaste data centret för användaren. Data Center för Azure Multi-Factor Authentication finns i Nordamerika, Europa och Asien och stillahavsområdet.
+För molnbaserad Azure AD-Multi-Factor Authentication slutförs autentiseringen i det närmaste data centret för användaren. Data Center för Azure AD Multi-Factor Authentication finns i Nordamerika, Europa och Asien och stillahavsområdet.
 
 * Multi-Factor Authentication som använder telefonsamtal kommer från amerikanska data Center och dirigeras av globala leverantörer.
 * Multi-Factor Authentication med SMS dirigeras av globala providers.
@@ -34,7 +34,7 @@ För molnbaserad Azure-Multi-Factor Authentication slutförs autentiseringen i d
     * Enhets leverantörer – vissa tjänster, t. ex. Apple Push-meddelanden, kan vara utanför Europa.
 * Multi-Factor Authentication-förfrågningar med OATH-koder som härstammar från EU-datacenter verifieras i EU.
 
-Mer information om vilka användar uppgifter som samlas in av Azure Multi-Factor Authentication-server (MFA Server) och molnbaserad Azure MFA finns i [azure Multi-Factor Authentication User Data Collection](../authentication/howto-mfa-reporting-datacollection.md).
+Mer information om vilka användar uppgifter som samlas in av Azure Multi-Factor Authentication-server (MFA Server) och molnbaserad Azure AD MFA finns i [azure Multi-Factor Authentication User Data Collection](../authentication/howto-mfa-reporting-datacollection.md).
 
 ## <a name="password-based-single-sign-on-for-enterprise-applications"></a>Lösenordsbaserade enkla Sign-On för företags program
  

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 2de3f78b58e10a4fbf65bb00d516448a089f85b6
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d5a8fe4192c3778e259ed18239a4198398d8807b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370958"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836843"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Referens för Azure Active Directory General Operations Guide
 
@@ -43,7 +43,7 @@ Hantering av Azure Active Directory kräver kontinuerlig körning av viktiga ope
 | Övervaka hybrid loggar: genom strömnings agenter | IAM-åtgärds team |
 | Övervaka hybrid loggar: tjänsten för tillbakaskrivning av lösen ord | IAM-åtgärds team |
 | Övervaka hybrid loggar: lokal gateway för lösen ords skydd | IAM-åtgärds team |
-| Övervaka hybrid loggar: Azure MFA NPS-tillägg (om tillämpligt) | IAM-åtgärds team |
+| Övervaka hybrid loggar: Azure AD MFA NPS-tillägg (om tillämpligt) | IAM-åtgärds team |
 
 När du granskar listan kanske du måste tilldela en ägare för aktiviteter som saknar ägare eller justera ägarskapet för aktiviteter med ägare som inte är justerade enligt rekommendationerna ovan.
 
@@ -86,7 +86,7 @@ När du övervakar hälso tillståndet för din miljö måste du omedelbart åtg
 
 ### <a name="on-premises-agents-logs"></a>Loggar för lokala agenter
 
-Vissa identitets-och åtkomst hanterings tjänster kräver lokala agenter för att aktivera hybrid scenarier. Exempel på detta är lösen ords återställning, direktautentisering (PTA), Azure AD-programproxy och Azure MFA NPS-tillägg. Det är viktigt att drifts bas linjen och övervakar hälsan för dessa komponenter genom att arkivera och analysera komponent agent loggar med hjälp av lösningar som System Center Operations Manager eller SIEM. Det är lika viktigt för driften av informations lag eller supportavdelningen att förstå hur fel fel uppstår.
+Vissa identitets-och åtkomst hanterings tjänster kräver lokala agenter för att aktivera hybrid scenarier. Exempel på detta är lösen ords återställning, direktautentisering (PTA), Azure AD-programproxy och Azure AD MFA NPS-tillägget. Det är viktigt att drifts bas linjen och övervakar hälsan för dessa komponenter genom att arkivera och analysera komponent agent loggar med hjälp av lösningar som System Center Operations Manager eller SIEM. Det är lika viktigt för driften av informations lag eller supportavdelningen att förstå hur fel fel uppstår.
 
 #### <a name="on-premises-agents-logs-recommended-reading"></a>Lokala agenter loggar Rekommenderad läsning
 
@@ -94,7 +94,7 @@ Vissa identitets-och åtkomst hanterings tjänster kräver lokala agenter för a
 - [Fel sökning av självbetjäning för lösen ords återställning – Azure Active Directory](../authentication/troubleshoot-sspr.md)
 - [Förstå Azure AD-programproxy-kopplingar](../manage-apps/application-proxy-connectors.md)
 - [Azure AD Connect: Felsök direktautentisering](../hybrid/tshoot-connect-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs)
-- [Felsöka fel koder för Azure MFA NPS-tillägget](../authentication/howto-mfa-nps-extension-errors.md)
+- [Felsöka fel koder för Azure AD MFA NPS-tillägget](../authentication/howto-mfa-nps-extension-errors.md)
 
 ### <a name="on-premises-agents-management"></a>Hantering av lokala agenter
 

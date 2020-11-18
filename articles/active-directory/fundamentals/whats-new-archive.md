@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a703f6d32cb665bfada73ca833f51c94d83f8b97
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 0ffa0059e78ee193cb12a4838282f7f9fb282edd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146168"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836605"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Vill du arkivera vad som är nytt i Azure Active Directory?
 
@@ -189,7 +189,7 @@ Delta fråga för program är allmänt tillgänglig! Nu kan du spåra ändringar
 
 **Produkt kapacitet:** Utvecklings miljö
 
-Dessa API: er är ett nyckel verktyg för att hantera dina användares autentiseringsmetoder. Nu kan du programmatiskt för att registrera och hantera de autentiserare som används för MFA och lösen ords återställning via självbetjäning (SSPR). Detta har varit en av de mest efterfrågade funktionerna i Azure MFA, SSPR och Microsoft Graph Spaces. De nya API: er som vi har lanserat i den här vågen ger dig möjlighet att:
+Dessa API: er är ett nyckel verktyg för att hantera dina användares autentiseringsmetoder. Nu kan du programmatiskt för att registrera och hantera de autentiserare som används för MFA och lösen ords återställning via självbetjäning (SSPR). Detta har varit en av de mest efterfrågade funktionerna i Azure AD MFA, SSPR och Microsoft Graph Spaces. De nya API: er som vi har lanserat i den här vågen ger dig möjlighet att:
 
 - Läsa, lägga till, uppdatera och ta bort en användares telefoner för autentisering
 - Återställa en användares lösen ord
@@ -227,9 +227,9 @@ Mer information finns i [hantering av administrativa enheter i Azure Active Dire
 
 **Produkt kapacitet:** Access Control
 
-**Skrivar administratör** : användare med den här rollen kan registrera skrivare och hantera alla aspekter av alla skrivar konfigurationer i Microsofts Universal Print-lösning, inklusive inställningar för Universal Print Connector. De kan godkänna alla delegerade utskrifts behörighets begär Anden. Skrivar administratörer har även åtkomst till utskrifts rapporter. 
+**Skrivar administratör**: användare med den här rollen kan registrera skrivare och hantera alla aspekter av alla skrivar konfigurationer i Microsofts Universal Print-lösning, inklusive inställningar för Universal Print Connector. De kan godkänna alla delegerade utskrifts behörighets begär Anden. Skrivar administratörer har även åtkomst till utskrifts rapporter. 
 
-**Skrivar tekniker** : användare med den här rollen kan registrera skrivare och hantera skrivar status i Microsoft Universal Print-lösningen. De kan också läsa all anslutnings information. Viktiga aktiviteter en skrivare tekniker kan inte ange användar behörigheter för skrivare och dela skrivare. [Läs mer.](../roles/permissions-reference.md#printer-administrator)
+**Skrivar tekniker**: användare med den här rollen kan registrera skrivare och hantera skrivar status i Microsoft Universal Print-lösningen. De kan också läsa all anslutnings information. Viktiga aktiviteter en skrivare tekniker kan inte ange användar behörigheter för skrivare och dela skrivare. [Läs mer.](../roles/permissions-reference.md#printer-administrator)
 
 ---
 
@@ -787,11 +787,11 @@ Som en del av en säker standard modell för cookies, ändrar Chrome 80-webbläs
 
 Vi rekommenderar att alla utvecklare testar sina appar med hjälp av den här vägledningen:
 
-- Ange standardvärdet för inställningen **Använd säker cookie** till **Ja** .
+- Ange standardvärdet för inställningen **Använd säker cookie** till **Ja**.
 
-- Ange standardvärdet för attributet **SameSite** till **none** .
+- Ange standardvärdet för attributet **SameSite** till **none**.
 
-- Lägg till ytterligare ett `SameSite` attribut för **Secure** .
+- Lägg till ytterligare ett `SameSite` attribut för **Secure**.
 
 Mer information finns i [kommande SameSite cookie-ändringar i ASP.net och ASP.net Core](https://devblogs.microsoft.com/aspnet/upcoming-samesite-cookie-changes-in-asp-net-and-asp-net-core/) och [potentiella avbrott till kund webbplatser och Microsofts produkter och tjänster i Chrome version 79 och senare](https://support.microsoft.com/help/4522904/potential-disruption-to-microsoft-services-in-chrome-beta-version-79).
 
@@ -969,7 +969,7 @@ Mer information om hur du använder programspecifika roll definitioner finns i [
 
 **Typ:** Plan för ändrings **tjänst kategori:** identitets skydd **produkt kapacitet:** identitet säkerhet & skydd
 
-Azure AD Premium P2-prenumeranter kan nu utföra komplexa frågor på Azure AD Identity Protections risk identifierings data genom att använda det nya riskDetection-API: et för Microsoft Graph. Den befintliga [identityRiskEvent](/graph/api/resources/identityriskevent?view=graph-rest-beta) API Beta-versionen slutar att returnera data cirka **10 januari 2020** . Om din organisation använder identityRiskEvent-API: t bör du övergå till det nya riskDetection-API: et.
+Azure AD Premium P2-prenumeranter kan nu utföra komplexa frågor på Azure AD Identity Protections risk identifierings data genom att använda det nya riskDetection-API: et för Microsoft Graph. Den befintliga [identityRiskEvent](/graph/api/resources/identityriskevent?view=graph-rest-beta) API Beta-versionen slutar att returnera data cirka **10 januari 2020**. Om din organisation använder identityRiskEvent-API: t bör du övergå till det nya riskDetection-API: et.
 
 Mer information om det nya riskDetection-API: et finns i [referens dokumentationen för riskhantering](/graph/api/resources/riskdetection).
 
@@ -983,9 +983,9 @@ Ett par veckor före versionen av Chrome 80-webbläsaren, planerar vi att uppdat
 
 För att undvika potentiellt negativa konsekvenser på grund av den här ändringen uppdaterar vi programproxyns åtkomst och sessionscookies genom att:
 
-- Ställer in standardvärdet för inställningen **Använd säker cookie** till **Ja** .
+- Ställer in standardvärdet för inställningen **Använd säker cookie** till **Ja**.
 
-- Ställer in standardvärdet för attributet **SameSite** till **none** .
+- Ställer in standardvärdet för attributet **SameSite** till **none**.
 
     >[!NOTE]
     > Cookies för åtkomst till programproxyn har alltid skickats exklusivt över säkra kanaler. Dessa ändringar gäller endast för sessionscookies.
@@ -1104,7 +1104,7 @@ Mer information om apparna finns i [SaaS Application Integration with Azure Acti
 
 **Typ:** Ändring av funktions **tjänst kategori:** identitets skydd **produkt kapacitet:** identitet säkerhet & skydd
 
-Nu kan du komma åt alla tillgängliga Azure AD-säkerhetsfunktioner från det nya **säkerhets** meny alternativet och från **sök** fältet i Azure Portal. Dessutom innehåller den nya **säkerhets** landnings sidan, som kallas **säkerhets komma igång** , länkar till vår offentliga dokumentation, säkerhets vägledning och distributions guider.
+Nu kan du komma åt alla tillgängliga Azure AD-säkerhetsfunktioner från det nya **säkerhets** meny alternativet och från **sök** fältet i Azure Portal. Dessutom innehåller den nya **säkerhets** landnings sidan, som kallas **säkerhets komma igång**, länkar till vår offentliga dokumentation, säkerhets vägledning och distributions guider.
 
 Den nya **säkerhets** menyn innehåller:
 
@@ -1271,7 +1271,7 @@ Om du är en befintlig kund, som aktiverade MFA Server tidigare än den 1 juli 2
 
 - Andra mindre buggar.
 
-Från och med den 1 juli 2019 erbjuder Microsoft även MFA Server för nya distributioner. Nya kunder som behöver Multi-Factor Authentication bör använda molnbaserade Azure-Multi-Factor Authentication. Mer information finns i [Planera en molnbaserad Azure Multi-Factor Authentication-distribution](../authentication/howto-mfa-getstarted.md).
+Från och med den 1 juli 2019 erbjuder Microsoft även MFA Server för nya distributioner. Nya kunder som behöver Multi-Factor Authentication bör använda molnbaserad Azure AD-Multi-Factor Authentication. Mer information finns i [Planera en molnbaserad Azure AD Multi-Factor Authentication-distribution](../authentication/howto-mfa-getstarted.md).
 
 ---
 
@@ -1435,7 +1435,7 @@ Mer information om förbättrad säkerhets information finns i vår [Administrat
 
 1. Logga in på Azure Portal som global administratör eller användar administratör.
 
-2. Gå till **Azure Active Directory > användar inställningar > hantera inställningar för för hands versions funktionerna i åtkomst panelen** .
+2. Gå till **Azure Active Directory > användar inställningar > hantera inställningar för för hands versions funktionerna i åtkomst panelen**.
 
 3. I **användarna kan använda för hands versions funktioner för att registrera och hantera säkerhets information – förbättrat** utrymme, Välj **vald** och sedan välja en grupp med användare eller Välj **alla** för att aktivera den här funktionen för alla användare i klienten.
 
@@ -1573,7 +1573,7 @@ Mer information finns i [Aktivera säkerhets granskningar för Azure AD Domain S
 
 **Typ:** Ny funktions **tjänst kategori:** självbetjäning för återställning av lösen ord **produkt kapacitet:** övervakning & rapportering
 
-De nya autentiseringsmetoderna för användning & insikter kan hjälpa dig att förstå hur funktioner som Azure Multi-Factor Authentication och återställning av lösen ord för självbetjäning registreras och används i din organisation, inklusive antalet registrerade användare för varje funktion, hur ofta lösen ords återställning via självbetjäning används för att återställa lösen ord och med vilken metod som återställningen sker.
+De nya autentiseringsmetoderna för användning & insikter kan hjälpa dig att förstå hur funktioner som Azure AD Multi-Factor Authentication och återställning av lösen ord för självbetjäning registreras och används i din organisation, inklusive antalet registrerade användare för varje funktion, hur ofta lösen ords återställning via självbetjäning används för att återställa lösen ord och med vilken metod som återställningen sker.
 
 Mer information finns i [användning av autentiseringsmetoder & insikter (för hands version)](../authentication/howto-authentication-methods-usage-insights.md).
 
@@ -1747,9 +1747,9 @@ Mer information om hur du konfigurerar din företags anpassning finns i [lägga 
 
 **Typ:** Föråldrad **tjänst kategori:** MFA **Product Capability:** Identity Security & Protection
 
-Från och med den 1 juli 2019 kommer Microsoft inte längre att erbjuda MFA Server för nya distributioner. Nya kunder som vill kräva Multi-Factor Authentication i organisationen måste nu använda molnbaserad Azure-Multi-Factor Authentication. Kunder som aktiverade MFA Server tidigare än 1 juli ser ingen ändring. Du kommer fortfarande att kunna ladda ned den senaste versionen, Hämta framtida uppdateringar och generera autentiseringsuppgifter för aktivering.
+Från och med den 1 juli 2019 kommer Microsoft inte längre att erbjuda MFA Server för nya distributioner. Nya kunder som vill kräva Multi-Factor Authentication i organisationen måste nu använda molnbaserad Azure AD-Multi-Factor Authentication. Kunder som aktiverade MFA Server tidigare än 1 juli ser ingen ändring. Du kommer fortfarande att kunna ladda ned den senaste versionen, Hämta framtida uppdateringar och generera autentiseringsuppgifter för aktivering.
 
-Mer information finns i [komma igång med Azure Multi-Factor Authentication-Server](../authentication/howto-mfaserver-deploy.md). Mer information om molnbaserad Azure-Multi-Factor Authentication finns i [Planera en molnbaserad Azure-Multi-Factor Authentication distribution](../authentication/howto-mfa-getstarted.md).
+Mer information finns i [komma igång med Azure Multi-Factor Authentication-Server](../authentication/howto-mfaserver-deploy.md). Mer information om molnbaserad Azure AD-Multi-Factor Authentication finns i [Planera en molnbaserad Azure ad Multi-Factor Authentication-distribution](../authentication/howto-mfa-getstarted.md).
 
 ---
 
@@ -1989,7 +1989,7 @@ Mer information om apparna finns i [SaaS Application Integration with Azure Acti
 
 Nya uppdateringar i åtkomst granskningar i Azure AD gör att du kan:
 
-- Ändra frekvensen för dina åtkomst granskningar till **halv varje år** , förutom de tidigare befintliga alternativen varje vecka, varje månad, kvartals vis och varje år.
+- Ändra frekvensen för dina åtkomst granskningar till **halv varje år**, förutom de tidigare befintliga alternativen varje vecka, varje månad, kvartals vis och varje år.
 
 - Välj flera Azure AD-och Azure-resurs roller när du skapar en enda åtkomst granskning. I den här situationen konfigureras alla roller med samma inställningar och alla granskare meddelas på samma tid.
 
@@ -2221,17 +2221,17 @@ Som svar på kundfeedback har vi utökat den kombinerade för hands versionen av
 
 **Följ dessa steg om du vill aktivera den förbättrade upplevelsen för dina användare ' idag:**
 
-1. Som global administratör eller användar administratör loggar du in på Azure Portal och går till **Azure Active Directory > användar inställningar > hantera inställningar för åtkomst panelens för hands versions funktioner** .
+1. Som global administratör eller användar administratör loggar du in på Azure Portal och går till **Azure Active Directory > användar inställningar > hantera inställningar för åtkomst panelens för hands versions funktioner**.
 
-2. I de **användare som kan använda för hands versions funktioner för att registrera och hantera säkerhets information – uppdaterings** alternativ väljer du att aktivera funktionerna för en **vald grupp av användare** eller för **alla användare** .
+2. I de **användare som kan använda för hands versions funktioner för att registrera och hantera säkerhets information – uppdaterings** alternativ väljer du att aktivera funktionerna för en **vald grupp av användare** eller för **alla användare**.
 
 Under de kommande veckorna kommer vi att ta bort möjligheten att aktivera den tidigare kombinerade för hands versionen av MFA-/SSPR-registrering för klienter som inte redan har den aktiverat.
 
 **Följ dessa steg om du vill se om kontrollen kommer att tas bort för din klient:**
 
-1. Som global administratör eller användar administratör loggar du in på Azure Portal och går till **Azure Active Directory > användar inställningar > hantera inställningar för åtkomst panelens för hands versions funktioner** .
+1. Som global administratör eller användar administratör loggar du in på Azure Portal och går till **Azure Active Directory > användar inställningar > hantera inställningar för åtkomst panelens för hands versions funktioner**.
 
-2. Om de **användare som kan använda alternativet för för hands versions funktioner för att registrera och hantera säkerhets information** har angetts till **ingen** , tas alternativet bort från din klient.
+2. Om de **användare som kan använda alternativet för för hands versions funktioner för att registrera och hantera säkerhets information** har angetts till **ingen**, tas alternativet bort från din klient.
 
 Oavsett om du tidigare har aktiverat den tidigare samlade för hands versionen av MFA/SSPR-registrering för användare eller inte, kommer den gamla upplevelsen att inaktive ras vid ett framtida datum. Därför föreslår vi starkt att du flyttar till den nya, förbättrade upplevelsen så snart som möjligt.
 
@@ -2265,7 +2265,7 @@ Mer information om hur du väljer vissa versioner av sid element finns i avsnitt
 
 **Typ:** Ny funktions **tjänst kategori:** B2C-konsument identitets hantering **produkt kapacitet:** B2B/B2C
 
-Nu kan du konfigurera din organisations lösen ords komplexitet för dina slutanvändare, i stället för att behöva använda din interna lösen ords princip för Azure AD. Från **egenskaps** bladet för dina användar flöden (kallades tidigare dina inbyggda principer) kan du välja ett lösen ords komplexitet som är **enkelt** eller **starkt** , eller så kan du skapa en **anpassad** uppsättning krav.
+Nu kan du konfigurera din organisations lösen ords komplexitet för dina slutanvändare, i stället för att behöva använda din interna lösen ords princip för Azure AD. Från **egenskaps** bladet för dina användar flöden (kallades tidigare dina inbyggda principer) kan du välja ett lösen ords komplexitet som är **enkelt** eller **starkt**, eller så kan du skapa en **anpassad** uppsättning krav.
 
 Mer information om konfiguration av lösen ords komplexitets krav finns i [Konfigurera komplexitets krav för lösen ord i Azure Active Directory B2C](../../active-directory-b2c/user-flow-password-complexity.md).
 
@@ -2297,9 +2297,9 @@ Mer information finns i [e-postautentisering med eng ång slö sen ord (för han
 
 Vi har introducerat tre nya cookie-inställningar som är tillgängliga för dina appar som publiceras via programproxy:
 
-- **Använd HTTP-Only cookie.** Ställer in flaggan **HTTPOnly** på din Application Proxy-åtkomst och sessionscookies. Att aktivera den här inställningen ger ytterligare säkerhets fördelar, till exempel att förhindra att cookies kopieras eller ändras via skript på klient sidan. Vi rekommenderar att du aktiverar den här flaggan (Välj **Ja** ) för de extra fördelarna.
+- **Använd HTTP-Only cookie.** Ställer in flaggan **HTTPOnly** på din Application Proxy-åtkomst och sessionscookies. Att aktivera den här inställningen ger ytterligare säkerhets fördelar, till exempel att förhindra att cookies kopieras eller ändras via skript på klient sidan. Vi rekommenderar att du aktiverar den här flaggan (Välj **Ja**) för de extra fördelarna.
 
-- **Använd säker cookie.** Anger **säker** flagga för programproxyns åtkomst och sessionscookies. Att aktivera den här inställningen ger ytterligare säkerhets förmåner genom att se till att cookies bara överförs via säkra TLS-kanaler, t. ex. HTTPS. Vi rekommenderar att du aktiverar den här flaggan (Välj **Ja** ) för de extra fördelarna.
+- **Använd säker cookie.** Anger **säker** flagga för programproxyns åtkomst och sessionscookies. Att aktivera den här inställningen ger ytterligare säkerhets förmåner genom att se till att cookies bara överförs via säkra TLS-kanaler, t. ex. HTTPS. Vi rekommenderar att du aktiverar den här flaggan (Välj **Ja**) för de extra fördelarna.
 
 - **Använd beständig cookie.** Förhindrar att åtkomst till cookies upphör att gälla när webbläsaren stängs. Dessa cookies sist under åtkomsttoken. Men cookies återställs om förfallo tiden nås eller om användaren manuellt tar bort cookien. Vi rekommenderar att du behåller standardinställningen **Nej** och bara aktiverar inställningen för äldre appar som inte delar cookies mellan processer.
 
@@ -2391,7 +2391,7 @@ Den här korrigeringen förhindrar därför direkta uppdateringar av ImmutableID
 Vi publicerar för närvarande både gransknings-och inloggnings logg strömmar via Azure Monitor, så att du sömlöst kan integrera loggfilerna med dina SIEM-verktyg eller med Log Analytics. Utifrån din feedback och för den här funktionens allmänna tillgänglighets meddelande gör vi följande ändringar i vårt schema. De här schema ändringarna och de relaterade dokumentations uppdateringarna sker den första veckan i januari.
 
 #### <a name="new-fields-in-the-audit-schema"></a>Nya fält i gransknings schema
-Vi lägger till ett nytt **Åtgärds typ** fält för att ange vilken typ av åtgärd som utförs på resursen. Du kan till exempel **lägga till** , **Uppdatera** eller **ta bort** .
+Vi lägger till ett nytt **Åtgärds typ** fält för att ange vilken typ av åtgärd som utförs på resursen. Du kan till exempel **lägga till**, **Uppdatera** eller **ta bort**.
 
 #### <a name="changed-fields-in-the-audit-schema"></a>Ändrade fält i gransknings schema
 Följande fält ändras i gransknings schemat:
@@ -2399,7 +2399,7 @@ Följande fält ändras i gransknings schemat:
 |Fältnamn|Vad som ändrats|Gamla värden|Nya värden|
 |----------|------------|----------|----------|
 |Kategori|Detta är **tjänstens namn** fält. Nu är fältet **gransknings kategorier** . **Tjänst namnet** har bytt namn till fältet **loggedByService** .|<ul><li>Kontoetablering</li><li>Kärnkatalog</li><li>Lösen ords återställning via självbetjäning</li></ul>|<ul><li>Användarhantering</li><li>Grupphantering</li><li>Hantering av appar</li></ul>|
-|targetResources|Innehåller **TargetResourceType** på den översta nivån.|&nbsp;|<ul><li>Policy</li><li>App</li><li>Användare</li><li>Group</li></ul>|
+|targetResources|Innehåller **TargetResourceType** på den översta nivån.|&nbsp;|<ul><li>Policy</li><li>App</li><li>Användare</li><li>Grupp</li></ul>|
 |loggedByService|Innehåller namnet på tjänsten som skapade gransknings loggen.|Null|<ul><li>Kontoetablering</li><li>Kärnkatalog</li><li>Återställning av lösenord för självbetjäning</li></ul>|
 |Resultat|Visar resultatet av gransknings loggarna. Tidigare räknades detta upp, men nu visar vi det faktiska värdet.|<ul><li>0</li><li>1</li></ul>|<ul><li>Klart</li><li>Fel</li></ul>|
 
@@ -3028,16 +3028,16 @@ Mobile App-aviseringar kan bara aktive ras som en del av en princip som kräver 
 
 **Typ:** Plan för ändrings **tjänst kategori:** rapportering av **produkt kapacitet:** övervakning av & rapportering
 
-På grund av vår starkare säkerhet har vi haft gjort en ändring i behörigheterna för appar som använder ett delegerat auktoriseringsarkiv för att få åtkomst till [API: er för Azure AD-aktivitets loggar](../reports-monitoring/concept-reporting-api.md). Denna ändring sker den **26 juni 2018** .
+På grund av vår starkare säkerhet har vi haft gjort en ändring i behörigheterna för appar som använder ett delegerat auktoriseringsarkiv för att få åtkomst till [API: er för Azure AD-aktivitets loggar](../reports-monitoring/concept-reporting-api.md). Denna ändring sker den **26 juni 2018**.
 
 Om någon av dina appar använder Azure AD aktivitets logg-API: er, följer du dessa steg för att se till att appen inte bryts när ändringen har utförts.
 
 **Uppdatera dina program behörigheter**
 
-1. Logga in på Azure Portal, Välj **Azure Active Directory** och välj sedan app- **registreringar** .
-2. Välj din app som använder Azure AD aktivitets loggar API, Välj **Inställningar** , Välj **nödvändiga behörigheter** och välj sedan **Windows-Azure Active Directory** -API: et.
-3. I avsnittet **delegerade behörigheter** i bladet **Aktivera åtkomst** markerar du kryss rutan bredvid **Läs katalog** data och väljer sedan **Spara** .
-4. Välj **bevilja behörigheter** och välj sedan **Ja** .
+1. Logga in på Azure Portal, Välj **Azure Active Directory** och välj sedan app- **registreringar**.
+2. Välj din app som använder Azure AD aktivitets loggar API, Välj **Inställningar**, Välj **nödvändiga behörigheter** och välj sedan **Windows-Azure Active Directory** -API: et.
+3. I avsnittet **delegerade behörigheter** i bladet **Aktivera åtkomst** markerar du kryss rutan bredvid **Läs katalog** data och väljer sedan **Spara**.
+4. Välj **bevilja behörigheter** och välj sedan **Ja**.
 
     >[!Note]
     >Du måste vara global administratör för att bevilja behörighet till appen.
@@ -3052,33 +3052,33 @@ Mer information finns i avsnittet [Granting Permissions](../reports-monitoring/h
 
 Transport Layer Security (TLS) är ett protokoll som tillhandahåller sekretess-och data integritet mellan två kommunicerande program och är det mest distribuerade säkerhets protokollet som används idag.
 
-[PCI Security Standards-rådet](https://www.pcisecuritystandards.org/) har fastställt att tidiga versioner av TLS och Secure SOCKETS Layer (SSL) måste inaktive ras för att aktivera nya och säkrare app-protokoll, med krav från och med den **30 juni 2018** . Den här ändringen innebär att om du ansluter till Azure AD-tjänster och kräver PCI DSS-efterlevnad måste du inaktivera TLS 1,0. Det finns flera versioner av TLS, men TLS 1,2 är den senaste versionen som är tillgänglig för Azure Active Directory Services. Vi rekommenderar starkt att du flyttar direkt till TLS 1,2 för kombinationerna både klient/server och webbläsare/Server.
+[PCI Security Standards-rådet](https://www.pcisecuritystandards.org/) har fastställt att tidiga versioner av TLS och Secure SOCKETS Layer (SSL) måste inaktive ras för att aktivera nya och säkrare app-protokoll, med krav från och med den **30 juni 2018**. Den här ändringen innebär att om du ansluter till Azure AD-tjänster och kräver PCI DSS-efterlevnad måste du inaktivera TLS 1,0. Det finns flera versioner av TLS, men TLS 1,2 är den senaste versionen som är tillgänglig för Azure Active Directory Services. Vi rekommenderar starkt att du flyttar direkt till TLS 1,2 för kombinationerna både klient/server och webbläsare/Server.
 
-Inaktuella webbläsare kanske inte stöder nyare TLS-versioner, till exempel TLS 1,2. Om du vill se vilka versioner av TLS som stöds av din webbläsare går du till webbplatsen för [SSL-labbet Qualys](https://www.ssllabs.com/) och klickar på **testa din webbläsare** . Vi rekommenderar att du uppgraderar till den senaste versionen av webbläsaren och helst bara aktiverar TLS 1,2.
+Inaktuella webbläsare kanske inte stöder nyare TLS-versioner, till exempel TLS 1,2. Om du vill se vilka versioner av TLS som stöds av din webbläsare går du till webbplatsen för [SSL-labbet Qualys](https://www.ssllabs.com/) och klickar på **testa din webbläsare**. Vi rekommenderar att du uppgraderar till den senaste versionen av webbläsaren och helst bara aktiverar TLS 1,2.
 
 **Så här aktiverar du TLS 1,2, av webbläsare**
 
 - **Microsoft Edge och Internet Explorer (båda anges med Internet Explorer)**
 
-    1. Öppna Internet Explorer, Välj **verktyg**  >  **Internet alternativ**  >  **Avancerat** .
-    2. I avsnittet **säkerhet** väljer du **Använd TLS 1,2** och väljer sedan **OK** .
+    1. Öppna Internet Explorer, Välj **verktyg**  >  **Internet alternativ**  >  **Avancerat**.
+    2. I avsnittet **säkerhet** väljer du **Använd TLS 1,2** och väljer sedan **OK**.
     3. Stäng alla webbläsarfönster och starta om Internet Explorer.
 
 - **Google Chrome**
 
-    1. Öppna Google Chrome, Skriv *Chrome://Settings/* i adress fältet och tryck på **RETUR** .
-    2. Expandera **avancerade** alternativ, gå till **system** -ytan och välj **Öppna proxyinställningar** .
-    3. I rutan **Internet egenskaper** väljer du fliken **Avancerat** , går till **säkerhets** avsnittet, väljer **Använd TLS 1,2** och väljer sedan **OK** .
+    1. Öppna Google Chrome, Skriv *Chrome://Settings/* i adress fältet och tryck på **RETUR**.
+    2. Expandera **avancerade** alternativ, gå till **system** -ytan och välj **Öppna proxyinställningar**.
+    3. I rutan **Internet egenskaper** väljer du fliken **Avancerat** , går till **säkerhets** avsnittet, väljer **Använd TLS 1,2** och väljer sedan **OK**.
     4. Stäng alla webbläsarfönster och starta om Google Chrome.
 
 - **Mozilla Firefox**
 
-    1. Öppna Firefox, Skriv *About: config* i adress fältet och tryck på **RETUR** .
+    1. Öppna Firefox, Skriv *About: config* i adress fältet och tryck på **RETUR**.
     2. Sök efter termen, *TLS* och välj sedan posten **Security. TLS. version. Max** .
-    3. Ställ in värdet på **3** för att tvinga webbläsaren att använda upp till version TLS 1,2 och välj sedan **OK** .
+    3. Ställ in värdet på **3** för att tvinga webbläsaren att använda upp till version TLS 1,2 och välj sedan **OK**.
 
         >[!NOTE]
-        >Firefox version 60,0 stöder TLS 1,3, så du kan också ställa in Security. TLS. version. Max-värdet på **4** .
+        >Firefox version 60,0 stöder TLS 1,3, så du kan också ställa in Security. TLS. version. Max-värdet på **4**.
 
     4. Stäng alla webb läsar fönster och starta om Mozilla Firefox.
 
@@ -3132,11 +3132,11 @@ Mer information finns i [Azure Active Directory användningsvillkor-funktionen](
 
 ---
 
-### <a name="new-and-comprehensive-guidance-about-deploying-azure-multi-factor-authentication"></a>Ny och omfattande vägledning om hur du distribuerar Azure Multi-Factor Authentication
+### <a name="new-and-comprehensive-guidance-about-deploying-azure-ad-multi-factor-authentication"></a>Ny och omfattande vägledning om hur du distribuerar Azure AD Multi-Factor Authentication
 
 **Typ:** Ny funktions **tjänst kategori:** annan **produkt kapacitet:** identitets säkerhet & skydd
 
-Vi har publicerat nya steg-för-steg-instruktioner om hur du distribuerar Azure Multi-Factor Authentication (MFA) i din organisation.
+Vi har publicerat nya steg-för-steg-instruktioner om hur du distribuerar Azure AD Multi-Factor Authentication (MFA) i din organisation.
 
 Om du vill visa distributions guiden för MFA går du till lagrings platsen för [identitets distribution](./active-directory-deployment-plans.md) på GitHub. Om du vill ge feedback om distributions guiderna använder du [feedback-formuläret för distributions planen](https://aka.ms/deploymentplanfeedback). Om du har frågor om distributions guiderna kan du kontakta oss på [IDGitDeploy](mailto:idgitdeploy@microsoft.com).
 
@@ -3172,7 +3172,7 @@ Mer information om den offentliga för hands versionen finns [i Azure AD-deleger
 
 **Typ:** Plan för ändrings **tjänst kategori:** autentiseringar (inloggningar) **produkt kapacitet:** plattform
 
-Program vara som ett tjänst erbjudande, t. ex. Azure Active Directory (Azure AD) är utformad för att fungera bäst genom att gå direkt via Internet, utan att kräva ExpressRoute eller någon annan privat VPN-tunnel. På grund av detta upphör vi att stödja ExpressRoute för Azure AD-tjänster via Azures offentliga peering och Azure-communities i Microsoft-peering, den **1 augusti 2018** . Alla tjänster som påverkas av den här ändringen kan observera att Azure AD-trafik gradvis byter från ExpressRoute till Internet.
+Program vara som ett tjänst erbjudande, t. ex. Azure Active Directory (Azure AD) är utformad för att fungera bäst genom att gå direkt via Internet, utan att kräva ExpressRoute eller någon annan privat VPN-tunnel. På grund av detta upphör vi att stödja ExpressRoute för Azure AD-tjänster via Azures offentliga peering och Azure-communities i Microsoft-peering, den **1 augusti 2018**. Alla tjänster som påverkas av den här ändringen kan observera att Azure AD-trafik gradvis byter från ExpressRoute till Internet.
 
 Medan vi ändrar vår support vet vi också att det fortfarande finns situationer där du kan behöva använda en dedikerad uppsättning kretsar för din autentisering. Därför fortsätter Azure AD att ge stöd för IP-adressintervall per innehavare med hjälp av ExpressRoute och tjänster som redan ingår i Microsoft-peering med "andra Office 365 Online Services"-communityn. Om dina tjänster påverkas, men du behöver ExpressRoute, måste du göra följande:
 
@@ -3312,7 +3312,7 @@ Maj-versionen av AADConnect innehåller en offentlig för hands version av integ
 
 **Typ:** Ändrad funktions **tjänst kategori:** autentiseringar (inloggningar) **produkt kapacitet:** användarautentisering
 
-Appar som skapats den 25 april 2018 kommer inte längre att kunna begära en **id_token** med hjälp av **fråge** response_mode.  Detta medför att Azure AD infogas med OIDC-specifikationerna och hjälper till att minska din appars attack yta.  Appar som skapats före den 25 april 2018 blockeras inte från att använda **frågan** response_mode med en response_type av **id_token** .  Det fel som returnerades när en id_token från Azure AD begärdes är **AADSTS70007: ' fråga ' är inte ett giltigt värde för ' response_mode ' när du begär en token** .
+Appar som skapats den 25 april 2018 kommer inte längre att kunna begära en **id_token** med hjälp av **fråge** response_mode.  Detta medför att Azure AD infogas med OIDC-specifikationerna och hjälper till att minska din appars attack yta.  Appar som skapats före den 25 april 2018 blockeras inte från att använda **frågan** response_mode med en response_type av **id_token**.  Det fel som returnerades när en id_token från Azure AD begärdes är **AADSTS70007: ' fråga ' är inte ett giltigt värde för ' response_mode ' när du begär en token**.
 
 **Fragment** -och **form_posts** response_modes fortsätta att fungera – när du skapar nya program objekt (till exempel för användning av App-proxy) bör du se till att använda någon av dessa response_modes innan du skapar ett nytt program.
 
@@ -3828,7 +3828,7 @@ Mer information finns i:
 
 **Typ:** Ändrad funktions **tjänst kategori:** användningsvillkor **produkt kapacitet:** efterlevnad
 
-När användnings villkoren visas kan du nu Klicka på **Visa? Klicka här** . När du klickar på den här länken öppnas de användnings villkor som används internt på enheten. Oavsett tecken storlek i dokumentet eller skärmens storlek kan du zooma och läsa dokumentet efter behov.
+När användnings villkoren visas kan du nu Klicka på **Visa? Klicka här**. När du klickar på den här länken öppnas de användnings villkor som används internt på enheten. Oavsett tecken storlek i dokumentet eller skärmens storlek kan du zooma och läsa dokumentet efter behov.
 
 ---
 
@@ -3864,7 +3864,7 @@ Mer information finns i [Azure Active Directory risk identifieringar](../identit
 
 **Typ:** Ny funktions **tjänst kategori:** Mina appar **produkt kapacitet:** SSO
 
-Nu kan du bättre hantera hur Office 365-program visas på användarens åtkomst paneler via en ny användar inställning. Det här alternativet är användbart om du vill minska antalet appar i en användares åtkomst paneler om du bara vill visa Office-appar i Office-portalen. Inställningen finns i **användar inställningarna** och är märkt, **användare kan bara se Office 365-appar i Office 365-portalen** .
+Nu kan du bättre hantera hur Office 365-program visas på användarens åtkomst paneler via en ny användar inställning. Det här alternativet är användbart om du vill minska antalet appar i en användares åtkomst paneler om du bara vill visa Office-appar i Office-portalen. Inställningen finns i **användar inställningarna** och är märkt, **användare kan bara se Office 365-appar i Office 365-portalen**.
 
 Mer information finns i [Dölj ett program från användarens upplevelse i Azure Active Directory](../manage-apps/hide-application-from-user-portal.md).
 
@@ -3936,7 +3936,7 @@ Följ de här stegen:
 
 2. Välj ditt namn i det övre högra hörnet och välj sedan **profil** i listan.
 
-3. Välj **Granska användnings villkor** i din **profil** .
+3. Välj **Granska användnings villkor** i din **profil**.
 
 4. Nu kan du granska användnings villkoren som du har accepterat.
 
@@ -4164,15 +4164,15 @@ Mer information finns i:
 
 ---
 
-### <a name="network-policy-server-extension-for-azure-multi-factor-authentication"></a>Nätverks princip Server tillägg för Azure Multi-Factor Authentication
+### <a name="network-policy-server-extension-for-azure-ad-multi-factor-authentication"></a>Nätverks princip Server tillägg för Azure AD Multi-Factor Authentication
 
 **Typ:** Ny funktions **tjänst kategori:**  Multi-Factor Authentication **produkt kapacitet:** användarautentisering
 
-Nätverks princip Server tillägget för Azure Multi-Factor Authentication lägger till molnbaserade Multi-Factor Authentication funktioner till din infrastruktur för autentisering med hjälp av dina befintliga servrar. Med nätverks princip Server tillägget kan du lägga till telefonsamtal, textmeddelande eller telefon programs verifiering till ditt befintliga autentiseringspaket. Du behöver inte installera, konfigurera och underhålla nya servrar.
+Nätverks princip Server tillägget för Azure AD Multi-Factor Authentication lägger till molnbaserade Multi-Factor Authentication funktioner till din infrastruktur för autentisering med hjälp av dina befintliga servrar. Med nätverks princip Server tillägget kan du lägga till telefonsamtal, textmeddelande eller telefon programs verifiering till ditt befintliga autentiseringspaket. Du behöver inte installera, konfigurera och underhålla nya servrar.
 
-Det här tillägget har skapats för organisationer som vill skydda virtuella privata nätverks anslutningar utan att distribuera Azure-Multi-Factor Authentication-server. Nätverks princip Server tillägget fungerar som ett kort mellan RADIUS-och molnbaserade Azure-Multi-Factor Authentication för att tillhandahålla en andra faktor för autentisering för federerade eller synkroniserade användare.
+Det här tillägget har skapats för organisationer som vill skydda virtuella privata nätverks anslutningar utan att distribuera Azure-Multi-Factor Authentication-server. Nätverks princip Server tillägget fungerar som ett kort mellan RADIUS och molnbaserade Azure AD-Multi-Factor Authentication för att tillhandahålla en andra faktor för autentisering för federerade eller synkroniserade användare.
 
-Mer information finns i [integrera din befintliga infrastruktur för nätverks Policy Server med Azure Multi-Factor Authentication](../authentication/howto-mfa-nps-extension.md).
+Mer information finns i [integrera din befintliga infrastruktur för nätverks Policy Server med Azure AD Multi-Factor Authentication](../authentication/howto-mfa-nps-extension.md).
 
 ---
 
@@ -4189,7 +4189,7 @@ I Azure AD Admin Center kan du nu:
 
 1. I Azure AD administrations Center väljer du [alla användare](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/All) i avsnittet **Hantera** .
 
-2. I listan **Visa** väljer du **nyligen borttagna användare** .
+2. I listan **Visa** väljer du **nyligen borttagna användare**.
 
 3. Välj en eller flera nyligen borttagna användare och Återställ dem sedan eller ta bort dem permanent.
 
@@ -4250,7 +4250,7 @@ På grund av de här nya funktionerna drogs rapport-API: erna under den/Reports-
 
 **Typ:** Fast **tjänste kategori:** Mina appar **produkt kapacitet:** enkel inloggning
 
-Azure AD stöder automatisk identifiering av inloggnings fält för program som återger ett fält med HTML-användarnamn och lösen ord. De här stegen beskrivs i [hur du automatiskt samlar in inloggnings fält för ett program](../manage-apps/troubleshoot-password-based-sso.md#manually-capture-sign-in-fields-for-an-app). Du kan hitta den här funktionen genom att lägga till ett program som *inte är en Galleri* på sidan **företags program** i [Azure Portal](https://aad.portal.azure.com). Dessutom kan du konfigurera läget för **enkel inloggning** på det nya programmet till **lösenordsbaserad enkel inloggning** , ange en webb-URL och sedan spara sidan.
+Azure AD stöder automatisk identifiering av inloggnings fält för program som återger ett fält med HTML-användarnamn och lösen ord. De här stegen beskrivs i [hur du automatiskt samlar in inloggnings fält för ett program](../manage-apps/troubleshoot-password-based-sso.md#manually-capture-sign-in-fields-for-an-app). Du kan hitta den här funktionen genom att lägga till ett program som *inte är en Galleri* på sidan **företags program** i [Azure Portal](https://aad.portal.azure.com). Dessutom kan du konfigurera läget för **enkel inloggning** på det nya programmet till **lösenordsbaserad enkel inloggning**, ange en webb-URL och sedan spara sidan.
 
 Den här funktionen har tillfälligt inaktiverats på grund av ett tjänst problem. Problemet har lösts och den automatiska identifieringen av inloggnings fält är tillgänglig igen.
 

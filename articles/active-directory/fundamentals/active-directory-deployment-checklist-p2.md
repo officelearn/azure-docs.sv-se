@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7aebe6fafea7cbbb0b37469a13262529b568e342
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 92d1e5b8ac6492b0b1d819431e4616d32a092cc8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077973"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836928"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Distributionsguide för Azure Active Directory-funktion
 
@@ -57,7 +57,7 @@ I den här fasen aktiverar administratörer grundläggande säkerhets funktioner
 | [Distribuera Azure AD Multi-Factor Authentication att använda principer för villkorlig åtkomst](../authentication/howto-mfa-getstarted.md) | Kräv att användarna utför tvåstegsverifiering vid åtkomst till känsliga program med hjälp av principer för villkorlig åtkomst. | Azure AD Premium P1 |
 | [Aktivera Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md) | Aktivera spårning av riskfyllda inloggningar och komprometterade autentiseringsuppgifter för användare i din organisation. | Azure AD Premium P2 |
 | [Använda risk identifieringar för att utlösa Multi-Factor Authentication-och lösen ords ändringar](../authentication/tutorial-risk-based-sspr-mfa.md) | Aktivera automatisering som kan utlösa händelser, till exempel Multi-Factor Authentication, återställning av lösen ord och blockering av inloggningar baserat på risk. | Azure AD Premium P2 |
-| [Aktivera kombinerad registrering för självbetjäning för återställning av lösen ord och Azure AD Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) | Tillåt att användarna registrerar sig från en vanlig upplevelse för både Azure-Multi-Factor Authentication och lösen ords återställning via självbetjäning. | Azure AD Premium P1 |
+| [Aktivera kombinerad registrering för självbetjäning för återställning av lösen ord och Azure AD Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) | Tillåt att användarna registrerar sig från en vanlig upplevelse för både Azure AD-Multi-Factor Authentication och lösen ords återställning via självbetjäning. | Azure AD Premium P1 |
 
 ## <a name="phase-2-import-users-enable-synchronization-and-manage-devices"></a>Fas 2: importera användare, aktivera synkronisering och hantera enheter
 

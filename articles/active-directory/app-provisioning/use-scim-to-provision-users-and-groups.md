@@ -12,12 +12,12 @@ ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperfq2
-ms.openlocfilehash: 0ec70963dd7f464ae4e72c3bf79e06ebfb5238fc
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: 5e2f323f705a891f06cee1d25779351d02a91572
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616188"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695273"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Självstudie – Bygg en SCIM-slutpunkt och konfigurera användar etablering med Azure AD
 
@@ -154,6 +154,7 @@ I [SCIM 2,0-protokoll specifikationen](http://www.simplecloud.info/#Specificatio
 * Har stöd för att skicka frågor till användare eller grupper enligt avsnittet [3.4.2 i scim-protokollet](https://tools.ietf.org/html/rfc7644#section-3.4.2).  Som standard hämtas användare av och efter `id` frågas av deras `username` och `externalId` , och grupper efter frågas av `displayName` .  
 * Har stöd för att skicka frågor till användare efter ID och chef, enligt avsnittet 3.4.2 i SCIM-protokollet.  
 * Har stöd för att skicka frågor till grupper efter ID och per medlem, enligt avsnittet 3.4.2 i SCIM-protokollet.  
+* Stöder filtret [excludedAttributes = members](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#get-group) när du frågar grupp resursen, enligt avsnitt 3.4.2.5 i scim-protokollet.
 * Accepterar en enda Bearer-token för autentisering och auktorisering av Azure AD till ditt program.
 * Stöder mjuk borttagning av en användare `active=false` och återställning av användaren `active=true` (användarobjektet ska returneras i en begäran oavsett om användaren är aktiv) eller inte. Den enda gång som användaren inte ska returneras är när den är hårt borttagen från programmet. 
 
@@ -1148,8 +1149,8 @@ Program som stöder SCIM-profilen som beskrivs i den här artikeln kan anslutas 
 7. I fältet **klient-URL** anger du URL: en för programmets scim-slutpunkt. Exempel: `https://api.contoso.com/scim/`
 8. Om SCIM-slutpunkten kräver en OAuth Bearer-token från en annan utfärdare än Azure AD kopierar du den obligatoriska OAuth Bearer-token till fältet valfritt **hemligt token** . Om det här fältet lämnas tomt innehåller Azure AD en OAuth Bearer-token som utfärdats från Azure AD med varje begäran. Appar som använder Azure AD som en identitetsprovider kan verifiera den här Azure AD-utfärdade token. 
    > [!NOTE]
-   > Det är * *_inte_* _ rekommenderat att lämna det här fältet tomt och förlita sig på en token som genereras av Azure AD. Det här alternativet är i första hand tillgängligt i test syfte.
-9. Välj _ *Testa anslutning* * för att Azure Active Directory försöka ansluta till scim-slutpunkten. Om försöket Miss lyckas visas fel information.  
+   > Det är **_inte_* _ rekommenderat att lämna det här fältet tomt och förlita sig på en token som genereras av Azure AD. Det här alternativet är i första hand tillgängligt i test syfte.
+9. Välj _ *Testa anslutning** för att Azure Active Directory försöka ansluta till scim-slutpunkten. Om försöket Miss lyckas visas fel information.  
 
     > [!NOTE]
     > **Test anslutning** frågar scim-slutpunkten för en användare som inte finns med ett slumpmässigt GUID som den matchande egenskap som valts i Azure AD-konfigurationen. Det förväntade korrekta svaret är HTTP 200 OK med ett tomt SCIM ListResponse-meddelande.

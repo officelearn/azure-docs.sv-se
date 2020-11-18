@@ -7,15 +7,15 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 225252f2cd47c36de2c7eed4ed1e5dae3ebd81b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1c69f528328d5ff983c7de9d7fad052a7c41285
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87078750"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696259"
 ---
 # <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>Uppgradera intern Azure-Load Balancer-utgående anslutning krävs
-[Azure standard Load Balancer](load-balancer-overview.md) erbjuder en omfattande uppsättning funktioner och hög tillgänglighet genom zon redundans. Mer information om Load Balancer SKU finns i [jämförelse tabell](https://docs.microsoft.com/azure/load-balancer/skus#skus). Eftersom interna standard Load Balancer inte tillhandahåller utgående anslutning tillhandahåller vi en lösning för att skapa en offentlig standard Load Balancer i stället.
+[Azure standard Load Balancer](load-balancer-overview.md) erbjuder en omfattande uppsättning funktioner och hög tillgänglighet genom zon redundans. Mer information om Load Balancer SKU finns i [jämförelse tabell](./skus.md#skus). Eftersom interna standard Load Balancer inte tillhandahåller utgående anslutning tillhandahåller vi en lösning för att skapa en offentlig standard Load Balancer i stället.
 
 Det finns fyra steg i en uppgradering:
 
@@ -100,7 +100,7 @@ Här följer några exempel på hur du lägger till virtuella datorer till backe
  
     1. Välj **alla resurser** på den vänstra menyn och välj sedan det **nyligen skapade standard Load Balancer** från resurs listan.
    
-    1. Under **Inställningar**väljer du **backend-pooler**.
+    1. Under **Inställningar** väljer du **backend-pooler**.
    
     1. Välj den backend-pool som matchar backend-poolen för Basic-Load Balancer, Välj följande värde: 
       - **Virtuell dator**: list rutan och välj de virtuella datorerna från den matchande backend-poolen för Basic-Load Balancer.
@@ -109,16 +109,16 @@ Här följer några exempel på hur du lägger till virtuella datorer till backe
     >För virtuella datorer som har offentliga IP-adresser måste du skapa standard-IP-adresser först där samma IP-adress inte garanteras. Ta bort associationen från de virtuella IP-adresserna och koppla dem till de nyligen skapade standard-IP-adresserna. Sedan kommer du att kunna följa instruktionerna för att lägga till virtuella datorer i backend-poolen med Standard Load Balancer. 
 
 * **Skapa nya virtuella datorer som ska läggas till i backend-pooler för den nyligen skapade offentliga Standard Load Balancer**.
-    * Du hittar mer information om hur du skapar en virtuell dator och associerar den med Standard Load Balancer [här](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal#create-virtual-machines).
+    * Du hittar mer information om hur du skapar en virtuell dator och associerar den med Standard Load Balancer [här](./quickstart-load-balancer-standard-public-portal.md#create-virtual-machines).
 
 ### <a name="create-an-outbound-rule-for-outbound-connection"></a>Skapa en utgående regel för utgående anslutning
 
-Följ [instruktionerna](https://docs.microsoft.com/azure/load-balancer/configure-load-balancer-outbound-portal#create-outbound-rule-configuration) för att skapa en utgående regel så att du kan
+Följ [instruktionerna](./quickstart-load-balancer-standard-public-powershell.md#create-outbound-rule-configuration) för att skapa en utgående regel så att du kan
 * Definiera utgående NAT från grunden.
 * Skala och finjustera beteendet för befintlig utgående NAT.
 
 ### <a name="create-nsg-rules-for-vms-which-to-refrain-communication-from-or-to-the-internet"></a>Skapa NSG-regler för virtuella datorer som kan undvika kommunikation från eller till Internet
-Om du vill undvika att Internet trafiken når dina virtuella datorer kan du skapa en [NSG-regel](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) för de virtuella datorernas nätverks gränssnitt.
+Om du vill undvika att Internet trafiken når dina virtuella datorer kan du skapa en [NSG-regel](../virtual-network/manage-network-security-group.md) för de virtuella datorernas nätverks gränssnitt.
 
 ## <a name="common-questions"></a>Vanliga frågor
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: terrylan
 manager: rkarlin
 ms.date: 11/10/2020
-ms.openlocfilehash: 1f81285e869bd2c65cce29766de0b2bd39a627f6
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 766266edd663b75b893a5883e30bb48eed7bbfdf
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94558048"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696124"
 ---
 # <a name="hypervisor-security-on-the-azure-fleet"></a>Hypervisor-säkerhet på Azure-flottan
 
@@ -26,7 +26,7 @@ Azure-hypervisorn bygger på följande säkerhets mål i åtanke:
 | Isolering | En säkerhets princip bestämmer ingen informations överföring mellan virtuella datorer. Den här begränsningen kräver funktioner i Virtual Machine Manager (VMM) och maskin vara för isolering av minne, enheter, nätverk och hanterade resurser, till exempel sparade data. |
 | VMM-integritet | För att uppnå den övergripande system integriteten upprättas och underhålls integriteten för enskilda hypervisor-komponenter. |
 | Plattforms integritet | Integriteten för hypervisorn beror på integriteten hos den maskin vara och program vara som den förlitar sig på. Även om hypervisorn inte har direkt kontroll över plattformens integritet, är Azure beroende av maskinvaru-och firmware-mekanismer som [Cerberus](project-cerberus.md) -kretsen för att skydda och identifiera den underliggande plattforms integriteten. VMM och gäster hindras från att köras om plattforms integriteten är komprometterad. |
-| Begränsad åtkomst | Hanterings funktioner utövas endast av auktoriserade administratörer som är anslutna via säkra anslutningar. En princip med minsta behörighet tillämpas av rollbaserad åtkomst kontroll (RBAC). |
+| Begränsad åtkomst | Hanterings funktioner utövas endast av auktoriserade administratörer som är anslutna via säkra anslutningar. En princip med minsta behörighet tillämpas av Azure RBAC-mekanismer (rollbaserad åtkomst kontroll). |
 | Granska | Med Azure kan gransknings funktioner fånga och skydda data om vad som händer i ett system, så att det kan granskas senare. |
 
 Microsofts metod för att skärpa Azure-hypervisorn och under systemet för virtualisering kan delas upp i följande tre kategorier.
@@ -68,8 +68,8 @@ Alla virtuella dator attacker är Hot modellerade, kod granskad, suddig och test
 ## <a name="next-steps"></a>Nästa steg
 Mer information om vad vi gör för att driva plattforms integritet och säkerhet finns i:
 
-- [Säkerhet för inbyggd program vara](firmware.md)
+- [Säkerhet för inbyggd programvara](firmware.md)
 - [Säker start](secure-boot.md)
 - [Uppmätt start-och värd attestering](measured-boot-host-attestation.md)
-- [Project-Cerberus](project-cerberus.md)
+- [Project Cerberus](project-cerberus.md)
 - [Kryptering i vila](encryption-atrest.md)

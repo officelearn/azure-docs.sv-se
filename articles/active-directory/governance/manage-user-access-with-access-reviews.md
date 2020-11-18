@@ -16,12 +16,12 @@ ms.date: 06/21/2018
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 001adaff1fed901638276e548ac1d5fdb41bdc53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc12b4cb7e97a0808405baebc64ca83cdb742bf1
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87798315"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696956"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Hantera användare med Azure AD-åtkomstgranskningar
 
@@ -44,7 +44,7 @@ Du kan ha en eller flera användare som granskare i en åtkomstgranskning.
 
 2. Bestäm om varje användare ska granska sin egen åtkomst eller om en eller flera användare ska granska allas åtkomst.
 
-3. Som global administratör eller användar administratör går du till [sidan identitets styrning](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+3. I någon av följande roller: en global administratör, användar administratör eller (förhands granskning) en M365 eller AAD-säkerhetsgrupp ägare av gruppen som ska granskas, går du till [sidan identitets styrning](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
 4. Skapa åtkomst granskning. Mer information finns i [skapa en åtkomst granskning av grupper eller program](create-access-review.md).
 

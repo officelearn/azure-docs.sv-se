@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/23/2020
 ms.author: JenCook
-ms.openlocfilehash: 7d952608a4850b840759e05a99bdd14cbe2a3a81
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 1e417563b463d7033072b27bec505d10ef1adb47
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94560969"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695749"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-azure-portal"></a>Snabb start: Distribuera en virtuell Azure-dator med konfidentiella data behandling i Azure Portal
 
@@ -53,16 +53,16 @@ Om du inte har någon Azure-prenumeration [skapar du ett konto](https://azure.mi
 
 1. Ange eller välj följande värden:
 
-   * **Region** : Välj den Azure-region som passar dig.
+   * **Region**: Välj den Azure-region som passar dig.
 
         > [!NOTE]
         > Konfidentiella beräknings virtuella datorer kan bara köras på specialiserad maskin vara som är tillgänglig i vissa regioner. De senaste tillgängliga regionerna för DCsv2-Series virtuella datorer finns i [tillgängliga regioner](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
 
 1. Konfigurera den operativ Systems avbildning som du vill använda för den virtuella datorn.
 
-    * **Välj bild** : i den här självstudien väljer du Ubuntu 18,04 LTS. Du kan också välja Windows Server 2019, Windows Server 2016 eller och Ubuntu 16,04 LTS. Om du väljer att göra det omdirigeras du i den här självstudien enligt detta.
+    * **Välj bild**: i den här självstudien väljer du Ubuntu 18,04 LTS. Du kan också välja Windows Server 2019, Windows Server 2016 eller och Ubuntu 16,04 LTS. Om du väljer att göra det omdirigeras du i den här självstudien enligt detta.
     
-    * **Växlar avbildningen för gen 2** : konfidentiella beräkning av virtuella datorer körs bara på [generation 2](../virtual-machines/generation-2.md) -avbildningar. Se till att den avbildning du väljer är en gen 2-avbildning. Klicka på fliken **Avancerat** ovan där du konfigurerar den virtuella datorn. Rulla nedåt tills du hittar avsnittet "VM-generering". Välj gen 2 och gå sedan tillbaka till fliken **grundläggande** .
+    * **Växlar avbildningen för gen 2**: konfidentiella beräkning av virtuella datorer körs bara på [generation 2](../virtual-machines/generation-2.md) -avbildningar. Se till att den avbildning du väljer är en gen 2-avbildning. Klicka på fliken **Avancerat** ovan där du konfigurerar den virtuella datorn. Rulla nedåt tills du hittar avsnittet "VM-generering". Välj gen 2 och gå sedan tillbaka till fliken **grundläggande** .
     
 
         ![Fliken Avancerat](media/quick-create-portal/advanced-tab-virtual-machine.png)
@@ -70,29 +70,29 @@ Om du inte har någon Azure-prenumeration [skapar du ett konto](https://azure.mi
 
         ![VM-generation](media/quick-create-portal/gen2-virtual-machine.png)
 
-    * **Återgå till grundläggande konfiguration** : gå tillbaka till fliken **grundläggande** med hjälp av navigeringen längst upp.
+    * **Återgå till grundläggande konfiguration**: gå tillbaka till fliken **grundläggande** med hjälp av navigeringen längst upp.
 
-1. Välj en virtuell dator med konfidentiella beräknings funktioner i storleks väljaren genom att välja **ändra storlek**. I storleks väljaren för virtuell dator klickar du på **Rensa alla filter**. Välj **Lägg till filter** , Välj en **serie** för filter typen och välj sedan endast **konfidentiell beräkning**.
+1. Välj en virtuell dator med konfidentiella beräknings funktioner i storleks väljaren genom att välja **ändra storlek**. I storleks väljaren för virtuell dator klickar du på **Rensa alla filter**. Välj **Lägg till filter**, Välj en **serie** för filter typen och välj sedan endast **konfidentiell beräkning**.
 
     ![DCsv2-Series virtuella datorer](media/quick-create-portal/dcsv2-virtual-machines.png)
 
     > [!TIP]
-    > Du bör se storlekar **DC1s_v2** , **DC2s_v2** , **DC4s_V2** och **DC8_v2**. Detta är de enda storlekar för virtuella datorer som för närvarande stöder konfidentiell bearbetning. [Läs mer](virtual-machine-solutions.md).
+    > Du bör se storlekar **DC1s_v2**, **DC2s_v2**, **DC4s_V2** och **DC8_v2**. Detta är de enda storlekar för virtuella datorer som för närvarande stöder konfidentiell bearbetning. [Läs mer](virtual-machine-solutions.md).
 
 1. Fyll i följande information:
 
-   * **Autentiseringstyp** : Välj **Offentlig SSH-nyckel** om du skapar en virtuell Linux-dator. 
+   * **Autentiseringstyp**: Välj **Offentlig SSH-nyckel** om du skapar en virtuell Linux-dator. 
 
         > [!NOTE]
         > Du kan välja mellan offentlig SSH-nyckel eller lösenord för autentisering. SSH är säkrare. Instruktioner om hur du genererar en SSH-nyckel finns i [Skapa SSH-nycklar på Linux och Mac för virtuella Linux-datorer i Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
-    * **Användar namn** : Ange administratörs namnet för den virtuella datorn.
+    * **Användar namn**: Ange administratörs namnet för den virtuella datorn.
 
-    * **Offentlig SSH-nyckel** : Ange din offentliga RSA-nyckel om det är tillämpligt.
+    * **Offentlig SSH-nyckel**: Ange din offentliga RSA-nyckel om det är tillämpligt.
     
-    * **Lösen ord** : om tillämpligt anger du ditt lösen ord för autentisering.
+    * **Lösen ord**: om tillämpligt anger du ditt lösen ord för autentisering.
 
-    * **Offentliga inkommande portar** : Välj **Tillåt valda portar** och välj **SSH (22)** och **http (80)** i listan **Välj offentliga inkommande portar** . Om du distribuerar en virtuell Windows-dator väljer du **http (80)** och **RDP (3389)**. I den här snabb starten är det här steget nödvändigt för att ansluta till den virtuella datorn och slutföra den öppna enklaven SDK-konfigurationen. 
+    * **Offentliga inkommande portar**: Välj **Tillåt valda portar** och välj **SSH (22)** och **http (80)** i listan **Välj offentliga inkommande portar** . Om du distribuerar en virtuell Windows-dator väljer du **http (80)** och **RDP (3389)**. I den här snabb starten är det här steget nödvändigt för att ansluta till den virtuella datorn och slutföra den öppna enklaven SDK-konfigurationen. 
 
      ![Ingående portar](media/quick-create-portal/inbound-port-virtual-machine.png)
 
@@ -119,7 +119,7 @@ Om du inte har någon Azure-prenumeration [skapar du ett konto](https://azure.mi
 
 ## <a name="connect-to-the-linux-vm"></a> Ansluta till den virtuella Linux-datorn
 
-Om du redan använder ett BASH-gränssnitt ansluter du till den virtuella Azure-datorn med **ssh** -kommandot. I följande kommando ersätter du VM-användarnamnet och IP-adressen för att ansluta till din virtuella Linux-dator.
+Om du redan använder ett BASH-gränssnitt ansluter du till den virtuella Azure-datorn med **ssh**-kommandot. I följande kommando ersätter du VM-användarnamnet och IP-adressen för att ansluta till din virtuella Linux-dator.
 
 ```bash
 ssh azureadmin@40.55.55.555
@@ -168,7 +168,7 @@ wget -qO - https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add 
 ```bash
 sudo apt update
 sudo apt -y install dkms
-wget https://download.01.org/intel-sgx/sgx-dcap/1.4/linux/distro/ubuntuServer18.04/sgx_linux_x64_driver_1.21.bin -O sgx_linux_x64_driver.bin
+wget https://download.01.org/intel-sgx/sgx-dcap/1.9/linux/distro/ubuntu18.04-server/sgx_linux_x64_driver_1.36.2.bin -O sgx_linux_x64_driver.bin
 chmod +x sgx_linux_x64_driver.bin
 sudo ./sgx_linux_x64_driver.bin
 ```

@@ -9,12 +9,12 @@ tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: 3d2172f76faecfc8347d7e0ca13fb506817f25de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae4dd8b82e40b46da52a1b1f396569fda1dfea2b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91740708"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694634"
 ---
 # <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>Använd den fullständiga Söksyntaxen för Lucene (avancerade frågor i Azure Kognitiv sökning)
 
@@ -30,13 +30,13 @@ Lucene-parsern stöder komplexa fråge konstruktioner, t. ex. frågor med fält 
 
 I följande exempel används ett sökindex för NYC-jobb som består av jobb som är tillgängliga baserat på en data uppsättning som tillhandahålls av Göteborg från [New York-data](https://opendata.cityofnewyork.us/) initiativ. Dessa data ska inte betraktas som aktuella eller fullständiga. Indexet finns på en sandbox-tjänst från Microsoft, vilket innebär att du inte behöver en Azure-prenumeration eller Azure-Kognitiv sökning för att testa dessa frågor.
 
-Vad du behöver är Postman eller ett motsvarande verktyg för att skicka HTTP-begäran på GET. Mer information finns i [utforska med rest-klienter](search-get-started-postman.md).
+Vad du behöver är Postman eller ett motsvarande verktyg för att skicka HTTP-begäran på GET. Mer information finns i [utforska med rest-klienter](search-get-started-rest.md).
 
 ### <a name="set-the-request-header"></a>Ange rubriken för begäran
 
 1. I begär ande huvudet anger du **Content-Type** till `application/json` .
 
-2. Lägg till en **API-nyckel**och ange den som den här strängen: `252044BE3886FE4A8E3BAA4F595114BB` . Det här är en frågeparameter för tjänsten sandbox search som är värd för NYC-jobb indexet.
+2. Lägg till en **API-nyckel** och ange den som den här strängen: `252044BE3886FE4A8E3BAA4F595114BB` . Det här är en frågeparameter för tjänsten sandbox search som är värd för NYC-jobb indexet.
 
 När du har angett rubriken för begäran kan du återanvända det för alla frågor i den här artikeln och bara växla ut **Sök =** strängen. 
 
@@ -46,7 +46,7 @@ När du har angett rubriken för begäran kan du återanvända det för alla fr�
 
 Begäran är ett GET-kommando som paras ihop med en URL som innehåller Azure Kognitiv sökning-slutpunkten och Sök strängen.
 
-  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="Parametrar för set-begär ande huvud för Postman" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="Hämta rubrik för Postman-förfrågan" border="false":::
 
 URL-kompositionen har följande element:
 
@@ -137,7 +137,7 @@ $select=business_title, posting_type&search=business_title:(senior NOT junior) A
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&$select=business_title&search=business_title:(senior NOT junior)
 ```
 
-  :::image type="content" source="media/search-query-lucene-examples/intrafieldfilter.png" alt-text="Parametrar för set-begär ande huvud för Postman" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/intrafieldfilter.png" alt-text="Sök uttryck för exempel svar på Postman" border="false":::
 
 Du kan definiera en fält Sök åtgärd med syntaxen **FieldName: searchExpression** , där Sök uttrycket kan vara ett enstaka ord eller en fras, eller ett mer komplext uttryck inom parentes, eventuellt med booleska operatorer. Några exempel är följande:
 
@@ -199,7 +199,7 @@ I den här frågan för jobb med termen "senior analytiker" där det är avgrän
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~1
 ```
-  :::image type="content" source="media/search-query-lucene-examples/proximity-before.png" alt-text="Parametrar för set-begär ande huvud för Postman" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/proximity-before.png" alt-text="Närhets fråga" border="false":::
 
 Prova igen att ta bort orden mellan termen "senior analytiker". Observera att åtta dokument returneras för den här frågan i stället för 10 för föregående fråga.
 
@@ -217,7 +217,7 @@ I den här frågan kan du söka efter jobb med termen *dator analytiker* och Obs
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:computer%20analyst
 ```
-  :::image type="content" source="media/search-query-lucene-examples/termboostingbefore.png" alt-text="Parametrar för set-begär ande huvud för Postman" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/termboostingbefore.png" alt-text="Term förstärkning före" border="false":::
 
 I frågan "efter" upprepar du sökningen, den här tiden ökar resultatet med termen *analytiker* över termen *dator* om båda orden inte finns. 
 
@@ -226,7 +226,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 ```
 En mer lättläst version av ovanstående fråga är `search=business_title:computer analyst^2` . För en fungerande fråga `^2` kodas som `%5E2` , vilket är svårare att se.
 
-  :::image type="content" source="media/search-query-lucene-examples/termboostingafter.png" alt-text="Parametrar för set-begär ande huvud för Postman" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/termboostingafter.png" alt-text="Term förstärkning efter" border="false":::
 
 Term förstärkning skiljer sig från bedömnings profiler i dessa bedömnings profiler ökar vissa fält i stället för specifika villkor. I följande exempel kan du illustrera skillnaderna.
 
@@ -253,7 +253,7 @@ I den här frågan kan du söka efter jobb med antingen termen Senior eller Juni
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:/(Sen|Jun)ior/
 ```
 
-  :::image type="content" source="media/search-query-lucene-examples/regex.png" alt-text="Parametrar för set-begär ande huvud för Postman" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/regex.png" alt-text="Regex-fråga" border="false":::
 
 > [!Note]
 > Regex-frågor [analyseras](./search-lucene-query-architecture.md#stage-2-lexical-analysis)inte. Den enda omvandlingen som utförs på ofullständiga sökord är lowercasing.
@@ -275,7 +275,7 @@ I den här frågan kan du söka efter jobb som innehåller prefixet "PROG" som i
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:prog*
 ```
-  :::image type="content" source="media/search-query-lucene-examples/wildcard.png" alt-text="Parametrar för set-begär ande huvud för Postman" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/wildcard.png" alt-text="Fråga med jokertecken" border="false":::
 
 > [!Note]
 > Jokertecken har inte [analyser](./search-lucene-query-architecture.md#stage-2-lexical-analysis)ATS. Den enda omvandlingen som utförs på ofullständiga sökord är lowercasing.
@@ -292,4 +292,4 @@ Ytterligare syntax-referens, fråga arkitektur och exempel finns i följande lä
 + [Exempel på enkla syntax](search-query-simple-examples.md)
 + [Så här fungerar fulltextsökning i Azure Cognitive Search](search-lucene-query-architecture.md)
 + [Enkel frågesyntax](/rest/api/searchservice/simple-query-syntax-in-azure-search)
-+ [Fullständigt Lucene-frågesyntax](/rest/api/searchservice/lucene-query-syntax-in-azure-search)
++ [Fullständig Lucene-frågesyntax](/rest/api/searchservice/lucene-query-syntax-in-azure-search)

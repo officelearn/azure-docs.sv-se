@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: 4a397a67c0e40de8be1d42ee56618357cf36c55f
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 96c0242414c67d97fc324977b1259f63c27c3a26
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017734"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696820"
 ---
 # <a name="what-is-azure-load-balancer"></a>Vad är Azure Load Balancer?
 
@@ -44,29 +44,29 @@ Med Standard Load Balancer kan du skala dina program och skapa tjänster med hö
 
 Viktiga scenarier som du kan utföra med Standard Load Balancer inkluderar:
 
-- Belastningsutjämna **[intern](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-internal-portal)** och **[extern](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-manage-portal)** trafik till virtuella Azure-datorer.
+- Belastningsutjämna **[intern](./quickstart-load-balancer-standard-internal-portal.md)** och **[extern](./tutorial-load-balancer-standard-manage-portal.md)** trafik till virtuella Azure-datorer.
 
-- Öka tillgängligheten genom att distribuera resurser **[inom](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-public-zonal-portal)** och **[mellan](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal)** zoner.
+- Öka tillgängligheten genom att distribuera resurser **[inom](./tutorial-load-balancer-standard-public-zonal-portal.md)** och **[mellan](./tutorial-load-balancer-standard-public-zone-redundant-portal.md)** zoner.
 
-- Konfigurera **[utgående anslutning ](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)** för virtuella Azure-datorer.
+- Konfigurera **[utgående anslutning](./load-balancer-outbound-connections.md)** för virtuella Azure-datorer.
 
-- Använd **[hälso avsökningar](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)** för att övervaka belastningsutjämnade resurser.
+- Använd **[hälso avsökningar](./load-balancer-custom-probe-overview.md)** för att övervaka belastningsutjämnade resurser.
 
-- Använd **[port vidarebefordring](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal)** för att få åtkomst till virtuella datorer i ett virtuellt nätverk via offentlig IP-adress och port.
+- Använd **[port vidarebefordring](./tutorial-load-balancer-port-forwarding-portal.md)** för att få åtkomst till virtuella datorer i ett virtuellt nätverk via offentlig IP-adress och port.
 
-- Aktivera stöd för **[belastnings utjämning](https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell)** av **[IPv6](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)**.
+- Aktivera stöd för **[belastnings utjämning](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)** av **[IPv6](../virtual-network/ipv6-overview.md)**.
 
-- Standard Load Balancer ger flerdimensionella mått via [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).  Dessa mått kan filtreras, grupperas och delas upp för en specifik dimension.  De tillhandahåller aktuella och historiska insikter om prestanda och hälsa för din tjänst.  Resource Health stöds också. Granska **[standard Load Balancer Diagnostics](load-balancer-standard-diagnostics.md)** för mer information.
+- Standard Load Balancer ger flerdimensionella mått via [Azure Monitor](../azure-monitor/overview.md).  Dessa mått kan filtreras, grupperas och delas upp för en specifik dimension.  De tillhandahåller aktuella och historiska insikter om prestanda och hälsa för din tjänst.  Resource Health stöds också. Granska **[standard Load Balancer Diagnostics](load-balancer-standard-diagnostics.md)** för mer information.
 
-- Belastnings Utjämnings tjänster på **[flera portar, flera IP-adresser eller både](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview)** och.
+- Belastnings Utjämnings tjänster på **[flera portar, flera IP-adresser eller både](./load-balancer-multivip-overview.md)** och.
 
-- Flytta **[interna](https://docs.microsoft.com/azure/load-balancer/move-across-regions-internal-load-balancer-portal)** och **[externa](https://docs.microsoft.com/azure/load-balancer/move-across-regions-external-load-balancer-portal)** belastnings Utjämnings resurser i Azure-regioner.
+- Flytta **[interna](./move-across-regions-internal-load-balancer-portal.md)** och **[externa](./move-across-regions-external-load-balancer-portal.md)** belastnings Utjämnings resurser i Azure-regioner.
 
-- Belastningsutjämna TCP-och UDP-flöde på alla portar samtidigt med **[ha-portar](https://docs.microsoft.com/azure/load-balancer/load-balancer-ha-ports-overview)**.
+- Belastningsutjämna TCP-och UDP-flöde på alla portar samtidigt med **[ha-portar](./load-balancer-ha-ports-overview.md)**.
 
 ### <a name="secure-by-default"></a><a name="securebydefault"></a>Säker som standard
 
-Standard Load Balancer bygger på den nolla förtroendet för nätverks säkerhets modellen i dess kärna. Standard Load Balancer skyddas som standard och ingår i ditt virtuella nätverk. Det virtuella nätverket är ett privat och isolerat nätverk.  Det innebär att standard belastnings utjämning och offentliga standard-IP-adresser stängs till inkommande flöden om de inte öppnas av nätverks säkerhets grupper. NSG: er används för att uttryckligen tillåta tillåten trafik.  Om du inte har en NSG på ett undernät eller ett nätverkskort för den virtuella dator resursen, tillåts inte trafik att komma åt den här resursen. Mer information om NSG: er och hur du tillämpar dem för ditt scenario finns i [nätverks säkerhets grupper](../virtual-network/security-overview.md).
+Standard Load Balancer bygger på den nolla förtroendet för nätverks säkerhets modellen i dess kärna. Standard Load Balancer skyddas som standard och ingår i ditt virtuella nätverk. Det virtuella nätverket är ett privat och isolerat nätverk.  Det innebär att standard belastnings utjämning och offentliga standard-IP-adresser stängs till inkommande flöden om de inte öppnas av nätverks säkerhets grupper. NSG: er används för att uttryckligen tillåta tillåten trafik.  Om du inte har en NSG på ett undernät eller ett nätverkskort för den virtuella dator resursen, tillåts inte trafik att komma åt den här resursen. Mer information om NSG: er och hur du tillämpar dem för ditt scenario finns i [nätverks säkerhets grupper](../virtual-network/network-security-groups-overview.md).
 Basic Load Balancer är öppet för Internet som standard. Dessutom lagrar Load Balancer inte kund information.
 
 ## <a name="pricing-and-sla"></a>Priser och service nivå avtal
@@ -84,4 +84,3 @@ Prenumerera på RSS-flödet och Visa de senaste Azure Load Balancer funktions up
 Se [skapa en offentlig standard belastningsutjämnare](quickstart-load-balancer-standard-public-portal.md) för att komma igång med att använda en belastningsutjämnare.
 
 Mer information om Azure Load Balancer begränsningar och komponenter finns [Azure Load Balancer komponenter](./components.md) och [Azure Load Balancer koncept](./concepts.md)
-

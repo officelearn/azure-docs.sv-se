@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4cec356b8438952327624e71deebb5e23db281a3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 10d9a74306fcdf3fe32db7019ba3b095727da4c0
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787813"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694617"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Uppgradera till ett V2-lagringskonto för generell användning
 
@@ -29,9 +29,9 @@ Att uppgradera till ett allmänt-syfte v2-lagrings konto från dina generella v1
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Navigera till ditt lagringskonto.
-3. I avsnittet **Inställningar** klickar du på **konfiguration** .
-4. Klicka på **Uppgradera** under **Typ av konto** .
-5. Ange namnet på ditt konto under **Bekräfta uppgradering** .
+3. I avsnittet **Inställningar** klickar du på **konfiguration**.
+4. Klicka på **Uppgradera** under **Typ av konto**.
+5. Ange namnet på ditt konto under **Bekräfta uppgradering**.
 6. Klicka på **Uppgradera** längst ned på bladet.
 
     ![Uppgradera konto typ](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
@@ -45,7 +45,7 @@ Om du vill uppgradera ett allmänt v1-konto till ett allmänt-syfte v2-konto med
 Sedan anropar du följande kommando för att uppgradera kontot, vilket ersätter resurs gruppens namn, lagrings kontots namn och önskad konto åtkomst nivå.
 
 ```powershell
-Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2 -AccessTier <Hot/Cool>
+Set-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account> -UpgradeToStorageV2 -AccessTier <Hot/Cool>
 ```
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -78,17 +78,17 @@ Att uppgradera ett v1-lagrings konto till ett allmänt-syfte v2-konto är kostna
 
 För alla lagringskonton används en prissättningsmodell för bloblagring som baseras på nivån för varje blob. När du använder ett lagringskonto gäller följande för debitering:
 
-* **Lagrings kostnader** : utöver mängden data som lagras varierar kostnaden för att lagra data beroende på lagrings åtkomst nivå. Kostnaden per gigabyte minskas när nivån blir mer lågfrekvent.
+* **Lagrings kostnader**: utöver mängden data som lagras varierar kostnaden för att lagra data beroende på lagrings åtkomst nivå. Kostnaden per gigabyte minskas när nivån blir mer lågfrekvent.
 
-* **Kostnader för dataåtkomst** : Kostnaderna för dataåtkomst ökar när nivån blir mer lågfrekvent. För data i den låg frekventa och Arkiv lag rings nivån debiteras du en åtkomst avgift per Gigabyte för läsningar.
+* **Kostnader för dataåtkomst**: Kostnaderna för dataåtkomst ökar när nivån blir mer lågfrekvent. För data i den låg frekventa och Arkiv lag rings nivån debiteras du en åtkomst avgift per Gigabyte för läsningar.
 
-* **Transaktionskostnader** : Du debiteras en kostnad per transaktion för alla nivåer som ökar när nivån blir mer lågfrekvent.
+* **Transaktionskostnader**: Du debiteras en kostnad per transaktion för alla nivåer som ökar när nivån blir mer lågfrekvent.
 
-* **Dataöverföringskostnader för geo-replikering** : Den här avgiften gäller endast konton med konfigurerad geo-replikering, inklusive GRS och RA-GRS. Dataöverföring för geo-replikering debiteras per gigabyte.
+* **Dataöverföringskostnader för geo-replikering**: Den här avgiften gäller endast konton med konfigurerad geo-replikering, inklusive GRS och RA-GRS. Dataöverföring för geo-replikering debiteras per gigabyte.
 
-* **Kostnader för utgående dataöverföring** : Utgående dataöverföringar (data som överförs utanför en Azure-region) debiteras för bandbreddsanvändning per gigabyte, på samma sätt som för allmänna lagringskonton.
+* **Kostnader för utgående dataöverföring**: Utgående dataöverföringar (data som överförs utanför en Azure-region) debiteras för bandbreddsanvändning per gigabyte, på samma sätt som för allmänna lagringskonton.
 
-* **Ändra lagrings åtkomst nivån** : om du ändrar åtkomst nivån för konto lagring från låg frekvent till frekvent tillkommer en avgift som motsvarar att läsa alla data som finns i lagrings kontot. Att ändra kontots åtkomst nivå från frekvent till låg frekvent innebär dock en avgift som motsvarar skrivning av alla data till den låg frekventa nivån (endast GPv2-konton).
+* **Ändra lagrings åtkomst nivån**: om du ändrar åtkomst nivån för konto lagring från låg frekvent till frekvent tillkommer en avgift som motsvarar att läsa alla data som finns i lagrings kontot. Att ändra kontots åtkomst nivå från frekvent till låg frekvent innebär dock en avgift som motsvarar skrivning av alla data till den låg frekventa nivån (endast GPv2-konton).
 
 > [!NOTE]
 > Mer information om prissättningen för lagringskonton finns på sidan [Pris för Azure Storage](https://azure.microsoft.com/pricing/details/storage/). Mer information om kostnaderna för utgående dataöverföring finns på sidan [Prisinformation om Dataöverföringar](https://azure.microsoft.com/pricing/details/data-transfers/).
@@ -141,12 +141,12 @@ Den här totala kapaciteten som förbrukats av både användardata och analyslog
 
 #### <a name="transaction-costs"></a>Transaktionskostnader
 
-Summan av *'TotalBillableRequests'* , för alla poster för ett API i tabellen över transaktionsmått, visar det totala antalet transaktioner för API:et i fråga. *Till exempel* kan det totala antalet *'GetBlob'* -transaktioner inom en viss period beräknas baserat på summan av totalt antal debiterbara begäranden för alla poster med radnyckeln *'user;GetBlob'* .
+Summan av *'TotalBillableRequests'*, för alla poster för ett API i tabellen över transaktionsmått, visar det totala antalet transaktioner för API:et i fråga. *Till exempel* kan det totala antalet *'GetBlob'*-transaktioner inom en viss period beräknas baserat på summan av totalt antal debiterbara begäranden för alla poster med radnyckeln *'user;GetBlob'*.
 
 För att kunna beräkna transaktionskostnader för Blob Storage-konton måste du dela in transaktionerna i tre grupper eftersom de har olika pris.
 
-* Skrivtransaktioner som *'PutBlob'* , *'PutBlock'* , *'PutBlockList'* , *'AppendBlock'* , *'ListBlobs'* , *'ListContainers'* , *'CreateContainer'* , *'SnapshotBlob'* och *'CopyBlob'* .
-* Borttagningstransaktioner som *'DeleteBlob'* och *'DeleteContainer'* .
+* Skrivtransaktioner som *'PutBlob'*, *'PutBlock'*, *'PutBlockList'*, *'AppendBlock'*, *'ListBlobs'*, *'ListContainers'*, *'CreateContainer'*, *'SnapshotBlob'* och *'CopyBlob'*.
+* Borttagningstransaktioner som *'DeleteBlob'* och *'DeleteContainer'*.
 * Alla andra transaktioner.
 
 För att kunna beräkna transaktionskostnaderna för GPv1-konton måste du aggregera alla transaktioner oavsett åtgärd/API.
@@ -157,9 +157,9 @@ Lagringsanalyserna visar inte mängden data som har lästs eller skrivits till e
 
 För att kunna beräkna kostnaderna för dataåtkomst för Blob Storage-konton måste du dela in transaktionerna i två grupper.
 
-* Du kan beräkna mängden data som hämtas från lagringskontot genom att titta på summan av *'TotalEgress'* och särskilt för åtgärderna *'GetBlob'* och *'CopyBlob'* .
+* Du kan beräkna mängden data som hämtas från lagringskontot genom att titta på summan av *'TotalEgress'* och särskilt för åtgärderna *'GetBlob'* och *'CopyBlob'*.
 
-* Du kan beräkna mängden data som skrivs till lagringskontot genom att titta på summan av *'TotalIngress'* och särskilt för åtgärderna *'PutBlob'* , *'PutBlock'* , *'CopyBlob'* och *'AppendBlock'* .
+* Du kan beräkna mängden data som skrivs till lagringskontot genom att titta på summan av *'TotalIngress'* och särskilt för åtgärderna *'PutBlob'*, *'PutBlock'*, *'CopyBlob'* och *'AppendBlock'*.
 
 När du använder ett GRS- eller RA-GRS-lagringskonto kan kostnaden för dataöverföring med geo-replikering för Blob Storage-konton också beräknas baserat på uppskattningen av mängden data som skrivits.
 

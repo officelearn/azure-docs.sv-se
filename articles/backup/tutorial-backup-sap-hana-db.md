@@ -3,12 +3,12 @@ title: Självstudie – säkerhetskopiera SAP HANA databaser i virtuella Azure-d
 description: I den här självstudien lär du dig att säkerhetskopiera SAP HANA databaser som körs på virtuella Azure-datorer till ett Azure Backup Recovery Services-valv.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 7bb836e92ce35869996725cb63f2d3808b570fa1
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 31a0a773096ec0f69e87bfd4a05f8ba98185e6cf
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684091"
+ms.locfileid: "94695222"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Självstudie: säkerhetskopiera SAP HANA databaser på en virtuell Azure-dator
 
@@ -25,7 +25,7 @@ Den här självstudien visar hur du säkerhetskopierar SAP HANA databaser som k�
 >[!NOTE]
 >Från och med den 1 augusti 2020 är SAP HANA säkerhets kopiering för RHEL (7,4, 7,6, 7,7 & 8,1) allmänt tillgänglig.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Kontrol lera att du gör följande innan du konfigurerar säkerhets kopieringar:
 
@@ -227,11 +227,16 @@ Ange princip inställningarna enligt följande:
    ![Princip för differentiell säkerhets kopiering](./media/tutorial-backup-sap-hana-db/differential-backup-policy.png)
 
    >[!NOTE]
-   >Stegvisa säkerhets kopieringar stöds inte för närvarande.
+   >Stegvisa säkerhets kopieringar är nu tillgängliga i den offentliga för hands versionen. Du kan välja antingen en differentiell eller en ökning som en daglig säkerhets kopia, men inte båda.
    >
+7. I **principen för stegvis säkerhets kopiering** väljer du **Aktivera** för att öppna kontrollerna frekvens och kvarhållning.
+    * Högst kan du utlösa en stegvis säkerhets kopiering per dag.
+    * Stegvisa säkerhets kopieringar kan behållas i högst 180 dagar. Om du behöver längre kvarhållning måste du använda fullständiga säkerhetskopior.
 
-7. Välj **OK** för att spara policyn och återgå till huvudmenyn **Säkerhetskopieringspolicy**.
-8. Välj **logg säkerhets kopiering** för att lägga till en transaktions logg princip för säkerhets kopiering
+    ![Princip för stegvis säkerhets kopiering](./media/backup-azure-sap-hana-database/incremental-backup-policy.png)
+
+8. Välj **OK** för att spara policyn och återgå till huvudmenyn **Säkerhetskopieringspolicy**.
+9. Välj **logg säkerhets kopiering** för att lägga till en transaktions logg princip för säkerhets kopiering
    * **Logg säkerhets kopiering** är som standard inställt på **aktive** rad. Detta kan inte inaktive ras eftersom SAP HANA hanterar alla logg säkerhets kopior.
    * Vi har angett **2 timmar** som säkerhets kopierings schema och **15 dagars** kvarhållningsperiod.
 
@@ -241,8 +246,8 @@ Ange princip inställningarna enligt följande:
    > Logg säkerhets kopior börjar bara att flyta efter en lyckad fullständig säkerhets kopiering har slutförts.
    >
 
-9. Välj **OK** för att spara policyn och återgå till huvudmenyn **Säkerhetskopieringspolicy**.
-10. När du är klar med att definiera säkerhets kopierings principen väljer du **OK**.
+10. Välj **OK** för att spara policyn och återgå till huvudmenyn **Säkerhetskopieringspolicy**.
+11. När du är klar med att definiera säkerhets kopierings principen väljer du **OK**.
 
 Du har nu konfigurerat säkerhets kopiering (er) för SAP HANA databas (er).
 

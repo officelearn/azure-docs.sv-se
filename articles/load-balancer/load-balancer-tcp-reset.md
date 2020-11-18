@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/07/2020
 ms.author: allensu
-ms.openlocfilehash: 060048bf786f424d5df6eb8fb4813877acb0fea0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d02b46345af13770f77a7dac452127a665e01fd
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91823204"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696752"
 ---
 # <a name="load-balancer-tcp-reset-and-idle-timeout"></a>Load Balancer TCP-återställning och tids gräns för inaktivitet
 
-Du kan använda [standard Load Balancer](load-balancer-standard-overview.md) för att skapa ett mer förutsägbart program beteende för dina scenarier genom att aktivera TCP-återställning vid inaktivitet för en viss regel. Load Balancerens standard beteende är att tyst släppa flöden när tids gränsen för inaktivitet för ett flöde uppnås.  Om du aktiverar den här funktionen kommer Load Balancer att skicka dubbelriktade TCP-återställningar (TCP-paket) vid inaktivitet.  Detta kommer att informera dina program slut punkter om att anslutningen har nått sin tids gräns och inte längre kan användas.  Slut punkter kan omedelbart upprätta en ny anslutning om det behövs.
+Du kan använda [standard Load Balancer](./load-balancer-overview.md) för att skapa ett mer förutsägbart program beteende för dina scenarier genom att aktivera TCP-återställning vid inaktivitet för en viss regel. Load Balancerens standard beteende är att tyst släppa flöden när tids gränsen för inaktivitet för ett flöde uppnås.  Om du aktiverar den här funktionen kommer Load Balancer att skicka dubbelriktade TCP-återställningar (TCP-paket) vid inaktivitet.  Detta kommer att informera dina program slut punkter om att anslutningen har nått sin tids gräns och inte längre kan användas.  Slut punkter kan omedelbart upprätta en ny anslutning om det behövs.
 
 ![Load Balancer TCP-återställning](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
  
 ## <a name="tcp-reset"></a>TCP-återställning
 
-Du ändrar det här standard beteendet och aktiverar sändning av TCP-återställning vid inaktivitet på inkommande NAT-regler, belastnings Utjämnings regler och [utgående regler](https://aka.ms/lboutboundrules).  När den aktive ras per regel kommer Load Balancer att skicka dubbelriktad TCP-återställning (TCP-paket) till både klient-och Server slut punkter vid tidpunkten för tids gränsen för inaktivitet för alla matchande flöden.
+Du ändrar det här standard beteendet och aktiverar sändning av TCP-återställning vid inaktivitet på inkommande NAT-regler, belastnings Utjämnings regler och [utgående regler](./load-balancer-outbound-connections.md#outboundrules).  När den aktive ras per regel kommer Load Balancer att skicka dubbelriktad TCP-återställning (TCP-paket) till både klient-och Server slut punkter vid tidpunkten för tids gränsen för inaktivitet för alla matchande flöden.
 
 Slut punkter som tar emot TCP-och-paket stänger motsvarande socket direkt. Detta ger en omedelbar avisering till slut punkterna som lanseringen av anslutningen har inträffat och eventuell framtida kommunikation på samma TCP-anslutning.  Program kan rensa anslutningar när socketen stängs och återupprätta anslutningar vid behov utan att vänta på att TCP-anslutningen ska ta slut på timeout.
 
@@ -48,7 +48,7 @@ Som standard är den inställd på 4 minuter. Om en period av inaktivitet är l�
 
 När anslutningen är stängd kan klient programmet få följande fel meddelande: "den underliggande anslutningen stängdes: en anslutning som förväntades vara aktiv stängdes av servern."
 
-En vanlig metod är att använda en TCP Keep-Alive. Den här metoden håller anslutningen aktiv under en längre period. Mer information finns i dessa [.net-exempel](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). När Keep-Alive är aktiverat skickas paketen under perioder av inaktivitet på anslutningen. Keep-Alive-paket se till att timeout-värdet för inaktivitet inte uppnås och att anslutningen upprätthålls under en längre period.
+En vanlig metod är att använda en TCP Keep-Alive. Den här metoden håller anslutningen aktiv under en längre period. Mer information finns i dessa [.net-exempel](/dotnet/api/system.net.servicepoint.settcpkeepalive). När Keep-Alive är aktiverat skickas paketen under perioder av inaktivitet på anslutningen. Keep-Alive-paket se till att timeout-värdet för inaktivitet inte uppnås och att anslutningen upprätthålls under en längre period.
 
 Inställningen fungerar endast för inkommande anslutningar. Undvik att förlora anslutningen genom att konfigurera TCP Keep-Alive med ett intervall som är lägre än tids gränsen för inaktivitet eller öka timeout-värdet för inaktivitet. För att stödja dessa scenarier har stöd för en konfigurerbar tids gräns för inaktivitet lagts till.
 
@@ -63,6 +63,6 @@ TCP Keep-Alive fungerar för scenarier där batteri tiden inte är en begränsni
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [standard Load Balancer](load-balancer-standard-overview.md).
-- Läs mer om [utgående regler](load-balancer-outbound-rules-overview.md).
+- Läs mer om [standard Load Balancer](./load-balancer-overview.md).
+- Läs mer om [utgående regler](./load-balancer-outbound-connections.md#outboundrules).
 - [Konfigurera TCP-tidsgräns vid inaktivitet](load-balancer-tcp-idle-timeout.md)

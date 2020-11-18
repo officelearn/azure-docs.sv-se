@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: a714368fc0508149714eaa42f4741e1042376c52
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f91c9c0f401a455543b12af81eed48bd1a3349bd
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044963"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696446"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Självstudiekurs: Lastbalansera virtuella datorer i en tillgänglighetszon med Standard Load Balancer med hjälp av Azure Portal
 
@@ -37,7 +37,7 @@ I den här kursen skapar du en offentlig [Azure Standard Load Balancer-instans](
 
 Mer information om hur du använder tillgänglighets zoner med Standard Load Balancer finns [standard Load Balancer och Tillgänglighetszoner](load-balancer-standard-availability-zones.md).
 
-Om du vill kan du använda [Azure CLI](load-balancer-standard-public-zonal-cli.md) till att slutföra den här kursen.
+Om du vill kan du använda [Azure CLI](./quickstart-load-balancer-standard-public-cli.md) till att slutföra den här kursen.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -58,7 +58,7 @@ Standard Load Balancer stöder endast offentliga IP-standardadresser. När du sk
     | ---                     | ---                                                |
     | Prenumeration               | Välj din prenumeration.    |    
     | Resursgrupp         | Välj **Skapa ny** och skriv *MyResourceGroupZLB* i textrutan.|
-    | Name                   | *myLoadBalancer*                                   |
+    | Namn                   | *myLoadBalancer*                                   |
     | Region         | Välj **Europa, västra**.                                        |
     | Typ          | Välj **Offentlig**.                                        |
     | SKU           | Välj **standard**.                          |
@@ -100,7 +100,7 @@ I det här avsnittet måste du ersätta följande parametrar i stegen med inform
 I det här avsnittet skapar du nätverkssäkerhetsgruppsregler som tillåter att inkommande anslutningar som använder HTTP och Microsoft Remote Desktop Protocol (RDP) med Azure Portal.
 
 1. Välj **Alla resurser** på menyn längst till vänster i Azure Portal. Sök sedan efter och välj **myNetworkSecurityGroup**. Det finns i resursgruppen **myResourceGroupZLB**.
-2. Under **Inställningar**väljer du **inkommande säkerhets regler**. Välj **Lägg till**.
+2. Under **Inställningar** väljer du **inkommande säkerhets regler**. Välj **Lägg till**.
 3. Ange följande värden för den inkommande säkerhetsregeln med namnet **myHTTPRule** så att den tillåter inkommande HTTP-anslutningar som använder port 80:
     - **Tjänstetagg** för **Källa**.
     - **Internet** för **Källtjänsttagg**.
@@ -151,7 +151,7 @@ I det här avsnittet skapar du nätverkssäkerhetsgruppsregler som tillåter att
 1. Välj **Alla resurser** på menyn längst till vänster. Välj sedan **myVM1** i resurslistan. Det finns i resursgruppen **myResourceGroupZLB**.
 2. Välj **Anslut** på sidan **Översikt** och anslut till den virtuella datorn med RDP.
 3. Logga in till den virtuella datorn och ange det användarnamn och lösenord du angav när du skapade den virtuella datorn. Du kan behöva välja **Fler alternativ** om du vill ange autentiseringsuppgifterna som du angav när du skapade den virtuella datorn. Välj **Använd ett annat konto**. Och välj sedan **OK**. Du kan få en certifikatvarning under inloggningen. Välj **Ja** för att fortsätta med anslutningen.
-4. Gå till **Windows administrations verktyg**  >  **Windows PowerShell**på server Skriv bordet.
+4. Gå till **Windows administrations verktyg**  >  **Windows PowerShell** på server Skriv bordet.
 6. Installera IIS-servern genom att köra följande kommandon i **PowerShell**-fönstret. De här kommandona tar även bort standardfilen iisstart.htm och lägger till en ny iisstart.htm-fil som visar den virtuella datorn namn:
 
    ```azurepowershell-interactive
@@ -175,11 +175,11 @@ I det här avsnittet konfigurerar du inställningar för lastbalanseraren för e
 För att distribuera trafik till de virtuella datorerna finns en adresspool på serverdelen som innehåller IP-adresserna för de virtuella nätverkskort som är anslutna till lastbalanseraren. Skapa serverdelsadresspoolen **myBackendPool** så att den omfattar **VM1** och **VM2**.
 
 1. Välj **Alla resurser** på menyn längst till vänster. Välj sedan **myLoadBalancer** i resurslistan.
-2. Under **Inställningar**väljer du **backend-pooler**. Välj **Lägg till**.
+2. Under **Inställningar** väljer du **backend-pooler**. Välj **Lägg till**.
 3. Gör följande på sidan **Lägg till en serverdelspool**:
     - Ange **myBackEndPool** som serverdelspoolens namn.
     - Välj **myVNet** som **Virtuellt nätverk** i den nedrullningsbara menyn. 
-    - För **virtuell dator** och **IP-adress**lägger du till **myVM1** och **myVM2** och deras motsvarande offentliga IP-adresser.
+    - För **virtuell dator** och **IP-adress** lägger du till **myVM1** och **myVM2** och deras motsvarande offentliga IP-adresser.
 4. Välj **Lägg till**.
 5. Kontrollera att inställningen för serverdelspoolens lastbalanserare visar båda de virtuella datorerna: **myVM1** och **myVM2**.
  

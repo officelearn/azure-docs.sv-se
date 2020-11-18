@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
-ms.openlocfilehash: 3113216b2d8a7572bcb864819a379de6823ee444
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 90aafad2a17b9535bde29f811e630112ccbd02e3
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409883"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696106"
 ---
 # <a name="azure-security-technical-capabilities"></a>Tekniska funktioner för Azure-säkerhet
 Den här artikeln innehåller en introduktion till säkerhets tjänster i Azure som hjälper dig att skydda dina data, resurser och program i molnet och uppfylla verksamhetens behov av säkerhet.
@@ -156,9 +156,9 @@ Säkerhetsorienterade företag bör fokuseras på att ge anställda de exakta be
 
 ![Skyddad resurs åtkomst](./media/technical-capabilities/azure-security-technical-capabilities-fig4.png)
 
-Med hjälp av RBAC kan du hålla isär uppgifter i ditt team och bevilja endast den omfattning av åtkomst till användare som de behöver för att utföra sitt arbete. I stället för att ge alla obegränsade behörigheter i din Azure-prenumeration eller resurser kan du bara tillåta vissa åtgärder. Använd exempelvis RBAC för att låta en medarbetare hantera virtuella datorer i en prenumeration, medan en annan kan hantera SQL-databaser inom samma prenumeration.
+Med hjälp av Azure RBAC kan du hålla isär uppgifter i ditt team och bevilja endast den omfattning av åtkomst till användare som de behöver för att utföra sitt arbete. I stället för att ge alla obegränsade behörigheter i din Azure-prenumeration eller resurser kan du bara tillåta vissa åtgärder. Använd till exempel Azure RBAC för att låta en medarbetare hantera virtuella datorer i en prenumeration, medan en annan kan hantera SQL-databaser inom samma prenumeration.
 
-![Säker åtkomst till resurser i Azure (RBAC)](./media/technical-capabilities/azure-security-technical-capabilities-fig5.png)
+![Skyddad resurs åtkomst med Azure RBAC](./media/technical-capabilities/azure-security-technical-capabilities-fig5.png)
 
 ## <a name="data-security-and-encryption"></a>Datasäkerhet och kryptering
 
@@ -422,7 +422,7 @@ Resource Manager har flera fördelar:
 
 - Du kan definiera beroenden mellan resurser så att de distribueras i rätt ordning.
 
-- Du kan använda åtkomstkontroll för alla tjänster i resursgruppen eftersom rollbaserad åtkomstkontroll (RBAC) är inbyggt i hanteringsplattformen.
+- Du kan använda åtkomst kontroll för alla tjänster i din resurs grupp eftersom Azure-rollbaserad åtkomst kontroll (Azure RBAC) är inbyggt integrerat i hanterings plattformen.
 
 - Du kan lägga till taggar för resurser och organisera alla logiskt i din prenumeration.
 

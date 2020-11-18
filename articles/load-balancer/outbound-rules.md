@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 645be03df3c8ee2a1451b4bfea0327542c29aa38
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 98bc962c0c57716cee9339056b0793bfe4bcb0ea
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683122"
+ms.locfileid: "94694736"
 ---
 # <a name="outbound-rules-azure-load-balancer"></a><a name="outboundrules"></a>Utgående regler Azure Load Balancer
 
@@ -60,7 +60,7 @@ Varje ytterligare IP-adress som tillhandahålls av en klient del ger ytterligare
 
 Använd flera IP-adresser för att planera för storskaliga scenarier. Använd utgående regler för att minska [SNAT-belastningen](troubleshoot-outbound-connection.md#snatexhaust). 
 
-Du kan också använda ett [offentligt IP-prefix](https://aka.ms/lbpublicipprefix) direkt med en utgående regel. 
+Du kan också använda ett [offentligt IP-prefix](./load-balancer-outbound-connections.md#outboundrules) direkt med en utgående regel. 
 
 Ett offentligt IP-prefix ökar skalningen av distributionen. Prefixet kan läggas till i listan över tillåtna flöden för flöden som kommer från dina Azure-resurser. Du kan konfigurera en IP-konfiguration för klient delen i belastningsutjämnaren för att referera till ett offentligt IP-adressprefix.  
 
@@ -74,7 +74,7 @@ Utgående regler tillhandahåller en konfigurations parameter för att kontrol l
 
 Standard beteendet för belastningsutjämnare är att släppa flödet tyst när tids gränsen för utgående inaktivitet har nåtts. `enableTCPReset`Parametern möjliggör ett förutsägbart program beteende och kontroll. Parametern avgör om dubbelriktad TCP-återställning (TCP per-) ska skickas vid tids gränsen för timeout vid utgående inaktivitet. 
 
-Granska [TCP-återställning vid inaktivitet](https://aka.ms/lbtcpreset) för mer information, inklusive region tillgänglighet.
+Granska [TCP-återställning vid inaktivitet](./load-balancer-tcp-reset.md) för mer information, inklusive region tillgänglighet.
 
 ## <a name="securing-and-controlling-outbound-connectivity-explicitly"></a><a name="preventoutbound"></a>Skydda och kontrol lera utgående anslutningar explicit
 
@@ -91,9 +91,9 @@ Det går inte att konfigurera en utgående regel om du försöker omdefiniera en
 >[!IMPORTANT]
 > Den virtuella datorn har inte någon utgående anslutning om du anger den här parametern till true och inte har någon utgående regel för att definiera utgående anslutning.  Vissa åtgärder för din virtuella dator eller ditt program kan bero på att det finns en utgående anslutning tillgänglig. Se till att du förstår beroendena för ditt scenario och att du anser att du har gjort den här ändringen.
 
-Ibland är det inte oönskat för en virtuell dator att skapa ett utgående flöde. Det kan finnas ett krav för att hantera vilka destinationer som tar emot utgående flöden eller vilka destinationer som startar inkommande flöden. Använd [nätverks säkerhets grupper](../virtual-network/security-overview.md) för att hantera de destinationer som den virtuella datorn når. Använd NSG: er för att hantera vilka offentliga destinationer som startar inkommande flöden.
+Ibland är det inte oönskat för en virtuell dator att skapa ett utgående flöde. Det kan finnas ett krav för att hantera vilka destinationer som tar emot utgående flöden eller vilka destinationer som startar inkommande flöden. Använd [nätverks säkerhets grupper](../virtual-network/network-security-groups-overview.md) för att hantera de destinationer som den virtuella datorn når. Använd NSG: er för att hantera vilka offentliga destinationer som startar inkommande flöden.
 
-När du tillämpar en NSG på en belastningsutjämnad virtuell dator, bör du tänka på [tjänst taggarna](../virtual-network/security-overview.md#service-tags) och [Standard säkerhets reglerna](../virtual-network/security-overview.md#default-security-rules). 
+När du tillämpar en NSG på en belastningsutjämnad virtuell dator, bör du tänka på [tjänst taggarna](../virtual-network/network-security-groups-overview.md#service-tags) och [Standard säkerhets reglerna](../virtual-network/network-security-groups-overview.md#default-security-rules). 
 
 Se till att den virtuella datorn kan ta emot hälso avsöknings begär Anden från Azure Load Balancer.
 
@@ -159,7 +159,7 @@ Load Balancer ger [SNAT](load-balancer-outbound-connections.md)-portar i multipl
 Om du försöker ge fler [SNAT](load-balancer-outbound-connections.md)-portar än vad som är tillgängligt baserat på antalet offentliga IP-adresser avvisas konfigurations åtgärden. Om du till exempel ger 10 000 portar per virtuell dator och sju virtuella datorer i en backend-pool delar en offentlig IP-adress, så avvisas konfigurationen. Sju multiplicerat med 10 000 överskrider gränsen på 64 000-porten. Lägg till fler offentliga IP-adresser till klient delen för den utgående regeln för att aktivera scenariot. 
 
 
-Återgå till [standard port tilldelningen](load-balancer-outbound-connections.md#preallocatedports) genom att ange 0 för antalet portar. De första 50 VM-instanserna får 1024 portar, 51-100 VM-instanser kommer att få 512 upp till maximalt antal instanser. Mer information om standard tilldelning av SNAT-portar finns i [tilldelnings tabellen för SNAT-portar](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
+Återgå till [standard port tilldelningen](load-balancer-outbound-connections.md#preallocatedports) genom att ange 0 för antalet portar. De första 50 VM-instanserna får 1024 portar, 51-100 VM-instanser kommer att få 512 upp till maximalt antal instanser. Mer information om standard tilldelning av SNAT-portar finns i [tilldelnings tabellen för SNAT-portar](./load-balancer-outbound-connections.md#preallocatedports).
 
 
 ### <a name="scenario-3-enable-outbound-only"></a><a name="scenario3out"></a>Scenario 3: Aktivera endast utgående
@@ -211,7 +211,7 @@ Använd ett prefix eller en offentlig IP-adress för att skala [SNAT](load-balan
 Utgående anslutningar är inte tillgängliga för en intern standard belastningsutjämnare förrän den uttryckligen har deklarerats via offentliga IP-adresser på instans nivå eller Virtual Network NAT, eller genom att associera medlemmar i Server delens pool med en konfiguration för utgående belastnings utjämning. 
 
 
-Mer information finns i [konfiguration av utgående belastnings utjämning](https://docs.microsoft.com/azure/load-balancer/egress-only).
+Mer information finns i [konfiguration av utgående belastnings utjämning](./egress-only.md).
 
 
 
@@ -253,4 +253,3 @@ När endast inkommande NAT-regler används tillhandahålls ingen utgående NAT.
 
 - Läs mer om [Azure standard Load Balancer](load-balancer-overview.md)
 - Se våra [vanliga frågor och svar om Azure Load Balancer](load-balancer-faqs.md)
-

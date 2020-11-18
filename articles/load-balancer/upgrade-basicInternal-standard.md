@@ -7,15 +7,15 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 08/07/2020
 ms.author: irenehua
-ms.openlocfilehash: a6d2b69b0b498601497c4b33fb6bdfede87002df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59bf5eb22289238633b1f07c29a878bd0a9ae620
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89500257"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696174"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Uppgradera Azure Internal Load Balancer – ingen utgående anslutning krävs
-[Azure standard Load Balancer](load-balancer-overview.md) erbjuder en omfattande uppsättning funktioner och hög tillgänglighet genom zon redundans. Mer information om Load Balancer SKU finns i [jämförelse tabell](https://docs.microsoft.com/azure/load-balancer/skus#skus).
+[Azure standard Load Balancer](load-balancer-overview.md) erbjuder en omfattande uppsättning funktioner och hög tillgänglighet genom zon redundans. Mer information om Load Balancer SKU finns i [jämförelse tabell](./skus.md#skus).
 
 Den här artikeln introducerar ett PowerShell-skript som skapar en Standard Load Balancer med samma konfiguration som den grundläggande Load Balancer tillsammans med migrering av trafik från Basic Load Balancer till Standard Load Balancer.
 
@@ -23,25 +23,25 @@ Den här artikeln introducerar ett PowerShell-skript som skapar en Standard Load
 
 Det finns ett Azure PowerShell-skript tillgängligt som gör följande:
 
-* Skapar ett internt standard-SKU-Load Balancer på den plats som du anger. Observera att ingen [utgående anslutning](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) kommer att tillhandahållas av interna standard Load Balancer.
+* Skapar ett internt standard-SKU-Load Balancer på den plats som du anger. Observera att ingen [utgående anslutning](./load-balancer-outbound-connections.md) kommer att tillhandahållas av interna standard Load Balancer.
 * Kopierar sömlöst konfigurationerna av Basic SKU-Load Balancer till den nyligen skapade Standard Load Balancer.
 * Flytta enkelt de privata IP-adresserna från Basic-Load Balancer till den nyligen skapade Standard Load Balancer.
 * Flytta sömlöst de virtuella datorerna från backend-poolen av Basic-Load Balancer till backend-poolen för Standard Load Balancer
 
 ### <a name="caveatslimitations"></a>Caveats\Limitations
 
-* Skript stöder endast intern Load Balancer uppgradering där ingen utgående anslutning krävs. Om du behöver [utgående anslutning](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) för några av dina virtuella datorer kan du gå till den här [sidan](upgrade-InternalBasic-To-PublicStandard.md) för instruktioner. 
+* Skript stöder endast intern Load Balancer uppgradering där ingen utgående anslutning krävs. Om du behöver [utgående anslutning](./load-balancer-outbound-connections.md) för några av dina virtuella datorer kan du gå till den här [sidan](upgrade-InternalBasic-To-PublicStandard.md) för instruktioner. 
 * Basic-Load Balancer måste finnas i samma resurs grupp som de virtuella datorerna och nätverkskorten.
 * Om standard belastnings utjämning skapas i en annan region kan du inte associera de virtuella datorerna i den gamla regionen med den nya Standard Load Balancer. Du kan undvika den här begränsningen genom att skapa en ny virtuell dator i den nya regionen.
 * Om din Load Balancer inte har någon IP-konfiguration för klient delen eller en backend-pool, kommer du förmodligen att träffa ett fel som kör skriptet. Se till att de inte är tomma.
 
 ## <a name="change-ip-allocation-method-to-static-for-frontend-ip-configuration-ignore-this-step-if-its-already-static"></a>Ändra metod för IP-allokering till statisk för klient delens IP-konfiguration (ignorera det här steget om det redan är statiskt)
 
-1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj sedan din grundläggande Load Balancer i listan resurser.
+1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser** och välj sedan din grundläggande Load Balancer i listan resurser.
 
-2. Under **Inställningar**väljer du **IP-konfiguration för klient**del och väljer den första IP-konfigurationen för klient delen. 
+2. Under **Inställningar** väljer du **IP-konfiguration för klient** del och väljer den första IP-konfigurationen för klient delen. 
 
-3. För **tilldelning**väljer du **statisk**
+3. För **tilldelning** väljer du **statisk**
 
 4. Upprepa steg 3 för alla IP-konfigurationer för klient delen av Basic-Load Balancer.
 

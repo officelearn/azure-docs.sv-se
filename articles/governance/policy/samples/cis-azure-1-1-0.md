@@ -1,15 +1,15 @@
 ---
 title: Information om regelefterlevnad för CIS Microsoft Azure grunderna
 description: Information om CIS Microsoft Azure grunderna i det inbyggda initiativet för benchmark-efterlevnad. Varje kontroll mappas till en eller flera Azure Policy definitioner som hjälper till med utvärderingen.
-ms.date: 10/20/2020
+ms.date: 11/17/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 06b74daff584c9df35d4c762c3115b95e4ed3179
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 1f9379427be69ecf8a07000744f0410c9b34f13c
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320596"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696939"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-regulatory-compliance-built-in-initiative"></a>Information om CIS-Microsoft Azure grunderna i det inbyggda initiativet för benchmark-regelefterlevnad
 
@@ -383,7 +383,7 @@ Detta inbyggda initiativ distribueras som en del av [exempel på benchmark-exemp
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Det bör finnas en aktivitets logg avisering för vissa princip åtgärder](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc5447c04-a4d7-4ba8-a263-c9ee321a6858) |Den här principen granskar vissa princip åtgärder utan att någon aktivitets logg avisering har kon figurer ATS. |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_PolicyOperations_Audit.json) |
+|[Det bör finnas en aktivitets logg avisering för vissa princip åtgärder](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc5447c04-a4d7-4ba8-a263-c9ee321a6858) |Den här principen granskar vissa princip åtgärder utan att någon aktivitets logg avisering har kon figurer ATS. |AuditIfNotExists, inaktiverat |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_PolicyOperations_Audit.json) |
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-or-update-network-security-group"></a>Kontrol lera att det finns en aktivitets logg avisering för att skapa eller uppdatera nätverks säkerhets gruppen
 
@@ -475,7 +475,7 @@ Detta inbyggda initiativ distribueras som en del av [exempel på benchmark-exemp
 |---|---|---|---|
 |[Network Watcher ska vara aktiverat](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb6e2945c-0b7b-40f5-9233-7a5323b5cdc6) |Network Watcher är en regional tjänst som gör att du kan övervaka och diagnostisera villkor på en nätverks scenario nivå i, till och från Azure. Med övervakning av scenarionivå kan du diagnostisera problem på en slutpunkt-till-slutpunkt-vy på nätverks nivå. Diagnostikverktyg för nätverk och visualiserings verktyg som är tillgängliga med Network Watcher hjälpa dig att förstå, diagnostisera och få insikter om ditt nätverk i Azure. |auditIfNotExists |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/NetworkWatcher_Enabled_Audit.json) |
 
-## <a name="virtual-machines"></a>Virtuella datorer
+## <a name="virtual-machines"></a>Virtual Machines
 
 ### <a name="ensure-that-os-disk-are-encrypted"></a>Kontrol lera att OS-disken är krypterad
 
@@ -533,7 +533,7 @@ Detta inbyggda initiativ distribueras som en del av [exempel på benchmark-exemp
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Key Vault objekt ska vara återställnings bara](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |Den här principen granskar om det inte går att återskapa nyckel valvs objekt. Med funktionen för mjuk borttagning kan du effektivt hålla resurserna under en viss kvarhållningsperiod (90 dagar) även efter en BORTTAGNINGs åtgärd, samtidigt som du ger det utseende som objektet tas bort. När ' Rensa skydd ' är på kan ett valv eller ett objekt i Borttaget läge inte rensas förrän kvarhållningsperioden på 90 dagar har passerat. Dessa valv och objekt kan fortfarande återställas, vilket gör det möjligt för kunderna att följa bevarande principen. |Granskning, inaktive rad |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
+|[Rensnings skyddet måste ha Aktiver ATS för nyckel valvet](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |Skadlig borttagning av ett nyckel valv kan leda till permanent data förlust. En skadlig Insider i din organisation kan eventuellt få åtkomst till att ta bort och rensa nyckel valv. Rensnings skyddet skyddar dig från insider attacker genom att tvinga fram en obligatorisk kvarhållningsperiod för mjuka borttagna nyckel valv. Ingen i din organisation eller Microsoft kommer att kunna rensa nyckel valven under den mjuka borttagnings perioden för kvarhållning. |Granska, neka, inaktive rad |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
 
 ### <a name="enable-role-based-access-control-rbac-within-azure-kubernetes-services"></a>Aktivera rollbaserad åtkomst kontroll (RBAC) i Azure Kubernetes Services
 

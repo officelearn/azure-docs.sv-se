@@ -4,12 +4,12 @@ description: Innehåller svar på några vanliga frågor om Azure VMware-lösnin
 ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: dikamath
-ms.openlocfilehash: 99e9e53693e42f907250331894f55ed0160f9e30
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 2d71c30d2fb08629674c352ae812d8890463abfe
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577523"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695109"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Vanliga frågor och svar om Azure VMware-lösningen
 
@@ -169,7 +169,7 @@ Uppgraderingarna av det privata molnet för program varu paketet görs för att 
 
 Program varan för det privata molnet uppgraderas enligt ett schema som spårar program varu paketets version från VMware. Det privata molnet kräver ingen stillestånds tid för uppgraderingar.
 
-## <a name="connectivity"></a>Anslutningar
+## <a name="connectivity"></a>Anslutning
 
 #### <a name="what-network-ip-address-planning-is-required-to-incorporate-private-clouds-with-on-premises-environments"></a>Vilken nätverks-IP-adress planering krävs för att inkludera privata moln med lokala miljöer?
 
@@ -253,7 +253,7 @@ VMware HCX Enterprise Edition (EE) är tillgänglig med Azure VMware-lösningen 
 
 #### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>Hur gör jag för att begära en värd kvot ökning för Azure VMware-lösningen?
 
-För CSP-hanterade prenumerationer måste kunden utföra begäran till partnern och partner teamet kommer att samar beta med Microsoft för att få den ökade kvoten för prenumerationen. 
+För CSP-hanterade prenumerationer måste kunden utföra begäran till partnern och partner teamet kommer att samar beta med Microsoft för att få den ökade kvoten för prenumerationen. Mer information finns i [så här aktiverar du Azure VMware-lösningen resurs artikel](enable-azure-vmware-solution.md) för information. 
 
 För EA-prenumerationer måste kunden följa den här proceduren.
 
@@ -263,7 +263,7 @@ För EA-prenumerationer måste kunden följa den här proceduren.
 Innan du skapar en Azure VMware-lösnings resurs måste du skicka in ett support ärende för att allokera noderna. Det tar upp till fem arbets dagar att bekräfta din begäran och allokera noderna. Om du har ett befintligt privat moln i Azure VMware-lösningen och vill att fler noder ska tilldelas, går du igenom samma process.
 
 
-1. I Azure Portal, under **Hjälp + Support** , skapa en **[ny supportbegäran](https://rc.portal.azure.com/#create/Microsoft.Support)** och ange följande information för biljetten:
+1. I Azure Portal, under **Hjälp + Support**, skapa en **[ny supportbegäran](https://rc.portal.azure.com/#create/Microsoft.Support)** och ange följande information för biljetten:
    - **Typ av problem:** Produkt
    - **Prenumeration:** Välj din prenumeration
    - **Tjänst:** Alla tjänster > Azure VMware-lösning
@@ -299,6 +299,10 @@ Innan du skapar en Azure VMware-lösnings resurs måste du skicka in ett support
 #### Are Reserved Instances available for purchasing through the Cloud Solution Provider (CSP) program?
 
 Yes. CSP can purchase reserved instances on behalf of their customers, see [Save costs with a reserved instance](reserved-instance.md) article. 
+
+#### Does Azure VMware Solution offer multi-tenancy for hosting CSP partners?
+
+No. Currently Azure VMware Solution does not offer multi-tenancy.
 
 
 ## Customer communication

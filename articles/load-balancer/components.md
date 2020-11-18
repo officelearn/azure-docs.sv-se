@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: d2cd05251e7bf1a0b0ebcd24e6d3d0202f277969
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: bf7a35e8cedbe62aafb29aa6d9dc8fcb42e90b2e
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685519"
+ms.locfileid: "94693774"
 ---
 # <a name="azure-load-balancer-components"></a>Azure Load Balancer-komponenter
 
@@ -130,7 +130,7 @@ Den grundläggande belastningsutjämnaren stöder inte utgående regler.
 
 ## <a name="limitations"></a>Begränsningar
 
-- Läs mer om Load Balancer [gränser](https://aka.ms/lblimits) 
+- Läs mer om Load Balancer [gränser](../azure-resource-manager/management/azure-subscription-service-limits.md) 
 - Load Balancer tillhandahåller belastnings utjämning och port vidarebefordring för vissa TCP-eller UDP-protokoll. Regler för belastnings utjämning och inkommande NAT-regler stöder TCP och UDP, men inte andra IP-protokoll, inklusive ICMP.
 - Utgående flöden från en VM-VM till en klient del för en intern Load Balancer Miss kommer att Miss förfaller.
 - En belastnings Utjämnings regel kan inte omfatta två virtuella nätverk.  Frontend-enheter och deras server dels instanser måste finnas i samma virtuella nätverk.  
@@ -140,12 +140,12 @@ Den grundläggande belastningsutjämnaren stöder inte utgående regler.
 
 - Se [skapa en offentlig standard Load Balancer](quickstart-load-balancer-standard-public-portal.md) för att komma igång med att använda en Load Balancer.
 - Läs mer om [Azure Load Balancer](load-balancer-overview.md).
-- Lär dig mer om den [offentliga IP-adressen](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)
+- Lär dig mer om den [offentliga IP-adressen](../virtual-network/virtual-network-public-ip-address.md)
 - Läs mer om [privat IP-adress](../virtual-network/private-ip-addresses.md)
 - Lär dig mer om att använda [standard Load Balancer och Tillgänglighetszoner](load-balancer-standard-availability-zones.md).
 - Lär dig mer om [standard Load Balancer Diagnostics](load-balancer-standard-diagnostics.md).
 - Läs mer om [TCP-återställning vid inaktivitet](load-balancer-tcp-reset.md).
 - Lär dig mer om att [standard Load Balancer med belastnings Utjämnings regler för belastnings utjämning](load-balancer-ha-ports-overview.md).
-- Läs mer om [nätverks säkerhets grupper](../virtual-network/security-overview.md).
-- Läs mer om [gränser för belastnings utjämning](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer).
-- Lär dig mer om att använda [vidarebefordran av portar](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal).
+- Läs mer om [nätverks säkerhets grupper](../virtual-network/network-security-groups-overview.md).
+- Läs mer om [gränser för belastnings utjämning](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer).
+- Lär dig mer om att använda [vidarebefordran av portar](./tutorial-load-balancer-port-forwarding-portal.md).

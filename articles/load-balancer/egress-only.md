@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2020
 ms.author: allensu
-ms.openlocfilehash: b44f626546b313299701687157b37b7df021bd61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee264a22de5ce094e8a4c1335ace77cbbba49270
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88038306"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695001"
 ---
 # <a name="outbound-only-load-balancer-configuration"></a>Konfiguration för lastbalanserare med ”endast utgående”
 
@@ -65,7 +65,7 @@ Skapa en virtuell dator i det nya virtuella nätverket.
 
 2. Välj **Skapa en resurs > Nätverk > Virtuellt nätverk** eller sök efter **virtuellt nätverk** i sökrutan på den övre vänstra sidan på skärmen.
 
-2. I **Skapa virtuellt nätverk**anger eller väljer du den här informationen på fliken **grundläggande** :
+2. I **Skapa virtuellt nätverk** anger eller väljer du den här informationen på fliken **grundläggande** :
 
     | **Inställning**          | **Värde**                                                           |
     |------------------|-----------------------------------------------------------------|
@@ -80,15 +80,15 @@ Skapa en virtuell dator i det nya virtuella nätverket.
 
 4. På fliken **IP-adresser** anger du den här informationen:
 
-    | Inställning            | Värde                      |
+    | Inställningen            | Värde                      |
     |--------------------|----------------------------|
     | IPv4-adressutrymme | Ange **10.1.0.0/16** |
 
-5. Under **under näts namn**väljer du ordet **standard**.
+5. Under **under näts namn** väljer du ordet **standard**.
 
-6. I **Redigera undernät**anger du den här informationen:
+6. I **Redigera undernät** anger du den här informationen:
 
-    | Inställning            | Värde                      |
+    | Inställningen            | Värde                      |
     |--------------------|----------------------------|
     | Namn på undernät | Ange **myBackendSubnet** |
     | Adressintervall för undernätet | Ange **10.1.0.0/24** |
@@ -97,13 +97,13 @@ Skapa en virtuell dator i det nya virtuella nätverket.
 
 8. Välj fliken **säkerhet** .
 
-9. Under **BastionHost**väljer du **Aktivera**. Ange den här informationen:
+9. Under **BastionHost** väljer du **Aktivera**. Ange den här informationen:
 
-    | Inställning            | Värde                      |
+    | Inställningen            | Värde                      |
     |--------------------|----------------------------|
     | Skydds namn | Ange **myBastionHost** |
     | AzureBastionSubnet-adressutrymme | Ange **10.1.1.0/24** |
-    | Offentlig IP-adress | Välj **Skapa ny**. </br> Som **namn**anger du **myBastionIP**. </br> Välj **OK**. |
+    | Offentlig IP-adress | Välj **Skapa ny**. </br> Som **namn** anger du **myBastionIP**. </br> Välj **OK**. |
 
 
 8. Välj fliken **Granska + skapa** eller Välj knappen **Granska + skapa** .
@@ -114,9 +114,9 @@ Skapa en virtuell dator i det nya virtuella nätverket.
 
 1. På den övre vänstra sidan av portalen väljer du **skapa en resurs**  >  **beräkning**  >  **virtuell dator**. 
    
-2. I **skapa en virtuell dator**skriver eller väljer du värdena på fliken **grundläggande** :
+2. I **skapa en virtuell dator** skriver eller väljer du värdena på fliken **grundläggande** :
 
-    | Inställning | Värde                                          |
+    | Inställningen | Värde                                          |
     |-----------------------|----------------------------------|
     | **Projekt information** |  |
     | Prenumeration | Välj din Azure-prenumeration |
@@ -130,7 +130,7 @@ Skapa en virtuell dator i det nya virtuella nätverket.
     | Storlek | Välj storlek på virtuell dator eller Ställ in standardinställningen |
     | **Administratörs konto** |  |
     | Användarnamn | Ange ett användar namn |
-    | lösenordsinställning | Ange ett lösen ord |
+    | Lösenord | Ange ett lösen ord |
     | Bekräfta lösenordet | Ange lösenordet igen |
     | **Regler för inkommande portar** |  |
     | Offentliga inkommande portar | Välj **Tillåt valda portar** |
@@ -140,7 +140,7 @@ Skapa en virtuell dator i det nya virtuella nätverket.
   
 4. På fliken nätverk väljer eller anger du:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     |-----|------------|
     | **Nätverksgränssnitt** |  |
     | Virtuellt nätverk | **myVNet** |
@@ -153,7 +153,7 @@ Skapa en virtuell dator i det nya virtuella nätverket.
 
 6. På fliken **hantering** väljer eller anger du:
     
-    | Inställning | Värde |
+    | Inställningen | Värde |
     |-|-|
     | **Övervakning** |  |
     | Startdiagnostik | Välj **av** |
@@ -177,7 +177,7 @@ Lägg till din skapade virtuella dator i Server delens pool.  Sedan konfigurerar
 
 2. På fliken **grundläggande** på sidan **skapa belastnings utjämning** anger eller väljer du följande information: 
 
-    | Inställning                 | Värde                                              |
+    | Inställningen                 | Värde                                              |
     | ---                     | ---                                                |
     | Prenumeration               | Välj din prenumeration.    |    
     | Resursgrupp         | Välj **myResourceGroupLB** som skapades i föregående steg.|
@@ -199,7 +199,7 @@ Lägg till din skapade virtuella dator i Server delens pool.  Sedan konfigurerar
 
 2. På fliken **grundläggande** på sidan **skapa belastnings utjämning** anger eller väljer du följande information: 
 
-    | Inställning                 | Värde                                              |
+    | Inställningen                 | Värde                                              |
     | ---                     | ---                                                |
     | Prenumeration               | Välj din prenumeration.    |    
     | Resursgrupp         | Välj **Skapa nytt** och ange **myResourceGroupLB** i text rutan.|
@@ -218,41 +218,41 @@ Lägg till din skapade virtuella dator i Server delens pool.  Sedan konfigurerar
    
 ### <a name="create-internal-backend-address-pool"></a>Skapa intern backend-adresspool
 
-Skapa **myInternalBackendPool**för backend-adresspoolen:
+Skapa **myInternalBackendPool** för backend-adresspoolen:
 
-1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj sedan **myInternalLoadBalancer** i listan resurser.
+1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser** och välj sedan **myInternalLoadBalancer** i listan resurser.
 
-2. Under **Inställningar**väljer du **backend-pooler**och väljer sedan **Lägg till**.
+2. Under **Inställningar** väljer du **backend-pooler** och väljer sedan **Lägg till**.
 
-3. På sidan **Lägg till en server dels grupp** anger du **myInternalBackendPool**som namn på din backend-pool.
+3. På sidan **Lägg till en server dels grupp** anger du **myInternalBackendPool** som namn på din backend-pool.
  
-4. I **virtuellt nätverk**väljer du **myVNet**.
+4. I **virtuellt nätverk** väljer du **myVNet**.
 
-5. Under **virtuella datorer**väljer du **Lägg till** och väljer **myVM**.
+5. Under **virtuella datorer** väljer du **Lägg till** och väljer **myVM**.
  
 6. Välj **Lägg till**.
 
 ### <a name="create-public-backend-address-pool"></a>Skapa offentlig backend-adresspool
 
-Skapa **myPublicBackendPool**för backend-adresspoolen:
+Skapa **myPublicBackendPool** för backend-adresspoolen:
 
-1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj sedan **myPublicLoadBalancer** i listan resurser.
+1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser** och välj sedan **myPublicLoadBalancer** i listan resurser.
 
-2. Under **Inställningar**väljer du **backend-pooler**och väljer sedan **Lägg till**.
+2. Under **Inställningar** väljer du **backend-pooler** och väljer sedan **Lägg till**.
 
-3. På sidan **Lägg till en server dels grupp** anger du **myPublicBackendPool**som namn på din backend-pool.
+3. På sidan **Lägg till en server dels grupp** anger du **myPublicBackendPool** som namn på din backend-pool.
 
-4. I **virtuellt nätverk**väljer du **myVNet**.
+4. I **virtuellt nätverk** väljer du **myVNet**.
  
-5. Under **virtuella datorer**väljer du **Lägg till** och väljer **myVM**.
+5. Under **virtuella datorer** väljer du **Lägg till** och väljer **myVM**.
  
 6. Välj **Lägg till**.
 
 ### <a name="test-connectivity-before-outbound-rule"></a>Testa anslutning före utgående regel
 
-1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj sedan **myVM** i resurs gruppen **myResourceGroupLB** i resurs gruppen.
+1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser** och välj sedan **myVM** i resurs gruppen **myResourceGroupLB** i resurs gruppen.
 
-2. På sidan **Översikt** väljer du **Anslut**och sedan **skydds**.
+2. På sidan **Översikt** väljer du **Anslut** och sedan **skydds**.
 
 4. Ange det användar namn och lösen ord som angavs när den virtuella datorn skapades.
 
@@ -266,13 +266,13 @@ Skapa **myPublicBackendPool**för backend-adresspoolen:
  
 ### <a name="create-a-public-load-balancer-outbound-rule"></a>Skapa en offentlig regel för utgående belastningsutjämnare
 
-1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj sedan **myPublicLoadBalancer** i listan resurser.
+1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser** och välj sedan **myPublicLoadBalancer** i listan resurser.
 
-2. Välj **utgående regler**under **Inställningar**och välj sedan **Lägg till**.
+2. Välj **utgående regler** under **Inställningar** och välj sedan **Lägg till**.
 
 3. Använd de här värdena för att konfigurera de utgående reglerna:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | Namn | Ange **myOutboundRule**. |
     | IP-adress för klient del | Välj **LoadBalancerFrontEnd**.|
@@ -285,9 +285,9 @@ Skapa **myPublicBackendPool**för backend-adresspoolen:
 
 ### <a name="test-connectivity-after-outbound-rule"></a>Testa anslutning efter utgående regel
 
-1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj sedan **myVM** i resurs gruppen **myResourceGroupLB** i resurs gruppen.
+1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser** och välj sedan **myVM** i resurs gruppen **myResourceGroupLB** i resurs gruppen.
 
-2. På sidan **Översikt** väljer du **Anslut**och sedan **skydds**.
+2. På sidan **Översikt** väljer du **Anslut** och sedan **skydds**.
 
 4. Ange det användar namn och lösen ord som angavs när den virtuella datorn skapades.
 
@@ -316,4 +316,4 @@ Med den här konfigurationen kan du belastningsutjämna inkommande intern trafik
 - Läs mer om [Azure Load Balancer](load-balancer-overview.md).
 - Lär dig om [utgående anslutningar i Azure](load-balancer-outbound-connections.md).
 - [Vanliga frågor och svar](load-balancer-faqs.md)om belastnings utjämning.
-- Lär dig mer om [Azure skydds](https://docs.microsoft.com/azure/bastion/bastion-overview)
+- Lär dig mer om [Azure skydds](../bastion/bastion-overview.md)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: fa2025fa31ac960eb6c61d03bafd582de4f0e55c
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 3141d9937591467870ee4a88d16a96cbdb24a05b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410595"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696225"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolering i det offentliga Azure-molnet
 
@@ -38,7 +38,7 @@ Varje Azure AD-katalog är separat och åtskild från andra Azure AD-kataloger. 
 
 ### <a name="azure-tenancy"></a>Azure-innehavare
 
-Azure-innehavaren (Azure-prenumeration) refererar till en kund/fakturerings relation och en unik [klient](../../active-directory/develop/quickstart-create-new-tenant.md) i [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md). Isolering av klient nivå i Microsoft Azure uppnås med Azure Active Directory-och [rollbaserade kontroller](../../role-based-access-control/overview.md) som erbjuds av den. Varje Azure-prenumeration är associerad med en Azure Active Directory-katalog (AD).
+Azure-innehavaren (Azure-prenumeration) refererar till en kund/fakturerings relation och en unik [klient](../../active-directory/develop/quickstart-create-new-tenant.md) i [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md). Isolering av klient nivå i Microsoft Azure uppnås med Azure Active Directory och [rollbaserad åtkomst kontroll i Azure](../../role-based-access-control/overview.md) som erbjuds av den. Varje Azure-prenumeration är associerad med en Azure Active Directory-katalog (AD).
 
 Användare, grupper och program från den katalogen kan hantera resurser i Azure-prenumerationen. Du kan tilldela dessa behörigheter med hjälp av Azure Portal, Azures kommando rads verktyg och Azure Management-API: er. En Azure AD-klient isoleras logiskt med hjälp av säkerhets gränser så att ingen kund kan komma åt eller kompromettera samklienter, antingen på ett skadligt eller av misstag. Azure AD körs på "bare metal"-servrar som är isolerade i ett åtskiljt nätverks segment, där paket filtrering på värdnivå och Windows-brandväggen blockerar oönskade anslutningar och trafik.
 
@@ -52,7 +52,7 @@ Användare, grupper och program från den katalogen kan hantera resurser i Azure
 
 - Fysisk åtkomst till servrar som utgör Azure AD-tjänsten och direkt åtkomst till Azure ADs backend-system är begränsad.
 
-- Azure AD-användare har ingen åtkomst till fysiska till gångar eller platser, och därför är det inte möjligt för dem att kringgå de logiska RBAC-princip kontrollerna som anges nedan.
+- Azure AD-användare har ingen åtkomst till fysiska till gångar eller platser och det är därför inte möjligt för dem att kringgå de logiska principerna för den logiska Azure RBAC-kontrollen som anges nedan.
 
 För diagnostik-och underhålls behov krävs och används en drifts modell som använder sig av en just-in-Time-höjning. Azure AD Privileged Identity Management (PIM) introducerar begreppet en berättigad administratör. [berättigade administratörer](../../active-directory/privileged-identity-management/pim-configure.md) bör vara användare som behöver privilegie rad åtkomst nu och sedan, men inte varje dag. Rollen är inaktiv tills användaren behöver åtkomst. Därefter slutför användaren en aktiveringsprocess och blir aktiv administratör under en förinställd tidsperiod.
 
@@ -80,7 +80,7 @@ Azure RBAC har tre grundläggande roller som gäller för alla resurs typer:
 
 Resten av Azure-rollerna i Azure möjliggör hantering av vissa Azure-resurser. Till exempel tillåter rollen Virtuell datordeltagare att en användare skapar och hanterar virtuella datorer. Den ger dem inte åtkomst till Azure-Virtual Network eller det undernät som den virtuella datorn ansluter till.
 
-[Inbyggda RBAC-roller](../../role-based-access-control/built-in-roles.md) visar de roller som är tillgängliga i Azure. Den anger de åtgärder och den omfattning som varje inbyggd roll ger användare. Om du vill definiera egna roller för ännu mer kontroll, se så här skapar du [anpassade roller i Azure RBAC](../../role-based-access-control/custom-roles.md).
+De [inbyggda Azure-rollerna](../../role-based-access-control/built-in-roles.md) visar de roller som är tillgängliga i Azure. Den anger de åtgärder och den omfattning som varje inbyggd roll ger användare. Om du vill definiera egna roller för ännu mer kontroll, se så här skapar du [anpassade roller i Azure RBAC](../../role-based-access-control/custom-roles.md).
 
 Några andra funktioner för Azure Active Directory inkluderar:
 

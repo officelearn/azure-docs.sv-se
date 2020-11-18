@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
-ms.openlocfilehash: 2b547dbc8671481275952f4c3eae5683e9e3a06c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e559d574413b8eb0be2303798e0b16bfffad2cb
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207535"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695409"
 ---
 # <a name="load-balancer-frequently-asked-questions"></a>Vanliga frågor och svar om Load Balancer
 
@@ -25,16 +25,16 @@ För båda dessa typer erbjuder Azure en grundläggande SKU och standard-SKU som
 Se artikeln [Uppgradera från Basic till standard](upgrade-basic-standard.md) för ett automatiserat skript och vägledning om hur du uppgraderar en Load Balancer SKU.
 
  ## <a name="what-are-the-different-load-balancing-options-in-azure"></a>Vilka är de olika alternativen för belastnings utjämning i Azure?
-Se [teknik guiden för belastningsutjämnare](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview)  för de tillgängliga belastnings Utjämnings tjänsterna och rekommenderade användnings områden för var och en.
+Se [teknik guiden för belastningsutjämnare](/azure/architecture/guide/technology-choices/load-balancing-overview)  för de tillgängliga belastnings Utjämnings tjänsterna och rekommenderade användnings områden för var och en.
 
 ## <a name="where-can-i-find-load-balancer-arm-templates"></a>Var hittar jag Load Balancer ARM-mallar?
-Se [listan över Azure Load Balancer snabb starts mallar](https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers#quickstart-templates) för ARM-mallar för vanliga distributioner.
+Se [listan över Azure Load Balancer snabb starts mallar](/azure/templates/microsoft.network/loadbalancers#quickstart-templates) för ARM-mallar för vanliga distributioner.
 
 ## <a name="how-are-inbound-nat-rules-different-from-load-balancing-rules"></a>Hur skiljer sig inkommande NAT-regler från regler för belastnings utjämning?
 NAT-regler används för att ange en server dels resurs som trafik ska skickas till. Du kan till exempel konfigurera en speciell belastnings Utjämnings port för att skicka RDP-trafik till en angiven virtuell dator. Regler för belastnings utjämning används för att ange en pool med Server dels resurser för att dirigera trafik till, vilket balanserar belastningen över varje instans. En belastnings Utjämnings regel kan till exempel dirigera TCP-paket på port 80 för belastningsutjämnaren i en pool av webb servrar.
 
 ## <a name="what-is-ip-1686312916"></a>Vad är IP-168.63.129.16?
-Den virtuella IP-adressen för värden som taggats som Azure-infrastruktur Load Balancer där Azures hälso avsökningen kommer. När du konfigurerar Server dels instanser måste de tillåta trafik från den här IP-adressen att kunna svara på hälso avsökningar. Den här regeln samverkar inte med åtkomst till din Load Balancer-frontend. Om du inte använder Azure Load Balancer kan du åsidosätta den här regeln. Du kan lära dig mer om service märken [här](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags).
+Den virtuella IP-adressen för värden som taggats som Azure-infrastruktur Load Balancer där Azures hälso avsökningen kommer. När du konfigurerar Server dels instanser måste de tillåta trafik från den här IP-adressen att kunna svara på hälso avsökningar. Den här regeln samverkar inte med åtkomst till din Load Balancer-frontend. Om du inte använder Azure Load Balancer kan du åsidosätta den här regeln. Du kan lära dig mer om service märken [här](../virtual-network/service-tags-overview.md#available-service-tags).
 
 ## <a name="can-i-use-global-vnet-peering-with-basic-load-balancer"></a>Kan jag använda global VNET-peering med Basic Load Balancer?
 Nej. Basic Load Balancer stöder inte global VNET-peering. Du kan använda en Standard Load Balancer i stället. Se artikeln [Uppgradera från Basic till standard](upgrade-basic-standard.md) för sömlös uppgradering.
@@ -50,7 +50,7 @@ Genom att använda nslookup-kommandot kan du skicka en DNS-fråga för namnet my
 Att ha utgående anslutningar via scenarierna ovan är inte nödvändigt för att ansluta till lagring i samma region som den virtuella datorn. Om du inte vill det använder du nätverks säkerhets grupper (NSG: er) enligt beskrivningen ovan. För anslutning till lagring i andra regioner krävs utgående anslutning. Observera att när du ansluter till lagring från en virtuell dator i samma region, kommer käll-IP-adressen i lagrings diagnostikloggar att vara en intern provideradress och inte den offentliga IP-adressen för den virtuella datorn. Om du vill begränsa åtkomsten till ditt lagrings konto till virtuella datorer i ett eller flera Virtual Network undernät i samma region, använder du [Virtual Network tjänst slut punkter](../virtual-network/virtual-network-service-endpoints-overview.md) och inte din offentliga IP-adress när du konfigurerar brand väggen för ditt lagrings konto. När tjänstens slut punkter har kon figurer ATS visas din Virtual Network privata IP-adress i dina lagrings diagnostikloggar och inte på den interna provideradress.
 
 ## <a name="what-are-best-practises-with-respect-to-outbound-connectivity"></a>Vad är bäst vad gäller utgående anslutningar?
-Standard Load Balancer och allmän standard-IP-adress ger funktioner och olika beteenden för utgående anslutning. De är inte samma som för grundläggande SKU: er. Om du vill använda utgående anslutningar när du arbetar med standard-SKU: er måste du uttryckligen definiera det antingen med offentliga IP-adresser eller offentliga standard Load Balancer. Detta inkluderar att skapa utgående anslutningar när du använder en intern Standard Load Balancer. Vi rekommenderar att du alltid använder utgående regler på en offentlig standard Load Balancer. Det innebär att när en intern Standard Load Balancer används, måste du vidta åtgärder för att skapa utgående anslutningar för de virtuella datorerna i backend-poolen om den utgående anslutningen önskas. I kontexten för utgående anslutning, en enda fristående virtuell dator, alla virtuella datorer i en tillgänglighets uppsättning, fungerar alla instanser i en VMSS som en grupp. Det innebär att om en enskild virtuell dator i en tillgänglighets uppsättning är associerad med en standard-SKU fungerar alla VM-instanser i den här tillgänglighets uppsättningen med samma regler som om de är associerade med standard-SKU: n, även om en enskild instans inte är direkt kopplad till den. Det här beteendet observeras även när det gäller en fristående virtuell dator med flera nätverkskort kopplade till en belastningsutjämnare. Om ett nätverkskort läggs till som fristående har det samma beteende. Läs noggrant igenom hela dokumentet för att förstå de övergripande begreppen, granska [standard Load Balancer](load-balancer-standard-overview.md) för skillnader mellan SKU: er och granska [utgående regler](load-balancer-outbound-connections.md#outboundrules).
+Standard Load Balancer och allmän standard-IP-adress ger funktioner och olika beteenden för utgående anslutning. De är inte samma som för grundläggande SKU: er. Om du vill använda utgående anslutningar när du arbetar med standard-SKU: er måste du uttryckligen definiera det antingen med offentliga IP-adresser eller offentliga standard Load Balancer. Detta inkluderar att skapa utgående anslutningar när du använder en intern Standard Load Balancer. Vi rekommenderar att du alltid använder utgående regler på en offentlig standard Load Balancer. Det innebär att när en intern Standard Load Balancer används, måste du vidta åtgärder för att skapa utgående anslutningar för de virtuella datorerna i backend-poolen om den utgående anslutningen önskas. I kontexten för utgående anslutning, en enda fristående virtuell dator, alla virtuella datorer i en tillgänglighets uppsättning, fungerar alla instanser i en VMSS som en grupp. Det innebär att om en enskild virtuell dator i en tillgänglighets uppsättning är associerad med en standard-SKU fungerar alla VM-instanser i den här tillgänglighets uppsättningen med samma regler som om de är associerade med standard-SKU: n, även om en enskild instans inte är direkt kopplad till den. Det här beteendet observeras även när det gäller en fristående virtuell dator med flera nätverkskort kopplade till en belastningsutjämnare. Om ett nätverkskort läggs till som fristående har det samma beteende. Läs noggrant igenom hela dokumentet för att förstå de övergripande begreppen, granska [standard Load Balancer](./load-balancer-overview.md) för skillnader mellan SKU: er och granska [utgående regler](load-balancer-outbound-connections.md#outboundrules).
 Med hjälp av utgående regler kan du få en detaljerad kontroll över alla aspekter av utgående anslutningar.
  
 ## <a name="next-steps"></a>Nästa steg

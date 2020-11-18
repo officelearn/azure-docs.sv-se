@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 73b09c006b11e7f57dd3833191dd381b7f42a709
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: c734c0ceb9c4d5418edc51a2c3ad3c052637ad31
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145845"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696990"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Använda hanterade identiteter för App Service och Azure Functions
 
@@ -27,23 +27,23 @@ Det här avsnittet visar hur du skapar en hanterad identitet för App Service oc
 
 Att skapa en app med en tilldelad identitet kräver att ytterligare en egenskap anges för programmet.
 
-### <a name="using-the-azure-portal"></a>Använda Azure Portal
+### <a name="using-the-azure-portal"></a>Använda Azure-portalen
 
 För att konfigurera en hanterad identitet i portalen skapar du först ett program som vanligt och aktiverar sedan funktionen.
 
 1. Skapa en app i portalen på vanligt sätt. Gå till den i portalen.
 
-2. Om du använder en Function-app navigerar du till **plattforms funktioner** . För andra typer av appar rullar du ned till **inställnings** gruppen i det vänstra navigerings fältet.
+2. Om du använder en Function-app navigerar du till **plattforms funktioner**. För andra typer av appar rullar du ned till **inställnings** gruppen i det vänstra navigerings fältet.
 
-3. Välj **identitet** .
+3. Välj **identitet**.
 
-4. Växla **status** till **på på** fliken **systemtilldelad** . Klicka på **Spara** .
+4. Växla **status** till **på på** fliken **systemtilldelad** . Klicka på **Spara**.
 
     ![Skärm bild som visar var du växlar status till på och väljer sedan Spara.](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
 
 
 > [!NOTE] 
-> Om du vill hitta den hanterade identiteten för din webbapp eller fack-app i Azure Portal, under **företags program** , tittar du i avsnittet **användar inställningar** . Normalt liknar plats namnet `<app name>/slots/<slot name>` .
+> Om du vill hitta den hanterade identiteten för din webbapp eller fack-app i Azure Portal, under **företags program**, tittar du i avsnittet **användar inställningar** . Normalt liknar plats namnet `<app name>/slots/<slot name>` .
 
 
 ### <a name="using-the-azure-cli"></a>Använda Azure CLI
@@ -190,7 +190,7 @@ Om du behöver referera till dessa egenskaper i ett senare skede i mallen kan du
 
 Om du skapar en app med en användardefinierad identitet måste du skapa identiteten och sedan lägga till dess resurs-ID i appens konfiguration.
 
-### <a name="using-the-azure-portal"></a>Använda Azure Portal
+### <a name="using-the-azure-portal"></a>Använda Azure-portalen
 
 Först måste du skapa en användardefinierad identitets resurs.
 
@@ -198,13 +198,13 @@ Först måste du skapa en användardefinierad identitets resurs.
 
 2. Skapa en app i portalen på vanligt sätt. Gå till den i portalen.
 
-3. Om du använder en Function-app navigerar du till **plattforms funktioner** . För andra typer av appar rullar du ned till **inställnings** gruppen i det vänstra navigerings fältet.
+3. Om du använder en Function-app navigerar du till **plattforms funktioner**. För andra typer av appar rullar du ned till **inställnings** gruppen i det vänstra navigerings fältet.
 
-4. Välj **identitet** .
+4. Välj **identitet**.
 
 5. Klicka på **Lägg till** i fliken **tilldelade användare** .
 
-6. Sök efter den identitet som du skapade tidigare och markera den. Klicka på **Lägg till** .
+6. Sök efter den identitet som du skapade tidigare och markera den. Klicka på **Lägg till**.
 
     ![Hanterad identitet i App Service](media/app-service-managed-service-identity/user-assigned-managed-identity-in-azure-portal.png)
 
@@ -328,7 +328,7 @@ En app med en hanterad identitet har två miljövariabler definierade:
 > |-------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | resource          | Söka i data  | Azure AD-resurs-URI för resursen som en token ska hämtas för. Detta kan vara en av de [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) eller andra resurs-URI: er.    |
 > | api-version       | Söka i data  | Den version av token API som ska användas. Använd "2019-08-01" eller senare (om du inte använder Linux-förbrukning, som för närvarande bara erbjuder "2017-09-01", se kommentaren ovan).                                                                                                                                                                                                                                                                 |
-> | X-IDENTITY-HEADER | Sidhuvud | Värdet för IDENTITY_HEADER-miljövariabeln. Den här rubriken används för att minska risken för förfalskning av SSRF-attacker (Server sidans begäran).                                                                                                                                                                                                    |
+> | X-IDENTITY-HEADER | Huvud | Värdet för IDENTITY_HEADER-miljövariabeln. Den här rubriken används för att minska risken för förfalskning av SSRF-attacker (Server sidans begäran).                                                                                                                                                                                                    |
 > | client_id         | Söka i data  | Valfritt Klient-ID för den användar tilldelnings identitet som ska användas. Kan inte användas på en begäran som innehåller `principal_id` , `mi_res_id` eller `object_id` . Om alla ID-parametrar ( `client_id` , `principal_id` ,, `object_id` och `mi_res_id` ) utelämnas används den systemtilldelade identiteten.                                             |
 > | principal_id      | Söka i data  | Valfritt Ägar-ID för den användar tilldelnings identitet som ska användas. `object_id` är ett alias som kan användas i stället. Kan inte användas på en begäran som innehåller client_id, mi_res_id eller object_id. Om alla ID-parametrar ( `client_id` , `principal_id` ,, `object_id` och `mi_res_id` ) utelämnas används den systemtilldelade identiteten. |
 > | mi_res_id         | Söka i data  | Valfritt Azure-resurs-ID för den användar tilldelnings identitet som ska användas. Kan inte användas på en begäran som innehåller `principal_id` , `client_id` eller `object_id` . Om alla ID-parametrar ( `client_id` , `principal_id` ,, `object_id` och `mi_res_id` ) utelämnas används den systemtilldelade identiteten.                                      |
@@ -345,7 +345,7 @@ Ett lyckat 200 OK-svar innehåller en JSON-text med följande egenskaper:
 > | expires_on    | TimeSpan när åtkomsttoken upphör att gälla. Datumet visas som antalet sekunder från "1970-01-01T0:0: 0Z UTC" (motsvarar token: s `exp` anspråk).                                                                                |
 > | not_before    | TimeSpan när åtkomsttoken börjar gälla och kan godkännas. Datumet visas som antalet sekunder från "1970-01-01T0:0: 0Z UTC" (motsvarar token: s `nbf` anspråk).                                                      |
 > | resource      | Resursen som åtkomsttoken begärdes för, som matchar `resource` frågesträngparametern för begäran.                                                                                                                               |
-> | token_type    | Anger värdet för token-typ. Den enda typ som stöds av Azure AD är FBearer. Mer information om Bearer-token finns i [OAuth 2,0 Authorization Framework: Bearer token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+> | token_type    | Anger värdet för token-typ. Den enda typ som Azure AD stöder är Bearer. Mer information om Bearer-token finns i [OAuth 2,0 Authorization Framework: Bearer token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 
 Svaret är detsamma som [svaret på Azure AD service-till-service-](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response)åtkomsttoken.
 

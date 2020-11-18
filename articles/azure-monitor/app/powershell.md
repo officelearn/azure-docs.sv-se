@@ -3,12 +3,12 @@ title: Automatisera Azure Application insikter med PowerShell | Microsoft Docs
 description: Automatisera att skapa och hantera resurser, aviseringar och tillgänglighets test i PowerShell med hjälp av en Azure Resource Manager mall.
 ms.topic: conceptual
 ms.date: 05/02/2020
-ms.openlocfilehash: b5f3ba12fe8a730ce45e64b896ccc9c32b17b30c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4dabb29abe4530307ef5204659297f4675376605
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760911"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694615"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Hantera Application Insights-resurser med hjälp av PowerShell
 
@@ -431,7 +431,6 @@ Om du vill automatisera skapandet av någon annan resurs av någon typ skapar du
    
     Varje webb test har en associerad aviserings regel, så du måste kopiera båda.
    
-    Du kan även inkludera aviseringar för mått. [Mått namn](powershell-alerts.md#metric-names).
 5. Infoga den här raden i varje resurs:
    
     `"apiVersion": "2015-05-01",`
@@ -470,7 +469,6 @@ Azure bör konfigurera resurserna i strikt ordning. För att se till att en inst
 Andra automatiserings artiklar:
 
 * [Skapa en Application Insights resurs](./create-new-resource.md#creating-a-resource-automatically) – snabb metod utan att använda en mall.
-* [Konfigurera aviseringar](powershell-alerts.md)
 * [Skapa webbtester](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
 * [Skicka Azure Diagnostics-data till Application Insights](powershell-azure-diagnostics.md)
 * [Skapa versions anteckningar](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)

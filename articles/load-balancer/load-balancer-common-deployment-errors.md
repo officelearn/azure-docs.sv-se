@@ -10,12 +10,12 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.author: anavin
-ms.openlocfilehash: 527f71b1980b5a62d3db94fe89a1bce98142e31a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae3899a61e942695fed1e3da5fc543b298a42e24
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84221000"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695562"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-load-balancer"></a>Felsök vanliga problem med Azure-distribution med Azure Load Balancer
 
@@ -35,11 +35,11 @@ I den här artikeln beskrivs några vanliga Azure Load Balancer distributions fe
 |CannotUseInactiveHealthProbe| Du kan inte ha en avsökning som inte används av någon regel som kon figurer ATS för skalnings uppsättnings hälsa för virtuella datorer. Se till att avsökningen som har kon figurer ATS används aktivt. |
 |VMScaleSetCannotUseMultipleLoadBalancersOfSameType| Du kan inte ha flera belastningsutjämnare av samma typ (intern, offentlig). Du kan ha högst en intern och en offentlig Load Balancer. |
 |VMScaleSetCannotReferenceLoadbalancerWhenLargeScaleOrCrossAZ | Basic-Load Balancer stöds inte för grupper av virtuella datorer med flera placerings grupper eller skalnings uppsättning för virtuella datorer i olika zoner. Använd Standard Load Balancer i stället. |
-|MarketplacePurchaseEligibilityFailed | Växla till rätt administratörs konto för att aktivera köp på grund av att prenumerationen är en EA-prenumeration. Mer information finns [här](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase). |
-|ResourceDeploymentFailure| Om belastningsutjämnaren är i fel tillstånd följer du de här stegen för att ta tillbaka den från det felaktiga läget:<ol><li>Gå till https://resources.azure.com och logga in med dina Azure Portal autentiseringsuppgifter.</li><li>Välj **Läs/skriv**.</li><li>Till vänster expanderar du **prenumerationer**och expanderar sedan prenumerationen med Load Balancer att uppdatera.</li><li>Expandera **ResourceGroups**och expandera sedan resurs gruppen med Load Balancer att uppdatera.</li><li>Välj **Microsoft. Network**  >  **belastningsutjämnare**och välj sedan Load Balancer att uppdatera **LoadBalancer_1**.</li><li>På visnings sidan för **LoadBalancer_1**väljer du **Hämta**  >  **redigering**.</li><li>Det **gick inte** att uppdatera **ProvisioningState** - **värdet.**</li><li>Välj **PUT**.</li></ol>|
+|MarketplacePurchaseEligibilityFailed | Växla till rätt administratörs konto för att aktivera köp på grund av att prenumerationen är en EA-prenumeration. Mer information finns [här](../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase). |
+|ResourceDeploymentFailure| Om belastningsutjämnaren är i fel tillstånd följer du de här stegen för att ta tillbaka den från det felaktiga läget:<ol><li>Gå till https://resources.azure.com och logga in med dina Azure Portal autentiseringsuppgifter.</li><li>Välj **Läs/skriv**.</li><li>Till vänster expanderar du **prenumerationer** och expanderar sedan prenumerationen med Load Balancer att uppdatera.</li><li>Expandera **ResourceGroups** och expandera sedan resurs gruppen med Load Balancer att uppdatera.</li><li>Välj **Microsoft. Network**  >  **belastningsutjämnare** och välj sedan Load Balancer att uppdatera **LoadBalancer_1**.</li><li>På visnings sidan för **LoadBalancer_1** väljer du **Hämta**  >  **redigering**.</li><li>Det **gick inte** att uppdatera **ProvisioningState** - **värdet.**</li><li>Välj **PUT**.</li></ol>|
 |  |  |
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Titta igenom [jämförelse tabellen](./skus.md) för Azure Load Balancer SKU
-* Läs mer om [Azure Load Balancer gränser](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer)
+* Läs mer om [Azure Load Balancer gränser](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)

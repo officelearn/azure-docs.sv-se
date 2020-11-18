@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: errobin
-ms.openlocfilehash: d57dfd0a496e71c1f0e6ddea839723da35bc5f76
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 63b91194c9ffb10fd8f4c5f1341eaf74bc81f5e1
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686250"
+ms.locfileid: "94694889"
 ---
 # <a name="using-insights-to-monitor-and-configure-your-azure-load-balancer"></a>Använda insikter för att övervaka och konfigurera din Azure Load Balancer
 
@@ -26,7 +26,7 @@ Med hjälp av Azure Monitor för nätverk får du funktionella beroende visualis
 >Observera att den här funktionen är en för hands version och att den förinställda beroende vyn och den förkonfigurerade instrument panelen kan ändras för att förbättra den här upplevelsen
 
 >[!IMPORTANT]
->Standard Load Balancer krävs för att se mått från namn området Load Balancer på instrument panelen förkonfigurerade mått. Du kommer fortfarande att kunna se mått från VM, skalnings uppsättning för virtuella datorer och namn områden för anslutnings övervakaren. Vi rekommenderar dock [att du uppgraderar till standard](https://docs.microsoft.com/azure/load-balancer/upgrade-basic-standard) för alla produktions arbets belastningar för att dra nytta av den robusta uppsättningen Load Balancer mått.
+>Standard Load Balancer krävs för att se mått från namn området Load Balancer på instrument panelen förkonfigurerade mått. Du kommer fortfarande att kunna se mått från VM, skalnings uppsättning för virtuella datorer och namn områden för anslutnings övervakaren. Vi rekommenderar dock [att du uppgraderar till standard](./upgrade-basic-standard.md) för alla produktions arbets belastningar för att dra nytta av den robusta uppsättningen Load Balancer mått.
 
 ## <a name="functional-dependency-view"></a>Funktionell beroende vy
 
@@ -40,7 +40,7 @@ För standardload-belastningsutjämnare, färgkodas dina resurser för backend-p
 
 ## <a name="metrics-dashboard"></a>Instrumentpanelen med mätvärden
 
-Från bladet Insights i Load Balancer kan du välja mer detaljerade mått för att visa en förkonfigurerad [Azure Monitor arbets bok](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) som innehåller mått som är relevanta för särskilda aspekter av din Load Balancer. På den här instrument panelen visas Load Balancer status och länkar till relevant dokumentation överst på sidan.
+Från bladet Insights i Load Balancer kan du välja mer detaljerade mått för att visa en förkonfigurerad [Azure Monitor arbets bok](../azure-monitor/platform/workbooks-overview.md) som innehåller mått som är relevanta för särskilda aspekter av din Load Balancer. På den här instrument panelen visas Load Balancer status och länkar till relevant dokumentation överst på sidan.
 
 Först visas fliken Översikt. Du kan navigera bland de tillgängliga flikarna som innehåller visuella objekt som är relevanta för en speciell aspekt av din Load Balancer. Uttrycklig vägledning för var och en finns på instrument panelen längst ned på varje flik.
 
@@ -68,16 +68,16 @@ På fliken Data flöde kan du granska inkommande och utgående data flöde för 
 ### <a name="flow-distribution"></a>Flödesfördelning
 Fliken flödes distribution hjälper dig att visualisera och hantera antalet flöden som dina Server dels instanser tar emot och skapar. Den visar skapande frekvensen för flödet och antalet flöden för inkommande och utgående trafik samt nätverks trafiken för varje virtuell dator och skalnings uppsättnings instans för virtuell dator tas emot. 
 
-Dessa vyer kan ge dig feedback om din Load Balancer-konfiguration eller trafik mönster leder till Bal anse rad trafik. Om du till exempel har konfigurerat tillhörigheten för sessionen och en enskild klient gör ett oproportionerligt antal begär Anden. Du får också veta om du närmar dig [gränsen för antalet virtuella datorer per](https://docs.microsoft.com/azure/virtual-network/virtual-machine-network-throughput#flow-limits-and-recommendations) virtuell dator storlek.
+Dessa vyer kan ge dig feedback om din Load Balancer-konfiguration eller trafik mönster leder till Bal anse rad trafik. Om du till exempel har konfigurerat tillhörigheten för sessionen och en enskild klient gör ett oproportionerligt antal begär Anden. Du får också veta om du närmar dig [gränsen för antalet virtuella datorer per](../virtual-network/virtual-machine-network-throughput.md#flow-limits-and-recommendations) virtuell dator storlek.
 
 ### <a name="connection-monitors"></a>Anslutningsövervakare
-På fliken anslutnings övervakare visas svars tiden på en global karta för alla [anslutnings övervakare](https://docs.microsoft.com/azure/network-watcher/connection-monitor)  som du har konfigurerat. Dessa visuella objekt ger värdefull information för tjänster med strikt latens krav. För att uppfylla dina krav kan du behöva lägga till ytterligare regionala distributioner eller flytta till en [belastnings Utjämnings modell över flera regioner](https://docs.microsoft.com/azure/load-balancer/cross-region-overview)
+På fliken anslutnings övervakare visas svars tiden på en global karta för alla [anslutnings övervakare](../network-watcher/connection-monitor.md)  som du har konfigurerat. Dessa visuella objekt ger värdefull information för tjänster med strikt latens krav. För att uppfylla dina krav kan du behöva lägga till ytterligare regionala distributioner eller flytta till en [belastnings Utjämnings modell över flera regioner](./cross-region-overview.md)
 
 ### <a name="metric-definitions"></a>Måttdefinitioner
-Fliken mått definitioner innehåller all information som visas i artikeln om [flerdimensionella mått](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics).
+Fliken mått definitioner innehåller all information som visas i artikeln om [flerdimensionella mått](./load-balancer-standard-diagnostics.md#multi-dimensional-metrics).
 
 ## <a name="next-steps"></a>Nästa steg
 * Granska instrument panelen och ge feedback med hjälp av länken nedan om det finns något som kan förbättras
-* [Läs statistik dokumentationen för att se hur varje mått beräknas](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics)
-* [Skapa anslutnings Övervakare för din Load Balancer](https://docs.microsoft.com/azure/network-watcher/connection-monitor)
-* [Skapa egna arbets böcker](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview), du kan ta inspiration genom att klicka på knappen Redigera på instrument panelen för detaljerade mått
+* [Läs statistik dokumentationen för att se hur varje mått beräknas](./load-balancer-standard-diagnostics.md#multi-dimensional-metrics)
+* [Skapa anslutnings Övervakare för din Load Balancer](../network-watcher/connection-monitor.md)
+* [Skapa egna arbets böcker](../azure-monitor/platform/workbooks-overview.md), du kan ta inspiration genom att klicka på knappen Redigera på instrument panelen för detaljerade mått

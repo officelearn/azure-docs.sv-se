@@ -1,23 +1,22 @@
 ---
 title: Om Azure Machine Learning miljöer
 titleSuffix: Azure Machine Learning
-description: I den här artikeln får du lära dig fördelarna med Machine Learning-miljöer, som möjliggör återare, gransknings bara och bärbara dator inlärnings beroende definitioner över flera olika beräknings mål.
+description: Lär dig mer om Machine Learning-miljöer, som möjliggör återare, gransknings bara, & bärbara Machine Learning-beroende definitioner för olika beräknings mål.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: BlackMist
-ms.date: 07/08/2020
-ms.openlocfilehash: 9c554abc8aef89ca353e06c14b04fab2622d2827
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/16/2020
+ms.openlocfilehash: 78f8d6d216659eaad01d512dd45696dd31035885
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322187"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695392"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>Vad är Azure Machine Learning miljöer?
-
 
 Azure Machine Learning miljöer är en inkapsling av miljön där din Machine Learning-utbildning sker. De anger python-paket, miljövariabler och program varu inställningar kring dina utbildnings-och bedömnings skript. De anger också kör tider (python, Spark eller Docker). Miljöerna är hanterade och versioner av entiteter inom din Machine Learning arbets yta som möjliggör återskapande, gransknings bara och bärbara Machine Learning-arbetsflöden över flera olika beräknings mål.
 
@@ -35,7 +34,7 @@ Skripten miljö, Compute Target och Training bildar körnings konfigurationen: d
 
 ## <a name="types-of-environments"></a>Typer av miljöer
 
-Miljöer kan i stort sett delas in i tre kategorier: *granskade* , *hanterade* och *systemhanterade*.
+Miljöer kan i stort sett delas in i tre kategorier: *granskade*, *hanterade* och *systemhanterade*.
 
 Granskade miljöer tillhandahålls av Azure Machine Learning och är tillgängliga i arbets ytan som standard. De innehåller samlingar med python-paket och inställningar som är avsedda att användas i befintligt skick för att komma igång med olika ramverk för maskin inlärning. De här i förväg skapade miljöerna tillåter också snabbare distributions tid. En fullständig lista finns i [artikeln granskade miljöer](resource-curated-environments.md).
 

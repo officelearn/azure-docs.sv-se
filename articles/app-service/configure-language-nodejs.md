@@ -6,12 +6,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 7f925854f4ef09ccc74c0ec1e8fdcca6b71d1437
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 8bdf637ab773e90a5eac42bcaa443cf6741db636
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744059"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696021"
 ---
 # <a name="configure-a-nodejs-app-for-azure-app-service"></a>Konfigurera en Node.js app för Azure App Service
 
@@ -85,6 +85,36 @@ Den här inställningen anger vilken Node.js-version som ska användas, både vi
 
 ::: zone-end
 
+## <a name="get-port-number"></a>Hämta port nummer
+
+Du Node.js appen måste lyssna på rätt port för att ta emot inkommande begär Anden.
+
+::: zone pivot="platform-windows"  
+
+I App Service på Windows finns Node.js appar med [IISNode](https://github.com/Azure/iisnode)och din Node.js app bör lyssna på den port som anges i `process.env.PORT` variabeln. I följande exempel visas hur du gör det i en enkel Express-app:
+
+::: zone-end
+
+::: zone pivot="platform-linux"  
+
+App Service anger miljövariabeln `PORT` i Node.js containern och vidarebefordrar inkommande begär anden till din behållare på port numret. För att ta emot begär Anden ska din app Lyssna på den porten med hjälp av `process.env.PORT` . I följande exempel visas hur du gör det i en enkel Express-app:
+
+::: zone-end
+
+```javascript
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 3000
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
+```
+
 ::: zone pivot="platform-linux"
 
 ## <a name="customize-build-automation"></a>Anpassa Bygg automatisering
@@ -93,8 +123,8 @@ Om du distribuerar din app med hjälp av git-eller zip-paket med build-automatis
 
 1. Kör anpassat skript om det anges av `PRE_BUILD_SCRIPT_PATH` .
 1. Kör `npm install` utan några flaggor, som innehåller NPM `preinstall` och `postinstall` skript och som också installeras `devDependencies` .
-1. Kör `npm run build` om ett build-skript anges i *package.jspå* .
-1. Kör `npm run build:azure` om en version: Azure-skript anges i *package.jspå* .
+1. Kör `npm run build` om ett build-skript anges i *package.jspå*.
+1. Kör `npm run build:azure` om en version: Azure-skript anges i *package.jspå*.
 1. Kör anpassat skript om det anges av `POST_BUILD_SCRIPT_PATH` .
 
 > [!NOTE]
@@ -123,7 +153,7 @@ Node.js behållare levereras med [PM2](https://pm2.keymetrics.io/), en produktio
 
 ### <a name="run-custom-command"></a>Kör anpassat kommando
 
-App Service kan starta din app med ett anpassat kommando, till exempel en körbar fil som *Run.sh* . Om du till exempel vill köra kör du `npm run start:prod` följande kommando i [Cloud Shell](https://shell.azure.com):
+App Service kan starta din app med ett anpassat kommando, till exempel en körbar fil som *Run.sh*. Om du till exempel vill köra kör du `npm run start:prod` följande kommando i [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "npm run start:prod"
@@ -164,7 +194,7 @@ Behållaren startar automatiskt appen med PM2 när en av de vanliga Node.js-file
 Du kan också konfigurera en anpassad start fil med följande fil namns tillägg:
 
 - En *. js* -fil
-- En [PM2-fil](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) med fil namns tillägget *. JSON* , *.config.js* , *. yaml* eller *. yml*
+- En [PM2-fil](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) med fil namns tillägget *. JSON*, *.config.js*, *. yaml* eller *. yml*
 
 Om du vill lägga till en anpassad start fil kör du följande kommando i [Cloud Shell](https://shell.azure.com):
 
@@ -177,7 +207,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 > [!NOTE]
 > Fjärrfelsökning är för närvarande en för hands version.
 
-Du kan felsöka Node.js-appen via fjärr anslutning i [Visual Studio Code](https://code.visualstudio.com/) om du konfigurerar den att [köras med PM2](#run-with-pm2), förutom när du kör den med hjälp av * .config.js, *. yml eller *. yaml* .
+Du kan felsöka Node.js-appen via fjärr anslutning i [Visual Studio Code](https://code.visualstudio.com/) om du konfigurerar den att [köras med PM2](#run-with-pm2), förutom när du kör den med hjälp av * .config.js, *. yml eller *. yaml*.
 
 I de flesta fall krävs ingen extra konfiguration för din app. Om din app körs med en *process.jspå* fil (standard eller anpassad), måste den ha en `script` egenskap i JSON-roten. Exempel:
 
@@ -191,9 +221,9 @@ I de flesta fall krävs ingen extra konfiguration för din app. Om din app körs
 
 Om du vill konfigurera Visual Studio Code för fjärrfelsökning, installerar du [App Service-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Följ instruktionerna på sidan anknytning och logga in på Azure i Visual Studio Code.
 
-I Azure Explorer letar du reda på den app som du vill felsöka, högerklickar på den och väljer **Starta fjärrfelsökning** . Klicka på **Ja** för att aktivera den för din app. App Service startar en tunnel-proxy för dig och kopplar fel söknings programmet. Du kan sedan göra förfrågningar till appen och se fel söknings verktyget pausas vid Bryt punkter.
+I Azure Explorer letar du reda på den app som du vill felsöka, högerklickar på den och väljer **Starta fjärrfelsökning**. Klicka på **Ja** för att aktivera den för din app. App Service startar en tunnel-proxy för dig och kopplar fel söknings programmet. Du kan sedan göra förfrågningar till appen och se fel söknings verktyget pausas vid Bryt punkter.
 
-När du är färdig med fel sökningen stoppar du fel sökningen genom att välja **Koppla från** . När du uppmanas bör du klicka på **Ja** om du vill inaktivera fjärrfelsökning. Om du vill inaktivera det senare högerklickar du på din app igen i Azure Explorer och väljer **inaktivera fjärrfelsökning** .
+När du är färdig med fel sökningen stoppar du fel sökningen genom att välja **Koppla från**. När du uppmanas bör du klicka på **Ja** om du vill inaktivera fjärrfelsökning. Om du vill inaktivera det senare högerklickar du på din app igen i Azure Explorer och väljer **inaktivera fjärrfelsökning**.
 
 ::: zone-end
 
@@ -227,7 +257,7 @@ npm install kuduscript -g
 kuduscript --node --scriptType bash --suppressPrompt
 ```
 
-Din databas rot har nu två ytterligare filer: *. distribution* och *Deploy.sh* .
+Din databas rot har nu två ytterligare filer: *. distribution* och *Deploy.sh*.
 
 Öppna *Deploy.sh* och hitta `Deployment` avsnittet som ser ut så här:
 

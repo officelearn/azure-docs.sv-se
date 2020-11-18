@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: b3924a563d8266cfa38f24106dbb84102031a182
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 5a2d7f9f60253916eae808a7f65bc4b4b289bd67
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331880"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694788"
 ---
 # <a name="using-snat-for-outbound-connections"></a>Använda SNAT för utgående anslutningar
 
@@ -22,13 +22,13 @@ Klient delens IP-adresser för en offentlig belastningsutjämnare i Azure kan an
 SNAT aktiverar **IP-maskerande** av Server dels instansen. Den här maskerade tjänsten förhindrar att externa källor har en direkt adress till Server dels instanserna. Att dela en IP-adress mellan server dels instanser minskar kostnaden för statiska offentliga IP-adresser och har stöd för scenarier som fören klar IP-listor med trafik från kända offentliga IP-adresser. 
 
 >[!Note]
-> För program med som kräver ett stort antal utgående anslutningar eller företags kunder som kräver att en enda uppsättning IP-adresser används från ett visst virtuellt nätverk, [Virtual Network NAT](https://docs.microsoft.com/azure/virtual-network/nat-overview) är den rekommenderade lösningen. Den dynamiska allokeringen tillåter enkel konfiguration och > den mest effektiva användningen av SNAT-portar från varje IP-adress. Det innebär också att alla resurser i det virtuella nätverket kan dela en uppsättning IP-adresser utan att behöva dela > en belastningsutjämnare.
+> För program med som kräver ett stort antal utgående anslutningar eller företags kunder som kräver att en enda uppsättning IP-adresser används från ett visst virtuellt nätverk, [Virtual Network NAT](../virtual-network/nat-overview.md) är den rekommenderade lösningen. Den dynamiska allokeringen tillåter enkel konfiguration och > den mest effektiva användningen av SNAT-portar från varje IP-adress. Det innebär också att alla resurser i det virtuella nätverket kan dela en uppsättning IP-adresser utan att behöva dela > en belastningsutjämnare.
 
 >[!Important]
 > Även om inga utgående SNAT har kon figurer ATS kommer Azure Storage-konton inom samma region fortfarande vara tillgängliga och Server dels resurser kommer fortfarande att ha åtkomst till Microsoft-tjänster, till exempel Windows-uppdateringar.
 
 >[!NOTE] 
->Den här artikeln beskriver endast Azure Resource Manager distributioner. Granska [utgående anslutningar (klassiska)](load-balancer-outbound-connections-classic.md) för alla klassiska distributions scenarier i Azure.
+>Den här artikeln beskriver endast Azure Resource Manager distributioner. Granska [utgående anslutningar (klassiska)](/previous-versions/azure/load-balancer/load-balancer-outbound-connections-classic) för alla klassiska distributions scenarier i Azure.
 
 ## <a name="sharing-frontend-ip-address-across-backend-resources"></a><a name ="snat"></a> Dela klient delens IP-adress över Server dels resurser
 
@@ -48,7 +48,7 @@ Per definition har varje IP-adress 65 535 portar. Varje port kan antingen använ
 >[!NOTE]
 > Varje port som används för en belastnings Utjämnings regel eller en inkommande NAT-regel använder en rad åtta portar från de här 64 000 portarna, vilket minskar antalet portar som är kvalificerade för SNAT. Om en belastnings > balansering eller NAT-regel finns i samma intervall på åtta som en annan kommer den inte att förbruka några ytterligare portar. 
 
-Genom regler för [utgående trafik](https://docs.microsoft.com/azure/load-balancer/outbound-rules) och belastnings utjämning kan de här SNAT-portarna distribueras till Server dels instanser för att de ska kunna dela de offentliga IP-adresserna för belastningsutjämnaren för utgående anslutningar.
+Genom regler för [utgående trafik](./outbound-rules.md) och belastnings utjämning kan de här SNAT-portarna distribueras till Server dels instanser för att de ska kunna dela de offentliga IP-adresserna för belastningsutjämnaren för utgående anslutningar.
 
 När du har konfigurerat [Scenario 2](#scenario2) nedan, kommer värden för varje server dels instans att utföra SNAT på paket som ingår i en utgående anslutning. När du utför SNAT på en utgående anslutning från en server dels instans, skriver värden om käll-IP: en till en av klient delens IP-adresser. För att upprätthålla unika flöden skriver värden om käll porten för varje utgående paket till någon av de SNAT-portar som allokerats för backend-instansen.
 
@@ -66,7 +66,7 @@ När du har konfigurerat [Scenario 2](#scenario2) nedan, kommer värden för var
  | Offentlig belastningsutjämnare eller fristående | [SNAT (käll nätverks adress översättning)](#snat) </br> används inte. | TCP (Transmission Control Protocol) </br> UDP (User Datagram Protocol) </br> ICMP (Internet Control Message Protocol) </br> ESP (Encapsulating Security Payload) |
 
 
- #### <a name="description"></a>Description
+ #### <a name="description"></a>Beskrivning
 
 
  Azure använder den offentliga IP-adress som tilldelats IP-konfigurationen av instansens nätverkskort för alla utgående flöden. Instansen har alla tillfälliga portar tillgängliga. Det spelar ingen roll om den virtuella datorn är belastningsutjämnad eller inte. Det här scenariot prioriteras framför de andra. 
@@ -83,7 +83,7 @@ När du har konfigurerat [Scenario 2](#scenario2) nedan, kommer värden för var
  | Offentlig lastbalanserare | Användning av IP-adresser för belastningsutjämnare för [SNAT](#snat).| TCP </br> UDP |
 
 
- #### <a name="description"></a>Description
+ #### <a name="description"></a>Beskrivning
 
 
  Belastnings Utjämnings resursen har kon figurer ATS med en utgående regel eller en regel för belastnings utjämning som aktiverar standard SNAT. Den här regeln används för att skapa en länk mellan den offentliga IP-klient delen med backend-poolen. 
@@ -101,7 +101,7 @@ När du har konfigurerat [Scenario 2](#scenario2) nedan, kommer värden för var
  Tillfälliga portar för den offentliga IP-adressen för belastningsutjämnaren i klient delen används för att särskilja enskilda flöden från den virtuella datorn. SNAT använder dynamiskt [förallokerade portar](#preallocatedports) när utgående flöden skapas. 
 
 
- I det här sammanhanget kallas de tillfälliga portarna som används för SNAT som SNAT-portar. Vi rekommenderar starkt att en [utgående regel](https://docs.microsoft.com/azure/load-balancer/outbound-rules) konfigureras explicit. Om du använder standard SNAT via en belastnings Utjämnings regel är SNAT-portarna fördelade enligt beskrivningen i [standard tilldelnings tabellen för SNAT-portar](#snatporttable).
+ I det här sammanhanget kallas de tillfälliga portarna som används för SNAT som SNAT-portar. Vi rekommenderar starkt att en [utgående regel](./outbound-rules.md) konfigureras explicit. Om du använder standard SNAT via en belastnings Utjämnings regel är SNAT-portarna fördelade enligt beskrivningen i [standard tilldelnings tabellen för SNAT-portar](#snatporttable).
 
 
  ### <a name="scenario-3-virtual-machine-without-public-ip-and-behind-basic-load-balancer"></a><a name="scenario3"></a>Scenario 3: virtuell dator utan offentlig IP och bakom Basic Load Balancer
@@ -109,9 +109,9 @@ När du har konfigurerat [Scenario 2](#scenario2) nedan, kommer värden för var
 
  | Typer | Metod | IP-protokoll |
  | ------------ | ------ | ------------ |
- |Inget </br> Basic Load Balancer | [SNAT](#snat) med dynamisk IP-adress på instans nivå| TCP </br> UDP | 
+ |Inga </br> Basic Load Balancer | [SNAT](#snat) med dynamisk IP-adress på instans nivå| TCP </br> UDP | 
 
- #### <a name="description"></a>Description
+ #### <a name="description"></a>Beskrivning
 
 
  När den virtuella datorn skapar ett utgående flöde översätter Azure käll-IP-adressen till en dynamiskt allokerad offentlig käll-IP-adress. Den här offentliga IP-adressen kan **inte konfigureras** och kan inte reserveras. Den här adressen räknas inte mot prenumerationens offentliga IP-adressresurs. 
@@ -142,7 +142,7 @@ Utan olika mål portar för retur trafiken (den SNAT-port som används för att 
 
 Utgående anslutningar kan burst-överföras. En server dels instans kan allokeras för otillräckliga portar. Om du inte aktiverar **åter användning av anslutningar** ökar risken för att antalet SNAT- **portar** är.
 
-Nya utgående anslutningar till en mål-IP-adress Miss fungerar när port överbelastningen sker. Anslutningar kommer att lyckas när en port blir tillgänglig. Den här utbelastningen inträffar när 64 000-portarna från en IP-adress sprids tunn över flera Server dels instanser. Information om hur du minskar antalet SNAT-portar finns i [fel söknings guiden](https://docs.microsoft.com/azure/load-balancer/troubleshoot-outbound-connection).  
+Nya utgående anslutningar till en mål-IP-adress Miss fungerar när port överbelastningen sker. Anslutningar kommer att lyckas när en port blir tillgänglig. Den här utbelastningen inträffar när 64 000-portarna från en IP-adress sprids tunn över flera Server dels instanser. Information om hur du minskar antalet SNAT-portar finns i [fel söknings guiden](./troubleshoot-outbound-connection.md).  
 
 För TCP-anslutningar använder belastningsutjämnaren en enskild SNAT-port för varje mål-IP och port. Den här MultiUse aktiverar flera anslutningar till samma mål-IP med samma SNAT-port. Den här MultiUse är begränsad om anslutningen inte är till olika mål portar.
 
@@ -194,6 +194,5 @@ Mer information om Azure Virtual Network NAT finns i [Vad är azure Virtual Netw
 
 ## <a name="next-steps"></a>Nästa steg
 
-*   [Felsök utgående anslutnings fel på grund av SNAT-belastning](https://docs.microsoft.com/azure/load-balancer/troubleshoot-outbound-connection)
-*   [Granska SNAT-mått](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) och bekanta dig med det korrekta sättet att filtrera, dela och visa dem.
-
+*   [Felsök utgående anslutnings fel på grund av SNAT-belastning](./troubleshoot-outbound-connection.md)
+*   [Granska SNAT-mått](./load-balancer-standard-diagnostics.md#how-do-i-check-my-snat-port-usage-and-allocation) och bekanta dig med det korrekta sättet att filtrera, dela och visa dem.

@@ -4,12 +4,12 @@ description: Lär dig hur du skapar en princip för Azure Policy gäst konfigura
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 240f22a076b5f185ebe3028b201b66d187c9bb2d
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 1e81d1a5157cc5872ba2628c8d6cb408e35ab9c6
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346884"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694250"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Skapa gästkonfigurationsprinciper för Linux
 
@@ -163,10 +163,10 @@ De stödfiler som krävs måste paketeras tillsammans. Det slutförda paketet an
 
 `New-GuestConfigurationPackage`Cmdleten skapar paketet. Parametrar för `New-GuestConfigurationPackage` cmdleten vid skapande av Linux-innehåll:
 
-- **Namn** : namn på gäst konfigurations paket.
-- **Konfiguration** : kompilerad fullständig sökväg till konfigurations dokument.
-- **Sökväg** : sökväg till utmatnings katalog. Den här parametern är valfri. Om det inte anges skapas paketet i den aktuella katalogen.
-- **ChefInspecProfilePath** : fullständig sökväg till INSPEC-profil. Den här parametern stöds bara när du skapar innehåll för att granska Linux.
+- **Namn**: namn på gäst konfigurations paket.
+- **Konfiguration**: kompilerad fullständig sökväg till konfigurations dokument.
+- **Sökväg**: sökväg till utmatnings katalog. Den här parametern är valfri. Om det inte anges skapas paketet i den aktuella katalogen.
+- **ChefInspecProfilePath**: fullständig sökväg till INSPEC-profil. Den här parametern stöds bara när du skapar innehåll för att granska Linux.
 
 Kör följande kommando för att skapa ett paket med den konfiguration som angavs i föregående steg:
 
@@ -183,9 +183,9 @@ Eftersom agenten faktiskt utvärderar den lokala miljön måste du, i de flesta 
 
 Parametrar för `Test-GuestConfigurationPackage` cmdleten:
 
-- **Namn** : princip namn för gäst konfiguration.
-- **Parameter** : princip parametrar har angetts i hash-format.
-- **Sökväg** : fullständig sökväg till gäst konfigurations paketet.
+- **Namn**: princip namn för gäst konfiguration.
+- **Parameter**: princip parametrar har angetts i hash-format.
+- **Sökväg**: fullständig sökväg till gäst konfigurations paketet.
 
 Kör följande kommando för att testa paketet som skapades i föregående steg:
 
@@ -210,13 +210,13 @@ När ett anpassat princip paket för gäst konfiguration har skapats och överf�
 
 Parametrar för `New-GuestConfigurationPolicy` cmdleten:
 
-- **ContentUri** : offentlig http (s) URI för innehålls paketet för gäst konfiguration.
-- **DisplayName** : principens visnings namn.
-- **Beskrivning** : princip beskrivning.
-- **Parameter** : princip parametrar har angetts i hash-format.
-- **Version** : princip version.
-- **Sökväg** : mål Sök väg där princip definitioner skapas.
-- **Plattform** : mål plattform (Windows/Linux) för gäst konfigurations princip och innehålls paket.
+- **ContentUri**: offentlig http (s) URI för innehålls paketet för gäst konfiguration.
+- **DisplayName**: principens visnings namn.
+- **Beskrivning**: princip beskrivning.
+- **Parameter**: princip parametrar har angetts i hash-format.
+- **Version**: princip version.
+- **Sökväg**: mål Sök väg där princip definitioner skapas.
+- **Plattform**: mål plattform (Windows/Linux) för gäst konfigurations princip och innehålls paket.
 - **Tag** lägger till ett eller flera märkes filter i princip definitionen
 - **Kategori** anger fältet Kategori metadata i princip definitionen
 
@@ -330,9 +330,9 @@ För att kunna släppa en uppdatering av princip definitionen finns det tre fäl
 > [!NOTE]
 > `version`Egenskapen för gäst konfigurations tilldelningen påverkar bara paket som är värd för Microsoft. Den bästa metoden för att konfigurera anpassade innehålls versioner är att inkludera versionen i fil namnet.
 
-- **Version** : när du kör `New-GuestConfigurationPolicy` cmdleten måste du ange ett versions nummer som är större än det som för närvarande är publicerat.
-- **contentUri** : när du kör `New-GuestConfigurationPolicy` cmdleten måste du ange en URI till paketets plats. Genom att inkludera en paket version i fil namnet ser du till att värdet för egenskapen ändras i varje version.
-- **contentHash** : den här egenskapen uppdateras automatiskt av `New-GuestConfigurationPolicy` cmdleten. Det är ett hash-värde för det paket som skapats av `New-GuestConfigurationPackage` . Egenskapen måste vara korrekt för den `.zip` fil som du publicerar. Om endast egenskapen **contentUri** uppdateras, accepterar inte tillägget innehålls paketet.
+- **Version**: när du kör `New-GuestConfigurationPolicy` cmdleten måste du ange ett versions nummer som är större än det som för närvarande är publicerat.
+- **contentUri**: när du kör `New-GuestConfigurationPolicy` cmdleten måste du ange en URI till paketets plats. Genom att inkludera en paket version i fil namnet ser du till att värdet för egenskapen ändras i varje version.
+- **contentHash**: den här egenskapen uppdateras automatiskt av `New-GuestConfigurationPolicy` cmdleten. Det är ett hash-värde för det paket som skapats av `New-GuestConfigurationPackage` . Egenskapen måste vara korrekt för den `.zip` fil som du publicerar. Om endast egenskapen **contentUri** uppdateras, accepterar inte tillägget innehålls paketet.
 
 Det enklaste sättet att frigöra ett uppdaterat paket är att upprepa processen som beskrivs i den här artikeln och ange ett uppdaterat versions nummer. Den processen garanterar att alla egenskaper har uppdaterats korrekt.
 
@@ -375,8 +375,8 @@ Om du vill använda funktionen för signaturverifiering kör du `Protect-GuestCo
 
 Parametrar för `Protect-GuestConfigurationPackage` cmdleten:
 
-- **Sökväg** : fullständig sökväg till gäst konfigurations paketet.
-- **PublicGpgKeyPath** : offentlig GPG-nyckel Sök väg. Den här parametern stöds bara när du signerar innehåll för Linux.
+- **Sökväg**: fullständig sökväg till gäst konfigurations paketet.
+- **PublicGpgKeyPath**: offentlig GPG-nyckel Sök väg. Den här parametern stöds bara när du signerar innehåll för Linux.
 
 En referens för att skapa GPG-nycklar som ska användas med Linux-datorer finns i en artikel på GitHub, vilket [genererar en ny GPG-nyckel](https://help.github.com/en/articles/generating-a-new-gpg-key).
 
@@ -384,12 +384,6 @@ GuestConfiguration-agenten förväntar sig att certifikatets offentliga nyckel f
 Principen för Key Vault åtkomst måste tillåta att beräknings resurs leverantören får åtkomst till certifikat under distributioner. Detaljerade anvisningar finns i [konfigurera Key Vault för virtuella datorer i Azure Resource Manager](../../../virtual-machines/windows/key-vault-setup.md#use-templates-to-set-up-key-vault).
 
 När innehållet har publicerats lägger du till en tagg med namn `GuestConfigPolicyCertificateValidation` och värde `enabled` för alla virtuella datorer där kod signering ska krävas. Se [taggens exempel](../samples/built-in-policies.md#tags) för hur taggar kan levereras i skala med hjälp av Azure policy. När den här taggen är på plats kan princip definitionen som genereras med hjälp av cmdlet: en `New-GuestConfigurationPolicy` Aktivera kravet via gäst konfigurations tillägget.
-
-## <a name="troubleshooting-guest-configuration-policy-assignments-preview"></a>Fel sökning av princip tilldelningar för gäst konfiguration (för hands version)
-
-Ett verktyg är tillgängligt i för hands versionen för att hjälpa till med fel sökning Azure Policy gäst konfigurations tilldelningar. Verktyget är i för hands version och har publicerats till PowerShell-galleriet som Modulnamn [fel sökning av gäst konfiguration](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/).
-
-Om du vill ha mer information om cmdletar i det här verktyget använder du kommandot Get-Help i PowerShell för att visa den inbyggda vägledningen. När verktyget uppdateras ofta är det bästa sättet att hämta den senaste informationen.
 
 ## <a name="next-steps"></a>Nästa steg
 

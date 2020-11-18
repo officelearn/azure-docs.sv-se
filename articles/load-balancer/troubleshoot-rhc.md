@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2020
 ms.author: errobin
-ms.openlocfilehash: 1af3ce7125d30ed0cb9b8ca6b3cb9322dc14c520
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcfce06bb158888b56483a73ededd354c229a99b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855250"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696327"
 ---
 # <a name="troubleshoot-resource-health-frontend-and-backend-availability-issues"></a>Felsöka problem med resurs hälsa, frontend och backend-tillgänglighet 
 
@@ -52,7 +52,7 @@ Anta att vi kontrollerar status för hälso avsökning och tar reda på om alla 
   * Om du tycker att det här NSG problemet är fallet flyttar du den befintliga regeln för att tillåta eller skapar en ny regel med hög prioritet för att tillåta AzureLoadBalancer-trafik
 * Kontrol lera operativ systemet. Se till att de virtuella datorerna lyssnar på avsöknings porten och granska deras brand Väggs regler för att säkerställa att de inte blockerar avsöknings trafiken från IP-168.63.129.16
   * Du kan kontrol lera lyssnings portar genom att köra netstat-a Windows-Kommandotolken eller netstat-l i en Linux-terminal
-* Placera inte en brand Väggs NVA VM i belastningsutjämnaren för belastningsutjämnaren, Använd [användardefinierade vägar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined) för att dirigera trafik till Server dels instanser via brand väggen
+* Placera inte en brand Väggs NVA VM i belastningsutjämnaren för belastningsutjämnaren, Använd [användardefinierade vägar](../virtual-network/virtual-networks-udr-overview.md#user-defined) för att dirigera trafik till Server dels instanser via brand väggen
 * Se till att du använder rätt protokoll, om du använder HTTP för att avsöka en port som lyssnar efter ett icke-HTTP-program, Miss söker avsökningen
 
 Om du har gått igenom check listan och fortfarande hittar hälso avsöknings fel kan det hända att sällsynta plattforms problem påverkar avsöknings tjänsten för dina instanser. I det här fallet har Azure din tillbaka och en automatiserad avisering skickas till vårt team för att snabbt lösa alla plattforms problem.
@@ -61,5 +61,3 @@ Om du har gått igenom check listan och fortfarande hittar hälso avsöknings fe
 
 * [Läs mer om den Azure Load Balancer hälso avsökningen](load-balancer-custom-probe-overview.md)
 * [Läs mer om Azure Load Balancer mått](load-balancer-standard-diagnostics.md)
-
-

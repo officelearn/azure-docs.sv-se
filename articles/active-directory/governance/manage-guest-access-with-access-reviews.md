@@ -16,12 +16,12 @@ ms.date: 07/22/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77c560ffd01fe6d0b93e18b963574136c086fdc4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb9bc252c733f3445cbf8b27281c2f455d5f2f36
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88783203"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696973"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Hantera gäståtkomst med Azure AD-åtkomstgranskningar
 
@@ -41,7 +41,12 @@ För mer information, [licens krav](access-reviews-overview.md#license-requireme
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>Skapa och utför en åtkomst granskning för gäster
 
-För det första, som global administratör eller användar administratör, går du till [sidan identitets styrning](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) för att säkerställa att åtkomst granskningar är klara för din organisation.
+Först måste du ha tilldelats någon av följande roller:
+- global administratör
+- Användaradministratör
+- Förhandsgranskningsvyn M365 eller AAD-säkerhetsgruppens ägare av gruppen som ska granskas
+
+Gå sedan till [sidan identitets styrning](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) för att säkerställa att åtkomst granskningar är klara för din organisation.
 
 Azure AD möjliggör flera scenarier för att granska gäst användare.
 

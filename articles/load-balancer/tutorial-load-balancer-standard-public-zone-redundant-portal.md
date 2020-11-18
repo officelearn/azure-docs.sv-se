@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: f165064ed5b0583ebb469c47426a2b6403307971
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 4e07285eca0fd10b73b386fcf139cdad5b94ddc2
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048363"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696412"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Självstudiekurs: Lastbalansera virtuella datorer i flera tillgänglighetszoner med Standard Load Balancer med hjälp av Azure Portal
 
@@ -37,7 +37,7 @@ Med belastningsutjämning får du högre tillgänglighet genom att inkommande be
 
 Mer information om hur du använder tillgänglighetszoner med standardlastbalanserare finns i [Standard Load Balancer och tillgänglighet zoner](load-balancer-standard-availability-zones.md).
 
-Om du vill kan du slutföra den här självstudien med [Azure CLI](load-balancer-standard-public-zone-redundant-cli.md).
+Om du vill kan du slutföra den här självstudien med [Azure CLI](./quickstart-load-balancer-standard-public-cli.md).
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
@@ -53,14 +53,14 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 En Standard Load Balancer stöder endast offentliga IP-standardadresser. När du skapar en ny offentlig IP-adress medan du skapar lastbalanseraren konfigureras den automatiskt som en standard-SKU-version och blir också automatiskt zonredundant.
 
-1. Klicka på **skapa en resurs**  >  **nätverk**  >  **Load Balancer**på den övre vänstra sidan av skärmen.
+1. Klicka på **skapa en resurs**  >  **nätverk**  >  **Load Balancer** på den övre vänstra sidan av skärmen.
 2. På fliken **Grundläggande inställningar** på sidan **Skapa lastbalanserare** anger eller väljer du följande information, accepterar standardinställningarna för de återstående inställningarna och väljer sedan **Granska + skapa**:
 
     | Inställningen                 | Värde                                              |
     | ---                     | ---                                                |
     | Prenumeration               | Välj din prenumeration.    |    
     | Resursgrupp         | Välj **Skapa ny** och skriv *MyResourceGroupLBAZ* i textrutan.|
-    | Name                   | *myLoadBalancer*                                   |
+    | Namn                   | *myLoadBalancer*                                   |
     | Region         | Välj **Europa, västra**.                                        |
     | Typ          | Välj **Offentlig**.                                        |
     | SKU           | Välj **standard**.                          |
@@ -134,7 +134,7 @@ Skapa virtuella datorer i olika zoner (zon 1, zon 2 och zon 3) för den region s
 1. Klicka på **skapa en resurs**  >  **Compute**  >  **Windows Server 2016 Data Center** på den övre vänstra sidan av skärmen och ange följande värden för den virtuella datorn:
     - *myVM1* – för den virtuella datorns namn.        
     - *azureuser* – för administratörens användarnamn.    
-    - *myResourceGroupLBAZ* – för **Resursgrupp**väljer du **Använd befintlig**, och väljer sedan *myResourceGroupLBAZ*.
+    - *myResourceGroupLBAZ* – för **Resursgrupp** väljer du **Använd befintlig**, och väljer sedan *myResourceGroupLBAZ*.
 2. Klicka på **OK**.
 3. Välj **DS1_V2** som storlek på den virtuella datorn och klicka på **Välj**.
 4. Ange dessa värden för VM-inställningarna:
@@ -151,7 +151,7 @@ Skapa virtuella datorer i olika zoner (zon 1, zon 2 och zon 3) för den region s
 1. Klicka på **Alla resurser** på den vänstra menyn och klicka sedan i resurslistan på **myVM1** som finns i resursgruppen *myResourceGroupLBAZ*.
 2. Klicka på **Anslut** på sidan **Översikt** och anslut RDP till den virtuella datorn.
 3. Logga in på den virtuella datorn med användarnamnet *azureuser*.
-4. Gå till **Windows administrations verktyg** > **Windows PowerShell**på server Skriv bordet.
+4. Gå till **Windows administrations verktyg** > **Windows PowerShell** på server Skriv bordet.
 5. I PowerShell-fönstret kör du följande kommandon för att installera IIS.servern, ta bort standardfilen iisstart.htm och lägga till en ny iisstart.htm-fil som visar namnet på den virtuella datorn:
    ```azurepowershell-interactive
     

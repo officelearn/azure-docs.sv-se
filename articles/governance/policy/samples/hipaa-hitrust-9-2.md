@@ -1,15 +1,15 @@
 ---
 title: Information om regelefterlevnad för HIPAA HITRUST 9,2
 description: Information om det inbyggda initiativet HIPAA HITRUST 9,2-kontroll. Varje kontroll mappas till en eller flera Azure Policy definitioner som hjälper till med utvärderingen.
-ms.date: 10/20/2020
+ms.date: 11/17/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 499ecccd6d9a98b69e9e36f72fbf87d65d242f6d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: c177abaea8dd6d38814e39aef7cdfd63981a6856
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92310653"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694267"
 ---
 # <a name="details-of-the-hipaa-hitrust-92-regulatory-compliance-built-in-initiative"></a>Information om det inbyggda initiativet HIPAA HITRUST 9,2-kontroll
 
@@ -86,7 +86,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="the-organization-facilitates-information-sharing-by-enabling-authorized-users-to-determine-a-business-partners-access-when-discretion-is-allowed-as-defined-by-the-organization-and-by-employing-manual-processes-or-automated-mechanisms-to-assist-users-in-making-information-sharingcollaboration-decisions"></a>Organisationen underlättar informations delningen genom att göra det möjligt för behöriga användare att fastställa en affärs partners åtkomst när det är möjligt att tillåta detta som definieras av organisationen och genom att använda manuella processer eller automatiserade mekanismer för att hjälpa användare att fatta informations delning/samarbets beslut.
 
-**ID**: 1149.01 c2system. 9-01. c- **ägande**: ej tillämpligt
+**ID**: 1149.01 c2system. 9-01. c- **ägande**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -94,7 +94,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="the-access-control-system-for-the-system-components-storing-processing-or-transmitting-covered-information-is-set-with-a-default-quotdeny-allquot-setting"></a>Åtkomst kontroll systemet för system komponenter som lagrar, bearbetar eller överför information som omfattas anges med standard &quot; inställningen Deny-all &quot; .
 
-**ID**: 1150.01 c2system. 10-01. c- **ägande**: ej tillämpligt
+**ID**: 1150.01 c2system. 10 – 01. c- **ägande**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -144,7 +144,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="remote-access-by-vendors-and-business-partners-eg-for-remote-maintenance-is-disableddeactivated-when-not-in-use"></a>Fjärråtkomst av leverantörer och affärs partner (t. ex. för fjärrunderhåll) är inaktiverat/inaktiverat när det inte används.
 
-**ID**: 1117.01 j1organizational. 23-01. j **ägande**: ej tillämpligt
+**ID**: 1117.01 j1organizational. 23-01. j **ägarskap**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -160,7 +160,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="network-equipment-is-checked-for-unanticipated-dial-up-capabilities"></a>Nätverks utrustning kontrol leras för ej förväntade uppringnings funktioner.
 
-**ID**: 1119.01 j2organizational. 3-01. j **ägande**: inte tillämpligt
+**ID**: 1119.01 j2organizational. 3-01. j **ägarskap**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -176,7 +176,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="if-encryption-is-not-used-for-dial-up-connections-the-cio-or-hisher-designated-representative-provides-specific-written-authorization"></a>Om kryptering inte används för fjärr anslutningar, ger CIO eller dennes utsedda representant ett särskilt skriftligt tillstånd.
 
-**ID**: 1173.01 j1organizational. 6-01. j **ägande**: ej tillämpligt
+**ID**: 1173.01 j1organizational. 6-01. j **ägarskap**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -184,7 +184,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="the-organization-protects-wireless-access-to-systems-containing-sensitive-information-by-authenticating-both-users-and-devices"></a>Organisationen skyddar trådlös åtkomst till system som innehåller känslig information genom att autentisera både användare och enheter.
 
-**ID**: 1174.01 j1organizational. 7-01. j **ägande**: inte tillämpligt
+**ID**: 1174.01 j1organizational. 7-01. j **ägarskap**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -200,7 +200,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="the-organization-requires-a-callback-capability-with-re-authentication-to-verify-dial-up-connections-from-authorized-locations"></a>Organisationen kräver en callback-funktion med reautentisering för att verifiera fjärr anslutningar från behöriga platser.
 
-**ID**: 1176.01 j2organizational. 5-01. j **ägande**: ej tillämpligt
+**ID**: 1176.01 j2organizational. 5-01. j **ägarskap**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -322,7 +322,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="networks-are-segregated-from-production-level-networks-when-migrating-physical-servers-applications-or-data-to-virtualized-servers"></a>Nätverk är åtskiljda från nätverk på produktions nivå när du migrerar fysiska servrar, program eller data till virtualiserade servrar.
 
-**ID**: 0894.01 m2organizational. 7-01. m **ägande**: ej tillämpligt
+**ID**: 0894.01 m2organizational. 7 – 01. m **ägande**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -459,7 +459,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="non-organizational-users-all-information-system-users-other-than-organizational-users-such-as-patients-customers-contractors-or-foreign-nationals-or-processes-acting-on-behalf-of-non-organizational-users-determined-to-need-access-to-information-residing-on-the-organizations-information-systems-are-uniquely-identified-and-authenticated"></a>Icke-organisatoriska användare (alla andra informations system än organisations användare, t. ex. patienter, kunder, entreprenörer eller utländska medborgare) eller processer som agerar på uppdrag av icke-organisatoriska användare som har bestämt sig för att behöva åtkomst till information som finns på organisationens informations system, identifieras och autentiseras unikt.
 
-**ID**: 11110.01 q1organizational. 6-01. q **ägarskap**: ej tillämpligt
+**ID**: 11110.01 q1organizational. 6 – 01. f **ägarskap**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -483,7 +483,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="the-organization-requires-that-electronic-signatures-unique-to-one-individual-cannot-be-reused-by-or-reassigned-to-anyone-else"></a>Organisationen kräver att elektroniska signaturer, unika för en individ, inte kan återanvändas av eller omtilldelas till, någon annan.
 
-**ID**: 11208.01 q1organizational. 8-01. q **ägarskap**: ej tillämpligt
+**ID**: 11208.01 q1organizational. 8 – 01. f **ägarskap**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -491,7 +491,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="electronic-signatures-and-handwritten-signatures-executed-to-electronic-records-shall-be-linked-to-their-respective-electronic-records"></a>Elektroniska signaturer och handskrivna signaturer som körs på elektroniska poster måste kopplas till sina respektive elektroniska poster.
 
-**ID**: 11210.01 q2organizational. 10-01. q **ägarskap**: ej tillämpligt
+**ID**: 11210.01 q2organizational. 10 – 01. f **ägarskap**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -499,7 +499,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="signed-electronic-records-shall-contain-information-associated-with-the-signing-in-human-readable-format"></a>Signerade elektroniska poster skall innehålla information som är kopplad till det läsbara formatet för signering.
 
-**ID**: 11211.01 q2organizational. 11-01. q **ägarskap**: ej tillämpligt
+**ID**: 11211.01 q2organizational. 11-01. f **ägarskap**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -541,7 +541,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="remote-access-connections-between-the-organization-and-external-parties-are-encrypted"></a>Fjärr anslutnings anslutningar mellan organisationen och externa parter är krypterade.
 
-**ID**: 1402.05 i1organizational. 45-05. jag är **ägarskap**: ej tillämpligt
+**ID**: 1402.05 i1organizational. 45-05. jag **äger**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -591,7 +591,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="a-secure-audit-record-is-created-for-all-activities-on-the-system-create-read-update-delete-involving-covered-information"></a>En säker gransknings post skapas för alla aktiviteter i systemet (skapa, läsa, uppdatera, ta bort) som involverar information.
 
-**ID**: 1202.09 aa1system. 1-09. AA- **ägande**: ej tillämpligt
+**ID**: 1202.09 aa1system. 1-09. AA- **ägarskap**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -658,7 +658,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="all-disclosures-of-covered-information-within-or-outside-of-the-organization-are-logged-including-type-of-disclosure-datetime-of-the-event-recipient-and-sender"></a>Alla upplysningar om täckt information i eller utanför organisationen loggas, inklusive typ av avslöjande, datum/tid för händelsen, mottagaren och avsändaren.
 
-**ID**: 1210.09 aa3system. 3-09. AA- **ägande**: ej tillämpligt
+**ID**: 1210.09 aa3system. 3-09. AA- **ägande**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -667,7 +667,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="the-organization-verifies-every-ninety-90-days-for-each-extract-of-covered-information-recorded-that-the-data-is-erased-or-its-use-is-still-required"></a>Organisationen verifierar var 90 (90) dagar för varje utdrag av täckt information som har registrerats att data raderas eller att användningen fortfarande krävs.
 
-**ID**: 1211.09 aa3system. 4-09. AA- **ägande**: ej tillämpligt
+**ID**: 1211.09 aa3system. 4-09. AA- **ägande**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -891,7 +891,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="when-the-backup-service-is-delivered-by-the-third-party-the-service-level-agreement-includes-the-detailed-protections-to-control-confidentiality-integrity-and-availability-of-the-backup-information"></a>När säkerhets kopierings tjänsten levereras av tredje part innehåller Service avtalet det detaljerade skyddet för att kontrol lera konfidentialitet, integritet och tillgänglighet för säkerhets kopierings informationen.
 
-**ID**: 1620.09 l1organizational. 8-09. l **ägande**: ej tillämpligt
+**ID**: 1620.09 l1organizational. 8-09. l- **ägarskap**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -915,7 +915,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="covered-information-is-backed-up-in-an-encrypted-format-to-ensure-confidentiality"></a>Skyddad information säkerhets kopie ras i krypterat format för att säkerställa konfidentialitet.
 
-**ID**: 1623.09 l2organizational. 4-09. l **ägande**: ej tillämpligt
+**ID**: 1623.09 l2organizational. 4-09. l- **ägarskap**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -939,7 +939,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="the-organization-ensures-a-current-retrievable-copy-of-covered-information-is-available-before-movement-of-servers"></a>Organisationen ser till att en aktuell, hämtnings bar kopia av skyddad information är tillgänglig innan du flyttar servrar.
 
-**ID**: 1626.09 l3organizational. 5-09. l **ägande**: ej tillämpligt
+**ID**: 1626.09 l3organizational. 5-09. l- **ägarskap**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -955,7 +955,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="workforce-members-roles-and-responsibilities-in-the-data-backup-process-are-identified-and-communicated-to-the-workforce-in-particular-bring-your-own-device-byod-users-are-required-to-perform-backups-of-organizational-andor-client-data-on-their-devices"></a>Arbets styrke medlemmarnas roller och ansvars områden i data säkerhets kopierings processen identifieras och meddelas till personalen. Du måste särskilt ta med din egen enhet (BYOD) för att kunna säkerhetskopiera organisations-och/eller klient data på sina enheter.
 
-**ID**: 1699.09 l1organizational. 10-09. l **ägande**: ej tillämpligt
+**ID**: 1699.09 l1organizational. 10-09. l **ägande**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1009,7 +1009,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="the-organization-builds-a-firewall-configuration-that-restricts-connections-between-un-trusted-networks-and-any-system-components-in-the-covered-information-environment-and-any-changes-to-the-firewall-configuration-are-updated-in-the-network-diagram"></a>Organisationen skapar en brand Väggs konfiguration som begränsar anslutningar mellan icke-betrodda nätverk och eventuella system komponenter i den miljö som omfattas av information. och eventuella ändringar i brand Väggs konfigurationen uppdateras i nätverks diagrammet.
 
-**ID**: 0863.09 m2organizational. 910-09. m **ägande**: inte tillämpligt
+**ID**: 0863.09 m2organizational. 910-09. m **ägarskap**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1017,7 +1017,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="usage-restrictions-and-implementation-guidance-are-formally-defined-for-voip-including-the-authorization-and-monitoring-of-the-service"></a>Användnings begränsningar och implementerings vägledning definieras för VoIP, inklusive auktorisering och övervakning av tjänsten.
 
-**ID**: 0864.09 m2organizational. 12-09. m **ägande**: inte tillämpligt
+**ID**: 0864.09 m2organizational. 12-09. m **ägande**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1025,7 +1025,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="the-organization-i-authorizes-connections-from-the-information-system-to-other-information-systems-outside-of-the-organization-through-the-use-of-interconnection-security-agreements-or-other-formal-agreement-ii-documents-each-connection-the-interface-characteristics-security-requirements-and-the-nature-of-the-information-communicated-iii-employs-a-deny-all-permit-by-exception-policy-for-allowing-connections-from-the-information-system-to-other-information-systems-outside-of-the-organization-and-iv-applies-a-default-deny-rule-that-drops-all-traffic-via-host-based-firewalls-or-port-filtering-tools-on-its-endpoints-workstations-servers-etc-except-those-services-and-ports-that-are-explicitly-allowed"></a>Organisationen (i) godkänner anslutningar från informations systemet till andra informations system utanför organisationen genom användning av säkerhets avtal för samtrafik eller andra formella avtal. (II) dokumenten varje anslutning, gränssnittets egenskaper, säkerhets krav och beskaffenheten hos den information som förmedlas, (III) använder en neka alla, Tillåt enligt undantags princip för att tillåta anslutningar från informations systemet till andra informations system utanför organisationen. och (IV) tillämpar en standard-Deny-regel som släpper all trafik via värdbaserade brand väggar eller port filtrerings verktyg på slut punkterna (arbets stationer, servrar osv.), förutom de tjänster och portar som uttryckligen tillåts.
 
-**ID**: 0865.09 m2organizational. 13-09. m **ägande**: inte tillämpligt
+**ID**: 0865.09 m2organizational. 13-09. m **ägande**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1041,7 +1041,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="wireless-access-points-are-placed-in-secure-areas-and-shut-down-when-not-in-use-eg-nights-weekends"></a>Trådlösa åtkomst punkter placeras på säkra områden och stängs av när de inte används (t. ex. nätter, helger).
 
-**ID**: 0867.09 m3organizational. 17-09. m **ägande**: inte tillämpligt
+**ID**: 0867.09 m3organizational. 17-09. m **ägande**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1049,7 +1049,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="the-organization-builds-a-firewall-configuration-to-restrict-inbound-and-outbound-traffic-to-that-which-is-necessary-for-the-covered-data-environment"></a>Organisationen skapar en brand Väggs konfiguration för att begränsa inkommande och utgående trafik till den som krävs för data miljön som omfattas.
 
-**ID**: 0868.09 m3organizational. 18-09. m **ägande**: ej tillämpligt
+**ID**: 0868.09 m3organizational. 18-09. m **ägande**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1108,7 +1108,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="the-organization-reviews-and-updates-the-interconnection-security-agreements-on-an-ongoing-basis-verifying-enforcement-of-security-requirements"></a>Organisationen granskar och uppdaterar säkerhets avtalen mellan anslutningarna fort löp ande för att kontrol lera verk ställandet av säkerhets krav.
 
-**ID**: 0885.09 n2organizational. 3-09. n **ägande**: ej tillämpligt
+**ID**: 0885.09 n2organizational. 3-09. n **ägarskap**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1132,7 +1132,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="the-contract-with-the-externaloutsourced-service-provider-includes-the-specification-that-the-service-provider-is-responsible-for-the-protection-of-covered-information-shared"></a>I kontraktet med den externa/utkontrakterade tjänste leverantören ingår den specifikation som tjänste leverantören ansvarar för att skydda skyddad information som delas.
 
-**ID**: 0888.09 n2organizational. 6-09. n **ägande**: ej tillämpligt
+**ID**: 0888.09 n2organizational. 6-09. n **ägarskap**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1142,7 +1142,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="the-organization-based-on-the-data-classification-level-registers-media-including-laptops-prior-to-use-places-reasonable-restrictions-on-how-such-media-be-used-and-provides-an-appropriate-level-of-physical-and-logical-protection-including-encryption-for-media-containing-covered-information-until-properly-destroyed-or-sanitized"></a>Organisationen, baserat på data klassificerings nivån, registrerar media (inklusive bärbara datorer) före användningen, placerar rimliga begränsningar för hur sådana medier används och ger en lämplig nivå av fysiskt och logiskt skydd (inklusive kryptering) för medier som innehåller information som omfattas tills den är korrekt förstörd eller sanerad.
 
-**ID**: 0301.09 o1organizational. 123-09. o **ägarskap**: ej tillämpligt
+**ID**: 0301.09 o1organizational. 123-09. o **ägarskap**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1150,7 +1150,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="the-organization-protects-and-controls-media-containing-sensitive-information-during-transport-outside-of-controlled-areas"></a>Organisationen skyddar och kontrollerar media som innehåller känslig information under transport utanför kontrollerade områden.
 
-**ID**: 0302.09 o2organizational. 1-09. o- **ägarskap**: ej tillämpligt
+**ID**: 0302.09 o2organizational. 1-09. o- **ägarskap**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1158,7 +1158,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="digital-and-non-digital-media-requiring-restricted-use-and-the-specific-safeguards-used-to-restrict-their-use-are-identified"></a>Digitala och icke-digitala media som kräver begränsad användning och de särskilda skydd som används för att begränsa användningen identifieras.
 
-**ID**: 0303.09 o2organizational. 2-09. o- **ägarskap**: ej tillämpligt
+**ID**: 0303.09 o2organizational. 2-09. o **ägarskap**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1166,7 +1166,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="the-organization-restricts-the-use-of-writable-removable-media-and-personally-owned-removable-media-in-organizational-systems"></a>Organisationen begränsar användningen av skrivbara flyttbara medier och personligt ägda flyttbara media i organisations system.
 
-**ID**: 0304.09 o3organizational. 1-09. o- **ägarskap**: ej tillämpligt
+**ID**: 0304.09 o3organizational. 1-09. o- **ägarskap**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1234,7 +1234,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="the-organization-limits-the-use-of-organization-controlled-portable-storage-media-by-authorized-individuals-on-external-information-systems"></a>Organisationen begränsar användningen av organisations kontrollerade flyttbara lagrings medier av behöriga personer på externa informations system.
 
-**ID**: 0915.09 s2organizational. 2-09. s **ägarskap**: ej tillämpligt
+**ID**: 0915.09 s2organizational. 2-09. s **ägarskap**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1242,7 +1242,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="the-information-system-prohibits-remote-activation-of-collaborative-computing-devices-and-provides-an-explicit-indication-of-use-to-users-physically-present-at-the-devices"></a>Informations systemet förhindrar fjärraktivering av Collaborative Computing-enheter och ger en uttrycklig indikation på användningen av användare som fysiskt finns på enheterna.
 
-**ID**: 0916.09 s2organizational. 4-09. s **ägarskap**: ej tillämpligt
+**ID**: 0916.09 s2organizational. 4-09. s **ägarskap**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1268,7 +1268,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="data-involved-in-electronic-commerce-and-online-transactions-is-checked-to-determine-if-it-contains-covered-information"></a>Data som ingår i de elektroniska Commerce-och online-transaktionerna kontrol leras för att avgöra om den innehåller information som omfattas.
 
-**ID**: 0943.09 y1organizational. 1-09. y- **ägande**: ej tillämpligt
+**ID**: 0943.09 y1organizational. 1-09. y- **ägarskap**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1276,7 +1276,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="protocols-used-to-communicate-between-all-involved-parties-are-secured-using-cryptographic-techniques-eg-ssl"></a>Protokoll som används för att kommunicera mellan alla berörda parter skyddas med hjälp av kryptografiska metoder (t. ex. SSL).
 
-**ID**: 0945.09 y1organizational. 3-09. y- **ägande**: ej tillämpligt
+**ID**: 0945.09 y1organizational. 3-09. y- **ägande**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1284,7 +1284,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="the-organization-requires-the-use-of-encryption-between-and-the-use-of-electronic-signatures-by-each-of-the-parties-involved-in-the-transaction"></a>Organisationen kräver att kryptering används mellan, och användningen av elektroniska signaturer av, var och en av de parter som ingår i transaktionen.
 
-**ID**: 0946.09 y2organizational. 14-09. y- **ägande**: ej tillämpligt
+**ID**: 0946.09 y2organizational. 14-09. y- **ägarskap**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1292,7 +1292,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="the-organization-ensures-the-storage-of-the-transaction-details-are-located-outside-of-any-publicly-accessible-environments-eg-on-a-storage-platform-existing-on-the-organizations-intranet-and-not-retained-and-exposed-on-a-storage-medium-directly-accessible-from-the-internet"></a>Organisationen ser till att lagringen av transaktions informationen finns utanför alla offentligt tillgängliga miljöer (t. ex. på en lagrings plattform som finns på organisationens intranät) och inte behålls och exponeras på ett lagrings medium som är direkt tillgängligt från Internet.
 
-**ID**: 0947.09 y2organizational. 2-09. y- **ägande**: ej tillämpligt
+**ID**: 0947.09 y2organizational. 2-09. y- **ägarskap**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1300,7 +1300,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="where-a-trusted-authority-is-used-eg-for-the-purposes-of-issuing-and-maintaining-digital-signatures-andor-digital-certificates-security-is-integrated-and-embedded-throughout-the-entire-end-to-end-certificatesignature-management-process"></a>Om en betrodd utfärdare används (t. ex. för att kunna utfärda och underhålla digitala signaturer och/eller digitala certifikat), integreras och bäddas säkerheten i hela hela processen för hantering av certifikat/signaturer från slut punkt till slut punkt.
 
-**ID**: 0948.09 y2organizational. 3-09. y- **ägande**: ej tillämpligt
+**ID**: 0948.09 y2organizational. 3-09. y- **ägande**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1308,7 +1308,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="the-protocols-used-for-communications-are-enhanced-to-address-any-new-vulnerability-and-the-updated-versions-of-the-protocols-are-adopted-as-soon-as-possible"></a>De protokoll som används för kommunikation förbättras för att åtgärda eventuella nya säkerhets risker och de uppdaterade versionerna av protokollen antas så snart som möjligt.
 
-**ID**: 0949.09 y2organizational. 5-09. y- **ägande**: ej tillämpligt
+**ID**: 0949.09 y2organizational. 5-09. y- **ägarskap**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1392,7 +1392,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 ### <a name="where-development-is-outsourced-change-control-procedures-to-address-security-are-included-in-the-contracts-and-specifically-require-the-developer-to-track-security-flaws-and-flaw-resolution-within-the-system-component-or-service-and-report-findings-to-organization-defined-personnel-or-roles"></a>När utvecklingen är i drift, ingår ändrings kontroll procedurer för att hantera säkerheten i avtalen och kräver särskilt att utvecklaren spårar säkerhets brister och fel lösning inom system-, komponent-, tjänst-och rapport resultat till organisations-definierad personal eller roller.
 
-**ID**: 0640.10 k2organizational. 1012-10. k **ägarskap**: ej tillämpligt
+**ID**: 0640.10 k2organizational. 1012-10. k **ägarskap**: kund
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -1442,7 +1442,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 |[Säkerhets risker i behållar säkerhetskonfigurationer bör åtgärdas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8cbc669-f12d-49eb-93e7-9273119e9933) |Granska sårbarheter i säkerhets konfiguration på datorer där Docker är installerat och visas som rekommendationer i Azure Security Center. |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ContainerBenchmark_Audit.json) |
 |[Säkerhets problem i säkerhets konfiguration på dina datorer bör åtgärdas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe1e5fd5d-3e4c-4ce1-8661-7d1873ae6b15) |Servrar som inte uppfyller den konfigurerade bas linjen kommer att övervakas med Azure Security Center som rekommendationer |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_OSVulnerabilities_Audit.json) |
 |[Säkerhets problem i säkerhets konfiguration på den virtuella datorns skalnings uppsättningar bör åtgärdas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3c735d8a-a4ba-4a3a-b7cf-db7754cf57f4) |Granska OS-sårbarheterna på dina virtuella datorers skalnings uppsättningar för att skydda dem mot angrepp. |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VmssOSVulnerabilities_Audit.json) |
-|[Säkerhets risker i SQL-databaser bör åtgärdas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffeedbf84-6b99-488c-acc2-71c829aa5ffc) |Övervaka genomsöknings resultat och rekommendationer för sårbarhets bedömning för att åtgärda databas sårbarheter. |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbVulnerabilities_Audit.json) |
+|[Säkerhets risker i SQL-databaser bör åtgärdas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffeedbf84-6b99-488c-acc2-71c829aa5ffc) |Övervaka genomsöknings resultat och rekommendationer för sårbarhets bedömning för att åtgärda databas sårbarheter. |AuditIfNotExists, inaktiverat |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbVulnerabilities_Audit.json) |
 |[Säkerhets risker bör åtgärdas av en lösning för sårbarhets bedömning](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F760a85ff-6162-42b3-8d70-698e268f648c) |Övervakar sårbarheter som upptäckts av en lösning för sårbarhets bedömning och virtuella datorer utan en sårbarhets bedömnings lösning i Azure Security Center som rekommendationer. |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VMVulnerabilities_Audit.json) |
 |[Sårbarhets bedömning ska vara aktiverat på SQL-hanterad instans](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1b7aa243-30e4-4c9e-bca8-d0d3022b634a) |Granska varje SQL-hanterad instans som inte har återkommande genomsökningar aktiverade för sårbarhets bedömning. En sårbarhets bedömning kan upptäcka, spåra och hjälpa dig att åtgärda potentiella databas sårbarheter. |AuditIfNotExists, inaktiverat |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/VulnerabilityAssessmentOnManagedInstance_Audit.json) |
 |[Sårbarhets bedömning bör vara aktiverat på dina SQL-servrar](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fef2a8f2a-b3d9-49cd-a8a8-9a3aaaf647d9) |Granska Azure SQL-servrar som inte har återkommande genomsökningar aktiverade för sårbarhets bedömning. En sårbarhets bedömning kan upptäcka, spåra och hjälpa dig att åtgärda potentiella databas sårbarheter. |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/VulnerabilityAssessmentOnServer_Audit.json) |
@@ -1502,7 +1502,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Säkerhets risker i SQL-databaser bör åtgärdas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffeedbf84-6b99-488c-acc2-71c829aa5ffc) |Övervaka genomsöknings resultat och rekommendationer för sårbarhets bedömning för att åtgärda databas sårbarheter. |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbVulnerabilities_Audit.json) |
+|[Säkerhets risker i SQL-databaser bör åtgärdas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffeedbf84-6b99-488c-acc2-71c829aa5ffc) |Övervaka genomsöknings resultat och rekommendationer för sårbarhets bedömning för att åtgärda databas sårbarheter. |AuditIfNotExists, inaktiverat |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbVulnerabilities_Audit.json) |
 
 ### <a name="vulnerability-scanning-tools-include-the-capability-to-readily-update-the-information-system-vulnerabilities-scanned"></a>I sårbarhets sökverktyg ingår funktioner för att enkelt uppdatera de genomsökningar som genomsöks med information Systems sårbarhet.
 
@@ -1544,7 +1544,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet HIPAA H
 
 |Namn<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Key Vault objekt ska vara återställnings bara](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |Den här principen granskar om det inte går att återskapa nyckel valvs objekt. Med funktionen för mjuk borttagning kan du effektivt hålla resurserna under en viss kvarhållningsperiod (90 dagar) även efter en BORTTAGNINGs åtgärd, samtidigt som du ger det utseende som objektet tas bort. När ' Rensa skydd ' är på kan ett valv eller ett objekt i Borttaget läge inte rensas förrän kvarhållningsperioden på 90 dagar har passerat. Dessa valv och objekt kan fortfarande återställas, vilket gör det möjligt för kunderna att följa bevarande principen. |Granskning, inaktive rad |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
+|[Rensnings skyddet måste ha Aktiver ATS för nyckel valvet](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |Skadlig borttagning av ett nyckel valv kan leda till permanent data förlust. En skadlig Insider i din organisation kan eventuellt få åtkomst till att ta bort och rensa nyckel valv. Rensnings skyddet skyddar dig från insider attacker genom att tvinga fram en obligatorisk kvarhållningsperiod för mjuka borttagna nyckel valv. Ingen i din organisation eller Microsoft kommer att kunna rensa nyckel valven under den mjuka borttagnings perioden för kvarhållning. |Granska, neka, inaktive rad |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
 
 ### <a name="business-impact-analysis-are-used-to-evaluate-the-consequences-of-disasters-security-failures-loss-of-service-and-service-availability"></a>Analys av affärs påverkan används för att utvärdera konsekvenserna av katastrofer, säkerhets problem, förlust av tjänster och tjänst tillgänglighet.
 

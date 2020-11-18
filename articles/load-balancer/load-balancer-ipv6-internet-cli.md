@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: 97fdf55032e92585d723b54e21079098cdc19636
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 75226f92995794221635ced7ee0e285ac824b6e2
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735919"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696871"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Skapa en offentlig belastningsutjämnare med IPv6 med Azure CLI
 
@@ -49,16 +49,16 @@ Följande steg visar hur du skapar en offentlig belastningsutjämnare med hjälp
 Om du vill distribuera en belastningsutjämnare skapar och konfigurerar du följande objekt:
 
 * **IP-konfiguration på klient** sidan: innehåller offentliga IP-adresser för inkommande nätverks trafik.
-* **Backend-adresspool** : innehåller nätverks gränssnitt (NIC) för de virtuella datorerna för att ta emot nätverks trafik från belastningsutjämnaren.
-* **Belastnings Utjämnings regler** : innehåller regler som mappar en offentlig port på belastningsutjämnaren till en port i backend-adresspoolen.
-* **Ingående NAT-regler** : innehåller Network Address TRANSLATION (NAT) regler som mappar en offentlig port på belastningsutjämnaren till en port för en speciell virtuell dator i backend-adresspoolen.
-* **Avsökningar** : innehåller hälso avsökningar som används för att kontrol lera tillgängligheten för virtuella dator instanser i backend-adresspoolen.
+* **Backend-adresspool**: innehåller nätverks gränssnitt (NIC) för de virtuella datorerna för att ta emot nätverks trafik från belastningsutjämnaren.
+* **Belastnings Utjämnings regler**: innehåller regler som mappar en offentlig port på belastningsutjämnaren till en port i backend-adresspoolen.
+* **Ingående NAT-regler**: innehåller Network Address TRANSLATION (NAT) regler som mappar en offentlig port på belastningsutjämnaren till en port för en speciell virtuell dator i backend-adresspoolen.
+* **Avsökningar**: innehåller hälso avsökningar som används för att kontrol lera tillgängligheten för virtuella dator instanser i backend-adresspoolen.
 
 ## <a name="set-up-azure-cli"></a>Konfigurera Azure CLI
 
 I det här exemplet kör du Azure CLI-verktygen i ett PowerShell-kommando fönster. För att förbättra läsbarheten och återanvändandet kan du använda PowerShell: s skript funktioner, inte Azure PowerShell-cmdlet: ar.
 
-1. [Installera och konfigurera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) genom att följa stegen i den länkade artikeln och logga in på ditt Azure-konto.
+1. [Installera och konfigurera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) genom att följa stegen i den länkade artikeln och logga in på ditt Azure-konto.
 
 2. Konfigurera PowerShell-variabler för användning med Azure CLI-kommandon:
 
@@ -122,7 +122,7 @@ I det här exemplet kör du Azure CLI-verktygen i ett PowerShell-kommando fönst
     > [!IMPORTANT]
     > Belastningsutjämnaren använder domän etiketten för den offentliga IP-adressen som fullständigt kvalificerat domän namn (FQDN). Detta är en förändring från klassisk distribution som använder moln tjänst namnet som belastningsutjämnare-FQDN.
     >
-    > I det här exemplet är det fullständiga domän namnet *contoso09152016.southcentralus.cloudapp.Azure.com* .
+    > I det här exemplet är det fullständiga domän namnet *contoso09152016.southcentralus.cloudapp.Azure.com*.
 
 ## <a name="create-front-end-and-back-end-pools"></a>Skapa klient dels-och Server dels grupper
 
@@ -284,7 +284,7 @@ Om du vill skapa virtuella datorer måste du ha ett lagrings konto. De virtuella
     ```
 
     > [!WARNING]
-    > I det här exemplet används användar namn och lösen ord för de virtuella datorerna i klartext. Ta lämplig försiktighet när du använder dessa autentiseringsuppgifter i klartext. En säkrare metod för att hantera autentiseringsuppgifter i PowerShell finns i [`Get-Credential`](https://technet.microsoft.com/library/hh849815.aspx) cmdleten.
+    > I det här exemplet används användar namn och lösen ord för de virtuella datorerna i klartext. Ta lämplig försiktighet när du använder dessa autentiseringsuppgifter i klartext. En säkrare metod för att hantera autentiseringsuppgifter i PowerShell finns i [`Get-Credential`](/powershell/module/microsoft.powershell.security/get-credential) cmdleten.
 
 2. Skapa tillgänglighets uppsättningen:
 
@@ -299,5 +299,3 @@ Om du vill skapa virtuella datorer måste du ha ett lagrings konto. De virtuella
 
     az vm create --resource-group $rgname --name $vm2Name --image $imageurn --admin-username $vmUserName --admin-password $mySecurePassword --nics $nic2Id --location $location --availability-set $availabilitySetName --size "Standard_A1" 
     ```
-
-

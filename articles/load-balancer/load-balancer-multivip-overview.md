@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 2e27b168087966701fb53cc8df19d264861257d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c2072d13cab9839a276c0437747d7075918e78a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448098"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696888"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Flera klient delar för Azure Load Balancer
 
 Med Azure Load Balancer kan du belastningsutjämna tjänster på flera portar, flera IP-adresser eller både och. Du kan använda offentliga och interna definitioner för belastnings utjämning för att belastningsutjämna flöden över en uppsättning virtuella datorer.
 
-Den här artikeln beskriver grunderna för den här funktionen, viktiga begrepp och begränsningar. Om du bara planerar att exponera tjänster på en IP-adress, kan du hitta förenklade instruktioner för [offentliga](load-balancer-get-started-internet-portal.md) eller [interna](load-balancer-get-started-ilb-arm-portal.md) konfigurationer för belastnings utjämning. Att lägga till flera klient delar ökar stegvis till en enda klient dels konfiguration. Med hjälp av begreppen i den här artikeln kan du när som helst expandera en förenklad konfiguration.
+Den här artikeln beskriver grunderna för den här funktionen, viktiga begrepp och begränsningar. Om du bara planerar att exponera tjänster på en IP-adress, kan du hitta förenklade instruktioner för [offentliga](./quickstart-load-balancer-standard-public-portal.md) eller [interna](./quickstart-load-balancer-standard-internal-portal.md) konfigurationer för belastnings utjämning. Att lägga till flera klient delar ökar stegvis till en enda klient dels konfiguration. Med hjälp av begreppen i den här artikeln kan du när som helst expandera en förenklad konfiguration.
 
 När du definierar en Azure Load Balancer är en klient del och en konfiguration av en backend-pool ansluten med regler. Hälso avsökningen som regeln hänvisar till används för att avgöra hur nya flöden skickas till en nod i backend-poolen. Klient delen (aka VIP) definieras av en 3-tupel som består av en IP-adress (offentlig eller intern), ett transport protokoll (UDP eller TCP) och ett port nummer från belastnings Utjämnings regeln. Backend-poolen är en samling virtuella dator-IP-konfigurationer (en del av NIC-resursen) som refererar till Load Balancer backend-poolen.
 

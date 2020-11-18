@@ -1,22 +1,22 @@
 ---
 title: Konfigurera python-utvecklings miljö
 titleSuffix: Azure Machine Learning
-description: 'Lär dig hur du konfigurerar en python-utvecklings miljö för Azure Machine Learning. Använd Conda-miljöer, skapa konfigurationsfiler och konfigurera din egen molnbaserade Notebook-Server, Jupyter-anteckningsböcker, Azure Databricks, IDE: er, kod redigerare och Data Science Virtual Machine.'
+description: Konfigurera Azure Machine Learning python-utvecklings miljöer i Jupyter notebooks, Visual Studio Code, Azure Databricks och data science Virtual Machines.
 services: machine-learning
 author: rastala
 ms.author: roastala
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.date: 09/30/2020
+ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: 451ad33a9d041635c3f51e323539b423378d02d1
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 03d10f71b585090157eff164cc98246f50608fe1
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422917"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695375"
 ---
 # <a name="set-up-a-python-development-environment-for-azure-machine-learning"></a>Konfigurera en python-utvecklings miljö för Azure Machine Learning
 
@@ -59,11 +59,11 @@ Använd-metoden för att använda den här filen från din kod [`Workspace.from_
 
 Skapa en konfigurations fil för arbets ytor på något av följande sätt:
 
-* Azure-portalen
+* Azure Portal
 
-    **Hämta filen** : i [Azure Portal](https://ms.portal.azure.com)väljer du  **Hämta config.jspå** från **översikts** avsnittet på din arbets yta.
+    **Hämta filen**: i [Azure Portal](https://ms.portal.azure.com)väljer du  **Hämta config.jspå** från **översikts** avsnittet på din arbets yta.
 
-    ![Azure-portalen](./media/how-to-configure-environment/configure.png)
+    ![Azure Portal](./media/how-to-configure-environment/configure.png)
 
 * Azure Machine Learning python SDK
 
@@ -127,7 +127,7 @@ Se [Azure Machine Learning Notebooks-lagringsplatsen](https://github.com/Azure/M
 > [!NOTE]
 > Du hittar en community-driven databas med exempel på https://github.com/Azure/azureml-examples .
 
-### <a name="visual-studio-code"></a><a id="vscode"></a>Visuell Studio-kod
+### <a name="visual-studio-code"></a><a id="vscode"></a>Visual Studio-kod
 
 Så här använder du Visual Studio Code för utveckling:
 

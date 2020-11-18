@@ -7,19 +7,19 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 05/7/2020
 ms.author: errobin
-ms.openlocfilehash: b75c85b85674def84d9fcee62549a6458abf9174
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 516576f4e005cc9fe2303945ecb1a13489908a5d
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684856"
+ms.locfileid: "94696361"
 ---
 # <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a> Felsöka fel vid utgående anslutningar
 
 Den här artikeln är avsedd att ge lösningar på vanliga problem kan uppstå med utgående anslutningar från en Azure Load Balancer. De flesta problem med utgående anslutningar som kunderna upplever beror på att det finns SNAT-portens slut för ande och tids gränsen för anslutningen leder till att paket släpps. Den här artikeln innehåller steg för att åtgärda de här problemen.
 
 ## <a name="managing-snat-pat-port-exhaustion"></a><a name="snatexhaust"></a> Hantera SNAT (PAT) port överbelastning
-[Tillfälliga portar](load-balancer-outbound-connections.md) som används för [Pat](load-balancer-outbound-connections.md) är en exhaustible-resurs, som beskrivs i [en fristående virtuell dator utan en offentlig IP-adress](load-balancer-outbound-connections.md) och [belastningsutjämnad virtuell dator utan en offentlig IP-adress](load-balancer-outbound-connections.md). Du kan övervaka användningen av tillfälliga portar och jämföra med din nuvarande allokering för att fastställa risken för eller för att bekräfta SNAT-uttömden med hjälp av [den här](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) guiden.
+[Tillfälliga portar](load-balancer-outbound-connections.md) som används för [Pat](load-balancer-outbound-connections.md) är en exhaustible-resurs, som beskrivs i [en fristående virtuell dator utan en offentlig IP-adress](load-balancer-outbound-connections.md) och [belastningsutjämnad virtuell dator utan en offentlig IP-adress](load-balancer-outbound-connections.md). Du kan övervaka användningen av tillfälliga portar och jämföra med din nuvarande allokering för att fastställa risken för eller för att bekräfta SNAT-uttömden med hjälp av [den här](./load-balancer-standard-diagnostics.md#how-do-i-check-my-snat-port-usage-and-allocation) guiden.
 
 Om du vet att du initierar flera utgående TCP-eller UDP-anslutningar till samma mål-IP-adress och port, och du ser att det inte går att använda utgående anslutningar eller om du får hjälp av stöd för att du tar slut på SNAT-portar (förallokerade [tillfälliga portar](load-balancer-outbound-connections.md#preallocatedports) som används av [Pat](load-balancer-outbound-connections.md)) har du flera allmänna alternativ för att minska. Granska de här alternativen och Bestäm vad som är tillgängligt och bäst för ditt scenario. Det är möjligt att en eller flera kan hjälpa dig att hantera det här scenariot.
 

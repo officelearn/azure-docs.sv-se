@@ -7,15 +7,15 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 66c56ae6730043022a0d8bf3c94f7c6ce14d9852
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd0617536147787f436e5817f3f2367a19ba6aa4
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84809343"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696191"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Uppgradera offentliga Azure-Load Balancer
-[Azure standard Load Balancer](load-balancer-overview.md) erbjuder en omfattande uppsättning funktioner och hög tillgänglighet genom zon redundans. Mer information om Load Balancer SKU finns i [jämförelse tabell](https://docs.microsoft.com/azure/load-balancer/skus#skus).
+[Azure standard Load Balancer](load-balancer-overview.md) erbjuder en omfattande uppsättning funktioner och hög tillgänglighet genom zon redundans. Mer information om Load Balancer SKU finns i [jämförelse tabell](./skus.md#skus).
 
 Det finns tre steg i en uppgradering:
 
@@ -34,7 +34,7 @@ Det finns ett Azure PowerShell-skript tillgängligt som gör följande:
 
 ### <a name="caveatslimitations"></a>Caveats\Limitations
 
-* Skript stöder endast offentlig Load Balancer uppgradering. Information om interna grundläggande Load Balancer-uppgraderingar finns på [den här sidan](https://docs.microsoft.com/azure/load-balancer/upgrade-basicinternal-standard) .
+* Skript stöder endast offentlig Load Balancer uppgradering. Information om interna grundläggande Load Balancer-uppgraderingar finns på [den här sidan](./upgrade-basicinternal-standard.md) .
 * Standard Load Balancer har en ny offentlig adress. Det är omöjligt att flytta IP-adresserna som är kopplade till den befintliga Basic-Load Balancer sömlöst till Standard Load Balancer eftersom de har olika SKU: er.
 * Om standard belastnings utjämning skapas i en annan region kan du inte associera de virtuella datorerna i den gamla regionen med den nya Standard Load Balancer. Du kan undvika den här begränsningen genom att skapa en ny virtuell dator i den nya regionen.
 * Om din Load Balancer inte har någon IP-konfiguration för klient delen eller en backend-pool, kommer du förmodligen att träffa ett fel som kör skriptet. Kontrol lera att de inte är tomma.
@@ -99,7 +99,7 @@ Här följer några exempel på hur du lägger till virtuella datorer till backe
  
     1. Välj **alla resurser** på den vänstra menyn och välj sedan det **nyligen skapade standard Load Balancer** från resurs listan.
    
-    1. Under **Inställningar**väljer du **backend-pooler**.
+    1. Under **Inställningar** väljer du **backend-pooler**.
    
     1. Välj den backend-pool som matchar backend-poolen för Basic-Load Balancer, Välj följande värde: 
       - **Virtuell dator**: list rutan och välj de virtuella datorerna från den matchande backend-poolen för Basic-Load Balancer.
@@ -108,11 +108,11 @@ Här följer några exempel på hur du lägger till virtuella datorer till backe
     >För virtuella datorer som har offentliga IP-adresser måste du skapa standard-IP-adresser först där samma IP-adress inte garanteras. Ta bort associationen från de virtuella IP-adresserna och koppla dem till de nyligen skapade standard-IP-adresserna. Sedan kommer du att kunna följa instruktionerna för att lägga till virtuella datorer i backend-poolen med Standard Load Balancer. 
 
 * **Skapa nya virtuella datorer som ska läggas till i backend-pooler för den nyligen skapade offentliga Standard Load Balancer**.
-    * Du hittar mer information om hur du skapar en virtuell dator och associerar den med Standard Load Balancer [här](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal#create-virtual-machines).
+    * Du hittar mer information om hur du skapar en virtuell dator och associerar den med Standard Load Balancer [här](./quickstart-load-balancer-standard-public-portal.md#create-virtual-machines).
 
 ### <a name="create-an-outbound-rule-for-outbound-connection"></a>Skapa en utgående regel för utgående anslutning
 
-Följ [instruktionerna](https://docs.microsoft.com/azure/load-balancer/configure-load-balancer-outbound-portal#create-outbound-rule-configuration) för att skapa en utgående regel så att du kan
+Följ [instruktionerna](./quickstart-load-balancer-standard-public-powershell.md#create-outbound-rule-configuration) för att skapa en utgående regel så att du kan
 * Definiera utgående NAT från grunden.
 * Skala och finjustera beteendet för befintlig utgående NAT.
 

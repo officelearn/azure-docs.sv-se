@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 82763842e6145b3883c46bcb9ddb45b7836c3cf2
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 605692d15a08246dd574b0724a550b4543a237a3
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241828"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695528"
 ---
 # <a name="load-balancer-health-probes"></a>Hälsoavsökningar för Load Balancer
 
@@ -121,7 +121,7 @@ Följande visar hur du kan uttrycka den här typen av avsöknings konfiguration 
 ### <a name="http--https-probe"></a><a name="httpprobe"></a><a name="httpsprobe"></a>Http/https-avsökning
 
 >[!NOTE]
->HTTPS-avsökning är endast tillgänglig för [standard Load Balancer](load-balancer-standard-overview.md).
+>HTTPS-avsökning är endast tillgänglig för [standard Load Balancer](./load-balancer-overview.md).
 
 HTTP-och HTTPS-avsökningar bygger på TCP-avsökningen och utfärdar en HTTP-hämtning med den angivna sökvägen. Båda dessa avsökningar stöder relativa sökvägar för HTTP GET. HTTPS-avsökningar är samma som HTTP-avsökningar med tillägg av en Transport Layer Security (TLS, tidigare kallat SSL). Hälso avsökningen markeras när instansen svarar med HTTP-status 200 inom tids gränsen.  Hälso avsökningen försöker kontrol lera den konfigurerade hälso avsöknings porten var 15: e sekund som standard. Det minsta avsöknings intervallet är 5 sekunder. Den totala varaktigheten för alla intervall får inte överstiga 120 sekunder.
 
@@ -169,7 +169,7 @@ Moln tjänst roller (arbets roller och webb roller) använder en gästa Gent fö
 
 En gästa Gent avsökning är en kontroll av gäst agenten i den virtuella datorn. Den lyssnar sedan och svarar bara med ett HTTP 200-svar på OK när instansen har statusen klar. (Andra tillstånd är upptagna, återvinning eller stoppas.)
 
-Mer information finns i [Konfigurera tjänst definitions filen (csdef) för hälso avsökningar](https://msdn.microsoft.com/library/azure/ee758710.aspx) eller [Kom igång genom att skapa en offentlig belastningsutjämnare för Cloud Services](https://docs.microsoft.com/azure/load-balancer/load-balancer-get-started-internet-classic-cloud#check-load-balancer-health-status-for-cloud-services).
+Mer information finns i [Konfigurera tjänst definitions filen (csdef) för hälso avsökningar](/previous-versions/azure/reference/ee758710(v=azure.100)) eller [Kom igång genom att skapa en offentlig belastningsutjämnare för Cloud Services](/previous-versions/azure/load-balancer/load-balancer-get-started-internet-classic-cloud#check-load-balancer-health-status-for-cloud-services).
 
 Om gäst agenten inte svarar med HTTP 200 OK markerar belastnings Utjämnings instansen som svarar inte. Sedan slutar det att skicka flöden till den instansen. Belastnings utjämningen fortsätter att kontrol lera instansen. 
 
@@ -215,7 +215,7 @@ Om alla avsökningar för alla instanser i en backend-pool Miss söker, avslutas
 
 Load Balancer använder en distribuerad avsöknings tjänst för den interna hälso modellen. Tjänsten för avsökning finns på varje värd där virtuella datorer och kan köras på begäran för att generera hälso avsökningar enligt kundens konfiguration. Hälso avsöknings trafiken är direkt mellan avsöknings tjänsten som genererar hälso avsökningen och den virtuella kunden. Alla Load Balancer hälso avsökningar kommer från IP-168.63.129.16 som källa.  Du kan använda IP-adressutrymmet i ett VNet som inte är RFC1918 utrymme.  Med en globalt reserverad Microsoft-adress som ägs av Microsoft minskar risken för en IP-adresskonflikt med det IP-adressutrymme som du använder i VNet.  Den här IP-adressen är samma i alla regioner och ändras inte och är inte en säkerhets risk eftersom endast den interna Azure Platform-komponenten kan käll paket från den här IP-adressen. 
 
-AzureLoadBalancer service tag identifierar den här käll-IP-adressen i dina [nätverks säkerhets grupper](../virtual-network/security-overview.md) och tillåter hälso avsöknings trafik som standard.
+AzureLoadBalancer service tag identifierar den här käll-IP-adressen i dina [nätverks säkerhets grupper](../virtual-network/network-security-groups-overview.md) och tillåter hälso avsöknings trafik som standard.
 
 Utöver Load Balancer hälso avsökningar [använder följande åtgärder följande IP-adress](../virtual-network/what-is-ip-address-168-63-129-16.md):
 
@@ -233,15 +233,15 @@ Ibland kan det vara användbart för ditt program att generera ett hälso avsök
 
 För UDP-belastnings utjämning bör du skapa en anpassad hälso avsöknings signal från backend-slutpunkten och använda antingen en TCP-, HTTP-eller HTTPS-hälsoavsökning som riktar sig mot motsvarande lyssnare för att avspegla hälso tillståndet för ditt UDP-program.
 
-När du använder [belastnings Utjämnings regler för ha-portar](load-balancer-ha-ports-overview.md) med [standard Load Balancer](load-balancer-standard-overview.md), är alla portar belastningsutjämnade och ett enda svar på hälso avsökning måste visa status för hela instansen.
+När du använder [belastnings Utjämnings regler för ha-portar](load-balancer-ha-ports-overview.md) med [standard Load Balancer](./load-balancer-overview.md), är alla portar belastningsutjämnade och ett enda svar på hälso avsökning måste visa status för hela instansen.
 
 Översätt eller Använd inte en hälso avsökning via instansen som tar emot hälso avsökningen till en annan instans i ditt VNet eftersom den här konfigurationen kan leda till sammanhängande fel i ditt scenario.  Tänk dig följande scenario: en uppsättning tredjeparts-enheter distribueras i backend-poolen för en Load Balancer-resurs för att ge skalning och redundans för apparater och hälso avsökningen har kon figurer ATS för att avsöka en port som används av tredjeparts-proxyservrar eller översätts till andra virtuella datorer bakom enheten.  Om du avsöker samma port som du använder för att översätta eller proxyanslutningar till de andra virtuella datorerna bakom installationen, markerar alla avsöknings svar från en enskild virtuell dator bakom installations programmet själva enheten. Den här konfigurationen kan leda till ett överlappande avbrott i hela program scenariot, till följd av en enda server dels slut punkt bakom enheten.  Utlösaren kan vara ett tillfälligt avsöknings fel som gör att Load Balancer kan markera det ursprungliga målet (installations instansen) och i sin tur inaktivera hela program scenariot. Avsök själva hälso tillståndet för själva enheten i stället. Valet av avsökning för att fastställa hälso signalen är ett viktigt övervägande för NVA-scenarier (Network Virtual Restore) och du måste kontakta din program varu leverantör för att få en lämplig hälso signal för sådana scenarier.
 
 Om du inte tillåter avsökningens [käll-IP-adress](#probesource) i brand Väggs principerna, Miss söker hälso avsökningen eftersom den inte kan komma åt din instans.  I sin tur kommer Load Balancer att markera din instans på grund av hälso avsöknings fel.  Den här Felaktiga konfigurationen kan orsaka att ditt belastningsutjämnade program scenario inte fungerar.
 
-För att Load Balancer hälso avsökningen för att märka upp din instans **måste** du tillåta den här IP-adressen i alla Azure- [nätverks säkerhets grupper](../virtual-network/security-overview.md) och lokala brand Väggs principer.  Som standard innehåller varje nätverks säkerhets grupp [service tag-](../virtual-network/security-overview.md#service-tags) AzureLoadBalancer för att tillåta hälso avsöknings trafik.
+För att Load Balancer hälso avsökningen för att märka upp din instans **måste** du tillåta den här IP-adressen i alla Azure- [nätverks säkerhets grupper](../virtual-network/network-security-groups-overview.md) och lokala brand Väggs principer.  Som standard innehåller varje nätverks säkerhets grupp [service tag-](../virtual-network/network-security-groups-overview.md#service-tags) AzureLoadBalancer för att tillåta hälso avsöknings trafik.
 
-Om du vill testa ett hälso avsöknings fel eller ange en enskild instans kan du använda en [nätverks säkerhets grupp](../virtual-network/security-overview.md) för att uttryckligen blockera hälso avsökningen (mål port eller [käll-IP](#probesource)) och simulera fel i en avsökning.
+Om du vill testa ett hälso avsöknings fel eller ange en enskild instans kan du använda en [nätverks säkerhets grupp](../virtual-network/network-security-groups-overview.md) för att uttryckligen blockera hälso avsökningen (mål port eller [käll-IP](#probesource)) och simulera fel i en avsökning.
 
 Konfigurera inte ditt VNet med det Microsoft-adressintervall som innehåller 168.63.129.16.  Sådana konfigurationer hamnar i en kollision med hälso avsökningens IP-adress och kan orsaka att ditt scenario inte fungerar.
 
@@ -251,7 +251,7 @@ Aktivera inte [TCP-tidsstämplar](https://tools.ietf.org/html/rfc1323).  Om du a
 
 ## <a name="monitoring"></a>Övervakning
 
-Både offentliga och interna [standard Load Balancer](load-balancer-standard-overview.md) exponeras per slut punkt och status för status avsökningar för backend-slutpunkt som flerdimensionella mått via Azure Monitor. Dessa mått kan utnyttjas av andra Azure-tjänster eller partner program. 
+Både offentliga och interna [standard Load Balancer](./load-balancer-overview.md) exponeras per slut punkt och status för status avsökningar för backend-slutpunkt som flerdimensionella mått via Azure Monitor. Dessa mått kan utnyttjas av andra Azure-tjänster eller partner program. 
 
 Grundläggande offentliga Load Balancer visar status för hälso avsökningar som sammanfattas per backend-pool via Azure Monitor loggar.  Azure Monitors loggar är inte tillgängliga för interna Basic Load Balancer.  Du kan använda [Azure Monitor loggar](load-balancer-monitor-log.md) för att kontrol lera hälso statusen för avsökningen av offentliga belastningsutjämnare och avsöknings antal. Loggning kan användas med Power BI eller Azure Operational Insights för att tillhandahålla statistik om belastnings utjämningens hälso status.
 
@@ -262,7 +262,7 @@ Grundläggande offentliga Load Balancer visar status för hälso avsökningar so
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [standard Load Balancer](load-balancer-standard-overview.md)
+- Läs mer om [standard Load Balancer](./load-balancer-overview.md)
 - [Kom igång med att skapa en offentlig belastningsutjämnare i Resource Manager med hjälp av PowerShell](quickstart-load-balancer-standard-public-powershell.md)
-- [REST API för hälso avsökningar](https://docs.microsoft.com/rest/api/load-balancer/loadbalancerprobes/)
+- [REST API för hälso avsökningar](/rest/api/load-balancer/loadbalancerprobes/)
 - Begär nya hälso avsöknings möjligheter med [Load Balancer UserVoice](https://aka.ms/lbuservoice)
